@@ -24340,7 +24340,7 @@ openssl/libcommon-lib-der_rsa_key.ll 62260450
 openssl/libcommon-lib-digestcommon.ll 43809434
 openssl/libcommon-lib-provider_err.ll 41983189
 openssl/libcommon-lib-tls_pad.ll 125328704
-openssl/libcrypto-lib-a_bitstr.ll 101314207
+openssl/libcrypto-lib-a_bitstr.ll 101415632
 openssl/libcrypto-lib-a_d2i_fp.ll 110054789
 openssl/libcrypto-lib-a_digest.ll 47832689
 openssl/libcrypto-lib-a_gentm.ll 50613014
