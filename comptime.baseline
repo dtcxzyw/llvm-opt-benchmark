@@ -8024,7 +8024,7 @@ graphviz/imageviewer.cpp.ll 215926674
 graphviz/imap.c.ll 84149208
 graphviz/index.c.ll 88177408
 graphviz/info.c.ll 70345798
-graphviz/ingraphs.c.ll 82211056
+graphviz/ingraphs.c.ll 82293356
 graphviz/inpoly.c.ll 43025044
 graphviz/input.c.ll 416900310
 graphviz/intersection.c.ll 149655054
@@ -8091,7 +8091,7 @@ graphviz/rank.c.ll 791466653
 graphviz/rec.c.ll 136792492
 graphviz/rectangle.c.ll 61739513
 graphviz/red_black_tree.c.ll 164809556
-graphviz/refstr.c.ll 69362052
+graphviz/refstr.c.ll 69431596
 graphviz/route.c.ll 428755281
 graphviz/routespl.c.ll 656280999
 graphviz/sameport.c.ll 226607822
@@ -17004,7 +17004,7 @@ nlohmann_json/unit-allocator.cpp.ll 3148815356
 nlohmann_json/unit-alt-string.cpp.ll 5748884806
 nlohmann_json/unit-assert_macro.cpp.ll 1328362963
 nlohmann_json/unit-binary_formats.cpp.ll 6471966379
-nlohmann_json/unit-bjdata.cpp.ll 29973346534
+nlohmann_json/unit-bjdata.cpp.ll 30003321473
 nlohmann_json/unit-bson.cpp.ll 18917004177
 nlohmann_json/unit-byte_container_with_subtype.cpp.ll 358673924
 nlohmann_json/unit-capacity.cpp.ll 3631865358
@@ -21987,7 +21987,7 @@ openjdk/parserTests.ll 1436285994
 openjdk/partialArrayTaskStepper.ll 42287831
 openjdk/pathToGcRootsOperation.ll 164617851
 openjdk/path_util.ll 100483380
-openjdk/pcDesc.ll 42024395
+openjdk/pcDesc.ll 42066479
 openjdk/pcsc.ll 167974611
 openjdk/pcsc_md.ll 65893090
 openjdk/peephole_x86_64.ll 197603973
