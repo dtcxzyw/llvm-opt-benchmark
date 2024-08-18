@@ -11747,7 +11747,7 @@ libquic/bio_asn1.c.ll 124153608
 libquic/bio_mem.c.ll 102389382
 libquic/bio_ndef.c.ll 65506498
 libquic/bio_test.cc.ll 275793755
-libquic/blinding.c.ll 80416229
+libquic/blinding.c.ll 80496679
 libquic/blowfish.c.ll 484527134
 libquic/bn.c.ll 134418220
 libquic/bn_asn1.c.ll 49527268
@@ -14205,7 +14205,7 @@ linux/phy_device.ll 621441729
 linux/physaddr.ll 56496182
 linux/physical_location.ll 57190126
 linux/pi.ll 220535437
-linux/pid.ll 218746188
+linux/pid.ll 218964947
 linux/pid_list.ll 136186321
 linux/pid_namespace.ll 137226440
 linux/pids.ll 100326555
@@ -31780,7 +31780,7 @@ spike/f64_mul.ll 53310489
 spike/f64_rem.ll 83407622
 spike/f64_roundToInt.ll 57730309
 spike/f64_sqrt.ll 61210620
-spike/f64_to_f16.ll 44425711
+spike/f64_to_f16.ll 44470339
 spike/f64_to_f32.ll 44337796
 spike/f64_to_i32.ll 46308747
 spike/f64_to_i32_r_minMag.ll 49090992
