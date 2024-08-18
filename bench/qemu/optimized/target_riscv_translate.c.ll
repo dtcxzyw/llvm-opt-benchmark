@@ -116719,8 +116719,7 @@ lor.lhs.false.i:                                  ; preds = %if.end.i24
   %idxprom12.i27 = sext i32 %4 to i64
   %arrayidx13.i28 = getelementptr [32 x ptr], ptr @cpu_gpr, i64 0, i64 %idxprom12.i27
   %7 = load ptr, ptr %arrayidx13.i28, align 8
-  %shl.i.i = shl nuw nsw i32 16, %6
-  %cmp1.i = icmp ult i32 %shl.i.i, 64
+  %cmp1.i = icmp ult i32 %6, 2
   br i1 %cmp1.i, label %if.then.i38, label %dest_gpr.exit
 
 if.then.i38:                                      ; preds = %get_gpr.exit34.thread, %lor.lhs.false.i

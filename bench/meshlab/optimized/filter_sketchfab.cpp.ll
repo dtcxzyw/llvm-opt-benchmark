@@ -2774,12 +2774,12 @@ define i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, ptr nocapture nound
   br i1 %.not, label %81, label %89
 
 81:                                               ; preds = %69
-  %82 = lshr i32 %72, 4
-  %83 = shl nuw i32 256, %82
-  %84 = icmp ugt i32 %83, 32768
-  %85 = zext nneg i32 %83 to i64
+  %82 = icmp ugt i32 %72, 127
+  %83 = lshr i32 %72, 4
+  %84 = shl nuw i32 256, %83
+  %85 = zext nneg i32 %84 to i64
   %86 = icmp ult i64 %21, %85
-  %87 = select i1 %84, i1 true, i1 %86
+  %87 = select i1 %82, i1 true, i1 %86
   %88 = or i1 %87, %80
   br i1 %88, label %.sink.split2096, label %90
 

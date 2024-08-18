@@ -1956,7 +1956,7 @@ os_target_alignment_of_int.exit.thread224:        ; preds = %461
   unreachable
 
 os_is_apple.exit.i:                               ; preds = %461, %461, %461, %461
-  %467 = icmp ugt i32 %463, 32
+  %467 = icmp ugt i64 %indvars.iv, 3
   %or.cond3.i = and i1 %467, %or.cond.i
   %468 = call i32 @llvm.umin.i32(i32 %463, i32 64)
   %..i90 = select i1 %or.cond3.i, i32 32, i32 %468
@@ -1967,7 +1967,7 @@ os_is_apple.exit.i:                               ; preds = %461, %461, %461, %4
   br label %os_target_alignment_of_int.exit
 
 471:                                              ; preds = %461, %461
-  %472 = icmp ult i32 %463, 32
+  %472 = icmp ult i64 %indvars.iv, 3
   br i1 %472, label %473, label %os_is_apple.exit57.thread.i
 
 473:                                              ; preds = %471
@@ -1983,7 +1983,7 @@ os_is_apple.exit57.thread.i:                      ; preds = %473, %473, %473, %4
   br label %os_target_alignment_of_int.exit
 
 474:                                              ; preds = %461
-  %475 = icmp ult i32 %463, 32
+  %475 = icmp ult i64 %indvars.iv, 3
   br i1 %475, label %os_target_alignment_of_int.exit.thread, label %476
 
 476:                                              ; preds = %474
