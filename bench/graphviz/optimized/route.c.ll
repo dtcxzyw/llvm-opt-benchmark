@@ -480,17 +480,15 @@ dist_n.exit41.i:                                  ; preds = %.lr.ph.i36.i, %dist
   store double %234, ptr %9, align 16
   %235 = call i32 @solve3(ptr noundef nonnull %9, ptr noundef nonnull %11) #9
   %236 = icmp eq i32 %232, 4
-  %237 = icmp eq i32 %235, 4
+  %237 = icmp ne i32 %235, 4
   br i1 %236, label %238, label %248
 
 238:                                              ; preds = %233
-  br i1 %237, label %splineintersectsline.exit.thread.i.i, label %.preheader.i.i.i
-
-.preheader.i.i.i:                                 ; preds = %238
   %239 = icmp sgt i32 %235, 0
-  br i1 %239, label %.lr.ph179.preheader.i.i.i, label %splineintersectsline.exit.thread78.i.i
+  %or.cond86.i.i = and i1 %237, %239
+  br i1 %or.cond86.i.i, label %.lr.ph179.preheader.i.i.i, label %.loopexit.sink.split.i.i
 
-.lr.ph179.preheader.i.i.i:                        ; preds = %.preheader.i.i.i
+.lr.ph179.preheader.i.i.i:                        ; preds = %238
   %wide.trip.count211.i.i.i = zext nneg i32 %235 to i64
   br label %.lr.ph179.i.i.i
 
@@ -519,12 +517,12 @@ addroot.exit.i.i.i:                               ; preds = %244, %.lr.ph179.i.i
 
 248:                                              ; preds = %233
   %249 = icmp sgt i32 %232, 0
-  br i1 %237, label %.preheader146.i.i.i, label %.preheader149.i.i.i
+  br i1 %237, label %.preheader149.i.i.i, label %.preheader146.i.i.i
 
 .preheader149.i.i.i:                              ; preds = %248
   %250 = icmp sgt i32 %235, 0
   %or.cond217.i.i.i = select i1 %249, i1 %250, i1 false
-  br i1 %or.cond217.i.i.i, label %.preheader148.us.preheader.i.i.i, label %splineintersectsline.exit.thread78.i.i
+  br i1 %or.cond217.i.i.i, label %.preheader148.us.preheader.i.i.i, label %.loopexit.sink.split.i.i
 
 .preheader148.us.preheader.i.i.i:                 ; preds = %.preheader149.i.i.i
   %wide.trip.count201.i.i.i = zext nneg i32 %232 to i64
@@ -570,7 +568,7 @@ addroot.exit125.us.us.i.i.i:                      ; preds = %258, %.lr.ph163.spl
   br i1 %exitcond197.not.i.i.i, label %._crit_edge.us.i.i.i, label %.lr.ph163.split.us.us.i.i.i
 
 .preheader146.i.i.i:                              ; preds = %248
-  br i1 %249, label %.lr.ph175.preheader.i.i.i, label %splineintersectsline.exit.thread78.i.i
+  br i1 %249, label %.lr.ph175.preheader.i.i.i, label %.loopexit.sink.split.i.i
 
 .lr.ph175.preheader.i.i.i:                        ; preds = %.preheader146.i.i.i
   %wide.trip.count206.i.i.i = zext nneg i32 %232 to i64
@@ -600,14 +598,12 @@ addroot.exit123.i.i.i:                            ; preds = %266, %.lr.ph175.i.i
   br i1 %exitcond207.not.i.i.i, label %splineintersectsline.exit.i.i, label %.lr.ph175.i.i.i
 
 270:                                              ; preds = %229
-  %271 = icmp eq i32 %232, 4
-  br i1 %271, label %splineintersectsline.exit.thread.i.i, label %.preheader151.i.i.i
-
-.preheader151.i.i.i:                              ; preds = %270
+  %271 = icmp ne i32 %232, 4
   %272 = icmp sgt i32 %232, 0
-  br i1 %272, label %.lr.ph159.i.i.i, label %splineintersectsline.exit.thread78.i.i
+  %or.cond87.i.i = and i1 %271, %272
+  br i1 %or.cond87.i.i, label %.lr.ph159.i.i.i, label %.loopexit.sink.split.i.i
 
-.lr.ph159.i.i.i:                                  ; preds = %.preheader151.i.i.i
+.lr.ph159.i.i.i:                                  ; preds = %270
   %wide.trip.count191.i.i.i = zext nneg i32 %232 to i64
   br label %273
 
@@ -668,14 +664,12 @@ addroot.exit127.i.i.i:                            ; preds = %278
   %307 = fadd double %306, %293
   store double %307, ptr %9, align 16
   %308 = call i32 @solve3(ptr noundef nonnull %9, ptr noundef nonnull %10) #9
-  %309 = icmp eq i32 %308, 4
-  br i1 %309, label %splineintersectsline.exit.thread.i.i, label %.preheader153.i.i.i
-
-.preheader153.i.i.i:                              ; preds = %290
+  %309 = icmp ne i32 %308, 4
   %310 = icmp sgt i32 %308, 0
-  br i1 %310, label %.lr.ph.preheader.i.i.i, label %splineintersectsline.exit.thread78.i.i
+  %or.cond88.i.i = and i1 %309, %310
+  br i1 %or.cond88.i.i, label %.lr.ph.preheader.i.i.i, label %.loopexit.sink.split.i.i
 
-.lr.ph.preheader.i.i.i:                           ; preds = %.preheader153.i.i.i
+.lr.ph.preheader.i.i.i:                           ; preds = %290
   %wide.trip.count.i.i.i = zext nneg i32 %308 to i64
   br label %.lr.ph.i.i.i
 
@@ -713,20 +707,8 @@ addroot.exit129.i.i.i:                            ; preds = %315
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %splineintersectsline.exit.i.i, label %.lr.ph.i.i.i
 
-splineintersectsline.exit.thread.i.i:             ; preds = %290, %270, %238
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  br label %.loopexit.i.i
-
-splineintersectsline.exit.thread78.i.i:           ; preds = %.preheader153.i.i.i, %.preheader151.i.i.i, %.preheader146.i.i.i, %.preheader149.i.i.i, %.preheader.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  br label %.loopexit.i.i
-
-splineintersectsline.exit.i.i:                    ; preds = %326, %289, %._crit_edge.us.i.i.i, %addroot.exit123.i.i.i, %addroot.exit.i.i.i
-  %.0111.i.i.i = phi i32 [ %.10.i.i.i, %addroot.exit.i.i.i ], [ %.11.i.i.i, %addroot.exit123.i.i.i ], [ %.us-phi.us.i.i.i, %._crit_edge.us.i.i.i ], [ %.7.i.i.i, %289 ], [ %.9.i.i.i, %326 ]
+splineintersectsline.exit.i.i:                    ; preds = %326, %289, %addroot.exit123.i.i.i, %._crit_edge.us.i.i.i, %addroot.exit.i.i.i
+  %.0111.i.i.i = phi i32 [ %.10.i.i.i, %addroot.exit.i.i.i ], [ %.us-phi.us.i.i.i, %._crit_edge.us.i.i.i ], [ %.11.i.i.i, %addroot.exit123.i.i.i ], [ %.7.i.i.i, %289 ], [ %.9.i.i.i, %326 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
@@ -787,7 +769,13 @@ splineintersectsline.exit.i.i:                    ; preds = %326, %289, %._crit_
   %exitcond.not.i47.i = icmp eq i64 %indvars.iv.next.i46.i, %wide.trip.count.i43.i
   br i1 %exitcond.not.i47.i, label %.loopexit.i.i, label %.lr.ph.i44.i
 
-.loopexit.i.i:                                    ; preds = %363, %splineintersectsline.exit.i.i, %splineintersectsline.exit.thread78.i.i, %splineintersectsline.exit.thread.i.i
+.loopexit.sink.split.i.i:                         ; preds = %290, %270, %.preheader146.i.i.i, %.preheader149.i.i.i, %238
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
+  br label %.loopexit.i.i
+
+.loopexit.i.i:                                    ; preds = %363, %.loopexit.sink.split.i.i, %splineintersectsline.exit.i.i
   %indvars.iv.next74.i.i = add nuw nsw i64 %indvars.iv73.i.i, 1
   %exitcond77.not.i.i = icmp eq i64 %indvars.iv.next74.i.i, %wide.trip.count76.i.i
   br i1 %exitcond77.not.i.i, label %.loopexit.i, label %223

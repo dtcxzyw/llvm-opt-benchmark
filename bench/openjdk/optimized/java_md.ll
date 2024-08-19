@@ -145,11 +145,11 @@ SetExecname.exit:                                 ; preds = %21, %.thread.i
 GetJVMPath.exit:                                  ; preds = %44, %46
   call void (ptr, ...) @JLI_TraceLauncher(ptr noundef nonnull @.str.30, ptr noundef nonnull %4) #12
   %48 = call i32 @stat64(ptr noundef nonnull %4, ptr noundef nonnull %15) #12
-  %.not71 = icmp eq i32 %48, 0
-  %.str.31..str.32.i = select i1 %.not71, ptr @.str.31, ptr @.str.32
+  %.not74 = icmp eq i32 %48, 0
+  %.str.31..str.32.i = select i1 %.not74, ptr @.str.31, ptr @.str.32
   call void (ptr, ...) @JLI_TraceLauncher(ptr noundef nonnull %.str.31..str.32.i) #12
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %15)
-  br i1 %.not71, label %50, label %49
+  br i1 %.not74, label %50, label %49
 
 49:                                               ; preds = %GetJVMPath.exit
   call void (ptr, ...) @JLI_ReportErrorMessage(ptr noundef nonnull @.str.6, ptr noundef %37, ptr noundef nonnull %4) #12
@@ -192,17 +192,19 @@ GetJVMPath.exit:                                  ; preds = %44, %46
   %.fr36.i.i = freeze ptr %68
   %69 = icmp ne ptr %.fr36.i.i, null
   %70 = or i1 %67, %69
-  br i1 %70, label %71, label %ContainsLibJVM.exit.thread.i
+  br i1 %70, label %71, label %RequiresSetenv.exit.thread71
 
-ContainsLibJVM.exit.thread.i:                     ; preds = %65
+RequiresSetenv.exit.thread71:                     ; preds = %65
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  br label %RequiresSetenv.exit.thread
+  call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %14)
+  call void (ptr, ...) @JLI_TraceLauncher(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9) #12
+  br label %141
 
 71:                                               ; preds = %65
   %72 = call ptr @JLI_StringDup(ptr noundef nonnull %51) #12
   %73 = call ptr @strtok_r(ptr noundef %72, ptr noundef nonnull @.str.13, ptr noundef nonnull %13) #12
   %.not28.i.i = icmp eq ptr %73, null
-  br i1 %.not28.i.i, label %ContainsLibJVM.exit.thread16.i, label %.lr.ph.i.i
+  br i1 %.not28.i.i, label %.critedge75, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %71
   br i1 %67, label %.lr.ph.split.us.i.i, label %.lr.ph.split.i.i
@@ -224,7 +226,7 @@ ContainsLibJVM.exit.thread.i:                     ; preds = %65
   %.not26.us.us.i.i = icmp eq i32 %77, 0
   call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %12)
-  br i1 %.not26.us.us.i.i, label %.loopexit, label %78
+  br i1 %.not26.us.us.i.i, label %RequiresSetenv.exit, label %78
 
 78:                                               ; preds = %75, %.lr.ph.split.us.split.us.i.i
   %79 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.01929.us.us.i.i, ptr noundef nonnull dereferenceable(1) @__const.ContainsLibJVM.serverPattern) #14
@@ -239,12 +241,12 @@ ContainsLibJVM.exit.thread.i:                     ; preds = %65
   %.not27.us.us.i.i = icmp eq i32 %82, 0
   call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %10)
-  br i1 %.not27.us.us.i.i, label %.loopexit, label %83
+  br i1 %.not27.us.us.i.i, label %RequiresSetenv.exit, label %83
 
 83:                                               ; preds = %80, %78
   %84 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.13, ptr noundef nonnull %13) #12
   %.not.us.us.i.i = icmp eq ptr %84, null
-  br i1 %.not.us.us.i.i, label %ContainsLibJVM.exit.thread16.i, label %.lr.ph.split.us.split.us.i.i, !llvm.loop !6
+  br i1 %.not.us.us.i.i, label %.critedge75, label %.lr.ph.split.us.split.us.i.i, !llvm.loop !6
 
 .lr.ph.split.us.split.i.i:                        ; preds = %.lr.ph.split.us.i.i, %89
   %.01929.us.i.i = phi ptr [ %90, %89 ], [ %73, %.lr.ph.split.us.i.i ]
@@ -260,12 +262,12 @@ ContainsLibJVM.exit.thread.i:                     ; preds = %65
   %.not26.us.i.i = icmp eq i32 %88, 0
   call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %12)
-  br i1 %.not26.us.i.i, label %.loopexit, label %89
+  br i1 %.not26.us.i.i, label %RequiresSetenv.exit, label %89
 
 89:                                               ; preds = %86, %.lr.ph.split.us.split.i.i
   %90 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.13, ptr noundef nonnull %13) #12
   %.not.us.i.i = icmp eq ptr %90, null
-  br i1 %.not.us.i.i, label %ContainsLibJVM.exit.thread16.i, label %.lr.ph.split.us.split.i.i, !llvm.loop !6
+  br i1 %.not.us.i.i, label %.critedge75, label %.lr.ph.split.us.split.i.i, !llvm.loop !6
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i
   br i1 %69, label %.lr.ph.split.split.us.i.i, label %.lr.ph.split.split.i.i
@@ -284,29 +286,24 @@ ContainsLibJVM.exit.thread.i:                     ; preds = %65
   %.not27.us34.i.i = icmp eq i32 %94, 0
   call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %10)
-  br i1 %.not27.us34.i.i, label %.loopexit, label %95
+  br i1 %.not27.us34.i.i, label %RequiresSetenv.exit, label %95
 
 95:                                               ; preds = %92, %.lr.ph.split.split.us.i.i
   %96 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.13, ptr noundef nonnull %13) #12
   %.not.us35.i.i = icmp eq ptr %96, null
-  br i1 %.not.us35.i.i, label %ContainsLibJVM.exit.thread16.i, label %.lr.ph.split.split.us.i.i, !llvm.loop !6
+  br i1 %.not.us35.i.i, label %.critedge75, label %.lr.ph.split.split.us.i.i, !llvm.loop !6
 
 .lr.ph.split.split.i.i:                           ; preds = %.lr.ph.split.i.i, %.lr.ph.split.split.i.i
   %97 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.13, ptr noundef nonnull %13) #12
   %.not.i.i = icmp eq ptr %97, null
-  br i1 %.not.i.i, label %ContainsLibJVM.exit.thread16.i, label %.lr.ph.split.split.i.i, !llvm.loop !6
+  br i1 %.not.i.i, label %.critedge75, label %.lr.ph.split.split.i.i, !llvm.loop !6
 
-ContainsLibJVM.exit.thread16.i:                   ; preds = %.lr.ph.split.split.i.i, %95, %89, %83, %71
-  call void @JLI_MemFree(ptr noundef %72) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  br label %RequiresSetenv.exit.thread
-
-RequiresSetenv.exit.thread:                       ; preds = %50, %56, %53, %59, %ContainsLibJVM.exit.thread16.i, %ContainsLibJVM.exit.thread.i
+RequiresSetenv.exit.thread:                       ; preds = %50, %56, %53, %59
   call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %14)
   call void (ptr, ...) @JLI_TraceLauncher(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9) #12
   br label %141
 
-.loopexit:                                        ; preds = %92, %86, %80, %75
+RequiresSetenv.exit:                              ; preds = %92, %86, %75, %80
   call void @JLI_MemFree(ptr noundef %72) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %14)
@@ -316,13 +313,13 @@ RequiresSetenv.exit.thread:                       ; preds = %50, %56, %53, %59, 
   %.not65 = icmp eq ptr %98, null
   br i1 %.not65, label %103, label %100
 
-100:                                              ; preds = %.loopexit
+100:                                              ; preds = %RequiresSetenv.exit
   %101 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %98) #14
   %102 = add i64 %101, 52
   br label %103
 
-103:                                              ; preds = %.loopexit, %100
-  %104 = phi i64 [ %102, %100 ], [ 52, %.loopexit ]
+103:                                              ; preds = %RequiresSetenv.exit, %100
+  %104 = phi i64 [ %102, %100 ], [ 52, %RequiresSetenv.exit ]
   %105 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #14
   %106 = shl i64 %105, 1
   %107 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %99) #14
@@ -401,7 +398,14 @@ RequiresSetenv.exit.thread:                       ; preds = %50, %56, %53, %59, 
   call void @exit(i32 noundef 1) #13
   unreachable
 
-141:                                              ; preds = %RequiresSetenv.exit.thread, %123
+.critedge75:                                      ; preds = %.lr.ph.split.split.i.i, %95, %89, %83, %71
+  call void @JLI_MemFree(ptr noundef %72) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %14)
+  call void (ptr, ...) @JLI_TraceLauncher(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9) #12
+  br label %141
+
+141:                                              ; preds = %.critedge75, %RequiresSetenv.exit.thread71, %RequiresSetenv.exit.thread, %123
   ret void
 }
 

@@ -2530,20 +2530,20 @@ sw.default:                                       ; preds = %if.end568
 
 return:                                           ; preds = %sw.bb, %sw.bb569, %am_resolve.exit, %am_skip.exit, %am_abort.exit, %sw.bb574, %show_patch.exit, %if.then536
   %retval.0 = phi i32 [ 0, %if.then536 ], [ %retval.0.i139, %show_patch.exit ], [ 0, %sw.bb574 ], [ 0, %am_abort.exit ], [ 0, %am_skip.exit ], [ 0, %am_resolve.exit ], [ 0, %sw.bb569 ], [ 0, %sw.bb ]
-  %.sink = load ptr, ptr %state, align 8
-  call void @free(ptr noundef %.sink) #21
-  %author_name.i153 = getelementptr inbounds i8, ptr %state, i64 16
-  %164 = load ptr, ptr %author_name.i153, align 8
+  %164 = load ptr, ptr %state, align 8
   call void @free(ptr noundef %164) #21
-  %author_email.i154 = getelementptr inbounds i8, ptr %state, i64 24
-  %165 = load ptr, ptr %author_email.i154, align 8
+  %author_name.i153 = getelementptr inbounds i8, ptr %state, i64 16
+  %165 = load ptr, ptr %author_name.i153, align 8
   call void @free(ptr noundef %165) #21
-  %author_date.i155 = getelementptr inbounds i8, ptr %state, i64 32
-  %166 = load ptr, ptr %author_date.i155, align 8
+  %author_email.i154 = getelementptr inbounds i8, ptr %state, i64 24
+  %166 = load ptr, ptr %author_email.i154, align 8
   call void @free(ptr noundef %166) #21
-  %msg.i156 = getelementptr inbounds i8, ptr %state, i64 40
-  %167 = load ptr, ptr %msg.i156, align 8
+  %author_date.i155 = getelementptr inbounds i8, ptr %state, i64 32
+  %167 = load ptr, ptr %author_date.i155, align 8
   call void @free(ptr noundef %167) #21
+  %msg.i156 = getelementptr inbounds i8, ptr %state, i64 40
+  %168 = load ptr, ptr %msg.i156, align 8
+  call void @free(ptr noundef %168) #21
   call void @strvec_clear(ptr noundef nonnull %git_apply_opts) #21
   ret i32 %retval.0
 }

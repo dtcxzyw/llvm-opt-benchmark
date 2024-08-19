@@ -14,7 +14,7 @@ define dso_local noalias noundef ptr @cmsysSystem_Parse_CommandForUnix(ptr nocap
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %.not = icmp eq i32 %1, 0
-  br i1 %.not, label %11, label %116
+  br i1 %.not, label %11, label %110
 
 11:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3)
@@ -36,8 +36,8 @@ define dso_local noalias noundef ptr @cmsysSystem_Parse_CommandForUnix(ptr nocap
   br i1 %.not104.i, label %.thread97.i, label %.lr.ph.i.outer
 
 .lr.ph.i.outer:                                   ; preds = %11, %.loopexit
-  %.ph = phi i8 [ %91, %.loopexit ], [ %12, %11 ]
-  %.038109.i.ph = phi ptr [ %90, %.loopexit ], [ %0, %11 ]
+  %.ph = phi i8 [ %84, %.loopexit ], [ %12, %11 ]
+  %.038109.i.ph = phi ptr [ %83, %.loopexit ], [ %0, %11 ]
   %.040108.i.ph = phi i32 [ %.141.i, %.loopexit ], [ 0, %11 ]
   %.042107.i.ph = phi i32 [ %.143.i, %.loopexit ], [ 0, %11 ]
   %.044106.i.ph = phi i32 [ %.145.i, %.loopexit ], [ 0, %11 ]
@@ -48,12 +48,12 @@ define dso_local noalias noundef ptr @cmsysSystem_Parse_CommandForUnix(ptr nocap
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.outer, %.thread
-  %15 = phi i8 [ %93, %.thread ], [ %.ph, %.lr.ph.i.outer ]
-  %.038109.i = phi ptr [ %92, %.thread ], [ %.038109.i.ph, %.lr.ph.i.outer ]
+  %15 = phi i8 [ %87, %.thread ], [ %.ph, %.lr.ph.i.outer ]
+  %.038109.i = phi ptr [ %86, %.thread ], [ %.038109.i.ph, %.lr.ph.i.outer ]
   %.044106.i = phi i32 [ 0, %.thread ], [ %.044106.i.ph, %.lr.ph.i.outer ]
   %.046105.i = phi i32 [ 1, %.thread ], [ %.046105.i.ph, %.lr.ph.i.outer ]
   %.not53.i = icmp eq i32 %.044106.i, 0
-  br i1 %.not53.i, label %35, label %16
+  br i1 %.not53.i, label %32, label %16
 
 16:                                               ; preds = %.lr.ph.i
   %17 = load ptr, ptr %10, align 8
@@ -64,7 +64,7 @@ define dso_local noalias noundef ptr @cmsysSystem_Parse_CommandForUnix(ptr nocap
   %22 = load i32, ptr %8, align 4
   %23 = sext i32 %22 to i64
   %.not.i.i = icmp slt i64 %21, %23
-  br i1 %.not.i.i, label %32, label %24
+  br i1 %.not.i.i, label %.thread, label %24
 
 24:                                               ; preds = %16
   %25 = shl nsw i32 %22, 1
@@ -85,224 +85,211 @@ define dso_local noalias noundef ptr @cmsysSystem_Parse_CommandForUnix(ptr nocap
 30:                                               ; preds = %29, %28
   store ptr %27, ptr %9, align 8
   %31 = getelementptr inbounds i8, ptr %27, i64 %21
-  store i32 %25, ptr %8, align 4
-  br label %32
+  br label %.sink.split.sink.split.i
 
-32:                                               ; preds = %30, %16
-  %33 = phi ptr [ %31, %30 ], [ %17, %16 ]
-  %34 = getelementptr inbounds i8, ptr %33, i64 1
-  store ptr %34, ptr %10, align 8
-  br label %.thread
+32:                                               ; preds = %.lr.ph.i
+  %33 = icmp eq i8 %15, 92
+  br i1 %33, label %.loopexit, label %34
 
-35:                                               ; preds = %.lr.ph.i
-  %36 = icmp eq i8 %15, 92
-  br i1 %36, label %.loopexit, label %37
+34:                                               ; preds = %32
+  %35 = icmp ne i8 %15, 39
+  %or.cond.i = select i1 %35, i1 true, i1 %13
+  br i1 %or.cond.i, label %37, label %36
 
-37:                                               ; preds = %35
-  %38 = icmp ne i8 %15, 39
-  %or.cond.i = select i1 %38, i1 true, i1 %13
-  br i1 %or.cond.i, label %40, label %39
-
-39:                                               ; preds = %37
+36:                                               ; preds = %34
   %.not54.i = icmp eq i32 %.042107.i.ph, 0
   %spec.select.i = select i1 %.not54.i, i32 1, i32 %.046105.i
   %spec.select126.i = zext i1 %.not54.i to i32
   br label %.loopexit
 
-40:                                               ; preds = %37
-  %41 = icmp ne i8 %15, 34
-  %or.cond4.i = select i1 %41, i1 true, i1 %14
-  br i1 %or.cond4.i, label %43, label %42
+37:                                               ; preds = %34
+  %38 = icmp ne i8 %15, 34
+  %or.cond4.i = select i1 %38, i1 true, i1 %14
+  br i1 %or.cond4.i, label %40, label %39
 
-42:                                               ; preds = %40
+39:                                               ; preds = %37
   %spec.select127.i = select i1 %13, i32 %.046105.i, i32 1
   %not..i = xor i1 %13, true
   %spec.select128.i = zext i1 %not..i to i32
   br label %.loopexit
 
-43:                                               ; preds = %40
-  %44 = tail call ptr @__ctype_b_loc() #9
-  %45 = load ptr, ptr %44, align 8
-  %46 = zext i8 %15 to i64
-  %47 = getelementptr inbounds i16, ptr %45, i64 %46
-  %48 = load i16, ptr %47, align 2
-  %49 = and i16 %48, 8192
-  %.not57.i = icmp eq i16 %49, 0
-  br i1 %.not57.i, label %72, label %50
+40:                                               ; preds = %37
+  %41 = tail call ptr @__ctype_b_loc() #9
+  %42 = load ptr, ptr %41, align 8
+  %43 = zext i8 %15 to i64
+  %44 = getelementptr inbounds i16, ptr %42, i64 %43
+  %45 = load i16, ptr %44, align 2
+  %46 = and i16 %45, 8192
+  %.not57.i = icmp eq i16 %46, 0
+  br i1 %.not57.i, label %67, label %47
 
-50:                                               ; preds = %43
+47:                                               ; preds = %40
   %.not60.i = icmp eq i32 %.046105.i, 0
-  br i1 %.not60.i, label %.loopexit, label %51
+  br i1 %.not60.i, label %.loopexit, label %48
 
-51:                                               ; preds = %50
-  br i1 %or.cond7.i, label %52, label %70
+48:                                               ; preds = %47
+  br i1 %or.cond7.i, label %49, label %65
 
-52:                                               ; preds = %51
-  %53 = load ptr, ptr %10, align 8
-  %54 = load ptr, ptr %9, align 8
-  %55 = ptrtoint ptr %53 to i64
-  %56 = ptrtoint ptr %54 to i64
-  %57 = sub i64 %55, %56
-  %58 = load i32, ptr %8, align 4
+49:                                               ; preds = %48
+  %50 = load ptr, ptr %10, align 8
+  %51 = load ptr, ptr %9, align 8
+  %52 = ptrtoint ptr %50 to i64
+  %53 = ptrtoint ptr %51 to i64
+  %54 = sub i64 %52, %53
+  %55 = load i32, ptr %8, align 4
+  %56 = sext i32 %55 to i64
+  %.not.i72.i = icmp slt i64 %54, %56
+  br i1 %.not.i72.i, label %.thread, label %57
+
+57:                                               ; preds = %49
+  %58 = shl nsw i32 %55, 1
   %59 = sext i32 %58 to i64
-  %.not.i72.i = icmp slt i64 %57, %59
-  br i1 %.not.i72.i, label %kwsysSystem__AppendByte.exit77.i, label %60
+  %60 = call noalias ptr @malloc(i64 noundef %59) #7
+  %.not24.i73.i = icmp eq ptr %60, null
+  br i1 %.not24.i73.i, label %.thread.thread.i, label %61
 
-60:                                               ; preds = %52
-  %61 = shl nsw i32 %58, 1
-  %62 = sext i32 %61 to i64
-  %63 = call noalias ptr @malloc(i64 noundef %62) #7
-  %.not24.i73.i = icmp eq ptr %63, null
-  br i1 %.not24.i73.i, label %.thread.thread.i, label %64
+61:                                               ; preds = %57
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %60, ptr align 1 %51, i64 %54, i1 false)
+  %.not25.i74.i = icmp eq ptr %51, %7
+  br i1 %.not25.i74.i, label %63, label %62
 
-64:                                               ; preds = %60
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %63, ptr align 1 %54, i64 %57, i1 false)
-  %.not25.i74.i = icmp eq ptr %54, %7
-  br i1 %.not25.i74.i, label %66, label %65
+62:                                               ; preds = %61
+  call void @free(ptr noundef %51) #8
+  br label %63
 
-65:                                               ; preds = %64
-  call void @free(ptr noundef %54) #8
-  br label %66
+63:                                               ; preds = %62, %61
+  store ptr %60, ptr %9, align 8
+  %64 = getelementptr inbounds i8, ptr %60, i64 %54
+  br label %.sink.split.sink.split.i
 
-66:                                               ; preds = %65, %64
-  store ptr %63, ptr %9, align 8
-  %67 = getelementptr inbounds i8, ptr %63, i64 %57
-  store i32 %61, ptr %8, align 4
-  br label %kwsysSystem__AppendByte.exit77.i
-
-kwsysSystem__AppendByte.exit77.i:                 ; preds = %66, %52
-  %68 = phi ptr [ %67, %66 ], [ %53, %52 ]
-  %69 = getelementptr inbounds i8, ptr %68, i64 1
-  store ptr %69, ptr %10, align 8
-  br label %.thread
-
-70:                                               ; preds = %51
-  %71 = call fastcc i32 @kwsysSystem__AppendArgument(ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %8)
-  %.not61.i = icmp eq i32 %71, 0
+65:                                               ; preds = %48
+  %66 = call fastcc i32 @kwsysSystem__AppendArgument(ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %8)
+  %.not61.i = icmp eq i32 %66, 0
   br i1 %.not61.i, label %.thread.thread.i, label %.loopexit
 
-72:                                               ; preds = %43
-  %73 = load ptr, ptr %10, align 8
-  %74 = load ptr, ptr %9, align 8
-  %75 = ptrtoint ptr %73 to i64
-  %76 = ptrtoint ptr %74 to i64
-  %77 = sub i64 %75, %76
-  %78 = load i32, ptr %8, align 4
-  %79 = sext i32 %78 to i64
-  %.not.i78.i = icmp slt i64 %77, %79
-  br i1 %.not.i78.i, label %kwsysSystem__AppendByte.exit83.i, label %80
+67:                                               ; preds = %40
+  %68 = load ptr, ptr %10, align 8
+  %69 = load ptr, ptr %9, align 8
+  %70 = ptrtoint ptr %68 to i64
+  %71 = ptrtoint ptr %69 to i64
+  %72 = sub i64 %70, %71
+  %73 = load i32, ptr %8, align 4
+  %74 = sext i32 %73 to i64
+  %.not.i78.i = icmp slt i64 %72, %74
+  br i1 %.not.i78.i, label %.thread, label %75
 
-80:                                               ; preds = %72
-  %81 = shl nsw i32 %78, 1
-  %82 = sext i32 %81 to i64
-  %83 = call noalias ptr @malloc(i64 noundef %82) #7
-  %.not24.i79.i = icmp eq ptr %83, null
-  br i1 %.not24.i79.i, label %.thread.thread.i, label %84
+75:                                               ; preds = %67
+  %76 = shl nsw i32 %73, 1
+  %77 = sext i32 %76 to i64
+  %78 = call noalias ptr @malloc(i64 noundef %77) #7
+  %.not24.i79.i = icmp eq ptr %78, null
+  br i1 %.not24.i79.i, label %.thread.thread.i, label %79
 
-84:                                               ; preds = %80
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %83, ptr align 1 %74, i64 %77, i1 false)
-  %.not25.i80.i = icmp eq ptr %74, %7
-  br i1 %.not25.i80.i, label %86, label %85
+79:                                               ; preds = %75
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %78, ptr align 1 %69, i64 %72, i1 false)
+  %.not25.i80.i = icmp eq ptr %69, %7
+  br i1 %.not25.i80.i, label %81, label %80
 
-85:                                               ; preds = %84
-  call void @free(ptr noundef %74) #8
-  br label %86
+80:                                               ; preds = %79
+  call void @free(ptr noundef %69) #8
+  br label %81
 
-86:                                               ; preds = %85, %84
-  store ptr %83, ptr %9, align 8
-  %87 = getelementptr inbounds i8, ptr %83, i64 %77
-  store i32 %81, ptr %8, align 4
-  br label %kwsysSystem__AppendByte.exit83.i
+81:                                               ; preds = %80, %79
+  store ptr %78, ptr %9, align 8
+  %82 = getelementptr inbounds i8, ptr %78, i64 %72
+  br label %.sink.split.sink.split.i
 
-kwsysSystem__AppendByte.exit83.i:                 ; preds = %86, %72
-  %88 = phi ptr [ %87, %86 ], [ %73, %72 ]
-  %89 = getelementptr inbounds i8, ptr %88, i64 1
-  store ptr %89, ptr %10, align 8
+.sink.split.sink.split.i:                         ; preds = %81, %63, %30
+  %.sink.i = phi i32 [ %76, %81 ], [ %58, %63 ], [ %25, %30 ]
+  %.sink130.ph.i = phi ptr [ %82, %81 ], [ %64, %63 ], [ %31, %30 ]
+  store i32 %.sink.i, ptr %8, align 4
   br label %.thread
 
-.loopexit:                                        ; preds = %50, %35, %70, %42, %39
-  %.2.i = phi i32 [ 0, %70 ], [ %spec.select.i, %39 ], [ %spec.select127.i, %42 ], [ %.046105.i, %35 ], [ 0, %50 ]
-  %.145.i = phi i32 [ 0, %70 ], [ 0, %39 ], [ 0, %42 ], [ 1, %35 ], [ 0, %50 ]
-  %.143.i = phi i32 [ 0, %70 ], [ %spec.select126.i, %39 ], [ 0, %42 ], [ %.042107.i.ph, %35 ], [ %.042107.i.ph, %50 ]
-  %.141.i = phi i32 [ 0, %70 ], [ 0, %39 ], [ %spec.select128.i, %42 ], [ %.040108.i.ph, %35 ], [ %.040108.i.ph, %50 ]
-  %90 = getelementptr inbounds i8, ptr %.038109.i, i64 1
-  %91 = load i8, ptr %90, align 1
-  %.not.i = icmp eq i8 %91, 0
+.loopexit:                                        ; preds = %47, %32, %65, %39, %36
+  %.2.i = phi i32 [ 0, %65 ], [ %spec.select.i, %36 ], [ %spec.select127.i, %39 ], [ %.046105.i, %32 ], [ 0, %47 ]
+  %.145.i = phi i32 [ 0, %65 ], [ 0, %36 ], [ 0, %39 ], [ 1, %32 ], [ 0, %47 ]
+  %.143.i = phi i32 [ 0, %65 ], [ %spec.select126.i, %36 ], [ 0, %39 ], [ %.042107.i.ph, %32 ], [ %.042107.i.ph, %47 ]
+  %.141.i = phi i32 [ 0, %65 ], [ 0, %36 ], [ %spec.select128.i, %39 ], [ %.040108.i.ph, %32 ], [ %.040108.i.ph, %47 ]
+  %83 = getelementptr inbounds i8, ptr %.038109.i, i64 1
+  %84 = load i8, ptr %83, align 1
+  %.not.i = icmp eq i8 %84, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i.outer, !llvm.loop !5
 
-.thread:                                          ; preds = %32, %kwsysSystem__AppendByte.exit77.i, %kwsysSystem__AppendByte.exit83.i
-  %.sink.i = phi ptr [ %88, %kwsysSystem__AppendByte.exit83.i ], [ %68, %kwsysSystem__AppendByte.exit77.i ], [ %33, %32 ]
-  store i8 %15, ptr %.sink.i, align 1
-  %92 = getelementptr inbounds i8, ptr %.038109.i, i64 1
-  %93 = load i8, ptr %92, align 1
-  %.not.i8 = icmp eq i8 %93, 0
+.thread:                                          ; preds = %16, %49, %67, %.sink.split.sink.split.i
+  %.sink130.i = phi ptr [ %17, %16 ], [ %50, %49 ], [ %68, %67 ], [ %.sink130.ph.i, %.sink.split.sink.split.i ]
+  %85 = getelementptr inbounds i8, ptr %.sink130.i, i64 1
+  store ptr %85, ptr %10, align 8
+  store i8 %15, ptr %.sink130.i, align 1
+  %86 = getelementptr inbounds i8, ptr %.038109.i, i64 1
+  %87 = load i8, ptr %86, align 1
+  %.not.i8 = icmp eq i8 %87, 0
   br i1 %.not.i8, label %.thread.i, label %.lr.ph.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %.loopexit
-  %94 = icmp eq i32 %.2.i, 0
-  br i1 %94, label %.thread97.i, label %.thread.i
+  %88 = icmp eq i32 %.2.i, 0
+  br i1 %88, label %.thread97.i, label %.thread.i
 
-.thread.thread.i:                                 ; preds = %70, %80, %60, %24
-  %95 = call fastcc i32 @kwsysSystem__AppendArgument(ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %8)
+.thread.thread.i:                                 ; preds = %65, %75, %57, %24
+  %89 = call fastcc i32 @kwsysSystem__AppendArgument(ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %8)
   br label %.preheader.i
 
 .thread.i:                                        ; preds = %.thread, %._crit_edge.i
-  %96 = call fastcc i32 @kwsysSystem__AppendArgument(ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %8)
-  %.not66.not.i = icmp eq i32 %96, 0
+  %90 = call fastcc i32 @kwsysSystem__AppendArgument(ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %8)
+  %.not66.not.i = icmp eq i32 %90, 0
   br i1 %.not66.not.i, label %.preheader.i, label %.thread97.i
 
 .thread97.i:                                      ; preds = %.thread.i, %._crit_edge.i, %11
-  %97 = load ptr, ptr %6, align 8
-  %98 = load ptr, ptr %5, align 8
-  %99 = ptrtoint ptr %97 to i64
-  %100 = ptrtoint ptr %98 to i64
-  %101 = add i64 %99, 8
-  %102 = sub i64 %101, %100
-  %103 = call noalias ptr @malloc(i64 noundef %102) #7
-  %.not68.i = icmp eq ptr %103, null
-  br i1 %.not68.i, label %.preheader.i, label %105
+  %91 = load ptr, ptr %6, align 8
+  %92 = load ptr, ptr %5, align 8
+  %93 = ptrtoint ptr %91 to i64
+  %94 = ptrtoint ptr %92 to i64
+  %95 = add i64 %93, 8
+  %96 = sub i64 %95, %94
+  %97 = call noalias ptr @malloc(i64 noundef %96) #7
+  %.not68.i = icmp eq ptr %97, null
+  br i1 %.not68.i, label %.preheader.i, label %99
 
 .preheader.i:                                     ; preds = %.thread97.i, %.thread.i, %.thread.thread.i
-  %104 = load ptr, ptr %5, align 8
+  %98 = load ptr, ptr %5, align 8
   %.promoted.i = load ptr, ptr %6, align 8
-  %.not69112.i = icmp eq ptr %.promoted.i, %104
+  %.not69112.i = icmp eq ptr %.promoted.i, %98
   br i1 %.not69112.i, label %.loopexit.i, label %.lr.ph113.i
 
-105:                                              ; preds = %.thread97.i
-  %106 = sub i64 %99, %100
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %103, ptr align 8 %98, i64 %106, i1 false)
-  %107 = getelementptr inbounds i8, ptr %103, i64 %106
-  store ptr null, ptr %107, align 8
+99:                                               ; preds = %.thread97.i
+  %100 = sub i64 %93, %94
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %97, ptr align 8 %92, i64 %100, i1 false)
+  %101 = getelementptr inbounds i8, ptr %97, i64 %100
+  store ptr null, ptr %101, align 8
   br label %.loopexit.i
 
 .lr.ph113.i:                                      ; preds = %.preheader.i, %.lr.ph113.i
-  %108 = phi ptr [ %109, %.lr.ph113.i ], [ %.promoted.i, %.preheader.i ]
-  %109 = getelementptr inbounds i8, ptr %108, i64 -8
-  %110 = load ptr, ptr %109, align 8
-  call void @free(ptr noundef %110) #8
-  %.not69.i = icmp eq ptr %109, %104
+  %102 = phi ptr [ %103, %.lr.ph113.i ], [ %.promoted.i, %.preheader.i ]
+  %103 = getelementptr inbounds i8, ptr %102, i64 -8
+  %104 = load ptr, ptr %103, align 8
+  call void @free(ptr noundef %104) #8
+  %.not69.i = icmp eq ptr %103, %98
   br i1 %.not69.i, label %.loopexit.i, label %.lr.ph113.i, !llvm.loop !7
 
-.loopexit.i:                                      ; preds = %.lr.ph113.i, %105, %.preheader.i
-  %.0124.i = phi ptr [ %103, %105 ], [ null, %.preheader.i ], [ null, %.lr.ph113.i ]
-  %111 = phi ptr [ %98, %105 ], [ %104, %.preheader.i ], [ %104, %.lr.ph113.i ]
-  %.not70.i = icmp eq ptr %111, %3
-  br i1 %.not70.i, label %113, label %112
+.loopexit.i:                                      ; preds = %.lr.ph113.i, %99, %.preheader.i
+  %.0124.i = phi ptr [ %97, %99 ], [ null, %.preheader.i ], [ null, %.lr.ph113.i ]
+  %105 = phi ptr [ %92, %99 ], [ %98, %.preheader.i ], [ %98, %.lr.ph113.i ]
+  %.not70.i = icmp eq ptr %105, %3
+  br i1 %.not70.i, label %107, label %106
 
-112:                                              ; preds = %.loopexit.i
-  call void @free(ptr noundef %111) #8
-  br label %113
+106:                                              ; preds = %.loopexit.i
+  call void @free(ptr noundef %105) #8
+  br label %107
 
-113:                                              ; preds = %112, %.loopexit.i
-  %114 = load ptr, ptr %9, align 8
-  %.not71.i = icmp eq ptr %114, %7
-  br i1 %.not71.i, label %kwsysSystem__ParseUnixCommand.exit, label %115
+107:                                              ; preds = %106, %.loopexit.i
+  %108 = load ptr, ptr %9, align 8
+  %.not71.i = icmp eq ptr %108, %7
+  br i1 %.not71.i, label %kwsysSystem__ParseUnixCommand.exit, label %109
 
-115:                                              ; preds = %113
-  call void @free(ptr noundef %114) #8
+109:                                              ; preds = %107
+  call void @free(ptr noundef %108) #8
   br label %kwsysSystem__ParseUnixCommand.exit
 
-kwsysSystem__ParseUnixCommand.exit:               ; preds = %113, %115
+kwsysSystem__ParseUnixCommand.exit:               ; preds = %107, %109
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -311,9 +298,9 @@ kwsysSystem__ParseUnixCommand.exit:               ; preds = %113, %115
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  br label %116
+  br label %110
 
-116:                                              ; preds = %2, %kwsysSystem__ParseUnixCommand.exit
+110:                                              ; preds = %2, %kwsysSystem__ParseUnixCommand.exit
   %.0 = phi ptr [ %.0124.i, %kwsysSystem__ParseUnixCommand.exit ], [ null, %2 ]
   ret ptr %.0
 }

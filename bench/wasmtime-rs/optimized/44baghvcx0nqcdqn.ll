@@ -26,18 +26,17 @@ define void @_ZN14wasmtime_fiber10FiberStack3new17h9461c1ebb33319baE(ptr noalias
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.0.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.0.sroa.5, i64 7, i1 false)
   %.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.6.0.copyload, ptr %.sroa.0.sroa.7.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.0.sroa.5)
   br label %10
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.0.sroa.5)
   br label %10
 
 10:                                               ; preds = %7, %6
   %.sroa.5.0.copyload.sink = phi ptr [ %9, %7 ], [ %.sroa.5.0.copyload, %6 ]
+  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.0.sroa.5)
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.5.0.copyload.sink, ptr %11, align 8
   store i8 %4, ptr %0, align 8

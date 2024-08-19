@@ -77,7 +77,6 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   store i64 -9223372036854775798, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   br label %25
 
 18:                                               ; preds = %13
@@ -103,10 +102,10 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
 
 "_ZN4core3ptr62drop_in_place$LT$diesel..pg..query_builder..PgQueryBuilder$GT$17h786e21e741ea1f3bE.exit": ; preds = %18, %21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   br label %25
 
 25:                                               ; preds = %16, %"_ZN4core3ptr62drop_in_place$LT$diesel..pg..query_builder..PgQueryBuilder$GT$17h786e21e741ea1f3bE.exit"
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   ret void
 
 26:                                               ; preds = %27
@@ -175,7 +174,6 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   store i64 -9223372036854775798, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   br label %25
 
 18:                                               ; preds = %13
@@ -201,10 +199,10 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
 
 "_ZN4core3ptr62drop_in_place$LT$diesel..pg..query_builder..PgQueryBuilder$GT$17h786e21e741ea1f3bE.exit": ; preds = %18, %21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !36
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   br label %25
 
 25:                                               ; preds = %16, %"_ZN4core3ptr62drop_in_place$LT$diesel..pg..query_builder..PgQueryBuilder$GT$17h786e21e741ea1f3bE.exit"
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   ret void
 
 26:                                               ; preds = %27
@@ -251,7 +249,6 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   %11 = load i8, ptr %6, align 1, !range !53, !noalias !50, !noundef !14
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %11, ptr %12, align 8, !alias.scope !47, !noalias !54
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !50
   br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h4dab08dd81ff3dd1E.exit
 
 13:                                               ; preds = %3
@@ -260,10 +257,10 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !50
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.i, i64 24, i1 false), !noalias !54
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !50
   br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h4dab08dd81ff3dd1E.exit
 
 _ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h4dab08dd81ff3dd1E.exit: ; preds = %10, %13
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !50
   store i64 %8, ptr %0, align 8, !alias.scope !47, !noalias !54
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.210.i)
   ret void
@@ -297,7 +294,6 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   %11 = load i8, ptr %6, align 1, !range !53, !noalias !58, !noundef !14
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %11, ptr %12, align 8, !alias.scope !55, !noalias !61
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !58
   br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h9b36c6f8c2eb3633E.exit
 
 13:                                               ; preds = %3
@@ -306,10 +302,10 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !58
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.i, i64 24, i1 false), !noalias !61
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !58
   br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h9b36c6f8c2eb3633E.exit
 
 _ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h9b36c6f8c2eb3633E.exit: ; preds = %10, %13
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !58
   store i64 %8, ptr %0, align 8, !alias.scope !55, !noalias !61
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.210.i)
   ret void
@@ -1553,7 +1549,6 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_p
   %11 = load i8, ptr %6, align 1, !range !53, !noundef !14
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %11, ptr %12, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   br label %14
 
 13:                                               ; preds = %3
@@ -1562,10 +1557,10 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_p
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %.sroa.210.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   br label %14
 
 14:                                               ; preds = %13, %10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   store i64 %8, ptr %0, align 8
   ret void
 }
@@ -1596,7 +1591,6 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_p
   %11 = load i8, ptr %6, align 1, !range !53, !noundef !14
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %11, ptr %12, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   br label %14
 
 13:                                               ; preds = %3
@@ -1605,10 +1599,10 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_p
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %.sroa.210.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   br label %14
 
 14:                                               ; preds = %13, %10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   store i64 %8, ptr %0, align 8
   ret void
 }
@@ -2530,8 +2524,6 @@ define hidden void @_ZN6diesel9query_dsl11RunQueryDsl10get_result17h2cd50371b4d7
   store i64 %14, ptr %.sroa.319.0..sroa_idx, align 8
   %.sroa.420.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %.sroa.616.0.copyload.i, ptr %.sroa.420.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   br label %27
 
 19:                                               ; preds = %.noexc, %15
@@ -2556,11 +2548,11 @@ define hidden void @_ZN6diesel9query_dsl11RunQueryDsl10get_result17h2cd50371b4d7
 
 26:                                               ; preds = %25, %24
   call void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haf0f17790619d26cE.llvm.14992767593304109899"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   br label %27
 
 27:                                               ; preds = %26, %18
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   ret void
 
 28:                                               ; preds = %19
@@ -2621,8 +2613,6 @@ define hidden void @_ZN6diesel9query_dsl11RunQueryDsl10get_result17hea6e01ba4e13
   store i64 %14, ptr %.sroa.319.0..sroa_idx, align 8
   %.sroa.420.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %.sroa.616.0.copyload.i, ptr %.sroa.420.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   br label %27
 
 19:                                               ; preds = %.noexc, %15
@@ -2647,11 +2637,11 @@ define hidden void @_ZN6diesel9query_dsl11RunQueryDsl10get_result17hea6e01ba4e13
 
 26:                                               ; preds = %25, %24
   call void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haf0f17790619d26cE.llvm.14992767593304109899"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   br label %27
 
 27:                                               ; preds = %26, %18
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   ret void
 
 28:                                               ; preds = %19

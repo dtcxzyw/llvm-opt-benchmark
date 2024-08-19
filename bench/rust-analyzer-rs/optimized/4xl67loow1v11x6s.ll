@@ -2303,7 +2303,7 @@ _ZN7memmap211MmapOptions7get_len17h53ded0f1fcabf3f9E.llvm.13576623291743085369.e
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br i1 %14, label %30, label %15
+  br i1 %14, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h4ecdd5058f1ea72bE.llvm.13576623291743085369.exit", label %15
 
 15:                                               ; preds = %_ZN7memmap211MmapOptions7get_len17h53ded0f1fcabf3f9E.llvm.13576623291743085369.exit.thread, %_ZN7memmap211MmapOptions7get_len17h53ded0f1fcabf3f9E.llvm.13576623291743085369.exit
   %16 = phi ptr [ %13, %_ZN7memmap211MmapOptions7get_len17h53ded0f1fcabf3f9E.llvm.13576623291743085369.exit.thread ], [ %.pre8, %_ZN7memmap211MmapOptions7get_len17h53ded0f1fcabf3f9E.llvm.13576623291743085369.exit ]
@@ -2329,22 +2329,13 @@ _ZN7memmap211MmapOptions7get_len17h53ded0f1fcabf3f9E.llvm.13576623291743085369.e
   store i64 %27, ptr %28, align 8, !alias.scope !341, !noalias !344
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h4ecdd5058f1ea72bE.llvm.13576623291743085369.exit"
 
-"_ZN4core6result19Result$LT$T$C$E$GT$3map17h4ecdd5058f1ea72bE.llvm.13576623291743085369.exit": ; preds = %15, %25
-  %storemerge.i = phi i64 [ 0, %25 ], [ 1, %15 ]
+"_ZN4core6result19Result$LT$T$C$E$GT$3map17h4ecdd5058f1ea72bE.llvm.13576623291743085369.exit": ; preds = %_ZN7memmap211MmapOptions7get_len17h53ded0f1fcabf3f9E.llvm.13576623291743085369.exit, %25, %15
+  %.sink = phi ptr [ %24, %15 ], [ %24, %25 ], [ %.pre8, %_ZN7memmap211MmapOptions7get_len17h53ded0f1fcabf3f9E.llvm.13576623291743085369.exit ]
+  %storemerge.i.sink = phi i64 [ 1, %15 ], [ 0, %25 ], [ 1, %_ZN7memmap211MmapOptions7get_len17h53ded0f1fcabf3f9E.llvm.13576623291743085369.exit ]
   %29 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %24, ptr %29, align 8, !alias.scope !341, !noalias !344
-  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !341, !noalias !344
+  store ptr %.sink, ptr %29, align 8
+  store i64 %storemerge.i.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  br label %32
-
-30:                                               ; preds = %_ZN7memmap211MmapOptions7get_len17h53ded0f1fcabf3f9E.llvm.13576623291743085369.exit
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.pre8, ptr %31, align 8
-  store i64 1, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  br label %32
-
-32:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h4ecdd5058f1ea72bE.llvm.13576623291743085369.exit", %30
   ret void
 }
 
@@ -5290,54 +5281,49 @@ define hidden noundef align 8 ptr @"_ZN14proc_macro_api3msg4flat1_87_$LT$impl$u2
   store i8 1, ptr %19, align 8
   %20 = call noundef align 8 ptr @_ZN5serde3ser12SerializeMap15serialize_entry17h3e9c5b7cd9e2ded8E(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 1 @anon.ced7cb14528d243819e0f1d745e7b7af.71.llvm.13576623291743085369, i64 noundef 7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %22, label %46
+  br i1 %21, label %22, label %45
 
 22:                                               ; preds = %12
   %23 = getelementptr inbounds i8, ptr %0, i64 24
   %24 = call noundef align 8 ptr @_ZN5serde3ser12SerializeMap15serialize_entry17h3e9c5b7cd9e2ded8E(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 1 @anon.ced7cb14528d243819e0f1d745e7b7af.72.llvm.13576623291743085369, i64 noundef 7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %23)
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %26, label %46
+  br i1 %25, label %26, label %45
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds i8, ptr %0, i64 48
   %28 = call noundef align 8 ptr @_ZN5serde3ser12SerializeMap15serialize_entry17h3e9c5b7cd9e2ded8E(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 1 @anon.ced7cb14528d243819e0f1d745e7b7af.73.llvm.13576623291743085369, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %27)
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %30, label %46
+  br i1 %29, label %30, label %45
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds i8, ptr %0, i64 72
   %32 = call noundef align 8 ptr @_ZN5serde3ser12SerializeMap15serialize_entry17h3e9c5b7cd9e2ded8E(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 1 @anon.ced7cb14528d243819e0f1d745e7b7af.74.llvm.13576623291743085369, i64 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %31)
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %34, label %46
+  br i1 %33, label %34, label %45
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds i8, ptr %0, i64 96
   %36 = call noundef align 8 ptr @_ZN5serde3ser12SerializeMap15serialize_entry17h3e9c5b7cd9e2ded8E(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 1 @anon.ced7cb14528d243819e0f1d745e7b7af.75.llvm.13576623291743085369, i64 noundef 10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %35)
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %38, label %46
+  br i1 %37, label %38, label %45
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds i8, ptr %0, i64 120
   %40 = call noundef align 8 ptr @_ZN5serde3ser12SerializeMap15serialize_entry17hdcc8013525c47de7E(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 1 @anon.ced7cb14528d243819e0f1d745e7b7af.76.llvm.13576623291743085369, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %39)
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %42, label %46
+  br i1 %41, label %42, label %45
 
 42:                                               ; preds = %38
   %43 = load ptr, ptr %3, align 8, !nonnull !7, !align !14, !noundef !7
   %44 = load i8, ptr %19, align 8, !range !866, !noundef !7
   %.val = load ptr, ptr %43, align 8
   call fastcc void @"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h2175826dd6c1eb4fE"(ptr %.val, i8 noundef %44)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %45
 
-45:                                               ; preds = %46, %42
-  %.1 = phi ptr [ %.0, %46 ], [ null, %42 ]
+45:                                               ; preds = %12, %22, %26, %30, %34, %38, %42
+  %.1 = phi ptr [ null, %42 ], [ %20, %12 ], [ %24, %22 ], [ %28, %26 ], [ %32, %30 ], [ %36, %34 ], [ %40, %38 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret ptr %.1
-
-46:                                               ; preds = %38, %34, %30, %26, %22, %12
-  %.0 = phi ptr [ %20, %12 ], [ %24, %22 ], [ %28, %26 ], [ %32, %30 ], [ %36, %34 ], [ %40, %38 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %45
 }
 
 ; Function Attrs: nonlazybind uwtable

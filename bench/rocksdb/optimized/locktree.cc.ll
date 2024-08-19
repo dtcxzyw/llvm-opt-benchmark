@@ -1230,8 +1230,8 @@ if.then.i25:                                      ; preds = %for.end
 return:                                           ; preds = %_ZN4tokuL28determine_conflicting_txnidsERKNS_13GrowableArrayINS_8row_lockEEERKmPNS_9txnid_setE.exit, %for.end, %if.then.i25, %if.then4, %if.then10, %if.then6
   %retval.0 = phi i32 [ 0, %if.then6 ], [ 0, %if.then10 ], [ 0, %if.then4 ], [ -30994, %_ZN4tokuL28determine_conflicting_txnidsERKNS_13GrowableArrayINS_8row_lockEEERKmPNS_9txnid_setE.exit ], [ 0, %for.end ], [ 0, %if.then.i25 ]
   call void @_ZN4toku8keyrange7destroyEv(ptr noundef nonnull align 8 dereferenceable(81) %requested_range)
-  %.sink = load ptr, ptr %overlapping_row_locks, align 8
-  call void @_Z9toku_freePv(ptr noundef %.sink)
+  %18 = load ptr, ptr %overlapping_row_locks, align 8
+  call void @_Z9toku_freePv(ptr noundef %18)
   ret i32 %retval.0
 }
 
@@ -3118,7 +3118,7 @@ _ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE7nweightERKNS_12omt_internal17sub
 if.else.i10.i141:                                 ; preds = %_ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i.i137, %tailrecurse.i.i132
   %retval.0.i14.i.i142 = phi i32 [ %150, %_ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i.i137 ], [ 0, %tailrecurse.i.i132 ]
   %cmp4.i.i143 = icmp eq i32 %retval.0.i14.i.i142, %i.tr.ph.i.i131
-  br i1 %cmp4.i.i143, label %_ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE4sizeEv.exit.thread20.i, label %if.else8.i.i144
+  br i1 %cmp4.i.i143, label %_ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE4sizeEv.exit16.i, label %if.else8.i.i144
 
 if.else8.i.i144:                                  ; preds = %if.else.i10.i141
   %right.i.i145 = getelementptr inbounds i8, ptr %arrayidx.i6.i134, i64 16
@@ -3132,33 +3132,28 @@ _ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE4sizeEv.exit.i189: ; preds = %_ZN
   %153 = load i32, ptr %d.i.i.i, align 8
   %idxprom.i.i159 = zext i32 %153 to i64
   %arrayidx.i.i160 = getelementptr inbounds ptr, ptr %152, i64 %idxprom.i.i159
-  %154 = load ptr, ptr %arrayidx.i.i160, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rebalance_subtree.i162)
   br label %_ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE4sizeEv.exit16.i
 
-_ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE4sizeEv.exit.thread20.i: ; preds = %if.else.i10.i141
-  %155 = load ptr, ptr %arrayidx.i6.i134, align 8
+_ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE4sizeEv.exit16.i: ; preds = %if.else.i10.i141, %_ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE4sizeEv.exit.i189
+  %arrayidx.i.i160.sink = phi ptr [ %arrayidx.i.i160, %_ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE4sizeEv.exit.i189 ], [ %arrayidx.i6.i134, %if.else.i10.i141 ]
+  %retval.0.i13.i = phi i32 [ %146, %_ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE4sizeEv.exit.i189 ], [ %147, %if.else.i10.i141 ]
+  %154 = load ptr, ptr %arrayidx.i.i160.sink, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rebalance_subtree.i162)
-  br label %_ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE4sizeEv.exit16.i
-
-_ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE4sizeEv.exit16.i: ; preds = %_ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE4sizeEv.exit.i189, %_ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE4sizeEv.exit.thread20.i
-  %buffer138.1327 = phi ptr [ %154, %_ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE4sizeEv.exit.i189 ], [ %155, %_ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE4sizeEv.exit.thread20.i ]
-  %retval.0.i13.i = phi i32 [ %146, %_ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE4sizeEv.exit.i189 ], [ %147, %_ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE4sizeEv.exit.thread20.i ]
   %sub.i = add i32 %retval.0.i13.i, -1
   call void @_ZN4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE23maybe_resize_or_convertEj(ptr noundef nonnull align 8 dereferenceable(24) %range_buffers, i32 noundef %sub.i)
-  %156 = load i8, ptr %range_buffers, align 8
-  %tobool10.i = trunc i8 %156 to i1
+  %155 = load i8, ptr %range_buffers, align 8
+  %tobool10.i = trunc i8 %155 to i1
   br i1 %tobool10.i, label %if.then11.i, label %if.else.i173
 
 if.then11.i:                                      ; preds = %_ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE4sizeEv.exit16.i
-  %157 = load i32, ptr %num_values.i117, align 4
-  %sub14.i = add i32 %157, -1
+  %156 = load i32, ptr %num_values.i117, align 4
+  %sub14.i = add i32 %156, -1
   %cmp15.not.i = icmp eq i32 %sub14.i, 0
   br i1 %cmp15.not.i, label %if.end18.i, label %if.then16.i174
 
 if.then16.i174:                                   ; preds = %if.then11.i
-  %158 = load i32, ptr %d.i.i.i, align 8
-  %inc.i175 = add i32 %158, 1
+  %157 = load i32, ptr %d.i.i.i, align 8
+  %inc.i175 = add i32 %157, 1
   store i32 %inc.i175, ptr %d.i.i.i, align 8
   br label %if.end18.i
 
@@ -3169,24 +3164,24 @@ if.end18.i:                                       ; preds = %if.then16.i174, %if
 if.else.i173:                                     ; preds = %_ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE4sizeEv.exit16.i
   store ptr null, ptr %rebalance_subtree.i162, align 8
   call void @_ZN4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE15delete_internalEPNS_12omt_internal17subtree_templatedILb0EEEjPNS4_18omt_node_templatedIS2_Lb0EEEPS7_(ptr noundef nonnull align 8 dereferenceable(24) %range_buffers, ptr noundef nonnull %d.i.i.i, i32 noundef 0, ptr noundef null, ptr noundef nonnull %rebalance_subtree.i162)
-  %159 = load ptr, ptr %rebalance_subtree.i162, align 8
-  %cmp22.not.i = icmp eq ptr %159, null
+  %158 = load ptr, ptr %rebalance_subtree.i162, align 8
+  %cmp22.not.i = icmp eq ptr %158, null
   br i1 %cmp22.not.i, label %_ZN4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE9delete_atEj.exit, label %if.then23.i
 
 if.then23.i:                                      ; preds = %if.else.i173
-  call void @_ZN4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE9rebalanceEPNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %range_buffers, ptr noundef %159)
+  call void @_ZN4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE9rebalanceEPNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %range_buffers, ptr noundef %158)
   br label %_ZN4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE9delete_atEj.exit
 
 _ZN4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE9delete_atEj.exit: ; preds = %if.end18.i, %if.else.i173, %if.then23.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rebalance_subtree.i162)
-  call void @_Z9toku_freePv(ptr noundef %buffer138.1327)
+  call void @_Z9toku_freePv(ptr noundef %154)
   br label %while.cond134, !llvm.loop !37
 
 if.then.i196:                                     ; preds = %_ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE4sizeEv.exit118
   store i32 0, ptr %d.i.i.i, align 8
   store i32 0, ptr %capacity.i.i.i, align 4
-  %160 = load ptr, ptr %values.i.i, align 8
-  %cmp.not.i197 = icmp eq ptr %160, null
+  %159 = load ptr, ptr %values.i.i, align 8
+  %cmp.not.i197 = icmp eq ptr %159, null
   br i1 %cmp.not.i197, label %_ZN4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE7destroyEv.exit, label %if.end15.sink.split.i
 
 if.else.i195:                                     ; preds = %if.else.i108
@@ -3196,7 +3191,7 @@ if.else.i195:                                     ; preds = %if.else.i108
   br i1 %cmp8.not.i, label %_ZN4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE7destroyEv.exit, label %if.end15.sink.split.i
 
 if.end15.sink.split.i:                            ; preds = %if.else.i195.thread, %if.else.i195, %if.then.i196
-  %.sink.i = phi ptr [ %160, %if.then.i196 ], [ %.pr335, %if.else.i195 ], [ %.pr335, %if.else.i195.thread ]
+  %.sink.i = phi ptr [ %159, %if.then.i196 ], [ %.pr335, %if.else.i195 ], [ %.pr335, %if.else.i195.thread ]
   call void @_Z9toku_freePv(ptr noundef nonnull %.sink.i)
   br label %_ZN4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE7destroyEv.exit
 

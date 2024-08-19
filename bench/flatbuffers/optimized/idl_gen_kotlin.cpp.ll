@@ -17828,7 +17828,7 @@ invoke.cont14:                                    ; preds = %call.i21.noexc
   %11 = load i32, ptr %10, align 8
   switch i32 %11, label %sw.default [
     i32 15, label %sw.bb
-    i32 16, label %sw.bb29
+    i32 16, label %sw.epilog
   ]
 
 lpad:                                             ; preds = %_ZN11flatbuffers11NumToStringImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_.exit
@@ -17927,7 +17927,6 @@ invoke.cont25:                                    ; preds = %call.i37.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #19
-  store ptr @.str.175, ptr %found, align 8
   br label %sw.epilog
 
 lpad18:                                           ; preds = %call.i24.noexc, %sw.bb
@@ -17951,15 +17950,12 @@ ehcleanup27:                                      ; preds = %lpad22, %lpad.i32, 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16) #19
   br label %ehcleanup38.sink.split
 
-sw.bb29:                                          ; preds = %invoke.cont14
-  store ptr @.str.176, ptr %found, align 8
-  br label %sw.epilog
-
 sw.default:                                       ; preds = %invoke.cont14
-  store ptr @.str.177, ptr %found, align 8
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.default, %sw.bb29, %invoke.cont25
+sw.epilog:                                        ; preds = %invoke.cont14, %sw.default, %invoke.cont25
+  %.str.177.sink = phi ptr [ @.str.177, %sw.default ], [ @.str.175, %invoke.cont25 ], [ @.str.176, %invoke.cont14 ]
+  store ptr %.str.177.sink, ptr %found, align 8
   %23 = load ptr, ptr %7, align 8
   %24 = getelementptr inbounds i8, ptr %this, i64 24
   %25 = load ptr, ptr %24, align 8

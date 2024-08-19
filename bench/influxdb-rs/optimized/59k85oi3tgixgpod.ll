@@ -1179,17 +1179,16 @@ define hidden void @_ZN4snap5bytes14io_read_u32_le17h3286dc467c5b141aE(ptr noali
   %7 = load i32, ptr %3, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %7, ptr %8, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %11
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %4, ptr %10, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %11
 
 11:                                               ; preds = %9, %6
   %.sink = phi i32 [ 0, %6 ], [ 1, %9 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   store i32 %.sink, ptr %0, align 8
   ret void
 }

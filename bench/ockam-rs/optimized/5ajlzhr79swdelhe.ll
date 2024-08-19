@@ -7062,9 +7062,9 @@ default.unreachable573:                           ; preds = %"_ZN4core3ptr386dro
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9f68481f09006b6E.llvm.12387716778192508131"(ptr noalias noundef nonnull align 8 dereferenceable(16) %89)
           to label %"_ZN4core3ptr216drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hc01be38c3e641ed9E.exit" unwind label %105
 
-common.ret:                                       ; preds = %.invoke, %"_ZN82_$LT$tokio..sync..mpsc..chan..Rx$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h87ad999f6e565955E.llvm.12387716778192508131.exit.i.i407", %"_ZN82_$LT$tokio..sync..mpsc..chan..Rx$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h87ad999f6e565955E.llvm.12387716778192508131.exit.i.i", %595, %315, %239, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hdff81245cece36deE.exit", %463
-  %.sink = phi i8 [ 6, %463 ], [ 3, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hdff81245cece36deE.exit" ], [ 4, %239 ], [ 5, %315 ], [ 7, %595 ], [ 1, %"_ZN82_$LT$tokio..sync..mpsc..chan..Rx$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h87ad999f6e565955E.llvm.12387716778192508131.exit.i.i" ], [ 1, %"_ZN82_$LT$tokio..sync..mpsc..chan..Rx$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h87ad999f6e565955E.llvm.12387716778192508131.exit.i.i407" ], [ 1, %.invoke ]
-  %common.ret.op = phi i1 [ true, %463 ], [ true, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hdff81245cece36deE.exit" ], [ true, %239 ], [ true, %315 ], [ true, %595 ], [ false, %"_ZN82_$LT$tokio..sync..mpsc..chan..Rx$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h87ad999f6e565955E.llvm.12387716778192508131.exit.i.i" ], [ false, %"_ZN82_$LT$tokio..sync..mpsc..chan..Rx$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h87ad999f6e565955E.llvm.12387716778192508131.exit.i.i407" ], [ false, %.invoke ]
+common.ret:                                       ; preds = %"_ZN82_$LT$tokio..sync..mpsc..chan..Rx$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h87ad999f6e565955E.llvm.12387716778192508131.exit.i.i407", %"_ZN82_$LT$tokio..sync..mpsc..chan..Rx$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h87ad999f6e565955E.llvm.12387716778192508131.exit.i.i", %.invoke, %595, %315, %239, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hdff81245cece36deE.exit", %463
+  %.sink = phi i8 [ 6, %463 ], [ 3, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hdff81245cece36deE.exit" ], [ 4, %239 ], [ 5, %315 ], [ 7, %595 ], [ 1, %.invoke ], [ 1, %"_ZN82_$LT$tokio..sync..mpsc..chan..Rx$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h87ad999f6e565955E.llvm.12387716778192508131.exit.i.i" ], [ 1, %"_ZN82_$LT$tokio..sync..mpsc..chan..Rx$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h87ad999f6e565955E.llvm.12387716778192508131.exit.i.i407" ]
+  %common.ret.op = phi i1 [ true, %463 ], [ true, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hdff81245cece36deE.exit" ], [ true, %239 ], [ true, %315 ], [ true, %595 ], [ false, %.invoke ], [ false, %"_ZN82_$LT$tokio..sync..mpsc..chan..Rx$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h87ad999f6e565955E.llvm.12387716778192508131.exit.i.i" ], [ false, %"_ZN82_$LT$tokio..sync..mpsc..chan..Rx$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h87ad999f6e565955E.llvm.12387716778192508131.exit.i.i407" ]
   store i8 %.sink, ptr %51, align 8
   ret i1 %common.ret.op
 
@@ -9107,7 +9107,7 @@ default.unreachable31:                            ; preds = %2
           cleanup
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
   invoke fastcc void @"_ZN4core3ptr131drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$ockam_node..messages..NodeMessage$GT$..send..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha810a0050f91eaf0E"(ptr noundef nonnull align 8 %24) #13
-          to label %20 unwind label %42
+          to label %20 unwind label %41
 
 27:                                               ; preds = %23
   %28 = load i8, ptr %4, align 8, !range !55, !noundef !5
@@ -9121,8 +9121,8 @@ default.unreachable31:                            ; preds = %2
   invoke fastcc void @"_ZN4core3ptr131drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$ockam_node..messages..NodeMessage$GT$..send..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha810a0050f91eaf0E"(ptr noundef nonnull align 8 %24)
           to label %34 unwind label %32
 
-common.ret:                                       ; preds = %39, %31
-  %common.ret.op = phi { i64, ptr } [ { i64 1, ptr undef }, %31 ], [ %40, %39 ]
+common.ret:                                       ; preds = %38, %31
+  %common.ret.op = phi { i64, ptr } [ { i64 1, ptr undef }, %31 ], [ %39, %38 ]
   ret { i64, ptr } %common.ret.op
 
 31:                                               ; preds = %27
@@ -9145,25 +9145,21 @@ common.ret:                                       ; preds = %39, %31
   %.sroa.3.0..sroa_idx29 = getelementptr inbounds i8, ptr %3, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.3.0..sroa_idx29, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.3, i64 87, i1 false)
   %37 = invoke noundef nonnull align 8 ptr @_ZN10ockam_node5error9NodeError13from_send_err17h32b87a692d1a1c18E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a19ccc9ccaee91d88d3964280c1254c2.78)
-          to label %41 unwind label %32
+          to label %40 unwind label %32
 
-38:                                               ; preds = %34
+38:                                               ; preds = %34, %40
+  %.0 = phi ptr [ %37, %40 ], [ null, %34 ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.8)
-  br label %39
-
-39:                                               ; preds = %41, %38
-  %.0 = phi ptr [ null, %38 ], [ %37, %41 ]
   store i8 1, ptr %7, align 8
-  %40 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.0, 1
+  %39 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.0, 1
   br label %common.ret
 
-41:                                               ; preds = %36
+40:                                               ; preds = %36
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3), !noalias !1148
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.8)
-  br label %39
+  br label %38
 
-42:                                               ; preds = %25
-  %43 = landingpad { ptr, i32 }
+41:                                               ; preds = %25
+  %42 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #15
   unreachable

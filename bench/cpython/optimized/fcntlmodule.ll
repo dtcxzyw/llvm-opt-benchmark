@@ -529,25 +529,21 @@ if.end5:                                          ; preds = %if.end
   %1 = load ptr, ptr %arrayidx6, align 8
   %call7 = call i32 @PyLong_AsInt(ptr noundef %1) #7
   %cmp8 = icmp eq i32 %call7, -1
-  br i1 %cmp8, label %land.lhs.true9, label %if.end5.split
-
-if.end5.split:                                    ; preds = %if.end5
-  %2 = load i32, ptr %fd, align 4
-  %call145 = call fastcc ptr @fcntl_flock_impl(i32 noundef %2, i32 noundef %call7)
-  br label %exit
+  br i1 %cmp8, label %land.lhs.true9, label %exit.sink.split
 
 land.lhs.true9:                                   ; preds = %if.end5
   %call10 = call ptr @PyErr_Occurred() #7
   %tobool11.not = icmp eq ptr %call10, null
-  br i1 %tobool11.not, label %land.lhs.true9.split, label %exit
+  br i1 %tobool11.not, label %exit.sink.split, label %exit
 
-land.lhs.true9.split:                             ; preds = %land.lhs.true9
-  %3 = load i32, ptr %fd, align 4
-  %call146 = call fastcc ptr @fcntl_flock_impl(i32 noundef %3, i32 noundef -1)
+exit.sink.split:                                  ; preds = %land.lhs.true9, %if.end5
+  %call7.sink = phi i32 [ %call7, %if.end5 ], [ -1, %land.lhs.true9 ]
+  %2 = load i32, ptr %fd, align 4
+  %call145 = call fastcc ptr @fcntl_flock_impl(i32 noundef %2, i32 noundef %call7.sink)
   br label %exit
 
-exit:                                             ; preds = %if.end5.split, %land.lhs.true9.split, %land.lhs.true9, %if.end, %lor.lhs.false
-  %return_value.0 = phi ptr [ null, %land.lhs.true9 ], [ null, %if.end ], [ null, %lor.lhs.false ], [ %call145, %if.end5.split ], [ %call146, %land.lhs.true9.split ]
+exit:                                             ; preds = %exit.sink.split, %land.lhs.true9, %if.end, %lor.lhs.false
+  %return_value.0 = phi ptr [ null, %land.lhs.true9 ], [ null, %if.end ], [ null, %lor.lhs.false ], [ %call145, %exit.sink.split ]
   ret ptr %return_value.0
 }
 
@@ -627,36 +623,26 @@ skip_optional:                                    ; preds = %if.end24, %land.lhs
 
 if.end.i:                                         ; preds = %skip_optional
   %cmp6.i = icmp eq i32 %call7, 8
-  br i1 %cmp6.i, label %if.then7.i, label %if.else.i
-
-if.then7.i:                                       ; preds = %if.end.i
-  store i16 2, ptr %l.i, align 8
-  br label %if.end19.i
+  br i1 %cmp6.i, label %if.end19.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.i
   %and.i = and i32 %call7, 1
   %tobool8.not.i = icmp eq i32 %and.i, 0
-  br i1 %tobool8.not.i, label %if.else11.i, label %if.then9.i
-
-if.then9.i:                                       ; preds = %if.else.i
-  store i16 0, ptr %l.i, align 8
-  br label %if.end19.i
+  br i1 %tobool8.not.i, label %if.else11.i, label %if.end19.i
 
 if.else11.i:                                      ; preds = %if.else.i
   %and12.i = and i32 %call7, 2
   %tobool13.not.i = icmp eq i32 %and12.i, 0
-  br i1 %tobool13.not.i, label %if.else16.i, label %if.then14.i
-
-if.then14.i:                                      ; preds = %if.else11.i
-  store i16 1, ptr %l.i, align 8
-  br label %if.end19.i
+  br i1 %tobool13.not.i, label %if.else16.i, label %if.end19.i
 
 if.else16.i:                                      ; preds = %if.else11.i
   %7 = load ptr, ptr @PyExc_ValueError, align 8
   call void @PyErr_SetString(ptr noundef %7, ptr noundef nonnull @.str.19) #7
   br label %fcntl_lockf_impl.exit
 
-if.end19.i:                                       ; preds = %if.then14.i, %if.then9.i, %if.then7.i
+if.end19.i:                                       ; preds = %if.else11.i, %if.else.i, %if.end.i
+  %.sink.i = phi i16 [ 2, %if.end.i ], [ 0, %if.else.i ], [ 1, %if.else11.i ]
+  store i16 %.sink.i, ptr %l.i, align 8
   %l_len.i = getelementptr inbounds i8, ptr %l.i, i64 16
   %l_start.i = getelementptr inbounds i8, ptr %l.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %l_start.i, i8 0, i64 16, i1 false)

@@ -666,8 +666,6 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h7752d11
 
 247:                                              ; preds = %245, %241, %.noexc89
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !99
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18), !noalias !42
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %19), !noalias !42
   br label %264
 
 248:                                              ; preds = %263, %"_ZN4core3ptr93drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$regex_automata..meta..strategy..Strategy$GT$$GT$17h52ed17215f240891E.exit.thread.i", %253, %.body52.i, %"_ZN4core3ptr93drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$regex_automata..meta..strategy..Strategy$GT$$GT$17h52ed17215f240891E.exit.i"
@@ -715,8 +713,6 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h7752d11
 
 262:                                              ; preds = %260, %256, %.noexc90
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !115
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18), !noalias !42
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %19), !noalias !42
   br label %264
 
 "_ZN4core3ptr93drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$regex_automata..meta..strategy..Strategy$GT$$GT$17h52ed17215f240891E.exit.thread.i": ; preds = %253, %.thread85.i, %.thread75.i
@@ -731,6 +727,8 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h7752d11
           to label %.body unwind label %248, !noalias !67
 
 264:                                              ; preds = %262, %247
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18), !noalias !42
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %19), !noalias !42
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %.sroa.437.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !122)
   %265 = load ptr, ptr %.sroa.22.0..sroa_idx, align 8, !alias.scope !125, !nonnull !23, !noundef !23
@@ -784,12 +782,12 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h7752d11
 
 281:                                              ; preds = %275, %271, %.noexc91
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !128
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)
-  call void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$regex_syntax..ast..Ast$GT$$GT$17h2ef07bf85d3fbbddE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %30)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30)
   br label %282
 
 282:                                              ; preds = %370, %281
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)
+  call void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$regex_syntax..ast..Ast$GT$$GT$17h2ef07bf85d3fbbddE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %30)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30)
   ret void
 
 283:                                              ; preds = %285
@@ -1123,9 +1121,6 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h7752d11
 
 370:                                              ; preds = %331, %327, %.noexc109
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !151
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)
-  call void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$regex_syntax..ast..Ast$GT$$GT$17h2ef07bf85d3fbbddE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %30)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30)
   br label %282
 
 371:                                              ; preds = %.body92

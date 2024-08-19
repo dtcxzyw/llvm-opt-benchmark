@@ -13758,14 +13758,10 @@ mi_heap_visit_areas_page.exit.i:                  ; preds = %if.else.i.i.i.i.i, 
   store i64 %retval.0.i16.i.i, ptr %block_size.i.i, align 8
   store i64 %retval.0.i16.i.i, ptr %full_block_size.i.i, align 8
   %call.i = call zeroext i1 %visitor(ptr noundef nonnull %heap, ptr noundef nonnull %xarea.i.i, ptr noundef null, i64 noundef %retval.0.i16.i.i, ptr noundef %arg) #44
-  br i1 %call.i, label %if.end.i, label %mi_heap_area_visitor.exit.thread
-
-mi_heap_area_visitor.exit.thread:                 ; preds = %mi_heap_visit_areas_page.exit.i
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %xarea.i.i)
-  br label %mi_heap_visit_areas.exit
+  br i1 %call.i, label %if.end.i, label %mi_heap_visit_areas.exit.sink.split
 
 if.end.i:                                         ; preds = %mi_heap_visit_areas_page.exit.i
-  br i1 %visit_blocks, label %if.end.i.i, label %mi_heap_area_visitor.exit
+  br i1 %visit_blocks, label %if.end.i.i, label %while.cond.i.i.backedge.sink.split
 
 if.end.i.i:                                       ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %free_map.i.i)
@@ -14013,8 +14009,7 @@ if.then42.i.i:                                    ; preds = %if.else.i.i
 
 mi_heap_area_visit_blocks.exit.i.thread:          ; preds = %if.then42.i.i
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %free_map.i.i)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %xarea.i.i)
-  br label %mi_heap_visit_areas.exit
+  br label %mi_heap_visit_areas.exit.sink.split
 
 if.then42.for.inc51_crit_edge.i.i:                ; preds = %if.then42.i.i
   %.pre.i.i23 = load i16, ptr %capacity.i.i18, align 2
@@ -14030,14 +14025,13 @@ for.inc51.i.i:                                    ; preds = %if.then42.for.inc51
 
 mi_heap_area_visit_blocks.exit.i:                 ; preds = %for.inc51.i.i, %for.cond22.preheader.i.i, %_mi_page_free_collect.exit.i.i, %if.end.i.i
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %free_map.i.i)
+  br label %while.cond.i.i.backedge.sink.split
+
+while.cond.i.i.backedge.sink.split:               ; preds = %if.end.i, %mi_heap_area_visit_blocks.exit.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %xarea.i.i)
   br label %while.cond.i.i.backedge
 
-mi_heap_area_visitor.exit:                        ; preds = %if.end.i
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %xarea.i.i)
-  br label %while.cond.i.i.backedge
-
-while.cond.i.i.backedge:                          ; preds = %mi_heap_area_visitor.exit, %if.then14.i.i, %mi_heap_area_visit_blocks.exit.i
+while.cond.i.i.backedge:                          ; preds = %while.cond.i.i.backedge.sink.split, %if.then14.i.i
   %cmp3.not.i.i = icmp eq ptr %2, null
   br i1 %cmp3.not.i.i, label %for.inc.i.i, label %while.body.i.i, !llvm.loop !66
 
@@ -14046,8 +14040,12 @@ for.inc.i.i:                                      ; preds = %while.cond.i.i.back
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 75
   br i1 %exitcond.not.i.i, label %mi_heap_visit_areas.exit, label %for.body.i.i, !llvm.loop !67
 
-mi_heap_visit_areas.exit:                         ; preds = %for.inc.i.i, %if.then14.i.i, %mi_heap_area_visit_blocks.exit.i.thread, %mi_heap_area_visitor.exit.thread, %entry, %lor.lhs.false.i.i
-  %retval.0.i.i = phi i1 [ false, %lor.lhs.false.i.i ], [ false, %entry ], [ false, %mi_heap_area_visitor.exit.thread ], [ false, %mi_heap_area_visit_blocks.exit.i.thread ], [ false, %if.then14.i.i ], [ true, %for.inc.i.i ]
+mi_heap_visit_areas.exit.sink.split:              ; preds = %mi_heap_visit_areas_page.exit.i, %mi_heap_area_visit_blocks.exit.i.thread
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %xarea.i.i)
+  br label %mi_heap_visit_areas.exit
+
+mi_heap_visit_areas.exit:                         ; preds = %for.inc.i.i, %if.then14.i.i, %mi_heap_visit_areas.exit.sink.split, %entry, %lor.lhs.false.i.i
+  %retval.0.i.i = phi i1 [ false, %lor.lhs.false.i.i ], [ false, %entry ], [ false, %mi_heap_visit_areas.exit.sink.split ], [ false, %if.then14.i.i ], [ true, %for.inc.i.i ]
   ret i1 %retval.0.i.i
 }
 
@@ -15641,26 +15639,17 @@ if.then50.i:                                      ; preds = %if.else39.i, %if.el
   %65 = load ptr, ptr %end.i, align 8
   %66 = load i8, ptr %65, align 1
   switch i8 %66, label %if.else68.i [
-    i8 75, label %if.then54.i
+    i8 75, label %if.end71.ithread-pre-split
     i8 77, label %if.then59.i
     i8 71, label %if.then65.i
   ]
 
-if.then54.i:                                      ; preds = %if.then50.i
-  %incdec.ptr.i = getelementptr i8, ptr %65, i64 1
-  store ptr %incdec.ptr.i, ptr %end.i, align 8
-  br label %if.end71.ithread-pre-split
-
 if.then59.i:                                      ; preds = %if.then50.i
   %mul.i = shl i64 %call43.i, 10
-  %incdec.ptr60.i = getelementptr i8, ptr %65, i64 1
-  store ptr %incdec.ptr60.i, ptr %end.i, align 8
   br label %if.end71.ithread-pre-split
 
 if.then65.i:                                      ; preds = %if.then50.i
   %mul66.i = shl i64 %call43.i, 20
-  %incdec.ptr67.i = getelementptr i8, ptr %65, i64 1
-  store ptr %incdec.ptr67.i, ptr %end.i, align 8
   br label %if.end71.ithread-pre-split
 
 if.else68.i:                                      ; preds = %if.then50.i
@@ -15668,15 +15657,16 @@ if.else68.i:                                      ; preds = %if.then50.i
   %div30.i = lshr i64 %sub.i, 10
   br label %if.end71.i
 
-if.end71.ithread-pre-split:                       ; preds = %if.then54.i, %if.then59.i, %if.then65.i
-  %.ph = phi ptr [ %incdec.ptr67.i, %if.then65.i ], [ %incdec.ptr60.i, %if.then59.i ], [ %incdec.ptr.i, %if.then54.i ]
-  %value41.1.i.ph = phi i64 [ %mul66.i, %if.then65.i ], [ %mul.i, %if.then59.i ], [ %call43.i, %if.then54.i ]
-  %.pr = load i8, ptr %.ph, align 1
+if.end71.ithread-pre-split:                       ; preds = %if.then50.i, %if.then59.i, %if.then65.i
+  %value41.1.i.ph = phi i64 [ %mul66.i, %if.then65.i ], [ %mul.i, %if.then59.i ], [ %call43.i, %if.then50.i ]
+  %incdec.ptr.i = getelementptr i8, ptr %65, i64 1
+  store ptr %incdec.ptr.i, ptr %end.i, align 8
+  %.pr = load i8, ptr %incdec.ptr.i, align 1
   br label %if.end71.i
 
 if.end71.i:                                       ; preds = %if.end71.ithread-pre-split, %if.else68.i
   %67 = phi i8 [ %.pr, %if.end71.ithread-pre-split ], [ %66, %if.else68.i ]
-  %68 = phi ptr [ %.ph, %if.end71.ithread-pre-split ], [ %65, %if.else68.i ]
+  %68 = phi ptr [ %incdec.ptr.i, %if.end71.ithread-pre-split ], [ %65, %if.else68.i ]
   %value41.1.i = phi i64 [ %value41.1.i.ph, %if.end71.ithread-pre-split ], [ %div30.i, %if.else68.i ]
   switch i8 %67, label %if.end90.i [
     i8 73, label %land.lhs.true76.i
@@ -30913,12 +30903,7 @@ land.end29.i:                                     ; preds = %land.rhs26.i, %if.e
   %17 = shl nuw i64 1, %rem.i.i.i
   %cmp4.i.i = icmp eq i64 %div15.i.i.i, 20480
   %cmp.i.i32 = or i1 %cmp.i.i31.i, %cmp4.i.i
-  br i1 %cmp.i.i32, label %mi_segment_os_alloc.exit.thread55, label %if.end.i32.i
-
-mi_segment_os_alloc.exit.thread55:                ; preds = %land.end29.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %memid.i)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %commit_mask.i)
-  br label %if.end
+  br i1 %cmp.i.i32, label %if.end, label %if.end.i32.i
 
 if.end.i32.i:                                     ; preds = %land.end29.i
   %arrayidx.i33.i = getelementptr [20481 x i64], ptr @mi_segment_map, i64 0, i64 %div15.i.i.i
@@ -30931,19 +30916,16 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   %19 = cmpxchg weak ptr %arrayidx.i33.i, i64 %mask.0.i.i, i64 %or.i.i release monotonic, align 8
   %20 = extractvalue { i64, i1 } %19, 1
   %21 = extractvalue { i64, i1 } %19, 0
-  br i1 %20, label %mi_segment_os_alloc.exit, label %do.body.i.i, !llvm.loop !120
+  br i1 %20, label %if.end, label %do.body.i.i, !llvm.loop !120
 
 mi_segment_os_alloc.exit.thread:                  ; preds = %if.then17.i, %if.end.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %memid.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %commit_mask.i)
   br label %return
 
-mi_segment_os_alloc.exit:                         ; preds = %do.body.i.i
+if.end:                                           ; preds = %do.body.i.i, %land.end29.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %memid.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %commit_mask.i)
-  br label %if.end
-
-if.end:                                           ; preds = %mi_segment_os_alloc.exit, %mi_segment_os_alloc.exit.thread55
   %initially_zero = getelementptr inbounds i8, ptr %call7.i, i64 18
   %22 = load i8, ptr %initially_zero, align 2
   %tobool15 = trunc i8 %22 to i1

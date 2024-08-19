@@ -1846,7 +1846,7 @@ return:                                           ; preds = %if.end69, %if.then7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @do_ioctl_SIOCGSTAMP(ptr nocapture readnone %ie, ptr nocapture readnone %buf_temp, i32 noundef %fd, i32 noundef %cmd, i64 noundef %arg) #2 {
+define internal i64 @do_ioctl_SIOCGSTAMP(ptr nocapture readnone %ie, ptr nocapture readnone %buf_temp, i32 noundef %fd, i32 %cmd, i64 noundef %arg) #2 {
 entry:
   %tv = alloca %struct.timeval, align 8
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
@@ -1876,12 +1876,12 @@ if.end:                                           ; preds = %get_errno.exit
   br i1 %tobool.not.i, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end
-  %.sink = load i64, ptr %tv, align 8
-  store i64 %.sink, ptr %call.i6, align 1
+  %4 = load i64, ptr %tv, align 8
+  store i64 %4, ptr %call.i6, align 1
   %tv_usec.i = getelementptr inbounds i8, ptr %call.i6, i64 8
   %tv_usec3.i = getelementptr inbounds i8, ptr %tv, i64 8
-  %4 = load i64, ptr %tv_usec3.i, align 8
-  store i64 %4, ptr %tv_usec.i, align 1
+  %5 = load i64, ptr %tv_usec3.i, align 8
+  store i64 %5, ptr %tv_usec.i, align 1
   br label %return
 
 return:                                           ; preds = %if.end, %return.sink.split, %get_errno.exit
@@ -1890,7 +1890,7 @@ return:                                           ; preds = %if.end, %return.sin
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @do_ioctl_SIOCGSTAMPNS(ptr nocapture readnone %ie, ptr nocapture readnone %buf_temp, i32 noundef %fd, i32 noundef %cmd, i64 noundef %arg) #2 {
+define internal i64 @do_ioctl_SIOCGSTAMPNS(ptr nocapture readnone %ie, ptr nocapture readnone %buf_temp, i32 noundef %fd, i32 %cmd, i64 noundef %arg) #2 {
 entry:
   %ts = alloca %struct.timespec, align 8
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
@@ -1920,12 +1920,12 @@ if.end:                                           ; preds = %get_errno.exit
   br i1 %tobool.not.i, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end
-  %.sink = load i64, ptr %ts, align 8
-  store i64 %.sink, ptr %call.i6, align 1
+  %4 = load i64, ptr %ts, align 8
+  store i64 %4, ptr %call.i6, align 1
   %tv_nsec.i = getelementptr inbounds i8, ptr %call.i6, i64 8
   %tv_nsec3.i = getelementptr inbounds i8, ptr %ts, i64 8
-  %4 = load i64, ptr %tv_nsec3.i, align 8
-  store i64 %4, ptr %tv_nsec.i, align 1
+  %5 = load i64, ptr %tv_nsec3.i, align 8
+  store i64 %5, ptr %tv_nsec.i, align 1
   br label %return
 
 return:                                           ; preds = %if.end, %return.sink.split, %get_errno.exit
@@ -14333,8 +14333,7 @@ if.then16:                                        ; preds = %sw.bb12
 
 if.end27:                                         ; preds = %if.then16
   %call20.val = load i32, ptr %call20, align 1
-  store i32 %call20.val, ptr %val, align 4
-  br label %if.end54
+  br label %if.end54.sink.split
 
 if.else32:                                        ; preds = %sw.bb12
   %cmp33.not = icmp eq i32 %optlen, 0
@@ -14348,10 +14347,14 @@ if.then35:                                        ; preds = %if.else32
 if.end48:                                         ; preds = %if.then35
   %call39.val = load i8, ptr %call39, align 1
   %conv.i162 = zext i8 %call39.val to i32
-  store i32 %conv.i162, ptr %val, align 4
+  br label %if.end54.sink.split
+
+if.end54.sink.split:                              ; preds = %if.end27, %if.end48
+  %conv.i162.sink = phi i32 [ %conv.i162, %if.end48 ], [ %call20.val, %if.end27 ]
+  store i32 %conv.i162.sink, ptr %val, align 4
   br label %if.end54
 
-if.end54:                                         ; preds = %if.end48, %if.end27, %if.else32
+if.end54:                                         ; preds = %if.end54.sink.split, %if.else32
   %call55 = call i32 @setsockopt(i32 noundef %sockfd, i32 noundef 0, i32 noundef %optname, ptr noundef nonnull %val, i32 noundef 4) #27
   %conv56 = sext i32 %call55 to i64
   %cmp.i163 = icmp eq i32 %call55, -1

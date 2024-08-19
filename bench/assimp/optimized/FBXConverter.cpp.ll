@@ -7005,7 +7005,7 @@ if.end301:                                        ; preds = %if.then297, %if.end
           to label %_ZN6Assimp3FBX12FBXConverter13PotentialNodeC2Ev.exit unwind label %lpad.i590
 
 common.resume:                                    ; preds = %ehcleanup, %ehcleanup22, %ehcleanup41, %ehcleanup67, %ehcleanup87, %ehcleanup107, %ehcleanup133, %ehcleanup153, %ehcleanup175, %ehcleanup194, %ehcleanup232, %ehcleanup255, %lpad302, %lpad330, %lpad.i615, %lpad.i590
-  %common.resume.op = phi { ptr, i32 } [ %116, %lpad.i590 ], [ %131, %lpad.i615 ], [ %122, %lpad302 ], [ %198, %lpad330 ], [ %.pn102, %ehcleanup255 ], [ %.pn100, %ehcleanup232 ], [ %.pn98, %ehcleanup194 ], [ %.pn96, %ehcleanup175 ], [ %.pn94, %ehcleanup153 ], [ %.pn92, %ehcleanup133 ], [ %.pn90, %ehcleanup107 ], [ %.pn88, %ehcleanup87 ], [ %.pn86, %ehcleanup67 ], [ %.pn84, %ehcleanup41 ], [ %.pn82, %ehcleanup22 ], [ %.pn, %ehcleanup ]
+  %common.resume.op = phi { ptr, i32 } [ %116, %lpad.i590 ], [ %130, %lpad.i615 ], [ %121, %lpad302 ], [ %197, %lpad330 ], [ %.pn102, %ehcleanup255 ], [ %.pn100, %ehcleanup232 ], [ %.pn98, %ehcleanup194 ], [ %.pn96, %ehcleanup175 ], [ %.pn94, %ehcleanup153 ], [ %.pn92, %ehcleanup133 ], [ %.pn90, %ehcleanup107 ], [ %.pn88, %ehcleanup87 ], [ %.pn86, %ehcleanup67 ], [ %.pn84, %ehcleanup41 ], [ %.pn82, %ehcleanup22 ], [ %.pn, %ehcleanup ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i590:                                        ; preds = %if.end301
@@ -7051,56 +7051,48 @@ if.then317:                                       ; preds = %_ZN8aiString3SetERK
   %119 = load ptr, ptr %_M_finish.i, align 8
   %120 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %119, %120
-  br i1 %cmp.not.i, label %if.else.i610.invoke, label %if.then.i597
-
-if.then.i597:                                     ; preds = %if.then317
-  %121 = load i64, ptr %nd, align 8
-  store i64 %121, ptr %119, align 8
-  br label %if.end323.sink.split
+  br i1 %cmp.not.i, label %if.else.i610.invoke, label %if.end323.sink.split
 
 lpad302:                                          ; preds = %if.else.i610.invoke, %_ZN6Assimp3FBX12FBXConverter13PotentialNodeC2Ev.exit
-  %122 = landingpad { ptr, i32 }
+  %121 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6Assimp3FBX12FBXConverter13PotentialNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %nd) #25
   br label %common.resume
 
 if.else320:                                       ; preds = %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %123 = load ptr, ptr %_M_finish.i601, align 8
-  %124 = load ptr, ptr %_M_end_of_storage.i602, align 8
-  %cmp.not.i603 = icmp eq ptr %123, %124
-  br i1 %cmp.not.i603, label %if.else.i610.invoke, label %if.then.i604
-
-if.then.i604:                                     ; preds = %if.else320
-  %125 = load i64, ptr %nd, align 8
-  store i64 %125, ptr %123, align 8
-  br label %if.end323.sink.split
+  %122 = load ptr, ptr %_M_finish.i601, align 8
+  %123 = load ptr, ptr %_M_end_of_storage.i602, align 8
+  %cmp.not.i603 = icmp eq ptr %122, %123
+  br i1 %cmp.not.i603, label %if.else.i610.invoke, label %if.end323.sink.split
 
 if.else.i610.invoke:                              ; preds = %if.then317, %if.else320
-  %126 = phi ptr [ %output_nodes, %if.else320 ], [ %post_output_nodes, %if.then317 ]
-  %127 = phi ptr [ %123, %if.else320 ], [ %119, %if.then317 ]
-  invoke void @_ZNSt6vectorIN6Assimp3FBX12FBXConverter13PotentialNodeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %126, ptr %127, ptr noundef nonnull align 8 dereferenceable(16) %nd)
+  %124 = phi ptr [ %output_nodes, %if.else320 ], [ %post_output_nodes, %if.then317 ]
+  %125 = phi ptr [ %122, %if.else320 ], [ %119, %if.then317 ]
+  invoke void @_ZNSt6vectorIN6Assimp3FBX12FBXConverter13PotentialNodeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %124, ptr %125, ptr noundef nonnull align 8 dereferenceable(16) %nd)
           to label %if.end323 unwind label %lpad302
 
-if.end323.sink.split:                             ; preds = %if.then.i597, %if.then.i604
-  %.sink = phi ptr [ %123, %if.then.i604 ], [ %119, %if.then.i597 ]
-  %_M_finish.i601.sink817 = phi ptr [ %_M_finish.i601, %if.then.i604 ], [ %_M_finish.i, %if.then.i597 ]
+if.end323.sink.split:                             ; preds = %if.else320, %if.then317
+  %.sink819 = phi ptr [ %119, %if.then317 ], [ %122, %if.else320 ]
+  %_M_finish.i601.sink817 = phi ptr [ %_M_finish.i, %if.then317 ], [ %_M_finish.i601, %if.else320 ]
+  %126 = load i64, ptr %nd, align 8
+  store i64 %126, ptr %.sink819, align 8
   store ptr null, ptr %nd, align 8
-  %mNode.i.i.i.i605 = getelementptr inbounds i8, ptr %.sink, i64 8
-  %128 = load ptr, ptr %mNode.i, align 8
-  store ptr %128, ptr %mNode.i.i.i.i605, align 8
-  %129 = load ptr, ptr %_M_finish.i601.sink817, align 8
-  %incdec.ptr.i607 = getelementptr inbounds i8, ptr %129, i64 16
+  %mNode.i.i.i.i605 = getelementptr inbounds i8, ptr %.sink819, i64 8
+  %127 = load ptr, ptr %mNode.i, align 8
+  store ptr %127, ptr %mNode.i.i.i.i605, align 8
+  %128 = load ptr, ptr %_M_finish.i601.sink817, align 8
+  %incdec.ptr.i607 = getelementptr inbounds i8, ptr %128, i64 16
   store ptr %incdec.ptr.i607, ptr %_M_finish.i601.sink817, align 8
   br label %if.end323
 
 if.end323:                                        ; preds = %if.end323.sink.split, %if.else.i610.invoke
-  %130 = load ptr, ptr %nd, align 8
-  %cmp.not.i.i = icmp eq ptr %130, null
+  %129 = load ptr, ptr %nd, align 8
+  %cmp.not.i.i = icmp eq ptr %129, null
   br i1 %cmp.not.i.i, label %_ZN6Assimp3FBX12FBXConverter13PotentialNodeD2Ev.exit, label %_ZNKSt14default_deleteI6aiNodeEclEPS0_.exit.i.i
 
 _ZNKSt14default_deleteI6aiNodeEclEPS0_.exit.i.i:  ; preds = %if.end323
-  call void @_ZN6aiNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(1144) %130) #25
-  call void @_ZdlPv(ptr noundef nonnull %130) #24
+  call void @_ZN6aiNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(1144) %129) #25
+  call void @_ZdlPv(ptr noundef nonnull %129) #24
   br label %_ZN6Assimp3FBX12FBXConverter13PotentialNodeD2Ev.exit
 
 _ZN6Assimp3FBX12FBXConverter13PotentialNodeD2Ev.exit: ; preds = %if.end323, %_ZNKSt14default_deleteI6aiNodeEclEPS0_.exit.i.i
@@ -7119,7 +7111,7 @@ if.end328:                                        ; preds = %land.lhs.true272, %
           to label %_ZN6Assimp3FBX12FBXConverter13PotentialNodeC2Ev.exit617 unwind label %lpad.i615
 
 lpad.i615:                                        ; preds = %if.end328
-  %131 = landingpad { ptr, i32 }
+  %130 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call.i614) #24
   br label %common.resume
@@ -7138,8 +7130,8 @@ if.end.i621:                                      ; preds = %_ZN6Assimp3FBX12FBX
   store i32 %conv.i623, ptr %call.i614, align 4
   %data.i624 = getelementptr inbounds i8, ptr %call.i614, i64 4
   %call3.i625 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #25
-  %132 = load i32, ptr %call.i614, align 4
-  %conv5.i626 = zext i32 %132 to i64
+  %131 = load i32, ptr %call.i614, align 4
+  %conv5.i626 = zext i32 %131 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i624, ptr align 1 %call3.i625, i64 %conv5.i626, i1 false)
   %arrayidx.i627 = getelementptr inbounds [1024 x i8], ptr %data.i624, i64 0, i64 %conv5.i626
   store i8 0, ptr %arrayidx.i627, align 1
@@ -7182,165 +7174,165 @@ _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit628:
 
 invoke.cont344:                                   ; preds = %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit628, %invoke.cont344
   %indvars.iv = phi i64 [ 3, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit628 ], [ %indvars.iv.next, %invoke.cont344 ]
-  %133 = phi float [ %mTransformation342.promoted, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit628 ], [ %140, %invoke.cont344 ]
-  %ref.tmp339.sroa.4.0.copyload647756785 = phi float [ %ref.tmp339.sroa.4.0.mTransformation342.sroa_idx.promoted, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit628 ], [ %147, %invoke.cont344 ]
-  %ref.tmp339.sroa.6.0.copyload648757784 = phi float [ %ref.tmp339.sroa.6.0.mTransformation342.sroa_idx.promoted, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit628 ], [ %154, %invoke.cont344 ]
-  %ref.tmp339.sroa.8.0.copyload649758783 = phi float [ %ref.tmp339.sroa.8.0.mTransformation342.sroa_idx.promoted, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit628 ], [ %161, %invoke.cont344 ]
-  %ref.tmp339.sroa.10.0.copyload650759782 = phi float [ %ref.tmp339.sroa.10.0.mTransformation342.sroa_idx.promoted, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit628 ], [ %164, %invoke.cont344 ]
-  %ref.tmp339.sroa.12.0.copyload651760781 = phi float [ %ref.tmp339.sroa.12.0.mTransformation342.sroa_idx.promoted, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit628 ], [ %167, %invoke.cont344 ]
-  %ref.tmp339.sroa.14.0.copyload652761780 = phi float [ %ref.tmp339.sroa.14.0.mTransformation342.sroa_idx.promoted, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit628 ], [ %170, %invoke.cont344 ]
-  %ref.tmp339.sroa.16.0.copyload653762779 = phi float [ %ref.tmp339.sroa.16.0.mTransformation342.sroa_idx.promoted, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit628 ], [ %173, %invoke.cont344 ]
-  %ref.tmp339.sroa.18.0.copyload654763778 = phi float [ %ref.tmp339.sroa.18.0.mTransformation342.sroa_idx.promoted, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit628 ], [ %176, %invoke.cont344 ]
-  %ref.tmp339.sroa.20.0.copyload655764777 = phi float [ %ref.tmp339.sroa.20.0.mTransformation342.sroa_idx.promoted, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit628 ], [ %179, %invoke.cont344 ]
-  %ref.tmp339.sroa.22.0.copyload656765776 = phi float [ %ref.tmp339.sroa.22.0.mTransformation342.sroa_idx.promoted, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit628 ], [ %182, %invoke.cont344 ]
-  %ref.tmp339.sroa.24.0.copyload657766775 = phi float [ %ref.tmp339.sroa.24.0.mTransformation342.sroa_idx.promoted, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit628 ], [ %185, %invoke.cont344 ]
-  %ref.tmp339.sroa.26.0.copyload658767774 = phi float [ %ref.tmp339.sroa.26.0.mTransformation342.sroa_idx.promoted, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit628 ], [ %188, %invoke.cont344 ]
-  %ref.tmp339.sroa.28.0.copyload659768773 = phi float [ %ref.tmp339.sroa.28.0.mTransformation342.sroa_idx.promoted, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit628 ], [ %191, %invoke.cont344 ]
-  %ref.tmp339.sroa.30.0.copyload660769772 = phi float [ %ref.tmp339.sroa.30.0.mTransformation342.sroa_idx.promoted, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit628 ], [ %194, %invoke.cont344 ]
-  %ref.tmp339.sroa.32.0.copyload661770771 = phi float [ %ref.tmp339.sroa.32.0.mTransformation342.sroa_idx.promoted, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit628 ], [ %197, %invoke.cont344 ]
+  %132 = phi float [ %mTransformation342.promoted, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit628 ], [ %139, %invoke.cont344 ]
+  %ref.tmp339.sroa.4.0.copyload647756785 = phi float [ %ref.tmp339.sroa.4.0.mTransformation342.sroa_idx.promoted, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit628 ], [ %146, %invoke.cont344 ]
+  %ref.tmp339.sroa.6.0.copyload648757784 = phi float [ %ref.tmp339.sroa.6.0.mTransformation342.sroa_idx.promoted, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit628 ], [ %153, %invoke.cont344 ]
+  %ref.tmp339.sroa.8.0.copyload649758783 = phi float [ %ref.tmp339.sroa.8.0.mTransformation342.sroa_idx.promoted, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit628 ], [ %160, %invoke.cont344 ]
+  %ref.tmp339.sroa.10.0.copyload650759782 = phi float [ %ref.tmp339.sroa.10.0.mTransformation342.sroa_idx.promoted, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit628 ], [ %163, %invoke.cont344 ]
+  %ref.tmp339.sroa.12.0.copyload651760781 = phi float [ %ref.tmp339.sroa.12.0.mTransformation342.sroa_idx.promoted, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit628 ], [ %166, %invoke.cont344 ]
+  %ref.tmp339.sroa.14.0.copyload652761780 = phi float [ %ref.tmp339.sroa.14.0.mTransformation342.sroa_idx.promoted, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit628 ], [ %169, %invoke.cont344 ]
+  %ref.tmp339.sroa.16.0.copyload653762779 = phi float [ %ref.tmp339.sroa.16.0.mTransformation342.sroa_idx.promoted, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit628 ], [ %172, %invoke.cont344 ]
+  %ref.tmp339.sroa.18.0.copyload654763778 = phi float [ %ref.tmp339.sroa.18.0.mTransformation342.sroa_idx.promoted, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit628 ], [ %175, %invoke.cont344 ]
+  %ref.tmp339.sroa.20.0.copyload655764777 = phi float [ %ref.tmp339.sroa.20.0.mTransformation342.sroa_idx.promoted, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit628 ], [ %178, %invoke.cont344 ]
+  %ref.tmp339.sroa.22.0.copyload656765776 = phi float [ %ref.tmp339.sroa.22.0.mTransformation342.sroa_idx.promoted, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit628 ], [ %181, %invoke.cont344 ]
+  %ref.tmp339.sroa.24.0.copyload657766775 = phi float [ %ref.tmp339.sroa.24.0.mTransformation342.sroa_idx.promoted, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit628 ], [ %184, %invoke.cont344 ]
+  %ref.tmp339.sroa.26.0.copyload658767774 = phi float [ %ref.tmp339.sroa.26.0.mTransformation342.sroa_idx.promoted, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit628 ], [ %187, %invoke.cont344 ]
+  %ref.tmp339.sroa.28.0.copyload659768773 = phi float [ %ref.tmp339.sroa.28.0.mTransformation342.sroa_idx.promoted, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit628 ], [ %190, %invoke.cont344 ]
+  %ref.tmp339.sroa.30.0.copyload660769772 = phi float [ %ref.tmp339.sroa.30.0.mTransformation342.sroa_idx.promoted, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit628 ], [ %193, %invoke.cont344 ]
+  %ref.tmp339.sroa.32.0.copyload661770771 = phi float [ %ref.tmp339.sroa.32.0.mTransformation342.sroa_idx.promoted, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit628 ], [ %196, %invoke.cont344 ]
   %arrayidx343 = getelementptr inbounds [17 x %class.aiMatrix4x4t], ptr %chain, i64 0, i64 %indvars.iv
-  %134 = load float, ptr %arrayidx343, align 16
+  %133 = load float, ptr %arrayidx343, align 16
   %b1.i = getelementptr inbounds i8, ptr %arrayidx343, i64 16
-  %135 = load float, ptr %b1.i, align 16
-  %mul3.i = fmul float %ref.tmp339.sroa.4.0.copyload647756785, %135
-  %136 = call float @llvm.fmuladd.f32(float %134, float %133, float %mul3.i)
+  %134 = load float, ptr %b1.i, align 16
+  %mul3.i = fmul float %ref.tmp339.sroa.4.0.copyload647756785, %134
+  %135 = call float @llvm.fmuladd.f32(float %133, float %132, float %mul3.i)
   %c1.i = getelementptr inbounds i8, ptr %arrayidx343, i64 32
-  %137 = load float, ptr %c1.i, align 16
-  %138 = call float @llvm.fmuladd.f32(float %137, float %ref.tmp339.sroa.6.0.copyload648757784, float %136)
+  %136 = load float, ptr %c1.i, align 16
+  %137 = call float @llvm.fmuladd.f32(float %136, float %ref.tmp339.sroa.6.0.copyload648757784, float %135)
   %d1.i = getelementptr inbounds i8, ptr %arrayidx343, i64 48
-  %139 = load float, ptr %d1.i, align 16
-  %140 = call float @llvm.fmuladd.f32(float %139, float %ref.tmp339.sroa.8.0.copyload649758783, float %138)
+  %138 = load float, ptr %d1.i, align 16
+  %139 = call float @llvm.fmuladd.f32(float %138, float %ref.tmp339.sroa.8.0.copyload649758783, float %137)
   %a24.i = getelementptr inbounds i8, ptr %arrayidx343, i64 4
-  %141 = load float, ptr %a24.i, align 4
+  %140 = load float, ptr %a24.i, align 4
   %b2.i640 = getelementptr inbounds i8, ptr %arrayidx343, i64 20
-  %142 = load float, ptr %b2.i640, align 4
-  %mul7.i = fmul float %ref.tmp339.sroa.4.0.copyload647756785, %142
-  %143 = call float @llvm.fmuladd.f32(float %141, float %133, float %mul7.i)
+  %141 = load float, ptr %b2.i640, align 4
+  %mul7.i = fmul float %ref.tmp339.sroa.4.0.copyload647756785, %141
+  %142 = call float @llvm.fmuladd.f32(float %140, float %132, float %mul7.i)
   %c2.i = getelementptr inbounds i8, ptr %arrayidx343, i64 36
-  %144 = load float, ptr %c2.i, align 4
-  %145 = call float @llvm.fmuladd.f32(float %144, float %ref.tmp339.sroa.6.0.copyload648757784, float %143)
+  %143 = load float, ptr %c2.i, align 4
+  %144 = call float @llvm.fmuladd.f32(float %143, float %ref.tmp339.sroa.6.0.copyload648757784, float %142)
   %d2.i = getelementptr inbounds i8, ptr %arrayidx343, i64 52
-  %146 = load float, ptr %d2.i, align 4
-  %147 = call float @llvm.fmuladd.f32(float %146, float %ref.tmp339.sroa.8.0.copyload649758783, float %145)
+  %145 = load float, ptr %d2.i, align 4
+  %146 = call float @llvm.fmuladd.f32(float %145, float %ref.tmp339.sroa.8.0.copyload649758783, float %144)
   %a310.i = getelementptr inbounds i8, ptr %arrayidx343, i64 8
-  %148 = load float, ptr %a310.i, align 8
+  %147 = load float, ptr %a310.i, align 8
   %b3.i641 = getelementptr inbounds i8, ptr %arrayidx343, i64 24
-  %149 = load float, ptr %b3.i641, align 8
-  %mul13.i = fmul float %ref.tmp339.sroa.4.0.copyload647756785, %149
-  %150 = call float @llvm.fmuladd.f32(float %148, float %133, float %mul13.i)
+  %148 = load float, ptr %b3.i641, align 8
+  %mul13.i = fmul float %ref.tmp339.sroa.4.0.copyload647756785, %148
+  %149 = call float @llvm.fmuladd.f32(float %147, float %132, float %mul13.i)
   %c3.i642 = getelementptr inbounds i8, ptr %arrayidx343, i64 40
-  %151 = load float, ptr %c3.i642, align 8
-  %152 = call float @llvm.fmuladd.f32(float %151, float %ref.tmp339.sroa.6.0.copyload648757784, float %150)
+  %150 = load float, ptr %c3.i642, align 8
+  %151 = call float @llvm.fmuladd.f32(float %150, float %ref.tmp339.sroa.6.0.copyload648757784, float %149)
   %d3.i = getelementptr inbounds i8, ptr %arrayidx343, i64 56
-  %153 = load float, ptr %d3.i, align 8
-  %154 = call float @llvm.fmuladd.f32(float %153, float %ref.tmp339.sroa.8.0.copyload649758783, float %152)
+  %152 = load float, ptr %d3.i, align 8
+  %153 = call float @llvm.fmuladd.f32(float %152, float %ref.tmp339.sroa.8.0.copyload649758783, float %151)
   %a416.i = getelementptr inbounds i8, ptr %arrayidx343, i64 12
-  %155 = load float, ptr %a416.i, align 4
+  %154 = load float, ptr %a416.i, align 4
   %b4.i643 = getelementptr inbounds i8, ptr %arrayidx343, i64 28
-  %156 = load float, ptr %b4.i643, align 4
-  %mul19.i = fmul float %ref.tmp339.sroa.4.0.copyload647756785, %156
-  %157 = call float @llvm.fmuladd.f32(float %155, float %133, float %mul19.i)
+  %155 = load float, ptr %b4.i643, align 4
+  %mul19.i = fmul float %ref.tmp339.sroa.4.0.copyload647756785, %155
+  %156 = call float @llvm.fmuladd.f32(float %154, float %132, float %mul19.i)
   %c4.i644 = getelementptr inbounds i8, ptr %arrayidx343, i64 44
-  %158 = load float, ptr %c4.i644, align 4
-  %159 = call float @llvm.fmuladd.f32(float %158, float %ref.tmp339.sroa.6.0.copyload648757784, float %157)
+  %157 = load float, ptr %c4.i644, align 4
+  %158 = call float @llvm.fmuladd.f32(float %157, float %ref.tmp339.sroa.6.0.copyload648757784, float %156)
   %d4.i645 = getelementptr inbounds i8, ptr %arrayidx343, i64 60
-  %160 = load float, ptr %d4.i645, align 4
-  %161 = call float @llvm.fmuladd.f32(float %160, float %ref.tmp339.sroa.8.0.copyload649758783, float %159)
-  %mul26.i = fmul float %ref.tmp339.sroa.12.0.copyload651760781, %135
-  %162 = call float @llvm.fmuladd.f32(float %134, float %ref.tmp339.sroa.10.0.copyload650759782, float %mul26.i)
-  %163 = call float @llvm.fmuladd.f32(float %137, float %ref.tmp339.sroa.14.0.copyload652761780, float %162)
-  %164 = call float @llvm.fmuladd.f32(float %139, float %ref.tmp339.sroa.16.0.copyload653762779, float %163)
-  %mul35.i = fmul float %ref.tmp339.sroa.12.0.copyload651760781, %142
-  %165 = call float @llvm.fmuladd.f32(float %141, float %ref.tmp339.sroa.10.0.copyload650759782, float %mul35.i)
-  %166 = call float @llvm.fmuladd.f32(float %144, float %ref.tmp339.sroa.14.0.copyload652761780, float %165)
-  %167 = call float @llvm.fmuladd.f32(float %146, float %ref.tmp339.sroa.16.0.copyload653762779, float %166)
-  %mul44.i = fmul float %ref.tmp339.sroa.12.0.copyload651760781, %149
-  %168 = call float @llvm.fmuladd.f32(float %148, float %ref.tmp339.sroa.10.0.copyload650759782, float %mul44.i)
-  %169 = call float @llvm.fmuladd.f32(float %151, float %ref.tmp339.sroa.14.0.copyload652761780, float %168)
-  %170 = call float @llvm.fmuladd.f32(float %153, float %ref.tmp339.sroa.16.0.copyload653762779, float %169)
-  %mul53.i = fmul float %ref.tmp339.sroa.12.0.copyload651760781, %156
-  %171 = call float @llvm.fmuladd.f32(float %155, float %ref.tmp339.sroa.10.0.copyload650759782, float %mul53.i)
-  %172 = call float @llvm.fmuladd.f32(float %158, float %ref.tmp339.sroa.14.0.copyload652761780, float %171)
-  %173 = call float @llvm.fmuladd.f32(float %160, float %ref.tmp339.sroa.16.0.copyload653762779, float %172)
-  %mul62.i = fmul float %ref.tmp339.sroa.20.0.copyload655764777, %135
-  %174 = call float @llvm.fmuladd.f32(float %134, float %ref.tmp339.sroa.18.0.copyload654763778, float %mul62.i)
-  %175 = call float @llvm.fmuladd.f32(float %137, float %ref.tmp339.sroa.22.0.copyload656765776, float %174)
-  %176 = call float @llvm.fmuladd.f32(float %139, float %ref.tmp339.sroa.24.0.copyload657766775, float %175)
-  %mul71.i = fmul float %ref.tmp339.sroa.20.0.copyload655764777, %142
-  %177 = call float @llvm.fmuladd.f32(float %141, float %ref.tmp339.sroa.18.0.copyload654763778, float %mul71.i)
-  %178 = call float @llvm.fmuladd.f32(float %144, float %ref.tmp339.sroa.22.0.copyload656765776, float %177)
-  %179 = call float @llvm.fmuladd.f32(float %146, float %ref.tmp339.sroa.24.0.copyload657766775, float %178)
-  %mul80.i = fmul float %ref.tmp339.sroa.20.0.copyload655764777, %149
-  %180 = call float @llvm.fmuladd.f32(float %148, float %ref.tmp339.sroa.18.0.copyload654763778, float %mul80.i)
-  %181 = call float @llvm.fmuladd.f32(float %151, float %ref.tmp339.sroa.22.0.copyload656765776, float %180)
-  %182 = call float @llvm.fmuladd.f32(float %153, float %ref.tmp339.sroa.24.0.copyload657766775, float %181)
-  %mul89.i = fmul float %ref.tmp339.sroa.20.0.copyload655764777, %156
-  %183 = call float @llvm.fmuladd.f32(float %155, float %ref.tmp339.sroa.18.0.copyload654763778, float %mul89.i)
-  %184 = call float @llvm.fmuladd.f32(float %158, float %ref.tmp339.sroa.22.0.copyload656765776, float %183)
-  %185 = call float @llvm.fmuladd.f32(float %160, float %ref.tmp339.sroa.24.0.copyload657766775, float %184)
-  %mul98.i = fmul float %ref.tmp339.sroa.28.0.copyload659768773, %135
-  %186 = call float @llvm.fmuladd.f32(float %134, float %ref.tmp339.sroa.26.0.copyload658767774, float %mul98.i)
-  %187 = call float @llvm.fmuladd.f32(float %137, float %ref.tmp339.sroa.30.0.copyload660769772, float %186)
-  %188 = call float @llvm.fmuladd.f32(float %139, float %ref.tmp339.sroa.32.0.copyload661770771, float %187)
-  %mul107.i = fmul float %ref.tmp339.sroa.28.0.copyload659768773, %142
-  %189 = call float @llvm.fmuladd.f32(float %141, float %ref.tmp339.sroa.26.0.copyload658767774, float %mul107.i)
-  %190 = call float @llvm.fmuladd.f32(float %144, float %ref.tmp339.sroa.30.0.copyload660769772, float %189)
-  %191 = call float @llvm.fmuladd.f32(float %146, float %ref.tmp339.sroa.32.0.copyload661770771, float %190)
-  %mul116.i = fmul float %ref.tmp339.sroa.28.0.copyload659768773, %149
-  %192 = call float @llvm.fmuladd.f32(float %148, float %ref.tmp339.sroa.26.0.copyload658767774, float %mul116.i)
-  %193 = call float @llvm.fmuladd.f32(float %151, float %ref.tmp339.sroa.30.0.copyload660769772, float %192)
-  %194 = call float @llvm.fmuladd.f32(float %153, float %ref.tmp339.sroa.32.0.copyload661770771, float %193)
-  %mul125.i = fmul float %ref.tmp339.sroa.28.0.copyload659768773, %156
-  %195 = call float @llvm.fmuladd.f32(float %155, float %ref.tmp339.sroa.26.0.copyload658767774, float %mul125.i)
-  %196 = call float @llvm.fmuladd.f32(float %158, float %ref.tmp339.sroa.30.0.copyload660769772, float %195)
-  %197 = call float @llvm.fmuladd.f32(float %160, float %ref.tmp339.sroa.32.0.copyload661770771, float %196)
+  %159 = load float, ptr %d4.i645, align 4
+  %160 = call float @llvm.fmuladd.f32(float %159, float %ref.tmp339.sroa.8.0.copyload649758783, float %158)
+  %mul26.i = fmul float %ref.tmp339.sroa.12.0.copyload651760781, %134
+  %161 = call float @llvm.fmuladd.f32(float %133, float %ref.tmp339.sroa.10.0.copyload650759782, float %mul26.i)
+  %162 = call float @llvm.fmuladd.f32(float %136, float %ref.tmp339.sroa.14.0.copyload652761780, float %161)
+  %163 = call float @llvm.fmuladd.f32(float %138, float %ref.tmp339.sroa.16.0.copyload653762779, float %162)
+  %mul35.i = fmul float %ref.tmp339.sroa.12.0.copyload651760781, %141
+  %164 = call float @llvm.fmuladd.f32(float %140, float %ref.tmp339.sroa.10.0.copyload650759782, float %mul35.i)
+  %165 = call float @llvm.fmuladd.f32(float %143, float %ref.tmp339.sroa.14.0.copyload652761780, float %164)
+  %166 = call float @llvm.fmuladd.f32(float %145, float %ref.tmp339.sroa.16.0.copyload653762779, float %165)
+  %mul44.i = fmul float %ref.tmp339.sroa.12.0.copyload651760781, %148
+  %167 = call float @llvm.fmuladd.f32(float %147, float %ref.tmp339.sroa.10.0.copyload650759782, float %mul44.i)
+  %168 = call float @llvm.fmuladd.f32(float %150, float %ref.tmp339.sroa.14.0.copyload652761780, float %167)
+  %169 = call float @llvm.fmuladd.f32(float %152, float %ref.tmp339.sroa.16.0.copyload653762779, float %168)
+  %mul53.i = fmul float %ref.tmp339.sroa.12.0.copyload651760781, %155
+  %170 = call float @llvm.fmuladd.f32(float %154, float %ref.tmp339.sroa.10.0.copyload650759782, float %mul53.i)
+  %171 = call float @llvm.fmuladd.f32(float %157, float %ref.tmp339.sroa.14.0.copyload652761780, float %170)
+  %172 = call float @llvm.fmuladd.f32(float %159, float %ref.tmp339.sroa.16.0.copyload653762779, float %171)
+  %mul62.i = fmul float %ref.tmp339.sroa.20.0.copyload655764777, %134
+  %173 = call float @llvm.fmuladd.f32(float %133, float %ref.tmp339.sroa.18.0.copyload654763778, float %mul62.i)
+  %174 = call float @llvm.fmuladd.f32(float %136, float %ref.tmp339.sroa.22.0.copyload656765776, float %173)
+  %175 = call float @llvm.fmuladd.f32(float %138, float %ref.tmp339.sroa.24.0.copyload657766775, float %174)
+  %mul71.i = fmul float %ref.tmp339.sroa.20.0.copyload655764777, %141
+  %176 = call float @llvm.fmuladd.f32(float %140, float %ref.tmp339.sroa.18.0.copyload654763778, float %mul71.i)
+  %177 = call float @llvm.fmuladd.f32(float %143, float %ref.tmp339.sroa.22.0.copyload656765776, float %176)
+  %178 = call float @llvm.fmuladd.f32(float %145, float %ref.tmp339.sroa.24.0.copyload657766775, float %177)
+  %mul80.i = fmul float %ref.tmp339.sroa.20.0.copyload655764777, %148
+  %179 = call float @llvm.fmuladd.f32(float %147, float %ref.tmp339.sroa.18.0.copyload654763778, float %mul80.i)
+  %180 = call float @llvm.fmuladd.f32(float %150, float %ref.tmp339.sroa.22.0.copyload656765776, float %179)
+  %181 = call float @llvm.fmuladd.f32(float %152, float %ref.tmp339.sroa.24.0.copyload657766775, float %180)
+  %mul89.i = fmul float %ref.tmp339.sroa.20.0.copyload655764777, %155
+  %182 = call float @llvm.fmuladd.f32(float %154, float %ref.tmp339.sroa.18.0.copyload654763778, float %mul89.i)
+  %183 = call float @llvm.fmuladd.f32(float %157, float %ref.tmp339.sroa.22.0.copyload656765776, float %182)
+  %184 = call float @llvm.fmuladd.f32(float %159, float %ref.tmp339.sroa.24.0.copyload657766775, float %183)
+  %mul98.i = fmul float %ref.tmp339.sroa.28.0.copyload659768773, %134
+  %185 = call float @llvm.fmuladd.f32(float %133, float %ref.tmp339.sroa.26.0.copyload658767774, float %mul98.i)
+  %186 = call float @llvm.fmuladd.f32(float %136, float %ref.tmp339.sroa.30.0.copyload660769772, float %185)
+  %187 = call float @llvm.fmuladd.f32(float %138, float %ref.tmp339.sroa.32.0.copyload661770771, float %186)
+  %mul107.i = fmul float %ref.tmp339.sroa.28.0.copyload659768773, %141
+  %188 = call float @llvm.fmuladd.f32(float %140, float %ref.tmp339.sroa.26.0.copyload658767774, float %mul107.i)
+  %189 = call float @llvm.fmuladd.f32(float %143, float %ref.tmp339.sroa.30.0.copyload660769772, float %188)
+  %190 = call float @llvm.fmuladd.f32(float %145, float %ref.tmp339.sroa.32.0.copyload661770771, float %189)
+  %mul116.i = fmul float %ref.tmp339.sroa.28.0.copyload659768773, %148
+  %191 = call float @llvm.fmuladd.f32(float %147, float %ref.tmp339.sroa.26.0.copyload658767774, float %mul116.i)
+  %192 = call float @llvm.fmuladd.f32(float %150, float %ref.tmp339.sroa.30.0.copyload660769772, float %191)
+  %193 = call float @llvm.fmuladd.f32(float %152, float %ref.tmp339.sroa.32.0.copyload661770771, float %192)
+  %mul125.i = fmul float %ref.tmp339.sroa.28.0.copyload659768773, %155
+  %194 = call float @llvm.fmuladd.f32(float %154, float %ref.tmp339.sroa.26.0.copyload658767774, float %mul125.i)
+  %195 = call float @llvm.fmuladd.f32(float %157, float %ref.tmp339.sroa.30.0.copyload660769772, float %194)
+  %196 = call float @llvm.fmuladd.f32(float %159, float %ref.tmp339.sroa.32.0.copyload661770771, float %195)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond790.not = icmp eq i64 %indvars.iv.next, 17
   br i1 %exitcond790.not, label %for.end350, label %invoke.cont344, !llvm.loop !41
 
 lpad330:                                          ; preds = %if.else.i.i
-  %198 = landingpad { ptr, i32 }
+  %197 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6Assimp3FBX12FBXConverter13PotentialNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %nd329) #25
   br label %common.resume
 
 for.end350:                                       ; preds = %invoke.cont344
-  store float %140, ptr %mTransformation342, align 4
-  store float %147, ptr %ref.tmp339.sroa.4.0.mTransformation342.sroa_idx, align 4
-  store float %154, ptr %ref.tmp339.sroa.6.0.mTransformation342.sroa_idx, align 4
-  store float %161, ptr %ref.tmp339.sroa.8.0.mTransformation342.sroa_idx, align 4
-  store float %164, ptr %ref.tmp339.sroa.10.0.mTransformation342.sroa_idx, align 4
-  store float %167, ptr %ref.tmp339.sroa.12.0.mTransformation342.sroa_idx, align 4
-  store float %170, ptr %ref.tmp339.sroa.14.0.mTransformation342.sroa_idx, align 4
-  store float %173, ptr %ref.tmp339.sroa.16.0.mTransformation342.sroa_idx, align 4
-  store float %176, ptr %ref.tmp339.sroa.18.0.mTransformation342.sroa_idx, align 4
-  store float %179, ptr %ref.tmp339.sroa.20.0.mTransformation342.sroa_idx, align 4
-  store float %182, ptr %ref.tmp339.sroa.22.0.mTransformation342.sroa_idx, align 4
-  store float %185, ptr %ref.tmp339.sroa.24.0.mTransformation342.sroa_idx, align 4
-  store float %188, ptr %ref.tmp339.sroa.26.0.mTransformation342.sroa_idx, align 4
-  store float %191, ptr %ref.tmp339.sroa.28.0.mTransformation342.sroa_idx, align 4
-  store float %194, ptr %ref.tmp339.sroa.30.0.mTransformation342.sroa_idx, align 4
-  store float %197, ptr %ref.tmp339.sroa.32.0.mTransformation342.sroa_idx, align 4
+  store float %139, ptr %mTransformation342, align 4
+  store float %146, ptr %ref.tmp339.sroa.4.0.mTransformation342.sroa_idx, align 4
+  store float %153, ptr %ref.tmp339.sroa.6.0.mTransformation342.sroa_idx, align 4
+  store float %160, ptr %ref.tmp339.sroa.8.0.mTransformation342.sroa_idx, align 4
+  store float %163, ptr %ref.tmp339.sroa.10.0.mTransformation342.sroa_idx, align 4
+  store float %166, ptr %ref.tmp339.sroa.12.0.mTransformation342.sroa_idx, align 4
+  store float %169, ptr %ref.tmp339.sroa.14.0.mTransformation342.sroa_idx, align 4
+  store float %172, ptr %ref.tmp339.sroa.16.0.mTransformation342.sroa_idx, align 4
+  store float %175, ptr %ref.tmp339.sroa.18.0.mTransformation342.sroa_idx, align 4
+  store float %178, ptr %ref.tmp339.sroa.20.0.mTransformation342.sroa_idx, align 4
+  store float %181, ptr %ref.tmp339.sroa.22.0.mTransformation342.sroa_idx, align 4
+  store float %184, ptr %ref.tmp339.sroa.24.0.mTransformation342.sroa_idx, align 4
+  store float %187, ptr %ref.tmp339.sroa.26.0.mTransformation342.sroa_idx, align 4
+  store float %190, ptr %ref.tmp339.sroa.28.0.mTransformation342.sroa_idx, align 4
+  store float %193, ptr %ref.tmp339.sroa.30.0.mTransformation342.sroa_idx, align 4
+  store float %196, ptr %ref.tmp339.sroa.32.0.mTransformation342.sroa_idx, align 4
   %_M_finish.i.i = getelementptr inbounds i8, ptr %output_nodes, i64 8
-  %199 = load ptr, ptr %_M_finish.i.i, align 8
+  %198 = load ptr, ptr %_M_finish.i.i, align 8
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %output_nodes, i64 16
-  %200 = load ptr, ptr %_M_end_of_storage.i.i, align 8
-  %cmp.not.i.i633 = icmp eq ptr %199, %200
+  %199 = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  %cmp.not.i.i633 = icmp eq ptr %198, %199
   br i1 %cmp.not.i.i633, label %if.else.i.i, label %invoke.cont351.thread
 
 invoke.cont351.thread:                            ; preds = %for.end350
-  %201 = load i64, ptr %nd329, align 8
-  store i64 %201, ptr %199, align 8
-  %mNode.i.i.i.i.i = getelementptr inbounds i8, ptr %199, i64 8
-  %202 = load ptr, ptr %mNode.i616, align 8
-  store ptr %202, ptr %mNode.i.i.i.i.i, align 8
-  %203 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %203, i64 16
+  %200 = load i64, ptr %nd329, align 8
+  store i64 %200, ptr %198, align 8
+  %mNode.i.i.i.i.i = getelementptr inbounds i8, ptr %198, i64 8
+  %201 = load ptr, ptr %mNode.i616, align 8
+  store ptr %201, ptr %mNode.i.i.i.i.i, align 8
+  %202 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %202, i64 16
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %return
 
 if.else.i.i:                                      ; preds = %for.end350
-  invoke void @_ZNSt6vectorIN6Assimp3FBX12FBXConverter13PotentialNodeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %output_nodes, ptr %199, ptr noundef nonnull align 8 dereferenceable(16) %nd329)
+  invoke void @_ZNSt6vectorIN6Assimp3FBX12FBXConverter13PotentialNodeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %output_nodes, ptr %198, ptr noundef nonnull align 8 dereferenceable(16) %nd329)
           to label %invoke.cont351 unwind label %lpad330
 
 invoke.cont351:                                   ; preds = %if.else.i.i
@@ -32536,11 +32528,7 @@ for.body15:                                       ; preds = %invoke.cont7, %for.
   %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0596, i64 32
   %call.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i, ptr noundef nonnull @.str.176) #25
   %cmp.i28 = icmp eq i32 %call.i, 0
-  br i1 %cmp.i28, label %if.then, label %if.else
-
-if.then:                                          ; preds = %for.body15
-  store i32 0, ptr %mapto, align 4
-  br label %if.end31
+  br i1 %cmp.i28, label %if.end31, label %if.else
 
 lpad.loopexit442:                                 ; preds = %if.end31, %if.else28, %if.then.i, %call1.i.noexc, %call2.i.noexc
   %lpad.loopexit443 = landingpad { ptr, i32 }
@@ -32560,20 +32548,12 @@ lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %entry
 if.else:                                          ; preds = %for.body15
   %call.i29 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i, ptr noundef nonnull @.str.177) #25
   %cmp.i30 = icmp eq i32 %call.i29, 0
-  br i1 %cmp.i30, label %if.then22, label %if.else23
-
-if.then22:                                        ; preds = %if.else
-  store i32 1, ptr %mapto, align 4
-  br label %if.end31
+  br i1 %cmp.i30, label %if.end31, label %if.else23
 
 if.else23:                                        ; preds = %if.else
   %call.i31 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i, ptr noundef nonnull @.str.178) #25
   %cmp.i32 = icmp eq i32 %call.i31, 0
-  br i1 %cmp.i32, label %if.then27, label %if.else28
-
-if.then27:                                        ; preds = %if.else23
-  store i32 2, ptr %mapto, align 4
-  br label %if.end31
+  br i1 %cmp.i32, label %if.end31, label %if.else28
 
 if.else28:                                        ; preds = %if.else23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
@@ -32600,7 +32580,9 @@ _ZN6Assimp12LogFunctionsINS_11FBXImporterEE7LogWarnIJRA67_KcEEEvDpOT_.exit: ; pr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   br label %for.inc120
 
-if.end31:                                         ; preds = %if.then22, %if.then27, %if.then
+if.end31:                                         ; preds = %if.else23, %if.else, %for.body15
+  %.sink = phi i32 [ 0, %for.body15 ], [ 1, %if.else ], [ 2, %if.else23 ]
+  store i32 %.sink, ptr %mapto, align 4
   %second = getelementptr inbounds i8, ptr %__begin3.sroa.0.0596, i64 64
   %6 = load ptr, ptr %second, align 8
   %call33 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
@@ -33674,11 +33656,7 @@ for.body15:                                       ; preds = %invoke.cont7, %for.
   %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0318, i64 32
   %call.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i, ptr noundef nonnull @.str.176) #25
   %cmp.i18 = icmp eq i32 %call.i, 0
-  br i1 %cmp.i18, label %if.then, label %if.else
-
-if.then:                                          ; preds = %for.body15
-  store i32 0, ptr %mapto, align 4
-  br label %if.end31
+  br i1 %cmp.i18, label %if.end31, label %if.else
 
 lpad.loopexit248:                                 ; preds = %if.end31, %if.else28, %if.then.i, %call1.i.noexc, %call2.i.noexc
   %lpad.loopexit250 = landingpad { ptr, i32 }
@@ -33698,20 +33676,12 @@ lpad.loopexit.split-lp249.loopexit.split-lp:      ; preds = %entry
 if.else:                                          ; preds = %for.body15
   %call.i19 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i, ptr noundef nonnull @.str.177) #25
   %cmp.i20 = icmp eq i32 %call.i19, 0
-  br i1 %cmp.i20, label %if.then22, label %if.else23
-
-if.then22:                                        ; preds = %if.else
-  store i32 1, ptr %mapto, align 4
-  br label %if.end31
+  br i1 %cmp.i20, label %if.end31, label %if.else23
 
 if.else23:                                        ; preds = %if.else
   %call.i21 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i, ptr noundef nonnull @.str.178) #25
   %cmp.i22 = icmp eq i32 %call.i21, 0
-  br i1 %cmp.i22, label %if.then27, label %if.else28
-
-if.then27:                                        ; preds = %if.else23
-  store i32 2, ptr %mapto, align 4
-  br label %if.end31
+  br i1 %cmp.i22, label %if.end31, label %if.else28
 
 if.else28:                                        ; preds = %if.else23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
@@ -33738,7 +33708,9 @@ _ZN6Assimp12LogFunctionsINS_11FBXImporterEE7LogWarnIJRA67_KcEEEvDpOT_.exit: ; pr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   br label %for.inc67
 
-if.end31:                                         ; preds = %if.then22, %if.then27, %if.then
+if.end31:                                         ; preds = %if.else23, %if.else, %for.body15
+  %.sink = phi i32 [ 0, %for.body15 ], [ 1, %if.else ], [ 2, %if.else23 ]
+  store i32 %.sink, ptr %mapto, align 4
   %second = getelementptr inbounds i8, ptr %__begin3.sroa.0.0318, i64 64
   %6 = load ptr, ptr %second, align 8
   %call33 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27

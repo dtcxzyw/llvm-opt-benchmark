@@ -4261,19 +4261,14 @@ _ZNSt10unique_ptrIN6duckdb9DataChunkESt14default_deleteIS1_EED2Ev.exit24.thread:
   %.pr47339 = load ptr, ptr %result, align 8, !tbaa !48
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %stream) #30
   %cmp.not.i43240 = icmp eq ptr %.pr47339, null
-  br i1 %cmp.not.i43240, label %_ZNSt10unique_ptrIN6duckdb11QueryResultESt14default_deleteIS1_EED2Ev.exit.thread43, label %_ZNKSt14default_deleteIN6duckdb11QueryResultEEclEPS1_.exit.i.thread46
+  br i1 %cmp.not.i43240, label %if.end217.sink.split, label %_ZNKSt14default_deleteIN6duckdb11QueryResultEEclEPS1_.exit.i.thread46
 
 _ZNKSt14default_deleteIN6duckdb11QueryResultEEclEPS1_.exit.i.thread46: ; preds = %_ZNSt10unique_ptrIN6duckdb9DataChunkESt14default_deleteIS1_EED2Ev.exit24.thread
   %vtable.i.i50 = load ptr, ptr %.pr47339, align 8, !tbaa !104
   %vfn.i.i51 = getelementptr inbounds i8, ptr %vtable.i.i50, i64 8
   %98 = load ptr, ptr %vfn.i.i51, align 8
   call void %98(ptr noundef nonnull align 8 dereferenceable(280) %.pr47339) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result) #30
-  br label %if.end217
-
-_ZNSt10unique_ptrIN6duckdb11QueryResultESt14default_deleteIS1_EED2Ev.exit.thread43: ; preds = %_ZNSt10unique_ptrIN6duckdb9DataChunkESt14default_deleteIS1_EED2Ev.exit24.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result) #30
-  br label %if.end217
+  br label %if.end217.sink.split
 
 cleanup184.thread:                                ; preds = %invoke.cont35
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %stream) #30
@@ -4442,7 +4437,11 @@ ehcleanup209:                                     ; preds = %if.then.i.i463, %_Z
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp200) #30
   br label %eh.resume
 
-if.end217:                                        ; preds = %_ZNKSt14default_deleteIN6duckdb11QueryResultEEclEPS1_.exit.i.thread46, %_ZNSt10unique_ptrIN6duckdb11QueryResultESt14default_deleteIS1_EED2Ev.exit.thread43, %if.else, %_ZNSt10unique_ptrIN6duckdb11QueryResultESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN6duckdb11QueryResultEEclEPS1_.exit.i
+if.end217.sink.split:                             ; preds = %_ZNSt10unique_ptrIN6duckdb9DataChunkESt14default_deleteIS1_EED2Ev.exit24.thread, %_ZNKSt14default_deleteIN6duckdb11QueryResultEEclEPS1_.exit.i.thread46
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result) #30
+  br label %if.end217
+
+if.end217:                                        ; preds = %if.end217.sink.split, %if.else, %_ZNSt10unique_ptrIN6duckdb11QueryResultESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN6duckdb11QueryResultEEclEPS1_.exit.i
   %tobool218.not = icmp eq ptr %out, null
   br i1 %tobool218.not, label %return, label %if.then219
 

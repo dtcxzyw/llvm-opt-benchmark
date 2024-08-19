@@ -8761,12 +8761,12 @@ define hidden void @"_ZN185_$LT$ockam_node..storage..database..migrations..node_
   %.sroa.335.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.335.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.335, i64 16, i1 false)
   store ptr null, ptr %0, align 8
-  br label %58
+  br label %46
 
 17:                                               ; preds = %27, %18
   %.pn = phi { ptr, i32 } [ %19, %18 ], [ %28, %27 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7deb21f24263c480E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #40
-          to label %59 unwind label %56
+          to label %58 unwind label %56
 
 18:                                               ; preds = %36, %14
   %19 = landingpad { ptr, i32 }
@@ -8824,7 +8824,6 @@ define hidden void @"_ZN185_$LT$ockam_node..storage..database..migrations..node_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   br label %46
 
 36:                                               ; preds = %29
@@ -8863,7 +8862,8 @@ define hidden void @"_ZN185_$LT$ockam_node..storage..database..migrations..node_
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1645
   br label %47
 
-46:                                               ; preds = %58, %33
+46:                                               ; preds = %15, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7deb21f24263c480E.exit62", %33
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   ret void
 
 47:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7deb21f24263c480E.exit", %25
@@ -8888,7 +8888,7 @@ define hidden void @"_ZN185_$LT$ockam_node..storage..database..migrations..node_
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7deb21f24263c480E.exit62": ; preds = %47, %50, %54
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1654
-  br label %58
+  br label %46
 
 56:                                               ; preds = %27, %17
   %57 = landingpad { ptr, i32 }
@@ -8896,11 +8896,7 @@ define hidden void @"_ZN185_$LT$ockam_node..storage..database..migrations..node_
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #41
   unreachable
 
-58:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7deb21f24263c480E.exit62", %15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  br label %46
-
-59:                                               ; preds = %17
+58:                                               ; preds = %17
   resume { ptr, i32 } %.pn
 }
 

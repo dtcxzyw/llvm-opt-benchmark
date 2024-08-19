@@ -172,7 +172,7 @@ define dso_local i32 @sacctmgr_list_stats(i32 noundef %0, ptr noundef %1) local_
   %10 = call i32 @slurmdb_get_stats(ptr noundef %9, ptr noundef nonnull %3) #7
   call void @notice_thread_fini() #7
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %11, label %106
+  br i1 %.not, label %11, label %108
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr @mime_type, align 8
@@ -260,9 +260,9 @@ define dso_local i32 @sacctmgr_list_stats(i32 noundef %0, ptr noundef %1) local_
   %56 = trunc nuw nsw i64 %indvars.iv to i32
   %switch.selectcmp = icmp eq i64 %indvars.iv, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.5, ptr @.str.6
-  %switch.selectcmp87 = icmp eq i64 %indvars.iv, 0
-  %switch.select88 = select i1 %switch.selectcmp87, ptr @.str.4, ptr %switch.select
-  %57 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %switch.select88)
+  %switch.selectcmp88 = icmp eq i64 %indvars.iv, 0
+  %switch.select89 = select i1 %switch.selectcmp88, ptr @.str.4, ptr %switch.select
+  %57 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %switch.select89)
   call fastcc void @_print_rollup_stats(ptr noundef nonnull %39, i32 noundef %56)
   br label %58
 
@@ -353,36 +353,36 @@ define dso_local i32 @sacctmgr_list_stats(i32 noundef %0, ptr noundef %1) local_
   br label %.thread72
 
 .thread72:                                        ; preds = %88, %87, %91
-  %_sort_rpc_obj_by_time.sink90 = phi ptr [ %spec.select, %91 ], [ @_sort_rpc_obj_by_cnt, %87 ], [ @_sort_rpc_obj_by_ave_time, %88 ]
+  %_sort_rpc_obj_by_time.sink86 = phi ptr [ %spec.select, %91 ], [ @_sort_rpc_obj_by_cnt, %87 ], [ @_sort_rpc_obj_by_ave_time, %88 ]
   %.pre84.sink = load ptr, ptr %3, align 8
   %94 = getelementptr inbounds i8, ptr %.pre84.sink, i64 16
   %95 = load ptr, ptr %94, align 8
-  call void @list_sort(ptr noundef %95, ptr noundef nonnull %_sort_rpc_obj_by_time.sink90) #7
-  %.sink = load ptr, ptr %3, align 8
-  %96 = getelementptr inbounds i8, ptr %.sink, i64 32
-  %97 = load ptr, ptr %96, align 8
-  call void @list_sort(ptr noundef %97, ptr noundef nonnull %_sort_rpc_obj_by_time.sink90) #7
+  call void @list_sort(ptr noundef %95, ptr noundef nonnull %_sort_rpc_obj_by_time.sink86) #7
+  %96 = load ptr, ptr %3, align 8
+  %97 = getelementptr inbounds i8, ptr %96, i64 32
+  %98 = load ptr, ptr %97, align 8
+  call void @list_sort(ptr noundef %98, ptr noundef nonnull %_sort_rpc_obj_by_time.sink86) #7
   %puts62 = call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
   store i32 0, ptr %5, align 4
-  %98 = load ptr, ptr %3, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 16
-  %100 = load ptr, ptr %99, align 8
-  %101 = call i32 @list_for_each(ptr noundef %100, ptr noundef nonnull @_print_rpc_obj, ptr noundef nonnull %5) #7
+  %99 = load ptr, ptr %3, align 8
+  %100 = getelementptr inbounds i8, ptr %99, i64 16
+  %101 = load ptr, ptr %100, align 8
+  %102 = call i32 @list_for_each(ptr noundef %101, ptr noundef nonnull @_print_rpc_obj, ptr noundef nonnull %5) #7
   %puts63 = call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
   store i32 1, ptr %5, align 4
-  %102 = load ptr, ptr %3, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 32
-  %104 = load ptr, ptr %103, align 8
-  %105 = call i32 @list_for_each(ptr noundef %104, ptr noundef nonnull @_print_rpc_obj, ptr noundef nonnull %5) #7
+  %103 = load ptr, ptr %3, align 8
+  %104 = getelementptr inbounds i8, ptr %103, i64 32
+  %105 = load ptr, ptr %104, align 8
+  %106 = call i32 @list_for_each(ptr noundef %105, ptr noundef nonnull @_print_rpc_obj, ptr noundef nonnull %5) #7
   br label %.sink.split
 
 .sink.split:                                      ; preds = %35, %.thread72
   %.040.ph = phi i32 [ 0, %.thread72 ], [ %29, %35 ]
-  %.sink86 = load ptr, ptr %3, align 8
-  call void @slurmdb_destroy_stats_rec(ptr noundef %.sink86) #7
-  br label %106
+  %107 = load ptr, ptr %3, align 8
+  call void @slurmdb_destroy_stats_rec(ptr noundef %107) #7
+  br label %108
 
-106:                                              ; preds = %.sink.split, %2
+108:                                              ; preds = %.sink.split, %2
   %.040 = phi i32 [ %10, %2 ], [ %.040.ph, %.sink.split ]
   ret i32 %.040
 }

@@ -1120,21 +1120,16 @@ define range(i32 -1, 1) i32 @write_one_config(ptr nocapture noundef readonly %0,
   %65 = call i32 @close(i32 noundef %.029.i) #13
   br label %_write_conf.exit.thread
 
-_write_conf.exit.thread:                          ; preds = %64, %60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %67
-
 66:                                               ; preds = %.loopexit.i, %13
   call void @slurm_xfree(ptr noundef nonnull %3) #13
   call void @slurm_xfree(ptr noundef nonnull %4) #13
+  br label %_write_conf.exit.thread
+
+_write_conf.exit.thread:                          ; preds = %60, %64, %66
+  %67 = phi i32 [ 0, %66 ], [ -1, %64 ], [ -1, %60 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %67
-
-67:                                               ; preds = %_write_conf.exit.thread, %66
-  %68 = phi i32 [ 0, %66 ], [ -1, %_write_conf.exit.thread ]
-  ret i32 %68
+  ret i32 %67
 }
 
 ; Function Attrs: nounwind uwtable

@@ -4910,16 +4910,18 @@ define internal void @"_ZN81_$LT$wasi_common..sync..net..TcpStream$u20$as$u20$wa
   %8 = load i8, ptr %7, align 8, !range !417, !noundef !4
   switch i8 %8, label %default.unreachable13 [
     i8 0, label %10
-    i8 1, label %33
-    i8 2, label %34
+    i8 1, label %31
+    i8 2, label %32
   ]
 
 default.unreachable13:                            ; preds = %3
   unreachable
 
-9:                                                ; preds = %32, %29
-  %.sroa.012.0 = phi i64 [ 0, %29 ], [ 1, %32 ]
-  %.sroa.3.0.in = phi ptr [ %25, %29 ], [ %27, %32 ]
+9:                                                ; preds = %26, %22
+  %.sroa.012.0 = phi i64 [ 0, %22 ], [ 1, %26 ]
+  %.sroa.3.0.in = phi ptr [ %25, %22 ], [ %27, %26 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %.sroa.3.0 = ptrtoint ptr %.sroa.3.0.in to i64
   store i64 %.sroa.012.0, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -4963,39 +4965,29 @@ default.unreachable13:                            ; preds = %3
   %25 = load ptr, ptr %24, align 8, !alias.scope !542, !noalias !545
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %trunc = trunc nuw i64 %23 to i1
-  br i1 %trunc, label %26, label %29
+  br i1 %trunc, label %26, label %9
 
 26:                                               ; preds = %22
   %27 = invoke noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_15error126_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Error$GT$4from17h6b8ab7f5c776d3c7E"(ptr noundef nonnull %25)
-          to label %32 unwind label %30
+          to label %9 unwind label %29
 
-28:                                               ; preds = %20, %30, %13
-  %.pn5 = phi { ptr, i32 } [ %14, %13 ], [ %31, %30 ], [ %21, %20 ]
+28:                                               ; preds = %20, %29, %13
+  %.pn5 = phi { ptr, i32 } [ %14, %13 ], [ %30, %29 ], [ %21, %20 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   store i8 2, ptr %7, align 8
   resume { ptr, i32 } %.pn5
 
-29:                                               ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %9
-
-30:                                               ; preds = %26
-  %31 = landingpad { ptr, i32 }
+29:                                               ; preds = %26
+  %30 = landingpad { ptr, i32 }
           cleanup
   br label %28
 
-32:                                               ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %9
-
-33:                                               ; preds = %3
+31:                                               ; preds = %3
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @str.0, i64 noundef 35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bfa31fafe4958aae8e9727502c2557cc.219) #32
   unreachable
 
-34:                                               ; preds = %3
+32:                                               ; preds = %3
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @str.1, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bfa31fafe4958aae8e9727502c2557cc.219) #32
   unreachable
 }
@@ -5033,16 +5025,18 @@ define internal void @"_ZN81_$LT$wasi_common..sync..net..TcpStream$u20$as$u20$wa
   %8 = load i8, ptr %7, align 8, !range !417, !noundef !4
   switch i8 %8, label %default.unreachable13 [
     i8 0, label %10
-    i8 1, label %33
-    i8 2, label %34
+    i8 1, label %31
+    i8 2, label %32
   ]
 
 default.unreachable13:                            ; preds = %3
   unreachable
 
-9:                                                ; preds = %32, %29
-  %.sroa.012.0 = phi i64 [ 0, %29 ], [ 1, %32 ]
-  %.sroa.3.0.in = phi ptr [ %25, %29 ], [ %27, %32 ]
+9:                                                ; preds = %26, %22
+  %.sroa.012.0 = phi i64 [ 0, %22 ], [ 1, %26 ]
+  %.sroa.3.0.in = phi ptr [ %25, %22 ], [ %27, %26 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %.sroa.3.0 = ptrtoint ptr %.sroa.3.0.in to i64
   store i64 %.sroa.012.0, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -5086,39 +5080,29 @@ default.unreachable13:                            ; preds = %3
   %25 = load ptr, ptr %24, align 8, !alias.scope !550, !noalias !553
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %trunc = trunc nuw i64 %23 to i1
-  br i1 %trunc, label %26, label %29
+  br i1 %trunc, label %26, label %9
 
 26:                                               ; preds = %22
   %27 = invoke noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_15error126_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Error$GT$4from17h6b8ab7f5c776d3c7E"(ptr noundef nonnull %25)
-          to label %32 unwind label %30
+          to label %9 unwind label %29
 
-28:                                               ; preds = %20, %30, %13
-  %.pn5 = phi { ptr, i32 } [ %14, %13 ], [ %31, %30 ], [ %21, %20 ]
+28:                                               ; preds = %20, %29, %13
+  %.pn5 = phi { ptr, i32 } [ %14, %13 ], [ %30, %29 ], [ %21, %20 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   store i8 2, ptr %7, align 8
   resume { ptr, i32 } %.pn5
 
-29:                                               ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %9
-
-30:                                               ; preds = %26
-  %31 = landingpad { ptr, i32 }
+29:                                               ; preds = %26
+  %30 = landingpad { ptr, i32 }
           cleanup
   br label %28
 
-32:                                               ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %9
-
-33:                                               ; preds = %3
+31:                                               ; preds = %3
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @str.0, i64 noundef 35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bfa31fafe4958aae8e9727502c2557cc.219) #32
   unreachable
 
-34:                                               ; preds = %3
+32:                                               ; preds = %3
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @str.1, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bfa31fafe4958aae8e9727502c2557cc.219) #32
   unreachable
 }
@@ -6254,16 +6238,18 @@ define internal void @"_ZN82_$LT$wasi_common..sync..net..UnixStream$u20$as$u20$w
   %8 = load i8, ptr %7, align 8, !range !417, !noundef !4
   switch i8 %8, label %default.unreachable13 [
     i8 0, label %10
-    i8 1, label %33
-    i8 2, label %34
+    i8 1, label %31
+    i8 2, label %32
   ]
 
 default.unreachable13:                            ; preds = %3
   unreachable
 
-9:                                                ; preds = %32, %29
-  %.sroa.012.0 = phi i64 [ 0, %29 ], [ 1, %32 ]
-  %.sroa.3.0.in = phi ptr [ %25, %29 ], [ %27, %32 ]
+9:                                                ; preds = %26, %22
+  %.sroa.012.0 = phi i64 [ 0, %22 ], [ 1, %26 ]
+  %.sroa.3.0.in = phi ptr [ %25, %22 ], [ %27, %26 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %.sroa.3.0 = ptrtoint ptr %.sroa.3.0.in to i64
   store i64 %.sroa.012.0, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -6307,39 +6293,29 @@ default.unreachable13:                            ; preds = %3
   %25 = load ptr, ptr %24, align 8, !alias.scope !651, !noalias !654
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %trunc = trunc nuw i64 %23 to i1
-  br i1 %trunc, label %26, label %29
+  br i1 %trunc, label %26, label %9
 
 26:                                               ; preds = %22
   %27 = invoke noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_15error126_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Error$GT$4from17h6b8ab7f5c776d3c7E"(ptr noundef nonnull %25)
-          to label %32 unwind label %30
+          to label %9 unwind label %29
 
-28:                                               ; preds = %20, %30, %13
-  %.pn5 = phi { ptr, i32 } [ %14, %13 ], [ %31, %30 ], [ %21, %20 ]
+28:                                               ; preds = %20, %29, %13
+  %.pn5 = phi { ptr, i32 } [ %14, %13 ], [ %30, %29 ], [ %21, %20 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   store i8 2, ptr %7, align 8
   resume { ptr, i32 } %.pn5
 
-29:                                               ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %9
-
-30:                                               ; preds = %26
-  %31 = landingpad { ptr, i32 }
+29:                                               ; preds = %26
+  %30 = landingpad { ptr, i32 }
           cleanup
   br label %28
 
-32:                                               ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %9
-
-33:                                               ; preds = %3
+31:                                               ; preds = %3
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @str.0, i64 noundef 35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bfa31fafe4958aae8e9727502c2557cc.234) #32
   unreachable
 
-34:                                               ; preds = %3
+32:                                               ; preds = %3
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @str.1, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bfa31fafe4958aae8e9727502c2557cc.234) #32
   unreachable
 }
@@ -6377,16 +6353,18 @@ define internal void @"_ZN82_$LT$wasi_common..sync..net..UnixStream$u20$as$u20$w
   %8 = load i8, ptr %7, align 8, !range !417, !noundef !4
   switch i8 %8, label %default.unreachable13 [
     i8 0, label %10
-    i8 1, label %33
-    i8 2, label %34
+    i8 1, label %31
+    i8 2, label %32
   ]
 
 default.unreachable13:                            ; preds = %3
   unreachable
 
-9:                                                ; preds = %32, %29
-  %.sroa.012.0 = phi i64 [ 0, %29 ], [ 1, %32 ]
-  %.sroa.3.0.in = phi ptr [ %25, %29 ], [ %27, %32 ]
+9:                                                ; preds = %26, %22
+  %.sroa.012.0 = phi i64 [ 0, %22 ], [ 1, %26 ]
+  %.sroa.3.0.in = phi ptr [ %25, %22 ], [ %27, %26 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %.sroa.3.0 = ptrtoint ptr %.sroa.3.0.in to i64
   store i64 %.sroa.012.0, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -6430,39 +6408,29 @@ default.unreachable13:                            ; preds = %3
   %25 = load ptr, ptr %24, align 8, !alias.scope !659, !noalias !662
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %trunc = trunc nuw i64 %23 to i1
-  br i1 %trunc, label %26, label %29
+  br i1 %trunc, label %26, label %9
 
 26:                                               ; preds = %22
   %27 = invoke noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_15error126_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Error$GT$4from17h6b8ab7f5c776d3c7E"(ptr noundef nonnull %25)
-          to label %32 unwind label %30
+          to label %9 unwind label %29
 
-28:                                               ; preds = %20, %30, %13
-  %.pn5 = phi { ptr, i32 } [ %14, %13 ], [ %31, %30 ], [ %21, %20 ]
+28:                                               ; preds = %20, %29, %13
+  %.pn5 = phi { ptr, i32 } [ %14, %13 ], [ %30, %29 ], [ %21, %20 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   store i8 2, ptr %7, align 8
   resume { ptr, i32 } %.pn5
 
-29:                                               ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %9
-
-30:                                               ; preds = %26
-  %31 = landingpad { ptr, i32 }
+29:                                               ; preds = %26
+  %30 = landingpad { ptr, i32 }
           cleanup
   br label %28
 
-32:                                               ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %9
-
-33:                                               ; preds = %3
+31:                                               ; preds = %3
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @str.0, i64 noundef 35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bfa31fafe4958aae8e9727502c2557cc.234) #32
   unreachable
 
-34:                                               ; preds = %3
+32:                                               ; preds = %3
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @str.1, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bfa31fafe4958aae8e9727502c2557cc.234) #32
   unreachable
 }

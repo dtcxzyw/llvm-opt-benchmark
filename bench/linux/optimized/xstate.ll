@@ -988,24 +988,26 @@ define dso_local void @__copy_xstate_to_uabi_buf(ptr nocapture writeonly %0, i64
 
 12:                                               ; preds = %6
   %13 = and i64 %11, 1
-  store i64 %13, ptr %7, align 8
-  br label %21
+  br label %.sink.split
 
 14:                                               ; preds = %6
   %15 = and i64 %11, 3
-  store i64 %15, ptr %7, align 8
-  br label %21
+  br label %.sink.split
 
 16:                                               ; preds = %6
   %17 = getelementptr inbounds i8, ptr %2, i64 16
   %18 = load i64, ptr %17, align 16
   %19 = and i64 %18, %3
   %20 = and i64 %19, %11
-  store i64 %20, ptr %7, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %12, %14, %16
+  %.sink = phi i64 [ %20, %16 ], [ %15, %14 ], [ %13, %12 ]
+  store i64 %.sink, ptr %7, align 8
   br label %21
 
-21:                                               ; preds = %16, %14, %12, %6
-  %.0..0..0.2 = phi i64 [ %20, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %6 ]
+21:                                               ; preds = %.sink.split, %6
+  %.0..0..0.2 = phi i64 [ %11, %6 ], [ %.sink, %.sink.split ]
   %22 = and i64 %.0..0..0.2, 1
   %23 = icmp eq i64 %22, 0
   %24 = icmp eq i64 %1, 0

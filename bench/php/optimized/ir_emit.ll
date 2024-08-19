@@ -37984,164 +37984,165 @@ define internal fastcc void @ir_emit_jcc(ptr noundef %0, i8 noundef zeroext %1, 
   %.0 = xor i8 %.0.v, %1
   %17 = load i32, ptr %6, align 4
   store i32 %17, ptr %5, align 4
-  store i32 0, ptr %6, align 4
-  br label %22
+  br label %.sink.split
 
 18:                                               ; preds = %4
   %19 = load i32, ptr %6, align 4
   %20 = icmp eq i32 %19, %12
-  br i1 %20, label %21, label %22
+  br i1 %20, label %.sink.split, label %21
 
-21:                                               ; preds = %18
+.sink.split:                                      ; preds = %18, %14
+  %.ph = phi i32 [ %17, %14 ], [ %11, %18 ]
+  %.1.ph = phi i8 [ %.0, %14 ], [ %1, %18 ]
   store i32 0, ptr %6, align 4
-  br label %22
+  br label %21
 
-22:                                               ; preds = %18, %21, %14
-  %23 = phi i32 [ 0, %14 ], [ 0, %21 ], [ %19, %18 ]
-  %24 = phi i32 [ %17, %14 ], [ %11, %21 ], [ %11, %18 ]
-  %.1 = phi i8 [ %.0, %14 ], [ %1, %21 ], [ %1, %18 ]
-  br i1 %3, label %25, label %36
+21:                                               ; preds = %.sink.split, %18
+  %22 = phi i32 [ %19, %18 ], [ 0, %.sink.split ]
+  %23 = phi i32 [ %11, %18 ], [ %.ph, %.sink.split ]
+  %.1 = phi i8 [ %1, %18 ], [ %.1.ph, %.sink.split ]
+  br i1 %3, label %24, label %35
 
-25:                                               ; preds = %22
-  switch i8 %.1, label %26 [
-    i8 23, label %35
-    i8 15, label %27
-    i8 16, label %28
-    i8 17, label %29
-    i8 18, label %30
-    i8 19, label %31
-    i8 20, label %32
-    i8 21, label %33
-    i8 22, label %34
+24:                                               ; preds = %21
+  switch i8 %.1, label %25 [
+    i8 23, label %34
+    i8 15, label %26
+    i8 16, label %27
+    i8 17, label %28
+    i8 18, label %29
+    i8 19, label %30
+    i8 20, label %31
+    i8 21, label %32
+    i8 22, label %33
   ]
 
-26:                                               ; preds = %25
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21898, i32 noundef %24)
-  br label %53
+25:                                               ; preds = %24
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21898, i32 noundef %23)
+  br label %52
 
-27:                                               ; preds = %25
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21902, i32 noundef %24)
-  br label %53
+26:                                               ; preds = %24
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21902, i32 noundef %23)
+  br label %52
 
-28:                                               ; preds = %25
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21906, i32 noundef %24)
-  br label %53
+27:                                               ; preds = %24
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21906, i32 noundef %23)
+  br label %52
 
-29:                                               ; preds = %25
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21910, i32 noundef %24)
-  br label %53
+28:                                               ; preds = %24
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21910, i32 noundef %23)
+  br label %52
 
-30:                                               ; preds = %25
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21914, i32 noundef %24)
-  br label %53
+29:                                               ; preds = %24
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21914, i32 noundef %23)
+  br label %52
 
-31:                                               ; preds = %25
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21918, i32 noundef %24)
-  br label %53
+30:                                               ; preds = %24
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21918, i32 noundef %23)
+  br label %52
 
-32:                                               ; preds = %25
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 4864, i32 noundef %24)
-  br label %53
+31:                                               ; preds = %24
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 4864, i32 noundef %23)
+  br label %52
 
-33:                                               ; preds = %25
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 4860, i32 noundef %24)
-  br label %53
+32:                                               ; preds = %24
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 4860, i32 noundef %23)
+  br label %52
 
-34:                                               ; preds = %25
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21922, i32 noundef %24)
-  br label %53
+33:                                               ; preds = %24
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21922, i32 noundef %23)
+  br label %52
 
-35:                                               ; preds = %25
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21926, i32 noundef %24)
-  br label %53
+34:                                               ; preds = %24
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21926, i32 noundef %23)
+  br label %52
 
-36:                                               ; preds = %22
-  switch i8 %.1, label %37 [
-    i8 23, label %52
-    i8 15, label %40
-    i8 16, label %41
-    i8 17, label %44
-    i8 18, label %45
-    i8 19, label %48
-    i8 20, label %49
-    i8 21, label %50
-    i8 22, label %51
+35:                                               ; preds = %21
+  switch i8 %.1, label %36 [
+    i8 23, label %51
+    i8 15, label %39
+    i8 16, label %40
+    i8 17, label %43
+    i8 18, label %44
+    i8 19, label %47
+    i8 20, label %48
+    i8 21, label %49
+    i8 22, label %50
   ]
+
+36:                                               ; preds = %35
+  %.not47 = icmp eq i32 %22, 0
+  br i1 %.not47, label %37, label %38
 
 37:                                               ; preds = %36
-  %.not47 = icmp eq i32 %23, 0
-  br i1 %.not47, label %38, label %39
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21930, i32 noundef %23)
+  br label %52
 
-38:                                               ; preds = %37
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21930, i32 noundef %24)
-  br label %53
+38:                                               ; preds = %36
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21940, i32 noundef %22, i32 noundef %23)
+  br label %52
 
-39:                                               ; preds = %37
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21940, i32 noundef %23, i32 noundef %24)
-  br label %53
+39:                                               ; preds = %35
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21947, i32 noundef %23, i32 noundef %23)
+  br label %52
 
-40:                                               ; preds = %36
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21947, i32 noundef %24, i32 noundef %24)
-  br label %53
+40:                                               ; preds = %35
+  %.not46 = icmp eq i32 %22, 0
+  br i1 %.not46, label %41, label %42
 
-41:                                               ; preds = %36
-  %.not46 = icmp eq i32 %23, 0
-  br i1 %.not46, label %42, label %43
+41:                                               ; preds = %40
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21954, i32 noundef %23)
+  br label %52
 
-42:                                               ; preds = %41
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21954, i32 noundef %24)
-  br label %53
+42:                                               ; preds = %40
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21964, i32 noundef %22, i32 noundef %23)
+  br label %52
 
-43:                                               ; preds = %41
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21964, i32 noundef %23, i32 noundef %24)
-  br label %53
+43:                                               ; preds = %35
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 4860, i32 noundef %23)
+  br label %52
 
-44:                                               ; preds = %36
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 4860, i32 noundef %24)
-  br label %53
+44:                                               ; preds = %35
+  %.not = icmp eq i32 %22, 0
+  br i1 %.not, label %45, label %46
 
-45:                                               ; preds = %36
-  %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %46, label %47
+45:                                               ; preds = %44
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21971, i32 noundef %23)
+  br label %52
 
-46:                                               ; preds = %45
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21971, i32 noundef %24)
-  br label %53
+46:                                               ; preds = %44
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21981, i32 noundef %22, i32 noundef %23)
+  br label %52
 
-47:                                               ; preds = %45
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21981, i32 noundef %23, i32 noundef %24)
-  br label %53
+47:                                               ; preds = %35
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21926, i32 noundef %23)
+  br label %52
 
-48:                                               ; preds = %36
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21926, i32 noundef %24)
-  br label %53
+48:                                               ; preds = %35
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 4864, i32 noundef %23)
+  br label %52
 
-49:                                               ; preds = %36
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 4864, i32 noundef %24)
-  br label %53
+49:                                               ; preds = %35
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21988, i32 noundef %23, i32 noundef %23)
+  br label %52
 
-50:                                               ; preds = %36
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21988, i32 noundef %24, i32 noundef %24)
-  br label %53
+50:                                               ; preds = %35
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21922, i32 noundef %23)
+  br label %52
 
-51:                                               ; preds = %36
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21922, i32 noundef %24)
-  br label %53
+51:                                               ; preds = %35
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21995, i32 noundef %23, i32 noundef %23)
+  br label %52
 
-52:                                               ; preds = %36
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 21995, i32 noundef %24, i32 noundef %24)
-  br label %53
+52:                                               ; preds = %39, %43, %47, %48, %49, %50, %51, %38, %37, %42, %41, %46, %45, %25, %26, %27, %28, %29, %30, %31, %32, %33, %34
+  %53 = load i32, ptr %6, align 4
+  %.not48 = icmp eq i32 %53, 0
+  br i1 %.not48, label %55, label %54
 
-53:                                               ; preds = %40, %44, %48, %49, %50, %51, %52, %39, %38, %43, %42, %47, %46, %26, %27, %28, %29, %30, %31, %32, %33, %34, %35
-  %54 = load i32, ptr %6, align 4
-  %.not48 = icmp eq i32 %54, 0
-  br i1 %.not48, label %56, label %55
+54:                                               ; preds = %52
+  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 4868, i32 noundef %53)
+  br label %55
 
-55:                                               ; preds = %53
-  call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull %10, i32 noundef 4868, i32 noundef %54)
-  br label %56
-
-56:                                               ; preds = %55, %53
+55:                                               ; preds = %54, %52
   ret void
 }
 

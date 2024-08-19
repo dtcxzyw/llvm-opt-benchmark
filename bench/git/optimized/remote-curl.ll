@@ -1274,16 +1274,16 @@ if.then.i113:                                     ; preds = %if.end70
   %conv.i115 = trunc i64 %call1.i114 to i32
   %120 = load ptr, ptr %end.i, align 8
   %cmp.i116 = icmp eq ptr %120, %value.0
-  br i1 %cmp.i116, label %if.then77, label %lor.lhs.false.i
+  br i1 %cmp.i116, label %if.end82, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then.i113
   %121 = load i8, ptr %120, align 1
   %tobool4.not.i117 = icmp eq i8 %121, 0
-  br i1 %tobool4.not.i117, label %if.end.i118, label %if.then77
+  br i1 %tobool4.not.i117, label %if.end.i118, label %if.end82
 
 if.end.i118:                                      ; preds = %lor.lhs.false.i
   store i32 %conv.i115, ptr @options, align 8
-  br label %if.then73
+  br label %if.end82
 
 if.else.i107:                                     ; preds = %if.end70
   %call6.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(9) @.str.123) #18
@@ -1303,7 +1303,7 @@ if.then11.i:                                      ; preds = %if.then8.i
 if.else12.i:                                      ; preds = %if.then8.i
   %call13.i110 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %value.0, ptr noundef nonnull dereferenceable(6) @.str.124) #18
   %tobool14.not.i = icmp eq i32 %call13.i110, 0
-  br i1 %tobool14.not.i, label %if.then15.i111, label %if.then77
+  br i1 %tobool14.not.i, label %if.then15.i111, label %if.end82
 
 if.then15.i111:                                   ; preds = %if.else12.i
   %bf.load16.i = load i16, ptr getelementptr inbounds (i8, ptr @options, i64 112), align 8
@@ -1313,7 +1313,7 @@ if.then15.i111:                                   ; preds = %if.else12.i
 if.end21.i:                                       ; preds = %if.then15.i111, %if.then11.i
   %storemerge.i = phi i16 [ %bf.set.i, %if.then11.i ], [ %bf.clear17.i, %if.then15.i111 ]
   store i16 %storemerge.i, ptr getelementptr inbounds (i8, ptr @options, i64 112), align 8
-  br label %if.then73
+  br label %if.end82
 
 if.else22.i:                                      ; preds = %if.else.i107
   %call23.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(6) @.str.125) #18
@@ -1324,16 +1324,16 @@ if.then25.i:                                      ; preds = %if.else22.i
   %call28.i = call i64 @strtoul(ptr noundef nonnull %value.0, ptr noundef nonnull %end26.i, i32 noundef 10) #16
   %122 = load ptr, ptr %end26.i, align 8
   %cmp29.i = icmp eq ptr %122, %value.0
-  br i1 %cmp29.i, label %if.then77, label %lor.lhs.false31.i
+  br i1 %cmp29.i, label %if.end82, label %lor.lhs.false31.i
 
 lor.lhs.false31.i:                                ; preds = %if.then25.i
   %123 = load i8, ptr %122, align 1
   %tobool33.not.i = icmp eq i8 %123, 0
-  br i1 %tobool33.not.i, label %if.end35.i, label %if.then77
+  br i1 %tobool33.not.i, label %if.end35.i, label %if.end82
 
 if.end35.i:                                       ; preds = %lor.lhs.false31.i
   store i64 %call28.i, ptr getelementptr inbounds (i8, ptr @options, i64 8), align 8
-  br label %if.then73
+  br label %if.end82
 
 if.else36.i:                                      ; preds = %if.else22.i
   %call37.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(13) @.str.126) #18
@@ -1343,7 +1343,7 @@ if.else36.i:                                      ; preds = %if.else22.i
 if.then39.i:                                      ; preds = %if.else36.i
   %call40.i = call ptr @xstrdup(ptr noundef nonnull %value.0) #16
   store ptr %call40.i, ptr getelementptr inbounds (i8, ptr @options, i64 16), align 8
-  br label %if.then73
+  br label %if.end82
 
 if.else41.i:                                      ; preds = %if.else36.i
   %call42.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(11) @.str.127) #18
@@ -1352,7 +1352,7 @@ if.else41.i:                                      ; preds = %if.else36.i
 
 if.then44.i:                                      ; preds = %if.else41.i
   %call45.i = call ptr @string_list_append(ptr noundef nonnull getelementptr inbounds (i8, ptr @options, i64 24), ptr noundef nonnull %value.0) #16
-  br label %if.then73
+  br label %if.end82
 
 if.else46.i:                                      ; preds = %if.else41.i
   %call47.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(16) @.str.128) #18
@@ -1372,7 +1372,7 @@ if.then52.i:                                      ; preds = %if.then49.i
 if.else56.i:                                      ; preds = %if.then49.i
   %call57.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %value.0, ptr noundef nonnull dereferenceable(6) @.str.124) #18
   %tobool58.not.i = icmp eq i32 %call57.i, 0
-  br i1 %tobool58.not.i, label %if.then59.i, label %if.then77
+  br i1 %tobool58.not.i, label %if.then59.i, label %if.end82
 
 if.then59.i:                                      ; preds = %if.else56.i
   %bf.load60.i = load i16, ptr getelementptr inbounds (i8, ptr @options, i64 112), align 8
@@ -1382,7 +1382,7 @@ if.then59.i:                                      ; preds = %if.else56.i
 if.end65.i:                                       ; preds = %if.then59.i, %if.then52.i
   %storemerge63.i = phi i16 [ %bf.set55.i, %if.then52.i ], [ %bf.clear61.i, %if.then59.i ]
   store i16 %storemerge63.i, ptr getelementptr inbounds (i8, ptr @options, i64 112), align 8
-  br label %if.then73
+  br label %if.end82
 
 if.else66.i:                                      ; preds = %if.else46.i
   %call67.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(11) @.str.129) #18
@@ -1402,7 +1402,7 @@ if.then72.i:                                      ; preds = %if.then69.i
 if.else76.i:                                      ; preds = %if.then69.i
   %call77.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %value.0, ptr noundef nonnull dereferenceable(6) @.str.124) #18
   %tobool78.not.i = icmp eq i32 %call77.i, 0
-  br i1 %tobool78.not.i, label %if.then79.i, label %if.then77
+  br i1 %tobool78.not.i, label %if.then79.i, label %if.end82
 
 if.then79.i:                                      ; preds = %if.else76.i
   %bf.load80.i = load i16, ptr getelementptr inbounds (i8, ptr @options, i64 112), align 8
@@ -1412,7 +1412,7 @@ if.then79.i:                                      ; preds = %if.else76.i
 if.end85.i:                                       ; preds = %if.then79.i, %if.then72.i
   %storemerge64.i = phi i16 [ %bf.set75.i, %if.then72.i ], [ %bf.clear81.i, %if.then79.i ]
   store i16 %storemerge64.i, ptr getelementptr inbounds (i8, ptr @options, i64 112), align 8
-  br label %if.then73
+  br label %if.end82
 
 if.else86.i:                                      ; preds = %if.else66.i
   %call87.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(8) @.str.130) #18
@@ -1432,7 +1432,7 @@ if.then92.i:                                      ; preds = %if.then89.i
 if.else96.i:                                      ; preds = %if.then89.i
   %call97.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %value.0, ptr noundef nonnull dereferenceable(6) @.str.124) #18
   %tobool98.not.i = icmp eq i32 %call97.i, 0
-  br i1 %tobool98.not.i, label %if.then99.i, label %if.then77
+  br i1 %tobool98.not.i, label %if.then99.i, label %if.end82
 
 if.then99.i:                                      ; preds = %if.else96.i
   %bf.load100.i = load i16, ptr getelementptr inbounds (i8, ptr @options, i64 112), align 8
@@ -1442,7 +1442,7 @@ if.then99.i:                                      ; preds = %if.else96.i
 if.end105.i:                                      ; preds = %if.then99.i, %if.then92.i
   %storemerge65.i = phi i16 [ %bf.set95.i, %if.then92.i ], [ %bf.clear101.i, %if.then99.i ]
   store i16 %storemerge65.i, ptr getelementptr inbounds (i8, ptr @options, i64 112), align 8
-  br label %if.then73
+  br label %if.end82
 
 if.else106.i:                                     ; preds = %if.else86.i
   %call107.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(19) @str.5) #18
@@ -1462,7 +1462,7 @@ if.then112.i:                                     ; preds = %if.then109.i
 if.else116.i:                                     ; preds = %if.then109.i
   %call117.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %value.0, ptr noundef nonnull dereferenceable(6) @.str.124) #18
   %tobool118.not.i = icmp eq i32 %call117.i, 0
-  br i1 %tobool118.not.i, label %if.then119.i, label %if.then77
+  br i1 %tobool118.not.i, label %if.then119.i, label %if.end82
 
 if.then119.i:                                     ; preds = %if.else116.i
   %bf.load120.i = load i16, ptr getelementptr inbounds (i8, ptr @options, i64 112), align 8
@@ -1472,7 +1472,7 @@ if.then119.i:                                     ; preds = %if.else116.i
 if.end125.i:                                      ; preds = %if.then119.i, %if.then112.i
   %storemerge66.i = phi i16 [ %bf.set115.i, %if.then112.i ], [ %bf.clear121.i, %if.then119.i ]
   store i16 %storemerge66.i, ptr getelementptr inbounds (i8, ptr @options, i64 112), align 8
-  br label %if.then73
+  br label %if.end82
 
 if.else126.i:                                     ; preds = %if.else106.i
   %call127.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(4) @.str.132) #18
@@ -1494,13 +1494,13 @@ if.then133.i:                                     ; preds = %if.then129.i
 if.else134.i:                                     ; preds = %if.then129.i
   %call135.i = call i32 @unquote_c_style(ptr noundef nonnull %val.i, ptr noundef nonnull %value.0, ptr noundef null) #16
   %tobool136.not.i = icmp eq i32 %call135.i, 0
-  br i1 %tobool136.not.i, label %if.end139.i, label %if.then77
+  br i1 %tobool136.not.i, label %if.end139.i, label %if.end82
 
 if.end139.i:                                      ; preds = %if.else134.i, %if.then133.i
   %125 = load ptr, ptr %buf.i, align 8
   %call140.i = call ptr @string_list_append(ptr noundef nonnull @cas_options, ptr noundef %125) #16
   call void @strbuf_release(ptr noundef nonnull %val.i) #16
-  br label %if.then73
+  br label %if.end82
 
 if.else141.i:                                     ; preds = %if.else126.i
   %call142.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(18) @.str.134) #18
@@ -1520,7 +1520,7 @@ if.then147.i:                                     ; preds = %if.then144.i
 if.else151.i:                                     ; preds = %if.then144.i
   %call152.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %value.0, ptr noundef nonnull dereferenceable(6) @.str.124) #18
   %tobool153.not.i = icmp eq i32 %call152.i, 0
-  br i1 %tobool153.not.i, label %if.then154.i, label %if.then77
+  br i1 %tobool153.not.i, label %if.then154.i, label %if.end82
 
 if.then154.i:                                     ; preds = %if.else151.i
   %bf.load155.i = load i16, ptr getelementptr inbounds (i8, ptr @options, i64 112), align 8
@@ -1530,7 +1530,7 @@ if.then154.i:                                     ; preds = %if.else151.i
 if.end160.i:                                      ; preds = %if.then154.i, %if.then147.i
   %storemerge67.i = phi i16 [ %bf.set150.i, %if.then147.i ], [ %bf.clear156.i, %if.then154.i ]
   store i16 %storemerge67.i, ptr getelementptr inbounds (i8, ptr @options, i64 112), align 8
-  br label %if.then73
+  br label %if.end82
 
 if.else161.i:                                     ; preds = %if.else141.i
   %call162.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(8) @.str.135) #18
@@ -1550,7 +1550,7 @@ if.then167.i:                                     ; preds = %if.then164.i
 if.else171.i:                                     ; preds = %if.then164.i
   %call172.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %value.0, ptr noundef nonnull dereferenceable(6) @.str.124) #18
   %tobool173.not.i = icmp eq i32 %call172.i, 0
-  br i1 %tobool173.not.i, label %if.then174.i, label %if.then77
+  br i1 %tobool173.not.i, label %if.then174.i, label %if.end82
 
 if.then174.i:                                     ; preds = %if.else171.i
   %bf.load175.i = load i16, ptr getelementptr inbounds (i8, ptr @options, i64 112), align 8
@@ -1560,7 +1560,7 @@ if.then174.i:                                     ; preds = %if.else171.i
 if.end180.i:                                      ; preds = %if.then174.i, %if.then167.i
   %storemerge68.i = phi i16 [ %bf.set170.i, %if.then167.i ], [ %bf.clear176.i, %if.then174.i ]
   store i16 %storemerge68.i, ptr getelementptr inbounds (i8, ptr @options, i64 112), align 8
-  br label %if.then73
+  br label %if.end82
 
 if.else181.i:                                     ; preds = %if.else161.i
   %call182.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(15) @.str.136) #18
@@ -1580,7 +1580,7 @@ if.then187.i:                                     ; preds = %if.then184.i
 if.else191.i:                                     ; preds = %if.then184.i
   %call192.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %value.0, ptr noundef nonnull dereferenceable(6) @.str.124) #18
   %tobool193.not.i = icmp eq i32 %call192.i, 0
-  br i1 %tobool193.not.i, label %if.then194.i, label %if.then77
+  br i1 %tobool193.not.i, label %if.then194.i, label %if.end82
 
 if.then194.i:                                     ; preds = %if.else191.i
   %bf.load195.i = load i16, ptr getelementptr inbounds (i8, ptr @options, i64 112), align 8
@@ -1590,7 +1590,7 @@ if.then194.i:                                     ; preds = %if.else191.i
 if.end200.i:                                      ; preds = %if.then194.i, %if.then187.i
   %storemerge69.i = phi i16 [ %bf.set190.i, %if.then187.i ], [ %bf.clear196.i, %if.then194.i ]
   store i16 %storemerge69.i, ptr getelementptr inbounds (i8, ptr @options, i64 112), align 8
-  br label %if.then73
+  br label %if.end82
 
 if.else201.i:                                     ; preds = %if.else181.i
   %call202.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(9) @.str.137) #18
@@ -1607,7 +1607,7 @@ if.then207.i:                                     ; preds = %if.then204.i
   %bf.clear209.i = and i16 %bf.load208.i, -385
   %bf.set210.i = or disjoint i16 %bf.clear209.i, 256
   store i16 %bf.set210.i, ptr getelementptr inbounds (i8, ptr @options, i64 112), align 8
-  br label %if.then73
+  br label %if.end82
 
 if.else211.i:                                     ; preds = %if.then204.i
   %call212.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %value.0, ptr noundef nonnull dereferenceable(6) @.str.124) #18
@@ -1618,19 +1618,19 @@ if.then214.i:                                     ; preds = %if.else211.i
   %bf.load215.i = load i16, ptr getelementptr inbounds (i8, ptr @options, i64 112), align 8
   %bf.clear216.i = and i16 %bf.load215.i, -385
   store i16 %bf.clear216.i, ptr getelementptr inbounds (i8, ptr @options, i64 112), align 8
-  br label %if.then73
+  br label %if.end82
 
 if.else218.i:                                     ; preds = %if.else211.i
   %call219.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %value.0, ptr noundef nonnull dereferenceable(9) @.str.138) #18
   %tobool220.not.i = icmp eq i32 %call219.i, 0
-  br i1 %tobool220.not.i, label %if.then221.i, label %if.then77
+  br i1 %tobool220.not.i, label %if.then221.i, label %if.end82
 
 if.then221.i:                                     ; preds = %if.else218.i
   %bf.load222.i = load i16, ptr getelementptr inbounds (i8, ptr @options, i64 112), align 8
   %bf.clear223.i = and i16 %bf.load222.i, -385
   %bf.set224.i = or disjoint i16 %bf.clear223.i, 128
   store i16 %bf.set224.i, ptr getelementptr inbounds (i8, ptr @options, i64 112), align 8
-  br label %if.then73
+  br label %if.end82
 
 if.else229.i:                                     ; preds = %if.else201.i
   %call230.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(7) @.str.139) #18
@@ -1650,7 +1650,7 @@ if.then235.i:                                     ; preds = %if.then232.i
 if.else239.i:                                     ; preds = %if.then232.i
   %call240.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %value.0, ptr noundef nonnull dereferenceable(6) @.str.124) #18
   %tobool241.not.i = icmp eq i32 %call240.i, 0
-  br i1 %tobool241.not.i, label %if.then242.i, label %if.then77
+  br i1 %tobool241.not.i, label %if.then242.i, label %if.end82
 
 if.then242.i:                                     ; preds = %if.else239.i
   %bf.load243.i = load i16, ptr getelementptr inbounds (i8, ptr @options, i64 112), align 8
@@ -1660,7 +1660,7 @@ if.then242.i:                                     ; preds = %if.else239.i
 if.end248.i:                                      ; preds = %if.then242.i, %if.then235.i
   %storemerge70.i = phi i16 [ %bf.set238.i, %if.then235.i ], [ %bf.clear244.i, %if.then242.i ]
   store i16 %storemerge70.i, ptr getelementptr inbounds (i8, ptr @options, i64 112), align 8
-  br label %if.then73
+  br label %if.end82
 
 if.else249.i:                                     ; preds = %if.else229.i
   %call250.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(12) @.str.140) #18
@@ -1674,7 +1674,7 @@ if.then252.i:                                     ; preds = %if.else249.i
 
 if.then256.i:                                     ; preds = %if.then252.i
   %call257.i = call ptr @string_list_append(ptr noundef nonnull getelementptr inbounds (i8, ptr @options, i64 64), ptr noundef nonnull %value.0) #16
-  br label %if.then73
+  br label %if.end82
 
 if.else258.i:                                     ; preds = %if.then252.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %unquoted.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.stateless_connect.buf, i64 24, i1 false)
@@ -1690,7 +1690,7 @@ if.then262.i:                                     ; preds = %if.else258.i
 if.end264.i:                                      ; preds = %if.else258.i
   %call265.i = call ptr @strbuf_detach(ptr noundef nonnull %unquoted.i, ptr noundef null) #16
   %call266.i = call ptr @string_list_append_nodup(ptr noundef nonnull getelementptr inbounds (i8, ptr @options, i64 64), ptr noundef %call265.i) #16
-  br label %if.then73
+  br label %if.end82
 
 if.else268.i:                                     ; preds = %if.else249.i
   %call269.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(7) @.str.142) #18
@@ -1704,7 +1704,7 @@ if.then271.i:                                     ; preds = %if.else268.i
 
 if.then274.i:                                     ; preds = %if.then271.i
   store i64 1, ptr @git_curl_ipresolve, align 8
-  br label %if.then73
+  br label %if.end82
 
 if.else275.i:                                     ; preds = %if.then271.i
   %call276.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %value.0, ptr noundef nonnull dereferenceable(5) @.str.144) #18
@@ -1713,16 +1713,16 @@ if.else275.i:                                     ; preds = %if.then271.i
 
 if.then278.i:                                     ; preds = %if.else275.i
   store i64 2, ptr @git_curl_ipresolve, align 8
-  br label %if.then73
+  br label %if.end82
 
 if.else279.i:                                     ; preds = %if.else275.i
   %call280.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %value.0, ptr noundef nonnull dereferenceable(4) @.str.145) #18
   %tobool281.not.i = icmp eq i32 %call280.i, 0
-  br i1 %tobool281.not.i, label %if.then282.i, label %if.then77
+  br i1 %tobool281.not.i, label %if.then282.i, label %if.end82
 
 if.then282.i:                                     ; preds = %if.else279.i
   store i64 0, ptr @git_curl_ipresolve, align 8
-  br label %if.then73
+  br label %if.end82
 
 if.else287.i:                                     ; preds = %if.else268.i
   %call288.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(14) @.str.146) #18
@@ -1733,7 +1733,7 @@ if.then290.i:                                     ; preds = %if.else287.i
   %bf.load291.i = load i16, ptr getelementptr inbounds (i8, ptr @options, i64 112), align 8
   %bf.set293.i = or i16 %bf.load291.i, 1024
   store i16 %bf.set293.i, ptr getelementptr inbounds (i8, ptr @options, i64 112), align 8
-  br label %if.then73
+  br label %if.end82
 
 if.else294.i:                                     ; preds = %if.else287.i
   %call295.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(8) @.str.147) #18
@@ -1744,7 +1744,7 @@ if.then297.i:                                     ; preds = %if.else294.i
   %bf.load298.i = load i16, ptr getelementptr inbounds (i8, ptr @options, i64 112), align 8
   %bf.set300.i = or i16 %bf.load298.i, 2048
   store i16 %bf.set300.i, ptr getelementptr inbounds (i8, ptr @options, i64 112), align 8
-  br label %if.then73
+  br label %if.end82
 
 if.else301.i:                                     ; preds = %if.else294.i
   %call302.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(7) @.str.148) #18
@@ -1754,12 +1754,12 @@ if.else301.i:                                     ; preds = %if.else294.i
 if.then304.i:                                     ; preds = %if.else301.i
   %call305.i = call ptr @xstrdup(ptr noundef nonnull %value.0) #16
   store ptr %call305.i, ptr getelementptr inbounds (i8, ptr @options, i64 104), align 8
-  br label %if.then73
+  br label %if.end82
 
 if.else306.i:                                     ; preds = %if.else301.i
   %call307.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %scevgep, ptr noundef nonnull dereferenceable(14) @str.6) #18
   %tobool308.not.i = icmp eq i32 %call307.i, 0
-  br i1 %tobool308.not.i, label %if.then309.i, label %if.else79
+  br i1 %tobool308.not.i, label %if.then309.i, label %if.end82
 
 if.then309.i:                                     ; preds = %if.else306.i
   %bf.load310.i = load i16, ptr getelementptr inbounds (i8, ptr @options, i64 112), align 8
@@ -1767,7 +1767,7 @@ if.then309.i:                                     ; preds = %if.else306.i
   store i16 %bf.set312.i, ptr getelementptr inbounds (i8, ptr @options, i64 112), align 8
   %call313.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %value.0, ptr noundef nonnull dereferenceable(5) @.str.11) #18
   %tobool314.not.i = icmp eq i32 %call313.i, 0
-  br i1 %tobool314.not.i, label %if.then73, label %if.then315.i
+  br i1 %tobool314.not.i, label %if.end82, label %if.then315.i
 
 if.then315.i:                                     ; preds = %if.then309.i
   %call316.i = call i32 @hash_algo_by_name(ptr noundef nonnull %value.0) #16
@@ -1782,31 +1782,14 @@ if.end320.i:                                      ; preds = %if.then315.i
   %idxprom.i = sext i32 %call316.i to i64
   %arrayidx.i109 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
   store ptr %arrayidx.i109, ptr getelementptr inbounds (i8, ptr @options, i64 120), align 8
-  br label %if.then73
+  br label %if.end82
 
-if.then73:                                        ; preds = %if.then304.i, %if.then297.i, %if.then290.i, %if.end248.i, %if.end200.i, %if.end180.i, %if.end160.i, %if.end139.i, %if.end125.i, %if.end105.i, %if.end85.i, %if.end65.i, %if.then44.i, %if.then39.i, %if.end35.i, %if.end21.i, %if.end.i118, %if.then214.i, %if.then221.i, %if.then207.i, %if.end264.i, %if.then256.i, %if.then278.i, %if.then282.i, %if.then274.i, %if.end320.i, %if.then309.i
+if.end82:                                         ; preds = %if.else306.i, %if.else279.i, %if.else239.i, %if.else218.i, %if.else191.i, %if.else171.i, %if.else151.i, %if.else134.i, %if.else116.i, %if.else96.i, %if.else76.i, %if.else56.i, %if.then25.i, %lor.lhs.false31.i, %if.else12.i, %if.then.i113, %lor.lhs.false.i, %if.then309.i, %if.end320.i, %if.then274.i, %if.then282.i, %if.then278.i, %if.then256.i, %if.end264.i, %if.then207.i, %if.then221.i, %if.then214.i, %if.end.i118, %if.end21.i, %if.end35.i, %if.then39.i, %if.then44.i, %if.end65.i, %if.end85.i, %if.end105.i, %if.end125.i, %if.end139.i, %if.end160.i, %if.end180.i, %if.end200.i, %if.end248.i, %if.then290.i, %if.then297.i, %if.then304.i
+  %str.9.sink = phi ptr [ @str.7, %if.then304.i ], [ @str.7, %if.then297.i ], [ @str.7, %if.then290.i ], [ @str.7, %if.end248.i ], [ @str.7, %if.end200.i ], [ @str.7, %if.end180.i ], [ @str.7, %if.end160.i ], [ @str.7, %if.end139.i ], [ @str.7, %if.end125.i ], [ @str.7, %if.end105.i ], [ @str.7, %if.end85.i ], [ @str.7, %if.end65.i ], [ @str.7, %if.then44.i ], [ @str.7, %if.then39.i ], [ @str.7, %if.end35.i ], [ @str.7, %if.end21.i ], [ @str.7, %if.end.i118 ], [ @str.7, %if.then214.i ], [ @str.7, %if.then221.i ], [ @str.7, %if.then207.i ], [ @str.7, %if.end264.i ], [ @str.7, %if.then256.i ], [ @str.7, %if.then278.i ], [ @str.7, %if.then282.i ], [ @str.7, %if.then274.i ], [ @str.7, %if.end320.i ], [ @str.7, %if.then309.i ], [ @str.9, %lor.lhs.false.i ], [ @str.9, %if.then.i113 ], [ @str.9, %if.else12.i ], [ @str.9, %lor.lhs.false31.i ], [ @str.9, %if.then25.i ], [ @str.9, %if.else56.i ], [ @str.9, %if.else76.i ], [ @str.9, %if.else96.i ], [ @str.9, %if.else116.i ], [ @str.9, %if.else134.i ], [ @str.9, %if.else151.i ], [ @str.9, %if.else171.i ], [ @str.9, %if.else191.i ], [ @str.9, %if.else218.i ], [ @str.9, %if.else239.i ], [ @str.9, %if.else279.i ], [ @str.8, %if.else306.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end26.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %val.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %unquoted.i)
-  br label %if.end82
-
-if.then77:                                        ; preds = %lor.lhs.false.i, %if.then.i113, %if.else12.i, %lor.lhs.false31.i, %if.then25.i, %if.else56.i, %if.else76.i, %if.else96.i, %if.else116.i, %if.else134.i, %if.else151.i, %if.else171.i, %if.else191.i, %if.else218.i, %if.else239.i, %if.else279.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end26.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %val.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %unquoted.i)
-  br label %if.end82
-
-if.else79:                                        ; preds = %if.else306.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end26.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %val.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %unquoted.i)
-  br label %if.end82
-
-if.end82:                                         ; preds = %if.then77, %if.else79, %if.then73
-  %str.9.sink = phi ptr [ @str.9, %if.then77 ], [ @str.8, %if.else79 ], [ @str.7, %if.then73 ]
   %puts14 = call i32 @puts(ptr nonnull dereferenceable(1) %str.9.sink)
   %127 = load ptr, ptr @stdout, align 8
   %call83 = call i32 @fflush(ptr noundef %127)

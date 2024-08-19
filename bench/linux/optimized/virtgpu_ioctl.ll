@@ -120,83 +120,74 @@ define internal range(i32 -22, 1) i32 @virtio_gpu_getparam_ioctl(ptr nocapture n
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
   %7 = load i64, ptr %1, align 8
-  switch i64 %7, label %44 [
+  switch i64 %7, label %43 [
     i64 1, label %8
-    i64 2, label %12
-    i64 3, label %13
-    i64 4, label %17
-    i64 5, label %21
-    i64 6, label %25
-    i64 7, label %29
-    i64 8, label %33
+    i64 2, label %36
+    i64 3, label %12
+    i64 4, label %16
+    i64 5, label %20
+    i64 6, label %24
+    i64 7, label %28
+    i64 8, label %32
   ]
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %6, i64 62136
   %10 = load i8, ptr %9, align 8, !range !5, !noundef !6
   %11 = zext nneg i8 %10 to i32
-  store i32 %11, ptr %4, align 4
-  br label %37
+  br label %36
 
 12:                                               ; preds = %3
-  store i32 1, ptr %4, align 4
-  br label %37
+  %13 = getelementptr inbounds i8, ptr %6, i64 62140
+  %14 = load i8, ptr %13, align 4, !range !5, !noundef !6
+  %15 = zext nneg i8 %14 to i32
+  br label %36
 
-13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %6, i64 62140
-  %15 = load i8, ptr %14, align 4, !range !5, !noundef !6
-  %16 = zext nneg i8 %15 to i32
-  store i32 %16, ptr %4, align 4
-  br label %37
+16:                                               ; preds = %3
+  %17 = getelementptr inbounds i8, ptr %6, i64 62141
+  %18 = load i8, ptr %17, align 1, !range !5, !noundef !6
+  %19 = zext nneg i8 %18 to i32
+  br label %36
 
-17:                                               ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %6, i64 62141
-  %19 = load i8, ptr %18, align 1, !range !5, !noundef !6
-  %20 = zext nneg i8 %19 to i32
-  store i32 %20, ptr %4, align 4
-  br label %37
+20:                                               ; preds = %3
+  %21 = getelementptr inbounds i8, ptr %6, i64 62139
+  %22 = load i8, ptr %21, align 1, !range !5, !noundef !6
+  %23 = zext nneg i8 %22 to i32
+  br label %36
 
-21:                                               ; preds = %3
-  %22 = getelementptr inbounds i8, ptr %6, i64 62139
-  %23 = load i8, ptr %22, align 1, !range !5, !noundef !6
-  %24 = zext nneg i8 %23 to i32
-  store i32 %24, ptr %4, align 4
-  br label %37
+24:                                               ; preds = %3
+  %25 = getelementptr inbounds i8, ptr %6, i64 62142
+  %26 = load i8, ptr %25, align 2, !range !5, !noundef !6
+  %27 = zext nneg i8 %26 to i32
+  br label %36
 
-25:                                               ; preds = %3
-  %26 = getelementptr inbounds i8, ptr %6, i64 62142
-  %27 = load i8, ptr %26, align 2, !range !5, !noundef !6
-  %28 = zext nneg i8 %27 to i32
-  store i32 %28, ptr %4, align 4
-  br label %37
+28:                                               ; preds = %3
+  %29 = getelementptr inbounds i8, ptr %6, i64 62504
+  %30 = load i64, ptr %29, align 8
+  %31 = trunc i64 %30 to i32
+  br label %36
 
-29:                                               ; preds = %3
-  %30 = getelementptr inbounds i8, ptr %6, i64 62504
-  %31 = load i64, ptr %30, align 8
-  %32 = trunc i64 %31 to i32
-  store i32 %32, ptr %4, align 4
-  br label %37
+32:                                               ; preds = %3
+  %33 = getelementptr inbounds i8, ptr %6, i64 62142
+  %34 = load i8, ptr %33, align 2, !range !5, !noundef !6
+  %35 = zext nneg i8 %34 to i32
+  br label %36
 
-33:                                               ; preds = %3
-  %34 = getelementptr inbounds i8, ptr %6, i64 62142
-  %35 = load i8, ptr %34, align 2, !range !5, !noundef !6
-  %36 = zext nneg i8 %35 to i32
-  store i32 %36, ptr %4, align 4
-  br label %37
+36:                                               ; preds = %3, %32, %28, %24, %20, %16, %12, %8
+  %.sink = phi i32 [ %35, %32 ], [ %31, %28 ], [ %27, %24 ], [ %23, %20 ], [ %19, %16 ], [ %15, %12 ], [ %11, %8 ], [ 1, %3 ]
+  store i32 %.sink, ptr %4, align 4
+  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = load i64, ptr %37, align 8
+  %39 = inttoptr i64 %38 to ptr
+  %40 = call i64 @_copy_to_user(ptr noundef %39, ptr noundef nonnull %4, i64 noundef 4) #6
+  %41 = icmp eq i64 %40, 0
+  %42 = select i1 %41, i32 0, i32 -14
+  br label %43
 
-37:                                               ; preds = %33, %29, %25, %21, %17, %13, %12, %8
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
-  %39 = load i64, ptr %38, align 8
-  %40 = inttoptr i64 %39 to ptr
-  %41 = call i64 @_copy_to_user(ptr noundef %40, ptr noundef nonnull %4, i64 noundef 4) #6
-  %42 = icmp eq i64 %41, 0
-  %43 = select i1 %42, i32 0, i32 -14
-  br label %44
-
-44:                                               ; preds = %37, %3
-  %45 = phi i32 [ -22, %3 ], [ %43, %37 ]
+43:                                               ; preds = %36, %3
+  %44 = phi i32 [ -22, %3 ], [ %42, %36 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
-  ret i32 %45
+  ret i32 %44
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

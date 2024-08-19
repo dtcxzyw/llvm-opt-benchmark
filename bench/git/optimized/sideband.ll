@@ -384,25 +384,21 @@ entry:
 if.end.i:                                         ; preds = %entry
   %call.i = call i32 @git_config_get_string(ptr noundef nonnull @.str.21, ptr noundef nonnull %value.i) #9
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %if.then1.i, label %if.else.i
-
-if.then1.i:                                       ; preds = %if.end.i
-  %1 = load ptr, ptr %value.i, align 8
-  %call2.i = call i32 @git_config_colorbool(ptr noundef nonnull @.str.21, ptr noundef %1) #9
-  br label %if.end9.i
+  br i1 %tobool.not.i, label %if.end9.sink.split.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.i
   %call3.i = call i32 @git_config_get_string(ptr noundef nonnull @.str.22, ptr noundef nonnull %value.i) #9
   %tobool4.not.i = icmp eq i32 %call3.i, 0
-  br i1 %tobool4.not.i, label %if.then5.i, label %if.end9.i
+  br i1 %tobool4.not.i, label %if.end9.sink.split.i, label %if.end9.i
 
-if.then5.i:                                       ; preds = %if.else.i
-  %2 = load ptr, ptr %value.i, align 8
-  %call6.i = call i32 @git_config_colorbool(ptr noundef nonnull @.str.22, ptr noundef %2) #9
+if.end9.sink.split.i:                             ; preds = %if.else.i, %if.end.i
+  %.str.22.sink.i = phi ptr [ @.str.21, %if.end.i ], [ @.str.22, %if.else.i ]
+  %1 = load ptr, ptr %value.i, align 8
+  %call6.i = call i32 @git_config_colorbool(ptr noundef nonnull %.str.22.sink.i, ptr noundef %1) #9
   br label %if.end9.i
 
-if.end9.i:                                        ; preds = %if.then5.i, %if.else.i, %if.then1.i
-  %call6.sink.i = phi i32 [ %call6.i, %if.then5.i ], [ %call2.i, %if.then1.i ], [ 2, %if.else.i ]
+if.end9.i:                                        ; preds = %if.end9.sink.split.i, %if.else.i
+  %call6.sink.i = phi i32 [ 2, %if.else.i ], [ %call6.i, %if.end9.sink.split.i ]
   store i32 %call6.sink.i, ptr @use_sideband_colors.use_sideband_colors_cached, align 4
   %len2.i.i = getelementptr inbounds i8, ptr %sb.i, i64 8
   %buf.i.i = getelementptr inbounds i8, ptr %sb.i, i64 16
@@ -411,27 +407,27 @@ if.end9.i:                                        ; preds = %if.then5.i, %if.els
 for.body.i:                                       ; preds = %for.inc.i, %if.end9.i
   %indvars.iv.i = phi i64 [ 0, %if.end9.i ], [ %indvars.iv.next.i, %for.inc.i ]
   store i64 0, ptr %len2.i.i, align 8
-  %3 = load ptr, ptr %buf.i.i, align 8
-  %cmp3.not.i.i = icmp eq ptr %3, @strbuf_slopbuf
+  %2 = load ptr, ptr %buf.i.i, align 8
+  %cmp3.not.i.i = icmp eq ptr %2, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %strbuf_setlen.exit.i, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %for.body.i
-  store i8 0, ptr %3, align 1
+  store i8 0, ptr %2, align 1
   br label %strbuf_setlen.exit.i
 
 strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %for.body.i
   %arrayidx.i = getelementptr inbounds [4 x %struct.keyword_entry], ptr @keywords, i64 0, i64 %indvars.iv.i
-  %4 = load ptr, ptr %arrayidx.i, align 8
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %sb.i, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.21, ptr noundef %4) #9
-  %5 = load ptr, ptr %buf.i.i, align 8
-  %call12.i = call i32 @git_config_get_string(ptr noundef %5, ptr noundef nonnull %value.i) #9
+  %3 = load ptr, ptr %arrayidx.i, align 8
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %sb.i, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.21, ptr noundef %3) #9
+  %4 = load ptr, ptr %buf.i.i, align 8
+  %call12.i = call i32 @git_config_get_string(ptr noundef %4, ptr noundef nonnull %value.i) #9
   %tobool13.not.i = icmp eq i32 %call12.i, 0
   br i1 %tobool13.not.i, label %if.end15.i, label %for.inc.i
 
 if.end15.i:                                       ; preds = %strbuf_setlen.exit.i
-  %6 = load ptr, ptr %value.i, align 8
+  %5 = load ptr, ptr %value.i, align 8
   %color.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %call18.i = call i32 @color_parse(ptr noundef %6, ptr noundef nonnull %color.i) #9
+  %call18.i = call i32 @color_parse(ptr noundef %5, ptr noundef nonnull %color.i) #9
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end15.i, %strbuf_setlen.exit.i
@@ -441,11 +437,11 @@ for.inc.i:                                        ; preds = %if.end15.i, %strbuf
 
 for.end.i:                                        ; preds = %for.inc.i
   call void @strbuf_release(ptr noundef nonnull %sb.i) #9
-  %7 = load i32, ptr @use_sideband_colors.use_sideband_colors_cached, align 4
+  %6 = load i32, ptr @use_sideband_colors.use_sideband_colors_cached, align 4
   br label %use_sideband_colors.exit
 
 use_sideband_colors.exit:                         ; preds = %entry, %for.end.i
-  %retval.0.i = phi i32 [ %7, %for.end.i ], [ %0, %entry ]
+  %retval.0.i = phi i32 [ %6, %for.end.i ], [ %0, %entry ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sb.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
   %call1 = call i32 @want_color_fd(i32 noundef 2, i32 noundef %retval.0.i) #9
@@ -464,23 +460,23 @@ land.rhs.lr.ph:                                   ; preds = %while.cond.preheade
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %strbuf_addch.exit
   %src.addr.037 = phi ptr [ %src, %land.rhs.lr.ph ], [ %incdec.ptr, %strbuf_addch.exit ]
   %n.addr.036 = phi i32 [ %n, %land.rhs.lr.ph ], [ %dec, %strbuf_addch.exit ]
-  %8 = load i8, ptr %src.addr.037, align 1
-  %idxprom = zext i8 %8 to i64
+  %7 = load i8, ptr %src.addr.037, align 1
+  %idxprom = zext i8 %7 to i64
   %arrayidx = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom
-  %9 = load i8, ptr %arrayidx, align 1
-  %10 = and i8 %9, 1
-  %cmp4.not = icmp eq i8 %10, 0
+  %8 = load i8, ptr %arrayidx, align 1
+  %9 = and i8 %8, 1
+  %cmp4.not = icmp eq i8 %9, 0
   br i1 %cmp4.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %11 = load i64, ptr %dest, align 8
-  %tobool.not.i.i = icmp eq i64 %11, 0
+  %10 = load i64, ptr %dest, align 8
+  %tobool.not.i.i = icmp eq i64 %10, 0
   br i1 %tobool.not.i.i, label %if.then.i, label %strbuf_avail.exit.i
 
 strbuf_avail.exit.i:                              ; preds = %while.body
-  %12 = load i64, ptr %len.i.i, align 8
-  %.neg.i = add i64 %12, 1
-  %tobool.not.i30 = icmp eq i64 %11, %.neg.i
+  %11 = load i64, ptr %len.i.i, align 8
+  %.neg.i = add i64 %11, 1
+  %tobool.not.i30 = icmp eq i64 %10, %.neg.i
   br i1 %tobool.not.i30, label %if.then.i, label %strbuf_addch.exit
 
 if.then.i:                                        ; preds = %strbuf_avail.exit.i, %while.body
@@ -491,14 +487,14 @@ if.then.i:                                        ; preds = %strbuf_avail.exit.i
 
 strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i, %if.then.i
   %inc.pre-phi.i = phi i64 [ %.pre8.i, %if.then.i ], [ %.neg.i, %strbuf_avail.exit.i ]
-  %13 = phi i64 [ %.pre.i, %if.then.i ], [ %12, %strbuf_avail.exit.i ]
-  %14 = load ptr, ptr %buf.i, align 8
+  %12 = phi i64 [ %.pre.i, %if.then.i ], [ %11, %strbuf_avail.exit.i ]
+  %13 = load ptr, ptr %buf.i, align 8
   store i64 %inc.pre-phi.i, ptr %len.i.i, align 8
-  %arrayidx.i32 = getelementptr inbounds i8, ptr %14, i64 %13
-  store i8 %8, ptr %arrayidx.i32, align 1
-  %15 = load ptr, ptr %buf.i, align 8
-  %16 = load i64, ptr %len.i.i, align 8
-  %arrayidx3.i = getelementptr inbounds i8, ptr %15, i64 %16
+  %arrayidx.i32 = getelementptr inbounds i8, ptr %13, i64 %12
+  store i8 %7, ptr %arrayidx.i32, align 1
+  %14 = load ptr, ptr %buf.i, align 8
+  %15 = load i64, ptr %len.i.i, align 8
+  %arrayidx3.i = getelementptr inbounds i8, ptr %14, i64 %15
   store i8 0, ptr %arrayidx3.i, align 1
   %incdec.ptr = getelementptr inbounds i8, ptr %src.addr.037, i64 1
   %dec = add nsw i32 %n.addr.036, -1
@@ -513,8 +509,8 @@ while.end:                                        ; preds = %land.rhs, %strbuf_a
 for.body:                                         ; preds = %while.end, %for.inc
   %indvars.iv = phi i64 [ 0, %while.end ], [ %indvars.iv.next, %for.inc ]
   %add.ptr = getelementptr inbounds %struct.keyword_entry, ptr @keywords, i64 %indvars.iv
-  %17 = load ptr, ptr %add.ptr, align 8
-  %call10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #11
+  %16 = load ptr, ptr %add.ptr, align 8
+  %call10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #11
   %conv11 = trunc i64 %call10 to i32
   %cmp12 = icmp slt i32 %n.addr.0.lcssa, %conv11
   br i1 %cmp12, label %for.inc, label %if.end15
@@ -522,7 +518,7 @@ for.body:                                         ; preds = %while.end, %for.inc
 if.end15:                                         ; preds = %for.body
   %sext = shl i64 %call10, 32
   %conv17 = ashr exact i64 %sext, 32
-  %call18 = call i32 @strncasecmp(ptr noundef %17, ptr noundef %src.addr.0.lcssa, i64 noundef %conv17) #11
+  %call18 = call i32 @strncasecmp(ptr noundef %16, ptr noundef %src.addr.0.lcssa, i64 noundef %conv17) #11
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %land.lhs.true, label %for.inc
 
@@ -532,12 +528,12 @@ land.lhs.true:                                    ; preds = %if.end15
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
   %arrayidx23 = getelementptr inbounds i8, ptr %src.addr.0.lcssa, i64 %conv17
-  %18 = load i8, ptr %arrayidx23, align 1
-  %idxprom24 = zext i8 %18 to i64
+  %17 = load i8, ptr %arrayidx23, align 1
+  %idxprom24 = zext i8 %17 to i64
   %arrayidx25 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom24
-  %19 = load i8, ptr %arrayidx25, align 1
-  %20 = and i8 %19, 6
-  %cmp28.not = icmp eq i8 %20, 0
+  %18 = load i8, ptr %arrayidx25, align 1
+  %19 = and i8 %18, 6
+  %cmp28.not = icmp eq i8 %19, 0
   br i1 %cmp28.not, label %if.then30, label %for.inc
 
 if.then30:                                        ; preds = %lor.lhs.false, %land.lhs.true

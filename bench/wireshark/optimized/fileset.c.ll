@@ -160,8 +160,8 @@ define hidden noundef i32 @fileset_filename_match_pattern(ptr noundef %0, ptr no
 
 .thread:                                          ; preds = %.thread.sink.split, %48, %62, %47
   %.148 = phi i32 [ 2, %47 ], [ 0, %48 ], [ 1, %62 ], [ %.148.ph, %.thread.sink.split ]
-  %.sink = load ptr, ptr %5, align 8
-  call void @g_match_info_free(ptr noundef %.sink) #9
+  %64 = load ptr, ptr %5, align 8
+  call void @g_match_info_free(ptr noundef %64) #9
   call void @g_free(ptr noundef %16) #9
   ret i32 %.148
 }

@@ -45,7 +45,6 @@ define hidden void @"_ZN121_$LT$tokio_stream..wrappers..mpsc_unbounded..Unbounde
 
 13:                                               ; preds = %3
   store i64 6, ptr %0, align 8, !alias.scope !4, !noalias !14
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5), !noalias !9
   br label %"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv17h7a69b3466cfffe61E.exit"
 
 14:                                               ; preds = %7
@@ -56,7 +55,6 @@ define hidden void @"_ZN121_$LT$tokio_stream..wrappers..mpsc_unbounded..Unbounde
 
 16:                                               ; preds = %7
   call void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17hce3c5f0167db633bE"(ptr noalias noundef nonnull align 1 dereferenceable(2) %5), !noalias !4
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5), !noalias !9
   br label %"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv17h7a69b3466cfffe61E.exit"
 
 17:                                               ; preds = %14
@@ -69,6 +67,7 @@ define hidden void @"_ZN121_$LT$tokio_stream..wrappers..mpsc_unbounded..Unbounde
   resume { ptr, i32 } %15
 
 "_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv17h7a69b3466cfffe61E.exit": ; preds = %13, %16
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5), !noalias !9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret void
 }

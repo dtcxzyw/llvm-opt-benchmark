@@ -4866,9 +4866,9 @@ _ZN26GrowableArrayWithAllocatorI12SwitchRanges13GrowableArrayIS0_EE4pushERKS0_.e
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.359.0..sroa_idx, i8 0, i64 16, i1 false)
   br label %9
 
-9:                                                ; preds = %89, %_ZN26GrowableArrayWithAllocatorI12SwitchRanges13GrowableArrayIS0_EE4pushERKS0_.exit
-  %10 = phi i32 [ 1, %_ZN26GrowableArrayWithAllocatorI12SwitchRanges13GrowableArrayIS0_EE4pushERKS0_.exit ], [ %90, %89 ]
-  %.038 = phi float [ 0.000000e+00, %_ZN26GrowableArrayWithAllocatorI12SwitchRanges13GrowableArrayIS0_EE4pushERKS0_.exit ], [ %.1, %89 ]
+9:                                                ; preds = %79, %_ZN26GrowableArrayWithAllocatorI12SwitchRanges13GrowableArrayIS0_EE4pushERKS0_.exit
+  %10 = phi i32 [ 1, %_ZN26GrowableArrayWithAllocatorI12SwitchRanges13GrowableArrayIS0_EE4pushERKS0_.exit ], [ %80, %79 ]
+  %.038 = phi float [ 0.000000e+00, %_ZN26GrowableArrayWithAllocatorI12SwitchRanges13GrowableArrayIS0_EE4pushERKS0_.exit ], [ %.1, %79 ]
   %11 = add nsw i32 %10, -1
   %12 = load ptr, ptr %6, align 8
   %13 = zext nneg i32 %11 to i64
@@ -4877,7 +4877,7 @@ _ZN26GrowableArrayWithAllocatorI12SwitchRanges13GrowableArrayIS0_EE4pushERKS0_.e
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %16, %17
-  br i1 %.not, label %83, label %18
+  br i1 %.not, label %63, label %18
 
 18:                                               ; preds = %9
   %19 = getelementptr inbounds i8, ptr %14, i64 16
@@ -4914,7 +4914,7 @@ _ZL11sum_of_cntsP11SwitchRangeS0_.exit:           ; preds = %.lr.ph.i
 
 _ZL11sum_of_cntsP11SwitchRangeS0_.exit.thread:    ; preds = %22, %_ZL11sum_of_cntsP11SwitchRangeS0_.exit
   store i32 %11, ptr %3, align 8, !noalias !21
-  br label %89
+  br label %79
 
 29:                                               ; preds = %29, %.preheader
   %.037 = phi ptr [ %34, %29 ], [ %17, %.preheader ]
@@ -4940,7 +4940,7 @@ _ZL11sum_of_cntsP11SwitchRangeS0_.exit.thread:    ; preds = %22, %_ZL11sum_of_cn
   %42 = getelementptr inbounds i8, ptr %14, i64 28
   %43 = load i32, ptr %42, align 4
   %44 = icmp slt i32 %43, 1
-  br i1 %44, label %45, label %62
+  br i1 %44, label %45, label %52
 
 45:                                               ; preds = %37
   %46 = icmp ugt ptr %38, %17
@@ -4952,111 +4952,99 @@ _ZL11sum_of_cntsP11SwitchRangeS0_.exit.thread:    ; preds = %22, %_ZL11sum_of_cn
   %49 = load i32, ptr %3, align 8
   %50 = load i32, ptr %5, align 4
   %51 = icmp eq i32 %49, %50
-  br i1 %51, label %52, label %thread-pre-split
+  br i1 %51, label %thread-pre-split.sink.split, label %thread-pre-split
 
-52:                                               ; preds = %47
-  %53 = add nsw i32 %49, 1
-  %54 = icmp sgt i32 %49, -1
-  %55 = xor i32 %49, -2147483648
-  %56 = and i32 %55, %53
-  %57 = icmp eq i32 %56, 0
-  %58 = and i1 %54, %57
-  %59 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %53, i1 true)
-  %60 = sub nuw nsw i32 32, %59
-  %61 = shl nuw i32 1, %60
-  %.0.i.i.i.i.i45 = select i1 %58, i32 %53, i32 %61
-  call void @_ZN26GrowableArrayWithAllocatorI12SwitchRanges13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %.0.i.i.i.i.i45)
-  %.pre.i.i46 = load i32, ptr %3, align 8
-  br label %thread-pre-split
+52:                                               ; preds = %37
+  %53 = icmp eq i32 %43, 1
+  br i1 %53, label %.thread, label %59
 
-62:                                               ; preds = %37
-  %63 = icmp eq i32 %43, 1
-  br i1 %63, label %.thread, label %79
-
-.thread:                                          ; preds = %45, %62
+.thread:                                          ; preds = %45, %52
   store i32 2, ptr %42, align 4
-  %64 = icmp eq ptr %38, %17
-  %.idx = select i1 %64, i64 16, i64 0
-  %65 = getelementptr inbounds i8, ptr %38, i64 %.idx
-  %66 = load i32, ptr %3, align 8
-  %67 = load i32, ptr %5, align 4
-  %68 = icmp eq i32 %66, %67
-  br i1 %68, label %69, label %thread-pre-split
+  %54 = icmp eq ptr %38, %17
+  %.idx = select i1 %54, i64 16, i64 0
+  %55 = getelementptr inbounds i8, ptr %38, i64 %.idx
+  %56 = load i32, ptr %3, align 8
+  %57 = load i32, ptr %5, align 4
+  %58 = icmp eq i32 %56, %57
+  br i1 %58, label %thread-pre-split.sink.split, label %thread-pre-split
 
-69:                                               ; preds = %.thread
-  %70 = add nsw i32 %66, 1
-  %71 = icmp sgt i32 %66, -1
-  %72 = xor i32 %66, -2147483648
-  %73 = and i32 %72, %70
-  %74 = icmp eq i32 %73, 0
-  %75 = and i1 %71, %74
-  %76 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %70, i1 true)
-  %77 = sub nuw nsw i32 32, %76
-  %78 = shl nuw i32 1, %77
-  %.0.i.i.i.i.i48 = select i1 %75, i32 %70, i32 %78
+59:                                               ; preds = %52
+  %60 = load i32, ptr %3, align 8, !noalias !25
+  %61 = add nsw i32 %60, -1
+  store i32 %61, ptr %3, align 8, !noalias !25
+  %62 = load float, ptr %40, align 8
+  br label %79
+
+63:                                               ; preds = %9
+  store i32 %11, ptr %3, align 8, !noalias !28
+  %64 = getelementptr inbounds i8, ptr %14, i64 24
+  %65 = load float, ptr %64, align 8
+  br label %79
+
+thread-pre-split.sink.split:                      ; preds = %.thread, %47
+  %.sink79 = phi i32 [ %49, %47 ], [ %56, %.thread ]
+  %.sink63.ph = phi ptr [ %17, %47 ], [ %55, %.thread ]
+  %.sink61.ph = phi ptr [ %48, %47 ], [ %16, %.thread ]
+  %66 = add nsw i32 %.sink79, 1
+  %67 = icmp sgt i32 %.sink79, -1
+  %68 = xor i32 %.sink79, -2147483648
+  %69 = and i32 %68, %66
+  %70 = icmp eq i32 %69, 0
+  %71 = and i1 %67, %70
+  %72 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %66, i1 true)
+  %73 = sub nuw nsw i32 32, %72
+  %74 = shl nuw i32 1, %73
+  %.0.i.i.i.i.i48 = select i1 %71, i32 %66, i32 %74
   call void @_ZN26GrowableArrayWithAllocatorI12SwitchRanges13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %.0.i.i.i.i.i48)
   %.pre.i.i49 = load i32, ptr %3, align 8
   br label %thread-pre-split
 
-79:                                               ; preds = %62
-  %80 = load i32, ptr %3, align 8, !noalias !25
-  %81 = add nsw i32 %80, -1
-  store i32 %81, ptr %3, align 8, !noalias !25
-  %82 = load float, ptr %40, align 8
-  br label %89
-
-83:                                               ; preds = %9
-  store i32 %11, ptr %3, align 8, !noalias !28
-  %84 = getelementptr inbounds i8, ptr %14, i64 24
-  %85 = load float, ptr %84, align 8
-  br label %89
-
-thread-pre-split:                                 ; preds = %69, %.thread, %52, %47
-  %storemerge.in = phi i32 [ %.pre.i.i46, %52 ], [ %49, %47 ], [ %.pre.i.i49, %69 ], [ %66, %.thread ]
-  %.sink63 = phi ptr [ %17, %52 ], [ %17, %47 ], [ %65, %69 ], [ %65, %.thread ]
-  %.sink61 = phi ptr [ %48, %52 ], [ %48, %47 ], [ %16, %69 ], [ %16, %.thread ]
-  %storemerge = add nsw i32 %storemerge.in, 1
-  store i32 %storemerge, ptr %3, align 8
-  %86 = load ptr, ptr %6, align 8
-  %87 = sext i32 %storemerge.in to i64
-  %88 = getelementptr inbounds %class.SwitchRanges, ptr %86, i64 %87
-  store ptr %.sink63, ptr %88, align 8
-  %.sroa.255.0..sroa_idx = getelementptr inbounds i8, ptr %88, i64 8
+thread-pre-split:                                 ; preds = %thread-pre-split.sink.split, %.thread, %47
+  %.sink68 = phi i32 [ %49, %47 ], [ %56, %.thread ], [ %.pre.i.i49, %thread-pre-split.sink.split ]
+  %.sink63 = phi ptr [ %17, %47 ], [ %55, %.thread ], [ %.sink63.ph, %thread-pre-split.sink.split ]
+  %.sink61 = phi ptr [ %48, %47 ], [ %16, %.thread ], [ %.sink61.ph, %thread-pre-split.sink.split ]
+  %75 = add nsw i32 %.sink68, 1
+  store i32 %75, ptr %3, align 8
+  %76 = load ptr, ptr %6, align 8
+  %77 = sext i32 %.sink68 to i64
+  %78 = getelementptr inbounds %class.SwitchRanges, ptr %76, i64 %77
+  store ptr %.sink63, ptr %78, align 8
+  %.sroa.255.0..sroa_idx = getelementptr inbounds i8, ptr %78, i64 8
   store ptr %.sink61, ptr %.sroa.255.0..sroa_idx, align 8
-  %.sroa.356.0..sroa_idx = getelementptr inbounds i8, ptr %88, i64 16
+  %.sroa.356.0..sroa_idx = getelementptr inbounds i8, ptr %78, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.356.0..sroa_idx, i8 0, i64 16, i1 false)
   %.pr = load i32, ptr %3, align 8
-  br label %89
+  br label %79
 
-89:                                               ; preds = %thread-pre-split, %83, %79, %_ZL11sum_of_cntsP11SwitchRangeS0_.exit.thread
-  %90 = phi i32 [ %.pr, %thread-pre-split ], [ %11, %83 ], [ %81, %79 ], [ %11, %_ZL11sum_of_cntsP11SwitchRangeS0_.exit.thread ]
-  %.1 = phi float [ 0.000000e+00, %thread-pre-split ], [ %85, %83 ], [ %82, %79 ], [ 0.000000e+00, %_ZL11sum_of_cntsP11SwitchRangeS0_.exit.thread ]
-  %91 = icmp sgt i32 %90, 0
-  br i1 %91, label %9, label %92, !llvm.loop !31
+79:                                               ; preds = %thread-pre-split, %63, %59, %_ZL11sum_of_cntsP11SwitchRangeS0_.exit.thread
+  %80 = phi i32 [ %.pr, %thread-pre-split ], [ %11, %63 ], [ %61, %59 ], [ %11, %_ZL11sum_of_cntsP11SwitchRangeS0_.exit.thread ]
+  %.1 = phi float [ 0.000000e+00, %thread-pre-split ], [ %65, %63 ], [ %62, %59 ], [ 0.000000e+00, %_ZL11sum_of_cntsP11SwitchRangeS0_.exit.thread ]
+  %81 = icmp sgt i32 %80, 0
+  br i1 %81, label %9, label %82, !llvm.loop !31
 
-92:                                               ; preds = %89
-  %93 = load i64, ptr %8, align 8
-  %94 = and i64 %93, 1
-  %.not.i51 = icmp eq i64 %94, 0
-  br i1 %.not.i51, label %_ZN13GrowableArrayI12SwitchRangesED2Ev.exit, label %95
+82:                                               ; preds = %79
+  %83 = load i64, ptr %8, align 8
+  %84 = and i64 %83, 1
+  %.not.i51 = icmp eq i64 %84, 0
+  br i1 %.not.i51, label %_ZN13GrowableArrayI12SwitchRangesED2Ev.exit, label %85
 
-95:                                               ; preds = %92
+85:                                               ; preds = %82
   store i32 0, ptr %3, align 8
-  %96 = load i32, ptr %5, align 4
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %_ZN13GrowableArrayI12SwitchRangesED2Ev.exit, label %.loopexit.i
+  %86 = load i32, ptr %5, align 4
+  %87 = icmp eq i32 %86, 0
+  br i1 %87, label %_ZN13GrowableArrayI12SwitchRangesED2Ev.exit, label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %95
-  %98 = load ptr, ptr %6, align 8
+.loopexit.i:                                      ; preds = %85
+  %88 = load ptr, ptr %6, align 8
   store i32 0, ptr %5, align 4
-  %.not.i52 = icmp eq ptr %98, null
+  %.not.i52 = icmp eq ptr %88, null
   br i1 %.not.i52, label %_ZN13GrowableArrayI12SwitchRangesED2Ev.exit, label %.loopexit.thread.i
 
 .loopexit.thread.i:                               ; preds = %.loopexit.i
-  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %98) #15
+  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %88) #15
   br label %_ZN13GrowableArrayI12SwitchRangesED2Ev.exit
 
-_ZN13GrowableArrayI12SwitchRangesED2Ev.exit:      ; preds = %.loopexit.i, %.loopexit.thread.i, %95, %92
+_ZN13GrowableArrayI12SwitchRangesED2Ev.exit:      ; preds = %.loopexit.i, %.loopexit.thread.i, %85, %82
   ret float %.1
 }
 

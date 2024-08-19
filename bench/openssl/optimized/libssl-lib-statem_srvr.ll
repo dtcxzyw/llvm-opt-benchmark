@@ -3599,32 +3599,13 @@ if.end88.i:                                       ; preds = %land.lhs.true.i, %i
 lor.lhs.false91.i:                                ; preds = %if.end88.i
   %call92.i = call i32 @WPACKET_put_bytes__(ptr noundef %pkt, i64 noundef 0, i64 noundef 2) #12
   %tobool93.not.i = icmp eq i32 %call92.i, 0
-  br i1 %tobool93.not.i, label %if.then94.i, label %construct_stateless_ticket.exit.thread
+  br i1 %tobool93.not.i, label %if.then94.i, label %if.end147.sink.split
 
 if.then94.i:                                      ; preds = %lor.lhs.false91.i, %if.end88.i
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 4053, ptr noundef nonnull @__func__.construct_stateless_ticket) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #12
   br label %construct_stateless_ticket.exit.thread91
-
-construct_stateless_ticket.exit.thread:           ; preds = %lor.lhs.false91.i
-  call void @CRYPTO_free(ptr noundef nonnull %call5.i, ptr noundef nonnull @.str.1, i32 noundef 4056) #12
-  call void @EVP_CIPHER_CTX_free(ptr noundef nonnull %call10.i) #12
-  call void @ssl_hmac_free(ptr noundef nonnull %call15.i) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %encdata1.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %encdata2.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %macdata1.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %macdata2.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %const_p.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %lenfinal.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hlen.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %iv.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %key_name.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %macoffset.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %macendoffset.i)
-  br label %if.end147
 
 if.end96.i:                                       ; preds = %if.end71.i
   %cmp97.i = icmp slt i32 %ret.0.i, 0
@@ -3827,26 +3808,7 @@ if.then210.i:                                     ; preds = %lor.lhs.false207.i,
 if.end211.i:                                      ; preds = %lor.lhs.false207.i
   %call212.i = call i32 @WPACKET_close(ptr noundef %pkt) #12
   %tobool213.not.i = icmp eq i32 %call212.i, 0
-  br i1 %tobool213.not.i, label %if.then214.i, label %construct_stateless_ticket.exit.thread96
-
-construct_stateless_ticket.exit.thread96:         ; preds = %if.end211.i
-  call void @CRYPTO_free(ptr noundef nonnull %call5.i, ptr noundef nonnull @.str.1, i32 noundef 4138) #12
-  call void @EVP_CIPHER_CTX_free(ptr noundef nonnull %call10.i) #12
-  call void @ssl_hmac_free(ptr noundef nonnull %call15.i) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %encdata1.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %encdata2.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %macdata1.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %macdata2.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %const_p.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %lenfinal.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hlen.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %iv.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %key_name.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %macoffset.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %macendoffset.i)
-  br label %if.end147
+  br i1 %tobool213.not.i, label %if.then214.i, label %if.end147.sink.split
 
 if.then214.i:                                     ; preds = %if.end211.i
   call void @ERR_new() #12
@@ -3911,7 +3873,27 @@ if.then.i77:                                      ; preds = %if.then144
   store i32 %dec.i, ptr %extra_tickets_expected.i, align 4
   br label %err
 
-if.end147:                                        ; preds = %construct_stateless_ticket.exit.thread96, %construct_stateless_ticket.exit.thread, %lor.lhs.false.i
+if.end147.sink.split:                             ; preds = %if.end211.i, %lor.lhs.false91.i
+  %.sink = phi i32 [ 4056, %lor.lhs.false91.i ], [ 4138, %if.end211.i ]
+  call void @CRYPTO_free(ptr noundef nonnull %call5.i, ptr noundef nonnull @.str.1, i32 noundef %.sink) #12
+  call void @EVP_CIPHER_CTX_free(ptr noundef nonnull %call10.i) #12
+  call void @ssl_hmac_free(ptr noundef nonnull %call15.i) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %encdata1.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %encdata2.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %macdata1.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %macdata2.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %const_p.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %lenfinal.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hlen.i)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %iv.i)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %key_name.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %macoffset.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %macendoffset.i)
+  br label %if.end147
+
+if.end147:                                        ; preds = %if.end147.sink.split, %lor.lhs.false.i
   %80 = load ptr, ptr %method, align 8
   %ssl3_enc150 = getelementptr inbounds i8, ptr %80, i64 216
   %81 = load ptr, ptr %ssl3_enc150, align 8

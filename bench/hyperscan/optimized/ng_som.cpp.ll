@@ -7983,25 +7983,16 @@ for.body:                                         ; preds = %for.body.lr.ph, %sw
   %call6 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZNK3ue213ReportManager9getReportEj(ptr noundef nonnull align 8 dereferenceable(505) %rm, i32 noundef %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %ir, ptr noundef nonnull align 8 dereferenceable(72) %call6, i64 72, i1 false)
   %3 = load i32, ptr %ir, align 8
-  switch i32 %3, label %sw.epilog [
-    i32 2, label %sw.bb
-    i32 3, label %sw.bb8
-    i32 4, label %sw.bb10
-  ]
+  %switch.tableidx = add i32 %3, -2
+  %4 = icmp ult i32 %switch.tableidx, 3
+  br i1 %4, label %switch.lookup, label %sw.epilog
 
-sw.bb:                                            ; preds = %for.body
-  store i32 5, ptr %ir, align 8
+switch.lookup:                                    ; preds = %for.body
+  %switch.offset = add nuw nsw i32 %3, 3
+  store i32 %switch.offset, ptr %ir, align 8
   br label %sw.epilog
 
-sw.bb8:                                           ; preds = %for.body
-  store i32 6, ptr %ir, align 8
-  br label %sw.epilog
-
-sw.bb10:                                          ; preds = %for.body
-  store i32 7, ptr %ir, align 8
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %for.body, %sw.bb10, %sw.bb8, %sw.bb
+sw.epilog:                                        ; preds = %for.body, %switch.lookup
   store i32 %rev_comp_id, ptr %revNfaIndex, align 4
   %call12 = call noundef i32 @_ZN3ue213ReportManager13getInternalIdERKNS_6ReportE(ptr noundef nonnull align 8 dereferenceable(505) %rm, ptr noundef nonnull align 8 dereferenceable(72) %ir)
   store i32 %call12, ptr %rep, align 4
@@ -34885,7 +34876,7 @@ do.body158.i:                                     ; preds = %do.body158.i.prehea
   %info.val54.i = load ptr, ptr %_M_left.i.i.i.i.i, align 8
   %cmp.i.i.i138.not.i = icmp ne ptr %it157.sroa.0.0.i, %info.val54.i
   %or.cond23.not.i = select i1 %tobool169.i, i1 %cmp.i.i.i138.not.i, i1 false
-  br i1 %or.cond23.not.i, label %land.rhs173.i, label %454
+  br i1 %or.cond23.not.i, label %land.rhs173.i, label %invoke.cont95.thread
 
 land.rhs173.i:                                    ; preds = %.noexc365
   %call.i.i140.i = call noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %call.i.i136.i) #28
@@ -34893,106 +34884,94 @@ land.rhs173.i:                                    ; preds = %.noexc365
   %452 = load i32, ptr %_M_storage.i.i.i.i141.i, align 8
   %453 = load i32, ptr %_M_storage.i.i.i322.le, align 8
   %cmp179.i = icmp ugt i32 %452, %453
-  br i1 %cmp179.i, label %do.body158.i, label %454, !llvm.loop !1100
+  br i1 %cmp179.i, label %do.body158.i, label %invoke.cont95.thread, !llvm.loop !1100
 
-invoke.cont95.thread:                             ; preds = %_ZNKSt3mapIjN3ue212_GLOBAL__N_111region_infoESt4lessIjESaISt4pairIKjS2_EEE4findERS6_.exit.i, %if.end.i320, %call69.i.noexc, %invoke.cont89.i, %_ZNKSt8_Rb_treeIjSt4pairIKjN3ue212_GLOBAL__N_111region_infoEESt10_Select1stIS5_ESt4lessIjESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %do.end6.i, %if.end43.i, %if.end.i74.i
+invoke.cont95.thread:                             ; preds = %if.end43.i, %do.end6.i, %_ZNKSt8_Rb_treeIjSt4pairIKjN3ue212_GLOBAL__N_111region_infoEESt10_Select1stIS5_ESt4lessIjESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %invoke.cont89.i, %call69.i.noexc, %if.end.i320, %_ZNKSt3mapIjN3ue212_GLOBAL__N_111region_infoESt4lessIjESaISt4pairIKjS2_EEE4findERS6_.exit.i, %land.rhs173.i, %.noexc365, %if.end.i74.i
+  %454 = phi i32 [ 1, %if.end.i74.i ], [ 0, %.noexc365 ], [ 0, %land.rhs173.i ], [ 1, %_ZNKSt3mapIjN3ue212_GLOBAL__N_111region_infoESt4lessIjESaISt4pairIKjS2_EEE4findERS6_.exit.i ], [ 1, %if.end.i320 ], [ 1, %call69.i.noexc ], [ 1, %invoke.cont89.i ], [ 1, %_ZNKSt8_Rb_treeIjSt4pairIKjN3ue212_GLOBAL__N_111region_infoEESt10_Select1stIS5_ESt4lessIjESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ 1, %do.end6.i ], [ 1, %if.end43.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %picked.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bad_region.addr.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %next_escapes.i)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %midfix.i)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %conservative_midfix.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp141.i)
-  br label %455
-
-454:                                              ; preds = %.noexc365, %land.rhs173.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %picked.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bad_region.addr.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %next_escapes.i)
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %midfix.i)
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %conservative_midfix.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp141.i)
-  br label %455
-
-455:                                              ; preds = %invoke.cont95.thread, %454
-  %456 = phi i32 [ 0, %454 ], [ 1, %invoke.cont95.thread ]
-  %457 = load ptr, ptr %_M_before_begin.i.i307, align 8
-  %tobool.not3.i.i.i.i368 = icmp eq ptr %457, null
+  %455 = load ptr, ptr %_M_before_begin.i.i307, align 8
+  %tobool.not3.i.i.i.i368 = icmp eq ptr %455, null
   br i1 %tobool.not3.i.i.i.i368, label %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_S8_ESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i369
 
-while.body.i.i.i.i369:                            ; preds = %455, %while.body.i.i.i.i369
-  %__n.addr.04.i.i.i.i370 = phi ptr [ %458, %while.body.i.i.i.i369 ], [ %457, %455 ]
-  %458 = load ptr, ptr %__n.addr.04.i.i.i.i370, align 8
+while.body.i.i.i.i369:                            ; preds = %invoke.cont95.thread, %while.body.i.i.i.i369
+  %__n.addr.04.i.i.i.i370 = phi ptr [ %456, %while.body.i.i.i.i369 ], [ %455, %invoke.cont95.thread ]
+  %456 = load ptr, ptr %__n.addr.04.i.i.i.i370, align 8
   call void @_ZdlPv(ptr noundef nonnull %__n.addr.04.i.i.i.i370) #26
-  %tobool.not.i.i.i.i371 = icmp eq ptr %458, null
+  %tobool.not.i.i.i.i371 = icmp eq ptr %456, null
   br i1 %tobool.not.i.i.i.i371, label %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_S8_ESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i369, !llvm.loop !366
 
-_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_S8_ESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %while.body.i.i.i.i369, %455
-  %459 = load ptr, ptr %copy_to_orig, align 8
-  %460 = load i64, ptr %_M_bucket_count.i.i306, align 8
-  %mul.i.i.i373 = shl i64 %460, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %459, i8 0, i64 %mul.i.i.i373, i1 false)
+_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_S8_ESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %while.body.i.i.i.i369, %invoke.cont95.thread
+  %457 = load ptr, ptr %copy_to_orig, align 8
+  %458 = load i64, ptr %_M_bucket_count.i.i306, align 8
+  %mul.i.i.i373 = shl i64 %458, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %457, i8 0, i64 %mul.i.i.i373, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i307, i8 0, i64 16, i1 false)
-  %461 = load ptr, ptr %copy_to_orig, align 8
-  %cmp.i.i.i.i.i374 = icmp eq ptr %_M_single_bucket.i.i305, %461
+  %459 = load ptr, ptr %copy_to_orig, align 8
+  %cmp.i.i.i.i.i374 = icmp eq ptr %_M_single_bucket.i.i305, %459
   br i1 %cmp.i.i.i.i.i374, label %cleanup99, label %if.end.i.i.i.i375
 
 if.end.i.i.i.i375:                                ; preds = %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_S8_ESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i
-  call void @_ZdlPv(ptr noundef %461) #26
+  call void @_ZdlPv(ptr noundef %459) #26
   br label %cleanup99
 
 cleanup99:                                        ; preds = %invoke.cont47, %_ZNSt8_Rb_treeIjSt4pairIKjN3ue212_GLOBAL__N_111region_infoEESt10_Select1stIS5_ESt4lessIjESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %if.end.i.i.i.i375, %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_S8_ESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, %invoke.cont61, %invoke.cont49
-  %cleanup.dest.slot.0 = phi i32 [ 1, %invoke.cont49 ], [ 1, %invoke.cont61 ], [ %456, %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_S8_ESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i ], [ %456, %if.end.i.i.i.i375 ], [ 1, %_ZNSt8_Rb_treeIjSt4pairIKjN3ue212_GLOBAL__N_111region_infoEESt10_Select1stIS5_ESt4lessIjESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i ], [ 1, %invoke.cont47 ]
+  %cleanup.dest.slot.0 = phi i32 [ 1, %invoke.cont49 ], [ 1, %invoke.cont61 ], [ %454, %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_S8_ESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i ], [ %454, %if.end.i.i.i.i375 ], [ 1, %_ZNSt8_Rb_treeIjSt4pairIKjN3ue212_GLOBAL__N_111region_infoEESt10_Select1stIS5_ESt4lessIjESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i ], [ 1, %invoke.cont47 ]
   %path_info.val20 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   call fastcc void @_ZNSt8_Rb_treeIjSt4pairIKjN3ue212_GLOBAL__N_111region_infoEESt10_Select1stIS5_ESt4lessIjESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef %path_info.val20)
-  %462 = load ptr, ptr %_M_before_begin.i.i.i.i.i207, align 8
-  %tobool.not3.i.i.i.i377 = icmp eq ptr %462, null
+  %460 = load ptr, ptr %_M_before_begin.i.i.i.i.i207, align 8
+  %tobool.not3.i.i.i.i377 = icmp eq ptr %460, null
   br i1 %tobool.not3.i.i.i.i377, label %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_jESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i378
 
 while.body.i.i.i.i378:                            ; preds = %cleanup99, %while.body.i.i.i.i378
-  %__n.addr.04.i.i.i.i379 = phi ptr [ %463, %while.body.i.i.i.i378 ], [ %462, %cleanup99 ]
-  %463 = load ptr, ptr %__n.addr.04.i.i.i.i379, align 8
+  %__n.addr.04.i.i.i.i379 = phi ptr [ %461, %while.body.i.i.i.i378 ], [ %460, %cleanup99 ]
+  %461 = load ptr, ptr %__n.addr.04.i.i.i.i379, align 8
   call void @_ZdlPv(ptr noundef nonnull %__n.addr.04.i.i.i.i379) #26
-  %tobool.not.i.i.i.i380 = icmp eq ptr %463, null
+  %tobool.not.i.i.i.i380 = icmp eq ptr %461, null
   br i1 %tobool.not.i.i.i.i380, label %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_jESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i378, !llvm.loop !123
 
 _ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_jESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %while.body.i.i.i.i378, %cleanup99
-  %464 = load ptr, ptr %regions, align 8
-  %465 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
-  %mul.i.i.i382 = shl i64 %465, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %464, i8 0, i64 %mul.i.i.i382, i1 false)
+  %462 = load ptr, ptr %regions, align 8
+  %463 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
+  %mul.i.i.i382 = shl i64 %463, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %462, i8 0, i64 %mul.i.i.i382, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i.i207, i8 0, i64 16, i1 false)
-  %466 = load ptr, ptr %regions, align 8
-  %cmp.i.i.i.i.i384 = icmp eq ptr %_M_single_bucket.i.i.i.i.i383, %466
+  %464 = load ptr, ptr %regions, align 8
+  %cmp.i.i.i.i.i384 = icmp eq ptr %_M_single_bucket.i.i.i.i.i383, %464
   br i1 %cmp.i.i.i.i.i384, label %_ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEjSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_jEEED2Ev.exit, label %if.end.i.i.i.i385
 
 if.end.i.i.i.i385:                                ; preds = %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_jESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i
-  call void @_ZdlPv(ptr noundef %466) #26
+  call void @_ZdlPv(ptr noundef %464) #26
   br label %_ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEjSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_jEEED2Ev.exit
 
 _ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEjSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_jEEED2Ev.exit: ; preds = %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_jESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, %if.end.i.i.i.i385
-  %467 = load ptr, ptr %_M_before_begin.i.i, align 8
-  %tobool.not3.i.i.i.i387 = icmp eq ptr %467, null
+  %465 = load ptr, ptr %_M_before_begin.i.i, align 8
+  %tobool.not3.i.i.i.i387 = icmp eq ptr %465, null
   br i1 %tobool.not3.i.i.i.i387, label %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_S8_ESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i391, label %while.body.i.i.i.i388
 
 while.body.i.i.i.i388:                            ; preds = %_ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEjSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_jEEED2Ev.exit, %while.body.i.i.i.i388
-  %__n.addr.04.i.i.i.i389 = phi ptr [ %468, %while.body.i.i.i.i388 ], [ %467, %_ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEjSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_jEEED2Ev.exit ]
-  %468 = load ptr, ptr %__n.addr.04.i.i.i.i389, align 8
+  %__n.addr.04.i.i.i.i389 = phi ptr [ %466, %while.body.i.i.i.i388 ], [ %465, %_ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEjSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_jEEED2Ev.exit ]
+  %466 = load ptr, ptr %__n.addr.04.i.i.i.i389, align 8
   call void @_ZdlPv(ptr noundef nonnull %__n.addr.04.i.i.i.i389) #26
-  %tobool.not.i.i.i.i390 = icmp eq ptr %468, null
+  %tobool.not.i.i.i.i390 = icmp eq ptr %466, null
   br i1 %tobool.not.i.i.i.i390, label %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_S8_ESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i391, label %while.body.i.i.i.i388, !llvm.loop !366
 
 _ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_S8_ESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i391: ; preds = %while.body.i.i.i.i388, %_ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEjSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_jEEED2Ev.exit
-  %469 = load ptr, ptr %orig_to_copy, align 8
-  %470 = load i64, ptr %_M_bucket_count.i.i, align 8
-  %mul.i.i.i393 = shl i64 %470, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %469, i8 0, i64 %mul.i.i.i393, i1 false)
+  %467 = load ptr, ptr %orig_to_copy, align 8
+  %468 = load i64, ptr %_M_bucket_count.i.i, align 8
+  %mul.i.i.i393 = shl i64 %468, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %467, i8 0, i64 %mul.i.i.i393, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
-  %471 = load ptr, ptr %orig_to_copy, align 8
-  %cmp.i.i.i.i.i395 = icmp eq ptr %_M_single_bucket.i.i, %471
+  %469 = load ptr, ptr %orig_to_copy, align 8
+  %cmp.i.i.i.i.i395 = icmp eq ptr %_M_single_bucket.i.i, %469
   br i1 %cmp.i.i.i.i.i395, label %_ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_S8_EEED2Ev.exit397, label %if.end.i.i.i.i396
 
 if.end.i.i.i.i396:                                ; preds = %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_S8_ESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i391
-  call void @_ZdlPv(ptr noundef %471) #26
+  call void @_ZdlPv(ptr noundef %469) #26
   br label %_ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_S8_EEED2Ev.exit397
 
 _ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_S8_EEED2Ev.exit397: ; preds = %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_S8_ESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i391, %if.end.i.i.i.i396
@@ -35018,29 +34997,29 @@ ehcleanup103:                                     ; preds = %lpad36.loopexit, %l
 
 cleanup109:                                       ; preds = %_ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_S8_EEED2Ev.exit397, %invoke.cont24
   %cmp.i41.not.lcssa = phi i1 [ true, %invoke.cont24 ], [ %cond, %_ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_S8_EEED2Ev.exit397 ]
-  %472 = load ptr, ptr %_M_before_begin.i.i.i.i.i, align 8
-  %tobool.not3.i.i.i.i399 = icmp eq ptr %472, null
+  %470 = load ptr, ptr %_M_before_begin.i.i.i.i.i, align 8
+  %tobool.not3.i.i.i.i399 = icmp eq ptr %470, null
   br i1 %tobool.not3.i.i.i.i399, label %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_jESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i403, label %while.body.i.i.i.i400
 
 while.body.i.i.i.i400:                            ; preds = %cleanup109, %while.body.i.i.i.i400
-  %__n.addr.04.i.i.i.i401 = phi ptr [ %473, %while.body.i.i.i.i400 ], [ %472, %cleanup109 ]
-  %473 = load ptr, ptr %__n.addr.04.i.i.i.i401, align 8
+  %__n.addr.04.i.i.i.i401 = phi ptr [ %471, %while.body.i.i.i.i400 ], [ %470, %cleanup109 ]
+  %471 = load ptr, ptr %__n.addr.04.i.i.i.i401, align 8
   call void @_ZdlPv(ptr noundef nonnull %__n.addr.04.i.i.i.i401) #26
-  %tobool.not.i.i.i.i402 = icmp eq ptr %473, null
+  %tobool.not.i.i.i.i402 = icmp eq ptr %471, null
   br i1 %tobool.not.i.i.i.i402, label %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_jESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i403, label %while.body.i.i.i.i400, !llvm.loop !123
 
 _ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_jESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i403: ; preds = %while.body.i.i.i.i400, %cleanup109
-  %474 = load ptr, ptr %g_regions, align 8
-  %475 = load i64, ptr %_M_bucket_count10.i.i.i.i, align 8
-  %mul.i.i.i405 = shl i64 %475, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %474, i8 0, i64 %mul.i.i.i405, i1 false)
+  %472 = load ptr, ptr %g_regions, align 8
+  %473 = load i64, ptr %_M_bucket_count10.i.i.i.i, align 8
+  %mul.i.i.i405 = shl i64 %473, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %472, i8 0, i64 %mul.i.i.i405, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i.i, i8 0, i64 16, i1 false)
-  %476 = load ptr, ptr %g_regions, align 8
-  %cmp.i.i.i.i.i407 = icmp eq ptr %_M_single_bucket.i.i.i.i.i.i.i, %476
+  %474 = load ptr, ptr %g_regions, align 8
+  %cmp.i.i.i.i.i407 = icmp eq ptr %_M_single_bucket.i.i.i.i.i.i.i, %474
   br i1 %cmp.i.i.i.i.i407, label %cleanup111, label %if.end.i.i.i.i408
 
 if.end.i.i.i.i408:                                ; preds = %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_jESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i403
-  call void @_ZdlPv(ptr noundef %476) #26
+  call void @_ZdlPv(ptr noundef %474) #26
   br label %cleanup111
 
 ehcleanup110:                                     ; preds = %lpad23.loopexit, %lpad23.loopexit.split-lp, %if.then.i.i.i613.i, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit611.i, %ehcleanup103

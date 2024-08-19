@@ -10444,7 +10444,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %invoke.cont16
 if.end.i:                                         ; preds = %_ZN11ast_manager7inc_refEP3ast.exit.i, %invoke.cont16
   %20 = load ptr, ptr %fml, align 8
   %tobool.not.i3.i = icmp eq ptr %20, null
-  br i1 %tobool.not.i3.i, label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit, label %if.then.i.i.i
+  br i1 %tobool.not.i3.i, label %sw.epilog.sink.split, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i
   %21 = load ptr, ptr %m_manager.i, align 8
@@ -10453,15 +10453,11 @@ if.then.i.i.i:                                    ; preds = %if.end.i
   %dec.i.i.i.i = add i32 %22, -1
   store i32 %dec.i.i.i.i, ptr %m_ref_count.i.i.i.i, align 4
   %cmp.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
-  br i1 %cmp.i.i.i, label %if.then2.i.i.i, label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
+  br i1 %cmp.i.i.i, label %if.then2.i.i.i, label %sw.epilog.sink.split
 
 if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %21, ptr noundef nonnull %20)
-          to label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit unwind label %lpad4
-
-_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit:      ; preds = %if.then2.i.i.i, %if.end.i, %if.then.i.i.i
-  store ptr %call.i34, ptr %fml, align 8
-  br label %sw.epilog
+          to label %sw.epilog.sink.split unwind label %lpad4
 
 sw.bb20:                                          ; preds = %land.end
   %23 = load ptr, ptr %term, align 8
@@ -10502,7 +10498,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i47:          ; preds = %invoke.cont27
 if.end.i50:                                       ; preds = %_ZN11ast_manager7inc_refEP3ast.exit.i47, %invoke.cont27
   %28 = load ptr, ptr %fml, align 8
   %tobool.not.i3.i51 = icmp eq ptr %28, null
-  br i1 %tobool.not.i3.i51, label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit59, label %if.then.i.i.i52
+  br i1 %tobool.not.i3.i51, label %sw.epilog.sink.split, label %if.then.i.i.i52
 
 if.then.i.i.i52:                                  ; preds = %if.end.i50
   %29 = load ptr, ptr %m_manager.i, align 8
@@ -10511,15 +10507,11 @@ if.then.i.i.i52:                                  ; preds = %if.end.i50
   %dec.i.i.i.i55 = add i32 %30, -1
   store i32 %dec.i.i.i.i55, ptr %m_ref_count.i.i.i.i54, align 4
   %cmp.i.i.i56 = icmp eq i32 %dec.i.i.i.i55, 0
-  br i1 %cmp.i.i.i56, label %if.then2.i.i.i57, label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit59
+  br i1 %cmp.i.i.i56, label %if.then2.i.i.i57, label %sw.epilog.sink.split
 
 if.then2.i.i.i57:                                 ; preds = %if.then.i.i.i52
   invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %29, ptr noundef nonnull %28)
-          to label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit59 unwind label %lpad4
-
-_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit59:    ; preds = %if.then2.i.i.i57, %if.end.i50, %if.then.i.i.i52
-  store ptr %call.i45, ptr %fml, align 8
-  br label %sw.epilog
+          to label %sw.epilog.sink.split unwind label %lpad4
 
 sw.bb31:                                          ; preds = %land.end
   %31 = load ptr, ptr %term, align 8
@@ -10559,7 +10551,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i70:          ; preds = %invoke.cont38
 if.end.i73:                                       ; preds = %_ZN11ast_manager7inc_refEP3ast.exit.i70, %invoke.cont38
   %35 = load ptr, ptr %fml, align 8
   %tobool.not.i3.i74 = icmp eq ptr %35, null
-  br i1 %tobool.not.i3.i74, label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit82, label %if.then.i.i.i75
+  br i1 %tobool.not.i3.i74, label %sw.epilog.sink.split, label %if.then.i.i.i75
 
 if.then.i.i.i75:                                  ; preds = %if.end.i73
   %36 = load ptr, ptr %m_manager.i, align 8
@@ -10568,17 +10560,18 @@ if.then.i.i.i75:                                  ; preds = %if.end.i73
   %dec.i.i.i.i78 = add i32 %37, -1
   store i32 %dec.i.i.i.i78, ptr %m_ref_count.i.i.i.i77, align 4
   %cmp.i.i.i79 = icmp eq i32 %dec.i.i.i.i78, 0
-  br i1 %cmp.i.i.i79, label %if.then2.i.i.i80, label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit82
+  br i1 %cmp.i.i.i79, label %if.then2.i.i.i80, label %sw.epilog.sink.split
 
 if.then2.i.i.i80:                                 ; preds = %if.then.i.i.i75
   invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %36, ptr noundef nonnull %35)
-          to label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit82 unwind label %lpad4
+          to label %sw.epilog.sink.split unwind label %lpad4
 
-_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit82:    ; preds = %if.then2.i.i.i80, %if.end.i73, %if.then.i.i.i75
-  store ptr %call2.i68, ptr %fml, align 8
+sw.epilog.sink.split:                             ; preds = %if.then.i.i.i75, %if.end.i73, %if.then2.i.i.i80, %if.then.i.i.i52, %if.end.i50, %if.then2.i.i.i57, %if.then.i.i.i, %if.end.i, %if.then2.i.i.i
+  %call2.i68.sink = phi ptr [ %call.i34, %if.then2.i.i.i ], [ %call.i34, %if.end.i ], [ %call.i34, %if.then.i.i.i ], [ %call.i45, %if.then2.i.i.i57 ], [ %call.i45, %if.end.i50 ], [ %call.i45, %if.then.i.i.i52 ], [ %call2.i68, %if.then2.i.i.i80 ], [ %call2.i68, %if.end.i73 ], [ %call2.i68, %if.then.i.i.i75 ]
+  store ptr %call2.i68.sink, ptr %fml, align 8
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit82, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit59, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit, %land.end
+sw.epilog:                                        ; preds = %sw.epilog.sink.split, %land.end
   %m_bvar = getelementptr inbounds i8, ptr %__begin1.0263, i64 8
   %38 = load ptr, ptr %m_bvar, align 8
   %39 = load ptr, ptr @_ZN6symbol4nullE, align 8
@@ -13619,11 +13612,7 @@ _ZN8lp_parse4peekEj.exit.i95:                     ; preds = %if.end.i.i.i113, %_
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i88)
   %61 = load ptr, ptr %retval.0.i.i.i96, align 8
   %cmp.i.i97 = icmp eq ptr %61, null
-  br i1 %cmp.i.i97, label %_ZeqRK6symbolPKc.exit.thread4.i112, label %if.end6.i.i98
-
-_ZeqRK6symbolPKc.exit.thread4.i112:               ; preds = %_ZN8lp_parse4peekEj.exit.i95
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i88)
-  br label %if.end13
+  br i1 %cmp.i.i97, label %if.end13.sink.split, label %if.end6.i.i98
 
 if.end6.i.i98:                                    ; preds = %_ZN8lp_parse4peekEj.exit.i95
   %62 = ptrtoint ptr %61 to i64
@@ -13646,11 +13635,7 @@ if.end11.i.if.then_crit_edge.i110:                ; preds = %if.end11.i.i107
 sub_0134:                                         ; preds = %if.end6.i.i98
   %63 = load i8, ptr %61, align 1
   %.not144 = icmp eq i8 %63, 61
-  br i1 %.not144, label %_ZeqRK6symbolPKc.exit.i101.tail, label %_ZeqRK6symbolPKc.exit.i101.tail.thread
-
-_ZeqRK6symbolPKc.exit.i101.tail.thread:           ; preds = %sub_0134
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i88)
-  br label %if.end13
+  br i1 %.not144, label %_ZeqRK6symbolPKc.exit.i101.tail, label %if.end13.sink.split
 
 _ZeqRK6symbolPKc.exit.i101.tail:                  ; preds = %sub_0134
   %64 = getelementptr inbounds i8, ptr %61, i64 1
@@ -13665,7 +13650,11 @@ _ZN8lp_parse10try_acceptEPKc.exit116:             ; preds = %if.end11.i.if.then_
   store i32 %add.i.i106, ptr %m_pos.i.i.i, align 8
   br label %return
 
-if.end13:                                         ; preds = %_ZeqRK6symbolPKc.exit.i101.tail.thread, %_ZeqRK6symbolPKc.exit.i101.tail, %_ZeqRK6symbolPKc.exit.thread4.i112, %if.end11.i.i107
+if.end13.sink.split:                              ; preds = %sub_0134, %_ZN8lp_parse4peekEj.exit.i95
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i88)
+  br label %if.end13
+
+if.end13:                                         ; preds = %if.end13.sink.split, %_ZeqRK6symbolPKc.exit.i101.tail, %if.end11.i.i107
   call void @_ZN8lp_parse5errorEPKc(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull @.str.47)
   br label %return
 

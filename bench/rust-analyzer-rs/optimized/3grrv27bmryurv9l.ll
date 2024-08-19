@@ -845,7 +845,6 @@ define hidden noundef zeroext i1 @"_ZN9sourcegen12CommentBlock7extract28_$u7b$$u
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7ffd5de32e6231a5E.exit": ; preds = %35, %38, %42
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !127
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %59
 
 44:                                               ; preds = %31
@@ -880,11 +879,11 @@ define hidden noundef zeroext i1 @"_ZN9sourcegen12CommentBlock7extract28_$u7b$$u
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7ffd5de32e6231a5E.exit17": ; preds = %50, %53, %57
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !136
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %59
 
 59:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7ffd5de32e6231a5E.exit17", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7ffd5de32e6231a5E.exit"
   %.not19 = phi i1 [ true, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7ffd5de32e6231a5E.exit17" ], [ false, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7ffd5de32e6231a5E.exit" ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   ret i1 %.not19
 
 60:                                               ; preds = %31

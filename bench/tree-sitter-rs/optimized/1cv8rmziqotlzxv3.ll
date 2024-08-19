@@ -222,11 +222,11 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 80
   %23 = getelementptr inbounds i8, ptr %8, i64 64
   %24 = getelementptr inbounds i8, ptr %7, i64 8
-  %.sroa.6.i.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
-  %.sroa.6.i.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
-  %.sroa.6.i.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 32
-  %.sroa.6.i.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 40
-  %.sroa.6.i.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 48
+  %.sroa.6.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.6.i.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
+  %.sroa.6.i.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 32
+  %.sroa.6.i.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 40
+  %.sroa.6.i.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 48
   br label %26
 
 25:                                               ; preds = %20
@@ -234,9 +234,6 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
 
 ._crit_edge:                                      ; preds = %.split.us
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  call void @"_ZN65_$LT$tree_sitter..TreeCursor$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha21e521d7cf0a079E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %29
 
 26:                                               ; preds = %.lr.ph272, %.split.us
@@ -254,6 +251,9 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
           to label %30 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 29:                                               ; preds = %125, %._crit_edge
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
+  call void @"_ZN65_$LT$tree_sitter..TreeCursor$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha21e521d7cf0a079E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   ret void
 
 30:                                               ; preds = %26
@@ -417,11 +417,11 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit.thread": ; preds = %.noexc
   %.sroa.6.i.sroa.0.0.copyload = load i64, ptr %24, align 8, !noalias !45
+  %.sroa.6.i.sroa.4.0.copyload = load i64, ptr %.sroa.6.i.sroa.4.0..sroa_idx, align 8, !noalias !45
   %.sroa.6.i.sroa.5.0.copyload = load i64, ptr %.sroa.6.i.sroa.5.0..sroa_idx, align 8, !noalias !45
   %.sroa.6.i.sroa.6.0.copyload = load i64, ptr %.sroa.6.i.sroa.6.0..sroa_idx, align 8, !noalias !45
   %.sroa.6.i.sroa.7.0.copyload = load i64, ptr %.sroa.6.i.sroa.7.0..sroa_idx, align 8, !noalias !45
   %.sroa.6.i.sroa.8.0.copyload = load i64, ptr %.sroa.6.i.sroa.8.0..sroa_idx, align 8, !noalias !45
-  %.sroa.6.i.sroa.9.0.copyload = load i64, ptr %.sroa.6.i.sroa.9.0..sroa_idx, align 8, !noalias !45
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7), !noalias !34
   call void @llvm.experimental.noalias.scope.decl(metadata !26)
   call void @llvm.experimental.noalias.scope.decl(metadata !46)
@@ -454,12 +454,12 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
   br i1 %66, label %._crit_edge, label %26
 
 67:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit.thread", %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit"
-  %.sroa.14.3404 = phi i64 [ %.sroa.6.i.sroa.9.0.copyload, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit.thread" ], [ %.sroa.14.2, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit" ]
-  %.sroa.13.3403 = phi i64 [ %.sroa.6.i.sroa.8.0.copyload, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit.thread" ], [ %.sroa.13.2, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit" ]
+  %.sroa.14.3404 = phi i64 [ %.sroa.6.i.sroa.8.0.copyload, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit.thread" ], [ %.sroa.14.2, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit" ]
+  %.sroa.13.3403 = phi i64 [ %.sroa.6.i.sroa.7.0.copyload, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit.thread" ], [ %.sroa.13.2, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit" ]
   %.sroa.970.3402 = phi i64 [ %.sroa.6.i.sroa.0.0.copyload, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit.thread" ], [ %.sroa.970.2, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit" ]
-  %.sroa.10.3401 = phi i64 [ %.sroa.6.i.sroa.5.0.copyload, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit.thread" ], [ %.sroa.10.2, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit" ]
-  %.sroa.11.3400 = phi i64 [ %.sroa.6.i.sroa.6.0.copyload, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit.thread" ], [ %.sroa.11.2, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit" ]
-  %.sroa.12.3399 = phi i64 [ %.sroa.6.i.sroa.7.0.copyload, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit.thread" ], [ %.sroa.12.2, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit" ]
+  %.sroa.10.3401 = phi i64 [ %.sroa.6.i.sroa.4.0.copyload, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit.thread" ], [ %.sroa.10.2, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit" ]
+  %.sroa.11.3400 = phi i64 [ %.sroa.6.i.sroa.5.0.copyload, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit.thread" ], [ %.sroa.11.2, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit" ]
+  %.sroa.12.3399 = phi i64 [ %.sroa.6.i.sroa.6.0.copyload, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit.thread" ], [ %.sroa.12.2, %"_ZN4core6option15Option$LT$T$GT$7or_else17hde2ae494e96ac994E.exit" ]
   %68 = load i64, ptr %46, align 8, !noundef !4
   %69 = icmp ult i64 %.sroa.13.3403, %68
   br i1 %69, label %71, label %.preheader
@@ -627,9 +627,6 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.068)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  call void @"_ZN65_$LT$tree_sitter..TreeCursor$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha21e521d7cf0a079E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %29
 
 126:                                              ; preds = %128, %.loopexit.split-lp

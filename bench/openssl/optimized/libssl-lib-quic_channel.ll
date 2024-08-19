@@ -1074,18 +1074,17 @@ if.end.thread.i:                                  ; preds = %lor.lhs.false.i
 ch_update_poll_desc.exit:                         ; preds = %if.end10.thread23.i, %if.end.thread.i, %entry
   %rtor13.i = getelementptr inbounds i8, ptr %ch, i64 64
   call void @ossl_quic_reactor_set_poll_r(ptr noundef nonnull %rtor13.i, ptr noundef nonnull %d.i) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %d.i)
   br label %3
 
 2:                                                ; preds = %if.end.thread.i
   call void @ERR_new() #14
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2669, ptr noundef nonnull @__func__.validate_poll_descriptor) #14
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524550, ptr noundef null) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %d.i)
   br label %3
 
 3:                                                ; preds = %ch_update_poll_desc.exit, %2
   %4 = phi i32 [ 0, %2 ], [ 1, %ch_update_poll_desc.exit ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %d.i)
   %net_wbio = getelementptr inbounds i8, ptr %ch, i64 248
   %5 = load ptr, ptr %net_wbio, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %d.i4)
@@ -1114,18 +1113,17 @@ if.end.i:                                         ; preds = %lor.lhs.false.i6
 ch_update_poll_desc.exit10:                       ; preds = %if.end10.thread25.i, %if.end.i, %3
   %rtor.i = getelementptr inbounds i8, ptr %ch, i64 64
   call void @ossl_quic_reactor_set_poll_w(ptr noundef nonnull %rtor.i, ptr noundef nonnull %d.i4) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %d.i4)
   br label %9
 
 8:                                                ; preds = %if.end.i
   call void @ERR_new() #14
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2669, ptr noundef nonnull @__func__.validate_poll_descriptor) #14
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524550, ptr noundef null) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %d.i4)
   br label %9
 
 9:                                                ; preds = %ch_update_poll_desc.exit10, %8
   %10 = phi i32 [ 0, %8 ], [ %4, %ch_update_poll_desc.exit10 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %d.i4)
   ret i32 %10
 }
 

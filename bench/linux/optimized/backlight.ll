@@ -207,29 +207,16 @@ define dso_local void @backlight_force_update(ptr noundef %0, i32 noundef %1) #0
   tail call void @mutex_unlock(ptr noundef %4) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !5
-  switch i32 %1, label %23 [
-    i32 1, label %21
-    i32 0, label %22
-  ]
-
-21:                                               ; preds = %20
-  store ptr @.str.9, ptr %3, align 16
-  br label %24
-
-22:                                               ; preds = %20
-  store ptr @.str.10, ptr %3, align 16
-  br label %24
-
-23:                                               ; preds = %20
-  store ptr @.str.11, ptr %3, align 16
-  br label %24
-
-24:                                               ; preds = %23, %22, %21
-  %25 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 144
-  %27 = call i32 @kobject_uevent_env(ptr noundef %26, i32 noundef 2, ptr noundef nonnull %3) #12
-  call void @sysfs_notify(ptr noundef %26, ptr noundef null, ptr noundef nonnull @.str.12) #12
+  %switch.selectcmp = icmp eq i32 %1, 0
+  %switch.select = select i1 %switch.selectcmp, ptr @.str.10, ptr @.str.11
+  %switch.selectcmp3 = icmp eq i32 %1, 1
+  %switch.select4 = select i1 %switch.selectcmp3, ptr @.str.9, ptr %switch.select
+  store ptr %switch.select4, ptr %3, align 16
+  %21 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr null, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 144
+  %23 = call i32 @kobject_uevent_env(ptr noundef %22, i32 noundef 2, ptr noundef nonnull %3) #12
+  call void @sysfs_notify(ptr noundef %22, ptr noundef null, ptr noundef nonnull @.str.12) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
   ret void
 }

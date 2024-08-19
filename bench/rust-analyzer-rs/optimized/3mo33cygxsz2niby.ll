@@ -569,7 +569,7 @@ define internal fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..F
 24:                                               ; preds = %23
   %25 = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %72
 
 "_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit.i.i": ; preds = %23, %18, %14, %12, %2
   store ptr null, ptr %6, align 8, !alias.scope !33, !noalias !34
@@ -596,7 +596,7 @@ define internal fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..F
   %32 = phi ptr [ null, %33 ], [ %.promoted.i.i.i.i.i, %27 ]
   store ptr null, ptr %28, align 8, !alias.scope !76, !noalias !79
   %.not.i.i.i.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i.i.i.i, label %38, label %33
+  br i1 %.not.i.i.i.i.i, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h8c59d80587916092E.exit.thread.i.i", label %33
 
 33:                                               ; preds = %31
   call void @llvm.experimental.noalias.scope.decl(metadata !80)
@@ -607,102 +607,102 @@ define internal fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..F
   %36 = call noundef ptr @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h1973cf7a70f1d92dE.llvm.6055058659040047083"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %3), !noalias !71
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !83
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %31, label %50
+  br i1 %37, label %31, label %49
 
-38:                                               ; preds = %31
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h8c59d80587916092E.exit.thread.i.i": ; preds = %31
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !68
   %.pre.i.i = load ptr, ptr %6, align 8, !alias.scope !92, !noalias !34
-  %39 = icmp eq ptr %.pre.i.i, null
+  %38 = icmp eq ptr %.pre.i.i, null
   call void @llvm.experimental.noalias.scope.decl(metadata !95)
-  br i1 %39, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i", label %40
+  br i1 %38, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i", label %39
 
-40:                                               ; preds = %38
+39:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h8c59d80587916092E.exit.thread.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !96)
   call void @llvm.experimental.noalias.scope.decl(metadata !99)
-  %41 = getelementptr inbounds i8, ptr %1, i64 40
+  %40 = getelementptr inbounds i8, ptr %1, i64 40
   call void @llvm.experimental.noalias.scope.decl(metadata !102)
-  %42 = load ptr, ptr %41, align 8, !alias.scope !105, !noalias !34, !noundef !9
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i", label %44
+  %41 = load ptr, ptr %40, align 8, !alias.scope !105, !noalias !34, !noundef !9
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i", label %43
 
-44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %42, i64 48
-  %46 = load i32, ptr %45, align 4, !noalias !106, !noundef !9
-  %47 = add i32 %46, -1
-  store i32 %47, ptr %45, align 4, !noalias !106
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
+43:                                               ; preds = %39
+  %44 = getelementptr inbounds i8, ptr %41, i64 48
+  %45 = load i32, ptr %44, align 4, !noalias !106, !noundef !9
+  %46 = add i32 %45, -1
+  store i32 %46, ptr %44, align 4, !noalias !106
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %48, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
 
-49:                                               ; preds = %44
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %42)
-          to label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i" unwind label %51
+48:                                               ; preds = %43
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %41)
+          to label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i" unwind label %50
 
-50:                                               ; preds = %33
+49:                                               ; preds = %33
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !68
   br label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hdf7e9f8d8d1f0523E.exit"
 
-51:                                               ; preds = %49
-  %52 = landingpad { ptr, i32 }
+50:                                               ; preds = %48
+  %51 = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %72
 
-"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i": ; preds = %49, %44, %40, %38, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit.i.i"
+"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i": ; preds = %48, %43, %39, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h8c59d80587916092E.exit.thread.i.i", %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit.i.i"
   store ptr null, ptr %6, align 8, !alias.scope !33, !noalias !34
-  %53 = getelementptr inbounds i8, ptr %1, i64 56
-  %54 = load ptr, ptr %53, align 8, !alias.scope !33, !noalias !34, !noundef !9
-  %.not21.i.i = icmp eq ptr %54, null
-  br i1 %.not21.i.i, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %55
+  %52 = getelementptr inbounds i8, ptr %1, i64 56
+  %53 = load ptr, ptr %52, align 8, !alias.scope !33, !noalias !34, !noundef !9
+  %.not21.i.i = icmp eq ptr %53, null
+  br i1 %.not21.i.i, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %54
 
-55:                                               ; preds = %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
-  %56 = getelementptr inbounds i8, ptr %1, i64 96
-  %57 = call noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hcbf7d21aa5e119f1E.llvm.6055058659040047083(ptr noalias noundef nonnull align 8 dereferenceable(40) %53, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull align 1 %56)
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %59, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hdf7e9f8d8d1f0523E.exit"
+54:                                               ; preds = %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
+  %55 = getelementptr inbounds i8, ptr %1, i64 96
+  %56 = call noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hcbf7d21aa5e119f1E.llvm.6055058659040047083(ptr noalias noundef nonnull align 8 dereferenceable(40) %52, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull align 1 %55)
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %58, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hdf7e9f8d8d1f0523E.exit"
 
-59:                                               ; preds = %55
-  %.pr29.i.i = load ptr, ptr %53, align 8, !alias.scope !115, !noalias !34
+58:                                               ; preds = %54
+  %.pr31.i.i = load ptr, ptr %52, align 8, !alias.scope !115, !noalias !34
   call void @llvm.experimental.noalias.scope.decl(metadata !118)
-  %60 = icmp eq ptr %.pr29.i.i, null
-  br i1 %60, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %61
+  %59 = icmp eq ptr %.pr31.i.i, null
+  br i1 %59, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %60
 
-61:                                               ; preds = %59
+60:                                               ; preds = %58
   call void @llvm.experimental.noalias.scope.decl(metadata !119)
   call void @llvm.experimental.noalias.scope.decl(metadata !122)
-  %62 = getelementptr inbounds i8, ptr %1, i64 80
+  %61 = getelementptr inbounds i8, ptr %1, i64 80
   call void @llvm.experimental.noalias.scope.decl(metadata !125)
-  %63 = load ptr, ptr %62, align 8, !alias.scope !128, !noalias !34, !noundef !9
-  %64 = icmp eq ptr %63, null
-  br i1 %64, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %65
+  %62 = load ptr, ptr %61, align 8, !alias.scope !128, !noalias !34, !noundef !9
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %64
 
-65:                                               ; preds = %61
-  %66 = getelementptr inbounds i8, ptr %63, i64 48
-  %67 = load i32, ptr %66, align 4, !noalias !129, !noundef !9
-  %68 = add i32 %67, -1
-  store i32 %68, ptr %66, align 4, !noalias !129
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %70, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i"
+64:                                               ; preds = %60
+  %65 = getelementptr inbounds i8, ptr %62, i64 48
+  %66 = load i32, ptr %65, align 4, !noalias !129, !noundef !9
+  %67 = add i32 %66, -1
+  store i32 %67, ptr %65, align 4, !noalias !129
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %69, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i"
 
-70:                                               ; preds = %65
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %63)
-          to label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i" unwind label %71
+69:                                               ; preds = %64
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %62)
+          to label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i" unwind label %70
 
-71:                                               ; preds = %70
-  %72 = landingpad { ptr, i32 }
+70:                                               ; preds = %69
+  %71 = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %72
 
-"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i": ; preds = %70, %65, %61, %59, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
-  store ptr null, ptr %53, align 8, !alias.scope !33, !noalias !34
+"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i": ; preds = %69, %64, %60, %58, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
+  store ptr null, ptr %52, align 8, !alias.scope !33, !noalias !34
   br label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hdf7e9f8d8d1f0523E.exit"
 
-73:                                               ; preds = %71, %51, %24
-  %.sink.i = phi ptr [ %53, %71 ], [ %6, %51 ], [ %6, %24 ]
-  %.pn.i.i = phi { ptr, i32 } [ %72, %71 ], [ %52, %51 ], [ %25, %24 ]
+72:                                               ; preds = %70, %50, %24
+  %.sink.i = phi ptr [ %52, %70 ], [ %6, %50 ], [ %6, %24 ]
+  %.pn.i.i = phi { ptr, i32 } [ %71, %70 ], [ %51, %50 ], [ %25, %24 ]
   store ptr null, ptr %.sink.i, align 8, !alias.scope !33, !noalias !34
   resume { ptr, i32 } %.pn.i.i
 
-"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hdf7e9f8d8d1f0523E.exit": ; preds = %8, %50, %55, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i"
-  %.0.i.i = phi ptr [ null, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i" ], [ %36, %50 ], [ %10, %8 ], [ %57, %55 ]
+"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hdf7e9f8d8d1f0523E.exit": ; preds = %8, %49, %54, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i"
+  %.0.i.i = phi ptr [ null, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i" ], [ %36, %49 ], [ %10, %8 ], [ %56, %54 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !29
   ret ptr %.0.i.i
 }
@@ -757,7 +757,7 @@ define internal fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..F
 24:                                               ; preds = %23
   %25 = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %72
 
 "_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit.i.i": ; preds = %23, %18, %14, %12, %2
   store ptr null, ptr %6, align 8, !alias.scope !148, !noalias !149
@@ -784,7 +784,7 @@ define internal fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..F
   %32 = phi ptr [ null, %33 ], [ %.promoted.i.i.i.i.i, %27 ]
   store ptr null, ptr %28, align 8, !alias.scope !191, !noalias !194
   %.not.i.i.i.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i.i.i.i, label %38, label %33
+  br i1 %.not.i.i.i.i.i, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17ha74528cab588e37fE.exit.thread.i.i", label %33
 
 33:                                               ; preds = %31
   call void @llvm.experimental.noalias.scope.decl(metadata !195)
@@ -795,102 +795,102 @@ define internal fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..F
   %36 = call noundef ptr @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h79a913f15705a3f6E.llvm.6055058659040047083"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %3), !noalias !186
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !198
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %31, label %50
+  br i1 %37, label %31, label %49
 
-38:                                               ; preds = %31
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17ha74528cab588e37fE.exit.thread.i.i": ; preds = %31
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !183
   %.pre.i.i = load ptr, ptr %6, align 8, !alias.scope !207, !noalias !149
-  %39 = icmp eq ptr %.pre.i.i, null
+  %38 = icmp eq ptr %.pre.i.i, null
   call void @llvm.experimental.noalias.scope.decl(metadata !210)
-  br i1 %39, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i", label %40
+  br i1 %38, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i", label %39
 
-40:                                               ; preds = %38
+39:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17ha74528cab588e37fE.exit.thread.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !211)
   call void @llvm.experimental.noalias.scope.decl(metadata !214)
-  %41 = getelementptr inbounds i8, ptr %1, i64 40
+  %40 = getelementptr inbounds i8, ptr %1, i64 40
   call void @llvm.experimental.noalias.scope.decl(metadata !217)
-  %42 = load ptr, ptr %41, align 8, !alias.scope !220, !noalias !149, !noundef !9
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i", label %44
+  %41 = load ptr, ptr %40, align 8, !alias.scope !220, !noalias !149, !noundef !9
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i", label %43
 
-44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %42, i64 48
-  %46 = load i32, ptr %45, align 4, !noalias !221, !noundef !9
-  %47 = add i32 %46, -1
-  store i32 %47, ptr %45, align 4, !noalias !221
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
+43:                                               ; preds = %39
+  %44 = getelementptr inbounds i8, ptr %41, i64 48
+  %45 = load i32, ptr %44, align 4, !noalias !221, !noundef !9
+  %46 = add i32 %45, -1
+  store i32 %46, ptr %44, align 4, !noalias !221
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %48, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
 
-49:                                               ; preds = %44
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %42)
-          to label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i" unwind label %51
+48:                                               ; preds = %43
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %41)
+          to label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i" unwind label %50
 
-50:                                               ; preds = %33
+49:                                               ; preds = %33
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !183
   br label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3fd904d7b2df4a0dE.exit"
 
-51:                                               ; preds = %49
-  %52 = landingpad { ptr, i32 }
+50:                                               ; preds = %48
+  %51 = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %72
 
-"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i": ; preds = %49, %44, %40, %38, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit.i.i"
+"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i": ; preds = %48, %43, %39, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17ha74528cab588e37fE.exit.thread.i.i", %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit.i.i"
   store ptr null, ptr %6, align 8, !alias.scope !148, !noalias !149
-  %53 = getelementptr inbounds i8, ptr %1, i64 56
-  %54 = load ptr, ptr %53, align 8, !alias.scope !148, !noalias !149, !noundef !9
-  %.not21.i.i = icmp eq ptr %54, null
-  br i1 %.not21.i.i, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %55
+  %52 = getelementptr inbounds i8, ptr %1, i64 56
+  %53 = load ptr, ptr %52, align 8, !alias.scope !148, !noalias !149, !noundef !9
+  %.not21.i.i = icmp eq ptr %53, null
+  br i1 %.not21.i.i, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %54
 
-55:                                               ; preds = %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
-  %56 = getelementptr inbounds i8, ptr %1, i64 96
-  %57 = call noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hd14dbe70654d3a26E.llvm.6055058659040047083(ptr noalias noundef nonnull align 8 dereferenceable(40) %53, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull align 1 %56)
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %59, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3fd904d7b2df4a0dE.exit"
+54:                                               ; preds = %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
+  %55 = getelementptr inbounds i8, ptr %1, i64 96
+  %56 = call noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hd14dbe70654d3a26E.llvm.6055058659040047083(ptr noalias noundef nonnull align 8 dereferenceable(40) %52, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull align 1 %55)
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %58, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3fd904d7b2df4a0dE.exit"
 
-59:                                               ; preds = %55
-  %.pr29.i.i = load ptr, ptr %53, align 8, !alias.scope !230, !noalias !149
+58:                                               ; preds = %54
+  %.pr31.i.i = load ptr, ptr %52, align 8, !alias.scope !230, !noalias !149
   call void @llvm.experimental.noalias.scope.decl(metadata !233)
-  %60 = icmp eq ptr %.pr29.i.i, null
-  br i1 %60, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %61
+  %59 = icmp eq ptr %.pr31.i.i, null
+  br i1 %59, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %60
 
-61:                                               ; preds = %59
+60:                                               ; preds = %58
   call void @llvm.experimental.noalias.scope.decl(metadata !234)
   call void @llvm.experimental.noalias.scope.decl(metadata !237)
-  %62 = getelementptr inbounds i8, ptr %1, i64 80
+  %61 = getelementptr inbounds i8, ptr %1, i64 80
   call void @llvm.experimental.noalias.scope.decl(metadata !240)
-  %63 = load ptr, ptr %62, align 8, !alias.scope !243, !noalias !149, !noundef !9
-  %64 = icmp eq ptr %63, null
-  br i1 %64, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %65
+  %62 = load ptr, ptr %61, align 8, !alias.scope !243, !noalias !149, !noundef !9
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %64
 
-65:                                               ; preds = %61
-  %66 = getelementptr inbounds i8, ptr %63, i64 48
-  %67 = load i32, ptr %66, align 4, !noalias !244, !noundef !9
-  %68 = add i32 %67, -1
-  store i32 %68, ptr %66, align 4, !noalias !244
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %70, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i"
+64:                                               ; preds = %60
+  %65 = getelementptr inbounds i8, ptr %62, i64 48
+  %66 = load i32, ptr %65, align 4, !noalias !244, !noundef !9
+  %67 = add i32 %66, -1
+  store i32 %67, ptr %65, align 4, !noalias !244
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %69, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i"
 
-70:                                               ; preds = %65
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %63)
-          to label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i" unwind label %71
+69:                                               ; preds = %64
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %62)
+          to label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i" unwind label %70
 
-71:                                               ; preds = %70
-  %72 = landingpad { ptr, i32 }
+70:                                               ; preds = %69
+  %71 = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %72
 
-"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i": ; preds = %70, %65, %61, %59, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
-  store ptr null, ptr %53, align 8, !alias.scope !148, !noalias !149
+"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i": ; preds = %69, %64, %60, %58, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
+  store ptr null, ptr %52, align 8, !alias.scope !148, !noalias !149
   br label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3fd904d7b2df4a0dE.exit"
 
-73:                                               ; preds = %71, %51, %24
-  %.sink.i = phi ptr [ %53, %71 ], [ %6, %51 ], [ %6, %24 ]
-  %.pn.i.i = phi { ptr, i32 } [ %72, %71 ], [ %52, %51 ], [ %25, %24 ]
+72:                                               ; preds = %70, %50, %24
+  %.sink.i = phi ptr [ %52, %70 ], [ %6, %50 ], [ %6, %24 ]
+  %.pn.i.i = phi { ptr, i32 } [ %71, %70 ], [ %51, %50 ], [ %25, %24 ]
   store ptr null, ptr %.sink.i, align 8, !alias.scope !148, !noalias !149
   resume { ptr, i32 } %.pn.i.i
 
-"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3fd904d7b2df4a0dE.exit": ; preds = %8, %50, %55, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i"
-  %.0.i.i = phi ptr [ null, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i" ], [ %36, %50 ], [ %10, %8 ], [ %57, %55 ]
+"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3fd904d7b2df4a0dE.exit": ; preds = %8, %49, %54, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i"
+  %.0.i.i = phi ptr [ null, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i" ], [ %36, %49 ], [ %10, %8 ], [ %56, %54 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !144
   ret ptr %.0.i.i
 }
@@ -945,7 +945,7 @@ define internal fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..F
 24:                                               ; preds = %23
   %25 = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %72
 
 "_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit.i.i": ; preds = %23, %18, %14, %12, %2
   store ptr null, ptr %6, align 8, !alias.scope !263, !noalias !264
@@ -972,7 +972,7 @@ define internal fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..F
   %32 = phi ptr [ null, %33 ], [ %.promoted.i.i.i.i.i, %27 ]
   store ptr null, ptr %28, align 8, !alias.scope !306, !noalias !309
   %.not.i.i.i.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i.i.i.i, label %38, label %33
+  br i1 %.not.i.i.i.i.i, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h8c4df4927257f31eE.exit.thread.i.i", label %33
 
 33:                                               ; preds = %31
   call void @llvm.experimental.noalias.scope.decl(metadata !310)
@@ -983,102 +983,102 @@ define internal fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..F
   %36 = call noundef ptr @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h9808c53bf3207d87E.llvm.6055058659040047083"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %3), !noalias !301
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !313
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %31, label %50
+  br i1 %37, label %31, label %49
 
-38:                                               ; preds = %31
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h8c4df4927257f31eE.exit.thread.i.i": ; preds = %31
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !298
   %.pre.i.i = load ptr, ptr %6, align 8, !alias.scope !322, !noalias !264
-  %39 = icmp eq ptr %.pre.i.i, null
+  %38 = icmp eq ptr %.pre.i.i, null
   call void @llvm.experimental.noalias.scope.decl(metadata !325)
-  br i1 %39, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i", label %40
+  br i1 %38, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i", label %39
 
-40:                                               ; preds = %38
+39:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h8c4df4927257f31eE.exit.thread.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !326)
   call void @llvm.experimental.noalias.scope.decl(metadata !329)
-  %41 = getelementptr inbounds i8, ptr %1, i64 40
+  %40 = getelementptr inbounds i8, ptr %1, i64 40
   call void @llvm.experimental.noalias.scope.decl(metadata !332)
-  %42 = load ptr, ptr %41, align 8, !alias.scope !335, !noalias !264, !noundef !9
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i", label %44
+  %41 = load ptr, ptr %40, align 8, !alias.scope !335, !noalias !264, !noundef !9
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i", label %43
 
-44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %42, i64 48
-  %46 = load i32, ptr %45, align 4, !noalias !336, !noundef !9
-  %47 = add i32 %46, -1
-  store i32 %47, ptr %45, align 4, !noalias !336
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
+43:                                               ; preds = %39
+  %44 = getelementptr inbounds i8, ptr %41, i64 48
+  %45 = load i32, ptr %44, align 4, !noalias !336, !noundef !9
+  %46 = add i32 %45, -1
+  store i32 %46, ptr %44, align 4, !noalias !336
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %48, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
 
-49:                                               ; preds = %44
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %42)
-          to label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i" unwind label %51
+48:                                               ; preds = %43
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %41)
+          to label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i" unwind label %50
 
-50:                                               ; preds = %33
+49:                                               ; preds = %33
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !298
   br label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h7ea35f484537508eE.exit"
 
-51:                                               ; preds = %49
-  %52 = landingpad { ptr, i32 }
+50:                                               ; preds = %48
+  %51 = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %72
 
-"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i": ; preds = %49, %44, %40, %38, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit.i.i"
+"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i": ; preds = %48, %43, %39, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h8c4df4927257f31eE.exit.thread.i.i", %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit.i.i"
   store ptr null, ptr %6, align 8, !alias.scope !263, !noalias !264
-  %53 = getelementptr inbounds i8, ptr %1, i64 56
-  %54 = load ptr, ptr %53, align 8, !alias.scope !263, !noalias !264, !noundef !9
-  %.not21.i.i = icmp eq ptr %54, null
-  br i1 %.not21.i.i, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %55
+  %52 = getelementptr inbounds i8, ptr %1, i64 56
+  %53 = load ptr, ptr %52, align 8, !alias.scope !263, !noalias !264, !noundef !9
+  %.not21.i.i = icmp eq ptr %53, null
+  br i1 %.not21.i.i, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %54
 
-55:                                               ; preds = %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
-  %56 = getelementptr inbounds i8, ptr %1, i64 96
-  %57 = call noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6470209be5ffddf2E.llvm.6055058659040047083(ptr noalias noundef nonnull align 8 dereferenceable(40) %53, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull align 1 %56)
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %59, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h7ea35f484537508eE.exit"
+54:                                               ; preds = %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
+  %55 = getelementptr inbounds i8, ptr %1, i64 96
+  %56 = call noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6470209be5ffddf2E.llvm.6055058659040047083(ptr noalias noundef nonnull align 8 dereferenceable(40) %52, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull align 1 %55)
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %58, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h7ea35f484537508eE.exit"
 
-59:                                               ; preds = %55
-  %.pr29.i.i = load ptr, ptr %53, align 8, !alias.scope !345, !noalias !264
+58:                                               ; preds = %54
+  %.pr31.i.i = load ptr, ptr %52, align 8, !alias.scope !345, !noalias !264
   call void @llvm.experimental.noalias.scope.decl(metadata !348)
-  %60 = icmp eq ptr %.pr29.i.i, null
-  br i1 %60, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %61
+  %59 = icmp eq ptr %.pr31.i.i, null
+  br i1 %59, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %60
 
-61:                                               ; preds = %59
+60:                                               ; preds = %58
   call void @llvm.experimental.noalias.scope.decl(metadata !349)
   call void @llvm.experimental.noalias.scope.decl(metadata !352)
-  %62 = getelementptr inbounds i8, ptr %1, i64 80
+  %61 = getelementptr inbounds i8, ptr %1, i64 80
   call void @llvm.experimental.noalias.scope.decl(metadata !355)
-  %63 = load ptr, ptr %62, align 8, !alias.scope !358, !noalias !264, !noundef !9
-  %64 = icmp eq ptr %63, null
-  br i1 %64, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %65
+  %62 = load ptr, ptr %61, align 8, !alias.scope !358, !noalias !264, !noundef !9
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %64
 
-65:                                               ; preds = %61
-  %66 = getelementptr inbounds i8, ptr %63, i64 48
-  %67 = load i32, ptr %66, align 4, !noalias !359, !noundef !9
-  %68 = add i32 %67, -1
-  store i32 %68, ptr %66, align 4, !noalias !359
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %70, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i"
+64:                                               ; preds = %60
+  %65 = getelementptr inbounds i8, ptr %62, i64 48
+  %66 = load i32, ptr %65, align 4, !noalias !359, !noundef !9
+  %67 = add i32 %66, -1
+  store i32 %67, ptr %65, align 4, !noalias !359
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %69, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i"
 
-70:                                               ; preds = %65
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %63)
-          to label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i" unwind label %71
+69:                                               ; preds = %64
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %62)
+          to label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i" unwind label %70
 
-71:                                               ; preds = %70
-  %72 = landingpad { ptr, i32 }
+70:                                               ; preds = %69
+  %71 = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %72
 
-"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i": ; preds = %70, %65, %61, %59, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
-  store ptr null, ptr %53, align 8, !alias.scope !263, !noalias !264
+"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i": ; preds = %69, %64, %60, %58, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
+  store ptr null, ptr %52, align 8, !alias.scope !263, !noalias !264
   br label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h7ea35f484537508eE.exit"
 
-73:                                               ; preds = %71, %51, %24
-  %.sink.i = phi ptr [ %53, %71 ], [ %6, %51 ], [ %6, %24 ]
-  %.pn.i.i = phi { ptr, i32 } [ %72, %71 ], [ %52, %51 ], [ %25, %24 ]
+72:                                               ; preds = %70, %50, %24
+  %.sink.i = phi ptr [ %52, %70 ], [ %6, %50 ], [ %6, %24 ]
+  %.pn.i.i = phi { ptr, i32 } [ %71, %70 ], [ %51, %50 ], [ %25, %24 ]
   store ptr null, ptr %.sink.i, align 8, !alias.scope !263, !noalias !264
   resume { ptr, i32 } %.pn.i.i
 
-"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h7ea35f484537508eE.exit": ; preds = %8, %50, %55, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i"
-  %.0.i.i = phi ptr [ null, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i" ], [ %36, %50 ], [ %10, %8 ], [ %57, %55 ]
+"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h7ea35f484537508eE.exit": ; preds = %8, %49, %54, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i"
+  %.0.i.i = phi ptr [ null, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i" ], [ %36, %49 ], [ %10, %8 ], [ %56, %54 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !259
   ret ptr %.0.i.i
 }
@@ -1133,7 +1133,7 @@ define internal fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..F
 24:                                               ; preds = %23
   %25 = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %72
 
 "_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit.i.i": ; preds = %23, %18, %14, %12, %2
   store ptr null, ptr %6, align 8, !alias.scope !378, !noalias !379
@@ -1160,7 +1160,7 @@ define internal fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..F
   %32 = phi ptr [ null, %33 ], [ %.promoted.i.i.i.i.i, %27 ]
   store ptr null, ptr %28, align 8, !alias.scope !421, !noalias !424
   %.not.i.i.i.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i.i.i.i, label %38, label %33
+  br i1 %.not.i.i.i.i.i, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17haf69173e23c729a2E.exit.thread.i.i", label %33
 
 33:                                               ; preds = %31
   call void @llvm.experimental.noalias.scope.decl(metadata !425)
@@ -1171,102 +1171,102 @@ define internal fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..F
   %36 = call noundef ptr @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h0e1edbd9441e96ecE.llvm.6055058659040047083"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %3), !noalias !416
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !428
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %31, label %50
+  br i1 %37, label %31, label %49
 
-38:                                               ; preds = %31
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17haf69173e23c729a2E.exit.thread.i.i": ; preds = %31
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !413
   %.pre.i.i = load ptr, ptr %6, align 8, !alias.scope !437, !noalias !379
-  %39 = icmp eq ptr %.pre.i.i, null
+  %38 = icmp eq ptr %.pre.i.i, null
   call void @llvm.experimental.noalias.scope.decl(metadata !440)
-  br i1 %39, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i", label %40
+  br i1 %38, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i", label %39
 
-40:                                               ; preds = %38
+39:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17haf69173e23c729a2E.exit.thread.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !441)
   call void @llvm.experimental.noalias.scope.decl(metadata !444)
-  %41 = getelementptr inbounds i8, ptr %1, i64 40
+  %40 = getelementptr inbounds i8, ptr %1, i64 40
   call void @llvm.experimental.noalias.scope.decl(metadata !447)
-  %42 = load ptr, ptr %41, align 8, !alias.scope !450, !noalias !379, !noundef !9
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i", label %44
+  %41 = load ptr, ptr %40, align 8, !alias.scope !450, !noalias !379, !noundef !9
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i", label %43
 
-44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %42, i64 48
-  %46 = load i32, ptr %45, align 4, !noalias !451, !noundef !9
-  %47 = add i32 %46, -1
-  store i32 %47, ptr %45, align 4, !noalias !451
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
+43:                                               ; preds = %39
+  %44 = getelementptr inbounds i8, ptr %41, i64 48
+  %45 = load i32, ptr %44, align 4, !noalias !451, !noundef !9
+  %46 = add i32 %45, -1
+  store i32 %46, ptr %44, align 4, !noalias !451
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %48, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
 
-49:                                               ; preds = %44
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %42)
-          to label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i" unwind label %51
+48:                                               ; preds = %43
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %41)
+          to label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i" unwind label %50
 
-50:                                               ; preds = %33
+49:                                               ; preds = %33
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !413
   br label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h68d6f194bfdd62a2E.exit"
 
-51:                                               ; preds = %49
-  %52 = landingpad { ptr, i32 }
+50:                                               ; preds = %48
+  %51 = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %72
 
-"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i": ; preds = %49, %44, %40, %38, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit.i.i"
+"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i": ; preds = %48, %43, %39, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17haf69173e23c729a2E.exit.thread.i.i", %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit.i.i"
   store ptr null, ptr %6, align 8, !alias.scope !378, !noalias !379
-  %53 = getelementptr inbounds i8, ptr %1, i64 56
-  %54 = load ptr, ptr %53, align 8, !alias.scope !378, !noalias !379, !noundef !9
-  %.not21.i.i = icmp eq ptr %54, null
-  br i1 %.not21.i.i, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %55
+  %52 = getelementptr inbounds i8, ptr %1, i64 56
+  %53 = load ptr, ptr %52, align 8, !alias.scope !378, !noalias !379, !noundef !9
+  %.not21.i.i = icmp eq ptr %53, null
+  br i1 %.not21.i.i, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %54
 
-55:                                               ; preds = %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
-  %56 = getelementptr inbounds i8, ptr %1, i64 96
-  %57 = call noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hc0d597bd51e2cb47E.llvm.6055058659040047083(ptr noalias noundef nonnull align 8 dereferenceable(40) %53, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull align 1 %56)
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %59, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h68d6f194bfdd62a2E.exit"
+54:                                               ; preds = %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
+  %55 = getelementptr inbounds i8, ptr %1, i64 96
+  %56 = call noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hc0d597bd51e2cb47E.llvm.6055058659040047083(ptr noalias noundef nonnull align 8 dereferenceable(40) %52, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull align 1 %55)
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %58, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h68d6f194bfdd62a2E.exit"
 
-59:                                               ; preds = %55
-  %.pr29.i.i = load ptr, ptr %53, align 8, !alias.scope !460, !noalias !379
+58:                                               ; preds = %54
+  %.pr31.i.i = load ptr, ptr %52, align 8, !alias.scope !460, !noalias !379
   call void @llvm.experimental.noalias.scope.decl(metadata !463)
-  %60 = icmp eq ptr %.pr29.i.i, null
-  br i1 %60, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %61
+  %59 = icmp eq ptr %.pr31.i.i, null
+  br i1 %59, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %60
 
-61:                                               ; preds = %59
+60:                                               ; preds = %58
   call void @llvm.experimental.noalias.scope.decl(metadata !464)
   call void @llvm.experimental.noalias.scope.decl(metadata !467)
-  %62 = getelementptr inbounds i8, ptr %1, i64 80
+  %61 = getelementptr inbounds i8, ptr %1, i64 80
   call void @llvm.experimental.noalias.scope.decl(metadata !470)
-  %63 = load ptr, ptr %62, align 8, !alias.scope !473, !noalias !379, !noundef !9
-  %64 = icmp eq ptr %63, null
-  br i1 %64, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %65
+  %62 = load ptr, ptr %61, align 8, !alias.scope !473, !noalias !379, !noundef !9
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %64
 
-65:                                               ; preds = %61
-  %66 = getelementptr inbounds i8, ptr %63, i64 48
-  %67 = load i32, ptr %66, align 4, !noalias !474, !noundef !9
-  %68 = add i32 %67, -1
-  store i32 %68, ptr %66, align 4, !noalias !474
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %70, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i"
+64:                                               ; preds = %60
+  %65 = getelementptr inbounds i8, ptr %62, i64 48
+  %66 = load i32, ptr %65, align 4, !noalias !474, !noundef !9
+  %67 = add i32 %66, -1
+  store i32 %67, ptr %65, align 4, !noalias !474
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %69, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i"
 
-70:                                               ; preds = %65
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %63)
-          to label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i" unwind label %71
+69:                                               ; preds = %64
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %62)
+          to label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i" unwind label %70
 
-71:                                               ; preds = %70
-  %72 = landingpad { ptr, i32 }
+70:                                               ; preds = %69
+  %71 = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %72
 
-"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i": ; preds = %70, %65, %61, %59, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
-  store ptr null, ptr %53, align 8, !alias.scope !378, !noalias !379
+"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i": ; preds = %69, %64, %60, %58, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
+  store ptr null, ptr %52, align 8, !alias.scope !378, !noalias !379
   br label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h68d6f194bfdd62a2E.exit"
 
-73:                                               ; preds = %71, %51, %24
-  %.sink.i = phi ptr [ %53, %71 ], [ %6, %51 ], [ %6, %24 ]
-  %.pn.i.i = phi { ptr, i32 } [ %72, %71 ], [ %52, %51 ], [ %25, %24 ]
+72:                                               ; preds = %70, %50, %24
+  %.sink.i = phi ptr [ %52, %70 ], [ %6, %50 ], [ %6, %24 ]
+  %.pn.i.i = phi { ptr, i32 } [ %71, %70 ], [ %51, %50 ], [ %25, %24 ]
   store ptr null, ptr %.sink.i, align 8, !alias.scope !378, !noalias !379
   resume { ptr, i32 } %.pn.i.i
 
-"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h68d6f194bfdd62a2E.exit": ; preds = %8, %50, %55, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i"
-  %.0.i.i = phi ptr [ null, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i" ], [ %36, %50 ], [ %10, %8 ], [ %57, %55 ]
+"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h68d6f194bfdd62a2E.exit": ; preds = %8, %49, %54, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i"
+  %.0.i.i = phi ptr [ null, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i" ], [ %36, %49 ], [ %10, %8 ], [ %56, %54 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !374
   ret ptr %.0.i.i
 }
@@ -1321,7 +1321,7 @@ define internal fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..F
 24:                                               ; preds = %23
   %25 = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %72
 
 "_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit.i.i": ; preds = %23, %18, %14, %12, %2
   store ptr null, ptr %6, align 8, !alias.scope !493, !noalias !494
@@ -1348,7 +1348,7 @@ define internal fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..F
   %32 = phi ptr [ null, %33 ], [ %.promoted.i.i.i.i.i, %27 ]
   store ptr null, ptr %28, align 8, !alias.scope !536, !noalias !539
   %.not.i.i.i.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i.i.i.i, label %38, label %33
+  br i1 %.not.i.i.i.i.i, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17hf7d0d26d28407debE.exit.thread.i.i", label %33
 
 33:                                               ; preds = %31
   call void @llvm.experimental.noalias.scope.decl(metadata !540)
@@ -1359,102 +1359,102 @@ define internal fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..F
   %36 = call noundef ptr @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h66877a2e1e593f29E.llvm.6055058659040047083"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %3), !noalias !531
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !543
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %31, label %50
+  br i1 %37, label %31, label %49
 
-38:                                               ; preds = %31
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17hf7d0d26d28407debE.exit.thread.i.i": ; preds = %31
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !528
   %.pre.i.i = load ptr, ptr %6, align 8, !alias.scope !552, !noalias !494
-  %39 = icmp eq ptr %.pre.i.i, null
+  %38 = icmp eq ptr %.pre.i.i, null
   call void @llvm.experimental.noalias.scope.decl(metadata !555)
-  br i1 %39, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i", label %40
+  br i1 %38, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i", label %39
 
-40:                                               ; preds = %38
+39:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17hf7d0d26d28407debE.exit.thread.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !556)
   call void @llvm.experimental.noalias.scope.decl(metadata !559)
-  %41 = getelementptr inbounds i8, ptr %1, i64 40
+  %40 = getelementptr inbounds i8, ptr %1, i64 40
   call void @llvm.experimental.noalias.scope.decl(metadata !562)
-  %42 = load ptr, ptr %41, align 8, !alias.scope !565, !noalias !494, !noundef !9
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i", label %44
+  %41 = load ptr, ptr %40, align 8, !alias.scope !565, !noalias !494, !noundef !9
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i", label %43
 
-44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %42, i64 48
-  %46 = load i32, ptr %45, align 4, !noalias !566, !noundef !9
-  %47 = add i32 %46, -1
-  store i32 %47, ptr %45, align 4, !noalias !566
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
+43:                                               ; preds = %39
+  %44 = getelementptr inbounds i8, ptr %41, i64 48
+  %45 = load i32, ptr %44, align 4, !noalias !566, !noundef !9
+  %46 = add i32 %45, -1
+  store i32 %46, ptr %44, align 4, !noalias !566
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %48, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
 
-49:                                               ; preds = %44
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %42)
-          to label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i" unwind label %51
+48:                                               ; preds = %43
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %41)
+          to label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i" unwind label %50
 
-50:                                               ; preds = %33
+49:                                               ; preds = %33
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !528
   br label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h56f2f16c0080772eE.exit"
 
-51:                                               ; preds = %49
-  %52 = landingpad { ptr, i32 }
+50:                                               ; preds = %48
+  %51 = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %72
 
-"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i": ; preds = %49, %44, %40, %38, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit.i.i"
+"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i": ; preds = %48, %43, %39, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17hf7d0d26d28407debE.exit.thread.i.i", %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit.i.i"
   store ptr null, ptr %6, align 8, !alias.scope !493, !noalias !494
-  %53 = getelementptr inbounds i8, ptr %1, i64 56
-  %54 = load ptr, ptr %53, align 8, !alias.scope !493, !noalias !494, !noundef !9
-  %.not21.i.i = icmp eq ptr %54, null
-  br i1 %.not21.i.i, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %55
+  %52 = getelementptr inbounds i8, ptr %1, i64 56
+  %53 = load ptr, ptr %52, align 8, !alias.scope !493, !noalias !494, !noundef !9
+  %.not21.i.i = icmp eq ptr %53, null
+  br i1 %.not21.i.i, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %54
 
-55:                                               ; preds = %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
-  %56 = getelementptr inbounds i8, ptr %1, i64 96
-  %57 = call noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb87200c3329e7c13E.llvm.6055058659040047083(ptr noalias noundef nonnull align 8 dereferenceable(40) %53, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull align 1 %56)
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %59, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h56f2f16c0080772eE.exit"
+54:                                               ; preds = %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
+  %55 = getelementptr inbounds i8, ptr %1, i64 96
+  %56 = call noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb87200c3329e7c13E.llvm.6055058659040047083(ptr noalias noundef nonnull align 8 dereferenceable(40) %52, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull align 1 %55)
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %58, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h56f2f16c0080772eE.exit"
 
-59:                                               ; preds = %55
-  %.pr29.i.i = load ptr, ptr %53, align 8, !alias.scope !575, !noalias !494
+58:                                               ; preds = %54
+  %.pr31.i.i = load ptr, ptr %52, align 8, !alias.scope !575, !noalias !494
   call void @llvm.experimental.noalias.scope.decl(metadata !578)
-  %60 = icmp eq ptr %.pr29.i.i, null
-  br i1 %60, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %61
+  %59 = icmp eq ptr %.pr31.i.i, null
+  br i1 %59, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %60
 
-61:                                               ; preds = %59
+60:                                               ; preds = %58
   call void @llvm.experimental.noalias.scope.decl(metadata !579)
   call void @llvm.experimental.noalias.scope.decl(metadata !582)
-  %62 = getelementptr inbounds i8, ptr %1, i64 80
+  %61 = getelementptr inbounds i8, ptr %1, i64 80
   call void @llvm.experimental.noalias.scope.decl(metadata !585)
-  %63 = load ptr, ptr %62, align 8, !alias.scope !588, !noalias !494, !noundef !9
-  %64 = icmp eq ptr %63, null
-  br i1 %64, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %65
+  %62 = load ptr, ptr %61, align 8, !alias.scope !588, !noalias !494, !noundef !9
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %64
 
-65:                                               ; preds = %61
-  %66 = getelementptr inbounds i8, ptr %63, i64 48
-  %67 = load i32, ptr %66, align 4, !noalias !589, !noundef !9
-  %68 = add i32 %67, -1
-  store i32 %68, ptr %66, align 4, !noalias !589
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %70, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i"
+64:                                               ; preds = %60
+  %65 = getelementptr inbounds i8, ptr %62, i64 48
+  %66 = load i32, ptr %65, align 4, !noalias !589, !noundef !9
+  %67 = add i32 %66, -1
+  store i32 %67, ptr %65, align 4, !noalias !589
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %69, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i"
 
-70:                                               ; preds = %65
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %63)
-          to label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i" unwind label %71
+69:                                               ; preds = %64
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %62)
+          to label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i" unwind label %70
 
-71:                                               ; preds = %70
-  %72 = landingpad { ptr, i32 }
+70:                                               ; preds = %69
+  %71 = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %72
 
-"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i": ; preds = %70, %65, %61, %59, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
-  store ptr null, ptr %53, align 8, !alias.scope !493, !noalias !494
+"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i": ; preds = %69, %64, %60, %58, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
+  store ptr null, ptr %52, align 8, !alias.scope !493, !noalias !494
   br label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h56f2f16c0080772eE.exit"
 
-73:                                               ; preds = %71, %51, %24
-  %.sink.i = phi ptr [ %53, %71 ], [ %6, %51 ], [ %6, %24 ]
-  %.pn.i.i = phi { ptr, i32 } [ %72, %71 ], [ %52, %51 ], [ %25, %24 ]
+72:                                               ; preds = %70, %50, %24
+  %.sink.i = phi ptr [ %52, %70 ], [ %6, %50 ], [ %6, %24 ]
+  %.pn.i.i = phi { ptr, i32 } [ %71, %70 ], [ %51, %50 ], [ %25, %24 ]
   store ptr null, ptr %.sink.i, align 8, !alias.scope !493, !noalias !494
   resume { ptr, i32 } %.pn.i.i
 
-"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h56f2f16c0080772eE.exit": ; preds = %8, %50, %55, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i"
-  %.0.i.i = phi ptr [ null, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i" ], [ %36, %50 ], [ %10, %8 ], [ %57, %55 ]
+"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h56f2f16c0080772eE.exit": ; preds = %8, %49, %54, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i"
+  %.0.i.i = phi ptr [ null, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i" ], [ %36, %49 ], [ %10, %8 ], [ %56, %54 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !489
   ret ptr %.0.i.i
 }
@@ -1509,7 +1509,7 @@ define internal fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..F
 24:                                               ; preds = %23
   %25 = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %72
 
 "_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit.i.i": ; preds = %23, %18, %14, %12, %2
   store ptr null, ptr %6, align 8, !alias.scope !608, !noalias !609
@@ -1536,7 +1536,7 @@ define internal fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..F
   %32 = phi ptr [ null, %33 ], [ %.promoted.i.i.i.i.i, %27 ]
   store ptr null, ptr %28, align 8, !alias.scope !651, !noalias !654
   %.not.i.i.i.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i.i.i.i, label %38, label %33
+  br i1 %.not.i.i.i.i.i, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h1d8f10ba31739f58E.exit.thread.i.i", label %33
 
 33:                                               ; preds = %31
   call void @llvm.experimental.noalias.scope.decl(metadata !655)
@@ -1547,102 +1547,102 @@ define internal fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..F
   %36 = call noundef ptr @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h328f9356c3769b21E.llvm.6055058659040047083"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %3), !noalias !646
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !658
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %31, label %50
+  br i1 %37, label %31, label %49
 
-38:                                               ; preds = %31
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h1d8f10ba31739f58E.exit.thread.i.i": ; preds = %31
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !643
   %.pre.i.i = load ptr, ptr %6, align 8, !alias.scope !667, !noalias !609
-  %39 = icmp eq ptr %.pre.i.i, null
+  %38 = icmp eq ptr %.pre.i.i, null
   call void @llvm.experimental.noalias.scope.decl(metadata !670)
-  br i1 %39, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i", label %40
+  br i1 %38, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i", label %39
 
-40:                                               ; preds = %38
+39:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h1d8f10ba31739f58E.exit.thread.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !671)
   call void @llvm.experimental.noalias.scope.decl(metadata !674)
-  %41 = getelementptr inbounds i8, ptr %1, i64 40
+  %40 = getelementptr inbounds i8, ptr %1, i64 40
   call void @llvm.experimental.noalias.scope.decl(metadata !677)
-  %42 = load ptr, ptr %41, align 8, !alias.scope !680, !noalias !609, !noundef !9
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i", label %44
+  %41 = load ptr, ptr %40, align 8, !alias.scope !680, !noalias !609, !noundef !9
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i", label %43
 
-44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %42, i64 48
-  %46 = load i32, ptr %45, align 4, !noalias !681, !noundef !9
-  %47 = add i32 %46, -1
-  store i32 %47, ptr %45, align 4, !noalias !681
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
+43:                                               ; preds = %39
+  %44 = getelementptr inbounds i8, ptr %41, i64 48
+  %45 = load i32, ptr %44, align 4, !noalias !681, !noundef !9
+  %46 = add i32 %45, -1
+  store i32 %46, ptr %44, align 4, !noalias !681
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %48, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
 
-49:                                               ; preds = %44
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %42)
-          to label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i" unwind label %51
+48:                                               ; preds = %43
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %41)
+          to label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i" unwind label %50
 
-50:                                               ; preds = %33
+49:                                               ; preds = %33
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !643
   br label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h11a34c7ac97780ddE.exit"
 
-51:                                               ; preds = %49
-  %52 = landingpad { ptr, i32 }
+50:                                               ; preds = %48
+  %51 = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %72
 
-"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i": ; preds = %49, %44, %40, %38, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit.i.i"
+"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i": ; preds = %48, %43, %39, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h1d8f10ba31739f58E.exit.thread.i.i", %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit.i.i"
   store ptr null, ptr %6, align 8, !alias.scope !608, !noalias !609
-  %53 = getelementptr inbounds i8, ptr %1, i64 56
-  %54 = load ptr, ptr %53, align 8, !alias.scope !608, !noalias !609, !noundef !9
-  %.not21.i.i = icmp eq ptr %54, null
-  br i1 %.not21.i.i, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %55
+  %52 = getelementptr inbounds i8, ptr %1, i64 56
+  %53 = load ptr, ptr %52, align 8, !alias.scope !608, !noalias !609, !noundef !9
+  %.not21.i.i = icmp eq ptr %53, null
+  br i1 %.not21.i.i, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %54
 
-55:                                               ; preds = %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
-  %56 = getelementptr inbounds i8, ptr %1, i64 96
-  %57 = call noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17had03de113a61091dE.llvm.6055058659040047083(ptr noalias noundef nonnull align 8 dereferenceable(40) %53, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull align 1 %56)
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %59, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h11a34c7ac97780ddE.exit"
+54:                                               ; preds = %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
+  %55 = getelementptr inbounds i8, ptr %1, i64 96
+  %56 = call noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17had03de113a61091dE.llvm.6055058659040047083(ptr noalias noundef nonnull align 8 dereferenceable(40) %52, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull align 1 %55)
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %58, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h11a34c7ac97780ddE.exit"
 
-59:                                               ; preds = %55
-  %.pr29.i.i = load ptr, ptr %53, align 8, !alias.scope !690, !noalias !609
+58:                                               ; preds = %54
+  %.pr31.i.i = load ptr, ptr %52, align 8, !alias.scope !690, !noalias !609
   call void @llvm.experimental.noalias.scope.decl(metadata !693)
-  %60 = icmp eq ptr %.pr29.i.i, null
-  br i1 %60, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %61
+  %59 = icmp eq ptr %.pr31.i.i, null
+  br i1 %59, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %60
 
-61:                                               ; preds = %59
+60:                                               ; preds = %58
   call void @llvm.experimental.noalias.scope.decl(metadata !694)
   call void @llvm.experimental.noalias.scope.decl(metadata !697)
-  %62 = getelementptr inbounds i8, ptr %1, i64 80
+  %61 = getelementptr inbounds i8, ptr %1, i64 80
   call void @llvm.experimental.noalias.scope.decl(metadata !700)
-  %63 = load ptr, ptr %62, align 8, !alias.scope !703, !noalias !609, !noundef !9
-  %64 = icmp eq ptr %63, null
-  br i1 %64, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %65
+  %62 = load ptr, ptr %61, align 8, !alias.scope !703, !noalias !609, !noundef !9
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %64
 
-65:                                               ; preds = %61
-  %66 = getelementptr inbounds i8, ptr %63, i64 48
-  %67 = load i32, ptr %66, align 4, !noalias !704, !noundef !9
-  %68 = add i32 %67, -1
-  store i32 %68, ptr %66, align 4, !noalias !704
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %70, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i"
+64:                                               ; preds = %60
+  %65 = getelementptr inbounds i8, ptr %62, i64 48
+  %66 = load i32, ptr %65, align 4, !noalias !704, !noundef !9
+  %67 = add i32 %66, -1
+  store i32 %67, ptr %65, align 4, !noalias !704
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %69, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i"
 
-70:                                               ; preds = %65
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %63)
-          to label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i" unwind label %71
+69:                                               ; preds = %64
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %62)
+          to label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i" unwind label %70
 
-71:                                               ; preds = %70
-  %72 = landingpad { ptr, i32 }
+70:                                               ; preds = %69
+  %71 = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %72
 
-"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i": ; preds = %70, %65, %61, %59, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
-  store ptr null, ptr %53, align 8, !alias.scope !608, !noalias !609
+"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i": ; preds = %69, %64, %60, %58, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
+  store ptr null, ptr %52, align 8, !alias.scope !608, !noalias !609
   br label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h11a34c7ac97780ddE.exit"
 
-73:                                               ; preds = %71, %51, %24
-  %.sink.i = phi ptr [ %53, %71 ], [ %6, %51 ], [ %6, %24 ]
-  %.pn.i.i = phi { ptr, i32 } [ %72, %71 ], [ %52, %51 ], [ %25, %24 ]
+72:                                               ; preds = %70, %50, %24
+  %.sink.i = phi ptr [ %52, %70 ], [ %6, %50 ], [ %6, %24 ]
+  %.pn.i.i = phi { ptr, i32 } [ %71, %70 ], [ %51, %50 ], [ %25, %24 ]
   store ptr null, ptr %.sink.i, align 8, !alias.scope !608, !noalias !609
   resume { ptr, i32 } %.pn.i.i
 
-"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h11a34c7ac97780ddE.exit": ; preds = %8, %50, %55, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i"
-  %.0.i.i = phi ptr [ null, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i" ], [ %36, %50 ], [ %10, %8 ], [ %57, %55 ]
+"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h11a34c7ac97780ddE.exit": ; preds = %8, %49, %54, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i"
+  %.0.i.i = phi ptr [ null, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i" ], [ %36, %49 ], [ %10, %8 ], [ %56, %54 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !604
   ret ptr %.0.i.i
 }
@@ -1697,7 +1697,7 @@ define internal fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..F
 24:                                               ; preds = %23
   %25 = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %72
 
 "_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit.i.i": ; preds = %23, %18, %14, %12, %2
   store ptr null, ptr %6, align 8, !alias.scope !723, !noalias !724
@@ -1724,7 +1724,7 @@ define internal fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..F
   %32 = phi ptr [ null, %33 ], [ %.promoted.i.i.i.i.i, %27 ]
   store ptr null, ptr %28, align 8, !alias.scope !766, !noalias !769
   %.not.i.i.i.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i.i.i.i, label %38, label %33
+  br i1 %.not.i.i.i.i.i, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h1c9c50b0dd5c9d54E.exit.thread.i.i", label %33
 
 33:                                               ; preds = %31
   call void @llvm.experimental.noalias.scope.decl(metadata !770)
@@ -1735,102 +1735,102 @@ define internal fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..F
   %36 = call noundef ptr @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hccc6b5e6318d664aE.llvm.6055058659040047083"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %3), !noalias !761
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !773
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %31, label %50
+  br i1 %37, label %31, label %49
 
-38:                                               ; preds = %31
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h1c9c50b0dd5c9d54E.exit.thread.i.i": ; preds = %31
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !758
   %.pre.i.i = load ptr, ptr %6, align 8, !alias.scope !782, !noalias !724
-  %39 = icmp eq ptr %.pre.i.i, null
+  %38 = icmp eq ptr %.pre.i.i, null
   call void @llvm.experimental.noalias.scope.decl(metadata !785)
-  br i1 %39, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i", label %40
+  br i1 %38, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i", label %39
 
-40:                                               ; preds = %38
+39:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h1c9c50b0dd5c9d54E.exit.thread.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !786)
   call void @llvm.experimental.noalias.scope.decl(metadata !789)
-  %41 = getelementptr inbounds i8, ptr %1, i64 40
+  %40 = getelementptr inbounds i8, ptr %1, i64 40
   call void @llvm.experimental.noalias.scope.decl(metadata !792)
-  %42 = load ptr, ptr %41, align 8, !alias.scope !795, !noalias !724, !noundef !9
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i", label %44
+  %41 = load ptr, ptr %40, align 8, !alias.scope !795, !noalias !724, !noundef !9
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i", label %43
 
-44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %42, i64 48
-  %46 = load i32, ptr %45, align 4, !noalias !796, !noundef !9
-  %47 = add i32 %46, -1
-  store i32 %47, ptr %45, align 4, !noalias !796
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
+43:                                               ; preds = %39
+  %44 = getelementptr inbounds i8, ptr %41, i64 48
+  %45 = load i32, ptr %44, align 4, !noalias !796, !noundef !9
+  %46 = add i32 %45, -1
+  store i32 %46, ptr %44, align 4, !noalias !796
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %48, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
 
-49:                                               ; preds = %44
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %42)
-          to label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i" unwind label %51
+48:                                               ; preds = %43
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %41)
+          to label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i" unwind label %50
 
-50:                                               ; preds = %33
+49:                                               ; preds = %33
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !758
   br label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h146c9d1a29ef9108E.exit"
 
-51:                                               ; preds = %49
-  %52 = landingpad { ptr, i32 }
+50:                                               ; preds = %48
+  %51 = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %72
 
-"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i": ; preds = %49, %44, %40, %38, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit.i.i"
+"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i": ; preds = %48, %43, %39, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h1c9c50b0dd5c9d54E.exit.thread.i.i", %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit.i.i"
   store ptr null, ptr %6, align 8, !alias.scope !723, !noalias !724
-  %53 = getelementptr inbounds i8, ptr %1, i64 56
-  %54 = load ptr, ptr %53, align 8, !alias.scope !723, !noalias !724, !noundef !9
-  %.not21.i.i = icmp eq ptr %54, null
-  br i1 %.not21.i.i, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %55
+  %52 = getelementptr inbounds i8, ptr %1, i64 56
+  %53 = load ptr, ptr %52, align 8, !alias.scope !723, !noalias !724, !noundef !9
+  %.not21.i.i = icmp eq ptr %53, null
+  br i1 %.not21.i.i, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %54
 
-55:                                               ; preds = %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
-  %56 = getelementptr inbounds i8, ptr %1, i64 96
-  %57 = call noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb2ed17872c2a37d6E.llvm.6055058659040047083(ptr noalias noundef nonnull align 8 dereferenceable(40) %53, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull align 1 %56)
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %59, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h146c9d1a29ef9108E.exit"
+54:                                               ; preds = %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
+  %55 = getelementptr inbounds i8, ptr %1, i64 96
+  %56 = call noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb2ed17872c2a37d6E.llvm.6055058659040047083(ptr noalias noundef nonnull align 8 dereferenceable(40) %52, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull align 1 %55)
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %58, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h146c9d1a29ef9108E.exit"
 
-59:                                               ; preds = %55
-  %.pr29.i.i = load ptr, ptr %53, align 8, !alias.scope !805, !noalias !724
+58:                                               ; preds = %54
+  %.pr31.i.i = load ptr, ptr %52, align 8, !alias.scope !805, !noalias !724
   call void @llvm.experimental.noalias.scope.decl(metadata !808)
-  %60 = icmp eq ptr %.pr29.i.i, null
-  br i1 %60, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %61
+  %59 = icmp eq ptr %.pr31.i.i, null
+  br i1 %59, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %60
 
-61:                                               ; preds = %59
+60:                                               ; preds = %58
   call void @llvm.experimental.noalias.scope.decl(metadata !809)
   call void @llvm.experimental.noalias.scope.decl(metadata !812)
-  %62 = getelementptr inbounds i8, ptr %1, i64 80
+  %61 = getelementptr inbounds i8, ptr %1, i64 80
   call void @llvm.experimental.noalias.scope.decl(metadata !815)
-  %63 = load ptr, ptr %62, align 8, !alias.scope !818, !noalias !724, !noundef !9
-  %64 = icmp eq ptr %63, null
-  br i1 %64, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %65
+  %62 = load ptr, ptr %61, align 8, !alias.scope !818, !noalias !724, !noundef !9
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i", label %64
 
-65:                                               ; preds = %61
-  %66 = getelementptr inbounds i8, ptr %63, i64 48
-  %67 = load i32, ptr %66, align 4, !noalias !819, !noundef !9
-  %68 = add i32 %67, -1
-  store i32 %68, ptr %66, align 4, !noalias !819
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %70, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i"
+64:                                               ; preds = %60
+  %65 = getelementptr inbounds i8, ptr %62, i64 48
+  %66 = load i32, ptr %65, align 4, !noalias !819, !noundef !9
+  %67 = add i32 %66, -1
+  store i32 %67, ptr %65, align 4, !noalias !819
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %69, label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i"
 
-70:                                               ; preds = %65
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %63)
-          to label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i" unwind label %71
+69:                                               ; preds = %64
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %62)
+          to label %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i" unwind label %70
 
-71:                                               ; preds = %70
-  %72 = landingpad { ptr, i32 }
+70:                                               ; preds = %69
+  %71 = landingpad { ptr, i32 }
           cleanup
-  br label %73
+  br label %72
 
-"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i": ; preds = %70, %65, %61, %59, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
-  store ptr null, ptr %53, align 8, !alias.scope !723, !noalias !724
+"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i": ; preds = %69, %64, %60, %58, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit24.i.i"
+  store ptr null, ptr %52, align 8, !alias.scope !723, !noalias !724
   br label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h146c9d1a29ef9108E.exit"
 
-73:                                               ; preds = %71, %51, %24
-  %.sink.i = phi ptr [ %53, %71 ], [ %6, %51 ], [ %6, %24 ]
-  %.pn.i.i = phi { ptr, i32 } [ %72, %71 ], [ %52, %51 ], [ %25, %24 ]
+72:                                               ; preds = %70, %50, %24
+  %.sink.i = phi ptr [ %52, %70 ], [ %6, %50 ], [ %6, %24 ]
+  %.pn.i.i = phi { ptr, i32 } [ %71, %70 ], [ %51, %50 ], [ %25, %24 ]
   store ptr null, ptr %.sink.i, align 8, !alias.scope !723, !noalias !724
   resume { ptr, i32 } %.pn.i.i
 
-"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h146c9d1a29ef9108E.exit": ; preds = %8, %50, %55, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i"
-  %.0.i.i = phi ptr [ null, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i" ], [ %36, %50 ], [ %10, %8 ], [ %57, %55 ]
+"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h146c9d1a29ef9108E.exit": ; preds = %8, %49, %54, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i"
+  %.0.i.i = phi ptr [ null, %"_ZN4core3ptr427drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb3a1395592d282d9E.llvm.16532663377229269005.exit26.i.i" ], [ %36, %49 ], [ %10, %8 ], [ %56, %54 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !719
   ret ptr %.0.i.i
 }
@@ -3991,7 +3991,7 @@ define hidden { ptr, i32 } @_ZN3hir9semantics13SemanticsImpl6source17h51d3b5ed82
   %7 = tail call { ptr, i32 } @"_ZN57_$LT$hir..Const$u20$as$u20$hir..has_source..HasSource$GT$6source17h2848126817885cf6E"(i32 noundef %1, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %8 = extractvalue { ptr, i32 } %7, 0
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %14, label %10
+  br i1 %9, label %29, label %10
 
 10:                                               ; preds = %2
   %11 = extractvalue { ptr, i32 } %7, 1
@@ -3999,62 +3999,58 @@ define hidden { ptr, i32 } @_ZN3hir9semantics13SemanticsImpl6source17h51d3b5ed82
   %12 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %11, ptr %12, align 8
   %13 = invoke noundef align 8 dereferenceable(8) ptr @"_ZN77_$LT$syntax..ast..generated..nodes..Const$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h96fbc1cbf78bde4dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
-          to label %23 unwind label %15
+          to label %22 unwind label %14
 
-14:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %30
-
-15:                                               ; preds = %25, %23, %10
-  %16 = landingpad { ptr, i32 }
+14:                                               ; preds = %24, %22, %10
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !1332)
   call void @llvm.experimental.noalias.scope.decl(metadata !1335)
   call void @llvm.experimental.noalias.scope.decl(metadata !1338)
   call void @llvm.experimental.noalias.scope.decl(metadata !1341)
   call void @llvm.experimental.noalias.scope.decl(metadata !1344)
-  %17 = load ptr, ptr %3, align 8, !alias.scope !1347, !nonnull !9, !noundef !9
-  %18 = getelementptr inbounds i8, ptr %17, i64 48
-  %19 = load i32, ptr %18, align 4, !noalias !1347, !noundef !9
-  %20 = add i32 %19, -1
-  store i32 %20, ptr %18, align 4, !noalias !1347
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %"_ZN4core3ptr115drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Const$GT$$GT$17hf91c111427d88225E.exit"
+  %16 = load ptr, ptr %3, align 8, !alias.scope !1347, !nonnull !9, !noundef !9
+  %17 = getelementptr inbounds i8, ptr %16, i64 48
+  %18 = load i32, ptr %17, align 4, !noalias !1347, !noundef !9
+  %19 = add i32 %18, -1
+  store i32 %19, ptr %17, align 4, !noalias !1347
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %"_ZN4core3ptr115drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Const$GT$$GT$17hf91c111427d88225E.exit"
 
-22:                                               ; preds = %15
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %17)
-          to label %"_ZN4core3ptr115drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Const$GT$$GT$17hf91c111427d88225E.exit" unwind label %33
+21:                                               ; preds = %14
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %16)
+          to label %"_ZN4core3ptr115drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Const$GT$$GT$17hf91c111427d88225E.exit" unwind label %32
 
-23:                                               ; preds = %10
-  %24 = invoke noundef nonnull ptr @_ZN3hir9semantics9find_root17h5f97bad716ad42e0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %13)
-          to label %25 unwind label %15
+22:                                               ; preds = %10
+  %23 = invoke noundef nonnull ptr @_ZN3hir9semantics9find_root17h5f97bad716ad42e0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %13)
+          to label %24 unwind label %14
 
-25:                                               ; preds = %23
-  %26 = load i32, ptr %12, align 8, !noundef !9
-  invoke void @_ZN3hir9semantics13SemanticsImpl5cache17hd51918c24c4a7bd3E(ptr noundef nonnull align 8 %0, ptr noundef nonnull %24, i32 noundef %26)
-          to label %27 unwind label %15
+24:                                               ; preds = %22
+  %25 = load i32, ptr %12, align 8, !noundef !9
+  invoke void @_ZN3hir9semantics13SemanticsImpl5cache17hd51918c24c4a7bd3E(ptr noundef nonnull align 8 %0, ptr noundef nonnull %23, i32 noundef %25)
+          to label %26 unwind label %14
 
-27:                                               ; preds = %25
-  %28 = load ptr, ptr %3, align 8, !nonnull !9, !noundef !9
-  %29 = load i32, ptr %12, align 8, !noundef !9
+26:                                               ; preds = %24
+  %27 = load ptr, ptr %3, align 8, !nonnull !9, !noundef !9
+  %28 = load i32, ptr %12, align 8, !noundef !9
+  br label %29
+
+29:                                               ; preds = %2, %26
+  %.sroa.3.0 = phi i32 [ %28, %26 ], [ undef, %2 ]
+  %.sroa.0.0 = phi ptr [ %27, %26 ], [ null, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %30
+  %30 = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0, 0
+  %31 = insertvalue { ptr, i32 } %30, i32 %.sroa.3.0, 1
+  ret { ptr, i32 } %31
 
-30:                                               ; preds = %27, %14
-  %.sroa.3.0 = phi i32 [ undef, %14 ], [ %29, %27 ]
-  %.sroa.0.0 = phi ptr [ null, %14 ], [ %28, %27 ]
-  %31 = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %.sroa.3.0, 1
-  ret { ptr, i32 } %32
-
-33:                                               ; preds = %22
-  %34 = landingpad { ptr, i32 }
+32:                                               ; preds = %21
+  %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #29
   unreachable
 
-"_ZN4core3ptr115drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Const$GT$$GT$17hf91c111427d88225E.exit": ; preds = %15, %22
-  resume { ptr, i32 } %16
+"_ZN4core3ptr115drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Const$GT$$GT$17hf91c111427d88225E.exit": ; preds = %14, %21
+  resume { ptr, i32 } %15
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4067,7 +4063,7 @@ define hidden { ptr, i32 } @_ZN3hir9semantics13SemanticsImpl6source17h65bb54930c
   %7 = tail call { ptr, i32 } @"_ZN56_$LT$hir..Impl$u20$as$u20$hir..has_source..HasSource$GT$6source17h1c64ef76218ab17fE"(i32 noundef %1, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %8 = extractvalue { ptr, i32 } %7, 0
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %14, label %10
+  br i1 %9, label %29, label %10
 
 10:                                               ; preds = %2
   %11 = extractvalue { ptr, i32 } %7, 1
@@ -4075,62 +4071,58 @@ define hidden { ptr, i32 } @_ZN3hir9semantics13SemanticsImpl6source17h65bb54930c
   %12 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %11, ptr %12, align 8
   %13 = invoke noundef align 8 dereferenceable(8) ptr @"_ZN76_$LT$syntax..ast..generated..nodes..Impl$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h2d672bcd69d8fa08E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
-          to label %23 unwind label %15
+          to label %22 unwind label %14
 
-14:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %30
-
-15:                                               ; preds = %25, %23, %10
-  %16 = landingpad { ptr, i32 }
+14:                                               ; preds = %24, %22, %10
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !1348)
   call void @llvm.experimental.noalias.scope.decl(metadata !1351)
   call void @llvm.experimental.noalias.scope.decl(metadata !1354)
   call void @llvm.experimental.noalias.scope.decl(metadata !1357)
   call void @llvm.experimental.noalias.scope.decl(metadata !1360)
-  %17 = load ptr, ptr %3, align 8, !alias.scope !1363, !nonnull !9, !noundef !9
-  %18 = getelementptr inbounds i8, ptr %17, i64 48
-  %19 = load i32, ptr %18, align 4, !noalias !1363, !noundef !9
-  %20 = add i32 %19, -1
-  store i32 %20, ptr %18, align 4, !noalias !1363
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %"_ZN4core3ptr114drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Impl$GT$$GT$17h3dd178c66f2c9bfcE.exit"
+  %16 = load ptr, ptr %3, align 8, !alias.scope !1363, !nonnull !9, !noundef !9
+  %17 = getelementptr inbounds i8, ptr %16, i64 48
+  %18 = load i32, ptr %17, align 4, !noalias !1363, !noundef !9
+  %19 = add i32 %18, -1
+  store i32 %19, ptr %17, align 4, !noalias !1363
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %"_ZN4core3ptr114drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Impl$GT$$GT$17h3dd178c66f2c9bfcE.exit"
 
-22:                                               ; preds = %15
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %17)
-          to label %"_ZN4core3ptr114drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Impl$GT$$GT$17h3dd178c66f2c9bfcE.exit" unwind label %33
+21:                                               ; preds = %14
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %16)
+          to label %"_ZN4core3ptr114drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Impl$GT$$GT$17h3dd178c66f2c9bfcE.exit" unwind label %32
 
-23:                                               ; preds = %10
-  %24 = invoke noundef nonnull ptr @_ZN3hir9semantics9find_root17h5f97bad716ad42e0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %13)
-          to label %25 unwind label %15
+22:                                               ; preds = %10
+  %23 = invoke noundef nonnull ptr @_ZN3hir9semantics9find_root17h5f97bad716ad42e0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %13)
+          to label %24 unwind label %14
 
-25:                                               ; preds = %23
-  %26 = load i32, ptr %12, align 8, !noundef !9
-  invoke void @_ZN3hir9semantics13SemanticsImpl5cache17hd51918c24c4a7bd3E(ptr noundef nonnull align 8 %0, ptr noundef nonnull %24, i32 noundef %26)
-          to label %27 unwind label %15
+24:                                               ; preds = %22
+  %25 = load i32, ptr %12, align 8, !noundef !9
+  invoke void @_ZN3hir9semantics13SemanticsImpl5cache17hd51918c24c4a7bd3E(ptr noundef nonnull align 8 %0, ptr noundef nonnull %23, i32 noundef %25)
+          to label %26 unwind label %14
 
-27:                                               ; preds = %25
-  %28 = load ptr, ptr %3, align 8, !nonnull !9, !noundef !9
-  %29 = load i32, ptr %12, align 8, !noundef !9
+26:                                               ; preds = %24
+  %27 = load ptr, ptr %3, align 8, !nonnull !9, !noundef !9
+  %28 = load i32, ptr %12, align 8, !noundef !9
+  br label %29
+
+29:                                               ; preds = %2, %26
+  %.sroa.3.0 = phi i32 [ %28, %26 ], [ undef, %2 ]
+  %.sroa.0.0 = phi ptr [ %27, %26 ], [ null, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %30
+  %30 = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0, 0
+  %31 = insertvalue { ptr, i32 } %30, i32 %.sroa.3.0, 1
+  ret { ptr, i32 } %31
 
-30:                                               ; preds = %27, %14
-  %.sroa.3.0 = phi i32 [ undef, %14 ], [ %29, %27 ]
-  %.sroa.0.0 = phi ptr [ null, %14 ], [ %28, %27 ]
-  %31 = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %.sroa.3.0, 1
-  ret { ptr, i32 } %32
-
-33:                                               ; preds = %22
-  %34 = landingpad { ptr, i32 }
+32:                                               ; preds = %21
+  %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #29
   unreachable
 
-"_ZN4core3ptr114drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Impl$GT$$GT$17h3dd178c66f2c9bfcE.exit": ; preds = %15, %22
-  resume { ptr, i32 } %16
+"_ZN4core3ptr114drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Impl$GT$$GT$17h3dd178c66f2c9bfcE.exit": ; preds = %14, %21
+  resume { ptr, i32 } %15
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4143,7 +4135,7 @@ define hidden { ptr, i32 } @_ZN3hir9semantics13SemanticsImpl6source17h880682ee19
   %7 = tail call { ptr, i32 } @"_ZN60_$LT$hir..Function$u20$as$u20$hir..has_source..HasSource$GT$6source17hf1137fa3d23791ecE"(i32 noundef %1, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %8 = extractvalue { ptr, i32 } %7, 0
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %14, label %10
+  br i1 %9, label %29, label %10
 
 10:                                               ; preds = %2
   %11 = extractvalue { ptr, i32 } %7, 1
@@ -4151,62 +4143,58 @@ define hidden { ptr, i32 } @_ZN3hir9semantics13SemanticsImpl6source17h880682ee19
   %12 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %11, ptr %12, align 8
   %13 = invoke noundef align 8 dereferenceable(8) ptr @"_ZN74_$LT$syntax..ast..generated..nodes..Fn$u20$as$u20$syntax..ast..AstNode$GT$6syntax17hba07a88052ab120cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
-          to label %23 unwind label %15
+          to label %22 unwind label %14
 
-14:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %30
-
-15:                                               ; preds = %25, %23, %10
-  %16 = landingpad { ptr, i32 }
+14:                                               ; preds = %24, %22, %10
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !1364)
   call void @llvm.experimental.noalias.scope.decl(metadata !1367)
   call void @llvm.experimental.noalias.scope.decl(metadata !1370)
   call void @llvm.experimental.noalias.scope.decl(metadata !1373)
   call void @llvm.experimental.noalias.scope.decl(metadata !1376)
-  %17 = load ptr, ptr %3, align 8, !alias.scope !1379, !nonnull !9, !noundef !9
-  %18 = getelementptr inbounds i8, ptr %17, i64 48
-  %19 = load i32, ptr %18, align 4, !noalias !1379, !noundef !9
-  %20 = add i32 %19, -1
-  store i32 %20, ptr %18, align 4, !noalias !1379
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %"_ZN4core3ptr112drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Fn$GT$$GT$17h49dad2265dc090cdE.exit"
+  %16 = load ptr, ptr %3, align 8, !alias.scope !1379, !nonnull !9, !noundef !9
+  %17 = getelementptr inbounds i8, ptr %16, i64 48
+  %18 = load i32, ptr %17, align 4, !noalias !1379, !noundef !9
+  %19 = add i32 %18, -1
+  store i32 %19, ptr %17, align 4, !noalias !1379
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %"_ZN4core3ptr112drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Fn$GT$$GT$17h49dad2265dc090cdE.exit"
 
-22:                                               ; preds = %15
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %17)
-          to label %"_ZN4core3ptr112drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Fn$GT$$GT$17h49dad2265dc090cdE.exit" unwind label %33
+21:                                               ; preds = %14
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %16)
+          to label %"_ZN4core3ptr112drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Fn$GT$$GT$17h49dad2265dc090cdE.exit" unwind label %32
 
-23:                                               ; preds = %10
-  %24 = invoke noundef nonnull ptr @_ZN3hir9semantics9find_root17h5f97bad716ad42e0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %13)
-          to label %25 unwind label %15
+22:                                               ; preds = %10
+  %23 = invoke noundef nonnull ptr @_ZN3hir9semantics9find_root17h5f97bad716ad42e0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %13)
+          to label %24 unwind label %14
 
-25:                                               ; preds = %23
-  %26 = load i32, ptr %12, align 8, !noundef !9
-  invoke void @_ZN3hir9semantics13SemanticsImpl5cache17hd51918c24c4a7bd3E(ptr noundef nonnull align 8 %0, ptr noundef nonnull %24, i32 noundef %26)
-          to label %27 unwind label %15
+24:                                               ; preds = %22
+  %25 = load i32, ptr %12, align 8, !noundef !9
+  invoke void @_ZN3hir9semantics13SemanticsImpl5cache17hd51918c24c4a7bd3E(ptr noundef nonnull align 8 %0, ptr noundef nonnull %23, i32 noundef %25)
+          to label %26 unwind label %14
 
-27:                                               ; preds = %25
-  %28 = load ptr, ptr %3, align 8, !nonnull !9, !noundef !9
-  %29 = load i32, ptr %12, align 8, !noundef !9
+26:                                               ; preds = %24
+  %27 = load ptr, ptr %3, align 8, !nonnull !9, !noundef !9
+  %28 = load i32, ptr %12, align 8, !noundef !9
+  br label %29
+
+29:                                               ; preds = %2, %26
+  %.sroa.3.0 = phi i32 [ %28, %26 ], [ undef, %2 ]
+  %.sroa.0.0 = phi ptr [ %27, %26 ], [ null, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %30
+  %30 = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0, 0
+  %31 = insertvalue { ptr, i32 } %30, i32 %.sroa.3.0, 1
+  ret { ptr, i32 } %31
 
-30:                                               ; preds = %27, %14
-  %.sroa.3.0 = phi i32 [ undef, %14 ], [ %29, %27 ]
-  %.sroa.0.0 = phi ptr [ null, %14 ], [ %28, %27 ]
-  %31 = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %.sroa.3.0, 1
-  ret { ptr, i32 } %32
-
-33:                                               ; preds = %22
-  %34 = landingpad { ptr, i32 }
+32:                                               ; preds = %21
+  %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #29
   unreachable
 
-"_ZN4core3ptr112drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Fn$GT$$GT$17h49dad2265dc090cdE.exit": ; preds = %15, %22
-  resume { ptr, i32 } %16
+"_ZN4core3ptr112drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Fn$GT$$GT$17h49dad2265dc090cdE.exit": ; preds = %14, %21
+  resume { ptr, i32 } %15
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4219,7 +4207,7 @@ define hidden { ptr, i32 } @_ZN3hir9semantics13SemanticsImpl6source17ha00aa4771c
   %7 = tail call { ptr, i32 } @"_ZN61_$LT$hir..TypeAlias$u20$as$u20$hir..has_source..HasSource$GT$6source17h401bc934b9739532E"(i32 noundef %1, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %8 = extractvalue { ptr, i32 } %7, 0
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %14, label %10
+  br i1 %9, label %29, label %10
 
 10:                                               ; preds = %2
   %11 = extractvalue { ptr, i32 } %7, 1
@@ -4227,62 +4215,58 @@ define hidden { ptr, i32 } @_ZN3hir9semantics13SemanticsImpl6source17ha00aa4771c
   %12 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %11, ptr %12, align 8
   %13 = invoke noundef align 8 dereferenceable(8) ptr @"_ZN81_$LT$syntax..ast..generated..nodes..TypeAlias$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h90829669aa748d71E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
-          to label %23 unwind label %15
+          to label %22 unwind label %14
 
-14:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %30
-
-15:                                               ; preds = %25, %23, %10
-  %16 = landingpad { ptr, i32 }
+14:                                               ; preds = %24, %22, %10
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !1380)
   call void @llvm.experimental.noalias.scope.decl(metadata !1383)
   call void @llvm.experimental.noalias.scope.decl(metadata !1386)
   call void @llvm.experimental.noalias.scope.decl(metadata !1389)
   call void @llvm.experimental.noalias.scope.decl(metadata !1392)
-  %17 = load ptr, ptr %3, align 8, !alias.scope !1395, !nonnull !9, !noundef !9
-  %18 = getelementptr inbounds i8, ptr %17, i64 48
-  %19 = load i32, ptr %18, align 4, !noalias !1395, !noundef !9
-  %20 = add i32 %19, -1
-  store i32 %20, ptr %18, align 4, !noalias !1395
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %"_ZN4core3ptr119drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..TypeAlias$GT$$GT$17he3ca3a98492810eeE.exit"
+  %16 = load ptr, ptr %3, align 8, !alias.scope !1395, !nonnull !9, !noundef !9
+  %17 = getelementptr inbounds i8, ptr %16, i64 48
+  %18 = load i32, ptr %17, align 4, !noalias !1395, !noundef !9
+  %19 = add i32 %18, -1
+  store i32 %19, ptr %17, align 4, !noalias !1395
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %"_ZN4core3ptr119drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..TypeAlias$GT$$GT$17he3ca3a98492810eeE.exit"
 
-22:                                               ; preds = %15
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %17)
-          to label %"_ZN4core3ptr119drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..TypeAlias$GT$$GT$17he3ca3a98492810eeE.exit" unwind label %33
+21:                                               ; preds = %14
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %16)
+          to label %"_ZN4core3ptr119drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..TypeAlias$GT$$GT$17he3ca3a98492810eeE.exit" unwind label %32
 
-23:                                               ; preds = %10
-  %24 = invoke noundef nonnull ptr @_ZN3hir9semantics9find_root17h5f97bad716ad42e0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %13)
-          to label %25 unwind label %15
+22:                                               ; preds = %10
+  %23 = invoke noundef nonnull ptr @_ZN3hir9semantics9find_root17h5f97bad716ad42e0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %13)
+          to label %24 unwind label %14
 
-25:                                               ; preds = %23
-  %26 = load i32, ptr %12, align 8, !noundef !9
-  invoke void @_ZN3hir9semantics13SemanticsImpl5cache17hd51918c24c4a7bd3E(ptr noundef nonnull align 8 %0, ptr noundef nonnull %24, i32 noundef %26)
-          to label %27 unwind label %15
+24:                                               ; preds = %22
+  %25 = load i32, ptr %12, align 8, !noundef !9
+  invoke void @_ZN3hir9semantics13SemanticsImpl5cache17hd51918c24c4a7bd3E(ptr noundef nonnull align 8 %0, ptr noundef nonnull %23, i32 noundef %25)
+          to label %26 unwind label %14
 
-27:                                               ; preds = %25
-  %28 = load ptr, ptr %3, align 8, !nonnull !9, !noundef !9
-  %29 = load i32, ptr %12, align 8, !noundef !9
+26:                                               ; preds = %24
+  %27 = load ptr, ptr %3, align 8, !nonnull !9, !noundef !9
+  %28 = load i32, ptr %12, align 8, !noundef !9
+  br label %29
+
+29:                                               ; preds = %2, %26
+  %.sroa.3.0 = phi i32 [ %28, %26 ], [ undef, %2 ]
+  %.sroa.0.0 = phi ptr [ %27, %26 ], [ null, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %30
+  %30 = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0, 0
+  %31 = insertvalue { ptr, i32 } %30, i32 %.sroa.3.0, 1
+  ret { ptr, i32 } %31
 
-30:                                               ; preds = %27, %14
-  %.sroa.3.0 = phi i32 [ undef, %14 ], [ %29, %27 ]
-  %.sroa.0.0 = phi ptr [ null, %14 ], [ %28, %27 ]
-  %31 = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %.sroa.3.0, 1
-  ret { ptr, i32 } %32
-
-33:                                               ; preds = %22
-  %34 = landingpad { ptr, i32 }
+32:                                               ; preds = %21
+  %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #29
   unreachable
 
-"_ZN4core3ptr119drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..TypeAlias$GT$$GT$17he3ca3a98492810eeE.exit": ; preds = %15, %22
-  resume { ptr, i32 } %16
+"_ZN4core3ptr119drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..TypeAlias$GT$$GT$17he3ca3a98492810eeE.exit": ; preds = %14, %21
+  resume { ptr, i32 } %15
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4295,7 +4279,7 @@ define hidden { ptr, i32 } @_ZN3hir9semantics13SemanticsImpl6source17hd3bd5d75da
   %7 = tail call { ptr, i32 } @"_ZN57_$LT$hir..Trait$u20$as$u20$hir..has_source..HasSource$GT$6source17hcce553c02547f020E"(i32 noundef %1, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %8 = extractvalue { ptr, i32 } %7, 0
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %14, label %10
+  br i1 %9, label %29, label %10
 
 10:                                               ; preds = %2
   %11 = extractvalue { ptr, i32 } %7, 1
@@ -4303,62 +4287,58 @@ define hidden { ptr, i32 } @_ZN3hir9semantics13SemanticsImpl6source17hd3bd5d75da
   %12 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %11, ptr %12, align 8
   %13 = invoke noundef align 8 dereferenceable(8) ptr @"_ZN77_$LT$syntax..ast..generated..nodes..Trait$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h964ae91177d80e95E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
-          to label %23 unwind label %15
+          to label %22 unwind label %14
 
-14:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %30
-
-15:                                               ; preds = %25, %23, %10
-  %16 = landingpad { ptr, i32 }
+14:                                               ; preds = %24, %22, %10
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !1396)
   call void @llvm.experimental.noalias.scope.decl(metadata !1399)
   call void @llvm.experimental.noalias.scope.decl(metadata !1402)
   call void @llvm.experimental.noalias.scope.decl(metadata !1405)
   call void @llvm.experimental.noalias.scope.decl(metadata !1408)
-  %17 = load ptr, ptr %3, align 8, !alias.scope !1411, !nonnull !9, !noundef !9
-  %18 = getelementptr inbounds i8, ptr %17, i64 48
-  %19 = load i32, ptr %18, align 4, !noalias !1411, !noundef !9
-  %20 = add i32 %19, -1
-  store i32 %20, ptr %18, align 4, !noalias !1411
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %"_ZN4core3ptr115drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Trait$GT$$GT$17h51f0502f8212e3a9E.exit"
+  %16 = load ptr, ptr %3, align 8, !alias.scope !1411, !nonnull !9, !noundef !9
+  %17 = getelementptr inbounds i8, ptr %16, i64 48
+  %18 = load i32, ptr %17, align 4, !noalias !1411, !noundef !9
+  %19 = add i32 %18, -1
+  store i32 %19, ptr %17, align 4, !noalias !1411
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %"_ZN4core3ptr115drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Trait$GT$$GT$17h51f0502f8212e3a9E.exit"
 
-22:                                               ; preds = %15
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %17)
-          to label %"_ZN4core3ptr115drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Trait$GT$$GT$17h51f0502f8212e3a9E.exit" unwind label %33
+21:                                               ; preds = %14
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %16)
+          to label %"_ZN4core3ptr115drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Trait$GT$$GT$17h51f0502f8212e3a9E.exit" unwind label %32
 
-23:                                               ; preds = %10
-  %24 = invoke noundef nonnull ptr @_ZN3hir9semantics9find_root17h5f97bad716ad42e0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %13)
-          to label %25 unwind label %15
+22:                                               ; preds = %10
+  %23 = invoke noundef nonnull ptr @_ZN3hir9semantics9find_root17h5f97bad716ad42e0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %13)
+          to label %24 unwind label %14
 
-25:                                               ; preds = %23
-  %26 = load i32, ptr %12, align 8, !noundef !9
-  invoke void @_ZN3hir9semantics13SemanticsImpl5cache17hd51918c24c4a7bd3E(ptr noundef nonnull align 8 %0, ptr noundef nonnull %24, i32 noundef %26)
-          to label %27 unwind label %15
+24:                                               ; preds = %22
+  %25 = load i32, ptr %12, align 8, !noundef !9
+  invoke void @_ZN3hir9semantics13SemanticsImpl5cache17hd51918c24c4a7bd3E(ptr noundef nonnull align 8 %0, ptr noundef nonnull %23, i32 noundef %25)
+          to label %26 unwind label %14
 
-27:                                               ; preds = %25
-  %28 = load ptr, ptr %3, align 8, !nonnull !9, !noundef !9
-  %29 = load i32, ptr %12, align 8, !noundef !9
+26:                                               ; preds = %24
+  %27 = load ptr, ptr %3, align 8, !nonnull !9, !noundef !9
+  %28 = load i32, ptr %12, align 8, !noundef !9
+  br label %29
+
+29:                                               ; preds = %2, %26
+  %.sroa.3.0 = phi i32 [ %28, %26 ], [ undef, %2 ]
+  %.sroa.0.0 = phi ptr [ %27, %26 ], [ null, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %30
+  %30 = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0, 0
+  %31 = insertvalue { ptr, i32 } %30, i32 %.sroa.3.0, 1
+  ret { ptr, i32 } %31
 
-30:                                               ; preds = %27, %14
-  %.sroa.3.0 = phi i32 [ undef, %14 ], [ %29, %27 ]
-  %.sroa.0.0 = phi ptr [ null, %14 ], [ %28, %27 ]
-  %31 = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %.sroa.3.0, 1
-  ret { ptr, i32 } %32
-
-33:                                               ; preds = %22
-  %34 = landingpad { ptr, i32 }
+32:                                               ; preds = %21
+  %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #29
   unreachable
 
-"_ZN4core3ptr115drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Trait$GT$$GT$17h51f0502f8212e3a9E.exit": ; preds = %15, %22
-  resume { ptr, i32 } %16
+"_ZN4core3ptr115drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..Trait$GT$$GT$17h51f0502f8212e3a9E.exit": ; preds = %14, %21
+  resume { ptr, i32 } %15
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -100733,7 +100713,7 @@ define hidden noundef ptr @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = call fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hff5320741d8390d6E"(ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %6)
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %.loopexit35
+  br i1 %8, label %9, label %.loopexit
 
 9:                                                ; preds = %5
   %.pr = load i64, ptr %0, align 8, !alias.scope !44841
@@ -100766,7 +100746,7 @@ define hidden noundef ptr @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C
   call void @"_ZN104_$LT$itertools..kmerge_impl..KMergeBy$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h03a4742c7638d1deE"(ptr noalias nocapture noundef nonnull sret({ i64, [12 x i64] }) align 8 dereferenceable(104) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %14), !noalias !44857
   %17 = load i64, ptr %3, align 8, !range !1311, !noalias !44854, !noundef !9
   %.not8.i.i = icmp eq i64 %17, 0
-  br i1 %.not8.i.i, label %.loopexit, label %.lr.ph.i.i
+  br i1 %.not8.i.i, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h164748945a663566E.exit.thread", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %16
   %18 = getelementptr inbounds i8, ptr %3, i64 8
@@ -100798,22 +100778,22 @@ common.resume:                                    ; preds = %12, %31, %42, %23
   %25 = call fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hff5320741d8390d6E"(ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %.sroa.7.0..sroa_idx9), !noalias !44870
   %26 = icmp eq ptr %25, null
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3), !noalias !44854
-  br i1 %26, label %27, label %.loopexit35
+  br i1 %26, label %27, label %.loopexit
 
 27:                                               ; preds = %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h5d48c923279a757cE.exit.i.i"
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3), !noalias !44854
   call void @"_ZN104_$LT$itertools..kmerge_impl..KMergeBy$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h03a4742c7638d1deE"(ptr noalias nocapture noundef nonnull sret({ i64, [12 x i64] }) align 8 dereferenceable(104) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %14)
   %28 = load i64, ptr %3, align 8, !range !1311, !noalias !44854, !noundef !9
   %.not.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i, label %.loopexit, label %19
+  br i1 %.not.i.i, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h164748945a663566E.exit.thread", label %19
 
-.loopexit:                                        ; preds = %27, %16
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h164748945a663566E.exit.thread": ; preds = %27, %16
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3), !noalias !44854
   %.pre = load i64, ptr %0, align 8, !range !1311, !alias.scope !44871
   %29 = icmp eq i64 %.pre, 0
   br i1 %29, label %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit24", label %30
 
-30:                                               ; preds = %.loopexit
+30:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h164748945a663566E.exit.thread"
   invoke void @"_ZN4core3ptr675drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h65267d22c3edc52dE.llvm.16532663377229269005"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %.sroa.7.0..sroa_idx9)
           to label %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit24" unwind label %31
 
@@ -100823,7 +100803,7 @@ common.resume:                                    ; preds = %12, %31, %42, %23
   store i64 0, ptr %0, align 8
   br label %common.resume
 
-"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit24": ; preds = %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit", %.loopexit, %30
+"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit24": ; preds = %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit", %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h164748945a663566E.exit.thread", %30
   store i64 0, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 104
   %34 = load i64, ptr %33, align 8, !range !1311, !noundef !9
@@ -100834,11 +100814,11 @@ common.resume:                                    ; preds = %12, %31, %42, %23
   %36 = getelementptr inbounds i8, ptr %0, i64 112
   %37 = call fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hff5320741d8390d6E"(ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %36)
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %39, label %.loopexit35
+  br i1 %38, label %39, label %.loopexit
 
 39:                                               ; preds = %35
-  %.pr29 = load i64, ptr %33, align 8, !alias.scope !44874
-  %40 = icmp eq i64 %.pr29, 0
+  %.pr31 = load i64, ptr %33, align 8, !alias.scope !44874
+  %40 = icmp eq i64 %.pr31, 0
   br i1 %40, label %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit26", label %41
 
 41:                                               ; preds = %39
@@ -100853,9 +100833,9 @@ common.resume:                                    ; preds = %12, %31, %42, %23
 
 "_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit26": ; preds = %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit24", %39, %41
   store i64 0, ptr %33, align 8
-  br label %.loopexit35
+  br label %.loopexit
 
-.loopexit35:                                      ; preds = %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h5d48c923279a757cE.exit.i.i", %35, %5, %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit26"
+.loopexit:                                        ; preds = %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h5d48c923279a757cE.exit.i.i", %35, %5, %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit26"
   %.0 = phi ptr [ null, %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit26" ], [ %7, %5 ], [ %37, %35 ], [ %25, %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h5d48c923279a757cE.exit.i.i" ]
   ret ptr %.0
 }
@@ -100872,7 +100852,7 @@ define hidden noundef ptr @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = call fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h9869cc543595f5deE"(ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %6)
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %.loopexit35
+  br i1 %8, label %9, label %.loopexit
 
 9:                                                ; preds = %5
   %.pr = load i64, ptr %0, align 8, !alias.scope !44877
@@ -100905,7 +100885,7 @@ define hidden noundef ptr @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C
   call void @"_ZN104_$LT$itertools..kmerge_impl..KMergeBy$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h03a4742c7638d1deE"(ptr noalias nocapture noundef nonnull sret({ i64, [12 x i64] }) align 8 dereferenceable(104) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %14), !noalias !44893
   %17 = load i64, ptr %3, align 8, !range !1311, !noalias !44890, !noundef !9
   %.not8.i.i = icmp eq i64 %17, 0
-  br i1 %.not8.i.i, label %.loopexit, label %.lr.ph.i.i
+  br i1 %.not8.i.i, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h4cae835593a901adE.exit.thread", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %16
   %18 = getelementptr inbounds i8, ptr %3, i64 8
@@ -100937,22 +100917,22 @@ common.resume:                                    ; preds = %12, %31, %42, %23
   %25 = call fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h9869cc543595f5deE"(ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %.sroa.7.0..sroa_idx9), !noalias !44906
   %26 = icmp eq ptr %25, null
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3), !noalias !44890
-  br i1 %26, label %27, label %.loopexit35
+  br i1 %26, label %27, label %.loopexit
 
 27:                                               ; preds = %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h1d1f50433aea1662E.exit.i.i"
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3), !noalias !44890
   call void @"_ZN104_$LT$itertools..kmerge_impl..KMergeBy$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h03a4742c7638d1deE"(ptr noalias nocapture noundef nonnull sret({ i64, [12 x i64] }) align 8 dereferenceable(104) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %14)
   %28 = load i64, ptr %3, align 8, !range !1311, !noalias !44890, !noundef !9
   %.not.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i, label %.loopexit, label %19
+  br i1 %.not.i.i, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h4cae835593a901adE.exit.thread", label %19
 
-.loopexit:                                        ; preds = %27, %16
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h4cae835593a901adE.exit.thread": ; preds = %27, %16
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3), !noalias !44890
   %.pre = load i64, ptr %0, align 8, !range !1311, !alias.scope !44907
   %29 = icmp eq i64 %.pre, 0
   br i1 %29, label %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit24", label %30
 
-30:                                               ; preds = %.loopexit
+30:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h4cae835593a901adE.exit.thread"
   invoke void @"_ZN4core3ptr675drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h65267d22c3edc52dE.llvm.16532663377229269005"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %.sroa.7.0..sroa_idx9)
           to label %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit24" unwind label %31
 
@@ -100962,7 +100942,7 @@ common.resume:                                    ; preds = %12, %31, %42, %23
   store i64 0, ptr %0, align 8
   br label %common.resume
 
-"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit24": ; preds = %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit", %.loopexit, %30
+"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit24": ; preds = %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit", %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h4cae835593a901adE.exit.thread", %30
   store i64 0, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 104
   %34 = load i64, ptr %33, align 8, !range !1311, !noundef !9
@@ -100973,11 +100953,11 @@ common.resume:                                    ; preds = %12, %31, %42, %23
   %36 = getelementptr inbounds i8, ptr %0, i64 112
   %37 = call fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h9869cc543595f5deE"(ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %36)
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %39, label %.loopexit35
+  br i1 %38, label %39, label %.loopexit
 
 39:                                               ; preds = %35
-  %.pr29 = load i64, ptr %33, align 8, !alias.scope !44910
-  %40 = icmp eq i64 %.pr29, 0
+  %.pr31 = load i64, ptr %33, align 8, !alias.scope !44910
+  %40 = icmp eq i64 %.pr31, 0
   br i1 %40, label %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit26", label %41
 
 41:                                               ; preds = %39
@@ -100992,9 +100972,9 @@ common.resume:                                    ; preds = %12, %31, %42, %23
 
 "_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit26": ; preds = %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit24", %39, %41
   store i64 0, ptr %33, align 8
-  br label %.loopexit35
+  br label %.loopexit
 
-.loopexit35:                                      ; preds = %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h1d1f50433aea1662E.exit.i.i", %35, %5, %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit26"
+.loopexit:                                        ; preds = %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h1d1f50433aea1662E.exit.i.i", %35, %5, %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit26"
   %.0 = phi ptr [ null, %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit26" ], [ %7, %5 ], [ %37, %35 ], [ %25, %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h1d1f50433aea1662E.exit.i.i" ]
   ret ptr %.0
 }
@@ -101011,7 +100991,7 @@ define hidden noundef ptr @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = call fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hf556bfe7a13131e8E"(ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %6)
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %.loopexit35
+  br i1 %8, label %9, label %.loopexit
 
 9:                                                ; preds = %5
   %.pr = load i64, ptr %0, align 8, !alias.scope !44913
@@ -101044,7 +101024,7 @@ define hidden noundef ptr @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C
   call void @"_ZN104_$LT$itertools..kmerge_impl..KMergeBy$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h03a4742c7638d1deE"(ptr noalias nocapture noundef nonnull sret({ i64, [12 x i64] }) align 8 dereferenceable(104) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %14), !noalias !44929
   %17 = load i64, ptr %3, align 8, !range !1311, !noalias !44926, !noundef !9
   %.not8.i.i = icmp eq i64 %17, 0
-  br i1 %.not8.i.i, label %.loopexit, label %.lr.ph.i.i
+  br i1 %.not8.i.i, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17ha51b81c91dc53828E.exit.thread", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %16
   %18 = getelementptr inbounds i8, ptr %3, i64 8
@@ -101076,22 +101056,22 @@ common.resume:                                    ; preds = %12, %31, %42, %23
   %25 = call fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hf556bfe7a13131e8E"(ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %.sroa.7.0..sroa_idx9), !noalias !44942
   %26 = icmp eq ptr %25, null
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3), !noalias !44926
-  br i1 %26, label %27, label %.loopexit35
+  br i1 %26, label %27, label %.loopexit
 
 27:                                               ; preds = %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h3db6846520b48097E.exit.i.i"
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3), !noalias !44926
   call void @"_ZN104_$LT$itertools..kmerge_impl..KMergeBy$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h03a4742c7638d1deE"(ptr noalias nocapture noundef nonnull sret({ i64, [12 x i64] }) align 8 dereferenceable(104) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %14)
   %28 = load i64, ptr %3, align 8, !range !1311, !noalias !44926, !noundef !9
   %.not.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i, label %.loopexit, label %19
+  br i1 %.not.i.i, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17ha51b81c91dc53828E.exit.thread", label %19
 
-.loopexit:                                        ; preds = %27, %16
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17ha51b81c91dc53828E.exit.thread": ; preds = %27, %16
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3), !noalias !44926
   %.pre = load i64, ptr %0, align 8, !range !1311, !alias.scope !44943
   %29 = icmp eq i64 %.pre, 0
   br i1 %29, label %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit24", label %30
 
-30:                                               ; preds = %.loopexit
+30:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17ha51b81c91dc53828E.exit.thread"
   invoke void @"_ZN4core3ptr675drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h65267d22c3edc52dE.llvm.16532663377229269005"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %.sroa.7.0..sroa_idx9)
           to label %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit24" unwind label %31
 
@@ -101101,7 +101081,7 @@ common.resume:                                    ; preds = %12, %31, %42, %23
   store i64 0, ptr %0, align 8
   br label %common.resume
 
-"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit24": ; preds = %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit", %.loopexit, %30
+"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit24": ; preds = %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit", %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17ha51b81c91dc53828E.exit.thread", %30
   store i64 0, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 104
   %34 = load i64, ptr %33, align 8, !range !1311, !noundef !9
@@ -101112,11 +101092,11 @@ common.resume:                                    ; preds = %12, %31, %42, %23
   %36 = getelementptr inbounds i8, ptr %0, i64 112
   %37 = call fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hf556bfe7a13131e8E"(ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %36)
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %39, label %.loopexit35
+  br i1 %38, label %39, label %.loopexit
 
 39:                                               ; preds = %35
-  %.pr29 = load i64, ptr %33, align 8, !alias.scope !44946
-  %40 = icmp eq i64 %.pr29, 0
+  %.pr31 = load i64, ptr %33, align 8, !alias.scope !44946
+  %40 = icmp eq i64 %.pr31, 0
   br i1 %40, label %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit26", label %41
 
 41:                                               ; preds = %39
@@ -101131,9 +101111,9 @@ common.resume:                                    ; preds = %12, %31, %42, %23
 
 "_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit26": ; preds = %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit24", %39, %41
   store i64 0, ptr %33, align 8
-  br label %.loopexit35
+  br label %.loopexit
 
-.loopexit35:                                      ; preds = %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h3db6846520b48097E.exit.i.i", %35, %5, %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit26"
+.loopexit:                                        ; preds = %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h3db6846520b48097E.exit.i.i", %35, %5, %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit26"
   %.0 = phi ptr [ null, %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit26" ], [ %7, %5 ], [ %37, %35 ], [ %25, %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h3db6846520b48097E.exit.i.i" ]
   ret ptr %.0
 }
@@ -101150,7 +101130,7 @@ define hidden noundef ptr @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = call fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17he80e50f76afc0526E"(ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %6)
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %.loopexit35
+  br i1 %8, label %9, label %.loopexit
 
 9:                                                ; preds = %5
   %.pr = load i64, ptr %0, align 8, !alias.scope !44949
@@ -101183,7 +101163,7 @@ define hidden noundef ptr @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C
   call void @"_ZN104_$LT$itertools..kmerge_impl..KMergeBy$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h03a4742c7638d1deE"(ptr noalias nocapture noundef nonnull sret({ i64, [12 x i64] }) align 8 dereferenceable(104) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %14), !noalias !44965
   %17 = load i64, ptr %3, align 8, !range !1311, !noalias !44962, !noundef !9
   %.not8.i.i = icmp eq i64 %17, 0
-  br i1 %.not8.i.i, label %.loopexit, label %.lr.ph.i.i
+  br i1 %.not8.i.i, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17hd49c209f9874dea6E.exit.thread", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %16
   %18 = getelementptr inbounds i8, ptr %3, i64 8
@@ -101215,22 +101195,22 @@ common.resume:                                    ; preds = %12, %31, %42, %23
   %25 = call fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17he80e50f76afc0526E"(ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %.sroa.7.0..sroa_idx9), !noalias !44978
   %26 = icmp eq ptr %25, null
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3), !noalias !44962
-  br i1 %26, label %27, label %.loopexit35
+  br i1 %26, label %27, label %.loopexit
 
 27:                                               ; preds = %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hd330aa4983b86c9cE.exit.i.i"
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3), !noalias !44962
   call void @"_ZN104_$LT$itertools..kmerge_impl..KMergeBy$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h03a4742c7638d1deE"(ptr noalias nocapture noundef nonnull sret({ i64, [12 x i64] }) align 8 dereferenceable(104) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %14)
   %28 = load i64, ptr %3, align 8, !range !1311, !noalias !44962, !noundef !9
   %.not.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i, label %.loopexit, label %19
+  br i1 %.not.i.i, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17hd49c209f9874dea6E.exit.thread", label %19
 
-.loopexit:                                        ; preds = %27, %16
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17hd49c209f9874dea6E.exit.thread": ; preds = %27, %16
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3), !noalias !44962
   %.pre = load i64, ptr %0, align 8, !range !1311, !alias.scope !44979
   %29 = icmp eq i64 %.pre, 0
   br i1 %29, label %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit24", label %30
 
-30:                                               ; preds = %.loopexit
+30:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17hd49c209f9874dea6E.exit.thread"
   invoke void @"_ZN4core3ptr675drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h65267d22c3edc52dE.llvm.16532663377229269005"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %.sroa.7.0..sroa_idx9)
           to label %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit24" unwind label %31
 
@@ -101240,7 +101220,7 @@ common.resume:                                    ; preds = %12, %31, %42, %23
   store i64 0, ptr %0, align 8
   br label %common.resume
 
-"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit24": ; preds = %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit", %.loopexit, %30
+"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit24": ; preds = %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit", %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17hd49c209f9874dea6E.exit.thread", %30
   store i64 0, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 104
   %34 = load i64, ptr %33, align 8, !range !1311, !noundef !9
@@ -101251,11 +101231,11 @@ common.resume:                                    ; preds = %12, %31, %42, %23
   %36 = getelementptr inbounds i8, ptr %0, i64 112
   %37 = call fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17he80e50f76afc0526E"(ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %36)
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %39, label %.loopexit35
+  br i1 %38, label %39, label %.loopexit
 
 39:                                               ; preds = %35
-  %.pr29 = load i64, ptr %33, align 8, !alias.scope !44982
-  %40 = icmp eq i64 %.pr29, 0
+  %.pr31 = load i64, ptr %33, align 8, !alias.scope !44982
+  %40 = icmp eq i64 %.pr31, 0
   br i1 %40, label %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit26", label %41
 
 41:                                               ; preds = %39
@@ -101270,9 +101250,9 @@ common.resume:                                    ; preds = %12, %31, %42, %23
 
 "_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit26": ; preds = %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit24", %39, %41
   store i64 0, ptr %33, align 8
-  br label %.loopexit35
+  br label %.loopexit
 
-.loopexit35:                                      ; preds = %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hd330aa4983b86c9cE.exit.i.i", %35, %5, %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit26"
+.loopexit:                                        ; preds = %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hd330aa4983b86c9cE.exit.i.i", %35, %5, %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit26"
   %.0 = phi ptr [ null, %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit26" ], [ %7, %5 ], [ %37, %35 ], [ %25, %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hd330aa4983b86c9cE.exit.i.i" ]
   ret ptr %.0
 }
@@ -101289,7 +101269,7 @@ define hidden noundef ptr @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = call fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2449dad8956ddf64E"(ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %6)
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %.loopexit35
+  br i1 %8, label %9, label %.loopexit
 
 9:                                                ; preds = %5
   %.pr = load i64, ptr %0, align 8, !alias.scope !44985
@@ -101322,7 +101302,7 @@ define hidden noundef ptr @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C
   call void @"_ZN104_$LT$itertools..kmerge_impl..KMergeBy$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h03a4742c7638d1deE"(ptr noalias nocapture noundef nonnull sret({ i64, [12 x i64] }) align 8 dereferenceable(104) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %14), !noalias !45001
   %17 = load i64, ptr %3, align 8, !range !1311, !noalias !44998, !noundef !9
   %.not8.i.i = icmp eq i64 %17, 0
-  br i1 %.not8.i.i, label %.loopexit, label %.lr.ph.i.i
+  br i1 %.not8.i.i, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17hd844b401596e26ebE.exit.thread", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %16
   %18 = getelementptr inbounds i8, ptr %3, i64 8
@@ -101354,22 +101334,22 @@ common.resume:                                    ; preds = %12, %31, %42, %23
   %25 = call fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2449dad8956ddf64E"(ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %.sroa.7.0..sroa_idx9), !noalias !45014
   %26 = icmp eq ptr %25, null
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3), !noalias !44998
-  br i1 %26, label %27, label %.loopexit35
+  br i1 %26, label %27, label %.loopexit
 
 27:                                               ; preds = %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h626bc41b99dfe6ecE.exit.i.i"
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3), !noalias !44998
   call void @"_ZN104_$LT$itertools..kmerge_impl..KMergeBy$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h03a4742c7638d1deE"(ptr noalias nocapture noundef nonnull sret({ i64, [12 x i64] }) align 8 dereferenceable(104) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %14)
   %28 = load i64, ptr %3, align 8, !range !1311, !noalias !44998, !noundef !9
   %.not.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i, label %.loopexit, label %19
+  br i1 %.not.i.i, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17hd844b401596e26ebE.exit.thread", label %19
 
-.loopexit:                                        ; preds = %27, %16
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17hd844b401596e26ebE.exit.thread": ; preds = %27, %16
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3), !noalias !44998
   %.pre = load i64, ptr %0, align 8, !range !1311, !alias.scope !45015
   %29 = icmp eq i64 %.pre, 0
   br i1 %29, label %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit24", label %30
 
-30:                                               ; preds = %.loopexit
+30:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17hd844b401596e26ebE.exit.thread"
   invoke void @"_ZN4core3ptr675drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h65267d22c3edc52dE.llvm.16532663377229269005"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %.sroa.7.0..sroa_idx9)
           to label %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit24" unwind label %31
 
@@ -101379,7 +101359,7 @@ common.resume:                                    ; preds = %12, %31, %42, %23
   store i64 0, ptr %0, align 8
   br label %common.resume
 
-"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit24": ; preds = %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit", %.loopexit, %30
+"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit24": ; preds = %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit", %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17hd844b401596e26ebE.exit.thread", %30
   store i64 0, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 104
   %34 = load i64, ptr %33, align 8, !range !1311, !noundef !9
@@ -101390,11 +101370,11 @@ common.resume:                                    ; preds = %12, %31, %42, %23
   %36 = getelementptr inbounds i8, ptr %0, i64 112
   %37 = call fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2449dad8956ddf64E"(ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %36)
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %39, label %.loopexit35
+  br i1 %38, label %39, label %.loopexit
 
 39:                                               ; preds = %35
-  %.pr29 = load i64, ptr %33, align 8, !alias.scope !45018
-  %40 = icmp eq i64 %.pr29, 0
+  %.pr31 = load i64, ptr %33, align 8, !alias.scope !45018
+  %40 = icmp eq i64 %.pr31, 0
   br i1 %40, label %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit26", label %41
 
 41:                                               ; preds = %39
@@ -101409,9 +101389,9 @@ common.resume:                                    ; preds = %12, %31, %42, %23
 
 "_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit26": ; preds = %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit24", %39, %41
   store i64 0, ptr %33, align 8
-  br label %.loopexit35
+  br label %.loopexit
 
-.loopexit35:                                      ; preds = %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h626bc41b99dfe6ecE.exit.i.i", %35, %5, %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit26"
+.loopexit:                                        ; preds = %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h626bc41b99dfe6ecE.exit.i.i", %35, %5, %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit26"
   %.0 = phi ptr [ null, %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit26" ], [ %7, %5 ], [ %37, %35 ], [ %25, %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h626bc41b99dfe6ecE.exit.i.i" ]
   ret ptr %.0
 }
@@ -101428,7 +101408,7 @@ define hidden noundef ptr @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = call fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h510d2ec4859e89e4E"(ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %6)
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %.loopexit35
+  br i1 %8, label %9, label %.loopexit
 
 9:                                                ; preds = %5
   %.pr = load i64, ptr %0, align 8, !alias.scope !45021
@@ -101461,7 +101441,7 @@ define hidden noundef ptr @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C
   call void @"_ZN104_$LT$itertools..kmerge_impl..KMergeBy$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h03a4742c7638d1deE"(ptr noalias nocapture noundef nonnull sret({ i64, [12 x i64] }) align 8 dereferenceable(104) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %14), !noalias !45037
   %17 = load i64, ptr %3, align 8, !range !1311, !noalias !45034, !noundef !9
   %.not8.i.i = icmp eq i64 %17, 0
-  br i1 %.not8.i.i, label %.loopexit, label %.lr.ph.i.i
+  br i1 %.not8.i.i, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h3f086760d8fb0f85E.exit.thread", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %16
   %18 = getelementptr inbounds i8, ptr %3, i64 8
@@ -101493,22 +101473,22 @@ common.resume:                                    ; preds = %12, %31, %42, %23
   %25 = call fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h510d2ec4859e89e4E"(ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %.sroa.7.0..sroa_idx9), !noalias !45050
   %26 = icmp eq ptr %25, null
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3), !noalias !45034
-  br i1 %26, label %27, label %.loopexit35
+  br i1 %26, label %27, label %.loopexit
 
 27:                                               ; preds = %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h4ad3df40f9f11c5cE.exit.i.i"
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3), !noalias !45034
   call void @"_ZN104_$LT$itertools..kmerge_impl..KMergeBy$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h03a4742c7638d1deE"(ptr noalias nocapture noundef nonnull sret({ i64, [12 x i64] }) align 8 dereferenceable(104) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %14)
   %28 = load i64, ptr %3, align 8, !range !1311, !noalias !45034, !noundef !9
   %.not.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i, label %.loopexit, label %19
+  br i1 %.not.i.i, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h3f086760d8fb0f85E.exit.thread", label %19
 
-.loopexit:                                        ; preds = %27, %16
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h3f086760d8fb0f85E.exit.thread": ; preds = %27, %16
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3), !noalias !45034
   %.pre = load i64, ptr %0, align 8, !range !1311, !alias.scope !45051
   %29 = icmp eq i64 %.pre, 0
   br i1 %29, label %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit24", label %30
 
-30:                                               ; preds = %.loopexit
+30:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h3f086760d8fb0f85E.exit.thread"
   invoke void @"_ZN4core3ptr675drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h65267d22c3edc52dE.llvm.16532663377229269005"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %.sroa.7.0..sroa_idx9)
           to label %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit24" unwind label %31
 
@@ -101518,7 +101498,7 @@ common.resume:                                    ; preds = %12, %31, %42, %23
   store i64 0, ptr %0, align 8
   br label %common.resume
 
-"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit24": ; preds = %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit", %.loopexit, %30
+"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit24": ; preds = %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit", %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h3f086760d8fb0f85E.exit.thread", %30
   store i64 0, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 104
   %34 = load i64, ptr %33, align 8, !range !1311, !noundef !9
@@ -101529,11 +101509,11 @@ common.resume:                                    ; preds = %12, %31, %42, %23
   %36 = getelementptr inbounds i8, ptr %0, i64 112
   %37 = call fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h510d2ec4859e89e4E"(ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %36)
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %39, label %.loopexit35
+  br i1 %38, label %39, label %.loopexit
 
 39:                                               ; preds = %35
-  %.pr29 = load i64, ptr %33, align 8, !alias.scope !45054
-  %40 = icmp eq i64 %.pr29, 0
+  %.pr31 = load i64, ptr %33, align 8, !alias.scope !45054
+  %40 = icmp eq i64 %.pr31, 0
   br i1 %40, label %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit26", label %41
 
 41:                                               ; preds = %39
@@ -101548,9 +101528,9 @@ common.resume:                                    ; preds = %12, %31, %42, %23
 
 "_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit26": ; preds = %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit24", %39, %41
   store i64 0, ptr %33, align 8
-  br label %.loopexit35
+  br label %.loopexit
 
-.loopexit35:                                      ; preds = %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h4ad3df40f9f11c5cE.exit.i.i", %35, %5, %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit26"
+.loopexit:                                        ; preds = %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h4ad3df40f9f11c5cE.exit.i.i", %35, %5, %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit26"
   %.0 = phi ptr [ null, %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit26" ], [ %7, %5 ], [ %37, %35 ], [ %25, %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h4ad3df40f9f11c5cE.exit.i.i" ]
   ret ptr %.0
 }
@@ -101567,7 +101547,7 @@ define hidden noundef ptr @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = call fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h778994a82950c639E"(ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %6)
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %.loopexit35
+  br i1 %8, label %9, label %.loopexit
 
 9:                                                ; preds = %5
   %.pr = load i64, ptr %0, align 8, !alias.scope !45057
@@ -101600,7 +101580,7 @@ define hidden noundef ptr @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C
   call void @"_ZN104_$LT$itertools..kmerge_impl..KMergeBy$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h03a4742c7638d1deE"(ptr noalias nocapture noundef nonnull sret({ i64, [12 x i64] }) align 8 dereferenceable(104) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %14), !noalias !45073
   %17 = load i64, ptr %3, align 8, !range !1311, !noalias !45070, !noundef !9
   %.not8.i.i = icmp eq i64 %17, 0
-  br i1 %.not8.i.i, label %.loopexit, label %.lr.ph.i.i
+  br i1 %.not8.i.i, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17hbf6b55464b0110bbE.exit.thread", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %16
   %18 = getelementptr inbounds i8, ptr %3, i64 8
@@ -101632,22 +101612,22 @@ common.resume:                                    ; preds = %12, %31, %42, %23
   %25 = call fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h778994a82950c639E"(ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %.sroa.7.0..sroa_idx9), !noalias !45086
   %26 = icmp eq ptr %25, null
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3), !noalias !45070
-  br i1 %26, label %27, label %.loopexit35
+  br i1 %26, label %27, label %.loopexit
 
 27:                                               ; preds = %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hb354768248da34a1E.exit.i.i"
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3), !noalias !45070
   call void @"_ZN104_$LT$itertools..kmerge_impl..KMergeBy$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h03a4742c7638d1deE"(ptr noalias nocapture noundef nonnull sret({ i64, [12 x i64] }) align 8 dereferenceable(104) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %14)
   %28 = load i64, ptr %3, align 8, !range !1311, !noalias !45070, !noundef !9
   %.not.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i, label %.loopexit, label %19
+  br i1 %.not.i.i, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17hbf6b55464b0110bbE.exit.thread", label %19
 
-.loopexit:                                        ; preds = %27, %16
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17hbf6b55464b0110bbE.exit.thread": ; preds = %27, %16
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3), !noalias !45070
   %.pre = load i64, ptr %0, align 8, !range !1311, !alias.scope !45087
   %29 = icmp eq i64 %.pre, 0
   br i1 %29, label %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit24", label %30
 
-30:                                               ; preds = %.loopexit
+30:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17hbf6b55464b0110bbE.exit.thread"
   invoke void @"_ZN4core3ptr675drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h65267d22c3edc52dE.llvm.16532663377229269005"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %.sroa.7.0..sroa_idx9)
           to label %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit24" unwind label %31
 
@@ -101657,7 +101637,7 @@ common.resume:                                    ; preds = %12, %31, %42, %23
   store i64 0, ptr %0, align 8
   br label %common.resume
 
-"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit24": ; preds = %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit", %.loopexit, %30
+"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit24": ; preds = %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit", %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17hbf6b55464b0110bbE.exit.thread", %30
   store i64 0, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 104
   %34 = load i64, ptr %33, align 8, !range !1311, !noundef !9
@@ -101668,11 +101648,11 @@ common.resume:                                    ; preds = %12, %31, %42, %23
   %36 = getelementptr inbounds i8, ptr %0, i64 112
   %37 = call fastcc noundef ptr @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h778994a82950c639E"(ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %36)
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %39, label %.loopexit35
+  br i1 %38, label %39, label %.loopexit
 
 39:                                               ; preds = %35
-  %.pr29 = load i64, ptr %33, align 8, !alias.scope !45090
-  %40 = icmp eq i64 %.pr29, 0
+  %.pr31 = load i64, ptr %33, align 8, !alias.scope !45090
+  %40 = icmp eq i64 %.pr31, 0
   br i1 %40, label %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit26", label %41
 
 41:                                               ; preds = %39
@@ -101687,9 +101667,9 @@ common.resume:                                    ; preds = %12, %31, %42, %23
 
 "_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit26": ; preds = %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit24", %39, %41
   store i64 0, ptr %33, align 8
-  br label %.loopexit35
+  br label %.loopexit
 
-.loopexit35:                                      ; preds = %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hb354768248da34a1E.exit.i.i", %35, %5, %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit26"
+.loopexit:                                        ; preds = %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hb354768248da34a1E.exit.i.i", %35, %5, %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit26"
   %.0 = phi ptr [ null, %"_ZN4core3ptr659drop_in_place$LT$core..option..Option$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..token_ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h49aadee40b0e515aE.llvm.16532663377229269005.exit26" ], [ %7, %5 ], [ %37, %35 ], [ %25, %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17hb354768248da34a1E.exit.i.i" ]
   ret ptr %.0
 }

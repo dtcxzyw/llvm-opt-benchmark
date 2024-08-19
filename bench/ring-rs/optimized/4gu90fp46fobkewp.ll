@@ -848,10 +848,10 @@ _ZN4ring4limb43parse_big_endian_in_range_and_pad_consttime17h9048a00efd342339E.e
   %.not.i = icmp eq i32 %47, 1
   br i1 %.not.i, label %49, label %75
 
-48:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h83af3ef2879b5ae6E.exit.i", %_ZN4ring4limb43parse_big_endian_in_range_and_pad_consttime17h9048a00efd342339E.exit.i
+48:                                               ; preds = %_ZN4ring4limb43parse_big_endian_in_range_and_pad_consttime17h9048a00efd342339E.exit.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h83af3ef2879b5ae6E.exit.i"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20), !noalias !108
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21), !noalias !108
-  br label %79
+  br label %.sink.split
 
 49:                                               ; preds = %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %26, ptr noundef nonnull align 8 dereferenceable(160) %19, i64 160, i1 false)
@@ -977,20 +977,20 @@ _ZN4ring2ec10curve255196scalar6Scalar26from_sha512_digest_reduced17h06357428a26d
 
 76:                                               ; preds = %_ZN4ring2ec10curve255196scalar6Scalar26from_sha512_digest_reduced17h06357428a26d51b0E.exit
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %26)
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %48, %78, %76
+  %.0.ph = phi i1 [ false, %76 ], [ true, %78 ], [ true, %48 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27)
   br label %77
 
-77:                                               ; preds = %7, %30, %79, %76
-  %.0 = phi i1 [ true, %79 ], [ false, %76 ], [ true, %30 ], [ true, %7 ]
+77:                                               ; preds = %.sink.split, %7, %30
+  %.0 = phi i1 [ true, %30 ], [ true, %7 ], [ %.0.ph, %.sink.split ]
   ret i1 %.0
 
 78:                                               ; preds = %_ZN4ring2ec10curve255196scalar6Scalar26from_sha512_digest_reduced17h06357428a26d51b0E.exit, %75
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %26)
-  br label %79
-
-79:                                               ; preds = %78, %48
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27)
-  br label %77
+  br label %.sink.split
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1190,7 +1190,7 @@ _ZN4ring2ec7suite_b3ops9CommonOps7point_y17heb3dae4970743ecfE.exit: ; preds = %_
 
 31:                                               ; preds = %_ZN4ring2ec7suite_b3ops9CommonOps23elem_verify_is_not_zero17h39c3ddb8be505643E.exit
   store i64 1, ptr %0, align 8
-  br label %36
+  br label %35
 
 32:                                               ; preds = %_ZN4ring2ec7suite_b3ops9CommonOps7point_y17heb3dae4970743ecfE.exit
   %33 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1203,7 +1203,6 @@ _ZN4ring2ec7suite_b3ops9CommonOps7point_y17heb3dae4970743ecfE.exit: ; preds = %_
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16)
   br label %35
 
 34:                                               ; preds = %_ZN4ring2ec7suite_b3ops9CommonOps7point_y17heb3dae4970743ecfE.exit
@@ -1215,14 +1214,11 @@ _ZN4ring2ec7suite_b3ops9CommonOps7point_y17heb3dae4970743ecfE.exit: ; preds = %_
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)
-  br label %36
-
-35:                                               ; preds = %36, %32
-  ret void
-
-36:                                               ; preds = %34, %31
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16)
   br label %35
+
+35:                                               ; preds = %31, %34, %32
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16)
+  ret void
 }
 
 ; Function Attrs: nonlazybind uwtable

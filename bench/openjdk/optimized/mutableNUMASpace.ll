@@ -1863,7 +1863,7 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit85: ; preds = %220, %_ZN16Mutabl
 
 239:                                              ; preds = %.lr.ph, %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit115
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit115 ]
-  %240 = phi ptr [ %.pre186, %.lr.ph ], [ %449, %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit115 ]
+  %240 = phi ptr [ %.pre186, %.lr.ph ], [ %450, %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit115 ]
   %241 = getelementptr inbounds i8, ptr %240, i64 8
   %242 = load ptr, ptr %241, align 8
   %243 = getelementptr inbounds ptr, ptr %242, i64 %indvars.iv
@@ -1952,7 +1952,6 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit85: ; preds = %220, %_ZN16Mutabl
   %298 = ptrtoint ptr %297 to i64
   %299 = ptrtoint ptr %294 to i64
   %300 = sub i64 %298, %299
-  store ptr %294, ptr %9, align 8
   br label %327
 
 301:                                              ; preds = %293
@@ -1960,7 +1959,6 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit85: ; preds = %220, %_ZN16Mutabl
   %303 = ptrtoint ptr %302 to i64
   %304 = ptrtoint ptr %294 to i64
   %305 = sub i64 %303, %304
-  store ptr %294, ptr %9, align 8
   br label %327
 
 306:                                              ; preds = %290
@@ -1972,7 +1970,6 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit85: ; preds = %220, %_ZN16Mutabl
   %312 = load ptr, ptr %311, align 8
   %313 = getelementptr inbounds i8, ptr %312, i64 48
   %314 = load ptr, ptr %313, align 8
-  store ptr %314, ptr %9, align 8
   br label %327
 
 .thread163:                                       ; preds = %.thread159
@@ -1988,227 +1985,227 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit85: ; preds = %220, %_ZN16Mutabl
   %324 = ptrtoint ptr %323 to i64
   %325 = ptrtoint ptr %322 to i64
   %326 = sub i64 %324, %325
-  store ptr %322, ptr %9, align 8
   br label %327
 
 327:                                              ; preds = %301, %295, %.thread163, %306
-  %.sink.in = phi i64 [ %305, %301 ], [ %300, %295 ], [ %326, %.thread163 ], [ %.067, %306 ]
-  %.sroa.014.0.copyload = phi ptr [ %294, %301 ], [ %294, %295 ], [ %322, %.thread163 ], [ %314, %306 ]
-  %.sink = lshr i64 %.sink.in, 3
-  store i64 %.sink, ptr %.sroa.2124.0..sroa_idx, align 8
-  %328 = load ptr, ptr %10, align 8
-  %329 = load ptr, ptr %12, align 8
-  %330 = ptrtoint ptr %329 to i64
-  %331 = ptrtoint ptr %328 to i64
-  %332 = sub i64 %330, %331
-  %333 = lshr i64 %332, 3
-  %.not.i90 = icmp ule ptr %328, %.sroa.014.0.copyload
-  %334 = getelementptr inbounds ptr, ptr %328, i64 %333
-  %335 = getelementptr inbounds ptr, ptr %.sroa.014.0.copyload, i64 %.sink
-  %336 = icmp uge ptr %334, %335
-  %337 = select i1 %.not.i90, i1 %336, i1 false
-  br i1 %337, label %340, label %338
+  %.sink206 = phi i64 [ %305, %301 ], [ %300, %295 ], [ %326, %.thread163 ], [ %.067, %306 ]
+  %.sink205 = phi ptr [ %294, %301 ], [ %294, %295 ], [ %322, %.thread163 ], [ %314, %306 ]
+  %328 = lshr i64 %.sink206, 3
+  store ptr %.sink205, ptr %9, align 8
+  store i64 %328, ptr %.sroa.2124.0..sroa_idx, align 8
+  %329 = load ptr, ptr %10, align 8
+  %330 = load ptr, ptr %12, align 8
+  %331 = ptrtoint ptr %330 to i64
+  %332 = ptrtoint ptr %329 to i64
+  %333 = sub i64 %331, %332
+  %334 = lshr i64 %333, 3
+  %.not.i90 = icmp ule ptr %329, %.sink205
+  %335 = getelementptr inbounds ptr, ptr %329, i64 %334
+  %336 = getelementptr inbounds ptr, ptr %.sink205, i64 %328
+  %337 = icmp uge ptr %335, %336
+  %338 = select i1 %.not.i90, i1 %337, i1 false
+  br i1 %338, label %341, label %339
 
-338:                                              ; preds = %327
-  %339 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %339, align 1
+339:                                              ; preds = %327
+  %340 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %340, align 1
   call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 464, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10) #12
   unreachable
 
-340:                                              ; preds = %327
-  %341 = call { ptr, i64 } @_ZNK9MemRegion12intersectionES_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr %.sroa.014.0.copyload, i64 %.sink) #11
-  %342 = extractvalue { ptr, i64 } %341, 0
-  %343 = icmp eq ptr %342, null
-  %344 = load ptr, ptr %9, align 8
-  %345 = extractvalue { ptr, i64 } %341, 1
-  %.sroa.5.0 = select i1 %343, i64 0, i64 %345
-  %.sroa.0118.0 = select i1 %343, ptr %344, ptr %342
+341:                                              ; preds = %327
+  %342 = call { ptr, i64 } @_ZNK9MemRegion12intersectionES_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr %.sink205, i64 %328) #11
+  %343 = extractvalue { ptr, i64 } %342, 0
+  %344 = icmp eq ptr %343, null
+  %345 = load ptr, ptr %9, align 8
+  %346 = extractvalue { ptr, i64 } %342, 1
+  %.sroa.5.0 = select i1 %344, i64 0, i64 %346
+  %.sroa.0118.0 = select i1 %344, ptr %345, ptr %343
   %.sroa.211.0.copyload = load i64, ptr %.sroa.2124.0..sroa_idx, align 8
-  %346 = icmp ult ptr %344, %.sroa.0118.0
-  br i1 %346, label %347, label %377
+  %347 = icmp ult ptr %345, %.sroa.0118.0
+  br i1 %347, label %348, label %378
 
-347:                                              ; preds = %340
-  %348 = load i8, ptr @UseLargePages, align 1
-  %349 = trunc i8 %348 to i1
-  br i1 %349, label %350, label %372
+348:                                              ; preds = %341
+  %349 = load i8, ptr @UseLargePages, align 1
+  %350 = trunc i8 %349 to i1
+  br i1 %350, label %351, label %373
 
-350:                                              ; preds = %347
-  %351 = load i64, ptr %23, align 8
-  %352 = load i64, ptr %25, align 8
-  %.not.i105 = icmp ult i64 %351, %352
-  br i1 %.not.i105, label %372, label %353
+351:                                              ; preds = %348
+  %352 = load i64, ptr %23, align 8
+  %353 = load i64, ptr %25, align 8
+  %.not.i105 = icmp ult i64 %352, %353
+  br i1 %.not.i105, label %373, label %354
 
-353:                                              ; preds = %350
-  %354 = ptrtoint ptr %.sroa.0118.0 to i64
-  %355 = add i64 %354, -1
-  %356 = add i64 %355, %352
-  %357 = sub i64 0, %352
-  %358 = and i64 %356, %357
-  %359 = inttoptr i64 %358 to ptr
-  %.not.i.i106 = icmp ugt ptr %344, %359
-  %360 = getelementptr inbounds ptr, ptr %344, i64 %.sroa.211.0.copyload
-  %361 = icmp ule ptr %360, %359
-  %.not66.i107 = select i1 %.not.i.i106, i1 true, i1 %361
-  %362 = ptrtoint ptr %344 to i64
-  %363 = sub i64 %358, %362
-  %.not17.i108 = icmp ult i64 %363, %352
+354:                                              ; preds = %351
+  %355 = ptrtoint ptr %.sroa.0118.0 to i64
+  %356 = add i64 %355, -1
+  %357 = add i64 %356, %353
+  %358 = sub i64 0, %353
+  %359 = and i64 %357, %358
+  %360 = inttoptr i64 %359 to ptr
+  %.not.i.i106 = icmp ugt ptr %345, %360
+  %361 = getelementptr inbounds ptr, ptr %345, i64 %.sroa.211.0.copyload
+  %362 = icmp ule ptr %361, %360
+  %.not66.i107 = select i1 %.not.i.i106, i1 true, i1 %362
+  %363 = ptrtoint ptr %345 to i64
+  %364 = sub i64 %359, %363
+  %.not17.i108 = icmp ult i64 %364, %353
   %or.cond.i109 = or i1 %.not17.i108, %.not66.i107
-  br i1 %or.cond.i109, label %372, label %364
+  br i1 %or.cond.i109, label %373, label %365
 
-364:                                              ; preds = %353
-  %.not.i20.i110 = icmp ule ptr %.sroa.0118.0, %359
-  %365 = getelementptr inbounds ptr, ptr %.sroa.0118.0, i64 %.sroa.5.0
-  %366 = icmp ugt ptr %365, %359
-  %367 = select i1 %.not.i20.i110, i1 %366, i1 false
-  br i1 %367, label %368, label %372
+365:                                              ; preds = %354
+  %.not.i20.i110 = icmp ule ptr %.sroa.0118.0, %360
+  %366 = getelementptr inbounds ptr, ptr %.sroa.0118.0, i64 %.sroa.5.0
+  %367 = icmp ugt ptr %366, %360
+  %368 = select i1 %.not.i20.i110, i1 %367, i1 false
+  br i1 %368, label %369, label %373
 
-368:                                              ; preds = %364
-  %369 = ptrtoint ptr %365 to i64
-  %370 = sub i64 %369, %358
-  %371 = lshr i64 %370, 3
-  br label %372
+369:                                              ; preds = %365
+  %370 = ptrtoint ptr %366 to i64
+  %371 = sub i64 %370, %359
+  %372 = lshr i64 %371, 3
+  br label %373
 
-372:                                              ; preds = %368, %364, %353, %350, %347
-  %.sroa.033.0.i102 = phi ptr [ %.sroa.0118.0, %350 ], [ %359, %368 ], [ %.sroa.0118.0, %353 ], [ %.sroa.0118.0, %347 ], [ %359, %364 ]
-  %.sroa.15.0.i103 = phi i64 [ %.sroa.5.0, %350 ], [ %371, %368 ], [ %.sroa.5.0, %353 ], [ %.sroa.5.0, %347 ], [ 0, %364 ]
-  %373 = ptrtoint ptr %.sroa.033.0.i102 to i64
-  %374 = ptrtoint ptr %344 to i64
-  %375 = sub i64 %373, %374
-  %376 = lshr i64 %375, 3
-  br label %377
+373:                                              ; preds = %369, %365, %354, %351, %348
+  %.sroa.033.0.i102 = phi ptr [ %.sroa.0118.0, %351 ], [ %360, %369 ], [ %.sroa.0118.0, %354 ], [ %.sroa.0118.0, %348 ], [ %360, %365 ]
+  %.sroa.15.0.i103 = phi i64 [ %.sroa.5.0, %351 ], [ %372, %369 ], [ %.sroa.5.0, %354 ], [ %.sroa.5.0, %348 ], [ 0, %365 ]
+  %374 = ptrtoint ptr %.sroa.033.0.i102 to i64
+  %375 = ptrtoint ptr %345 to i64
+  %376 = sub i64 %374, %375
+  %377 = lshr i64 %376, 3
+  br label %378
 
-377:                                              ; preds = %340, %372
-  %.sroa.7.3 = phi i64 [ %376, %372 ], [ 0, %340 ]
-  %.sroa.0139.3 = phi ptr [ %344, %372 ], [ null, %340 ]
-  %.sroa.033.1.i91 = phi ptr [ %.sroa.033.0.i102, %372 ], [ %.sroa.0118.0, %340 ]
-  %.sroa.15.1.i92 = phi i64 [ %.sroa.15.0.i103, %372 ], [ %.sroa.5.0, %340 ]
-  %378 = getelementptr inbounds ptr, ptr %.sroa.033.1.i91, i64 %.sroa.15.1.i92
-  %379 = getelementptr inbounds ptr, ptr %344, i64 %.sroa.211.0.copyload
-  %380 = icmp ult ptr %378, %379
-  br i1 %380, label %381, label %_ZN16MutableNUMASpace12select_tailsE9MemRegionS0_PS0_S1_.exit111
+378:                                              ; preds = %341, %373
+  %.sroa.7.3 = phi i64 [ %377, %373 ], [ 0, %341 ]
+  %.sroa.0139.3 = phi ptr [ %345, %373 ], [ null, %341 ]
+  %.sroa.033.1.i91 = phi ptr [ %.sroa.033.0.i102, %373 ], [ %.sroa.0118.0, %341 ]
+  %.sroa.15.1.i92 = phi i64 [ %.sroa.15.0.i103, %373 ], [ %.sroa.5.0, %341 ]
+  %379 = getelementptr inbounds ptr, ptr %.sroa.033.1.i91, i64 %.sroa.15.1.i92
+  %380 = getelementptr inbounds ptr, ptr %345, i64 %.sroa.211.0.copyload
+  %381 = icmp ult ptr %379, %380
+  br i1 %381, label %382, label %_ZN16MutableNUMASpace12select_tailsE9MemRegionS0_PS0_S1_.exit111
 
-381:                                              ; preds = %377
-  %382 = load i8, ptr @UseLargePages, align 1
-  %383 = trunc i8 %382 to i1
-  br i1 %383, label %384, label %402
+382:                                              ; preds = %378
+  %383 = load i8, ptr @UseLargePages, align 1
+  %384 = trunc i8 %383 to i1
+  br i1 %384, label %385, label %403
 
-384:                                              ; preds = %381
-  %385 = load i64, ptr %23, align 8
-  %386 = load i64, ptr %25, align 8
-  %.not18.i96 = icmp ult i64 %385, %386
-  br i1 %.not18.i96, label %402, label %387
+385:                                              ; preds = %382
+  %386 = load i64, ptr %23, align 8
+  %387 = load i64, ptr %25, align 8
+  %.not18.i96 = icmp ult i64 %386, %387
+  br i1 %.not18.i96, label %403, label %388
 
-387:                                              ; preds = %384
-  %388 = ptrtoint ptr %378 to i64
-  %389 = sub i64 0, %386
-  %390 = and i64 %389, %388
-  %391 = inttoptr i64 %390 to ptr
-  %.not.i21.i97 = icmp ugt ptr %344, %391
-  %392 = icmp ule ptr %379, %391
-  %.not68.i98 = or i1 %.not.i21.i97, %392
-  %393 = ptrtoint ptr %379 to i64
-  %394 = sub i64 %393, %390
-  %.not19.i99 = icmp ult i64 %394, %386
+388:                                              ; preds = %385
+  %389 = ptrtoint ptr %379 to i64
+  %390 = sub i64 0, %387
+  %391 = and i64 %390, %389
+  %392 = inttoptr i64 %391 to ptr
+  %.not.i21.i97 = icmp ugt ptr %345, %392
+  %393 = icmp ule ptr %380, %392
+  %.not68.i98 = or i1 %.not.i21.i97, %393
+  %394 = ptrtoint ptr %380 to i64
+  %395 = sub i64 %394, %391
+  %.not19.i99 = icmp ult i64 %395, %387
   %or.cond64.i100 = or i1 %.not19.i99, %.not68.i98
-  br i1 %or.cond64.i100, label %402, label %395
+  br i1 %or.cond64.i100, label %403, label %396
 
-395:                                              ; preds = %387
-  %.not.i22.i101 = icmp ule ptr %.sroa.033.1.i91, %391
-  %396 = icmp ugt ptr %378, %391
-  %397 = and i1 %.not.i22.i101, %396
-  br i1 %397, label %398, label %402
+396:                                              ; preds = %388
+  %.not.i22.i101 = icmp ule ptr %.sroa.033.1.i91, %392
+  %397 = icmp ugt ptr %379, %392
+  %398 = and i1 %.not.i22.i101, %397
+  br i1 %398, label %399, label %403
 
-398:                                              ; preds = %395
-  %399 = ptrtoint ptr %.sroa.033.1.i91 to i64
-  %400 = sub i64 %390, %399
-  %401 = lshr i64 %400, 3
-  br label %402
+399:                                              ; preds = %396
+  %400 = ptrtoint ptr %.sroa.033.1.i91 to i64
+  %401 = sub i64 %391, %400
+  %402 = lshr i64 %401, 3
+  br label %403
 
-402:                                              ; preds = %398, %395, %387, %384, %381
-  %.sroa.033.2.i93 = phi ptr [ %.sroa.033.1.i91, %384 ], [ %.sroa.033.1.i91, %398 ], [ %.sroa.033.1.i91, %387 ], [ %.sroa.033.1.i91, %381 ], [ %391, %395 ]
-  %.sroa.15.2.i94 = phi i64 [ %.sroa.15.1.i92, %384 ], [ %401, %398 ], [ %.sroa.15.1.i92, %387 ], [ %.sroa.15.1.i92, %381 ], [ 0, %395 ]
-  %403 = getelementptr inbounds ptr, ptr %.sroa.033.2.i93, i64 %.sroa.15.2.i94
-  %404 = ptrtoint ptr %379 to i64
-  %405 = ptrtoint ptr %403 to i64
-  %406 = sub i64 %404, %405
-  %407 = lshr i64 %406, 3
+403:                                              ; preds = %399, %396, %388, %385, %382
+  %.sroa.033.2.i93 = phi ptr [ %.sroa.033.1.i91, %385 ], [ %.sroa.033.1.i91, %399 ], [ %.sroa.033.1.i91, %388 ], [ %.sroa.033.1.i91, %382 ], [ %392, %396 ]
+  %.sroa.15.2.i94 = phi i64 [ %.sroa.15.1.i92, %385 ], [ %402, %399 ], [ %.sroa.15.1.i92, %388 ], [ %.sroa.15.1.i92, %382 ], [ 0, %396 ]
+  %404 = getelementptr inbounds ptr, ptr %.sroa.033.2.i93, i64 %.sroa.15.2.i94
+  %405 = ptrtoint ptr %380 to i64
+  %406 = ptrtoint ptr %404 to i64
+  %407 = sub i64 %405, %406
+  %408 = lshr i64 %407, 3
   br label %_ZN16MutableNUMASpace12select_tailsE9MemRegionS0_PS0_S1_.exit111
 
-_ZN16MutableNUMASpace12select_tailsE9MemRegionS0_PS0_S1_.exit111: ; preds = %377, %402
-  %.sroa.7146.3 = phi i64 [ %407, %402 ], [ 0, %377 ]
-  %.sroa.0145.3 = phi ptr [ %403, %402 ], [ null, %377 ]
-  %408 = load i64, ptr %23, align 8
-  %409 = ptrtoint ptr %.sroa.0139.3 to i64
-  %410 = add i64 %409, -1
-  %411 = add i64 %410, %408
-  %412 = sub i64 0, %408
-  %413 = and i64 %411, %412
-  %414 = inttoptr i64 %413 to ptr
-  %415 = getelementptr inbounds ptr, ptr %.sroa.0139.3, i64 %.sroa.7.3
-  %416 = ptrtoint ptr %415 to i64
-  %417 = and i64 %412, %416
-  %418 = inttoptr i64 %417 to ptr
-  %419 = icmp ugt ptr %418, %414
-  br i1 %419, label %420, label %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit113
+_ZN16MutableNUMASpace12select_tailsE9MemRegionS0_PS0_S1_.exit111: ; preds = %378, %403
+  %.sroa.7146.3 = phi i64 [ %408, %403 ], [ 0, %378 ]
+  %.sroa.0145.3 = phi ptr [ %404, %403 ], [ null, %378 ]
+  %409 = load i64, ptr %23, align 8
+  %410 = ptrtoint ptr %.sroa.0139.3 to i64
+  %411 = add i64 %410, -1
+  %412 = add i64 %411, %409
+  %413 = sub i64 0, %409
+  %414 = and i64 %412, %413
+  %415 = inttoptr i64 %414 to ptr
+  %416 = getelementptr inbounds ptr, ptr %.sroa.0139.3, i64 %.sroa.7.3
+  %417 = ptrtoint ptr %416 to i64
+  %418 = and i64 %413, %417
+  %419 = inttoptr i64 %418 to ptr
+  %420 = icmp ugt ptr %419, %415
+  br i1 %420, label %421, label %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit113
 
-420:                                              ; preds = %_ZN16MutableNUMASpace12select_tailsE9MemRegionS0_PS0_S1_.exit111
-  %421 = load i32, ptr %244, align 8
-  %422 = sub i64 %417, %413
-  %423 = and i64 %422, -8
-  %424 = load i8, ptr @UseLargePages, align 1
-  %425 = trunc i8 %424 to i1
-  %426 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
-  %spec.select.i112 = select i1 %425, i64 %408, i64 %426
-  call void @_ZN2os14realign_memoryEPcmm(ptr noundef %414, i64 noundef %423, i64 noundef %spec.select.i112) #11
-  call void @_ZN2os11free_memoryEPcmm(ptr noundef %414, i64 noundef %423, i64 noundef %spec.select.i112) #11
-  call void @_ZN2os15numa_make_localEPcmi(ptr noundef %414, i64 noundef %423, i32 noundef %421) #11
+421:                                              ; preds = %_ZN16MutableNUMASpace12select_tailsE9MemRegionS0_PS0_S1_.exit111
+  %422 = load i32, ptr %244, align 8
+  %423 = sub i64 %418, %414
+  %424 = and i64 %423, -8
+  %425 = load i8, ptr @UseLargePages, align 1
+  %426 = trunc i8 %425 to i1
+  %427 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
+  %spec.select.i112 = select i1 %426, i64 %409, i64 %427
+  call void @_ZN2os14realign_memoryEPcmm(ptr noundef %415, i64 noundef %424, i64 noundef %spec.select.i112) #11
+  call void @_ZN2os11free_memoryEPcmm(ptr noundef %415, i64 noundef %424, i64 noundef %spec.select.i112) #11
+  call void @_ZN2os15numa_make_localEPcmi(ptr noundef %415, i64 noundef %424, i32 noundef %422) #11
   %.pre190 = load i64, ptr %23, align 8
   %.pre199 = sub i64 0, %.pre190
   br label %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit113
 
-_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit113: ; preds = %_ZN16MutableNUMASpace12select_tailsE9MemRegionS0_PS0_S1_.exit111, %420
-  %.pre-phi200 = phi i64 [ %412, %_ZN16MutableNUMASpace12select_tailsE9MemRegionS0_PS0_S1_.exit111 ], [ %.pre199, %420 ]
-  %427 = phi i64 [ %408, %_ZN16MutableNUMASpace12select_tailsE9MemRegionS0_PS0_S1_.exit111 ], [ %.pre190, %420 ]
-  %428 = ptrtoint ptr %.sroa.0145.3 to i64
-  %429 = add i64 %428, -1
-  %430 = add i64 %429, %427
-  %431 = and i64 %430, %.pre-phi200
-  %432 = inttoptr i64 %431 to ptr
-  %433 = getelementptr inbounds ptr, ptr %.sroa.0145.3, i64 %.sroa.7146.3
-  %434 = ptrtoint ptr %433 to i64
-  %435 = and i64 %.pre-phi200, %434
-  %436 = inttoptr i64 %435 to ptr
-  %437 = icmp ugt ptr %436, %432
-  br i1 %437, label %438, label %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit115
+_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit113: ; preds = %_ZN16MutableNUMASpace12select_tailsE9MemRegionS0_PS0_S1_.exit111, %421
+  %.pre-phi200 = phi i64 [ %413, %_ZN16MutableNUMASpace12select_tailsE9MemRegionS0_PS0_S1_.exit111 ], [ %.pre199, %421 ]
+  %428 = phi i64 [ %409, %_ZN16MutableNUMASpace12select_tailsE9MemRegionS0_PS0_S1_.exit111 ], [ %.pre190, %421 ]
+  %429 = ptrtoint ptr %.sroa.0145.3 to i64
+  %430 = add i64 %429, -1
+  %431 = add i64 %430, %428
+  %432 = and i64 %431, %.pre-phi200
+  %433 = inttoptr i64 %432 to ptr
+  %434 = getelementptr inbounds ptr, ptr %.sroa.0145.3, i64 %.sroa.7146.3
+  %435 = ptrtoint ptr %434 to i64
+  %436 = and i64 %.pre-phi200, %435
+  %437 = inttoptr i64 %436 to ptr
+  %438 = icmp ugt ptr %437, %433
+  br i1 %438, label %439, label %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit115
 
-438:                                              ; preds = %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit113
-  %439 = load i32, ptr %244, align 8
-  %440 = sub i64 %435, %431
-  %441 = and i64 %440, -8
-  %442 = load i8, ptr @UseLargePages, align 1
-  %443 = trunc i8 %442 to i1
-  %444 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
-  %spec.select.i114 = select i1 %443, i64 %427, i64 %444
-  call void @_ZN2os14realign_memoryEPcmm(ptr noundef %432, i64 noundef %441, i64 noundef %spec.select.i114) #11
-  call void @_ZN2os11free_memoryEPcmm(ptr noundef %432, i64 noundef %441, i64 noundef %spec.select.i114) #11
-  call void @_ZN2os15numa_make_localEPcmi(ptr noundef %432, i64 noundef %441, i32 noundef %439) #11
+439:                                              ; preds = %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit113
+  %440 = load i32, ptr %244, align 8
+  %441 = sub i64 %436, %432
+  %442 = and i64 %441, -8
+  %443 = load i8, ptr @UseLargePages, align 1
+  %444 = trunc i8 %443 to i1
+  %445 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
+  %spec.select.i114 = select i1 %444, i64 %428, i64 %445
+  call void @_ZN2os14realign_memoryEPcmm(ptr noundef %433, i64 noundef %442, i64 noundef %spec.select.i114) #11
+  call void @_ZN2os11free_memoryEPcmm(ptr noundef %433, i64 noundef %442, i64 noundef %spec.select.i114) #11
+  call void @_ZN2os15numa_make_localEPcmi(ptr noundef %433, i64 noundef %442, i32 noundef %440) #11
   br label %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit115
 
-_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit115: ; preds = %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit113, %438
+_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit115: ; preds = %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit113, %439
   %.sroa.0.0.copyload = load ptr, ptr %9, align 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2124.0..sroa_idx, align 8
-  %445 = load ptr, ptr %246, align 8
-  %446 = getelementptr inbounds i8, ptr %445, i64 24
-  %447 = load ptr, ptr %446, align 8
-  call void %447(ptr noundef nonnull align 8 dereferenceable(56) %246, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null) #11
-  %448 = load i32, ptr %237, align 4
-  store i32 %448, ptr %238, align 8
+  %446 = load ptr, ptr %246, align 8
+  %447 = getelementptr inbounds i8, ptr %446, i64 24
+  %448 = load ptr, ptr %447, align 8
+  call void %448(ptr noundef nonnull align 8 dereferenceable(56) %246, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null) #11
+  %449 = load i32, ptr %237, align 4
+  store i32 %449, ptr %238, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %449 = load ptr, ptr %38, align 8
-  %450 = load i32, ptr %449, align 4
-  %451 = sext i32 %450 to i64
-  %452 = icmp slt i64 %indvars.iv.next, %451
-  br i1 %452, label %239, label %._crit_edge, !llvm.loop !17
+  %450 = load ptr, ptr %38, align 8
+  %451 = load i32, ptr %450, align 4
+  %452 = sext i32 %451 to i64
+  %453 = icmp slt i64 %indvars.iv.next, %452
+  br i1 %453, label %239, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit115, %235
   ret void

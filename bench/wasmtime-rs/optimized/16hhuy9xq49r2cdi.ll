@@ -63,10 +63,10 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   store ptr inttoptr (i64 16 to ptr), ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %21, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %22
 
 22:                                               ; preds = %.loopexit, %19
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   ret void
 
 23:                                               ; preds = %25
@@ -213,7 +213,6 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %.sroa.6.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %22
 
 54:                                               ; preds = %.body, %23
@@ -347,10 +346,10 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   store ptr inttoptr (i64 16 to ptr), ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %21, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %22
 
 22:                                               ; preds = %.loopexit, %19
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   ret void
 
 23:                                               ; preds = %25
@@ -497,7 +496,6 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %.sroa.6.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %22
 
 54:                                               ; preds = %.body, %23

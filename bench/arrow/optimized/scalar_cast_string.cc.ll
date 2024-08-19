@@ -49346,7 +49346,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else, %if.then
   %spec.select.i.i63.sink91 = phi i64 [ %spec.select.i.i63, %if.else ], [ %sub.i.i6, %if.then ]
-  %storemerge = phi i32 [ %retval.sroa.0.0.insert.insert.i.i54, %if.else ], [ %retval.sroa.0.0.insert.insert.i.i, %if.then ]
+  %retval.sroa.0.0.insert.insert.i.i54.sink = phi i32 [ %retval.sroa.0.0.insert.insert.i.i54, %if.else ], [ %retval.sroa.0.0.insert.insert.i.i, %if.then ]
   %frombool.i.sink.in.in = phi i64 [ %sub.i, %if.else ], [ %sub.i.i6, %if.then ]
   %div.i.i10.i64 = udiv i64 %spec.select.i.i63.sink91, 3600
   %div.i.i211.i66 = udiv i64 %spec.select.i.i63.sink91, 60
@@ -49356,9 +49356,9 @@ if.end:                                           ; preds = %if.else, %if.then
   %sub.i5.i70 = add nsw i64 %mul.i.i.i.neg.i4.i69, %spec.select.i.i63.sink91
   %mul.i.i.i.neg.i6.i71 = mul nsw i64 %sub.i.i68, -60
   %sub.i7.i72 = add i64 %sub.i5.i70, %mul.i.i.i.neg.i6.i71
-  store i32 %storemerge, ptr %fds, align 8
   %has_tod.i = getelementptr inbounds i8, ptr %fds, i64 48
   %wd.i = getelementptr inbounds i8, ptr %fds, i64 4
+  store i32 %retval.sroa.0.0.insert.insert.i.i54.sink, ptr %fds, align 8
   store i8 8, ptr %wd.i, align 4
   store i64 %div.i.i10.i64, ptr %tod.i, align 8
   %ref.tmp12.sroa.3.sroa.2.0.ref.tmp12.sroa.3.0.fds.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %fds, i64 16
@@ -54406,7 +54406,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else, %if.then
   %sub.i.sink = phi i64 [ %sub.i, %if.else ], [ %sub.i.i6, %if.then ]
-  %storemerge = phi i32 [ %retval.sroa.0.0.insert.insert.i.i55, %if.else ], [ %retval.sroa.0.0.insert.insert.i.i, %if.then ]
+  %retval.sroa.0.0.insert.insert.i.i55.sink = phi i32 [ %retval.sroa.0.0.insert.insert.i.i55, %if.else ], [ %retval.sroa.0.0.insert.insert.i.i, %if.then ]
   %spec.select.i.i64 = tail call i64 @llvm.abs.i64(i64 %sub.i.sink, i1 true)
   %div.i.i11.i65 = udiv i64 %spec.select.i.i64, 3600000
   %div.i.i212.i67 = udiv i64 %spec.select.i.i64, 60000
@@ -54419,9 +54419,9 @@ if.end:                                           ; preds = %if.else, %if.then
   %div.i.i.i.i75 = sdiv i64 %sub.i7.i74, 1000
   %mul.i.i.i.neg.i.i.i76 = mul nsw i64 %div.i.i.i.i75, -1000
   %sub.i.i.i77 = add i64 %mul.i.i.i.neg.i.i.i76, %sub.i7.i74
-  store i32 %storemerge, ptr %fds, align 8
   %has_tod.i = getelementptr inbounds i8, ptr %fds, i64 48
   %wd.i = getelementptr inbounds i8, ptr %fds, i64 4
+  store i32 %retval.sroa.0.0.insert.insert.i.i55.sink, ptr %fds, align 8
   store i8 8, ptr %wd.i, align 4
   store i64 %div.i.i11.i65, ptr %tod.i, align 8
   %ref.tmp12.sroa.3.sroa.2.0.ref.tmp12.sroa.3.0.fds.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %fds, i64 16
@@ -59300,7 +59300,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else, %if.then
   %sub.i.sink = phi i64 [ %sub.i, %if.else ], [ %sub.i.i6, %if.then ]
-  %storemerge = phi i32 [ %retval.sroa.0.0.insert.insert.i.i55, %if.else ], [ %retval.sroa.0.0.insert.insert.i.i, %if.then ]
+  %retval.sroa.0.0.insert.insert.i.i55.sink = phi i32 [ %retval.sroa.0.0.insert.insert.i.i55, %if.else ], [ %retval.sroa.0.0.insert.insert.i.i, %if.then ]
   %spec.select.i.i64 = tail call i64 @llvm.abs.i64(i64 %sub.i.sink, i1 true)
   %div.i.i11.i65 = udiv i64 %spec.select.i.i64, 3600000000
   %div.i.i212.i67 = udiv i64 %spec.select.i.i64, 60000000
@@ -59313,9 +59313,9 @@ if.end:                                           ; preds = %if.else, %if.then
   %div.i.i.i.i75 = sdiv i64 %sub.i7.i74, 1000000
   %mul.i.i.i.neg.i.i.i76 = mul nsw i64 %div.i.i.i.i75, -1000000
   %sub.i.i.i77 = add i64 %mul.i.i.i.neg.i.i.i76, %sub.i7.i74
-  store i32 %storemerge, ptr %fds, align 8
   %has_tod.i = getelementptr inbounds i8, ptr %fds, i64 48
   %wd.i = getelementptr inbounds i8, ptr %fds, i64 4
+  store i32 %retval.sroa.0.0.insert.insert.i.i55.sink, ptr %fds, align 8
   store i8 8, ptr %wd.i, align 4
   store i64 %div.i.i11.i65, ptr %tod.i, align 8
   %ref.tmp12.sroa.3.sroa.2.0.ref.tmp12.sroa.3.0.fds.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %fds, i64 16
@@ -64184,7 +64184,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else, %if.then
   %sub.i.sink = phi i64 [ %sub.i, %if.else ], [ %sub.i.i6, %if.then ]
-  %storemerge = phi i32 [ %retval.sroa.0.0.insert.insert.i.i55, %if.else ], [ %retval.sroa.0.0.insert.insert.i.i, %if.then ]
+  %retval.sroa.0.0.insert.insert.i.i55.sink = phi i32 [ %retval.sroa.0.0.insert.insert.i.i55, %if.else ], [ %retval.sroa.0.0.insert.insert.i.i, %if.then ]
   %spec.select.i.i64 = tail call i64 @llvm.abs.i64(i64 %sub.i.sink, i1 true)
   %div.i.i11.i65 = udiv i64 %spec.select.i.i64, 3600000000000
   %div.i.i212.i67 = udiv i64 %spec.select.i.i64, 60000000000
@@ -64197,9 +64197,9 @@ if.end:                                           ; preds = %if.else, %if.then
   %div.i.i.i.i75 = sdiv i64 %sub.i7.i74, 1000000000
   %mul.i.i.i.neg.i.i.i76 = mul nsw i64 %div.i.i.i.i75, -1000000000
   %sub.i.i.i77 = add i64 %mul.i.i.i.neg.i.i.i76, %sub.i7.i74
-  store i32 %storemerge, ptr %fds, align 8
   %has_tod.i = getelementptr inbounds i8, ptr %fds, i64 48
   %wd.i = getelementptr inbounds i8, ptr %fds, i64 4
+  store i32 %retval.sroa.0.0.insert.insert.i.i55.sink, ptr %fds, align 8
   store i8 8, ptr %wd.i, align 4
   store i64 %div.i.i11.i65, ptr %tod.i, align 8
   %ref.tmp12.sroa.3.sroa.2.0.ref.tmp12.sroa.3.0.fds.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %fds, i64 16

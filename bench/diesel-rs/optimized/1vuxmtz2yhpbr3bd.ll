@@ -1487,7 +1487,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i25: ; preds = %129
   call void @llvm.experimental.noalias.scope.decl(metadata !287)
   %173 = load i64, ptr %19, align 8, !range !28, !alias.scope !287, !noalias !265, !noundef !4
   %174 = icmp eq i64 %173, -9223372036854775808
-  br i1 %174, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit.i33", label %175
+  br i1 %174, label %"_ZN155_$LT$diesel..connection..transaction_manager..AnsiTransactionManager$u20$as$u20$diesel..connection..transaction_manager..TransactionManager$LT$Conn$GT$$GT$18commit_transaction17h65c87298ee6e88efE.exit", label %175
 
 175:                                              ; preds = %172
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !290
@@ -1506,11 +1506,6 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i25: ; preds = %129
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit.i.i32": ; preds = %178, %175
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !290
-  br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit.i33"
-
-"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit.i33": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit.i.i32", %172
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !265
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14), !noalias !265
   br label %"_ZN155_$LT$diesel..connection..transaction_manager..AnsiTransactionManager$u20$as$u20$diesel..connection..transaction_manager..TransactionManager$LT$Conn$GT$$GT$18commit_transaction17h65c87298ee6e88efE.exit"
 
 182:                                              ; preds = %170, %166
@@ -1529,7 +1524,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i25: ; preds = %129
   call void @llvm.experimental.noalias.scope.decl(metadata !299)
   %184 = load i64, ptr %19, align 8, !range !28, !alias.scope !299, !noalias !265, !noundef !4
   %185 = icmp eq i64 %184, -9223372036854775808
-  br i1 %185, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit76.i", label %186
+  br i1 %185, label %"_ZN155_$LT$diesel..connection..transaction_manager..AnsiTransactionManager$u20$as$u20$diesel..connection..transaction_manager..TransactionManager$LT$Conn$GT$$GT$18commit_transaction17h65c87298ee6e88efE.exit", label %186
 
 186:                                              ; preds = %183
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !302
@@ -1548,11 +1543,6 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i25: ; preds = %129
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit.i75.i": ; preds = %189, %186
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !302
-  br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit76.i"
-
-"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit76.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit.i75.i", %183
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !265
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14), !noalias !265
   br label %"_ZN155_$LT$diesel..connection..transaction_manager..AnsiTransactionManager$u20$as$u20$diesel..connection..transaction_manager..TransactionManager$LT$Conn$GT$$GT$18commit_transaction17h65c87298ee6e88efE.exit"
 
 .thread87.i:                                      ; preds = %202, %155
@@ -1684,11 +1674,13 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i25: ; preds = %129
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   br label %231
 
-"_ZN155_$LT$diesel..connection..transaction_manager..AnsiTransactionManager$u20$as$u20$diesel..connection..transaction_manager..TransactionManager$LT$Conn$GT$$GT$18commit_transaction17h65c87298ee6e88efE.exit": ; preds = %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit.i33", %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit76.i"
-  %.sroa.17.3 = phi i64 [ %.sroa.17.1, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit76.i" ], [ %.sroa.17.0, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit.i33" ]
-  %.sroa.14.3 = phi ptr [ %.sroa.14.1, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit76.i" ], [ %.sroa.14.0, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit.i33" ]
-  %.sroa.10.3 = phi ptr [ %.sroa.10.1, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit76.i" ], [ %.sroa.10.0, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit.i33" ]
-  %.sroa.036.3 = phi i64 [ %.sroa.036.1, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit76.i" ], [ %.sroa.036.0, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hf484d5eb6432656dE.exit.i33" ]
+"_ZN155_$LT$diesel..connection..transaction_manager..AnsiTransactionManager$u20$as$u20$diesel..connection..transaction_manager..TransactionManager$LT$Conn$GT$$GT$18commit_transaction17h65c87298ee6e88efE.exit": ; preds = %183, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit.i75.i", %172, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit.i.i32"
+  %.sroa.17.3 = phi i64 [ %.sroa.17.0, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit.i.i32" ], [ %.sroa.17.0, %172 ], [ %.sroa.17.1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit.i75.i" ], [ %.sroa.17.1, %183 ]
+  %.sroa.14.3 = phi ptr [ %.sroa.14.0, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit.i.i32" ], [ %.sroa.14.0, %172 ], [ %.sroa.14.1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit.i75.i" ], [ %.sroa.14.1, %183 ]
+  %.sroa.10.3 = phi ptr [ %.sroa.10.0, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit.i.i32" ], [ %.sroa.10.0, %172 ], [ %.sroa.10.1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit.i75.i" ], [ %.sroa.10.1, %183 ]
+  %.sroa.036.3 = phi i64 [ %.sroa.036.0, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit.i.i32" ], [ %.sroa.036.0, %172 ], [ %.sroa.036.1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hafc8a5a0e49c33f7E.exit.i75.i" ], [ %.sroa.036.1, %183 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !265
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14), !noalias !265
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   %227 = icmp eq i64 %.sroa.036.3, -9223372036854775798
   br i1 %227, label %229, label %231

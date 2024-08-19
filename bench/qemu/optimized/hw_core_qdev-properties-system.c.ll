@@ -426,8 +426,8 @@ inval:                                            ; preds = %if.else, %if.then21
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end51, %inval
-  %.sink = load ptr, ptr %str, align 8
-  call void @g_free(ptr noundef %.sink) #10
+  %15 = load ptr, ptr %str, align 8
+  call void @g_free(ptr noundef %15) #10
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry
@@ -1268,8 +1268,8 @@ inval:                                            ; preds = %if.end48, %if.end34
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end50, %inval
-  %.sink = load ptr, ptr %str, align 8
-  call void @g_free(ptr noundef %.sink) #10
+  %11 = load ptr, ptr %str, align 8
+  call void @g_free(ptr noundef %11) #10
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry
@@ -1282,39 +1282,21 @@ entry:
   %speed = alloca i32, align 4
   %call = tail call ptr @object_field_prop_ptr(ptr noundef %obj, ptr noundef %opaque) #10
   %0 = load i32, ptr %call, align 4
-  switch i32 %0, label %sw.default [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb1
-    i32 3, label %sw.bb2
-    i32 4, label %sw.bb3
-  ]
-
-sw.bb:                                            ; preds = %entry
-  store i32 0, ptr %speed, align 4
-  br label %sw.epilog
-
-sw.bb1:                                           ; preds = %entry
-  store i32 1, ptr %speed, align 4
-  br label %sw.epilog
-
-sw.bb2:                                           ; preds = %entry
-  store i32 2, ptr %speed, align 4
-  br label %sw.epilog
-
-sw.bb3:                                           ; preds = %entry
-  store i32 3, ptr %speed, align 4
-  br label %sw.epilog
+  %switch.tableidx = add i32 %0, -1
+  %1 = icmp ult i32 %switch.tableidx, 4
+  br i1 %1, label %sw.epilog, label %sw.default
 
 sw.default:                                       ; preds = %entry
   tail call void @abort() #12
   unreachable
 
-sw.epilog:                                        ; preds = %sw.bb3, %sw.bb2, %sw.bb1, %sw.bb
+sw.epilog:                                        ; preds = %entry
+  store i32 %switch.tableidx, ptr %speed, align 4
   %info = getelementptr inbounds i8, ptr %opaque, i64 8
-  %1 = load ptr, ptr %info, align 8
-  %enum_table = getelementptr inbounds i8, ptr %1, i64 16
-  %2 = load ptr, ptr %enum_table, align 8
-  %call4 = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %speed, ptr noundef %2, ptr noundef %errp) #10
+  %2 = load ptr, ptr %info, align 8
+  %enum_table = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = load ptr, ptr %enum_table, align 8
+  %call4 = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %speed, ptr noundef %3, ptr noundef %errp) #10
   ret void
 }
 
@@ -1355,7 +1337,7 @@ entry:
   %call = tail call ptr @object_field_prop_ptr(ptr noundef %obj, ptr noundef %opaque) #10
   %0 = load i32, ptr %call, align 4
   switch i32 %0, label %sw.default [
-    i32 1, label %sw.bb
+    i32 1, label %sw.epilog
     i32 2, label %sw.bb1
     i32 4, label %sw.bb2
     i32 8, label %sw.bb3
@@ -1364,39 +1346,31 @@ entry:
     i32 32, label %sw.bb6
   ]
 
-sw.bb:                                            ; preds = %entry
-  store i32 0, ptr %width, align 4
-  br label %sw.epilog
-
 sw.bb1:                                           ; preds = %entry
-  store i32 1, ptr %width, align 4
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
-  store i32 2, ptr %width, align 4
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry
-  store i32 3, ptr %width, align 4
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %entry
-  store i32 4, ptr %width, align 4
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %entry
-  store i32 5, ptr %width, align 4
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %entry
-  store i32 6, ptr %width, align 4
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
   tail call void @abort() #12
   unreachable
 
-sw.epilog:                                        ; preds = %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1, %sw.bb
+sw.epilog:                                        ; preds = %entry, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1
+  %.sink = phi i32 [ 6, %sw.bb6 ], [ 5, %sw.bb5 ], [ 4, %sw.bb4 ], [ 3, %sw.bb3 ], [ 2, %sw.bb2 ], [ 1, %sw.bb1 ], [ 0, %entry ]
+  store i32 %.sink, ptr %width, align 4
   %info = getelementptr inbounds i8, ptr %opaque, i64 8
   %1 = load ptr, ptr %info, align 8
   %enum_table = getelementptr inbounds i8, ptr %1, i64 16

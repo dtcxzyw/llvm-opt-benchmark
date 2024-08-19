@@ -574,14 +574,14 @@ define internal fastcc void @RunWorker(ptr noundef %0, ptr nocapture noundef %1)
   br i1 %37, label %getMessageFromLeader.exit.thread.i, label %.lr.ph.i.i.i.backedge
 
 .lr.ph.i.i.i.backedge:                            ; preds = %32, %sendMessageToLeader.exit.i
-  %.be = phi ptr [ %34, %32 ], [ %86, %sendMessageToLeader.exit.i ]
+  %.be = phi ptr [ %34, %32 ], [ %88, %sendMessageToLeader.exit.i ]
   %.01522.i.i.i.be = phi i32 [ %.1.i.i.i, %32 ], [ 64, %sendMessageToLeader.exit.i ]
   %.01621.i.i.i.be = phi i32 [ %26, %32 ], [ 0, %sendMessageToLeader.exit.i ]
-  %.01720.i.i.i.be = phi ptr [ %.118.i.i.i, %32 ], [ %86, %sendMessageToLeader.exit.i ]
+  %.01720.i.i.i.be = phi ptr [ %.118.i.i.i, %32 ], [ %88, %sendMessageToLeader.exit.i ]
   br label %.lr.ph.i.i.i
 
 getMessageFromLeader.exit.thread.i:               ; preds = %sendMessageToLeader.exit.i, %32, %2
-  %.017.lcssa.i.i.i = phi ptr [ %14, %2 ], [ %86, %sendMessageToLeader.exit.i ], [ %.118.i.i.i, %32 ]
+  %.017.lcssa.i.i.i = phi ptr [ %14, %2 ], [ %88, %sendMessageToLeader.exit.i ], [ %.118.i.i.i, %32 ]
   call void @pg_free(ptr noundef %.017.lcssa.i.i.i) #18
   br label %WaitForCommands.exit
 
@@ -599,7 +599,7 @@ getMessageFromLeader.exit.i:                      ; preds = %.lr.ph.i.i.i
 41:                                               ; preds = %38
   %42 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.01720.i.i.i, ptr noundef nonnull dereferenceable(9) @.str.6, i64 noundef 8) #20
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %68, label %44
+  br i1 %43, label %69, label %44
 
 44:                                               ; preds = %41
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef nonnull %.01720.i.i.i) #18
@@ -608,95 +608,95 @@ getMessageFromLeader.exit.i:                      ; preds = %.lr.ph.i.i.i
 
 45:                                               ; preds = %38
   %46 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.01720.i.i.i, ptr noundef nonnull @.str.5, ptr noundef nonnull %3, ptr noundef nonnull %4) #18
-  %.sink.i24.i = load i32, ptr %3, align 4
-  %47 = call ptr @getTocEntryByDumpId(ptr noundef %10, i32 noundef %.sink.i24.i) #18
+  %47 = load i32, ptr %3, align 4
+  %48 = call ptr @getTocEntryByDumpId(ptr noundef %10, i32 noundef %47) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %48 = getelementptr inbounds i8, ptr %47, i64 80
-  %49 = load ptr, ptr %48, align 8
-  %50 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(6) @.str.9) #20
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %lockTableForWorker.exit.i, label %52
+  %49 = getelementptr inbounds i8, ptr %48, i64 80
+  %50 = load ptr, ptr %49, align 8
+  %51 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(6) @.str.9) #20
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %lockTableForWorker.exit.i, label %53
 
-52:                                               ; preds = %45
-  %53 = call ptr @createPQExpBuffer() #18
-  %54 = getelementptr inbounds i8, ptr %47, i64 48
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %47, i64 40
-  %57 = load ptr, ptr %56, align 8
-  %58 = call ptr @fmtQualifiedId(ptr noundef %55, ptr noundef %57) #18
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %53, ptr noundef nonnull @.str.10, ptr noundef %58) #18
-  %59 = load ptr, ptr %19, align 8
-  %60 = load ptr, ptr %53, align 8
-  %61 = call ptr @PQexec(ptr noundef %59, ptr noundef %60) #18
-  %.not.i.i = icmp eq ptr %61, null
-  br i1 %.not.i.i, label %64, label %62
+53:                                               ; preds = %45
+  %54 = call ptr @createPQExpBuffer() #18
+  %55 = getelementptr inbounds i8, ptr %48, i64 48
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %48, i64 40
+  %58 = load ptr, ptr %57, align 8
+  %59 = call ptr @fmtQualifiedId(ptr noundef %56, ptr noundef %58) #18
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %54, ptr noundef nonnull @.str.10, ptr noundef %59) #18
+  %60 = load ptr, ptr %19, align 8
+  %61 = load ptr, ptr %54, align 8
+  %62 = call ptr @PQexec(ptr noundef %60, ptr noundef %61) #18
+  %.not.i.i = icmp eq ptr %62, null
+  br i1 %.not.i.i, label %65, label %63
 
-62:                                               ; preds = %52
-  %63 = call i32 @PQresultStatus(ptr noundef nonnull %61) #18
-  %.not12.i.i = icmp eq i32 %63, 1
-  br i1 %.not12.i.i, label %65, label %64
+63:                                               ; preds = %53
+  %64 = call i32 @PQresultStatus(ptr noundef nonnull %62) #18
+  %.not12.i.i = icmp eq i32 %64, 1
+  br i1 %.not12.i.i, label %66, label %65
 
-64:                                               ; preds = %62, %52
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.11, ptr noundef %58) #18
+65:                                               ; preds = %63, %53
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.11, ptr noundef %59) #18
   call void @exit_nicely(i32 noundef 1) #19
   unreachable
 
-65:                                               ; preds = %62
-  call void @PQclear(ptr noundef nonnull %61) #18
-  call void @destroyPQExpBuffer(ptr noundef nonnull %53) #18
+66:                                               ; preds = %63
+  call void @PQclear(ptr noundef nonnull %62) #18
+  call void @destroyPQExpBuffer(ptr noundef nonnull %54) #18
   br label %lockTableForWorker.exit.i
 
-lockTableForWorker.exit.i:                        ; preds = %65, %45
-  %66 = load ptr, ptr %20, align 8
-  %67 = call i32 %66(ptr noundef %10, ptr noundef nonnull %47) #18
-  br label %73
+lockTableForWorker.exit.i:                        ; preds = %66, %45
+  %67 = load ptr, ptr %20, align 8
+  %68 = call i32 %67(ptr noundef %10, ptr noundef nonnull %48) #18
+  br label %75
 
-68:                                               ; preds = %41
-  %69 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.01720.i.i.i, ptr noundef nonnull @.str.7, ptr noundef nonnull %3, ptr noundef nonnull %4) #18
-  %.sink.i.i = load i32, ptr %3, align 4
-  %70 = call ptr @getTocEntryByDumpId(ptr noundef %10, i32 noundef %.sink.i.i) #18
+69:                                               ; preds = %41
+  %70 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.01720.i.i.i, ptr noundef nonnull @.str.7, ptr noundef nonnull %3, ptr noundef nonnull %4) #18
+  %71 = load i32, ptr %3, align 4
+  %72 = call ptr @getTocEntryByDumpId(ptr noundef %10, i32 noundef %71) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %71 = load ptr, ptr %18, align 8
-  %72 = call i32 %71(ptr noundef %10, ptr noundef %70) #18
-  br label %73
+  %73 = load ptr, ptr %18, align 8
+  %74 = call i32 %73(ptr noundef %10, ptr noundef %72) #18
+  br label %75
 
-73:                                               ; preds = %68, %lockTableForWorker.exit.i
-  %74 = phi ptr [ %47, %lockTableForWorker.exit.i ], [ %70, %68 ]
-  %.1.i = phi i32 [ %67, %lockTableForWorker.exit.i ], [ %72, %68 ]
-  %75 = getelementptr i8, ptr %74, i64 24
-  %.val13.i = load i32, ptr %75, align 8
-  %76 = icmp eq i32 %.1.i, 12
-  br i1 %76, label %77, label %buildWorkerResponse.exit.i
+75:                                               ; preds = %69, %lockTableForWorker.exit.i
+  %76 = phi ptr [ %48, %lockTableForWorker.exit.i ], [ %72, %69 ]
+  %.1.i = phi i32 [ %68, %lockTableForWorker.exit.i ], [ %74, %69 ]
+  %77 = getelementptr i8, ptr %76, i64 24
+  %.val13.i = load i32, ptr %77, align 8
+  %78 = icmp eq i32 %.1.i, 12
+  br i1 %78, label %79, label %buildWorkerResponse.exit.i
 
-77:                                               ; preds = %73
-  %78 = load i32, ptr %21, align 4
+79:                                               ; preds = %75
+  %80 = load i32, ptr %21, align 4
   br label %buildWorkerResponse.exit.i
 
-buildWorkerResponse.exit.i:                       ; preds = %77, %73
-  %79 = phi i32 [ %78, %77 ], [ 0, %73 ]
-  %80 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 256, ptr noundef nonnull @.str.12, i32 noundef %.val13.i, i32 noundef %.1.i, i32 noundef %79) #18
-  %81 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #20
-  %82 = shl i64 %81, 32
-  %sext.i.i = add i64 %82, 4294967296
-  %83 = ashr exact i64 %sext.i.i, 32
-  %84 = call i64 @write(i32 noundef %9, ptr noundef nonnull readonly %5, i64 noundef %83) #18
-  %.not.i15.i = icmp eq i64 %84, %83
-  br i1 %.not.i15.i, label %sendMessageToLeader.exit.i, label %85
+buildWorkerResponse.exit.i:                       ; preds = %79, %75
+  %81 = phi i32 [ %80, %79 ], [ 0, %75 ]
+  %82 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 256, ptr noundef nonnull @.str.12, i32 noundef %.val13.i, i32 noundef %.1.i, i32 noundef %81) #18
+  %83 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #20
+  %84 = shl i64 %83, 32
+  %sext.i.i = add i64 %84, 4294967296
+  %85 = ashr exact i64 %sext.i.i, 32
+  %86 = call i64 @write(i32 noundef %9, ptr noundef nonnull readonly %5, i64 noundef %85) #18
+  %.not.i15.i = icmp eq i64 %86, %85
+  br i1 %.not.i15.i, label %sendMessageToLeader.exit.i, label %87
 
-85:                                               ; preds = %buildWorkerResponse.exit.i
+87:                                               ; preds = %buildWorkerResponse.exit.i
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.13) #18
   call void @exit_nicely(i32 noundef 1) #19
   unreachable
 
 sendMessageToLeader.exit.i:                       ; preds = %buildWorkerResponse.exit.i
   call void @free(ptr noundef nonnull %.01720.i.i.i) #18
-  %86 = call ptr @pg_malloc(i64 noundef 64) #18
-  %87 = call i64 @read(i32 noundef %7, ptr noundef %86, i64 noundef 1) #18
-  %88 = trunc i64 %87 to i32
-  %89 = icmp slt i32 %88, 1
-  br i1 %89, label %getMessageFromLeader.exit.thread.i, label %.lr.ph.i.i.i.backedge
+  %88 = call ptr @pg_malloc(i64 noundef 64) #18
+  %89 = call i64 @read(i32 noundef %7, ptr noundef %88, i64 noundef 1) #18
+  %90 = trunc i64 %89 to i32
+  %91 = icmp slt i32 %90, 1
+  br i1 %91, label %getMessageFromLeader.exit.thread.i, label %.lr.ph.i.i.i.backedge
 
 WaitForCommands.exit:                             ; preds = %getMessageFromLeader.exit.i, %getMessageFromLeader.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)

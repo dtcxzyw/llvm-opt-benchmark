@@ -2334,61 +2334,61 @@ define void @GC_log_printf(ptr nocapture noundef readonly %0, ...) local_unnamed
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   %13 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %2) #40
   %.not.i = icmp eq i64 %12, 0
-  br i1 %.not.i, label %GC_write.exit.thread3, label %.outer.split.i
+  br i1 %.not.i, label %GC_write.exit.thread2, label %.outer.split.i
 
-GC_write.exit.thread3:                            ; preds = %10
-  %.sink.i5 = load i32, ptr %2, align 4
-  %14 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i5, ptr noundef null) #40
+GC_write.exit.thread2:                            ; preds = %10
+  %14 = load i32, ptr %2, align 4
+  %15 = call i32 @pthread_setcancelstate(i32 noundef %14, ptr noundef null) #40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  br label %36
+  br label %39
 
 .outer.split.i:                                   ; preds = %10, %.outer.i
-  %15 = phi i64 [ %31, %.outer.i ], [ %12, %10 ]
-  %16 = phi ptr [ %30, %.outer.i ], [ %3, %10 ]
-  %.012.ph17.i = phi i32 [ %26, %.outer.i ], [ 0, %10 ]
-  br label %17
+  %16 = phi i64 [ %33, %.outer.i ], [ %12, %10 ]
+  %17 = phi ptr [ %32, %.outer.i ], [ %3, %10 ]
+  %.012.ph17.i = phi i32 [ %28, %.outer.i ], [ 0, %10 ]
+  br label %18
 
-17:                                               ; preds = %21, %.outer.split.i
-  %18 = call i64 @write(i32 noundef %11, ptr noundef %16, i64 noundef %15) #40
-  %19 = trunc i64 %18 to i32
-  %20 = icmp eq i32 %19, -1
-  br i1 %20, label %21, label %.outer.i
+18:                                               ; preds = %22, %.outer.split.i
+  %19 = call i64 @write(i32 noundef %11, ptr noundef %17, i64 noundef %16) #40
+  %20 = trunc i64 %19 to i32
+  %21 = icmp eq i32 %20, -1
+  br i1 %21, label %22, label %.outer.i
 
-21:                                               ; preds = %17
-  %22 = tail call ptr @__errno_location() #47
-  %23 = load i32, ptr %22, align 4
-  %24 = icmp eq i32 %23, 11
-  br i1 %24, label %17, label %GC_write.exit.thread, !llvm.loop !13
+22:                                               ; preds = %18
+  %23 = tail call ptr @__errno_location() #47
+  %24 = load i32, ptr %23, align 4
+  %25 = icmp eq i32 %24, 11
+  br i1 %25, label %18, label %GC_write.exit.thread, !llvm.loop !13
 
-GC_write.exit.thread:                             ; preds = %21
-  %.sink.i2 = load i32, ptr %2, align 4
-  %25 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i2, ptr noundef null) #40
+GC_write.exit.thread:                             ; preds = %22
+  %26 = load i32, ptr %2, align 4
+  %27 = call i32 @pthread_setcancelstate(i32 noundef %26, ptr noundef null) #40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  br label %34
+  br label %37
 
-.outer.i:                                         ; preds = %17
-  %26 = add nsw i32 %.012.ph17.i, %19
-  %27 = zext i32 %26 to i64
-  %28 = icmp ugt i64 %12, %27
-  %29 = sext i32 %26 to i64
-  %30 = getelementptr inbounds i8, ptr %3, i64 %29
-  %31 = sub i64 %12, %29
-  br i1 %28, label %.outer.split.i, label %GC_write.exit, !llvm.loop !13
+.outer.i:                                         ; preds = %18
+  %28 = add nsw i32 %.012.ph17.i, %20
+  %29 = zext i32 %28 to i64
+  %30 = icmp ugt i64 %12, %29
+  %31 = sext i32 %28 to i64
+  %32 = getelementptr inbounds i8, ptr %3, i64 %31
+  %33 = sub i64 %12, %31
+  br i1 %30, label %.outer.split.i, label %GC_write.exit, !llvm.loop !13
 
 GC_write.exit:                                    ; preds = %.outer.i
-  %.sink.i = load i32, ptr %2, align 4
-  %32 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i, ptr noundef null) #40
+  %34 = load i32, ptr %2, align 4
+  %35 = call i32 @pthread_setcancelstate(i32 noundef %34, ptr noundef null) #40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  %33 = icmp slt i32 %26, 0
-  br i1 %33, label %34, label %36
+  %36 = icmp slt i32 %28, 0
+  br i1 %36, label %37, label %39
 
-34:                                               ; preds = %GC_write.exit.thread, %GC_write.exit
-  %35 = load ptr, ptr @GC_on_abort, align 8
-  call void %35(ptr noundef nonnull @.str.92) #40
+37:                                               ; preds = %GC_write.exit.thread, %GC_write.exit
+  %38 = load ptr, ptr @GC_on_abort, align 8
+  call void %38(ptr noundef nonnull @.str.92) #40
   call void @abort() #46
   unreachable
 
-36:                                               ; preds = %GC_write.exit.thread3, %GC_write.exit
+39:                                               ; preds = %GC_write.exit.thread2, %GC_write.exit
   ret void
 }
 
@@ -3007,8 +3007,8 @@ define void @GC_err_printf(ptr nocapture noundef readonly %0, ...) local_unnamed
   br i1 %26, label %.outer.split.i.i, label %GC_err_puts.exit, !llvm.loop !13
 
 GC_err_puts.exit:                                 ; preds = %.outer.i.i, %20, %10
-  %.sink.i.i = load i32, ptr %2, align 4
-  %30 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i.i, ptr noundef null) #40
+  %30 = load i32, ptr %2, align 4
+  %31 = call i32 @pthread_setcancelstate(i32 noundef %30, ptr noundef null) #40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   ret void
 }
@@ -4201,7 +4201,7 @@ define void @GC_printf(ptr nocapture noundef readonly %0, ...) local_unnamed_add
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = load i32, ptr @GC_quiet, align 4
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %6, label %38
+  br i1 %.not, label %6, label %41
 
 6:                                                ; preds = %1
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -4225,61 +4225,61 @@ define void @GC_printf(ptr nocapture noundef readonly %0, ...) local_unnamed_add
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   %15 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %2) #40
   %.not.i = icmp eq i64 %14, 0
-  br i1 %.not.i, label %GC_write.exit.thread4, label %.outer.split.i
+  br i1 %.not.i, label %GC_write.exit.thread3, label %.outer.split.i
 
-GC_write.exit.thread4:                            ; preds = %12
-  %.sink.i6 = load i32, ptr %2, align 4
-  %16 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i6, ptr noundef null) #40
+GC_write.exit.thread3:                            ; preds = %12
+  %16 = load i32, ptr %2, align 4
+  %17 = call i32 @pthread_setcancelstate(i32 noundef %16, ptr noundef null) #40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  br label %38
+  br label %41
 
 .outer.split.i:                                   ; preds = %12, %.outer.i
-  %17 = phi i64 [ %33, %.outer.i ], [ %14, %12 ]
-  %18 = phi ptr [ %32, %.outer.i ], [ %3, %12 ]
-  %.012.ph17.i = phi i32 [ %28, %.outer.i ], [ 0, %12 ]
-  br label %19
+  %18 = phi i64 [ %35, %.outer.i ], [ %14, %12 ]
+  %19 = phi ptr [ %34, %.outer.i ], [ %3, %12 ]
+  %.012.ph17.i = phi i32 [ %30, %.outer.i ], [ 0, %12 ]
+  br label %20
 
-19:                                               ; preds = %23, %.outer.split.i
-  %20 = call i64 @write(i32 noundef %13, ptr noundef %18, i64 noundef %17) #40
-  %21 = trunc i64 %20 to i32
-  %22 = icmp eq i32 %21, -1
-  br i1 %22, label %23, label %.outer.i
+20:                                               ; preds = %24, %.outer.split.i
+  %21 = call i64 @write(i32 noundef %13, ptr noundef %19, i64 noundef %18) #40
+  %22 = trunc i64 %21 to i32
+  %23 = icmp eq i32 %22, -1
+  br i1 %23, label %24, label %.outer.i
 
-23:                                               ; preds = %19
-  %24 = tail call ptr @__errno_location() #47
-  %25 = load i32, ptr %24, align 4
-  %26 = icmp eq i32 %25, 11
-  br i1 %26, label %19, label %GC_write.exit.thread, !llvm.loop !13
+24:                                               ; preds = %20
+  %25 = tail call ptr @__errno_location() #47
+  %26 = load i32, ptr %25, align 4
+  %27 = icmp eq i32 %26, 11
+  br i1 %27, label %20, label %GC_write.exit.thread, !llvm.loop !13
 
-GC_write.exit.thread:                             ; preds = %23
-  %.sink.i3 = load i32, ptr %2, align 4
-  %27 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i3, ptr noundef null) #40
+GC_write.exit.thread:                             ; preds = %24
+  %28 = load i32, ptr %2, align 4
+  %29 = call i32 @pthread_setcancelstate(i32 noundef %28, ptr noundef null) #40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  br label %36
+  br label %39
 
-.outer.i:                                         ; preds = %19
-  %28 = add nsw i32 %.012.ph17.i, %21
-  %29 = zext i32 %28 to i64
-  %30 = icmp ugt i64 %14, %29
-  %31 = sext i32 %28 to i64
-  %32 = getelementptr inbounds i8, ptr %3, i64 %31
-  %33 = sub i64 %14, %31
-  br i1 %30, label %.outer.split.i, label %GC_write.exit, !llvm.loop !13
+.outer.i:                                         ; preds = %20
+  %30 = add nsw i32 %.012.ph17.i, %22
+  %31 = zext i32 %30 to i64
+  %32 = icmp ugt i64 %14, %31
+  %33 = sext i32 %30 to i64
+  %34 = getelementptr inbounds i8, ptr %3, i64 %33
+  %35 = sub i64 %14, %33
+  br i1 %32, label %.outer.split.i, label %GC_write.exit, !llvm.loop !13
 
 GC_write.exit:                                    ; preds = %.outer.i
-  %.sink.i = load i32, ptr %2, align 4
-  %34 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i, ptr noundef null) #40
+  %36 = load i32, ptr %2, align 4
+  %37 = call i32 @pthread_setcancelstate(i32 noundef %36, ptr noundef null) #40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  %35 = icmp slt i32 %28, 0
-  br i1 %35, label %36, label %38
+  %38 = icmp slt i32 %30, 0
+  br i1 %38, label %39, label %41
 
-36:                                               ; preds = %GC_write.exit.thread, %GC_write.exit
-  %37 = load ptr, ptr @GC_on_abort, align 8
-  call void %37(ptr noundef nonnull @.str.91) #40
+39:                                               ; preds = %GC_write.exit.thread, %GC_write.exit
+  %40 = load ptr, ptr @GC_on_abort, align 8
+  call void %40(ptr noundef nonnull @.str.91) #40
   call void @abort() #46
   unreachable
 
-38:                                               ; preds = %GC_write.exit.thread4, %GC_write.exit, %1
+41:                                               ; preds = %GC_write.exit.thread3, %GC_write.exit, %1
   ret void
 }
 
@@ -21734,7 +21734,7 @@ define internal fastcc void @set_incremental_mode_on() unnamed_addr #1 {
   call void @llvm.lifetime.start.p0(i64 390, ptr nonnull %3)
   %40 = call i32 @uname(ptr noundef nonnull %3) #40
   %41 = icmp eq i32 %40, -1
-  br i1 %41, label %ensure_min_linux_ver.exit.thread.i.i, label %42
+  br i1 %41, label %.sink.split.i.i, label %42
 
 42:                                               ; preds = %39
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %3, ptr noundef nonnull dereferenceable(6) @.str.243, i64 6)
@@ -21745,7 +21745,7 @@ define internal fastcc void @set_incremental_mode_on() unnamed_addr #1 {
   %44 = load ptr, ptr @GC_current_warn_proc, align 8
   %45 = ptrtoint ptr %3 to i64
   call void %44(ptr noundef nonnull @.str.244, i64 noundef %45) #40
-  br label %ensure_min_linux_ver.exit.thread.i.i
+  br label %.sink.split.i.i
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds i8, ptr %3, i64 130
@@ -21776,8 +21776,7 @@ define internal fastcc void @set_incremental_mode_on() unnamed_addr #1 {
 
 ensure_min_linux_ver.exit.thread19.i.i:           ; preds = %56, %51, %46
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 390, ptr nonnull %3)
-  br label %63
+  br label %.sink.split.i.i
 
 GC_parse_version.exit.i.i.i:                      ; preds = %56, %54
   %.1.i.i.i = phi i32 [ -1, %54 ], [ %59, %56 ]
@@ -21789,10 +21788,6 @@ ensure_min_linux_ver.exit.thread16.i.i:           ; preds = %GC_parse_version.ex
   call void @llvm.lifetime.end.p0(i64 390, ptr nonnull %3)
   br label %66
 
-ensure_min_linux_ver.exit.thread.i.i:             ; preds = %43, %39
-  call void @llvm.lifetime.end.p0(i64 390, ptr nonnull %3)
-  br label %63
-
 ensure_min_linux_ver.exit.i.i:                    ; preds = %GC_parse_version.exit.i.i.i
   %61 = icmp ne i32 %49, 3
   %62 = icmp slt i32 %.1.i.i.i, 18
@@ -21800,7 +21795,11 @@ ensure_min_linux_ver.exit.i.i:                    ; preds = %GC_parse_version.ex
   call void @llvm.lifetime.end.p0(i64 390, ptr nonnull %3)
   br i1 %.not27.i.i, label %63, label %66
 
-63:                                               ; preds = %ensure_min_linux_ver.exit.i.i, %ensure_min_linux_ver.exit.thread.i.i, %ensure_min_linux_ver.exit.thread19.i.i
+.sink.split.i.i:                                  ; preds = %ensure_min_linux_ver.exit.thread19.i.i, %43, %39
+  call void @llvm.lifetime.end.p0(i64 390, ptr nonnull %3)
+  br label %63
+
+63:                                               ; preds = %.sink.split.i.i, %ensure_min_linux_ver.exit.i.i
   %64 = load i32, ptr @GC_print_stats, align 4
   %.not6.i.i = icmp eq i32 %64, 0
   br i1 %.not6.i.i, label %134, label %65
@@ -23415,8 +23414,8 @@ define hidden void @GC_err_puts(ptr nocapture noundef readonly %0) local_unnamed
   br i1 %18, label %.outer.split.i, label %GC_write.exit, !llvm.loop !13
 
 GC_write.exit:                                    ; preds = %.outer.i, %12, %1
-  %.sink.i = load i32, ptr %2, align 4
-  %22 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i, ptr noundef null) #40
+  %22 = load i32, ptr %2, align 4
+  %23 = call i32 @pthread_setcancelstate(i32 noundef %22, ptr noundef null) #40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   ret void
 }
@@ -23580,7 +23579,7 @@ define internal void @GC_default_on_abort(ptr noundef readonly %0) #1 {
   %3 = alloca i32, align 4
   store i1 true, ptr @skip_gc_atexit, align 4
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %46, label %4
+  br i1 %.not, label %50, label %4
 
 4:                                                ; preds = %1
   %5 = load i32, ptr @GC_stderr, align 4
@@ -23591,97 +23590,97 @@ define internal void @GC_default_on_abort(ptr noundef readonly %0) #1 {
   br i1 %.not.i, label %GC_write.exit.thread, label %.outer.split.i
 
 GC_write.exit.thread:                             ; preds = %4
-  %.sink.i13 = load i32, ptr %3, align 4
-  %8 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i13, ptr noundef null) #40
+  %8 = load i32, ptr %3, align 4
+  %9 = call i32 @pthread_setcancelstate(i32 noundef %8, ptr noundef null) #40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br label %28
+  br label %31
 
 .outer.split.i:                                   ; preds = %4, %.outer.i
-  %9 = phi i64 [ %25, %.outer.i ], [ %6, %4 ]
-  %10 = phi ptr [ %24, %.outer.i ], [ %0, %4 ]
-  %.012.ph17.i = phi i32 [ %20, %.outer.i ], [ 0, %4 ]
-  br label %11
+  %10 = phi i64 [ %27, %.outer.i ], [ %6, %4 ]
+  %11 = phi ptr [ %26, %.outer.i ], [ %0, %4 ]
+  %.012.ph17.i = phi i32 [ %22, %.outer.i ], [ 0, %4 ]
+  br label %12
 
-11:                                               ; preds = %15, %.outer.split.i
-  %12 = call i64 @write(i32 noundef %5, ptr noundef %10, i64 noundef %9) #40
-  %13 = trunc i64 %12 to i32
-  %14 = icmp eq i32 %13, -1
-  br i1 %14, label %15, label %.outer.i
+12:                                               ; preds = %16, %.outer.split.i
+  %13 = call i64 @write(i32 noundef %5, ptr noundef %11, i64 noundef %10) #40
+  %14 = trunc i64 %13 to i32
+  %15 = icmp eq i32 %14, -1
+  br i1 %15, label %16, label %.outer.i
 
-15:                                               ; preds = %11
-  %16 = tail call ptr @__errno_location() #47
-  %17 = load i32, ptr %16, align 4
-  %18 = icmp eq i32 %17, 11
-  br i1 %18, label %11, label %GC_write.exit.thread14, !llvm.loop !13
+16:                                               ; preds = %12
+  %17 = tail call ptr @__errno_location() #47
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %18, 11
+  br i1 %19, label %12, label %GC_write.exit.thread10, !llvm.loop !13
 
-GC_write.exit.thread14:                           ; preds = %15
-  %.sink.i16 = load i32, ptr %3, align 4
-  %19 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i16, ptr noundef null) #40
+GC_write.exit.thread10:                           ; preds = %16
+  %20 = load i32, ptr %3, align 4
+  %21 = call i32 @pthread_setcancelstate(i32 noundef %20, ptr noundef null) #40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br label %46
+  br label %50
 
-.outer.i:                                         ; preds = %11
-  %20 = add nsw i32 %.012.ph17.i, %13
-  %21 = zext i32 %20 to i64
-  %22 = icmp ugt i64 %6, %21
-  %23 = sext i32 %20 to i64
-  %24 = getelementptr inbounds i8, ptr %0, i64 %23
-  %25 = sub i64 %6, %23
-  br i1 %22, label %.outer.split.i, label %GC_write.exit, !llvm.loop !13
+.outer.i:                                         ; preds = %12
+  %22 = add nsw i32 %.012.ph17.i, %14
+  %23 = zext i32 %22 to i64
+  %24 = icmp ugt i64 %6, %23
+  %25 = sext i32 %22 to i64
+  %26 = getelementptr inbounds i8, ptr %0, i64 %25
+  %27 = sub i64 %6, %25
+  br i1 %24, label %.outer.split.i, label %GC_write.exit, !llvm.loop !13
 
 GC_write.exit:                                    ; preds = %.outer.i
-  %.sink.i = load i32, ptr %3, align 4
-  %26 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i, ptr noundef null) #40
+  %28 = load i32, ptr %3, align 4
+  %29 = call i32 @pthread_setcancelstate(i32 noundef %28, ptr noundef null) #40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %27 = icmp sgt i32 %20, -1
-  br i1 %27, label %28, label %46
+  %30 = icmp sgt i32 %22, -1
+  br i1 %30, label %31, label %50
 
-28:                                               ; preds = %GC_write.exit.thread, %GC_write.exit
-  %29 = load i32, ptr @GC_stderr, align 4
+31:                                               ; preds = %GC_write.exit.thread, %GC_write.exit
+  %32 = load i32, ptr @GC_stderr, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  %30 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %2) #40
+  %33 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %2) #40
   br label %.outer.split.i4
 
-.outer.split.i4:                                  ; preds = %.outer.i6, %28
-  %31 = phi i64 [ %44, %.outer.i6 ], [ 1, %28 ]
-  %32 = phi ptr [ %43, %.outer.i6 ], [ @.str.257, %28 ]
-  br label %33
+.outer.split.i4:                                  ; preds = %.outer.i6, %31
+  %34 = phi i64 [ %47, %.outer.i6 ], [ 1, %31 ]
+  %35 = phi ptr [ %46, %.outer.i6 ], [ @.str.257, %31 ]
+  br label %36
 
-33:                                               ; preds = %37, %.outer.split.i4
-  %34 = call i64 @write(i32 noundef %29, ptr noundef nonnull %32, i64 noundef %31) #40
-  %35 = trunc i64 %34 to i32
-  %36 = icmp eq i32 %35, -1
-  br i1 %36, label %37, label %.outer.i6
+36:                                               ; preds = %40, %.outer.split.i4
+  %37 = call i64 @write(i32 noundef %32, ptr noundef nonnull %35, i64 noundef %34) #40
+  %38 = trunc i64 %37 to i32
+  %39 = icmp eq i32 %38, -1
+  br i1 %39, label %40, label %.outer.i6
 
-37:                                               ; preds = %33
-  %38 = tail call ptr @__errno_location() #47
-  %39 = load i32, ptr %38, align 4
-  %40 = icmp eq i32 %39, 11
-  br i1 %40, label %33, label %GC_write.exit11, !llvm.loop !13
+40:                                               ; preds = %36
+  %41 = tail call ptr @__errno_location() #47
+  %42 = load i32, ptr %41, align 4
+  %43 = icmp eq i32 %42, 11
+  br i1 %43, label %36, label %GC_write.exit8, !llvm.loop !13
 
-.outer.i6:                                        ; preds = %33
-  %41 = icmp eq i32 %35, 0
-  %sext = shl i64 %34, 32
-  %42 = ashr exact i64 %sext, 32
-  %43 = getelementptr inbounds i8, ptr @.str.257, i64 %42
-  %44 = sub nsw i64 1, %42
-  br i1 %41, label %.outer.split.i4, label %GC_write.exit11, !llvm.loop !13
+.outer.i6:                                        ; preds = %36
+  %44 = icmp eq i32 %38, 0
+  %sext = shl i64 %37, 32
+  %45 = ashr exact i64 %sext, 32
+  %46 = getelementptr inbounds i8, ptr @.str.257, i64 %45
+  %47 = sub nsw i64 1, %45
+  br i1 %44, label %.outer.split.i4, label %GC_write.exit8, !llvm.loop !13
 
-GC_write.exit11:                                  ; preds = %.outer.i6, %37
-  %.sink.i10 = load i32, ptr %2, align 4
-  %45 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i10, ptr noundef null) #40
+GC_write.exit8:                                   ; preds = %.outer.i6, %40
+  %48 = load i32, ptr %2, align 4
+  %49 = call i32 @pthread_setcancelstate(i32 noundef %48, ptr noundef null) #40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  br label %46
+  br label %50
 
-46:                                               ; preds = %GC_write.exit.thread14, %GC_write.exit, %GC_write.exit11, %1
-  %47 = call ptr @getenv(ptr noundef nonnull @.str.225) #40
-  %.not3 = icmp eq ptr %47, null
-  br i1 %.not3, label %48, label %.preheader
+50:                                               ; preds = %GC_write.exit.thread10, %GC_write.exit, %GC_write.exit8, %1
+  %51 = call ptr @getenv(ptr noundef nonnull @.str.225) #40
+  %.not3 = icmp eq ptr %51, null
+  br i1 %.not3, label %52, label %.preheader
 
-.preheader:                                       ; preds = %46, %.preheader
+.preheader:                                       ; preds = %50, %.preheader
   br label %.preheader
 
-48:                                               ; preds = %46
+52:                                               ; preds = %50
   ret void
 }
 
@@ -26660,8 +26659,8 @@ GC_get_maps.exit:                                 ; preds = %227
   br i1 %249, label %.outer.split.i.i, label %GC_err_puts.exit, !llvm.loop !13
 
 GC_err_puts.exit:                                 ; preds = %.outer.i.i, %243, %GC_get_maps.exit
-  %.sink.i.i = load i32, ptr %1, align 4
-  %253 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i.i, ptr noundef null) #40
+  %253 = load i32, ptr %1, align 4
+  %254 = call i32 @pthread_setcancelstate(i32 noundef %253, ptr noundef null) #40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
   call void (ptr, ...) @GC_err_printf(ptr noundef nonnull @.str.111)
   ret void
@@ -41840,8 +41839,8 @@ define internal fastcc range(i32 0, 2) i32 @GC_collect_or_expand(i64 noundef %0,
 
 103:                                              ; preds = %99, %102, %79, %87, %98, %96, %38
   %.0 = phi i32 [ 1, %38 ], [ 0, %96 ], [ 0, %98 ], [ 1, %87 ], [ 1, %79 ], [ 1, %102 ], [ 1, %99 ]
-  %.sink = load i32, ptr %4, align 4
-  %104 = call i32 @pthread_setcancelstate(i32 noundef %.sink, ptr noundef null) #40
+  %104 = load i32, ptr %4, align 4
+  %105 = call i32 @pthread_setcancelstate(i32 noundef %104, ptr noundef null) #40
   ret i32 %.0
 }
 
@@ -45089,9 +45088,9 @@ GC_lookup_thread.exit.i:                          ; preds = %24, %23
   store atomic volatile i64 %64, ptr %28 release, align 8
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %56, %60, %63, %32, %34
-  %.sink.i = load i32, ptr %5, align 4
-  %65 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i, ptr noundef null) #40
+.sink.split.i:                                    ; preds = %63, %60, %56, %34, %32
+  %65 = load i32, ptr %5, align 4
+  %66 = call i32 @pthread_setcancelstate(i32 noundef %65, ptr noundef null) #40
   br label %GC_suspend_handler_inner.exit
 
 GC_suspend_handler_inner.exit:                    ; preds = %9, %.sink.split.i

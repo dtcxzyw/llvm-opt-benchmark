@@ -13567,7 +13567,6 @@ if.then5:                                         ; preds = %if.end
   %arrayidx = getelementptr inbounds i8, ptr %str, i64 1
   store i8 0, ptr %arrayidx, align 1
   %conv = trunc nuw i32 %code_point to i8
-  store i8 %conv, ptr %str, align 1
   br label %if.end49
 
 if.else:                                          ; preds = %if.end
@@ -13585,7 +13584,6 @@ if.then8:                                         ; preds = %if.else
   store i8 %conv10, ptr %arrayidx11, align 1
   %5 = trunc nuw i32 %shr.i to i8
   %conv13 = or disjoint i8 %5, -64
-  store i8 %conv13, ptr %str, align 1
   br label %if.end49
 
 if.else15:                                        ; preds = %if.else
@@ -13609,7 +13607,6 @@ if.then17:                                        ; preds = %if.else15
   store i8 %conv25, ptr %arrayidx26, align 1
   %10 = trunc nuw i32 %shr.i10 to i8
   %conv28 = or disjoint i8 %10, -32
-  store i8 %conv28, ptr %str, align 1
   br label %if.end49
 
 if.else30:                                        ; preds = %if.else15
@@ -13627,10 +13624,11 @@ if.else30:                                        ; preds = %if.else15
   store i8 %conv42, ptr %arrayidx43, align 1
   %13 = trunc nuw i32 %shr.i16 to i8
   %conv45 = or disjoint i8 %13, -16
-  store i8 %conv45, ptr %str, align 1
   br label %if.end49
 
 if.end49:                                         ; preds = %if.then8, %if.else30, %if.then17, %if.then5
+  %conv13.sink = phi i8 [ %conv13, %if.then8 ], [ %conv45, %if.else30 ], [ %conv28, %if.then17 ], [ %conv, %if.then5 ]
+  store i8 %conv13.sink, ptr %str, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp50) #50
   %call.i1721 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %call.i17.noexc unwind label %lpad51

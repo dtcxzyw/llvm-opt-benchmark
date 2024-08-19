@@ -618,7 +618,7 @@ if.end23.i:                                       ; preds = %if.end6.i
 for.cond.preheader.i:                             ; preds = %if.end23.i
   %21 = load i32, ptr %nCerts.i, align 4
   %cmp2975.not.i = icmp eq i32 %21, 0
-  br i1 %cmp2975.not.i, label %.loopexit, label %for.body.lr.ph.i
+  br i1 %cmp2975.not.i, label %qcrypto_tls_session_check_certificate.exit.thread, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %peername.i = getelementptr inbounds i8, ptr %session, i64 64
@@ -774,95 +774,84 @@ if.end92.i:                                       ; preds = %if.else.i, %if.then
   %40 = load i32, ptr %nCerts.i, align 4
   %41 = zext i32 %40 to i64
   %cmp29.i = icmp ult i64 %indvars.iv.next.i, %41
-  br i1 %cmp29.i, label %for.body.i, label %.loopexit, !llvm.loop !5
+  br i1 %cmp29.i, label %for.body.i, label %qcrypto_tls_session_check_certificate.exit.thread, !llvm.loop !5
 
 error.i:                                          ; preds = %if.then89.i, %if.then85.i, %if.then76.i, %if.then73.i, %if.end64.i, %if.then50.i, %if.then46.i, %if.then42.i, %if.then37.i
   %42 = load ptr, ptr %cert.i, align 8
   call void @gnutls_x509_crt_deinit(ptr noundef %42) #9
   br label %qcrypto_tls_session_check_certificate.exit.thread
 
-qcrypto_tls_session_check_certificate.exit.thread: ; preds = %if.then.i, %if.then4.i, %if.then8.i, %if.then32.i, %error.i, %if.then27.i
+qcrypto_tls_session_check_certificate.exit.thread: ; preds = %if.end92.i, %for.cond.preheader.i, %if.then27.i, %error.i, %if.then32.i, %if.then8.i, %if.then4.i, %if.then.i
+  %retval.0.i75 = phi i32 [ -1, %if.then.i ], [ -1, %if.then4.i ], [ -1, %if.then8.i ], [ -1, %if.then32.i ], [ -1, %error.i ], [ -1, %if.then27.i ], [ 0, %for.cond.preheader.i ], [ 0, %if.end92.i ]
+  %43 = phi ptr [ @.str.19, %if.then.i ], [ @.str.19, %if.then4.i ], [ @.str.19, %if.then8.i ], [ @.str.19, %if.then32.i ], [ @.str.19, %error.i ], [ @.str.19, %if.then27.i ], [ @.str.18, %for.cond.preheader.i ], [ @.str.18, %if.end92.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nCerts.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cert.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dnameSize.i)
-  br label %43
-
-.loopexit:                                        ; preds = %if.end92.i, %for.cond.preheader.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nCerts.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cert.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dnameSize.i)
-  br label %43
-
-43:                                               ; preds = %qcrypto_tls_session_check_certificate.exit.thread, %.loopexit
-  %retval.0.i75 = phi i32 [ 0, %.loopexit ], [ -1, %qcrypto_tls_session_check_certificate.exit.thread ]
-  %44 = phi ptr [ @.str.18, %.loopexit ], [ @.str.19, %qcrypto_tls_session_check_certificate.exit.thread ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i28)
-  %45 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i29 = icmp ne i32 %45, 0
-  %46 = load i16, ptr @_TRACE_QCRYPTO_TLS_SESSION_CHECK_CREDS_DSTATE, align 2
-  %tobool4.i.i30 = icmp ne i16 %46, 0
+  %44 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i29 = icmp ne i32 %44, 0
+  %45 = load i16, ptr @_TRACE_QCRYPTO_TLS_SESSION_CHECK_CREDS_DSTATE, align 2
+  %tobool4.i.i30 = icmp ne i16 %45, 0
   %or.cond.i.i31 = select i1 %tobool.i.i29, i1 %tobool4.i.i30, i1 false
   br i1 %or.cond.i.i31, label %land.lhs.true5.i.i32, label %trace_qcrypto_tls_session_check_creds.exit42
 
-land.lhs.true5.i.i32:                             ; preds = %43
-  %47 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i33 = and i32 %47, 32768
+land.lhs.true5.i.i32:                             ; preds = %qcrypto_tls_session_check_certificate.exit.thread
+  %46 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i33 = and i32 %46, 32768
   %cmp.i.not.i.i34 = icmp eq i32 %and.i.i.i33, 0
   br i1 %cmp.i.not.i.i34, label %trace_qcrypto_tls_session_check_creds.exit42, label %if.then.i.i35
 
 if.then.i.i35:                                    ; preds = %land.lhs.true5.i.i32
-  %48 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i36 = trunc i8 %48 to i1
+  %47 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i36 = trunc i8 %47 to i1
   br i1 %tobool7.i.i36, label %if.then8.i.i38, label %if.else.i.i37
 
 if.then8.i.i38:                                   ; preds = %if.then.i.i35
   %call9.i.i39 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i28, ptr noundef null) #9
   %call10.i.i40 = call i32 @qemu_get_thread_id() #9
-  %49 = load i64, ptr %_now.i.i28, align 8
+  %48 = load i64, ptr %_now.i.i28, align 8
   %tv_usec.i.i41 = getelementptr inbounds i8, ptr %_now.i.i28, i64 8
-  %50 = load i64, ptr %tv_usec.i.i41, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %call10.i.i40, i64 noundef %49, i64 noundef %50, ptr noundef nonnull %session, ptr noundef nonnull %44) #9
+  %49 = load i64, ptr %tv_usec.i.i41, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %call10.i.i40, i64 noundef %48, i64 noundef %49, ptr noundef nonnull %session, ptr noundef nonnull %43) #9
   br label %trace_qcrypto_tls_session_check_creds.exit42
 
 if.else.i.i37:                                    ; preds = %if.then.i.i35
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, ptr noundef nonnull %session, ptr noundef nonnull %44) #9
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, ptr noundef nonnull %session, ptr noundef nonnull %43) #9
   br label %trace_qcrypto_tls_session_check_creds.exit42
 
-trace_qcrypto_tls_session_check_creds.exit42:     ; preds = %43, %land.lhs.true5.i.i32, %if.then8.i.i38, %if.else.i.i37
+trace_qcrypto_tls_session_check_creds.exit42:     ; preds = %qcrypto_tls_session_check_certificate.exit.thread, %land.lhs.true5.i.i32, %if.then8.i.i38, %if.else.i.i37
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i28)
   br label %return
 
 if.else14:                                        ; preds = %if.then9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i43)
-  %51 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i44 = icmp ne i32 %51, 0
-  %52 = load i16, ptr @_TRACE_QCRYPTO_TLS_SESSION_CHECK_CREDS_DSTATE, align 2
-  %tobool4.i.i45 = icmp ne i16 %52, 0
+  %50 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i44 = icmp ne i32 %50, 0
+  %51 = load i16, ptr @_TRACE_QCRYPTO_TLS_SESSION_CHECK_CREDS_DSTATE, align 2
+  %tobool4.i.i45 = icmp ne i16 %51, 0
   %or.cond.i.i46 = select i1 %tobool.i.i44, i1 %tobool4.i.i45, i1 false
   br i1 %or.cond.i.i46, label %land.lhs.true5.i.i47, label %trace_qcrypto_tls_session_check_creds.exit57
 
 land.lhs.true5.i.i47:                             ; preds = %if.else14
-  %53 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i48 = and i32 %53, 32768
+  %52 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i48 = and i32 %52, 32768
   %cmp.i.not.i.i49 = icmp eq i32 %and.i.i.i48, 0
   br i1 %cmp.i.not.i.i49, label %trace_qcrypto_tls_session_check_creds.exit57, label %if.then.i.i50
 
 if.then.i.i50:                                    ; preds = %land.lhs.true5.i.i47
-  %54 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i51 = trunc i8 %54 to i1
+  %53 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i51 = trunc i8 %53 to i1
   br i1 %tobool7.i.i51, label %if.then8.i.i53, label %if.else.i.i52
 
 if.then8.i.i53:                                   ; preds = %if.then.i.i50
   %call9.i.i54 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i43, ptr noundef null) #9
   %call10.i.i55 = tail call i32 @qemu_get_thread_id() #9
-  %55 = load i64, ptr %_now.i.i43, align 8
+  %54 = load i64, ptr %_now.i.i43, align 8
   %tv_usec.i.i56 = getelementptr inbounds i8, ptr %_now.i.i43, i64 8
-  %56 = load i64, ptr %tv_usec.i.i56, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %call10.i.i55, i64 noundef %55, i64 noundef %56, ptr noundef nonnull %session, ptr noundef nonnull @.str.20) #9
+  %55 = load i64, ptr %tv_usec.i.i56, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %call10.i.i55, i64 noundef %54, i64 noundef %55, ptr noundef nonnull %session, ptr noundef nonnull @.str.20) #9
   br label %trace_qcrypto_tls_session_check_creds.exit57
 
 if.else.i.i52:                                    ; preds = %if.then.i.i50
@@ -875,31 +864,31 @@ trace_qcrypto_tls_session_check_creds.exit57:     ; preds = %if.else14, %land.lh
 
 if.else15:                                        ; preds = %if.else5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i58)
-  %57 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i59 = icmp ne i32 %57, 0
-  %58 = load i16, ptr @_TRACE_QCRYPTO_TLS_SESSION_CHECK_CREDS_DSTATE, align 2
-  %tobool4.i.i60 = icmp ne i16 %58, 0
+  %56 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i59 = icmp ne i32 %56, 0
+  %57 = load i16, ptr @_TRACE_QCRYPTO_TLS_SESSION_CHECK_CREDS_DSTATE, align 2
+  %tobool4.i.i60 = icmp ne i16 %57, 0
   %or.cond.i.i61 = select i1 %tobool.i.i59, i1 %tobool4.i.i60, i1 false
   br i1 %or.cond.i.i61, label %land.lhs.true5.i.i62, label %trace_qcrypto_tls_session_check_creds.exit72
 
 land.lhs.true5.i.i62:                             ; preds = %if.else15
-  %59 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i63 = and i32 %59, 32768
+  %58 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i63 = and i32 %58, 32768
   %cmp.i.not.i.i64 = icmp eq i32 %and.i.i.i63, 0
   br i1 %cmp.i.not.i.i64, label %trace_qcrypto_tls_session_check_creds.exit72, label %if.then.i.i65
 
 if.then.i.i65:                                    ; preds = %land.lhs.true5.i.i62
-  %60 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i66 = trunc i8 %60 to i1
+  %59 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i66 = trunc i8 %59 to i1
   br i1 %tobool7.i.i66, label %if.then8.i.i68, label %if.else.i.i67
 
 if.then8.i.i68:                                   ; preds = %if.then.i.i65
   %call9.i.i69 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i58, ptr noundef null) #9
   %call10.i.i70 = tail call i32 @qemu_get_thread_id() #9
-  %61 = load i64, ptr %_now.i.i58, align 8
+  %60 = load i64, ptr %_now.i.i58, align 8
   %tv_usec.i.i71 = getelementptr inbounds i8, ptr %_now.i.i58, i64 8
-  %62 = load i64, ptr %tv_usec.i.i71, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %call10.i.i70, i64 noundef %61, i64 noundef %62, ptr noundef nonnull %session, ptr noundef nonnull @.str.21) #9
+  %61 = load i64, ptr %tv_usec.i.i71, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %call10.i.i70, i64 noundef %60, i64 noundef %61, ptr noundef nonnull %session, ptr noundef nonnull @.str.21) #9
   br label %trace_qcrypto_tls_session_check_creds.exit72
 
 if.else.i.i67:                                    ; preds = %if.then.i.i65
@@ -908,8 +897,8 @@ if.else.i.i67:                                    ; preds = %if.then.i.i65
 
 trace_qcrypto_tls_session_check_creds.exit72:     ; preds = %if.else15, %land.lhs.true5.i.i62, %if.then8.i.i68, %if.else.i.i67
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i58)
-  %63 = load ptr, ptr %session, align 8
-  %call17 = tail call ptr @object_get_typename(ptr noundef %63) #9
+  %62 = load ptr, ptr %session, align 8
+  %call17 = tail call ptr @object_get_typename(ptr noundef %62) #9
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 423, ptr noundef nonnull @__func__.qcrypto_tls_session_check_credentials, ptr noundef nonnull @.str.22, ptr noundef %call17) #9
   br label %return
 

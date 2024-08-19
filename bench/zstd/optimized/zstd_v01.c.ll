@@ -1664,14 +1664,14 @@ for.end150.i.i.i.i:                               ; preds = %for.body145.i.i.i.i
 HUF_readDTable.exit.thread.i.i.i:                 ; preds = %for.body52.i.i.i.i, %if.end95.i.i.i.i, %if.end83.i.i.i.i, %if.end75.i.i.i.i, %for.end71.i.i.i.i, %if.end46.i.i.i.i, %FSE_decompress.exit.i.i.i.i, %FSE_decompress.exit.thread.i.i.i.i, %if.else34.i.i.i.i, %if.end13.i.i.i.i, %if.else.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %huffWeight.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %rankVal.i.i.i.i)
-  br label %HUF_decompress.exit.thread.i.i
+  br label %return.sink.split.i.i
 
 HUF_readDTable.exit.i.i.i:                        ; preds = %for.end150.i.i.i.i
   %add157.i.i.i.i = add nuw nsw i64 %iSize.0.i.i.i.i, 1
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %huffWeight.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %rankVal.i.i.i.i)
   %cmp.not.i.i.i = icmp ult i64 %add157.i.i.i.i, %sub.i.i
-  br i1 %cmp.not.i.i.i, label %if.end3.i.i.i, label %HUF_decompress.exit.thread.i.i
+  br i1 %cmp.not.i.i.i, label %if.end3.i.i.i, label %return.sink.split.i.i
 
 if.end3.i.i.i:                                    ; preds = %HUF_readDTable.exit.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr14.i.i, i64 %add157.i.i.i.i
@@ -2580,13 +2580,12 @@ for.end173.i.i.i.i:                               ; preds = %FSE_reloadDStream.e
   %or.cond639.i.i.i.i = and i1 %cmp.i587.i.i.i.i, %187
   br i1 %or.cond639.i.i.i.i, label %ZSTD_decompressLiterals.exit.i, label %HUF_decompress.exit.thread132.i.i
 
-HUF_decompress.exit.thread.i.i:                   ; preds = %HUF_readDTable.exit.i.i.i, %HUF_readDTable.exit.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8194, ptr nonnull %DTable.i.i.i)
-  br label %return
-
 HUF_decompress.exit.thread132.i.i:                ; preds = %for.body169.i.i.i.i, %for.end173.i.i.i.i, %for.end.i.i.i.i, %if.end37.i.i.i.i, %sw.epilog.i162.i.i.i.i, %if.then2.i195.i.i.i.i, %if.end32.i.i.i.i, %sw.epilog.i102.i.i.i.i, %if.then2.i135.i.i.i.i, %if.end27.i.i.i.i, %sw.epilog.i.i.i.i.i, %if.then2.i.i.i.i.i, %if.end.i13.i.i.i, %if.end3.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %bitD2.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %bitD4.i.i.i.i)
+  br label %return.sink.split.i.i
+
+return.sink.split.i.i:                            ; preds = %HUF_decompress.exit.thread132.i.i, %HUF_readDTable.exit.i.i.i, %HUF_readDTable.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 8194, ptr nonnull %DTable.i.i.i)
   br label %return
 
@@ -3777,8 +3776,8 @@ if.end51.i:                                       ; preds = %if.then48.i, %if.th
   %sub.ptr.sub54.i = sub i64 %sub.ptr.lhs.cast52.i, %sub.ptr.rhs.cast53.i
   br label %return
 
-return:                                           ; preds = %for.end.i, %entry, %sw.bb22.i, %if.end.i36.i, %HUF_decompress.exit.thread.i.i, %HUF_decompress.exit.thread132.i.i, %if.end.i.i, %ZSTD_decompressLiterals.exit.i, %sw.bb6.i, %if.end.i, %if.end51.i, %if.end37.i, %ZSTD_execSequence.exit.thread.i, %FSE_initDStream.exit.i, %sw.epilog.i37.i, %if.then2.i.i, %if.end.i23, %ZSTDv01_decodeSeqHeaders.exit.i, %ZSTDv01_decodeSeqHeaders.exit.thread.i, %ZSTDv01_decodeLiteralsBlock.exit
-  %retval.0 = phi i64 [ %sub.ptr.sub.i, %ZSTDv01_decodeLiteralsBlock.exit ], [ %sub.ptr.sub54.i, %if.end51.i ], [ %sub.ptr.sub107.i.i, %ZSTDv01_decodeSeqHeaders.exit.i ], [ -20, %FSE_initDStream.exit.i ], [ -70, %if.end37.i ], [ %retval.0.i.ph.i39, %ZSTDv01_decodeSeqHeaders.exit.thread.i ], [ %retval.0.i198.ph.i, %ZSTD_execSequence.exit.thread.i ], [ -20, %if.end.i23 ], [ -20, %if.then2.i.i ], [ -20, %sw.epilog.i37.i ], [ -20, %for.end.i ], [ -72, %entry ], [ -20, %sw.bb22.i ], [ -70, %if.end.i36.i ], [ -1, %HUF_decompress.exit.thread.i.i ], [ -1, %HUF_decompress.exit.thread132.i.i ], [ -1, %if.end.i.i ], [ %spec.select.i.i, %ZSTD_decompressLiterals.exit.i ], [ -70, %sw.bb6.i ], [ -72, %if.end.i ]
+return:                                           ; preds = %for.end.i, %entry, %sw.bb22.i, %if.end.i36.i, %return.sink.split.i.i, %if.end.i.i, %ZSTD_decompressLiterals.exit.i, %sw.bb6.i, %if.end.i, %if.end51.i, %if.end37.i, %ZSTD_execSequence.exit.thread.i, %FSE_initDStream.exit.i, %sw.epilog.i37.i, %if.then2.i.i, %if.end.i23, %ZSTDv01_decodeSeqHeaders.exit.i, %ZSTDv01_decodeSeqHeaders.exit.thread.i, %ZSTDv01_decodeLiteralsBlock.exit
+  %retval.0 = phi i64 [ %sub.ptr.sub.i, %ZSTDv01_decodeLiteralsBlock.exit ], [ %sub.ptr.sub54.i, %if.end51.i ], [ %sub.ptr.sub107.i.i, %ZSTDv01_decodeSeqHeaders.exit.i ], [ -20, %FSE_initDStream.exit.i ], [ -70, %if.end37.i ], [ %retval.0.i.ph.i39, %ZSTDv01_decodeSeqHeaders.exit.thread.i ], [ %retval.0.i198.ph.i, %ZSTD_execSequence.exit.thread.i ], [ -20, %if.end.i23 ], [ -20, %if.then2.i.i ], [ -20, %sw.epilog.i37.i ], [ -20, %for.end.i ], [ -72, %entry ], [ -20, %sw.bb22.i ], [ -70, %if.end.i36.i ], [ -1, %return.sink.split.i.i ], [ -1, %if.end.i.i ], [ %spec.select.i.i, %ZSTD_decompressLiterals.exit.i ], [ -70, %sw.bb6.i ], [ -72, %if.end.i ]
   ret i64 %retval.0
 }
 

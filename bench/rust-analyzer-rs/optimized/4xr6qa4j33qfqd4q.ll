@@ -928,10 +928,10 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
 
 ._crit_edge:                                      ; preds = %.backedge, %.backedge.us, %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %48
 
 48:                                               ; preds = %"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17hc3e1ef0a6cac6c40E.exit", %._crit_edge
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   ret void
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.backedge
@@ -1005,7 +1005,6 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
 
 "_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17hc3e1ef0a6cac6c40E.exit": ; preds = %.split.us, %75, %79
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !110
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %48
 
 81:                                               ; preds = %.split38.us
@@ -1120,10 +1119,10 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
 
 ._crit_edge:                                      ; preds = %.backedge, %.backedge.us, %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %48
 
 48:                                               ; preds = %"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17hc3e1ef0a6cac6c40E.exit", %._crit_edge
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   ret void
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.backedge
@@ -1197,7 +1196,6 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
 
 "_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17hc3e1ef0a6cac6c40E.exit": ; preds = %.split.us, %75, %79
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !125
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %48
 
 81:                                               ; preds = %.split38.us

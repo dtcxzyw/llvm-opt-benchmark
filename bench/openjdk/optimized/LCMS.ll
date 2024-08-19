@@ -503,7 +503,7 @@ define ptr @Java_sun_java2d_cmm_lcms_LCMS_getTagNative(ptr noundef %0, ptr nocap
   %5 = alloca i32, align 4
   %6 = inttoptr i64 %2 to ptr
   %7 = icmp eq i32 %3, 1751474532
-  br i1 %7, label %8, label %44
+  br i1 %7, label %8, label %43
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %0, align 8
@@ -511,7 +511,7 @@ define ptr @Java_sun_java2d_cmm_lcms_LCMS_getTagNative(ptr noundef %0, ptr nocap
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, i32 noundef 128) #8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %79, label %14
+  br i1 %13, label %78, label %14
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %0, align 8
@@ -519,7 +519,7 @@ define ptr @Java_sun_java2d_cmm_lcms_LCMS_getTagNative(ptr noundef %0, ptr nocap
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef null) #8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %79, label %20
+  br i1 %19, label %78, label %20
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %6, align 8
@@ -551,93 +551,89 @@ _getHeaderInfo.exit:                              ; preds = %30
   %33 = getelementptr inbounds i8, ptr %32, i64 1536
   %34 = load ptr, ptr %33, align 8
   call void %34(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %18, i32 noundef 0) #8
-  br label %79
-
-.critedge:                                        ; preds = %26, %20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br label %35
+  br label %78
 
 .critedge61:                                      ; preds = %30
   call void @free(ptr noundef nonnull %28) #8
+  br label %.critedge
+
+.critedge:                                        ; preds = %20, %26, %.critedge61
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br label %35
+  %35 = load ptr, ptr %0, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 1536
+  %37 = load ptr, ptr %36, align 8
+  call void %37(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %18, i32 noundef 0) #8
+  %38 = load ptr, ptr %0, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 1824
+  %40 = load ptr, ptr %39, align 8
+  %41 = call zeroext i8 %40(ptr noundef nonnull %0) #8
+  %.not60 = icmp eq i8 %41, 0
+  br i1 %.not60, label %42, label %78
 
-35:                                               ; preds = %.critedge61, %.critedge
-  %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 1536
-  %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %18, i32 noundef 0) #8
-  %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 1824
-  %41 = load ptr, ptr %40, align 8
-  %42 = call zeroext i8 %41(ptr noundef nonnull %0) #8
-  %.not60 = icmp eq i8 %42, 0
-  br i1 %.not60, label %43, label %79
-
-43:                                               ; preds = %35
+42:                                               ; preds = %.critedge
   call void @JNU_ThrowByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7) #8
-  br label %79
+  br label %78
 
-44:                                               ; preds = %4
-  %45 = load ptr, ptr %6, align 8
-  %46 = tail call i32 @cmsIsTag(ptr noundef %45, i32 noundef %3) #8
-  %.not = icmp eq i32 %46, 0
-  br i1 %.not, label %55, label %47
+43:                                               ; preds = %4
+  %44 = load ptr, ptr %6, align 8
+  %45 = tail call i32 @cmsIsTag(ptr noundef %44, i32 noundef %3) #8
+  %.not = icmp eq i32 %45, 0
+  br i1 %.not, label %54, label %46
 
-47:                                               ; preds = %44
-  %48 = load ptr, ptr %6, align 8
-  %49 = tail call i32 @cmsReadRawTag(ptr noundef %48, i32 noundef %3, ptr noundef null, i32 noundef 0) #8
-  %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 1408
-  %52 = load ptr, ptr %51, align 8
-  %53 = tail call ptr %52(ptr noundef nonnull %0, i32 noundef %49) #8
-  %54 = icmp eq ptr %53, null
-  br i1 %54, label %79, label %61
+46:                                               ; preds = %43
+  %47 = load ptr, ptr %6, align 8
+  %48 = tail call i32 @cmsReadRawTag(ptr noundef %47, i32 noundef %3, ptr noundef null, i32 noundef 0) #8
+  %49 = load ptr, ptr %0, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 1408
+  %51 = load ptr, ptr %50, align 8
+  %52 = tail call ptr %51(ptr noundef nonnull %0, i32 noundef %48) #8
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %78, label %60
 
-55:                                               ; preds = %44
-  %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 1824
-  %58 = load ptr, ptr %57, align 8
-  %59 = tail call zeroext i8 %58(ptr noundef nonnull %0) #8
-  %.not56 = icmp eq i8 %59, 0
-  br i1 %.not56, label %60, label %79
+54:                                               ; preds = %43
+  %55 = load ptr, ptr %0, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 1824
+  %57 = load ptr, ptr %56, align 8
+  %58 = tail call zeroext i8 %57(ptr noundef nonnull %0) #8
+  %.not56 = icmp eq i8 %58, 0
+  br i1 %.not56, label %59, label %78
 
-60:                                               ; preds = %55
+59:                                               ; preds = %54
   tail call void @JNU_ThrowByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8) #8
-  br label %79
+  br label %78
 
-61:                                               ; preds = %47
-  %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 1472
-  %64 = load ptr, ptr %63, align 8
-  %65 = tail call ptr %64(ptr noundef nonnull %0, ptr noundef nonnull %53, ptr noundef null) #8
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %79, label %67
+60:                                               ; preds = %46
+  %61 = load ptr, ptr %0, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 1472
+  %63 = load ptr, ptr %62, align 8
+  %64 = tail call ptr %63(ptr noundef nonnull %0, ptr noundef nonnull %52, ptr noundef null) #8
+  %65 = icmp eq ptr %64, null
+  br i1 %65, label %78, label %66
 
-67:                                               ; preds = %61
-  %68 = load ptr, ptr %6, align 8
-  %69 = tail call i32 @cmsReadRawTag(ptr noundef %68, i32 noundef %3, ptr noundef nonnull %65, i32 noundef %49) #8
-  %70 = load ptr, ptr %0, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 1536
-  %72 = load ptr, ptr %71, align 8
-  tail call void %72(ptr noundef nonnull %0, ptr noundef nonnull %53, ptr noundef nonnull %65, i32 noundef 0) #8
-  %.not57 = icmp eq i32 %69, %49
-  br i1 %.not57, label %79, label %73
+66:                                               ; preds = %60
+  %67 = load ptr, ptr %6, align 8
+  %68 = tail call i32 @cmsReadRawTag(ptr noundef %67, i32 noundef %3, ptr noundef nonnull %64, i32 noundef %48) #8
+  %69 = load ptr, ptr %0, align 8
+  %70 = getelementptr inbounds i8, ptr %69, i64 1536
+  %71 = load ptr, ptr %70, align 8
+  tail call void %71(ptr noundef nonnull %0, ptr noundef nonnull %52, ptr noundef nonnull %64, i32 noundef 0) #8
+  %.not57 = icmp eq i32 %68, %48
+  br i1 %.not57, label %78, label %72
 
-73:                                               ; preds = %67
-  %74 = load ptr, ptr %0, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 1824
-  %76 = load ptr, ptr %75, align 8
-  %77 = tail call zeroext i8 %76(ptr noundef nonnull %0) #8
-  %.not58 = icmp eq i8 %77, 0
-  br i1 %.not58, label %78, label %79
+72:                                               ; preds = %66
+  %73 = load ptr, ptr %0, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 1824
+  %75 = load ptr, ptr %74, align 8
+  %76 = tail call zeroext i8 %75(ptr noundef nonnull %0) #8
+  %.not58 = icmp eq i8 %76, 0
+  br i1 %.not58, label %77, label %78
 
-78:                                               ; preds = %73
+77:                                               ; preds = %72
   tail call void @JNU_ThrowByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9) #8
-  br label %79
+  br label %78
 
-79:                                               ; preds = %_getHeaderInfo.exit, %67, %73, %78, %61, %47, %55, %60, %35, %43, %14, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %14 ], [ null, %43 ], [ null, %35 ], [ %12, %_getHeaderInfo.exit ], [ null, %60 ], [ null, %55 ], [ null, %47 ], [ null, %61 ], [ null, %78 ], [ null, %73 ], [ %53, %67 ]
+78:                                               ; preds = %_getHeaderInfo.exit, %66, %72, %77, %60, %46, %54, %59, %.critedge, %42, %14, %8
+  %.0 = phi ptr [ null, %8 ], [ null, %14 ], [ null, %42 ], [ null, %.critedge ], [ %12, %_getHeaderInfo.exit ], [ null, %59 ], [ null, %54 ], [ null, %46 ], [ null, %60 ], [ null, %77 ], [ null, %72 ], [ %52, %66 ]
   ret ptr %.0
 }
 

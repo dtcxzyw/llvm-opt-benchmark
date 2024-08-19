@@ -3244,11 +3244,7 @@ define dso_local range(i32 -1, 1) i32 @getLongLongFromObject(ptr noundef %o, ptr
 entry:
   %value = alloca i64, align 8
   %cmp = icmp eq ptr %o, null
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  store i64 0, ptr %value, align 8
-  br label %if.end29
+  br i1 %cmp, label %if.end29.sink.split, label %if.else
 
 if.else:                                          ; preds = %entry
   %bf.load = load i32, ptr %o, align 8
@@ -3323,15 +3319,19 @@ if.then24:                                        ; preds = %cond.end
   %ptr25 = getelementptr inbounds i8, ptr %o, i64 8
   %6 = load ptr, ptr %ptr25, align 8
   %7 = ptrtoint ptr %6 to i64
-  store i64 %7, ptr %value, align 8
-  br label %if.end29
+  br label %if.end29.sink.split
 
 if.else26:                                        ; preds = %cond.end
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 888, ptr noundef nonnull @.str.19) #17
   tail call void @abort() #18
   unreachable
 
-if.end29:                                         ; preds = %if.then24, %sdslen.exit, %if.then
+if.end29.sink.split:                              ; preds = %entry, %if.then24
+  %.sink = phi i64 [ %7, %if.then24 ], [ 0, %entry ]
+  store i64 %.sink, ptr %value, align 8
+  br label %if.end29
+
+if.end29:                                         ; preds = %if.end29.sink.split, %sdslen.exit
   %tobool30.not = icmp eq ptr %target, null
   br i1 %tobool30.not, label %return, label %if.then31
 

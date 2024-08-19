@@ -25000,60 +25000,60 @@ land.lhs.true:                                    ; preds = %if.end25
 
 if.end31:                                         ; preds = %land.lhs.true, %if.end25
   %.sink72 = phi i64 [ %call26, %if.end25 ], [ -1, %land.lhs.true ]
-  %.sink = load ptr, ptr %value, align 8
-  %arrayidx3318 = getelementptr i8, ptr %.sink, i64 32
-  %30 = load ptr, ptr %arrayidx3318, align 8
-  %call3419 = call fastcc i32 @PyMemoTable_Set(ptr noundef nonnull %call.i25, ptr noundef %30, i64 noundef %.sink72)
+  %30 = load ptr, ptr %value, align 8
+  %arrayidx3318 = getelementptr i8, ptr %30, i64 32
+  %31 = load ptr, ptr %arrayidx3318, align 8
+  %call3419 = call fastcc i32 @PyMemoTable_Set(ptr noundef nonnull %call.i25, ptr noundef %31, i64 noundef %.sink72)
   %cmp35 = icmp slt i32 %call3419, 0
   br i1 %cmp35, label %if.end.i41, label %while.cond, !llvm.loop !50
 
 if.else38:                                        ; preds = %if.else
-  %31 = load ptr, ptr @PyExc_TypeError, align 8
+  %32 = load ptr, ptr @PyExc_TypeError, align 8
   %tp_name = getelementptr inbounds i8, ptr %obj.val21, i64 24
-  %32 = load ptr, ptr %tp_name, align 8
-  %call40 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %31, ptr noundef nonnull @.str.146, ptr noundef %32) #11
+  %33 = load ptr, ptr %tp_name, align 8
+  %call40 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %32, ptr noundef nonnull @.str.146, ptr noundef %33) #11
   br label %return
 
 if.end42:                                         ; preds = %while.cond, %PyMemoTable_Copy.exit
   %new_memo.0 = phi ptr [ %call.i.i, %PyMemoTable_Copy.exit ], [ %call.i25, %while.cond ]
   %memo43 = getelementptr inbounds i8, ptr %self, i64 16
-  %33 = load ptr, ptr %memo43, align 8
-  %cmp.i34 = icmp eq ptr %33, null
+  %34 = load ptr, ptr %memo43, align 8
+  %cmp.i34 = icmp eq ptr %34, null
   br i1 %cmp.i34, label %PyMemoTable_Del.exit, label %if.end.i35
 
 if.end.i35:                                       ; preds = %if.end42
-  %mt_allocated.i.i36 = getelementptr inbounds i8, ptr %33, i64 16
-  %34 = load i64, ptr %mt_allocated.i.i36, align 8
-  %dec6.i.i = add i64 %34, -1
+  %mt_allocated.i.i36 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = load i64, ptr %mt_allocated.i.i36, align 8
+  %dec6.i.i = add i64 %35, -1
   %cmp7.i.i = icmp sgt i64 %dec6.i.i, -1
   br i1 %cmp7.i.i, label %while.body.lr.ph.i.i, label %PyMemoTable_Clear.exit.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.end.i35
-  %mt_table.i.i38 = getelementptr inbounds i8, ptr %33, i64 24
+  %mt_table.i.i38 = getelementptr inbounds i8, ptr %34, i64 24
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %Py_XDECREF.exit.i.i, %while.body.lr.ph.i.i
   %dec8.i.i = phi i64 [ %dec6.i.i, %while.body.lr.ph.i.i ], [ %dec.i.i, %Py_XDECREF.exit.i.i ]
-  %35 = load ptr, ptr %mt_table.i.i38, align 8
-  %arrayidx.i.i = getelementptr %struct.PyMemoEntry, ptr %35, i64 %dec8.i.i
-  %36 = load ptr, ptr %arrayidx.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %36, null
+  %36 = load ptr, ptr %mt_table.i.i38, align 8
+  %arrayidx.i.i = getelementptr %struct.PyMemoEntry, ptr %36, i64 %dec8.i.i
+  %37 = load ptr, ptr %arrayidx.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %37, null
   br i1 %cmp.not.i.i.i, label %Py_XDECREF.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body.i.i
-  %37 = load i64, ptr %36, align 8
-  %38 = and i64 %37, 2147483648
-  %cmp.i2.not.i.i.i = icmp eq i64 %38, 0
+  %38 = load i64, ptr %37, align 8
+  %39 = and i64 %38, 2147483648
+  %cmp.i2.not.i.i.i = icmp eq i64 %39, 0
   br i1 %cmp.i2.not.i.i.i, label %if.end.i.i.i.i, label %Py_XDECREF.exit.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
-  %dec.i.i.i.i = add i64 %37, -1
-  store i64 %dec.i.i.i.i, ptr %36, align 8
+  %dec.i.i.i.i = add i64 %38, -1
+  store i64 %dec.i.i.i.i, ptr %37, align 8
   %cmp.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %if.then1.i.i.i.i, label %Py_XDECREF.exit.i.i
 
 if.then1.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
-  call void @_Py_Dealloc(ptr noundef nonnull %36) #11
+  call void @_Py_Dealloc(ptr noundef nonnull %37) #11
   br label %Py_XDECREF.exit.i.i
 
 Py_XDECREF.exit.i.i:                              ; preds = %if.then1.i.i.i.i, %if.end.i.i.i.i, %if.then.i.i.i, %while.body.i.i
@@ -25066,16 +25066,16 @@ while.end.loopexit.i.i:                           ; preds = %Py_XDECREF.exit.i.i
   br label %PyMemoTable_Clear.exit.i
 
 PyMemoTable_Clear.exit.i:                         ; preds = %while.end.loopexit.i.i, %if.end.i35
-  %39 = phi i64 [ %.pre.i.i, %while.end.loopexit.i.i ], [ %34, %if.end.i35 ]
-  %mt_used.i.i37 = getelementptr inbounds i8, ptr %33, i64 8
+  %40 = phi i64 [ %.pre.i.i, %while.end.loopexit.i.i ], [ %35, %if.end.i35 ]
+  %mt_used.i.i37 = getelementptr inbounds i8, ptr %34, i64 8
   store i64 0, ptr %mt_used.i.i37, align 8
-  %mt_table1.i.i = getelementptr inbounds i8, ptr %33, i64 24
-  %40 = load ptr, ptr %mt_table1.i.i, align 8
-  %mul.i.i = shl i64 %39, 4
-  call void @llvm.memset.p0.i64(ptr align 8 %40, i8 0, i64 %mul.i.i, i1 false)
+  %mt_table1.i.i = getelementptr inbounds i8, ptr %34, i64 24
   %41 = load ptr, ptr %mt_table1.i.i, align 8
-  call void @PyMem_Free(ptr noundef %41) #11
-  call void @PyMem_Free(ptr noundef nonnull %33) #11
+  %mul.i.i = shl i64 %40, 4
+  call void @llvm.memset.p0.i64(ptr align 8 %41, i8 0, i64 %mul.i.i, i1 false)
+  %42 = load ptr, ptr %mt_table1.i.i, align 8
+  call void @PyMem_Free(ptr noundef %42) #11
+  call void @PyMem_Free(ptr noundef nonnull %34) #11
   br label %PyMemoTable_Del.exit
 
 PyMemoTable_Del.exit:                             ; preds = %if.end42, %PyMemoTable_Clear.exit.i
@@ -25083,33 +25083,33 @@ PyMemoTable_Del.exit:                             ; preds = %if.end42, %PyMemoTa
   br label %return
 
 if.end.i41:                                       ; preds = %if.end31, %land.lhs.true, %if.then24
-  %42 = load i64, ptr %mt_allocated.i29, align 8
-  %dec6.i.i43 = add i64 %42, -1
+  %43 = load i64, ptr %mt_allocated.i29, align 8
+  %dec6.i.i43 = add i64 %43, -1
   %cmp7.i.i44 = icmp sgt i64 %dec6.i.i43, -1
   br i1 %cmp7.i.i44, label %while.body.i.i51, label %PyMemoTable_Del.exit66
 
 while.body.i.i51:                                 ; preds = %if.end.i41, %Py_XDECREF.exit.i.i57
   %dec8.i.i52 = phi i64 [ %dec.i.i58, %Py_XDECREF.exit.i.i57 ], [ %dec6.i.i43, %if.end.i41 ]
-  %43 = load ptr, ptr %mt_table.i, align 8
-  %arrayidx.i.i53 = getelementptr %struct.PyMemoEntry, ptr %43, i64 %dec8.i.i52
-  %44 = load ptr, ptr %arrayidx.i.i53, align 8
-  %cmp.not.i.i.i54 = icmp eq ptr %44, null
+  %44 = load ptr, ptr %mt_table.i, align 8
+  %arrayidx.i.i53 = getelementptr %struct.PyMemoEntry, ptr %44, i64 %dec8.i.i52
+  %45 = load ptr, ptr %arrayidx.i.i53, align 8
+  %cmp.not.i.i.i54 = icmp eq ptr %45, null
   br i1 %cmp.not.i.i.i54, label %Py_XDECREF.exit.i.i57, label %if.then.i.i.i55
 
 if.then.i.i.i55:                                  ; preds = %while.body.i.i51
-  %45 = load i64, ptr %44, align 8
-  %46 = and i64 %45, 2147483648
-  %cmp.i2.not.i.i.i56 = icmp eq i64 %46, 0
+  %46 = load i64, ptr %45, align 8
+  %47 = and i64 %46, 2147483648
+  %cmp.i2.not.i.i.i56 = icmp eq i64 %47, 0
   br i1 %cmp.i2.not.i.i.i56, label %if.end.i.i.i.i62, label %Py_XDECREF.exit.i.i57
 
 if.end.i.i.i.i62:                                 ; preds = %if.then.i.i.i55
-  %dec.i.i.i.i63 = add i64 %45, -1
-  store i64 %dec.i.i.i.i63, ptr %44, align 8
+  %dec.i.i.i.i63 = add i64 %46, -1
+  store i64 %dec.i.i.i.i63, ptr %45, align 8
   %cmp.i.i.i.i64 = icmp eq i64 %dec.i.i.i.i63, 0
   br i1 %cmp.i.i.i.i64, label %if.then1.i.i.i.i65, label %Py_XDECREF.exit.i.i57
 
 if.then1.i.i.i.i65:                               ; preds = %if.end.i.i.i.i62
-  call void @_Py_Dealloc(ptr noundef nonnull %44) #11
+  call void @_Py_Dealloc(ptr noundef nonnull %45) #11
   br label %Py_XDECREF.exit.i.i57
 
 Py_XDECREF.exit.i.i57:                            ; preds = %if.then1.i.i.i.i65, %if.end.i.i.i.i62, %if.then.i.i.i55, %while.body.i.i51
@@ -25122,13 +25122,13 @@ while.end.loopexit.i.i60:                         ; preds = %Py_XDECREF.exit.i.i
   br label %PyMemoTable_Del.exit66
 
 PyMemoTable_Del.exit66:                           ; preds = %if.end.i41, %while.end.loopexit.i.i60
-  %47 = phi i64 [ %.pre.i.i61, %while.end.loopexit.i.i60 ], [ %42, %if.end.i41 ]
+  %48 = phi i64 [ %.pre.i.i61, %while.end.loopexit.i.i60 ], [ %43, %if.end.i41 ]
   store i64 0, ptr %mt_used.i28, align 8
-  %48 = load ptr, ptr %mt_table.i, align 8
-  %mul.i.i48 = shl i64 %47, 4
-  call void @llvm.memset.p0.i64(ptr align 8 %48, i8 0, i64 %mul.i.i48, i1 false)
   %49 = load ptr, ptr %mt_table.i, align 8
-  call void @PyMem_Free(ptr noundef %49) #11
+  %mul.i.i48 = shl i64 %48, 4
+  call void @llvm.memset.p0.i64(ptr align 8 %49, i8 0, i64 %mul.i.i48, i1 false)
+  %50 = load ptr, ptr %mt_table.i, align 8
+  call void @PyMem_Free(ptr noundef %50) #11
   call void @PyMem_Free(ptr noundef nonnull %call.i25) #11
   br label %return
 

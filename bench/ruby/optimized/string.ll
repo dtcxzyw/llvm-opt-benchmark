@@ -21748,8 +21748,7 @@ rb_string_value.exit:                             ; preds = %43, %.critedge.i
   %50 = inttoptr i64 %.0..0.54 to ptr
   %51 = getelementptr inbounds i8, ptr %50, i64 16
   %52 = load i64, ptr %51, align 8
-  store i64 %52, ptr %7, align 8
-  br label %104
+  br label %.sink.split
 
 53:                                               ; preds = %rb_string_value.exit
   %54 = getelementptr i8, ptr %1, i64 16
@@ -21830,8 +21829,7 @@ rb_string_value.exit45:                           ; preds = %79, %.critedge.i43
   %86 = inttoptr i64 %.0..0.56 to ptr
   %87 = getelementptr inbounds i8, ptr %86, i64 16
   %88 = load i64, ptr %87, align 8
-  store i64 %88, ptr %7, align 8
-  br label %104
+  br label %.sink.split
 
 89:                                               ; preds = %rb_string_value.exit45
   %90 = getelementptr i8, ptr %1, i64 24
@@ -21859,18 +21857,18 @@ rb_num2long_inline.exit48:                        ; preds = %93, %95
 
 100:                                              ; preds = %rb_num2long_inline.exit48
   %101 = ashr i64 %98, 1
-  br label %rb_num2long_inline.exit51
+  br label %.sink.split
 
 102:                                              ; preds = %rb_num2long_inline.exit48
   %103 = tail call i64 @rb_num2long(i64 noundef %98) #28
-  br label %rb_num2long_inline.exit51
+  br label %.sink.split
 
-rb_num2long_inline.exit51:                        ; preds = %100, %102
-  %.0.i50 = phi i64 [ %101, %100 ], [ %103, %102 ]
-  store i64 %.0.i50, ptr %7, align 8
+.sink.split:                                      ; preds = %102, %100, %49, %85
+  %.sink = phi i64 [ %88, %85 ], [ %52, %49 ], [ %101, %100 ], [ %103, %102 ]
+  store i64 %.sink, ptr %7, align 8
   br label %104
 
-104:                                              ; preds = %85, %rb_num2long_inline.exit51, %49, %53
+104:                                              ; preds = %.sink.split, %53
   call fastcc void @str_check_beg_len(i64 noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %.0..0..0.57 = load i64, ptr %8, align 8
   call fastcc void @str_check_beg_len(i64 noundef %.0..0..0.57, ptr noundef nonnull %6, ptr noundef nonnull %7)

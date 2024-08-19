@@ -4304,11 +4304,8 @@ sw.bb:                                            ; preds = %for.body483
   %shr9.i = lshr i64 %sub487, 32
   %conv10.i820 = trunc i64 %shr9.i to i8
   %shr12.i = lshr i64 %sub487, 40
-  %conv13.i = trunc i64 %shr12.i to i8
   %shr15.i = lshr i64 %sub487, 48
-  %conv16.i = trunc i64 %shr15.i to i8
   %shr18.i = lshr i64 %sub487, 56
-  %conv19.i = trunc nuw i64 %shr18.i to i8
   store i8 %conv.i810, ptr %outPtr.promoted1226, align 1
   %b.i809.sroa.4.0.outPtr.promoted1226.sroa_idx = getelementptr inbounds i8, ptr %outPtr.promoted1226, i64 1
   store i8 %conv1.i812, ptr %b.i809.sroa.4.0.outPtr.promoted1226.sroa_idx, align 1
@@ -4318,34 +4315,15 @@ sw.bb:                                            ; preds = %for.body483
   store i8 %conv7.i818, ptr %b.i809.sroa.6.0.outPtr.promoted1226.sroa_idx, align 1
   %b.i809.sroa.7.0.outPtr.promoted1226.sroa_idx = getelementptr inbounds i8, ptr %outPtr.promoted1226, i64 4
   store i8 %conv10.i820, ptr %b.i809.sroa.7.0.outPtr.promoted1226.sroa_idx, align 1
-  %b.i809.sroa.8.0.outPtr.promoted1226.sroa_idx = getelementptr inbounds i8, ptr %outPtr.promoted1226, i64 5
-  store i8 %conv13.i, ptr %b.i809.sroa.8.0.outPtr.promoted1226.sroa_idx, align 1
-  %b.i809.sroa.9.0.outPtr.promoted1226.sroa_idx = getelementptr inbounds i8, ptr %outPtr.promoted1226, i64 6
-  store i8 %conv16.i, ptr %b.i809.sroa.9.0.outPtr.promoted1226.sroa_idx, align 1
-  %b.i809.sroa.10.0.outPtr.promoted1226.sroa_idx = getelementptr inbounds i8, ptr %outPtr.promoted1226, i64 7
-  store i8 %conv19.i, ptr %b.i809.sroa.10.0.outPtr.promoted1226.sroa_idx, align 1
-  %scevgep1281 = getelementptr i8, ptr %outPtr.promoted1226, i64 8
-  store ptr %scevgep1281, ptr %outPtr, align 8
-  br label %sw.epilog
+  br label %sw.epilog.sink.split.sink.split
 
 sw.bb490:                                         ; preds = %for.body483
   %conv.i829 = trunc i64 %sub487 to i8
   %shr.i8301075 = lshr i64 %sub487, 8
-  %conv1.i831 = trunc i64 %shr.i8301075 to i8
   %shr3.i8331076 = lshr i64 %sub487, 16
-  %conv4.i834 = trunc i64 %shr3.i8331076 to i8
   %shr6.i8361077 = lshr i64 %sub487, 24
-  %conv7.i837 = trunc i64 %shr6.i8361077 to i8
   store i8 %conv.i829, ptr %outPtr.promoted1226, align 1
-  %b.i828.sroa.4.0.outPtr.promoted1224.sroa_idx = getelementptr inbounds i8, ptr %outPtr.promoted1226, i64 1
-  store i8 %conv1.i831, ptr %b.i828.sroa.4.0.outPtr.promoted1224.sroa_idx, align 1
-  %b.i828.sroa.5.0.outPtr.promoted1224.sroa_idx = getelementptr inbounds i8, ptr %outPtr.promoted1226, i64 2
-  store i8 %conv4.i834, ptr %b.i828.sroa.5.0.outPtr.promoted1224.sroa_idx, align 1
-  %b.i828.sroa.6.0.outPtr.promoted1224.sroa_idx = getelementptr inbounds i8, ptr %outPtr.promoted1226, i64 3
-  store i8 %conv7.i837, ptr %b.i828.sroa.6.0.outPtr.promoted1224.sroa_idx, align 1
-  %scevgep1280 = getelementptr i8, ptr %outPtr.promoted1226, i64 4
-  store ptr %scevgep1280, ptr %outPtr, align 8
-  br label %sw.epilog
+  br label %sw.epilog.sink.split.sink.split
 
 do.body.i:                                        ; preds = %for.body483, %do.body.i
   %incdec.ptr.i8491223 = phi ptr [ %incdec.ptr.i849, %do.body.i ], [ %outPtr.promoted1226, %for.body483 ]
@@ -4358,14 +4336,35 @@ do.body.i:                                        ; preds = %for.body483, %do.bo
   %byte.0.i = or disjoint i8 %conv.i846, %masksel.i
   %incdec.ptr.i849 = getelementptr inbounds i8, ptr %incdec.ptr.i8491223, i64 1
   store i8 %byte.0.i, ptr %incdec.ptr.i8491223, align 1
-  br i1 %cmp.not.i848, label %sw.epilog.loopexit, label %do.body.i, !llvm.loop !63
+  br i1 %cmp.not.i848, label %sw.epilog.sink.split, label %do.body.i, !llvm.loop !63
 
-sw.epilog.loopexit:                               ; preds = %do.body.i
-  store ptr %incdec.ptr.i849, ptr %outPtr, align 8
+sw.epilog.sink.split.sink.split:                  ; preds = %sw.bb490, %sw.bb
+  %.sink1327 = phi i64 [ 5, %sw.bb ], [ 1, %sw.bb490 ]
+  %conv13.i.sink.in = phi i64 [ %shr12.i, %sw.bb ], [ %shr.i8301075, %sw.bb490 ]
+  %.sink1326 = phi i64 [ 6, %sw.bb ], [ 2, %sw.bb490 ]
+  %conv16.i.sink.in = phi i64 [ %shr15.i, %sw.bb ], [ %shr3.i8331076, %sw.bb490 ]
+  %.sink1325 = phi i64 [ 7, %sw.bb ], [ 3, %sw.bb490 ]
+  %conv19.i.sink.in = phi i64 [ %shr18.i, %sw.bb ], [ %shr6.i8361077, %sw.bb490 ]
+  %.sink = phi i64 [ 8, %sw.bb ], [ 4, %sw.bb490 ]
+  %conv19.i.sink = trunc i64 %conv19.i.sink.in to i8
+  %conv16.i.sink = trunc i64 %conv16.i.sink.in to i8
+  %conv13.i.sink = trunc i64 %conv13.i.sink.in to i8
+  %b.i809.sroa.8.0.outPtr.promoted1226.sroa_idx = getelementptr inbounds i8, ptr %outPtr.promoted1226, i64 %.sink1327
+  store i8 %conv13.i.sink, ptr %b.i809.sroa.8.0.outPtr.promoted1226.sroa_idx, align 1
+  %b.i809.sroa.9.0.outPtr.promoted1226.sroa_idx = getelementptr inbounds i8, ptr %outPtr.promoted1226, i64 %.sink1326
+  store i8 %conv16.i.sink, ptr %b.i809.sroa.9.0.outPtr.promoted1226.sroa_idx, align 1
+  %b.i809.sroa.10.0.outPtr.promoted1226.sroa_idx = getelementptr inbounds i8, ptr %outPtr.promoted1226, i64 %.sink1325
+  store i8 %conv19.i.sink, ptr %b.i809.sroa.10.0.outPtr.promoted1226.sroa_idx, align 1
+  %scevgep1281 = getelementptr i8, ptr %outPtr.promoted1226, i64 %.sink
+  br label %sw.epilog.sink.split
+
+sw.epilog.sink.split:                             ; preds = %do.body.i, %sw.epilog.sink.split.sink.split
+  %incdec.ptr.i849.lcssa.sink = phi ptr [ %scevgep1281, %sw.epilog.sink.split.sink.split ], [ %incdec.ptr.i849, %do.body.i ]
+  store ptr %incdec.ptr.i849.lcssa.sink, ptr %outPtr, align 8
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.epilog.loopexit, %sw.bb490, %sw.bb, %for.body483
-  %outPtr.promoted12061288 = phi ptr [ %incdec.ptr.i849, %sw.epilog.loopexit ], [ %scevgep1280, %sw.bb490 ], [ %scevgep1281, %sw.bb ], [ %outPtr.promoted1226, %for.body483 ]
+sw.epilog:                                        ; preds = %sw.epilog.sink.split, %for.body483
+  %outPtr.promoted12061288 = phi ptr [ %outPtr.promoted1226, %for.body483 ], [ %incdec.ptr.i849.lcssa.sink, %sw.epilog.sink.split ]
   %147 = load i64, ptr %_M_storage.i.i808, align 8
   %148 = load ptr, ptr %_M_finish.i851, align 8
   %149 = load ptr, ptr %_components457, align 8

@@ -5585,13 +5585,13 @@ verifystatus.exit.i.i:                            ; preds = %748, %743, %741, %7
   %768 = load ptr, ptr %471, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %.not.i221.i.i = icmp eq ptr %768, null
-  br i1 %.not.i221.i.i, label %ossl_pkp_pin_peer_pubkey.exit.thread.i.i, label %769
+  br i1 %.not.i221.i.i, label %.sink.split.i.i, label %769
 
 769:                                              ; preds = %767
   %770 = call ptr @X509_get_X509_PUBKEY(ptr noundef nonnull %768) #13
   %771 = call i32 @i2d_X509_PUBKEY(ptr noundef %770, ptr noundef null) #13
   %772 = icmp slt i32 %771, 1
-  br i1 %772, label %ossl_pkp_pin_peer_pubkey.exit.thread.i.i, label %773
+  br i1 %772, label %.sink.split.i.i, label %773
 
 773:                                              ; preds = %769
   %774 = load ptr, ptr @Curl_cmalloc, align 8
@@ -5599,7 +5599,7 @@ verifystatus.exit.i.i:                            ; preds = %748, %743, %741, %7
   %776 = call ptr %774(i64 noundef %775) #13
   store ptr %776, ptr %5, align 8
   %.not28.i222.i.i = icmp eq ptr %776, null
-  br i1 %.not28.i222.i.i, label %ossl_pkp_pin_peer_pubkey.exit.thread.i.i, label %777
+  br i1 %.not28.i222.i.i, label %.sink.split.i.i, label %777
 
 777:                                              ; preds = %773
   %778 = call ptr @X509_get_X509_PUBKEY(ptr noundef nonnull %768) #13
@@ -5618,12 +5618,7 @@ verifystatus.exit.i.i:                            ; preds = %748, %743, %741, %7
 ossl_pkp_pin_peer_pubkey.exit.thread235.i.i:      ; preds = %777
   %786 = load ptr, ptr @Curl_cfree, align 8
   call void %786(ptr noundef nonnull %776) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %789
-
-ossl_pkp_pin_peer_pubkey.exit.thread.i.i:         ; preds = %773, %769, %767
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %789
+  br label %.sink.split.i.i
 
 ossl_pkp_pin_peer_pubkey.exit.i.i:                ; preds = %777
   %787 = call i32 @Curl_pin_peer_pubkey(ptr noundef nonnull %1, ptr noundef nonnull %764, ptr noundef nonnull %776, i64 noundef %775) #13
@@ -5633,8 +5628,12 @@ ossl_pkp_pin_peer_pubkey.exit.i.i:                ; preds = %777
   %.not204.i.i = icmp eq i32 %787, 0
   br i1 %.not204.i.i, label %790, label %789
 
-789:                                              ; preds = %ossl_pkp_pin_peer_pubkey.exit.i.i, %ossl_pkp_pin_peer_pubkey.exit.thread.i.i, %ossl_pkp_pin_peer_pubkey.exit.thread235.i.i
-  %.021.i225234.i.i = phi i32 [ 90, %ossl_pkp_pin_peer_pubkey.exit.thread.i.i ], [ %787, %ossl_pkp_pin_peer_pubkey.exit.i.i ], [ 90, %ossl_pkp_pin_peer_pubkey.exit.thread235.i.i ]
+.sink.split.i.i:                                  ; preds = %ossl_pkp_pin_peer_pubkey.exit.thread235.i.i, %773, %769, %767
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  br label %789
+
+789:                                              ; preds = %.sink.split.i.i, %ossl_pkp_pin_peer_pubkey.exit.i.i
+  %.021.i225234.i.i = phi i32 [ %787, %ossl_pkp_pin_peer_pubkey.exit.i.i ], [ 90, %.sink.split.i.i ]
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.195) #13
   br label %790
 

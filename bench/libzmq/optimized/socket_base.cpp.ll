@@ -4514,11 +4514,11 @@ land.rhs.i:                                       ; preds = %cond.end54
   br label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %cond.end54, %land.rhs.i, %10
-  %storemerge = phi i32 [ -1, %10 ], [ %cond30144, %land.rhs.i ], [ %cond30144, %cond.end54 ]
+  %cond30144.sink = phi i32 [ -1, %10 ], [ %cond30144, %land.rhs.i ], [ %cond30144, %cond.end54 ]
   %11 = phi i1 [ true, %10 ], [ false, %land.rhs.i ], [ false, %cond.end54 ]
   %frombool147150 = phi i8 [ 1, %10 ], [ 0, %land.rhs.i ], [ 0, %cond.end54 ]
   %12 = phi i32 [ -1, %10 ], [ %cond55, %land.rhs.i ], [ %cond55, %cond.end54 ]
-  store i32 %storemerge, ptr %hwms, align 4
+  store i32 %cond30144.sink, ptr %hwms, align 4
   %arrayinit.element73 = getelementptr inbounds i8, ptr %hwms, i64 4
   store i32 %12, ptr %arrayinit.element73, align 4
   store i8 %frombool147150, ptr %conflates, align 1

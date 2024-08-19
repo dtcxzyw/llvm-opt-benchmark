@@ -3947,13 +3947,13 @@ parse_connect_to_string.exit.thread56:            ; preds = %18
   %28 = load ptr, ptr @Curl_cfree, align 8
   tail call void %28(ptr noundef nonnull %24) #12
   %.not44.i = icmp eq i32 %27, 0
-  br i1 %.not44.i, label %parse_connect_to_string.exit.thread, label %29
+  br i1 %.not44.i, label %.thread.sink.split, label %29
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds i8, ptr %15, i64 %26
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, 58
-  br i1 %32, label %.thread.i, label %parse_connect_to_string.exit.thread
+  br i1 %32, label %.thread.i, label %.thread.sink.split
 
 .thread.i:                                        ; preds = %29, %14
   %.pn52.i = phi ptr [ %30, %29 ], [ %15, %14 ]
@@ -3969,21 +3969,21 @@ parse_connect_to_string.exit.thread56:            ; preds = %18
 36:                                               ; preds = %.thread.i
   %37 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.03853.i, i32 noundef 58) #13
   %.not45.i = icmp eq ptr %37, null
-  br i1 %.not45.i, label %parse_connect_to_string.exit.thread, label %38
+  br i1 %.not45.i, label %.thread.sink.split, label %38
 
 38:                                               ; preds = %36
   store ptr null, ptr %5, align 8
   %39 = call i64 @strtol(ptr noundef nonnull %.03853.i, ptr noundef nonnull %5, i32 noundef 10) #12
   %40 = load ptr, ptr %5, align 8
   %41 = icmp eq ptr %40, %37
-  br i1 %41, label %42, label %parse_connect_to_string.exit.thread
+  br i1 %41, label %42, label %.thread.sink.split
 
 42:                                               ; preds = %38
   %43 = load i32, ptr %8, align 4
   %44 = sext i32 %43 to i64
   %45 = icmp eq i64 %39, %44
   %46 = getelementptr inbounds i8, ptr %37, i64 1
-  br i1 %45, label %47, label %parse_connect_to_string.exit.thread
+  br i1 %45, label %47, label %.thread.sink.split
 
 47:                                               ; preds = %42, %.thread80.i
   %.182.i = phi ptr [ %35, %.thread80.i ], [ %46, %42 ]
@@ -3994,8 +3994,7 @@ parse_connect_to_string.exit.thread56:            ; preds = %18
 
 parse_connect_to_string.exit.thread61:            ; preds = %47
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %.thread
+  br label %.thread.sink.split
 
 49:                                               ; preds = %47
   %50 = load ptr, ptr @Curl_cstrdup, align 8
@@ -4186,10 +4185,6 @@ sub_2.i.i:                                        ; preds = %sub_1.i.i
   %.not109.i.i = icmp eq ptr %109, null
   br i1 %.not109.i.i, label %parse_connect_to_string.exit.thread72, label %111
 
-parse_connect_to_string.exit.thread:              ; preds = %42, %29, %38, %36, %25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %.thread
-
 parse_connect_to_string.exit.thread72:            ; preds = %107, %104
   %.078.i.i.ph = phi i32 [ 49, %104 ], [ 27, %107 ]
   %110 = load ptr, ptr @Curl_cfree, align 8
@@ -4225,9 +4220,13 @@ parse_connect_to_string.exit.thread72:            ; preds = %107, %104
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.46, ptr noundef nonnull %109) #12
   br label %124
 
-.thread:                                          ; preds = %parse_connect_to_string.exit.thread61, %parse_connect_to_string.exit.thread, %111
-  %.4495482 = phi ptr [ %109, %111 ], [ null, %parse_connect_to_string.exit.thread ], [ null, %parse_connect_to_string.exit.thread61 ]
-  %.45581 = phi i32 [ %.079.i.i, %111 ], [ -1, %parse_connect_to_string.exit.thread ], [ -1, %parse_connect_to_string.exit.thread61 ]
+.thread.sink.split:                               ; preds = %25, %36, %38, %29, %42, %parse_connect_to_string.exit.thread61
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  br label %.thread
+
+.thread:                                          ; preds = %.thread.sink.split, %111
+  %.4495482 = phi ptr [ %109, %111 ], [ null, %.thread.sink.split ]
+  %.45581 = phi i32 [ %.079.i.i, %111 ], [ -1, %.thread.sink.split ]
   %121 = load i32, ptr %6, align 8
   %122 = and i32 %121, -513
   store i32 %122, ptr %6, align 8

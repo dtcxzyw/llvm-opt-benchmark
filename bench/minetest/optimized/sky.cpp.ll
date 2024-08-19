@@ -5775,7 +5775,7 @@ invoke.cont177:                                   ; preds = %if.end170
   %m_in_clouds = getelementptr inbounds i8, ptr %this, i64 2491
   %65 = load i8, ptr %m_in_clouds, align 1, !tbaa !81, !range !106, !noundef !107
   %tobool178.not = icmp eq i8 %65, 0
-  br i1 %tobool178.not, label %if.end180, label %cleanup706.critedge
+  br i1 %tobool178.not, label %if.end180, label %cleanup706.sink.split
 
 lpad171:                                          ; preds = %if.end170
   %66 = landingpad { ptr, i32 }
@@ -6304,7 +6304,7 @@ if.then543:                                       ; preds = %if.end540
 if.end545:                                        ; preds = %if.then543, %if.end540
   %101 = load i8, ptr %m_visible, align 8, !tbaa !48, !range !106, !noundef !107
   %tobool547.not = icmp eq i8 %101, 0
-  br i1 %tobool547.not, label %cleanup, label %if.then548
+  br i1 %tobool547.not, label %cleanup706.sink.split, label %if.then548
 
 if.then548:                                       ; preds = %if.end545
   %vtable551 = load ptr, ptr %call, align 8, !tbaa !20
@@ -6440,7 +6440,7 @@ invoke.cont638.3:                                 ; preds = %invoke.cont638.2
   %vfn.i1325 = getelementptr inbounds i8, ptr %vtable.i1324, i64 344
   %107 = load ptr, ptr %vfn.i1325, align 8
   invoke void %107(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull %vertices, i32 noundef 4, ptr noundef nonnull @_ZZN3Sky6renderEvE7indices, i32 noundef 2, i32 noundef 0, i32 noundef 6, i32 noundef 0)
-          to label %cleanup unwind label %lpad674
+          to label %cleanup706.sink.split unwind label %lpad674
 
 lpad637:                                          ; preds = %invoke.cont638.2, %invoke.cont638.1, %invoke.cont638, %for.cond555.preheader
   %108 = landingpad { ptr, i32 }
@@ -6451,14 +6451,6 @@ lpad674:                                          ; preds = %invoke.cont638.3
   %109 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup680
-
-cleanup:                                          ; preds = %invoke.cont638.3, %if.end545
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %vertices) #31
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %mooncolor2) #31
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %mooncolor) #31
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %suncolor2) #31
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %suncolor) #31
-  br label %cleanup706
 
 ehcleanup680:                                     ; preds = %lpad674, %lpad637, %lpad526, %lpad395, %lpad308, %lpad185, %lpad171
   %.pn822.pn.pn = phi { ptr, i32 } [ %66, %lpad171 ], [ %85, %lpad308 ], [ %89, %lpad395 ], [ %108, %lpad637 ], [ %109, %lpad674 ], [ %71, %lpad185 ], [ %98, %lpad526 ]
@@ -6473,7 +6465,7 @@ ehcleanup688:                                     ; preds = %ehcleanup680, %lpad
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %suncolor) #31
   br label %ehcleanup711
 
-cleanup706.critedge:                              ; preds = %invoke.cont177
+cleanup706.sink.split:                            ; preds = %invoke.cont177, %if.end545, %invoke.cont638.3
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %vertices) #31
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %mooncolor2) #31
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %mooncolor) #31
@@ -6481,7 +6473,7 @@ cleanup706.critedge:                              ; preds = %invoke.cont177
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %suncolor) #31
   br label %cleanup706
 
-cleanup706:                                       ; preds = %cleanup706.critedge, %cleanup, %invoke.cont45
+cleanup706:                                       ; preds = %cleanup706.sink.split, %invoke.cont45
   call void @_ZN13ScopeProfilerD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %sp) #31
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %sp) #31
   br label %cleanup716

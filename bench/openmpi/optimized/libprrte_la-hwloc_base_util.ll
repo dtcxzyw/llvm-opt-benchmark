@@ -3125,8 +3125,7 @@ prte_hwloc_base_get_nbobjs_by_type.exit64:        ; preds = %6, %17, %.thread77,
 
 89:                                               ; preds = %87
   %90 = call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull @.str.60) #16
-  store ptr %90, ptr %4, align 8
-  br label %98
+  br label %.sink.split
 
 91:                                               ; preds = %87
   store ptr null, ptr %4, align 8
@@ -3145,11 +3144,15 @@ prte_hwloc_base_get_nbobjs_by_type.exit64:        ; preds = %6, %17, %.thread77,
 
 96:                                               ; preds = %95, %94
   %97 = call noalias dereferenceable_or_null(8) ptr @strdup(ptr noundef nonnull @.str.58) #16
-  store ptr %97, ptr %4, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %89, %96
+  %.sink = phi ptr [ %97, %96 ], [ %90, %89 ]
+  store ptr %.sink, ptr %4, align 8
   br label %98
 
-98:                                               ; preds = %91, %96, %89
-  %99 = phi ptr [ %.pre, %91 ], [ %97, %96 ], [ %90, %89 ]
+98:                                               ; preds = %.sink.split, %91
+  %99 = phi ptr [ %.pre, %91 ], [ %.sink, %.sink.split ]
   %100 = icmp eq ptr %.0, null
   %spec.store.select = select i1 %100, ptr @.str.58, ptr %.0
   %101 = load ptr, ptr %3, align 8

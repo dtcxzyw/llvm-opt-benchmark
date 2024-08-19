@@ -319,31 +319,31 @@ define dso_local i32 @__skb_flow_get_ports(ptr noundef %0, i32 noundef %1, i8 no
 
 28:                                               ; preds = %24
   %29 = icmp eq ptr %0, null
-  br i1 %29, label %.thread5, label %30
+  br i1 %29, label %.sink.split, label %30
 
 30:                                               ; preds = %28
   %31 = call i32 @skb_copy_bits(ptr noundef nonnull %0, i32 noundef %25, ptr noundef nonnull %6, i32 noundef 4) #12
   %32 = icmp slt i32 %31, 0
-  br i1 %32, label %.thread5, label %.thread3, !prof !5
+  br i1 %32, label %.sink.split, label %.thread3, !prof !5
 
 33:                                               ; preds = %24
   %34 = sext i32 %25 to i64
   %35 = getelementptr i8, ptr %22, i64 %34
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %.thread5, label %.thread3
-
-.thread5:                                         ; preds = %33, %28, %30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  br label %39
+  br i1 %36, label %.sink.split, label %.thread3
 
 .thread3:                                         ; preds = %30, %33
   %37 = phi ptr [ %35, %33 ], [ %6, %30 ]
   %38 = load i32, ptr %37, align 4
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %30, %28, %33, %.thread3
+  %.ph = phi i32 [ %38, %.thread3 ], [ 0, %33 ], [ 0, %28 ], [ 0, %30 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
   br label %39
 
-39:                                               ; preds = %21, %.thread5, %.thread3
-  %40 = phi i32 [ %38, %.thread3 ], [ 0, %.thread5 ], [ 0, %21 ]
+39:                                               ; preds = %.sink.split, %21
+  %40 = phi i32 [ 0, %21 ], [ %.ph, %.sink.split ]
   ret i32 %40
 }
 
@@ -1184,10 +1184,10 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 
 282:                                              ; preds = %.backedge, %244
   %283 = phi i16 [ %63, %244 ], [ %.be, %.backedge ]
-  %284 = phi i32 [ %64, %244 ], [ %.be260, %.backedge ]
+  %284 = phi i32 [ %64, %244 ], [ %.be261, %.backedge ]
   %285 = phi i8 [ 0, %244 ], [ %804, %.backedge ]
-  %286 = phi i32 [ 0, %244 ], [ %.be262, %.backedge ]
-  %287 = phi i8 [ 0, %244 ], [ %.be263, %.backedge ]
+  %286 = phi i32 [ 0, %244 ], [ %.be263, %.backedge ]
+  %287 = phi i8 [ 0, %244 ], [ %.be264, %.backedge ]
   %288 = phi i32 [ 0, %244 ], [ %806, %.backedge ]
   %289 = phi i32 [ 33, %244 ], [ %807, %.backedge ]
   switch i16 %283, label %.thread113 [
@@ -2792,31 +2792,31 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   br i1 %1165, label %1166, label %1170, !prof !5
 
 1166:                                             ; preds = %1162
-  br i1 %75, label %.thread169, label %1167
+  br i1 %75, label %.sink.split, label %1167
 
 1167:                                             ; preds = %1166
   %1168 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %1163, ptr noundef nonnull %10, i32 noundef 4) #12
   %1169 = icmp slt i32 %1168, 0
-  br i1 %1169, label %.thread169, label %.thread167, !prof !5
+  br i1 %1169, label %.sink.split, label %.thread167, !prof !5
 
 1170:                                             ; preds = %1162
   %1171 = sext i32 %1163 to i64
   %1172 = getelementptr i8, ptr %1160, i64 %1171
   %1173 = icmp eq ptr %1172, null
-  br i1 %1173, label %.thread169, label %.thread167
-
-.thread169:                                       ; preds = %1170, %1166, %1167
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
-  br label %1176
+  br i1 %1173, label %.sink.split, label %.thread167
 
 .thread167:                                       ; preds = %1167, %1170
   %1174 = phi ptr [ %1172, %1170 ], [ %10, %1167 ]
   %1175 = load i32, ptr %1174, align 4
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %1167, %1166, %1170, %.thread167
+  %.ph235 = phi i32 [ %1175, %.thread167 ], [ 0, %1170 ], [ 0, %1166 ], [ 0, %1167 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
   br label %1176
 
-1176:                                             ; preds = %1159, %.thread169, %.thread167
-  %1177 = phi i32 [ %1175, %.thread167 ], [ 0, %.thread169 ], [ 0, %1159 ]
+1176:                                             ; preds = %.sink.split, %1159
+  %1177 = phi i32 [ 0, %1159 ], [ %.ph235, %.sink.split ]
   store i32 %1177, ptr %1148, align 4
   br label %1178
 
@@ -2835,9 +2835,9 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 
 .backedge:                                        ; preds = %1179, %809
   %.be = phi i16 [ %1127, %1179 ], [ %802, %809 ]
-  %.be260 = phi i32 [ %1128, %1179 ], [ %803, %809 ]
-  %.be262 = phi i32 [ %1180, %1179 ], [ %810, %809 ]
-  %.be263 = phi i8 [ %1129, %1179 ], [ %805, %809 ]
+  %.be261 = phi i32 [ %1128, %1179 ], [ %803, %809 ]
+  %.be263 = phi i32 [ %1180, %1179 ], [ %810, %809 ]
+  %.be264 = phi i8 [ %1129, %1179 ], [ %805, %809 ]
   br label %282
 
 1182:                                             ; preds = %1178

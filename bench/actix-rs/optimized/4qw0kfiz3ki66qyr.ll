@@ -860,7 +860,7 @@ define noundef zeroext i1 @_ZN12actix_router9regex_set8RegexSet8is_match17h86168
   %15 = getelementptr inbounds i8, ptr %12, i64 8
   %16 = load i64, ptr %15, align 8, !noalias !117
   %17 = icmp ugt i64 %16, %2
-  br i1 %17, label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h316631178f9de364E.exit.thread15.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.i
+  br i1 %17, label %_ZN14regex_automata4meta5regex5Regex8is_match17ha3315326fbf1951aE.exit, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.i
 
 _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.i: ; preds = %14
   %18 = getelementptr inbounds i8, ptr %12, i64 60
@@ -885,7 +885,7 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h316631178f9de364E.exit
   %28 = getelementptr inbounds i8, ptr %12, i64 24
   %29 = load i64, ptr %28, align 8, !noalias !114
   %30 = icmp ult i64 %29, %2
-  br i1 %30, label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h316631178f9de364E.exit.thread15.i, label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h316631178f9de364E.exit.thread.i
+  br i1 %30, label %_ZN14regex_automata4meta5regex5Regex8is_match17ha3315326fbf1951aE.exit, label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h316631178f9de364E.exit.thread.i
 
 _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h316631178f9de364E.exit.thread.i: ; preds = %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h316631178f9de364E.exit.i, %25, %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.thread.i, %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.i, %._crit_edge.i
   %31 = getelementptr inbounds i8, ptr %.val, i64 16
@@ -958,10 +958,6 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h3caf5338a24ba062E.exit.i
   tail call void @llvm.assume(i1 %58)
   br label %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17he7339aac8a2074baE.exit.i"
 
-_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h316631178f9de364E.exit.thread15.i: ; preds = %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h316631178f9de364E.exit.i, %14
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8), !noalias !114
-  br label %_ZN14regex_automata4meta5regex5Regex8is_match17ha3315326fbf1951aE.exit
-
 "_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17he7339aac8a2074baE.exit.i": ; preds = %53, %50
   %.0.i11.i = phi ptr [ %56, %53 ], [ %52, %50 ]
   %59 = add i64 %48, -1
@@ -1032,7 +1028,6 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h316631178f9de364E.exit
 
 "_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$7put_imp17h6258975a5a86d74fE.exit.i": ; preds = %.noexc9.i, %.noexc7.i, %72
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !114
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8), !noalias !114
   br label %_ZN14regex_automata4meta5regex5Regex8is_match17ha3315326fbf1951aE.exit
 
 79:                                               ; preds = %80, %.body.thread.i
@@ -1051,8 +1046,9 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h316631178f9de364E.exit
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16, !noalias !114
   unreachable
 
-_ZN14regex_automata4meta5regex5Regex8is_match17ha3315326fbf1951aE.exit: ; preds = %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h316631178f9de364E.exit.thread15.i, %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$7put_imp17h6258975a5a86d74fE.exit.i"
-  %.0.i = phi i1 [ false, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h316631178f9de364E.exit.thread15.i ], [ %65, %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$7put_imp17h6258975a5a86d74fE.exit.i" ]
+_ZN14regex_automata4meta5regex5Regex8is_match17ha3315326fbf1951aE.exit: ; preds = %14, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h316631178f9de364E.exit.i, %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$7put_imp17h6258975a5a86d74fE.exit.i"
+  %.0.i = phi i1 [ %65, %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$7put_imp17h6258975a5a86d74fE.exit.i" ], [ false, %14 ], [ false, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h316631178f9de364E.exit.i ]
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8), !noalias !114
   ret i1 %.0.i
 }
 

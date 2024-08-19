@@ -13363,11 +13363,11 @@ if.else118:                                       ; preds = %if.then.i, %_Z2eqI3
 
 if.end121:                                        ; preds = %if.then82, %_Z2eqI3f2nI11mpf_managerEEbRT_RKNS3_7numeralE16ext_numeral_kindS7_S8_.exit, %if.else118
   %m_mul_bc.sink = phi ptr [ %m_mul_bc, %if.else118 ], [ %m_mul_ad, %_Z2eqI3f2nI11mpf_managerEEbRT_RKNS3_7numeralE16ext_numeral_kindS7_S8_.exit ], [ %m_mul_ad, %if.then82 ]
-  %storemerge.in = phi ptr [ %bc_k, %if.else118 ], [ %ad_k, %_Z2eqI3f2nI11mpf_managerEEbRT_RKNS3_7numeralE16ext_numeral_kindS7_S8_.exit ], [ %ad_k, %if.then82 ]
+  %.sink1053.in = phi ptr [ %bc_k, %if.else118 ], [ %ad_k, %_Z2eqI3f2nI11mpf_managerEEbRT_RKNS3_7numeralE16ext_numeral_kindS7_S8_.exit ], [ %ad_k, %if.then82 ]
   %.sink = phi i1 [ %226, %if.else118 ], [ %225, %_Z2eqI3f2nI11mpf_managerEEbRT_RKNS3_7numeralE16ext_numeral_kindS7_S8_.exit ], [ %225, %if.then82 ]
   call void @_ZN3mpf4swapERS_(ptr noundef nonnull align 8 dereferenceable(32) %m_result_lower, ptr noundef nonnull align 8 dereferenceable(32) %m_mul_bc.sink) #22
-  %storemerge = load i32, ptr %storemerge.in, align 4
-  store i32 %storemerge, ptr %new_l_kind, align 4
+  %.sink1053 = load i32, ptr %.sink1053.in, align 4
+  store i32 %.sink1053, ptr %new_l_kind, align 4
   %frombool.i.i747 = zext i1 %.sink to i8
   %m_l_open.i.i748 = getelementptr inbounds i8, ptr %r, i64 57
   store i8 %frombool.i.i747, ptr %m_l_open.i.i748, align 1

@@ -880,7 +880,6 @@ define void @_ZN8grep_cli7process20CommandReaderBuilder5build17h74c4aae7db76a0e8
   %.sroa.426.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %19, ptr %.sroa.426.0..sroa_idx, align 8
   store i32 2, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %8)
   br label %39
 
 21:                                               ; preds = %10
@@ -917,7 +916,6 @@ _ZN8grep_cli7process12StderrReader5async17h1b4c9ea4b8b6d943E.exit: ; preds = %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.09.sroa.8.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(28) %8, i64 28, i1 false)
   %.sroa.510.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 60
   store i8 0, ptr %.sroa.510.0..sroa_idx, align 4
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %8)
   br label %39
 
 .invoke:                                          ; preds = %21, %22
@@ -972,6 +970,7 @@ _ZN8grep_cli7process12StderrReader5async17h1b4c9ea4b8b6d943E.exit: ; preds = %21
   unreachable
 
 39:                                               ; preds = %_ZN8grep_cli7process12StderrReader5async17h1b4c9ea4b8b6d943E.exit, %17
+  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %8)
   ret void
 
 40:                                               ; preds = %.body

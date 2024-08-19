@@ -730,10 +730,10 @@ _read_last_decay_ran.exit:                        ; preds = %44, %49, %52, %55, 
   %.pre = load i64, ptr %7, align 8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %306
-  %79 = phi i64 [ %307, %306 ], [ %.pre, %.lr.ph.preheader ]
-  %.073 = phi i64 [ %.2, %306 ], [ 0, %.lr.ph.preheader ]
-  %.03372 = phi i16 [ %.235, %306 ], [ %15, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %307
+  %79 = phi i64 [ %308, %307 ], [ %.pre, %.lr.ph.preheader ]
+  %.073 = phi i64 [ %.2, %307 ], [ 0, %.lr.ph.preheader ]
+  %.03372 = phi i16 [ %.235, %307 ], [ %15, %.lr.ph.preheader ]
   %80 = call i32 @pthread_mutex_lock(ptr noundef nonnull @decay_lock) #15
   %.not53 = icmp eq i32 %80, 0
   br i1 %.not53, label %83, label %81
@@ -1185,70 +1185,70 @@ _read_last_decay_ran.exit:                        ; preds = %44, %49, %52, %55, 
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.47, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._write_last_decay_ran, ptr noundef %285, ptr noundef %286) #15
   br label %287
 
-287:                                              ; preds = %275, %281, %284, %262
-  %.sink.i = load ptr, ptr %3, align 8
-  %288 = call i32 @unlink(ptr noundef %.sink.i) #15
+287:                                              ; preds = %284, %281, %275, %262
+  %288 = load ptr, ptr %3, align 8
+  %289 = call i32 @unlink(ptr noundef %288) #15
   call void @slurm_xfree(ptr noundef nonnull %2) #15
   call void @slurm_xfree(ptr noundef nonnull %4) #15
   call void @slurm_xfree(ptr noundef nonnull %3) #15
   call void @unlock_state_files() #15
-  %289 = call i32 @get_log_level() #15
-  %290 = icmp sgt i32 %289, 7
-  br i1 %290, label %291, label %292
+  %290 = call i32 @get_log_level() #15
+  %291 = icmp sgt i32 %290, 7
+  br i1 %291, label %292, label %293
 
-291:                                              ; preds = %287
+292:                                              ; preds = %287
   call void (i32, ptr, ...) @log_var(i32 noundef 8, ptr noundef nonnull @.str.48, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._write_last_decay_ran, i64 noundef %212) #15
-  br label %292
+  br label %293
 
-292:                                              ; preds = %291, %287
+293:                                              ; preds = %292, %287
   %.not36.i = icmp eq ptr %220, null
-  br i1 %.not36.i, label %_write_last_decay_ran.exit, label %293
+  br i1 %.not36.i, label %_write_last_decay_ran.exit, label %294
 
-293:                                              ; preds = %292
+294:                                              ; preds = %293
   call void @free_buf(ptr noundef nonnull %220) #15
   br label %_write_last_decay_ran.exit
 
-_write_last_decay_ran.exit:                       ; preds = %216, %292, %293
+_write_last_decay_ran.exit:                       ; preds = %216, %293, %294
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   store i1 false, ptr @running_decay, align 1
-  %294 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 836), align 4
-  %295 = zext i32 %294 to i64
-  %296 = load i64, ptr %10, align 8
-  %297 = add nsw i64 %296, %295
-  store i64 %297, ptr %10, align 8
-  %298 = call i32 @pthread_cond_timedwait(ptr noundef nonnull @decay_cond, ptr noundef nonnull @decay_lock, ptr noundef nonnull %10) #15
-  switch i32 %298, label %299 [
-    i32 110, label %302
-    i32 0, label %302
+  %295 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 836), align 4
+  %296 = zext i32 %295 to i64
+  %297 = load i64, ptr %10, align 8
+  %298 = add nsw i64 %297, %296
+  store i64 %298, ptr %10, align 8
+  %299 = call i32 @pthread_cond_timedwait(ptr noundef nonnull @decay_cond, ptr noundef nonnull @decay_lock, ptr noundef nonnull %10) #15
+  switch i32 %299, label %300 [
+    i32 110, label %303
+    i32 0, label %303
   ]
 
-299:                                              ; preds = %_write_last_decay_ran.exit
-  %300 = tail call ptr @__errno_location() #17
-  store i32 %298, ptr %300, align 4
-  %301 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.4, i32 noundef 1406, ptr noundef nonnull @__func__._decay_thread) #15
-  br label %302
+300:                                              ; preds = %_write_last_decay_ran.exit
+  %301 = tail call ptr @__errno_location() #17
+  store i32 %299, ptr %301, align 4
+  %302 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.4, i32 noundef 1406, ptr noundef nonnull @__func__._decay_thread) #15
+  br label %303
 
-302:                                              ; preds = %_write_last_decay_ran.exit, %_write_last_decay_ran.exit, %299
-  %303 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @decay_lock) #15
-  %.not64 = icmp eq i32 %303, 0
-  br i1 %.not64, label %306, label %304
+303:                                              ; preds = %_write_last_decay_ran.exit, %_write_last_decay_ran.exit, %300
+  %304 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @decay_lock) #15
+  %.not64 = icmp eq i32 %304, 0
+  br i1 %.not64, label %307, label %305
 
-304:                                              ; preds = %302
-  %305 = tail call ptr @__errno_location() #17
-  store i32 %303, ptr %305, align 4
+305:                                              ; preds = %303
+  %306 = tail call ptr @__errno_location() #17
+  store i32 %304, ptr %306, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.4, i32 noundef 1407, ptr noundef nonnull @__func__._decay_thread) #16
   unreachable
 
-306:                                              ; preds = %302
-  %307 = call i64 @time(ptr noundef null) #15
-  store i64 %307, ptr %7, align 8
-  %308 = load i64, ptr @plugin_shutdown, align 8
-  %.not52 = icmp eq i64 %308, 0
+307:                                              ; preds = %303
+  %308 = call i64 @time(ptr noundef null) #15
+  store i64 %308, ptr %7, align 8
+  %309 = load i64, ptr @plugin_shutdown, align 8
+  %.not52 = icmp eq i64 %309, 0
   br i1 %.not52, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %306, %76
+._crit_edge:                                      ; preds = %307, %76
   ret ptr null
 }
 

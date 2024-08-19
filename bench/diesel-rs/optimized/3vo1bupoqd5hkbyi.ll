@@ -1866,7 +1866,6 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment7is_noop17h2a4cb7708
   %11 = load i8, ptr %6, align 1, !range !238, !noundef !11
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %11, ptr %12, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   br label %14
 
 13:                                               ; preds = %3
@@ -1875,10 +1874,10 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment7is_noop17h2a4cb7708
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %.sroa.210.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   br label %14
 
 14:                                               ; preds = %13, %10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   store i64 %8, ptr %0, align 8
   ret void
 }
@@ -1909,7 +1908,6 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment7is_noop17h3d1fd2702
   %11 = load i8, ptr %6, align 1, !range !238, !noundef !11
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %11, ptr %12, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   br label %14
 
 13:                                               ; preds = %3
@@ -1918,10 +1916,10 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment7is_noop17h3d1fd2702
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %.sroa.210.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   br label %14
 
 14:                                               ; preds = %13, %10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   store i64 %8, ptr %0, align 8
   ret void
 }
@@ -1952,7 +1950,6 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment7is_noop17h495c86362
   %11 = load i8, ptr %6, align 1, !range !238, !noundef !11
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %11, ptr %12, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   br label %14
 
 13:                                               ; preds = %3
@@ -1961,10 +1958,10 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment7is_noop17h495c86362
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %.sroa.210.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   br label %14
 
 14:                                               ; preds = %13, %10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   store i64 %8, ptr %0, align 8
   ret void
 }
@@ -2003,7 +2000,6 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment7is_noop17hb07c3174a
   %11 = load i8, ptr %6, align 1, !range !238, !noundef !11
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %11, ptr %12, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   br label %14
 
 13:                                               ; preds = %3
@@ -2012,10 +2008,10 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment7is_noop17hb07c3174a
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %.sroa.210.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   br label %14
 
 14:                                               ; preds = %13, %10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   store i64 %8, ptr %0, align 8
   ret void
 }
@@ -2046,7 +2042,6 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment7is_noop17hb746838c8
   %11 = load i8, ptr %6, align 1, !range !238, !noundef !11
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %11, ptr %12, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   br label %14
 
 13:                                               ; preds = %3
@@ -2055,10 +2050,10 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment7is_noop17hb746838c8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %.sroa.210.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   br label %14
 
 14:                                               ; preds = %13, %10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   store i64 %8, ptr %0, align 8
   ret void
 }

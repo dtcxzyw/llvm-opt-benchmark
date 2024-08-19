@@ -59760,16 +59760,7 @@ invoke.cont:                                      ; preds = %.noexc, %call5.i.i.
   %conv.i.i.i.i177 = zext nneg i32 %and.i.i.i.i.i176 to i64
   %and.i13.i.i.i.i = and i64 %conv.i.i.i.i177, 4095
   %cmp.i.i.i.i.not19.i.i = icmp eq ptr %15, %16
-  br i1 %cmp.i.i.i.i.not19.i.i, label %_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit.thread, label %land.rhs.lr.ph.i.i
-
-_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit.thread: ; preds = %invoke.cont
-  store i32 %8, ptr %ref.tmp, align 8, !tbaa !105
-  %ref.tmp3.sroa.5589.0.ref.tmp.sroa_idx605 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store ptr %15, ptr %ref.tmp3.sroa.5589.0.ref.tmp.sroa_idx605, align 8, !tbaa !126
-  %ref.tmp3.sroa.6.0.ref.tmp.sroa_idx606 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store ptr %15, ptr %ref.tmp3.sroa.6.0.ref.tmp.sroa_idx606, align 8, !tbaa !126
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp4) #22
-  br label %_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit223
+  br i1 %cmp.i.i.i.i.not19.i.i, label %_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit223, label %land.rhs.lr.ph.i.i
 
 land.rhs.lr.ph.i.i:                               ; preds = %invoke.cont
   %div11.i.i.i.i = lshr i64 %conv.i.i.i.i177, 12
@@ -59802,31 +59793,28 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i: ; preds =
   %21 = load i32, ptr %add.ptr.i.i.i.i185, align 4, !tbaa !105, !noalias !866
   %xor.i.i.i = xor i32 %21, %and.i.i.i
   %cmp.i.i.i186 = icmp ult i32 %xor.i.i.i, 1048575
-  br i1 %cmp.i.i.i186, label %land.rhs.lr.ph.i.i194, label %while.body.i.i
+  br i1 %cmp.i.i.i186, label %_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit223, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i, %land.lhs.true.i.i.i.i, %land.rhs.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.275.0.i, i64 32
   %cmp.i.i.i.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %16
-  br i1 %cmp.i.i.i.i.not.i.i, label %land.rhs.lr.ph.i.i194, label %land.rhs.i.i, !llvm.loop !281
+  br i1 %cmp.i.i.i.i.not.i.i, label %_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit223, label %land.rhs.i.i, !llvm.loop !281
 
-land.rhs.lr.ph.i.i194:                            ; preds = %while.body.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i
-  %agg.tmp.sroa.275.1.i = phi ptr [ %agg.tmp.sroa.275.0.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i ], [ %16, %while.body.i.i ]
+_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit223: ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i, %while.body.i.i, %invoke.cont
+  %agg.tmp.sroa.275.1.i.sink = phi ptr [ %15, %invoke.cont ], [ %agg.tmp.sroa.275.0.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i ], [ %16, %while.body.i.i ]
+  %.sink = phi ptr [ %15, %invoke.cont ], [ %16, %while.body.i.i ], [ %16, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i ]
   store i32 %8, ptr %ref.tmp, align 8, !tbaa !105
   %ref.tmp3.sroa.5589.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store ptr %agg.tmp.sroa.275.1.i, ptr %ref.tmp3.sroa.5589.0.ref.tmp.sroa_idx, align 8, !tbaa !126
+  store ptr %agg.tmp.sroa.275.1.i.sink, ptr %ref.tmp3.sroa.5589.0.ref.tmp.sroa_idx, align 8, !tbaa !126
   %ref.tmp3.sroa.6.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store ptr %16, ptr %ref.tmp3.sroa.6.0.ref.tmp.sroa_idx, align 8, !tbaa !126
+  store ptr %.sink, ptr %ref.tmp3.sroa.6.0.ref.tmp.sroa_idx, align 8, !tbaa !126
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp4) #22
-  br label %_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit223
-
-_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit223: ; preds = %land.rhs.lr.ph.i.i194, %_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit.thread
-  %agg.tmp.sroa.275.1.i607 = phi ptr [ %15, %_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit.thread ], [ %agg.tmp.sroa.275.1.i, %land.rhs.lr.ph.i.i194 ]
   store i32 %8, ptr %ref.tmp4, align 8, !tbaa !105
   %ref.tmp5.sroa.8588.24.ref.tmp4.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   store ptr %16, ptr %ref.tmp5.sroa.8588.24.ref.tmp4.sroa_idx, align 8, !tbaa !126
   %ref.tmp5.sroa.9.24.ref.tmp4.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
   store ptr %16, ptr %ref.tmp5.sroa.9.24.ref.tmp4.sroa_idx, align 8, !tbaa !126
-  %cmp.i.i.i.i.i.i = icmp eq ptr %agg.tmp.sroa.275.1.i607, %16
+  %cmp.i.i.i.i.i.i = icmp eq ptr %agg.tmp.sroa.275.1.i.sink, %16
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit223
@@ -60046,16 +60034,7 @@ invoke.cont28:                                    ; preds = %.noexc262, %call.i.
   %47 = load ptr, ptr %packed.i.i.i, align 8, !tbaa !126, !noalias !143
   %48 = load ptr, ptr %_M_finish.i.i.i.i174, align 8, !tbaa !126, !noalias !143
   %cmp.i.i.i.i.not19.i.i269 = icmp eq ptr %47, %48
-  br i1 %cmp.i.i.i.i.not19.i.i269, label %_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit299.thread, label %land.rhs.lr.ph.i.i270
-
-_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit299.thread: ; preds = %invoke.cont28
-  store i32 %8, ptr %ref.tmp31, align 8, !tbaa !105
-  %ref.tmp32.sroa.5585.0.ref.tmp31.sroa_idx610 = getelementptr inbounds i8, ptr %ref.tmp31, i64 8
-  store ptr %47, ptr %ref.tmp32.sroa.5585.0.ref.tmp31.sroa_idx610, align 8, !tbaa !126
-  %ref.tmp32.sroa.6.0.ref.tmp31.sroa_idx611 = getelementptr inbounds i8, ptr %ref.tmp31, i64 16
-  store ptr %47, ptr %ref.tmp32.sroa.6.0.ref.tmp31.sroa_idx611, align 8, !tbaa !126
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp33) #22
-  br label %_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit336
+  br i1 %cmp.i.i.i.i.not19.i.i269, label %_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit336, label %land.rhs.lr.ph.i.i270
 
 land.rhs.lr.ph.i.i270:                            ; preds = %invoke.cont28
   %and.i.i.i272 = and i32 %8, -1048576
@@ -60087,31 +60066,28 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i295: ; pred
   %53 = load i32, ptr %add.ptr.i.i.i.i296, align 4, !tbaa !105, !noalias !869
   %xor.i.i.i297 = xor i32 %53, %and.i.i.i272
   %cmp.i.i.i298 = icmp ult i32 %xor.i.i.i297, 1048575
-  br i1 %cmp.i.i.i298, label %land.rhs.lr.ph.i.i307, label %while.body.i.i283
+  br i1 %cmp.i.i.i298, label %_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit336, label %while.body.i.i283
 
 while.body.i.i283:                                ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i295, %land.lhs.true.i.i.i.i292, %land.rhs.i.i273
   %incdec.ptr.i.i.i.i.i284 = getelementptr inbounds i8, ptr %agg.tmp.sroa.275.0.i274, i64 32
   %cmp.i.i.i.i.not.i.i285 = icmp eq ptr %incdec.ptr.i.i.i.i.i284, %48
-  br i1 %cmp.i.i.i.i.not.i.i285, label %land.rhs.lr.ph.i.i307, label %land.rhs.i.i273, !llvm.loop !281
+  br i1 %cmp.i.i.i.i.not.i.i285, label %_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit336, label %land.rhs.i.i273, !llvm.loop !281
 
-land.rhs.lr.ph.i.i307:                            ; preds = %while.body.i.i283, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i295
-  %agg.tmp.sroa.275.1.i286 = phi ptr [ %agg.tmp.sroa.275.0.i274, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i295 ], [ %48, %while.body.i.i283 ]
+_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit336: ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i295, %while.body.i.i283, %invoke.cont28
+  %agg.tmp.sroa.275.1.i286.sink = phi ptr [ %47, %invoke.cont28 ], [ %agg.tmp.sroa.275.0.i274, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i295 ], [ %48, %while.body.i.i283 ]
+  %.sink53 = phi ptr [ %47, %invoke.cont28 ], [ %48, %while.body.i.i283 ], [ %48, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i295 ]
   store i32 %8, ptr %ref.tmp31, align 8, !tbaa !105
   %ref.tmp32.sroa.5585.0.ref.tmp31.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp31, i64 8
-  store ptr %agg.tmp.sroa.275.1.i286, ptr %ref.tmp32.sroa.5585.0.ref.tmp31.sroa_idx, align 8, !tbaa !126
+  store ptr %agg.tmp.sroa.275.1.i286.sink, ptr %ref.tmp32.sroa.5585.0.ref.tmp31.sroa_idx, align 8, !tbaa !126
   %ref.tmp32.sroa.6.0.ref.tmp31.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp31, i64 16
-  store ptr %48, ptr %ref.tmp32.sroa.6.0.ref.tmp31.sroa_idx, align 8, !tbaa !126
+  store ptr %.sink53, ptr %ref.tmp32.sroa.6.0.ref.tmp31.sroa_idx, align 8, !tbaa !126
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp33) #22
-  br label %_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit336
-
-_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit336: ; preds = %land.rhs.lr.ph.i.i307, %_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit299.thread
-  %agg.tmp.sroa.275.1.i286612 = phi ptr [ %47, %_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit299.thread ], [ %agg.tmp.sroa.275.1.i286, %land.rhs.lr.ph.i.i307 ]
   store i32 %8, ptr %ref.tmp33, align 8, !tbaa !105
   %ref.tmp34.sroa.8584.24.ref.tmp33.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp33, i64 8
   store ptr %48, ptr %ref.tmp34.sroa.8584.24.ref.tmp33.sroa_idx, align 8, !tbaa !126
   %ref.tmp34.sroa.9.24.ref.tmp33.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp33, i64 16
   store ptr %48, ptr %ref.tmp34.sroa.9.24.ref.tmp33.sroa_idx, align 8, !tbaa !126
-  %cmp.i.i.i.i.i.not.i = icmp eq ptr %agg.tmp.sroa.275.1.i286612, %48
+  %cmp.i.i.i.i.i.not.i = icmp eq ptr %agg.tmp.sroa.275.1.i286.sink, %48
   br i1 %cmp.i.i.i.i.i.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit336
@@ -62157,16 +62133,7 @@ invoke.cont:                                      ; preds = %.noexc, %call5.i.i.
   %conv.i.i.i.i177 = zext nneg i32 %and.i.i.i.i.i176 to i64
   %and.i13.i.i.i.i = and i64 %conv.i.i.i.i177, 4095
   %cmp.i.i.i.i.not19.i.i = icmp eq ptr %15, %16
-  br i1 %cmp.i.i.i.i.not19.i.i, label %_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit.thread, label %land.rhs.lr.ph.i.i
-
-_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit.thread: ; preds = %invoke.cont
-  store i32 %8, ptr %ref.tmp, align 8, !tbaa !105
-  %ref.tmp3.sroa.5589.0.ref.tmp.sroa_idx605 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store ptr %15, ptr %ref.tmp3.sroa.5589.0.ref.tmp.sroa_idx605, align 8, !tbaa !126
-  %ref.tmp3.sroa.6.0.ref.tmp.sroa_idx606 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store ptr %15, ptr %ref.tmp3.sroa.6.0.ref.tmp.sroa_idx606, align 8, !tbaa !126
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp4) #22
-  br label %_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit223
+  br i1 %cmp.i.i.i.i.not19.i.i, label %_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit223, label %land.rhs.lr.ph.i.i
 
 land.rhs.lr.ph.i.i:                               ; preds = %invoke.cont
   %div11.i.i.i.i = lshr i64 %conv.i.i.i.i177, 12
@@ -62199,31 +62166,28 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i: ; preds =
   %21 = load i32, ptr %add.ptr.i.i.i.i185, align 4, !tbaa !105, !noalias !899
   %xor.i.i.i = xor i32 %21, %and.i.i.i
   %cmp.i.i.i186 = icmp ult i32 %xor.i.i.i, 1048575
-  br i1 %cmp.i.i.i186, label %land.rhs.lr.ph.i.i194, label %while.body.i.i
+  br i1 %cmp.i.i.i186, label %_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit223, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i, %land.lhs.true.i.i.i.i, %land.rhs.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.275.0.i, i64 32
   %cmp.i.i.i.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %16
-  br i1 %cmp.i.i.i.i.not.i.i, label %land.rhs.lr.ph.i.i194, label %land.rhs.i.i, !llvm.loop !902
+  br i1 %cmp.i.i.i.i.not.i.i, label %_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit223, label %land.rhs.i.i, !llvm.loop !902
 
-land.rhs.lr.ph.i.i194:                            ; preds = %while.body.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i
-  %agg.tmp.sroa.275.1.i = phi ptr [ %agg.tmp.sroa.275.0.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i ], [ %16, %while.body.i.i ]
+_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit223: ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i, %while.body.i.i, %invoke.cont
+  %agg.tmp.sroa.275.1.i.sink = phi ptr [ %15, %invoke.cont ], [ %agg.tmp.sroa.275.0.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i ], [ %16, %while.body.i.i ]
+  %.sink = phi ptr [ %15, %invoke.cont ], [ %16, %while.body.i.i ], [ %16, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i ]
   store i32 %8, ptr %ref.tmp, align 8, !tbaa !105
   %ref.tmp3.sroa.5589.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store ptr %agg.tmp.sroa.275.1.i, ptr %ref.tmp3.sroa.5589.0.ref.tmp.sroa_idx, align 8, !tbaa !126
+  store ptr %agg.tmp.sroa.275.1.i.sink, ptr %ref.tmp3.sroa.5589.0.ref.tmp.sroa_idx, align 8, !tbaa !126
   %ref.tmp3.sroa.6.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store ptr %16, ptr %ref.tmp3.sroa.6.0.ref.tmp.sroa_idx, align 8, !tbaa !126
+  store ptr %.sink, ptr %ref.tmp3.sroa.6.0.ref.tmp.sroa_idx, align 8, !tbaa !126
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp4) #22
-  br label %_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit223
-
-_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit223: ; preds = %land.rhs.lr.ph.i.i194, %_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit.thread
-  %agg.tmp.sroa.275.1.i607 = phi ptr [ %15, %_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit.thread ], [ %agg.tmp.sroa.275.1.i, %land.rhs.lr.ph.i.i194 ]
   store i32 %8, ptr %ref.tmp4, align 8, !tbaa !105
   %ref.tmp5.sroa.8588.24.ref.tmp4.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   store ptr %16, ptr %ref.tmp5.sroa.8588.24.ref.tmp4.sroa_idx, align 8, !tbaa !126
   %ref.tmp5.sroa.9.24.ref.tmp4.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
   store ptr %16, ptr %ref.tmp5.sroa.9.24.ref.tmp4.sroa_idx, align 8, !tbaa !126
-  %cmp.i.i.i.i.i.i = icmp eq ptr %agg.tmp.sroa.275.1.i607, %16
+  %cmp.i.i.i.i.i.i = icmp eq ptr %agg.tmp.sroa.275.1.i.sink, %16
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit223
@@ -62443,16 +62407,7 @@ invoke.cont28:                                    ; preds = %.noexc262, %call.i.
   %47 = load ptr, ptr %packed.i.i.i, align 8, !tbaa !126, !noalias !143
   %48 = load ptr, ptr %_M_finish.i.i.i.i174, align 8, !tbaa !126, !noalias !143
   %cmp.i.i.i.i.not19.i.i269 = icmp eq ptr %47, %48
-  br i1 %cmp.i.i.i.i.not19.i.i269, label %_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit299.thread, label %land.rhs.lr.ph.i.i270
-
-_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit299.thread: ; preds = %invoke.cont28
-  store i32 %8, ptr %ref.tmp31, align 8, !tbaa !105
-  %ref.tmp32.sroa.5585.0.ref.tmp31.sroa_idx610 = getelementptr inbounds i8, ptr %ref.tmp31, i64 8
-  store ptr %47, ptr %ref.tmp32.sroa.5585.0.ref.tmp31.sroa_idx610, align 8, !tbaa !126
-  %ref.tmp32.sroa.6.0.ref.tmp31.sroa_idx611 = getelementptr inbounds i8, ptr %ref.tmp31, i64 16
-  store ptr %47, ptr %ref.tmp32.sroa.6.0.ref.tmp31.sroa_idx611, align 8, !tbaa !126
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp33) #22
-  br label %_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit336
+  br i1 %cmp.i.i.i.i.not19.i.i269, label %_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit336, label %land.rhs.lr.ph.i.i270
 
 land.rhs.lr.ph.i.i270:                            ; preds = %invoke.cont28
   %and.i.i.i272 = and i32 %8, -1048576
@@ -62484,31 +62439,28 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i295: ; pred
   %53 = load i32, ptr %add.ptr.i.i.i.i296, align 4, !tbaa !105, !noalias !903
   %xor.i.i.i297 = xor i32 %53, %and.i.i.i272
   %cmp.i.i.i298 = icmp ult i32 %xor.i.i.i297, 1048575
-  br i1 %cmp.i.i.i298, label %land.rhs.lr.ph.i.i307, label %while.body.i.i283
+  br i1 %cmp.i.i.i298, label %_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit336, label %while.body.i.i283
 
 while.body.i.i283:                                ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i295, %land.lhs.true.i.i.i.i292, %land.rhs.i.i273
   %incdec.ptr.i.i.i.i.i284 = getelementptr inbounds i8, ptr %agg.tmp.sroa.275.0.i274, i64 32
   %cmp.i.i.i.i.not.i.i285 = icmp eq ptr %incdec.ptr.i.i.i.i.i284, %48
-  br i1 %cmp.i.i.i.i.not.i.i285, label %land.rhs.lr.ph.i.i307, label %land.rhs.i.i273, !llvm.loop !902
+  br i1 %cmp.i.i.i.i.not.i.i285, label %_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit336, label %land.rhs.i.i273, !llvm.loop !902
 
-land.rhs.lr.ph.i.i307:                            ; preds = %while.body.i.i283, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i295
-  %agg.tmp.sroa.275.1.i286 = phi ptr [ %agg.tmp.sroa.275.0.i274, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i295 ], [ %48, %while.body.i.i283 ]
+_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit336: ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i295, %while.body.i.i283, %invoke.cont28
+  %agg.tmp.sroa.275.1.i286.sink = phi ptr [ %47, %invoke.cont28 ], [ %agg.tmp.sroa.275.0.i274, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i295 ], [ %48, %while.body.i.i283 ]
+  %.sink53 = phi ptr [ %47, %invoke.cont28 ], [ %48, %while.body.i.i283 ], [ %48, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i295 ]
   store i32 %8, ptr %ref.tmp31, align 8, !tbaa !105
   %ref.tmp32.sroa.5585.0.ref.tmp31.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp31, i64 8
-  store ptr %agg.tmp.sroa.275.1.i286, ptr %ref.tmp32.sroa.5585.0.ref.tmp31.sroa_idx, align 8, !tbaa !126
+  store ptr %agg.tmp.sroa.275.1.i286.sink, ptr %ref.tmp32.sroa.5585.0.ref.tmp31.sroa_idx, align 8, !tbaa !126
   %ref.tmp32.sroa.6.0.ref.tmp31.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp31, i64 16
-  store ptr %48, ptr %ref.tmp32.sroa.6.0.ref.tmp31.sroa_idx, align 8, !tbaa !126
+  store ptr %.sink53, ptr %ref.tmp32.sroa.6.0.ref.tmp31.sroa_idx, align 8, !tbaa !126
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp33) #22
-  br label %_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit336
-
-_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit336: ; preds = %land.rhs.lr.ph.i.i307, %_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit299.thread
-  %agg.tmp.sroa.275.1.i286612 = phi ptr [ %47, %_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit299.thread ], [ %agg.tmp.sroa.275.1.i286, %land.rhs.lr.ph.i.i307 ]
   store i32 %8, ptr %ref.tmp33, align 8, !tbaa !105
   %ref.tmp34.sroa.8584.24.ref.tmp33.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp33, i64 8
   store ptr %48, ptr %ref.tmp34.sroa.8584.24.ref.tmp33.sroa_idx, align 8, !tbaa !126
   %ref.tmp34.sroa.9.24.ref.tmp33.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp33, i64 16
   store ptr %48, ptr %ref.tmp34.sroa.9.24.ref.tmp33.sroa_idx, align 8, !tbaa !126
-  %cmp.i.i.i.i.i.not.i = icmp eq ptr %agg.tmp.sroa.275.1.i286612, %48
+  %cmp.i.i.i.i.i.not.i = icmp eq ptr %agg.tmp.sroa.275.1.i286.sink, %48
   br i1 %cmp.i.i.i.i.i.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit336
@@ -65259,18 +65211,13 @@ _ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.ex
   %sub.ptr.sub.i.i.i.i355 = sub i64 %sub.ptr.lhs.cast.i.i.i.i353, %sub.ptr.rhs.cast.i.i.i.i354
   %sub.ptr.div.i.i.i.i356 = ashr exact i64 %sub.ptr.sub.i.i.i.i355, 3
   %cmp.i.i.i357 = icmp ult i64 %div5.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i356
-  br i1 %cmp.i.i.i357, label %land.lhs.true.i.i.i, label %land.rhs.i385
+  br i1 %cmp.i.i.i357, label %land.lhs.true.i.i.i, label %_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEEcvbEv.exit.thread.sink.split
 
 land.lhs.true.i.i.i:                              ; preds = %_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit
   %add.ptr.i.i.i.i358 = getelementptr inbounds ptr, ptr %39, i64 %div5.i.i.i.i.i.i
   %40 = load ptr, ptr %add.ptr.i.i.i.i358, align 8, !tbaa !126
   %tobool.not.i.i.i359 = icmp eq ptr %40, null
-  br i1 %tobool.not.i.i.i359, label %land.lhs.true.i.i.i.i397.thread61, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
-
-land.lhs.true.i.i.i.i397.thread61:                ; preds = %land.lhs.true.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_33) #22
-  br label %_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEEcvbEv.exit.thread
+  br i1 %tobool.not.i.i.i359, label %_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEEcvbEv.exit.thread.sink.split, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
 
 _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i: ; preds = %land.lhs.true.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %40, i64 %and.i6.i.i.i.i.i.i
@@ -65278,7 +65225,7 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i: ; preds = %
   %41 = load i32, ptr %add.ptr.i.i.i, align 4, !tbaa !105
   %xor.i.i = xor i32 %41, %and.i.i
   %cmp.i.i = icmp ult i32 %xor.i.i, 1048575
-  br i1 %cmp.i.i, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit, label %land.lhs.true.i.i.i.i397
+  br i1 %cmp.i.i, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i400
 
 _ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit: ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
   %and.i.i.i360 = and i32 %41, 1048575
@@ -65288,12 +65235,7 @@ _ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit: ; preds = %_ZNK4en
   store i8 %frombool, ptr %gtest_ar_, align 8, !tbaa !127
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   store ptr null, ptr %message_.i, align 8, !tbaa !136
-  br i1 %cmp.i, label %land.lhs.true.i.i.i.i397.thread, label %if.else
-
-land.lhs.true.i.i.i.i397.thread:                  ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_33) #22
-  br label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i400
+  br i1 %cmp.i, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i400, label %if.else
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i306
   %lpad.loopexit726 = landingpad { ptr, i32 }
@@ -65459,17 +65401,9 @@ ehcleanup29:                                      ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
   br label %ehcleanup224
 
-land.rhs.i385:                                    ; preds = %_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit
+_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i400: ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i, %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_33) #22
-  br label %_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEEcvbEv.exit.thread
-
-land.lhs.true.i.i.i.i397:                         ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_33) #22
-  br label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i400
-
-_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i400: ; preds = %land.lhs.true.i.i.i.i397, %land.lhs.true.i.i.i.i397.thread
   %add.ptr.i.i.i.i402 = getelementptr inbounds i32, ptr %40, i64 %and.i6.i.i.i.i.i.i
   %and.i.i.i403 = and i32 %8, -1048576
   %62 = load i32, ptr %add.ptr.i.i.i.i402, align 4, !tbaa !105
@@ -65477,7 +65411,12 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i400: ; pred
   %cmp.i.i.i405 = icmp ult i32 %xor.i.i.i404, 1048575
   br i1 %cmp.i.i.i405, label %_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEEcvbEv.exit, label %_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEEcvbEv.exit.thread
 
-_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEEcvbEv.exit.thread: ; preds = %land.lhs.true.i.i.i.i397.thread61, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i400, %land.rhs.i385
+_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEEcvbEv.exit.thread.sink.split: ; preds = %_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit, %land.lhs.true.i.i.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_33) #22
+  br label %_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEEcvbEv.exit.thread
+
+_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEEcvbEv.exit.thread: ; preds = %_ZNK4entt12basic_handleINS_14basic_registryINS_6entityESaIS2_EEEJEEcvbEv.exit.thread.sink.split, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i400
   %message_.i409724 = getelementptr inbounds i8, ptr %gtest_ar_33, i64 8
   br label %cleanup.cont67
 
@@ -67047,18 +66986,13 @@ _ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.e
   %sub.ptr.sub.i.i.i.i355 = sub i64 %sub.ptr.lhs.cast.i.i.i.i353, %sub.ptr.rhs.cast.i.i.i.i354
   %sub.ptr.div.i.i.i.i356 = ashr exact i64 %sub.ptr.sub.i.i.i.i355, 3
   %cmp.i.i.i357 = icmp ult i64 %div5.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i356
-  br i1 %cmp.i.i.i357, label %land.lhs.true.i.i.i, label %land.rhs.i385
+  br i1 %cmp.i.i.i357, label %land.lhs.true.i.i.i, label %_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEEcvbEv.exit.thread.sink.split
 
 land.lhs.true.i.i.i:                              ; preds = %_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit
   %add.ptr.i.i.i.i358 = getelementptr inbounds ptr, ptr %39, i64 %div5.i.i.i.i.i.i
   %40 = load ptr, ptr %add.ptr.i.i.i.i358, align 8, !tbaa !126
   %tobool.not.i.i.i359 = icmp eq ptr %40, null
-  br i1 %tobool.not.i.i.i359, label %land.lhs.true.i.i.i.i397.thread61, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
-
-land.lhs.true.i.i.i.i397.thread61:                ; preds = %land.lhs.true.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_33) #22
-  br label %_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEEcvbEv.exit.thread
+  br i1 %tobool.not.i.i.i359, label %_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEEcvbEv.exit.thread.sink.split, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
 
 _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i: ; preds = %land.lhs.true.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %40, i64 %and.i6.i.i.i.i.i.i
@@ -67066,7 +67000,7 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i: ; preds = %
   %41 = load i32, ptr %add.ptr.i.i.i, align 4, !tbaa !105
   %xor.i.i = xor i32 %41, %and.i.i
   %cmp.i.i = icmp ult i32 %xor.i.i, 1048575
-  br i1 %cmp.i.i, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit, label %land.lhs.true.i.i.i.i397
+  br i1 %cmp.i.i, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i400
 
 _ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit: ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
   %and.i.i.i360 = and i32 %41, 1048575
@@ -67076,12 +67010,7 @@ _ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit: ; preds = %_ZNK4en
   store i8 %frombool, ptr %gtest_ar_, align 8, !tbaa !127
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   store ptr null, ptr %message_.i, align 8, !tbaa !136
-  br i1 %cmp.i, label %land.lhs.true.i.i.i.i397.thread, label %if.else
-
-land.lhs.true.i.i.i.i397.thread:                  ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_33) #22
-  br label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i400
+  br i1 %cmp.i, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i400, label %if.else
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i306
   %lpad.loopexit726 = landingpad { ptr, i32 }
@@ -67247,17 +67176,9 @@ ehcleanup29:                                      ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
   br label %ehcleanup224
 
-land.rhs.i385:                                    ; preds = %_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit
+_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i400: ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i, %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_33) #22
-  br label %_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEEcvbEv.exit.thread
-
-land.lhs.true.i.i.i.i397:                         ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_33) #22
-  br label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i400
-
-_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i400: ; preds = %land.lhs.true.i.i.i.i397, %land.lhs.true.i.i.i.i397.thread
   %add.ptr.i.i.i.i402 = getelementptr inbounds i32, ptr %40, i64 %and.i6.i.i.i.i.i.i
   %and.i.i.i403 = and i32 %8, -1048576
   %62 = load i32, ptr %add.ptr.i.i.i.i402, align 4, !tbaa !105
@@ -67265,7 +67186,12 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i400: ; pred
   %cmp.i.i.i405 = icmp ult i32 %xor.i.i.i404, 1048575
   br i1 %cmp.i.i.i405, label %_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEEcvbEv.exit, label %_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEEcvbEv.exit.thread
 
-_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEEcvbEv.exit.thread: ; preds = %land.lhs.true.i.i.i.i397.thread61, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i400, %land.rhs.i385
+_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEEcvbEv.exit.thread.sink.split: ; preds = %_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEE7storageEv.exit, %land.lhs.true.i.i.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_33) #22
+  br label %_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEEcvbEv.exit.thread
+
+_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEEcvbEv.exit.thread: ; preds = %_ZNK4entt12basic_handleIKNS_14basic_registryINS_6entityESaIS2_EEEJEEcvbEv.exit.thread.sink.split, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i400
   %message_.i409724 = getelementptr inbounds i8, ptr %gtest_ar_33, i64 8
   br label %cleanup.cont67
 

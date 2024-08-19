@@ -480,7 +480,7 @@ define dso_local i32 @acpi_ex_opcode_2A_0T_1R(ptr noundef %0) local_unnamed_addr
   %22 = getelementptr inbounds i8, ptr %21, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = call i32 @acpi_ex_do_logical_numeric_op(i16 noundef zeroext %16, i64 noundef %19, i64 noundef %23, ptr noundef nonnull %2) #4
-  br label %52
+  br label %50
 
 25:                                               ; preds = %6
   %26 = and i32 %11, 1
@@ -494,12 +494,12 @@ define dso_local i32 @acpi_ex_opcode_2A_0T_1R(ptr noundef %0) local_unnamed_addr
   %32 = getelementptr i8, ptr %0, i64 880
   %33 = load ptr, ptr %32, align 8
   %34 = call i32 @acpi_ex_do_logical_op(i16 noundef zeroext %29, ptr noundef %31, ptr noundef %33, ptr noundef nonnull %2) #4
-  br label %52
+  br label %50
 
 35:                                               ; preds = %25
-  switch i16 %29, label %50 [
+  switch i16 %29, label %48 [
     i16 23331, label %36
-    i16 23333, label %43
+    i16 23333, label %42
   ]
 
 36:                                               ; preds = %35
@@ -508,60 +508,56 @@ define dso_local i32 @acpi_ex_opcode_2A_0T_1R(ptr noundef %0) local_unnamed_addr
   %39 = load ptr, ptr %3, align 8
   %40 = tail call i32 @acpi_ex_acquire_mutex(ptr noundef %38, ptr noundef %39, ptr noundef %0) #4
   %41 = icmp eq i32 %40, 17
-  br i1 %41, label %42, label %52
+  br i1 %41, label %.thread.sink.split, label %50
 
-42:                                               ; preds = %36
-  store i8 1, ptr %2, align 1
-  br label %.thread
+42:                                               ; preds = %35
+  %43 = getelementptr i8, ptr %0, i64 880
+  %44 = load ptr, ptr %43, align 8
+  %45 = load ptr, ptr %3, align 8
+  %46 = tail call i32 @acpi_ex_system_wait_event(ptr noundef %44, ptr noundef %45) #4
+  %47 = icmp eq i32 %46, 17
+  br i1 %47, label %.thread.sink.split, label %50
 
-43:                                               ; preds = %35
-  %44 = getelementptr i8, ptr %0, i64 880
-  %45 = load ptr, ptr %44, align 8
-  %46 = load ptr, ptr %3, align 8
-  %47 = tail call i32 @acpi_ex_system_wait_event(ptr noundef %45, ptr noundef %46) #4
-  %48 = icmp eq i32 %47, 17
-  br i1 %48, label %49, label %52
-
-49:                                               ; preds = %43
-  store i8 1, ptr %2, align 1
-  br label %.thread
-
-50:                                               ; preds = %35
-  %51 = zext i16 %29 to i32
-  tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 526, ptr noundef nonnull @.str.1, i32 noundef %51) #4
+48:                                               ; preds = %35
+  %49 = zext i16 %29 to i32
+  tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 526, ptr noundef nonnull @.str.1, i32 noundef %49) #4
   br label %.thread5
 
-52:                                               ; preds = %43, %36, %30, %14
-  %.ph = phi i32 [ %40, %36 ], [ %47, %43 ], [ %34, %30 ], [ %24, %14 ]
+50:                                               ; preds = %42, %36, %30, %14
+  %.ph = phi i32 [ %40, %36 ], [ %46, %42 ], [ %34, %30 ], [ %24, %14 ]
   %.pr = load i8, ptr %2, align 1
-  %53 = icmp eq i8 %.pr, 0
-  br i1 %53, label %56, label %.thread
+  %51 = icmp eq i8 %.pr, 0
+  br i1 %51, label %54, label %.thread
 
-.thread:                                          ; preds = %42, %49, %52
-  %54 = phi i32 [ %.ph, %52 ], [ 0, %49 ], [ 0, %42 ]
-  %55 = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 -1, ptr %55, align 8
-  br label %56
+.thread.sink.split:                               ; preds = %42, %36
+  store i8 1, ptr %2, align 1
+  br label %.thread
 
-56:                                               ; preds = %.thread, %52
-  %57 = phi i32 [ %54, %.thread ], [ %.ph, %52 ]
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %60, label %.thread5
+.thread:                                          ; preds = %.thread.sink.split, %50
+  %52 = phi i32 [ %.ph, %50 ], [ 0, %.thread.sink.split ]
+  %53 = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 -1, ptr %53, align 8
+  br label %54
 
-.thread5:                                         ; preds = %1, %50, %56
-  %59 = phi i32 [ %57, %56 ], [ 4, %1 ], [ 12289, %50 ]
+54:                                               ; preds = %.thread, %50
+  %55 = phi i32 [ %52, %.thread ], [ %.ph, %50 ]
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %58, label %.thread5
+
+.thread5:                                         ; preds = %1, %48, %54
+  %57 = phi i32 [ %55, %54 ], [ 4, %1 ], [ 12289, %48 ]
   call void @acpi_ut_remove_reference(ptr noundef %4) #4
-  br label %62
+  br label %60
 
-60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %0, i64 1056
-  store ptr %4, ptr %61, align 8
-  br label %62
+58:                                               ; preds = %54
+  %59 = getelementptr inbounds i8, ptr %0, i64 1056
+  store ptr %4, ptr %59, align 8
+  br label %60
 
-62:                                               ; preds = %60, %.thread5
-  %63 = phi i32 [ 0, %60 ], [ %59, %.thread5 ]
+60:                                               ; preds = %58, %.thread5
+  %61 = phi i32 [ 0, %58 ], [ %57, %.thread5 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #4
-  ret i32 %63
+  ret i32 %61
 }
 
 ; Function Attrs: null_pointer_is_valid

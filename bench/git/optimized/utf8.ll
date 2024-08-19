@@ -577,11 +577,15 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 define dso_local range(i32 0, 2) i32 @is_utf8(ptr noundef %text) local_unnamed_addr #5 {
 entry:
   %text.addr = alloca ptr, align 8
-  store ptr %text, ptr %text.addr, align 8
+  br label %while.cond.sink.split
+
+while.cond.sink.split:                            ; preds = %entry, %if.then
+  %incdec.ptr.sink = phi ptr [ %incdec.ptr, %if.then ], [ %text, %entry ]
+  store ptr %incdec.ptr.sink, ptr %text.addr, align 8
   br label %while.cond
 
-while.cond:                                       ; preds = %while.cond.backedge, %entry
-  %0 = phi ptr [ %text, %entry ], [ %.be, %while.cond.backedge ]
+while.cond:                                       ; preds = %if.end, %while.cond.sink.split
+  %0 = phi ptr [ %incdec.ptr.sink, %while.cond.sink.split ], [ %2, %if.end ]
   %1 = load i8, ptr %0, align 1
   switch i8 %1, label %if.end [
     i8 0, label %return
@@ -592,18 +596,13 @@ while.cond:                                       ; preds = %while.cond.backedge
 
 if.then:                                          ; preds = %while.cond, %while.cond, %while.cond
   %incdec.ptr = getelementptr inbounds i8, ptr %0, i64 1
-  store ptr %incdec.ptr, ptr %text.addr, align 8
-  br label %while.cond.backedge
-
-while.cond.backedge:                              ; preds = %if.then, %if.end
-  %.be = phi ptr [ %incdec.ptr, %if.then ], [ %2, %if.end ]
-  br label %while.cond, !llvm.loop !9
+  br label %while.cond.sink.split, !llvm.loop !9
 
 if.end:                                           ; preds = %while.cond
   %call.i = call fastcc i32 @pick_one_utf8_char(ptr noundef nonnull %text.addr, ptr noundef null)
   %2 = load ptr, ptr %text.addr, align 8
   %tobool.not.i.not = icmp eq ptr %2, null
-  br i1 %tobool.not.i.not, label %return, label %while.cond.backedge
+  br i1 %tobool.not.i.not, label %return, label %while.cond, !llvm.loop !9
 
 return:                                           ; preds = %if.end, %while.cond
   %retval.0 = phi i32 [ 1, %while.cond ], [ 0, %if.end ]

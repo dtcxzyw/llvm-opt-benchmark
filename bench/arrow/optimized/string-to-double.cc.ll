@@ -945,7 +945,7 @@ if.end302:                                        ; preds = %if.else295, %if.the
 if.then.i325:                                     ; preds = %if.end302
   %incdec.ptr.i326 = getelementptr inbounds i8, ptr %incdec.ptr.i326456460, i64 1
   %cmp1.i327 = icmp eq ptr %incdec.ptr.i326, %117
-  br i1 %cmp1.i327, label %parsing_done.loopexit402, label %while.cond280.backedge
+  br i1 %cmp1.i327, label %parsing_done.sink.split, label %while.cond280.backedge
 
 while.cond280.backedge:                           ; preds = %if.then.i325, %if.end22.i311, %lor.lhs.false.i.i293, %if.end10.i305
   %incdec.ptr.i326457 = phi ptr [ %incdec.ptr.i326, %if.then.i325 ], [ %126, %if.end22.i311 ], [ %incdec.ptr7.i303, %lor.lhs.false.i.i293 ], [ %incdec.ptr7.i303, %if.end10.i305 ]
@@ -966,10 +966,10 @@ if.end.i288:                                      ; preds = %if.end302
   br i1 %or.cond13.i.i292, label %if.end6.i302, label %lor.lhs.false.i.i293
 
 lor.lhs.false.i.i293:                             ; preds = %if.end.i288
-  br i1 %cmp8.i304, label %parsing_done.loopexit402, label %while.cond280.backedge
+  br i1 %cmp8.i304, label %parsing_done.sink.split, label %while.cond280.backedge
 
 if.end6.i302:                                     ; preds = %if.end.i288
-  br i1 %cmp8.i304, label %parsing_done.loopexit402, label %if.end10.i305
+  br i1 %cmp8.i304, label %parsing_done.sink.split, label %if.end10.i305
 
 if.end10.i305:                                    ; preds = %if.end6.i302
   %add.ptr.i306 = getelementptr inbounds i8, ptr %incdec.ptr.i326456460, i64 2
@@ -995,7 +995,7 @@ land.lhs.true.i313:                               ; preds = %if.end13.i308
 if.end22.i311:                                    ; preds = %land.lhs.true.i313, %if.end13.i308
   %126 = phi ptr [ %incdec.ptr7.i303, %if.end13.i308 ], [ %spec.select478, %land.lhs.true.i313 ]
   %cmp23.i312 = icmp eq ptr %126, %117
-  br i1 %cmp23.i312, label %parsing_done.loopexit402, label %while.cond280.backedge
+  br i1 %cmp23.i312, label %parsing_done.sink.split, label %while.cond280.backedge
 
 if.end308.loopexit:                               ; preds = %while.cond280.backedge, %if.end279
   %incdec.ptr.i326456.lcssa = phi ptr [ %current.promoted455, %if.end279 ], [ %incdec.ptr.i326457, %while.cond280.backedge ]
@@ -1053,11 +1053,7 @@ if.end331:                                        ; preds = %if.end328
   br i1 %cmp333, label %if.then334, label %if.end339
 
 if.then334:                                       ; preds = %if.end331
-  br i1 %cmp, label %if.then336, label %if.else337
-
-if.then336:                                       ; preds = %if.then334
-  store ptr %127, ptr %current, align 8
-  br label %parsing_done
+  br i1 %cmp, label %parsing_done.sink.split, label %if.else337
 
 if.else337:                                       ; preds = %if.then334
   %junk_string_value_338 = getelementptr inbounds i8, ptr %this, i64 16
@@ -1078,11 +1074,7 @@ if.then345:                                       ; preds = %if.end339, %if.end3
   br i1 %cmp347, label %if.then348, label %if.end354
 
 if.then348:                                       ; preds = %if.then345
-  br i1 %cmp, label %if.then350, label %if.else351
-
-if.then350:                                       ; preds = %if.then348
-  store ptr %127, ptr %current, align 8
-  br label %parsing_done
+  br i1 %cmp, label %parsing_done.sink.split, label %if.else351
 
 if.else351:                                       ; preds = %if.then348
   %junk_string_value_352 = getelementptr inbounds i8, ptr %this, i64 16
@@ -1108,11 +1100,7 @@ do.body.preheader:                                ; preds = %lor.lhs.false356
   br label %do.body
 
 if.then362:                                       ; preds = %lor.lhs.false356, %if.end354
-  br i1 %cmp, label %if.then364, label %if.else365
-
-if.then364:                                       ; preds = %if.then362
-  store ptr %127, ptr %current, align 8
-  br label %parsing_done
+  br i1 %cmp, label %parsing_done.sink.split, label %if.else365
 
 if.else365:                                       ; preds = %if.then362
   %junk_string_value_366 = getelementptr inbounds i8, ptr %this, i64 16
@@ -1250,7 +1238,7 @@ while.body.i346:                                  ; preds = %while.body.i346.pre
 for.cond.i.i351:                                  ; preds = %for.body.i.i347
   %indvars.iv.next15.i.i352 = add nuw nsw i64 %indvars.iv14.i.i348, 1
   %exitcond17.not.i.i353 = icmp eq i64 %indvars.iv.next15.i.i352, 6
-  br i1 %exitcond17.not.i.i353, label %parsing_done.loopexit, label %for.body.i.i347, !llvm.loop !4
+  br i1 %exitcond17.not.i.i353, label %parsing_done.sink.split, label %for.body.i.i347, !llvm.loop !4
 
 for.body.i.i347:                                  ; preds = %for.cond.i.i351, %while.body.i346
   %indvars.iv14.i.i348 = phi i64 [ %indvars.iv.next15.i.i352, %for.cond.i.i351 ], [ 0, %while.body.i346 ]
@@ -1262,33 +1250,29 @@ for.body.i.i347:                                  ; preds = %for.cond.i.i351, %w
 if.end.i355:                                      ; preds = %for.body.i.i347
   %incdec.ptr.i356 = getelementptr inbounds i8, ptr %incdec.ptr.i356475, i64 1
   %cmp.not.not.i357 = icmp eq ptr %incdec.ptr.i356, %151
-  br i1 %cmp.not.not.i357, label %parsing_done.loopexit401, label %while.body.i346, !llvm.loop !6
-
-parsing_done.loopexit:                            ; preds = %for.cond.i.i351
-  store ptr %incdec.ptr.i356475, ptr %current, align 8
-  br label %parsing_done
-
-parsing_done.loopexit401:                         ; preds = %if.end.i355
-  store ptr %scevgep511, ptr %current, align 8
-  br label %parsing_done
-
-parsing_done.loopexit402:                         ; preds = %if.then.i325, %if.end22.i311, %lor.lhs.false.i.i293, %if.end6.i302
-  %incdec.ptr.i326458 = phi ptr [ %incdec.ptr.i326, %if.then.i325 ], [ %126, %if.end22.i311 ], [ %incdec.ptr7.i303, %lor.lhs.false.i.i293 ], [ %incdec.ptr7.i303, %if.end6.i302 ]
-  store ptr %incdec.ptr.i326458, ptr %current, align 8
-  br label %parsing_done
+  br i1 %cmp.not.not.i357, label %parsing_done.sink.split, label %while.body.i346, !llvm.loop !6
 
 parsing_done.loopexit403:                         ; preds = %if.then.i281, %if.end22.i267, %lor.lhs.false.i.i249, %if.end6.i258
   %incdec.ptr.i282437 = phi ptr [ %incdec.ptr.i282, %if.then.i281 ], [ %107, %if.end22.i267 ], [ %incdec.ptr7.i259, %lor.lhs.false.i.i249 ], [ %incdec.ptr7.i259, %if.end6.i258 ]
   %frombool231.le562 = zext i1 %99 to i8
-  store ptr %incdec.ptr.i282437, ptr %current, align 8
+  br label %parsing_done.sink.split
+
+parsing_done.sink.split:                          ; preds = %if.end6.i302, %lor.lhs.false.i.i293, %if.end22.i311, %if.then.i325, %if.end.i355, %for.cond.i.i351, %if.then362, %if.then348, %if.then334, %parsing_done.loopexit403
+  %incdec.ptr.i282437.sink = phi ptr [ %incdec.ptr.i282437, %parsing_done.loopexit403 ], [ %127, %if.then334 ], [ %127, %if.then348 ], [ %127, %if.then362 ], [ %incdec.ptr.i356475, %for.cond.i.i351 ], [ %scevgep511, %if.end.i355 ], [ %incdec.ptr7.i303, %if.end6.i302 ], [ %incdec.ptr7.i303, %lor.lhs.false.i.i293 ], [ %126, %if.end22.i311 ], [ %incdec.ptr.i326, %if.then.i325 ]
+  %buffer_pos.2.ph = phi i32 [ %buffer_pos.1, %parsing_done.loopexit403 ], [ %buffer_pos.3, %if.then334 ], [ %buffer_pos.3, %if.then348 ], [ %buffer_pos.3, %if.then362 ], [ %buffer_pos.3, %for.cond.i.i351 ], [ %buffer_pos.3, %if.end.i355 ], [ %buffer_pos.5, %if.then.i325 ], [ %buffer_pos.5, %if.end22.i311 ], [ %buffer_pos.5, %lor.lhs.false.i.i293 ], [ %buffer_pos.5, %if.end6.i302 ]
+  %octal.1.ph = phi i8 [ %frombool231.le562, %parsing_done.loopexit403 ], [ %spec.select105, %if.then334 ], [ %spec.select105, %if.then348 ], [ %spec.select105, %if.then362 ], [ %spec.select105, %for.cond.i.i351 ], [ %spec.select105, %if.end.i355 ], [ %spec.select105, %if.then.i325 ], [ %spec.select105, %if.end22.i311 ], [ %spec.select105, %lor.lhs.false.i.i293 ], [ %spec.select105, %if.end6.i302 ]
+  %nonzero_digit_dropped.2.ph = phi i8 [ %nonzero_digit_dropped.1, %parsing_done.loopexit403 ], [ %nonzero_digit_dropped.3, %if.then334 ], [ %nonzero_digit_dropped.3, %if.then348 ], [ %nonzero_digit_dropped.3, %if.then362 ], [ %nonzero_digit_dropped.3, %for.cond.i.i351 ], [ %nonzero_digit_dropped.3, %if.end.i355 ], [ %nonzero_digit_dropped.5, %if.then.i325 ], [ %nonzero_digit_dropped.5, %if.end22.i311 ], [ %nonzero_digit_dropped.5, %lor.lhs.false.i.i293 ], [ %nonzero_digit_dropped.5, %if.end6.i302 ]
+  %insignificant_digits.2.ph = phi i32 [ %insignificant_digits.1, %parsing_done.loopexit403 ], [ %insignificant_digits.0.lcssa, %if.then334 ], [ %insignificant_digits.0.lcssa, %if.then348 ], [ %insignificant_digits.0.lcssa, %if.then362 ], [ %insignificant_digits.0.lcssa, %for.cond.i.i351 ], [ %insignificant_digits.0.lcssa, %if.end.i355 ], [ %insignificant_digits.0.lcssa, %if.then.i325 ], [ %insignificant_digits.0.lcssa, %if.end22.i311 ], [ %insignificant_digits.0.lcssa, %lor.lhs.false.i.i293 ], [ %insignificant_digits.0.lcssa, %if.end6.i302 ]
+  %exponent.0.ph = phi i32 [ 0, %parsing_done.loopexit403 ], [ %exponent.1, %if.then334 ], [ %exponent.1, %if.then348 ], [ %exponent.1, %if.then362 ], [ %exponent.6, %for.cond.i.i351 ], [ %exponent.6, %if.end.i355 ], [ %exponent.5, %if.then.i325 ], [ %exponent.5, %if.end22.i311 ], [ %exponent.5, %lor.lhs.false.i.i293 ], [ %exponent.5, %if.end6.i302 ]
+  store ptr %incdec.ptr.i282437.sink, ptr %current, align 8
   br label %parsing_done
 
-parsing_done:                                     ; preds = %parsing_done.loopexit403, %parsing_done.loopexit402, %parsing_done.loopexit401, %parsing_done.loopexit, %if.then410, %if.end408, %if.end328, %if.then254, %if.end248, %if.then364, %if.then350, %if.then336
-  %buffer_pos.2 = phi i32 [ %buffer_pos.0.lcssa, %if.end248 ], [ %buffer_pos.0.lcssa, %if.then254 ], [ %buffer_pos.3, %if.end328 ], [ %buffer_pos.3, %if.then336 ], [ %buffer_pos.3, %if.then350 ], [ %buffer_pos.3, %if.then364 ], [ %buffer_pos.3, %if.end408 ], [ %buffer_pos.3, %if.then410 ], [ %buffer_pos.3, %parsing_done.loopexit ], [ %buffer_pos.3, %parsing_done.loopexit401 ], [ %buffer_pos.5, %parsing_done.loopexit402 ], [ %buffer_pos.1, %parsing_done.loopexit403 ]
-  %octal.1 = phi i8 [ %spec.select105, %if.end248 ], [ %octal.0.lcssa, %if.then254 ], [ %spec.select105, %if.end328 ], [ %spec.select105, %if.then336 ], [ %spec.select105, %if.then350 ], [ %spec.select105, %if.then364 ], [ %spec.select105, %if.end408 ], [ %spec.select105, %if.then410 ], [ %spec.select105, %parsing_done.loopexit ], [ %spec.select105, %parsing_done.loopexit401 ], [ %spec.select105, %parsing_done.loopexit402 ], [ %frombool231.le562, %parsing_done.loopexit403 ]
-  %nonzero_digit_dropped.2 = phi i8 [ %nonzero_digit_dropped.0.lcssa, %if.end248 ], [ %nonzero_digit_dropped.0.lcssa, %if.then254 ], [ %nonzero_digit_dropped.3, %if.end328 ], [ %nonzero_digit_dropped.3, %if.then336 ], [ %nonzero_digit_dropped.3, %if.then350 ], [ %nonzero_digit_dropped.3, %if.then364 ], [ %nonzero_digit_dropped.3, %if.end408 ], [ %nonzero_digit_dropped.3, %if.then410 ], [ %nonzero_digit_dropped.3, %parsing_done.loopexit ], [ %nonzero_digit_dropped.3, %parsing_done.loopexit401 ], [ %nonzero_digit_dropped.5, %parsing_done.loopexit402 ], [ %nonzero_digit_dropped.1, %parsing_done.loopexit403 ]
-  %insignificant_digits.2 = phi i32 [ %insignificant_digits.0.lcssa, %if.end248 ], [ %insignificant_digits.0.lcssa, %if.then254 ], [ %insignificant_digits.0.lcssa, %if.end328 ], [ %insignificant_digits.0.lcssa, %if.then336 ], [ %insignificant_digits.0.lcssa, %if.then350 ], [ %insignificant_digits.0.lcssa, %if.then364 ], [ %insignificant_digits.0.lcssa, %if.end408 ], [ %insignificant_digits.0.lcssa, %if.then410 ], [ %insignificant_digits.0.lcssa, %parsing_done.loopexit ], [ %insignificant_digits.0.lcssa, %parsing_done.loopexit401 ], [ %insignificant_digits.0.lcssa, %parsing_done.loopexit402 ], [ %insignificant_digits.1, %parsing_done.loopexit403 ]
-  %exponent.0 = phi i32 [ 0, %if.end248 ], [ 0, %if.then254 ], [ %exponent.1, %if.end328 ], [ %exponent.1, %if.then336 ], [ %exponent.1, %if.then350 ], [ %exponent.1, %if.then364 ], [ %exponent.6, %if.end408 ], [ %exponent.6, %if.then410 ], [ %exponent.6, %parsing_done.loopexit ], [ %exponent.6, %parsing_done.loopexit401 ], [ %exponent.5, %parsing_done.loopexit402 ], [ 0, %parsing_done.loopexit403 ]
+parsing_done:                                     ; preds = %parsing_done.sink.split, %if.then410, %if.end408, %if.end328, %if.then254, %if.end248
+  %buffer_pos.2 = phi i32 [ %buffer_pos.0.lcssa, %if.end248 ], [ %buffer_pos.0.lcssa, %if.then254 ], [ %buffer_pos.3, %if.end328 ], [ %buffer_pos.3, %if.end408 ], [ %buffer_pos.3, %if.then410 ], [ %buffer_pos.2.ph, %parsing_done.sink.split ]
+  %octal.1 = phi i8 [ %spec.select105, %if.end248 ], [ %octal.0.lcssa, %if.then254 ], [ %spec.select105, %if.end328 ], [ %spec.select105, %if.end408 ], [ %spec.select105, %if.then410 ], [ %octal.1.ph, %parsing_done.sink.split ]
+  %nonzero_digit_dropped.2 = phi i8 [ %nonzero_digit_dropped.0.lcssa, %if.end248 ], [ %nonzero_digit_dropped.0.lcssa, %if.then254 ], [ %nonzero_digit_dropped.3, %if.end328 ], [ %nonzero_digit_dropped.3, %if.end408 ], [ %nonzero_digit_dropped.3, %if.then410 ], [ %nonzero_digit_dropped.2.ph, %parsing_done.sink.split ]
+  %insignificant_digits.2 = phi i32 [ %insignificant_digits.0.lcssa, %if.end248 ], [ %insignificant_digits.0.lcssa, %if.then254 ], [ %insignificant_digits.0.lcssa, %if.end328 ], [ %insignificant_digits.0.lcssa, %if.end408 ], [ %insignificant_digits.0.lcssa, %if.then410 ], [ %insignificant_digits.2.ph, %parsing_done.sink.split ]
+  %exponent.0 = phi i32 [ 0, %if.end248 ], [ 0, %if.then254 ], [ %exponent.1, %if.end328 ], [ %exponent.6, %if.end408 ], [ %exponent.6, %if.then410 ], [ %exponent.0.ph, %parsing_done.sink.split ]
   %add413 = add nsw i32 %exponent.0, %insignificant_digits.2
   %tobool414 = trunc nuw i8 %octal.1 to i1
   br i1 %tobool414, label %if.then415, label %if.end431

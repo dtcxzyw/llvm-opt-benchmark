@@ -2526,23 +2526,13 @@ if.then87:                                        ; preds = %invoke.cont73, %inv
   %234 = load ptr, ptr %this, align 8
   %235 = load ptr, ptr %m_info.i.i.i, align 8
   %cmp.i206 = icmp eq ptr %235, null
-  br i1 %cmp.i206, label %invoke.cont92.thread, label %cond.false.i207
-
-invoke.cont92.thread:                             ; preds = %if.then87
-  call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %v.i220)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i221)
-  br label %for.end.i.sink.split
+  br i1 %cmp.i206, label %for.end.i.sink.split, label %cond.false.i207
 
 cond.false.i207:                                  ; preds = %if.then87
   %m_parameters.i.i208 = getelementptr inbounds i8, ptr %235, i64 8
   %236 = load ptr, ptr %m_parameters.i.i208, align 8
   %cmp.i.i.i209 = icmp eq ptr %236, null
-  br i1 %cmp.i.i.i209, label %invoke.cont92.thread627, label %invoke.cont92
-
-invoke.cont92.thread627:                          ; preds = %cond.false.i207
-  call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %v.i220)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i221)
-  br label %for.end.i.sink.split
+  br i1 %cmp.i.i.i209, label %for.end.i.sink.split, label %invoke.cont92
 
 invoke.cont92:                                    ; preds = %cond.false.i207
   %arrayidx.i.i.i211 = getelementptr inbounds i8, ptr %236, i64 -4
@@ -2666,7 +2656,9 @@ lpad.loopexit.split-lp.i229.loopexit.split-lp:    ; preds = %if.then.i.i.i.i226
           cleanup
   br label %ehcleanup.i230
 
-for.end.i.sink.split:                             ; preds = %invoke.cont92.thread, %invoke.cont92.thread627
+for.end.i.sink.split:                             ; preds = %cond.false.i207, %if.then87
+  call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %v.i220)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i221)
   store ptr %m_initial_buffer.i.i222, ptr %v.i220, align 8, !noalias !26
   store i32 0, ptr %m_pos.i.i223, align 8, !noalias !26
   store i32 16, ptr %m_capacity.i.i224, align 4, !noalias !26

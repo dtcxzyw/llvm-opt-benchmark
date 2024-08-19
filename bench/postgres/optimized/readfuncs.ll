@@ -21672,53 +21672,53 @@ define dso_local i64 @readDatum(i1 noundef zeroext %0) local_unnamed_addr #0 {
 
 28:                                               ; preds = %15
   %29 = icmp eq i64 %6, 0
-  br i1 %29, label %30, label %31
+  br i1 %29, label %.loopexit.sink.split, label %30
 
 30:                                               ; preds = %28
-  store i64 0, ptr %3, align 8
+  %31 = call ptr @palloc(i64 noundef %6) #10
+  br label %32
+
+32:                                               ; preds = %30, %32
+  %.134 = phi i64 [ 0, %30 ], [ %37, %32 ]
+  %33 = call ptr @pg_strtok(ptr noundef nonnull %2) #10
+  %34 = call i32 @atoi(ptr nocapture noundef %33) #12
+  %35 = trunc i32 %34 to i8
+  %36 = getelementptr i8, ptr %31, i64 %.134
+  store i8 %35, ptr %36, align 1
+  %37 = add nuw nsw i64 %.134, 1
+  %exitcond.not = icmp eq i64 %37, %6
+  br i1 %exitcond.not, label %38, label %32, !llvm.loop !7
+
+38:                                               ; preds = %32
+  %39 = ptrtoint ptr %31 to i64
+  br label %.loopexit.sink.split
+
+.loopexit.sink.split:                             ; preds = %28, %38
+  %.sink = phi i64 [ %39, %38 ], [ 0, %28 ]
+  store i64 %.sink, ptr %3, align 8
   br label %.loopexit
 
-31:                                               ; preds = %28
-  %32 = call ptr @palloc(i64 noundef %6) #10
-  br label %33
+.loopexit:                                        ; preds = %22, %.loopexit.sink.split
+  %40 = call ptr @pg_strtok(ptr noundef nonnull %2) #10
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %44, label %42
 
-33:                                               ; preds = %31, %33
-  %.134 = phi i64 [ 0, %31 ], [ %38, %33 ]
-  %34 = call ptr @pg_strtok(ptr noundef nonnull %2) #10
-  %35 = call i32 @atoi(ptr nocapture noundef %34) #12
-  %36 = trunc i32 %35 to i8
-  %37 = getelementptr i8, ptr %32, i64 %.134
-  store i8 %36, ptr %37, align 1
-  %38 = add nuw nsw i64 %.134, 1
-  %exitcond.not = icmp eq i64 %38, %6
-  br i1 %exitcond.not, label %39, label %33, !llvm.loop !7
+42:                                               ; preds = %.loopexit
+  %43 = load i8, ptr %40, align 1
+  %.not31 = icmp eq i8 %43, 93
+  br i1 %.not31, label %48, label %44
 
-39:                                               ; preds = %33
-  %40 = ptrtoint ptr %32 to i64
-  store i64 %40, ptr %3, align 8
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %22, %30, %39
-  %41 = call ptr @pg_strtok(ptr noundef nonnull %2) #10
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %45, label %43
-
-43:                                               ; preds = %.loopexit
-  %44 = load i8, ptr %41, align 1
-  %.not31 = icmp eq i8 %44, 93
-  br i1 %.not31, label %49, label %45
-
-45:                                               ; preds = %43, %.loopexit
-  %46 = phi ptr [ %41, %43 ], [ @.str.303, %.loopexit ]
-  %47 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %47)
-  %48 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.305, ptr noundef nonnull %46, i64 noundef %6) #10
+44:                                               ; preds = %42, %.loopexit
+  %45 = phi ptr [ %40, %42 ], [ @.str.303, %.loopexit ]
+  %46 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %46)
+  %47 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.305, ptr noundef nonnull %45, i64 noundef %6) #10
   call void @errfinish(ptr noundef nonnull @.str.301, i32 noundef 637, ptr noundef nonnull @__func__.readDatum) #10
   unreachable
 
-49:                                               ; preds = %43
-  %50 = load i64, ptr %3, align 8
-  ret i64 %50
+48:                                               ; preds = %42
+  %49 = load i64, ptr %3, align 8
+  ret i64 %49
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn

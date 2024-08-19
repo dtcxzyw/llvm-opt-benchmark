@@ -6873,11 +6873,7 @@ while.end:                                        ; preds = %while.cond
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dirpath.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.display_error_msgs.path, i64 24, i1 false)
   %and.i = and i32 %5, 61440
   %cmp.i = icmp eq i32 %and.i, 16384
-  br i1 %cmp.i, label %if.end.i, label %entry_is_new_sparse_dir.exit.thread
-
-entry_is_new_sparse_dir.exit.thread:              ; preds = %while.end
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %dirpath.i)
-  br label %return.sink.split
+  br i1 %cmp.i, label %if.end.i, label %return.sink.split
 
 if.end.i:                                         ; preds = %while.end
   %6 = load ptr, ptr %data, align 8
@@ -6954,7 +6950,6 @@ entry_is_new_sparse_dir.exit.thread68:            ; preds = %if.end11.i
 
 entry_is_new_sparse_dir.exit.thread65:            ; preds = %strbuf_addch.exit.i, %if.end3.i
   call void @strbuf_release(ptr noundef nonnull %dirpath.i) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %dirpath.i)
   br label %return.sink.split
 
 entry_is_new_sparse_dir.exit:                     ; preds = %if.end11.i
@@ -7126,7 +7121,8 @@ for.inc97:                                        ; preds = %for.body79, %land.l
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
   br i1 %exitcond89.not, label %return, label %for.body79, !llvm.loop !50
 
-return.sink.split:                                ; preds = %entry_is_new_sparse_dir.exit.thread, %entry_is_new_sparse_dir.exit.thread65
+return.sink.split:                                ; preds = %while.end, %entry_is_new_sparse_dir.exit.thread65
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %dirpath.i)
   store i32 0, ptr %is_new_sparse_dir, align 4
   br label %return
 

@@ -106,7 +106,6 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   store i64 -9223372036854775798, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   br label %25
 
 18:                                               ; preds = %13
@@ -132,10 +131,10 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
 
 "_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h866b8770813f4762E.exit": ; preds = %18, %21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   br label %25
 
 25:                                               ; preds = %16, %"_ZN4core3ptr68drop_in_place$LT$diesel..mysql..query_builder..MysqlQueryBuilder$GT$17h866b8770813f4762E.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   ret void
 
 26:                                               ; preds = %27
@@ -183,7 +182,6 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   %11 = load i8, ptr %6, align 1, !range !49, !noalias !44, !noundef !20
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %11, ptr %12, align 8, !alias.scope !41, !noalias !50
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !44
   br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hb2904183799a0d67E.exit
 
 13:                                               ; preds = %3
@@ -192,10 +190,10 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !44
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.i, i64 24, i1 false), !noalias !50
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !44
   br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hb2904183799a0d67E.exit
 
 _ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hb2904183799a0d67E.exit: ; preds = %10, %13
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !44
   store i64 %8, ptr %0, align 8, !alias.scope !41, !noalias !50
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.210.i)
   ret void

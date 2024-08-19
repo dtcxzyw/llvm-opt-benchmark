@@ -467,102 +467,97 @@ define hidden ptr @cmsCreateInkLimitingDeviceLinkTHR(ptr noundef %0, i32 noundef
 
 5:                                                ; preds = %3
   tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %0, i32 noundef 9, ptr noundef nonnull @.str.4) #7
-  br label %41
+  br label %39
 
 6:                                                ; preds = %3
   %7 = fcmp olt double %2, 0.000000e+00
   %8 = fcmp ogt double %2, 4.000000e+02
   %or.cond = or i1 %7, %8
-  br i1 %or.cond, label %9, label %13
+  br i1 %or.cond, label %9, label %11
 
 9:                                                ; preds = %6
   tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.5) #7
   %10 = fcmp olt double %2, 1.000000e+00
-  br i1 %10, label %.thread, label %11
+  %brmerge = or i1 %10, %8
+  br i1 %brmerge, label %.sink.split, label %11
 
-.thread:                                          ; preds = %9
-  store double 1.000000e+00, ptr %4, align 8
-  br label %13
+.sink.split:                                      ; preds = %9
+  %.mux = select i1 %10, double 1.000000e+00, double 4.000000e+02
+  store double %.mux, ptr %4, align 8
+  br label %11
 
-11:                                               ; preds = %9
-  br i1 %8, label %12, label %13
+11:                                               ; preds = %9, %.sink.split, %6
+  %12 = tail call ptr @cmsCreateProfilePlaceholder(ptr noundef %0) #7
+  %.not43 = icmp eq ptr %12, null
+  br i1 %.not43, label %39, label %13
 
-12:                                               ; preds = %11
-  store double 4.000000e+02, ptr %4, align 8
-  br label %13
-
-13:                                               ; preds = %.thread, %11, %12, %6
-  %14 = tail call ptr @cmsCreateProfilePlaceholder(ptr noundef %0) #7
-  %.not43 = icmp eq ptr %14, null
-  br i1 %.not43, label %41, label %15
+13:                                               ; preds = %11
+  tail call void @cmsSetProfileVersion(ptr noundef nonnull %12, double noundef 4.400000e+00) #7
+  tail call void @cmsSetDeviceClass(ptr noundef nonnull %12, i32 noundef 1818848875) #7
+  tail call void @cmsSetColorSpace(ptr noundef nonnull %12, i32 noundef 1129142603) #7
+  tail call void @cmsSetPCS(ptr noundef nonnull %12, i32 noundef 1129142603) #7
+  tail call void @cmsSetHeaderRenderingIntent(ptr noundef nonnull %12, i32 noundef 0) #7
+  %14 = tail call ptr @cmsPipelineAlloc(ptr noundef %0, i32 noundef 4, i32 noundef 4) #7
+  %cond = icmp eq ptr %14, null
+  br i1 %cond, label %37, label %15
 
 15:                                               ; preds = %13
-  tail call void @cmsSetProfileVersion(ptr noundef nonnull %14, double noundef 4.400000e+00) #7
-  tail call void @cmsSetDeviceClass(ptr noundef nonnull %14, i32 noundef 1818848875) #7
-  tail call void @cmsSetColorSpace(ptr noundef nonnull %14, i32 noundef 1129142603) #7
-  tail call void @cmsSetPCS(ptr noundef nonnull %14, i32 noundef 1129142603) #7
-  tail call void @cmsSetHeaderRenderingIntent(ptr noundef nonnull %14, i32 noundef 0) #7
-  %16 = tail call ptr @cmsPipelineAlloc(ptr noundef %0, i32 noundef 4, i32 noundef 4) #7
-  %cond = icmp eq ptr %16, null
-  br i1 %cond, label %39, label %17
+  %16 = tail call i32 @cmsChannelsOf(i32 noundef 1129142603) #7
+  %17 = tail call ptr @cmsStageAllocCLut16bit(ptr noundef %0, i32 noundef 17, i32 noundef %16, i32 noundef %16, ptr noundef null) #7
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %36, label %19
 
-17:                                               ; preds = %15
-  %18 = tail call i32 @cmsChannelsOf(i32 noundef 1129142603) #7
-  %19 = tail call ptr @cmsStageAllocCLut16bit(ptr noundef %0, i32 noundef 17, i32 noundef %18, i32 noundef %18, ptr noundef null) #7
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %38, label %21
+19:                                               ; preds = %15
+  %20 = call i32 @cmsStageSampleCLut16bit(ptr noundef nonnull %17, ptr noundef nonnull @InkLimitingSampler, ptr noundef nonnull %4, i32 noundef 0) #7
+  %.not44 = icmp eq i32 %20, 0
+  br i1 %.not44, label %36, label %21
 
-21:                                               ; preds = %17
-  %22 = call i32 @cmsStageSampleCLut16bit(ptr noundef nonnull %19, ptr noundef nonnull @InkLimitingSampler, ptr noundef nonnull %4, i32 noundef 0) #7
-  %.not44 = icmp eq i32 %22, 0
-  br i1 %.not44, label %38, label %23
+21:                                               ; preds = %19
+  %22 = call ptr @_cmsStageAllocIdentityCurves(ptr noundef %0, i32 noundef %16) #7
+  %23 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %14, i32 noundef 0, ptr noundef %22) #7
+  %.not45 = icmp eq i32 %23, 0
+  br i1 %.not45, label %36, label %24
 
-23:                                               ; preds = %21
-  %24 = call ptr @_cmsStageAllocIdentityCurves(ptr noundef %0, i32 noundef %18) #7
-  %25 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %16, i32 noundef 0, ptr noundef %24) #7
-  %.not45 = icmp eq i32 %25, 0
-  br i1 %.not45, label %38, label %26
+24:                                               ; preds = %21
+  %25 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %14, i32 noundef 1, ptr noundef nonnull %17) #7
+  %.not46 = icmp eq i32 %25, 0
+  br i1 %.not46, label %36, label %26
 
-26:                                               ; preds = %23
-  %27 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %16, i32 noundef 1, ptr noundef nonnull %19) #7
-  %.not46 = icmp eq i32 %27, 0
-  br i1 %.not46, label %38, label %28
+26:                                               ; preds = %24
+  %27 = call ptr @_cmsStageAllocIdentityCurves(ptr noundef %0, i32 noundef %16) #7
+  %28 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %14, i32 noundef 1, ptr noundef %27) #7
+  %.not47 = icmp eq i32 %28, 0
+  br i1 %.not47, label %36, label %29
 
-28:                                               ; preds = %26
-  %29 = call ptr @_cmsStageAllocIdentityCurves(ptr noundef %0, i32 noundef %18) #7
-  %30 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %16, i32 noundef 1, ptr noundef %29) #7
-  %.not47 = icmp eq i32 %30, 0
-  br i1 %.not47, label %38, label %31
+29:                                               ; preds = %26
+  %30 = call fastcc i32 @SetTextTags(ptr noundef nonnull %12, ptr noundef nonnull @.str.6)
+  %.not48 = icmp eq i32 %30, 0
+  br i1 %.not48, label %36, label %31
 
-31:                                               ; preds = %28
-  %32 = call fastcc i32 @SetTextTags(ptr noundef nonnull %14, ptr noundef nonnull @.str.6)
-  %.not48 = icmp eq i32 %32, 0
-  br i1 %.not48, label %38, label %33
+31:                                               ; preds = %29
+  %32 = call i32 @cmsWriteTag(ptr noundef nonnull %12, i32 noundef 1093812784, ptr noundef nonnull %14) #7
+  %.not49 = icmp eq i32 %32, 0
+  br i1 %.not49, label %36, label %33
 
 33:                                               ; preds = %31
-  %34 = call i32 @cmsWriteTag(ptr noundef nonnull %14, i32 noundef 1093812784, ptr noundef nonnull %16) #7
-  %.not49 = icmp eq i32 %34, 0
-  br i1 %.not49, label %38, label %35
+  %34 = call fastcc i32 @SetSeqDescTag(ptr noundef nonnull %12, ptr noundef nonnull @.str.7)
+  %.not50 = icmp eq i32 %34, 0
+  br i1 %.not50, label %36, label %35
 
 35:                                               ; preds = %33
-  %36 = call fastcc i32 @SetSeqDescTag(ptr noundef nonnull %14, ptr noundef nonnull @.str.7)
-  %.not50 = icmp eq i32 %36, 0
-  br i1 %.not50, label %38, label %37
-
-37:                                               ; preds = %35
-  call void @cmsPipelineFree(ptr noundef nonnull %16) #7
-  br label %41
-
-38:                                               ; preds = %17, %21, %28, %26, %23, %31, %33, %35
-  call void @cmsPipelineFree(ptr noundef nonnull %16) #7
+  call void @cmsPipelineFree(ptr noundef nonnull %14) #7
   br label %39
 
-39:                                               ; preds = %15, %38
-  %40 = call i32 @cmsCloseProfile(ptr noundef nonnull %14) #7
-  br label %41
+36:                                               ; preds = %15, %19, %26, %24, %21, %29, %31, %33
+  call void @cmsPipelineFree(ptr noundef nonnull %14) #7
+  br label %37
 
-41:                                               ; preds = %13, %39, %37, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %39 ], [ %14, %37 ], [ null, %13 ]
+37:                                               ; preds = %13, %36
+  %38 = call i32 @cmsCloseProfile(ptr noundef nonnull %12) #7
+  br label %39
+
+39:                                               ; preds = %11, %37, %35, %5
+  %.0 = phi ptr [ null, %5 ], [ null, %37 ], [ %12, %35 ], [ null, %11 ]
   ret ptr %.0
 }
 

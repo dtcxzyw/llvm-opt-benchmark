@@ -3274,24 +3274,24 @@ if.end528:                                        ; preds = %if.else497, %if.els
   %idxprom522 = zext nneg i32 %dec521.sink to i64
   %arrayidx523 = getelementptr inbounds i16, ptr %buf445, i64 %idxprom522
   store i16 %conv520.sink, ptr %arrayidx523, align 2
-  %.sink = load i32, ptr %srcIx459, align 4
-  %sub524 = sub nsw i32 %.sink, %add456
+  %103 = load i32, ptr %srcIx459, align 4
+  %sub524 = sub nsw i32 %103, %add456
   %conv525 = trunc i32 %sub524 to i8
   %arrayidx527 = getelementptr inbounds i8, ptr %mapToNative448, i64 %idxprom522
   store i8 %conv525, ptr %arrayidx527, align 1
   %conv530 = trunc i32 %dec521.sink to i8
-  %103 = zext nneg i32 %dec479 to i64
+  %104 = zext nneg i32 %dec479 to i64
   br label %do.body529
 
 do.body529:                                       ; preds = %do.body529, %if.end528
-  %indvars.iv381 = phi i64 [ %indvars.iv.next382, %do.body529 ], [ %103, %if.end528 ]
+  %indvars.iv381 = phi i64 [ %indvars.iv.next382, %do.body529 ], [ %104, %if.end528 ]
   %indvars.iv.next382 = add nsw i64 %indvars.iv381, -1
-  %104 = sub nsw i64 %indvars.iv381, %95
-  %arrayidx534 = getelementptr inbounds i8, ptr %mapToUChars451, i64 %104
+  %105 = sub nsw i64 %indvars.iv381, %95
+  %arrayidx534 = getelementptr inbounds i8, ptr %mapToUChars451, i64 %105
   store i8 %conv530, ptr %arrayidx534, align 1
-  %105 = load i32, ptr %srcIx459, align 4
-  %106 = sext i32 %105 to i64
-  %cmp536.not.not = icmp sgt i64 %indvars.iv381, %106
+  %106 = load i32, ptr %srcIx459, align 4
+  %107 = sext i32 %106 to i64
+  %cmp536.not.not = icmp sgt i64 %indvars.iv381, %107
   br i1 %cmp536.not.not, label %do.body529, label %if.end538, !llvm.loop !10
 
 if.end538:                                        ; preds = %do.body529, %if.then485
@@ -3305,10 +3305,10 @@ if.end538.while.end539_crit_edge:                 ; preds = %if.end538
   br label %while.end539
 
 while.end539:                                     ; preds = %land.lhs.true472, %if.end538.while.end539_crit_edge
-  %107 = phi i32 [ %.pre391, %if.end538.while.end539_crit_edge ], [ %96, %land.lhs.true472 ]
+  %108 = phi i32 [ %.pre391, %if.end538.while.end539_crit_edge ], [ %96, %land.lhs.true472 ]
   %destIx458.0.lcssa = phi i32 [ %destIx458.1, %if.end538.while.end539_crit_edge ], [ %destIx458.0366, %land.lhs.true472 ]
   %bufNILimit460.0.lcssa = phi i32 [ %bufNILimit460.1, %if.end538.while.end539_crit_edge ], [ %bufNILimit460.0367, %land.lhs.true472 ]
-  store i32 %107, ptr %93, align 4
+  store i32 %108, ptr %93, align 4
   %bufNativeLimit541 = getelementptr inbounds i8, ptr %93, i64 4
   store i32 %ix.3, ptr %bufNativeLimit541, align 4
   %bufStartIdx542 = getelementptr inbounds i8, ptr %93, i64 8
@@ -3324,23 +3324,23 @@ while.end539:                                     ; preds = %land.lhs.true472, %
   %arrayidx550 = getelementptr inbounds i16, ptr %buf445, i64 %idxprom549
   %chunkContents551 = getelementptr inbounds i8, ptr %ut, i64 48
   store ptr %arrayidx550, ptr %chunkContents551, align 8
-  %108 = load i32, ptr %bufLimitIdx543, align 4
-  %109 = load i32, ptr %bufStartIdx542, align 4
-  %sub554 = sub nsw i32 %108, %109
+  %109 = load i32, ptr %bufLimitIdx543, align 4
+  %110 = load i32, ptr %bufStartIdx542, align 4
+  %sub554 = sub nsw i32 %109, %110
   %chunkLength555 = getelementptr inbounds i8, ptr %ut, i64 44
   store i32 %sub554, ptr %chunkLength555, align 4
   %chunkOffset557 = getelementptr inbounds i8, ptr %ut, i64 40
   store i32 %sub554, ptr %chunkOffset557, align 8
-  %110 = load i32, ptr %93, align 4
-  %conv559 = sext i32 %110 to i64
+  %111 = load i32, ptr %93, align 4
+  %conv559 = sext i32 %111 to i64
   store i64 %conv559, ptr %chunkNativeStart80, align 8
-  %111 = load i32, ptr %bufNativeLimit541, align 4
-  %conv562 = sext i32 %111 to i64
+  %112 = load i32, ptr %bufNativeLimit541, align 4
+  %conv562 = sext i32 %112 to i64
   %chunkNativeLimit563 = getelementptr inbounds i8, ptr %ut, i64 16
   store i64 %conv562, ptr %chunkNativeLimit563, align 8
-  %112 = load i32, ptr %bufNILimit546, align 4
+  %113 = load i32, ptr %bufNILimit546, align 4
   %nativeIndexingLimit565 = getelementptr inbounds i8, ptr %ut, i64 28
-  store i32 %112, ptr %nativeIndexingLimit565, align 4
+  store i32 %113, ptr %nativeIndexingLimit565, align 4
   br label %return
 
 return:                                           ; preds = %if.end397, %land.lhs.true413, %if.then419, %if.then416, %if.then184, %if.else187, %if.end121, %while.end539, %swapBuffers, %if.then84, %if.end72, %if.then57, %if.then36

@@ -302,7 +302,7 @@ if.else.i:                                        ; preds = %land.lhs.true.i40, 
   %octet_data.i = getelementptr inbounds i8, ptr %helper_data, i64 32
   %20 = load ptr, ptr %octet_data.i, align 8
   %cmp9.not.i = icmp eq ptr %20, null
-  br i1 %cmp9.not.i, label %if.end34thread-pre-split.i, label %if.then10.i
+  br i1 %cmp9.not.i, label %if.then36.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.else.i
   %pwdata.i = getelementptr inbounds i8, ptr %0, i64 72
@@ -376,17 +376,7 @@ if.then.i.i:                                      ; preds = %if.then13.i, %if.th
   store ptr %data.val.i, ptr %derp.i.i, align 8
   %call.i29.i = call ptr @d2i_PUBKEY_ex(ptr noundef null, ptr noundef nonnull %derp.i.i, i64 noundef %data.val25.i, ptr noundef %call3, ptr noundef %2) #5
   %cmp3.not.i.i = icmp eq ptr %call.i29.i, null
-  br i1 %cmp3.not.i.i, label %land.lhs.truethread-pre-split.i.i, label %if.end17.thread56.i
-
-if.end17.thread56.i:                              ; preds = %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %derp.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %new_der.i.i)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %pbuf.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %plen.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alg.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %oct.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i.i)
-  br label %if.then19.thread.i
+  br i1 %cmp3.not.i.i, label %land.lhs.truethread-pre-split.i.i, label %if.then19.thread.i
 
 land.lhs.truethread-pre-split.i.i:                ; preds = %if.then.i.i
   %.pr.i.i = load i32, ptr %21, align 8
@@ -394,20 +384,10 @@ land.lhs.truethread-pre-split.i.i:                ; preds = %if.then.i.i
 
 land.lhs.true.i.i:                                ; preds = %land.lhs.truethread-pre-split.i.i, %if.then13.i
   %29 = phi i32 [ %.pr.i.i, %land.lhs.truethread-pre-split.i.i ], [ %28, %if.then13.i ]
-  switch i32 %29, label %if.end17.thread52.i [
+  switch i32 %29, label %if.end34thread-pre-split.sink.split.i [
     i32 0, label %if.then12.i.i
     i32 4, label %if.then12.i.i
   ]
-
-if.end17.thread52.i:                              ; preds = %land.lhs.true.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %derp.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %new_der.i.i)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %pbuf.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %plen.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alg.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %oct.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i.i)
-  br label %if.end34thread-pre-split.i
 
 if.then12.i.i:                                    ; preds = %land.lhs.true.i.i, %land.lhs.true.i.i
   store ptr null, ptr %new_der.i.i, align 8
@@ -473,18 +453,16 @@ if.end33.i.i:                                     ; preds = %if.then26.i.i
 if.end17.thread61.i:                              ; preds = %if.end33.i.i, %if.then26.i.i, %if.end23.i.i
   %37 = load ptr, ptr %new_der.i.i, align 8
   call void @CRYPTO_free(ptr noundef %37, ptr noundef nonnull @.str.6, i32 noundef 380) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %derp.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %new_der.i.i)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %pbuf.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %plen.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alg.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %oct.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i.i)
-  br label %if.end34thread-pre-split.i
+  br label %if.end34thread-pre-split.sink.split.i
 
 if.end17.i:                                       ; preds = %if.end33.i.i
   %38 = load ptr, ptr %new_der.i.i, align 8
   call void @CRYPTO_free(ptr noundef %38, ptr noundef nonnull @.str.6, i32 noundef 380) #5
+  br label %if.then19.thread.i
+
+if.then19.thread.i:                               ; preds = %if.end17.i, %if.then.i.i
+  %pk.046.ph.i = phi ptr [ %call31.i.i, %if.end17.i ], [ %call.i29.i, %if.then.i.i ]
+  %store_info_new.045.ph.i = phi ptr [ @OSSL_STORE_INFO_new_PKEY, %if.end17.i ], [ @OSSL_STORE_INFO_new_PUBKEY, %if.then.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %derp.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %new_der.i.i)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %pbuf.i.i)
@@ -492,11 +470,6 @@ if.end17.i:                                       ; preds = %if.end33.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alg.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %oct.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i.i)
-  br label %if.then19.thread.i
-
-if.then19.thread.i:                               ; preds = %if.end17.i, %if.end17.thread56.i
-  %pk.046.ph.i = phi ptr [ %call.i29.i, %if.end17.thread56.i ], [ %call31.i.i, %if.end17.i ]
-  %store_info_new.045.ph.i = phi ptr [ @OSSL_STORE_INFO_new_PUBKEY, %if.end17.thread56.i ], [ @OSSL_STORE_INFO_new_PKEY, %if.end17.i ]
   store i32 2, ptr %helper_data, align 8
   br label %if.end32.i
 
@@ -520,18 +493,26 @@ if.end32.i:                                       ; preds = %if.else25.i, %if.th
   store ptr %call33.i, ptr %arg, align 8
   br label %if.end34.i
 
-if.end34thread-pre-split.i:                       ; preds = %if.end17.thread61.i, %if.end17.thread52.i, %if.else.i
-  %.pr.i = load ptr, ptr %arg, align 8
+if.end34thread-pre-split.sink.split.i:            ; preds = %if.end17.thread61.i, %land.lhs.true.i.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %derp.i.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %new_der.i.i)
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %pbuf.i.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %plen.i.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alg.i.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %oct.i.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i.i)
+  %.pr.i.pre = load ptr, ptr %arg, align 8
   br label %if.end34.i
 
-if.end34.i:                                       ; preds = %if.end34thread-pre-split.i, %if.end32.i
-  %39 = phi ptr [ %.pr.i, %if.end34thread-pre-split.i ], [ %call33.i, %if.end32.i ]
-  %pk.047.i = phi ptr [ null, %if.end34thread-pre-split.i ], [ %pk.04668.i, %if.end32.i ]
+if.end34.i:                                       ; preds = %if.end34thread-pre-split.sink.split.i, %if.end32.i
+  %39 = phi ptr [ %call33.i, %if.end32.i ], [ %.pr.i.pre, %if.end34thread-pre-split.sink.split.i ]
+  %pk.047.i = phi ptr [ %pk.04668.i, %if.end32.i ], [ null, %if.end34thread-pre-split.sink.split.i ]
   %cmp35.i = icmp eq ptr %39, null
   br i1 %cmp35.i, label %if.then36.i, label %if.end59
 
-if.then36.i:                                      ; preds = %if.end34.i
-  call void @EVP_PKEY_free(ptr noundef %pk.047.i) #5
+if.then36.i:                                      ; preds = %if.else.i, %if.end34.i
+  %pk.047.i89 = phi ptr [ %pk.047.i, %if.end34.i ], [ null, %if.else.i ]
+  call void @EVP_PKEY_free(ptr noundef %pk.047.i89) #5
   br label %if.end59
 
 if.end59:                                         ; preds = %if.then36.i, %if.end34.i, %land.lhs.true55, %if.end51
@@ -602,9 +583,9 @@ if.then22.i50:                                    ; preds = %if.end20.i
   %cmp25.i = icmp eq ptr %call24.i, null
   br i1 %cmp25.i, label %return.sink.split.i, label %try_cert.exit.thread
 
-return.sink.split.i:                              ; preds = %if.then22.i50, %land.lhs.true13.i, %lor.lhs.false14.i
-  %.sink.i = load ptr, ptr %cert.i, align 8
-  call void @X509_free(ptr noundef %.sink.i) #5
+return.sink.split.i:                              ; preds = %if.then22.i50, %lor.lhs.false14.i, %land.lhs.true13.i
+  %46 = load ptr, ptr %cert.i, align 8
+  call void @X509_free(ptr noundef %46) #5
   br label %try_cert.exit.thread
 
 try_cert.exit.thread:                             ; preds = %land.lhs.true63, %if.end20.i, %if.then22.i50, %return.sink.split.i
@@ -618,13 +599,13 @@ try_cert.exit:                                    ; preds = %if.then.i42
 if.end67:                                         ; preds = %try_cert.exit.thread, %if.end59
   %call68 = call i32 @ERR_pop_to_mark() #5
   %call69 = call i32 @ERR_set_mark() #5
-  %46 = load ptr, ptr %arg, align 8
-  %cmp70 = icmp eq ptr %46, null
+  %47 = load ptr, ptr %arg, align 8
+  %cmp70 = icmp eq ptr %47, null
   br i1 %cmp70, label %land.lhs.true71, label %if.end75
 
 land.lhs.true71:                                  ; preds = %if.end67
-  %47 = load i32, ptr %helper_data, align 8
-  switch i32 %47, label %if.end75 [
+  %48 = load i32, ptr %helper_data, align 8
+  switch i32 %48, label %if.end75 [
     i32 0, label %if.then.i53
     i32 4, label %if.then.i53
   ]
@@ -632,8 +613,8 @@ land.lhs.true71:                                  ; preds = %if.end67
 if.then.i53:                                      ; preds = %land.lhs.true71, %land.lhs.true71
   %octet_data.i54 = getelementptr inbounds i8, ptr %helper_data, i64 32
   %octet_data_size.i55 = getelementptr inbounds i8, ptr %helper_data, i64 40
-  %48 = load i64, ptr %octet_data_size.i55, align 8
-  %call.i56 = call ptr @d2i_X509_CRL(ptr noundef null, ptr noundef nonnull %octet_data.i54, i64 noundef %48) #5
+  %49 = load i64, ptr %octet_data_size.i55, align 8
+  %call.i56 = call ptr @d2i_X509_CRL(ptr noundef null, ptr noundef nonnull %octet_data.i54, i64 noundef %49) #5
   %cmp3.not.i = icmp eq ptr %call.i56, null
   br i1 %cmp3.not.i, label %if.end9.thread.i, label %if.then4.i
 
@@ -657,9 +638,9 @@ if.then11.i:                                      ; preds = %if.then4.i
   br label %if.end13.i59
 
 if.end13.i59:                                     ; preds = %if.then11.i, %if.end9.thread.i
-  %49 = phi ptr [ %.pr.i61, %if.end9.thread.i ], [ %call12.i, %if.then11.i ]
+  %50 = phi ptr [ %.pr.i61, %if.end9.thread.i ], [ %call12.i, %if.then11.i ]
   %crl.014.i = phi ptr [ null, %if.end9.thread.i ], [ %call.i56, %if.then11.i ]
-  %cmp14.i = icmp eq ptr %49, null
+  %cmp14.i = icmp eq ptr %50, null
   br i1 %cmp14.i, label %if.then15.i, label %if.end75
 
 if.then15.i:                                      ; preds = %if.end13.i59
@@ -669,8 +650,8 @@ if.then15.i:                                      ; preds = %if.end13.i59
 if.end75:                                         ; preds = %if.then15.i, %if.end13.i59, %land.lhs.true71, %if.end67
   %call76 = call i32 @ERR_pop_to_mark() #5
   %call77 = call i32 @ERR_set_mark() #5
-  %50 = load ptr, ptr %arg, align 8
-  %cmp78 = icmp eq ptr %50, null
+  %51 = load ptr, ptr %arg, align 8
+  %cmp78 = icmp eq ptr %51, null
   br i1 %cmp78, label %land.lhs.true79, label %if.end83
 
 land.lhs.true79:                                  ; preds = %if.end75
@@ -680,24 +661,15 @@ land.lhs.true79:                                  ; preds = %if.end75
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cert.i62)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %chain.i)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %pw_params.i)
-  %51 = load i32, ptr %helper_data, align 8
-  %cmp.i63 = icmp eq i32 %51, 0
-  br i1 %cmp.i63, label %if.then.i64, label %try_pkcs12.exit.thread
-
-try_pkcs12.exit.thread:                           ; preds = %land.lhs.true79
-  call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %tpass.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tpass_len.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pkey.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cert.i62)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %chain.i)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %pw_params.i)
-  br label %if.end83
+  %52 = load i32, ptr %helper_data, align 8
+  %cmp.i63 = icmp eq i32 %52, 0
+  br i1 %cmp.i63, label %if.then.i64, label %if.end83.sink.split
 
 if.then.i64:                                      ; preds = %land.lhs.true79
   %octet_data.i65 = getelementptr inbounds i8, ptr %helper_data, i64 32
   %octet_data_size.i66 = getelementptr inbounds i8, ptr %helper_data, i64 40
-  %52 = load i64, ptr %octet_data_size.i66, align 8
-  %call.i67 = call ptr @d2i_PKCS12(ptr noundef null, ptr noundef nonnull %octet_data.i65, i64 noundef %52) #5
+  %53 = load i64, ptr %octet_data_size.i66, align 8
+  %call.i67 = call ptr @d2i_PKCS12(ptr noundef null, ptr noundef nonnull %octet_data.i65, i64 noundef %53) #5
   %cmp1.not.i = icmp eq ptr %call.i67, null
   br i1 %cmp1.not.i, label %if.end83.critedge, label %if.then2.i
 
@@ -734,10 +706,10 @@ if.then15.i77:                                    ; preds = %if.else11.i
   br label %p12_end.i
 
 if.end.i75:                                       ; preds = %if.else11.i
-  %53 = load i64, ptr %tpass_len.i, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %tpass.i, i64 %53
+  %54 = load i64, ptr %tpass_len.i, align 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %tpass.i, i64 %54
   store i8 0, ptr %arrayidx.i, align 1
-  %conv.i = trunc i64 %53 to i32
+  %conv.i = trunc i64 %54 to i32
   %call17.i76 = call i32 @PKCS12_verify_mac(ptr noundef nonnull %call.i67, ptr noundef nonnull %tpass.i, i32 noundef %conv.i) #5
   %tobool18.not.i = icmp eq i32 %call17.i76, 0
   br i1 %tobool18.not.i, label %if.then19.i, label %if.end24.i
@@ -745,8 +717,8 @@ if.end.i75:                                       ; preds = %if.else11.i
 if.then19.i:                                      ; preds = %if.end.i75
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str.6, i32 noundef 584, ptr noundef nonnull @__func__.try_pkcs12) #5
-  %54 = load i64, ptr %tpass_len.i, align 8
-  %cmp20.i = icmp eq i64 %54, 0
+  %55 = load i64, ptr %tpass_len.i, align 8
+  %cmp20.i = icmp eq i64 %55, 0
   %cond.i = select i1 %cmp20.i, ptr @.str.10, ptr @.str.11
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 44, i32 noundef 113, ptr noundef nonnull %cond.i) #5
   br label %p12_end.i
@@ -763,12 +735,12 @@ if.then27.i:                                      ; preds = %if.end24.i
   br i1 %cmp29.not.i, label %if.end85.i, label %if.then31.i
 
 if.then31.i:                                      ; preds = %if.then27.i
-  %55 = load ptr, ptr %pkey.i, align 8
-  %cmp32.not.i = icmp eq ptr %55, null
+  %56 = load ptr, ptr %pkey.i, align 8
+  %cmp32.not.i = icmp eq ptr %56, null
   br i1 %cmp32.not.i, label %if.end45.i, label %if.then34.i
 
 if.then34.i:                                      ; preds = %if.then31.i
-  %call35.i = call ptr @OSSL_STORE_INFO_new_PKEY(ptr noundef nonnull %55) #5
+  %call35.i = call ptr @OSSL_STORE_INFO_new_PKEY(ptr noundef nonnull %56) #5
   %cmp36.not.i = icmp eq ptr %call35.i, null
   br i1 %cmp36.not.i, label %if.end85.i, label %land.lhs.true.i71
 
@@ -779,12 +751,12 @@ land.lhs.true.i71:                                ; preds = %if.then34.i
   br i1 %cmp40.not.i, label %if.end85.i, label %if.end45.i
 
 if.end45.i:                                       ; preds = %land.lhs.true.i71, %if.then31.i
-  %56 = load ptr, ptr %cert.i62, align 8
-  %cmp48.not.i = icmp eq ptr %56, null
+  %57 = load ptr, ptr %cert.i62, align 8
+  %cmp48.not.i = icmp eq ptr %57, null
   br i1 %cmp48.not.i, label %land.rhs.i.preheader, label %if.then50.i
 
 if.then50.i:                                      ; preds = %if.end45.i
-  %call51.i = call ptr @OSSL_STORE_INFO_new_CERT(ptr noundef nonnull %56) #5
+  %call51.i = call ptr @OSSL_STORE_INFO_new_CERT(ptr noundef nonnull %57) #5
   %cmp52.not.i = icmp eq ptr %call51.i, null
   br i1 %cmp52.not.i, label %if.end85.i, label %land.lhs.true54.i
 
@@ -798,21 +770,21 @@ land.rhs.i.preheader:                             ; preds = %land.lhs.true54.i, 
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %land.rhs.i.preheader, %land.lhs.true78.i
-  %57 = load ptr, ptr %chain.i, align 8
-  %call65.i = call i32 @OPENSSL_sk_num(ptr noundef %57) #5
+  %58 = load ptr, ptr %chain.i, align 8
+  %call65.i = call i32 @OPENSSL_sk_num(ptr noundef %58) #5
   %cmp66.i = icmp sgt i32 %call65.i, 0
   br i1 %cmp66.i, label %while.body.i, label %if.end85.i
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %58 = load ptr, ptr %chain.i, align 8
-  %call69.i = call ptr @OPENSSL_sk_value(ptr noundef %58, i32 noundef 0) #5
+  %59 = load ptr, ptr %chain.i, align 8
+  %call69.i = call ptr @OPENSSL_sk_value(ptr noundef %59, i32 noundef 0) #5
   %call70.i = call ptr @OSSL_STORE_INFO_new_CERT(ptr noundef %call69.i) #5
   %cmp71.not.i = icmp eq ptr %call70.i, null
   br i1 %cmp71.not.i, label %if.end85.i, label %land.lhs.true73.i
 
 land.lhs.true73.i:                                ; preds = %while.body.i
-  %59 = load ptr, ptr %chain.i, align 8
-  %call75.i = call ptr @OPENSSL_sk_shift(ptr noundef %59) #5
+  %60 = load ptr, ptr %chain.i, align 8
+  %call75.i = call ptr @OPENSSL_sk_shift(ptr noundef %60) #5
   %cmp76.not.i = icmp eq ptr %call75.i, null
   br i1 %cmp76.not.i, label %if.end85.i, label %land.lhs.true78.i
 
@@ -826,12 +798,12 @@ if.end85.i:                                       ; preds = %land.lhs.true78.i, 
   %osi_cert.0.i = phi ptr [ null, %if.then27.i ], [ null, %land.lhs.true.i71 ], [ null, %if.then34.i ], [ %call51.i, %land.lhs.true54.i ], [ null, %if.then50.i ], [ null, %land.rhs.i ], [ null, %while.body.i ], [ null, %land.lhs.true73.i ], [ null, %land.lhs.true78.i ]
   %osi_ca.0.i = phi ptr [ null, %if.then27.i ], [ null, %land.lhs.true.i71 ], [ null, %if.then34.i ], [ null, %land.lhs.true54.i ], [ null, %if.then50.i ], [ %call70.i, %land.lhs.true78.i ], [ %call70.i, %land.lhs.true73.i ], [ null, %while.body.i ], [ null, %land.rhs.i ]
   %tobool86.not.i = phi i1 [ false, %if.then27.i ], [ true, %land.lhs.true.i71 ], [ true, %if.then34.i ], [ true, %land.lhs.true54.i ], [ true, %if.then50.i ], [ %cmp66.i, %land.rhs.i ], [ %cmp66.i, %while.body.i ], [ %cmp66.i, %land.lhs.true73.i ], [ %cmp66.i, %land.lhs.true78.i ]
-  %60 = load ptr, ptr %pkey.i, align 8
-  call void @EVP_PKEY_free(ptr noundef %60) #5
-  %61 = load ptr, ptr %cert.i62, align 8
-  call void @X509_free(ptr noundef %61) #5
-  %62 = load ptr, ptr %chain.i, align 8
-  call void @OSSL_STACK_OF_X509_free(ptr noundef %62) #5
+  %61 = load ptr, ptr %pkey.i, align 8
+  call void @EVP_PKEY_free(ptr noundef %61) #5
+  %62 = load ptr, ptr %cert.i62, align 8
+  call void @X509_free(ptr noundef %62) #5
+  %63 = load ptr, ptr %chain.i, align 8
+  call void @OSSL_STACK_OF_X509_free(ptr noundef %63) #5
   call void @OSSL_STORE_INFO_free(ptr noundef %osi_pkey.0.i) #5
   call void @OSSL_STORE_INFO_free(ptr noundef %osi_cert.0.i) #5
   call void @OSSL_STORE_INFO_free(ptr noundef %osi_ca.0.i) #5
@@ -852,8 +824,8 @@ p12_end.i:                                        ; preds = %if.end88.i, %if.end
   call void @OPENSSL_cleanse(ptr noundef nonnull %tpass.i, i64 noundef 1025) #5
   call void @PKCS12_free(ptr noundef nonnull %call.i67) #5
   %cached_info92.i = getelementptr inbounds i8, ptr %0, i64 64
-  %63 = load ptr, ptr %cached_info92.i, align 8
-  %call.i28.i = call ptr @OPENSSL_sk_shift(ptr noundef %63) #5
+  %64 = load ptr, ptr %cached_info92.i, align 8
+  %call.i28.i = call ptr @OPENSSL_sk_shift(ptr noundef %64) #5
   store ptr %call.i28.i, ptr %arg, align 8
   call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %tpass.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tpass_len.i)
@@ -865,9 +837,12 @@ p12_end.i:                                        ; preds = %if.end88.i, %if.end
 
 if.end83.critedge:                                ; preds = %if.then.i64
   %cached_info92.i.c = getelementptr inbounds i8, ptr %0, i64 64
-  %64 = load ptr, ptr %cached_info92.i.c, align 8
-  %call.i28.i.c = call ptr @OPENSSL_sk_shift(ptr noundef %64) #5
+  %65 = load ptr, ptr %cached_info92.i.c, align 8
+  %call.i28.i.c = call ptr @OPENSSL_sk_shift(ptr noundef %65) #5
   store ptr %call.i28.i.c, ptr %arg, align 8
+  br label %if.end83.sink.split
+
+if.end83.sink.split:                              ; preds = %land.lhs.true79, %if.end83.critedge
   call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %tpass.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tpass_len.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pkey.i)
@@ -876,10 +851,10 @@ if.end83.critedge:                                ; preds = %if.then.i64
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %pw_params.i)
   br label %if.end83
 
-if.end83:                                         ; preds = %if.end83.critedge, %try_pkcs12.exit.thread, %p12_end.i, %if.end75
+if.end83:                                         ; preds = %if.end83.sink.split, %p12_end.i, %if.end75
   %call84 = call i32 @ERR_pop_to_mark() #5
-  %65 = load ptr, ptr %arg, align 8
-  %cmp85 = icmp eq ptr %65, null
+  %66 = load ptr, ptr %arg, align 8
+  %cmp85 = icmp eq ptr %66, null
   br i1 %cmp85, label %if.then86, label %return
 
 if.then86:                                        ; preds = %if.end83
@@ -887,8 +862,8 @@ if.then86:                                        ; preds = %if.end83
   call void @ERR_set_debug(ptr noundef nonnull @.str.6, i32 noundef 151, ptr noundef nonnull @__func__.ossl_store_handle_load_result) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 44, i32 noundef 524556, ptr noundef null) #5
   %.pre = load ptr, ptr %arg, align 8
-  %66 = icmp ne ptr %.pre, null
-  %67 = zext i1 %66 to i32
+  %67 = icmp ne ptr %.pre, null
+  %68 = zext i1 %67 to i32
   br label %return
 
 err:                                              ; preds = %try_key_ref.exit.thread36.i, %try_key_ref.exit.thread.i, %try_key_ref.exit.i, %if.then.i, %if.then12.i, %try_cert.exit, %p12_end.i
@@ -896,7 +871,7 @@ err:                                              ; preds = %try_key_ref.exit.th
   br label %return
 
 return:                                           ; preds = %if.end83, %if.then86, %land.lhs.true40, %land.lhs.true33, %land.lhs.true26, %land.lhs.true19, %land.lhs.true9, %land.lhs.true, %err
-  %retval.0 = phi i32 [ 0, %err ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true9 ], [ 0, %land.lhs.true19 ], [ 0, %land.lhs.true26 ], [ 0, %land.lhs.true33 ], [ 0, %land.lhs.true40 ], [ %67, %if.then86 ], [ 1, %if.end83 ]
+  %retval.0 = phi i32 [ 0, %err ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true9 ], [ 0, %land.lhs.true19 ], [ 0, %land.lhs.true26 ], [ 0, %land.lhs.true33 ], [ 0, %land.lhs.true40 ], [ %68, %if.then86 ], [ 1, %if.end83 ]
   ret i32 %retval.0
 }
 

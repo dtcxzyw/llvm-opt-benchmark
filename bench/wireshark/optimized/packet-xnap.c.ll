@@ -16717,9 +16717,9 @@ addresses_equal.exit:                             ; preds = %39, %31, %25, %46
 
 addresses_equal.exit23.sink.split:                ; preds = %70, %46
   %.sink29 = phi i64 [ 28, %46 ], [ 60, %70 ]
-  %.sink = load i32, ptr %6, align 4
-  %76 = getelementptr inbounds i8, ptr %20, i64 %.sink29
-  store i32 %.sink, ptr %76, align 4
+  %76 = load i32, ptr %6, align 4
+  %77 = getelementptr inbounds i8, ptr %20, i64 %.sink29
+  store i32 %76, ptr %77, align 4
   br label %addresses_equal.exit23
 
 addresses_equal.exit23:                           ; preds = %addresses_equal.exit23.sink.split, %63, %55, %addresses_equal.exit, %70, %21, %xnap_get_private_data.exit

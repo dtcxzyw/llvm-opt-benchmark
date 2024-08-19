@@ -50430,14 +50430,7 @@ if.then.i:                                        ; preds = %for.body.i1133
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i.i28.i, -1
   %cmp.not.i.i1137 = icmp eq i64 %sub.i.i, %115
   %incdec.ptr.i.i.i2001 = getelementptr inbounds i8, ptr %118, i64 -16
-  br i1 %cmp.not.i.i1137, label %invoke.cont184.thread2000, label %if.then.i.i1138
-
-invoke.cont184.thread2000:                        ; preds = %if.then.i
-  store ptr %incdec.ptr.i.i.i2001, ptr %_M_finish.i.i946, align 8, !tbaa !133
-  store i64 1, ptr %ref.tmp181, align 8, !tbaa !57
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp186) #24
-  store i32 1, ptr %ref.tmp186, align 4, !tbaa !58
-  br label %if.then.i.i1145
+  br i1 %cmp.not.i.i1137, label %if.then.i.i1145, label %if.then.i.i1138
 
 if.then.i.i1138:                                  ; preds = %if.then.i
   %second.i1135.le = getelementptr inbounds i8, ptr %add.ptr.i.i1134, i64 8
@@ -50451,32 +50444,25 @@ if.then.i.i1138:                                  ; preds = %if.then.i
   store i64 %121, ptr %second.i1135.le, align 8, !tbaa !132
   %122 = load i64, ptr %add.ptr.i29.i, align 8, !tbaa !57
   %cmp14.not29.i.i = icmp eq i64 %122, %sub.i.i
-  br i1 %cmp14.not29.i.i, label %invoke.cont184.thread2003, label %for.inc.i.i
-
-invoke.cont184.thread2003:                        ; preds = %if.then.i.i1138
-  store i64 %115, ptr %add.ptr.i29.i, align 8, !tbaa !57
-  store ptr %incdec.ptr.i.i.i2001, ptr %_M_finish.i.i946, align 8, !tbaa !133
-  store i64 1, ptr %ref.tmp181, align 8, !tbaa !57
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp186) #24
-  store i32 1, ptr %ref.tmp186, align 4, !tbaa !58
-  br label %if.then.i.i1145
+  br i1 %cmp14.not29.i.i, label %if.then.i.i1145.sink.split, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.then.i.i1138, %for.inc.i.i
   %123 = phi i64 [ %124, %for.inc.i.i ], [ %122, %if.then.i.i1138 ]
   %add.ptr.i28.i.i = getelementptr inbounds %"struct.std::pair.188", ptr %114, i64 %123
   %124 = load i64, ptr %add.ptr.i28.i.i, align 8, !tbaa !57
   %cmp14.not.i.i = icmp eq i64 %124, %sub.i.i
-  br i1 %cmp14.not.i.i, label %invoke.cont184, label %for.inc.i.i, !llvm.loop !580
+  br i1 %cmp14.not.i.i, label %if.then.i.i1145.sink.split, label %for.inc.i.i, !llvm.loop !580
 
-invoke.cont184:                                   ; preds = %for.inc.i.i
-  store i64 %115, ptr %add.ptr.i28.i.i, align 8, !tbaa !57
+if.then.i.i1145.sink.split:                       ; preds = %for.inc.i.i, %if.then.i.i1138
+  %add.ptr.i28.i.i.lcssa.sink = phi ptr [ %add.ptr.i29.i, %if.then.i.i1138 ], [ %add.ptr.i28.i.i, %for.inc.i.i ]
+  store i64 %115, ptr %add.ptr.i28.i.i.lcssa.sink, align 8, !tbaa !57
+  br label %if.then.i.i1145
+
+if.then.i.i1145:                                  ; preds = %if.then.i.i1145.sink.split, %if.then.i
   store ptr %incdec.ptr.i.i.i2001, ptr %_M_finish.i.i946, align 8, !tbaa !133
   store i64 1, ptr %ref.tmp181, align 8, !tbaa !57
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp186) #24
   store i32 1, ptr %ref.tmp186, align 4, !tbaa !58
-  br label %if.then.i.i1145
-
-if.then.i.i1145:                                  ; preds = %invoke.cont184, %invoke.cont184.thread2003, %invoke.cont184.thread2000
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %gtest_ar180)
           to label %invoke.cont188 unwind label %lpad187
 
@@ -50679,14 +50665,7 @@ if.then.i1202:                                    ; preds = %for.body.i1198
   %sub.i.i1208 = add nsw i64 %sub.ptr.div.i.i.i28.i1207, -1
   %cmp.not.i.i1209 = icmp eq i64 %sub.i.i1208, %147
   %incdec.ptr.i.i.i12232010 = getelementptr inbounds i8, ptr %150, i64 -16
-  br i1 %cmp.not.i.i1209, label %invoke.cont222.thread2009, label %if.then.i.i1210
-
-invoke.cont222.thread2009:                        ; preds = %if.then.i1202
-  store ptr %incdec.ptr.i.i.i12232010, ptr %_M_finish.i.i946, align 8, !tbaa !133
-  store i64 1, ptr %ref.tmp219, align 8, !tbaa !57
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp224) #24
-  store i32 0, ptr %ref.tmp224, align 4, !tbaa !58
-  br label %if.end.i.i1227
+  br i1 %cmp.not.i.i1209, label %if.end.i.i1227, label %if.then.i.i1210
 
 if.then.i.i1210:                                  ; preds = %if.then.i1202
   %second.i1200.le = getelementptr inbounds i8, ptr %add.ptr.i.i1199, i64 8
@@ -50700,30 +50679,14 @@ if.then.i.i1210:                                  ; preds = %if.then.i1202
   store i64 %153, ptr %second.i1200.le, align 8, !tbaa !132
   %154 = load i64, ptr %add.ptr.i29.i1215, align 8, !tbaa !57
   %cmp14.not29.i.i1216 = icmp eq i64 %154, %sub.i.i1208
-  br i1 %cmp14.not29.i.i1216, label %invoke.cont222.thread2013, label %for.inc.i.i1217
-
-invoke.cont222.thread2013:                        ; preds = %if.then.i.i1210
-  store i64 %147, ptr %add.ptr.i29.i1215, align 8, !tbaa !57
-  store ptr %incdec.ptr.i.i.i12232010, ptr %_M_finish.i.i946, align 8, !tbaa !133
-  store i64 1, ptr %ref.tmp219, align 8, !tbaa !57
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp224) #24
-  store i32 0, ptr %ref.tmp224, align 4, !tbaa !58
-  br label %if.end.i.i1227
+  br i1 %cmp14.not29.i.i1216, label %if.end.i.i1227.sink.split, label %for.inc.i.i1217
 
 for.inc.i.i1217:                                  ; preds = %if.then.i.i1210, %for.inc.i.i1217
   %155 = phi i64 [ %156, %for.inc.i.i1217 ], [ %154, %if.then.i.i1210 ]
   %add.ptr.i28.i.i1218 = getelementptr inbounds %"struct.std::pair.188", ptr %146, i64 %155
   %156 = load i64, ptr %add.ptr.i28.i.i1218, align 8, !tbaa !57
   %cmp14.not.i.i1219 = icmp eq i64 %156, %sub.i.i1208
-  br i1 %cmp14.not.i.i1219, label %invoke.cont222, label %for.inc.i.i1217, !llvm.loop !580
-
-invoke.cont222:                                   ; preds = %for.inc.i.i1217
-  store i64 %147, ptr %add.ptr.i28.i.i1218, align 8, !tbaa !57
-  store ptr %incdec.ptr.i.i.i12232010, ptr %_M_finish.i.i946, align 8, !tbaa !133
-  store i64 1, ptr %ref.tmp219, align 8, !tbaa !57
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp224) #24
-  store i32 0, ptr %ref.tmp224, align 4, !tbaa !58
-  br label %if.end.i.i1227
+  br i1 %cmp14.not.i.i1219, label %if.end.i.i1227.sink.split, label %for.inc.i.i1217, !llvm.loop !580
 
 if.then.i.i1228:                                  ; preds = %for.cond.i1194
   store i64 0, ptr %ref.tmp219, align 8, !tbaa !57
@@ -50732,7 +50695,16 @@ if.then.i.i1228:                                  ; preds = %for.cond.i1194
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %gtest_ar218)
           to label %invoke.cont226 unwind label %lpad225
 
-if.end.i.i1227:                                   ; preds = %invoke.cont222, %invoke.cont222.thread2013, %invoke.cont222.thread2009
+if.end.i.i1227.sink.split:                        ; preds = %for.inc.i.i1217, %if.then.i.i1210
+  %add.ptr.i28.i.i1218.lcssa.sink = phi ptr [ %add.ptr.i29.i1215, %if.then.i.i1210 ], [ %add.ptr.i28.i.i1218, %for.inc.i.i1217 ]
+  store i64 %147, ptr %add.ptr.i28.i.i1218.lcssa.sink, align 8, !tbaa !57
+  br label %if.end.i.i1227
+
+if.end.i.i1227:                                   ; preds = %if.end.i.i1227.sink.split, %if.then.i1202
+  store ptr %incdec.ptr.i.i.i12232010, ptr %_M_finish.i.i946, align 8, !tbaa !133
+  store i64 1, ptr %ref.tmp219, align 8, !tbaa !57
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp224) #24
+  store i32 0, ptr %ref.tmp224, align 4, !tbaa !58
   invoke void @_ZN7testing8internal18CmpHelperEQFailureImjEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %gtest_ar218, ptr noundef nonnull @.str.198, ptr noundef nonnull @.str.9, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp219, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp224)
           to label %invoke.cont226 unwind label %lpad225
 

@@ -134,9 +134,9 @@ if.end40:                                         ; preds = %entry
   br i1 %or.cond3, label %for.body.sink.split, label %for.body
 
 for.body.sink.split:                              ; preds = %if.end40, %entry
-  %storemerge = phi i16 [ 0, %entry ], [ 13333, %if.end40 ]
-  store i16 %storemerge, ptr %results, align 16
-  store i16 %storemerge, ptr %seed2, align 2
+  %.sink181 = phi i16 [ 0, %entry ], [ 13333, %if.end40 ]
+  store i16 %.sink181, ptr %results, align 16
+  store i16 %.sink181, ptr %seed2, align 2
   store i16 102, ptr %seed3, align 4
   br label %for.body
 

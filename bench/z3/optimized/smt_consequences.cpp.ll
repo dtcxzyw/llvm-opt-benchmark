@@ -8326,11 +8326,7 @@ invoke.cont18:                                    ; preds = %for.end
   %30 = load i8, ptr %m_inconsistent.i, align 8
   %tobool.i.i19 = trunc i8 %30 to i1
   %31 = select i1 %cmp.i.i.i17, i1 true, i1 %tobool.i.i19
-  br i1 %31, label %if.then20, label %if.end21
-
-if.then20:                                        ; preds = %invoke.cont18
-  store i32 -1, ptr %is_sat, align 4
-  br label %cleanup
+  br i1 %31, label %cleanup.sink.split, label %if.end21
 
 if.end21:                                         ; preds = %invoke.cont18
   invoke void @_ZN3smt7context13extract_coresERK10ref_vectorI4expr11ast_managerER6vectorIS4_Lb1EjERj(ptr noundef nonnull align 8 dereferenceable(11616) %this, ptr noundef nonnull align 8 dereferenceable(16) %asms, ptr noundef nonnull align 8 dereferenceable(8) %cores, ptr noundef nonnull align 4 dereferenceable(4) %min_core_size)
@@ -8384,11 +8380,7 @@ if.end39thread-pre-split:                         ; preds = %invoke.cont23
 if.end39:                                         ; preds = %if.end39thread-pre-split, %invoke.cont33, %invoke.cont35
   %34 = phi i32 [ %.pr, %if.end39thread-pre-split ], [ %32, %invoke.cont33 ], [ %33, %invoke.cont35 ]
   %cmp40 = icmp ult i32 %34, 11
-  br i1 %cmp40, label %if.then41, label %if.end42
-
-if.then41:                                        ; preds = %if.end39
-  store i32 0, ptr %is_sat, align 4
-  br label %cleanup
+  br i1 %cmp40, label %cleanup.sink.split, label %if.end42
 
 if.end42:                                         ; preds = %if.end39
   %call44 = invoke noundef i32 @_ZN3smt7context14bounded_searchEv(ptr noundef nonnull align 8 dereferenceable(11616) %this)
@@ -8435,9 +8427,14 @@ if.end60:                                         ; preds = %invoke.cont57
   %exitcond = icmp eq i32 %num_restarts.243, %mul
   br i1 %exitcond, label %cleanup, label %while.body54, !llvm.loop !41
 
-cleanup:                                          ; preds = %invoke.cont57, %if.end60, %if.then51, %if.end48, %invoke.cont45, %if.then41, %if.then20
-  %num_restarts.1 = phi i32 [ %num_restarts.0, %if.then20 ], [ %num_restarts.0, %if.then41 ], [ %num_restarts.0, %invoke.cont45 ], [ %inc49, %if.end48 ], [ %inc49, %if.then51 ], [ %num_restarts.243, %invoke.cont57 ], [ %35, %if.end60 ]
-  %switch = phi i1 [ false, %if.then20 ], [ false, %if.then41 ], [ false, %invoke.cont45 ], [ true, %if.end48 ], [ false, %if.then51 ], [ false, %if.end60 ], [ false, %invoke.cont57 ]
+cleanup.sink.split:                               ; preds = %if.end39, %invoke.cont18
+  %.sink = phi i32 [ -1, %invoke.cont18 ], [ 0, %if.end39 ]
+  store i32 %.sink, ptr %is_sat, align 4
+  br label %cleanup
+
+cleanup:                                          ; preds = %invoke.cont57, %if.end60, %cleanup.sink.split, %if.then51, %if.end48, %invoke.cont45
+  %num_restarts.1 = phi i32 [ %num_restarts.0, %invoke.cont45 ], [ %inc49, %if.end48 ], [ %inc49, %if.then51 ], [ %num_restarts.0, %cleanup.sink.split ], [ %num_restarts.243, %invoke.cont57 ], [ %35, %if.end60 ]
+  %switch = phi i1 [ false, %invoke.cont45 ], [ true, %if.end48 ], [ false, %if.then51 ], [ false, %cleanup.sink.split ], [ false, %if.end60 ], [ false, %invoke.cont57 ]
   %tobool.not.i.i.i20 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i20, label %_ZN7svectorIN3sat7literalEjED2Ev.exit, label %if.then.i.i.i21
 

@@ -10410,18 +10410,14 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   store i32 0, ptr %ref.tmp.sroa.6.0.cstream_.sroa_idx.i, align 8
   %ref.tmp.sroa.7.0.cstream_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %ref.tmp.sroa.7.0.cstream_.sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(44) %ref.tmp.sroa.7.i, i64 44, i1 false)
-  br i1 %tobool.not.i12.i, label %_ZN5folly8OptionalI9bz_streamEaSIS1_EERS2_OT_.exit.thread.i, label %_ZN5folly8OptionalI9bz_streamEaSIS1_EERS2_OT_.exit.i
+  br i1 %tobool.not.i12.i, label %_ZN5folly8OptionalI9bz_streamEaSIS1_EERS2_OT_.exit.thread.i, label %_ZN5folly2io12_GLOBAL__N_116Bzip2StreamCodec12resetCStreamEv.exit
 
 _ZN5folly8OptionalI9bz_streamEaSIS1_EERS2_OT_.exit.thread.i: ; preds = %if.end.i
   store i8 1, ptr %hasValue.i.i.i, align 8, !tbaa !249
-  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %ref.tmp.sroa.7.i)
   br label %_ZN5folly2io12_GLOBAL__N_116Bzip2StreamCodec12resetCStreamEv.exit
 
-_ZN5folly8OptionalI9bz_streamEaSIS1_EERS2_OT_.exit.i: ; preds = %if.end.i
+_ZN5folly2io12_GLOBAL__N_116Bzip2StreamCodec12resetCStreamEv.exit: ; preds = %if.end.i, %_ZN5folly8OptionalI9bz_streamEaSIS1_EERS2_OT_.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %ref.tmp.sroa.7.i)
-  br label %_ZN5folly2io12_GLOBAL__N_116Bzip2StreamCodec12resetCStreamEv.exit
-
-_ZN5folly2io12_GLOBAL__N_116Bzip2StreamCodec12resetCStreamEv.exit: ; preds = %_ZN5folly8OptionalI9bz_streamEaSIS1_EERS2_OT_.exit.i, %_ZN5folly8OptionalI9bz_streamEaSIS1_EERS2_OT_.exit.thread.i
   %level_.i = getelementptr inbounds i8, ptr %this, i64 232
   %3 = load i32, ptr %level_.i, align 8, !tbaa !126
   %call9.i = tail call i32 @BZ2_bzCompressInit(ptr noundef nonnull %cstream_.i, i32 noundef %3, i32 noundef 0, i32 noundef 0)
@@ -10664,18 +10660,14 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   store i32 0, ptr %ref.tmp.sroa.6.0.dstream_.sroa_idx.i, align 8
   %ref.tmp.sroa.7.0.dstream_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 180
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %ref.tmp.sroa.7.0.dstream_.sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(44) %ref.tmp.sroa.7.i, i64 44, i1 false)
-  br i1 %tobool.not.i12.i, label %_ZN5folly8OptionalI9bz_streamEaSIS1_EERS2_OT_.exit.thread.i, label %_ZN5folly8OptionalI9bz_streamEaSIS1_EERS2_OT_.exit.i
+  br i1 %tobool.not.i12.i, label %_ZN5folly8OptionalI9bz_streamEaSIS1_EERS2_OT_.exit.thread.i, label %_ZN5folly2io12_GLOBAL__N_116Bzip2StreamCodec12resetDStreamEv.exit
 
 _ZN5folly8OptionalI9bz_streamEaSIS1_EERS2_OT_.exit.thread.i: ; preds = %if.end.i
   store i8 1, ptr %hasValue.i.i.i, align 8, !tbaa !249
-  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %ref.tmp.sroa.7.i)
   br label %_ZN5folly2io12_GLOBAL__N_116Bzip2StreamCodec12resetDStreamEv.exit
 
-_ZN5folly8OptionalI9bz_streamEaSIS1_EERS2_OT_.exit.i: ; preds = %if.end.i
+_ZN5folly2io12_GLOBAL__N_116Bzip2StreamCodec12resetDStreamEv.exit: ; preds = %if.end.i, %_ZN5folly8OptionalI9bz_streamEaSIS1_EERS2_OT_.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %ref.tmp.sroa.7.i)
-  br label %_ZN5folly2io12_GLOBAL__N_116Bzip2StreamCodec12resetDStreamEv.exit
-
-_ZN5folly2io12_GLOBAL__N_116Bzip2StreamCodec12resetDStreamEv.exit: ; preds = %_ZN5folly8OptionalI9bz_streamEaSIS1_EERS2_OT_.exit.i, %_ZN5folly8OptionalI9bz_streamEaSIS1_EERS2_OT_.exit.thread.i
   %call9.i = tail call i32 @BZ2_bzDecompressInit(ptr noundef nonnull %dstream_.i, i32 noundef 0, i32 noundef 0)
   %call10.i = tail call fastcc noundef i32 @_ZN5folly2io12_GLOBAL__N_17bzCheckEi(i32 noundef %call9.i)
   store i8 0, ptr %needReset_, align 4, !tbaa !123

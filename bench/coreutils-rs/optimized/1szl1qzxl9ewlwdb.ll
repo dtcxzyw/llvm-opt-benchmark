@@ -681,7 +681,6 @@ define hidden void @_ZN9rand_core11SeedableRng8from_rng17h3d42a950aaa21be9E(ptr 
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %10, ptr noundef nonnull align 16 dereferenceable(48) %.sroa.0, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %16
 
 11:                                               ; preds = %2
@@ -692,11 +691,11 @@ define hidden void @_ZN9rand_core11SeedableRng8from_rng17h3d42a950aaa21be9E(ptr 
   store ptr %6, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %12, ptr %15, align 16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %16
 
 16:                                               ; preds = %11, %8
   %.sink = phi i64 [ 0, %8 ], [ 1, %11 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   store i64 %.sink, ptr %0, align 16
   ret void
 }

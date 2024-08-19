@@ -1651,17 +1651,16 @@ define hidden void @_ZN9same_file4unix6Handle9from_path17hdbb0b2e2f35bce51E(ptr 
 
 11:                                               ; preds = %3
   call void @_ZN9same_file4unix6Handle9from_file17hc0e6d86c5f2a6919E(ptr noalias nocapture noundef nonnull sret({ [20 x i8], i8, [3 x i8] }) align 8 dereferenceable(24) %0, i32 noundef %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %14
 
 12:                                               ; preds = %3
   store ptr %8, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 20
   store i8 2, ptr %13, align 4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %14
 
 14:                                               ; preds = %12, %11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   ret void
 }
 
@@ -3310,7 +3309,6 @@ _ZN6ignore4walk8DirEntry6is_dir17hd709e1c55461eec5E.exit: ; preds = %3, %6, %13
 
 _ZN6ignore8pathutil9is_hidden17h5acc531578d28e6bE.llvm.5691774266493119662.exit.thread: ; preds = %_ZN6ignore4walk8DirEntry4path17hf90bbd6ebabb94b6E.exit.i, %_ZN6ignore4walk8DirEntry6is_dir17hd709e1c55461eec5E.exit, %_ZN6ignore8pathutil9is_hidden17h5acc531578d28e6bE.llvm.5691774266493119662.exit, %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %46
 
 28:                                               ; preds = %23
@@ -3355,10 +3353,10 @@ _ZN6ignore8pathutil9is_hidden17h5acc531578d28e6bE.llvm.5691774266493119662.exit:
   %45 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 3, ptr %45, align 8
   store i64 1, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %46
 
 46:                                               ; preds = %44, %_ZN6ignore8pathutil9is_hidden17h5acc531578d28e6bE.llvm.5691774266493119662.exit.thread
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret void
 }
 

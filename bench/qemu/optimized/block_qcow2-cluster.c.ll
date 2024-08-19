@@ -3382,14 +3382,10 @@ for.cond.preheader.i:                             ; preds = %if.end.i
 
 discard_in_l2_slice.exit.thread26:                ; preds = %for.cond.preheader.i
   %l2_table_cache77.i27 = getelementptr inbounds i8, ptr %4, i64 80
-  %7 = load ptr, ptr %l2_table_cache77.i27, align 8
-  call void @qcow2_cache_put(ptr noundef %7, ptr noundef nonnull %l2_slice.i) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %l2_slice.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %l2_index.i)
   br label %if.end20
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %8 = getelementptr i8, ptr %4, i64 360
+  %7 = getelementptr i8, ptr %4, i64 360
   %discard_no_unref.i = getelementptr inbounds i8, ptr %4, i64 349
   %qcow_version.i = getelementptr inbounds i8, ptr %4, i64 300
   %l2_table_cache.i = getelementptr inbounds i8, ptr %4, i64 80
@@ -3407,15 +3403,15 @@ if.else.i:                                        ; preds = %if.end.i
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %i.078.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
   %add.i23 = add i32 %i.078.i, %6
-  %.val49.i = load i64, ptr %8, align 8
-  %9 = trunc i64 %.val49.i to i32
-  %10 = lshr i32 %9, 4
-  %11 = and i32 %10, 1
-  %conv1.i.i = shl i32 %add.i23, %11
+  %.val49.i = load i64, ptr %7, align 8
+  %8 = trunc i64 %.val49.i to i32
+  %9 = lshr i32 %8, 4
+  %10 = and i32 %9, 1
+  %conv1.i.i = shl i32 %add.i23, %10
   %idxprom.i.i = sext i32 %conv1.i.i to i64
   %arrayidx.i.i = getelementptr i64, ptr %.pre.i, i64 %idxprom.i.i
-  %12 = load i64, ptr %arrayidx.i.i, align 8
-  %13 = call noundef i64 @llvm.bswap.i64(i64 %12)
+  %11 = load i64, ptr %arrayidx.i.i, align 8
+  %12 = call noundef i64 @llvm.bswap.i64(i64 %11)
   %and.i.i.i = and i64 %.val49.i, 16
   %tobool.i.not.i.i = icmp eq i64 %and.i.i.i, 0
   br i1 %tobool.i.not.i.i, label %get_l2_bitmap.exit.i, label %if.then.i.i
@@ -3425,46 +3421,46 @@ if.then.i.i:                                      ; preds = %for.body.i
   %add.i.i = or disjoint i32 %conv2.i.i, 1
   %idxprom.i53.i = sext i32 %add.i.i to i64
   %arrayidx.i54.i = getelementptr i64, ptr %.pre.i, i64 %idxprom.i53.i
-  %14 = load i64, ptr %arrayidx.i54.i, align 8
-  %15 = call noundef i64 @llvm.bswap.i64(i64 %14)
+  %13 = load i64, ptr %arrayidx.i54.i, align 8
+  %14 = call noundef i64 @llvm.bswap.i64(i64 %13)
   br label %get_l2_bitmap.exit.i
 
 get_l2_bitmap.exit.i:                             ; preds = %if.then.i.i, %for.body.i
-  %retval.0.i.i = phi i64 [ %15, %if.then.i.i ], [ 0, %for.body.i ]
-  %16 = load ptr, ptr %opaque, align 8
-  %and.i.i = and i64 %13, 4611686018427387904
+  %retval.0.i.i = phi i64 [ %14, %if.then.i.i ], [ 0, %for.body.i ]
+  %15 = load ptr, ptr %opaque, align 8
+  %and.i.i = and i64 %12, 4611686018427387904
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.else.i.i, label %land.end21.i
 
 if.else.i.i:                                      ; preds = %get_l2_bitmap.exit.i
-  %and1.i.i = and i64 %13, 1
+  %and1.i.i = and i64 %12, 1
   %tobool2.not.i.i = icmp eq i64 %and1.i.i, 0
   br i1 %tobool2.not.i.i, label %if.else7.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.else.i.i
-  %17 = getelementptr i8, ptr %16, i64 360
-  %.val.i.i = load i64, ptr %17, align 8
+  %16 = getelementptr i8, ptr %15, i64 360
+  %.val.i.i = load i64, ptr %16, align 8
   %and.i.i56.i = and i64 %.val.i.i, 16
   %tobool.i.not.i57.i = icmp eq i64 %and.i.i56.i, 0
   br i1 %tobool.i.not.i57.i, label %if.then3.i.i, label %if.else7.i.i
 
 if.then3.i.i:                                     ; preds = %land.lhs.true.i.i
-  %and4.i.i = and i64 %13, 72057594037927424
+  %and4.i.i = and i64 %12, 72057594037927424
   %tobool5.not.i.i = icmp eq i64 %and4.i.i, 0
   %..i.i = select i1 %tobool5.not.i.i, i32 1, i32 2
   br label %qcow2_get_cluster_type.exit.i
 
 if.else7.i.i:                                     ; preds = %land.lhs.true.i.i, %if.else.i.i
-  %and8.i.i = and i64 %13, 72057594037927424
+  %and8.i.i = and i64 %12, 72057594037927424
   %tobool9.not.i.i = icmp eq i64 %and8.i.i, 0
   br i1 %tobool9.not.i.i, label %if.then10.i.i, label %qcow2_get_cluster_type.exit.i
 
 if.then10.i.i:                                    ; preds = %if.else7.i.i
   %bs.val6.i.i = load ptr, ptr %3, align 8
-  %18 = getelementptr i8, ptr %16, i64 480
-  %bs.val.val.i.i = load ptr, ptr %18, align 8
+  %17 = getelementptr i8, ptr %15, i64 480
+  %bs.val.val.i.i = load ptr, ptr %17, align 8
   %cmp.i.not.i.i = icmp eq ptr %bs.val.val.i.i, %bs.val6.i.i
-  %tobool14.not.i.i = icmp sgt i64 %13, -1
+  %tobool14.not.i.i = icmp sgt i64 %12, -1
   %or.cond.i.i = or i1 %tobool14.not.i.i, %cmp.i.not.i.i
   %spec.select.i.i = select i1 %or.cond.i.i, i32 0, i32 3
   br label %qcow2_get_cluster_type.exit.i
@@ -3477,41 +3473,41 @@ land.end21.i:                                     ; preds = %get_l2_bitmap.exit.
   br i1 %full_discard, label %if.end55.i, label %if.then29.i
 
 if.else25.i:                                      ; preds = %qcow2_get_cluster_type.exit.i
-  %19 = load i8, ptr %discard_no_unref.i, align 1
-  %tobool16.i = trunc i8 %19 to i1
-  %20 = and i1 %cmp19.i, %tobool16.i
-  %21 = load ptr, ptr %backing.i, align 8
-  %tobool26.not.i = icmp ne ptr %21, null
-  %22 = add nsw i32 %retval.0.i55.i, -2
-  %spec.select.i58.i = icmp ult i32 %22, 3
+  %18 = load i8, ptr %discard_no_unref.i, align 1
+  %tobool16.i = trunc i8 %18 to i1
+  %19 = and i1 %cmp19.i, %tobool16.i
+  %20 = load ptr, ptr %backing.i, align 8
+  %tobool26.not.i = icmp ne ptr %20, null
+  %21 = add nsw i32 %retval.0.i55.i, -2
+  %spec.select.i58.i = icmp ult i32 %21, 3
   %or.cond76.i = select i1 %tobool26.not.i, i1 true, i1 %spec.select.i58.i
   br i1 %or.cond76.i, label %if.then29.i, label %if.end48.i
 
 if.then29.i:                                      ; preds = %if.else25.i, %land.end21.i
   %retval.0.i55758388.i = phi i32 [ %retval.0.i55.i, %if.else25.i ], [ 4, %land.end21.i ]
-  %23 = phi i1 [ %20, %if.else25.i ], [ false, %land.end21.i ]
+  %22 = phi i1 [ %19, %if.else25.i ], [ false, %land.end21.i ]
   br i1 %tobool.i.not.i.i, label %if.else36.i, label %if.then31.i
 
 if.then31.i:                                      ; preds = %if.then29.i
-  %call10..i = select i1 %23, i64 %13, i64 0
+  %call10..i = select i1 %22, i64 %12, i64 0
   br label %if.end48.i
 
 if.else36.i:                                      ; preds = %if.then29.i
-  %24 = load i32, ptr %qcow_version.i, align 4
-  %cmp37.i = icmp sgt i32 %24, 2
+  %23 = load i32, ptr %qcow_version.i, align 4
+  %cmp37.i = icmp sgt i32 %23, 2
   br i1 %cmp37.i, label %if.then39.i, label %if.end48.i
 
 if.then39.i:                                      ; preds = %if.else36.i
-  %or.i = or i64 %13, 1
-  %spec.select.i = select i1 %23, i64 %or.i, i64 1
+  %or.i = or i64 %12, 1
+  %spec.select.i = select i1 %22, i64 %or.i, i64 1
   br label %if.end48.i
 
 if.end48.i:                                       ; preds = %if.then39.i, %if.else36.i, %if.then31.i, %if.else25.i, %qcow2_get_cluster_type.exit.i
-  %25 = phi i1 [ %23, %if.then31.i ], [ %23, %if.else36.i ], [ %23, %if.then39.i ], [ %20, %if.else25.i ], [ false, %qcow2_get_cluster_type.exit.i ]
+  %24 = phi i1 [ %22, %if.then31.i ], [ %22, %if.else36.i ], [ %22, %if.then39.i ], [ %19, %if.else25.i ], [ false, %qcow2_get_cluster_type.exit.i ]
   %retval.0.i557580.i = phi i32 [ %retval.0.i55758388.i, %if.then31.i ], [ %retval.0.i55758388.i, %if.else36.i ], [ %retval.0.i55758388.i, %if.then39.i ], [ %retval.0.i55.i, %if.else25.i ], [ %retval.0.i55.i, %qcow2_get_cluster_type.exit.i ]
-  %new_l2_entry.0.i = phi i64 [ %call10..i, %if.then31.i ], [ 0, %if.else36.i ], [ %spec.select.i, %if.then39.i ], [ %13, %if.else25.i ], [ 0, %qcow2_get_cluster_type.exit.i ]
+  %new_l2_entry.0.i = phi i64 [ %call10..i, %if.then31.i ], [ 0, %if.else36.i ], [ %spec.select.i, %if.then39.i ], [ %12, %if.else25.i ], [ 0, %qcow2_get_cluster_type.exit.i ]
   %new_l2_bitmap.0.i = phi i64 [ -4294967296, %if.then31.i ], [ %retval.0.i.i, %if.else36.i ], [ %retval.0.i.i, %if.then39.i ], [ %retval.0.i.i, %if.else25.i ], [ 0, %qcow2_get_cluster_type.exit.i ]
-  %cmp49.i = icmp eq i64 %13, %new_l2_entry.0.i
+  %cmp49.i = icmp eq i64 %12, %new_l2_entry.0.i
   %cmp52.i = icmp eq i64 %retval.0.i.i, %new_l2_bitmap.0.i
   %or.cond46.i = and i1 %cmp49.i, %cmp52.i
   br i1 %or.cond46.i, label %for.inc.i, label %if.end55.i
@@ -3520,73 +3516,71 @@ if.end55.i:                                       ; preds = %if.end48.i, %land.e
   %new_l2_bitmap.097.i = phi i64 [ %new_l2_bitmap.0.i, %if.end48.i ], [ 0, %land.end21.i ]
   %new_l2_entry.096.i = phi i64 [ %new_l2_entry.0.i, %if.end48.i ], [ 0, %land.end21.i ]
   %retval.0.i55758095.i = phi i32 [ %retval.0.i557580.i, %if.end48.i ], [ 4, %land.end21.i ]
-  %26 = phi i1 [ %25, %if.end48.i ], [ false, %land.end21.i ]
-  %27 = load ptr, ptr %l2_table_cache.i, align 8
-  call void @qcow2_cache_entry_mark_dirty(ptr noundef %27, ptr noundef nonnull %.pre.i) #13
-  %.val51.i = load i64, ptr %8, align 8
-  %28 = trunc i64 %.val51.i to i32
-  %29 = lshr i32 %28, 4
-  %30 = and i32 %29, 1
-  %conv2.i60.i = shl i32 %add.i23, %30
-  %31 = call noundef i64 @llvm.bswap.i64(i64 %new_l2_entry.096.i)
+  %25 = phi i1 [ %24, %if.end48.i ], [ false, %land.end21.i ]
+  %26 = load ptr, ptr %l2_table_cache.i, align 8
+  call void @qcow2_cache_entry_mark_dirty(ptr noundef %26, ptr noundef nonnull %.pre.i) #13
+  %.val51.i = load i64, ptr %7, align 8
+  %27 = trunc i64 %.val51.i to i32
+  %28 = lshr i32 %27, 4
+  %29 = and i32 %28, 1
+  %conv2.i60.i = shl i32 %add.i23, %29
+  %30 = call noundef i64 @llvm.bswap.i64(i64 %new_l2_entry.096.i)
   %idxprom.i61.i = sext i32 %conv2.i60.i to i64
   %arrayidx.i62.i = getelementptr i64, ptr %.pre.i, i64 %idxprom.i61.i
-  store i64 %31, ptr %arrayidx.i62.i, align 8
-  %.val.i = load i64, ptr %8, align 8
+  store i64 %30, ptr %arrayidx.i62.i, align 8
+  %.val.i = load i64, ptr %7, align 8
   %and.i63.i = and i64 %.val.i, 16
   %tobool.i64.not.i = icmp eq i64 %and.i63.i, 0
   br i1 %tobool.i64.not.i, label %if.end60.i, label %set_l2_bitmap.exit.i
 
 set_l2_bitmap.exit.i:                             ; preds = %if.end55.i
   %conv2.i67.i = shl i32 %add.i23, 1
-  %32 = call noundef i64 @llvm.bswap.i64(i64 %new_l2_bitmap.097.i)
+  %31 = call noundef i64 @llvm.bswap.i64(i64 %new_l2_bitmap.097.i)
   %add.i68.i = or disjoint i32 %conv2.i67.i, 1
   %idxprom.i69.i = sext i32 %add.i68.i to i64
   %arrayidx.i70.i = getelementptr i64, ptr %.pre.i, i64 %idxprom.i69.i
-  store i64 %32, ptr %arrayidx.i70.i, align 8
+  store i64 %31, ptr %arrayidx.i70.i, align 8
   br label %if.end60.i
 
 if.end60.i:                                       ; preds = %set_l2_bitmap.exit.i, %if.end55.i
-  br i1 %26, label %if.else63.i, label %if.then62.i
+  br i1 %25, label %if.else63.i, label %if.then62.i
 
 if.then62.i:                                      ; preds = %if.end60.i
-  call void @qcow2_free_any_cluster(ptr noundef nonnull %bs, i64 noundef %13, i32 noundef %type) #13
+  call void @qcow2_free_any_cluster(ptr noundef nonnull %bs, i64 noundef %12, i32 noundef %type) #13
   br label %for.inc.i
 
 if.else63.i:                                      ; preds = %if.end60.i
-  %33 = load i8, ptr %arrayidx.i, align 1
-  %tobool64.i = trunc i8 %33 to i1
-  %34 = and i32 %retval.0.i55758095.i, 6
-  %or.cond.i = icmp eq i32 %34, 2
+  %32 = load i8, ptr %arrayidx.i, align 1
+  %tobool64.i = trunc i8 %32 to i1
+  %33 = and i32 %retval.0.i55758095.i, 6
+  %or.cond.i = icmp eq i32 %33, 2
   %or.cond47.i = and i1 %or.cond.i, %tobool64.i
   br i1 %or.cond47.i, label %if.then72.i, label %for.inc.i
 
 if.then72.i:                                      ; preds = %if.else63.i
-  %35 = load ptr, ptr %data_file.i, align 8
-  %and.i = and i64 %13, 72057594037927424
-  %36 = load i32, ptr %cluster_size.i, align 4
-  %conv73.i = sext i32 %36 to i64
-  %call74.i = call i32 @bdrv_pdiscard(ptr noundef %35, i64 noundef %and.i, i64 noundef %conv73.i) #13
+  %34 = load ptr, ptr %data_file.i, align 8
+  %and.i = and i64 %12, 72057594037927424
+  %35 = load i32, ptr %cluster_size.i, align 4
+  %conv73.i = sext i32 %35 to i64
+  %call74.i = call i32 @bdrv_pdiscard(ptr noundef %34, i64 noundef %and.i, i64 noundef %conv73.i) #13
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then72.i, %if.else63.i, %if.then62.i, %if.end48.i
   %inc.i = add i32 %i.078.i, 1
   %conv7.i = sext i32 %inc.i to i64
   %cmp8.i = icmp ugt i64 %cond.i, %conv7.i
-  br i1 %cmp8.i, label %for.body.i, label %discard_in_l2_slice.exit, !llvm.loop !16
+  br i1 %cmp8.i, label %for.body.i, label %if.end20, !llvm.loop !16
 
-discard_in_l2_slice.exit:                         ; preds = %for.inc.i
-  %37 = load ptr, ptr %l2_table_cache.i, align 8
-  call void @qcow2_cache_put(ptr noundef %37, ptr noundef nonnull %l2_slice.i) #13
+if.end20:                                         ; preds = %for.inc.i, %discard_in_l2_slice.exit.thread26
+  %l2_table_cache.i.sink = phi ptr [ %l2_table_cache77.i27, %discard_in_l2_slice.exit.thread26 ], [ %l2_table_cache.i, %for.inc.i ]
+  %conv78.i30 = phi i64 [ 0, %discard_in_l2_slice.exit.thread26 ], [ %cond.i, %for.inc.i ]
+  %36 = load ptr, ptr %l2_table_cache.i.sink, align 8
+  call void @qcow2_cache_put(ptr noundef %36, ptr noundef nonnull %l2_slice.i) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %l2_slice.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %l2_index.i)
-  br label %if.end20
-
-if.end20:                                         ; preds = %discard_in_l2_slice.exit, %discard_in_l2_slice.exit.thread26
-  %conv78.i30 = phi i64 [ 0, %discard_in_l2_slice.exit.thread26 ], [ %cond.i, %discard_in_l2_slice.exit ]
   %sub = sub i64 %nb_clusters.033, %conv78.i30
-  %38 = load i32, ptr %cluster_size, align 4
-  %conv22 = sext i32 %38 to i64
+  %37 = load i32, ptr %cluster_size, align 4
+  %conv22 = sext i32 %37 to i64
   %mul = mul nsw i64 %conv78.i30, %conv22
   %add23 = add i64 %mul, %offset.addr.034
   %cmp12.not = icmp eq i64 %sub, 0

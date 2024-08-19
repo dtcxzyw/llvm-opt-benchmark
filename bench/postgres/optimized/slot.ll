@@ -2228,8 +2228,9 @@ define dso_local noundef zeroext i1 @InvalidateObsoleteReplicationSlots(i32 noun
   %.not85.i = icmp eq i32 %2, 0
   br label %.lr.ph
 
-.loopexit:                                        ; preds = %InvalidatePossiblyObsoleteSlot.exit, %InvalidatePossiblyObsoleteSlot.exit.thread39
-  %.342 = phi i1 [ %.3.ph, %InvalidatePossiblyObsoleteSlot.exit.thread39 ], [ %.01228, %InvalidatePossiblyObsoleteSlot.exit ]
+.loopexit:                                        ; preds = %37, %ReplicationSlotMarkDirty.exit.i, %InvalidatePossiblyObsoleteSlot.exit
+  %.342 = phi i1 [ %.01228, %InvalidatePossiblyObsoleteSlot.exit ], [ %.01228, %37 ], [ true, %ReplicationSlotMarkDirty.exit.i ]
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   %18 = load ptr, ptr @MainLWLockArray, align 8
   %19 = getelementptr i8, ptr %18, i64 4736
   %20 = call zeroext i1 @LWLockAcquire(ptr noundef %19, i32 noundef 1) #15
@@ -2266,7 +2267,7 @@ define dso_local noundef zeroext i1 @InvalidateObsoleteReplicationSlots(i32 noun
   %38 = load ptr, ptr @MainLWLockArray, align 8
   %39 = getelementptr i8, ptr %38, i64 4736
   call void @LWLockRelease(ptr noundef %39) #15
-  br label %InvalidatePossiblyObsoleteSlot.exit.thread39
+  br label %.loopexit
 
 40:                                               ; preds = %87, %.lr.ph.i
   %.063125.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %87 ]
@@ -2349,13 +2350,12 @@ define dso_local noundef zeroext i1 @InvalidateObsoleteReplicationSlots(i32 noun
 .thread.i:                                        ; preds = %67, %64, %63, %57, %55, %44
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !35
   store i8 0, ptr %25, align 8
-  br i1 %.074120.i, label %InvalidatePossiblyObsoleteSlot.exit, label %.critedge89
+  br i1 %.074120.i, label %InvalidatePossiblyObsoleteSlot.exit, label %.sink.split
 
 InvalidatePossiblyObsoleteSlot.exit:              ; preds = %.thread.i
   %69 = load ptr, ptr @MainLWLockArray, align 8
   %70 = getelementptr i8, ptr %69, i64 4736
   call void @LWLockRelease(ptr noundef %70) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   br label %.loopexit
 
 .thread100.i:                                     ; preds = %67, %64, %60, %55
@@ -2444,24 +2444,18 @@ ReplicationSlotMarkDirty.exit.i:                  ; preds = %98, %93
   call void @ReplicationSlotRelease()
   call void @pgstat_drop_replslot(ptr noundef nonnull %25) #15
   call fastcc void @ReportSlotInvalidation(i32 noundef %0, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull byval(%struct.nameData) align 8 %6, i64 noundef %45, i64 noundef %12, i32 noundef %3)
-  br label %InvalidatePossiblyObsoleteSlot.exit.thread39
+  br label %.loopexit
 
 InvalidatePossiblyObsoleteSlot.exit.thread:       ; preds = %54
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !35
   store i8 0, ptr %25, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %.thread.i, %InvalidatePossiblyObsoleteSlot.exit.thread
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   br label %107
 
-InvalidatePossiblyObsoleteSlot.exit.thread39:     ; preds = %ReplicationSlotMarkDirty.exit.i, %37
-  %.3.ph = phi i1 [ %.01228, %37 ], [ true, %ReplicationSlotMarkDirty.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
-  br label %.loopexit
-
-.critedge89:                                      ; preds = %.thread.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
-  br label %107
-
-107:                                              ; preds = %.critedge89, %InvalidatePossiblyObsoleteSlot.exit.thread, %23
+107:                                              ; preds = %.sink.split, %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %108 = load i32, ptr @max_replication_slots, align 4
   %109 = sext i32 %108 to i64

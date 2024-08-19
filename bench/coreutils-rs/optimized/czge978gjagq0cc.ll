@@ -5740,7 +5740,6 @@ _ZN6uucore8features6format4spec5Flags3any17h84a445c05ddadbd8E.exit119: ; preds =
   store i64 %.sroa.32.0, ptr %.sroa.32.0..sroa_idx, align 8
   %.sroa.36.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %.sroa.36.0, ptr %.sroa.36.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %80
 
 68:                                               ; preds = %63
@@ -5773,6 +5772,7 @@ _ZN6uucore8features6format4spec5Flags3any17h84a445c05ddadbd8E.exit119: ; preds =
   br label %.thread
 
 80:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h27fa04aa7da8c66bE.exit", %.thread
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret void
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h27fa04aa7da8c66bE.exit.sink.split": ; preds = %_ZN6uucore8features6format4spec5Flags3any17h84a445c05ddadbd8E.exit119, %65, %_ZN6uucore8features6format4spec5Flags3any17h84a445c05ddadbd8E.exit, %64
@@ -5790,7 +5790,6 @@ _ZN6uucore8features6format4spec5Flags3any17h84a445c05ddadbd8E.exit119: ; preds =
   %85 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sink, ptr %85, align 8
   store i8 7, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %80
 }
 

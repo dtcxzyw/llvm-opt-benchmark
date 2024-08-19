@@ -1897,18 +1897,14 @@ delete.end:                                       ; preds = %delete.notnull, %en
   store ptr %5, ptr %ref.tmp.i, align 8
   store ptr null, ptr %mException, align 8
   %tobool.not.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i, label %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.thread, label %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit
-
-_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.thread: ; preds = %delete.end
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
+  br i1 %tobool.not.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit
 
 _ZNSt15__exception_ptr13exception_ptraSEOS0_.exit: ; preds = %delete.end
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i) #26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
 
-_ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.thread
+_ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %delete.end, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   ret void
 }
 
@@ -1972,18 +1968,14 @@ entry:
   store ptr %4, ptr %ref.tmp.i, align 8
   store ptr null, ptr %mException, align 8
   %tobool.not.i.i = icmp eq ptr %4, null
-  br i1 %tobool.not.i.i, label %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.thread, label %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit
-
-_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
+  br i1 %tobool.not.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit
 
 _ZNSt15__exception_ptr13exception_ptraSEOS0_.exit: ; preds = %entry
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i) #26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
 
-_ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.thread
+_ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %entry, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   ret ptr %1
 }
 
@@ -4173,13 +4165,13 @@ if.then.i.i.i382:                                 ; preds = %cleanup400.critedge
 _ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.exit383: ; preds = %cleanup400.critedge, %if.then.i.i.i382
   %186 = load ptr, ptr %profiler, align 8
   %cmp.not.i384 = icmp eq ptr %186, null
-  br i1 %cmp.not.i384, label %_ZNSt10unique_ptrIN6Assimp9Profiling8ProfilerESt14default_deleteIS2_EED2Ev.exit390, label %delete.notnull.i.i385
+  br i1 %cmp.not.i384, label %cleanup400.thread.sink.split, label %delete.notnull.i.i385
 
 delete.notnull.i.i385:                            ; preds = %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.exit383
   %_M_parent.i.i.i.i.i.i.i386 = getelementptr inbounds i8, ptr %186, i64 16
   %187 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i386, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_NSt6chrono10time_pointINS8_3_V212system_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEESt10_Select1stISH_ESt4lessIS5_ESaISH_EE8_M_eraseEPSt13_Rb_tree_nodeISH_E(ptr noundef nonnull align 8 dereferenceable(48) %186, ptr noundef %187)
-          to label %_ZNKSt14default_deleteIN6Assimp9Profiling8ProfilerEEclEPS2_.exit.i388 unwind label %terminate.lpad.i.i.i.i.i387
+          to label %cleanup400.thread.sink.split.sink.split unwind label %terminate.lpad.i.i.i.i.i387
 
 terminate.lpad.i.i.i.i.i387:                      ; preds = %delete.notnull.i.i385
   %188 = landingpad { ptr, i32 }
@@ -4187,14 +4179,6 @@ terminate.lpad.i.i.i.i.i387:                      ; preds = %delete.notnull.i.i3
   %189 = extractvalue { ptr, i32 } %188, 0
   call void @__clang_call_terminate(ptr %189) #24
   unreachable
-
-_ZNKSt14default_deleteIN6Assimp9Profiling8ProfilerEEclEPS2_.exit.i388: ; preds = %delete.notnull.i.i385
-  call void @_ZdlPv(ptr noundef nonnull %186) #28
-  br label %_ZNSt10unique_ptrIN6Assimp9Profiling8ProfilerESt14default_deleteIS2_EED2Ev.exit390
-
-_ZNSt10unique_ptrIN6Assimp9Profiling8ProfilerESt14default_deleteIS2_EED2Ev.exit390: ; preds = %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.exit383, %_ZNKSt14default_deleteIN6Assimp9Profiling8ProfilerEEclEPS2_.exit.i388
-  store ptr null, ptr %profiler, align 8
-  br label %cleanup400.thread
 
 cleanup400.critedge60:                            ; preds = %invoke.cont294
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ext) #26
@@ -4208,13 +4192,13 @@ if.then.i.i.i393:                                 ; preds = %cleanup400.critedge
 _ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.exit394: ; preds = %cleanup400.critedge60, %if.then.i.i.i393
   %190 = load ptr, ptr %profiler, align 8
   %cmp.not.i395 = icmp eq ptr %190, null
-  br i1 %cmp.not.i395, label %_ZNSt10unique_ptrIN6Assimp9Profiling8ProfilerESt14default_deleteIS2_EED2Ev.exit401, label %delete.notnull.i.i396
+  br i1 %cmp.not.i395, label %cleanup400.thread.sink.split, label %delete.notnull.i.i396
 
 delete.notnull.i.i396:                            ; preds = %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.exit394
   %_M_parent.i.i.i.i.i.i.i397 = getelementptr inbounds i8, ptr %190, i64 16
   %191 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i397, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_NSt6chrono10time_pointINS8_3_V212system_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEESt10_Select1stISH_ESt4lessIS5_ESaISH_EE8_M_eraseEPSt13_Rb_tree_nodeISH_E(ptr noundef nonnull align 8 dereferenceable(48) %190, ptr noundef %191)
-          to label %_ZNKSt14default_deleteIN6Assimp9Profiling8ProfilerEEclEPS2_.exit.i399 unwind label %terminate.lpad.i.i.i.i.i398
+          to label %cleanup400.thread.sink.split.sink.split unwind label %terminate.lpad.i.i.i.i.i398
 
 terminate.lpad.i.i.i.i.i398:                      ; preds = %delete.notnull.i.i396
   %192 = landingpad { ptr, i32 }
@@ -4223,15 +4207,16 @@ terminate.lpad.i.i.i.i.i398:                      ; preds = %delete.notnull.i.i3
   call void @__clang_call_terminate(ptr %193) #24
   unreachable
 
-_ZNKSt14default_deleteIN6Assimp9Profiling8ProfilerEEclEPS2_.exit.i399: ; preds = %delete.notnull.i.i396
-  call void @_ZdlPv(ptr noundef nonnull %190) #28
-  br label %_ZNSt10unique_ptrIN6Assimp9Profiling8ProfilerESt14default_deleteIS2_EED2Ev.exit401
+cleanup400.thread.sink.split.sink.split:          ; preds = %delete.notnull.i.i396, %delete.notnull.i.i385
+  %.sink = phi ptr [ %186, %delete.notnull.i.i385 ], [ %190, %delete.notnull.i.i396 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sink) #28
+  br label %cleanup400.thread.sink.split
 
-_ZNSt10unique_ptrIN6Assimp9Profiling8ProfilerESt14default_deleteIS2_EED2Ev.exit401: ; preds = %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.exit394, %_ZNKSt14default_deleteIN6Assimp9Profiling8ProfilerEEclEPS2_.exit.i399
+cleanup400.thread.sink.split:                     ; preds = %cleanup400.thread.sink.split.sink.split, %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.exit394, %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EED2Ev.exit383
   store ptr null, ptr %profiler, align 8
   br label %cleanup400.thread
 
-cleanup400.thread:                                ; preds = %invoke.cont18, %_ZNSt10unique_ptrIN6Assimp9Profiling8ProfilerESt14default_deleteIS2_EED2Ev.exit390, %_ZNSt10unique_ptrIN6Assimp9Profiling8ProfilerESt14default_deleteIS2_EED2Ev.exit401
+cleanup400.thread:                                ; preds = %cleanup400.thread.sink.split, %invoke.cont18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pFile) #26
   br label %return
 

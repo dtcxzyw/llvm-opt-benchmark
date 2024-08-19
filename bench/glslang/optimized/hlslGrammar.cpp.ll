@@ -7335,7 +7335,6 @@ _ZNK7glslang5TType8isScalarEv.exit.thread:        ; preds = %81, %86, %91, %_ZNK
   %177 = and i32 %176, 255
   %178 = or disjoint i32 %177, %.030
   %179 = or disjoint i32 %178, 521143808
-  store i32 %179, ptr %6, align 4
   br label %191
 
 180:                                              ; preds = %173
@@ -7346,7 +7345,6 @@ _ZNK7glslang5TType8isScalarEv.exit.thread:        ; preds = %81, %86, %91, %_ZNK
   %183 = or disjoint i32 %182, %.030
   %184 = or disjoint i32 %183, %.029
   %185 = or disjoint i32 %184, %174
-  store i32 %185, ptr %6, align 4
   br label %191
 
 186:                                              ; preds = %180
@@ -7354,10 +7352,11 @@ _ZNK7glslang5TType8isScalarEv.exit.thread:        ; preds = %81, %86, %91, %_ZNK
   %188 = or disjoint i32 %187, %.030
   %189 = or disjoint i32 %188, %.029
   %190 = or disjoint i32 %189, %174
-  store i32 %190, ptr %6, align 4
   br label %191
 
 191:                                              ; preds = %181, %186, %175
+  %.sink = phi i32 [ %185, %181 ], [ %190, %186 ], [ %179, %175 ]
+  store i32 %.sink, ptr %6, align 4
   %192 = getelementptr inbounds i8, ptr %0, i64 328
   %193 = load ptr, ptr %192, align 8
   %194 = getelementptr inbounds i8, ptr %0, i64 8

@@ -10834,15 +10834,15 @@ _ZN7QStringD2Ev.exit775:                          ; preds = %808, %_ZN9QtPrivate
   br label %.sink.split
 
 .sink.split:                                      ; preds = %835, %848
-  %.sroa.22.0..sroa_idx.i778.sink = phi ptr [ %.sroa.22.0..sroa_idx.i778, %835 ], [ %.sroa.22.0..sroa_idx.i788, %848 ]
-  %.sroa.01.0.copyload.i777.sink1574.in = phi ptr [ %836, %835 ], [ %849, %848 ]
-  %.sroa.01.0.copyload.i777.sink1574 = load <2 x float>, ptr %.sroa.01.0.copyload.i777.sink1574.in, align 4
-  %.sroa.22.0.copyload.i779 = load float, ptr %.sroa.22.0..sroa_idx.i778.sink, align 4
-  %.sroa.01194.0.vec.extract = extractelement <2 x float> %.sroa.01.0.copyload.i777.sink1574, i64 0
-  %850 = fneg float %.sroa.01194.0.vec.extract
-  %.sroa.01194.4.vec.extract = extractelement <2 x float> %.sroa.01.0.copyload.i777.sink1574, i64 1
-  %851 = fneg float %.sroa.01194.4.vec.extract
-  %852 = fneg float %.sroa.22.0.copyload.i779
+  %.sroa.22.0..sroa_idx.i788.sink = phi ptr [ %.sroa.22.0..sroa_idx.i788, %848 ], [ %.sroa.22.0..sroa_idx.i778, %835 ]
+  %.sroa.01.0.copyload.i787.sink1561.in = phi ptr [ %849, %848 ], [ %836, %835 ]
+  %.sroa.01.0.copyload.i787.sink1561 = load <2 x float>, ptr %.sroa.01.0.copyload.i787.sink1561.in, align 4
+  %.sroa.22.0.copyload.i789 = load float, ptr %.sroa.22.0..sroa_idx.i788.sink, align 4
+  %.sroa.01190.0.vec.extract = extractelement <2 x float> %.sroa.01.0.copyload.i787.sink1561, i64 0
+  %850 = fneg float %.sroa.01190.0.vec.extract
+  %.sroa.01190.4.vec.extract = extractelement <2 x float> %.sroa.01.0.copyload.i787.sink1561, i64 1
+  %851 = fneg float %.sroa.01190.4.vec.extract
+  %852 = fneg float %.sroa.22.0.copyload.i789
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %769, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %51, align 4
   store float 1.000000e+00, ptr %770, align 4
@@ -11295,8 +11295,8 @@ _ZN7QStringD2Ev.exit838:                          ; preds = %975, %_ZN9QtPrivate
   br label %.loopexit1436.sink.split
 
 .loopexit1436.sink.split:                         ; preds = %982, %1005
-  %.sink1561 = phi ptr [ %1006, %1005 ], [ %97, %982 ]
-  call void @_ZN3vcg4ShotIfNS_8Matrix44IfEEE24ApplyRigidTransformationERKS2_(ptr noundef nonnull align 4 dereferenceable(132) %.sink1561, ptr noundef nonnull align 4 dereferenceable(64) %51)
+  %.sink1562 = phi ptr [ %1006, %1005 ], [ %97, %982 ]
+  call void @_ZN3vcg4ShotIfNS_8Matrix44IfEEE24ApplyRigidTransformationERKS2_(ptr noundef nonnull align 4 dereferenceable(132) %.sink1562, ptr noundef nonnull align 4 dereferenceable(64) %51)
   br label %.loopexit1436
 
 .loopexit1436:                                    ; preds = %_ZN12MeshDocument19RasterRangeIterator3endEv.exit831, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit815, %.loopexit1436.sink.split, %_ZN12MeshDocument19RasterRangeIterator5beginEv.exit830, %_ZN12MeshDocument19RasterRangeIterator5beginEv.exit814, %_ZN7QStringD2Ev.exit838
@@ -11970,8 +11970,8 @@ _ZN7QStringD2Ev.exit920:                          ; preds = %1187, %_ZN9QtPrivat
   br label %.loopexit1439.sink.split
 
 .loopexit1439.sink.split:                         ; preds = %1194, %1217
-  %.sink1562 = phi ptr [ %1218, %1217 ], [ %97, %1194 ]
-  call void @_ZN3vcg4ShotIfNS_8Matrix44IfEEE24ApplyRigidTransformationERKS2_(ptr noundef nonnull align 4 dereferenceable(132) %.sink1562, ptr noundef nonnull align 4 dereferenceable(64) %65)
+  %.sink1563 = phi ptr [ %1218, %1217 ], [ %97, %1194 ]
+  call void @_ZN3vcg4ShotIfNS_8Matrix44IfEEE24ApplyRigidTransformationERKS2_(ptr noundef nonnull align 4 dereferenceable(132) %.sink1563, ptr noundef nonnull align 4 dereferenceable(64) %65)
   br label %.loopexit1439
 
 .loopexit1439:                                    ; preds = %_ZN12MeshDocument19RasterRangeIterator3endEv.exit913, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit897, %.loopexit1439.sink.split, %_ZN12MeshDocument19RasterRangeIterator5beginEv.exit912, %_ZN12MeshDocument19RasterRangeIterator5beginEv.exit896, %_ZN7QStringD2Ev.exit920

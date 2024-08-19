@@ -330,10 +330,10 @@ define hidden void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_
   store ptr null, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 0, ptr %24, align 8
-  %.sink21 = load ptr, ptr %7, align 8
-  %25 = getelementptr inbounds i8, ptr %.sink21, i64 16
-  %26 = load ptr, ptr %25, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(20) %7, ptr noundef nonnull align 8 dereferenceable(40) %22) #18
+  %25 = load ptr, ptr %7, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %27 = load ptr, ptr %26, align 8
+  call void %27(ptr noundef nonnull align 8 dereferenceable(20) %7, ptr noundef nonnull align 8 dereferenceable(40) %22) #18
   ret void
 }
 

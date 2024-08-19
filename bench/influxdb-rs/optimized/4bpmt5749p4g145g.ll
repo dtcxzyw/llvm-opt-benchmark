@@ -1129,13 +1129,13 @@ define hidden void @_ZN3std2io4copy17stack_buffer_copy17hc170afc896360569E(ptr n
 
 .lr.ph.preheader:                                 ; preds = %3, %.outer
   %17 = phi i64 [ %74, %.outer ], [ %15, %3 ]
-  %.017.ph199 = phi i64 [ %61, %.outer ], [ 0, %3 ]
-  %.sroa.23.0.ph198 = phi i64 [ %.sroa.23.3.ph122, %.outer ], [ 0, %3 ]
+  %.017.ph200 = phi i64 [ %61, %.outer ], [ 0, %3 ]
+  %.sroa.23.0.ph199 = phi i64 [ %.sroa.23.3.ph122, %.outer ], [ 0, %3 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %79
   %18 = phi i64 [ %80, %79 ], [ %17, %.lr.ph.preheader ]
-  %.sroa.23.083 = phi i64 [ %.sroa.23.3, %79 ], [ %.sroa.23.0.ph198, %.lr.ph.preheader ]
+  %.sroa.23.083 = phi i64 [ %.sroa.23.3, %79 ], [ %.sroa.23.0.ph199, %.lr.ph.preheader ]
   call void @llvm.experimental.noalias.scope.decl(metadata !280)
   %.not.i = icmp ugt i64 %18, 8192
   br i1 %.not.i, label %19, label %27
@@ -1263,15 +1263,13 @@ default.unreachable:                              ; preds = %45
   br i1 %59, label %.noexc, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe2280de6ff592ceE.exit"
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h815e98f9379c482dE.exit.thread": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h815e98f9379c482dE.exit", %.outer, %79, %_ZN3std2io4Read8read_buf17hb4f514663453a8f5E.exit.i, %3
-  %.017.ph197 = phi i64 [ 0, %3 ], [ %.017.ph199, %_ZN3std2io4Read8read_buf17hb4f514663453a8f5E.exit.i ], [ %.017.ph199, %79 ], [ %61, %.outer ], [ %.017.ph199, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h815e98f9379c482dE.exit" ]
+  %.017.ph198 = phi i64 [ 0, %3 ], [ %.017.ph200, %_ZN3std2io4Read8read_buf17hb4f514663453a8f5E.exit.i ], [ %.017.ph200, %79 ], [ %61, %.outer ], [ %.017.ph200, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h815e98f9379c482dE.exit" ]
   %60 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.017.ph197, ptr %60, align 8
-  store i64 0, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %7)
+  store i64 %.017.ph198, ptr %60, align 8
   br label %71
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h815e98f9379c482dE.exit21": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h815e98f9379c482dE.exit"
-  %61 = add i64 %.sroa.14.3.ph121, %.017.ph199
+  %61 = add i64 %.sroa.14.3.ph121, %.017.ph200
   call void @llvm.experimental.noalias.scope.decl(metadata !311)
   call void @llvm.experimental.noalias.scope.decl(metadata !314)
   %62 = load i64, ptr %13, align 8, !alias.scope !317, !noalias !318, !noundef !4
@@ -1294,6 +1292,9 @@ default.unreachable:                              ; preds = %45
   br i1 %70, label %.outer, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe2280de6ff592ceE.exit"
 
 71:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe2280de6ff592ceE.exit", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h815e98f9379c482dE.exit.thread"
+  %.sink = phi i64 [ 1, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe2280de6ff592ceE.exit" ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h815e98f9379c482dE.exit.thread" ]
+  store i64 %.sink, ptr %0, align 8
+  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %7)
   ret void
 
 .outer:                                           ; preds = %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hc4387934583caf64E.llvm.7649464633611531201.exit.thread.i.i", %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hc4387934583caf64E.llvm.7649464633611531201.exit.i.i"
@@ -1308,8 +1309,6 @@ default.unreachable:                              ; preds = %45
   %.046.i.lcssa154.sink = phi ptr [ %.046.i, %48 ], [ %.046.i, %50 ], [ %.046.i, %54 ], [ %.046.i, %_ZN3std2io5error5Error14is_interrupted17hc251c78b380ce633E.exit ], [ %69, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17hc4387934583caf64E.llvm.7649464633611531201.exit.i.i" ]
   %76 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.046.i.lcssa154.sink, ptr %76, align 8
-  store i64 1, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %7)
   br label %71
 
 _ZN3std2io5error5Error14is_interrupted17hc251c78b380ce633E.exit: ; preds = %45
@@ -2209,7 +2208,7 @@ define hidden void @_ZN7parquet12bloom_filter4Sbbf5write17hdbcdb53584b3c115E(ptr
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %61, %32
   %eh.lpad-body = phi { ptr, i32 } [ %33, %32 ], [ %62, %61 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr182drop_in_place$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$$RF$mut$u20$$RF$mut$u20$parquet..file..writer..TrackedWrite$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h7f736700559d3e47E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %19) #30
-          to label %76 unwind label %80
+          to label %76 unwind label %79
 
 27:                                               ; preds = %3
   call void @llvm.experimental.noalias.scope.decl(metadata !551)
@@ -2276,7 +2275,7 @@ define hidden void @_ZN7parquet12bloom_filter4Sbbf5write17hdbcdb53584b3c115E(ptr
   store i64 0, ptr %0, align 8
   %.sroa.224.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.224.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.224, i64 24, i1 false)
-  br label %78
+  br label %77
 
 "_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$5flush17h0ecd73b919469f23E.exit": ; preds = %36
   %41 = icmp eq ptr %39, null
@@ -2412,14 +2411,11 @@ define hidden void @_ZN7parquet12bloom_filter4Sbbf5write17hdbcdb53584b3c115E(ptr
   store i64 %.sroa.048.0.copyload, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
   invoke void @"_ZN98_$LT$parquet..errors..ParquetError$u20$as$u20$core..convert..From$LT$thrift..errors..Error$GT$$GT$4from17he86e4c7355b88916E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %15, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %16)
-          to label %79 unwind label %.loopexit.split-lp
+          to label %78 unwind label %.loopexit.split-lp
 
 .loopexit63:                                      ; preds = %70, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17he178cf8306be7c0dE.exit.thread"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.4.i.i)
   store i64 6, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
-  call void @"_ZN4core3ptr182drop_in_place$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$$RF$mut$u20$$RF$mut$u20$parquet..file..writer..TrackedWrite$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h7f736700559d3e47E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %19)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %19)
   br label %77
 
 75:                                               ; preds = %66, %.noexc44
@@ -2432,28 +2428,25 @@ define hidden void @_ZN7parquet12bloom_filter4Sbbf5write17hdbcdb53584b3c115E(ptr
   store i64 0, ptr %0, align 8
   %.sroa.234.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.234.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.234, i64 24, i1 false)
-  br label %78
+  br label %77
 
 76:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 
-77:                                               ; preds = %78, %.loopexit63
-  ret void
-
-78:                                               ; preds = %79, %75, %40
+77:                                               ; preds = %40, %75, %78, %.loopexit63
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
   call void @"_ZN4core3ptr182drop_in_place$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$$RF$mut$u20$$RF$mut$u20$parquet..file..writer..TrackedWrite$LT$$RF$mut$u20$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17h7f736700559d3e47E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %19)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %19)
-  br label %77
+  ret void
 
-79:                                               ; preds = %74
+78:                                               ; preds = %74
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16)
-  br label %78
+  br label %77
 
-80:                                               ; preds = %.body
-  %81 = landingpad { ptr, i32 }
+79:                                               ; preds = %.body
+  %80 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #31
   unreachable

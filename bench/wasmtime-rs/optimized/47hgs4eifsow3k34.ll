@@ -447,28 +447,18 @@ define internal fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf
   %6 = load i64, ptr %5, align 8, !noundef !4
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8, !noundef !4
-  switch i64 %6, label %19 [
+  switch i64 %6, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit [
     i64 0, label %9
     i64 1, label %11
   ]
 
 9:                                                ; preds = %1
   %10 = icmp eq i64 %8, 0
-  br i1 %10, label %17, label %.thread27
-
-.thread27:                                        ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.7)
-  br label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
+  br i1 %10, label %17, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
 
 11:                                               ; preds = %1
   %12 = icmp eq i64 %8, 0
-  br i1 %12, label %13, label %.thread29
-
-.thread29:                                        ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.7)
-  br label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
+  br i1 %12, label %13, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr %4, align 8, !nonnull !4, !align !36, !noundef !4
@@ -480,14 +470,11 @@ define internal fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf
   %.sroa.7.0.ph = phi i64 [ 0, %9 ], [ %16, %13 ]
   %.sroa.0.0.ph = phi ptr [ @anon.809a01dc7ad5777871db8cb9b6424a4f.6, %9 ], [ %14, %13 ]
   %18 = tail call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$3msg17h39840f39edda3217E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.ph, i64 noundef %.sroa.7.0.ph)
-  br label %21
+  br label %20
 
-19:                                               ; preds = %1
+_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %1, %11, %9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.7)
-  br label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
-
-_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %19, %.thread29, %.thread27
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   %.sroa.6.0.copyload = load ptr, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
@@ -505,12 +492,12 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %19, %.thread29, %.t
   call void @_ZN5alloc3fmt6format12format_inner17h20bbaee2ca87fbecE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !49
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !37
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.7)
-  %20 = call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$3msg17he21d583fd4e270a6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3)
+  %19 = call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$3msg17he21d583fd4e270a6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %21
+  br label %20
 
-21:                                               ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit, %17
-  %.0 = phi ptr [ %18, %17 ], [ %20, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit ]
+20:                                               ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit, %17
+  %.0 = phi ptr [ %18, %17 ], [ %19, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit ]
   ret ptr %.0
 }
 
@@ -1136,16 +1123,12 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h0174ea6a5f6d6e5cE.
 29:                                               ; preds = %_ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h0174ea6a5f6d6e5cE.exit
   %30 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %24, ptr %30, align 8
-  store i64 1, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %42
 
 31:                                               ; preds = %25, %34
   %32 = phi i64 [ %.cast, %25 ], [ %.pre, %34 ]
   %33 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %32, ptr %33, align 8
-  store i64 0, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %42
 
 34:                                               ; preds = %25
@@ -1174,6 +1157,9 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h0174ea6a5f6d6e5cE.
   br label %31
 
 42:                                               ; preds = %31, %29
+  %.sink = phi i64 [ 0, %31 ], [ 1, %29 ]
+  store i64 %.sink, ptr %0, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   ret void
 }
 
@@ -1434,9 +1420,6 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17hec5426d07a251dedE.
   store ptr %49, ptr %50, align 8
   store i64 1, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %146
 
 51:                                               ; preds = %42
@@ -1596,9 +1579,6 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17hec5426d07a251dedE.
   %133 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %130, ptr %133, align 8
   store i64 0, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %146
 
 134:                                              ; preds = %38
@@ -1636,6 +1616,9 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17hec5426d07a251dedE.
   br label %129
 
 146:                                              ; preds = %129, %44
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   ret void
 }
 
@@ -2262,8 +2245,6 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h0174ea6a5f6d6e5cE.
 36:                                               ; preds = %_ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h0174ea6a5f6d6e5cE.exit
   %37 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %31, ptr %37, align 8
-  store i64 1, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br label %55
 
 38:                                               ; preds = %32, %43
@@ -2272,8 +2253,6 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h0174ea6a5f6d6e5cE.
   %41 = add i64 %40, %39
   %42 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %41, ptr %42, align 8
-  store i64 0, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br label %55
 
 43:                                               ; preds = %32
@@ -2310,6 +2289,9 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h0174ea6a5f6d6e5cE.
   br label %38
 
 55:                                               ; preds = %38, %36
+  %.sink = phi i64 [ 0, %38 ], [ 1, %36 ]
+  store i64 %.sink, ptr %0, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   ret void
 }
 
@@ -3258,7 +3240,6 @@ _ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc0719
 
 "_ZN4core3ptr72drop_in_place$LT$wasmtime_runtime..component..resources..CallContext$GT$17h969e28b723bde1a8E.exit": ; preds = %._crit_edge, %103
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !420
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   br label %118
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %148
@@ -3303,6 +3284,7 @@ _ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc0719
 
 118:                                              ; preds = %"_ZN4core3ptr72drop_in_place$LT$wasmtime_runtime..component..resources..CallContext$GT$17h969e28b723bde1a8E.exit17", %"_ZN4core3ptr72drop_in_place$LT$wasmtime_runtime..component..resources..CallContext$GT$17h969e28b723bde1a8E.exit"
   %.0 = phi ptr [ %100, %"_ZN4core3ptr72drop_in_place$LT$wasmtime_runtime..component..resources..CallContext$GT$17h969e28b723bde1a8E.exit17" ], [ null, %"_ZN4core3ptr72drop_in_place$LT$wasmtime_runtime..component..resources..CallContext$GT$17h969e28b723bde1a8E.exit" ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   ret ptr %.0
 
 _ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc071995E.exit: ; preds = %.lr.ph.split.split, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h232ee2f6099422afE.exit.i"
@@ -3416,7 +3398,6 @@ _ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc0719
 
 "_ZN4core3ptr72drop_in_place$LT$wasmtime_runtime..component..resources..CallContext$GT$17h969e28b723bde1a8E.exit17": ; preds = %154, %157
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !436
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   br label %118
 
 162:                                              ; preds = %.body
@@ -4608,17 +4589,16 @@ _ZN16wasmtime_runtime9component9resources14ResourceTables18resource_lower_own17h
   store i32 1, ptr %6, align 8, !noalias !746
   call void @_ZN16wasmtime_runtime9component9resources13ResourceTable6insert17hd31e96378db4e29eE.llvm.7252875092725274804(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %48, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6), !noalias !730
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !746
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %53
 
 51:                                               ; preds = %_ZN16wasmtime_runtime9component17ComponentInstance15resource_tables17hcc0f621f12c9b1d3E.llvm.12590180234123606466.exit
   %52 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %33, ptr %52, align 8
   store i32 1, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %53
 
 53:                                               ; preds = %51, %_ZN16wasmtime_runtime9component9resources14ResourceTables18resource_lower_own17h33681dbc5875b0deE.exit
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   ret void
 }
 
@@ -4804,7 +4784,6 @@ _ZN16wasmtime_runtime9component9resources14ResourceTables21resource_lower_borrow
   store i32 2, ptr %6, align 8, !noalias !784
   call void @_ZN16wasmtime_runtime9component9resources13ResourceTable6insert17hd31e96378db4e29eE.llvm.7252875092725274804(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %107, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6), !noalias !779
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !784
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %112
 
 110:                                              ; preds = %78
@@ -4813,12 +4792,12 @@ _ZN16wasmtime_runtime9component9resources14ResourceTables21resource_lower_borrow
   br label %113
 
 112:                                              ; preds = %113, %_ZN16wasmtime_runtime9component9resources14ResourceTables21resource_lower_borrow17h3364eacf093ba7e9E.exit
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   ret void
 
 113:                                              ; preds = %110, %79
   %storemerge = phi i32 [ 1, %79 ], [ 0, %110 ]
   store i32 %storemerge, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %112
 }
 

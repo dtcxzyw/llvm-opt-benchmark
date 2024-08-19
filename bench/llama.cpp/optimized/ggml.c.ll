@@ -20384,8 +20384,7 @@ if.then14:                                        ; preds = %if.then7
   %mul20 = shl nuw nsw i64 %conv, 2
   %add21 = add i64 %mul10, 1664
   %add23 = add i64 %add21, %mul20
-  store i64 %add23, ptr %ctx_opt_params, align 8
-  br label %if.end65
+  br label %if.end65.sink.split
 
 if.then28:                                        ; preds = %if.then
   %mul33 = mul nsw i64 %nx, 5
@@ -20411,10 +20410,14 @@ if.then52:                                        ; preds = %if.then28
   %mul59 = shl nuw nsw i64 %conv58, 2
   %add60 = add nuw nsw i64 %mul59, 416
   %add62 = add i64 %add60, %add46
-  store i64 %add62, ptr %ctx_opt_params, align 8
+  br label %if.end65.sink.split
+
+if.end65.sink.split:                              ; preds = %if.then14, %if.then52
+  %add62.sink = phi i64 [ %add62, %if.then52 ], [ %add23, %if.then14 ]
+  store i64 %add62.sink, ptr %ctx_opt_params, align 8
   br label %if.end65
 
-if.end65:                                         ; preds = %if.then, %if.then52, %if.then28, %if.then7, %if.then14
+if.end65:                                         ; preds = %if.end65.sink.split, %if.then, %if.then28, %if.then7
   %mem_buffer = getelementptr inbounds i8, ptr %ctx_opt_params, i64 8
   store ptr null, ptr %mem_buffer, align 8
   %no_alloc = getelementptr inbounds i8, ptr %ctx_opt_params, i64 16

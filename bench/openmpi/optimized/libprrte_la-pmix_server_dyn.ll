@@ -1597,8 +1597,8 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
   %585 = getelementptr inbounds i8, ptr %584, i64 136
   %586 = load i16, ptr %585, align 8
   %587 = and i16 %586, -257
-  %masksel660 = select i1 %582, i16 256, i16 0
-  %.sink = or disjoint i16 %587, %masksel660
+  %masksel662 = select i1 %582, i16 256, i16 0
+  %.sink = or disjoint i16 %587, %masksel662
   store i16 %.sink, ptr %585, align 8
   %588 = load ptr, ptr %60, align 8
   %589 = getelementptr inbounds i8, ptr %588, i64 136
@@ -2057,112 +2057,95 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
   %837 = getelementptr inbounds i8, ptr %375, i64 528
   %838 = load ptr, ptr %837, align 8
   %839 = call fastcc i32 @pmix_convert_string_to_time(ptr noundef %838)
-  store i32 %839, ptr %5, align 4
   br label %.thread
 
 840:                                              ; preds = %833
   %841 = getelementptr inbounds i8, ptr %375, i64 528
   %842 = load i64, ptr %841, align 8
   %843 = trunc i64 %842 to i32
-  store i32 %843, ptr %5, align 4
   br label %.thread
 
 844:                                              ; preds = %833
   %845 = getelementptr inbounds i8, ptr %375, i64 528
   %846 = load i32, ptr %845, align 8
-  store i32 %846, ptr %5, align 4
   br label %.thread
 
 847:                                              ; preds = %833
   %848 = getelementptr inbounds i8, ptr %375, i64 528
   %849 = load i8, ptr %848, align 8
   %850 = sext i8 %849 to i32
-  store i32 %850, ptr %5, align 4
   br label %.thread
 
 851:                                              ; preds = %833
   %852 = getelementptr inbounds i8, ptr %375, i64 528
   %853 = load i16, ptr %852, align 8
   %854 = sext i16 %853 to i32
-  store i32 %854, ptr %5, align 4
   br label %.thread
 
 855:                                              ; preds = %833
   %856 = getelementptr inbounds i8, ptr %375, i64 528
   %857 = load i32, ptr %856, align 8
-  store i32 %857, ptr %5, align 4
   br label %.thread
 
 858:                                              ; preds = %833
   %859 = getelementptr inbounds i8, ptr %375, i64 528
   %860 = load i64, ptr %859, align 8
   %861 = trunc i64 %860 to i32
-  store i32 %861, ptr %5, align 4
   br label %.thread
 
 862:                                              ; preds = %833
   %863 = getelementptr inbounds i8, ptr %375, i64 528
   %864 = load i32, ptr %863, align 8
-  store i32 %864, ptr %5, align 4
   br label %.thread
 
 865:                                              ; preds = %833
   %866 = getelementptr inbounds i8, ptr %375, i64 528
   %867 = load i8, ptr %866, align 8
   %868 = zext i8 %867 to i32
-  store i32 %868, ptr %5, align 4
   br label %.thread
 
 869:                                              ; preds = %833
   %870 = getelementptr inbounds i8, ptr %375, i64 528
   %871 = load i16, ptr %870, align 8
   %872 = zext i16 %871 to i32
-  store i32 %872, ptr %5, align 4
   br label %.thread
 
 873:                                              ; preds = %833
   %874 = getelementptr inbounds i8, ptr %375, i64 528
   %875 = load i32, ptr %874, align 8
-  store i32 %875, ptr %5, align 4
   br label %.thread
 
 876:                                              ; preds = %833
   %877 = getelementptr inbounds i8, ptr %375, i64 528
   %878 = load i64, ptr %877, align 8
   %879 = trunc i64 %878 to i32
-  store i32 %879, ptr %5, align 4
   br label %.thread
 
 880:                                              ; preds = %833
   %881 = getelementptr inbounds i8, ptr %375, i64 528
   %882 = load float, ptr %881, align 8
   %883 = fptosi float %882 to i32
-  store i32 %883, ptr %5, align 4
   br label %.thread
 
 884:                                              ; preds = %833
   %885 = getelementptr inbounds i8, ptr %375, i64 528
   %886 = load double, ptr %885, align 8
   %887 = fptosi double %886 to i32
-  store i32 %887, ptr %5, align 4
   br label %.thread
 
 888:                                              ; preds = %833
   %889 = getelementptr inbounds i8, ptr %375, i64 528
   %890 = load i32, ptr %889, align 8
-  store i32 %890, ptr %5, align 4
   br label %.thread
 
 891:                                              ; preds = %833
   %892 = getelementptr inbounds i8, ptr %375, i64 528
   %893 = load i32, ptr %892, align 8
-  store i32 %893, ptr %5, align 4
   br label %.thread
 
 894:                                              ; preds = %833
   %895 = getelementptr inbounds i8, ptr %375, i64 528
   %896 = load i32, ptr %895, align 8
-  store i32 %896, ptr %5, align 4
   br label %.thread
 
 897:                                              ; preds = %833
@@ -2170,6 +2153,8 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
   br label %.loopexit619
 
 .thread:                                          ; preds = %894, %891, %888, %884, %880, %876, %873, %869, %865, %862, %858, %855, %851, %847, %844, %840, %836
+  %.sink660 = phi i32 [ %896, %894 ], [ %893, %891 ], [ %890, %888 ], [ %887, %884 ], [ %883, %880 ], [ %879, %876 ], [ %875, %873 ], [ %872, %869 ], [ %868, %865 ], [ %864, %862 ], [ %861, %858 ], [ %857, %855 ], [ %854, %851 ], [ %850, %847 ], [ %846, %844 ], [ %843, %840 ], [ %839, %836 ]
+  store i32 %.sink660, ptr %5, align 4
   %898 = call i32 @prte_set_attribute(ptr noundef nonnull %365, i16 noundef zeroext 293, i1 noundef zeroext false, ptr noundef nonnull %5, i16 noundef zeroext 6) #13
   br label %.loopexit617
 
@@ -2213,112 +2198,95 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
   %910 = getelementptr inbounds i8, ptr %375, i64 528
   %911 = load ptr, ptr %910, align 8
   %912 = call fastcc i32 @pmix_convert_string_to_time(ptr noundef %911)
-  store i32 %912, ptr %5, align 4
   br label %.thread610
 
 913:                                              ; preds = %906
   %914 = getelementptr inbounds i8, ptr %375, i64 528
   %915 = load i64, ptr %914, align 8
   %916 = trunc i64 %915 to i32
-  store i32 %916, ptr %5, align 4
   br label %.thread610
 
 917:                                              ; preds = %906
   %918 = getelementptr inbounds i8, ptr %375, i64 528
   %919 = load i32, ptr %918, align 8
-  store i32 %919, ptr %5, align 4
   br label %.thread610
 
 920:                                              ; preds = %906
   %921 = getelementptr inbounds i8, ptr %375, i64 528
   %922 = load i8, ptr %921, align 8
   %923 = sext i8 %922 to i32
-  store i32 %923, ptr %5, align 4
   br label %.thread610
 
 924:                                              ; preds = %906
   %925 = getelementptr inbounds i8, ptr %375, i64 528
   %926 = load i16, ptr %925, align 8
   %927 = sext i16 %926 to i32
-  store i32 %927, ptr %5, align 4
   br label %.thread610
 
 928:                                              ; preds = %906
   %929 = getelementptr inbounds i8, ptr %375, i64 528
   %930 = load i32, ptr %929, align 8
-  store i32 %930, ptr %5, align 4
   br label %.thread610
 
 931:                                              ; preds = %906
   %932 = getelementptr inbounds i8, ptr %375, i64 528
   %933 = load i64, ptr %932, align 8
   %934 = trunc i64 %933 to i32
-  store i32 %934, ptr %5, align 4
   br label %.thread610
 
 935:                                              ; preds = %906
   %936 = getelementptr inbounds i8, ptr %375, i64 528
   %937 = load i32, ptr %936, align 8
-  store i32 %937, ptr %5, align 4
   br label %.thread610
 
 938:                                              ; preds = %906
   %939 = getelementptr inbounds i8, ptr %375, i64 528
   %940 = load i8, ptr %939, align 8
   %941 = zext i8 %940 to i32
-  store i32 %941, ptr %5, align 4
   br label %.thread610
 
 942:                                              ; preds = %906
   %943 = getelementptr inbounds i8, ptr %375, i64 528
   %944 = load i16, ptr %943, align 8
   %945 = zext i16 %944 to i32
-  store i32 %945, ptr %5, align 4
   br label %.thread610
 
 946:                                              ; preds = %906
   %947 = getelementptr inbounds i8, ptr %375, i64 528
   %948 = load i32, ptr %947, align 8
-  store i32 %948, ptr %5, align 4
   br label %.thread610
 
 949:                                              ; preds = %906
   %950 = getelementptr inbounds i8, ptr %375, i64 528
   %951 = load i64, ptr %950, align 8
   %952 = trunc i64 %951 to i32
-  store i32 %952, ptr %5, align 4
   br label %.thread610
 
 953:                                              ; preds = %906
   %954 = getelementptr inbounds i8, ptr %375, i64 528
   %955 = load float, ptr %954, align 8
   %956 = fptosi float %955 to i32
-  store i32 %956, ptr %5, align 4
   br label %.thread610
 
 957:                                              ; preds = %906
   %958 = getelementptr inbounds i8, ptr %375, i64 528
   %959 = load double, ptr %958, align 8
   %960 = fptosi double %959 to i32
-  store i32 %960, ptr %5, align 4
   br label %.thread610
 
 961:                                              ; preds = %906
   %962 = getelementptr inbounds i8, ptr %375, i64 528
   %963 = load i32, ptr %962, align 8
-  store i32 %963, ptr %5, align 4
   br label %.thread610
 
 964:                                              ; preds = %906
   %965 = getelementptr inbounds i8, ptr %375, i64 528
   %966 = load i32, ptr %965, align 8
-  store i32 %966, ptr %5, align 4
   br label %.thread610
 
 967:                                              ; preds = %906
   %968 = getelementptr inbounds i8, ptr %375, i64 528
   %969 = load i32, ptr %968, align 8
-  store i32 %969, ptr %5, align 4
   br label %.thread610
 
 970:                                              ; preds = %906
@@ -2326,6 +2294,8 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
   br label %.loopexit619
 
 .thread610:                                       ; preds = %967, %964, %961, %957, %953, %949, %946, %942, %938, %935, %931, %928, %924, %920, %917, %913, %909
+  %.sink661 = phi i32 [ %969, %967 ], [ %966, %964 ], [ %963, %961 ], [ %960, %957 ], [ %956, %953 ], [ %952, %949 ], [ %948, %946 ], [ %945, %942 ], [ %941, %938 ], [ %937, %935 ], [ %934, %931 ], [ %930, %928 ], [ %927, %924 ], [ %923, %920 ], [ %919, %917 ], [ %916, %913 ], [ %912, %909 ]
+  store i32 %.sink661, ptr %5, align 4
   %971 = call i32 @prte_set_attribute(ptr noundef nonnull %365, i16 noundef zeroext 271, i1 noundef zeroext false, ptr noundef nonnull %5, i16 noundef zeroext 6) #13
   br label %.loopexit617
 
@@ -4397,90 +4367,74 @@ define internal void @connect_release(i32 noundef %0, ptr noundef %1, ptr nounde
 24:                                               ; preds = %22
   %25 = load i64, ptr %19, align 8
   %26 = trunc i64 %25 to i32
-  store i32 %26, ptr %8, align 4
   br label %67
 
 27:                                               ; preds = %22
   %28 = load i32, ptr %19, align 8
-  store i32 %28, ptr %8, align 4
   br label %67
 
 29:                                               ; preds = %22
   %30 = load i8, ptr %19, align 8
   %31 = sext i8 %30 to i32
-  store i32 %31, ptr %8, align 4
   br label %67
 
 32:                                               ; preds = %22
   %33 = load i16, ptr %19, align 8
   %34 = sext i16 %33 to i32
-  store i32 %34, ptr %8, align 4
   br label %67
 
 35:                                               ; preds = %22
   %36 = load i32, ptr %19, align 8
-  store i32 %36, ptr %8, align 4
   br label %67
 
 37:                                               ; preds = %22
   %38 = load i64, ptr %19, align 8
   %39 = trunc i64 %38 to i32
-  store i32 %39, ptr %8, align 4
   br label %67
 
 40:                                               ; preds = %22
   %41 = load i32, ptr %19, align 8
-  store i32 %41, ptr %8, align 4
   br label %67
 
 42:                                               ; preds = %22
   %43 = load i8, ptr %19, align 8
   %44 = zext i8 %43 to i32
-  store i32 %44, ptr %8, align 4
   br label %67
 
 45:                                               ; preds = %22
   %46 = load i16, ptr %19, align 8
   %47 = zext i16 %46 to i32
-  store i32 %47, ptr %8, align 4
   br label %67
 
 48:                                               ; preds = %22
   %49 = load i32, ptr %19, align 8
-  store i32 %49, ptr %8, align 4
   br label %67
 
 50:                                               ; preds = %22
   %51 = load i64, ptr %19, align 8
   %52 = trunc i64 %51 to i32
-  store i32 %52, ptr %8, align 4
   br label %67
 
 53:                                               ; preds = %22
   %54 = load float, ptr %19, align 8
   %55 = fptoui float %54 to i32
-  store i32 %55, ptr %8, align 4
   br label %67
 
 56:                                               ; preds = %22
   %57 = load double, ptr %19, align 8
   %58 = fptoui double %57 to i32
-  store i32 %58, ptr %8, align 4
   br label %67
 
 59:                                               ; preds = %22
   %60 = load i32, ptr %19, align 8
-  store i32 %60, ptr %8, align 4
   br label %67
 
 61:                                               ; preds = %22
   %62 = load i32, ptr %19, align 8
-  store i32 %62, ptr %8, align 4
   br label %67
 
 63:                                               ; preds = %22
   %64 = load i32, ptr %19, align 8
-  store i32 %64, ptr %8, align 4
   br label %67
 
 65:                                               ; preds = %22
@@ -4489,6 +4443,8 @@ define internal void @connect_release(i32 noundef %0, ptr noundef %1, ptr nounde
   br label %69
 
 67:                                               ; preds = %24, %27, %29, %32, %35, %37, %40, %42, %45, %48, %50, %53, %56, %59, %61, %63
+  %.sink = phi i32 [ %26, %24 ], [ %28, %27 ], [ %31, %29 ], [ %34, %32 ], [ %36, %35 ], [ %39, %37 ], [ %41, %40 ], [ %44, %42 ], [ %47, %45 ], [ %49, %48 ], [ %52, %50 ], [ %55, %53 ], [ %58, %56 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ]
+  store i32 %.sink, ptr %8, align 4
   %68 = add i64 %.064103, 1
   br label %69
 

@@ -32465,13 +32465,13 @@ common.resume:                                    ; preds = %47, %41
   br label %common.resume
 
 _ZN8pybind116detail15argument_loaderIJRN19exercise_trampoline10SimpleBaseERKiEE9load_argsERNS0_13function_callE.exit.thread.sink.split: ; preds = %43, %37
-  %.sink21 = load i32, ptr %4, align 8
-  %49 = load i64, ptr %32, align 8
-  %50 = getelementptr inbounds i8, ptr %36, i64 %49
-  store i32 %.sink21, ptr %50, align 4
-  %51 = load i64, ptr @_Py_NoneStruct, align 8
-  %52 = add nsw i64 %51, 1
-  store i64 %52, ptr @_Py_NoneStruct, align 8
+  %49 = load i32, ptr %4, align 8
+  %50 = load i64, ptr %32, align 8
+  %51 = getelementptr inbounds i8, ptr %36, i64 %50
+  store i32 %49, ptr %51, align 4
+  %52 = load i64, ptr @_Py_NoneStruct, align 8
+  %53 = add nsw i64 %52, 1
+  store i64 %53, ptr @_Py_NoneStruct, align 8
   br label %_ZN8pybind116detail15argument_loaderIJRN19exercise_trampoline10SimpleBaseERKiEE9load_argsERNS0_13function_callE.exit.thread
 
 _ZN8pybind116detail15argument_loaderIJRN19exercise_trampoline10SimpleBaseERKiEE9load_argsERNS0_13function_callE.exit.thread: ; preds = %_ZN8pybind116detail15argument_loaderIJRN19exercise_trampoline10SimpleBaseERKiEE9load_argsERNS0_13function_callE.exit.thread.sink.split, %_ZN8pybind116detail15argument_loaderIJRN19exercise_trampoline10SimpleBaseERKiEEC2Ev.exit, %_ZN8pybind116detail15argument_loaderIJRN19exercise_trampoline10SimpleBaseERKiEE9load_argsERNS0_13function_callE.exit
@@ -41581,10 +41581,10 @@ common.resume.i:                                  ; preds = %45, %39
   br label %common.resume.i
 
 _ZN8pybind116detail15argument_loaderIJRZ23test_submodule_picklingRNS_7module_EE18PickleableWithDictRKiEE9load_argsERNS0_13function_callE.exit.thread.sink.split.i: ; preds = %41, %35
-  %.val.sink.i = load i32, ptr %3, align 8
-  %.val16.sink.i = load i64, ptr %31, align 8
-  %47 = getelementptr inbounds i8, ptr %.val18.i, i64 %.val16.sink.i
-  store i32 %.val.sink.i, ptr %47, align 4
+  %.val16.i = load i64, ptr %31, align 8
+  %.val.i = load i32, ptr %3, align 8
+  %47 = getelementptr inbounds i8, ptr %.val18.i, i64 %.val16.i
+  store i32 %.val.i, ptr %47, align 4
   %48 = load i64, ptr @_Py_NoneStruct, align 8
   %49 = add nsw i64 %48, 1
   store i64 %49, ptr @_Py_NoneStruct, align 8

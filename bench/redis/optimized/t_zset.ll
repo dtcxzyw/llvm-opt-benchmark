@@ -7216,25 +7216,24 @@ sw.bb92:                                          ; preds = %if.then90
   %conv96 = add i32 %31, 1
   %32 = load ptr, ptr %26, align 8
   %call97 = call i64 @zslDeleteRangeByRank(ptr noundef %27, i32 noundef %conv94, i32 noundef %conv96, ptr noundef %32)
-  store i64 %call97, ptr %deleted, align 8
   br label %sw.epilog106
 
 sw.bb98:                                          ; preds = %if.then90
   %33 = load ptr, ptr %26, align 8
   %call101 = call i64 @zslDeleteRangeByScore(ptr noundef %27, ptr noundef nonnull %range, ptr noundef %33)
-  store i64 %call101, ptr %deleted, align 8
   br label %sw.epilog106
 
 sw.bb102:                                         ; preds = %if.then90
   %34 = load ptr, ptr %26, align 8
   %call105 = call i64 @zslDeleteRangeByLex(ptr noundef %27, ptr noundef nonnull %lexrange, ptr noundef %34)
-  store i64 %call105, ptr %deleted, align 8
   br label %sw.epilog106
 
 default.unreachable66:                            ; preds = %if.then90
   unreachable
 
 sw.epilog106:                                     ; preds = %sw.bb102, %sw.bb98, %sw.bb92
+  %call105.sink = phi i64 [ %call105, %sw.bb102 ], [ %call101, %sw.bb98 ], [ %call97, %sw.bb92 ]
+  store i64 %call105.sink, ptr %deleted, align 8
   %35 = load ptr, ptr %26, align 8
   %call108 = call i32 @htNeedsResize(ptr noundef %35) #19
   %tobool109.not = icmp eq i32 %call108, 0

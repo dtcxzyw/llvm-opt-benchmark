@@ -54780,137 +54780,126 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ30test_submodule_
 
 11:                                               ; preds = %1
   %12 = icmp eq ptr %.sroa.0.0.copyload.i.i.i, @_Py_TrueStruct
-  br i1 %12, label %13, label %14
+  br i1 %12, label %.thread21.i.i.i.i, label %13
 
 13:                                               ; preds = %11
-  store i8 1, ptr %2, align 1
-  br label %38
+  %14 = icmp eq ptr %.sroa.0.0.copyload.i.i.i, @_Py_FalseStruct
+  br i1 %14, label %.thread21.i.i.i.i, label %15
 
-14:                                               ; preds = %11
-  %15 = icmp eq ptr %.sroa.0.0.copyload.i.i.i, @_Py_FalseStruct
-  br i1 %15, label %16, label %17
+15:                                               ; preds = %13
+  br i1 %.not.i.i.i, label %16, label %23
 
-16:                                               ; preds = %14
-  store i8 0, ptr %2, align 1
-  br label %38
-
-17:                                               ; preds = %14
-  br i1 %.not.i.i.i, label %18, label %25
-
-18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i.i, i64 8
+16:                                               ; preds = %15
+  %17 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i.i, i64 8
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
-  %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(12) @.str.222, ptr noundef nonnull dereferenceable(1) %22) #34
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %"_ZZN8pybind1112cpp_function10initializeIZ30test_submodule_builtin_castersRNS_7module_EE4$_74NS_4listEJbEJNS_4nameENS_5scopeENS_7siblingENS_3argEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESN_.exit"
+  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(12) @.str.222, ptr noundef nonnull dereferenceable(1) %20) #34
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %"_ZZN8pybind1112cpp_function10initializeIZ30test_submodule_builtin_castersRNS_7module_EE4$_74NS_4listEJbEJNS_4nameENS_5scopeENS_7siblingENS_3argEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESN_.exit"
 
-25:                                               ; preds = %18, %17
-  %26 = icmp eq ptr %.sroa.0.0.copyload.i.i.i, @_Py_NoneStruct
-  br i1 %26, label %.thread21.i.i.i.i, label %27
+23:                                               ; preds = %16, %15
+  %24 = icmp eq ptr %.sroa.0.0.copyload.i.i.i, @_Py_NoneStruct
+  br i1 %24, label %.thread21.i.i.i.i, label %25
 
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i.i, i64 8
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i.i, i64 8
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 96
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 96
-  %31 = load ptr, ptr %30, align 8
-  %.not.i.i.i.i = icmp eq ptr %31, null
-  br i1 %.not.i.i.i.i, label %.thread.i.i.i.i, label %32
+  %.not.i.i.i.i = icmp eq ptr %29, null
+  br i1 %.not.i.i.i.i, label %.thread.i.i.i.i, label %30
 
-32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %31, i64 72
-  %34 = load ptr, ptr %33, align 8
-  %.not12.i.i.i.i = icmp eq ptr %34, null
-  br i1 %.not12.i.i.i.i, label %.thread.i.i.i.i, label %35
+30:                                               ; preds = %25
+  %31 = getelementptr inbounds i8, ptr %29, i64 72
+  %32 = load ptr, ptr %31, align 8
+  %.not12.i.i.i.i = icmp eq ptr %32, null
+  br i1 %.not12.i.i.i.i, label %.thread.i.i.i.i, label %33
 
-35:                                               ; preds = %32
-  %36 = tail call noundef i32 %34(ptr noundef nonnull %.sroa.0.0.copyload.i.i.i)
-  %37 = trunc i32 %36 to i8
-  %or.cond.i.i.i.i = icmp ult i32 %36, 2
+33:                                               ; preds = %30
+  %34 = tail call noundef i32 %32(ptr noundef nonnull %.sroa.0.0.copyload.i.i.i)
+  %35 = trunc i32 %34 to i8
+  %or.cond.i.i.i.i = icmp ult i32 %34, 2
   br i1 %or.cond.i.i.i.i, label %.thread21.i.i.i.i, label %.thread.i.i.i.i
 
-.thread21.i.i.i.i:                                ; preds = %35, %25
-  %.0924.i.i.i.i = phi i8 [ %37, %35 ], [ 0, %25 ]
-  store i8 %.0924.i.i.i.i, ptr %2, align 1
-  br label %38
-
-.thread.i.i.i.i:                                  ; preds = %35, %32, %27
+.thread.i.i.i.i:                                  ; preds = %33, %30, %25
   tail call void @PyErr_Clear()
   br label %"_ZZN8pybind1112cpp_function10initializeIZ30test_submodule_builtin_castersRNS_7module_EE4$_74NS_4listEJbEJNS_4nameENS_5scopeENS_7siblingENS_3argEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESN_.exit"
 
-38:                                               ; preds = %.thread21.i.i.i.i, %16, %13
-  %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 89
-  %41 = load i16, ptr %40, align 1
-  %42 = and i16 %41, 32
-  %.not.i = icmp eq i16 %42, 0
-  br i1 %.not.i, label %54, label %43
+.thread21.i.i.i.i:                                ; preds = %33, %23, %13, %11
+  %.sink.i = phi i8 [ 1, %11 ], [ 0, %13 ], [ %35, %33 ], [ 0, %23 ]
+  store i8 %.sink.i, ptr %2, align 1
+  %36 = load ptr, ptr %0, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 89
+  %38 = load i16, ptr %37, align 1
+  %39 = and i16 %38, 32
+  %.not.i = icmp eq i16 %39, 0
+  br i1 %.not.i, label %51, label %40
 
-43:                                               ; preds = %38
+40:                                               ; preds = %.thread21.i.i.i.i
   call fastcc void @"_ZNO8pybind116detail15argument_loaderIJbEE4callINS_4listENS0_9void_typeERZ30test_submodule_builtin_castersRNS_7module_EE4$_74EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESB_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 1 dereferenceable(1) %2)
-  %44 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %44, null
-  br i1 %.not.i.i.i.i.i, label %_ZN8pybind114noneD2Ev.exit.i, label %45
+  %41 = load ptr, ptr %3, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %41, null
+  br i1 %.not.i.i.i.i.i, label %_ZN8pybind114noneD2Ev.exit.i, label %42
 
-45:                                               ; preds = %43
-  %46 = load i64, ptr %44, align 8
-  %47 = add nsw i64 %46, -1
-  store i64 %47, ptr %44, align 8
-  %.not.i.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i.i, label %48, label %_ZN8pybind114noneD2Ev.exit.i
+42:                                               ; preds = %40
+  %43 = load i64, ptr %41, align 8
+  %44 = add nsw i64 %43, -1
+  store i64 %44, ptr %41, align 8
+  %.not.i.i.i.i.i.i = icmp eq i64 %44, 0
+  br i1 %.not.i.i.i.i.i.i, label %45, label %_ZN8pybind114noneD2Ev.exit.i
 
-48:                                               ; preds = %45
-  invoke void @_Py_Dealloc(ptr noundef nonnull %44)
-          to label %_ZN8pybind114noneD2Ev.exit.i unwind label %49
+45:                                               ; preds = %42
+  invoke void @_Py_Dealloc(ptr noundef nonnull %41)
+          to label %_ZN8pybind114noneD2Ev.exit.i unwind label %46
 
-49:                                               ; preds = %48
-  %50 = landingpad { ptr, i32 }
+46:                                               ; preds = %45
+  %47 = landingpad { ptr, i32 }
           catch ptr null
-  %51 = extractvalue { ptr, i32 } %50, 0
-  call void @__clang_call_terminate(ptr %51) #29
+  %48 = extractvalue { ptr, i32 } %47, 0
+  call void @__clang_call_terminate(ptr %48) #29
   unreachable
 
-_ZN8pybind114noneD2Ev.exit.i:                     ; preds = %48, %45, %43
-  %52 = load i64, ptr @_Py_NoneStruct, align 8
-  %53 = add nsw i64 %52, 1
-  store i64 %53, ptr @_Py_NoneStruct, align 8
+_ZN8pybind114noneD2Ev.exit.i:                     ; preds = %45, %42, %40
+  %49 = load i64, ptr @_Py_NoneStruct, align 8
+  %50 = add nsw i64 %49, 1
+  store i64 %50, ptr @_Py_NoneStruct, align 8
   br label %"_ZZN8pybind1112cpp_function10initializeIZ30test_submodule_builtin_castersRNS_7module_EE4$_74NS_4listEJbEJNS_4nameENS_5scopeENS_7siblingENS_3argEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESN_.exit"
 
-54:                                               ; preds = %38
+51:                                               ; preds = %.thread21.i.i.i.i
   call fastcc void @"_ZNO8pybind116detail15argument_loaderIJbEE4callINS_4listENS0_9void_typeERZ30test_submodule_builtin_castersRNS_7module_EE4$_74EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESB_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 1 dereferenceable(1) %2)
-  %55 = load ptr, ptr %4, align 8
-  %.not.i.i.i19.i = icmp eq ptr %55, null
+  %52 = load ptr, ptr %4, align 8
+  %.not.i.i.i19.i = icmp eq ptr %52, null
   br i1 %.not.i.i.i19.i, label %"_ZZN8pybind1112cpp_function10initializeIZ30test_submodule_builtin_castersRNS_7module_EE4$_74NS_4listEJbEJNS_4nameENS_5scopeENS_7siblingENS_3argEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESN_.exit", label %_ZN8pybind116detail15pyobject_casterINS_4listEE4castERKNS_6handleENS_19return_value_policyES4_.exit.i
 
-_ZN8pybind116detail15pyobject_casterINS_4listEE4castERKNS_6handleENS_19return_value_policyES4_.exit.i: ; preds = %54
-  %56 = load i64, ptr %55, align 8
-  %57 = add nsw i64 %56, 1
-  store i64 %57, ptr %55, align 8
+_ZN8pybind116detail15pyobject_casterINS_4listEE4castERKNS_6handleENS_19return_value_policyES4_.exit.i: ; preds = %51
+  %53 = load i64, ptr %52, align 8
+  %54 = add nsw i64 %53, 1
+  store i64 %54, ptr %52, align 8
   %.sroa.01.0.copyload.pre.i.i = load ptr, ptr %4, align 8
   %.not.i.i.i.i20.i = icmp eq ptr %.sroa.01.0.copyload.pre.i.i, null
-  br i1 %.not.i.i.i.i20.i, label %"_ZZN8pybind1112cpp_function10initializeIZ30test_submodule_builtin_castersRNS_7module_EE4$_74NS_4listEJbEJNS_4nameENS_5scopeENS_7siblingENS_3argEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESN_.exit", label %58
+  br i1 %.not.i.i.i.i20.i, label %"_ZZN8pybind1112cpp_function10initializeIZ30test_submodule_builtin_castersRNS_7module_EE4$_74NS_4listEJbEJNS_4nameENS_5scopeENS_7siblingENS_3argEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESN_.exit", label %55
 
-58:                                               ; preds = %_ZN8pybind116detail15pyobject_casterINS_4listEE4castERKNS_6handleENS_19return_value_policyES4_.exit.i
-  %59 = load i64, ptr %.sroa.01.0.copyload.pre.i.i, align 8
-  %60 = add nsw i64 %59, -1
-  store i64 %60, ptr %.sroa.01.0.copyload.pre.i.i, align 8
-  %.not.i.i.i.i.i21.i = icmp eq i64 %60, 0
-  br i1 %.not.i.i.i.i.i21.i, label %61, label %"_ZZN8pybind1112cpp_function10initializeIZ30test_submodule_builtin_castersRNS_7module_EE4$_74NS_4listEJbEJNS_4nameENS_5scopeENS_7siblingENS_3argEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESN_.exit"
+55:                                               ; preds = %_ZN8pybind116detail15pyobject_casterINS_4listEE4castERKNS_6handleENS_19return_value_policyES4_.exit.i
+  %56 = load i64, ptr %.sroa.01.0.copyload.pre.i.i, align 8
+  %57 = add nsw i64 %56, -1
+  store i64 %57, ptr %.sroa.01.0.copyload.pre.i.i, align 8
+  %.not.i.i.i.i.i21.i = icmp eq i64 %57, 0
+  br i1 %.not.i.i.i.i.i21.i, label %58, label %"_ZZN8pybind1112cpp_function10initializeIZ30test_submodule_builtin_castersRNS_7module_EE4$_74NS_4listEJbEJNS_4nameENS_5scopeENS_7siblingENS_3argEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESN_.exit"
 
-61:                                               ; preds = %58
+58:                                               ; preds = %55
   invoke void @_Py_Dealloc(ptr noundef nonnull %.sroa.01.0.copyload.pre.i.i)
-          to label %"_ZZN8pybind1112cpp_function10initializeIZ30test_submodule_builtin_castersRNS_7module_EE4$_74NS_4listEJbEJNS_4nameENS_5scopeENS_7siblingENS_3argEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESN_.exit" unwind label %62
+          to label %"_ZZN8pybind1112cpp_function10initializeIZ30test_submodule_builtin_castersRNS_7module_EE4$_74NS_4listEJbEJNS_4nameENS_5scopeENS_7siblingENS_3argEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESN_.exit" unwind label %59
 
-62:                                               ; preds = %61
-  %63 = landingpad { ptr, i32 }
+59:                                               ; preds = %58
+  %60 = landingpad { ptr, i32 }
           catch ptr null
-  %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #29
+  %61 = extractvalue { ptr, i32 } %60, 0
+  call void @__clang_call_terminate(ptr %61) #29
   unreachable
 
-"_ZZN8pybind1112cpp_function10initializeIZ30test_submodule_builtin_castersRNS_7module_EE4$_74NS_4listEJbEJNS_4nameENS_5scopeENS_7siblingENS_3argEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESN_.exit": ; preds = %1, %18, %.thread.i.i.i.i, %_ZN8pybind114noneD2Ev.exit.i, %54, %_ZN8pybind116detail15pyobject_casterINS_4listEE4castERKNS_6handleENS_19return_value_policyES4_.exit.i, %58, %61
-  %.sroa.0.1.i = phi ptr [ inttoptr (i64 1 to ptr), %.thread.i.i.i.i ], [ inttoptr (i64 1 to ptr), %18 ], [ inttoptr (i64 1 to ptr), %1 ], [ @_Py_NoneStruct, %_ZN8pybind114noneD2Ev.exit.i ], [ null, %_ZN8pybind116detail15pyobject_casterINS_4listEE4castERKNS_6handleENS_19return_value_policyES4_.exit.i ], [ %.sroa.01.0.copyload.pre.i.i, %58 ], [ %.sroa.01.0.copyload.pre.i.i, %61 ], [ null, %54 ]
+"_ZZN8pybind1112cpp_function10initializeIZ30test_submodule_builtin_castersRNS_7module_EE4$_74NS_4listEJbEJNS_4nameENS_5scopeENS_7siblingENS_3argEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESN_.exit": ; preds = %1, %16, %.thread.i.i.i.i, %_ZN8pybind114noneD2Ev.exit.i, %51, %_ZN8pybind116detail15pyobject_casterINS_4listEE4castERKNS_6handleENS_19return_value_policyES4_.exit.i, %55, %58
+  %.sroa.0.1.i = phi ptr [ inttoptr (i64 1 to ptr), %.thread.i.i.i.i ], [ inttoptr (i64 1 to ptr), %16 ], [ inttoptr (i64 1 to ptr), %1 ], [ @_Py_NoneStruct, %_ZN8pybind114noneD2Ev.exit.i ], [ null, %_ZN8pybind116detail15pyobject_casterINS_4listEE4castERKNS_6handleENS_19return_value_policyES4_.exit.i ], [ %.sroa.01.0.copyload.pre.i.i, %55 ], [ %.sroa.01.0.copyload.pre.i.i, %58 ], [ null, %51 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)

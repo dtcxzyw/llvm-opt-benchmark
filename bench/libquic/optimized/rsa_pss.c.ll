@@ -104,8 +104,7 @@ if.then10:                                        ; preds = %if.end
   %5 = load ptr, ptr %sigmd, align 8
   %call11 = call i64 @EVP_MD_size(ptr noundef %5) #3
   %conv = trunc i64 %call11 to i32
-  store i32 %conv, ptr %saltlen, align 4
-  br label %if.end28
+  br label %if.end28.sink.split
 
 if.then14:                                        ; preds = %if.end
   %call15 = call i32 @EVP_PKEY_size(ptr noundef %call9) #3
@@ -124,10 +123,14 @@ if.then14:                                        ; preds = %if.end
 if.then24:                                        ; preds = %if.then14
   %9 = load i32, ptr %saltlen, align 4
   %dec = add nsw i32 %9, -1
-  store i32 %dec, ptr %saltlen, align 4
+  br label %if.end28.sink.split
+
+if.end28.sink.split:                              ; preds = %if.then10, %if.then24
+  %dec.sink = phi i32 [ %dec, %if.then24 ], [ %conv, %if.then10 ]
+  store i32 %dec.sink, ptr %saltlen, align 4
   br label %if.end28
 
-if.end28:                                         ; preds = %if.then24, %if.then14, %if.then10
+if.end28:                                         ; preds = %if.end28.sink.split, %if.then14
   store ptr null, ptr %os, align 8
   %call.i = call ptr @ASN1_item_new(ptr noundef nonnull @RSA_PSS_PARAMS_it) #3
   %tobool30.not = icmp eq ptr %call.i, null

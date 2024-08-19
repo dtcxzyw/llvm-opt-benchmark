@@ -798,7 +798,6 @@ get_prompt.exit.i:                                ; preds = %lor.lhs.false.i.i, 
 
 loadline.exit.thread59:                           ; preds = %get_prompt.exit.i
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %buffer.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i.i)
   br label %if.else.sink.split
 
 if.end.i21:                                       ; preds = %get_prompt.exit.i
@@ -835,7 +834,6 @@ if.end.i.i:                                       ; preds = %if.then12.i, %land.
 
 loadline.exit.thread61:                           ; preds = %land.lhs.true.i.i.i, %if.then.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lmsg.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i.i)
   br label %if.else.sink.split
 
 loadline.exit:                                    ; preds = %if.end.i.i, %if.then2.i
@@ -900,6 +898,7 @@ while.cond.backedge:                              ; preds = %l_message.exit.i, %
   br label %while.cond, !llvm.loop !10
 
 if.else.sink.split:                               ; preds = %loadline.exit.thread59, %loadline.exit.thread61
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i.i)
   call void @lua_rotate(ptr noundef %L, i32 noundef 1, i32 noundef -1) #8
   call void @lua_settop(ptr noundef %L, i32 noundef -2) #8
   br label %if.else

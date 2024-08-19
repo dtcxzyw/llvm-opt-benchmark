@@ -1188,8 +1188,7 @@ define dso_local void @free_area_init(ptr nocapture noundef readonly %0) local_u
 
 .thread13:                                        ; preds = %.loopexit19
   store i32 65, ptr @nr_node_ids, align 4
-  store i32 64, ptr %5, align 4
-  br label %.loopexit17
+  br label %.loopexit17.sink.split
 
 67:                                               ; preds = %.loopexit19
   %68 = call i64 asm "bsr $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %65) #20, !srcloc !34
@@ -1275,7 +1274,7 @@ define dso_local void @free_area_init(ptr nocapture noundef readonly %0) local_u
   %113 = load i32, ptr %5, align 4
   %114 = add i32 %113, 1
   %115 = icmp ugt i32 %114, 63
-  br i1 %115, label %.thread14, label %116, !prof !7
+  br i1 %115, label %.loopexit17.sink.split, label %116, !prof !7
 
 116:                                              ; preds = %.loopexit
   %117 = load i64, ptr @node_states, align 16
@@ -1283,11 +1282,7 @@ define dso_local void @free_area_init(ptr nocapture noundef readonly %0) local_u
   %119 = shl nsw i64 -1, %118
   %120 = and i64 %117, %119
   %121 = icmp eq i64 %120, 0
-  br i1 %121, label %.thread14, label %122
-
-.thread14:                                        ; preds = %.loopexit, %116
-  store i32 64, ptr %5, align 4
-  br label %.loopexit17
+  br i1 %121, label %.loopexit17.sink.split, label %122
 
 122:                                              ; preds = %116
   %123 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %120) #20, !srcloc !6
@@ -1297,7 +1292,11 @@ define dso_local void @free_area_init(ptr nocapture noundef readonly %0) local_u
   %126 = icmp ult i32 %124, 64
   br i1 %126, label %.preheader16, label %.loopexit17, !llvm.loop !39
 
-.loopexit17:                                      ; preds = %122, %.thread14, %.thread13, %67
+.loopexit17.sink.split:                           ; preds = %116, %.loopexit, %.thread13
+  store i32 64, ptr %5, align 4
+  br label %.loopexit17
+
+.loopexit17:                                      ; preds = %122, %.loopexit17.sink.split, %67
   call fastcc void @memmap_init() #24
   %127 = load i64, ptr getelementptr inbounds (i8, ptr @node_states, i64 24), align 8
   %128 = call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %127) #23, !srcloc !14

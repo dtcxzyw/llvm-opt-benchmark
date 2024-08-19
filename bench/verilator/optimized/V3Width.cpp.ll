@@ -86444,17 +86444,13 @@ define linkonce_odr dso_local void @_ZN12WidthVisitor16patternUOrStructEP10AstPa
   %24 = getelementptr inbounds i8, ptr %1, i64 32
   %25 = load ptr, ptr %24, align 8
   %.not.i = icmp eq ptr %25, null
-  br i1 %.not.i, label %_ZN7AstNode11privateCastI12AstPatMemberPS_EEPT_S2_.exit.thread, label %26
+  br i1 %.not.i, label %._crit_edge.sink.split, label %26
 
 26:                                               ; preds = %4
   %27 = getelementptr inbounds i8, ptr %25, i64 64
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %27, align 8
   %28 = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 125
-  br i1 %28, label %.lr.ph, label %_ZN7AstNode11privateCastI12AstPatMemberPS_EEPT_S2_.exit.thread
-
-_ZN7AstNode11privateCastI12AstPatMemberPS_EEPT_S2_.exit.thread: ; preds = %4, %26
-  store ptr null, ptr %9, align 8
-  br label %._crit_edge
+  br i1 %28, label %.lr.ph, label %._crit_edge.sink.split
 
 .lr.ph:                                           ; preds = %26
   store ptr %25, ptr %9, align 8
@@ -86908,11 +86904,7 @@ _ZN7AstNode9privateAsI14AstMemberDTypePS_EEPT_S2_.exit123: ; preds = %188, %184
   %203 = getelementptr inbounds i8, ptr %201, i64 8
   %204 = load ptr, ptr %203, align 8
   %.not.i124 = icmp eq ptr %204, null
-  br i1 %.not.i124, label %.thread333, label %205
-
-.thread333:                                       ; preds = %202
-  store ptr %204, ptr %9, align 8
-  br label %._crit_edge
+  br i1 %.not.i124, label %._crit_edge.sink.split, label %205
 
 205:                                              ; preds = %202
   %206 = getelementptr inbounds i8, ptr %204, i64 64
@@ -86949,7 +86941,12 @@ _ZN7AstNode9privateAsI14AstMemberDTypePS_EEPT_S2_.exit123: ; preds = %188, %184
   store ptr %204, ptr %9, align 8
   br label %30, !llvm.loop !329
 
-._crit_edge:                                      ; preds = %200, %.thread333, %_ZN7AstNode11privateCastI12AstPatMemberPS_EEPT_S2_.exit.thread
+._crit_edge.sink.split:                           ; preds = %202, %26, %4
+  %.lcssa370.sink = phi ptr [ null, %4 ], [ null, %26 ], [ %204, %202 ]
+  store ptr %.lcssa370.sink, ptr %9, align 8
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %200, %._crit_edge.sink.split
   %218 = getelementptr inbounds i8, ptr %2, i64 204
   %219 = load i8, ptr %218, align 4
   %220 = trunc i8 %219 to i1

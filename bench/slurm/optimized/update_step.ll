@@ -165,13 +165,11 @@ define dso_local i32 @scontrol_update_step(i32 noundef %0, ptr nocapture noundef
 
 _get_step_time.exit.thread:                       ; preds = %60
   %78 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.9, i32 noundef %61, i32 noundef %62) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %.loopexit
+  br label %.loopexit.sink.split
 
 _get_step_time.exit.thread60:                     ; preds = %.preheader.i, %77
   call void @slurm_free_job_step_info_response_msg(ptr noundef nonnull %65) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %.loopexit
+  br label %.loopexit.sink.split
 
 _get_step_time.exit:                              ; preds = %74
   %79 = getelementptr inbounds i8, ptr %71, i64 188
@@ -181,7 +179,11 @@ _get_step_time.exit:                              ; preds = %74
   %81 = icmp eq i32 %80, -2
   br i1 %81, label %.loopexit, label %82
 
-.loopexit:                                        ; preds = %_get_step_time.exit, %_get_step_time.exit.thread60, %_get_step_time.exit.thread
+.loopexit.sink.split:                             ; preds = %_get_step_time.exit.thread, %_get_step_time.exit.thread60
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %_get_step_time.exit, %.loopexit.sink.split
   store i32 1, ptr @exit_code, align 4
   br label %108
 

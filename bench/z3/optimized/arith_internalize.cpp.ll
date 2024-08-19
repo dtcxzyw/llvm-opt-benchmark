@@ -5411,7 +5411,7 @@ invoke.cont400:                                   ; preds = %invoke.cont396
   invoke void @_ZN3euf6solver4pushI16push_back_vectorI10ptr_vectorI3appEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(9136) %344, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp402)
           to label %invoke.cont406.invoke.invoke unwind label %lpad405
 
-invoke.cont406.invoke.invoke:                     ; preds = %invoke.cont412, %invoke.cont400, %if.then430
+invoke.cont406.invoke.invoke:                     ; preds = %invoke.cont412, %if.then430, %invoke.cont400
   invoke void @_ZN5arith6solver15ensure_arg_varsEP3app(ptr noundef nonnull align 8 dereferenceable(1144) %this, ptr noundef nonnull %3)
           to label %if.end482 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

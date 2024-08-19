@@ -5184,10 +5184,10 @@ _ZN6syntax3ast9generated5nodes16GenericParamList14generic_params17hc02b52ae461c8
   br label %225
 
 225:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hf5e301a47ae27996E.exit", %221
-  %storemerge = phi i64 [ %222, %221 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hf5e301a47ae27996E.exit" ]
+  %.sink233 = phi i64 [ %222, %221 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hf5e301a47ae27996E.exit" ]
   %.sink232 = phi ptr [ %223, %221 ], [ inttoptr (i64 1 to ptr), %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hf5e301a47ae27996E.exit" ]
   %.sink = phi i64 [ 1, %221 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hf5e301a47ae27996E.exit" ]
-  store i64 %storemerge, ptr %48, align 8
+  store i64 %.sink233, ptr %48, align 8
   %.sroa.451.0..sroa_idx = getelementptr inbounds i8, ptr %48, i64 8
   store ptr %.sink232, ptr %.sroa.451.0..sroa_idx, align 8
   %.sroa.552.0..sroa_idx = getelementptr inbounds i8, ptr %48, i64 16
@@ -15125,9 +15125,9 @@ define noundef nonnull ptr @_ZN6syntax3ast4make9expr_stmt17h0c31dbc6ca05f932E(i6
   br label %"_ZN6syntax3ast8expr_ext53_$LT$impl$u20$syntax..ast..generated..nodes..Expr$GT$13is_block_like17ha95a24bba24fee03E.exit"
 
 "_ZN6syntax3ast8expr_ext53_$LT$impl$u20$syntax..ast..generated..nodes..Expr$GT$13is_block_like17ha95a24bba24fee03E.exit": ; preds = %2, %18
-  %storemerge = phi ptr [ @anon.71a00e24a2c7390c1e7382da0b7942fb.7.llvm.7950680404849827918, %18 ], [ @anon.71a00e24a2c7390c1e7382da0b7942fb.302.llvm.7950680404849827918, %2 ]
+  %anon.71a00e24a2c7390c1e7382da0b7942fb.7.llvm.7950680404849827918.sink = phi ptr [ @anon.71a00e24a2c7390c1e7382da0b7942fb.7.llvm.7950680404849827918, %18 ], [ @anon.71a00e24a2c7390c1e7382da0b7942fb.302.llvm.7950680404849827918, %2 ]
   %.sink = phi i64 [ 0, %18 ], [ 1, %2 ]
-  store ptr %storemerge, ptr %8, align 8
+  store ptr %anon.71a00e24a2c7390c1e7382da0b7942fb.7.llvm.7950680404849827918.sink, ptr %8, align 8
   %19 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %.sink, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)

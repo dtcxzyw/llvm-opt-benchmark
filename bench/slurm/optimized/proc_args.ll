@@ -1559,13 +1559,13 @@ define noundef zeroext i1 @get_resource_arg_range(ptr noundef %0, ptr noundef %1
 8:                                                ; preds = %5, %5
   store i32 1, ptr %2, align 4
   %.not48 = icmp eq ptr %3, null
-  br i1 %.not48, label %60, label %.sink.split
+  br i1 %.not48, label %61, label %.sink.split
 
 9:                                                ; preds = %5
   %10 = call i64 @strtol(ptr noundef nonnull %0, ptr noundef nonnull %6, i32 noundef 10) #20
   %11 = load ptr, ptr %6, align 8
   %12 = load i8, ptr %11, align 1
-  switch i8 %12, label %15 [
+  switch i8 %12, label %16 [
     i8 107, label %thread-pre-split
     i8 75, label %thread-pre-split
     i8 109, label %13
@@ -1576,137 +1576,137 @@ define noundef zeroext i1 @get_resource_arg_range(ptr noundef %0, ptr noundef %1
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %9, %9, %13
-  %.sink53 = phi i64 [ 20, %13 ], [ 10, %9 ], [ 10, %9 ]
-  %14 = shl nsw i64 %10, %.sink53
-  %.ph = getelementptr inbounds i8, ptr %11, i64 1
-  store ptr %.ph, ptr %6, align 8
-  %.pr = load i8, ptr %.ph, align 1
-  br label %15
+  %.sink = phi i64 [ 20, %13 ], [ 10, %9 ], [ 10, %9 ]
+  %14 = shl nsw i64 %10, %.sink
+  %15 = getelementptr inbounds i8, ptr %11, i64 1
+  store ptr %15, ptr %6, align 8
+  %.pr = load i8, ptr %15, align 1
+  br label %16
 
-15:                                               ; preds = %thread-pre-split, %9
-  %16 = phi i8 [ %.pr, %thread-pre-split ], [ %12, %9 ]
-  %17 = phi ptr [ %.ph, %thread-pre-split ], [ %11, %9 ]
+16:                                               ; preds = %thread-pre-split, %9
+  %17 = phi i8 [ %.pr, %thread-pre-split ], [ %12, %9 ]
+  %18 = phi ptr [ %15, %thread-pre-split ], [ %11, %9 ]
   %.0 = phi i64 [ %14, %thread-pre-split ], [ %10, %9 ]
-  %.not = icmp eq i8 %16, 0
-  br i1 %.not, label %21, label %18
+  %.not = icmp eq i8 %17, 0
+  br i1 %.not, label %22, label %19
 
-18:                                               ; preds = %15
-  %19 = icmp ne i8 %16, 45
-  %20 = icmp slt i64 %.0, 0
-  %or.cond = select i1 %19, i1 true, i1 %20
-  br i1 %or.cond, label %22, label %25
+19:                                               ; preds = %16
+  %20 = icmp ne i8 %17, 45
+  %21 = icmp slt i64 %.0, 0
+  %or.cond = select i1 %20, i1 true, i1 %21
+  br i1 %or.cond, label %23, label %26
 
-21:                                               ; preds = %15
+22:                                               ; preds = %16
   %.old1 = icmp slt i64 %.0, 0
-  br i1 %.old1, label %22, label %25
+  br i1 %.old1, label %23, label %26
 
-22:                                               ; preds = %21, %18
-  %23 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.44, ptr noundef nonnull %0, ptr noundef %1) #20
-  br i1 %4, label %24, label %60
+23:                                               ; preds = %22, %19
+  %24 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.44, ptr noundef nonnull %0, ptr noundef %1) #20
+  br i1 %4, label %25, label %61
 
-24:                                               ; preds = %22
+25:                                               ; preds = %23
   tail call void @exit(i32 noundef 1) #23
   unreachable
 
-25:                                               ; preds = %18, %21
-  %26 = icmp ugt i64 %.0, 2147483647
-  br i1 %26, label %27, label %30
+26:                                               ; preds = %19, %22
+  %27 = icmp ugt i64 %.0, 2147483647
+  br i1 %27, label %28, label %31
 
-27:                                               ; preds = %25
-  %28 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.45, i64 noundef %.0, ptr noundef %1) #20
-  br i1 %4, label %29, label %60
+28:                                               ; preds = %26
+  %29 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.45, i64 noundef %.0, ptr noundef %1) #20
+  br i1 %4, label %30, label %61
 
-29:                                               ; preds = %27
+30:                                               ; preds = %28
   tail call void @exit(i32 noundef 1) #23
   unreachable
 
-30:                                               ; preds = %25
-  %31 = trunc nuw i64 %.0 to i32
-  store i32 %31, ptr %2, align 4
-  %32 = load i8, ptr %17, align 1
-  switch i8 %32, label %35 [
-    i8 0, label %60
-    i8 45, label %33
+31:                                               ; preds = %26
+  %32 = trunc nuw i64 %.0 to i32
+  store i32 %32, ptr %2, align 4
+  %33 = load i8, ptr %18, align 1
+  switch i8 %33, label %36 [
+    i8 0, label %61
+    i8 45, label %34
   ]
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %17, i64 1
-  store ptr %34, ptr %6, align 8
-  br label %35
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds i8, ptr %18, i64 1
+  store ptr %35, ptr %6, align 8
+  br label %36
 
-35:                                               ; preds = %30, %33
-  %36 = phi ptr [ %17, %30 ], [ %34, %33 ]
-  %37 = call i64 @strtol(ptr noundef nonnull %36, ptr noundef nonnull %6, i32 noundef 10) #20
-  %38 = load ptr, ptr %6, align 8
-  %39 = load i8, ptr %38, align 1
-  switch i8 %39, label %43 [
+36:                                               ; preds = %31, %34
+  %37 = phi ptr [ %18, %31 ], [ %35, %34 ]
+  %38 = call i64 @strtol(ptr noundef nonnull %37, ptr noundef nonnull %6, i32 noundef 10) #20
+  %39 = load ptr, ptr %6, align 8
+  %40 = load i8, ptr %39, align 1
+  switch i8 %40, label %44 [
     i8 107, label %thread-pre-split49
     i8 75, label %thread-pre-split49
-    i8 109, label %40
-    i8 77, label %40
+    i8 109, label %41
+    i8 77, label %41
   ]
 
-40:                                               ; preds = %35, %35
+41:                                               ; preds = %36, %36
   br label %thread-pre-split49
 
-thread-pre-split49:                               ; preds = %35, %35, %40
-  %.sink = phi i64 [ 20, %40 ], [ 10, %35 ], [ 10, %35 ]
-  %41 = shl nsw i64 %37, %.sink
-  %42 = getelementptr inbounds i8, ptr %38, i64 1
-  %.pr51 = load i8, ptr %42, align 1
-  br label %43
+thread-pre-split49:                               ; preds = %36, %36, %41
+  %.sink52 = phi i64 [ 20, %41 ], [ 10, %36 ], [ 10, %36 ]
+  %42 = shl nsw i64 %38, %.sink52
+  %43 = getelementptr inbounds i8, ptr %39, i64 1
+  %.pr51 = load i8, ptr %43, align 1
+  br label %44
 
-43:                                               ; preds = %thread-pre-split49, %35
-  %44 = phi i8 [ %.pr51, %thread-pre-split49 ], [ %39, %35 ]
-  %.1 = phi i64 [ %41, %thread-pre-split49 ], [ %37, %35 ]
-  %.not46 = icmp eq i8 %44, 0
-  br i1 %.not46, label %48, label %45
+44:                                               ; preds = %thread-pre-split49, %36
+  %45 = phi i8 [ %.pr51, %thread-pre-split49 ], [ %40, %36 ]
+  %.1 = phi i64 [ %42, %thread-pre-split49 ], [ %38, %36 ]
+  %.not46 = icmp eq i8 %45, 0
+  br i1 %.not46, label %49, label %46
 
-45:                                               ; preds = %43
-  %46 = icmp ne i8 %44, 45
-  %47 = icmp slt i64 %.1, 1
-  %or.cond4 = select i1 %46, i1 true, i1 %47
-  br i1 %or.cond4, label %49, label %52
+46:                                               ; preds = %44
+  %47 = icmp ne i8 %45, 45
+  %48 = icmp slt i64 %.1, 1
+  %or.cond4 = select i1 %47, i1 true, i1 %48
+  br i1 %or.cond4, label %50, label %53
 
-48:                                               ; preds = %43
+49:                                               ; preds = %44
   %.old3 = icmp slt i64 %.1, 1
-  br i1 %.old3, label %49, label %52
+  br i1 %.old3, label %50, label %53
 
-49:                                               ; preds = %48, %45
-  %50 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.44, ptr noundef nonnull %0, ptr noundef %1) #20
-  br i1 %4, label %51, label %60
+50:                                               ; preds = %49, %46
+  %51 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.44, ptr noundef nonnull %0, ptr noundef %1) #20
+  br i1 %4, label %52, label %61
 
-51:                                               ; preds = %49
+52:                                               ; preds = %50
   tail call void @exit(i32 noundef 1) #23
   unreachable
 
-52:                                               ; preds = %45, %48
-  %53 = icmp ugt i64 %.1, 2147483647
-  br i1 %53, label %54, label %57
+53:                                               ; preds = %46, %49
+  %54 = icmp ugt i64 %.1, 2147483647
+  br i1 %54, label %55, label %58
 
-54:                                               ; preds = %52
-  %55 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.45, i64 noundef %.1, ptr noundef %1) #20
-  br i1 %4, label %56, label %60
+55:                                               ; preds = %53
+  %56 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.45, i64 noundef %.1, ptr noundef %1) #20
+  br i1 %4, label %57, label %61
 
-56:                                               ; preds = %54
+57:                                               ; preds = %55
   tail call void @exit(i32 noundef 1) #23
   unreachable
 
-57:                                               ; preds = %52
+58:                                               ; preds = %53
   %.not47 = icmp eq ptr %3, null
-  br i1 %.not47, label %60, label %58
+  br i1 %.not47, label %61, label %59
 
-58:                                               ; preds = %57
-  %59 = trunc nuw i64 %.1 to i32
+59:                                               ; preds = %58
+  %60 = trunc nuw i64 %.1 to i32
   br label %.sink.split
 
-.sink.split:                                      ; preds = %8, %58
-  %.sink52 = phi i32 [ %59, %58 ], [ 2147483647, %8 ]
-  store i32 %.sink52, ptr %3, align 4
-  br label %60
+.sink.split:                                      ; preds = %8, %59
+  %.sink53 = phi i32 [ %60, %59 ], [ 2147483647, %8 ]
+  store i32 %.sink53, ptr %3, align 4
+  br label %61
 
-60:                                               ; preds = %.sink.split, %57, %54, %49, %30, %27, %22, %8
-  %.037 = phi i1 [ true, %8 ], [ false, %22 ], [ false, %27 ], [ true, %30 ], [ false, %49 ], [ false, %54 ], [ true, %57 ], [ true, %.sink.split ]
+61:                                               ; preds = %.sink.split, %58, %55, %50, %31, %28, %23, %8
+  %.037 = phi i1 [ true, %8 ], [ false, %23 ], [ false, %28 ], [ true, %31 ], [ false, %50 ], [ false, %55 ], [ true, %58 ], [ true, %.sink.split ]
   ret i1 %.037
 }
 
@@ -2430,7 +2430,7 @@ define ptr @search_path(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, i
   ]
 
 13:                                               ; preds = %5
-  br i1 %4, label %14, label %160
+  br i1 %4, label %14, label %161
 
 14:                                               ; preds = %13
   %15 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.72, ptr noundef %0, ptr noundef nonnull %1) #20
@@ -2501,7 +2501,7 @@ _accessible.exit.thread:                          ; preds = %33, %30, %_exists.e
 39:                                               ; preds = %.sink.split, %_accessible.exit.thread, %_accessible.exit
   call void @slurm_xfree(ptr noundef nonnull %11) #20
   %.pre = load ptr, ptr %10, align 8
-  br label %160
+  br label %161
 
 40:                                               ; preds = %5
   br i1 %4, label %41, label %_accessible.exit45.thread
@@ -2572,7 +2572,7 @@ _accessible.exit45.thread:                        ; preds = %59, %56, %_exists.e
 
 65:                                               ; preds = %.sink.split61, %_accessible.exit45.thread, %_accessible.exit45
   %66 = load ptr, ptr %10, align 8
-  br label %160
+  br label %161
 
 67:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -2647,11 +2647,11 @@ _create_path_list.exit:                           ; preds = %70, %87
 89:                                               ; preds = %_create_path_list.exit
   %90 = call i32 @get_log_level() #20
   %91 = icmp sgt i32 %90, 8
-  br i1 %91, label %92, label %160
+  br i1 %91, label %92, label %161
 
 92:                                               ; preds = %89
   call void (i32, ptr, ...) @log_var(i32 noundef 9, ptr noundef nonnull @.str.77, ptr noundef nonnull @__func__.search_path) #20
-  br label %160
+  br label %161
 
 93:                                               ; preds = %_create_path_list.exit
   %94 = call ptr @xstrdup(ptr noundef %0) #20
@@ -2822,18 +2822,18 @@ _accessible.exit54:                               ; preds = %116
   br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !16
 
 .loopexit.sink.split:                             ; preds = %_accessible.exit54, %151
-  %.sink = load ptr, ptr %10, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 9, ptr noundef nonnull @.str.79, ptr noundef nonnull @__func__.search_path, ptr noundef %.sink) #20
+  %159 = load ptr, ptr %10, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 9, ptr noundef nonnull @.str.79, ptr noundef nonnull @__func__.search_path, ptr noundef %159) #20
   br label %.loopexit
 
 .loopexit:                                        ; preds = %157, %129, %.loopexit.sink.split, %97, %_accessible.exit54, %151
   call void @list_iterator_destroy(ptr noundef %98) #20
   call void @list_destroy(ptr noundef nonnull %68) #20
-  %159 = load ptr, ptr %10, align 8
-  br label %160
+  %160 = load ptr, ptr %10, align 8
+  br label %161
 
-160:                                              ; preds = %13, %39, %89, %92, %.loopexit, %65
-  %.0 = phi ptr [ %66, %65 ], [ %159, %.loopexit ], [ null, %92 ], [ null, %89 ], [ %.pre, %39 ], [ null, %13 ]
+161:                                              ; preds = %13, %39, %89, %92, %.loopexit, %65
+  %.0 = phi ptr [ %66, %65 ], [ %160, %.loopexit ], [ null, %92 ], [ null, %89 ], [ %.pre, %39 ], [ null, %13 ]
   ret ptr %.0
 }
 

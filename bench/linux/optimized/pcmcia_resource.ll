@@ -724,8 +724,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pcmcia_enable_device(ptr noundef
 
 126:                                              ; preds = %119
   %127 = and i8 %125, 63
-  store i8 %127, ptr %5, align 1
-  br label %135
+  br label %.sink.split
 
 128:                                              ; preds = %119
   %129 = and i8 %125, 56
@@ -737,11 +736,15 @@ define dso_local noundef range(i32 -22, 1) i32 @pcmcia_enable_device(ptr noundef
 
 133:                                              ; preds = %128
   %134 = or disjoint i8 %129, 7
-  store i8 %134, ptr %5, align 1
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %126, %133
+  %.sink = phi i8 [ %134, %133 ], [ %127, %126 ]
+  store i8 %.sink, ptr %5, align 1
   br label %135
 
-135:                                              ; preds = %133, %128, %126
-  %136 = phi i8 [ %134, %133 ], [ %130, %128 ], [ %127, %126 ]
+135:                                              ; preds = %.sink.split, %128
+  %136 = phi i8 [ %130, %128 ], [ %.sink, %.sink.split ]
   %137 = and i32 %49, 5
   %138 = icmp eq i32 %137, 1
   br i1 %138, label %139, label %141

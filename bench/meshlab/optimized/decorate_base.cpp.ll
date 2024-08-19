@@ -2864,19 +2864,19 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
   %50 = getelementptr inbounds i8, ptr %2, i64 52
   %51 = load i32, ptr %50, align 4
   switch i32 %51, label %53 [
-    i32 0, label %.thread
+    i32 0, label %.sink.split
     i32 1, label %52
   ]
 
-.thread:                                          ; preds = %49
-  store ptr @.str.110, ptr %8, align 8
-  br label %53
-
 52:                                               ; preds = %49
-  store ptr @.str.111, ptr %8, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %49, %52
+  %.str.110.sink = phi ptr [ @.str.111, %52 ], [ @.str.110, %49 ]
+  store ptr %.str.110.sink, ptr %8, align 8
   br label %53
 
-53:                                               ; preds = %49, %.thread, %52
+53:                                               ; preds = %.sink.split, %49
   %54 = getelementptr inbounds i8, ptr %2, i64 120
   %.sroa.01.0.copyload.i = load <2 x float>, ptr %54, align 4
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 128

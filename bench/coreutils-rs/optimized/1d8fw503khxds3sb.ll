@@ -2888,12 +2888,12 @@ split:                                            ; preds = %"_ZN5alloc3vec16Vec
 
 448:                                              ; preds = %444, %440, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5a712bd2941f8b47E.llvm.17459353245601373923.exit.i217"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !623
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %54)
   br label %449
 
 449:                                              ; preds = %651, %448
   %.sroa.8.3 = phi ptr [ undef, %448 ], [ %.sroa.8.0, %651 ]
   %.sroa.0.3 = phi ptr [ null, %448 ], [ %.sroa.0.0, %651 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %54)
   %450 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.3, 0
   %451 = insertvalue { ptr, ptr } %450, ptr %.sroa.8.3, 1
   ret { ptr, ptr } %451
@@ -3474,7 +3474,6 @@ split485:                                         ; preds = %"_ZN5alloc3vec16Vec
 
 651:                                              ; preds = %143, %139, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5a712bd2941f8b47E.llvm.17459353245601373923.exit.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25), !noalias !508
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %54)
   br label %449
 
 652:                                              ; preds = %._crit_edge.i, %641

@@ -174,8 +174,8 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
 
 agxbfree.exit.sink.split:                         ; preds = %61, %57
   %.0.ph = phi ptr [ %58, %57 ], [ null, %61 ]
-  %.val14.sink = load ptr, ptr %5, align 8
-  call void @free(ptr noundef %.val14.sink) #11
+  %.val14 = load ptr, ptr %5, align 8
+  call void @free(ptr noundef %.val14) #11
   br label %agxbfree.exit
 
 agxbfree.exit:                                    ; preds = %agxbfree.exit.sink.split, %61, %57

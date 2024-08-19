@@ -29856,7 +29856,7 @@ land.lhs.true.i499.lr.ph:                         ; preds = %entry
   br label %land.lhs.true.i499
 
 land.lhs.true.i499:                               ; preds = %land.lhs.true.i499.lr.ph, %sw.epilog
-  %pos.promoted = phi i64 [ 0, %land.lhs.true.i499.lr.ph ], [ %86, %sw.epilog ]
+  %pos.promoted = phi i64 [ 0, %land.lhs.true.i499.lr.ph ], [ %add59.sink, %sw.epilog ]
   %arrayidx.i500 = getelementptr inbounds i8, ptr %data, i64 %pos.promoted
   %2 = load i8, ptr %arrayidx.i500, align 1
   %conv.i501 = sext i8 %2 to i64
@@ -30313,7 +30313,6 @@ _ZNRSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5valueEv.ex
   %41 = load ptr, ptr %t, align 8
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %33
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %41, ptr align 1 %add.ptr, i64 %sz.0369, i1 false)
-  store i64 %add, ptr %pos, align 8
   br label %sw.epilog
 
 sw.bb20:                                          ; preds = %if.end
@@ -30555,7 +30554,6 @@ if.then34:                                        ; preds = %_ZN9struct_pb8inter
 if.end36:                                         ; preds = %_ZN9struct_pb8internal14deserialize_toIN6google8protobuf21MethodDescriptorProtoEEEbRT_PKcm.exit
   %65 = load i64, ptr %pos, align 8
   %add37 = add i64 %65, %sz21.0375
-  store i64 %add37, ptr %pos, align 8
   br label %sw.epilog
 
 sw.bb38:                                          ; preds = %if.end
@@ -30761,7 +30759,6 @@ _ZN9struct_pb8internal14deserialize_toIN6google8protobuf14ServiceOptionsEEEbRT_P
 
 if.end58:                                         ; preds = %_ZN9struct_pb8internal14deserialize_toIN6google8protobuf14ServiceOptionsEEEbRT_PKcm.exit
   %add59 = add i64 %82, %sz45.0381
-  store i64 %add59, ptr %pos, align 8
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end
@@ -30770,8 +30767,9 @@ sw.default:                                       ; preds = %if.end
   br label %return
 
 sw.epilog:                                        ; preds = %if.end58, %if.end36, %_ZNRSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5valueEv.exit340
-  %86 = phi i64 [ %add59, %if.end58 ], [ %add37, %if.end36 ], [ %add, %_ZNRSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5valueEv.exit340 ]
-  %cmp = icmp ult i64 %86, %size
+  %add59.sink = phi i64 [ %add59, %if.end58 ], [ %add37, %if.end36 ], [ %add, %_ZNRSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5valueEv.exit340 ]
+  store i64 %add59.sink, ptr %pos, align 8
+  %cmp = icmp ult i64 %add59.sink, %size
   br i1 %cmp, label %land.lhs.true.i499, label %return, !llvm.loop !60
 
 return:                                           ; preds = %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit508, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit224, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit366, %_ZN9struct_pb8internal14deserialize_toIN6google8protobuf14ServiceOptionsEEEbRT_PKcm.exit, %sw.epilog, %while.cond.i382.preheader, %while.cond.i240.preheader, %while.cond.i98.preheader, %while.cond.i.preheader, %while.body.i396, %while.body.i254, %while.body.i112, %while.body.i, %entry, %sw.default, %if.then34

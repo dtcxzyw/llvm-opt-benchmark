@@ -3287,11 +3287,7 @@ define internal void @post_update_spdu_signal_list_cb() #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %201 = load ptr, ptr @data_spdu_signal_list, align 8
   %202 = icmp eq ptr %201, null
-  br i1 %202, label %get_signal_value_name_config.exit.thread.i.i, label %get_signal_value_name_config.exit.i.i
-
-get_signal_value_name_config.exit.thread.i.i:     ; preds = %192
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %create_hf_entry.exit.i
+  br i1 %202, label %create_hf_entry.exit.i, label %get_signal_value_name_config.exit.i.i
 
 get_signal_value_name_config.exit.i.i:            ; preds = %192
   %203 = zext i32 %196 to i64
@@ -3302,10 +3298,10 @@ get_signal_value_name_config.exit.i.i:            ; preds = %192
   store i64 %207, ptr %3, align 8
   %208 = load ptr, ptr @data_spdu_signal_value_names, align 8
   %209 = call ptr @g_hash_table_lookup(ptr noundef %208, ptr noundef nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %create_hf_entry.exit.i
 
-create_hf_entry.exit.i:                           ; preds = %get_signal_value_name_config.exit.i.i, %get_signal_value_name_config.exit.thread.i.i
+create_hf_entry.exit.i:                           ; preds = %get_signal_value_name_config.exit.i.i, %192
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %210 = zext i32 %194 to i64
   %211 = getelementptr %struct.hf_register_info, ptr %193, i64 %210
   store ptr %200, ptr %211, align 8
@@ -3357,11 +3353,7 @@ create_hf_entry.exit.i:                           ; preds = %get_signal_value_na
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %237 = load ptr, ptr @data_spdu_signal_list, align 8
   %238 = icmp eq ptr %237, null
-  br i1 %238, label %get_signal_value_name_config.exit.thread.i214.i, label %get_signal_value_name_config.exit.i211.i
-
-get_signal_value_name_config.exit.thread.i214.i:  ; preds = %228
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  br label %create_hf_entry.exit215.i
+  br i1 %238, label %create_hf_entry.exit215.i, label %get_signal_value_name_config.exit.i211.i
 
 get_signal_value_name_config.exit.i211.i:         ; preds = %228
   %239 = zext i32 %232 to i64
@@ -3372,10 +3364,10 @@ get_signal_value_name_config.exit.i211.i:         ; preds = %228
   store i64 %243, ptr %2, align 8
   %244 = load ptr, ptr @data_spdu_signal_value_names, align 8
   %245 = call ptr @g_hash_table_lookup(ptr noundef %244, ptr noundef nonnull %2) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %create_hf_entry.exit215.i
 
-create_hf_entry.exit215.i:                        ; preds = %get_signal_value_name_config.exit.i211.i, %get_signal_value_name_config.exit.thread.i214.i
+create_hf_entry.exit215.i:                        ; preds = %get_signal_value_name_config.exit.i211.i, %228
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %246 = zext i32 %230 to i64
   %247 = getelementptr %struct.hf_register_info, ptr %229, i64 %246
   store ptr %236, ptr %247, align 8
@@ -3427,11 +3419,7 @@ create_hf_entry.exit215.i:                        ; preds = %get_signal_value_na
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   %273 = load ptr, ptr @data_spdu_signal_list, align 8
   %274 = icmp eq ptr %273, null
-  br i1 %274, label %get_signal_value_name_config.exit.thread.i219.i, label %get_signal_value_name_config.exit.i216.i
-
-get_signal_value_name_config.exit.thread.i219.i:  ; preds = %264
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  br label %create_hf_entry.exit220.i
+  br i1 %274, label %create_hf_entry.exit220.i, label %get_signal_value_name_config.exit.i216.i
 
 get_signal_value_name_config.exit.i216.i:         ; preds = %264
   %275 = zext i32 %268 to i64
@@ -3442,10 +3430,10 @@ get_signal_value_name_config.exit.i216.i:         ; preds = %264
   store i64 %279, ptr %1, align 8
   %280 = load ptr, ptr @data_spdu_signal_value_names, align 8
   %281 = call ptr @g_hash_table_lookup(ptr noundef %280, ptr noundef nonnull %1) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   br label %create_hf_entry.exit220.i
 
-create_hf_entry.exit220.i:                        ; preds = %get_signal_value_name_config.exit.i216.i, %get_signal_value_name_config.exit.thread.i219.i
+create_hf_entry.exit220.i:                        ; preds = %get_signal_value_name_config.exit.i216.i, %264
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   %282 = zext i32 %266 to i64
   %283 = getelementptr %struct.hf_register_info, ptr %265, i64 %282
   store ptr %272, ptr %283, align 8

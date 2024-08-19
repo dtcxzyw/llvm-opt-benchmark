@@ -2759,10 +2759,6 @@ define void @_ZN10test_utils19extract_annotations17h088257abe04bfcbdE(ptr noalia
     i64 2, label %.thread248
   ]
 
-137:                                              ; preds = %.noexc110
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22), !noalias !419
-  br label %135
-
 .thread248:                                       ; preds = %.noexc110
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22), !noalias !419
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %24), !noalias !410
@@ -2772,6 +2768,10 @@ define void @_ZN10test_utils19extract_annotations17h088257abe04bfcbdE(ptr noalia
   store ptr inttoptr (i64 8 to ptr), ptr %61, align 8, !noalias !424
   store i64 0, ptr %62, align 8, !noalias !424
   br label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread.i"
+
+137:                                              ; preds = %.noexc110
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22), !noalias !419
+  br label %135
 
 138:                                              ; preds = %.noexc110
   %139 = load i64, ptr %63, align 8, !noalias !419, !noundef !8

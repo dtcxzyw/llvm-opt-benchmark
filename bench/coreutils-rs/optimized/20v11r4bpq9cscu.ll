@@ -49,12 +49,12 @@ define hidden void @"_ZN116_$LT$std..sys..pal..unix..kernel_copy..Copier$LT$R$C$
   %or.cond = and i1 %24, %25
   br i1 %or.cond, label %28, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
 
-_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110: ; preds = %125, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105, %105, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64, %3
-  %.0 = phi i64 [ 0, %3 ], [ %.299104127, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64 ], [ %.299108129, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58 ], [ %.299104125, %125 ], [ %.299108, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %.299104127, %105 ], [ %.299104127, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64 ]
+_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110: ; preds = %124, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105, %104, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64, %3
+  %.0 = phi i64 [ 0, %3 ], [ %.299104127, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64 ], [ %.299108129, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58 ], [ %.299104125, %124 ], [ %.299108, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %.299104127, %104 ], [ %.299104127, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64 ]
   call void @_ZN3std2io4copy17stack_buffer_copy17h281c6e6624094f88E(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %26 = load i64, ptr %6, align 8, !range !25, !noundef !4
   %27 = icmp eq i64 %26, 0
-  br i1 %27, label %"_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17h8989912d29d8dd8cE.exit", label %132
+  br i1 %27, label %"_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17h8989912d29d8dd8cE.exit", label %131
 
 28:                                               ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
@@ -82,7 +82,7 @@ default.unreachable120:                           ; preds = %_ZN3std3sys3pal4uni
 
 39:                                               ; preds = %35
   %40 = icmp ult i64 %.sroa.074.0.copyload, 2
-  br i1 %40, label %41, label %71
+  br i1 %40, label %41, label %70
 
 41:                                               ; preds = %39
   %42 = and i32 %.sroa.3.0.copyload, 61440
@@ -96,7 +96,7 @@ default.unreachable120:                           ; preds = %_ZN3std3sys3pal4uni
   %45 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.4.0.ph, ptr %45, align 8
   store i64 1, ptr %0, align 8
-  br label %66
+  br label %130
 
 _ZN3std3sys3pal4unix11kernel_copy6FdMeta25copy_file_range_candidate17h640cb50a5f59e855E.exit: ; preds = %41
   %46 = icmp ult i64 %.sroa.077.0.copyload, 2
@@ -113,7 +113,7 @@ _ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad9732
   %or.cond.not.i = select i1 %50, i1 %.not.i54, i1 false
   %51 = icmp eq i32 %42, 24576
   %spec.select.i = or i1 %51, %or.cond.not.i
-  br i1 %spec.select.i, label %69, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit
+  br i1 %spec.select.i, label %68, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit
 
 52:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta25copy_file_range_candidate17h640cb50a5f59e855E.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
@@ -150,148 +150,143 @@ _ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad9732
 65:                                               ; preds = %59, %56
   store i64 %55, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  br label %66
+  br label %130
 
-66:                                               ; preds = %124, %91, %65, %44
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %12)
-  br label %131
+66:                                               ; preds = %68
+  %67 = icmp ult i64 %.sroa.077.0.copyload, 2
+  br i1 %67, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105
 
-67:                                               ; preds = %69
-  %68 = icmp ult i64 %.sroa.077.0.copyload, 2
-  br i1 %68, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105
-
-69:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad97329a7114E.exit
+68:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad97329a7114E.exit
   %trunc.i119 = and i32 %.sroa.3.0.copyload, 57344
   %cond = icmp eq i32 %trunc.i119, 49152
-  br i1 %cond, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread, label %67
+  br i1 %cond, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread, label %66
 
-_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit: ; preds = %67
-  %70 = trunc i32 %.sroa.379.0.copyload to i16
-  %trunc = and i16 %70, -4096
+_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit: ; preds = %66
+  %69 = trunc i32 %.sroa.379.0.copyload to i16
+  %trunc = and i16 %69, -4096
   switch i16 %trunc, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread [
     i16 -16384, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58
     i16 4096, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58
   ]
 
-71:                                               ; preds = %39
-  %72 = add nsw i64 %.sroa.074.0.copyload, -2
-  %73 = icmp ult i64 %72, 3
-  %74 = add nsw i64 %.sroa.074.0.copyload, -1
-  %75 = select i1 %73, i64 %74, i64 0
-  switch i64 %75, label %76 [
+70:                                               ; preds = %39
+  %71 = add nsw i64 %.sroa.074.0.copyload, -2
+  %72 = icmp ult i64 %71, 3
+  %73 = add nsw i64 %.sroa.074.0.copyload, -1
+  %74 = select i1 %72, i64 %73, i64 0
+  switch i64 %74, label %75 [
     i64 0, label %._ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit_crit_edge
     i64 1, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105
     i64 2, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread
     i64 3, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread
   ]
 
-._ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit_crit_edge: ; preds = %71
+._ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit_crit_edge: ; preds = %70
   %.pre = and i32 %.sroa.3.0.copyload, 61440
   br label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit
 
-76:                                               ; preds = %71
+75:                                               ; preds = %70
   unreachable
 
 _ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit: ; preds = %._ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit_crit_edge, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad97329a7114E.exit
   %.pre-phi = phi i32 [ %.pre, %._ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit_crit_edge ], [ %42, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad97329a7114E.exit ]
-  %77 = phi i64 [ %36, %._ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit_crit_edge ], [ %49, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad97329a7114E.exit ]
+  %76 = phi i64 [ %36, %._ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit_crit_edge ], [ %49, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad97329a7114E.exit ]
   %.2100 = phi i64 [ %34, %._ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit_crit_edge ], [ %.189, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad97329a7114E.exit ]
-  %78 = icmp eq i32 %.pre-phi, 4096
-  br i1 %78, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105
+  %77 = icmp eq i32 %.pre-phi, 4096
+  br i1 %77, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105
 
-_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread: ; preds = %69, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit
+_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread: ; preds = %68, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @_ZN3std3sys3pal4unix11kernel_copy15sendfile_splice17h694541304958ed01E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %9, i1 noundef zeroext false, i32 noundef %19, i32 noundef %23, i64 noundef %36)
-  %79 = getelementptr inbounds i8, ptr %9, i64 8
-  %.val31 = load i64, ptr %79, align 8, !noundef !4
-  %80 = sub i64 %49, %.val31
-  store i64 %80, ptr %29, align 8, !alias.scope !45
-  %81 = load i64, ptr %9, align 8, !range !44, !noundef !4
-  switch i64 %81, label %default.unreachable120 [
-    i64 0, label %82
-    i64 1, label %85
-    i64 2, label %89
+  %78 = getelementptr inbounds i8, ptr %9, i64 8
+  %.val31 = load i64, ptr %78, align 8, !noundef !4
+  %79 = sub i64 %49, %.val31
+  store i64 %79, ptr %29, align 8, !alias.scope !45
+  %80 = load i64, ptr %9, align 8, !range !44, !noundef !4
+  switch i64 %80, label %default.unreachable120 [
+    i64 0, label %81
+    i64 1, label %84
+    i64 2, label %88
   ]
 
-82:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread
-  %83 = add i64 %.val31, %.189
-  %84 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %83, ptr %84, align 8
-  br label %91
+81:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread
+  %82 = add i64 %.val31, %.189
+  %83 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %82, ptr %83, align 8
+  br label %90
 
-85:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread
-  %86 = getelementptr inbounds i8, ptr %9, i64 16
-  %87 = load ptr, ptr %86, align 8, !nonnull !4, !noundef !4
-  %88 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %87, ptr %88, align 8
-  br label %91
+84:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread
+  %85 = getelementptr inbounds i8, ptr %9, i64 16
+  %86 = load ptr, ptr %85, align 8, !nonnull !4, !noundef !4
+  %87 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %86, ptr %87, align 8
+  br label %90
 
-89:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread
-  %90 = add i64 %.val31, %.189
+88:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread
+  %89 = add i64 %.val31, %.189
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105
 
-91:                                               ; preds = %85, %82
-  store i64 %81, ptr %0, align 8
+90:                                               ; preds = %84, %81
+  store i64 %80, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  br label %66
+  br label %130
 
-_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105: ; preds = %89, %67, %71, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit
-  %92 = phi i64 [ %77, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %36, %71 ], [ %80, %89 ], [ %49, %67 ]
-  %.299108 = phi i64 [ %.2100, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %34, %71 ], [ %90, %89 ], [ %.189, %67 ]
-  %93 = phi i64 [ 0, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %75, %71 ], [ 0, %89 ], [ 0, %67 ]
-  %94 = add nsw i64 %.sroa.077.0.copyload, -2
-  %95 = icmp ult i64 %94, 3
-  %96 = add nsw i64 %.sroa.077.0.copyload, -1
-  %97 = select i1 %95, i64 %96, i64 0
-  switch i64 %97, label %98 [
+_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105: ; preds = %88, %66, %70, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit
+  %91 = phi i64 [ %76, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %36, %70 ], [ %79, %88 ], [ %49, %66 ]
+  %.299108 = phi i64 [ %.2100, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %34, %70 ], [ %89, %88 ], [ %.189, %66 ]
+  %92 = phi i64 [ 0, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %74, %70 ], [ 0, %88 ], [ 0, %66 ]
+  %93 = add nsw i64 %.sroa.077.0.copyload, -2
+  %94 = icmp ult i64 %93, 3
+  %95 = add nsw i64 %.sroa.077.0.copyload, -1
+  %96 = select i1 %94, i64 %95, i64 0
+  switch i64 %96, label %97 [
     i64 0, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58
     i64 1, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
     i64 2, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread
     i64 3, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread
   ]
 
-98:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105
+97:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105
   unreachable
 
 _ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58: ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105
-  %99 = phi i64 [ %93, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ 0, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit ], [ 0, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit ]
+  %98 = phi i64 [ %92, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ 0, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit ], [ 0, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit ]
   %.299108129 = phi i64 [ %.299108, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %.189, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit ], [ %.189, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit ]
-  %100 = phi i64 [ %92, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %49, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit ], [ %49, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit ]
-  %101 = and i32 %.sroa.379.0.copyload, 61440
-  %102 = icmp eq i32 %101, 4096
-  br i1 %102, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
+  %99 = phi i64 [ %91, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %49, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit ], [ %49, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit ]
+  %100 = and i32 %.sroa.379.0.copyload, 61440
+  %101 = icmp eq i32 %100, 4096
+  br i1 %101, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
 
-_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread: ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105, %71, %71, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58
-  %103 = phi i64 [ %100, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58 ], [ %36, %71 ], [ %36, %71 ], [ %92, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %92, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ]
-  %.299104 = phi i64 [ %.299108129, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58 ], [ %34, %71 ], [ %34, %71 ], [ %.299108, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %.299108, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ]
-  %104 = phi i64 [ %99, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58 ], [ %74, %71 ], [ %74, %71 ], [ %93, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %93, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ]
-  switch i64 %104, label %105 [
+_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread: ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105, %70, %70, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58
+  %102 = phi i64 [ %99, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58 ], [ %36, %70 ], [ %36, %70 ], [ %91, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %91, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ]
+  %.299104 = phi i64 [ %.299108129, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58 ], [ %34, %70 ], [ %34, %70 ], [ %.299108, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %.299108, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ]
+  %103 = phi i64 [ %98, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58 ], [ %73, %70 ], [ %73, %70 ], [ %92, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %92, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ]
+  switch i64 %103, label %104 [
     i64 0, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread
     i64 1, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread
     i64 2, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread
   ]
 
-105:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread
+104:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread
   %.299104127 = phi i64 [ %.299104126, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread ], [ %.299104, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ]
-  %106 = phi i64 [ %108, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread ], [ %103, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ]
-  %107 = icmp ult i64 %.sroa.077.0.copyload, 2
-  br i1 %107, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
+  %105 = phi i64 [ %107, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread ], [ %102, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ]
+  %106 = icmp ult i64 %.sroa.077.0.copyload, 2
+  br i1 %106, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
 
 _ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread: ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread
   %.299104126 = phi i64 [ %.299104, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ], [ %.2100, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ]
-  %108 = phi i64 [ %103, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ], [ %77, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ]
-  %109 = trunc i32 %.sroa.3.0.copyload to i16
-  %trunc.i60 = and i16 %109, -4096
-  switch i16 %trunc.i60, label %105 [
+  %107 = phi i64 [ %102, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ], [ %76, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ]
+  %108 = trunc i32 %.sroa.3.0.copyload to i16
+  %trunc.i60 = and i16 %108, -4096
+  switch i16 %trunc.i60, label %104 [
     i16 4096, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread
     i16 -16384, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread
   ]
 
-_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64: ; preds = %105
-  %110 = trunc i32 %.sroa.379.0.copyload to i16
-  %trunc118 = and i16 %110, -4096
+_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64: ; preds = %104
+  %109 = trunc i32 %.sroa.379.0.copyload to i16
+  %trunc118 = and i16 %109, -4096
   switch i16 %trunc118, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread [
     i16 -16384, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
     i16 4096, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
@@ -299,79 +294,77 @@ _ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64: 
 
 _ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread: ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread
   %.299104125 = phi i64 [ %.299104127, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64 ], [ %.299104126, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread ], [ %.299104126, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread ], [ %.299104, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ], [ %.299104, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ]
-  %111 = phi i64 [ %106, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64 ], [ %108, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread ], [ %108, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread ], [ %103, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ], [ %103, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ]
+  %110 = phi i64 [ %105, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64 ], [ %107, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread ], [ %107, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread ], [ %102, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ], [ %102, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @_ZN3std3sys3pal4unix11kernel_copy15sendfile_splice17h694541304958ed01E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %8, i1 noundef zeroext true, i32 noundef %19, i32 noundef %23, i64 noundef %36)
-  %112 = getelementptr inbounds i8, ptr %8, i64 8
-  %.val32 = load i64, ptr %112, align 8, !noundef !4
-  %113 = sub i64 %111, %.val32
-  store i64 %113, ptr %29, align 8, !alias.scope !50
-  %114 = load i64, ptr %8, align 8, !range !44, !noundef !4
-  switch i64 %114, label %default.unreachable120 [
-    i64 0, label %115
-    i64 1, label %118
-    i64 2, label %122
+  %111 = getelementptr inbounds i8, ptr %8, i64 8
+  %.val32 = load i64, ptr %111, align 8, !noundef !4
+  %112 = sub i64 %110, %.val32
+  store i64 %112, ptr %29, align 8, !alias.scope !50
+  %113 = load i64, ptr %8, align 8, !range !44, !noundef !4
+  switch i64 %113, label %default.unreachable120 [
+    i64 0, label %114
+    i64 1, label %117
+    i64 2, label %121
   ]
 
-115:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread
-  %116 = add i64 %.val32, %.299104125
-  %117 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %116, ptr %117, align 8
-  br label %124
+114:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread
+  %115 = add i64 %.val32, %.299104125
+  %116 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %115, ptr %116, align 8
+  br label %123
 
-118:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread
-  %119 = getelementptr inbounds i8, ptr %8, i64 16
-  %120 = load ptr, ptr %119, align 8, !nonnull !4, !noundef !4
-  %121 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %120, ptr %121, align 8
-  br label %124
+117:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread
+  %118 = getelementptr inbounds i8, ptr %8, i64 16
+  %119 = load ptr, ptr %118, align 8, !nonnull !4, !noundef !4
+  %120 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %119, ptr %120, align 8
+  br label %123
 
-122:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread
-  %123 = icmp eq i64 %.val32, 0
-  br i1 %123, label %125, label %126
+121:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread
+  %122 = icmp eq i64 %.val32, 0
+  br i1 %122, label %124, label %125
 
-124:                                              ; preds = %118, %115
-  store i64 %114, ptr %0, align 8
+123:                                              ; preds = %117, %114
+  store i64 %113, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  br label %66
+  br label %130
 
-125:                                              ; preds = %122
+124:                                              ; preds = %121
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
 
-126:                                              ; preds = %122
+125:                                              ; preds = %121
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   store ptr @anon.3a0f8f0d6c73c1f21edb2018f58f8718.1, ptr %7, align 8, !alias.scope !55, !noalias !58
-  %127 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 1, ptr %127, align 8, !alias.scope !55, !noalias !58
-  %128 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr null, ptr %128, align 8, !alias.scope !55, !noalias !58
-  %129 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr %4, ptr %129, align 8, !alias.scope !55, !noalias !58
-  %130 = getelementptr inbounds i8, ptr %7, i64 24
-  store i64 0, ptr %130, align 8, !alias.scope !55, !noalias !58
+  %126 = getelementptr inbounds i8, ptr %7, i64 8
+  store i64 1, ptr %126, align 8, !alias.scope !55, !noalias !58
+  %127 = getelementptr inbounds i8, ptr %7, i64 32
+  store ptr null, ptr %127, align 8, !alias.scope !55, !noalias !58
+  %128 = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr %4, ptr %128, align 8, !alias.scope !55, !noalias !58
+  %129 = getelementptr inbounds i8, ptr %7, i64 24
+  store i64 0, ptr %129, align 8, !alias.scope !55, !noalias !58
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3a0f8f0d6c73c1f21edb2018f58f8718.3) #5
   unreachable
 
-131:                                              ; preds = %"_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17h8989912d29d8dd8cE.exit", %132, %66
+130:                                              ; preds = %44, %65, %90, %123, %"_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17h8989912d29d8dd8cE.exit", %131
+  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %12)
   ret void
 
-132:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
+131:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %12)
-  br label %131
+  br label %130
 
 "_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17h8989912d29d8dd8cE.exit": ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
-  %133 = getelementptr inbounds i8, ptr %6, i64 8
-  %134 = load i64, ptr %133, align 8, !noundef !4
-  %135 = add i64 %134, %.0
-  %136 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %135, ptr %136, align 8
+  %132 = getelementptr inbounds i8, ptr %6, i64 8
+  %133 = load i64, ptr %132, align 8, !noundef !4
+  %134 = add i64 %133, %.0
+  %135 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %134, ptr %135, align 8
   store i64 0, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %12)
-  br label %131
+  br label %130
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -423,12 +416,12 @@ define hidden void @"_ZN116_$LT$std..sys..pal..unix..kernel_copy..Copier$LT$R$C$
   %or.cond = and i1 %22, %23
   br i1 %or.cond, label %26, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
 
-_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110: ; preds = %123, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105, %103, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64, %3
-  %.0 = phi i64 [ 0, %3 ], [ %.299104127, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64 ], [ %.299108129, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58 ], [ %.299104125, %123 ], [ %.299108, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %.299104127, %103 ], [ %.299104127, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64 ]
+_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110: ; preds = %122, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105, %102, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64, %3
+  %.0 = phi i64 [ 0, %3 ], [ %.299104127, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64 ], [ %.299108129, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58 ], [ %.299104125, %122 ], [ %.299108, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %.299104127, %102 ], [ %.299104127, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64 ]
   call void @_ZN3std2io4copy17stack_buffer_copy17hf0a39e05e7062c55E(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %24 = load i64, ptr %6, align 8, !range !25, !noundef !4
   %25 = icmp eq i64 %24, 0
-  br i1 %25, label %"_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17h8989912d29d8dd8cE.exit", label %130
+  br i1 %25, label %"_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17h8989912d29d8dd8cE.exit", label %129
 
 26:                                               ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
@@ -456,7 +449,7 @@ default.unreachable120:                           ; preds = %_ZN3std3sys3pal4uni
 
 37:                                               ; preds = %33
   %38 = icmp ult i64 %.sroa.074.0.copyload, 2
-  br i1 %38, label %39, label %69
+  br i1 %38, label %39, label %68
 
 39:                                               ; preds = %37
   %40 = and i32 %.sroa.3.0.copyload, 61440
@@ -470,7 +463,7 @@ default.unreachable120:                           ; preds = %_ZN3std3sys3pal4uni
   %43 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.4.0.ph, ptr %43, align 8
   store i64 1, ptr %0, align 8
-  br label %64
+  br label %128
 
 _ZN3std3sys3pal4unix11kernel_copy6FdMeta25copy_file_range_candidate17h640cb50a5f59e855E.exit: ; preds = %39
   %44 = icmp ult i64 %.sroa.077.0.copyload, 2
@@ -487,7 +480,7 @@ _ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad9732
   %or.cond.not.i = select i1 %48, i1 %.not.i54, i1 false
   %49 = icmp eq i32 %40, 24576
   %spec.select.i = or i1 %49, %or.cond.not.i
-  br i1 %spec.select.i, label %67, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit
+  br i1 %spec.select.i, label %66, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit
 
 50:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta25copy_file_range_candidate17h640cb50a5f59e855E.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
@@ -524,148 +517,143 @@ _ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad9732
 63:                                               ; preds = %57, %54
   store i64 %53, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  br label %64
+  br label %128
 
-64:                                               ; preds = %122, %89, %63, %42
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %12)
-  br label %129
+64:                                               ; preds = %66
+  %65 = icmp ult i64 %.sroa.077.0.copyload, 2
+  br i1 %65, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105
 
-65:                                               ; preds = %67
-  %66 = icmp ult i64 %.sroa.077.0.copyload, 2
-  br i1 %66, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105
-
-67:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad97329a7114E.exit
+66:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad97329a7114E.exit
   %trunc.i119 = and i32 %.sroa.3.0.copyload, 57344
   %cond = icmp eq i32 %trunc.i119, 49152
-  br i1 %cond, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread, label %65
+  br i1 %cond, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread, label %64
 
-_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit: ; preds = %65
-  %68 = trunc i32 %.sroa.379.0.copyload to i16
-  %trunc = and i16 %68, -4096
+_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit: ; preds = %64
+  %67 = trunc i32 %.sroa.379.0.copyload to i16
+  %trunc = and i16 %67, -4096
   switch i16 %trunc, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread [
     i16 -16384, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58
     i16 4096, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58
   ]
 
-69:                                               ; preds = %37
-  %70 = add nsw i64 %.sroa.074.0.copyload, -2
-  %71 = icmp ult i64 %70, 3
-  %72 = add nsw i64 %.sroa.074.0.copyload, -1
-  %73 = select i1 %71, i64 %72, i64 0
-  switch i64 %73, label %74 [
+68:                                               ; preds = %37
+  %69 = add nsw i64 %.sroa.074.0.copyload, -2
+  %70 = icmp ult i64 %69, 3
+  %71 = add nsw i64 %.sroa.074.0.copyload, -1
+  %72 = select i1 %70, i64 %71, i64 0
+  switch i64 %72, label %73 [
     i64 0, label %._ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit_crit_edge
     i64 1, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105
     i64 2, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread
     i64 3, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread
   ]
 
-._ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit_crit_edge: ; preds = %69
+._ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit_crit_edge: ; preds = %68
   %.pre = and i32 %.sroa.3.0.copyload, 61440
   br label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit
 
-74:                                               ; preds = %69
+73:                                               ; preds = %68
   unreachable
 
 _ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit: ; preds = %._ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit_crit_edge, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad97329a7114E.exit
   %.pre-phi = phi i32 [ %.pre, %._ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit_crit_edge ], [ %40, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad97329a7114E.exit ]
-  %75 = phi i64 [ %34, %._ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit_crit_edge ], [ %47, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad97329a7114E.exit ]
+  %74 = phi i64 [ %34, %._ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit_crit_edge ], [ %47, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad97329a7114E.exit ]
   %.2100 = phi i64 [ %32, %._ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit_crit_edge ], [ %.189, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad97329a7114E.exit ]
-  %76 = icmp eq i32 %.pre-phi, 4096
-  br i1 %76, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105
+  %75 = icmp eq i32 %.pre-phi, 4096
+  br i1 %75, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105
 
-_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread: ; preds = %67, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit
+_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread: ; preds = %66, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @_ZN3std3sys3pal4unix11kernel_copy15sendfile_splice17h694541304958ed01E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %9, i1 noundef zeroext false, i32 noundef %17, i32 noundef %21, i64 noundef %34)
-  %77 = getelementptr inbounds i8, ptr %9, i64 8
-  %.val49 = load i64, ptr %77, align 8, !noundef !4
-  %78 = sub i64 %47, %.val49
-  store i64 %78, ptr %27, align 8, !alias.scope !83
-  %79 = load i64, ptr %9, align 8, !range !44, !noundef !4
-  switch i64 %79, label %default.unreachable120 [
-    i64 0, label %80
-    i64 1, label %83
-    i64 2, label %87
+  %76 = getelementptr inbounds i8, ptr %9, i64 8
+  %.val49 = load i64, ptr %76, align 8, !noundef !4
+  %77 = sub i64 %47, %.val49
+  store i64 %77, ptr %27, align 8, !alias.scope !83
+  %78 = load i64, ptr %9, align 8, !range !44, !noundef !4
+  switch i64 %78, label %default.unreachable120 [
+    i64 0, label %79
+    i64 1, label %82
+    i64 2, label %86
   ]
 
-80:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread
-  %81 = add i64 %.val49, %.189
-  %82 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %81, ptr %82, align 8
-  br label %89
+79:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread
+  %80 = add i64 %.val49, %.189
+  %81 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %80, ptr %81, align 8
+  br label %88
 
-83:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread
-  %84 = getelementptr inbounds i8, ptr %9, i64 16
-  %85 = load ptr, ptr %84, align 8, !nonnull !4, !noundef !4
-  %86 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %85, ptr %86, align 8
-  br label %89
+82:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread
+  %83 = getelementptr inbounds i8, ptr %9, i64 16
+  %84 = load ptr, ptr %83, align 8, !nonnull !4, !noundef !4
+  %85 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %84, ptr %85, align 8
+  br label %88
 
-87:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread
-  %88 = add i64 %.val49, %.189
+86:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread
+  %87 = add i64 %.val49, %.189
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105
 
-89:                                               ; preds = %83, %80
-  store i64 %79, ptr %0, align 8
+88:                                               ; preds = %82, %79
+  store i64 %78, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  br label %64
+  br label %128
 
-_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105: ; preds = %87, %65, %69, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit
-  %90 = phi i64 [ %75, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %34, %69 ], [ %78, %87 ], [ %47, %65 ]
-  %.299108 = phi i64 [ %.2100, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %32, %69 ], [ %88, %87 ], [ %.189, %65 ]
-  %91 = phi i64 [ 0, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %73, %69 ], [ 0, %87 ], [ 0, %65 ]
-  %92 = add nsw i64 %.sroa.077.0.copyload, -2
-  %93 = icmp ult i64 %92, 3
-  %94 = add nsw i64 %.sroa.077.0.copyload, -1
-  %95 = select i1 %93, i64 %94, i64 0
-  switch i64 %95, label %96 [
+_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105: ; preds = %86, %64, %68, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit
+  %89 = phi i64 [ %74, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %34, %68 ], [ %77, %86 ], [ %47, %64 ]
+  %.299108 = phi i64 [ %.2100, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %32, %68 ], [ %87, %86 ], [ %.189, %64 ]
+  %90 = phi i64 [ 0, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %72, %68 ], [ 0, %86 ], [ 0, %64 ]
+  %91 = add nsw i64 %.sroa.077.0.copyload, -2
+  %92 = icmp ult i64 %91, 3
+  %93 = add nsw i64 %.sroa.077.0.copyload, -1
+  %94 = select i1 %92, i64 %93, i64 0
+  switch i64 %94, label %95 [
     i64 0, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58
     i64 1, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
     i64 2, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread
     i64 3, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread
   ]
 
-96:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105
+95:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105
   unreachable
 
 _ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58: ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105
-  %97 = phi i64 [ %91, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ 0, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit ], [ 0, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit ]
+  %96 = phi i64 [ %90, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ 0, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit ], [ 0, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit ]
   %.299108129 = phi i64 [ %.299108, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %.189, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit ], [ %.189, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit ]
-  %98 = phi i64 [ %90, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %47, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit ], [ %47, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit ]
-  %99 = and i32 %.sroa.379.0.copyload, 61440
-  %100 = icmp eq i32 %99, 4096
-  br i1 %100, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
+  %97 = phi i64 [ %89, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %47, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit ], [ %47, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit ]
+  %98 = and i32 %.sroa.379.0.copyload, 61440
+  %99 = icmp eq i32 %98, 4096
+  br i1 %99, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
 
-_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread: ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105, %69, %69, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58
-  %101 = phi i64 [ %98, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58 ], [ %34, %69 ], [ %34, %69 ], [ %90, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %90, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ]
-  %.299104 = phi i64 [ %.299108129, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58 ], [ %32, %69 ], [ %32, %69 ], [ %.299108, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %.299108, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ]
-  %102 = phi i64 [ %97, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58 ], [ %72, %69 ], [ %72, %69 ], [ %91, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %91, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ]
-  switch i64 %102, label %103 [
+_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread: ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105, %68, %68, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58
+  %100 = phi i64 [ %97, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58 ], [ %34, %68 ], [ %34, %68 ], [ %89, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %89, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ]
+  %.299104 = phi i64 [ %.299108129, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58 ], [ %32, %68 ], [ %32, %68 ], [ %.299108, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %.299108, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ]
+  %101 = phi i64 [ %96, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58 ], [ %71, %68 ], [ %71, %68 ], [ %90, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %90, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ]
+  switch i64 %101, label %102 [
     i64 0, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread
     i64 1, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread
     i64 2, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread
   ]
 
-103:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread
+102:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread
   %.299104127 = phi i64 [ %.299104126, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread ], [ %.299104, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ]
-  %104 = phi i64 [ %106, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread ], [ %101, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ]
-  %105 = icmp ult i64 %.sroa.077.0.copyload, 2
-  br i1 %105, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
+  %103 = phi i64 [ %105, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread ], [ %100, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ]
+  %104 = icmp ult i64 %.sroa.077.0.copyload, 2
+  br i1 %104, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
 
 _ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread: ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread
   %.299104126 = phi i64 [ %.299104, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ], [ %.2100, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ]
-  %106 = phi i64 [ %101, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ], [ %75, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ]
-  %107 = trunc i32 %.sroa.3.0.copyload to i16
-  %trunc.i60 = and i16 %107, -4096
-  switch i16 %trunc.i60, label %103 [
+  %105 = phi i64 [ %100, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ], [ %74, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ]
+  %106 = trunc i32 %.sroa.3.0.copyload to i16
+  %trunc.i60 = and i16 %106, -4096
+  switch i16 %trunc.i60, label %102 [
     i16 4096, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread
     i16 -16384, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread
   ]
 
-_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64: ; preds = %103
-  %108 = trunc i32 %.sroa.379.0.copyload to i16
-  %trunc118 = and i16 %108, -4096
+_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64: ; preds = %102
+  %107 = trunc i32 %.sroa.379.0.copyload to i16
+  %trunc118 = and i16 %107, -4096
   switch i16 %trunc118, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread [
     i16 -16384, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
     i16 4096, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
@@ -673,79 +661,77 @@ _ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64: 
 
 _ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread: ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread
   %.299104125 = phi i64 [ %.299104127, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64 ], [ %.299104126, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread ], [ %.299104126, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread ], [ %.299104, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ], [ %.299104, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ]
-  %109 = phi i64 [ %104, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64 ], [ %106, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread ], [ %106, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread ], [ %101, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ], [ %101, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ]
+  %108 = phi i64 [ %103, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64 ], [ %105, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread ], [ %105, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread ], [ %100, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ], [ %100, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @_ZN3std3sys3pal4unix11kernel_copy15sendfile_splice17h694541304958ed01E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %8, i1 noundef zeroext true, i32 noundef %17, i32 noundef %21, i64 noundef %34)
-  %110 = getelementptr inbounds i8, ptr %8, i64 8
-  %.val50 = load i64, ptr %110, align 8, !noundef !4
-  %111 = sub i64 %109, %.val50
-  store i64 %111, ptr %27, align 8, !alias.scope !88
-  %112 = load i64, ptr %8, align 8, !range !44, !noundef !4
-  switch i64 %112, label %default.unreachable120 [
-    i64 0, label %113
-    i64 1, label %116
-    i64 2, label %120
+  %109 = getelementptr inbounds i8, ptr %8, i64 8
+  %.val50 = load i64, ptr %109, align 8, !noundef !4
+  %110 = sub i64 %108, %.val50
+  store i64 %110, ptr %27, align 8, !alias.scope !88
+  %111 = load i64, ptr %8, align 8, !range !44, !noundef !4
+  switch i64 %111, label %default.unreachable120 [
+    i64 0, label %112
+    i64 1, label %115
+    i64 2, label %119
   ]
 
-113:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread
-  %114 = add i64 %.val50, %.299104125
-  %115 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %114, ptr %115, align 8
-  br label %122
+112:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread
+  %113 = add i64 %.val50, %.299104125
+  %114 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %113, ptr %114, align 8
+  br label %121
 
-116:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread
-  %117 = getelementptr inbounds i8, ptr %8, i64 16
-  %118 = load ptr, ptr %117, align 8, !nonnull !4, !noundef !4
-  %119 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %118, ptr %119, align 8
-  br label %122
+115:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread
+  %116 = getelementptr inbounds i8, ptr %8, i64 16
+  %117 = load ptr, ptr %116, align 8, !nonnull !4, !noundef !4
+  %118 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %117, ptr %118, align 8
+  br label %121
 
-120:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread
-  %121 = icmp eq i64 %.val50, 0
-  br i1 %121, label %123, label %124
+119:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread
+  %120 = icmp eq i64 %.val50, 0
+  br i1 %120, label %122, label %123
 
-122:                                              ; preds = %116, %113
-  store i64 %112, ptr %0, align 8
+121:                                              ; preds = %115, %112
+  store i64 %111, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  br label %64
+  br label %128
 
-123:                                              ; preds = %120
+122:                                              ; preds = %119
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
 
-124:                                              ; preds = %120
+123:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   store ptr @anon.3a0f8f0d6c73c1f21edb2018f58f8718.1, ptr %7, align 8, !alias.scope !93, !noalias !96
-  %125 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 1, ptr %125, align 8, !alias.scope !93, !noalias !96
-  %126 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr null, ptr %126, align 8, !alias.scope !93, !noalias !96
-  %127 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr %4, ptr %127, align 8, !alias.scope !93, !noalias !96
-  %128 = getelementptr inbounds i8, ptr %7, i64 24
-  store i64 0, ptr %128, align 8, !alias.scope !93, !noalias !96
+  %124 = getelementptr inbounds i8, ptr %7, i64 8
+  store i64 1, ptr %124, align 8, !alias.scope !93, !noalias !96
+  %125 = getelementptr inbounds i8, ptr %7, i64 32
+  store ptr null, ptr %125, align 8, !alias.scope !93, !noalias !96
+  %126 = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr %4, ptr %126, align 8, !alias.scope !93, !noalias !96
+  %127 = getelementptr inbounds i8, ptr %7, i64 24
+  store i64 0, ptr %127, align 8, !alias.scope !93, !noalias !96
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3a0f8f0d6c73c1f21edb2018f58f8718.3) #5
   unreachable
 
-129:                                              ; preds = %"_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17h8989912d29d8dd8cE.exit", %130, %64
+128:                                              ; preds = %42, %63, %88, %121, %"_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17h8989912d29d8dd8cE.exit", %129
+  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %12)
   ret void
 
-130:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
+129:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %12)
-  br label %129
+  br label %128
 
 "_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17h8989912d29d8dd8cE.exit": ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
-  %131 = getelementptr inbounds i8, ptr %6, i64 8
-  %132 = load i64, ptr %131, align 8, !noundef !4
-  %133 = add i64 %132, %.0
-  %134 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %133, ptr %134, align 8
+  %130 = getelementptr inbounds i8, ptr %6, i64 8
+  %131 = load i64, ptr %130, align 8, !noundef !4
+  %132 = add i64 %131, %.0
+  %133 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %132, ptr %133, align 8
   store i64 0, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %12)
-  br label %129
+  br label %128
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -786,12 +772,12 @@ define hidden void @"_ZN116_$LT$std..sys..pal..unix..kernel_copy..Copier$LT$R$C$
   %or.cond = and i1 %23, %24
   br i1 %or.cond, label %27, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
 
-_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110: ; preds = %124, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105, %104, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64, %3
-  %.0 = phi i64 [ 0, %3 ], [ %.299104127, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64 ], [ %.299108129, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58 ], [ %.299104125, %124 ], [ %.299108, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %.299104127, %104 ], [ %.299104127, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64 ]
+_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110: ; preds = %123, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105, %103, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64, %3
+  %.0 = phi i64 [ 0, %3 ], [ %.299104127, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64 ], [ %.299108129, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58 ], [ %.299104125, %123 ], [ %.299108, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %.299104127, %103 ], [ %.299104127, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64 ]
   call void @_ZN3std2io4copy17stack_buffer_copy17hbb94f2d404f8e65eE(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %25 = load i64, ptr %6, align 8, !range !25, !noundef !4
   %26 = icmp eq i64 %25, 0
-  br i1 %26, label %"_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17h8989912d29d8dd8cE.exit", label %131
+  br i1 %26, label %"_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17h8989912d29d8dd8cE.exit", label %130
 
 27:                                               ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
@@ -819,7 +805,7 @@ default.unreachable120:                           ; preds = %_ZN3std3sys3pal4uni
 
 38:                                               ; preds = %34
   %39 = icmp ult i64 %.sroa.074.0.copyload, 2
-  br i1 %39, label %40, label %70
+  br i1 %39, label %40, label %69
 
 40:                                               ; preds = %38
   %41 = and i32 %.sroa.3.0.copyload, 61440
@@ -833,7 +819,7 @@ default.unreachable120:                           ; preds = %_ZN3std3sys3pal4uni
   %44 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.4.0.ph, ptr %44, align 8
   store i64 1, ptr %0, align 8
-  br label %65
+  br label %129
 
 _ZN3std3sys3pal4unix11kernel_copy6FdMeta25copy_file_range_candidate17h640cb50a5f59e855E.exit: ; preds = %40
   %45 = icmp ult i64 %.sroa.077.0.copyload, 2
@@ -850,7 +836,7 @@ _ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad9732
   %or.cond.not.i = select i1 %49, i1 %.not.i54, i1 false
   %50 = icmp eq i32 %41, 24576
   %spec.select.i = or i1 %50, %or.cond.not.i
-  br i1 %spec.select.i, label %68, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit
+  br i1 %spec.select.i, label %67, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit
 
 51:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta25copy_file_range_candidate17h640cb50a5f59e855E.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
@@ -887,148 +873,143 @@ _ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad9732
 64:                                               ; preds = %58, %55
   store i64 %54, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  br label %65
+  br label %129
 
-65:                                               ; preds = %123, %90, %64, %43
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %12)
-  br label %130
+65:                                               ; preds = %67
+  %66 = icmp ult i64 %.sroa.077.0.copyload, 2
+  br i1 %66, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105
 
-66:                                               ; preds = %68
-  %67 = icmp ult i64 %.sroa.077.0.copyload, 2
-  br i1 %67, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105
-
-68:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad97329a7114E.exit
+67:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad97329a7114E.exit
   %trunc.i119 = and i32 %.sroa.3.0.copyload, 57344
   %cond = icmp eq i32 %trunc.i119, 49152
-  br i1 %cond, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread, label %66
+  br i1 %cond, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread, label %65
 
-_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit: ; preds = %66
-  %69 = trunc i32 %.sroa.379.0.copyload to i16
-  %trunc = and i16 %69, -4096
+_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit: ; preds = %65
+  %68 = trunc i32 %.sroa.379.0.copyload to i16
+  %trunc = and i16 %68, -4096
   switch i16 %trunc, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread [
     i16 -16384, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58
     i16 4096, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58
   ]
 
-70:                                               ; preds = %38
-  %71 = add nsw i64 %.sroa.074.0.copyload, -2
-  %72 = icmp ult i64 %71, 3
-  %73 = add nsw i64 %.sroa.074.0.copyload, -1
-  %74 = select i1 %72, i64 %73, i64 0
-  switch i64 %74, label %75 [
+69:                                               ; preds = %38
+  %70 = add nsw i64 %.sroa.074.0.copyload, -2
+  %71 = icmp ult i64 %70, 3
+  %72 = add nsw i64 %.sroa.074.0.copyload, -1
+  %73 = select i1 %71, i64 %72, i64 0
+  switch i64 %73, label %74 [
     i64 0, label %._ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit_crit_edge
     i64 1, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105
     i64 2, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread
     i64 3, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread
   ]
 
-._ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit_crit_edge: ; preds = %70
+._ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit_crit_edge: ; preds = %69
   %.pre = and i32 %.sroa.3.0.copyload, 61440
   br label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit
 
-75:                                               ; preds = %70
+74:                                               ; preds = %69
   unreachable
 
 _ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit: ; preds = %._ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit_crit_edge, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad97329a7114E.exit
   %.pre-phi = phi i32 [ %.pre, %._ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit_crit_edge ], [ %41, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad97329a7114E.exit ]
-  %76 = phi i64 [ %35, %._ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit_crit_edge ], [ %48, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad97329a7114E.exit ]
+  %75 = phi i64 [ %35, %._ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit_crit_edge ], [ %48, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad97329a7114E.exit ]
   %.2100 = phi i64 [ %33, %._ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit_crit_edge ], [ %.189, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta25potential_sendfile_source17hbeb1ad97329a7114E.exit ]
-  %77 = icmp eq i32 %.pre-phi, 4096
-  br i1 %77, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105
+  %76 = icmp eq i32 %.pre-phi, 4096
+  br i1 %76, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105
 
-_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread: ; preds = %68, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit
+_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread: ; preds = %67, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @_ZN3std3sys3pal4unix11kernel_copy15sendfile_splice17h694541304958ed01E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %9, i1 noundef zeroext false, i32 noundef %18, i32 noundef %22, i64 noundef %35)
-  %78 = getelementptr inbounds i8, ptr %9, i64 8
-  %.val49 = load i64, ptr %78, align 8, !noundef !4
-  %79 = sub i64 %48, %.val49
-  store i64 %79, ptr %28, align 8, !alias.scope !121
-  %80 = load i64, ptr %9, align 8, !range !44, !noundef !4
-  switch i64 %80, label %default.unreachable120 [
-    i64 0, label %81
-    i64 1, label %84
-    i64 2, label %88
+  %77 = getelementptr inbounds i8, ptr %9, i64 8
+  %.val49 = load i64, ptr %77, align 8, !noundef !4
+  %78 = sub i64 %48, %.val49
+  store i64 %78, ptr %28, align 8, !alias.scope !121
+  %79 = load i64, ptr %9, align 8, !range !44, !noundef !4
+  switch i64 %79, label %default.unreachable120 [
+    i64 0, label %80
+    i64 1, label %83
+    i64 2, label %87
   ]
 
-81:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread
-  %82 = add i64 %.val49, %.189
-  %83 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %82, ptr %83, align 8
-  br label %90
+80:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread
+  %81 = add i64 %.val49, %.189
+  %82 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %81, ptr %82, align 8
+  br label %89
 
-84:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread
-  %85 = getelementptr inbounds i8, ptr %9, i64 16
-  %86 = load ptr, ptr %85, align 8, !nonnull !4, !noundef !4
-  %87 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %86, ptr %87, align 8
-  br label %90
+83:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread
+  %84 = getelementptr inbounds i8, ptr %9, i64 16
+  %85 = load ptr, ptr %84, align 8, !nonnull !4, !noundef !4
+  %86 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %85, ptr %86, align 8
+  br label %89
 
-88:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread
-  %89 = add i64 %.val49, %.189
+87:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thread
+  %88 = add i64 %.val49, %.189
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105
 
-90:                                               ; preds = %84, %81
-  store i64 %80, ptr %0, align 8
+89:                                               ; preds = %83, %80
+  store i64 %79, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  br label %65
+  br label %129
 
-_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105: ; preds = %88, %66, %70, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit
-  %91 = phi i64 [ %76, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %35, %70 ], [ %79, %88 ], [ %48, %66 ]
-  %.299108 = phi i64 [ %.2100, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %33, %70 ], [ %89, %88 ], [ %.189, %66 ]
-  %92 = phi i64 [ 0, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %74, %70 ], [ 0, %88 ], [ 0, %66 ]
-  %93 = add nsw i64 %.sroa.077.0.copyload, -2
-  %94 = icmp ult i64 %93, 3
-  %95 = add nsw i64 %.sroa.077.0.copyload, -1
-  %96 = select i1 %94, i64 %95, i64 0
-  switch i64 %96, label %97 [
+_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105: ; preds = %87, %65, %69, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit
+  %90 = phi i64 [ %75, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %35, %69 ], [ %78, %87 ], [ %48, %65 ]
+  %.299108 = phi i64 [ %.2100, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %33, %69 ], [ %88, %87 ], [ %.189, %65 ]
+  %91 = phi i64 [ 0, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %73, %69 ], [ 0, %87 ], [ 0, %65 ]
+  %92 = add nsw i64 %.sroa.077.0.copyload, -2
+  %93 = icmp ult i64 %92, 3
+  %94 = add nsw i64 %.sroa.077.0.copyload, -1
+  %95 = select i1 %93, i64 %94, i64 0
+  switch i64 %95, label %96 [
     i64 0, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58
     i64 1, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
     i64 2, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread
     i64 3, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread
   ]
 
-97:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105
+96:                                               ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105
   unreachable
 
 _ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58: ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105
-  %98 = phi i64 [ %92, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ 0, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit ], [ 0, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit ]
+  %97 = phi i64 [ %91, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ 0, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit ], [ 0, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit ]
   %.299108129 = phi i64 [ %.299108, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %.189, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit ], [ %.189, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit ]
-  %99 = phi i64 [ %91, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %48, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit ], [ %48, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit ]
-  %100 = and i32 %.sroa.379.0.copyload, 61440
-  %101 = icmp eq i32 %100, 4096
-  br i1 %101, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
+  %98 = phi i64 [ %90, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %48, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit ], [ %48, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit ]
+  %99 = and i32 %.sroa.379.0.copyload, 61440
+  %100 = icmp eq i32 %99, 4096
+  br i1 %100, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
 
-_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread: ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105, %70, %70, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58
-  %102 = phi i64 [ %99, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58 ], [ %35, %70 ], [ %35, %70 ], [ %91, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %91, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ]
-  %.299104 = phi i64 [ %.299108129, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58 ], [ %33, %70 ], [ %33, %70 ], [ %.299108, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %.299108, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ]
-  %103 = phi i64 [ %98, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58 ], [ %73, %70 ], [ %73, %70 ], [ %92, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %92, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ]
-  switch i64 %103, label %104 [
+_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread: ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105, %69, %69, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58
+  %101 = phi i64 [ %98, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58 ], [ %35, %69 ], [ %35, %69 ], [ %90, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %90, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ]
+  %.299104 = phi i64 [ %.299108129, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58 ], [ %33, %69 ], [ %33, %69 ], [ %.299108, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %.299108, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ]
+  %102 = phi i64 [ %97, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58 ], [ %72, %69 ], [ %72, %69 ], [ %91, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ], [ %91, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105 ]
+  switch i64 %102, label %103 [
     i64 0, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread
     i64 1, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread
     i64 2, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread
   ]
 
-104:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread
+103:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread
   %.299104127 = phi i64 [ %.299104126, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread ], [ %.299104, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ]
-  %105 = phi i64 [ %107, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread ], [ %102, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ]
-  %106 = icmp ult i64 %.sroa.077.0.copyload, 2
-  br i1 %106, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
+  %104 = phi i64 [ %106, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread ], [ %101, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ]
+  %105 = icmp ult i64 %.sroa.077.0.copyload, 2
+  br i1 %105, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
 
 _ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread: ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread
   %.299104126 = phi i64 [ %.299104, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ], [ %.2100, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ]
-  %107 = phi i64 [ %102, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ], [ %76, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ]
-  %108 = trunc i32 %.sroa.3.0.copyload to i16
-  %trunc.i60 = and i16 %108, -4096
-  switch i16 %trunc.i60, label %104 [
+  %106 = phi i64 [ %101, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ], [ %75, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ]
+  %107 = trunc i32 %.sroa.3.0.copyload to i16
+  %trunc.i60 = and i16 %107, -4096
+  switch i16 %trunc.i60, label %103 [
     i16 4096, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread
     i16 -16384, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread
   ]
 
-_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64: ; preds = %104
-  %109 = trunc i32 %.sroa.379.0.copyload to i16
-  %trunc118 = and i16 %109, -4096
+_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64: ; preds = %103
+  %108 = trunc i32 %.sroa.379.0.copyload to i16
+  %trunc118 = and i16 %108, -4096
   switch i16 %trunc118, label %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread [
     i16 -16384, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
     i16 4096, label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
@@ -1036,79 +1017,77 @@ _ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64: 
 
 _ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread: ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread
   %.299104125 = phi i64 [ %.299104127, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64 ], [ %.299104126, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread ], [ %.299104126, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread ], [ %.299104, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ], [ %.299104, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ]
-  %110 = phi i64 [ %105, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64 ], [ %107, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread ], [ %107, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread ], [ %102, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ], [ %102, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ]
+  %109 = phi i64 [ %104, %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64 ], [ %106, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread ], [ %106, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread.thread ], [ %101, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ], [ %101, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @_ZN3std3sys3pal4unix11kernel_copy15sendfile_splice17h694541304958ed01E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %8, i1 noundef zeroext true, i32 noundef %18, i32 noundef %22, i64 noundef %35)
-  %111 = getelementptr inbounds i8, ptr %8, i64 8
-  %.val50 = load i64, ptr %111, align 8, !noundef !4
-  %112 = sub i64 %110, %.val50
-  store i64 %112, ptr %28, align 8, !alias.scope !126
-  %113 = load i64, ptr %8, align 8, !range !44, !noundef !4
-  switch i64 %113, label %default.unreachable120 [
-    i64 0, label %114
-    i64 1, label %117
-    i64 2, label %121
+  %110 = getelementptr inbounds i8, ptr %8, i64 8
+  %.val50 = load i64, ptr %110, align 8, !noundef !4
+  %111 = sub i64 %109, %.val50
+  store i64 %111, ptr %28, align 8, !alias.scope !126
+  %112 = load i64, ptr %8, align 8, !range !44, !noundef !4
+  switch i64 %112, label %default.unreachable120 [
+    i64 0, label %113
+    i64 1, label %116
+    i64 2, label %120
   ]
 
-114:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread
-  %115 = add i64 %.val50, %.299104125
-  %116 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %115, ptr %116, align 8
-  br label %123
+113:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread
+  %114 = add i64 %.val50, %.299104125
+  %115 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %114, ptr %115, align 8
+  br label %122
 
-117:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread
-  %118 = getelementptr inbounds i8, ptr %8, i64 16
-  %119 = load ptr, ptr %118, align 8, !nonnull !4, !noundef !4
-  %120 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %119, ptr %120, align 8
-  br label %123
+116:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread
+  %117 = getelementptr inbounds i8, ptr %8, i64 16
+  %118 = load ptr, ptr %117, align 8, !nonnull !4, !noundef !4
+  %119 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %118, ptr %119, align 8
+  br label %122
 
-121:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread
-  %122 = icmp eq i64 %.val50, 0
-  br i1 %122, label %124, label %125
+120:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit64.thread
+  %121 = icmp eq i64 %.val50, 0
+  br i1 %121, label %123, label %124
 
-123:                                              ; preds = %117, %114
-  store i64 %113, ptr %0, align 8
+122:                                              ; preds = %116, %113
+  store i64 %112, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  br label %65
+  br label %129
 
-124:                                              ; preds = %121
+123:                                              ; preds = %120
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
 
-125:                                              ; preds = %121
+124:                                              ; preds = %120
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   store ptr @anon.3a0f8f0d6c73c1f21edb2018f58f8718.1, ptr %7, align 8, !alias.scope !131, !noalias !134
-  %126 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 1, ptr %126, align 8, !alias.scope !131, !noalias !134
-  %127 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr null, ptr %127, align 8, !alias.scope !131, !noalias !134
-  %128 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr %4, ptr %128, align 8, !alias.scope !131, !noalias !134
-  %129 = getelementptr inbounds i8, ptr %7, i64 24
-  store i64 0, ptr %129, align 8, !alias.scope !131, !noalias !134
+  %125 = getelementptr inbounds i8, ptr %7, i64 8
+  store i64 1, ptr %125, align 8, !alias.scope !131, !noalias !134
+  %126 = getelementptr inbounds i8, ptr %7, i64 32
+  store ptr null, ptr %126, align 8, !alias.scope !131, !noalias !134
+  %127 = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr %4, ptr %127, align 8, !alias.scope !131, !noalias !134
+  %128 = getelementptr inbounds i8, ptr %7, i64 24
+  store i64 0, ptr %128, align 8, !alias.scope !131, !noalias !134
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3a0f8f0d6c73c1f21edb2018f58f8718.3) #5
   unreachable
 
-130:                                              ; preds = %"_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17h8989912d29d8dd8cE.exit", %131, %65
+129:                                              ; preds = %43, %64, %89, %122, %"_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17h8989912d29d8dd8cE.exit", %130
+  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %12)
   ret void
 
-131:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
+130:                                              ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %12)
-  br label %130
+  br label %129
 
 "_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17h8989912d29d8dd8cE.exit": ; preds = %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit58.thread110
-  %132 = getelementptr inbounds i8, ptr %6, i64 8
-  %133 = load i64, ptr %132, align 8, !noundef !4
-  %134 = add i64 %133, %.0
-  %135 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %134, ptr %135, align 8
+  %131 = getelementptr inbounds i8, ptr %6, i64 8
+  %132 = load i64, ptr %131, align 8, !noundef !4
+  %133 = add i64 %132, %.0
+  %134 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %133, ptr %134, align 8
   store i64 0, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %12)
-  br label %130
+  br label %129
 }
 
 ; Function Attrs: nonlazybind uwtable

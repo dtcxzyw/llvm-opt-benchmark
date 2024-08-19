@@ -518,11 +518,11 @@ proxy_v1_get_token_length.exit146.thread211.i:    ; preds = %141, %proxy_v1_get_
   br label %dissect_proxy_v1_header.exit
 
 166:                                              ; preds = %156, %105
-  %storemerge.i = phi i32 [ 3, %156 ], [ 2, %105 ]
+  %.sink227.i = phi i32 [ 3, %156 ], [ 2, %105 ]
   %.sink225.i = phi i32 [ 16, %156 ], [ 4, %105 ]
   %.sink.i = phi ptr [ %12, %156 ], [ %10, %105 ]
   %.0127.in.i = phi i32 [ %138, %156 ], [ %87, %105 ]
-  store i32 %storemerge.i, ptr %14, align 8
+  store i32 %.sink227.i, ptr %14, align 8
   %167 = getelementptr inbounds i8, ptr %14, i64 4
   store i32 %.sink225.i, ptr %167, align 4
   %168 = getelementptr inbounds i8, ptr %14, i64 8

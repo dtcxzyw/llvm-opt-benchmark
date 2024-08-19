@@ -20719,10 +20719,10 @@ if.then199:                                       ; preds = %if.end179.thread, %
   %call203 = invoke noundef ptr @_ZN10arith_util7mk_realEi(ptr noundef nonnull align 8 dereferenceable(16) %u, i32 noundef 1)
           to label %invoke.cont202.invoke unwind label %lpad20.loopexit.split-lp
 
-invoke.cont202.invoke:                            ; preds = %if.then209, %if.then199
-  %125 = phi i32 [ 6, %if.then199 ], [ 7, %if.then209 ]
-  %126 = phi ptr [ %124, %if.then199 ], [ %121, %if.then209 ]
-  %127 = phi ptr [ %call203, %if.then199 ], [ %call213, %if.then209 ]
+invoke.cont202.invoke:                            ; preds = %if.then199, %if.then209
+  %125 = phi i32 [ 7, %if.then209 ], [ 6, %if.then199 ]
+  %126 = phi ptr [ %121, %if.then209 ], [ %124, %if.then199 ]
+  %127 = phi ptr [ %call213, %if.then209 ], [ %call203, %if.then199 ]
   %128 = load ptr, ptr %u, align 8
   %129 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %128, i32 noundef 5, i32 noundef %125, ptr noundef nonnull %126, ptr noundef %127)
           to label %if.end274 unwind label %lpad20.loopexit.split-lp

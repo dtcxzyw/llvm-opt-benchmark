@@ -969,81 +969,79 @@ define void @print_fields_char_list(ptr nocapture noundef readonly %0, ptr nound
 
 12:                                               ; preds = %.thread
   %13 = tail call ptr @xstrdup(ptr noundef nonnull @.str.6) #8
-  store ptr %13, ptr %4, align 8
   br label %18
 
 14:                                               ; preds = %.thread
   %15 = tail call ptr @xstrdup(ptr noundef nonnull @.str.7) #8
-  store ptr %15, ptr %4, align 8
   br label %18
 
 16:                                               ; preds = %9
   %17 = tail call ptr @slurm_char_list_to_xstr(ptr noundef nonnull %8) #8
-  store ptr %17, ptr %4, align 8
   br label %18
 
 18:                                               ; preds = %12, %14, %16
-  %19 = phi ptr [ %13, %12 ], [ %15, %14 ], [ %17, %16 ]
-  %20 = load i32, ptr @print_fields_parsable_print, align 4
-  %21 = icmp eq i32 %20, 2
-  %22 = icmp ne i32 %2, 0
-  %or.cond = and i1 %22, %21
-  br i1 %or.cond, label %23, label %25
+  %.sink = phi ptr [ %13, %12 ], [ %15, %14 ], [ %17, %16 ]
+  store ptr %.sink, ptr %4, align 8
+  %19 = load i32, ptr @print_fields_parsable_print, align 4
+  %20 = icmp eq i32 %19, 2
+  %21 = icmp ne i32 %2, 0
+  %or.cond = and i1 %21, %20
+  br i1 %or.cond, label %22, label %24
 
-23:                                               ; preds = %18
-  %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef %19)
-  br label %50
+22:                                               ; preds = %18
+  %23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef %.sink)
+  br label %49
 
-25:                                               ; preds = %18
-  %26 = icmp eq i32 %20, 0
-  %27 = load ptr, ptr @fields_delimiter, align 8
-  %28 = icmp ne ptr %27, null
-  %or.cond3 = select i1 %26, i1 true, i1 %28
-  br i1 %or.cond3, label %31, label %29
+24:                                               ; preds = %18
+  %25 = icmp eq i32 %19, 0
+  %26 = load ptr, ptr @fields_delimiter, align 8
+  %27 = icmp ne ptr %26, null
+  %or.cond3 = select i1 %25, i1 true, i1 %27
+  br i1 %or.cond3, label %30, label %28
 
-29:                                               ; preds = %25
-  %30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef %19)
-  br label %50
+28:                                               ; preds = %24
+  %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef %.sink)
+  br label %49
 
-31:                                               ; preds = %25
-  %32 = icmp ne i32 %20, 0
-  %or.cond5 = select i1 %32, i1 %28, i1 false
-  br i1 %or.cond5, label %33, label %35
+30:                                               ; preds = %24
+  %31 = icmp ne i32 %19, 0
+  %or.cond5 = select i1 %31, i1 %27, i1 false
+  br i1 %or.cond5, label %32, label %34
 
-33:                                               ; preds = %31
-  %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %19, ptr noundef nonnull %27)
-  br label %50
+32:                                               ; preds = %30
+  %33 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %.sink, ptr noundef nonnull %26)
+  br label %49
 
-35:                                               ; preds = %31
-  %.not26 = icmp eq ptr %19, null
-  br i1 %.not26, label %50, label %36
+34:                                               ; preds = %30
+  %.not26 = icmp eq ptr %.sink, null
+  br i1 %.not26, label %49, label %35
 
-36:                                               ; preds = %35
-  %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #9
-  %38 = zext nneg i32 %6 to i64
-  %39 = icmp ugt i64 %37, %38
-  br i1 %39, label %40, label %43
+35:                                               ; preds = %34
+  %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink) #9
+  %37 = zext nneg i32 %6 to i64
+  %38 = icmp ugt i64 %36, %37
+  br i1 %38, label %39, label %42
 
-40:                                               ; preds = %36
-  %41 = getelementptr i8, ptr %19, i64 %38
-  %42 = getelementptr i8, ptr %41, i64 -1
-  store i8 43, ptr %42, align 1
-  br label %43
+39:                                               ; preds = %35
+  %40 = getelementptr i8, ptr %.sink, i64 %37
+  %41 = getelementptr i8, ptr %40, i64 -1
+  store i8 43, ptr %41, align 1
+  br label %42
 
-43:                                               ; preds = %40, %36
-  %44 = load i32, ptr %0, align 8
-  %45 = icmp eq i32 %44, %6
-  br i1 %45, label %46, label %48
+42:                                               ; preds = %39, %35
+  %43 = load i32, ptr %0, align 8
+  %44 = icmp eq i32 %43, %6
+  br i1 %44, label %45, label %47
 
-46:                                               ; preds = %43
-  %47 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %6, i32 noundef %6, ptr noundef nonnull %19)
-  br label %50
+45:                                               ; preds = %42
+  %46 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %6, i32 noundef %6, ptr noundef nonnull %.sink)
+  br label %49
 
-48:                                               ; preds = %43
-  %49 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %6, i32 noundef %6, ptr noundef nonnull %19)
-  br label %50
+47:                                               ; preds = %42
+  %48 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %6, i32 noundef %6, ptr noundef nonnull %.sink)
+  br label %49
 
-50:                                               ; preds = %29, %35, %48, %46, %33, %23
+49:                                               ; preds = %28, %34, %47, %45, %32, %22
   call void @slurm_xfree(ptr noundef nonnull %4) #8
   ret void
 }

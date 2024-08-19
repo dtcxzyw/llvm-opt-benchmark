@@ -330,6 +330,8 @@ target triple = "x86_64-pc-linux-gnu"
 @dissect_evs_cmr.flags_t5 = internal constant [4 x ptr] [ptr @hf_evs_h_bit, ptr @hf_evs_cmr_t, ptr @hf_evs_cmr_t5_d, ptr null], align 16
 @dissect_evs_cmr.flags_t6 = internal constant [4 x ptr] [ptr @hf_evs_h_bit, ptr @hf_evs_cmr_t, ptr @hf_evs_cmr_t6_d, ptr null], align 16
 @dissect_evs_cmr.flags_t7 = internal constant [4 x ptr] [ptr @hf_evs_h_bit, ptr @hf_evs_cmr_t, ptr @hf_evs_cmr_t7_d, ptr null], align 16
+@switch.table.dissect_evs = private unnamed_addr constant [8 x ptr] [ptr @evs_d_bits_t0_values, ptr @evs_d_bits_t1_values, ptr @evs_d_bits_t2_values, ptr @evs_d_bits_t3_values, ptr @evs_d_bits_t4_values, ptr @evs_d_bits_t5_values, ptr @evs_d_bits_t6_values, ptr @evs_d_bits_t7_values], align 8
+@switch.table.dissect_evs.1 = private unnamed_addr constant [8 x ptr] [ptr @dissect_evs_cmr.flags_t0, ptr @dissect_evs_cmr.flags_t1, ptr @dissect_evs_cmr.flags_t2, ptr @dissect_evs_cmr.flags_t3, ptr @dissect_evs_cmr.flags_t4, ptr @dissect_evs_cmr.flags_t5, ptr @dissect_evs_cmr.flags_t6, ptr @dissect_evs_cmr.flags_t7], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_evs() local_unnamed_addr #0 {
@@ -651,138 +653,82 @@ proto_item_set_generated.exit:                    ; preds = %44, %47, %50
 proto_item_set_generated.exit218:                 ; preds = %161, %164, %167
   %171 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
   %.not213 = icmp sgt i8 %171, -1
-  br i1 %.not213, label %.preheader, label %172
+  br i1 %.not213, label %.preheader, label %switch.lookup
 
-172:                                              ; preds = %proto_item_set_generated.exit218
+switch.lookup:                                    ; preds = %proto_item_set_generated.exit218
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %173 = lshr i8 %171, 4
-  %174 = and i8 %173, 7
-  %175 = and i8 %171, 15
-  %176 = load i32, ptr @ett_evs_header, align 4
-  %177 = call ptr @proto_tree_add_subtree(ptr noundef %42, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %176, ptr noundef nonnull %5, ptr noundef nonnull @.str.27) #4
-  %178 = zext nneg i8 %175 to i32
-  switch i8 %174, label %default.unreachable [
-    i8 0, label %179
-    i8 1, label %182
-    i8 2, label %185
-    i8 3, label %188
-    i8 4, label %191
-    i8 5, label %194
-    i8 6, label %197
-    i8 7, label %200
-  ]
-
-179:                                              ; preds = %172
-  %180 = call ptr @val_to_str_const(i32 noundef %178, ptr noundef nonnull @evs_d_bits_t0_values, ptr noundef nonnull @.str.212) #4
+  %172 = lshr i8 %171, 4
+  %173 = and i8 %172, 7
+  %174 = load i32, ptr @ett_evs_header, align 4
+  %175 = call ptr @proto_tree_add_subtree(ptr noundef %42, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %174, ptr noundef nonnull %5, ptr noundef nonnull @.str.27) #4
+  %176 = zext nneg i8 %173 to i64
+  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table.dissect_evs, i64 0, i64 %176
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %177 = zext nneg i8 %173 to i64
+  %switch.gep226 = getelementptr inbounds [8 x ptr], ptr @switch.table.dissect_evs.1, i64 0, i64 %177
+  %switch.load227 = load ptr, ptr %switch.gep226, align 8
+  %178 = and i8 %171, 15
+  %179 = zext nneg i8 %178 to i32
+  %180 = call ptr @val_to_str_const(i32 noundef %179, ptr noundef nonnull %switch.load, ptr noundef nonnull @.str.212) #4
   %181 = load ptr, ptr %5, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %181, ptr noundef nonnull @.str.241, ptr noundef %180) #4
-  br label %dissect_evs_cmr.exit
-
-182:                                              ; preds = %172
-  %183 = call ptr @val_to_str_const(i32 noundef %178, ptr noundef nonnull @evs_d_bits_t1_values, ptr noundef nonnull @.str.212) #4
-  %184 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %184, ptr noundef nonnull @.str.241, ptr noundef %183) #4
-  br label %dissect_evs_cmr.exit
-
-185:                                              ; preds = %172
-  %186 = call ptr @val_to_str_const(i32 noundef %178, ptr noundef nonnull @evs_d_bits_t2_values, ptr noundef nonnull @.str.212) #4
-  %187 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %187, ptr noundef nonnull @.str.241, ptr noundef %186) #4
-  br label %dissect_evs_cmr.exit
-
-188:                                              ; preds = %172
-  %189 = call ptr @val_to_str_const(i32 noundef %178, ptr noundef nonnull @evs_d_bits_t3_values, ptr noundef nonnull @.str.212) #4
-  %190 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %190, ptr noundef nonnull @.str.241, ptr noundef %189) #4
-  br label %dissect_evs_cmr.exit
-
-191:                                              ; preds = %172
-  %192 = call ptr @val_to_str_const(i32 noundef %178, ptr noundef nonnull @evs_d_bits_t4_values, ptr noundef nonnull @.str.212) #4
-  %193 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %193, ptr noundef nonnull @.str.241, ptr noundef %192) #4
-  br label %dissect_evs_cmr.exit
-
-194:                                              ; preds = %172
-  %195 = call ptr @val_to_str_const(i32 noundef %178, ptr noundef nonnull @evs_d_bits_t5_values, ptr noundef nonnull @.str.212) #4
-  %196 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %196, ptr noundef nonnull @.str.241, ptr noundef %195) #4
-  br label %dissect_evs_cmr.exit
-
-197:                                              ; preds = %172
-  %198 = call ptr @val_to_str_const(i32 noundef %178, ptr noundef nonnull @evs_d_bits_t6_values, ptr noundef nonnull @.str.212) #4
-  %199 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %199, ptr noundef nonnull @.str.241, ptr noundef %198) #4
-  br label %dissect_evs_cmr.exit
-
-200:                                              ; preds = %172
-  %201 = call ptr @val_to_str_const(i32 noundef %178, ptr noundef nonnull @evs_d_bits_t7_values, ptr noundef nonnull @.str.212) #4
-  %202 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %202, ptr noundef nonnull @.str.241, ptr noundef %201) #4
-  br label %dissect_evs_cmr.exit
-
-default.unreachable:                              ; preds = %172
-  unreachable
-
-dissect_evs_cmr.exit:                             ; preds = %179, %182, %185, %188, %191, %194, %197, %200
-  %dissect_evs_cmr.flags_t7.sink.i = phi ptr [ @dissect_evs_cmr.flags_t7, %200 ], [ @dissect_evs_cmr.flags_t6, %197 ], [ @dissect_evs_cmr.flags_t5, %194 ], [ @dissect_evs_cmr.flags_t4, %191 ], [ @dissect_evs_cmr.flags_t3, %188 ], [ @dissect_evs_cmr.flags_t2, %185 ], [ @dissect_evs_cmr.flags_t1, %182 ], [ @dissect_evs_cmr.flags_t0, %179 ]
-  %.0.i = phi ptr [ %201, %200 ], [ %198, %197 ], [ %195, %194 ], [ %192, %191 ], [ %189, %188 ], [ %186, %185 ], [ %183, %182 ], [ %180, %179 ]
-  call void @proto_tree_add_bitmask_list(ptr noundef %177, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %dissect_evs_cmr.flags_t7.sink.i, i32 noundef 0) #4
-  %203 = load ptr, ptr %17, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %203, i32 noundef 25, ptr noundef nonnull @.str.205, ptr noundef %.0.i) #4
+  call void @proto_tree_add_bitmask_list(ptr noundef %175, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %switch.load227, i32 noundef 0) #4
+  %182 = load ptr, ptr %17, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %182, i32 noundef 25, ptr noundef nonnull @.str.205, ptr noundef %180) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %.preheader
 
-.preheader:                                       ; preds = %dissect_evs_cmr.exit, %proto_item_set_generated.exit218
-  %.1.ph = phi i32 [ 0, %proto_item_set_generated.exit218 ], [ 1, %dissect_evs_cmr.exit ]
-  br label %204
+.preheader:                                       ; preds = %switch.lookup, %proto_item_set_generated.exit218
+  %.1.ph = phi i32 [ 0, %proto_item_set_generated.exit218 ], [ 1, %switch.lookup ]
+  br label %183
 
-204:                                              ; preds = %.preheader, %204
-  %indvars.iv = phi i32 [ %indvars.iv.next, %204 ], [ 2, %.preheader ]
-  %.0202 = phi i32 [ %206, %204 ], [ 0, %.preheader ]
-  %.1 = phi i32 [ %215, %204 ], [ %.1.ph, %.preheader ]
-  %205 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1) #4
-  %206 = add i32 %.0202, 1
-  %207 = load i32, ptr @ett_evs_header, align 4
-  %208 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %42, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef %207, ptr noundef null, ptr noundef nonnull @.str.214, i32 noundef %206) #4
-  %209 = and i8 %205, 32
-  %210 = icmp eq i8 %209, 0
-  %211 = and i8 %205, 15
-  %212 = zext nneg i8 %211 to i32
-  %dissect_evs.flags_toc_mode_0.dissect_evs.flags_toc_mode_1 = select i1 %210, ptr @dissect_evs.flags_toc_mode_0, ptr @dissect_evs.flags_toc_mode_1
-  %evs_bit_rate_mode_0_values.evs_bit_rate_mode_1_values = select i1 %210, ptr @evs_bit_rate_mode_0_values, ptr @evs_bit_rate_mode_1_values
-  call void @proto_tree_add_bitmask_list(ptr noundef %208, ptr noundef %0, i32 noundef %.1, i32 noundef 1, ptr noundef nonnull %dissect_evs.flags_toc_mode_0.dissect_evs.flags_toc_mode_1, i32 noundef 0) #4
-  %213 = call ptr @val_to_str_const(i32 noundef %212, ptr noundef nonnull %evs_bit_rate_mode_0_values.evs_bit_rate_mode_1_values, ptr noundef nonnull @.str.212) #4
-  %214 = load ptr, ptr %17, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %214, i32 noundef 25, ptr noundef nonnull @.str.205, ptr noundef %213) #4
-  %215 = add i32 %.1, 1
-  %216 = and i8 %205, 64
-  %.not214 = icmp eq i8 %216, 0
+183:                                              ; preds = %.preheader, %183
+  %indvars.iv = phi i32 [ %indvars.iv.next, %183 ], [ 2, %.preheader ]
+  %.0202 = phi i32 [ %185, %183 ], [ 0, %.preheader ]
+  %.1 = phi i32 [ %194, %183 ], [ %.1.ph, %.preheader ]
+  %184 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1) #4
+  %185 = add i32 %.0202, 1
+  %186 = load i32, ptr @ett_evs_header, align 4
+  %187 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %42, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef %186, ptr noundef null, ptr noundef nonnull @.str.214, i32 noundef %185) #4
+  %188 = and i8 %184, 32
+  %189 = icmp eq i8 %188, 0
+  %190 = and i8 %184, 15
+  %191 = zext nneg i8 %190 to i32
+  %dissect_evs.flags_toc_mode_0.dissect_evs.flags_toc_mode_1 = select i1 %189, ptr @dissect_evs.flags_toc_mode_0, ptr @dissect_evs.flags_toc_mode_1
+  %evs_bit_rate_mode_0_values.evs_bit_rate_mode_1_values = select i1 %189, ptr @evs_bit_rate_mode_0_values, ptr @evs_bit_rate_mode_1_values
+  call void @proto_tree_add_bitmask_list(ptr noundef %187, ptr noundef %0, i32 noundef %.1, i32 noundef 1, ptr noundef nonnull %dissect_evs.flags_toc_mode_0.dissect_evs.flags_toc_mode_1, i32 noundef 0) #4
+  %192 = call ptr @val_to_str_const(i32 noundef %191, ptr noundef nonnull %evs_bit_rate_mode_0_values.evs_bit_rate_mode_1_values, ptr noundef nonnull @.str.212) #4
+  %193 = load ptr, ptr %17, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %193, i32 noundef 25, ptr noundef nonnull @.str.205, ptr noundef %192) #4
+  %194 = add i32 %.1, 1
+  %195 = and i8 %184, 64
+  %.not214 = icmp eq i8 %195, 0
   %indvars.iv.next = add i32 %indvars.iv, 1
-  br i1 %.not214, label %217, label %204, !llvm.loop !4
+  br i1 %.not214, label %196, label %183, !llvm.loop !4
 
-217:                                              ; preds = %204
-  %218 = sub i32 %19, %215
-  %219 = sdiv i32 %218, %206
-  %220 = load ptr, ptr %17, align 8
-  %221 = icmp eq i32 %.0202, 0
-  %222 = select i1 %221, ptr @.str.64, ptr @.str.217
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %220, i32 noundef 25, ptr noundef nonnull @.str.215, ptr noundef nonnull @.str.216, i32 noundef %206, ptr noundef nonnull %222) #4
-  %223 = icmp ult i32 %.0202, 2147483647
-  br i1 %223, label %.lr.ph, label %.loopexit
+196:                                              ; preds = %183
+  %197 = sub i32 %19, %194
+  %198 = sdiv i32 %197, %185
+  %199 = load ptr, ptr %17, align 8
+  %200 = icmp eq i32 %.0202, 0
+  %201 = select i1 %200, ptr @.str.64, ptr @.str.217
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %199, i32 noundef 25, ptr noundef nonnull @.str.215, ptr noundef nonnull @.str.216, i32 noundef %185, ptr noundef nonnull %201) #4
+  %202 = icmp ult i32 %.0202, 2147483647
+  br i1 %202, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %217, %.lr.ph
-  %.2222 = phi i32 [ %228, %.lr.ph ], [ %215, %217 ]
-  %.1203220 = phi i32 [ %229, %.lr.ph ], [ 1, %217 ]
-  %224 = load i32, ptr @ett_evs_speech, align 4
-  %225 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %42, ptr noundef %0, i32 noundef %.2222, i32 noundef %219, i32 noundef %224, ptr noundef null, ptr noundef nonnull @.str.218, i32 noundef %.1203220) #4
-  %226 = load i32, ptr @hf_evs_voice_data, align 4
-  %227 = call ptr @proto_tree_add_item(ptr noundef %225, i32 noundef %226, ptr noundef %0, i32 noundef %.2222, i32 noundef %219, i32 noundef 0) #4
-  %228 = add i32 %.2222, %219
-  %229 = add nuw i32 %.1203220, 1
-  %exitcond.not = icmp eq i32 %229, %indvars.iv
+.lr.ph:                                           ; preds = %196, %.lr.ph
+  %.2222 = phi i32 [ %207, %.lr.ph ], [ %194, %196 ]
+  %.1203220 = phi i32 [ %208, %.lr.ph ], [ 1, %196 ]
+  %203 = load i32, ptr @ett_evs_speech, align 4
+  %204 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %42, ptr noundef %0, i32 noundef %.2222, i32 noundef %198, i32 noundef %203, ptr noundef null, ptr noundef nonnull @.str.218, i32 noundef %.1203220) #4
+  %205 = load i32, ptr @hf_evs_voice_data, align 4
+  %206 = call ptr @proto_tree_add_item(ptr noundef %204, i32 noundef %205, ptr noundef %0, i32 noundef %.2222, i32 noundef %198, i32 noundef 0) #4
+  %207 = add i32 %.2222, %198
+  %208 = add nuw i32 %.1203220, 1
+  %exitcond.not = icmp eq i32 %208, %indvars.iv
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
-.loopexit:                                        ; preds = %.lr.ph, %217, %65, %95, %98, %101, %104, %156, %78, %73, %92, %87, %118, %109, %126, %131, %134, %153, %150, %62
+.loopexit:                                        ; preds = %.lr.ph, %196, %65, %95, %98, %101, %104, %156, %78, %73, %92, %87, %118, %109, %126, %131, %134, %153, %150, %62
   ret i32 %19
 }
 

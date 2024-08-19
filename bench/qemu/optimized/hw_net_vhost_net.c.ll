@@ -569,12 +569,12 @@ get_vhost_net.exit65:                             ; preds = %if.end.i53, %sw.bb.
 if.then.i:                                        ; preds = %get_vhost_net.exit65
   %call.i67 = call i32 %15(ptr noundef nonnull %13) #11
   %cmp.i = icmp slt i32 %call.i67, 0
-  br i1 %cmp.i, label %vhost_net_start_one.exit.thread, label %if.end6.i
+  br i1 %cmp.i, label %err_start.sink.split, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then.i, %get_vhost_net.exit65
   %call8.i = call i32 @vhost_dev_enable_notifiers(ptr noundef nonnull %retval.0.i57, ptr noundef %dev) #11
   %cmp9.i = icmp slt i32 %call8.i, 0
-  br i1 %cmp9.i, label %vhost_net_start_one.exit.thread, label %if.end11.i
+  br i1 %cmp9.i, label %err_start.sink.split, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end6.i
   %call13.i = call i32 @vhost_dev_start(ptr noundef nonnull %retval.0.i57, ptr noundef %dev, i1 noundef zeroext false) #11
@@ -583,8 +583,7 @@ if.end11.i:                                       ; preds = %if.end6.i
 
 vhost_net_start_one.exit.thread90:                ; preds = %if.end11.i
   call void @vhost_dev_disable_notifiers(ptr noundef nonnull %retval.0.i57, ptr noundef %dev) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %file.i)
-  br label %err_start
+  br label %err_start.sink.split
 
 if.end16.i:                                       ; preds = %if.end11.i
   %16 = load ptr, ptr %nc.i, align 8
@@ -720,11 +719,6 @@ if.then85.i:                                      ; preds = %if.end80.i
   call void %39(ptr noundef nonnull %37, i1 noundef zeroext true) #11
   br label %vhost_net_start_one.exit
 
-vhost_net_start_one.exit.thread:                  ; preds = %if.then.i, %if.end6.i
-  %retval.0.i68.ph = phi i32 [ %call8.i, %if.end6.i ], [ %call.i67, %if.then.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %file.i)
-  br label %err_start
-
 vhost_net_start_one.exit.thread87:                ; preds = %if.then50.i, %if.end46.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %file.i)
   br label %for.inc57
@@ -741,8 +735,13 @@ for.inc57:                                        ; preds = %vhost_net_start_one
   %exitcond123.not = icmp eq i32 %inc58, %add6
   br i1 %exitcond123.not, label %return, label %for.body32, !llvm.loop !9
 
-err_start:                                        ; preds = %vhost_net_start_one.exit, %if.then43, %vhost_net_start_one.exit.thread90, %vhost_net_start_one.exit.thread
-  %r.1 = phi i32 [ %retval.0.i68.ph, %vhost_net_start_one.exit.thread ], [ %call13.i, %vhost_net_start_one.exit.thread90 ], [ %r.2.i, %vhost_net_start_one.exit ], [ %call45, %if.then43 ]
+err_start.sink.split:                             ; preds = %if.end6.i, %if.then.i, %vhost_net_start_one.exit.thread90
+  %r.1.ph = phi i32 [ %call13.i, %vhost_net_start_one.exit.thread90 ], [ %call8.i, %if.end6.i ], [ %call.i67, %if.then.i ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %file.i)
+  br label %err_start
+
+err_start:                                        ; preds = %vhost_net_start_one.exit, %if.then43, %err_start.sink.split
+  %r.1 = phi i32 [ %r.1.ph, %err_start.sink.split ], [ %r.2.i, %vhost_net_start_one.exit ], [ %call45, %if.then43 ]
   %cmp60109.not = icmp eq i32 %i.1106, 0
   br i1 %cmp60109.not, label %while.end, label %while.body
 

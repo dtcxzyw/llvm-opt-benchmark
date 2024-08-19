@@ -7381,12 +7381,12 @@ define void @_Z9get_indexPK7t_atomsPKciPiPS4_PPc(ptr noundef readonly %0, ptr no
   %12 = alloca %"class.std::filesystem::__cxx11::path", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %.not = icmp eq ptr %1, null
-  %.sink57.sroa.gep58 = getelementptr inbounds i8, ptr %9, i64 8
-  %.sink57.sroa.gep61 = getelementptr inbounds i8, ptr %9, i64 16
+  %.sink57.sroa.gep59 = getelementptr inbounds i8, ptr %9, i64 8
+  %.sink57.sroa.gep62 = getelementptr inbounds i8, ptr %9, i64 16
   br i1 %.not, label %16, label %13
 
 13:                                               ; preds = %6
-  %.sink57.sroa.gep60 = getelementptr inbounds i8, ptr %8, i64 16
+  %.sink57.sroa.gep61 = getelementptr inbounds i8, ptr %8, i64 16
   %.sink57.sroa.gep = getelementptr inbounds i8, ptr %8, i64 8
   invoke void @_Z10init_indexPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.5") align 8 %8, ptr noundef nonnull %1)
           to label %_ZNSt6vectorI10IndexGroupSaIS0_EED2Ev.exit unwind label %14
@@ -7447,23 +7447,23 @@ define void @_Z9get_indexPK7t_atomsPKciPiPS4_PPc(ptr noundef readonly %0, ptr no
   br label %47
 
 _ZNSt6vectorI10IndexGroupSaIS0_EED2Ev.exit:       ; preds = %17, %13
-  %.sink57.sroa.phi = phi ptr [ %.sink57.sroa.gep, %13 ], [ %.sink57.sroa.gep58, %17 ]
-  %.sink57.sroa.phi59 = phi ptr [ %.sink57.sroa.gep60, %13 ], [ %.sink57.sroa.gep61, %17 ]
+  %.sink57.sroa.phi = phi ptr [ %.sink57.sroa.gep, %13 ], [ %.sink57.sroa.gep59, %17 ]
+  %.sink57.sroa.phi60 = phi ptr [ %.sink57.sroa.gep61, %13 ], [ %.sink57.sroa.gep62, %17 ]
   %.sink57 = phi ptr [ %8, %13 ], [ %9, %17 ]
   %30 = getelementptr inbounds i8, ptr %7, i64 8
   %31 = getelementptr inbounds i8, ptr %7, i64 16
-  %storemerge = load ptr, ptr %.sink57, align 8
-  store ptr %storemerge, ptr %7, align 8
+  %.sink58 = load ptr, ptr %.sink57, align 8
+  store ptr %.sink58, ptr %7, align 8
   %32 = load ptr, ptr %.sink57.sroa.phi, align 8
   store ptr %32, ptr %30, align 8
-  %33 = load ptr, ptr %.sink57.sroa.phi59, align 8
+  %33 = load ptr, ptr %.sink57.sroa.phi60, align 8
   store ptr %33, ptr %31, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sink57, i8 0, i64 24, i1 false)
   %34 = ptrtoint ptr %32 to i64
-  %35 = ptrtoint ptr %storemerge to i64
+  %35 = ptrtoint ptr %.sink58 to i64
   %36 = sub i64 %34, %35
-  %37 = getelementptr inbounds i8, ptr %storemerge, i64 %36
-  invoke fastcc void @_ZL9rd_groupsN3gmx8ArrayRefIK10IndexGroupEEPPciPiPS6_(ptr %storemerge, ptr %37, ptr noundef %5, i32 noundef %2, ptr noundef %3, ptr noundef %4)
+  %37 = getelementptr inbounds i8, ptr %.sink58, i64 %36
+  invoke fastcc void @_ZL9rd_groupsN3gmx8ArrayRefIK10IndexGroupEEPPciPiPS6_(ptr %.sink58, ptr %37, ptr noundef %5, i32 noundef %2, ptr noundef %3, ptr noundef %4)
           to label %38 unwind label %14
 
 38:                                               ; preds = %_ZNSt6vectorI10IndexGroupSaIS0_EED2Ev.exit

@@ -578,10 +578,9 @@ $_ZZN4node11Environment29DecreaseWaitingRequestCounterEvE4args = comdat any
 @_ZZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEE4InitERKN2v820FunctionCallbackInfoINS4_5ValueEEEE4args_2 = internal constant %"struct.node::AssertionInfo" { ptr @.str.291, ptr @.str.292, ptr @.str.316 }, align 8
 @.str.317 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_node_zlib.cc, ptr null }]
-@switch.table._ZN4node12_GLOBAL__N_110ZlibStream6ParamsERKN2v820FunctionCallbackInfoINS2_5ValueEEE.26 = private unnamed_addr constant [9 x ptr] [ptr @.str.14, ptr @.str.174, ptr @.str.12, ptr @.str.11, ptr @.str.10, ptr @.str.9, ptr @.str.174, ptr @.str.7, ptr @.str.8], align 8
-@switch.table._ZN4node12_GLOBAL__N_111ZlibContext11ResetStreamEv.28 = private unnamed_addr constant [9 x ptr] [ptr @.str.14, ptr @.str.13, ptr @.str.12, ptr @.str.11, ptr @.str.10, ptr @.str.9, ptr @.str.174, ptr @.str.7, ptr @.str.8], align 8
+@switch.table._ZN4node12_GLOBAL__N_111ZlibContext11ResetStreamEv.27 = private unnamed_addr constant [9 x ptr] [ptr @.str.14, ptr @.str.13, ptr @.str.12, ptr @.str.11, ptr @.str.10, ptr @.str.9, ptr @.str.174, ptr @.str.7, ptr @.str.8], align 8
 @switch.table._ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE10CheckErrorEv = private unnamed_addr constant [6 x ptr] [ptr @.str.13, ptr @.str.12, ptr @.str.11, ptr @.str.10, ptr @.str.9, ptr @.str.6], align 8
-@switch.table._ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE10CheckErrorEv.29 = private unnamed_addr constant [6 x ptr] [ptr @.str.14, ptr @.str.174, ptr @.str.12, ptr @.str.11, ptr @.str.10, ptr @.str.9], align 8
+@switch.table._ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE10CheckErrorEv.28 = private unnamed_addr constant [6 x ptr] [ptr @.str.14, ptr @.str.174, ptr @.str.12, ptr @.str.11, ptr @.str.10, ptr @.str.9], align 8
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
@@ -6382,20 +6381,46 @@ if.then.i19:                                      ; preds = %if.end56
   %this.val3.i = load ptr, ptr %26, align 8, !noalias !6
   %cmp.not.i.i = icmp eq ptr %this.val3.i, null
   %spec.select.i.i = select i1 %cmp.not.i.i, ptr @.str.260, ptr %this.val3.i
-  %switch.tableidx = add i32 %25, 6
-  %27 = icmp ult i32 %switch.tableidx, 9
-  br i1 %27, label %switch.lookup, label %if.then59
+  switch i32 %25, label %if.end24.i.i.i [
+    i32 -6, label %if.then23.i.i.i
+    i32 1, label %if.then59
+    i32 2, label %if.then5.i.i.i
+    i32 -1, label %if.then8.i.i.i
+    i32 -2, label %if.then11.i.i.i
+    i32 -3, label %if.then14.i.i.i
+    i32 -4, label %if.then17.i.i.i
+    i32 -5, label %if.then20.i.i.i
+  ]
 
-switch.lookup:                                    ; preds = %if.then.i19
-  %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_111ZlibContext11ResetStreamEv.28, i64 0, i64 %28
-  br label %if.then59.sink.split
+if.then5.i.i.i:                                   ; preds = %if.then.i19
+  br label %if.then59
+
+if.then8.i.i.i:                                   ; preds = %if.then.i19
+  br label %if.then59
+
+if.then11.i.i.i:                                  ; preds = %if.then.i19
+  br label %if.then59
+
+if.then14.i.i.i:                                  ; preds = %if.then.i19
+  br label %if.then59
+
+if.then17.i.i.i:                                  ; preds = %if.then.i19
+  br label %if.then59
+
+if.then20.i.i.i:                                  ; preds = %if.then.i19
+  br label %if.then59
+
+if.then23.i.i.i:                                  ; preds = %if.then.i19
+  br label %if.then59
+
+if.end24.i.i.i:                                   ; preds = %if.then.i19
+  br label %if.then59
 
 if.end.i18:                                       ; preds = %if.end56
   store i32 0, ptr %err_.i, align 4, !noalias !6
   %mode_.i = getelementptr inbounds i8, ptr %retval.i17.0.i, i64 308
-  %29 = load i32, ptr %mode_.i, align 4, !noalias !6
-  switch i32 %29, label %if.end60 [
+  %27 = load i32, ptr %mode_.i, align 4, !noalias !6
+  switch i32 %27, label %if.end60 [
     i32 1, label %sw.epilog.i
     i32 5, label %sw.epilog.i
   ]
@@ -6410,31 +6435,46 @@ sw.epilog.i:                                      ; preds = %if.end.i18, %if.end
   ]
 
 if.then10.i:                                      ; preds = %sw.epilog.i
-  %30 = getelementptr inbounds i8, ptr %retval.i17.0.i, i64 400
-  %this.val1.i = load ptr, ptr %30, align 8, !noalias !6
+  %28 = getelementptr inbounds i8, ptr %retval.i17.0.i, i64 400
+  %this.val1.i = load ptr, ptr %28, align 8, !noalias !6
   %cmp.not.i4.i = icmp eq ptr %this.val1.i, null
   %spec.select.i5.i = select i1 %cmp.not.i4.i, ptr @.str.261, ptr %this.val1.i
-  %switch.tableidx23 = add i32 %call3.i, 6
-  %31 = icmp ult i32 %switch.tableidx23, 9
-  br i1 %31, label %switch.lookup22, label %if.then59
+  switch i32 %call3.i, label %if.end24.i.i17.i [
+    i32 -6, label %if.then23.i.i6.i
+    i32 1, label %if.then59
+    i32 2, label %if.then5.i.i15.i
+    i32 -1, label %if.then8.i.i14.i
+    i32 -2, label %if.then11.i.i13.i
+    i32 -3, label %if.then14.i.i12.i
+    i32 -4, label %if.then17.i.i11.i
+  ]
 
-switch.lookup22:                                  ; preds = %if.then10.i
-  %32 = zext nneg i32 %switch.tableidx23 to i64
-  %switch.gep24 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_110ZlibStream6ParamsERKN2v820FunctionCallbackInfoINS2_5ValueEEE.26, i64 0, i64 %32
-  br label %if.then59.sink.split
-
-if.then59.sink.split:                             ; preds = %switch.lookup, %switch.lookup22
-  %switch.gep24.sink = phi ptr [ %switch.gep24, %switch.lookup22 ], [ %switch.gep, %switch.lookup ]
-  %storemerge.ph = phi ptr [ %spec.select.i5.i, %switch.lookup22 ], [ %spec.select.i.i, %switch.lookup ]
-  %.sink.ph = phi i32 [ %call3.i, %switch.lookup22 ], [ %25, %switch.lookup ]
-  %switch.load25 = load ptr, ptr %switch.gep24.sink, align 8
+if.then5.i.i15.i:                                 ; preds = %if.then10.i
   br label %if.then59
 
-if.then59:                                        ; preds = %if.then59.sink.split, %if.then10.i, %if.then.i19
-  %storemerge = phi ptr [ %spec.select.i.i, %if.then.i19 ], [ %spec.select.i5.i, %if.then10.i ], [ %storemerge.ph, %if.then59.sink.split ]
-  %retval.0.i.i.i.sink = phi ptr [ @.str.174, %if.then.i19 ], [ @.str.174, %if.then10.i ], [ %switch.load25, %if.then59.sink.split ]
-  %.sink = phi i32 [ %25, %if.then.i19 ], [ %call3.i, %if.then10.i ], [ %.sink.ph, %if.then59.sink.split ]
-  store ptr %storemerge, ptr %err, align 8, !alias.scope !6
+if.then8.i.i14.i:                                 ; preds = %if.then10.i
+  br label %if.then59
+
+if.then11.i.i13.i:                                ; preds = %if.then10.i
+  br label %if.then59
+
+if.then14.i.i12.i:                                ; preds = %if.then10.i
+  br label %if.then59
+
+if.then17.i.i11.i:                                ; preds = %if.then10.i
+  br label %if.then59
+
+if.then23.i.i6.i:                                 ; preds = %if.then10.i
+  br label %if.then59
+
+if.end24.i.i17.i:                                 ; preds = %if.then10.i
+  br label %if.then59
+
+if.then59:                                        ; preds = %if.then10.i, %if.then5.i.i15.i, %if.then8.i.i14.i, %if.then11.i.i13.i, %if.then14.i.i12.i, %if.then17.i.i11.i, %if.then23.i.i6.i, %if.end24.i.i17.i, %if.then.i19, %if.then5.i.i.i, %if.then8.i.i.i, %if.then11.i.i.i, %if.then14.i.i.i, %if.then17.i.i.i, %if.then20.i.i.i, %if.then23.i.i.i, %if.end24.i.i.i
+  %spec.select.i.i.sink = phi ptr [ %spec.select.i.i, %if.end24.i.i.i ], [ %spec.select.i.i, %if.then23.i.i.i ], [ %spec.select.i.i, %if.then20.i.i.i ], [ %spec.select.i.i, %if.then17.i.i.i ], [ %spec.select.i.i, %if.then14.i.i.i ], [ %spec.select.i.i, %if.then11.i.i.i ], [ %spec.select.i.i, %if.then8.i.i.i ], [ %spec.select.i.i, %if.then5.i.i.i ], [ %spec.select.i.i, %if.then.i19 ], [ %spec.select.i5.i, %if.end24.i.i17.i ], [ %spec.select.i5.i, %if.then23.i.i6.i ], [ %spec.select.i5.i, %if.then17.i.i11.i ], [ %spec.select.i5.i, %if.then14.i.i12.i ], [ %spec.select.i5.i, %if.then11.i.i13.i ], [ %spec.select.i5.i, %if.then8.i.i14.i ], [ %spec.select.i5.i, %if.then5.i.i15.i ], [ %spec.select.i5.i, %if.then10.i ]
+  %retval.0.i.i.i.sink = phi ptr [ @.str.174, %if.end24.i.i.i ], [ @.str.14, %if.then23.i.i.i ], [ @.str.13, %if.then20.i.i.i ], [ @.str.12, %if.then17.i.i.i ], [ @.str.11, %if.then14.i.i.i ], [ @.str.10, %if.then11.i.i.i ], [ @.str.9, %if.then8.i.i.i ], [ @.str.8, %if.then5.i.i.i ], [ @.str.7, %if.then.i19 ], [ @.str.174, %if.end24.i.i17.i ], [ @.str.14, %if.then23.i.i6.i ], [ @.str.12, %if.then17.i.i11.i ], [ @.str.11, %if.then14.i.i12.i ], [ @.str.10, %if.then11.i.i13.i ], [ @.str.9, %if.then8.i.i14.i ], [ @.str.8, %if.then5.i.i15.i ], [ @.str.7, %if.then10.i ]
+  %.sink = phi i32 [ %25, %if.end24.i.i.i ], [ %25, %if.then23.i.i.i ], [ %25, %if.then20.i.i.i ], [ %25, %if.then17.i.i.i ], [ %25, %if.then14.i.i.i ], [ %25, %if.then11.i.i.i ], [ %25, %if.then8.i.i.i ], [ %25, %if.then5.i.i.i ], [ %25, %if.then.i19 ], [ %call3.i, %if.end24.i.i17.i ], [ %call3.i, %if.then23.i.i6.i ], [ %call3.i, %if.then17.i.i11.i ], [ %call3.i, %if.then14.i.i12.i ], [ %call3.i, %if.then11.i.i13.i ], [ %call3.i, %if.then8.i.i14.i ], [ %call3.i, %if.then5.i.i15.i ], [ %call3.i, %if.then10.i ]
+  store ptr %spec.select.i.i.sink, ptr %err, align 8, !alias.scope !6
   %code3.i.i.i = getelementptr inbounds i8, ptr %err, i64 8
   store ptr %retval.0.i.i.i.sink, ptr %code3.i.i.i, align 8, !alias.scope !6
   %err4.i.i.i = getelementptr inbounds i8, ptr %err, i64 16
@@ -6444,16 +6484,16 @@ if.then59:                                        ; preds = %if.then59.sink.spli
 
 if.end60:                                         ; preds = %sw.epilog.i, %sw.epilog.i, %if.end.i18, %if.then59
   %unreported_allocations_.i.i = getelementptr inbounds i8, ptr %retval.i17.0.i, i64 224
-  %33 = atomicrmw xchg ptr %unreported_allocations_.i.i, i64 0 monotonic, align 8
-  %cmp.i.i = icmp eq i64 %33, 0
+  %29 = atomicrmw xchg ptr %unreported_allocations_.i.i, i64 0 monotonic, align 8
+  %cmp.i.i = icmp eq i64 %29, 0
   br i1 %cmp.i.i, label %return, label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %if.end60
-  %cmp2.i.i = icmp slt i64 %33, 0
+  %cmp2.i.i = icmp slt i64 %29, 0
   %zlib_memory_.i.i = getelementptr inbounds i8, ptr %retval.i17.0.i, i64 232
-  %34 = load i64, ptr %zlib_memory_.i.i, align 8
-  %sub.i.i = sub nsw i64 0, %33
-  %cmp3.i.i = icmp ult i64 %34, %sub.i.i
+  %30 = load i64, ptr %zlib_memory_.i.i, align 8
+  %sub.i.i = sub nsw i64 0, %29
+  %cmp3.i.i = icmp ult i64 %30, %sub.i.i
   %lnot.i.i = select i1 %cmp2.i.i, i1 %cmp3.i.i, i1 false
   br i1 %lnot.i.i, label %do.body7.i.i, label %do.end9.i.i
 
@@ -6463,15 +6503,15 @@ do.body7.i.i:                                     ; preds = %do.body.i.i
   unreachable
 
 do.end9.i.i:                                      ; preds = %do.body.i.i
-  %add.i.i = add i64 %34, %33
+  %add.i.i = add i64 %30, %29
   store i64 %add.i.i, ptr %zlib_memory_.i.i, align 8
   %realm_.i.i.i = getelementptr inbounds i8, ptr %retval.i17.0.i, i64 16
-  %35 = load ptr, ptr %realm_.i.i.i, align 8
-  %env_.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 176
-  %36 = load ptr, ptr %env_.i.i.i.i, align 8
-  %isolate_.i.i.i = getelementptr inbounds i8, ptr %36, i64 88
-  %37 = load ptr, ptr %isolate_.i.i.i, align 8
-  %call13.i.i = tail call noundef i64 @_ZN2v87Isolate37AdjustAmountOfExternalAllocatedMemoryEl(ptr noundef nonnull align 1 dereferenceable(1) %37, i64 noundef %33) #22
+  %31 = load ptr, ptr %realm_.i.i.i, align 8
+  %env_.i.i.i.i = getelementptr inbounds i8, ptr %31, i64 176
+  %32 = load ptr, ptr %env_.i.i.i.i, align 8
+  %isolate_.i.i.i = getelementptr inbounds i8, ptr %32, i64 88
+  %33 = load ptr, ptr %isolate_.i.i.i, align 8
+  %call13.i.i = tail call noundef i64 @_ZN2v87Isolate37AdjustAmountOfExternalAllocatedMemoryEl(ptr noundef nonnull align 1 dereferenceable(1) %33, i64 noundef %29) #22
   br label %return
 
 return:                                           ; preds = %do.end9.i.i, %if.end60, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit78, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
@@ -8970,7 +9010,7 @@ if.then:                                          ; preds = %entry
 
 switch.lookup:                                    ; preds = %if.then
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_111ZlibContext11ResetStreamEv.28, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_111ZlibContext11ResetStreamEv.27, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit
 
@@ -9023,7 +9063,7 @@ if.then11:                                        ; preds = %sw.epilog
 
 switch.lookup21:                                  ; preds = %if.then11
   %8 = zext nneg i32 %switch.tableidx22 to i64
-  %switch.gep23 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_111ZlibContext11ResetStreamEv.28, i64 0, i64 %8
+  %switch.gep23 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_111ZlibContext11ResetStreamEv.27, i64 0, i64 %8
   %switch.load24 = load ptr, ptr %switch.gep23, align 8
   br label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit18
 
@@ -9093,7 +9133,7 @@ if.then18.i:                                      ; preds = %sw.epilog.i
 
 switch.lookup25:                                  ; preds = %if.then18.i
   %15 = zext nneg i32 %switch.tableidx26 to i64
-  %switch.gep27 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_111ZlibContext11ResetStreamEv.28, i64 0, i64 %15
+  %switch.gep27 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_111ZlibContext11ResetStreamEv.27, i64 0, i64 %15
   %switch.load28 = load ptr, ptr %switch.gep27, align 8
   br label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit.i
 
@@ -9202,7 +9242,7 @@ sw.default.i:                                     ; preds = %entry
 switch.lookup:                                    ; preds = %sw.default.i
   %switch.tableidx5 = add nsw i32 %0, 6
   %10 = sext i32 %switch.tableidx5 to i64
-  %switch.gep6 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE10CheckErrorEv.29, i64 0, i64 %10
+  %switch.gep6 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE10CheckErrorEv.28, i64 0, i64 %10
   %switch.load7 = load ptr, ptr %switch.gep6, align 8
   br label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit52.i
 

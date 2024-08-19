@@ -2061,7 +2061,7 @@ invoke.cont702:                                   ; preds = %.noexc351
 if.else708.thread:                                ; preds = %invoke.cont702
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i353)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i368)
-  br label %invoke.cont709.thread
+  br label %if.else713.sink.split
 
 if.end6.i356:                                     ; preds = %invoke.cont702
   %189 = ptrtoint ptr %call.i352 to i64
@@ -2094,7 +2094,7 @@ if.else708:                                       ; preds = %.noexc366
   %.pr429.pre = load ptr, ptr %s, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i368)
   %cmp.i369 = icmp eq ptr %.pr429.pre, null
-  br i1 %cmp.i369, label %invoke.cont709.thread, label %if.end6.i371
+  br i1 %cmp.i369, label %if.else713.sink.split, label %if.end6.i371
 
 if.end6.i371:                                     ; preds = %if.else708.thread442, %if.else708
   %.pr429445 = phi ptr [ %call.i352, %if.else708.thread442 ], [ %.pr429.pre, %if.else708 ]
@@ -2114,24 +2114,16 @@ if.end11.i378:                                    ; preds = %if.end6.i371
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i368)
   br i1 %cmp.i9.i380, label %if.end729, label %if.else713
 
-invoke.cont709.thread:                            ; preds = %if.else708, %if.else708.thread
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i368)
-  br label %if.else713
-
 sub_0:                                            ; preds = %if.end6.i371
   %191 = load i8, ptr %.pr429445, align 1
   %.not = icmp eq i8 %191, 112
-  br i1 %.not, label %sub_1, label %invoke.cont709.tail.thread
+  br i1 %.not, label %sub_1, label %if.else713.sink.split
 
 sub_1:                                            ; preds = %sub_0
   %192 = getelementptr inbounds i8, ptr %.pr429445, i64 1
   %193 = load i8, ptr %192, align 1
   %.not435 = icmp eq i8 %193, 98
-  br i1 %.not435, label %invoke.cont709.tail, label %invoke.cont709.tail.thread
-
-invoke.cont709.tail.thread:                       ; preds = %sub_0, %sub_1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i368)
-  br label %if.else713
+  br i1 %.not435, label %invoke.cont709.tail, label %if.else713.sink.split
 
 invoke.cont709.tail:                              ; preds = %sub_1
   %194 = getelementptr inbounds i8, ptr %.pr429445, i64 2
@@ -2140,7 +2132,11 @@ invoke.cont709.tail:                              ; preds = %sub_1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i368)
   br i1 %196, label %if.end729, label %if.else713
 
-if.else713:                                       ; preds = %invoke.cont709.tail.thread, %.noexc381, %invoke.cont709.thread, %invoke.cont709.tail
+if.else713.sink.split:                            ; preds = %sub_1, %sub_0, %if.else708.thread, %if.else708
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i368)
+  br label %if.else713
+
+if.else713:                                       ; preds = %if.else713.sink.split, %.noexc381, %invoke.cont709.tail
   %exception714 = call ptr @__cxa_allocate_exception(i64 40) #13
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp716) #13
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp715, ptr noundef nonnull @.str.52, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp716)

@@ -249,7 +249,7 @@ if.end15.i:                                       ; preds = %ecdh_cms_set_peerke
   store ptr null, ptr %der.i.i, align 8
   %call.i7.i = call i32 @CMS_RecipientInfo_kari_get0_alg(ptr noundef %ri, ptr noundef nonnull %alg.i.i, ptr noundef nonnull %ukm.i.i) #3
   %tobool.not.i8.i = icmp eq i32 %call.i7.i, 0
-  br i1 %tobool.not.i8.i, label %ecdh_cms_set_shared_info.exit.thread.i, label %if.end.i9.i
+  br i1 %tobool.not.i8.i, label %if.then18.i, label %if.end.i9.i
 
 if.end.i9.i:                                      ; preds = %if.end15.i
   %8 = load ptr, ptr %alg.i.i, align 8
@@ -309,7 +309,7 @@ if.then4.i.i:                                     ; preds = %ecdh_cms_set_kdf_pa
   call void @ERR_new() #3
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 175, ptr noundef nonnull @__func__.ecdh_cms_set_shared_info) #3
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 186, ptr noundef null) #3
-  br label %ecdh_cms_set_shared_info.exit.thread.i
+  br label %if.then18.i
 
 if.end5.i.i:                                      ; preds = %ecdh_cms_set_kdf_param.exit.i.i
   %12 = load ptr, ptr %alg.i.i, align 8
@@ -317,7 +317,7 @@ if.end5.i.i:                                      ; preds = %ecdh_cms_set_kdf_pa
   %13 = load ptr, ptr %parameter.i.i, align 8
   %14 = load i32, ptr %13, align 8
   %cmp.not.i19.i = icmp eq i32 %14, 16
-  br i1 %cmp.not.i19.i, label %if.end7.i20.i, label %ecdh_cms_set_shared_info.exit.thread.i
+  br i1 %cmp.not.i19.i, label %if.end7.i20.i, label %if.then18.i
 
 if.end7.i20.i:                                    ; preds = %if.end5.i.i
   %value.i.i = getelementptr inbounds i8, ptr %13, i64 8
@@ -395,28 +395,20 @@ if.end57.i.i:                                     ; preds = %if.end52.i.i
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %name.i.i)
   br label %ecdh_cms_decrypt.exit
 
-ecdh_cms_set_shared_info.exit.thread.i:           ; preds = %if.end5.i.i, %if.then4.i.i, %if.end15.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alg.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ukm.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %der.i.i)
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %name.i.i)
-  br label %if.then18.i
-
 if.then18.critedge.i:                             ; preds = %if.end52.i.i, %if.end47.i.i, %if.end41.i.i, %if.end35.i.i, %if.end31.i.i, %lor.lhs.false.i.i, %if.end20.i.i, %if.end15.i.i, %if.end7.i20.i
   %kekcipher.0.i.ph.i = phi ptr [ %call24.i.i, %if.end31.i.i ], [ %call24.i.i, %if.end52.i.i ], [ %call24.i.i, %if.end47.i.i ], [ %call24.i.i, %if.end41.i.i ], [ %call24.i.i, %if.end35.i.i ], [ %call24.i.i, %lor.lhs.false.i.i ], [ null, %if.end20.i.i ], [ null, %if.end15.i.i ], [ null, %if.end7.i20.i ]
   call void @EVP_CIPHER_free(ptr noundef %kekcipher.0.i.ph.i) #3
   call void @X509_ALGOR_free(ptr noundef %call11.i.i) #3
   %25 = load ptr, ptr %der.i.i, align 8
   call void @CRYPTO_free(ptr noundef %25, ptr noundef nonnull @.str, i32 noundef 216) #3
+  br label %if.then18.i
+
+if.then18.i:                                      ; preds = %if.then18.critedge.i, %if.end5.i.i, %if.then4.i.i, %if.end15.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alg.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ukm.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %der.i.i)
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %name.i.i)
-  br label %if.then18.i
-
-if.then18.i:                                      ; preds = %if.then18.critedge.i, %ecdh_cms_set_shared_info.exit.thread.i
   call void @ERR_new() #3
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 244, ptr noundef nonnull @__func__.ecdh_cms_decrypt) #3
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 189, ptr noundef null) #3

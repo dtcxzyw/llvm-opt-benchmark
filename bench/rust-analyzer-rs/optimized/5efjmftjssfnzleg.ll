@@ -900,9 +900,9 @@ define hidden void @"_ZN143_$LT$hir_expand..files..InFileWrapper$LT$span..HirFil
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %8, ptr noundef nonnull align 4 dereferenceable(20) %9, i64 20, i1 false), !noalias !129
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 64, i1 false), !noalias !138
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12), !noalias !129
   %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %16, i64 24
   %.pre.pre = load i8, ptr %.phi.trans.insert.phi.trans.insert, align 8, !range !137
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12), !noalias !129
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   %103 = getelementptr inbounds i8, ptr %16, i64 24

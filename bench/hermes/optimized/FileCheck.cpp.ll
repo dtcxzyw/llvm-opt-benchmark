@@ -432,7 +432,7 @@ while.cond74thread-pre-split:                     ; preds = %while.cond74thread-
   br label %while.cond74
 
 while.cond74:                                     ; preds = %while.cond74.backedge, %while.cond74thread-pre-split
-  %13 = phi i64 [ %.pr323, %while.cond74thread-pre-split ], [ %.be, %while.cond74.backedge ]
+  %13 = phi i64 [ %.pr323, %while.cond74thread-pre-split ], [ %sub.i406, %while.cond74.backedge ]
   switch i64 %13, label %if.end.i582 [
     i64 0, label %while.end277
     i64 1, label %_ZN4llvh9StringRefC2EPKc.exit494
@@ -478,18 +478,17 @@ if.end92:                                         ; preds = %_ZN4llvh9StringRefC
 if.end100:                                        ; preds = %if.end92
   %call102 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %RegExStr252, i8 noundef signext 41) #17
   %add = add i64 %call81, 2
-  %19 = load i64, ptr %0, align 8
-  %.sroa.speculated306 = call i64 @llvm.umin.i64(i64 %19, i64 %add)
-  %20 = load ptr, ptr %PatternStr, align 8
-  %add.ptr.i404 = getelementptr inbounds i8, ptr %20, i64 %.sroa.speculated306
-  %sub.i406 = sub i64 %19, %.sroa.speculated306
   br label %while.cond74.backedge
 
 while.cond74.backedge:                            ; preds = %if.end100, %_ZN4llvh9StringRefC2EPKc.exit494
-  %storemerge = phi ptr [ %add.ptr.i, %_ZN4llvh9StringRefC2EPKc.exit494 ], [ %add.ptr.i404, %if.end100 ]
-  %.be = phi i64 [ %sub.i, %_ZN4llvh9StringRefC2EPKc.exit494 ], [ %sub.i406, %if.end100 ]
-  store ptr %storemerge, ptr %PatternStr, align 8
-  store i64 %.be, ptr %0, align 8
+  %add.sink = phi i64 [ %add, %if.end100 ], [ %.sroa.speculated, %_ZN4llvh9StringRefC2EPKc.exit494 ]
+  %19 = load i64, ptr %0, align 8
+  %.sroa.speculated306 = call i64 @llvm.umin.i64(i64 %19, i64 %add.sink)
+  %20 = load ptr, ptr %PatternStr, align 8
+  %add.ptr.i404 = getelementptr inbounds i8, ptr %20, i64 %.sroa.speculated306
+  %sub.i406 = sub i64 %19, %.sroa.speculated306
+  store ptr %add.ptr.i404, ptr %PatternStr, align 8
+  store i64 %sub.i406, ptr %0, align 8
   br label %while.cond74, !llvm.loop !22
 
 if.end.i590:                                      ; preds = %if.end.i582
@@ -813,19 +812,14 @@ _ZN4llvh9StringRefC2EPKc.exit494:                 ; preds = %while.cond74, %if.e
   call void @_ZN4llvh5Regex6escapeB5cxx11ENS_9StringRefE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp270, ptr %37, i64 %.sroa.speculated262) #17
   %call274 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %RegExStr252, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp270) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp270) #17
-  %38 = load i64, ptr %0, align 8
-  %.sroa.speculated258 = call i64 @llvm.umin.i64(i64 %38, i64 %.sroa.speculated)
-  %39 = load ptr, ptr %PatternStr, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %39, i64 %.sroa.speculated258
-  %sub.i = sub i64 %38, %.sroa.speculated258
   br label %while.cond74.backedge
 
 while.end277:                                     ; preds = %while.cond74
   br i1 %4, label %if.then279, label %return
 
 if.then279:                                       ; preds = %while.end277
-  %40 = load i8, ptr %NoCanonicalizeWhiteSpace, align 8
-  %tobool281 = trunc i8 %40 to i1
+  %38 = load i8, ptr %NoCanonicalizeWhiteSpace, align 8
+  %tobool281 = trunc i8 %38 to i1
   br i1 %tobool281, label %if.end285, label %if.then282
 
 if.then282:                                       ; preds = %if.then279

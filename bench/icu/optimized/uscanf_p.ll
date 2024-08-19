@@ -281,14 +281,10 @@ land.lhs.true18:                                  ; preds = %if.then15
 if.else:                                          ; preds = %land.lhs.true18, %if.then15
   %21 = load i8, ptr %fSkipArg.i, align 4
   %tobool22.not = icmp eq i8 %21, 0
-  br i1 %tobool22.not, label %if.else24, label %if.then23
-
-if.then23:                                        ; preds = %if.else
-  store ptr null, ptr %args, align 8
-  br label %if.end28
+  br i1 %tobool22.not, label %if.else24, label %if.end28
 
 if.else24:                                        ; preds = %if.else
-  switch i32 %20, label %sw.default [
+  switch i32 %20, label %if.end28 [
     i32 2, label %sw.bb
     i32 4, label %sw.bb26
     i32 9, label %sw.bb26
@@ -326,14 +322,11 @@ vaarg.in_mem:                                     ; preds = %sw.bb26
 vaarg.end:                                        ; preds = %vaarg.in_mem, %vaarg.in_reg
   %vaarg.addr = phi ptr [ %23, %vaarg.in_reg ], [ %overflow_arg_area, %vaarg.in_mem ]
   %25 = load ptr, ptr %vaarg.addr, align 8
-  store ptr %25, ptr %args, align 8
   br label %if.end28
 
-sw.default:                                       ; preds = %if.else24
-  store ptr null, ptr %args, align 8
-  br label %if.end28
-
-if.end28:                                         ; preds = %if.then23, %sw.default, %vaarg.end
+if.end28:                                         ; preds = %if.else24, %if.else, %vaarg.end
+  %.sink = phi ptr [ %25, %vaarg.end ], [ null, %if.else ], [ null, %if.else24 ]
+  store ptr %.sink, ptr %args, align 8
   %handler31 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %26 = load ptr, ptr %handler31, align 8
   %cmp32.not = icmp eq ptr %26, null

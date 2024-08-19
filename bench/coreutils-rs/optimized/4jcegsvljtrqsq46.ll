@@ -661,16 +661,15 @@ define { i64, i8 } @_ZN6uu_env15string_expander14StringExpander8skip_one17hd7975
 
 "_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$uu_env..string_parser..Chunk$GT$$GT$17hacc5fe5b324a617bE.exit": ; preds = %12, %15, %19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !116
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %22
 
 21:                                               ; preds = %1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %22
 
 22:                                               ; preds = %21, %"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$uu_env..string_parser..Chunk$GT$$GT$17hacc5fe5b324a617bE.exit"
   %.sroa.3.0 = phi i8 [ %11, %21 ], [ 2, %"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$uu_env..string_parser..Chunk$GT$$GT$17hacc5fe5b324a617bE.exit" ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %23 = insertvalue { i64, i8 } poison, i64 %9, 0
   %24 = insertvalue { i64, i8 } %23, i8 %.sroa.3.0, 1
   ret { i64, i8 } %24

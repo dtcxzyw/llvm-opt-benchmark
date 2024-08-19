@@ -81,7 +81,7 @@ _ZN7memmap211MmapOptions7get_len17h94fb46ca1ef8eac6E.llvm.14751623873358387643.e
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !14
-  br i1 %26, label %_ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E.exit.thread, label %27
+  br i1 %26, label %40, label %27
 
 27:                                               ; preds = %_ZN7memmap211MmapOptions7get_len17h94fb46ca1ef8eac6E.llvm.14751623873358387643.exit.i
   %.cast.i = ptrtoint ptr %.pre8.i to i64
@@ -93,19 +93,7 @@ _ZN7memmap211MmapOptions7get_len17h94fb46ca1ef8eac6E.llvm.14751623873358387643.e
   %trunc.i7.i = trunc nuw i64 %31 to i1
   %32 = getelementptr inbounds i8, ptr %10, i64 8
   %33 = load ptr, ptr %32, align 8, !alias.scope !30, !noalias !33, !noundef !8
-  br i1 %trunc.i7.i, label %_ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E.exit, label %35
-
-_ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E.exit.thread: ; preds = %_ZN7memmap211MmapOptions7get_len17h94fb46ca1ef8eac6E.llvm.14751623873358387643.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  br label %40
-
-_ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E.exit: ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  br label %40
+  br i1 %trunc.i7.i, label %40, label %35
 
 34:                                               ; preds = %35, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdf25b10f0ddf00b0E.exit", %20
   ret void
@@ -123,12 +111,15 @@ _ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E.exit: ; preds = %27
   store i64 1, ptr %0, align 8
   br label %34
 
-40:                                               ; preds = %_ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E.exit, %_ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E.exit.thread
-  %.sroa.5.055 = phi ptr [ %.pre8.i, %_ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E.exit.thread ], [ %33, %_ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E.exit ]
+40:                                               ; preds = %27, %_ZN7memmap211MmapOptions7get_len17h94fb46ca1ef8eac6E.llvm.14751623873358387643.exit.i
+  %.sink.i.ph = phi ptr [ %.pre8.i, %_ZN7memmap211MmapOptions7get_len17h94fb46ca1ef8eac6E.llvm.14751623873358387643.exit.i ], [ %33, %27 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
-  %41 = icmp ne ptr %.sroa.5.055, null
+  %41 = icmp ne ptr %.sink.i.ph, null
   call void @llvm.assume(i1 %41)
-  store ptr %.sroa.5.055, ptr %18, align 8
+  store ptr %.sink.i.ph, ptr %18, align 8
   %.not = icmp eq ptr %3, null
   %42 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hb42e1435f2009f43E monotonic, align 8
   %43 = icmp ult i64 %42, 6

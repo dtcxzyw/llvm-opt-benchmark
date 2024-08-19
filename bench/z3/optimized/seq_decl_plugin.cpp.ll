@@ -11474,7 +11474,7 @@ entry:
   %bf.load.i.i.i179 = load i32, ptr %m_kind.i.i.i178, align 4
   %bf.clear.i.i.i180 = and i32 %bf.load.i.i.i179, 65535
   %cmp.i.i181 = icmp eq i32 %bf.clear.i.i.i180, 0
-  br i1 %cmp.i.i181, label %land.rhs.i.i, label %lor.lhs.false25.loopexit
+  br i1 %cmp.i.i181, label %land.rhs.i.i, label %lor.lhs.false25.sink.split
 
 land.rhs.i.i:                                     ; preds = %entry, %if.then10
   %r.tr183 = phi ptr [ %r2.0, %if.then10 ], [ %r, %entry ]
@@ -11485,7 +11485,7 @@ land.rhs.i.i:                                     ; preds = %entry, %if.then10
   %m_info.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %m_info.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i.i.i.i, label %land.rhs.i.i.i75, label %_ZNK8seq_util3rex8is_emptyEPK4expr.exit
+  br i1 %tobool.not.i.i.i.i, label %lor.lhs.false25.sink.split, label %_ZNK8seq_util3rex8is_emptyEPK4expr.exit
 
 _ZNK8seq_util3rex8is_emptyEPK4expr.exit:          ; preds = %land.rhs.i.i
   %3 = load i32, ptr %2, align 8
@@ -11511,9 +11511,9 @@ land.lhs.true.i:                                  ; preds = %_ZNK8seq_util3rex9i
   %cmp.i = icmp eq i32 %9, 2
   br i1 %cmp.i, label %if.then3, label %_ZNK8seq_util3rex8is_unionEPK4expr.exit.i
 
-common.ret268:                                    ; preds = %if.then17, %if.then3, %return
-  %common.ret268.op = phi i32 [ %accumulator.ret.tr152, %return ], [ %accumulator.ret.tr, %if.then3 ], [ %accumulator.ret.tr151, %if.then17 ]
-  ret i32 %common.ret268.op
+common.ret256:                                    ; preds = %if.then17, %if.then3, %return
+  %common.ret256.op = phi i32 [ %accumulator.ret.tr152, %return ], [ %accumulator.ret.tr, %if.then3 ], [ %accumulator.ret.tr151, %if.then17 ]
+  ret i32 %common.ret256.op
 
 if.then3:                                         ; preds = %land.lhs.true.i
   %m_args.i.i = getelementptr inbounds i8, ptr %r.tr183, i64 32
@@ -11524,7 +11524,7 @@ if.then3:                                         ; preds = %land.lhs.true.i
   %call5 = tail call noundef i32 @_ZNK8seq_util3rex10max_lengthEP4expr(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %11)
   %retval.0.i13 = tail call noundef i32 @llvm.uadd.sat.i32(i32 %call4, i32 %call5)
   %accumulator.ret.tr = tail call i32 @llvm.umax.i32(i32 %retval.0.i13, i32 %accumulator.tr182)
-  br label %common.ret268
+  br label %common.ret256
 
 _ZNK8seq_util3rex8is_unionEPK4expr.exit.i:        ; preds = %land.lhs.true.i, %_ZNK8seq_util3rex9is_concatEPK4expr.exit.i
   %12 = load i32, ptr %2, align 8
@@ -11565,12 +11565,11 @@ if.then10:                                        ; preds = %_ZNK11ast_manager6i
   %bf.load.i.i.i = load i32, ptr %m_kind.i.i.i, align 4
   %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
   %cmp.i.i = icmp eq i32 %bf.clear.i.i.i, 0
-  br i1 %cmp.i.i, label %land.rhs.i.i, label %lor.lhs.false25.loopexit
+  br i1 %cmp.i.i, label %land.rhs.i.i, label %lor.lhs.false25.sink.split
 
 _ZNK8seq_util3rex15is_intersectionEPK4expr.exit.i: ; preds = %_ZNK11ast_manager6is_iteEPK4expr.exit.i
   store i32 0, ptr %lo, align 4
   store i32 0, ptr %hi, align 4
-  %m_kind.i.i.i.le = getelementptr inbounds i8, ptr %r.tr183, i64 4
   %20 = load i32, ptr %2, align 8
   %cmp.i.i.i.i.i.i58 = icmp eq i32 %20, %0
   %m_kind.i.i.i.i.i.i59 = getelementptr inbounds i8, ptr %2, i64 4
@@ -11594,13 +11593,7 @@ if.then17:                                        ; preds = %land.lhs.true.i61
   %call21 = tail call noundef i32 @_ZNK8seq_util3rex10max_lengthEP4expr(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %25)
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %call21, i32 %call19)
   %accumulator.ret.tr151 = tail call i32 @llvm.umax.i32(i32 %.sroa.speculated, i32 %accumulator.tr182)
-  br label %common.ret268
-
-land.rhs.i.i.i75:                                 ; preds = %land.rhs.i.i
-  store i32 0, ptr %lo, align 4
-  store i32 0, ptr %hi, align 4
-  %m_kind.i.i.i.le195 = getelementptr inbounds i8, ptr %r.tr183, i64 4
-  br label %lor.lhs.false25
+  br label %common.ret256
 
 _ZNK8seq_util3rex7is_diffEPK4expr.exit.i:         ; preds = %land.lhs.true.i61, %_ZNK8seq_util3rex15is_intersectionEPK4expr.exit.i
   %26 = load i32, ptr %2, align 8
@@ -11623,18 +11616,17 @@ _ZNK8seq_util3rex7is_diffEPK4exprRPS1_S5_.exit:   ; preds = %land.lhs.true.i82
   store ptr %30, ptr %r1, align 8
   br label %if.then29
 
-lor.lhs.false25.loopexit:                         ; preds = %if.then10, %entry
-  %r.tr.lcssa176 = phi ptr [ %r, %entry ], [ %r2.0, %if.then10 ]
-  %accumulator.tr.lcssa = phi i32 [ 0, %entry ], [ %.sroa.speculated130, %if.then10 ]
+lor.lhs.false25.sink.split:                       ; preds = %if.then10, %land.rhs.i.i, %entry
+  %r.tr183.lcssa.sink = phi ptr [ %r, %entry ], [ %r.tr183, %land.rhs.i.i ], [ %r2.0, %if.then10 ]
+  %accumulator.tr173.ph = phi i32 [ 0, %entry ], [ %accumulator.tr182, %land.rhs.i.i ], [ %.sroa.speculated130, %if.then10 ]
   store i32 0, ptr %lo, align 4
   store i32 0, ptr %hi, align 4
-  %m_kind.i.i.i.le175 = getelementptr inbounds i8, ptr %r.tr.lcssa176, i64 4
   br label %lor.lhs.false25
 
-lor.lhs.false25:                                  ; preds = %land.rhs.i.i.i75, %lor.lhs.false25.loopexit, %land.lhs.true.i82, %_ZNK8seq_util3rex7is_diffEPK4expr.exit.i
-  %accumulator.tr173 = phi i32 [ %accumulator.tr.lcssa, %lor.lhs.false25.loopexit ], [ %accumulator.tr182, %land.lhs.true.i82 ], [ %accumulator.tr182, %_ZNK8seq_util3rex7is_diffEPK4expr.exit.i ], [ %accumulator.tr182, %land.rhs.i.i.i75 ]
-  %r.tr167 = phi ptr [ %r.tr.lcssa176, %lor.lhs.false25.loopexit ], [ %r.tr183, %land.lhs.true.i82 ], [ %r.tr183, %_ZNK8seq_util3rex7is_diffEPK4expr.exit.i ], [ %r.tr183, %land.rhs.i.i.i75 ]
-  %m_kind.i.i.i156 = phi ptr [ %m_kind.i.i.i.le175, %lor.lhs.false25.loopexit ], [ %m_kind.i.i.i.le, %land.lhs.true.i82 ], [ %m_kind.i.i.i.le, %_ZNK8seq_util3rex7is_diffEPK4expr.exit.i ], [ %m_kind.i.i.i.le195, %land.rhs.i.i.i75 ]
+lor.lhs.false25:                                  ; preds = %lor.lhs.false25.sink.split, %land.lhs.true.i82, %_ZNK8seq_util3rex7is_diffEPK4expr.exit.i
+  %accumulator.tr173 = phi i32 [ %accumulator.tr182, %land.lhs.true.i82 ], [ %accumulator.tr182, %_ZNK8seq_util3rex7is_diffEPK4expr.exit.i ], [ %accumulator.tr173.ph, %lor.lhs.false25.sink.split ]
+  %r.tr167 = phi ptr [ %r.tr183, %land.lhs.true.i82 ], [ %r.tr183, %_ZNK8seq_util3rex7is_diffEPK4expr.exit.i ], [ %r.tr183.lcssa.sink, %lor.lhs.false25.sink.split ]
+  %m_kind.i.i.i156 = getelementptr inbounds i8, ptr %r.tr167, i64 4
   %call26 = call noundef zeroext i1 @_ZNK8seq_util3rex10is_reverseEPK4exprRPS1_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull %r.tr167, ptr noundef nonnull align 8 dereferenceable(8) %r1)
   br i1 %call26, label %if.then29, label %lor.lhs.false27
 
@@ -11721,7 +11713,7 @@ return:                                           ; preds = %_ZNK8seq_util3rex8i
   %accumulator.tr171 = phi i32 [ %accumulator.tr172, %if.then29 ], [ %accumulator.tr173, %if.then33 ], [ %accumulator.tr173, %if.then39 ], [ %accumulator.tr173, %_ZNK8seq_util3rex10is_of_predEPK4expr.exit ], [ %accumulator.tr173, %_ZNK8seq_util3rex8is_rangeEPK4expr.exit ], [ %accumulator.tr173, %if.end42 ], [ %accumulator.tr173, %_ZNK8seq_util3rex12is_full_charEPK4expr.exit ], [ %accumulator.tr173, %land.rhs.i.i94 ], [ %accumulator.tr182, %_ZNK8seq_util3rex8is_emptyEPK4expr.exit ]
   %retval.0 = phi i32 [ %call30, %if.then29 ], [ %cond.i, %if.then33 ], [ %call41, %if.then39 ], [ 1, %_ZNK8seq_util3rex10is_of_predEPK4expr.exit ], [ 1, %_ZNK8seq_util3rex8is_rangeEPK4expr.exit ], [ -1, %if.end42 ], [ %spec.select, %_ZNK8seq_util3rex12is_full_charEPK4expr.exit ], [ -1, %land.rhs.i.i94 ], [ 0, %_ZNK8seq_util3rex8is_emptyEPK4expr.exit ]
   %accumulator.ret.tr152 = tail call i32 @llvm.umax.i32(i32 %retval.0, i32 %accumulator.tr171)
-  br label %common.ret268
+  br label %common.ret256
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -13648,7 +13640,7 @@ lpad.loopexit:                                    ; preds = %for.body, %invoke.c
           cleanup
   br label %ehcleanup
 
-lpad.loopexit.split-lp:                           ; preds = %invoke.cont170.invoke, %if.else115.invoke, %invoke.cont74.invoke, %invoke.cont201.invoke, %invoke.cont172.invoke, %invoke.cont79.invoke, %if.then27.invoke, %if.then.invoke, %if.else, %if.else5, %if.else30, %if.then34, %if.else37, %if.else55, %if.then59, %if.else64, %lor.lhs.false, %if.then71, %invoke.cont72, %if.else85, %if.then89, %invoke.cont90, %if.else103, %if.then107, %invoke.cont108, %if.else122, %if.then126, %if.then129, %if.else134, %invoke.cont135, %if.else142, %if.then146, %if.then149, %if.else154, %invoke.cont155, %if.else162, %if.then166, %if.then169, %if.else178, %invoke.cont179, %if.else190, %if.then194, %if.then197, %if.then200, %if.else207, %invoke.cont208, %invoke.cont210, %if.else219, %invoke.cont220, %if.then225, %if.else232, %invoke.cont233, %invoke.cont235, %if.else245, %if.then249, %invoke.cont250, %if.then265, %invoke.cont269, %invoke.cont271, %invoke.cont276, %if.else289, %if.then293, %if.then296, %if.else301, %invoke.cont302, %if.else309, %if.else320, %if.then325, %invoke.cont326, %if.else336, %if.then341, %if.else346, %land.lhs.true351, %if.then354, %invoke.cont355, %invoke.cont357, %if.else363, %land.lhs.true369, %if.then372, %invoke.cont373, %invoke.cont375, %if.else382, %if.then385, %invoke.cont386, %if.else392, %land.lhs.true398, %if.then401, %invoke.cont402, %invoke.cont404, %if.else408, %if.then411, %invoke.cont412, %invoke.cont414, %if.else422, %if.then455, %invoke.cont456, %land.lhs.true, %land.lhs.true366, %land.lhs.true395, %if.then427, %if.then444, %if.else479
+lpad.loopexit.split-lp:                           ; preds = %if.else115.invoke, %invoke.cont74.invoke, %invoke.cont170.invoke, %invoke.cont201.invoke, %invoke.cont172.invoke, %invoke.cont79.invoke, %if.then27.invoke, %if.then.invoke, %if.else, %if.else5, %if.else30, %if.then34, %if.else37, %if.else55, %if.then59, %if.else64, %lor.lhs.false, %if.then71, %invoke.cont72, %if.else85, %if.then89, %invoke.cont90, %if.else103, %if.then107, %invoke.cont108, %if.else122, %if.then126, %if.then129, %if.else134, %invoke.cont135, %if.else142, %if.then146, %if.then149, %if.else154, %invoke.cont155, %if.else162, %if.then166, %if.then169, %if.else178, %invoke.cont179, %if.else190, %if.then194, %if.then197, %if.then200, %if.else207, %invoke.cont208, %invoke.cont210, %if.else219, %invoke.cont220, %if.then225, %if.else232, %invoke.cont233, %invoke.cont235, %if.else245, %if.then249, %invoke.cont250, %if.then265, %invoke.cont269, %invoke.cont271, %invoke.cont276, %if.else289, %if.then293, %if.then296, %if.else301, %invoke.cont302, %if.else309, %if.else320, %if.then325, %invoke.cont326, %if.else336, %if.then341, %if.else346, %land.lhs.true351, %if.then354, %invoke.cont355, %invoke.cont357, %if.else363, %land.lhs.true369, %if.then372, %invoke.cont373, %invoke.cont375, %if.else382, %if.then385, %invoke.cont386, %if.else392, %land.lhs.true398, %if.then401, %invoke.cont402, %invoke.cont404, %if.else408, %if.then411, %invoke.cont412, %invoke.cont414, %if.else422, %if.then455, %invoke.cont456, %land.lhs.true, %land.lhs.true366, %land.lhs.true395, %if.then427, %if.then444, %if.else479
   %lpad.loopexit.split-lp207 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup

@@ -50,7 +50,7 @@ define void @epsf_init(ptr noundef %0) local_unnamed_addr #0 {
   %8 = tail call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str) #15
   %9 = tail call ptr @safefile(ptr noundef %8) #15
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %112, label %10
+  br i1 %.not, label %111, label %10
 
 10:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %2)
@@ -76,15 +76,6 @@ define void @epsf_init(ptr noundef %0) local_unnamed_addr #0 {
   %.not39.i = icmp eq ptr %18, null
   br i1 %.not39.i, label %19, label %user_init.exit.thread26
 
-user_init.exit.thread26:                          ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  br label %81
-
 19:                                               ; preds = %15
   %20 = tail call noalias ptr @fopen(ptr noundef nonnull %9, ptr noundef nonnull @.str.4)
   %.not40.i = icmp eq ptr %20, null
@@ -103,7 +94,7 @@ user_init.exit.thread:                            ; preds = %19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  br label %115
+  br label %114
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i.backedge
   %.03348.i = phi i8 [ %.2.i, %.lr.ph.i.backedge ], [ 0, %.preheader.i ]
@@ -226,7 +217,7 @@ user_init.exit.thread30:                          ; preds = %71, %._crit_edge.th
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  br label %115
+  br label %114
 
 user_init.exit:                                   ; preds = %gv_calloc.exit.i
   %75 = getelementptr inbounds i8, ptr %66, i64 %57
@@ -237,68 +228,68 @@ user_init.exit:                                   ; preds = %gv_calloc.exit.i
   %79 = getelementptr inbounds i8, ptr %35, i64 28
   store i8 %34, ptr %79, align 4
   %80 = call i32 @fclose(ptr noundef nonnull %20)
+  br label %user_init.exit.thread26
+
+user_init.exit.thread26:                          ; preds = %15, %user_init.exit
+  %.0.i29 = phi ptr [ %35, %user_init.exit ], [ %18, %15 ]
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  br label %81
+  %81 = getelementptr inbounds i8, ptr %.0.i29, i64 64
+  %82 = load i32, ptr %81, align 8
+  %83 = getelementptr inbounds i8, ptr %.0.i29, i64 68
+  %84 = load i32, ptr %83, align 4
+  %85 = sitofp i32 %82 to double
+  %86 = fdiv double %85, 7.200000e+01
+  %87 = getelementptr inbounds i8, ptr %0, i64 16
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds i8, ptr %88, i64 48
+  store double %86, ptr %89, align 8
+  %90 = sitofp i32 %84 to double
+  %91 = fdiv double %90, 7.200000e+01
+  %92 = load ptr, ptr %87, align 8
+  %93 = getelementptr inbounds i8, ptr %92, i64 56
+  store double %91, ptr %93, align 8
+  %94 = call noalias dereferenceable_or_null(12) ptr @calloc(i64 noundef 1, i64 noundef 12) #17
+  %95 = icmp eq ptr %94, null
+  br i1 %95, label %96, label %gv_alloc.exit
 
-81:                                               ; preds = %user_init.exit, %user_init.exit.thread26
-  %.0.i29 = phi ptr [ %18, %user_init.exit.thread26 ], [ %35, %user_init.exit ]
-  %82 = getelementptr inbounds i8, ptr %.0.i29, i64 64
-  %83 = load i32, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %.0.i29, i64 68
-  %85 = load i32, ptr %84, align 4
-  %86 = sitofp i32 %83 to double
-  %87 = fdiv double %86, 7.200000e+01
-  %88 = getelementptr inbounds i8, ptr %0, i64 16
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 48
-  store double %87, ptr %90, align 8
-  %91 = sitofp i32 %85 to double
-  %92 = fdiv double %91, 7.200000e+01
-  %93 = load ptr, ptr %88, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 56
-  store double %92, ptr %94, align 8
-  %95 = call noalias dereferenceable_or_null(12) ptr @calloc(i64 noundef 1, i64 noundef 12) #17
-  %96 = icmp eq ptr %95, null
-  br i1 %96, label %97, label %gv_alloc.exit
-
-97:                                               ; preds = %81
-  %98 = load ptr, ptr @stderr, align 8
-  %99 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %98, ptr noundef nonnull @.str.21, i64 noundef 12) #18
+96:                                               ; preds = %user_init.exit.thread26
+  %97 = load ptr, ptr @stderr, align 8
+  %98 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %97, ptr noundef nonnull @.str.21, i64 noundef 12) #18
   call fastcc void @graphviz_exit() #19
   unreachable
 
-gv_alloc.exit:                                    ; preds = %81
-  %100 = load ptr, ptr %88, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 24
-  store ptr %95, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %.0.i29, i64 24
-  %103 = load i32, ptr %102, align 8
-  store i32 %103, ptr %95, align 4
-  %104 = getelementptr inbounds i8, ptr %.0.i29, i64 56
-  %105 = load i32, ptr %104, align 8
-  %.neg = sdiv i32 %83, -2
-  %106 = sub i32 %.neg, %105
-  %107 = getelementptr inbounds i8, ptr %95, i64 4
-  store i32 %106, ptr %107, align 4
-  %108 = getelementptr inbounds i8, ptr %.0.i29, i64 60
-  %109 = load i32, ptr %108, align 4
-  %.neg20 = sdiv i32 %85, -2
-  %110 = sub i32 %.neg20, %109
-  %111 = getelementptr inbounds i8, ptr %95, i64 8
-  store i32 %110, ptr %111, align 4
-  br label %115
+gv_alloc.exit:                                    ; preds = %user_init.exit.thread26
+  %99 = load ptr, ptr %87, align 8
+  %100 = getelementptr inbounds i8, ptr %99, i64 24
+  store ptr %94, ptr %100, align 8
+  %101 = getelementptr inbounds i8, ptr %.0.i29, i64 24
+  %102 = load i32, ptr %101, align 8
+  store i32 %102, ptr %94, align 4
+  %103 = getelementptr inbounds i8, ptr %.0.i29, i64 56
+  %104 = load i32, ptr %103, align 8
+  %.neg = sdiv i32 %82, -2
+  %105 = sub i32 %.neg, %104
+  %106 = getelementptr inbounds i8, ptr %94, i64 4
+  store i32 %105, ptr %106, align 4
+  %107 = getelementptr inbounds i8, ptr %.0.i29, i64 60
+  %108 = load i32, ptr %107, align 4
+  %.neg20 = sdiv i32 %84, -2
+  %109 = sub i32 %.neg20, %108
+  %110 = getelementptr inbounds i8, ptr %94, i64 8
+  store i32 %109, ptr %110, align 4
+  br label %114
 
-112:                                              ; preds = %1
-  %113 = tail call ptr @agnameof(ptr noundef %0) #15
-  %114 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %113) #15
-  br label %115
+111:                                              ; preds = %1
+  %112 = tail call ptr @agnameof(ptr noundef %0) #15
+  %113 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %112) #15
+  br label %114
 
-115:                                              ; preds = %user_init.exit.thread30, %user_init.exit.thread, %112, %gv_alloc.exit
+114:                                              ; preds = %user_init.exit.thread30, %user_init.exit.thread, %111, %gv_alloc.exit
   ret void
 }
 

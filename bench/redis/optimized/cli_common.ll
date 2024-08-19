@@ -327,16 +327,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %or.cond.i, label %unquoteCString.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body
-  br i1 %tobool.i, label %unquoteCString.exit.thread34, label %unquoteCString.exit.thread
+  br i1 %tobool.i, label %unquoteCString.exit.thread34, label %while.cond.preheader.sink.split
 
 unquoteCString.exit.thread34:                     ; preds = %if.end.i
   call void @hi_sdsfreesplitres(ptr noundef nonnull %call.i, i32 noundef %2) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %count.i)
-  br label %while.cond.preheader
-
-unquoteCString.exit.thread:                       ; preds = %if.end.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %count.i)
-  br label %while.cond.preheader
+  br label %while.cond.preheader.sink.split
 
 unquoteCString.exit:                              ; preds = %for.body
   %3 = load ptr, ptr %call.i, align 8
@@ -346,7 +341,11 @@ unquoteCString.exit:                              ; preds = %for.body
   %tobool3.not = icmp eq ptr %3, null
   br i1 %tobool3.not, label %while.cond.preheader, label %if.end
 
-while.cond.preheader:                             ; preds = %unquoteCString.exit, %unquoteCString.exit.thread34, %unquoteCString.exit.thread
+while.cond.preheader.sink.split:                  ; preds = %if.end.i, %unquoteCString.exit.thread34
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %count.i)
+  br label %while.cond.preheader
+
+while.cond.preheader:                             ; preds = %unquoteCString.exit, %while.cond.preheader.sink.split
   %cmp518.not = icmp eq i64 %indvars.iv, 0
   br i1 %cmp518.not, label %while.end, label %while.body
 

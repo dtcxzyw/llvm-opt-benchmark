@@ -49,32 +49,17 @@ define range(i32 -1, 1) i32 @Pflock(i32 noundef %0, i32 noundef %1) local_unname
   %3 = alloca %struct.flock, align 8
   %4 = and i32 %1, 8
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %6, label %5
-
-5:                                                ; preds = %2
-  store i16 2, ptr %3, align 8
-  br label %10
-
-6:                                                ; preds = %2
-  %7 = and i32 %1, 1
-  %.not4 = icmp eq i32 %7, 0
-  br i1 %.not4, label %9, label %8
-
-8:                                                ; preds = %6
-  store i16 0, ptr %3, align 8
-  br label %10
-
-9:                                                ; preds = %6
-  store i16 1, ptr %3, align 8
-  br label %10
-
-10:                                               ; preds = %8, %9, %5
-  %11 = getelementptr inbounds i8, ptr %3, i64 2
-  store i16 0, ptr %11, align 2
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %12, i8 0, i64 20, i1 false)
-  %13 = call i32 (i32, i32, ...) @fcntl64(i32 noundef %0, i32 noundef 6, ptr noundef nonnull %3) #15
-  %.lobit = ashr i32 %13, 31
+  %5 = trunc i32 %1 to i16
+  %6 = and i16 %5, 1
+  %. = xor i16 %6, 1
+  %.sink = select i1 %.not, i16 %., i16 2
+  store i16 %.sink, ptr %3, align 8
+  %7 = getelementptr inbounds i8, ptr %3, i64 2
+  store i16 0, ptr %7, align 2
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %8, i8 0, i64 20, i1 false)
+  %9 = call i32 (i32, i32, ...) @fcntl64(i32 noundef %0, i32 noundef 6, ptr noundef nonnull %3) #15
+  %.lobit = ashr i32 %9, 31
   ret i32 %.lobit
 }
 

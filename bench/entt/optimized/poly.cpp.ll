@@ -47560,7 +47560,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 ehcleanup.thread:                                 ; preds = %if.then.i.i, %if.then.i
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #25
   br label %cleanup.action
 
 lpad2.body:                                       ; preds = %invoke.cont
@@ -47572,7 +47571,6 @@ lpad2.body:                                       ; preds = %invoke.cont
 
 ehcleanup.thread15:                               ; preds = %lpad2.body
   call void @_ZdlPv(ptr noundef %26) #29
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #25
   br label %cleanup.action
 
 lpad2.body.thread:                                ; preds = %lpad3.i
@@ -47591,7 +47589,6 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %29 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !14
   %cmp3.i.i.i22 = icmp ult i64 %29, 16
   call void @llvm.assume(i1 %cmp3.i.i.i22)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #25
   br label %cleanup.action
 
 ehcleanup:                                        ; preds = %lpad2.body.thread
@@ -47601,6 +47598,7 @@ ehcleanup:                                        ; preds = %lpad2.body.thread
 
 cleanup.action:                                   ; preds = %ehcleanup.thread15, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i20, %ehcleanup.thread
   %.pn27 = phi { ptr, i32 } [ %24, %ehcleanup.thread ], [ %25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i20 ], [ %25, %ehcleanup.thread15 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #25
   call void @_ZdlPv(ptr noundef nonnull %call) #29
   br label %eh.resume
 
@@ -61678,22 +61676,12 @@ _ZN4entt10basic_polyI7DeducedLm64ELm64EEC2I12over_alignedvEEOT_.exit219: ; preds
   %mode.i.i = getelementptr inbounds i8, ptr %sbo, i64 80
   %10 = load i8, ptr %mode.i.i, align 16, !tbaa !750
   %cmp.i.i = icmp eq i8 %10, 2
-  br i1 %cmp.i.i, label %_ZN4entt10basic_polyI7DeducedLm64ELm64EE4dataEv.exit.thread, label %cond.false.i.i
-
-_ZN4entt10basic_polyI7DeducedLm64ELm64EE4dataEv.exit.thread: ; preds = %_ZN4entt10basic_polyI7DeducedLm64ELm64EEC2I12over_alignedvEEOT_.exit219
-  store ptr null, ptr %data, align 8, !tbaa !212
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_) #25
-  br label %_ZN4entt10basic_polyI7DeducedLm64ELm64EE4dataEv.exit229
+  br i1 %cmp.i.i, label %_ZN4entt10basic_polyI7DeducedLm64ELm64EE4dataEv.exit229.sink.split, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %_ZN4entt10basic_polyI7DeducedLm64ELm64EEC2I12over_alignedvEEOT_.exit219
   %11 = load ptr, ptr %vtable.i.i38, align 8, !tbaa !741
   %tobool.not.i.i.i = icmp eq ptr %11, null
-  br i1 %tobool.not.i.i.i, label %cond.false.i.i222.thread, label %cond.true.i.i.i
-
-cond.false.i.i222.thread:                         ; preds = %cond.false.i.i
-  store ptr null, ptr %data, align 8, !tbaa !212
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_) #25
-  br label %_ZN4entt10basic_polyI7DeducedLm64ELm64EE4dataEv.exit229
+  br i1 %tobool.not.i.i.i, label %_ZN4entt10basic_polyI7DeducedLm64ELm64EE4dataEv.exit229.sink.split, label %cond.true.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %cond.false.i.i
   %call.i.i.i = invoke noundef ptr %11(i8 noundef zeroext 6, ptr noundef nonnull align 64 dereferenceable(81) %sbo, ptr noundef null)
@@ -61729,9 +61717,14 @@ terminate.lpad.i.i.i227:                          ; preds = %cond.true.i.i.i225
   call void @__clang_call_terminate(ptr %15) #30
   unreachable
 
-_ZN4entt10basic_polyI7DeducedLm64ELm64EE4dataEv.exit229: ; preds = %cond.true.i.i.i225, %cond.false.i.i222, %_ZN4entt10basic_polyI7DeducedLm64ELm64EE4dataEv.exit, %cond.false.i.i222.thread, %_ZN4entt10basic_polyI7DeducedLm64ELm64EE4dataEv.exit.thread
-  %16 = phi ptr [ %call.i.i.i, %_ZN4entt10basic_polyI7DeducedLm64ELm64EE4dataEv.exit ], [ %call.i.i.i, %cond.true.i.i.i225 ], [ %call.i.i.i, %cond.false.i.i222 ], [ null, %_ZN4entt10basic_polyI7DeducedLm64ELm64EE4dataEv.exit.thread ], [ null, %cond.false.i.i222.thread ]
-  %cond.i.i228 = phi ptr [ null, %_ZN4entt10basic_polyI7DeducedLm64ELm64EE4dataEv.exit ], [ %call.i.i.i226, %cond.true.i.i.i225 ], [ null, %cond.false.i.i222 ], [ null, %_ZN4entt10basic_polyI7DeducedLm64ELm64EE4dataEv.exit.thread ], [ null, %cond.false.i.i222.thread ]
+_ZN4entt10basic_polyI7DeducedLm64ELm64EE4dataEv.exit229.sink.split: ; preds = %cond.false.i.i, %_ZN4entt10basic_polyI7DeducedLm64ELm64EEC2I12over_alignedvEEOT_.exit219
+  store ptr null, ptr %data, align 8, !tbaa !212
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_) #25
+  br label %_ZN4entt10basic_polyI7DeducedLm64ELm64EE4dataEv.exit229
+
+_ZN4entt10basic_polyI7DeducedLm64ELm64EE4dataEv.exit229: ; preds = %_ZN4entt10basic_polyI7DeducedLm64ELm64EE4dataEv.exit229.sink.split, %cond.true.i.i.i225, %cond.false.i.i222, %_ZN4entt10basic_polyI7DeducedLm64ELm64EE4dataEv.exit
+  %16 = phi ptr [ %call.i.i.i, %_ZN4entt10basic_polyI7DeducedLm64ELm64EE4dataEv.exit ], [ %call.i.i.i, %cond.true.i.i.i225 ], [ %call.i.i.i, %cond.false.i.i222 ], [ null, %_ZN4entt10basic_polyI7DeducedLm64ELm64EE4dataEv.exit229.sink.split ]
+  %cond.i.i228 = phi ptr [ null, %_ZN4entt10basic_polyI7DeducedLm64ELm64EE4dataEv.exit ], [ %call.i.i.i226, %cond.true.i.i.i225 ], [ null, %cond.false.i.i222 ], [ null, %_ZN4entt10basic_polyI7DeducedLm64ELm64EE4dataEv.exit229.sink.split ]
   %17 = ptrtoint ptr %cond.i.i228 to i64
   %rem = and i64 %17, 63
   %cmp = icmp eq i64 %rem, 0
@@ -64077,22 +64070,12 @@ _ZN4entt10basic_polyI7DefinedLm64ELm64EEC2I12over_alignedvEEOT_.exit219: ; preds
   %mode.i.i = getelementptr inbounds i8, ptr %sbo, i64 80
   %10 = load i8, ptr %mode.i.i, align 16, !tbaa !750
   %cmp.i.i = icmp eq i8 %10, 2
-  br i1 %cmp.i.i, label %_ZN4entt10basic_polyI7DefinedLm64ELm64EE4dataEv.exit.thread, label %cond.false.i.i
-
-_ZN4entt10basic_polyI7DefinedLm64ELm64EE4dataEv.exit.thread: ; preds = %_ZN4entt10basic_polyI7DefinedLm64ELm64EEC2I12over_alignedvEEOT_.exit219
-  store ptr null, ptr %data, align 8, !tbaa !212
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_) #25
-  br label %_ZN4entt10basic_polyI7DefinedLm64ELm64EE4dataEv.exit229
+  br i1 %cmp.i.i, label %_ZN4entt10basic_polyI7DefinedLm64ELm64EE4dataEv.exit229.sink.split, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %_ZN4entt10basic_polyI7DefinedLm64ELm64EEC2I12over_alignedvEEOT_.exit219
   %11 = load ptr, ptr %vtable.i.i38, align 8, !tbaa !741
   %tobool.not.i.i.i = icmp eq ptr %11, null
-  br i1 %tobool.not.i.i.i, label %cond.false.i.i222.thread, label %cond.true.i.i.i
-
-cond.false.i.i222.thread:                         ; preds = %cond.false.i.i
-  store ptr null, ptr %data, align 8, !tbaa !212
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_) #25
-  br label %_ZN4entt10basic_polyI7DefinedLm64ELm64EE4dataEv.exit229
+  br i1 %tobool.not.i.i.i, label %_ZN4entt10basic_polyI7DefinedLm64ELm64EE4dataEv.exit229.sink.split, label %cond.true.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %cond.false.i.i
   %call.i.i.i = invoke noundef ptr %11(i8 noundef zeroext 6, ptr noundef nonnull align 64 dereferenceable(81) %sbo, ptr noundef null)
@@ -64128,9 +64111,14 @@ terminate.lpad.i.i.i227:                          ; preds = %cond.true.i.i.i225
   call void @__clang_call_terminate(ptr %15) #30
   unreachable
 
-_ZN4entt10basic_polyI7DefinedLm64ELm64EE4dataEv.exit229: ; preds = %cond.true.i.i.i225, %cond.false.i.i222, %_ZN4entt10basic_polyI7DefinedLm64ELm64EE4dataEv.exit, %cond.false.i.i222.thread, %_ZN4entt10basic_polyI7DefinedLm64ELm64EE4dataEv.exit.thread
-  %16 = phi ptr [ %call.i.i.i, %_ZN4entt10basic_polyI7DefinedLm64ELm64EE4dataEv.exit ], [ %call.i.i.i, %cond.true.i.i.i225 ], [ %call.i.i.i, %cond.false.i.i222 ], [ null, %_ZN4entt10basic_polyI7DefinedLm64ELm64EE4dataEv.exit.thread ], [ null, %cond.false.i.i222.thread ]
-  %cond.i.i228 = phi ptr [ null, %_ZN4entt10basic_polyI7DefinedLm64ELm64EE4dataEv.exit ], [ %call.i.i.i226, %cond.true.i.i.i225 ], [ null, %cond.false.i.i222 ], [ null, %_ZN4entt10basic_polyI7DefinedLm64ELm64EE4dataEv.exit.thread ], [ null, %cond.false.i.i222.thread ]
+_ZN4entt10basic_polyI7DefinedLm64ELm64EE4dataEv.exit229.sink.split: ; preds = %cond.false.i.i, %_ZN4entt10basic_polyI7DefinedLm64ELm64EEC2I12over_alignedvEEOT_.exit219
+  store ptr null, ptr %data, align 8, !tbaa !212
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_) #25
+  br label %_ZN4entt10basic_polyI7DefinedLm64ELm64EE4dataEv.exit229
+
+_ZN4entt10basic_polyI7DefinedLm64ELm64EE4dataEv.exit229: ; preds = %_ZN4entt10basic_polyI7DefinedLm64ELm64EE4dataEv.exit229.sink.split, %cond.true.i.i.i225, %cond.false.i.i222, %_ZN4entt10basic_polyI7DefinedLm64ELm64EE4dataEv.exit
+  %16 = phi ptr [ %call.i.i.i, %_ZN4entt10basic_polyI7DefinedLm64ELm64EE4dataEv.exit ], [ %call.i.i.i, %cond.true.i.i.i225 ], [ %call.i.i.i, %cond.false.i.i222 ], [ null, %_ZN4entt10basic_polyI7DefinedLm64ELm64EE4dataEv.exit229.sink.split ]
+  %cond.i.i228 = phi ptr [ null, %_ZN4entt10basic_polyI7DefinedLm64ELm64EE4dataEv.exit ], [ %call.i.i.i226, %cond.true.i.i.i225 ], [ null, %cond.false.i.i222 ], [ null, %_ZN4entt10basic_polyI7DefinedLm64ELm64EE4dataEv.exit229.sink.split ]
   %17 = ptrtoint ptr %cond.i.i228 to i64
   %rem = and i64 %17, 63
   %cmp = icmp eq i64 %rem, 0
@@ -66331,23 +66319,13 @@ _ZN4entt10basic_polyI7DeducedLm64ELm8EEC2I12over_alignedvEEOT_.exit219: ; preds 
   %mode.i.i = getelementptr inbounds i8, ptr %nosbo, i64 80
   %4 = load i8, ptr %mode.i.i, align 16, !tbaa !774
   %cmp.i.i = icmp eq i8 %4, 2
-  br i1 %cmp.i.i, label %_ZN4entt10basic_polyI7DeducedLm64ELm8EE4dataEv.exit.thread, label %cond.false.i.i
-
-_ZN4entt10basic_polyI7DeducedLm64ELm8EE4dataEv.exit.thread: ; preds = %_ZN4entt10basic_polyI7DeducedLm64ELm8EEC2I12over_alignedvEEOT_.exit219
-  store ptr null, ptr %data, align 8, !tbaa !212
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_) #25
-  br label %_ZN4entt10basic_polyI7DeducedLm64ELm8EE4dataEv.exit229
+  br i1 %cmp.i.i, label %_ZN4entt10basic_polyI7DeducedLm64ELm8EE4dataEv.exit229.sink.split, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %_ZN4entt10basic_polyI7DeducedLm64ELm8EEC2I12over_alignedvEEOT_.exit219
   %vtable.i.i.i = getelementptr inbounds i8, ptr %nosbo, i64 72
   %5 = load ptr, ptr %vtable.i.i.i, align 8, !tbaa !776
   %tobool.not.i.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i.i, label %cond.false.i.i222.thread, label %cond.true.i.i.i
-
-cond.false.i.i222.thread:                         ; preds = %cond.false.i.i
-  store ptr null, ptr %data, align 8, !tbaa !212
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_) #25
-  br label %_ZN4entt10basic_polyI7DeducedLm64ELm8EE4dataEv.exit229
+  br i1 %tobool.not.i.i.i, label %_ZN4entt10basic_polyI7DeducedLm64ELm8EE4dataEv.exit229.sink.split, label %cond.true.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %cond.false.i.i
   %call.i.i.i = invoke noundef ptr %5(i8 noundef zeroext 6, ptr noundef nonnull align 8 dereferenceable(81) %nosbo, ptr noundef null)
@@ -66383,9 +66361,14 @@ terminate.lpad.i.i.i227:                          ; preds = %cond.true.i.i.i225
   call void @__clang_call_terminate(ptr %9) #30
   unreachable
 
-_ZN4entt10basic_polyI7DeducedLm64ELm8EE4dataEv.exit229: ; preds = %cond.true.i.i.i225, %cond.false.i.i222, %_ZN4entt10basic_polyI7DeducedLm64ELm8EE4dataEv.exit, %cond.false.i.i222.thread, %_ZN4entt10basic_polyI7DeducedLm64ELm8EE4dataEv.exit.thread
-  %10 = phi ptr [ %call.i.i.i, %_ZN4entt10basic_polyI7DeducedLm64ELm8EE4dataEv.exit ], [ %call.i.i.i, %cond.true.i.i.i225 ], [ %call.i.i.i, %cond.false.i.i222 ], [ null, %_ZN4entt10basic_polyI7DeducedLm64ELm8EE4dataEv.exit.thread ], [ null, %cond.false.i.i222.thread ]
-  %cond.i.i228 = phi ptr [ null, %_ZN4entt10basic_polyI7DeducedLm64ELm8EE4dataEv.exit ], [ %call.i.i.i226, %cond.true.i.i.i225 ], [ null, %cond.false.i.i222 ], [ null, %_ZN4entt10basic_polyI7DeducedLm64ELm8EE4dataEv.exit.thread ], [ null, %cond.false.i.i222.thread ]
+_ZN4entt10basic_polyI7DeducedLm64ELm8EE4dataEv.exit229.sink.split: ; preds = %cond.false.i.i, %_ZN4entt10basic_polyI7DeducedLm64ELm8EEC2I12over_alignedvEEOT_.exit219
+  store ptr null, ptr %data, align 8, !tbaa !212
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_) #25
+  br label %_ZN4entt10basic_polyI7DeducedLm64ELm8EE4dataEv.exit229
+
+_ZN4entt10basic_polyI7DeducedLm64ELm8EE4dataEv.exit229: ; preds = %_ZN4entt10basic_polyI7DeducedLm64ELm8EE4dataEv.exit229.sink.split, %cond.true.i.i.i225, %cond.false.i.i222, %_ZN4entt10basic_polyI7DeducedLm64ELm8EE4dataEv.exit
+  %10 = phi ptr [ %call.i.i.i, %_ZN4entt10basic_polyI7DeducedLm64ELm8EE4dataEv.exit ], [ %call.i.i.i, %cond.true.i.i.i225 ], [ %call.i.i.i, %cond.false.i.i222 ], [ null, %_ZN4entt10basic_polyI7DeducedLm64ELm8EE4dataEv.exit229.sink.split ]
+  %cond.i.i228 = phi ptr [ null, %_ZN4entt10basic_polyI7DeducedLm64ELm8EE4dataEv.exit ], [ %call.i.i.i226, %cond.true.i.i.i225 ], [ null, %cond.false.i.i222 ], [ null, %_ZN4entt10basic_polyI7DeducedLm64ELm8EE4dataEv.exit229.sink.split ]
   %11 = ptrtoint ptr %cond.i.i228 to i64
   %rem = and i64 %11, 63
   %cmp = icmp eq i64 %rem, 0
@@ -68137,23 +68120,13 @@ _ZN4entt10basic_polyI7DefinedLm64ELm8EEC2I12over_alignedvEEOT_.exit219: ; preds 
   %mode.i.i = getelementptr inbounds i8, ptr %nosbo, i64 80
   %4 = load i8, ptr %mode.i.i, align 16, !tbaa !774
   %cmp.i.i = icmp eq i8 %4, 2
-  br i1 %cmp.i.i, label %_ZN4entt10basic_polyI7DefinedLm64ELm8EE4dataEv.exit.thread, label %cond.false.i.i
-
-_ZN4entt10basic_polyI7DefinedLm64ELm8EE4dataEv.exit.thread: ; preds = %_ZN4entt10basic_polyI7DefinedLm64ELm8EEC2I12over_alignedvEEOT_.exit219
-  store ptr null, ptr %data, align 8, !tbaa !212
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_) #25
-  br label %_ZN4entt10basic_polyI7DefinedLm64ELm8EE4dataEv.exit229
+  br i1 %cmp.i.i, label %_ZN4entt10basic_polyI7DefinedLm64ELm8EE4dataEv.exit229.sink.split, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %_ZN4entt10basic_polyI7DefinedLm64ELm8EEC2I12over_alignedvEEOT_.exit219
   %vtable.i.i.i = getelementptr inbounds i8, ptr %nosbo, i64 72
   %5 = load ptr, ptr %vtable.i.i.i, align 8, !tbaa !776
   %tobool.not.i.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i.i, label %cond.false.i.i222.thread, label %cond.true.i.i.i
-
-cond.false.i.i222.thread:                         ; preds = %cond.false.i.i
-  store ptr null, ptr %data, align 8, !tbaa !212
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_) #25
-  br label %_ZN4entt10basic_polyI7DefinedLm64ELm8EE4dataEv.exit229
+  br i1 %tobool.not.i.i.i, label %_ZN4entt10basic_polyI7DefinedLm64ELm8EE4dataEv.exit229.sink.split, label %cond.true.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %cond.false.i.i
   %call.i.i.i = invoke noundef ptr %5(i8 noundef zeroext 6, ptr noundef nonnull align 8 dereferenceable(81) %nosbo, ptr noundef null)
@@ -68189,9 +68162,14 @@ terminate.lpad.i.i.i227:                          ; preds = %cond.true.i.i.i225
   call void @__clang_call_terminate(ptr %9) #30
   unreachable
 
-_ZN4entt10basic_polyI7DefinedLm64ELm8EE4dataEv.exit229: ; preds = %cond.true.i.i.i225, %cond.false.i.i222, %_ZN4entt10basic_polyI7DefinedLm64ELm8EE4dataEv.exit, %cond.false.i.i222.thread, %_ZN4entt10basic_polyI7DefinedLm64ELm8EE4dataEv.exit.thread
-  %10 = phi ptr [ %call.i.i.i, %_ZN4entt10basic_polyI7DefinedLm64ELm8EE4dataEv.exit ], [ %call.i.i.i, %cond.true.i.i.i225 ], [ %call.i.i.i, %cond.false.i.i222 ], [ null, %_ZN4entt10basic_polyI7DefinedLm64ELm8EE4dataEv.exit.thread ], [ null, %cond.false.i.i222.thread ]
-  %cond.i.i228 = phi ptr [ null, %_ZN4entt10basic_polyI7DefinedLm64ELm8EE4dataEv.exit ], [ %call.i.i.i226, %cond.true.i.i.i225 ], [ null, %cond.false.i.i222 ], [ null, %_ZN4entt10basic_polyI7DefinedLm64ELm8EE4dataEv.exit.thread ], [ null, %cond.false.i.i222.thread ]
+_ZN4entt10basic_polyI7DefinedLm64ELm8EE4dataEv.exit229.sink.split: ; preds = %cond.false.i.i, %_ZN4entt10basic_polyI7DefinedLm64ELm8EEC2I12over_alignedvEEOT_.exit219
+  store ptr null, ptr %data, align 8, !tbaa !212
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_) #25
+  br label %_ZN4entt10basic_polyI7DefinedLm64ELm8EE4dataEv.exit229
+
+_ZN4entt10basic_polyI7DefinedLm64ELm8EE4dataEv.exit229: ; preds = %_ZN4entt10basic_polyI7DefinedLm64ELm8EE4dataEv.exit229.sink.split, %cond.true.i.i.i225, %cond.false.i.i222, %_ZN4entt10basic_polyI7DefinedLm64ELm8EE4dataEv.exit
+  %10 = phi ptr [ %call.i.i.i, %_ZN4entt10basic_polyI7DefinedLm64ELm8EE4dataEv.exit ], [ %call.i.i.i, %cond.true.i.i.i225 ], [ %call.i.i.i, %cond.false.i.i222 ], [ null, %_ZN4entt10basic_polyI7DefinedLm64ELm8EE4dataEv.exit229.sink.split ]
+  %cond.i.i228 = phi ptr [ null, %_ZN4entt10basic_polyI7DefinedLm64ELm8EE4dataEv.exit ], [ %call.i.i.i226, %cond.true.i.i.i225 ], [ null, %cond.false.i.i222 ], [ null, %_ZN4entt10basic_polyI7DefinedLm64ELm8EE4dataEv.exit229.sink.split ]
   %11 = ptrtoint ptr %cond.i.i228 to i64
   %rem = and i64 %11, 63
   %cmp = icmp eq i64 %rem, 0

@@ -124,11 +124,11 @@ define hidden void @_ZN19pyo3_macros_backend12frompyobject9Container3new17hcc02f
   %32 = getelementptr inbounds i8, ptr %1, i64 24
   %33 = load i64, ptr %32, align 8
   %34 = icmp eq i64 %33, 0
-  br i1 %34, label %107, label %110
+  br i1 %34, label %106, label %109
 
-35:                                               ; preds = %107, %36, %4
+35:                                               ; preds = %106, %36, %4
   invoke void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h198d893abd9ef273E(ptr nonnull sret([32 x i8]) align 8 %7, ptr nonnull align 8 %1)
-          to label %150 unwind label %41
+          to label %147 unwind label %41
 
 36:                                               ; preds = %25
   %37 = getelementptr inbounds i8, ptr %1, i64 32
@@ -140,10 +140,10 @@ define hidden void @_ZN19pyo3_macros_backend12frompyobject9Container3new17hcc02f
   %40 = invoke { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4iter17hc946b8bde92d8095E"(ptr nonnull align 8 %26)
           to label %43 unwind label %41
 
-41:                                               ; preds = %152, %150, %148, %134, %112, %110, %98, %95, %43, %39, %35
+41:                                               ; preds = %149, %147, %145, %133, %111, %109, %97, %94, %43, %39, %35
   %42 = landingpad { ptr, i32 }
           cleanup
-  br label %155
+  br label %152
 
 43:                                               ; preds = %39
   %44 = extractvalue { ptr, ptr } %40, 0
@@ -161,287 +161,283 @@ define hidden void @_ZN19pyo3_macros_backend12frompyobject9Container3new17hcc02f
   %50 = load i64, ptr %16, align 8
   %51 = icmp eq i64 %50, 0
   %52 = getelementptr inbounds i8, ptr %16, i64 8
-  br i1 %51, label %53, label %.sink.split
+  br i1 %51, label %53, label %.sink.split37
 
 53:                                               ; preds = %49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %52, i64 24, i1 false)
   %54 = getelementptr inbounds i8, ptr %3, i64 72
   %55 = load i8, ptr %54, align 8
   %56 = trunc i8 %55 to i1
-  br i1 %56, label %59, label %57
+  br i1 %56, label %57, label %.sink.split
 
 57:                                               ; preds = %53
-  %58 = getelementptr inbounds i8, ptr %22, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %52, i64 24, i1 false)
-  store i64 -9223372036854775807, ptr %22, align 8
-  br label %63
+  %58 = getelementptr inbounds i8, ptr %17, i64 16
+  %59 = load i64, ptr %58, align 8
+  %60 = icmp eq i64 %59, 1
+  br i1 %60, label %65, label %66
 
-59:                                               ; preds = %53
-  %60 = getelementptr inbounds i8, ptr %17, i64 16
-  %61 = load i64, ptr %60, align 8
-  %62 = icmp eq i64 %61, 1
-  br i1 %62, label %66, label %67
+.sink.split:                                      ; preds = %53, %123
+  %.sink36 = phi ptr [ %117, %123 ], [ %52, %53 ]
+  %.sink = phi i64 [ -9223372036854775805, %123 ], [ -9223372036854775807, %53 ]
+  %61 = getelementptr inbounds i8, ptr %22, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %.sink36, i64 24, i1 false)
+  store i64 %.sink, ptr %22, align 8
+  br label %62
 
-63:                                               ; preds = %136, %134, %98, %57
-  %64 = getelementptr inbounds i8, ptr %3, i64 64
-  %65 = load ptr, ptr %64, align 8
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hc67c8dc459b42508E"(ptr nonnull sret([24 x i8]) align 8 %9, ptr align 8 %65, ptr align 8 %2)
-          to label %141 unwind label %139
+62:                                               ; preds = %.sink.split, %133, %97
+  %63 = getelementptr inbounds i8, ptr %3, i64 64
+  %64 = load ptr, ptr %63, align 8
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hc67c8dc459b42508E"(ptr nonnull sret([24 x i8]) align 8 %9, ptr align 8 %64, ptr align 8 %2)
+          to label %138 unwind label %136
 
-66:                                               ; preds = %59
+65:                                               ; preds = %57
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h4fe6cd008698d233E"(ptr nonnull sret([144 x i8]) align 8 %12, ptr nonnull align 8 %17)
-          to label %71 unwind label %69
+          to label %70 unwind label %68
 
-67:                                               ; preds = %59
+66:                                               ; preds = %57
   invoke void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h198d893abd9ef273E(ptr nonnull sret([32 x i8]) align 8 %5, ptr nonnull align 8 %1)
-          to label %99 unwind label %69
+          to label %98 unwind label %68
 
-68:                                               ; preds = %91, %69
-  %.pn = phi { ptr, i32 } [ %70, %69 ], [ %92, %91 ]
+67:                                               ; preds = %90, %68
+  %.pn = phi { ptr, i32 } [ %69, %68 ], [ %91, %90 ]
   invoke void @"_ZN4core3ptr95drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..frompyobject..NamedStructField$GT$$GT$17h71ad7f622d0b7d13E"(ptr nonnull align 8 %17) #10
-          to label %155 unwind label %96
+          to label %152 unwind label %95
 
-69:                                               ; preds = %101, %99, %93, %85, %74, %67, %66
-  %70 = landingpad { ptr, i32 }
+68:                                               ; preds = %100, %98, %92, %84, %73, %66, %65
+  %69 = landingpad { ptr, i32 }
           cleanup
-  br label %68
+  br label %67
 
-71:                                               ; preds = %66
-  %72 = load i64, ptr %12, align 8
-  %73 = icmp eq i64 %72, -9223372036854775807
-  br i1 %73, label %74, label %75
+70:                                               ; preds = %65
+  %71 = load i64, ptr %12, align 8
+  %72 = icmp eq i64 %71, -9223372036854775807
+  br i1 %72, label %73, label %74
 
-74:                                               ; preds = %71
+73:                                               ; preds = %70
   invoke void @_ZN4core6option13unwrap_failed17h4b4353bf890a85dfE(ptr nonnull align 8 @anon.f90e7120072ed1bc1fceff9fa6df985f.22) #11
-          to label %80 unwind label %69
+          to label %79 unwind label %68
 
-75:                                               ; preds = %71
+74:                                               ; preds = %70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %13, ptr noundef nonnull align 8 dereferenceable(144) %12, i64 144, i1 false)
-  %76 = getelementptr inbounds i8, ptr %13, i64 112
-  %77 = load i64, ptr %76, align 8
-  %.not18 = icmp eq i64 %77, -9223372036854775797
-  %78 = getelementptr inbounds i8, ptr %13, i64 136
-  %79 = load ptr, ptr %78, align 8
-  br i1 %.not18, label %85, label %81
+  %75 = getelementptr inbounds i8, ptr %13, i64 112
+  %76 = load i64, ptr %75, align 8
+  %.not18 = icmp eq i64 %76, -9223372036854775797
+  %77 = getelementptr inbounds i8, ptr %13, i64 136
+  %78 = load ptr, ptr %77, align 8
+  br i1 %.not18, label %84, label %80
 
-80:                                               ; preds = %133, %74
+79:                                               ; preds = %132, %73
   unreachable
 
-81:                                               ; preds = %75
-  %82 = getelementptr inbounds i8, ptr %79, i64 16
-  %83 = load i8, ptr %82, align 8
-  %84 = icmp eq i8 %83, 2
-  br i1 %84, label %87, label %90
+80:                                               ; preds = %74
+  %81 = getelementptr inbounds i8, ptr %78, i64 16
+  %82 = load i8, ptr %81, align 8
+  %83 = icmp eq i8 %82, 2
+  br i1 %83, label %86, label %89
 
-85:                                               ; preds = %75
+84:                                               ; preds = %74
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %22, ptr noundef nonnull align 8 dereferenceable(112) %12, i64 112, i1 false)
-  %86 = getelementptr inbounds i8, ptr %22, i64 112
-  store ptr %79, ptr %86, align 8
-  invoke void @"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..frompyobject..FieldGetter$GT$$GT$17h31f0c5297cef2667E"(ptr nonnull align 8 %76)
-          to label %98 unwind label %69
+  %85 = getelementptr inbounds i8, ptr %22, i64 112
+  store ptr %78, ptr %85, align 8
+  invoke void @"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..frompyobject..FieldGetter$GT$$GT$17h31f0c5297cef2667E"(ptr nonnull align 8 %75)
+          to label %97 unwind label %68
 
-87:                                               ; preds = %81
-  %88 = getelementptr inbounds i8, ptr %79, i64 4
-  %89 = load i32, ptr %88, align 4
-  br label %90
+86:                                               ; preds = %80
+  %87 = getelementptr inbounds i8, ptr %78, i64 4
+  %88 = load i32, ptr %87, align 4
+  br label %89
 
-90:                                               ; preds = %81, %87
-  %.sroa.014.0 = phi i32 [ %89, %87 ], [ 0, %81 ]
+89:                                               ; preds = %80, %86
+  %.sroa.014.0 = phi i32 [ %88, %86 ], [ 0, %80 ]
   invoke void @_ZN3syn5error5Error3new17h0915185c7da90245E(ptr nonnull sret([24 x i8]) align 8 %11, i32 %.sroa.014.0, ptr nonnull align 1 @anon.f90e7120072ed1bc1fceff9fa6df985f.23, i64 65)
-          to label %93 unwind label %91
+          to label %92 unwind label %90
 
-91:                                               ; preds = %90
-  %92 = landingpad { ptr, i32 }
+90:                                               ; preds = %89
+  %91 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$pyo3_macros_backend..frompyobject..NamedStructField$GT$17h33e72f7c36c88a95E"(ptr nonnull align 8 %13) #10
-          to label %68 unwind label %96
+          to label %67 unwind label %95
 
-93:                                               ; preds = %90
-  %94 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
+92:                                               ; preds = %89
+  %93 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %93, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
   invoke void @"_ZN4core3ptr72drop_in_place$LT$pyo3_macros_backend..frompyobject..NamedStructField$GT$17h33e72f7c36c88a95E"(ptr nonnull align 8 %13)
-          to label %95 unwind label %69
+          to label %94 unwind label %68
 
-95:                                               ; preds = %102, %93
+94:                                               ; preds = %101, %92
   invoke void @"_ZN4core3ptr95drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..frompyobject..NamedStructField$GT$$GT$17h71ad7f622d0b7d13E"(ptr nonnull align 8 %17)
-          to label %105 unwind label %41
+          to label %104 unwind label %41
 
-96:                                               ; preds = %.thread28, %155, %154, %139, %128, %91, %68
-  %97 = landingpad { ptr, i32 }
+95:                                               ; preds = %.thread28, %152, %151, %136, %127, %90, %67
+  %96 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #12
   unreachable
 
-98:                                               ; preds = %85
+97:                                               ; preds = %84
   invoke void @"_ZN4core3ptr95drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..frompyobject..NamedStructField$GT$$GT$17h71ad7f622d0b7d13E"(ptr nonnull align 8 %17)
-          to label %63 unwind label %41
+          to label %62 unwind label %41
 
-99:                                               ; preds = %67
-  %100 = invoke i32 @_ZN5quote7spanned10join_spans17h3bdea0c35a14c843E(ptr nonnull align 8 %5)
-          to label %101 unwind label %69
+98:                                               ; preds = %66
+  %99 = invoke i32 @_ZN5quote7spanned10join_spans17h3bdea0c35a14c843E(ptr nonnull align 8 %5)
+          to label %100 unwind label %68
 
-101:                                              ; preds = %99
-  invoke void @_ZN3syn5error5Error3new17h0915185c7da90245E(ptr nonnull sret([24 x i8]) align 8 %14, i32 %100, ptr nonnull align 1 @anon.f90e7120072ed1bc1fceff9fa6df985f.24, i64 54)
-          to label %102 unwind label %69
+100:                                              ; preds = %98
+  invoke void @_ZN3syn5error5Error3new17h0915185c7da90245E(ptr nonnull sret([24 x i8]) align 8 %14, i32 %99, ptr nonnull align 1 @anon.f90e7120072ed1bc1fceff9fa6df985f.24, i64 54)
+          to label %101 unwind label %68
 
-102:                                              ; preds = %101
+101:                                              ; preds = %100
+  %102 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %102, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
+  store i64 -9223372036854775808, ptr %0, align 8
+  br label %94
+
+.sink.split37:                                    ; preds = %49, %149, %114
+  %.sink39 = phi ptr [ %117, %114 ], [ %10, %149 ], [ %52, %49 ]
   %103 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %103, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %103, ptr noundef nonnull align 8 dereferenceable(24) %.sink39, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %95
+  br label %104
 
-.sink.split:                                      ; preds = %49, %152, %115
-  %.sink35 = phi ptr [ %118, %115 ], [ %10, %152 ], [ %52, %49 ]
-  %104 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %104, ptr noundef nonnull align 8 dereferenceable(24) %.sink35, i64 24, i1 false)
-  store i64 -9223372036854775808, ptr %0, align 8
-  br label %105
-
-105:                                              ; preds = %.sink.split, %148, %95
+104:                                              ; preds = %.sink.split37, %145, %94
   invoke void @"_ZN4core3ptr72drop_in_place$LT$pyo3_macros_backend..frompyobject..ContainerOptions$GT$17h5586f41503e15c2eE"(ptr align 8 %3)
-          to label %153 unwind label %.thread33
+          to label %150 unwind label %.thread33
 
-.thread33:                                        ; preds = %105
-  %106 = landingpad { ptr, i32 }
+.thread33:                                        ; preds = %104
+  %105 = landingpad { ptr, i32 }
           cleanup
   br label %.thread28
 
-107:                                              ; preds = %30
-  %108 = getelementptr inbounds i8, ptr %1, i64 32
-  %109 = load ptr, ptr %108, align 8
-  %.not = icmp eq ptr %109, null
-  br i1 %.not, label %35, label %110
+106:                                              ; preds = %30
+  %107 = getelementptr inbounds i8, ptr %1, i64 32
+  %108 = load ptr, ptr %107, align 8
+  %.not = icmp eq ptr %108, null
+  br i1 %.not, label %35, label %109
 
-110:                                              ; preds = %107, %30
-  %111 = invoke { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4iter17hc946b8bde92d8095E"(ptr nonnull align 8 %31)
-          to label %112 unwind label %41
+109:                                              ; preds = %106, %30
+  %110 = invoke { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4iter17hc946b8bde92d8095E"(ptr nonnull align 8 %31)
+          to label %111 unwind label %41
 
-112:                                              ; preds = %110
-  %113 = extractvalue { ptr, ptr } %111, 0
-  %114 = extractvalue { ptr, ptr } %111, 1
-  invoke void @_ZN4core4iter8adapters11try_process17hfd616f37eec652d4E(ptr nonnull sret([32 x i8]) align 8 %20, ptr align 1 %113, ptr align 8 %114)
-          to label %115 unwind label %41
+111:                                              ; preds = %109
+  %112 = extractvalue { ptr, ptr } %110, 0
+  %113 = extractvalue { ptr, ptr } %110, 1
+  invoke void @_ZN4core4iter8adapters11try_process17hfd616f37eec652d4E(ptr nonnull sret([32 x i8]) align 8 %20, ptr align 1 %112, ptr align 8 %113)
+          to label %114 unwind label %41
 
-115:                                              ; preds = %112
-  %116 = load i64, ptr %20, align 8
-  %117 = icmp eq i64 %116, 0
-  %118 = getelementptr inbounds i8, ptr %20, i64 8
-  br i1 %117, label %119, label %.sink.split
+114:                                              ; preds = %111
+  %115 = load i64, ptr %20, align 8
+  %116 = icmp eq i64 %115, 0
+  %117 = getelementptr inbounds i8, ptr %20, i64 8
+  br i1 %116, label %118, label %.sink.split37
 
-119:                                              ; preds = %115
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %118, i64 24, i1 false)
-  %120 = getelementptr inbounds i8, ptr %21, i64 16
-  %121 = load i64, ptr %120, align 8
-  %122 = icmp eq i64 %121, 1
-  br i1 %122, label %123, label %124
+118:                                              ; preds = %114
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %117, i64 24, i1 false)
+  %119 = getelementptr inbounds i8, ptr %21, i64 16
+  %120 = load i64, ptr %119, align 8
+  %121 = icmp eq i64 %120, 1
+  br i1 %121, label %122, label %123
 
-123:                                              ; preds = %119
+122:                                              ; preds = %118
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h24c406ff08afd29bE"(ptr nonnull sret([112 x i8]) align 8 %19, ptr nonnull align 8 %21)
-          to label %130 unwind label %128
+          to label %129 unwind label %127
 
-124:                                              ; preds = %119
-  %125 = getelementptr inbounds i8, ptr %3, i64 72
-  %126 = load i8, ptr %125, align 8
-  %127 = trunc i8 %126 to i1
-  br i1 %127, label %138, label %136
+123:                                              ; preds = %118
+  %124 = getelementptr inbounds i8, ptr %3, i64 72
+  %125 = load i8, ptr %124, align 8
+  %126 = trunc i8 %125 to i1
+  br i1 %126, label %135, label %.sink.split
 
-128:                                              ; preds = %147, %145, %138, %133, %123
-  %129 = landingpad { ptr, i32 }
+127:                                              ; preds = %144, %142, %135, %132, %122
+  %128 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr95drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..frompyobject..TupleStructField$GT$$GT$17h8415cb4187c0565fE"(ptr nonnull align 8 %21) #10
-          to label %155 unwind label %96
+          to label %152 unwind label %95
 
-130:                                              ; preds = %123
-  %131 = load i64, ptr %19, align 8
-  %132 = icmp eq i64 %131, -9223372036854775807
-  br i1 %132, label %133, label %134
+129:                                              ; preds = %122
+  %130 = load i64, ptr %19, align 8
+  %131 = icmp eq i64 %130, -9223372036854775807
+  br i1 %131, label %132, label %133
 
-133:                                              ; preds = %130
+132:                                              ; preds = %129
   invoke void @_ZN4core6option13unwrap_failed17h4b4353bf890a85dfE(ptr nonnull align 8 @anon.f90e7120072ed1bc1fceff9fa6df985f.25) #11
-          to label %80 unwind label %128
+          to label %79 unwind label %127
 
-134:                                              ; preds = %130
-  %135 = getelementptr inbounds i8, ptr %22, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %135, ptr noundef nonnull align 8 dereferenceable(112) %19, i64 112, i1 false)
+133:                                              ; preds = %129
+  %134 = getelementptr inbounds i8, ptr %22, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %134, ptr noundef nonnull align 8 dereferenceable(112) %19, i64 112, i1 false)
   store i64 -9223372036854775804, ptr %22, align 8
   invoke void @"_ZN4core3ptr95drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..frompyobject..TupleStructField$GT$$GT$17h8415cb4187c0565fE"(ptr nonnull align 8 %21)
-          to label %63 unwind label %41
+          to label %62 unwind label %41
 
-136:                                              ; preds = %124
-  %137 = getelementptr inbounds i8, ptr %22, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %137, ptr noundef nonnull align 8 dereferenceable(24) %118, i64 24, i1 false)
-  store i64 -9223372036854775805, ptr %22, align 8
-  br label %63
-
-138:                                              ; preds = %124
+135:                                              ; preds = %123
   invoke void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h198d893abd9ef273E(ptr nonnull sret([32 x i8]) align 8 %6, ptr nonnull align 8 %1)
-          to label %145 unwind label %128
+          to label %142 unwind label %127
 
-139:                                              ; preds = %63
-  %140 = landingpad { ptr, i32 }
+136:                                              ; preds = %62
+  %137 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr69drop_in_place$LT$pyo3_macros_backend..frompyobject..ContainerType$GT$17hef2e11ebdbb83d61E"(ptr nonnull align 8 %22) #10
-          to label %154 unwind label %96
+          to label %151 unwind label %95
 
-141:                                              ; preds = %63
+138:                                              ; preds = %62
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
-  %142 = getelementptr inbounds i8, ptr %8, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %142, ptr noundef nonnull align 8 dereferenceable(120) %22, i64 120, i1 false)
-  %143 = getelementptr inbounds i8, ptr %8, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %143, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
+  %139 = getelementptr inbounds i8, ptr %8, i64 72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %139, ptr noundef nonnull align 8 dereferenceable(120) %22, i64 120, i1 false)
+  %140 = getelementptr inbounds i8, ptr %8, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %140, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(192) %8, i64 192, i1 false)
   call void @"_ZN4core3ptr193drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$syn..token..Crate$C$pyo3_macros_backend..attributes..LitStrValue$LT$syn..path..Path$GT$$GT$$GT$$GT$17h63c9f30e5cfbae17E"(ptr nonnull align 8 %3)
-  br label %144
+  br label %141
 
-144:                                              ; preds = %141, %153
+141:                                              ; preds = %138, %150
   ret void
 
-145:                                              ; preds = %138
-  %146 = invoke i32 @_ZN5quote7spanned10join_spans17h3bdea0c35a14c843E(ptr nonnull align 8 %6)
-          to label %147 unwind label %128
+142:                                              ; preds = %135
+  %143 = invoke i32 @_ZN5quote7spanned10join_spans17h3bdea0c35a14c843E(ptr nonnull align 8 %6)
+          to label %144 unwind label %127
 
-147:                                              ; preds = %145
-  invoke void @_ZN3syn5error5Error3new17h0915185c7da90245E(ptr nonnull sret([24 x i8]) align 8 %18, i32 %146, ptr nonnull align 1 @anon.f90e7120072ed1bc1fceff9fa6df985f.24, i64 54)
-          to label %148 unwind label %128
+144:                                              ; preds = %142
+  invoke void @_ZN3syn5error5Error3new17h0915185c7da90245E(ptr nonnull sret([24 x i8]) align 8 %18, i32 %143, ptr nonnull align 1 @anon.f90e7120072ed1bc1fceff9fa6df985f.24, i64 54)
+          to label %145 unwind label %127
 
-148:                                              ; preds = %147
-  %149 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %149, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
+145:                                              ; preds = %144
+  %146 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %146, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
   invoke void @"_ZN4core3ptr95drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..frompyobject..TupleStructField$GT$$GT$17h8415cb4187c0565fE"(ptr nonnull align 8 %21)
-          to label %105 unwind label %41
+          to label %104 unwind label %41
 
-150:                                              ; preds = %35
-  %151 = invoke i32 @_ZN5quote7spanned10join_spans17h3bdea0c35a14c843E(ptr nonnull align 8 %7)
-          to label %152 unwind label %41
+147:                                              ; preds = %35
+  %148 = invoke i32 @_ZN5quote7spanned10join_spans17h3bdea0c35a14c843E(ptr nonnull align 8 %7)
+          to label %149 unwind label %41
 
-152:                                              ; preds = %150
-  invoke void @_ZN3syn5error5Error3new17h0915185c7da90245E(ptr nonnull sret([24 x i8]) align 8 %10, i32 %151, ptr nonnull align 1 @anon.f90e7120072ed1bc1fceff9fa6df985f.26, i64 57)
-          to label %.sink.split unwind label %41
+149:                                              ; preds = %147
+  invoke void @_ZN3syn5error5Error3new17h0915185c7da90245E(ptr nonnull sret([24 x i8]) align 8 %10, i32 %148, ptr nonnull align 1 @anon.f90e7120072ed1bc1fceff9fa6df985f.26, i64 57)
+          to label %.sink.split37 unwind label %41
 
-153:                                              ; preds = %105
+150:                                              ; preds = %104
   call void @"_ZN4core3ptr36drop_in_place$LT$syn..path..Path$GT$17h7f2f0dca90df9e11E"(ptr align 8 %2)
-  br label %144
+  br label %141
 
-154:                                              ; preds = %139, %155
-  %.pn2026 = phi { ptr, i32 } [ %.pn20.ph, %155 ], [ %140, %139 ]
+151:                                              ; preds = %136, %152
+  %.pn2026 = phi { ptr, i32 } [ %.pn20.ph, %152 ], [ %137, %136 ]
   invoke void @"_ZN4core3ptr193drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$syn..token..Crate$C$pyo3_macros_backend..attributes..LitStrValue$LT$syn..path..Path$GT$$GT$$GT$$GT$17h63c9f30e5cfbae17E"(ptr align 8 %3) #10
-          to label %.thread28 unwind label %96
+          to label %.thread28 unwind label %95
 
-155:                                              ; preds = %41, %128, %68
-  %.pn20.ph = phi { ptr, i32 } [ %.pn, %68 ], [ %129, %128 ], [ %42, %41 ]
-  %156 = getelementptr inbounds i8, ptr %3, i64 64
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$syn..lit..LitStr$GT$$GT$17hc93cef9e6d979bb7E"(ptr nonnull align 8 %156) #10
-          to label %154 unwind label %96
+152:                                              ; preds = %41, %127, %67
+  %.pn20.ph = phi { ptr, i32 } [ %.pn, %67 ], [ %128, %127 ], [ %42, %41 ]
+  %153 = getelementptr inbounds i8, ptr %3, i64 64
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$syn..lit..LitStr$GT$$GT$17hc93cef9e6d979bb7E"(ptr nonnull align 8 %153) #10
+          to label %151 unwind label %95
 
-157:                                              ; preds = %.thread28
+154:                                              ; preds = %.thread28
   resume { ptr, i32 } %.pn2232
 
-.thread28:                                        ; preds = %154, %.thread33
-  %.pn2232 = phi { ptr, i32 } [ %106, %.thread33 ], [ %.pn2026, %154 ]
+.thread28:                                        ; preds = %151, %.thread33
+  %.pn2232 = phi { ptr, i32 } [ %105, %.thread33 ], [ %.pn2026, %151 ]
   invoke void @"_ZN4core3ptr36drop_in_place$LT$syn..path..Path$GT$17h7f2f0dca90df9e11E"(ptr align 8 %2) #10
-          to label %157 unwind label %96
+          to label %154 unwind label %95
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -24257,15 +24257,15 @@ entry:
   br i1 %or.cond, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %entry
-  %.sink6 = load ptr, ptr %p, align 8
-  %img_buffer_original.i.i = getelementptr inbounds i8, ptr %.sink6, i64 208
-  %1 = load ptr, ptr %img_buffer_original.i.i, align 8
-  %img_buffer.i.i = getelementptr inbounds i8, ptr %.sink6, i64 192
-  store ptr %1, ptr %img_buffer.i.i, align 8
-  %img_buffer_original_end.i.i = getelementptr inbounds i8, ptr %.sink6, i64 216
-  %2 = load ptr, ptr %img_buffer_original_end.i.i, align 8
-  %img_buffer_end.i.i = getelementptr inbounds i8, ptr %.sink6, i64 200
-  store ptr %2, ptr %img_buffer_end.i.i, align 8
+  %1 = load ptr, ptr %p, align 8
+  %img_buffer_original.i.i = getelementptr inbounds i8, ptr %1, i64 208
+  %2 = load ptr, ptr %img_buffer_original.i.i, align 8
+  %img_buffer.i.i = getelementptr inbounds i8, ptr %1, i64 192
+  store ptr %2, ptr %img_buffer.i.i, align 8
+  %img_buffer_original_end.i.i = getelementptr inbounds i8, ptr %1, i64 216
+  %3 = load ptr, ptr %img_buffer_original_end.i.i, align 8
+  %img_buffer_end.i.i = getelementptr inbounds i8, ptr %1, i64 200
+  store ptr %3, ptr %img_buffer_end.i.i, align 8
   br label %return
 
 return:                                           ; preds = %entry, %return.sink.split
@@ -32855,23 +32855,23 @@ entry:
   %depth.i = getelementptr inbounds i8, ptr %p.i, i64 32
   %0 = load i32, ptr %depth.i, align 8
   %cmp.not.i = icmp eq i32 %0, 16
-  %or.cond = select i1 %tobool.not.i.i, i1 %cmp.not.i, i1 false
-  br i1 %or.cond, label %stbi__png_is16.exit, label %if.end
+  %or.cond.i = select i1 %tobool.not.i.i, i1 %cmp.not.i, i1 false
+  br i1 %or.cond.i, label %stbi__png_is16.exit, label %if.end
 
 stbi__png_is16.exit:                              ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %p.i)
   br label %return
 
 if.end:                                           ; preds = %entry
-  %.sink6.i = load ptr, ptr %p.i, align 8
-  %img_buffer_original.i.i.i = getelementptr inbounds i8, ptr %.sink6.i, i64 208
-  %1 = load ptr, ptr %img_buffer_original.i.i.i, align 8
-  %img_buffer.i.i.i = getelementptr inbounds i8, ptr %.sink6.i, i64 192
-  store ptr %1, ptr %img_buffer.i.i.i, align 8
-  %img_buffer_original_end.i.i.i = getelementptr inbounds i8, ptr %.sink6.i, i64 216
-  %2 = load ptr, ptr %img_buffer_original_end.i.i.i, align 8
-  %img_buffer_end.i.i.i = getelementptr inbounds i8, ptr %.sink6.i, i64 200
-  store ptr %2, ptr %img_buffer_end.i.i.i, align 8
+  %1 = load ptr, ptr %p.i, align 8
+  %img_buffer_original.i.i.i = getelementptr inbounds i8, ptr %1, i64 208
+  %2 = load ptr, ptr %img_buffer_original.i.i.i, align 8
+  %img_buffer.i.i.i = getelementptr inbounds i8, ptr %1, i64 192
+  store ptr %2, ptr %img_buffer.i.i.i, align 8
+  %img_buffer_original_end.i.i.i = getelementptr inbounds i8, ptr %1, i64 216
+  %3 = load ptr, ptr %img_buffer_original_end.i.i.i, align 8
+  %img_buffer_end.i.i.i = getelementptr inbounds i8, ptr %1, i64 200
+  store ptr %3, ptr %img_buffer_end.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %p.i)
   %call1 = tail call i32 @stbi__psd_is16(ptr noundef %s)
   %tobool2.not = icmp eq i32 %call1, 0
@@ -33101,23 +33101,23 @@ stbi__start_file.exit:                            ; preds = %if.then.i.i.i, %if.
   %depth.i.i = getelementptr inbounds i8, ptr %p.i.i, i64 32
   %5 = load i32, ptr %depth.i.i, align 8
   %cmp.not.i.i = icmp eq i32 %5, 16
-  %or.cond.i = select i1 %tobool.not.i.i.i, i1 %cmp.not.i.i, i1 false
-  br i1 %or.cond.i, label %stbi__png_is16.exit.i, label %if.end.i
+  %or.cond.i.i = select i1 %tobool.not.i.i.i, i1 %cmp.not.i.i, i1 false
+  br i1 %or.cond.i.i, label %stbi__png_is16.exit.i, label %if.end.i
 
 stbi__png_is16.exit.i:                            ; preds = %stbi__start_file.exit
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %p.i.i)
   br label %stbi__is_16_main.exit
 
 if.end.i:                                         ; preds = %stbi__start_file.exit
-  %.sink6.i.i = load ptr, ptr %p.i.i, align 8
-  %img_buffer_original.i.i.i.i = getelementptr inbounds i8, ptr %.sink6.i.i, i64 208
-  %6 = load ptr, ptr %img_buffer_original.i.i.i.i, align 8
-  %img_buffer.i.i.i.i = getelementptr inbounds i8, ptr %.sink6.i.i, i64 192
-  store ptr %6, ptr %img_buffer.i.i.i.i, align 8
-  %img_buffer_original_end.i.i.i.i = getelementptr inbounds i8, ptr %.sink6.i.i, i64 216
-  %7 = load ptr, ptr %img_buffer_original_end.i.i.i.i, align 8
-  %img_buffer_end.i.i.i.i = getelementptr inbounds i8, ptr %.sink6.i.i, i64 200
-  store ptr %7, ptr %img_buffer_end.i.i.i.i, align 8
+  %6 = load ptr, ptr %p.i.i, align 8
+  %img_buffer_original.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 208
+  %7 = load ptr, ptr %img_buffer_original.i.i.i.i, align 8
+  %img_buffer.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 192
+  store ptr %7, ptr %img_buffer.i.i.i.i, align 8
+  %img_buffer_original_end.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 216
+  %8 = load ptr, ptr %img_buffer_original_end.i.i.i.i, align 8
+  %img_buffer_end.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 200
+  store ptr %8, ptr %img_buffer_end.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %p.i.i)
   %call1.i = call i32 @stbi__psd_is16(ptr noundef nonnull %s)
   %tobool2.not.i = icmp eq i32 %call1.i, 0
@@ -33242,23 +33242,23 @@ entry:
   %depth.i.i = getelementptr inbounds i8, ptr %p.i.i, i64 32
   %0 = load i32, ptr %depth.i.i, align 8
   %cmp.not.i.i = icmp eq i32 %0, 16
-  %or.cond.i = select i1 %tobool.not.i.i.i, i1 %cmp.not.i.i, i1 false
-  br i1 %or.cond.i, label %stbi__png_is16.exit.i, label %if.end.i
+  %or.cond.i.i = select i1 %tobool.not.i.i.i, i1 %cmp.not.i.i, i1 false
+  br i1 %or.cond.i.i, label %stbi__png_is16.exit.i, label %if.end.i
 
 stbi__png_is16.exit.i:                            ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %p.i.i)
   br label %stbi__is_16_main.exit
 
 if.end.i:                                         ; preds = %entry
-  %.sink6.i.i = load ptr, ptr %p.i.i, align 8
-  %img_buffer_original.i.i.i.i = getelementptr inbounds i8, ptr %.sink6.i.i, i64 208
-  %1 = load ptr, ptr %img_buffer_original.i.i.i.i, align 8
-  %img_buffer.i.i.i.i = getelementptr inbounds i8, ptr %.sink6.i.i, i64 192
-  store ptr %1, ptr %img_buffer.i.i.i.i, align 8
-  %img_buffer_original_end.i.i.i.i = getelementptr inbounds i8, ptr %.sink6.i.i, i64 216
-  %2 = load ptr, ptr %img_buffer_original_end.i.i.i.i, align 8
-  %img_buffer_end.i.i.i.i = getelementptr inbounds i8, ptr %.sink6.i.i, i64 200
-  store ptr %2, ptr %img_buffer_end.i.i.i.i, align 8
+  %1 = load ptr, ptr %p.i.i, align 8
+  %img_buffer_original.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 208
+  %2 = load ptr, ptr %img_buffer_original.i.i.i.i, align 8
+  %img_buffer.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 192
+  store ptr %2, ptr %img_buffer.i.i.i.i, align 8
+  %img_buffer_original_end.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 216
+  %3 = load ptr, ptr %img_buffer_original_end.i.i.i.i, align 8
+  %img_buffer_end.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 200
+  store ptr %3, ptr %img_buffer_end.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %p.i.i)
   %call1.i = call i32 @stbi__psd_is16(ptr noundef nonnull %s)
   %tobool2.not.i = icmp eq i32 %call1.i, 0
@@ -33334,23 +33334,23 @@ stbi__start_callbacks.exit:                       ; preds = %if.then.i.i, %if.el
   %depth.i.i = getelementptr inbounds i8, ptr %p.i.i, i64 32
   %5 = load i32, ptr %depth.i.i, align 8
   %cmp.not.i.i = icmp eq i32 %5, 16
-  %or.cond.i = select i1 %tobool.not.i.i.i, i1 %cmp.not.i.i, i1 false
-  br i1 %or.cond.i, label %stbi__png_is16.exit.i, label %if.end.i
+  %or.cond.i.i = select i1 %tobool.not.i.i.i, i1 %cmp.not.i.i, i1 false
+  br i1 %or.cond.i.i, label %stbi__png_is16.exit.i, label %if.end.i
 
 stbi__png_is16.exit.i:                            ; preds = %stbi__start_callbacks.exit
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %p.i.i)
   br label %stbi__is_16_main.exit
 
 if.end.i:                                         ; preds = %stbi__start_callbacks.exit
-  %.sink6.i.i = load ptr, ptr %p.i.i, align 8
-  %img_buffer_original.i.i.i.i = getelementptr inbounds i8, ptr %.sink6.i.i, i64 208
-  %6 = load ptr, ptr %img_buffer_original.i.i.i.i, align 8
-  %img_buffer.i.i.i.i = getelementptr inbounds i8, ptr %.sink6.i.i, i64 192
-  store ptr %6, ptr %img_buffer.i.i.i.i, align 8
-  %img_buffer_original_end.i.i.i.i = getelementptr inbounds i8, ptr %.sink6.i.i, i64 216
-  %7 = load ptr, ptr %img_buffer_original_end.i.i.i.i, align 8
-  %img_buffer_end.i.i.i.i = getelementptr inbounds i8, ptr %.sink6.i.i, i64 200
-  store ptr %7, ptr %img_buffer_end.i.i.i.i, align 8
+  %6 = load ptr, ptr %p.i.i, align 8
+  %img_buffer_original.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 208
+  %7 = load ptr, ptr %img_buffer_original.i.i.i.i, align 8
+  %img_buffer.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 192
+  store ptr %7, ptr %img_buffer.i.i.i.i, align 8
+  %img_buffer_original_end.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 216
+  %8 = load ptr, ptr %img_buffer_original_end.i.i.i.i, align 8
+  %img_buffer_end.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 200
+  store ptr %8, ptr %img_buffer_end.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %p.i.i)
   %call1.i = call i32 @stbi__psd_is16(ptr noundef nonnull %s)
   %tobool2.not.i = icmp eq i32 %call1.i, 0

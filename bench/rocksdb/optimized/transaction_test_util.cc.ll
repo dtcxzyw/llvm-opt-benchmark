@@ -1551,25 +1551,21 @@ if.then315:                                       ; preds = %invoke.cont313
   br i1 %is_optimistic, label %if.then317, label %if.else328
 
 if.then317:                                       ; preds = %if.then315
-  switch i8 %136, label %if.then326 [
+  switch i8 %136, label %if.end333.sink.split [
     i8 11, label %if.end333
     i8 9, label %if.end333
     i8 13, label %if.end333
   ]
 
-if.then326:                                       ; preds = %if.then317
-  store i8 1, ptr %unexpected_error, align 1
-  br label %if.end333
-
 if.else328:                                       ; preds = %if.then315
   %cmp.i304 = icmp eq i8 %136, 12
-  br i1 %cmp.i304, label %if.end333, label %if.then331
+  br i1 %cmp.i304, label %if.end333, label %if.end333.sink.split
 
-if.then331:                                       ; preds = %if.else328
+if.end333.sink.split:                             ; preds = %if.else328, %if.then317
   store i8 1, ptr %unexpected_error, align 1
   br label %if.end333
 
-if.end333:                                        ; preds = %if.then317, %if.then317, %if.then317, %if.else328, %if.then331, %if.then326
+if.end333:                                        ; preds = %if.end333.sink.split, %if.then317, %if.then317, %if.then317, %if.else328
   %137 = load i8, ptr %unexpected_error, align 1
   %tobool334 = trunc i8 %137 to i1
   br i1 %tobool334, label %if.then335, label %invoke.cont390

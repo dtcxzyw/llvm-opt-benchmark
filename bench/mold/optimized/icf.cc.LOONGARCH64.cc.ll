@@ -2160,8 +2160,8 @@ for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold3elfL15compute_digestsINS7_11LOONGARCH64EEESt6vectorISt5arrayIhLm16EESaISC_EERNS7_7ContextIT_EESt4spanIPNS7_12InputSectionISG_EELm18446744073709551615EEEUllE_lEEKNS1_16auto_partitionerEE3runERKS4_RKSP_RSR_RNS1_18task_group_contextE.exit.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i, !llvm.loop !40
 
 _ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold3elfL15compute_digestsINS7_11LOONGARCH64EEESt6vectorISt5arrayIhLm16EESaISC_EERNS7_7ContextIT_EESt4spanIPNS7_12InputSectionISG_EELm18446744073709551615EEEUllE_lEEKNS1_16auto_partitionerEE3runERKS4_RKSP_RSR_RNS1_18task_group_contextE.exit.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i143
-  %storemerge.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i148, %if.then.i.i.i.i.i.i143 ], [ %add.ptr.i.i.i.i146, %for.body.i.i.i.i.i.i.i.i.i.i ]
-  store ptr %storemerge.i, ptr %119, align 8, !alias.scope !32
+  %add.ptr.i.i.i.sink.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i148, %if.then.i.i.i.i.i.i143 ], [ %add.ptr.i.i.i.i146, %for.body.i.i.i.i.i.i.i.i.i.i ]
+  store ptr %add.ptr.i.i.i.sink.i, ptr %119, align 8, !alias.scope !32
   store ptr %ref.tmp2, ptr %ref.tmp3.i, align 8, !noalias !32
   %122 = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 8
   store ptr %ctx, ptr %122, align 8, !noalias !32

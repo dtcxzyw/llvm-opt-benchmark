@@ -69542,12 +69542,7 @@ for.end:                                          ; preds = %for.inc, %invoke.co
   %or.cond = select i1 %tobool110.not, i1 %cmp112, i1 false
   %cmp114 = icmp eq i32 %x_j.0.lcssa, -1
   %or.cond1 = select i1 %or.cond, i1 %cmp114, i1 false
-  br i1 %or.cond1, label %if.then115, label %if.end116
-
-if.then115:                                       ; preds = %for.end
-  store i8 0, ptr %has_shared, align 1
-  store i32 0, ptr %best_efforts, align 4
-  br label %lor.lhs.false205
+  br i1 %or.cond1, label %lor.lhs.false205.sink.split, label %if.end116
 
 if.end116:                                        ; preds = %for.end
   br i1 %cmp114, label %while.endthread-pre-split, label %if.end119
@@ -69607,7 +69602,7 @@ invoke.cont132:                                   ; preds = %if.then129
   %arrayidx.i.i296 = getelementptr inbounds ptr, ptr %54, i64 %idxprom.i.i295
   %55 = load ptr, ptr %arrayidx.i.i296, align 8
   %tobool134.not = icmp eq ptr %55, null
-  br i1 %tobool134.not, label %if.end154, label %invoke.cont136
+  br i1 %tobool134.not, label %lor.lhs.false205.sink.split, label %invoke.cont136
 
 invoke.cont136:                                   ; preds = %invoke.cont132
   %56 = load i32, ptr %max_gain, align 8
@@ -69627,7 +69622,7 @@ invoke.cont144:                                   ; preds = %if.then129
   %arrayidx.i.i302 = getelementptr inbounds ptr, ptr %60, i64 %idxprom.i.i295
   %61 = load ptr, ptr %arrayidx.i.i302, align 8
   %tobool146.not = icmp eq ptr %61, null
-  br i1 %tobool146.not, label %if.end154, label %invoke.cont148
+  br i1 %tobool146.not, label %lor.lhs.false205.sink.split, label %invoke.cont148
 
 invoke.cont148:                                   ; preds = %invoke.cont144
   %62 = load i32, ptr %max_gain, align 8
@@ -69636,11 +69631,6 @@ invoke.cont148:                                   ; preds = %invoke.cont144
   %cmp.i.i.i.i1.i305 = icmp eq i32 %63, 0
   %64 = select i1 %cmp.i.i.i.i.i303, i1 %cmp.i.i.i.i1.i305, i1 false
   br i1 %64, label %cleanup, label %if.else177.invoke
-
-if.end154:                                        ; preds = %invoke.cont132, %invoke.cont144
-  store i8 0, ptr %has_shared, align 1
-  store i32 0, ptr %best_efforts, align 4
-  br label %lor.lhs.false205
 
 if.end155:                                        ; preds = %if.end127
   %65 = load ptr, ptr %m_bounds.i, align 8
@@ -69787,8 +69777,13 @@ while.end:                                        ; preds = %while.cond.backedge
   %cmp204.not = icmp eq i32 %85, 0
   br i1 %cmp204.not, label %lor.lhs.false205, label %cleanup
 
-lor.lhs.false205:                                 ; preds = %if.then115, %if.end154, %while.end
-  %result.0428 = phi i32 [ 2, %while.end ], [ 0, %if.end154 ], [ 0, %if.then115 ]
+lor.lhs.false205.sink.split:                      ; preds = %invoke.cont144, %invoke.cont132, %for.end
+  store i8 0, ptr %has_shared, align 1
+  store i32 0, ptr %best_efforts, align 4
+  br label %lor.lhs.false205
+
+lor.lhs.false205:                                 ; preds = %lor.lhs.false205.sink.split, %while.end
+  %result.0428 = phi i32 [ 2, %while.end ], [ 0, %lor.lhs.false205.sink.split ]
   %86 = load ptr, ptr %ctx, align 8
   %call208 = invoke noundef zeroext i1 @_ZN3smt7context15get_cancel_flagEv(ptr noundef nonnull align 8 dereferenceable(11616) %86)
           to label %invoke.cont207 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp
@@ -172517,12 +172512,7 @@ for.end:                                          ; preds = %for.inc, %invoke.co
   %or.cond = select i1 %tobool110.not, i1 %cmp112, i1 false
   %cmp114 = icmp eq i32 %x_j.0.lcssa, -1
   %or.cond1 = select i1 %or.cond, i1 %cmp114, i1 false
-  br i1 %or.cond1, label %if.then115, label %if.end116
-
-if.then115:                                       ; preds = %for.end
-  store i8 0, ptr %has_shared, align 1
-  store i32 0, ptr %best_efforts, align 4
-  br label %lor.lhs.false205
+  br i1 %or.cond1, label %lor.lhs.false205.sink.split, label %if.end116
 
 if.end116:                                        ; preds = %for.end
   br i1 %cmp114, label %while.endthread-pre-split, label %invoke.cont120
@@ -172572,7 +172562,7 @@ invoke.cont132:                                   ; preds = %if.then129
   %arrayidx.i.i384 = getelementptr inbounds ptr, ptr %66, i64 %idxprom.i.i383
   %67 = load ptr, ptr %arrayidx.i.i384, align 8
   %tobool134.not = icmp eq ptr %67, null
-  br i1 %tobool134.not, label %if.end154, label %invoke.cont136
+  br i1 %tobool134.not, label %lor.lhs.false205.sink.split, label %invoke.cont136
 
 invoke.cont136:                                   ; preds = %invoke.cont132
   %68 = load i32, ptr %max_gain, align 8
@@ -172589,17 +172579,12 @@ invoke.cont144:                                   ; preds = %if.then129
   %arrayidx.i.i388 = getelementptr inbounds ptr, ptr %70, i64 %idxprom.i.i383
   %71 = load ptr, ptr %arrayidx.i.i388, align 8
   %tobool146.not = icmp eq ptr %71, null
-  br i1 %tobool146.not, label %if.end154, label %invoke.cont148
+  br i1 %tobool146.not, label %lor.lhs.false205.sink.split, label %invoke.cont148
 
 invoke.cont148:                                   ; preds = %invoke.cont144
   %72 = load i32, ptr %max_gain, align 8
   %cmp.i.i.i.i389 = icmp eq i32 %72, 0
   br i1 %cmp.i.i.i.i389, label %cleanup, label %if.else177.invoke
-
-if.end154:                                        ; preds = %invoke.cont132, %invoke.cont144
-  store i8 0, ptr %has_shared, align 1
-  store i32 0, ptr %best_efforts, align 4
-  br label %lor.lhs.false205
 
 if.end155:                                        ; preds = %if.end127
   %73 = load ptr, ptr %m_bounds.i, align 8
@@ -172826,8 +172811,13 @@ while.end:                                        ; preds = %while.cond.backedge
   %cmp204.not = icmp eq i32 %100, 0
   br i1 %cmp204.not, label %lor.lhs.false205, label %cleanup
 
-lor.lhs.false205:                                 ; preds = %if.then115, %if.end154, %while.end
-  %result.0512 = phi i32 [ 2, %while.end ], [ 0, %if.end154 ], [ 0, %if.then115 ]
+lor.lhs.false205.sink.split:                      ; preds = %invoke.cont144, %invoke.cont132, %for.end
+  store i8 0, ptr %has_shared, align 1
+  store i32 0, ptr %best_efforts, align 4
+  br label %lor.lhs.false205
+
+lor.lhs.false205:                                 ; preds = %lor.lhs.false205.sink.split, %while.end
+  %result.0512 = phi i32 [ 2, %while.end ], [ 0, %lor.lhs.false205.sink.split ]
   %101 = load ptr, ptr %ctx, align 8
   %call208 = invoke noundef zeroext i1 @_ZN3smt7context15get_cancel_flagEv(ptr noundef nonnull align 8 dereferenceable(11616) %101)
           to label %invoke.cont207 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp
@@ -271601,12 +271591,7 @@ for.end:                                          ; preds = %for.inc, %invoke.co
   %or.cond = select i1 %tobool110.not, i1 %cmp112, i1 false
   %cmp114 = icmp eq i32 %x_j.0.lcssa, -1
   %or.cond1 = select i1 %or.cond, i1 %cmp114, i1 false
-  br i1 %or.cond1, label %if.then115, label %if.end116
-
-if.then115:                                       ; preds = %for.end
-  store i8 0, ptr %has_shared, align 1
-  store i32 0, ptr %best_efforts, align 4
-  br label %lor.lhs.false205
+  br i1 %or.cond1, label %lor.lhs.false205.sink.split, label %if.end116
 
 if.end116:                                        ; preds = %for.end
   br i1 %cmp114, label %while.endthread-pre-split, label %if.end119
@@ -271675,7 +271660,7 @@ invoke.cont132:                                   ; preds = %if.then129
   %arrayidx.i.i465 = getelementptr inbounds ptr, ptr %70, i64 %idxprom.i.i464
   %71 = load ptr, ptr %arrayidx.i.i465, align 8
   %tobool134.not = icmp eq ptr %71, null
-  br i1 %tobool134.not, label %if.end154, label %if.then135
+  br i1 %tobool134.not, label %lor.lhs.false205.sink.split, label %if.then135
 
 if.then135:                                       ; preds = %invoke.cont132
   %72 = load i32, ptr %max_gain, align 8
@@ -271700,7 +271685,7 @@ invoke.cont144:                                   ; preds = %if.then129
   %arrayidx.i.i475 = getelementptr inbounds ptr, ptr %77, i64 %idxprom.i.i464
   %78 = load ptr, ptr %arrayidx.i.i475, align 8
   %tobool146.not = icmp eq ptr %78, null
-  br i1 %tobool146.not, label %if.end154, label %if.then147
+  br i1 %tobool146.not, label %lor.lhs.false205.sink.split, label %if.then147
 
 if.then147:                                       ; preds = %invoke.cont144
   %79 = load i32, ptr %max_gain, align 8
@@ -271714,11 +271699,6 @@ invoke.cont148:                                   ; preds = %if.then147
   %cmp.i.i.i.i1.i.i481 = icmp eq i32 %81, 0
   %82 = select i1 %cmp.i.i.i.i.i.i479, i1 %cmp.i.i.i.i1.i.i481, i1 false
   br i1 %82, label %cleanup, label %if.else177.invoke
-
-if.end154:                                        ; preds = %invoke.cont132, %invoke.cont144
-  store i8 0, ptr %has_shared, align 1
-  store i32 0, ptr %best_efforts, align 4
-  br label %lor.lhs.false205
 
 if.end155:                                        ; preds = %if.end127
   %call157 = invoke noundef zeroext i1 @_ZNK3smt12theory_arithINS_7inf_extEE8is_fixedEi(ptr noundef nonnull align 8 dereferenceable(1736) %this, i32 noundef %x_j.1557565)
@@ -271881,8 +271861,13 @@ while.end:                                        ; preds = %while.cond.backedge
   %cmp204.not = icmp eq i32 %100, 0
   br i1 %cmp204.not, label %lor.lhs.false205, label %cleanup
 
-lor.lhs.false205:                                 ; preds = %if.then115, %if.end154, %while.end
-  %result.0577 = phi i32 [ 2, %while.end ], [ 0, %if.end154 ], [ 0, %if.then115 ]
+lor.lhs.false205.sink.split:                      ; preds = %invoke.cont144, %invoke.cont132, %for.end
+  store i8 0, ptr %has_shared, align 1
+  store i32 0, ptr %best_efforts, align 4
+  br label %lor.lhs.false205
+
+lor.lhs.false205:                                 ; preds = %lor.lhs.false205.sink.split, %while.end
+  %result.0577 = phi i32 [ 2, %while.end ], [ 0, %lor.lhs.false205.sink.split ]
   %101 = load ptr, ptr %ctx, align 8
   %call208 = invoke noundef zeroext i1 @_ZN3smt7context15get_cancel_flagEv(ptr noundef nonnull align 8 dereferenceable(11616) %101)
           to label %invoke.cont207 unwind label %lpad16.loopexit.split-lp.loopexit.split-lp

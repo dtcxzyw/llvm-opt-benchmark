@@ -4144,14 +4144,13 @@ cleanup:                                          ; preds = %if.else, %while.exi
   %bufLen13.2.ph = phi i64 [ %bufLen13.0199, %if.else ], [ %sub, %while.exit ]
   %.pr = load ptr, ptr %exception3.i104, align 8, !tbaa !17
   %cmp.not.i.i106 = icmp eq ptr %.pr, null
-  br i1 %cmp.not.i.i106, label %_ZN5folly11AsyncSocket10ReadResultD2Ev.exit110, label %_ZNKSt14default_deleteIKN5folly20AsyncSocketExceptionEEclEPS2_.exit.i.i107.thread
+  br i1 %cmp.not.i.i106, label %while.cond.backedge, label %_ZNKSt14default_deleteIKN5folly20AsyncSocketExceptionEEclEPS2_.exit.i.i107.thread
 
 _ZNKSt14default_deleteIKN5folly20AsyncSocketExceptionEEclEPS2_.exit.i.i107.thread: ; preds = %cleanup
   %vtable.i.i.i10831 = load ptr, ptr %.pr, align 8, !tbaa !15
   %vfn.i.i.i10932 = getelementptr inbounds i8, ptr %vtable.i.i.i10831, i64 8
   %16 = load ptr, ptr %vfn.i.i.i10932, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(24) %.pr) #38
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %readRes) #38
   br label %while.cond.backedge
 
 cleanup.thread:                                   ; preds = %if.then43
@@ -4173,11 +4172,8 @@ _ZNKSt14default_deleteIKN5folly20AsyncSocketExceptionEEclEPS2_.exit.i.i107: ; pr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %readRes) #38
   br label %return
 
-_ZN5folly11AsyncSocket10ReadResultD2Ev.exit110:   ; preds = %cleanup
+while.cond.backedge:                              ; preds = %cleanup, %_ZNKSt14default_deleteIKN5folly20AsyncSocketExceptionEEclEPS2_.exit.i.i107.thread
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %readRes) #38
-  br label %while.cond.backedge
-
-while.cond.backedge:                              ; preds = %_ZNKSt14default_deleteIKN5folly20AsyncSocketExceptionEEclEPS2_.exit.i.i107.thread, %_ZN5folly11AsyncSocket10ReadResultD2Ev.exit110
   %cmp17 = icmp eq i64 %bufLen13.2.ph, 0
   %cmp19 = icmp slt i64 %9, 1
   %.not = or i1 %cmp19, %cmp17

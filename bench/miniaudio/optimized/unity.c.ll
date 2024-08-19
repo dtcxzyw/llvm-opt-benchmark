@@ -6005,19 +6005,11 @@ if.then17.i:                                      ; preds = %if.end15.i
   br i1 %cmp21.i, label %if.then22.i, label %if.then50.i
 
 if.then22.i:                                      ; preds = %if.then17.i
-  br i1 %cmp1.i17, label %if.then24.i, label %if.else25.i
-
-if.then24.i:                                      ; preds = %if.then22.i
-  store i32 %call18.i, ptr %sched.i, align 4
-  br label %if.end43.i
+  br i1 %cmp1.i17, label %if.end43.i, label %if.else25.i
 
 if.else25.i:                                      ; preds = %if.then22.i
   %cmp26.i = icmp eq i32 %priority, 1
-  br i1 %cmp26.i, label %if.then27.i, label %if.else29.i
-
-if.then27.i:                                      ; preds = %if.else25.i
-  store i32 %call19.i, ptr %sched.i, align 4
-  br label %if.end43.i
+  br i1 %cmp26.i, label %if.end43.i, label %if.else29.i
 
 if.else29.i:                                      ; preds = %if.else25.i
   %add.i = add nsw i32 %priority, 5
@@ -6026,10 +6018,11 @@ if.else29.i:                                      ; preds = %if.else25.i
   %add31.i = add nsw i32 %8, %mul.i
   %spec.select17.i = call i32 @llvm.smax.i32(i32 %add31.i, i32 %call18.i)
   %spec.store.select.i = call i32 @llvm.smin.i32(i32 %spec.select17.i, i32 %call19.i)
-  store i32 %spec.store.select.i, ptr %sched.i, align 4
   br label %if.end43.i
 
-if.end43.i:                                       ; preds = %if.else29.i, %if.then27.i, %if.then24.i
+if.end43.i:                                       ; preds = %if.else29.i, %if.else25.i, %if.then22.i
+  %spec.store.select.sink.i = phi i32 [ %spec.store.select.i, %if.else29.i ], [ %call18.i, %if.then22.i ], [ %call19.i, %if.else25.i ]
+  store i32 %spec.store.select.sink.i, ptr %sched.i, align 4
   %call44.i = call i32 @pthread_attr_setschedparam(ptr noundef nonnull %attr.i, ptr noundef nonnull %sched.i) #63
   br label %if.then50.i
 
@@ -44842,7 +44835,7 @@ if.then6:                                         ; preds = %if.end4
   %hasResampler.i = getelementptr inbounds i8, ptr %converter, i64 299
   %1 = load i8, ptr %hasResampler.i, align 1
   %tobool.not.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i, label %ma_data_converter_get_expected_output_frame_count.exit.thread26, label %if.end.i.i10
+  br i1 %tobool.not.i, label %if.end23.sink.split, label %if.end.i.i10
 
 if.end.i.i10:                                     ; preds = %if.then6
   %resampler.i = getelementptr inbounds i8, ptr %converter, i64 104
@@ -44856,10 +44849,6 @@ lor.lhs.false.i.i:                                ; preds = %if.end.i.i10
   %3 = load ptr, ptr %onGetExpectedOutputFrameCount.i.i, align 8
   %cmp6.i.i = icmp eq ptr %3, null
   br i1 %cmp6.i.i, label %while.body.preheader, label %ma_data_converter_get_expected_output_frame_count.exit
-
-ma_data_converter_get_expected_output_frame_count.exit.thread26: ; preds = %if.then6
-  store i64 %frameCountIn, ptr %frameCountOut.addr, align 8
-  br label %if.end23
 
 ma_data_converter_get_expected_output_frame_count.exit: ; preds = %lor.lhs.false.i.i
   %pBackendUserData.i.i = getelementptr inbounds i8, ptr %converter, i64 120
@@ -44891,13 +44880,14 @@ if.end16:                                         ; preds = %while.body
 if.else:                                          ; preds = %if.end4
   %call19 = call i32 @ma_data_converter_process_pcm_frames(ptr noundef nonnull %converter, ptr noundef %pIn, ptr noundef nonnull %frameCountIn.addr, ptr noundef nonnull %pOut, ptr noundef nonnull %frameCountOut.addr)
   %cmp20.not = icmp eq i32 %call19, 0
-  br i1 %cmp20.not, label %if.end23, label %if.then21
+  br i1 %cmp20.not, label %if.end23, label %if.end23.sink.split
 
-if.then21:                                        ; preds = %if.else
-  store i64 0, ptr %frameCountOut.addr, align 8
+if.end23.sink.split:                              ; preds = %if.else, %if.then6
+  %frameCountIn.sink = phi i64 [ %frameCountIn, %if.then6 ], [ 0, %if.else ]
+  store i64 %frameCountIn.sink, ptr %frameCountOut.addr, align 8
   br label %if.end23
 
-if.end23:                                         ; preds = %while.body, %if.end16, %ma_data_converter_get_expected_output_frame_count.exit.thread26, %if.else, %if.then21, %ma_data_converter_get_expected_output_frame_count.exit
+if.end23:                                         ; preds = %while.body, %if.end16, %if.end23.sink.split, %if.else, %ma_data_converter_get_expected_output_frame_count.exit
   %hasResampler.i14 = getelementptr inbounds i8, ptr %converter, i64 299
   %8 = load i8, ptr %hasResampler.i14, align 1
   %tobool.not.i15 = icmp eq i8 %8, 0
@@ -108627,17 +108617,17 @@ if.end106:                                        ; preds = %for.cond67.preheade
   br i1 %cmp44, label %for.inc109, label %for.cond67.preheader
 
 for.inc109:                                       ; preds = %for.cond67.preheader, %if.end106, %for.body41
-  %runningPCMFrameCount.296 = phi i64 [ %runningPCMFrameCount.1108, %for.body41 ], [ %runningPCMFrameCount.2104, %for.cond67.preheader ], [ %add7.i68, %if.end106 ]
-  %runningPCMFrameCountFractionalPart.294 = phi float [ %runningPCMFrameCountFractionalPart.1109, %for.body41 ], [ %runningPCMFrameCountFractionalPart.2105, %for.cond67.preheader ], [ %sub.i66, %if.end106 ]
-  %.sink = load i64, ptr %mp3FrameInfo, align 16
+  %runningPCMFrameCount.296 = phi i64 [ %runningPCMFrameCount.1108, %for.body41 ], [ %add7.i68, %if.end106 ], [ %runningPCMFrameCount.2104, %for.cond67.preheader ]
+  %runningPCMFrameCountFractionalPart.294 = phi float [ %runningPCMFrameCountFractionalPart.1109, %for.body41 ], [ %sub.i66, %if.end106 ], [ %runningPCMFrameCountFractionalPart.2105, %for.cond67.preheader ]
+  %12 = load i64, ptr %mp3FrameInfo, align 16
   %arrayidx50 = getelementptr inbounds %struct.ma_dr_mp3_seek_point, ptr %pSeekPoints, i64 %indvars.iv115
-  store i64 %.sink, ptr %arrayidx50, align 8
+  store i64 %12, ptr %arrayidx50, align 8
   %pcmFrameIndex54 = getelementptr inbounds i8, ptr %arrayidx50, i64 8
   store i64 %add42, ptr %pcmFrameIndex54, align 8
   %mp3FramesToDiscard57 = getelementptr inbounds i8, ptr %arrayidx50, i64 16
   store i16 2, ptr %mp3FramesToDiscard57, align 8
-  %12 = load i64, ptr %pcmFrameIndex100, align 8
-  %sub60 = sub i64 %add42, %12
+  %13 = load i64, ptr %pcmFrameIndex100, align 8
+  %sub60 = sub i64 %add42, %13
   %conv61 = trunc i64 %sub60 to i16
   %pcmFramesToDiscard64 = getelementptr inbounds i8, ptr %arrayidx50, i64 18
   store i16 %conv61, ptr %pcmFramesToDiscard64, align 2
@@ -108646,9 +108636,9 @@ for.inc109:                                       ; preds = %for.cond67.preheade
   br i1 %exitcond118.not, label %for.end111, label %for.body41, !llvm.loop !883
 
 for.end111:                                       ; preds = %for.inc109, %for.cond38.preheader
-  %13 = load ptr, ptr %onSeek.i.i, align 8
-  %14 = load ptr, ptr %pUserData.i.i, align 8
-  %call.i.i71 = call i32 %13(ptr noundef %14, i32 noundef 0, i32 noundef 0) #63
+  %14 = load ptr, ptr %onSeek.i.i, align 8
+  %15 = load ptr, ptr %pUserData.i.i, align 8
+  %call.i.i71 = call i32 %14(ptr noundef %15, i32 noundef 0, i32 noundef 0) #63
   %tobool.not.i.i72 = icmp eq i32 %call.i.i71, 0
   br i1 %tobool.not.i.i72, label %return, label %if.end115
 
@@ -116202,7 +116192,7 @@ if.else:                                          ; preds = %if.then20
   %20 = load i8, ptr %call4, align 1
   switch i8 %20, label %if.end3.i.i.preheader [
     i8 104, label %lor.lhs.false.i.i
-    i8 0, label %ma_convert_device_name_to_hw_format__alsa.exit.thread
+    i8 0, label %if.end6.i103
   ]
 
 if.end3.i.i.preheader:                            ; preds = %if.end14.i.i.i, %for.body.i.i, %while.body.i.i, %if.end13.i.i, %lor.lhs.false7.i.i, %lor.lhs.false.i.i, %if.else
@@ -116312,7 +116302,7 @@ if.end14.i.i:                                     ; preds = %if.end3.i.i
   %arrayidx.i.i = getelementptr inbounds i8, ptr %call4, i64 %indvars.iv.next.i28.i
   %34 = load i8, ptr %arrayidx.i.i, align 1
   %cmp.i29.i = icmp eq i8 %34, 0
-  br i1 %cmp.i29.i, label %ma_convert_device_name_to_hw_format__alsa.exit.thread, label %if.end3.i.i
+  br i1 %cmp.i29.i, label %if.end6.i103, label %if.end3.i.i
 
 if.end3.i34.preheader.i:                          ; preds = %if.end3.i.i
   %arrayidx.le.i.i = getelementptr inbounds i8, ptr %call4, i64 %indvars.iv.i27.i
@@ -116394,7 +116384,7 @@ if.end22.i:                                       ; preds = %for.body.i55.i, %la
   %40 = load ptr, ptr %snd_card_get_index.i, align 8
   %call24.i = call i32 %40(ptr noundef nonnull %card.i) #63
   %cmp25.i = icmp slt i32 %call24.i, 0
-  br i1 %cmp25.i, label %ma_convert_device_name_to_hw_format__alsa.exit.thread, label %if.end28.i
+  br i1 %cmp25.i, label %if.end6.i103, label %if.end28.i
 
 if.end28.i:                                       ; preds = %if.end22.i
   store i8 104, ptr %hwid, align 16
@@ -116459,7 +116449,7 @@ while.body.i101.i:                                ; preds = %land.rhs.i99.i
   %add.ptr.i102.i = getelementptr inbounds i8, ptr %dst.addr.018.i.i, i64 1
   %sub.i.i = add nsw i64 %dstSizeInBytes.addr.019.i.i, -1
   %cond.i.i = icmp eq i64 %sub.i.i, 0
-  br i1 %cond.i.i, label %ma_convert_device_name_to_hw_format__alsa.exit.thread, label %land.rhs.i99.i, !llvm.loop !8
+  br i1 %cond.i.i, label %if.end6.i103, label %land.rhs.i99.i, !llvm.loop !8
 
 land.rhs18.i.i:                                   ; preds = %land.rhs.i99.i, %while.body24.i.i
   %src.addr.022.i.idx.i = phi i64 [ %src.addr.022.i.add.i, %while.body24.i.i ], [ 0, %land.rhs.i99.i ]
@@ -116493,7 +116483,7 @@ while.body.i115.i:                                ; preds = %land.rhs.i111.i
   %add.ptr.i116.i = getelementptr inbounds i8, ptr %dst.addr.018.i113.i, i64 1
   %sub.i117.i = add nsw i64 %dstSizeInBytes.addr.019.i112.i, -1
   %cond.i118.i = icmp eq i64 %sub.i117.i, 0
-  br i1 %cond.i118.i, label %ma_convert_device_name_to_hw_format__alsa.exit.thread, label %land.rhs.i111.i, !llvm.loop !8
+  br i1 %cond.i118.i, label %if.end6.i103, label %land.rhs.i111.i, !llvm.loop !8
 
 land.rhs18.i120.i:                                ; preds = %land.rhs.i111.i, %while.body24.i125.i
   %src.addr.022.i121.i = phi ptr [ %incdec.ptr.i126.i, %while.body24.i125.i ], [ %dev.0.i, %land.rhs.i111.i ]
@@ -116511,18 +116501,10 @@ while.body24.i125.i:                              ; preds = %land.rhs18.i120.i
   %cmp16.not.i129.i = icmp eq i64 %sub26.i128.i, 0
   br i1 %cmp16.not.i129.i, label %ma_convert_device_name_to_hw_format__alsa.exit.thread429, label %land.rhs18.i120.i, !llvm.loop !9
 
-ma_convert_device_name_to_hw_format__alsa.exit.thread: ; preds = %if.end14.i.i, %while.body.i101.i, %while.body.i115.i, %if.end22.i, %if.else
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %card.i)
-  br label %land.rhs.i104.preheader
-
 ma_convert_device_name_to_hw_format__alsa.exit.thread429: ; preds = %for.body.i24.i, %while.body24.i.i, %while.body24.i125.i, %do.end.i.i
   %dst.addr.120.i123.lcssa.sink.i.ph = phi ptr [ %add.ptr31.ptr.i, %do.end.i.i ], [ %hwid, %while.body24.i125.i ], [ %hwid, %while.body24.i.i ], [ %hwid, %for.body.i24.i ]
   store i8 0, ptr %dst.addr.120.i123.lcssa.sink.i.ph, align 1
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %card.i)
-  br label %land.rhs.i104.preheader
-
-land.rhs.i104.preheader:                          ; preds = %ma_convert_device_name_to_hw_format__alsa.exit.thread, %ma_convert_device_name_to_hw_format__alsa.exit.thread429
-  br label %land.rhs.i104
+  br label %if.end6.i103
 
 if.then26:                                        ; preds = %land.rhs.i.i, %land.rhs18.i120.i
   %dst.addr.120.i123.lcssa.sink.i = phi ptr [ %dst.addr.120.i123.i, %land.rhs18.i120.i ], [ %arrayidx16.i.i, %land.rhs.i.i ]
@@ -116540,8 +116522,12 @@ while.cond29:                                     ; preds = %while.cond29, %if.t
   %tobool31.not = icmp eq i8 %49, 0
   br i1 %tobool31.not, label %if.end36, label %while.cond29, !llvm.loop !903
 
-land.rhs.i104:                                    ; preds = %land.rhs.i104.preheader, %for.body.i108
-  %i.024.i105 = phi i64 [ %inc.i110, %for.body.i108 ], [ 0, %land.rhs.i104.preheader ]
+if.end6.i103:                                     ; preds = %if.end14.i.i, %while.body.i101.i, %while.body.i115.i, %if.else, %if.end22.i, %ma_convert_device_name_to_hw_format__alsa.exit.thread429
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %card.i)
+  br label %land.rhs.i104
+
+land.rhs.i104:                                    ; preds = %for.body.i108, %if.end6.i103
+  %i.024.i105 = phi i64 [ %inc.i110, %for.body.i108 ], [ 0, %if.end6.i103 ]
   %arrayidx12.i106 = getelementptr inbounds i8, ptr %call4, i64 %i.024.i105
   %50 = load i8, ptr %arrayidx12.i106, align 1
   %cmp13.not.i107 = icmp eq i8 %50, 0
@@ -129613,8 +129599,8 @@ if.else:                                          ; preds = %ma_engine_get_chann
   br label %if.end46
 
 if.end46:                                         ; preds = %ma_engine_get_channels.exit, %if.else
-  %storemerge71 = phi ptr [ %tempf32, %if.else ], [ %temp, %ma_engine_get_channels.exit ]
-  store ptr %storemerge71, ptr %pRunningFramesIn, align 8
+  %tempf32.sink = phi ptr [ %tempf32, %if.else ], [ %temp, %ma_engine_get_channels.exit ]
+  store ptr %tempf32.sink, ptr %pRunningFramesIn, align 8
   call fastcc void @ma_engine_node_process_pcm_frames__general(ptr noundef nonnull %pNode, ptr noundef nonnull %pRunningFramesIn, ptr noundef nonnull %frameCountIn, ptr noundef nonnull %pRunningFramesOut, ptr noundef nonnull %frameCountOut)
   %35 = load i32, ptr %frameCountOut, align 4
   %add = add i32 %35, %totalFramesRead.1

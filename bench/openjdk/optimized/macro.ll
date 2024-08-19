@@ -2887,8 +2887,7 @@ define internal fastcc noundef ptr @_ZL14scan_mem_chainP4NodeiiS0_S0_P8PhaseGVN(
 
 33:                                               ; preds = %27
   %34 = call noundef ptr @_ZNK12MergeMemNode9memory_atEj(ptr noundef nonnull align 8 dereferenceable(52) %28, i32 noundef %1) #8
-  store ptr %34, ptr %7, align 8
-  br label %179
+  br label %.sink.split
 
 35:                                               ; preds = %27
   %36 = and i32 %30, 15
@@ -2942,8 +2941,7 @@ define internal fastcc noundef ptr @_ZL14scan_mem_chainP4NodeiiS0_S0_P8PhaseGVN(
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 16
   %68 = load ptr, ptr %67, align 8
-  store ptr %68, ptr %7, align 8
-  br label %179
+  br label %.sink.split
 
 69:                                               ; preds = %53
   %70 = and i32 %54, 31
@@ -2963,8 +2961,7 @@ define internal fastcc noundef ptr @_ZL14scan_mem_chainP4NodeiiS0_S0_P8PhaseGVN(
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 16
   %80 = load ptr, ptr %79, align 8
-  store ptr %80, ptr %7, align 8
-  br label %179
+  br label %.sink.split
 
 81:                                               ; preds = %38, %35
   %82 = and i32 %30, 127
@@ -3005,8 +3002,7 @@ define internal fastcc noundef ptr @_ZL14scan_mem_chainP4NodeiiS0_S0_P8PhaseGVN(
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 8
   %109 = load ptr, ptr %108, align 8
-  store ptr %109, ptr %7, align 8
-  br label %179
+  br label %.sink.split
 
 110:                                              ; preds = %81
   %111 = and i32 %30, 32767
@@ -3068,8 +3064,7 @@ define internal fastcc noundef ptr @_ZL14scan_mem_chainP4NodeiiS0_S0_P8PhaseGVN(
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds i8, ptr %151, i64 8
   %153 = load ptr, ptr %152, align 8
-  store ptr %153, ptr %7, align 8
-  br label %179
+  br label %.sink.split
 
 154:                                              ; preds = %123
   %155 = load ptr, ptr %128, align 8
@@ -3100,10 +3095,14 @@ define internal fastcc noundef ptr @_ZL14scan_mem_chainP4NodeiiS0_S0_P8PhaseGVN(
   %176 = load ptr, ptr %175, align 8
   %177 = getelementptr inbounds i8, ptr %176, i64 8
   %178 = load ptr, ptr %177, align 8
-  store ptr %178, ptr %7, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %64, %76, %173, %148, %104, %33
+  %.sink69 = phi ptr [ %34, %33 ], [ %109, %104 ], [ %153, %148 ], [ %178, %173 ], [ %80, %76 ], [ %68, %64 ]
+  store ptr %.sink69, ptr %7, align 8
   br label %179
 
-179:                                              ; preds = %33, %104, %148, %173, %113, %76, %69, %64
+179:                                              ; preds = %.sink.split, %113, %69
   %180 = load ptr, ptr %7, align 8
   %181 = icmp eq ptr %180, %9
   %182 = icmp eq ptr %180, %3

@@ -5117,47 +5117,47 @@ define internal i32 @_v41_dump_WCKEY_TAG(ptr nocapture readnone %0, ptr nocaptur
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 4
   %.not9 = icmp eq i32 %10, 0
-  br i1 %.not9, label %.preheader, label %25
+  br i1 %.not9, label %.preheader, label %24
 
 11:                                               ; preds = %4
   %12 = load i8, ptr %6, align 1
   %13 = icmp eq i8 %12, 42
-  br i1 %13, label %14, label %17
+  br i1 %13, label %14, label %.sink.split
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 1, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %6, i64 1
-  store ptr %16, ptr %5, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %11, %14
+  %.sink = phi ptr [ %16, %14 ], [ %6, %11 ]
+  store ptr %.sink, ptr %5, align 8
   br label %.preheader
 
-17:                                               ; preds = %11
-  store ptr %6, ptr %5, align 8
-  br label %.preheader
+.preheader:                                       ; preds = %.sink.split, %7
+  br label %18
 
-.preheader:                                       ; preds = %14, %17, %7
-  br label %19
-
-18:                                               ; preds = %19
+17:                                               ; preds = %18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 481
-  br i1 %exitcond.not.i, label %find_parser_by_type.exit, label %19, !llvm.loop !6
+  br i1 %exitcond.not.i, label %find_parser_by_type.exit, label %18, !llvm.loop !6
 
-19:                                               ; preds = %.preheader, %18
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %18 ], [ 0, %.preheader ]
-  %20 = getelementptr inbounds [481 x %struct.parser_s], ptr @parsers, i64 0, i64 %indvars.iv.i
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
-  %22 = load i32, ptr %21, align 8
-  %23 = icmp eq i32 %22, 229
-  br i1 %23, label %find_parser_by_type.exit, label %18
+18:                                               ; preds = %.preheader, %17
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %17 ], [ 0, %.preheader ]
+  %19 = getelementptr inbounds [481 x %struct.parser_s], ptr @parsers, i64 0, i64 %indvars.iv.i
+  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = load i32, ptr %20, align 8
+  %22 = icmp eq i32 %21, 229
+  br i1 %22, label %find_parser_by_type.exit, label %17
 
-find_parser_by_type.exit:                         ; preds = %18, %19
-  %.05.i = phi ptr [ %20, %19 ], [ null, %18 ]
-  %24 = call i32 @dump(ptr noundef nonnull %5, i64 noundef 16, ptr noundef %.05.i, ptr noundef %2, ptr noundef %3) #18
-  br label %25
+find_parser_by_type.exit:                         ; preds = %17, %18
+  %.05.i = phi ptr [ %19, %18 ], [ null, %17 ]
+  %23 = call i32 @dump(ptr noundef nonnull %5, i64 noundef 16, ptr noundef %.05.i, ptr noundef %2, ptr noundef %3) #18
+  br label %24
 
-25:                                               ; preds = %7, %find_parser_by_type.exit
-  %.0 = phi i32 [ %24, %find_parser_by_type.exit ], [ 0, %7 ]
+24:                                               ; preds = %7, %find_parser_by_type.exit
+  %.0 = phi i32 [ %23, %find_parser_by_type.exit ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -8858,49 +8858,44 @@ define internal i32 @_v41_dump_JOB_PLANNED_TIME(ptr nocapture readnone %0, ptr n
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 112
   %7 = load i64, ptr %6, align 8
-  switch i64 %7, label %9 [
-    i64 0, label %8
-    i64 4294967295, label %8
+  switch i64 %7, label %8 [
+    i64 0, label %find_parser_by_type.exit
+    i64 4294967295, label %find_parser_by_type.exit
   ]
 
-8:                                                ; preds = %4, %4
-  store i64 0, ptr %5, align 8
-  br label %find_parser_by_type.exit
-
-9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 304
-  %11 = load i64, ptr %10, align 8
-  switch i64 %11, label %.thread [
-    i64 4294967294, label %12
-    i64 0, label %18
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %1, i64 304
+  %10 = load i64, ptr %9, align 8
+  switch i64 %10, label %.thread [
+    i64 4294967294, label %11
+    i64 0, label %17
   ]
 
-12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %1, i64 120
-  %14 = load i64, ptr %13, align 8
-  %.not15 = icmp eq i64 %14, 0
-  br i1 %.not15, label %.thread, label %15
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds i8, ptr %1, i64 120
+  %13 = load i64, ptr %12, align 8
+  %.not15 = icmp eq i64 %13, 0
+  br i1 %.not15, label %.thread, label %14
 
-15:                                               ; preds = %12
-  %16 = sub nsw i64 %14, %7
-  store i64 %16, ptr %5, align 8
+14:                                               ; preds = %11
+  %15 = sub nsw i64 %13, %7
   br label %find_parser_by_type.exit
 
-.thread:                                          ; preds = %9, %12
-  %17 = sub nsw i64 %11, %7
-  store i64 %17, ptr %5, align 8
+.thread:                                          ; preds = %8, %11
+  %16 = sub nsw i64 %10, %7
   br label %find_parser_by_type.exit
 
-18:                                               ; preds = %9
-  %19 = tail call i64 @time(ptr noundef null) #18
-  %20 = load i64, ptr %6, align 8
-  %21 = sub nsw i64 %19, %20
-  store i64 %21, ptr %5, align 8
+17:                                               ; preds = %8
+  %18 = tail call i64 @time(ptr noundef null) #18
+  %19 = load i64, ptr %6, align 8
+  %20 = sub nsw i64 %18, %19
   br label %find_parser_by_type.exit
 
-find_parser_by_type.exit:                         ; preds = %8, %.thread, %18, %15
-  %22 = call i32 @dump(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 736), ptr noundef %2, ptr noundef %3) #18
-  ret i32 %22
+find_parser_by_type.exit:                         ; preds = %4, %4, %14, %17, %.thread
+  %.sink = phi i64 [ %15, %14 ], [ %20, %17 ], [ %16, %.thread ], [ 0, %4 ], [ 0, %4 ]
+  store i64 %.sink, ptr %5, align 8
+  %21 = call i32 @dump(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 736), ptr noundef %2, ptr noundef %3) #18
+  ret i32 %21
 }
 
 ; Function Attrs: nounwind uwtable

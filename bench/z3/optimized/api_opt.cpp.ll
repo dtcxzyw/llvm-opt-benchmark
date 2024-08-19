@@ -5405,15 +5405,11 @@ _ZNSt8functionIFvRN3opt10on_model_tER3refI5modelEEEC2ERKS8_.exit.i.i:
   store ptr %3, ptr %_M_invoker.i.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvRN3opt10on_model_tER3refI5modelEEPS7_E9_M_invokeERKSt9_Any_dataS2_S6_, ptr %_M_invoker4.i2.i.i, align 8
   %tobool.not.i.i4.i.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i.i4.i.i, label %invoke.cont4.thread, label %if.then.i.i5.i.i
-
-invoke.cont4.thread:                              ; preds = %_ZNSt8functionIFvRN3opt10on_model_tER3refI5modelEEEC2ERKS8_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
-  br label %try.cont
+  br i1 %tobool.not.i.i4.i.i, label %try.cont, label %if.then.i.i5.i.i
 
 if.then.i.i5.i.i:                                 ; preds = %_ZNSt8functionIFvRN3opt10on_model_tER3refI5modelEEEC2ERKS8_.exit.i.i
   %call.i.i6.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
-          to label %invoke.cont4 unwind label %terminate.lpad.i.i7.i.i
+          to label %try.cont unwind label %terminate.lpad.i.i7.i.i
 
 terminate.lpad.i.i7.i.i:                          ; preds = %if.then.i.i5.i.i
   %4 = landingpad { ptr, i32 }
@@ -5422,11 +5418,8 @@ terminate.lpad.i.i7.i.i:                          ; preds = %if.then.i.i5.i.i
   call void @__clang_call_terminate(ptr %5) #17
   unreachable
 
-invoke.cont4:                                     ; preds = %if.then.i.i5.i.i
+try.cont:                                         ; preds = %_ZNSt8functionIFvRN3opt10on_model_tER3refI5modelEEEC2ERKS8_.exit.i.i, %if.then.i.i5.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
-  br label %try.cont
-
-try.cont:                                         ; preds = %invoke.cont4.thread, %invoke.cont4
   ret void
 }
 

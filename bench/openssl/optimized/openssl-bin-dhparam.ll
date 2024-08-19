@@ -369,7 +369,7 @@ if.end121:                                        ; preds = %if.end115, %if.then
 if.end125:                                        ; preds = %if.end121
   call void @EVP_PKEY_CTX_free(ptr noundef nonnull %call87) #2
   %16 = load ptr, ptr %tmppkey, align 8
-  br i1 %tobool63, label %if.then127, label %if.end133
+  br i1 %tobool63, label %if.then127, label %if.end188.sink.split
 
 if.then127:                                       ; preds = %if.end125
   %call128 = call fastcc ptr @dsa_to_dh(ptr noundef %16)
@@ -379,12 +379,7 @@ if.then127:                                       ; preds = %if.end125
 if.end131:                                        ; preds = %if.then127
   %17 = load ptr, ptr %tmppkey, align 8
   call void @EVP_PKEY_free(ptr noundef %17) #2
-  br label %if.end133
-
-if.end133:                                        ; preds = %if.end125, %if.end131
-  %pkey.1 = phi ptr [ %call128, %if.end131 ], [ %16, %if.end125 ]
-  store ptr null, ptr %tmppkey, align 8
-  br label %if.end188
+  br label %if.end188.sink.split
 
 if.else134:                                       ; preds = %if.end72
   %18 = load i32, ptr %informat, align 4
@@ -494,12 +489,17 @@ if.then184:                                       ; preds = %land.lhs.true181
 
 if.end186:                                        ; preds = %land.lhs.true181, %if.else178
   %39 = load ptr, ptr %tmppkey, align 8
+  br label %if.end188.sink.split
+
+if.end188.sink.split:                             ; preds = %if.end131, %if.end125, %if.end186
+  %pkey.2.ph = phi ptr [ %39, %if.end186 ], [ %call128, %if.end131 ], [ %16, %if.end125 ]
+  %in.1.ph = phi ptr [ %call135, %if.end186 ], [ null, %if.end131 ], [ null, %if.end125 ]
   store ptr null, ptr %tmppkey, align 8
   br label %if.end188
 
-if.end188:                                        ; preds = %if.end186, %if.end172, %if.end133
-  %pkey.2 = phi ptr [ %pkey.1, %if.end133 ], [ %call173, %if.end172 ], [ %39, %if.end186 ]
-  %in.1 = phi ptr [ null, %if.end133 ], [ %call135, %if.end172 ], [ %call135, %if.end186 ]
+if.end188:                                        ; preds = %if.end188.sink.split, %if.end172
+  %pkey.2 = phi ptr [ %call173, %if.end172 ], [ %pkey.2.ph, %if.end188.sink.split ]
+  %in.1 = phi ptr [ %call135, %if.end172 ], [ %in.1.ph, %if.end188.sink.split ]
   %tobool189.not = icmp eq i32 %text.0, 0
   br i1 %tobool189.not, label %if.end192, label %if.then190
 

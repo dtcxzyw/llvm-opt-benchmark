@@ -44277,7 +44277,6 @@ _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i.i.i72: ; preds = %35, 
 
 "_ZN4core3ptr60drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..Range$GT$$GT$17h56bfed6a7284f238E.exit": ; preds = %"_ZN61_$LT$lsp_types..Position$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h4a9633f630c7a1dbE.exit.thread115", %41, %45
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !3618
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   br label %86
 
 47:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i.i.i72
@@ -44399,11 +44398,11 @@ _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i.i.i72: ; preds = %35, 
 
 "_ZN4core3ptr60drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..Range$GT$$GT$17h56bfed6a7284f238E.exit91": ; preds = %.loopexit, %80, %84
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !3652
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   br label %86
 
 86:                                               ; preds = %"_ZN4core3ptr60drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..Range$GT$$GT$17h56bfed6a7284f238E.exit91", %"_ZN4core3ptr60drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..Range$GT$$GT$17h56bfed6a7284f238E.exit"
   %.0 = phi i1 [ %.lcssa.i, %"_ZN4core3ptr60drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..Range$GT$$GT$17h56bfed6a7284f238E.exit91" ], [ false, %"_ZN4core3ptr60drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..Range$GT$$GT$17h56bfed6a7284f238E.exit" ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   ret i1 %.0
 
 87:                                               ; preds = %26

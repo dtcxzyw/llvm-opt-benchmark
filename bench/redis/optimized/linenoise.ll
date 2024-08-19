@@ -606,10 +606,10 @@ if.end.i98.i:                                     ; preds = %if.else.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i100.i, ptr readonly align 1 %17, i64 %conv4.i101.i, i1 false)
   br label %if.end62.i.sink.split
 
-if.end62.i.sink.split:                            ; preds = %for.cond51.preheader.i, %abAppend.exit92.i, %if.end.i98.i
-  %storemerge = phi ptr [ %call.i96.i, %if.end.i98.i ], [ %ab.promoted161.i, %for.cond51.preheader.i ], [ %call.i86162.i, %abAppend.exit92.i ]
+if.end62.i.sink.split:                            ; preds = %abAppend.exit92.i, %for.cond51.preheader.i, %if.end.i98.i
+  %call.i86163.lcssa.i.sink = phi ptr [ %call.i96.i, %if.end.i98.i ], [ %ab.promoted161.i, %for.cond51.preheader.i ], [ %call.i86162.i, %abAppend.exit92.i ]
   %.lcssa165.i.sink = phi i32 [ %add.i94.i, %if.end.i98.i ], [ %len.i.promoted164.i, %for.cond51.preheader.i ], [ %15, %abAppend.exit92.i ]
-  store ptr %storemerge, ptr %ab.i, align 8
+  store ptr %call.i86163.lcssa.i.sink, ptr %ab.i, align 8
   store i32 %.lcssa165.i.sink, ptr %len.i.i, align 8
   br label %if.end62.i
 
@@ -888,10 +888,10 @@ if.end.i46.i:                                     ; preds = %if.else.i18
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i48.i, ptr readonly align 1 %buf.0.lcssa.i, i64 %conv4.i49.i, i1 false)
   br label %if.end.i19.sink.split
 
-if.end.i19.sink.split:                            ; preds = %while.cond22.preheader.i, %abAppend.exit40.i, %if.end.i46.i
-  %storemerge31 = phi ptr [ %call.i44.i, %if.end.i46.i ], [ %ab.promoted.i16, %while.cond22.preheader.i ], [ %call.i3486.i, %abAppend.exit40.i ]
+if.end.i19.sink.split:                            ; preds = %abAppend.exit40.i, %while.cond22.preheader.i, %if.end.i46.i
+  %call.i3487.lcssa.i.sink = phi ptr [ %call.i44.i, %if.end.i46.i ], [ %ab.promoted.i16, %while.cond22.preheader.i ], [ %call.i3486.i, %abAppend.exit40.i ]
   %.lcssa88.i.sink = phi i32 [ %add.i42.i, %if.end.i46.i ], [ %len.i.promoted.i15, %while.cond22.preheader.i ], [ %52, %abAppend.exit40.i ]
-  store ptr %storemerge31, ptr %ab.i3, align 8
+  store ptr %call.i3487.lcssa.i.sink, ptr %ab.i3, align 8
   store i32 %.lcssa88.i.sink, ptr %len.i.i8, align 8
   br label %if.end.i19
 

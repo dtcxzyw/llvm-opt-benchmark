@@ -634,7 +634,7 @@ define hidden void @"_ZN120_$LT$futures_util..stream..try_stream..try_collect..T
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.7)
-  br label %36
+  br label %35
 
 13:                                               ; preds = %10
   %.sroa.14.16.copyload = load ptr, ptr %7, align 8, !alias.scope !145
@@ -646,7 +646,7 @@ define hidden void @"_ZN120_$LT$futures_util..stream..try_stream..try_collect..T
 15:                                               ; preds = %10
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5)
   store i64 17, ptr %0, align 8
-  br label %36
+  br label %35
 
 .loopexit:                                        ; preds = %13, %.thread36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.53, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
@@ -656,7 +656,6 @@ define hidden void @"_ZN120_$LT$futures_util..stream..try_stream..try_collect..T
   store i64 16, ptr %0, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.53.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.53, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.53)
   br label %35
 
 16:                                               ; preds = %13
@@ -722,12 +721,9 @@ define hidden void @"_ZN120_$LT$futures_util..stream..try_stream..try_collect..T
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !146
   br label %10
 
-35:                                               ; preds = %36, %.loopexit
-  ret void
-
-36:                                               ; preds = %15, %12
+35:                                               ; preds = %12, %15, %.loopexit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.53)
-  br label %35
+  ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -780,7 +776,7 @@ define hidden void @"_ZN120_$LT$futures_util..stream..try_stream..try_collect..T
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.7)
-  br label %36
+  br label %35
 
 13:                                               ; preds = %10
   %.sroa.14.16.copyload = load ptr, ptr %7, align 8, !alias.scope !206
@@ -792,7 +788,7 @@ define hidden void @"_ZN120_$LT$futures_util..stream..try_stream..try_collect..T
 15:                                               ; preds = %10
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5)
   store i64 17, ptr %0, align 8
-  br label %36
+  br label %35
 
 .loopexit:                                        ; preds = %13, %.thread36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.53, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
@@ -802,7 +798,6 @@ define hidden void @"_ZN120_$LT$futures_util..stream..try_stream..try_collect..T
   store i64 16, ptr %0, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.53.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.53, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.53)
   br label %35
 
 16:                                               ; preds = %13
@@ -868,12 +863,9 @@ define hidden void @"_ZN120_$LT$futures_util..stream..try_stream..try_collect..T
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !207
   br label %10
 
-35:                                               ; preds = %36, %.loopexit
-  ret void
-
-36:                                               ; preds = %15, %12
+35:                                               ; preds = %12, %15, %.loopexit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.53)
-  br label %35
+  ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -926,7 +918,7 @@ define hidden void @"_ZN120_$LT$futures_util..stream..try_stream..try_collect..T
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.7)
-  br label %36
+  br label %35
 
 13:                                               ; preds = %10
   %.sroa.14.16.copyload = load ptr, ptr %7, align 8, !alias.scope !267
@@ -938,7 +930,7 @@ define hidden void @"_ZN120_$LT$futures_util..stream..try_stream..try_collect..T
 15:                                               ; preds = %10
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5)
   store i64 17, ptr %0, align 8
-  br label %36
+  br label %35
 
 .loopexit:                                        ; preds = %13, %.thread36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.53, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
@@ -948,7 +940,6 @@ define hidden void @"_ZN120_$LT$futures_util..stream..try_stream..try_collect..T
   store i64 16, ptr %0, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.53.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.53, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.53)
   br label %35
 
 16:                                               ; preds = %13
@@ -1014,12 +1005,9 @@ define hidden void @"_ZN120_$LT$futures_util..stream..try_stream..try_collect..T
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !268
   br label %10
 
-35:                                               ; preds = %36, %.loopexit
-  ret void
-
-36:                                               ; preds = %15, %12
+35:                                               ; preds = %12, %15, %.loopexit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.53)
-  br label %35
+  ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

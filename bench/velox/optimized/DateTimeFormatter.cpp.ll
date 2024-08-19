@@ -910,24 +910,23 @@ sw.bb186:                                         ; preds = %if.else
 sw.bb202:                                         ; preds = %if.else, %if.else, %if.else, %if.else
   store i64 %div.i.i11.i.i, ptr %hourNum, align 8
   switch i8 %15, label %if.end227 [
-    i8 15, label %if.then209
+    i8 15, label %if.end227.sink.split
     i8 14, label %if.then216
     i8 17, label %if.then221
   ]
 
-if.then209:                                       ; preds = %sw.bb202
-  store i64 %add212, ptr %hourNum, align 8
-  br label %if.end227
-
 if.then216:                                       ; preds = %sw.bb202
-  store i64 %rem217, ptr %hourNum, align 8
-  br label %if.end227
+  br label %if.end227.sink.split
 
 if.then221:                                       ; preds = %sw.bb202
-  store i64 %add224, ptr %hourNum, align 8
+  br label %if.end227.sink.split
+
+if.end227.sink.split:                             ; preds = %sw.bb202, %if.then221, %if.then216
+  %rem217.sink = phi i64 [ %rem217, %if.then216 ], [ %add224, %if.then221 ], [ %add212, %sw.bb202 ]
+  store i64 %rem217.sink, ptr %hourNum, align 8
   br label %if.end227
 
-if.end227:                                        ; preds = %sw.bb202, %if.then216, %if.then221, %if.then209
+if.end227:                                        ; preds = %if.end227.sink.split, %sw.bb202
   %minRepresentDigits228 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0200, i64 16
   %25 = load i64, ptr %minRepresentDigits228, align 8
   %call229 = call fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIlEEiRKT_cmPcS7_b(ptr noundef nonnull align 8 dereferenceable(8) %hourNum, i64 noundef %25, ptr noundef %add.ptr, ptr noundef %result.addr.0201)

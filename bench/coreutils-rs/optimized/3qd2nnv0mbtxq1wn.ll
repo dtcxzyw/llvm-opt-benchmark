@@ -559,8 +559,7 @@ define noundef range(i64 512, 1025) i64 @"_ZN67_$LT$uu_df..blocks..BlockSize$u20
 
 "_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17hefe24fe034fc1d89E.llvm.7015456399746552332.exit": ; preds = %6, %10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !98
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  br label %27
+  br label %"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17hefe24fe034fc1d89E.llvm.7015456399746552332.exit5"
 
 15:                                               ; preds = %0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !109)
@@ -590,12 +589,9 @@ define noundef range(i64 512, 1025) i64 @"_ZN67_$LT$uu_df..blocks..BlockSize$u20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1), !noalias !116
   br label %"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17hefe24fe034fc1d89E.llvm.7015456399746552332.exit5"
 
-"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17hefe24fe034fc1d89E.llvm.7015456399746552332.exit5": ; preds = %15, %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h7f7c940131f8d3abE.exit.i.i2"
+"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17hefe24fe034fc1d89E.llvm.7015456399746552332.exit5": ; preds = %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h7f7c940131f8d3abE.exit.i.i2", %15, %"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17hefe24fe034fc1d89E.llvm.7015456399746552332.exit"
+  %.0 = phi i64 [ 512, %"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17hefe24fe034fc1d89E.llvm.7015456399746552332.exit" ], [ 1024, %15 ], [ 1024, %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h7f7c940131f8d3abE.exit.i.i2" ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  br label %27
-
-27:                                               ; preds = %"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17hefe24fe034fc1d89E.llvm.7015456399746552332.exit5", %"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17hefe24fe034fc1d89E.llvm.7015456399746552332.exit"
-  %.0 = phi i64 [ 512, %"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17hefe24fe034fc1d89E.llvm.7015456399746552332.exit" ], [ 1024, %"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17hefe24fe034fc1d89E.llvm.7015456399746552332.exit5" ]
   ret i64 %.0
 }
 
@@ -743,10 +739,6 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h062a7a36194c93deE.exit: ; 
   %68 = getelementptr inbounds i8, ptr %9, i64 16
   %69 = getelementptr inbounds i8, ptr %12, i64 24
   br label %_ZN3std3env3var17h530e4dd389782b54E.exit.i
-
-_ZN5uu_df6blocks19block_size_from_env17hddf479bb21015f74E.exit.thread: ; preds = %"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17hefe24fe034fc1d89E.llvm.7015456399746552332.exit.i"
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
-  br label %152
 
 _ZN3std3env3var17h530e4dd389782b54E.exit.i:       ; preds = %"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17hefe24fe034fc1d89E.llvm.7015456399746552332.exit.i", %65
   %70 = phi i64 [ 0, %65 ], [ %71, %"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17hefe24fe034fc1d89E.llvm.7015456399746552332.exit.i" ]
@@ -961,6 +953,10 @@ _ZN3std3env3var17h530e4dd389782b54E.exit.i:       ; preds = %"_ZN4core3ptr91drop
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   %.not.not.i.i = icmp eq i64 %71, 3
   br i1 %.not.not.i.i, label %_ZN5uu_df6blocks19block_size_from_env17hddf479bb21015f74E.exit.thread, label %_ZN3std3env3var17h530e4dd389782b54E.exit.i
+
+_ZN5uu_df6blocks19block_size_from_env17hddf479bb21015f74E.exit.thread: ; preds = %"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17hefe24fe034fc1d89E.llvm.7015456399746552332.exit.i"
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
+  br label %152
 
 148:                                              ; preds = %147, %128
   resume { ptr, i32 } %.pn.i

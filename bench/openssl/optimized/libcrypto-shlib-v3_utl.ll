@@ -1485,7 +1485,7 @@ lor.lhs.false.i:                                  ; preds = %if.then41
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %call36.i = call i32 @ASN1_STRING_to_UTF8(ptr noundef nonnull %astr.i, ptr noundef nonnull %8) #13
   %cmp37.i = icmp slt i32 %call36.i, 0
-  br i1 %cmp37.i, label %do_check_string.exit.thread73, label %if.end40.i
+  br i1 %cmp37.i, label %for.end.thread.sink.split, label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.end.i
   %11 = load ptr, ptr %astr.i, align 8
@@ -1501,24 +1501,14 @@ if.then48.i:                                      ; preds = %if.end40.i
   store ptr %call50.i, ptr %peername, align 8
   %cmp51.i = icmp eq ptr %call50.i, null
   %13 = load ptr, ptr %astr.i, align 8
-  br i1 %cmp51.i, label %if.then53.i, label %do_check_string.exit.thread76
-
-do_check_string.exit.thread76:                    ; preds = %if.then48.i
-  call void @CRYPTO_free(ptr noundef %13, ptr noundef nonnull @.str, i32 noundef 871) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %astr.i)
-  br label %for.end.thread
-
-if.then53.i:                                      ; preds = %if.then48.i
-  call void @CRYPTO_free(ptr noundef %13, ptr noundef nonnull @.str, i32 noundef 867) #13
-  br label %do_check_string.exit.thread73
+  %. = select i1 %cmp51.i, i32 867, i32 871
+  %.call42.i.lcssa = select i1 %cmp51.i, i32 -1, i32 %call42.i
+  call void @CRYPTO_free(ptr noundef %13, ptr noundef nonnull @.str, i32 noundef %.) #13
+  br label %for.end.thread.sink.split
 
 do_check_string.exit.thread:                      ; preds = %lor.lhs.false.i, %if.then41
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %astr.i)
   br label %if.end63
-
-do_check_string.exit.thread73:                    ; preds = %if.end.i, %if.then53.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %astr.i)
-  br label %for.end.thread
 
 do_check_string.exit:                             ; preds = %if.end40.i
   call void @CRYPTO_free(ptr noundef %12, ptr noundef nonnull @.str, i32 noundef 871) #13
@@ -1540,8 +1530,13 @@ for.inc:                                          ; preds = %for.body, %if.end63
   %cmp23 = icmp slt i32 %inc, %call22
   br i1 %cmp23, label %for.body, label %if.end85, !llvm.loop !11
 
-for.end.thread:                                   ; preds = %if.end63.us, %if.end63, %do_check_string.exit, %do_check_string.exit.thread73, %do_check_string.exit.thread76
-  %rv.1.ph = phi i32 [ %call42.i, %do_check_string.exit.thread76 ], [ -1, %do_check_string.exit.thread73 ], [ %call42.i, %do_check_string.exit ], [ %call77, %if.end63 ], [ %call77.us, %if.end63.us ]
+for.end.thread.sink.split:                        ; preds = %if.end.i, %if.then48.i
+  %rv.1.ph.ph = phi i32 [ %.call42.i.lcssa, %if.then48.i ], [ -1, %if.end.i ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %astr.i)
+  br label %for.end.thread
+
+for.end.thread:                                   ; preds = %if.end63.us, %if.end63, %do_check_string.exit, %for.end.thread.sink.split
+  %rv.1.ph = phi i32 [ %rv.1.ph.ph, %for.end.thread.sink.split ], [ %call42.i, %do_check_string.exit ], [ %call77, %if.end63 ], [ %call77.us, %if.end63.us ]
   call void @GENERAL_NAMES_free(ptr noundef nonnull %call18) #13
   br label %return
 

@@ -13984,7 +13984,6 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
 
 .thread21:                                        ; preds = %10
   tail call void @glEnable(i32 noundef 2896)
-  store i32 -12566464, ptr %5, align 4
   br label %34
 
 24:                                               ; preds = %.thread
@@ -14000,17 +13999,17 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
 28:                                               ; preds = %.thread
   %29 = getelementptr inbounds i8, ptr %2, i64 21
   %30 = load i32, ptr %29, align 1
-  store i32 %30, ptr %5, align 4
   br label %34
 
 31:                                               ; preds = %24
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 1108
   %.sroa.0.0.copyload.i = load i32, ptr %33, align 4
-  store i32 %.sroa.0.0.copyload.i, ptr %5, align 4
   br label %34
 
 34:                                               ; preds = %.thread21, %31, %28
+  %.sink = phi i32 [ -12566464, %.thread21 ], [ %.sroa.0.0.copyload.i, %31 ], [ %30, %28 ]
+  store i32 %.sink, ptr %5, align 4
   call void @glColor4ubv(ptr noundef nonnull %5)
   call void @glDisable(i32 noundef 3553)
   br i1 %.not, label %38, label %35

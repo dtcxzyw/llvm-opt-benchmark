@@ -2245,8 +2245,7 @@ if.then7.i.i.i.i.i1462:                           ; preds = %invoke.cont.i.i.i.i
 
 _ZN7testing15AssertionResultD2Ev.exit.thread:     ; preds = %_ZN4entt7resolveI5clazzEENS_9meta_typeEv.exit
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %ref.tmp.i1439) #24, !noalias !23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #24
-  br label %cleanup.cont
+  br label %cleanup.cont.sink.split
 
 if.then.i.i.i.i:                                  ; preds = %if.then7.i.i.i.i.i1462, %invoke.cont.i.i.i.i.i1459, %if.then.i.i.i.i.i1464, %_ZN4entt9meta_typeC2ERKNS_8meta_ctxERKNS_8internal14meta_type_nodeE.exit.i1470
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %ref.tmp.i1439) #24, !noalias !23
@@ -2422,11 +2421,7 @@ cleanup:                                          ; preds = %_ZNKSt14default_del
 cleanup.thread:                                   ; preds = %_ZN4entt9meta_typeD2Ev.exit
   %.pr15221608 = load ptr, ptr %message_.i1515, align 8, !tbaa !47
   %cmp.not.i.i7121609 = icmp eq ptr %.pr15221608, null
-  br i1 %cmp.not.i.i7121609, label %_ZN7testing15AssertionResultD2Ev.exit.thread1611, label %delete.notnull.i.i.i
-
-_ZN7testing15AssertionResultD2Ev.exit.thread1611: ; preds = %cleanup.thread
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #24
-  br label %cleanup.cont
+  br i1 %cmp.not.i.i7121609, label %cleanup.cont.sink.split, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %cleanup.thread, %cleanup
   %.pr15221610 = phi ptr [ %.pr15221608, %cleanup.thread ], [ %.pr1522, %cleanup ]
@@ -2455,7 +2450,11 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #24
   br label %cleanup.cont607
 
-cleanup.cont:                                     ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i, %_ZN7testing15AssertionResultD2Ev.exit.thread1611, %_ZN7testing15AssertionResultD2Ev.exit.thread
+cleanup.cont.sink.split:                          ; preds = %cleanup.thread, %_ZN7testing15AssertionResultD2Ev.exit.thread
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #24
+  br label %cleanup.cont
+
+cleanup.cont:                                     ; preds = %cleanup.cont.sink.split, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_23) #24
   %context = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %ref.tmp.i) #24, !noalias !48
@@ -2530,8 +2529,7 @@ if.then7.i.i.i.i.i724:                            ; preds = %invoke.cont.i.i.i.i
 
 _ZN7testing15AssertionResultD2Ev.exit791.thread:  ; preds = %cleanup.cont
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %ref.tmp.i) #24, !noalias !48
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_23) #24
-  br label %cleanup.cont57
+  br label %cleanup.cont57.sink.split
 
 if.then.i.i.i.i740:                               ; preds = %if.then7.i.i.i.i.i724, %invoke.cont.i.i.i.i.i721, %if.then.i.i.i.i.i726, %_ZN4entt9meta_typeC2ERKNS_8meta_ctxERKNS_8internal14meta_type_nodeE.exit.i
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %ref.tmp.i) #24, !noalias !48
@@ -2707,11 +2705,7 @@ cleanup53:                                        ; preds = %_ZNKSt14default_del
 cleanup53.thread:                                 ; preds = %_ZN4entt9meta_typeD2Ev.exit758
   %.pr15391612 = load ptr, ptr %message_.i7371531, align 8, !tbaa !47
   %cmp.not.i.i7831613 = icmp eq ptr %.pr15391612, null
-  br i1 %cmp.not.i.i7831613, label %_ZN7testing15AssertionResultD2Ev.exit791.thread1615, label %delete.notnull.i.i.i784
-
-_ZN7testing15AssertionResultD2Ev.exit791.thread1615: ; preds = %cleanup53.thread
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_23) #24
-  br label %cleanup.cont57
+  br i1 %cmp.not.i.i7831613, label %cleanup.cont57.sink.split, label %delete.notnull.i.i.i784
 
 delete.notnull.i.i.i784:                          ; preds = %cleanup53.thread, %cleanup53
   %.pr15391614 = phi ptr [ %.pr15391612, %cleanup53.thread ], [ %.pr1539, %cleanup53 ]
@@ -2740,7 +2734,11 @@ _ZN7testing15AssertionResultD2Ev.exit791:         ; preds = %cleanup53
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_23) #24
   br label %cleanup.cont607
 
-cleanup.cont57:                                   ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i787, %_ZN7testing15AssertionResultD2Ev.exit791.thread1615, %_ZN7testing15AssertionResultD2Ev.exit791.thread
+cleanup.cont57.sink.split:                        ; preds = %cleanup53.thread, %_ZN7testing15AssertionResultD2Ev.exit791.thread
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_23) #24
+  br label %cleanup.cont57
+
+cleanup.cont57:                                   ; preds = %cleanup.cont57.sink.split, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i787
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_59) #24
   %71 = load ptr, ptr @_ZN4entt7locatorINS_8meta_ctxEE7serviceE, align 8, !tbaa !17, !noalias !51
   %cmp.i.not.i.i792 = icmp eq ptr %71, null
@@ -2831,8 +2829,7 @@ if.then7.i.i.i.i.i1500:                           ; preds = %invoke.cont.i.i.i.i
 
 _ZN7testing15AssertionResultD2Ev.exit854.thread:  ; preds = %_ZN4entt7resolveIN4test5emptyEEENS_9meta_typeEv.exit
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %ref.tmp.i1477) #24, !noalias !54
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_59) #24
-  br label %cleanup.cont93
+  br label %cleanup.cont93.sink.split
 
 if.then.i.i.i.i803:                               ; preds = %if.then7.i.i.i.i.i1500, %invoke.cont.i.i.i.i.i1497, %if.then.i.i.i.i.i1502, %_ZN4entt9meta_typeC2ERKNS_8meta_ctxERKNS_8internal14meta_type_nodeE.exit.i1508
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %ref.tmp.i1477) #24, !noalias !54
@@ -3008,11 +3005,7 @@ cleanup89:                                        ; preds = %_ZNKSt14default_del
 cleanup89.thread:                                 ; preds = %_ZN4entt9meta_typeD2Ev.exit821
   %.pr15561616 = load ptr, ptr %message_.i8001548, align 8, !tbaa !47
   %cmp.not.i.i8461617 = icmp eq ptr %.pr15561616, null
-  br i1 %cmp.not.i.i8461617, label %_ZN7testing15AssertionResultD2Ev.exit854.thread1619, label %delete.notnull.i.i.i847
-
-_ZN7testing15AssertionResultD2Ev.exit854.thread1619: ; preds = %cleanup89.thread
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_59) #24
-  br label %cleanup.cont93
+  br i1 %cmp.not.i.i8461617, label %cleanup.cont93.sink.split, label %delete.notnull.i.i.i847
 
 delete.notnull.i.i.i847:                          ; preds = %cleanup89.thread, %cleanup89
   %.pr15561618 = phi ptr [ %.pr15561616, %cleanup89.thread ], [ %.pr1556, %cleanup89 ]
@@ -3041,7 +3034,11 @@ _ZN7testing15AssertionResultD2Ev.exit854:         ; preds = %cleanup89
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_59) #24
   br label %cleanup.cont607
 
-cleanup.cont93:                                   ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i850, %_ZN7testing15AssertionResultD2Ev.exit854.thread1619, %_ZN7testing15AssertionResultD2Ev.exit854.thread
+cleanup.cont93.sink.split:                        ; preds = %cleanup89.thread, %_ZN7testing15AssertionResultD2Ev.exit854.thread
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_59) #24
+  br label %cleanup.cont93
+
+cleanup.cont93:                                   ; preds = %cleanup.cont93.sink.split, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i850
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_95) #24
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %ref.tmp.i855) #24, !noalias !57
   call void @_ZN4entt8internal7resolveIN4test5emptyEEENS0_14meta_type_nodeERKNS0_12meta_contextE(ptr dead_on_unwind nonnull writable sret(%"struct.entt::internal::meta_type_node") align 8 %ref.tmp.i855, ptr noundef nonnull align 8 dereferenceable(56) %context) #24, !noalias !57
@@ -3115,8 +3112,7 @@ if.then7.i.i.i.i.i878:                            ; preds = %invoke.cont.i.i.i.i
 
 _ZN7testing15AssertionResultD2Ev.exit949.thread:  ; preds = %cleanup.cont93
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %ref.tmp.i855) #24, !noalias !57
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_95) #24
-  br label %cleanup.cont130
+  br label %cleanup.cont130.sink.split
 
 if.then.i.i.i.i898:                               ; preds = %if.then7.i.i.i.i.i878, %invoke.cont.i.i.i.i.i875, %if.then.i.i.i.i.i880, %_ZN4entt9meta_typeC2ERKNS_8meta_ctxERKNS_8internal14meta_type_nodeE.exit.i886
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %ref.tmp.i855) #24, !noalias !57
@@ -3292,11 +3288,7 @@ cleanup126:                                       ; preds = %_ZNKSt14default_del
 cleanup126.thread:                                ; preds = %_ZN4entt9meta_typeD2Ev.exit916
   %.pr15731620 = load ptr, ptr %message_.i8951565, align 8, !tbaa !47
   %cmp.not.i.i9411621 = icmp eq ptr %.pr15731620, null
-  br i1 %cmp.not.i.i9411621, label %_ZN7testing15AssertionResultD2Ev.exit949.thread1623, label %delete.notnull.i.i.i942
-
-_ZN7testing15AssertionResultD2Ev.exit949.thread1623: ; preds = %cleanup126.thread
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_95) #24
-  br label %cleanup.cont130
+  br i1 %cmp.not.i.i9411621, label %cleanup.cont130.sink.split, label %delete.notnull.i.i.i942
 
 delete.notnull.i.i.i942:                          ; preds = %cleanup126.thread, %cleanup126
   %.pr15731622 = phi ptr [ %.pr15731620, %cleanup126.thread ], [ %.pr1573, %cleanup126 ]
@@ -3325,7 +3317,11 @@ _ZN7testing15AssertionResultD2Ev.exit949:         ; preds = %cleanup126
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_95) #24
   br label %cleanup.cont607
 
-cleanup.cont130:                                  ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i945, %_ZN7testing15AssertionResultD2Ev.exit949.thread1623, %_ZN7testing15AssertionResultD2Ev.exit949.thread
+cleanup.cont130.sink.split:                       ; preds = %cleanup126.thread, %_ZN7testing15AssertionResultD2Ev.exit949.thread
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_95) #24
+  br label %cleanup.cont130
+
+cleanup.cont130:                                  ; preds = %cleanup.cont130.sink.split, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i945
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_132) #24
   %142 = load atomic i8, ptr @_ZGVZN4entt7type_idI5clazzEERKNS_9type_infoEvE8instance acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %142, 0

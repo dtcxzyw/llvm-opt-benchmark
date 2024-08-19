@@ -430,7 +430,11 @@ define hidden void @"_ZN108_$LT$walkdir..FilterEntry$LT$walkdir..IntoIter$C$P$GT
           to label %.noexc unwind label %57
 
 .noexc:                                           ; preds = %32
-  br i1 %35, label %"_ZN10vfs_notify11NotifyActor10load_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9cfd3cb7cc161a58E.llvm.9805873478638581678.exit.thread18", label %36
+  br i1 %35, label %"_ZN10vfs_notify11NotifyActor10load_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9cfd3cb7cc161a58E.llvm.9805873478638581678.exit.thread20", label %36
+
+"_ZN10vfs_notify11NotifyActor10load_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9cfd3cb7cc161a58E.llvm.9805873478638581678.exit.thread20": ; preds = %.noexc
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !151
+  br label %59
 
 36:                                               ; preds = %.noexc
   %37 = load ptr, ptr %12, align 8, !alias.scope !146, !noalias !149, !nonnull !4, !align !6, !noundef !4
@@ -456,15 +460,11 @@ define hidden void @"_ZN108_$LT$walkdir..FilterEntry$LT$walkdir..IntoIter$C$P$GT
 .noexc15:                                         ; preds = %.noexc14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !157
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !157
-  br i1 %43, label %"_ZN10vfs_notify11NotifyActor10load_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9cfd3cb7cc161a58E.llvm.9805873478638581678.exit.thread20", label %44
+  br i1 %43, label %"_ZN10vfs_notify11NotifyActor10load_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9cfd3cb7cc161a58E.llvm.9805873478638581678.exit.thread18", label %44
 
-"_ZN10vfs_notify11NotifyActor10load_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9cfd3cb7cc161a58E.llvm.9805873478638581678.exit.thread20": ; preds = %.noexc15
+"_ZN10vfs_notify11NotifyActor10load_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9cfd3cb7cc161a58E.llvm.9805873478638581678.exit.thread18": ; preds = %.noexc15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !151
   br label %"_ZN10vfs_notify11NotifyActor10load_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9cfd3cb7cc161a58E.llvm.9805873478638581678.exit.thread"
-
-"_ZN10vfs_notify11NotifyActor10load_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9cfd3cb7cc161a58E.llvm.9805873478638581678.exit.thread18": ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !151
-  br label %59
 
 44:                                               ; preds = %.noexc15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !151
@@ -508,13 +508,13 @@ define hidden void @"_ZN108_$LT$walkdir..FilterEntry$LT$walkdir..IntoIter$C$P$GT
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !151
   br i1 %55, label %59, label %"_ZN10vfs_notify11NotifyActor10load_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9cfd3cb7cc161a58E.llvm.9805873478638581678.exit.thread"
 
-59:                                               ; preds = %"_ZN10vfs_notify11NotifyActor10load_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9cfd3cb7cc161a58E.llvm.9805873478638581678.exit.thread18", %"_ZN10vfs_notify11NotifyActor10load_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9cfd3cb7cc161a58E.llvm.9805873478638581678.exit"
+59:                                               ; preds = %"_ZN10vfs_notify11NotifyActor10load_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9cfd3cb7cc161a58E.llvm.9805873478638581678.exit.thread20", %"_ZN10vfs_notify11NotifyActor10load_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9cfd3cb7cc161a58E.llvm.9805873478638581678.exit"
   %60 = load i32, ptr %13, align 8, !noundef !4
   %61 = and i32 %60, 61440
   %62 = icmp eq i32 %61, 16384
   br i1 %62, label %63, label %64
 
-"_ZN10vfs_notify11NotifyActor10load_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9cfd3cb7cc161a58E.llvm.9805873478638581678.exit.thread": ; preds = %28, %"_ZN10vfs_notify11NotifyActor10load_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9cfd3cb7cc161a58E.llvm.9805873478638581678.exit", %"_ZN10vfs_notify11NotifyActor10load_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9cfd3cb7cc161a58E.llvm.9805873478638581678.exit.thread20"
+"_ZN10vfs_notify11NotifyActor10load_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9cfd3cb7cc161a58E.llvm.9805873478638581678.exit.thread": ; preds = %28, %"_ZN10vfs_notify11NotifyActor10load_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9cfd3cb7cc161a58E.llvm.9805873478638581678.exit", %"_ZN10vfs_notify11NotifyActor10load_entry28_$u7b$$u7b$closure$u7d$$u7d$17h9cfd3cb7cc161a58E.llvm.9805873478638581678.exit.thread18"
   store i64 2, ptr %0, align 8
   %.sroa.48.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.48.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false)
@@ -2203,7 +2203,7 @@ define hidden noundef zeroext i1 @"_ZN10vfs_notify11NotifyActor10load_entry28_$u
   %8 = load i32, ptr %7, align 8, !noundef !4
   %9 = and i32 %8, 61440
   %10 = icmp eq i32 %9, 16384
-  br i1 %10, label %11, label %46
+  br i1 %10, label %11, label %44
 
 11:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
@@ -2215,7 +2215,7 @@ define hidden noundef zeroext i1 @"_ZN10vfs_notify11NotifyActor10load_entry28_$u
   %16 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %15, ptr %16, align 8
   %17 = tail call noundef zeroext i1 @_ZN10vfs_notify22path_is_parent_symlink17h47b69865fd82ecc1E(ptr noalias noundef nonnull readonly align 1 %13, i64 noundef %15)
-  br i1 %17, label %26, label %18
+  br i1 %17, label %.sink.split, label %18
 
 18:                                               ; preds = %11
   %19 = load ptr, ptr %0, align 8, !nonnull !4, !align !6, !noundef !4
@@ -2232,47 +2232,43 @@ define hidden noundef zeroext i1 @"_ZN10vfs_notify11NotifyActor10load_entry28_$u
   %25 = call noundef zeroext i1 @"_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd824e6aa0b808d6aE.llvm.3167359504713930506"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %3), !noalias !603
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !608
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !608
-  br i1 %25, label %45, label %27
+  br i1 %25, label %.sink.split, label %26
 
-26:                                               ; preds = %11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br label %46
-
-27:                                               ; preds = %18
+26:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
-  %29 = load ptr, ptr %28, align 8, !nonnull !4, !align !6, !noundef !4
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
-  %31 = load ptr, ptr %30, align 8, !nonnull !4, !noundef !4
-  %32 = getelementptr inbounds i8, ptr %29, i64 16
-  %33 = load i64, ptr %32, align 8, !noundef !4
-  %34 = getelementptr inbounds { { { { { { { i64, ptr, {} }, i64 } } } } } }, ptr %31, i64 %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
-  %36 = load ptr, ptr %35, align 8, !nonnull !4, !align !6, !noundef !4
-  %37 = getelementptr i8, ptr %36, i64 8
-  %.val = load ptr, ptr %37, align 8, !nonnull !4, !noundef !4
-  %38 = getelementptr i8, ptr %36, i64 16
-  %.val12 = load i64, ptr %38, align 8, !noundef !4
-  %39 = getelementptr inbounds { { { { { { { i64, ptr, {} }, i64 } } } } } }, ptr %.val, i64 %.val12
-  store ptr %31, ptr %5, align 8, !alias.scope !609
-  %40 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %34, ptr %40, align 8, !alias.scope !609
-  %41 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %.val, ptr %41, align 8, !alias.scope !609
-  %42 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr %39, ptr %42, align 8, !alias.scope !609
-  %43 = call noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hc98d446679d874bcE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6)
-  %44 = xor i1 %43, true
+  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = load ptr, ptr %27, align 8, !nonnull !4, !align !6, !noundef !4
+  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = load ptr, ptr %29, align 8, !nonnull !4, !noundef !4
+  %31 = getelementptr inbounds i8, ptr %28, i64 16
+  %32 = load i64, ptr %31, align 8, !noundef !4
+  %33 = getelementptr inbounds { { { { { { { i64, ptr, {} }, i64 } } } } } }, ptr %30, i64 %32
+  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = load ptr, ptr %34, align 8, !nonnull !4, !align !6, !noundef !4
+  %36 = getelementptr i8, ptr %35, i64 8
+  %.val = load ptr, ptr %36, align 8, !nonnull !4, !noundef !4
+  %37 = getelementptr i8, ptr %35, i64 16
+  %.val12 = load i64, ptr %37, align 8, !noundef !4
+  %38 = getelementptr inbounds { { { { { { { i64, ptr, {} }, i64 } } } } } }, ptr %.val, i64 %.val12
+  store ptr %30, ptr %5, align 8, !alias.scope !609
+  %39 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %33, ptr %39, align 8, !alias.scope !609
+  %40 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %.val, ptr %40, align 8, !alias.scope !609
+  %41 = getelementptr inbounds i8, ptr %5, i64 24
+  store ptr %38, ptr %41, align 8, !alias.scope !609
+  %42 = call noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hc98d446679d874bcE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6)
+  %43 = xor i1 %42, true
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  br label %45
+  br label %.sink.split
 
-45:                                               ; preds = %18, %27
-  %.1 = phi i1 [ %44, %27 ], [ true, %18 ]
+.sink.split:                                      ; preds = %26, %18, %11
+  %.0.ph = phi i1 [ false, %11 ], [ %43, %26 ], [ true, %18 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br label %46
+  br label %44
 
-46:                                               ; preds = %2, %45, %26
-  %.0 = phi i1 [ false, %26 ], [ %.1, %45 ], [ true, %2 ]
+44:                                               ; preds = %.sink.split, %2
+  %.0 = phi i1 [ true, %2 ], [ %.0.ph, %.sink.split ]
   ret i1 %.0
 }
 

@@ -2179,113 +2179,109 @@ define dso_local range(i32 -95, 1) i32 @ip_mroute_getsockopt(ptr nocapture nound
   %11 = getelementptr inbounds i8, ptr %0, i64 514
   %12 = load i16, ptr %11, align 2
   %13 = icmp eq i16 %12, 3
-  br i1 %13, label %14, label %59
+  br i1 %13, label %14, label %58
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds i8, ptr %0, i64 14
   %16 = load i16, ptr %15, align 2
   %17 = icmp eq i16 %16, 2
-  br i1 %17, label %18, label %59
+  br i1 %17, label %18, label %58
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds i8, ptr %10, i64 1352
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %59, label %22
+  br i1 %21, label %58, label %22
 
 22:                                               ; preds = %18
-  switch i32 %1, label %59 [
-    i32 206, label %23
-    i32 208, label %24
-    i32 207, label %28
+  switch i32 %1, label %58 [
+    i32 206, label %31
+    i32 208, label %23
+    i32 207, label %27
   ]
 
 23:                                               ; preds = %22
-  store i32 773, ptr %8, align 4
-  br label %32
+  %24 = getelementptr inbounds i8, ptr %20, i64 3601
+  %25 = load i8, ptr %24, align 1, !range !10, !noundef !11
+  %26 = zext nneg i8 %25 to i32
+  br label %31
 
-24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %20, i64 3601
-  %26 = load i8, ptr %25, align 1, !range !10, !noundef !11
-  %27 = zext nneg i8 %26 to i32
-  store i32 %27, ptr %8, align 4
-  br label %32
+27:                                               ; preds = %22
+  %28 = getelementptr inbounds i8, ptr %20, i64 3600
+  %29 = load i8, ptr %28, align 8, !range !10, !noundef !11
+  %30 = zext nneg i8 %29 to i32
+  br label %31
 
-28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %20, i64 3600
-  %30 = load i8, ptr %29, align 8, !range !10, !noundef !11
-  %31 = zext nneg i8 %30 to i32
-  store i32 %31, ptr %8, align 4
-  br label %32
-
-32:                                               ; preds = %28, %24, %23
+31:                                               ; preds = %22, %27, %23
+  %.sink = phi i32 [ %30, %27 ], [ %26, %23 ], [ 773, %22 ]
+  store i32 %.sink, ptr %8, align 4
   store i32 0, ptr %7, align 4, !annotation !6
-  %33 = and i8 %5, 1
-  %34 = icmp eq i8 %33, 0
-  br i1 %34, label %35, label %45
+  %32 = and i8 %5, 1
+  %33 = icmp eq i8 %32, 0
+  br i1 %33, label %34, label %44
 
-35:                                               ; preds = %32
-  %36 = call i64 @_copy_from_user(ptr noundef nonnull %7, ptr noundef %4, i64 noundef 4) #17
-  %37 = and i64 %36, 4294967295
-  %38 = icmp eq i64 %37, 0
-  br i1 %38, label %39, label %59
+34:                                               ; preds = %31
+  %35 = call i64 @_copy_from_user(ptr noundef nonnull %7, ptr noundef %4, i64 noundef 4) #17
+  %36 = and i64 %35, 4294967295
+  %37 = icmp eq i64 %36, 0
+  br i1 %37, label %38, label %58
 
-39:                                               ; preds = %35
-  %40 = load i32, ptr %7, align 4
-  %41 = call i32 @llvm.umin.i32(i32 %40, i32 4)
-  store i32 %41, ptr %7, align 4
-  %42 = call i64 @_copy_to_user(ptr noundef %4, ptr noundef nonnull %7, i64 noundef 4) #17
-  %43 = and i64 %42, 4294967295
-  %44 = icmp eq i64 %43, 0
-  br i1 %44, label %._crit_edge, label %59
+38:                                               ; preds = %34
+  %39 = load i32, ptr %7, align 4
+  %40 = call i32 @llvm.umin.i32(i32 %39, i32 4)
+  store i32 %40, ptr %7, align 4
+  %41 = call i64 @_copy_to_user(ptr noundef %4, ptr noundef nonnull %7, i64 noundef 4) #17
+  %42 = and i64 %41, 4294967295
+  %43 = icmp eq i64 %42, 0
+  br i1 %43, label %._crit_edge, label %58
 
-._crit_edge:                                      ; preds = %39
+._crit_edge:                                      ; preds = %38
   %.pre = load i32, ptr %7, align 4
-  br label %48
+  br label %47
 
-45:                                               ; preds = %32
-  %46 = load i32, ptr %4, align 1
-  %47 = tail call i32 @llvm.umin.i32(i32 %46, i32 4)
-  store i32 %47, ptr %7, align 4
-  store i32 %47, ptr %4, align 1
-  br label %48
+44:                                               ; preds = %31
+  %45 = load i32, ptr %4, align 1
+  %46 = tail call i32 @llvm.umin.i32(i32 %45, i32 4)
+  store i32 %46, ptr %7, align 4
+  store i32 %46, ptr %4, align 1
+  br label %47
 
-48:                                               ; preds = %._crit_edge, %45
-  %49 = phi i32 [ %.pre, %._crit_edge ], [ %47, %45 ]
-  %50 = sext i32 %49 to i64
-  %51 = and i8 %3, 1
-  %52 = icmp eq i8 %51, 0
-  br i1 %52, label %53, label %copy_to_sockptr.exit.thread
+47:                                               ; preds = %._crit_edge, %44
+  %48 = phi i32 [ %.pre, %._crit_edge ], [ %46, %44 ]
+  %49 = sext i32 %48 to i64
+  %50 = and i8 %3, 1
+  %51 = icmp eq i8 %50, 0
+  br i1 %51, label %52, label %copy_to_sockptr.exit.thread
 
-53:                                               ; preds = %48
-  %54 = icmp slt i32 %49, 0
-  br i1 %54, label %.critedge, label %copy_to_sockptr.exit, !prof !69
+52:                                               ; preds = %47
+  %53 = icmp slt i32 %48, 0
+  br i1 %53, label %.critedge, label %copy_to_sockptr.exit, !prof !69
 
-.critedge:                                        ; preds = %53
+.critedge:                                        ; preds = %52
   call void asm sideeffect "12: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 12b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 12) #17, !srcloc !70
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.12, i32 249, i32 2307, i64 12) #17, !srcloc !71
   call void asm sideeffect "13: nop\0A\09.pushsection .discard.instr_end\0A\09.long 13b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 13) #17, !srcloc !72
-  br label %59
-
-copy_to_sockptr.exit:                             ; preds = %53
-  %55 = call i64 @_copy_to_user(ptr noundef %2, ptr noundef nonnull %8, i64 noundef %50) #17
-  %.fr2 = freeze i64 %55
-  %56 = and i64 %.fr2, 4294967295
-  %57 = icmp eq i64 %56, 0
-  br i1 %57, label %58, label %59
-
-copy_to_sockptr.exit.thread:                      ; preds = %48
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull align 4 %8, i64 %50, i1 false)
   br label %58
 
-58:                                               ; preds = %copy_to_sockptr.exit.thread, %copy_to_sockptr.exit
-  br label %59
+copy_to_sockptr.exit:                             ; preds = %52
+  %54 = call i64 @_copy_to_user(ptr noundef %2, ptr noundef nonnull %8, i64 noundef %49) #17
+  %.fr2 = freeze i64 %54
+  %55 = and i64 %.fr2, 4294967295
+  %56 = icmp eq i64 %55, 0
+  br i1 %56, label %57, label %58
 
-59:                                               ; preds = %.critedge, %58, %copy_to_sockptr.exit, %39, %35, %22, %18, %14, %6
-  %60 = phi i32 [ -95, %14 ], [ -95, %6 ], [ -2, %18 ], [ -92, %22 ], [ -14, %35 ], [ -14, %39 ], [ 0, %58 ], [ -14, %copy_to_sockptr.exit ], [ -14, %.critedge ]
+copy_to_sockptr.exit.thread:                      ; preds = %47
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull align 4 %8, i64 %49, i1 false)
+  br label %57
+
+57:                                               ; preds = %copy_to_sockptr.exit.thread, %copy_to_sockptr.exit
+  br label %58
+
+58:                                               ; preds = %.critedge, %57, %copy_to_sockptr.exit, %38, %34, %22, %18, %14, %6
+  %59 = phi i32 [ -95, %14 ], [ -95, %6 ], [ -2, %18 ], [ -92, %22 ], [ -14, %34 ], [ -14, %38 ], [ 0, %57 ], [ -14, %copy_to_sockptr.exit ], [ -14, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #17
-  ret i32 %60
+  ret i32 %59
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

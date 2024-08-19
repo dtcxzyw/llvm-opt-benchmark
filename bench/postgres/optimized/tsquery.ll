@@ -261,244 +261,230 @@ define dso_local ptr @parse_tsquery(ptr noundef %0, ptr nocapture noundef readon
   %8 = alloca i8, align 1
   %9 = and i32 %3, 1
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %11, label %10
-
-10:                                               ; preds = %5
-  store ptr @gettoken_query_plain, ptr %7, align 8
-  br label %15
+  %10 = and i32 %3, 2
+  %.not57 = icmp eq i32 %10, 0
+  %gettoken_query_standard.gettoken_query_websearch = select i1 %.not57, ptr @gettoken_query_standard, ptr @gettoken_query_websearch
+  %. = select i1 %.not57, i32 3, i32 7
+  %gettoken_query_websearch.sink = select i1 %.not, ptr %gettoken_query_standard.gettoken_query_websearch, ptr @gettoken_query_plain
+  %.052 = select i1 %.not, i32 %., i32 3
+  store ptr %gettoken_query_websearch.sink, ptr %7, align 8
+  %.not58 = icmp eq ptr %4, null
+  br i1 %.not58, label %14, label %11
 
 11:                                               ; preds = %5
-  %12 = and i32 %3, 2
-  %.not57 = icmp eq i32 %12, 0
-  br i1 %.not57, label %14, label %13
+  %12 = load i32, ptr %4, align 4
+  %13 = icmp ne i32 %12, 431
+  br label %14
 
-13:                                               ; preds = %11
-  store ptr @gettoken_query_websearch, ptr %7, align 8
-  br label %15
-
-14:                                               ; preds = %11
-  store ptr @gettoken_query_standard, ptr %7, align 8
-  br label %15
-
-15:                                               ; preds = %13, %14, %10
-  %.052 = phi i32 [ 3, %10 ], [ 7, %13 ], [ 3, %14 ]
-  %.not58 = icmp eq ptr %4, null
-  br i1 %.not58, label %19, label %16
-
-16:                                               ; preds = %15
-  %17 = load i32, ptr %4, align 4
-  %18 = icmp ne i32 %17, 431
-  br label %19
-
-19:                                               ; preds = %16, %15
-  %20 = phi i1 [ true, %15 ], [ %18, %16 ]
-  %21 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr %0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %7, i64 24
-  store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %7, i64 28
-  store i32 3, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %7, i64 72
-  store ptr %4, ptr %26, align 8
-  %27 = tail call ptr @init_tsvector_parser(ptr noundef %0, i32 noundef %.052, ptr noundef %4) #12
-  %28 = getelementptr inbounds i8, ptr %7, i64 64
-  store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %7, i64 60
-  store i32 0, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %7, i64 56
-  store i32 64, ptr %30, align 8
-  %31 = tail call ptr @palloc(i64 noundef 64) #12
-  %32 = getelementptr inbounds i8, ptr %7, i64 40
-  store ptr %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %7, i64 48
-  store ptr %31, ptr %33, align 8
-  store i8 0, ptr %31, align 1
+14:                                               ; preds = %11, %5
+  %15 = phi i1 [ true, %5 ], [ %13, %11 ]
+  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %0, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr %0, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %7, i64 24
+  store i32 0, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %7, i64 28
+  store i32 3, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %7, i64 32
+  store ptr null, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %7, i64 72
+  store ptr %4, ptr %21, align 8
+  %22 = tail call ptr @init_tsvector_parser(ptr noundef %0, i32 noundef %.052, ptr noundef %4) #12
+  %23 = getelementptr inbounds i8, ptr %7, i64 64
+  store ptr %22, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %7, i64 60
+  store i32 0, ptr %24, align 4
+  %25 = getelementptr inbounds i8, ptr %7, i64 56
+  store i32 64, ptr %25, align 8
+  %26 = tail call ptr @palloc(i64 noundef 64) #12
+  %27 = getelementptr inbounds i8, ptr %7, i64 40
+  store ptr %26, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %7, i64 48
+  store ptr %26, ptr %28, align 8
+  store i8 0, ptr %26, align 1
   call fastcc void @makepol(ptr noundef nonnull %7, ptr noundef %1, i64 noundef %2)
-  %34 = load ptr, ptr %28, align 8
-  call void @close_tsvector_parser(ptr noundef %34) #12
-  br i1 %.not58, label %42, label %35
+  %29 = load ptr, ptr %23, align 8
+  call void @close_tsvector_parser(ptr noundef %29) #12
+  br i1 %.not58, label %37, label %30
 
-35:                                               ; preds = %19
-  %36 = load i32, ptr %4, align 4
-  %37 = icmp eq i32 %36, 431
-  br i1 %37, label %38, label %42
+30:                                               ; preds = %14
+  %31 = load i32, ptr %4, align 4
+  %32 = icmp eq i32 %31, 431
+  br i1 %32, label %33, label %37
 
-38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %4, i64 4
-  %40 = load i8, ptr %39, align 4
-  %41 = trunc i8 %40 to i1
-  br i1 %41, label %121, label %42
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds i8, ptr %4, i64 4
+  %35 = load i8, ptr %34, align 4
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %116, label %37
 
-42:                                               ; preds = %38, %35, %19
-  %43 = load ptr, ptr %25, align 8
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %45, label %list_length.exit
+37:                                               ; preds = %33, %30, %14
+  %38 = load ptr, ptr %20, align 8
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %40, label %list_length.exit
 
-45:                                               ; preds = %42
-  br i1 %20, label %46, label %51
+40:                                               ; preds = %37
+  br i1 %15, label %41, label %46
 
-46:                                               ; preds = %45
-  %47 = call zeroext i1 @errstart(i32 noundef 18, ptr noundef null) #12
-  br i1 %47, label %48, label %51
+41:                                               ; preds = %40
+  %42 = call zeroext i1 @errstart(i32 noundef 18, ptr noundef null) #12
+  br i1 %42, label %43, label %46
 
-48:                                               ; preds = %46
-  %49 = load ptr, ptr %21, align 8
-  %50 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %49) #12
+43:                                               ; preds = %41
+  %44 = load ptr, ptr %16, align 8
+  %45 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %44) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 884, ptr noundef nonnull @__func__.parse_tsquery) #12
-  br label %51
+  br label %46
 
-51:                                               ; preds = %48, %46, %45
-  %52 = call ptr @palloc(i64 noundef 8) #12
-  store i32 32, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
-  store i32 0, ptr %53, align 4
-  br label %121
+46:                                               ; preds = %43, %41, %40
+  %47 = call ptr @palloc(i64 noundef 8) #12
+  store i32 32, ptr %47, align 4
+  %48 = getelementptr inbounds i8, ptr %47, i64 4
+  store i32 0, ptr %48, align 4
+  br label %116
 
-list_length.exit:                                 ; preds = %42
-  %54 = getelementptr inbounds i8, ptr %43, i64 4
-  %55 = load i32, ptr %54, align 4
-  %56 = sext i32 %55 to i64
-  %57 = load i32, ptr %29, align 4
-  %58 = sext i32 %57 to i64
-  %59 = sub nsw i64 1073741815, %58
-  %60 = udiv i64 %59, 12
-  %61 = icmp ult i64 %60, %56
-  br i1 %61, label %62, label %list_length.exit62
+list_length.exit:                                 ; preds = %37
+  %49 = getelementptr inbounds i8, ptr %38, i64 4
+  %50 = load i32, ptr %49, align 4
+  %51 = sext i32 %50 to i64
+  %52 = load i32, ptr %24, align 4
+  %53 = sext i32 %52 to i64
+  %54 = sub nsw i64 1073741815, %53
+  %55 = udiv i64 %54, 12
+  %56 = icmp ult i64 %55, %51
+  br i1 %56, label %57, label %list_length.exit62
 
-62:                                               ; preds = %list_length.exit
-  %63 = call zeroext i1 @errsave_start(ptr noundef %4, ptr noundef null) #12
-  br i1 %63, label %64, label %121
+57:                                               ; preds = %list_length.exit
+  %58 = call zeroext i1 @errsave_start(ptr noundef %4, ptr noundef null) #12
+  br i1 %58, label %59, label %116
 
-64:                                               ; preds = %62
-  %65 = call i32 @errcode(i32 noundef 261) #12
-  %66 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #12
+59:                                               ; preds = %57
+  %60 = call i32 @errcode(i32 noundef 261) #12
+  %61 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #12
   call void @errsave_finish(ptr noundef %4, ptr noundef nonnull @.str.1, i32 noundef 894, ptr noundef nonnull @__func__.parse_tsquery) #12
-  br label %121
+  br label %116
 
 list_length.exit62:                               ; preds = %list_length.exit
-  %67 = mul i32 %55, 12
-  %68 = add i32 %57, 8
-  %69 = add i32 %68, %67
-  %70 = sext i32 %69 to i64
-  %71 = call ptr @palloc0(i64 noundef %70) #12
-  %72 = shl i32 %69, 2
-  store i32 %72, ptr %71, align 4
-  %73 = load ptr, ptr %25, align 8
-  %.not.i63 = icmp eq ptr %73, null
-  br i1 %.not.i63, label %list_length.exit64, label %74
+  %62 = mul i32 %50, 12
+  %63 = add i32 %52, 8
+  %64 = add i32 %63, %62
+  %65 = sext i32 %64 to i64
+  %66 = call ptr @palloc0(i64 noundef %65) #12
+  %67 = shl i32 %64, 2
+  store i32 %67, ptr %66, align 4
+  %68 = load ptr, ptr %20, align 8
+  %.not.i63 = icmp eq ptr %68, null
+  br i1 %.not.i63, label %list_length.exit64, label %69
 
-74:                                               ; preds = %list_length.exit62
-  %75 = getelementptr inbounds i8, ptr %73, i64 4
-  %76 = load i32, ptr %75, align 4
+69:                                               ; preds = %list_length.exit62
+  %70 = getelementptr inbounds i8, ptr %68, i64 4
+  %71 = load i32, ptr %70, align 4
   br label %list_length.exit64
 
-list_length.exit64:                               ; preds = %list_length.exit62, %74
-  %77 = phi i32 [ %76, %74 ], [ 0, %list_length.exit62 ]
-  %78 = getelementptr inbounds i8, ptr %71, i64 4
-  store i32 %77, ptr %78, align 4
-  %79 = getelementptr i8, ptr %71, i64 8
-  %80 = load ptr, ptr %25, align 8
-  %.not59 = icmp eq ptr %80, null
+list_length.exit64:                               ; preds = %list_length.exit62, %69
+  %72 = phi i32 [ %71, %69 ], [ 0, %list_length.exit62 ]
+  %73 = getelementptr inbounds i8, ptr %66, i64 4
+  store i32 %72, ptr %73, align 4
+  %74 = getelementptr i8, ptr %66, i64 8
+  %75 = load ptr, ptr %20, align 8
+  %.not59 = icmp eq ptr %75, null
   br i1 %.not59, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %list_length.exit64
-  %81 = getelementptr inbounds i8, ptr %80, i64 4
-  %82 = getelementptr inbounds i8, ptr %80, i64 16
-  %83 = load i32, ptr %81, align 4
-  %84 = icmp sgt i32 %83, 0
-  br i1 %84, label %.lr.ph73, label %._crit_edge
+  %76 = getelementptr inbounds i8, ptr %75, i64 4
+  %77 = getelementptr inbounds i8, ptr %75, i64 16
+  %78 = load i32, ptr %76, align 4
+  %79 = icmp sgt i32 %78, 0
+  br i1 %79, label %.lr.ph73, label %._crit_edge
 
-.lr.ph73:                                         ; preds = %.lr.ph, %100
-  %indvars.iv = phi i64 [ %indvars.iv.next, %100 ], [ 0, %.lr.ph ]
-  %85 = load ptr, ptr %82, align 8
-  %86 = getelementptr %union.ListCell, ptr %85, i64 %indvars.iv
-  %87 = load ptr, ptr %86, align 8
-  %88 = load i8, ptr %87, align 4
-  switch i8 %88, label %.split [
-    i8 1, label %89
-    i8 3, label %91
-    i8 2, label %93
+.lr.ph73:                                         ; preds = %.lr.ph, %95
+  %indvars.iv = phi i64 [ %indvars.iv.next, %95 ], [ 0, %.lr.ph ]
+  %80 = load ptr, ptr %77, align 8
+  %81 = getelementptr %union.ListCell, ptr %80, i64 %indvars.iv
+  %82 = load ptr, ptr %81, align 8
+  %83 = load i8, ptr %82, align 4
+  switch i8 %83, label %.split [
+    i8 1, label %84
+    i8 3, label %86
+    i8 2, label %88
   ]
 
-89:                                               ; preds = %.lr.ph73
-  %90 = getelementptr %union.QueryItem, ptr %79, i64 %indvars.iv
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %90, ptr noundef nonnull align 4 dereferenceable(12) %87, i64 12, i1 false)
-  br label %100
+84:                                               ; preds = %.lr.ph73
+  %85 = getelementptr %union.QueryItem, ptr %74, i64 %indvars.iv
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %85, ptr noundef nonnull align 4 dereferenceable(12) %82, i64 12, i1 false)
+  br label %95
 
-91:                                               ; preds = %.lr.ph73
-  %92 = getelementptr %union.QueryItem, ptr %79, i64 %indvars.iv
-  store i8 3, ptr %92, align 4
-  br label %100
+86:                                               ; preds = %.lr.ph73
+  %87 = getelementptr %union.QueryItem, ptr %74, i64 %indvars.iv
+  store i8 3, ptr %87, align 4
+  br label %95
 
-93:                                               ; preds = %.lr.ph73
-  %94 = getelementptr %union.QueryItem, ptr %79, i64 %indvars.iv
-  %95 = load i64, ptr %87, align 4
-  store i64 %95, ptr %94, align 4
-  br label %100
+88:                                               ; preds = %.lr.ph73
+  %89 = getelementptr %union.QueryItem, ptr %74, i64 %indvars.iv
+  %90 = load i64, ptr %82, align 4
+  store i64 %90, ptr %89, align 4
+  br label %95
 
 .split:                                           ; preds = %.lr.ph73
-  %96 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  call void @llvm.assume(i1 %96)
-  %97 = load i8, ptr %87, align 4
-  %98 = sext i8 %97 to i32
-  %99 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %98) #12
+  %91 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  call void @llvm.assume(i1 %91)
+  %92 = load i8, ptr %82, align 4
+  %93 = sext i8 %92 to i32
+  %94 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %93) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 921, ptr noundef nonnull @__func__.parse_tsquery) #12
   unreachable
 
-100:                                              ; preds = %93, %91, %89
+95:                                               ; preds = %88, %86, %84
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %101 = load i32, ptr %81, align 4
-  %102 = sext i32 %101 to i64
-  %103 = icmp slt i64 %indvars.iv.next, %102
-  br i1 %103, label %.lr.ph73, label %._crit_edge.loopexit
+  %96 = load i32, ptr %76, align 4
+  %97 = sext i32 %96 to i64
+  %98 = icmp slt i64 %indvars.iv.next, %97
+  br i1 %98, label %.lr.ph73, label %._crit_edge.loopexit
 
-._crit_edge.loopexit:                             ; preds = %100
-  %.pre = load i32, ptr %78, align 4
+._crit_edge.loopexit:                             ; preds = %95
+  %.pre = load i32, ptr %73, align 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %list_length.exit64
-  %104 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %77, %.lr.ph ], [ %77, %list_length.exit64 ]
+  %99 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %72, %.lr.ph ], [ %72, %list_length.exit64 ]
+  %100 = sext i32 %99 to i64
+  %101 = mul nsw i64 %100, 12
+  %102 = getelementptr i8, ptr %74, i64 %101
+  %103 = load ptr, ptr %27, align 8
+  %104 = load i32, ptr %24, align 4
   %105 = sext i32 %104 to i64
-  %106 = mul nsw i64 %105, 12
-  %107 = getelementptr i8, ptr %79, i64 %106
-  %108 = load ptr, ptr %32, align 8
-  %109 = load i32, ptr %29, align 4
-  %110 = sext i32 %109 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %107, ptr align 1 %108, i64 %110, i1 false)
-  %111 = load ptr, ptr %32, align 8
-  call void @pfree(ptr noundef %111) #12
-  %112 = load i32, ptr %78, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %102, ptr align 1 %103, i64 %105, i1 false)
+  %106 = load ptr, ptr %27, align 8
+  call void @pfree(ptr noundef %106) #12
+  %107 = load i32, ptr %73, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i8 0, ptr %8, align 1
   store i32 0, ptr %6, align 4
-  call fastcc void @findoprnd_recurse(ptr noundef %79, ptr noundef nonnull %6, i32 noundef %112, ptr noundef nonnull %8)
-  %113 = load i32, ptr %6, align 4
-  %.not.i65 = icmp eq i32 %113, %112
-  br i1 %.not.i65, label %findoprnd.exit, label %114
+  call fastcc void @findoprnd_recurse(ptr noundef %74, ptr noundef nonnull %6, i32 noundef %107, ptr noundef nonnull %8)
+  %108 = load i32, ptr %6, align 4
+  %.not.i65 = icmp eq i32 %108, %107
+  br i1 %.not.i65, label %findoprnd.exit, label %109
 
-114:                                              ; preds = %._crit_edge
-  %115 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  call void @llvm.assume(i1 %115)
-  %116 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.20) #12
+109:                                              ; preds = %._crit_edge
+  %110 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  call void @llvm.assume(i1 %110)
+  %111 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.20) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 797, ptr noundef nonnull @__func__.findoprnd) #12
   unreachable
 
 findoprnd.exit:                                   ; preds = %._crit_edge
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %117 = load i8, ptr %8, align 1
-  %118 = trunc i8 %117 to i1
-  br i1 %118, label %119, label %121
+  %112 = load i8, ptr %8, align 1
+  %113 = trunc i8 %112 to i1
+  br i1 %113, label %114, label %116
 
-119:                                              ; preds = %findoprnd.exit
-  %120 = call ptr @cleanup_tsquery_stopwords(ptr noundef nonnull %71, i1 noundef zeroext %20) #12
-  br label %121
+114:                                              ; preds = %findoprnd.exit
+  %115 = call ptr @cleanup_tsquery_stopwords(ptr noundef nonnull %66, i1 noundef zeroext %15) #12
+  br label %116
 
-121:                                              ; preds = %findoprnd.exit, %119, %64, %62, %38, %51
-  %.0 = phi ptr [ %52, %51 ], [ null, %38 ], [ null, %62 ], [ null, %64 ], [ %120, %119 ], [ %71, %findoprnd.exit ]
+116:                                              ; preds = %findoprnd.exit, %114, %59, %57, %33, %46
+  %.0 = phi ptr [ %47, %46 ], [ null, %33 ], [ null, %57 ], [ null, %59 ], [ %115, %114 ], [ %66, %findoprnd.exit ]
   ret ptr %.0
 }
 

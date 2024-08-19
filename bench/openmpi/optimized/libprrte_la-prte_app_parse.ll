@@ -157,7 +157,7 @@ sub_1:                                            ; preds = %sub_0
   %56 = load ptr, ptr %6, align 8
   %57 = call fastcc i32 @create_app(ptr noundef %0, ptr noundef %56, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %3, ptr noundef %4)
   %.not29 = icmp eq i32 %57, 0
-  br i1 %.not29, label %58, label %72
+  br i1 %.not29, label %58, label %73
 
 58:                                               ; preds = %55
   %59 = load i8, ptr %8, align 1
@@ -184,11 +184,11 @@ sub_1:                                            ; preds = %sub_0
 
 .sink.split:                                      ; preds = %29, %58, %61, %._crit_edge
   %.023.ph = phi i32 [ 0, %._crit_edge ], [ 0, %61 ], [ 0, %58 ], [ %31, %29 ]
-  %.sink = load ptr, ptr %6, align 8
-  call void @PMIx_Argv_free(ptr noundef %.sink) #13
-  br label %72
+  %72 = load ptr, ptr %6, align 8
+  call void @PMIx_Argv_free(ptr noundef %72) #13
+  br label %73
 
-72:                                               ; preds = %.sink.split, %55
+73:                                               ; preds = %.sink.split, %55
   %.023 = phi i32 [ %57, %55 ], [ %.023.ph, %.sink.split ]
   ret i32 %.023
 }

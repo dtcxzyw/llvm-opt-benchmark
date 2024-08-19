@@ -92,10 +92,10 @@ define internal noundef i32 @H5HF__huge_bt2_indir_encode(ptr noundef %0, ptr noc
   %8 = load i64, ptr %1, align 8
   call void @H5F_addr_encode_len(i64 noundef %7, ptr noundef nonnull %4, i64 noundef %8) #6
   %9 = load i8, ptr %2, align 1
-  switch i8 %9, label %56 [
+  switch i8 %9, label %46 [
     i8 4, label %10
-    i8 8, label %32
-    i8 2, label %44
+    i8 8, label %25
+    i8 2, label %34
   ]
 
 10:                                               ; preds = %3
@@ -118,132 +118,122 @@ define internal noundef i32 @H5HF__huge_bt2_indir_encode(ptr noundef %0, ptr noc
   %23 = lshr i64 %22, 16
   %24 = trunc i64 %23 to i8
   store i8 %24, ptr %21, align 1
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 1
-  store ptr %26, ptr %4, align 8
-  %27 = load i64, ptr %11, align 8
-  %28 = lshr i64 %27, 24
-  %29 = trunc i64 %28 to i8
-  store i8 %29, ptr %26, align 1
-  %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 1
-  store ptr %31, ptr %4, align 8
+  br label %thread-pre-split.sink.split
+
+25:                                               ; preds = %3
+  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = load i64, ptr %26, align 8
+  %28 = load ptr, ptr %4, align 8
+  br label %29
+
+29:                                               ; preds = %25, %29
+  %.03845 = phi ptr [ %28, %25 ], [ %31, %29 ]
+  %.04044 = phi i64 [ 0, %25 ], [ %32, %29 ]
+  %.04243 = phi i64 [ %27, %25 ], [ %33, %29 ]
+  %30 = trunc i64 %.04243 to i8
+  %31 = getelementptr inbounds i8, ptr %.03845, i64 1
+  store i8 %30, ptr %.03845, align 1
+  %32 = add nuw nsw i64 %.04044, 1
+  %33 = lshr i64 %.04243, 8
+  %exitcond.not = icmp eq i64 %32, 8
+  br i1 %exitcond.not, label %thread-pre-split, label %29
+
+34:                                               ; preds = %3
+  %35 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = load i64, ptr %35, align 8
+  %37 = trunc i64 %36 to i8
+  %38 = load ptr, ptr %4, align 8
+  store i8 %37, ptr %38, align 1
+  br label %thread-pre-split.sink.split
+
+thread-pre-split.sink.split:                      ; preds = %34, %10
+  %.sink59 = phi ptr [ %11, %10 ], [ %35, %34 ]
+  %.sink58 = phi i64 [ 24, %10 ], [ 8, %34 ]
+  %39 = load ptr, ptr %4, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 1
+  store ptr %40, ptr %4, align 8
+  %41 = load i64, ptr %.sink59, align 8
+  %42 = lshr i64 %41, %.sink58
+  %43 = trunc i64 %42 to i8
+  store i8 %43, ptr %40, align 1
   br label %thread-pre-split
 
-32:                                               ; preds = %3
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
-  %34 = load i64, ptr %33, align 8
-  %35 = load ptr, ptr %4, align 8
-  br label %36
-
-36:                                               ; preds = %32, %36
-  %.03845 = phi ptr [ %35, %32 ], [ %38, %36 ]
-  %.04044 = phi i64 [ 0, %32 ], [ %39, %36 ]
-  %.04243 = phi i64 [ %34, %32 ], [ %40, %36 ]
-  %37 = trunc i64 %.04243 to i8
-  %38 = getelementptr inbounds i8, ptr %.03845, i64 1
-  store i8 %37, ptr %.03845, align 1
-  %39 = add nuw nsw i64 %.04044, 1
-  %40 = lshr i64 %.04243, 8
-  %exitcond.not = icmp eq i64 %39, 8
-  br i1 %exitcond.not, label %41, label %36
-
-41:                                               ; preds = %36
-  %42 = load ptr, ptr %4, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
-  store ptr %43, ptr %4, align 8
-  br label %thread-pre-split
-
-44:                                               ; preds = %3
-  %45 = getelementptr inbounds i8, ptr %1, i64 8
-  %46 = load i64, ptr %45, align 8
-  %47 = trunc i64 %46 to i8
-  %48 = load ptr, ptr %4, align 8
-  store i8 %47, ptr %48, align 1
-  %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 1
-  store ptr %50, ptr %4, align 8
-  %51 = load i64, ptr %45, align 8
-  %52 = lshr i64 %51, 8
-  %53 = trunc i64 %52 to i8
-  store i8 %53, ptr %50, align 1
-  %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 1
-  store ptr %55, ptr %4, align 8
-  br label %thread-pre-split
-
-thread-pre-split:                                 ; preds = %10, %41, %44
+thread-pre-split:                                 ; preds = %29, %thread-pre-split.sink.split
+  %.sink51 = phi i64 [ 1, %thread-pre-split.sink.split ], [ 8, %29 ]
+  %44 = load ptr, ptr %4, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 %.sink51
+  store ptr %45, ptr %4, align 8
   %.pr = load i8, ptr %2, align 1
-  br label %56
+  br label %46
 
-56:                                               ; preds = %thread-pre-split, %3
-  %57 = phi i8 [ %.pr, %thread-pre-split ], [ %9, %3 ]
-  switch i8 %57, label %.loopexit [
-    i8 4, label %58
-    i8 8, label %73
-    i8 2, label %82
+46:                                               ; preds = %thread-pre-split, %3
+  %47 = phi i8 [ %.pr, %thread-pre-split ], [ %9, %3 ]
+  switch i8 %47, label %.loopexit [
+    i8 4, label %48
+    i8 8, label %63
+    i8 2, label %72
   ]
 
-58:                                               ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %1, i64 16
-  %60 = load i64, ptr %59, align 8
-  %61 = trunc i64 %60 to i8
-  %62 = load ptr, ptr %4, align 8
-  store i8 %61, ptr %62, align 1
-  %63 = load ptr, ptr %4, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 1
-  store ptr %64, ptr %4, align 8
-  %65 = load i64, ptr %59, align 8
-  %66 = lshr i64 %65, 8
-  %67 = trunc i64 %66 to i8
-  store i8 %67, ptr %64, align 1
-  %68 = load ptr, ptr %4, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 1
-  store ptr %69, ptr %4, align 8
-  %70 = load i64, ptr %59, align 8
-  %71 = lshr i64 %70, 16
-  %72 = trunc i64 %71 to i8
-  store i8 %72, ptr %69, align 1
+48:                                               ; preds = %46
+  %49 = getelementptr inbounds i8, ptr %1, i64 16
+  %50 = load i64, ptr %49, align 8
+  %51 = trunc i64 %50 to i8
+  %52 = load ptr, ptr %4, align 8
+  store i8 %51, ptr %52, align 1
+  %53 = load ptr, ptr %4, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 1
+  store ptr %54, ptr %4, align 8
+  %55 = load i64, ptr %49, align 8
+  %56 = lshr i64 %55, 8
+  %57 = trunc i64 %56 to i8
+  store i8 %57, ptr %54, align 1
+  %58 = load ptr, ptr %4, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 1
+  store ptr %59, ptr %4, align 8
+  %60 = load i64, ptr %49, align 8
+  %61 = lshr i64 %60, 16
+  %62 = trunc i64 %61 to i8
+  store i8 %62, ptr %59, align 1
   br label %.sink.split
 
-73:                                               ; preds = %56
-  %74 = getelementptr inbounds i8, ptr %1, i64 16
-  %75 = load i64, ptr %74, align 8
+63:                                               ; preds = %46
+  %64 = getelementptr inbounds i8, ptr %1, i64 16
+  %65 = load i64, ptr %64, align 8
+  %66 = load ptr, ptr %4, align 8
+  br label %67
+
+67:                                               ; preds = %63, %67
+  %.048 = phi ptr [ %66, %63 ], [ %69, %67 ]
+  %.03547 = phi i64 [ 0, %63 ], [ %70, %67 ]
+  %.03746 = phi i64 [ %65, %63 ], [ %71, %67 ]
+  %68 = trunc i64 %.03746 to i8
+  %69 = getelementptr inbounds i8, ptr %.048, i64 1
+  store i8 %68, ptr %.048, align 1
+  %70 = add nuw nsw i64 %.03547, 1
+  %71 = lshr i64 %.03746, 8
+  %exitcond49.not = icmp eq i64 %70, 8
+  br i1 %exitcond49.not, label %.loopexit, label %67
+
+72:                                               ; preds = %46
+  %73 = getelementptr inbounds i8, ptr %1, i64 16
+  %74 = load i64, ptr %73, align 8
+  %75 = trunc i64 %74 to i8
   %76 = load ptr, ptr %4, align 8
-  br label %77
-
-77:                                               ; preds = %73, %77
-  %.048 = phi ptr [ %76, %73 ], [ %79, %77 ]
-  %.03547 = phi i64 [ 0, %73 ], [ %80, %77 ]
-  %.03746 = phi i64 [ %75, %73 ], [ %81, %77 ]
-  %78 = trunc i64 %.03746 to i8
-  %79 = getelementptr inbounds i8, ptr %.048, i64 1
-  store i8 %78, ptr %.048, align 1
-  %80 = add nuw nsw i64 %.03547, 1
-  %81 = lshr i64 %.03746, 8
-  %exitcond49.not = icmp eq i64 %80, 8
-  br i1 %exitcond49.not, label %.loopexit, label %77
-
-82:                                               ; preds = %56
-  %83 = getelementptr inbounds i8, ptr %1, i64 16
-  %84 = load i64, ptr %83, align 8
-  %85 = trunc i64 %84 to i8
-  %86 = load ptr, ptr %4, align 8
-  store i8 %85, ptr %86, align 1
+  store i8 %75, ptr %76, align 1
   br label %.sink.split
 
-.sink.split:                                      ; preds = %82, %58
-  %.sink53 = phi ptr [ %59, %58 ], [ %83, %82 ]
-  %.sink52 = phi i64 [ 24, %58 ], [ 8, %82 ]
-  %.sink = load ptr, ptr %4, align 8
-  %87 = getelementptr inbounds i8, ptr %.sink, i64 1
-  %88 = load i64, ptr %.sink53, align 8
-  %89 = lshr i64 %88, %.sink52
-  %90 = trunc i64 %89 to i8
-  store i8 %90, ptr %87, align 1
+.sink.split:                                      ; preds = %72, %48
+  %.sink55 = phi ptr [ %49, %48 ], [ %73, %72 ]
+  %.sink54 = phi i64 [ 24, %48 ], [ 8, %72 ]
+  %77 = load ptr, ptr %4, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 1
+  %79 = load i64, ptr %.sink55, align 8
+  %80 = lshr i64 %79, %.sink54
+  %81 = trunc i64 %80 to i8
+  store i8 %81, ptr %78, align 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %77, %.sink.split, %56
+.loopexit:                                        ; preds = %67, %.sink.split, %46
   ret i32 0
 }
 
@@ -290,7 +280,6 @@ define internal noundef i32 @H5HF__huge_bt2_indir_decode(ptr noundef %0, ptr nou
   %28 = or disjoint i64 %27, %23
   store i64 %28, ptr %13, align 8
   %29 = getelementptr inbounds i8, ptr %10, i64 4
-  store ptr %29, ptr %4, align 8
   br label %thread-pre-split
 
 30:                                               ; preds = %3
@@ -317,7 +306,6 @@ define internal noundef i32 @H5HF__huge_bt2_indir_decode(ptr noundef %0, ptr nou
 
 43:                                               ; preds = %34
   %44 = getelementptr inbounds i8, ptr %36, i64 7
-  store ptr %44, ptr %4, align 8
   br label %thread-pre-split
 
 45:                                               ; preds = %3
@@ -334,10 +322,11 @@ define internal noundef i32 @H5HF__huge_bt2_indir_decode(ptr noundef %0, ptr nou
   %54 = or disjoint i64 %53, %48
   store i64 %54, ptr %49, align 8
   %55 = getelementptr inbounds i8, ptr %46, i64 2
-  store ptr %55, ptr %4, align 8
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %9, %43, %45
+  %.sink = phi ptr [ %29, %9 ], [ %44, %43 ], [ %55, %45 ]
+  store ptr %.sink, ptr %4, align 8
   %.pr = load i8, ptr %2, align 1
   br label %56
 
@@ -404,16 +393,16 @@ thread-pre-split:                                 ; preds = %9, %43, %45
   br label %.sink.split
 
 .sink.split:                                      ; preds = %87, %58
-  %storemerge = phi ptr [ %92, %87 ], [ %73, %58 ]
-  %.sink37 = phi i64 [ 8, %87 ], [ 24, %58 ]
-  %.sink36 = phi i64 [ %90, %87 ], [ %72, %58 ]
-  %.sink34 = phi ptr [ %91, %87 ], [ %62, %58 ]
-  store ptr %storemerge, ptr %4, align 8
-  %93 = load i8, ptr %storemerge, align 1
+  %.sink42 = phi ptr [ %73, %58 ], [ %92, %87 ]
+  %.sink39 = phi i64 [ 24, %58 ], [ 8, %87 ]
+  %.sink37 = phi i64 [ %72, %58 ], [ %90, %87 ]
+  %.sink35 = phi ptr [ %62, %58 ], [ %91, %87 ]
+  store ptr %.sink42, ptr %4, align 8
+  %93 = load i8, ptr %.sink42, align 1
   %94 = zext i8 %93 to i64
-  %95 = shl nuw nsw i64 %94, %.sink37
-  %96 = or disjoint i64 %95, %.sink36
-  store i64 %96, ptr %.sink34, align 8
+  %95 = shl nuw nsw i64 %94, %.sink39
+  %96 = or disjoint i64 %95, %.sink37
+  store i64 %96, ptr %.sink35, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %78, %.sink.split, %56
@@ -574,10 +563,10 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_encode(ptr noundef %0, pt
   %77 = getelementptr inbounds i8, ptr %76, i64 1
   store ptr %77, ptr %4, align 8
   %78 = load i8, ptr %2, align 1
-  switch i8 %78, label %123 [
+  switch i8 %78, label %111 [
     i8 4, label %79
-    i8 8, label %100
-    i8 2, label %111
+    i8 8, label %92
+    i8 2, label %100
   ]
 
 79:                                               ; preds = %56
@@ -597,131 +586,120 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_encode(ptr noundef %0, pt
   store ptr %89, ptr %4, align 8
   %90 = load i64, ptr %80, align 8
   %91 = lshr i64 %90, 16
-  %92 = trunc i64 %91 to i8
-  store i8 %92, ptr %89, align 1
-  %93 = load ptr, ptr %4, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 1
-  store ptr %94, ptr %4, align 8
-  %95 = load i64, ptr %80, align 8
-  %96 = lshr i64 %95, 24
-  %97 = trunc i64 %96 to i8
-  store i8 %97, ptr %94, align 1
-  %98 = load ptr, ptr %4, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 1
-  store ptr %99, ptr %4, align 8
-  br label %thread-pre-split
+  br label %thread-pre-split.sink.split
+
+92:                                               ; preds = %56
+  %93 = getelementptr inbounds i8, ptr %1, i64 24
+  %94 = load i64, ptr %93, align 8
+  br label %95
+
+95:                                               ; preds = %92, %95
+  %.05873 = phi ptr [ %77, %92 ], [ %97, %95 ]
+  %.06072 = phi i64 [ 0, %92 ], [ %98, %95 ]
+  %.06271 = phi i64 [ %94, %92 ], [ %99, %95 ]
+  %96 = trunc i64 %.06271 to i8
+  %97 = getelementptr inbounds i8, ptr %.05873, i64 1
+  store i8 %96, ptr %.05873, align 1
+  %98 = add nuw nsw i64 %.06072, 1
+  %99 = lshr i64 %.06271, 8
+  %exitcond77.not = icmp eq i64 %98, 8
+  br i1 %exitcond77.not, label %thread-pre-split, label %95
 
 100:                                              ; preds = %56
   %101 = getelementptr inbounds i8, ptr %1, i64 24
   %102 = load i64, ptr %101, align 8
-  br label %103
+  br label %thread-pre-split.sink.split
 
-103:                                              ; preds = %100, %103
-  %.05873 = phi ptr [ %77, %100 ], [ %105, %103 ]
-  %.06072 = phi i64 [ 0, %100 ], [ %106, %103 ]
-  %.06271 = phi i64 [ %102, %100 ], [ %107, %103 ]
-  %104 = trunc i64 %.06271 to i8
-  %105 = getelementptr inbounds i8, ptr %.05873, i64 1
-  store i8 %104, ptr %.05873, align 1
-  %106 = add nuw nsw i64 %.06072, 1
-  %107 = lshr i64 %.06271, 8
-  %exitcond77.not = icmp eq i64 %106, 8
-  br i1 %exitcond77.not, label %108, label %103
+thread-pre-split.sink.split:                      ; preds = %100, %79
+  %.sink93 = phi i64 [ %91, %79 ], [ %102, %100 ]
+  %.sink92 = phi ptr [ %89, %79 ], [ %77, %100 ]
+  %.sink90 = phi ptr [ %80, %79 ], [ %101, %100 ]
+  %.sink89 = phi i64 [ 24, %79 ], [ 8, %100 ]
+  %103 = trunc i64 %.sink93 to i8
+  store i8 %103, ptr %.sink92, align 1
+  %104 = load ptr, ptr %4, align 8
+  %105 = getelementptr inbounds i8, ptr %104, i64 1
+  store ptr %105, ptr %4, align 8
+  %106 = load i64, ptr %.sink90, align 8
+  %107 = lshr i64 %106, %.sink89
+  %108 = trunc i64 %107 to i8
+  store i8 %108, ptr %105, align 1
+  br label %thread-pre-split
 
-108:                                              ; preds = %103
+thread-pre-split:                                 ; preds = %95, %thread-pre-split.sink.split
+  %.sink80 = phi i64 [ 1, %thread-pre-split.sink.split ], [ 8, %95 ]
   %109 = load ptr, ptr %4, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 8
+  %110 = getelementptr inbounds i8, ptr %109, i64 %.sink80
   store ptr %110, ptr %4, align 8
-  br label %thread-pre-split
-
-111:                                              ; preds = %56
-  %112 = getelementptr inbounds i8, ptr %1, i64 24
-  %113 = load i64, ptr %112, align 8
-  %114 = trunc i64 %113 to i8
-  store i8 %114, ptr %77, align 1
-  %115 = load ptr, ptr %4, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 1
-  store ptr %116, ptr %4, align 8
-  %117 = load i64, ptr %112, align 8
-  %118 = lshr i64 %117, 8
-  %119 = trunc i64 %118 to i8
-  store i8 %119, ptr %116, align 1
-  %120 = load ptr, ptr %4, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 1
-  store ptr %121, ptr %4, align 8
-  br label %thread-pre-split
-
-thread-pre-split:                                 ; preds = %79, %108, %111
-  %122 = phi ptr [ %99, %79 ], [ %110, %108 ], [ %121, %111 ]
   %.pr = load i8, ptr %2, align 1
-  br label %123
+  br label %111
 
-123:                                              ; preds = %thread-pre-split, %56
-  %124 = phi ptr [ %122, %thread-pre-split ], [ %77, %56 ]
-  %125 = phi i8 [ %.pr, %thread-pre-split ], [ %78, %56 ]
-  switch i8 %125, label %.loopexit [
-    i8 4, label %126
-    i8 8, label %139
-    i8 2, label %147
+111:                                              ; preds = %thread-pre-split, %56
+  %112 = phi ptr [ %110, %thread-pre-split ], [ %77, %56 ]
+  %113 = phi i8 [ %.pr, %thread-pre-split ], [ %78, %56 ]
+  switch i8 %113, label %.loopexit [
+    i8 4, label %114
+    i8 8, label %127
+    i8 2, label %135
   ]
 
-126:                                              ; preds = %123
-  %127 = getelementptr inbounds i8, ptr %1, i64 32
-  %128 = load i64, ptr %127, align 8
-  %129 = trunc i64 %128 to i8
-  store i8 %129, ptr %124, align 1
-  %130 = load ptr, ptr %4, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 1
-  store ptr %131, ptr %4, align 8
-  %132 = load i64, ptr %127, align 8
-  %133 = lshr i64 %132, 8
-  %134 = trunc i64 %133 to i8
-  store i8 %134, ptr %131, align 1
-  %135 = load ptr, ptr %4, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 1
-  store ptr %136, ptr %4, align 8
-  %137 = load i64, ptr %127, align 8
-  %138 = lshr i64 %137, 16
+114:                                              ; preds = %111
+  %115 = getelementptr inbounds i8, ptr %1, i64 32
+  %116 = load i64, ptr %115, align 8
+  %117 = trunc i64 %116 to i8
+  store i8 %117, ptr %112, align 1
+  %118 = load ptr, ptr %4, align 8
+  %119 = getelementptr inbounds i8, ptr %118, i64 1
+  store ptr %119, ptr %4, align 8
+  %120 = load i64, ptr %115, align 8
+  %121 = lshr i64 %120, 8
+  %122 = trunc i64 %121 to i8
+  store i8 %122, ptr %119, align 1
+  %123 = load ptr, ptr %4, align 8
+  %124 = getelementptr inbounds i8, ptr %123, i64 1
+  store ptr %124, ptr %4, align 8
+  %125 = load i64, ptr %115, align 8
+  %126 = lshr i64 %125, 16
   br label %.sink.split
 
-139:                                              ; preds = %123
-  %140 = getelementptr inbounds i8, ptr %1, i64 32
-  %141 = load i64, ptr %140, align 8
-  br label %142
+127:                                              ; preds = %111
+  %128 = getelementptr inbounds i8, ptr %1, i64 32
+  %129 = load i64, ptr %128, align 8
+  br label %130
 
-142:                                              ; preds = %139, %142
-  %.076 = phi ptr [ %124, %139 ], [ %144, %142 ]
-  %.05575 = phi i64 [ 0, %139 ], [ %145, %142 ]
-  %.05774 = phi i64 [ %141, %139 ], [ %146, %142 ]
-  %143 = trunc i64 %.05774 to i8
-  %144 = getelementptr inbounds i8, ptr %.076, i64 1
-  store i8 %143, ptr %.076, align 1
-  %145 = add nuw nsw i64 %.05575, 1
-  %146 = lshr i64 %.05774, 8
-  %exitcond78.not = icmp eq i64 %145, 8
-  br i1 %exitcond78.not, label %.loopexit, label %142
+130:                                              ; preds = %127, %130
+  %.076 = phi ptr [ %112, %127 ], [ %132, %130 ]
+  %.05575 = phi i64 [ 0, %127 ], [ %133, %130 ]
+  %.05774 = phi i64 [ %129, %127 ], [ %134, %130 ]
+  %131 = trunc i64 %.05774 to i8
+  %132 = getelementptr inbounds i8, ptr %.076, i64 1
+  store i8 %131, ptr %.076, align 1
+  %133 = add nuw nsw i64 %.05575, 1
+  %134 = lshr i64 %.05774, 8
+  %exitcond78.not = icmp eq i64 %133, 8
+  br i1 %exitcond78.not, label %.loopexit, label %130
 
-147:                                              ; preds = %123
-  %148 = getelementptr inbounds i8, ptr %1, i64 32
-  %149 = load i64, ptr %148, align 8
+135:                                              ; preds = %111
+  %136 = getelementptr inbounds i8, ptr %1, i64 32
+  %137 = load i64, ptr %136, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %147, %126
-  %.sink85 = phi i64 [ %149, %147 ], [ %138, %126 ]
-  %.sink84 = phi ptr [ %124, %147 ], [ %136, %126 ]
-  %.sink82 = phi ptr [ %148, %147 ], [ %127, %126 ]
-  %.sink81 = phi i64 [ 8, %147 ], [ 24, %126 ]
-  %150 = trunc i64 %.sink85 to i8
-  store i8 %150, ptr %.sink84, align 1
-  %.sink = load ptr, ptr %4, align 8
-  %151 = getelementptr inbounds i8, ptr %.sink, i64 1
-  %152 = load i64, ptr %.sink82, align 8
-  %153 = lshr i64 %152, %.sink81
-  %154 = trunc i64 %153 to i8
-  store i8 %154, ptr %151, align 1
+.sink.split:                                      ; preds = %135, %114
+  %.sink86 = phi i64 [ %126, %114 ], [ %137, %135 ]
+  %.sink85 = phi ptr [ %124, %114 ], [ %112, %135 ]
+  %.sink84 = phi ptr [ %115, %114 ], [ %136, %135 ]
+  %.sink83 = phi i64 [ 24, %114 ], [ 8, %135 ]
+  %138 = trunc i64 %.sink86 to i8
+  store i8 %138, ptr %.sink85, align 1
+  %139 = load ptr, ptr %4, align 8
+  %140 = getelementptr inbounds i8, ptr %139, i64 1
+  %141 = load i64, ptr %.sink84, align 8
+  %142 = lshr i64 %141, %.sink83
+  %143 = trunc i64 %142 to i8
+  store i8 %143, ptr %140, align 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %142, %.sink.split, %123
+.loopexit:                                        ; preds = %130, %.sink.split, %111
   ret i32 0
 }
 
@@ -849,7 +827,7 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_decode(ptr noundef %0, pt
   %76 = getelementptr inbounds i8, ptr %57, i64 4
   store ptr %76, ptr %4, align 8
   %77 = load i8, ptr %2, align 1
-  switch i8 %77, label %123 [
+  switch i8 %77, label %122 [
     i8 4, label %78
     i8 8, label %98
     i8 2, label %112
@@ -882,7 +860,6 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_decode(ptr noundef %0, pt
   %96 = or disjoint i64 %95, %91
   store i64 %96, ptr %81, align 8
   %97 = getelementptr inbounds i8, ptr %57, i64 8
-  store ptr %97, ptr %4, align 8
   br label %thread-pre-split
 
 98:                                               ; preds = %56
@@ -908,7 +885,6 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_decode(ptr noundef %0, pt
 
 110:                                              ; preds = %101
   %111 = getelementptr inbounds i8, ptr %103, i64 7
-  store ptr %111, ptr %4, align 8
   br label %thread-pre-split
 
 112:                                              ; preds = %56
@@ -924,87 +900,87 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_decode(ptr noundef %0, pt
   %120 = or disjoint i64 %119, %114
   store i64 %120, ptr %115, align 8
   %121 = getelementptr inbounds i8, ptr %57, i64 6
-  store ptr %121, ptr %4, align 8
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %78, %110, %112
-  %122 = phi ptr [ %97, %78 ], [ %111, %110 ], [ %121, %112 ]
+  %.sink = phi ptr [ %97, %78 ], [ %111, %110 ], [ %121, %112 ]
+  store ptr %.sink, ptr %4, align 8
   %.pr = load i8, ptr %2, align 1
-  br label %123
+  br label %122
 
-123:                                              ; preds = %thread-pre-split, %56
-  %124 = phi ptr [ %122, %thread-pre-split ], [ %76, %56 ]
-  %125 = phi i8 [ %.pr, %thread-pre-split ], [ %77, %56 ]
-  switch i8 %125, label %.loopexit [
-    i8 4, label %126
-    i8 8, label %140
-    i8 2, label %152
+122:                                              ; preds = %thread-pre-split, %56
+  %123 = phi ptr [ %.sink, %thread-pre-split ], [ %76, %56 ]
+  %124 = phi i8 [ %.pr, %thread-pre-split ], [ %77, %56 ]
+  switch i8 %124, label %.loopexit [
+    i8 4, label %125
+    i8 8, label %139
+    i8 2, label %151
   ]
 
-126:                                              ; preds = %123
-  %127 = load i8, ptr %124, align 1
-  %128 = zext i8 %127 to i64
-  %129 = getelementptr inbounds i8, ptr %1, i64 32
-  store i64 %128, ptr %129, align 8
-  %130 = getelementptr inbounds i8, ptr %124, i64 1
-  store ptr %130, ptr %4, align 8
-  %131 = load i8, ptr %130, align 1
-  %132 = zext i8 %131 to i64
-  %133 = shl nuw nsw i64 %132, 8
-  %134 = or disjoint i64 %133, %128
-  store i64 %134, ptr %129, align 8
-  %135 = getelementptr inbounds i8, ptr %124, i64 2
-  store ptr %135, ptr %4, align 8
-  %136 = load i8, ptr %135, align 1
-  %137 = zext i8 %136 to i64
-  %138 = shl nuw nsw i64 %137, 16
-  %139 = or disjoint i64 %138, %134
-  store i64 %139, ptr %129, align 8
+125:                                              ; preds = %122
+  %126 = load i8, ptr %123, align 1
+  %127 = zext i8 %126 to i64
+  %128 = getelementptr inbounds i8, ptr %1, i64 32
+  store i64 %127, ptr %128, align 8
+  %129 = getelementptr inbounds i8, ptr %123, i64 1
+  store ptr %129, ptr %4, align 8
+  %130 = load i8, ptr %129, align 1
+  %131 = zext i8 %130 to i64
+  %132 = shl nuw nsw i64 %131, 8
+  %133 = or disjoint i64 %132, %127
+  store i64 %133, ptr %128, align 8
+  %134 = getelementptr inbounds i8, ptr %123, i64 2
+  store ptr %134, ptr %4, align 8
+  %135 = load i8, ptr %134, align 1
+  %136 = zext i8 %135 to i64
+  %137 = shl nuw nsw i64 %136, 16
+  %138 = or disjoint i64 %137, %133
+  store i64 %138, ptr %128, align 8
   br label %.sink.split
 
-140:                                              ; preds = %123
-  %141 = getelementptr inbounds i8, ptr %1, i64 32
-  store i64 0, ptr %141, align 8
-  %142 = getelementptr inbounds i8, ptr %124, i64 8
-  br label %143
+139:                                              ; preds = %122
+  %140 = getelementptr inbounds i8, ptr %1, i64 32
+  store i64 0, ptr %140, align 8
+  %141 = getelementptr inbounds i8, ptr %123, i64 8
+  br label %142
 
-143:                                              ; preds = %140, %143
-  %.052 = phi i64 [ 0, %140 ], [ %151, %143 ]
-  %144 = phi i64 [ 0, %140 ], [ %150, %143 ]
-  %145 = phi ptr [ %142, %140 ], [ %147, %143 ]
-  %146 = shl i64 %144, 8
-  %147 = getelementptr inbounds i8, ptr %145, i64 -1
-  store ptr %147, ptr %4, align 8
-  %148 = load i8, ptr %147, align 1
-  %149 = zext i8 %148 to i64
-  %150 = or disjoint i64 %146, %149
-  store i64 %150, ptr %141, align 8
-  %151 = add nuw nsw i64 %.052, 1
-  %exitcond54.not = icmp eq i64 %151, 8
-  br i1 %exitcond54.not, label %.loopexit, label %143
+142:                                              ; preds = %139, %142
+  %.052 = phi i64 [ 0, %139 ], [ %150, %142 ]
+  %143 = phi i64 [ 0, %139 ], [ %149, %142 ]
+  %144 = phi ptr [ %141, %139 ], [ %146, %142 ]
+  %145 = shl i64 %143, 8
+  %146 = getelementptr inbounds i8, ptr %144, i64 -1
+  store ptr %146, ptr %4, align 8
+  %147 = load i8, ptr %146, align 1
+  %148 = zext i8 %147 to i64
+  %149 = or disjoint i64 %145, %148
+  store i64 %149, ptr %140, align 8
+  %150 = add nuw nsw i64 %.052, 1
+  %exitcond54.not = icmp eq i64 %150, 8
+  br i1 %exitcond54.not, label %.loopexit, label %142
 
-152:                                              ; preds = %123
-  %153 = load i8, ptr %124, align 1
-  %154 = zext i8 %153 to i64
-  %155 = getelementptr inbounds i8, ptr %1, i64 32
-  store i64 %154, ptr %155, align 8
+151:                                              ; preds = %122
+  %152 = load i8, ptr %123, align 1
+  %153 = zext i8 %152 to i64
+  %154 = getelementptr inbounds i8, ptr %1, i64 32
+  store i64 %153, ptr %154, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %152, %126
-  %.sink = phi i64 [ 1, %152 ], [ 3, %126 ]
-  %.sink59 = phi i64 [ 8, %152 ], [ 24, %126 ]
-  %.sink58 = phi i64 [ %154, %152 ], [ %139, %126 ]
-  %.sink56 = phi ptr [ %155, %152 ], [ %129, %126 ]
-  %156 = getelementptr inbounds i8, ptr %124, i64 %.sink
-  store ptr %156, ptr %4, align 8
-  %157 = load i8, ptr %156, align 1
-  %158 = zext i8 %157 to i64
-  %159 = shl nuw nsw i64 %158, %.sink59
-  %160 = or disjoint i64 %159, %.sink58
-  store i64 %160, ptr %.sink56, align 8
+.sink.split:                                      ; preds = %151, %125
+  %.sink65 = phi i64 [ 3, %125 ], [ 1, %151 ]
+  %.sink61 = phi i64 [ 24, %125 ], [ 8, %151 ]
+  %.sink59 = phi i64 [ %138, %125 ], [ %153, %151 ]
+  %.sink57 = phi ptr [ %128, %125 ], [ %154, %151 ]
+  %155 = getelementptr inbounds i8, ptr %123, i64 %.sink65
+  store ptr %155, ptr %4, align 8
+  %156 = load i8, ptr %155, align 1
+  %157 = zext i8 %156 to i64
+  %158 = shl nuw nsw i64 %157, %.sink61
+  %159 = or disjoint i64 %158, %.sink59
+  store i64 %159, ptr %.sink57, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %143, %.sink.split, %123
+.loopexit:                                        ; preds = %142, %.sink.split, %122
   ret i32 0
 }
 
@@ -1126,12 +1102,12 @@ define internal noundef i32 @H5HF__huge_bt2_dir_encode(ptr noundef %0, ptr nocap
 .sink.split:                                      ; preds = %34, %10
   %.sink28 = phi ptr [ %11, %10 ], [ %35, %34 ]
   %.sink27 = phi i64 [ 24, %10 ], [ 8, %34 ]
-  %.sink = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds i8, ptr %.sink, i64 1
-  %40 = load i64, ptr %.sink28, align 8
-  %41 = lshr i64 %40, %.sink27
-  %42 = trunc i64 %41 to i8
-  store i8 %42, ptr %39, align 1
+  %39 = load ptr, ptr %4, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 1
+  %41 = load i64, ptr %.sink28, align 8
+  %42 = lshr i64 %41, %.sink27
+  %43 = trunc i64 %42 to i8
+  store i8 %43, ptr %40, align 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %29, %.sink.split, %3
@@ -1208,12 +1184,12 @@ define internal noundef i32 @H5HF__huge_bt2_dir_decode(ptr noundef %0, ptr nound
   br label %.sink.split
 
 .sink.split:                                      ; preds = %38, %9
-  %storemerge = phi ptr [ %43, %38 ], [ %24, %9 ]
-  %.sink20 = phi i64 [ 8, %38 ], [ 24, %9 ]
-  %.sink19 = phi i64 [ %41, %38 ], [ %23, %9 ]
-  %.sink17 = phi ptr [ %42, %38 ], [ %13, %9 ]
-  store ptr %storemerge, ptr %4, align 8
-  %44 = load i8, ptr %storemerge, align 1
+  %.sink22 = phi ptr [ %24, %9 ], [ %43, %38 ]
+  %.sink20 = phi i64 [ 24, %9 ], [ 8, %38 ]
+  %.sink19 = phi i64 [ %23, %9 ], [ %41, %38 ]
+  %.sink17 = phi ptr [ %13, %9 ], [ %42, %38 ]
+  store ptr %.sink22, ptr %4, align 8
+  %44 = load i8, ptr %.sink22, align 1
   %45 = zext i8 %44 to i64
   %46 = shl nuw nsw i64 %45, %.sink20
   %47 = or disjoint i64 %46, %.sink19
@@ -1442,18 +1418,18 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_encode(ptr noundef %0, ptr 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %100, %79
-  %.sink60 = phi i64 [ %102, %100 ], [ %91, %79 ]
-  %.sink59 = phi ptr [ %77, %100 ], [ %89, %79 ]
-  %.sink57 = phi ptr [ %101, %100 ], [ %80, %79 ]
-  %.sink56 = phi i64 [ 8, %100 ], [ 24, %79 ]
-  %103 = trunc i64 %.sink60 to i8
-  store i8 %103, ptr %.sink59, align 1
-  %.sink = load ptr, ptr %4, align 8
-  %104 = getelementptr inbounds i8, ptr %.sink, i64 1
-  %105 = load i64, ptr %.sink57, align 8
-  %106 = lshr i64 %105, %.sink56
-  %107 = trunc i64 %106 to i8
-  store i8 %107, ptr %104, align 1
+  %.sink59 = phi i64 [ %91, %79 ], [ %102, %100 ]
+  %.sink58 = phi ptr [ %89, %79 ], [ %77, %100 ]
+  %.sink57 = phi ptr [ %80, %79 ], [ %101, %100 ]
+  %.sink56 = phi i64 [ 24, %79 ], [ 8, %100 ]
+  %103 = trunc i64 %.sink59 to i8
+  store i8 %103, ptr %.sink58, align 1
+  %104 = load ptr, ptr %4, align 8
+  %105 = getelementptr inbounds i8, ptr %104, i64 1
+  %106 = load i64, ptr %.sink57, align 8
+  %107 = lshr i64 %106, %.sink56
+  %108 = trunc i64 %107 to i8
+  store i8 %108, ptr %105, align 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %95, %.sink.split, %56
@@ -1640,11 +1616,11 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_decode(ptr noundef %0, ptr 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %104, %78
-  %.sink = phi i64 [ 5, %104 ], [ 7, %78 ]
-  %.sink41 = phi i64 [ 8, %104 ], [ 24, %78 ]
-  %.sink40 = phi i64 [ %106, %104 ], [ %91, %78 ]
-  %.sink38 = phi ptr [ %107, %104 ], [ %81, %78 ]
-  %108 = getelementptr inbounds i8, ptr %57, i64 %.sink
+  %.sink44 = phi i64 [ 7, %78 ], [ 5, %104 ]
+  %.sink41 = phi i64 [ 24, %78 ], [ 8, %104 ]
+  %.sink40 = phi i64 [ %91, %78 ], [ %106, %104 ]
+  %.sink38 = phi ptr [ %81, %78 ], [ %107, %104 ]
+  %108 = getelementptr inbounds i8, ptr %57, i64 %.sink44
   store ptr %108, ptr %4, align 8
   %109 = load i8, ptr %108, align 1
   %110 = zext i8 %109 to i64

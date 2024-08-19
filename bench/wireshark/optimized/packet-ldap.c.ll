@@ -4330,7 +4330,7 @@ define internal i32 @dissect_ldap_ServerSaslCreds(i1 noundef zeroext %0, ptr nou
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #12
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %56, label %10
+  br i1 %.not, label %45, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %3, i64 48
@@ -4355,65 +4355,52 @@ define internal i32 @dissect_ldap_ServerSaslCreds(i1 noundef zeroext %0, ptr nou
 23:                                               ; preds = %14
   %24 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(11) @.str.831) #13
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %46
+  br i1 %25, label %26, label %36
 
 26:                                               ; preds = %23
   %27 = call i32 @tvb_reported_length(ptr noundef nonnull %9) #12
   %28 = icmp ugt i32 %27, 6
-  br i1 %28, label %29, label %37
+  br i1 %28, label %29, label %32
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr %7, align 8
   %31 = call i32 @tvb_memeql(ptr noundef %30, i32 noundef 0, ptr noundef nonnull @.str.855, i64 noundef 7) #12
   %.not31 = icmp eq i32 %31, 0
-  br i1 %.not31, label %32, label %37
+  br i1 %.not31, label %.thread.sink.split, label %32
 
-32:                                               ; preds = %29
-  %33 = load ptr, ptr @ntlmssp_handle, align 8
-  %34 = load ptr, ptr %7, align 8
-  %35 = load ptr, ptr %15, align 8
-  %36 = call i32 @call_dissector(ptr noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef %4) #12
+32:                                               ; preds = %29, %26
+  %33 = load ptr, ptr %7, align 8
+  %.not32 = icmp eq ptr %33, null
+  br i1 %.not32, label %.thread, label %34
+
+34:                                               ; preds = %32
+  %35 = call i32 @tvb_reported_length(ptr noundef nonnull %33) #12
+  %.not33 = icmp eq i32 %35, 0
+  br i1 %.not33, label %.thread, label %.thread.sink.split
+
+36:                                               ; preds = %23
+  %37 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(7) @.str.834) #13
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %39, label %.thread
+
+39:                                               ; preds = %36
+  %40 = call i32 @tvb_reported_length(ptr noundef nonnull %9) #12
+  %.not30 = icmp eq i32 %40, 0
+  br i1 %.not30, label %.thread, label %.thread.sink.split
+
+.thread.sink.split:                               ; preds = %39, %34, %29
+  %spnego_handle.sink = phi ptr [ @ntlmssp_handle, %29 ], [ @spnego_handle, %34 ], [ @gssapi_handle, %39 ]
+  %41 = load ptr, ptr %spnego_handle.sink, align 8
+  %42 = load ptr, ptr %7, align 8
+  %43 = load ptr, ptr %15, align 8
+  %44 = call i32 @call_dissector(ptr noundef %41, ptr noundef %42, ptr noundef %43, ptr noundef %4) #12
   br label %.thread
 
-37:                                               ; preds = %29, %26
-  %38 = load ptr, ptr %7, align 8
-  %.not32 = icmp eq ptr %38, null
-  br i1 %.not32, label %.thread, label %39
-
-39:                                               ; preds = %37
-  %40 = call i32 @tvb_reported_length(ptr noundef nonnull %38) #12
-  %.not33 = icmp eq i32 %40, 0
-  br i1 %.not33, label %.thread, label %41
-
-41:                                               ; preds = %39
-  %42 = load ptr, ptr @spnego_handle, align 8
-  %43 = load ptr, ptr %7, align 8
-  %44 = load ptr, ptr %15, align 8
-  %45 = call i32 @call_dissector(ptr noundef %42, ptr noundef %43, ptr noundef %44, ptr noundef %4) #12
-  br label %.thread
-
-46:                                               ; preds = %23
-  %47 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(7) @.str.834) #13
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %.thread
-
-49:                                               ; preds = %46
-  %50 = call i32 @tvb_reported_length(ptr noundef nonnull %9) #12
-  %.not30 = icmp eq i32 %50, 0
-  br i1 %.not30, label %.thread, label %51
-
-51:                                               ; preds = %49
-  %52 = load ptr, ptr @gssapi_handle, align 8
-  %53 = load ptr, ptr %7, align 8
-  %54 = load ptr, ptr %15, align 8
-  %55 = call i32 @call_dissector(ptr noundef %52, ptr noundef %53, ptr noundef %54, ptr noundef %4) #12
-  br label %.thread
-
-.thread:                                          ; preds = %14, %41, %39, %37, %49, %51, %46, %10, %32
+.thread:                                          ; preds = %.thread.sink.split, %14, %34, %32, %39, %36, %10
   store ptr %12, ptr %11, align 8
-  br label %56
+  br label %45
 
-56:                                               ; preds = %6, %.thread
+45:                                               ; preds = %6, %.thread
   ret i32 %8
 }
 

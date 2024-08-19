@@ -1228,7 +1228,7 @@ define noundef zeroext i1 @_ZN15ockam_multiaddr8registry15RegistryBuilder8has_co
   call void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$11search_node17h150fae04a2b84f63E.llvm.13372823326256807255"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noundef nonnull %7, i64 noundef %11, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6), !noalias !156
   %12 = load i64, ptr %5, align 8, !range !99, !noalias !152, !noundef !7
   %trunc4.i.i = trunc nuw i64 %12 to i1
-  br i1 %trunc4.i.i, label %.lr.ph.i.i, label %.loopexit.i
+  br i1 %trunc4.i.i, label %.lr.ph.i.i, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h2e0344db5ab10925E.exit.sink.split"
 
 .lr.ph.i.i:                                       ; preds = %9
   %13 = getelementptr inbounds i8, ptr %5, i64 8
@@ -1259,21 +1259,20 @@ define noundef zeroext i1 @_ZN15ockam_multiaddr8registry15RegistryBuilder8has_co
   call void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$11search_node17h150fae04a2b84f63E.llvm.13372823326256807255"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noundef nonnull %20, i64 noundef %21, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6), !noalias !156
   %22 = load i64, ptr %5, align 8, !range !99, !noalias !152, !noundef !7
   %trunc.i.i = trunc nuw i64 %22 to i1
-  br i1 %trunc.i.i, label %15, label %.loopexit.i
+  br i1 %trunc.i.i, label %15, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h2e0344db5ab10925E.exit.sink.split"
 
 "_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h5508d86b4c325282E.exit.i": ; preds = %15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !152
+  br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h2e0344db5ab10925E.exit.sink.split"
+
+"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h2e0344db5ab10925E.exit.sink.split": ; preds = %17, %9, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h5508d86b4c325282E.exit.i"
+  %.0.i.ph = phi i1 [ false, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h5508d86b4c325282E.exit.i" ], [ true, %9 ], [ true, %17 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !152
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !151
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h2e0344db5ab10925E.exit"
 
-.loopexit.i:                                      ; preds = %17, %9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !152
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !151
-  br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h2e0344db5ab10925E.exit"
-
-"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h2e0344db5ab10925E.exit": ; preds = %2, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h5508d86b4c325282E.exit.i", %.loopexit.i
-  %.0.i = phi i1 [ false, %2 ], [ true, %.loopexit.i ], [ false, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h5508d86b4c325282E.exit.i" ]
+"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h2e0344db5ab10925E.exit": ; preds = %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h2e0344db5ab10925E.exit.sink.split", %2
+  %.0.i = phi i1 [ false, %2 ], [ %.0.i.ph, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h2e0344db5ab10925E.exit.sink.split" ]
   ret i1 %.0.i
 }
 
@@ -1296,7 +1295,7 @@ define noundef zeroext i1 @_ZN15ockam_multiaddr8registry15RegistryBuilder10has_p
   call void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$11search_node17h8d51a13a97334004E.llvm.13372823326256807255"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %6, ptr noundef nonnull %8, i64 noundef %12, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !170
   %13 = load i64, ptr %6, align 8, !range !99, !noalias !166, !noundef !7
   %trunc4.i.i = trunc nuw i64 %13 to i1
-  br i1 %trunc4.i.i, label %.lr.ph.i.i, label %.loopexit.i
+  br i1 %trunc4.i.i, label %.lr.ph.i.i, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hf39b71bd2ecf101eE.exit.sink.split"
 
 .lr.ph.i.i:                                       ; preds = %10
   %14 = getelementptr inbounds i8, ptr %6, i64 8
@@ -1327,21 +1326,20 @@ define noundef zeroext i1 @_ZN15ockam_multiaddr8registry15RegistryBuilder10has_p
   call void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$11search_node17h8d51a13a97334004E.llvm.13372823326256807255"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %6, ptr noundef nonnull %21, i64 noundef %22, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !170
   %23 = load i64, ptr %6, align 8, !range !99, !noalias !166, !noundef !7
   %trunc.i.i = trunc nuw i64 %23 to i1
-  br i1 %trunc.i.i, label %16, label %.loopexit.i
+  br i1 %trunc.i.i, label %16, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hf39b71bd2ecf101eE.exit.sink.split"
 
 "_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hcf79fe6e83b946d3E.exit.i": ; preds = %16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !166
+  br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hf39b71bd2ecf101eE.exit.sink.split"
+
+"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hf39b71bd2ecf101eE.exit.sink.split": ; preds = %18, %10, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hcf79fe6e83b946d3E.exit.i"
+  %.0.i.ph = phi i1 [ false, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hcf79fe6e83b946d3E.exit.i" ], [ true, %10 ], [ true, %18 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !166
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !165
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hf39b71bd2ecf101eE.exit"
 
-.loopexit.i:                                      ; preds = %18, %10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !166
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !165
-  br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hf39b71bd2ecf101eE.exit"
-
-"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hf39b71bd2ecf101eE.exit": ; preds = %3, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hcf79fe6e83b946d3E.exit.i", %.loopexit.i
-  %.0.i = phi i1 [ false, %3 ], [ true, %.loopexit.i ], [ false, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hcf79fe6e83b946d3E.exit.i" ]
+"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hf39b71bd2ecf101eE.exit": ; preds = %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hf39b71bd2ecf101eE.exit.sink.split", %3
+  %.0.i = phi i1 [ false, %3 ], [ %.0.i.ph, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hf39b71bd2ecf101eE.exit.sink.split" ]
   ret i1 %.0.i
 }
 

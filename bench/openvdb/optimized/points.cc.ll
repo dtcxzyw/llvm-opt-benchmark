@@ -9460,8 +9460,7 @@ if.then29:                                        ; preds = %if.end27
 
 if.then36:                                        ; preds = %if.then29
   %18 = or i8 %16, 10
-  store i8 %18, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else:                                          ; preds = %if.end27
   br i1 %tobool18.not, label %if.then42, label %if.end54.thread
@@ -9472,8 +9471,7 @@ if.then42:                                        ; preds = %if.else
 if.then44:                                        ; preds = %if.then42
   %19 = load i8, ptr %serializationFlags, align 1
   %20 = or i8 %19, 8
-  store i8 %20, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else48:                                        ; preds = %if.then42
   %mData.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -9500,7 +9498,12 @@ cond.false.i:                                     ; preds = %if.end.i14
   %29 = shl nuw nsw i64 %28, 2
   br label %if.end54
 
-if.end54.thread:                                  ; preds = %if.then36, %if.then29, %if.then44, %if.else
+if.end54.thread.sink.split:                       ; preds = %if.then44, %if.then36
+  %.sink = phi i8 [ %18, %if.then36 ], [ %20, %if.then44 ]
+  store i8 %.sink, ptr %serializationFlags, align 1
+  br label %if.end54.thread
+
+if.end54.thread:                                  ; preds = %if.end54.thread.sink.split, %if.then29, %if.else
   store i64 6, ptr %bytes, align 8
   br label %cond.false
 
@@ -13852,8 +13855,7 @@ if.then29:                                        ; preds = %if.end27
 
 if.then36:                                        ; preds = %if.then29
   %18 = or i8 %16, 10
-  store i8 %18, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else:                                          ; preds = %if.end27
   br i1 %tobool18.not, label %if.then42, label %if.end54.thread
@@ -13864,8 +13866,7 @@ if.then42:                                        ; preds = %if.else
 if.then44:                                        ; preds = %if.then42
   %19 = load i8, ptr %serializationFlags, align 1
   %20 = or i8 %19, 8
-  store i8 %20, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else48:                                        ; preds = %if.then42
   %mData.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -13892,7 +13893,12 @@ cond.false.i:                                     ; preds = %if.end.i14
   %29 = shl nuw nsw i64 %28, 3
   br label %if.end54
 
-if.end54.thread:                                  ; preds = %if.then36, %if.then29, %if.then44, %if.else
+if.end54.thread.sink.split:                       ; preds = %if.then44, %if.then36
+  %.sink = phi i8 [ %18, %if.then36 ], [ %20, %if.then44 ]
+  store i8 %.sink, ptr %serializationFlags, align 1
+  br label %if.end54.thread
+
+if.end54.thread:                                  ; preds = %if.end54.thread.sink.split, %if.then29, %if.else
   store i64 6, ptr %bytes, align 8
   br label %cond.false
 
@@ -17977,8 +17983,7 @@ if.then29:                                        ; preds = %if.end27
 
 if.then36:                                        ; preds = %if.then29
   %18 = or i8 %16, 10
-  store i8 %18, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else:                                          ; preds = %if.end27
   br i1 %tobool18.not, label %if.then42, label %if.end54.thread
@@ -17989,8 +17994,7 @@ if.then42:                                        ; preds = %if.else
 if.then44:                                        ; preds = %if.then42
   %19 = load i8, ptr %serializationFlags, align 1
   %20 = or i8 %19, 8
-  store i8 %20, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else48:                                        ; preds = %if.then42
   %mData.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -18017,7 +18021,12 @@ cond.false.i:                                     ; preds = %if.end.i14
   %29 = shl nuw nsw i64 %28, 1
   br label %if.end54
 
-if.end54.thread:                                  ; preds = %if.then36, %if.then29, %if.then44, %if.else
+if.end54.thread.sink.split:                       ; preds = %if.then44, %if.then36
+  %.sink = phi i8 [ %18, %if.then36 ], [ %20, %if.then44 ]
+  store i8 %.sink, ptr %serializationFlags, align 1
+  br label %if.end54.thread
+
+if.end54.thread:                                  ; preds = %if.end54.thread.sink.split, %if.then29, %if.else
   store i64 6, ptr %bytes, align 8
   br label %cond.false
 
@@ -22418,8 +22427,7 @@ if.then29:                                        ; preds = %if.end27
 
 if.then36:                                        ; preds = %if.then29
   %18 = or i8 %16, 10
-  store i8 %18, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else:                                          ; preds = %if.end27
   br i1 %tobool18.not, label %if.then42, label %if.end54.thread
@@ -22430,8 +22438,7 @@ if.then42:                                        ; preds = %if.else
 if.then44:                                        ; preds = %if.then42
   %19 = load i8, ptr %serializationFlags, align 1
   %20 = or i8 %19, 8
-  store i8 %20, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else48:                                        ; preds = %if.then42
   %mData.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -22457,7 +22464,12 @@ cond.false.i:                                     ; preds = %if.end.i14
   %28 = zext i32 %cond.i.i to i64
   br label %if.end54
 
-if.end54.thread:                                  ; preds = %if.then36, %if.then29, %if.then44, %if.else
+if.end54.thread.sink.split:                       ; preds = %if.then44, %if.then36
+  %.sink = phi i8 [ %18, %if.then36 ], [ %20, %if.then44 ]
+  store i8 %.sink, ptr %serializationFlags, align 1
+  br label %if.end54.thread
+
+if.end54.thread:                                  ; preds = %if.end54.thread.sink.split, %if.then29, %if.else
   store i64 6, ptr %bytes, align 8
   br label %cond.false
 
@@ -26453,8 +26465,7 @@ if.then29:                                        ; preds = %if.end27
 
 if.then36:                                        ; preds = %if.then29
   %18 = or i8 %16, 10
-  store i8 %18, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else:                                          ; preds = %if.end27
   br i1 %tobool18.not, label %if.then42, label %if.end54.thread
@@ -26465,8 +26476,7 @@ if.then42:                                        ; preds = %if.else
 if.then44:                                        ; preds = %if.then42
   %19 = load i8, ptr %serializationFlags, align 1
   %20 = or i8 %19, 8
-  store i8 %20, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else48:                                        ; preds = %if.then42
   %mData.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -26493,7 +26503,12 @@ cond.false.i:                                     ; preds = %if.end.i14
   %29 = shl nuw nsw i64 %28, 1
   br label %if.end54
 
-if.end54.thread:                                  ; preds = %if.then36, %if.then29, %if.then44, %if.else
+if.end54.thread.sink.split:                       ; preds = %if.then44, %if.then36
+  %.sink = phi i8 [ %18, %if.then36 ], [ %20, %if.then44 ]
+  store i8 %.sink, ptr %serializationFlags, align 1
+  br label %if.end54.thread
+
+if.end54.thread:                                  ; preds = %if.end54.thread.sink.split, %if.then29, %if.else
   store i64 6, ptr %bytes, align 8
   br label %cond.false
 
@@ -30589,8 +30604,7 @@ if.then29:                                        ; preds = %if.end27
 
 if.then36:                                        ; preds = %if.then29
   %18 = or i8 %16, 10
-  store i8 %18, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else:                                          ; preds = %if.end27
   br i1 %tobool18.not, label %if.then42, label %if.end54.thread
@@ -30601,8 +30615,7 @@ if.then42:                                        ; preds = %if.else
 if.then44:                                        ; preds = %if.then42
   %19 = load i8, ptr %serializationFlags, align 1
   %20 = or i8 %19, 8
-  store i8 %20, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else48:                                        ; preds = %if.then42
   %mData.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -30628,7 +30641,12 @@ cond.false.i:                                     ; preds = %if.end.i14
   %28 = zext i32 %cond.i.i to i64
   br label %if.end54
 
-if.end54.thread:                                  ; preds = %if.then36, %if.then29, %if.then44, %if.else
+if.end54.thread.sink.split:                       ; preds = %if.then44, %if.then36
+  %.sink = phi i8 [ %18, %if.then36 ], [ %20, %if.then44 ]
+  store i8 %.sink, ptr %serializationFlags, align 1
+  br label %if.end54.thread
+
+if.end54.thread:                                  ; preds = %if.end54.thread.sink.split, %if.then29, %if.else
   store i64 6, ptr %bytes, align 8
   br label %cond.false
 
@@ -34734,8 +34752,7 @@ if.then29:                                        ; preds = %if.end27
 
 if.then36:                                        ; preds = %if.then29
   %18 = or i8 %16, 10
-  store i8 %18, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else:                                          ; preds = %if.end27
   br i1 %tobool18.not, label %if.then42, label %if.end54.thread
@@ -34746,8 +34763,7 @@ if.then42:                                        ; preds = %if.else
 if.then44:                                        ; preds = %if.then42
   %19 = load i8, ptr %serializationFlags, align 1
   %20 = or i8 %19, 8
-  store i8 %20, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else48:                                        ; preds = %if.then42
   %mData.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -34774,7 +34790,12 @@ cond.false.i:                                     ; preds = %if.end.i14
   %29 = shl nuw nsw i64 %28, 1
   br label %if.end54
 
-if.end54.thread:                                  ; preds = %if.then36, %if.then29, %if.then44, %if.else
+if.end54.thread.sink.split:                       ; preds = %if.then44, %if.then36
+  %.sink = phi i8 [ %18, %if.then36 ], [ %20, %if.then44 ]
+  store i8 %.sink, ptr %serializationFlags, align 1
+  br label %if.end54.thread
+
+if.end54.thread:                                  ; preds = %if.end54.thread.sink.split, %if.then29, %if.else
   store i64 6, ptr %bytes, align 8
   br label %cond.false
 
@@ -38888,8 +38909,7 @@ if.then29:                                        ; preds = %if.end27
 
 if.then36:                                        ; preds = %if.then29
   %18 = or i8 %16, 10
-  store i8 %18, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else:                                          ; preds = %if.end27
   br i1 %tobool18.not, label %if.then42, label %if.end54.thread
@@ -38900,8 +38920,7 @@ if.then42:                                        ; preds = %if.else
 if.then44:                                        ; preds = %if.then42
   %19 = load i8, ptr %serializationFlags, align 1
   %20 = or i8 %19, 8
-  store i8 %20, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else48:                                        ; preds = %if.then42
   %mData.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -38928,7 +38947,12 @@ cond.false.i:                                     ; preds = %if.end.i14
   %29 = shl nuw nsw i64 %28, 2
   br label %if.end54
 
-if.end54.thread:                                  ; preds = %if.then36, %if.then29, %if.then44, %if.else
+if.end54.thread.sink.split:                       ; preds = %if.then44, %if.then36
+  %.sink = phi i8 [ %18, %if.then36 ], [ %20, %if.then44 ]
+  store i8 %.sink, ptr %serializationFlags, align 1
+  br label %if.end54.thread
+
+if.end54.thread:                                  ; preds = %if.end54.thread.sink.split, %if.then29, %if.else
   store i64 6, ptr %bytes, align 8
   br label %cond.false
 
@@ -43042,8 +43066,7 @@ if.then29:                                        ; preds = %if.end27
 
 if.then36:                                        ; preds = %if.then29
   %18 = or i8 %16, 10
-  store i8 %18, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else:                                          ; preds = %if.end27
   br i1 %tobool18.not, label %if.then42, label %if.end54.thread
@@ -43054,8 +43077,7 @@ if.then42:                                        ; preds = %if.else
 if.then44:                                        ; preds = %if.then42
   %19 = load i8, ptr %serializationFlags, align 1
   %20 = or i8 %19, 8
-  store i8 %20, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else48:                                        ; preds = %if.then42
   %mData.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -43082,7 +43104,12 @@ cond.false.i:                                     ; preds = %if.end.i14
   %29 = shl nuw nsw i64 %28, 3
   br label %if.end54
 
-if.end54.thread:                                  ; preds = %if.then36, %if.then29, %if.then44, %if.else
+if.end54.thread.sink.split:                       ; preds = %if.then44, %if.then36
+  %.sink = phi i8 [ %18, %if.then36 ], [ %20, %if.then44 ]
+  store i8 %.sink, ptr %serializationFlags, align 1
+  br label %if.end54.thread
+
+if.end54.thread:                                  ; preds = %if.end54.thread.sink.split, %if.then29, %if.else
   store i64 6, ptr %bytes, align 8
   br label %cond.false
 
@@ -47184,8 +47211,7 @@ if.then29:                                        ; preds = %if.end27
 
 if.then36:                                        ; preds = %if.then29
   %18 = or i8 %16, 10
-  store i8 %18, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else:                                          ; preds = %if.end27
   br i1 %tobool18.not, label %if.then42, label %if.end54.thread
@@ -47196,8 +47222,7 @@ if.then42:                                        ; preds = %if.else
 if.then44:                                        ; preds = %if.then42
   %19 = load i8, ptr %serializationFlags, align 1
   %20 = or i8 %19, 8
-  store i8 %20, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else48:                                        ; preds = %if.then42
   %mData.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -47224,7 +47249,12 @@ cond.false.i:                                     ; preds = %if.end.i14
   %29 = mul nuw nsw i64 %28, 12
   br label %if.end54
 
-if.end54.thread:                                  ; preds = %if.then36, %if.then29, %if.then44, %if.else
+if.end54.thread.sink.split:                       ; preds = %if.then44, %if.then36
+  %.sink = phi i8 [ %18, %if.then36 ], [ %20, %if.then44 ]
+  store i8 %.sink, ptr %serializationFlags, align 1
+  br label %if.end54.thread
+
+if.end54.thread:                                  ; preds = %if.end54.thread.sink.split, %if.then29, %if.else
   store i64 6, ptr %bytes, align 8
   br label %cond.false
 
@@ -51357,8 +51387,7 @@ if.then29:                                        ; preds = %if.end27
 
 if.then36:                                        ; preds = %if.then29
   %18 = or i8 %16, 10
-  store i8 %18, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else:                                          ; preds = %if.end27
   br i1 %tobool18.not, label %if.then42, label %if.end54.thread
@@ -51369,8 +51398,7 @@ if.then42:                                        ; preds = %if.else
 if.then44:                                        ; preds = %if.then42
   %19 = load i8, ptr %serializationFlags, align 1
   %20 = or i8 %19, 8
-  store i8 %20, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else48:                                        ; preds = %if.then42
   %mData.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -51397,7 +51425,12 @@ cond.false.i:                                     ; preds = %if.end.i14
   %29 = mul nuw nsw i64 %28, 12
   br label %if.end54
 
-if.end54.thread:                                  ; preds = %if.then36, %if.then29, %if.then44, %if.else
+if.end54.thread.sink.split:                       ; preds = %if.then44, %if.then36
+  %.sink = phi i8 [ %18, %if.then36 ], [ %20, %if.then44 ]
+  store i8 %.sink, ptr %serializationFlags, align 1
+  br label %if.end54.thread
+
+if.end54.thread:                                  ; preds = %if.end54.thread.sink.split, %if.then29, %if.else
   store i64 6, ptr %bytes, align 8
   br label %cond.false
 
@@ -55563,8 +55596,7 @@ if.then29:                                        ; preds = %if.end27
 
 if.then36:                                        ; preds = %if.then29
   %18 = or i8 %16, 10
-  store i8 %18, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else:                                          ; preds = %if.end27
   br i1 %tobool18.not, label %if.then42, label %if.end54.thread
@@ -55575,8 +55607,7 @@ if.then42:                                        ; preds = %if.else
 if.then44:                                        ; preds = %if.then42
   %19 = load i8, ptr %serializationFlags, align 1
   %20 = or i8 %19, 8
-  store i8 %20, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else48:                                        ; preds = %if.then42
   %mData.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -55603,7 +55634,12 @@ cond.false.i:                                     ; preds = %if.end.i14
   %29 = mul nuw nsw i64 %28, 24
   br label %if.end54
 
-if.end54.thread:                                  ; preds = %if.then36, %if.then29, %if.then44, %if.else
+if.end54.thread.sink.split:                       ; preds = %if.then44, %if.then36
+  %.sink = phi i8 [ %18, %if.then36 ], [ %20, %if.then44 ]
+  store i8 %.sink, ptr %serializationFlags, align 1
+  br label %if.end54.thread
+
+if.end54.thread:                                  ; preds = %if.end54.thread.sink.split, %if.then29, %if.else
   store i64 6, ptr %bytes, align 8
   br label %cond.false
 
@@ -59628,8 +59664,7 @@ if.then29:                                        ; preds = %if.end27
 
 if.then36:                                        ; preds = %if.then29
   %18 = or i8 %16, 10
-  store i8 %18, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else:                                          ; preds = %if.end27
   br i1 %tobool18.not, label %if.then42, label %if.end54.thread
@@ -59640,8 +59675,7 @@ if.then42:                                        ; preds = %if.else
 if.then44:                                        ; preds = %if.then42
   %19 = load i8, ptr %serializationFlags, align 1
   %20 = or i8 %19, 8
-  store i8 %20, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else48:                                        ; preds = %if.then42
   %mData.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -59668,7 +59702,12 @@ cond.false.i:                                     ; preds = %if.end.i14
   %29 = mul nuw nsw i64 %28, 6
   br label %if.end54
 
-if.end54.thread:                                  ; preds = %if.then36, %if.then29, %if.then44, %if.else
+if.end54.thread.sink.split:                       ; preds = %if.then44, %if.then36
+  %.sink = phi i8 [ %18, %if.then36 ], [ %20, %if.then44 ]
+  store i8 %.sink, ptr %serializationFlags, align 1
+  br label %if.end54.thread
+
+if.end54.thread:                                  ; preds = %if.end54.thread.sink.split, %if.then29, %if.else
   store i64 6, ptr %bytes, align 8
   br label %cond.false
 
@@ -64368,8 +64407,7 @@ if.then29:                                        ; preds = %if.end27
 
 if.then36:                                        ; preds = %if.then29
   %18 = or i8 %16, 10
-  store i8 %18, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else:                                          ; preds = %if.end27
   br i1 %tobool18.not, label %if.then42, label %if.end54.thread
@@ -64380,8 +64418,7 @@ if.then42:                                        ; preds = %if.else
 if.then44:                                        ; preds = %if.then42
   %19 = load i8, ptr %serializationFlags, align 1
   %20 = or i8 %19, 8
-  store i8 %20, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else48:                                        ; preds = %if.then42
   %mData.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -64408,7 +64445,12 @@ cond.false.i:                                     ; preds = %if.end.i14
   %29 = mul nuw nsw i64 %28, 3
   br label %if.end54
 
-if.end54.thread:                                  ; preds = %if.then36, %if.then29, %if.then44, %if.else
+if.end54.thread.sink.split:                       ; preds = %if.then44, %if.then36
+  %.sink = phi i8 [ %18, %if.then36 ], [ %20, %if.then44 ]
+  store i8 %.sink, ptr %serializationFlags, align 1
+  br label %if.end54.thread
+
+if.end54.thread:                                  ; preds = %if.end54.thread.sink.split, %if.then29, %if.else
   store i64 6, ptr %bytes, align 8
   br label %cond.false
 
@@ -68661,8 +68703,7 @@ if.then29:                                        ; preds = %if.end27
 
 if.then36:                                        ; preds = %if.then29
   %18 = or i8 %16, 10
-  store i8 %18, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else:                                          ; preds = %if.end27
   br i1 %tobool18.not, label %if.then42, label %if.end54.thread
@@ -68673,8 +68714,7 @@ if.then42:                                        ; preds = %if.else
 if.then44:                                        ; preds = %if.then42
   %19 = load i8, ptr %serializationFlags, align 1
   %20 = or i8 %19, 8
-  store i8 %20, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else48:                                        ; preds = %if.then42
   %mData.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -68701,7 +68741,12 @@ cond.false.i:                                     ; preds = %if.end.i14
   %29 = mul nuw nsw i64 %28, 6
   br label %if.end54
 
-if.end54.thread:                                  ; preds = %if.then36, %if.then29, %if.then44, %if.else
+if.end54.thread.sink.split:                       ; preds = %if.then44, %if.then36
+  %.sink = phi i8 [ %18, %if.then36 ], [ %20, %if.then44 ]
+  store i8 %.sink, ptr %serializationFlags, align 1
+  br label %if.end54.thread
+
+if.end54.thread:                                  ; preds = %if.end54.thread.sink.split, %if.then29, %if.else
   store i64 6, ptr %bytes, align 8
   br label %cond.false
 
@@ -72907,8 +72952,7 @@ if.then29:                                        ; preds = %if.end27
 
 if.then36:                                        ; preds = %if.then29
   %18 = or i8 %16, 10
-  store i8 %18, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else:                                          ; preds = %if.end27
   br i1 %tobool18.not, label %if.then42, label %if.end54.thread
@@ -72919,8 +72963,7 @@ if.then42:                                        ; preds = %if.else
 if.then44:                                        ; preds = %if.then42
   %19 = load i8, ptr %serializationFlags, align 1
   %20 = or i8 %19, 8
-  store i8 %20, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else48:                                        ; preds = %if.then42
   %mData.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -72947,7 +72990,12 @@ cond.false.i:                                     ; preds = %if.end.i14
   %29 = mul nuw nsw i64 %28, 3
   br label %if.end54
 
-if.end54.thread:                                  ; preds = %if.then36, %if.then29, %if.then44, %if.else
+if.end54.thread.sink.split:                       ; preds = %if.then44, %if.then36
+  %.sink = phi i8 [ %18, %if.then36 ], [ %20, %if.then44 ]
+  store i8 %.sink, ptr %serializationFlags, align 1
+  br label %if.end54.thread
+
+if.end54.thread:                                  ; preds = %if.end54.thread.sink.split, %if.then29, %if.else
   store i64 6, ptr %bytes, align 8
   br label %cond.false
 
@@ -77093,8 +77141,7 @@ if.then29:                                        ; preds = %if.end27
 
 if.then36:                                        ; preds = %if.then29
   %18 = or i8 %16, 10
-  store i8 %18, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else:                                          ; preds = %if.end27
   br i1 %tobool18.not, label %if.then42, label %if.end54.thread
@@ -77105,8 +77152,7 @@ if.then42:                                        ; preds = %if.else
 if.then44:                                        ; preds = %if.then42
   %19 = load i8, ptr %serializationFlags, align 1
   %20 = or i8 %19, 8
-  store i8 %20, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else48:                                        ; preds = %if.then42
   %mData.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -77133,7 +77179,12 @@ cond.false.i:                                     ; preds = %if.end.i14
   %29 = mul nuw nsw i64 %28, 6
   br label %if.end54
 
-if.end54.thread:                                  ; preds = %if.then36, %if.then29, %if.then44, %if.else
+if.end54.thread.sink.split:                       ; preds = %if.then44, %if.then36
+  %.sink = phi i8 [ %18, %if.then36 ], [ %20, %if.then44 ]
+  store i8 %.sink, ptr %serializationFlags, align 1
+  br label %if.end54.thread
+
+if.end54.thread:                                  ; preds = %if.end54.thread.sink.split, %if.then29, %if.else
   store i64 6, ptr %bytes, align 8
   br label %cond.false
 
@@ -81289,8 +81340,7 @@ if.then29:                                        ; preds = %if.end27
 
 if.then36:                                        ; preds = %if.then29
   %18 = or i8 %16, 10
-  store i8 %18, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else:                                          ; preds = %if.end27
   br i1 %tobool18.not, label %if.then42, label %if.end54.thread
@@ -81301,8 +81351,7 @@ if.then42:                                        ; preds = %if.else
 if.then44:                                        ; preds = %if.then42
   %19 = load i8, ptr %serializationFlags, align 1
   %20 = or i8 %19, 8
-  store i8 %20, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else48:                                        ; preds = %if.then42
   %mData.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -81329,7 +81378,12 @@ cond.false.i:                                     ; preds = %if.end.i14
   %29 = shl nuw nsw i64 %28, 1
   br label %if.end54
 
-if.end54.thread:                                  ; preds = %if.then36, %if.then29, %if.then44, %if.else
+if.end54.thread.sink.split:                       ; preds = %if.then44, %if.then36
+  %.sink = phi i8 [ %18, %if.then36 ], [ %20, %if.then44 ]
+  store i8 %.sink, ptr %serializationFlags, align 1
+  br label %if.end54.thread
+
+if.end54.thread:                                  ; preds = %if.end54.thread.sink.split, %if.then29, %if.else
   store i64 6, ptr %bytes, align 8
   br label %cond.false
 
@@ -85636,8 +85690,7 @@ if.then29:                                        ; preds = %if.end27
 
 if.then36:                                        ; preds = %if.then29
   %18 = or i8 %16, 10
-  store i8 %18, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else:                                          ; preds = %if.end27
   br i1 %tobool18.not, label %if.then42, label %if.end54.thread
@@ -85648,8 +85701,7 @@ if.then42:                                        ; preds = %if.else
 if.then44:                                        ; preds = %if.then42
   %19 = load i8, ptr %serializationFlags, align 1
   %20 = or i8 %19, 8
-  store i8 %20, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else48:                                        ; preds = %if.then42
   %mData.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -85676,7 +85728,12 @@ cond.false.i:                                     ; preds = %if.end.i14
   %29 = mul nuw nsw i64 %28, 36
   br label %if.end54
 
-if.end54.thread:                                  ; preds = %if.then36, %if.then29, %if.then44, %if.else
+if.end54.thread.sink.split:                       ; preds = %if.then44, %if.then36
+  %.sink = phi i8 [ %18, %if.then36 ], [ %20, %if.then44 ]
+  store i8 %.sink, ptr %serializationFlags, align 1
+  br label %if.end54.thread
+
+if.end54.thread:                                  ; preds = %if.end54.thread.sink.split, %if.then29, %if.else
   store i64 6, ptr %bytes, align 8
   br label %cond.false
 
@@ -89836,8 +89893,7 @@ if.then29:                                        ; preds = %if.end27
 
 if.then36:                                        ; preds = %if.then29
   %18 = or i8 %16, 10
-  store i8 %18, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else:                                          ; preds = %if.end27
   br i1 %tobool18.not, label %if.then42, label %if.end54.thread
@@ -89848,8 +89904,7 @@ if.then42:                                        ; preds = %if.else
 if.then44:                                        ; preds = %if.then42
   %19 = load i8, ptr %serializationFlags, align 1
   %20 = or i8 %19, 8
-  store i8 %20, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else48:                                        ; preds = %if.then42
   %mData.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -89876,7 +89931,12 @@ cond.false.i:                                     ; preds = %if.end.i14
   %29 = mul nuw nsw i64 %28, 72
   br label %if.end54
 
-if.end54.thread:                                  ; preds = %if.then36, %if.then29, %if.then44, %if.else
+if.end54.thread.sink.split:                       ; preds = %if.then44, %if.then36
+  %.sink = phi i8 [ %18, %if.then36 ], [ %20, %if.then44 ]
+  store i8 %.sink, ptr %serializationFlags, align 1
+  br label %if.end54.thread
+
+if.end54.thread:                                  ; preds = %if.end54.thread.sink.split, %if.then29, %if.else
   store i64 6, ptr %bytes, align 8
   br label %cond.false
 
@@ -94036,8 +94096,7 @@ if.then29:                                        ; preds = %if.end27
 
 if.then36:                                        ; preds = %if.then29
   %18 = or i8 %16, 10
-  store i8 %18, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else:                                          ; preds = %if.end27
   br i1 %tobool18.not, label %if.then42, label %if.end54.thread
@@ -94048,8 +94107,7 @@ if.then42:                                        ; preds = %if.else
 if.then44:                                        ; preds = %if.then42
   %19 = load i8, ptr %serializationFlags, align 1
   %20 = or i8 %19, 8
-  store i8 %20, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else48:                                        ; preds = %if.then42
   %mData.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -94076,7 +94134,12 @@ cond.false.i:                                     ; preds = %if.end.i14
   %29 = shl nuw nsw i64 %28, 6
   br label %if.end54
 
-if.end54.thread:                                  ; preds = %if.then36, %if.then29, %if.then44, %if.else
+if.end54.thread.sink.split:                       ; preds = %if.then44, %if.then36
+  %.sink = phi i8 [ %18, %if.then36 ], [ %20, %if.then44 ]
+  store i8 %.sink, ptr %serializationFlags, align 1
+  br label %if.end54.thread
+
+if.end54.thread:                                  ; preds = %if.end54.thread.sink.split, %if.then29, %if.else
   store i64 6, ptr %bytes, align 8
   br label %cond.false
 
@@ -98236,8 +98299,7 @@ if.then29:                                        ; preds = %if.end27
 
 if.then36:                                        ; preds = %if.then29
   %18 = or i8 %16, 10
-  store i8 %18, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else:                                          ; preds = %if.end27
   br i1 %tobool18.not, label %if.then42, label %if.end54.thread
@@ -98248,8 +98310,7 @@ if.then42:                                        ; preds = %if.else
 if.then44:                                        ; preds = %if.then42
   %19 = load i8, ptr %serializationFlags, align 1
   %20 = or i8 %19, 8
-  store i8 %20, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else48:                                        ; preds = %if.then42
   %mData.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -98276,7 +98337,12 @@ cond.false.i:                                     ; preds = %if.end.i14
   %29 = shl nuw nsw i64 %28, 7
   br label %if.end54
 
-if.end54.thread:                                  ; preds = %if.then36, %if.then29, %if.then44, %if.else
+if.end54.thread.sink.split:                       ; preds = %if.then44, %if.then36
+  %.sink = phi i8 [ %18, %if.then36 ], [ %20, %if.then44 ]
+  store i8 %.sink, ptr %serializationFlags, align 1
+  br label %if.end54.thread
+
+if.end54.thread:                                  ; preds = %if.end54.thread.sink.split, %if.then29, %if.else
   store i64 6, ptr %bytes, align 8
   br label %cond.false
 
@@ -102433,8 +102499,7 @@ if.then29:                                        ; preds = %if.end27
 
 if.then36:                                        ; preds = %if.then29
   %18 = or i8 %16, 10
-  store i8 %18, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else:                                          ; preds = %if.end27
   br i1 %tobool18.not, label %if.then42, label %if.end54.thread
@@ -102445,8 +102510,7 @@ if.then42:                                        ; preds = %if.else
 if.then44:                                        ; preds = %if.then42
   %19 = load i8, ptr %serializationFlags, align 1
   %20 = or i8 %19, 8
-  store i8 %20, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else48:                                        ; preds = %if.then42
   %mData.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -102473,7 +102537,12 @@ cond.false.i:                                     ; preds = %if.end.i14
   %29 = shl nuw nsw i64 %28, 4
   br label %if.end54
 
-if.end54.thread:                                  ; preds = %if.then36, %if.then29, %if.then44, %if.else
+if.end54.thread.sink.split:                       ; preds = %if.then44, %if.then36
+  %.sink = phi i8 [ %18, %if.then36 ], [ %20, %if.then44 ]
+  store i8 %.sink, ptr %serializationFlags, align 1
+  br label %if.end54.thread
+
+if.end54.thread:                                  ; preds = %if.end54.thread.sink.split, %if.then29, %if.else
   store i64 6, ptr %bytes, align 8
   br label %cond.false
 
@@ -106655,8 +106724,7 @@ if.then29:                                        ; preds = %if.end27
 
 if.then36:                                        ; preds = %if.then29
   %18 = or i8 %16, 10
-  store i8 %18, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else:                                          ; preds = %if.end27
   br i1 %tobool18.not, label %if.then42, label %if.end54.thread
@@ -106667,8 +106735,7 @@ if.then42:                                        ; preds = %if.else
 if.then44:                                        ; preds = %if.then42
   %19 = load i8, ptr %serializationFlags, align 1
   %20 = or i8 %19, 8
-  store i8 %20, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else48:                                        ; preds = %if.then42
   %mData.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -106695,7 +106762,12 @@ cond.false.i:                                     ; preds = %if.end.i14
   %29 = shl nuw nsw i64 %28, 5
   br label %if.end54
 
-if.end54.thread:                                  ; preds = %if.then36, %if.then29, %if.then44, %if.else
+if.end54.thread.sink.split:                       ; preds = %if.then44, %if.then36
+  %.sink = phi i8 [ %18, %if.then36 ], [ %20, %if.then44 ]
+  store i8 %.sink, ptr %serializationFlags, align 1
+  br label %if.end54.thread
+
+if.end54.thread:                                  ; preds = %if.end54.thread.sink.split, %if.then29, %if.else
   store i64 6, ptr %bytes, align 8
   br label %cond.false
 
@@ -110829,8 +110901,7 @@ if.then29:                                        ; preds = %if.end27
 
 if.then36:                                        ; preds = %if.then29
   %18 = or i8 %16, 10
-  store i8 %18, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else:                                          ; preds = %if.end27
   br i1 %tobool18.not, label %if.then42, label %if.end54.thread
@@ -110841,8 +110912,7 @@ if.then42:                                        ; preds = %if.else
 if.then44:                                        ; preds = %if.then42
   %19 = load i8, ptr %serializationFlags, align 1
   %20 = or i8 %19, 8
-  store i8 %20, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else48:                                        ; preds = %if.then42
   %mData.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -110868,7 +110938,12 @@ cond.false.i:                                     ; preds = %if.end.i14
   %28 = zext i32 %cond.i.i to i64
   br label %if.end54
 
-if.end54.thread:                                  ; preds = %if.then36, %if.then29, %if.then44, %if.else
+if.end54.thread.sink.split:                       ; preds = %if.then44, %if.then36
+  %.sink = phi i8 [ %18, %if.then36 ], [ %20, %if.then44 ]
+  store i8 %.sink, ptr %serializationFlags, align 1
+  br label %if.end54.thread
+
+if.end54.thread:                                  ; preds = %if.end54.thread.sink.split, %if.then29, %if.else
   store i64 6, ptr %bytes, align 8
   br label %cond.false
 
@@ -114974,8 +115049,7 @@ if.then29:                                        ; preds = %if.end27
 
 if.then36:                                        ; preds = %if.then29
   %18 = or i8 %16, 10
-  store i8 %18, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else:                                          ; preds = %if.end27
   br i1 %tobool18.not, label %if.then42, label %if.end54.thread
@@ -114986,8 +115060,7 @@ if.then42:                                        ; preds = %if.else
 if.then44:                                        ; preds = %if.then42
   %19 = load i8, ptr %serializationFlags, align 1
   %20 = or i8 %19, 8
-  store i8 %20, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else48:                                        ; preds = %if.then42
   %mData.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -115014,7 +115087,12 @@ cond.false.i:                                     ; preds = %if.end.i14
   %29 = shl nuw nsw i64 %28, 2
   br label %if.end54
 
-if.end54.thread:                                  ; preds = %if.then36, %if.then29, %if.then44, %if.else
+if.end54.thread.sink.split:                       ; preds = %if.then44, %if.then36
+  %.sink = phi i8 [ %18, %if.then36 ], [ %20, %if.then44 ]
+  store i8 %.sink, ptr %serializationFlags, align 1
+  br label %if.end54.thread
+
+if.end54.thread:                                  ; preds = %if.end54.thread.sink.split, %if.then29, %if.else
   store i64 6, ptr %bytes, align 8
   br label %cond.false
 
@@ -119100,8 +119178,7 @@ if.then29:                                        ; preds = %if.end27
 
 if.then36:                                        ; preds = %if.then29
   %18 = or i8 %16, 10
-  store i8 %18, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else:                                          ; preds = %if.end27
   br i1 %tobool18.not, label %if.then42, label %if.end54.thread
@@ -119112,8 +119189,7 @@ if.then42:                                        ; preds = %if.else
 if.then44:                                        ; preds = %if.then42
   %19 = load i8, ptr %serializationFlags, align 1
   %20 = or i8 %19, 8
-  store i8 %20, ptr %serializationFlags, align 1
-  br label %if.end54.thread
+  br label %if.end54.thread.sink.split
 
 if.else48:                                        ; preds = %if.then42
   %mData.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -119139,7 +119215,12 @@ cond.false.i:                                     ; preds = %if.end.i14
   %28 = zext i32 %cond.i.i to i64
   br label %if.end54
 
-if.end54.thread:                                  ; preds = %if.then36, %if.then29, %if.then44, %if.else
+if.end54.thread.sink.split:                       ; preds = %if.then44, %if.then36
+  %.sink = phi i8 [ %18, %if.then36 ], [ %20, %if.then44 ]
+  store i8 %.sink, ptr %serializationFlags, align 1
+  br label %if.end54.thread
+
+if.end54.thread:                                  ; preds = %if.end54.thread.sink.split, %if.then29, %if.else
   store i64 6, ptr %bytes, align 8
   br label %cond.false
 

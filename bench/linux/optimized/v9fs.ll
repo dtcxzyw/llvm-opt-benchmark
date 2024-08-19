@@ -368,13 +368,7 @@ define dso_local ptr @v9fs_session_init(ptr noundef %0, ptr noundef %1, ptr noun
   %43 = getelementptr inbounds i8, ptr %0, i64 112
   store i64 30000, ptr %43, align 8
   %44 = icmp eq ptr %2, null
-  br i1 %44, label %.thread27, label %45
-
-.thread27:                                        ; preds = %39
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
-  br label %181
+  br i1 %44, label %.sink.split, label %45
 
 45:                                               ; preds = %39
   %46 = tail call noalias ptr @kstrdup(ptr noundef nonnull %2, i32 noundef 3264) #7
@@ -395,10 +389,7 @@ define dso_local ptr @v9fs_session_init(ptr noundef %0, ptr noundef %1, ptr noun
 
 .thread30:                                        ; preds = %48
   call void @kfree(ptr noundef nonnull %46) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
-  br label %181
+  br label %.sink.split
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds i8, ptr %0, i64 4
@@ -687,7 +678,13 @@ define dso_local ptr @v9fs_session_init(ptr noundef %0, ptr noundef %1, ptr noun
   %180 = icmp slt i32 %.ph24, 0
   br i1 %180, label %226, label %181
 
-181:                                              ; preds = %.thread30, %.thread27, %179
+.sink.split:                                      ; preds = %39, %.thread30
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  br label %181
+
+181:                                              ; preds = %.sink.split, %179
   %182 = load ptr, ptr %22, align 8
   %183 = getelementptr inbounds i8, ptr %182, i64 4
   %184 = load i32, ptr %183, align 4

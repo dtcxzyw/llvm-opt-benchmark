@@ -791,7 +791,6 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   store ptr %30, ptr %34, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   call void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h6a32d8b5c96f84daE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %52
 
 35:                                               ; preds = %.noexc2
@@ -839,10 +838,10 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
 
 .noexc._crit_edge:                                ; preds = %44, %.noexc, %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %52
 
 52:                                               ; preds = %33, %.noexc._crit_edge
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   ret void
 
 53:                                               ; preds = %.body
@@ -908,7 +907,6 @@ _ZN5serde2de9SeqAccess12next_element17hd96b803c2b32b2abE.exit: ; preds = %16
   store i64 -9223372036854775808, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h6a32d8b5c96f84daE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %40
 
 24:                                               ; preds = %_ZN5serde2de9SeqAccess12next_element17hd96b803c2b32b2abE.exit
@@ -953,10 +951,10 @@ _ZN5serde2de9SeqAccess12next_element17hd96b803c2b32b2abE.exit: ; preds = %16
 39:                                               ; preds = %_ZN5serde2de9SeqAccess12next_element17hd96b803c2b32b2abE.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %40
 
 40:                                               ; preds = %20, %39
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   ret void
 
 41:                                               ; preds = %.body
@@ -1022,7 +1020,6 @@ _ZN5serde2de9SeqAccess12next_element17h9634dfcddce520e9E.exit: ; preds = %16
   store i64 -9223372036854775808, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %5)
   call void @"_ZN4core3ptr135drop_in_place$LT$alloc..vec..Vec$LT$tree_sitter_loader..Loader..find_language_configurations_at_path..LanguageConfigurationJSON$GT$$GT$17h0ce844ac8ccdf4acE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %39
 
 24:                                               ; preds = %_ZN5serde2de9SeqAccess12next_element17h9634dfcddce520e9E.exit
@@ -1066,10 +1063,10 @@ _ZN5serde2de9SeqAccess12next_element17h9634dfcddce520e9E.exit: ; preds = %16
 38:                                               ; preds = %_ZN5serde2de9SeqAccess12next_element17h9634dfcddce520e9E.exit
   call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %39
 
 39:                                               ; preds = %20, %38
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   ret void
 
 40:                                               ; preds = %.body

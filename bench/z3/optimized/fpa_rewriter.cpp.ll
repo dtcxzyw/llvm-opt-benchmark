@@ -5560,9 +5560,9 @@ invoke.cont266:                                   ; preds = %lor.lhs.false261
 if.end269.invoke:                                 ; preds = %invoke.cont266, %invoke.cont209
   %95 = phi ptr [ %r2, %invoke.cont209 ], [ %r1, %invoke.cont266 ]
   %96 = phi ptr [ %r1, %invoke.cont209 ], [ %r2, %invoke.cont266 ]
-  %97 = load i32, ptr %rmv, align 4
-  %98 = load ptr, ptr %m_fm, align 8
-  invoke void @_ZN11mpf_manager3setER3mpfjj17mpf_rounding_modeRK3mpzRK3mpq(ptr noundef nonnull align 8 dereferenceable(840) %98, ptr noundef nonnull align 8 dereferenceable(32) %m_num.i.i, i32 noundef %4, i32 noundef %6, i32 noundef %97, ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(32) %96)
+  %97 = load ptr, ptr %m_fm, align 8
+  %98 = load i32, ptr %rmv, align 4
+  invoke void @_ZN11mpf_manager3setER3mpfjj17mpf_rounding_modeRK3mpzRK3mpq(ptr noundef nonnull align 8 dereferenceable(840) %97, ptr noundef nonnull align 8 dereferenceable(32) %m_num.i.i, i32 noundef %4, i32 noundef %6, i32 noundef %98, ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(32) %96)
           to label %invoke.cont279.invoke unwind label %lpad6
 
 invoke.cont279.invoke:                            ; preds = %if.end269.invoke, %invoke.cont155

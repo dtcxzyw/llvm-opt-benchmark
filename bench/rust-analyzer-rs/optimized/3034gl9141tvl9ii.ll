@@ -15899,16 +15899,15 @@ define hidden noundef ptr @"_ZN8chalk_ir21Substitution$LT$I$GT$13from_fallible17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !noalias !3537
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !3537
   %8 = call noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17h472f93ac722f0161E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !3537
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !3537
   br label %"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$19intern_substitution17h7e48a9cf3df59d0eE.exit"
 
 9:                                                ; preds = %1
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !3537
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !3537
   br label %"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$19intern_substitution17h7e48a9cf3df59d0eE.exit"
 
 "_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$19intern_substitution17h7e48a9cf3df59d0eE.exit": ; preds = %6, %9
   %.0.i = phi ptr [ null, %9 ], [ %8, %6 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !3537
   ret ptr %.0.i
 }
 
@@ -15932,16 +15931,15 @@ define hidden noundef ptr @"_ZN8chalk_ir21Substitution$LT$I$GT$13from_fallible17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !noalias !3548
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !3548
   %8 = call noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17h472f93ac722f0161E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !3548
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !3548
   br label %"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$19intern_substitution17ha51c69081740d02fE.exit"
 
 9:                                                ; preds = %1
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !3548
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !3548
   br label %"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$19intern_substitution17ha51c69081740d02fE.exit"
 
 "_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$19intern_substitution17ha51c69081740d02fE.exit": ; preds = %6, %9
   %.0.i = phi ptr [ null, %9 ], [ %8, %6 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !3548
   ret ptr %.0.i
 }
 

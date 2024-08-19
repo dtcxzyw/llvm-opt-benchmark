@@ -255,60 +255,45 @@ if.end18:                                         ; preds = %if.end13
   call void @png_set_write_fn(ptr noundef %2, ptr noundef nonnull %file, ptr noundef nonnull @_ZN3irr5video19user_write_data_fcnEP14png_struct_defPhm, ptr noundef null) #14
   %Format.i = getelementptr inbounds i8, ptr %image, i64 8
   %3 = load i32, ptr %Format.i, align 8, !tbaa !20
-  switch i32 %3, label %sw.default [
-    i32 3, label %sw.bb
-    i32 0, label %sw.bb
-  ]
-
-sw.bb:                                            ; preds = %if.end18, %if.end18
-  %4 = load ptr, ptr %png_ptr, align 8, !tbaa !19
-  %5 = load ptr, ptr %info_ptr, align 8, !tbaa !19
-  %Size.i = getelementptr inbounds i8, ptr %image, i64 12
-  %6 = load i32, ptr %Size.i, align 4, !tbaa !25
-  %Height = getelementptr inbounds i8, ptr %image, i64 16
-  %7 = load i32, ptr %Height, align 4, !tbaa !26
-  call void @png_set_IHDR(ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef 8, i32 noundef 6, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
-  br label %sw.epilog
-
-sw.default:                                       ; preds = %if.end18
-  %8 = load ptr, ptr %png_ptr, align 8, !tbaa !19
-  %9 = load ptr, ptr %info_ptr, align 8, !tbaa !19
+  %switch.selectcmp.case1 = icmp eq i32 %3, 3
+  %switch.selectcmp.case2 = icmp eq i32 %3, 0
+  %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
+  %4 = select i1 %switch.selectcmp, i32 6, i32 2
+  %5 = load ptr, ptr %png_ptr, align 8, !tbaa !19
+  %6 = load ptr, ptr %info_ptr, align 8, !tbaa !19
   %Size.i172 = getelementptr inbounds i8, ptr %image, i64 12
-  %10 = load i32, ptr %Size.i172, align 4, !tbaa !25
+  %7 = load i32, ptr %Size.i172, align 4, !tbaa !25
   %Height25 = getelementptr inbounds i8, ptr %image, i64 16
-  %11 = load i32, ptr %Height25, align 4, !tbaa !26
-  call void @png_set_IHDR(ptr noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef 8, i32 noundef 2, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %sw.default, %sw.bb
+  %8 = load i32, ptr %Height25, align 4, !tbaa !26
+  call void @png_set_IHDR(ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef 8, i32 noundef %4, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
   %Size.i174 = getelementptr inbounds i8, ptr %image, i64 12
-  %12 = load i32, ptr %Size.i174, align 4, !tbaa !25
-  %13 = load i32, ptr %Format.i, align 8, !tbaa !20
-  switch i32 %13, label %sw.epilog33 [
+  %9 = load i32, ptr %Size.i174, align 4, !tbaa !25
+  %10 = load i32, ptr %Format.i, align 8, !tbaa !20
+  switch i32 %10, label %sw.epilog33 [
     i32 2, label %sw.bb29
     i32 1, label %sw.bb29
     i32 3, label %sw.bb30
     i32 0, label %sw.bb30
   ]
 
-sw.bb29:                                          ; preds = %sw.epilog, %sw.epilog
-  %mul = mul nsw i32 %12, 3
+sw.bb29:                                          ; preds = %if.end18, %if.end18
+  %mul = mul nsw i32 %9, 3
   br label %sw.epilog33
 
-sw.bb30:                                          ; preds = %sw.epilog, %sw.epilog
-  %mul31 = shl nsw i32 %12, 2
+sw.bb30:                                          ; preds = %if.end18, %if.end18
+  %mul31 = shl nsw i32 %9, 2
   br label %sw.epilog33
 
-sw.epilog33:                                      ; preds = %sw.bb30, %sw.bb29, %sw.epilog
-  %lineWidth.0 = phi i32 [ %12, %sw.epilog ], [ %mul31, %sw.bb30 ], [ %mul, %sw.bb29 ]
+sw.epilog33:                                      ; preds = %sw.bb30, %sw.bb29, %if.end18
+  %lineWidth.0 = phi i32 [ %9, %if.end18 ], [ %mul31, %sw.bb30 ], [ %mul, %sw.bb29 ]
   %Height35 = getelementptr inbounds i8, ptr %image, i64 16
-  %14 = load i32, ptr %Height35, align 4, !tbaa !26
-  %mul36 = mul i32 %14, %lineWidth.0
+  %11 = load i32, ptr %Height35, align 4, !tbaa !26
+  %mul36 = mul i32 %11, %lineWidth.0
   %conv = zext i32 %mul36 to i64
   %call37 = call noalias noundef nonnull ptr @_Znam(i64 noundef %conv) #13
   %Data.i = getelementptr inbounds i8, ptr %image, i64 24
-  %15 = load ptr, ptr %Data.i, align 8, !tbaa !27
-  switch i32 %13, label %sw.default70 [
+  %12 = load ptr, ptr %Data.i, align 8, !tbaa !27
+  switch i32 %10, label %sw.default70 [
     i32 2, label %sw.bb46
     i32 3, label %sw.bb52
     i32 1, label %sw.bb58
@@ -316,47 +301,47 @@ sw.epilog33:                                      ; preds = %sw.bb30, %sw.bb29, 
   ]
 
 sw.bb46:                                          ; preds = %sw.epilog33
-  %mul51 = mul i32 %14, %12
-  call void @_ZN3irr5video15CColorConverter22convert_R8G8B8toR8G8B8EPKviPv(ptr noundef %15, i32 noundef %mul51, ptr noundef nonnull %call37) #14
+  %mul51 = mul i32 %11, %9
+  call void @_ZN3irr5video15CColorConverter22convert_R8G8B8toR8G8B8EPKviPv(ptr noundef %12, i32 noundef %mul51, ptr noundef nonnull %call37) #14
   br label %sw.epilog72
 
 sw.bb52:                                          ; preds = %sw.epilog33
-  %mul57 = mul i32 %14, %12
-  call void @_ZN3irr5video15CColorConverter26convert_A8R8G8B8toA8R8G8B8EPKviPv(ptr noundef %15, i32 noundef %mul57, ptr noundef nonnull %call37) #14
+  %mul57 = mul i32 %11, %9
+  call void @_ZN3irr5video15CColorConverter26convert_A8R8G8B8toA8R8G8B8EPKviPv(ptr noundef %12, i32 noundef %mul57, ptr noundef nonnull %call37) #14
   br label %sw.epilog72
 
 sw.bb58:                                          ; preds = %sw.epilog33
-  %mul63 = mul i32 %14, %12
-  call void @_ZN3irr5video15CColorConverter22convert_R5G6B5toR8G8B8EPKviPv(ptr noundef %15, i32 noundef %mul63, ptr noundef nonnull %call37) #14
+  %mul63 = mul i32 %11, %9
+  call void @_ZN3irr5video15CColorConverter22convert_R5G6B5toR8G8B8EPKviPv(ptr noundef %12, i32 noundef %mul63, ptr noundef nonnull %call37) #14
   br label %sw.epilog72
 
 sw.bb64:                                          ; preds = %sw.epilog33
-  %mul69 = mul i32 %14, %12
-  call void @_ZN3irr5video15CColorConverter26convert_A1R5G5B5toA8R8G8B8EPKviPv(ptr noundef %15, i32 noundef %mul69, ptr noundef nonnull %call37) #14
+  %mul69 = mul i32 %11, %9
+  call void @_ZN3irr5video15CColorConverter26convert_A1R5G5B5toA8R8G8B8EPKviPv(ptr noundef %12, i32 noundef %mul69, ptr noundef nonnull %call37) #14
   br label %sw.epilog72
 
 sw.default70:                                     ; preds = %sw.epilog33
-  %idxprom = zext i32 %13 to i64
+  %idxprom = zext i32 %10 to i64
   %arrayidx = getelementptr inbounds [19 x ptr], ptr @_ZN3irr5videoL16ColorFormatNamesE, i64 0, i64 %idxprom
-  %16 = load ptr, ptr %arrayidx, align 8, !tbaa !19
-  call void @_ZN3irr2os7Printer3logEPKcS3_NS_10ELOG_LEVELE(ptr noundef nonnull @.str.7, ptr noundef %16, i32 noundef 2) #14
+  %13 = load ptr, ptr %arrayidx, align 8, !tbaa !19
+  call void @_ZN3irr2os7Printer3logEPKcS3_NS_10ELOG_LEVELE(ptr noundef nonnull @.str.7, ptr noundef %13, i32 noundef 2) #14
   call void @png_destroy_write_struct(ptr noundef nonnull %png_ptr, ptr noundef nonnull %info_ptr) #14
   call void @_ZdaPv(ptr noundef nonnull %call37) #16
   br label %cleanup118
 
 sw.epilog72:                                      ; preds = %sw.bb64, %sw.bb58, %sw.bb52, %sw.bb46
-  %17 = load i32, ptr %Height35, align 4, !tbaa !26
-  %conv75 = zext i32 %17 to i64
-  %18 = shl nuw nsw i64 %conv75, 3
-  %call76 = call noalias noundef nonnull ptr @_Znam(i64 noundef %18) #13
-  %cmp191.not = icmp eq i32 %17, 0
+  %14 = load i32, ptr %Height35, align 4, !tbaa !26
+  %conv75 = zext i32 %14 to i64
+  %15 = shl nuw nsw i64 %conv75, 3
+  %call76 = call noalias noundef nonnull ptr @_Znam(i64 noundef %15) #13
+  %cmp191.not = icmp eq i32 %14, 0
   br i1 %cmp191.not, label %for.cond.cleanup, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %sw.epilog72
   %idx.ext = sext i32 %lineWidth.0 to i64
   %xtraiter = and i64 %conv75, 7
-  %19 = icmp ult i32 %17, 8
-  br i1 %19, label %for.cond.cleanup.loopexit.unr-lcssa, label %for.body.lr.ph.new
+  %16 = icmp ult i32 %14, 8
+  br i1 %16, label %for.cond.cleanup.loopexit.unr-lcssa, label %for.body.lr.ph.new
 
 for.body.lr.ph.new:                               ; preds = %for.body.lr.ph
   %unroll_iter = and i64 %conv75, 4294967288
@@ -381,8 +366,8 @@ for.body.epil:                                    ; preds = %for.cond.cleanup.lo
   br i1 %epil.iter.cmp.not, label %for.cond.cleanup, label %for.body.epil, !llvm.loop !28
 
 for.cond.cleanup:                                 ; preds = %for.body.epil, %for.cond.cleanup.loopexit.unr-lcssa, %sw.epilog72
-  %20 = load ptr, ptr %png_ptr, align 8, !tbaa !19
-  %call90 = call ptr @png_set_longjmp_fn(ptr noundef %20, ptr noundef nonnull @longjmp, i64 noundef 200) #14
+  %17 = load ptr, ptr %png_ptr, align 8, !tbaa !19
+  %call90 = call ptr @png_set_longjmp_fn(ptr noundef %17, ptr noundef nonnull @longjmp, i64 noundef 200) #14
   %call92 = call i32 @_setjmp(ptr noundef %call90) #17
   %tobool93.not = icmp eq i32 %call92, 0
   br i1 %tobool93.not, label %if.end101, label %if.then94
@@ -432,35 +417,24 @@ if.then94:                                        ; preds = %for.cond.cleanup
   br label %cleanup118
 
 if.end101:                                        ; preds = %for.cond.cleanup
-  %21 = load ptr, ptr %png_ptr, align 8, !tbaa !19
-  %22 = load ptr, ptr %info_ptr, align 8, !tbaa !19
-  call void @png_set_rows(ptr noundef %21, ptr noundef %22, ptr noundef nonnull %call76) #14
-  %23 = load i32, ptr %Format.i, align 8, !tbaa !20
-  switch i32 %23, label %if.else [
-    i32 3, label %if.then107
-    i32 0, label %if.then107
-  ]
-
-if.then107:                                       ; preds = %if.end101, %if.end101
-  %24 = load ptr, ptr %png_ptr, align 8, !tbaa !19
-  %25 = load ptr, ptr %info_ptr, align 8, !tbaa !19
-  call void @png_write_png(ptr noundef %24, ptr noundef %25, i32 noundef 128, ptr noundef null) #14
-  br label %delete.notnull110
-
-if.else:                                          ; preds = %if.end101
-  %26 = load ptr, ptr %png_ptr, align 8, !tbaa !19
-  %27 = load ptr, ptr %info_ptr, align 8, !tbaa !19
-  call void @png_write_png(ptr noundef %26, ptr noundef %27, i32 noundef 0, ptr noundef null) #14
-  br label %delete.notnull110
-
-delete.notnull110:                                ; preds = %if.else, %if.then107
+  %18 = load ptr, ptr %png_ptr, align 8, !tbaa !19
+  %19 = load ptr, ptr %info_ptr, align 8, !tbaa !19
+  call void @png_set_rows(ptr noundef %18, ptr noundef %19, ptr noundef nonnull %call76) #14
+  %20 = load i32, ptr %Format.i, align 8, !tbaa !20
+  %switch.selectcmp.case17 = icmp eq i32 %20, 3
+  %switch.selectcmp.case28 = icmp eq i32 %20, 0
+  %switch.selectcmp9 = or i1 %switch.selectcmp.case17, %switch.selectcmp.case28
+  %21 = select i1 %switch.selectcmp9, i32 128, i32 0
+  %22 = load ptr, ptr %png_ptr, align 8, !tbaa !19
+  %23 = load ptr, ptr %info_ptr, align 8, !tbaa !19
+  call void @png_write_png(ptr noundef %22, ptr noundef %23, i32 noundef %21, ptr noundef null) #14
   call void @_ZdaPv(ptr noundef nonnull %call76) #16
   call void @_ZdaPv(ptr noundef nonnull %call37) #16
   call void @png_destroy_write_struct(ptr noundef nonnull %png_ptr, ptr noundef nonnull %info_ptr) #14
   br label %cleanup118
 
-cleanup118:                                       ; preds = %delete.notnull110, %if.then94, %sw.default70, %if.then17, %if.then9
-  %retval.3 = phi i1 [ false, %if.then17 ], [ false, %if.then9 ], [ false, %sw.default70 ], [ true, %delete.notnull110 ], [ false, %if.then94 ]
+cleanup118:                                       ; preds = %if.end101, %if.then94, %sw.default70, %if.then17, %if.then9
+  %retval.3 = phi i1 [ false, %if.then17 ], [ false, %if.then9 ], [ false, %sw.default70 ], [ true, %if.end101 ], [ false, %if.then94 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %info_ptr) #14
   br label %cleanup119
 

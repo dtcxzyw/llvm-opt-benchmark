@@ -477,15 +477,18 @@ pmix_pointer_array_get_item.exit:                 ; preds = %17, %37
 
 73:                                               ; preds = %70
   %74 = call noalias dereferenceable_or_null(4) ptr @strdup(ptr noundef nonnull @.str.13) #8
-  store ptr %74, ptr %12, align 8
-  br label %77
+  br label %.sink.split
 
 75:                                               ; preds = %70
   %76 = call noalias ptr @strdup(ptr noundef nonnull %71) #8
-  store ptr %76, ptr %12, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %75, %73
+  %.sink = phi ptr [ %74, %73 ], [ %76, %75 ]
+  store ptr %.sink, ptr %12, align 8
   br label %77
 
-77:                                               ; preds = %73, %75, %67
+77:                                               ; preds = %.sink.split, %67
   %78 = call zeroext i1 @prte_get_attribute(ptr noundef nonnull %15, i16 noundef zeroext 265, ptr noundef null, i16 noundef zeroext 1) #8
   %79 = getelementptr inbounds i8, ptr %1, i64 168
   %80 = call ptr @prte_util_print_jobids(ptr noundef nonnull %79) #8

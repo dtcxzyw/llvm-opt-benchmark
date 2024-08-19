@@ -296,16 +296,16 @@ define internal fastcc i32 @stanag4607_read_file(ptr nocapture %.96.val, ptr nou
   br label %106
 
 106:                                              ; preds = %82, %87
-  %storemerge = phi i32 [ %105, %87 ], [ %84, %82 ]
-  %.055.neg = phi i64 [ -56, %87 ], [ -41, %82 ]
-  store i32 %storemerge, ptr %6, align 4
-  %.not63 = icmp eq i32 %storemerge, 0
+  %.sink = phi i32 [ %84, %82 ], [ %105, %87 ]
+  %.055.neg = phi i64 [ -41, %82 ], [ -56, %87 ]
+  store i32 %.sink, ptr %6, align 4
+  %.not63 = icmp eq i32 %.sink, 0
   br i1 %.not63, label %.thread, label %107
 
 107:                                              ; preds = %106
-  %108 = udiv i32 %storemerge, 1000
+  %108 = udiv i32 %.sink, 1000
   %.neg = mul i32 %108, -1000
-  %109 = add i32 %.neg, %storemerge
+  %109 = add i32 %.neg, %.sink
   %110 = mul i32 %109, 1000000
   %111 = load i64, ptr %.96.val, align 8
   %112 = zext nneg i32 %108 to i64

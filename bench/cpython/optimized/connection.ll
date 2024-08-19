@@ -5637,8 +5637,7 @@ land.lhs.true:                                    ; preds = %if.end18
 
 if.then24:                                        ; preds = %land.lhs.true
   call void @PyErr_Clear() #6
-  store i32 0, ptr %result, align 4
-  br label %if.then.i
+  br label %if.then.i.sink.split
 
 if.else:                                          ; preds = %if.end18
   %1 = load i32, ptr %result, align 4
@@ -5648,26 +5647,23 @@ if.else:                                          ; preds = %if.end18
 if.else.thread:                                   ; preds = %land.lhs.true
   %2 = load i32, ptr %result, align 4
   %tobool25.not25 = icmp eq i32 %2, 0
-  br i1 %tobool25.not25, label %if.then33, label %if.then.i
+  br i1 %tobool25.not25, label %if.then.i.sink.split, label %if.then.i
 
 if.then26:                                        ; preds = %if.else
   %cmp27 = icmp sgt i64 %call19, 0
-  br i1 %cmp27, label %if.then29, label %if.else30
-
-if.then29:                                        ; preds = %if.then26
-  store i32 1, ptr %result, align 4
-  br label %if.then.i
+  br i1 %cmp27, label %if.then.i.sink.split, label %if.else30
 
 if.else30:                                        ; preds = %if.then26
   %cmp31 = icmp slt i64 %call19, 0
-  br i1 %cmp31, label %if.then33, label %if.then.i
+  br i1 %cmp31, label %if.then.i.sink.split, label %if.then.i
 
-if.then33:                                        ; preds = %if.else.thread, %if.else30
-  store i32 -1, ptr %result, align 4
+if.then.i.sink.split:                             ; preds = %if.else30, %if.else.thread, %if.then26, %if.then24
+  %.sink = phi i32 [ 0, %if.then24 ], [ 1, %if.then26 ], [ -1, %if.else.thread ], [ -1, %if.else30 ]
+  store i32 %.sink, ptr %result, align 4
   br label %if.then.i
 
-if.then.i:                                        ; preds = %if.end6, %if.end12, %if.then24, %if.else, %if.then29, %if.then33, %if.else30, %if.else.thread
-  %retval1.0.ph = phi ptr [ %call14, %if.else.thread ], [ %call14, %if.else30 ], [ %call14, %if.then33 ], [ %call14, %if.then29 ], [ %call14, %if.else ], [ %call14, %if.then24 ], [ null, %if.end12 ], [ null, %if.end6 ]
+if.then.i:                                        ; preds = %if.then.i.sink.split, %if.end6, %if.end12, %if.else, %if.else30, %if.else.thread
+  %retval1.0.ph = phi ptr [ %call14, %if.else.thread ], [ %call14, %if.else30 ], [ %call14, %if.else ], [ null, %if.end12 ], [ null, %if.end6 ], [ %call14, %if.then.i.sink.split ]
   %3 = load i64, ptr %call3, align 8
   %4 = and i64 %3, 2147483648
   %cmp.i2.not.i = icmp eq i64 %4, 0

@@ -32,7 +32,7 @@ define i32 @MRIStepSetNonlinearSolver(ptr noundef %0, ptr noundef %1) local_unna
   %4 = alloca ptr, align 8
   %5 = call i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.MRIStepSetNonlinearSolver, ptr noundef nonnull %3, ptr noundef nonnull %4) #4
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %6, label %77
+  br i1 %.not, label %6, label %78
 
 6:                                                ; preds = %2
   %7 = icmp eq ptr %1, null
@@ -40,7 +40,7 @@ define i32 @MRIStepSetNonlinearSolver(ptr noundef %0, ptr noundef %1) local_unna
 
 8:                                                ; preds = %6
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 49, ptr noundef nonnull @__func__.MRIStepSetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #4
-  br label %77
+  br label %78
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %1, i64 8
@@ -64,7 +64,7 @@ define i32 @MRIStepSetNonlinearSolver(ptr noundef %0, ptr noundef %1) local_unna
 22:                                               ; preds = %18, %14, %9
   %23 = load ptr, ptr %3, align 8
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %23, i32 noundef -22, i32 noundef 58, ptr noundef nonnull @__func__.MRIStepSetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #4
-  br label %77
+  br label %78
 
 24:                                               ; preds = %18
   %25 = load ptr, ptr %4, align 8
@@ -102,76 +102,76 @@ define i32 @MRIStepSetNonlinearSolver(ptr noundef %0, ptr noundef %1) local_unna
 42:                                               ; preds = %39
   %43 = load ptr, ptr %3, align 8
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %43, i32 noundef -22, i32 noundef 84, ptr noundef nonnull @__func__.MRIStepSetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #4
-  br label %77
+  br label %78
 
 44:                                               ; preds = %39, %33
   %mriStep_NlsFPFunction.sink = phi ptr [ @mriStep_NlsResidual, %33 ], [ @mriStep_NlsFPFunction, %39 ]
-  %.sink = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds i8, ptr %.sink, i64 152
-  %46 = load ptr, ptr %45, align 8
-  %47 = call i32 @SUNNonlinSolSetSysFn(ptr noundef %46, ptr noundef nonnull %mriStep_NlsFPFunction.sink) #4
-  %.not21 = icmp eq i32 %47, 0
-  br i1 %.not21, label %50, label %48
+  %45 = load ptr, ptr %4, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 152
+  %47 = load ptr, ptr %46, align 8
+  %48 = call i32 @SUNNonlinSolSetSysFn(ptr noundef %47, ptr noundef nonnull %mriStep_NlsFPFunction.sink) #4
+  %.not21 = icmp eq i32 %48, 0
+  br i1 %.not21, label %51, label %49
 
-48:                                               ; preds = %44
-  %49 = load ptr, ptr %3, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %49, i32 noundef -22, i32 noundef 90, ptr noundef nonnull @__func__.MRIStepSetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #4
-  br label %77
+49:                                               ; preds = %44
+  %50 = load ptr, ptr %3, align 8
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %50, i32 noundef -22, i32 noundef 90, ptr noundef nonnull @__func__.MRIStepSetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #4
+  br label %78
 
-50:                                               ; preds = %44
-  %51 = load ptr, ptr %4, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 152
-  %53 = load ptr, ptr %52, align 8
-  %54 = call i32 @SUNNonlinSolSetConvTestFn(ptr noundef %53, ptr noundef nonnull @mriStep_NlsConvTest, ptr noundef %0) #4
-  %.not22 = icmp eq i32 %54, 0
-  br i1 %.not22, label %57, label %55
+51:                                               ; preds = %44
+  %52 = load ptr, ptr %4, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 152
+  %54 = load ptr, ptr %53, align 8
+  %55 = call i32 @SUNNonlinSolSetConvTestFn(ptr noundef %54, ptr noundef nonnull @mriStep_NlsConvTest, ptr noundef %0) #4
+  %.not22 = icmp eq i32 %55, 0
+  br i1 %.not22, label %58, label %56
 
-55:                                               ; preds = %50
-  %56 = load ptr, ptr %3, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %56, i32 noundef -22, i32 noundef 100, ptr noundef nonnull @__func__.MRIStepSetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #4
-  br label %77
+56:                                               ; preds = %51
+  %57 = load ptr, ptr %3, align 8
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %57, i32 noundef -22, i32 noundef 100, ptr noundef nonnull @__func__.MRIStepSetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #4
+  br label %78
 
-57:                                               ; preds = %50
-  %58 = load ptr, ptr %4, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 152
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %58, i64 280
-  %62 = load i32, ptr %61, align 8
-  %63 = call i32 @SUNNonlinSolSetMaxIters(ptr noundef %60, i32 noundef %62) #4
-  %.not23 = icmp eq i32 %63, 0
-  br i1 %.not23, label %66, label %64
+58:                                               ; preds = %51
+  %59 = load ptr, ptr %4, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 152
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %59, i64 280
+  %63 = load i32, ptr %62, align 8
+  %64 = call i32 @SUNNonlinSolSetMaxIters(ptr noundef %61, i32 noundef %63) #4
+  %.not23 = icmp eq i32 %64, 0
+  br i1 %.not23, label %67, label %65
 
-64:                                               ; preds = %57
-  %65 = load ptr, ptr %3, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %65, i32 noundef -22, i32 noundef 109, ptr noundef nonnull @__func__.MRIStepSetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #4
-  br label %77
+65:                                               ; preds = %58
+  %66 = load ptr, ptr %3, align 8
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %66, i32 noundef -22, i32 noundef 109, ptr noundef nonnull @__func__.MRIStepSetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #4
+  br label %78
 
-66:                                               ; preds = %57
-  %67 = load ptr, ptr %4, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 168
-  store ptr null, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %67, i64 28
-  %70 = load i32, ptr %69, align 4
-  %.not24 = icmp eq i32 %70, 0
-  br i1 %.not24, label %77, label %71
+67:                                               ; preds = %58
+  %68 = load ptr, ptr %4, align 8
+  %69 = getelementptr inbounds i8, ptr %68, i64 168
+  store ptr null, ptr %69, align 8
+  %70 = getelementptr inbounds i8, ptr %68, i64 28
+  %71 = load i32, ptr %70, align 4
+  %.not24 = icmp eq i32 %71, 0
+  br i1 %.not24, label %78, label %72
 
-71:                                               ; preds = %66
-  %72 = getelementptr inbounds i8, ptr %67, i64 8
-  %73 = load ptr, ptr %72, align 8
-  %.not25 = icmp eq ptr %73, null
-  br i1 %.not25, label %74, label %76
+72:                                               ; preds = %67
+  %73 = getelementptr inbounds i8, ptr %68, i64 8
+  %74 = load ptr, ptr %73, align 8
+  %.not25 = icmp eq ptr %74, null
+  br i1 %.not25, label %75, label %77
 
-74:                                               ; preds = %71
-  %75 = load ptr, ptr %3, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %75, i32 noundef -22, i32 noundef 121, ptr noundef nonnull @__func__.MRIStepSetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #4
-  br label %77
+75:                                               ; preds = %72
+  %76 = load ptr, ptr %3, align 8
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %76, i32 noundef -22, i32 noundef 121, ptr noundef nonnull @__func__.MRIStepSetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #4
+  br label %78
 
-76:                                               ; preds = %71
-  store ptr %73, ptr %68, align 8
-  br label %77
+77:                                               ; preds = %72
+  store ptr %74, ptr %69, align 8
+  br label %78
 
-77:                                               ; preds = %66, %76, %2, %74, %64, %55, %48, %42, %22, %8
-  %.014 = phi i32 [ -22, %8 ], [ -22, %22 ], [ -22, %48 ], [ -22, %55 ], [ -22, %64 ], [ -22, %74 ], [ -22, %42 ], [ %5, %2 ], [ 0, %76 ], [ 0, %66 ]
+78:                                               ; preds = %67, %77, %2, %75, %65, %56, %49, %42, %22, %8
+  %.014 = phi i32 [ -22, %8 ], [ -22, %22 ], [ -22, %49 ], [ -22, %56 ], [ -22, %65 ], [ -22, %75 ], [ -22, %42 ], [ %5, %2 ], [ 0, %77 ], [ 0, %67 ]
   ret i32 %.014
 }
 

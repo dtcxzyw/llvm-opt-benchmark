@@ -1591,7 +1591,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd7e01c9f08bd6f5eE.exit.i: ; preds = %32
   store i64 %.cast.i, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
   br label %161
 
-159:                                              ; preds = %"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17h0923e89642c56df3E.llvm.10610586572795991558.exit.i", %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hdbcc63b74b06aff3E.exit.i.i.i.i.i"
+159:                                              ; preds = %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hdbcc63b74b06aff3E.exit.i.i.i.i.i", %"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17h0923e89642c56df3E.llvm.10610586572795991558.exit.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21), !noalias !140
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22), !noalias !140
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)

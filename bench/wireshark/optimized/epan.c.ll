@@ -223,43 +223,34 @@ define i32 @epan_init(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unna
   %23 = getelementptr inbounds i8, ptr %8, i64 48
   %24 = call i32 @_setjmp(ptr noundef nonnull %23) #16
   %.not22 = icmp eq i32 %24, 0
-  br i1 %.not22, label %27, label %25
-
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %8, i64 16
-  store volatile ptr %26, ptr %5, align 8
-  br label %28
+  %25 = getelementptr inbounds i8, ptr %8, i64 16
+  %.sink = select i1 %.not22, ptr null, ptr %25
+  store volatile ptr %.sink, ptr %5, align 8
+  %.0..0..0..0.2 = load volatile i32, ptr %6, align 4
+  %26 = and i32 %.0..0..0..0.2, 1
+  %.not23 = icmp eq i32 %26, 0
+  br i1 %.not23, label %29, label %27
 
 27:                                               ; preds = %21
-  store volatile ptr null, ptr %5, align 8
-  br label %28
-
-28:                                               ; preds = %27, %25
-  %.0..0..0..0.2 = load volatile i32, ptr %6, align 4
-  %29 = and i32 %.0..0..0..0.2, 1
-  %.not23 = icmp eq i32 %29, 0
-  br i1 %.not23, label %32, label %30
-
-30:                                               ; preds = %28
   %.0..0..0..0.3 = load volatile i32, ptr %6, align 4
-  %31 = or i32 %.0..0..0..0.3, 2
-  store volatile i32 %31, ptr %6, align 4
-  br label %32
+  %28 = or i32 %.0..0..0..0.3, 2
+  store volatile i32 %28, ptr %6, align 4
+  br label %29
 
-32:                                               ; preds = %30, %28
+29:                                               ; preds = %27, %21
   %.0..0..0..0.4 = load volatile i32, ptr %6, align 4
-  %33 = and i32 %.0..0..0..0.4, -2
-  store volatile i32 %33, ptr %6, align 4
+  %30 = and i32 %.0..0..0..0.4, -2
+  store volatile i32 %30, ptr %6, align 4
   %.0..0..0..0.5 = load volatile i32, ptr %6, align 4
-  %34 = icmp eq i32 %.0..0..0..0.5, 0
-  br i1 %34, label %35, label %42
+  %31 = icmp eq i32 %.0..0..0..0.5, 0
+  br i1 %31, label %32, label %39
 
-35:                                               ; preds = %32
+32:                                               ; preds = %29
   %.0..0..0..0.9 = load volatile ptr, ptr %5, align 8
-  %36 = icmp eq ptr %.0..0..0..0.9, null
-  br i1 %36, label %37, label %42
+  %33 = icmp eq ptr %.0..0..0..0.9, null
+  br i1 %33, label %34, label %39
 
-37:                                               ; preds = %35
+34:                                               ; preds = %32
   call void @export_pdu_init() #15
   call void @tap_init() #15
   call void @prefs_init() #15
@@ -270,81 +261,81 @@ define i32 @epan_init(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unna
   call void @capture_dissector_init() #15
   call void @reassembly_tables_init() #15
   call void @conversation_filters_init() #15
-  %38 = load ptr, ptr @epan_plugins, align 8
-  call void @g_slist_foreach(ptr noundef %38, ptr noundef nonnull @epan_plugin_init, ptr noundef null) #15
-  %39 = load ptr, ptr @epan_plugin_register_all_procotols, align 8
-  %40 = load ptr, ptr @epan_plugin_register_all_handoffs, align 8
-  call void @proto_init(ptr noundef %39, ptr noundef %40, ptr noundef %0, ptr noundef %1) #15
+  %35 = load ptr, ptr @epan_plugins, align 8
+  call void @g_slist_foreach(ptr noundef %35, ptr noundef nonnull @epan_plugin_init, ptr noundef null) #15
+  %36 = load ptr, ptr @epan_plugin_register_all_procotols, align 8
+  %37 = load ptr, ptr @epan_plugin_register_all_handoffs, align 8
+  call void @proto_init(ptr noundef %36, ptr noundef %37, ptr noundef %0, ptr noundef %1) #15
   call void @packet_cache_proto_handles() #15
   call void @dfilter_init() #15
   call void @wscbor_init() #15
   call void @final_registration_all_protocols() #15
   call void @print_cache_field_handles() #15
   call void @expert_packet_init() #15
-  %41 = load ptr, ptr @epan_plugins, align 8
-  call void @g_slist_foreach(ptr noundef %41, ptr noundef nonnull @epan_plugin_post_init, ptr noundef null) #15
-  br label %42
+  %38 = load ptr, ptr @epan_plugins, align 8
+  call void @g_slist_foreach(ptr noundef %38, ptr noundef nonnull @epan_plugin_post_init, ptr noundef null) #15
+  br label %39
 
-42:                                               ; preds = %37, %35, %32
+39:                                               ; preds = %34, %32, %29
   %.0..0..0..0.6 = load volatile i32, ptr %6, align 4
-  %43 = icmp eq i32 %.0..0..0..0.6, 0
-  br i1 %43, label %44, label %58
+  %40 = icmp eq i32 %.0..0..0..0.6, 0
+  br i1 %40, label %41, label %55
 
-44:                                               ; preds = %42
+41:                                               ; preds = %39
   %.0..0..0..0.10 = load volatile ptr, ptr %5, align 8
   %.not24 = icmp eq ptr %.0..0..0..0.10, null
-  br i1 %.not24, label %58, label %45
+  br i1 %.not24, label %55, label %42
 
-45:                                               ; preds = %44
+42:                                               ; preds = %41
   %.0..0..0..0.11 = load volatile ptr, ptr %5, align 8
-  %46 = getelementptr inbounds i8, ptr %.0..0..0..0.11, i64 8
-  %47 = load volatile i64, ptr %46, align 8
-  %48 = icmp eq i64 %47, 6
-  br i1 %48, label %49, label %58
+  %43 = getelementptr inbounds i8, ptr %.0..0..0..0.11, i64 8
+  %44 = load volatile i64, ptr %43, align 8
+  %45 = icmp eq i64 %44, 6
+  br i1 %45, label %46, label %55
 
-49:                                               ; preds = %45
+46:                                               ; preds = %42
   %.0..0..0..0.7 = load volatile i32, ptr %6, align 4
-  %50 = or i32 %.0..0..0..0.7, 1
-  store volatile i32 %50, ptr %6, align 4
+  %47 = or i32 %.0..0..0..0.7, 1
+  store volatile i32 %47, ptr %6, align 4
   %.0..0..0..0.12 = load volatile ptr, ptr %5, align 8
-  %51 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 16
-  %52 = load volatile ptr, ptr %51, align 8
-  %53 = icmp eq ptr %52, null
-  %54 = select i1 %53, ptr @epan_init.dissector_error_nomsg, ptr %52
-  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.3, ptr noundef nonnull %54) #15
-  %55 = call ptr @getenv(ptr noundef nonnull @.str.1) #15
-  %.not25 = icmp eq ptr %55, null
-  br i1 %.not25, label %57, label %56
+  %48 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 16
+  %49 = load volatile ptr, ptr %48, align 8
+  %50 = icmp eq ptr %49, null
+  %51 = select i1 %50, ptr @epan_init.dissector_error_nomsg, ptr %49
+  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.3, ptr noundef nonnull %51) #15
+  %52 = call ptr @getenv(ptr noundef nonnull @.str.1) #15
+  %.not25 = icmp eq ptr %52, null
+  br i1 %.not25, label %54, label %53
 
-56:                                               ; preds = %49
+53:                                               ; preds = %46
   call void @abort() #17
   unreachable
 
-57:                                               ; preds = %49
+54:                                               ; preds = %46
   store volatile i32 0, ptr %4, align 4
-  br label %58
+  br label %55
 
-58:                                               ; preds = %57, %45, %44, %42
+55:                                               ; preds = %54, %42, %41, %39
   %.0..0..0..0.8 = load volatile i32, ptr %6, align 4
-  %59 = and i32 %.0..0..0..0.8, 1
-  %.not26 = icmp eq i32 %59, 0
-  br i1 %.not26, label %60, label %62
+  %56 = and i32 %.0..0..0..0.8, 1
+  %.not26 = icmp eq i32 %56, 0
+  br i1 %.not26, label %57, label %59
 
-60:                                               ; preds = %58
+57:                                               ; preds = %55
   %.0..0..0..0.13 = load volatile ptr, ptr %5, align 8
   %.not27 = icmp eq ptr %.0..0..0..0.13, null
-  br i1 %.not27, label %62, label %61
+  br i1 %.not27, label %59, label %58
 
-61:                                               ; preds = %60
+58:                                               ; preds = %57
   %.0..0..0..0.14 = load volatile ptr, ptr %5, align 8
   call void @except_rethrow(ptr noundef %.0..0..0..0.14) #17
   unreachable
 
-62:                                               ; preds = %60, %58
-  %63 = getelementptr inbounds i8, ptr %8, i64 40
-  %64 = load volatile ptr, ptr %63, align 8
-  call void @except_free(ptr noundef %64) #15
-  %65 = call ptr @except_pop() #15
+59:                                               ; preds = %57, %55
+  %60 = getelementptr inbounds i8, ptr %8, i64 40
+  %61 = load volatile ptr, ptr %60, align 8
+  call void @except_free(ptr noundef %61) #15
+  %62 = call ptr @except_pop() #15
   %.0..0..0..0.15 = load volatile i32, ptr %4, align 4
   ret i32 %.0..0..0..0.15
 }

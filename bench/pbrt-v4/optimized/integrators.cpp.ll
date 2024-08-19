@@ -14339,18 +14339,18 @@ if.then9:                                         ; preds = %if.else.thread
   br label %if.end21.sink.split
 
 if.end21.sink.split:                              ; preds = %if.then, %if.then9
-  %call.i.sink221 = phi { <2 x float>, float } [ %call.i, %if.then ], [ %call.i32, %if.then9 ]
-  %call5.fca.0.extract = extractvalue { <2 x float>, float } %call.i.sink221, 0
-  %call5.fca.1.extract = extractvalue { <2 x float>, float } %call.i.sink221, 1
-  %agg.tmp.sroa.0.4.vec.insert.i = shufflevector <2 x float> %call5.fca.0.extract, <2 x float> poison, <2 x i32> zeroinitializer
-  %agg.tmp2.sroa.0.4.vec.insert.i = shufflevector <2 x float> %call5.fca.0.extract, <2 x float> poison, <2 x i32> <i32 1, i32 1>
-  %agg.tmp3.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %call5.fca.1.extract, i64 0
-  %agg.tmp3.sroa.0.4.vec.insert.i = shufflevector <2 x float> %agg.tmp3.sroa.0.0.vec.insert.i, <2 x float> poison, <2 x i32> zeroinitializer
-  store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i, ptr %ctx, align 8
+  %call.i32.sink218 = phi { <2 x float>, float } [ %call.i32, %if.then9 ], [ %call.i, %if.then ]
+  %call17.fca.0.extract = extractvalue { <2 x float>, float } %call.i32.sink218, 0
+  %call17.fca.1.extract = extractvalue { <2 x float>, float } %call.i32.sink218, 1
+  %agg.tmp.sroa.0.4.vec.insert.i34 = shufflevector <2 x float> %call17.fca.0.extract, <2 x float> poison, <2 x i32> zeroinitializer
+  %agg.tmp2.sroa.0.4.vec.insert.i37 = shufflevector <2 x float> %call17.fca.0.extract, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %agg.tmp3.sroa.0.0.vec.insert.i39 = insertelement <2 x float> poison, float %call17.fca.1.extract, i64 0
+  %agg.tmp3.sroa.0.4.vec.insert.i40 = shufflevector <2 x float> %agg.tmp3.sroa.0.0.vec.insert.i39, <2 x float> poison, <2 x i32> zeroinitializer
+  store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i34, ptr %ctx, align 8
   %ref.tmp10.sroa.2.0.ctx.sroa_idx = getelementptr inbounds i8, ptr %ctx, i64 8
-  store <2 x float> %agg.tmp2.sroa.0.4.vec.insert.i, ptr %ref.tmp10.sroa.2.0.ctx.sroa_idx, align 8
+  store <2 x float> %agg.tmp2.sroa.0.4.vec.insert.i37, ptr %ref.tmp10.sroa.2.0.ctx.sroa_idx, align 8
   %ref.tmp10.sroa.3.0.ctx.sroa_idx = getelementptr inbounds i8, ptr %ctx, i64 16
-  store <2 x float> %agg.tmp3.sroa.0.4.vec.insert.i, ptr %ref.tmp10.sroa.3.0.ctx.sroa_idx, align 8
+  store <2 x float> %agg.tmp3.sroa.0.4.vec.insert.i40, ptr %ref.tmp10.sroa.3.0.ctx.sroa_idx, align 8
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end21.sink.split, %land.lhs.true, %if.else.thread
@@ -43935,18 +43935,18 @@ if.then9:                                         ; preds = %if.else.thread
   br label %if.end21.sink.split
 
 if.end21.sink.split:                              ; preds = %if.then, %if.then9
-  %call.i.sink221 = phi { <2 x float>, float } [ %call.i, %if.then ], [ %call.i32, %if.then9 ]
-  %call5.fca.0.extract = extractvalue { <2 x float>, float } %call.i.sink221, 0
-  %call5.fca.1.extract = extractvalue { <2 x float>, float } %call.i.sink221, 1
-  %agg.tmp.sroa.0.4.vec.insert.i = shufflevector <2 x float> %call5.fca.0.extract, <2 x float> poison, <2 x i32> zeroinitializer
-  %agg.tmp2.sroa.0.4.vec.insert.i = shufflevector <2 x float> %call5.fca.0.extract, <2 x float> poison, <2 x i32> <i32 1, i32 1>
-  %agg.tmp3.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %call5.fca.1.extract, i64 0
-  %agg.tmp3.sroa.0.4.vec.insert.i = shufflevector <2 x float> %agg.tmp3.sroa.0.0.vec.insert.i, <2 x float> poison, <2 x i32> zeroinitializer
-  store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i, ptr %ctx, align 8
+  %call.i32.sink218 = phi { <2 x float>, float } [ %call.i32, %if.then9 ], [ %call.i, %if.then ]
+  %call17.fca.0.extract = extractvalue { <2 x float>, float } %call.i32.sink218, 0
+  %call17.fca.1.extract = extractvalue { <2 x float>, float } %call.i32.sink218, 1
+  %agg.tmp.sroa.0.4.vec.insert.i34 = shufflevector <2 x float> %call17.fca.0.extract, <2 x float> poison, <2 x i32> zeroinitializer
+  %agg.tmp2.sroa.0.4.vec.insert.i37 = shufflevector <2 x float> %call17.fca.0.extract, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %agg.tmp3.sroa.0.0.vec.insert.i39 = insertelement <2 x float> poison, float %call17.fca.1.extract, i64 0
+  %agg.tmp3.sroa.0.4.vec.insert.i40 = shufflevector <2 x float> %agg.tmp3.sroa.0.0.vec.insert.i39, <2 x float> poison, <2 x i32> zeroinitializer
+  store <2 x float> %agg.tmp.sroa.0.4.vec.insert.i34, ptr %ctx, align 8
   %ref.tmp10.sroa.2.0.ctx.sroa_idx = getelementptr inbounds i8, ptr %ctx, i64 8
-  store <2 x float> %agg.tmp2.sroa.0.4.vec.insert.i, ptr %ref.tmp10.sroa.2.0.ctx.sroa_idx, align 8
+  store <2 x float> %agg.tmp2.sroa.0.4.vec.insert.i37, ptr %ref.tmp10.sroa.2.0.ctx.sroa_idx, align 8
   %ref.tmp10.sroa.3.0.ctx.sroa_idx = getelementptr inbounds i8, ptr %ctx, i64 16
-  store <2 x float> %agg.tmp3.sroa.0.4.vec.insert.i, ptr %ref.tmp10.sroa.3.0.ctx.sroa_idx, align 8
+  store <2 x float> %agg.tmp3.sroa.0.4.vec.insert.i40, ptr %ref.tmp10.sroa.3.0.ctx.sroa_idx, align 8
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end21.sink.split, %land.lhs.true, %if.else.thread
@@ -66896,11 +66896,7 @@ invoke.cont20:                                    ; preds = %invoke.cont17
   %maxDepth = getelementptr inbounds i8, ptr %this, i64 80
   %18 = load i32, ptr %maxDepth, align 8
   %cmp = icmp eq i32 %18, %depth
-  br i1 %cmp, label %if.then24, label %invoke.cont29
-
-if.then24:                                        ; preds = %invoke.cont20
-  store <2 x float> %16, ptr %retval, align 8
-  br label %cleanup.sink.split
+  br i1 %cmp, label %cleanup.sink.split, label %invoke.cont29
 
 invoke.cont29:                                    ; preds = %invoke.cont20
   %camera = getelementptr inbounds i8, ptr %this, i64 64
@@ -66915,11 +66911,7 @@ invoke.cont31:                                    ; preds = %invoke.cont29
   %21 = load i64, ptr %bsdf, align 8
   %and.i.i19 = and i64 %21, 144115188075855871
   %cmp.i.i.not = icmp eq i64 %and.i.i19, 0
-  br i1 %cmp.i.i.not, label %if.then33, label %if.end34
-
-if.then33:                                        ; preds = %invoke.cont31
-  store <2 x float> %16, ptr %retval, align 8
-  br label %cleanup.sink.split
+  br i1 %cmp.i.i.not, label %cleanup.sink.split, label %if.end34
 
 if.end34:                                         ; preds = %invoke.cont31
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %get.i)
@@ -67087,7 +67079,7 @@ for.cond.i:                                       ; preds = %_ZNK4pbrt15SampledS
   %indvars.iv.i41105 = phi i64 [ %indvars.iv.next.i43, %for.body.i40 ], [ 0, %_ZNK4pbrt15SampledSpectrummlEf.exit ]
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i41105, 1
   %exitcond.not.i45 = icmp eq i64 %indvars.iv.next.i43, 4
-  br i1 %exitcond.not.i45, label %if.then59, label %for.body.i40, !llvm.loop !180
+  br i1 %exitcond.not.i45, label %cleanup.sink.split, label %for.body.i40, !llvm.loop !180
 
 for.body.i40:                                     ; preds = %for.cond.i
   %arrayidx.i.i42 = getelementptr inbounds [4 x float], ptr %fcos, i64 0, i64 %indvars.iv.next.i43
@@ -67097,11 +67089,7 @@ for.body.i40:                                     ; preds = %for.cond.i
 
 _ZNK4pbrt15SampledSpectrumcvbEv.exit:             ; preds = %for.body.i40
   %cmp.i44.le = icmp ult i64 %indvars.iv.i41105, 3
-  br i1 %cmp.i44.le, label %if.end60, label %if.then59
-
-if.then59:                                        ; preds = %for.cond.i, %_ZNK4pbrt15SampledSpectrumcvbEv.exit
-  store <2 x float> %16, ptr %retval, align 8
-  br label %cleanup.sink.split
+  br i1 %cmp.i44.le, label %if.end60, label %cleanup.sink.split
 
 if.end60:                                         ; preds = %_ZNK4pbrt15SampledSpectrummlEf.exit, %_ZNK4pbrt15SampledSpectrumcvbEv.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !895)
@@ -67243,11 +67231,12 @@ _ZNK4pbrt15SampledSpectrumplERKS0_.exit:          ; preds = %for.body.i.i75
   %retval.sroa.0.0.copyload.i81 = load <2 x float>, ptr %ret.i74, align 8
   %retval.sroa.2.0.copyload.i83 = load <2 x float>, ptr %Le.sroa.5.0.ret.i74.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ret.i74)
-  store <2 x float> %retval.sroa.0.0.copyload.i81, ptr %retval, align 8
   br label %cleanup.sink.split
 
-cleanup.sink.split:                               ; preds = %if.then24, %if.then33, %if.then59, %_ZNK4pbrt15SampledSpectrumplERKS0_.exit
-  %retval.sroa.2.0.copyload.i83.sink = phi <2 x float> [ %retval.sroa.2.0.copyload.i83, %_ZNK4pbrt15SampledSpectrumplERKS0_.exit ], [ %17, %if.then59 ], [ %17, %if.then33 ], [ %17, %if.then24 ]
+cleanup.sink.split:                               ; preds = %for.cond.i, %_ZNK4pbrt15SampledSpectrumcvbEv.exit, %invoke.cont31, %invoke.cont20, %_ZNK4pbrt15SampledSpectrumplERKS0_.exit
+  %retval.sroa.0.0.copyload.i81.sink = phi <2 x float> [ %retval.sroa.0.0.copyload.i81, %_ZNK4pbrt15SampledSpectrumplERKS0_.exit ], [ %16, %invoke.cont20 ], [ %16, %invoke.cont31 ], [ %16, %_ZNK4pbrt15SampledSpectrumcvbEv.exit ], [ %16, %for.cond.i ]
+  %retval.sroa.2.0.copyload.i83.sink = phi <2 x float> [ %retval.sroa.2.0.copyload.i83, %_ZNK4pbrt15SampledSpectrumplERKS0_.exit ], [ %17, %invoke.cont20 ], [ %17, %invoke.cont31 ], [ %17, %_ZNK4pbrt15SampledSpectrumcvbEv.exit ], [ %17, %for.cond.i ]
+  store <2 x float> %retval.sroa.0.0.copyload.i81.sink, ptr %retval, align 8
   %59 = getelementptr inbounds i8, ptr %retval, i64 8
   store <2 x float> %retval.sroa.2.0.copyload.i83.sink, ptr %59, align 8
   br label %cleanup

@@ -7565,31 +7565,24 @@ define noundef zeroext i1 @_ZN9actix_web5route12RouteService5check17h12eafe7ff46
   %10 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %7, i64 %9
   br label %11
 
-11:                                               ; preds = %14, %2
-  %.sroa.0.0 = phi ptr [ %7, %2 ], [ %15, %14 ]
+11:                                               ; preds = %13, %2
+  %.sroa.0.0 = phi ptr [ %7, %2 ], [ %14, %13 ]
   %12 = icmp eq ptr %.sroa.0.0, %10
-  br i1 %12, label %13, label %14
+  br i1 %12, label %21, label %13
 
 13:                                               ; preds = %11
+  %14 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 16
+  %15 = load ptr, ptr %.sroa.0.0, align 8, !nonnull !4, !align !59, !noundef !4
+  %16 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 8
+  %17 = load ptr, ptr %16, align 8, !nonnull !4, !align !5, !noundef !4
+  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %19 = load ptr, ptr %18, align 8, !invariant.load !4, !nonnull !4
+  %20 = call noundef zeroext i1 %19(ptr noundef nonnull align 1 %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
+  br i1 %20, label %11, label %21
+
+21:                                               ; preds = %11, %13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %22
-
-14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 16
-  %16 = load ptr, ptr %.sroa.0.0, align 8, !nonnull !4, !align !59, !noundef !4
-  %17 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 8
-  %18 = load ptr, ptr %17, align 8, !nonnull !4, !align !5, !noundef !4
-  %19 = getelementptr inbounds i8, ptr %18, i64 24
-  %20 = load ptr, ptr %19, align 8, !invariant.load !4, !nonnull !4
-  %21 = call noundef zeroext i1 %20(ptr noundef nonnull align 1 %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
-  br i1 %21, label %11, label %23
-
-22:                                               ; preds = %23, %13
   ret i1 %12
-
-23:                                               ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %22
 }
 
 ; Function Attrs: nonlazybind uwtable

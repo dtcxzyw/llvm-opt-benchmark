@@ -1260,8 +1260,7 @@ php_sprintf_appenduint.exit:                      ; preds = %437
   store i8 45, ptr %10, align 16
   %489 = load i64, ptr %11, align 8
   %490 = add i64 %489, 1
-  store i64 %490, ptr %11, align 8
-  br label %513
+  br label %.sink.split.i
 
 491:                                              ; preds = %483
   %.not50.i = icmp eq i32 %.0216, 0
@@ -1271,8 +1270,7 @@ php_sprintf_appenduint.exit:                      ; preds = %437
 492:                                              ; preds = %491
   store i8 43, ptr %10, align 16
   %493 = add i64 %.pre.i327, 1
-  store i64 %493, ptr %11, align 8
-  br label %513
+  br label %.sink.split.i
 
 494:                                              ; preds = %476, %476, %476, %476
   %spec.store.select.i323 = call i32 @llvm.umax.i32(i32 %.0.i322, i32 1)
@@ -1313,13 +1311,19 @@ php_sprintf_appenduint.exit:                      ; preds = %437
   %511 = phi i8 [ 1, %507 ], [ 0, %509 ], [ 0, %508 ]
   %.1.i326 = phi ptr [ %30, %507 ], [ %10, %509 ], [ %504, %508 ]
   %512 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1.i326) #16
-  store i64 %512, ptr %11, align 8
+  br label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %510, %492, %488
+  %.sink.i = phi i64 [ %490, %488 ], [ %493, %492 ], [ %512, %510 ]
+  %.ph.i = phi i8 [ %486, %488 ], [ %486, %492 ], [ %511, %510 ]
+  %.047.ph.i = phi ptr [ %10, %488 ], [ %10, %492 ], [ %.1.i326, %510 ]
+  store i64 %.sink.i, ptr %11, align 8
   br label %513
 
-513:                                              ; preds = %510, %492, %491, %488, %476
-  %514 = phi i8 [ 0, %476 ], [ %511, %510 ], [ %486, %488 ], [ %486, %492 ], [ %486, %491 ]
-  %515 = phi i64 [ 0, %476 ], [ %512, %510 ], [ %490, %488 ], [ %493, %492 ], [ %.pre.i327, %491 ]
-  %.047.i = phi ptr [ null, %476 ], [ %.1.i326, %510 ], [ %10, %488 ], [ %10, %492 ], [ %485, %491 ]
+513:                                              ; preds = %.sink.split.i, %491, %476
+  %514 = phi i8 [ 0, %476 ], [ %486, %491 ], [ %.ph.i, %.sink.split.i ]
+  %515 = phi i64 [ 0, %476 ], [ %.pre.i327, %491 ], [ %.sink.i, %.sink.split.i ]
+  %.047.i = phi ptr [ null, %476 ], [ %485, %491 ], [ %.047.ph.i, %.sink.split.i ]
   %516 = trunc i8 %514 to i1
   call fastcc void @php_sprintf_appendstring(ptr noundef nonnull %21, ptr noundef nonnull %20, ptr noundef %.047.i, i64 noundef %463, i64 noundef 0, i8 noundef signext %.0218, i64 noundef %464, i64 noundef %515, i1 noundef zeroext %516, i32 noundef 0, i32 noundef %.0216)
   br label %php_sprintf_appenddouble.exit

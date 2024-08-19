@@ -15126,8 +15126,8 @@ ft_mem_qrealloc.exit:                             ; preds = %141
   %147 = icmp sgt i64 %.pre192, 0
   br i1 %147, label %.lr.ph174, label %._crit_edge
 
-.lr.ph174:                                        ; preds = %ft_mem_qrealloc.exit, %173
-  %indvars.iv = phi i64 [ %indvars.iv.next, %173 ], [ 0, %ft_mem_qrealloc.exit ]
+.lr.ph174:                                        ; preds = %ft_mem_qrealloc.exit, %172
+  %indvars.iv = phi i64 [ %indvars.iv.next, %172 ], [ 0, %ft_mem_qrealloc.exit ]
   %148 = call zeroext i16 @FT_Stream_ReadUShort(ptr noundef nonnull %1, ptr noundef nonnull %13)
   %149 = getelementptr inbounds %struct.FT_RFork_Ref_, ptr %145, i64 %indvars.iv
   store i16 %148, ptr %149, align 8
@@ -15145,16 +15145,12 @@ ft_mem_qrealloc.exit:                             ; preds = %141
 155:                                              ; preds = %151
   %156 = call i64 %154(ptr noundef nonnull %1, i64 noundef %153, ptr noundef null, i64 noundef 0) #34
   %.not10.i.i = icmp eq i64 %156, 0
-  br i1 %.not10.i.i, label %159, label %FT_Stream_Skip.exit.thread
+  br i1 %.not10.i.i, label %159, label %.thread.sink.split
 
 157:                                              ; preds = %151
   %158 = load i64, ptr %26, align 8
   %.not17.i.i = icmp ult i64 %158, %153
-  br i1 %.not17.i.i, label %FT_Stream_Skip.exit.thread, label %159
-
-FT_Stream_Skip.exit.thread:                       ; preds = %155, %157
-  store i32 85, ptr %13, align 4
-  br label %.thread
+  br i1 %.not17.i.i, label %.thread.sink.split, label %159
 
 159:                                              ; preds = %157, %155
   store i64 %153, ptr %24, align 8
@@ -15174,107 +15170,104 @@ FT_Stream_Skip.exit.thread:                       ; preds = %155, %157
 166:                                              ; preds = %162
   %167 = call i64 %165(ptr noundef nonnull %1, i64 noundef %164, ptr noundef null, i64 noundef 0) #34
   %.not10.i.i122 = icmp eq i64 %167, 0
-  br i1 %.not10.i.i122, label %170, label %FT_Stream_Skip.exit125.thread
+  br i1 %.not10.i.i122, label %170, label %.thread.sink.split
 
 168:                                              ; preds = %162
   %169 = load i64, ptr %26, align 8
   %.not17.i.i124 = icmp ult i64 %169, %164
-  br i1 %.not17.i.i124, label %FT_Stream_Skip.exit125.thread, label %170
-
-FT_Stream_Skip.exit125.thread:                    ; preds = %166, %168
-  store i32 85, ptr %13, align 4
-  br label %.thread
+  br i1 %.not17.i.i124, label %.thread.sink.split, label %170
 
 170:                                              ; preds = %168, %166
   store i64 %164, ptr %24, align 8
   store i32 0, ptr %13, align 4
   %171 = icmp slt i32 %160, 0
-  br i1 %171, label %172, label %173
+  br i1 %171, label %.thread.sink.split, label %172
 
 172:                                              ; preds = %170
-  store i32 8, ptr %13, align 4
-  br label %.thread
-
-173:                                              ; preds = %170
-  %174 = and i32 %160, 16777215
-  %175 = zext nneg i32 %174 to i64
-  %176 = getelementptr inbounds i8, ptr %149, i64 8
-  store i64 %175, ptr %176, align 8
+  %173 = and i32 %160, 16777215
+  %174 = zext nneg i32 %173 to i64
+  %175 = getelementptr inbounds i8, ptr %149, i64 8
+  store i64 %174, ptr %175, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %177 = load i64, ptr %7, align 8
-  %178 = icmp sgt i64 %177, %indvars.iv.next
-  br i1 %178, label %.lr.ph174, label %._crit_edge, !llvm.loop !71
+  %176 = load i64, ptr %7, align 8
+  %177 = icmp sgt i64 %176, %indvars.iv.next
+  br i1 %177, label %.lr.ph174, label %._crit_edge, !llvm.loop !71
 
-._crit_edge:                                      ; preds = %173, %137, %ft_mem_qrealloc.exit
-  %.0.i119203 = phi ptr [ %145, %ft_mem_qrealloc.exit ], [ null, %137 ], [ %145, %173 ]
-  %.lcssa161 = phi i64 [ %.pre192, %ft_mem_qrealloc.exit ], [ 0, %137 ], [ %177, %173 ]
+._crit_edge:                                      ; preds = %172, %137, %ft_mem_qrealloc.exit
+  %.0.i119203 = phi ptr [ %145, %ft_mem_qrealloc.exit ], [ null, %137 ], [ %145, %172 ]
+  %.lcssa161 = phi i64 [ %.pre192, %ft_mem_qrealloc.exit ], [ 0, %137 ], [ %176, %172 ]
   %.not76 = icmp eq i8 %5, 0
   br i1 %.not76, label %.loopexit, label %.loopexit.loopexit
 
 .loopexit.loopexit:                               ; preds = %._crit_edge
   call void @qsort(ptr noundef %.0.i119203, i64 noundef %.lcssa161, i64 noundef 16, ptr noundef nonnull @ft_raccess_sort_ref_by_id) #34
-  %179 = load i64, ptr %7, align 8
+  %178 = load i64, ptr %7, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge
-  %180 = phi i64 [ %.lcssa161, %._crit_edge ], [ %179, %.loopexit.loopexit ]
-  %or.cond3.not.i126 = icmp sgt i64 %180, -1
-  br i1 %or.cond3.not.i126, label %181, label %ft_mem_qrealloc.exit130.thread
+  %179 = phi i64 [ %.lcssa161, %._crit_edge ], [ %178, %.loopexit.loopexit ]
+  %or.cond3.not.i126 = icmp sgt i64 %179, -1
+  br i1 %or.cond3.not.i126, label %180, label %ft_mem_qrealloc.exit130.thread
 
-181:                                              ; preds = %.loopexit
-  %182 = icmp eq i64 %180, 0
-  br i1 %182, label %._crit_edge178, label %183
+180:                                              ; preds = %.loopexit
+  %181 = icmp eq i64 %179, 0
+  br i1 %181, label %._crit_edge178, label %182
 
-183:                                              ; preds = %181
-  %184 = icmp ugt i64 %180, 268435455
-  br i1 %184, label %ft_mem_qrealloc.exit130.thread, label %185
+182:                                              ; preds = %180
+  %183 = icmp ugt i64 %179, 268435455
+  br i1 %183, label %ft_mem_qrealloc.exit130.thread, label %184
 
-185:                                              ; preds = %183
-  %186 = getelementptr inbounds i8, ptr %14, i64 8
-  %187 = load ptr, ptr %186, align 8
-  %188 = shl nuw nsw i64 %180, 3
-  %189 = call ptr %187(ptr noundef %14, i64 noundef %188) #34
-  %190 = icmp eq ptr %189, null
-  br i1 %190, label %ft_mem_qrealloc.exit130.thread, label %ft_mem_qrealloc.exit130
+184:                                              ; preds = %182
+  %185 = getelementptr inbounds i8, ptr %14, i64 8
+  %186 = load ptr, ptr %185, align 8
+  %187 = shl nuw nsw i64 %179, 3
+  %188 = call ptr %186(ptr noundef %14, i64 noundef %187) #34
+  %189 = icmp eq ptr %188, null
+  br i1 %189, label %ft_mem_qrealloc.exit130.thread, label %ft_mem_qrealloc.exit130
 
-ft_mem_qrealloc.exit130:                          ; preds = %185
+ft_mem_qrealloc.exit130:                          ; preds = %184
   %.pre193 = load i64, ptr %7, align 8
-  %191 = icmp sgt i64 %.pre193, 0
-  br i1 %191, label %.lr.ph177, label %._crit_edge178
+  %190 = icmp sgt i64 %.pre193, 0
+  br i1 %190, label %.lr.ph177, label %._crit_edge178
 
 .lr.ph177:                                        ; preds = %ft_mem_qrealloc.exit130, %.lr.ph177
   %indvars.iv186 = phi i64 [ %indvars.iv.next187, %.lr.ph177 ], [ 0, %ft_mem_qrealloc.exit130 ]
-  %192 = getelementptr inbounds %struct.FT_RFork_Ref_, ptr %.0.i119203, i64 %indvars.iv186, i32 1
-  %193 = load i64, ptr %192, align 8
-  %194 = add nsw i64 %193, %3
-  %195 = getelementptr inbounds i64, ptr %189, i64 %indvars.iv186
-  store i64 %194, ptr %195, align 8
+  %191 = getelementptr inbounds %struct.FT_RFork_Ref_, ptr %.0.i119203, i64 %indvars.iv186, i32 1
+  %192 = load i64, ptr %191, align 8
+  %193 = add nsw i64 %192, %3
+  %194 = getelementptr inbounds i64, ptr %188, i64 %indvars.iv186
+  store i64 %193, ptr %194, align 8
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
-  %196 = load i64, ptr %7, align 8
-  %197 = icmp sgt i64 %196, %indvars.iv.next187
-  br i1 %197, label %.lr.ph177, label %._crit_edge178, !llvm.loop !72
+  %195 = load i64, ptr %7, align 8
+  %196 = icmp sgt i64 %195, %indvars.iv.next187
+  br i1 %196, label %.lr.ph177, label %._crit_edge178, !llvm.loop !72
 
-._crit_edge178:                                   ; preds = %.lr.ph177, %181, %ft_mem_qrealloc.exit130
-  %.0.i128208 = phi ptr [ %189, %ft_mem_qrealloc.exit130 ], [ null, %181 ], [ %189, %.lr.ph177 ]
+._crit_edge178:                                   ; preds = %.lr.ph177, %180, %ft_mem_qrealloc.exit130
+  %.0.i128208 = phi ptr [ %188, %ft_mem_qrealloc.exit130 ], [ null, %180 ], [ %188, %.lr.ph177 ]
   store ptr %.0.i128208, ptr %6, align 8
   br label %ft_mem_qrealloc.exit130.thread
 
-ft_mem_qrealloc.exit130.thread:                   ; preds = %185, %183, %.loopexit, %._crit_edge178
-  %storemerge = phi i32 [ 0, %._crit_edge178 ], [ 10, %183 ], [ 6, %.loopexit ], [ 64, %185 ]
+ft_mem_qrealloc.exit130.thread:                   ; preds = %184, %182, %.loopexit, %._crit_edge178
+  %storemerge = phi i32 [ 0, %._crit_edge178 ], [ 10, %182 ], [ 6, %.loopexit ], [ 64, %184 ]
   store i32 %storemerge, ptr %13, align 4
   %.not.i131 = icmp eq ptr %.0.i119203, null
   br i1 %.not.i131, label %ft_mem_free.exit, label %.thread
 
-.thread:                                          ; preds = %159, %.lr.ph174, %172, %FT_Stream_Skip.exit.thread, %FT_Stream_Skip.exit125.thread, %ft_mem_qrealloc.exit130.thread
-  %.0.i119205 = phi ptr [ %145, %172 ], [ %145, %FT_Stream_Skip.exit.thread ], [ %145, %FT_Stream_Skip.exit125.thread ], [ %.0.i119203, %ft_mem_qrealloc.exit130.thread ], [ %145, %.lr.ph174 ], [ %145, %159 ]
-  %198 = phi i32 [ 8, %172 ], [ 85, %FT_Stream_Skip.exit.thread ], [ 85, %FT_Stream_Skip.exit125.thread ], [ %storemerge, %ft_mem_qrealloc.exit130.thread ], [ %161, %159 ], [ %150, %.lr.ph174 ]
-  %199 = getelementptr inbounds i8, ptr %14, i64 16
-  %200 = load ptr, ptr %199, align 8
-  call void %200(ptr noundef %14, ptr noundef nonnull %.0.i119205) #34
+.thread.sink.split:                               ; preds = %170, %168, %166, %157, %155
+  %.sink = phi i32 [ 85, %155 ], [ 85, %157 ], [ 85, %166 ], [ 85, %168 ], [ 8, %170 ]
+  store i32 %.sink, ptr %13, align 4
+  br label %.thread
+
+.thread:                                          ; preds = %159, %.lr.ph174, %.thread.sink.split, %ft_mem_qrealloc.exit130.thread
+  %.0.i119205 = phi ptr [ %.0.i119203, %ft_mem_qrealloc.exit130.thread ], [ %145, %.thread.sink.split ], [ %145, %.lr.ph174 ], [ %145, %159 ]
+  %197 = phi i32 [ %storemerge, %ft_mem_qrealloc.exit130.thread ], [ %.sink, %.thread.sink.split ], [ %161, %159 ], [ %150, %.lr.ph174 ]
+  %198 = getelementptr inbounds i8, ptr %14, i64 16
+  %199 = load ptr, ptr %198, align 8
+  call void %199(ptr noundef %14, ptr noundef nonnull %.0.i119205) #34
   br label %ft_mem_free.exit
 
 ft_mem_free.exit:                                 ; preds = %49, %.preheader, %141, %139, %135, %133, %131, %19, %17, %.thread, %ft_mem_qrealloc.exit130.thread, %FT_Stream_ReadULong.exit.thread, %FT_Stream_ReadUShort.exit101.thread, %FT_Stream_ReadUShort.exit113.thread, %FT_Stream_ReadUShort.exit.thread, %124, %36
-  %.0 = phi i32 [ 8, %36 ], [ 8, %124 ], [ 85, %FT_Stream_ReadUShort.exit.thread ], [ 85, %FT_Stream_ReadUShort.exit113.thread ], [ 85, %FT_Stream_ReadUShort.exit101.thread ], [ 85, %FT_Stream_ReadULong.exit.thread ], [ %storemerge, %ft_mem_qrealloc.exit130.thread ], [ %198, %.thread ], [ 85, %17 ], [ 85, %19 ], [ 85, %131 ], [ 85, %133 ], [ 10, %139 ], [ 6, %135 ], [ 64, %141 ], [ 1, %.preheader ], [ 1, %49 ]
+  %.0 = phi i32 [ 8, %36 ], [ 8, %124 ], [ 85, %FT_Stream_ReadUShort.exit.thread ], [ 85, %FT_Stream_ReadUShort.exit113.thread ], [ 85, %FT_Stream_ReadUShort.exit101.thread ], [ 85, %FT_Stream_ReadULong.exit.thread ], [ %storemerge, %ft_mem_qrealloc.exit130.thread ], [ %197, %.thread ], [ 85, %17 ], [ 85, %19 ], [ 85, %131 ], [ 85, %133 ], [ 10, %139 ], [ 6, %135 ], [ 64, %141 ], [ 1, %.preheader ], [ 1, %49 ]
   ret i32 %.0
 }
 

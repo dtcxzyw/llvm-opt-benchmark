@@ -5187,11 +5187,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br i1 %cmp.not.i, label %for.body.lr.ph.split.us, label %for.body.lr.ph.split
 
 for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
-  br i1 %cmp.not.i16, label %for.body.us.us, label %for.body.us
-
-for.body.us.us:                                   ; preds = %for.body.lr.ph.split.us
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i15)
-  br label %_ZN7rocksdbL10BeforeFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit.thread
+  br i1 %cmp.not.i16, label %return, label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.lr.ph.split.us, %for.inc.us
   %i.039.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph.split.us ]
@@ -5238,13 +5234,9 @@ for.body.us42:                                    ; preds = %for.body.lr.ph.spli
   %vfn.i.i.us = getelementptr inbounds i8, ptr %vtable.i.i.us, i64 208
   %12 = load ptr, ptr %vfn.i.i.us, align 8
   %call.i.i.us = call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(16) %smallest_user_key, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i1 noundef zeroext true)
-  %cmp2.i.us = icmp sgt i32 %call.i.i.us, 0
+  %cmp2.i.us = icmp slt i32 %call.i.i.us, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
-  br i1 %cmp2.i.us, label %for.inc.us46, label %lor.lhs.false.us45
-
-lor.lhs.false.us45:                               ; preds = %for.body.us42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i15)
-  br label %_ZN7rocksdbL10BeforeFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit.thread
+  br i1 %cmp2.i.us, label %return, label %for.inc.us46
 
 for.inc.us46:                                     ; preds = %for.body.us42
   %inc.us47 = add nuw i64 %i.039.us43, 1
@@ -5288,10 +5280,6 @@ lor.lhs.false:                                    ; preds = %for.body
   %cmp2.i23 = icmp slt i32 %call.i.i22, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i15)
   br i1 %cmp2.i23, label %for.inc, label %return
-
-_ZN7rocksdbL10BeforeFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit.thread: ; preds = %for.body.us.us, %lor.lhs.false.us45
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i15)
-  br label %return
 
 for.inc:                                          ; preds = %lor.lhs.false, %for.body
   %inc = add nuw i64 %i.039, 1
@@ -5373,8 +5361,8 @@ _ZN7rocksdbL10BeforeFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.ex
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i27)
   br label %return
 
-return:                                           ; preds = %lor.lhs.false, %for.inc, %for.inc.us46, %for.body.us, %for.inc.us, %for.cond.preheader, %_ZN7rocksdbL10BeforeFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit.thread, %if.end11, %_ZN7rocksdbL10BeforeFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit37
-  %retval.0 = phi i1 [ %lnot, %_ZN7rocksdbL10BeforeFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit37 ], [ false, %if.end11 ], [ true, %_ZN7rocksdbL10BeforeFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit.thread ], [ false, %for.cond.preheader ], [ %cmp2.i23.us, %for.inc.us ], [ %cmp2.i23.us, %for.body.us ], [ false, %for.inc.us46 ], [ true, %lor.lhs.false ], [ false, %for.inc ]
+return:                                           ; preds = %lor.lhs.false, %for.inc, %for.inc.us46, %for.body.us42, %for.body.us, %for.inc.us, %for.body.lr.ph.split.us, %for.cond.preheader, %if.end11, %_ZN7rocksdbL10BeforeFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit37
+  %retval.0 = phi i1 [ %lnot, %_ZN7rocksdbL10BeforeFileEPKNS_10ComparatorEPKNS_5SliceEPKNS_14FdWithKeyRangeE.exit37 ], [ false, %if.end11 ], [ false, %for.cond.preheader ], [ true, %for.body.lr.ph.split.us ], [ %cmp2.i23.us, %for.inc.us ], [ %cmp2.i23.us, %for.body.us ], [ %cmp2.i.us, %for.body.us42 ], [ %cmp2.i.us, %for.inc.us46 ], [ true, %lor.lhs.false ], [ false, %for.inc ]
   ret i1 %retval.0
 }
 
@@ -41121,16 +41109,7 @@ cleanup125:                                       ; preds = %_ZNKSt14default_del
   store ptr null, ptr %manifest_file, align 8
   %129 = load ptr, ptr %manifest_file_reader, align 8
   %cmp.not.i160 = icmp eq ptr %129, null
-  br i1 %cmp.not.i160, label %_ZNSt10unique_ptrIN7rocksdb20SequentialFileReaderESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb20SequentialFileReaderEEclEPS1_.exit.i
-
-_ZNKSt14default_deleteIN7rocksdb20SequentialFileReaderEEclEPS1_.exit.i: ; preds = %cleanup125
-  call void @_ZN7rocksdb20SequentialFileReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %129) #36
-  call void @_ZdlPv(ptr noundef nonnull %129) #34
-  br label %_ZNSt10unique_ptrIN7rocksdb20SequentialFileReaderESt14default_deleteIS1_EED2Ev.exit
-
-_ZNSt10unique_ptrIN7rocksdb20SequentialFileReaderESt14default_deleteIS1_EED2Ev.exit: ; preds = %cleanup125, %_ZNKSt14default_deleteIN7rocksdb20SequentialFileReaderEEclEPS1_.exit.i
-  store ptr null, ptr %manifest_file_reader, align 8
-  br label %nrvo.skipdtor
+  br i1 %cmp.not.i160, label %nrvo.skipdtor.sink.split, label %nrvo.skipdtor.sink.split.sink.split
 
 ehcleanup126:                                     ; preds = %lpad77.loopexit, %lpad77.loopexit.split-lp, %_ZN7rocksdb6StatusD2Ev.exit151, %_ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EED2Ev.exit138
   %.pn14 = phi { ptr, i32 } [ %.pn11.pn, %_ZN7rocksdb6StatusD2Ev.exit151 ], [ %.pn9, %_ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EED2Ev.exit138 ], [ %lpad.loopexit, %lpad77.loopexit ], [ %lpad.loopexit.split-lp, %lpad77.loopexit.split-lp ]
@@ -41140,18 +41119,19 @@ ehcleanup126:                                     ; preds = %lpad77.loopexit, %l
 nrvo.skipdtor.critedge:                           ; preds = %for.inc, %invoke.cont99, %invoke.cont78
   %130 = load ptr, ptr %manifest_file_reader, align 8
   %cmp.not.i162 = icmp eq ptr %130, null
-  br i1 %cmp.not.i162, label %_ZNSt10unique_ptrIN7rocksdb20SequentialFileReaderESt14default_deleteIS1_EED2Ev.exit165, label %_ZNKSt14default_deleteIN7rocksdb20SequentialFileReaderEEclEPS1_.exit.i163
+  br i1 %cmp.not.i162, label %nrvo.skipdtor.sink.split, label %nrvo.skipdtor.sink.split.sink.split
 
-_ZNKSt14default_deleteIN7rocksdb20SequentialFileReaderEEclEPS1_.exit.i163: ; preds = %nrvo.skipdtor.critedge
-  call void @_ZN7rocksdb20SequentialFileReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %130) #36
-  call void @_ZdlPv(ptr noundef nonnull %130) #34
-  br label %_ZNSt10unique_ptrIN7rocksdb20SequentialFileReaderESt14default_deleteIS1_EED2Ev.exit165
+nrvo.skipdtor.sink.split.sink.split:              ; preds = %nrvo.skipdtor.critedge, %cleanup125
+  %.sink196 = phi ptr [ %129, %cleanup125 ], [ %130, %nrvo.skipdtor.critedge ]
+  call void @_ZN7rocksdb20SequentialFileReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %.sink196) #36
+  call void @_ZdlPv(ptr noundef nonnull %.sink196) #34
+  br label %nrvo.skipdtor.sink.split
 
-_ZNSt10unique_ptrIN7rocksdb20SequentialFileReaderESt14default_deleteIS1_EED2Ev.exit165: ; preds = %nrvo.skipdtor.critedge, %_ZNKSt14default_deleteIN7rocksdb20SequentialFileReaderEEclEPS1_.exit.i163
+nrvo.skipdtor.sink.split:                         ; preds = %nrvo.skipdtor.sink.split.sink.split, %nrvo.skipdtor.critedge, %cleanup125
   store ptr null, ptr %manifest_file_reader, align 8
   br label %nrvo.skipdtor
 
-nrvo.skipdtor:                                    ; preds = %_ZNSt10unique_ptrIN7rocksdb20SequentialFileReaderESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN7rocksdb20SequentialFileReaderESt14default_deleteIS1_EED2Ev.exit165, %invoke.cont5
+nrvo.skipdtor:                                    ; preds = %nrvo.skipdtor.sink.split, %invoke.cont5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %manifest_path) #36
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %read_options, i64 136
   %131 = load ptr, ptr %_M_manager.i.i.i, align 8

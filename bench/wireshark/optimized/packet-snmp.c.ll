@@ -2634,13 +2634,13 @@ define internal i32 @dissect_snmp_PDUs(i1 zeroext %0, ptr noundef %1, i32 nounde
   %17 = call i32 @dissect_ber_choice(ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @PDUs_choice, i32 noundef %5, i32 noundef %16, ptr noundef nonnull %9) #11
   %18 = load i32, ptr %9, align 4
   %.not = icmp eq i32 %18, -1
-  br i1 %.not, label %99, label %19
+  br i1 %.not, label %98, label %19
 
 19:                                               ; preds = %6
   %20 = sext i32 %18 to i64
   %21 = and i64 %20, 1152921504606846975
   %.not17 = icmp eq i64 %21, 9
-  br i1 %.not17, label %99, label %22
+  br i1 %.not17, label %98, label %22
 
 22:                                               ; preds = %19
   %23 = getelementptr [10 x %struct._value_string], ptr @snmp_PDUs_vals, i64 0, i64 %20, i32 1
@@ -2758,7 +2758,7 @@ snmp_match_request_response.exit.thread26:        ; preds = %70
   %75 = or i32 %74, 2
   store i32 %75, ptr %73, align 4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br label %99
+  br label %98
 
 76:                                               ; preds = %63
   %77 = load i32, ptr @hf_snmp_response_to, align 4
@@ -2796,27 +2796,23 @@ proto_item_set_generated.exit41.i:                ; preds = %82, %79, %76
 
 snmp_match_request_response.exit.thread:          ; preds = %49, %60, %58, %67, %70
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br label %99
-
-snmp_match_request_response.exit.thread22:        ; preds = %proto_item_set_generated.exit41.i, %90
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br label %96
+  br label %98
 
 snmp_match_request_response.exit:                 ; preds = %90
   %93 = getelementptr inbounds i8, ptr %92, i64 28
   %94 = load i32, ptr %93, align 4
   %95 = or i32 %94, 2
   store i32 %95, ptr %93, align 4
+  br label %snmp_match_request_response.exit.thread22
+
+snmp_match_request_response.exit.thread22:        ; preds = %90, %proto_item_set_generated.exit41.i, %snmp_match_request_response.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br label %96
+  %96 = load i32, ptr @snmp_tap, align 4
+  %97 = load ptr, ptr %12, align 8
+  call void @tap_queue_packet(i32 noundef %96, ptr noundef %97, ptr noundef nonnull %.0.i.i) #11
+  br label %98
 
-96:                                               ; preds = %snmp_match_request_response.exit, %snmp_match_request_response.exit.thread22
-  %97 = load i32, ptr @snmp_tap, align 4
-  %98 = load ptr, ptr %12, align 8
-  call void @tap_queue_packet(i32 noundef %97, ptr noundef %98, ptr noundef nonnull %.0.i.i) #11
-  br label %99
-
-99:                                               ; preds = %snmp_match_request_response.exit.thread26, %snmp_match_request_response.exit.thread, %96, %19, %6
+98:                                               ; preds = %snmp_match_request_response.exit.thread26, %snmp_match_request_response.exit.thread, %snmp_match_request_response.exit.thread22, %19, %6
   ret i32 %17
 }
 

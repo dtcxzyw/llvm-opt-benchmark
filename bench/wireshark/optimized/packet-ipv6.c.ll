@@ -2069,7 +2069,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %26, %29
   %35 = load ptr, ptr %14, align 8
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %35, i32 noundef 25, ptr noundef nonnull @.str.846, i32 noundef %34) #13
   %36 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %23, ptr noundef nonnull @ei_ipv6_bogus_ipv6_version, ptr noundef nonnull @.str.847) #13
-  br label %352
+  br label %349
 
 37:                                               ; preds = %proto_item_set_hidden.exit
   %38 = call i32 @tvb_reported_length(ptr noundef %0) #13
@@ -2620,96 +2620,87 @@ export_pdu.exit:                                  ; preds = %291, %297
   %318 = getelementptr inbounds i8, ptr %10, i64 48
   %319 = call i32 @_setjmp(ptr noundef nonnull %318) #15
   %.not287 = icmp eq i32 %319, 0
-  br i1 %.not287, label %322, label %320
-
-320:                                              ; preds = %export_pdu.exit
-  %321 = getelementptr inbounds i8, ptr %10, i64 16
-  store volatile ptr %321, ptr %7, align 8
-  br label %323
+  %320 = getelementptr inbounds i8, ptr %10, i64 16
+  %.sink = select i1 %.not287, ptr null, ptr %320
+  store volatile ptr %.sink, ptr %7, align 8
+  %.0..0..0..0. = load volatile i32, ptr %8, align 4
+  %321 = and i32 %.0..0..0..0., 1
+  %.not288 = icmp eq i32 %321, 0
+  br i1 %.not288, label %324, label %322
 
 322:                                              ; preds = %export_pdu.exit
-  store volatile ptr null, ptr %7, align 8
-  br label %323
-
-323:                                              ; preds = %322, %320
-  %.0..0..0..0. = load volatile i32, ptr %8, align 4
-  %324 = and i32 %.0..0..0..0., 1
-  %.not288 = icmp eq i32 %324, 0
-  br i1 %.not288, label %327, label %325
-
-325:                                              ; preds = %323
   %.0..0..0..0.19 = load volatile i32, ptr %8, align 4
-  %326 = or i32 %.0..0..0..0.19, 2
-  store volatile i32 %326, ptr %8, align 4
-  br label %327
+  %323 = or i32 %.0..0..0..0.19, 2
+  store volatile i32 %323, ptr %8, align 4
+  br label %324
 
-327:                                              ; preds = %325, %323
+324:                                              ; preds = %322, %export_pdu.exit
   %.0..0..0..0.20 = load volatile i32, ptr %8, align 4
-  %328 = and i32 %.0..0..0..0.20, -2
-  store volatile i32 %328, ptr %8, align 4
+  %325 = and i32 %.0..0..0..0.20, -2
+  store volatile i32 %325, ptr %8, align 4
   %.0..0..0..0.21 = load volatile i32, ptr %8, align 4
-  %329 = icmp eq i32 %.0..0..0..0.21, 0
-  br i1 %329, label %330, label %333
+  %326 = icmp eq i32 %.0..0..0..0.21, 0
+  br i1 %326, label %327, label %330
 
-330:                                              ; preds = %327
+327:                                              ; preds = %324
   %.0..0..0..0.25 = load volatile ptr, ptr %7, align 8
-  %331 = icmp eq ptr %.0..0..0..0.25, null
-  br i1 %331, label %332, label %333
+  %328 = icmp eq ptr %.0..0..0..0.25, null
+  br i1 %328, label %329, label %330
+
+329:                                              ; preds = %327
+  call void @ipv6_dissect_next(i32 noundef %68, ptr noundef %317, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %13)
+  br label %330
+
+330:                                              ; preds = %329, %327, %324
+  %.0..0..0..0.22 = load volatile i32, ptr %8, align 4
+  %331 = and i32 %.0..0..0..0.22, 4
+  %.not289 = icmp eq i32 %331, 0
+  br i1 %.not289, label %332, label %340
 
 332:                                              ; preds = %330
-  call void @ipv6_dissect_next(i32 noundef %68, ptr noundef %317, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %13)
-  br label %333
-
-333:                                              ; preds = %332, %330, %327
-  %.0..0..0..0.22 = load volatile i32, ptr %8, align 4
-  %334 = and i32 %.0..0..0..0.22, 4
-  %.not289 = icmp eq i32 %334, 0
-  br i1 %.not289, label %335, label %343
-
-335:                                              ; preds = %333
   %.0..0..0..0.23 = load volatile i32, ptr %8, align 4
-  %336 = or i32 %.0..0..0..0.23, 4
-  store volatile i32 %336, ptr %8, align 4
-  %337 = getelementptr inbounds i8, ptr %283, i64 16
-  %338 = load ptr, ptr %337, align 8
-  %.not290 = icmp eq ptr %338, null
-  br i1 %.not290, label %343, label %339
+  %333 = or i32 %.0..0..0..0.23, 4
+  store volatile i32 %333, ptr %8, align 4
+  %334 = getelementptr inbounds i8, ptr %283, i64 16
+  %335 = load ptr, ptr %334, align 8
+  %.not290 = icmp eq ptr %335, null
+  br i1 %.not290, label %340, label %336
 
-339:                                              ; preds = %335
-  %340 = call ptr @proto_tree_get_parent(ptr noundef nonnull %338) #13
-  %341 = getelementptr inbounds i8, ptr %283, i64 24
-  %342 = load i32, ptr %341, align 8
-  call void @proto_item_set_len(ptr noundef %340, i32 noundef %342) #13
-  store ptr null, ptr %337, align 8
-  br label %343
+336:                                              ; preds = %332
+  %337 = call ptr @proto_tree_get_parent(ptr noundef nonnull %335) #13
+  %338 = getelementptr inbounds i8, ptr %283, i64 24
+  %339 = load i32, ptr %338, align 8
+  call void @proto_item_set_len(ptr noundef %337, i32 noundef %339) #13
+  store ptr null, ptr %334, align 8
+  br label %340
 
-343:                                              ; preds = %335, %339, %333
+340:                                              ; preds = %332, %336, %330
   %.0..0..0..0.24 = load volatile i32, ptr %8, align 4
-  %344 = and i32 %.0..0..0..0.24, 1
-  %.not291 = icmp eq i32 %344, 0
-  br i1 %.not291, label %345, label %347
+  %341 = and i32 %.0..0..0..0.24, 1
+  %.not291 = icmp eq i32 %341, 0
+  br i1 %.not291, label %342, label %344
 
-345:                                              ; preds = %343
+342:                                              ; preds = %340
   %.0..0..0..0.26 = load volatile ptr, ptr %7, align 8
   %.not292 = icmp eq ptr %.0..0..0..0.26, null
-  br i1 %.not292, label %347, label %346
+  br i1 %.not292, label %344, label %343
 
-346:                                              ; preds = %345
+343:                                              ; preds = %342
   %.0..0..0..0.27 = load volatile ptr, ptr %7, align 8
   call void @except_rethrow(ptr noundef %.0..0..0..0.27) #16
   unreachable
 
-347:                                              ; preds = %345, %343
-  %348 = getelementptr inbounds i8, ptr %10, i64 40
-  %349 = load volatile ptr, ptr %348, align 8
-  call void @except_free(ptr noundef %349) #13
-  %350 = call ptr @except_pop() #13
+344:                                              ; preds = %342, %340
+  %345 = getelementptr inbounds i8, ptr %10, i64 40
+  %346 = load volatile ptr, ptr %345, align 8
+  call void @except_free(ptr noundef %346) #13
+  %347 = call ptr @except_pop() #13
   store i32 %307, ptr %306, align 8
-  %351 = call i32 @tvb_captured_length(ptr noundef %0) #13
-  br label %352
+  %348 = call i32 @tvb_captured_length(ptr noundef %0) #13
+  br label %349
 
-352:                                              ; preds = %347, %33
-  %.0 = phi i32 [ 0, %33 ], [ %351, %347 ]
+349:                                              ; preds = %344, %33
+  %.0 = phi i32 [ 0, %33 ], [ %348, %344 ]
   ret i32 %.0
 }
 

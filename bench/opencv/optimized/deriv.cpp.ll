@@ -182,10 +182,10 @@ _ZNK2cv11_InputArray6getMatEi.exit54:             ; preds = %34, %37
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.preheader.split.us, %47
-  %storemerge = phi i32 [ 3, %47 ], [ -1, %.preheader.split.us ]
+  %.sink75 = phi i32 [ 3, %47 ], [ -1, %.preheader.split.us ]
   %.sink74 = phi i32 [ 10, %47 ], [ 0, %.preheader.split.us ]
   %.sink = phi i32 [ 3, %47 ], [ %46, %.preheader.split.us ]
-  store i32 %storemerge, ptr %13, align 4
+  store i32 %.sink75, ptr %13, align 4
   store i32 %.sink74, ptr %41, align 4
   store i32 %.sink, ptr %42, align 4
   br label %48
@@ -259,23 +259,23 @@ _ZNK2cv11_InputArray6getMatEi.exit54:             ; preds = %34, %37
   %. = select i1 %65, ptr %9, ptr %10
   %66 = select i1 %65, i32 %2, i32 %3
   switch i32 %66, label %68 [
-    i32 0, label %.sink.split75
+    i32 0, label %.sink.split76
     i32 1, label %67
   ]
 
 67:                                               ; preds = %.preheader.split
-  br label %.sink.split75
+  br label %.sink.split76
 
-.sink.split75:                                    ; preds = %.preheader.split, %67
-  %storemerge78 = phi i32 [ -1, %67 ], [ 3, %.preheader.split ]
-  %.sink77 = phi i32 [ 0, %67 ], [ 10, %.preheader.split ]
-  %.sink76 = phi i32 [ 1, %67 ], [ 3, %.preheader.split ]
-  store i32 %storemerge78, ptr %13, align 4
-  store i32 %.sink77, ptr %41, align 4
-  store i32 %.sink76, ptr %42, align 4
+.sink.split76:                                    ; preds = %.preheader.split, %67
+  %.sink79 = phi i32 [ -1, %67 ], [ 3, %.preheader.split ]
+  %.sink78 = phi i32 [ 0, %67 ], [ 10, %.preheader.split ]
+  %.sink77 = phi i32 [ 1, %67 ], [ 3, %.preheader.split ]
+  store i32 %.sink79, ptr %13, align 4
+  store i32 %.sink78, ptr %41, align 4
+  store i32 %.sink77, ptr %42, align 4
   br label %68
 
-68:                                               ; preds = %.sink.split75, %.preheader.split
+68:                                               ; preds = %.sink.split76, %.preheader.split
   %..sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %65, ptr %9, ptr %10
   %..sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %..sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 8
   %69 = load i32, ptr %..sroa.sel.v.sroa.sel.v.sroa.sel, align 8

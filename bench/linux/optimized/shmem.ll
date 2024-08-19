@@ -1029,8 +1029,7 @@ define internal fastcc void @shmem_undo_range(ptr noundef %0, i64 noundef %1, i6
 207:                                              ; preds = %198
   %208 = getelementptr [15 x i64], ptr %6, i64 0, i64 %190
   %209 = load i64, ptr %208, align 8
-  store i64 %209, ptr %7, align 8
-  br label %.loopexit
+  br label %.loopexit.sink.split
 
 210:                                              ; preds = %.preheader
   %211 = call i32 @__SCT__might_resched() #18
@@ -1066,8 +1065,7 @@ define internal fastcc void @shmem_undo_range(ptr noundef %0, i64 noundef %1, i6
   call void @folio_unlock(ptr noundef %193) #18
   %226 = getelementptr [15 x i64], ptr %6, i64 0, i64 %190
   %227 = load i64, ptr %226, align 8
-  store i64 %227, ptr %7, align 8
-  br label %.loopexit
+  br label %.loopexit.sink.split
 
 228:                                              ; preds = %222
   %229 = load volatile i64, ptr %193, align 8
@@ -1091,8 +1089,7 @@ define internal fastcc void @shmem_undo_range(ptr noundef %0, i64 noundef %1, i6
 
 240:                                              ; preds = %236
   call void @folio_unlock(ptr noundef %193) #18
-  store i64 %170, ptr %7, align 8
-  br label %.loopexit
+  br label %.loopexit.sink.split
 
 241:                                              ; preds = %236, %234, %232, %221
   call void @folio_unlock(ptr noundef %193) #18
@@ -1106,8 +1103,13 @@ define internal fastcc void @shmem_undo_range(ptr noundef %0, i64 noundef %1, i6
   %247 = icmp ult i64 %244, %246
   br i1 %247, label %.preheader, label %.loopexit, !llvm.loop !23
 
-.loopexit:                                        ; preds = %242, %240, %225, %207, %._crit_edge
-  %248 = phi i64 [ %191, %240 ], [ %191, %225 ], [ %191, %207 ], [ %179, %._crit_edge ], [ %243, %242 ]
+.loopexit.sink.split:                             ; preds = %207, %225, %240
+  %.sink = phi i64 [ %170, %240 ], [ %227, %225 ], [ %209, %207 ]
+  store i64 %.sink, ptr %7, align 8
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %242, %.loopexit.sink.split, %._crit_edge
+  %248 = phi i64 [ %179, %._crit_edge ], [ %191, %.loopexit.sink.split ], [ %243, %242 ]
   call void @folio_batch_remove_exceptionals(ptr noundef nonnull %5) #18
   %249 = load i8, ptr %5, align 8
   %250 = icmp eq i8 %249, 0
@@ -1210,7 +1212,7 @@ thread-pre-split.thread:                          ; preds = %138, %29
 
 .preheader:                                       ; preds = %29, %.preheader.backedge
   %37 = phi i8 [ %.be, %.preheader.backedge ], [ 0, %29 ]
-  %38 = phi ptr [ %.be26, %.preheader.backedge ], [ %35, %29 ]
+  %38 = phi ptr [ %.be27, %.preheader.backedge ], [ %35, %29 ]
   %39 = ptrtoint ptr %38 to i64
   switch i64 %39, label %41 [
     i64 1030, label %62
@@ -1323,7 +1325,7 @@ thread-pre-split.thread15:                        ; preds = %48
 
 .preheader.backedge:                              ; preds = %.loopexit13, %138
   %.be = phi i8 [ %63, %.loopexit13 ], [ 0, %138 ]
-  %.be26 = phi ptr [ %100, %.loopexit13 ], [ %145, %138 ]
+  %.be27 = phi ptr [ %100, %.loopexit13 ], [ %145, %138 ]
   br label %.preheader, !llvm.loop !25
 
 thread-pre-split:                                 ; preds = %.loopexit13
@@ -1338,8 +1340,13 @@ thread-pre-split:                                 ; preds = %.loopexit13
   %105 = getelementptr inbounds i8, ptr %104, i64 64
   br label %112
 
-106:                                              ; preds = %.thread12, %.thread, %134
-  %107 = phi i32 [ %114, %.thread ], [ %114, %134 ], [ %133, %.thread12 ]
+.sink.split:                                      ; preds = %112, %.thread12
+  %.ph21 = phi i32 [ %133, %.thread12 ], [ %114, %112 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #18
+  br label %106
+
+106:                                              ; preds = %.sink.split, %134
+  %107 = phi i32 [ %114, %134 ], [ %.ph21, %.sink.split ]
   %108 = add nuw nsw i64 %113, 1
   %109 = load i8, ptr %4, align 8
   %110 = zext i8 %109 to i64
@@ -1356,11 +1363,7 @@ thread-pre-split:                                 ; preds = %.loopexit13
   %117 = ptrtoint ptr %116 to i64
   %118 = and i64 %117, 1
   %119 = icmp eq i64 %118, 0
-  br i1 %119, label %.thread, label %120
-
-.thread:                                          ; preds = %112
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #18
-  br label %106
+  br i1 %119, label %.sink.split, label %120
 
 120:                                              ; preds = %112
   %121 = getelementptr i64, ptr %5, i64 %113
@@ -1386,8 +1389,7 @@ thread-pre-split:                                 ; preds = %.loopexit13
 
 .thread12:                                        ; preds = %126, %132
   %133 = add i32 %114, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #18
-  br label %106
+  br label %.sink.split
 
 134:                                              ; preds = %120
   %135 = icmp eq i32 %124, -12
@@ -6110,10 +6112,6 @@ define internal noundef i32 @shmem_show_options(ptr noundef %0, ptr nocapture no
   %52 = icmp eq ptr %51, null
   br i1 %52, label %.thread, label %53
 
-.thread:                                          ; preds = %49
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #18
-  br label %63
-
 53:                                               ; preds = %49
   %54 = getelementptr inbounds i8, ptr %7, i64 64
   tail call void @_raw_spin_lock(ptr noundef %54) #18
@@ -6123,8 +6121,7 @@ define internal noundef i32 @shmem_show_options(ptr noundef %0, ptr nocapture no
 
 .thread7:                                         ; preds = %53
   tail call void @_raw_spin_unlock(ptr noundef %54) #18
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #18
-  br label %63
+  br label %.thread
 
 57:                                               ; preds = %53
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %55, ptr nonnull elementtype(i32) %55) #18, !srcloc !24
@@ -6144,23 +6141,19 @@ define internal noundef i32 @shmem_show_options(ptr noundef %0, ptr nocapture no
 62:                                               ; preds = %61, %57
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #18
   call void @__mpol_put(ptr noundef nonnull %55) #18
-  br label %64
+  br label %.thread
 
-63:                                               ; preds = %.thread7, %.thread
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #18
-  br label %64
+.thread:                                          ; preds = %.thread7, %49, %62
+  %63 = getelementptr inbounds i8, ptr %7, i64 81
+  %64 = load i8, ptr %63, align 1, !range !41, !noundef !42
+  %65 = icmp eq i8 %64, 0
+  br i1 %65, label %67, label %66
 
-64:                                               ; preds = %63, %62
-  %65 = getelementptr inbounds i8, ptr %7, i64 81
-  %66 = load i8, ptr %65, align 1, !range !41, !noundef !42
-  %67 = icmp eq i8 %66, 0
-  br i1 %67, label %69, label %68
-
-68:                                               ; preds = %64
+66:                                               ; preds = %.thread
   call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.36) #18
-  br label %69
+  br label %67
 
-69:                                               ; preds = %68, %64
+67:                                               ; preds = %66, %.thread
   ret i32 0
 }
 

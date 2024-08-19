@@ -291,7 +291,7 @@ define internal i32 @dissect_winsrepl_pdu(ptr noundef %0, ptr noundef %1, ptr no
   %26 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12) #3
   %27 = load i32, ptr @hf_winsrepl_mess_type, align 4
   %28 = tail call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %27, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef %26) #3
-  switch i32 %26, label %174 [
+  switch i32 %26, label %170 [
     i32 0, label %29
     i32 1, label %39
     i32 2, label %49
@@ -310,7 +310,7 @@ define internal i32 @dissect_winsrepl_pdu(ptr noundef %0, ptr noundef %1, ptr no
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %35, ptr noundef %0, i32 noundef 20, i32 noundef 2, i32 noundef 0) #3
   %37 = load i32, ptr @hf_winsrepl_start_major_version, align 4
   %38 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %37, ptr noundef %0, i32 noundef 22, i32 noundef 2, i32 noundef 0) #3
-  br label %174
+  br label %170
 
 39:                                               ; preds = %4
   %40 = load ptr, ptr %13, align 8
@@ -324,7 +324,7 @@ define internal i32 @dissect_winsrepl_pdu(ptr noundef %0, ptr noundef %1, ptr no
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %45, ptr noundef %0, i32 noundef 20, i32 noundef 2, i32 noundef 0) #3
   %47 = load i32, ptr @hf_winsrepl_start_major_version, align 4
   %48 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %47, ptr noundef %0, i32 noundef 22, i32 noundef 2, i32 noundef 0) #3
-  br label %174
+  br label %170
 
 49:                                               ; preds = %4
   %50 = load ptr, ptr %13, align 8
@@ -339,7 +339,7 @@ define internal i32 @dissect_winsrepl_pdu(ptr noundef %0, ptr noundef %1, ptr no
   %56 = load ptr, ptr %12, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %56, ptr noundef nonnull @.str.120, i32 noundef %53) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  br label %174
+  br label %170
 
 57:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
@@ -353,10 +353,10 @@ define internal i32 @dissect_winsrepl_pdu(ptr noundef %0, ptr noundef %1, ptr no
     i32 1, label %66
     i32 2, label %69
     i32 3, label %73
-    i32 4, label %162
-    i32 5, label %165
-    i32 8, label %168
-    i32 9, label %171
+    i32 4, label %158
+    i32 5, label %161
+    i32 8, label %164
+    i32 9, label %167
   ]
 
 63:                                               ; preds = %57
@@ -408,7 +408,7 @@ define internal i32 @dissect_winsrepl_pdu(ptr noundef %0, ptr noundef %1, ptr no
   br label %85
 
 85:                                               ; preds = %dissect_winsrepl_wins_name.exit.i.i, %.lr.ph.i.i
-  %.021.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %161, %dissect_winsrepl_wins_name.exit.i.i ]
+  %.021.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %157, %dissect_winsrepl_wins_name.exit.i.i ]
   %.01920.i.i = phi i32 [ 24, %.lr.ph.i.i ], [ %.0.i.i.i, %dissect_winsrepl_wins_name.exit.i.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 61, ptr nonnull %10)
@@ -465,7 +465,7 @@ define internal i32 @dissect_winsrepl_pdu(ptr noundef %0, ptr noundef %1, ptr no
   %120 = call ptr @tvb_address_to_str(ptr noundef %119, ptr noundef %0, i32 noundef 2, i32 noundef %113) #3
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %118, ptr noundef nonnull @.str.135, ptr noundef %120) #3
   %121 = add i32 %reass.sub.i.i.i, 24
-  br label %155
+  br label %151
 
 122:                                              ; preds = %97
   %123 = load ptr, ptr %9, align 8
@@ -485,9 +485,9 @@ define internal i32 @dissect_winsrepl_pdu(ptr noundef %0, ptr noundef %1, ptr no
   %.not.i.i.i.i.i = icmp eq ptr %125, null
   br label %130
 
-130:                                              ; preds = %151, %.lr.ph.i.i.i.i
-  %.032.i.i.i.i = phi i32 [ %129, %.lr.ph.i.i.i.i ], [ %143, %151 ]
-  %.03031.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i.i ], [ %152, %151 ]
+130:                                              ; preds = %dissect_winsrepl_wins_ip.exit.i.i.i.i, %.lr.ph.i.i.i.i
+  %.032.i.i.i.i = phi i32 [ %129, %.lr.ph.i.i.i.i ], [ %143, %dissect_winsrepl_wins_ip.exit.i.i.i.i ]
+  %.03031.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i.i ], [ %148, %dissect_winsrepl_wins_ip.exit.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %5, align 8
   br i1 %.not.i.i.i.i.i, label %dissect_winsrepl_wins_ip.exit.i.i.i.i, label %131
@@ -519,96 +519,85 @@ dissect_winsrepl_wins_ip.exit.i.i.i.i:            ; preds = %131, %130
   %144 = load ptr, ptr %81, align 8
   %145 = call ptr @address_to_str(ptr noundef %144, ptr noundef nonnull %8) #3
   %146 = icmp eq i32 %.03031.i.i.i.i, 0
-  br i1 %146, label %147, label %149
-
-147:                                              ; preds = %dissect_winsrepl_wins_ip.exit.i.i.i.i
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %123, ptr noundef nonnull @.str.135, ptr noundef %145) #3
-  %148 = load ptr, ptr %6, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %148, ptr noundef nonnull @.str.135, ptr noundef %145) #3
-  br label %151
-
-149:                                              ; preds = %dissect_winsrepl_wins_ip.exit.i.i.i.i
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %123, ptr noundef nonnull @.str.137, ptr noundef %145) #3
-  %150 = load ptr, ptr %6, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %150, ptr noundef nonnull @.str.137, ptr noundef %145) #3
-  br label %151
-
-151:                                              ; preds = %149, %147
-  %152 = add nuw i32 %.03031.i.i.i.i, 1
-  %exitcond.not.i.i.i.i = icmp eq i32 %152, %126
+  %.str.135..str.137.i.i.i.i = select i1 %146, ptr @.str.135, ptr @.str.137
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %123, ptr noundef nonnull %.str.135..str.137.i.i.i.i, ptr noundef %145) #3
+  %147 = load ptr, ptr %6, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %147, ptr noundef nonnull %.str.135..str.137.i.i.i.i, ptr noundef %145) #3
+  %148 = add nuw i32 %.03031.i.i.i.i, 1
+  %exitcond.not.i.i.i.i = icmp eq i32 %148, %126
   br i1 %exitcond.not.i.i.i.i, label %dissect_winsrepl_wins_address_list.exit.i.i.i, label %130, !llvm.loop !4
 
-dissect_winsrepl_wins_address_list.exit.i.i.i:    ; preds = %151, %122
-  %.0.lcssa.i.i.i.i = phi i32 [ %129, %122 ], [ %143, %151 ]
-  %153 = load ptr, ptr %6, align 8
-  %154 = sub i32 %.0.lcssa.i.i.i.i, %113
-  call void @proto_item_set_len(ptr noundef %153, i32 noundef %154) #3
+dissect_winsrepl_wins_address_list.exit.i.i.i:    ; preds = %dissect_winsrepl_wins_ip.exit.i.i.i.i, %122
+  %.0.lcssa.i.i.i.i = phi i32 [ %129, %122 ], [ %143, %dissect_winsrepl_wins_ip.exit.i.i.i.i ]
+  %149 = load ptr, ptr %6, align 8
+  %150 = sub i32 %.0.lcssa.i.i.i.i, %113
+  call void @proto_item_set_len(ptr noundef %149, i32 noundef %150) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  br label %155
+  br label %151
 
-155:                                              ; preds = %dissect_winsrepl_wins_address_list.exit.i.i.i, %115
+151:                                              ; preds = %dissect_winsrepl_wins_address_list.exit.i.i.i, %115
   %.065.i.i.i = phi i32 [ %.0.lcssa.i.i.i.i, %dissect_winsrepl_wins_address_list.exit.i.i.i ], [ %121, %115 ]
-  %156 = load i32, ptr @hf_winsrepl_name_unknown, align 4
-  %157 = call ptr @proto_tree_add_item(ptr noundef %.066.i.i.i, i32 noundef %156, ptr noundef %0, i32 noundef %.065.i.i.i, i32 noundef 4, i32 noundef 0) #3
-  %158 = add i32 %.065.i.i.i, 4
-  %159 = load ptr, ptr %9, align 8
-  %160 = sub i32 %158, %.01920.i.i
-  call void @proto_item_set_len(ptr noundef %159, i32 noundef %160) #3
+  %152 = load i32, ptr @hf_winsrepl_name_unknown, align 4
+  %153 = call ptr @proto_tree_add_item(ptr noundef %.066.i.i.i, i32 noundef %152, ptr noundef %0, i32 noundef %.065.i.i.i, i32 noundef 4, i32 noundef 0) #3
+  %154 = add i32 %.065.i.i.i, 4
+  %155 = load ptr, ptr %9, align 8
+  %156 = sub i32 %154, %.01920.i.i
+  call void @proto_item_set_len(ptr noundef %155, i32 noundef %156) #3
   br label %dissect_winsrepl_wins_name.exit.i.i
 
-dissect_winsrepl_wins_name.exit.i.i:              ; preds = %155, %95
-  %.0.i.i.i = phi i32 [ %93, %95 ], [ %158, %155 ]
+dissect_winsrepl_wins_name.exit.i.i:              ; preds = %151, %95
+  %.0.i.i.i = phi i32 [ %93, %95 ], [ %154, %151 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 61, ptr nonnull %10)
-  %161 = add nuw i32 %.021.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %161, %78
+  %157 = add nuw i32 %.021.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %157, %78
   br i1 %exitcond.not.i.i, label %dissect_winsrepl_replication.exit, label %85, !llvm.loop !6
 
-162:                                              ; preds = %57
-  %163 = load ptr, ptr %13, align 8
-  call void @col_set_str(ptr noundef %163, i32 noundef 25, ptr noundef nonnull @.str.101) #3
+158:                                              ; preds = %57
+  %159 = load ptr, ptr %13, align 8
+  call void @col_set_str(ptr noundef %159, i32 noundef 25, ptr noundef nonnull @.str.101) #3
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %17, ptr noundef nonnull @.str.125) #3
-  %164 = load ptr, ptr %11, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %164, ptr noundef nonnull @.str.125) #3
+  %160 = load ptr, ptr %11, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %160, ptr noundef nonnull @.str.125) #3
   call fastcc void @dissect_winsrepl_table_reply(ptr noundef %0, ptr noundef %59)
   br label %dissect_winsrepl_replication.exit
 
-165:                                              ; preds = %57
-  %166 = load ptr, ptr %13, align 8
-  call void @col_set_str(ptr noundef %166, i32 noundef 25, ptr noundef nonnull @.str.102) #3
+161:                                              ; preds = %57
+  %162 = load ptr, ptr %13, align 8
+  call void @col_set_str(ptr noundef %162, i32 noundef 25, ptr noundef nonnull @.str.102) #3
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %17, ptr noundef nonnull @.str.126) #3
-  %167 = load ptr, ptr %11, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %167, ptr noundef nonnull @.str.126) #3
+  %163 = load ptr, ptr %11, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %163, ptr noundef nonnull @.str.126) #3
   call fastcc void @dissect_winsrepl_table_reply(ptr noundef %0, ptr noundef %59)
   br label %dissect_winsrepl_replication.exit
 
-168:                                              ; preds = %57
-  %169 = load ptr, ptr %13, align 8
-  call void @col_set_str(ptr noundef %169, i32 noundef 25, ptr noundef nonnull @.str.103) #3
+164:                                              ; preds = %57
+  %165 = load ptr, ptr %13, align 8
+  call void @col_set_str(ptr noundef %165, i32 noundef 25, ptr noundef nonnull @.str.103) #3
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %17, ptr noundef nonnull @.str.127) #3
-  %170 = load ptr, ptr %11, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %170, ptr noundef nonnull @.str.127) #3
+  %166 = load ptr, ptr %11, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %166, ptr noundef nonnull @.str.127) #3
   call fastcc void @dissect_winsrepl_table_reply(ptr noundef %0, ptr noundef %59)
   br label %dissect_winsrepl_replication.exit
 
-171:                                              ; preds = %57
-  %172 = load ptr, ptr %13, align 8
-  call void @col_set_str(ptr noundef %172, i32 noundef 25, ptr noundef nonnull @.str.104) #3
+167:                                              ; preds = %57
+  %168 = load ptr, ptr %13, align 8
+  call void @col_set_str(ptr noundef %168, i32 noundef 25, ptr noundef nonnull @.str.104) #3
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %17, ptr noundef nonnull @.str.128) #3
-  %173 = load ptr, ptr %11, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %173, ptr noundef nonnull @.str.128) #3
+  %169 = load ptr, ptr %11, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %169, ptr noundef nonnull @.str.128) #3
   call fastcc void @dissect_winsrepl_table_reply(ptr noundef %0, ptr noundef %59)
   br label %dissect_winsrepl_replication.exit
 
-dissect_winsrepl_replication.exit:                ; preds = %dissect_winsrepl_wins_name.exit.i.i, %57, %63, %66, %69, %73, %162, %165, %168, %171
+dissect_winsrepl_replication.exit:                ; preds = %dissect_winsrepl_wins_name.exit.i.i, %57, %63, %66, %69, %73, %158, %161, %164, %167
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  br label %174
+  br label %170
 
-174:                                              ; preds = %dissect_winsrepl_replication.exit, %49, %39, %29, %4
-  %175 = call i32 @tvb_captured_length(ptr noundef %0) #3
-  ret i32 %175
+170:                                              ; preds = %dissect_winsrepl_replication.exit, %49, %39, %29, %4
+  %171 = call i32 @tvb_captured_length(ptr noundef %0) #3
+  ret i32 %171
 }
 
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1

@@ -5130,11 +5130,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @uncore_box_ref(ptr nocaptu
   store ptr %4, ptr %5, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %.loopexit16.thread, label %8
-
-.loopexit16.thread:                               ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
-  br label %.loopexit15
+  br i1 %7, label %.loopexit15.sink.split, label %8
 
 8:                                                ; preds = %3
   %9 = zext i32 %1 to i64
@@ -5271,7 +5267,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @uncore_box_ref(ptr nocaptu
 .thread:                                          ; preds = %33
   %90 = load ptr, ptr %4, align 8
   %91 = icmp eq ptr %90, %4
-  br i1 %91, label %.loopexit17, label %.preheader
+  br i1 %91, label %.loopexit15.sink.split, label %.preheader
 
 .preheader:                                       ; preds = %.thread, %.preheader
   %92 = phi ptr [ %94, %.preheader ], [ %90, %.thread ]
@@ -5286,11 +5282,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @uncore_box_ref(ptr nocaptu
   store volatile ptr %92, ptr %95, align 8
   call void @kfree(ptr noundef %93) #19
   %98 = icmp eq ptr %94, %4
-  br i1 %98, label %.loopexit17, label %.preheader, !llvm.loop !103
-
-.loopexit17:                                      ; preds = %.preheader, %.thread
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
-  br label %.loopexit15
+  br i1 %98, label %.loopexit15.sink.split, label %.preheader, !llvm.loop !103
 
 .loopexit16:                                      ; preds = %77, %.loopexit20
   %.pr = load ptr, ptr %0, align 8
@@ -5367,8 +5359,13 @@ define internal fastcc noundef range(i32 -12, 1) i32 @uncore_box_ref(ptr nocaptu
   %145 = icmp eq ptr %144, null
   br i1 %145, label %.loopexit15, label %102, !llvm.loop !105
 
-.loopexit15:                                      ; preds = %.loopexit, %.loopexit16.thread, %.loopexit17, %.loopexit16
-  %146 = phi i32 [ -12, %.loopexit17 ], [ 0, %.loopexit16 ], [ 0, %.loopexit16.thread ], [ 0, %.loopexit ]
+.loopexit15.sink.split:                           ; preds = %.preheader, %.thread, %3
+  %.ph = phi i32 [ 0, %3 ], [ -12, %.thread ], [ -12, %.preheader ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
+  br label %.loopexit15
+
+.loopexit15:                                      ; preds = %.loopexit, %.loopexit15.sink.split, %.loopexit16
+  %146 = phi i32 [ 0, %.loopexit16 ], [ %.ph, %.loopexit15.sink.split ], [ 0, %.loopexit ]
   ret i32 %146
 }
 

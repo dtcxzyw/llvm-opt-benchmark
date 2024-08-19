@@ -4464,8 +4464,8 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.6783306594713324768.exit.th
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #26, !noalias !742
   unreachable
 
-common.resume:                                    ; preds = %228, %337, %220, %295, %247, %.body.i, %202
-  %common.resume.op = phi { ptr, i32 } [ %203, %202 ], [ %eh.lpad-body.i, %.body.i ], [ %248, %247 ], [ %296, %295 ], [ %229, %228 ], [ %338, %337 ], [ %221, %220 ]
+common.resume:                                    ; preds = %228, %336, %220, %295, %247, %.body.i, %202
+  %common.resume.op = phi { ptr, i32 } [ %203, %202 ], [ %eh.lpad-body.i, %.body.i ], [ %248, %247 ], [ %296, %295 ], [ %229, %228 ], [ %337, %336 ], [ %221, %220 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr61drop_in_place$LT$regex_automata..util..captures..Captures$GT$17hb0fd03f12e752064E.exit.i": ; preds = %210, %206, %"_ZN4core3ptr62drop_in_place$LT$regex_automata..util..captures..GroupInfo$GT$17hf9ea9d6bd0cb7701E.llvm.6783306594713324768.exit.i.i"
@@ -4483,7 +4483,7 @@ _ZN5regex5regex6string5Regex11captures_at17h069c1123ade63726E.exit: ; preds = %.
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13), !noalias !747
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   %216 = invoke noundef nonnull align 8 ptr @_ZN10ockam_core5error5Error3new17h194e1aa8852736fbE(i8 noundef 5, i8 noundef 12, ptr noalias noundef nonnull readonly align 1 @anon.6a0f52975b2d5d105a52dfd87a792a1e.121, i64 noundef 17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6a0f52975b2d5d105a52dfd87a792a1e.122)
-          to label %217 unwind label %337
+          to label %217 unwind label %336
 
 217:                                              ; preds = %_ZN5regex5regex6string5Regex11captures_at17h069c1123ade63726E.exit
   store ptr %216, ptr %17, align 8
@@ -4532,13 +4532,13 @@ _ZN5regex5regex6string5Regex11captures_at17h069c1123ade63726E.exit: ; preds = %.
   store ptr %216, ptr %0, align 8
   %227 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 1000000000, ptr %227, align 8
-  br label %334
+  br label %333
 
 228:                                              ; preds = %287, %235, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h778d244e98dfbca8E.exit68.thread", %237, %230, %224
   %229 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr51drop_in_place$LT$regex..regex..string..Captures$GT$17haa7762fc0c2d58fcE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %19) #25
-          to label %common.resume unwind label %335
+          to label %common.resume unwind label %334
 
 230:                                              ; preds = %224
   %231 = extractvalue { ptr, i64 } %225, 0
@@ -4619,7 +4619,7 @@ _ZN5regex5regex6string5Regex11captures_at17h069c1123ade63726E.exit: ; preds = %.
 
 "_ZN4core3ptr51drop_in_place$LT$regex..regex..string..Captures$GT$17haa7762fc0c2d58fcE.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$regex_automata..util..captures..GroupInfo$GT$17hf9ea9d6bd0cb7701E.llvm.6783306594713324768.exit.i.i44", %253, %257
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !878
-  br label %334
+  br label %333
 
 261:                                              ; preds = %237
   %262 = getelementptr inbounds i8, ptr %19, i64 64
@@ -4739,7 +4739,6 @@ _ZN5regex5regex6string5Regex11captures_at17h069c1123ade63726E.exit: ; preds = %.
 
 "_ZN4core3ptr51drop_in_place$LT$regex..regex..string..Captures$GT$17haa7762fc0c2d58fcE.exit51": ; preds = %"_ZN4core3ptr62drop_in_place$LT$regex_automata..util..captures..GroupInfo$GT$17hf9ea9d6bd0cb7701E.llvm.6783306594713324768.exit.i.i48", %301, %305
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !912
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %19)
   br label %333
 
 309:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h23ef7677179467b7E.llvm.17557471103795588278.exit7.i.i", %282, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h23ef7677179467b7E.llvm.17557471103795588278.exit.thread.i.i"
@@ -4811,24 +4810,21 @@ _ZN5regex5regex6string5Regex11captures_at17h069c1123ade63726E.exit: ; preds = %.
   %332 = mul nuw nsw i32 %331, 1000000
   br label %288
 
-333:                                              ; preds = %334, %"_ZN4core3ptr51drop_in_place$LT$regex..regex..string..Captures$GT$17haa7762fc0c2d58fcE.exit51"
+333:                                              ; preds = %226, %"_ZN4core3ptr51drop_in_place$LT$regex..regex..string..Captures$GT$17haa7762fc0c2d58fcE.exit", %"_ZN4core3ptr51drop_in_place$LT$regex..regex..string..Captures$GT$17haa7762fc0c2d58fcE.exit51"
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %19)
   ret void
 
-334:                                              ; preds = %"_ZN4core3ptr51drop_in_place$LT$regex..regex..string..Captures$GT$17haa7762fc0c2d58fcE.exit", %226
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %19)
-  br label %333
-
-335:                                              ; preds = %337, %228
-  %336 = landingpad { ptr, i32 }
+334:                                              ; preds = %336, %228
+  %335 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #26
   unreachable
 
-337:                                              ; preds = %_ZN5regex5regex6string5Regex11captures_at17h069c1123ade63726E.exit
-  %338 = landingpad { ptr, i32 }
+336:                                              ; preds = %_ZN5regex5regex6string5Regex11captures_at17h069c1123ade63726E.exit
+  %337 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$regex..regex..string..Captures$GT$$GT$17hb7ca955b29d70b95E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %18) #25
-          to label %common.resume unwind label %335
+          to label %common.resume unwind label %334
 }
 
 ; Function Attrs: nonlazybind uwtable

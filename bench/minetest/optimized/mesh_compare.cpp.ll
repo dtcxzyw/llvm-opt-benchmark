@@ -492,11 +492,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorISt5arr
   %call5.i.i.i.i4.i.i232 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %call5.i.i.i.i4.i.i232, i8 0, i64 16, i1 false)
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i, 144
-  br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont.thread507, label %if.end.i.i.i.i.i.i.i
-
-invoke.cont.thread507:                            ; preds = %if.then.i.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %tris) #16
-  br label %for.body.lr.ph
+  br i1 %cmp.i.i.i.i.i.i.i, label %for.body.lr.ph, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i4.i.i232, i64 16
@@ -508,13 +504,10 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %__first.addr.04.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %call5.i.i.i.i4.i.i232, i64 16, i1 false), !tbaa.struct !47
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !48
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %for.body.lr.ph, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !48
 
-invoke.cont:                                      ; preds = %for.body.i.i.i.i.i.i.i.i.i
+for.body.lr.ph:                                   ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %tris) #16
-  br label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %invoke.cont, %invoke.cont.thread507
   %3 = getelementptr inbounds i8, ptr %tris, i64 8
   store i32 0, ptr %3, align 8, !tbaa !38
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %tris, i64 16

@@ -149,8 +149,7 @@ define dso_local void @RemoveObjects(ptr nocapture noundef readonly %0) local_un
 26:                                               ; preds = %25
   %27 = getelementptr inbounds i8, ptr %17, i64 8
   %28 = load ptr, ptr %27, align 8
-  store ptr %28, ptr %3, align 8
-  br label %.thread201.i
+  br label %.thread201.sink.split.i
 
 29:                                               ; preds = %25, %25
   %30 = getelementptr inbounds i8, ptr %17, i64 8
@@ -168,13 +167,11 @@ define dso_local void @RemoveObjects(ptr nocapture noundef readonly %0) local_un
 
 schema_does_not_exist_skipping.exit.i:            ; preds = %35
   %37 = load ptr, ptr %33, align 8
-  store ptr %37, ptr %3, align 8
-  br label %.thread201.i
+  br label %.thread201.sink.split.i
 
 38:                                               ; preds = %35, %29
   %39 = call ptr @TypeNameToString(ptr noundef nonnull %17) #5
-  store ptr %39, ptr %3, align 8
-  br label %.thread201.i
+  br label %.thread201.sink.split.i
 
 40:                                               ; preds = %25
   %41 = call ptr @makeRangeVarFromNameList(ptr noundef %17) #5
@@ -190,13 +187,11 @@ schema_does_not_exist_skipping.exit.i:            ; preds = %35
 
 schema_does_not_exist_skipping.exit101.i:         ; preds = %44
   %46 = load ptr, ptr %42, align 8
-  store ptr %46, ptr %3, align 8
-  br label %.thread201.i
+  br label %.thread201.sink.split.i
 
 47:                                               ; preds = %44, %40
   %48 = call ptr @NameListToString(ptr noundef %17) #5
-  store ptr %48, ptr %3, align 8
-  br label %.thread201.i
+  br label %.thread201.sink.split.i
 
 49:                                               ; preds = %25
   %50 = call ptr @makeRangeVarFromNameList(ptr noundef %17) #5
@@ -212,19 +207,16 @@ schema_does_not_exist_skipping.exit101.i:         ; preds = %44
 
 schema_does_not_exist_skipping.exit105.i:         ; preds = %53
   %55 = load ptr, ptr %51, align 8
-  store ptr %55, ptr %3, align 8
-  br label %.thread201.i
+  br label %.thread201.sink.split.i
 
 56:                                               ; preds = %53, %49
   %57 = call ptr @NameListToString(ptr noundef %17) #5
-  store ptr %57, ptr %3, align 8
-  br label %.thread201.i
+  br label %.thread201.sink.split.i
 
 58:                                               ; preds = %25
   %59 = getelementptr inbounds i8, ptr %17, i64 8
   %60 = load ptr, ptr %59, align 8
-  store ptr %60, ptr %3, align 8
-  br label %.thread201.i
+  br label %.thread201.sink.split.i
 
 61:                                               ; preds = %25
   %62 = call ptr @makeRangeVarFromNameList(ptr noundef %17) #5
@@ -240,13 +232,11 @@ schema_does_not_exist_skipping.exit105.i:         ; preds = %53
 
 schema_does_not_exist_skipping.exit109.i:         ; preds = %65
   %67 = load ptr, ptr %63, align 8
-  store ptr %67, ptr %3, align 8
-  br label %.thread201.i
+  br label %.thread201.sink.split.i
 
 68:                                               ; preds = %65, %61
   %69 = call ptr @NameListToString(ptr noundef %17) #5
-  store ptr %69, ptr %3, align 8
-  br label %.thread201.i
+  br label %.thread201.sink.split.i
 
 70:                                               ; preds = %25
   %71 = call ptr @makeRangeVarFromNameList(ptr noundef %17) #5
@@ -262,13 +252,11 @@ schema_does_not_exist_skipping.exit109.i:         ; preds = %65
 
 schema_does_not_exist_skipping.exit113.i:         ; preds = %74
   %76 = load ptr, ptr %72, align 8
-  store ptr %76, ptr %3, align 8
-  br label %.thread201.i
+  br label %.thread201.sink.split.i
 
 77:                                               ; preds = %74, %70
   %78 = call ptr @NameListToString(ptr noundef %17) #5
-  store ptr %78, ptr %3, align 8
-  br label %.thread201.i
+  br label %.thread201.sink.split.i
 
 79:                                               ; preds = %25
   %80 = call ptr @makeRangeVarFromNameList(ptr noundef %17) #5
@@ -284,13 +272,11 @@ schema_does_not_exist_skipping.exit113.i:         ; preds = %74
 
 schema_does_not_exist_skipping.exit117.i:         ; preds = %83
   %85 = load ptr, ptr %81, align 8
-  store ptr %85, ptr %3, align 8
-  br label %.thread201.i
+  br label %.thread201.sink.split.i
 
 86:                                               ; preds = %83, %79
   %87 = call ptr @NameListToString(ptr noundef %17) #5
-  store ptr %87, ptr %3, align 8
-  br label %.thread201.i
+  br label %.thread201.sink.split.i
 
 88:                                               ; preds = %25
   %89 = call ptr @makeRangeVarFromNameList(ptr noundef %17) #5
@@ -306,13 +292,11 @@ schema_does_not_exist_skipping.exit117.i:         ; preds = %83
 
 schema_does_not_exist_skipping.exit121.i:         ; preds = %92
   %94 = load ptr, ptr %90, align 8
-  store ptr %94, ptr %3, align 8
-  br label %.thread201.i
+  br label %.thread201.sink.split.i
 
 95:                                               ; preds = %92, %88
   %96 = call ptr @NameListToString(ptr noundef %17) #5
-  store ptr %96, ptr %3, align 8
-  br label %.thread201.i
+  br label %.thread201.sink.split.i
 
 97:                                               ; preds = %25
   %98 = call ptr @makeRangeVarFromNameList(ptr noundef %17) #5
@@ -328,19 +312,16 @@ schema_does_not_exist_skipping.exit121.i:         ; preds = %92
 
 schema_does_not_exist_skipping.exit125.i:         ; preds = %101
   %103 = load ptr, ptr %99, align 8
-  store ptr %103, ptr %3, align 8
-  br label %.thread201.i
+  br label %.thread201.sink.split.i
 
 104:                                              ; preds = %101, %97
   %105 = call ptr @NameListToString(ptr noundef %17) #5
-  store ptr %105, ptr %3, align 8
-  br label %.thread201.i
+  br label %.thread201.sink.split.i
 
 106:                                              ; preds = %25
   %107 = getelementptr inbounds i8, ptr %17, i64 8
   %108 = load ptr, ptr %107, align 8
-  store ptr %108, ptr %3, align 8
-  br label %.thread201.i
+  br label %.thread201.sink.split.i
 
 109:                                              ; preds = %25
   %110 = getelementptr inbounds i8, ptr %17, i64 8
@@ -358,8 +339,7 @@ schema_does_not_exist_skipping.exit125.i:         ; preds = %101
 
 schema_does_not_exist_skipping.exit129.i:         ; preds = %115
   %117 = load ptr, ptr %113, align 8
-  store ptr %117, ptr %3, align 8
-  br label %.thread201.i
+  br label %.thread201.sink.split.i
 
 118:                                              ; preds = %115, %109
   %119 = getelementptr inbounds i8, ptr %17, i64 16
@@ -453,8 +433,7 @@ type_in_list_does_not_exist_skipping.exit124:     ; preds = %schema_does_not_exi
 
 schema_does_not_exist_skipping.exit133.i:         ; preds = %155
   %157 = load ptr, ptr %153, align 8
-  store ptr %157, ptr %3, align 8
-  br label %.thread201.i
+  br label %.thread201.sink.split.i
 
 158:                                              ; preds = %155, %149
   %159 = getelementptr inbounds i8, ptr %17, i64 16
@@ -548,8 +527,7 @@ type_in_list_does_not_exist_skipping.exit107:     ; preds = %schema_does_not_exi
 
 schema_does_not_exist_skipping.exit137.i:         ; preds = %195
   %197 = load ptr, ptr %193, align 8
-  store ptr %197, ptr %3, align 8
-  br label %.thread201.i
+  br label %.thread201.sink.split.i
 
 198:                                              ; preds = %195, %189
   %199 = getelementptr inbounds i8, ptr %17, i64 16
@@ -643,8 +621,7 @@ type_in_list_does_not_exist_skipping.exit90:      ; preds = %schema_does_not_exi
 
 schema_does_not_exist_skipping.exit141.i:         ; preds = %235
   %237 = load ptr, ptr %233, align 8
-  store ptr %237, ptr %3, align 8
-  br label %.thread201.i
+  br label %.thread201.sink.split.i
 
 238:                                              ; preds = %235, %229
   %239 = getelementptr inbounds i8, ptr %17, i64 16
@@ -738,8 +715,7 @@ type_in_list_does_not_exist_skipping.exit73:      ; preds = %schema_does_not_exi
 
 schema_does_not_exist_skipping.exit145.i:         ; preds = %275
   %277 = load ptr, ptr %273, align 8
-  store ptr %277, ptr %3, align 8
-  br label %.thread201.i
+  br label %.thread201.sink.split.i
 
 278:                                              ; preds = %275, %269
   %279 = getelementptr inbounds i8, ptr %17, i64 16
@@ -811,14 +787,12 @@ type_in_list_does_not_exist_skipping.exit56:      ; preds = %schema_does_not_exi
 .loopexit137:                                     ; preds = %301, %.lr.ph.i41, %278
   %305 = load ptr, ptr %270, align 8
   %306 = call ptr @NameListToString(ptr noundef %305) #5
-  store ptr %306, ptr %3, align 8
-  br label %.thread201.i
+  br label %.thread201.sink.split.i
 
 307:                                              ; preds = %25
   %308 = getelementptr inbounds i8, ptr %17, i64 8
   %309 = load ptr, ptr %308, align 8
-  store ptr %309, ptr %3, align 8
-  br label %.thread201.i
+  br label %.thread201.sink.split.i
 
 310:                                              ; preds = %25
   %311 = getelementptr i8, ptr %17, i64 16
@@ -1097,8 +1071,7 @@ list_length.exit167.i:                            ; preds = %416
 428:                                              ; preds = %25
   %429 = getelementptr inbounds i8, ptr %17, i64 8
   %430 = load ptr, ptr %429, align 8
-  store ptr %430, ptr %3, align 8
-  br label %.thread201.i
+  br label %.thread201.sink.split.i
 
 431:                                              ; preds = %25
   %432 = call fastcc zeroext i1 @owningrel_does_not_exist_skipping(ptr noundef %17, ptr noundef nonnull %2, ptr noundef nonnull %3)
@@ -1124,14 +1097,12 @@ list_length.exit169.i:                            ; preds = %431
 443:                                              ; preds = %25
   %444 = getelementptr inbounds i8, ptr %17, i64 8
   %445 = load ptr, ptr %444, align 8
-  store ptr %445, ptr %3, align 8
-  br label %.thread201.i
+  br label %.thread201.sink.split.i
 
 446:                                              ; preds = %25
   %447 = getelementptr inbounds i8, ptr %17, i64 8
   %448 = load ptr, ptr %447, align 8
-  store ptr %448, ptr %3, align 8
-  br label %.thread201.i
+  br label %.thread201.sink.split.i
 
 449:                                              ; preds = %25
   %450 = call ptr @list_copy_tail(ptr noundef %17, i32 noundef 1) #5
@@ -1148,8 +1119,7 @@ list_length.exit169.i:                            ; preds = %431
 
 schema_does_not_exist_skipping.exit173.i:         ; preds = %454
   %456 = load ptr, ptr %452, align 8
-  store ptr %456, ptr %3, align 8
-  br label %.thread201.i
+  br label %.thread201.sink.split.i
 
 457:                                              ; preds = %454, %449
   store ptr @.str.28, ptr %2, align 8
@@ -1177,8 +1147,7 @@ schema_does_not_exist_skipping.exit173.i:         ; preds = %454
 
 schema_does_not_exist_skipping.exit177.i:         ; preds = %468
   %470 = load ptr, ptr %466, align 8
-  store ptr %470, ptr %3, align 8
-  br label %.thread201.i
+  br label %.thread201.sink.split.i
 
 471:                                              ; preds = %468, %463
   store ptr @.str.29, ptr %2, align 8
@@ -1194,8 +1163,7 @@ schema_does_not_exist_skipping.exit177.i:         ; preds = %468
 477:                                              ; preds = %25
   %478 = getelementptr inbounds i8, ptr %17, i64 8
   %479 = load ptr, ptr %478, align 8
-  store ptr %479, ptr %3, align 8
-  br label %.thread201.i
+  br label %.thread201.sink.split.i
 
 480:                                              ; preds = %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25
   %481 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
@@ -1228,8 +1196,14 @@ schema_does_not_exist_skipping.exit177.i:         ; preds = %468
   %.not83.i = icmp eq ptr %.0.ph.i, null
   br i1 %.not83.i, label %.thread201.i, label %495
 
-.thread201.i:                                     ; preds = %489, %477, %schema_does_not_exist_skipping.exit177.i, %schema_does_not_exist_skipping.exit173.i, %446, %443, %428, %307, %.loopexit137, %schema_does_not_exist_skipping.exit145.i, %schema_does_not_exist_skipping.exit141.i, %schema_does_not_exist_skipping.exit137.i, %schema_does_not_exist_skipping.exit133.i, %schema_does_not_exist_skipping.exit129.i, %106, %104, %schema_does_not_exist_skipping.exit125.i, %95, %schema_does_not_exist_skipping.exit121.i, %86, %schema_does_not_exist_skipping.exit117.i, %77, %schema_does_not_exist_skipping.exit113.i, %68, %schema_does_not_exist_skipping.exit109.i, %58, %56, %schema_does_not_exist_skipping.exit105.i, %47, %schema_does_not_exist_skipping.exit101.i, %38, %schema_does_not_exist_skipping.exit.i, %26
-  %490 = phi ptr [ %.pr.i, %489 ], [ @.str.3, %26 ], [ @.str.7, %58 ], [ @.str.13, %106 ], [ @.str.19, %307 ], [ @.str.24, %428 ], [ @.str.26, %443 ], [ @.str.27, %446 ], [ @.str.30, %477 ], [ @.str.4, %38 ], [ @.str.5, %47 ], [ @.str.6, %56 ], [ @.str.8, %68 ], [ @.str.9, %77 ], [ @.str.10, %86 ], [ @.str.11, %95 ], [ @.str.12, %104 ], [ @.str.18, %.loopexit137 ], [ @.str.7, %schema_does_not_exist_skipping.exit.i ], [ @.str.7, %schema_does_not_exist_skipping.exit101.i ], [ @.str.7, %schema_does_not_exist_skipping.exit105.i ], [ @.str.7, %schema_does_not_exist_skipping.exit109.i ], [ @.str.7, %schema_does_not_exist_skipping.exit113.i ], [ @.str.7, %schema_does_not_exist_skipping.exit117.i ], [ @.str.7, %schema_does_not_exist_skipping.exit121.i ], [ @.str.7, %schema_does_not_exist_skipping.exit125.i ], [ @.str.7, %schema_does_not_exist_skipping.exit129.i ], [ @.str.7, %schema_does_not_exist_skipping.exit133.i ], [ @.str.7, %schema_does_not_exist_skipping.exit137.i ], [ @.str.7, %schema_does_not_exist_skipping.exit141.i ], [ @.str.7, %schema_does_not_exist_skipping.exit145.i ], [ @.str.7, %schema_does_not_exist_skipping.exit173.i ], [ @.str.7, %schema_does_not_exist_skipping.exit177.i ]
+.thread201.sink.split.i:                          ; preds = %477, %schema_does_not_exist_skipping.exit177.i, %schema_does_not_exist_skipping.exit173.i, %446, %443, %428, %307, %.loopexit137, %schema_does_not_exist_skipping.exit145.i, %schema_does_not_exist_skipping.exit141.i, %schema_does_not_exist_skipping.exit137.i, %schema_does_not_exist_skipping.exit133.i, %schema_does_not_exist_skipping.exit129.i, %106, %104, %schema_does_not_exist_skipping.exit125.i, %95, %schema_does_not_exist_skipping.exit121.i, %86, %schema_does_not_exist_skipping.exit117.i, %77, %schema_does_not_exist_skipping.exit113.i, %68, %schema_does_not_exist_skipping.exit109.i, %58, %56, %schema_does_not_exist_skipping.exit105.i, %47, %schema_does_not_exist_skipping.exit101.i, %38, %schema_does_not_exist_skipping.exit.i, %26
+  %.sink.i = phi ptr [ %470, %schema_does_not_exist_skipping.exit177.i ], [ %456, %schema_does_not_exist_skipping.exit173.i ], [ %277, %schema_does_not_exist_skipping.exit145.i ], [ %237, %schema_does_not_exist_skipping.exit141.i ], [ %197, %schema_does_not_exist_skipping.exit137.i ], [ %157, %schema_does_not_exist_skipping.exit133.i ], [ %117, %schema_does_not_exist_skipping.exit129.i ], [ %103, %schema_does_not_exist_skipping.exit125.i ], [ %94, %schema_does_not_exist_skipping.exit121.i ], [ %85, %schema_does_not_exist_skipping.exit117.i ], [ %76, %schema_does_not_exist_skipping.exit113.i ], [ %67, %schema_does_not_exist_skipping.exit109.i ], [ %55, %schema_does_not_exist_skipping.exit105.i ], [ %46, %schema_does_not_exist_skipping.exit101.i ], [ %37, %schema_does_not_exist_skipping.exit.i ], [ %306, %.loopexit137 ], [ %105, %104 ], [ %96, %95 ], [ %87, %86 ], [ %78, %77 ], [ %69, %68 ], [ %57, %56 ], [ %48, %47 ], [ %39, %38 ], [ %479, %477 ], [ %448, %446 ], [ %445, %443 ], [ %430, %428 ], [ %309, %307 ], [ %108, %106 ], [ %60, %58 ], [ %28, %26 ]
+  %.ph.i = phi ptr [ @.str.7, %schema_does_not_exist_skipping.exit177.i ], [ @.str.7, %schema_does_not_exist_skipping.exit173.i ], [ @.str.7, %schema_does_not_exist_skipping.exit145.i ], [ @.str.7, %schema_does_not_exist_skipping.exit141.i ], [ @.str.7, %schema_does_not_exist_skipping.exit137.i ], [ @.str.7, %schema_does_not_exist_skipping.exit133.i ], [ @.str.7, %schema_does_not_exist_skipping.exit129.i ], [ @.str.7, %schema_does_not_exist_skipping.exit125.i ], [ @.str.7, %schema_does_not_exist_skipping.exit121.i ], [ @.str.7, %schema_does_not_exist_skipping.exit117.i ], [ @.str.7, %schema_does_not_exist_skipping.exit113.i ], [ @.str.7, %schema_does_not_exist_skipping.exit109.i ], [ @.str.7, %schema_does_not_exist_skipping.exit105.i ], [ @.str.7, %schema_does_not_exist_skipping.exit101.i ], [ @.str.7, %schema_does_not_exist_skipping.exit.i ], [ @.str.18, %.loopexit137 ], [ @.str.12, %104 ], [ @.str.11, %95 ], [ @.str.10, %86 ], [ @.str.9, %77 ], [ @.str.8, %68 ], [ @.str.6, %56 ], [ @.str.5, %47 ], [ @.str.4, %38 ], [ @.str.30, %477 ], [ @.str.27, %446 ], [ @.str.26, %443 ], [ @.str.24, %428 ], [ @.str.19, %307 ], [ @.str.13, %106 ], [ @.str.7, %58 ], [ @.str.3, %26 ]
+  store ptr %.sink.i, ptr %3, align 8
+  br label %.thread201.i
+
+.thread201.i:                                     ; preds = %.thread201.sink.split.i, %489
+  %490 = phi ptr [ %.pr.i, %489 ], [ %.ph.i, %.thread201.sink.split.i ]
   %491 = call zeroext i1 @errstart(i32 noundef 18, ptr noundef null) #5
   br i1 %491, label %492, label %does_not_exist_skipping.exit
 
@@ -1248,8 +1222,8 @@ schema_does_not_exist_skipping.exit177.i:         ; preds = %468
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %497, %492
-  %.sink.i = phi i32 [ 528, %497 ], [ 526, %492 ]
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink.i, ptr noundef nonnull @__func__.does_not_exist_skipping) #5
+  %.sink214.i = phi i32 [ 528, %497 ], [ 526, %492 ]
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink214.i, ptr noundef nonnull @__func__.does_not_exist_skipping) #5
   br label %does_not_exist_skipping.exit
 
 does_not_exist_skipping.exit:                     ; preds = %.thread201.i, %495, %.sink.split.i

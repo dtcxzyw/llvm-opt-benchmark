@@ -406,7 +406,6 @@ _ZN5serde2de9SeqAccess12next_element17h612a6069b38dcb46E.exit: ; preds = %23
 
 "_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$meilisearch_types..keys..Action$GT$$GT$17hba56b24814909562E.exit": ; preds = %30, %37, %41
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !97
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %53
 
 43:                                               ; preds = %27
@@ -431,10 +430,10 @@ _ZN5serde2de9SeqAccess12next_element17h612a6069b38dcb46E.exit: ; preds = %23
 52:                                               ; preds = %27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %53
 
 53:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$meilisearch_types..keys..Action$GT$$GT$17hba56b24814909562E.exit", %52
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   ret void
 
 54:                                               ; preds = %24
@@ -515,7 +514,6 @@ _ZN5serde2de9SeqAccess12next_element17hc4c428bcd18c8dfeE.exit: ; preds = %22
   store i64 -9223372036854775808, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$GT$$GT$17hddba28eb59de9e09E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %44
 
 30:                                               ; preds = %_ZN5serde2de9SeqAccess12next_element17hc4c428bcd18c8dfeE.exit
@@ -554,10 +552,10 @@ _ZN5serde2de9SeqAccess12next_element17hc4c428bcd18c8dfeE.exit: ; preds = %22
 43:                                               ; preds = %_ZN5serde2de9SeqAccess12next_element17hc4c428bcd18c8dfeE.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %44
 
 44:                                               ; preds = %26, %43
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   ret void
 
 45:                                               ; preds = %.body
@@ -3326,7 +3324,7 @@ define void @_ZN16meilisearch_auth14AuthController17is_key_authorized17hd14f81c3
   store i32 %.sroa.6.0.copyload, ptr %.sroa.479.0..sroa_idx, align 4
   %.sroa.580.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %.sroa.875.0.copyload, ptr %.sroa.580.0..sroa_idx, align 8
-  br label %34
+  br label %48
 
 22:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %.sroa.637.sroa.0)
@@ -3354,7 +3352,7 @@ define void @_ZN16meilisearch_auth14AuthController17is_key_authorized17hd14f81c3
   %.sroa.582.0.copyload = load i8, ptr %.sroa.582.0..sroa_idx, align 1
   %.sroa.683.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 20
   %.sroa.683.0.copyload = load i32, ptr %.sroa.683.0..sroa_idx, align 4
-  br i1 %28, label %35, label %36
+  br i1 %28, label %34, label %35
 
 30:                                               ; preds = %22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
@@ -3376,25 +3374,21 @@ define void @_ZN16meilisearch_auth14AuthController17is_key_authorized17hd14f81c3
   %.sroa.5116.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %.sroa.8111.0.copyload, ptr %.sroa.5116.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %.sroa.637.sroa.0)
-  br label %34
+  br label %48
 
-32:                                               ; preds = %35, %30
-  %.sroa.346.0 = phi i8 [ %.sroa.5100.0.copyload, %30 ], [ %.sroa.582.0.copyload, %35 ]
-  %.sroa.448.0 = phi i32 [ %.sroa.6101.0.copyload, %30 ], [ %.sroa.683.0.copyload, %35 ]
+32:                                               ; preds = %34, %30
+  %.sroa.346.0 = phi i8 [ %.sroa.5100.0.copyload, %30 ], [ %.sroa.582.0.copyload, %34 ]
+  %.sroa.448.0 = phi i32 [ %.sroa.6101.0.copyload, %30 ], [ %.sroa.683.0.copyload, %34 ]
   %33 = icmp eq i8 %.sroa.5.0.copyload, 2
-  br i1 %33, label %37, label %.thread
+  br i1 %33, label %36, label %.thread
 
-34:                                               ; preds = %36, %31, %21
-  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %.sroa.6.sroa.0)
-  br label %50
-
-35:                                               ; preds = %26
+34:                                               ; preds = %26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %.sroa.045, ptr noundef nonnull align 8 dereferenceable(11) %.sroa.6.sroa.054, i64 11, i1 false)
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %.sroa.6.sroa.054)
   br label %32
 
-36:                                               ; preds = %26
+35:                                               ; preds = %26
   %.sroa.893.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 24
   %.sroa.893.0.copyload = load i64, ptr %.sroa.893.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
@@ -3408,36 +3402,32 @@ define void @_ZN16meilisearch_auth14AuthController17is_key_authorized17hd14f81c3
   %.sroa.598.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %.sroa.893.0.copyload, ptr %.sroa.598.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %.sroa.6.sroa.054)
-  br label %34
+  br label %48
 
-37:                                               ; preds = %32
+36:                                               ; preds = %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %.sroa.09, ptr noundef nonnull align 4 dereferenceable(11) %.sroa.045, i64 11, i1 false)
-  %38 = icmp eq i8 %.sroa.346.0, 2
-  br i1 %38, label %39, label %.thread
+  %37 = icmp eq i8 %.sroa.346.0, 2
+  br i1 %37, label %38, label %.thread
 
-39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 0, ptr %40, align 8
+38:                                               ; preds = %36
+  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  store i8 0, ptr %39, align 8
   store i64 3, ptr %0, align 8
-  br label %42
+  br label %48
 
-.thread:                                          ; preds = %32, %37
-  %.sroa.310.0125 = phi i8 [ %.sroa.346.0, %37 ], [ %.sroa.5.0.copyload, %32 ]
-  %.sroa.616.0124 = phi i32 [ %.sroa.448.0, %37 ], [ %.sroa.6.0.copyload, %32 ]
-  %41 = trunc i8 %.sroa.310.0125 to i1
-  br i1 %41, label %43, label %45
+.thread:                                          ; preds = %32, %36
+  %.sroa.310.0125 = phi i8 [ %.sroa.346.0, %36 ], [ %.sroa.5.0.copyload, %32 ]
+  %.sroa.616.0124 = phi i32 [ %.sroa.448.0, %36 ], [ %.sroa.6.0.copyload, %32 ]
+  %40 = trunc i8 %.sroa.310.0125 to i1
+  br i1 %40, label %41, label %43
 
-42:                                               ; preds = %45, %43, %39
-  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %.sroa.6.sroa.0)
-  br label %50
+41:                                               ; preds = %.thread
+  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  store i8 1, ptr %42, align 8
+  store i64 3, ptr %0, align 8
+  br label %48
 
 43:                                               ; preds = %.thread
-  %44 = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 1, ptr %44, align 8
-  store i64 3, ptr %0, align 8
-  br label %42
-
-45:                                               ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %9, ptr noundef nonnull align 4 dereferenceable(11) %.sroa.09, i64 11, i1 false)
   %.sroa.310.0..sroa_idx11 = getelementptr inbounds i8, ptr %9, i64 11
@@ -3446,17 +3436,18 @@ define void @_ZN16meilisearch_auth14AuthController17is_key_authorized17hd14f81c3
   store i32 %.sroa.616.0124, ptr %.sroa.616.0..sroa_idx17, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @_ZN4time16offset_date_time14OffsetDateTime7now_utc17h3207312e04a24a24E(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 4 dereferenceable(16) %8)
-  %46 = call noundef i8 @"_ZN80_$LT$time..offset_date_time..OffsetDateTime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h793b689048cd26d1E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %9), !range !640
-  %47 = icmp eq i8 %46, -1
-  %48 = zext i1 %47 to i8
-  %49 = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 %48, ptr %49, align 8
+  %44 = call noundef i8 @"_ZN80_$LT$time..offset_date_time..OffsetDateTime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h793b689048cd26d1E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %9), !range !640
+  %45 = icmp eq i8 %44, -1
+  %46 = zext i1 %45 to i8
+  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  store i8 %46, ptr %47, align 8
   store i64 3, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  br label %42
+  br label %48
 
-50:                                               ; preds = %42, %34
+48:                                               ; preds = %38, %41, %43, %21, %31, %35
+  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %.sroa.6.sroa.0)
   ret void
 }
 

@@ -375,85 +375,78 @@ define internal fastcc void @"_ZN114_$LT$futures_util..stream..futures_unordered
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   %4 = load ptr, ptr %3, align 8, !alias.scope !25, !nonnull !5, !noundef !5
   %5 = icmp eq ptr %4, inttoptr (i64 -1 to ptr)
-  br i1 %5, label %10, label %6
+  br i1 %5, label %"_ZN4core3ptr404drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h914a5716128ec7f5E.exit2", label %6
 
 6:                                                ; preds = %0
   %7 = tail call { i64, i64 } @_ZN4core4sync6atomic11AtomicUsize12fetch_update17h30d8392e65d5ba64E.llvm.8209374114036670355(ptr noundef nonnull align 8 %4, i8 noundef 2, i8 noundef 0), !noalias !25
   %8 = extractvalue { i64, i64 } %7, 0
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %18, label %10
+  br i1 %9, label %16, label %"_ZN4core3ptr404drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h914a5716128ec7f5E.exit2"
 
-10:                                               ; preds = %0, %6
+"_ZN4core3ptr404drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h914a5716128ec7f5E.exit2": ; preds = %6, %0, %25, %21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  br label %11
-
-11:                                               ; preds = %"_ZN4core3ptr404drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h914a5716128ec7f5E.exit2", %10
   ret void
 
-12:                                               ; preds = %28
-  %13 = landingpad { ptr, i32 }
+10:                                               ; preds = %26
+  %11 = landingpad { ptr, i32 }
           cleanup
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  %14 = load ptr, ptr %1, align 8, !alias.scope !34, !nonnull !5, !noundef !5
-  %15 = atomicrmw sub ptr %14, i64 1 release, align 8, !noalias !34
-  %16 = icmp eq i64 %15, 1
-  br i1 %16, label %17, label %"_ZN4core3ptr404drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h914a5716128ec7f5E.exit"
+  %12 = load ptr, ptr %1, align 8, !alias.scope !34, !nonnull !5, !noundef !5
+  %13 = atomicrmw sub ptr %12, i64 1 release, align 8, !noalias !34
+  %14 = icmp eq i64 %13, 1
+  br i1 %14, label %15, label %"_ZN4core3ptr404drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h914a5716128ec7f5E.exit"
 
-17:                                               ; preds = %12
+15:                                               ; preds = %10
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h153996485454ffb0E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
-          to label %"_ZN4core3ptr404drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h914a5716128ec7f5E.exit" unwind label %38
+          to label %"_ZN4core3ptr404drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h914a5716128ec7f5E.exit" unwind label %36
 
-18:                                               ; preds = %6
+16:                                               ; preds = %6
   store ptr %4, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %.0.val, i64 201
-  store atomic i8 1, ptr %19 monotonic, align 1
-  %20 = getelementptr inbounds i8, ptr %.0.val, i64 200
-  %21 = atomicrmw xchg ptr %20, i8 1 seq_cst, align 1
-  %22 = icmp eq i8 %21, 0
-  br i1 %22, label %28, label %23
+  %17 = getelementptr inbounds i8, ptr %.0.val, i64 201
+  store atomic i8 1, ptr %17 monotonic, align 1
+  %18 = getelementptr inbounds i8, ptr %.0.val, i64 200
+  %19 = atomicrmw xchg ptr %18, i8 1 seq_cst, align 1
+  %20 = icmp eq i8 %19, 0
+  br i1 %20, label %26, label %21
 
-23:                                               ; preds = %28, %18
+21:                                               ; preds = %26, %16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
-  %24 = load ptr, ptr %1, align 8, !alias.scope !41, !nonnull !5, !noundef !5
-  %25 = atomicrmw sub ptr %24, i64 1 release, align 8, !noalias !41
-  %26 = icmp eq i64 %25, 1
-  br i1 %26, label %27, label %"_ZN4core3ptr404drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h914a5716128ec7f5E.exit2"
+  %22 = load ptr, ptr %1, align 8, !alias.scope !41, !nonnull !5, !noundef !5
+  %23 = atomicrmw sub ptr %22, i64 1 release, align 8, !noalias !41
+  %24 = icmp eq i64 %23, 1
+  br i1 %24, label %25, label %"_ZN4core3ptr404drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h914a5716128ec7f5E.exit2"
 
-27:                                               ; preds = %23
+25:                                               ; preds = %21
   fence acquire
   call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h153996485454ffb0E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
   br label %"_ZN4core3ptr404drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h914a5716128ec7f5E.exit2"
 
-"_ZN4core3ptr404drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h914a5716128ec7f5E.exit2": ; preds = %23, %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  br label %11
+26:                                               ; preds = %16
+  %27 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
+  %28 = getelementptr inbounds i8, ptr %.0.val, i64 192
+  store atomic i64 0, ptr %28 monotonic, align 8
+  %29 = getelementptr inbounds i8, ptr %27, i64 48
+  %30 = ptrtoint ptr %3 to i64
+  %31 = atomicrmw xchg ptr %29, i64 %30 acq_rel, align 8
+  %32 = inttoptr i64 %31 to ptr
+  %33 = getelementptr inbounds i8, ptr %32, i64 176
+  store atomic i64 %30, ptr %33 release, align 8
+  %34 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
+  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  invoke void @_ZN12futures_core4task10__internal12atomic_waker11AtomicWaker4wake17h34eb74f102db2cc2E(ptr noundef nonnull align 8 %35)
+          to label %21 unwind label %10
 
-28:                                               ; preds = %18
-  %29 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
-  %30 = getelementptr inbounds i8, ptr %.0.val, i64 192
-  store atomic i64 0, ptr %30 monotonic, align 8
-  %31 = getelementptr inbounds i8, ptr %29, i64 48
-  %32 = ptrtoint ptr %3 to i64
-  %33 = atomicrmw xchg ptr %31, i64 %32 acq_rel, align 8
-  %34 = inttoptr i64 %33 to ptr
-  %35 = getelementptr inbounds i8, ptr %34, i64 176
-  store atomic i64 %32, ptr %35 release, align 8
-  %36 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
-  invoke void @_ZN12futures_core4task10__internal12atomic_waker11AtomicWaker4wake17h34eb74f102db2cc2E(ptr noundef nonnull align 8 %37)
-          to label %23 unwind label %12
-
-38:                                               ; preds = %17
-  %39 = landingpad { ptr, i32 }
+36:                                               ; preds = %15
+  %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #35
   unreachable
 
-"_ZN4core3ptr404drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h914a5716128ec7f5E.exit": ; preds = %12, %17
-  resume { ptr, i32 } %13
+"_ZN4core3ptr404drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..prefix..PrefixStore$LT$alloc..sync..Arc$LT$dyn$u20$object_store..ObjectStore$GT$$GT$$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h914a5716128ec7f5E.exit": ; preds = %10, %15
+  resume { ptr, i32 } %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -466,85 +459,78 @@ define internal fastcc void @"_ZN114_$LT$futures_util..stream..futures_unordered
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
   %4 = load ptr, ptr %3, align 8, !alias.scope !42, !nonnull !5, !noundef !5
   %5 = icmp eq ptr %4, inttoptr (i64 -1 to ptr)
-  br i1 %5, label %10, label %6
+  br i1 %5, label %"_ZN4core3ptr341drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hd35d1ff88b06cd0dE.exit2", label %6
 
 6:                                                ; preds = %0
   %7 = tail call { i64, i64 } @_ZN4core4sync6atomic11AtomicUsize12fetch_update17h30d8392e65d5ba64E.llvm.8209374114036670355(ptr noundef nonnull align 8 %4, i8 noundef 2, i8 noundef 0), !noalias !42
   %8 = extractvalue { i64, i64 } %7, 0
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %18, label %10
+  br i1 %9, label %16, label %"_ZN4core3ptr341drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hd35d1ff88b06cd0dE.exit2"
 
-10:                                               ; preds = %0, %6
+"_ZN4core3ptr341drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hd35d1ff88b06cd0dE.exit2": ; preds = %6, %0, %25, %21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  br label %11
-
-11:                                               ; preds = %"_ZN4core3ptr341drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hd35d1ff88b06cd0dE.exit2", %10
   ret void
 
-12:                                               ; preds = %28
-  %13 = landingpad { ptr, i32 }
+10:                                               ; preds = %26
+  %11 = landingpad { ptr, i32 }
           cleanup
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
-  %14 = load ptr, ptr %1, align 8, !alias.scope !51, !nonnull !5, !noundef !5
-  %15 = atomicrmw sub ptr %14, i64 1 release, align 8, !noalias !51
-  %16 = icmp eq i64 %15, 1
-  br i1 %16, label %17, label %"_ZN4core3ptr341drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hd35d1ff88b06cd0dE.exit"
+  %12 = load ptr, ptr %1, align 8, !alias.scope !51, !nonnull !5, !noundef !5
+  %13 = atomicrmw sub ptr %12, i64 1 release, align 8, !noalias !51
+  %14 = icmp eq i64 %13, 1
+  br i1 %14, label %15, label %"_ZN4core3ptr341drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hd35d1ff88b06cd0dE.exit"
 
-17:                                               ; preds = %12
+15:                                               ; preds = %10
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h2c9ebdaa34a07a7fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
-          to label %"_ZN4core3ptr341drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hd35d1ff88b06cd0dE.exit" unwind label %38
+          to label %"_ZN4core3ptr341drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hd35d1ff88b06cd0dE.exit" unwind label %36
 
-18:                                               ; preds = %6
+16:                                               ; preds = %6
   store ptr %4, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %.0.val, i64 201
-  store atomic i8 1, ptr %19 monotonic, align 1
-  %20 = getelementptr inbounds i8, ptr %.0.val, i64 200
-  %21 = atomicrmw xchg ptr %20, i8 1 seq_cst, align 1
-  %22 = icmp eq i8 %21, 0
-  br i1 %22, label %28, label %23
+  %17 = getelementptr inbounds i8, ptr %.0.val, i64 201
+  store atomic i8 1, ptr %17 monotonic, align 1
+  %18 = getelementptr inbounds i8, ptr %.0.val, i64 200
+  %19 = atomicrmw xchg ptr %18, i8 1 seq_cst, align 1
+  %20 = icmp eq i8 %19, 0
+  br i1 %20, label %26, label %21
 
-23:                                               ; preds = %28, %18
+21:                                               ; preds = %26, %16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
-  %24 = load ptr, ptr %1, align 8, !alias.scope !58, !nonnull !5, !noundef !5
-  %25 = atomicrmw sub ptr %24, i64 1 release, align 8, !noalias !58
-  %26 = icmp eq i64 %25, 1
-  br i1 %26, label %27, label %"_ZN4core3ptr341drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hd35d1ff88b06cd0dE.exit2"
+  %22 = load ptr, ptr %1, align 8, !alias.scope !58, !nonnull !5, !noundef !5
+  %23 = atomicrmw sub ptr %22, i64 1 release, align 8, !noalias !58
+  %24 = icmp eq i64 %23, 1
+  br i1 %24, label %25, label %"_ZN4core3ptr341drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hd35d1ff88b06cd0dE.exit2"
 
-27:                                               ; preds = %23
+25:                                               ; preds = %21
   fence acquire
   call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h2c9ebdaa34a07a7fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
   br label %"_ZN4core3ptr341drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hd35d1ff88b06cd0dE.exit2"
 
-"_ZN4core3ptr341drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hd35d1ff88b06cd0dE.exit2": ; preds = %23, %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  br label %11
+26:                                               ; preds = %16
+  %27 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
+  %28 = getelementptr inbounds i8, ptr %.0.val, i64 192
+  store atomic i64 0, ptr %28 monotonic, align 8
+  %29 = getelementptr inbounds i8, ptr %27, i64 48
+  %30 = ptrtoint ptr %3 to i64
+  %31 = atomicrmw xchg ptr %29, i64 %30 acq_rel, align 8
+  %32 = inttoptr i64 %31 to ptr
+  %33 = getelementptr inbounds i8, ptr %32, i64 176
+  store atomic i64 %30, ptr %33 release, align 8
+  %34 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
+  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  invoke void @_ZN12futures_core4task10__internal12atomic_waker11AtomicWaker4wake17h34eb74f102db2cc2E(ptr noundef nonnull align 8 %35)
+          to label %21 unwind label %10
 
-28:                                               ; preds = %18
-  %29 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
-  %30 = getelementptr inbounds i8, ptr %.0.val, i64 192
-  store atomic i64 0, ptr %30 monotonic, align 8
-  %31 = getelementptr inbounds i8, ptr %29, i64 48
-  %32 = ptrtoint ptr %3 to i64
-  %33 = atomicrmw xchg ptr %31, i64 %32 acq_rel, align 8
-  %34 = inttoptr i64 %33 to ptr
-  %35 = getelementptr inbounds i8, ptr %34, i64 176
-  store atomic i64 %32, ptr %35 release, align 8
-  %36 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
-  invoke void @_ZN12futures_core4task10__internal12atomic_waker11AtomicWaker4wake17h34eb74f102db2cc2E(ptr noundef nonnull align 8 %37)
-          to label %23 unwind label %12
-
-38:                                               ; preds = %17
-  %39 = landingpad { ptr, i32 }
+36:                                               ; preds = %15
+  %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #35
   unreachable
 
-"_ZN4core3ptr341drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hd35d1ff88b06cd0dE.exit": ; preds = %12, %17
-  resume { ptr, i32 } %13
+"_ZN4core3ptr341drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..azure..MicrosoftAzure$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hd35d1ff88b06cd0dE.exit": ; preds = %10, %15
+  resume { ptr, i32 } %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -557,85 +543,78 @@ define internal fastcc void @"_ZN114_$LT$futures_util..stream..futures_unordered
   tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
   %4 = load ptr, ptr %3, align 8, !alias.scope !59, !nonnull !5, !noundef !5
   %5 = icmp eq ptr %4, inttoptr (i64 -1 to ptr)
-  br i1 %5, label %10, label %6
+  br i1 %5, label %"_ZN4core3ptr346drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h34e6878b78fd3761E.exit2", label %6
 
 6:                                                ; preds = %0
   %7 = tail call { i64, i64 } @_ZN4core4sync6atomic11AtomicUsize12fetch_update17h30d8392e65d5ba64E.llvm.8209374114036670355(ptr noundef nonnull align 8 %4, i8 noundef 2, i8 noundef 0), !noalias !59
   %8 = extractvalue { i64, i64 } %7, 0
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %18, label %10
+  br i1 %9, label %16, label %"_ZN4core3ptr346drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h34e6878b78fd3761E.exit2"
 
-10:                                               ; preds = %0, %6
+"_ZN4core3ptr346drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h34e6878b78fd3761E.exit2": ; preds = %6, %0, %25, %21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  br label %11
-
-11:                                               ; preds = %"_ZN4core3ptr346drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h34e6878b78fd3761E.exit2", %10
   ret void
 
-12:                                               ; preds = %28
-  %13 = landingpad { ptr, i32 }
+10:                                               ; preds = %26
+  %11 = landingpad { ptr, i32 }
           cleanup
   tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
-  %14 = load ptr, ptr %1, align 8, !alias.scope !68, !nonnull !5, !noundef !5
-  %15 = atomicrmw sub ptr %14, i64 1 release, align 8, !noalias !68
-  %16 = icmp eq i64 %15, 1
-  br i1 %16, label %17, label %"_ZN4core3ptr346drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h34e6878b78fd3761E.exit"
+  %12 = load ptr, ptr %1, align 8, !alias.scope !68, !nonnull !5, !noundef !5
+  %13 = atomicrmw sub ptr %12, i64 1 release, align 8, !noalias !68
+  %14 = icmp eq i64 %13, 1
+  br i1 %14, label %15, label %"_ZN4core3ptr346drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h34e6878b78fd3761E.exit"
 
-17:                                               ; preds = %12
+15:                                               ; preds = %10
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1ff2c9057aa3ec48E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
-          to label %"_ZN4core3ptr346drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h34e6878b78fd3761E.exit" unwind label %38
+          to label %"_ZN4core3ptr346drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h34e6878b78fd3761E.exit" unwind label %36
 
-18:                                               ; preds = %6
+16:                                               ; preds = %6
   store ptr %4, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %.0.val, i64 201
-  store atomic i8 1, ptr %19 monotonic, align 1
-  %20 = getelementptr inbounds i8, ptr %.0.val, i64 200
-  %21 = atomicrmw xchg ptr %20, i8 1 seq_cst, align 1
-  %22 = icmp eq i8 %21, 0
-  br i1 %22, label %28, label %23
+  %17 = getelementptr inbounds i8, ptr %.0.val, i64 201
+  store atomic i8 1, ptr %17 monotonic, align 1
+  %18 = getelementptr inbounds i8, ptr %.0.val, i64 200
+  %19 = atomicrmw xchg ptr %18, i8 1 seq_cst, align 1
+  %20 = icmp eq i8 %19, 0
+  br i1 %20, label %26, label %21
 
-23:                                               ; preds = %28, %18
+21:                                               ; preds = %26, %16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
-  %24 = load ptr, ptr %1, align 8, !alias.scope !75, !nonnull !5, !noundef !5
-  %25 = atomicrmw sub ptr %24, i64 1 release, align 8, !noalias !75
-  %26 = icmp eq i64 %25, 1
-  br i1 %26, label %27, label %"_ZN4core3ptr346drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h34e6878b78fd3761E.exit2"
+  %22 = load ptr, ptr %1, align 8, !alias.scope !75, !nonnull !5, !noundef !5
+  %23 = atomicrmw sub ptr %22, i64 1 release, align 8, !noalias !75
+  %24 = icmp eq i64 %23, 1
+  br i1 %24, label %25, label %"_ZN4core3ptr346drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h34e6878b78fd3761E.exit2"
 
-27:                                               ; preds = %23
+25:                                               ; preds = %21
   fence acquire
   call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1ff2c9057aa3ec48E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
   br label %"_ZN4core3ptr346drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h34e6878b78fd3761E.exit2"
 
-"_ZN4core3ptr346drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h34e6878b78fd3761E.exit2": ; preds = %23, %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  br label %11
+26:                                               ; preds = %16
+  %27 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
+  %28 = getelementptr inbounds i8, ptr %.0.val, i64 192
+  store atomic i64 0, ptr %28 monotonic, align 8
+  %29 = getelementptr inbounds i8, ptr %27, i64 48
+  %30 = ptrtoint ptr %3 to i64
+  %31 = atomicrmw xchg ptr %29, i64 %30 acq_rel, align 8
+  %32 = inttoptr i64 %31 to ptr
+  %33 = getelementptr inbounds i8, ptr %32, i64 176
+  store atomic i64 %30, ptr %33 release, align 8
+  %34 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
+  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  invoke void @_ZN12futures_core4task10__internal12atomic_waker11AtomicWaker4wake17h34eb74f102db2cc2E(ptr noundef nonnull align 8 %35)
+          to label %21 unwind label %10
 
-28:                                               ; preds = %18
-  %29 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
-  %30 = getelementptr inbounds i8, ptr %.0.val, i64 192
-  store atomic i64 0, ptr %30 monotonic, align 8
-  %31 = getelementptr inbounds i8, ptr %29, i64 48
-  %32 = ptrtoint ptr %3 to i64
-  %33 = atomicrmw xchg ptr %31, i64 %32 acq_rel, align 8
-  %34 = inttoptr i64 %33 to ptr
-  %35 = getelementptr inbounds i8, ptr %34, i64 176
-  store atomic i64 %32, ptr %35 release, align 8
-  %36 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
-  invoke void @_ZN12futures_core4task10__internal12atomic_waker11AtomicWaker4wake17h34eb74f102db2cc2E(ptr noundef nonnull align 8 %37)
-          to label %23 unwind label %12
-
-38:                                               ; preds = %17
-  %39 = landingpad { ptr, i32 }
+36:                                               ; preds = %15
+  %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #35
   unreachable
 
-"_ZN4core3ptr346drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h34e6878b78fd3761E.exit": ; preds = %12, %17
-  resume { ptr, i32 } %13
+"_ZN4core3ptr346drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$deltalake_aws..storage..S3StorageBackend$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h34e6878b78fd3761E.exit": ; preds = %10, %15
+  resume { ptr, i32 } %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -648,85 +627,78 @@ define internal fastcc void @"_ZN114_$LT$futures_util..stream..futures_unordered
   tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
   %4 = load ptr, ptr %3, align 8, !alias.scope !76, !nonnull !5, !noundef !5
   %5 = icmp eq ptr %4, inttoptr (i64 -1 to ptr)
-  br i1 %5, label %10, label %6
+  br i1 %5, label %"_ZN4core3ptr336drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hbfdf19239c2b6659E.exit2", label %6
 
 6:                                                ; preds = %0
   %7 = tail call { i64, i64 } @_ZN4core4sync6atomic11AtomicUsize12fetch_update17h30d8392e65d5ba64E.llvm.8209374114036670355(ptr noundef nonnull align 8 %4, i8 noundef 2, i8 noundef 0), !noalias !76
   %8 = extractvalue { i64, i64 } %7, 0
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %18, label %10
+  br i1 %9, label %16, label %"_ZN4core3ptr336drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hbfdf19239c2b6659E.exit2"
 
-10:                                               ; preds = %0, %6
+"_ZN4core3ptr336drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hbfdf19239c2b6659E.exit2": ; preds = %6, %0, %25, %21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  br label %11
-
-11:                                               ; preds = %"_ZN4core3ptr336drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hbfdf19239c2b6659E.exit2", %10
   ret void
 
-12:                                               ; preds = %28
-  %13 = landingpad { ptr, i32 }
+10:                                               ; preds = %26
+  %11 = landingpad { ptr, i32 }
           cleanup
   tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
-  %14 = load ptr, ptr %1, align 8, !alias.scope !85, !nonnull !5, !noundef !5
-  %15 = atomicrmw sub ptr %14, i64 1 release, align 8, !noalias !85
-  %16 = icmp eq i64 %15, 1
-  br i1 %16, label %17, label %"_ZN4core3ptr336drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hbfdf19239c2b6659E.exit"
+  %12 = load ptr, ptr %1, align 8, !alias.scope !85, !nonnull !5, !noundef !5
+  %13 = atomicrmw sub ptr %12, i64 1 release, align 8, !noalias !85
+  %14 = icmp eq i64 %13, 1
+  br i1 %14, label %15, label %"_ZN4core3ptr336drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hbfdf19239c2b6659E.exit"
 
-17:                                               ; preds = %12
+15:                                               ; preds = %10
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h07f0945817b65534E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
-          to label %"_ZN4core3ptr336drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hbfdf19239c2b6659E.exit" unwind label %38
+          to label %"_ZN4core3ptr336drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hbfdf19239c2b6659E.exit" unwind label %36
 
-18:                                               ; preds = %6
+16:                                               ; preds = %6
   store ptr %4, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %.0.val, i64 201
-  store atomic i8 1, ptr %19 monotonic, align 1
-  %20 = getelementptr inbounds i8, ptr %.0.val, i64 200
-  %21 = atomicrmw xchg ptr %20, i8 1 seq_cst, align 1
-  %22 = icmp eq i8 %21, 0
-  br i1 %22, label %28, label %23
+  %17 = getelementptr inbounds i8, ptr %.0.val, i64 201
+  store atomic i8 1, ptr %17 monotonic, align 1
+  %18 = getelementptr inbounds i8, ptr %.0.val, i64 200
+  %19 = atomicrmw xchg ptr %18, i8 1 seq_cst, align 1
+  %20 = icmp eq i8 %19, 0
+  br i1 %20, label %26, label %21
 
-23:                                               ; preds = %28, %18
+21:                                               ; preds = %26, %16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !86)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !89)
-  %24 = load ptr, ptr %1, align 8, !alias.scope !92, !nonnull !5, !noundef !5
-  %25 = atomicrmw sub ptr %24, i64 1 release, align 8, !noalias !92
-  %26 = icmp eq i64 %25, 1
-  br i1 %26, label %27, label %"_ZN4core3ptr336drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hbfdf19239c2b6659E.exit2"
+  %22 = load ptr, ptr %1, align 8, !alias.scope !92, !nonnull !5, !noundef !5
+  %23 = atomicrmw sub ptr %22, i64 1 release, align 8, !noalias !92
+  %24 = icmp eq i64 %23, 1
+  br i1 %24, label %25, label %"_ZN4core3ptr336drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hbfdf19239c2b6659E.exit2"
 
-27:                                               ; preds = %23
+25:                                               ; preds = %21
   fence acquire
   call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h07f0945817b65534E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
   br label %"_ZN4core3ptr336drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hbfdf19239c2b6659E.exit2"
 
-"_ZN4core3ptr336drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hbfdf19239c2b6659E.exit2": ; preds = %23, %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  br label %11
+26:                                               ; preds = %16
+  %27 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
+  %28 = getelementptr inbounds i8, ptr %.0.val, i64 192
+  store atomic i64 0, ptr %28 monotonic, align 8
+  %29 = getelementptr inbounds i8, ptr %27, i64 48
+  %30 = ptrtoint ptr %3 to i64
+  %31 = atomicrmw xchg ptr %29, i64 %30 acq_rel, align 8
+  %32 = inttoptr i64 %31 to ptr
+  %33 = getelementptr inbounds i8, ptr %32, i64 176
+  store atomic i64 %30, ptr %33 release, align 8
+  %34 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
+  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  invoke void @_ZN12futures_core4task10__internal12atomic_waker11AtomicWaker4wake17h34eb74f102db2cc2E(ptr noundef nonnull align 8 %35)
+          to label %21 unwind label %10
 
-28:                                               ; preds = %18
-  %29 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
-  %30 = getelementptr inbounds i8, ptr %.0.val, i64 192
-  store atomic i64 0, ptr %30 monotonic, align 8
-  %31 = getelementptr inbounds i8, ptr %29, i64 48
-  %32 = ptrtoint ptr %3 to i64
-  %33 = atomicrmw xchg ptr %31, i64 %32 acq_rel, align 8
-  %34 = inttoptr i64 %33 to ptr
-  %35 = getelementptr inbounds i8, ptr %34, i64 176
-  store atomic i64 %32, ptr %35 release, align 8
-  %36 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
-  invoke void @_ZN12futures_core4task10__internal12atomic_waker11AtomicWaker4wake17h34eb74f102db2cc2E(ptr noundef nonnull align 8 %37)
-          to label %23 unwind label %12
-
-38:                                               ; preds = %17
-  %39 = landingpad { ptr, i32 }
+36:                                               ; preds = %15
+  %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #35
   unreachable
 
-"_ZN4core3ptr336drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hbfdf19239c2b6659E.exit": ; preds = %12, %17
-  resume { ptr, i32 } %13
+"_ZN4core3ptr336drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..memory..InMemory$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hbfdf19239c2b6659E.exit": ; preds = %10, %15
+  resume { ptr, i32 } %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -739,85 +711,78 @@ define internal fastcc void @"_ZN114_$LT$futures_util..stream..futures_unordered
   tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
   %4 = load ptr, ptr %3, align 8, !alias.scope !93, !nonnull !5, !noundef !5
   %5 = icmp eq ptr %4, inttoptr (i64 -1 to ptr)
-  br i1 %5, label %10, label %6
+  br i1 %5, label %"_ZN4core3ptr389drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$$GT$17hf4150c57c3553081E.exit2", label %6
 
 6:                                                ; preds = %0
   %7 = tail call { i64, i64 } @_ZN4core4sync6atomic11AtomicUsize12fetch_update17h30d8392e65d5ba64E.llvm.8209374114036670355(ptr noundef nonnull align 8 %4, i8 noundef 2, i8 noundef 0), !noalias !93
   %8 = extractvalue { i64, i64 } %7, 0
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %18, label %10
+  br i1 %9, label %16, label %"_ZN4core3ptr389drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$$GT$17hf4150c57c3553081E.exit2"
 
-10:                                               ; preds = %0, %6
+"_ZN4core3ptr389drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$$GT$17hf4150c57c3553081E.exit2": ; preds = %6, %0, %25, %21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  br label %11
-
-11:                                               ; preds = %"_ZN4core3ptr389drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$$GT$17hf4150c57c3553081E.exit2", %10
   ret void
 
-12:                                               ; preds = %28
-  %13 = landingpad { ptr, i32 }
+10:                                               ; preds = %26
+  %11 = landingpad { ptr, i32 }
           cleanup
   tail call void @llvm.experimental.noalias.scope.decl(metadata !96)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !99)
-  %14 = load ptr, ptr %1, align 8, !alias.scope !102, !nonnull !5, !noundef !5
-  %15 = atomicrmw sub ptr %14, i64 1 release, align 8, !noalias !102
-  %16 = icmp eq i64 %15, 1
-  br i1 %16, label %17, label %"_ZN4core3ptr389drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$$GT$17hf4150c57c3553081E.exit"
+  %12 = load ptr, ptr %1, align 8, !alias.scope !102, !nonnull !5, !noundef !5
+  %13 = atomicrmw sub ptr %12, i64 1 release, align 8, !noalias !102
+  %14 = icmp eq i64 %13, 1
+  br i1 %14, label %15, label %"_ZN4core3ptr389drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$$GT$17hf4150c57c3553081E.exit"
 
-17:                                               ; preds = %12
+15:                                               ; preds = %10
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h382ce0d23e53b0d0E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
-          to label %"_ZN4core3ptr389drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$$GT$17hf4150c57c3553081E.exit" unwind label %38
+          to label %"_ZN4core3ptr389drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$$GT$17hf4150c57c3553081E.exit" unwind label %36
 
-18:                                               ; preds = %6
+16:                                               ; preds = %6
   store ptr %4, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %.0.val, i64 81
-  store atomic i8 1, ptr %19 monotonic, align 1
-  %20 = getelementptr inbounds i8, ptr %.0.val, i64 80
-  %21 = atomicrmw xchg ptr %20, i8 1 seq_cst, align 1
-  %22 = icmp eq i8 %21, 0
-  br i1 %22, label %28, label %23
+  %17 = getelementptr inbounds i8, ptr %.0.val, i64 81
+  store atomic i8 1, ptr %17 monotonic, align 1
+  %18 = getelementptr inbounds i8, ptr %.0.val, i64 80
+  %19 = atomicrmw xchg ptr %18, i8 1 seq_cst, align 1
+  %20 = icmp eq i8 %19, 0
+  br i1 %20, label %26, label %21
 
-23:                                               ; preds = %28, %18
+21:                                               ; preds = %26, %16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !106)
-  %24 = load ptr, ptr %1, align 8, !alias.scope !109, !nonnull !5, !noundef !5
-  %25 = atomicrmw sub ptr %24, i64 1 release, align 8, !noalias !109
-  %26 = icmp eq i64 %25, 1
-  br i1 %26, label %27, label %"_ZN4core3ptr389drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$$GT$17hf4150c57c3553081E.exit2"
+  %22 = load ptr, ptr %1, align 8, !alias.scope !109, !nonnull !5, !noundef !5
+  %23 = atomicrmw sub ptr %22, i64 1 release, align 8, !noalias !109
+  %24 = icmp eq i64 %23, 1
+  br i1 %24, label %25, label %"_ZN4core3ptr389drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$$GT$17hf4150c57c3553081E.exit2"
 
-27:                                               ; preds = %23
+25:                                               ; preds = %21
   fence acquire
   call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h382ce0d23e53b0d0E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
   br label %"_ZN4core3ptr389drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$$GT$17hf4150c57c3553081E.exit2"
 
-"_ZN4core3ptr389drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$$GT$17hf4150c57c3553081E.exit2": ; preds = %23, %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  br label %11
+26:                                               ; preds = %16
+  %27 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
+  %28 = getelementptr inbounds i8, ptr %.0.val, i64 72
+  store atomic i64 0, ptr %28 monotonic, align 8
+  %29 = getelementptr inbounds i8, ptr %27, i64 48
+  %30 = ptrtoint ptr %3 to i64
+  %31 = atomicrmw xchg ptr %29, i64 %30 acq_rel, align 8
+  %32 = inttoptr i64 %31 to ptr
+  %33 = getelementptr inbounds i8, ptr %32, i64 56
+  store atomic i64 %30, ptr %33 release, align 8
+  %34 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
+  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  invoke void @_ZN12futures_core4task10__internal12atomic_waker11AtomicWaker4wake17h34eb74f102db2cc2E(ptr noundef nonnull align 8 %35)
+          to label %21 unwind label %10
 
-28:                                               ; preds = %18
-  %29 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
-  %30 = getelementptr inbounds i8, ptr %.0.val, i64 72
-  store atomic i64 0, ptr %30 monotonic, align 8
-  %31 = getelementptr inbounds i8, ptr %29, i64 48
-  %32 = ptrtoint ptr %3 to i64
-  %33 = atomicrmw xchg ptr %31, i64 %32 acq_rel, align 8
-  %34 = inttoptr i64 %33 to ptr
-  %35 = getelementptr inbounds i8, ptr %34, i64 56
-  store atomic i64 %32, ptr %35 release, align 8
-  %36 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
-  invoke void @_ZN12futures_core4task10__internal12atomic_waker11AtomicWaker4wake17h34eb74f102db2cc2E(ptr noundef nonnull align 8 %37)
-          to label %23 unwind label %12
-
-38:                                               ; preds = %17
-  %39 = landingpad { ptr, i32 }
+36:                                               ; preds = %15
+  %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #35
   unreachable
 
-"_ZN4core3ptr389drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$$GT$17hf4150c57c3553081E.exit": ; preds = %12, %17
-  resume { ptr, i32 } %13
+"_ZN4core3ptr389drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$$GT$17hf4150c57c3553081E.exit": ; preds = %10, %15
+  resume { ptr, i32 } %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -830,85 +795,78 @@ define internal fastcc void @"_ZN114_$LT$futures_util..stream..futures_unordered
   tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
   %4 = load ptr, ptr %3, align 8, !alias.scope !110, !nonnull !5, !noundef !5
   %5 = icmp eq ptr %4, inttoptr (i64 -1 to ptr)
-  br i1 %5, label %10, label %6
+  br i1 %5, label %"_ZN4core3ptr343drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h4b0ba54a8d25515dE.exit2", label %6
 
 6:                                                ; preds = %0
   %7 = tail call { i64, i64 } @_ZN4core4sync6atomic11AtomicUsize12fetch_update17h30d8392e65d5ba64E.llvm.8209374114036670355(ptr noundef nonnull align 8 %4, i8 noundef 2, i8 noundef 0), !noalias !110
   %8 = extractvalue { i64, i64 } %7, 0
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %18, label %10
+  br i1 %9, label %16, label %"_ZN4core3ptr343drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h4b0ba54a8d25515dE.exit2"
 
-10:                                               ; preds = %0, %6
+"_ZN4core3ptr343drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h4b0ba54a8d25515dE.exit2": ; preds = %6, %0, %25, %21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  br label %11
-
-11:                                               ; preds = %"_ZN4core3ptr343drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h4b0ba54a8d25515dE.exit2", %10
   ret void
 
-12:                                               ; preds = %28
-  %13 = landingpad { ptr, i32 }
+10:                                               ; preds = %26
+  %11 = landingpad { ptr, i32 }
           cleanup
   tail call void @llvm.experimental.noalias.scope.decl(metadata !113)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !116)
-  %14 = load ptr, ptr %1, align 8, !alias.scope !119, !nonnull !5, !noundef !5
-  %15 = atomicrmw sub ptr %14, i64 1 release, align 8, !noalias !119
-  %16 = icmp eq i64 %15, 1
-  br i1 %16, label %17, label %"_ZN4core3ptr343drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h4b0ba54a8d25515dE.exit"
+  %12 = load ptr, ptr %1, align 8, !alias.scope !119, !nonnull !5, !noundef !5
+  %13 = atomicrmw sub ptr %12, i64 1 release, align 8, !noalias !119
+  %14 = icmp eq i64 %13, 1
+  br i1 %14, label %15, label %"_ZN4core3ptr343drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h4b0ba54a8d25515dE.exit"
 
-17:                                               ; preds = %12
+15:                                               ; preds = %10
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h47541c1cc86fbb99E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
-          to label %"_ZN4core3ptr343drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h4b0ba54a8d25515dE.exit" unwind label %38
+          to label %"_ZN4core3ptr343drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h4b0ba54a8d25515dE.exit" unwind label %36
 
-18:                                               ; preds = %6
+16:                                               ; preds = %6
   store ptr %4, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %.0.val, i64 201
-  store atomic i8 1, ptr %19 monotonic, align 1
-  %20 = getelementptr inbounds i8, ptr %.0.val, i64 200
-  %21 = atomicrmw xchg ptr %20, i8 1 seq_cst, align 1
-  %22 = icmp eq i8 %21, 0
-  br i1 %22, label %28, label %23
+  %17 = getelementptr inbounds i8, ptr %.0.val, i64 201
+  store atomic i8 1, ptr %17 monotonic, align 1
+  %18 = getelementptr inbounds i8, ptr %.0.val, i64 200
+  %19 = atomicrmw xchg ptr %18, i8 1 seq_cst, align 1
+  %20 = icmp eq i8 %19, 0
+  br i1 %20, label %26, label %21
 
-23:                                               ; preds = %28, %18
+21:                                               ; preds = %26, %16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !120)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !123)
-  %24 = load ptr, ptr %1, align 8, !alias.scope !126, !nonnull !5, !noundef !5
-  %25 = atomicrmw sub ptr %24, i64 1 release, align 8, !noalias !126
-  %26 = icmp eq i64 %25, 1
-  br i1 %26, label %27, label %"_ZN4core3ptr343drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h4b0ba54a8d25515dE.exit2"
+  %22 = load ptr, ptr %1, align 8, !alias.scope !126, !nonnull !5, !noundef !5
+  %23 = atomicrmw sub ptr %22, i64 1 release, align 8, !noalias !126
+  %24 = icmp eq i64 %23, 1
+  br i1 %24, label %25, label %"_ZN4core3ptr343drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h4b0ba54a8d25515dE.exit2"
 
-27:                                               ; preds = %23
+25:                                               ; preds = %21
   fence acquire
   call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h47541c1cc86fbb99E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
   br label %"_ZN4core3ptr343drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h4b0ba54a8d25515dE.exit2"
 
-"_ZN4core3ptr343drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h4b0ba54a8d25515dE.exit2": ; preds = %23, %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  br label %11
+26:                                               ; preds = %16
+  %27 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
+  %28 = getelementptr inbounds i8, ptr %.0.val, i64 192
+  store atomic i64 0, ptr %28 monotonic, align 8
+  %29 = getelementptr inbounds i8, ptr %27, i64 48
+  %30 = ptrtoint ptr %3 to i64
+  %31 = atomicrmw xchg ptr %29, i64 %30 acq_rel, align 8
+  %32 = inttoptr i64 %31 to ptr
+  %33 = getelementptr inbounds i8, ptr %32, i64 176
+  store atomic i64 %30, ptr %33 release, align 8
+  %34 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
+  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  invoke void @_ZN12futures_core4task10__internal12atomic_waker11AtomicWaker4wake17h34eb74f102db2cc2E(ptr noundef nonnull align 8 %35)
+          to label %21 unwind label %10
 
-28:                                               ; preds = %18
-  %29 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
-  %30 = getelementptr inbounds i8, ptr %.0.val, i64 192
-  store atomic i64 0, ptr %30 monotonic, align 8
-  %31 = getelementptr inbounds i8, ptr %29, i64 48
-  %32 = ptrtoint ptr %3 to i64
-  %33 = atomicrmw xchg ptr %31, i64 %32 acq_rel, align 8
-  %34 = inttoptr i64 %33 to ptr
-  %35 = getelementptr inbounds i8, ptr %34, i64 176
-  store atomic i64 %32, ptr %35 release, align 8
-  %36 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
-  invoke void @_ZN12futures_core4task10__internal12atomic_waker11AtomicWaker4wake17h34eb74f102db2cc2E(ptr noundef nonnull align 8 %37)
-          to label %23 unwind label %12
-
-38:                                               ; preds = %17
-  %39 = landingpad { ptr, i32 }
+36:                                               ; preds = %15
+  %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #35
   unreachable
 
-"_ZN4core3ptr343drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h4b0ba54a8d25515dE.exit": ; preds = %12, %17
-  resume { ptr, i32 } %13
+"_ZN4core3ptr343drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..gcp..GoogleCloudStorage$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h4b0ba54a8d25515dE.exit": ; preds = %10, %15
+  resume { ptr, i32 } %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -921,85 +879,78 @@ define internal fastcc void @"_ZN114_$LT$futures_util..stream..futures_unordered
   tail call void @llvm.experimental.noalias.scope.decl(metadata !127)
   %4 = load ptr, ptr %3, align 8, !alias.scope !127, !nonnull !5, !noundef !5
   %5 = icmp eq ptr %4, inttoptr (i64 -1 to ptr)
-  br i1 %5, label %10, label %6
+  br i1 %5, label %"_ZN4core3ptr342drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hf373b550f81bf478E.exit2", label %6
 
 6:                                                ; preds = %0
   %7 = tail call { i64, i64 } @_ZN4core4sync6atomic11AtomicUsize12fetch_update17h30d8392e65d5ba64E.llvm.8209374114036670355(ptr noundef nonnull align 8 %4, i8 noundef 2, i8 noundef 0), !noalias !127
   %8 = extractvalue { i64, i64 } %7, 0
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %18, label %10
+  br i1 %9, label %16, label %"_ZN4core3ptr342drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hf373b550f81bf478E.exit2"
 
-10:                                               ; preds = %0, %6
+"_ZN4core3ptr342drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hf373b550f81bf478E.exit2": ; preds = %6, %0, %25, %21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  br label %11
-
-11:                                               ; preds = %"_ZN4core3ptr342drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hf373b550f81bf478E.exit2", %10
   ret void
 
-12:                                               ; preds = %28
-  %13 = landingpad { ptr, i32 }
+10:                                               ; preds = %26
+  %11 = landingpad { ptr, i32 }
           cleanup
   tail call void @llvm.experimental.noalias.scope.decl(metadata !130)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !133)
-  %14 = load ptr, ptr %1, align 8, !alias.scope !136, !nonnull !5, !noundef !5
-  %15 = atomicrmw sub ptr %14, i64 1 release, align 8, !noalias !136
-  %16 = icmp eq i64 %15, 1
-  br i1 %16, label %17, label %"_ZN4core3ptr342drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hf373b550f81bf478E.exit"
+  %12 = load ptr, ptr %1, align 8, !alias.scope !136, !nonnull !5, !noundef !5
+  %13 = atomicrmw sub ptr %12, i64 1 release, align 8, !noalias !136
+  %14 = icmp eq i64 %13, 1
+  br i1 %14, label %15, label %"_ZN4core3ptr342drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hf373b550f81bf478E.exit"
 
-17:                                               ; preds = %12
+15:                                               ; preds = %10
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7a84383a087a9b40E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
-          to label %"_ZN4core3ptr342drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hf373b550f81bf478E.exit" unwind label %38
+          to label %"_ZN4core3ptr342drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hf373b550f81bf478E.exit" unwind label %36
 
-18:                                               ; preds = %6
+16:                                               ; preds = %6
   store ptr %4, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %.0.val, i64 201
-  store atomic i8 1, ptr %19 monotonic, align 1
-  %20 = getelementptr inbounds i8, ptr %.0.val, i64 200
-  %21 = atomicrmw xchg ptr %20, i8 1 seq_cst, align 1
-  %22 = icmp eq i8 %21, 0
-  br i1 %22, label %28, label %23
+  %17 = getelementptr inbounds i8, ptr %.0.val, i64 201
+  store atomic i8 1, ptr %17 monotonic, align 1
+  %18 = getelementptr inbounds i8, ptr %.0.val, i64 200
+  %19 = atomicrmw xchg ptr %18, i8 1 seq_cst, align 1
+  %20 = icmp eq i8 %19, 0
+  br i1 %20, label %26, label %21
 
-23:                                               ; preds = %28, %18
+21:                                               ; preds = %26, %16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !137)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !140)
-  %24 = load ptr, ptr %1, align 8, !alias.scope !143, !nonnull !5, !noundef !5
-  %25 = atomicrmw sub ptr %24, i64 1 release, align 8, !noalias !143
-  %26 = icmp eq i64 %25, 1
-  br i1 %26, label %27, label %"_ZN4core3ptr342drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hf373b550f81bf478E.exit2"
+  %22 = load ptr, ptr %1, align 8, !alias.scope !143, !nonnull !5, !noundef !5
+  %23 = atomicrmw sub ptr %22, i64 1 release, align 8, !noalias !143
+  %24 = icmp eq i64 %23, 1
+  br i1 %24, label %25, label %"_ZN4core3ptr342drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hf373b550f81bf478E.exit2"
 
-27:                                               ; preds = %23
+25:                                               ; preds = %21
   fence acquire
   call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7a84383a087a9b40E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
   br label %"_ZN4core3ptr342drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hf373b550f81bf478E.exit2"
 
-"_ZN4core3ptr342drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hf373b550f81bf478E.exit2": ; preds = %23, %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  br label %11
+26:                                               ; preds = %16
+  %27 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
+  %28 = getelementptr inbounds i8, ptr %.0.val, i64 192
+  store atomic i64 0, ptr %28 monotonic, align 8
+  %29 = getelementptr inbounds i8, ptr %27, i64 48
+  %30 = ptrtoint ptr %3 to i64
+  %31 = atomicrmw xchg ptr %29, i64 %30 acq_rel, align 8
+  %32 = inttoptr i64 %31 to ptr
+  %33 = getelementptr inbounds i8, ptr %32, i64 176
+  store atomic i64 %30, ptr %33 release, align 8
+  %34 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
+  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  invoke void @_ZN12futures_core4task10__internal12atomic_waker11AtomicWaker4wake17h34eb74f102db2cc2E(ptr noundef nonnull align 8 %35)
+          to label %21 unwind label %10
 
-28:                                               ; preds = %18
-  %29 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
-  %30 = getelementptr inbounds i8, ptr %.0.val, i64 192
-  store atomic i64 0, ptr %30 monotonic, align 8
-  %31 = getelementptr inbounds i8, ptr %29, i64 48
-  %32 = ptrtoint ptr %3 to i64
-  %33 = atomicrmw xchg ptr %31, i64 %32 acq_rel, align 8
-  %34 = inttoptr i64 %33 to ptr
-  %35 = getelementptr inbounds i8, ptr %34, i64 176
-  store atomic i64 %32, ptr %35 release, align 8
-  %36 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
-  invoke void @_ZN12futures_core4task10__internal12atomic_waker11AtomicWaker4wake17h34eb74f102db2cc2E(ptr noundef nonnull align 8 %37)
-          to label %23 unwind label %12
-
-38:                                               ; preds = %17
-  %39 = landingpad { ptr, i32 }
+36:                                               ; preds = %15
+  %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #35
   unreachable
 
-"_ZN4core3ptr342drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hf373b550f81bf478E.exit": ; preds = %12, %17
-  resume { ptr, i32 } %13
+"_ZN4core3ptr342drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..ready_to_run_queue..ReadyToRunQueue$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$$LT$object_store..local..LocalFileSystem$u20$as$u20$object_store..ObjectStore$GT$..delete_stream..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hf373b550f81bf478E.exit": ; preds = %10, %15
+  resume { ptr, i32 } %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4012,7 +3963,6 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   store i64 %.sroa.0.1, ptr %0, align 8
   %.sroa.7.0..sroa_idx2 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.7.0..sroa_idx2, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.7, i64 88, i1 false)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.7)
   br label %50
 
 34:                                               ; preds = %18
@@ -4029,7 +3979,7 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   store i64 %.sroa.9.sroa.9.0.copyload85, ptr %.sroa.434.sroa.4.0..sroa.434.0..sroa_idx.sroa_idx, align 8
   %.sroa.434.sroa.5.0..sroa.434.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.434.sroa.5.0..sroa.434.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.9.sroa.11, i64 64, i1 false)
-  br label %51
+  br label %50
 
 35:                                               ; preds = %18, %24
   %.sroa.9.sroa.0.2 = phi ptr [ %.sroa.9.sroa.0.0.copyload, %24 ], [ %.sroa.9.sroa.0.0.ph, %18 ]
@@ -4042,7 +3992,7 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
 36:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4)
   store i64 -9223372036854775806, ptr %0, align 8
-  br label %51
+  br label %50
 
 37:                                               ; preds = %49
   %38 = landingpad { ptr, i32 }
@@ -4085,12 +4035,9 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.796.0..sroa_idx97, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.9.sroa.11, i64 72, i1 false)
   br label %.outer
 
-50:                                               ; preds = %51, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hf4f0a29d745cf783E.exit50"
-  ret void
-
-51:                                               ; preds = %36, %34
+50:                                               ; preds = %34, %36, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hf4f0a29d745cf783E.exit50"
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.7)
-  br label %50
+  ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4198,7 +4145,6 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   store i64 %.sroa.0.1, ptr %0, align 8
   %.sroa.7.0..sroa_idx2 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.7.0..sroa_idx2, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.7, i64 88, i1 false)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.7)
   br label %50
 
 34:                                               ; preds = %18
@@ -4215,7 +4161,7 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   store i64 %.sroa.9.sroa.9.0.copyload85, ptr %.sroa.434.sroa.4.0..sroa.434.0..sroa_idx.sroa_idx, align 8
   %.sroa.434.sroa.5.0..sroa.434.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.434.sroa.5.0..sroa.434.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.9.sroa.11, i64 64, i1 false)
-  br label %51
+  br label %50
 
 35:                                               ; preds = %18, %24
   %.sroa.9.sroa.0.2 = phi ptr [ %.sroa.9.sroa.0.0.copyload, %24 ], [ %.sroa.9.sroa.0.0.ph, %18 ]
@@ -4228,7 +4174,7 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
 36:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4)
   store i64 -9223372036854775806, ptr %0, align 8
-  br label %51
+  br label %50
 
 37:                                               ; preds = %49
   %38 = landingpad { ptr, i32 }
@@ -4271,12 +4217,9 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.796.0..sroa_idx97, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.9.sroa.11, i64 72, i1 false)
   br label %.outer
 
-50:                                               ; preds = %51, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hf4f0a29d745cf783E.exit50"
-  ret void
-
-51:                                               ; preds = %36, %34
+50:                                               ; preds = %34, %36, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hf4f0a29d745cf783E.exit50"
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.7)
-  br label %50
+  ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4384,7 +4327,6 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   store i64 %.sroa.0.1, ptr %0, align 8
   %.sroa.7.0..sroa_idx2 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.7.0..sroa_idx2, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.7, i64 88, i1 false)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.7)
   br label %50
 
 34:                                               ; preds = %18
@@ -4401,7 +4343,7 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   store i64 %.sroa.9.sroa.9.0.copyload85, ptr %.sroa.434.sroa.4.0..sroa.434.0..sroa_idx.sroa_idx, align 8
   %.sroa.434.sroa.5.0..sroa.434.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.434.sroa.5.0..sroa.434.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.9.sroa.11, i64 64, i1 false)
-  br label %51
+  br label %50
 
 35:                                               ; preds = %18, %24
   %.sroa.9.sroa.0.2 = phi ptr [ %.sroa.9.sroa.0.0.copyload, %24 ], [ %.sroa.9.sroa.0.0.ph, %18 ]
@@ -4414,7 +4356,7 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
 36:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4)
   store i64 -9223372036854775806, ptr %0, align 8
-  br label %51
+  br label %50
 
 37:                                               ; preds = %49
   %38 = landingpad { ptr, i32 }
@@ -4457,12 +4399,9 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.796.0..sroa_idx97, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.9.sroa.11, i64 72, i1 false)
   br label %.outer
 
-50:                                               ; preds = %51, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hf4f0a29d745cf783E.exit50"
-  ret void
-
-51:                                               ; preds = %36, %34
+50:                                               ; preds = %34, %36, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hf4f0a29d745cf783E.exit50"
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.7)
-  br label %50
+  ret void
 }
 
 ; Function Attrs: nonlazybind uwtable

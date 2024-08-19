@@ -80314,7 +80314,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Acec(ptr nocapture noundef %
   %11 = getelementptr inbounds i8, ptr %4, i64 12
   %12 = getelementptr inbounds i8, ptr %4, i64 8
   %13 = getelementptr inbounds i8, ptr %4, i64 4
-  %indvars.iv.sroa.gep169 = getelementptr inbounds i8, ptr %7, i64 8
+  %indvars.iv.sroa.gep171 = getelementptr inbounds i8, ptr %7, i64 8
   br label %14
 
 14:                                               ; preds = %.backedge, %3
@@ -80388,7 +80388,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Acec(ptr nocapture noundef %
   %41 = load i32, ptr %12, align 4
   %.not116 = icmp eq i32 %41, 0
   %42 = load i32, ptr @globalUtilOptind, align 4
-  br i1 %.not116, label %108, label %43
+  br i1 %.not116, label %102, label %43
 
 43:                                               ; preds = %40
   %.not121 = icmp eq i32 %42, %1
@@ -80396,7 +80396,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Acec(ptr nocapture noundef %
 
 44:                                               ; preds = %43
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.4458)
-  br label %195
+  br label %189
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds i8, ptr %0, i64 288
@@ -80406,12 +80406,12 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Acec(ptr nocapture noundef %
 
 49:                                               ; preds = %45
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.4459)
-  br label %195
+  br label %189
 
 50:                                               ; preds = %45
   %51 = load i32, ptr %11, align 4
   %.not122 = icmp eq i32 %51, 0
-  br i1 %.not122, label %70, label %52
+  br i1 %.not122, label %67, label %52
 
 52:                                               ; preds = %50
   %53 = getelementptr i8, ptr %47, i64 16
@@ -80427,7 +80427,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Acec(ptr nocapture noundef %
 
 58:                                               ; preds = %52
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.3690)
-  br label %195
+  br label %189
 
 59:                                               ; preds = %52
   %60 = getelementptr inbounds i8, ptr %4, i64 24
@@ -80444,265 +80444,258 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Acec(ptr nocapture noundef %
 64:                                               ; preds = %62, %59
   %65 = phi ptr [ %.pre, %62 ], [ %47, %59 ]
   %66 = call i32 @Gia_ManDemiterDual(ptr noundef %65, ptr noundef nonnull %5, ptr noundef nonnull %6) #28
-  %67 = load ptr, ptr %5, align 8
-  %68 = load ptr, ptr %6, align 8
-  %69 = call i32 @Acec_Solve(ptr noundef %67, ptr noundef %68, ptr noundef nonnull %4) #28
-  br label %102
+  br label %93
 
-70:                                               ; preds = %50
-  %71 = load i32, ptr %10, align 4
-  %.not123 = icmp eq i32 %71, 0
-  br i1 %.not123, label %90, label %72
+67:                                               ; preds = %50
+  %68 = load i32, ptr %10, align 4
+  %.not123 = icmp eq i32 %68, 0
+  br i1 %.not123, label %84, label %69
 
-72:                                               ; preds = %70
-  %73 = getelementptr i8, ptr %47, i64 16
-  %.val = load i32, ptr %73, align 8
-  %74 = getelementptr i8, ptr %47, i64 72
-  %.val136 = load ptr, ptr %74, align 8
-  %75 = getelementptr i8, ptr %.val136, i64 4
-  %.val136.val = load i32, ptr %75, align 4
-  %76 = sub nsw i32 %.val136.val, %.val
-  %77 = and i32 %76, 1
-  %.not125 = icmp eq i32 %77, 0
-  br i1 %.not125, label %79, label %78
+69:                                               ; preds = %67
+  %70 = getelementptr i8, ptr %47, i64 16
+  %.val = load i32, ptr %70, align 8
+  %71 = getelementptr i8, ptr %47, i64 72
+  %.val136 = load ptr, ptr %71, align 8
+  %72 = getelementptr i8, ptr %.val136, i64 4
+  %.val136.val = load i32, ptr %72, align 4
+  %73 = sub nsw i32 %.val136.val, %.val
+  %74 = and i32 %73, 1
+  %.not125 = icmp eq i32 %74, 0
+  br i1 %.not125, label %76, label %75
 
-78:                                               ; preds = %72
+75:                                               ; preds = %69
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.4461)
-  br label %195
+  br label %189
 
-79:                                               ; preds = %72
-  %80 = getelementptr inbounds i8, ptr %4, i64 24
-  %81 = load i32, ptr %80, align 4
-  %.not126 = icmp eq i32 %81, 0
-  br i1 %.not126, label %82, label %84
+76:                                               ; preds = %69
+  %77 = getelementptr inbounds i8, ptr %4, i64 24
+  %78 = load i32, ptr %77, align 4
+  %.not126 = icmp eq i32 %78, 0
+  br i1 %.not126, label %79, label %81
 
-82:                                               ; preds = %79
-  %83 = load i32, ptr %4, align 4
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.4462, i32 noundef %83)
+79:                                               ; preds = %76
+  %80 = load i32, ptr %4, align 4
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.4462, i32 noundef %80)
   %.pre150 = load ptr, ptr %46, align 8
-  br label %84
+  br label %81
 
-84:                                               ; preds = %82, %79
-  %85 = phi ptr [ %.pre150, %82 ], [ %47, %79 ]
-  %86 = call i32 @Gia_ManDemiterTwoWords(ptr noundef %85, ptr noundef nonnull %5, ptr noundef nonnull %6) #28
-  %87 = load ptr, ptr %5, align 8
-  %88 = load ptr, ptr %6, align 8
-  %89 = call i32 @Acec_Solve(ptr noundef %87, ptr noundef %88, ptr noundef nonnull %4) #28
-  br label %102
+81:                                               ; preds = %79, %76
+  %82 = phi ptr [ %.pre150, %79 ], [ %47, %76 ]
+  %83 = call i32 @Gia_ManDemiterTwoWords(ptr noundef %82, ptr noundef nonnull %5, ptr noundef nonnull %6) #28
+  br label %93
 
-90:                                               ; preds = %70
-  %91 = getelementptr inbounds i8, ptr %4, i64 24
-  %92 = load i32, ptr %91, align 4
-  %.not124 = icmp eq i32 %92, 0
-  br i1 %.not124, label %93, label %95
+84:                                               ; preds = %67
+  %85 = getelementptr inbounds i8, ptr %4, i64 24
+  %86 = load i32, ptr %85, align 4
+  %.not124 = icmp eq i32 %86, 0
+  br i1 %.not124, label %87, label %89
 
-93:                                               ; preds = %90
-  %94 = load i32, ptr %4, align 4
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.4463, i32 noundef %94)
+87:                                               ; preds = %84
+  %88 = load i32, ptr %4, align 4
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.4463, i32 noundef %88)
   %.pre151 = load ptr, ptr %46, align 8
-  br label %95
+  br label %89
 
-95:                                               ; preds = %93, %90
-  %96 = phi ptr [ %.pre151, %93 ], [ %47, %90 ]
-  %97 = call ptr @Gia_ManDemiterToDual(ptr noundef %96) #28
-  %98 = call i32 @Gia_ManDemiterDual(ptr noundef %97, ptr noundef nonnull %5, ptr noundef nonnull %6) #28
-  call void @Gia_ManStop(ptr noundef %97) #28
-  %99 = load ptr, ptr %5, align 8
-  %100 = load ptr, ptr %6, align 8
-  %101 = call i32 @Acec_Solve(ptr noundef %99, ptr noundef %100, ptr noundef nonnull %4) #28
-  br label %102
+89:                                               ; preds = %87, %84
+  %90 = phi ptr [ %.pre151, %87 ], [ %47, %84 ]
+  %91 = call ptr @Gia_ManDemiterToDual(ptr noundef %90) #28
+  %92 = call i32 @Gia_ManDemiterDual(ptr noundef %91, ptr noundef nonnull %5, ptr noundef nonnull %6) #28
+  call void @Gia_ManStop(ptr noundef %91) #28
+  br label %93
 
-102:                                              ; preds = %84, %95, %64
-  %.sink159 = phi i32 [ %89, %84 ], [ %101, %95 ], [ %69, %64 ]
-  %103 = getelementptr inbounds i8, ptr %0, i64 400
-  store i32 %.sink159, ptr %103, align 8
-  %104 = load ptr, ptr %5, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 368
-  call void @Abc_FrameReplaceCex(ptr noundef nonnull %0, ptr noundef nonnull %105)
-  %106 = load ptr, ptr %5, align 8
-  call void @Gia_ManStop(ptr noundef %106) #28
-  %107 = load ptr, ptr %6, align 8
-  call void @Gia_ManStop(ptr noundef %107) #28
-  br label %195
+93:                                               ; preds = %81, %89, %64
+  %94 = load ptr, ptr %5, align 8
+  %95 = load ptr, ptr %6, align 8
+  %96 = call i32 @Acec_Solve(ptr noundef %94, ptr noundef %95, ptr noundef nonnull %4) #28
+  %97 = getelementptr inbounds i8, ptr %0, i64 400
+  store i32 %96, ptr %97, align 8
+  %98 = load ptr, ptr %5, align 8
+  %99 = getelementptr inbounds i8, ptr %98, i64 368
+  call void @Abc_FrameReplaceCex(ptr noundef nonnull %0, ptr noundef nonnull %99)
+  %100 = load ptr, ptr %5, align 8
+  call void @Gia_ManStop(ptr noundef %100) #28
+  %101 = load ptr, ptr %6, align 8
+  call void @Gia_ManStop(ptr noundef %101) #28
+  br label %189
 
-108:                                              ; preds = %40
-  %109 = sext i32 %42 to i64
-  %110 = getelementptr inbounds ptr, ptr %2, i64 %109
-  %111 = sub nsw i32 %1, %42
-  %112 = icmp eq i32 %42, %1
-  %113 = icmp eq i32 %111, 1
-  %or.cond = select i1 %112, i1 true, i1 %113
-  br i1 %or.cond, label %114, label %149
+102:                                              ; preds = %40
+  %103 = sext i32 %42 to i64
+  %104 = getelementptr inbounds ptr, ptr %2, i64 %103
+  %105 = sub nsw i32 %1, %42
+  %106 = icmp eq i32 %42, %1
+  %107 = icmp eq i32 %105, 1
+  %or.cond = select i1 %106, i1 true, i1 %107
+  br i1 %or.cond, label %108, label %143
 
-114:                                              ; preds = %108
-  br i1 %112, label %115, label %122
+108:                                              ; preds = %102
+  br i1 %106, label %109, label %116
 
-115:                                              ; preds = %114
-  %116 = getelementptr inbounds i8, ptr %0, i64 288
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 8
-  %119 = load ptr, ptr %118, align 8
-  %120 = icmp eq ptr %119, null
-  br i1 %120, label %121, label %138
+109:                                              ; preds = %108
+  %110 = getelementptr inbounds i8, ptr %0, i64 288
+  %111 = load ptr, ptr %110, align 8
+  %112 = getelementptr inbounds i8, ptr %111, i64 8
+  %113 = load ptr, ptr %112, align 8
+  %114 = icmp eq ptr %113, null
+  br i1 %114, label %115, label %132
 
-121:                                              ; preds = %115
+115:                                              ; preds = %109
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.1339)
-  br label %195
+  br label %189
 
-122:                                              ; preds = %114
-  %123 = load ptr, ptr %110, align 8
-  br label %124
+116:                                              ; preds = %108
+  %117 = load ptr, ptr %104, align 8
+  br label %118
 
-124:                                              ; preds = %127, %122
-  %.0101 = phi ptr [ %123, %122 ], [ %128, %127 ]
-  %125 = load i8, ptr %.0101, align 1
-  switch i8 %125, label %127 [
-    i8 0, label %129
-    i8 62, label %126
+118:                                              ; preds = %121, %116
+  %.0101 = phi ptr [ %117, %116 ], [ %122, %121 ]
+  %119 = load i8, ptr %.0101, align 1
+  switch i8 %119, label %121 [
+    i8 0, label %123
+    i8 62, label %120
   ]
 
-126:                                              ; preds = %124
+120:                                              ; preds = %118
   store i8 92, ptr %.0101, align 1
-  br label %127
+  br label %121
 
-127:                                              ; preds = %124, %126
-  %128 = getelementptr inbounds i8, ptr %.0101, i64 1
-  br label %124, !llvm.loop !479
+121:                                              ; preds = %118, %120
+  %122 = getelementptr inbounds i8, ptr %.0101, i64 1
+  br label %118, !llvm.loop !479
 
-129:                                              ; preds = %124
-  %130 = call noalias ptr @fopen(ptr noundef %123, ptr noundef nonnull @.str.1494)
-  %131 = icmp eq ptr %130, null
-  br i1 %131, label %132, label %136
+123:                                              ; preds = %118
+  %124 = call noalias ptr @fopen(ptr noundef %117, ptr noundef nonnull @.str.1494)
+  %125 = icmp eq ptr %124, null
+  br i1 %125, label %126, label %130
 
-132:                                              ; preds = %129
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.1608, ptr noundef %123)
-  %133 = call ptr @Extra_FileGetSimilarName(ptr noundef %123, ptr noundef nonnull @.str.1965, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #28
-  %.not120 = icmp eq ptr %133, null
-  br i1 %.not120, label %135, label %134
+126:                                              ; preds = %123
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.1608, ptr noundef %117)
+  %127 = call ptr @Extra_FileGetSimilarName(ptr noundef %117, ptr noundef nonnull @.str.1965, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #28
+  %.not120 = icmp eq ptr %127, null
+  br i1 %.not120, label %129, label %128
 
-134:                                              ; preds = %132
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.1614, ptr noundef nonnull %133)
-  br label %135
+128:                                              ; preds = %126
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.1614, ptr noundef nonnull %127)
+  br label %129
 
-135:                                              ; preds = %134, %132
+129:                                              ; preds = %128, %126
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.717)
-  br label %195
+  br label %189
 
-136:                                              ; preds = %129
-  %137 = call i32 @fclose(ptr noundef nonnull %130)
-  br label %138
+130:                                              ; preds = %123
+  %131 = call i32 @fclose(ptr noundef nonnull %124)
+  br label %132
 
-138:                                              ; preds = %115, %136
-  %.0100 = phi ptr [ %119, %115 ], [ %123, %136 ]
-  %139 = call ptr @Gia_AigerRead(ptr noundef %.0100, i32 noundef 0, i32 noundef 0, i32 noundef 0) #28
-  %140 = icmp eq ptr %139, null
-  br i1 %140, label %141, label %142
+132:                                              ; preds = %109, %130
+  %.0100 = phi ptr [ %113, %109 ], [ %117, %130 ]
+  %133 = call ptr @Gia_AigerRead(ptr noundef %.0100, i32 noundef 0, i32 noundef 0, i32 noundef 0) #28
+  %134 = icmp eq ptr %133, null
+  br i1 %134, label %135, label %136
 
-141:                                              ; preds = %138
+135:                                              ; preds = %132
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.1966)
-  br label %195
+  br label %189
 
-142:                                              ; preds = %138
-  %143 = getelementptr inbounds i8, ptr %0, i64 288
-  %144 = load ptr, ptr %143, align 8
-  %145 = call i32 @Acec_Solve(ptr noundef %144, ptr noundef nonnull %139, ptr noundef nonnull %4) #28
-  %146 = getelementptr inbounds i8, ptr %0, i64 400
-  store i32 %145, ptr %146, align 8
-  %147 = load ptr, ptr %143, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 368
-  call void @Abc_FrameReplaceCex(ptr noundef %0, ptr noundef nonnull %148)
-  call void @Gia_ManStop(ptr noundef nonnull %139) #28
-  br label %195
+136:                                              ; preds = %132
+  %137 = getelementptr inbounds i8, ptr %0, i64 288
+  %138 = load ptr, ptr %137, align 8
+  %139 = call i32 @Acec_Solve(ptr noundef %138, ptr noundef nonnull %133, ptr noundef nonnull %4) #28
+  %140 = getelementptr inbounds i8, ptr %0, i64 400
+  store i32 %139, ptr %140, align 8
+  %141 = load ptr, ptr %137, align 8
+  %142 = getelementptr inbounds i8, ptr %141, i64 368
+  call void @Abc_FrameReplaceCex(ptr noundef %0, ptr noundef nonnull %142)
+  call void @Gia_ManStop(ptr noundef nonnull %133) #28
+  br label %189
 
-149:                                              ; preds = %108
-  %150 = icmp eq i32 %111, 2
-  br i1 %150, label %151, label %182
+143:                                              ; preds = %102
+  %144 = icmp eq i32 %105, 2
+  br i1 %144, label %145, label %176
 
-151:                                              ; preds = %149
+145:                                              ; preds = %143
   store ptr null, ptr %.sroa.0, align 16
   store ptr null, ptr %.sroa.3, align 8
-  %152 = load ptr, ptr %110, align 8
-  store ptr %152, ptr %7, align 16
-  %153 = getelementptr inbounds i8, ptr %7, i64 8
-  %154 = getelementptr inbounds i8, ptr %110, i64 8
-  %155 = load ptr, ptr %154, align 8
-  store ptr %155, ptr %153, align 8
-  br label %157
+  %146 = load ptr, ptr %104, align 8
+  store ptr %146, ptr %7, align 16
+  %147 = getelementptr inbounds i8, ptr %7, i64 8
+  %148 = getelementptr inbounds i8, ptr %104, i64 8
+  %149 = load ptr, ptr %148, align 8
+  store ptr %149, ptr %147, align 8
+  br label %151
 
-156:                                              ; preds = %173
-  br i1 %158, label %157, label %178, !llvm.loop !480
+150:                                              ; preds = %167
+  br i1 %152, label %151, label %172, !llvm.loop !480
 
-157:                                              ; preds = %151, %156
-  %158 = phi i1 [ true, %151 ], [ false, %156 ]
-  %indvars.iv.sroa.phi = phi ptr [ %7, %151 ], [ %indvars.iv.sroa.gep169, %156 ]
-  %indvars.iv.sroa.phi170 = phi ptr [ %.sroa.0, %151 ], [ %.sroa.3, %156 ]
-  %indvars.iv = phi i64 [ 0, %151 ], [ 1, %156 ]
-  %159 = load ptr, ptr %indvars.iv.sroa.phi, align 8
-  br label %160
+151:                                              ; preds = %145, %150
+  %152 = phi i1 [ true, %145 ], [ false, %150 ]
+  %indvars.iv.sroa.phi = phi ptr [ %7, %145 ], [ %indvars.iv.sroa.gep171, %150 ]
+  %indvars.iv.sroa.phi172 = phi ptr [ %.sroa.0, %145 ], [ %.sroa.3, %150 ]
+  %indvars.iv = phi i64 [ 0, %145 ], [ 1, %150 ]
+  %153 = load ptr, ptr %indvars.iv.sroa.phi, align 8
+  br label %154
 
-160:                                              ; preds = %163, %157
-  %.0 = phi ptr [ %159, %157 ], [ %164, %163 ]
-  %161 = load i8, ptr %.0, align 1
-  switch i8 %161, label %163 [
-    i8 0, label %165
-    i8 62, label %162
+154:                                              ; preds = %157, %151
+  %.0 = phi ptr [ %153, %151 ], [ %158, %157 ]
+  %155 = load i8, ptr %.0, align 1
+  switch i8 %155, label %157 [
+    i8 0, label %159
+    i8 62, label %156
   ]
 
-162:                                              ; preds = %160
+156:                                              ; preds = %154
   store i8 92, ptr %.0, align 1
-  br label %163
+  br label %157
 
-163:                                              ; preds = %160, %162
-  %164 = getelementptr inbounds i8, ptr %.0, i64 1
-  br label %160, !llvm.loop !481
+157:                                              ; preds = %154, %156
+  %158 = getelementptr inbounds i8, ptr %.0, i64 1
+  br label %154, !llvm.loop !481
 
-165:                                              ; preds = %160
-  %166 = call noalias ptr @fopen(ptr noundef %159, ptr noundef nonnull @.str.1494)
-  %167 = icmp eq ptr %166, null
-  br i1 %167, label %168, label %173
+159:                                              ; preds = %154
+  %160 = call noalias ptr @fopen(ptr noundef %153, ptr noundef nonnull @.str.1494)
+  %161 = icmp eq ptr %160, null
+  br i1 %161, label %162, label %167
 
-168:                                              ; preds = %165
-  %169 = getelementptr inbounds [2 x ptr], ptr %7, i64 0, i64 %indvars.iv
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.1608, ptr noundef %159)
-  %170 = call ptr @Extra_FileGetSimilarName(ptr noundef %159, ptr noundef nonnull @.str.1965, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #28
-  store ptr %170, ptr %169, align 8
-  %.not118 = icmp eq ptr %170, null
-  br i1 %.not118, label %172, label %171
+162:                                              ; preds = %159
+  %163 = getelementptr inbounds [2 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.1608, ptr noundef %153)
+  %164 = call ptr @Extra_FileGetSimilarName(ptr noundef %153, ptr noundef nonnull @.str.1965, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #28
+  store ptr %164, ptr %163, align 8
+  %.not118 = icmp eq ptr %164, null
+  br i1 %.not118, label %166, label %165
 
-171:                                              ; preds = %168
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.1614, ptr noundef nonnull %170)
-  br label %172
+165:                                              ; preds = %162
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.1614, ptr noundef nonnull %164)
+  br label %166
 
-172:                                              ; preds = %171, %168
+166:                                              ; preds = %165, %162
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.717)
-  br label %195
+  br label %189
 
-173:                                              ; preds = %165
-  %174 = call i32 @fclose(ptr noundef nonnull %166)
-  %175 = call ptr @Gia_AigerRead(ptr noundef %159, i32 noundef 0, i32 noundef 0, i32 noundef 0) #28
-  store ptr %175, ptr %indvars.iv.sroa.phi170, align 8
-  %176 = icmp eq ptr %175, null
-  br i1 %176, label %177, label %156
+167:                                              ; preds = %159
+  %168 = call i32 @fclose(ptr noundef nonnull %160)
+  %169 = call ptr @Gia_AigerRead(ptr noundef %153, i32 noundef 0, i32 noundef 0, i32 noundef 0) #28
+  store ptr %169, ptr %indvars.iv.sroa.phi172, align 8
+  %170 = icmp eq ptr %169, null
+  br i1 %170, label %171, label %150
 
-177:                                              ; preds = %173
+171:                                              ; preds = %167
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.1966)
-  br label %195
+  br label %189
 
-178:                                              ; preds = %156
+172:                                              ; preds = %150
   %.sroa.0.0..sroa.0.0. = load ptr, ptr %.sroa.0, align 16
   %.sroa.3.0..sroa.3.8. = load ptr, ptr %.sroa.3, align 8
-  %179 = call i32 @Acec_Solve(ptr noundef %.sroa.0.0..sroa.0.0., ptr noundef %.sroa.3.0..sroa.3.8., ptr noundef nonnull %4) #28
-  %180 = getelementptr inbounds i8, ptr %0, i64 400
-  store i32 %179, ptr %180, align 8
-  %181 = getelementptr inbounds i8, ptr %.sroa.0.0..sroa.0.0., i64 368
-  call void @Abc_FrameReplaceCex(ptr noundef %0, ptr noundef nonnull %181)
+  %173 = call i32 @Acec_Solve(ptr noundef %.sroa.0.0..sroa.0.0., ptr noundef %.sroa.3.0..sroa.3.8., ptr noundef nonnull %4) #28
+  %174 = getelementptr inbounds i8, ptr %0, i64 400
+  store i32 %173, ptr %174, align 8
+  %175 = getelementptr inbounds i8, ptr %.sroa.0.0..sroa.0.0., i64 368
+  call void @Abc_FrameReplaceCex(ptr noundef %0, ptr noundef nonnull %175)
   call void @Gia_ManStop(ptr noundef %.sroa.0.0..sroa.0.0.) #28
   call void @Gia_ManStop(ptr noundef %.sroa.3.0..sroa.3.8.) #28
-  br label %195
+  br label %189
 
-182:                                              ; preds = %149
+176:                                              ; preds = %143
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.4464)
-  br label %195
+  br label %189
 
 .loopexit.sink.split:                             ; preds = %25, %16
   %.str.807.sink = phi ptr [ @.str.512, %16 ], [ @.str.807, %25 ]
@@ -80712,37 +80705,37 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Acec(ptr nocapture noundef %
 .loopexit:                                        ; preds = %14, %27, %18, %.loopexit.sink.split
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4465)
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4466)
-  %183 = load i32, ptr %4, align 4
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1774, i32 noundef %183)
-  %184 = load i32, ptr %13, align 4
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2423, i32 noundef %184)
-  %185 = load i32, ptr %12, align 4
-  %.not131 = icmp eq i32 %185, 0
-  %186 = select i1 %.not131, ptr @.str.3704, ptr @.str.97
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3703, ptr noundef nonnull %186)
-  %187 = load i32, ptr %11, align 4
-  %.not132 = icmp eq i32 %187, 0
-  %188 = select i1 %.not132, ptr @.str.527, ptr @.str.526
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3705, ptr noundef nonnull %188)
-  %189 = load i32, ptr %10, align 4
-  %.not133 = icmp eq i32 %189, 0
-  %190 = select i1 %.not133, ptr @.str.527, ptr @.str.526
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4467, ptr noundef nonnull %190)
-  %191 = load i32, ptr %9, align 4
-  %.not134 = icmp eq i32 %191, 0
-  %192 = select i1 %.not134, ptr @.str.527, ptr @.str.526
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4468, ptr noundef nonnull %192)
-  %193 = load i32, ptr %8, align 4
-  %.not135 = icmp eq i32 %193, 0
-  %194 = select i1 %.not135, ptr @.str.527, ptr @.str.526
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1879, ptr noundef nonnull %194)
+  %177 = load i32, ptr %4, align 4
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1774, i32 noundef %177)
+  %178 = load i32, ptr %13, align 4
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2423, i32 noundef %178)
+  %179 = load i32, ptr %12, align 4
+  %.not131 = icmp eq i32 %179, 0
+  %180 = select i1 %.not131, ptr @.str.3704, ptr @.str.97
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3703, ptr noundef nonnull %180)
+  %181 = load i32, ptr %11, align 4
+  %.not132 = icmp eq i32 %181, 0
+  %182 = select i1 %.not132, ptr @.str.527, ptr @.str.526
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3705, ptr noundef nonnull %182)
+  %183 = load i32, ptr %10, align 4
+  %.not133 = icmp eq i32 %183, 0
+  %184 = select i1 %.not133, ptr @.str.527, ptr @.str.526
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4467, ptr noundef nonnull %184)
+  %185 = load i32, ptr %9, align 4
+  %.not134 = icmp eq i32 %185, 0
+  %186 = select i1 %.not134, ptr @.str.527, ptr @.str.526
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4468, ptr noundef nonnull %186)
+  %187 = load i32, ptr %8, align 4
+  %.not135 = icmp eq i32 %187, 0
+  %188 = select i1 %.not135, ptr @.str.527, ptr @.str.526
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1879, ptr noundef nonnull %188)
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.528)
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2554)
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2555)
-  br label %195
+  br label %189
 
-195:                                              ; preds = %142, %178, %.loopexit, %182, %177, %172, %141, %135, %121, %102, %78, %58, %49, %44
-  %.0102 = phi i32 [ 1, %.loopexit ], [ 1, %44 ], [ 1, %49 ], [ 1, %58 ], [ 0, %102 ], [ 1, %78 ], [ 1, %121 ], [ 0, %141 ], [ 1, %135 ], [ 1, %172 ], [ 0, %177 ], [ 1, %182 ], [ 0, %178 ], [ 0, %142 ]
+189:                                              ; preds = %136, %172, %.loopexit, %176, %171, %166, %135, %129, %115, %93, %75, %58, %49, %44
+  %.0102 = phi i32 [ 1, %.loopexit ], [ 1, %44 ], [ 1, %49 ], [ 1, %58 ], [ 0, %93 ], [ 1, %75 ], [ 1, %115 ], [ 0, %135 ], [ 1, %129 ], [ 1, %166 ], [ 0, %171 ], [ 1, %176 ], [ 0, %172 ], [ 0, %136 ]
   ret i32 %.0102
 }
 

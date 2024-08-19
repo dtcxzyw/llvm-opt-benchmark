@@ -40,12 +40,8 @@ define hidden noundef i32 @_ZN6uu_cat6splice10copy_exact17ha0a210ba6891ea05E(i32
   %9 = getelementptr inbounds i8, ptr %5, i64 8
   br label %10
 
-._crit_edge:                                      ; preds = %19, %3
-  call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %7)
-  br label %14
-
-10:                                               ; preds = %.lr.ph, %19
-  %.052 = phi i64 [ %2, %.lr.ph ], [ %20, %19 ]
+10:                                               ; preds = %.lr.ph, %18
+  %.052 = phi i64 [ %2, %.lr.ph ], [ %19, %18 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN3nix6unistd4read17h949cd14f2df1350eE(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %5, i32 noundef %0, ptr noalias noundef nonnull align 1 %7, i64 noundef 16384)
@@ -54,22 +50,23 @@ define hidden noundef i32 @_ZN6uu_cat6splice10copy_exact17ha0a210ba6891ea05E(i32
   %12 = load i32, ptr %8, align 4, !range !6
   %13 = load i64, ptr %9, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br i1 %trunc, label %.loopexit, label %15
+  br i1 %trunc, label %.loopexit, label %14
 
-14:                                               ; preds = %.loopexit, %._crit_edge
-  %.018 = phi i32 [ %.1, %.loopexit ], [ 134, %._crit_edge ]
+._crit_edge:                                      ; preds = %18, %3, %.loopexit
+  %.018 = phi i32 [ %.1, %.loopexit ], [ 134, %3 ], [ 134, %18 ]
+  call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %7)
   ret i32 %.018
 
-15:                                               ; preds = %10
+14:                                               ; preds = %10
   store i64 %13, ptr %6, align 8
-  %16 = icmp eq i64 %13, 0
-  br i1 %16, label %18, label %.preheader.preheader
+  %15 = icmp eq i64 %13, 0
+  br i1 %15, label %17, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %15
-  %17 = icmp ugt i64 %13, 16384
+.preheader.preheader:                             ; preds = %14
+  %16 = icmp ugt i64 %13, 16384
   br label %.preheader
 
-18:                                               ; preds = %15
+17:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   store ptr @anon.36de252eb2786b37aee3f61249806dab.1, ptr %4, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
@@ -81,47 +78,46 @@ define hidden noundef i32 @_ZN6uu_cat6splice10copy_exact17ha0a210ba6891ea05E(i32
   call void @_ZN4core9panicking13assert_failed17h52d4438103888feaE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.36de252eb2786b37aee3f61249806dab.4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.36de252eb2786b37aee3f61249806dab.6) #6
   unreachable
 
-19:                                               ; preds = %27
-  %20 = sub i64 %.052, %13
+18:                                               ; preds = %26
+  %19 = sub i64 %.052, %13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %.not = icmp eq i64 %20, 0
+  %.not = icmp eq i64 %19, 0
   br i1 %.not, label %._crit_edge, label %10
 
-.preheader:                                       ; preds = %.preheader.preheader, %27
-  %.01948 = phi i64 [ %28, %27 ], [ 0, %.preheader.preheader ]
-  br i1 %17, label %21, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE.exit"
+.preheader:                                       ; preds = %.preheader.preheader, %26
+  %.01948 = phi i64 [ %27, %26 ], [ 0, %.preheader.preheader ]
+  br i1 %16, label %20, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE.exit"
 
-21:                                               ; preds = %.preheader
+20:                                               ; preds = %.preheader
   call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %13, i64 noundef 16384, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.36de252eb2786b37aee3f61249806dab.7) #6, !noalias !7
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE.exit": ; preds = %.preheader
-  %22 = sub nuw nsw i64 %13, %.01948
-  %23 = getelementptr inbounds i8, ptr %7, i64 %.01948
-  %24 = call noundef i64 @write(i32 noundef 1, ptr noundef nonnull readonly %23, i64 noundef %22), !noalias !10
-  switch i64 %24, label %27 [
+  %21 = sub nuw nsw i64 %13, %.01948
+  %22 = getelementptr inbounds i8, ptr %7, i64 %.01948
+  %23 = call noundef i64 @write(i32 noundef 1, ptr noundef nonnull readonly %22, i64 noundef %21), !noalias !10
+  switch i64 %23, label %26 [
     i64 -1, label %_ZN3nix6unistd5write17h023005b3601ee0cbE.exit
-    i64 0, label %26
+    i64 0, label %25
   ]
 
 _ZN3nix6unistd5write17h023005b3601ee0cbE.exit:    ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE.exit"
-  %25 = call noundef i32 @"_ZN3nix5errno43_$LT$impl$u20$nix..errno..consts..Errno$GT$4last17h4b5419bd96ecf1ecE"(), !range !6, !noalias !13
+  %24 = call noundef i32 @"_ZN3nix5errno43_$LT$impl$u20$nix..errno..consts..Errno$GT$4last17h4b5419bd96ecf1ecE"(), !range !6, !noalias !13
   br label %.loopexit
 
-26:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE.exit"
+25:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE.exit"
   call void @_ZN6uu_cat6splice10copy_exact19panic_cold_explicit17h0cd5967c60547272E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.36de252eb2786b37aee3f61249806dab.8) #6
   unreachable
 
-27:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE.exit"
-  %28 = add i64 %24, %.01948
-  %29 = icmp ult i64 %28, %13
-  br i1 %29, label %.preheader, label %19
+26:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE.exit"
+  %27 = add i64 %23, %.01948
+  %28 = icmp ult i64 %27, %13
+  br i1 %28, label %.preheader, label %18
 
 .loopexit:                                        ; preds = %10, %_ZN3nix6unistd5write17h023005b3601ee0cbE.exit
-  %.1 = phi i32 [ %25, %_ZN3nix6unistd5write17h023005b3601ee0cbE.exit ], [ %12, %10 ]
+  %.1 = phi i32 [ %24, %_ZN3nix6unistd5write17h023005b3601ee0cbE.exit ], [ %12, %10 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %7)
-  br label %14
+  br label %._crit_edge
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable

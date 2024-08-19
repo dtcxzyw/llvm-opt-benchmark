@@ -1451,7 +1451,7 @@ define internal i32 @acpi_wmi_probe(ptr noundef %0) #0 align 16 {
 
 14:                                               ; preds = %1
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %7, ptr noundef nonnull @.str.17) #13
-  br label %215
+  br label %214
 
 15:                                               ; preds = %1
   %16 = getelementptr inbounds i8, ptr %0, i64 96
@@ -1472,7 +1472,7 @@ define internal i32 @acpi_wmi_probe(ptr noundef %0) #0 align 16 {
 25:                                               ; preds = %21
   %26 = ptrtoint ptr %23 to i64
   %27 = trunc i64 %26 to i32
-  br label %215
+  br label %214
 
 28:                                               ; preds = %21
   %29 = tail call i32 @__devm_add_action(ptr noundef %7, ptr noundef nonnull @acpi_wmi_remove_bus_device, ptr noundef %23, ptr noundef nonnull @.str.19) #12
@@ -1482,7 +1482,7 @@ define internal i32 @acpi_wmi_probe(ptr noundef %0) #0 align 16 {
 31:                                               ; preds = %28
   tail call void @device_unregister(ptr noundef %23) #12
   %32 = icmp slt i32 %29, 0
-  br i1 %32, label %215, label %.thread
+  br i1 %32, label %214, label %.thread
 
 .thread:                                          ; preds = %28, %31
   %33 = getelementptr inbounds i8, ptr %0, i64 136
@@ -1495,7 +1495,7 @@ define internal i32 @acpi_wmi_probe(ptr noundef %0) #0 align 16 {
 
 38:                                               ; preds = %.thread
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %7, ptr noundef nonnull @.str.20) #13
-  br label %215
+  br label %214
 
 39:                                               ; preds = %.thread
   %40 = tail call i32 @__devm_add_action(ptr noundef %7, ptr noundef nonnull @acpi_wmi_remove_address_space_handler, ptr noundef nonnull %11, ptr noundef nonnull @.str.21) #12
@@ -1506,7 +1506,7 @@ define internal i32 @acpi_wmi_probe(ptr noundef %0) #0 align 16 {
   %43 = load ptr, ptr %34, align 8
   %44 = tail call i32 @acpi_remove_address_space_handler(ptr noundef %43, i8 noundef zeroext 3, ptr noundef nonnull @acpi_wmi_ec_space_handler) #12
   %45 = icmp slt i32 %40, 0
-  br i1 %45, label %215, label %.thread14
+  br i1 %45, label %214, label %.thread14
 
 .thread14:                                        ; preds = %39, %42
   %46 = load ptr, ptr %34, align 8
@@ -1516,7 +1516,7 @@ define internal i32 @acpi_wmi_probe(ptr noundef %0) #0 align 16 {
 
 49:                                               ; preds = %.thread14
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %7, ptr noundef nonnull @.str.22) #13
-  br label %215
+  br label %214
 
 50:                                               ; preds = %.thread14
   %51 = tail call i32 @__devm_add_action(ptr noundef %7, ptr noundef nonnull @acpi_wmi_remove_notify_handler, ptr noundef nonnull %11, ptr noundef nonnull @.str.23) #12
@@ -1527,7 +1527,7 @@ define internal i32 @acpi_wmi_probe(ptr noundef %0) #0 align 16 {
   %54 = load ptr, ptr %34, align 8
   %55 = tail call i32 @acpi_remove_notify_handler(ptr noundef %54, i32 noundef 3, ptr noundef nonnull @acpi_wmi_notify_handler) #12
   %56 = icmp slt i32 %51, 0
-  br i1 %56, label %215, label %.thread15
+  br i1 %56, label %214, label %.thread15
 
 .thread15:                                        ; preds = %50, %53
   %57 = load ptr, ptr %8, align 8
@@ -1556,8 +1556,7 @@ define internal i32 @acpi_wmi_probe(ptr noundef %0) #0 align 16 {
 
 .thread20:                                        ; preds = %69
   call void @kfree(ptr noundef nonnull %67) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
-  br label %213
+  br label %.thread18
 
 72:                                               ; preds = %69
   %73 = getelementptr inbounds i8, ptr %67, i64 8
@@ -1570,7 +1569,7 @@ define internal i32 @acpi_wmi_probe(ptr noundef %0) #0 align 16 {
 .thread19:                                        ; preds = %72
   call void @kfree(ptr noundef nonnull %67) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
-  br label %215
+  br label %214
 
 78:                                               ; preds = %72
   %79 = udiv i32 %76, 20
@@ -1838,22 +1837,19 @@ define internal i32 @acpi_wmi_probe(ptr noundef %0) #0 align 16 {
   %211 = icmp eq i64 %210, %85
   br i1 %211, label %212, label %86, !llvm.loop !14
 
-.thread18:                                        ; preds = %.thread15, %66
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
-  br label %213
-
 212:                                              ; preds = %209
   call void @kfree(ptr noundef nonnull %67) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
-  br label %215
+  br label %214
 
-213:                                              ; preds = %.thread20, %.thread18
-  %214 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.24) #13
-  br label %215
+.thread18:                                        ; preds = %66, %.thread15, %.thread20
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
+  %213 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.24) #13
+  br label %214
 
-215:                                              ; preds = %212, %.thread19, %213, %53, %49, %42, %38, %31, %25, %14
-  %216 = phi i32 [ %27, %25 ], [ -19, %38 ], [ -19, %49 ], [ -6, %213 ], [ -19, %14 ], [ %29, %31 ], [ %40, %42 ], [ %51, %53 ], [ 0, %212 ], [ 0, %.thread19 ]
-  ret i32 %216
+214:                                              ; preds = %212, %.thread19, %.thread18, %53, %49, %42, %38, %31, %25, %14
+  %215 = phi i32 [ %27, %25 ], [ -19, %38 ], [ -19, %49 ], [ -6, %.thread18 ], [ -19, %14 ], [ %29, %31 ], [ %40, %42 ], [ %51, %53 ], [ 0, %212 ], [ 0, %.thread19 ]
+  ret i32 %215
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

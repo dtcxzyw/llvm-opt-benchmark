@@ -6756,7 +6756,7 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph:      ; preds = %_ZN6vectorIP4exprLb
   br label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit
 
 _ZNK6vectorIP4exprLb0EjE5emptyEv.exit:            ; preds = %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph, %while.cond.backedge
-  %3 = phi ptr [ %2, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph ], [ %56, %while.cond.backedge ]
+  %3 = phi ptr [ %2, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph ], [ %57, %while.cond.backedge ]
   %arrayidx.i3 = getelementptr inbounds i8, ptr %3, i64 -4
   %4 = load i32, ptr %arrayidx.i3, align 4
   %cmp3.i = icmp eq i32 %4, 0
@@ -7068,29 +7068,29 @@ if.then61:                                        ; preds = %land.rhs.i.i, %invo
           to label %while.cond.backedge unwind label %lpad.loopexit.split-lp.loopexit
 
 while.cond.backedge.sink.split.sink.split:        ; preds = %if.then.i101, %if.then.i15
-  %.sink165.ph = phi ptr [ %9, %if.then.i15 ], [ %49, %if.then.i101 ]
-  %.pre.i102.sink = load ptr, ptr %todo, align 8
-  %arrayidx8.phi.trans.insert.i103 = getelementptr inbounds i8, ptr %.pre.i102.sink, i64 -4
+  %.sink.ph = phi ptr [ %9, %if.then.i15 ], [ %49, %if.then.i101 ]
+  %.pre.i102 = load ptr, ptr %todo, align 8
+  %arrayidx8.phi.trans.insert.i103 = getelementptr inbounds i8, ptr %.pre.i102, i64 -4
   %.pre1.i104 = load i32, ptr %arrayidx8.phi.trans.insert.i103, align 4
   br label %while.cond.backedge.sink.split
 
 while.cond.backedge.sink.split:                   ; preds = %while.cond.backedge.sink.split.sink.split, %lor.lhs.false.i93, %lor.lhs.false.i7
-  %.sink167 = phi i32 [ %11, %lor.lhs.false.i7 ], [ %51, %lor.lhs.false.i93 ], [ %.pre1.i104, %while.cond.backedge.sink.split.sink.split ]
-  %.sink166 = phi ptr [ %10, %lor.lhs.false.i7 ], [ %50, %lor.lhs.false.i93 ], [ %.pre.i102.sink, %while.cond.backedge.sink.split.sink.split ]
-  %.sink165 = phi ptr [ %9, %lor.lhs.false.i7 ], [ %49, %lor.lhs.false.i93 ], [ %.sink165.ph, %while.cond.backedge.sink.split.sink.split ]
-  %idx.ext.i97 = zext i32 %.sink167 to i64
-  %add.ptr.i98 = getelementptr inbounds ptr, ptr %.sink166, i64 %idx.ext.i97
-  store ptr %.sink165, ptr %add.ptr.i98, align 8
-  %.sink = load ptr, ptr %todo, align 8
-  %arrayidx10.i13 = getelementptr inbounds i8, ptr %.sink, i64 -4
-  %55 = load i32, ptr %arrayidx10.i13, align 4
-  %inc.i14 = add i32 %55, 1
+  %.sink162 = phi i32 [ %11, %lor.lhs.false.i7 ], [ %51, %lor.lhs.false.i93 ], [ %.pre1.i104, %while.cond.backedge.sink.split.sink.split ]
+  %.sink161 = phi ptr [ %10, %lor.lhs.false.i7 ], [ %50, %lor.lhs.false.i93 ], [ %.pre.i102, %while.cond.backedge.sink.split.sink.split ]
+  %.sink = phi ptr [ %9, %lor.lhs.false.i7 ], [ %49, %lor.lhs.false.i93 ], [ %.sink.ph, %while.cond.backedge.sink.split.sink.split ]
+  %idx.ext.i11 = zext i32 %.sink162 to i64
+  %add.ptr.i12 = getelementptr inbounds ptr, ptr %.sink161, i64 %idx.ext.i11
+  store ptr %.sink, ptr %add.ptr.i12, align 8
+  %55 = load ptr, ptr %todo, align 8
+  %arrayidx10.i13 = getelementptr inbounds i8, ptr %55, i64 -4
+  %56 = load i32, ptr %arrayidx10.i13, align 4
+  %inc.i14 = add i32 %56, 1
   store i32 %inc.i14, ptr %arrayidx10.i13, align 4
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.i, %while.cond.backedge.sink.split, %invoke.cont59, %if.then30, %if.then61, %invoke.cont10, %invoke.cont7
-  %56 = load ptr, ptr %todo, align 8
-  %cmp.i2 = icmp eq ptr %56, null
+  %57 = load ptr, ptr %todo, align 8
+  %cmp.i2 = icmp eq ptr %57, null
   br i1 %cmp.i2, label %_ZN10ptr_vectorI4exprED2Ev.exit, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit, !llvm.loop !29
 
 if.then.i.i.i:                                    ; preds = %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit
@@ -7099,10 +7099,10 @@ if.then.i.i.i:                                    ; preds = %_ZNK6vectorIP4exprL
           to label %_ZN10ptr_vectorI4exprED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
-  %57 = landingpad { ptr, i32 }
+  %58 = landingpad { ptr, i32 }
           catch ptr null
-  %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #18
+  %59 = extractvalue { ptr, i32 } %58, 0
+  call void @__clang_call_terminate(ptr %59) #18
   unreachable
 
 _ZN10ptr_vectorI4exprED2Ev.exit:                  ; preds = %while.cond.backedge, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit, %if.then.i.i.i

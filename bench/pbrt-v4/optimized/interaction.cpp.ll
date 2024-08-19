@@ -14259,7 +14259,6 @@ _ZN4pbrt9ClampZeroERKNS_15SampledSpectrumE.exit:  ; preds = %for.body.i
   %.fca.1.gep.i = getelementptr inbounds i8, ptr %retval.i, i64 8
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
-  store <2 x float> %.fca.0.load.i, ptr %sig_a, align 8
   br label %if.end81
 
 if.else:                                          ; preds = %entry
@@ -14307,7 +14306,6 @@ _ZN4pbrt5ClampIiiEENS_15SampledSpectrumERKS1_T_T0_.exit: ; preds = %for.body.i15
   %call47 = call { <2 x float>, <2 x float> } @_ZN4pbrt8HairBxDF21SigmaAFromReflectanceERKNS_15SampledSpectrumEfRKNS_18SampledWavelengthsE(ptr noundef nonnull align 4 dereferenceable(16) %c, float noundef %.sroa.speculated51, ptr noundef nonnull align 4 dereferenceable(32) %lambda)
   %16 = extractvalue { <2 x float>, <2 x float> } %call47, 0
   %17 = extractvalue { <2 x float>, <2 x float> } %call47, 1
-  store <2 x float> %16, ptr %sig_a, align 8
   br label %if.end81
 
 if.else50:                                        ; preds = %if.else
@@ -14400,11 +14398,12 @@ _ZNK4pbrt20RGBUnboundedSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; preds 
   %.fca.1.gep.i47 = getelementptr inbounds i8, ptr %retval.i38, i64 8
   %.fca.1.load.i48 = load <2 x float>, ptr %.fca.1.gep.i47, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i38)
-  store <2 x float> %.fca.0.load.i45, ptr %sig_a, align 8
   br label %if.end81
 
 if.end81:                                         ; preds = %_ZN4pbrt5ClampIiiEENS_15SampledSpectrumERKS1_T_T0_.exit, %_ZNK4pbrt20RGBUnboundedSpectrum6SampleERKNS_18SampledWavelengthsE.exit, %_ZN4pbrt9ClampZeroERKNS_15SampledSpectrumE.exit
+  %.sink61 = phi <2 x float> [ %16, %_ZN4pbrt5ClampIiiEENS_15SampledSpectrumERKS1_T_T0_.exit ], [ %.fca.0.load.i45, %_ZNK4pbrt20RGBUnboundedSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %.fca.0.load.i, %_ZN4pbrt9ClampZeroERKNS_15SampledSpectrumE.exit ]
   %.sink = phi <2 x float> [ %17, %_ZN4pbrt5ClampIiiEENS_15SampledSpectrumERKS1_T_T0_.exit ], [ %.fca.1.load.i48, %_ZNK4pbrt20RGBUnboundedSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %.fca.1.load.i, %_ZN4pbrt9ClampZeroERKNS_15SampledSpectrumE.exit ]
+  store <2 x float> %.sink61, ptr %sig_a, align 8
   %ref.tmp46.sroa.2.0.sig_a.sroa_idx = getelementptr inbounds i8, ptr %sig_a, i64 8
   store <2 x float> %.sink, ptr %ref.tmp46.sroa.2.0.sig_a.sroa_idx, align 8
   %cmp.i = fcmp olt float %call, 1.000000e+00

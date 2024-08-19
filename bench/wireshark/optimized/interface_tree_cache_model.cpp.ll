@@ -878,18 +878,14 @@ _ZNK23InterfaceTreeCacheModel15changeIsAllowedE20InterfaceTreeColumns.exit.threa
   store ptr null, ptr %9, align 8
   %55 = load ptr, ptr %54, align 8
   %.not.i12 = icmp eq ptr %55, null
-  br i1 %.not.i12, label %.thread, label %56
-
-.thread:                                          ; preds = %_ZNK23InterfaceTreeCacheModel15changeIsAllowedE20InterfaceTreeColumns.exit.thread18
-  store ptr null, ptr %8, align 8
-  br label %70
+  br i1 %.not.i12, label %.sink.split, label %56
 
 56:                                               ; preds = %_ZNK23InterfaceTreeCacheModel15changeIsAllowedE20InterfaceTreeColumns.exit.thread18
   %57 = getelementptr inbounds i8, ptr %55, i64 24
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %55, i64 16
   %.not10.i.i.i.i = icmp eq ptr %58, null
-  br i1 %.not10.i.i.i.i, label %.thread30, label %.lr.ph.i.i.i.i
+  br i1 %.not10.i.i.i.i, label %.sink.split, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %56, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %58, %56 ]
@@ -906,11 +902,7 @@ _ZNK23InterfaceTreeCacheModel15changeIsAllowedE20InterfaceTreeColumns.exit.threa
 
 _ZNKSt8_Rb_treeIiSt4pairIKiP4QMapI20InterfaceTreeColumns8QVariantEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %63 = icmp eq ptr %.19.i.i.i.i, %59
-  br i1 %63, label %.thread30, label %64
-
-.thread30:                                        ; preds = %56, %_ZNKSt8_Rb_treeIiSt4pairIKiP4QMapI20InterfaceTreeColumns8QVariantEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
-  store ptr null, ptr %8, align 8
-  br label %70
+  br i1 %63, label %.sink.split, label %64
 
 64:                                               ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiP4QMapI20InterfaceTreeColumns8QVariantEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %65 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
@@ -923,7 +915,11 @@ _ZNKSt8_Rb_treeIiSt4pairIKiP4QMapI20InterfaceTreeColumns8QVariantEESt10_Select1s
   %69 = icmp eq ptr %.0.i14.pr.pre, null
   br i1 %69, label %70, label %_ZN4QMapIiPS_I20InterfaceTreeColumns8QVariantEE6insertERKiRKS3_.exit
 
-70:                                               ; preds = %.thread30, %.thread, %64
+.sink.split:                                      ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiP4QMapI20InterfaceTreeColumns8QVariantEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %56, %_ZNK23InterfaceTreeCacheModel15changeIsAllowedE20InterfaceTreeColumns.exit.thread18
+  store ptr null, ptr %8, align 8
+  br label %70
+
+70:                                               ; preds = %.sink.split, %64
   %71 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #17
           to label %72 unwind label %84
 

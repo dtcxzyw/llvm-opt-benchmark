@@ -6269,15 +6269,13 @@ define dso_local noundef i64 @timetz_zone(ptr nocapture noundef readonly %0) #0 
 16:                                               ; preds = %1
   %17 = load i32, ptr %4, align 4
   %18 = sub i32 0, %17
-  store i32 %18, ptr %2, align 4
-  br label %31
+  br label %.sink.split
 
 19:                                               ; preds = %1
   %20 = call i64 @GetCurrentTransactionStartTimestamp() #16
   %21 = load ptr, ptr %5, align 8
   %22 = call i32 @DetermineTimeZoneAbbrevOffsetTS(i64 noundef %20, ptr noundef nonnull %3, ptr noundef %21, ptr noundef nonnull %6) #16
-  store i32 %22, ptr %2, align 4
-  br label %31
+  br label %.sink.split
 
 23:                                               ; preds = %1
   %24 = call i64 @GetCurrentTransactionStartTimestamp() #16
@@ -6294,7 +6292,12 @@ define dso_local noundef i64 @timetz_zone(ptr nocapture noundef readonly %0) #0 
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3101, ptr noundef nonnull @__func__.timetz_zone) #16
   unreachable
 
-31:                                               ; preds = %19, %23, %16
+.sink.split:                                      ; preds = %16, %19
+  %.sink = phi i32 [ %22, %19 ], [ %18, %16 ]
+  store i32 %.sink, ptr %2, align 4
+  br label %31
+
+31:                                               ; preds = %.sink.split, %23
   %32 = inttoptr i64 %14 to ptr
   %33 = call ptr @palloc(i64 noundef 16) #16
   %34 = load i64, ptr %32, align 8

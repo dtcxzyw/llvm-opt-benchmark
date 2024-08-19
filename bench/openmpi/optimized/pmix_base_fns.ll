@@ -1577,10 +1577,10 @@ sub_115:                                          ; preds = %sub_014
   br label %.tail13.thread.sink.split
 
 .tail13.thread.sink.split:                        ; preds = %9, %14, %20, %27
-  %.sink21 = load ptr, ptr %2, align 8
-  %30 = call i32 @setenv(ptr noundef %.sink21, ptr noundef %1, i32 noundef 0) #12
-  %.sink = load ptr, ptr %2, align 8
-  call void @free(ptr noundef %.sink) #12
+  %30 = load ptr, ptr %2, align 8
+  %31 = call i32 @setenv(ptr noundef %30, ptr noundef %1, i32 noundef 0) #12
+  %32 = load ptr, ptr %2, align 8
+  call void @free(ptr noundef %32) #12
   br label %.tail13.thread
 
 .tail13.thread:                                   ; preds = %.tail13.thread.sink.split, %sub_115, %sub_014, %.tail13

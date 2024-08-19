@@ -173,7 +173,6 @@ default.unreachable:                              ; preds = %9
   store i64 16, ptr %0, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.53.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.53, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.53)
   br label %22
 
 21:                                               ; preds = %15
@@ -188,11 +187,11 @@ default.unreachable:                              ; preds = %9
   br label %9
 
 22:                                               ; preds = %23, %20
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.53)
   ret void
 
 23:                                               ; preds = %19, %18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.13)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.53)
   br label %22
 }
 
@@ -322,7 +321,7 @@ default.unreachable:                              ; preds = %9
   store ptr %.sroa.9.8.copyload12, ptr %0, align 8
   %.sroa.419.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.419.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.13, i64 40, i1 false)
-  br label %21
+  br label %20
 
 16:                                               ; preds = %9
   %.sroa.9.8.copyload13 = load ptr, ptr %8, align 8, !alias.scope !113
@@ -334,7 +333,7 @@ default.unreachable:                              ; preds = %9
 18:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
   store i64 17, ptr %0, align 8
-  br label %21
+  br label %20
 
 .loopexit:                                        ; preds = %16, %.thread30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.53, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
@@ -344,7 +343,6 @@ default.unreachable:                              ; preds = %9
   store i64 16, ptr %0, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.53.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.53, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.53)
   br label %20
 
 19:                                               ; preds = %16
@@ -355,12 +353,9 @@ default.unreachable:                              ; preds = %9
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !114
   br label %9
 
-20:                                               ; preds = %21, %.loopexit
-  ret void
-
-21:                                               ; preds = %18, %15
+20:                                               ; preds = %15, %18, %.loopexit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.53)
-  br label %20
+  ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

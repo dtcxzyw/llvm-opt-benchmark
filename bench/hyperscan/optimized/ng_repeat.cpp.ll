@@ -4761,10 +4761,10 @@ if.end7.i.i28.i.i:                                ; preds = %_ZNSt6vectorIN3ue21
   br i1 %cmp8.i.i30.i.i, label %do.end.i.i31.i.invoke.i, label %_ZN3ue25depthmIEi.exit33.i.i
 
 do.end.i.i31.i.invoke.i:                          ; preds = %if.end7.i.i28.i.i, %if.end7.i.i.i.i
-  %storemerge.i = phi ptr [ %call5.i.i.i.i.i.i58269.i, %if.end7.i.i.i.i ], [ %call5.i.i.i.i.i.i58268.i, %if.end7.i.i28.i.i ]
+  %call5.i.i.i.i.i.i58269.lcssa377.sink.i = phi ptr [ %call5.i.i.i.i.i.i58269.i, %if.end7.i.i.i.i ], [ %call5.i.i.i.i.i.i58268.i, %if.end7.i.i28.i.i ]
   %incdec.ptr.i.i.i277.lcssa385.sink.i = phi ptr [ %incdec.ptr.i.i.i277.i, %if.end7.i.i.i.i ], [ %incdec.ptr.i.i.i278.i, %if.end7.i.i28.i.i ]
   %add.ptr19.i.i.i287.lcssa393.sink.i = phi ptr [ %add.ptr19.i.i.i287.i, %if.end7.i.i.i.i ], [ %add.ptr19.i.i.i286.i, %if.end7.i.i28.i.i ]
-  store ptr %storemerge.i, ptr %succs.i, align 8
+  store ptr %call5.i.i.i.i.i.i58269.lcssa377.sink.i, ptr %succs.i, align 8
   store ptr %incdec.ptr.i.i.i277.lcssa385.sink.i, ptr %_M_finish.i.i.i348, align 8
   store ptr %add.ptr19.i.i.i287.lcssa393.sink.i, ptr %_M_end_of_storage.i.i.i, align 8
   %exception.i.i.i.i = call ptr @__cxa_allocate_exception(i64 1) #28

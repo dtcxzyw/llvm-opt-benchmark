@@ -19805,48 +19805,43 @@ sw.bb4.i.i.i.i:                                   ; preds = %if.end.i
 
 if.end.i134:                                      ; preds = %if.end.i, %sw.bb3.i.i.i.i, %sw.bb4.i.i.i.i, %_ZNKSt8functionIFbN7rocksdb11PinningTierES1_EEclES1_S1_.exit.i.i.i.i
   %retval.0.i.i.i.i450 = phi i1 [ %tobool238, %_ZNKSt8functionIFbN7rocksdb11PinningTierES1_EEclES1_S1_.exit.i.i.i.i ], [ false, %if.end.i ], [ %67, %sw.bb3.i.i.i.i ], [ true, %sw.bb4.i.i.i.i ]
+  %partition_pinning = getelementptr inbounds i8, ptr %table_options, i64 24
+  %70 = load i32, ptr %partition_pinning, align 8
   %pin_l0_filter_and_index_blocks_in_cache = getelementptr inbounds i8, ptr %table_options, i64 18
-  %70 = load i8, ptr %pin_l0_filter_and_index_blocks_in_cache, align 2
-  %storemerge516.in = getelementptr inbounds i8, ptr %table_options, i64 24
-  %storemerge516 = load i32, ptr %storemerge516.in, align 8
-  switch i32 %storemerge516, label %invoke.cont246.thread [
-    i32 0, label %_ZNKSt8functionIFbN7rocksdb11PinningTierES1_EEclES1_S1_.exit.i.i.i.i538
-    i32 3, label %sw.bb4.i.i.i.i537
-    i32 2, label %sw.bb3.i.i.i.i536
+  switch i32 %70, label %invoke.cont246.thread [
+    i32 0, label %_ZNKSt8functionIFbN7rocksdb11PinningTierES1_EEclES1_S1_.exit.i.i.i.i539
+    i32 3, label %sw.bb4.i.i.i.i538
+    i32 2, label %sw.bb3.i.i.i.i537
   ]
 
-_ZNKSt8functionIFbN7rocksdb11PinningTierES1_EEclES1_S1_.exit.i.i.i.i538: ; preds = %if.end.i134
-  %tobool244 = trunc i8 %70 to i1
+_ZNKSt8functionIFbN7rocksdb11PinningTierES1_EEclES1_S1_.exit.i.i.i.i539: ; preds = %if.end.i134
+  %71 = load i8, ptr %pin_l0_filter_and_index_blocks_in_cache, align 2
+  %tobool244 = trunc i8 %71 to i1
   %spec.select = and i1 %67, %tobool244
-  %unpartitioned_pinning = getelementptr inbounds i8, ptr %table_options, i64 28
-  %71 = load i32, ptr %unpartitioned_pinning, align 4
-  %cond252 = select i1 %tobool244, i32 2, i32 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i140)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr2.i141)
   br label %if.end.i144
 
-sw.bb3.i.i.i.i536:                                ; preds = %if.end.i134
+sw.bb3.i.i.i.i537:                                ; preds = %if.end.i134
   br label %invoke.cont246.thread
 
-sw.bb4.i.i.i.i537:                                ; preds = %if.end.i134
+sw.bb4.i.i.i.i538:                                ; preds = %if.end.i134
   br label %invoke.cont246.thread
 
-invoke.cont246.thread:                            ; preds = %sw.bb4.i.i.i.i537, %sw.bb3.i.i.i.i536, %if.end.i134
-  %retval.0.i.i.i.i.ph581 = phi i1 [ false, %if.end.i134 ], [ %67, %sw.bb3.i.i.i.i536 ], [ true, %sw.bb4.i.i.i.i537 ]
-  %unpartitioned_pinning583 = getelementptr inbounds i8, ptr %table_options, i64 28
-  %72 = load i32, ptr %unpartitioned_pinning583, align 4
-  %tobool251584 = trunc i8 %70 to i1
-  %cond252585 = select i1 %tobool251584, i32 2, i32 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i140)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr2.i141)
+invoke.cont246.thread:                            ; preds = %sw.bb4.i.i.i.i538, %sw.bb3.i.i.i.i537, %if.end.i134
+  %retval.0.i.i.i.i.ph = phi i1 [ false, %if.end.i134 ], [ %67, %sw.bb3.i.i.i.i537 ], [ true, %sw.bb4.i.i.i.i538 ]
+  %72 = load i8, ptr %pin_l0_filter_and_index_blocks_in_cache, align 2
+  %tobool251583 = trunc i8 %72 to i1
   br label %if.end.i144
 
-if.end.i144:                                      ; preds = %_ZNKSt8functionIFbN7rocksdb11PinningTierES1_EEclES1_S1_.exit.i.i.i.i538, %invoke.cont246.thread
-  %storemerge653 = phi i32 [ %71, %_ZNKSt8functionIFbN7rocksdb11PinningTierES1_EEclES1_S1_.exit.i.i.i.i538 ], [ %72, %invoke.cont246.thread ]
-  %storemerge = phi i32 [ %cond252, %_ZNKSt8functionIFbN7rocksdb11PinningTierES1_EEclES1_S1_.exit.i.i.i.i538 ], [ %cond252585, %invoke.cont246.thread ]
-  %retval.0.i.i.i.i587 = phi i1 [ %spec.select, %_ZNKSt8functionIFbN7rocksdb11PinningTierES1_EEclES1_S1_.exit.i.i.i.i538 ], [ %retval.0.i.i.i.i.ph581, %invoke.cont246.thread ]
-  store i32 %storemerge653, ptr %__args.addr.i140, align 4
-  store i32 %storemerge, ptr %__args.addr2.i141, align 4
+if.end.i144:                                      ; preds = %_ZNKSt8functionIFbN7rocksdb11PinningTierES1_EEclES1_S1_.exit.i.i.i.i539, %invoke.cont246.thread
+  %tobool244.sink = phi i1 [ %tobool244, %_ZNKSt8functionIFbN7rocksdb11PinningTierES1_EEclES1_S1_.exit.i.i.i.i539 ], [ %tobool251583, %invoke.cont246.thread ]
+  %retval.0.i.i.i.i586 = phi i1 [ %spec.select, %_ZNKSt8functionIFbN7rocksdb11PinningTierES1_EEclES1_S1_.exit.i.i.i.i539 ], [ %retval.0.i.i.i.i.ph, %invoke.cont246.thread ]
+  %storemerge651.in = getelementptr inbounds i8, ptr %table_options, i64 28
+  %storemerge651 = load i32, ptr %storemerge651.in, align 4
+  %cond252 = select i1 %tobool244.sink, i32 2, i32 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i140)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr2.i141)
+  store i32 %storemerge651, ptr %__args.addr.i140, align 4
+  store i32 %cond252, ptr %__args.addr2.i141, align 4
   %call4.i148 = invoke noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN7rocksdb11PinningTierES1_EZNS0_15BlockBasedTable28PrefetchIndexAndFilterBlocksERKNS0_11ReadOptionsEPNS0_18FilePrefetchBufferEPNS0_20InternalIteratorBaseINS0_5SliceEEEPS3_bRKNS0_22BlockBasedTableOptionsEimmPNS0_23BlockCacheLookupContextEE3$_0E9_M_invokeERKSt9_Any_dataOS1_SO_"(ptr noundef nonnull align 8 dereferenceable(16) %is_pinned, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i140, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr2.i141)
           to label %invoke.cont253 unwind label %lpad239
 
@@ -19952,7 +19947,7 @@ _ZNKSt14default_deleteIN7rocksdb15BlockBasedTable11IndexReaderEEclEPS2_.exit.i.i
   br label %_ZNSt10unique_ptrIN7rocksdb15BlockBasedTable11IndexReaderESt14default_deleteIS2_EEaSEOS5_.exit
 
 _ZNSt10unique_ptrIN7rocksdb15BlockBasedTable11IndexReaderESt14default_deleteIS2_EEaSEOS5_.exit: ; preds = %if.end274, %_ZNKSt14default_deleteIN7rocksdb15BlockBasedTable11IndexReaderEEclEPS2_.exit.i.i.i.i
-  %brmerge = or i1 %retval.0.i.i.i.i587, %prefetch_all
+  %brmerge = or i1 %retval.0.i.i.i.i586, %prefetch_all
   br i1 %brmerge, label %if.then280, label %invoke.cont291
 
 if.then280:                                       ; preds = %_ZNSt10unique_ptrIN7rocksdb15BlockBasedTable11IndexReaderESt14default_deleteIS2_EEaSEOS5_.exit
@@ -19962,7 +19957,7 @@ if.then280:                                       ; preds = %_ZNSt10unique_ptrIN
   %vtable286 = load ptr, ptr %91, align 8
   %vfn287 = getelementptr inbounds i8, ptr %vtable286, i64 32
   %92 = load ptr, ptr %vfn287, align 8
-  invoke void %92(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp281, ptr noundef nonnull align 8 dereferenceable(8) %91, ptr noundef nonnull align 8 dereferenceable(154) %ro, i1 noundef zeroext %retval.0.i.i.i.i587, ptr noundef %prefetch_buffer)
+  invoke void %92(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp281, ptr noundef nonnull align 8 dereferenceable(8) %91, ptr noundef nonnull align 8 dereferenceable(154) %ro, i1 noundef zeroext %retval.0.i.i.i.i586, ptr noundef %prefetch_buffer)
           to label %invoke.cont288 unwind label %lpad268
 
 invoke.cont288:                                   ; preds = %if.then280
@@ -20049,7 +20044,7 @@ if.then313:                                       ; preds = %if.end294
   %107 = load ptr, ptr %rep_.i, align 8, !noalias !132
   %filter_type4.i = getelementptr inbounds i8, ptr %107, i64 440
   %108 = load i32, ptr %filter_type4.i, align 8, !noalias !132
-  switch i32 %108, label %_ZNSt10unique_ptrIN7rocksdb17FilterBlockReaderESt14default_deleteIS1_EED2Ev.exit203.thread303 [
+  switch i32 %108, label %if.end345.sink.split [
     i32 1, label %sw.bb7.i
     i32 2, label %sw.bb.i
   ]
@@ -20065,7 +20060,7 @@ sw.bb7.i:                                         ; preds = %if.then313
 invoke.cont317:                                   ; preds = %sw.bb.i, %sw.bb7.i
   %.pr = load ptr, ptr %filter, align 8
   %cmp.i187.not = icmp eq ptr %.pr, null
-  br i1 %cmp.i187.not, label %_ZNSt10unique_ptrIN7rocksdb17FilterBlockReaderESt14default_deleteIS1_EED2Ev.exit203.thread, label %if.then319
+  br i1 %cmp.i187.not, label %if.end345.sink.split, label %if.then319
 
 if.then319:                                       ; preds = %invoke.cont317
   br i1 %brmerge, label %if.then323, label %if.end336
@@ -20074,7 +20069,7 @@ if.then323:                                       ; preds = %if.then319
   %vtable327 = load ptr, ptr %.pr, align 8
   %vfn328 = getelementptr inbounds i8, ptr %vtable327, i64 64
   %109 = load ptr, ptr %vfn328, align 8
-  invoke void %109(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp324, ptr noundef nonnull align 8 dereferenceable(8) %.pr, ptr noundef nonnull align 8 dereferenceable(154) %ro, i1 noundef zeroext %retval.0.i.i.i.i587, ptr noundef %prefetch_buffer)
+  invoke void %109(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp324, ptr noundef nonnull align 8 dereferenceable(8) %.pr, ptr noundef nonnull align 8 dereferenceable(154) %ro, i1 noundef zeroext %retval.0.i.i.i.i586, ptr noundef %prefetch_buffer)
           to label %invoke.cont330 unwind label %lpad329
 
 invoke.cont330:                                   ; preds = %if.then323
@@ -20121,15 +20116,7 @@ if.end336:                                        ; preds = %invoke.cont332, %if
   %117 = load ptr, ptr %filter338, align 8
   store ptr %115, ptr %filter338, align 8
   %tobool.not.i.i.i.i195 = icmp eq ptr %117, null
-  br i1 %tobool.not.i.i.i.i195, label %_ZNSt10unique_ptrIN7rocksdb17FilterBlockReaderESt14default_deleteIS1_EED2Ev.exit203.thread, label %cleanup341
-
-_ZNSt10unique_ptrIN7rocksdb17FilterBlockReaderESt14default_deleteIS1_EED2Ev.exit203.thread: ; preds = %invoke.cont317, %if.end336
-  store ptr null, ptr %filter, align 8
-  br label %if.end345
-
-_ZNSt10unique_ptrIN7rocksdb17FilterBlockReaderESt14default_deleteIS1_EED2Ev.exit203.thread303: ; preds = %if.then313
-  store ptr null, ptr %filter, align 8
-  br label %if.end345
+  br i1 %tobool.not.i.i.i.i195, label %if.end345.sink.split, label %cleanup341
 
 cleanup341:                                       ; preds = %if.end336
   %vtable.i.i.i.i.i196 = load ptr, ptr %117, align 8
@@ -20155,8 +20142,12 @@ _ZNKSt14default_deleteIN7rocksdb17FilterBlockReaderEEclEPS1_.exit.i199: ; preds 
   store ptr null, ptr %filter, align 8
   br i1 %cond2.ph.ph378, label %if.end345, label %cleanup373
 
-if.end345:                                        ; preds = %cleanup341, %_ZNSt10unique_ptrIN7rocksdb17FilterBlockReaderESt14default_deleteIS1_EED2Ev.exit203.thread303, %_ZNKSt14default_deleteIN7rocksdb17FilterBlockReaderEEclEPS1_.exit.i199, %_ZNSt10unique_ptrIN7rocksdb17FilterBlockReaderESt14default_deleteIS1_EED2Ev.exit203.thread, %if.end294
-  %nrvo.2 = phi i1 [ false, %if.end294 ], [ false, %_ZNSt10unique_ptrIN7rocksdb17FilterBlockReaderESt14default_deleteIS1_EED2Ev.exit203.thread ], [ %nrvo.3.ph.ph376, %_ZNKSt14default_deleteIN7rocksdb17FilterBlockReaderEEclEPS1_.exit.i199 ], [ false, %_ZNSt10unique_ptrIN7rocksdb17FilterBlockReaderESt14default_deleteIS1_EED2Ev.exit203.thread303 ], [ false, %cleanup341 ]
+if.end345.sink.split:                             ; preds = %if.then313, %if.end336, %invoke.cont317
+  store ptr null, ptr %filter, align 8
+  br label %if.end345
+
+if.end345:                                        ; preds = %if.end345.sink.split, %cleanup341, %_ZNKSt14default_deleteIN7rocksdb17FilterBlockReaderEEclEPS1_.exit.i199, %if.end294
+  %nrvo.2 = phi i1 [ false, %if.end294 ], [ %nrvo.3.ph.ph376, %_ZNKSt14default_deleteIN7rocksdb17FilterBlockReaderEEclEPS1_.exit.i199 ], [ false, %cleanup341 ], [ false, %if.end345.sink.split ]
   %120 = load ptr, ptr %rep_, align 8
   %compression_dict_handle347 = getelementptr inbounds i8, ptr %120, i64 464
   %121 = load i64, ptr %compression_dict_handle347, align 8

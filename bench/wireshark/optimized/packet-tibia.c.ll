@@ -1010,8 +1010,8 @@ define internal void @rsa_parse_uat() #0 {
   %.not36 = icmp eq i32 %6, 0
   br i1 %.not36, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %0, %56
-  %indvars.iv = phi i64 [ %indvars.iv.next, %56 ], [ 0, %0 ]
+.lr.ph:                                           ; preds = %0, %57
+  %indvars.iv = phi i64 [ %indvars.iv.next, %57 ], [ 0, %0 ]
   %7 = load ptr, ptr @rsakeylist_uats, align 8
   %8 = getelementptr %struct.rsakeys_assoc, ptr %7, i64 %indvars.iv
   %9 = getelementptr inbounds i8, ptr %8, i64 16
@@ -1039,99 +1039,99 @@ define internal void @rsa_parse_uat() #0 {
   %21 = call ptr @rsa_load_pkcs12(ptr noundef nonnull %11, ptr noundef nonnull %18, ptr noundef nonnull %3) #13
   %22 = load ptr, ptr %3, align 8
   %.not31 = icmp eq ptr %22, null
-  br i1 %.not31, label %26, label %.sink.split
+  br i1 %.not31, label %27, label %.sink.split
 
 23:                                               ; preds = %16
   %24 = call ptr @rsa_load_pem_key(ptr noundef nonnull %11, ptr noundef nonnull %3) #13
   %25 = load ptr, ptr %3, align 8
   %.not30 = icmp eq ptr %25, null
-  br i1 %.not30, label %26, label %.sink.split
+  br i1 %.not30, label %27, label %.sink.split
 
 .sink.split:                                      ; preds = %23, %20
-  %.sink44 = phi ptr [ %22, %20 ], [ %25, %23 ]
+  %.sink = phi ptr [ %22, %20 ], [ %25, %23 ]
   %.024.ph = phi ptr [ %21, %20 ], [ %24, %23 ]
-  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.373, ptr noundef nonnull %.sink44) #13
-  %.sink = load ptr, ptr %3, align 8
-  call void @g_free(ptr noundef %.sink) #13
-  br label %26
+  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.373, ptr noundef nonnull %.sink) #13
+  %26 = load ptr, ptr %3, align 8
+  call void @g_free(ptr noundef %26) #13
+  br label %27
 
-26:                                               ; preds = %.sink.split, %23, %20
+27:                                               ; preds = %.sink.split, %23, %20
   %.024 = phi ptr [ %21, %20 ], [ %24, %23 ], [ %.024.ph, %.sink.split ]
-  %27 = call i32 @fclose(ptr noundef nonnull %11)
+  %28 = call i32 @fclose(ptr noundef nonnull %11)
   %.not32 = icmp eq ptr %.024, null
-  br i1 %.not32, label %28, label %30
+  br i1 %.not32, label %29, label %31
 
-28:                                               ; preds = %26
-  %29 = load ptr, ptr %9, align 8
-  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.374, ptr noundef %29) #13
+29:                                               ; preds = %27
+  %30 = load ptr, ptr %9, align 8
+  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.374, ptr noundef %30) #13
   br label %.loopexit
 
-30:                                               ; preds = %26
-  %31 = call ptr @rsa_privkey_to_sexp(ptr noundef nonnull %.024, ptr noundef nonnull %3) #13
-  %.not33 = icmp eq ptr %31, null
-  br i1 %.not33, label %32, label %35
+31:                                               ; preds = %27
+  %32 = call ptr @rsa_privkey_to_sexp(ptr noundef nonnull %.024, ptr noundef nonnull %3) #13
+  %.not33 = icmp eq ptr %32, null
+  br i1 %.not33, label %33, label %36
 
-32:                                               ; preds = %30
-  %33 = load ptr, ptr %3, align 8
-  call void @g_free(ptr noundef %33) #13
-  %34 = load ptr, ptr %9, align 8
-  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.375, ptr noundef %34) #13
-  br label %56
+33:                                               ; preds = %31
+  %34 = load ptr, ptr %3, align 8
+  call void @g_free(ptr noundef %34) #13
+  %35 = load ptr, ptr %9, align 8
+  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.375, ptr noundef %35) #13
+  br label %57
 
-35:                                               ; preds = %30
-  %36 = call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #16
-  %37 = getelementptr inbounds i8, ptr %8, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %36, i64 24
-  %40 = call zeroext i1 @ws_strtou16(ptr noundef %38, ptr noundef null, ptr noundef nonnull %39) #13
-  %41 = load ptr, ptr %8, align 8
+36:                                               ; preds = %31
+  %37 = call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #16
+  %38 = getelementptr inbounds i8, ptr %8, i64 8
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %37, i64 24
+  %41 = call zeroext i1 @ws_strtou16(ptr noundef %39, ptr noundef null, ptr noundef nonnull %40) #13
+  %42 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  store ptr %41, ptr %1, align 8
+  store ptr %42, ptr %1, align 8
   store i32 0, ptr %2, align 4
-  br label %42
+  br label %43
 
-42:                                               ; preds = %42, %35
-  %43 = phi ptr [ %41, %35 ], [ %47, %42 ]
-  %indvars.iv.i = phi i64 [ 0, %35 ], [ %indvars.iv.next.i, %42 ]
-  %44 = getelementptr i8, ptr %2, i64 %indvars.iv.i
-  %45 = call zeroext i1 @ws_strtou8(ptr noundef %43, ptr noundef nonnull %1, ptr noundef %44) #13
-  %46 = load ptr, ptr %1, align 8
-  %47 = getelementptr i8, ptr %46, i64 1
-  store ptr %47, ptr %1, align 8
+43:                                               ; preds = %43, %36
+  %44 = phi ptr [ %42, %36 ], [ %48, %43 ]
+  %indvars.iv.i = phi i64 [ 0, %36 ], [ %indvars.iv.next.i, %43 ]
+  %45 = getelementptr i8, ptr %2, i64 %indvars.iv.i
+  %46 = call zeroext i1 @ws_strtou8(ptr noundef %44, ptr noundef nonnull %1, ptr noundef %45) #13
+  %47 = load ptr, ptr %1, align 8
+  %48 = getelementptr i8, ptr %47, i64 1
+  store ptr %48, ptr %1, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %ipv4tonl.exit, label %42, !llvm.loop !4
+  br i1 %exitcond.not.i, label %ipv4tonl.exit, label %43, !llvm.loop !4
 
-ipv4tonl.exit:                                    ; preds = %42
-  %48 = load i32, ptr %2, align 4
+ipv4tonl.exit:                                    ; preds = %43
+  %49 = load i32, ptr %2, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  store i32 %48, ptr %4, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
-  store i32 2, ptr %36, align 8
-  %49 = call noalias ptr @wmem_memdup(ptr noundef null, ptr noundef nonnull %4, i64 noundef 4) #13
-  %50 = getelementptr inbounds i8, ptr %36, i64 16
-  store ptr %49, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %36, i64 8
-  store ptr %49, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %36, i64 4
-  store i32 4, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %36, i64 32
-  store ptr %31, ptr %53, align 8
-  %54 = load ptr, ptr @rsakeys, align 8
-  %55 = call i32 @g_hash_table_insert(ptr noundef %54, ptr noundef nonnull %36, ptr noundef nonnull %31) #13
-  br label %56
+  store i32 %49, ptr %4, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false)
+  store i32 2, ptr %37, align 8
+  %50 = call noalias ptr @wmem_memdup(ptr noundef null, ptr noundef nonnull %4, i64 noundef 4) #13
+  %51 = getelementptr inbounds i8, ptr %37, i64 16
+  store ptr %50, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %37, i64 8
+  store ptr %50, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %37, i64 4
+  store i32 4, ptr %53, align 4
+  %54 = getelementptr inbounds i8, ptr %37, i64 32
+  store ptr %32, ptr %54, align 8
+  %55 = load ptr, ptr @rsakeys, align 8
+  %56 = call i32 @g_hash_table_insert(ptr noundef %55, ptr noundef nonnull %37, ptr noundef nonnull %32) #13
+  br label %57
 
-56:                                               ; preds = %ipv4tonl.exit, %32
+57:                                               ; preds = %ipv4tonl.exit, %33
   call void @gnutls_x509_privkey_deinit(ptr noundef nonnull %.024) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %57 = load i32, ptr @nrsakeys, align 4
-  %58 = zext i32 %57 to i64
-  %59 = icmp ult i64 %indvars.iv.next, %58
-  br i1 %59, label %.lr.ph, label %.loopexit, !llvm.loop !6
+  %58 = load i32, ptr @nrsakeys, align 4
+  %59 = zext i32 %58 to i64
+  %60 = icmp ult i64 %indvars.iv.next, %59
+  br i1 %60, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
-.loopexit:                                        ; preds = %56, %0, %28, %12
+.loopexit:                                        ; preds = %57, %0, %29, %12
   ret void
 }
 

@@ -79,10 +79,10 @@ define range(i32 -1, 1) i32 @H5IMmake_image_24bit(i64 noundef %0, ptr noundef %1
   br i1 %15, label %16, label %34
 
 16:                                               ; preds = %13, %10
-  %storemerge = phi i64 [ %3, %10 ], [ 3, %13 ]
+  %.sink25 = phi i64 [ %3, %10 ], [ 3, %13 ]
   %.sink23 = phi i64 [ %2, %10 ], [ %3, %13 ]
   %.sink = phi i64 [ 3, %10 ], [ %2, %13 ]
-  store i64 %storemerge, ptr %7, align 16
+  store i64 %.sink25, ptr %7, align 16
   %17 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %.sink23, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %7, i64 16

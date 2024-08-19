@@ -516,8 +516,6 @@ thread-pre-split:                                 ; preds = %135
 
 .thread18:                                        ; preds = %.loopexit22
   call void (ptr, ptr, ...) @_dev_info(ptr noundef %175, ptr noundef nonnull @.str.29) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
   br label %211
 
 .preheader:                                       ; preds = %.loopexit22, %184
@@ -553,8 +551,6 @@ thread-pre-split:                                 ; preds = %135
 
 .thread20:                                        ; preds = %.loopexit, %190
   call void @pci_dev_put(ptr noundef nonnull %178) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
   br label %211
 
 .thread21:                                        ; preds = %190
@@ -579,6 +575,8 @@ thread-pre-split:                                 ; preds = %135
   br label %212
 
 211:                                              ; preds = %.thread18, %.thread20
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
   call void @agp_put_bridge(ptr noundef nonnull %16) #6
   br label %219
 

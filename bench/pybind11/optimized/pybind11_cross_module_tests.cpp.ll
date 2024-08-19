@@ -117660,15 +117660,15 @@ _ZN8pybind116detail7cast_opIRSt13unordered_mapINSt7__cxx1112basic_stringIcSt11ch
 
 _ZN8pybind116detail15argument_loaderIJRSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_hEEERSE_RKhEE9load_argsERNS0_13function_callE.exit.thread.sink.split.sink.split: ; preds = %.noexc29, %.noexc20
   %.sink40 = phi ptr [ %55, %.noexc20 ], [ %61, %.noexc29 ]
-  %.sink38 = load i8, ptr %4, align 8
-  %63 = getelementptr inbounds i8, ptr %.sink40, i64 40
-  store i8 %.sink38, ptr %63, align 8
+  %63 = load i8, ptr %4, align 8
+  %64 = getelementptr inbounds i8, ptr %.sink40, i64 40
+  store i8 %63, ptr %64, align 8
   br label %_ZN8pybind116detail15argument_loaderIJRSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_hEEERSE_RKhEE9load_argsERNS0_13function_callE.exit.thread.sink.split
 
 _ZN8pybind116detail15argument_loaderIJRSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_hEEERSE_RKhEE9load_argsERNS0_13function_callE.exit.thread.sink.split: ; preds = %.invoke41, %_ZN8pybind116detail15argument_loaderIJRSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_hEEERSE_RKhEE9load_argsERNS0_13function_callE.exit.thread.sink.split.sink.split
-  %64 = load i64, ptr @_Py_NoneStruct, align 8
-  %65 = add nsw i64 %64, 1
-  store i64 %65, ptr @_Py_NoneStruct, align 8
+  %65 = load i64, ptr @_Py_NoneStruct, align 8
+  %66 = add nsw i64 %65, 1
+  store i64 %66, ptr @_Py_NoneStruct, align 8
   br label %_ZN8pybind116detail15argument_loaderIJRSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_hEEERSE_RKhEE9load_argsERNS0_13function_callE.exit.thread
 
 _ZN8pybind116detail15argument_loaderIJRSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_hEEERSE_RKhEE9load_argsERNS0_13function_callE.exit.thread: ; preds = %_ZN8pybind116detail15argument_loaderIJRSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_hEEERSE_RKhEE9load_argsERNS0_13function_callE.exit.thread.sink.split, %.noexc, %.noexc17, %_ZN8pybind116detail15argument_loaderIJRSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_hEEERSE_RKhEE9load_argsERNS0_13function_callE.exit
@@ -148453,11 +148453,11 @@ common.resume:                                    ; preds = %47, %41
   br label %common.resume
 
 _ZN8pybind116detail15argument_loaderIJRSt6vectorIbSaIbEElEE9load_argsERNS0_13function_callE.exit.thread.sink.split: ; preds = %43, %37
-  %.sink21 = load i64, ptr %4, align 8
-  call void @_ZZN8pybind116detail16vector_modifiersISt6vectorIbSaIbEENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUlRS4_lE0_clESI_l(ptr noundef nonnull align 1 dereferenceable(1) %32, ptr noundef nonnull align 8 dereferenceable(40) %36, i64 noundef %.sink21)
-  %49 = load i64, ptr @_Py_NoneStruct, align 8
-  %50 = add nsw i64 %49, 1
-  store i64 %50, ptr @_Py_NoneStruct, align 8
+  %49 = load i64, ptr %4, align 8
+  call void @_ZZN8pybind116detail16vector_modifiersISt6vectorIbSaIbEENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUlRS4_lE0_clESI_l(ptr noundef nonnull align 1 dereferenceable(1) %32, ptr noundef nonnull align 8 dereferenceable(40) %36, i64 noundef %49)
+  %50 = load i64, ptr @_Py_NoneStruct, align 8
+  %51 = add nsw i64 %50, 1
+  store i64 %51, ptr @_Py_NoneStruct, align 8
   br label %_ZN8pybind116detail15argument_loaderIJRSt6vectorIbSaIbEElEE9load_argsERNS0_13function_callE.exit.thread
 
 _ZN8pybind116detail15argument_loaderIJRSt6vectorIbSaIbEElEE9load_argsERNS0_13function_callE.exit.thread: ; preds = %_ZN8pybind116detail15argument_loaderIJRSt6vectorIbSaIbEElEE9load_argsERNS0_13function_callE.exit.thread.sink.split, %_ZN8pybind116detail15argument_loaderIJRSt6vectorIbSaIbEElEEC2Ev.exit, %_ZN8pybind116detail15argument_loaderIJRSt6vectorIbSaIbEElEE9load_argsERNS0_13function_callE.exit

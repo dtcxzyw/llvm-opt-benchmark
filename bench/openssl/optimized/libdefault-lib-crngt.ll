@@ -110,7 +110,7 @@ if.then6:                                         ; preds = %if.end4
   %call.i = call i64 @ossl_prov_get_entropy(ptr noundef %3, ptr noundef nonnull %p.i, i32 noundef 0, i64 noundef 16, i64 noundef 16) #6
   switch i64 %call.i, label %if.then8.i [
     i64 16, label %if.then.i
-    i64 0, label %crngt_get_entropy.exit.thread
+    i64 0, label %if.then12
   ]
 
 if.then.i:                                        ; preds = %if.then6
@@ -122,19 +122,15 @@ if.then.i:                                        ; preds = %if.then6
 
 crngt_get_entropy.exit.thread52:                  ; preds = %if.then.i
   call void @ossl_prov_cleanup_entropy(ptr noundef %3, ptr noundef %.pre.i, i64 noundef 16) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
   br label %if.then12
 
 if.then8.i:                                       ; preds = %if.then6
   %6 = load ptr, ptr %p.i, align 8
   call void @ossl_prov_cleanup_entropy(ptr noundef %3, ptr noundef %6, i64 noundef %call.i) #6
-  br label %crngt_get_entropy.exit.thread
-
-crngt_get_entropy.exit.thread:                    ; preds = %if.then6, %if.then8.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
   br label %if.then12
 
-if.then12:                                        ; preds = %crngt_get_entropy.exit.thread52, %crngt_get_entropy.exit.thread
+if.then12:                                        ; preds = %if.then8.i, %if.then6, %crngt_get_entropy.exit.thread52
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
   call void @OPENSSL_cleanse(ptr noundef nonnull %buf, i64 noundef 16) #6
   br label %unlock_return
 

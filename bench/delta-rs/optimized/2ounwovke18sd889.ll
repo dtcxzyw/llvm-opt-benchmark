@@ -192,7 +192,6 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   store i64 %.sroa.0.1, ptr %0, align 8
   %.sroa.7.0..sroa_idx2 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.7.0..sroa_idx2, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.7, i64 88, i1 false)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.7)
   br label %50
 
 34:                                               ; preds = %18
@@ -209,7 +208,7 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   store i64 %.sroa.9.sroa.9.0.copyload85, ptr %.sroa.434.sroa.4.0..sroa.434.0..sroa_idx.sroa_idx, align 8
   %.sroa.434.sroa.5.0..sroa.434.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.434.sroa.5.0..sroa.434.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.9.sroa.11, i64 64, i1 false)
-  br label %51
+  br label %50
 
 35:                                               ; preds = %18, %24
   %.sroa.9.sroa.0.2 = phi ptr [ %.sroa.9.sroa.0.0.copyload, %24 ], [ %.sroa.9.sroa.0.0.ph, %18 ]
@@ -222,7 +221,7 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
 36:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4)
   store i64 -9223372036854775806, ptr %0, align 8
-  br label %51
+  br label %50
 
 37:                                               ; preds = %49
   %38 = landingpad { ptr, i32 }
@@ -265,12 +264,9 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.796.0..sroa_idx97, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.9.sroa.11, i64 72, i1 false)
   br label %.outer
 
-50:                                               ; preds = %51, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hab569a4bcae0a9f6E.exit50"
-  ret void
-
-51:                                               ; preds = %36, %34
+50:                                               ; preds = %34, %36, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hab569a4bcae0a9f6E.exit50"
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.7)
-  br label %50
+  ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -378,7 +374,6 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   store i64 %.sroa.0.1, ptr %0, align 8
   %.sroa.7.0..sroa_idx2 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.7.0..sroa_idx2, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.7, i64 88, i1 false)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.7)
   br label %50
 
 34:                                               ; preds = %18
@@ -395,7 +390,7 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   store i64 %.sroa.9.sroa.9.0.copyload85, ptr %.sroa.434.sroa.4.0..sroa.434.0..sroa_idx.sroa_idx, align 8
   %.sroa.434.sroa.5.0..sroa.434.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.434.sroa.5.0..sroa.434.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.9.sroa.11, i64 64, i1 false)
-  br label %51
+  br label %50
 
 35:                                               ; preds = %18, %24
   %.sroa.9.sroa.0.2 = phi ptr [ %.sroa.9.sroa.0.0.copyload, %24 ], [ %.sroa.9.sroa.0.0.ph, %18 ]
@@ -408,7 +403,7 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
 36:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4)
   store i64 -9223372036854775806, ptr %0, align 8
-  br label %51
+  br label %50
 
 37:                                               ; preds = %49
   %38 = landingpad { ptr, i32 }
@@ -451,12 +446,9 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.796.0..sroa_idx97, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.9.sroa.11, i64 72, i1 false)
   br label %.outer
 
-50:                                               ; preds = %51, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hab569a4bcae0a9f6E.exit50"
-  ret void
-
-51:                                               ; preds = %36, %34
+50:                                               ; preds = %34, %36, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hab569a4bcae0a9f6E.exit50"
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.7)
-  br label %50
+  ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -564,7 +556,6 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   store i64 %.sroa.0.1, ptr %0, align 8
   %.sroa.7.0..sroa_idx2 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.7.0..sroa_idx2, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.7, i64 88, i1 false)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.7)
   br label %50
 
 34:                                               ; preds = %18
@@ -581,7 +572,7 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   store i64 %.sroa.9.sroa.9.0.copyload85, ptr %.sroa.434.sroa.4.0..sroa.434.0..sroa_idx.sroa_idx, align 8
   %.sroa.434.sroa.5.0..sroa.434.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.434.sroa.5.0..sroa.434.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.9.sroa.11, i64 64, i1 false)
-  br label %51
+  br label %50
 
 35:                                               ; preds = %18, %24
   %.sroa.9.sroa.0.2 = phi ptr [ %.sroa.9.sroa.0.0.copyload, %24 ], [ %.sroa.9.sroa.0.0.ph, %18 ]
@@ -594,7 +585,7 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
 36:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4)
   store i64 -9223372036854775806, ptr %0, align 8
-  br label %51
+  br label %50
 
 37:                                               ; preds = %49
   %38 = landingpad { ptr, i32 }
@@ -637,12 +628,9 @@ define hidden void @"_ZN124_$LT$futures_util..stream..try_stream..try_filter..Tr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.796.0..sroa_idx97, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.9.sroa.11, i64 72, i1 false)
   br label %.outer
 
-50:                                               ; preds = %51, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hab569a4bcae0a9f6E.exit50"
-  ret void
-
-51:                                               ; preds = %36, %34
+50:                                               ; preds = %34, %36, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$object_store..ObjectMeta$GT$$GT$17hab569a4bcae0a9f6E.exit50"
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.7)
-  br label %50
+  ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -10651,7 +10639,6 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   store i64 18, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
   call fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$$GT$17ha92fce11897eb558E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %6)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6)
   br label %32
 
 27:                                               ; preds = %.thread26
@@ -10673,10 +10660,10 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %6, i64 80, i1 false)
   call void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcd8738e4a139b583E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %5)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6)
   br label %32
 
 32:                                               ; preds = %"_ZN4core3ptr59drop_in_place$LT$tokio..runtime..coop..RestoreOnPending$GT$17hd0063428949f5cc5E.exit18", %26
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6)
   ret void
 
 33:                                               ; preds = %27, %.thread

@@ -124,7 +124,6 @@ define hidden void @_ZN10serde_json2de10from_trait17h5cb5244a3cd049c6E(ptr noali
 
 "_ZN4core3ptr82drop_in_place$LT$serde_json..de..Deserializer$LT$serde_json..read..StrRead$GT$$GT$17h590d3154671db477E.exit": ; preds = %.loopexit, %38, %42
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !31
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8)
   br label %46
 
 44:                                               ; preds = %28
@@ -136,6 +135,7 @@ define hidden void @_ZN10serde_json2de10from_trait17h5cb5244a3cd049c6E(ptr noali
           to label %47 unwind label %12
 
 46:                                               ; preds = %"_ZN4core3ptr82drop_in_place$LT$serde_json..de..Deserializer$LT$serde_json..read..StrRead$GT$$GT$17h590d3154671db477E.exit5", %"_ZN4core3ptr82drop_in_place$LT$serde_json..de..Deserializer$LT$serde_json..read..StrRead$GT$$GT$17h590d3154671db477E.exit"
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8)
   ret void
 
 47:                                               ; preds = %44, %30
@@ -160,7 +160,6 @@ define hidden void @_ZN10serde_json2de10from_trait17h5cb5244a3cd049c6E(ptr noali
 
 "_ZN4core3ptr82drop_in_place$LT$serde_json..de..Deserializer$LT$serde_json..read..StrRead$GT$$GT$17h590d3154671db477E.exit5": ; preds = %47, %50, %54
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !41
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8)
   br label %46
 
 56:                                               ; preds = %34, %11
@@ -2866,7 +2865,6 @@ _ZN10serde_json2de12ParserNumber5visit17he5c21cca040351d1E.exit: ; preds = %131,
 186:                                              ; preds = %.noexc97, %.noexc98, %184, %.noexc95, %.noexc96
   %.sroa.16.1.ph = phi ptr [ %176, %.noexc96 ], [ %164, %.noexc95 ], [ %185, %184 ], [ %180, %.noexc98 ], [ %177, %.noexc97 ]
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17h95154ba9ad47cc53E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18), !noalias !611
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18), !noalias !567
   br label %"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h400b333bbade4dd5E.exit"
 
 187:                                              ; preds = %.loopexit483
@@ -2914,7 +2912,6 @@ _ZN10serde_json2de12ParserNumber5visit17he5c21cca040351d1E.exit: ; preds = %131,
 203:                                              ; preds = %.loopexit483
   %.sroa.0182.0.copyload = load ptr, ptr %18, align 8, !noalias !567
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7143, ptr noundef nonnull align 8 dereferenceable(16) %153, i64 16, i1 false), !noalias !617
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18), !noalias !567
   br label %"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h400b333bbade4dd5E.exit"
 
 common.resume:                                    ; preds = %287, %.body, %.body93
@@ -2930,6 +2927,7 @@ common.resume:                                    ; preds = %287, %.body, %.body
 "_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h400b333bbade4dd5E.exit": ; preds = %186, %203
   %.sroa.0141.0 = phi i8 [ 6, %186 ], [ 4, %203 ]
   %.sroa.6.0 = phi ptr [ %.sroa.16.1.ph, %186 ], [ %.sroa.0182.0.copyload, %203 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18), !noalias !567
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
   %206 = load i8, ptr %114, align 8, !noundef !5
   %207 = add i8 %206, 1

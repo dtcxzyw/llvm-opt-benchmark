@@ -125,7 +125,7 @@ define hidden void @proto_reg_handoff_tpncp() #0 {
   %6 = alloca %struct.except_catch, align 8
   %7 = load i32, ptr @proto_tpncp, align 4
   %8 = icmp slt i32 %7, 1
-  br i1 %8, label %115, label %9
+  br i1 %8, label %112, label %9
 
 9:                                                ; preds = %0
   %.b = load i1, ptr @proto_reg_handoff_tpncp.initialized, align 4
@@ -154,7 +154,7 @@ define hidden void @proto_reg_handoff_tpncp() #0 {
 20:                                               ; preds = %10, %9
   %21 = load i32, ptr @global_tpncp_load_db, align 4
   %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %115, label %22
+  br i1 %.not, label %112, label %22
 
 22:                                               ; preds = %20
   %23 = load i32, ptr @hf_allocated, align 4
@@ -301,11 +301,11 @@ init_tpncp_db.exit:                               ; preds = %30, %fgetline.exit.
 78:                                               ; preds = %25
   call void @llvm.lifetime.end.p0(i64 3000, ptr nonnull %2)
   call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.4) #13
-  br label %115
+  br label %112
 
 79:                                               ; preds = %init_tpncp_db.exit, %22
   %.b13 = load i1, ptr @db_initialized, align 4
-  br i1 %.b13, label %115, label %80
+  br i1 %.b13, label %112, label %80
 
 80:                                               ; preds = %79
   store volatile i32 0, ptr %4, align 4
@@ -313,99 +313,90 @@ init_tpncp_db.exit:                               ; preds = %30, %fgetline.exit.
   %81 = getelementptr inbounds i8, ptr %6, i64 48
   %82 = call i32 @_setjmp(ptr noundef nonnull %81) #16
   %.not14 = icmp eq i32 %82, 0
-  br i1 %.not14, label %85, label %83
-
-83:                                               ; preds = %80
-  %84 = getelementptr inbounds i8, ptr %6, i64 16
-  store volatile ptr %84, ptr %3, align 8
-  br label %86
+  %83 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sink = select i1 %.not14, ptr null, ptr %83
+  store volatile ptr %.sink, ptr %3, align 8
+  %.0..0..0..0. = load volatile i32, ptr %4, align 4
+  %84 = and i32 %.0..0..0..0., 1
+  %.not15 = icmp eq i32 %84, 0
+  br i1 %.not15, label %87, label %85
 
 85:                                               ; preds = %80
-  store volatile ptr null, ptr %3, align 8
-  br label %86
-
-86:                                               ; preds = %85, %83
-  %.0..0..0..0. = load volatile i32, ptr %4, align 4
-  %87 = and i32 %.0..0..0..0., 1
-  %.not15 = icmp eq i32 %87, 0
-  br i1 %.not15, label %90, label %88
-
-88:                                               ; preds = %86
   %.0..0..0..0.3 = load volatile i32, ptr %4, align 4
-  %89 = or i32 %.0..0..0..0.3, 2
-  store volatile i32 %89, ptr %4, align 4
-  br label %90
+  %86 = or i32 %.0..0..0..0.3, 2
+  store volatile i32 %86, ptr %4, align 4
+  br label %87
 
-90:                                               ; preds = %88, %86
+87:                                               ; preds = %85, %80
   %.0..0..0..0.4 = load volatile i32, ptr %4, align 4
-  %91 = and i32 %.0..0..0..0.4, -2
-  store volatile i32 %91, ptr %4, align 4
+  %88 = and i32 %.0..0..0..0.4, -2
+  store volatile i32 %88, ptr %4, align 4
   %.0..0..0..0.5 = load volatile i32, ptr %4, align 4
-  %92 = icmp eq i32 %.0..0..0..0.5, 0
-  br i1 %92, label %93, label %.loopexit
+  %89 = icmp eq i32 %.0..0..0..0.5, 0
+  br i1 %89, label %90, label %.loopexit
 
-93:                                               ; preds = %90
+90:                                               ; preds = %87
   %.0..0..0..0.9 = load volatile ptr, ptr %3, align 8
-  %94 = icmp eq ptr %.0..0..0..0.9, null
-  %95 = load i32, ptr @hf_size, align 4
-  %96 = icmp sgt i32 %95, 0
-  %or.cond = select i1 %94, i1 %96, i1 false
+  %91 = icmp eq ptr %.0..0..0..0.9, null
+  %92 = load i32, ptr @hf_size, align 4
+  %93 = icmp sgt i32 %92, 0
+  %or.cond = select i1 %91, i1 %93, i1 false
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %93, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %93 ]
-  %97 = load i32, ptr @proto_tpncp, align 4
-  %98 = load ptr, ptr @hf, align 8
-  %99 = getelementptr %struct.hf_register_info, ptr %98, i64 %indvars.iv
-  call void @proto_register_field_array(i32 noundef %97, ptr noundef %99, i32 noundef 1) #13
+.lr.ph:                                           ; preds = %90, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %90 ]
+  %94 = load i32, ptr @proto_tpncp, align 4
+  %95 = load ptr, ptr @hf, align 8
+  %96 = getelementptr %struct.hf_register_info, ptr %95, i64 %indvars.iv
+  call void @proto_register_field_array(i32 noundef %94, ptr noundef %96, i32 noundef 1) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %100 = load i32, ptr @hf_size, align 4
-  %101 = sext i32 %100 to i64
-  %102 = icmp slt i64 %indvars.iv.next, %101
-  br i1 %102, label %.lr.ph, label %.loopexit, !llvm.loop !6
+  %97 = load i32, ptr @hf_size, align 4
+  %98 = sext i32 %97 to i64
+  %99 = icmp slt i64 %indvars.iv.next, %98
+  br i1 %99, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
-.loopexit:                                        ; preds = %.lr.ph, %93, %90
+.loopexit:                                        ; preds = %.lr.ph, %90, %87
   %.0..0..0..0.6 = load volatile i32, ptr %4, align 4
-  %103 = icmp eq i32 %.0..0..0..0.6, 0
-  br i1 %103, label %104, label %107
+  %100 = icmp eq i32 %.0..0..0..0.6, 0
+  br i1 %100, label %101, label %104
 
-104:                                              ; preds = %.loopexit
+101:                                              ; preds = %.loopexit
   %.0..0..0..0.10 = load volatile ptr, ptr %3, align 8
   %.not16 = icmp eq ptr %.0..0..0..0.10, null
-  br i1 %.not16, label %107, label %105
+  br i1 %.not16, label %104, label %102
 
-105:                                              ; preds = %104
+102:                                              ; preds = %101
   %.0..0..0..0.7 = load volatile i32, ptr %4, align 4
-  %106 = or i32 %.0..0..0..0.7, 1
-  store volatile i32 %106, ptr %4, align 4
+  %103 = or i32 %.0..0..0..0.7, 1
+  store volatile i32 %103, ptr %4, align 4
   call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.5) #13
-  br label %107
+  br label %104
 
-107:                                              ; preds = %105, %104, %.loopexit
+104:                                              ; preds = %102, %101, %.loopexit
   %.0..0..0..0.8 = load volatile i32, ptr %4, align 4
-  %108 = and i32 %.0..0..0..0.8, 1
-  %.not17 = icmp eq i32 %108, 0
-  br i1 %.not17, label %109, label %111
+  %105 = and i32 %.0..0..0..0.8, 1
+  %.not17 = icmp eq i32 %105, 0
+  br i1 %.not17, label %106, label %108
 
-109:                                              ; preds = %107
+106:                                              ; preds = %104
   %.0..0..0..0.11 = load volatile ptr, ptr %3, align 8
   %.not18 = icmp eq ptr %.0..0..0..0.11, null
-  br i1 %.not18, label %111, label %110
+  br i1 %.not18, label %108, label %107
 
-110:                                              ; preds = %109
+107:                                              ; preds = %106
   %.0..0..0..0.12 = load volatile ptr, ptr %3, align 8
   call void @except_rethrow(ptr noundef %.0..0..0..0.12) #17
   unreachable
 
-111:                                              ; preds = %109, %107
-  %112 = getelementptr inbounds i8, ptr %6, i64 40
-  %113 = load volatile ptr, ptr %112, align 8
-  call void @except_free(ptr noundef %113) #13
-  %114 = call ptr @except_pop() #13
+108:                                              ; preds = %106, %104
+  %109 = getelementptr inbounds i8, ptr %6, i64 40
+  %110 = load volatile ptr, ptr %109, align 8
+  call void @except_free(ptr noundef %110) #13
+  %111 = call ptr @except_pop() #13
   store i1 true, ptr @db_initialized, align 4
-  br label %115
+  br label %112
 
-115:                                              ; preds = %79, %20, %0, %111, %78
+112:                                              ; preds = %79, %20, %0, %108, %78
   ret void
 }
 
@@ -509,7 +500,7 @@ define internal i32 @dissect_tpncp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %.b = load i1, ptr @db_initialized, align 4
-  br i1 %.b, label %11, label %97
+  br i1 %.b, label %11, label %91
 
 11:                                               ; preds = %4
   %12 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 8) #13
@@ -549,7 +540,7 @@ define internal i32 @dissect_tpncp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.073 = phi i32 [ %39, %38 ], [ -1, %11 ]
   %41 = getelementptr inbounds i8, ptr %1, i64 284
   %42 = load i32, ptr %41, align 4
-  switch i32 %42, label %72 [
+  switch i32 %42, label %67 [
     i32 2424, label %43
     i32 2442, label %43
   ]
@@ -557,7 +548,7 @@ define internal i32 @dissect_tpncp(ptr noundef %0, ptr noundef %1, ptr noundef %
 43:                                               ; preds = %40, %40
   %44 = call ptr @try_val_to_str(i32 noundef %35, ptr noundef nonnull @tpncp_events_id_vals) #13
   %.not76 = icmp eq ptr %44, null
-  br i1 %.not76, label %67, label %45
+  br i1 %.not76, label %85, label %45
 
 45:                                               ; preds = %43
   %46 = load i32, ptr @hf_tpncp_event_id, align 4
@@ -574,7 +565,7 @@ define internal i32 @dissect_tpncp(ptr noundef %0, ptr noundef %1, ptr noundef %
 53:                                               ; preds = %50, %45
   store i32 16, ptr %5, align 4
   %54 = icmp ult i32 %35, 5000
-  br i1 %54, label %55, label %67
+  br i1 %54, label %55, label %85
 
 55:                                               ; preds = %53
   %56 = zext nneg i32 %35 to i64
@@ -584,7 +575,7 @@ define internal i32 @dissect_tpncp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %60 = load i32, ptr %7, align 4
   %61 = icmp ugt i32 %60, 12
   %or.cond = select i1 %59, i1 %61, i1 false
-  br i1 %or.cond, label %62, label %67
+  br i1 %or.cond, label %62, label %85
 
 62:                                               ; preds = %55
   %63 = load i32, ptr @ett_tpncp_body, align 4
@@ -592,60 +583,51 @@ define internal i32 @dissect_tpncp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %65 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef 16, i32 noundef -1, i32 noundef %63, ptr noundef null, ptr noundef nonnull @.str.57, ptr noundef %64, i32 noundef %35) #13
   %66 = load i32, ptr %8, align 4
   call fastcc void @dissect_tpncp_data(i32 noundef %35, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %65, ptr noundef nonnull %5, ptr noundef nonnull @tpncp_events_info_db, i32 noundef %66, i32 noundef %14)
-  br label %67
+  br label %85
 
-67:                                               ; preds = %53, %55, %62, %43
-  %68 = load ptr, ptr %15, align 8
-  %69 = call ptr @val_to_str_const(i32 noundef %35, ptr noundef nonnull @tpncp_events_id_vals, ptr noundef nonnull @.str.58) #13
-  %70 = load i32, ptr %6, align 4
-  %71 = load i32, ptr %8, align 4
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %68, i32 noundef 25, ptr noundef nonnull @.str.59, ptr noundef %69, i32 noundef %35, i32 noundef %70, i32 noundef %.073, i32 noundef %34, i32 noundef %71) #13
-  br label %95
+67:                                               ; preds = %40
+  %68 = call ptr @try_val_to_str(i32 noundef %35, ptr noundef nonnull @tpncp_commands_id_vals) #13
+  %.not = icmp eq ptr %68, null
+  br i1 %.not, label %85, label %69
 
-72:                                               ; preds = %40
-  %73 = call ptr @try_val_to_str(i32 noundef %35, ptr noundef nonnull @tpncp_commands_id_vals) #13
-  %.not = icmp eq ptr %73, null
-  br i1 %.not, label %90, label %74
-
-74:                                               ; preds = %72
-  %75 = load i32, ptr @hf_tpncp_command_id, align 4
-  %76 = call ptr @proto_tree_add_uint(ptr noundef %20, i32 noundef %75, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef %35) #13
+69:                                               ; preds = %67
+  %70 = load i32, ptr @hf_tpncp_command_id, align 4
+  %71 = call ptr @proto_tree_add_uint(ptr noundef %20, i32 noundef %70, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef %35) #13
   store i32 12, ptr %5, align 4
-  %77 = icmp ult i32 %35, 5000
-  br i1 %77, label %78, label %90
+  %72 = icmp ult i32 %35, 5000
+  br i1 %72, label %73, label %85
 
-78:                                               ; preds = %74
-  %79 = zext nneg i32 %35 to i64
-  %80 = getelementptr [5000 x %struct.tpncp_data_field_info], ptr @tpncp_commands_info_db, i64 0, i64 %79, i32 5
-  %81 = load i8, ptr %80, align 8
-  %82 = icmp ne i8 %81, 0
-  %83 = load i32, ptr %7, align 4
-  %84 = icmp ugt i32 %83, 8
-  %or.cond3 = select i1 %82, i1 %84, i1 false
-  br i1 %or.cond3, label %85, label %90
+73:                                               ; preds = %69
+  %74 = zext nneg i32 %35 to i64
+  %75 = getelementptr [5000 x %struct.tpncp_data_field_info], ptr @tpncp_commands_info_db, i64 0, i64 %74, i32 5
+  %76 = load i8, ptr %75, align 8
+  %77 = icmp ne i8 %76, 0
+  %78 = load i32, ptr %7, align 4
+  %79 = icmp ugt i32 %78, 8
+  %or.cond3 = select i1 %77, i1 %79, i1 false
+  br i1 %or.cond3, label %80, label %85
 
-85:                                               ; preds = %78
-  %86 = load i32, ptr @ett_tpncp_body, align 4
-  %87 = call ptr @val_to_str_const(i32 noundef %35, ptr noundef nonnull @tpncp_commands_id_vals, ptr noundef nonnull @.str.58) #13
-  %88 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef 12, i32 noundef -1, i32 noundef %86, ptr noundef null, ptr noundef nonnull @.str.60, ptr noundef %87, i32 noundef %35) #13
+80:                                               ; preds = %73
+  %81 = load i32, ptr @ett_tpncp_body, align 4
+  %82 = call ptr @val_to_str_const(i32 noundef %35, ptr noundef nonnull @tpncp_commands_id_vals, ptr noundef nonnull @.str.58) #13
+  %83 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef 12, i32 noundef -1, i32 noundef %81, ptr noundef null, ptr noundef nonnull @.str.60, ptr noundef %82, i32 noundef %35) #13
+  %84 = load i32, ptr %8, align 4
+  call fastcc void @dissect_tpncp_data(i32 noundef %35, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %83, ptr noundef nonnull %5, ptr noundef nonnull @tpncp_commands_info_db, i32 noundef %84, i32 noundef %14)
+  br label %85
+
+85:                                               ; preds = %67, %80, %73, %69, %43, %62, %55, %53
+  %tpncp_commands_id_vals.sink = phi ptr [ @tpncp_events_id_vals, %53 ], [ @tpncp_events_id_vals, %55 ], [ @tpncp_events_id_vals, %62 ], [ @tpncp_events_id_vals, %43 ], [ @tpncp_commands_id_vals, %69 ], [ @tpncp_commands_id_vals, %73 ], [ @tpncp_commands_id_vals, %80 ], [ @tpncp_commands_id_vals, %67 ]
+  %.str.61.sink = phi ptr [ @.str.59, %53 ], [ @.str.59, %55 ], [ @.str.59, %62 ], [ @.str.59, %43 ], [ @.str.61, %69 ], [ @.str.61, %73 ], [ @.str.61, %80 ], [ @.str.61, %67 ]
+  %86 = load ptr, ptr %15, align 8
+  %87 = call ptr @val_to_str_const(i32 noundef %35, ptr noundef nonnull %tpncp_commands_id_vals.sink, ptr noundef nonnull @.str.58) #13
+  %88 = load i32, ptr %6, align 4
   %89 = load i32, ptr %8, align 4
-  call fastcc void @dissect_tpncp_data(i32 noundef %35, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %88, ptr noundef nonnull %5, ptr noundef nonnull @tpncp_commands_info_db, i32 noundef %89, i32 noundef %14)
-  br label %90
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %86, i32 noundef 25, ptr noundef nonnull %.str.61.sink, ptr noundef %87, i32 noundef %35, i32 noundef %88, i32 noundef %.073, i32 noundef %34, i32 noundef %89) #13
+  %90 = call i32 @tvb_reported_length(ptr noundef %0) #13
+  br label %91
 
-90:                                               ; preds = %74, %78, %85, %72
-  %91 = load ptr, ptr %15, align 8
-  %92 = call ptr @val_to_str_const(i32 noundef %35, ptr noundef nonnull @tpncp_commands_id_vals, ptr noundef nonnull @.str.58) #13
-  %93 = load i32, ptr %6, align 4
-  %94 = load i32, ptr %8, align 4
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %91, i32 noundef 25, ptr noundef nonnull @.str.61, ptr noundef %92, i32 noundef %35, i32 noundef %93, i32 noundef %.073, i32 noundef %34, i32 noundef %94) #13
-  br label %95
-
-95:                                               ; preds = %90, %67
-  %96 = call i32 @tvb_reported_length(ptr noundef %0) #13
-  br label %97
-
-97:                                               ; preds = %4, %95
-  %.0 = phi i32 [ %96, %95 ], [ 0, %4 ]
+91:                                               ; preds = %4, %85
+  %.0 = phi i32 [ %90, %85 ], [ 0, %4 ]
   ret i32 %.0
 }
 

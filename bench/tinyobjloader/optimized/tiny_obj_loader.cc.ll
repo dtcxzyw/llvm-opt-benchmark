@@ -2190,19 +2190,22 @@ land.lhs.true490:                                 ; preds = %if.end487
   %arrayidx491 = getelementptr inbounds i8, ptr %add.ptr, i64 6
   %83 = load i8, ptr %arrayidx491, align 1
   switch i8 %83, label %if.end502 [
-    i8 32, label %if.then498
-    i8 9, label %if.then498
+    i8 32, label %if.then498.invoke.sink.split
+    i8 9, label %if.then498.invoke.sink.split
   ]
 
-if.then498:                                       ; preds = %land.lhs.true490, %land.lhs.true490
-  %add.ptr499 = getelementptr inbounds i8, ptr %add.ptr, i64 7
-  store ptr %add.ptr499, ptr %token, align 8
+if.then498.invoke.sink.split:                     ; preds = %land.lhs.true490, %land.lhs.true490, %land.lhs.true722, %land.lhs.true722, %land.lhs.true707, %land.lhs.true707, %land.lhs.true692, %land.lhs.true692, %land.lhs.true677, %land.lhs.true677, %land.lhs.true662, %land.lhs.true662, %land.lhs.true647, %land.lhs.true647, %land.lhs.true630, %land.lhs.true630, %land.lhs.true615, %land.lhs.true615, %land.lhs.true577, %land.lhs.true577, %land.lhs.true562, %land.lhs.true562, %land.lhs.true544, %land.lhs.true544, %land.lhs.true529, %land.lhs.true529
+  %.sink = phi i64 [ 7, %land.lhs.true529 ], [ 7, %land.lhs.true529 ], [ 7, %land.lhs.true544 ], [ 7, %land.lhs.true544 ], [ 9, %land.lhs.true562 ], [ 9, %land.lhs.true562 ], [ 5, %land.lhs.true577 ], [ 5, %land.lhs.true577 ], [ 9, %land.lhs.true615 ], [ 9, %land.lhs.true615 ], [ 5, %land.lhs.true630 ], [ 5, %land.lhs.true630 ], [ 5, %land.lhs.true647 ], [ 5, %land.lhs.true647 ], [ 7, %land.lhs.true662 ], [ 7, %land.lhs.true662 ], [ 7, %land.lhs.true677 ], [ 7, %land.lhs.true677 ], [ 7, %land.lhs.true692 ], [ 7, %land.lhs.true692 ], [ 7, %land.lhs.true707 ], [ 7, %land.lhs.true707 ], [ 5, %land.lhs.true722 ], [ 5, %land.lhs.true722 ], [ 7, %land.lhs.true490 ], [ 7, %land.lhs.true490 ]
+  %.ph = phi ptr [ %specular_texname, %land.lhs.true529 ], [ %specular_texname, %land.lhs.true529 ], [ %specular_highlight_texname, %land.lhs.true544 ], [ %specular_highlight_texname, %land.lhs.true544 ], [ %bump_texname, %land.lhs.true562 ], [ %bump_texname, %land.lhs.true562 ], [ %bump_texname, %land.lhs.true577 ], [ %bump_texname, %land.lhs.true577 ], [ %displacement_texname, %land.lhs.true615 ], [ %displacement_texname, %land.lhs.true615 ], [ %displacement_texname, %land.lhs.true630 ], [ %displacement_texname, %land.lhs.true630 ], [ %reflection_texname, %land.lhs.true647 ], [ %reflection_texname, %land.lhs.true647 ], [ %roughness_texname, %land.lhs.true662 ], [ %roughness_texname, %land.lhs.true662 ], [ %metallic_texname, %land.lhs.true677 ], [ %metallic_texname, %land.lhs.true677 ], [ %sheen_texname, %land.lhs.true692 ], [ %sheen_texname, %land.lhs.true692 ], [ %emissive_texname, %land.lhs.true707 ], [ %emissive_texname, %land.lhs.true707 ], [ %normal_texname, %land.lhs.true722 ], [ %normal_texname, %land.lhs.true722 ], [ %ambient_texname, %land.lhs.true490 ], [ %ambient_texname, %land.lhs.true490 ]
+  %.ph263 = phi ptr [ %specular_texopt, %land.lhs.true529 ], [ %specular_texopt, %land.lhs.true529 ], [ %specular_highlight_texopt, %land.lhs.true544 ], [ %specular_highlight_texopt, %land.lhs.true544 ], [ %bump_texopt, %land.lhs.true562 ], [ %bump_texopt, %land.lhs.true562 ], [ %bump_texopt, %land.lhs.true577 ], [ %bump_texopt, %land.lhs.true577 ], [ %displacement_texopt, %land.lhs.true615 ], [ %displacement_texopt, %land.lhs.true615 ], [ %displacement_texopt, %land.lhs.true630 ], [ %displacement_texopt, %land.lhs.true630 ], [ %reflection_texopt, %land.lhs.true647 ], [ %reflection_texopt, %land.lhs.true647 ], [ %roughness_texopt, %land.lhs.true662 ], [ %roughness_texopt, %land.lhs.true662 ], [ %metallic_texopt, %land.lhs.true677 ], [ %metallic_texopt, %land.lhs.true677 ], [ %sheen_texopt, %land.lhs.true692 ], [ %sheen_texopt, %land.lhs.true692 ], [ %emissive_texopt, %land.lhs.true707 ], [ %emissive_texopt, %land.lhs.true707 ], [ %normal_texopt, %land.lhs.true722 ], [ %normal_texopt, %land.lhs.true722 ], [ %ambient_texopt, %land.lhs.true490 ], [ %ambient_texopt, %land.lhs.true490 ]
+  %add.ptr731 = getelementptr inbounds i8, ptr %add.ptr, i64 %.sink
+  store ptr %add.ptr731, ptr %token, align 8
   br label %if.then498.invoke
 
-if.then498.invoke:                                ; preds = %if.then602, %if.then730, %if.then715, %if.then700, %if.then685, %if.then670, %if.then655, %if.then638, %if.then623, %if.then585, %if.then570, %if.then552, %if.then537, %if.then498
-  %84 = phi ptr [ %ambient_texname, %if.then498 ], [ %specular_texname, %if.then537 ], [ %specular_highlight_texname, %if.then552 ], [ %bump_texname, %if.then570 ], [ %bump_texname, %if.then585 ], [ %displacement_texname, %if.then623 ], [ %displacement_texname, %if.then638 ], [ %reflection_texname, %if.then655 ], [ %roughness_texname, %if.then670 ], [ %metallic_texname, %if.then685 ], [ %sheen_texname, %if.then700 ], [ %emissive_texname, %if.then715 ], [ %normal_texname, %if.then730 ], [ %alpha_texname, %if.then602 ]
-  %85 = phi ptr [ %ambient_texopt, %if.then498 ], [ %specular_texopt, %if.then537 ], [ %specular_highlight_texopt, %if.then552 ], [ %bump_texopt, %if.then570 ], [ %bump_texopt, %if.then585 ], [ %displacement_texopt, %if.then623 ], [ %displacement_texopt, %if.then638 ], [ %reflection_texopt, %if.then655 ], [ %roughness_texopt, %if.then670 ], [ %metallic_texopt, %if.then685 ], [ %sheen_texopt, %if.then700 ], [ %emissive_texopt, %if.then715 ], [ %normal_texopt, %if.then730 ], [ %alpha_texopt, %if.then602 ]
-  %86 = phi ptr [ %add.ptr499, %if.then498 ], [ %add.ptr538, %if.then537 ], [ %add.ptr553, %if.then552 ], [ %add.ptr571, %if.then570 ], [ %add.ptr586, %if.then585 ], [ %add.ptr624, %if.then623 ], [ %add.ptr639, %if.then638 ], [ %add.ptr656, %if.then655 ], [ %add.ptr671, %if.then670 ], [ %add.ptr686, %if.then685 ], [ %add.ptr701, %if.then700 ], [ %add.ptr716, %if.then715 ], [ %add.ptr731, %if.then730 ], [ %add.ptr603, %if.then602 ]
+if.then498.invoke:                                ; preds = %if.then498.invoke.sink.split, %if.then602
+  %84 = phi ptr [ %alpha_texname, %if.then602 ], [ %.ph, %if.then498.invoke.sink.split ]
+  %85 = phi ptr [ %alpha_texopt, %if.then602 ], [ %.ph263, %if.then498.invoke.sink.split ]
+  %86 = phi ptr [ %add.ptr603, %if.then602 ], [ %add.ptr731, %if.then498.invoke.sink.split ]
   %87 = invoke noundef zeroext i1 @_ZN7tinyobj25ParseTextureNameAndOptionEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_16texture_option_tEPKc(ptr noundef nonnull %84, ptr noundef nonnull %85, ptr noundef nonnull %86)
           to label %while.cond.backedge unwind label %lpad2.loopexit
 
@@ -2249,14 +2252,9 @@ land.lhs.true529:                                 ; preds = %if.end526
   %arrayidx530 = getelementptr inbounds i8, ptr %add.ptr, i64 6
   %89 = load i8, ptr %arrayidx530, align 1
   switch i8 %89, label %if.end541 [
-    i8 32, label %if.then537
-    i8 9, label %if.then537
+    i8 32, label %if.then498.invoke.sink.split
+    i8 9, label %if.then498.invoke.sink.split
   ]
-
-if.then537:                                       ; preds = %land.lhs.true529, %land.lhs.true529
-  %add.ptr538 = getelementptr inbounds i8, ptr %add.ptr, i64 7
-  store ptr %add.ptr538, ptr %token, align 8
-  br label %if.then498.invoke
 
 if.end541:                                        ; preds = %land.lhs.true529, %if.end526
   %call542 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr, ptr noundef nonnull dereferenceable(7) @.str.27, i64 noundef 6) #27
@@ -2267,14 +2265,9 @@ land.lhs.true544:                                 ; preds = %if.end541
   %arrayidx545 = getelementptr inbounds i8, ptr %add.ptr, i64 6
   %90 = load i8, ptr %arrayidx545, align 1
   switch i8 %90, label %if.end556 [
-    i8 32, label %if.then552
-    i8 9, label %if.then552
+    i8 32, label %if.then498.invoke.sink.split
+    i8 9, label %if.then498.invoke.sink.split
   ]
-
-if.then552:                                       ; preds = %land.lhs.true544, %land.lhs.true544
-  %add.ptr553 = getelementptr inbounds i8, ptr %add.ptr, i64 7
-  store ptr %add.ptr553, ptr %token, align 8
-  br label %if.then498.invoke
 
 if.end556:                                        ; preds = %land.lhs.true544, %if.end541
   %call557 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr, ptr noundef nonnull dereferenceable(9) @.str.28, i64 noundef 8) #27
@@ -2290,14 +2283,9 @@ land.lhs.true562:                                 ; preds = %lor.lhs.false559, %
   %arrayidx563 = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %91 = load i8, ptr %arrayidx563, align 1
   switch i8 %91, label %if.end574 [
-    i8 32, label %if.then570
-    i8 9, label %if.then570
+    i8 32, label %if.then498.invoke.sink.split
+    i8 9, label %if.then498.invoke.sink.split
   ]
-
-if.then570:                                       ; preds = %land.lhs.true562, %land.lhs.true562
-  %add.ptr571 = getelementptr inbounds i8, ptr %add.ptr, i64 9
-  store ptr %add.ptr571, ptr %token, align 8
-  br label %if.then498.invoke
 
 if.end574:                                        ; preds = %land.lhs.true562, %lor.lhs.false559
   %call575 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr, ptr noundef nonnull dereferenceable(5) @.str.30, i64 noundef 4) #27
@@ -2308,14 +2296,9 @@ land.lhs.true577:                                 ; preds = %if.end574
   %arrayidx578 = getelementptr inbounds i8, ptr %add.ptr, i64 4
   %92 = load i8, ptr %arrayidx578, align 1
   switch i8 %92, label %if.end591 [
-    i8 32, label %if.then585
-    i8 9, label %if.then585
+    i8 32, label %if.then498.invoke.sink.split
+    i8 9, label %if.then498.invoke.sink.split
   ]
-
-if.then585:                                       ; preds = %land.lhs.true577, %land.lhs.true577
-  %add.ptr586 = getelementptr inbounds i8, ptr %add.ptr, i64 5
-  store ptr %add.ptr586, ptr %token, align 8
-  br label %if.then498.invoke
 
 if.end591:                                        ; preds = %land.lhs.true577, %if.end574
   %call592 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr, ptr noundef nonnull dereferenceable(6) @.str.31, i64 noundef 5) #27
@@ -2350,14 +2333,9 @@ land.lhs.true615:                                 ; preds = %lor.lhs.false612, %
   %arrayidx616 = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %94 = load i8, ptr %arrayidx616, align 1
   switch i8 %94, label %if.end627 [
-    i8 32, label %if.then623
-    i8 9, label %if.then623
+    i8 32, label %if.then498.invoke.sink.split
+    i8 9, label %if.then498.invoke.sink.split
   ]
-
-if.then623:                                       ; preds = %land.lhs.true615, %land.lhs.true615
-  %add.ptr624 = getelementptr inbounds i8, ptr %add.ptr, i64 9
-  store ptr %add.ptr624, ptr %token, align 8
-  br label %if.then498.invoke
 
 if.end627:                                        ; preds = %land.lhs.true615, %lor.lhs.false612
   %call628 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr, ptr noundef nonnull dereferenceable(5) @.str.34, i64 noundef 4) #27
@@ -2368,14 +2346,9 @@ land.lhs.true630:                                 ; preds = %if.end627
   %arrayidx631 = getelementptr inbounds i8, ptr %add.ptr, i64 4
   %95 = load i8, ptr %arrayidx631, align 1
   switch i8 %95, label %if.end644 [
-    i8 32, label %if.then638
-    i8 9, label %if.then638
+    i8 32, label %if.then498.invoke.sink.split
+    i8 9, label %if.then498.invoke.sink.split
   ]
-
-if.then638:                                       ; preds = %land.lhs.true630, %land.lhs.true630
-  %add.ptr639 = getelementptr inbounds i8, ptr %add.ptr, i64 5
-  store ptr %add.ptr639, ptr %token, align 8
-  br label %if.then498.invoke
 
 if.end644:                                        ; preds = %land.lhs.true630, %if.end627
   %call645 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr, ptr noundef nonnull dereferenceable(5) @.str.35, i64 noundef 4) #27
@@ -2386,14 +2359,9 @@ land.lhs.true647:                                 ; preds = %if.end644
   %arrayidx648 = getelementptr inbounds i8, ptr %add.ptr, i64 4
   %96 = load i8, ptr %arrayidx648, align 1
   switch i8 %96, label %if.end659 [
-    i8 32, label %if.then655
-    i8 9, label %if.then655
+    i8 32, label %if.then498.invoke.sink.split
+    i8 9, label %if.then498.invoke.sink.split
   ]
-
-if.then655:                                       ; preds = %land.lhs.true647, %land.lhs.true647
-  %add.ptr656 = getelementptr inbounds i8, ptr %add.ptr, i64 5
-  store ptr %add.ptr656, ptr %token, align 8
-  br label %if.then498.invoke
 
 if.end659:                                        ; preds = %land.lhs.true647, %if.end644
   %call660 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr, ptr noundef nonnull dereferenceable(7) @.str.36, i64 noundef 6) #27
@@ -2404,14 +2372,9 @@ land.lhs.true662:                                 ; preds = %if.end659
   %arrayidx663 = getelementptr inbounds i8, ptr %add.ptr, i64 6
   %97 = load i8, ptr %arrayidx663, align 1
   switch i8 %97, label %if.end674 [
-    i8 32, label %if.then670
-    i8 9, label %if.then670
+    i8 32, label %if.then498.invoke.sink.split
+    i8 9, label %if.then498.invoke.sink.split
   ]
-
-if.then670:                                       ; preds = %land.lhs.true662, %land.lhs.true662
-  %add.ptr671 = getelementptr inbounds i8, ptr %add.ptr, i64 7
-  store ptr %add.ptr671, ptr %token, align 8
-  br label %if.then498.invoke
 
 if.end674:                                        ; preds = %land.lhs.true662, %if.end659
   %call675 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr, ptr noundef nonnull dereferenceable(7) @.str.37, i64 noundef 6) #27
@@ -2422,14 +2385,9 @@ land.lhs.true677:                                 ; preds = %if.end674
   %arrayidx678 = getelementptr inbounds i8, ptr %add.ptr, i64 6
   %98 = load i8, ptr %arrayidx678, align 1
   switch i8 %98, label %if.end689 [
-    i8 32, label %if.then685
-    i8 9, label %if.then685
+    i8 32, label %if.then498.invoke.sink.split
+    i8 9, label %if.then498.invoke.sink.split
   ]
-
-if.then685:                                       ; preds = %land.lhs.true677, %land.lhs.true677
-  %add.ptr686 = getelementptr inbounds i8, ptr %add.ptr, i64 7
-  store ptr %add.ptr686, ptr %token, align 8
-  br label %if.then498.invoke
 
 if.end689:                                        ; preds = %land.lhs.true677, %if.end674
   %call690 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr, ptr noundef nonnull dereferenceable(7) @.str.38, i64 noundef 6) #27
@@ -2440,14 +2398,9 @@ land.lhs.true692:                                 ; preds = %if.end689
   %arrayidx693 = getelementptr inbounds i8, ptr %add.ptr, i64 6
   %99 = load i8, ptr %arrayidx693, align 1
   switch i8 %99, label %if.end704 [
-    i8 32, label %if.then700
-    i8 9, label %if.then700
+    i8 32, label %if.then498.invoke.sink.split
+    i8 9, label %if.then498.invoke.sink.split
   ]
-
-if.then700:                                       ; preds = %land.lhs.true692, %land.lhs.true692
-  %add.ptr701 = getelementptr inbounds i8, ptr %add.ptr, i64 7
-  store ptr %add.ptr701, ptr %token, align 8
-  br label %if.then498.invoke
 
 if.end704:                                        ; preds = %land.lhs.true692, %if.end689
   %call705 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr, ptr noundef nonnull dereferenceable(7) @.str.39, i64 noundef 6) #27
@@ -2458,14 +2411,9 @@ land.lhs.true707:                                 ; preds = %if.end704
   %arrayidx708 = getelementptr inbounds i8, ptr %add.ptr, i64 6
   %100 = load i8, ptr %arrayidx708, align 1
   switch i8 %100, label %if.end719 [
-    i8 32, label %if.then715
-    i8 9, label %if.then715
+    i8 32, label %if.then498.invoke.sink.split
+    i8 9, label %if.then498.invoke.sink.split
   ]
-
-if.then715:                                       ; preds = %land.lhs.true707, %land.lhs.true707
-  %add.ptr716 = getelementptr inbounds i8, ptr %add.ptr, i64 7
-  store ptr %add.ptr716, ptr %token, align 8
-  br label %if.then498.invoke
 
 if.end719:                                        ; preds = %land.lhs.true707, %if.end704
   %call720 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr, ptr noundef nonnull dereferenceable(5) @.str.40, i64 noundef 4) #27
@@ -2476,14 +2424,9 @@ land.lhs.true722:                                 ; preds = %if.end719
   %arrayidx723 = getelementptr inbounds i8, ptr %add.ptr, i64 4
   %101 = load i8, ptr %arrayidx723, align 1
   switch i8 %101, label %if.end734 [
-    i8 32, label %if.then730
-    i8 9, label %if.then730
+    i8 32, label %if.then498.invoke.sink.split
+    i8 9, label %if.then498.invoke.sink.split
   ]
-
-if.then730:                                       ; preds = %land.lhs.true722, %land.lhs.true722
-  %add.ptr731 = getelementptr inbounds i8, ptr %add.ptr, i64 5
-  store ptr %add.ptr731, ptr %token, align 8
-  br label %if.then498.invoke
 
 if.end734:                                        ; preds = %land.lhs.true722, %if.end719
   %call735 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr, i32 noundef 32) #27

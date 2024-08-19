@@ -301,8 +301,8 @@ sev2str.exit:                                     ; preds = %._crit_edge, %switc
 
 .sink.split:                                      ; preds = %.lr.ph, %sev2str.exit
   %.021.ph = phi i32 [ 0, %sev2str.exit ], [ %41, %.lr.ph ]
-  %.sink = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %.sink) #6
+  %58 = load ptr, ptr %9, align 8
+  call void @free(ptr noundef %58) #6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %42, %.sink.split, %29

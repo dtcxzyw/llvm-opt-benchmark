@@ -978,12 +978,12 @@ get_int_msb_first.exit53:                         ; preds = %._crit_edge.i51
   br i1 %or.cond, label %get_int_msb_first.exit.thread, label %get_int_msb_first.exit
 
 get_int_msb_first.exit.thread.sink.split:         ; preds = %get_int_msb_first.exit44, %get_int_msb_first.exit35
-  %.sink101 = phi i32 [ %20, %get_int_msb_first.exit35 ], [ %34, %get_int_msb_first.exit44 ]
+  %.lcssa91.sink = phi i32 [ %20, %get_int_msb_first.exit35 ], [ %34, %get_int_msb_first.exit44 ]
   %56 = getelementptr inbounds i8, ptr %0, i64 68
-  store i32 %.sink101, ptr %56, align 4
-  %.sink = load i32, ptr %2, align 4
-  %57 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 %.sink, ptr %57, align 8
+  store i32 %.lcssa91.sink, ptr %56, align 4
+  %57 = load i32, ptr %2, align 4
+  %58 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 %57, ptr %58, align 8
   br label %get_int_msb_first.exit.thread
 
 get_int_msb_first.exit.thread:                    ; preds = %.backedge, %._crit_edge.i51, %.lr.ph.i45, %.lr.ph.i36, %.lr.ph.i27, %1, %get_int_msb_first.exit.thread.sink.split, %._crit_edge.i42, %._crit_edge.i33, %get_int_msb_first.exit44, %25, %10, %get_int_msb_first.exit35

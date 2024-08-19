@@ -1693,7 +1693,7 @@ define internal fastcc range(i32 0, 2) i32 @opensafety_package_dissector(ptr nou
   %86 = zext nneg i16 %narrow291 to i32
   %87 = call zeroext i8 @tvb_get_guint8(ptr noundef %.0225, i32 noundef %86) #10
   %88 = and i8 %87, -4
-  switch i8 %88, label %findFrame1Position.exit.thread282 [
+  switch i8 %88, label %.backedge.sink.split [
     i8 -24, label %findFrame1Position.exit.thread
     i8 -20, label %findFrame1Position.exit.thread
   ]
@@ -1710,18 +1710,25 @@ findFrame1Position.exit:                          ; preds = %67
   %97 = add nsw i16 %93, %96
   br label %findFrame1Position.exit.thread
 
-findFrame1Position.exit.thread282:                ; preds = %82
-  store i32 %65, ptr %10, align 4
+.backedge.sink.split:                             ; preds = %82, %255, %234, %204, %195, %183, %174, %172, %307
+  %.sink = phi i32 [ %308, %307 ], [ %173, %172 ], [ %175, %174 ], [ %184, %183 ], [ %196, %195 ], [ %205, %204 ], [ %235, %234 ], [ %258, %255 ], [ %65, %82 ]
+  %.0241.be.ph = phi i32 [ 1, %307 ], [ %.0241299, %172 ], [ %.0241299, %174 ], [ %.0241299, %183 ], [ %.0241299, %195 ], [ %.0241299, %204 ], [ %.0241299, %234 ], [ %.0241299, %255 ], [ %.0241299, %82 ]
+  %.0238.be.ph = phi i32 [ %.2240, %307 ], [ %.0238300, %172 ], [ %.0238300, %174 ], [ %.0238300, %183 ], [ %.0238300, %195 ], [ %.0238300, %204 ], [ %.0238300, %234 ], [ %.0238300, %255 ], [ %.0238300, %82 ]
+  %.0235.be.ph = phi i32 [ %.1236, %307 ], [ %.0235301, %172 ], [ %.0235301, %174 ], [ %.0235301, %183 ], [ %.0235301, %195 ], [ %.0235301, %204 ], [ %spec.select272, %234 ], [ %.1236, %255 ], [ %.0235301, %82 ]
+  %.0232.be.ph = phi i8 [ %.1233289, %307 ], [ %.0232302, %172 ], [ %.0232302, %174 ], [ %.0232302, %183 ], [ %.0232302, %195 ], [ %.0232302, %204 ], [ %.0232302, %234 ], [ %.0232302, %255 ], [ %.0232302, %82 ]
+  %.0230.be.ph = phi i32 [ %65, %307 ], [ %.0230303, %172 ], [ %.0230303, %174 ], [ %.0230303, %183 ], [ %.0230303, %195 ], [ %.0230303, %204 ], [ %.0230303, %234 ], [ %.0230303, %255 ], [ %.0230303, %82 ]
+  %.0229.be.ph = phi i8 [ %299, %307 ], [ %.0229304, %172 ], [ %.0229304, %174 ], [ %.0229304, %183 ], [ %.0229304, %195 ], [ %.0229304, %204 ], [ %.0229304, %234 ], [ %.0229304, %255 ], [ %.0229304, %82 ]
+  store i32 %.sink, ptr %10, align 4
   br label %.backedge
 
-.backedge:                                        ; preds = %303, %307, %findFrame1Position.exit.thread282, %172, %174, %183, %195, %204, %234, %255
-  %98 = phi i32 [ %65, %findFrame1Position.exit.thread282 ], [ %184, %183 ], [ %196, %195 ], [ %205, %204 ], [ %235, %234 ], [ %258, %255 ], [ %173, %172 ], [ %175, %174 ], [ %308, %307 ], [ %65, %303 ]
-  %.0241.be = phi i32 [ %.0241299, %findFrame1Position.exit.thread282 ], [ %.0241299, %183 ], [ %.0241299, %195 ], [ %.0241299, %204 ], [ %.0241299, %234 ], [ %.0241299, %255 ], [ %.0241299, %172 ], [ %.0241299, %174 ], [ 1, %307 ], [ 1, %303 ]
-  %.0238.be = phi i32 [ %.0238300, %findFrame1Position.exit.thread282 ], [ %.0238300, %183 ], [ %.0238300, %195 ], [ %.0238300, %204 ], [ %.0238300, %234 ], [ %.0238300, %255 ], [ %.0238300, %172 ], [ %.0238300, %174 ], [ %.2240, %307 ], [ %.2240, %303 ]
-  %.0235.be = phi i32 [ %.0235301, %findFrame1Position.exit.thread282 ], [ %.0235301, %183 ], [ %.0235301, %195 ], [ %.0235301, %204 ], [ %spec.select272, %234 ], [ %.1236, %255 ], [ %.0235301, %172 ], [ %.0235301, %174 ], [ %.1236, %307 ], [ %.1236, %303 ]
-  %.0232.be = phi i8 [ %.0232302, %findFrame1Position.exit.thread282 ], [ %.0232302, %183 ], [ %.0232302, %195 ], [ %.0232302, %204 ], [ %.0232302, %234 ], [ %.0232302, %255 ], [ %.0232302, %172 ], [ %.0232302, %174 ], [ %.1233289, %307 ], [ %.1233289, %303 ]
-  %.0230.be = phi i32 [ %.0230303, %findFrame1Position.exit.thread282 ], [ %.0230303, %183 ], [ %.0230303, %195 ], [ %.0230303, %204 ], [ %.0230303, %234 ], [ %.0230303, %255 ], [ %.0230303, %172 ], [ %.0230303, %174 ], [ %65, %307 ], [ %65, %303 ]
-  %.0229.be = phi i8 [ %.0229304, %findFrame1Position.exit.thread282 ], [ %.0229304, %183 ], [ %.0229304, %195 ], [ %.0229304, %204 ], [ %.0229304, %234 ], [ %.0229304, %255 ], [ %.0229304, %172 ], [ %.0229304, %174 ], [ %299, %307 ], [ %299, %303 ]
+.backedge:                                        ; preds = %.backedge.sink.split, %303
+  %98 = phi i32 [ %65, %303 ], [ %.sink, %.backedge.sink.split ]
+  %.0241.be = phi i32 [ 1, %303 ], [ %.0241.be.ph, %.backedge.sink.split ]
+  %.0238.be = phi i32 [ %.2240, %303 ], [ %.0238.be.ph, %.backedge.sink.split ]
+  %.0235.be = phi i32 [ %.1236, %303 ], [ %.0235.be.ph, %.backedge.sink.split ]
+  %.0232.be = phi i8 [ %.1233289, %303 ], [ %.0232.be.ph, %.backedge.sink.split ]
+  %.0230.be = phi i32 [ %65, %303 ], [ %.0230.be.ph, %.backedge.sink.split ]
+  %.0229.be = phi i8 [ %299, %303 ], [ %.0229.be.ph, %.backedge.sink.split ]
   %99 = icmp ult i32 %98, %13
   br i1 %99, label %50, label %._crit_edge307, !llvm.loop !9
 
@@ -1850,13 +1857,11 @@ findFrame1Position.exit277:                       ; preds = %148, %149, %155
 
 172:                                              ; preds = %169
   %173 = add i32 %63, 2
-  store i32 %173, ptr %10, align 4
-  br label %.backedge
+  br label %.backedge.sink.split
 
 174:                                              ; preds = %118
   %175 = add i32 %63, 2
-  store i32 %175, ptr %10, align 4
-  br label %.backedge
+  br label %.backedge.sink.split
 
 176:                                              ; preds = %169, %166, %163, %findFrame1Position.exit277, %115, %112, %109, %findFrame1Position.exit.thread
   %177 = phi i1 [ false, %findFrame1Position.exit.thread ], [ false, %109 ], [ true, %112 ], [ false, %115 ], [ false, %findFrame1Position.exit277 ], [ false, %163 ], [ true, %166 ], [ false, %169 ]
@@ -1878,8 +1883,7 @@ findFrame1Position.exit277:                       ; preds = %148, %149, %155
 
 183:                                              ; preds = %182
   %184 = add i32 %63, 2
-  store i32 %184, ptr %10, align 4
-  br label %.backedge
+  br label %.backedge.sink.split
 
 185:                                              ; preds = %182, %176
   br i1 %177, label %.thread328, label %186
@@ -1898,8 +1902,7 @@ findFrame1Position.exit277:                       ; preds = %148, %149, %155
 
 195:                                              ; preds = %186
   %196 = add i32 %63, 2
-  store i32 %196, ptr %10, align 4
-  br label %.backedge
+  br label %.backedge.sink.split
 
 197:                                              ; preds = %186
   br i1 %179, label %198, label %206
@@ -1915,8 +1918,7 @@ findFrame1Position.exit277:                       ; preds = %148, %149, %155
 
 204:                                              ; preds = %198
   %205 = add i32 %63, 2
-  store i32 %205, ptr %10, align 4
-  br label %.backedge
+  br label %.backedge.sink.split
 
 206:                                              ; preds = %198, %197
   %207 = zext nneg i16 %.1 to i32
@@ -1966,8 +1968,7 @@ findFrame1Position.exit277:                       ; preds = %148, %149, %155
 
 234:                                              ; preds = %.thread331
   %235 = add i32 %63, 2
-  store i32 %235, ptr %10, align 4
-  br label %.backedge
+  br label %.backedge.sink.split
 
 236:                                              ; preds = %._crit_edge322, %.thread331
   %.pre-phi327 = phi i32 [ %.pre326, %._crit_edge322 ], [ %223, %.thread331 ]
@@ -2005,8 +2006,7 @@ findFrame1Position.exit277:                       ; preds = %148, %149, %155
   %257 = call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %256, ptr noundef %.0225, i32 noundef %63, i32 noundef %64, i32 noundef 0) #10
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %257, ptr noundef nonnull @.str.345, i32 noundef %243, i32 noundef %243) #10
   %258 = add i32 %63, 2
-  store i32 %258, ptr %10, align 4
-  br label %.backedge
+  br label %.backedge.sink.split
 
 259:                                              ; preds = %247, %245, %236
   %260 = load i32, ptr @global_display_intergap_data, align 4
@@ -2114,8 +2114,7 @@ findFrame1Position.exit277:                       ; preds = %148, %149, %155
 
 307:                                              ; preds = %303
   %308 = add i32 %65, 1
-  store i32 %308, ptr %10, align 4
-  br label %.backedge
+  br label %.backedge.sink.split
 
 ._crit_edge307:                                   ; preds = %.backedge, %50, %62, %58, %54
   %.0241.lcssa.ph = phi i32 [ %.0241.be, %.backedge ], [ %.0241299, %50 ], [ %.0241299, %62 ], [ %.0241299, %58 ], [ %.0241299, %54 ]

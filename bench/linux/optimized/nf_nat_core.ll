@@ -2146,7 +2146,7 @@ define internal range(i32 -2147483648, 1) i32 @nfnetlink_parse_nat_setup(ptr nou
   tail call void asm sideeffect "888: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 888b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 888) #13, !srcloc !63
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1050, i32 2307, i64 12) #13, !srcloc !64
   tail call void asm sideeffect "889: nop\0A\09.pushsection .discard.instr_end\0A\09.long 889b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 889) #13, !srcloc !65
-  br label %119
+  br label %118
 
 17:                                               ; preds = %3
   %18 = icmp eq ptr %2, null
@@ -2184,7 +2184,7 @@ define internal range(i32 -2147483648, 1) i32 @nfnetlink_parse_nat_setup(ptr nou
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %31 = icmp eq i32 %30, 0
   %32 = select i1 %31, i32 -12, i32 0
-  br label %119
+  br label %118
 
 33:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #13
@@ -2277,10 +2277,6 @@ define internal range(i32 -2147483648, 1) i32 @nfnetlink_parse_nat_setup(ptr nou
   %85 = icmp eq ptr %84, null
   br i1 %85, label %.thread13, label %86
 
-.thread13:                                        ; preds = %82
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #13
-  br label %115
-
 86:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !13
@@ -2329,28 +2325,28 @@ define internal range(i32 -2147483648, 1) i32 @nfnetlink_parse_nat_setup(ptr nou
 .thread12:                                        ; preds = %33, %40
   %.ph = phi i32 [ -93, %40 ], [ %38, %33 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #13
-  br label %119
+  br label %118
 
 .thread15:                                        ; preds = %104, %108
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #13
-  br label %115
+  br label %.thread13
 
 114:                                              ; preds = %86
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #13
-  br label %119
+  br label %118
 
-115:                                              ; preds = %.thread15, %.thread13
-  %116 = call i32 @nf_nat_setup_info(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %1), !range !14
-  %117 = icmp eq i32 %116, 0
-  %118 = select i1 %117, i32 -12, i32 0
-  br label %119
+.thread13:                                        ; preds = %82, %.thread15
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #13
+  %115 = call i32 @nf_nat_setup_info(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %1), !range !14
+  %116 = icmp eq i32 %115, 0
+  %117 = select i1 %116, i32 -12, i32 0
+  br label %118
 
-119:                                              ; preds = %114, %.thread12, %115, %24, %16
-  %120 = phi i32 [ %32, %24 ], [ %118, %115 ], [ -17, %16 ], [ %91, %114 ], [ %.ph, %.thread12 ]
+118:                                              ; preds = %114, %.thread12, %.thread13, %24, %16
+  %119 = phi i32 [ %32, %24 ], [ %117, %.thread13 ], [ -17, %16 ], [ %91, %114 ], [ %.ph, %.thread12 ]
   call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %8) #13
-  ret i32 %120
+  ret i32 %119
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)

@@ -373,9 +373,9 @@ if.else:                                          ; preds = %if.then4
   br i1 %tobool10.not, label %if.end24, label %if.then18.sink.split
 
 if.then18.sink.split:                             ; preds = %if.else, %if.then4
-  %storemerge = phi i32 [ 2, %if.then4 ], [ 3, %if.else ]
+  %.sink = phi i32 [ 2, %if.then4 ], [ 3, %if.else ]
   %dgst_main.sink = phi ptr [ @dgst_main, %if.then4 ], [ @enc_main, %if.else ]
-  store i32 %storemerge, ptr %f, align 8
+  store i32 %.sink, ptr %f, align 8
   %func = getelementptr inbounds i8, ptr %f, i64 16
   store ptr %dgst_main.sink, ptr %func, align 8
   br label %if.then18

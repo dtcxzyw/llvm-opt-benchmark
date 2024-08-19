@@ -9238,18 +9238,14 @@ invoke.cont19:                                    ; preds = %invoke.cont14
   %m_def.i = getelementptr inbounds i8, ptr %r.1.i, i64 8
   %31 = load ptr, ptr %m_def.i, align 8
   %tobool.not.i = icmp eq ptr %31, null
-  br i1 %tobool.not.i, label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit, label %_ZN11ast_manager7inc_refEP3ast.exit.i
+  br i1 %tobool.not.i, label %for.inc.sink.split, label %_ZN11ast_manager7inc_refEP3ast.exit.i
 
 _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %invoke.cont19
   %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %32 = load i32, ptr %m_ref_count.i.i.i, align 4
   %inc.i.i.i = add i32 %32, 1
   store i32 %inc.i.i.i, ptr %m_ref_count.i.i.i, align 4
-  br label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
-
-_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit:      ; preds = %invoke.cont19, %_ZN11ast_manager7inc_refEP3ast.exit.i
-  store ptr %31, ptr %fi_else, align 8
-  br label %for.inc
+  br label %for.inc.sink.split
 
 invoke.cont26:                                    ; preds = %invoke.cont14
   %33 = load ptr, ptr %m, align 8
@@ -9273,7 +9269,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i32:          ; preds = %invoke.cont30
 if.end.i35:                                       ; preds = %_ZN11ast_manager7inc_refEP3ast.exit.i32, %invoke.cont30
   %37 = load ptr, ptr %fi_else, align 8
   %tobool.not.i3.i36 = icmp eq ptr %37, null
-  br i1 %tobool.not.i3.i36, label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit44, label %if.then.i.i.i37
+  br i1 %tobool.not.i3.i36, label %for.inc.sink.split, label %if.then.i.i.i37
 
 if.then.i.i.i37:                                  ; preds = %if.end.i35
   %38 = load ptr, ptr %m_manager.i, align 8
@@ -9282,18 +9278,19 @@ if.then.i.i.i37:                                  ; preds = %if.end.i35
   %dec.i.i.i.i40 = add i32 %39, -1
   store i32 %dec.i.i.i.i40, ptr %m_ref_count.i.i.i.i39, align 4
   %cmp.i.i.i41 = icmp eq i32 %dec.i.i.i.i40, 0
-  br i1 %cmp.i.i.i41, label %if.then2.i.i.i42, label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit44
+  br i1 %cmp.i.i.i41, label %if.then2.i.i.i42, label %for.inc.sink.split
 
 if.then2.i.i.i42:                                 ; preds = %if.then.i.i.i37
   invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %38, ptr noundef nonnull %37)
-          to label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit44 unwind label %lpad.loopexit.split-lp.loopexit
+          to label %for.inc.sink.split unwind label %lpad.loopexit.split-lp.loopexit
 
-_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit44:    ; preds = %if.then2.i.i.i42, %if.end.i35, %if.then.i.i.i37
-  store ptr %call.i30, ptr %fi_else, align 8
+for.inc.sink.split:                               ; preds = %if.then.i.i.i37, %if.end.i35, %if.then2.i.i.i42, %_ZN11ast_manager7inc_refEP3ast.exit.i, %invoke.cont19
+  %call.i30.sink = phi ptr [ %31, %invoke.cont19 ], [ %31, %_ZN11ast_manager7inc_refEP3ast.exit.i ], [ %call.i30, %if.then2.i.i.i42 ], [ %call.i30, %if.end.i35 ], [ %call.i30, %if.then.i.i.i37 ]
+  store ptr %call.i30.sink, ptr %fi_else, align 8
   br label %for.inc
 
-for.inc:                                          ; preds = %if.then.i.i, %if.then22.i.i, %call.i.i.noexc, %_ZNK17scoped_ptr_vectorI10cond_macroE3endEv.exit.i, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit44, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit, %invoke.cont6
-  %40 = phi ptr [ %4, %call.i.i.noexc ], [ %4, %_ZNK17scoped_ptr_vectorI10cond_macroE3endEv.exit.i ], [ %call.i30, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit44 ], [ %31, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ %4, %invoke.cont6 ], [ %4, %if.then22.i.i ], [ %4, %if.then.i.i ]
+for.inc:                                          ; preds = %if.then.i.i, %if.then22.i.i, %for.inc.sink.split, %call.i.i.noexc, %_ZNK17scoped_ptr_vectorI10cond_macroE3endEv.exit.i, %invoke.cont6
+  %40 = phi ptr [ %4, %call.i.i.noexc ], [ %4, %_ZNK17scoped_ptr_vectorI10cond_macroE3endEv.exit.i ], [ %4, %invoke.cont6 ], [ %call.i30.sink, %for.inc.sink.split ], [ %4, %if.then22.i.i ], [ %4, %if.then.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.082, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body

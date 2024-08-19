@@ -26393,11 +26393,11 @@ define hidden void @_ZN13deltalake_aws11credentials19new_region_provider17hd48a8
   call void @_ZN10aws_config4meta6region19RegionProviderChain7or_else17hf8e33ebce32b9edeE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13, ptr noalias nocapture noundef nonnull align 8 dereferenceable(104) %10)
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   br label %39
 
 39:                                               ; preds = %42, %38
+  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   ret void
 
 40:                                               ; preds = %43, %44, %.thread51, %.thread68
@@ -26417,8 +26417,6 @@ define hidden void @_ZN13deltalake_aws11credentials19new_region_provider17hd48a8
   call void @_ZN10aws_config4meta6region19RegionProviderChain7or_else17h369bedeebf2fcad8E(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %15, ptr noalias nocapture noundef nonnull align 8 dereferenceable(152) %14)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   br label %39
 
 43:                                               ; preds = %25, %24

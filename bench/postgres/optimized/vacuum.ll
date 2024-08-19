@@ -755,16 +755,16 @@ define dso_local void @vacuum(ptr noundef readonly %0, ptr noundef %1, ptr nound
 
 11:                                               ; preds = %5
   call void @PreventInTransactionBlock(i1 noundef zeroext %4, ptr noundef nonnull @.str.31) #16
-  store volatile i8 0, ptr %6, align 1
   br label %15
 
 12:                                               ; preds = %5
   %13 = call zeroext i1 @IsInTransactionBlock(i1 noundef zeroext %4) #16
   %14 = zext i1 %13 to i8
-  store volatile i8 %14, ptr %6, align 1
   br label %15
 
 15:                                               ; preds = %12, %11
+  %.sink = phi i8 [ %14, %12 ], [ 0, %11 ]
+  store volatile i8 %.sink, ptr %6, align 1
   %.b62 = load i1, ptr @vacuum.in_vacuum, align 1
   br i1 %.b62, label %16, label %21
 
@@ -1019,72 +1019,57 @@ get_all_vacuum_rels.exit:                         ; preds = %.outer.i, %.backedg
   %139 = load i32, ptr %1, align 4
   %140 = and i32 %139, 1
   %.not67 = icmp eq i32 %140, 0
-  br i1 %.not67, label %142, label %141
+  br i1 %.not67, label %141, label %149
 
 141:                                              ; preds = %.loopexit
-  store volatile i8 1, ptr %7, align 1
-  br label %153
+  %142 = call zeroext i1 @IsAutoVacuumWorkerProcess() #16
+  br i1 %142, label %149, label %143
 
-142:                                              ; preds = %.loopexit
-  %143 = call zeroext i1 @IsAutoVacuumWorkerProcess() #16
-  br i1 %143, label %144, label %145
-
-144:                                              ; preds = %142
-  store volatile i8 1, ptr %7, align 1
-  br label %153
-
-145:                                              ; preds = %142
+143:                                              ; preds = %141
   %.0..0..0..0.30 = load volatile i8, ptr %6, align 1
-  %146 = trunc i8 %.0..0..0..0.30 to i1
-  br i1 %146, label %147, label %148
+  %144 = trunc i8 %.0..0..0..0.30 to i1
+  br i1 %144, label %149, label %145
 
-147:                                              ; preds = %145
-  store volatile i8 0, ptr %7, align 1
-  br label %153
-
-148:                                              ; preds = %145
+145:                                              ; preds = %143
   %.not.i77 = icmp eq ptr %.0, null
   br i1 %.not.i77, label %list_length.exit.thread, label %list_length.exit
 
-list_length.exit:                                 ; preds = %148
-  %149 = getelementptr inbounds i8, ptr %.0, i64 4
-  %150 = load i32, ptr %149, align 4
-  %151 = icmp sgt i32 %150, 1
-  br i1 %151, label %152, label %list_length.exit.thread
+list_length.exit:                                 ; preds = %145
+  %146 = getelementptr inbounds i8, ptr %.0, i64 4
+  %147 = load i32, ptr %146, align 4
+  %148 = icmp sgt i32 %147, 1
+  br i1 %148, label %149, label %list_length.exit.thread
 
-152:                                              ; preds = %list_length.exit
-  store volatile i8 1, ptr %7, align 1
-  br label %153
+list_length.exit.thread:                          ; preds = %145, %list_length.exit
+  br label %149
 
-list_length.exit.thread:                          ; preds = %148, %list_length.exit
-  store volatile i8 0, ptr %7, align 1
-  br label %153
-
-153:                                              ; preds = %144, %152, %list_length.exit.thread, %147, %141
+149:                                              ; preds = %list_length.exit, %143, %141, %.loopexit, %list_length.exit.thread
+  %.sink109 = phi i8 [ 0, %list_length.exit.thread ], [ 1, %.loopexit ], [ 1, %141 ], [ 0, %143 ], [ 1, %list_length.exit ]
+  store volatile i8 %.sink109, ptr %7, align 1
   %.0..0..0..0.26 = load volatile i8, ptr %7, align 1
-  %154 = trunc i8 %.0..0..0..0.26 to i1
-  br i1 %154, label %155, label %159
+  %150 = trunc i8 %.0..0..0..0.26 to i1
+  br i1 %150, label %151, label %155
 
-155:                                              ; preds = %153
-  %156 = call zeroext i1 @ActiveSnapshotSet() #16
-  br i1 %156, label %157, label %158
+151:                                              ; preds = %149
+  %152 = call zeroext i1 @ActiveSnapshotSet() #16
+  br i1 %152, label %153, label %154
 
-157:                                              ; preds = %155
+153:                                              ; preds = %151
   call void @PopActiveSnapshot() #16
-  br label %158
+  br label %154
 
-158:                                              ; preds = %157, %155
+154:                                              ; preds = %153, %151
   call void @CommitTransactionCommand() #16
-  br label %159
+  br label %155
 
-159:                                              ; preds = %153, %158
-  %160 = load ptr, ptr @PG_exception_stack, align 8
-  %161 = load ptr, ptr @error_context_stack, align 8
-  %162 = call i32 @__sigsetjmp(ptr noundef nonnull %8, i32 noundef 0) #19
-  %.not70 = icmp eq i32 %162, 0
-  br i1 %.not70, label %163, label %202
+155:                                              ; preds = %149, %154
+  %156 = load ptr, ptr @PG_exception_stack, align 8
+  %157 = load ptr, ptr @error_context_stack, align 8
+  %158 = call i32 @__sigsetjmp(ptr noundef nonnull %8, i32 noundef 0) #19
+  %.not70 = icmp eq i32 %158, 0
+  br i1 %.not70, label %159, label %198
 
-163:                                              ; preds = %159
+159:                                              ; preds = %155
   store ptr %8, ptr @PG_exception_stack, align 8
   store i1 true, ptr @vacuum.in_vacuum, align 1
   store i8 0, ptr @VacuumFailsafeActive, align 1
@@ -1096,92 +1081,92 @@ list_length.exit.thread:                          ; preds = %148, %list_length.e
   store i32 0, ptr @VacuumCostBalanceLocal, align 4
   store ptr null, ptr @VacuumSharedCostBalance, align 8
   store ptr null, ptr @VacuumActiveNWorkers, align 8
-  %164 = getelementptr inbounds i8, ptr %.0, i64 4
+  %160 = getelementptr inbounds i8, ptr %.0, i64 4
   %.not68 = icmp eq ptr %.0, null
   br i1 %.not68, label %._crit_edge, label %.lr.ph92
 
-.lr.ph92:                                         ; preds = %163
-  %165 = getelementptr inbounds i8, ptr %.0, i64 16
-  %166 = load i32, ptr %164, align 4
-  %167 = icmp sgt i32 %166, 0
-  br i1 %167, label %.lr.ph115, label %._crit_edge
+.lr.ph92:                                         ; preds = %159
+  %161 = getelementptr inbounds i8, ptr %.0, i64 16
+  %162 = load i32, ptr %160, align 4
+  %163 = icmp sgt i32 %162, 0
+  br i1 %163, label %.lr.ph116, label %._crit_edge
 
-.lr.ph115:                                        ; preds = %.lr.ph92, %198
-  %indvars.iv100114 = phi i64 [ %indvars.iv.next101, %198 ], [ 0, %.lr.ph92 ]
-  %168 = load ptr, ptr %165, align 8
-  %169 = getelementptr %union.ListCell, ptr %168, i64 %indvars.iv100114
-  %170 = load ptr, ptr %169, align 8
-  %171 = load i32, ptr %1, align 4
-  %172 = and i32 %171, 1
-  %.not73 = icmp eq i32 %172, 0
-  br i1 %.not73, label %179, label %173
+.lr.ph116:                                        ; preds = %.lr.ph92, %194
+  %indvars.iv100115 = phi i64 [ %indvars.iv.next101, %194 ], [ 0, %.lr.ph92 ]
+  %164 = load ptr, ptr %161, align 8
+  %165 = getelementptr %union.ListCell, ptr %164, i64 %indvars.iv100115
+  %166 = load ptr, ptr %165, align 8
+  %167 = load i32, ptr %1, align 4
+  %168 = and i32 %167, 1
+  %.not73 = icmp eq i32 %168, 0
+  br i1 %.not73, label %175, label %169
 
-173:                                              ; preds = %.lr.ph115
-  %174 = getelementptr inbounds i8, ptr %170, i64 16
-  %175 = load i32, ptr %174, align 8
-  %176 = getelementptr inbounds i8, ptr %170, i64 8
-  %177 = load ptr, ptr %176, align 8
-  %178 = call fastcc zeroext i1 @vacuum_rel(i32 noundef %175, ptr noundef %177, ptr noundef nonnull %1, ptr noundef %2)
-  br i1 %178, label %._crit_edge103, label %198
+169:                                              ; preds = %.lr.ph116
+  %170 = getelementptr inbounds i8, ptr %166, i64 16
+  %171 = load i32, ptr %170, align 8
+  %172 = getelementptr inbounds i8, ptr %166, i64 8
+  %173 = load ptr, ptr %172, align 8
+  %174 = call fastcc zeroext i1 @vacuum_rel(i32 noundef %171, ptr noundef %173, ptr noundef nonnull %1, ptr noundef %2)
+  br i1 %174, label %._crit_edge103, label %194
 
-._crit_edge103:                                   ; preds = %173
+._crit_edge103:                                   ; preds = %169
   %.pre = load i32, ptr %1, align 4
-  br label %179
+  br label %175
 
-179:                                              ; preds = %._crit_edge103, %.lr.ph115
-  %180 = phi i32 [ %.pre, %._crit_edge103 ], [ %171, %.lr.ph115 ]
-  %181 = and i32 %180, 2
-  %.not74 = icmp eq i32 %181, 0
-  br i1 %.not74, label %197, label %182
+175:                                              ; preds = %._crit_edge103, %.lr.ph116
+  %176 = phi i32 [ %.pre, %._crit_edge103 ], [ %167, %.lr.ph116 ]
+  %177 = and i32 %176, 2
+  %.not74 = icmp eq i32 %177, 0
+  br i1 %.not74, label %193, label %178
 
-182:                                              ; preds = %179
+178:                                              ; preds = %175
   %.0..0..0..0.27 = load volatile i8, ptr %7, align 1
-  %183 = trunc i8 %.0..0..0..0.27 to i1
-  br i1 %183, label %184, label %186
+  %179 = trunc i8 %.0..0..0..0.27 to i1
+  br i1 %179, label %180, label %182
 
-184:                                              ; preds = %182
+180:                                              ; preds = %178
   call void @StartTransactionCommand() #16
-  %185 = call ptr @GetTransactionSnapshot() #16
-  call void @PushActiveSnapshot(ptr noundef %185) #16
-  br label %186
+  %181 = call ptr @GetTransactionSnapshot() #16
+  call void @PushActiveSnapshot(ptr noundef %181) #16
+  br label %182
 
-186:                                              ; preds = %184, %182
-  %187 = getelementptr inbounds i8, ptr %170, i64 16
-  %188 = load i32, ptr %187, align 8
-  %189 = getelementptr inbounds i8, ptr %170, i64 8
-  %190 = load ptr, ptr %189, align 8
-  %191 = getelementptr inbounds i8, ptr %170, i64 24
-  %192 = load ptr, ptr %191, align 8
+182:                                              ; preds = %180, %178
+  %183 = getelementptr inbounds i8, ptr %166, i64 16
+  %184 = load i32, ptr %183, align 8
+  %185 = getelementptr inbounds i8, ptr %166, i64 8
+  %186 = load ptr, ptr %185, align 8
+  %187 = getelementptr inbounds i8, ptr %166, i64 24
+  %188 = load ptr, ptr %187, align 8
   %.0..0..0..0.31 = load volatile i8, ptr %6, align 1
-  %193 = trunc i8 %.0..0..0..0.31 to i1
-  call void @analyze_rel(i32 noundef %188, ptr noundef %190, ptr noundef nonnull %1, ptr noundef %192, i1 noundef zeroext %193, ptr noundef %2) #16
+  %189 = trunc i8 %.0..0..0..0.31 to i1
+  call void @analyze_rel(i32 noundef %184, ptr noundef %186, ptr noundef nonnull %1, ptr noundef %188, i1 noundef zeroext %189, ptr noundef %2) #16
   %.0..0..0..0.28 = load volatile i8, ptr %7, align 1
-  %194 = trunc i8 %.0..0..0..0.28 to i1
-  br i1 %194, label %195, label %196
+  %190 = trunc i8 %.0..0..0..0.28 to i1
+  br i1 %190, label %191, label %192
 
-195:                                              ; preds = %186
+191:                                              ; preds = %182
   call void @PopActiveSnapshot() #16
   call void @CommitTransactionCommand() #16
-  br label %197
+  br label %193
 
-196:                                              ; preds = %186
+192:                                              ; preds = %182
   call void @CommandCounterIncrement() #16
-  br label %197
+  br label %193
 
-197:                                              ; preds = %195, %196, %179
+193:                                              ; preds = %191, %192, %175
   store i8 0, ptr @VacuumFailsafeActive, align 1
-  br label %198
+  br label %194
 
-198:                                              ; preds = %173, %197
-  %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100114, 1
-  %199 = load i32, ptr %164, align 4
-  %200 = sext i32 %199 to i64
-  %201 = icmp slt i64 %indvars.iv.next101, %200
-  br i1 %201, label %.lr.ph115, label %._crit_edge
+194:                                              ; preds = %169, %193
+  %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100115, 1
+  %195 = load i32, ptr %160, align 4
+  %196 = sext i32 %195 to i64
+  %197 = icmp slt i64 %indvars.iv.next101, %196
+  br i1 %197, label %.lr.ph116, label %._crit_edge
 
-202:                                              ; preds = %159
-  store ptr %160, ptr @PG_exception_stack, align 8
-  store ptr %161, ptr @error_context_stack, align 8
+198:                                              ; preds = %155
+  store ptr %156, ptr @PG_exception_stack, align 8
+  store ptr %157, ptr @error_context_stack, align 8
   store i1 false, ptr @vacuum.in_vacuum, align 1
   store i8 0, ptr @VacuumCostActive, align 1
   store i8 0, ptr @VacuumFailsafeActive, align 1
@@ -1189,32 +1174,32 @@ list_length.exit.thread:                          ; preds = %148, %list_length.e
   call void @pg_re_throw() #20
   unreachable
 
-._crit_edge:                                      ; preds = %198, %.lr.ph92, %163
+._crit_edge:                                      ; preds = %194, %.lr.ph92, %159
   store i1 false, ptr @vacuum.in_vacuum, align 1
   store i8 0, ptr @VacuumCostActive, align 1
   store i8 0, ptr @VacuumFailsafeActive, align 1
   store i32 0, ptr @VacuumCostBalance, align 4
-  store ptr %160, ptr @PG_exception_stack, align 8
-  store ptr %161, ptr @error_context_stack, align 8
+  store ptr %156, ptr @PG_exception_stack, align 8
+  store ptr %157, ptr @error_context_stack, align 8
   %.0..0..0..0.29 = load volatile i8, ptr %7, align 1
-  %203 = trunc i8 %.0..0..0..0.29 to i1
-  br i1 %203, label %204, label %205
+  %199 = trunc i8 %.0..0..0..0.29 to i1
+  br i1 %199, label %200, label %201
 
-204:                                              ; preds = %._crit_edge
+200:                                              ; preds = %._crit_edge
   call void @StartTransactionCommand() #16
+  br label %201
+
+201:                                              ; preds = %200, %._crit_edge
+  %202 = load i32, ptr %1, align 4
+  %203 = and i32 %202, 513
+  %or.cond = icmp eq i32 %203, 1
+  br i1 %or.cond, label %204, label %205
+
+204:                                              ; preds = %201
+  call void @vac_update_datfrozenxid()
   br label %205
 
-205:                                              ; preds = %204, %._crit_edge
-  %206 = load i32, ptr %1, align 4
-  %207 = and i32 %206, 513
-  %or.cond = icmp eq i32 %207, 1
-  br i1 %or.cond, label %208, label %209
-
-208:                                              ; preds = %205
-  call void @vac_update_datfrozenxid()
-  br label %209
-
-209:                                              ; preds = %208, %205
+205:                                              ; preds = %204, %201
   ret void
 }
 

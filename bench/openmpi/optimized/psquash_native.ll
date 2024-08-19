@@ -131,7 +131,7 @@ define internal range(i32 -27, 1) i32 @native_encode_int(i16 noundef zeroext %0,
 9:                                                ; preds = %4
   %10 = tail call ptr @PMIx_Error_string(i32 noundef -27) #5
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %10, ptr noundef nonnull @.str.4, i32 noundef 139) #5
-  br label %29
+  br label %28
 
 11:                                               ; preds = %7, %6, %4, %4
   %.023.ph = phi i64 [ 2, %4 ], [ 2, %4 ], [ 4, %6 ], [ 8, %7 ]
@@ -152,16 +152,14 @@ define internal range(i32 -27, 1) i32 @native_encode_int(i16 noundef zeroext %0,
   %13 = trunc i64 %.0..0..0..0. to i16
   %14 = tail call zeroext i16 @htons(i16 noundef zeroext %13) #6
   %15 = zext i16 %14 to i64
-  store i64 %15, ptr %5, align 8
-  br label %28
+  br label %pmix_hton64.exit
 
 16:                                               ; preds = %11, %11, %11, %11
   %.0..0..0..0.6 = load i64, ptr %5, align 8
   %17 = trunc i64 %.0..0..0..0.6 to i32
   %18 = tail call i32 @htonl(i32 noundef %17) #6
   %19 = zext i32 %18 to i64
-  store i64 %19, ptr %5, align 8
-  br label %28
+  br label %pmix_hton64.exit
 
 20:                                               ; preds = %11, %.thread29, %11
   %.023.ph31 = phi i64 [ 8, %.thread29 ], [ %.023.ph, %11 ], [ %.023.ph, %11 ]
@@ -182,24 +180,21 @@ define internal range(i32 -27, 1) i32 @native_encode_int(i16 noundef zeroext %0,
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   br label %pmix_hton64.exit
 
-pmix_hton64.exit:                                 ; preds = %20, %23
-  %.0.i = phi i64 [ %.sroa.0.0.insert.insert.i, %23 ], [ %.0..0..0..0.7, %20 ]
-  store i64 %.0.i, ptr %5, align 8
-  br label %28
-
 26:                                               ; preds = %11
   %27 = tail call ptr @PMIx_Error_string(i32 noundef -27) #5
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %27, ptr noundef nonnull @.str.4, i32 noundef 145) #5
-  br label %29
+  br label %28
 
-28:                                               ; preds = %pmix_hton64.exit, %16, %12
-  %.023.ph32.ph = phi i64 [ %.023.ph, %12 ], [ %.023.ph, %16 ], [ %.023.ph31, %pmix_hton64.exit ]
+pmix_hton64.exit:                                 ; preds = %23, %20, %16, %12
+  %.0.i.sink = phi i64 [ %19, %16 ], [ %15, %12 ], [ %.sroa.0.0.insert.insert.i, %23 ], [ %.0..0..0..0.7, %20 ]
+  %.023.ph32.ph = phi i64 [ %.023.ph, %16 ], [ %.023.ph, %12 ], [ %.023.ph31, %23 ], [ %.023.ph31, %20 ]
+  store i64 %.0.i.sink, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull align 8 %5, i64 %.023.ph32.ph, i1 false)
   store i64 %.023.ph32.ph, ptr %3, align 8
-  br label %29
+  br label %28
 
-29:                                               ; preds = %28, %26, %9
-  %.0 = phi i32 [ -27, %9 ], [ -27, %26 ], [ 0, %28 ]
+28:                                               ; preds = %pmix_hton64.exit, %26, %9
+  %.0 = phi i32 [ -27, %9 ], [ -27, %26 ], [ 0, %pmix_hton64.exit ]
   ret i32 %.0
 }
 
@@ -233,7 +228,7 @@ define internal range(i32 -27, 1) i32 @native_decode_int(i16 noundef zeroext %0,
 10:                                               ; preds = %5
   %11 = tail call ptr @PMIx_Error_string(i32 noundef -27) #5
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %11, ptr noundef nonnull @.str.4, i32 noundef 163) #5
-  br label %30
+  br label %29
 
 12:                                               ; preds = %8, %7, %5, %5
   %.025.ph = phi i64 [ 2, %5 ], [ 2, %5 ], [ 4, %7 ], [ 8, %8 ]
@@ -254,16 +249,14 @@ define internal range(i32 -27, 1) i32 @native_decode_int(i16 noundef zeroext %0,
   %14 = trunc i64 %.0..0..0..0. to i16
   %15 = tail call zeroext i16 @ntohs(i16 noundef zeroext %14) #6
   %16 = zext i16 %15 to i64
-  store i64 %16, ptr %6, align 8
-  br label %29
+  br label %pmix_ntoh64.exit
 
 17:                                               ; preds = %12, %12, %12, %12
   %.0..0..0..0.7 = load i64, ptr %6, align 8
   %18 = trunc i64 %.0..0..0..0.7 to i32
   %19 = tail call i32 @ntohl(i32 noundef %18) #6
   %20 = zext i32 %19 to i64
-  store i64 %20, ptr %6, align 8
-  br label %29
+  br label %pmix_ntoh64.exit
 
 21:                                               ; preds = %12, %.thread32, %12
   %.025.ph34 = phi i64 [ 8, %.thread32 ], [ %.025.ph, %12 ], [ %.025.ph, %12 ]
@@ -284,24 +277,21 @@ define internal range(i32 -27, 1) i32 @native_decode_int(i16 noundef zeroext %0,
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   br label %pmix_ntoh64.exit
 
-pmix_ntoh64.exit:                                 ; preds = %21, %24
-  %.0.i = phi i64 [ %.sroa.0.0.insert.insert.i, %24 ], [ %.0..0..0..0.8, %21 ]
-  store i64 %.0.i, ptr %6, align 8
-  br label %29
-
 27:                                               ; preds = %12
   %28 = tail call ptr @PMIx_Error_string(i32 noundef -27) #5
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %28, ptr noundef nonnull @.str.4, i32 noundef 174) #5
-  br label %30
+  br label %29
 
-29:                                               ; preds = %pmix_ntoh64.exit, %17, %13
-  %.025.ph35.ph = phi i64 [ %.025.ph, %13 ], [ %.025.ph, %17 ], [ %.025.ph34, %pmix_ntoh64.exit ]
+pmix_ntoh64.exit:                                 ; preds = %24, %21, %17, %13
+  %.0.i.sink = phi i64 [ %20, %17 ], [ %16, %13 ], [ %.sroa.0.0.insert.insert.i, %24 ], [ %.0..0..0..0.8, %21 ]
+  %.025.ph35.ph = phi i64 [ %.025.ph, %17 ], [ %.025.ph, %13 ], [ %.025.ph34, %24 ], [ %.025.ph34, %21 ]
+  store i64 %.0.i.sink, ptr %6, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr nonnull align 8 %6, i64 %.025.ph35.ph, i1 false)
   store i64 %.025.ph35.ph, ptr %4, align 8
-  br label %30
+  br label %29
 
-30:                                               ; preds = %29, %27, %10
-  %.0 = phi i32 [ -27, %10 ], [ -27, %27 ], [ 0, %29 ]
+29:                                               ; preds = %pmix_ntoh64.exit, %27, %10
+  %.0 = phi i32 [ -27, %10 ], [ -27, %27 ], [ 0, %pmix_ntoh64.exit ]
   ret i32 %.0
 }
 

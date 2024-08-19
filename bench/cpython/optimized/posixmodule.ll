@@ -6583,11 +6583,7 @@ if.end:                                           ; preds = %cond.end, %cond.end
 
 if.end15:                                         ; preds = %if.end
   %tobool16.not = icmp eq i64 %add, 1
-  br i1 %tobool16.not, label %skip_optional_kwonly.thread35, label %if.end18
-
-skip_optional_kwonly.thread35:                    ; preds = %if.end15
-  call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %buffer.i)
-  br label %if.else.i17.sink.split
+  br i1 %tobool16.not, label %if.else.i17.sink.split, label %if.end18
 
 if.end18:                                         ; preds = %if.end15
   %arrayidx19 = getelementptr i8, ptr %cond1023, i64 8
@@ -6597,7 +6593,6 @@ if.end18:                                         ; preds = %if.end15
 
 skip_optional_kwonly.thread:                      ; preds = %if.end18
   store i32 -100, ptr %dir_fd, align 4
-  call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %buffer.i)
   br label %if.else.i17.sink.split
 
 if.else.i:                                        ; preds = %if.end18
@@ -6631,7 +6626,8 @@ if.then.i15:                                      ; preds = %skip_optional_kwonl
   %call1.i = call i64 @readlinkat(i32 noundef %.pr.pre, ptr noundef %7, ptr noundef nonnull %buffer.i, i64 noundef 4096) #22
   br label %if.end.i
 
-if.else.i17.sink.split:                           ; preds = %skip_optional_kwonly.thread, %skip_optional_kwonly.thread35
+if.else.i17.sink.split:                           ; preds = %if.end15, %skip_optional_kwonly.thread
+  call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %buffer.i)
   %call.i1437 = call ptr @PyEval_SaveThread() #22
   %narrow2.i39 = getelementptr inbounds i8, ptr %path, i64 32
   %8 = load ptr, ptr %narrow2.i39, align 8

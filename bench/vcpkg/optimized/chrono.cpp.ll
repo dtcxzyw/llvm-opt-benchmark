@@ -242,19 +242,15 @@ define dso_local void @_ZN5vcpkg5CTime3nowEv(ptr dead_on_unwind noalias nocaptur
   %.sroa.4.8..sroa_idx = getelementptr inbounds i8, ptr %2, i64 1
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.0.sroa.2.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.4.8..sroa_idx, i64 55, i1 false)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
-  br label %9
+  br label %8
 
-8:                                                ; preds = %1
+8:                                                ; preds = %1, %7
+  %.sink10 = phi i8 [ 1, %7 ], [ 0, %1 ]
+  %.sink = phi i8 [ %.sroa.1.8.copyload, %7 ], [ 0, %1 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
-  br label %9
-
-9:                                                ; preds = %8, %7
-  %.sink10 = phi i8 [ 0, %8 ], [ 1, %7 ]
-  %.sink = phi i8 [ 0, %8 ], [ %.sroa.1.8.copyload, %7 ]
   store i8 %.sink10, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 %.sink, ptr %10, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  store i8 %.sink, ptr %9, align 8
   ret void
 }
 

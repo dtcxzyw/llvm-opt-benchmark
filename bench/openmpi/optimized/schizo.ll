@@ -182,7 +182,7 @@ define internal range(i32 -5, 1) i32 @parse_env(ptr nocapture readnone %0, ptr n
 
 14:                                               ; preds = %12, %7, %3
   %15 = icmp eq ptr %2, null
-  br i1 %15, label %99, label %16
+  br i1 %15, label %100, label %16
 
 16:                                               ; preds = %14
   %17 = load ptr, ptr %1, align 8
@@ -380,7 +380,7 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.loopexit, %60
 pmix_cmd_line_get_param.exit.thread:              ; preds = %51, %pmix_cmd_line_get_param.exit, %pmix_cmd_line_get_param.exit.us, %pmix_cmd_line_get_param.exit.preheader, %16
   %89 = load ptr, ptr %4, align 8
   %.not60 = icmp eq ptr %89, null
-  br i1 %.not60, label %99, label %.preheader
+  br i1 %.not60, label %100, label %.preheader
 
 .preheader:                                       ; preds = %pmix_cmd_line_get_param.exit.thread
   %90 = load ptr, ptr %89, align 8
@@ -408,11 +408,11 @@ pmix_cmd_line_get_param.exit.thread:              ; preds = %51, %pmix_cmd_line_
 
 .sink.split:                                      ; preds = %.split, %.lr.ph91.split.us, %._crit_edge
   %.0.ph = phi i32 [ 0, %._crit_edge ], [ -5, %.lr.ph91.split.us ], [ -5, %.split ]
-  %.sink = load ptr, ptr %5, align 8
-  call void @PMIx_Argv_free(ptr noundef %.sink) #8
-  br label %99
+  %99 = load ptr, ptr %5, align 8
+  call void @PMIx_Argv_free(ptr noundef %99) #8
+  br label %100
 
-99:                                               ; preds = %.sink.split, %pmix_cmd_line_get_param.exit.thread, %14
+100:                                              ; preds = %.sink.split, %pmix_cmd_line_get_param.exit.thread, %14
   %.0 = phi i32 [ 0, %14 ], [ 0, %pmix_cmd_line_get_param.exit.thread ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }

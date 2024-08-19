@@ -1551,42 +1551,31 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
 cleanup.done:                                     ; preds = %invoke.cont76, %if.then.i.i.i.i.i, %for.end.i.i.i
   %call92 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 128) #12
   %new.isnull93 = icmp eq ptr %call92, null
-  br i1 %new.isnull93, label %invoke.cont107, label %new.notnull94
+  br i1 %new.isnull93, label %for.inc170, label %new.notnull94
 
 new.notnull94:                                    ; preds = %cleanup.done
   invoke void @_ZN6icu_757MeasureC1ERKNS_11FormattableEPNS_11MeasureUnitER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(128) %call92, ptr noundef nonnull align 8 dereferenceable(112) %formattableQuantity, ptr noundef %call77, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont107 unwind label %lpad97
-
-invoke.cont107:                                   ; preds = %cleanup.done, %new.notnull94
-  %37 = load ptr, ptr %fPool.i68, align 8
-  %arrayidx.i.i66 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv135
-  %38 = load ptr, ptr %arrayidx.i.i66, align 8
-  %39 = load i32, ptr %38, align 8
-  %conv109 = sext i32 %39 to i64
-  %40 = load ptr, ptr %tmpResult, align 8
-  %arrayidx.i67 = getelementptr inbounds ptr, ptr %40, i64 %conv109
-  store ptr %call92, ptr %arrayidx.i67, align 8
-  br label %for.inc170
+          to label %for.inc170 unwind label %lpad97
 
 lpad79:                                           ; preds = %invoke.cont80
-  %41 = landingpad { ptr, i32 }
+  %37 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup112
 
 lpad84:                                           ; preds = %invoke.cont82
-  %42 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7515MeasureUnitImplD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp) #12
   br label %ehcleanup112
 
 lpad97:                                           ; preds = %new.notnull94
-  %43 = landingpad { ptr, i32 }
+  %39 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup112
 
 ehcleanup112:                                     ; preds = %lpad84, %lpad79, %lpad97
   %call92.lcssa.sink = phi ptr [ %call92, %lpad97 ], [ %call77, %lpad84 ], [ %call77, %lpad79 ]
-  %.pn36 = phi { ptr, i32 } [ %43, %lpad97 ], [ %42, %lpad84 ], [ %41, %lpad79 ]
+  %.pn36 = phi { ptr, i32 } [ %39, %lpad97 ], [ %38, %lpad84 ], [ %37, %lpad79 ]
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call92.lcssa.sink) #12
   call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %formattableQuantity) #12
   br label %ehcleanup192
@@ -1601,10 +1590,10 @@ invoke.cont117:                                   ; preds = %if.else113
   br i1 %new.isnull120.not, label %cleanup.done138, label %invoke.cont128
 
 invoke.cont128:                                   ; preds = %invoke.cont117
-  %44 = load ptr, ptr %fPool.i68, align 8
-  %arrayidx.i.i69 = getelementptr inbounds ptr, ptr %44, i64 %indvars.iv135
-  %45 = load ptr, ptr %arrayidx.i.i69, align 8
-  %unitImpl130 = getelementptr inbounds i8, ptr %45, i64 8
+  %40 = load ptr, ptr %fPool.i68, align 8
+  %arrayidx.i.i69 = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv135
+  %41 = load ptr, ptr %arrayidx.i.i69, align 8
+  %unitImpl130 = getelementptr inbounds i8, ptr %41, i64 8
   invoke void @_ZNK6icu_7515MeasureUnitImpl4copyER10UErrorCode(ptr nonnull sret(%"class.icu_75::MeasureUnitImpl") align 8 %ref.tmp124, ptr noundef nonnull align 8 dereferenceable(160) %unitImpl130, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont131 unwind label %lpad127
 
@@ -1614,93 +1603,91 @@ invoke.cont131:                                   ; preds = %invoke.cont128
 
 cleanup.action137:                                ; preds = %invoke.cont131
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i70) #12
-  %46 = load i32, ptr %singleUnits.i71, align 8
-  %cmp3.i.i.i72 = icmp sgt i32 %46, 0
+  %42 = load i32, ptr %singleUnits.i71, align 8
+  %cmp3.i.i.i72 = icmp sgt i32 %42, 0
   br i1 %cmp3.i.i.i72, label %for.body.i.i.i81, label %for.end.i.i.i73
 
 for.body.i.i.i81:                                 ; preds = %cleanup.action137, %for.inc.i.i.i87
-  %47 = phi i32 [ %50, %for.inc.i.i.i87 ], [ %46, %cleanup.action137 ]
+  %43 = phi i32 [ %46, %for.inc.i.i.i87 ], [ %42, %cleanup.action137 ]
   %indvars.iv.i.i.i82 = phi i64 [ %indvars.iv.next.i.i.i88, %for.inc.i.i.i87 ], [ 0, %cleanup.action137 ]
-  %48 = load ptr, ptr %fPool.i.i.i80, align 8
-  %arrayidx.i.i.i.i83 = getelementptr inbounds ptr, ptr %48, i64 %indvars.iv.i.i.i82
-  %49 = load ptr, ptr %arrayidx.i.i.i.i83, align 8
-  %isnull.i.i.i84 = icmp eq ptr %49, null
+  %44 = load ptr, ptr %fPool.i.i.i80, align 8
+  %arrayidx.i.i.i.i83 = getelementptr inbounds ptr, ptr %44, i64 %indvars.iv.i.i.i82
+  %45 = load ptr, ptr %arrayidx.i.i.i.i83, align 8
+  %isnull.i.i.i84 = icmp eq ptr %45, null
   br i1 %isnull.i.i.i84, label %for.inc.i.i.i87, label %delete.notnull.i.i.i85
 
 delete.notnull.i.i.i85:                           ; preds = %for.body.i.i.i81
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %49) #12
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %45) #12
   %.pre.i.i.i86 = load i32, ptr %singleUnits.i71, align 8
   br label %for.inc.i.i.i87
 
 for.inc.i.i.i87:                                  ; preds = %delete.notnull.i.i.i85, %for.body.i.i.i81
-  %50 = phi i32 [ %47, %for.body.i.i.i81 ], [ %.pre.i.i.i86, %delete.notnull.i.i.i85 ]
+  %46 = phi i32 [ %43, %for.body.i.i.i81 ], [ %.pre.i.i.i86, %delete.notnull.i.i.i85 ]
   %indvars.iv.next.i.i.i88 = add nuw nsw i64 %indvars.iv.i.i.i82, 1
-  %51 = sext i32 %50 to i64
-  %cmp.i.i.i89 = icmp slt i64 %indvars.iv.next.i.i.i88, %51
+  %47 = sext i32 %46 to i64
+  %cmp.i.i.i89 = icmp slt i64 %indvars.iv.next.i.i.i88, %47
   br i1 %cmp.i.i.i89, label %for.body.i.i.i81, label %for.end.i.i.i73, !llvm.loop !9
 
 for.end.i.i.i73:                                  ; preds = %for.inc.i.i.i87, %cleanup.action137
-  %52 = load i8, ptr %needToRelease.i.i.i.i.i74, align 4
-  %tobool.not.i.i.i.i.i75 = icmp eq i8 %52, 0
+  %48 = load i8, ptr %needToRelease.i.i.i.i.i74, align 4
+  %tobool.not.i.i.i.i.i75 = icmp eq i8 %48, 0
   br i1 %tobool.not.i.i.i.i.i75, label %cleanup.done138, label %if.then.i.i.i.i.i76
 
 if.then.i.i.i.i.i76:                              ; preds = %for.end.i.i.i73
-  %53 = load ptr, ptr %fPool.i.i.i80, align 8
-  invoke void @uprv_free_75(ptr noundef %53)
+  %49 = load ptr, ptr %fPool.i.i.i80, align 8
+  invoke void @uprv_free_75(ptr noundef %49)
           to label %cleanup.done138 unwind label %terminate.lpad.i.i.i.i78
 
 terminate.lpad.i.i.i.i78:                         ; preds = %if.then.i.i.i.i.i76
-  %54 = landingpad { ptr, i32 }
+  %50 = landingpad { ptr, i32 }
           catch ptr null
-  %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #14
+  %51 = extractvalue { ptr, i32 } %50, 0
+  call void @__clang_call_terminate(ptr %51) #14
   unreachable
 
 cleanup.done138:                                  ; preds = %invoke.cont117, %if.then.i.i.i.i.i76, %for.end.i.i.i73
   %call147 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 128) #12
   %new.isnull148 = icmp eq ptr %call147, null
-  br i1 %new.isnull148, label %invoke.cont162, label %new.notnull149
+  br i1 %new.isnull148, label %for.inc170, label %new.notnull149
 
 new.notnull149:                                   ; preds = %cleanup.done138
   invoke void @_ZN6icu_757MeasureC1ERKNS_11FormattableEPNS_11MeasureUnitER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(128) %call147, ptr noundef nonnull align 8 dereferenceable(112) %formattableQuantity114, ptr noundef %call119, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont162 unwind label %lpad152
-
-invoke.cont162:                                   ; preds = %cleanup.done138, %new.notnull149
-  %56 = load ptr, ptr %fPool.i68, align 8
-  %arrayidx.i.i92 = getelementptr inbounds ptr, ptr %56, i64 %indvars.iv135
-  %57 = load ptr, ptr %arrayidx.i.i92, align 8
-  %58 = load i32, ptr %57, align 8
-  %conv165 = sext i32 %58 to i64
-  %59 = load ptr, ptr %tmpResult, align 8
-  %arrayidx.i93 = getelementptr inbounds ptr, ptr %59, i64 %conv165
-  store ptr %call147, ptr %arrayidx.i93, align 8
-  br label %for.inc170
+          to label %for.inc170 unwind label %lpad152
 
 lpad127:                                          ; preds = %invoke.cont128
-  %60 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup168
 
 lpad133:                                          ; preds = %invoke.cont131
-  %61 = landingpad { ptr, i32 }
+  %53 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7515MeasureUnitImplD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp124) #12
   br label %ehcleanup168
 
 lpad152:                                          ; preds = %new.notnull149
-  %62 = landingpad { ptr, i32 }
+  %54 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup168
 
 ehcleanup168:                                     ; preds = %lpad133, %lpad127, %lpad152
   %call147.lcssa.sink = phi ptr [ %call147, %lpad152 ], [ %call119, %lpad133 ], [ %call119, %lpad127 ]
-  %.pn32 = phi { ptr, i32 } [ %62, %lpad152 ], [ %61, %lpad133 ], [ %60, %lpad127 ]
+  %.pn32 = phi { ptr, i32 } [ %54, %lpad152 ], [ %53, %lpad133 ], [ %52, %lpad127 ]
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call147.lcssa.sink) #12
   call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %formattableQuantity114) #12
   br label %ehcleanup192
 
-for.inc170:                                       ; preds = %invoke.cont107, %invoke.cont162
-  %formattableQuantity.sink = phi ptr [ %formattableQuantity, %invoke.cont107 ], [ %formattableQuantity114, %invoke.cont162 ]
+for.inc170:                                       ; preds = %new.notnull149, %cleanup.done138, %new.notnull94, %cleanup.done
+  %call92.sink = phi ptr [ %call92, %cleanup.done ], [ %call92, %new.notnull94 ], [ %call147, %cleanup.done138 ], [ %call147, %new.notnull149 ]
+  %formattableQuantity.sink = phi ptr [ %formattableQuantity, %cleanup.done ], [ %formattableQuantity, %new.notnull94 ], [ %formattableQuantity114, %cleanup.done138 ], [ %formattableQuantity114, %new.notnull149 ]
+  %55 = load ptr, ptr %fPool.i68, align 8
+  %arrayidx.i.i66 = getelementptr inbounds ptr, ptr %55, i64 %indvars.iv135
+  %56 = load ptr, ptr %arrayidx.i.i66, align 8
+  %57 = load i32, ptr %56, align 8
+  %conv109 = sext i32 %57 to i64
+  %58 = load ptr, ptr %tmpResult, align 8
+  %arrayidx.i67 = getelementptr inbounds ptr, ptr %58, i64 %conv109
+  store ptr %call92.sink, ptr %arrayidx.i67, align 8
   call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %formattableQuantity.sink) #12
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count138
@@ -1717,20 +1704,20 @@ for.body180.preheader:                            ; preds = %for.end172
 
 for.body180:                                      ; preds = %for.body180.preheader, %for.inc189
   %indvars.iv140 = phi i64 [ 0, %for.body180.preheader ], [ %indvars.iv.next141, %for.inc189 ]
-  %63 = load i32, ptr %status, align 4
-  %cmp.i.i.i95 = icmp slt i32 %63, 1
+  %59 = load i32, ptr %status, align 4
+  %cmp.i.i.i95 = icmp slt i32 %59, 1
   br i1 %cmp.i.i.i95, label %if.end.i.i, label %invoke.cont184
 
 if.end.i.i:                                       ; preds = %for.body180
-  %64 = load ptr, ptr %tmpResult, align 8
-  %arrayidx.i94 = getelementptr inbounds ptr, ptr %64, i64 %indvars.iv140
-  %65 = load ptr, ptr %arrayidx.i94, align 8
-  %call2.i.i97 = invoke noundef ptr @_ZN6icu_7510MemoryPoolINS_7MeasureELi8EE6createIJRS1_EEEPS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(88) %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %65)
+  %60 = load ptr, ptr %tmpResult, align 8
+  %arrayidx.i94 = getelementptr inbounds ptr, ptr %60, i64 %indvars.iv140
+  %61 = load ptr, ptr %arrayidx.i94, align 8
+  %call2.i.i97 = invoke noundef ptr @_ZN6icu_7510MemoryPoolINS_7MeasureELi8EE6createIJRS1_EEEPS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(88) %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %61)
           to label %call2.i.i.noexc unwind label %lpad54.loopexit
 
 call2.i.i.noexc:                                  ; preds = %if.end.i.i
-  %66 = load i32, ptr %status, align 4
-  %cmp.i4.i.i = icmp slt i32 %66, 1
+  %62 = load i32, ptr %status, align 4
+  %cmp.i4.i.i = icmp slt i32 %62, 1
   %cmp.i.i96 = icmp eq ptr %call2.i.i97, null
   %or.cond.i.i = and i1 %cmp.i.i96, %cmp.i4.i.i
   br i1 %or.cond.i.i, label %if.then5.i.i, label %invoke.cont184
@@ -1740,17 +1727,17 @@ if.then5.i.i:                                     ; preds = %call2.i.i.noexc
   br label %invoke.cont184
 
 invoke.cont184:                                   ; preds = %if.then5.i.i, %call2.i.i.noexc, %for.body180
-  %67 = load ptr, ptr %tmpResult, align 8
-  %arrayidx.i98 = getelementptr inbounds ptr, ptr %67, i64 %indvars.iv140
-  %68 = load ptr, ptr %arrayidx.i98, align 8
-  %isnull = icmp eq ptr %68, null
+  %63 = load ptr, ptr %tmpResult, align 8
+  %arrayidx.i98 = getelementptr inbounds ptr, ptr %63, i64 %indvars.iv140
+  %64 = load ptr, ptr %arrayidx.i98, align 8
+  %isnull = icmp eq ptr %64, null
   br i1 %isnull, label %for.inc189, label %delete.notnull
 
 delete.notnull:                                   ; preds = %invoke.cont184
-  %vtable = load ptr, ptr %68, align 8
+  %vtable = load ptr, ptr %64, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
-  %69 = load ptr, ptr %vfn, align 8
-  call void %69(ptr noundef nonnull align 8 dereferenceable(128) %68) #12
+  %65 = load ptr, ptr %vfn, align 8
+  call void %65(ptr noundef nonnull align 8 dereferenceable(128) %64) #12
   br label %for.inc189
 
 for.inc189:                                       ; preds = %invoke.cont184, %delete.notnull
@@ -1759,20 +1746,20 @@ for.inc189:                                       ; preds = %invoke.cont184, %de
   br i1 %exitcond144.not, label %cleanup, label %for.body180, !llvm.loop !12
 
 cleanup:                                          ; preds = %for.inc189, %if.end59, %for.end172, %invoke.cont53
-  %70 = load i8, ptr %needToRelease.i.i45, align 4
-  %tobool.not.i.i = icmp eq i8 %70, 0
+  %66 = load i8, ptr %needToRelease.i.i45, align 4
+  %tobool.not.i.i = icmp eq i8 %66, 0
   br i1 %tobool.not.i.i, label %cleanup193, label %if.then.i.i100
 
 if.then.i.i100:                                   ; preds = %cleanup
-  %71 = load ptr, ptr %tmpResult, align 8
-  invoke void @uprv_free_75(ptr noundef %71)
+  %67 = load ptr, ptr %tmpResult, align 8
+  invoke void @uprv_free_75(ptr noundef %67)
           to label %cleanup193 unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i100
-  %72 = landingpad { ptr, i32 }
+  %68 = landingpad { ptr, i32 }
           catch ptr null
-  %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #14
+  %69 = extractvalue { ptr, i32 } %68, 0
+  call void @__clang_call_terminate(ptr %69) #14
   unreachable
 
 ehcleanup192:                                     ; preds = %lpad54.loopexit, %lpad54.loopexit.split-lp, %ehcleanup168, %ehcleanup112
@@ -1781,20 +1768,20 @@ ehcleanup192:                                     ; preds = %lpad54.loopexit, %l
   br label %ehcleanup196
 
 cleanup193:                                       ; preds = %if.then.i.i100, %cleanup, %invoke.cont6
-  %74 = load i8, ptr %needToRelease.i.i, align 4
-  %tobool.not.i.i102 = icmp eq i8 %74, 0
+  %70 = load i8, ptr %needToRelease.i.i, align 4
+  %tobool.not.i.i102 = icmp eq i8 %70, 0
   br i1 %tobool.not.i.i102, label %_ZN6icu_7515MaybeStackArrayIlLi5EED2Ev.exit, label %if.then.i.i103
 
 if.then.i.i103:                                   ; preds = %cleanup193
-  %75 = load ptr, ptr %intValues, align 8
-  invoke void @uprv_free_75(ptr noundef %75)
+  %71 = load ptr, ptr %intValues, align 8
+  invoke void @uprv_free_75(ptr noundef %71)
           to label %_ZN6icu_7515MaybeStackArrayIlLi5EED2Ev.exit unwind label %terminate.lpad.i104
 
 terminate.lpad.i104:                              ; preds = %if.then.i.i103
-  %76 = landingpad { ptr, i32 }
+  %72 = landingpad { ptr, i32 }
           catch ptr null
-  %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #14
+  %73 = extractvalue { ptr, i32 } %72, 0
+  call void @__clang_call_terminate(ptr %73) #14
   unreachable
 
 _ZN6icu_7515MaybeStackArrayIlLi5EED2Ev.exit:      ; preds = %cleanup193, %if.then.i.i103

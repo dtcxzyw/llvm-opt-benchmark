@@ -1109,19 +1109,15 @@ _ZN4core4iter6traits8iterator8Iterator8for_each17h384609ea6fa0e007E.exit.thread:
   %.not16 = icmp eq ptr %storemerge29, %2
   br i1 %.not16, label %12, label %.thread
 
-.thread:                                          ; preds = %_ZN4core4iter6traits8iterator8Iterator8for_each17h384609ea6fa0e007E.exit.thread, %_ZN4core4iter6traits8iterator8Iterator8for_each17h384609ea6fa0e007E.exit
-  store i8 0, ptr %0, align 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %14
-
 12:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator8for_each17h384609ea6fa0e007E.exit.thread
   %13 = getelementptr inbounds i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  store i8 1, ptr %0, align 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %14
+  br label %.thread
 
-14:                                               ; preds = %.thread, %12
+.thread:                                          ; preds = %_ZN4core4iter6traits8iterator8Iterator8for_each17h384609ea6fa0e007E.exit, %_ZN4core4iter6traits8iterator8Iterator8for_each17h384609ea6fa0e007E.exit.thread, %12
+  %storemerge = phi i8 [ 1, %12 ], [ 0, %_ZN4core4iter6traits8iterator8Iterator8for_each17h384609ea6fa0e007E.exit.thread ], [ 0, %_ZN4core4iter6traits8iterator8Iterator8for_each17h384609ea6fa0e007E.exit ]
+  store i8 %storemerge, ptr %0, align 1
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   ret void
 }
 
@@ -1156,19 +1152,15 @@ _ZN4core4iter6traits8iterator8Iterator8for_each17h3a546f945025355fE.exit.thread:
   %.not16 = icmp eq ptr %storemerge29, %2
   br i1 %.not16, label %12, label %.thread
 
-.thread:                                          ; preds = %_ZN4core4iter6traits8iterator8Iterator8for_each17h3a546f945025355fE.exit.thread, %_ZN4core4iter6traits8iterator8Iterator8for_each17h3a546f945025355fE.exit
-  store i8 0, ptr %0, align 1
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  br label %14
-
 12:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator8for_each17h3a546f945025355fE.exit.thread
   %13 = getelementptr inbounds i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  store i8 1, ptr %0, align 1
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  br label %14
+  br label %.thread
 
-14:                                               ; preds = %.thread, %12
+.thread:                                          ; preds = %_ZN4core4iter6traits8iterator8Iterator8for_each17h3a546f945025355fE.exit, %_ZN4core4iter6traits8iterator8Iterator8for_each17h3a546f945025355fE.exit.thread, %12
+  %storemerge = phi i8 [ 1, %12 ], [ 0, %_ZN4core4iter6traits8iterator8Iterator8for_each17h3a546f945025355fE.exit.thread ], [ 0, %_ZN4core4iter6traits8iterator8Iterator8for_each17h3a546f945025355fE.exit ]
+  store i8 %storemerge, ptr %0, align 1
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   ret void
 }
 

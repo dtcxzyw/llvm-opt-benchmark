@@ -1202,12 +1202,7 @@ pyinit_core.exit.thread:                          ; preds = %_Py_PreInitializeFr
   %tmp5.sroa.11.0.copyload = load ptr, ptr %tmp5.sroa.11.0.tmp.i.sroa_idx, align 8
   %tmp5.sroa.9.0.tmp.i.sroa_idx = getelementptr inbounds i8, ptr %tmp.i, i64 4
   %tmp5.sroa.9.0.copyload = load i32, ptr %tmp5.sroa.9.0.tmp.i.sroa_idx, align 4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp.i)
-  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %config.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp1.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp6.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp12.i)
-  br label %if.then8
+  br label %if.then8.sink.split
 
 if.end.i12:                                       ; preds = %_Py_PreInitializeFromConfig.exit.i.thread, %_Py_PreInitializeFromConfig.exit.i
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config.i) #21, !noalias !18
@@ -1363,12 +1358,7 @@ pyinit_core.exit.thread90:                        ; preds = %if.end5.i, %if.end.
   %tmp5.sroa.9.0.ph = phi i32 [ %tmp5.sroa.9.0.copyload18, %if.end.i12 ], [ %tmp5.sroa.9.0.copyload19, %if.end5.i ]
   %tmp5.sroa.0.0.ph = phi i32 [ %tmp5.sroa.0.0.copyload15, %if.end.i12 ], [ %tmp5.sroa.0.0.copyload16, %if.end5.i ]
   call void @PyConfig_Clear(ptr noundef nonnull %config.i) #21, !noalias !18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp.i)
-  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %config.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp1.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp6.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp12.i)
-  br label %if.then8
+  br label %if.then8.sink.split
 
 pyinit_core.exit:                                 ; preds = %if.then11.i, %pyinit_core_reconfigure.exit.i
   %tmp5.sroa.14.0 = phi i32 [ %tmp5.sroa.14.0.copyload32, %if.then11.i ], [ %tmp13.sroa.16.0.i, %pyinit_core_reconfigure.exit.i ]
@@ -1386,13 +1376,27 @@ pyinit_core.exit:                                 ; preds = %if.then11.i, %pyini
   %cmp7.not = icmp eq i32 %tmp5.sroa.0.0, 0
   br i1 %cmp7.not, label %if.end9, label %if.then8
 
-if.then8:                                         ; preds = %pyinit_core.exit.thread90, %pyinit_core.exit.thread, %pyinit_core.exit
-  %tmp5.sroa.0.189 = phi i32 [ %tmp5.sroa.0.0.copyload.pr, %pyinit_core.exit.thread ], [ %tmp5.sroa.0.0, %pyinit_core.exit ], [ %tmp5.sroa.0.0.ph, %pyinit_core.exit.thread90 ]
-  %tmp5.sroa.9.188 = phi i32 [ %tmp5.sroa.9.0.copyload, %pyinit_core.exit.thread ], [ %tmp5.sroa.9.0, %pyinit_core.exit ], [ %tmp5.sroa.9.0.ph, %pyinit_core.exit.thread90 ]
-  %tmp5.sroa.11.187 = phi ptr [ %tmp5.sroa.11.0.copyload, %pyinit_core.exit.thread ], [ %tmp5.sroa.11.0, %pyinit_core.exit ], [ %tmp5.sroa.11.0.ph, %pyinit_core.exit.thread90 ]
-  %tmp5.sroa.12.186 = phi ptr [ %tmp5.sroa.12.0.copyload, %pyinit_core.exit.thread ], [ %tmp5.sroa.12.0, %pyinit_core.exit ], [ %tmp5.sroa.12.0.ph, %pyinit_core.exit.thread90 ]
-  %tmp5.sroa.13.185 = phi i32 [ %tmp5.sroa.13.0.copyload, %pyinit_core.exit.thread ], [ %tmp5.sroa.13.0, %pyinit_core.exit ], [ %tmp5.sroa.13.0.ph, %pyinit_core.exit.thread90 ]
-  %tmp5.sroa.14.184 = phi i32 [ %tmp5.sroa.14.0.copyload, %pyinit_core.exit.thread ], [ %tmp5.sroa.14.0, %pyinit_core.exit ], [ %tmp5.sroa.14.0.ph, %pyinit_core.exit.thread90 ]
+if.then8.sink.split:                              ; preds = %pyinit_core.exit.thread, %pyinit_core.exit.thread90
+  %tmp5.sroa.0.189.ph = phi i32 [ %tmp5.sroa.0.0.ph, %pyinit_core.exit.thread90 ], [ %tmp5.sroa.0.0.copyload.pr, %pyinit_core.exit.thread ]
+  %tmp5.sroa.9.188.ph = phi i32 [ %tmp5.sroa.9.0.ph, %pyinit_core.exit.thread90 ], [ %tmp5.sroa.9.0.copyload, %pyinit_core.exit.thread ]
+  %tmp5.sroa.11.187.ph = phi ptr [ %tmp5.sroa.11.0.ph, %pyinit_core.exit.thread90 ], [ %tmp5.sroa.11.0.copyload, %pyinit_core.exit.thread ]
+  %tmp5.sroa.12.186.ph = phi ptr [ %tmp5.sroa.12.0.ph, %pyinit_core.exit.thread90 ], [ %tmp5.sroa.12.0.copyload, %pyinit_core.exit.thread ]
+  %tmp5.sroa.13.185.ph = phi i32 [ %tmp5.sroa.13.0.ph, %pyinit_core.exit.thread90 ], [ %tmp5.sroa.13.0.copyload, %pyinit_core.exit.thread ]
+  %tmp5.sroa.14.184.ph = phi i32 [ %tmp5.sroa.14.0.ph, %pyinit_core.exit.thread90 ], [ %tmp5.sroa.14.0.copyload, %pyinit_core.exit.thread ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp.i)
+  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %config.i)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp1.i)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp6.i)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp12.i)
+  br label %if.then8
+
+if.then8:                                         ; preds = %if.then8.sink.split, %pyinit_core.exit
+  %tmp5.sroa.0.189 = phi i32 [ %tmp5.sroa.0.0, %pyinit_core.exit ], [ %tmp5.sroa.0.189.ph, %if.then8.sink.split ]
+  %tmp5.sroa.9.188 = phi i32 [ %tmp5.sroa.9.0, %pyinit_core.exit ], [ %tmp5.sroa.9.188.ph, %if.then8.sink.split ]
+  %tmp5.sroa.11.187 = phi ptr [ %tmp5.sroa.11.0, %pyinit_core.exit ], [ %tmp5.sroa.11.187.ph, %if.then8.sink.split ]
+  %tmp5.sroa.12.186 = phi ptr [ %tmp5.sroa.12.0, %pyinit_core.exit ], [ %tmp5.sroa.12.186.ph, %if.then8.sink.split ]
+  %tmp5.sroa.13.185 = phi i32 [ %tmp5.sroa.13.0, %pyinit_core.exit ], [ %tmp5.sroa.13.185.ph, %if.then8.sink.split ]
+  %tmp5.sroa.14.184 = phi i32 [ %tmp5.sroa.14.0, %pyinit_core.exit ], [ %tmp5.sroa.14.184.ph, %if.then8.sink.split ]
   store i32 %tmp5.sroa.0.189, ptr %agg.result, align 8
   %status.sroa.9.0.agg.result.sroa_idx8 = getelementptr inbounds i8, ptr %agg.result, i64 4
   store i32 %tmp5.sroa.9.188, ptr %status.sroa.9.0.agg.result.sroa_idx8, align 4

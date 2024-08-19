@@ -641,8 +641,8 @@ if.end12:                                         ; preds = %lor.lhs.false8
 
 return.sink.split:                                ; preds = %if.then11, %if.end12
   %retval.0.ph = phi i32 [ %call17, %if.end12 ], [ 0, %if.then11 ]
-  %.sink = load ptr, ptr %copy, align 8
-  call void @EVP_PKEY_free(ptr noundef %.sink) #6
+  %7 = load ptr, ptr %copy, align 8
+  call void @EVP_PKEY_free(ptr noundef %7) #6
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry

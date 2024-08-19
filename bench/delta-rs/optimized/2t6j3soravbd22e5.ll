@@ -4343,8 +4343,6 @@ define void @"_ZN108_$LT$deltalake_test..utils..LocalStorageIntegration$u20$as$u
 
 "_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hab924c2d4b37c704E.exit": ; preds = %33, %37, %41
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !1044
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   br label %62
 
 43:                                               ; preds = %32
@@ -4399,11 +4397,11 @@ define void @"_ZN108_$LT$deltalake_test..utils..LocalStorageIntegration$u20$as$u
 
 "_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hab924c2d4b37c704E.exit7": ; preds = %52, %56, %60
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !1060
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   br label %62
 
 62:                                               ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hab924c2d4b37c704E.exit7", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hab924c2d4b37c704E.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   ret void
 
 63:                                               ; preds = %.body

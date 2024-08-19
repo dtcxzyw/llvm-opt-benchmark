@@ -10100,21 +10100,21 @@ _create_resv_lists.exit:                          ; preds = %13, %15
   br label %89
 
 89:                                               ; preds = %77, %86, %83, %64
-  %.sink = load ptr, ptr %2, align 8
-  %90 = call i32 @unlink(ptr noundef %.sink) #21
+  %90 = load ptr, ptr %2, align 8
+  %91 = call i32 @unlink(ptr noundef %90) #21
   call void @slurm_xfree(ptr noundef nonnull %1) #21
   call void @slurm_xfree(ptr noundef nonnull %3) #21
   call void @slurm_xfree(ptr noundef nonnull %2) #21
   call void @unlock_state_files() #21
   %.not39 = icmp eq ptr %8, null
-  br i1 %.not39, label %92, label %91
+  br i1 %.not39, label %93, label %92
 
-91:                                               ; preds = %89
+92:                                               ; preds = %89
   call void @free_buf(ptr noundef nonnull %8) #21
-  br label %92
+  br label %93
 
-92:                                               ; preds = %91, %89
-  %93 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #21
+93:                                               ; preds = %92, %89
+  %94 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #21
   call void @slurm_diff_tv_str(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 20, ptr noundef nonnull @__func__.dump_all_resv_state, i64 noundef 0, ptr noundef nonnull %7) #21
   ret i32 0
 }

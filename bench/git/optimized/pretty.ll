@@ -4162,12 +4162,7 @@ while.body:                                       ; preds = %entry, %if.end
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   store i64 %sub.ptr.sub.i, ptr %remain.i, align 8
   %tobool.not3.i = icmp eq ptr %call33, %line.addr.031
-  br i1 %tobool.not3.i, label %pp_utf8_width.exit.thread19, label %while.body.i
-
-pp_utf8_width.exit.thread19:                      ; preds = %while.body
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %start.addr.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %remain.i)
-  br label %if.end
+  br i1 %tobool.not3.i, label %if.end, label %while.body.i
 
 while.body.i:                                     ; preds = %while.body, %if.end.i
   %width.04.i = phi i32 [ %add.i, %if.end.i ], [ 0, %while.body ]
@@ -4187,15 +4182,12 @@ if.end.i:                                         ; preds = %while.body.i
   %add.i = add nuw nsw i32 %call.i, %width.04.i
   %.pr.i = load i64, ptr %remain.i, align 8
   %tobool.not.i = icmp eq i64 %.pr.i, 0
-  br i1 %tobool.not.i, label %pp_utf8_width.exit, label %while.body.i, !llvm.loop !31
+  br i1 %tobool.not.i, label %if.end, label %while.body.i, !llvm.loop !31
 
-pp_utf8_width.exit:                               ; preds = %if.end.i
+if.end:                                           ; preds = %if.end.i, %while.body
+  %retval.0.i22 = phi i32 [ 0, %while.body ], [ %add.i, %if.end.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %start.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %remain.i)
-  br label %if.end
-
-if.end:                                           ; preds = %pp_utf8_width.exit, %pp_utf8_width.exit.thread19
-  %retval.0.i22 = phi i32 [ 0, %pp_utf8_width.exit.thread19 ], [ %add.i, %pp_utf8_width.exit ]
   call fastcc void @append_line_with_color(ptr noundef %sb, ptr noundef %opt, ptr noundef %line.addr.031, i64 noundef %sub.ptr.sub.i, i32 noundef %color, i32 noundef 1, i32 noundef 3)
   %rem = srem i32 %retval.0.i22, %tabwidth
   %sub = sub nsw i32 %tabwidth, %rem

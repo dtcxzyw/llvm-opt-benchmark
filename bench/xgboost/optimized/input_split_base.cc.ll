@@ -6260,10 +6260,6 @@ define noundef zeroext i1 @_ZN4dmlc2io14InputSplitBase5Chunk4LoadEPS1_m(ptr noun
   %38 = call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef %34, ptr noundef nonnull %4)
   br i1 %38, label %.preheader, label %.loopexit
 
-.loopexit:                                        ; preds = %61, %26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
-  br label %79
-
 .preheader:                                       ; preds = %26, %61
   %39 = load i64, ptr %4, align 8, !tbaa !26
   %40 = icmp eq i64 %39, 0
@@ -6328,12 +6324,12 @@ define noundef zeroext i1 @_ZN4dmlc2io14InputSplitBase5Chunk4LoadEPS1_m(ptr noun
   %77 = getelementptr inbounds i8, ptr %76, i64 %39
   %78 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %77, ptr %78, align 8, !tbaa !135
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
-  br label %79
+  br label %.loopexit
 
-79:                                               ; preds = %74, %.loopexit
-  %80 = phi i1 [ false, %.loopexit ], [ true, %74 ]
-  ret i1 %80
+.loopexit:                                        ; preds = %61, %26, %74
+  %79 = phi i1 [ true, %74 ], [ false, %26 ], [ false, %61 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  ret i1 %79
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6392,10 +6388,6 @@ define noundef zeroext i1 @_ZN4dmlc2io14InputSplitBase5Chunk6AppendEPS1_m(ptr no
   %40 = load ptr, ptr %39, align 8
   %41 = call noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef %37, ptr noundef nonnull %4)
   br i1 %41, label %.preheader, label %.loopexit
-
-.loopexit:                                        ; preds = %63, %30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
-  br label %79
 
 .preheader:                                       ; preds = %30, %63
   %42 = load i64, ptr %4, align 8, !tbaa !26
@@ -6457,12 +6449,12 @@ define noundef zeroext i1 @_ZN4dmlc2io14InputSplitBase5Chunk6AppendEPS1_m(ptr no
   %77 = getelementptr inbounds i8, ptr %76, i64 %10
   %78 = getelementptr inbounds i8, ptr %77, i64 %42
   store ptr %78, ptr %5, align 8, !tbaa !135
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
-  br label %79
+  br label %.loopexit
 
-79:                                               ; preds = %74, %.loopexit
-  %80 = phi i1 [ false, %.loopexit ], [ true, %74 ]
-  ret i1 %80
+.loopexit:                                        ; preds = %63, %30, %74
+  %79 = phi i1 [ true, %74 ], [ false, %30 ], [ false, %63 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  ret i1 %79
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable

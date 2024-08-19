@@ -13660,12 +13660,10 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hfbf21dab5a
 "_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2a87320016054a7eE.exit.thread13": ; preds = %"_ZN3hir11term_search7tactics16type_constructor28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h343eac6d77618a94E.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !5305
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !5289
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %43
 
 "_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2a87320016054a7eE.exit.thread": ; preds = %"_ZN3hir11term_search7tactics16type_constructor28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd1acf5af022556aeE.exit.i"
   call void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17h1024cf95b68f9227E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9), !noalias !5286
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %43
 
 39:                                               ; preds = %24
@@ -13690,6 +13688,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hfbf21dab5a
   br label %47
 
 43:                                               ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2a87320016054a7eE.exit.thread13", %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2a87320016054a7eE.exit.thread"
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   %44 = load i64, ptr %10, align 8, !alias.scope !5277, !noundef !4
   %45 = icmp eq i64 %44, 0
   br i1 %45, label %"_ZN4core3ptr58drop_in_place$LT$core..option..Option$LT$hir..Type$GT$$GT$17h8655d7710c1ab4f3E.exit", label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h703a40eb79224c26E.llvm.10753514908820350930.exit.i.i.i"

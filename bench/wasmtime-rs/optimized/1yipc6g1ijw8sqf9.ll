@@ -10859,29 +10859,29 @@ default.unreachable:                              ; preds = %17
   br label %.loopexit49
 
 .loopexit:                                        ; preds = %13, %20
-  %.sroa.4.0.i.ph.i = phi i64 [ %21, %20 ], [ %11, %13 ]
+  %.sroa.4.0.i.ph.sink.i.ph = phi i64 [ %21, %20 ], [ %11, %13 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %.not = icmp eq i64 %.sroa.3.0, 0
   br i1 %.not, label %.loopexit49, label %25
 
 .loopexit49:                                      ; preds = %.loopexit, %22
   %.sink = phi i64 [ %.sroa.3.0, %22 ], [ 0, %.loopexit ]
-  %.sroa.4.0.i.ph.i.lcssa.sink = phi i64 [ %23, %22 ], [ %.sroa.4.0.i.ph.i, %.loopexit ]
+  %.sroa.4.0.i.ph.sink.i.ph.lcssa.sink = phi i64 [ %23, %22 ], [ %.sroa.4.0.i.ph.sink.i.ph, %.loopexit ]
   %storemerge = phi i64 [ 0, %22 ], [ 1, %.loopexit ]
   %24 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.0.0, ptr %24, align 8
   %.sroa.222.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sink, ptr %.sroa.222.0..sroa_idx, align 8
   %.sroa.323.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.4.0.i.ph.i.lcssa.sink, ptr %.sroa.323.0..sroa_idx, align 8
+  store i64 %.sroa.4.0.i.ph.sink.i.ph.lcssa.sink, ptr %.sroa.323.0..sroa_idx, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 
 25:                                               ; preds = %.loopexit
   %26 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 192
-  %27 = icmp ult i64 %.sroa.4.0.i.ph.i, 12
+  %27 = icmp ult i64 %.sroa.4.0.i.ph.sink.i.ph, 12
   call void @llvm.assume(i1 %27)
-  %28 = getelementptr inbounds ptr, ptr %26, i64 %.sroa.4.0.i.ph.i
+  %28 = getelementptr inbounds ptr, ptr %26, i64 %.sroa.4.0.i.ph.sink.i.ph
   %29 = load ptr, ptr %28, align 8, !nonnull !3, !noundef !3
   %30 = add i64 %.sroa.3.0, -1
   br label %6
@@ -10938,29 +10938,29 @@ default.unreachable:                              ; preds = %17
   br label %.loopexit49
 
 .loopexit:                                        ; preds = %13, %20
-  %.sroa.4.0.i.ph.i = phi i64 [ %21, %20 ], [ %11, %13 ]
+  %.sroa.4.0.i.ph.sink.i.ph = phi i64 [ %21, %20 ], [ %11, %13 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %.not = icmp eq i64 %.sroa.3.0, 0
   br i1 %.not, label %.loopexit49, label %25
 
 .loopexit49:                                      ; preds = %.loopexit, %22
   %.sink = phi i64 [ %.sroa.3.0, %22 ], [ 0, %.loopexit ]
-  %.sroa.4.0.i.ph.i.lcssa.sink = phi i64 [ %23, %22 ], [ %.sroa.4.0.i.ph.i, %.loopexit ]
+  %.sroa.4.0.i.ph.sink.i.ph.lcssa.sink = phi i64 [ %23, %22 ], [ %.sroa.4.0.i.ph.sink.i.ph, %.loopexit ]
   %storemerge = phi i64 [ 0, %22 ], [ 1, %.loopexit ]
   %24 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.0.0, ptr %24, align 8
   %.sroa.222.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sink, ptr %.sroa.222.0..sroa_idx, align 8
   %.sroa.323.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.4.0.i.ph.i.lcssa.sink, ptr %.sroa.323.0..sroa_idx, align 8
+  store i64 %.sroa.4.0.i.ph.sink.i.ph.lcssa.sink, ptr %.sroa.323.0..sroa_idx, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 
 25:                                               ; preds = %.loopexit
   %26 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 40
-  %27 = icmp ult i64 %.sroa.4.0.i.ph.i, 12
+  %27 = icmp ult i64 %.sroa.4.0.i.ph.sink.i.ph, 12
   call void @llvm.assume(i1 %27)
-  %28 = getelementptr inbounds ptr, ptr %26, i64 %.sroa.4.0.i.ph.i
+  %28 = getelementptr inbounds ptr, ptr %26, i64 %.sroa.4.0.i.ph.sink.i.ph
   %29 = load ptr, ptr %28, align 8, !nonnull !3, !noundef !3
   %30 = add i64 %.sroa.3.0, -1
   br label %6
@@ -11016,29 +11016,29 @@ default.unreachable:                              ; preds = %16
   br label %.loopexit49
 
 .loopexit:                                        ; preds = %12, %19
-  %.sroa.4.0.i.ph.i = phi i64 [ %20, %19 ], [ %10, %12 ]
+  %.sroa.4.0.i.ph.sink.i.ph = phi i64 [ %20, %19 ], [ %10, %12 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %.not = icmp eq i64 %.sroa.3.0, 0
   br i1 %.not, label %.loopexit49, label %24
 
 .loopexit49:                                      ; preds = %.loopexit, %21
   %.sink = phi i64 [ %.sroa.3.0, %21 ], [ 0, %.loopexit ]
-  %.sroa.4.0.i.ph.i.lcssa.sink = phi i64 [ %22, %21 ], [ %.sroa.4.0.i.ph.i, %.loopexit ]
+  %.sroa.4.0.i.ph.sink.i.ph.lcssa.sink = phi i64 [ %22, %21 ], [ %.sroa.4.0.i.ph.sink.i.ph, %.loopexit ]
   %storemerge = phi i64 [ 0, %21 ], [ 1, %.loopexit ]
   %23 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.0.0, ptr %23, align 8
   %.sroa.222.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sink, ptr %.sroa.222.0..sroa_idx, align 8
   %.sroa.323.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.4.0.i.ph.i.lcssa.sink, ptr %.sroa.323.0..sroa_idx, align 8
+  store i64 %.sroa.4.0.i.ph.sink.i.ph.lcssa.sink, ptr %.sroa.323.0..sroa_idx, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 
 24:                                               ; preds = %.loopexit
   %25 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 808
-  %26 = icmp ult i64 %.sroa.4.0.i.ph.i, 12
+  %26 = icmp ult i64 %.sroa.4.0.i.ph.sink.i.ph, 12
   call void @llvm.assume(i1 %26)
-  %27 = getelementptr inbounds ptr, ptr %25, i64 %.sroa.4.0.i.ph.i
+  %27 = getelementptr inbounds ptr, ptr %25, i64 %.sroa.4.0.i.ph.sink.i.ph
   %28 = load ptr, ptr %27, align 8, !nonnull !3, !noundef !3
   %29 = add i64 %.sroa.3.0, -1
   br label %6
@@ -11095,29 +11095,29 @@ default.unreachable:                              ; preds = %17
   br label %.loopexit49
 
 .loopexit:                                        ; preds = %13, %20
-  %.sroa.4.0.i.ph.i = phi i64 [ %21, %20 ], [ %11, %13 ]
+  %.sroa.4.0.i.ph.sink.i.ph = phi i64 [ %21, %20 ], [ %11, %13 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %.not = icmp eq i64 %.sroa.3.0, 0
   br i1 %.not, label %.loopexit49, label %25
 
 .loopexit49:                                      ; preds = %.loopexit, %22
   %.sink = phi i64 [ %.sroa.3.0, %22 ], [ 0, %.loopexit ]
-  %.sroa.4.0.i.ph.i.lcssa.sink = phi i64 [ %23, %22 ], [ %.sroa.4.0.i.ph.i, %.loopexit ]
+  %.sroa.4.0.i.ph.sink.i.ph.lcssa.sink = phi i64 [ %23, %22 ], [ %.sroa.4.0.i.ph.sink.i.ph, %.loopexit ]
   %storemerge = phi i64 [ 0, %22 ], [ 1, %.loopexit ]
   %24 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.0.0, ptr %24, align 8
   %.sroa.222.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sink, ptr %.sroa.222.0..sroa_idx, align 8
   %.sroa.323.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.4.0.i.ph.i.lcssa.sink, ptr %.sroa.323.0..sroa_idx, align 8
+  store i64 %.sroa.4.0.i.ph.sink.i.ph.lcssa.sink, ptr %.sroa.323.0..sroa_idx, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 
 25:                                               ; preds = %.loopexit
   %26 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 40
-  %27 = icmp ult i64 %.sroa.4.0.i.ph.i, 12
+  %27 = icmp ult i64 %.sroa.4.0.i.ph.sink.i.ph, 12
   call void @llvm.assume(i1 %27)
-  %28 = getelementptr inbounds ptr, ptr %26, i64 %.sroa.4.0.i.ph.i
+  %28 = getelementptr inbounds ptr, ptr %26, i64 %.sroa.4.0.i.ph.sink.i.ph
   %29 = load ptr, ptr %28, align 8, !nonnull !3, !noundef !3
   %30 = add i64 %.sroa.3.0, -1
   br label %6
@@ -11174,29 +11174,29 @@ default.unreachable:                              ; preds = %17
   br label %.loopexit49
 
 .loopexit:                                        ; preds = %13, %20
-  %.sroa.4.0.i.ph.i = phi i64 [ %21, %20 ], [ %11, %13 ]
+  %.sroa.4.0.i.ph.sink.i.ph = phi i64 [ %21, %20 ], [ %11, %13 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %.not = icmp eq i64 %.sroa.3.0, 0
   br i1 %.not, label %.loopexit49, label %25
 
 .loopexit49:                                      ; preds = %.loopexit, %22
   %.sink = phi i64 [ %.sroa.3.0, %22 ], [ 0, %.loopexit ]
-  %.sroa.4.0.i.ph.i.lcssa.sink = phi i64 [ %23, %22 ], [ %.sroa.4.0.i.ph.i, %.loopexit ]
+  %.sroa.4.0.i.ph.sink.i.ph.lcssa.sink = phi i64 [ %23, %22 ], [ %.sroa.4.0.i.ph.sink.i.ph, %.loopexit ]
   %storemerge = phi i64 [ 0, %22 ], [ 1, %.loopexit ]
   %24 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.0.0, ptr %24, align 8
   %.sroa.222.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sink, ptr %.sroa.222.0..sroa_idx, align 8
   %.sroa.323.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.4.0.i.ph.i.lcssa.sink, ptr %.sroa.323.0..sroa_idx, align 8
+  store i64 %.sroa.4.0.i.ph.sink.i.ph.lcssa.sink, ptr %.sroa.323.0..sroa_idx, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 
 25:                                               ; preds = %.loopexit
   %26 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 280
-  %27 = icmp ult i64 %.sroa.4.0.i.ph.i, 12
+  %27 = icmp ult i64 %.sroa.4.0.i.ph.sink.i.ph, 12
   call void @llvm.assume(i1 %27)
-  %28 = getelementptr inbounds ptr, ptr %26, i64 %.sroa.4.0.i.ph.i
+  %28 = getelementptr inbounds ptr, ptr %26, i64 %.sroa.4.0.i.ph.sink.i.ph
   %29 = load ptr, ptr %28, align 8, !nonnull !3, !noundef !3
   %30 = add i64 %.sroa.3.0, -1
   br label %6
@@ -11244,19 +11244,14 @@ default.unreachable:                              ; preds = %16
 
 21:                                               ; preds = %16
   %22 = extractvalue { i64, ptr } %13, 0
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %23
+  br label %.loopexit
 
-.loopexit:                                        ; preds = %12, %19
-  %.sroa.4.0.i.ph = phi i64 [ %20, %19 ], [ %10, %12 ]
+.loopexit:                                        ; preds = %12, %19, %21
+  %.sroa.4.0.i.ph.sink = phi i64 [ %22, %21 ], [ %20, %19 ], [ %10, %12 ]
+  %storemerge = phi i64 [ 0, %21 ], [ 1, %19 ], [ 1, %12 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %23
-
-23:                                               ; preds = %.loopexit, %21
-  %.sroa.4.0.i.ph.sink = phi i64 [ %.sroa.4.0.i.ph, %.loopexit ], [ %22, %21 ]
-  %storemerge = phi i64 [ 1, %.loopexit ], [ 0, %21 ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %1, ptr %24, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %1, ptr %23, align 8
   %.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %2, ptr %.sroa.25.0..sroa_idx, align 8
   %.sroa.36.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
@@ -11306,19 +11301,14 @@ default.unreachable:                              ; preds = %15
 
 20:                                               ; preds = %15
   %21 = extractvalue { i64, ptr } %12, 0
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %22
+  br label %.loopexit
 
-.loopexit:                                        ; preds = %11, %18
-  %.sroa.4.0.i.ph = phi i64 [ %19, %18 ], [ %9, %11 ]
+.loopexit:                                        ; preds = %11, %18, %20
+  %.sroa.4.0.i.ph.sink = phi i64 [ %21, %20 ], [ %19, %18 ], [ %9, %11 ]
+  %storemerge = phi i64 [ 0, %20 ], [ 1, %18 ], [ 1, %11 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %22
-
-22:                                               ; preds = %.loopexit, %20
-  %.sroa.4.0.i.ph.sink = phi i64 [ %.sroa.4.0.i.ph, %.loopexit ], [ %21, %20 ]
-  %storemerge = phi i64 [ 1, %.loopexit ], [ 0, %20 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %1, ptr %23, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %1, ptr %22, align 8
   %.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %2, ptr %.sroa.25.0..sroa_idx, align 8
   %.sroa.36.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
@@ -11369,19 +11359,14 @@ default.unreachable:                              ; preds = %16
 
 21:                                               ; preds = %16
   %22 = extractvalue { i64, ptr } %13, 0
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %23
+  br label %.loopexit
 
-.loopexit:                                        ; preds = %12, %19
-  %.sroa.4.0.i.ph = phi i64 [ %20, %19 ], [ %10, %12 ]
+.loopexit:                                        ; preds = %12, %19, %21
+  %.sroa.4.0.i.ph.sink = phi i64 [ %22, %21 ], [ %20, %19 ], [ %10, %12 ]
+  %storemerge = phi i64 [ 0, %21 ], [ 1, %19 ], [ 1, %12 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %23
-
-23:                                               ; preds = %.loopexit, %21
-  %.sroa.4.0.i.ph.sink = phi i64 [ %.sroa.4.0.i.ph, %.loopexit ], [ %22, %21 ]
-  %storemerge = phi i64 [ 1, %.loopexit ], [ 0, %21 ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %1, ptr %24, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %1, ptr %23, align 8
   %.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %2, ptr %.sroa.25.0..sroa_idx, align 8
   %.sroa.36.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
@@ -11432,19 +11417,14 @@ default.unreachable:                              ; preds = %16
 
 21:                                               ; preds = %16
   %22 = extractvalue { i64, ptr } %13, 0
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %23
+  br label %.loopexit
 
-.loopexit:                                        ; preds = %12, %19
-  %.sroa.4.0.i.ph = phi i64 [ %20, %19 ], [ %10, %12 ]
+.loopexit:                                        ; preds = %12, %19, %21
+  %.sroa.4.0.i.ph.sink = phi i64 [ %22, %21 ], [ %20, %19 ], [ %10, %12 ]
+  %storemerge = phi i64 [ 0, %21 ], [ 1, %19 ], [ 1, %12 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %23
-
-23:                                               ; preds = %.loopexit, %21
-  %.sroa.4.0.i.ph.sink = phi i64 [ %.sroa.4.0.i.ph, %.loopexit ], [ %22, %21 ]
-  %storemerge = phi i64 [ 1, %.loopexit ], [ 0, %21 ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %1, ptr %24, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %1, ptr %23, align 8
   %.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %2, ptr %.sroa.25.0..sroa_idx, align 8
   %.sroa.36.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
@@ -11495,19 +11475,14 @@ default.unreachable:                              ; preds = %16
 
 21:                                               ; preds = %16
   %22 = extractvalue { i64, ptr } %13, 0
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %23
+  br label %.loopexit
 
-.loopexit:                                        ; preds = %12, %19
-  %.sroa.4.0.i.ph = phi i64 [ %20, %19 ], [ %10, %12 ]
+.loopexit:                                        ; preds = %12, %19, %21
+  %.sroa.4.0.i.ph.sink = phi i64 [ %22, %21 ], [ %20, %19 ], [ %10, %12 ]
+  %storemerge = phi i64 [ 0, %21 ], [ 1, %19 ], [ 1, %12 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %23
-
-23:                                               ; preds = %.loopexit, %21
-  %.sroa.4.0.i.ph.sink = phi i64 [ %.sroa.4.0.i.ph, %.loopexit ], [ %22, %21 ]
-  %storemerge = phi i64 [ 1, %.loopexit ], [ 0, %21 ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %1, ptr %24, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %1, ptr %23, align 8
   %.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %2, ptr %.sroa.25.0..sroa_idx, align 8
   %.sroa.36.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24

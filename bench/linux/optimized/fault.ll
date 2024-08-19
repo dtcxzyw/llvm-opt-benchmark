@@ -1991,12 +1991,12 @@ define internal fastcc range(i32 0, 2) i32 @is_prefetch(ptr noundef %0, i64 noun
   store i8 %35, ptr %4, align 1
   %38 = and i64 %37, 4294967295
   %39 = icmp eq i64 %38, 0
-  br i1 %39, label %43, label %.thread1
+  br i1 %39, label %43, label %.loopexit.sink.split
 
 40:                                               ; preds = %.lr.ph
   %41 = call i64 @copy_from_kernel_nofault(ptr noundef nonnull %4, ptr noundef %27, i64 noundef 1) #13
   %42 = icmp eq i64 %41, 0
-  br i1 %42, label %._crit_edge, label %.thread1
+  br i1 %42, label %._crit_edge, label %.loopexit.sink.split
 
 ._crit_edge:                                      ; preds = %40
   %.pre = load i8, ptr %4, align 1
@@ -2066,15 +2066,10 @@ define internal fastcc range(i32 0, 2) i32 @is_prefetch(ptr noundef %0, i64 noun
   %72 = zext i1 %71 to i32
   br label %.thread3
 
-.thread1:                                         ; preds = %40, %31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #13
-  br label %.loopexit
-
 .thread3:                                         ; preds = %43, %63, %67
   %.ph = phi i32 [ %72, %67 ], [ 0, %63 ], [ 0, %43 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #13
-  br label %.loopexit
+  br label %.loopexit.sink.split
 
 73:                                               ; preds = %43, %43
   %74 = and i8 %44, 7
@@ -2088,8 +2083,13 @@ define internal fastcc range(i32 0, 2) i32 @is_prefetch(ptr noundef %0, i64 noun
 .lr.ph.backedge:                                  ; preds = %73, %58, %55, %49
   br label %.lr.ph
 
-.loopexit:                                        ; preds = %73, %58, %55, %49, %16, %.thread3, %.thread1
-  %77 = phi i32 [ 0, %.thread1 ], [ %.ph, %.thread3 ], [ 0, %16 ], [ 0, %49 ], [ 0, %55 ], [ 0, %58 ], [ 0, %73 ]
+.loopexit.sink.split:                             ; preds = %31, %40, %.thread3
+  %.ph25 = phi i32 [ %.ph, %.thread3 ], [ 0, %40 ], [ 0, %31 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #13
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %73, %58, %55, %49, %.loopexit.sink.split, %16
+  %77 = phi i32 [ 0, %16 ], [ %.ph25, %.loopexit.sink.split ], [ 0, %49 ], [ 0, %55 ], [ 0, %58 ], [ 0, %73 ]
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !65
   %78 = load i32, ptr %22, align 4
   %79 = add i32 %78, -1

@@ -1392,10 +1392,10 @@ define internal fastcc double @mcelem_array_selec(ptr noundef %0, ptr noundef %1
 
 51:                                               ; preds = %40, %45, %._crit_edge
   %.042 = phi double [ 0.000000e+00, %._crit_edge ], [ %42, %40 ], [ %47, %45 ]
-  %.sink52 = load ptr, ptr %11, align 8
-  call void @pfree(ptr noundef %.sink52) #10
-  %.sink = load ptr, ptr %12, align 8
-  call void @pfree(ptr noundef %.sink) #10
+  %52 = load ptr, ptr %11, align 8
+  call void @pfree(ptr noundef %52) #10
+  %53 = load ptr, ptr %12, align 8
+  call void @pfree(ptr noundef %53) #10
   ret double %.042
 }
 

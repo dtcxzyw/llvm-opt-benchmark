@@ -3286,13 +3286,13 @@ if.then2.i.i.i167:                                ; preds = %if.then.i.i.i162
           to label %if.end102 unwind label %lpad65
 
 if.end102:                                        ; preds = %if.then.i.i.i162, %if.end.i160, %if.then2.i.i.i167, %if.then.i.i.i133, %if.end.i131, %if.then2.i.i.i138
-  %storemerge = phi ptr [ %call.i126, %if.then2.i.i.i138 ], [ %call.i126, %if.end.i131 ], [ %call.i126, %if.then.i.i.i133 ], [ %call.i154, %if.then2.i.i.i167 ], [ %call.i154, %if.end.i160 ], [ %call.i154, %if.then.i.i.i162 ]
-  store ptr %storemerge, ptr %abs_lit, align 8
-  %tobool.not.i.i.i.i170 = icmp eq ptr %storemerge, null
+  %call.i154.sink = phi ptr [ %call.i126, %if.then2.i.i.i138 ], [ %call.i126, %if.end.i131 ], [ %call.i126, %if.then.i.i.i133 ], [ %call.i154, %if.then2.i.i.i167 ], [ %call.i154, %if.end.i160 ], [ %call.i154, %if.then.i.i.i162 ]
+  store ptr %call.i154.sink, ptr %abs_lit, align 8
+  %tobool.not.i.i.i.i170 = icmp eq ptr %call.i154.sink, null
   br i1 %tobool.not.i.i.i.i170, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i174, label %if.then.i.i.i.i171
 
 if.then.i.i.i.i171:                               ; preds = %land.lhs.true, %invoke.cont92, %land.lhs.true.i, %_ZNK11ast_manager5is_eqEPK4expr.exit.i, %if.else, %land.rhs.i.i.i, %if.else90, %land.rhs.i.i.i145, %if.end102
-  %88 = phi ptr [ %storemerge, %if.end102 ], [ %50, %land.rhs.i.i.i145 ], [ %50, %if.else90 ], [ %50, %land.rhs.i.i.i ], [ %50, %if.else ], [ %50, %_ZNK11ast_manager5is_eqEPK4expr.exit.i ], [ %50, %land.lhs.true.i ], [ %50, %invoke.cont92 ], [ %50, %land.lhs.true ]
+  %88 = phi ptr [ %call.i154.sink, %if.end102 ], [ %50, %land.rhs.i.i.i145 ], [ %50, %if.else90 ], [ %50, %land.rhs.i.i.i ], [ %50, %if.else ], [ %50, %_ZNK11ast_manager5is_eqEPK4expr.exit.i ], [ %50, %land.lhs.true.i ], [ %50, %invoke.cont92 ], [ %50, %land.lhs.true ]
   %m_ref_count.i.i.i.i.i172 = getelementptr inbounds i8, ptr %88, i64 8
   %89 = load i32, ptr %m_ref_count.i.i.i.i.i172, align 4
   %inc.i.i.i.i.i173 = add i32 %89, 1

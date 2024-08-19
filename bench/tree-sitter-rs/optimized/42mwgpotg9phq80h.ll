@@ -43,8 +43,8 @@ define hidden void @"_ZN101_$LT$serde_json..iter..LineColIterator$LT$I$GT$$u20$a
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h65f3729b95200839E.exit": ; preds = %2
   call void @_ZN3std2io24uninlined_slow_read_byte17h823258da2a434426E.llvm.7684109125295254543(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3), !noalias !4
   %.pr = load i8, ptr %4, align 8
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3), !noalias !4
   %7 = icmp eq i8 %.pr, 2
   br i1 %7, label %8, label %9
 
@@ -512,8 +512,8 @@ define hidden void @_ZN10serde_json4read11next_or_eof17he4420de4afdce008E.llvm.1
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h65f3729b95200839E.exit.i.i": ; preds = %10
   call void @_ZN3std2io24uninlined_slow_read_byte17h823258da2a434426E.llvm.7684109125295254543(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %1), !noalias !128
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !120
   %.pr.i.i = load i8, ptr %5, align 8, !noalias !118
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !120
   %13 = icmp eq i8 %.pr.i.i, 2
   br i1 %13, label %34, label %14
 
@@ -614,8 +614,8 @@ define internal fastcc void @_ZN10serde_json4read11peek_or_eof17hf9b2f287e3360cf
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h65f3729b95200839E.exit.i.i": ; preds = %8
   call void @_ZN3std2io24uninlined_slow_read_byte17h823258da2a434426E.llvm.7684109125295254543(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %1), !noalias !161
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !153
   %.pr.i.i = load i8, ptr %5, align 8, !noalias !151
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !153
   %11 = icmp eq i8 %.pr.i.i, 2
   br i1 %11, label %36, label %12
 
@@ -3719,8 +3719,8 @@ define hidden void @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serd
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h65f3729b95200839E.exit.i": ; preds = %9
   call void @_ZN3std2io24uninlined_slow_read_byte17h823258da2a434426E.llvm.7684109125295254543(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %1), !noalias !829
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3), !noalias !821
   %.pr.i = load i8, ptr %4, align 8, !noalias !819
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3), !noalias !821
   %12 = icmp eq i8 %.pr.i, 2
   br i1 %12, label %30, label %13
 

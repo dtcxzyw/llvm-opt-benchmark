@@ -3627,7 +3627,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h6b6a42fed32dbf0aE.exit.i: ; pred
   %41 = getelementptr inbounds i8, ptr %10, i64 24
   %42 = load i32, ptr %41, align 8, !noalias !740, !noundef !5
   %43 = icmp eq i64 %.sroa.0.0.copyload.i, -9223372036854775808
-  br i1 %43, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h52b1efe05706b94eE.exit.i", label %44
+  br i1 %43, label %_ZN4core4iter6traits8iterator8Iterator10max_by_key17h338c81f538df6208E.exit, label %44
 
 44:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !828
@@ -3650,20 +3650,16 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h6b6a42fed32dbf0aE.exit.i: ; pred
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf6753c8179b64f6eE.exit.i.i": ; preds = %51, %47, %44
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !828
-  br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h52b1efe05706b94eE.exit.i"
-
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h52b1efe05706b94eE.exit.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf6753c8179b64f6eE.exit.i.i", %40
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10), !noalias !740
   br label %_ZN4core4iter6traits8iterator8Iterator10max_by_key17h338c81f538df6208E.exit
 
 53:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator6reduce17h6b6a42fed32dbf0aE.exit.i, %_ZN4core4iter6traits8iterator8Iterator6reduce17h6b6a42fed32dbf0aE.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.5.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10), !noalias !740
   br label %_ZN4core4iter6traits8iterator8Iterator10max_by_key17h338c81f538df6208E.exit
 
-_ZN4core4iter6traits8iterator8Iterator10max_by_key17h338c81f538df6208E.exit: ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h52b1efe05706b94eE.exit.i", %53
-  %.sroa.3.0.i = phi i32 [ undef, %53 ], [ %42, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h52b1efe05706b94eE.exit.i" ]
-  %54 = phi i1 [ false, %53 ], [ true, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h52b1efe05706b94eE.exit.i" ]
+_ZN4core4iter6traits8iterator8Iterator10max_by_key17h338c81f538df6208E.exit: ; preds = %40, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf6753c8179b64f6eE.exit.i.i", %53
+  %.sroa.3.0.i = phi i32 [ undef, %53 ], [ %42, %40 ], [ %42, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf6753c8179b64f6eE.exit.i.i" ]
+  %54 = phi i1 [ false, %53 ], [ true, %40 ], [ true, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf6753c8179b64f6eE.exit.i.i" ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10), !noalias !740
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14)
   call void @llvm.experimental.noalias.scope.decl(metadata !840)
   call void @llvm.experimental.noalias.scope.decl(metadata !843)

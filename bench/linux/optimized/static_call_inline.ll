@@ -109,12 +109,12 @@ define dso_local void @__static_call_update(ptr noundef %0, ptr noundef %1, ptr 
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, 1
   %14 = icmp eq i64 %13, 0
-  %15 = and i64 %12, -2
-  %16 = inttoptr i64 %15 to ptr
-  %17 = inttoptr i64 %12 to ptr
-  %storemerge = select i1 %14, ptr %17, ptr null
-  %.ph = select i1 %14, ptr null, ptr %16
-  store ptr %storemerge, ptr %4, align 8
+  %15 = inttoptr i64 %12 to ptr
+  %16 = and i64 %12, -2
+  %17 = inttoptr i64 %16 to ptr
+  %.sink = select i1 %14, ptr %15, ptr null
+  %.ph = select i1 %14, ptr null, ptr %17
+  store ptr %.sink, ptr %4, align 8
   br label %20
 
 thread-pre-split:                                 ; preds = %.loopexit

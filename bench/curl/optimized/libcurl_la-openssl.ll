@@ -5661,13 +5661,13 @@ if.then297.i.i:                                   ; preds = %if.end280.i.i
   %178 = load ptr, ptr %server_cert.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %temp.i.i.i)
   %tobool1.not.i.i.i = icmp eq ptr %178, null
-  br i1 %tobool1.not.i.i.i, label %ossl_pkp_pin_peer_pubkey.exit.thread.i.i, label %do.body.i.i.i
+  br i1 %tobool1.not.i.i.i, label %if.then301.sink.split.i.i, label %do.body.i.i.i
 
 do.body.i.i.i:                                    ; preds = %if.then297.i.i
   %call.i190.i.i = call ptr @X509_get_X509_PUBKEY(ptr noundef nonnull %178) #13
   %call4.i191.i.i = call i32 @i2d_X509_PUBKEY(ptr noundef %call.i190.i.i, ptr noundef null) #13
   %cmp.i192.i.i = icmp slt i32 %call4.i191.i.i, 1
-  br i1 %cmp.i192.i.i, label %ossl_pkp_pin_peer_pubkey.exit.thread.i.i, label %if.end6.i.i.i
+  br i1 %cmp.i192.i.i, label %if.then301.sink.split.i.i, label %if.end6.i.i.i
 
 if.end6.i.i.i:                                    ; preds = %do.body.i.i.i
   %179 = load ptr, ptr @Curl_cmalloc, align 8
@@ -5675,7 +5675,7 @@ if.end6.i.i.i:                                    ; preds = %do.body.i.i.i
   %call7.i194.i.i = call ptr %179(i64 noundef %conv.i193.i.i) #13
   store ptr %call7.i194.i.i, ptr %temp.i.i.i, align 8
   %tobool8.not.i195.i.i = icmp eq ptr %call7.i194.i.i, null
-  br i1 %tobool8.not.i195.i.i, label %ossl_pkp_pin_peer_pubkey.exit.thread.i.i, label %if.end10.i.i.i
+  br i1 %tobool8.not.i195.i.i, label %if.then301.sink.split.i.i, label %if.end10.i.i.i
 
 if.end10.i.i.i:                                   ; preds = %if.end6.i.i.i
   %call11.i196.i.i = call ptr @X509_get_X509_PUBKEY(ptr noundef nonnull %178) #13
@@ -5694,12 +5694,7 @@ if.end10.i.i.i:                                   ; preds = %if.end6.i.i.i
 ossl_pkp_pin_peer_pubkey.exit.thread207.i.i:      ; preds = %if.end10.i.i.i
   %181 = load ptr, ptr @Curl_cfree, align 8
   call void %181(ptr noundef nonnull %call7.i194.i.i) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %temp.i.i.i)
-  br label %if.then301.i.i
-
-ossl_pkp_pin_peer_pubkey.exit.thread.i.i:         ; preds = %if.end6.i.i.i, %do.body.i.i.i, %if.then297.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %temp.i.i.i)
-  br label %if.then301.i.i
+  br label %if.then301.sink.split.i.i
 
 ossl_pkp_pin_peer_pubkey.exit.i.i:                ; preds = %if.end10.i.i.i
   %call23.i.i.i = call i32 @Curl_pin_peer_pubkey(ptr noundef nonnull %data, ptr noundef nonnull %cond293.i.i, ptr noundef nonnull %call7.i194.i.i, i64 noundef %conv.i193.i.i) #13
@@ -5709,8 +5704,12 @@ ossl_pkp_pin_peer_pubkey.exit.i.i:                ; preds = %if.end10.i.i.i
   %tobool300.not.i.i = icmp eq i32 %call23.i.i.i, 0
   br i1 %tobool300.not.i.i, label %if.end303.i.i, label %if.then301.i.i
 
-if.then301.i.i:                                   ; preds = %ossl_pkp_pin_peer_pubkey.exit.i.i, %ossl_pkp_pin_peer_pubkey.exit.thread.i.i, %ossl_pkp_pin_peer_pubkey.exit.thread207.i.i
-  %retval.0.i197206.i.i = phi i32 [ 90, %ossl_pkp_pin_peer_pubkey.exit.thread.i.i ], [ %call23.i.i.i, %ossl_pkp_pin_peer_pubkey.exit.i.i ], [ 90, %ossl_pkp_pin_peer_pubkey.exit.thread207.i.i ]
+if.then301.sink.split.i.i:                        ; preds = %ossl_pkp_pin_peer_pubkey.exit.thread207.i.i, %if.end6.i.i.i, %do.body.i.i.i, %if.then297.i.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %temp.i.i.i)
+  br label %if.then301.i.i
+
+if.then301.i.i:                                   ; preds = %if.then301.sink.split.i.i, %ossl_pkp_pin_peer_pubkey.exit.i.i
+  %retval.0.i197206.i.i = phi i32 [ %call23.i.i.i, %ossl_pkp_pin_peer_pubkey.exit.i.i ], [ 90, %if.then301.sink.split.i.i ]
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.200) #13
   br label %if.end303.i.i
 

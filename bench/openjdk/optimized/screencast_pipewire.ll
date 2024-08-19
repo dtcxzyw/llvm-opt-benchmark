@@ -6116,11 +6116,7 @@ spa_pod_builder_raw.exit24.i:                     ; preds = %spa_pod_builder_raw
   %90 = or i32 %89, 7
   %91 = add i32 %90, 1
   %.not.i25.i = icmp eq i32 %91, %88
-  br i1 %.not.i25.i, label %spa_pod_builder_pad.exit.thread.i, label %92
-
-spa_pod_builder_pad.exit.thread.i:                ; preds = %spa_pod_builder_raw.exit24.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %spa_pod_builder_write_string.exit
+  br i1 %.not.i25.i, label %spa_pod_builder_write_string.exit, label %92
 
 92:                                               ; preds = %spa_pod_builder_raw.exit24.i
   %93 = sub i32 %91, %88
@@ -6167,7 +6163,7 @@ spa_pod_builder_pad.exit.thread.i:                ; preds = %spa_pod_builder_raw
   store i32 %114, ptr %6, align 8
   %.02839.i.i.i = load ptr, ptr %30, align 8
   %.not3440.i.i.i = icmp eq ptr %.02839.i.i.i, null
-  br i1 %.not3440.i.i.i, label %spa_pod_builder_pad.exit.i, label %.lr.ph.i.i.i
+  br i1 %.not3440.i.i.i, label %spa_pod_builder_write_string.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.critedge.thread.i.i.i, %.lr.ph.i.i.i
   %.02841.i.i.i = phi ptr [ %.028.i.i.i, %.lr.ph.i.i.i ], [ %.02839.i.i.i, %.critedge.thread.i.i.i ]
@@ -6177,13 +6173,10 @@ spa_pod_builder_pad.exit.thread.i:                ; preds = %spa_pod_builder_raw
   %117 = getelementptr inbounds i8, ptr %.02841.i.i.i, i64 8
   %.028.i.i.i = load ptr, ptr %117, align 8
   %.not34.i.i.i = icmp eq ptr %.028.i.i.i, null
-  br i1 %.not34.i.i.i, label %spa_pod_builder_pad.exit.i, label %.lr.ph.i.i.i, !llvm.loop !19
+  br i1 %.not34.i.i.i, label %spa_pod_builder_write_string.exit, label %.lr.ph.i.i.i, !llvm.loop !19
 
-spa_pod_builder_pad.exit.i:                       ; preds = %.lr.ph.i.i.i, %.critedge.thread.i.i.i
+spa_pod_builder_write_string.exit:                ; preds = %.lr.ph.i.i.i, %.critedge.thread.i.i.i, %spa_pod_builder_raw.exit24.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %spa_pod_builder_write_string.exit
-
-spa_pod_builder_write_string.exit:                ; preds = %spa_pod_builder_pad.exit.thread.i, %spa_pod_builder_pad.exit.i
   ret void
 }
 
@@ -6290,11 +6283,7 @@ spa_pod_builder_raw.exit:                         ; preds = %.lr.ph.i, %.critedg
   %52 = or i32 %51, 7
   %53 = add i32 %52, 1
   %.not.i17 = icmp eq i32 %53, %.014
-  br i1 %.not.i17, label %spa_pod_builder_pad.exit.thread, label %54
-
-spa_pod_builder_pad.exit.thread:                  ; preds = %50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %82
+  br i1 %.not.i17, label %.sink.split, label %54
 
 54:                                               ; preds = %50
   %55 = sub i32 %53, %.014
@@ -6343,7 +6332,7 @@ spa_pod_builder_pad.exit.thread:                  ; preds = %50
   store i32 %78, ptr %17, align 8
   %.02839.i.i = load ptr, ptr %45, align 8
   %.not3440.i.i = icmp eq ptr %.02839.i.i, null
-  br i1 %.not3440.i.i, label %spa_pod_builder_pad.exit, label %.lr.ph.i.i
+  br i1 %.not3440.i.i, label %.sink.split, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.critedge.thread.i.i, %.lr.ph.i.i
   %.02841.i.i = phi ptr [ %.028.i.i, %.lr.ph.i.i ], [ %.02839.i.i, %.critedge.thread.i.i ]
@@ -6353,13 +6342,13 @@ spa_pod_builder_pad.exit.thread:                  ; preds = %50
   %81 = getelementptr inbounds i8, ptr %.02841.i.i, i64 8
   %.028.i.i = load ptr, ptr %81, align 8
   %.not34.i.i = icmp eq ptr %.028.i.i, null
-  br i1 %.not34.i.i, label %spa_pod_builder_pad.exit, label %.lr.ph.i.i, !llvm.loop !19
+  br i1 %.not34.i.i, label %.sink.split, label %.lr.ph.i.i, !llvm.loop !19
 
-spa_pod_builder_pad.exit:                         ; preds = %.lr.ph.i.i, %.critedge.thread.i.i
+.sink.split:                                      ; preds = %.lr.ph.i.i, %.critedge.thread.i.i, %50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %82
 
-82:                                               ; preds = %spa_pod_builder_pad.exit, %spa_pod_builder_pad.exit.thread, %spa_pod_builder_raw.exit
+82:                                               ; preds = %.sink.split, %spa_pod_builder_raw.exit
   ret void
 }
 
@@ -6441,10 +6430,6 @@ spa_pod_builder_raw.exit:                         ; preds = %.lr.ph.i, %.critedg
   %.not.i7 = icmp eq i32 %39, %2
   br i1 %.not.i7, label %spa_pod_builder_pad.exit.thread, label %40
 
-spa_pod_builder_pad.exit.thread:                  ; preds = %spa_pod_builder_raw.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %68
-
 40:                                               ; preds = %spa_pod_builder_raw.exit
   %41 = sub i32 %39, %2
   %42 = load i32, ptr %5, align 8
@@ -6492,7 +6477,7 @@ spa_pod_builder_pad.exit.thread:                  ; preds = %spa_pod_builder_raw
   store i32 %64, ptr %5, align 8
   %.02839.i.i = load ptr, ptr %33, align 8
   %.not3440.i.i = icmp eq ptr %.02839.i.i, null
-  br i1 %.not3440.i.i, label %spa_pod_builder_pad.exit, label %.lr.ph.i.i
+  br i1 %.not3440.i.i, label %spa_pod_builder_pad.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.critedge.thread.i.i, %.lr.ph.i.i
   %.02841.i.i = phi ptr [ %.028.i.i, %.lr.ph.i.i ], [ %.02839.i.i, %.critedge.thread.i.i ]
@@ -6502,13 +6487,10 @@ spa_pod_builder_pad.exit.thread:                  ; preds = %spa_pod_builder_raw
   %67 = getelementptr inbounds i8, ptr %.02841.i.i, i64 8
   %.028.i.i = load ptr, ptr %67, align 8
   %.not34.i.i = icmp eq ptr %.028.i.i, null
-  br i1 %.not34.i.i, label %spa_pod_builder_pad.exit, label %.lr.ph.i.i, !llvm.loop !19
+  br i1 %.not34.i.i, label %spa_pod_builder_pad.exit.thread, label %.lr.ph.i.i, !llvm.loop !19
 
-spa_pod_builder_pad.exit:                         ; preds = %.lr.ph.i.i, %.critedge.thread.i.i
+spa_pod_builder_pad.exit.thread:                  ; preds = %.lr.ph.i.i, %.critedge.thread.i.i, %spa_pod_builder_raw.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %68
-
-68:                                               ; preds = %spa_pod_builder_pad.exit, %spa_pod_builder_pad.exit.thread
   ret void
 }
 

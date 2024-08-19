@@ -18,7 +18,7 @@ define hidden range(i32 0, 2) i32 @Dot11DecryptCcmpDecrypt(ptr noundef %0, i32 n
   %17 = sub i32 %15, %16
   %18 = sext i32 %17 to i64
   %19 = icmp slt i32 %17, 1
-  br i1 %19, label %85, label %20
+  br i1 %19, label %86, label %20
 
 20:                                               ; preds = %6
   %21 = sext i32 %2 to i64
@@ -80,7 +80,7 @@ ccmp_construct_nonce.exit:                        ; preds = %.sink.split.i, %20
   call void @dot11decrypt_construct_aad(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %10) #3
   %59 = call i32 @gcry_cipher_open(ptr noundef nonnull %11, i32 noundef 7, i32 noundef 8, i32 noundef 0) #3
   %.not = icmp eq i32 %59, 0
-  br i1 %.not, label %60, label %85
+  br i1 %.not, label %60, label %86
 
 60:                                               ; preds = %ccmp_construct_nonce.exit
   %61 = load ptr, ptr %11, align 8
@@ -132,11 +132,11 @@ ccmp_construct_nonce.exit:                        ; preds = %.sink.split.i, %20
 
 .sink.split:                                      ; preds = %81, %84
   %.0.ph = phi i32 [ 1, %84 ], [ 0, %81 ]
-  %.sink = load ptr, ptr %11, align 8
-  call void @gcry_cipher_close(ptr noundef %.sink) #3
-  br label %85
+  %85 = load ptr, ptr %11, align 8
+  call void @gcry_cipher_close(ptr noundef %85) #3
+  br label %86
 
-85:                                               ; preds = %.sink.split, %ccmp_construct_nonce.exit, %6
+86:                                               ; preds = %.sink.split, %ccmp_construct_nonce.exit, %6
   %.0 = phi i32 [ 0, %6 ], [ 1, %ccmp_construct_nonce.exit ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }

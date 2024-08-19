@@ -62,12 +62,12 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %switch.cast = zext nneg i8 %switch.tableidx to i46
   %switch.downshift = lshr i46 -35180077113343, %switch.cast
   %switch.masked = trunc i46 %switch.downshift to i1
-  %switch.cast764 = zext nneg i8 %switch.tableidx to i46
-  %switch.downshift766 = lshr i46 4294967297, %switch.cast764
-  %switch.masked767 = trunc i46 %switch.downshift766 to i1
-  %switch.cast768 = zext nneg i8 %switch.tableidx to i46
-  %switch.downshift770 = lshr i46 35180077113342, %switch.cast768
-  %switch.masked771 = trunc i46 %switch.downshift770 to i1
+  %switch.cast766 = zext nneg i8 %switch.tableidx to i46
+  %switch.downshift768 = lshr i46 4294967297, %switch.cast766
+  %switch.masked769 = trunc i46 %switch.downshift768 to i1
+  %switch.cast770 = zext nneg i8 %switch.tableidx to i46
+  %switch.downshift772 = lshr i46 35180077113342, %switch.cast770
+  %switch.masked773 = trunc i46 %switch.downshift772 to i1
   %35 = load i32, ptr %1, align 4
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %37, label %38
@@ -95,7 +95,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   ]
 
 44:                                               ; preds = %43
-  br i1 %switch.masked767, label %45, label %.thread513
+  br i1 %switch.masked769, label %45, label %.thread513
 
 45:                                               ; preds = %44
   store float 1.000000e+00, ptr %4, align 4
@@ -104,7 +104,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 46:                                               ; preds = %43
   store float 0x43C5555540000000, ptr %25, align 4
   store float 0x3EE0000000000000, ptr %24, align 4
-  br i1 %switch.masked767, label %47, label %48
+  br i1 %switch.masked769, label %47, label %48
 
 47:                                               ; preds = %46
   call void @slaset_(ptr noundef nonnull @.str, ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %4, ptr noundef nonnull %5)
@@ -214,8 +214,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 93:                                               ; preds = %84
   %94 = load float, ptr %25, align 4
-  %95 = fcmp ule float %90, %94
-  br i1 %95, label %96, label %.sink.split
+  %95 = fcmp ogt float %90, %94
+  br i1 %95, label %.sink.split, label %96
 
 96:                                               ; preds = %93
   %97 = load float, ptr %24, align 4
@@ -223,15 +223,16 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %98, label %.sink.split, label %99
 
 .sink.split:                                      ; preds = %96, %93
-  %.sink772 = phi ptr [ %25, %93 ], [ %24, %96 ]
+  %.sink728 = phi ptr [ %25, %93 ], [ %24, %96 ]
+  %.ph727 = xor i1 %95, true
   store i32 %86, ptr %14, align 4
-  call void @slascl_(ptr noundef nonnull @.str.2, ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %23, ptr noundef nonnull %.sink772, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef nonnull %88, ptr noundef nonnull %1, ptr noundef nonnull %7)
+  call void @slascl_(ptr noundef nonnull @.str.2, ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %23, ptr noundef nonnull %.sink728, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef nonnull %88, ptr noundef nonnull %1, ptr noundef nonnull %7)
   store i32 %85, ptr %14, align 4
-  call void @slascl_(ptr noundef nonnull @.str.2, ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %23, ptr noundef nonnull %.sink772, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef nonnull %89, ptr noundef nonnull %1, ptr noundef nonnull %7)
+  call void @slascl_(ptr noundef nonnull @.str.2, ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %23, ptr noundef nonnull %.sink728, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef nonnull %89, ptr noundef nonnull %1, ptr noundef nonnull %7)
   br label %99
 
 99:                                               ; preds = %.sink.split, %96
-  %100 = phi i1 [ false, %96 ], [ %95, %.sink.split ]
+  %100 = phi i1 [ false, %96 ], [ %.ph727, %.sink.split ]
   %101 = sext i32 %.1462 to i64
   %102 = getelementptr inbounds float, ptr %26, i64 %101
   %103 = load float, ptr %102, align 4
@@ -730,19 +731,18 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 .loopexit:                                        ; preds = %375, %283, %242, %159, %294, %163
   %.2453 = phi i32 [ %50, %163 ], [ %50, %294 ], [ %.1452, %159 ], [ %.1452, %242 ], [ %.3, %283 ], [ %.3, %375 ]
-  %.not = xor i1 %95, true
-  %brmerge = or i1 %.not, %100
-  %.mux = select i1 %.not, ptr %25, ptr %24
-  br i1 %brmerge, label %.sink.split728, label %376
+  %brmerge = or i1 %95, %100
+  br i1 %brmerge, label %.sink.split729, label %376
 
-.sink.split728:                                   ; preds = %.loopexit
+.sink.split729:                                   ; preds = %.loopexit
+  %.mux = select i1 %95, ptr %25, ptr %24
   store i32 %86, ptr %14, align 4
   call void @slascl_(ptr noundef nonnull @.str.2, ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %.mux, ptr noundef nonnull %23, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef nonnull %88, ptr noundef nonnull %1, ptr noundef nonnull %7)
   store i32 %85, ptr %14, align 4
   call void @slascl_(ptr noundef nonnull @.str.2, ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %.mux, ptr noundef nonnull %23, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef nonnull %89, ptr noundef nonnull %1, ptr noundef nonnull %7)
   br label %376
 
-376:                                              ; preds = %.loopexit, %.sink.split728
+376:                                              ; preds = %.loopexit, %.sink.split729
   %377 = icmp slt i32 %.2453, %50
   br i1 %377, label %.outer532, label %378
 
@@ -776,7 +776,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 .outer532._crit_edge:                             ; preds = %.outer532, %.backedge
   %.lcssa = phi i32 [ %83, %.backedge ], [ %52, %.outer532 ]
-  br i1 %switch.masked771, label %388, label %389
+  br i1 %switch.masked773, label %388, label %389
 
 388:                                              ; preds = %.outer532._crit_edge
   call void @slasrt_(ptr noundef nonnull @.str.1, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %7)

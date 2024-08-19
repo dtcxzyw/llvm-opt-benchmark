@@ -16345,11 +16345,7 @@ define internal noundef i32 @_ZL20testAssertionHandlerPKcS0_iS0_(ptr noundef %0,
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6)
   %10 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.262)
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %_ZL15debuggerPresentv.exit.thread, label %.preheader.i
-
-_ZL15debuggerPresentv.exit.thread:                ; preds = %4
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6)
-  br label %18
+  br i1 %.not.i, label %.sink.split, label %.preheader.i
 
 .preheader.i:                                     ; preds = %4, %13
   %11 = call ptr @fgets(ptr noundef nonnull %6, i32 noundef 256, ptr noundef nonnull %10)
@@ -16358,8 +16354,7 @@ _ZL15debuggerPresentv.exit.thread:                ; preds = %4
 
 _ZL15debuggerPresentv.exit.thread16:              ; preds = %.preheader.i
   %12 = call i32 @fclose(ptr noundef nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6)
-  br label %18
+  br label %.sink.split
 
 13:                                               ; preds = %.preheader.i
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %6, ptr noundef nonnull dereferenceable(11) @.str.62, i64 11)
@@ -16374,7 +16369,11 @@ _ZL15debuggerPresentv.exit:                       ; preds = %13
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6)
   br i1 %.not, label %18, label %80
 
-18:                                               ; preds = %_ZL15debuggerPresentv.exit.thread16, %_ZL15debuggerPresentv.exit.thread, %_ZL15debuggerPresentv.exit
+.sink.split:                                      ; preds = %4, %_ZL15debuggerPresentv.exit.thread16
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6)
+  br label %18
+
+18:                                               ; preds = %.sink.split, %_ZL15debuggerPresentv.exit
   store i8 0, ptr %7, align 8
   %19 = getelementptr inbounds i8, ptr %7, i64 23
   store i8 23, ptr %19, align 1

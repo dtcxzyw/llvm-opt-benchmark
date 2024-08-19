@@ -6287,7 +6287,7 @@ define void @_ZN5uu_tr9operation8Sequence20solve_set_characters17h8bba3e1e696b09
 39:                                               ; preds = %.body, %40
   %.pn220 = phi { ptr, i32 } [ %41, %40 ], [ %.pn.pn, %.body ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$uu_tr..operation..Sequence$GT$$GT$17h52b19be259bafda3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22) #27
-          to label %163 unwind label %159
+          to label %162 unwind label %159
 
 40:                                               ; preds = %82, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h59fb679dd5c80e18E.exit.thread"
   %41 = landingpad { ptr, i32 }
@@ -6665,8 +6665,7 @@ _ZN4core3ops8function5FnMut8call_mut17h4a06fdf24d9155ddE.exit.i251: ; preds = %"
 
 "_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$uu_tr..operation..Sequence$GT$$GT$17h52b19be259bafda3E.exit290": ; preds = %150, %153, %157
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !1301
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22)
-  br label %162
+  br label %161
 
 159:                                              ; preds = %141, %.body, %39
   %160 = landingpad { ptr, i32 }
@@ -6674,14 +6673,11 @@ _ZN4core3ops8function5FnMut8call_mut17h4a06fdf24d9155ddE.exit.i251: ; preds = %"
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #28
   unreachable
 
-161:                                              ; preds = %"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$uu_tr..operation..Sequence$GT$$GT$17h52b19be259bafda3E.exit", %37
+161:                                              ; preds = %37, %"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$uu_tr..operation..Sequence$GT$$GT$17h52b19be259bafda3E.exit", %"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$uu_tr..operation..Sequence$GT$$GT$17h52b19be259bafda3E.exit290"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22)
-  br label %162
-
-162:                                              ; preds = %161, %"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$uu_tr..operation..Sequence$GT$$GT$17h52b19be259bafda3E.exit290"
   ret void
 
-163:                                              ; preds = %39
+162:                                              ; preds = %39
   resume { ptr, i32 } %.pn220
 }
 

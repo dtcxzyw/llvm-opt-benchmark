@@ -59520,16 +59520,14 @@ char_othercase.exit:                              ; preds = %381, %397
   %419 = load i32, ptr %418, align 4
   %420 = trunc i32 %419 to i8
   %421 = add i8 %292, %420
-  store i8 %421, ptr %6, align 1
-  br label %.split461
+  br label %.split461.sink.split
 
 422:                                              ; preds = %404
   %423 = load ptr, ptr %10, align 8
   %424 = zext i8 %292 to i64
   %425 = getelementptr inbounds i8, ptr %423, i64 %424
   %426 = load i8, ptr %425, align 1
-  store i8 %426, ptr %6, align 1
-  br label %.split461
+  br label %.split461.sink.split
 
 .split461.us:                                     ; preds = %289, %288
   store i8 0, ptr %6, align 1
@@ -59624,7 +59622,12 @@ add_prefix_char.exit332.us.us:                    ; preds = %437, %450, %446, %4
   %458 = icmp eq i32 %457, 0
   br i1 %458, label %.split463.us, label %.split.us.us
 
-.split461:                                        ; preds = %char_othercase.exit, %408, %422
+.split461.sink.split:                             ; preds = %422, %408
+  %.sink = phi i8 [ %421, %408 ], [ %426, %422 ]
+  store i8 %.sink, ptr %6, align 1
+  br label %.split461
+
+.split461:                                        ; preds = %.split461.sink.split, %char_othercase.exit
   %459 = zext nneg i32 %.1235 to i64
   %gep = getelementptr i8, ptr %invariant.gep, i64 %459
   br label %.split

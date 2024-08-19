@@ -90,19 +90,19 @@ define dso_local i32 @trackpoint_detect(ptr noundef %0, i1 noundef zeroext %1) l
 .thread:                                          ; preds = %9, %2
   %.ph = phi i32 [ %7, %2 ], [ -19, %9 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #7
-  br label %109
+  br label %104
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %4, i64 1
   %15 = load i8, ptr %14, align 1
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #7
-  br i1 %1, label %16, label %109
+  br i1 %1, label %16, label %104
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
   %18 = call noalias noundef align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %17, i32 noundef 3520, i64 noundef 16) #8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %109, label %20
+  br i1 %19, label %104, label %20
 
 20:                                               ; preds = %16
   %21 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_sensitivity, i64 11), align 1
@@ -169,102 +169,95 @@ define dso_local i32 @trackpoint_detect(ptr noundef %0, i1 noundef zeroext %1) l
   %62 = getelementptr inbounds i8, ptr %0, i64 448
   store ptr @trackpoint_disconnect, ptr %62, align 8
   %63 = icmp eq i8 %10, 1
-  br i1 %63, label %65, label %64
+  br i1 %63, label %64, label %.thread3.sink.split
 
 64:                                               ; preds = %20
-  store i8 51, ptr %5, align 1
-  br label %.thread3
-
-65:                                               ; preds = %20
   store i8 75, ptr %5, align 1
-  %66 = call i32 @ps2_command(ptr noundef %6, ptr noundef nonnull %5, i32 noundef 4578) #7
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %71, label %68
+  %65 = call i32 @ps2_command(ptr noundef %6, ptr noundef nonnull %5, i32 noundef 4578) #7
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %67, label %.thread3.sink.split.sink.split
 
-68:                                               ; preds = %65
-  %69 = load ptr, ptr %6, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 344
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %70, ptr noundef nonnull @.str.1) #9
+67:                                               ; preds = %64
+  %68 = load i8, ptr %5, align 1
+  %69 = icmp eq i8 %68, 0
+  br i1 %69, label %.thread3.sink.split.sink.split, label %70
+
+70:                                               ; preds = %67
+  %71 = and i8 %68, 15
+  %72 = icmp ugt i8 %71, 2
+  br i1 %72, label %.thread3, label %77
+
+.thread3.sink.split.sink.split:                   ; preds = %67, %64
+  %.str.2.sink = phi ptr [ @.str.1, %64 ], [ @.str.2, %67 ]
+  %73 = load ptr, ptr %6, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 344
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %74, ptr noundef nonnull %.str.2.sink) #9
+  br label %.thread3.sink.split
+
+.thread3.sink.split:                              ; preds = %.thread3.sink.split.sink.split, %20
   store i8 51, ptr %5, align 1
   br label %.thread3
 
-71:                                               ; preds = %65
-  %72 = load i8, ptr %5, align 1
-  %73 = icmp eq i8 %72, 0
-  br i1 %73, label %74, label %77
+.thread3:                                         ; preds = %.thread3.sink.split, %70
+  %75 = getelementptr inbounds i8, ptr %0, i64 8
+  %76 = load ptr, ptr %75, align 8
+  call void @input_set_capability(ptr noundef %76, i32 noundef 1, i32 noundef 274) #7
+  br label %77
 
-74:                                               ; preds = %71
-  %75 = load ptr, ptr %6, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 344
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %76, ptr noundef nonnull @.str.2) #9
-  store i8 51, ptr %5, align 1
-  br label %.thread3
+77:                                               ; preds = %.thread3, %70
+  %78 = getelementptr inbounds i8, ptr %0, i64 8
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 32
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %80, i64 0) #7, !srcloc !5
+  %81 = load ptr, ptr %78, align 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 32
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %82, i64 5) #7, !srcloc !5
+  br i1 %63, label %83, label %86
 
-77:                                               ; preds = %71
-  %78 = and i8 %72, 15
-  %79 = icmp ugt i8 %78, 2
-  br i1 %79, label %.thread3, label %82
+83:                                               ; preds = %77
+  %84 = call fastcc i32 @trackpoint_power_on_reset(ptr noundef %6)
+  %85 = icmp eq i32 %84, 0
+  br i1 %85, label %87, label %86
 
-.thread3:                                         ; preds = %64, %68, %74, %77
-  %80 = getelementptr inbounds i8, ptr %0, i64 8
-  %81 = load ptr, ptr %80, align 8
-  call void @input_set_capability(ptr noundef %81, i32 noundef 1, i32 noundef 274) #7
-  br label %82
-
-82:                                               ; preds = %.thread3, %77
-  %83 = getelementptr inbounds i8, ptr %0, i64 8
-  %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 32
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %85, i64 0) #7, !srcloc !5
-  %86 = load ptr, ptr %83, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 32
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %87, i64 5) #7, !srcloc !5
-  br i1 %63, label %88, label %91
-
-88:                                               ; preds = %82
-  %89 = call fastcc i32 @trackpoint_power_on_reset(ptr noundef %6)
-  %90 = icmp eq i32 %89, 0
-  br i1 %90, label %92, label %91
-
-91:                                               ; preds = %88, %82
+86:                                               ; preds = %83, %77
   call fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext false)
-  br label %92
+  br label %87
 
-92:                                               ; preds = %91, %88
-  %93 = load ptr, ptr %6, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 344
+87:                                               ; preds = %86, %83
+  %88 = load ptr, ptr %6, align 8
+  %89 = getelementptr inbounds i8, ptr %88, i64 344
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
   store ptr @trackpoint_attr_group, ptr %3, align 16
-  %95 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr null, ptr %95, align 8
-  %96 = call i32 @device_add_groups(ptr noundef %94, ptr noundef nonnull %3) #7
+  %90 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr null, ptr %90, align 8
+  %91 = call i32 @device_add_groups(ptr noundef %89, ptr noundef nonnull %3) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
-  %97 = icmp eq i32 %96, 0
-  %98 = load ptr, ptr %6, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 344
-  br i1 %97, label %102, label %100
+  %92 = icmp eq i32 %91, 0
+  %93 = load ptr, ptr %6, align 8
+  %94 = getelementptr inbounds i8, ptr %93, i64 344
+  br i1 %92, label %97, label %95
 
-100:                                              ; preds = %92
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %99, ptr noundef nonnull @.str.3, i32 noundef %96) #9
-  %101 = load ptr, ptr %0, align 8
-  call void @kfree(ptr noundef %101) #7
+95:                                               ; preds = %87
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %94, ptr noundef nonnull @.str.3, i32 noundef %91) #9
+  %96 = load ptr, ptr %0, align 8
+  call void @kfree(ptr noundef %96) #7
   store ptr null, ptr %0, align 8
-  br label %109
+  br label %104
 
-102:                                              ; preds = %92
-  %103 = load ptr, ptr %59, align 8
-  %104 = zext i8 %15 to i32
-  %105 = load i8, ptr %5, align 1
-  %106 = zext i8 %105 to i32
-  %107 = lshr i32 %106, 4
-  %108 = and i32 %106, 15
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %99, ptr noundef nonnull @.str.4, ptr noundef %103, i32 noundef %104, i32 noundef %107, i32 noundef %108) #9
-  br label %109
+97:                                               ; preds = %87
+  %98 = load ptr, ptr %59, align 8
+  %99 = zext i8 %15 to i32
+  %100 = load i8, ptr %5, align 1
+  %101 = zext i8 %100 to i32
+  %102 = lshr i32 %101, 4
+  %103 = and i32 %101, 15
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %94, ptr noundef nonnull @.str.4, ptr noundef %98, i32 noundef %99, i32 noundef %102, i32 noundef %103) #9
+  br label %104
 
-109:                                              ; preds = %.thread, %102, %100, %16, %13
-  %110 = phi i32 [ -1, %100 ], [ 0, %102 ], [ 0, %13 ], [ -12, %16 ], [ %.ph, %.thread ]
+104:                                              ; preds = %.thread, %97, %95, %16, %13
+  %105 = phi i32 [ -1, %95 ], [ 0, %97 ], [ 0, %13 ], [ -12, %16 ], [ %.ph, %.thread ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #7
-  ret i32 %110
+  ret i32 %105
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

@@ -1439,13 +1439,13 @@ define internal fastcc i32 @dissct_rsl_msg(ptr noundef %0, ptr noundef %1, ptr n
 
 13:                                               ; preds = %4
   %14 = tail call fastcc i32 @dissct_rsl_ipaccess_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7)
-  br label %573
+  br label %569
 
 15:                                               ; preds = %4
   %16 = and i8 %9, 127
   %17 = add i32 %3, 2
   store i32 %17, ptr %5, align 4
-  switch i8 %16, label %571 [
+  switch i8 %16, label %567 [
     i8 1, label %18
     i8 2, label %22
     i8 3, label %26
@@ -1479,75 +1479,70 @@ define internal fastcc i32 @dissct_rsl_msg(ptr noundef %0, ptr noundef %1, ptr n
     i8 38, label %324
     i8 39, label %329
     i8 40, label %343
-    i8 41, label %371
-    i8 42, label %428
-    i8 43, label %430
-    i8 44, label %433
-    i8 45, label %435
-    i8 46, label %444
-    i8 47, label %446
-    i8 48, label %458
-    i8 49, label %465
-    i8 50, label %467
-    i8 51, label %469
-    i8 52, label %471
-    i8 53, label %487
-    i8 54, label %493
-    i8 55, label %499
-    i8 56, label %512
-    i8 57, label %515
-    i8 58, label %523
-    i8 59, label %529
-    i8 60, label %535
-    i8 61, label %538
-    i8 62, label %541
-    i8 63, label %544
-    i8 65, label %557
-    i8 24, label %559
-    i8 127, label %564
-    i8 96, label %567
-    i8 97, label %567
-    i8 98, label %567
-    i8 72, label %567
-    i8 73, label %567
-    i8 74, label %567
-    i8 75, label %567
-    i8 76, label %567
-    i8 77, label %567
+    i8 41, label %367
+    i8 42, label %424
+    i8 43, label %426
+    i8 44, label %429
+    i8 45, label %431
+    i8 46, label %440
+    i8 47, label %442
+    i8 48, label %454
+    i8 49, label %461
+    i8 50, label %463
+    i8 51, label %465
+    i8 52, label %467
+    i8 53, label %483
+    i8 54, label %489
+    i8 55, label %495
+    i8 56, label %508
+    i8 57, label %511
+    i8 58, label %519
+    i8 59, label %525
+    i8 60, label %531
+    i8 61, label %534
+    i8 62, label %537
+    i8 63, label %540
+    i8 65, label %553
+    i8 24, label %555
+    i8 127, label %560
+    i8 96, label %563
+    i8 97, label %563
+    i8 98, label %563
+    i8 72, label %563
+    i8 73, label %563
+    i8 74, label %563
+    i8 75, label %563
+    i8 76, label %563
+    i8 77, label %563
   ]
 
 18:                                               ; preds = %15
   %19 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
   %20 = tail call fastcc i32 @dissect_rsl_ie_link_id(ptr noundef %0, ptr noundef %2, i32 noundef %19, i32 noundef 1)
   %21 = tail call fastcc i32 @dissect_rsl_ie_L3_inf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %20, i32 noundef 1, i32 noundef 2)
-  store i32 %21, ptr %5, align 4
-  br label %571
+  br label %.sink.split638
 
 22:                                               ; preds = %15
   %23 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
   %24 = tail call fastcc i32 @dissect_rsl_ie_link_id(ptr noundef %0, ptr noundef %2, i32 noundef %23, i32 noundef 1)
   %25 = tail call fastcc i32 @dissect_rsl_ie_L3_inf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %24, i32 noundef 1, i32 noundef 2)
-  store i32 %25, ptr %5, align 4
-  br label %571
+  br label %.sink.split638
 
 26:                                               ; preds = %15
   %27 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
   %28 = tail call fastcc i32 @dissect_rsl_ie_link_id(ptr noundef %0, ptr noundef %2, i32 noundef %27, i32 noundef 1)
   %29 = tail call fastcc i32 @dissect_rsl_ie_rlm_cause(ptr noundef %0, ptr noundef %2, i32 noundef %28)
-  store i32 %29, ptr %5, align 4
-  br label %571
+  br label %.sink.split638
 
 30:                                               ; preds = %15
   %31 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
   %32 = tail call fastcc i32 @dissect_rsl_ie_link_id(ptr noundef %0, ptr noundef %2, i32 noundef %31, i32 noundef 1)
-  store i32 %32, ptr %5, align 4
-  br label %571
+  br label %.sink.split638
 
 33:                                               ; preds = %15
   %34 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
   %35 = tail call fastcc i32 @dissect_rsl_ie_link_id(ptr noundef %0, ptr noundef %2, i32 noundef %34, i32 noundef 1)
-  store i32 %35, ptr %5, align 4
-  br label %571
+  br label %.sink.split638
 
 36:                                               ; preds = %15
   %37 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
@@ -1555,31 +1550,27 @@ define internal fastcc i32 @dissct_rsl_msg(ptr noundef %0, ptr noundef %1, ptr n
   store i32 %38, ptr %5, align 4
   %39 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %38) #5
   %40 = icmp sgt i32 %39, 1
-  br i1 %40, label %41, label %571
+  br i1 %40, label %41, label %567
 
 41:                                               ; preds = %36
   %42 = tail call fastcc i32 @dissect_rsl_ie_L3_inf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %38, i32 noundef 0, i32 noundef 2)
-  store i32 %42, ptr %5, align 4
-  br label %571
+  br label %.sink.split638
 
 43:                                               ; preds = %15
   %44 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
   %45 = tail call fastcc i32 @dissect_rsl_ie_link_id(ptr noundef %0, ptr noundef %2, i32 noundef %44, i32 noundef 1)
   %46 = tail call fastcc i32 @dissect_rsl_ie_rel_mode(ptr noundef %0, ptr noundef %2, i32 noundef %45)
-  store i32 %46, ptr %5, align 4
-  br label %571
+  br label %.sink.split638
 
 47:                                               ; preds = %15
   %48 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
   %49 = tail call fastcc i32 @dissect_rsl_ie_link_id(ptr noundef %0, ptr noundef %2, i32 noundef %48, i32 noundef 1)
-  store i32 %49, ptr %5, align 4
-  br label %571
+  br label %.sink.split638
 
 50:                                               ; preds = %15
   %51 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
   %52 = tail call fastcc i32 @dissect_rsl_ie_link_id(ptr noundef %0, ptr noundef %2, i32 noundef %51, i32 noundef 1)
-  store i32 %52, ptr %5, align 4
-  br label %571
+  br label %.sink.split638
 
 53:                                               ; preds = %15
   %54 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
@@ -1587,19 +1578,17 @@ define internal fastcc i32 @dissct_rsl_msg(ptr noundef %0, ptr noundef %1, ptr n
   store i32 %55, ptr %5, align 4
   %56 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %55) #5
   %57 = icmp sgt i32 %56, 0
-  br i1 %57, label %58, label %571
+  br i1 %57, label %58, label %567
 
 58:                                               ; preds = %53
   %59 = tail call fastcc i32 @dissect_rsl_ie_L3_inf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %55, i32 noundef 0, i32 noundef 2)
-  store i32 %59, ptr %5, align 4
-  br label %571
+  br label %.sink.split638
 
 60:                                               ; preds = %15
   %61 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
   %62 = tail call fastcc i32 @dissect_rsl_ie_link_id(ptr noundef %0, ptr noundef %2, i32 noundef %61, i32 noundef 1)
   %63 = tail call fastcc i32 @dissect_rsl_ie_L3_inf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %62, i32 noundef 1, i32 noundef 2)
-  store i32 %63, ptr %5, align 4
-  br label %571
+  br label %.sink.split638
 
 64:                                               ; preds = %15
   %65 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
@@ -1619,12 +1608,11 @@ define internal fastcc i32 @dissct_rsl_msg(ptr noundef %0, ptr noundef %1, ptr n
   %72 = phi i32 [ %70, %69 ], [ %66, %64 ]
   %73 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %72) #5
   %74 = icmp sgt i32 %73, 0
-  br i1 %74, label %75, label %571
+  br i1 %74, label %75, label %567
 
 75:                                               ; preds = %71
   %76 = tail call fastcc i32 @dissect_rsl_ie_starting_time(ptr noundef %0, ptr noundef %2, i32 noundef %72)
-  store i32 %76, ptr %5, align 4
-  br label %571
+  br label %.sink.split638
 
 77:                                               ; preds = %15
   %78 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
@@ -1632,12 +1620,11 @@ define internal fastcc i32 @dissct_rsl_msg(ptr noundef %0, ptr noundef %1, ptr n
   store i32 %79, ptr %5, align 4
   %80 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %79) #5
   %81 = icmp sgt i32 %80, 0
-  br i1 %81, label %82, label %571
+  br i1 %81, label %82, label %567
 
 82:                                               ; preds = %77
   %83 = tail call fastcc i32 @dissect_rsl_ie_paging_load(ptr noundef %0, ptr noundef %2, i32 noundef %79)
-  store i32 %83, ptr %5, align 4
-  br label %571
+  br label %.sink.split638
 
 84:                                               ; preds = %15
   %85 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
@@ -1646,18 +1633,16 @@ define internal fastcc i32 @dissct_rsl_msg(ptr noundef %0, ptr noundef %1, ptr n
   store i32 %87, ptr %5, align 4
   %88 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %87) #5
   %89 = icmp sgt i32 %88, 0
-  br i1 %89, label %90, label %571
+  br i1 %89, label %90, label %567
 
 90:                                               ; preds = %84
   %91 = tail call fastcc i32 @dissect_rsl_ie_phy_ctx(ptr noundef %0, ptr noundef %2, i32 noundef %87)
-  store i32 %91, ptr %5, align 4
-  br label %571
+  br label %.sink.split638
 
 92:                                               ; preds = %15
   %93 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
   %94 = tail call fastcc i32 @dissect_rsl_ie_full_imm_ass_inf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %93)
-  store i32 %94, ptr %5, align 4
-  br label %571
+  br label %.sink.split638
 
 95:                                               ; preds = %15
   %96 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
@@ -1677,18 +1662,16 @@ define internal fastcc i32 @dissct_rsl_msg(ptr noundef %0, ptr noundef %1, ptr n
   %104 = phi i32 [ %102, %101 ], [ %98, %95 ]
   %105 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %104) #5
   %106 = icmp sgt i32 %105, 0
-  br i1 %106, label %107, label %571
+  br i1 %106, label %107, label %567
 
 107:                                              ; preds = %103
   %108 = tail call fastcc i32 @dissect_rsl_ie_emlpp_prio(ptr noundef %0, ptr noundef %2, i32 noundef %104)
-  store i32 %108, ptr %5, align 4
-  br label %571
+  br label %.sink.split638
 
 109:                                              ; preds = %15
   %110 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
   %111 = tail call fastcc i32 @dissect_rsl_ie_full_imm_ass_inf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %110)
-  store i32 %111, ptr %5, align 4
-  br label %571
+  br label %.sink.split638
 
 112:                                              ; preds = %15
   %113 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
@@ -1696,17 +1679,15 @@ define internal fastcc i32 @dissct_rsl_msg(ptr noundef %0, ptr noundef %1, ptr n
   store i32 %114, ptr %5, align 4
   %115 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %114) #5
   %116 = icmp sgt i32 %115, 0
-  br i1 %116, label %117, label %571
+  br i1 %116, label %117, label %567
 
 117:                                              ; preds = %112
   %118 = tail call fastcc i32 @dissect_rsl_ie_smscb_ch_ind(ptr noundef %0, ptr noundef %2, i32 noundef %114)
-  store i32 %118, ptr %5, align 4
-  br label %571
+  br label %.sink.split638
 
 119:                                              ; preds = %15
   %120 = tail call fastcc i32 @dissect_rsl_ie_resource_inf(ptr noundef %0, ptr noundef %2, i32 noundef %17)
-  store i32 %120, ptr %5, align 4
-  br label %571
+  br label %.sink.split638
 
 121:                                              ; preds = %15
   %122 = call fastcc i32 @dissect_rsl_ie_sys_info_type(ptr noundef %0, ptr noundef %2, i32 noundef %17, ptr noundef nonnull %6)
@@ -1727,17 +1708,15 @@ define internal fastcc i32 @dissct_rsl_msg(ptr noundef %0, ptr noundef %1, ptr n
   %131 = phi i32 [ %129, %125 ], [ %122, %121 ]
   %132 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %131) #5
   %133 = icmp sgt i32 %132, 0
-  br i1 %133, label %134, label %571
+  br i1 %133, label %134, label %567
 
 134:                                              ; preds = %130
   %135 = tail call fastcc i32 @dissect_rsl_ie_starting_time(ptr noundef %0, ptr noundef %2, i32 noundef %131)
-  store i32 %135, ptr %5, align 4
-  br label %571
+  br label %.sink.split638
 
 136:                                              ; preds = %15
   %137 = tail call fastcc i32 @dissect_rsl_ie_cause(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
-  store i32 %137, ptr %5, align 4
-  br label %571
+  br label %.sink.split638
 
 138:                                              ; preds = %15
   %139 = tail call fastcc i32 @dissect_rsl_ie_cause(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
@@ -1777,12 +1756,11 @@ define internal fastcc i32 @dissct_rsl_msg(ptr noundef %0, ptr noundef %1, ptr n
   %157 = phi i32 [ %155, %154 ], [ %151, %150 ]
   %158 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %157) #5
   %159 = icmp sgt i32 %158, 0
-  br i1 %159, label %160, label %571
+  br i1 %159, label %160, label %567
 
 160:                                              ; preds = %156
   %161 = tail call fastcc i32 @dissect_rsl_ie_err_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %157)
-  store i32 %161, ptr %5, align 4
-  br label %571
+  br label %.sink.split638
 
 162:                                              ; preds = %15
   %163 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
@@ -1791,12 +1769,11 @@ define internal fastcc i32 @dissct_rsl_msg(ptr noundef %0, ptr noundef %1, ptr n
   store i32 %165, ptr %5, align 4
   %166 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %165) #5
   %167 = icmp sgt i32 %166, 0
-  br i1 %167, label %168, label %571
+  br i1 %167, label %168, label %567
 
 168:                                              ; preds = %162
   %169 = tail call fastcc i32 @dissect_rsl_ie_smscb_ch_ind(ptr noundef %0, ptr noundef %2, i32 noundef %165)
-  store i32 %169, ptr %5, align 4
-  br label %571
+  br label %.sink.split638
 
 170:                                              ; preds = %15
   %171 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
@@ -1804,12 +1781,11 @@ define internal fastcc i32 @dissct_rsl_msg(ptr noundef %0, ptr noundef %1, ptr n
   store i32 %172, ptr %5, align 4
   %173 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %172) #5
   %174 = icmp sgt i32 %173, 0
-  br i1 %174, label %175, label %571
+  br i1 %174, label %175, label %567
 
 175:                                              ; preds = %170
   %176 = tail call fastcc i32 @dissect_rsl_ie_smscb_ch_ind(ptr noundef %0, ptr noundef %2, i32 noundef %172)
-  store i32 %176, ptr %5, align 4
-  br label %571
+  br label %.sink.split638
 
 177:                                              ; preds = %15
   %178 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
@@ -1839,12 +1815,11 @@ define internal fastcc i32 @dissct_rsl_msg(ptr noundef %0, ptr noundef %1, ptr n
   %191 = phi i32 [ %189, %188 ], [ %185, %184 ]
   %192 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %191) #5
   %193 = icmp sgt i32 %192, 0
-  br i1 %193, label %194, label %571
+  br i1 %193, label %194, label %567
 
 194:                                              ; preds = %190
   %195 = tail call fastcc i32 @dissect_rsl_ie_nch_drx(ptr noundef %0, ptr noundef %2, i32 noundef %191)
-  store i32 %195, ptr %5, align 4
-  br label %571
+  br label %.sink.split638
 
 196:                                              ; preds = %15
   %197 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
@@ -2028,7 +2003,7 @@ define internal fastcc i32 @dissct_rsl_msg(ptr noundef %0, ptr noundef %1, ptr n
   %294 = phi i32 [ %292, %291 ], [ %288, %287 ]
   %295 = load i32, ptr @global_rsl_use_osmo_bts, align 4
   %.not636 = icmp eq i32 %295, 0
-  br i1 %.not636, label %571, label %296
+  br i1 %.not636, label %567, label %296
 
 296:                                              ; preds = %293
   %297 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %294) #5
@@ -2055,43 +2030,37 @@ define internal fastcc i32 @dissct_rsl_msg(ptr noundef %0, ptr noundef %1, ptr n
   %308 = phi i32 [ %306, %305 ], [ %302, %301 ]
   %309 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %308) #5
   %310 = icmp sgt i32 %309, 0
-  br i1 %310, label %311, label %571
+  br i1 %310, label %311, label %567
 
 311:                                              ; preds = %307
   %312 = tail call fastcc i32 @dissect_rsl_ie_osmo_training_seq(ptr noundef %0, ptr noundef %2, i32 noundef %308)
-  store i32 %312, ptr %5, align 4
-  br label %571
+  br label %.sink.split638
 
 313:                                              ; preds = %15
   %314 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
   %315 = tail call fastcc i32 @dissect_rsl_ie_frame_no(ptr noundef %0, ptr noundef %2, i32 noundef %314, i32 noundef 1)
-  store i32 %315, ptr %5, align 4
-  br label %571
+  br label %.sink.split638
 
 316:                                              ; preds = %15
   %317 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
   %318 = tail call fastcc i32 @dissect_rsl_ie_cause(ptr noundef %0, ptr noundef %2, i32 noundef %317, i32 noundef 1)
-  store i32 %318, ptr %5, align 4
-  br label %571
+  br label %.sink.split638
 
 319:                                              ; preds = %15
   %320 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
   %321 = tail call fastcc i32 @dissect_rsl_ie_cause(ptr noundef %0, ptr noundef %2, i32 noundef %320, i32 noundef 1)
-  store i32 %321, ptr %5, align 4
-  br label %571
+  br label %.sink.split638
 
 322:                                              ; preds = %15
   %323 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
-  store i32 %323, ptr %5, align 4
-  br label %571
+  br label %.sink.split638
 
 324:                                              ; preds = %15
   %325 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
   %326 = tail call fastcc i32 @dissect_rsl_ie_enc_inf(ptr noundef %0, ptr noundef %2, i32 noundef %325, i32 noundef 1)
   %327 = tail call fastcc i32 @dissect_rsl_ie_link_id(ptr noundef %0, ptr noundef %2, i32 noundef %326, i32 noundef 1)
   %328 = tail call fastcc i32 @dissect_rsl_ie_L3_inf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %327, i32 noundef 1, i32 noundef 2)
-  store i32 %328, ptr %5, align 4
-  br label %571
+  br label %.sink.split638
 
 329:                                              ; preds = %15
   %330 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
@@ -2109,17 +2078,16 @@ define internal fastcc i32 @dissct_rsl_msg(ptr noundef %0, ptr noundef %1, ptr n
   %336 = phi i32 [ %334, %333 ], [ %330, %329 ]
   %337 = load i32, ptr @global_rsl_use_osmo_bts, align 4
   %.not635 = icmp eq i32 %337, 0
-  br i1 %.not635, label %571, label %338
+  br i1 %.not635, label %567, label %338
 
 338:                                              ; preds = %335
   %339 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %336) #5
   %340 = icmp sgt i32 %339, 0
-  br i1 %340, label %341, label %571
+  br i1 %340, label %341, label %567
 
 341:                                              ; preds = %338
   %342 = tail call fastcc i32 @dissect_rsl_ie_osmo_training_seq(ptr noundef %0, ptr noundef %2, i32 noundef %336)
-  store i32 %342, ptr %5, align 4
-  br label %571
+  br label %.sink.split638
 
 343:                                              ; preds = %15
   %344 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
@@ -2140,426 +2108,396 @@ define internal fastcc i32 @dissct_rsl_msg(ptr noundef %0, ptr noundef %1, ptr n
   %353 = phi i32 [ %351, %350 ], [ %347, %343 ]
   %354 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %353) #5
   %355 = icmp sgt i32 %354, 3
-  br i1 %355, label %356, label %365
+  br i1 %355, label %.sink.split, label %361
 
-356:                                              ; preds = %352
-  %357 = add i32 %353, 3
-  %358 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %357) #5
-  %359 = and i8 %358, -2
-  %360 = icmp eq i8 %359, 16
-  br i1 %360, label %361, label %363
+.sink.split:                                      ; preds = %352
+  %356 = add i32 %353, 3
+  %357 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %356) #5
+  %358 = and i8 %357, -2
+  %359 = icmp eq i8 %358, 16
+  %. = select i1 %359, i32 1, i32 2
+  %360 = tail call fastcc i32 @dissect_rsl_ie_L3_inf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %353, i32 noundef 0, i32 noundef %.)
+  store i32 %360, ptr %5, align 4
+  br label %361
 
-361:                                              ; preds = %356
-  %362 = tail call fastcc i32 @dissect_rsl_ie_L3_inf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %353, i32 noundef 0, i32 noundef 1)
-  store i32 %362, ptr %5, align 4
-  br label %365
+361:                                              ; preds = %.sink.split, %352
+  %362 = phi i32 [ %353, %352 ], [ %360, %.sink.split ]
+  %363 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %362) #5
+  %364 = icmp sgt i32 %363, 0
+  br i1 %364, label %365, label %567
 
-363:                                              ; preds = %356
-  %364 = tail call fastcc i32 @dissect_rsl_ie_L3_inf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %353, i32 noundef 0, i32 noundef 2)
-  store i32 %364, ptr %5, align 4
-  br label %365
+365:                                              ; preds = %361
+  %366 = tail call fastcc i32 @dissect_rsl_ie_ms_timing_offset(ptr noundef %0, ptr noundef %2, i32 noundef %362)
+  br label %.sink.split638
 
-365:                                              ; preds = %361, %363, %352
-  %366 = phi i32 [ %362, %361 ], [ %364, %363 ], [ %353, %352 ]
-  %367 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %366) #5
-  %368 = icmp sgt i32 %367, 0
-  br i1 %368, label %369, label %571
+367:                                              ; preds = %15
+  %368 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
+  %369 = tail call fastcc i32 @dissect_rsl_ie_ch_mode(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %368)
+  store i32 %369, ptr %5, align 4
+  %370 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %369) #5
+  %371 = icmp sgt i32 %370, 0
+  br i1 %371, label %372, label %374
 
-369:                                              ; preds = %365
-  %370 = tail call fastcc i32 @dissect_rsl_ie_ms_timing_offset(ptr noundef %0, ptr noundef %2, i32 noundef %366)
-  store i32 %370, ptr %5, align 4
-  br label %571
-
-371:                                              ; preds = %15
-  %372 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
-  %373 = tail call fastcc i32 @dissect_rsl_ie_ch_mode(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %372)
+372:                                              ; preds = %367
+  %373 = tail call fastcc i32 @dissect_rsl_ie_enc_inf(ptr noundef %0, ptr noundef %2, i32 noundef %369, i32 noundef 0)
   store i32 %373, ptr %5, align 4
-  %374 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %373) #5
-  %375 = icmp sgt i32 %374, 0
-  br i1 %375, label %376, label %378
+  br label %374
 
-376:                                              ; preds = %371
-  %377 = tail call fastcc i32 @dissect_rsl_ie_enc_inf(ptr noundef %0, ptr noundef %2, i32 noundef %373, i32 noundef 0)
-  store i32 %377, ptr %5, align 4
-  br label %378
+374:                                              ; preds = %372, %367
+  %375 = phi i32 [ %373, %372 ], [ %369, %367 ]
+  %376 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %375) #5
+  %377 = icmp sgt i32 %376, 0
+  br i1 %377, label %378, label %380
 
-378:                                              ; preds = %376, %371
-  %379 = phi i32 [ %377, %376 ], [ %373, %371 ]
-  %380 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %379) #5
-  %381 = icmp sgt i32 %380, 0
-  br i1 %381, label %382, label %384
+378:                                              ; preds = %374
+  %379 = tail call fastcc i32 @dissect_rsl_ie_main_ch_ref(ptr noundef %0, ptr noundef %2, i32 noundef %375)
+  store i32 %379, ptr %5, align 4
+  br label %380
 
-382:                                              ; preds = %378
-  %383 = tail call fastcc i32 @dissect_rsl_ie_main_ch_ref(ptr noundef %0, ptr noundef %2, i32 noundef %379)
-  store i32 %383, ptr %5, align 4
-  br label %384
+380:                                              ; preds = %378, %374
+  %381 = phi i32 [ %379, %378 ], [ %375, %374 ]
+  %382 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %381) #5
+  %383 = icmp sgt i32 %382, 0
+  br i1 %383, label %384, label %386
 
-384:                                              ; preds = %382, %378
-  %385 = phi i32 [ %383, %382 ], [ %379, %378 ]
-  %386 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %385) #5
-  %387 = icmp sgt i32 %386, 0
-  br i1 %387, label %388, label %390
+384:                                              ; preds = %380
+  %385 = tail call fastcc i32 @dissect_rsl_ie_multirate_conf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %381, i32 noundef 0)
+  store i32 %385, ptr %5, align 4
+  br label %386
 
-388:                                              ; preds = %384
-  %389 = tail call fastcc i32 @dissect_rsl_ie_multirate_conf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %385, i32 noundef 0)
-  store i32 %389, ptr %5, align 4
-  br label %390
+386:                                              ; preds = %384, %380
+  %387 = phi i32 [ %385, %384 ], [ %381, %380 ]
+  %388 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %387) #5
+  %389 = icmp sgt i32 %388, 0
+  br i1 %389, label %390, label %392
 
-390:                                              ; preds = %388, %384
-  %391 = phi i32 [ %389, %388 ], [ %385, %384 ]
-  %392 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %391) #5
-  %393 = icmp sgt i32 %392, 0
-  br i1 %393, label %394, label %396
+390:                                              ; preds = %386
+  %391 = tail call fastcc i32 @dissect_rsl_ie_multirate_cntrl(ptr noundef %0, ptr noundef %2, i32 noundef %387, i32 noundef 0)
+  store i32 %391, ptr %5, align 4
+  br label %392
 
-394:                                              ; preds = %390
-  %395 = tail call fastcc i32 @dissect_rsl_ie_multirate_cntrl(ptr noundef %0, ptr noundef %2, i32 noundef %391, i32 noundef 0)
-  store i32 %395, ptr %5, align 4
-  br label %396
+392:                                              ; preds = %390, %386
+  %393 = phi i32 [ %391, %390 ], [ %387, %386 ]
+  %394 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %393) #5
+  %395 = icmp sgt i32 %394, 0
+  br i1 %395, label %396, label %398
 
-396:                                              ; preds = %394, %390
-  %397 = phi i32 [ %395, %394 ], [ %391, %390 ]
-  %398 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %397) #5
-  %399 = icmp sgt i32 %398, 0
-  br i1 %399, label %400, label %402
+396:                                              ; preds = %392
+  %397 = tail call fastcc i32 @dissect_rsl_ie_sup_codec_types(ptr noundef %0, ptr noundef %2, i32 noundef %393)
+  store i32 %397, ptr %5, align 4
+  br label %398
 
-400:                                              ; preds = %396
-  %401 = tail call fastcc i32 @dissect_rsl_ie_sup_codec_types(ptr noundef %0, ptr noundef %2, i32 noundef %397)
-  store i32 %401, ptr %5, align 4
-  br label %402
+398:                                              ; preds = %396, %392
+  %399 = phi i32 [ %397, %396 ], [ %393, %392 ]
+  %400 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %399) #5
+  %401 = icmp sgt i32 %400, 0
+  br i1 %401, label %402, label %404
 
-402:                                              ; preds = %400, %396
-  %403 = phi i32 [ %401, %400 ], [ %397, %396 ]
-  %404 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %403) #5
-  %405 = icmp sgt i32 %404, 0
-  br i1 %405, label %406, label %408
+402:                                              ; preds = %398
+  %403 = tail call fastcc i32 @dissect_rsl_ie_tfo_transp_cont(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %399)
+  store i32 %403, ptr %5, align 4
+  br label %404
 
-406:                                              ; preds = %402
-  %407 = tail call fastcc i32 @dissect_rsl_ie_tfo_transp_cont(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %403)
-  store i32 %407, ptr %5, align 4
-  br label %408
+404:                                              ; preds = %402, %398
+  %405 = phi i32 [ %403, %402 ], [ %399, %398 ]
+  %406 = load i32, ptr @global_rsl_use_osmo_bts, align 4
+  %.not634 = icmp eq i32 %406, 0
+  br i1 %.not634, label %567, label %407
 
-408:                                              ; preds = %406, %402
-  %409 = phi i32 [ %407, %406 ], [ %403, %402 ]
-  %410 = load i32, ptr @global_rsl_use_osmo_bts, align 4
-  %.not634 = icmp eq i32 %410, 0
-  br i1 %.not634, label %571, label %411
+407:                                              ; preds = %404
+  %408 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %405) #5
+  %409 = icmp sgt i32 %408, 0
+  br i1 %409, label %410, label %412
 
-411:                                              ; preds = %408
-  %412 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %409) #5
-  %413 = icmp sgt i32 %412, 0
-  br i1 %413, label %414, label %416
+410:                                              ; preds = %407
+  %411 = tail call fastcc i32 @dissect_rsl_ie_osmo_rep_acch_cap(ptr noundef %0, ptr noundef %2, i32 noundef %405)
+  store i32 %411, ptr %5, align 4
+  br label %412
 
-414:                                              ; preds = %411
-  %415 = tail call fastcc i32 @dissect_rsl_ie_osmo_rep_acch_cap(ptr noundef %0, ptr noundef %2, i32 noundef %409)
-  store i32 %415, ptr %5, align 4
-  br label %416
+412:                                              ; preds = %410, %407
+  %413 = phi i32 [ %411, %410 ], [ %405, %407 ]
+  %414 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %413) #5
+  %415 = icmp sgt i32 %414, 0
+  br i1 %415, label %416, label %418
 
-416:                                              ; preds = %414, %411
-  %417 = phi i32 [ %415, %414 ], [ %409, %411 ]
-  %418 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %417) #5
-  %419 = icmp sgt i32 %418, 0
-  br i1 %419, label %420, label %422
+416:                                              ; preds = %412
+  %417 = tail call fastcc i32 @dissect_rsl_ie_osmo_top_acch_cap(ptr noundef %0, ptr noundef %2, i32 noundef %413)
+  store i32 %417, ptr %5, align 4
+  br label %418
 
-420:                                              ; preds = %416
-  %421 = tail call fastcc i32 @dissect_rsl_ie_osmo_top_acch_cap(ptr noundef %0, ptr noundef %2, i32 noundef %417)
-  store i32 %421, ptr %5, align 4
-  br label %422
+418:                                              ; preds = %416, %412
+  %419 = phi i32 [ %417, %416 ], [ %413, %412 ]
+  %420 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %419) #5
+  %421 = icmp sgt i32 %420, 0
+  br i1 %421, label %422, label %567
 
-422:                                              ; preds = %420, %416
-  %423 = phi i32 [ %421, %420 ], [ %417, %416 ]
-  %424 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %423) #5
-  %425 = icmp sgt i32 %424, 0
-  br i1 %425, label %426, label %571
+422:                                              ; preds = %418
+  %423 = tail call fastcc i32 @dissect_rsl_ie_osmo_training_seq(ptr noundef %0, ptr noundef %2, i32 noundef %419)
+  br label %.sink.split638
 
-426:                                              ; preds = %422
-  %427 = tail call fastcc i32 @dissect_rsl_ie_osmo_training_seq(ptr noundef %0, ptr noundef %2, i32 noundef %423)
-  store i32 %427, ptr %5, align 4
-  br label %571
+424:                                              ; preds = %15
+  %425 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
+  br label %.sink.split638
 
-428:                                              ; preds = %15
-  %429 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
-  store i32 %429, ptr %5, align 4
-  br label %571
+426:                                              ; preds = %15
+  %427 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
+  %428 = tail call fastcc i32 @dissect_rsl_ie_cause(ptr noundef %0, ptr noundef %2, i32 noundef %427, i32 noundef 1)
+  br label %.sink.split638
 
-430:                                              ; preds = %15
-  %431 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
-  %432 = tail call fastcc i32 @dissect_rsl_ie_cause(ptr noundef %0, ptr noundef %2, i32 noundef %431, i32 noundef 1)
-  store i32 %432, ptr %5, align 4
-  br label %571
+429:                                              ; preds = %15
+  %430 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
+  br label %.sink.split638
 
-433:                                              ; preds = %15
-  %434 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
-  store i32 %434, ptr %5, align 4
-  br label %571
+431:                                              ; preds = %15
+  %432 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
+  %433 = tail call fastcc i32 @dissect_rsl_ie_bs_power(ptr noundef %0, ptr noundef %2, i32 noundef %432, i32 noundef 1)
+  %434 = tail call fastcc i32 @dissect_rsl_ie_ms_pow(ptr noundef %0, ptr noundef %2, i32 noundef %433, i32 noundef 1)
+  %435 = tail call fastcc i32 @dissect_rsl_ie_timing_adv(ptr noundef %0, ptr noundef %2, i32 noundef %434, i32 noundef 1)
+  store i32 %435, ptr %5, align 4
+  %436 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %435) #5
+  %437 = icmp sgt i32 %436, 0
+  br i1 %437, label %438, label %567
 
-435:                                              ; preds = %15
-  %436 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
-  %437 = tail call fastcc i32 @dissect_rsl_ie_bs_power(ptr noundef %0, ptr noundef %2, i32 noundef %436, i32 noundef 1)
-  %438 = tail call fastcc i32 @dissect_rsl_ie_ms_pow(ptr noundef %0, ptr noundef %2, i32 noundef %437, i32 noundef 1)
-  %439 = tail call fastcc i32 @dissect_rsl_ie_timing_adv(ptr noundef %0, ptr noundef %2, i32 noundef %438, i32 noundef 1)
-  store i32 %439, ptr %5, align 4
-  %440 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %439) #5
-  %441 = icmp sgt i32 %440, 0
-  br i1 %441, label %442, label %571
+438:                                              ; preds = %431
+  %439 = tail call fastcc i32 @dissect_rsl_ie_phy_ctx(ptr noundef %0, ptr noundef %2, i32 noundef %435)
+  br label %.sink.split638
 
-442:                                              ; preds = %435
-  %443 = tail call fastcc i32 @dissect_rsl_ie_phy_ctx(ptr noundef %0, ptr noundef %2, i32 noundef %439)
+440:                                              ; preds = %15
+  %441 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
+  br label %.sink.split638
+
+442:                                              ; preds = %15
+  %443 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
   store i32 %443, ptr %5, align 4
-  br label %571
+  %444 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %443) #5
+  %445 = icmp sgt i32 %444, 0
+  br i1 %445, label %446, label %448
 
-444:                                              ; preds = %15
-  %445 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
-  store i32 %445, ptr %5, align 4
-  br label %571
-
-446:                                              ; preds = %15
-  %447 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
+446:                                              ; preds = %442
+  %447 = tail call fastcc i32 @dissect_rsl_ie_ms_pow(ptr noundef %0, ptr noundef %2, i32 noundef %443, i32 noundef 0)
   store i32 %447, ptr %5, align 4
-  %448 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %447) #5
-  %449 = icmp sgt i32 %448, 0
-  br i1 %449, label %450, label %452
+  br label %448
 
-450:                                              ; preds = %446
-  %451 = tail call fastcc i32 @dissect_rsl_ie_ms_pow(ptr noundef %0, ptr noundef %2, i32 noundef %447, i32 noundef 0)
-  store i32 %451, ptr %5, align 4
-  br label %452
+448:                                              ; preds = %446, %442
+  %449 = phi i32 [ %447, %446 ], [ %443, %442 ]
+  %450 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %449) #5
+  %451 = icmp sgt i32 %450, 0
+  br i1 %451, label %452, label %567
 
-452:                                              ; preds = %450, %446
-  %453 = phi i32 [ %451, %450 ], [ %447, %446 ]
-  %454 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %453) #5
-  %455 = icmp sgt i32 %454, 0
-  br i1 %455, label %456, label %571
+452:                                              ; preds = %448
+  %453 = tail call fastcc i32 @dissect_rsl_ie_ms_pow_params(ptr noundef %0, ptr noundef %2, i32 noundef %449)
+  br label %.sink.split638
 
-456:                                              ; preds = %452
-  %457 = tail call fastcc i32 @dissect_rsl_ie_ms_pow_params(ptr noundef %0, ptr noundef %2, i32 noundef %453)
-  store i32 %457, ptr %5, align 4
-  br label %571
+454:                                              ; preds = %15
+  %455 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
+  %456 = tail call fastcc i32 @dissect_rsl_ie_bs_power(ptr noundef %0, ptr noundef %2, i32 noundef %455, i32 noundef 1)
+  store i32 %456, ptr %5, align 4
+  %457 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %456) #5
+  %458 = icmp sgt i32 %457, 0
+  br i1 %458, label %459, label %567
 
-458:                                              ; preds = %15
-  %459 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
-  %460 = tail call fastcc i32 @dissect_rsl_ie_bs_power(ptr noundef %0, ptr noundef %2, i32 noundef %459, i32 noundef 1)
-  store i32 %460, ptr %5, align 4
-  %461 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %460) #5
-  %462 = icmp sgt i32 %461, 0
-  br i1 %462, label %463, label %571
+459:                                              ; preds = %454
+  %460 = tail call fastcc i32 @dissect_rsl_ie_bs_power_params(ptr noundef %0, ptr noundef %2, i32 noundef %456)
+  br label %.sink.split638
 
-463:                                              ; preds = %458
-  %464 = tail call fastcc i32 @dissect_rsl_ie_bs_power_params(ptr noundef %0, ptr noundef %2, i32 noundef %460)
-  store i32 %464, ptr %5, align 4
-  br label %571
+461:                                              ; preds = %15
+  %462 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
+  br label %.sink.split638
+
+463:                                              ; preds = %15
+  %464 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
+  br label %.sink.split638
 
 465:                                              ; preds = %15
   %466 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
-  store i32 %466, ptr %5, align 4
-  br label %571
+  br label %.sink.split638
 
 467:                                              ; preds = %15
   %468 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
   store i32 %468, ptr %5, align 4
-  br label %571
+  %469 = call fastcc i32 @dissect_rsl_ie_sys_info_type(ptr noundef %0, ptr noundef %2, i32 noundef %468, ptr noundef nonnull %6)
+  store i32 %469, ptr %5, align 4
+  %470 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %469) #5
+  %471 = icmp sgt i32 %470, 0
+  br i1 %471, label %472, label %477
 
-469:                                              ; preds = %15
-  %470 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
-  store i32 %470, ptr %5, align 4
-  br label %571
+472:                                              ; preds = %467
+  %473 = load i8, ptr %6, align 1
+  %474 = icmp eq i8 %473, 72
+  %475 = zext i1 %474 to i32
+  %476 = tail call fastcc i32 @dissect_rsl_ie_L3_inf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %469, i32 noundef 0, i32 noundef %475)
+  store i32 %476, ptr %5, align 4
+  br label %477
 
-471:                                              ; preds = %15
-  %472 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
-  store i32 %472, ptr %5, align 4
-  %473 = call fastcc i32 @dissect_rsl_ie_sys_info_type(ptr noundef %0, ptr noundef %2, i32 noundef %472, ptr noundef nonnull %6)
-  store i32 %473, ptr %5, align 4
-  %474 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %473) #5
-  %475 = icmp sgt i32 %474, 0
-  br i1 %475, label %476, label %481
+477:                                              ; preds = %472, %467
+  %478 = phi i32 [ %476, %472 ], [ %469, %467 ]
+  %479 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %478) #5
+  %480 = icmp sgt i32 %479, 0
+  br i1 %480, label %481, label %567
 
-476:                                              ; preds = %471
-  %477 = load i8, ptr %6, align 1
-  %478 = icmp eq i8 %477, 72
-  %479 = zext i1 %478 to i32
-  %480 = tail call fastcc i32 @dissect_rsl_ie_L3_inf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %473, i32 noundef 0, i32 noundef %479)
-  store i32 %480, ptr %5, align 4
-  br label %481
+481:                                              ; preds = %477
+  %482 = tail call fastcc i32 @dissect_rsl_ie_starting_time(ptr noundef %0, ptr noundef %2, i32 noundef %478)
+  br label %.sink.split638
 
-481:                                              ; preds = %476, %471
-  %482 = phi i32 [ %480, %476 ], [ %473, %471 ]
-  %483 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %482) #5
-  %484 = icmp sgt i32 %483, 0
-  br i1 %484, label %485, label %571
+483:                                              ; preds = %15
+  %484 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
+  store i32 %484, ptr %5, align 4
+  %485 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %484) #5
+  %486 = icmp sgt i32 %485, 0
+  br i1 %486, label %487, label %567
 
-485:                                              ; preds = %481
-  %486 = tail call fastcc i32 @dissect_rsl_ie_starting_time(ptr noundef %0, ptr noundef %2, i32 noundef %482)
-  store i32 %486, ptr %5, align 4
-  br label %571
+487:                                              ; preds = %483
+  %488 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %484, i32 noundef 0)
+  br label %.sink.split638
 
-487:                                              ; preds = %15
-  %488 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
-  store i32 %488, ptr %5, align 4
-  %489 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %488) #5
-  %490 = icmp sgt i32 %489, 0
-  br i1 %490, label %491, label %571
+489:                                              ; preds = %15
+  %490 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
+  store i32 %490, ptr %5, align 4
+  %491 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %490) #5
+  %492 = icmp sgt i32 %491, 0
+  br i1 %492, label %493, label %567
 
-491:                                              ; preds = %487
-  %492 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %488, i32 noundef 0)
-  store i32 %492, ptr %5, align 4
-  br label %571
+493:                                              ; preds = %489
+  %494 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %490, i32 noundef 0)
+  br label %.sink.split638
 
-493:                                              ; preds = %15
-  %494 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
-  store i32 %494, ptr %5, align 4
-  %495 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %494) #5
-  %496 = icmp sgt i32 %495, 0
-  br i1 %496, label %497, label %571
+495:                                              ; preds = %15
+  %496 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
+  %497 = tail call fastcc i32 @dissect_rsl_ie_codec_conf(ptr noundef %0, ptr noundef %2, i32 noundef %496)
+  store i32 %497, ptr %5, align 4
+  %498 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %497) #5
+  %499 = icmp sgt i32 %498, 0
+  br i1 %499, label %500, label %502
 
-497:                                              ; preds = %493
-  %498 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %494, i32 noundef 0)
-  store i32 %498, ptr %5, align 4
-  br label %571
-
-499:                                              ; preds = %15
-  %500 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
-  %501 = tail call fastcc i32 @dissect_rsl_ie_codec_conf(ptr noundef %0, ptr noundef %2, i32 noundef %500)
+500:                                              ; preds = %495
+  %501 = tail call fastcc i32 @dissect_rsl_ie_sup_codec_types(ptr noundef %0, ptr noundef %2, i32 noundef %497)
   store i32 %501, ptr %5, align 4
-  %502 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %501) #5
-  %503 = icmp sgt i32 %502, 0
-  br i1 %503, label %504, label %506
+  br label %502
 
-504:                                              ; preds = %499
-  %505 = tail call fastcc i32 @dissect_rsl_ie_sup_codec_types(ptr noundef %0, ptr noundef %2, i32 noundef %501)
-  store i32 %505, ptr %5, align 4
-  br label %506
+502:                                              ; preds = %500, %495
+  %503 = phi i32 [ %501, %500 ], [ %497, %495 ]
+  %504 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %503) #5
+  %505 = icmp sgt i32 %504, 0
+  br i1 %505, label %506, label %567
 
-506:                                              ; preds = %504, %499
-  %507 = phi i32 [ %505, %504 ], [ %501, %499 ]
-  %508 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %507) #5
-  %509 = icmp sgt i32 %508, 0
-  br i1 %509, label %510, label %571
+506:                                              ; preds = %502
+  %507 = tail call fastcc i32 @dissect_rsl_ie_tfo_transp_cont(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %503)
+  br label %.sink.split638
 
-510:                                              ; preds = %506
-  %511 = tail call fastcc i32 @dissect_rsl_ie_tfo_transp_cont(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %507)
-  store i32 %511, ptr %5, align 4
-  br label %571
+508:                                              ; preds = %15
+  %509 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
+  %510 = tail call fastcc i32 @dissect_rsl_ie_rtd(ptr noundef %0, ptr noundef %2, i32 noundef %509)
+  br label %.sink.split638
 
-512:                                              ; preds = %15
-  %513 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
-  %514 = tail call fastcc i32 @dissect_rsl_ie_rtd(ptr noundef %0, ptr noundef %2, i32 noundef %513)
+511:                                              ; preds = %15
+  %512 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
+  %513 = tail call fastcc i32 @dissect_rsl_ie_multirate_cntrl(ptr noundef %0, ptr noundef %2, i32 noundef %512, i32 noundef 1)
+  %514 = tail call fastcc i32 @dissect_rsl_ie_codec_conf(ptr noundef %0, ptr noundef %2, i32 noundef %513)
   store i32 %514, ptr %5, align 4
-  br label %571
+  %515 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %514) #5
+  %516 = icmp sgt i32 %515, 0
+  br i1 %516, label %517, label %567
 
-515:                                              ; preds = %15
-  %516 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
-  %517 = tail call fastcc i32 @dissect_rsl_ie_multirate_cntrl(ptr noundef %0, ptr noundef %2, i32 noundef %516, i32 noundef 1)
-  %518 = tail call fastcc i32 @dissect_rsl_ie_codec_conf(ptr noundef %0, ptr noundef %2, i32 noundef %517)
-  store i32 %518, ptr %5, align 4
-  %519 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %518) #5
-  %520 = icmp sgt i32 %519, 0
-  br i1 %520, label %521, label %571
+517:                                              ; preds = %511
+  %518 = tail call fastcc i32 @dissect_rsl_ie_tfo_transp_cont(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %514)
+  br label %.sink.split638
 
-521:                                              ; preds = %515
-  %522 = tail call fastcc i32 @dissect_rsl_ie_tfo_transp_cont(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %518)
-  store i32 %522, ptr %5, align 4
-  br label %571
+519:                                              ; preds = %15
+  %520 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
+  store i32 %520, ptr %5, align 4
+  %521 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %520) #5
+  %522 = icmp sgt i32 %521, 0
+  br i1 %522, label %523, label %567
 
-523:                                              ; preds = %15
-  %524 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
-  store i32 %524, ptr %5, align 4
-  %525 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %524) #5
-  %526 = icmp sgt i32 %525, 0
-  br i1 %526, label %527, label %571
+523:                                              ; preds = %519
+  %524 = tail call fastcc i32 @dissect_rsl_ie_multirate_conf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %520, i32 noundef 0)
+  br label %.sink.split638
 
-527:                                              ; preds = %523
-  %528 = tail call fastcc i32 @dissect_rsl_ie_multirate_conf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %524, i32 noundef 0)
-  store i32 %528, ptr %5, align 4
-  br label %571
+525:                                              ; preds = %15
+  %526 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
+  store i32 %526, ptr %5, align 4
+  %527 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %526) #5
+  %528 = icmp sgt i32 %527, 0
+  br i1 %528, label %529, label %567
 
-529:                                              ; preds = %15
-  %530 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
-  store i32 %530, ptr %5, align 4
-  %531 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %530) #5
-  %532 = icmp sgt i32 %531, 0
-  br i1 %532, label %533, label %571
+529:                                              ; preds = %525
+  %530 = tail call fastcc i32 @dissect_rsl_ie_multirate_conf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %526, i32 noundef 0)
+  br label %.sink.split638
 
-533:                                              ; preds = %529
-  %534 = tail call fastcc i32 @dissect_rsl_ie_multirate_conf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %530, i32 noundef 0)
-  store i32 %534, ptr %5, align 4
-  br label %571
+531:                                              ; preds = %15
+  %532 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
+  %533 = tail call fastcc i32 @dissect_rsl_ie_cause(ptr noundef %0, ptr noundef %2, i32 noundef %532, i32 noundef 1)
+  br label %.sink.split638
 
-535:                                              ; preds = %15
-  %536 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
-  %537 = tail call fastcc i32 @dissect_rsl_ie_cause(ptr noundef %0, ptr noundef %2, i32 noundef %536, i32 noundef 1)
-  store i32 %537, ptr %5, align 4
-  br label %571
+534:                                              ; preds = %15
+  %535 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
+  %536 = tail call fastcc i32 @dissect_rsl_ie_multirate_conf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %535, i32 noundef 1)
+  br label %.sink.split638
 
-538:                                              ; preds = %15
-  %539 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
-  %540 = tail call fastcc i32 @dissect_rsl_ie_multirate_conf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %539, i32 noundef 1)
-  store i32 %540, ptr %5, align 4
-  br label %571
+537:                                              ; preds = %15
+  %538 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
+  %539 = tail call fastcc i32 @dissect_rsl_ie_tfo_status(ptr noundef %0, ptr noundef %2, i32 noundef %538)
+  br label %.sink.split638
 
-541:                                              ; preds = %15
-  %542 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
-  %543 = tail call fastcc i32 @dissect_rsl_ie_tfo_status(ptr noundef %0, ptr noundef %2, i32 noundef %542)
-  store i32 %543, ptr %5, align 4
-  br label %571
+540:                                              ; preds = %15
+  %541 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
+  %542 = tail call fastcc i32 @dissect_rsl_ie_multirate_cntrl(ptr noundef %0, ptr noundef %2, i32 noundef %541, i32 noundef 1)
+  store i32 %542, ptr %5, align 4
+  %543 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %542) #5
+  %544 = icmp sgt i32 %543, 0
+  br i1 %544, label %545, label %547
 
-544:                                              ; preds = %15
-  %545 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
-  %546 = tail call fastcc i32 @dissect_rsl_ie_multirate_cntrl(ptr noundef %0, ptr noundef %2, i32 noundef %545, i32 noundef 1)
+545:                                              ; preds = %540
+  %546 = tail call fastcc i32 @dissect_rsl_ie_sup_codec_types(ptr noundef %0, ptr noundef %2, i32 noundef %542)
   store i32 %546, ptr %5, align 4
-  %547 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %546) #5
-  %548 = icmp sgt i32 %547, 0
-  br i1 %548, label %549, label %551
+  br label %547
 
-549:                                              ; preds = %544
-  %550 = tail call fastcc i32 @dissect_rsl_ie_sup_codec_types(ptr noundef %0, ptr noundef %2, i32 noundef %546)
-  store i32 %550, ptr %5, align 4
-  br label %551
+547:                                              ; preds = %545, %540
+  %548 = phi i32 [ %546, %545 ], [ %542, %540 ]
+  %549 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %548) #5
+  %550 = icmp sgt i32 %549, 0
+  br i1 %550, label %551, label %567
 
-551:                                              ; preds = %549, %544
-  %552 = phi i32 [ %550, %549 ], [ %546, %544 ]
-  %553 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %552) #5
-  %554 = icmp sgt i32 %553, 0
-  br i1 %554, label %555, label %571
+551:                                              ; preds = %547
+  %552 = tail call fastcc i32 @dissect_rsl_ie_tfo_transp_cont(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %548)
+  br label %.sink.split638
 
-555:                                              ; preds = %551
-  %556 = tail call fastcc i32 @dissect_rsl_ie_tfo_transp_cont(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %552)
-  store i32 %556, ptr %5, align 4
-  br label %571
+553:                                              ; preds = %15
+  %554 = tail call fastcc i32 @dissect_rsl_ie_llp_apdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %17)
+  br label %.sink.split638
 
-557:                                              ; preds = %15
-  %558 = tail call fastcc i32 @dissect_rsl_ie_llp_apdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %17)
-  store i32 %558, ptr %5, align 4
-  br label %571
+555:                                              ; preds = %15
+  %556 = call fastcc i32 @dissect_rsl_paging_package_number(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %5)
+  %557 = trunc nuw nsw i32 %556 to i8
+  %558 = load i32, ptr %5, align 4
+  %559 = tail call fastcc i32 @dissect_rsl_paging_package(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %558, i8 noundef zeroext %557)
+  br label %.sink.split638
 
-559:                                              ; preds = %15
-  %560 = call fastcc i32 @dissect_rsl_paging_package_number(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %5)
-  %561 = trunc nuw nsw i32 %560 to i8
-  %562 = load i32, ptr %5, align 4
-  %563 = tail call fastcc i32 @dissect_rsl_paging_package(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %562, i8 noundef zeroext %561)
-  store i32 %563, ptr %5, align 4
-  br label %571
+560:                                              ; preds = %15
+  %561 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
+  %562 = tail call fastcc i32 @dissect_rsl_ie_etws_pn(ptr noundef %0, ptr noundef %2, i32 noundef %561)
+  br label %.sink.split638
 
-564:                                              ; preds = %15
-  %565 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
-  %566 = tail call fastcc i32 @dissect_rsl_ie_etws_pn(ptr noundef %0, ptr noundef %2, i32 noundef %565)
-  store i32 %566, ptr %5, align 4
-  br label %571
+563:                                              ; preds = %15, %15, %15, %15, %15, %15, %15, %15, %15
+  %564 = load i32, ptr @global_rsl_use_nano_bts, align 4
+  %.not = icmp eq i32 %564, 0
+  br i1 %.not, label %567, label %565
 
-567:                                              ; preds = %15, %15, %15, %15, %15, %15, %15, %15, %15
-  %568 = load i32, ptr @global_rsl_use_nano_bts, align 4
-  %.not = icmp eq i32 %568, 0
-  br i1 %.not, label %571, label %569
+565:                                              ; preds = %563
+  %566 = tail call fastcc i32 @dissct_rsl_ipaccess_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7)
+  br label %.sink.split638
 
-569:                                              ; preds = %567
-  %570 = tail call fastcc i32 @dissct_rsl_ipaccess_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7)
-  store i32 %570, ptr %5, align 4
-  br label %571
+.sink.split638:                                   ; preds = %18, %22, %26, %30, %33, %43, %47, %50, %60, %92, %109, %119, %136, %313, %316, %319, %322, %324, %424, %426, %429, %440, %461, %463, %465, %508, %531, %534, %537, %553, %555, %560, %41, %58, %75, %82, %90, %107, %117, %134, %160, %168, %175, %194, %311, %341, %365, %422, %438, %452, %459, %481, %487, %493, %506, %517, %523, %529, %551, %565
+  %.sink = phi i32 [ %566, %565 ], [ %552, %551 ], [ %530, %529 ], [ %524, %523 ], [ %518, %517 ], [ %507, %506 ], [ %494, %493 ], [ %488, %487 ], [ %482, %481 ], [ %460, %459 ], [ %453, %452 ], [ %439, %438 ], [ %423, %422 ], [ %366, %365 ], [ %342, %341 ], [ %312, %311 ], [ %195, %194 ], [ %176, %175 ], [ %169, %168 ], [ %161, %160 ], [ %135, %134 ], [ %118, %117 ], [ %108, %107 ], [ %91, %90 ], [ %83, %82 ], [ %76, %75 ], [ %59, %58 ], [ %42, %41 ], [ %562, %560 ], [ %559, %555 ], [ %554, %553 ], [ %539, %537 ], [ %536, %534 ], [ %533, %531 ], [ %510, %508 ], [ %466, %465 ], [ %464, %463 ], [ %462, %461 ], [ %441, %440 ], [ %430, %429 ], [ %428, %426 ], [ %425, %424 ], [ %328, %324 ], [ %323, %322 ], [ %321, %319 ], [ %318, %316 ], [ %315, %313 ], [ %137, %136 ], [ %120, %119 ], [ %111, %109 ], [ %94, %92 ], [ %63, %60 ], [ %52, %50 ], [ %49, %47 ], [ %46, %43 ], [ %35, %33 ], [ %32, %30 ], [ %29, %26 ], [ %25, %22 ], [ %21, %18 ]
+  store i32 %.sink, ptr %5, align 4
+  br label %567
 
-571:                                              ; preds = %15, %569, %567, %551, %555, %529, %533, %523, %527, %515, %521, %506, %510, %493, %497, %487, %491, %481, %485, %458, %463, %452, %456, %435, %442, %408, %426, %422, %365, %369, %335, %341, %338, %293, %311, %307, %190, %194, %170, %175, %162, %168, %156, %160, %130, %134, %112, %117, %103, %107, %84, %90, %77, %82, %71, %75, %53, %58, %36, %41, %564, %559, %557, %541, %538, %535, %512, %469, %467, %465, %444, %433, %430, %428, %324, %322, %319, %316, %313, %136, %119, %109, %92, %60, %50, %47, %43, %33, %30, %26, %22, %18
-  %572 = load i32, ptr %5, align 4
-  br label %573
+567:                                              ; preds = %.sink.split638, %15, %563, %547, %525, %519, %511, %502, %489, %483, %477, %454, %448, %431, %404, %418, %361, %335, %338, %293, %307, %190, %170, %162, %156, %130, %112, %103, %84, %77, %71, %53, %36
+  %568 = load i32, ptr %5, align 4
+  br label %569
 
-573:                                              ; preds = %571, %13
-  %.0 = phi i32 [ %14, %13 ], [ %572, %571 ]
+569:                                              ; preds = %567, %13
+  %.0 = phi i32 [ %14, %13 ], [ %568, %567 ]
   ret i32 %.0
 }
 

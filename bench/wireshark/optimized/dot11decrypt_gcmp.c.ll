@@ -18,7 +18,7 @@ define hidden range(i32 0, 2) i32 @Dot11DecryptGcmpDecrypt(ptr noundef %0, i32 n
   %reass.sub = sub nsw i64 %13, %15
   %16 = add nsw i64 %reass.sub, -16
   %17 = icmp slt i64 %reass.sub, 17
-  br i1 %17, label %60, label %18
+  br i1 %17, label %61, label %18
 
 18:                                               ; preds = %5
   %19 = getelementptr i8, ptr %0, i64 %13
@@ -53,7 +53,7 @@ define hidden range(i32 0, 2) i32 @Dot11DecryptGcmpDecrypt(ptr noundef %0, i32 n
   call void @dot11decrypt_construct_aad(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %9) #3
   %40 = call i32 @gcry_cipher_open(ptr noundef nonnull %10, i32 noundef 7, i32 noundef 9, i32 noundef 0) #3
   %.not = icmp eq i32 %40, 0
-  br i1 %.not, label %41, label %60
+  br i1 %.not, label %41, label %61
 
 41:                                               ; preds = %18
   %42 = load ptr, ptr %10, align 8
@@ -93,11 +93,11 @@ define hidden range(i32 0, 2) i32 @Dot11DecryptGcmpDecrypt(ptr noundef %0, i32 n
 
 .sink.split:                                      ; preds = %56, %59
   %.0.ph = phi i32 [ 1, %59 ], [ 0, %56 ]
-  %.sink = load ptr, ptr %10, align 8
-  call void @gcry_cipher_close(ptr noundef %.sink) #3
-  br label %60
+  %60 = load ptr, ptr %10, align 8
+  call void @gcry_cipher_close(ptr noundef %60) #3
+  br label %61
 
-60:                                               ; preds = %.sink.split, %18, %5
+61:                                               ; preds = %.sink.split, %18, %5
   %.0 = phi i32 [ 0, %5 ], [ 1, %18 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }

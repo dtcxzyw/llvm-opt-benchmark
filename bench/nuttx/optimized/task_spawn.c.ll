@@ -91,17 +91,12 @@ nxtask_spawn_create.exit.i:                       ; preds = %41, %38
 nxtask_spawn_exec.exit:                           ; preds = %nxtask_spawn_create.exit.i
   %.not33.i = icmp eq i32 %40, 0
   %spec.select = select i1 %.not33.i, i32 -1, i32 %40
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  br label %47
+  br label %46
 
-46:                                               ; preds = %21, %nxtask_spawn_create.exit.i, %29, %44, %37
-  %.023.i.ph = phi i32 [ %35, %37 ], [ %42, %44 ], [ -12, %29 ], [ %40, %nxtask_spawn_create.exit.i ], [ %22, %21 ]
+46:                                               ; preds = %37, %44, %29, %nxtask_spawn_create.exit.i, %21, %nxtask_spawn_exec.exit
+  %47 = phi i32 [ %spec.select, %nxtask_spawn_exec.exit ], [ %35, %37 ], [ %42, %44 ], [ -12, %29 ], [ %40, %nxtask_spawn_create.exit.i ], [ %22, %21 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  br label %47
-
-47:                                               ; preds = %nxtask_spawn_exec.exit, %46
-  %48 = phi i32 [ %.023.i.ph, %46 ], [ %spec.select, %nxtask_spawn_exec.exit ]
-  ret i32 %48
+  ret i32 %47
 }
 
 declare i32 @nxsched_get_param(i32 noundef, ptr noundef) local_unnamed_addr #1

@@ -722,7 +722,7 @@ define internal range(i32 0, 2) i32 @snoop_dump(ptr noundef %0, ptr nocapture no
 
 10:                                               ; preds = %5
   store i32 -24, ptr %3, align 4
-  br label %84
+  br label %79
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %0, i64 16
@@ -734,7 +734,7 @@ define internal range(i32 0, 2) i32 @snoop_dump(ptr noundef %0, ptr nocapture no
 
 16:                                               ; preds = %11
   store i32 -9, ptr %3, align 4
-  br label %84
+  br label %79
 
 17:                                               ; preds = %11
   %18 = icmp eq i32 %13, 13
@@ -750,7 +750,7 @@ define internal range(i32 0, 2) i32 @snoop_dump(ptr noundef %0, ptr nocapture no
 
 26:                                               ; preds = %17
   store i32 -22, ptr %3, align 4
-  br label %84
+  br label %79
 
 27:                                               ; preds = %17
   %28 = getelementptr inbounds i8, ptr %1, i64 68
@@ -780,12 +780,12 @@ define internal range(i32 0, 2) i32 @snoop_dump(ptr noundef %0, ptr nocapture no
   store i32 %44, ptr %45, align 4
   %46 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 24, ptr noundef %3) #7
   %.not66 = icmp eq i32 %46, 0
-  br i1 %.not66, label %84, label %47
+  br i1 %.not66, label %79, label %47
 
 47:                                               ; preds = %27
   %48 = load i32, ptr %12, align 8
   %49 = icmp eq i32 %48, 13
-  br i1 %49, label %50, label %77
+  br i1 %49, label %50, label %72
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds i8, ptr %1, i64 94
@@ -795,71 +795,63 @@ define internal range(i32 0, 2) i32 @snoop_dump(ptr noundef %0, ptr nocapture no
   store i8 %54, ptr %7, align 2
   %55 = getelementptr inbounds i8, ptr %1, i64 84
   %56 = load i8, ptr %55, align 4
-  switch i8 %56, label %68 [
-    i8 6, label %57
-    i8 4, label %59
+  switch i8 %56, label %63 [
+    i8 6, label %.sink.split
+    i8 4, label %57
   ]
 
 57:                                               ; preds = %50
-  %58 = or disjoint i8 %54, 6
-  store i8 %58, ptr %7, align 2
-  br label %68
-
-59:                                               ; preds = %50
-  %60 = getelementptr inbounds i8, ptr %1, i64 85
-  %61 = load i8, ptr %60, align 1
-  switch i8 %61, label %68 [
-    i8 3, label %62
-    i8 1, label %64
-    i8 4, label %66
+  %58 = getelementptr inbounds i8, ptr %1, i64 85
+  %59 = load i8, ptr %58, align 1
+  switch i8 %59, label %63 [
+    i8 3, label %.sink.split
+    i8 1, label %60
+    i8 4, label %61
   ]
 
-62:                                               ; preds = %59
-  %63 = or disjoint i8 %54, 1
-  store i8 %63, ptr %7, align 2
-  br label %68
+60:                                               ; preds = %57
+  br label %.sink.split
 
-64:                                               ; preds = %59
-  %65 = or disjoint i8 %54, 2
-  store i8 %65, ptr %7, align 2
-  br label %68
+61:                                               ; preds = %57
+  br label %.sink.split
 
-66:                                               ; preds = %59
-  %67 = or disjoint i8 %54, 5
-  store i8 %67, ptr %7, align 2
-  br label %68
+.sink.split:                                      ; preds = %57, %50, %61, %60
+  %.sink71 = phi i8 [ 2, %60 ], [ 5, %61 ], [ %56, %50 ], [ 1, %57 ]
+  %62 = or disjoint i8 %54, %.sink71
+  store i8 %62, ptr %7, align 2
+  br label %63
 
-68:                                               ; preds = %59, %62, %64, %66, %57, %50
-  %69 = getelementptr inbounds i8, ptr %1, i64 88
-  %70 = load i16, ptr %69, align 8
-  %71 = trunc i16 %70 to i8
-  %72 = getelementptr inbounds i8, ptr %7, i64 1
-  store i8 %71, ptr %72, align 1
-  %73 = getelementptr inbounds i8, ptr %1, i64 90
-  %74 = load i16, ptr %73, align 2
-  %rev = call i16 @llvm.bswap.i16(i16 %74)
-  %75 = getelementptr inbounds i8, ptr %7, i64 2
-  store i16 %rev, ptr %75, align 2
-  %76 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %7, i64 noundef 4, ptr noundef %3) #7
-  %.not67 = icmp eq i32 %76, 0
-  br i1 %.not67, label %84, label %77
+63:                                               ; preds = %.sink.split, %57, %50
+  %64 = getelementptr inbounds i8, ptr %1, i64 88
+  %65 = load i16, ptr %64, align 8
+  %66 = trunc i16 %65 to i8
+  %67 = getelementptr inbounds i8, ptr %7, i64 1
+  store i8 %66, ptr %67, align 1
+  %68 = getelementptr inbounds i8, ptr %1, i64 90
+  %69 = load i16, ptr %68, align 2
+  %rev = call i16 @llvm.bswap.i16(i16 %69)
+  %70 = getelementptr inbounds i8, ptr %7, i64 2
+  store i16 %rev, ptr %70, align 2
+  %71 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %7, i64 noundef 4, ptr noundef %3) #7
+  %.not67 = icmp eq i32 %71, 0
+  br i1 %.not67, label %79, label %72
 
-77:                                               ; preds = %68, %47
-  %78 = load i32, ptr %8, align 8
-  %79 = zext i32 %78 to i64
-  %80 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef %2, i64 noundef %79, ptr noundef %3) #7
-  %.not68 = icmp eq i32 %80, 0
-  br i1 %.not68, label %84, label %81
+72:                                               ; preds = %63, %47
+  %73 = load i32, ptr %8, align 8
+  %74 = zext i32 %73 to i64
+  %75 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef %2, i64 noundef %74, ptr noundef %3) #7
+  %.not68 = icmp eq i32 %75, 0
+  br i1 %.not68, label %79, label %76
 
-81:                                               ; preds = %77
-  %82 = zext i32 %24 to i64
-  %83 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull @snoop_dump.zeroes, i64 noundef %82, ptr noundef %3) #7
-  %.not69 = icmp ne i32 %83, 0
+76:                                               ; preds = %72
+  %77 = zext i32 %24 to i64
+  %78 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull @snoop_dump.zeroes, i64 noundef %77, ptr noundef %3) #7
+  %.not69 = icmp ne i32 %78, 0
   %.70 = zext i1 %.not69 to i32
-  br label %84
+  br label %79
 
-84:                                               ; preds = %81, %77, %68, %27, %26, %16, %10
-  %.062 = phi i32 [ 0, %10 ], [ 0, %16 ], [ 0, %26 ], [ 0, %27 ], [ 0, %68 ], [ 0, %77 ], [ %.70, %81 ]
+79:                                               ; preds = %76, %72, %63, %27, %26, %16, %10
+  %.062 = phi i32 [ 0, %10 ], [ 0, %16 ], [ 0, %26 ], [ 0, %27 ], [ 0, %63 ], [ 0, %72 ], [ %.70, %76 ]
   ret i32 %.062
 }
 

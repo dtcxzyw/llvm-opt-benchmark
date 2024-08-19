@@ -586,8 +586,8 @@ default.unreachable72:                            ; preds = %26
   br label %48
 
 48:                                               ; preds = %46, %"_ZN104_$LT$serde..__private..de..content..VariantDeserializer$LT$E$GT$$u20$as$u20$serde..de..VariantAccess$GT$12unit_variant17h9c9d71956418b7b1E.exit37.thread"
-  %storemerge = phi i8 [ 0, %"_ZN104_$LT$serde..__private..de..content..VariantDeserializer$LT$E$GT$$u20$as$u20$serde..de..VariantAccess$GT$12unit_variant17h9c9d71956418b7b1E.exit37.thread" ], [ 1, %46 ]
-  store i8 %storemerge, ptr %0, align 8
+  %.sink76 = phi i8 [ 1, %46 ], [ 0, %"_ZN104_$LT$serde..__private..de..content..VariantDeserializer$LT$E$GT$$u20$as$u20$serde..de..VariantAccess$GT$12unit_variant17h9c9d71956418b7b1E.exit37.thread" ]
+  store i8 %.sink76, ptr %0, align 8
   ret void
 }
 
@@ -1411,8 +1411,8 @@ default.unreachable103:                           ; preds = %28
   br label %56
 
 56:                                               ; preds = %54, %"_ZN104_$LT$serde..__private..de..content..VariantDeserializer$LT$E$GT$$u20$as$u20$serde..de..VariantAccess$GT$12unit_variant17h9c9d71956418b7b1E.exit53.thread"
-  %storemerge = phi i8 [ 0, %"_ZN104_$LT$serde..__private..de..content..VariantDeserializer$LT$E$GT$$u20$as$u20$serde..de..VariantAccess$GT$12unit_variant17h9c9d71956418b7b1E.exit53.thread" ], [ 1, %54 ]
-  store i8 %storemerge, ptr %0, align 8
+  %.sink107 = phi i8 [ 1, %54 ], [ 0, %"_ZN104_$LT$serde..__private..de..content..VariantDeserializer$LT$E$GT$$u20$as$u20$serde..de..VariantAccess$GT$12unit_variant17h9c9d71956418b7b1E.exit53.thread" ]
+  store i8 %.sink107, ptr %0, align 8
   ret void
 }
 

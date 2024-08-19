@@ -336,7 +336,7 @@ define hidden void @"_ZN5serde2de5impls74_$LT$impl$u20$serde..de..Deserialize$u2
   %10 = icmp eq i64 %9, 2
   %11 = getelementptr inbounds i8, ptr %3, i64 8
   %12 = load ptr, ptr %11, align 8, !noalias !100
-  br i1 %10, label %19, label %13
+  br i1 %10, label %"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_string17h4cb626e3a827d67aE.llvm.15834873109261722949.exit", label %13
 
 13:                                               ; preds = %2
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 16
@@ -351,19 +351,15 @@ define hidden void @"_ZN5serde2de5impls74_$LT$impl$u20$serde..de..Deserialize$u2
   %.sink11.i.i = extractvalue { i64, ptr } %15, 0
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.4.0.copyload.i.i, ptr %18, align 8, !alias.scope !98, !noalias !99
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !100
   br label %"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_string17h4cb626e3a827d67aE.llvm.15834873109261722949.exit"
 
-19:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !100
-  br label %"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_string17h4cb626e3a827d67aE.llvm.15834873109261722949.exit"
-
-"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_string17h4cb626e3a827d67aE.llvm.15834873109261722949.exit": ; preds = %13, %19
-  %.sink.i = phi ptr [ %12, %19 ], [ %16, %13 ]
-  %.sink11.i.sink.i = phi i64 [ -9223372036854775808, %19 ], [ %.sink11.i.i, %13 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink.i, ptr %20, align 8, !alias.scope !85, !noalias !88
+"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_string17h4cb626e3a827d67aE.llvm.15834873109261722949.exit": ; preds = %2, %13
+  %.sink.i = phi ptr [ %16, %13 ], [ %12, %2 ]
+  %.sink11.i.sink.i = phi i64 [ %.sink11.i.i, %13 ], [ -9223372036854775808, %2 ]
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sink.i, ptr %19, align 8, !alias.scope !85, !noalias !88
   store i64 %.sink11.i.sink.i, ptr %0, align 8, !alias.scope !85, !noalias !88
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !100
   ret void
 }
 
@@ -586,17 +582,16 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde.
   store ptr %16, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.4.0.copyload, ptr %19, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %22
 
 20:                                               ; preds = %2
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %12, ptr %21, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %22
 
 22:                                               ; preds = %13, %20
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   ret void
 }
 
@@ -1148,7 +1143,7 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde.
   %10 = icmp eq i64 %9, 2
   %11 = getelementptr inbounds i8, ptr %3, i64 8
   %12 = load ptr, ptr %11, align 8, !noalias !254
-  br i1 %10, label %19, label %13
+  br i1 %10, label %"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h9c420e0408a33e3eE.llvm.15834873109261722949.exit", label %13
 
 13:                                               ; preds = %2
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 16
@@ -1163,19 +1158,15 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde.
   %.sink11.i = extractvalue { i64, ptr } %15, 0
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.4.0.copyload.i, ptr %18, align 8, !alias.scope !246, !noalias !249
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !254
   br label %"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h9c420e0408a33e3eE.llvm.15834873109261722949.exit"
 
-19:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !254
-  br label %"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h9c420e0408a33e3eE.llvm.15834873109261722949.exit"
-
-"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h9c420e0408a33e3eE.llvm.15834873109261722949.exit": ; preds = %13, %19
-  %.sink = phi ptr [ %12, %19 ], [ %16, %13 ]
-  %.sink11.i.sink = phi i64 [ -9223372036854775808, %19 ], [ %.sink11.i, %13 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink, ptr %20, align 8
+"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h9c420e0408a33e3eE.llvm.15834873109261722949.exit": ; preds = %2, %13
+  %.sink = phi ptr [ %16, %13 ], [ %12, %2 ]
+  %.sink11.i.sink = phi i64 [ %.sink11.i, %13 ], [ -9223372036854775808, %2 ]
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sink, ptr %19, align 8
   store i64 %.sink11.i.sink, ptr %0, align 8
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !254
   ret void
 }
 

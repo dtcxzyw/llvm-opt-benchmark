@@ -1997,7 +1997,7 @@ declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 define internal fastcc range(i32 -1, 65791) i32 @dissect_address_tlv(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = icmp slt i32 %3, 1
-  br i1 %7, label %103, label %8
+  br i1 %7, label %97, label %8
 
 8:                                                ; preds = %5
   %9 = load i32, ptr @ett_cdp_address, align 4
@@ -2006,7 +2006,7 @@ define internal fastcc range(i32 -1, 65791) i32 @dissect_address_tlv(ptr noundef
   %12 = load i32, ptr @hf_cdp_protocol_type, align 4
   %13 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %12, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0) #3
   %14 = icmp eq i32 %3, 1
-  br i1 %14, label %103, label %15
+  br i1 %14, label %97, label %15
 
 15:                                               ; preds = %8
   %16 = add i32 %2, 1
@@ -2021,14 +2021,14 @@ define internal fastcc range(i32 -1, 65791) i32 @dissect_address_tlv(ptr noundef
 
 24:                                               ; preds = %15
   %.not140 = icmp eq i32 %21, 0
-  br i1 %.not140, label %103, label %25
+  br i1 %.not140, label %97, label %25
 
 25:                                               ; preds = %24
   %26 = load i32, ptr @hf_cdp_protocol, align 4
   %27 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %26, ptr noundef %0, i32 noundef %20, i32 noundef %21, i32 noundef 0) #3
   store ptr %27, ptr %6, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %27, ptr noundef nonnull @.str.257) #3
-  br label %103
+  br label %97
 
 28:                                               ; preds = %15
   %29 = icmp eq i8 %11, 1
@@ -2076,7 +2076,7 @@ define internal fastcc range(i32 -1, 65791) i32 @dissect_address_tlv(ptr noundef
   %.0129 = phi i1 [ false, %31 ], [ %51, %44 ], [ false, %52 ]
   %56 = sub nsw i32 %21, %22
   %57 = icmp slt i32 %56, 2
-  br i1 %57, label %103, label %58
+  br i1 %57, label %97, label %58
 
 58:                                               ; preds = %55
   %59 = add i32 %20, %22
@@ -2091,80 +2091,71 @@ define internal fastcc range(i32 -1, 65791) i32 @dissect_address_tlv(ptr noundef
 
 67:                                               ; preds = %58
   %.not139 = icmp eq i32 %64, 0
-  br i1 %.not139, label %103, label %68
+  br i1 %.not139, label %97, label %68
 
 68:                                               ; preds = %67
   %69 = load i32, ptr @hf_cdp_address, align 4
   %70 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %69, ptr noundef %0, i32 noundef %63, i32 noundef %64, i32 noundef 0) #3
   store ptr %70, ptr %6, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %70, ptr noundef nonnull @.str.257) #3
-  br label %103
+  br label %97
 
 71:                                               ; preds = %58
   %or.cond16 = and i1 %or.cond, %.0131
   %72 = icmp eq i16 %60, 4
   %or.cond19 = select i1 %or.cond16, i1 %72, i1 false
-  br i1 %or.cond19, label %.thread, label %77
+  br i1 %or.cond19, label %.thread, label %73
 
-.thread:                                          ; preds = %71
-  %73 = load ptr, ptr %6, align 8
-  %74 = getelementptr inbounds i8, ptr %1, i64 408
-  %75 = load ptr, ptr %74, align 8
-  %76 = call ptr @tvb_address_to_str(ptr noundef %75, ptr noundef %0, i32 noundef 2, i32 noundef %63) #3
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %73, ptr noundef nonnull @.str.260, ptr noundef %76) #3
-  br label %86
-
-77:                                               ; preds = %71
-  %78 = icmp eq i8 %11, 2
-  %79 = icmp eq i8 %17, 8
-  %or.cond12 = select i1 %78, i1 %79, i1 false
+73:                                               ; preds = %71
+  %74 = icmp eq i8 %11, 2
+  %75 = icmp eq i8 %17, 8
+  %or.cond12 = select i1 %74, i1 %75, i1 false
   %or.cond21 = and i1 %or.cond12, %.0129
-  %80 = icmp eq i16 %60, 16
-  %or.cond24 = select i1 %or.cond21, i1 %80, i1 false
-  br i1 %or.cond24, label %81, label %92
+  %76 = icmp eq i16 %60, 16
+  %or.cond24 = select i1 %or.cond21, i1 %76, i1 false
+  br i1 %or.cond24, label %.thread, label %86
 
-81:                                               ; preds = %77
-  %82 = load ptr, ptr %6, align 8
-  %83 = getelementptr inbounds i8, ptr %1, i64 408
-  %84 = load ptr, ptr %83, align 8
-  %85 = call ptr @tvb_address_to_str(ptr noundef %84, ptr noundef %0, i32 noundef 3, i32 noundef %63) #3
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %82, ptr noundef nonnull @.str.261, ptr noundef %85) #3
-  br label %86
+.thread:                                          ; preds = %73, %71
+  %.sink152 = phi i32 [ 2, %71 ], [ 3, %73 ]
+  %.str.260.sink = phi ptr [ @.str.260, %71 ], [ @.str.261, %73 ]
+  %hf_cdp_nrgyz_ip_address.sink = phi ptr [ @hf_cdp_nrgyz_ip_address, %71 ], [ @hf_cdp_nrgyz_ip6_address, %73 ]
+  %.sink149 = phi i32 [ 4, %71 ], [ %65, %73 ]
+  %77 = load ptr, ptr %6, align 8
+  %78 = getelementptr inbounds i8, ptr %1, i64 408
+  %79 = load ptr, ptr %78, align 8
+  %80 = call ptr @tvb_address_to_str(ptr noundef %79, ptr noundef %0, i32 noundef %.sink152, i32 noundef %63) #3
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %77, ptr noundef nonnull %.str.260.sink, ptr noundef %80) #3
+  %81 = load i32, ptr %hf_cdp_nrgyz_ip_address.sink, align 4
+  %82 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %81, ptr noundef %0, i32 noundef %63, i32 noundef %.sink149, i32 noundef 0) #3
+  %83 = icmp eq i32 %81, -1
+  br i1 %83, label %.thread147, label %94
 
-86:                                               ; preds = %.thread, %81
-  %hf_cdp_nrgyz_ip_address.sink = phi ptr [ @hf_cdp_nrgyz_ip_address, %.thread ], [ @hf_cdp_nrgyz_ip6_address, %81 ]
-  %.sink149 = phi i32 [ 4, %.thread ], [ %65, %81 ]
-  %87 = load i32, ptr %hf_cdp_nrgyz_ip_address.sink, align 4
-  %88 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %87, ptr noundef %0, i32 noundef %63, i32 noundef %.sink149, i32 noundef 0) #3
-  %89 = icmp eq i32 %87, -1
-  br i1 %89, label %.thread147, label %100
+.thread147:                                       ; preds = %.thread
+  %84 = load i32, ptr @hf_cdp_address, align 4
+  %85 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %84, ptr noundef %0, i32 noundef %63, i32 noundef %65, i32 noundef 0) #3
+  br label %89
 
-.thread147:                                       ; preds = %86
-  %90 = load i32, ptr @hf_cdp_address, align 4
-  %91 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %90, ptr noundef %0, i32 noundef %63, i32 noundef %65, i32 noundef 0) #3
-  br label %95
-
-92:                                               ; preds = %77
-  %93 = load i32, ptr @hf_cdp_address, align 4
-  %94 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %93, ptr noundef %0, i32 noundef %63, i32 noundef %65, i32 noundef 0) #3
+86:                                               ; preds = %73
+  %87 = load i32, ptr @hf_cdp_address, align 4
+  %88 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %87, ptr noundef %0, i32 noundef %63, i32 noundef %65, i32 noundef 0) #3
   %.not = icmp eq i16 %60, 0
-  br i1 %.not, label %100, label %95
+  br i1 %.not, label %94, label %89
 
-95:                                               ; preds = %.thread147, %92
-  %96 = load ptr, ptr %6, align 8
-  %97 = getelementptr inbounds i8, ptr %1, i64 408
-  %98 = load ptr, ptr %97, align 8
-  %99 = call ptr @tvb_bytes_to_str(ptr noundef %98, ptr noundef %0, i32 noundef %63, i32 noundef %65) #3
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %96, ptr noundef nonnull @.str.262, ptr noundef %99) #3
-  br label %100
+89:                                               ; preds = %.thread147, %86
+  %90 = load ptr, ptr %6, align 8
+  %91 = getelementptr inbounds i8, ptr %1, i64 408
+  %92 = load ptr, ptr %91, align 8
+  %93 = call ptr @tvb_bytes_to_str(ptr noundef %92, ptr noundef %0, i32 noundef %63, i32 noundef %65) #3
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %90, ptr noundef nonnull @.str.262, ptr noundef %93) #3
+  br label %94
 
-100:                                              ; preds = %92, %95, %86
-  %101 = add nuw nsw i32 %22, 4
-  %102 = add nuw nsw i32 %101, %65
-  br label %103
+94:                                               ; preds = %86, %89, %.thread
+  %95 = add nuw nsw i32 %22, 4
+  %96 = add nuw nsw i32 %95, %65
+  br label %97
 
-103:                                              ; preds = %67, %68, %55, %24, %25, %8, %5, %100
-  %.0130 = phi i32 [ %102, %100 ], [ -1, %5 ], [ -1, %8 ], [ -1, %25 ], [ -1, %24 ], [ -1, %55 ], [ -1, %68 ], [ -1, %67 ]
+97:                                               ; preds = %67, %68, %55, %24, %25, %8, %5, %94
+  %.0130 = phi i32 [ %96, %94 ], [ -1, %5 ], [ -1, %8 ], [ -1, %25 ], [ -1, %24 ], [ -1, %55 ], [ -1, %68 ], [ -1, %67 ]
   ret i32 %.0130
 }
 

@@ -1262,11 +1262,7 @@ if.end:                                           ; preds = %invoke.cont24, %inv
   %Height.i209 = getelementptr inbounds i8, ptr %page_texture_size, i64 4
   %51 = load i32, ptr %size, align 4, !tbaa !120
   %cmp41 = icmp ult i32 %51, 22
-  br i1 %cmp41, label %if.then42, label %if.else
-
-if.then42:                                        ; preds = %if.end
-  store i64 1099511628032, ptr %page_texture_size, align 8, !tbaa.struct !29
-  br label %if.end83
+  br i1 %cmp41, label %if.end83, label %if.else
 
 lpad38:                                           ; preds = %cond.true.i.i.i.i, %if.then.i.i.i.i224, %.noexc220, %call23.i.noexc, %.noexc218, %call8.i.noexc, %.noexc216, %call.i.noexc, %if.end.i
   %52 = landingpad { ptr, i32 }
@@ -1276,34 +1272,22 @@ lpad38:                                           ; preds = %cond.true.i.i.i.i, 
 
 if.else:                                          ; preds = %if.end
   %cmp49 = icmp ult i32 %51, 43
-  br i1 %cmp49, label %if.then50, label %if.else56
-
-if.then50:                                        ; preds = %if.else
-  store i64 2199023256064, ptr %page_texture_size, align 8, !tbaa.struct !29
-  br label %if.end83
+  br i1 %cmp49, label %if.end83, label %if.else56
 
 if.else56:                                        ; preds = %if.else
   %cmp58 = icmp ult i32 %51, 85
-  br i1 %cmp58, label %if.then59, label %if.else65
-
-if.then59:                                        ; preds = %if.else56
-  store i64 4398046512128, ptr %page_texture_size, align 8, !tbaa.struct !29
-  br label %if.end83
+  br i1 %cmp58, label %if.end83, label %if.else65
 
 if.else65:                                        ; preds = %if.else56
   %cmp67 = icmp ult i32 %51, 169
-  br i1 %cmp67, label %if.then68, label %if.else74
-
-if.then68:                                        ; preds = %if.else65
-  store i64 8796093024256, ptr %page_texture_size, align 8, !tbaa.struct !29
+  %. = select i1 %cmp67, i64 8796093024256, i64 17592186048512
+  %.14 = select i1 %cmp67, i32 2048, i32 4096
   br label %if.end83
 
-if.else74:                                        ; preds = %if.else65
-  store i64 17592186048512, ptr %page_texture_size, align 8, !tbaa.struct !29
-  br label %if.end83
-
-if.end83:                                         ; preds = %if.else74, %if.then68, %if.then59, %if.then50, %if.then42
-  %53 = phi i32 [ 512, %if.then50 ], [ 2048, %if.then68 ], [ 4096, %if.else74 ], [ 1024, %if.then59 ], [ 256, %if.then42 ]
+if.end83:                                         ; preds = %if.else65, %if.else56, %if.else, %if.end
+  %.sink = phi i64 [ 1099511628032, %if.end ], [ 2199023256064, %if.else ], [ 4398046512128, %if.else56 ], [ %., %if.else65 ]
+  %53 = phi i32 [ 256, %if.end ], [ 512, %if.else ], [ 1024, %if.else56 ], [ %.14, %if.else65 ]
+  store i64 %.sink, ptr %page_texture_size, align 8
   %cmp86 = icmp ugt i32 %53, %spec.select246
   %cmp90 = icmp ugt i32 %53, %spec.select
   %or.cond128 = select i1 %cmp86, i1 true, i1 %cmp90

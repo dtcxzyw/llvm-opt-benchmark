@@ -511,10 +511,6 @@ if.then.thread:                                   ; preds = %if.end44.i.i
   %add.ptr45.i.i = getelementptr inbounds i8, ptr %begin8.0175, i64 3
   %and51.i.i = and i32 %conv3383.i.i, 63
   %or52.i.i = or disjoint i32 %and51.i.i, %or50.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp132.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp133.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp134.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp135.i.i)
   br label %if.then.i20
 
 if.else68.i.i:                                    ; preds = %if.else.i.i
@@ -607,15 +603,15 @@ _ZN4llvhplERKNS_5TwineES2_.exit.i.i:              ; preds = %if.else68.i.i
   %and10.i.i = and i32 %conv382.i.i, 63
   %or.i.i = or disjoint i32 %and10.i.i, %shl.i.i
   %add.ptr8.i.i = getelementptr inbounds i8, ptr %begin8.0175, i64 2
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp132.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp133.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp134.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp135.i.i)
   br label %if.then.i20
 
 if.then.i20:                                      ; preds = %"_ZN6hermes10decodeUTF8ILb1EZNS_11JSONEmitter19primitiveEmitStringEN4llvh9StringRefEE3$_0EEjRPKcT0_.exit", %if.then.thread
   %begin8.1158168 = phi ptr [ %add.ptr45.i.i, %if.then.thread ], [ %add.ptr8.i.i, %"_ZN6hermes10decodeUTF8ILb1EZNS_11JSONEmitter19primitiveEmitStringEN4llvh9StringRefEE3$_0EEjRPKcT0_.exit" ]
   %retval.0.i.i159165 = phi i32 [ %or52.i.i, %if.then.thread ], [ %or.i.i, %"_ZN6hermes10decodeUTF8ILb1EZNS_11JSONEmitter19primitiveEmitStringEN4llvh9StringRefEE3$_0EEjRPKcT0_.exit" ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp132.i.i)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp133.i.i)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp134.i.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp135.i.i)
   store ptr %.sink33.i.sroa.gep, ptr %utf16Chars, align 8
   store i32 0, ptr %Size.i.i.i.i.i162, align 8
   store i32 2, ptr %Capacity2.i.i.i.i.i163, align 4

@@ -1473,10 +1473,10 @@ define internal fastcc void @_ZN15deltalake_mount4file23MountFileStorageBackend1
   %61 = icmp eq i64 %60, -9223372036854775808
   br i1 %61, label %.invoke, label %65
 
-.invoke:                                          ; preds = %116, %.thread, %.thread1, %59
-  %62 = phi ptr [ @anon.9b59801bc093cbb0cd5c40a0cece3ede.20, %59 ], [ @anon.9b59801bc093cbb0cd5c40a0cece3ede.13, %.thread1 ], [ @anon.9b59801bc093cbb0cd5c40a0cece3ede.13, %.thread ], [ @anon.9b59801bc093cbb0cd5c40a0cece3ede.13, %116 ]
-  %63 = phi i64 [ 8, %59 ], [ 43, %.thread1 ], [ 43, %.thread ], [ 43, %116 ]
-  %64 = phi ptr [ @anon.9b59801bc093cbb0cd5c40a0cece3ede.22, %59 ], [ @anon.9b59801bc093cbb0cd5c40a0cece3ede.23, %.thread1 ], [ @anon.9b59801bc093cbb0cd5c40a0cece3ede.23, %.thread ], [ @anon.9b59801bc093cbb0cd5c40a0cece3ede.23, %116 ]
+.invoke:                                          ; preds = %116, %.sink.split, %59
+  %62 = phi ptr [ @anon.9b59801bc093cbb0cd5c40a0cece3ede.20, %59 ], [ @anon.9b59801bc093cbb0cd5c40a0cece3ede.13, %.sink.split ], [ @anon.9b59801bc093cbb0cd5c40a0cece3ede.13, %116 ]
+  %63 = phi i64 [ 8, %59 ], [ 43, %.sink.split ], [ 43, %116 ]
+  %64 = phi ptr [ @anon.9b59801bc093cbb0cd5c40a0cece3ede.22, %59 ], [ @anon.9b59801bc093cbb0cd5c40a0cece3ede.23, %.sink.split ], [ @anon.9b59801bc093cbb0cd5c40a0cece3ede.23, %116 ]
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 %62, i64 noundef %63, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9b59801bc093cbb0cd5c40a0cece3ede.12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %64) #19
           to label %.cont unwind label %57
 
@@ -1602,7 +1602,7 @@ _ZN3url3Url5slice17h50b9758d4a7b0274E.llvm.7144237729116928069.exit.i: ; preds =
   %105 = getelementptr inbounds i8, ptr %8, i64 60
   %106 = load i32, ptr %105, align 4, !range !225, !noalias !221, !noundef !4
   %.not.i = icmp eq i32 %106, 1114112
-  br i1 %.not.i, label %.thread, label %107
+  br i1 %.not.i, label %.sink.split, label %107
 
 107:                                              ; preds = %.noexc22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %8, i64 72, i1 false), !noalias !221
@@ -1616,12 +1616,6 @@ _ZN3url3Url5slice17h50b9758d4a7b0274E.llvm.7144237729116928069.exit.i: ; preds =
     i8 3, label %109
     i8 0, label %110
   ]
-
-.thread:                                          ; preds = %.noexc22
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8), !noalias !221
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
-  br label %.invoke
 
 109:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab1451b62b1c9f8aE.exit.i", %.noexc23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !221
@@ -1643,10 +1637,7 @@ _ZN3url3Url5slice17h50b9758d4a7b0274E.llvm.7144237729116928069.exit.i: ; preds =
 
 .thread1:                                         ; preds = %.noexc23, %110, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab1451b62b1c9f8aE.exit.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !221
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8), !noalias !221
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
-  br label %.invoke
+  br label %.sink.split
 
 116:                                              ; preds = %109
   %.pr.pr = load i64, ptr %14, align 8, !alias.scope !232, !noalias !235
@@ -1656,6 +1647,12 @@ _ZN3url3Url5slice17h50b9758d4a7b0274E.llvm.7144237729116928069.exit.i: ; preds =
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   %117 = icmp eq i64 %.pr.pr, -9223372036854775808
   br i1 %117, label %.invoke, label %118
+
+.sink.split:                                      ; preds = %.noexc22, %.thread1
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8), !noalias !221
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
+  br label %.invoke
 
 118:                                              ; preds = %116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !alias.scope !237

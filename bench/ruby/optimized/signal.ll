@@ -1949,8 +1949,7 @@ rb_num2int_inline.exit:                           ; preds = %15, %17
 23:                                               ; preds = %22
   %24 = getelementptr i8, ptr %1, i64 8
   %25 = load i64, ptr %24, align 8
-  store i64 %25, ptr %4, align 8
-  br label %43
+  br label %.sink.split
 
 .preheader:                                       ; preds = %22, %29
   %.06.i.i = phi ptr [ %30, %29 ], [ @siglist, %22 ]
@@ -1966,16 +1965,11 @@ rb_num2int_inline.exit:                           ; preds = %15, %17
 
 signo2signm.exit.i:                               ; preds = %.preheader
   %32 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.35, ptr noundef nonnull %.06.i.i) #16
-  br label %rb_signo2signm.exit
+  br label %.sink.split
 
 33:                                               ; preds = %29
   %34 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.36, i32 noundef %19) #16
-  br label %rb_signo2signm.exit
-
-rb_signo2signm.exit:                              ; preds = %signo2signm.exit.i, %33
-  %.0.i17 = phi i64 [ %32, %signo2signm.exit.i ], [ %34, %33 ]
-  store i64 %.0.i17, ptr %4, align 8
-  br label %43
+  br label %.sink.split
 
 35:                                               ; preds = %7
   %36 = load i64, ptr %1, align 8
@@ -1997,11 +1991,16 @@ rb_check_arity.exit18:                            ; preds = %35
   %40 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.38, i64 noundef 3) #16
   %41 = load i64, ptr %4, align 8
   %42 = call i64 @rb_str_append(i64 noundef %40, i64 noundef %41) #16
-  store i64 %42, ptr %4, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %33, %signo2signm.exit.i, %23, %39
+  %.sink = phi i64 [ %42, %39 ], [ %25, %23 ], [ %32, %signo2signm.exit.i ], [ %34, %33 ]
+  %.0.ph = phi i32 [ %37, %39 ], [ %19, %23 ], [ %19, %signo2signm.exit.i ], [ %19, %33 ]
+  store i64 %.sink, ptr %4, align 8
   br label %43
 
-43:                                               ; preds = %rb_check_arity.exit18, %39, %23, %rb_signo2signm.exit
-  %.0 = phi i32 [ %19, %23 ], [ %19, %rb_signo2signm.exit ], [ %37, %39 ], [ %37, %rb_check_arity.exit18 ]
+43:                                               ; preds = %.sink.split, %rb_check_arity.exit18
+  %.0 = phi i32 [ %37, %rb_check_arity.exit18 ], [ %.0.ph, %.sink.split ]
   %44 = call i64 @rb_call_super(i32 noundef 1, ptr noundef nonnull %4) #16
   %45 = load i64, ptr @ruby_static_id_signo, align 8
   %46 = sext i32 %.0 to i64

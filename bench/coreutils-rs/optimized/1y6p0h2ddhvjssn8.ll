@@ -3985,7 +3985,6 @@ _ZN6chrono6format10formatting14write_hundreds17hcf30e528cab26295E.exit.i.i: ; pr
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17heda4037b66f59af1E.exit": ; preds = %.loopexit, %1234
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25), !noalias !496
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %93)
   br label %1245
 
 1238:                                             ; preds = %.loopexit25
@@ -4005,11 +4004,11 @@ _ZN6chrono6format10formatting14write_hundreds17hcf30e528cab26295E.exit.i.i: ; pr
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17heda4037b66f59af1E.exit14": ; preds = %1238, %1241
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24), !noalias !505
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %93)
   br label %1245
 
 1245:                                             ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17heda4037b66f59af1E.exit14", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17heda4037b66f59af1E.exit"
   %.0 = phi i1 [ true, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17heda4037b66f59af1E.exit" ], [ %1231, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17heda4037b66f59af1E.exit14" ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %93)
   ret i1 %.0
 
 1246:                                             ; preds = %.body

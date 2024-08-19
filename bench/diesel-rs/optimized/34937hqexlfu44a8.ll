@@ -363,7 +363,6 @@ _ZN5serde2de9SeqAccess12next_element17he34fa211de0db878E.exit: ; preds = %17
 
 "_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$all_about_inserts_sqlite..UserForm$GT$$GT$17h758d948f64078f23E.exit": ; preds = %23, %27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !37
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %43
 
 31:                                               ; preds = %22
@@ -396,10 +395,10 @@ _ZN5serde2de9SeqAccess12next_element17he34fa211de0db878E.exit: ; preds = %17
 42:                                               ; preds = %22
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %43
 
 43:                                               ; preds = %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$all_about_inserts_sqlite..UserForm$GT$$GT$17h758d948f64078f23E.exit", %42
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   ret void
 
 44:                                               ; preds = %18
@@ -1072,7 +1071,7 @@ common.resume:                                    ; preds = %.thread248, %.threa
   store i64 %.sroa.7.i.sroa.6.0.copyload210, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3182.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %.sroa.7.i.sroa.7.0.copyload214, ptr %.sroa.3182.0..sroa_idx, align 8
-  br label %157
+  br label %155
 
 .thread253:                                       ; preds = %49, %64, %93, %96
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -1100,7 +1099,7 @@ common.resume:                                    ; preds = %.thread248, %.threa
   store i8 %57, ptr %.sroa.250.0..sroa_idx, align 8
   %.sroa.351.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.351.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.351, i64 23, i1 false)
-  br label %158
+  br label %157
 
 61:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %30)
@@ -1232,7 +1231,7 @@ common.resume:                                    ; preds = %.thread248, %.threa
 
 "_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h06334728c23d97dcE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h982aea251816edaeE.exit.i", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5ed4114824dba58eE.exit", %76
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30)
-  br label %158
+  br label %157
 
 100:                                              ; preds = %.thread285, %.thread248, %129, %77
   %101 = landingpad { ptr, i32 }
@@ -1305,7 +1304,6 @@ common.resume:                                    ; preds = %.thread248, %.threa
   %128 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.080, ptr %128, align 8
   store i64 -9223372036854775798, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %32)
   br label %155
 
 .thread294:                                       ; preds = %114, %141, %144
@@ -1405,13 +1403,14 @@ common.resume:                                    ; preds = %.thread248, %.threa
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %23)
   br label %.critedge
 
-155:                                              ; preds = %157, %126
+155:                                              ; preds = %52, %157, %.critedge, %126
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %32)
   ret void
 
 .critedge:                                        ; preds = %156, %.thread328
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.617)
-  br label %157
+  br label %155
 
 156:                                              ; preds = %.noexc102
   store i64 %117, ptr %0, align 8
@@ -1430,13 +1429,9 @@ common.resume:                                    ; preds = %.thread248, %.threa
   invoke void @"_ZN4core3ptr114drop_in_place$LT$diesel..connection..statement_cache..StatementCacheKey$LT$diesel..sqlite..backend..Sqlite$GT$$GT$17h3e8c187c28ace3bfE.llvm.10987160594893011292"(ptr noalias noundef nonnull align 8 dereferenceable(48) %110)
           to label %common.resume unwind label %100
 
-157:                                              ; preds = %.critedge, %158, %52
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %32)
-  br label %155
-
-158:                                              ; preds = %60, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h06334728c23d97dcE.exit"
+157:                                              ; preds = %60, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h06334728c23d97dcE.exit"
   call fastcc void @"_ZN4core3ptr114drop_in_place$LT$diesel..connection..statement_cache..StatementCacheKey$LT$diesel..sqlite..backend..Sqlite$GT$$GT$17h3e8c187c28ace3bfE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %32)
-  br label %157
+  br label %155
 
 .thread248:                                       ; preds = %77, %.thread253
   %.pn.pn251 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread253 ], [ %78, %77 ]

@@ -1778,7 +1778,7 @@ while.end.i:                                      ; preds = %do.body, %while.end
 while.end3.i:                                     ; preds = %while.end.i, %do.body
   %call4.i = call ptr @virtqueue_pop(ptr noundef %3, i64 noundef 56) #13
   %tobool5.not.i = icmp eq ptr %call4.i, null
-  br i1 %tobool5.not.i, label %lor.rhs.critedge, label %if.end.i
+  br i1 %tobool5.not.i, label %lor.rhs, label %if.end.i
 
 if.end.i:                                         ; preds = %while.end3.i
   %out_num.i = getelementptr inbounds i8, ptr %call4.i, i64 12
@@ -1809,7 +1809,6 @@ if.then12.i:                                      ; preds = %iov_to_buf.exit.i
   call void (ptr, ptr, ...) @virtio_error(ptr noundef %call.i.i, ptr noundef nonnull @.str.49) #13
   call void @virtqueue_push(ptr noundef %3, ptr noundef nonnull %call4.i, i32 noundef 0) #13
   call void @g_free(ptr noundef nonnull %call4.i) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %id.i)
   br label %lor.rhs
 
 if.end13.i:                                       ; preds = %iov_to_buf.exit.i, %iov_to_buf.exit.thread.i
@@ -1867,11 +1866,8 @@ out.i:                                            ; preds = %for.body.i, %land.l
   call void @virtio_notify(ptr noundef %call.i, ptr noundef %0) #13
   br label %do.body.backedge
 
-lor.rhs.critedge:                                 ; preds = %while.end3.i
+lor.rhs:                                          ; preds = %while.end3.i, %if.then12.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %id.i)
-  br label %lor.rhs
-
-lor.rhs:                                          ; preds = %if.then12.i, %lor.rhs.critedge
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %free_page_lock, ptr noundef nonnull @.str.10, i32 noundef 564) #13
   call void @virtio_notify(ptr noundef %call.i, ptr noundef %0) #13
   %22 = load i32, ptr %free_page_hint_status.i, align 8

@@ -11410,25 +11410,19 @@ invoke.cont.thread19:                             ; preds = %.noexc
 
 _ZNK5arrow6Status4codeEv.exit.i:                  ; preds = %.noexc
   %17 = load i8, ptr %16, align 8
-  switch i8 %17, label %invoke.cont.thread23 [
+  switch i8 %17, label %delete.notnull.i.i [
     i8 5, label %invoke.cont.thread
     i8 10, label %sw.bb8.i
     i8 1, label %sw.bb9.i
   ]
 
-invoke.cont.thread23:                             ; preds = %_ZNK5arrow6Status4codeEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i1)
+sw.bb8.i:                                         ; preds = %_ZNK5arrow6Status4codeEv.exit.i
   br label %delete.notnull.i.i
 
-sw.bb8.i:                                         ; preds = %_ZNK5arrow6Status4codeEv.exit.i
-  br label %invoke.cont.thread
-
 sw.bb9.i:                                         ; preds = %_ZNK5arrow6Status4codeEv.exit.i
-  br label %invoke.cont.thread
+  br label %delete.notnull.i.i
 
-invoke.cont.thread:                               ; preds = %sw.bb9.i, %sw.bb8.i, %_ZNK5arrow6Status4codeEv.exit.i
-  %retval.0.i.ph14 = phi i32 [ 5, %_ZNK5arrow6Status4codeEv.exit.i ], [ 38, %sw.bb8.i ], [ 12, %sw.bb9.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i1)
+invoke.cont.thread:                               ; preds = %_ZNK5arrow6Status4codeEv.exit.i
   br label %delete.notnull.i.i
 
 invoke.cont:                                      ; preds = %_ZN5arrow12_GLOBAL__N_119ExportedArrayStream9GetSchemaEP11ArrowSchema.exit
@@ -11438,8 +11432,9 @@ invoke.cont:                                      ; preds = %_ZN5arrow12_GLOBAL_
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i1)
   br label %_ZN5arrow6StatusD2Ev.exit
 
-delete.notnull.i.i:                               ; preds = %invoke.cont.thread23, %invoke.cont.thread
-  %retval.0.i17 = phi i32 [ %retval.0.i.ph14, %invoke.cont.thread ], [ 22, %invoke.cont.thread23 ]
+delete.notnull.i.i:                               ; preds = %sw.bb8.i, %sw.bb9.i, %_ZNK5arrow6Status4codeEv.exit.i, %invoke.cont.thread
+  %retval.0.i17 = phi i32 [ 22, %_ZNK5arrow6Status4codeEv.exit.i ], [ 38, %sw.bb8.i ], [ 12, %sw.bb9.i ], [ 5, %invoke.cont.thread ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i1)
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 48
   %18 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %18, null
@@ -11684,25 +11679,19 @@ invoke.cont.thread19:                             ; preds = %.noexc
 
 _ZNK5arrow6Status4codeEv.exit.i:                  ; preds = %.noexc
   %18 = load i8, ptr %17, align 8
-  switch i8 %18, label %invoke.cont.thread23 [
+  switch i8 %18, label %delete.notnull.i.i [
     i8 5, label %invoke.cont.thread
     i8 10, label %sw.bb8.i
     i8 1, label %sw.bb9.i
   ]
 
-invoke.cont.thread23:                             ; preds = %_ZNK5arrow6Status4codeEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i1)
+sw.bb8.i:                                         ; preds = %_ZNK5arrow6Status4codeEv.exit.i
   br label %delete.notnull.i.i
 
-sw.bb8.i:                                         ; preds = %_ZNK5arrow6Status4codeEv.exit.i
-  br label %invoke.cont.thread
-
 sw.bb9.i:                                         ; preds = %_ZNK5arrow6Status4codeEv.exit.i
-  br label %invoke.cont.thread
+  br label %delete.notnull.i.i
 
-invoke.cont.thread:                               ; preds = %sw.bb9.i, %sw.bb8.i, %_ZNK5arrow6Status4codeEv.exit.i
-  %retval.0.i.ph14 = phi i32 [ 5, %_ZNK5arrow6Status4codeEv.exit.i ], [ 38, %sw.bb8.i ], [ 12, %sw.bb9.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i1)
+invoke.cont.thread:                               ; preds = %_ZNK5arrow6Status4codeEv.exit.i
   br label %delete.notnull.i.i
 
 invoke.cont:                                      ; preds = %_ZN5arrow12_GLOBAL__N_119ExportedArrayStream7GetNextEP10ArrowArray.exit
@@ -11712,8 +11701,9 @@ invoke.cont:                                      ; preds = %_ZN5arrow12_GLOBAL_
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i1)
   br label %_ZN5arrow6StatusD2Ev.exit
 
-delete.notnull.i.i:                               ; preds = %invoke.cont.thread23, %invoke.cont.thread
-  %retval.0.i17 = phi i32 [ %retval.0.i.ph14, %invoke.cont.thread ], [ 22, %invoke.cont.thread23 ]
+delete.notnull.i.i:                               ; preds = %sw.bb8.i, %sw.bb9.i, %_ZNK5arrow6Status4codeEv.exit.i, %invoke.cont.thread
+  %retval.0.i17 = phi i32 [ 22, %_ZNK5arrow6Status4codeEv.exit.i ], [ 38, %sw.bb8.i ], [ 12, %sw.bb9.i ], [ 5, %invoke.cont.thread ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i1)
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 48
   %19 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %19, null
@@ -39608,11 +39598,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %cond.true.i.i.i425.
   store ptr %274, ptr %ref.tmp49.i.i, align 8, !alias.scope !2007, !noalias !1997
   store ptr null, ptr %ref.tmp.i.i416.i, align 8, !noalias !2006
   %cmp.i2.i.i.i = icmp eq ptr %274, null
-  br i1 %cmp.i2.i.i.i, label %do.end6.i.i.i, label %nrvo.skipdtor62.thread9.i.i
-
-nrvo.skipdtor62.thread9.i.i:                      ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i416.i), !noalias !1997
-  br label %return.sink.split.i.i
+  br i1 %cmp.i2.i.i.i, label %do.end6.i.i.i, label %return.sink.split.i.sink.split.i
 
 do.end6.i.i.i:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i
   %data_.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -39620,7 +39606,7 @@ do.end6.i.i.i:                                    ; preds = %_ZN5arrow6StatusD2E
   %null_count.i.i.i = getelementptr inbounds i8, ptr %275, i64 24
   %276 = load atomic i64, ptr %null_count.i.i.i seq_cst, align 8, !noalias !2002
   %cmp.i189.i.i = icmp sgt i64 %276, 0
-  br i1 %cmp.i189.i.i, label %land.lhs.true.i.i.i, label %nrvo.skipdtor62.thread.i.i
+  br i1 %cmp.i189.i.i, label %land.lhs.true.i.i.i, label %return.sink.split.i.sink.split.i
 
 land.lhs.true.i.i.i:                              ; preds = %do.end6.i.i.i
   %277 = load ptr, ptr %data_.i.i.i, align 8, !noalias !2008
@@ -39628,11 +39614,7 @@ land.lhs.true.i.i.i:                              ; preds = %do.end6.i.i.i
   %278 = load ptr, ptr %buffers.i.i.i, align 8, !noalias !2002
   %279 = load ptr, ptr %278, align 8, !noalias !2002
   %cmp.i.not.i.i.i.i = icmp eq ptr %279, null
-  br i1 %cmp.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit225.i.i, label %nrvo.skipdtor62.thread.i.i
-
-nrvo.skipdtor62.thread.i.i:                       ; preds = %land.lhs.true.i.i.i, %do.end6.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i416.i), !noalias !1997
-  br label %return.sink.split.i.i
+  br i1 %cmp.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit225.i.i, label %return.sink.split.i.sink.split.i
 
 _ZN5arrow6StatusD2Ev.exit225.i.i:                 ; preds = %land.lhs.true.i.i.i
   %null_count16.i.i.i = getelementptr inbounds i8, ptr %277, i64 24
@@ -39644,7 +39626,11 @@ _ZN5arrow6StatusD2Ev.exit225.i.i:                 ; preds = %land.lhs.true.i.i.i
   %cmp.i226.i.i = icmp eq ptr %.pr.i.i, null
   br i1 %cmp.i226.i.i, label %return.sink.split.i.i, label %_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_17FixedSizeListTypeE.exit.i
 
-return.sink.split.i.i:                            ; preds = %_ZN5arrow6StatusD2Ev.exit225.i.i, %nrvo.skipdtor62.thread.i.i, %nrvo.skipdtor62.thread9.i.i
+return.sink.split.i.sink.split.i:                 ; preds = %land.lhs.true.i.i.i, %do.end6.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i416.i), !noalias !1997
+  br label %return.sink.split.i.i
+
+return.sink.split.i.i:                            ; preds = %return.sink.split.i.sink.split.i, %_ZN5arrow6StatusD2Ev.exit225.i.i
   store ptr %274, ptr %ref.tmp49, align 8, !alias.scope !1997
   br label %_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_17FixedSizeListTypeE.exit.i
 
@@ -39704,11 +39690,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i436.i:               ; preds = %cond.true.i.i.i449.
   store ptr %285, ptr %ref.tmp29.i433.i, align 8, !alias.scope !2037, !noalias !2027
   store ptr null, ptr %ref.tmp.i.i430.i, align 8, !noalias !2036
   %cmp.i2.i.i438.i = icmp eq ptr %285, null
-  br i1 %cmp.i2.i.i438.i, label %do.end6.i.i441.i, label %nrvo.skipdtor42.thread9.i.i
-
-nrvo.skipdtor42.thread9.i.i:                      ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i436.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i430.i), !noalias !2027
-  br label %return.sink.split.i439.i
+  br i1 %cmp.i2.i.i438.i, label %do.end6.i.i441.i, label %return.sink.split.i439.sink.split.i
 
 do.end6.i.i441.i:                                 ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i436.i
   %data_.i.i442.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -39716,7 +39698,7 @@ do.end6.i.i441.i:                                 ; preds = %_ZN5arrow6StatusD2E
   %null_count.i.i443.i = getelementptr inbounds i8, ptr %286, i64 24
   %287 = load atomic i64, ptr %null_count.i.i443.i seq_cst, align 8, !noalias !2032
   %cmp.i114.i.i = icmp sgt i64 %287, 0
-  br i1 %cmp.i114.i.i, label %land.lhs.true.i.i444.i, label %nrvo.skipdtor42.thread.i.i
+  br i1 %cmp.i114.i.i, label %land.lhs.true.i.i444.i, label %return.sink.split.i439.sink.split.i
 
 land.lhs.true.i.i444.i:                           ; preds = %do.end6.i.i441.i
   %288 = load ptr, ptr %data_.i.i442.i, align 8, !noalias !2038
@@ -39724,11 +39706,7 @@ land.lhs.true.i.i444.i:                           ; preds = %do.end6.i.i441.i
   %289 = load ptr, ptr %buffers.i.i445.i, align 8, !noalias !2032
   %290 = load ptr, ptr %289, align 8, !noalias !2032
   %cmp.i.not.i.i.i446.i = icmp eq ptr %290, null
-  br i1 %cmp.i.not.i.i.i446.i, label %_ZN5arrow6StatusD2Ev.exit150.i.i, label %nrvo.skipdtor42.thread.i.i
-
-nrvo.skipdtor42.thread.i.i:                       ; preds = %land.lhs.true.i.i444.i, %do.end6.i.i441.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i430.i), !noalias !2027
-  br label %return.sink.split.i439.i
+  br i1 %cmp.i.not.i.i.i446.i, label %_ZN5arrow6StatusD2Ev.exit150.i.i, label %return.sink.split.i439.sink.split.i
 
 _ZN5arrow6StatusD2Ev.exit150.i.i:                 ; preds = %land.lhs.true.i.i444.i
   %null_count16.i.i447.i = getelementptr inbounds i8, ptr %288, i64 24
@@ -39740,7 +39718,11 @@ _ZN5arrow6StatusD2Ev.exit150.i.i:                 ; preds = %land.lhs.true.i.i44
   %cmp.i151.i.i = icmp eq ptr %.pr.i448.i, null
   br i1 %cmp.i151.i.i, label %return.sink.split.i439.i, label %_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_10StructTypeE.exit.i
 
-return.sink.split.i439.i:                         ; preds = %_ZN5arrow6StatusD2Ev.exit150.i.i, %nrvo.skipdtor42.thread.i.i, %nrvo.skipdtor42.thread9.i.i
+return.sink.split.i439.sink.split.i:              ; preds = %land.lhs.true.i.i444.i, %do.end6.i.i441.i, %_ZN5arrow6StatusD2Ev.exit.i.i436.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i430.i), !noalias !2027
+  br label %return.sink.split.i439.i
+
+return.sink.split.i439.i:                         ; preds = %return.sink.split.i439.sink.split.i, %_ZN5arrow6StatusD2Ev.exit150.i.i
   store ptr %285, ptr %ref.tmp49, align 8, !alias.scope !2027
   br label %_ZN5arrow12_GLOBAL__N_113ArrayImporter5VisitERKNS_10StructTypeE.exit.i
 

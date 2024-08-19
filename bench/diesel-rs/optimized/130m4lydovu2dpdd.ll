@@ -1055,7 +1055,6 @@ define hidden void @"_ZN74_$LT$T$u20$as$u20$diesel..deserialize..FromStaticSqlRo
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1381da9005c5ac74fb49ad0c26b5955.18.llvm.12988233250446828850, ptr %31, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %47
 
 32:                                               ; preds = %42, %28
@@ -1108,10 +1107,10 @@ define hidden void @"_ZN74_$LT$T$u20$as$u20$diesel..deserialize..FromStaticSqlRo
   %46 = add i64 %45, -1
   store i64 %46, ptr %44, align 8, !noalias !123
   call void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h895b4f8ae95de4efE.llvm.7178534242157706814"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %47
 
 47:                                               ; preds = %43, %30
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   ret void
 
 48:                                               ; preds = %32
@@ -1205,7 +1204,6 @@ define hidden void @"_ZN74_$LT$T$u20$as$u20$diesel..deserialize..FromStaticSqlRo
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b1381da9005c5ac74fb49ad0c26b5955.18.llvm.12988233250446828850, ptr %31, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %47
 
 32:                                               ; preds = %42, %28
@@ -1258,10 +1256,10 @@ define hidden void @"_ZN74_$LT$T$u20$as$u20$diesel..deserialize..FromStaticSqlRo
   %46 = add i64 %45, -1
   store i64 %46, ptr %44, align 8, !noalias !169
   call void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h895b4f8ae95de4efE.llvm.7178534242157706814"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %47
 
 47:                                               ; preds = %43, %30
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   ret void
 
 48:                                               ; preds = %32

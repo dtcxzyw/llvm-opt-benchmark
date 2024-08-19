@@ -2956,7 +2956,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h0eae3b368f
   br label %34
 
 34:                                               ; preds = %32, %30
-  %.sroa.6.0.i.i = phi ptr [ %33, %32 ], [ %31, %30 ]
+  %.sroa.6.0.ph.i.i = phi ptr [ %31, %30 ], [ %33, %32 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !680
   %35 = icmp ne ptr %.val, null
   call void @llvm.assume(i1 %35)
@@ -2988,11 +2988,11 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h0eae3b368f
 41:                                               ; preds = %38
   %42 = landingpad { ptr, i32 }
           cleanup
-  store ptr %.sroa.6.0.i.i, ptr %.val, align 8, !noalias !695
+  store ptr %.sroa.6.0.ph.i.i, ptr %.val, align 8, !noalias !695
   resume { ptr, i32 } %42
 
 "_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$wasi_common..snapshots..preview_1..types..Error$GT$$GT$$GT$17hb9880960f4539a00E.exit.i.i.i": ; preds = %38, %34
-  store ptr %.sroa.6.0.i.i, ptr %.val, align 8, !noalias !695
+  store ptr %.sroa.6.0.ph.i.i, ptr %.val, align 8, !noalias !695
   br label %43
 
 43:                                               ; preds = %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$wasi_common..snapshots..preview_1..types..Error$GT$$GT$$GT$17hb9880960f4539a00E.exit.i.i.i", %39
@@ -4623,7 +4623,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h75982d58b0
   br label %54
 
 54:                                               ; preds = %"_ZN11wasi_common9snapshots9preview_0130_$LT$impl$u20$core..convert..From$LT$wiggle..error..GuestError$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$4from17haa0b02668f7f431eE.exit68.i.i.i", %"_ZN11wasi_common9snapshots9preview_0130_$LT$impl$u20$core..convert..From$LT$wiggle..error..GuestError$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$4from17haa0b02668f7f431eE.exit.i.i.i"
-  %.sroa.6.0.i.i = phi ptr [ %.0.i.i67.i.i.i, %"_ZN11wasi_common9snapshots9preview_0130_$LT$impl$u20$core..convert..From$LT$wiggle..error..GuestError$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$4from17haa0b02668f7f431eE.exit68.i.i.i" ], [ %.0.i.i.i.i.i, %"_ZN11wasi_common9snapshots9preview_0130_$LT$impl$u20$core..convert..From$LT$wiggle..error..GuestError$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$4from17haa0b02668f7f431eE.exit.i.i.i" ]
+  %.sroa.6.0.ph.i.i = phi ptr [ %.0.i.i.i.i.i, %"_ZN11wasi_common9snapshots9preview_0130_$LT$impl$u20$core..convert..From$LT$wiggle..error..GuestError$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$4from17haa0b02668f7f431eE.exit.i.i.i" ], [ %.0.i.i67.i.i.i, %"_ZN11wasi_common9snapshots9preview_0130_$LT$impl$u20$core..convert..From$LT$wiggle..error..GuestError$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$4from17haa0b02668f7f431eE.exit68.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !1046
   %55 = icmp ne ptr %.val, null
   call void @llvm.assume(i1 %55)
@@ -4655,11 +4655,11 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h75982d58b0
 61:                                               ; preds = %58
   %62 = landingpad { ptr, i32 }
           cleanup
-  store ptr %.sroa.6.0.i.i, ptr %.val, align 8, !noalias !1066
+  store ptr %.sroa.6.0.ph.i.i, ptr %.val, align 8, !noalias !1066
   resume { ptr, i32 } %62
 
 "_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$wasi_common..snapshots..preview_0..types..Error$GT$$GT$$GT$17hac93cc661071734aE.exit.i.i.i": ; preds = %58, %54
-  store ptr %.sroa.6.0.i.i, ptr %.val, align 8, !noalias !1066
+  store ptr %.sroa.6.0.ph.i.i, ptr %.val, align 8, !noalias !1066
   br label %63
 
 63:                                               ; preds = %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$wasi_common..snapshots..preview_0..types..Error$GT$$GT$$GT$17hac93cc661071734aE.exit.i.i.i", %59
@@ -5061,7 +5061,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17haf65efb3b4
   br label %34
 
 34:                                               ; preds = %32, %30
-  %.sroa.6.0.i.i = phi ptr [ %33, %32 ], [ %31, %30 ]
+  %.sroa.6.0.ph.i.i = phi ptr [ %31, %30 ], [ %33, %32 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !1166
   %35 = icmp ne ptr %.val, null
   call void @llvm.assume(i1 %35)
@@ -5093,11 +5093,11 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17haf65efb3b4
 41:                                               ; preds = %38
   %42 = landingpad { ptr, i32 }
           cleanup
-  store ptr %.sroa.6.0.i.i, ptr %.val, align 8, !noalias !1180
+  store ptr %.sroa.6.0.ph.i.i, ptr %.val, align 8, !noalias !1180
   resume { ptr, i32 } %42
 
 "_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$wasi_common..snapshots..preview_1..types..Error$GT$$GT$$GT$17hb9880960f4539a00E.exit.i.i.i": ; preds = %38, %34
-  store ptr %.sroa.6.0.i.i, ptr %.val, align 8, !noalias !1180
+  store ptr %.sroa.6.0.ph.i.i, ptr %.val, align 8, !noalias !1180
   br label %43
 
 43:                                               ; preds = %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$wasi_common..snapshots..preview_1..types..Error$GT$$GT$$GT$17hb9880960f4539a00E.exit.i.i.i", %39
@@ -5530,7 +5530,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hd880f91732
   br label %54
 
 54:                                               ; preds = %"_ZN11wasi_common9snapshots9preview_0130_$LT$impl$u20$core..convert..From$LT$wiggle..error..GuestError$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$4from17haa0b02668f7f431eE.exit68.i.i.i", %"_ZN11wasi_common9snapshots9preview_0130_$LT$impl$u20$core..convert..From$LT$wiggle..error..GuestError$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$4from17haa0b02668f7f431eE.exit.i.i.i"
-  %.sroa.6.0.i.i = phi ptr [ %.0.i.i67.i.i.i, %"_ZN11wasi_common9snapshots9preview_0130_$LT$impl$u20$core..convert..From$LT$wiggle..error..GuestError$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$4from17haa0b02668f7f431eE.exit68.i.i.i" ], [ %.0.i.i.i.i.i, %"_ZN11wasi_common9snapshots9preview_0130_$LT$impl$u20$core..convert..From$LT$wiggle..error..GuestError$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$4from17haa0b02668f7f431eE.exit.i.i.i" ]
+  %.sroa.6.0.ph.i.i = phi ptr [ %.0.i.i.i.i.i, %"_ZN11wasi_common9snapshots9preview_0130_$LT$impl$u20$core..convert..From$LT$wiggle..error..GuestError$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$4from17haa0b02668f7f431eE.exit.i.i.i" ], [ %.0.i.i67.i.i.i, %"_ZN11wasi_common9snapshots9preview_0130_$LT$impl$u20$core..convert..From$LT$wiggle..error..GuestError$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$4from17haa0b02668f7f431eE.exit68.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !1261
   %55 = icmp ne ptr %.val, null
   call void @llvm.assume(i1 %55)
@@ -5562,11 +5562,11 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hd880f91732
 61:                                               ; preds = %58
   %62 = landingpad { ptr, i32 }
           cleanup
-  store ptr %.sroa.6.0.i.i, ptr %.val, align 8, !noalias !1281
+  store ptr %.sroa.6.0.ph.i.i, ptr %.val, align 8, !noalias !1281
   resume { ptr, i32 } %62
 
 "_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$wasi_common..snapshots..preview_0..types..Error$GT$$GT$$GT$17hac93cc661071734aE.exit.i.i.i": ; preds = %58, %54
-  store ptr %.sroa.6.0.i.i, ptr %.val, align 8, !noalias !1281
+  store ptr %.sroa.6.0.ph.i.i, ptr %.val, align 8, !noalias !1281
   br label %63
 
 63:                                               ; preds = %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$wasi_common..snapshots..preview_0..types..Error$GT$$GT$$GT$17hac93cc661071734aE.exit.i.i.i", %59
@@ -5682,7 +5682,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17heb0f8e9d26
   br label %34
 
 34:                                               ; preds = %32, %30
-  %.sroa.6.0.i.i = phi ptr [ %33, %32 ], [ %31, %30 ]
+  %.sroa.6.0.ph.i.i = phi ptr [ %31, %30 ], [ %33, %32 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !1309
   %35 = icmp ne ptr %.val, null
   call void @llvm.assume(i1 %35)
@@ -5714,11 +5714,11 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17heb0f8e9d26
 41:                                               ; preds = %38
   %42 = landingpad { ptr, i32 }
           cleanup
-  store ptr %.sroa.6.0.i.i, ptr %.val, align 8, !noalias !1323
+  store ptr %.sroa.6.0.ph.i.i, ptr %.val, align 8, !noalias !1323
   resume { ptr, i32 } %42
 
 "_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$wasi_common..snapshots..preview_1..types..Error$GT$$GT$$GT$17hb9880960f4539a00E.exit.i.i.i": ; preds = %38, %34
-  store ptr %.sroa.6.0.i.i, ptr %.val, align 8, !noalias !1323
+  store ptr %.sroa.6.0.ph.i.i, ptr %.val, align 8, !noalias !1323
   br label %43
 
 43:                                               ; preds = %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$wasi_common..snapshots..preview_1..types..Error$GT$$GT$$GT$17hb9880960f4539a00E.exit.i.i.i", %39
@@ -7512,7 +7512,6 @@ default.unreachable:                              ; preds = %11
   store ptr %.0.i.i, ptr %33, align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.9.sroa.5)
   br label %36
 
 34:                                               ; preds = %20
@@ -7523,10 +7522,10 @@ default.unreachable:                              ; preds = %11
   store ptr %.sroa.923.13653, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.sroa.7, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.9.sroa.5)
   br label %36
 
 36:                                               ; preds = %35, %"_ZN11wasi_common9snapshots9preview_0130_$LT$impl$u20$core..convert..From$LT$wiggle..error..GuestError$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$4from17haa0b02668f7f431eE.exit"
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.9.sroa.5)
   ret void
 }
 
@@ -7691,7 +7690,6 @@ default.unreachable:                              ; preds = %11
   store ptr %.0.i.i, ptr %33, align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.9.sroa.5)
   br label %36
 
 34:                                               ; preds = %20
@@ -7702,10 +7700,10 @@ default.unreachable:                              ; preds = %11
   store ptr %.sroa.923.13653, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.sroa.7, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.9.sroa.5)
   br label %36
 
 36:                                               ; preds = %35, %"_ZN11wasi_common9snapshots9preview_0130_$LT$impl$u20$core..convert..From$LT$wiggle..error..GuestError$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$4from17haa0b02668f7f431eE.exit"
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.9.sroa.5)
   ret void
 }
 
@@ -7848,7 +7846,6 @@ default.unreachable:                              ; preds = %9
   store ptr %21, ptr %22, align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.9.sroa.5)
   br label %25
 
 23:                                               ; preds = %18
@@ -7859,10 +7856,10 @@ default.unreachable:                              ; preds = %9
   store ptr %.sroa.92.11532, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.sroa.7, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.9.sroa.5)
   br label %25
 
 25:                                               ; preds = %24, %20
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.9.sroa.5)
   ret void
 }
 
@@ -8005,7 +8002,6 @@ default.unreachable:                              ; preds = %9
   store ptr %21, ptr %22, align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.9.sroa.5)
   br label %25
 
 23:                                               ; preds = %18
@@ -8016,10 +8012,10 @@ default.unreachable:                              ; preds = %9
   store ptr %.sroa.92.11532, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.sroa.7, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.9.sroa.5)
   br label %25
 
 25:                                               ; preds = %24, %20
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.9.sroa.5)
   ret void
 }
 
@@ -8162,7 +8158,6 @@ default.unreachable:                              ; preds = %10
   store ptr %22, ptr %23, align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.9.sroa.5)
   br label %26
 
 24:                                               ; preds = %19
@@ -8173,10 +8168,10 @@ default.unreachable:                              ; preds = %10
   store ptr %.sroa.923.13653, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.sroa.7, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.9.sroa.5)
   br label %26
 
 26:                                               ; preds = %25, %21
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.9.sroa.5)
   ret void
 }
 

@@ -21303,7 +21303,7 @@ define internal noundef ptr @"_ZZN4pkpy15__init_builtinsEPNS_2VMEEN4$_598__invok
     i16 3, label %25
     i16 2, label %"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK4$_59clES1_NS_8ArgsViewE.exit"
     i16 4, label %_ZN4pkpy6py_varIiEEPNS_8PyObjectEPNS_2VMEOT_.exit26.i
-    i16 5, label %.thread22.i
+    i16 5, label %.sink.split.i
   ]
 
 25:                                               ; preds = %17
@@ -21372,11 +21372,7 @@ _ZN4pkpy6py_varIiEEPNS_8PyObjectEPNS_2VMEOT_.exit26.i: ; preds = %17
 .thread22.sink.split.i:                           ; preds = %.noexc28.i, %.noexc.i
   %.sink.i = phi ptr [ %6, %.noexc.i ], [ %7, %.noexc28.i ]
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink.i) #37
-  br label %.thread22.i
-
-.thread22.i:                                      ; preds = %.thread22.sink.split.i, %17
-  store i32 10, ptr %8, align 4
-  br label %56
+  br label %.sink.split.i
 
 49:                                               ; preds = %43
   store i32 10, ptr %8, align 4
@@ -21388,11 +21384,15 @@ _ZN4pkpy6py_varIiEEPNS_8PyObjectEPNS_2VMEOT_.exit26.i: ; preds = %17
   %53 = load ptr, ptr %52, align 8
   %54 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %53)
   %55 = trunc i64 %54 to i32
-  store i32 %55, ptr %8, align 4
+  br label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %51, %.thread22.sink.split.i, %17
+  %.sink23.i = phi i32 [ %55, %51 ], [ 10, %.thread22.sink.split.i ], [ 10, %17 ]
+  store i32 %.sink23.i, ptr %8, align 4
   br label %56
 
-56:                                               ; preds = %51, %49, %.thread22.i
-  %57 = phi i32 [ 10, %.thread22.i ], [ %55, %51 ], [ 10, %49 ]
+56:                                               ; preds = %.sink.split.i, %49
+  %57 = phi i32 [ 10, %49 ], [ %.sink23.i, %.sink.split.i ]
   %58 = getelementptr inbounds i8, ptr %1, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = ptrtoint ptr %59 to i64
@@ -21505,9 +21505,9 @@ _ZN4pkpy6py_varIRlEEPNS_8PyObjectEPNS_2VMEOT_.exit.i: ; preds = %99, %95
   br label %"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK4$_59clES1_NS_8ArgsViewE.exit"
 
 102:                                              ; preds = %88, %86, %47, %41
-  %.sink23.i = phi ptr [ %7, %47 ], [ %6, %41 ], [ %11, %88 ], [ %11, %86 ]
+  %.sink24.i = phi ptr [ %7, %47 ], [ %6, %41 ], [ %11, %88 ], [ %11, %86 ]
   %.pn.pn.i = phi { ptr, i32 } [ %48, %47 ], [ %42, %41 ], [ %89, %88 ], [ %87, %86 ]
-  call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink23.i) #37
+  call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink24.i) #37
   resume { ptr, i32 } %.pn.pn.i
 
 "_ZZN4pkpy15__init_builtinsEPNS_2VMEENK4$_59clES1_NS_8ArgsViewE.exit": ; preds = %3, %17, %_ZN4pkpy6py_varIlEEPNS_8PyObjectEPNS_2VMEOT_.exit.i, %_ZN4pkpy6py_varIiEEPNS_8PyObjectEPNS_2VMEOT_.exit26.i, %_ZN4pkpy6py_varIRlEEPNS_8PyObjectEPNS_2VMEOT_.exit.i

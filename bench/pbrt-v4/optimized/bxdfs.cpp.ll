@@ -3655,10 +3655,10 @@ if.then220:                                       ; preds = %if.end191, %if.end2
   br label %invoke.cont240
 
 invoke.cont240:                                   ; preds = %if.end218, %if.then220
-  %storemerge = phi ptr [ null, %if.then220 ], [ %this, %if.end218 ]
+  %this.sink = phi ptr [ null, %if.then220 ], [ %this, %if.end218 ]
   %z83.3482 = phi float [ %z83.3483, %if.then220 ], [ %z83.3, %if.end218 ]
   %rng.sroa.0.3480 = phi i64 [ %rng.sroa.0.3481, %if.then220 ], [ %rng.sroa.0.3, %if.end218 ]
-  store ptr %storemerge, ptr %interface, align 8
+  store ptr %this.sink, ptr %interface, align 8
   %mul.i.i.i258 = mul i64 %rng.sroa.0.3480, 6364136223846793005
   %add.i.i.i260 = add i64 %mul.i.i.i258, %or.i.i
   %57 = lshr i64 %rng.sroa.0.3480, 45

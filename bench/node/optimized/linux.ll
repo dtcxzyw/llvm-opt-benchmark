@@ -132,27 +132,22 @@ if.end27:                                         ; preds = %if.end22
 if.then30:                                        ; preds = %if.end27
   %3 = load i32, ptr %patch, align 4
   %cmp31 = icmp ugt i32 %3, 59
-  br i1 %cmp31, label %if.then32, label %if.else
-
-if.then32:                                        ; preds = %if.then30
-  store i32 4, ptr %major, align 4
-  %sub = add i32 %3, -60
-  store i32 %sub, ptr %minor, align 4
-  store i32 0, ptr %patch, align 4
-  br label %calculate_version
+  br i1 %cmp31, label %calculate_version.sink.split, label %if.else
 
 if.else:                                          ; preds = %if.then30
   %cmp33 = icmp ugt i32 %3, 39
-  br i1 %cmp33, label %if.then34, label %calculate_version
+  br i1 %cmp33, label %calculate_version.sink.split, label %calculate_version
 
-if.then34:                                        ; preds = %if.else
-  store i32 3, ptr %major, align 4
-  %sub35 = add nsw i32 %3, -40
+calculate_version.sink.split:                     ; preds = %if.else, %if.then30
+  %.sink6 = phi i32 [ 4, %if.then30 ], [ 3, %if.else ]
+  %.sink = phi i32 [ -60, %if.then30 ], [ -40, %if.else ]
+  store i32 %.sink6, ptr %major, align 4
+  %sub35 = add i32 %3, %.sink
   store i32 %sub35, ptr %minor, align 4
   store i32 0, ptr %patch, align 4
   br label %calculate_version
 
-calculate_version:                                ; preds = %if.end27, %if.else, %if.then34, %if.then32, %if.then17, %if.then2
+calculate_version:                                ; preds = %calculate_version.sink.split, %if.end27, %if.else, %if.then17, %if.then2
   %4 = load i32, ptr %major, align 4
   %mul = shl i32 %4, 16
   %5 = load i32, ptr %minor, align 4

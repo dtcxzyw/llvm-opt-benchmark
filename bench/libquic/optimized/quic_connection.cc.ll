@@ -7588,70 +7588,70 @@ if.end25:                                         ; preds = %invoke.cont15, %inv
           to label %cleanup unwind label %lpad14
 
 cleanup:                                          ; preds = %if.end25, %if.then20
-  %call29.sink = phi { i64, i8 } [ %call24, %if.then20 ], [ %call29, %if.end25 ]
-  %storemerge = extractvalue { i64, i8 } %call29.sink, 0
-  store i64 %storemerge, ptr %retval, align 8
-  %5 = getelementptr inbounds i8, ptr %retval, i64 8
-  %6 = extractvalue { i64, i8 } %call29.sink, 1
-  store i8 %6, ptr %5, align 8
-  %7 = load ptr, ptr %ack_bundler, align 8
-  %cmp.i = icmp eq ptr %7, null
+  %call29.sink26 = phi { i64, i8 } [ %call24, %if.then20 ], [ %call29, %if.end25 ]
+  %5 = extractvalue { i64, i8 } %call29.sink26, 0
+  store i64 %5, ptr %retval, align 8
+  %6 = getelementptr inbounds i8, ptr %retval, i64 8
+  %7 = extractvalue { i64, i8 } %call29.sink26, 1
+  store i8 %7, ptr %6, align 8
+  %8 = load ptr, ptr %ack_bundler, align 8
+  %cmp.i = icmp eq ptr %8, null
   br i1 %cmp.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %cleanup
   %already_in_batch_mode_.i = getelementptr inbounds i8, ptr %ack_bundler, i64 8
-  %8 = load i8, ptr %already_in_batch_mode_.i, align 8
-  %tobool.i = trunc i8 %8 to i1
+  %9 = load i8, ptr %already_in_batch_mode_.i, align 8
+  %tobool.i = trunc i8 %9 to i1
   br i1 %tobool.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %packet_generator_.i = getelementptr inbounds i8, ptr %7, i64 2408
+  %packet_generator_.i = getelementptr inbounds i8, ptr %8, i64 2408
   invoke void @_ZN3net19QuicPacketGenerator21FinishBatchOperationsEv(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_.i)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then2.i
-  %queued_packets_.i.i = getelementptr inbounds i8, ptr %7, i64 816
-  %9 = load ptr, ptr %queued_packets_.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %9, %queued_packets_.i.i
+  %queued_packets_.i.i = getelementptr inbounds i8, ptr %8, i64 816
+  %10 = load ptr, ptr %queued_packets_.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %10, %queued_packets_.i.i
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit
 
 land.lhs.true.i.i:                                ; preds = %invoke.cont.i
-  %sent_packet_manager_.i.i = getelementptr inbounds i8, ptr %7, i64 3192
-  %10 = load ptr, ptr %sent_packet_manager_.i.i, align 8
-  %vtable.i.i = load ptr, ptr %10, align 8
+  %sent_packet_manager_.i.i = getelementptr inbounds i8, ptr %8, i64 3192
+  %11 = load ptr, ptr %sent_packet_manager_.i.i, align 8
+  %vtable.i.i = load ptr, ptr %11, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 88
-  %11 = load ptr, ptr %vfn.i.i, align 8
-  %call3.i1.i = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %12 = load ptr, ptr %vfn.i.i, align 8
+  %call3.i1.i = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %call3.i.noexc.i unwind label %terminate.lpad.i
 
 call3.i.noexc.i:                                  ; preds = %land.lhs.true.i.i
   br i1 %call3.i1.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit, label %land.lhs.true4.i.i
 
 land.lhs.true4.i.i:                               ; preds = %call3.i.noexc.i
-  %visitor_.i.i = getelementptr inbounds i8, ptr %7, i64 2392
-  %12 = load ptr, ptr %visitor_.i.i, align 8
-  %vtable5.i.i = load ptr, ptr %12, align 8
+  %visitor_.i.i = getelementptr inbounds i8, ptr %8, i64 2392
+  %13 = load ptr, ptr %visitor_.i.i, align 8
+  %vtable5.i.i = load ptr, ptr %13, align 8
   %vfn6.i.i = getelementptr inbounds i8, ptr %vtable5.i.i, i64 120
-  %13 = load ptr, ptr %vfn6.i.i, align 8
-  %call7.i2.i = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(8) %12)
+  %14 = load ptr, ptr %vfn6.i.i, align 8
+  %call7.i2.i = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(8) %13)
           to label %call7.i.noexc.i unwind label %terminate.lpad.i
 
 call7.i.noexc.i:                                  ; preds = %land.lhs.true4.i.i
   br i1 %call7.i2.i, label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %call7.i.noexc.i
-  %14 = load ptr, ptr %sent_packet_manager_.i.i, align 8
-  %vtable10.i.i = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %sent_packet_manager_.i.i, align 8
+  %vtable10.i.i = load ptr, ptr %15, align 8
   %vfn11.i.i = getelementptr inbounds i8, ptr %vtable10.i.i, i64 304
-  %15 = load ptr, ptr %vfn11.i.i, align 8
-  invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %16 = load ptr, ptr %vfn11.i.i, align 8
+  invoke void %16(ptr noundef nonnull align 8 dereferenceable(8) %15)
           to label %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i, %land.lhs.true4.i.i, %land.lhs.true.i.i, %if.then2.i
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #26
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #26
   unreachable
 
 _ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit: ; preds = %cleanup, %if.end.i, %invoke.cont.i, %call3.i.noexc.i, %call7.i.noexc.i, %if.then.i.i
@@ -7661,26 +7661,26 @@ _ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit: ; preds = %cleanup, %if.e
 if.end.i13:                                       ; preds = %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit
   store i8 0, ptr %delay_setting_retransmission_alarm_.i, align 4
   %pending_retransmission_alarm_.i = getelementptr inbounds i8, ptr %this, i64 1285
-  %18 = load i8, ptr %pending_retransmission_alarm_.i, align 1
-  %tobool3.i = trunc i8 %18 to i1
+  %19 = load i8, ptr %pending_retransmission_alarm_.i, align 1
+  %tobool3.i = trunc i8 %19 to i1
   br i1 %tobool3.i, label %if.end.i.i, label %return
 
 if.end.i.i:                                       ; preds = %if.end.i13
   %sent_packet_manager_.i.i15 = getelementptr inbounds i8, ptr %this, i64 3192
-  %19 = load ptr, ptr %sent_packet_manager_.i.i15, align 8
-  %vtable.i.i16 = load ptr, ptr %19, align 8
+  %20 = load ptr, ptr %sent_packet_manager_.i.i15, align 8
+  %vtable.i.i16 = load ptr, ptr %20, align 8
   %vfn.i.i17 = getelementptr inbounds i8, ptr %vtable.i.i16, i64 144
-  %20 = load ptr, ptr %vfn.i.i17, align 8
-  %call2.i1.i = invoke i64 %20(ptr noundef nonnull align 8 dereferenceable(8) %19)
+  %21 = load ptr, ptr %vfn.i.i17, align 8
+  %call2.i1.i = invoke i64 %21(ptr noundef nonnull align 8 dereferenceable(8) %20)
           to label %call2.i.noexc.i unwind label %terminate.lpad.i18
 
 call2.i.noexc.i:                                  ; preds = %if.end.i.i
   %retransmission_alarm_.i.i = getelementptr inbounds i8, ptr %this, i64 2344
-  %21 = load ptr, ptr %retransmission_alarm_.i.i, align 8
-  %22 = ptrtoint ptr %21 to i64
-  %and.i.i.i.i = and i64 %22, -2
-  %23 = inttoptr i64 %and.i.i.i.i to ptr
-  invoke void @_ZN3net9QuicAlarm6UpdateENS_8QuicTimeENS1_5DeltaE(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 %call2.i1.i, i64 0, i64 1000)
+  %22 = load ptr, ptr %retransmission_alarm_.i.i, align 8
+  %23 = ptrtoint ptr %22 to i64
+  %and.i.i.i.i = and i64 %23, -2
+  %24 = inttoptr i64 %and.i.i.i.i to ptr
+  invoke void @_ZN3net9QuicAlarm6UpdateENS_8QuicTimeENS1_5DeltaE(ptr noundef nonnull align 8 dereferenceable(24) %24, i64 %call2.i1.i, i64 0, i64 1000)
           to label %invoke.cont.i19 unwind label %terminate.lpad.i18
 
 invoke.cont.i19:                                  ; preds = %call2.i.noexc.i
@@ -7688,10 +7688,10 @@ invoke.cont.i19:                                  ; preds = %call2.i.noexc.i
   br label %return
 
 terminate.lpad.i18:                               ; preds = %call2.i.noexc.i, %if.end.i.i
-  %24 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #26
+  %26 = extractvalue { ptr, i32 } %25, 0
+  call void @__clang_call_terminate(ptr %26) #26
   unreachable
 
 ehcleanup:                                        ; preds = %lpad14, %lpad10
@@ -7700,8 +7700,8 @@ ehcleanup:                                        ; preds = %lpad14, %lpad10
   br label %eh.resume
 
 return:                                           ; preds = %invoke.cont.i19, %if.end.i13, %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit, %cleanup.done
-  %.fca.1.load = phi i8 [ %6, %invoke.cont.i19 ], [ %6, %if.end.i13 ], [ %6, %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit ], [ %.fca.1.load.pre, %cleanup.done ]
-  %.fca.0.load = phi i64 [ %storemerge, %invoke.cont.i19 ], [ %storemerge, %if.end.i13 ], [ %storemerge, %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit ], [ %.fca.0.load.pre, %cleanup.done ]
+  %.fca.1.load = phi i8 [ %7, %invoke.cont.i19 ], [ %7, %if.end.i13 ], [ %7, %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit ], [ %.fca.1.load.pre, %cleanup.done ]
+  %.fca.0.load = phi i64 [ %5, %invoke.cont.i19 ], [ %5, %if.end.i13 ], [ %5, %_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev.exit ], [ %.fca.0.load.pre, %cleanup.done ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.fca.0.load, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.fca.1.load, 1
   ret { i64, i8 } %.fca.1.insert

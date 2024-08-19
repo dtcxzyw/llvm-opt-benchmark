@@ -443,8 +443,7 @@ define zeroext i16 @slurm_job_preempt_mode(ptr noundef %0) local_unnamed_addr #0
   %18 = call i32 %17(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %3) #8
   %.0.i = load i16, ptr %3, align 2
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
-  store i16 %.0.i, ptr %4, align 2
-  br label %.thread
+  br label %.thread.sink.split
 
 ._crit_edge:                                      ; preds = %7
   %.not17 = icmp eq ptr %.pre, null
@@ -455,10 +454,14 @@ define zeroext i16 @slurm_job_preempt_mode(ptr noundef %0) local_unnamed_addr #0
   %20 = call i32 %19(ptr noundef %., i32 noundef 1, ptr noundef nonnull %2) #8
   %.0.i18 = load i16, ptr %2, align 2
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2)
-  store i16 %.0.i18, ptr %4, align 2
+  br label %.thread.sink.split
+
+.thread.sink.split:                               ; preds = %._crit_edge, %16
+  %.0.i.sink = phi i16 [ %.0.i, %16 ], [ %.0.i18, %._crit_edge ]
+  store i16 %.0.i.sink, ptr %4, align 2
   br label %.thread
 
-.thread:                                          ; preds = %.preheader, %16, %._crit_edge
+.thread:                                          ; preds = %.preheader, %.thread.sink.split
   %21 = load i16, ptr %4, align 2
   br label %22
 

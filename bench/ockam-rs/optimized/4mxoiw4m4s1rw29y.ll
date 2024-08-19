@@ -1399,7 +1399,7 @@ define hidden void @"_ZN85_$LT$tokio..io..util..read..Read$LT$R$GT$$u20$as$u20$c
 
 19:                                               ; preds = %3
   store i64 2, ptr %0, align 8
-  br label %30
+  br label %29
 
 20:                                               ; preds = %17
   %21 = load i64, ptr %12, align 8, !noundef !9
@@ -1418,21 +1418,17 @@ define hidden void @"_ZN85_$LT$tokio..io..util..read..Read$LT$R$GT$$u20$as$u20$c
   store i64 0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %27, ptr %.sroa.4.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %29
 
 28:                                               ; preds = %17
   store i64 1, ptr %0, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.fca.1.extract, ptr %.sroa.414.0..sroa_idx, align 8
-  br label %30
-
-29:                                               ; preds = %30, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfe0ee6c8e9bea9d4E.exit"
-  ret void
-
-30:                                               ; preds = %28, %19
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %29
+
+29:                                               ; preds = %19, %28, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfe0ee6c8e9bea9d4E.exit"
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable

@@ -19124,7 +19124,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !2096, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !2096
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !2096
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2096
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h7ad77be70a1a8d7cE.exit"
 
 134:                                              ; preds = %96
@@ -19218,7 +19217,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70b3eefa0c054244E.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70b3eefa0c054244E.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h00307b93594f6ebcE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2096
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h7ad77be70a1a8d7cE.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -19290,6 +19288,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h7ad77be70a1a8d7cE.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2096
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -19620,7 +19619,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !2139, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !2139
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !2139
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2139
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hb902745a2578f7e3E.exit"
 
 134:                                              ; preds = %96
@@ -19714,7 +19712,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha9839e6f5a9b3ec6E.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha9839e6f5a9b3ec6E.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h0981345a1fcabdb7E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2139
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hb902745a2578f7e3E.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -19786,6 +19783,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hb902745a2578f7e3E.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2139
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -20116,7 +20114,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !2181, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !2181
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !2181
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2181
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hddc2e02685495b06E.exit"
 
 134:                                              ; preds = %96
@@ -20210,7 +20207,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1ec42aa08c539c26E.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1ec42aa08c539c26E.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h0a4cf639deff01b0E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2181
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hddc2e02685495b06E.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -20282,6 +20278,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hddc2e02685495b06E.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2181
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -20612,7 +20609,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !2223, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !2223
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !2223
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2223
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h0f9f8a644521b2bfE.exit"
 
 134:                                              ; preds = %96
@@ -20706,7 +20702,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1f97b3a9eb7016edE.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1f97b3a9eb7016edE.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h1525034cd8612d63E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2223
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h0f9f8a644521b2bfE.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -20778,6 +20773,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h0f9f8a644521b2bfE.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2223
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -21108,7 +21104,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !2265, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !2265
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !2265
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2265
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h4dd911bf356f3be7E.exit"
 
 134:                                              ; preds = %96
@@ -21202,7 +21197,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h47b968d551dac108E.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h47b968d551dac108E.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h1bdc02dcb15d1aa8E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2265
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h4dd911bf356f3be7E.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -21274,6 +21268,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h4dd911bf356f3be7E.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2265
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -21604,7 +21599,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !2307, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !2307
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !2307
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2307
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h96b188bc1e0e420aE.exit"
 
 134:                                              ; preds = %96
@@ -21698,7 +21692,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h9c4a4b96c3ac4615E.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h9c4a4b96c3ac4615E.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h220938f5e9b90c5bE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2307
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h96b188bc1e0e420aE.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -21770,6 +21763,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h96b188bc1e0e420aE.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2307
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -22100,7 +22094,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !2349, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !2349
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !2349
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2349
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h2d8c5f87abe47dedE.exit"
 
 134:                                              ; preds = %96
@@ -22194,7 +22187,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h780970a4f03e53ceE.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h780970a4f03e53ceE.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h23bf60fe4fadd01cE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2349
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h2d8c5f87abe47dedE.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -22266,6 +22258,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h2d8c5f87abe47dedE.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2349
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -22596,7 +22589,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !2391, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !2391
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !2391
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2391
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h396866c8a66d9559E.exit"
 
 134:                                              ; preds = %96
@@ -22690,7 +22682,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h52c4e996db127deaE.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h52c4e996db127deaE.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h2540d5a1b36fabdaE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2391
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h396866c8a66d9559E.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -22762,6 +22753,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h396866c8a66d9559E.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2391
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -23092,7 +23084,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !2433, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !2433
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !2433
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2433
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h02c30844d0aeb76aE.exit"
 
 134:                                              ; preds = %96
@@ -23186,7 +23177,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he0394963fc5fba6cE.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he0394963fc5fba6cE.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h336f91e2de485f33E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2433
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h02c30844d0aeb76aE.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -23258,6 +23248,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h02c30844d0aeb76aE.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2433
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -23588,7 +23579,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !2475, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !2475
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !2475
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2475
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h5e023be7823260d1E.exit"
 
 134:                                              ; preds = %96
@@ -23682,7 +23672,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3b6d199ac682ba71E.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3b6d199ac682ba71E.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h3662cd80a2d87e14E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2475
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h5e023be7823260d1E.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -23754,6 +23743,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h5e023be7823260d1E.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2475
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -24084,7 +24074,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !2517, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !2517
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !2517
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2517
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h26074fc6f8754c72E.exit"
 
 134:                                              ; preds = %96
@@ -24178,7 +24167,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf9556058dc132447E.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf9556058dc132447E.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h413d715eb7ffafdcE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2517
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h26074fc6f8754c72E.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -24250,6 +24238,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h26074fc6f8754c72E.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2517
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -24580,7 +24569,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !2559, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !2559
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !2559
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2559
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h50475824d528414fE.exit"
 
 134:                                              ; preds = %96
@@ -24674,7 +24662,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4f140ae4b69fe10fE.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4f140ae4b69fe10fE.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h4195a371a1e3db07E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2559
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h50475824d528414fE.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -24746,6 +24733,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h50475824d528414fE.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2559
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -25076,7 +25064,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !2601, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !2601
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !2601
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2601
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h1e5cbc432e37b1bfE.exit"
 
 134:                                              ; preds = %96
@@ -25170,7 +25157,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h81eb910a34fe1066E.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h81eb910a34fe1066E.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h452af8b7bd31064aE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2601
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h1e5cbc432e37b1bfE.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -25242,6 +25228,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h1e5cbc432e37b1bfE.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2601
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -25572,7 +25559,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !2643, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !2643
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !2643
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2643
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hf76711a6f7fb811aE.exit"
 
 134:                                              ; preds = %96
@@ -25666,7 +25652,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb8ab5f7c47b9d47bE.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb8ab5f7c47b9d47bE.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h4b510d5b80994caeE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2643
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hf76711a6f7fb811aE.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -25738,6 +25723,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hf76711a6f7fb811aE.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2643
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -26068,7 +26054,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !2685, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !2685
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !2685
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2685
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17ha0f872c4d88826edE.exit"
 
 134:                                              ; preds = %96
@@ -26162,7 +26147,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2ffbaa3f469e5c21E.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2ffbaa3f469e5c21E.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h62a4d3b634333bd0E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2685
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17ha0f872c4d88826edE.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -26234,6 +26218,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17ha0f872c4d88826edE.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2685
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -26564,7 +26549,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !2727, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !2727
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !2727
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2727
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hec777b951e4328e9E.exit"
 
 134:                                              ; preds = %96
@@ -26658,7 +26642,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h7c1e25261a3de55eE.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h7c1e25261a3de55eE.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h63d74818f455cc55E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2727
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hec777b951e4328e9E.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -26730,6 +26713,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hec777b951e4328e9E.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2727
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -27060,7 +27044,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !2769, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !2769
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !2769
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2769
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h5a4372187bd3dbdaE.exit"
 
 134:                                              ; preds = %96
@@ -27154,7 +27137,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h845b6592b7ab670eE.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h845b6592b7ab670eE.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h67e8dbcca0993734E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2769
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h5a4372187bd3dbdaE.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -27226,6 +27208,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h5a4372187bd3dbdaE.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2769
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -27556,7 +27539,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !2811, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !2811
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !2811
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2811
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h40041cad5f93f340E.exit"
 
 134:                                              ; preds = %96
@@ -27650,7 +27632,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf79b908fc0b110a1E.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf79b908fc0b110a1E.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h6ba893f94521c2ddE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2811
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h40041cad5f93f340E.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -27722,6 +27703,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h40041cad5f93f340E.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2811
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -28052,7 +28034,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !2853, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !2853
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !2853
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2853
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h86a8d4cc8201b33dE.exit"
 
 134:                                              ; preds = %96
@@ -28146,7 +28127,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h79a51edc5b9fa365E.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h79a51edc5b9fa365E.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h7020b7ce6b518768E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2853
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h86a8d4cc8201b33dE.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -28218,6 +28198,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h86a8d4cc8201b33dE.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2853
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -28548,7 +28529,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !2895, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !2895
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !2895
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2895
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hf6dad16f50088fc3E.exit"
 
 134:                                              ; preds = %96
@@ -28642,7 +28622,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h519629c0968ab79dE.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h519629c0968ab79dE.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h796c300d466d78a0E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2895
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hf6dad16f50088fc3E.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -28714,6 +28693,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hf6dad16f50088fc3E.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2895
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -29044,7 +29024,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !2937, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !2937
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !2937
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2937
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h657fe2a2706fad77E.exit"
 
 134:                                              ; preds = %96
@@ -29138,7 +29117,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h421fd998bf1f79f6E.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h421fd998bf1f79f6E.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h828eb5c14e33176dE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2937
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h657fe2a2706fad77E.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -29210,6 +29188,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h657fe2a2706fad77E.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2937
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -29540,7 +29519,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !2979, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !2979
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !2979
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2979
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h7c1b0bc85b7ce0b1E.exit"
 
 134:                                              ; preds = %96
@@ -29634,7 +29612,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h18b4edcce592615bE.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h18b4edcce592615bE.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h8c39e75ca1be1a33E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2979
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h7c1b0bc85b7ce0b1E.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -29706,6 +29683,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h7c1b0bc85b7ce0b1E.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !2979
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -30036,7 +30014,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !3021, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !3021
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !3021
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3021
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17haa96ba9aa32cb421E.exit"
 
 134:                                              ; preds = %96
@@ -30130,7 +30107,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h34d80a1e2dc9c677E.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h34d80a1e2dc9c677E.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h94b2c693d506d5ffE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3021
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17haa96ba9aa32cb421E.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -30202,6 +30178,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17haa96ba9aa32cb421E.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3021
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -30532,7 +30509,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !3063, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !3063
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !3063
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3063
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h332c8547a9484f5dE.exit"
 
 134:                                              ; preds = %96
@@ -30626,7 +30602,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1b5ceeac1a905298E.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1b5ceeac1a905298E.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h95d8cfa84fcb4787E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3063
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h332c8547a9484f5dE.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -30698,6 +30673,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h332c8547a9484f5dE.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3063
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -31028,7 +31004,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !3105, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !3105
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !3105
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3105
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h1a16f6401717848aE.exit"
 
 134:                                              ; preds = %96
@@ -31122,7 +31097,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb780bf5654ef4f5bE.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb780bf5654ef4f5bE.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h9fbf8fad08fb191cE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3105
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h1a16f6401717848aE.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -31194,6 +31168,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h1a16f6401717848aE.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3105
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -31524,7 +31499,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !3147, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !3147
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !3147
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3147
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h9fc80442a4d4d3e3E.exit"
 
 134:                                              ; preds = %96
@@ -31618,7 +31592,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc5115a1976ba7735E.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc5115a1976ba7735E.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17habf91bccb302c4adE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3147
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h9fc80442a4d4d3e3E.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -31690,6 +31663,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h9fc80442a4d4d3e3E.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3147
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -32020,7 +31994,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !3189, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !3189
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !3189
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3189
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17he26a5dd8e46ee966E.exit"
 
 134:                                              ; preds = %96
@@ -32114,7 +32087,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he463455b94252d95E.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he463455b94252d95E.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17hb295a48abd4f0c31E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3189
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17he26a5dd8e46ee966E.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -32186,6 +32158,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17he26a5dd8e46ee966E.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3189
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -32516,7 +32489,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !3231, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !3231
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !3231
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3231
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17had0d9d18d3de1819E.exit"
 
 134:                                              ; preds = %96
@@ -32610,7 +32582,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h45fd92441e3afd28E.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h45fd92441e3afd28E.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17hba0dabfbf1e21e01E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3231
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17had0d9d18d3de1819E.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -32682,6 +32653,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17had0d9d18d3de1819E.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3231
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -33012,7 +32984,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !3273, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !3273
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !3273
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3273
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h4e6105559c13620eE.exit"
 
 134:                                              ; preds = %96
@@ -33106,7 +33077,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf5eca7207b70090bE.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf5eca7207b70090bE.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17hc06c6d40a4b83252E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3273
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h4e6105559c13620eE.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -33178,6 +33148,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h4e6105559c13620eE.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3273
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -33508,7 +33479,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !3315, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !3315
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !3315
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3315
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h5f390c4e48241b91E.exit"
 
 134:                                              ; preds = %96
@@ -33602,7 +33572,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h7d4433603e6bef83E.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h7d4433603e6bef83E.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17hc1ef74247d1836f8E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3315
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h5f390c4e48241b91E.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -33674,6 +33643,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h5f390c4e48241b91E.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3315
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -34004,7 +33974,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !3357, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !3357
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !3357
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3357
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hea7dd919c35a73abE.exit"
 
 134:                                              ; preds = %96
@@ -34098,7 +34067,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hcd7245248baf97dbE.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hcd7245248baf97dbE.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17hcd5cc2fe7eaa7e01E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3357
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hea7dd919c35a73abE.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -34170,6 +34138,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hea7dd919c35a73abE.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3357
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -34500,7 +34469,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !3399, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !3399
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !3399
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3399
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h30e54a4b57027f19E.exit"
 
 134:                                              ; preds = %96
@@ -34594,7 +34562,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h31329bb9b342a5b1E.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h31329bb9b342a5b1E.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17hd082af8ccb32e190E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3399
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h30e54a4b57027f19E.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -34666,6 +34633,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h30e54a4b57027f19E.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3399
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -34996,7 +34964,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !3441, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !3441
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !3441
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3441
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17habce4e7dc9a6974bE.exit"
 
 134:                                              ; preds = %96
@@ -35090,7 +35057,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb40a58e53167d6e2E.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb40a58e53167d6e2E.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17hd1cbef7626663eb9E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3441
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17habce4e7dc9a6974bE.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -35162,6 +35128,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17habce4e7dc9a6974bE.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3441
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -35492,7 +35459,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !3483, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !3483
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !3483
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3483
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h14afe08a177d3af5E.exit"
 
 134:                                              ; preds = %96
@@ -35586,7 +35552,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17haa303037d88cfe25E.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17haa303037d88cfe25E.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17hdcbede61dc62a7c9E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3483
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h14afe08a177d3af5E.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -35658,6 +35623,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h14afe08a177d3af5E.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3483
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -35988,7 +35954,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !3525, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !3525
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !3525
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3525
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hfbca447eb627a109E.exit"
 
 134:                                              ; preds = %96
@@ -36082,7 +36047,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf88d9a33678b89cbE.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf88d9a33678b89cbE.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17he609e17e381ca6b4E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3525
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hfbca447eb627a109E.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -36154,6 +36118,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hfbca447eb627a109E.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3525
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -36484,7 +36449,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !3567, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !3567
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !3567
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3567
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h64c2ce8da37c4b38E.exit"
 
 134:                                              ; preds = %96
@@ -36578,7 +36542,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd8cc75d5563a6aa1E.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd8cc75d5563a6aa1E.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17he99a26955b0a6c25E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3567
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h64c2ce8da37c4b38E.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -36650,6 +36613,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h64c2ce8da37c4b38E.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3567
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 
@@ -36980,7 +36944,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   %133 = load ptr, ptr %10, align 8, !noalias !3609, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !3609
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !3609
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3609
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h2fe915a068d971b9E.exit"
 
 134:                                              ; preds = %96
@@ -37074,7 +37037,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd5aebfef47ea2fffE.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd5aebfef47ea2fffE.exit" ]
   %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17hf0d94ad214bd8564E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3609
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h2fe915a068d971b9E.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -37146,6 +37108,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 "_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h2fe915a068d971b9E.exit": ; preds = %132, %.critedge78.i
   %.0.i26 = phi ptr [ %168, %.critedge78.i ], [ %133, %132 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !3609
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %188
 

@@ -384,7 +384,13 @@ define noundef i32 @find_pid_by_inode(ptr nocapture noundef writeonly %0, i64 no
   %.not16 = icmp eq i16 %21, 0
   br i1 %.not16, label %.backedge, label %23
 
-.backedge:                                        ; preds = %_find_inode_in_fddir.exit, %_find_inode_in_fddir.exit.thread, %13
+.backedge.sink.split:                             ; preds = %27, %23, %_find_inode_in_fddir.exit
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
+  br label %.backedge
+
+.backedge:                                        ; preds = %.backedge.sink.split, %13
   %22 = call ptr @readdir(ptr noundef nonnull %6) #10
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %.loopexit, label %13
@@ -396,12 +402,12 @@ define noundef i32 @find_pid_by_inode(ptr nocapture noundef writeonly %0, i64 no
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
   %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 1024, ptr noundef nonnull @.str.16, i32 noundef %24) #10
   %26 = icmp sgt i32 %25, 1023
-  br i1 %26, label %_find_inode_in_fddir.exit.thread, label %27
+  br i1 %26, label %.backedge.sink.split, label %27
 
 27:                                               ; preds = %23
   %28 = call ptr @opendir(ptr noundef nonnull %3)
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %_find_inode_in_fddir.exit.thread, label %.preheader.i
+  br i1 %29, label %.backedge.sink.split, label %.preheader.i
 
 .preheader.i:                                     ; preds = %27
   %30 = call ptr @readdir(ptr noundef nonnull %28) #10
@@ -442,18 +448,9 @@ define noundef i32 @find_pid_by_inode(ptr nocapture noundef writeonly %0, i64 no
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.17, i64 noundef %1, ptr noundef nonnull %4) #10
   br label %47
 
-_find_inode_in_fddir.exit.thread:                 ; preds = %23, %27
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
-  br label %.backedge
-
 _find_inode_in_fddir.exit:                        ; preds = %.backedge.i, %.preheader.i
   %46 = call i32 @closedir(ptr noundef nonnull %28)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
-  br label %.backedge
+  br label %.backedge.sink.split
 
 47:                                               ; preds = %45, %42
   %48 = call i32 @closedir(ptr noundef nonnull %28)

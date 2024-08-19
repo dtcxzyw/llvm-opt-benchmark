@@ -3443,7 +3443,7 @@ if.end86:                                         ; preds = %if.then79
   %cmp89 = icmp slt i64 %19, 0
   %cmp93 = icmp sgt i64 %19, %spec.select
   %or.cond = select i1 %cmp89, i1 true, i1 %cmp93
-  br i1 %or.cond, label %if.then95, label %if.end99
+  br i1 %or.cond, label %if.then95, label %if.end125
 
 if.then95:                                        ; preds = %if.end86
   %print_error96 = getelementptr inbounds i8, ptr %ctxt, i64 72
@@ -3451,42 +3451,30 @@ if.then95:                                        ; preds = %if.end86
   %call98 = call i32 (ptr, i32, ptr, ...) %20(ptr noundef nonnull %ctxt, i32 noundef 22, ptr noundef nonnull @.str.38, i64 noundef %19) #6
   br label %return
 
-if.end99:                                         ; preds = %if.end86
-  %packed_size = getelementptr inbounds i8, ptr %leaderdata, i64 48
-  store i64 %19, ptr %packed_size, align 8
-  %21 = load i64, ptr %nextoffset, align 8
-  %add = add i64 %21, %19
-  br label %if.end125
-
 if.else101:                                       ; preds = %if.end71
   %inc102 = add nuw nsw i32 %inc66.sink, 1
   %idxprom103 = zext nneg i32 %inc102 to i64
   %arrayidx104 = getelementptr inbounds [6 x i32], ptr %data, i64 0, i64 %idxprom103
-  %22 = load i32, ptr %arrayidx104, align 4
-  %cmp105 = icmp slt i32 %22, 0
-  br i1 %cmp105, label %if.then113, label %lor.lhs.false107
-
-lor.lhs.false107:                                 ; preds = %if.else101
-  %conv110 = zext nneg i32 %22 to i64
+  %21 = load i32, ptr %arrayidx104, align 4
+  %cmp105 = icmp slt i32 %21, 0
+  %conv110 = zext nneg i32 %21 to i64
   %cmp111 = icmp slt i64 %spec.select, %conv110
-  br i1 %cmp111, label %if.then113, label %if.end118
+  %or.cond71 = select i1 %cmp105, i1 true, i1 %cmp111
+  br i1 %or.cond71, label %if.then113, label %if.end125
 
-if.then113:                                       ; preds = %lor.lhs.false107, %if.else101
+if.then113:                                       ; preds = %if.else101
   %print_error114 = getelementptr inbounds i8, ptr %ctxt, i64 72
-  %23 = load ptr, ptr %print_error114, align 8
-  %call117 = call i32 (ptr, i32, ptr, ...) %23(ptr noundef nonnull %ctxt, i32 noundef 22, ptr noundef nonnull @.str.39, i32 noundef %22) #6
+  %22 = load ptr, ptr %print_error114, align 8
+  %call117 = call i32 (ptr, i32, ptr, ...) %22(ptr noundef nonnull %ctxt, i32 noundef 22, ptr noundef nonnull @.str.39, i32 noundef %21) #6
   br label %return
 
-if.end118:                                        ; preds = %lor.lhs.false107
+if.end125:                                        ; preds = %if.else101, %if.end86
+  %conv110.sink70 = phi i64 [ %19, %if.end86 ], [ %conv110, %if.else101 ]
   %packed_size122 = getelementptr inbounds i8, ptr %leaderdata, i64 48
-  store i64 %conv110, ptr %packed_size122, align 8
-  %24 = load i64, ptr %nextoffset, align 8
-  %add124 = add i64 %24, %conv110
-  br label %if.end125
-
-if.end125:                                        ; preds = %if.end118, %if.end99
-  %storemerge66 = phi i64 [ %add124, %if.end118 ], [ %add, %if.end99 ]
-  store i64 %storemerge66, ptr %next_offset, align 8
+  store i64 %conv110.sink70, ptr %packed_size122, align 8
+  %23 = load i64, ptr %nextoffset, align 8
+  %add124 = add i64 %23, %conv110.sink70
+  store i64 %add124, ptr %next_offset, align 8
   br label %return
 
 return:                                           ; preds = %if.then79, %if.end27, %if.end125, %if.then113, %if.then95, %if.then39

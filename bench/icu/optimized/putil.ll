@@ -1533,11 +1533,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.else
   %call2.i = call noalias ptr @fopen(ptr noundef readonly %27, ptr noundef nonnull @.str.23)
   store i32 0, ptr %defaultTZPosition.i, align 4
   %cmp3.not.i = icmp eq ptr %call2.i, null
-  br i1 %cmp3.not.i, label %invoke.cont59.thread, label %land.lhs.true.i
-
-invoke.cont59.thread:                             ; preds = %if.end.i
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %bufferFile.i)
-  br label %cleanup
+  br i1 %cmp3.not.i, label %cleanup.sink.split, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
   %29 = load ptr, ptr %defaultTZFilePtr.i, align 8
@@ -1612,8 +1608,7 @@ if.end45.i:                                       ; preds = %while.body.i
 
 invoke.cont59.thread37:                           ; preds = %while.body.i, %land.lhs.true.i, %if.end14.i
   %call53.i39 = call i32 @fclose(ptr noundef nonnull %call2.i)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %bufferFile.i)
-  br label %cleanup
+  br label %cleanup.sink.split
 
 if.then62:                                        ; preds = %if.end30.i, %if.end45.i
   %call53.i = call i32 @fclose(ptr noundef nonnull %call2.i)
@@ -1661,7 +1656,11 @@ cleanup.thread:                                   ; preds = %invoke.cont30, %inv
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %newpath) #30
   br label %if.then86
 
-cleanup:                                          ; preds = %invoke.cont52, %invoke.cont59.thread37, %invoke.cont59.thread
+cleanup.sink.split:                               ; preds = %if.end.i, %invoke.cont59.thread37
+  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %bufferFile.i)
+  br label %cleanup
+
+cleanup:                                          ; preds = %cleanup.sink.split, %invoke.cont52
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %newpath) #30
   br label %while.cond.backedge
 

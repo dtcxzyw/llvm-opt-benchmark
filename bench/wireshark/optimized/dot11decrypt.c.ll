@@ -95,6 +95,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.Dot11DecryptRsnaMng.6 = private unnamed_addr constant [13 x i32] [i32 5, i32 32, i32 0, i32 16, i32 13, i32 16, i32 0, i32 16, i32 32, i32 32, i32 16, i32 32, i32 32], align 4
 @switch.table.Dot11DecryptRsnaMng.7 = private unnamed_addr constant [10 x i8] c"\01d\FFe\02\FF\FFghf", align 1
 @switch.table.Dot11DecryptScanFtAssocForKeys = private unnamed_addr constant [18 x i64] [i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 24, i64 24, i64 16, i64 16, i64 16, i64 16, i64 16], align 8
+@switch.table.Dot11DecryptScanFtAssocForKeys.8 = private unnamed_addr constant [4 x i64] [i64 130, i64 136, i64 130, i64 136], align 8
 @switch.table.Dot11DecryptFtDerivePtk = private unnamed_addr constant [18 x i32] [i32 2, i32 2, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 9, i32 9, i32 -1, i32 -1, i32 -1, i32 -1, i32 8], align 4
 
 ; Function Attrs: nounwind uwtable
@@ -978,281 +979,261 @@ define internal fastcc range(i32 0, 2) i32 @Dot11DecryptTDLSDeriveKey(ptr nocapt
   %24 = call i32 @memcmp(ptr noundef nonnull dereferenceable(32) %19, ptr noundef nonnull dereferenceable(32) %22, i64 noundef 32) #16
   %25 = icmp slt i32 %24, 0
   %26 = load ptr, ptr %8, align 8
-  br i1 %25, label %27, label %29
-
-27:                                               ; preds = %7
-  call void @gcry_md_write(ptr noundef %26, ptr noundef %19, i64 noundef 32) #14
+  %. = select i1 %25, ptr %19, ptr %22
+  %.97 = select i1 %25, ptr %22, ptr %19
+  call void @gcry_md_write(ptr noundef %26, ptr noundef %., i64 noundef 32) #14
+  %27 = load ptr, ptr %8, align 8
+  call void @gcry_md_write(ptr noundef %27, ptr noundef %.97, i64 noundef 32) #14
   %28 = load ptr, ptr %8, align 8
-  call void @gcry_md_write(ptr noundef %28, ptr noundef %22, i64 noundef 32) #14
-  br label %31
-
-29:                                               ; preds = %7
-  call void @gcry_md_write(ptr noundef %26, ptr noundef %22, i64 noundef 32) #14
+  %29 = call ptr @gcry_md_read(ptr noundef %28, i32 noundef 0) #14
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %10, ptr noundef nonnull align 1 dereferenceable(32) %29, i64 32, i1 false)
   %30 = load ptr, ptr %8, align 8
-  call void @gcry_md_write(ptr noundef %30, ptr noundef %19, i64 noundef 32) #14
-  br label %31
+  call void @gcry_md_close(ptr noundef %30) #14
+  %31 = add i32 %5, 2
+  %32 = zext i32 %31 to i64
+  %33 = getelementptr i8, ptr %1, i64 %32
+  %34 = add i32 %5, 8
+  %35 = zext i32 %34 to i64
+  %36 = getelementptr i8, ptr %1, i64 %35
+  %37 = add i32 %5, 14
+  %38 = zext i32 %37 to i64
+  %39 = getelementptr i8, ptr %1, i64 %38
+  %40 = call i32 @gcry_md_open(ptr noundef nonnull %9, i32 noundef 8, i32 noundef 2) #14
+  %.not = icmp eq i32 %40, 0
+  br i1 %.not, label %41, label %186
 
-31:                                               ; preds = %29, %27
-  %32 = load ptr, ptr %8, align 8
-  %33 = call ptr @gcry_md_read(ptr noundef %32, i32 noundef 0) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %10, ptr noundef nonnull align 1 dereferenceable(32) %33, i64 32, i1 false)
-  %34 = load ptr, ptr %8, align 8
-  call void @gcry_md_close(ptr noundef %34) #14
-  %35 = add i32 %5, 2
-  %36 = zext i32 %35 to i64
-  %37 = getelementptr i8, ptr %1, i64 %36
-  %38 = add i32 %5, 8
-  %39 = zext i32 %38 to i64
-  %40 = getelementptr i8, ptr %1, i64 %39
-  %41 = add i32 %5, 14
-  %42 = zext i32 %41 to i64
-  %43 = getelementptr i8, ptr %1, i64 %42
-  %44 = call i32 @gcry_md_open(ptr noundef nonnull %9, i32 noundef 8, i32 noundef 2) #14
-  %.not = icmp eq i32 %44, 0
-  br i1 %.not, label %45, label %194
+41:                                               ; preds = %7
+  %42 = load ptr, ptr %9, align 8
+  %43 = call i32 @gcry_md_setkey(ptr noundef %42, ptr noundef nonnull %10, i64 noundef 32) #14
+  %.not82 = icmp eq i32 %43, 0
+  %44 = load ptr, ptr %9, align 8
+  br i1 %.not82, label %46, label %45
 
-45:                                               ; preds = %31
-  %46 = load ptr, ptr %9, align 8
-  %47 = call i32 @gcry_md_setkey(ptr noundef %46, ptr noundef nonnull %10, i64 noundef 32) #14
-  %.not82 = icmp eq i32 %47, 0
-  %48 = load ptr, ptr %9, align 8
-  br i1 %.not82, label %50, label %49
+45:                                               ; preds = %41
+  call void @gcry_md_close(ptr noundef %44) #14
+  br label %186
 
-49:                                               ; preds = %45
-  call void @gcry_md_close(ptr noundef %48) #14
-  br label %194
+46:                                               ; preds = %41
+  %47 = getelementptr inbounds i8, ptr %44, i64 8
+  %48 = load i32, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %44, i64 12
+  %50 = load i32, ptr %49, align 4
+  %51 = icmp eq i32 %48, %50
+  br i1 %51, label %52, label %53
 
-50:                                               ; preds = %45
-  %51 = getelementptr inbounds i8, ptr %48, i64 8
-  %52 = load i32, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %48, i64 12
-  %54 = load i32, ptr %53, align 4
-  %55 = icmp eq i32 %52, %54
-  br i1 %55, label %56, label %57
+52:                                               ; preds = %46
+  call void @gcry_md_write(ptr noundef nonnull %44, ptr noundef null, i64 noundef 0) #14
+  %.pre = load i32, ptr %47, align 8
+  br label %53
 
-56:                                               ; preds = %50
-  call void @gcry_md_write(ptr noundef nonnull %48, ptr noundef null, i64 noundef 0) #14
-  %.pre = load i32, ptr %51, align 8
-  br label %57
+53:                                               ; preds = %52, %46
+  %54 = phi i32 [ %.pre, %52 ], [ %48, %46 ]
+  %55 = getelementptr inbounds i8, ptr %44, i64 16
+  %56 = add i32 %54, 1
+  store i32 %56, ptr %47, align 8
+  %57 = sext i32 %54 to i64
+  %58 = getelementptr [1 x i8], ptr %55, i64 0, i64 %57
+  store i8 1, ptr %58, align 1
+  %59 = load ptr, ptr %9, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 8
+  %61 = load i32, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %59, i64 12
+  %63 = load i32, ptr %62, align 4
+  %64 = icmp eq i32 %61, %63
+  br i1 %64, label %65, label %66
 
-57:                                               ; preds = %56, %50
-  %58 = phi i32 [ %.pre, %56 ], [ %52, %50 ]
-  %59 = getelementptr inbounds i8, ptr %48, i64 16
-  %60 = add i32 %58, 1
-  store i32 %60, ptr %51, align 8
-  %61 = sext i32 %58 to i64
-  %62 = getelementptr [1 x i8], ptr %59, i64 0, i64 %61
-  store i8 1, ptr %62, align 1
-  %63 = load ptr, ptr %9, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 8
-  %65 = load i32, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %63, i64 12
-  %67 = load i32, ptr %66, align 4
-  %68 = icmp eq i32 %65, %67
-  br i1 %68, label %69, label %70
+65:                                               ; preds = %53
+  call void @gcry_md_write(ptr noundef nonnull %59, ptr noundef null, i64 noundef 0) #14
+  %.pre90 = load i32, ptr %60, align 8
+  br label %66
 
-69:                                               ; preds = %57
-  call void @gcry_md_write(ptr noundef nonnull %63, ptr noundef null, i64 noundef 0) #14
-  %.pre90 = load i32, ptr %64, align 8
-  br label %70
-
-70:                                               ; preds = %69, %57
-  %71 = phi i32 [ %.pre90, %69 ], [ %65, %57 ]
-  %72 = getelementptr inbounds i8, ptr %63, i64 16
-  %73 = add i32 %71, 1
-  store i32 %73, ptr %64, align 8
-  %74 = sext i32 %71 to i64
-  %75 = getelementptr [1 x i8], ptr %72, i64 0, i64 %74
-  store i8 0, ptr %75, align 1
+66:                                               ; preds = %65, %53
+  %67 = phi i32 [ %.pre90, %65 ], [ %61, %53 ]
+  %68 = getelementptr inbounds i8, ptr %59, i64 16
+  %69 = add i32 %67, 1
+  store i32 %69, ptr %60, align 8
+  %70 = sext i32 %67 to i64
+  %71 = getelementptr [1 x i8], ptr %68, i64 0, i64 %70
+  store i8 0, ptr %71, align 1
+  %72 = load ptr, ptr %9, align 8
+  call void @gcry_md_write(ptr noundef %72, ptr noundef nonnull @.str.52, i64 noundef 8) #14
+  %73 = call i32 @memcmp(ptr noundef nonnull dereferenceable(6) %36, ptr noundef nonnull dereferenceable(6) %39, i64 noundef 6) #16
+  %74 = icmp slt i32 %73, 0
+  %75 = load ptr, ptr %9, align 8
+  %.98 = select i1 %74, ptr %36, ptr %39
+  %.99 = select i1 %74, ptr %39, ptr %36
+  call void @gcry_md_write(ptr noundef %75, ptr noundef %.98, i64 noundef 6) #14
   %76 = load ptr, ptr %9, align 8
-  call void @gcry_md_write(ptr noundef %76, ptr noundef nonnull @.str.52, i64 noundef 8) #14
-  %77 = call i32 @memcmp(ptr noundef nonnull dereferenceable(6) %40, ptr noundef nonnull dereferenceable(6) %43, i64 noundef 6) #16
-  %78 = icmp slt i32 %77, 0
-  %79 = load ptr, ptr %9, align 8
-  br i1 %78, label %80, label %82
+  call void @gcry_md_write(ptr noundef %76, ptr noundef %.99, i64 noundef 6) #14
+  %77 = load ptr, ptr %9, align 8
+  call void @gcry_md_write(ptr noundef %77, ptr noundef %33, i64 noundef 6) #14
+  %78 = load ptr, ptr %9, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 8
+  %80 = load i32, ptr %79, align 8
+  %81 = getelementptr inbounds i8, ptr %78, i64 12
+  %82 = load i32, ptr %81, align 4
+  %83 = icmp eq i32 %80, %82
+  br i1 %83, label %84, label %85
 
-80:                                               ; preds = %70
-  call void @gcry_md_write(ptr noundef %79, ptr noundef %40, i64 noundef 6) #14
-  %81 = load ptr, ptr %9, align 8
-  call void @gcry_md_write(ptr noundef %81, ptr noundef %43, i64 noundef 6) #14
-  br label %84
+84:                                               ; preds = %66
+  call void @gcry_md_write(ptr noundef nonnull %78, ptr noundef null, i64 noundef 0) #14
+  %.pre91 = load i32, ptr %79, align 8
+  br label %85
 
-82:                                               ; preds = %70
-  call void @gcry_md_write(ptr noundef %79, ptr noundef %43, i64 noundef 6) #14
-  %83 = load ptr, ptr %9, align 8
-  call void @gcry_md_write(ptr noundef %83, ptr noundef %40, i64 noundef 6) #14
-  br label %84
+85:                                               ; preds = %84, %66
+  %86 = phi i32 [ %.pre91, %84 ], [ %80, %66 ]
+  %87 = getelementptr inbounds i8, ptr %78, i64 16
+  %88 = add i32 %86, 1
+  store i32 %88, ptr %79, align 8
+  %89 = sext i32 %86 to i64
+  %90 = getelementptr [1 x i8], ptr %87, i64 0, i64 %89
+  store i8 0, ptr %90, align 1
+  %91 = load ptr, ptr %9, align 8
+  %92 = getelementptr inbounds i8, ptr %91, i64 8
+  %93 = load i32, ptr %92, align 8
+  %94 = getelementptr inbounds i8, ptr %91, i64 12
+  %95 = load i32, ptr %94, align 4
+  %96 = icmp eq i32 %93, %95
+  br i1 %96, label %97, label %98
 
-84:                                               ; preds = %82, %80
-  %85 = load ptr, ptr %9, align 8
-  call void @gcry_md_write(ptr noundef %85, ptr noundef %37, i64 noundef 6) #14
-  %86 = load ptr, ptr %9, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 8
-  %88 = load i32, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %86, i64 12
-  %90 = load i32, ptr %89, align 4
-  %91 = icmp eq i32 %88, %90
-  br i1 %91, label %92, label %93
+97:                                               ; preds = %85
+  call void @gcry_md_write(ptr noundef nonnull %91, ptr noundef null, i64 noundef 0) #14
+  %.pre92 = load i32, ptr %92, align 8
+  br label %98
 
-92:                                               ; preds = %84
-  call void @gcry_md_write(ptr noundef nonnull %86, ptr noundef null, i64 noundef 0) #14
-  %.pre91 = load i32, ptr %87, align 8
-  br label %93
+98:                                               ; preds = %97, %85
+  %99 = phi i32 [ %.pre92, %97 ], [ %93, %85 ]
+  %100 = getelementptr inbounds i8, ptr %91, i64 16
+  %101 = add i32 %99, 1
+  store i32 %101, ptr %92, align 8
+  %102 = sext i32 %99 to i64
+  %103 = getelementptr [1 x i8], ptr %100, i64 0, i64 %102
+  store i8 1, ptr %103, align 1
+  %104 = load ptr, ptr %9, align 8
+  %105 = call ptr @gcry_md_read(ptr noundef %104, i32 noundef 0) #14
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %10, ptr noundef nonnull align 1 dereferenceable(32) %105, i64 32, i1 false)
+  %106 = load ptr, ptr %9, align 8
+  call void @gcry_md_close(ptr noundef %106) #14
+  %107 = call i32 @gcry_mac_open(ptr noundef nonnull %14, i32 noundef 201, i32 noundef 0, ptr noundef null) #14
+  %.not83 = icmp eq i32 %107, 0
+  br i1 %.not83, label %108, label %186
 
-93:                                               ; preds = %92, %84
-  %94 = phi i32 [ %.pre91, %92 ], [ %88, %84 ]
-  %95 = getelementptr inbounds i8, ptr %86, i64 16
-  %96 = add i32 %94, 1
-  store i32 %96, ptr %87, align 8
-  %97 = sext i32 %94 to i64
-  %98 = getelementptr [1 x i8], ptr %95, i64 0, i64 %97
-  store i8 0, ptr %98, align 1
-  %99 = load ptr, ptr %9, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 8
-  %101 = load i32, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %99, i64 12
-  %103 = load i32, ptr %102, align 4
-  %104 = icmp eq i32 %101, %103
-  br i1 %104, label %105, label %106
+108:                                              ; preds = %98
+  %109 = load ptr, ptr %14, align 8
+  %110 = call i32 @gcry_mac_setkey(ptr noundef %109, ptr noundef nonnull %10, i64 noundef 16) #14
+  %.not84 = icmp eq i32 %110, 0
+  %111 = load ptr, ptr %14, align 8
+  br i1 %.not84, label %113, label %112
 
-105:                                              ; preds = %93
-  call void @gcry_md_write(ptr noundef nonnull %99, ptr noundef null, i64 noundef 0) #14
-  %.pre92 = load i32, ptr %100, align 8
-  br label %106
+112:                                              ; preds = %108
+  call void @gcry_mac_close(ptr noundef %111) #14
+  br label %186
 
-106:                                              ; preds = %105, %93
-  %107 = phi i32 [ %.pre92, %105 ], [ %101, %93 ]
-  %108 = getelementptr inbounds i8, ptr %99, i64 16
-  %109 = add i32 %107, 1
-  store i32 %109, ptr %100, align 8
-  %110 = sext i32 %107 to i64
-  %111 = getelementptr [1 x i8], ptr %108, i64 0, i64 %110
-  store i8 1, ptr %111, align 1
-  %112 = load ptr, ptr %9, align 8
-  %113 = call ptr @gcry_md_read(ptr noundef %112, i32 noundef 0) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %10, ptr noundef nonnull align 1 dereferenceable(32) %113, i64 32, i1 false)
-  %114 = load ptr, ptr %9, align 8
-  call void @gcry_md_close(ptr noundef %114) #14
-  %115 = call i32 @gcry_mac_open(ptr noundef nonnull %14, i32 noundef 201, i32 noundef 0, ptr noundef null) #14
-  %.not83 = icmp eq i32 %115, 0
-  br i1 %.not83, label %116, label %194
-
-116:                                              ; preds = %106
+113:                                              ; preds = %108
+  %114 = call i32 @gcry_mac_write(ptr noundef %111, ptr noundef %36, i64 noundef 6) #14
+  %115 = load ptr, ptr %14, align 8
+  %116 = call i32 @gcry_mac_write(ptr noundef %115, ptr noundef %39, i64 noundef 6) #14
   %117 = load ptr, ptr %14, align 8
-  %118 = call i32 @gcry_mac_setkey(ptr noundef %117, ptr noundef nonnull %10, i64 noundef 16) #14
-  %.not84 = icmp eq i32 %118, 0
+  %118 = call i32 @gcry_mac_write(ptr noundef %117, ptr noundef nonnull %12, i64 noundef 1) #14
   %119 = load ptr, ptr %14, align 8
-  br i1 %.not84, label %121, label %120
+  %120 = zext i32 %5 to i64
+  %121 = getelementptr i8, ptr %1, i64 %120
+  %122 = add i32 %5, 1
+  %123 = zext i32 %122 to i64
+  %124 = getelementptr i8, ptr %1, i64 %123
+  %125 = load i8, ptr %124, align 1
+  %126 = zext i8 %125 to i64
+  %127 = add nuw nsw i64 %126, 2
+  %128 = call i32 @gcry_mac_write(ptr noundef %119, ptr noundef %121, i64 noundef %127) #14
+  %129 = load ptr, ptr %14, align 8
+  %130 = zext i32 %2 to i64
+  %131 = getelementptr i8, ptr %1, i64 %130
+  %132 = add i32 %2, 1
+  %133 = zext i32 %132 to i64
+  %134 = getelementptr i8, ptr %1, i64 %133
+  %135 = load i8, ptr %134, align 1
+  %136 = zext i8 %135 to i64
+  %137 = add nuw nsw i64 %136, 2
+  %138 = call i32 @gcry_mac_write(ptr noundef %129, ptr noundef %131, i64 noundef %137) #14
+  %139 = load ptr, ptr %14, align 8
+  %140 = zext i32 %4 to i64
+  %141 = getelementptr i8, ptr %1, i64 %140
+  %142 = add i32 %4, 1
+  %143 = zext i32 %142 to i64
+  %144 = getelementptr i8, ptr %1, i64 %143
+  %145 = load i8, ptr %144, align 1
+  %146 = zext i8 %145 to i64
+  %147 = add nuw nsw i64 %146, 2
+  %148 = call i32 @gcry_mac_write(ptr noundef %139, ptr noundef %141, i64 noundef %147) #14
+  %149 = load ptr, ptr %14, align 8
+  %150 = zext i32 %3 to i64
+  %151 = getelementptr i8, ptr %1, i64 %150
+  %152 = call i32 @gcry_mac_write(ptr noundef %149, ptr noundef %151, i64 noundef 4) #14
+  %153 = load ptr, ptr %14, align 8
+  %154 = call i32 @gcry_mac_write(ptr noundef %153, ptr noundef nonnull %13, i64 noundef 16) #14
+  %155 = add i32 %3, 1
+  %156 = zext i32 %155 to i64
+  %157 = getelementptr i8, ptr %1, i64 %156
+  %158 = load i8, ptr %157, align 1
+  %159 = icmp ult i8 %158, 18
+  br i1 %159, label %160, label %162
 
-120:                                              ; preds = %116
-  call void @gcry_mac_close(ptr noundef %119) #14
-  br label %194
-
-121:                                              ; preds = %116
-  %122 = call i32 @gcry_mac_write(ptr noundef %119, ptr noundef %40, i64 noundef 6) #14
-  %123 = load ptr, ptr %14, align 8
-  %124 = call i32 @gcry_mac_write(ptr noundef %123, ptr noundef %43, i64 noundef 6) #14
-  %125 = load ptr, ptr %14, align 8
-  %126 = call i32 @gcry_mac_write(ptr noundef %125, ptr noundef nonnull %12, i64 noundef 1) #14
-  %127 = load ptr, ptr %14, align 8
-  %128 = zext i32 %5 to i64
-  %129 = getelementptr i8, ptr %1, i64 %128
-  %130 = add i32 %5, 1
-  %131 = zext i32 %130 to i64
-  %132 = getelementptr i8, ptr %1, i64 %131
-  %133 = load i8, ptr %132, align 1
-  %134 = zext i8 %133 to i64
-  %135 = add nuw nsw i64 %134, 2
-  %136 = call i32 @gcry_mac_write(ptr noundef %127, ptr noundef %129, i64 noundef %135) #14
-  %137 = load ptr, ptr %14, align 8
-  %138 = zext i32 %2 to i64
-  %139 = getelementptr i8, ptr %1, i64 %138
-  %140 = add i32 %2, 1
-  %141 = zext i32 %140 to i64
-  %142 = getelementptr i8, ptr %1, i64 %141
-  %143 = load i8, ptr %142, align 1
-  %144 = zext i8 %143 to i64
-  %145 = add nuw nsw i64 %144, 2
-  %146 = call i32 @gcry_mac_write(ptr noundef %137, ptr noundef %139, i64 noundef %145) #14
-  %147 = load ptr, ptr %14, align 8
-  %148 = zext i32 %4 to i64
-  %149 = getelementptr i8, ptr %1, i64 %148
-  %150 = add i32 %4, 1
-  %151 = zext i32 %150 to i64
-  %152 = getelementptr i8, ptr %1, i64 %151
-  %153 = load i8, ptr %152, align 1
-  %154 = zext i8 %153 to i64
-  %155 = add nuw nsw i64 %154, 2
-  %156 = call i32 @gcry_mac_write(ptr noundef %147, ptr noundef %149, i64 noundef %155) #14
-  %157 = load ptr, ptr %14, align 8
-  %158 = zext i32 %3 to i64
-  %159 = getelementptr i8, ptr %1, i64 %158
-  %160 = call i32 @gcry_mac_write(ptr noundef %157, ptr noundef %159, i64 noundef 4) #14
-  %161 = load ptr, ptr %14, align 8
-  %162 = call i32 @gcry_mac_write(ptr noundef %161, ptr noundef nonnull %13, i64 noundef 16) #14
-  %163 = add i32 %3, 1
-  %164 = zext i32 %163 to i64
-  %165 = getelementptr i8, ptr %1, i64 %164
-  %166 = load i8, ptr %165, align 1
-  %167 = icmp ult i8 %166, 18
-  br i1 %167, label %168, label %170
-
-168:                                              ; preds = %121
+160:                                              ; preds = %113
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 3086, ptr noundef nonnull @__func__.Dot11DecryptTDLSDeriveKey, ptr noundef nonnull @.str.53) #14
-  %169 = load ptr, ptr %14, align 8
-  call void @gcry_mac_close(ptr noundef %169) #14
-  br label %194
+  %161 = load ptr, ptr %14, align 8
+  call void @gcry_mac_close(ptr noundef %161) #14
+  br label %186
 
-170:                                              ; preds = %121
-  %171 = zext i8 %166 to i64
-  %172 = load ptr, ptr %14, align 8
-  %173 = add nsw i64 %171, -18
-  %174 = call i32 @gcry_mac_write(ptr noundef %172, ptr noundef %19, i64 noundef %173) #14
-  %175 = load ptr, ptr %14, align 8
-  %176 = call i32 @gcry_mac_read(ptr noundef %175, ptr noundef nonnull %11, ptr noundef nonnull %15) #14
-  %.not85 = icmp eq i32 %176, 0
-  br i1 %.not85, label %179, label %177
+162:                                              ; preds = %113
+  %163 = zext i8 %158 to i64
+  %164 = load ptr, ptr %14, align 8
+  %165 = add nsw i64 %163, -18
+  %166 = call i32 @gcry_mac_write(ptr noundef %164, ptr noundef %19, i64 noundef %165) #14
+  %167 = load ptr, ptr %14, align 8
+  %168 = call i32 @gcry_mac_read(ptr noundef %167, ptr noundef nonnull %11, ptr noundef nonnull %15) #14
+  %.not85 = icmp eq i32 %168, 0
+  br i1 %.not85, label %171, label %169
 
-177:                                              ; preds = %170
+169:                                              ; preds = %162
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 3092, ptr noundef nonnull @__func__.Dot11DecryptTDLSDeriveKey, ptr noundef nonnull @.str.54) #14
-  %178 = load ptr, ptr %14, align 8
-  call void @gcry_mac_close(ptr noundef %178) #14
-  br label %194
+  %170 = load ptr, ptr %14, align 8
+  call void @gcry_mac_close(ptr noundef %170) #14
+  br label %186
 
-179:                                              ; preds = %170
-  %180 = add i32 %3, 4
-  %181 = zext i32 %180 to i64
-  %182 = getelementptr i8, ptr %1, i64 %181
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %11, ptr noundef nonnull dereferenceable(16) %182, i64 16)
+171:                                              ; preds = %162
+  %172 = add i32 %3, 4
+  %173 = zext i32 %172 to i64
+  %174 = getelementptr i8, ptr %1, i64 %173
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %11, ptr noundef nonnull dereferenceable(16) %174, i64 16)
   %.not86 = icmp eq i32 %bcmp, 0
-  %183 = load ptr, ptr %14, align 8
-  call void @gcry_mac_close(ptr noundef %183) #14
-  br i1 %.not86, label %Dot11DecryptGetKckLen.exit, label %194
+  %175 = load ptr, ptr %14, align 8
+  call void @gcry_mac_close(ptr noundef %175) #14
+  br i1 %.not86, label %Dot11DecryptGetKckLen.exit, label %186
 
-Dot11DecryptGetKckLen.exit:                       ; preds = %179
-  %184 = getelementptr inbounds i8, ptr %0, i64 36
-  %185 = getelementptr inbounds i8, ptr %0, i64 72
-  store i32 2, ptr %185, align 4
-  %186 = getelementptr inbounds i8, ptr %0, i64 76
-  store i32 4, ptr %186, align 4
-  %187 = getelementptr inbounds i8, ptr %0, i64 172
-  store i32 48, ptr %187, align 4
-  %188 = getelementptr i8, ptr %0, i64 116
-  %189 = getelementptr inbounds i8, ptr %10, i64 16
-  %190 = call fastcc i32 @Dot11DecryptGetTkLen(i32 noundef 4)
-  %.lhs.trunc88 = trunc nsw i32 %190 to i16
-  %191 = sdiv i16 %.lhs.trunc88, 8
-  %.sext89 = zext nneg i16 %191 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %188, ptr nonnull align 16 %189, i64 %.sext89, i1 false)
-  %192 = getelementptr inbounds i8, ptr %0, i64 37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %192, ptr noundef nonnull align 1 dereferenceable(32) %22, i64 32, i1 false)
-  %193 = getelementptr inbounds i8, ptr %0, i64 33
-  store i8 1, ptr %193, align 1
-  store i8 2, ptr %184, align 4
-  br label %194
+Dot11DecryptGetKckLen.exit:                       ; preds = %171
+  %176 = getelementptr inbounds i8, ptr %0, i64 36
+  %177 = getelementptr inbounds i8, ptr %0, i64 72
+  store i32 2, ptr %177, align 4
+  %178 = getelementptr inbounds i8, ptr %0, i64 76
+  store i32 4, ptr %178, align 4
+  %179 = getelementptr inbounds i8, ptr %0, i64 172
+  store i32 48, ptr %179, align 4
+  %180 = getelementptr i8, ptr %0, i64 116
+  %181 = getelementptr inbounds i8, ptr %10, i64 16
+  %182 = call fastcc i32 @Dot11DecryptGetTkLen(i32 noundef 4)
+  %.lhs.trunc88 = trunc nsw i32 %182 to i16
+  %183 = sdiv i16 %.lhs.trunc88, 8
+  %.sext89 = zext nneg i16 %183 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %180, ptr nonnull align 16 %181, i64 %.sext89, i1 false)
+  %184 = getelementptr inbounds i8, ptr %0, i64 37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %184, ptr noundef nonnull align 1 dereferenceable(32) %22, i64 32, i1 false)
+  %185 = getelementptr inbounds i8, ptr %0, i64 33
+  store i8 1, ptr %185, align 1
+  store i8 2, ptr %176, align 4
+  br label %186
 
-194:                                              ; preds = %179, %106, %31, %Dot11DecryptGetKckLen.exit, %177, %168, %120, %49
-  %.0 = phi i32 [ 1, %49 ], [ 1, %120 ], [ 1, %168 ], [ 1, %177 ], [ 0, %Dot11DecryptGetKckLen.exit ], [ 1, %31 ], [ 1, %106 ], [ 1, %179 ]
+186:                                              ; preds = %171, %98, %7, %Dot11DecryptGetKckLen.exit, %169, %160, %112, %45
+  %.0 = phi i32 [ 1, %45 ], [ 1, %112 ], [ 1, %160 ], [ 1, %169 ], [ 0, %Dot11DecryptGetKckLen.exit ], [ 1, %7 ], [ 1, %98 ], [ 1, %171 ]
   ret i32 %.0
 }
 
@@ -3304,260 +3285,243 @@ define hidden range(i32 -1, 5) i32 @Dot11DecryptScanFtAssocForKeys(ptr noundef %
   %60 = getelementptr inbounds i8, ptr %1, i64 64
   %61 = getelementptr inbounds i8, ptr %1, i64 2
   %62 = getelementptr inbounds i8, ptr %1, i64 96
-  %63 = getelementptr inbounds i8, ptr %1, i64 136
-  %64 = getelementptr inbounds i8, ptr %1, i64 130
-  %65 = getelementptr inbounds i8, ptr %1, i64 80
-  %66 = getelementptr inbounds i8, ptr %1, i64 88
-  %67 = getelementptr inbounds i8, ptr %1, i64 16
-  %68 = getelementptr inbounds i8, ptr %1, i64 24
-  %69 = getelementptr inbounds i8, ptr %1, i64 104
-  br label %70
+  %63 = getelementptr inbounds i8, ptr %1, i64 80
+  %64 = getelementptr inbounds i8, ptr %1, i64 88
+  %65 = getelementptr inbounds i8, ptr %1, i64 16
+  %66 = getelementptr inbounds i8, ptr %1, i64 24
+  %67 = getelementptr inbounds i8, ptr %1, i64 104
+  br label %68
 
-70:                                               ; preds = %.lr.ph, %Dot11DecryptIsWpaKeyType.exit105
+68:                                               ; preds = %.lr.ph, %Dot11DecryptIsWpaKeyType.exit105
   %.1130 = phi i1 [ %.not97, %.lr.ph ], [ false, %Dot11DecryptIsWpaKeyType.exit105 ]
   %.083129 = phi i32 [ 1, %.lr.ph ], [ %.2, %Dot11DecryptIsWpaKeyType.exit105 ]
-  %.085128 = phi i64 [ 0, %.lr.ph ], [ %186, %Dot11DecryptIsWpaKeyType.exit105 ]
-  br i1 %.1130, label %71, label %Dot11DecryptIsWpaKeyType.exit
+  %.085128 = phi i64 [ 0, %.lr.ph ], [ %182, %Dot11DecryptIsWpaKeyType.exit105 ]
+  br i1 %.1130, label %69, label %Dot11DecryptIsWpaKeyType.exit
 
-71:                                               ; preds = %70
-  %72 = load ptr, ptr %44, align 8
-  %73 = load i8, ptr %72, align 8
-  switch i8 %73, label %Dot11DecryptIsWpaKeyType.exit [
-    i8 3, label %74
-    i8 4, label %74
-    i8 5, label %74
-    i8 7, label %74
+69:                                               ; preds = %68
+  %70 = load ptr, ptr %44, align 8
+  %71 = load i8, ptr %70, align 8
+  switch i8 %71, label %Dot11DecryptIsWpaKeyType.exit [
+    i8 3, label %72
+    i8 4, label %72
+    i8 5, label %72
+    i8 7, label %72
   ]
 
-74:                                               ; preds = %71, %71, %71, %71
-  %75 = add i64 %.085128, -1
-  br label %77
+72:                                               ; preds = %69, %69, %69, %69
+  %73 = add i64 %.085128, -1
+  br label %75
 
-Dot11DecryptIsWpaKeyType.exit:                    ; preds = %71, %70
-  %76 = getelementptr [64 x %struct._DOT11DECRYPT_KEY_ITEM], ptr %50, i64 0, i64 %.085128
-  br label %77
+Dot11DecryptIsWpaKeyType.exit:                    ; preds = %69, %68
+  %74 = getelementptr [64 x %struct._DOT11DECRYPT_KEY_ITEM], ptr %50, i64 0, i64 %.085128
+  br label %75
 
-77:                                               ; preds = %Dot11DecryptIsWpaKeyType.exit, %74
-  %.088 = phi ptr [ %72, %74 ], [ %76, %Dot11DecryptIsWpaKeyType.exit ]
-  %.186 = phi i64 [ %75, %74 ], [ %.085128, %Dot11DecryptIsWpaKeyType.exit ]
-  %78 = load i8, ptr %.088, align 8
-  switch i8 %78, label %Dot11DecryptIsWpaKeyType.exit105 [
-    i8 3, label %79
+75:                                               ; preds = %Dot11DecryptIsWpaKeyType.exit, %72
+  %.088 = phi ptr [ %70, %72 ], [ %74, %Dot11DecryptIsWpaKeyType.exit ]
+  %.186 = phi i64 [ %73, %72 ], [ %.085128, %Dot11DecryptIsWpaKeyType.exit ]
+  %76 = load i8, ptr %.088, align 8
+  switch i8 %76, label %Dot11DecryptIsWpaKeyType.exit105 [
+    i8 3, label %77
     i8 4, label %Dot11DecryptIsPwdWildcardSsid.exit
     i8 5, label %Dot11DecryptIsPwdWildcardSsid.exit
     i8 7, label %Dot11DecryptIsPwdWildcardSsid.exit
   ]
 
-79:                                               ; preds = %77
-  %80 = getelementptr inbounds i8, ptr %.088, i64 424
-  %81 = load i64, ptr %80, align 8
-  %82 = icmp eq i64 %81, 0
-  br i1 %82, label %83, label %Dot11DecryptDerivePmkFromMsk.exit
+77:                                               ; preds = %75
+  %78 = getelementptr inbounds i8, ptr %.088, i64 424
+  %79 = load i64, ptr %78, align 8
+  %80 = icmp eq i64 %79, 0
+  br i1 %80, label %81, label %Dot11DecryptDerivePmkFromMsk.exit
 
-83:                                               ; preds = %79
-  %84 = load i64, ptr %51, align 8
-  %85 = add i64 %84, -1
-  %or.cond12.i = icmp ult i64 %85, 32
-  br i1 %or.cond12.i, label %86, label %Dot11DecryptDerivePmkFromMsk.exit
+81:                                               ; preds = %77
+  %82 = load i64, ptr %51, align 8
+  %83 = add i64 %82, -1
+  %or.cond12.i = icmp ult i64 %83, 32
+  br i1 %or.cond12.i, label %84, label %Dot11DecryptDerivePmkFromMsk.exit
 
-86:                                               ; preds = %83
+84:                                               ; preds = %81
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(432) %10, ptr noundef nonnull align 8 dereferenceable(432) %.088, i64 424, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %53, ptr nonnull align 8 %54, i64 %84, i1 false)
-  store i64 %84, ptr %55, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %53, ptr nonnull align 8 %54, i64 %82, i1 false)
+  store i64 %82, ptr %55, align 8
   call fastcc void @Dot11DecryptRsnaPwd2Psk(ptr noundef nonnull %52, ptr noundef nonnull %56)
   %.pre = load i8, ptr %10, align 8
   br label %Dot11DecryptIsPwdWildcardSsid.exit
 
-Dot11DecryptIsPwdWildcardSsid.exit:               ; preds = %77, %77, %77, %86
-  %87 = phi i8 [ %.pre, %86 ], [ %78, %77 ], [ %78, %77 ], [ %78, %77 ]
-  %.087 = phi ptr [ %10, %86 ], [ %.088, %77 ], [ %.088, %77 ], [ %.088, %77 ]
-  %88 = icmp eq i8 %87, 7
-  br i1 %88, label %89, label %Dot11DecryptDerivePmkFromMsk.exit
+Dot11DecryptIsPwdWildcardSsid.exit:               ; preds = %75, %75, %75, %84
+  %85 = phi i8 [ %.pre, %84 ], [ %76, %75 ], [ %76, %75 ], [ %76, %75 ]
+  %.087 = phi ptr [ %10, %84 ], [ %.088, %75 ], [ %.088, %75 ], [ %.088, %75 ]
+  %86 = icmp eq i8 %85, 7
+  br i1 %86, label %87, label %Dot11DecryptDerivePmkFromMsk.exit
 
-89:                                               ; preds = %Dot11DecryptIsPwdWildcardSsid.exit
-  %90 = getelementptr inbounds i8, ptr %.087, i64 313
-  %91 = load i8, ptr %90, align 1
-  %92 = load i8, ptr %19, align 1
-  %93 = getelementptr inbounds i8, ptr %.087, i64 144
-  %94 = icmp eq i8 %92, 12
-  %..i = select i1 %94, i8 48, i8 32
-  store i8 %..i, ptr %93, align 1
-  %95 = xor i8 %91, -1
-  %96 = icmp ugt i8 %..i, %95
-  br i1 %96, label %97, label %98
+87:                                               ; preds = %Dot11DecryptIsPwdWildcardSsid.exit
+  %88 = getelementptr inbounds i8, ptr %.087, i64 313
+  %89 = load i8, ptr %88, align 1
+  %90 = load i8, ptr %19, align 1
+  %91 = getelementptr inbounds i8, ptr %.087, i64 144
+  %92 = icmp eq i8 %90, 12
+  %..i = select i1 %92, i8 48, i8 32
+  store i8 %..i, ptr %91, align 1
+  %93 = xor i8 %89, -1
+  %94 = icmp ugt i8 %..i, %93
+  br i1 %94, label %95, label %96
 
-97:                                               ; preds = %89
-  store i8 0, ptr %93, align 1
+95:                                               ; preds = %87
+  store i8 0, ptr %91, align 1
   br label %Dot11DecryptDerivePmkFromMsk.exit
 
-98:                                               ; preds = %89
-  %99 = getelementptr inbounds i8, ptr %.087, i64 8
-  %100 = getelementptr inbounds i8, ptr %.087, i64 185
-  %101 = zext nneg i8 %..i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %99, ptr noundef nonnull readonly align 1 dereferenceable(1) %100, i64 %101, i1 false)
+96:                                               ; preds = %87
+  %97 = getelementptr inbounds i8, ptr %.087, i64 8
+  %98 = getelementptr inbounds i8, ptr %.087, i64 185
+  %99 = zext nneg i8 %..i to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %97, ptr noundef nonnull readonly align 1 dereferenceable(1) %98, i64 %99, i1 false)
   br label %Dot11DecryptDerivePmkFromMsk.exit
 
-Dot11DecryptDerivePmkFromMsk.exit:                ; preds = %83, %79, %98, %97, %Dot11DecryptIsPwdWildcardSsid.exit
-  %.087134 = phi ptr [ %.087, %98 ], [ %.087, %97 ], [ %.087, %Dot11DecryptIsPwdWildcardSsid.exit ], [ %.088, %79 ], [ %.088, %83 ]
-  %102 = load ptr, ptr %57, align 8
-  %103 = load ptr, ptr %25, align 8
-  %104 = load ptr, ptr %58, align 8
-  %105 = load i8, ptr %59, align 8
-  %106 = zext i8 %105 to i64
-  %107 = load ptr, ptr %60, align 8
-  %108 = load i8, ptr %19, align 1
+Dot11DecryptDerivePmkFromMsk.exit:                ; preds = %81, %77, %96, %95, %Dot11DecryptIsPwdWildcardSsid.exit
+  %.087134 = phi ptr [ %.087, %96 ], [ %.087, %95 ], [ %.087, %Dot11DecryptIsPwdWildcardSsid.exit ], [ %.088, %77 ], [ %.088, %81 ]
+  %100 = load ptr, ptr %57, align 8
+  %101 = load ptr, ptr %25, align 8
+  %102 = load ptr, ptr %58, align 8
+  %103 = load i8, ptr %59, align 8
+  %104 = zext i8 %103 to i64
+  %105 = load ptr, ptr %60, align 8
+  %106 = load i8, ptr %19, align 1
+  %107 = zext i8 %106 to i32
+  %108 = load i8, ptr %61, align 2
   %109 = zext i8 %108 to i32
-  %110 = load i8, ptr %61, align 2
-  %111 = zext i8 %110 to i32
-  %112 = call fastcc zeroext i8 @Dot11DecryptFtDerivePtk(ptr noundef nonnull %0, ptr noundef nonnull %38, ptr noundef nonnull %.087134, ptr noundef %102, ptr noundef %103, ptr noundef %104, i64 noundef %106, ptr noundef %107, i32 noundef %109, i32 noundef %111, ptr noundef nonnull %11, ptr noundef nonnull %12)
-  %113 = zext nneg i8 %112 to i32
-  %.not98 = icmp eq i8 %112, 0
-  br i1 %.not98, label %114, label %Dot11DecryptIsWpaKeyType.exit105
+  %110 = call fastcc zeroext i8 @Dot11DecryptFtDerivePtk(ptr noundef nonnull %0, ptr noundef nonnull %38, ptr noundef nonnull %.087134, ptr noundef %100, ptr noundef %101, ptr noundef %102, i64 noundef %104, ptr noundef %105, i32 noundef %107, i32 noundef %109, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %111 = zext nneg i8 %110 to i32
+  %.not98 = icmp eq i8 %110, 0
+  br i1 %.not98, label %112, label %Dot11DecryptIsWpaKeyType.exit105
 
-114:                                              ; preds = %Dot11DecryptDerivePmkFromMsk.exit
-  %115 = load i8, ptr %19, align 1
-  %switch.tableidx = add i8 %115, -1
-  %116 = icmp ult i8 %switch.tableidx, 18
-  br i1 %116, label %switch.hole_check, label %117
+112:                                              ; preds = %Dot11DecryptDerivePmkFromMsk.exit
+  %113 = load i8, ptr %19, align 1
+  %switch.tableidx = add i8 %113, -1
+  %114 = icmp ult i8 %switch.tableidx, 18
+  br i1 %114, label %switch.hole_check, label %115
 
-117:                                              ; preds = %switch.hole_check, %114
+115:                                              ; preds = %switch.hole_check, %112
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 2373, ptr noundef nonnull @__func__.Dot11DecryptGetKckLen, ptr noundef nonnull @.str.49) #14
   br label %Dot11DecryptGetKckLen.exit
 
-switch.hole_check:                                ; preds = %114
+switch.hole_check:                                ; preds = %112
   %switch.maskindex = zext nneg i8 %switch.tableidx to i32
   %switch.shifted = lshr i32 138687, %switch.maskindex
   %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %117
+  br i1 %switch.lobit, label %switch.lookup, label %115
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %118 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [18 x i64], ptr @switch.table.Dot11DecryptScanFtAssocForKeys, i64 0, i64 %118
+  %116 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [18 x i64], ptr @switch.table.Dot11DecryptScanFtAssocForKeys, i64 0, i64 %116
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %Dot11DecryptGetKckLen.exit
 
-Dot11DecryptGetKckLen.exit:                       ; preds = %switch.lookup, %117
-  %.0.i109 = phi i64 [ 0, %117 ], [ %switch.load, %switch.lookup ]
+Dot11DecryptGetKckLen.exit:                       ; preds = %switch.lookup, %115
+  %.0.i109 = phi i64 [ 0, %115 ], [ %switch.load, %switch.lookup ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  %119 = load ptr, ptr %62, align 8
-  %120 = getelementptr i8, ptr %119, i64 1
-  %121 = load i8, ptr %120, align 1
-  %122 = add i8 %121, 2
-  %123 = zext i8 %122 to i64
-  %124 = icmp ult i8 %122, 20
-  br i1 %124, label %Dot11DecryptFtMicCheck.exit.thread, label %125
+  %117 = load ptr, ptr %62, align 8
+  %118 = getelementptr i8, ptr %117, i64 1
+  %119 = load i8, ptr %118, align 1
+  %120 = add i8 %119, 2
+  %121 = zext i8 %120 to i64
+  %122 = icmp ult i8 %120, 20
+  br i1 %122, label %Dot11DecryptFtMicCheck.exit.thread, label %123
 
-125:                                              ; preds = %Dot11DecryptGetKckLen.exit
-  %126 = load i8, ptr %1, align 8
-  switch i8 %126, label %Dot11DecryptFtMicCheck.exit.thread [
-    i8 0, label %127
-    i8 1, label %128
-    i8 2, label %129
-    i8 3, label %130
-  ]
+123:                                              ; preds = %Dot11DecryptGetKckLen.exit
+  %124 = load i8, ptr %1, align 8
+  %125 = icmp ult i8 %124, 4
+  br i1 %125, label %switch.lookup141, label %Dot11DecryptFtMicCheck.exit.thread
 
-127:                                              ; preds = %125
-  store i8 3, ptr %6, align 1
-  br label %131
+switch.lookup141:                                 ; preds = %123
+  %126 = zext nneg i8 %124 to i64
+  %switch.gep142 = getelementptr inbounds [4 x i64], ptr @switch.table.Dot11DecryptScanFtAssocForKeys.8, i64 0, i64 %126
+  %switch.load143 = load i64, ptr %switch.gep142, align 8
+  %switch.offset = add nuw nsw i8 %124, 3
+  %127 = getelementptr inbounds i8, ptr %1, i64 %switch.load143
+  store i8 %switch.offset, ptr %6, align 1
+  %128 = call i32 @gcry_mac_open(ptr noundef nonnull %8, i32 noundef 201, i32 noundef 0, ptr noundef null) #14
+  %.not.i110 = icmp eq i32 %128, 0
+  br i1 %.not.i110, label %130, label %129
 
-128:                                              ; preds = %125
-  store i8 4, ptr %6, align 1
-  br label %131
-
-129:                                              ; preds = %125
-  store i8 5, ptr %6, align 1
-  br label %131
-
-130:                                              ; preds = %125
-  store i8 6, ptr %6, align 1
-  br label %131
-
-131:                                              ; preds = %130, %129, %128, %127
-  %.027.i = phi ptr [ %63, %130 ], [ %64, %129 ], [ %63, %128 ], [ %64, %127 ]
-  %132 = call i32 @gcry_mac_open(ptr noundef nonnull %8, i32 noundef 201, i32 noundef 0, ptr noundef null) #14
-  %.not.i110 = icmp eq i32 %132, 0
-  br i1 %.not.i110, label %134, label %133
-
-133:                                              ; preds = %131
+129:                                              ; preds = %switch.lookup141
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 2129, ptr noundef nonnull @__func__.Dot11DecryptFtMicCheck, ptr noundef nonnull @.str.42) #14
   br label %Dot11DecryptFtMicCheck.exit.thread
 
-134:                                              ; preds = %131
-  %135 = load ptr, ptr %8, align 8
-  %136 = call i32 @gcry_mac_setkey(ptr noundef %135, ptr noundef nonnull %11, i64 noundef %.0.i109) #14
-  %.not30.i = icmp eq i32 %136, 0
-  br i1 %.not30.i, label %139, label %137
+130:                                              ; preds = %switch.lookup141
+  %131 = load ptr, ptr %8, align 8
+  %132 = call i32 @gcry_mac_setkey(ptr noundef %131, ptr noundef nonnull %11, i64 noundef %.0.i109) #14
+  %.not30.i = icmp eq i32 %132, 0
+  br i1 %.not30.i, label %135, label %133
 
-137:                                              ; preds = %134
+133:                                              ; preds = %130
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 2133, ptr noundef nonnull @__func__.Dot11DecryptFtMicCheck, ptr noundef nonnull @.str.43) #14
-  %138 = load ptr, ptr %8, align 8
-  call void @gcry_mac_close(ptr noundef %138) #14
+  %134 = load ptr, ptr %8, align 8
+  call void @gcry_mac_close(ptr noundef %134) #14
   br label %Dot11DecryptFtMicCheck.exit.thread
 
-139:                                              ; preds = %134
+135:                                              ; preds = %130
+  %136 = load ptr, ptr %8, align 8
+  %137 = call i32 @gcry_mac_write(ptr noundef %136, ptr noundef nonnull %127, i64 noundef 6) #14
+  %138 = load ptr, ptr %8, align 8
+  %139 = call i32 @gcry_mac_write(ptr noundef %138, ptr noundef nonnull %37, i64 noundef 6) #14
   %140 = load ptr, ptr %8, align 8
-  %141 = call i32 @gcry_mac_write(ptr noundef %140, ptr noundef nonnull %.027.i, i64 noundef 6) #14
+  %141 = call i32 @gcry_mac_write(ptr noundef %140, ptr noundef nonnull %6, i64 noundef 1) #14
   %142 = load ptr, ptr %8, align 8
-  %143 = call i32 @gcry_mac_write(ptr noundef %142, ptr noundef nonnull %37, i64 noundef 6) #14
-  %144 = load ptr, ptr %8, align 8
-  %145 = call i32 @gcry_mac_write(ptr noundef %144, ptr noundef nonnull %6, i64 noundef 1) #14
-  %146 = load ptr, ptr %8, align 8
-  %147 = load ptr, ptr %65, align 8
-  %148 = getelementptr i8, ptr %147, i64 1
-  %149 = load i8, ptr %148, align 1
-  %150 = zext i8 %149 to i64
-  %151 = add nuw nsw i64 %150, 2
-  %152 = call i32 @gcry_mac_write(ptr noundef %146, ptr noundef %147, i64 noundef %151) #14
-  %153 = load ptr, ptr %8, align 8
-  %154 = load ptr, ptr %66, align 8
-  %155 = getelementptr i8, ptr %154, i64 1
-  %156 = load i8, ptr %155, align 1
-  %157 = zext i8 %156 to i64
-  %158 = add nuw nsw i64 %157, 2
-  %159 = call i32 @gcry_mac_write(ptr noundef %153, ptr noundef %154, i64 noundef %158) #14
-  %160 = load i8, ptr %68, align 8
-  %161 = load ptr, ptr %8, align 8
-  %162 = load ptr, ptr %62, align 8
-  %163 = call i32 @gcry_mac_write(ptr noundef %161, ptr noundef %162, i64 noundef 4) #14
-  %164 = load ptr, ptr %8, align 8
-  %165 = zext i8 %160 to i64
-  %166 = call i32 @gcry_mac_write(ptr noundef %164, ptr noundef nonnull %7, i64 noundef %165) #14
-  %167 = load ptr, ptr %8, align 8
-  %168 = load ptr, ptr %62, align 8
-  %169 = getelementptr i8, ptr %168, i64 4
-  %170 = getelementptr i8, ptr %169, i64 %165
-  %171 = add nsw i64 %123, -4
-  %172 = sub nsw i64 %171, %165
-  %173 = call i32 @gcry_mac_write(ptr noundef %167, ptr noundef %170, i64 noundef %172) #14
-  %174 = load ptr, ptr %69, align 8
-  %.not31.i = icmp eq ptr %174, null
-  br i1 %.not31.i, label %Dot11DecryptFtMicCheck.exit, label %175
+  %143 = load ptr, ptr %63, align 8
+  %144 = getelementptr i8, ptr %143, i64 1
+  %145 = load i8, ptr %144, align 1
+  %146 = zext i8 %145 to i64
+  %147 = add nuw nsw i64 %146, 2
+  %148 = call i32 @gcry_mac_write(ptr noundef %142, ptr noundef %143, i64 noundef %147) #14
+  %149 = load ptr, ptr %8, align 8
+  %150 = load ptr, ptr %64, align 8
+  %151 = getelementptr i8, ptr %150, i64 1
+  %152 = load i8, ptr %151, align 1
+  %153 = zext i8 %152 to i64
+  %154 = add nuw nsw i64 %153, 2
+  %155 = call i32 @gcry_mac_write(ptr noundef %149, ptr noundef %150, i64 noundef %154) #14
+  %156 = load i8, ptr %66, align 8
+  %157 = load ptr, ptr %8, align 8
+  %158 = load ptr, ptr %62, align 8
+  %159 = call i32 @gcry_mac_write(ptr noundef %157, ptr noundef %158, i64 noundef 4) #14
+  %160 = load ptr, ptr %8, align 8
+  %161 = zext i8 %156 to i64
+  %162 = call i32 @gcry_mac_write(ptr noundef %160, ptr noundef nonnull %7, i64 noundef %161) #14
+  %163 = load ptr, ptr %8, align 8
+  %164 = load ptr, ptr %62, align 8
+  %165 = getelementptr i8, ptr %164, i64 4
+  %166 = getelementptr i8, ptr %165, i64 %161
+  %167 = add nsw i64 %121, -4
+  %168 = sub nsw i64 %167, %161
+  %169 = call i32 @gcry_mac_write(ptr noundef %163, ptr noundef %166, i64 noundef %168) #14
+  %170 = load ptr, ptr %67, align 8
+  %.not31.i = icmp eq ptr %170, null
+  br i1 %.not31.i, label %Dot11DecryptFtMicCheck.exit, label %171
 
-175:                                              ; preds = %139
-  %176 = load ptr, ptr %8, align 8
-  %177 = getelementptr i8, ptr %174, i64 1
-  %178 = load i8, ptr %177, align 1
-  %179 = zext i8 %178 to i64
-  %180 = add nuw nsw i64 %179, 2
-  %181 = call i32 @gcry_mac_write(ptr noundef %176, ptr noundef nonnull %174, i64 noundef %180) #14
+171:                                              ; preds = %135
+  %172 = load ptr, ptr %8, align 8
+  %173 = getelementptr i8, ptr %170, i64 1
+  %174 = load i8, ptr %173, align 1
+  %175 = zext i8 %174 to i64
+  %176 = add nuw nsw i64 %175, 2
+  %177 = call i32 @gcry_mac_write(ptr noundef %172, ptr noundef nonnull %170, i64 noundef %176) #14
   br label %Dot11DecryptFtMicCheck.exit
 
-Dot11DecryptFtMicCheck.exit.thread:               ; preds = %133, %137, %Dot11DecryptGetKckLen.exit, %125
+Dot11DecryptFtMicCheck.exit.thread:               ; preds = %123, %129, %133, %Dot11DecryptGetKckLen.exit
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %Dot11DecryptIsWpaKeyType.exit105
 
-Dot11DecryptFtMicCheck.exit:                      ; preds = %139, %175
-  %182 = load ptr, ptr %8, align 8
-  %183 = load ptr, ptr %67, align 8
-  %184 = call i32 @gcry_mac_verify(ptr noundef %182, ptr noundef %183, i64 noundef %165) #14
-  %.not32.i.not = icmp eq i32 %184, 0
-  %185 = load ptr, ptr %8, align 8
-  call void @gcry_mac_close(ptr noundef %185) #14
+Dot11DecryptFtMicCheck.exit:                      ; preds = %135, %171
+  %178 = load ptr, ptr %8, align 8
+  %179 = load ptr, ptr %65, align 8
+  %180 = call i32 @gcry_mac_verify(ptr noundef %178, ptr noundef %179, i64 noundef %161) #14
+  %.not32.i.not = icmp eq i32 %180, 0
+  %181 = load ptr, ptr %8, align 8
+  call void @gcry_mac_close(ptr noundef %181) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
@@ -3565,62 +3529,62 @@ Dot11DecryptFtMicCheck.exit:                      ; preds = %139, %175
 
 .thread:                                          ; preds = %Dot11DecryptFtMicCheck.exit
   store ptr %.088, ptr %44, align 8
-  br label %190
+  br label %186
 
-Dot11DecryptIsWpaKeyType.exit105:                 ; preds = %77, %Dot11DecryptFtMicCheck.exit.thread, %Dot11DecryptFtMicCheck.exit, %Dot11DecryptDerivePmkFromMsk.exit
-  %.2 = phi i32 [ %113, %Dot11DecryptDerivePmkFromMsk.exit ], [ 1, %Dot11DecryptFtMicCheck.exit ], [ %.083129, %77 ], [ 1, %Dot11DecryptFtMicCheck.exit.thread ]
-  %186 = add i64 %.186, 1
-  %187 = load i64, ptr %46, align 8
-  %188 = icmp ult i64 %186, %187
-  br i1 %188, label %70, label %._crit_edge, !llvm.loop !17
+Dot11DecryptIsWpaKeyType.exit105:                 ; preds = %75, %Dot11DecryptFtMicCheck.exit.thread, %Dot11DecryptFtMicCheck.exit, %Dot11DecryptDerivePmkFromMsk.exit
+  %.2 = phi i32 [ %111, %Dot11DecryptDerivePmkFromMsk.exit ], [ 1, %Dot11DecryptFtMicCheck.exit ], [ %.083129, %75 ], [ 1, %Dot11DecryptFtMicCheck.exit.thread ]
+  %182 = add i64 %.186, 1
+  %183 = load i64, ptr %46, align 8
+  %184 = icmp ult i64 %182, %183
+  br i1 %184, label %68, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %Dot11DecryptIsWpaKeyType.exit105
-  %189 = icmp eq i32 %.2, 0
-  br i1 %189, label %190, label %._crit_edge.thread
+  %185 = icmp eq i32 %.2, 0
+  br i1 %185, label %186, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %40, %._crit_edge
   call void @g_free(ptr noundef nonnull %38) #14
   br label %Dot11DecryptIsFtAkm.exit
 
-190:                                              ; preds = %.thread, %._crit_edge
-  %191 = call fastcc ptr @Dot11DecryptAddSa(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %38)
-  %192 = getelementptr inbounds i8, ptr %191, i64 36
-  store i8 0, ptr %192, align 4
-  %193 = load i8, ptr %19, align 1
+186:                                              ; preds = %.thread, %._crit_edge
+  %187 = call fastcc ptr @Dot11DecryptAddSa(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %38)
+  %188 = getelementptr inbounds i8, ptr %187, i64 36
+  store i8 0, ptr %188, align 4
+  %189 = load i8, ptr %19, align 1
+  %190 = zext i8 %189 to i32
+  %191 = getelementptr inbounds i8, ptr %187, i64 72
+  store i32 %190, ptr %191, align 4
+  %192 = getelementptr inbounds i8, ptr %1, i64 2
+  %193 = load i8, ptr %192, align 2
   %194 = zext i8 %193 to i32
-  %195 = getelementptr inbounds i8, ptr %191, i64 72
+  %195 = getelementptr inbounds i8, ptr %187, i64 76
   store i32 %194, ptr %195, align 4
-  %196 = getelementptr inbounds i8, ptr %1, i64 2
-  %197 = load i8, ptr %196, align 2
+  %196 = getelementptr inbounds i8, ptr %1, i64 1
+  %197 = load i8, ptr %196, align 1
   %198 = zext i8 %197 to i32
-  %199 = getelementptr inbounds i8, ptr %191, i64 76
+  %199 = getelementptr inbounds i8, ptr %187, i64 80
   store i32 %198, ptr %199, align 4
-  %200 = getelementptr inbounds i8, ptr %1, i64 1
-  %201 = load i8, ptr %200, align 1
-  %202 = zext i8 %201 to i32
-  %203 = getelementptr inbounds i8, ptr %191, i64 80
+  %200 = getelementptr inbounds i8, ptr %187, i64 84
+  %201 = load i64, ptr %12, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %200, ptr nonnull align 16 %11, i64 %201, i1 false)
+  %202 = trunc i64 %201 to i32
+  %203 = getelementptr inbounds i8, ptr %187, i64 172
   store i32 %202, ptr %203, align 4
-  %204 = getelementptr inbounds i8, ptr %191, i64 84
-  %205 = load i64, ptr %12, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %204, ptr nonnull align 16 %11, i64 %205, i1 false)
-  %206 = trunc i64 %205 to i32
-  %207 = getelementptr inbounds i8, ptr %191, i64 172
-  store i32 %206, ptr %207, align 4
-  %208 = getelementptr inbounds i8, ptr %191, i64 33
-  store i8 1, ptr %208, align 1
-  %209 = getelementptr inbounds i8, ptr %1, i64 112
-  %210 = load ptr, ptr %209, align 8
-  %.not100 = icmp eq ptr %210, null
-  br i1 %.not100, label %235, label %211
+  %204 = getelementptr inbounds i8, ptr %187, i64 33
+  store i8 1, ptr %204, align 1
+  %205 = getelementptr inbounds i8, ptr %1, i64 112
+  %206 = load ptr, ptr %205, align 8
+  %.not100 = icmp eq ptr %206, null
+  br i1 %.not100, label %231, label %207
 
-211:                                              ; preds = %190
-  %212 = getelementptr inbounds i8, ptr %1, i64 120
-  %213 = load i16, ptr %212, align 8
-  %214 = icmp ult i16 %213, 65
-  br i1 %214, label %215, label %235
+207:                                              ; preds = %186
+  %208 = getelementptr inbounds i8, ptr %1, i64 120
+  %209 = load i16, ptr %208, align 8
+  %210 = icmp ult i16 %209, 65
+  br i1 %210, label %211, label %231
 
-215:                                              ; preds = %211
-  switch i8 %193, label %218 [
+211:                                              ; preds = %207
+  switch i8 %189, label %214 [
     i8 1, label %Dot11DecryptGetKckLen.exit114
     i8 2, label %Dot11DecryptGetKckLen.exit114
     i8 3, label %Dot11DecryptGetKckLen.exit114
@@ -3635,24 +3599,24 @@ Dot11DecryptIsWpaKeyType.exit105:                 ; preds = %77, %Dot11DecryptFt
     i8 18, label %Dot11DecryptGetKckLen.exit114
   ]
 
-Dot11DecryptGetKckLen.exit114.thread:             ; preds = %215
-  %216 = getelementptr i8, ptr %191, i64 108
+Dot11DecryptGetKckLen.exit114.thread:             ; preds = %211
+  %212 = getelementptr i8, ptr %187, i64 108
   br label %Dot11DecryptGetKekLen.exit
 
-Dot11DecryptGetKckLen.exit114.thread137:          ; preds = %215
-  %217 = getelementptr i8, ptr %191, i64 108
+Dot11DecryptGetKckLen.exit114.thread137:          ; preds = %211
+  %213 = getelementptr i8, ptr %187, i64 108
   br label %Dot11DecryptGetKekLen.exit
 
-218:                                              ; preds = %215
+214:                                              ; preds = %211
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 2373, ptr noundef nonnull @__func__.Dot11DecryptGetKckLen, ptr noundef nonnull @.str.49) #14
-  %.pre132 = load i32, ptr %195, align 4
+  %.pre132 = load i32, ptr %191, align 4
   br label %Dot11DecryptGetKckLen.exit114
 
-Dot11DecryptGetKckLen.exit114:                    ; preds = %215, %215, %215, %215, %215, %215, %215, %215, %215, %215, %218
-  %219 = phi i32 [ %.pre132, %218 ], [ %194, %215 ], [ %194, %215 ], [ %194, %215 ], [ %194, %215 ], [ %194, %215 ], [ %194, %215 ], [ %194, %215 ], [ %194, %215 ], [ %194, %215 ], [ %194, %215 ]
-  %.0.i113 = phi i64 [ 0, %218 ], [ 16, %215 ], [ 16, %215 ], [ 16, %215 ], [ 16, %215 ], [ 16, %215 ], [ 16, %215 ], [ 16, %215 ], [ 16, %215 ], [ 16, %215 ], [ 16, %215 ]
-  %220 = getelementptr i8, ptr %204, i64 %.0.i113
-  switch i32 %219, label %223 [
+Dot11DecryptGetKckLen.exit114:                    ; preds = %211, %211, %211, %211, %211, %211, %211, %211, %211, %211, %214
+  %215 = phi i32 [ %.pre132, %214 ], [ %190, %211 ], [ %190, %211 ], [ %190, %211 ], [ %190, %211 ], [ %190, %211 ], [ %190, %211 ], [ %190, %211 ], [ %190, %211 ], [ %190, %211 ], [ %190, %211 ]
+  %.0.i113 = phi i64 [ 0, %214 ], [ 16, %211 ], [ 16, %211 ], [ 16, %211 ], [ 16, %211 ], [ 16, %211 ], [ 16, %211 ], [ 16, %211 ], [ 16, %211 ], [ 16, %211 ], [ 16, %211 ]
+  %216 = getelementptr i8, ptr %200, i64 %.0.i113
+  switch i32 %215, label %219 [
     i32 1, label %Dot11DecryptGetKekLen.exit
     i32 2, label %Dot11DecryptGetKekLen.exit
     i32 3, label %Dot11DecryptGetKekLen.exit
@@ -3662,50 +3626,50 @@ Dot11DecryptGetKckLen.exit114:                    ; preds = %215, %215, %215, %2
     i32 8, label %Dot11DecryptGetKekLen.exit
     i32 9, label %Dot11DecryptGetKekLen.exit
     i32 11, label %Dot11DecryptGetKekLen.exit
-    i32 12, label %221
-    i32 13, label %222
+    i32 12, label %217
+    i32 13, label %218
     i32 18, label %Dot11DecryptGetKekLen.exit
   ]
 
-221:                                              ; preds = %Dot11DecryptGetKckLen.exit114
+217:                                              ; preds = %Dot11DecryptGetKckLen.exit114
   br label %Dot11DecryptGetKekLen.exit
 
-222:                                              ; preds = %Dot11DecryptGetKckLen.exit114
+218:                                              ; preds = %Dot11DecryptGetKckLen.exit114
   br label %Dot11DecryptGetKekLen.exit
 
-223:                                              ; preds = %Dot11DecryptGetKckLen.exit114
+219:                                              ; preds = %Dot11DecryptGetKckLen.exit114
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 2396, ptr noundef nonnull @__func__.Dot11DecryptGetKekLen, ptr noundef nonnull @.str.49) #14
   br label %Dot11DecryptGetKekLen.exit
 
-Dot11DecryptGetKekLen.exit:                       ; preds = %Dot11DecryptGetKckLen.exit114.thread137, %Dot11DecryptGetKckLen.exit114.thread, %Dot11DecryptGetKckLen.exit114, %Dot11DecryptGetKckLen.exit114, %Dot11DecryptGetKckLen.exit114, %Dot11DecryptGetKckLen.exit114, %Dot11DecryptGetKckLen.exit114, %Dot11DecryptGetKckLen.exit114, %Dot11DecryptGetKckLen.exit114, %Dot11DecryptGetKckLen.exit114, %Dot11DecryptGetKckLen.exit114, %Dot11DecryptGetKckLen.exit114, %221, %222, %223
-  %224 = phi ptr [ %220, %223 ], [ %220, %Dot11DecryptGetKckLen.exit114 ], [ %220, %Dot11DecryptGetKckLen.exit114 ], [ %220, %Dot11DecryptGetKckLen.exit114 ], [ %220, %Dot11DecryptGetKckLen.exit114 ], [ %220, %Dot11DecryptGetKckLen.exit114 ], [ %220, %Dot11DecryptGetKckLen.exit114 ], [ %220, %Dot11DecryptGetKckLen.exit114 ], [ %220, %Dot11DecryptGetKckLen.exit114 ], [ %220, %Dot11DecryptGetKckLen.exit114 ], [ %220, %Dot11DecryptGetKckLen.exit114 ], [ %216, %Dot11DecryptGetKckLen.exit114.thread ], [ %220, %221 ], [ %217, %Dot11DecryptGetKckLen.exit114.thread137 ], [ %220, %222 ]
-  %.0.i115 = phi i16 [ 0, %223 ], [ 16, %Dot11DecryptGetKckLen.exit114 ], [ 16, %Dot11DecryptGetKckLen.exit114 ], [ 16, %Dot11DecryptGetKckLen.exit114 ], [ 16, %Dot11DecryptGetKckLen.exit114 ], [ 16, %Dot11DecryptGetKckLen.exit114 ], [ 16, %Dot11DecryptGetKckLen.exit114 ], [ 16, %Dot11DecryptGetKckLen.exit114 ], [ 16, %Dot11DecryptGetKckLen.exit114 ], [ 16, %Dot11DecryptGetKckLen.exit114 ], [ 16, %Dot11DecryptGetKckLen.exit114 ], [ 32, %Dot11DecryptGetKckLen.exit114.thread ], [ 32, %221 ], [ 32, %Dot11DecryptGetKckLen.exit114.thread137 ], [ 32, %222 ]
-  %225 = load ptr, ptr %209, align 8
-  %226 = load i16, ptr %212, align 8
-  %227 = call fastcc i32 @AES_unwrap(ptr noundef %224, i16 noundef zeroext %.0.i115, ptr noundef %225, i16 noundef zeroext %226, ptr noundef nonnull %13, ptr noundef nonnull %14)
-  %.not101 = icmp eq i32 %227, 0
-  br i1 %.not101, label %228, label %Dot11DecryptIsFtAkm.exit
+Dot11DecryptGetKekLen.exit:                       ; preds = %Dot11DecryptGetKckLen.exit114.thread137, %Dot11DecryptGetKckLen.exit114.thread, %Dot11DecryptGetKckLen.exit114, %Dot11DecryptGetKckLen.exit114, %Dot11DecryptGetKckLen.exit114, %Dot11DecryptGetKckLen.exit114, %Dot11DecryptGetKckLen.exit114, %Dot11DecryptGetKckLen.exit114, %Dot11DecryptGetKckLen.exit114, %Dot11DecryptGetKckLen.exit114, %Dot11DecryptGetKckLen.exit114, %Dot11DecryptGetKckLen.exit114, %217, %218, %219
+  %220 = phi ptr [ %216, %219 ], [ %216, %Dot11DecryptGetKckLen.exit114 ], [ %216, %Dot11DecryptGetKckLen.exit114 ], [ %216, %Dot11DecryptGetKckLen.exit114 ], [ %216, %Dot11DecryptGetKckLen.exit114 ], [ %216, %Dot11DecryptGetKckLen.exit114 ], [ %216, %Dot11DecryptGetKckLen.exit114 ], [ %216, %Dot11DecryptGetKckLen.exit114 ], [ %216, %Dot11DecryptGetKckLen.exit114 ], [ %216, %Dot11DecryptGetKckLen.exit114 ], [ %216, %Dot11DecryptGetKckLen.exit114 ], [ %212, %Dot11DecryptGetKckLen.exit114.thread ], [ %216, %217 ], [ %213, %Dot11DecryptGetKckLen.exit114.thread137 ], [ %216, %218 ]
+  %.0.i115 = phi i16 [ 0, %219 ], [ 16, %Dot11DecryptGetKckLen.exit114 ], [ 16, %Dot11DecryptGetKckLen.exit114 ], [ 16, %Dot11DecryptGetKckLen.exit114 ], [ 16, %Dot11DecryptGetKckLen.exit114 ], [ 16, %Dot11DecryptGetKckLen.exit114 ], [ 16, %Dot11DecryptGetKckLen.exit114 ], [ 16, %Dot11DecryptGetKckLen.exit114 ], [ 16, %Dot11DecryptGetKckLen.exit114 ], [ 16, %Dot11DecryptGetKckLen.exit114 ], [ 16, %Dot11DecryptGetKckLen.exit114 ], [ 32, %Dot11DecryptGetKckLen.exit114.thread ], [ 32, %217 ], [ 32, %Dot11DecryptGetKckLen.exit114.thread137 ], [ 32, %218 ]
+  %221 = load ptr, ptr %205, align 8
+  %222 = load i16, ptr %208, align 8
+  %223 = call fastcc i32 @AES_unwrap(ptr noundef %220, i16 noundef zeroext %.0.i115, ptr noundef %221, i16 noundef zeroext %222, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  %.not101 = icmp eq i32 %223, 0
+  br i1 %.not101, label %224, label %Dot11DecryptIsFtAkm.exit
 
-228:                                              ; preds = %Dot11DecryptGetKekLen.exit
-  %229 = load i16, ptr %14, align 2
-  %230 = getelementptr inbounds i8, ptr %1, i64 122
-  %231 = load i16, ptr %230, align 2
-  %.not102 = icmp eq i16 %229, %231
-  br i1 %.not102, label %232, label %Dot11DecryptIsFtAkm.exit
+224:                                              ; preds = %Dot11DecryptGetKekLen.exit
+  %225 = load i16, ptr %14, align 2
+  %226 = getelementptr inbounds i8, ptr %1, i64 122
+  %227 = load i16, ptr %226, align 2
+  %.not102 = icmp eq i16 %225, %227
+  br i1 %.not102, label %228, label %Dot11DecryptIsFtAkm.exit
 
-232:                                              ; preds = %228
-  %233 = zext i16 %229 to i64
-  %234 = call fastcc i32 @Dot11DecryptCopyBroadcastKey(ptr noundef nonnull %0, ptr noundef nonnull %13, i64 noundef %233, ptr noundef nonnull %9)
-  store i64 %233, ptr %3, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull align 16 %13, i64 %233, i1 false)
-  br label %235
+228:                                              ; preds = %224
+  %229 = zext i16 %225 to i64
+  %230 = call fastcc i32 @Dot11DecryptCopyBroadcastKey(ptr noundef nonnull %0, ptr noundef nonnull %13, i64 noundef %229, ptr noundef nonnull %9)
+  store i64 %229, ptr %3, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull align 16 %13, i64 %229, i1 false)
+  br label %231
 
-235:                                              ; preds = %232, %211, %190
-  call fastcc void @Dot11DecryptCopyKey(ptr noundef nonnull %191, ptr noundef %4)
+231:                                              ; preds = %228, %207, %186
+  call fastcc void @Dot11DecryptCopyKey(ptr noundef nonnull %187, ptr noundef %4)
   br label %Dot11DecryptIsFtAkm.exit
 
-Dot11DecryptIsFtAkm.exit:                         ; preds = %18, %228, %Dot11DecryptGetKekLen.exit, %21, %24, %235, %._crit_edge.thread, %39, %35, %17
-  %.089 = phi i32 [ 1, %35 ], [ 4, %39 ], [ 4, %._crit_edge.thread ], [ -1, %235 ], [ 4, %17 ], [ 4, %24 ], [ 4, %21 ], [ 1, %Dot11DecryptGetKekLen.exit ], [ 1, %228 ], [ 4, %18 ]
+Dot11DecryptIsFtAkm.exit:                         ; preds = %18, %224, %Dot11DecryptGetKekLen.exit, %21, %24, %231, %._crit_edge.thread, %39, %35, %17
+  %.089 = phi i32 [ 1, %35 ], [ 4, %39 ], [ 4, %._crit_edge.thread ], [ -1, %231 ], [ 4, %17 ], [ 4, %24 ], [ 4, %21 ], [ 1, %Dot11DecryptGetKekLen.exit ], [ 1, %224 ], [ 4, %18 ]
   ret i32 %.089
 }
 

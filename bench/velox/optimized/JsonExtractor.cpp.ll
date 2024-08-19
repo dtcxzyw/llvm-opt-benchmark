@@ -755,7 +755,7 @@ call5.i.i.i5.i.i.i.i.noexc:                       ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !17
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %token.i.i.i.i.i.i.i.i.i), !noalias !17
   %call.i.i.i.i.i.i.i.i.i = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %trimedPath) #1, !noalias !17
-  br i1 %call.i.i.i.i.i.i.i.i.i, label %invoke.cont.thread.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i
+  br i1 %call.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %call5.i.i.i5.i.i.i.i.noexc
   %.b.i.i.i.i.i.i.i.i.i.i.i = load i1, ptr @__tls_guard, align 1, !noalias !17
@@ -781,7 +781,7 @@ _ZTWN8facebook5velox9functions12_GLOBAL__N_113JsonExtractor10kTokenizerE.exit.i.
           to label %call2.i.noexc.i.i.i.i.i.i.i.i unwind label %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i, !noalias !17
 
 call2.i.noexc.i.i.i.i.i.i.i.i:                    ; preds = %_ZTWN8facebook5velox9functions12_GLOBAL__N_113JsonExtractor10kTokenizerE.exit.i.i.i.i.i.i.i.i.i
-  br i1 %call2.i1.i.i.i.i.i.i.i.i, label %while.cond.preheader.i.i.i.i.i.i.i.i.i, label %invoke.cont.thread.i.i.i.i.i.i.i.i
+  br i1 %call2.i1.i.i.i.i.i.i.i.i, label %while.cond.preheader.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 while.cond.preheader.i.i.i.i.i.i.i.i.i:           ; preds = %call2.i.noexc.i.i.i.i.i.i.i.i
   %which_.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %token.i.i.i.i.i.i.i.i.i, i64 32
@@ -894,17 +894,10 @@ sw.bb.i.i.i14.i.i.i.i.i.i.i.i.i:                  ; preds = %cleanup.i.i.i.i.i.i
 
 _ZN5folly8ExpectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbED2Ev.exit15.i.i.i.i.i.i.i.i.i: ; preds = %sw.bb.i.i.i14.i.i.i.i.i.i.i.i.i, %cleanup.i.i.i.i.i.i.i.i.i
   store i8 0, ptr %which_.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !17
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %while.cond.i.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %while.cond.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
-invoke.cont.thread.i.i.i.i.i.i.i.i:               ; preds = %call2.i.noexc.i.i.i.i.i.i.i.i, %call5.i.i.i5.i.i.i.i.noexc
+if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZN5folly8ExpectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbED2Ev.exit15.i.i.i.i.i.i.i.i.i, %call2.i.noexc.i.i.i.i.i.i.i.i, %call5.i.i.i5.i.i.i.i.noexc
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %token.i.i.i.i.i.i.i.i.i), !noalias !17
-  br label %if.then.i.i.i.i.i.i.i.i
-
-invoke.cont.i.i.i.i.i.i.i.i:                      ; preds = %_ZN5folly8ExpectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbED2Ev.exit15.i.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %token.i.i.i.i.i.i.i.i.i), !noalias !17
-  br label %if.then.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i:                          ; preds = %invoke.cont.i.i.i.i.i.i.i.i, %invoke.cont.thread.i.i.i.i.i.i.i.i
   call void @llvm.trap()
   unreachable
 

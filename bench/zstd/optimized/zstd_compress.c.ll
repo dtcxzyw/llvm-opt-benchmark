@@ -10911,72 +10911,67 @@ if.then107:                                       ; preds = %if.then99
   %38 = load i32, ptr %arrayidx115, align 4
   %arrayidx117 = getelementptr inbounds i8, ptr %updatedRepcodes, i64 4
   store i32 %38, ptr %arrayidx117, align 4
-  %idxprom118 = zext i32 %sub103 to i64
-  %arrayidx119 = getelementptr inbounds %struct.ZSTD_Sequence, ptr %inSeqs, i64 %idxprom118
-  %39 = load i32, ptr %arrayidx119, align 4
-  store i32 %39, ptr %updatedRepcodes, align 4
-  br label %if.end149
+  br label %if.end149.sink.split
 
 if.else122:                                       ; preds = %if.then99
   %cmp124 = icmp eq i32 %idx.0.lcssa, %add104
   br i1 %cmp124, label %if.then126, label %if.else138
 
 if.then126:                                       ; preds = %if.else122
-  %40 = load i32, ptr %updatedRepcodes, align 4
+  %39 = load i32, ptr %updatedRepcodes, align 4
   %arrayidx128 = getelementptr inbounds i8, ptr %updatedRepcodes, i64 8
-  store i32 %40, ptr %arrayidx128, align 4
+  store i32 %39, ptr %arrayidx128, align 4
   %sub129 = add i32 %idx.0.lcssa, -2
   %idxprom130 = zext i32 %sub129 to i64
   %arrayidx131 = getelementptr inbounds %struct.ZSTD_Sequence, ptr %inSeqs, i64 %idxprom130
-  %41 = load i32, ptr %arrayidx131, align 4
+  %40 = load i32, ptr %arrayidx131, align 4
   %arrayidx133 = getelementptr inbounds i8, ptr %updatedRepcodes, i64 4
-  store i32 %41, ptr %arrayidx133, align 4
-  %idxprom134 = zext i32 %sub103 to i64
-  %arrayidx135 = getelementptr inbounds %struct.ZSTD_Sequence, ptr %inSeqs, i64 %idxprom134
-  %42 = load i32, ptr %arrayidx135, align 4
-  store i32 %42, ptr %updatedRepcodes, align 4
-  br label %if.end149
+  store i32 %40, ptr %arrayidx133, align 4
+  br label %if.end149.sink.split
 
 if.else138:                                       ; preds = %if.else122
   %arrayidx139 = getelementptr inbounds i8, ptr %updatedRepcodes, i64 4
-  %43 = load i32, ptr %arrayidx139, align 4
+  %41 = load i32, ptr %arrayidx139, align 4
   %arrayidx140 = getelementptr inbounds i8, ptr %updatedRepcodes, i64 8
-  store i32 %43, ptr %arrayidx140, align 4
-  %44 = load i32, ptr %updatedRepcodes, align 4
-  store i32 %44, ptr %arrayidx139, align 4
-  %idxprom143 = zext i32 %sub103 to i64
-  %arrayidx144 = getelementptr inbounds %struct.ZSTD_Sequence, ptr %inSeqs, i64 %idxprom143
-  %45 = load i32, ptr %arrayidx144, align 4
-  store i32 %45, ptr %updatedRepcodes, align 4
+  store i32 %41, ptr %arrayidx140, align 4
+  %42 = load i32, ptr %updatedRepcodes, align 4
+  store i32 %42, ptr %arrayidx139, align 4
+  br label %if.end149.sink.split
+
+if.end149.sink.split:                             ; preds = %if.then126, %if.else138, %if.then107
+  %idxprom118 = zext i32 %sub103 to i64
+  %arrayidx119 = getelementptr inbounds %struct.ZSTD_Sequence, ptr %inSeqs, i64 %idxprom118
+  %43 = load i32, ptr %arrayidx119, align 4
+  store i32 %43, ptr %updatedRepcodes, align 4
   br label %if.end149
 
-if.end149:                                        ; preds = %if.end9, %if.then107, %if.else138, %if.then126, %for.end
-  %conv12.lcssa206 = phi i64 [ %conv12.lcssa, %if.then107 ], [ %conv12.lcssa, %if.else138 ], [ %conv12.lcssa, %if.then126 ], [ %conv12.lcssa, %for.end ], [ %conv12182, %if.end9 ]
-  %idx.0.lcssa205 = phi i32 [ %idx.0.lcssa, %if.then107 ], [ %idx.0.lcssa, %if.else138 ], [ %idx.0.lcssa, %if.then126 ], [ %idx.0.lcssa, %for.end ], [ %0, %if.end9 ]
-  %ip.0.lcssa204 = phi ptr [ %ip.0.lcssa, %if.then107 ], [ %ip.0.lcssa, %if.else138 ], [ %ip.0.lcssa, %if.then126 ], [ %ip.0.lcssa, %for.end ], [ %src, %if.end9 ]
+if.end149:                                        ; preds = %if.end149.sink.split, %if.end9, %for.end
+  %conv12.lcssa206 = phi i64 [ %conv12.lcssa, %for.end ], [ %conv12182, %if.end9 ], [ %conv12.lcssa, %if.end149.sink.split ]
+  %idx.0.lcssa205 = phi i32 [ %idx.0.lcssa, %for.end ], [ %0, %if.end9 ], [ %idx.0.lcssa, %if.end149.sink.split ]
+  %ip.0.lcssa204 = phi ptr [ %ip.0.lcssa, %for.end ], [ %src, %if.end9 ], [ %ip.0.lcssa, %if.end149.sink.split ]
   %nextCBlock = getelementptr inbounds i8, ptr %cctx, i64 3208
-  %46 = load ptr, ptr %nextCBlock, align 8
-  %rep151 = getelementptr inbounds i8, ptr %46, i64 5616
+  %44 = load ptr, ptr %nextCBlock, align 8
+  %rep151 = getelementptr inbounds i8, ptr %44, i64 5616
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %rep151, ptr noundef nonnull align 4 dereferenceable(12) %updatedRepcodes, i64 12, i1 false)
   %litLength157 = getelementptr inbounds %struct.ZSTD_Sequence, ptr %inSeqs, i64 %conv12.lcssa206, i32 1
-  %47 = load i32, ptr %litLength157, align 4
-  %tobool158.not = icmp eq i32 %47, 0
+  %45 = load i32, ptr %litLength157, align 4
+  %tobool158.not = icmp eq i32 %45, 0
   br i1 %tobool158.not, label %do.body179, label %do.end161
 
 do.end161:                                        ; preds = %if.end149
-  %conv166 = zext i32 %47 to i64
+  %conv166 = zext i32 %45 to i64
   %lit.i158 = getelementptr inbounds i8, ptr %cctx, i64 976
-  %48 = load ptr, ptr %lit.i158, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %48, ptr readonly align 1 %ip.0.lcssa204, i64 %conv166, i1 false)
-  %49 = load ptr, ptr %lit.i158, align 8
-  %add.ptr.i159 = getelementptr inbounds i8, ptr %49, i64 %conv166
+  %46 = load ptr, ptr %lit.i158, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %46, ptr readonly align 1 %ip.0.lcssa204, i64 %conv166, i1 false)
+  %47 = load ptr, ptr %lit.i158, align 8
+  %add.ptr.i159 = getelementptr inbounds i8, ptr %47, i64 %conv166
   store ptr %add.ptr.i159, ptr %lit.i158, align 8
-  %50 = load i32, ptr %litLength157, align 4
-  %idx.ext170 = zext i32 %50 to i64
+  %48 = load i32, ptr %litLength157, align 4
+  %idx.ext170 = zext i32 %48 to i64
   %add.ptr171 = getelementptr inbounds i8, ptr %ip.0.lcssa204, i64 %idx.ext170
   %posInSrc176 = getelementptr inbounds i8, ptr %seqPos, i64 8
-  %51 = load i64, ptr %posInSrc176, align 8
-  %add177 = add i64 %51, %idx.ext170
+  %49 = load i64, ptr %posInSrc176, align 8
+  %add177 = add i64 %49, %idx.ext170
   store i64 %add177, ptr %posInSrc176, align 8
   br label %do.body179
 

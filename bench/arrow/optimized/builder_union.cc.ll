@@ -4835,15 +4835,11 @@ _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %for.end
   call void @_ZN5arrow13BufferBuilder6ResizeElb(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(56) %types_builder_, i64 noundef %.sroa.speculated.i.i.i, i1 noundef zeroext false), !noalias !77
   %16 = load ptr, ptr %ref.tmp.i.i, align 8, !noalias !80
   %cmp.i.i.i = icmp eq ptr %16, null
-  br i1 %cmp.i.i.i, label %_ZN5arrow6StatusD2Ev.exit.if.end14_crit_edge.i.i, label %nrvo.skipdtor37
+  br i1 %cmp.i.i.i, label %_ZN5arrow6StatusD2Ev.exit.if.end14_crit_edge.i.i, label %return.sink.split
 
 _ZN5arrow6StatusD2Ev.exit.if.end14_crit_edge.i.i: ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i
   %.pre.i.i = load i64, ptr %size_.i.i, align 8, !noalias !77
   br label %do.end41
-
-nrvo.skipdtor37:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i), !noalias !74
-  br label %return.sink.split
 
 do.end41:                                         ; preds = %for.end, %_ZN5arrow6StatusD2Ev.exit.if.end14_crit_edge.i.i
   %17 = phi i64 [ %.pre.i.i, %_ZN5arrow6StatusD2Ev.exit.if.end14_crit_edge.i.i ], [ %14, %for.end ]
@@ -4854,11 +4850,11 @@ do.end41:                                         ; preds = %for.end, %_ZN5arrow
   %19 = load i64, ptr %size_.i.i, align 8, !noalias !77
   %add.i.i.i = add nsw i64 %19, %length
   store i64 %add.i.i.i, ptr %size_.i.i, align 8, !noalias !77
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i), !noalias !74
   br label %return.sink.split
 
-return.sink.split:                                ; preds = %do.end41, %nrvo.skipdtor37
-  %.sink = phi ptr [ %16, %nrvo.skipdtor37 ], [ null, %do.end41 ]
+return.sink.split:                                ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i, %do.end41
+  %.sink = phi ptr [ null, %do.end41 ], [ %16, %_ZN5arrow6StatusD2Ev.exit.i.i ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i), !noalias !74
   store ptr %.sink, ptr %agg.result, align 8
   br label %return
 

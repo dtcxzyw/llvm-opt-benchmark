@@ -414,7 +414,7 @@ for.cond.preheader:                               ; preds = %while.cond.backedge
   br i1 %tobool7.not12, label %for.end.thread, label %for.body
 
 while.body:                                       ; preds = %entry, %while.cond.backedge
-  %6 = phi ptr [ %9, %while.cond.backedge ], [ %tok, %entry ]
+  %6 = phi ptr [ %call1.sink, %while.cond.backedge ], [ %tok, %entry ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %attr, i8 0, i64 12, i1 false)
   %call = call fastcc ptr @declspec(ptr noundef nonnull %tok.addr, ptr noundef nonnull %6, ptr noundef nonnull %attr)
   %7 = load i8, ptr %attr, align 4
@@ -424,13 +424,13 @@ while.body:                                       ; preds = %entry, %while.cond.
 
 if.then:                                          ; preds = %while.body
   %call1 = call fastcc ptr @parse_typedef(ptr noundef %8, ptr noundef %call)
-  store ptr %call1, ptr %tok.addr, align 8
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.then, %if.then3, %if.end5
-  %9 = phi ptr [ %call1, %if.then ], [ %call4, %if.then3 ], [ %call6, %if.end5 ]
-  %10 = load i32, ptr %9, align 16
-  %cmp.not = icmp eq i32 %10, 6
+  %call1.sink = phi ptr [ %call1, %if.then ], [ %call4, %if.then3 ], [ %call6, %if.end5 ]
+  store ptr %call1.sink, ptr %tok.addr, align 8
+  %9 = load i32, ptr %call1.sink, align 16
+  %cmp.not = icmp eq i32 %9, 6
   br i1 %cmp.not, label %for.cond.preheader, label %while.body, !llvm.loop !9
 
 if.end:                                           ; preds = %while.body
@@ -448,27 +448,25 @@ is_function.exit.thread:                          ; preds = %if.end
 is_function.exit:                                 ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %dummy.i, i8 0, i64 120, i1 false)
   %call1.i7 = call fastcc ptr @declarator(ptr noundef nonnull %tok.addr.i, ptr noundef %8, ptr noundef nonnull %dummy.i)
-  %11 = load i32, ptr %call1.i7, align 8
-  %cmp.i = icmp eq i32 %11, 11
+  %10 = load i32, ptr %call1.i7, align 8
+  %cmp.i = icmp eq i32 %10, 11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %dummy.i)
   br i1 %cmp.i, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %is_function.exit
   %call4 = call fastcc ptr @function(ptr noundef %8, ptr noundef %call, ptr noundef nonnull %attr)
-  store ptr %call4, ptr %tok.addr, align 8
   br label %while.cond.backedge
 
 if.end5:                                          ; preds = %is_function.exit.thread, %is_function.exit
   %call6 = call fastcc ptr @global_variable(ptr noundef %8, ptr noundef %call, ptr noundef nonnull %attr)
-  store ptr %call6, ptr %tok.addr, align 8
   br label %while.cond.backedge
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %var.013 = phi ptr [ %var.0, %for.inc ], [ %var.011.pre, %for.cond.preheader ]
   %is_root = getelementptr inbounds i8, ptr %var.013, i64 125
-  %12 = load i8, ptr %is_root, align 1
-  %tobool8 = trunc i8 %12 to i1
+  %11 = load i8, ptr %is_root, align 1
+  %tobool8 = trunc i8 %11 to i1
   br i1 %tobool8, label %if.then9, label %for.inc
 
 if.then9:                                         ; preds = %for.body
@@ -494,8 +492,8 @@ for.body.i:                                       ; preds = %for.end, %for.inc16
   %var.020.i = phi ptr [ %var.0.i, %for.inc16.i ], [ %var.017.i.pre, %for.end ]
   %cur.019.i = phi ptr [ %cur.1.i, %for.inc16.i ], [ %head.sroa.0.i, %for.end ]
   %is_tentative.i = getelementptr inbounds i8, ptr %var.020.i, i64 47
-  %13 = load i8, ptr %is_tentative.i, align 1
-  %tobool1.i = trunc i8 %13 to i1
+  %12 = load i8, ptr %is_tentative.i, align 1
+  %tobool1.i = trunc i8 %12 to i1
   br i1 %tobool1.i, label %for.cond2.preheader.i, label %for.inc16.sink.split.i
 
 for.cond2.preheader.i:                            ; preds = %for.body.i
@@ -514,15 +512,15 @@ for.body4.i:                                      ; preds = %for.inc.i, %for.bod
 
 land.lhs.true.i:                                  ; preds = %for.body4.i
   %is_definition.i = getelementptr inbounds i8, ptr %var2.016.i, i64 45
-  %14 = load i8, ptr %is_definition.i, align 1
-  %tobool5.i = trunc i8 %14 to i1
+  %13 = load i8, ptr %is_definition.i, align 1
+  %tobool5.i = trunc i8 %13 to i1
   br i1 %tobool5.i, label %land.lhs.true6.i, label %for.inc.i
 
 land.lhs.true6.i:                                 ; preds = %land.lhs.true.i
-  %15 = load ptr, ptr %name.i, align 8
+  %14 = load ptr, ptr %name.i, align 8
   %name7.i = getelementptr inbounds i8, ptr %var2.016.i, i64 8
-  %16 = load ptr, ptr %name7.i, align 8
-  %call.i8 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %16) #15
+  %15 = load ptr, ptr %name7.i, align 8
+  %call.i8 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %15) #15
   %tobool8.not.i = icmp eq i32 %call.i8, 0
   br i1 %tobool8.not.i, label %for.inc16.i, label %for.inc.i
 
@@ -737,16 +735,20 @@ if.end44:                                         ; preds = %land.lhs.true, %if.
   %30 = load ptr, ptr %tok.addr, align 8
   %next = getelementptr inbounds i8, ptr %30, i64 8
   %31 = load ptr, ptr %next, align 8
-  store ptr %31, ptr %tok.addr, align 8
+  br label %while.cond.backedge.sink.split
+
+while.cond.backedge.sink.split:                   ; preds = %if.end96, %if.end44
+  %.sink = phi ptr [ %31, %if.end44 ], [ %call97, %if.end96 ]
+  store ptr %.sink, ptr %tok.addr, align 8
   br label %while.cond.backedge
+
+while.cond.backedge:                              ; preds = %while.cond.backedge.sink.split, %if.end45, %lor.lhs.false48, %lor.lhs.false51, %lor.lhs.false54, %lor.lhs.false57, %lor.lhs.false60, %lor.lhs.false63, %lor.lhs.false66
+  br label %while.cond, !llvm.loop !15
 
 if.end45:                                         ; preds = %lor.lhs.false9
   %32 = load ptr, ptr %tok.addr, align 8
   %call46 = call zeroext i1 @consume(ptr noundef nonnull %tok.addr, ptr noundef %32, ptr noundef nonnull @.str.41) #13
   br i1 %call46, label %while.cond.backedge, label %lor.lhs.false48
-
-while.cond.backedge:                              ; preds = %if.end45, %lor.lhs.false48, %lor.lhs.false51, %lor.lhs.false54, %lor.lhs.false57, %lor.lhs.false60, %lor.lhs.false63, %lor.lhs.false66, %if.end44, %if.end96
-  br label %while.cond, !llvm.loop !15
 
 lor.lhs.false48:                                  ; preds = %if.end45
   %33 = load ptr, ptr %tok.addr, align 8
@@ -844,8 +846,7 @@ if.end96:                                         ; preds = %if.else92, %if.then
   store i32 %storemerge, ptr %align95, align 4
   %50 = load ptr, ptr %tok.addr, align 8
   %call97 = call ptr @skip(ptr noundef %50, ptr noundef nonnull @.str.24) #13
-  store ptr %call97, ptr %tok.addr, align 8
-  br label %while.cond.backedge
+  br label %while.cond.backedge.sink.split
 
 if.end98:                                         ; preds = %if.end80
   %call99 = call fastcc ptr @find_typedef(ptr noundef %46)
@@ -10546,12 +10547,12 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.then5:                                         ; preds = %if.then
   %call6 = call fastcc ptr @parse_typedef(ptr noundef %14, ptr noundef %call4)
-  store ptr %call6, ptr %tok.addr, align 8
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.then5, %if.then8, %if.then12
-  %15 = phi ptr [ %call6, %if.then5 ], [ %call9, %if.then8 ], [ %call13, %if.then12 ]
-  %call1 = call zeroext i1 @equal(ptr noundef %15, ptr noundef nonnull @.str.69) #13
+  %call6.sink = phi ptr [ %call6, %if.then5 ], [ %call9, %if.then8 ], [ %call13, %if.then12 ]
+  store ptr %call6.sink, ptr %tok.addr, align 8
+  %call1 = call zeroext i1 @equal(ptr noundef %call6.sink, ptr noundef nonnull @.str.69) #13
   br i1 %call1, label %while.end, label %while.body, !llvm.loop !53
 
 if.end:                                           ; preds = %if.then
@@ -10568,38 +10569,36 @@ is_function.exit.thread:                          ; preds = %if.end
 
 is_function.exit:                                 ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %dummy.i, i8 0, i64 120, i1 false)
-  %16 = load ptr, ptr %tok.addr.i, align 8
-  %call1.i = call fastcc ptr @declarator(ptr noundef nonnull %tok.addr.i, ptr noundef %16, ptr noundef nonnull %dummy.i)
-  %17 = load i32, ptr %call1.i, align 8
-  %cmp.i11 = icmp eq i32 %17, 11
+  %15 = load ptr, ptr %tok.addr.i, align 8
+  %call1.i = call fastcc ptr @declarator(ptr noundef nonnull %tok.addr.i, ptr noundef %15, ptr noundef nonnull %dummy.i)
+  %16 = load i32, ptr %call1.i, align 8
+  %cmp.i11 = icmp eq i32 %16, 11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %dummy.i)
   br i1 %cmp.i11, label %if.then8, label %if.end10
 
 if.then8:                                         ; preds = %is_function.exit
-  %18 = load ptr, ptr %tok.addr, align 8
-  %call9 = call fastcc ptr @function(ptr noundef %18, ptr noundef %call4, ptr noundef nonnull %attr)
-  store ptr %call9, ptr %tok.addr, align 8
+  %17 = load ptr, ptr %tok.addr, align 8
+  %call9 = call fastcc ptr @function(ptr noundef %17, ptr noundef %call4, ptr noundef nonnull %attr)
   br label %while.cond.backedge
 
 if.end10:                                         ; preds = %is_function.exit.thread, %is_function.exit
-  %19 = load i8, ptr %is_extern, align 2
-  %tobool11 = trunc i8 %19 to i1
-  %20 = load ptr, ptr %tok.addr, align 8
+  %18 = load i8, ptr %is_extern, align 2
+  %tobool11 = trunc i8 %18 to i1
+  %19 = load ptr, ptr %tok.addr, align 8
   br i1 %tobool11, label %if.then12, label %if.end14
 
 if.then12:                                        ; preds = %if.end10
-  %call13 = call fastcc ptr @global_variable(ptr noundef %20, ptr noundef %call4, ptr noundef nonnull %attr)
-  store ptr %call13, ptr %tok.addr, align 8
+  %call13 = call fastcc ptr @global_variable(ptr noundef %19, ptr noundef %call4, ptr noundef nonnull %attr)
   br label %while.cond.backedge
 
 if.end14:                                         ; preds = %if.end10
-  %call15 = call fastcc ptr @declaration(ptr noundef nonnull %tok.addr, ptr noundef %20, ptr noundef %call4, ptr noundef nonnull %attr)
+  %call15 = call fastcc ptr @declaration(ptr noundef nonnull %tok.addr, ptr noundef %19, ptr noundef %call4, ptr noundef nonnull %attr)
   br label %if.end19
 
 if.else:                                          ; preds = %lor.rhs.i, %land.lhs.true, %is_typename.exit, %for.cond.i.i.i
-  %21 = load ptr, ptr %tok.addr, align 8
-  %call17 = call fastcc ptr @stmt(ptr noundef nonnull %tok.addr, ptr noundef %21)
+  %20 = load ptr, ptr %tok.addr, align 8
+  %call17 = call fastcc ptr @stmt(ptr noundef nonnull %tok.addr, ptr noundef %20)
   br label %if.end19
 
 if.end19:                                         ; preds = %if.else, %if.end14
@@ -10607,22 +10606,22 @@ if.end19:                                         ; preds = %if.else, %if.end14
   %next18 = getelementptr inbounds i8, ptr %cur.0.ph17, i64 8
   store ptr %call17.sink, ptr %next18, align 8
   call void @add_type(ptr noundef %call17.sink) #13
-  %22 = load ptr, ptr %tok.addr, align 8
-  %call115 = call zeroext i1 @equal(ptr noundef %22, ptr noundef nonnull @.str.69) #13
+  %21 = load ptr, ptr %tok.addr, align 8
+  %call115 = call zeroext i1 @equal(ptr noundef %21, ptr noundef nonnull @.str.69) #13
   br i1 %call115, label %while.end, label %while.body.lr.ph, !llvm.loop !53
 
 while.end:                                        ; preds = %if.end19, %while.cond.backedge, %entry
-  %23 = load ptr, ptr @scope, align 8
-  %24 = load ptr, ptr %23, align 8
-  store ptr %24, ptr @scope, align 8
+  %22 = load ptr, ptr @scope, align 8
+  %23 = load ptr, ptr %22, align 8
+  store ptr %23, ptr @scope, align 8
   %next20 = getelementptr inbounds i8, ptr %head, i64 8
-  %25 = load ptr, ptr %next20, align 8
+  %24 = load ptr, ptr %next20, align 8
   %body = getelementptr inbounds i8, ptr %call.i, i64 104
-  store ptr %25, ptr %body, align 8
-  %26 = load ptr, ptr %tok.addr, align 8
-  %next21 = getelementptr inbounds i8, ptr %26, i64 8
-  %27 = load ptr, ptr %next21, align 8
-  store ptr %27, ptr %rest, align 8
+  store ptr %24, ptr %body, align 8
+  %25 = load ptr, ptr %tok.addr, align 8
+  %next21 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = load ptr, ptr %next21, align 8
+  store ptr %26, ptr %rest, align 8
   ret ptr %call.i
 }
 

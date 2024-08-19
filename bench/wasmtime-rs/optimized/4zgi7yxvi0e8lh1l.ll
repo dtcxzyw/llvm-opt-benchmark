@@ -248,10 +248,10 @@ define void @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$5merge17h760374fbd3f2f05
   br label %29
 
 29:                                               ; preds = %26, %22
-  %storemerge.in = phi ptr [ %10, %22 ], [ %20, %26 ]
-  %.sink = phi i8 [ 0, %22 ], [ %28, %26 ]
-  %storemerge = load i16, ptr %storemerge.in, align 2, !noundef !4
-  store i16 %storemerge, ptr %7, align 2
+  %.sink21.in = phi ptr [ %20, %26 ], [ %10, %22 ]
+  %.sink = phi i8 [ %28, %26 ], [ 0, %22 ]
+  %.sink21 = load i16, ptr %.sink21.in, align 2, !noundef !4
+  store i16 %.sink21, ptr %7, align 2
   %30 = getelementptr inbounds i8, ptr %7, i64 2
   store i8 %.sink, ptr %30, align 2
   %31 = load i16, ptr %9, align 2, !noundef !4
@@ -282,12 +282,12 @@ define void @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$5merge17h760374fbd3f2f05
   br label %46
 
 46:                                               ; preds = %43, %39
-  %storemerge23.in = phi ptr [ %9, %39 ], [ %37, %43 ]
-  %.sink21 = phi i8 [ 0, %39 ], [ %45, %43 ]
-  %storemerge23 = load i16, ptr %storemerge23.in, align 2, !noundef !4
-  store i16 %storemerge23, ptr %5, align 2
+  %.sink24.in = phi ptr [ %37, %43 ], [ %9, %39 ]
+  %.sink22 = phi i8 [ %45, %43 ], [ 0, %39 ]
+  %.sink24 = load i16, ptr %.sink24.in, align 2, !noundef !4
+  store i16 %.sink24, ptr %5, align 2
   %47 = getelementptr inbounds i8, ptr %5, i64 2
-  store i8 %.sink21, ptr %47, align 2
+  store i8 %.sink22, ptr %47, align 2
   %48 = call zeroext i1 @"_ZN78_$LT$cranelift_isle..trie_again..BindingId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h32c0817388e03f85E"(ptr nonnull align 2 %7, ptr nonnull align 2 %5)
   %49 = getelementptr inbounds i8, ptr %7, i64 2
   %50 = load i8, ptr %49, align 2

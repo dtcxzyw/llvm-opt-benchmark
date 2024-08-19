@@ -15409,35 +15409,26 @@ if.end15.i:                                       ; preds = %if.end9.i
 sw.bb.i.i:                                        ; preds = %if.end15.i
   %37 = add i64 %33, -7
   %cmp.i142 = icmp ult i64 %37, -2
-  br i1 %cmp.i142, label %if.then.i.i, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeI6personJEEENS_4errcERT_DpRT0_.exit
-
-if.then.i.i:                                      ; preds = %sw.bb.i.i
-  %add.ptr.i144 = getelementptr inbounds i8, ptr %35, i64 7
-  store ptr %add.ptr.i144, ptr %reader.i, align 8
-  br label %if.end23.i
+  br i1 %cmp.i142, label %if.end23.i.sink.split, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeI6personJEEENS_4errcERT_DpRT0_.exit
 
 sw.bb2.i.i:                                       ; preds = %if.end15.i
   %38 = add i64 %33, -9
   %cmp.i151 = icmp ult i64 %38, -4
-  br i1 %cmp.i151, label %if.then5.i.i, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeI6personJEEENS_4errcERT_DpRT0_.exit
-
-if.then5.i.i:                                     ; preds = %sw.bb2.i.i
-  %add.ptr.i153 = getelementptr inbounds i8, ptr %35, i64 9
-  store ptr %add.ptr.i153, ptr %reader.i, align 8
-  br label %if.end23.i
+  br i1 %cmp.i151, label %if.end23.i.sink.split, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeI6personJEEENS_4errcERT_DpRT0_.exit
 
 sw.bb8.i.i:                                       ; preds = %if.end15.i
   %39 = add i64 %33, -13
   %cmp.i160 = icmp ult i64 %39, -8
-  br i1 %cmp.i160, label %if.then11.i.i, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeI6personJEEENS_4errcERT_DpRT0_.exit
+  br i1 %cmp.i160, label %if.end23.i.sink.split, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeI6personJEEENS_4errcERT_DpRT0_.exit
 
-if.then11.i.i:                                    ; preds = %sw.bb8.i.i
-  %add.ptr.i162 = getelementptr inbounds i8, ptr %35, i64 13
-  store ptr %add.ptr.i162, ptr %reader.i, align 8
+if.end23.i.sink.split:                            ; preds = %sw.bb8.i.i, %sw.bb2.i.i, %sw.bb.i.i
+  %.sink = phi i64 [ 7, %sw.bb.i.i ], [ 9, %sw.bb2.i.i ], [ 13, %sw.bb8.i.i ]
+  %add.ptr.i144 = getelementptr inbounds i8, ptr %35, i64 %.sink
+  store ptr %add.ptr.i144, ptr %reader.i, align 8
   br label %if.end23.i
 
-if.end23.i:                                       ; preds = %if.end15.i, %if.then.i.i, %if.then5.i.i, %if.then11.i.i
-  %40 = phi ptr [ %add.ptr.i133, %if.end15.i ], [ %add.ptr.i144, %if.then.i.i ], [ %add.ptr.i153, %if.then5.i.i ], [ %add.ptr.i162, %if.then11.i.i ]
+if.end23.i:                                       ; preds = %if.end23.i.sink.split, %if.end15.i
+  %40 = phi ptr [ %add.ptr.i133, %if.end15.i ], [ %add.ptr.i144, %if.end23.i.sink.split ]
   %41 = and i8 %metainfo.i135.0.copyload, 4
   %tobool26.i.not = icmp eq i8 %41, 0
   br i1 %tobool26.i.not, label %if.end.i119, label %if.then27.i
@@ -16079,35 +16070,26 @@ if.end15.i:                                       ; preds = %if.end9.i
 sw.bb.i.i:                                        ; preds = %if.end15.i
   %67 = add i64 %64, -7
   %cmp.i189 = icmp ult i64 %67, -2
-  br i1 %cmp.i189, label %if.then.i.i, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeISt6vectorI6personSaIS6_EEJEEENS_4errcERT_DpRT0_.exit
-
-if.then.i.i:                                      ; preds = %sw.bb.i.i
-  %add.ptr.i191 = getelementptr inbounds i8, ptr %65, i64 7
-  store ptr %add.ptr.i191, ptr %reader.i, align 8
-  br label %if.end23.i
+  br i1 %cmp.i189, label %if.end23.i.sink.split, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeISt6vectorI6personSaIS6_EEJEEENS_4errcERT_DpRT0_.exit
 
 sw.bb2.i.i:                                       ; preds = %if.end15.i
   %68 = add i64 %64, -9
   %cmp.i198 = icmp ult i64 %68, -4
-  br i1 %cmp.i198, label %if.then5.i.i, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeISt6vectorI6personSaIS6_EEJEEENS_4errcERT_DpRT0_.exit
-
-if.then5.i.i:                                     ; preds = %sw.bb2.i.i
-  %add.ptr.i201 = getelementptr inbounds i8, ptr %65, i64 9
-  store ptr %add.ptr.i201, ptr %reader.i, align 8
-  br label %if.end23.i
+  br i1 %cmp.i198, label %if.end23.i.sink.split, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeISt6vectorI6personSaIS6_EEJEEENS_4errcERT_DpRT0_.exit
 
 sw.bb8.i.i:                                       ; preds = %if.end15.i
   %69 = add i64 %64, -13
   %cmp.i208 = icmp ult i64 %69, -8
-  br i1 %cmp.i208, label %if.then11.i.i, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeISt6vectorI6personSaIS6_EEJEEENS_4errcERT_DpRT0_.exit
+  br i1 %cmp.i208, label %if.end23.i.sink.split, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeISt6vectorI6personSaIS6_EEJEEENS_4errcERT_DpRT0_.exit
 
-if.then11.i.i:                                    ; preds = %sw.bb8.i.i
-  %add.ptr.i210 = getelementptr inbounds i8, ptr %65, i64 13
-  store ptr %add.ptr.i210, ptr %reader.i, align 8
+if.end23.i.sink.split:                            ; preds = %sw.bb8.i.i, %sw.bb2.i.i, %sw.bb.i.i
+  %.sink = phi i64 [ 7, %sw.bb.i.i ], [ 9, %sw.bb2.i.i ], [ 13, %sw.bb8.i.i ]
+  %add.ptr.i191 = getelementptr inbounds i8, ptr %65, i64 %.sink
+  store ptr %add.ptr.i191, ptr %reader.i, align 8
   br label %if.end23.i
 
-if.end23.i:                                       ; preds = %if.end15.i, %if.then.i.i, %if.then5.i.i, %if.then11.i.i
-  %70 = phi ptr [ %add.ptr.i180, %if.end15.i ], [ %add.ptr.i191, %if.then.i.i ], [ %add.ptr.i201, %if.then5.i.i ], [ %add.ptr.i210, %if.then11.i.i ]
+if.end23.i:                                       ; preds = %if.end23.i.sink.split, %if.end15.i
+  %70 = phi ptr [ %add.ptr.i180, %if.end15.i ], [ %add.ptr.i191, %if.end23.i.sink.split ]
   %71 = and i8 %metainfo.i138.0.copyload, 4
   %tobool26.i.not = icmp eq i8 %71, 0
   br i1 %tobool26.i.not, label %if.end.i122, label %if.then27.i
@@ -16769,35 +16751,26 @@ if.end15.i:                                       ; preds = %if.end9.i
 sw.bb.i.i:                                        ; preds = %if.end15.i
   %67 = add i64 %64, -7
   %cmp.i189 = icmp ult i64 %67, -2
-  br i1 %cmp.i189, label %if.then.i.i, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeISt6vectorI9zc_personSaIS6_EEJEEENS_4errcERT_DpRT0_.exit
-
-if.then.i.i:                                      ; preds = %sw.bb.i.i
-  %add.ptr.i191 = getelementptr inbounds i8, ptr %65, i64 7
-  store ptr %add.ptr.i191, ptr %reader.i, align 8
-  br label %if.end23.i
+  br i1 %cmp.i189, label %if.end23.i.sink.split, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeISt6vectorI9zc_personSaIS6_EEJEEENS_4errcERT_DpRT0_.exit
 
 sw.bb2.i.i:                                       ; preds = %if.end15.i
   %68 = add i64 %64, -9
   %cmp.i198 = icmp ult i64 %68, -4
-  br i1 %cmp.i198, label %if.then5.i.i, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeISt6vectorI9zc_personSaIS6_EEJEEENS_4errcERT_DpRT0_.exit
-
-if.then5.i.i:                                     ; preds = %sw.bb2.i.i
-  %add.ptr.i200 = getelementptr inbounds i8, ptr %65, i64 9
-  store ptr %add.ptr.i200, ptr %reader.i, align 8
-  br label %if.end23.i
+  br i1 %cmp.i198, label %if.end23.i.sink.split, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeISt6vectorI9zc_personSaIS6_EEJEEENS_4errcERT_DpRT0_.exit
 
 sw.bb8.i.i:                                       ; preds = %if.end15.i
   %69 = add i64 %64, -13
   %cmp.i207 = icmp ult i64 %69, -8
-  br i1 %cmp.i207, label %if.then11.i.i, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeISt6vectorI9zc_personSaIS6_EEJEEENS_4errcERT_DpRT0_.exit
+  br i1 %cmp.i207, label %if.end23.i.sink.split, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeISt6vectorI9zc_personSaIS6_EEJEEENS_4errcERT_DpRT0_.exit
 
-if.then11.i.i:                                    ; preds = %sw.bb8.i.i
-  %add.ptr.i209 = getelementptr inbounds i8, ptr %65, i64 13
-  store ptr %add.ptr.i209, ptr %reader.i, align 8
+if.end23.i.sink.split:                            ; preds = %sw.bb8.i.i, %sw.bb2.i.i, %sw.bb.i.i
+  %.sink = phi i64 [ 7, %sw.bb.i.i ], [ 9, %sw.bb2.i.i ], [ 13, %sw.bb8.i.i ]
+  %add.ptr.i191 = getelementptr inbounds i8, ptr %65, i64 %.sink
+  store ptr %add.ptr.i191, ptr %reader.i, align 8
   br label %if.end23.i
 
-if.end23.i:                                       ; preds = %if.end15.i, %if.then.i.i, %if.then5.i.i, %if.then11.i.i
-  %70 = phi ptr [ %add.ptr.i180, %if.end15.i ], [ %add.ptr.i191, %if.then.i.i ], [ %add.ptr.i200, %if.then5.i.i ], [ %add.ptr.i209, %if.then11.i.i ]
+if.end23.i:                                       ; preds = %if.end23.i.sink.split, %if.end15.i
+  %70 = phi ptr [ %add.ptr.i180, %if.end15.i ], [ %add.ptr.i191, %if.end23.i.sink.split ]
   %71 = and i8 %metainfo.i138.0.copyload, 4
   %tobool26.i.not = icmp eq i8 %71, 0
   br i1 %tobool26.i.not, label %if.end.i122, label %if.then27.i
@@ -17052,9 +17025,9 @@ if.else.i:                                        ; preds = %_ZN11struct_pack6de
   %cmp3.i = icmp ult i64 %15, 65536
   %cmp12.i = icmp ult i64 %15, 4294967296
   %. = select i1 %cmp12.i, i64 2, i64 3
-  %.213 = select i1 %cmp12.i, i8 16, i8 24
+  %.214 = select i1 %cmp12.i, i8 16, i8 24
   %.sink = select i1 %cmp3.i, i64 1, i64 %.
-  %retval.i.sroa.10.1 = select i1 %cmp3.i, i8 8, i8 %.213
+  %retval.i.sroa.10.1 = select i1 %cmp3.i, i8 8, i8 %.214
   %mul16.i = shl i64 %ret.sroa.4.0.lcssa.i.i, %.sink
   %retval.i.sroa.0.0 = add i64 %add.i73.i, 1
   %add31.i = add i64 %retval.i.sroa.0.0, %mul16.i
@@ -17301,35 +17274,26 @@ if.end15.i:                                       ; preds = %if.end9.i
 sw.bb.i.i:                                        ; preds = %if.end15.i
   %56 = add i64 %52, -7
   %cmp.i109 = icmp ult i64 %56, -2
-  br i1 %cmp.i109, label %if.then.i.i, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeI7MonsterJEEENS_4errcERT_DpRT0_.exit
-
-if.then.i.i:                                      ; preds = %sw.bb.i.i
-  %add.ptr.i111 = getelementptr inbounds i8, ptr %54, i64 7
-  store ptr %add.ptr.i111, ptr %reader.i, align 8
-  br label %if.end23.i
+  br i1 %cmp.i109, label %if.end23.i.sink.split, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeI7MonsterJEEENS_4errcERT_DpRT0_.exit
 
 sw.bb2.i.i:                                       ; preds = %if.end15.i
   %57 = add i64 %52, -9
   %cmp.i118 = icmp ult i64 %57, -4
-  br i1 %cmp.i118, label %if.then5.i.i, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeI7MonsterJEEENS_4errcERT_DpRT0_.exit
-
-if.then5.i.i:                                     ; preds = %sw.bb2.i.i
-  %add.ptr.i120 = getelementptr inbounds i8, ptr %54, i64 9
-  store ptr %add.ptr.i120, ptr %reader.i, align 8
-  br label %if.end23.i
+  br i1 %cmp.i118, label %if.end23.i.sink.split, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeI7MonsterJEEENS_4errcERT_DpRT0_.exit
 
 sw.bb8.i.i:                                       ; preds = %if.end15.i
   %58 = add i64 %52, -13
   %cmp.i127 = icmp ult i64 %58, -8
-  br i1 %cmp.i127, label %if.then11.i.i, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeI7MonsterJEEENS_4errcERT_DpRT0_.exit
+  br i1 %cmp.i127, label %if.end23.i.sink.split, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeI7MonsterJEEENS_4errcERT_DpRT0_.exit
 
-if.then11.i.i:                                    ; preds = %sw.bb8.i.i
-  %add.ptr.i129 = getelementptr inbounds i8, ptr %54, i64 13
-  store ptr %add.ptr.i129, ptr %reader.i, align 8
+if.end23.i.sink.split:                            ; preds = %sw.bb8.i.i, %sw.bb2.i.i, %sw.bb.i.i
+  %.sink213 = phi i64 [ 7, %sw.bb.i.i ], [ 9, %sw.bb2.i.i ], [ 13, %sw.bb8.i.i ]
+  %add.ptr.i111 = getelementptr inbounds i8, ptr %54, i64 %.sink213
+  store ptr %add.ptr.i111, ptr %reader.i, align 8
   br label %if.end23.i
 
-if.end23.i:                                       ; preds = %if.end15.i, %if.then.i.i, %if.then5.i.i, %if.then11.i.i
-  %59 = phi ptr [ %add.ptr.i100, %if.end15.i ], [ %add.ptr.i111, %if.then.i.i ], [ %add.ptr.i120, %if.then5.i.i ], [ %add.ptr.i129, %if.then11.i.i ]
+if.end23.i:                                       ; preds = %if.end23.i.sink.split, %if.end15.i
+  %59 = phi ptr [ %add.ptr.i100, %if.end15.i ], [ %add.ptr.i111, %if.end23.i.sink.split ]
   %60 = and i8 %metainfo.i138.0.copyload, 4
   %tobool26.i.not = icmp eq i8 %60, 0
   br i1 %tobool26.i.not, label %if.end.i122, label %if.then27.i
@@ -17616,9 +17580,9 @@ if.else.i:                                        ; preds = %_ZN11struct_pack6de
   %cmp3.i = icmp ult i64 %ret.sroa.8.0.lcssa.i, 65536
   %cmp12.i = icmp ult i64 %ret.sroa.8.0.lcssa.i, 4294967296
   %. = select i1 %cmp12.i, i64 2, i64 3
-  %.291 = select i1 %cmp12.i, i8 16, i8 24
+  %.292 = select i1 %cmp12.i, i8 16, i8 24
   %.sink = select i1 %cmp3.i, i64 1, i64 %.
-  %retval.i.sroa.10.1 = select i1 %cmp3.i, i8 8, i8 %.291
+  %retval.i.sroa.10.1 = select i1 %cmp3.i, i8 8, i8 %.292
   %mul16.i = shl i64 %ret.sroa.4.0.lcssa.i, %.sink
   %retval.i.sroa.0.0 = add i64 %ret.sroa.0.0.lcssa.i, 1
   %add31.i = add i64 %retval.i.sroa.0.0, %mul16.i
@@ -17957,35 +17921,26 @@ if.end15.i:                                       ; preds = %if.end9.i
 sw.bb.i.i:                                        ; preds = %if.end15.i
   %86 = add i64 %83, -7
   %cmp.i157 = icmp ult i64 %86, -2
-  br i1 %cmp.i157, label %if.then.i.i, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeISt6vectorI7MonsterSaIS6_EEJEEENS_4errcERT_DpRT0_.exit
-
-if.then.i.i:                                      ; preds = %sw.bb.i.i
-  %add.ptr.i159 = getelementptr inbounds i8, ptr %84, i64 7
-  store ptr %add.ptr.i159, ptr %reader.i, align 8
-  br label %if.end23.i
+  br i1 %cmp.i157, label %if.end23.i.sink.split, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeISt6vectorI7MonsterSaIS6_EEJEEENS_4errcERT_DpRT0_.exit
 
 sw.bb2.i.i:                                       ; preds = %if.end15.i
   %87 = add i64 %83, -9
   %cmp.i166 = icmp ult i64 %87, -4
-  br i1 %cmp.i166, label %if.then5.i.i, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeISt6vectorI7MonsterSaIS6_EEJEEENS_4errcERT_DpRT0_.exit
-
-if.then5.i.i:                                     ; preds = %sw.bb2.i.i
-  %add.ptr.i168 = getelementptr inbounds i8, ptr %84, i64 9
-  store ptr %add.ptr.i168, ptr %reader.i, align 8
-  br label %if.end23.i
+  br i1 %cmp.i166, label %if.end23.i.sink.split, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeISt6vectorI7MonsterSaIS6_EEJEEENS_4errcERT_DpRT0_.exit
 
 sw.bb8.i.i:                                       ; preds = %if.end15.i
   %88 = add i64 %83, -13
   %cmp.i175 = icmp ult i64 %88, -8
-  br i1 %cmp.i175, label %if.then11.i.i, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeISt6vectorI7MonsterSaIS6_EEJEEENS_4errcERT_DpRT0_.exit
+  br i1 %cmp.i175, label %if.end23.i.sink.split, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeISt6vectorI7MonsterSaIS6_EEJEEENS_4errcERT_DpRT0_.exit
 
-if.then11.i.i:                                    ; preds = %sw.bb8.i.i
-  %add.ptr.i177 = getelementptr inbounds i8, ptr %84, i64 13
-  store ptr %add.ptr.i177, ptr %reader.i, align 8
+if.end23.i.sink.split:                            ; preds = %sw.bb8.i.i, %sw.bb2.i.i, %sw.bb.i.i
+  %.sink291 = phi i64 [ 7, %sw.bb.i.i ], [ 9, %sw.bb2.i.i ], [ 13, %sw.bb8.i.i ]
+  %add.ptr.i159 = getelementptr inbounds i8, ptr %84, i64 %.sink291
+  store ptr %add.ptr.i159, ptr %reader.i, align 8
   br label %if.end23.i
 
-if.end23.i:                                       ; preds = %if.end15.i, %if.then.i.i, %if.then5.i.i, %if.then11.i.i
-  %89 = phi ptr [ %add.ptr.i148, %if.end15.i ], [ %add.ptr.i159, %if.then.i.i ], [ %add.ptr.i168, %if.then5.i.i ], [ %add.ptr.i177, %if.then11.i.i ]
+if.end23.i:                                       ; preds = %if.end23.i.sink.split, %if.end15.i
+  %89 = phi ptr [ %add.ptr.i148, %if.end15.i ], [ %add.ptr.i159, %if.end23.i.sink.split ]
   %90 = and i8 %metainfo.i138.0.copyload, 4
   %tobool26.i.not = icmp eq i8 %90, 0
   br i1 %tobool26.i.not, label %if.end.i122, label %if.then27.i
@@ -18258,9 +18213,9 @@ if.else.i:                                        ; preds = %_ZN11struct_pack6de
   %cmp3.i = icmp ult i64 %ret.sroa.8.0.lcssa.i, 65536
   %cmp12.i = icmp ult i64 %ret.sroa.8.0.lcssa.i, 4294967296
   %. = select i1 %cmp12.i, i64 2, i64 3
-  %.293 = select i1 %cmp12.i, i8 16, i8 24
+  %.294 = select i1 %cmp12.i, i8 16, i8 24
   %.sink = select i1 %cmp3.i, i64 1, i64 %.
-  %retval.i.sroa.10.1 = select i1 %cmp3.i, i8 8, i8 %.293
+  %retval.i.sroa.10.1 = select i1 %cmp3.i, i8 8, i8 %.294
   %mul16.i = shl i64 %ret.sroa.4.0.lcssa.i, %.sink
   %retval.i.sroa.0.0 = add i64 %ret.sroa.0.0.lcssa.i, 1
   %add31.i = add i64 %retval.i.sroa.0.0, %mul16.i
@@ -18599,35 +18554,26 @@ if.end15.i:                                       ; preds = %if.end9.i
 sw.bb.i.i:                                        ; preds = %if.end15.i
   %86 = add i64 %83, -7
   %cmp.i156 = icmp ult i64 %86, -2
-  br i1 %cmp.i156, label %if.then.i.i, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeISt6vectorI10zc_MonsterSaIS6_EEJEEENS_4errcERT_DpRT0_.exit
-
-if.then.i.i:                                      ; preds = %sw.bb.i.i
-  %add.ptr.i158 = getelementptr inbounds i8, ptr %84, i64 7
-  store ptr %add.ptr.i158, ptr %reader.i, align 8
-  br label %if.end23.i
+  br i1 %cmp.i156, label %if.end23.i.sink.split, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeISt6vectorI10zc_MonsterSaIS6_EEJEEENS_4errcERT_DpRT0_.exit
 
 sw.bb2.i.i:                                       ; preds = %if.end15.i
   %87 = add i64 %83, -9
   %cmp.i165 = icmp ult i64 %87, -4
-  br i1 %cmp.i165, label %if.then5.i.i, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeISt6vectorI10zc_MonsterSaIS6_EEJEEENS_4errcERT_DpRT0_.exit
-
-if.then5.i.i:                                     ; preds = %sw.bb2.i.i
-  %add.ptr.i167 = getelementptr inbounds i8, ptr %84, i64 9
-  store ptr %add.ptr.i167, ptr %reader.i, align 8
-  br label %if.end23.i
+  br i1 %cmp.i165, label %if.end23.i.sink.split, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeISt6vectorI10zc_MonsterSaIS6_EEJEEENS_4errcERT_DpRT0_.exit
 
 sw.bb8.i.i:                                       ; preds = %if.end15.i
   %88 = add i64 %83, -13
   %cmp.i174 = icmp ult i64 %88, -8
-  br i1 %cmp.i174, label %if.then11.i.i, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeISt6vectorI10zc_MonsterSaIS6_EEJEEENS_4errcERT_DpRT0_.exit
+  br i1 %cmp.i174, label %if.end23.i.sink.split, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE11deserializeISt6vectorI10zc_MonsterSaIS6_EEJEEENS_4errcERT_DpRT0_.exit
 
-if.then11.i.i:                                    ; preds = %sw.bb8.i.i
-  %add.ptr.i176 = getelementptr inbounds i8, ptr %84, i64 13
-  store ptr %add.ptr.i176, ptr %reader.i, align 8
+if.end23.i.sink.split:                            ; preds = %sw.bb8.i.i, %sw.bb2.i.i, %sw.bb.i.i
+  %.sink293 = phi i64 [ 7, %sw.bb.i.i ], [ 9, %sw.bb2.i.i ], [ 13, %sw.bb8.i.i ]
+  %add.ptr.i158 = getelementptr inbounds i8, ptr %84, i64 %.sink293
+  store ptr %add.ptr.i158, ptr %reader.i, align 8
   br label %if.end23.i
 
-if.end23.i:                                       ; preds = %if.end15.i, %if.then.i.i, %if.then5.i.i, %if.then11.i.i
-  %89 = phi ptr [ %add.ptr.i147, %if.end15.i ], [ %add.ptr.i158, %if.then.i.i ], [ %add.ptr.i167, %if.then5.i.i ], [ %add.ptr.i176, %if.then11.i.i ]
+if.end23.i:                                       ; preds = %if.end23.i.sink.split, %if.end15.i
+  %89 = phi ptr [ %add.ptr.i147, %if.end15.i ], [ %add.ptr.i158, %if.end23.i.sink.split ]
   %90 = and i8 %metainfo.i138.0.copyload, 4
   %tobool26.i.not = icmp eq i8 %90, 0
   br i1 %tobool26.i.not, label %if.end.i122, label %if.then27.i

@@ -520,8 +520,8 @@ if.end9:                                          ; preds = %if.end4
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end, %if.end9
-  %.sink = load ptr, ptr %str, align 8
-  call void @ASN1_STRING_free(ptr noundef %.sink) #6
+  %8 = load ptr, ptr %str, align 8
+  call void @ASN1_STRING_free(ptr noundef %8) #6
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end4.i, %if.end4

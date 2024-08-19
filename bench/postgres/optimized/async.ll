@@ -2631,20 +2631,11 @@ IsListeningOn.exit.thread.i:                      ; preds = %78, %IsListeningOn.
   store volatile i32 %.sroa.5.i.0..sroa.5.i.0..sroa.5.i.0..sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.0.copyload9.i, ptr %.sroa.16, align 4
   %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.2435 = load volatile i64, ptr %.sroa.0, align 8
   %90 = icmp eq i64 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.2435, %.sroa.0.0.copyload
-  br i1 %90, label %.thread, label %asyncQueueProcessPageEntries.exit.thread
+  br i1 %90, label %.thread, label %.loopexit.sink.split
 
 .thread:                                          ; preds = %.loopexit.i.thread
   %.sroa.9.0..sroa.9.0..sroa.9.0..sroa.9.8.3140 = load volatile i32, ptr %.sroa.9, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.3.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.5.i)
-  br label %.loopexit
-
-asyncQueueProcessPageEntries.exit.thread:         ; preds = %.loopexit.i.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.3.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.5.i)
-  br label %.loopexit
+  br label %.loopexit.sink.split
 
 91:                                               ; preds = %.loopexit.i
   %.sroa.9.0..sroa.9.0..sroa.9.0..sroa.9.8.31 = load volatile i32, ptr %.sroa.9, align 8
@@ -2663,7 +2654,13 @@ asyncQueueProcessPageEntries.exit:                ; preds = %.loopexit.i
 .backedge.backedge:                               ; preds = %asyncQueueProcessPageEntries.exit, %91
   br label %.backedge, !llvm.loop !24
 
-.loopexit:                                        ; preds = %91, %.thread, %asyncQueueProcessPageEntries.exit.thread, %16
+.loopexit.sink.split:                             ; preds = %.loopexit.i.thread, %.thread
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.3.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.5.i)
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %91, %.loopexit.sink.split, %16
   store ptr %19, ptr @PG_exception_stack, align 8
   store ptr %20, ptr @error_context_stack, align 8
   %93 = load ptr, ptr @MainLWLockArray, align 8

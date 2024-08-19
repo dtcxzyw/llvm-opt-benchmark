@@ -242,8 +242,7 @@ define i32 @temp_kvs_send() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @job_info, i64 48), align 8
   %5 = tail call ptr @slurm_xstrdup(ptr noundef %4) #5
-  store ptr %5, ptr %1, align 8
-  br label %10
+  br label %.sink.split
 
 6:                                                ; preds = %0
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @tree_info, i64 8), align 8
@@ -252,10 +251,14 @@ define i32 @temp_kvs_send() local_unnamed_addr #0 {
 
 8:                                                ; preds = %6
   %9 = tail call ptr @slurm_xstrdup(ptr noundef nonnull %7) #5
-  store ptr %9, ptr %1, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %3, %8
+  %.sink = phi ptr [ %9, %8 ], [ %5, %3 ]
+  store ptr %.sink, ptr %1, align 8
   br label %10
 
-10:                                               ; preds = %6, %8, %3
+10:                                               ; preds = %.sink.split, %6
   %11 = load i32, ptr @kvs_seq, align 4
   %12 = add nsw i32 %11, 1
   store i32 %12, ptr @kvs_seq, align 4

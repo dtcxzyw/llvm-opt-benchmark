@@ -189,8 +189,8 @@ define dso_local void @WalSummarizerMain() local_unnamed_addr #3 {
   call void @proc_exit(i32 noundef 0) #13
   unreachable
 
-45:                                               ; preds = %.outer, %207
-  %.018 = phi i64 [ 0, %207 ], [ %.018.ph, %.outer ]
+45:                                               ; preds = %.outer, %199
+  %.018 = phi i64 [ 0, %199 ], [ %.018.ph, %.outer ]
   call void @MemoryContextReset(ptr noundef %28) #11
   %46 = load volatile i32, ptr @ProcSignalBarrierPending, align 4
   %.not.i = icmp eq i32 %46, 0
@@ -560,59 +560,49 @@ GetLatestLSN.exit:                                ; preds = %170, %176, %178
 196:                                              ; preds = %189, %184, %GetLatestLSN.exit
   %.1 = phi i64 [ %187, %189 ], [ %187, %184 ], [ %.018, %GetLatestLSN.exit ]
   %197 = icmp eq i64 %.1, 0
-  br i1 %197, label %.split, label %202
+  br i1 %197, label %.split, label %198
 
-.split:                                           ; preds = %196
-  %198 = load i32, ptr %4, align 4
-  %199 = load i8, ptr %5, align 1
-  %200 = trunc i8 %199 to i1
-  %201 = call fastcc i64 @SummarizeWAL(i32 noundef %198, i64 noundef %.0.ph, i1 noundef zeroext %200, i64 noundef 0, i64 noundef %.0.i)
-  br label %209
-
-202:                                              ; preds = %196
+198:                                              ; preds = %196
   %.not22 = icmp ult i64 %.0.ph, %.1
-  br i1 %.not22, label %.split19, label %207
+  br i1 %.not22, label %.split, label %199
 
-.split19:                                         ; preds = %202
-  %203 = load i32, ptr %4, align 4
-  %204 = load i8, ptr %5, align 1
-  %205 = trunc i8 %204 to i1
-  %206 = call fastcc i64 @SummarizeWAL(i32 noundef %203, i64 noundef %.0.ph, i1 noundef zeroext %205, i64 noundef %.1, i64 noundef %.0.i)
-  br label %209
-
-207:                                              ; preds = %202
-  %208 = load i32, ptr %6, align 4
-  store i32 %208, ptr %4, align 4
+199:                                              ; preds = %198
+  %200 = load i32, ptr %6, align 4
+  store i32 %200, ptr %4, align 4
   store i32 0, ptr %6, align 4
   br label %45
 
-209:                                              ; preds = %.split19, %.split
-  %phi.call = phi i64 [ %201, %.split ], [ %206, %.split19 ]
+.split:                                           ; preds = %198, %196
+  %.1.sink = phi i64 [ 0, %196 ], [ %.1, %198 ]
+  %201 = load i32, ptr %4, align 4
+  %202 = load i8, ptr %5, align 1
+  %203 = trunc i8 %202 to i1
+  %204 = call fastcc i64 @SummarizeWAL(i32 noundef %201, i64 noundef %.0.ph, i1 noundef zeroext %203, i64 noundef %.1.sink, i64 noundef %.0.i)
   store i8 1, ptr %5, align 1
-  %210 = load ptr, ptr @MainLWLockArray, align 8
-  %211 = getelementptr i8, ptr %210, i64 6272
-  %212 = call zeroext i1 @LWLockAcquire(ptr noundef %211, i32 noundef 0) #11
-  %213 = load ptr, ptr @WalSummarizerCtl, align 8
-  %214 = getelementptr inbounds i8, ptr %213, i64 8
-  store i64 %phi.call, ptr %214, align 8
-  %215 = load i32, ptr %4, align 4
-  %216 = getelementptr inbounds i8, ptr %213, i64 4
-  store i32 %215, ptr %216, align 4
-  %217 = getelementptr inbounds i8, ptr %213, i64 16
-  store i8 1, ptr %217, align 8
-  %218 = getelementptr inbounds i8, ptr %213, i64 24
-  store i64 %phi.call, ptr %218, align 8
-  %219 = load ptr, ptr @MainLWLockArray, align 8
-  %220 = getelementptr i8, ptr %219, i64 6272
-  call void @LWLockRelease(ptr noundef %220) #11
-  %221 = load ptr, ptr @WalSummarizerCtl, align 8
-  %222 = getelementptr inbounds i8, ptr %221, i64 32
-  call void @ConditionVariableBroadcast(ptr noundef nonnull %222) #11
+  %205 = load ptr, ptr @MainLWLockArray, align 8
+  %206 = getelementptr i8, ptr %205, i64 6272
+  %207 = call zeroext i1 @LWLockAcquire(ptr noundef %206, i32 noundef 0) #11
+  %208 = load ptr, ptr @WalSummarizerCtl, align 8
+  %209 = getelementptr inbounds i8, ptr %208, i64 8
+  store i64 %204, ptr %209, align 8
+  %210 = load i32, ptr %4, align 4
+  %211 = getelementptr inbounds i8, ptr %208, i64 4
+  store i32 %210, ptr %211, align 4
+  %212 = getelementptr inbounds i8, ptr %208, i64 16
+  store i8 1, ptr %212, align 8
+  %213 = getelementptr inbounds i8, ptr %208, i64 24
+  store i64 %204, ptr %213, align 8
+  %214 = load ptr, ptr @MainLWLockArray, align 8
+  %215 = getelementptr i8, ptr %214, i64 6272
+  call void @LWLockRelease(ptr noundef %215) #11
+  %216 = load ptr, ptr @WalSummarizerCtl, align 8
+  %217 = getelementptr inbounds i8, ptr %216, i64 32
+  call void @ConditionVariableBroadcast(ptr noundef nonnull %217) #11
   br label %.outer
 
-.outer:                                           ; preds = %40, %209
-  %.018.ph = phi i64 [ %.1, %209 ], [ 0, %40 ]
-  %.0.ph = phi i64 [ %phi.call, %209 ], [ %42, %40 ]
+.outer:                                           ; preds = %40, %.split
+  %.018.ph = phi i64 [ %.1, %.split ], [ 0, %40 ]
+  %.0.ph = phi i64 [ %204, %.split ], [ %42, %40 ]
   br label %45
 }
 

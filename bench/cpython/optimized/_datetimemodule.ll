@@ -7213,29 +7213,21 @@ while.cond:                                       ; preds = %while.cond.outer, %
   %pin.0 = phi ptr [ %pin.1, %if.end102 ], [ %pin.0.ph, %while.cond.outer ]
   %incdec.ptr = getelementptr i8, ptr %pin.0, i64 1
   %1 = load i8, ptr %pin.0, align 1
-  switch i8 %1, label %if.then14 [
+  switch i8 %1, label %while.cond107.preheader.sink.split [
     i8 0, label %while.end126
     i8 37, label %if.else
   ]
 
-if.then14:                                        ; preds = %while.cond
-  store i64 1, ptr %ntoappend, align 8
-  br label %while.cond107.preheader
-
 if.else:                                          ; preds = %while.cond
   %incdec.ptr15 = getelementptr i8, ptr %pin.0, i64 2
   %2 = load i8, ptr %incdec.ptr, align 1
-  switch i8 %2, label %if.else95 [
-    i8 0, label %if.then19
+  switch i8 %2, label %while.cond107.preheader.sink.split.loopexit286 [
+    i8 0, label %while.cond107.preheader.sink.split
     i8 122, label %if.then26
     i8 58, label %land.lhs.true
     i8 90, label %if.then64
     i8 102, label %if.then83
   ]
-
-if.then19:                                        ; preds = %if.else
-  store i64 1, ptr %ntoappend, align 8
-  br label %while.cond107.preheader
 
 if.then26:                                        ; preds = %if.else
   %cmp27 = icmp eq ptr %zreplacement.1, null
@@ -7257,7 +7249,7 @@ if.end35:                                         ; preds = %if.then29, %if.then
 land.lhs.true:                                    ; preds = %if.else
   %4 = load i8, ptr %incdec.ptr15, align 1
   %cmp43 = icmp eq i8 %4, 122
-  br i1 %cmp43, label %land.lhs.true45, label %if.else95
+  br i1 %cmp43, label %land.lhs.true45, label %while.cond107.preheader.sink.split
 
 land.lhs.true45:                                  ; preds = %land.lhs.true
   %incdec.ptr46 = getelementptr i8, ptr %pin.0, i64 3
@@ -7309,10 +7301,6 @@ if.end92:                                         ; preds = %if.then86, %if.then
   store i64 %freplacement.3.val, ptr %ntoappend, align 8
   br label %if.end102
 
-if.else95:                                        ; preds = %land.lhs.true, %if.else
-  store i64 2, ptr %ntoappend, align 8
-  br label %while.cond107.preheader
-
 if.end102thread-pre-split:                        ; preds = %if.end73
   %.pr = load i64, ptr %ntoappend, align 8
   br label %if.end102
@@ -7328,14 +7316,23 @@ if.end102:                                        ; preds = %if.end102thread-pre
   %cmp103 = icmp eq i64 %7, 0
   br i1 %cmp103, label %while.cond, label %while.cond107.preheader, !llvm.loop !7
 
-while.cond107.preheader:                          ; preds = %if.end102, %if.then14, %if.else95, %if.then19
-  %ptoappend.0188 = phi ptr [ %pin.0, %if.then19 ], [ %pin.0, %if.else95 ], [ %pin.0, %if.then14 ], [ %ptoappend.0, %if.end102 ]
-  %pin.1187 = phi ptr [ %incdec.ptr, %if.then19 ], [ %incdec.ptr15, %if.else95 ], [ %incdec.ptr, %if.then14 ], [ %pin.1, %if.end102 ]
-  %freplacement.2186 = phi ptr [ %freplacement.1, %if.then19 ], [ %freplacement.1, %if.else95 ], [ %freplacement.1, %if.then14 ], [ %freplacement.2, %if.end102 ]
-  %Zreplacement.2185 = phi ptr [ %Zreplacement.1, %if.then19 ], [ %Zreplacement.1, %if.else95 ], [ %Zreplacement.1, %if.then14 ], [ %Zreplacement.2, %if.end102 ]
-  %colonzreplacement.2184 = phi ptr [ %colonzreplacement.1, %if.then19 ], [ %colonzreplacement.1, %if.else95 ], [ %colonzreplacement.1, %if.then14 ], [ %colonzreplacement.2, %if.end102 ]
-  %zreplacement.2183 = phi ptr [ %zreplacement.1, %if.then19 ], [ %zreplacement.1, %if.else95 ], [ %zreplacement.1, %if.then14 ], [ %zreplacement.2, %if.end102 ]
-  %8 = phi i64 [ 1, %if.then19 ], [ 2, %if.else95 ], [ 1, %if.then14 ], [ %7, %if.end102 ]
+while.cond107.preheader.sink.split.loopexit286:   ; preds = %if.else
+  br label %while.cond107.preheader.sink.split
+
+while.cond107.preheader.sink.split:               ; preds = %land.lhs.true, %while.cond, %if.else, %while.cond107.preheader.sink.split.loopexit286
+  %.sink = phi i64 [ 1, %if.else ], [ 1, %while.cond ], [ 2, %land.lhs.true ], [ 2, %while.cond107.preheader.sink.split.loopexit286 ]
+  %pin.1187.ph = phi ptr [ %incdec.ptr, %if.else ], [ %incdec.ptr, %while.cond ], [ %incdec.ptr15, %land.lhs.true ], [ %incdec.ptr15, %while.cond107.preheader.sink.split.loopexit286 ]
+  store i64 %.sink, ptr %ntoappend, align 8
+  br label %while.cond107.preheader
+
+while.cond107.preheader:                          ; preds = %if.end102, %while.cond107.preheader.sink.split
+  %ptoappend.0188 = phi ptr [ %pin.0, %while.cond107.preheader.sink.split ], [ %ptoappend.0, %if.end102 ]
+  %pin.1187 = phi ptr [ %pin.1187.ph, %while.cond107.preheader.sink.split ], [ %pin.1, %if.end102 ]
+  %freplacement.2186 = phi ptr [ %freplacement.1, %while.cond107.preheader.sink.split ], [ %freplacement.2, %if.end102 ]
+  %Zreplacement.2185 = phi ptr [ %Zreplacement.1, %while.cond107.preheader.sink.split ], [ %Zreplacement.2, %if.end102 ]
+  %colonzreplacement.2184 = phi ptr [ %colonzreplacement.1, %while.cond107.preheader.sink.split ], [ %colonzreplacement.2, %if.end102 ]
+  %zreplacement.2183 = phi ptr [ %zreplacement.1, %while.cond107.preheader.sink.split ], [ %zreplacement.2, %if.end102 ]
+  %8 = phi i64 [ %.sink, %while.cond107.preheader.sink.split ], [ %7, %if.end102 ]
   %add108148 = add i64 %8, %usednew.0.ph
   %cmp109149 = icmp ugt i64 %add108148, %totalnew.0.ph
   br i1 %cmp109149, label %while.body111, label %while.end
@@ -10731,20 +10728,20 @@ if.then1:                                         ; preds = %if.then
   %hastzinfo = getelementptr inbounds i8, ptr %.pre, i64 24
   %1 = load i8, ptr %hastzinfo, align 8
   %tobool2.not = icmp eq i8 %1, 0
-  br i1 %tobool2.not, label %if.else, label %if.then3
+  br i1 %tobool2.not, label %if.end5.sink.split, label %if.then3
 
 if.then3:                                         ; preds = %if.then1
   %tzinfo4 = getelementptr inbounds i8, ptr %.pre, i64 32
   %2 = load ptr, ptr %tzinfo4, align 8
-  store ptr %2, ptr %tzinfo, align 8
+  br label %if.end5.sink.split
+
+if.end5.sink.split:                               ; preds = %if.then1, %if.then3
+  %.sink = phi ptr [ %2, %if.then3 ], [ @_Py_NoneStruct, %if.then1 ]
+  store ptr %.sink, ptr %tzinfo, align 8
   br label %if.end5
 
-if.else:                                          ; preds = %if.then1
-  store ptr @_Py_NoneStruct, ptr %tzinfo, align 8
-  br label %if.end5
-
-if.end5:                                          ; preds = %if.then3, %if.else, %if.then
-  %3 = phi ptr [ %2, %if.then3 ], [ @_Py_NoneStruct, %if.else ], [ %0, %if.then ]
+if.end5:                                          ; preds = %if.end5.sink.split, %if.then
+  %3 = phi ptr [ %0, %if.then ], [ %.sink, %if.end5.sink.split ]
   %4 = load ptr, ptr %date, align 8
   %data = getelementptr inbounds i8, ptr %4, i64 25
   %5 = load i8, ptr %data, align 1

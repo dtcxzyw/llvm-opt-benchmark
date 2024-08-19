@@ -73,19 +73,19 @@ define dso_local i32 @ext4_move_extents(ptr nocapture noundef readonly %0, ptr n
   %25 = icmp ne ptr %22, %24
   %26 = icmp eq ptr %11, %13
   %27 = or i1 %26, %25
-  br i1 %27, label %159, label %28
+  br i1 %27, label %158, label %28
 
 28:                                               ; preds = %6
   %29 = load i16, ptr %11, align 8
   %30 = and i16 %29, -4096
   %31 = icmp eq i16 %30, -32768
-  br i1 %31, label %32, label %159
+  br i1 %31, label %32, label %158
 
 32:                                               ; preds = %28
   %33 = load i16, ptr %13, align 8
   %34 = and i16 %33, -4096
   %35 = icmp eq i16 %34, -32768
-  br i1 %35, label %36, label %159
+  br i1 %35, label %36, label %158
 
 36:                                               ; preds = %32
   %37 = tail call i32 @ext4_inode_journal_mode(ptr noundef %11) #7
@@ -102,7 +102,7 @@ define dso_local i32 @ext4_move_extents(ptr nocapture noundef readonly %0, ptr n
 44:                                               ; preds = %40, %36
   %45 = load ptr, ptr %21, align 8
   tail call void (ptr, ptr, ptr, ...) @__ext4_msg(ptr noundef %45, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #7
-  br label %159
+  br label %158
 
 46:                                               ; preds = %40
   %47 = getelementptr inbounds i8, ptr %11, i64 12
@@ -121,7 +121,7 @@ define dso_local i32 @ext4_move_extents(ptr nocapture noundef readonly %0, ptr n
 56:                                               ; preds = %51, %46
   %57 = load ptr, ptr %21, align 8
   tail call void (ptr, ptr, ptr, ...) @__ext4_msg(ptr noundef %57, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #7
-  br label %159
+  br label %158
 
 58:                                               ; preds = %51
   tail call void @lock_two_nondirectories(ptr noundef %11, ptr noundef %13) #7
@@ -149,9 +149,9 @@ define dso_local i32 @ext4_move_extents(ptr nocapture noundef readonly %0, ptr n
   %71 = getelementptr i8, ptr %13, i64 -40
   br label %72
 
-72:                                               ; preds = %149, %66
-  %73 = phi i32 [ %20, %66 ], [ %151, %149 ]
-  %74 = phi i32 [ %19, %66 ], [ %150, %149 ]
+72:                                               ; preds = %148, %66
+  %73 = phi i32 [ %20, %66 ], [ %150, %148 ]
+  %74 = phi i32 [ %19, %66 ], [ %149, %148 ]
   %75 = call ptr @ext4_find_extent(ptr noundef %11, i32 noundef %74, ptr noundef nonnull %8, i32 noundef 1073741824) #7
   %76 = icmp ugt ptr %75, inttoptr (i64 -4096 to ptr)
   br i1 %76, label %83, label %77
@@ -167,8 +167,7 @@ define dso_local i32 @ext4_move_extents(ptr nocapture noundef readonly %0, ptr n
 .thread10:                                        ; preds = %77
   call void @ext4_free_ext_path(ptr noundef %75) #7
   store ptr null, ptr %8, align 8
-  store i32 -61, ptr %9, align 4
-  br label %.thread13
+  br label %.thread13.sink.split
 
 .thread:                                          ; preds = %77
   store ptr %75, ptr %8, align 8
@@ -203,107 +202,107 @@ define dso_local i32 @ext4_move_extents(ptr nocapture noundef readonly %0, ptr n
   %101 = add i32 %94, -1
   %102 = add i32 %101, %100
   %103 = icmp ult i32 %102, %74
-  br i1 %103, label %104, label %111
+  br i1 %103, label %104, label %110
 
 104:                                              ; preds = %87
   %105 = call i32 @ext4_ext_next_allocated_block(ptr noundef %88) #7
   %106 = icmp eq i32 %105, -1
-  br i1 %106, label %107, label %108
+  br i1 %106, label %.thread13.sink.split, label %107
 
 107:                                              ; preds = %104
-  store i32 -61, ptr %9, align 4
-  br label %.thread13
+  %108 = sub i32 %73, %74
+  %109 = add i32 %108, %105
+  br label %148, !llvm.loop !6
 
-108:                                              ; preds = %104
-  %109 = sub i32 %73, %74
-  %110 = add i32 %109, %105
-  br label %149, !llvm.loop !6
+110:                                              ; preds = %87
+  %111 = icmp ugt i32 %94, %74
+  %112 = sub i32 %94, %74
+  br i1 %111, label %113, label %116
 
-111:                                              ; preds = %87
-  %112 = icmp ugt i32 %94, %74
-  %113 = sub i32 %94, %74
-  br i1 %112, label %114, label %117
+113:                                              ; preds = %110
+  %114 = add i32 %112, %73
+  %115 = icmp ult i32 %94, %64
+  br i1 %115, label %118, label %.thread13
 
-114:                                              ; preds = %111
-  %115 = add i32 %113, %73
-  %116 = icmp ult i32 %94, %64
-  br i1 %116, label %119, label %.thread13
+116:                                              ; preds = %110
+  %117 = add i32 %100, %112
+  br label %118
 
-117:                                              ; preds = %111
-  %118 = add i32 %100, %113
-  br label %119
-
-119:                                              ; preds = %117, %114
-  %120 = phi i32 [ %94, %114 ], [ %74, %117 ]
-  %121 = phi i32 [ %115, %114 ], [ %73, %117 ]
-  %122 = phi i32 [ %100, %114 ], [ %118, %117 ]
-  %123 = icmp ugt i16 %96, -32768
-  %124 = zext i1 %123 to i32
-  %125 = sub i32 %64, %120
-  %126 = call i32 @llvm.umin.i32(i32 %125, i32 %122)
-  %127 = load i8, ptr %14, align 2
-  %128 = zext i8 %127 to i32
-  %129 = sub nsw i32 12, %128
-  %130 = lshr i32 %120, %129
-  %131 = zext i32 %130 to i64
-  %132 = load i8, ptr %68, align 2
-  %133 = zext i8 %132 to i32
-  %134 = sub nsw i32 12, %133
-  %135 = lshr i32 %121, %134
-  %136 = zext i32 %135 to i64
-  %137 = and i32 %120, %69
-  %138 = sub nsw i32 %18, %137
-  %139 = call i32 @llvm.smin.i32(i32 %126, i32 %138)
+118:                                              ; preds = %116, %113
+  %119 = phi i32 [ %94, %113 ], [ %74, %116 ]
+  %120 = phi i32 [ %114, %113 ], [ %73, %116 ]
+  %121 = phi i32 [ %100, %113 ], [ %117, %116 ]
+  %122 = icmp ugt i16 %96, -32768
+  %123 = zext i1 %122 to i32
+  %124 = sub i32 %64, %119
+  %125 = call i32 @llvm.umin.i32(i32 %124, i32 %121)
+  %126 = load i8, ptr %14, align 2
+  %127 = zext i8 %126 to i32
+  %128 = sub nsw i32 12, %127
+  %129 = lshr i32 %119, %128
+  %130 = zext i32 %129 to i64
+  %131 = load i8, ptr %68, align 2
+  %132 = zext i8 %131 to i32
+  %133 = sub nsw i32 12, %132
+  %134 = lshr i32 %120, %133
+  %135 = zext i32 %134 to i64
+  %136 = and i32 %119, %69
+  %137 = sub nsw i32 %18, %136
+  %138 = call i32 @llvm.smin.i32(i32 %125, i32 %137)
   call void @up_write(ptr noundef %70) #7
   call void @up_write(ptr noundef %71) #7
   %.val = load ptr, ptr %10, align 8
-  %140 = call fastcc i32 @move_extent_per_page(ptr %.val, ptr noundef %13, i64 noundef %131, i64 noundef %136, i32 noundef %137, i32 noundef %139, i32 noundef %124, ptr noundef nonnull %9)
-  %141 = sext i32 %140 to i64
-  %142 = load i64, ptr %5, align 8
-  %143 = add i64 %142, %141
-  store i64 %143, ptr %5, align 8
+  %139 = call fastcc i32 @move_extent_per_page(ptr %.val, ptr noundef %13, i64 noundef %130, i64 noundef %135, i32 noundef %136, i32 noundef %138, i32 noundef %123, ptr noundef nonnull %9)
+  %140 = sext i32 %139 to i64
+  %141 = load i64, ptr %5, align 8
+  %142 = add i64 %141, %140
+  store i64 %142, ptr %5, align 8
   call void @ext4_double_down_write_data_sem(ptr noundef %11, ptr noundef %13)
-  %144 = load i32, ptr %9, align 4
-  %145 = icmp slt i32 %144, 0
-  br i1 %145, label %.thread13, label %146
+  %143 = load i32, ptr %9, align 4
+  %144 = icmp slt i32 %143, 0
+  br i1 %144, label %.thread13, label %145
 
-146:                                              ; preds = %119
-  %147 = add i32 %139, %120
-  %148 = add i32 %139, %121
-  br label %149
+145:                                              ; preds = %118
+  %146 = add i32 %138, %119
+  %147 = add i32 %138, %120
+  br label %148
 
-149:                                              ; preds = %108, %146
-  %150 = phi i32 [ %105, %108 ], [ %147, %146 ]
-  %151 = phi i32 [ %110, %108 ], [ %148, %146 ]
-  %152 = icmp ult i32 %150, %64
-  br i1 %152, label %72, label %.thread13, !llvm.loop !6
+148:                                              ; preds = %107, %145
+  %149 = phi i32 [ %105, %107 ], [ %146, %145 ]
+  %150 = phi i32 [ %109, %107 ], [ %147, %145 ]
+  %151 = icmp ult i32 %149, %64
+  br i1 %151, label %72, label %.thread13, !llvm.loop !6
 
-.thread13:                                        ; preds = %119, %114, %83, %149, %.thread10, %107, %58
+.thread13.sink.split:                             ; preds = %104, %.thread10
+  store i32 -61, ptr %9, align 4
+  br label %.thread13
+
+.thread13:                                        ; preds = %118, %113, %83, %148, %.thread13.sink.split, %58
   %.pr = load i64, ptr %5, align 8
-  %153 = icmp eq i64 %.pr, 0
-  br i1 %153, label %.thread14, label %154
+  %152 = icmp eq i64 %.pr, 0
+  br i1 %152, label %.thread14, label %153
 
-154:                                              ; preds = %.thread13
+153:                                              ; preds = %.thread13
   call void @ext4_discard_preallocations(ptr noundef %11) #7
   call void @ext4_discard_preallocations(ptr noundef %13) #7
   br label %.thread14
 
-.thread14:                                        ; preds = %61, %154, %.thread13
-  %155 = load ptr, ptr %8, align 8
-  call void @ext4_free_ext_path(ptr noundef %155) #7
-  %156 = getelementptr i8, ptr %11, i64 -40
+.thread14:                                        ; preds = %61, %153, %.thread13
+  %154 = load ptr, ptr %8, align 8
+  call void @ext4_free_ext_path(ptr noundef %154) #7
+  %155 = getelementptr i8, ptr %11, i64 -40
+  call void @up_write(ptr noundef %155) #7
+  %156 = getelementptr i8, ptr %13, i64 -40
   call void @up_write(ptr noundef %156) #7
-  %157 = getelementptr i8, ptr %13, i64 -40
-  call void @up_write(ptr noundef %157) #7
   call void @unlock_two_nondirectories(ptr noundef %11, ptr noundef %13) #7
-  %158 = load i32, ptr %9, align 4
-  br label %159
+  %157 = load i32, ptr %9, align 4
+  br label %158
 
-159:                                              ; preds = %.thread14, %56, %44, %32, %28, %6
-  %160 = phi i32 [ -95, %44 ], [ -95, %56 ], [ %158, %.thread14 ], [ -22, %6 ], [ -22, %32 ], [ -22, %28 ]
+158:                                              ; preds = %.thread14, %56, %44, %32, %28, %6
+  %159 = phi i32 [ -95, %44 ], [ -95, %56 ], [ %157, %.thread14 ], [ -22, %6 ], [ -22, %32 ], [ -22, %28 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
-  ret i32 %160
+  ret i32 %159
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

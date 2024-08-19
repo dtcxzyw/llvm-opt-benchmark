@@ -475,8 +475,7 @@ if.end.i.i:                                       ; preds = %if.end26
 cleanup30.thread:                                 ; preds = %if.end26, %if.end.i.i
   %20 = load ptr, ptr %future, align 8
   store ptr %20, ptr %agg.result, align 8
-  store ptr null, ptr %future, align 8
-  br label %_ZN5folly6FutureIPN8proxygen15HTTPSessionBaseEED2Ev.exit
+  br label %_ZN5folly6FutureIPN8proxygen15HTTPSessionBaseEED2Ev.exit.sink.split
 
 cleanup30.critedge:                               ; preds = %if.then
   %21 = getelementptr inbounds i8, ptr %call.i.i1.i8, i64 136
@@ -511,10 +510,13 @@ cleanup30:                                        ; preds = %_ZN5folly10makeFutu
 
 if.then.i.i.i30:                                  ; preds = %cleanup30
   call void @_ZN5folly7futures6detail8CoreBase9detachOneEv(ptr noundef nonnull align 16 dereferenceable(136) %.pr) #21
+  br label %_ZN5folly6FutureIPN8proxygen15HTTPSessionBaseEED2Ev.exit.sink.split
+
+_ZN5folly6FutureIPN8proxygen15HTTPSessionBaseEED2Ev.exit.sink.split: ; preds = %if.then.i.i.i30, %cleanup30.thread
   store ptr null, ptr %future, align 8
   br label %_ZN5folly6FutureIPN8proxygen15HTTPSessionBaseEED2Ev.exit
 
-_ZN5folly6FutureIPN8proxygen15HTTPSessionBaseEED2Ev.exit: ; preds = %cleanup30.thread, %cleanup30, %if.then.i.i.i30
+_ZN5folly6FutureIPN8proxygen15HTTPSessionBaseEED2Ev.exit: ; preds = %_ZN5folly6FutureIPN8proxygen15HTTPSessionBaseEED2Ev.exit.sink.split, %cleanup30
   %24 = load ptr, ptr %core_.i, align 8
   %tobool.not.i.i31 = icmp eq ptr %24, null
   br i1 %tobool.not.i.i31, label %_ZN5folly7PromiseIPN8proxygen15HTTPSessionBaseEED2Ev.exit, label %if.then.i.i32

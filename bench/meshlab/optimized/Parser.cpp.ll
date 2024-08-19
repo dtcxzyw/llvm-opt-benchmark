@@ -503,551 +503,445 @@ define void @_ZN14VrmlTranslator6Errors6SynErrEiii(ptr nocapture noundef nonnull
 
 8:                                                ; preds = %4
   %9 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.196)
-  store ptr %9, ptr %5, align 8
   br label %223
 
 10:                                               ; preds = %4
   %11 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.197)
-  store ptr %11, ptr %5, align 8
   br label %223
 
 12:                                               ; preds = %4
   %13 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.198)
-  store ptr %13, ptr %5, align 8
   br label %223
 
 14:                                               ; preds = %4
   %15 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.199)
-  store ptr %15, ptr %5, align 8
   br label %223
 
 16:                                               ; preds = %4
   %17 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.200)
-  store ptr %17, ptr %5, align 8
   br label %223
 
 18:                                               ; preds = %4
   %19 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.201)
-  store ptr %19, ptr %5, align 8
   br label %223
 
 20:                                               ; preds = %4
   %21 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.202)
-  store ptr %21, ptr %5, align 8
   br label %223
 
 22:                                               ; preds = %4
   %23 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.203)
-  store ptr %23, ptr %5, align 8
   br label %223
 
 24:                                               ; preds = %4
   %25 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.204)
-  store ptr %25, ptr %5, align 8
   br label %223
 
 26:                                               ; preds = %4
   %27 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.205)
-  store ptr %27, ptr %5, align 8
   br label %223
 
 28:                                               ; preds = %4
   %29 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.206)
-  store ptr %29, ptr %5, align 8
   br label %223
 
 30:                                               ; preds = %4
   %31 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.207)
-  store ptr %31, ptr %5, align 8
   br label %223
 
 32:                                               ; preds = %4
   %33 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.208)
-  store ptr %33, ptr %5, align 8
   br label %223
 
 34:                                               ; preds = %4
   %35 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.209)
-  store ptr %35, ptr %5, align 8
   br label %223
 
 36:                                               ; preds = %4
   %37 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.210)
-  store ptr %37, ptr %5, align 8
   br label %223
 
 38:                                               ; preds = %4
   %39 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.211)
-  store ptr %39, ptr %5, align 8
   br label %223
 
 40:                                               ; preds = %4
   %41 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.212)
-  store ptr %41, ptr %5, align 8
   br label %223
 
 42:                                               ; preds = %4
   %43 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.213)
-  store ptr %43, ptr %5, align 8
   br label %223
 
 44:                                               ; preds = %4
   %45 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.214)
-  store ptr %45, ptr %5, align 8
   br label %223
 
 46:                                               ; preds = %4
   %47 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.215)
-  store ptr %47, ptr %5, align 8
   br label %223
 
 48:                                               ; preds = %4
   %49 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.216)
-  store ptr %49, ptr %5, align 8
   br label %223
 
 50:                                               ; preds = %4
   %51 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.217)
-  store ptr %51, ptr %5, align 8
   br label %223
 
 52:                                               ; preds = %4
   %53 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.218)
-  store ptr %53, ptr %5, align 8
   br label %223
 
 54:                                               ; preds = %4
   %55 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.219)
-  store ptr %55, ptr %5, align 8
   br label %223
 
 56:                                               ; preds = %4
   %57 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.220)
-  store ptr %57, ptr %5, align 8
   br label %223
 
 58:                                               ; preds = %4
   %59 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.221)
-  store ptr %59, ptr %5, align 8
   br label %223
 
 60:                                               ; preds = %4
   %61 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.222)
-  store ptr %61, ptr %5, align 8
   br label %223
 
 62:                                               ; preds = %4
   %63 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.223)
-  store ptr %63, ptr %5, align 8
   br label %223
 
 64:                                               ; preds = %4
   %65 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.224)
-  store ptr %65, ptr %5, align 8
   br label %223
 
 66:                                               ; preds = %4
   %67 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.225)
-  store ptr %67, ptr %5, align 8
   br label %223
 
 68:                                               ; preds = %4
   %69 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.226)
-  store ptr %69, ptr %5, align 8
   br label %223
 
 70:                                               ; preds = %4
   %71 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.227)
-  store ptr %71, ptr %5, align 8
   br label %223
 
 72:                                               ; preds = %4
   %73 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.228)
-  store ptr %73, ptr %5, align 8
   br label %223
 
 74:                                               ; preds = %4
   %75 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.229)
-  store ptr %75, ptr %5, align 8
   br label %223
 
 76:                                               ; preds = %4
   %77 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.230)
-  store ptr %77, ptr %5, align 8
   br label %223
 
 78:                                               ; preds = %4
   %79 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.231)
-  store ptr %79, ptr %5, align 8
   br label %223
 
 80:                                               ; preds = %4
   %81 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.232)
-  store ptr %81, ptr %5, align 8
   br label %223
 
 82:                                               ; preds = %4
   %83 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.233)
-  store ptr %83, ptr %5, align 8
   br label %223
 
 84:                                               ; preds = %4
   %85 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.234)
-  store ptr %85, ptr %5, align 8
   br label %223
 
 86:                                               ; preds = %4
   %87 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.235)
-  store ptr %87, ptr %5, align 8
   br label %223
 
 88:                                               ; preds = %4
   %89 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.236)
-  store ptr %89, ptr %5, align 8
   br label %223
 
 90:                                               ; preds = %4
   %91 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.237)
-  store ptr %91, ptr %5, align 8
   br label %223
 
 92:                                               ; preds = %4
   %93 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.238)
-  store ptr %93, ptr %5, align 8
   br label %223
 
 94:                                               ; preds = %4
   %95 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.239)
-  store ptr %95, ptr %5, align 8
   br label %223
 
 96:                                               ; preds = %4
   %97 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.240)
-  store ptr %97, ptr %5, align 8
   br label %223
 
 98:                                               ; preds = %4
   %99 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.241)
-  store ptr %99, ptr %5, align 8
   br label %223
 
 100:                                              ; preds = %4
   %101 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.242)
-  store ptr %101, ptr %5, align 8
   br label %223
 
 102:                                              ; preds = %4
   %103 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.243)
-  store ptr %103, ptr %5, align 8
   br label %223
 
 104:                                              ; preds = %4
   %105 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.244)
-  store ptr %105, ptr %5, align 8
   br label %223
 
 106:                                              ; preds = %4
   %107 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.245)
-  store ptr %107, ptr %5, align 8
   br label %223
 
 108:                                              ; preds = %4
   %109 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.246)
-  store ptr %109, ptr %5, align 8
   br label %223
 
 110:                                              ; preds = %4
   %111 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.247)
-  store ptr %111, ptr %5, align 8
   br label %223
 
 112:                                              ; preds = %4
   %113 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.248)
-  store ptr %113, ptr %5, align 8
   br label %223
 
 114:                                              ; preds = %4
   %115 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.249)
-  store ptr %115, ptr %5, align 8
   br label %223
 
 116:                                              ; preds = %4
   %117 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.250)
-  store ptr %117, ptr %5, align 8
   br label %223
 
 118:                                              ; preds = %4
   %119 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.251)
-  store ptr %119, ptr %5, align 8
   br label %223
 
 120:                                              ; preds = %4
   %121 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.252)
-  store ptr %121, ptr %5, align 8
   br label %223
 
 122:                                              ; preds = %4
   %123 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.253)
-  store ptr %123, ptr %5, align 8
   br label %223
 
 124:                                              ; preds = %4
   %125 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.254)
-  store ptr %125, ptr %5, align 8
   br label %223
 
 126:                                              ; preds = %4
   %127 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.255)
-  store ptr %127, ptr %5, align 8
   br label %223
 
 128:                                              ; preds = %4
   %129 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.256)
-  store ptr %129, ptr %5, align 8
   br label %223
 
 130:                                              ; preds = %4
   %131 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.257)
-  store ptr %131, ptr %5, align 8
   br label %223
 
 132:                                              ; preds = %4
   %133 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.258)
-  store ptr %133, ptr %5, align 8
   br label %223
 
 134:                                              ; preds = %4
   %135 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.259)
-  store ptr %135, ptr %5, align 8
   br label %223
 
 136:                                              ; preds = %4
   %137 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.260)
-  store ptr %137, ptr %5, align 8
   br label %223
 
 138:                                              ; preds = %4
   %139 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.261)
-  store ptr %139, ptr %5, align 8
   br label %223
 
 140:                                              ; preds = %4
   %141 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.262)
-  store ptr %141, ptr %5, align 8
   br label %223
 
 142:                                              ; preds = %4
   %143 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.263)
-  store ptr %143, ptr %5, align 8
   br label %223
 
 144:                                              ; preds = %4
   %145 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.264)
-  store ptr %145, ptr %5, align 8
   br label %223
 
 146:                                              ; preds = %4
   %147 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.265)
-  store ptr %147, ptr %5, align 8
   br label %223
 
 148:                                              ; preds = %4
   %149 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.266)
-  store ptr %149, ptr %5, align 8
   br label %223
 
 150:                                              ; preds = %4
   %151 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.267)
-  store ptr %151, ptr %5, align 8
   br label %223
 
 152:                                              ; preds = %4
   %153 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.268)
-  store ptr %153, ptr %5, align 8
   br label %223
 
 154:                                              ; preds = %4
   %155 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.269)
-  store ptr %155, ptr %5, align 8
   br label %223
 
 156:                                              ; preds = %4
   %157 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.270)
-  store ptr %157, ptr %5, align 8
   br label %223
 
 158:                                              ; preds = %4
   %159 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.271)
-  store ptr %159, ptr %5, align 8
   br label %223
 
 160:                                              ; preds = %4
   %161 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.272)
-  store ptr %161, ptr %5, align 8
   br label %223
 
 162:                                              ; preds = %4
   %163 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.273)
-  store ptr %163, ptr %5, align 8
   br label %223
 
 164:                                              ; preds = %4
   %165 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.274)
-  store ptr %165, ptr %5, align 8
   br label %223
 
 166:                                              ; preds = %4
   %167 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.275)
-  store ptr %167, ptr %5, align 8
   br label %223
 
 168:                                              ; preds = %4
   %169 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.276)
-  store ptr %169, ptr %5, align 8
   br label %223
 
 170:                                              ; preds = %4
   %171 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.277)
-  store ptr %171, ptr %5, align 8
   br label %223
 
 172:                                              ; preds = %4
   %173 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.278)
-  store ptr %173, ptr %5, align 8
   br label %223
 
 174:                                              ; preds = %4
   %175 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.279)
-  store ptr %175, ptr %5, align 8
   br label %223
 
 176:                                              ; preds = %4
   %177 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.280)
-  store ptr %177, ptr %5, align 8
   br label %223
 
 178:                                              ; preds = %4
   %179 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.281)
-  store ptr %179, ptr %5, align 8
   br label %223
 
 180:                                              ; preds = %4
   %181 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.282)
-  store ptr %181, ptr %5, align 8
   br label %223
 
 182:                                              ; preds = %4
   %183 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.283)
-  store ptr %183, ptr %5, align 8
   br label %223
 
 184:                                              ; preds = %4
   %185 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.284)
-  store ptr %185, ptr %5, align 8
   br label %223
 
 186:                                              ; preds = %4
   %187 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.285)
-  store ptr %187, ptr %5, align 8
   br label %223
 
 188:                                              ; preds = %4
   %189 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.286)
-  store ptr %189, ptr %5, align 8
   br label %223
 
 190:                                              ; preds = %4
   %191 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.287)
-  store ptr %191, ptr %5, align 8
   br label %223
 
 192:                                              ; preds = %4
   %193 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.288)
-  store ptr %193, ptr %5, align 8
   br label %223
 
 194:                                              ; preds = %4
   %195 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.289)
-  store ptr %195, ptr %5, align 8
   br label %223
 
 196:                                              ; preds = %4
   %197 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.290)
-  store ptr %197, ptr %5, align 8
   br label %223
 
 198:                                              ; preds = %4
   %199 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.291)
-  store ptr %199, ptr %5, align 8
   br label %223
 
 200:                                              ; preds = %4
   %201 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.292)
-  store ptr %201, ptr %5, align 8
   br label %223
 
 202:                                              ; preds = %4
   %203 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.293)
-  store ptr %203, ptr %5, align 8
   br label %223
 
 204:                                              ; preds = %4
   %205 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.294)
-  store ptr %205, ptr %5, align 8
   br label %223
 
 206:                                              ; preds = %4
   %207 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.294)
-  store ptr %207, ptr %5, align 8
   br label %223
 
 208:                                              ; preds = %4
   %209 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.295)
-  store ptr %209, ptr %5, align 8
   br label %223
 
 210:                                              ; preds = %4
   %211 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.295)
-  store ptr %211, ptr %5, align 8
   br label %223
 
 212:                                              ; preds = %4
   %213 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.296)
-  store ptr %213, ptr %5, align 8
   br label %223
 
 214:                                              ; preds = %4
   %215 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.297)
-  store ptr %215, ptr %5, align 8
   br label %223
 
 216:                                              ; preds = %4
   %217 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.298)
-  store ptr %217, ptr %5, align 8
   br label %223
 
 218:                                              ; preds = %4
   %219 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.299)
-  store ptr %219, ptr %5, align 8
   br label %223
 
 220:                                              ; preds = %4
   %221 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %6, i64 noundef 20, ptr noundef nonnull @.str.300, i32 noundef %3) #14
   %222 = call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull %6)
-  store ptr %222, ptr %5, align 8
   br label %223
 
 223:                                              ; preds = %220, %218, %216, %214, %212, %210, %208, %206, %204, %202, %200, %198, %196, %194, %192, %190, %188, %186, %184, %182, %180, %178, %176, %174, %172, %170, %168, %166, %164, %162, %160, %158, %156, %154, %152, %150, %148, %146, %144, %142, %140, %138, %136, %134, %132, %130, %128, %126, %124, %122, %120, %118, %116, %114, %112, %110, %108, %106, %104, %102, %100, %98, %96, %94, %92, %90, %88, %86, %84, %82, %80, %78, %76, %74, %72, %70, %68, %66, %64, %62, %60, %58, %56, %54, %52, %50, %48, %46, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %16, %14, %12, %10, %8
-  %224 = load ptr, ptr %5, align 8
-  %225 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %7, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %1, i32 noundef %2, ptr noundef %224) #14
-  %226 = getelementptr inbounds i8, ptr %0, i64 8
-  %227 = load ptr, ptr %226, align 8
-  %228 = call noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %227, ptr noundef nonnull %7)
-  store ptr %228, ptr %226, align 8
+  %.sink = phi ptr [ %222, %220 ], [ %219, %218 ], [ %217, %216 ], [ %215, %214 ], [ %213, %212 ], [ %211, %210 ], [ %209, %208 ], [ %207, %206 ], [ %205, %204 ], [ %203, %202 ], [ %201, %200 ], [ %199, %198 ], [ %197, %196 ], [ %195, %194 ], [ %193, %192 ], [ %191, %190 ], [ %189, %188 ], [ %187, %186 ], [ %185, %184 ], [ %183, %182 ], [ %181, %180 ], [ %179, %178 ], [ %177, %176 ], [ %175, %174 ], [ %173, %172 ], [ %171, %170 ], [ %169, %168 ], [ %167, %166 ], [ %165, %164 ], [ %163, %162 ], [ %161, %160 ], [ %159, %158 ], [ %157, %156 ], [ %155, %154 ], [ %153, %152 ], [ %151, %150 ], [ %149, %148 ], [ %147, %146 ], [ %145, %144 ], [ %143, %142 ], [ %141, %140 ], [ %139, %138 ], [ %137, %136 ], [ %135, %134 ], [ %133, %132 ], [ %131, %130 ], [ %129, %128 ], [ %127, %126 ], [ %125, %124 ], [ %123, %122 ], [ %121, %120 ], [ %119, %118 ], [ %117, %116 ], [ %115, %114 ], [ %113, %112 ], [ %111, %110 ], [ %109, %108 ], [ %107, %106 ], [ %105, %104 ], [ %103, %102 ], [ %101, %100 ], [ %99, %98 ], [ %97, %96 ], [ %95, %94 ], [ %93, %92 ], [ %91, %90 ], [ %89, %88 ], [ %87, %86 ], [ %85, %84 ], [ %83, %82 ], [ %81, %80 ], [ %79, %78 ], [ %77, %76 ], [ %75, %74 ], [ %73, %72 ], [ %71, %70 ], [ %69, %68 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %51, %50 ], [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ]
+  store ptr %.sink, ptr %5, align 8
+  %224 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %7, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %1, i32 noundef %2, ptr noundef %.sink) #14
+  %225 = getelementptr inbounds i8, ptr %0, i64 8
+  %226 = load ptr, ptr %225, align 8
+  %227 = call noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %226, ptr noundef nonnull %7)
+  store ptr %227, ptr %225, align 8
   call void @_Z18coco_string_deleteRPw(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %229 = load i32, ptr %0, align 8
-  %230 = add nsw i32 %229, 1
-  store i32 %230, ptr %0, align 8
+  %228 = load i32, ptr %0, align 8
+  %229 = add nsw i32 %228, 1
+  store i32 %229, ptr %0, align 8
   ret void
 }
 

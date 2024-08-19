@@ -3392,7 +3392,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNKSt7__cxx1112bas
   %42 = getelementptr inbounds i8, ptr %8, i64 4
   br label %61
 
-._crit_edge:                                      ; preds = %69
+._crit_edge:                                      ; preds = %68
   %.pre = load ptr, ptr %5, align 8
   %.pre40 = load ptr, ptr %39, align 8
   %.not4.i.i.i.i = icmp eq ptr %.pre, %.pre40
@@ -3442,12 +3442,12 @@ _ZNSt6vectorIN3nix8DirEntryESaIS1_EED2Ev.exit:    ; preds = %_ZSt8_DestroyIPN3ni
   %53 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3nix9CanonPathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #29
-  br label %75
+  br label %74
 
 54:                                               ; preds = %_ZN3nix9CanonPathD2Ev.exit
   %55 = landingpad { ptr, i32 }
           cleanup
-  br label %74
+  br label %73
 
 56:                                               ; preds = %21
   %57 = landingpad { ptr, i32 }
@@ -3463,53 +3463,52 @@ _ZNSt6vectorIN3nix8DirEntryESaIS1_EED2Ev.exit:    ; preds = %_ZSt8_DestroyIPN3ni
 60:                                               ; preds = %58, %56
   %.pn = phi { ptr, i32 } [ %59, %58 ], [ %57, %56 ]
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #29
-  br label %74
+  br label %73
 
-61:                                               ; preds = %.lr.ph, %69
-  %.sroa.036.039 = phi ptr [ %38, %.lr.ph ], [ %70, %69 ]
+61:                                               ; preds = %.lr.ph, %68
+  %.sroa.036.039 = phi ptr [ %38, %.lr.ph ], [ %69, %68 ]
   store i8 0, ptr %42, align 4
   %62 = getelementptr inbounds i8, ptr %.sroa.036.039, i64 40
   %63 = load i8, ptr %62, align 8
-  switch i8 %63, label %67 [
-    i8 8, label %64
-    i8 10, label %65
-    i8 4, label %66
+  switch i8 %63, label %66 [
+    i8 8, label %.sink.split
+    i8 10, label %64
+    i8 4, label %65
   ]
 
 64:                                               ; preds = %61
-  store i64 4294967296, ptr %8, align 8
-  br label %67
+  br label %.sink.split
 
 65:                                               ; preds = %61
-  store i64 4294967297, ptr %8, align 8
-  br label %67
+  br label %.sink.split
 
-66:                                               ; preds = %61
-  store i64 4294967298, ptr %8, align 8
-  br label %67
+.sink.split:                                      ; preds = %61, %64, %65
+  %.sink = phi i64 [ 4294967298, %65 ], [ 4294967297, %64 ], [ 4294967296, %61 ]
+  store i64 %.sink, ptr %8, align 8
+  br label %66
 
-67:                                               ; preds = %66, %65, %64, %61
-  %68 = invoke { ptr, i8 } @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIN3nix14SourceAccessor4TypeEESt4lessIS5_ESaISt4pairIKS5_SA_EEE7emplaceIJRS5_RSA_EEESD_ISt17_Rb_tree_iteratorISF_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.036.039, ptr noundef nonnull align 4 dereferenceable(8) %8)
-          to label %69 unwind label %72
+66:                                               ; preds = %.sink.split, %61
+  %67 = invoke { ptr, i8 } @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIN3nix14SourceAccessor4TypeEESt4lessIS5_ESaISt4pairIKS5_SA_EEE7emplaceIJRS5_RSA_EEESD_ISt17_Rb_tree_iteratorISF_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.036.039, ptr noundef nonnull align 4 dereferenceable(8) %8)
+          to label %68 unwind label %71
 
-69:                                               ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %.sroa.036.039, i64 48
-  %71 = icmp eq ptr %70, %40
-  br i1 %71, label %._crit_edge, label %61
+68:                                               ; preds = %66
+  %69 = getelementptr inbounds i8, ptr %.sroa.036.039, i64 48
+  %70 = icmp eq ptr %69, %40
+  br i1 %70, label %._crit_edge, label %61
 
-72:                                               ; preds = %67
-  %73 = landingpad { ptr, i32 }
+71:                                               ; preds = %66
+  %72 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIN3nix8DirEntryESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #29
+  br label %73
+
+73:                                               ; preds = %71, %60, %54
+  %.pn13 = phi { ptr, i32 } [ %72, %71 ], [ %.pn, %60 ], [ %55, %54 ]
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIN3nix14SourceAccessor4TypeEESt4lessIS5_ESaISt4pairIKS5_SA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #29
   br label %74
 
-74:                                               ; preds = %72, %60, %54
-  %.pn13 = phi { ptr, i32 } [ %73, %72 ], [ %.pn, %60 ], [ %55, %54 ]
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIN3nix14SourceAccessor4TypeEESt4lessIS5_ESaISt4pairIKS5_SA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #29
-  br label %75
-
-75:                                               ; preds = %74, %52
-  %.pn13.pn = phi { ptr, i32 } [ %.pn13, %74 ], [ %53, %52 ]
+74:                                               ; preds = %73, %52
+  %.pn13.pn = phi { ptr, i32 } [ %.pn13, %73 ], [ %53, %52 ]
   resume { ptr, i32 } %.pn13.pn
 }
 

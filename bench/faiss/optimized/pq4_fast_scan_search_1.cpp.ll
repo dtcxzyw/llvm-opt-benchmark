@@ -34002,12 +34002,18 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %24 = trunc i8 %23 to i1
   br i1 %24, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %25 = phi i1 [ false, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ true, %2 ]
-  %indvars.iv = phi i64 [ 1, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
+  %25 = phi i1 [ false, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit ], [ true, %2 ]
+  %indvars.iv = phi i64 [ 1, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %26 = load i8, ptr %13, align 8
   %27 = trunc i8 %26 to i1
   br i1 %27, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %28
+
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 28:                                               ; preds = %.preheader
   %29 = getelementptr inbounds [2 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -34201,16 +34207,13 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt
   %.not12.i = icmp eq i32 %90, 0
   br i1 %.not12.i, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, label %88, !llvm.loop !3701
 
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %106, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %106, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
   br i1 %25, label %.preheader, label %.split17.us, !llvm.loop !4612
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -34490,11 +34493,17 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %24 = trunc i8 %23 to i1
   br i1 %24, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %25 = load i8, ptr %13, align 8
   %26 = trunc i8 %25 to i1
   br i1 %26, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %27
+
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 27:                                               ; preds = %.preheader
   %28 = getelementptr inbounds [3 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -34688,18 +34697,15 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt
   %.not12.i = icmp eq i32 %89, 0
   br i1 %.not12.i, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, label %87, !llvm.loop !3701
 
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %105, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %105, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.split17.us, label %.preheader, !llvm.loop !4659
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -34729,11 +34735,17 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %24 = trunc i8 %23 to i1
   br i1 %24, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %25 = load i8, ptr %13, align 8
   %26 = trunc i8 %25 to i1
   br i1 %26, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %27
+
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 27:                                               ; preds = %.preheader
   %28 = getelementptr inbounds [4 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -34927,18 +34939,15 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt
   %.not12.i = icmp eq i32 %89, 0
   br i1 %.not12.i, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, label %87, !llvm.loop !3701
 
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %105, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %105, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.split17.us, label %.preheader, !llvm.loop !4682
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -35553,12 +35562,18 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %23 = trunc i8 %22 to i1
   br i1 %23, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %24 = phi i1 [ false, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ true, %2 ]
-  %indvars.iv = phi i64 [ 1, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
+  %24 = phi i1 [ false, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit ], [ true, %2 ]
+  %indvars.iv = phi i64 [ 1, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %25 = load i8, ptr %13, align 8
   %26 = trunc i8 %25 to i1
   br i1 %26, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %27
+
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 27:                                               ; preds = %.preheader
   %28 = getelementptr inbounds [2 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -35781,16 +35796,13 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit.i: ; preds = %118, %93
   %.not13.i = icmp eq i32 %95, 0
   br i1 %.not13.i, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, label %93, !llvm.loop !3936
 
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
   br i1 %24, label %.preheader, label %.split17.us, !llvm.loop !4752
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -36097,11 +36109,17 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %23 = trunc i8 %22 to i1
   br i1 %23, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %24 = load i8, ptr %13, align 8
   %25 = trunc i8 %24 to i1
   br i1 %25, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %26
+
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 26:                                               ; preds = %.preheader
   %27 = getelementptr inbounds [3 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -36324,18 +36342,15 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit.i: ; preds = %117, %92
   %.not13.i = icmp eq i32 %94, 0
   br i1 %.not13.i, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, label %92, !llvm.loop !3936
 
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.split17.us, label %.preheader, !llvm.loop !4799
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -36364,11 +36379,17 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %23 = trunc i8 %22 to i1
   br i1 %23, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %24 = load i8, ptr %13, align 8
   %25 = trunc i8 %24 to i1
   br i1 %25, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %26
+
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 26:                                               ; preds = %.preheader
   %27 = getelementptr inbounds [4 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -36591,18 +36612,15 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit.i: ; preds = %117, %92
   %.not13.i = icmp eq i32 %94, 0
   br i1 %.not13.i, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, label %92, !llvm.loop !3936
 
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.split17.us, label %.preheader, !llvm.loop !4822
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -36836,12 +36854,18 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %22 = trunc i8 %21 to i1
   br i1 %22, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %23 = phi i1 [ false, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ true, %2 ]
-  %indvars.iv = phi i64 [ 1, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
+  %23 = phi i1 [ false, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit ], [ true, %2 ]
+  %indvars.iv = phi i64 [ 1, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %24 = load i8, ptr %13, align 8
   %25 = trunc i8 %24 to i1
   br i1 %25, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %26
+
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 26:                                               ; preds = %.preheader
   %27 = getelementptr inbounds [2 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -37028,16 +37052,13 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt
   %.not12.i = icmp eq i32 %84, 0
   br i1 %.not12.i, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, label %82, !llvm.loop !4147
 
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %97, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %97, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
   br i1 %23, label %.preheader, label %.split17.us, !llvm.loop !4867
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -37305,11 +37326,17 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %22 = trunc i8 %21 to i1
   br i1 %22, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %23 = load i8, ptr %13, align 8
   %24 = trunc i8 %23 to i1
   br i1 %24, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %25
+
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 25:                                               ; preds = %.preheader
   %26 = getelementptr inbounds [3 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -37496,18 +37523,15 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt
   %.not12.i = icmp eq i32 %83, 0
   br i1 %.not12.i, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, label %81, !llvm.loop !4147
 
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %96, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %96, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.split17.us, label %.preheader, !llvm.loop !4914
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -37535,11 +37559,17 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %22 = trunc i8 %21 to i1
   br i1 %22, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %23 = load i8, ptr %13, align 8
   %24 = trunc i8 %23 to i1
   br i1 %24, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %25
+
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 25:                                               ; preds = %.preheader
   %26 = getelementptr inbounds [4 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -37726,18 +37756,15 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt
   %.not12.i = icmp eq i32 %83, 0
   br i1 %.not12.i, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, label %81, !llvm.loop !4147
 
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %96, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %96, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.split17.us, label %.preheader, !llvm.loop !4937
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -38328,12 +38355,18 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %21 = trunc i8 %20 to i1
   br i1 %21, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %22 = phi i1 [ false, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ true, %2 ]
-  %indvars.iv = phi i64 [ 1, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
+  %22 = phi i1 [ false, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit ], [ true, %2 ]
+  %indvars.iv = phi i64 [ 1, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %23 = load i8, ptr %13, align 8
   %24 = trunc i8 %23 to i1
   br i1 %24, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %25
+
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 25:                                               ; preds = %.preheader
   %26 = getelementptr inbounds [2 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -38549,16 +38582,13 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit.i: ; preds = %109, %87
   %.not13.i = icmp eq i32 %89, 0
   br i1 %.not13.i, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, label %87, !llvm.loop !4381
 
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
   br i1 %22, label %.preheader, label %.split17.us, !llvm.loop !5005
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -38853,11 +38883,17 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %21 = trunc i8 %20 to i1
   br i1 %21, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %22 = load i8, ptr %13, align 8
   %23 = trunc i8 %22 to i1
   br i1 %23, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %24
+
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 24:                                               ; preds = %.preheader
   %25 = getelementptr inbounds [3 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -39073,18 +39109,15 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit.i: ; preds = %108, %86
   %.not13.i = icmp eq i32 %88, 0
   br i1 %.not13.i, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, label %86, !llvm.loop !4381
 
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.split17.us, label %.preheader, !llvm.loop !5052
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -39111,11 +39144,17 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %21 = trunc i8 %20 to i1
   br i1 %21, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %22 = load i8, ptr %13, align 8
   %23 = trunc i8 %22 to i1
   br i1 %23, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %24
+
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 24:                                               ; preds = %.preheader
   %25 = getelementptr inbounds [4 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -39331,18 +39370,15 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit.i: ; preds = %108, %86
   %.not13.i = icmp eq i32 %88, 0
   br i1 %.not13.i, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, label %86, !llvm.loop !4381
 
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMaxItiEEE3addEti.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.split17.us, label %.preheader, !llvm.loop !5075
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -55684,12 +55720,18 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %24 = trunc i8 %23 to i1
   br i1 %24, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %25 = phi i1 [ false, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ true, %2 ]
-  %indvars.iv = phi i64 [ 1, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
+  %25 = phi i1 [ false, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit ], [ true, %2 ]
+  %indvars.iv = phi i64 [ 1, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %26 = load i8, ptr %13, align 8
   %27 = trunc i8 %26 to i1
   br i1 %27, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %28
+
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 28:                                               ; preds = %.preheader
   %29 = getelementptr inbounds [2 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -55883,16 +55925,13 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt
   %.not12.i = icmp eq i32 %90, 0
   br i1 %.not12.i, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, label %88, !llvm.loop !5101
 
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %106, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %106, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
   br i1 %25, label %.preheader, label %.split17.us, !llvm.loop !6011
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -56172,11 +56211,17 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %24 = trunc i8 %23 to i1
   br i1 %24, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %25 = load i8, ptr %13, align 8
   %26 = trunc i8 %25 to i1
   br i1 %26, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %27
+
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 27:                                               ; preds = %.preheader
   %28 = getelementptr inbounds [3 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -56370,18 +56415,15 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt
   %.not12.i = icmp eq i32 %89, 0
   br i1 %.not12.i, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, label %87, !llvm.loop !5101
 
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %105, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %105, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.split17.us, label %.preheader, !llvm.loop !6058
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -56411,11 +56453,17 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %24 = trunc i8 %23 to i1
   br i1 %24, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %25 = load i8, ptr %13, align 8
   %26 = trunc i8 %25 to i1
   br i1 %26, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %27
+
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 27:                                               ; preds = %.preheader
   %28 = getelementptr inbounds [4 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -56609,18 +56657,15 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt
   %.not12.i = icmp eq i32 %89, 0
   br i1 %.not12.i, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, label %87, !llvm.loop !5101
 
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %105, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %105, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.split17.us, label %.preheader, !llvm.loop !6081
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -57235,12 +57280,18 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %23 = trunc i8 %22 to i1
   br i1 %23, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %24 = phi i1 [ false, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ true, %2 ]
-  %indvars.iv = phi i64 [ 1, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
+  %24 = phi i1 [ false, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit ], [ true, %2 ]
+  %indvars.iv = phi i64 [ 1, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %25 = load i8, ptr %13, align 8
   %26 = trunc i8 %25 to i1
   br i1 %26, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %27
+
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 27:                                               ; preds = %.preheader
   %28 = getelementptr inbounds [2 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -57463,16 +57514,13 @@ _ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit.i: ; preds = %118, %93
   %.not13.i = icmp eq i32 %95, 0
   br i1 %.not13.i, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, label %93, !llvm.loop !5335
 
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
   br i1 %24, label %.preheader, label %.split17.us, !llvm.loop !6151
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -57779,11 +57827,17 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %23 = trunc i8 %22 to i1
   br i1 %23, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %24 = load i8, ptr %13, align 8
   %25 = trunc i8 %24 to i1
   br i1 %25, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %26
+
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 26:                                               ; preds = %.preheader
   %27 = getelementptr inbounds [3 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -58006,18 +58060,15 @@ _ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit.i: ; preds = %117, %92
   %.not13.i = icmp eq i32 %94, 0
   br i1 %.not13.i, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, label %92, !llvm.loop !5335
 
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.split17.us, label %.preheader, !llvm.loop !6198
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -58046,11 +58097,17 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %23 = trunc i8 %22 to i1
   br i1 %23, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %24 = load i8, ptr %13, align 8
   %25 = trunc i8 %24 to i1
   br i1 %25, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %26
+
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 26:                                               ; preds = %.preheader
   %27 = getelementptr inbounds [4 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -58273,18 +58330,15 @@ _ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit.i: ; preds = %117, %92
   %.not13.i = icmp eq i32 %94, 0
   br i1 %.not13.i, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, label %92, !llvm.loop !5335
 
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.split17.us, label %.preheader, !llvm.loop !6221
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -58518,12 +58572,18 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %22 = trunc i8 %21 to i1
   br i1 %22, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %23 = phi i1 [ false, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ true, %2 ]
-  %indvars.iv = phi i64 [ 1, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
+  %23 = phi i1 [ false, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit ], [ true, %2 ]
+  %indvars.iv = phi i64 [ 1, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %24 = load i8, ptr %13, align 8
   %25 = trunc i8 %24 to i1
   br i1 %25, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %26
+
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 26:                                               ; preds = %.preheader
   %27 = getelementptr inbounds [2 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -58710,16 +58770,13 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt
   %.not12.i = icmp eq i32 %84, 0
   br i1 %.not12.i, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, label %82, !llvm.loop !5546
 
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %97, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %97, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
   br i1 %23, label %.preheader, label %.split17.us, !llvm.loop !6266
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -58987,11 +59044,17 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %22 = trunc i8 %21 to i1
   br i1 %22, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %23 = load i8, ptr %13, align 8
   %24 = trunc i8 %23 to i1
   br i1 %24, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %25
+
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 25:                                               ; preds = %.preheader
   %26 = getelementptr inbounds [3 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -59178,18 +59241,15 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt
   %.not12.i = icmp eq i32 %83, 0
   br i1 %.not12.i, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, label %81, !llvm.loop !5546
 
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %96, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %96, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.split17.us, label %.preheader, !llvm.loop !6313
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -59217,11 +59277,17 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %22 = trunc i8 %21 to i1
   br i1 %22, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %23 = load i8, ptr %13, align 8
   %24 = trunc i8 %23 to i1
   br i1 %24, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %25
+
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 25:                                               ; preds = %.preheader
   %26 = getelementptr inbounds [4 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -59408,18 +59474,15 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt
   %.not12.i = icmp eq i32 %83, 0
   br i1 %.not12.i, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, label %81, !llvm.loop !5546
 
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %96, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %96, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.split17.us, label %.preheader, !llvm.loop !6336
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -60010,12 +60073,18 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %21 = trunc i8 %20 to i1
   br i1 %21, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %22 = phi i1 [ false, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ true, %2 ]
-  %indvars.iv = phi i64 [ 1, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
+  %22 = phi i1 [ false, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit ], [ true, %2 ]
+  %indvars.iv = phi i64 [ 1, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %23 = load i8, ptr %13, align 8
   %24 = trunc i8 %23 to i1
   br i1 %24, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %25
+
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 25:                                               ; preds = %.preheader
   %26 = getelementptr inbounds [2 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -60231,16 +60300,13 @@ _ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit.i: ; preds = %109, %87
   %.not13.i = icmp eq i32 %89, 0
   br i1 %.not13.i, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, label %87, !llvm.loop !5780
 
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
   br i1 %22, label %.preheader, label %.split17.us, !llvm.loop !6404
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -60535,11 +60601,17 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %21 = trunc i8 %20 to i1
   br i1 %21, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %22 = load i8, ptr %13, align 8
   %23 = trunc i8 %22 to i1
   br i1 %23, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %24
+
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 24:                                               ; preds = %.preheader
   %25 = getelementptr inbounds [3 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -60755,18 +60827,15 @@ _ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit.i: ; preds = %108, %86
   %.not13.i = icmp eq i32 %88, 0
   br i1 %.not13.i, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, label %86, !llvm.loop !5780
 
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.split17.us, label %.preheader, !llvm.loop !6451
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -60793,11 +60862,17 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %21 = trunc i8 %20 to i1
   br i1 %21, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %22 = load i8, ptr %13, align 8
   %23 = trunc i8 %22 to i1
   br i1 %23, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %24
+
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 24:                                               ; preds = %.preheader
   %25 = getelementptr inbounds [4 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -61013,18 +61088,15 @@ _ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit.i: ; preds = %108, %86
   %.not13.i = icmp eq i32 %88, 0
   br i1 %.not13.i, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, label %86, !llvm.loop !5780
 
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMinItiEEE3addEti.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.split17.us, label %.preheader, !llvm.loop !6474
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItiEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -77350,12 +77422,18 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %24 = trunc i8 %23 to i1
   br i1 %24, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %25 = phi i1 [ false, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ true, %2 ]
-  %indvars.iv = phi i64 [ 1, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
+  %25 = phi i1 [ false, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit ], [ true, %2 ]
+  %indvars.iv = phi i64 [ 1, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %26 = load i8, ptr %13, align 8
   %27 = trunc i8 %26 to i1
   br i1 %27, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %28
+
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 28:                                               ; preds = %.preheader
   %29 = getelementptr inbounds [2 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -77549,16 +77627,13 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt
   %.not12.i = icmp eq i32 %90, 0
   br i1 %.not12.i, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, label %88, !llvm.loop !6499
 
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %106, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %106, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
   br i1 %25, label %.preheader, label %.split17.us, !llvm.loop !7409
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -77838,11 +77913,17 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %24 = trunc i8 %23 to i1
   br i1 %24, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %25 = load i8, ptr %13, align 8
   %26 = trunc i8 %25 to i1
   br i1 %26, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %27
+
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 27:                                               ; preds = %.preheader
   %28 = getelementptr inbounds [3 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -78036,18 +78117,15 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt
   %.not12.i = icmp eq i32 %89, 0
   br i1 %.not12.i, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, label %87, !llvm.loop !6499
 
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %105, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %105, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.split17.us, label %.preheader, !llvm.loop !7456
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -78077,11 +78155,17 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %24 = trunc i8 %23 to i1
   br i1 %24, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %25 = load i8, ptr %13, align 8
   %26 = trunc i8 %25 to i1
   br i1 %26, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %27
+
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 27:                                               ; preds = %.preheader
   %28 = getelementptr inbounds [4 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -78275,18 +78359,15 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt
   %.not12.i = icmp eq i32 %89, 0
   br i1 %.not12.i, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, label %87, !llvm.loop !6499
 
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %105, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %105, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.split17.us, label %.preheader, !llvm.loop !7479
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -78899,12 +78980,18 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %23 = trunc i8 %22 to i1
   br i1 %23, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %24 = phi i1 [ false, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ true, %2 ]
-  %indvars.iv = phi i64 [ 1, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
+  %24 = phi i1 [ false, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit ], [ true, %2 ]
+  %indvars.iv = phi i64 [ 1, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %25 = load i8, ptr %13, align 8
   %26 = trunc i8 %25 to i1
   br i1 %26, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %27
+
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 27:                                               ; preds = %.preheader
   %28 = getelementptr inbounds [2 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -79126,16 +79213,13 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItlEEE3addEtl.exit.i: ; preds = %117, %93
   %.not13.i = icmp eq i32 %95, 0
   br i1 %.not13.i, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, label %93, !llvm.loop !6733
 
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMaxItlEEE3addEtl.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMaxItlEEE3addEtl.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
   br i1 %24, label %.preheader, label %.split17.us, !llvm.loop !7549
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -79441,11 +79525,17 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %23 = trunc i8 %22 to i1
   br i1 %23, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %24 = load i8, ptr %13, align 8
   %25 = trunc i8 %24 to i1
   br i1 %25, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %26
+
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 26:                                               ; preds = %.preheader
   %27 = getelementptr inbounds [3 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -79667,18 +79757,15 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItlEEE3addEtl.exit.i: ; preds = %116, %92
   %.not13.i = icmp eq i32 %94, 0
   br i1 %.not13.i, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, label %92, !llvm.loop !6733
 
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMaxItlEEE3addEtl.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMaxItlEEE3addEtl.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.split17.us, label %.preheader, !llvm.loop !7596
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -79707,11 +79794,17 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %23 = trunc i8 %22 to i1
   br i1 %23, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %24 = load i8, ptr %13, align 8
   %25 = trunc i8 %24 to i1
   br i1 %25, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %26
+
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 26:                                               ; preds = %.preheader
   %27 = getelementptr inbounds [4 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -79933,18 +80026,15 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItlEEE3addEtl.exit.i: ; preds = %116, %92
   %.not13.i = icmp eq i32 %94, 0
   br i1 %.not13.i, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, label %92, !llvm.loop !6733
 
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMaxItlEEE3addEtl.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMaxItlEEE3addEtl.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.split17.us, label %.preheader, !llvm.loop !7619
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -80178,12 +80268,18 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %22 = trunc i8 %21 to i1
   br i1 %22, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %23 = phi i1 [ false, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ true, %2 ]
-  %indvars.iv = phi i64 [ 1, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
+  %23 = phi i1 [ false, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit ], [ true, %2 ]
+  %indvars.iv = phi i64 [ 1, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %24 = load i8, ptr %13, align 8
   %25 = trunc i8 %24 to i1
   br i1 %25, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %26
+
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 26:                                               ; preds = %.preheader
   %27 = getelementptr inbounds [2 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -80370,16 +80466,13 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt
   %.not12.i = icmp eq i32 %84, 0
   br i1 %.not12.i, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, label %82, !llvm.loop !6944
 
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %97, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %97, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
   br i1 %23, label %.preheader, label %.split17.us, !llvm.loop !7664
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -80647,11 +80740,17 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %22 = trunc i8 %21 to i1
   br i1 %22, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %23 = load i8, ptr %13, align 8
   %24 = trunc i8 %23 to i1
   br i1 %24, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %25
+
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 25:                                               ; preds = %.preheader
   %26 = getelementptr inbounds [3 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -80838,18 +80937,15 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt
   %.not12.i = icmp eq i32 %83, 0
   br i1 %.not12.i, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, label %81, !llvm.loop !6944
 
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %96, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %96, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.split17.us, label %.preheader, !llvm.loop !7711
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -80877,11 +80973,17 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %22 = trunc i8 %21 to i1
   br i1 %22, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %23 = load i8, ptr %13, align 8
   %24 = trunc i8 %23 to i1
   br i1 %24, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %25
+
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 25:                                               ; preds = %.preheader
   %26 = getelementptr inbounds [4 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -81068,18 +81170,15 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt
   %.not12.i = icmp eq i32 %83, 0
   br i1 %.not12.i, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, label %81, !llvm.loop !6944
 
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %96, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %96, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.split17.us, label %.preheader, !llvm.loop !7734
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -81668,12 +81767,18 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %21 = trunc i8 %20 to i1
   br i1 %21, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %22 = phi i1 [ false, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ true, %2 ]
-  %indvars.iv = phi i64 [ 1, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
+  %22 = phi i1 [ false, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit ], [ true, %2 ]
+  %indvars.iv = phi i64 [ 1, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %23 = load i8, ptr %13, align 8
   %24 = trunc i8 %23 to i1
   br i1 %24, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %25
+
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 25:                                               ; preds = %.preheader
   %26 = getelementptr inbounds [2 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -81888,16 +81993,13 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItlEEE3addEtl.exit.i: ; preds = %108, %87
   %.not13.i = icmp eq i32 %89, 0
   br i1 %.not13.i, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, label %87, !llvm.loop !7178
 
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMaxItlEEE3addEtl.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMaxItlEEE3addEtl.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
   br i1 %22, label %.preheader, label %.split17.us, !llvm.loop !7802
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -82191,11 +82293,17 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %21 = trunc i8 %20 to i1
   br i1 %21, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %22 = load i8, ptr %13, align 8
   %23 = trunc i8 %22 to i1
   br i1 %23, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %24
+
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 24:                                               ; preds = %.preheader
   %25 = getelementptr inbounds [3 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -82410,18 +82518,15 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItlEEE3addEtl.exit.i: ; preds = %107, %86
   %.not13.i = icmp eq i32 %88, 0
   br i1 %.not13.i, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, label %86, !llvm.loop !7178
 
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMaxItlEEE3addEtl.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMaxItlEEE3addEtl.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.split17.us, label %.preheader, !llvm.loop !7849
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -82448,11 +82553,17 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %21 = trunc i8 %20 to i1
   br i1 %21, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %22 = load i8, ptr %13, align 8
   %23 = trunc i8 %22 to i1
   br i1 %23, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %24
+
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 24:                                               ; preds = %.preheader
   %25 = getelementptr inbounds [4 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -82667,18 +82778,15 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItlEEE3addEtl.exit.i: ; preds = %107, %86
   %.not13.i = icmp eq i32 %88, 0
   br i1 %.not13.i, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, label %86, !llvm.loop !7178
 
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMaxItlEEE3addEtl.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMaxItlEEE3addEtl.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.split17.us, label %.preheader, !llvm.loop !7872
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMaxItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -99004,12 +99112,18 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %24 = trunc i8 %23 to i1
   br i1 %24, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %25 = phi i1 [ false, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ true, %2 ]
-  %indvars.iv = phi i64 [ 1, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
+  %25 = phi i1 [ false, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit ], [ true, %2 ]
+  %indvars.iv = phi i64 [ 1, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %26 = load i8, ptr %13, align 8
   %27 = trunc i8 %26 to i1
   br i1 %27, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %28
+
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 28:                                               ; preds = %.preheader
   %29 = getelementptr inbounds [2 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -99203,16 +99317,13 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt
   %.not12.i = icmp eq i32 %90, 0
   br i1 %.not12.i, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, label %88, !llvm.loop !7897
 
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %106, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %106, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
   br i1 %25, label %.preheader, label %.split17.us, !llvm.loop !8807
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -99492,11 +99603,17 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %24 = trunc i8 %23 to i1
   br i1 %24, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %25 = load i8, ptr %13, align 8
   %26 = trunc i8 %25 to i1
   br i1 %26, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %27
+
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 27:                                               ; preds = %.preheader
   %28 = getelementptr inbounds [3 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -99690,18 +99807,15 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt
   %.not12.i = icmp eq i32 %89, 0
   br i1 %.not12.i, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, label %87, !llvm.loop !7897
 
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %105, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %105, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.split17.us, label %.preheader, !llvm.loop !8854
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -99731,11 +99845,17 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %24 = trunc i8 %23 to i1
   br i1 %24, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %25 = load i8, ptr %13, align 8
   %26 = trunc i8 %25 to i1
   br i1 %26, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %27
+
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 27:                                               ; preds = %.preheader
   %28 = getelementptr inbounds [4 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -99929,18 +100049,15 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt
   %.not12.i = icmp eq i32 %89, 0
   br i1 %.not12.i, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, label %87, !llvm.loop !7897
 
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %105, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %105, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.split17.us, label %.preheader, !llvm.loop !8877
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -100553,12 +100670,18 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %23 = trunc i8 %22 to i1
   br i1 %23, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %24 = phi i1 [ false, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ true, %2 ]
-  %indvars.iv = phi i64 [ 1, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
+  %24 = phi i1 [ false, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit ], [ true, %2 ]
+  %indvars.iv = phi i64 [ 1, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %25 = load i8, ptr %13, align 8
   %26 = trunc i8 %25 to i1
   br i1 %26, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %27
+
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 27:                                               ; preds = %.preheader
   %28 = getelementptr inbounds [2 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -100780,16 +100903,13 @@ _ZN5faiss13ReservoirTopNINS_4CMinItlEEE3addEtl.exit.i: ; preds = %117, %93
   %.not13.i = icmp eq i32 %95, 0
   br i1 %.not13.i, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, label %93, !llvm.loop !8131
 
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMinItlEEE3addEtl.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMinItlEEE3addEtl.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
   br i1 %24, label %.preheader, label %.split17.us, !llvm.loop !8947
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -101095,11 +101215,17 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %23 = trunc i8 %22 to i1
   br i1 %23, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %24 = load i8, ptr %13, align 8
   %25 = trunc i8 %24 to i1
   br i1 %25, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %26
+
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 26:                                               ; preds = %.preheader
   %27 = getelementptr inbounds [3 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -101321,18 +101447,15 @@ _ZN5faiss13ReservoirTopNINS_4CMinItlEEE3addEtl.exit.i: ; preds = %116, %92
   %.not13.i = icmp eq i32 %94, 0
   br i1 %.not13.i, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, label %92, !llvm.loop !8131
 
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMinItlEEE3addEtl.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMinItlEEE3addEtl.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.split17.us, label %.preheader, !llvm.loop !8994
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -101361,11 +101484,17 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %23 = trunc i8 %22 to i1
   br i1 %23, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %24 = load i8, ptr %13, align 8
   %25 = trunc i8 %24 to i1
   br i1 %25, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %26
+
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
 
 26:                                               ; preds = %.preheader
   %27 = getelementptr inbounds [4 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -101587,18 +101716,15 @@ _ZN5faiss13ReservoirTopNINS_4CMinItlEEE3addEtl.exit.i: ; preds = %116, %92
   %.not13.i = icmp eq i32 %94, 0
   br i1 %.not13.i, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, label %92, !llvm.loop !8131
 
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMinItlEEE3addEtl.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMinItlEEE3addEtl.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.split17.us, label %.preheader, !llvm.loop !9017
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb1EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -101832,12 +101958,18 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %22 = trunc i8 %21 to i1
   br i1 %22, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %23 = phi i1 [ false, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ true, %2 ]
-  %indvars.iv = phi i64 [ 1, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
+  %23 = phi i1 [ false, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit ], [ true, %2 ]
+  %indvars.iv = phi i64 [ 1, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %24 = load i8, ptr %13, align 8
   %25 = trunc i8 %24 to i1
   br i1 %25, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %26
+
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 26:                                               ; preds = %.preheader
   %27 = getelementptr inbounds [2 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -102024,16 +102156,13 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt
   %.not12.i = icmp eq i32 %84, 0
   br i1 %.not12.i, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, label %82, !llvm.loop !8342
 
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %97, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %97, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
   br i1 %23, label %.preheader, label %.split17.us, !llvm.loop !9062
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -102301,11 +102430,17 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %22 = trunc i8 %21 to i1
   br i1 %22, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %23 = load i8, ptr %13, align 8
   %24 = trunc i8 %23 to i1
   br i1 %24, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %25
+
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 25:                                               ; preds = %.preheader
   %26 = getelementptr inbounds [3 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -102492,18 +102627,15 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt
   %.not12.i = icmp eq i32 %83, 0
   br i1 %.not12.i, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, label %81, !llvm.loop !8342
 
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %96, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %96, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.split17.us, label %.preheader, !llvm.loop !9109
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -102531,11 +102663,17 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %22 = trunc i8 %21 to i1
   br i1 %22, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %23 = load i8, ptr %13, align 8
   %24 = trunc i8 %23 to i1
   br i1 %24, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %25
+
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 25:                                               ; preds = %.preheader
   %26 = getelementptr inbounds [4 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -102722,18 +102860,15 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt
   %.not12.i = icmp eq i32 %83, 0
   br i1 %.not12.i, label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, label %81, !llvm.loop !8342
 
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %96, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %96, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.split17.us, label %.preheader, !llvm.loop !9132
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers19SingleResultHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -103322,12 +103457,18 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %21 = trunc i8 %20 to i1
   br i1 %21, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %22 = phi i1 [ false, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ true, %2 ]
-  %indvars.iv = phi i64 [ 1, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
+  %22 = phi i1 [ false, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit ], [ true, %2 ]
+  %indvars.iv = phi i64 [ 1, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %23 = load i8, ptr %13, align 8
   %24 = trunc i8 %23 to i1
   br i1 %24, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %25
+
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 25:                                               ; preds = %.preheader
   %26 = getelementptr inbounds [2 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -103542,16 +103683,13 @@ _ZN5faiss13ReservoirTopNINS_4CMinItlEEE3addEtl.exit.i: ; preds = %108, %87
   %.not13.i = icmp eq i32 %89, 0
   br i1 %.not13.i, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, label %87, !llvm.loop !8576
 
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMinItlEEE3addEtl.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMinItlEEE3addEtl.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
   br i1 %22, label %.preheader, label %.split17.us, !llvm.loop !9200
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -103845,11 +103983,17 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %21 = trunc i8 %20 to i1
   br i1 %21, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %22 = load i8, ptr %13, align 8
   %23 = trunc i8 %22 to i1
   br i1 %23, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %24
+
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 24:                                               ; preds = %.preheader
   %25 = getelementptr inbounds [3 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -104064,18 +104208,15 @@ _ZN5faiss13ReservoirTopNINS_4CMinItlEEE3addEtl.exit.i: ; preds = %107, %86
   %.not13.i = icmp eq i32 %88, 0
   br i1 %.not13.i, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, label %86, !llvm.loop !8576
 
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMinItlEEE3addEtl.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMinItlEEE3addEtl.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.split17.us, label %.preheader, !llvm.loop !9247
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 
@@ -104102,11 +104243,17 @@ define linkonce_odr void @_ZNK5faiss20simd_result_handlers19FixedStorageHandlerI
   %21 = trunc i8 %20 to i1
   br i1 %21, label %.split17.us, label %.preheader
 
-.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit ], [ 0, %2 ]
   %22 = load i8, ptr %13, align 8
   %23 = trunc i8 %22 to i1
   br i1 %23, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, label %24
+
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
 
 24:                                               ; preds = %.preheader
   %25 = getelementptr inbounds [4 x [2 x %"struct.faiss::simd16uint16"]], ptr %12, i64 0, i64 %indvars.iv, i64 1
@@ -104321,18 +104468,15 @@ _ZN5faiss13ReservoirTopNINS_4CMinItlEEE3addEtl.exit.i: ; preds = %107, %86
   %.not13.i = icmp eq i32 %88, 0
   br i1 %.not13.i, label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, label %86, !llvm.loop !8576
 
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMinItlEEE3addEtl.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i
+_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit: ; preds = %_ZN5faiss13ReservoirTopNINS_4CMinItlEEE3addEtl.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.i, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb0EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread.i, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us
-
-_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us: ; preds = %.preheader, %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.split17.us, label %.preheader, !llvm.loop !9270
 
-.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit.us, %2
+.split17.us:                                      ; preds = %_ZN5faiss20simd_result_handlers16ReservoirHandlerINS_4CMinItlEELb0EE6handleEmmNS_12simd16uint16ES5_.exit, %2
   ret void
 }
 

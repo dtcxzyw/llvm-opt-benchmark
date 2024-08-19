@@ -4451,30 +4451,23 @@ do.end.i121.cont:                                 ; preds = %do.end.i121.invoke
 
 if.end62:                                         ; preds = %invoke.cont58
   %cmp.i125 = icmp eq i32 %storemerge, -2147483648
-  br i1 %cmp.i125, label %if.end72, label %if.else68
+  br i1 %cmp.i125, label %invoke.cont77, label %if.else68
 
 if.end62.thread:                                  ; preds = %invoke.cont49
   %cmp.i125171 = icmp eq i32 %storemerge, -2147483648
-  br i1 %cmp.i125171, label %if.then74, label %if.then67
-
-if.then67:                                        ; preds = %if.end62.thread
-  store i32 %storemerge, ptr %d, align 4
-  br label %invoke.cont77
+  br i1 %cmp.i125171, label %if.then74, label %invoke.cont77
 
 if.else68:                                        ; preds = %if.end62
   %.sroa.speculated = call i32 @llvm.umax.i32(i32 %storemerge, i32 %mul60)
-  store i32 %.sroa.speculated, ptr %d, align 4
-  br label %invoke.cont77
-
-if.end72:                                         ; preds = %if.end62
-  store i32 %mul60, ptr %d, align 4
   br label %invoke.cont77
 
 if.then74:                                        ; preds = %if.end62.thread
   store i32 -2147483648, ptr %d, align 4
   br label %cleanup
 
-invoke.cont77:                                    ; preds = %if.else68, %if.then67, %if.end72
+invoke.cont77:                                    ; preds = %if.end62, %if.end62.thread, %if.else68
+  %.sroa.speculated.sink = phi i32 [ %.sroa.speculated, %if.else68 ], [ %storemerge, %if.end62.thread ], [ %mul60, %if.end62 ]
+  store i32 %.sroa.speculated.sink, ptr %d, align 4
   store i32 1, ptr %ref.tmp76, align 4
   %call79 = invoke i32 @_ZNK3ue25depthmiERKS0_(ptr noundef nonnull align 4 dereferenceable(4) %d, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp76)
           to label %cleanup unwind label %lpad11

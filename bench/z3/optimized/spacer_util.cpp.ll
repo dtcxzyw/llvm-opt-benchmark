@@ -6552,7 +6552,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i66.i.i.i.i:  ; preds = %invoke.cont57.i.i.i
 if.end.i69.i.i.i.i:                               ; preds = %_ZN11ast_manager7inc_refEP3ast.exit.i66.i.i.i.i, %invoke.cont57.i.i.i.i
   %180 = load ptr, ptr %res.i.i.i.i, align 8
   %tobool.not.i3.i70.i.i.i.i = icmp eq ptr %180, null
-  br i1 %tobool.not.i3.i70.i.i.i.i, label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit78.i.i.i.i, label %if.then.i.i.i71.i.i.i.i
+  br i1 %tobool.not.i3.i70.i.i.i.i, label %if.end86.sink.split.i.i.i.i, label %if.then.i.i.i71.i.i.i.i
 
 if.then.i.i.i71.i.i.i.i:                          ; preds = %if.end.i69.i.i.i.i
   %181 = load ptr, ptr %m_manager.i.i185.i.i.i, align 8
@@ -6561,15 +6561,11 @@ if.then.i.i.i71.i.i.i.i:                          ; preds = %if.end.i69.i.i.i.i
   %dec.i.i.i.i74.i.i.i.i = add i32 %182, -1
   store i32 %dec.i.i.i.i74.i.i.i.i, ptr %m_ref_count.i.i.i.i73.i.i.i.i, align 4
   %cmp.i.i.i75.i.i.i.i = icmp eq i32 %dec.i.i.i.i74.i.i.i.i, 0
-  br i1 %cmp.i.i.i75.i.i.i.i, label %if.then2.i.i.i76.i.i.i.i, label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit78.i.i.i.i
+  br i1 %cmp.i.i.i75.i.i.i.i, label %if.then2.i.i.i76.i.i.i.i, label %if.end86.sink.split.i.i.i.i
 
 if.then2.i.i.i76.i.i.i.i:                         ; preds = %if.then.i.i.i71.i.i.i.i
   invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %181, ptr noundef nonnull %180)
-          to label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit78.i.i.i.i unwind label %lpad3.i.i.i.i
-
-_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit78.i.i.i.i: ; preds = %if.then2.i.i.i76.i.i.i.i, %if.then.i.i.i71.i.i.i.i, %if.end.i69.i.i.i.i
-  store ptr %call2.i63.i.i.i.i, ptr %res.i.i.i.i, align 8
-  br label %if.end86.i.i.i.i
+          to label %if.end86.sink.split.i.i.i.i unwind label %lpad3.i.i.i.i
 
 _ZNK11ast_manager5is_eqEPK4expr.exit.i.i.i.i.i:   ; preds = %_ZNK11ast_manager6is_xorEPK4expr.exit.i.i.i.i.i
   %cmp2.i.i.i.i.i.i90.i.i.i.i = icmp eq i32 %173, 2
@@ -6663,7 +6659,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i119.i.i.i.i: ; preds = %invoke.cont79.i.i.i
 if.end.i122.i.i.i.i:                              ; preds = %_ZN11ast_manager7inc_refEP3ast.exit.i119.i.i.i.i, %invoke.cont79.i.i.i.i
   %198 = load ptr, ptr %res.i.i.i.i, align 8
   %tobool.not.i3.i123.i.i.i.i = icmp eq ptr %198, null
-  br i1 %tobool.not.i3.i123.i.i.i.i, label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit131.i.i.i.i, label %if.then.i.i.i124.i.i.i.i
+  br i1 %tobool.not.i3.i123.i.i.i.i, label %if.end86.sink.split.i.i.i.i, label %if.then.i.i.i124.i.i.i.i
 
 if.then.i.i.i124.i.i.i.i:                         ; preds = %if.end.i122.i.i.i.i
   %199 = load ptr, ptr %m_manager.i.i185.i.i.i, align 8
@@ -6672,17 +6668,18 @@ if.then.i.i.i124.i.i.i.i:                         ; preds = %if.end.i122.i.i.i.i
   %dec.i.i.i.i127.i.i.i.i = add i32 %200, -1
   store i32 %dec.i.i.i.i127.i.i.i.i, ptr %m_ref_count.i.i.i.i126.i.i.i.i, align 4
   %cmp.i.i.i128.i.i.i.i = icmp eq i32 %dec.i.i.i.i127.i.i.i.i, 0
-  br i1 %cmp.i.i.i128.i.i.i.i, label %if.then2.i.i.i129.i.i.i.i, label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit131.i.i.i.i
+  br i1 %cmp.i.i.i128.i.i.i.i, label %if.then2.i.i.i129.i.i.i.i, label %if.end86.sink.split.i.i.i.i
 
 if.then2.i.i.i129.i.i.i.i:                        ; preds = %if.then.i.i.i124.i.i.i.i
   invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %199, ptr noundef nonnull %198)
-          to label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit131.i.i.i.i unwind label %lpad3.i.i.i.i
+          to label %if.end86.sink.split.i.i.i.i unwind label %lpad3.i.i.i.i
 
-_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit131.i.i.i.i: ; preds = %if.then2.i.i.i129.i.i.i.i, %if.then.i.i.i124.i.i.i.i, %if.end.i122.i.i.i.i
-  store ptr %call.i116.i.i.i.i, ptr %res.i.i.i.i, align 8
+if.end86.sink.split.i.i.i.i:                      ; preds = %if.then2.i.i.i129.i.i.i.i, %if.then.i.i.i124.i.i.i.i, %if.end.i122.i.i.i.i, %if.then2.i.i.i76.i.i.i.i, %if.then.i.i.i71.i.i.i.i, %if.end.i69.i.i.i.i
+  %call.i116.sink.i.i.i.i = phi ptr [ %call2.i63.i.i.i.i, %if.then2.i.i.i76.i.i.i.i ], [ %call2.i63.i.i.i.i, %if.end.i69.i.i.i.i ], [ %call2.i63.i.i.i.i, %if.then.i.i.i71.i.i.i.i ], [ %call.i116.i.i.i.i, %if.then2.i.i.i129.i.i.i.i ], [ %call.i116.i.i.i.i, %if.end.i122.i.i.i.i ], [ %call.i116.i.i.i.i, %if.then.i.i.i124.i.i.i.i ]
+  store ptr %call.i116.sink.i.i.i.i, ptr %res.i.i.i.i, align 8
   br label %if.end86.i.i.i.i
 
-if.end86.i.i.i.i:                                 ; preds = %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit131.i.i.i.i, %invoke.cont75.i.i.i.i, %invoke.cont64.i.i.i.i, %call.i.noexc.i.i.i.i, %land.lhs.true.i91.i.i.i.i, %_ZNK11ast_manager5is_eqEPK4expr.exit.i.i.i.i.i, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit78.i.i.i.i, %land.lhs.true.i58.i.i.i.i, %land.rhs.i.i.i51.i.i.i.i, %if.then51.i.i.i.i, %land.lhs.true.i.i211.i.i.i, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i.i.i.i, %land.rhs.i.i.i.i.i.i.i, %if.end45.i.i.i.i
+if.end86.i.i.i.i:                                 ; preds = %if.end86.sink.split.i.i.i.i, %invoke.cont75.i.i.i.i, %invoke.cont64.i.i.i.i, %call.i.noexc.i.i.i.i, %land.lhs.true.i91.i.i.i.i, %_ZNK11ast_manager5is_eqEPK4expr.exit.i.i.i.i.i, %land.lhs.true.i58.i.i.i.i, %land.rhs.i.i.i51.i.i.i.i, %if.then51.i.i.i.i, %land.lhs.true.i.i211.i.i.i, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i.i.i.i, %land.rhs.i.i.i.i.i.i.i, %if.end45.i.i.i.i
   %201 = load ptr, ptr %ipick, align 8
   %202 = load ptr, ptr %res.i.i.i.i, align 8
   %call91.i.i.i.i = invoke noundef zeroext i1 @_ZN5model7is_trueEP4expr(ptr noundef nonnull align 8 dereferenceable(160) %201, ptr noundef %202)

@@ -175,7 +175,7 @@ define i32 @mca_base_pvar_find(ptr nocapture readnone %0, ptr noundef %1, ptr no
   %6 = alloca ptr, align 8
   %7 = call i32 @mca_base_var_generate_full_name4(ptr noundef null, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %6) #16
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %8, label %41
+  br i1 %.not, label %8, label %42
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %6, align 8
@@ -183,7 +183,7 @@ define i32 @mca_base_pvar_find(ptr nocapture readnone %0, ptr noundef %1, ptr no
   %10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #17
   %11 = call i32 @opal_hash_table_get_value_ptr(ptr noundef nonnull @mca_base_pvar_index_hash, ptr noundef %9, i64 noundef %10, ptr noundef nonnull %5) #16
   %.not.i = icmp eq i32 %11, 0
-  br i1 %.not.i, label %12, label %mca_base_pvar_find_by_name.exit.thread
+  br i1 %.not.i, label %12, label %.sink.split
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %5, align 8
@@ -191,7 +191,7 @@ define i32 @mca_base_pvar_find(ptr nocapture readnone %0, ptr noundef %1, ptr no
   %15 = trunc i64 %14 to i32
   %16 = load i32, ptr @pvar_count, align 4
   %.not.i.i = icmp sgt i32 %16, %15
-  br i1 %.not.i.i, label %17, label %mca_base_pvar_find_by_name.exit.thread
+  br i1 %.not.i.i, label %17, label %.sink.split
 
 17:                                               ; preds = %12
   %18 = icmp sgt i32 %15, -1
@@ -226,27 +226,22 @@ opal_pointer_array_get_item.exit.i.i:             ; preds = %32, %25
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %35, 1024
   %.not7.i.i = icmp eq i32 %36, 0
-  br i1 %.not7.i.i, label %37, label %mca_base_pvar_find_by_name.exit.thread
-
-mca_base_pvar_find_by_name.exit.thread:           ; preds = %8, %12, %opal_pointer_array_get_item.exit.i.i
-  %.0.i.ph = phi i32 [ -18, %opal_pointer_array_get_item.exit.i.i ], [ -18, %12 ], [ %11, %8 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %.sink.split
+  br i1 %.not7.i.i, label %37, label %.sink.split
 
 37:                                               ; preds = %opal_pointer_array_get_item.exit.i.i
   %38 = load ptr, ptr %5, align 8
   %39 = ptrtoint ptr %38 to i64
   %40 = trunc i64 %39 to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %mca_base_pvar_find_by_name.exit.thread, %37
-  %.0.ph = phi i32 [ %.0.i.ph, %mca_base_pvar_find_by_name.exit.thread ], [ %40, %37 ]
-  %.sink = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %.sink) #16
-  br label %41
+.sink.split:                                      ; preds = %opal_pointer_array_get_item.exit.i.i, %12, %8, %37
+  %.0.ph = phi i32 [ %40, %37 ], [ -18, %opal_pointer_array_get_item.exit.i.i ], [ -18, %12 ], [ %11, %8 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  %41 = load ptr, ptr %6, align 8
+  call void @free(ptr noundef %41) #16
+  br label %42
 
-41:                                               ; preds = %.sink.split, %4
+42:                                               ; preds = %.sink.split, %4
   %.0 = phi i32 [ -1, %4 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }

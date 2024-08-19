@@ -859,10 +859,10 @@ define void @_ZN3cfg3dnf7DnfExpr12why_inactive17h9553ddf5787b5fc6E(ptr noalias n
 
 30:                                               ; preds = %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   br label %31
 
 31:                                               ; preds = %.loopexit, %30
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   ret void
 
 32:                                               ; preds = %14
@@ -890,7 +890,6 @@ define void @_ZN3cfg3dnf7DnfExpr12why_inactive17h9553ddf5787b5fc6E(ptr noalias n
 .loopexit:                                        ; preds = %._crit_edge, %32, %.lr.ph
   store i64 -9223372036854775808, ptr %0, align 8
   call void @"_ZN4core3ptr40drop_in_place$LT$cfg..InactiveReason$GT$17h631a91ca7b3c272aE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %7)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   br label %31
 
 42:                                               ; preds = %.lr.ph

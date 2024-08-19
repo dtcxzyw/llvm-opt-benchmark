@@ -6876,12 +6876,12 @@ land.lhs.true:                                    ; preds = %is_racy_timestamp.e
   %bf.load.i.i = load i8, ptr %initialized.i.i, align 8
   %9 = and i8 %bf.load.i.i, 2
   %tobool.not.i.i = icmp eq i8 %9, 0
-  br i1 %tobool.not.i.i, label %repo_verify_index.exit.thread, label %if.end.i.i
+  br i1 %tobool.not.i.i, label %if.else.sink.split, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true
   %call.i.i = tail call i32 (ptr, i32, ...) @open64(ptr noundef readonly %repo.val, i32 noundef 0) #28
   %cmp.i.i6 = icmp slt i32 %call.i.i, 0
-  br i1 %cmp.i.i6, label %repo_verify_index.exit.thread, label %if.end2.i.i
+  br i1 %cmp.i.i6, label %if.else.sink.split, label %if.end2.i.i
 
 if.end2.i.i:                                      ; preds = %if.end.i.i
   %call3.i.i = call i32 @fstat64(i32 noundef %call.i.i, ptr noundef nonnull %st.i.i) #28
@@ -6931,14 +6931,7 @@ hasheq.exit.i.i:                                  ; preds = %if.end.i.i.i.i, %if
 
 repo_verify_index.exit.thread11:                  ; preds = %if.end2.i.i, %if.end6.i.i, %if.end9.i.i, %hasheq.exit.i.i
   %call29.i.i13 = call i32 @close(i32 noundef %call.i.i) #28
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %hash.i.i)
-  br label %if.else
-
-repo_verify_index.exit.thread:                    ; preds = %land.lhs.true, %if.end.i.i
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %hash.i.i)
-  br label %if.else
+  br label %if.else.sink.split
 
 if.then:                                          ; preds = %hasheq.exit.i.i
   %call29.i.i = call i32 @close(i32 noundef %call.i.i) #28
@@ -6948,7 +6941,12 @@ if.then:                                          ; preds = %hasheq.exit.i.i
   %call6 = call i32 @write_locked_index(ptr noundef %17, ptr noundef %lockfile, i32 noundef 1)
   br label %if.end
 
-if.else:                                          ; preds = %for.inc.i, %lor.lhs.false, %repo_verify_index.exit.thread11, %repo_verify_index.exit.thread
+if.else.sink.split:                               ; preds = %if.end.i.i, %land.lhs.true, %repo_verify_index.exit.thread11
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i.i)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %hash.i.i)
+  br label %if.else
+
+if.else:                                          ; preds = %for.inc.i, %if.else.sink.split, %lor.lhs.false
   call void @delete_tempfile(ptr noundef %lockfile) #28
   br label %if.end
 

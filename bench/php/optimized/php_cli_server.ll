@@ -3925,7 +3925,7 @@ define hidden range(i32 0, 2) i32 @do_cli_server(i32 noundef %0, ptr noundef %1)
 29:                                               ; preds = %27
   %30 = load ptr, ptr @stderr, align 8
   %31 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.10, ptr noundef nonnull %.019.ph107) #33
-  br label %334
+  br label %333
 
 32:                                               ; preds = %27
   %33 = getelementptr inbounds i8, ptr %14, i64 24
@@ -3937,7 +3937,7 @@ define hidden range(i32 0, 2) i32 @do_cli_server(i32 noundef %0, ptr noundef %1)
 37:                                               ; preds = %32
   %38 = load ptr, ptr @stderr, align 8
   %39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.11, ptr noundef nonnull %.019.ph107) #33
-  br label %334
+  br label %333
 
 40:                                               ; preds = %32
   %41 = call ptr @tsrm_realpath(ptr noundef nonnull %.019.ph107, ptr noundef nonnull %13) #29
@@ -4458,7 +4458,7 @@ php_cli_server_poller_add.exit.i:                 ; preds = %215, %212
 
 php_cli_server_ctor.exit.thread:                  ; preds = %235, %237, %.thread58.i, %.thread95.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  br label %334
+  br label %333
 
 239:                                              ; preds = %232
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -4478,7 +4478,7 @@ php_cli_server_ctor.exit.thread:                  ; preds = %235, %237, %.thread
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %247 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 528), align 8
   %.not1.i = icmp eq i32 %247, 0
-  br i1 %.not1.i, label %.loopexit, label %.lr.ph.i
+  br i1 %.not1.i, label %php_cli_server_do_event_loop.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %239
   %248 = getelementptr inbounds i8, ptr %4, i64 8
@@ -4585,116 +4585,109 @@ php_cli_server_do_event_for_each_fd.exit.i:       ; preds = %277, %php_cli_serve
 289:                                              ; preds = %280, %278, %php_cli_server_do_event_for_each_fd.exit.i
   %290 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 528), align 8
   %.not.i32 = icmp eq i32 %290, 0
-  br i1 %.not.i32, label %.loopexit, label %250
+  br i1 %.not.i32, label %php_cli_server_do_event_loop.exit, label %250
 
-php_cli_server_do_event_loop.exit:                ; preds = %283, %286
+php_cli_server_do_event_loop.exit:                ; preds = %289, %239, %286, %283
+  %291 = phi i32 [ 1, %283 ], [ 1, %286 ], [ 0, %239 ], [ 0, %289 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br label %291
-
-.loopexit:                                        ; preds = %289, %239
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br label %291
-
-291:                                              ; preds = %php_cli_server_do_event_loop.exit, %.loopexit
-  %292 = phi i32 [ 0, %.loopexit ], [ 1, %php_cli_server_do_event_loop.exit ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @server, i64 592)) #29
   call void @zend_hash_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @server, i64 648)) #29
-  %293 = load i32, ptr @server, align 8
-  %294 = icmp sgt i32 %293, -1
-  br i1 %294, label %295, label %297
+  %292 = load i32, ptr @server, align 8
+  %293 = icmp sgt i32 %292, -1
+  br i1 %293, label %294, label %296
 
-295:                                              ; preds = %291
-  %296 = call i32 @close(i32 noundef %293) #29
-  br label %297
+294:                                              ; preds = %php_cli_server_do_event_loop.exit
+  %295 = call i32 @close(i32 noundef %292) #29
+  br label %296
 
-297:                                              ; preds = %295, %291
-  %298 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 536), align 8
-  %.not.i34 = icmp eq ptr %298, null
-  br i1 %.not.i34, label %300, label %299
+296:                                              ; preds = %294, %php_cli_server_do_event_loop.exit
+  %297 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 536), align 8
+  %.not.i34 = icmp eq ptr %297, null
+  br i1 %.not.i34, label %299, label %298
 
-299:                                              ; preds = %297
-  call void @free(ptr noundef nonnull %298) #29
-  br label %300
+298:                                              ; preds = %296
+  call void @free(ptr noundef nonnull %297) #29
+  br label %299
 
-300:                                              ; preds = %299, %297
-  %301 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 552), align 8
-  %.not18.i = icmp eq ptr %301, null
-  br i1 %.not18.i, label %303, label %302
+299:                                              ; preds = %298, %296
+  %300 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 552), align 8
+  %.not18.i = icmp eq ptr %300, null
+  br i1 %.not18.i, label %302, label %301
 
-302:                                              ; preds = %300
-  call void @free(ptr noundef nonnull %301) #29
-  br label %303
+301:                                              ; preds = %299
+  call void @free(ptr noundef nonnull %300) #29
+  br label %302
 
-303:                                              ; preds = %302, %300
-  %304 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 568), align 8
-  %.not19.i = icmp eq ptr %304, null
-  br i1 %.not19.i, label %306, label %305
+302:                                              ; preds = %301, %299
+  %303 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 568), align 8
+  %.not19.i = icmp eq ptr %303, null
+  br i1 %.not19.i, label %305, label %304
 
-305:                                              ; preds = %303
-  call void @free(ptr noundef nonnull %304) #29
-  br label %306
+304:                                              ; preds = %302
+  call void @free(ptr noundef nonnull %303) #29
+  br label %305
 
-306:                                              ; preds = %305, %303
-  %307 = load i64, ptr @php_cli_server_workers_max, align 8
-  %308 = icmp sgt i64 %307, 1
-  %309 = load ptr, ptr @php_cli_server_workers, align 8
-  %310 = icmp ne ptr %309, null
-  %or.cond.i = select i1 %308, i1 %310, i1 false
-  br i1 %or.cond.i, label %311, label %php_cli_server_dtor.exit
+305:                                              ; preds = %304, %302
+  %306 = load i64, ptr @php_cli_server_workers_max, align 8
+  %307 = icmp sgt i64 %306, 1
+  %308 = load ptr, ptr @php_cli_server_workers, align 8
+  %309 = icmp ne ptr %308, null
+  %or.cond.i = select i1 %307, i1 %309, i1 false
+  br i1 %or.cond.i, label %310, label %php_cli_server_dtor.exit
 
-311:                                              ; preds = %306
-  %312 = call i32 @getpid() #29
-  %313 = load i32, ptr @php_cli_server_master, align 4
-  %314 = icmp eq i32 %312, %313
-  br i1 %314, label %.preheader1.i, label %php_cli_server_dtor.exit
+310:                                              ; preds = %305
+  %311 = call i32 @getpid() #29
+  %312 = load i32, ptr @php_cli_server_master, align 4
+  %313 = icmp eq i32 %311, %312
+  br i1 %313, label %.preheader1.i, label %php_cli_server_dtor.exit
 
-.preheader1.i:                                    ; preds = %311
-  %315 = load i64, ptr @php_cli_server_workers_max, align 8
-  %316 = icmp sgt i64 %315, 0
-  br i1 %316, label %.preheader.i, label %._crit_edge.i
+.preheader1.i:                                    ; preds = %310
+  %314 = load i64, ptr @php_cli_server_workers_max, align 8
+  %315 = icmp sgt i64 %314, 0
+  br i1 %315, label %.preheader.i, label %._crit_edge.i
 
 .preheader.i:                                     ; preds = %.preheader1.i, %.critedge.i
-  %.02.i = phi i64 [ %330, %.critedge.i ], [ 0, %.preheader1.i ]
-  br label %317
+  %.02.i = phi i64 [ %329, %.critedge.i ], [ 0, %.preheader1.i ]
+  br label %316
 
-317:                                              ; preds = %327, %.preheader.i
-  %318 = load ptr, ptr @php_cli_server_workers, align 8
-  %319 = getelementptr inbounds i32, ptr %318, i64 %.02.i
-  %320 = load i32, ptr %319, align 4
-  %321 = call i32 @waitpid(i32 noundef %320, ptr noundef nonnull %3, i32 noundef 0) #29
-  %322 = icmp eq i32 %321, -1
-  br i1 %322, label %.critedge.i, label %323
+316:                                              ; preds = %326, %.preheader.i
+  %317 = load ptr, ptr @php_cli_server_workers, align 8
+  %318 = getelementptr inbounds i32, ptr %317, i64 %.02.i
+  %319 = load i32, ptr %318, align 4
+  %320 = call i32 @waitpid(i32 noundef %319, ptr noundef nonnull %3, i32 noundef 0) #29
+  %321 = icmp eq i32 %320, -1
+  br i1 %321, label %.critedge.i, label %322
 
-323:                                              ; preds = %317
-  %324 = load i32, ptr %3, align 4
-  %325 = and i32 %324, 127
-  %326 = icmp eq i32 %325, 0
-  br i1 %326, label %.critedge.i, label %327
+322:                                              ; preds = %316
+  %323 = load i32, ptr %3, align 4
+  %324 = and i32 %323, 127
+  %325 = icmp eq i32 %324, 0
+  br i1 %325, label %.critedge.i, label %326
 
-327:                                              ; preds = %323
-  %328 = shl nuw nsw i32 %325, 24
-  %sext.i = add nuw i32 %328, 16777216
-  %329 = icmp slt i32 %sext.i, 33554432
-  br i1 %329, label %317, label %.critedge.i
+326:                                              ; preds = %322
+  %327 = shl nuw nsw i32 %324, 24
+  %sext.i = add nuw i32 %327, 16777216
+  %328 = icmp slt i32 %sext.i, 33554432
+  br i1 %328, label %316, label %.critedge.i
 
-.critedge.i:                                      ; preds = %327, %323, %317
-  %330 = add nuw nsw i64 %.02.i, 1
-  %331 = load i64, ptr @php_cli_server_workers_max, align 8
-  %332 = icmp slt i64 %330, %331
-  br i1 %332, label %.preheader.i, label %._crit_edge.i
+.critedge.i:                                      ; preds = %326, %322, %316
+  %329 = add nuw nsw i64 %.02.i, 1
+  %330 = load i64, ptr @php_cli_server_workers_max, align 8
+  %331 = icmp slt i64 %329, %330
+  br i1 %331, label %.preheader.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.critedge.i, %.preheader1.i
-  %333 = load ptr, ptr @php_cli_server_workers, align 8
-  call void @free(ptr noundef %333) #29
+  %332 = load ptr, ptr @php_cli_server_workers, align 8
+  call void @free(ptr noundef %332) #29
   br label %php_cli_server_dtor.exit
 
-php_cli_server_dtor.exit:                         ; preds = %306, %311, %._crit_edge.i
+php_cli_server_dtor.exit:                         ; preds = %305, %310, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br label %334
+  br label %333
 
-334:                                              ; preds = %php_cli_server_ctor.exit.thread, %php_cli_server_dtor.exit, %37, %29
-  %.0 = phi i32 [ 1, %29 ], [ %292, %php_cli_server_dtor.exit ], [ 1, %37 ], [ 1, %php_cli_server_ctor.exit.thread ]
+333:                                              ; preds = %php_cli_server_ctor.exit.thread, %php_cli_server_dtor.exit, %37, %29
+  %.0 = phi i32 [ 1, %29 ], [ %291, %php_cli_server_dtor.exit ], [ 1, %37 ], [ 1, %php_cli_server_ctor.exit.thread ]
   ret i32 %.0
 }
 

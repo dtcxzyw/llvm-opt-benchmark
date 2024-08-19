@@ -261,11 +261,7 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr nocaptur
   %5 = getelementptr inbounds i8, ptr %0, i64 400
   %.071103.i = load ptr, ptr %5, align 8
   %.not104.i = icmp eq ptr %.071103.i, null
-  br i1 %.not104.i, label %.loopexit38.thread, label %.lr.ph.i
-
-.loopexit38.thread:                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 6120, ptr nonnull %3)
-  br label %.loopexit36
+  br i1 %.not104.i, label %.loopexit36.sink.split, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %51
   %.071109.i = phi ptr [ %.071.i, %51 ], [ %.071103.i, %2 ]
@@ -309,7 +305,7 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr nocaptur
   %28 = load ptr, ptr @stderr, align 8
   %29 = trunc nuw i64 %24 to i32
   %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.6, i32 noundef %29, i32 noundef %20, i32 noundef %23) #23
-  br label %StoreICCP.exit.thread
+  br label %.loopexit36.sink.split
 
 31:                                               ; preds = %17
   %32 = icmp eq i32 %.065108.i, 0
@@ -322,7 +318,7 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr nocaptur
 34:                                               ; preds = %33
   %35 = load ptr, ptr @stderr, align 8
   %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.7, i32 noundef %.065108.i, i32 noundef %23) #23
-  br label %StoreICCP.exit.thread
+  br label %.loopexit36.sink.split
 
 37:                                               ; preds = %33, %31
   %.1.i = phi i32 [ %.065108.i, %33 ], [ %23, %31 ]
@@ -336,7 +332,7 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr nocaptur
 42:                                               ; preds = %37
   %43 = load ptr, ptr @stderr, align 8
   %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.8, i32 noundef %20) #23
-  br label %StoreICCP.exit.thread
+  br label %.loopexit36.sink.split
 
 45:                                               ; preds = %37
   %46 = getelementptr inbounds i8, ptr %39, i64 -24
@@ -370,7 +366,7 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr nocaptur
 54:                                               ; preds = %53
   %55 = load ptr, ptr @stderr, align 8
   %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.9, i32 noundef %.167.i, i32 noundef %.270.i) #23
-  br label %StoreICCP.exit.thread
+  br label %.loopexit36.sink.split
 
 57:                                               ; preds = %53
   %.not79.i = icmp eq i32 %.2.i, %.270.i
@@ -379,7 +375,7 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr nocaptur
 58:                                               ; preds = %57
   %59 = load ptr, ptr @stderr, align 8
   %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef nonnull @.str.10, i32 noundef %.270.i, i32 noundef %.2.i) #23
-  br label %StoreICCP.exit.thread
+  br label %.loopexit36.sink.split
 
 61:                                               ; preds = %57
   %62 = zext nneg i32 %.270.i to i64
@@ -387,7 +383,7 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr nocaptur
   %63 = call noalias ptr @malloc(i64 noundef %.173.i) #20
   store ptr %63, ptr %4, align 8
   %64 = icmp eq ptr %63, null
-  br i1 %64, label %StoreICCP.exit.thread, label %65
+  br i1 %64, label %.loopexit36.sink.split, label %65
 
 65:                                               ; preds = %61
   %66 = getelementptr inbounds i8, ptr %1, i64 24
@@ -410,10 +406,6 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr nocaptur
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %62
   br i1 %exitcond.not.i, label %.loopexit38, label %.lr.ph116.i, !llvm.loop !8
-
-StoreICCP.exit.thread:                            ; preds = %27, %42, %34, %54, %58, %61
-  call void @llvm.lifetime.end.p0(i64 6120, ptr nonnull %3)
-  br label %.loopexit36
 
 .loopexit38:                                      ; preds = %.lr.ph116.i, %65, %._crit_edge.i
   %.02551.pr = load ptr, ptr %5, align 8
@@ -485,8 +477,13 @@ StoreICCP.exit.thread:                            ; preds = %27, %42, %34, %54, 
   %exitcond = icmp eq i64 %indvars.iv.next, 2
   br i1 %exitcond, label %.loopexit, label %79, !llvm.loop !10
 
-.loopexit36:                                      ; preds = %.loopexit, %101, %.loopexit38.thread, %.loopexit38, %StoreICCP.exit.thread
-  %.0 = phi i32 [ 0, %StoreICCP.exit.thread ], [ 1, %.loopexit38 ], [ 1, %.loopexit38.thread ], [ 0, %101 ], [ 1, %.loopexit ]
+.loopexit36.sink.split:                           ; preds = %61, %58, %54, %34, %42, %27, %2
+  %.0.ph = phi i32 [ 1, %2 ], [ 0, %27 ], [ 0, %42 ], [ 0, %34 ], [ 0, %54 ], [ 0, %58 ], [ 0, %61 ]
+  call void @llvm.lifetime.end.p0(i64 6120, ptr nonnull %3)
+  br label %.loopexit36
+
+.loopexit36:                                      ; preds = %.loopexit, %101, %.loopexit36.sink.split, %.loopexit38
+  %.0 = phi i32 [ 1, %.loopexit38 ], [ %.0.ph, %.loopexit36.sink.split ], [ 0, %101 ], [ 1, %.loopexit ]
   ret i32 %.0
 }
 

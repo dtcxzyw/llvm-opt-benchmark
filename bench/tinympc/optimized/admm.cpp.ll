@@ -1879,22 +1879,22 @@ define linkonce_odr void @_ZN5Eigen8internal20generic_product_implINS_6MatrixIdL
   %29 = load double, ptr %28, align 8
   %30 = call double @llvm.fmuladd.f64(double %15, double %27, double %29)
   store double %30, ptr %28, align 8
-  br label %45
+  br label %46
 
 31:                                               ; preds = %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   invoke void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEENS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_7ProductINS_9TransposeINS2_IdLin1ELin1ELi0ELin1ELin1EEEEENS_5BlockIS9_Lin1ELi1ELb1EEELi0EEEKSC_EENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(121) %2, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_7ProductINS_9TransposeINS0_IdLin1ELin1ELi0ELin1ELin1EEEEENS_5BlockIS9_Lin1ELi1ELb1EEELi0EEEKSC_EEEERKT_.exit unwind label %32
+          to label %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_7ProductINS_9TransposeINS0_IdLin1ELin1ELi0ELin1ELin1EEEEENS_5BlockIS9_Lin1ELi1ELb1EEELi0EEEKSC_EEEERKT_.exit unwind label %33
 
-common.resume:                                    ; preds = %46, %32
-  %common.resume.op = phi { ptr, i32 } [ %33, %32 ], [ %47, %46 ]
-  %.sink = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %.sink) #17
+common.resume:                                    ; preds = %47, %33
+  %common.resume.op = phi { ptr, i32 } [ %34, %33 ], [ %48, %47 ]
+  %32 = load ptr, ptr %10, align 8
+  call void @free(ptr noundef %32) #17
   resume { ptr, i32 } %common.resume.op
 
-32:                                               ; preds = %31
-  %33 = landingpad { ptr, i32 }
+33:                                               ; preds = %31
+  %34 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -1902,34 +1902,34 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_13CwiseBinaryOpINS_8internal13sca
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %34 = load double, ptr %3, align 8
-  %35 = load i64, ptr %11, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 16
-  %37 = load i64, ptr %36, align 8
-  %38 = load ptr, ptr %1, align 8
-  store ptr %38, ptr %5, align 8
-  %39 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %35, ptr %39, align 8
-  %40 = load ptr, ptr %10, align 8
-  store ptr %40, ptr %6, align 8
-  %41 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 1, ptr %41, align 8
-  %42 = load ptr, ptr %0, align 8
-  invoke void @_ZN5Eigen8internal29general_matrix_vector_productIldNS0_22const_blas_data_mapperIdlLi0EEELi0ELb0EdNS2_IdlLi1EEELb0ELi0EE3runEllRKS3_RKS4_Pdld(i64 noundef %35, i64 noundef %37, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %42, i64 noundef 1, double noundef %34)
-          to label %43 unwind label %46
+  %35 = load double, ptr %3, align 8
+  %36 = load i64, ptr %11, align 8
+  %37 = getelementptr inbounds i8, ptr %1, i64 16
+  %38 = load i64, ptr %37, align 8
+  %39 = load ptr, ptr %1, align 8
+  store ptr %39, ptr %5, align 8
+  %40 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 %36, ptr %40, align 8
+  %41 = load ptr, ptr %10, align 8
+  store ptr %41, ptr %6, align 8
+  %42 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 1, ptr %42, align 8
+  %43 = load ptr, ptr %0, align 8
+  invoke void @_ZN5Eigen8internal29general_matrix_vector_productIldNS0_22const_blas_data_mapperIdlLi0EEELi0ELb0EdNS2_IdlLi1EEELb0ELi0EE3runEllRKS3_RKS4_Pdld(i64 noundef %36, i64 noundef %38, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %43, i64 noundef 1, double noundef %35)
+          to label %44 unwind label %47
 
-43:                                               ; preds = %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_7ProductINS_9TransposeINS0_IdLin1ELin1ELi0ELin1ELin1EEEEENS_5BlockIS9_Lin1ELi1ELb1EEELi0EEEKSC_EEEERKT_.exit
+44:                                               ; preds = %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_7ProductINS_9TransposeINS0_IdLin1ELin1ELi0ELin1ELin1EEEEENS_5BlockIS9_Lin1ELi1ELb1EEELi0EEEKSC_EEEERKT_.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %44 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %44) #17
-  br label %45
+  %45 = load ptr, ptr %10, align 8
+  call void @free(ptr noundef %45) #17
+  br label %46
 
-45:                                               ; preds = %43, %14
+46:                                               ; preds = %44, %14
   ret void
 
-46:                                               ; preds = %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_7ProductINS_9TransposeINS0_IdLin1ELin1ELi0ELin1ELin1EEEEENS_5BlockIS9_Lin1ELi1ELb1EEELi0EEEKSC_EEEERKT_.exit
-  %47 = landingpad { ptr, i32 }
+47:                                               ; preds = %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_7ProductINS_9TransposeINS0_IdLin1ELin1ELi0ELin1ELin1EEEEENS_5BlockIS9_Lin1ELi1ELb1EEELi0EEEKSC_EEEERKT_.exit
+  %48 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 }

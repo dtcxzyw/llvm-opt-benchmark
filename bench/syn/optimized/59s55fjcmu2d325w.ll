@@ -3550,7 +3550,6 @@ define hidden void @_ZN3syn3lit5value15parse_lit_float17h8473f019ae83b75bE(ptr n
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h868de6d6aa1fbae8E.exit": ; preds = %.split303.thread, %77
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !378
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   br label %172
 
 81:                                               ; preds = %92, %.loopexit
@@ -3831,7 +3830,6 @@ _ZN5alloc6string6String8truncate17h3a054fa0b3278baeE.exit: ; preds = %"_ZN5alloc
 
 165:                                              ; preds = %154, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h06d379aa815dd14dE.exit171"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   br label %172
 
 .noexc169:                                        ; preds = %161, %.noexc166
@@ -3856,6 +3854,7 @@ _ZN5alloc6string6String8truncate17h3a054fa0b3278baeE.exit: ; preds = %"_ZN5alloc
   br label %165
 
 172:                                              ; preds = %165, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h868de6d6aa1fbae8E.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   ret void
 
 173:                                              ; preds = %182, %177, %175

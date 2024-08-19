@@ -133,7 +133,7 @@ define internal i32 @dissect_btle_rf(ptr noundef %0, ptr noundef %1, ptr noundef
   %5 = alloca %struct.btle_context_t, align 8
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   %7 = icmp ult i32 %6, 10
-  br i1 %7, label %105, label %8
+  br i1 %7, label %103, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %1, i64 8
@@ -306,13 +306,13 @@ btle_rf_channel_index.exit70:                     ; preds = %.thread84, %61, %bt
   %77 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %76, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #3
   %78 = and i32 %15, 4
   %.not62 = icmp eq i32 %78, 0
-  %hf_btle_rf_signed_byte_unused.val97 = load i32, ptr @hf_btle_rf_signed_byte_unused, align 4
+  %hf_btle_rf_signed_byte_unused.val98 = load i32, ptr @hf_btle_rf_signed_byte_unused, align 4
   %hf_btle_rf_noise_dbm.val = load i32, ptr @hf_btle_rf_noise_dbm, align 4
-  %79 = select i1 %.not62, i32 %hf_btle_rf_signed_byte_unused.val97, i32 %hf_btle_rf_noise_dbm.val
+  %79 = select i1 %.not62, i32 %hf_btle_rf_signed_byte_unused.val98, i32 %hf_btle_rf_noise_dbm.val
   %80 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %79, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #3
   %81 = and i32 %15, 32
   %.not63 = icmp eq i32 %81, 0
-  br i1 %.not63, label %92, label %82
+  br i1 %.not63, label %90, label %82
 
 82:                                               ; preds = %71
   %83 = load i32, ptr @hf_btle_rf_access_address_offenses, align 4
@@ -321,51 +321,48 @@ btle_rf_channel_index.exit70:                     ; preds = %.thread84, %61, %bt
   %.not64 = icmp eq i8 %85, 0
   %86 = and i32 %15, 16
   %.not65 = icmp eq i32 %86, 0
-  br i1 %.not64, label %90, label %87
+  br i1 %.not64, label %89, label %87
 
 87:                                               ; preds = %82
-  br i1 %.not65, label %89, label %88
+  br i1 %.not65, label %88, label %.thread94.sink.split
 
 88:                                               ; preds = %87
-  store i32 2, ptr %5, align 8
-  br label %.thread94
-
-89:                                               ; preds = %87
   store i32 3, ptr %5, align 8
   br label %.thread91
 
-90:                                               ; preds = %82
-  br i1 %.not65, label %.thread91, label %91
+89:                                               ; preds = %82
+  br i1 %.not65, label %.thread91, label %.thread94.sink.split
 
-91:                                               ; preds = %90
-  store i32 1, ptr %5, align 8
-  br label %.thread94
-
-92:                                               ; preds = %71
-  %93 = load i32, ptr @hf_btle_rf_unsigned_byte_unused, align 4
-  %94 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %93, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #3
+90:                                               ; preds = %71
+  %91 = load i32, ptr @hf_btle_rf_unsigned_byte_unused, align 4
+  %92 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %91, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #3
   %.pre = and i32 %15, 16
-  %95 = icmp eq i32 %.pre, 0
-  br i1 %95, label %.thread91, label %.thread94
+  %93 = icmp eq i32 %.pre, 0
+  br i1 %93, label %.thread91, label %.thread94
 
-.thread91:                                        ; preds = %90, %89, %92
+.thread94.sink.split:                             ; preds = %89, %87
+  %.sink = phi i32 [ 2, %87 ], [ 1, %89 ]
+  store i32 %.sink, ptr %5, align 8
   br label %.thread94
 
-.thread94:                                        ; preds = %92, %88, %91, %.thread91
-  %hf_btle_rf_word_unused.sink = phi ptr [ @hf_btle_rf_word_unused, %.thread91 ], [ @hf_btle_rf_reference_access_address, %91 ], [ @hf_btle_rf_reference_access_address, %88 ], [ @hf_btle_rf_reference_access_address, %92 ]
-  %96 = load i32, ptr %hf_btle_rf_word_unused.sink, align 4
-  %97 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %96, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648) #3
-  %98 = load i32, ptr @hf_btle_rf_flags, align 4
-  %99 = load i32, ptr @ett_btle_rf_flags, align 4
-  %100 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %51, ptr noundef %0, i32 noundef 8, i32 noundef %98, i32 noundef %99, ptr noundef nonnull @hfs_btle_rf_flags, i32 noundef -2147483648, i32 noundef 1) #3
-  %101 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 10) #3
-  %102 = load ptr, ptr @btle_handle, align 8
-  %103 = call i32 @call_dissector_with_data(ptr noundef %102, ptr noundef %101, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5) #3
-  %104 = add i32 %103, 10
-  br label %105
+.thread91:                                        ; preds = %89, %88, %90
+  br label %.thread94
 
-105:                                              ; preds = %4, %.thread94
-  %.0 = phi i32 [ %104, %.thread94 ], [ 0, %4 ]
+.thread94:                                        ; preds = %90, %.thread94.sink.split, %.thread91
+  %hf_btle_rf_word_unused.sink = phi ptr [ @hf_btle_rf_word_unused, %.thread91 ], [ @hf_btle_rf_reference_access_address, %.thread94.sink.split ], [ @hf_btle_rf_reference_access_address, %90 ]
+  %94 = load i32, ptr %hf_btle_rf_word_unused.sink, align 4
+  %95 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %94, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648) #3
+  %96 = load i32, ptr @hf_btle_rf_flags, align 4
+  %97 = load i32, ptr @ett_btle_rf_flags, align 4
+  %98 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %51, ptr noundef %0, i32 noundef 8, i32 noundef %96, i32 noundef %97, ptr noundef nonnull @hfs_btle_rf_flags, i32 noundef -2147483648, i32 noundef 1) #3
+  %99 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 10) #3
+  %100 = load ptr, ptr @btle_handle, align 8
+  %101 = call i32 @call_dissector_with_data(ptr noundef %100, ptr noundef %99, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5) #3
+  %102 = add i32 %101, 10
+  br label %103
+
+103:                                              ; preds = %4, %.thread94
+  %.0 = phi i32 [ %102, %.thread94 ], [ 0, %4 ]
   ret i32 %.0
 }
 

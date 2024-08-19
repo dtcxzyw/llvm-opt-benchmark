@@ -121,7 +121,7 @@ define hidden void @_ZN8tempfile7Builder10tempdir_in17ha43c3a9e350c4b1dE(ptr noa
 10:                                               ; preds = %25
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br i1 %9, label %.thread, label %44
+  br i1 %9, label %.thread, label %43
 
 11:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
@@ -151,7 +151,6 @@ define hidden void @_ZN8tempfile7Builder10tempdir_in17ha43c3a9e350c4b1dE(ptr noa
   store ptr %15, ptr %18, align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %40
 
 19:                                               ; preds = %16
@@ -173,7 +172,7 @@ _ZN3std4path4Path4join17h990aba3230c2e93eE.exit:  ; preds = %16
 .thread41:                                        ; preds = %_ZN3std4path4Path4join17h990aba3230c2e93eE.exit
   %lpad.thr_comm.split-lp43 = landingpad { ptr, i32 }
           cleanup
-  br label %44
+  br label %43
 
 "_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h03eaba53e25aec39E.exit33": ; preds = %_ZN3std4path4Path4join17h990aba3230c2e93eE.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
@@ -199,31 +198,28 @@ _ZN3std4path4Path4join17h990aba3230c2e93eE.exit:  ; preds = %16
   invoke void @_ZN8tempfile4util13create_helper17h8ec2bc0ac559ab25E(ptr noalias nocapture noundef nonnull sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 %.sroa.07.0, i64 noundef %.sroa.510.0, ptr noalias noundef nonnull readonly align 1 %27, i64 noundef %29, ptr noalias noundef nonnull readonly align 1 %31, i64 noundef %33, i64 noundef %35, ptr noalias noundef readonly align 4 dereferenceable_or_null(4) %.028)
           to label %41 unwind label %10
 
-38:                                               ; preds = %44, %19
+38:                                               ; preds = %43, %19
   %39 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #11
   unreachable
 
-40:                                               ; preds = %42, %17
+40:                                               ; preds = %41, %42, %17
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   ret void
 
 41:                                               ; preds = %25
-  br i1 %9, label %42, label %43
+  br i1 %9, label %40, label %42
 
-42:                                               ; preds = %43, %41
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+42:                                               ; preds = %41
+  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9aac438593660334E.llvm.7195023616128177355"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
   br label %40
 
-43:                                               ; preds = %41
-  call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9aac438593660334E.llvm.7195023616128177355"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
-  br label %42
-
-.thread:                                          ; preds = %44, %19, %10
-  %.pn37 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %10 ], [ %20, %19 ], [ %lpad.thr_comm.split-lp44, %44 ]
+.thread:                                          ; preds = %43, %19, %10
+  %.pn37 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %10 ], [ %20, %19 ], [ %lpad.thr_comm.split-lp44, %43 ]
   resume { ptr, i32 } %.pn37
 
-44:                                               ; preds = %.thread41, %10
+43:                                               ; preds = %.thread41, %10
   %lpad.thr_comm.split-lp44 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp43, %.thread41 ], [ %lpad.thr_comm.split-lp, %10 ]
   invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9aac438593660334E.llvm.7195023616128177355"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
           to label %.thread unwind label %38

@@ -3423,9 +3423,9 @@ monitors_sub.exit146:                             ; preds = %for.body.i132
   br label %if.end29
 
 if.end29:                                         ; preds = %monitors_sub.exit146, %if.then15
+  %coerce.dive.coerce.sroa.0.0.copyload.i141.sink = phi i64 [ %coerce.dive.coerce.sroa.0.0.copyload.i141, %monitors_sub.exit146 ], [ %coerce.dive.coerce.sroa.0.0.copyload.i, %if.then15 ]
   %coerce.dive.coerce.sroa.2.0.copyload.i143.sink = phi i16 [ %coerce.dive.coerce.sroa.2.0.copyload.i143, %monitors_sub.exit146 ], [ %coerce.dive.coerce.sroa.2.0.copyload.i, %if.then15 ]
-  %new_events.coerce.sroa.0.0.copyload = phi i64 [ %coerce.dive.coerce.sroa.0.0.copyload.i141, %monitors_sub.exit146 ], [ %coerce.dive.coerce.sroa.0.0.copyload.i, %if.then15 ]
-  store i64 %new_events.coerce.sroa.0.0.copyload, ptr %new_events, align 8
+  store i64 %coerce.dive.coerce.sroa.0.0.copyload.i141.sink, ptr %new_events, align 8
   %tmp22.sroa.2.0.new_events.sroa_idx = getelementptr inbounds i8, ptr %new_events, i64 8
   store i16 %coerce.dive.coerce.sroa.2.0.copyload.i143.sink, ptr %tmp22.sroa.2.0.new_events.sroa_idx, align 8
   %active_monitors31 = getelementptr inbounds i8, ptr %172, i64 10
@@ -3436,10 +3436,10 @@ if.end29:                                         ; preds = %monitors_sub.exit14
   %conv.i147 = and i64 %interp.val, 4294967040
   store i64 %conv.i147, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %m.i)
-  store i64 %new_events.coerce.sroa.0.0.copyload, ptr %m.i, align 8
+  store i64 %coerce.dive.coerce.sroa.0.0.copyload.i141.sink, ptr %m.i, align 8
   %coerce.sroa.2.0.m.sroa_idx.i = getelementptr inbounds i8, ptr %m.i, i64 8
   store i16 %coerce.dive.coerce.sroa.2.0.copyload.i143.sink, ptr %coerce.sroa.2.0.m.sroa_idx.i, align 8
-  %181 = and i64 %new_events.coerce.sroa.0.0.copyload, 255
+  %181 = and i64 %coerce.dive.coerce.sroa.0.0.copyload.i141.sink, 255
   %tobool.not.i598 = icmp eq i64 %181, 0
   br i1 %tobool.not.i598, label %for.cond.i, label %if.end40.critedge
 

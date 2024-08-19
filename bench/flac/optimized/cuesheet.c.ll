@@ -792,18 +792,10 @@ if.then131.i:                                     ; preds = %while.body.i346.i, 
   br i1 %tobool.i, label %if.then2, label %if.then6.i351.i
 
 if.then131.thread653.i:                           ; preds = %if.end127.i
-  br i1 %tobool.i, label %if.then2, label %if.end134.thread654.i
-
-if.end134.thread654.i:                            ; preds = %if.then131.thread653.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i.i)
-  br label %local__parse_ms_.exit.thread.i
+  br i1 %tobool.i, label %if.then2, label %local__parse_ms_.exit.thread.sink.split.i
 
 if.then131.thread.i:                              ; preds = %if.end.i.i
-  br i1 %tobool.i, label %if.then2, label %if.end.i348.thread.i
-
-if.end.i348.thread.i:                             ; preds = %if.then131.thread.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i.i)
-  br label %local__parse_ms_.exit.thread.i
+  br i1 %tobool.i, label %if.then2, label %local__parse_ms_.exit.thread.sink.split.i
 
 if.then6.i351.i:                                  ; preds = %if.then131.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i.i)
@@ -857,7 +849,11 @@ if.end51.i.i:                                     ; preds = %if.end45.i.i
   %or.cond2.i376.i = or i1 %cmp52.i.i, %cmp55.i.i
   br i1 %or.cond2.i376.i, label %local__parse_ms_.exit.thread.i, label %local__parse_ms_.exit.i
 
-local__parse_ms_.exit.thread.i:                   ; preds = %while.body.i354.i, %if.end51.i.i, %if.end45.i.i, %if.end37.i370.i, %while.end.i363.i, %if.end.i348.thread.i, %if.end134.thread654.i
+local__parse_ms_.exit.thread.sink.split.i:        ; preds = %if.then131.thread.i, %if.then131.thread653.i
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i.i)
+  br label %local__parse_ms_.exit.thread.i
+
+local__parse_ms_.exit.thread.i:                   ; preds = %while.body.i354.i, %local__parse_ms_.exit.thread.sink.split.i, %if.end51.i.i, %if.end45.i.i, %if.end37.i370.i, %while.end.i363.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i)
   br label %if.then138.i
 

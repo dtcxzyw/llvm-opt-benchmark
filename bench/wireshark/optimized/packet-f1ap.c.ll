@@ -13633,7 +13633,7 @@ f1ap_get_private_data.exit.i:                     ; preds = %16, %10
   %27 = load i32, ptr %.0.i.i, align 8
   switch i32 %27, label %dissect_f1ap_RRCContainer.exit [
     i32 0, label %28
-    i32 1, label %114
+    i32 1, label %94
   ]
 
 28:                                               ; preds = %f1ap_get_private_data.exit.i
@@ -13641,11 +13641,11 @@ f1ap_get_private_data.exit.i:                     ; preds = %16, %10
   %30 = load i32, ptr %29, align 4
   switch i32 %30, label %dissect_f1ap_RRCContainer.exit [
     i32 11, label %31
-    i32 13, label %45
-    i32 12, label %65
-    i32 6, label %65
-    i32 5, label %99
-    i32 7, label %99
+    i32 13, label %41
+    i32 12, label %57
+    i32 6, label %57
+    i32 5, label %83
+    i32 7, label %83
   ]
 
 31:                                               ; preds = %28
@@ -13661,147 +13661,131 @@ f1ap_get_private_data.exit.i:                     ; preds = %16, %10
   %39 = getelementptr inbounds i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
   call void @col_set_fence(ptr noundef %40, i32 noundef 25) #5
-  %41 = load ptr, ptr @nr_rrc_ul_ccch_handle, align 8
-  %42 = load ptr, ptr %5, align 8
-  %43 = load ptr, ptr %11, align 8
-  %44 = call i32 @call_dissector(ptr noundef %41, ptr noundef %42, ptr noundef %43, ptr noundef %26) #5
-  br label %dissect_f1ap_RRCContainer.exit
+  br label %.sink.split.i
 
-45:                                               ; preds = %28
-  %46 = getelementptr inbounds i8, ptr %.0.i.i, i64 28
-  %47 = load i32, ptr %46, align 4
-  %.off.i = add i32 %47, -1
+41:                                               ; preds = %28
+  %42 = getelementptr inbounds i8, ptr %.0.i.i, i64 28
+  %43 = load i32, ptr %42, align 4
+  %.off.i = add i32 %43, -1
   %switch.i = icmp ult i32 %.off.i, 3
-  br i1 %switch.i, label %48, label %dissect_f1ap_RRCContainer.exit
+  br i1 %switch.i, label %44, label %dissect_f1ap_RRCContainer.exit
 
-48:                                               ; preds = %45
-  %49 = load ptr, ptr %11, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
-  %51 = load ptr, ptr %50, align 8
-  call void @col_append_str(ptr noundef %51, i32 noundef 34, ptr noundef nonnull @.str.5610) #5
-  %52 = load ptr, ptr %11, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
-  %54 = load ptr, ptr %53, align 8
-  call void @col_set_fence(ptr noundef %54, i32 noundef 34) #5
-  %55 = load ptr, ptr %11, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
-  %57 = load ptr, ptr %56, align 8
-  call void @col_set_fence(ptr noundef %57, i32 noundef 25) #5
-  %58 = load ptr, ptr %11, align 8
-  %59 = load i32, ptr %46, align 4
-  %60 = trunc i32 %59 to i8
-  call fastcc void @add_nr_pdcp_meta_data(ptr noundef %58, i8 noundef zeroext 0, i8 noundef zeroext %60)
-  %61 = load ptr, ptr @nr_pdcp_handle, align 8
-  %62 = load ptr, ptr %5, align 8
-  %63 = load ptr, ptr %11, align 8
-  %64 = call i32 @call_dissector(ptr noundef %61, ptr noundef %62, ptr noundef %63, ptr noundef %26) #5
-  br label %dissect_f1ap_RRCContainer.exit
+44:                                               ; preds = %41
+  %45 = load ptr, ptr %11, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %47 = load ptr, ptr %46, align 8
+  call void @col_append_str(ptr noundef %47, i32 noundef 34, ptr noundef nonnull @.str.5610) #5
+  %48 = load ptr, ptr %11, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  %50 = load ptr, ptr %49, align 8
+  call void @col_set_fence(ptr noundef %50, i32 noundef 34) #5
+  %51 = load ptr, ptr %11, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 8
+  %53 = load ptr, ptr %52, align 8
+  call void @col_set_fence(ptr noundef %53, i32 noundef 25) #5
+  %54 = load ptr, ptr %11, align 8
+  %55 = load i32, ptr %42, align 4
+  %56 = trunc i32 %55 to i8
+  call fastcc void @add_nr_pdcp_meta_data(ptr noundef %54, i8 noundef zeroext 0, i8 noundef zeroext %56)
+  br label %.sink.split.i
 
-65:                                               ; preds = %28, %28
-  %66 = getelementptr inbounds i8, ptr %.0.i.i, i64 28
-  %67 = load i32, ptr %66, align 4
-  switch i32 %67, label %dissect_f1ap_RRCContainer.exit [
-    i32 0, label %68
-    i32 1, label %82
-    i32 2, label %82
-    i32 3, label %82
+57:                                               ; preds = %28, %28
+  %58 = getelementptr inbounds i8, ptr %.0.i.i, i64 28
+  %59 = load i32, ptr %58, align 4
+  switch i32 %59, label %dissect_f1ap_RRCContainer.exit [
+    i32 0, label %60
+    i32 1, label %70
+    i32 2, label %70
+    i32 3, label %70
   ]
 
-68:                                               ; preds = %65
-  %69 = load ptr, ptr %11, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 8
-  %71 = load ptr, ptr %70, align 8
-  call void @col_append_str(ptr noundef %71, i32 noundef 34, ptr noundef nonnull @.str.5610) #5
-  %72 = load ptr, ptr %11, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 8
-  %74 = load ptr, ptr %73, align 8
-  call void @col_set_fence(ptr noundef %74, i32 noundef 34) #5
-  %75 = load ptr, ptr %11, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 8
-  %77 = load ptr, ptr %76, align 8
-  call void @col_set_fence(ptr noundef %77, i32 noundef 25) #5
-  %78 = load ptr, ptr @nr_rrc_dl_ccch_handle, align 8
-  %79 = load ptr, ptr %5, align 8
+60:                                               ; preds = %57
+  %61 = load ptr, ptr %11, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 8
+  %63 = load ptr, ptr %62, align 8
+  call void @col_append_str(ptr noundef %63, i32 noundef 34, ptr noundef nonnull @.str.5610) #5
+  %64 = load ptr, ptr %11, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 8
+  %66 = load ptr, ptr %65, align 8
+  call void @col_set_fence(ptr noundef %66, i32 noundef 34) #5
+  %67 = load ptr, ptr %11, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 8
+  %69 = load ptr, ptr %68, align 8
+  call void @col_set_fence(ptr noundef %69, i32 noundef 25) #5
+  br label %.sink.split.i
+
+70:                                               ; preds = %57, %57, %57
+  %71 = load ptr, ptr %11, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  %73 = load ptr, ptr %72, align 8
+  call void @col_append_str(ptr noundef %73, i32 noundef 34, ptr noundef nonnull @.str.5610) #5
+  %74 = load ptr, ptr %11, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 8
+  %76 = load ptr, ptr %75, align 8
+  call void @col_set_fence(ptr noundef %76, i32 noundef 34) #5
+  %77 = load ptr, ptr %11, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 8
+  %79 = load ptr, ptr %78, align 8
+  call void @col_set_fence(ptr noundef %79, i32 noundef 25) #5
   %80 = load ptr, ptr %11, align 8
-  %81 = call i32 @call_dissector(ptr noundef %78, ptr noundef %79, ptr noundef %80, ptr noundef %26) #5
+  %81 = load i32, ptr %58, align 4
+  %82 = trunc i32 %81 to i8
+  call fastcc void @add_nr_pdcp_meta_data(ptr noundef %80, i8 noundef zeroext 1, i8 noundef zeroext %82)
+  br label %.sink.split.i
+
+83:                                               ; preds = %28, %28
+  %84 = load ptr, ptr %11, align 8
+  %85 = getelementptr inbounds i8, ptr %84, i64 8
+  %86 = load ptr, ptr %85, align 8
+  call void @col_append_str(ptr noundef %86, i32 noundef 34, ptr noundef nonnull @.str.5610) #5
+  %87 = load ptr, ptr %11, align 8
+  %88 = getelementptr inbounds i8, ptr %87, i64 8
+  %89 = load ptr, ptr %88, align 8
+  call void @col_set_fence(ptr noundef %89, i32 noundef 34) #5
+  %90 = load ptr, ptr %11, align 8
+  %91 = getelementptr inbounds i8, ptr %90, i64 8
+  %92 = load ptr, ptr %91, align 8
+  call void @col_set_fence(ptr noundef %92, i32 noundef 25) #5
+  %93 = load ptr, ptr %11, align 8
+  call fastcc void @add_nr_pdcp_meta_data(ptr noundef %93, i8 noundef zeroext 1, i8 noundef zeroext 1)
+  br label %.sink.split.i
+
+94:                                               ; preds = %f1ap_get_private_data.exit.i
+  %95 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %96 = load i32, ptr %95, align 4
+  %cond.i = icmp eq i32 %96, 8
+  br i1 %cond.i, label %97, label %dissect_f1ap_RRCContainer.exit
+
+97:                                               ; preds = %94
+  %98 = load ptr, ptr %11, align 8
+  %99 = getelementptr inbounds i8, ptr %98, i64 8
+  %100 = load ptr, ptr %99, align 8
+  call void @col_append_str(ptr noundef %100, i32 noundef 34, ptr noundef nonnull @.str.5610) #5
+  %101 = load ptr, ptr %11, align 8
+  %102 = getelementptr inbounds i8, ptr %101, i64 8
+  %103 = load ptr, ptr %102, align 8
+  call void @col_set_fence(ptr noundef %103, i32 noundef 34) #5
+  %104 = load ptr, ptr %11, align 8
+  %105 = getelementptr inbounds i8, ptr %104, i64 8
+  %106 = load ptr, ptr %105, align 8
+  call void @col_set_fence(ptr noundef %106, i32 noundef 25) #5
+  %107 = load ptr, ptr %11, align 8
+  call fastcc void @add_nr_pdcp_meta_data(ptr noundef %107, i8 noundef zeroext 1, i8 noundef zeroext 1)
+  br label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %97, %83, %70, %60, %44, %31
+  %nr_rrc_dl_ccch_handle.sink.i = phi ptr [ @nr_rrc_dl_ccch_handle, %60 ], [ @nr_pdcp_handle, %70 ], [ @nr_pdcp_handle, %44 ], [ @nr_pdcp_handle, %83 ], [ @nr_rrc_ul_ccch_handle, %31 ], [ @nr_pdcp_handle, %97 ]
+  %108 = load ptr, ptr %nr_rrc_dl_ccch_handle.sink.i, align 8
+  %109 = load ptr, ptr %5, align 8
+  %110 = load ptr, ptr %11, align 8
+  %111 = call i32 @call_dissector(ptr noundef %108, ptr noundef %109, ptr noundef %110, ptr noundef %26) #5
   br label %dissect_f1ap_RRCContainer.exit
 
-82:                                               ; preds = %65, %65, %65
-  %83 = load ptr, ptr %11, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 8
-  %85 = load ptr, ptr %84, align 8
-  call void @col_append_str(ptr noundef %85, i32 noundef 34, ptr noundef nonnull @.str.5610) #5
-  %86 = load ptr, ptr %11, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 8
-  %88 = load ptr, ptr %87, align 8
-  call void @col_set_fence(ptr noundef %88, i32 noundef 34) #5
-  %89 = load ptr, ptr %11, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 8
-  %91 = load ptr, ptr %90, align 8
-  call void @col_set_fence(ptr noundef %91, i32 noundef 25) #5
-  %92 = load ptr, ptr %11, align 8
-  %93 = load i32, ptr %66, align 4
-  %94 = trunc i32 %93 to i8
-  call fastcc void @add_nr_pdcp_meta_data(ptr noundef %92, i8 noundef zeroext 1, i8 noundef zeroext %94)
-  %95 = load ptr, ptr @nr_pdcp_handle, align 8
-  %96 = load ptr, ptr %5, align 8
-  %97 = load ptr, ptr %11, align 8
-  %98 = call i32 @call_dissector(ptr noundef %95, ptr noundef %96, ptr noundef %97, ptr noundef %26) #5
-  br label %dissect_f1ap_RRCContainer.exit
-
-99:                                               ; preds = %28, %28
-  %100 = load ptr, ptr %11, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 8
-  %102 = load ptr, ptr %101, align 8
-  call void @col_append_str(ptr noundef %102, i32 noundef 34, ptr noundef nonnull @.str.5610) #5
-  %103 = load ptr, ptr %11, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 8
-  %105 = load ptr, ptr %104, align 8
-  call void @col_set_fence(ptr noundef %105, i32 noundef 34) #5
-  %106 = load ptr, ptr %11, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 8
-  %108 = load ptr, ptr %107, align 8
-  call void @col_set_fence(ptr noundef %108, i32 noundef 25) #5
-  %109 = load ptr, ptr %11, align 8
-  call fastcc void @add_nr_pdcp_meta_data(ptr noundef %109, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  %110 = load ptr, ptr @nr_pdcp_handle, align 8
-  %111 = load ptr, ptr %5, align 8
-  %112 = load ptr, ptr %11, align 8
-  %113 = call i32 @call_dissector(ptr noundef %110, ptr noundef %111, ptr noundef %112, ptr noundef %26) #5
-  br label %dissect_f1ap_RRCContainer.exit
-
-114:                                              ; preds = %f1ap_get_private_data.exit.i
-  %115 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
-  %116 = load i32, ptr %115, align 4
-  %cond.i = icmp eq i32 %116, 8
-  br i1 %cond.i, label %117, label %dissect_f1ap_RRCContainer.exit
-
-117:                                              ; preds = %114
-  %118 = load ptr, ptr %11, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 8
-  %120 = load ptr, ptr %119, align 8
-  call void @col_append_str(ptr noundef %120, i32 noundef 34, ptr noundef nonnull @.str.5610) #5
-  %121 = load ptr, ptr %11, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 8
-  %123 = load ptr, ptr %122, align 8
-  call void @col_set_fence(ptr noundef %123, i32 noundef 34) #5
-  %124 = load ptr, ptr %11, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 8
-  %126 = load ptr, ptr %125, align 8
-  call void @col_set_fence(ptr noundef %126, i32 noundef 25) #5
-  %127 = load ptr, ptr %11, align 8
-  call fastcc void @add_nr_pdcp_meta_data(ptr noundef %127, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  %128 = load ptr, ptr @nr_pdcp_handle, align 8
-  %129 = load ptr, ptr %5, align 8
-  %130 = load ptr, ptr %11, align 8
-  %131 = call i32 @call_dissector(ptr noundef %128, ptr noundef %129, ptr noundef %130, ptr noundef %26) #5
-  br label %dissect_f1ap_RRCContainer.exit
-
-dissect_f1ap_RRCContainer.exit:                   ; preds = %4, %f1ap_get_private_data.exit.i, %28, %31, %45, %48, %65, %68, %82, %99, %114, %117
+dissect_f1ap_RRCContainer.exit:                   ; preds = %4, %f1ap_get_private_data.exit.i, %28, %41, %57, %94, %.sink.split.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %132 = add i32 %8, 7
-  %133 = ashr i32 %132, 3
-  ret i32 %133
+  %112 = add i32 %8, 7
+  %113 = ashr i32 %112, 3
+  ret i32 %113
 }
 
 ; Function Attrs: nounwind uwtable

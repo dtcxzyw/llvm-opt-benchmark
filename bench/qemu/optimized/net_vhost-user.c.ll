@@ -245,10 +245,10 @@ if.else36.i:                                      ; preds = %do.end.i
   call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 375, ptr noundef nonnull @__PRETTY_FUNCTION__.net_vhost_user_init) #9
   unreachable
 
-err38.i:                                          ; preds = %if.then7.i10, %lor.lhs.false.i, %do.body.i
-  %nc0.2.i = phi ptr [ %nc0.1.i, %do.body.i ], [ %call5.i, %lor.lhs.false.i ], [ %call5.i, %if.then7.i10 ]
-  %.sink.i = load ptr, ptr %err.i, align 8
-  call void @error_report_err(ptr noundef %.sink.i) #10
+err38.i:                                          ; preds = %lor.lhs.false.i, %if.then7.i10, %do.body.i
+  %nc0.2.i = phi ptr [ %nc0.1.i, %do.body.i ], [ %call5.i, %if.then7.i10 ], [ %call5.i, %lor.lhs.false.i ]
+  %13 = load ptr, ptr %err.i, align 8
+  call void @error_report_err(ptr noundef %13) #10
   %tobool39.not.i = icmp eq ptr %call.i8, null
   br i1 %tobool39.not.i, label %if.then47.i, label %if.end45.thread.i
 

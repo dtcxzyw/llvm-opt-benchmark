@@ -525,7 +525,7 @@ _ZN3irr3gui11IGUIElement11getTabGroupEv.exit.i:   ; preds = %land.rhs.i.i
   %IsTabGroup.i = getelementptr inbounds i8, ptr %this, i64 276
   %38 = load i8, ptr %IsTabGroup.i, align 4, !tbaa !81, !range !82, !noundef !83
   %tobool.not.not.i = icmp eq i8 %38, 0
-  br i1 %tobool.not.not.i, label %while.end.i, label %while.cond.i.preheader
+  br i1 %tobool.not.not.i, label %if.then6.i, label %while.cond.i.preheader
 
 while.cond.i.preheader:                           ; preds = %_ZN3irr3gui11IGUIElement11getTabGroupEv.exit.thread.i, %_ZN3irr3gui11IGUIElement11getTabGroupEv.exit.i
   %el.0.i.ph = phi ptr [ null, %_ZN3irr3gui11IGUIElement11getTabGroupEv.exit.thread.i ], [ %ret.06.i.i, %_ZN3irr3gui11IGUIElement11getTabGroupEv.exit.i ]
@@ -556,23 +556,14 @@ land.rhs.i:                                       ; preds = %while.cond.i
   %Parent.i = getelementptr inbounds i8, ptr %el.0.i, i64 32
   %40 = load ptr, ptr %Parent.i, align 8, !tbaa !84
   %tobool3.not.i = icmp eq ptr %40, null
-  br i1 %tobool3.not.i, label %while.end.thread.i, label %while.cond.i, !llvm.loop !86
+  br i1 %tobool3.not.i, label %if.then6.i, label %while.cond.i, !llvm.loop !86
 
-while.end.thread.i:                               ; preds = %land.rhs.i
+if.then6.i:                                       ; preds = %land.rhs.i, %_ZN3irr3gui11IGUIElement11getTabGroupEv.exit.i
+  %el.027.i = phi ptr [ %ret.06.i.i, %_ZN3irr3gui11IGUIElement11getTabGroupEv.exit.i ], [ %el.0.i, %land.rhs.i ]
+  %tobool25.i = phi i1 [ false, %_ZN3irr3gui11IGUIElement11getTabGroupEv.exit.i ], [ true, %land.rhs.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %first.i) #25
   store ptr null, ptr %first.i, align 8, !tbaa !87
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %closest.i) #25
-  br label %if.then6.i
-
-while.end.i:                                      ; preds = %_ZN3irr3gui11IGUIElement11getTabGroupEv.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %first.i) #25
-  store ptr null, ptr %first.i, align 8, !tbaa !87
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %closest.i) #25
-  br label %if.then6.i
-
-if.then6.i:                                       ; preds = %while.end.i, %while.end.thread.i
-  %el.027.i = phi ptr [ %el.0.i, %while.end.thread.i ], [ %ret.06.i.i, %while.end.i ]
-  %tobool25.i = phi i1 [ true, %while.end.thread.i ], [ false, %while.end.i ]
   store ptr null, ptr %closest.i, align 8, !tbaa !87
   %call9.i44 = invoke noundef zeroext i1 @_ZNK3irr3gui11IGUIElement14getNextElementEibbRPS1_S3_bb(ptr noundef nonnull align 8 dereferenceable(308) %el.027.i, i32 noundef -1, i1 noundef zeroext true, i1 noundef zeroext %tobool25.i, ptr noundef nonnull align 8 dereferenceable(8) %first.i, ptr noundef nonnull align 8 dereferenceable(8) %closest.i, i1 noundef zeroext true, i1 noundef zeroext true)
           to label %call9.i.noexc unwind label %lpad
@@ -1150,7 +1141,7 @@ _ZN3irr3gui11IGUIElement11getTabGroupEv.exit.i:   ; preds = %land.rhs.i.i
   %IsTabGroup.i = getelementptr inbounds i8, ptr %this, i64 276
   %27 = load i8, ptr %IsTabGroup.i, align 4, !tbaa !81, !range !82, !noundef !83
   %tobool.not.not.i = icmp eq i8 %27, 0
-  br i1 %tobool.not.not.i, label %while.end.i, label %while.cond.i.preheader
+  br i1 %tobool.not.not.i, label %if.then6.i, label %while.cond.i.preheader
 
 while.cond.i.preheader:                           ; preds = %_ZN3irr3gui11IGUIElement11getTabGroupEv.exit.thread.i, %_ZN3irr3gui11IGUIElement11getTabGroupEv.exit.i
   %el.0.i.ph = phi ptr [ null, %_ZN3irr3gui11IGUIElement11getTabGroupEv.exit.thread.i ], [ %ret.06.i.i, %_ZN3irr3gui11IGUIElement11getTabGroupEv.exit.i ]
@@ -1181,23 +1172,14 @@ land.rhs.i:                                       ; preds = %while.cond.i
   %Parent.i = getelementptr inbounds i8, ptr %el.0.i, i64 32
   %29 = load ptr, ptr %Parent.i, align 8, !tbaa !84
   %tobool3.not.i = icmp eq ptr %29, null
-  br i1 %tobool3.not.i, label %while.end.thread.i, label %while.cond.i, !llvm.loop !86
+  br i1 %tobool3.not.i, label %if.then6.i, label %while.cond.i, !llvm.loop !86
 
-while.end.thread.i:                               ; preds = %land.rhs.i
+if.then6.i:                                       ; preds = %land.rhs.i, %_ZN3irr3gui11IGUIElement11getTabGroupEv.exit.i
+  %el.027.i = phi ptr [ %ret.06.i.i, %_ZN3irr3gui11IGUIElement11getTabGroupEv.exit.i ], [ %el.0.i, %land.rhs.i ]
+  %tobool25.i = phi i1 [ false, %_ZN3irr3gui11IGUIElement11getTabGroupEv.exit.i ], [ true, %land.rhs.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %first.i) #25
   store ptr null, ptr %first.i, align 8, !tbaa !87
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %closest.i) #25
-  br label %if.then6.i
-
-while.end.i:                                      ; preds = %_ZN3irr3gui11IGUIElement11getTabGroupEv.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %first.i) #25
-  store ptr null, ptr %first.i, align 8, !tbaa !87
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %closest.i) #25
-  br label %if.then6.i
-
-if.then6.i:                                       ; preds = %while.end.i, %while.end.thread.i
-  %el.027.i = phi ptr [ %el.0.i, %while.end.thread.i ], [ %ret.06.i.i, %while.end.i ]
-  %tobool25.i = phi i1 [ true, %while.end.thread.i ], [ false, %while.end.i ]
   store ptr null, ptr %closest.i, align 8, !tbaa !87
   %call9.i44 = invoke noundef zeroext i1 @_ZNK3irr3gui11IGUIElement14getNextElementEibbRPS1_S3_bb(ptr noundef nonnull align 8 dereferenceable(308) %el.027.i, i32 noundef -1, i1 noundef zeroext true, i1 noundef zeroext %tobool25.i, ptr noundef nonnull align 8 dereferenceable(8) %first.i, ptr noundef nonnull align 8 dereferenceable(8) %closest.i, i1 noundef zeroext true, i1 noundef zeroext true)
           to label %call9.i.noexc unwind label %lpad5

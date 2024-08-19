@@ -115,7 +115,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 19:                                               ; preds = %16
   tail call void @perror(ptr noundef nonnull @.str.1) #18
-  br label %750
+  br label %749
 
 20:                                               ; preds = %16
   store i32 513, ptr %5, align 4
@@ -133,23 +133,23 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %27 = add nsw i32 %0, -2
   br label %28
 
-28:                                               ; preds = %.lr.ph, %431
-  %.04821269 = phi i32 [ 0, %.lr.ph ], [ %.1483, %431 ]
-  %.04851268 = phi i32 [ 0, %.lr.ph ], [ %.1486, %431 ]
-  %.14921267 = phi i32 [ 0, %.lr.ph ], [ %.2493, %431 ]
-  %.sroa.12.11266 = phi ptr [ %10, %.lr.ph ], [ %.sroa.12.2, %431 ]
-  %.sroa.0352.11265 = phi i64 [ %9, %.lr.ph ], [ %.sroa.0352.2, %431 ]
-  %.sroa.25.11264 = phi ptr [ %13, %.lr.ph ], [ %.sroa.25.2, %431 ]
-  %.sroa.0319.11263 = phi i64 [ %12, %.lr.ph ], [ %.sroa.0319.2, %431 ]
-  %.04951262 = phi ptr [ null, %.lr.ph ], [ %.1496, %431 ]
-  %.04981251 = phi i32 [ 0, %.lr.ph ], [ %.1499, %431 ]
-  %.05001240 = phi i32 [ 0, %.lr.ph ], [ %.1501, %431 ]
-  %.05021239 = phi i32 [ 0, %.lr.ph ], [ %.1503, %431 ]
-  %.05041238 = phi i32 [ 0, %.lr.ph ], [ %.1505, %431 ]
-  %.sroa.11.01237 = phi ptr [ %24, %.lr.ph ], [ %.sroa.11.2, %431 ]
-  %.sroa.0294.01236 = phi i64 [ %23, %.lr.ph ], [ %.sroa.0294.2, %431 ]
-  %.05071235 = phi i32 [ 1, %.lr.ph ], [ %433, %431 ]
-  %29 = phi i32 [ 513, %.lr.ph ], [ %432, %431 ]
+28:                                               ; preds = %.lr.ph, %430
+  %.04821269 = phi i32 [ 0, %.lr.ph ], [ %.1483, %430 ]
+  %.04851268 = phi i32 [ 0, %.lr.ph ], [ %.1486, %430 ]
+  %.14921267 = phi i32 [ 0, %.lr.ph ], [ %.2493, %430 ]
+  %.sroa.12.11266 = phi ptr [ %10, %.lr.ph ], [ %.sroa.12.2, %430 ]
+  %.sroa.0352.11265 = phi i64 [ %9, %.lr.ph ], [ %.sroa.0352.2, %430 ]
+  %.sroa.25.11264 = phi ptr [ %13, %.lr.ph ], [ %.sroa.25.2, %430 ]
+  %.sroa.0319.11263 = phi i64 [ %12, %.lr.ph ], [ %.sroa.0319.2, %430 ]
+  %.04951262 = phi ptr [ null, %.lr.ph ], [ %.1496, %430 ]
+  %.04981251 = phi i32 [ 0, %.lr.ph ], [ %.1499, %430 ]
+  %.05001240 = phi i32 [ 0, %.lr.ph ], [ %.1501, %430 ]
+  %.05021239 = phi i32 [ 0, %.lr.ph ], [ %.1503, %430 ]
+  %.05041238 = phi i32 [ 0, %.lr.ph ], [ %.1505, %430 ]
+  %.sroa.11.01237 = phi ptr [ %24, %.lr.ph ], [ %.sroa.11.2, %430 ]
+  %.sroa.0294.01236 = phi i64 [ %23, %.lr.ph ], [ %.sroa.0294.2, %430 ]
+  %.05071235 = phi i32 [ 1, %.lr.ph ], [ %432, %430 ]
+  %29 = phi i32 [ 513, %.lr.ph ], [ %431, %430 ]
   %.not546 = icmp eq i32 %.05021239, 0
   br i1 %.not546, label %30, label %isoptish.exit.thread
 
@@ -185,7 +185,7 @@ isoptish.exit.thread:                             ; preds = %30, %isoptish.exit,
   %47 = sext i32 %.05071235 to i64
   %48 = getelementptr inbounds ptr, ptr %1, i64 %47
   %49 = load ptr, ptr %48, align 8
-  br label %431
+  br label %430
 
 50:                                               ; preds = %isoptish.exit.thread
   %.not610 = icmp eq i32 %.04981251, 0
@@ -201,7 +201,7 @@ isoptish.exit.thread:                             ; preds = %30, %isoptish.exit,
   %58 = tail call { i64, ptr } @jv_array_append(i64 %.sroa.0352.11265, ptr %.sroa.12.11266, i64 %56, ptr %57) #17
   %59 = extractvalue { i64, ptr } %58, 0
   %60 = extractvalue { i64, ptr } %58, 1
-  br label %431
+  br label %430
 
 61:                                               ; preds = %50
   %.not611 = icmp eq i32 %.05001240, 0
@@ -234,12 +234,12 @@ isoptish.exit.thread:                             ; preds = %30, %isoptish.exit,
   %80 = tail call { i64, ptr } @jv_array_append(i64 %.sroa.0352.11265, ptr %.sroa.12.11266, i64 %67, ptr %68) #17
   %81 = extractvalue { i64, ptr } %80, 0
   %82 = extractvalue { i64, ptr } %80, 1
-  br label %431
+  br label %430
 
 83:                                               ; preds = %61
   tail call void @jq_util_input_add_input(ptr noundef %21, ptr noundef %64) #17
   %84 = add nsw i32 %.04851268, 1
-  br label %431
+  br label %430
 
 sub_1:                                            ; preds = %isoptish.exit
   %85 = zext i8 %38 to i32
@@ -256,7 +256,7 @@ sub_2:                                            ; preds = %36, %sub_1
 isoptish.exit.thread742.tail:                     ; preds = %sub_1, %sub_2
   %90 = phi i32 [ %86, %sub_1 ], [ %89, %sub_2 ]
   %.not548 = icmp eq i32 %90, 0
-  br i1 %.not548, label %431, label %91
+  br i1 %.not548, label %430, label %91
 
 91:                                               ; preds = %isoptish.exit.thread742.tail
   switch i8 %38, label %136 [
@@ -294,7 +294,7 @@ isoptish.exit.thread742.tail:                     ; preds = %sub_1, %sub_2
   %110 = tail call { i64, ptr } @jv_array_append(i64 %.sroa.0294.1, ptr %.sroa.11.1, i64 %108, ptr %109) #17
   %111 = extractvalue { i64, ptr } %110, 0
   %112 = extractvalue { i64, ptr } %110, 1
-  br label %431
+  br label %430
 
 113:                                              ; preds = %99
   %.not608 = icmp slt i32 %.05071235, %26
@@ -325,7 +325,7 @@ isoptish.exit.thread742.tail:                     ; preds = %sub_1, %sub_2
   %133 = tail call { i64, ptr } @jv_array_append(i64 %.sroa.0294.1, ptr %.sroa.11.1, i64 %131, ptr %132) #17
   %134 = extractvalue { i64, ptr } %133, 0
   %135 = extractvalue { i64, ptr } %133, 1
-  br label %431
+  br label %430
 
 136:                                              ; preds = %91
   %137 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %33, i32 noundef 115) #22
@@ -340,7 +340,7 @@ isoption.exit:                                    ; preds = %91
 
 thread-pre-split.thread:                          ; preds = %isoption.exit
   %140 = or i32 %.14921267, 1
-  br label %431
+  br label %430
 
 thread-pre-split:                                 ; preds = %136
   store i64 1, ptr %6, align 8
@@ -362,7 +362,7 @@ isoption.exit624:                                 ; preds = %isoption.exit
 
 thread-pre-split764.thread:                       ; preds = %isoption.exit624
   %146 = or i32 %.14921267, 8
-  br label %431
+  br label %430
 
 thread-pre-split764:                              ; preds = %isoption.exit.thread
   %147 = add nuw nsw i64 %142, 1
@@ -378,7 +378,7 @@ isoption.exit631:                                 ; preds = %isoption.exit624
 
 151:                                              ; preds = %isoption.exit631
   %152 = or i32 %.14921267, 1048
-  br label %431
+  br label %430
 
 isoption.exit624.thread:                          ; preds = %isoption.exit.thread, %thread-pre-split764
   %153 = phi i64 [ %147, %thread-pre-split764 ], [ %142, %isoption.exit.thread ]
@@ -394,7 +394,7 @@ isoption.exit639:                                 ; preds = %isoption.exit631
 
 thread-pre-split793.thread:                       ; preds = %isoption.exit639
   %156 = or i32 %.14921267, 1032
-  br label %431
+  br label %430
 
 thread-pre-split793:                              ; preds = %isoption.exit624.thread
   %157 = add nuw nsw i64 %153, 1
@@ -419,7 +419,7 @@ isoption.exit647:                                 ; preds = %isoption.exit639
 thread-pre-split812.thread:                       ; preds = %isoption.exit647
   %163 = and i32 %29, -1858
   store i32 %163, ptr %5, align 4
-  br label %431
+  br label %430
 
 isoption.exit647.thread:                          ; preds = %isoption.exit639.thread
   %164 = add nuw nsw i64 %159, 1
@@ -428,7 +428,7 @@ isoption.exit647.thread:                          ; preds = %isoption.exit639.th
   store i32 %165, ptr %5, align 4
   %.pre = load i8, ptr %33, align 1
   %.not.i648 = icmp eq i8 %.pre, 45
-  br i1 %.not.i648, label %isoption.exit647.thread.thread, label %248
+  br i1 %.not.i648, label %isoption.exit647.thread.thread, label %isoption.exit739.thread.sink.split
 
 isoption.exit647.thread.thread:                   ; preds = %isoption.exit639.thread, %isoption.exit647, %isoption.exit647.thread
   %.67988018061474 = phi i32 [ %.6, %isoption.exit647.thread ], [ %.6, %isoption.exit639.thread ], [ %.14921267, %isoption.exit647 ]
@@ -451,7 +451,7 @@ isoption.exit655:                                 ; preds = %isoption.exit647.th
 
 thread-pre-split820.thread:                       ; preds = %isoption.exit655
   %173 = or i32 %.67988018061474, 64
-  br label %431
+  br label %430
 
 thread-pre-split820:                              ; preds = %.thread19.i651
   %174 = add nuw nsw i64 %167, 1
@@ -474,7 +474,7 @@ isoption.exit663:                                 ; preds = %isoption.exit655
 
 thread-pre-split840.thread:                       ; preds = %isoption.exit663
   %179 = or i32 %.67988018061474, 128
-  br label %431
+  br label %430
 
 thread-pre-split840:                              ; preds = %.thread19.i659
   %180 = add nuw nsw i64 %.ph1476, 1
@@ -497,7 +497,7 @@ isoption.exit671:                                 ; preds = %isoption.exit663
 
 thread-pre-split861.thread:                       ; preds = %isoption.exit671
   %185 = or i32 %.67988018061474, 32
-  br label %431
+  br label %430
 
 thread-pre-split861:                              ; preds = %.thread19.i667
   %186 = add nuw nsw i64 %.ph1482, 1
@@ -513,7 +513,7 @@ isoption.exit678:                                 ; preds = %isoption.exit671
 
 190:                                              ; preds = %isoption.exit678
   %191 = or i32 %.67988018061474, 2048
-  br label %431
+  br label %430
 
 .thread887:                                       ; preds = %thread-pre-split861, %.thread19.i667
   %.ph1488 = phi i64 [ %186, %thread-pre-split861 ], [ %.ph1482, %.thread19.i667 ]
@@ -529,7 +529,7 @@ isoption.exit686:                                 ; preds = %isoption.exit678
 
 thread-pre-split898.thread:                       ; preds = %isoption.exit686
   %194 = or i32 %.67988018061474, 256
-  br label %431
+  br label %430
 
 thread-pre-split898:                              ; preds = %.thread887
   %195 = add nuw nsw i64 %.ph1488, 1
@@ -552,7 +552,7 @@ isoption.exit694:                                 ; preds = %isoption.exit686
 
 thread-pre-split919.thread:                       ; preds = %isoption.exit694
   %200 = or i32 %.67988018061474, 2
-  br label %431
+  br label %430
 
 thread-pre-split919:                              ; preds = %.thread19.i690
   %201 = add nuw nsw i64 %.ph1494, 1
@@ -575,7 +575,7 @@ isoption.exit702:                                 ; preds = %isoption.exit694
 
 thread-pre-split940.thread:                       ; preds = %isoption.exit702
   %206 = or i32 %.67988018061474, 4
-  br label %431
+  br label %430
 
 thread-pre-split940:                              ; preds = %.thread19.i698
   %207 = add nuw nsw i64 %.ph1500, 1
@@ -598,7 +598,7 @@ isoption.exit710:                                 ; preds = %isoption.exit702
 
 thread-pre-split961.thread:                       ; preds = %isoption.exit710
   %212 = or i32 %.67988018061474, 512
-  br label %431
+  br label %430
 
 thread-pre-split961:                              ; preds = %.thread19.i706
   %213 = add nuw nsw i64 %.ph1506, 1
@@ -615,8 +615,7 @@ thread-pre-split961:                              ; preds = %.thread19.i706
 
 216:                                              ; preds = %.thread19.i714
   %217 = add nuw nsw i64 %.ph1512, 1
-  store i64 %217, ptr %6, align 8
-  br label %isoption.exit739.thread
+  br label %isoption.exit739.thread.sink.split
 
 isoption.exit725:                                 ; preds = %isoption.exit710
   %218 = getelementptr inbounds i8, ptr %33, i64 2
@@ -628,7 +627,7 @@ isoption.exit725:                                 ; preds = %isoption.exit710
   %221 = and i32 %166, -1858
   %222 = or disjoint i32 %221, 65
   store i32 %222, ptr %5, align 4
-  br label %431
+  br label %430
 
 isoption.exit732:                                 ; preds = %isoption.exit725
   %223 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %218, ptr noundef nonnull readonly dereferenceable(7) @.str.20) #22
@@ -673,955 +672,958 @@ isoption.exit732:                                 ; preds = %isoption.exit725
   %246 = select i1 %or.cond3, i32 65, i32 %245
   %247 = or i32 %241, %246
   store i32 %247, ptr %5, align 4
-  br label %431
-
-248:                                              ; preds = %isoption.exit647.thread
-  store i64 0, ptr %6, align 8
-  br label %isoption.exit739.thread
+  br label %430
 
 isoption.exit739:                                 ; preds = %isoption.exit732
   store i64 0, ptr %6, align 8
-  %249 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %218, ptr noundef nonnull readonly dereferenceable(4) @.str.23) #22
-  %.not14.i737.not = icmp eq i32 %249, 0
-  br i1 %.not14.i737.not, label %250, label %isoption.exit739.thread
+  %248 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %218, ptr noundef nonnull readonly dereferenceable(4) @.str.23) #22
+  %.not14.i737.not = icmp eq i32 %248, 0
+  br i1 %.not14.i737.not, label %249, label %isoption.exit739.thread
 
-250:                                              ; preds = %isoption.exit739
-  %251 = or i32 %.67988018061474, 16384
-  br label %431
+249:                                              ; preds = %isoption.exit739
+  %250 = or i32 %.67988018061474, 16384
+  br label %430
 
-isoption.exit739.thread:                          ; preds = %216, %.thread19.i714, %248, %isoption.exit739
-  %252 = phi i32 [ %166, %isoption.exit739 ], [ %165, %248 ], [ %166, %.thread19.i714 ], [ %166, %216 ]
-  %.13966975984987100010031015 = phi i32 [ %.67988018061474, %isoption.exit739 ], [ %.6, %248 ], [ %.13969.ph, %.thread19.i714 ], [ %.13969.ph, %216 ]
-  %253 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.24, ptr noundef nonnull %6)
-  %.not577 = icmp eq i32 %253, 0
-  br i1 %.not577, label %256, label %254
+isoption.exit739.thread.sink.split:               ; preds = %isoption.exit647.thread, %216
+  %.sink = phi i64 [ %217, %216 ], [ 0, %isoption.exit647.thread ]
+  %.ph = phi i32 [ %166, %216 ], [ %165, %isoption.exit647.thread ]
+  %.13966975984987100010031015.ph = phi i32 [ %.13969.ph, %216 ], [ %.6, %isoption.exit647.thread ]
+  store i64 %.sink, ptr %6, align 8
+  br label %isoption.exit739.thread
 
-254:                                              ; preds = %isoption.exit739.thread
-  %255 = or i32 %.04821269, 2
-  br label %431
+isoption.exit739.thread:                          ; preds = %isoption.exit739.thread.sink.split, %.thread19.i714, %isoption.exit739
+  %251 = phi i32 [ %166, %isoption.exit739 ], [ %166, %.thread19.i714 ], [ %.ph, %isoption.exit739.thread.sink.split ]
+  %.13966975984987100010031015 = phi i32 [ %.67988018061474, %isoption.exit739 ], [ %.13969.ph, %.thread19.i714 ], [ %.13966975984987100010031015.ph, %isoption.exit739.thread.sink.split ]
+  %252 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.24, ptr noundef nonnull %6)
+  %.not577 = icmp eq i32 %252, 0
+  br i1 %.not577, label %255, label %253
 
-256:                                              ; preds = %isoption.exit739.thread
-  %257 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.25, ptr noundef nonnull %6)
-  %.not578 = icmp eq i32 %257, 0
-  br i1 %.not578, label %260, label %258
+253:                                              ; preds = %isoption.exit739.thread
+  %254 = or i32 %.04821269, 2
+  br label %430
 
-258:                                              ; preds = %256
-  %259 = or i32 %.04821269, 6
-  br label %431
+255:                                              ; preds = %isoption.exit739.thread
+  %256 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.25, ptr noundef nonnull %6)
+  %.not578 = icmp eq i32 %256, 0
+  br i1 %.not578, label %259, label %257
 
-260:                                              ; preds = %256
-  %261 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 101, ptr noundef nonnull @.str.26, ptr noundef nonnull %6)
-  %.not579 = icmp eq i32 %261, 0
-  br i1 %.not579, label %265, label %262
+257:                                              ; preds = %255
+  %258 = or i32 %.04821269, 6
+  br label %430
 
-262:                                              ; preds = %260
-  %263 = or i32 %.13966975984987100010031015, 4096
-  %264 = load i64, ptr %6, align 8
-  %.not580 = icmp eq i64 %264, 0
-  br i1 %.not580, label %431, label %265
+259:                                              ; preds = %255
+  %260 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 101, ptr noundef nonnull @.str.26, ptr noundef nonnull %6)
+  %.not579 = icmp eq i32 %260, 0
+  br i1 %.not579, label %264, label %261
 
-265:                                              ; preds = %262, %260
-  %.14 = phi i32 [ %263, %262 ], [ %.13966975984987100010031015, %260 ]
-  %266 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.27, ptr noundef nonnull %6)
-  %.not581 = icmp eq i32 %266, 0
-  br i1 %.not581, label %267, label %431
+261:                                              ; preds = %259
+  %262 = or i32 %.13966975984987100010031015, 4096
+  %263 = load i64, ptr %6, align 8
+  %.not580 = icmp eq i64 %263, 0
+  br i1 %.not580, label %430, label %264
 
-267:                                              ; preds = %265
-  %268 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.28, ptr noundef nonnull %6)
-  %.not582 = icmp eq i32 %268, 0
-  br i1 %.not582, label %269, label %431
+264:                                              ; preds = %261, %259
+  %.14 = phi i32 [ %262, %261 ], [ %.13966975984987100010031015, %259 ]
+  %265 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.27, ptr noundef nonnull %6)
+  %.not581 = icmp eq i32 %265, 0
+  br i1 %.not581, label %266, label %430
 
-269:                                              ; preds = %267
-  %270 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.29, ptr noundef nonnull %6)
-  %.not583 = icmp eq i32 %270, 0
-  br i1 %.not583, label %301, label %271
+266:                                              ; preds = %264
+  %267 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.28, ptr noundef nonnull %6)
+  %.not582 = icmp eq i32 %267, 0
+  br i1 %.not582, label %268, label %430
 
-271:                                              ; preds = %269
+268:                                              ; preds = %266
+  %269 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.29, ptr noundef nonnull %6)
+  %.not583 = icmp eq i32 %269, 0
+  br i1 %.not583, label %300, label %270
+
+270:                                              ; preds = %268
   %.not604 = icmp slt i32 %.05071235, %27
-  br i1 %.not604, label %276, label %272
+  br i1 %.not604, label %275, label %271
 
-272:                                              ; preds = %271
-  %273 = load ptr, ptr @stderr, align 8
-  %274 = load ptr, ptr @progname, align 8
-  %275 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %273, ptr noundef nonnull @.str.30, ptr noundef %274) #20
+271:                                              ; preds = %270
+  %272 = load ptr, ptr @stderr, align 8
+  %273 = load ptr, ptr @progname, align 8
+  %274 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %272, ptr noundef nonnull @.str.30, ptr noundef %273) #20
   tail call fastcc void @die()
   unreachable
 
-276:                                              ; preds = %271
-  %277 = tail call { i64, ptr } @jv_copy(i64 %.sroa.0319.11263, ptr %.sroa.25.11264) #17
-  %278 = extractvalue { i64, ptr } %277, 0
-  %279 = extractvalue { i64, ptr } %277, 1
-  %280 = getelementptr i8, ptr %32, i64 8
-  %281 = load ptr, ptr %280, align 8
-  %282 = tail call { i64, ptr } @jv_string(ptr noundef %281) #17
-  %283 = extractvalue { i64, ptr } %282, 0
-  %284 = extractvalue { i64, ptr } %282, 1
-  %285 = tail call i32 @jv_object_has(i64 %278, ptr %279, i64 %283, ptr %284) #17
-  %.not605 = icmp eq i32 %285, 0
-  br i1 %.not605, label %286, label %299
+275:                                              ; preds = %270
+  %276 = tail call { i64, ptr } @jv_copy(i64 %.sroa.0319.11263, ptr %.sroa.25.11264) #17
+  %277 = extractvalue { i64, ptr } %276, 0
+  %278 = extractvalue { i64, ptr } %276, 1
+  %279 = getelementptr i8, ptr %32, i64 8
+  %280 = load ptr, ptr %279, align 8
+  %281 = tail call { i64, ptr } @jv_string(ptr noundef %280) #17
+  %282 = extractvalue { i64, ptr } %281, 0
+  %283 = extractvalue { i64, ptr } %281, 1
+  %284 = tail call i32 @jv_object_has(i64 %277, ptr %278, i64 %282, ptr %283) #17
+  %.not605 = icmp eq i32 %284, 0
+  br i1 %.not605, label %285, label %298
 
-286:                                              ; preds = %276
-  %287 = load ptr, ptr %280, align 8
-  %288 = tail call { i64, ptr } @jv_string(ptr noundef %287) #17
-  %289 = extractvalue { i64, ptr } %288, 0
-  %290 = extractvalue { i64, ptr } %288, 1
-  %291 = getelementptr i8, ptr %32, i64 16
-  %292 = load ptr, ptr %291, align 8
-  %293 = tail call { i64, ptr } @jv_string(ptr noundef %292) #17
-  %294 = extractvalue { i64, ptr } %293, 0
-  %295 = extractvalue { i64, ptr } %293, 1
-  %296 = tail call { i64, ptr } @jv_object_set(i64 %.sroa.0319.11263, ptr %.sroa.25.11264, i64 %289, ptr %290, i64 %294, ptr %295) #17
-  %297 = extractvalue { i64, ptr } %296, 0
-  %298 = extractvalue { i64, ptr } %296, 1
-  br label %299
+285:                                              ; preds = %275
+  %286 = load ptr, ptr %279, align 8
+  %287 = tail call { i64, ptr } @jv_string(ptr noundef %286) #17
+  %288 = extractvalue { i64, ptr } %287, 0
+  %289 = extractvalue { i64, ptr } %287, 1
+  %290 = getelementptr i8, ptr %32, i64 16
+  %291 = load ptr, ptr %290, align 8
+  %292 = tail call { i64, ptr } @jv_string(ptr noundef %291) #17
+  %293 = extractvalue { i64, ptr } %292, 0
+  %294 = extractvalue { i64, ptr } %292, 1
+  %295 = tail call { i64, ptr } @jv_object_set(i64 %.sroa.0319.11263, ptr %.sroa.25.11264, i64 %288, ptr %289, i64 %293, ptr %294) #17
+  %296 = extractvalue { i64, ptr } %295, 0
+  %297 = extractvalue { i64, ptr } %295, 1
+  br label %298
 
-299:                                              ; preds = %286, %276
-  %.sroa.0319.3 = phi i64 [ %.sroa.0319.11263, %276 ], [ %297, %286 ]
-  %.sroa.25.3 = phi ptr [ %.sroa.25.11264, %276 ], [ %298, %286 ]
-  %300 = add nsw i32 %.05071235, 2
-  br label %431
+298:                                              ; preds = %285, %275
+  %.sroa.0319.3 = phi i64 [ %.sroa.0319.11263, %275 ], [ %296, %285 ]
+  %.sroa.25.3 = phi ptr [ %.sroa.25.11264, %275 ], [ %297, %285 ]
+  %299 = add nsw i32 %.05071235, 2
+  br label %430
 
-301:                                              ; preds = %269
-  %302 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.31, ptr noundef nonnull %6)
-  %.not584 = icmp eq i32 %302, 0
-  br i1 %.not584, label %339, label %303
+300:                                              ; preds = %268
+  %301 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.31, ptr noundef nonnull %6)
+  %.not584 = icmp eq i32 %301, 0
+  br i1 %.not584, label %338, label %302
 
-303:                                              ; preds = %301
+302:                                              ; preds = %300
   %.not601 = icmp slt i32 %.05071235, %27
-  br i1 %.not601, label %308, label %304
+  br i1 %.not601, label %307, label %303
 
-304:                                              ; preds = %303
-  %305 = load ptr, ptr @stderr, align 8
-  %306 = load ptr, ptr @progname, align 8
-  %307 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %305, ptr noundef nonnull @.str.32, ptr noundef %306) #20
+303:                                              ; preds = %302
+  %304 = load ptr, ptr @stderr, align 8
+  %305 = load ptr, ptr @progname, align 8
+  %306 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %304, ptr noundef nonnull @.str.32, ptr noundef %305) #20
   tail call fastcc void @die()
   unreachable
 
-308:                                              ; preds = %303
-  %309 = tail call { i64, ptr } @jv_copy(i64 %.sroa.0319.11263, ptr %.sroa.25.11264) #17
-  %310 = extractvalue { i64, ptr } %309, 0
-  %311 = extractvalue { i64, ptr } %309, 1
-  %312 = getelementptr i8, ptr %32, i64 8
-  %313 = load ptr, ptr %312, align 8
-  %314 = tail call { i64, ptr } @jv_string(ptr noundef %313) #17
-  %315 = extractvalue { i64, ptr } %314, 0
-  %316 = extractvalue { i64, ptr } %314, 1
-  %317 = tail call i32 @jv_object_has(i64 %310, ptr %311, i64 %315, ptr %316) #17
-  %.not602 = icmp eq i32 %317, 0
-  br i1 %.not602, label %318, label %337
+307:                                              ; preds = %302
+  %308 = tail call { i64, ptr } @jv_copy(i64 %.sroa.0319.11263, ptr %.sroa.25.11264) #17
+  %309 = extractvalue { i64, ptr } %308, 0
+  %310 = extractvalue { i64, ptr } %308, 1
+  %311 = getelementptr i8, ptr %32, i64 8
+  %312 = load ptr, ptr %311, align 8
+  %313 = tail call { i64, ptr } @jv_string(ptr noundef %312) #17
+  %314 = extractvalue { i64, ptr } %313, 0
+  %315 = extractvalue { i64, ptr } %313, 1
+  %316 = tail call i32 @jv_object_has(i64 %309, ptr %310, i64 %314, ptr %315) #17
+  %.not602 = icmp eq i32 %316, 0
+  br i1 %.not602, label %317, label %336
 
-318:                                              ; preds = %308
-  %319 = getelementptr i8, ptr %32, i64 16
-  %320 = load ptr, ptr %319, align 8
-  %321 = tail call { i64, ptr } @jv_parse(ptr noundef %320) #17
-  %322 = extractvalue { i64, ptr } %321, 0
-  %323 = extractvalue { i64, ptr } %321, 1
-  %324 = tail call i32 @jv_get_kind(i64 %322, ptr %323) #17
-  %.not1026 = icmp eq i32 %324, 0
-  br i1 %.not1026, label %325, label %329
+317:                                              ; preds = %307
+  %318 = getelementptr i8, ptr %32, i64 16
+  %319 = load ptr, ptr %318, align 8
+  %320 = tail call { i64, ptr } @jv_parse(ptr noundef %319) #17
+  %321 = extractvalue { i64, ptr } %320, 0
+  %322 = extractvalue { i64, ptr } %320, 1
+  %323 = tail call i32 @jv_get_kind(i64 %321, ptr %322) #17
+  %.not1026 = icmp eq i32 %323, 0
+  br i1 %.not1026, label %324, label %328
 
-325:                                              ; preds = %318
-  %326 = load ptr, ptr @stderr, align 8
-  %327 = load ptr, ptr @progname, align 8
-  %328 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %326, ptr noundef nonnull @.str.33, ptr noundef %327) #20
+324:                                              ; preds = %317
+  %325 = load ptr, ptr @stderr, align 8
+  %326 = load ptr, ptr @progname, align 8
+  %327 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %325, ptr noundef nonnull @.str.33, ptr noundef %326) #20
   tail call fastcc void @die()
   unreachable
 
-329:                                              ; preds = %318
-  %330 = load ptr, ptr %312, align 8
-  %331 = tail call { i64, ptr } @jv_string(ptr noundef %330) #17
-  %332 = extractvalue { i64, ptr } %331, 0
-  %333 = extractvalue { i64, ptr } %331, 1
-  %334 = tail call { i64, ptr } @jv_object_set(i64 %.sroa.0319.11263, ptr %.sroa.25.11264, i64 %332, ptr %333, i64 %322, ptr %323) #17
-  %335 = extractvalue { i64, ptr } %334, 0
-  %336 = extractvalue { i64, ptr } %334, 1
-  br label %337
+328:                                              ; preds = %317
+  %329 = load ptr, ptr %311, align 8
+  %330 = tail call { i64, ptr } @jv_string(ptr noundef %329) #17
+  %331 = extractvalue { i64, ptr } %330, 0
+  %332 = extractvalue { i64, ptr } %330, 1
+  %333 = tail call { i64, ptr } @jv_object_set(i64 %.sroa.0319.11263, ptr %.sroa.25.11264, i64 %331, ptr %332, i64 %321, ptr %322) #17
+  %334 = extractvalue { i64, ptr } %333, 0
+  %335 = extractvalue { i64, ptr } %333, 1
+  br label %336
 
-337:                                              ; preds = %329, %308
-  %.sroa.0319.4 = phi i64 [ %.sroa.0319.11263, %308 ], [ %335, %329 ]
-  %.sroa.25.4 = phi ptr [ %.sroa.25.11264, %308 ], [ %336, %329 ]
-  %338 = add nsw i32 %.05071235, 2
-  br label %431
+336:                                              ; preds = %328, %307
+  %.sroa.0319.4 = phi i64 [ %.sroa.0319.11263, %307 ], [ %334, %328 ]
+  %.sroa.25.4 = phi ptr [ %.sroa.25.11264, %307 ], [ %335, %328 ]
+  %337 = add nsw i32 %.05071235, 2
+  br label %430
 
-339:                                              ; preds = %301
-  %340 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.34, ptr noundef nonnull %6)
-  %.not585 = icmp eq i32 %340, 0
-  br i1 %.not585, label %341, label %343
+338:                                              ; preds = %300
+  %339 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.34, ptr noundef nonnull %6)
+  %.not585 = icmp eq i32 %339, 0
+  br i1 %.not585, label %340, label %342
 
-341:                                              ; preds = %339
-  %342 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.35, ptr noundef nonnull %6)
-  %.not586 = icmp eq i32 %342, 0
-  br i1 %.not586, label %387, label %343
+340:                                              ; preds = %338
+  %341 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.35, ptr noundef nonnull %6)
+  %.not586 = icmp eq i32 %341, 0
+  br i1 %.not586, label %386, label %342
 
-343:                                              ; preds = %341, %339
-  %344 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.34, ptr noundef nonnull %6)
+342:                                              ; preds = %340, %338
+  %343 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.34, ptr noundef nonnull %6)
   %.not598 = icmp slt i32 %.05071235, %27
-  br i1 %.not598, label %349, label %345
+  br i1 %.not598, label %348, label %344
 
-345:                                              ; preds = %343
-  %.not597.le = icmp eq i32 %344, 0
+344:                                              ; preds = %342
+  %.not597.le = icmp eq i32 %343, 0
   %.str.35..str.34.le1230 = select i1 %.not597.le, ptr @.str.35, ptr @.str.34
-  %346 = load ptr, ptr @stderr, align 8
-  %347 = load ptr, ptr @progname, align 8
-  %348 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %346, ptr noundef nonnull @.str.36, ptr noundef %347, ptr noundef nonnull %.str.35..str.34.le1230, ptr noundef nonnull %.str.35..str.34.le1230) #20
+  %345 = load ptr, ptr @stderr, align 8
+  %346 = load ptr, ptr @progname, align 8
+  %347 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %345, ptr noundef nonnull @.str.36, ptr noundef %346, ptr noundef nonnull %.str.35..str.34.le1230, ptr noundef nonnull %.str.35..str.34.le1230) #20
   tail call fastcc void @die()
   unreachable
 
-349:                                              ; preds = %343
-  %350 = tail call { i64, ptr } @jv_copy(i64 %.sroa.0319.11263, ptr %.sroa.25.11264) #17
-  %351 = extractvalue { i64, ptr } %350, 0
-  %352 = extractvalue { i64, ptr } %350, 1
-  %353 = getelementptr i8, ptr %32, i64 8
-  %354 = load ptr, ptr %353, align 8
-  %355 = tail call { i64, ptr } @jv_string(ptr noundef %354) #17
-  %356 = extractvalue { i64, ptr } %355, 0
-  %357 = extractvalue { i64, ptr } %355, 1
-  %358 = tail call i32 @jv_object_has(i64 %351, ptr %352, i64 %356, ptr %357) #17
-  %.not599 = icmp eq i32 %358, 0
-  br i1 %.not599, label %359, label %385
+348:                                              ; preds = %342
+  %349 = tail call { i64, ptr } @jv_copy(i64 %.sroa.0319.11263, ptr %.sroa.25.11264) #17
+  %350 = extractvalue { i64, ptr } %349, 0
+  %351 = extractvalue { i64, ptr } %349, 1
+  %352 = getelementptr i8, ptr %32, i64 8
+  %353 = load ptr, ptr %352, align 8
+  %354 = tail call { i64, ptr } @jv_string(ptr noundef %353) #17
+  %355 = extractvalue { i64, ptr } %354, 0
+  %356 = extractvalue { i64, ptr } %354, 1
+  %357 = tail call i32 @jv_object_has(i64 %350, ptr %351, i64 %355, ptr %356) #17
+  %.not599 = icmp eq i32 %357, 0
+  br i1 %.not599, label %358, label %384
 
-359:                                              ; preds = %349
-  %360 = getelementptr i8, ptr %32, i64 16
-  %361 = load ptr, ptr %360, align 8
-  %362 = tail call { i64, ptr } @jv_load_file(ptr noundef %361, i32 noundef %344) #17
-  %363 = extractvalue { i64, ptr } %362, 0
-  %364 = extractvalue { i64, ptr } %362, 1
-  %365 = tail call i32 @jv_get_kind(i64 %363, ptr %364) #17
-  %.not1027 = icmp eq i32 %365, 0
-  br i1 %.not1027, label %366, label %377
+358:                                              ; preds = %348
+  %359 = getelementptr i8, ptr %32, i64 16
+  %360 = load ptr, ptr %359, align 8
+  %361 = tail call { i64, ptr } @jv_load_file(ptr noundef %360, i32 noundef %343) #17
+  %362 = extractvalue { i64, ptr } %361, 0
+  %363 = extractvalue { i64, ptr } %361, 1
+  %364 = tail call i32 @jv_get_kind(i64 %362, ptr %363) #17
+  %.not1027 = icmp eq i32 %364, 0
+  br i1 %.not1027, label %365, label %376
 
-366:                                              ; preds = %359
-  %367 = getelementptr i8, ptr %32, i64 16
-  %.not597.le1233 = icmp eq i32 %344, 0
+365:                                              ; preds = %358
+  %366 = getelementptr i8, ptr %32, i64 16
+  %.not597.le1233 = icmp eq i32 %343, 0
   %.str.35..str.34.le = select i1 %.not597.le1233, ptr @.str.35, ptr @.str.34
-  %368 = tail call { i64, ptr } @jv_invalid_get_msg(i64 %363, ptr %364) #17
-  %369 = extractvalue { i64, ptr } %368, 0
-  %370 = extractvalue { i64, ptr } %368, 1
-  %371 = load ptr, ptr @stderr, align 8
-  %372 = load ptr, ptr @progname, align 8
-  %373 = load ptr, ptr %353, align 8
-  %374 = load ptr, ptr %367, align 8
-  %375 = tail call ptr @jv_string_value(i64 %369, ptr %370) #17
-  %376 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %371, ptr noundef nonnull @.str.37, ptr noundef %372, ptr noundef nonnull %.str.35..str.34.le, ptr noundef %373, ptr noundef %374, ptr noundef %375) #20
-  tail call void @jv_free(i64 %369, ptr %370) #17
-  br label %750
+  %367 = tail call { i64, ptr } @jv_invalid_get_msg(i64 %362, ptr %363) #17
+  %368 = extractvalue { i64, ptr } %367, 0
+  %369 = extractvalue { i64, ptr } %367, 1
+  %370 = load ptr, ptr @stderr, align 8
+  %371 = load ptr, ptr @progname, align 8
+  %372 = load ptr, ptr %352, align 8
+  %373 = load ptr, ptr %366, align 8
+  %374 = tail call ptr @jv_string_value(i64 %368, ptr %369) #17
+  %375 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %370, ptr noundef nonnull @.str.37, ptr noundef %371, ptr noundef nonnull %.str.35..str.34.le, ptr noundef %372, ptr noundef %373, ptr noundef %374) #20
+  tail call void @jv_free(i64 %368, ptr %369) #17
+  br label %749
 
-377:                                              ; preds = %359
-  %378 = load ptr, ptr %353, align 8
-  %379 = tail call { i64, ptr } @jv_string(ptr noundef %378) #17
-  %380 = extractvalue { i64, ptr } %379, 0
-  %381 = extractvalue { i64, ptr } %379, 1
-  %382 = tail call { i64, ptr } @jv_object_set(i64 %.sroa.0319.11263, ptr %.sroa.25.11264, i64 %380, ptr %381, i64 %363, ptr %364) #17
-  %383 = extractvalue { i64, ptr } %382, 0
-  %384 = extractvalue { i64, ptr } %382, 1
-  br label %385
+376:                                              ; preds = %358
+  %377 = load ptr, ptr %352, align 8
+  %378 = tail call { i64, ptr } @jv_string(ptr noundef %377) #17
+  %379 = extractvalue { i64, ptr } %378, 0
+  %380 = extractvalue { i64, ptr } %378, 1
+  %381 = tail call { i64, ptr } @jv_object_set(i64 %.sroa.0319.11263, ptr %.sroa.25.11264, i64 %379, ptr %380, i64 %362, ptr %363) #17
+  %382 = extractvalue { i64, ptr } %381, 0
+  %383 = extractvalue { i64, ptr } %381, 1
+  br label %384
 
-385:                                              ; preds = %377, %349
-  %.sroa.0319.5 = phi i64 [ %.sroa.0319.11263, %349 ], [ %383, %377 ]
-  %.sroa.25.5 = phi ptr [ %.sroa.25.11264, %349 ], [ %384, %377 ]
-  %386 = add nsw i32 %.05071235, 2
-  br label %431
+384:                                              ; preds = %376, %348
+  %.sroa.0319.5 = phi i64 [ %.sroa.0319.11263, %348 ], [ %382, %376 ]
+  %.sroa.25.5 = phi ptr [ %.sroa.25.11264, %348 ], [ %383, %376 ]
+  %385 = add nsw i32 %.05071235, 2
+  br label %430
 
-387:                                              ; preds = %341
-  %388 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.38, ptr noundef nonnull %6)
-  %.not587 = icmp eq i32 %388, 0
-  br i1 %.not587, label %391, label %389
+386:                                              ; preds = %340
+  %387 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.38, ptr noundef nonnull %6)
+  %.not587 = icmp eq i32 %387, 0
+  br i1 %.not587, label %390, label %388
 
-389:                                              ; preds = %387
-  %390 = or i32 %.14, 65536
-  br label %431
+388:                                              ; preds = %386
+  %389 = or i32 %.14, 65536
+  br label %430
 
-391:                                              ; preds = %387
-  %392 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.39, ptr noundef nonnull %6)
-  %.not588 = icmp eq i32 %392, 0
-  br i1 %.not588, label %395, label %393
+390:                                              ; preds = %386
+  %391 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.39, ptr noundef nonnull %6)
+  %.not588 = icmp eq i32 %391, 0
+  br i1 %.not588, label %394, label %392
 
-393:                                              ; preds = %391
-  %394 = load i64, ptr %6, align 8
-  %.not589 = icmp eq i64 %394, 0
-  br i1 %.not589, label %431, label %395
+392:                                              ; preds = %390
+  %393 = load i64, ptr %6, align 8
+  %.not589 = icmp eq i64 %393, 0
+  br i1 %.not589, label %430, label %394
 
-395:                                              ; preds = %393, %391
-  %.2506 = phi i32 [ 3, %393 ], [ %.05041238, %391 ]
-  %396 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.40, ptr noundef nonnull %6)
-  %.not590 = icmp eq i32 %396, 0
-  br i1 %.not590, label %399, label %397
+394:                                              ; preds = %392, %390
+  %.2506 = phi i32 [ 3, %392 ], [ %.05041238, %390 ]
+  %395 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.40, ptr noundef nonnull %6)
+  %.not590 = icmp eq i32 %395, 0
+  br i1 %.not590, label %398, label %396
 
-397:                                              ; preds = %395
-  %398 = or i32 %.2506, 1
-  br label %431
+396:                                              ; preds = %394
+  %397 = or i32 %.2506, 1
+  br label %430
 
-399:                                              ; preds = %395
-  %400 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 104, ptr noundef nonnull @.str.41, ptr noundef nonnull %6)
-  %.not591 = icmp eq i32 %400, 0
-  br i1 %.not591, label %402, label %401
+398:                                              ; preds = %394
+  %399 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 104, ptr noundef nonnull @.str.41, ptr noundef nonnull %6)
+  %.not591 = icmp eq i32 %399, 0
+  br i1 %.not591, label %401, label %400
 
-401:                                              ; preds = %399
+400:                                              ; preds = %398
   tail call fastcc void @usage(i32 noundef 0, i32 noundef 0)
   unreachable
 
-402:                                              ; preds = %399
-  %403 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 86, ptr noundef nonnull @.str.42, ptr noundef nonnull %6)
-  %.not593 = icmp eq i32 %403, 0
-  br i1 %.not593, label %406, label %404
+401:                                              ; preds = %398
+  %402 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 86, ptr noundef nonnull @.str.42, ptr noundef nonnull %6)
+  %.not593 = icmp eq i32 %402, 0
+  br i1 %.not593, label %405, label %403
 
-404:                                              ; preds = %402
-  %405 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.43, ptr noundef nonnull @.str)
-  br label %750
+403:                                              ; preds = %401
+  %404 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.43, ptr noundef nonnull @.str)
+  br label %749
 
-406:                                              ; preds = %402
-  %407 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.44, ptr noundef nonnull %6)
-  %.not594 = icmp eq i32 %407, 0
-  br i1 %.not594, label %409, label %408
+405:                                              ; preds = %401
+  %406 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.44, ptr noundef nonnull %6)
+  %.not594 = icmp eq i32 %406, 0
+  br i1 %.not594, label %408, label %407
 
-408:                                              ; preds = %406
+407:                                              ; preds = %405
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @.str.46)
-  br label %750
+  br label %749
 
-409:                                              ; preds = %406
-  %410 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.47, ptr noundef nonnull %6)
-  %.not595 = icmp eq i32 %410, 0
-  br i1 %.not595, label %423, label %411
+408:                                              ; preds = %405
+  %409 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.47, ptr noundef nonnull %6)
+  %.not595 = icmp eq i32 %409, 0
+  br i1 %.not595, label %422, label %410
 
-411:                                              ; preds = %409
-  %412 = add nsw i32 %.05071235, 1
-  %413 = and i32 %.14, 65536
-  %414 = icmp ne i32 %413, 0
-  %415 = and i32 %.2506, 1
-  %416 = icmp ne i32 %415, 0
-  %417 = select i1 %414, i1 true, i1 %416
-  %418 = zext i1 %417 to i32
-  %419 = sub nsw i32 %0, %412
-  %420 = sext i32 %412 to i64
-  %421 = getelementptr inbounds ptr, ptr %1, i64 %420
-  %422 = tail call i32 @jq_testsuite(i64 %.sroa.0294.01236, ptr %.sroa.11.01237, i32 noundef %418, i32 noundef %419, ptr noundef %421) #17
-  br label %750
+410:                                              ; preds = %408
+  %411 = add nsw i32 %.05071235, 1
+  %412 = and i32 %.14, 65536
+  %413 = icmp ne i32 %412, 0
+  %414 = and i32 %.2506, 1
+  %415 = icmp ne i32 %414, 0
+  %416 = select i1 %413, i1 true, i1 %415
+  %417 = zext i1 %416 to i32
+  %418 = sub nsw i32 %0, %411
+  %419 = sext i32 %411 to i64
+  %420 = getelementptr inbounds ptr, ptr %1, i64 %419
+  %421 = tail call i32 @jq_testsuite(i64 %.sroa.0294.01236, ptr %.sroa.11.01237, i32 noundef %417, i32 noundef %418, ptr noundef %420) #17
+  br label %749
 
-423:                                              ; preds = %409
-  %424 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #22
-  %425 = load i64, ptr %6, align 8
-  %426 = add i64 %425, 1
-  %.not596 = icmp eq i64 %424, %426
-  br i1 %.not596, label %431, label %427
+422:                                              ; preds = %408
+  %423 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #22
+  %424 = load i64, ptr %6, align 8
+  %425 = add i64 %424, 1
+  %.not596 = icmp eq i64 %423, %425
+  br i1 %.not596, label %430, label %426
 
-427:                                              ; preds = %423
-  %428 = load ptr, ptr @stderr, align 8
-  %429 = load ptr, ptr @progname, align 8
-  %430 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %428, ptr noundef nonnull @.str.48, ptr noundef %429, ptr noundef nonnull %33) #20
+426:                                              ; preds = %422
+  %427 = load ptr, ptr @stderr, align 8
+  %428 = load ptr, ptr @progname, align 8
+  %429 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %427, ptr noundef nonnull @.str.48, ptr noundef %428, ptr noundef nonnull %33) #20
   tail call fastcc void @die()
   unreachable
 
-431:                                              ; preds = %thread-pre-split961.thread, %thread-pre-split940.thread, %thread-pre-split919.thread, %thread-pre-split898.thread, %thread-pre-split861.thread, %thread-pre-split840.thread, %thread-pre-split820.thread, %thread-pre-split812.thread, %thread-pre-split793.thread, %thread-pre-split764.thread, %thread-pre-split.thread, %151, %267, %265, %isoptish.exit.thread742.tail, %51, %83, %79, %46, %423, %393, %262, %103, %122, %397, %389, %385, %337, %299, %258, %254, %250, %240, %220, %190
-  %432 = phi i32 [ %29, %51 ], [ %29, %79 ], [ %29, %83 ], [ %29, %46 ], [ %29, %103 ], [ %29, %122 ], [ %166, %190 ], [ %222, %220 ], [ %247, %240 ], [ %166, %250 ], [ %252, %254 ], [ %252, %258 ], [ %252, %299 ], [ %252, %337 ], [ %252, %385 ], [ %252, %389 ], [ %252, %397 ], [ %252, %423 ], [ %252, %393 ], [ %252, %262 ], [ %29, %151 ], [ %29, %isoptish.exit.thread742.tail ], [ %252, %265 ], [ %252, %267 ], [ %29, %thread-pre-split.thread ], [ %29, %thread-pre-split764.thread ], [ %29, %thread-pre-split793.thread ], [ %163, %thread-pre-split812.thread ], [ %166, %thread-pre-split820.thread ], [ %166, %thread-pre-split840.thread ], [ %166, %thread-pre-split861.thread ], [ %166, %thread-pre-split898.thread ], [ %166, %thread-pre-split919.thread ], [ %166, %thread-pre-split940.thread ], [ %166, %thread-pre-split961.thread ]
-  %.1508 = phi i32 [ %.05071235, %51 ], [ %.05071235, %79 ], [ %.05071235, %83 ], [ %.05071235, %46 ], [ %.05071235, %103 ], [ %123, %122 ], [ %.05071235, %190 ], [ %.05071235, %220 ], [ %230, %240 ], [ %.05071235, %250 ], [ %.05071235, %254 ], [ %.05071235, %258 ], [ %300, %299 ], [ %338, %337 ], [ %386, %385 ], [ %.05071235, %389 ], [ %.05071235, %397 ], [ %.05071235, %423 ], [ %.05071235, %393 ], [ %.05071235, %262 ], [ %.05071235, %151 ], [ %.05071235, %isoptish.exit.thread742.tail ], [ %.05071235, %265 ], [ %.05071235, %267 ], [ %.05071235, %thread-pre-split.thread ], [ %.05071235, %thread-pre-split764.thread ], [ %.05071235, %thread-pre-split793.thread ], [ %.05071235, %thread-pre-split812.thread ], [ %.05071235, %thread-pre-split820.thread ], [ %.05071235, %thread-pre-split840.thread ], [ %.05071235, %thread-pre-split861.thread ], [ %.05071235, %thread-pre-split898.thread ], [ %.05071235, %thread-pre-split919.thread ], [ %.05071235, %thread-pre-split940.thread ], [ %.05071235, %thread-pre-split961.thread ]
-  %.sroa.0294.2 = phi i64 [ %.sroa.0294.01236, %51 ], [ %.sroa.0294.01236, %79 ], [ %.sroa.0294.01236, %83 ], [ %.sroa.0294.01236, %46 ], [ %111, %103 ], [ %134, %122 ], [ %.sroa.0294.01236, %190 ], [ %.sroa.0294.01236, %220 ], [ %.sroa.0294.01236, %240 ], [ %.sroa.0294.01236, %250 ], [ %.sroa.0294.01236, %254 ], [ %.sroa.0294.01236, %258 ], [ %.sroa.0294.01236, %299 ], [ %.sroa.0294.01236, %337 ], [ %.sroa.0294.01236, %385 ], [ %.sroa.0294.01236, %389 ], [ %.sroa.0294.01236, %397 ], [ %.sroa.0294.01236, %423 ], [ %.sroa.0294.01236, %393 ], [ %.sroa.0294.01236, %262 ], [ %.sroa.0294.01236, %151 ], [ %.sroa.0294.01236, %isoptish.exit.thread742.tail ], [ %.sroa.0294.01236, %265 ], [ %.sroa.0294.01236, %267 ], [ %.sroa.0294.01236, %thread-pre-split.thread ], [ %.sroa.0294.01236, %thread-pre-split764.thread ], [ %.sroa.0294.01236, %thread-pre-split793.thread ], [ %.sroa.0294.01236, %thread-pre-split812.thread ], [ %.sroa.0294.01236, %thread-pre-split820.thread ], [ %.sroa.0294.01236, %thread-pre-split840.thread ], [ %.sroa.0294.01236, %thread-pre-split861.thread ], [ %.sroa.0294.01236, %thread-pre-split898.thread ], [ %.sroa.0294.01236, %thread-pre-split919.thread ], [ %.sroa.0294.01236, %thread-pre-split940.thread ], [ %.sroa.0294.01236, %thread-pre-split961.thread ]
-  %.sroa.11.2 = phi ptr [ %.sroa.11.01237, %51 ], [ %.sroa.11.01237, %79 ], [ %.sroa.11.01237, %83 ], [ %.sroa.11.01237, %46 ], [ %112, %103 ], [ %135, %122 ], [ %.sroa.11.01237, %190 ], [ %.sroa.11.01237, %220 ], [ %.sroa.11.01237, %240 ], [ %.sroa.11.01237, %250 ], [ %.sroa.11.01237, %254 ], [ %.sroa.11.01237, %258 ], [ %.sroa.11.01237, %299 ], [ %.sroa.11.01237, %337 ], [ %.sroa.11.01237, %385 ], [ %.sroa.11.01237, %389 ], [ %.sroa.11.01237, %397 ], [ %.sroa.11.01237, %423 ], [ %.sroa.11.01237, %393 ], [ %.sroa.11.01237, %262 ], [ %.sroa.11.01237, %151 ], [ %.sroa.11.01237, %isoptish.exit.thread742.tail ], [ %.sroa.11.01237, %265 ], [ %.sroa.11.01237, %267 ], [ %.sroa.11.01237, %thread-pre-split.thread ], [ %.sroa.11.01237, %thread-pre-split764.thread ], [ %.sroa.11.01237, %thread-pre-split793.thread ], [ %.sroa.11.01237, %thread-pre-split812.thread ], [ %.sroa.11.01237, %thread-pre-split820.thread ], [ %.sroa.11.01237, %thread-pre-split840.thread ], [ %.sroa.11.01237, %thread-pre-split861.thread ], [ %.sroa.11.01237, %thread-pre-split898.thread ], [ %.sroa.11.01237, %thread-pre-split919.thread ], [ %.sroa.11.01237, %thread-pre-split940.thread ], [ %.sroa.11.01237, %thread-pre-split961.thread ]
-  %.1505 = phi i32 [ %.05041238, %51 ], [ %.05041238, %79 ], [ %.05041238, %83 ], [ %.05041238, %46 ], [ %.05041238, %103 ], [ %.05041238, %122 ], [ %.05041238, %190 ], [ %.05041238, %220 ], [ %.05041238, %240 ], [ %.05041238, %250 ], [ %.05041238, %254 ], [ %.05041238, %258 ], [ %.05041238, %299 ], [ %.05041238, %337 ], [ %.05041238, %385 ], [ %.05041238, %389 ], [ %398, %397 ], [ %.2506, %423 ], [ 3, %393 ], [ %.05041238, %262 ], [ %.05041238, %151 ], [ %.05041238, %isoptish.exit.thread742.tail ], [ %.05041238, %265 ], [ %.05041238, %267 ], [ %.05041238, %thread-pre-split.thread ], [ %.05041238, %thread-pre-split764.thread ], [ %.05041238, %thread-pre-split793.thread ], [ %.05041238, %thread-pre-split812.thread ], [ %.05041238, %thread-pre-split820.thread ], [ %.05041238, %thread-pre-split840.thread ], [ %.05041238, %thread-pre-split861.thread ], [ %.05041238, %thread-pre-split898.thread ], [ %.05041238, %thread-pre-split919.thread ], [ %.05041238, %thread-pre-split940.thread ], [ %.05041238, %thread-pre-split961.thread ]
-  %.1503 = phi i32 [ %.05021239, %51 ], [ %.05021239, %79 ], [ %.05021239, %83 ], [ %.05021239, %46 ], [ 0, %103 ], [ 0, %122 ], [ 0, %190 ], [ 0, %220 ], [ 0, %240 ], [ 0, %250 ], [ 0, %254 ], [ 0, %258 ], [ 0, %299 ], [ 0, %337 ], [ 0, %385 ], [ 0, %389 ], [ 0, %397 ], [ 0, %423 ], [ 0, %393 ], [ 0, %262 ], [ 0, %151 ], [ 1, %isoptish.exit.thread742.tail ], [ 0, %265 ], [ 0, %267 ], [ 0, %thread-pre-split.thread ], [ 0, %thread-pre-split764.thread ], [ 0, %thread-pre-split793.thread ], [ 0, %thread-pre-split812.thread ], [ 0, %thread-pre-split820.thread ], [ 0, %thread-pre-split840.thread ], [ 0, %thread-pre-split861.thread ], [ 0, %thread-pre-split898.thread ], [ 0, %thread-pre-split919.thread ], [ 0, %thread-pre-split940.thread ], [ 0, %thread-pre-split961.thread ]
-  %.1501 = phi i32 [ %.05001240, %51 ], [ 1, %79 ], [ 0, %83 ], [ %.05001240, %46 ], [ %.05001240, %103 ], [ %.05001240, %122 ], [ %.05001240, %190 ], [ %.05001240, %220 ], [ %.05001240, %240 ], [ %.05001240, %250 ], [ %.05001240, %254 ], [ %.05001240, %258 ], [ %.05001240, %299 ], [ %.05001240, %337 ], [ %.05001240, %385 ], [ %.05001240, %389 ], [ %.05001240, %397 ], [ %.05001240, %423 ], [ %.05001240, %393 ], [ %.05001240, %262 ], [ %.05001240, %151 ], [ %.05001240, %isoptish.exit.thread742.tail ], [ 0, %265 ], [ 1, %267 ], [ %.05001240, %thread-pre-split.thread ], [ %.05001240, %thread-pre-split764.thread ], [ %.05001240, %thread-pre-split793.thread ], [ %.05001240, %thread-pre-split812.thread ], [ %.05001240, %thread-pre-split820.thread ], [ %.05001240, %thread-pre-split840.thread ], [ %.05001240, %thread-pre-split861.thread ], [ %.05001240, %thread-pre-split898.thread ], [ %.05001240, %thread-pre-split919.thread ], [ %.05001240, %thread-pre-split940.thread ], [ %.05001240, %thread-pre-split961.thread ]
-  %.1499 = phi i32 [ 1, %51 ], [ 0, %79 ], [ 0, %83 ], [ %.04981251, %46 ], [ %.04981251, %103 ], [ %.04981251, %122 ], [ %.04981251, %190 ], [ %.04981251, %220 ], [ %.04981251, %240 ], [ %.04981251, %250 ], [ %.04981251, %254 ], [ %.04981251, %258 ], [ %.04981251, %299 ], [ %.04981251, %337 ], [ %.04981251, %385 ], [ %.04981251, %389 ], [ %.04981251, %397 ], [ %.04981251, %423 ], [ %.04981251, %393 ], [ %.04981251, %262 ], [ %.04981251, %151 ], [ %.04981251, %isoptish.exit.thread742.tail ], [ 1, %265 ], [ 0, %267 ], [ %.04981251, %thread-pre-split.thread ], [ %.04981251, %thread-pre-split764.thread ], [ %.04981251, %thread-pre-split793.thread ], [ %.04981251, %thread-pre-split812.thread ], [ %.04981251, %thread-pre-split820.thread ], [ %.04981251, %thread-pre-split840.thread ], [ %.04981251, %thread-pre-split861.thread ], [ %.04981251, %thread-pre-split898.thread ], [ %.04981251, %thread-pre-split919.thread ], [ %.04981251, %thread-pre-split940.thread ], [ %.04981251, %thread-pre-split961.thread ]
-  %.1496 = phi ptr [ %.04951262, %51 ], [ %.04951262, %79 ], [ %.04951262, %83 ], [ %49, %46 ], [ %.04951262, %103 ], [ %.04951262, %122 ], [ %.04951262, %190 ], [ %.04951262, %220 ], [ %.04951262, %240 ], [ %.04951262, %250 ], [ %.04951262, %254 ], [ %.04951262, %258 ], [ %.04951262, %299 ], [ %.04951262, %337 ], [ %.04951262, %385 ], [ %.04951262, %389 ], [ %.04951262, %397 ], [ %.04951262, %423 ], [ %.04951262, %393 ], [ %.04951262, %262 ], [ %.04951262, %151 ], [ %.04951262, %isoptish.exit.thread742.tail ], [ %.04951262, %265 ], [ %.04951262, %267 ], [ %.04951262, %thread-pre-split.thread ], [ %.04951262, %thread-pre-split764.thread ], [ %.04951262, %thread-pre-split793.thread ], [ %.04951262, %thread-pre-split812.thread ], [ %.04951262, %thread-pre-split820.thread ], [ %.04951262, %thread-pre-split840.thread ], [ %.04951262, %thread-pre-split861.thread ], [ %.04951262, %thread-pre-split898.thread ], [ %.04951262, %thread-pre-split919.thread ], [ %.04951262, %thread-pre-split940.thread ], [ %.04951262, %thread-pre-split961.thread ]
-  %.sroa.0319.2 = phi i64 [ %.sroa.0319.11263, %51 ], [ %.sroa.0319.11263, %79 ], [ %.sroa.0319.11263, %83 ], [ %.sroa.0319.11263, %46 ], [ %.sroa.0319.11263, %103 ], [ %.sroa.0319.11263, %122 ], [ %.sroa.0319.11263, %190 ], [ %.sroa.0319.11263, %220 ], [ %.sroa.0319.11263, %240 ], [ %.sroa.0319.11263, %250 ], [ %.sroa.0319.11263, %254 ], [ %.sroa.0319.11263, %258 ], [ %.sroa.0319.3, %299 ], [ %.sroa.0319.4, %337 ], [ %.sroa.0319.5, %385 ], [ %.sroa.0319.11263, %389 ], [ %.sroa.0319.11263, %397 ], [ %.sroa.0319.11263, %423 ], [ %.sroa.0319.11263, %393 ], [ %.sroa.0319.11263, %262 ], [ %.sroa.0319.11263, %151 ], [ %.sroa.0319.11263, %isoptish.exit.thread742.tail ], [ %.sroa.0319.11263, %265 ], [ %.sroa.0319.11263, %267 ], [ %.sroa.0319.11263, %thread-pre-split.thread ], [ %.sroa.0319.11263, %thread-pre-split764.thread ], [ %.sroa.0319.11263, %thread-pre-split793.thread ], [ %.sroa.0319.11263, %thread-pre-split812.thread ], [ %.sroa.0319.11263, %thread-pre-split820.thread ], [ %.sroa.0319.11263, %thread-pre-split840.thread ], [ %.sroa.0319.11263, %thread-pre-split861.thread ], [ %.sroa.0319.11263, %thread-pre-split898.thread ], [ %.sroa.0319.11263, %thread-pre-split919.thread ], [ %.sroa.0319.11263, %thread-pre-split940.thread ], [ %.sroa.0319.11263, %thread-pre-split961.thread ]
-  %.sroa.25.2 = phi ptr [ %.sroa.25.11264, %51 ], [ %.sroa.25.11264, %79 ], [ %.sroa.25.11264, %83 ], [ %.sroa.25.11264, %46 ], [ %.sroa.25.11264, %103 ], [ %.sroa.25.11264, %122 ], [ %.sroa.25.11264, %190 ], [ %.sroa.25.11264, %220 ], [ %.sroa.25.11264, %240 ], [ %.sroa.25.11264, %250 ], [ %.sroa.25.11264, %254 ], [ %.sroa.25.11264, %258 ], [ %.sroa.25.3, %299 ], [ %.sroa.25.4, %337 ], [ %.sroa.25.5, %385 ], [ %.sroa.25.11264, %389 ], [ %.sroa.25.11264, %397 ], [ %.sroa.25.11264, %423 ], [ %.sroa.25.11264, %393 ], [ %.sroa.25.11264, %262 ], [ %.sroa.25.11264, %151 ], [ %.sroa.25.11264, %isoptish.exit.thread742.tail ], [ %.sroa.25.11264, %265 ], [ %.sroa.25.11264, %267 ], [ %.sroa.25.11264, %thread-pre-split.thread ], [ %.sroa.25.11264, %thread-pre-split764.thread ], [ %.sroa.25.11264, %thread-pre-split793.thread ], [ %.sroa.25.11264, %thread-pre-split812.thread ], [ %.sroa.25.11264, %thread-pre-split820.thread ], [ %.sroa.25.11264, %thread-pre-split840.thread ], [ %.sroa.25.11264, %thread-pre-split861.thread ], [ %.sroa.25.11264, %thread-pre-split898.thread ], [ %.sroa.25.11264, %thread-pre-split919.thread ], [ %.sroa.25.11264, %thread-pre-split940.thread ], [ %.sroa.25.11264, %thread-pre-split961.thread ]
-  %.sroa.0352.2 = phi i64 [ %59, %51 ], [ %81, %79 ], [ %.sroa.0352.11265, %83 ], [ %.sroa.0352.11265, %46 ], [ %.sroa.0352.11265, %103 ], [ %.sroa.0352.11265, %122 ], [ %.sroa.0352.11265, %190 ], [ %.sroa.0352.11265, %220 ], [ %.sroa.0352.11265, %240 ], [ %.sroa.0352.11265, %250 ], [ %.sroa.0352.11265, %254 ], [ %.sroa.0352.11265, %258 ], [ %.sroa.0352.11265, %299 ], [ %.sroa.0352.11265, %337 ], [ %.sroa.0352.11265, %385 ], [ %.sroa.0352.11265, %389 ], [ %.sroa.0352.11265, %397 ], [ %.sroa.0352.11265, %423 ], [ %.sroa.0352.11265, %393 ], [ %.sroa.0352.11265, %262 ], [ %.sroa.0352.11265, %151 ], [ %.sroa.0352.11265, %isoptish.exit.thread742.tail ], [ %.sroa.0352.11265, %265 ], [ %.sroa.0352.11265, %267 ], [ %.sroa.0352.11265, %thread-pre-split.thread ], [ %.sroa.0352.11265, %thread-pre-split764.thread ], [ %.sroa.0352.11265, %thread-pre-split793.thread ], [ %.sroa.0352.11265, %thread-pre-split812.thread ], [ %.sroa.0352.11265, %thread-pre-split820.thread ], [ %.sroa.0352.11265, %thread-pre-split840.thread ], [ %.sroa.0352.11265, %thread-pre-split861.thread ], [ %.sroa.0352.11265, %thread-pre-split898.thread ], [ %.sroa.0352.11265, %thread-pre-split919.thread ], [ %.sroa.0352.11265, %thread-pre-split940.thread ], [ %.sroa.0352.11265, %thread-pre-split961.thread ]
-  %.sroa.12.2 = phi ptr [ %60, %51 ], [ %82, %79 ], [ %.sroa.12.11266, %83 ], [ %.sroa.12.11266, %46 ], [ %.sroa.12.11266, %103 ], [ %.sroa.12.11266, %122 ], [ %.sroa.12.11266, %190 ], [ %.sroa.12.11266, %220 ], [ %.sroa.12.11266, %240 ], [ %.sroa.12.11266, %250 ], [ %.sroa.12.11266, %254 ], [ %.sroa.12.11266, %258 ], [ %.sroa.12.11266, %299 ], [ %.sroa.12.11266, %337 ], [ %.sroa.12.11266, %385 ], [ %.sroa.12.11266, %389 ], [ %.sroa.12.11266, %397 ], [ %.sroa.12.11266, %423 ], [ %.sroa.12.11266, %393 ], [ %.sroa.12.11266, %262 ], [ %.sroa.12.11266, %151 ], [ %.sroa.12.11266, %isoptish.exit.thread742.tail ], [ %.sroa.12.11266, %265 ], [ %.sroa.12.11266, %267 ], [ %.sroa.12.11266, %thread-pre-split.thread ], [ %.sroa.12.11266, %thread-pre-split764.thread ], [ %.sroa.12.11266, %thread-pre-split793.thread ], [ %.sroa.12.11266, %thread-pre-split812.thread ], [ %.sroa.12.11266, %thread-pre-split820.thread ], [ %.sroa.12.11266, %thread-pre-split840.thread ], [ %.sroa.12.11266, %thread-pre-split861.thread ], [ %.sroa.12.11266, %thread-pre-split898.thread ], [ %.sroa.12.11266, %thread-pre-split919.thread ], [ %.sroa.12.11266, %thread-pre-split940.thread ], [ %.sroa.12.11266, %thread-pre-split961.thread ]
-  %.2493 = phi i32 [ %.14921267, %51 ], [ %.14921267, %79 ], [ %.14921267, %83 ], [ %.14921267, %46 ], [ %.14921267, %103 ], [ %.14921267, %122 ], [ %191, %190 ], [ %.67988018061474, %220 ], [ %.67988018061474, %240 ], [ %251, %250 ], [ %.13966975984987100010031015, %254 ], [ %.13966975984987100010031015, %258 ], [ %.14, %299 ], [ %.14, %337 ], [ %.14, %385 ], [ %390, %389 ], [ %.14, %397 ], [ %.14, %423 ], [ %.14, %393 ], [ %263, %262 ], [ %152, %151 ], [ %.14921267, %isoptish.exit.thread742.tail ], [ %.14, %265 ], [ %.14, %267 ], [ %140, %thread-pre-split.thread ], [ %146, %thread-pre-split764.thread ], [ %156, %thread-pre-split793.thread ], [ %.14921267, %thread-pre-split812.thread ], [ %173, %thread-pre-split820.thread ], [ %179, %thread-pre-split840.thread ], [ %185, %thread-pre-split861.thread ], [ %194, %thread-pre-split898.thread ], [ %200, %thread-pre-split919.thread ], [ %206, %thread-pre-split940.thread ], [ %212, %thread-pre-split961.thread ]
-  %.1486 = phi i32 [ %.04851268, %51 ], [ %.04851268, %79 ], [ %84, %83 ], [ %.04851268, %46 ], [ %.04851268, %103 ], [ %.04851268, %122 ], [ %.04851268, %190 ], [ %.04851268, %220 ], [ %.04851268, %240 ], [ %.04851268, %250 ], [ %.04851268, %254 ], [ %.04851268, %258 ], [ %.04851268, %299 ], [ %.04851268, %337 ], [ %.04851268, %385 ], [ %.04851268, %389 ], [ %.04851268, %397 ], [ %.04851268, %423 ], [ %.04851268, %393 ], [ %.04851268, %262 ], [ %.04851268, %151 ], [ %.04851268, %isoptish.exit.thread742.tail ], [ %.04851268, %265 ], [ %.04851268, %267 ], [ %.04851268, %thread-pre-split.thread ], [ %.04851268, %thread-pre-split764.thread ], [ %.04851268, %thread-pre-split793.thread ], [ %.04851268, %thread-pre-split812.thread ], [ %.04851268, %thread-pre-split820.thread ], [ %.04851268, %thread-pre-split840.thread ], [ %.04851268, %thread-pre-split861.thread ], [ %.04851268, %thread-pre-split898.thread ], [ %.04851268, %thread-pre-split919.thread ], [ %.04851268, %thread-pre-split940.thread ], [ %.04851268, %thread-pre-split961.thread ]
-  %.1483 = phi i32 [ %.04821269, %51 ], [ %.04821269, %79 ], [ %.04821269, %83 ], [ %.04821269, %46 ], [ %.04821269, %103 ], [ %.04821269, %122 ], [ %.04821269, %190 ], [ %.04821269, %220 ], [ %.04821269, %240 ], [ %.04821269, %250 ], [ %255, %254 ], [ %259, %258 ], [ %.04821269, %299 ], [ %.04821269, %337 ], [ %.04821269, %385 ], [ %.04821269, %389 ], [ %.04821269, %397 ], [ %.04821269, %423 ], [ %.04821269, %393 ], [ %.04821269, %262 ], [ %.04821269, %151 ], [ %.04821269, %isoptish.exit.thread742.tail ], [ %.04821269, %265 ], [ %.04821269, %267 ], [ %.04821269, %thread-pre-split.thread ], [ %.04821269, %thread-pre-split764.thread ], [ %.04821269, %thread-pre-split793.thread ], [ %.04821269, %thread-pre-split812.thread ], [ %.04821269, %thread-pre-split820.thread ], [ %.04821269, %thread-pre-split840.thread ], [ %.04821269, %thread-pre-split861.thread ], [ %.04821269, %thread-pre-split898.thread ], [ %.04821269, %thread-pre-split919.thread ], [ %.04821269, %thread-pre-split940.thread ], [ %.04821269, %thread-pre-split961.thread ]
-  %433 = add nsw i32 %.1508, 1
+430:                                              ; preds = %thread-pre-split961.thread, %thread-pre-split940.thread, %thread-pre-split919.thread, %thread-pre-split898.thread, %thread-pre-split861.thread, %thread-pre-split840.thread, %thread-pre-split820.thread, %thread-pre-split812.thread, %thread-pre-split793.thread, %thread-pre-split764.thread, %thread-pre-split.thread, %151, %266, %264, %isoptish.exit.thread742.tail, %51, %83, %79, %46, %422, %392, %261, %103, %122, %396, %388, %384, %336, %298, %257, %253, %249, %240, %220, %190
+  %431 = phi i32 [ %29, %51 ], [ %29, %79 ], [ %29, %83 ], [ %29, %46 ], [ %29, %103 ], [ %29, %122 ], [ %166, %190 ], [ %222, %220 ], [ %247, %240 ], [ %166, %249 ], [ %251, %253 ], [ %251, %257 ], [ %251, %298 ], [ %251, %336 ], [ %251, %384 ], [ %251, %388 ], [ %251, %396 ], [ %251, %422 ], [ %251, %392 ], [ %251, %261 ], [ %29, %151 ], [ %29, %isoptish.exit.thread742.tail ], [ %251, %264 ], [ %251, %266 ], [ %29, %thread-pre-split.thread ], [ %29, %thread-pre-split764.thread ], [ %29, %thread-pre-split793.thread ], [ %163, %thread-pre-split812.thread ], [ %166, %thread-pre-split820.thread ], [ %166, %thread-pre-split840.thread ], [ %166, %thread-pre-split861.thread ], [ %166, %thread-pre-split898.thread ], [ %166, %thread-pre-split919.thread ], [ %166, %thread-pre-split940.thread ], [ %166, %thread-pre-split961.thread ]
+  %.1508 = phi i32 [ %.05071235, %51 ], [ %.05071235, %79 ], [ %.05071235, %83 ], [ %.05071235, %46 ], [ %.05071235, %103 ], [ %123, %122 ], [ %.05071235, %190 ], [ %.05071235, %220 ], [ %230, %240 ], [ %.05071235, %249 ], [ %.05071235, %253 ], [ %.05071235, %257 ], [ %299, %298 ], [ %337, %336 ], [ %385, %384 ], [ %.05071235, %388 ], [ %.05071235, %396 ], [ %.05071235, %422 ], [ %.05071235, %392 ], [ %.05071235, %261 ], [ %.05071235, %151 ], [ %.05071235, %isoptish.exit.thread742.tail ], [ %.05071235, %264 ], [ %.05071235, %266 ], [ %.05071235, %thread-pre-split.thread ], [ %.05071235, %thread-pre-split764.thread ], [ %.05071235, %thread-pre-split793.thread ], [ %.05071235, %thread-pre-split812.thread ], [ %.05071235, %thread-pre-split820.thread ], [ %.05071235, %thread-pre-split840.thread ], [ %.05071235, %thread-pre-split861.thread ], [ %.05071235, %thread-pre-split898.thread ], [ %.05071235, %thread-pre-split919.thread ], [ %.05071235, %thread-pre-split940.thread ], [ %.05071235, %thread-pre-split961.thread ]
+  %.sroa.0294.2 = phi i64 [ %.sroa.0294.01236, %51 ], [ %.sroa.0294.01236, %79 ], [ %.sroa.0294.01236, %83 ], [ %.sroa.0294.01236, %46 ], [ %111, %103 ], [ %134, %122 ], [ %.sroa.0294.01236, %190 ], [ %.sroa.0294.01236, %220 ], [ %.sroa.0294.01236, %240 ], [ %.sroa.0294.01236, %249 ], [ %.sroa.0294.01236, %253 ], [ %.sroa.0294.01236, %257 ], [ %.sroa.0294.01236, %298 ], [ %.sroa.0294.01236, %336 ], [ %.sroa.0294.01236, %384 ], [ %.sroa.0294.01236, %388 ], [ %.sroa.0294.01236, %396 ], [ %.sroa.0294.01236, %422 ], [ %.sroa.0294.01236, %392 ], [ %.sroa.0294.01236, %261 ], [ %.sroa.0294.01236, %151 ], [ %.sroa.0294.01236, %isoptish.exit.thread742.tail ], [ %.sroa.0294.01236, %264 ], [ %.sroa.0294.01236, %266 ], [ %.sroa.0294.01236, %thread-pre-split.thread ], [ %.sroa.0294.01236, %thread-pre-split764.thread ], [ %.sroa.0294.01236, %thread-pre-split793.thread ], [ %.sroa.0294.01236, %thread-pre-split812.thread ], [ %.sroa.0294.01236, %thread-pre-split820.thread ], [ %.sroa.0294.01236, %thread-pre-split840.thread ], [ %.sroa.0294.01236, %thread-pre-split861.thread ], [ %.sroa.0294.01236, %thread-pre-split898.thread ], [ %.sroa.0294.01236, %thread-pre-split919.thread ], [ %.sroa.0294.01236, %thread-pre-split940.thread ], [ %.sroa.0294.01236, %thread-pre-split961.thread ]
+  %.sroa.11.2 = phi ptr [ %.sroa.11.01237, %51 ], [ %.sroa.11.01237, %79 ], [ %.sroa.11.01237, %83 ], [ %.sroa.11.01237, %46 ], [ %112, %103 ], [ %135, %122 ], [ %.sroa.11.01237, %190 ], [ %.sroa.11.01237, %220 ], [ %.sroa.11.01237, %240 ], [ %.sroa.11.01237, %249 ], [ %.sroa.11.01237, %253 ], [ %.sroa.11.01237, %257 ], [ %.sroa.11.01237, %298 ], [ %.sroa.11.01237, %336 ], [ %.sroa.11.01237, %384 ], [ %.sroa.11.01237, %388 ], [ %.sroa.11.01237, %396 ], [ %.sroa.11.01237, %422 ], [ %.sroa.11.01237, %392 ], [ %.sroa.11.01237, %261 ], [ %.sroa.11.01237, %151 ], [ %.sroa.11.01237, %isoptish.exit.thread742.tail ], [ %.sroa.11.01237, %264 ], [ %.sroa.11.01237, %266 ], [ %.sroa.11.01237, %thread-pre-split.thread ], [ %.sroa.11.01237, %thread-pre-split764.thread ], [ %.sroa.11.01237, %thread-pre-split793.thread ], [ %.sroa.11.01237, %thread-pre-split812.thread ], [ %.sroa.11.01237, %thread-pre-split820.thread ], [ %.sroa.11.01237, %thread-pre-split840.thread ], [ %.sroa.11.01237, %thread-pre-split861.thread ], [ %.sroa.11.01237, %thread-pre-split898.thread ], [ %.sroa.11.01237, %thread-pre-split919.thread ], [ %.sroa.11.01237, %thread-pre-split940.thread ], [ %.sroa.11.01237, %thread-pre-split961.thread ]
+  %.1505 = phi i32 [ %.05041238, %51 ], [ %.05041238, %79 ], [ %.05041238, %83 ], [ %.05041238, %46 ], [ %.05041238, %103 ], [ %.05041238, %122 ], [ %.05041238, %190 ], [ %.05041238, %220 ], [ %.05041238, %240 ], [ %.05041238, %249 ], [ %.05041238, %253 ], [ %.05041238, %257 ], [ %.05041238, %298 ], [ %.05041238, %336 ], [ %.05041238, %384 ], [ %.05041238, %388 ], [ %397, %396 ], [ %.2506, %422 ], [ 3, %392 ], [ %.05041238, %261 ], [ %.05041238, %151 ], [ %.05041238, %isoptish.exit.thread742.tail ], [ %.05041238, %264 ], [ %.05041238, %266 ], [ %.05041238, %thread-pre-split.thread ], [ %.05041238, %thread-pre-split764.thread ], [ %.05041238, %thread-pre-split793.thread ], [ %.05041238, %thread-pre-split812.thread ], [ %.05041238, %thread-pre-split820.thread ], [ %.05041238, %thread-pre-split840.thread ], [ %.05041238, %thread-pre-split861.thread ], [ %.05041238, %thread-pre-split898.thread ], [ %.05041238, %thread-pre-split919.thread ], [ %.05041238, %thread-pre-split940.thread ], [ %.05041238, %thread-pre-split961.thread ]
+  %.1503 = phi i32 [ %.05021239, %51 ], [ %.05021239, %79 ], [ %.05021239, %83 ], [ %.05021239, %46 ], [ 0, %103 ], [ 0, %122 ], [ 0, %190 ], [ 0, %220 ], [ 0, %240 ], [ 0, %249 ], [ 0, %253 ], [ 0, %257 ], [ 0, %298 ], [ 0, %336 ], [ 0, %384 ], [ 0, %388 ], [ 0, %396 ], [ 0, %422 ], [ 0, %392 ], [ 0, %261 ], [ 0, %151 ], [ 1, %isoptish.exit.thread742.tail ], [ 0, %264 ], [ 0, %266 ], [ 0, %thread-pre-split.thread ], [ 0, %thread-pre-split764.thread ], [ 0, %thread-pre-split793.thread ], [ 0, %thread-pre-split812.thread ], [ 0, %thread-pre-split820.thread ], [ 0, %thread-pre-split840.thread ], [ 0, %thread-pre-split861.thread ], [ 0, %thread-pre-split898.thread ], [ 0, %thread-pre-split919.thread ], [ 0, %thread-pre-split940.thread ], [ 0, %thread-pre-split961.thread ]
+  %.1501 = phi i32 [ %.05001240, %51 ], [ 1, %79 ], [ 0, %83 ], [ %.05001240, %46 ], [ %.05001240, %103 ], [ %.05001240, %122 ], [ %.05001240, %190 ], [ %.05001240, %220 ], [ %.05001240, %240 ], [ %.05001240, %249 ], [ %.05001240, %253 ], [ %.05001240, %257 ], [ %.05001240, %298 ], [ %.05001240, %336 ], [ %.05001240, %384 ], [ %.05001240, %388 ], [ %.05001240, %396 ], [ %.05001240, %422 ], [ %.05001240, %392 ], [ %.05001240, %261 ], [ %.05001240, %151 ], [ %.05001240, %isoptish.exit.thread742.tail ], [ 0, %264 ], [ 1, %266 ], [ %.05001240, %thread-pre-split.thread ], [ %.05001240, %thread-pre-split764.thread ], [ %.05001240, %thread-pre-split793.thread ], [ %.05001240, %thread-pre-split812.thread ], [ %.05001240, %thread-pre-split820.thread ], [ %.05001240, %thread-pre-split840.thread ], [ %.05001240, %thread-pre-split861.thread ], [ %.05001240, %thread-pre-split898.thread ], [ %.05001240, %thread-pre-split919.thread ], [ %.05001240, %thread-pre-split940.thread ], [ %.05001240, %thread-pre-split961.thread ]
+  %.1499 = phi i32 [ 1, %51 ], [ 0, %79 ], [ 0, %83 ], [ %.04981251, %46 ], [ %.04981251, %103 ], [ %.04981251, %122 ], [ %.04981251, %190 ], [ %.04981251, %220 ], [ %.04981251, %240 ], [ %.04981251, %249 ], [ %.04981251, %253 ], [ %.04981251, %257 ], [ %.04981251, %298 ], [ %.04981251, %336 ], [ %.04981251, %384 ], [ %.04981251, %388 ], [ %.04981251, %396 ], [ %.04981251, %422 ], [ %.04981251, %392 ], [ %.04981251, %261 ], [ %.04981251, %151 ], [ %.04981251, %isoptish.exit.thread742.tail ], [ 1, %264 ], [ 0, %266 ], [ %.04981251, %thread-pre-split.thread ], [ %.04981251, %thread-pre-split764.thread ], [ %.04981251, %thread-pre-split793.thread ], [ %.04981251, %thread-pre-split812.thread ], [ %.04981251, %thread-pre-split820.thread ], [ %.04981251, %thread-pre-split840.thread ], [ %.04981251, %thread-pre-split861.thread ], [ %.04981251, %thread-pre-split898.thread ], [ %.04981251, %thread-pre-split919.thread ], [ %.04981251, %thread-pre-split940.thread ], [ %.04981251, %thread-pre-split961.thread ]
+  %.1496 = phi ptr [ %.04951262, %51 ], [ %.04951262, %79 ], [ %.04951262, %83 ], [ %49, %46 ], [ %.04951262, %103 ], [ %.04951262, %122 ], [ %.04951262, %190 ], [ %.04951262, %220 ], [ %.04951262, %240 ], [ %.04951262, %249 ], [ %.04951262, %253 ], [ %.04951262, %257 ], [ %.04951262, %298 ], [ %.04951262, %336 ], [ %.04951262, %384 ], [ %.04951262, %388 ], [ %.04951262, %396 ], [ %.04951262, %422 ], [ %.04951262, %392 ], [ %.04951262, %261 ], [ %.04951262, %151 ], [ %.04951262, %isoptish.exit.thread742.tail ], [ %.04951262, %264 ], [ %.04951262, %266 ], [ %.04951262, %thread-pre-split.thread ], [ %.04951262, %thread-pre-split764.thread ], [ %.04951262, %thread-pre-split793.thread ], [ %.04951262, %thread-pre-split812.thread ], [ %.04951262, %thread-pre-split820.thread ], [ %.04951262, %thread-pre-split840.thread ], [ %.04951262, %thread-pre-split861.thread ], [ %.04951262, %thread-pre-split898.thread ], [ %.04951262, %thread-pre-split919.thread ], [ %.04951262, %thread-pre-split940.thread ], [ %.04951262, %thread-pre-split961.thread ]
+  %.sroa.0319.2 = phi i64 [ %.sroa.0319.11263, %51 ], [ %.sroa.0319.11263, %79 ], [ %.sroa.0319.11263, %83 ], [ %.sroa.0319.11263, %46 ], [ %.sroa.0319.11263, %103 ], [ %.sroa.0319.11263, %122 ], [ %.sroa.0319.11263, %190 ], [ %.sroa.0319.11263, %220 ], [ %.sroa.0319.11263, %240 ], [ %.sroa.0319.11263, %249 ], [ %.sroa.0319.11263, %253 ], [ %.sroa.0319.11263, %257 ], [ %.sroa.0319.3, %298 ], [ %.sroa.0319.4, %336 ], [ %.sroa.0319.5, %384 ], [ %.sroa.0319.11263, %388 ], [ %.sroa.0319.11263, %396 ], [ %.sroa.0319.11263, %422 ], [ %.sroa.0319.11263, %392 ], [ %.sroa.0319.11263, %261 ], [ %.sroa.0319.11263, %151 ], [ %.sroa.0319.11263, %isoptish.exit.thread742.tail ], [ %.sroa.0319.11263, %264 ], [ %.sroa.0319.11263, %266 ], [ %.sroa.0319.11263, %thread-pre-split.thread ], [ %.sroa.0319.11263, %thread-pre-split764.thread ], [ %.sroa.0319.11263, %thread-pre-split793.thread ], [ %.sroa.0319.11263, %thread-pre-split812.thread ], [ %.sroa.0319.11263, %thread-pre-split820.thread ], [ %.sroa.0319.11263, %thread-pre-split840.thread ], [ %.sroa.0319.11263, %thread-pre-split861.thread ], [ %.sroa.0319.11263, %thread-pre-split898.thread ], [ %.sroa.0319.11263, %thread-pre-split919.thread ], [ %.sroa.0319.11263, %thread-pre-split940.thread ], [ %.sroa.0319.11263, %thread-pre-split961.thread ]
+  %.sroa.25.2 = phi ptr [ %.sroa.25.11264, %51 ], [ %.sroa.25.11264, %79 ], [ %.sroa.25.11264, %83 ], [ %.sroa.25.11264, %46 ], [ %.sroa.25.11264, %103 ], [ %.sroa.25.11264, %122 ], [ %.sroa.25.11264, %190 ], [ %.sroa.25.11264, %220 ], [ %.sroa.25.11264, %240 ], [ %.sroa.25.11264, %249 ], [ %.sroa.25.11264, %253 ], [ %.sroa.25.11264, %257 ], [ %.sroa.25.3, %298 ], [ %.sroa.25.4, %336 ], [ %.sroa.25.5, %384 ], [ %.sroa.25.11264, %388 ], [ %.sroa.25.11264, %396 ], [ %.sroa.25.11264, %422 ], [ %.sroa.25.11264, %392 ], [ %.sroa.25.11264, %261 ], [ %.sroa.25.11264, %151 ], [ %.sroa.25.11264, %isoptish.exit.thread742.tail ], [ %.sroa.25.11264, %264 ], [ %.sroa.25.11264, %266 ], [ %.sroa.25.11264, %thread-pre-split.thread ], [ %.sroa.25.11264, %thread-pre-split764.thread ], [ %.sroa.25.11264, %thread-pre-split793.thread ], [ %.sroa.25.11264, %thread-pre-split812.thread ], [ %.sroa.25.11264, %thread-pre-split820.thread ], [ %.sroa.25.11264, %thread-pre-split840.thread ], [ %.sroa.25.11264, %thread-pre-split861.thread ], [ %.sroa.25.11264, %thread-pre-split898.thread ], [ %.sroa.25.11264, %thread-pre-split919.thread ], [ %.sroa.25.11264, %thread-pre-split940.thread ], [ %.sroa.25.11264, %thread-pre-split961.thread ]
+  %.sroa.0352.2 = phi i64 [ %59, %51 ], [ %81, %79 ], [ %.sroa.0352.11265, %83 ], [ %.sroa.0352.11265, %46 ], [ %.sroa.0352.11265, %103 ], [ %.sroa.0352.11265, %122 ], [ %.sroa.0352.11265, %190 ], [ %.sroa.0352.11265, %220 ], [ %.sroa.0352.11265, %240 ], [ %.sroa.0352.11265, %249 ], [ %.sroa.0352.11265, %253 ], [ %.sroa.0352.11265, %257 ], [ %.sroa.0352.11265, %298 ], [ %.sroa.0352.11265, %336 ], [ %.sroa.0352.11265, %384 ], [ %.sroa.0352.11265, %388 ], [ %.sroa.0352.11265, %396 ], [ %.sroa.0352.11265, %422 ], [ %.sroa.0352.11265, %392 ], [ %.sroa.0352.11265, %261 ], [ %.sroa.0352.11265, %151 ], [ %.sroa.0352.11265, %isoptish.exit.thread742.tail ], [ %.sroa.0352.11265, %264 ], [ %.sroa.0352.11265, %266 ], [ %.sroa.0352.11265, %thread-pre-split.thread ], [ %.sroa.0352.11265, %thread-pre-split764.thread ], [ %.sroa.0352.11265, %thread-pre-split793.thread ], [ %.sroa.0352.11265, %thread-pre-split812.thread ], [ %.sroa.0352.11265, %thread-pre-split820.thread ], [ %.sroa.0352.11265, %thread-pre-split840.thread ], [ %.sroa.0352.11265, %thread-pre-split861.thread ], [ %.sroa.0352.11265, %thread-pre-split898.thread ], [ %.sroa.0352.11265, %thread-pre-split919.thread ], [ %.sroa.0352.11265, %thread-pre-split940.thread ], [ %.sroa.0352.11265, %thread-pre-split961.thread ]
+  %.sroa.12.2 = phi ptr [ %60, %51 ], [ %82, %79 ], [ %.sroa.12.11266, %83 ], [ %.sroa.12.11266, %46 ], [ %.sroa.12.11266, %103 ], [ %.sroa.12.11266, %122 ], [ %.sroa.12.11266, %190 ], [ %.sroa.12.11266, %220 ], [ %.sroa.12.11266, %240 ], [ %.sroa.12.11266, %249 ], [ %.sroa.12.11266, %253 ], [ %.sroa.12.11266, %257 ], [ %.sroa.12.11266, %298 ], [ %.sroa.12.11266, %336 ], [ %.sroa.12.11266, %384 ], [ %.sroa.12.11266, %388 ], [ %.sroa.12.11266, %396 ], [ %.sroa.12.11266, %422 ], [ %.sroa.12.11266, %392 ], [ %.sroa.12.11266, %261 ], [ %.sroa.12.11266, %151 ], [ %.sroa.12.11266, %isoptish.exit.thread742.tail ], [ %.sroa.12.11266, %264 ], [ %.sroa.12.11266, %266 ], [ %.sroa.12.11266, %thread-pre-split.thread ], [ %.sroa.12.11266, %thread-pre-split764.thread ], [ %.sroa.12.11266, %thread-pre-split793.thread ], [ %.sroa.12.11266, %thread-pre-split812.thread ], [ %.sroa.12.11266, %thread-pre-split820.thread ], [ %.sroa.12.11266, %thread-pre-split840.thread ], [ %.sroa.12.11266, %thread-pre-split861.thread ], [ %.sroa.12.11266, %thread-pre-split898.thread ], [ %.sroa.12.11266, %thread-pre-split919.thread ], [ %.sroa.12.11266, %thread-pre-split940.thread ], [ %.sroa.12.11266, %thread-pre-split961.thread ]
+  %.2493 = phi i32 [ %.14921267, %51 ], [ %.14921267, %79 ], [ %.14921267, %83 ], [ %.14921267, %46 ], [ %.14921267, %103 ], [ %.14921267, %122 ], [ %191, %190 ], [ %.67988018061474, %220 ], [ %.67988018061474, %240 ], [ %250, %249 ], [ %.13966975984987100010031015, %253 ], [ %.13966975984987100010031015, %257 ], [ %.14, %298 ], [ %.14, %336 ], [ %.14, %384 ], [ %389, %388 ], [ %.14, %396 ], [ %.14, %422 ], [ %.14, %392 ], [ %262, %261 ], [ %152, %151 ], [ %.14921267, %isoptish.exit.thread742.tail ], [ %.14, %264 ], [ %.14, %266 ], [ %140, %thread-pre-split.thread ], [ %146, %thread-pre-split764.thread ], [ %156, %thread-pre-split793.thread ], [ %.14921267, %thread-pre-split812.thread ], [ %173, %thread-pre-split820.thread ], [ %179, %thread-pre-split840.thread ], [ %185, %thread-pre-split861.thread ], [ %194, %thread-pre-split898.thread ], [ %200, %thread-pre-split919.thread ], [ %206, %thread-pre-split940.thread ], [ %212, %thread-pre-split961.thread ]
+  %.1486 = phi i32 [ %.04851268, %51 ], [ %.04851268, %79 ], [ %84, %83 ], [ %.04851268, %46 ], [ %.04851268, %103 ], [ %.04851268, %122 ], [ %.04851268, %190 ], [ %.04851268, %220 ], [ %.04851268, %240 ], [ %.04851268, %249 ], [ %.04851268, %253 ], [ %.04851268, %257 ], [ %.04851268, %298 ], [ %.04851268, %336 ], [ %.04851268, %384 ], [ %.04851268, %388 ], [ %.04851268, %396 ], [ %.04851268, %422 ], [ %.04851268, %392 ], [ %.04851268, %261 ], [ %.04851268, %151 ], [ %.04851268, %isoptish.exit.thread742.tail ], [ %.04851268, %264 ], [ %.04851268, %266 ], [ %.04851268, %thread-pre-split.thread ], [ %.04851268, %thread-pre-split764.thread ], [ %.04851268, %thread-pre-split793.thread ], [ %.04851268, %thread-pre-split812.thread ], [ %.04851268, %thread-pre-split820.thread ], [ %.04851268, %thread-pre-split840.thread ], [ %.04851268, %thread-pre-split861.thread ], [ %.04851268, %thread-pre-split898.thread ], [ %.04851268, %thread-pre-split919.thread ], [ %.04851268, %thread-pre-split940.thread ], [ %.04851268, %thread-pre-split961.thread ]
+  %.1483 = phi i32 [ %.04821269, %51 ], [ %.04821269, %79 ], [ %.04821269, %83 ], [ %.04821269, %46 ], [ %.04821269, %103 ], [ %.04821269, %122 ], [ %.04821269, %190 ], [ %.04821269, %220 ], [ %.04821269, %240 ], [ %.04821269, %249 ], [ %254, %253 ], [ %258, %257 ], [ %.04821269, %298 ], [ %.04821269, %336 ], [ %.04821269, %384 ], [ %.04821269, %388 ], [ %.04821269, %396 ], [ %.04821269, %422 ], [ %.04821269, %392 ], [ %.04821269, %261 ], [ %.04821269, %151 ], [ %.04821269, %isoptish.exit.thread742.tail ], [ %.04821269, %264 ], [ %.04821269, %266 ], [ %.04821269, %thread-pre-split.thread ], [ %.04821269, %thread-pre-split764.thread ], [ %.04821269, %thread-pre-split793.thread ], [ %.04821269, %thread-pre-split812.thread ], [ %.04821269, %thread-pre-split820.thread ], [ %.04821269, %thread-pre-split840.thread ], [ %.04821269, %thread-pre-split861.thread ], [ %.04821269, %thread-pre-split898.thread ], [ %.04821269, %thread-pre-split919.thread ], [ %.04821269, %thread-pre-split940.thread ], [ %.04821269, %thread-pre-split961.thread ]
+  %432 = add nsw i32 %.1508, 1
   store i64 0, ptr %6, align 8
-  %434 = icmp slt i32 %433, %0
-  br i1 %434, label %28, label %._crit_edge, !llvm.loop !5
+  %433 = icmp slt i32 %432, %0
+  br i1 %433, label %28, label %._crit_edge, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %431, %20
-  %435 = phi i32 [ 513, %20 ], [ %432, %431 ]
-  %.sroa.0294.0.lcssa = phi i64 [ %23, %20 ], [ %.sroa.0294.2, %431 ]
-  %.sroa.11.0.lcssa = phi ptr [ %24, %20 ], [ %.sroa.11.2, %431 ]
-  %.0504.lcssa = phi i32 [ 0, %20 ], [ %.1505, %431 ]
-  %.0495.lcssa = phi ptr [ null, %20 ], [ %.1496, %431 ]
-  %.sroa.0319.1.lcssa = phi i64 [ %12, %20 ], [ %.sroa.0319.2, %431 ]
-  %.sroa.25.1.lcssa = phi ptr [ %13, %20 ], [ %.sroa.25.2, %431 ]
-  %.sroa.0352.1.lcssa = phi i64 [ %9, %20 ], [ %.sroa.0352.2, %431 ]
-  %.sroa.12.1.lcssa = phi ptr [ %10, %20 ], [ %.sroa.12.2, %431 ]
-  %.1492.lcssa = phi i32 [ 0, %20 ], [ %.2493, %431 ]
-  %.0485.lcssa = phi i32 [ 0, %20 ], [ %.1486, %431 ]
-  %.0482.lcssa = phi i32 [ 0, %20 ], [ %.1483, %431 ]
+._crit_edge:                                      ; preds = %430, %20
+  %434 = phi i32 [ 513, %20 ], [ %431, %430 ]
+  %.sroa.0294.0.lcssa = phi i64 [ %23, %20 ], [ %.sroa.0294.2, %430 ]
+  %.sroa.11.0.lcssa = phi ptr [ %24, %20 ], [ %.sroa.11.2, %430 ]
+  %.0504.lcssa = phi i32 [ 0, %20 ], [ %.1505, %430 ]
+  %.0495.lcssa = phi ptr [ null, %20 ], [ %.1496, %430 ]
+  %.sroa.0319.1.lcssa = phi i64 [ %12, %20 ], [ %.sroa.0319.2, %430 ]
+  %.sroa.25.1.lcssa = phi ptr [ %13, %20 ], [ %.sroa.25.2, %430 ]
+  %.sroa.0352.1.lcssa = phi i64 [ %9, %20 ], [ %.sroa.0352.2, %430 ]
+  %.sroa.12.1.lcssa = phi ptr [ %10, %20 ], [ %.sroa.12.2, %430 ]
+  %.1492.lcssa = phi i32 [ 0, %20 ], [ %.2493, %430 ]
+  %.0485.lcssa = phi i32 [ 0, %20 ], [ %.1486, %430 ]
+  %.0482.lcssa = phi i32 [ 0, %20 ], [ %.1483, %430 ]
   %.1492.lcssa.fr = freeze i32 %.1492.lcssa
-  %436 = tail call i32 @isatty(i32 noundef 1) #17
-  %.not517 = icmp eq i32 %436, 0
-  br i1 %.not517, label %444, label %437
+  %435 = tail call i32 @isatty(i32 noundef 1) #17
+  %.not517 = icmp eq i32 %435, 0
+  br i1 %.not517, label %443, label %436
 
-437:                                              ; preds = %._crit_edge
-  %438 = or i32 %435, 132
-  store i32 %438, ptr %5, align 4
-  %439 = tail call ptr @getenv(ptr noundef nonnull @.str.49) #17
-  %.not518 = icmp eq ptr %439, null
-  br i1 %.not518, label %444, label %440
+436:                                              ; preds = %._crit_edge
+  %437 = or i32 %434, 132
+  store i32 %437, ptr %5, align 4
+  %438 = tail call ptr @getenv(ptr noundef nonnull @.str.49) #17
+  %.not518 = icmp eq ptr %438, null
+  br i1 %.not518, label %443, label %439
 
-440:                                              ; preds = %437
-  %441 = load i8, ptr %439, align 1
-  %.not519 = icmp eq i8 %441, 0
-  br i1 %.not519, label %444, label %442
+439:                                              ; preds = %436
+  %440 = load i8, ptr %438, align 1
+  %.not519 = icmp eq i8 %440, 0
+  br i1 %.not519, label %443, label %441
 
-442:                                              ; preds = %440
-  %443 = and i32 %438, -5
-  store i32 %443, ptr %5, align 4
-  br label %444
+441:                                              ; preds = %439
+  %442 = and i32 %437, -5
+  store i32 %442, ptr %5, align 4
+  br label %443
 
-444:                                              ; preds = %442, %440, %437, %._crit_edge
-  %445 = phi i32 [ %443, %442 ], [ %438, %440 ], [ %438, %437 ], [ %435, %._crit_edge ]
-  %446 = and i32 %.1492.lcssa.fr, 480
-  %.not1666 = icmp eq i32 %446, 0
-  br i1 %.not1666, label %458, label %447
+443:                                              ; preds = %441, %439, %436, %._crit_edge
+  %444 = phi i32 [ %442, %441 ], [ %437, %439 ], [ %437, %436 ], [ %434, %._crit_edge ]
+  %445 = and i32 %.1492.lcssa.fr, 480
+  %.not1667 = icmp eq i32 %445, 0
+  br i1 %.not1667, label %457, label %446
 
-447:                                              ; preds = %444
-  %448 = and i32 %.1492.lcssa.fr, 128
-  %.not523.not = icmp eq i32 %448, 0
-  %449 = lshr i32 %.1492.lcssa.fr, 5
-  %450 = and i32 %449, 8
-  %451 = or i32 %445, %450
-  %452 = lshr i32 %.1492.lcssa.fr, 4
-  %453 = and i32 %452, 2
-  %454 = or i32 %451, %453
-  %455 = lshr i32 %.1492.lcssa.fr, 4
-  %456 = and i32 %455, 4
-  %spec.select1661 = or i32 %454, %456
-  %457 = and i32 %454, -5
-  %spec.select1662 = select i1 %.not523.not, i32 %spec.select1661, i32 %457
+446:                                              ; preds = %443
+  %447 = and i32 %.1492.lcssa.fr, 128
+  %.not523.not = icmp eq i32 %447, 0
+  %448 = lshr i32 %.1492.lcssa.fr, 5
+  %449 = and i32 %448, 8
+  %450 = or i32 %444, %449
+  %451 = lshr i32 %.1492.lcssa.fr, 4
+  %452 = and i32 %451, 2
+  %453 = or i32 %450, %452
+  %454 = lshr i32 %.1492.lcssa.fr, 4
+  %455 = and i32 %454, 4
+  %spec.select1661 = or i32 %453, %455
+  %456 = and i32 %453, -5
+  %spec.select1662 = select i1 %.not523.not, i32 %spec.select1661, i32 %456
   store i32 %spec.select1662, ptr %5, align 4
-  br label %458
+  br label %457
 
-458:                                              ; preds = %444, %447
-  %459 = tail call ptr @getenv(ptr noundef nonnull @.str.50) #17
-  %.not524 = icmp eq ptr %459, null
-  br i1 %.not524, label %465, label %460
+457:                                              ; preds = %443, %446
+  %458 = tail call ptr @getenv(ptr noundef nonnull @.str.50) #17
+  %.not524 = icmp eq ptr %458, null
+  br i1 %.not524, label %464, label %459
 
-460:                                              ; preds = %458
-  %461 = tail call i32 @jq_set_colors(ptr noundef nonnull %459) #17
-  %.not525 = icmp eq i32 %461, 0
-  br i1 %.not525, label %462, label %465
+459:                                              ; preds = %457
+  %460 = tail call i32 @jq_set_colors(ptr noundef nonnull %458) #17
+  %.not525 = icmp eq i32 %460, 0
+  br i1 %.not525, label %461, label %464
 
-462:                                              ; preds = %460
-  %463 = load ptr, ptr @stderr, align 8
-  %464 = tail call i64 @fwrite(ptr nonnull @.str.51, i64 25, i64 1, ptr %463) #18
-  br label %465
+461:                                              ; preds = %459
+  %462 = load ptr, ptr @stderr, align 8
+  %463 = tail call i64 @fwrite(ptr nonnull @.str.51, i64 25, i64 1, ptr %462) #18
+  br label %464
 
-465:                                              ; preds = %462, %460, %458
-  %466 = tail call i32 @jv_get_kind(i64 %.sroa.0294.0.lcssa, ptr %.sroa.11.0.lcssa) #17
-  %467 = icmp eq i32 %466, 1
-  br i1 %467, label %468, label %490
+464:                                              ; preds = %461, %459, %457
+  %465 = tail call i32 @jv_get_kind(i64 %.sroa.0294.0.lcssa, ptr %.sroa.11.0.lcssa) #17
+  %466 = icmp eq i32 %465, 1
+  br i1 %466, label %467, label %489
 
-468:                                              ; preds = %465
-  %469 = tail call { i64, ptr } @jv_array() #17
-  %470 = extractvalue { i64, ptr } %469, 0
-  %471 = extractvalue { i64, ptr } %469, 1
-  %472 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.52) #17
-  %473 = extractvalue { i64, ptr } %472, 0
-  %474 = extractvalue { i64, ptr } %472, 1
-  %475 = tail call { i64, ptr } @jv_array_append(i64 %470, ptr %471, i64 %473, ptr %474) #17
-  %476 = extractvalue { i64, ptr } %475, 0
-  %477 = extractvalue { i64, ptr } %475, 1
-  %478 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.53) #17
-  %479 = extractvalue { i64, ptr } %478, 0
-  %480 = extractvalue { i64, ptr } %478, 1
-  %481 = tail call { i64, ptr } @jv_array_append(i64 %476, ptr %477, i64 %479, ptr %480) #17
-  %482 = extractvalue { i64, ptr } %481, 0
-  %483 = extractvalue { i64, ptr } %481, 1
-  %484 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.54) #17
-  %485 = extractvalue { i64, ptr } %484, 0
-  %486 = extractvalue { i64, ptr } %484, 1
-  %487 = tail call { i64, ptr } @jv_array_append(i64 %482, ptr %483, i64 %485, ptr %486) #17
-  %488 = extractvalue { i64, ptr } %487, 0
-  %489 = extractvalue { i64, ptr } %487, 1
-  br label %490
+467:                                              ; preds = %464
+  %468 = tail call { i64, ptr } @jv_array() #17
+  %469 = extractvalue { i64, ptr } %468, 0
+  %470 = extractvalue { i64, ptr } %468, 1
+  %471 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.52) #17
+  %472 = extractvalue { i64, ptr } %471, 0
+  %473 = extractvalue { i64, ptr } %471, 1
+  %474 = tail call { i64, ptr } @jv_array_append(i64 %469, ptr %470, i64 %472, ptr %473) #17
+  %475 = extractvalue { i64, ptr } %474, 0
+  %476 = extractvalue { i64, ptr } %474, 1
+  %477 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.53) #17
+  %478 = extractvalue { i64, ptr } %477, 0
+  %479 = extractvalue { i64, ptr } %477, 1
+  %480 = tail call { i64, ptr } @jv_array_append(i64 %475, ptr %476, i64 %478, ptr %479) #17
+  %481 = extractvalue { i64, ptr } %480, 0
+  %482 = extractvalue { i64, ptr } %480, 1
+  %483 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.54) #17
+  %484 = extractvalue { i64, ptr } %483, 0
+  %485 = extractvalue { i64, ptr } %483, 1
+  %486 = tail call { i64, ptr } @jv_array_append(i64 %481, ptr %482, i64 %484, ptr %485) #17
+  %487 = extractvalue { i64, ptr } %486, 0
+  %488 = extractvalue { i64, ptr } %486, 1
+  br label %489
 
-490:                                              ; preds = %468, %465
-  %.sroa.0294.3 = phi i64 [ %488, %468 ], [ %.sroa.0294.0.lcssa, %465 ]
-  %.sroa.11.3 = phi ptr [ %489, %468 ], [ %.sroa.11.0.lcssa, %465 ]
-  %491 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.55) #17
-  %492 = extractvalue { i64, ptr } %491, 0
-  %493 = extractvalue { i64, ptr } %491, 1
-  tail call void @jq_set_attr(ptr noundef nonnull %17, i64 %492, ptr %493, i64 %.sroa.0294.3, ptr %.sroa.11.3) #17
-  %494 = load ptr, ptr %1, align 8
-  %495 = tail call noalias ptr @strdup(ptr noundef %494) #17
-  %496 = icmp eq ptr %495, null
-  br i1 %496, label %497, label %500
+489:                                              ; preds = %467, %464
+  %.sroa.0294.3 = phi i64 [ %487, %467 ], [ %.sroa.0294.0.lcssa, %464 ]
+  %.sroa.11.3 = phi ptr [ %488, %467 ], [ %.sroa.11.0.lcssa, %464 ]
+  %490 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.55) #17
+  %491 = extractvalue { i64, ptr } %490, 0
+  %492 = extractvalue { i64, ptr } %490, 1
+  tail call void @jq_set_attr(ptr noundef nonnull %17, i64 %491, ptr %492, i64 %.sroa.0294.3, ptr %.sroa.11.3) #17
+  %493 = load ptr, ptr %1, align 8
+  %494 = tail call noalias ptr @strdup(ptr noundef %493) #17
+  %495 = icmp eq ptr %494, null
+  br i1 %495, label %496, label %499
 
-497:                                              ; preds = %490
-  %498 = load ptr, ptr @stderr, align 8
-  %499 = tail call i64 @fwrite(ptr nonnull @.str.56, i64 25, i64 1, ptr %498) #18
+496:                                              ; preds = %489
+  %497 = load ptr, ptr @stderr, align 8
+  %498 = tail call i64 @fwrite(ptr nonnull @.str.56, i64 25, i64 1, ptr %497) #18
   tail call void @exit(i32 noundef 1) #21
   unreachable
 
-500:                                              ; preds = %490
-  %501 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.57) #17
-  %502 = extractvalue { i64, ptr } %501, 0
-  %503 = extractvalue { i64, ptr } %501, 1
-  %504 = tail call ptr @dirname(ptr noundef nonnull %495) #17
-  %505 = tail call { i64, ptr } @jv_string(ptr noundef %504) #17
-  %506 = extractvalue { i64, ptr } %505, 0
-  %507 = extractvalue { i64, ptr } %505, 1
-  tail call void @jq_set_attr(ptr noundef nonnull %17, i64 %502, ptr %503, i64 %506, ptr %507) #17
-  tail call void @free(ptr noundef nonnull %495) #17
-  %508 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.58) #17
-  %509 = extractvalue { i64, ptr } %508, 0
-  %510 = extractvalue { i64, ptr } %508, 1
-  %511 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str) #17
-  %512 = extractvalue { i64, ptr } %511, 0
-  %513 = extractvalue { i64, ptr } %511, 1
-  tail call void @jq_set_attr(ptr noundef nonnull %17, i64 %509, ptr %510, i64 %512, ptr %513) #17
+499:                                              ; preds = %489
+  %500 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.57) #17
+  %501 = extractvalue { i64, ptr } %500, 0
+  %502 = extractvalue { i64, ptr } %500, 1
+  %503 = tail call ptr @dirname(ptr noundef nonnull %494) #17
+  %504 = tail call { i64, ptr } @jv_string(ptr noundef %503) #17
+  %505 = extractvalue { i64, ptr } %504, 0
+  %506 = extractvalue { i64, ptr } %504, 1
+  tail call void @jq_set_attr(ptr noundef nonnull %17, i64 %501, ptr %502, i64 %505, ptr %506) #17
+  tail call void @free(ptr noundef nonnull %494) #17
+  %507 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.58) #17
+  %508 = extractvalue { i64, ptr } %507, 0
+  %509 = extractvalue { i64, ptr } %507, 1
+  %510 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str) #17
+  %511 = extractvalue { i64, ptr } %510, 0
+  %512 = extractvalue { i64, ptr } %510, 1
+  tail call void @jq_set_attr(ptr noundef nonnull %17, i64 %508, ptr %509, i64 %511, ptr %512) #17
   %.not526 = icmp eq ptr %.0495.lcssa, null
-  br i1 %.not526, label %514, label %.thread1017
+  br i1 %.not526, label %513, label %.thread1017
 
-514:                                              ; preds = %500
-  %515 = tail call i32 @isatty(i32 noundef 1) #17
-  %.not527 = icmp eq i32 %515, 0
-  br i1 %.not527, label %.thread1017, label %516
+513:                                              ; preds = %499
+  %514 = tail call i32 @isatty(i32 noundef 1) #17
+  %.not527 = icmp eq i32 %514, 0
+  br i1 %.not527, label %.thread1017, label %515
 
-516:                                              ; preds = %514
-  %517 = tail call i32 @isatty(i32 noundef 0) #17
-  %.not528 = icmp eq i32 %517, 0
-  br i1 %.not528, label %.thread1017, label %518
+515:                                              ; preds = %513
+  %516 = tail call i32 @isatty(i32 noundef 0) #17
+  %.not528 = icmp eq i32 %516, 0
+  br i1 %.not528, label %.thread1017, label %517
 
-518:                                              ; preds = %516
+517:                                              ; preds = %515
   %stderr.val.i = load ptr, ptr @stderr, align 8
-  %519 = load ptr, ptr @progname, align 8
-  %520 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %stderr.val.i, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str, ptr noundef %519, ptr noundef %519, ptr noundef %519) #20
-  %521 = load ptr, ptr @progname, align 8
-  %522 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %stderr.val.i, ptr noundef nonnull @.str.75, ptr noundef %521) #20
+  %518 = load ptr, ptr @progname, align 8
+  %519 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %stderr.val.i, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str, ptr noundef %518, ptr noundef %518, ptr noundef %518) #20
+  %520 = load ptr, ptr @progname, align 8
+  %521 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %stderr.val.i, ptr noundef nonnull @.str.75, ptr noundef %520) #20
   tail call void @exit(i32 noundef 2) #21
   unreachable
 
-.thread1017:                                      ; preds = %514, %516, %500
-  %.24971020 = phi ptr [ %.0495.lcssa, %500 ], [ @.str.59, %516 ], [ @.str.59, %514 ]
-  %523 = and i32 %.1492.lcssa.fr, 512
-  %.not530 = icmp eq i32 %523, 0
-  br i1 %.not530, label %602, label %524
+.thread1017:                                      ; preds = %513, %515, %499
+  %.24971020 = phi ptr [ %.0495.lcssa, %499 ], [ @.str.59, %515 ], [ @.str.59, %513 ]
+  %522 = and i32 %.1492.lcssa.fr, 512
+  %.not530 = icmp eq i32 %522, 0
+  br i1 %.not530, label %601, label %523
 
-524:                                              ; preds = %.thread1017
-  %525 = tail call noalias ptr @strdup(ptr noundef nonnull %.24971020) #17
-  %526 = icmp eq ptr %525, null
-  br i1 %526, label %527, label %528
+523:                                              ; preds = %.thread1017
+  %524 = tail call noalias ptr @strdup(ptr noundef nonnull %.24971020) #17
+  %525 = icmp eq ptr %524, null
+  br i1 %525, label %526, label %527
 
-527:                                              ; preds = %524
+526:                                              ; preds = %523
   tail call void @perror(ptr noundef nonnull @.str.60) #18
   tail call void @exit(i32 noundef 2) #21
   unreachable
 
-528:                                              ; preds = %524
-  %529 = tail call { i64, ptr } @jv_load_file(ptr noundef nonnull %.24971020, i32 noundef 1) #17
-  %530 = extractvalue { i64, ptr } %529, 0
-  %531 = extractvalue { i64, ptr } %529, 1
-  %532 = tail call i32 @jv_get_kind(i64 %530, ptr %531) #17
-  %.not1022 = icmp eq i32 %532, 0
-  br i1 %.not1022, label %533, label %541
+527:                                              ; preds = %523
+  %528 = tail call { i64, ptr } @jv_load_file(ptr noundef nonnull %.24971020, i32 noundef 1) #17
+  %529 = extractvalue { i64, ptr } %528, 0
+  %530 = extractvalue { i64, ptr } %528, 1
+  %531 = tail call i32 @jv_get_kind(i64 %529, ptr %530) #17
+  %.not1022 = icmp eq i32 %531, 0
+  br i1 %.not1022, label %532, label %540
 
-533:                                              ; preds = %528
-  %534 = tail call { i64, ptr } @jv_invalid_get_msg(i64 %530, ptr %531) #17
-  %535 = extractvalue { i64, ptr } %534, 0
-  %536 = extractvalue { i64, ptr } %534, 1
-  %537 = load ptr, ptr @stderr, align 8
-  %538 = load ptr, ptr @progname, align 8
-  %539 = tail call ptr @jv_string_value(i64 %535, ptr %536) #17
-  %540 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %537, ptr noundef nonnull @.str.61, ptr noundef %538, ptr noundef %539) #20
-  tail call void @jv_free(i64 %535, ptr %536) #17
-  br label %750
+532:                                              ; preds = %527
+  %533 = tail call { i64, ptr } @jv_invalid_get_msg(i64 %529, ptr %530) #17
+  %534 = extractvalue { i64, ptr } %533, 0
+  %535 = extractvalue { i64, ptr } %533, 1
+  %536 = load ptr, ptr @stderr, align 8
+  %537 = load ptr, ptr @progname, align 8
+  %538 = tail call ptr @jv_string_value(i64 %534, ptr %535) #17
+  %539 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %536, ptr noundef nonnull @.str.61, ptr noundef %537, ptr noundef %538) #20
+  tail call void @jv_free(i64 %534, ptr %535) #17
+  br label %749
 
-541:                                              ; preds = %528
-  %542 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.62) #17
-  %543 = extractvalue { i64, ptr } %542, 0
-  %544 = extractvalue { i64, ptr } %542, 1
-  %545 = tail call ptr @dirname(ptr noundef nonnull %525) #17
-  %546 = tail call { i64, ptr } @jv_string(ptr noundef %545) #17
-  %547 = extractvalue { i64, ptr } %546, 0
-  %548 = extractvalue { i64, ptr } %546, 1
-  %549 = tail call { i64, ptr } @jq_realpath(i64 %547, ptr %548) #17
-  %550 = extractvalue { i64, ptr } %549, 0
-  %551 = extractvalue { i64, ptr } %549, 1
-  tail call void @jq_set_attr(ptr noundef nonnull %17, i64 %543, ptr %544, i64 %550, ptr %551) #17
-  %552 = tail call { i64, ptr } @jv_object() #17
-  %553 = extractvalue { i64, ptr } %552, 0
-  %554 = extractvalue { i64, ptr } %552, 1
-  %555 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.63) #17
-  %556 = extractvalue { i64, ptr } %555, 0
-  %557 = extractvalue { i64, ptr } %555, 1
-  %558 = tail call { i64, ptr } @jv_object_set(i64 %553, ptr %554, i64 %556, ptr %557, i64 %.sroa.0352.1.lcssa, ptr %.sroa.12.1.lcssa) #17
-  %559 = extractvalue { i64, ptr } %558, 0
-  %560 = extractvalue { i64, ptr } %558, 1
-  %561 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.64) #17
-  %562 = extractvalue { i64, ptr } %561, 0
-  %563 = extractvalue { i64, ptr } %561, 1
-  %564 = tail call { i64, ptr } @jv_copy(i64 %.sroa.0319.1.lcssa, ptr %.sroa.25.1.lcssa) #17
-  %565 = extractvalue { i64, ptr } %564, 0
-  %566 = extractvalue { i64, ptr } %564, 1
-  %567 = tail call { i64, ptr } @jv_object_set(i64 %559, ptr %560, i64 %562, ptr %563, i64 %565, ptr %566) #17
-  %568 = extractvalue { i64, ptr } %567, 0
-  %569 = extractvalue { i64, ptr } %567, 1
-  %570 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.65) #17
-  %571 = extractvalue { i64, ptr } %570, 0
-  %572 = extractvalue { i64, ptr } %570, 1
-  %573 = tail call { i64, ptr } @jv_copy(i64 %568, ptr %569) #17
-  %574 = extractvalue { i64, ptr } %573, 0
-  %575 = extractvalue { i64, ptr } %573, 1
-  %576 = tail call { i64, ptr } @jv_object_set(i64 %.sroa.0319.1.lcssa, ptr %.sroa.25.1.lcssa, i64 %571, ptr %572, i64 %574, ptr %575) #17
-  %577 = extractvalue { i64, ptr } %576, 0
-  %578 = extractvalue { i64, ptr } %576, 1
-  %579 = tail call { i64, ptr } @jv_copy(i64 %577, ptr %578) #17
-  %580 = extractvalue { i64, ptr } %579, 0
-  %581 = extractvalue { i64, ptr } %579, 1
-  %582 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.66) #17
-  %583 = extractvalue { i64, ptr } %582, 0
-  %584 = extractvalue { i64, ptr } %582, 1
-  %585 = tail call i32 @jv_object_has(i64 %580, ptr %581, i64 %583, ptr %584) #17
-  %.not533 = icmp eq i32 %585, 0
-  br i1 %.not533, label %586, label %596
+540:                                              ; preds = %527
+  %541 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.62) #17
+  %542 = extractvalue { i64, ptr } %541, 0
+  %543 = extractvalue { i64, ptr } %541, 1
+  %544 = tail call ptr @dirname(ptr noundef nonnull %524) #17
+  %545 = tail call { i64, ptr } @jv_string(ptr noundef %544) #17
+  %546 = extractvalue { i64, ptr } %545, 0
+  %547 = extractvalue { i64, ptr } %545, 1
+  %548 = tail call { i64, ptr } @jq_realpath(i64 %546, ptr %547) #17
+  %549 = extractvalue { i64, ptr } %548, 0
+  %550 = extractvalue { i64, ptr } %548, 1
+  tail call void @jq_set_attr(ptr noundef nonnull %17, i64 %542, ptr %543, i64 %549, ptr %550) #17
+  %551 = tail call { i64, ptr } @jv_object() #17
+  %552 = extractvalue { i64, ptr } %551, 0
+  %553 = extractvalue { i64, ptr } %551, 1
+  %554 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.63) #17
+  %555 = extractvalue { i64, ptr } %554, 0
+  %556 = extractvalue { i64, ptr } %554, 1
+  %557 = tail call { i64, ptr } @jv_object_set(i64 %552, ptr %553, i64 %555, ptr %556, i64 %.sroa.0352.1.lcssa, ptr %.sroa.12.1.lcssa) #17
+  %558 = extractvalue { i64, ptr } %557, 0
+  %559 = extractvalue { i64, ptr } %557, 1
+  %560 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.64) #17
+  %561 = extractvalue { i64, ptr } %560, 0
+  %562 = extractvalue { i64, ptr } %560, 1
+  %563 = tail call { i64, ptr } @jv_copy(i64 %.sroa.0319.1.lcssa, ptr %.sroa.25.1.lcssa) #17
+  %564 = extractvalue { i64, ptr } %563, 0
+  %565 = extractvalue { i64, ptr } %563, 1
+  %566 = tail call { i64, ptr } @jv_object_set(i64 %558, ptr %559, i64 %561, ptr %562, i64 %564, ptr %565) #17
+  %567 = extractvalue { i64, ptr } %566, 0
+  %568 = extractvalue { i64, ptr } %566, 1
+  %569 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.65) #17
+  %570 = extractvalue { i64, ptr } %569, 0
+  %571 = extractvalue { i64, ptr } %569, 1
+  %572 = tail call { i64, ptr } @jv_copy(i64 %567, ptr %568) #17
+  %573 = extractvalue { i64, ptr } %572, 0
+  %574 = extractvalue { i64, ptr } %572, 1
+  %575 = tail call { i64, ptr } @jv_object_set(i64 %.sroa.0319.1.lcssa, ptr %.sroa.25.1.lcssa, i64 %570, ptr %571, i64 %573, ptr %574) #17
+  %576 = extractvalue { i64, ptr } %575, 0
+  %577 = extractvalue { i64, ptr } %575, 1
+  %578 = tail call { i64, ptr } @jv_copy(i64 %576, ptr %577) #17
+  %579 = extractvalue { i64, ptr } %578, 0
+  %580 = extractvalue { i64, ptr } %578, 1
+  %581 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.66) #17
+  %582 = extractvalue { i64, ptr } %581, 0
+  %583 = extractvalue { i64, ptr } %581, 1
+  %584 = tail call i32 @jv_object_has(i64 %579, ptr %580, i64 %582, ptr %583) #17
+  %.not533 = icmp eq i32 %584, 0
+  br i1 %.not533, label %585, label %595
 
-586:                                              ; preds = %541
-  %587 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.66) #17
-  %588 = extractvalue { i64, ptr } %587, 0
-  %589 = extractvalue { i64, ptr } %587, 1
-  %590 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.46) #17
-  %591 = extractvalue { i64, ptr } %590, 0
-  %592 = extractvalue { i64, ptr } %590, 1
-  %593 = tail call { i64, ptr } @jv_object_set(i64 %577, ptr %578, i64 %588, ptr %589, i64 %591, ptr %592) #17
-  %594 = extractvalue { i64, ptr } %593, 0
-  %595 = extractvalue { i64, ptr } %593, 1
-  br label %596
+585:                                              ; preds = %540
+  %586 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.66) #17
+  %587 = extractvalue { i64, ptr } %586, 0
+  %588 = extractvalue { i64, ptr } %586, 1
+  %589 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.46) #17
+  %590 = extractvalue { i64, ptr } %589, 0
+  %591 = extractvalue { i64, ptr } %589, 1
+  %592 = tail call { i64, ptr } @jv_object_set(i64 %576, ptr %577, i64 %587, ptr %588, i64 %590, ptr %591) #17
+  %593 = extractvalue { i64, ptr } %592, 0
+  %594 = extractvalue { i64, ptr } %592, 1
+  br label %595
 
-596:                                              ; preds = %586, %541
-  %.sroa.0319.6 = phi i64 [ %577, %541 ], [ %594, %586 ]
-  %.sroa.25.6 = phi ptr [ %578, %541 ], [ %595, %586 ]
-  %597 = tail call ptr @jv_string_value(i64 %530, ptr %531) #17
-  %598 = tail call { i64, ptr } @jv_copy(i64 %.sroa.0319.6, ptr %.sroa.25.6) #17
-  %599 = extractvalue { i64, ptr } %598, 0
-  %600 = extractvalue { i64, ptr } %598, 1
-  %601 = tail call i32 @jq_compile_args(ptr noundef nonnull %17, ptr noundef %597, i64 %599, ptr %600) #17
-  tail call void @free(ptr noundef nonnull %525) #17
-  tail call void @jv_free(i64 %530, ptr %531) #17
-  br label %661
+595:                                              ; preds = %585, %540
+  %.sroa.0319.6 = phi i64 [ %576, %540 ], [ %593, %585 ]
+  %.sroa.25.6 = phi ptr [ %577, %540 ], [ %594, %585 ]
+  %596 = tail call ptr @jv_string_value(i64 %529, ptr %530) #17
+  %597 = tail call { i64, ptr } @jv_copy(i64 %.sroa.0319.6, ptr %.sroa.25.6) #17
+  %598 = extractvalue { i64, ptr } %597, 0
+  %599 = extractvalue { i64, ptr } %597, 1
+  %600 = tail call i32 @jq_compile_args(ptr noundef nonnull %17, ptr noundef %596, i64 %598, ptr %599) #17
+  tail call void @free(ptr noundef nonnull %524) #17
+  tail call void @jv_free(i64 %529, ptr %530) #17
+  br label %660
 
-602:                                              ; preds = %.thread1017
-  %603 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.62) #17
-  %604 = extractvalue { i64, ptr } %603, 0
-  %605 = extractvalue { i64, ptr } %603, 1
-  %606 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.59) #17
-  %607 = extractvalue { i64, ptr } %606, 0
-  %608 = extractvalue { i64, ptr } %606, 1
-  %609 = tail call { i64, ptr } @jq_realpath(i64 %607, ptr %608) #17
-  %610 = extractvalue { i64, ptr } %609, 0
-  %611 = extractvalue { i64, ptr } %609, 1
-  tail call void @jq_set_attr(ptr noundef nonnull %17, i64 %604, ptr %605, i64 %610, ptr %611) #17
-  %612 = tail call { i64, ptr } @jv_object() #17
-  %613 = extractvalue { i64, ptr } %612, 0
-  %614 = extractvalue { i64, ptr } %612, 1
-  %615 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.63) #17
-  %616 = extractvalue { i64, ptr } %615, 0
-  %617 = extractvalue { i64, ptr } %615, 1
-  %618 = tail call { i64, ptr } @jv_object_set(i64 %613, ptr %614, i64 %616, ptr %617, i64 %.sroa.0352.1.lcssa, ptr %.sroa.12.1.lcssa) #17
-  %619 = extractvalue { i64, ptr } %618, 0
-  %620 = extractvalue { i64, ptr } %618, 1
-  %621 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.64) #17
-  %622 = extractvalue { i64, ptr } %621, 0
-  %623 = extractvalue { i64, ptr } %621, 1
-  %624 = tail call { i64, ptr } @jv_copy(i64 %.sroa.0319.1.lcssa, ptr %.sroa.25.1.lcssa) #17
-  %625 = extractvalue { i64, ptr } %624, 0
-  %626 = extractvalue { i64, ptr } %624, 1
-  %627 = tail call { i64, ptr } @jv_object_set(i64 %619, ptr %620, i64 %622, ptr %623, i64 %625, ptr %626) #17
-  %628 = extractvalue { i64, ptr } %627, 0
-  %629 = extractvalue { i64, ptr } %627, 1
-  %630 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.65) #17
-  %631 = extractvalue { i64, ptr } %630, 0
-  %632 = extractvalue { i64, ptr } %630, 1
-  %633 = tail call { i64, ptr } @jv_copy(i64 %628, ptr %629) #17
-  %634 = extractvalue { i64, ptr } %633, 0
-  %635 = extractvalue { i64, ptr } %633, 1
-  %636 = tail call { i64, ptr } @jv_object_set(i64 %.sroa.0319.1.lcssa, ptr %.sroa.25.1.lcssa, i64 %631, ptr %632, i64 %634, ptr %635) #17
-  %637 = extractvalue { i64, ptr } %636, 0
-  %638 = extractvalue { i64, ptr } %636, 1
-  %639 = tail call { i64, ptr } @jv_copy(i64 %637, ptr %638) #17
-  %640 = extractvalue { i64, ptr } %639, 0
-  %641 = extractvalue { i64, ptr } %639, 1
-  %642 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.66) #17
-  %643 = extractvalue { i64, ptr } %642, 0
-  %644 = extractvalue { i64, ptr } %642, 1
-  %645 = tail call i32 @jv_object_has(i64 %640, ptr %641, i64 %643, ptr %644) #17
-  %.not531 = icmp eq i32 %645, 0
-  br i1 %.not531, label %646, label %656
+601:                                              ; preds = %.thread1017
+  %602 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.62) #17
+  %603 = extractvalue { i64, ptr } %602, 0
+  %604 = extractvalue { i64, ptr } %602, 1
+  %605 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.59) #17
+  %606 = extractvalue { i64, ptr } %605, 0
+  %607 = extractvalue { i64, ptr } %605, 1
+  %608 = tail call { i64, ptr } @jq_realpath(i64 %606, ptr %607) #17
+  %609 = extractvalue { i64, ptr } %608, 0
+  %610 = extractvalue { i64, ptr } %608, 1
+  tail call void @jq_set_attr(ptr noundef nonnull %17, i64 %603, ptr %604, i64 %609, ptr %610) #17
+  %611 = tail call { i64, ptr } @jv_object() #17
+  %612 = extractvalue { i64, ptr } %611, 0
+  %613 = extractvalue { i64, ptr } %611, 1
+  %614 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.63) #17
+  %615 = extractvalue { i64, ptr } %614, 0
+  %616 = extractvalue { i64, ptr } %614, 1
+  %617 = tail call { i64, ptr } @jv_object_set(i64 %612, ptr %613, i64 %615, ptr %616, i64 %.sroa.0352.1.lcssa, ptr %.sroa.12.1.lcssa) #17
+  %618 = extractvalue { i64, ptr } %617, 0
+  %619 = extractvalue { i64, ptr } %617, 1
+  %620 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.64) #17
+  %621 = extractvalue { i64, ptr } %620, 0
+  %622 = extractvalue { i64, ptr } %620, 1
+  %623 = tail call { i64, ptr } @jv_copy(i64 %.sroa.0319.1.lcssa, ptr %.sroa.25.1.lcssa) #17
+  %624 = extractvalue { i64, ptr } %623, 0
+  %625 = extractvalue { i64, ptr } %623, 1
+  %626 = tail call { i64, ptr } @jv_object_set(i64 %618, ptr %619, i64 %621, ptr %622, i64 %624, ptr %625) #17
+  %627 = extractvalue { i64, ptr } %626, 0
+  %628 = extractvalue { i64, ptr } %626, 1
+  %629 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.65) #17
+  %630 = extractvalue { i64, ptr } %629, 0
+  %631 = extractvalue { i64, ptr } %629, 1
+  %632 = tail call { i64, ptr } @jv_copy(i64 %627, ptr %628) #17
+  %633 = extractvalue { i64, ptr } %632, 0
+  %634 = extractvalue { i64, ptr } %632, 1
+  %635 = tail call { i64, ptr } @jv_object_set(i64 %.sroa.0319.1.lcssa, ptr %.sroa.25.1.lcssa, i64 %630, ptr %631, i64 %633, ptr %634) #17
+  %636 = extractvalue { i64, ptr } %635, 0
+  %637 = extractvalue { i64, ptr } %635, 1
+  %638 = tail call { i64, ptr } @jv_copy(i64 %636, ptr %637) #17
+  %639 = extractvalue { i64, ptr } %638, 0
+  %640 = extractvalue { i64, ptr } %638, 1
+  %641 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.66) #17
+  %642 = extractvalue { i64, ptr } %641, 0
+  %643 = extractvalue { i64, ptr } %641, 1
+  %644 = tail call i32 @jv_object_has(i64 %639, ptr %640, i64 %642, ptr %643) #17
+  %.not531 = icmp eq i32 %644, 0
+  br i1 %.not531, label %645, label %655
 
-646:                                              ; preds = %602
-  %647 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.66) #17
-  %648 = extractvalue { i64, ptr } %647, 0
-  %649 = extractvalue { i64, ptr } %647, 1
-  %650 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.46) #17
-  %651 = extractvalue { i64, ptr } %650, 0
-  %652 = extractvalue { i64, ptr } %650, 1
-  %653 = tail call { i64, ptr } @jv_object_set(i64 %637, ptr %638, i64 %648, ptr %649, i64 %651, ptr %652) #17
-  %654 = extractvalue { i64, ptr } %653, 0
-  %655 = extractvalue { i64, ptr } %653, 1
-  br label %656
+645:                                              ; preds = %601
+  %646 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.66) #17
+  %647 = extractvalue { i64, ptr } %646, 0
+  %648 = extractvalue { i64, ptr } %646, 1
+  %649 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.46) #17
+  %650 = extractvalue { i64, ptr } %649, 0
+  %651 = extractvalue { i64, ptr } %649, 1
+  %652 = tail call { i64, ptr } @jv_object_set(i64 %636, ptr %637, i64 %647, ptr %648, i64 %650, ptr %651) #17
+  %653 = extractvalue { i64, ptr } %652, 0
+  %654 = extractvalue { i64, ptr } %652, 1
+  br label %655
 
-656:                                              ; preds = %646, %602
-  %.sroa.0319.8 = phi i64 [ %637, %602 ], [ %654, %646 ]
-  %.sroa.25.8 = phi ptr [ %638, %602 ], [ %655, %646 ]
-  %657 = tail call { i64, ptr } @jv_copy(i64 %.sroa.0319.8, ptr %.sroa.25.8) #17
-  %658 = extractvalue { i64, ptr } %657, 0
-  %659 = extractvalue { i64, ptr } %657, 1
-  %660 = tail call i32 @jq_compile_args(ptr noundef nonnull %17, ptr noundef nonnull %.24971020, i64 %658, ptr %659) #17
-  br label %661
+655:                                              ; preds = %645, %601
+  %.sroa.0319.8 = phi i64 [ %636, %601 ], [ %653, %645 ]
+  %.sroa.25.8 = phi ptr [ %637, %601 ], [ %654, %645 ]
+  %656 = tail call { i64, ptr } @jv_copy(i64 %.sroa.0319.8, ptr %.sroa.25.8) #17
+  %657 = extractvalue { i64, ptr } %656, 0
+  %658 = extractvalue { i64, ptr } %656, 1
+  %659 = tail call i32 @jq_compile_args(ptr noundef nonnull %17, ptr noundef nonnull %.24971020, i64 %657, ptr %658) #17
+  br label %660
 
-661:                                              ; preds = %656, %596
-  %.sroa.0319.7 = phi i64 [ %.sroa.0319.6, %596 ], [ %.sroa.0319.8, %656 ]
-  %.sroa.25.7 = phi ptr [ %.sroa.25.6, %596 ], [ %.sroa.25.8, %656 ]
-  %.sroa.0352.3 = phi i64 [ %568, %596 ], [ %628, %656 ]
-  %.sroa.12.3 = phi ptr [ %569, %596 ], [ %629, %656 ]
-  %.0481 = phi i32 [ %601, %596 ], [ %660, %656 ]
+660:                                              ; preds = %655, %595
+  %.sroa.0319.7 = phi i64 [ %.sroa.0319.6, %595 ], [ %.sroa.0319.8, %655 ]
+  %.sroa.25.7 = phi ptr [ %.sroa.25.6, %595 ], [ %.sroa.25.8, %655 ]
+  %.sroa.0352.3 = phi i64 [ %567, %595 ], [ %627, %655 ]
+  %.sroa.12.3 = phi ptr [ %568, %595 ], [ %628, %655 ]
+  %.0481 = phi i32 [ %600, %595 ], [ %659, %655 ]
   %.not534 = icmp eq i32 %.0481, 0
-  br i1 %.not534, label %750, label %662
+  br i1 %.not534, label %749, label %661
 
-662:                                              ; preds = %661
-  %663 = and i32 %.1492.lcssa.fr, 65536
-  %.not535 = icmp eq i32 %663, 0
-  br i1 %.not535, label %665, label %664
+661:                                              ; preds = %660
+  %662 = and i32 %.1492.lcssa.fr, 65536
+  %.not535 = icmp eq i32 %662, 0
+  br i1 %.not535, label %664, label %663
 
-664:                                              ; preds = %662
+663:                                              ; preds = %661
   tail call void @jq_dump_disassembly(ptr noundef nonnull %17, i32 noundef 0) #17
   %putchar = tail call i32 @putchar(i32 10)
-  br label %665
+  br label %664
 
-665:                                              ; preds = %664, %662
-  %666 = and i32 %.1492.lcssa.fr, 16384
-  %.not536 = icmp eq i32 %666, 0
-  %667 = and i32 %.1492.lcssa.fr, 2
-  %.not537 = icmp eq i32 %667, 0
-  br i1 %.not537, label %668, label %671
+664:                                              ; preds = %663, %661
+  %665 = and i32 %.1492.lcssa.fr, 16384
+  %.not536 = icmp eq i32 %665, 0
+  %666 = and i32 %.1492.lcssa.fr, 2
+  %.not537 = icmp eq i32 %666, 0
+  br i1 %.not537, label %667, label %670
 
-668:                                              ; preds = %665
-  %669 = lshr exact i32 %666, 14
-  %spec.select = or i32 %.0482.lcssa, %669
-  %670 = tail call ptr @jv_parser_new(i32 noundef %spec.select) #17
-  br label %671
+667:                                              ; preds = %664
+  %668 = lshr exact i32 %665, 14
+  %spec.select = or i32 %.0482.lcssa, %668
+  %669 = tail call ptr @jv_parser_new(i32 noundef %spec.select) #17
+  br label %670
 
-671:                                              ; preds = %665, %668
-  %.sink = phi ptr [ %670, %668 ], [ null, %665 ]
-  %672 = and i32 %.1492.lcssa.fr, 1
-  tail call void @jq_util_input_set_parser(ptr noundef %21, ptr noundef %.sink, i32 noundef %672) #17
+670:                                              ; preds = %664, %667
+  %.sink1663 = phi ptr [ %669, %667 ], [ null, %664 ]
+  %671 = and i32 %.1492.lcssa.fr, 1
+  tail call void @jq_util_input_set_parser(ptr noundef %21, ptr noundef %.sink1663, i32 noundef %671) #17
   tail call void @jq_set_input_cb(ptr noundef nonnull %17, ptr noundef nonnull @jq_util_input_next_input_cb, ptr noundef %21) #17
   call void @jq_set_debug_cb(ptr noundef nonnull %17, ptr noundef nonnull @debug_cb, ptr noundef nonnull %5) #17
   call void @jq_set_stderr_cb(ptr noundef nonnull %17, ptr noundef nonnull @stderr_cb, ptr noundef nonnull %5) #17
-  %673 = icmp eq i32 %.0485.lcssa, 0
-  br i1 %673, label %674, label %675
+  %672 = icmp eq i32 %.0485.lcssa, 0
+  br i1 %672, label %673, label %674
 
-674:                                              ; preds = %671
+673:                                              ; preds = %670
   call void @jq_util_input_add_input(ptr noundef %21, ptr noundef nonnull @.str.68) #17
-  br label %675
+  br label %674
 
-675:                                              ; preds = %674, %671
-  %676 = and i32 %.1492.lcssa.fr, 4
-  %.not540 = icmp eq i32 %676, 0
-  br i1 %.not540, label %.preheader, label %703
+674:                                              ; preds = %673, %670
+  %675 = and i32 %.1492.lcssa.fr, 4
+  %.not540 = icmp eq i32 %675, 0
+  br i1 %.not540, label %.preheader, label %702
 
-.preheader:                                       ; preds = %675
+.preheader:                                       ; preds = %674
   br i1 %.not536, label %.outer.us.preheader, label %.outer
 
 .outer.us.preheader:                              ; preds = %.preheader
-  %677 = load ptr, ptr %4, align 8
-  %678 = call i32 @jq_util_input_errors(ptr noundef %677) #17
-  %679 = icmp eq i32 %678, 0
-  br i1 %679, label %.lr.ph1280.us, label %.critedge
+  %676 = load ptr, ptr %4, align 8
+  %677 = call i32 @jq_util_input_errors(ptr noundef %676) #17
+  %678 = icmp eq i32 %677, 0
+  br i1 %678, label %.lr.ph1280.us, label %.critedge
 
 .outer.us:                                        ; preds = %.split.us.us
-  %680 = load ptr, ptr %4, align 8
-  %681 = call i32 @jq_util_input_errors(ptr noundef %680) #17
-  %682 = icmp eq i32 %681, 0
-  br i1 %682, label %.lr.ph1280.us, label %.critedge, !llvm.loop !7
+  %679 = load ptr, ptr %4, align 8
+  %680 = call i32 @jq_util_input_errors(ptr noundef %679) #17
+  %681 = icmp eq i32 %680, 0
+  br i1 %681, label %.lr.ph1280.us, label %.critedge, !llvm.loop !7
 
 .lr.ph1280.us:                                    ; preds = %.outer.us.preheader, %.outer.us
-  %683 = phi ptr [ %680, %.outer.us ], [ %677, %.outer.us.preheader ]
-  %.2.ph.us1823 = phi i32 [ %696, %.outer.us ], [ -4, %.outer.us.preheader ]
-  %.2489.ph.us1822 = phi i32 [ %.3490.us, %.outer.us ], [ -1, %.outer.us.preheader ]
-  %684 = call { i64, ptr } @jq_util_input_next_input(ptr noundef %683) #17
-  %685 = extractvalue { i64, ptr } %684, 0
-  %686 = extractvalue { i64, ptr } %684, 1
-  %687 = call i32 @jv_get_kind(i64 %685, ptr %686) #17
-  %.not1023.us.us = icmp eq i32 %687, 0
-  br i1 %.not1023.us.us, label %688, label %.critedge5.us.us
+  %682 = phi ptr [ %679, %.outer.us ], [ %676, %.outer.us.preheader ]
+  %.2.ph.us1824 = phi i32 [ %695, %.outer.us ], [ -4, %.outer.us.preheader ]
+  %.2489.ph.us1823 = phi i32 [ %.3490.us, %.outer.us ], [ -1, %.outer.us.preheader ]
+  %683 = call { i64, ptr } @jq_util_input_next_input(ptr noundef %682) #17
+  %684 = extractvalue { i64, ptr } %683, 0
+  %685 = extractvalue { i64, ptr } %683, 1
+  %686 = call i32 @jv_get_kind(i64 %684, ptr %685) #17
+  %.not1023.us.us = icmp eq i32 %686, 0
+  br i1 %.not1023.us.us, label %687, label %.critedge5.us.us
 
-688:                                              ; preds = %.lr.ph1280.us
-  %689 = call { i64, ptr } @jv_copy(i64 %685, ptr %686) #17
-  %690 = extractvalue { i64, ptr } %689, 0
-  %691 = extractvalue { i64, ptr } %689, 1
-  %692 = call i32 @jv_invalid_has_msg(i64 %690, ptr %691) #17
-  %.not542.us.us = icmp eq i32 %692, 0
+687:                                              ; preds = %.lr.ph1280.us
+  %688 = call { i64, ptr } @jv_copy(i64 %684, ptr %685) #17
+  %689 = extractvalue { i64, ptr } %688, 0
+  %690 = extractvalue { i64, ptr } %688, 1
+  %691 = call i32 @jv_invalid_has_msg(i64 %689, ptr %690) #17
+  %.not542.us.us = icmp eq i32 %691, 0
   br i1 %.not542.us.us, label %.critedge, label %.critedge5.us.us
 
-.critedge5.us.us:                                 ; preds = %688, %.lr.ph1280.us
-  %693 = call i32 @jv_get_kind(i64 %685, ptr %686) #17
-  %.not1024.us.us = icmp eq i32 %693, 0
+.critedge5.us.us:                                 ; preds = %687, %.lr.ph1280.us
+  %692 = call i32 @jv_get_kind(i64 %684, ptr %685) #17
+  %.not1024.us.us = icmp eq i32 %692, 0
   br i1 %.not1024.us.us, label %.split1313.us, label %.split.us.us
 
 .split.us.us:                                     ; preds = %.critedge5.us.us
-  %694 = load ptr, ptr %3, align 8
-  %695 = load i32, ptr %5, align 4
-  %696 = call fastcc i32 @process(ptr noundef %694, i64 %685, ptr %686, i32 noundef %.0504.lcssa, i32 noundef %695, i32 noundef %.1492.lcssa.fr)
-  %697 = icmp slt i32 %696, 1
-  %698 = icmp ne i32 %696, -4
-  %or.cond7.us = and i1 %697, %698
-  %699 = icmp ne i32 %696, -1
-  %700 = zext i1 %699 to i32
-  %.3490.us = select i1 %or.cond7.us, i32 %700, i32 %.2489.ph.us1822
-  %701 = load ptr, ptr %3, align 8
-  %702 = call i32 @jq_halted(ptr noundef %701) #17
-  %.not544.us = icmp eq i32 %702, 0
+  %693 = load ptr, ptr %3, align 8
+  %694 = load i32, ptr %5, align 4
+  %695 = call fastcc i32 @process(ptr noundef %693, i64 %684, ptr %685, i32 noundef %.0504.lcssa, i32 noundef %694, i32 noundef %.1492.lcssa.fr)
+  %696 = icmp slt i32 %695, 1
+  %697 = icmp ne i32 %695, -4
+  %or.cond7.us = and i1 %696, %697
+  %698 = icmp ne i32 %695, -1
+  %699 = zext i1 %698 to i32
+  %.3490.us = select i1 %or.cond7.us, i32 %699, i32 %.2489.ph.us1823
+  %700 = load ptr, ptr %3, align 8
+  %701 = call i32 @jq_halted(ptr noundef %700) #17
+  %.not544.us = icmp eq i32 %701, 0
   br i1 %.not544.us, label %.outer.us, label %.critedge, !llvm.loop !7
 
-703:                                              ; preds = %675
-  %704 = call { i64, ptr } @jv_null() #17
-  %705 = extractvalue { i64, ptr } %704, 0
-  %706 = extractvalue { i64, ptr } %704, 1
-  %707 = load i32, ptr %5, align 4
-  %708 = call fastcc i32 @process(ptr noundef nonnull %17, i64 %705, ptr %706, i32 noundef %.0504.lcssa, i32 noundef %707, i32 noundef %.1492.lcssa.fr)
+702:                                              ; preds = %674
+  %703 = call { i64, ptr } @jv_null() #17
+  %704 = extractvalue { i64, ptr } %703, 0
+  %705 = extractvalue { i64, ptr } %703, 1
+  %706 = load i32, ptr %5, align 4
+  %707 = call fastcc i32 @process(ptr noundef nonnull %17, i64 %704, ptr %705, i32 noundef %.0504.lcssa, i32 noundef %706, i32 noundef %.1492.lcssa.fr)
   br label %.critedge
 
-.lr.ph1280:                                       ; preds = %.outer, %738
-  %709 = phi ptr [ %745, %738 ], [ %729, %.outer ]
-  %710 = call { i64, ptr } @jq_util_input_next_input(ptr noundef %709) #17
-  %711 = extractvalue { i64, ptr } %710, 0
-  %712 = extractvalue { i64, ptr } %710, 1
-  %713 = call i32 @jv_get_kind(i64 %711, ptr %712) #17
-  %.not1023 = icmp eq i32 %713, 0
-  br i1 %.not1023, label %714, label %.critedge5
+.lr.ph1280:                                       ; preds = %.outer, %737
+  %708 = phi ptr [ %744, %737 ], [ %728, %.outer ]
+  %709 = call { i64, ptr } @jq_util_input_next_input(ptr noundef %708) #17
+  %710 = extractvalue { i64, ptr } %709, 0
+  %711 = extractvalue { i64, ptr } %709, 1
+  %712 = call i32 @jv_get_kind(i64 %710, ptr %711) #17
+  %.not1023 = icmp eq i32 %712, 0
+  br i1 %.not1023, label %713, label %.critedge5
 
-714:                                              ; preds = %.lr.ph1280
-  %715 = call { i64, ptr } @jv_copy(i64 %711, ptr %712) #17
-  %716 = extractvalue { i64, ptr } %715, 0
-  %717 = extractvalue { i64, ptr } %715, 1
-  %718 = call i32 @jv_invalid_has_msg(i64 %716, ptr %717) #17
-  %.not542 = icmp eq i32 %718, 0
+713:                                              ; preds = %.lr.ph1280
+  %714 = call { i64, ptr } @jv_copy(i64 %710, ptr %711) #17
+  %715 = extractvalue { i64, ptr } %714, 0
+  %716 = extractvalue { i64, ptr } %714, 1
+  %717 = call i32 @jv_invalid_has_msg(i64 %715, ptr %716) #17
+  %.not542 = icmp eq i32 %717, 0
   br i1 %.not542, label %.critedge, label %.critedge5
 
-.critedge5:                                       ; preds = %.lr.ph1280, %714
-  %719 = call i32 @jv_get_kind(i64 %711, ptr %712) #17
-  %.not1024 = icmp eq i32 %719, 0
-  br i1 %.not1024, label %738, label %.split
+.critedge5:                                       ; preds = %.lr.ph1280, %713
+  %718 = call i32 @jv_get_kind(i64 %710, ptr %711) #17
+  %.not1024 = icmp eq i32 %718, 0
+  br i1 %.not1024, label %737, label %.split
 
 .split:                                           ; preds = %.critedge5
-  %720 = load ptr, ptr %3, align 8
-  %721 = load i32, ptr %5, align 4
-  %722 = call fastcc i32 @process(ptr noundef %720, i64 %711, ptr %712, i32 noundef %.0504.lcssa, i32 noundef %721, i32 noundef %.1492.lcssa.fr)
-  %723 = icmp slt i32 %722, 1
-  %724 = icmp ne i32 %722, -4
-  %or.cond7 = and i1 %723, %724
-  %725 = icmp ne i32 %722, -1
-  %726 = zext i1 %725 to i32
-  %.3490 = select i1 %or.cond7, i32 %726, i32 %.2489.ph
-  %727 = load ptr, ptr %3, align 8
-  %728 = call i32 @jq_halted(ptr noundef %727) #17
-  %.not544 = icmp eq i32 %728, 0
+  %719 = load ptr, ptr %3, align 8
+  %720 = load i32, ptr %5, align 4
+  %721 = call fastcc i32 @process(ptr noundef %719, i64 %710, ptr %711, i32 noundef %.0504.lcssa, i32 noundef %720, i32 noundef %.1492.lcssa.fr)
+  %722 = icmp slt i32 %721, 1
+  %723 = icmp ne i32 %721, -4
+  %or.cond7 = and i1 %722, %723
+  %724 = icmp ne i32 %721, -1
+  %725 = zext i1 %724 to i32
+  %.3490 = select i1 %or.cond7, i32 %725, i32 %.2489.ph
+  %726 = load ptr, ptr %3, align 8
+  %727 = call i32 @jq_halted(ptr noundef %726) #17
+  %.not544 = icmp eq i32 %727, 0
   br i1 %.not544, label %.outer, label %.critedge, !llvm.loop !7
 
 .outer:                                           ; preds = %.preheader, %.split
   %.2489.ph = phi i32 [ %.3490, %.split ], [ -1, %.preheader ]
-  %.2.ph = phi i32 [ %722, %.split ], [ -4, %.preheader ]
-  %729 = load ptr, ptr %4, align 8
-  %730 = call i32 @jq_util_input_errors(ptr noundef %729) #17
-  %731 = icmp eq i32 %730, 0
-  br i1 %731, label %.lr.ph1280, label %.critedge
+  %.2.ph = phi i32 [ %721, %.split ], [ -4, %.preheader ]
+  %728 = load ptr, ptr %4, align 8
+  %729 = call i32 @jq_util_input_errors(ptr noundef %728) #17
+  %730 = icmp eq i32 %729, 0
+  br i1 %730, label %.lr.ph1280, label %.critedge
 
 .split1313.us:                                    ; preds = %.critedge5.us.us
-  %732 = call { i64, ptr } @jv_invalid_get_msg(i64 %685, ptr %686) #17
-  %733 = extractvalue { i64, ptr } %732, 0
-  %734 = extractvalue { i64, ptr } %732, 1
-  %735 = load ptr, ptr @stderr, align 8
-  %736 = call ptr @jv_string_value(i64 %733, ptr %734) #17
-  %737 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %735, ptr noundef nonnull @.str.69, ptr noundef %736) #20
-  call void @jv_free(i64 %733, ptr %734) #17
+  %731 = call { i64, ptr } @jv_invalid_get_msg(i64 %684, ptr %685) #17
+  %732 = extractvalue { i64, ptr } %731, 0
+  %733 = extractvalue { i64, ptr } %731, 1
+  %734 = load ptr, ptr @stderr, align 8
+  %735 = call ptr @jv_string_value(i64 %732, ptr %733) #17
+  %736 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %734, ptr noundef nonnull @.str.69, ptr noundef %735) #20
+  call void @jv_free(i64 %732, ptr %733) #17
   br label %.critedge
 
-738:                                              ; preds = %.critedge5
-  %739 = call { i64, ptr } @jv_invalid_get_msg(i64 %711, ptr %712) #17
-  %740 = extractvalue { i64, ptr } %739, 0
-  %741 = extractvalue { i64, ptr } %739, 1
-  %742 = load ptr, ptr @stderr, align 8
-  %743 = call ptr @jv_string_value(i64 %740, ptr %741) #17
-  %744 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %742, ptr noundef nonnull @.str.70, ptr noundef %743) #20
-  call void @jv_free(i64 %740, ptr %741) #17
-  %745 = load ptr, ptr %4, align 8
-  %746 = call i32 @jq_util_input_errors(ptr noundef %745) #17
-  %747 = icmp eq i32 %746, 0
-  br i1 %747, label %.lr.ph1280, label %.critedge, !llvm.loop !7
+737:                                              ; preds = %.critedge5
+  %738 = call { i64, ptr } @jv_invalid_get_msg(i64 %710, ptr %711) #17
+  %739 = extractvalue { i64, ptr } %738, 0
+  %740 = extractvalue { i64, ptr } %738, 1
+  %741 = load ptr, ptr @stderr, align 8
+  %742 = call ptr @jv_string_value(i64 %739, ptr %740) #17
+  %743 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %741, ptr noundef nonnull @.str.70, ptr noundef %742) #20
+  call void @jv_free(i64 %739, ptr %740) #17
+  %744 = load ptr, ptr %4, align 8
+  %745 = call i32 @jq_util_input_errors(ptr noundef %744) #17
+  %746 = icmp eq i32 %745, 0
+  br i1 %746, label %.lr.ph1280, label %.critedge, !llvm.loop !7
 
-.critedge:                                        ; preds = %.outer, %.split, %738, %714, %.split.us.us, %.outer.us, %688, %.outer.us.preheader, %.split1313.us, %703
-  %.1488 = phi i32 [ -1, %703 ], [ %.2489.ph.us1822, %.split1313.us ], [ -1, %.outer.us.preheader ], [ %.2489.ph.us1822, %688 ], [ %.3490.us, %.outer.us ], [ %.3490.us, %.split.us.us ], [ %.2489.ph, %714 ], [ %.2489.ph, %738 ], [ %.2489.ph, %.outer ], [ %.3490, %.split ]
-  %.1 = phi i32 [ %708, %703 ], [ 5, %.split1313.us ], [ -4, %.outer.us.preheader ], [ %.2.ph.us1823, %688 ], [ %696, %.outer.us ], [ %696, %.split.us.us ], [ %.2.ph, %714 ], [ %.2.ph, %738 ], [ %.2.ph, %.outer ], [ %722, %.split ]
-  %748 = load ptr, ptr %4, align 8
-  %749 = call i32 @jq_util_input_errors(ptr noundef %748) #17
-  %.not545 = icmp eq i32 %749, 0
+.critedge:                                        ; preds = %.outer, %.split, %737, %713, %.split.us.us, %.outer.us, %687, %.outer.us.preheader, %.split1313.us, %702
+  %.1488 = phi i32 [ -1, %702 ], [ %.2489.ph.us1823, %.split1313.us ], [ -1, %.outer.us.preheader ], [ %.2489.ph.us1823, %687 ], [ %.3490.us, %.outer.us ], [ %.3490.us, %.split.us.us ], [ %.2489.ph, %713 ], [ %.2489.ph, %737 ], [ %.2489.ph, %.outer ], [ %.3490, %.split ]
+  %.1 = phi i32 [ %707, %702 ], [ 5, %.split1313.us ], [ -4, %.outer.us.preheader ], [ %.2.ph.us1824, %687 ], [ %695, %.outer.us ], [ %695, %.split.us.us ], [ %.2.ph, %713 ], [ %.2.ph, %737 ], [ %.2.ph, %.outer ], [ %721, %.split ]
+  %747 = load ptr, ptr %4, align 8
+  %748 = call i32 @jq_util_input_errors(ptr noundef %747) #17
+  %.not545 = icmp eq i32 %748, 0
   %spec.select615 = select i1 %.not545, i32 %.1, i32 2
-  br label %750
+  br label %749
 
-750:                                              ; preds = %.critedge, %661, %533, %411, %408, %404, %366, %19
-  %.sroa.0319.0 = phi i64 [ %12, %19 ], [ %.sroa.0319.11263, %366 ], [ %.sroa.0319.11263, %404 ], [ %.sroa.0319.11263, %408 ], [ %.sroa.0319.11263, %411 ], [ %.sroa.0319.1.lcssa, %533 ], [ %.sroa.0319.7, %661 ], [ %.sroa.0319.7, %.critedge ]
-  %.sroa.25.0 = phi ptr [ %13, %19 ], [ %.sroa.25.11264, %366 ], [ %.sroa.25.11264, %404 ], [ %.sroa.25.11264, %408 ], [ %.sroa.25.11264, %411 ], [ %.sroa.25.1.lcssa, %533 ], [ %.sroa.25.7, %661 ], [ %.sroa.25.7, %.critedge ]
-  %.sroa.0352.0 = phi i64 [ %9, %19 ], [ %.sroa.0352.11265, %366 ], [ %.sroa.0352.11265, %404 ], [ %.sroa.0352.11265, %408 ], [ %.sroa.0352.11265, %411 ], [ %.sroa.0352.1.lcssa, %533 ], [ %.sroa.0352.3, %661 ], [ %.sroa.0352.3, %.critedge ]
-  %.sroa.12.0 = phi ptr [ %10, %19 ], [ %.sroa.12.11266, %366 ], [ %.sroa.12.11266, %404 ], [ %.sroa.12.11266, %408 ], [ %.sroa.12.11266, %411 ], [ %.sroa.12.1.lcssa, %533 ], [ %.sroa.12.3, %661 ], [ %.sroa.12.3, %.critedge ]
-  %.0491 = phi i32 [ 0, %19 ], [ %.14, %366 ], [ %.14, %404 ], [ %.14, %408 ], [ %.14, %411 ], [ %.1492.lcssa.fr, %533 ], [ %.1492.lcssa.fr, %661 ], [ %.1492.lcssa.fr, %.critedge ]
-  %.0487 = phi i32 [ -1, %19 ], [ -1, %366 ], [ -1, %404 ], [ -1, %408 ], [ -1, %411 ], [ -1, %533 ], [ -1, %661 ], [ %.1488, %.critedge ]
-  %.0 = phi i32 [ 2, %19 ], [ 2, %366 ], [ 0, %404 ], [ 0, %408 ], [ %422, %411 ], [ 2, %533 ], [ 3, %661 ], [ %spec.select615, %.critedge ]
-  %751 = load ptr, ptr @stdout, align 8
-  %752 = call i32 @ferror(ptr noundef %751) #17
-  %753 = call i32 @fclose(ptr noundef %751)
-  %754 = or i32 %753, %752
-  %or.cond9.not = icmp eq i32 %754, 0
-  br i1 %or.cond9.not, label %761, label %755
+749:                                              ; preds = %.critedge, %660, %532, %410, %407, %403, %365, %19
+  %.sroa.0319.0 = phi i64 [ %12, %19 ], [ %.sroa.0319.11263, %365 ], [ %.sroa.0319.11263, %403 ], [ %.sroa.0319.11263, %407 ], [ %.sroa.0319.11263, %410 ], [ %.sroa.0319.1.lcssa, %532 ], [ %.sroa.0319.7, %660 ], [ %.sroa.0319.7, %.critedge ]
+  %.sroa.25.0 = phi ptr [ %13, %19 ], [ %.sroa.25.11264, %365 ], [ %.sroa.25.11264, %403 ], [ %.sroa.25.11264, %407 ], [ %.sroa.25.11264, %410 ], [ %.sroa.25.1.lcssa, %532 ], [ %.sroa.25.7, %660 ], [ %.sroa.25.7, %.critedge ]
+  %.sroa.0352.0 = phi i64 [ %9, %19 ], [ %.sroa.0352.11265, %365 ], [ %.sroa.0352.11265, %403 ], [ %.sroa.0352.11265, %407 ], [ %.sroa.0352.11265, %410 ], [ %.sroa.0352.1.lcssa, %532 ], [ %.sroa.0352.3, %660 ], [ %.sroa.0352.3, %.critedge ]
+  %.sroa.12.0 = phi ptr [ %10, %19 ], [ %.sroa.12.11266, %365 ], [ %.sroa.12.11266, %403 ], [ %.sroa.12.11266, %407 ], [ %.sroa.12.11266, %410 ], [ %.sroa.12.1.lcssa, %532 ], [ %.sroa.12.3, %660 ], [ %.sroa.12.3, %.critedge ]
+  %.0491 = phi i32 [ 0, %19 ], [ %.14, %365 ], [ %.14, %403 ], [ %.14, %407 ], [ %.14, %410 ], [ %.1492.lcssa.fr, %532 ], [ %.1492.lcssa.fr, %660 ], [ %.1492.lcssa.fr, %.critedge ]
+  %.0487 = phi i32 [ -1, %19 ], [ -1, %365 ], [ -1, %403 ], [ -1, %407 ], [ -1, %410 ], [ -1, %532 ], [ -1, %660 ], [ %.1488, %.critedge ]
+  %.0 = phi i32 [ 2, %19 ], [ 2, %365 ], [ 0, %403 ], [ 0, %407 ], [ %421, %410 ], [ 2, %532 ], [ 3, %660 ], [ %spec.select615, %.critedge ]
+  %750 = load ptr, ptr @stdout, align 8
+  %751 = call i32 @ferror(ptr noundef %750) #17
+  %752 = call i32 @fclose(ptr noundef %750)
+  %753 = or i32 %752, %751
+  %or.cond9.not = icmp eq i32 %753, 0
+  br i1 %or.cond9.not, label %760, label %754
 
-755:                                              ; preds = %750
-  %756 = load ptr, ptr @stderr, align 8
-  %757 = tail call ptr @__errno_location() #19
-  %758 = load i32, ptr %757, align 4
-  %759 = call ptr @strerror(i32 noundef %758) #17
-  %760 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %756, ptr noundef nonnull @.str.71, ptr noundef %759) #20
-  br label %761
+754:                                              ; preds = %749
+  %755 = load ptr, ptr @stderr, align 8
+  %756 = tail call ptr @__errno_location() #19
+  %757 = load i32, ptr %756, align 4
+  %758 = call ptr @strerror(i32 noundef %757) #17
+  %759 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %755, ptr noundef nonnull @.str.71, ptr noundef %758) #20
+  br label %760
 
-761:                                              ; preds = %750, %755
-  %.3 = phi i32 [ 2, %755 ], [ %.0, %750 ]
+760:                                              ; preds = %749, %754
+  %.3 = phi i32 [ 2, %754 ], [ %.0, %749 ]
   call void @jv_free(i64 %.sroa.0352.0, ptr %.sroa.12.0) #17
   call void @jv_free(i64 %.sroa.0319.0, ptr %.sroa.25.0) #17
   call void @jq_util_input_free(ptr noundef nonnull %4) #17
   call void @jq_teardown(ptr noundef nonnull %3) #17
-  %762 = and i32 %.0491, 4096
-  %.not613 = icmp eq i32 %762, 0
-  br i1 %.not613, label %770, label %763
+  %761 = and i32 %.0491, 4096
+  %.not613 = icmp eq i32 %761, 0
+  br i1 %.not613, label %769, label %762
 
-763:                                              ; preds = %761
+762:                                              ; preds = %760
   %.not614 = icmp eq i32 %.3, -4
-  br i1 %.not614, label %766, label %764
+  br i1 %.not614, label %765, label %763
 
-764:                                              ; preds = %763
-  %765 = call i32 @llvm.abs.i32(i32 %.3, i1 true)
-  call void @exit(i32 noundef %765) #23
+763:                                              ; preds = %762
+  %764 = call i32 @llvm.abs.i32(i32 %.3, i1 true)
+  call void @exit(i32 noundef %764) #23
   unreachable
 
-766:                                              ; preds = %763
-  switch i32 %.0487, label %769 [
-    i32 -1, label %767
-    i32 0, label %768
+765:                                              ; preds = %762
+  switch i32 %.0487, label %768 [
+    i32 -1, label %766
+    i32 0, label %767
   ]
 
-767:                                              ; preds = %766
+766:                                              ; preds = %765
   call void @exit(i32 noundef 4) #21
   unreachable
 
-768:                                              ; preds = %766
+767:                                              ; preds = %765
   call void @exit(i32 noundef 1) #21
   unreachable
 
-769:                                              ; preds = %766
+768:                                              ; preds = %765
   call void @exit(i32 noundef 0) #23
   unreachable
 
-770:                                              ; preds = %761
-  %771 = call i32 @llvm.smax.i32(i32 %.3, i32 0)
-  call void @exit(i32 noundef %771) #23
+769:                                              ; preds = %760
+  %770 = call i32 @llvm.smax.i32(i32 %.3, i32 0)
+  call void @exit(i32 noundef %770) #23
   unreachable
 }
 

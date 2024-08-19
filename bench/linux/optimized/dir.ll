@@ -1288,7 +1288,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %518 = load i64, ptr %492, align 8
   %519 = and i64 %518, 256
   %520 = icmp eq i64 %519, 0
-  br i1 %520, label %.thread36, label %.thread50
+  br i1 %520, label %.thread36, label %.loopexit56
 
 .thread36:                                        ; preds = %513, %517
   %521 = call i32 @__SCT__cond_resched() #9
@@ -1364,7 +1364,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %562 = load i32, ptr %495, align 8
   %563 = call ptr @ext4_bread(ptr noundef null, ptr noundef %7, i32 noundef %562, i32 noundef 0) #9
   %564 = icmp ugt ptr %563, inttoptr (i64 -4096 to ptr)
-  br i1 %564, label %732, label %565
+  br i1 %564, label %731, label %565
 
 565:                                              ; preds = %560
   %566 = icmp eq ptr %563, null
@@ -1375,7 +1375,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %568 = load i64, ptr %511, align 8
   %569 = shl i64 %568, 9
   %570 = icmp ugt i64 %567, %569
-  br i1 %570, label %.thread46, label %571
+  br i1 %570, label %.loopexit56, label %571
 
 571:                                              ; preds = %.thread99
   %572 = load i64, ptr %493, align 8
@@ -1547,7 +1547,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %683 = load i32, ptr %10, align 4
   %684 = and i32 %683, 16384
   %685 = icmp eq i32 %684, 0
-  br i1 %685, label %686, label %.thread50
+  br i1 %685, label %686, label %.loopexit56
 
 686:                                              ; preds = %682
   %687 = getelementptr inbounds i8, ptr %664, i64 8
@@ -1580,7 +1580,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %710 = load ptr, ptr %1, align 8
   %711 = load i64, ptr %484, align 8
   %712 = call zeroext i1 %710(ptr noundef %1, ptr noundef %687, i32 noundef %690, i64 noundef %711, i64 noundef %691, i32 noundef %709) #9
-  br i1 %712, label %._crit_edge87, label %.thread46
+  br i1 %712, label %._crit_edge87, label %.loopexit56
 
 ._crit_edge87:                                    ; preds = %707
   %.pre88 = load i16, ptr %676, align 4
@@ -1608,7 +1608,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %724 = load i32, ptr %10, align 4
   %725 = and i32 %724, 16
   %726 = icmp eq i32 %725, 0
-  br i1 %726, label %727, label %.thread46
+  br i1 %726, label %727, label %.loopexit56
 
 727:                                              ; preds = %723, %.loopexit
   call void @__brelse(ptr noundef nonnull %563) #9
@@ -1621,36 +1621,26 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %730 = icmp slt i64 %728, %729
   br i1 %730, label %513, label %.thread35, !llvm.loop !22
 
-.thread46:                                        ; preds = %.thread99, %723, %707
-  %731 = phi ptr [ %563, %707 ], [ null, %.thread99 ], [ %563, %723 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
-  br label %.loopexit56
-
-.thread50:                                        ; preds = %517, %682
-  %.ph48 = phi i32 [ -95, %682 ], [ -512, %517 ]
-  %.ph49 = phi ptr [ %563, %682 ], [ null, %517 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
-  br label %.loopexit56
-
-732:                                              ; preds = %560
-  %733 = ptrtoint ptr %563 to i64
-  %734 = trunc i64 %733 to i32
+731:                                              ; preds = %560
+  %732 = ptrtoint ptr %563 to i64
+  %733 = trunc i64 %732 to i32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
   br label %.thread35
 
-.loopexit56:                                      ; preds = %.thread46, %.thread50
-  %735 = phi i32 [ %.ph48, %.thread50 ], [ 0, %.thread46 ]
-  %736 = phi ptr [ %.ph49, %.thread50 ], [ %731, %.thread46 ]
-  %737 = icmp eq ptr %736, null
-  br i1 %737, label %.thread35, label %738
+.loopexit56:                                      ; preds = %517, %723, %.thread99, %682, %707
+  %734 = phi i32 [ 0, %707 ], [ -95, %682 ], [ 0, %.thread99 ], [ 0, %723 ], [ -512, %517 ]
+  %735 = phi ptr [ %563, %707 ], [ %563, %682 ], [ null, %.thread99 ], [ %563, %723 ], [ null, %517 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
+  %736 = icmp eq ptr %735, null
+  br i1 %736, label %.thread35, label %737
 
-738:                                              ; preds = %.loopexit56
-  call void @__brelse(ptr noundef nonnull %736) #9
+737:                                              ; preds = %.loopexit56
+  call void @__brelse(ptr noundef nonnull %735) #9
   br label %.thread35
 
-.thread35:                                        ; preds = %.thread42, %732, %.thread94, %483, %48, %114, %738, %.loopexit56, %479, %475, %442, %2
-  %739 = phi i32 [ %476, %475 ], [ -95, %2 ], [ %445, %442 ], [ -95, %479 ], [ %735, %.loopexit56 ], [ %735, %738 ], [ 0, %114 ], [ -12, %48 ], [ 0, %483 ], [ 0, %.thread94 ], [ %734, %732 ], [ 0, %.thread42 ]
-  ret i32 %739
+.thread35:                                        ; preds = %.thread42, %731, %.thread94, %483, %48, %114, %737, %.loopexit56, %479, %475, %442, %2
+  %738 = phi i32 [ %476, %475 ], [ -95, %2 ], [ %445, %442 ], [ -95, %479 ], [ %734, %.loopexit56 ], [ %734, %737 ], [ 0, %114 ], [ -12, %48 ], [ 0, %483 ], [ 0, %.thread94 ], [ %733, %731 ], [ 0, %.thread42 ]
+  ret i32 %738
 }
 
 ; Function Attrs: null_pointer_is_valid

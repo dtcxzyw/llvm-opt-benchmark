@@ -15025,18 +15025,14 @@ if.then:                                          ; preds = %entry
   store ptr %3, ptr %ref.tmp.i, align 8
   store ptr null, ptr %_M_error, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
-  br i1 %tobool.not.i.i, label %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.thread, label %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit
-
-_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.thread: ; preds = %if.then
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
+  br i1 %tobool.not.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit
 
 _ZNSt15__exception_ptr13exception_ptraSEOS0_.exit: ; preds = %if.then
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i) #34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
 
-_ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.thread
+_ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %if.then, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   call void @_ZNSt12future_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #34
   %_M_result = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %_M_result, align 8

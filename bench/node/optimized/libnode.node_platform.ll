@@ -3765,11 +3765,7 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %isolate_, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %handle_scope.i)
   %call.i = tail call noundef zeroext i1 @_ZN2v87Isolate9InContextEv(ptr noundef nonnull align 1 dereferenceable(1) %1) #24
-  br i1 %call.i, label %if.end.i, label %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread
-
-_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread: ; preds = %if.end
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i)
-  br label %if.else
+  br i1 %call.i, label %if.end.i, label %if.else.sink.split
 
 if.end.i:                                         ; preds = %if.end
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i, ptr noundef nonnull %1) #24
@@ -3797,8 +3793,7 @@ _ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i:
 
 _ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread4: ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i, %if.end.i.i.i
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i) #24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i)
-  br label %if.else
+  br label %if.else.sink.split
 
 _ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit: ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i
   %sub.i.i.i = add i64 %4, 271
@@ -3826,7 +3821,11 @@ if.then5:                                         ; preds = %_ZN4node11Environme
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope6) #24
   br label %if.end19
 
-if.else:                                          ; preds = %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread4, %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread, %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit
+if.else.sink.split:                               ; preds = %if.end, %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread4
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i)
+  br label %if.else
+
+if.else:                                          ; preds = %if.else.sink.split, %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit
   %16 = load ptr, ptr %task, align 8
   %vtable17 = load ptr, ptr %16, align 8
   %vfn18 = getelementptr inbounds i8, ptr %vtable17, i64 16

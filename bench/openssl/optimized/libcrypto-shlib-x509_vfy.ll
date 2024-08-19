@@ -208,77 +208,71 @@ cond.true:                                        ; preds = %land.lhs.true3
   %call.i.i.i = tail call i32 @OPENSSL_sk_num(ptr noundef %12) #10
   %call2.i.i = call i32 @i2d_PUBKEY(ptr noundef %11, ptr noundef nonnull %i2dbuf.i.i) #10
   %cmp.i.i = icmp slt i32 %call2.i.i, 1
-  br i1 %cmp.i.i, label %dane_match_rpk.exit.thread.i, label %if.end.i.i
-
-dane_match_rpk.exit.thread.i:                     ; preds = %cond.true
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %i2dbuf.i.i)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %mdbuf.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %cmplen.i.i)
-  br label %land.lhs.true10.thread
+  br i1 %cmp.i.i, label %land.lhs.true10.thread, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %cond.true
   store i32 %call2.i.i, ptr %cmplen.i.i, align 4
   %cmp31.i.i = icmp sgt i32 %call.i.i.i, 0
-  %.pre38 = load ptr, ptr %i2dbuf.i.i, align 8
-  br i1 %cmp31.i.i, label %for.body.lr.ph.i.i, label %if.else.i
+  br i1 %cmp31.i.i, label %for.body.lr.ph.i.i, label %if.end6.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.end.i.i
+  %13 = load ptr, ptr %i2dbuf.i.i, align 8
   %conv23.i.i = zext nneg i32 %call2.i.i to i64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
   %i.04.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %for.inc.i.i ]
   %mtype.03.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %mtype.1.i.i, %for.inc.i.i ]
-  %cmpbuf.02.i.i = phi ptr [ %.pre38, %for.body.lr.ph.i.i ], [ %cmpbuf.1.i.i, %for.inc.i.i ]
-  %13 = load ptr, ptr %trecs.i.i, align 8
-  %call.i16.i.i = call ptr @OPENSSL_sk_value(ptr noundef %13, i32 noundef %i.04.i.i) #10
-  %14 = load i8, ptr %call.i16.i.i, align 8
-  %cmp6.not.i.i = icmp eq i8 %14, 3
+  %cmpbuf.02.i.i = phi ptr [ %13, %for.body.lr.ph.i.i ], [ %cmpbuf.1.i.i, %for.inc.i.i ]
+  %14 = load ptr, ptr %trecs.i.i, align 8
+  %call.i16.i.i = call ptr @OPENSSL_sk_value(ptr noundef %14, i32 noundef %i.04.i.i) #10
+  %15 = load i8, ptr %call.i16.i.i, align 8
+  %cmp6.not.i.i = icmp eq i8 %15, 3
   br i1 %cmp6.not.i.i, label %lor.lhs.false.i.i, label %for.inc.i.i
 
 lor.lhs.false.i.i:                                ; preds = %for.body.i.i
   %selector.i.i = getelementptr inbounds i8, ptr %call.i16.i.i, i64 1
-  %15 = load i8, ptr %selector.i.i, align 1
-  %cmp9.not.i.i = icmp eq i8 %15, 1
+  %16 = load i8, ptr %selector.i.i, align 1
+  %cmp9.not.i.i = icmp eq i8 %16, 1
   br i1 %cmp9.not.i.i, label %if.end12.i.i, label %for.inc.i.i
 
 if.end12.i.i:                                     ; preds = %lor.lhs.false.i.i
   %mtype13.i.i = getelementptr inbounds i8, ptr %call.i16.i.i, i64 2
-  %16 = load i8, ptr %mtype13.i.i, align 2
-  %conv14.i.i = zext i8 %16 to i32
+  %17 = load i8, ptr %mtype13.i.i, align 2
+  %conv14.i.i = zext i8 %17 to i32
   %cmp15.not.i.i = icmp eq i32 %mtype.03.i.i, %conv14.i.i
   br i1 %cmp15.not.i.i, label %if.end28.i.i, label %if.then17.i.i
 
 if.then17.i.i:                                    ; preds = %if.end12.i.i
-  %17 = load ptr, ptr %ctx.val.i, align 8
-  %18 = load ptr, ptr %17, align 8
-  %idxprom.i.i = zext i8 %16 to i64
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %18, i64 %idxprom.i.i
-  %19 = load ptr, ptr %arrayidx.i.i, align 8
-  %20 = load ptr, ptr %i2dbuf.i.i, align 8
+  %18 = load ptr, ptr %ctx.val.i, align 8
+  %19 = load ptr, ptr %18, align 8
+  %idxprom.i.i = zext i8 %17 to i64
+  %arrayidx.i.i = getelementptr inbounds ptr, ptr %19, i64 %idxprom.i.i
+  %20 = load ptr, ptr %arrayidx.i.i, align 8
+  %21 = load ptr, ptr %i2dbuf.i.i, align 8
   store i32 %call2.i.i, ptr %cmplen.i.i, align 4
-  %cmp20.not.i.i = icmp eq ptr %19, null
+  %cmp20.not.i.i = icmp eq ptr %20, null
   br i1 %cmp20.not.i.i, label %if.end28.i.i, label %if.then22.i.i
 
 if.then22.i.i:                                    ; preds = %if.then17.i.i
-  %call24.i.i = call i32 @EVP_Digest(ptr noundef %20, i64 noundef %conv23.i.i, ptr noundef nonnull %mdbuf.i.i, ptr noundef nonnull %cmplen.i.i, ptr noundef nonnull %19, ptr noundef null) #10
+  %call24.i.i = call i32 @EVP_Digest(ptr noundef %21, i64 noundef %conv23.i.i, ptr noundef nonnull %mdbuf.i.i, ptr noundef nonnull %cmplen.i.i, ptr noundef nonnull %20, ptr noundef null) #10
   %tobool.not.i.i = icmp eq i32 %call24.i.i, 0
   br i1 %tobool.not.i.i, label %dane_match_rpk.exit.i, label %if.end28.i.i
 
 if.end28.i.i:                                     ; preds = %if.then22.i.i, %if.then17.i.i, %if.end12.i.i
-  %cmpbuf.2.i.i = phi ptr [ %mdbuf.i.i, %if.then22.i.i ], [ %20, %if.then17.i.i ], [ %cmpbuf.02.i.i, %if.end12.i.i ]
+  %cmpbuf.2.i.i = phi ptr [ %mdbuf.i.i, %if.then22.i.i ], [ %21, %if.then17.i.i ], [ %cmpbuf.02.i.i, %if.end12.i.i ]
   %mtype.2.i.i = phi i32 [ %conv14.i.i, %if.then22.i.i ], [ %conv14.i.i, %if.then17.i.i ], [ %mtype.03.i.i, %if.end12.i.i ]
-  %21 = load i32, ptr %cmplen.i.i, align 4
-  %conv29.i.i = zext i32 %21 to i64
+  %22 = load i32, ptr %cmplen.i.i, align 4
+  %conv29.i.i = zext i32 %22 to i64
   %dlen.i.i = getelementptr inbounds i8, ptr %call.i16.i.i, i64 16
-  %22 = load i64, ptr %dlen.i.i, align 8
-  %cmp30.i.i = icmp eq i64 %22, %conv29.i.i
+  %23 = load i64, ptr %dlen.i.i, align 8
+  %cmp30.i.i = icmp eq i64 %23, %conv29.i.i
   br i1 %cmp30.i.i, label %land.lhs.true.i.i, label %for.inc.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end28.i.i
   %data.i.i = getelementptr inbounds i8, ptr %call.i16.i.i, i64 8
-  %23 = load ptr, ptr %data.i.i, align 8
-  %bcmp.i.i = call i32 @bcmp(ptr %cmpbuf.2.i.i, ptr %23, i64 %conv29.i.i)
+  %24 = load ptr, ptr %data.i.i, align 8
+  %bcmp.i.i = call i32 @bcmp(ptr %cmpbuf.2.i.i, ptr %24, i64 %conv29.i.i)
   %cmp34.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp34.i.i, label %if.then3.i, label %for.inc.i.i
 
@@ -287,17 +281,17 @@ for.inc.i.i:                                      ; preds = %land.lhs.true.i.i, 
   %mtype.1.i.i = phi i32 [ %mtype.03.i.i, %for.body.i.i ], [ %mtype.03.i.i, %lor.lhs.false.i.i ], [ %mtype.2.i.i, %land.lhs.true.i.i ], [ %mtype.2.i.i, %if.end28.i.i ]
   %inc.i.i = add nuw nsw i32 %i.04.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %call.i.i.i
-  br i1 %exitcond.not.i.i, label %if.else.i.loopexit, label %for.body.i.i, !llvm.loop !4
+  br i1 %exitcond.not.i.i, label %if.end6.i, label %for.body.i.i, !llvm.loop !4
 
 dane_match_rpk.exit.i:                            ; preds = %if.then22.i.i
-  %24 = load ptr, ptr %i2dbuf.i.i, align 8
-  call void @CRYPTO_free(ptr noundef %24, ptr noundef nonnull @.str, i32 noundef 3068) #10
+  %25 = load ptr, ptr %i2dbuf.i.i, align 8
+  call void @CRYPTO_free(ptr noundef %25, ptr noundef nonnull @.str, i32 noundef 3068) #10
+  br label %land.lhs.true10.thread
+
+land.lhs.true10.thread:                           ; preds = %dane_match_rpk.exit.i, %cond.true
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %i2dbuf.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %mdbuf.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %cmplen.i.i)
-  br label %land.lhs.true10.thread
-
-land.lhs.true10.thread:                           ; preds = %dane_match_rpk.exit.i, %dane_match_rpk.exit.thread.i
   %error_depth.i14 = getelementptr inbounds i8, ptr %ctx, i64 172
   store i32 0, ptr %error_depth.i14, align 4
   br label %return.sink.split
@@ -307,31 +301,19 @@ if.then3.i:                                       ; preds = %land.lhs.true.i.i
   store i32 0, ptr %mdpth.i9.i, align 4
   %mtlsa.i10.i = getelementptr inbounds i8, ptr %ctx.val.i, i64 24
   store ptr %call.i16.i.i, ptr %mtlsa.i10.i, align 8
-  %25 = load ptr, ptr %i2dbuf.i.i, align 8
-  call void @CRYPTO_free(ptr noundef %25, ptr noundef nonnull @.str, i32 noundef 3068) #10
+  br label %if.end6.i
+
+if.end6.i:                                        ; preds = %for.inc.i.i, %if.then3.i, %if.end.i.i
+  %cmp2.i.i = phi i32 [ 1, %if.then3.i ], [ 0, %if.end.i.i ], [ 0, %for.inc.i.i ]
+  %26 = phi i32 [ 0, %if.then3.i ], [ 65, %if.end.i.i ], [ 65, %for.inc.i.i ]
+  %27 = load ptr, ptr %i2dbuf.i.i, align 8
+  call void @CRYPTO_free(ptr noundef %27, ptr noundef nonnull @.str, i32 noundef 3068) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %i2dbuf.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %mdbuf.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %cmplen.i.i)
-  br label %if.end6.i
-
-if.else.i.loopexit:                               ; preds = %for.inc.i.i
-  %.pre = load ptr, ptr %i2dbuf.i.i, align 8
-  br label %if.else.i
-
-if.else.i:                                        ; preds = %if.else.i.loopexit, %if.end.i.i
-  %26 = phi ptr [ %.pre, %if.else.i.loopexit ], [ %.pre38, %if.end.i.i ]
-  call void @CRYPTO_free(ptr noundef %26, ptr noundef nonnull @.str, i32 noundef 3068) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %i2dbuf.i.i)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %mdbuf.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %cmplen.i.i)
-  br label %if.end6.i
-
-if.end6.i:                                        ; preds = %if.else.i, %if.then3.i
-  %cmp2.i.i = phi i32 [ 0, %if.else.i ], [ 1, %if.then3.i ]
-  %27 = phi i32 [ 65, %if.else.i ], [ 0, %if.then3.i ]
   %error_depth2124.i = getelementptr inbounds i8, ptr %ctx, i64 172
   store i32 0, ptr %error_depth2124.i, align 4
-  store i32 %27, ptr %error, align 8
+  store i32 %26, ptr %error, align 8
   %verify.i.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %28 = load ptr, ptr %verify.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %28, null

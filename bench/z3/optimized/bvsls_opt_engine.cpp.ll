@@ -4825,9 +4825,9 @@ invoke.cont147:                                   ; preds = %invoke.cont144
   br i1 %cmp.i.i92, label %if.end149.sink.split, label %if.else.i82.invoke
 
 if.end149.sink.split:                             ; preds = %invoke.cont147, %invoke.cont98
-  %storemerge.in = phi ptr [ %ref.tmp97, %invoke.cont98 ], [ %ref.tmp146, %invoke.cont147 ]
-  %storemerge = load i32, ptr %storemerge.in, align 8
-  store i32 %storemerge, ptr %score52, align 8
+  %.sink.in = phi ptr [ %ref.tmp97, %invoke.cont98 ], [ %ref.tmp146, %invoke.cont147 ]
+  %.sink = load i32, ptr %.sink.in, align 8
+  store i32 %.sink, ptr %score52, align 8
   %bf.load.i96 = load i8, ptr %m_kind.i50, align 4
   %bf.clear.i97 = and i8 %bf.load.i96, -2
   store i8 %bf.clear.i97, ptr %m_kind.i50, align 4

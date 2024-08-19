@@ -4825,7 +4825,7 @@ define internal fastcc void @dissect_sac_msg(i32 noundef %0, ptr noundef %1, i32
   %42 = and i32 %41, 15
   %.not23.i = icmp eq i32 %42, 0
   %or.cond29.i = and i1 %.not.i, %.not23.i
-  br i1 %or.cond29.i, label %43, label %.thread.thread
+  br i1 %or.cond29.i, label %43, label %.sink.split
 
 43:                                               ; preds = %40
   %44 = load ptr, ptr @dvbci_sek_bin, align 8
@@ -4833,13 +4833,13 @@ define internal fastcc void @dissect_sac_msg(i32 noundef %0, ptr noundef %1, i32
   %46 = load ptr, ptr @dvbci_siv_bin, align 8
   %47 = icmp ne ptr %46, null
   %or.cond.i = select i1 %45, i1 %47, i1 false
-  br i1 %or.cond.i, label %48, label %.thread.thread
+  br i1 %or.cond.i, label %48, label %.sink.split
 
 48:                                               ; preds = %43
   %49 = call i32 @gcry_cipher_open(ptr noundef nonnull %7, i32 noundef 7, i32 noundef 3, i32 noundef 0) #14
   %50 = and i32 %49, 65535
   %.not24.i = icmp eq i32 %50, 0
-  br i1 %.not24.i, label %51, label %.thread.thread
+  br i1 %.not24.i, label %51, label %.sink.split
 
 51:                                               ; preds = %48
   %52 = load ptr, ptr %7, align 8
@@ -4875,15 +4875,10 @@ define internal fastcc void @dissect_sac_msg(i32 noundef %0, ptr noundef %1, i32
   %.not109 = icmp eq ptr %72, null
   br i1 %.not109, label %76, label %80
 
-.thread.thread:                                   ; preds = %40, %48, %43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %76
-
 .thread.thread125:                                ; preds = %61, %56, %51
   %73 = load ptr, ptr %7, align 8
   call void @gcry_cipher_close(ptr noundef %73) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %76
+  br label %.sink.split
 
 .thread:                                          ; preds = %61
   %74 = call ptr @tvb_new_child_real_data(ptr noundef %1, ptr noundef %65, i32 noundef %41, i32 noundef %41) #14
@@ -4893,7 +4888,11 @@ define internal fastcc void @dissect_sac_msg(i32 noundef %0, ptr noundef %1, i32
   %.not109113 = icmp eq ptr %74, null
   br i1 %.not109113, label %76, label %.thread115
 
-76:                                               ; preds = %.thread.thread125, %.thread.thread, %.thread, %71
+.sink.split:                                      ; preds = %43, %48, %40, %.thread.thread125
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  br label %76
+
+76:                                               ; preds = %.sink.split, %.thread, %71
   %77 = load i32, ptr @hf_dvbci_sac_enc_body, align 4
   %78 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %36) #14
   %79 = call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %77, ptr noundef %1, i32 noundef %36, i32 noundef %78, i32 noundef 0) #14

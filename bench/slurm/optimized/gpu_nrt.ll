@@ -141,15 +141,7 @@ define ptr @gpu_p_get_system_gpu_list(ptr nocapture noundef readonly %0) local_u
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %13)
   %14 = tail call ptr @opendir(ptr noundef nonnull @.str.4)
   %.not.i = icmp eq ptr %14, null
-  br i1 %.not.i, label %_get_system_gpu_list_neuron.exit.thread, label %15
-
-_get_system_gpu_list_neuron.exit.thread:          ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %13)
-  br label %132
+  br i1 %.not.i, label %.sink.split, label %15
 
 15:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
@@ -188,12 +180,7 @@ _count_devices.exit.i:                            ; preds = %._crit_edge.i.i, %1
 
 _get_system_gpu_list_neuron.exit.thread7:         ; preds = %_count_devices.exit.i
   %26 = call i32 @closedir(ptr noundef nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %13)
-  br label %132
+  br label %.sink.split
 
 .lr.ph.i:                                         ; preds = %_count_devices.exit.i
   %27 = getelementptr inbounds i8, ptr %13, i64 8
@@ -505,7 +492,15 @@ _get_system_gpu_list_neuron.exit:                 ; preds = %129
   %.not = icmp eq ptr %.1.i, null
   br i1 %.not, label %132, label %134
 
-132:                                              ; preds = %_get_system_gpu_list_neuron.exit.thread7, %_get_system_gpu_list_neuron.exit.thread, %_get_system_gpu_list_neuron.exit
+.sink.split:                                      ; preds = %1, %_get_system_gpu_list_neuron.exit.thread7
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %13)
+  br label %132
+
+132:                                              ; preds = %.sink.split, %_get_system_gpu_list_neuron.exit
   %133 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.3) #8
   br label %134
 

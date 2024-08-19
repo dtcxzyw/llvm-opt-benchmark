@@ -396,8 +396,8 @@ if.then7:                                         ; preds = %lor.lhs.false, %if.
 
 return.sink.split:                                ; preds = %lor.lhs.false, %if.then7
   %retval.0.ph = phi ptr [ null, %if.then7 ], [ %call1, %lor.lhs.false ]
-  %.sink = load ptr, ptr %der, align 8
-  call void @free(ptr noundef %.sink) #12
+  %1 = load ptr, ptr %der, align 8
+  call void @free(ptr noundef %1) #12
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry

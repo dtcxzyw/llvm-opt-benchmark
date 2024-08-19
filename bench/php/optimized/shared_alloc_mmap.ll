@@ -23,13 +23,7 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr nocaptu
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %7)
   %8 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
   %.not.i = icmp eq ptr %8, null
-  br i1 %.not.i, label %find_prefered_mmap_base.exit.thread, label %.preheader.i
-
-find_prefered_mmap_base.exit.thread:              ; preds = %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %7)
-  br label %56
+  br i1 %.not.i, label %.sink.split, label %.preheader.i
 
 .preheader.i:                                     ; preds = %4
   %9 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 4096, ptr noundef nonnull %8)
@@ -38,10 +32,7 @@ find_prefered_mmap_base.exit.thread:              ; preds = %4
 
 find_prefered_mmap_base.exit.thread81:            ; preds = %.preheader.i
   %10 = call i32 @fclose(ptr noundef nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %7)
-  br label %56
+  br label %.sink.split
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.outer.i
   %.034.ph66.i = phi i64 [ %spec.select49.i, %.outer.i ], [ 0, %.preheader.i ]
@@ -163,7 +154,13 @@ find_prefered_mmap_base.exit:                     ; preds = %34, %37, %40, %.out
   %.not70 = icmp eq ptr %55, inttoptr (i64 -1 to ptr)
   br i1 %.not70, label %56, label %77
 
-56:                                               ; preds = %find_prefered_mmap_base.exit.thread81, %find_prefered_mmap_base.exit.thread, %54, %find_prefered_mmap_base.exit
+.sink.split:                                      ; preds = %4, %find_prefered_mmap_base.exit.thread81
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %7)
+  br label %56
+
+56:                                               ; preds = %.sink.split, %54, %find_prefered_mmap_base.exit
   %57 = icmp ugt i64 %0, 2097151
   %58 = and i64 %0, 2097151
   %59 = icmp eq i64 %58, 0

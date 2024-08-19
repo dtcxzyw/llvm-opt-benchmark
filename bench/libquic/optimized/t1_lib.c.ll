@@ -1583,27 +1583,28 @@ if.end12.i:                                       ; preds = %if.else.i, %if.end
   %call11.i = call i32 %.sink12.i(ptr noundef nonnull %ssl, ptr noundef nonnull %al.i, ptr noundef %17) #20
   switch i32 %call11.i, label %ssl_check_serverhello_tlsext.exit.thread [
     i32 2, label %if.then4
-    i32 1, label %sw.bb14.i
+    i32 1, label %ssl_check_serverhello_tlsext.exit
   ]
 
-sw.bb14.i:                                        ; preds = %if.end12.i
+ssl_check_serverhello_tlsext.exit.thread:         ; preds = %if.end12.i, %if.else.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %al.i)
+  br label %return
+
+ssl_check_serverhello_tlsext.exit:                ; preds = %if.end12.i
   %18 = load i32, ptr %al.i, align 4
   %call15.i = call i32 @ssl3_send_alert(ptr noundef nonnull %ssl, i32 noundef 1, i32 noundef %18) #20
-  br label %ssl_check_serverhello_tlsext.exit.thread
-
-ssl_check_serverhello_tlsext.exit.thread:         ; preds = %sw.bb14.i, %if.end12.i, %if.else.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %al.i)
   br label %return
 
 if.then4:                                         ; preds = %if.end12.i
   %19 = load i32, ptr %al.i, align 4
-  %call13.i = call i32 @ssl3_send_alert(ptr noundef nonnull %ssl, i32 noundef 2, i32 noundef %19) #20
+  %call15.i12 = call i32 @ssl3_send_alert(ptr noundef nonnull %ssl, i32 noundef 2, i32 noundef %19) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %al.i)
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 207, ptr noundef nonnull @.str, i32 noundef 2396) #20
   br label %return
 
-return:                                           ; preds = %ssl_check_serverhello_tlsext.exit.thread, %if.then4, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then4 ], [ 1, %ssl_check_serverhello_tlsext.exit.thread ]
+return:                                           ; preds = %ssl_check_serverhello_tlsext.exit, %ssl_check_serverhello_tlsext.exit.thread, %if.then4, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then4 ], [ 1, %ssl_check_serverhello_tlsext.exit ], [ 1, %ssl_check_serverhello_tlsext.exit.thread ]
   ret i32 %retval.0
 }
 

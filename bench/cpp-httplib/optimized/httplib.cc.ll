@@ -4957,7 +4957,7 @@ entry:
   %cmp.i = icmp sgt i32 %sock, 1023
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %fds.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i)
-  br i1 %cmp.i, label %if.else.thread, label %for.body.preheader.i.lr.ph
+  br i1 %cmp.i, label %return.sink.split, label %for.body.preheader.i.lr.ph
 
 for.body.preheader.i.lr.ph:                       ; preds = %entry
   %rem.i = srem i32 %sock, 64
@@ -4971,11 +4971,6 @@ for.body.preheader.i.lr.ph:                       ; preds = %entry
   %mul = mul nsw i64 %keep_alive_timeout_sec, 1000
   %tv_nsec.i = getelementptr inbounds i8, ptr %__ts.i, i64 8
   br label %for.body.preheader.i
-
-if.else.thread:                                   ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %fds.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i)
-  br label %return
 
 for.body.preheader.i:                             ; preds = %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit, %for.body.preheader.i.lr.ph
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %fds.i, i8 0, i64 128, i1 false)
@@ -4995,12 +4990,7 @@ land.lhs.true.i.i:                                ; preds = %while.body.i.i
   %call1.i.i = tail call ptr @__errno_location() #44
   %1 = load i32, ptr %call1.i.i, align 4
   %cmp2.i.i = icmp eq i32 %1, 4
-  br i1 %cmp2.i.i, label %while.body.i.i, label %_ZN7httplib6detail11select_readEill.exit.thread, !llvm.loop !22
-
-_ZN7httplib6detail11select_readEill.exit.thread:  ; preds = %land.lhs.true.i.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %fds.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i)
-  br label %return
+  br i1 %cmp2.i.i, label %while.body.i.i, label %return.sink.split, !llvm.loop !22
 
 if.else:                                          ; preds = %while.body.i.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %fds.i)
@@ -5038,8 +5028,13 @@ _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i)
   br label %for.body.preheader.i
 
-return:                                           ; preds = %if.then4, %if.else, %_ZN7httplib6detail11select_readEill.exit.thread, %if.else.thread
-  %retval.0 = phi i1 [ true, %if.else.thread ], [ false, %_ZN7httplib6detail11select_readEill.exit.thread ], [ %cmp3, %if.else ], [ %cmp3, %if.then4 ]
+return.sink.split:                                ; preds = %land.lhs.true.i.i, %entry
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %fds.i)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i)
+  br label %return
+
+return:                                           ; preds = %if.then4, %if.else, %return.sink.split
+  %retval.0 = phi i1 [ %cmp.i, %return.sink.split ], [ %cmp3, %if.else ], [ %cmp3, %if.then4 ]
   ret i1 %retval.0
 }
 
@@ -22541,12 +22536,7 @@ if.then:                                          ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %fds.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i)
   %cmp.i = icmp sgt i32 %7, 1023
-  br i1 %cmp.i, label %invoke.cont14.thread, label %for.body.preheader.i
-
-invoke.cont14.thread:                             ; preds = %if.then
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %fds.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i)
-  br label %if.end20
+  br i1 %cmp.i, label %if.end20.sink.split, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.then
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %fds.i, i8 0, i64 128, i1 false)
@@ -22576,12 +22566,7 @@ land.lhs.true.i.i:                                ; preds = %call.i.i.i.noexc
   %call1.i.i = tail call ptr @__errno_location() #44
   %11 = load i32, ptr %call1.i.i, align 4
   %cmp2.i.i = icmp eq i32 %11, 4
-  br i1 %cmp2.i.i, label %while.body.i.i, label %invoke.cont14.thread77, !llvm.loop !22
-
-invoke.cont14.thread77:                           ; preds = %land.lhs.true.i.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %fds.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i)
-  br label %if.end20
+  br i1 %cmp2.i.i, label %while.body.i.i, label %if.end20.sink.split, !llvm.loop !22
 
 invoke.cont14:                                    ; preds = %call.i.i.i.noexc
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %fds.i)
@@ -22601,7 +22586,12 @@ lpad3:                                            ; preds = %if.end.i, %if.then.
           cleanup
   br label %ehcleanup68
 
-if.end20:                                         ; preds = %invoke.cont14.thread77, %invoke.cont14.thread, %while.body, %invoke.cont14
+if.end20.sink.split:                              ; preds = %land.lhs.true.i.i, %if.then
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %fds.i)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i)
+  br label %if.end20
+
+if.end20:                                         ; preds = %if.end20.sink.split, %while.body, %invoke.cont14
   %14 = load atomic i32, ptr %svr_sock_ seq_cst, align 8
   %call24 = invoke i32 @accept(i32 noundef %14, ptr noundef null, ptr noundef null)
           to label %invoke.cont23 unwind label %ehcleanup.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -85515,23 +85505,12 @@ if.end:                                           ; preds = %if.then3, %if.then
 
 call1.i.noexc:                                    ; preds = %if.end
   %tobool.not.i = icmp eq i32 %call1.i8, 0
-  br i1 %tobool.not.i, label %for.cond.preheader.i, label %invoke.cont5.thread
-
-invoke.cont5.thread:                              ; preds = %call1.i.noexc
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %hints.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result.i)
-  br label %cleanup
+  br i1 %tobool.not.i, label %for.cond.preheader.i, label %cleanup
 
 for.cond.preheader.i:                             ; preds = %call1.i.noexc
   %rp.04.i = load ptr, ptr %result.i, align 8
   %tobool2.not5.not.i = icmp eq ptr %rp.04.i, null
-  br i1 %tobool2.not5.not.i, label %invoke.cont5.thread18, label %for.body.i
-
-invoke.cont5.thread18:                            ; preds = %for.cond.preheader.i
-  call void @freeaddrinfo(ptr noundef null) #39
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %hints.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result.i)
-  br label %cleanup
+  br i1 %tobool2.not5.not.i, label %cleanup.sink.split, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %ai_next.i = getelementptr inbounds i8, ptr %rp.06.i, i64 40
@@ -85559,12 +85538,16 @@ cleanup.thread:                                   ; preds = %for.body.i
 
 invoke.cont5:                                     ; preds = %for.cond.i
   %.pre.i = load ptr, ptr %result.i, align 8
-  call void @freeaddrinfo(ptr noundef %.pre.i) #39
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %hints.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result.i)
+  br label %cleanup.sink.split
+
+cleanup.sink.split:                               ; preds = %for.cond.preheader.i, %invoke.cont5
+  %.sink = phi ptr [ %.pre.i, %invoke.cont5 ], [ null, %for.cond.preheader.i ]
+  call void @freeaddrinfo(ptr noundef %.sink) #39
   br label %cleanup
 
-cleanup:                                          ; preds = %invoke.cont5.thread, %invoke.cont5.thread18, %invoke.cont5
+cleanup:                                          ; preds = %cleanup.sink.split, %call1.i.noexc
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %hints.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result.i)
   %9 = getelementptr inbounds i8, ptr %this, i64 16
   %10 = load ptr, ptr %9, align 8
   store i32 3, ptr %10, align 4

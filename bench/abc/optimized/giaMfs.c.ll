@@ -1156,8 +1156,7 @@ Vec_IntPush.exit461:                              ; preds = %.Vec_IntGrow.exit10
   %516 = shl i32 %515, 2
   %517 = ashr i32 %516, 31
   %518 = sext i32 %517 to i64
-  store i64 %518, ptr %2, align 8
-  br label %Abc_TtNot.exit
+  br label %Abc_TtNot.exit.sink.split
 
 519:                                              ; preds = %._crit_edge535
   %520 = and i64 %.val3.i462, 536870911
@@ -1180,8 +1179,7 @@ Vec_IntPush.exit461:                              ; preds = %.Vec_IntGrow.exit10
   %531 = ashr i32 %530, 31
   %532 = sext i32 %531 to i64
   %533 = xor i64 %528, %532
-  store i64 %533, ptr %2, align 8
-  br label %Abc_TtNot.exit
+  br label %Abc_TtNot.exit.sink.split
 
 534:                                              ; preds = %519
   %535 = call ptr @Gia_ObjComputeTruthTableCut(ptr noundef nonnull %502, ptr noundef nonnull %522, ptr noundef nonnull %130) #16
@@ -1213,8 +1211,13 @@ Vec_IntPush.exit461:                              ; preds = %.Vec_IntGrow.exit10
   %exitcond.not.i465 = icmp eq i64 %indvars.iv.next.i464, %wide.trip.count.i
   br i1 %exitcond.not.i465, label %Abc_TtNot.exit, label %.lr.ph.i, !llvm.loop !13
 
-Abc_TtNot.exit:                                   ; preds = %.lr.ph.i, %537, %524, %534, %514
-  %.0 = phi ptr [ %2, %514 ], [ %2, %524 ], [ %535, %534 ], [ %535, %537 ], [ %535, %.lr.ph.i ]
+Abc_TtNot.exit.sink.split:                        ; preds = %514, %524
+  %.sink = phi i64 [ %533, %524 ], [ %518, %514 ]
+  store i64 %.sink, ptr %2, align 8
+  br label %Abc_TtNot.exit
+
+Abc_TtNot.exit:                                   ; preds = %.lr.ph.i, %Abc_TtNot.exit.sink.split, %537, %534
+  %.0 = phi ptr [ %535, %534 ], [ %535, %537 ], [ %2, %Abc_TtNot.exit.sink.split ], [ %535, %.lr.ph.i ]
   %546 = getelementptr i8, ptr %453, i64 8
   %.val384 = load ptr, ptr %546, align 8
   %547 = getelementptr i8, ptr %453, i64 4

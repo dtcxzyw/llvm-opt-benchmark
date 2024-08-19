@@ -1096,15 +1096,15 @@ define internal fastcc noundef i32 @dissect_blf_next_object(ptr noundef %0, ptr 
   %17 = icmp sgt i32 %16, 15
   br i1 %17, label %.lr.ph32, label %._crit_edge
 
-.lr.ph32:                                         ; preds = %4, %431
-  %.01729 = phi i32 [ %.1, %431 ], [ %3, %4 ]
+.lr.ph32:                                         ; preds = %4, %416
+  %.01729 = phi i32 [ %.1, %416 ], [ %3, %4 ]
   %18 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef %.01729, ptr noundef nonnull @blf_lobj_magic, i64 noundef 4) #3
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %21, label %19
 
 19:                                               ; preds = %.lr.ph32
   %20 = add i32 %.01729, 1
-  br label %431
+  br label %416
 
 21:                                               ; preds = %.lr.ph32
   call void @increment_dissection_depth(ptr noundef %1) #3
@@ -1210,14 +1210,14 @@ define internal fastcc noundef i32 @dissect_blf_next_object(ptr noundef %0, ptr 
   %71 = call ptr @val_to_str(i32 noundef %70, ptr noundef nonnull @blf_object_names, ptr noundef nonnull @.str.414) #3
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %28, ptr noundef nonnull @.str.416, ptr noundef %71) #3
   %72 = load i32, ptr %8, align 4
-  switch i32 %72, label %409 [
+  switch i32 %72, label %394 [
     i32 10, label %73
     i32 65, label %119
-    i32 72, label %188
-    i32 103, label %234
-    i32 120, label %290
-    i32 128, label %338
-    i32 133, label %375
+    i32 72, label %173
+    i32 103, label %219
+    i32 120, label %275
+    i32 128, label %323
+    i32 133, label %360
   ]
 
 73:                                               ; preds = %68
@@ -1340,542 +1340,527 @@ define internal fastcc noundef i32 @dissect_blf_next_object(ptr noundef %0, ptr 
   %139 = add i32 %.0..0..0..0.45.i, 4
   store volatile i32 %139, ptr %5, align 4
   %140 = load i32, ptr %10, align 4
-  switch i32 %140, label %162 [
+  switch i32 %140, label %148 [
     i32 1, label %141
-    i32 2, label %150
-    i32 4, label %155
+    i32 2, label %.sink.split
+    i32 4, label %.sink.split.sink.split
   ]
 
 141:                                              ; preds = %129
   %142 = load i32, ptr @hf_blf_app_text_data_version, align 4
   %.0..0..0..0.46.i = load volatile i32, ptr %5, align 4
   %143 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %142, ptr noundef %0, i32 noundef %.0..0..0..0.46.i, i32 noundef 4, i32 noundef -2147483648) #3
-  %144 = load i32, ptr @hf_blf_app_text_channelno, align 4
+  br label %.sink.split.sink.split
+
+.sink.split.sink.split:                           ; preds = %129, %141
+  %hf_blf_app_text_channelno.sink = phi ptr [ @hf_blf_app_text_channelno, %141 ], [ @hf_blf_app_text_traceline_source, %129 ]
+  %hf_blf_app_text_traceline_display_in_tracewindow.sink.ph = phi ptr [ @hf_blf_app_text_busstype, %141 ], [ @hf_blf_app_text_traceline_display_in_tracewindow, %129 ]
+  %hf_blf_app_text_reservedapptext1.sink.ph.ph = phi ptr [ @hf_blf_app_text_can_fd_channel, %141 ], [ @hf_blf_app_text_traceline_ascii_conversion_wo_comment_indicator_timestamp, %129 ]
+  %144 = load i32, ptr %hf_blf_app_text_channelno.sink, align 4
   %.0..0..0..0.47.i = load volatile i32, ptr %5, align 4
   %145 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %144, ptr noundef %0, i32 noundef %.0..0..0..0.47.i, i32 noundef 4, i32 noundef -2147483648) #3
-  %146 = load i32, ptr @hf_blf_app_text_busstype, align 4
-  %.0..0..0..0.48.i = load volatile i32, ptr %5, align 4
-  %147 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %146, ptr noundef %0, i32 noundef %.0..0..0..0.48.i, i32 noundef 4, i32 noundef -2147483648) #3
-  %148 = load i32, ptr @hf_blf_app_text_can_fd_channel, align 4
-  %.0..0..0..0.49.i = load volatile i32, ptr %5, align 4
-  %149 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %148, ptr noundef %0, i32 noundef %.0..0..0..0.49.i, i32 noundef 4, i32 noundef -2147483648) #3
-  br label %165
+  br label %.sink.split
 
-150:                                              ; preds = %129
-  %151 = load i32, ptr @hf_blf_app_text_metadata_remaining_length, align 4
-  %.0..0..0..0.50.i = load volatile i32, ptr %5, align 4
-  %152 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %151, ptr noundef %0, i32 noundef %.0..0..0..0.50.i, i32 noundef 4, i32 noundef -2147483648) #3
-  %153 = load i32, ptr @hf_blf_app_text_metadata_type, align 4
-  %.0..0..0..0.51.i = load volatile i32, ptr %5, align 4
-  %154 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %153, ptr noundef %0, i32 noundef %.0..0..0..0.51.i, i32 noundef 4, i32 noundef -2147483648) #3
-  br label %165
-
-155:                                              ; preds = %129
-  %156 = load i32, ptr @hf_blf_app_text_traceline_source, align 4
-  %.0..0..0..0.52.i = load volatile i32, ptr %5, align 4
-  %157 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %156, ptr noundef %0, i32 noundef %.0..0..0..0.52.i, i32 noundef 4, i32 noundef -2147483648) #3
-  %158 = load i32, ptr @hf_blf_app_text_traceline_display_in_tracewindow, align 4
+.sink.split:                                      ; preds = %.sink.split.sink.split, %129
+  %hf_blf_app_text_traceline_display_in_tracewindow.sink = phi ptr [ @hf_blf_app_text_metadata_remaining_length, %129 ], [ %hf_blf_app_text_traceline_display_in_tracewindow.sink.ph, %.sink.split.sink.split ]
+  %hf_blf_app_text_reservedapptext1.sink.ph = phi ptr [ @hf_blf_app_text_metadata_type, %129 ], [ %hf_blf_app_text_reservedapptext1.sink.ph.ph, %.sink.split.sink.split ]
+  %146 = load i32, ptr %hf_blf_app_text_traceline_display_in_tracewindow.sink, align 4
   %.0..0..0..0.53.i = load volatile i32, ptr %5, align 4
-  %159 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %158, ptr noundef %0, i32 noundef %.0..0..0..0.53.i, i32 noundef 4, i32 noundef -2147483648) #3
-  %160 = load i32, ptr @hf_blf_app_text_traceline_ascii_conversion_wo_comment_indicator_timestamp, align 4
-  %.0..0..0..0.54.i = load volatile i32, ptr %5, align 4
-  %161 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %160, ptr noundef %0, i32 noundef %.0..0..0..0.54.i, i32 noundef 4, i32 noundef -2147483648) #3
-  br label %165
+  %147 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %146, ptr noundef %0, i32 noundef %.0..0..0..0.53.i, i32 noundef 4, i32 noundef -2147483648) #3
+  br label %148
 
-162:                                              ; preds = %129
-  %163 = load i32, ptr @hf_blf_app_text_reservedapptext1, align 4
+148:                                              ; preds = %.sink.split, %129
+  %hf_blf_app_text_reservedapptext1.sink = phi ptr [ @hf_blf_app_text_reservedapptext1, %129 ], [ %hf_blf_app_text_reservedapptext1.sink.ph, %.sink.split ]
+  %149 = load i32, ptr %hf_blf_app_text_reservedapptext1.sink, align 4
   %.0..0..0..0.55.i = load volatile i32, ptr %5, align 4
-  %164 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %163, ptr noundef %0, i32 noundef %.0..0..0..0.55.i, i32 noundef 4, i32 noundef -2147483648) #3
-  br label %165
-
-165:                                              ; preds = %162, %155, %150, %141
+  %150 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %149, ptr noundef %0, i32 noundef %.0..0..0..0.55.i, i32 noundef 4, i32 noundef -2147483648) #3
   %.0..0..0..0.56.i = load volatile i32, ptr %5, align 4
-  %166 = add i32 %.0..0..0..0.56.i, 4
-  store volatile i32 %166, ptr %5, align 4
-  %167 = load i32, ptr @hf_blf_app_text_textlength, align 4
+  %151 = add i32 %.0..0..0..0.56.i, 4
+  store volatile i32 %151, ptr %5, align 4
+  %152 = load i32, ptr @hf_blf_app_text_textlength, align 4
   %.0..0..0..0.57.i = load volatile i32, ptr %5, align 4
-  %168 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %136, i32 noundef %167, ptr noundef %0, i32 noundef %.0..0..0..0.57.i, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %11) #3
+  %153 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %136, i32 noundef %152, ptr noundef %0, i32 noundef %.0..0..0..0.57.i, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %11) #3
   %.0..0..0..0.58.i = load volatile i32, ptr %5, align 4
-  %169 = add i32 %.0..0..0..0.58.i, 4
-  store volatile i32 %169, ptr %5, align 4
-  %170 = load i32, ptr @hf_blf_app_text_reservedapptext2, align 4
+  %154 = add i32 %.0..0..0..0.58.i, 4
+  store volatile i32 %154, ptr %5, align 4
+  %155 = load i32, ptr @hf_blf_app_text_reservedapptext2, align 4
   %.0..0..0..0.59.i = load volatile i32, ptr %5, align 4
-  %171 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %170, ptr noundef %0, i32 noundef %.0..0..0..0.59.i, i32 noundef 4, i32 noundef -2147483648) #3
+  %156 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %155, ptr noundef %0, i32 noundef %.0..0..0..0.59.i, i32 noundef 4, i32 noundef -2147483648) #3
   %.0..0..0..0.60.i = load volatile i32, ptr %5, align 4
-  %172 = add i32 %.0..0..0..0.60.i, 4
-  store volatile i32 %172, ptr %5, align 4
-  %173 = load i32, ptr %11, align 4
-  %174 = icmp ugt i32 %173, 37
-  br i1 %174, label %175, label %184
+  %157 = add i32 %.0..0..0..0.60.i, 4
+  store volatile i32 %157, ptr %5, align 4
+  %158 = load i32, ptr %11, align 4
+  %159 = icmp ugt i32 %158, 37
+  br i1 %159, label %160, label %169
 
-175:                                              ; preds = %165
+160:                                              ; preds = %148
   %.0..0..0..0.61.i = load volatile i32, ptr %5, align 4
-  %176 = call i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef %.0..0..0..0.61.i, ptr noundef nonnull @.str.418, i64 noundef 5) #3
-  %177 = icmp eq i32 %176, 0
-  %178 = load ptr, ptr @xml_handle, align 8
-  %179 = icmp ne ptr %178, null
-  %or.cond.i = select i1 %177, i1 %179, i1 false
+  %161 = call i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef %.0..0..0..0.61.i, ptr noundef nonnull @.str.418, i64 noundef 5) #3
+  %162 = icmp eq i32 %161, 0
+  %163 = load ptr, ptr @xml_handle, align 8
+  %164 = icmp ne ptr %163, null
+  %or.cond.i = select i1 %162, i1 %164, i1 false
   %.pre = load i32, ptr %11, align 4
-  br i1 %or.cond.i, label %180, label %184
+  br i1 %or.cond.i, label %165, label %169
 
-180:                                              ; preds = %175
+165:                                              ; preds = %160
   %.0..0..0..0.62.i = load volatile i32, ptr %5, align 4
-  %181 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0..0..0..0.62.i, i32 noundef %.pre) #3
-  %182 = load ptr, ptr @xml_handle, align 8
-  %183 = call i32 @call_dissector(ptr noundef %182, ptr noundef %181, ptr noundef %1, ptr noundef %136) #3
+  %166 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0..0..0..0.62.i, i32 noundef %.pre) #3
+  %167 = load ptr, ptr @xml_handle, align 8
+  %168 = call i32 @call_dissector(ptr noundef %167, ptr noundef %166, ptr noundef %1, ptr noundef %136) #3
   br label %.thread
 
-184:                                              ; preds = %175, %165
-  %185 = phi i32 [ %.pre, %175 ], [ %173, %165 ]
-  %186 = load i32, ptr @hf_blf_app_text_text, align 4
+169:                                              ; preds = %160, %148
+  %170 = phi i32 [ %.pre, %160 ], [ %158, %148 ]
+  %171 = load i32, ptr @hf_blf_app_text_text, align 4
   %.0..0..0..0.63.i = load volatile i32, ptr %5, align 4
-  %187 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %186, ptr noundef %0, i32 noundef %.0..0..0..0.63.i, i32 noundef %185, i32 noundef 2) #3
+  %172 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %171, ptr noundef %0, i32 noundef %.0..0..0..0.63.i, i32 noundef %170, i32 noundef 2) #3
   br label %.thread
 
-188:                                              ; preds = %68
+173:                                              ; preds = %68
   %.0..0..0..0.64.i = load volatile i32, ptr %5, align 4
-  %189 = sub i32 %.0..0..0..0.64.i, %.01729
-  %190 = load i32, ptr %6, align 4
-  %191 = icmp slt i32 %189, %190
-  br i1 %191, label %192, label %198
+  %174 = sub i32 %.0..0..0..0.64.i, %.01729
+  %175 = load i32, ptr %6, align 4
+  %176 = icmp slt i32 %174, %175
+  br i1 %176, label %177, label %183
 
-192:                                              ; preds = %188
-  %193 = load i32, ptr @hf_blf_lobj_hdr_remains, align 4
+177:                                              ; preds = %173
+  %178 = load i32, ptr @hf_blf_lobj_hdr_remains, align 4
   %.0..0..0..0.65.i = load volatile i32, ptr %5, align 4
   %.0..0..0..0.66.i = load volatile i32, ptr %5, align 4
-  %.neg413.i = add i32 %190, %.01729
-  %194 = sub i32 %.neg413.i, %.0..0..0..0.66.i
-  %195 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %193, ptr noundef %0, i32 noundef %.0..0..0..0.65.i, i32 noundef %194, i32 noundef 0) #3
-  %196 = load i32, ptr %6, align 4
-  %197 = add i32 %196, %.01729
-  store volatile i32 %197, ptr %5, align 4
-  br label %198
+  %.neg413.i = add i32 %175, %.01729
+  %179 = sub i32 %.neg413.i, %.0..0..0..0.66.i
+  %180 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %178, ptr noundef %0, i32 noundef %.0..0..0..0.65.i, i32 noundef %179, i32 noundef 0) #3
+  %181 = load i32, ptr %6, align 4
+  %182 = add i32 %181, %.01729
+  store volatile i32 %182, ptr %5, align 4
+  br label %183
 
-198:                                              ; preds = %192, %188
-  %199 = phi i32 [ %196, %192 ], [ %190, %188 ]
-  %200 = load i32, ptr @hf_blf_lobj_payload, align 4
+183:                                              ; preds = %177, %173
+  %184 = phi i32 [ %181, %177 ], [ %175, %173 ]
+  %185 = load i32, ptr @hf_blf_lobj_payload, align 4
   %.0..0..0..0.67.i = load volatile i32, ptr %5, align 4
-  %201 = load i32, ptr %7, align 4
-  %202 = sub i32 %201, %199
-  %203 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %200, ptr noundef %0, i32 noundef %.0..0..0..0.67.i, i32 noundef %202, i32 noundef 0) #3
-  %204 = load i32, ptr @ett_blf_app_text_payload, align 4
-  %205 = call ptr @proto_item_add_subtree(ptr noundef %203, i32 noundef %204) #3
-  %206 = load i32, ptr @hf_blf_sys_var_type, align 4
+  %186 = load i32, ptr %7, align 4
+  %187 = sub i32 %186, %184
+  %188 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %185, ptr noundef %0, i32 noundef %.0..0..0..0.67.i, i32 noundef %187, i32 noundef 0) #3
+  %189 = load i32, ptr @ett_blf_app_text_payload, align 4
+  %190 = call ptr @proto_item_add_subtree(ptr noundef %188, i32 noundef %189) #3
+  %191 = load i32, ptr @hf_blf_sys_var_type, align 4
   %.0..0..0..0.68.i = load volatile i32, ptr %5, align 4
-  %207 = call ptr @proto_tree_add_item(ptr noundef %205, i32 noundef %206, ptr noundef %0, i32 noundef %.0..0..0..0.68.i, i32 noundef 4, i32 noundef -2147483648) #3
+  %192 = call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %191, ptr noundef %0, i32 noundef %.0..0..0..0.68.i, i32 noundef 4, i32 noundef -2147483648) #3
   %.0..0..0..0.69.i = load volatile i32, ptr %5, align 4
-  %208 = add i32 %.0..0..0..0.69.i, 4
-  store volatile i32 %208, ptr %5, align 4
-  %209 = load i32, ptr @hf_blf_sys_var_rep, align 4
+  %193 = add i32 %.0..0..0..0.69.i, 4
+  store volatile i32 %193, ptr %5, align 4
+  %194 = load i32, ptr @hf_blf_sys_var_rep, align 4
   %.0..0..0..0.70.i = load volatile i32, ptr %5, align 4
-  %210 = call ptr @proto_tree_add_item(ptr noundef %205, i32 noundef %209, ptr noundef %0, i32 noundef %.0..0..0..0.70.i, i32 noundef 4, i32 noundef -2147483648) #3
+  %195 = call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %194, ptr noundef %0, i32 noundef %.0..0..0..0.70.i, i32 noundef 4, i32 noundef -2147483648) #3
   %.0..0..0..0.71.i = load volatile i32, ptr %5, align 4
-  %211 = add i32 %.0..0..0..0.71.i, 4
-  store volatile i32 %211, ptr %5, align 4
-  %212 = load i32, ptr @hf_blf_sys_var_reservedsystemvariable1, align 4
+  %196 = add i32 %.0..0..0..0.71.i, 4
+  store volatile i32 %196, ptr %5, align 4
+  %197 = load i32, ptr @hf_blf_sys_var_reservedsystemvariable1, align 4
   %.0..0..0..0.72.i = load volatile i32, ptr %5, align 4
-  %213 = call ptr @proto_tree_add_item(ptr noundef %205, i32 noundef %212, ptr noundef %0, i32 noundef %.0..0..0..0.72.i, i32 noundef 8, i32 noundef -2147483648) #3
+  %198 = call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %197, ptr noundef %0, i32 noundef %.0..0..0..0.72.i, i32 noundef 8, i32 noundef -2147483648) #3
   %.0..0..0..0.73.i = load volatile i32, ptr %5, align 4
-  %214 = add i32 %.0..0..0..0.73.i, 8
-  store volatile i32 %214, ptr %5, align 4
-  %215 = load i32, ptr @hf_blf_sys_var_namelength, align 4
+  %199 = add i32 %.0..0..0..0.73.i, 8
+  store volatile i32 %199, ptr %5, align 4
+  %200 = load i32, ptr @hf_blf_sys_var_namelength, align 4
   %.0..0..0..0.74.i = load volatile i32, ptr %5, align 4
-  %216 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %205, i32 noundef %215, ptr noundef %0, i32 noundef %.0..0..0..0.74.i, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %12) #3
+  %201 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %190, i32 noundef %200, ptr noundef %0, i32 noundef %.0..0..0..0.74.i, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %12) #3
   %.0..0..0..0.75.i = load volatile i32, ptr %5, align 4
-  %217 = add i32 %.0..0..0..0.75.i, 4
-  store volatile i32 %217, ptr %5, align 4
-  %218 = load i32, ptr @hf_blf_sys_var_datalength, align 4
+  %202 = add i32 %.0..0..0..0.75.i, 4
+  store volatile i32 %202, ptr %5, align 4
+  %203 = load i32, ptr @hf_blf_sys_var_datalength, align 4
   %.0..0..0..0.76.i = load volatile i32, ptr %5, align 4
-  %219 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %205, i32 noundef %218, ptr noundef %0, i32 noundef %.0..0..0..0.76.i, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %13) #3
+  %204 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %190, i32 noundef %203, ptr noundef %0, i32 noundef %.0..0..0..0.76.i, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %13) #3
   %.0..0..0..0.77.i = load volatile i32, ptr %5, align 4
-  %220 = add i32 %.0..0..0..0.77.i, 4
-  store volatile i32 %220, ptr %5, align 4
-  %221 = load i32, ptr @hf_blf_sys_var_reservedsystemvariable2, align 4
+  %205 = add i32 %.0..0..0..0.77.i, 4
+  store volatile i32 %205, ptr %5, align 4
+  %206 = load i32, ptr @hf_blf_sys_var_reservedsystemvariable2, align 4
   %.0..0..0..0.78.i = load volatile i32, ptr %5, align 4
-  %222 = call ptr @proto_tree_add_item(ptr noundef %205, i32 noundef %221, ptr noundef %0, i32 noundef %.0..0..0..0.78.i, i32 noundef 8, i32 noundef -2147483648) #3
+  %207 = call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %206, ptr noundef %0, i32 noundef %.0..0..0..0.78.i, i32 noundef 8, i32 noundef -2147483648) #3
   %.0..0..0..0.79.i = load volatile i32, ptr %5, align 4
-  %223 = add i32 %.0..0..0..0.79.i, 8
-  store volatile i32 %223, ptr %5, align 4
-  %224 = load i32, ptr @hf_blf_sys_var_name, align 4
+  %208 = add i32 %.0..0..0..0.79.i, 8
+  store volatile i32 %208, ptr %5, align 4
+  %209 = load i32, ptr @hf_blf_sys_var_name, align 4
   %.0..0..0..0.80.i = load volatile i32, ptr %5, align 4
-  %225 = load i32, ptr %12, align 4
-  %226 = call ptr @proto_tree_add_item(ptr noundef %205, i32 noundef %224, ptr noundef %0, i32 noundef %.0..0..0..0.80.i, i32 noundef %225, i32 noundef 2) #3
-  %227 = load i32, ptr %12, align 4
+  %210 = load i32, ptr %12, align 4
+  %211 = call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %209, ptr noundef %0, i32 noundef %.0..0..0..0.80.i, i32 noundef %210, i32 noundef 2) #3
+  %212 = load i32, ptr %12, align 4
   %.0..0..0..0.81.i = load volatile i32, ptr %5, align 4
-  %228 = add i32 %.0..0..0..0.81.i, %227
-  store volatile i32 %228, ptr %5, align 4
-  %229 = load i32, ptr @hf_blf_sys_var_data, align 4
+  %213 = add i32 %.0..0..0..0.81.i, %212
+  store volatile i32 %213, ptr %5, align 4
+  %214 = load i32, ptr @hf_blf_sys_var_data, align 4
   %.0..0..0..0.82.i = load volatile i32, ptr %5, align 4
-  %230 = load i32, ptr %13, align 4
-  %231 = call ptr @proto_tree_add_item(ptr noundef %205, i32 noundef %229, ptr noundef %0, i32 noundef %.0..0..0..0.82.i, i32 noundef %230, i32 noundef 0) #3
-  %232 = load i32, ptr %13, align 4
+  %215 = load i32, ptr %13, align 4
+  %216 = call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %214, ptr noundef %0, i32 noundef %.0..0..0..0.82.i, i32 noundef %215, i32 noundef 0) #3
+  %217 = load i32, ptr %13, align 4
   %.0..0..0..0.83.i = load volatile i32, ptr %5, align 4
-  %233 = add i32 %.0..0..0..0.83.i, %232
-  store volatile i32 %233, ptr %5, align 4
+  %218 = add i32 %.0..0..0..0.83.i, %217
+  store volatile i32 %218, ptr %5, align 4
   br label %.thread
 
-234:                                              ; preds = %68
+219:                                              ; preds = %68
   %.0..0..0..0.84.i = load volatile i32, ptr %5, align 4
-  %235 = sub i32 %.0..0..0..0.84.i, %.01729
-  %236 = load i32, ptr %6, align 4
-  %237 = icmp slt i32 %235, %236
-  br i1 %237, label %238, label %244
+  %220 = sub i32 %.0..0..0..0.84.i, %.01729
+  %221 = load i32, ptr %6, align 4
+  %222 = icmp slt i32 %220, %221
+  br i1 %222, label %223, label %229
 
-238:                                              ; preds = %234
-  %239 = load i32, ptr @hf_blf_lobj_hdr_remains, align 4
+223:                                              ; preds = %219
+  %224 = load i32, ptr @hf_blf_lobj_hdr_remains, align 4
   %.0..0..0..0.85.i = load volatile i32, ptr %5, align 4
   %.0..0..0..0.86.i = load volatile i32, ptr %5, align 4
-  %.neg412.i = add i32 %236, %.01729
-  %240 = sub i32 %.neg412.i, %.0..0..0..0.86.i
-  %241 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %239, ptr noundef %0, i32 noundef %.0..0..0..0.85.i, i32 noundef %240, i32 noundef 0) #3
-  %242 = load i32, ptr %6, align 4
-  %243 = add i32 %242, %.01729
-  store volatile i32 %243, ptr %5, align 4
-  br label %244
+  %.neg412.i = add i32 %221, %.01729
+  %225 = sub i32 %.neg412.i, %.0..0..0..0.86.i
+  %226 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %224, ptr noundef %0, i32 noundef %.0..0..0..0.85.i, i32 noundef %225, i32 noundef 0) #3
+  %227 = load i32, ptr %6, align 4
+  %228 = add i32 %227, %.01729
+  store volatile i32 %228, ptr %5, align 4
+  br label %229
 
-244:                                              ; preds = %238, %234
-  %245 = phi i32 [ %242, %238 ], [ %236, %234 ]
-  %246 = load i32, ptr @hf_blf_lobj_payload, align 4
+229:                                              ; preds = %223, %219
+  %230 = phi i32 [ %227, %223 ], [ %221, %219 ]
+  %231 = load i32, ptr @hf_blf_lobj_payload, align 4
   %.0..0..0..0.87.i = load volatile i32, ptr %5, align 4
-  %247 = load i32, ptr %7, align 4
-  %248 = sub i32 %247, %245
-  %249 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %246, ptr noundef %0, i32 noundef %.0..0..0..0.87.i, i32 noundef %248, i32 noundef 0) #3
-  %250 = load i32, ptr @ett_blf_app_text_payload, align 4
-  %251 = call ptr @proto_item_add_subtree(ptr noundef %249, i32 noundef %250) #3
-  %252 = load i32, ptr @hf_blf_eth_status_channel, align 4
+  %232 = load i32, ptr %7, align 4
+  %233 = sub i32 %232, %230
+  %234 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %231, ptr noundef %0, i32 noundef %.0..0..0..0.87.i, i32 noundef %233, i32 noundef 0) #3
+  %235 = load i32, ptr @ett_blf_app_text_payload, align 4
+  %236 = call ptr @proto_item_add_subtree(ptr noundef %234, i32 noundef %235) #3
+  %237 = load i32, ptr @hf_blf_eth_status_channel, align 4
   %.0..0..0..0.88.i = load volatile i32, ptr %5, align 4
-  %253 = call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %252, ptr noundef %0, i32 noundef %.0..0..0..0.88.i, i32 noundef 2, i32 noundef -2147483648) #3
+  %238 = call ptr @proto_tree_add_item(ptr noundef %236, i32 noundef %237, ptr noundef %0, i32 noundef %.0..0..0..0.88.i, i32 noundef 2, i32 noundef -2147483648) #3
   %.0..0..0..0.89.i = load volatile i32, ptr %5, align 4
-  %254 = add i32 %.0..0..0..0.89.i, 2
-  store volatile i32 %254, ptr %5, align 4
+  %239 = add i32 %.0..0..0..0.89.i, 2
+  store volatile i32 %239, ptr %5, align 4
   %.0..0..0..0.90.i = load volatile i32, ptr %5, align 4
-  call void @proto_tree_add_bitmask_list(ptr noundef %251, ptr noundef %0, i32 noundef %.0..0..0..0.90.i, i32 noundef 2, ptr noundef nonnull @dissect_blf_lobj.flags1, i32 noundef -2147483648) #3
+  call void @proto_tree_add_bitmask_list(ptr noundef %236, ptr noundef %0, i32 noundef %.0..0..0..0.90.i, i32 noundef 2, ptr noundef nonnull @dissect_blf_lobj.flags1, i32 noundef -2147483648) #3
   %.0..0..0..0.91.i = load volatile i32, ptr %5, align 4
-  %255 = add i32 %.0..0..0..0.91.i, 2
-  store volatile i32 %255, ptr %5, align 4
-  %256 = load i32, ptr @hf_blf_eth_status_linkstatus, align 4
+  %240 = add i32 %.0..0..0..0.91.i, 2
+  store volatile i32 %240, ptr %5, align 4
+  %241 = load i32, ptr @hf_blf_eth_status_linkstatus, align 4
   %.0..0..0..0.92.i = load volatile i32, ptr %5, align 4
-  %257 = call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %256, ptr noundef %0, i32 noundef %.0..0..0..0.92.i, i32 noundef 1, i32 noundef -2147483648) #3
+  %242 = call ptr @proto_tree_add_item(ptr noundef %236, i32 noundef %241, ptr noundef %0, i32 noundef %.0..0..0..0.92.i, i32 noundef 1, i32 noundef -2147483648) #3
   %.0..0..0..0.93.i = load volatile i32, ptr %5, align 4
-  %258 = add i32 %.0..0..0..0.93.i, 1
-  store volatile i32 %258, ptr %5, align 4
-  %259 = load i32, ptr @hf_blf_eth_status_ethernetphy, align 4
+  %243 = add i32 %.0..0..0..0.93.i, 1
+  store volatile i32 %243, ptr %5, align 4
+  %244 = load i32, ptr @hf_blf_eth_status_ethernetphy, align 4
   %.0..0..0..0.94.i = load volatile i32, ptr %5, align 4
-  %260 = call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %259, ptr noundef %0, i32 noundef %.0..0..0..0.94.i, i32 noundef 1, i32 noundef -2147483648) #3
+  %245 = call ptr @proto_tree_add_item(ptr noundef %236, i32 noundef %244, ptr noundef %0, i32 noundef %.0..0..0..0.94.i, i32 noundef 1, i32 noundef -2147483648) #3
   %.0..0..0..0.95.i = load volatile i32, ptr %5, align 4
-  %261 = add i32 %.0..0..0..0.95.i, 1
-  store volatile i32 %261, ptr %5, align 4
-  %262 = load i32, ptr @hf_blf_eth_status_duplex, align 4
+  %246 = add i32 %.0..0..0..0.95.i, 1
+  store volatile i32 %246, ptr %5, align 4
+  %247 = load i32, ptr @hf_blf_eth_status_duplex, align 4
   %.0..0..0..0.96.i = load volatile i32, ptr %5, align 4
-  %263 = call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %262, ptr noundef %0, i32 noundef %.0..0..0..0.96.i, i32 noundef 1, i32 noundef -2147483648) #3
+  %248 = call ptr @proto_tree_add_item(ptr noundef %236, i32 noundef %247, ptr noundef %0, i32 noundef %.0..0..0..0.96.i, i32 noundef 1, i32 noundef -2147483648) #3
   %.0..0..0..0.97.i = load volatile i32, ptr %5, align 4
-  %264 = add i32 %.0..0..0..0.97.i, 1
-  store volatile i32 %264, ptr %5, align 4
-  %265 = load i32, ptr @hf_blf_eth_status_mdi, align 4
+  %249 = add i32 %.0..0..0..0.97.i, 1
+  store volatile i32 %249, ptr %5, align 4
+  %250 = load i32, ptr @hf_blf_eth_status_mdi, align 4
   %.0..0..0..0.98.i = load volatile i32, ptr %5, align 4
-  %266 = call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %265, ptr noundef %0, i32 noundef %.0..0..0..0.98.i, i32 noundef 1, i32 noundef -2147483648) #3
+  %251 = call ptr @proto_tree_add_item(ptr noundef %236, i32 noundef %250, ptr noundef %0, i32 noundef %.0..0..0..0.98.i, i32 noundef 1, i32 noundef -2147483648) #3
   %.0..0..0..0.99.i = load volatile i32, ptr %5, align 4
-  %267 = add i32 %.0..0..0..0.99.i, 1
-  store volatile i32 %267, ptr %5, align 4
-  %268 = load i32, ptr @hf_blf_eth_status_connector, align 4
+  %252 = add i32 %.0..0..0..0.99.i, 1
+  store volatile i32 %252, ptr %5, align 4
+  %253 = load i32, ptr @hf_blf_eth_status_connector, align 4
   %.0..0..0..0.100.i = load volatile i32, ptr %5, align 4
-  %269 = call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %268, ptr noundef %0, i32 noundef %.0..0..0..0.100.i, i32 noundef 1, i32 noundef -2147483648) #3
+  %254 = call ptr @proto_tree_add_item(ptr noundef %236, i32 noundef %253, ptr noundef %0, i32 noundef %.0..0..0..0.100.i, i32 noundef 1, i32 noundef -2147483648) #3
   %.0..0..0..0.101.i = load volatile i32, ptr %5, align 4
-  %270 = add i32 %.0..0..0..0.101.i, 1
-  store volatile i32 %270, ptr %5, align 4
-  %271 = load i32, ptr @hf_blf_eth_status_clockmode, align 4
+  %255 = add i32 %.0..0..0..0.101.i, 1
+  store volatile i32 %255, ptr %5, align 4
+  %256 = load i32, ptr @hf_blf_eth_status_clockmode, align 4
   %.0..0..0..0.102.i = load volatile i32, ptr %5, align 4
-  %272 = call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %271, ptr noundef %0, i32 noundef %.0..0..0..0.102.i, i32 noundef 1, i32 noundef -2147483648) #3
+  %257 = call ptr @proto_tree_add_item(ptr noundef %236, i32 noundef %256, ptr noundef %0, i32 noundef %.0..0..0..0.102.i, i32 noundef 1, i32 noundef -2147483648) #3
   %.0..0..0..0.103.i = load volatile i32, ptr %5, align 4
-  %273 = add i32 %.0..0..0..0.103.i, 1
-  store volatile i32 %273, ptr %5, align 4
-  %274 = load i32, ptr @hf_blf_eth_status_pairs, align 4
+  %258 = add i32 %.0..0..0..0.103.i, 1
+  store volatile i32 %258, ptr %5, align 4
+  %259 = load i32, ptr @hf_blf_eth_status_pairs, align 4
   %.0..0..0..0.104.i = load volatile i32, ptr %5, align 4
-  %275 = call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %274, ptr noundef %0, i32 noundef %.0..0..0..0.104.i, i32 noundef 1, i32 noundef -2147483648) #3
+  %260 = call ptr @proto_tree_add_item(ptr noundef %236, i32 noundef %259, ptr noundef %0, i32 noundef %.0..0..0..0.104.i, i32 noundef 1, i32 noundef -2147483648) #3
   %.0..0..0..0.105.i = load volatile i32, ptr %5, align 4
-  %276 = add i32 %.0..0..0..0.105.i, 1
-  store volatile i32 %276, ptr %5, align 4
-  %277 = load i32, ptr @hf_blf_eth_status_hardwarechannel, align 4
+  %261 = add i32 %.0..0..0..0.105.i, 1
+  store volatile i32 %261, ptr %5, align 4
+  %262 = load i32, ptr @hf_blf_eth_status_hardwarechannel, align 4
   %.0..0..0..0.106.i = load volatile i32, ptr %5, align 4
-  %278 = call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %277, ptr noundef %0, i32 noundef %.0..0..0..0.106.i, i32 noundef 1, i32 noundef -2147483648) #3
+  %263 = call ptr @proto_tree_add_item(ptr noundef %236, i32 noundef %262, ptr noundef %0, i32 noundef %.0..0..0..0.106.i, i32 noundef 1, i32 noundef -2147483648) #3
   %.0..0..0..0.107.i = load volatile i32, ptr %5, align 4
-  %279 = add i32 %.0..0..0..0.107.i, 1
-  store volatile i32 %279, ptr %5, align 4
-  %280 = load i32, ptr @hf_blf_eth_status_bitrate, align 4
+  %264 = add i32 %.0..0..0..0.107.i, 1
+  store volatile i32 %264, ptr %5, align 4
+  %265 = load i32, ptr @hf_blf_eth_status_bitrate, align 4
   %.0..0..0..0.108.i = load volatile i32, ptr %5, align 4
-  %281 = call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %280, ptr noundef %0, i32 noundef %.0..0..0..0.108.i, i32 noundef 4, i32 noundef -2147483648) #3
+  %266 = call ptr @proto_tree_add_item(ptr noundef %236, i32 noundef %265, ptr noundef %0, i32 noundef %.0..0..0..0.108.i, i32 noundef 4, i32 noundef -2147483648) #3
   %.0..0..0..0.109.i = load volatile i32, ptr %5, align 4
-  %282 = add i32 %.0..0..0..0.109.i, 4
-  store volatile i32 %282, ptr %5, align 4
-  %283 = load i32, ptr %7, align 4
-  %284 = add i32 %283, %.01729
+  %267 = add i32 %.0..0..0..0.109.i, 4
+  store volatile i32 %267, ptr %5, align 4
+  %268 = load i32, ptr %7, align 4
+  %269 = add i32 %268, %.01729
   %.0..0..0..0.110.i = load volatile i32, ptr %5, align 4
-  %285 = sub i32 %284, %.0..0..0..0.110.i
-  %286 = icmp ugt i32 %285, 7
-  br i1 %286, label %287, label %.thread
+  %270 = sub i32 %269, %.0..0..0..0.110.i
+  %271 = icmp ugt i32 %270, 7
+  br i1 %271, label %272, label %.thread
 
-287:                                              ; preds = %244
-  %288 = load i32, ptr @hf_blf_eth_status_linkupduration, align 4
+272:                                              ; preds = %229
+  %273 = load i32, ptr @hf_blf_eth_status_linkupduration, align 4
   %.0..0..0..0.111.i = load volatile i32, ptr %5, align 4
-  %289 = call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %288, ptr noundef %0, i32 noundef %.0..0..0..0.111.i, i32 noundef 8, i32 noundef -2147483648) #3
+  %274 = call ptr @proto_tree_add_item(ptr noundef %236, i32 noundef %273, ptr noundef %0, i32 noundef %.0..0..0..0.111.i, i32 noundef 8, i32 noundef -2147483648) #3
   br label %.thread
 
-290:                                              ; preds = %68
+275:                                              ; preds = %68
   %.0..0..0..0.112.i = load volatile i32, ptr %5, align 4
-  %291 = sub i32 %.0..0..0..0.112.i, %.01729
-  %292 = load i32, ptr %6, align 4
-  %293 = icmp slt i32 %291, %292
-  br i1 %293, label %294, label %300
+  %276 = sub i32 %.0..0..0..0.112.i, %.01729
+  %277 = load i32, ptr %6, align 4
+  %278 = icmp slt i32 %276, %277
+  br i1 %278, label %279, label %285
 
-294:                                              ; preds = %290
-  %295 = load i32, ptr @hf_blf_lobj_hdr_remains, align 4
+279:                                              ; preds = %275
+  %280 = load i32, ptr @hf_blf_lobj_hdr_remains, align 4
   %.0..0..0..0.113.i = load volatile i32, ptr %5, align 4
   %.0..0..0..0.114.i = load volatile i32, ptr %5, align 4
-  %.neg411.i = add i32 %292, %.01729
-  %296 = sub i32 %.neg411.i, %.0..0..0..0.114.i
-  %297 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %295, ptr noundef %0, i32 noundef %.0..0..0..0.113.i, i32 noundef %296, i32 noundef 0) #3
-  %298 = load i32, ptr %6, align 4
-  %299 = add i32 %298, %.01729
-  store volatile i32 %299, ptr %5, align 4
-  br label %300
+  %.neg411.i = add i32 %277, %.01729
+  %281 = sub i32 %.neg411.i, %.0..0..0..0.114.i
+  %282 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %280, ptr noundef %0, i32 noundef %.0..0..0..0.113.i, i32 noundef %281, i32 noundef 0) #3
+  %283 = load i32, ptr %6, align 4
+  %284 = add i32 %283, %.01729
+  store volatile i32 %284, ptr %5, align 4
+  br label %285
 
-300:                                              ; preds = %294, %290
-  %301 = phi i32 [ %298, %294 ], [ %292, %290 ]
-  %302 = load i32, ptr @hf_blf_lobj_payload, align 4
+285:                                              ; preds = %279, %275
+  %286 = phi i32 [ %283, %279 ], [ %277, %275 ]
+  %287 = load i32, ptr @hf_blf_lobj_payload, align 4
   %.0..0..0..0.115.i = load volatile i32, ptr %5, align 4
-  %303 = load i32, ptr %7, align 4
-  %304 = sub i32 %303, %301
-  %305 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %302, ptr noundef %0, i32 noundef %.0..0..0..0.115.i, i32 noundef %304, i32 noundef 0) #3
-  %306 = load i32, ptr @ett_blf_app_text_payload, align 4
-  %307 = call ptr @proto_item_add_subtree(ptr noundef %305, i32 noundef %306) #3
-  %308 = load i32, ptr @hf_blf_eth_frame_ext_structlength, align 4
+  %288 = load i32, ptr %7, align 4
+  %289 = sub i32 %288, %286
+  %290 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %287, ptr noundef %0, i32 noundef %.0..0..0..0.115.i, i32 noundef %289, i32 noundef 0) #3
+  %291 = load i32, ptr @ett_blf_app_text_payload, align 4
+  %292 = call ptr @proto_item_add_subtree(ptr noundef %290, i32 noundef %291) #3
+  %293 = load i32, ptr @hf_blf_eth_frame_ext_structlength, align 4
   %.0..0..0..0.116.i = load volatile i32, ptr %5, align 4
-  %309 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %308, ptr noundef %0, i32 noundef %.0..0..0..0.116.i, i32 noundef 2, i32 noundef -2147483648) #3
+  %294 = call ptr @proto_tree_add_item(ptr noundef %292, i32 noundef %293, ptr noundef %0, i32 noundef %.0..0..0..0.116.i, i32 noundef 2, i32 noundef -2147483648) #3
   %.0..0..0..0.117.i = load volatile i32, ptr %5, align 4
-  %310 = add i32 %.0..0..0..0.117.i, 2
-  store volatile i32 %310, ptr %5, align 4
-  %311 = load i32, ptr @hf_blf_eth_frame_ext_flags, align 4
+  %295 = add i32 %.0..0..0..0.117.i, 2
+  store volatile i32 %295, ptr %5, align 4
+  %296 = load i32, ptr @hf_blf_eth_frame_ext_flags, align 4
   %.0..0..0..0.118.i = load volatile i32, ptr %5, align 4
-  %312 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %311, ptr noundef %0, i32 noundef %.0..0..0..0.118.i, i32 noundef 2, i32 noundef -2147483648) #3
+  %297 = call ptr @proto_tree_add_item(ptr noundef %292, i32 noundef %296, ptr noundef %0, i32 noundef %.0..0..0..0.118.i, i32 noundef 2, i32 noundef -2147483648) #3
   %.0..0..0..0.119.i = load volatile i32, ptr %5, align 4
-  %313 = add i32 %.0..0..0..0.119.i, 2
-  store volatile i32 %313, ptr %5, align 4
-  %314 = load i32, ptr @hf_blf_eth_frame_ext_channel, align 4
+  %298 = add i32 %.0..0..0..0.119.i, 2
+  store volatile i32 %298, ptr %5, align 4
+  %299 = load i32, ptr @hf_blf_eth_frame_ext_channel, align 4
   %.0..0..0..0.120.i = load volatile i32, ptr %5, align 4
-  %315 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %314, ptr noundef %0, i32 noundef %.0..0..0..0.120.i, i32 noundef 2, i32 noundef -2147483648) #3
+  %300 = call ptr @proto_tree_add_item(ptr noundef %292, i32 noundef %299, ptr noundef %0, i32 noundef %.0..0..0..0.120.i, i32 noundef 2, i32 noundef -2147483648) #3
   %.0..0..0..0.121.i = load volatile i32, ptr %5, align 4
-  %316 = add i32 %.0..0..0..0.121.i, 2
-  store volatile i32 %316, ptr %5, align 4
-  %317 = load i32, ptr @hf_blf_eth_frame_ext_hardwarechannel, align 4
+  %301 = add i32 %.0..0..0..0.121.i, 2
+  store volatile i32 %301, ptr %5, align 4
+  %302 = load i32, ptr @hf_blf_eth_frame_ext_hardwarechannel, align 4
   %.0..0..0..0.122.i = load volatile i32, ptr %5, align 4
-  %318 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %317, ptr noundef %0, i32 noundef %.0..0..0..0.122.i, i32 noundef 2, i32 noundef -2147483648) #3
+  %303 = call ptr @proto_tree_add_item(ptr noundef %292, i32 noundef %302, ptr noundef %0, i32 noundef %.0..0..0..0.122.i, i32 noundef 2, i32 noundef -2147483648) #3
   %.0..0..0..0.123.i = load volatile i32, ptr %5, align 4
-  %319 = add i32 %.0..0..0..0.123.i, 2
-  store volatile i32 %319, ptr %5, align 4
-  %320 = load i32, ptr @hf_blf_eth_frame_ext_frameduration, align 4
+  %304 = add i32 %.0..0..0..0.123.i, 2
+  store volatile i32 %304, ptr %5, align 4
+  %305 = load i32, ptr @hf_blf_eth_frame_ext_frameduration, align 4
   %.0..0..0..0.124.i = load volatile i32, ptr %5, align 4
-  %321 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %320, ptr noundef %0, i32 noundef %.0..0..0..0.124.i, i32 noundef 8, i32 noundef -2147483648) #3
+  %306 = call ptr @proto_tree_add_item(ptr noundef %292, i32 noundef %305, ptr noundef %0, i32 noundef %.0..0..0..0.124.i, i32 noundef 8, i32 noundef -2147483648) #3
   %.0..0..0..0.125.i = load volatile i32, ptr %5, align 4
-  %322 = add i32 %.0..0..0..0.125.i, 8
-  store volatile i32 %322, ptr %5, align 4
-  %323 = load i32, ptr @hf_blf_eth_frame_ext_framechecksum, align 4
+  %307 = add i32 %.0..0..0..0.125.i, 8
+  store volatile i32 %307, ptr %5, align 4
+  %308 = load i32, ptr @hf_blf_eth_frame_ext_framechecksum, align 4
   %.0..0..0..0.126.i = load volatile i32, ptr %5, align 4
-  %324 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %323, ptr noundef %0, i32 noundef %.0..0..0..0.126.i, i32 noundef 4, i32 noundef -2147483648) #3
+  %309 = call ptr @proto_tree_add_item(ptr noundef %292, i32 noundef %308, ptr noundef %0, i32 noundef %.0..0..0..0.126.i, i32 noundef 4, i32 noundef -2147483648) #3
   %.0..0..0..0.127.i = load volatile i32, ptr %5, align 4
-  %325 = add i32 %.0..0..0..0.127.i, 4
-  store volatile i32 %325, ptr %5, align 4
-  %326 = load i32, ptr @hf_blf_eth_frame_ext_dir, align 4
+  %310 = add i32 %.0..0..0..0.127.i, 4
+  store volatile i32 %310, ptr %5, align 4
+  %311 = load i32, ptr @hf_blf_eth_frame_ext_dir, align 4
   %.0..0..0..0.128.i = load volatile i32, ptr %5, align 4
-  %327 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %326, ptr noundef %0, i32 noundef %.0..0..0..0.128.i, i32 noundef 2, i32 noundef -2147483648) #3
+  %312 = call ptr @proto_tree_add_item(ptr noundef %292, i32 noundef %311, ptr noundef %0, i32 noundef %.0..0..0..0.128.i, i32 noundef 2, i32 noundef -2147483648) #3
   %.0..0..0..0.129.i = load volatile i32, ptr %5, align 4
-  %328 = add i32 %.0..0..0..0.129.i, 2
-  store volatile i32 %328, ptr %5, align 4
-  %329 = load i32, ptr @hf_blf_eth_frame_ext_framelength, align 4
+  %313 = add i32 %.0..0..0..0.129.i, 2
+  store volatile i32 %313, ptr %5, align 4
+  %314 = load i32, ptr @hf_blf_eth_frame_ext_framelength, align 4
   %.0..0..0..0.130.i = load volatile i32, ptr %5, align 4
-  %330 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %329, ptr noundef %0, i32 noundef %.0..0..0..0.130.i, i32 noundef 2, i32 noundef -2147483648) #3
+  %315 = call ptr @proto_tree_add_item(ptr noundef %292, i32 noundef %314, ptr noundef %0, i32 noundef %.0..0..0..0.130.i, i32 noundef 2, i32 noundef -2147483648) #3
   %.0..0..0..0.131.i = load volatile i32, ptr %5, align 4
-  %331 = add i32 %.0..0..0..0.131.i, 2
-  store volatile i32 %331, ptr %5, align 4
-  %332 = load i32, ptr @hf_blf_eth_frame_ext_framehandle, align 4
+  %316 = add i32 %.0..0..0..0.131.i, 2
+  store volatile i32 %316, ptr %5, align 4
+  %317 = load i32, ptr @hf_blf_eth_frame_ext_framehandle, align 4
   %.0..0..0..0.132.i = load volatile i32, ptr %5, align 4
-  %333 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %332, ptr noundef %0, i32 noundef %.0..0..0..0.132.i, i32 noundef 4, i32 noundef -2147483648) #3
+  %318 = call ptr @proto_tree_add_item(ptr noundef %292, i32 noundef %317, ptr noundef %0, i32 noundef %.0..0..0..0.132.i, i32 noundef 4, i32 noundef -2147483648) #3
   %.0..0..0..0.133.i = load volatile i32, ptr %5, align 4
-  %334 = add i32 %.0..0..0..0.133.i, 4
-  store volatile i32 %334, ptr %5, align 4
-  %335 = load i32, ptr @hf_blf_eth_frame_ext_reservedethernetframeex, align 4
+  %319 = add i32 %.0..0..0..0.133.i, 4
+  store volatile i32 %319, ptr %5, align 4
+  %320 = load i32, ptr @hf_blf_eth_frame_ext_reservedethernetframeex, align 4
   %.0..0..0..0.134.i = load volatile i32, ptr %5, align 4
-  %336 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %335, ptr noundef %0, i32 noundef %.0..0..0..0.134.i, i32 noundef 4, i32 noundef -2147483648) #3
+  %321 = call ptr @proto_tree_add_item(ptr noundef %292, i32 noundef %320, ptr noundef %0, i32 noundef %.0..0..0..0.134.i, i32 noundef 4, i32 noundef -2147483648) #3
   %.0..0..0..0.135.i = load volatile i32, ptr %5, align 4
-  %337 = add i32 %.0..0..0..0.135.i, 4
-  store volatile i32 %337, ptr %5, align 4
+  %322 = add i32 %.0..0..0..0.135.i, 4
+  store volatile i32 %322, ptr %5, align 4
   br label %.thread
 
-338:                                              ; preds = %68
+323:                                              ; preds = %68
   %.0..0..0..0.136.i = load volatile i32, ptr %5, align 4
-  %339 = sub i32 %.0..0..0..0.136.i, %.01729
-  %340 = load i32, ptr %6, align 4
-  %341 = icmp slt i32 %339, %340
-  br i1 %341, label %342, label %348
+  %324 = sub i32 %.0..0..0..0.136.i, %.01729
+  %325 = load i32, ptr %6, align 4
+  %326 = icmp slt i32 %324, %325
+  br i1 %326, label %327, label %333
 
-342:                                              ; preds = %338
-  %343 = load i32, ptr @hf_blf_lobj_hdr_remains, align 4
+327:                                              ; preds = %323
+  %328 = load i32, ptr @hf_blf_lobj_hdr_remains, align 4
   %.0..0..0..0.137.i = load volatile i32, ptr %5, align 4
   %.0..0..0..0.138.i = load volatile i32, ptr %5, align 4
-  %.neg410.i = add i32 %340, %.01729
-  %344 = sub i32 %.neg410.i, %.0..0..0..0.138.i
-  %345 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %343, ptr noundef %0, i32 noundef %.0..0..0..0.137.i, i32 noundef %344, i32 noundef 0) #3
-  %346 = load i32, ptr %6, align 4
-  %347 = add i32 %346, %.01729
-  store volatile i32 %347, ptr %5, align 4
-  br label %348
+  %.neg410.i = add i32 %325, %.01729
+  %329 = sub i32 %.neg410.i, %.0..0..0..0.138.i
+  %330 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %328, ptr noundef %0, i32 noundef %.0..0..0..0.137.i, i32 noundef %329, i32 noundef 0) #3
+  %331 = load i32, ptr %6, align 4
+  %332 = add i32 %331, %.01729
+  store volatile i32 %332, ptr %5, align 4
+  br label %333
 
-348:                                              ; preds = %342, %338
-  %349 = phi i32 [ %346, %342 ], [ %340, %338 ]
-  %350 = load i32, ptr @hf_blf_lobj_payload, align 4
+333:                                              ; preds = %327, %323
+  %334 = phi i32 [ %331, %327 ], [ %325, %323 ]
+  %335 = load i32, ptr @hf_blf_lobj_payload, align 4
   %.0..0..0..0.139.i = load volatile i32, ptr %5, align 4
-  %351 = load i32, ptr %7, align 4
-  %352 = sub i32 %351, %349
-  %353 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %350, ptr noundef %0, i32 noundef %.0..0..0..0.139.i, i32 noundef %352, i32 noundef 0) #3
-  %354 = load i32, ptr @ett_blf_app_text_payload, align 4
-  %355 = call ptr @proto_item_add_subtree(ptr noundef %353, i32 noundef %354) #3
-  %356 = load i32, ptr @hf_blf_trigg_cond_state, align 4
+  %336 = load i32, ptr %7, align 4
+  %337 = sub i32 %336, %334
+  %338 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %335, ptr noundef %0, i32 noundef %.0..0..0..0.139.i, i32 noundef %337, i32 noundef 0) #3
+  %339 = load i32, ptr @ett_blf_app_text_payload, align 4
+  %340 = call ptr @proto_item_add_subtree(ptr noundef %338, i32 noundef %339) #3
+  %341 = load i32, ptr @hf_blf_trigg_cond_state, align 4
   %.0..0..0..0.140.i = load volatile i32, ptr %5, align 4
-  %357 = call ptr @proto_tree_add_item(ptr noundef %355, i32 noundef %356, ptr noundef %0, i32 noundef %.0..0..0..0.140.i, i32 noundef 4, i32 noundef -2147483648) #3
+  %342 = call ptr @proto_tree_add_item(ptr noundef %340, i32 noundef %341, ptr noundef %0, i32 noundef %.0..0..0..0.140.i, i32 noundef 4, i32 noundef -2147483648) #3
   %.0..0..0..0.141.i = load volatile i32, ptr %5, align 4
-  %358 = add i32 %.0..0..0..0.141.i, 4
-  store volatile i32 %358, ptr %5, align 4
-  %359 = load i32, ptr @hf_blf_trigg_cond_triggerblocknamelength, align 4
+  %343 = add i32 %.0..0..0..0.141.i, 4
+  store volatile i32 %343, ptr %5, align 4
+  %344 = load i32, ptr @hf_blf_trigg_cond_triggerblocknamelength, align 4
   %.0..0..0..0.142.i = load volatile i32, ptr %5, align 4
-  %360 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %355, i32 noundef %359, ptr noundef %0, i32 noundef %.0..0..0..0.142.i, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %14) #3
+  %345 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %340, i32 noundef %344, ptr noundef %0, i32 noundef %.0..0..0..0.142.i, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %14) #3
   %.0..0..0..0.143.i = load volatile i32, ptr %5, align 4
-  %361 = add i32 %.0..0..0..0.143.i, 4
-  store volatile i32 %361, ptr %5, align 4
-  %362 = load i32, ptr @hf_blf_trigg_cond_triggerconditionlength, align 4
+  %346 = add i32 %.0..0..0..0.143.i, 4
+  store volatile i32 %346, ptr %5, align 4
+  %347 = load i32, ptr @hf_blf_trigg_cond_triggerconditionlength, align 4
   %.0..0..0..0.144.i = load volatile i32, ptr %5, align 4
-  %363 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %355, i32 noundef %362, ptr noundef %0, i32 noundef %.0..0..0..0.144.i, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %15) #3
+  %348 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %340, i32 noundef %347, ptr noundef %0, i32 noundef %.0..0..0..0.144.i, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %15) #3
   %.0..0..0..0.145.i = load volatile i32, ptr %5, align 4
-  %364 = add i32 %.0..0..0..0.145.i, 4
-  store volatile i32 %364, ptr %5, align 4
-  %365 = load i32, ptr @hf_blf_trigg_cond_triggerblockname, align 4
+  %349 = add i32 %.0..0..0..0.145.i, 4
+  store volatile i32 %349, ptr %5, align 4
+  %350 = load i32, ptr @hf_blf_trigg_cond_triggerblockname, align 4
   %.0..0..0..0.146.i = load volatile i32, ptr %5, align 4
-  %366 = load i32, ptr %14, align 4
-  %367 = call ptr @proto_tree_add_item(ptr noundef %355, i32 noundef %365, ptr noundef %0, i32 noundef %.0..0..0..0.146.i, i32 noundef %366, i32 noundef 2) #3
-  %368 = load i32, ptr %14, align 4
+  %351 = load i32, ptr %14, align 4
+  %352 = call ptr @proto_tree_add_item(ptr noundef %340, i32 noundef %350, ptr noundef %0, i32 noundef %.0..0..0..0.146.i, i32 noundef %351, i32 noundef 2) #3
+  %353 = load i32, ptr %14, align 4
   %.0..0..0..0.147.i = load volatile i32, ptr %5, align 4
-  %369 = add i32 %.0..0..0..0.147.i, %368
-  store volatile i32 %369, ptr %5, align 4
-  %370 = load i32, ptr @hf_blf_trigg_cond_triggercondition, align 4
+  %354 = add i32 %.0..0..0..0.147.i, %353
+  store volatile i32 %354, ptr %5, align 4
+  %355 = load i32, ptr @hf_blf_trigg_cond_triggercondition, align 4
   %.0..0..0..0.148.i = load volatile i32, ptr %5, align 4
-  %371 = load i32, ptr %15, align 4
-  %372 = call ptr @proto_tree_add_item(ptr noundef %355, i32 noundef %370, ptr noundef %0, i32 noundef %.0..0..0..0.148.i, i32 noundef %371, i32 noundef 2) #3
-  %373 = load i32, ptr %15, align 4
+  %356 = load i32, ptr %15, align 4
+  %357 = call ptr @proto_tree_add_item(ptr noundef %340, i32 noundef %355, ptr noundef %0, i32 noundef %.0..0..0..0.148.i, i32 noundef %356, i32 noundef 2) #3
+  %358 = load i32, ptr %15, align 4
   %.0..0..0..0.149.i = load volatile i32, ptr %5, align 4
-  %374 = add i32 %.0..0..0..0.149.i, %373
-  store volatile i32 %374, ptr %5, align 4
+  %359 = add i32 %.0..0..0..0.149.i, %358
+  store volatile i32 %359, ptr %5, align 4
   br label %.thread
 
-375:                                              ; preds = %68
+360:                                              ; preds = %68
   %.0..0..0..0.150.i = load volatile i32, ptr %5, align 4
-  %376 = sub i32 %.0..0..0..0.150.i, %.01729
-  %377 = load i32, ptr %6, align 4
-  %378 = icmp slt i32 %376, %377
-  br i1 %378, label %379, label %385
+  %361 = sub i32 %.0..0..0..0.150.i, %.01729
+  %362 = load i32, ptr %6, align 4
+  %363 = icmp slt i32 %361, %362
+  br i1 %363, label %364, label %370
 
-379:                                              ; preds = %375
-  %380 = load i32, ptr @hf_blf_lobj_hdr_remains, align 4
+364:                                              ; preds = %360
+  %365 = load i32, ptr @hf_blf_lobj_hdr_remains, align 4
   %.0..0..0..0.151.i = load volatile i32, ptr %5, align 4
   %.0..0..0..0.152.i = load volatile i32, ptr %5, align 4
-  %.neg.i = add i32 %377, %.01729
-  %381 = sub i32 %.neg.i, %.0..0..0..0.152.i
-  %382 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %380, ptr noundef %0, i32 noundef %.0..0..0..0.151.i, i32 noundef %381, i32 noundef 0) #3
-  %383 = load i32, ptr %6, align 4
-  %384 = add i32 %383, %.01729
-  store volatile i32 %384, ptr %5, align 4
-  br label %385
+  %.neg.i = add i32 %362, %.01729
+  %366 = sub i32 %.neg.i, %.0..0..0..0.152.i
+  %367 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %365, ptr noundef %0, i32 noundef %.0..0..0..0.151.i, i32 noundef %366, i32 noundef 0) #3
+  %368 = load i32, ptr %6, align 4
+  %369 = add i32 %368, %.01729
+  store volatile i32 %369, ptr %5, align 4
+  br label %370
 
-385:                                              ; preds = %379, %375
-  %386 = phi i32 [ %383, %379 ], [ %377, %375 ]
-  %387 = load i32, ptr @hf_blf_lobj_payload, align 4
+370:                                              ; preds = %364, %360
+  %371 = phi i32 [ %368, %364 ], [ %362, %360 ]
+  %372 = load i32, ptr @hf_blf_lobj_payload, align 4
   %.0..0..0..0.153.i = load volatile i32, ptr %5, align 4
-  %388 = load i32, ptr %7, align 4
-  %389 = sub i32 %388, %386
-  %390 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %387, ptr noundef %0, i32 noundef %.0..0..0..0.153.i, i32 noundef %389, i32 noundef 0) #3
-  %391 = load i32, ptr @ett_blf_app_text_payload, align 4
-  %392 = call ptr @proto_item_add_subtree(ptr noundef %390, i32 noundef %391) #3
-  %393 = load i32, ptr @hf_blf_eth_phystate_channel, align 4
+  %373 = load i32, ptr %7, align 4
+  %374 = sub i32 %373, %371
+  %375 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %372, ptr noundef %0, i32 noundef %.0..0..0..0.153.i, i32 noundef %374, i32 noundef 0) #3
+  %376 = load i32, ptr @ett_blf_app_text_payload, align 4
+  %377 = call ptr @proto_item_add_subtree(ptr noundef %375, i32 noundef %376) #3
+  %378 = load i32, ptr @hf_blf_eth_phystate_channel, align 4
   %.0..0..0..0.154.i = load volatile i32, ptr %5, align 4
-  %394 = call ptr @proto_tree_add_item(ptr noundef %392, i32 noundef %393, ptr noundef %0, i32 noundef %.0..0..0..0.154.i, i32 noundef 2, i32 noundef 0) #3
+  %379 = call ptr @proto_tree_add_item(ptr noundef %377, i32 noundef %378, ptr noundef %0, i32 noundef %.0..0..0..0.154.i, i32 noundef 2, i32 noundef 0) #3
   %.0..0..0..0.155.i = load volatile i32, ptr %5, align 4
-  %395 = add i32 %.0..0..0..0.155.i, 2
-  store volatile i32 %395, ptr %5, align 4
+  %380 = add i32 %.0..0..0..0.155.i, 2
+  store volatile i32 %380, ptr %5, align 4
   %.0..0..0..0.156.i = load volatile i32, ptr %5, align 4
-  call void @proto_tree_add_bitmask_list(ptr noundef %392, ptr noundef %0, i32 noundef %.0..0..0..0.156.i, i32 noundef 2, ptr noundef nonnull @dissect_blf_lobj.flags1.419, i32 noundef 0) #3
+  call void @proto_tree_add_bitmask_list(ptr noundef %377, ptr noundef %0, i32 noundef %.0..0..0..0.156.i, i32 noundef 2, ptr noundef nonnull @dissect_blf_lobj.flags1.419, i32 noundef 0) #3
   %.0..0..0..0.157.i = load volatile i32, ptr %5, align 4
-  %396 = add i32 %.0..0..0..0.157.i, 2
-  store volatile i32 %396, ptr %5, align 4
-  %397 = load i32, ptr @hf_blf_eth_phy_state_phystate, align 4
+  %381 = add i32 %.0..0..0..0.157.i, 2
+  store volatile i32 %381, ptr %5, align 4
+  %382 = load i32, ptr @hf_blf_eth_phy_state_phystate, align 4
   %.0..0..0..0.158.i = load volatile i32, ptr %5, align 4
-  %398 = call ptr @proto_tree_add_item(ptr noundef %392, i32 noundef %397, ptr noundef %0, i32 noundef %.0..0..0..0.158.i, i32 noundef 1, i32 noundef 0) #3
+  %383 = call ptr @proto_tree_add_item(ptr noundef %377, i32 noundef %382, ptr noundef %0, i32 noundef %.0..0..0..0.158.i, i32 noundef 1, i32 noundef 0) #3
   %.0..0..0..0.159.i = load volatile i32, ptr %5, align 4
-  %399 = add i32 %.0..0..0..0.159.i, 1
-  store volatile i32 %399, ptr %5, align 4
-  %400 = load i32, ptr @hf_blf_eth_phy_state_eventstate, align 4
+  %384 = add i32 %.0..0..0..0.159.i, 1
+  store volatile i32 %384, ptr %5, align 4
+  %385 = load i32, ptr @hf_blf_eth_phy_state_eventstate, align 4
   %.0..0..0..0.160.i = load volatile i32, ptr %5, align 4
-  %401 = call ptr @proto_tree_add_item(ptr noundef %392, i32 noundef %400, ptr noundef %0, i32 noundef %.0..0..0..0.160.i, i32 noundef 1, i32 noundef 0) #3
+  %386 = call ptr @proto_tree_add_item(ptr noundef %377, i32 noundef %385, ptr noundef %0, i32 noundef %.0..0..0..0.160.i, i32 noundef 1, i32 noundef 0) #3
   %.0..0..0..0.161.i = load volatile i32, ptr %5, align 4
-  %402 = add i32 %.0..0..0..0.161.i, 1
-  store volatile i32 %402, ptr %5, align 4
-  %403 = load i32, ptr @hf_blf_eth_phy_state_hardwarechannel, align 4
+  %387 = add i32 %.0..0..0..0.161.i, 1
+  store volatile i32 %387, ptr %5, align 4
+  %388 = load i32, ptr @hf_blf_eth_phy_state_hardwarechannel, align 4
   %.0..0..0..0.162.i = load volatile i32, ptr %5, align 4
-  %404 = call ptr @proto_tree_add_item(ptr noundef %392, i32 noundef %403, ptr noundef %0, i32 noundef %.0..0..0..0.162.i, i32 noundef 1, i32 noundef 0) #3
+  %389 = call ptr @proto_tree_add_item(ptr noundef %377, i32 noundef %388, ptr noundef %0, i32 noundef %.0..0..0..0.162.i, i32 noundef 1, i32 noundef 0) #3
   %.0..0..0..0.163.i = load volatile i32, ptr %5, align 4
-  %405 = add i32 %.0..0..0..0.163.i, 1
-  store volatile i32 %405, ptr %5, align 4
-  %406 = load i32, ptr @hf_blf_eth_phy_state_res1, align 4
+  %390 = add i32 %.0..0..0..0.163.i, 1
+  store volatile i32 %390, ptr %5, align 4
+  %391 = load i32, ptr @hf_blf_eth_phy_state_res1, align 4
   %.0..0..0..0.164.i = load volatile i32, ptr %5, align 4
-  %407 = call ptr @proto_tree_add_item(ptr noundef %392, i32 noundef %406, ptr noundef %0, i32 noundef %.0..0..0..0.164.i, i32 noundef 1, i32 noundef 0) #3
+  %392 = call ptr @proto_tree_add_item(ptr noundef %377, i32 noundef %391, ptr noundef %0, i32 noundef %.0..0..0..0.164.i, i32 noundef 1, i32 noundef 0) #3
   %.0..0..0..0.165.i = load volatile i32, ptr %5, align 4
-  %408 = add i32 %.0..0..0..0.165.i, 1
-  store volatile i32 %408, ptr %5, align 4
+  %393 = add i32 %.0..0..0..0.165.i, 1
+  store volatile i32 %393, ptr %5, align 4
   br label %.thread
 
-409:                                              ; preds = %68
+394:                                              ; preds = %68
   %.0..0..0..0.166.i = load volatile i32, ptr %5, align 4
-  %410 = sub i32 %.0..0..0..0.166.i, %.01729
-  %411 = load i32, ptr %6, align 4
-  %412 = icmp slt i32 %410, %411
-  br i1 %412, label %413, label %419
+  %395 = sub i32 %.0..0..0..0.166.i, %.01729
+  %396 = load i32, ptr %6, align 4
+  %397 = icmp slt i32 %395, %396
+  br i1 %397, label %398, label %404
 
-413:                                              ; preds = %409
-  %414 = load i32, ptr @hf_blf_lobj_hdr_remains, align 4
+398:                                              ; preds = %394
+  %399 = load i32, ptr @hf_blf_lobj_hdr_remains, align 4
   %.0..0..0..0.167.i = load volatile i32, ptr %5, align 4
   %.0..0..0..0.168.i = load volatile i32, ptr %5, align 4
-  %.neg416.i = add i32 %411, %.01729
-  %415 = sub i32 %.neg416.i, %.0..0..0..0.168.i
-  %416 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %414, ptr noundef %0, i32 noundef %.0..0..0..0.167.i, i32 noundef %415, i32 noundef 0) #3
-  %417 = load i32, ptr %6, align 4
-  %418 = add i32 %417, %.01729
-  store volatile i32 %418, ptr %5, align 4
-  br label %419
+  %.neg416.i = add i32 %396, %.01729
+  %400 = sub i32 %.neg416.i, %.0..0..0..0.168.i
+  %401 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %399, ptr noundef %0, i32 noundef %.0..0..0..0.167.i, i32 noundef %400, i32 noundef 0) #3
+  %402 = load i32, ptr %6, align 4
+  %403 = add i32 %402, %.01729
+  store volatile i32 %403, ptr %5, align 4
+  br label %404
 
-419:                                              ; preds = %413, %409
-  %420 = phi i32 [ %417, %413 ], [ %411, %409 ]
-  %421 = load i32, ptr @hf_blf_lobj_payload, align 4
+404:                                              ; preds = %398, %394
+  %405 = phi i32 [ %402, %398 ], [ %396, %394 ]
+  %406 = load i32, ptr @hf_blf_lobj_payload, align 4
   %.0..0..0..0.169.i = load volatile i32, ptr %5, align 4
-  %422 = load i32, ptr %7, align 4
-  %423 = sub i32 %422, %420
-  %424 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %421, ptr noundef %0, i32 noundef %.0..0..0..0.169.i, i32 noundef %423, i32 noundef 0) #3
-  %425 = load i32, ptr %7, align 4
-  %426 = add i32 %425, %.01729
-  store volatile i32 %426, ptr %5, align 4
+  %407 = load i32, ptr %7, align 4
+  %408 = sub i32 %407, %405
+  %409 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %406, ptr noundef %0, i32 noundef %.0..0..0..0.169.i, i32 noundef %408, i32 noundef 0) #3
+  %410 = load i32, ptr %7, align 4
+  %411 = add i32 %410, %.01729
+  store volatile i32 %411, ptr %5, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph, %98, %94, %419, %385, %348, %300, %287, %244, %198, %184, %180, %96
-  %427 = load i32, ptr %7, align 4
+.thread:                                          ; preds = %.lr.ph, %98, %94, %404, %370, %333, %285, %272, %229, %183, %169, %165, %96
+  %412 = load i32, ptr %7, align 4
   br label %dissect_blf_lobj.exit
 
 dissect_blf_lobj.exit:                            ; preds = %24, %64, %.thread
-  %.0.i = phi i32 [ %25, %24 ], [ %67, %64 ], [ %427, %.thread ]
+  %.0.i = phi i32 [ %25, %24 ], [ %67, %64 ], [ %412, %.thread ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
@@ -1888,26 +1873,26 @@ dissect_blf_lobj.exit:                            ; preds = %24, %64, %.thread
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   call void @decrement_dissection_depth(ptr noundef %1) #3
-  %428 = icmp slt i32 %.0.i, 1
-  br i1 %428, label %.loopexit, label %429
+  %413 = icmp slt i32 %.0.i, 1
+  br i1 %413, label %.loopexit, label %414
 
-429:                                              ; preds = %dissect_blf_lobj.exit
-  %430 = add i32 %.0.i, %.01729
-  br label %431
+414:                                              ; preds = %dissect_blf_lobj.exit
+  %415 = add i32 %.0.i, %.01729
+  br label %416
 
-431:                                              ; preds = %429, %19
-  %.1 = phi i32 [ %20, %19 ], [ %430, %429 ]
-  %432 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1) #3
-  %433 = icmp sgt i32 %432, 15
-  br i1 %433, label %.lr.ph32, label %._crit_edge, !llvm.loop !6
+416:                                              ; preds = %414, %19
+  %.1 = phi i32 [ %20, %19 ], [ %415, %414 ]
+  %417 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1) #3
+  %418 = icmp sgt i32 %417, 15
+  br i1 %418, label %.lr.ph32, label %._crit_edge, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %431, %4
-  %.017.lcssa = phi i32 [ %3, %4 ], [ %.1, %431 ]
-  %434 = sub i32 %.017.lcssa, %3
+._crit_edge:                                      ; preds = %416, %4
+  %.017.lcssa = phi i32 [ %3, %4 ], [ %.1, %416 ]
+  %419 = sub i32 %.017.lcssa, %3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %dissect_blf_lobj.exit, %._crit_edge
-  %.0 = phi i32 [ %434, %._crit_edge ], [ 0, %dissect_blf_lobj.exit ]
+  %.0 = phi i32 [ %419, %._crit_edge ], [ 0, %dissect_blf_lobj.exit ]
   ret i32 %.0
 }
 

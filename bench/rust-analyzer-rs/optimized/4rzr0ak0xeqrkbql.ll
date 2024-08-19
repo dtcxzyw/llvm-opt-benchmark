@@ -61662,18 +61662,17 @@ define hidden noundef ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chal
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !23767
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !23767
   %14 = call noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17h13178f70a56fd95eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %6)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   br label %16
 
 15:                                               ; preds = %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17hf1100006a41db222E.llvm.12214321796725142330.exit.i.i.i"
   call void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6adb700e36cc526cE.llvm.13297079808459514206"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4), !noalias !23767
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !23767
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !23767
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   br label %16
 
 16:                                               ; preds = %15, %13
   %.0 = phi ptr [ null, %15 ], [ %14, %13 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   ret ptr %.0
 }
 
@@ -61726,18 +61725,17 @@ define hidden noundef ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chal
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !23790
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !23790
   %15 = call noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17h13178f70a56fd95eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %6)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   br label %17
 
 16:                                               ; preds = %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17hebc9b4f6893aad6aE.llvm.12214321796725142330.exit.i.i.i"
   call void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6adb700e36cc526cE.llvm.13297079808459514206"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4), !noalias !23790
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !23790
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !23790
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   br label %17
 
 17:                                               ; preds = %16, %14
   %.0 = phi ptr [ null, %16 ], [ %15, %14 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   ret ptr %.0
 }
 
@@ -61790,18 +61788,17 @@ define hidden noundef ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chal
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !23813
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !23813
   %15 = call noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17h13178f70a56fd95eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %6)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   br label %17
 
 16:                                               ; preds = %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h6292b51302ae7373E.llvm.12214321796725142330.exit.i.i.i"
   call void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6adb700e36cc526cE.llvm.13297079808459514206"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4), !noalias !23813
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !23813
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !23813
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   br label %17
 
 17:                                               ; preds = %16, %14
   %.0 = phi ptr [ null, %16 ], [ %15, %14 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   ret ptr %.0
 }
 
@@ -61870,16 +61867,15 @@ define hidden noundef ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chal
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   store i64 %5, ptr %4, align 8
   %8 = call noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17h2d467c99418ba813E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %10
 
 9:                                                ; preds = %1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %10
 
 10:                                               ; preds = %9, %7
   %.0 = phi ptr [ null, %9 ], [ %8, %7 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -61924,16 +61920,15 @@ define hidden noundef ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chal
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   store i64 %5, ptr %4, align 8
   %8 = call noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17h0d23b925f353fd4fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %10
 
 9:                                                ; preds = %1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %10
 
 10:                                               ; preds = %9, %7
   %.0 = phi ptr [ null, %9 ], [ %8, %7 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret ptr %.0
 }
 

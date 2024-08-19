@@ -168,7 +168,7 @@ define internal range(i32 -1, 1) i32 @_handle_device_access(ptr noundef %0, ptr 
   %8 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %9 = and i64 %8, 64
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %36, label %10
+  br i1 %.not, label %35, label %10
 
 10:                                               ; preds = %2
   %11 = load i32, ptr %1, align 8
@@ -182,77 +182,74 @@ define internal range(i32 -1, 1) i32 @_handle_device_access(ptr noundef %0, ptr 
   %13 = getelementptr inbounds i8, ptr %1, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.2, i32 noundef %14) #4
-  store ptr %15, ptr %5, align 8
   br label %22
 
 16:                                               ; preds = %10
   %17 = tail call ptr @xstrdup(ptr noundef nonnull @.str.3) #4
-  store ptr %17, ptr %5, align 8
   br label %22
 
 18:                                               ; preds = %10
   %19 = tail call ptr @xstrdup(ptr noundef nonnull @.str.4) #4
-  store ptr %19, ptr %5, align 8
   br label %22
 
 20:                                               ; preds = %10
   %21 = tail call ptr @xstrdup(ptr noundef nonnull @.str.5) #4
-  store ptr %21, ptr %5, align 8
   br label %22
 
 22:                                               ; preds = %12, %16, %18, %20
-  %23 = phi ptr [ %15, %12 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ]
-  %24 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %25 = and i64 %24, 64
-  %.not12 = icmp eq i64 %25, 0
-  br i1 %.not12, label %35, label %26
+  %.sink = phi ptr [ %15, %12 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ]
+  store ptr %.sink, ptr %5, align 8
+  %23 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %24 = and i64 %23, 64
+  %.not12 = icmp eq i64 %24, 0
+  br i1 %.not12, label %34, label %25
 
-26:                                               ; preds = %22
-  %27 = tail call i32 @get_log_level() #4
-  %28 = icmp sgt i32 %27, 3
-  br i1 %28, label %29, label %35
+25:                                               ; preds = %22
+  %26 = tail call i32 @get_log_level() #4
+  %27 = icmp sgt i32 %26, 3
+  br i1 %27, label %28, label %34
 
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 4
-  %31 = load i32, ptr %30, align 4
-  %.not13 = icmp eq i32 %31, 0
-  %32 = select i1 %.not13, ptr @.str.8, ptr @.str.7
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
-  %34 = load ptr, ptr %33, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.6, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._handle_device_access, ptr noundef %23, ptr noundef nonnull %32, ptr noundef %7, ptr noundef %34) #4
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds i8, ptr %0, i64 4
+  %30 = load i32, ptr %29, align 4
+  %.not13 = icmp eq i32 %30, 0
+  %31 = select i1 %.not13, ptr @.str.8, ptr @.str.7
+  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = load ptr, ptr %32, align 8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.6, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._handle_device_access, ptr noundef %.sink, ptr noundef nonnull %31, ptr noundef %7, ptr noundef %33) #4
+  br label %34
+
+34:                                               ; preds = %22, %25, %28
+  call void @slurm_xfree(ptr noundef nonnull %5) #4
   br label %35
 
-35:                                               ; preds = %22, %26, %29
-  call void @slurm_xfree(ptr noundef nonnull %5) #4
-  br label %36
-
-36:                                               ; preds = %35, %2
+35:                                               ; preds = %34, %2
   call void @cgroup_init_limits(ptr noundef nonnull %3) #4
-  %37 = getelementptr inbounds i8, ptr %0, i64 4
-  %38 = load i32, ptr %37, align 4
-  %39 = icmp ne i32 %38, 0
-  %40 = getelementptr inbounds i8, ptr %3, i64 48
-  %41 = zext i1 %39 to i8
-  store i8 %41, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %3, i64 52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %42, ptr noundef nonnull align 8 dereferenceable(12) %6, i64 12, i1 false)
-  %43 = getelementptr inbounds i8, ptr %1, i64 4
-  %44 = load i32, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %3, i64 8
-  store i32 %44, ptr %45, align 8
-  %46 = load i32, ptr %1, align 8
-  %47 = call i32 @cgroup_g_constrain_set(i32 noundef 3, i32 noundef %46, ptr noundef nonnull %3) #4
-  %.not14 = icmp eq i32 %47, 0
-  br i1 %.not14, label %52, label %48
+  %36 = getelementptr inbounds i8, ptr %0, i64 4
+  %37 = load i32, ptr %36, align 4
+  %38 = icmp ne i32 %37, 0
+  %39 = getelementptr inbounds i8, ptr %3, i64 48
+  %40 = zext i1 %38 to i8
+  store i8 %40, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %3, i64 52
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %41, ptr noundef nonnull align 8 dereferenceable(12) %6, i64 12, i1 false)
+  %42 = getelementptr inbounds i8, ptr %1, i64 4
+  %43 = load i32, ptr %42, align 4
+  %44 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 %43, ptr %44, align 8
+  %45 = load i32, ptr %1, align 8
+  %46 = call i32 @cgroup_g_constrain_set(i32 noundef 3, i32 noundef %45, ptr noundef nonnull %3) #4
+  %.not14 = icmp eq i32 %46, 0
+  br i1 %.not14, label %51, label %47
 
-48:                                               ; preds = %36
-  %49 = getelementptr inbounds i8, ptr %0, i64 24
-  %50 = load ptr, ptr %49, align 8
-  %51 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.9, ptr noundef %7, ptr noundef %50) #4
-  br label %52
+47:                                               ; preds = %35
+  %48 = getelementptr inbounds i8, ptr %0, i64 24
+  %49 = load ptr, ptr %48, align 8
+  %50 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.9, ptr noundef %7, ptr noundef %49) #4
+  br label %51
 
-52:                                               ; preds = %48, %36
-  %.0 = phi i32 [ -1, %48 ], [ 0, %36 ]
+51:                                               ; preds = %47, %35
+  %.0 = phi i32 [ -1, %47 ], [ 0, %35 ]
   call void @slurm_xfree(ptr noundef nonnull %4) #4
   ret i32 %.0
 }

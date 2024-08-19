@@ -10726,7 +10726,6 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %70 = or disjoint i32 %69, 1065353216
   %71 = bitcast i32 %70 to float
   %72 = fadd float %71, -1.000000e+00
-  store float %59, ptr %6, align 4
   br label %.sink.split
 
 73:                                               ; preds = %42
@@ -10736,7 +10735,6 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %77 = sitofp i32 %44 to float
   %78 = fadd float %77, 5.000000e-01
   %79 = fmul float %14, %78
-  store float %76, ptr %6, align 4
   br label %.sink.split
 
 80:                                               ; preds = %42
@@ -10772,12 +10770,13 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %110 = fadd float %109, -1.000000e+00
   %111 = fadd float %110, %97
   %112 = fmul float %14, %111
-  store float %96, ptr %6, align 4
   br label %.sink.split
 
 .sink.split:                                      ; preds = %46, %73, %80
+  %.sink51 = phi float [ %96, %80 ], [ %76, %73 ], [ %59, %46 ]
   %.sink = phi float [ %112, %80 ], [ %79, %73 ], [ %72, %46 ]
   %.sroa.038.1.ph = phi i64 [ %99, %80 ], [ %.sroa.038.045, %73 ], [ %61, %46 ]
+  store float %.sink51, ptr %6, align 4
   store float %.sink, ptr %38, align 4
   br label %113
 

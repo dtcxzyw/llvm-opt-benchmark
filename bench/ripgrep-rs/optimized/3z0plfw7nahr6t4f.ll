@@ -3192,10 +3192,10 @@ define void @_ZN6ignore5types12TypesBuilder5build17h7cebe21a62da1249E(ptr noalia
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %37)
   br label %128
 
 128:                                              ; preds = %"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$ignore..types..FileTypeDef$GT$$GT$17hd04cee83c4ba9bc0E.exit", %127
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %37)
   ret void
 
 129:                                              ; preds = %293, %292, %.body108.thread, %.loopexit.split-lp, %133, %132, %131, %.body, %.body102
@@ -3750,7 +3750,6 @@ common.resume:                                    ; preds = %.body108, %.body108
 
 "_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$ignore..types..FileTypeDef$GT$$GT$17hd04cee83c4ba9bc0E.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb39ea6b80b697fd1E.llvm.12875954175451687458.exit.i", %284, %288
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !482
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %37)
   br label %128
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %212
@@ -4885,7 +4884,6 @@ define void @_ZN6ignore5types12TypesBuilder7add_def17h806929900640a240E(ptr noal
 
 "_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17hb15b4861d0b58555E.exit": ; preds = %45, %48, %52
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !667
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   br label %138
 
 .sink.split:                                      ; preds = %4, %88
@@ -4914,7 +4912,6 @@ define void @_ZN6ignore5types12TypesBuilder7add_def17h806929900640a240E(ptr noal
 
 "_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17hb15b4861d0b58555E.exit145": ; preds = %54, %57, %61
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !674
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   br label %138
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he055145884a405c0E.exit.thread": ; preds = %63, %28, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he055145884a405c0E.exit"
@@ -5201,6 +5198,7 @@ define void @_ZN6ignore5types12TypesBuilder7add_def17h806929900640a240E(ptr noal
   unreachable
 
 138:                                              ; preds = %"_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17hb15b4861d0b58555E.exit145", %"_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17hb15b4861d0b58555E.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   ret void
 
 139:                                              ; preds = %"_ZN4core3ptr81drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..string..String$GT$$GT$17h8f00bfe10d583c51E.exit"

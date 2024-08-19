@@ -24188,20 +24188,16 @@ while.cond.i:                                     ; preds = %while.cond.i, %whil
   %cmp9.not.i = icmp eq i32 %call8.i, %5
   br i1 %cmp9.not.i, label %.loopexit, label %while.cond.i, !llvm.loop !64
 
-TerminateModuleForkChild.exit:                    ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %statloc.i)
-  br label %6
-
 .loopexit:                                        ; preds = %while.cond.i, %do.end.i
   call void @resetChildState() #34
   store ptr null, ptr @moduleForkInfo.0, align 8
   store ptr null, ptr @moduleForkInfo.1, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %statloc.i)
-  br label %6
+  br label %TerminateModuleForkChild.exit
 
-6:                                                ; preds = %TerminateModuleForkChild.exit, %.loopexit
-  %7 = phi i32 [ 0, %.loopexit ], [ 1, %TerminateModuleForkChild.exit ]
-  ret i32 %7
+TerminateModuleForkChild.exit:                    ; preds = %entry, %.loopexit
+  %6 = phi i32 [ 0, %.loopexit ], [ 1, %entry ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %statloc.i)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable

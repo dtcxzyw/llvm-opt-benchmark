@@ -706,17 +706,19 @@ cleanup.thread:                                   ; preds = %if.then
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 920), align 8, !tbaa !56
   %10 = load i32, ptr %Program, align 4, !tbaa !35
   call void %9(i32 noundef %10, i32 noundef %call) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status) #19
-  br label %return
+  br label %return.sink.split
 
 cleanup:                                          ; preds = %if.then4, %if.then2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %length) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %maxLength) #19
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %cleanup.thread, %cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status) #19
   br label %return
 
-return:                                           ; preds = %cleanup, %cleanup.thread, %entry
-  %retval.1 = phi i1 [ false, %cleanup ], [ true, %cleanup.thread ], [ true, %entry ]
+return:                                           ; preds = %return.sink.split, %entry
+  %retval.1 = phi i1 [ true, %entry ], [ %cmp.not.not, %return.sink.split ]
   ret i1 %retval.1
 }
 
@@ -773,8 +775,7 @@ if.then8:                                         ; preds = %if.then5
 cleanup55.thread:                                 ; preds = %if.then8, %if.then5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %length) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %maxLength) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status) #19
-  br label %return
+  br label %return.sink.split
 
 if.end10:                                         ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %num) #19
@@ -788,8 +789,7 @@ if.end10:                                         ; preds = %if.then
 
 cleanup55.thread84:                               ; preds = %if.end10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %num) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status) #19
-  br label %return
+  br label %return.sink.split
 
 if.end13:                                         ; preds = %if.end10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %maxlen) #19
@@ -1048,18 +1048,21 @@ cleanup55.thread87:                               ; preds = %_ZN3irr5video24COpe
   call void @_ZdaPv(ptr noundef nonnull %call19) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %maxlen) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %num) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status) #19
-  br label %return
+  br label %return.sink.split
 
 cleanup55:                                        ; preds = %if.end13
   call void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef nonnull @.str.2, i32 noundef 3) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %maxlen) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %num) #19
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %cleanup55.thread, %cleanup55.thread84, %cleanup55.thread87, %cleanup55
+  %retval.3.ph = phi i1 [ true, %cleanup55.thread87 ], [ true, %cleanup55.thread84 ], [ false, %cleanup55.thread ], [ false, %cleanup55 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status) #19
   br label %return
 
-return:                                           ; preds = %cleanup55, %cleanup55.thread87, %cleanup55.thread84, %cleanup55.thread, %entry
-  %retval.3 = phi i1 [ false, %cleanup55 ], [ false, %cleanup55.thread ], [ true, %cleanup55.thread84 ], [ true, %cleanup55.thread87 ], [ true, %entry ]
+return:                                           ; preds = %return.sink.split, %entry
+  %retval.3 = phi i1 [ true, %entry ], [ %retval.3.ph, %return.sink.split ]
   ret i1 %retval.3
 }
 

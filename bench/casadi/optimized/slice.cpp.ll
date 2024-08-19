@@ -725,8 +725,7 @@ define void @_ZNK6casadi5Slice5applyExb(ptr dead_on_unwind noalias writable sret
   %49 = icmp slt i64 %48, 0
   %50 = add nsw i64 %2, -1
   %51 = select i1 %49, i64 %50, i64 0
-  store i64 %51, ptr %6, align 8
-  br label %56
+  br label %.sink.split
 
 52:                                               ; preds = %4
   %53 = icmp slt i64 %44, 0
@@ -734,11 +733,15 @@ define void @_ZNK6casadi5Slice5applyExb(ptr dead_on_unwind noalias writable sret
 
 54:                                               ; preds = %52
   %55 = add nsw i64 %44, %2
-  store i64 %55, ptr %6, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %46, %54
+  %.sink = phi i64 [ %55, %54 ], [ %51, %46 ]
+  store i64 %.sink, ptr %6, align 8
   br label %56
 
-56:                                               ; preds = %52, %54, %46
-  %57 = phi i64 [ %44, %52 ], [ %55, %54 ], [ %51, %46 ]
+56:                                               ; preds = %.sink.split, %52
+  %57 = phi i64 [ %44, %52 ], [ %.sink, %.sink.split ]
   %58 = getelementptr inbounds i8, ptr %1, i64 8
   %59 = load i64, ptr %58, align 8
   store i64 %59, ptr %7, align 8
@@ -750,8 +753,7 @@ define void @_ZNK6casadi5Slice5applyExb(ptr dead_on_unwind noalias writable sret
   %63 = load i64, ptr %62, align 8
   %.inv = icmp sgt i64 %63, -1
   %64 = select i1 %.inv, i64 %2, i64 -1
-  store i64 %64, ptr %7, align 8
-  br label %69
+  br label %.sink.split130
 
 65:                                               ; preds = %56
   %66 = icmp slt i64 %59, 0
@@ -759,11 +761,15 @@ define void @_ZNK6casadi5Slice5applyExb(ptr dead_on_unwind noalias writable sret
 
 67:                                               ; preds = %65
   %68 = add nsw i64 %59, %2
-  store i64 %68, ptr %7, align 8
+  br label %.sink.split130
+
+.sink.split130:                                   ; preds = %61, %67
+  %.sink132 = phi i64 [ %68, %67 ], [ %64, %61 ]
+  store i64 %.sink132, ptr %7, align 8
   br label %69
 
-69:                                               ; preds = %65, %67, %61
-  %70 = phi i64 [ %59, %65 ], [ %68, %67 ], [ %64, %61 ]
+69:                                               ; preds = %.sink.split130, %65
+  %70 = phi i64 [ %59, %65 ], [ %.sink132, %.sink.split130 ]
   %.not = icmp sgt i64 %70, %2
   br i1 %.not, label %71, label %149
 
@@ -856,7 +862,7 @@ define void @_ZNK6casadi5Slice5applyExb(ptr dead_on_unwind noalias writable sret
 .thread:                                          ; preds = %71
   %98 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split.sink.split
+  br label %.sink.split133.sink.split
 
 99:                                               ; preds = %73
   %100 = landingpad { ptr, i32 }
@@ -1041,7 +1047,7 @@ define void @_ZNK6casadi5Slice5applyExb(ptr dead_on_unwind noalias writable sret
   %.28 = phi i1 [ %.39, %147 ], [ true, %99 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #20
-  br i1 %.28, label %.sink.split, label %227
+  br i1 %.28, label %.sink.split133, label %227
 
 149:                                              ; preds = %69
   %150 = icmp sgt i64 %57, -1
@@ -1128,7 +1134,7 @@ define void @_ZNK6casadi5Slice5applyExb(ptr dead_on_unwind noalias writable sret
 .thread126:                                       ; preds = %151
   %176 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split.sink.split
+  br label %.sink.split133.sink.split
 
 177:                                              ; preds = %153
   %178 = landingpad { ptr, i32 }
@@ -1291,7 +1297,7 @@ define void @_ZNK6casadi5Slice5applyExb(ptr dead_on_unwind noalias writable sret
   %.2 = phi i1 [ %.3, %219 ], [ true, %177 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #20
-  br i1 %.2, label %.sink.split, label %227
+  br i1 %.2, label %.sink.split133, label %227
 
 221:                                              ; preds = %149
   %222 = zext i1 %3 to i64
@@ -1302,21 +1308,21 @@ define void @_ZNK6casadi5Slice5applyExb(ptr dead_on_unwind noalias writable sret
   tail call void @_ZN6casadi5SliceC1Exxx(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %223, i64 noundef %224, i64 noundef %226)
   ret void
 
-.sink.split.sink.split:                           ; preds = %.thread, %.thread126
-  %.sink130 = phi ptr [ %31, %.thread126 ], [ %12, %.thread ]
-  %.sink.ph = phi ptr [ %152, %.thread126 ], [ %72, %.thread ]
+.sink.split133.sink.split:                        ; preds = %.thread, %.thread126
+  %.sink135 = phi ptr [ %31, %.thread126 ], [ %12, %.thread ]
+  %.sink134.ph = phi ptr [ %152, %.thread126 ], [ %72, %.thread ]
   %.pn96.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph.ph = phi { ptr, i32 } [ %176, %.thread126 ], [ %98, %.thread ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink130) #20
-  br label %.sink.split
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink135) #20
+  br label %.sink.split133
 
-.sink.split:                                      ; preds = %.sink.split.sink.split, %220, %148
-  %.sink = phi ptr [ %72, %148 ], [ %152, %220 ], [ %.sink.ph, %.sink.split.sink.split ]
-  %.pn96.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %148 ], [ %.pn96.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %220 ], [ %.pn96.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph.ph, %.sink.split.sink.split ]
-  call void @__cxa_free_exception(ptr %.sink) #20
+.sink.split133:                                   ; preds = %.sink.split133.sink.split, %220, %148
+  %.sink134 = phi ptr [ %72, %148 ], [ %152, %220 ], [ %.sink134.ph, %.sink.split133.sink.split ]
+  %.pn96.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %148 ], [ %.pn96.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %220 ], [ %.pn96.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph.ph, %.sink.split133.sink.split ]
+  call void @__cxa_free_exception(ptr %.sink134) #20
   br label %227
 
-227:                                              ; preds = %.sink.split, %220, %148
-  %.pn96.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn96.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %220 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %148 ], [ %.pn96.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.sink.split ]
+227:                                              ; preds = %.sink.split133, %220, %148
+  %.pn96.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn96.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %220 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %148 ], [ %.pn96.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %.sink.split133 ]
   resume { ptr, i32 } %.pn96.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 
 228:                                              ; preds = %175, %97

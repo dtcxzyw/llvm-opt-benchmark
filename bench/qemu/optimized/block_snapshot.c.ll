@@ -1181,11 +1181,7 @@ if.else.i15:                                      ; preds = %land.lhs.true
 do.end.i16:                                       ; preds = %land.lhs.true
   %call1.i17 = call i32 @bdrv_snapshot_list(ptr noundef %0, ptr noundef nonnull %sn_tab.i)
   %cmp.i18 = icmp slt i32 %call1.i17, 0
-  br i1 %cmp.i18, label %bdrv_snapshot_find.exit.thread, label %for.cond.preheader.i
-
-bdrv_snapshot_find.exit.thread:                   ; preds = %do.end.i16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sn_tab.i)
-  br label %if.end15.thread
+  br i1 %cmp.i18, label %if.end15.thread.sink.split, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %do.end.i16
   %cmp46.not.i = icmp eq i32 %call1.i17, 0
@@ -1211,10 +1207,13 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
 
 bdrv_snapshot_find.exit.thread27:                 ; preds = %for.cond.i, %for.cond.preheader.i
   call void @g_free(ptr noundef %.pre.i) #6
+  br label %if.end15.thread.sink.split
+
+if.end15.thread.sink.split:                       ; preds = %do.end.i16, %bdrv_snapshot_find.exit.thread27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sn_tab.i)
   br label %if.end15.thread
 
-if.end15.thread:                                  ; preds = %bdrv_all_snapshots_includes_bs.exit, %bdrv_snapshot_find.exit.thread, %bdrv_snapshot_find.exit.thread27, %lor.lhs.false.i, %do.end.i
+if.end15.thread:                                  ; preds = %if.end15.thread.sink.split, %bdrv_all_snapshots_includes_bs.exit, %lor.lhs.false.i, %do.end.i
   call void @aio_context_release(ptr noundef %call6) #6
   br label %if.end19
 
@@ -1464,7 +1463,7 @@ if.then9.us:                                      ; preds = %bdrv_all_snapshots_
 do.end.i13.us:                                    ; preds = %if.then9.us
   %call1.i14.us = call i32 @bdrv_snapshot_list(ptr noundef %0, ptr noundef nonnull %sn_tab.i)
   %cmp.i15.us = icmp slt i32 %call1.i14.us, 0
-  br i1 %cmp.i15.us, label %if.then13.thread, label %for.cond.preheader.i.us
+  br i1 %cmp.i15.us, label %glib_autoptr_cleanup_GraphLockableMainloop.exit.sink.split, label %for.cond.preheader.i.us
 
 for.cond.preheader.i.us:                          ; preds = %do.end.i13.us
   %cmp46.not.i.us = icmp eq i32 %call1.i14.us, 0
@@ -1519,12 +1518,7 @@ if.else.i12:                                      ; preds = %while.body, %if.the
 do.end.i13:                                       ; preds = %while.body
   %call1.i14 = call i32 @bdrv_snapshot_list(ptr noundef %2, ptr noundef nonnull %sn_tab.i)
   %cmp.i15 = icmp slt i32 %call1.i14, 0
-  br i1 %cmp.i15, label %if.then13.thread, label %for.cond.preheader.i
-
-if.then13.thread:                                 ; preds = %do.end.i13, %do.end.i13.us
-  %.us-phi = phi ptr [ %call6.us, %do.end.i13.us ], [ %call6, %do.end.i13 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sn_tab.i)
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit.sink.split
+  br i1 %cmp.i15, label %glib_autoptr_cleanup_GraphLockableMainloop.exit.sink.split, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %do.end.i13
   %cmp46.not.i = icmp eq i32 %call1.i14, 0
@@ -1560,11 +1554,11 @@ glib_autoptr_cleanup_GraphLockableMainloop.exit.critedge: ; preds = %for.cond.pr
   %.pre.i37 = phi ptr [ %.pre.i.us, %for.cond.i.us ], [ %.pre.i.us, %for.cond.preheader.i.us ], [ %.pre.i, %for.cond.i ], [ %.pre.i, %for.cond.preheader.i ]
   %call635 = phi ptr [ %call6.us, %for.cond.i.us ], [ %call6.us, %for.cond.preheader.i.us ], [ %call6, %for.cond.i ], [ %call6, %for.cond.preheader.i ]
   call void @g_free(ptr noundef %.pre.i37) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sn_tab.i)
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit.sink.split
 
-glib_autoptr_cleanup_GraphLockableMainloop.exit.sink.split: ; preds = %if.then13.thread, %glib_autoptr_cleanup_GraphLockableMainloop.exit.critedge
-  %call635.sink = phi ptr [ %call635, %glib_autoptr_cleanup_GraphLockableMainloop.exit.critedge ], [ %.us-phi, %if.then13.thread ]
+glib_autoptr_cleanup_GraphLockableMainloop.exit.sink.split: ; preds = %do.end.i13, %do.end.i13.us, %glib_autoptr_cleanup_GraphLockableMainloop.exit.critedge
+  %call635.sink = phi ptr [ %call635, %glib_autoptr_cleanup_GraphLockableMainloop.exit.critedge ], [ %call6.us, %do.end.i13.us ], [ %call6, %do.end.i13 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sn_tab.i)
   call void @aio_context_release(ptr noundef %call635.sink) #6
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 

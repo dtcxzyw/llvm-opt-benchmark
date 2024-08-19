@@ -348,26 +348,17 @@ if.then50.i:                                      ; preds = %if.else39.i, %if.el
   %31 = load ptr, ptr %end.i, align 8
   %32 = load i8, ptr %31, align 1
   switch i8 %32, label %if.else68.i [
-    i8 75, label %if.then54.i
+    i8 75, label %if.end71.ithread-pre-split
     i8 77, label %if.then59.i
     i8 71, label %if.then65.i
   ]
 
-if.then54.i:                                      ; preds = %if.then50.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %31, i64 1
-  store ptr %incdec.ptr.i, ptr %end.i, align 8
-  br label %if.end71.ithread-pre-split
-
 if.then59.i:                                      ; preds = %if.then50.i
   %mul.i = shl i64 %call43.i, 10
-  %incdec.ptr60.i = getelementptr inbounds i8, ptr %31, i64 1
-  store ptr %incdec.ptr60.i, ptr %end.i, align 8
   br label %if.end71.ithread-pre-split
 
 if.then65.i:                                      ; preds = %if.then50.i
   %mul66.i = shl i64 %call43.i, 20
-  %incdec.ptr67.i = getelementptr inbounds i8, ptr %31, i64 1
-  store ptr %incdec.ptr67.i, ptr %end.i, align 8
   br label %if.end71.ithread-pre-split
 
 if.else68.i:                                      ; preds = %if.then50.i
@@ -375,15 +366,16 @@ if.else68.i:                                      ; preds = %if.then50.i
   %div30.i = lshr i64 %sub.i, 10
   br label %if.end71.i
 
-if.end71.ithread-pre-split:                       ; preds = %if.then54.i, %if.then59.i, %if.then65.i
-  %.ph = phi ptr [ %incdec.ptr67.i, %if.then65.i ], [ %incdec.ptr60.i, %if.then59.i ], [ %incdec.ptr.i, %if.then54.i ]
-  %value41.1.i.ph = phi i64 [ %mul66.i, %if.then65.i ], [ %mul.i, %if.then59.i ], [ %call43.i, %if.then54.i ]
-  %.pr = load i8, ptr %.ph, align 1
+if.end71.ithread-pre-split:                       ; preds = %if.then50.i, %if.then59.i, %if.then65.i
+  %value41.1.i.ph = phi i64 [ %mul66.i, %if.then65.i ], [ %mul.i, %if.then59.i ], [ %call43.i, %if.then50.i ]
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %31, i64 1
+  store ptr %incdec.ptr.i, ptr %end.i, align 8
+  %.pr = load i8, ptr %incdec.ptr.i, align 1
   br label %if.end71.i
 
 if.end71.i:                                       ; preds = %if.end71.ithread-pre-split, %if.else68.i
   %33 = phi i8 [ %.pr, %if.end71.ithread-pre-split ], [ %32, %if.else68.i ]
-  %34 = phi ptr [ %.ph, %if.end71.ithread-pre-split ], [ %31, %if.else68.i ]
+  %34 = phi ptr [ %incdec.ptr.i, %if.end71.ithread-pre-split ], [ %31, %if.else68.i ]
   %value41.1.i = phi i64 [ %value41.1.i.ph, %if.end71.ithread-pre-split ], [ %div30.i, %if.else68.i ]
   switch i8 %33, label %if.end90.i [
     i8 73, label %land.lhs.true76.i

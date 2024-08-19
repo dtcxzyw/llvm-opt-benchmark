@@ -11713,11 +11713,7 @@ define hidden noundef zeroext i1 @_ZN2cv3dnn7darknet28ReadDarknetFromWeightsStre
 
 233:                                              ; preds = %213
   %234 = icmp eq ptr %.sroa.0221.0306, %.sroa.17.0303
-  br i1 %234, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread, label %235
-
-_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread: ; preds = %233
-  store i32 %209, ptr %36, align 4
-  br label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156
+  br i1 %234, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156.sink.split, label %235
 
 235:                                              ; preds = %233
   %236 = ptrtoint ptr %.sroa.17.0303 to i64
@@ -11730,11 +11726,7 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread: ; preds = %
 
 .preheader.i:                                     ; preds = %235
   %.not.i = icmp eq i32 %240, 0
-  br i1 %.not.i, label %.preheader.i145.thread, label %.lr.ph.preheader.i
-
-.preheader.i145.thread:                           ; preds = %.preheader.i
-  store i32 %209, ptr %36, align 4
-  br label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156
+  br i1 %.not.i, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156.sink.split, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %wide.trip.count.i = and i64 %239, 2147483647
@@ -11775,9 +11767,14 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread: ; preds = %
   %exitcond.not.i153 = icmp eq i64 %indvars.iv.next.i152, %wide.trip.count.i148
   br i1 %exitcond.not.i153, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156, label %.lr.ph.i149, !llvm.loop !11
 
-_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156: ; preds = %.lr.ph.i149, %.preheader.i145.thread, %.preheader.i145, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread
-  %.024.i235 = phi i32 [ %245, %.preheader.i145 ], [ 0, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread ], [ 1, %.preheader.i145.thread ], [ %245, %.lr.ph.i149 ]
-  %.024.i154 = phi i32 [ 1, %.preheader.i145 ], [ 0, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread ], [ 1, %.preheader.i145.thread ], [ %248, %.lr.ph.i149 ]
+_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156.sink.split: ; preds = %.preheader.i, %233
+  %.024.i235.ph = phi i32 [ 0, %233 ], [ 1, %.preheader.i ]
+  store i32 %209, ptr %36, align 4
+  br label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156
+
+_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156: ; preds = %.lr.ph.i149, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156.sink.split, %.preheader.i145
+  %.024.i235 = phi i32 [ %245, %.preheader.i145 ], [ %.024.i235.ph, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156.sink.split ], [ %245, %.lr.ph.i149 ]
+  %.024.i154 = phi i32 [ 1, %.preheader.i145 ], [ %.024.i235.ph, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit156.sink.split ], [ %248, %.lr.ph.i149 ]
   %249 = mul nsw i32 %.024.i235, %209
   store i32 %.024.i154, ptr %97, align 4
   invoke void @_ZN2cv3Mat6createEiPKii(ptr noundef nonnull align 8 dereferenceable(96) %14, i32 noundef 2, ptr noundef nonnull %36, i32 noundef 5)

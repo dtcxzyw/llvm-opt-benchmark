@@ -6569,7 +6569,7 @@ if.then.i57:                                      ; preds = %for.inc.i
 
 if.end.i55:                                       ; preds = %for.inc.i, %if.then.i
   %rewrite_lock.i.sroa.9.0 = phi i64 [ %or.i.i.i, %if.then.i ], [ %rewrite_lock.i.sroa.9.2, %for.inc.i ]
-  %h.i.0 = phi ptr [ %arrayidx.i, %if.then.i ], [ %h.i.1, %for.inc.i ]
+  %h.i.0 = phi ptr [ %arrayidx.i, %if.then.i ], [ %.sink.i, %for.inc.i ]
   %i.041.i = phi i64 [ 0, %if.then.i ], [ %inc.i56, %for.inc.i ]
   %pending_purge.040.i = phi i1 [ false, %if.then.i ], [ %pending_purge.2.i, %for.inc.i ]
   %prev_to_keep.039.i = phi ptr [ null, %if.then.i ], [ %prev_to_keep.2.i, %for.inc.i ]
@@ -6791,12 +6791,12 @@ if.else35.i:                                      ; preds = %if.end30.i
   %arrayidx37.i = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %11, i64 %shr.i20.i
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %if.end30.i, %if.else35.i, %if.else19.i
-  %rewrite_lock.i.sroa.9.2 = phi i64 [ %rewrite_lock.i.sroa.9.1155, %if.else35.i ], [ %or.i.i.sink.i, %if.else19.i ], [ %rewrite_lock.i.sroa.9.1155, %if.end30.i ]
-  %h.i.1 = phi ptr [ %arrayidx37.i, %if.else35.i ], [ %arrayidx22.i, %if.else19.i ], [ null, %if.end30.i ]
-  %next_with_shift.1.i = phi i64 [ %36, %if.else35.i ], [ %or.i.i.sink.i, %if.else19.i ], [ %36, %if.end30.i ]
-  %prev_to_keep.2.i = phi ptr [ %prev_to_keep.1.i156, %if.else35.i ], [ null, %if.else19.i ], [ %prev_to_keep.1.i156, %if.end30.i ]
-  %pending_purge.2.i = phi i1 [ %pending_purge.1.i157, %if.else35.i ], [ false, %if.else19.i ], [ %pending_purge.1.i157, %if.end30.i ]
+for.inc.i:                                        ; preds = %if.else35.i, %if.end30.i, %if.else19.i
+  %rewrite_lock.i.sroa.9.2 = phi i64 [ %rewrite_lock.i.sroa.9.1155, %if.else35.i ], [ %rewrite_lock.i.sroa.9.1155, %if.end30.i ], [ %or.i.i.sink.i, %if.else19.i ]
+  %.sink.i = phi ptr [ %arrayidx37.i, %if.else35.i ], [ null, %if.end30.i ], [ %arrayidx22.i, %if.else19.i ]
+  %next_with_shift.1.i = phi i64 [ %36, %if.else35.i ], [ %36, %if.end30.i ], [ %or.i.i.sink.i, %if.else19.i ]
+  %prev_to_keep.2.i = phi ptr [ %prev_to_keep.1.i156, %if.else35.i ], [ %prev_to_keep.1.i156, %if.end30.i ], [ null, %if.else19.i ]
+  %pending_purge.2.i = phi i1 [ %pending_purge.1.i157, %if.else35.i ], [ %pending_purge.1.i157, %if.end30.i ], [ false, %if.else19.i ]
   %inc.i56 = add nuw nsw i64 %i.041.i, 1
   %exitcond.i = icmp eq i64 %inc.i56, 4096
   br i1 %exitcond.i, label %if.then.i57, label %if.end.i55, !llvm.loop !64

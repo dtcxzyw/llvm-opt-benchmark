@@ -11441,8 +11441,7 @@ Abc_UtilStrsav.exit145:                           ; preds = %Abc_UtilStrsav.exit
   %246 = and i64 %245, %244
   %247 = lshr i64 %246, %235
   %248 = or i64 %247, %246
-  store i64 %248, ptr %2, align 16
-  br label %Abc_TtCofactor1p.exit.i
+  br label %Abc_TtCofactor1p.exit.sink.split.i
 
 249:                                              ; preds = %242
   br i1 %222, label %250, label %259
@@ -11503,8 +11502,7 @@ Abc_UtilStrsav.exit145:                           ; preds = %Abc_UtilStrsav.exit
   %273 = and i64 %272, %271
   %274 = shl i64 %273, %235
   %275 = or i64 %274, %273
-  store i64 %275, ptr %2, align 16
-  br label %Abc_TtCofactor1p.exit.i
+  br label %Abc_TtCofactor1p.exit.sink.split.i
 
 276:                                              ; preds = %269
   br i1 %222, label %277, label %286
@@ -11556,7 +11554,12 @@ Abc_UtilStrsav.exit145:                           ; preds = %Abc_UtilStrsav.exit
   %295 = icmp ult ptr %293, %224
   br i1 %295, label %.preheader.us.i166.i, label %Abc_TtCofactor1p.exit.i, !llvm.loop !53
 
-Abc_TtCofactor1p.exit.i:                          ; preds = %._crit_edge.us.i.i, %252, %._crit_edge.us.i170.i, %279, %286, %277, %270, %259, %250, %243
+Abc_TtCofactor1p.exit.sink.split.i:               ; preds = %270, %243
+  %.sink.i = phi i64 [ %275, %270 ], [ %248, %243 ]
+  store i64 %.sink.i, ptr %2, align 16
+  br label %Abc_TtCofactor1p.exit.i
+
+Abc_TtCofactor1p.exit.i:                          ; preds = %._crit_edge.us.i.i, %252, %._crit_edge.us.i170.i, %279, %Abc_TtCofactor1p.exit.sink.split.i, %286, %277, %259, %250
   %296 = call fastcc i32 @Abc_TtMinBase(ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %239, i32 noundef %215)
   store i32 0, ptr %63, align 4
   %297 = icmp sgt i32 %296, 0
@@ -12771,14 +12774,14 @@ Vec_IntGrow.exit.i286.i:                          ; preds = %845, %843
   br label %Lf_ManDerivePart.exit
 
 Lf_ManDerivePart.exit:                            ; preds = %.Vec_IntGrow.exit10_crit_edge.i229.i, %Vec_IntGrow.exit.i234.i, %596, %.Vec_IntGrow.exit10_crit_edge.i281.i, %Vec_IntGrow.exit.i286.i, %857
-  %.sink343.i = phi ptr [ %.pre.i231.i, %.Vec_IntGrow.exit10_crit_edge.i229.i ], [ %586, %Vec_IntGrow.exit.i234.i ], [ %597, %596 ], [ %.pre.i283.i, %.Vec_IntGrow.exit10_crit_edge.i281.i ], [ %847, %Vec_IntGrow.exit.i286.i ], [ %858, %857 ]
+  %.sink344.i = phi ptr [ %.pre.i231.i, %.Vec_IntGrow.exit10_crit_edge.i229.i ], [ %586, %Vec_IntGrow.exit.i234.i ], [ %597, %596 ], [ %.pre.i283.i, %.Vec_IntGrow.exit10_crit_edge.i281.i ], [ %847, %Vec_IntGrow.exit.i286.i ], [ %858, %857 ]
   %spec.select.sink.i = phi i32 [ %574, %.Vec_IntGrow.exit10_crit_edge.i229.i ], [ %574, %Vec_IntGrow.exit.i234.i ], [ %574, %596 ], [ %spec.select.i, %.Vec_IntGrow.exit10_crit_edge.i281.i ], [ %spec.select.i, %Vec_IntGrow.exit.i286.i ], [ %spec.select.i, %857 ]
   %.0.i = phi i32 [ %507, %.Vec_IntGrow.exit10_crit_edge.i229.i ], [ %507, %Vec_IntGrow.exit.i234.i ], [ %507, %596 ], [ %766, %.Vec_IntGrow.exit10_crit_edge.i281.i ], [ %766, %Vec_IntGrow.exit.i286.i ], [ %766, %857 ]
   %859 = load i32, ptr %49, align 4
   %860 = add nsw i32 %859, 1
   store i32 %860, ptr %49, align 4
   %861 = sext i32 %859 to i64
-  %862 = getelementptr inbounds i32, ptr %.sink343.i, i64 %861
+  %862 = getelementptr inbounds i32, ptr %.sink344.i, i64 %861
   store i32 %spec.select.sink.i, ptr %862, align 4
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 52, ptr nonnull %3)

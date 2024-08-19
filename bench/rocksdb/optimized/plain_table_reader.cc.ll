@@ -1403,9 +1403,9 @@ if.then.i.i88:                                    ; preds = %_ZNSt10unique_ptrIN
   br label %cleanup93
 
 _ZNKSt14default_deleteIN7rocksdb16PlainTableReaderEEclEPS1_.exit.i.sink.split: ; preds = %if.then73, %if.then62
-  %storemerge = phi i8 [ %28, %if.then62 ], [ %40, %if.then73 ]
+  %.sink = phi i8 [ %28, %if.then62 ], [ %40, %if.then73 ]
   %state_.i.i25.sink = phi ptr [ %state_.i.i25, %if.then62 ], [ %state_.i.i66, %if.then73 ]
-  store i8 %storemerge, ptr %agg.result, align 8
+  store i8 %.sink, ptr %agg.result, align 8
   store i8 0, ptr %s, align 8
   %67 = load i8, ptr %subcode_4.i, align 1
   %subcode_4.i.i29 = getelementptr inbounds i8, ptr %agg.result, i64 1

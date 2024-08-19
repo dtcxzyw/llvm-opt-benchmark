@@ -881,7 +881,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @_dbgp_external_startup() u
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 49965, ptr elementtype(i32) %214) #7, !srcloc !15
   %215 = tail call fastcc i32 @dbgp_wait_until_done(i32 noundef %206)
   %216 = icmp slt i32 %215, 0
-  br i1 %216, label %dbgp_control_msg.exit.thread, label %217
+  br i1 %216, label %.sink.split, label %217
 
 217:                                              ; preds = %203
   %218 = load ptr, ptr @ehci_debug, align 8
@@ -901,7 +901,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @_dbgp_external_startup() u
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %222, ptr elementtype(i32) %230) #7, !srcloc !15
   %231 = tail call fastcc i32 @dbgp_wait_until_done(i32 noundef %226)
   %232 = icmp slt i32 %231, 0
-  br i1 %232, label %dbgp_control_msg.exit.thread, label %233
+  br i1 %232, label %.sink.split, label %233
 
 233:                                              ; preds = %217
   %234 = load ptr, ptr @ehci_debug, align 8
@@ -911,7 +911,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @_dbgp_external_startup() u
   %238 = getelementptr inbounds i8, ptr %237, i64 12
   %239 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %238) #7, !srcloc !6
   %.not = icmp eq i32 %231, 0
-  br i1 %.not, label %dbgp_control_msg.exit.thread31, label %240
+  br i1 %.not, label %.sink.split, label %240
 
 240:                                              ; preds = %233
   %241 = tail call i32 @llvm.umin.i32(i32 %231, i32 4)
@@ -930,19 +930,15 @@ define internal fastcc noundef range(i32 -19, 1) i32 @_dbgp_external_startup() u
   %251 = icmp eq i64 %250, %242
   br i1 %251, label %dbgp_control_msg.exit, label %243, !llvm.loop !30
 
-dbgp_control_msg.exit.thread:                     ; preds = %203, %217
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #7
-  br label %252
-
-dbgp_control_msg.exit.thread31:                   ; preds = %233
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #7
-  br label %252
-
 dbgp_control_msg.exit:                            ; preds = %243
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #7
   br i1 %.not, label %252, label %255
 
-252:                                              ; preds = %dbgp_control_msg.exit.thread31, %dbgp_control_msg.exit.thread, %dbgp_control_msg.exit
+.sink.split:                                      ; preds = %233, %217, %203
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #7
+  br label %252
+
+252:                                              ; preds = %.sink.split, %dbgp_control_msg.exit
   %253 = add nuw nsw i32 %176, 1
   %254 = icmp eq i32 %253, 128
   br i1 %254, label %.thread6, label %175, !llvm.loop !31

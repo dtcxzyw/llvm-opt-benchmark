@@ -1107,53 +1107,46 @@ define internal fastcc void @WaitEventAdjustEpoll(ptr nocapture noundef readonly
   %6 = getelementptr inbounds i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   switch i32 %7, label %condstore.split [
-    i32 1, label %8
-    i32 16, label %9
+    i32 1, label %.sink.split
+    i32 16, label %.sink.split
   ]
 
-8:                                                ; preds = %3
-  store i32 25, ptr %4, align 4
-  br label %18
-
-9:                                                ; preds = %3
-  store i32 25, ptr %4, align 4
-  br label %18
-
 condstore.split:                                  ; preds = %3
-  %10 = and i32 %7, 134
-  %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %18, label %11
+  %8 = and i32 %7, 2
+  %.not.not = icmp eq i32 %8, 0
+  %9 = select i1 %.not.not, i32 24, i32 25
+  %10 = and i32 %7, 4
+  %11 = or disjoint i32 %9, %10
+  %12 = shl i32 %7, 6
+  %13 = and i32 %12, 8192
+  %spec.select = or disjoint i32 %11, %13
+  %14 = and i32 %7, 134
+  %.not = icmp eq i32 %14, 0
+  br i1 %.not, label %15, label %.sink.split
 
-11:                                               ; preds = %condstore.split
-  %12 = and i32 %7, 2
-  %.not.not = icmp eq i32 %12, 0
-  %13 = select i1 %.not.not, i32 24, i32 25
-  %14 = and i32 %7, 4
-  %15 = or disjoint i32 %13, %14
-  %16 = shl i32 %7, 6
-  %17 = and i32 %16, 8192
-  %spec.select = or disjoint i32 %15, %17
-  store i32 %spec.select, ptr %4, align 4
-  br label %18
+.sink.split:                                      ; preds = %condstore.split, %3, %3
+  %spec.select.sink = phi i32 [ 25, %3 ], [ 25, %3 ], [ %spec.select, %condstore.split ]
+  store i32 %spec.select.sink, ptr %4, align 4
+  br label %15
 
-18:                                               ; preds = %11, %condstore.split, %9, %8
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
-  %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
-  %22 = load i32, ptr %21, align 8
-  %23 = call i32 @epoll_ctl(i32 noundef %20, i32 noundef %2, i32 noundef %22, ptr noundef nonnull %4) #14
-  %24 = icmp slt i32 %23, 0
-  br i1 %24, label %25, label %29
+15:                                               ; preds = %.sink.split, %condstore.split
+  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = load i32, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = load i32, ptr %18, align 8
+  %20 = call i32 @epoll_ctl(i32 noundef %17, i32 noundef %2, i32 noundef %19, ptr noundef nonnull %4) #14
+  %21 = icmp slt i32 %20, 0
+  br i1 %21, label %22, label %26
 
-25:                                               ; preds = %18
-  %26 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %26)
-  %27 = call i32 @errcode_for_socket_access() #14
-  %28 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13) #14
+22:                                               ; preds = %15
+  %23 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  call void @llvm.assume(i1 %23)
+  %24 = call i32 @errcode_for_socket_access() #14
+  %25 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13) #14
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1171, ptr noundef nonnull @__func__.WaitEventAdjustEpoll) #14
   unreachable
 
-29:                                               ; preds = %18
+26:                                               ; preds = %15
   ret void
 }
 

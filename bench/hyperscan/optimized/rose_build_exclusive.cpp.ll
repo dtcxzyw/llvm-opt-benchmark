@@ -2930,18 +2930,11 @@ if.then.i.i.i.i337.i.i.i:                         ; preds = %cleanup106.i.i.i
 if.then.i.i.i.i337.i.i.i.thread:                  ; preds = %.noexc.i.i
   %238 = load ptr, ptr %states.i.i.i, align 8, !noalias !26
   %cmp.i.i.i.i.i.i.i.i339.i.i.i793 = icmp eq ptr %m_storage_start.i.i.i.i.i.i.i.i.i.i338.i.i.i, %238
-  br i1 %cmp.i.i.i.i.i.i.i.i339.i.i.i793, label %_ZN3ue211flat_detail9flat_baseINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EED2Ev.exit341.i.i.i.thread, label %if.then.i.i.i.i.i.i.i340.i.i.i.thread
-
-_ZN3ue211flat_detail9flat_baseINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EED2Ev.exit341.i.i.i.thread: ; preds = %if.then.i.i.i.i337.i.i.i.thread
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %states.i.i.i) #22, !noalias !26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cr14.i.i.i) #22, !noalias !26
-  br label %if.then.i113.i
+  br i1 %cmp.i.i.i.i.i.i.i.i339.i.i.i793, label %if.then.i113.i.sink.split, label %if.then.i.i.i.i.i.i.i340.i.i.i.thread
 
 if.then.i.i.i.i.i.i.i340.i.i.i.thread:            ; preds = %if.then.i.i.i.i337.i.i.i.thread
   call void @_ZdlPv(ptr noundef %238) #23
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %states.i.i.i) #22, !noalias !26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cr14.i.i.i) #22, !noalias !26
-  br label %if.then.i113.i
+  br label %if.then.i113.i.sink.split
 
 if.then.i.i.i.i.i.i.i340.i.i.i:                   ; preds = %if.then.i.i.i.i337.i.i.i
   call void @_ZdlPv(ptr noundef %237) #23
@@ -2959,7 +2952,12 @@ ehcleanup117.i.i.i:                               ; preds = %if.then.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cr14.i.i.i) #22, !noalias !26
   br label %lpad.body.i.i
 
-if.then.i113.i:                                   ; preds = %_ZN3ue211flat_detail9flat_baseINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EED2Ev.exit341.i.i.i.thread, %if.then.i.i.i.i.i.i.i340.i.i.i.thread, %if.then.i.i.i.i.i.i.i340.i.i.i, %_ZN3ue211flat_detail9flat_baseINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EED2Ev.exit341.i.i.i, %call12.i.noexc.i.i
+if.then.i113.i.sink.split:                        ; preds = %if.then.i.i.i.i337.i.i.i.thread, %if.then.i.i.i.i.i.i.i340.i.i.i.thread
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %states.i.i.i) #22, !noalias !26
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cr14.i.i.i) #22, !noalias !26
+  br label %if.then.i113.i
+
+if.then.i113.i:                                   ; preds = %if.then.i113.i.sink.split, %if.then.i.i.i.i.i.i.i340.i.i.i, %_ZN3ue211flat_detail9flat_baseINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EED2Ev.exit341.i.i.i, %call12.i.noexc.i.i
   %239 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i462 = icmp eq i64 %239, 0
   br i1 %cmp.not.not.i462, label %for.cond.i494, label %if.end13.thread.i463
@@ -5859,18 +5857,11 @@ if.then.i.i.i.i337.i.i.i:                         ; preds = %cleanup106.i.i.i
 if.then.i.i.i.i337.i.i.i.thread:                  ; preds = %.noexc.i.i
   %238 = load ptr, ptr %states.i.i.i, align 8, !noalias !111
   %cmp.i.i.i.i.i.i.i.i339.i.i.i793 = icmp eq ptr %m_storage_start.i.i.i.i.i.i.i.i.i.i338.i.i.i, %238
-  br i1 %cmp.i.i.i.i.i.i.i.i339.i.i.i793, label %_ZN3ue211flat_detail9flat_baseINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EED2Ev.exit341.i.i.i.thread, label %if.then.i.i.i.i.i.i.i340.i.i.i.thread
-
-_ZN3ue211flat_detail9flat_baseINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EED2Ev.exit341.i.i.i.thread: ; preds = %if.then.i.i.i.i337.i.i.i.thread
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %states.i.i.i) #22, !noalias !111
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cr14.i.i.i) #22, !noalias !111
-  br label %if.then.i113.i
+  br i1 %cmp.i.i.i.i.i.i.i.i339.i.i.i793, label %if.then.i113.i.sink.split, label %if.then.i.i.i.i.i.i.i340.i.i.i.thread
 
 if.then.i.i.i.i.i.i.i340.i.i.i.thread:            ; preds = %if.then.i.i.i.i337.i.i.i.thread
   call void @_ZdlPv(ptr noundef %238) #23
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %states.i.i.i) #22, !noalias !111
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cr14.i.i.i) #22, !noalias !111
-  br label %if.then.i113.i
+  br label %if.then.i113.i.sink.split
 
 if.then.i.i.i.i.i.i.i340.i.i.i:                   ; preds = %if.then.i.i.i.i337.i.i.i
   call void @_ZdlPv(ptr noundef %237) #23
@@ -5888,7 +5879,12 @@ ehcleanup117.i.i.i:                               ; preds = %if.then.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cr14.i.i.i) #22, !noalias !111
   br label %lpad.body.i.i
 
-if.then.i113.i:                                   ; preds = %_ZN3ue211flat_detail9flat_baseINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EED2Ev.exit341.i.i.i.thread, %if.then.i.i.i.i.i.i.i340.i.i.i.thread, %if.then.i.i.i.i.i.i.i340.i.i.i, %_ZN3ue211flat_detail9flat_baseINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EED2Ev.exit341.i.i.i, %call12.i.noexc.i.i
+if.then.i113.i.sink.split:                        ; preds = %if.then.i.i.i.i337.i.i.i.thread, %if.then.i.i.i.i.i.i.i340.i.i.i.thread
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %states.i.i.i) #22, !noalias !111
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cr14.i.i.i) #22, !noalias !111
+  br label %if.then.i113.i
+
+if.then.i113.i:                                   ; preds = %if.then.i113.i.sink.split, %if.then.i.i.i.i.i.i.i340.i.i.i, %_ZN3ue211flat_detail9flat_baseINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EED2Ev.exit341.i.i.i, %call12.i.noexc.i.i
   %239 = load i64, ptr %_M_element_count.i.i.i.i, align 8
   %cmp.not.not.i462 = icmp eq i64 %239, 0
   br i1 %cmp.not.not.i462, label %for.cond.i494, label %if.end13.thread.i463

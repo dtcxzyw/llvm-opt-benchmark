@@ -1477,9 +1477,6 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
 
 340:                                              ; preds = %.noexc52
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11), !noalias !327
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12), !noalias !327
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13), !noalias !327
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14), !noalias !327
   br label %417
 
 .thread44.i:                                      ; preds = %._crit_edge.i.i._crit_edge.i, %354, %352, %347, %345, %338
@@ -1675,9 +1672,6 @@ _ZN5typst9visualize5image3svg8SvgImage4with17h1e4de1d3869a236bE.exit.i: ; preds 
 416:                                              ; preds = %401
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %405, ptr noundef nonnull align 8 dereferenceable(48) %8, i64 48, i1 false), !noalias !327
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8), !noalias !327
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12), !noalias !327
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13), !noalias !327
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14), !noalias !327
   br label %417
 
 .thread39.i:                                      ; preds = %356, %.thread44.i
@@ -1692,6 +1686,9 @@ _ZN5typst9visualize5image3svg8SvgImage4with17h1e4de1d3869a236bE.exit.i: ; preds 
 
 417:                                              ; preds = %340, %416
   %.0.i51 = phi ptr [ null, %340 ], [ %405, %416 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12), !noalias !327
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13), !noalias !327
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14), !noalias !327
   store ptr %.0.i51, ptr %23, align 8
   %418 = invoke noundef nonnull align 8 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h1dcb4820c7958cb9E.llvm.6358993885367235110"(ptr noundef nonnull align 8 %2, ptr noundef nonnull align 8 %2)
           to label %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17hf94a3c3faa43084cE.exit" unwind label %.thread104
@@ -4755,7 +4752,6 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
 
 248:                                              ; preds = %.noexc53
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11), !noalias !1020
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12), !noalias !1020
   br label %271
 
 249:                                              ; preds = %244
@@ -4820,7 +4816,6 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
 
 "_ZN4core3ptr36drop_in_place$LT$pixglyph..Glyph$GT$17hf4e785ae0f5e4fc5E.exit.i": ; preds = %264, %.noexc55
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !1026
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12), !noalias !1020
   br label %271
 
 269:                                              ; preds = %.body.i
@@ -4836,6 +4831,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
 
 271:                                              ; preds = %248, %"_ZN4core3ptr36drop_in_place$LT$pixglyph..Glyph$GT$17hf4e785ae0f5e4fc5E.exit.i"
   %.0.i52 = phi ptr [ null, %248 ], [ %255, %"_ZN4core3ptr36drop_in_place$LT$pixglyph..Glyph$GT$17hf4e785ae0f5e4fc5E.exit.i" ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12), !noalias !1020
   store ptr %.0.i52, ptr %18, align 8
   %272 = invoke noundef nonnull align 8 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h0ca7f2ac389ed978E.llvm.6358993885367235110"(ptr noundef nonnull align 8 %2, ptr noundef nonnull align 8 %2)
           to label %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17hc72e93103ca17c34E.exit" unwind label %.thread123

@@ -692,10 +692,6 @@ common.resume:                                    ; preds = %72, %80, %65, %37, 
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %8)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h09634fd60fb40fe6E.exit"
 
-"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h09634fd60fb40fe6E.exit": ; preds = %57, %"_ZN12darling_core9from_meta8FromMeta9from_meta28_$u7b$$u7b$closure$u7d$$u7d$17h83a7288472bf3b8cE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %16)
-  br label %92
-
 71:                                               ; preds = %"_ZN68_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..clone..Clone$GT$5clone17h8084aa6ff4a7578dE.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6, i64 24, i1 false)
@@ -706,8 +702,7 @@ common.resume:                                    ; preds = %72, %80, %65, %37, 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %16)
-  br label %92
+  br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h09634fd60fb40fe6E.exit"
 
 72:                                               ; preds = %74
   %73 = landingpad { ptr, i32 }
@@ -771,7 +766,8 @@ common.resume:                                    ; preds = %72, %80, %65, %37, 
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #14
   unreachable
 
-92:                                               ; preds = %71, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h09634fd60fb40fe6E.exit"
+"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h09634fd60fb40fe6E.exit": ; preds = %"_ZN12darling_core9from_meta8FromMeta9from_meta28_$u7b$$u7b$closure$u7d$$u7d$17h83a7288472bf3b8cE.exit.i", %57, %71
+  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %16)
   ret void
 }
 
@@ -979,10 +975,6 @@ common.resume:                                    ; preds = %72, %80, %65, %37, 
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %8)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h07d47c91e21692a6E.exit"
 
-"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h07d47c91e21692a6E.exit": ; preds = %57, %"_ZN12darling_core9from_meta8FromMeta9from_meta28_$u7b$$u7b$closure$u7d$$u7d$17h5c6396437c704c32E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %16)
-  br label %92
-
 71:                                               ; preds = %"_ZN68_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..clone..Clone$GT$5clone17h8084aa6ff4a7578dE.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6, i64 24, i1 false)
@@ -993,8 +985,7 @@ common.resume:                                    ; preds = %72, %80, %65, %37, 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %16)
-  br label %92
+  br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h07d47c91e21692a6E.exit"
 
 72:                                               ; preds = %74
   %73 = landingpad { ptr, i32 }
@@ -1058,7 +1049,8 @@ common.resume:                                    ; preds = %72, %80, %65, %37, 
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #14
   unreachable
 
-92:                                               ; preds = %71, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h07d47c91e21692a6E.exit"
+"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h07d47c91e21692a6E.exit": ; preds = %"_ZN12darling_core9from_meta8FromMeta9from_meta28_$u7b$$u7b$closure$u7d$$u7d$17h5c6396437c704c32E.exit.i", %57, %71
+  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %16)
   ret void
 }
 

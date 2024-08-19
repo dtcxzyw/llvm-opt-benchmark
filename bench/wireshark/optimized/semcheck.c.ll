@@ -1627,96 +1627,87 @@ define hidden zeroext i1 @dfw_semcheck(ptr noundef %0) local_unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %6, i64 48
   %8 = call i32 @_setjmp(ptr noundef nonnull %7) #8
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %11, label %9
-
-9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
-  store volatile ptr %10, ptr %3, align 8
-  br label %12
+  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sink = select i1 %.not, ptr null, ptr %9
+  store volatile ptr %.sink, ptr %3, align 8
+  %.0..0..0..0. = load volatile i32, ptr %4, align 4
+  %10 = and i32 %.0..0..0..0., 1
+  %.not15 = icmp eq i32 %10, 0
+  br i1 %.not15, label %13, label %11
 
 11:                                               ; preds = %1
-  store volatile ptr null, ptr %3, align 8
-  br label %12
-
-12:                                               ; preds = %11, %9
-  %.0..0..0..0. = load volatile i32, ptr %4, align 4
-  %13 = and i32 %.0..0..0..0., 1
-  %.not15 = icmp eq i32 %13, 0
-  br i1 %.not15, label %16, label %14
-
-14:                                               ; preds = %12
   %.0..0..0..0.1 = load volatile i32, ptr %4, align 4
-  %15 = or i32 %.0..0..0..0.1, 2
-  store volatile i32 %15, ptr %4, align 4
-  br label %16
+  %12 = or i32 %.0..0..0..0.1, 2
+  store volatile i32 %12, ptr %4, align 4
+  br label %13
 
-16:                                               ; preds = %14, %12
+13:                                               ; preds = %11, %1
   %.0..0..0..0.2 = load volatile i32, ptr %4, align 4
-  %17 = and i32 %.0..0..0..0.2, -2
-  store volatile i32 %17, ptr %4, align 4
+  %14 = and i32 %.0..0..0..0.2, -2
+  store volatile i32 %14, ptr %4, align 4
   %.0..0..0..0.3 = load volatile i32, ptr %4, align 4
-  %18 = icmp eq i32 %.0..0..0..0.3, 0
-  br i1 %18, label %19, label %24
+  %15 = icmp eq i32 %.0..0..0..0.3, 0
+  br i1 %15, label %16, label %21
 
-19:                                               ; preds = %16
+16:                                               ; preds = %13
   %.0..0..0..0.7 = load volatile ptr, ptr %3, align 8
-  %20 = icmp eq ptr %.0..0..0..0.7, null
-  br i1 %20, label %21, label %24
+  %17 = icmp eq ptr %.0..0..0..0.7, null
+  br i1 %17, label %18, label %21
 
-21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
-  %23 = load ptr, ptr %22, align 8
-  call fastcc void @semcheck(ptr noundef %0, ptr noundef %23)
-  br label %24
+18:                                               ; preds = %16
+  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = load ptr, ptr %19, align 8
+  call fastcc void @semcheck(ptr noundef %0, ptr noundef %20)
+  br label %21
 
-24:                                               ; preds = %21, %19, %16
+21:                                               ; preds = %18, %16, %13
   %.0..0..0..0.4 = load volatile i32, ptr %4, align 4
-  %25 = icmp eq i32 %.0..0..0..0.4, 0
-  br i1 %25, label %26, label %33
+  %22 = icmp eq i32 %.0..0..0..0.4, 0
+  br i1 %22, label %23, label %30
 
-26:                                               ; preds = %24
+23:                                               ; preds = %21
   %.0..0..0..0.8 = load volatile ptr, ptr %3, align 8
   %.not16 = icmp eq ptr %.0..0..0..0.8, null
-  br i1 %.not16, label %33, label %27
+  br i1 %.not16, label %30, label %24
 
-27:                                               ; preds = %26
+24:                                               ; preds = %23
   %.0..0..0..0.9 = load volatile ptr, ptr %3, align 8
-  %28 = getelementptr inbounds i8, ptr %.0..0..0..0.9, i64 8
-  %29 = load volatile i64, ptr %28, align 8
-  %30 = icmp eq i64 %29, 5
-  br i1 %30, label %31, label %33
+  %25 = getelementptr inbounds i8, ptr %.0..0..0..0.9, i64 8
+  %26 = load volatile i64, ptr %25, align 8
+  %27 = icmp eq i64 %26, 5
+  br i1 %27, label %28, label %30
 
-31:                                               ; preds = %27
+28:                                               ; preds = %24
   %.0..0..0..0.5 = load volatile i32, ptr %4, align 4
-  %32 = or i32 %.0..0..0..0.5, 1
-  store volatile i32 %32, ptr %4, align 4
+  %29 = or i32 %.0..0..0..0.5, 1
+  store volatile i32 %29, ptr %4, align 4
   store volatile i8 0, ptr %2, align 1
-  br label %33
+  br label %30
 
-33:                                               ; preds = %31, %27, %26, %24
+30:                                               ; preds = %28, %24, %23, %21
   %.0..0..0..0.6 = load volatile i32, ptr %4, align 4
-  %34 = and i32 %.0..0..0..0.6, 1
-  %.not17 = icmp eq i32 %34, 0
-  br i1 %.not17, label %35, label %37
+  %31 = and i32 %.0..0..0..0.6, 1
+  %.not17 = icmp eq i32 %31, 0
+  br i1 %.not17, label %32, label %34
 
-35:                                               ; preds = %33
+32:                                               ; preds = %30
   %.0..0..0..0.10 = load volatile ptr, ptr %3, align 8
   %.not18 = icmp eq ptr %.0..0..0..0.10, null
-  br i1 %.not18, label %37, label %36
+  br i1 %.not18, label %34, label %33
 
-36:                                               ; preds = %35
+33:                                               ; preds = %32
   %.0..0..0..0.11 = load volatile ptr, ptr %3, align 8
   call void @except_rethrow(ptr noundef %.0..0..0..0.11) #7
   unreachable
 
-37:                                               ; preds = %35, %33
-  %38 = getelementptr inbounds i8, ptr %6, i64 40
-  %39 = load volatile ptr, ptr %38, align 8
-  call void @except_free(ptr noundef %39) #6
-  %40 = call ptr @except_pop() #6
+34:                                               ; preds = %32, %30
+  %35 = getelementptr inbounds i8, ptr %6, i64 40
+  %36 = load volatile ptr, ptr %35, align 8
+  call void @except_free(ptr noundef %36) #6
+  %37 = call ptr @except_pop() #6
   %.0..0..0..0.12 = load volatile i8, ptr %2, align 1
-  %41 = trunc i8 %.0..0..0..0.12 to i1
-  ret i1 %41
+  %38 = trunc i8 %.0..0..0..0.12 to i1
+  ret i1 %38
 }
 
 declare void @except_setup_try(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1

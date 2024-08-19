@@ -2253,7 +2253,7 @@ define dso_local i32 @nfs4_server_capabilities(ptr noundef %0, ptr noundef %1) #
   %51 = getelementptr inbounds i8, ptr %7, i64 8
   br label %52
 
-52:                                               ; preds = %173, %2
+52:                                               ; preds = %.split, %2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #22
   store i64 0, ptr %49, align 4
   %53 = load ptr, ptr %0, align 8
@@ -2324,13 +2324,6 @@ define dso_local i32 @nfs4_server_capabilities(ptr noundef %0, ptr noundef %1) #
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #22
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %79, label %.split
-
-.split:                                           ; preds = %76
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #22
-  br label %173
 
 79:                                               ; preds = %76
   switch i32 %55, label %89 [
@@ -2517,23 +2510,23 @@ define dso_local i32 @nfs4_server_capabilities(ptr noundef %0, ptr noundef %1) #
   store i32 %171, ptr %45, align 4
   %172 = load i32, ptr %46, align 4
   store i32 %172, ptr %47, align 8
+  br label %.split
+
+.split:                                           ; preds = %76, %.split2
+  %.sink11 = phi i32 [ 0, %.split2 ], [ %77, %76 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #22
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #22
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #22
-  br label %173
+  %173 = call i32 @nfs4_handle_exception(ptr noundef %0, i32 noundef %.sink11, ptr noundef nonnull %9)
+  %174 = load i8, ptr %48, align 2
+  %175 = and i8 %174, 8
+  %176 = icmp eq i8 %175, 0
+  br i1 %176, label %177, label %52, !llvm.loop !38
 
-173:                                              ; preds = %.split, %.split2
-  %.sink11 = phi i32 [ %77, %.split ], [ 0, %.split2 ]
-  %174 = call i32 @nfs4_handle_exception(ptr noundef %0, i32 noundef %.sink11, ptr noundef nonnull %9)
-  %175 = load i8, ptr %48, align 2
-  %176 = and i8 %175, 8
-  %177 = icmp eq i8 %176, 0
-  br i1 %177, label %178, label %52, !llvm.loop !38
-
-178:                                              ; preds = %173
+177:                                              ; preds = %.split
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #22
-  ret i32 %174
+  ret i32 %173
 }
 
 ; Function Attrs: null_pointer_is_valid

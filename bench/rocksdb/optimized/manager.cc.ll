@@ -591,8 +591,8 @@ if.end10:                                         ; preds = %if.end6
 
 return.sink.split:                                ; preds = %if.end10, %if.then
   %retval.0.ph = phi i32 [ -30996, %if.then ], [ 0, %if.end10 ]
-  %.sink = load i32, ptr %insert_idx, align 4
-  store i32 %.sink, ptr %idx, align 4
+  %12 = load i32, ptr %insert_idx, align 4
+  store i32 %12, ptr %idx, align 4
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end10, %if.end6, %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE9find_zeroI13DICTIONARY_IDTnPFiRKS2_RKT_EXadL_ZNS_16locktree_manager15find_by_dict_idES7_RKS5_EEEEiSA_PS2_Pj.exit, %if.then

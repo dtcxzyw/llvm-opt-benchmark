@@ -10409,7 +10409,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %132, %.lr.ph.i, %.l
   %195 = add i32 %.0174.lcssa, -1
   %196 = add i32 %9, 2
   %.not192 = icmp ult i32 %195, %196
-  br i1 %.not192, label %211, label %197
+  br i1 %.not192, label %208, label %197
 
 197:                                              ; preds = %194
   %198 = add i32 %.0174.lcssa, -3
@@ -10424,87 +10424,82 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %132, %.lr.ph.i, %.l
   %206 = load i32, ptr %205, align 4
   %207 = getelementptr inbounds i8, ptr %8, i64 4
   store i32 %206, ptr %207, align 4
-  %208 = zext i32 %195 to i64
-  %209 = getelementptr inbounds %struct.ZSTD_Sequence, ptr %2, i64 %208
-  %210 = load i32, ptr %209, align 4
-  store i32 %210, ptr %8, align 4
+  br label %.critedge.thread.sink.split
+
+208:                                              ; preds = %194
+  %209 = icmp eq i32 %.0174.lcssa, %196
+  br i1 %209, label %210, label %218
+
+210:                                              ; preds = %208
+  %211 = load i32, ptr %8, align 4
+  %212 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %211, ptr %212, align 4
+  %213 = add i32 %.0174.lcssa, -2
+  %214 = zext i32 %213 to i64
+  %215 = getelementptr inbounds %struct.ZSTD_Sequence, ptr %2, i64 %214
+  %216 = load i32, ptr %215, align 4
+  %217 = getelementptr inbounds i8, ptr %8, i64 4
+  store i32 %216, ptr %217, align 4
+  br label %.critedge.thread.sink.split
+
+218:                                              ; preds = %208
+  %219 = getelementptr inbounds i8, ptr %8, i64 4
+  %220 = load i32, ptr %219, align 4
+  %221 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %220, ptr %221, align 4
+  %222 = load i32, ptr %8, align 4
+  store i32 %222, ptr %219, align 4
+  br label %.critedge.thread.sink.split
+
+.critedge.thread.sink.split:                      ; preds = %210, %218, %197
+  %223 = zext i32 %195 to i64
+  %224 = getelementptr inbounds %struct.ZSTD_Sequence, ptr %2, i64 %223
+  %225 = load i32, ptr %224, align 4
+  store i32 %225, ptr %8, align 4
   br label %.critedge.thread
 
-211:                                              ; preds = %194
-  %212 = icmp eq i32 %.0174.lcssa, %196
-  br i1 %212, label %213, label %224
+.critedge.thread:                                 ; preds = %.critedge.thread.sink.split, %22, %.critedge
+  %.lcssa246 = phi i64 [ %.lcssa, %.critedge ], [ %26, %22 ], [ %.lcssa, %.critedge.thread.sink.split ]
+  %.0174.lcssa245 = phi i32 [ %.0174.lcssa, %.critedge ], [ %9, %22 ], [ %.0174.lcssa, %.critedge.thread.sink.split ]
+  %.0176.lcssa244 = phi ptr [ %.0176.lcssa, %.critedge ], [ %4, %22 ], [ %.0176.lcssa, %.critedge.thread.sink.split ]
+  %226 = getelementptr inbounds i8, ptr %0, i64 3184
+  %227 = load ptr, ptr %226, align 8
+  %228 = getelementptr inbounds i8, ptr %227, i64 5616
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %228, ptr noundef nonnull align 4 dereferenceable(12) %8, i64 12, i1 false)
+  %229 = getelementptr inbounds %struct.ZSTD_Sequence, ptr %2, i64 %.lcssa246, i32 1
+  %230 = load i32, ptr %229, align 4
+  %.not193 = icmp eq i32 %230, 0
+  br i1 %.not193, label %243, label %231
 
-213:                                              ; preds = %211
-  %214 = load i32, ptr %8, align 4
-  %215 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %214, ptr %215, align 4
-  %216 = add i32 %.0174.lcssa, -2
-  %217 = zext i32 %216 to i64
-  %218 = getelementptr inbounds %struct.ZSTD_Sequence, ptr %2, i64 %217
-  %219 = load i32, ptr %218, align 4
-  %220 = getelementptr inbounds i8, ptr %8, i64 4
-  store i32 %219, ptr %220, align 4
-  %221 = zext i32 %195 to i64
-  %222 = getelementptr inbounds %struct.ZSTD_Sequence, ptr %2, i64 %221
-  %223 = load i32, ptr %222, align 4
-  store i32 %223, ptr %8, align 4
-  br label %.critedge.thread
+231:                                              ; preds = %.critedge.thread
+  %232 = zext i32 %230 to i64
+  %233 = getelementptr inbounds i8, ptr %0, i64 952
+  %234 = load ptr, ptr %233, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %234, ptr readonly align 1 %.0176.lcssa244, i64 %232, i1 false)
+  %235 = load ptr, ptr %233, align 8
+  %236 = getelementptr inbounds i8, ptr %235, i64 %232
+  store ptr %236, ptr %233, align 8
+  %237 = load i32, ptr %229, align 4
+  %238 = zext i32 %237 to i64
+  %239 = getelementptr inbounds i8, ptr %.0176.lcssa244, i64 %238
+  %240 = getelementptr inbounds i8, ptr %1, i64 8
+  %241 = load i64, ptr %240, align 8
+  %242 = add i64 %241, %238
+  store i64 %242, ptr %240, align 8
+  br label %243
 
-224:                                              ; preds = %211
-  %225 = getelementptr inbounds i8, ptr %8, i64 4
-  %226 = load i32, ptr %225, align 4
-  %227 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %226, ptr %227, align 4
-  %228 = load i32, ptr %8, align 4
-  store i32 %228, ptr %225, align 4
-  %229 = zext i32 %195 to i64
-  %230 = getelementptr inbounds %struct.ZSTD_Sequence, ptr %2, i64 %229
-  %231 = load i32, ptr %230, align 4
-  store i32 %231, ptr %8, align 4
-  br label %.critedge.thread
-
-.critedge.thread:                                 ; preds = %22, %197, %224, %213, %.critedge
-  %.lcssa246 = phi i64 [ %.lcssa, %197 ], [ %.lcssa, %224 ], [ %.lcssa, %213 ], [ %.lcssa, %.critedge ], [ %26, %22 ]
-  %.0174.lcssa245 = phi i32 [ %.0174.lcssa, %197 ], [ %.0174.lcssa, %224 ], [ %.0174.lcssa, %213 ], [ %.0174.lcssa, %.critedge ], [ %9, %22 ]
-  %.0176.lcssa244 = phi ptr [ %.0176.lcssa, %197 ], [ %.0176.lcssa, %224 ], [ %.0176.lcssa, %213 ], [ %.0176.lcssa, %.critedge ], [ %4, %22 ]
-  %232 = getelementptr inbounds i8, ptr %0, i64 3184
-  %233 = load ptr, ptr %232, align 8
-  %234 = getelementptr inbounds i8, ptr %233, i64 5616
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %234, ptr noundef nonnull align 4 dereferenceable(12) %8, i64 12, i1 false)
-  %235 = getelementptr inbounds %struct.ZSTD_Sequence, ptr %2, i64 %.lcssa246, i32 1
-  %236 = load i32, ptr %235, align 4
-  %.not193 = icmp eq i32 %236, 0
-  br i1 %.not193, label %249, label %237
-
-237:                                              ; preds = %.critedge.thread
-  %238 = zext i32 %236 to i64
-  %239 = getelementptr inbounds i8, ptr %0, i64 952
-  %240 = load ptr, ptr %239, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %240, ptr readonly align 1 %.0176.lcssa244, i64 %238, i1 false)
-  %241 = load ptr, ptr %239, align 8
-  %242 = getelementptr inbounds i8, ptr %241, i64 %238
-  store ptr %242, ptr %239, align 8
-  %243 = load i32, ptr %235, align 4
-  %244 = zext i32 %243 to i64
-  %245 = getelementptr inbounds i8, ptr %.0176.lcssa244, i64 %244
-  %246 = getelementptr inbounds i8, ptr %1, i64 8
-  %247 = load i64, ptr %246, align 8
-  %248 = add i64 %247, %244
-  store i64 %248, ptr %246, align 8
-  br label %249
-
-249:                                              ; preds = %237, %.critedge.thread
-  %.1177 = phi ptr [ %245, %237 ], [ %.0176.lcssa244, %.critedge.thread ]
+243:                                              ; preds = %231, %.critedge.thread
+  %.1177 = phi ptr [ %239, %231 ], [ %.0176.lcssa244, %.critedge.thread ]
   %.not194 = icmp eq ptr %.1177, %10
-  br i1 %.not194, label %250, label %ZSTD_validateSequence.exit.thread
+  br i1 %.not194, label %244, label %ZSTD_validateSequence.exit.thread
 
-250:                                              ; preds = %249
-  %251 = add i32 %.0174.lcssa245, 1
-  store i32 %251, ptr %1, align 8
+244:                                              ; preds = %243
+  %245 = add i32 %.0174.lcssa245, 1
+  store i32 %245, ptr %1, align 8
   br label %ZSTD_validateSequence.exit.thread
 
-ZSTD_validateSequence.exit.thread:                ; preds = %112, %91, %ZSTD_validateSequence.exit, %249, %250
-  %.0173 = phi i64 [ 0, %250 ], [ -107, %249 ], [ -107, %ZSTD_validateSequence.exit ], [ -107, %91 ], [ -107, %112 ]
+ZSTD_validateSequence.exit.thread:                ; preds = %112, %91, %ZSTD_validateSequence.exit, %243, %244
+  %.0173 = phi i64 [ 0, %244 ], [ -107, %243 ], [ -107, %ZSTD_validateSequence.exit ], [ -107, %91 ], [ -107, %112 ]
   ret i64 %.0173
 }
 

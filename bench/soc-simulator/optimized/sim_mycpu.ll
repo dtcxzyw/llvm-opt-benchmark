@@ -23168,7 +23168,6 @@ default.unreachable27:                            ; preds = %1923, %1839, %1683,
   %1849 = load i32, ptr %12, align 4, !tbaa !56
   %1850 = and i32 %1849, -256
   %1851 = or disjoint i32 %1850, %1848
-  store i32 %1851, ptr %12, align 4, !tbaa !56
   br label %1881
 
 1852:                                             ; preds = %1839
@@ -23182,7 +23181,6 @@ default.unreachable27:                            ; preds = %1923, %1839, %1683,
   %1860 = load i32, ptr %12, align 4, !tbaa !56
   %1861 = and i32 %1860, -65536
   %1862 = or disjoint i32 %1861, %1859
-  store i32 %1862, ptr %12, align 4, !tbaa !56
   br label %1881
 
 1863:                                             ; preds = %1839
@@ -23196,7 +23194,6 @@ default.unreachable27:                            ; preds = %1923, %1839, %1683,
   %1871 = load i32, ptr %12, align 4, !tbaa !56
   %1872 = and i32 %1871, -16777216
   %1873 = or disjoint i32 %1872, %1870
-  store i32 %1873, ptr %12, align 4, !tbaa !56
   br label %1881
 
 1874:                                             ; preds = %1839
@@ -23206,10 +23203,11 @@ default.unreachable27:                            ; preds = %1923, %1839, %1683,
   %1878 = zext nneg i32 %1877 to i64
   %1879 = getelementptr inbounds [32 x i32], ptr %1815, i64 0, i64 %1878
   %1880 = load i32, ptr %1879, align 4, !tbaa !56
-  store i32 %1880, ptr %12, align 4, !tbaa !56
   br label %1881
 
 1881:                                             ; preds = %1874, %1863, %1852, %1841
+  %.sink = phi i32 [ %1880, %1874 ], [ %1873, %1863 ], [ %1862, %1852 ], [ %1851, %1841 ]
+  store i32 %.sink, ptr %12, align 4, !tbaa !56
   %1882 = load i32, ptr %90, align 8
   %1883 = and i32 %1882, 6
   %1884 = icmp eq i32 %1883, 0
@@ -23280,7 +23278,6 @@ default.unreachable27:                            ; preds = %1923, %1839, %1683,
   %1929 = zext nneg i32 %1928 to i64
   %1930 = getelementptr inbounds [32 x i32], ptr %1899, i64 0, i64 %1929
   %1931 = load i32, ptr %1930, align 4, !tbaa !56
-  store i32 %1931, ptr %13, align 4, !tbaa !56
   br label %1965
 
 1932:                                             ; preds = %1923
@@ -23294,7 +23291,6 @@ default.unreachable27:                            ; preds = %1923, %1839, %1683,
   %1940 = load i32, ptr %13, align 4, !tbaa !56
   %1941 = and i32 %1940, 255
   %1942 = or disjoint i32 %1941, %1939
-  store i32 %1942, ptr %13, align 4, !tbaa !56
   br label %1965
 
 1943:                                             ; preds = %1923
@@ -23308,7 +23304,6 @@ default.unreachable27:                            ; preds = %1923, %1839, %1683,
   %1951 = load i32, ptr %13, align 4, !tbaa !56
   %1952 = and i32 %1951, 65535
   %1953 = or disjoint i32 %1952, %1950
-  store i32 %1953, ptr %13, align 4, !tbaa !56
   br label %1965
 
 1954:                                             ; preds = %1923
@@ -23322,10 +23317,11 @@ default.unreachable27:                            ; preds = %1923, %1839, %1683,
   %1962 = load i32, ptr %13, align 4, !tbaa !56
   %1963 = and i32 %1962, 16777215
   %1964 = or disjoint i32 %1963, %1961
-  store i32 %1964, ptr %13, align 4, !tbaa !56
   br label %1965
 
 1965:                                             ; preds = %1954, %1943, %1932, %1925
+  %.sink31 = phi i32 [ %1964, %1954 ], [ %1953, %1943 ], [ %1942, %1932 ], [ %1931, %1925 ]
+  store i32 %.sink31, ptr %13, align 4, !tbaa !56
   %1966 = load i32, ptr %90, align 8
   %1967 = and i32 %1966, 6
   %1968 = icmp eq i32 %1967, 0

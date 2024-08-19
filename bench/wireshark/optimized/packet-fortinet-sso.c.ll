@@ -117,124 +117,101 @@ define internal noundef i32 @dissect_fortinet_sso(ptr noundef %0, ptr nocapture 
   %34 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef 12, i32 noundef %33, i8 noundef zeroext 47) #2
   %35 = add i32 %34, -12
   %36 = add i32 %34, 1
-  br i1 %32, label %37, label %53
+  %hf_fsso_domain.val = load i32, ptr @hf_fsso_domain, align 4
+  %hf_fsso_host.val = load i32, ptr @hf_fsso_host, align 4
+  %37 = select i1 %32, i32 %hf_fsso_domain.val, i32 %hf_fsso_host.val
+  %38 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %37, ptr noundef %0, i32 noundef 12, i32 noundef %35, i32 noundef 0) #2
+  %39 = load i32, ptr %6, align 4
+  %reass.sub = sub i32 %39, %34
+  %40 = add i32 %reass.sub, 11
+  store i32 %40, ptr %6, align 4
+  %41 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %36, i32 noundef %40, i8 noundef zeroext 47) #2
+  %42 = sub i32 %41, %36
+  %hf_fsso_user.val = load i32, ptr @hf_fsso_user, align 4
+  %hf_fsso_domain.val154 = load i32, ptr @hf_fsso_domain, align 4
+  %43 = select i1 %32, i32 %hf_fsso_user.val, i32 %hf_fsso_domain.val154
+  %44 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %43, ptr noundef %0, i32 noundef %36, i32 noundef %42, i32 noundef 0) #2
+  %.neg = xor i32 %42, -1
+  %45 = add i32 %41, 1
+  %46 = load i32, ptr %6, align 4
+  %47 = add i32 %46, %.neg
+  store i32 %47, ptr %6, align 4
+  %hf_fsso_version.val = load i32, ptr @hf_fsso_version, align 4
+  %hf_fsso_user.val155 = load i32, ptr @hf_fsso_user, align 4
+  %48 = select i1 %32, i32 %hf_fsso_version.val, i32 %hf_fsso_user.val155
+  %49 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %48, ptr noundef %0, i32 noundef %45, i32 noundef %47, i32 noundef 0) #2
+  %50 = load i32, ptr %6, align 4
+  %51 = add i32 %50, %45
+  %52 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %51) #2
+  %53 = icmp eq i32 %52, 4
+  br i1 %53, label %54, label %58
 
-37:                                               ; preds = %4
-  %38 = load i32, ptr @hf_fsso_domain, align 4
-  %39 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %38, ptr noundef %0, i32 noundef 12, i32 noundef %35, i32 noundef 0) #2
-  %40 = load i32, ptr %6, align 4
-  %reass.sub144 = sub i32 %40, %34
-  %41 = add i32 %reass.sub144, 11
-  store i32 %41, ptr %6, align 4
-  %42 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %36, i32 noundef %41, i8 noundef zeroext 47) #2
-  %43 = sub i32 %42, %36
-  %44 = load i32, ptr @hf_fsso_user, align 4
-  %45 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %44, ptr noundef %0, i32 noundef %36, i32 noundef %43, i32 noundef 0) #2
-  %.neg136 = xor i32 %43, -1
-  %46 = add i32 %42, 1
-  %47 = load i32, ptr %6, align 4
-  %48 = add i32 %47, %.neg136
-  store i32 %48, ptr %6, align 4
-  %49 = load i32, ptr @hf_fsso_version, align 4
-  %50 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %49, ptr noundef %0, i32 noundef %46, i32 noundef %48, i32 noundef 0) #2
-  %51 = load i32, ptr %6, align 4
-  %52 = add i32 %51, %46
-  br label %69
+54:                                               ; preds = %4
+  %55 = load i32, ptr @hf_fsso_unknown_ipv4, align 4
+  %56 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %55, ptr noundef %0, i32 noundef %51, i32 noundef 4, i32 noundef 0) #2
+  %57 = add i32 %51, 4
+  br label %.loopexit
 
-53:                                               ; preds = %4
-  %54 = load i32, ptr @hf_fsso_host, align 4
-  %55 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %54, ptr noundef %0, i32 noundef 12, i32 noundef %35, i32 noundef 0) #2
-  %56 = load i32, ptr %6, align 4
-  %reass.sub = sub i32 %56, %34
-  %57 = add i32 %reass.sub, 11
-  store i32 %57, ptr %6, align 4
-  %58 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %36, i32 noundef %57, i8 noundef zeroext 47) #2
-  %59 = sub i32 %58, %36
-  %60 = load i32, ptr @hf_fsso_domain, align 4
-  %61 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %60, ptr noundef %0, i32 noundef %36, i32 noundef %59, i32 noundef 0) #2
-  %.neg = xor i32 %59, -1
-  %62 = add i32 %58, 1
-  %63 = load i32, ptr %6, align 4
-  %64 = add i32 %63, %.neg
-  store i32 %64, ptr %6, align 4
-  %65 = load i32, ptr @hf_fsso_user, align 4
-  %66 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %65, ptr noundef %0, i32 noundef %62, i32 noundef %64, i32 noundef 0) #2
-  %67 = load i32, ptr %6, align 4
-  %68 = add i32 %67, %62
-  br label %69
+58:                                               ; preds = %4
+  %59 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %51) #2
+  %.not = icmp eq i32 %59, 0
+  br i1 %.not, label %.loopexit, label %60
 
-69:                                               ; preds = %53, %37
-  %.0 = phi i32 [ %52, %37 ], [ %68, %53 ]
-  %70 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0) #2
-  %71 = icmp eq i32 %70, 4
-  br i1 %71, label %72, label %76
+60:                                               ; preds = %58
+  %61 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %51) #2
+  %62 = icmp eq i16 %61, 8194
+  %63 = load i32, ptr @hf_fsso_unknown, align 4
+  br i1 %62, label %64, label %79
 
-72:                                               ; preds = %69
+64:                                               ; preds = %60
+  %65 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %63, ptr noundef %0, i32 noundef %51, i32 noundef 2, i32 noundef 0) #2
+  %66 = add i32 %51, 2
+  %67 = load i32, ptr @hf_fsso_unknown_ipv4, align 4
+  %68 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %67, ptr noundef %0, i32 noundef %66, i32 noundef 4, i32 noundef 0) #2
+  %69 = add i32 %51, 6
+  %70 = load i32, ptr @hf_fsso_unknown, align 4
+  %71 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %70, ptr noundef %0, i32 noundef %69, i32 noundef 6, i32 noundef 0) #2
+  %72 = add i32 %51, 12
   %73 = load i32, ptr @hf_fsso_unknown_ipv4, align 4
-  %74 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %73, ptr noundef %0, i32 noundef %.0, i32 noundef 4, i32 noundef 0) #2
-  %75 = add i32 %.0, 4
+  %74 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %73, ptr noundef %0, i32 noundef %72, i32 noundef 4, i32 noundef 0) #2
+  %75 = add i32 %51, 16
+  %76 = load i32, ptr @hf_fsso_unknown, align 4
+  %77 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %76, ptr noundef %0, i32 noundef %75, i32 noundef 1, i32 noundef 0) #2
+  %78 = add i32 %51, 17
   br label %.loopexit
 
-76:                                               ; preds = %69
-  %77 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0) #2
-  %.not = icmp eq i32 %77, 0
-  br i1 %.not, label %.loopexit, label %78
-
-78:                                               ; preds = %76
-  %79 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0) #2
-  %80 = icmp eq i16 %79, 8194
-  %81 = load i32, ptr @hf_fsso_unknown, align 4
-  br i1 %80, label %82, label %97
-
-82:                                               ; preds = %78
-  %83 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %81, ptr noundef %0, i32 noundef %.0, i32 noundef 2, i32 noundef 0) #2
-  %84 = add i32 %.0, 2
-  %85 = load i32, ptr @hf_fsso_unknown_ipv4, align 4
-  %86 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %85, ptr noundef %0, i32 noundef %84, i32 noundef 4, i32 noundef 0) #2
-  %87 = add i32 %.0, 6
-  %88 = load i32, ptr @hf_fsso_unknown, align 4
-  %89 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %88, ptr noundef %0, i32 noundef %87, i32 noundef 6, i32 noundef 0) #2
-  %90 = add i32 %.0, 12
-  %91 = load i32, ptr @hf_fsso_unknown_ipv4, align 4
-  %92 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %91, ptr noundef %0, i32 noundef %90, i32 noundef 4, i32 noundef 0) #2
-  %93 = add i32 %.0, 16
-  %94 = load i32, ptr @hf_fsso_unknown, align 4
-  %95 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %94, ptr noundef %0, i32 noundef %93, i32 noundef 1, i32 noundef 0) #2
-  %96 = add i32 %.0, 17
-  br label %.loopexit
-
-97:                                               ; preds = %78
-  %98 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %81, ptr noundef %0, i32 noundef %.0, i32 noundef 15, i32 noundef 0) #2
-  %99 = add i32 %.0, 15
-  %100 = load i32, ptr @hf_fsso_unknown, align 4
-  %101 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %100, ptr noundef %0, i32 noundef %99, i32 noundef 5, i32 noundef 0) #2
-  %102 = add i32 %.0, 20
-  %103 = load i32, ptr @hf_fsso_unknown, align 4
-  %104 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %103, ptr noundef %0, i32 noundef %102, i32 noundef 6, i32 noundef 0) #2
-  %105 = add i32 %.0, 26
-  %106 = load i32, ptr @hf_fsso_tsagent_number_port_range, align 4
-  %107 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %106, ptr noundef %0, i32 noundef %105, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %7) #2
-  %108 = add i32 %.0, 28
+79:                                               ; preds = %60
+  %80 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %63, ptr noundef %0, i32 noundef %51, i32 noundef 15, i32 noundef 0) #2
+  %81 = add i32 %51, 15
+  %82 = load i32, ptr @hf_fsso_unknown, align 4
+  %83 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %82, ptr noundef %0, i32 noundef %81, i32 noundef 5, i32 noundef 0) #2
+  %84 = add i32 %51, 20
+  %85 = load i32, ptr @hf_fsso_unknown, align 4
+  %86 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %85, ptr noundef %0, i32 noundef %84, i32 noundef 6, i32 noundef 0) #2
+  %87 = add i32 %51, 26
+  %88 = load i32, ptr @hf_fsso_tsagent_number_port_range, align 4
+  %89 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %88, ptr noundef %0, i32 noundef %87, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %7) #2
+  %90 = add i32 %51, 28
   %.pr = load i32, ptr %7, align 4
   %.not137142 = icmp eq i32 %.pr, 0
   br i1 %.not137142, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %97, %.lr.ph
-  %.2143 = phi i32 [ %114, %.lr.ph ], [ %108, %97 ]
-  %109 = load i32, ptr @hf_fsso_tsagent_port_range_min, align 4
-  %110 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %109, ptr noundef %0, i32 noundef %.2143, i32 noundef 2, i32 noundef 0) #2
-  %111 = add i32 %.2143, 2
-  %112 = load i32, ptr @hf_fsso_tsagent_port_range_max, align 4
-  %113 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %112, ptr noundef %0, i32 noundef %111, i32 noundef 2, i32 noundef 0) #2
-  %114 = add i32 %.2143, 4
-  %115 = load i32, ptr %7, align 4
-  %116 = add i32 %115, -1
-  store i32 %116, ptr %7, align 4
-  %.not137 = icmp eq i32 %116, 0
+.lr.ph:                                           ; preds = %79, %.lr.ph
+  %.2143 = phi i32 [ %96, %.lr.ph ], [ %90, %79 ]
+  %91 = load i32, ptr @hf_fsso_tsagent_port_range_min, align 4
+  %92 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %91, ptr noundef %0, i32 noundef %.2143, i32 noundef 2, i32 noundef 0) #2
+  %93 = add i32 %.2143, 2
+  %94 = load i32, ptr @hf_fsso_tsagent_port_range_max, align 4
+  %95 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %94, ptr noundef %0, i32 noundef %93, i32 noundef 2, i32 noundef 0) #2
+  %96 = add i32 %.2143, 4
+  %97 = load i32, ptr %7, align 4
+  %98 = add i32 %97, -1
+  store i32 %98, ptr %7, align 4
+  %.not137 = icmp eq i32 %98, 0
   br i1 %.not137, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
-.loopexit:                                        ; preds = %.lr.ph, %97, %76, %82, %72
-  %.1 = phi i32 [ %75, %72 ], [ %96, %82 ], [ %.0, %76 ], [ %108, %97 ], [ %114, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %79, %58, %64, %54
+  %.1 = phi i32 [ %57, %54 ], [ %78, %64 ], [ %51, %58 ], [ %90, %79 ], [ %96, %.lr.ph ]
   ret i32 %.1
 }
 

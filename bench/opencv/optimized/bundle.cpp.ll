@@ -938,7 +938,6 @@ define linkonce_odr hidden void @_ZNK2cv4usac31RelativePoseJacobianAccumulator10
   %47 = fsub double %39, %46
   %48 = fneg double %35
   %49 = tail call double @llvm.fmuladd.f64(double %32, double 0.000000e+00, double %48)
-  store double %45, ptr %8, align 8
   br label %73
 
 50:                                               ; preds = %41
@@ -948,7 +947,6 @@ define linkonce_odr hidden void @_ZNK2cv4usac31RelativePoseJacobianAccumulator10
   %54 = tail call double @llvm.fmuladd.f64(double %39, double 0.000000e+00, double %53)
   %55 = fmul double %35, -0.000000e+00
   %56 = tail call double @llvm.fmuladd.f64(double %32, double 0.000000e+00, double %55)
-  store double %52, ptr %8, align 8
   br label %73
 
 57:                                               ; preds = %5
@@ -962,7 +960,6 @@ define linkonce_odr hidden void @_ZNK2cv4usac31RelativePoseJacobianAccumulator10
   %63 = tail call double @llvm.fmuladd.f64(double %39, double 0.000000e+00, double %62)
   %64 = fmul double %35, 0.000000e+00
   %65 = fsub double %32, %64
-  store double %61, ptr %8, align 8
   br label %73
 
 66:                                               ; preds = %57
@@ -972,12 +969,13 @@ define linkonce_odr hidden void @_ZNK2cv4usac31RelativePoseJacobianAccumulator10
   %70 = tail call double @llvm.fmuladd.f64(double %39, double 0.000000e+00, double %69)
   %71 = fmul double %35, -0.000000e+00
   %72 = tail call double @llvm.fmuladd.f64(double %32, double 0.000000e+00, double %71)
-  store double %68, ptr %8, align 8
   br label %73
 
 73:                                               ; preds = %59, %66, %43, %50
+  %.sink305 = phi double [ %61, %59 ], [ %68, %66 ], [ %45, %43 ], [ %52, %50 ]
   %.sink304 = phi double [ %63, %59 ], [ %70, %66 ], [ %47, %43 ], [ %54, %50 ]
   %.sink = phi double [ %65, %59 ], [ %72, %66 ], [ %49, %43 ], [ %56, %50 ]
+  store double %.sink305, ptr %8, align 8
   store double %.sink304, ptr %.sroa.2239.0..sroa_idx, align 8
   store double %.sink, ptr %.sroa.3240.0..sroa_idx, align 8
   br label %.lr.ph.i.i

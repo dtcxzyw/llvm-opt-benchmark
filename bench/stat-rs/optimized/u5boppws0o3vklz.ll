@@ -579,7 +579,7 @@ define void @_ZN6statrs12distribution9empirical9Empirical6remove17h6f5827aef5888
   %7 = alloca [32 x i8], align 8
   %8 = alloca [8 x i8], align 8
   %9 = fcmp uno double %1, 0.000000e+00
-  br i1 %9, label %42, label %10
+  br i1 %9, label %41, label %10
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 32
@@ -589,7 +589,7 @@ define void @_ZN6statrs12distribution9empirical9Empirical6remove17h6f5827aef5888
   tail call void @llvm.experimental.noalias.scope.decl(metadata !165)
   %12 = load ptr, ptr %11, align 8, !alias.scope !168, !noalias !169, !noundef !4
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h4585fad56757f5c7E.exit.thread", label %14
+  br i1 %13, label %.sink.split, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %0, i64 40
@@ -598,101 +598,102 @@ define void @_ZN6statrs12distribution9empirical9Empirical6remove17h6f5827aef5888
   call void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h20486de368571af5E"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %7, ptr noundef nonnull %12, i64 noundef %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8), !noalias !174
   %17 = load i64, ptr %7, align 8, !range !5, !noalias !173, !noundef !4
   %trunc.i.i = trunc nuw i64 %17 to i1
-  br i1 %trunc.i.i, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h10b077e809fa5fcfE.llvm.7371537965014501254.exit.thread8.i", label %18
+  br i1 %trunc.i.i, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h4585fad56757f5c7E.exit", label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h10b077e809fa5fcfE.llvm.7371537965014501254.exit.i"
 
-"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h10b077e809fa5fcfE.llvm.7371537965014501254.exit.thread8.i": ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !173
-  br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h4585fad56757f5c7E.exit.thread"
-
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %7, i64 8
+"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h10b077e809fa5fcfE.llvm.7371537965014501254.exit.i": ; preds = %14
+  %18 = getelementptr inbounds i8, ptr %7, i64 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !173
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !173
-  %20 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr %11, ptr %20, align 8, !noalias !173
-  %21 = call { double, i64 } @"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$C$V$C$A$GT$9remove_kv17ha29c93801fc9f68cE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %6), !noalias !175
-  %22 = extractvalue { double, i64 } %21, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false), !noalias !173
+  %19 = getelementptr inbounds i8, ptr %6, i64 24
+  store ptr %11, ptr %19, align 8, !noalias !173
+  %20 = call { double, i64 } @"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$C$V$C$A$GT$9remove_kv17ha29c93801fc9f68cE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %6), !noalias !175
+  %21 = extractvalue { double, i64 } %20, 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !173
+  br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h4585fad56757f5c7E.exit"
+
+"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h4585fad56757f5c7E.exit": ; preds = %14, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h10b077e809fa5fcfE.llvm.7371537965014501254.exit.i"
+  %.ph.i = phi i64 [ %21, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h10b077e809fa5fcfE.llvm.7371537965014501254.exit.i" ], [ undef, %14 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !173
   %.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.25.0.copyload = load double, ptr %.sroa.25.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   %.sroa.3.0.copyload = load double, ptr %.sroa.3.0..sroa_idx, align 8
+  %switch = icmp eq i64 %17, 0
   %.sroa.04.0.copyload = load i64, ptr %0, align 8
   %switch12 = icmp eq i64 %.sroa.04.0.copyload, 1
-  br i1 %switch12, label %23, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h4585fad56757f5c7E.exit.thread"
+  %or.cond21 = select i1 %switch, i1 %switch12, i1 false
+  br i1 %or.cond21, label %22, label %.sink.split
 
-"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h4585fad56757f5c7E.exit.thread": ; preds = %10, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h10b077e809fa5fcfE.llvm.7371537965014501254.exit.thread8.i", %18, %43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  br label %42
+22:                                               ; preds = %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h4585fad56757f5c7E.exit"
+  %23 = icmp eq i64 %.ph.i, 1
+  %24 = getelementptr inbounds i8, ptr %0, i64 48
+  %25 = load i64, ptr %24, align 8
+  %26 = icmp eq i64 %25, 0
+  %or.cond = select i1 %23, i1 %26, i1 false
+  br i1 %or.cond, label %39, label %27
 
-23:                                               ; preds = %18
-  %24 = icmp eq i64 %22, 1
-  %25 = getelementptr inbounds i8, ptr %0, i64 48
-  %26 = load i64, ptr %25, align 8
-  %27 = icmp eq i64 %26, 0
-  %or.cond = select i1 %24, i1 %27, i1 false
-  br i1 %or.cond, label %40, label %28
+27:                                               ; preds = %22
+  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = load double, ptr %28, align 8, !noundef !4
+  %30 = fmul double %.sroa.25.0.copyload, %29
+  %31 = fsub double %30, %1
+  %32 = fadd double %29, -1.000000e+00
+  %33 = fdiv double %31, %32
+  %34 = fsub double %1, %33
+  %35 = fmul double %32, %34
+  %36 = fmul double %34, %35
+  %37 = fdiv double %36, %29
+  %38 = fsub double %.sroa.3.0.copyload, %37
+  store double %32, ptr %28, align 8
+  br i1 %23, label %42, label %43
 
-28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
-  %30 = load double, ptr %29, align 8, !noundef !4
-  %31 = fmul double %.sroa.25.0.copyload, %30
-  %32 = fsub double %31, %1
-  %33 = fadd double %30, -1.000000e+00
-  %34 = fdiv double %32, %33
-  %35 = fsub double %1, %34
-  %36 = fmul double %33, %35
-  %37 = fmul double %35, %36
-  %38 = fdiv double %37, %30
-  %39 = fsub double %.sroa.3.0.copyload, %38
-  store double %33, ptr %29, align 8
-  br i1 %24, label %43, label %44
-
-40:                                               ; preds = %23
+39:                                               ; preds = %22
   store i64 0, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 24
-  store double 0.000000e+00, ptr %41, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  br label %42
+  %40 = getelementptr inbounds i8, ptr %0, i64 24
+  store double 0.000000e+00, ptr %40, align 8
+  br label %.sink.split
 
-42:                                               ; preds = %2, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h4585fad56757f5c7E.exit.thread", %40
+.sink.split:                                      ; preds = %42, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h4585fad56757f5c7E.exit", %10, %39
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  br label %41
+
+41:                                               ; preds = %.sink.split, %2
   ret void
 
-43:                                               ; preds = %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17h0d6c1d286f4f20b0E.exit", %28
+42:                                               ; preds = %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17h0d6c1d286f4f20b0E.exit", %27
   store i64 1, ptr %0, align 8
-  store double %34, ptr %.sroa.25.0..sroa_idx, align 8
-  store double %39, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h4585fad56757f5c7E.exit.thread"
+  store double %33, ptr %.sroa.25.0..sroa_idx, align 8
+  store double %38, ptr %.sroa.3.0..sroa_idx, align 8
+  br label %.sink.split
 
-44:                                               ; preds = %28
-  %45 = add i64 %22, -1
+43:                                               ; preds = %27
+  %44 = add i64 %.ph.i, -1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !176
   call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17h09ac46b4a13b1794E"(ptr noalias nocapture noundef nonnull sret([40 x i8]) align 8 dereferenceable(40) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %11, double noundef %1)
-  %46 = load ptr, ptr %5, align 8, !noalias !176, !noundef !4
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %50, label %48
+  %45 = load ptr, ptr %5, align 8, !noalias !176, !noundef !4
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %49, label %47
 
-48:                                               ; preds = %44
+47:                                               ; preds = %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !noalias !176
-  %49 = call noundef align 8 dereferenceable(8) ptr @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17hc4822ea9d064d93fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %3, i64 noundef %45)
+  %48 = call noundef align 8 dereferenceable(8) ptr @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17hc4822ea9d064d93fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %3, i64 noundef %44)
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17h0d6c1d286f4f20b0E.exit"
 
-50:                                               ; preds = %44
+49:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !176
-  %51 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %51, i64 32, i1 false), !noalias !176
-  %52 = call { ptr, ptr } @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$6kv_mut17hb950c065e4a6766dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  %53 = extractvalue { ptr, ptr } %52, 1
-  store i64 %45, ptr %53, align 8
+  %50 = getelementptr inbounds i8, ptr %5, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %50, i64 32, i1 false), !noalias !176
+  %51 = call { ptr, ptr } @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$6kv_mut17hb950c065e4a6766dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+  %52 = extractvalue { ptr, ptr } %51, 1
+  store i64 %44, ptr %52, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !176
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17h0d6c1d286f4f20b0E.exit"
 
-"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17h0d6c1d286f4f20b0E.exit": ; preds = %48, %50
+"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17h0d6c1d286f4f20b0E.exit": ; preds = %47, %49
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !176
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  br label %43
+  br label %42
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -835,15 +836,10 @@ define noundef double @_ZN6statrs12distribution9empirical9Empirical13__inverse_c
   %47 = call { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f681cfe5c96f2ceE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %5), !noalias !195
   %48 = extractvalue { ptr, ptr } %47, 0
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %49, label %"_ZN115_$LT$statrs..distribution..empirical..Empirical$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$3cdf17hc04602130fd8e6c7E.exit", label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %56
   %50 = uitofp i64 %58 to double
-  br label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %46
-  %.sroa.04.0.lcssa.i = phi double [ 0.000000e+00, %46 ], [ %50, %._crit_edge.loopexit.i ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !195
   br label %"_ZN115_$LT$statrs..distribution..empirical..Empirical$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$3cdf17hc04602130fd8e6c7E.exit"
 
 .lr.ph.i:                                         ; preds = %46, %56
@@ -867,11 +863,11 @@ define noundef double @_ZN6statrs12distribution9empirical9Empirical13__inverse_c
 
 62:                                               ; preds = %.lr.ph.i
   %63 = uitofp i64 %.sroa.04.041.i to double
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !195
   br label %"_ZN115_$LT$statrs..distribution..empirical..Empirical$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$3cdf17hc04602130fd8e6c7E.exit"
 
-"_ZN115_$LT$statrs..distribution..empirical..Empirical$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$3cdf17hc04602130fd8e6c7E.exit": ; preds = %._crit_edge.i, %62
-  %.sroa.04.0.lcssa.i.pn = phi double [ %.sroa.04.0.lcssa.i, %._crit_edge.i ], [ %63, %62 ]
+"_ZN115_$LT$statrs..distribution..empirical..Empirical$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$3cdf17hc04602130fd8e6c7E.exit": ; preds = %46, %._crit_edge.loopexit.i, %62
+  %.sroa.04.0.lcssa.i.pn = phi double [ %63, %62 ], [ 0.000000e+00, %46 ], [ %50, %._crit_edge.loopexit.i ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !195
   %.sroa.0.0.i = fdiv double %.sroa.04.0.lcssa.i.pn, %19
   %64 = fcmp ogt double %.sroa.0.0.i, %1
   br i1 %64, label %65, label %.preheader54
@@ -906,15 +902,10 @@ define noundef double @_ZN6statrs12distribution9empirical9Empirical13__inverse_c
   %68 = call { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f681cfe5c96f2ceE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %4), !noalias !198
   %69 = extractvalue { ptr, ptr } %68, 0
   %70 = icmp eq ptr %69, null
-  br i1 %70, label %._crit_edge.i31, label %.lr.ph.i27
+  br i1 %70, label %"_ZN115_$LT$statrs..distribution..empirical..Empirical$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$3cdf17hc04602130fd8e6c7E.exit34", label %.lr.ph.i27
 
 ._crit_edge.loopexit.i30:                         ; preds = %77
   %71 = uitofp i64 %79 to double
-  br label %._crit_edge.i31
-
-._crit_edge.i31:                                  ; preds = %._crit_edge.loopexit.i30, %67
-  %.sroa.04.0.lcssa.i32 = phi double [ 0.000000e+00, %67 ], [ %71, %._crit_edge.loopexit.i30 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !198
   br label %"_ZN115_$LT$statrs..distribution..empirical..Empirical$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$3cdf17hc04602130fd8e6c7E.exit34"
 
 .lr.ph.i27:                                       ; preds = %67, %77
@@ -938,11 +929,11 @@ define noundef double @_ZN6statrs12distribution9empirical9Empirical13__inverse_c
 
 83:                                               ; preds = %.lr.ph.i27
   %84 = uitofp i64 %.sroa.04.041.i29 to double
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !198
   br label %"_ZN115_$LT$statrs..distribution..empirical..Empirical$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$3cdf17hc04602130fd8e6c7E.exit34"
 
-"_ZN115_$LT$statrs..distribution..empirical..Empirical$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$3cdf17hc04602130fd8e6c7E.exit34": ; preds = %._crit_edge.i31, %83
-  %.sroa.04.0.lcssa.i32.pn = phi double [ %.sroa.04.0.lcssa.i32, %._crit_edge.i31 ], [ %84, %83 ]
+"_ZN115_$LT$statrs..distribution..empirical..Empirical$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$3cdf17hc04602130fd8e6c7E.exit34": ; preds = %67, %._crit_edge.loopexit.i30, %83
+  %.sroa.04.0.lcssa.i32.pn = phi double [ %84, %83 ], [ 0.000000e+00, %67 ], [ %71, %._crit_edge.loopexit.i30 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !198
   %.sroa.0.0.i33 = fdiv double %.sroa.04.0.lcssa.i32.pn, %19
   %85 = fcmp olt double %.sroa.0.0.i33, %1
   br i1 %85, label %86, label %.preheader
@@ -986,15 +977,10 @@ define noundef double @_ZN6statrs12distribution9empirical9Empirical13__inverse_c
   %94 = call { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f681cfe5c96f2ceE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %3), !noalias !201
   %95 = extractvalue { ptr, ptr } %94, 0
   %96 = icmp eq ptr %95, null
-  br i1 %96, label %._crit_edge.i50, label %.lr.ph.i46
+  br i1 %96, label %"_ZN115_$LT$statrs..distribution..empirical..Empirical$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$3cdf17hc04602130fd8e6c7E.exit53", label %.lr.ph.i46
 
 ._crit_edge.loopexit.i49:                         ; preds = %103
   %97 = uitofp i64 %105 to double
-  br label %._crit_edge.i50
-
-._crit_edge.i50:                                  ; preds = %._crit_edge.loopexit.i49, %91
-  %.sroa.04.0.lcssa.i51 = phi double [ 0.000000e+00, %91 ], [ %97, %._crit_edge.loopexit.i49 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3), !noalias !201
   br label %"_ZN115_$LT$statrs..distribution..empirical..Empirical$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$3cdf17hc04602130fd8e6c7E.exit53"
 
 .lr.ph.i46:                                       ; preds = %91, %103
@@ -1018,11 +1004,11 @@ define noundef double @_ZN6statrs12distribution9empirical9Empirical13__inverse_c
 
 109:                                              ; preds = %.lr.ph.i46
   %110 = uitofp i64 %.sroa.04.041.i48 to double
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3), !noalias !201
   br label %"_ZN115_$LT$statrs..distribution..empirical..Empirical$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$3cdf17hc04602130fd8e6c7E.exit53"
 
-"_ZN115_$LT$statrs..distribution..empirical..Empirical$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$3cdf17hc04602130fd8e6c7E.exit53": ; preds = %._crit_edge.i50, %109
-  %.sroa.04.0.lcssa.i51.pn = phi double [ %.sroa.04.0.lcssa.i51, %._crit_edge.i50 ], [ %110, %109 ]
+"_ZN115_$LT$statrs..distribution..empirical..Empirical$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$3cdf17hc04602130fd8e6c7E.exit53": ; preds = %91, %._crit_edge.loopexit.i49, %109
+  %.sroa.04.0.lcssa.i51.pn = phi double [ %110, %109 ], [ 0.000000e+00, %91 ], [ %97, %._crit_edge.loopexit.i49 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3), !noalias !201
   %.sroa.0.0.i52 = fdiv double %.sroa.04.0.lcssa.i51.pn, %19
   %111 = fcmp ult double %.sroa.0.0.i52, %1
   %..sroa.08.1 = select i1 %111, double %93, double %.sroa.08.162

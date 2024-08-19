@@ -10735,148 +10735,140 @@ define internal fastcc range(i32 0, 2) i32 @get_envparam_size(ptr noundef %0, pt
   %3 = alloca ptr, align 8
   %4 = tail call ptr @getenv(ptr noundef %0) #38
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %68, label %5
+  br i1 %.not, label %65, label %5
 
 5:                                                ; preds = %2
   %6 = load i8, ptr %4, align 1
   %.not31 = icmp eq i8 %6, 0
-  br i1 %.not31, label %68, label %7
+  br i1 %.not31, label %65, label %7
 
 7:                                                ; preds = %5
   %8 = call i64 @strtoll(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef 0) #38
   %9 = load ptr, ptr %3, align 8
   %10 = load i8, ptr %9, align 1
-  switch i8 %10, label %17 [
-    i8 107, label %11
-    i8 75, label %11
-    i8 109, label %13
-    i8 77, label %13
-    i8 103, label %15
-    i8 71, label %15
+  switch i8 %10, label %14 [
+    i8 107, label %thread-pre-split
+    i8 75, label %thread-pre-split
+    i8 109, label %11
+    i8 77, label %11
+    i8 103, label %12
+    i8 71, label %12
   ]
 
 11:                                               ; preds = %7, %7
-  %12 = getelementptr i8, ptr %9, i64 1
-  store ptr %12, ptr %3, align 8
   br label %thread-pre-split
 
-13:                                               ; preds = %7, %7
-  %14 = getelementptr i8, ptr %9, i64 1
-  store ptr %14, ptr %3, align 8
+12:                                               ; preds = %7, %7
   br label %thread-pre-split
 
-15:                                               ; preds = %7, %7
-  %16 = getelementptr i8, ptr %9, i64 1
-  store ptr %16, ptr %3, align 8
-  br label %thread-pre-split
+thread-pre-split:                                 ; preds = %7, %7, %11, %12
+  %.0.ph = phi i64 [ 1048576, %11 ], [ 1073741824, %12 ], [ 1024, %7 ], [ 1024, %7 ]
+  %13 = getelementptr i8, ptr %9, i64 1
+  store ptr %13, ptr %3, align 8
+  %.pr = load i8, ptr %13, align 1
+  br label %14
 
-thread-pre-split:                                 ; preds = %11, %13, %15
-  %.promoted.ph = phi ptr [ %12, %11 ], [ %14, %13 ], [ %16, %15 ]
-  %.0.ph = phi i64 [ 1024, %11 ], [ 1048576, %13 ], [ 1073741824, %15 ]
-  %.pr = load i8, ptr %.promoted.ph, align 1
-  br label %17
-
-17:                                               ; preds = %thread-pre-split, %7
-  %18 = phi i8 [ %.pr, %thread-pre-split ], [ %10, %7 ]
-  %.promoted = phi ptr [ %.promoted.ph, %thread-pre-split ], [ %9, %7 ]
-  %19 = phi i1 [ true, %thread-pre-split ], [ false, %7 ]
+14:                                               ; preds = %thread-pre-split, %7
+  %15 = phi i8 [ %.pr, %thread-pre-split ], [ %10, %7 ]
+  %.promoted = phi ptr [ %13, %thread-pre-split ], [ %9, %7 ]
+  %16 = phi i1 [ true, %thread-pre-split ], [ false, %7 ]
   %.0 = phi i64 [ %.0.ph, %thread-pre-split ], [ 0, %7 ]
-  %.not3240 = icmp eq i8 %18, 0
+  %.not3240 = icmp eq i8 %15, 0
   br i1 %.not3240, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %17
-  %20 = tail call ptr @__ctype_b_loc() #61
-  %21 = load ptr, ptr %20, align 8
-  br label %22
+.lr.ph:                                           ; preds = %14
+  %17 = tail call ptr @__ctype_b_loc() #61
+  %18 = load ptr, ptr %17, align 8
+  br label %19
 
-22:                                               ; preds = %.lr.ph, %29
-  %23 = phi i8 [ %18, %.lr.ph ], [ %31, %29 ]
-  %24 = phi ptr [ %.promoted, %.lr.ph ], [ %30, %29 ]
-  %25 = zext i8 %23 to i64
-  %26 = getelementptr i16, ptr %21, i64 %25
-  %27 = load i16, ptr %26, align 2
-  %28 = and i16 %27, 8192
-  %.not33 = icmp eq i16 %28, 0
-  br i1 %.not33, label %.critedge, label %29
+19:                                               ; preds = %.lr.ph, %26
+  %20 = phi i8 [ %15, %.lr.ph ], [ %28, %26 ]
+  %21 = phi ptr [ %.promoted, %.lr.ph ], [ %27, %26 ]
+  %22 = zext i8 %20 to i64
+  %23 = getelementptr i16, ptr %18, i64 %22
+  %24 = load i16, ptr %23, align 2
+  %25 = and i16 %24, 8192
+  %.not33 = icmp eq i16 %25, 0
+  br i1 %.not33, label %.critedge, label %26
 
-29:                                               ; preds = %22
-  %30 = getelementptr i8, ptr %24, i64 1
-  %31 = load i8, ptr %30, align 1
-  %.not32 = icmp eq i8 %31, 0
-  br i1 %.not32, label %._crit_edge, label %22, !llvm.loop !63
+26:                                               ; preds = %19
+  %27 = getelementptr i8, ptr %21, i64 1
+  %28 = load i8, ptr %27, align 1
+  %.not32 = icmp eq i8 %28, 0
+  br i1 %.not32, label %._crit_edge, label %19, !llvm.loop !63
 
-.critedge:                                        ; preds = %22
-  %32 = tail call ptr @rb_ruby_verbose_ptr() #38
-  %33 = load i64, ptr %32, align 8
-  %34 = and i64 %33, -5
-  %.not35 = icmp eq i64 %34, 0
-  br i1 %.not35, label %68, label %35
+.critedge:                                        ; preds = %19
+  %29 = tail call ptr @rb_ruby_verbose_ptr() #38
+  %30 = load i64, ptr %29, align 8
+  %31 = and i64 %30, -5
+  %.not35 = icmp eq i64 %31, 0
+  br i1 %.not35, label %65, label %32
 
-35:                                               ; preds = %.critedge
-  %36 = load ptr, ptr @stderr, align 8
-  %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.275, ptr noundef %0, ptr noundef nonnull %4) #57
-  br label %68
+32:                                               ; preds = %.critedge
+  %33 = load ptr, ptr @stderr, align 8
+  %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.275, ptr noundef %0, ptr noundef nonnull %4) #57
+  br label %65
 
-._crit_edge:                                      ; preds = %29, %17
-  br i1 %19, label %38, label %52
+._crit_edge:                                      ; preds = %26, %14
+  br i1 %16, label %35, label %49
 
-38:                                               ; preds = %._crit_edge
-  %39 = udiv i64 9223372036854775807, %.0
-  %40 = sub nsw i64 0, %39
-  %41 = icmp slt i64 %8, %40
-  %42 = icmp slt i64 %39, %8
-  %or.cond = or i1 %41, %42
-  br i1 %or.cond, label %43, label %50
+35:                                               ; preds = %._crit_edge
+  %36 = udiv i64 9223372036854775807, %.0
+  %37 = sub nsw i64 0, %36
+  %38 = icmp slt i64 %8, %37
+  %39 = icmp slt i64 %36, %8
+  %or.cond = or i1 %38, %39
+  br i1 %or.cond, label %40, label %47
 
-43:                                               ; preds = %38
-  %44 = tail call ptr @rb_ruby_verbose_ptr() #38
-  %45 = load i64, ptr %44, align 8
-  %46 = and i64 %45, -5
-  %.not38 = icmp eq i64 %46, 0
-  br i1 %.not38, label %68, label %47
+40:                                               ; preds = %35
+  %41 = tail call ptr @rb_ruby_verbose_ptr() #38
+  %42 = load i64, ptr %41, align 8
+  %43 = and i64 %42, -5
+  %.not38 = icmp eq i64 %43, 0
+  br i1 %.not38, label %65, label %44
 
-47:                                               ; preds = %43
-  %48 = load ptr, ptr @stderr, align 8
-  %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull @.str.276, ptr noundef %0, ptr noundef nonnull %4) #57
-  br label %68
+44:                                               ; preds = %40
+  %45 = load ptr, ptr @stderr, align 8
+  %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.276, ptr noundef %0, ptr noundef nonnull %4) #57
+  br label %65
 
-50:                                               ; preds = %38
-  %51 = mul i64 %.0, %8
-  br label %52
+47:                                               ; preds = %35
+  %48 = mul i64 %.0, %8
+  br label %49
 
-52:                                               ; preds = %50, %._crit_edge
-  %.027 = phi i64 [ %51, %50 ], [ %8, %._crit_edge ]
-  %53 = icmp sgt i64 %.027, 0
-  %54 = tail call ptr @rb_ruby_verbose_ptr() #38
-  %55 = load i64, ptr %54, align 8
-  %56 = and i64 %55, -5
-  %.not37 = icmp eq i64 %56, 0
-  br i1 %53, label %57, label %63
+49:                                               ; preds = %47, %._crit_edge
+  %.027 = phi i64 [ %48, %47 ], [ %8, %._crit_edge ]
+  %50 = icmp sgt i64 %.027, 0
+  %51 = tail call ptr @rb_ruby_verbose_ptr() #38
+  %52 = load i64, ptr %51, align 8
+  %53 = and i64 %52, -5
+  %.not37 = icmp eq i64 %53, 0
+  br i1 %50, label %54, label %60
 
-57:                                               ; preds = %52
-  br i1 %.not37, label %62, label %58
+54:                                               ; preds = %49
+  br i1 %.not37, label %59, label %55
 
-58:                                               ; preds = %57
-  %59 = load ptr, ptr @stderr, align 8
-  %60 = load i64, ptr %1, align 8
-  %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef nonnull @.str.277, ptr noundef %0, i64 noundef %.027, i64 noundef %60) #57
-  br label %62
+55:                                               ; preds = %54
+  %56 = load ptr, ptr @stderr, align 8
+  %57 = load i64, ptr %1, align 8
+  %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef nonnull @.str.277, ptr noundef %0, i64 noundef %.027, i64 noundef %57) #57
+  br label %59
 
-62:                                               ; preds = %58, %57
+59:                                               ; preds = %55, %54
   store i64 %.027, ptr %1, align 8
-  br label %68
+  br label %65
 
-63:                                               ; preds = %52
-  br i1 %.not37, label %68, label %64
+60:                                               ; preds = %49
+  br i1 %.not37, label %65, label %61
 
-64:                                               ; preds = %63
-  %65 = load ptr, ptr @stderr, align 8
-  %66 = load i64, ptr %1, align 8
-  %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.278, ptr noundef %0, i64 noundef %.027, i64 noundef %66, i64 noundef 0) #57
-  br label %68
+61:                                               ; preds = %60
+  %62 = load ptr, ptr @stderr, align 8
+  %63 = load i64, ptr %1, align 8
+  %64 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %62, ptr noundef nonnull @.str.278, ptr noundef %0, i64 noundef %.027, i64 noundef %63, i64 noundef 0) #57
+  br label %65
 
-68:                                               ; preds = %2, %5, %63, %64, %43, %47, %.critedge, %35, %62
-  %.028 = phi i32 [ 1, %62 ], [ 0, %35 ], [ 0, %.critedge ], [ 0, %47 ], [ 0, %43 ], [ 0, %64 ], [ 0, %63 ], [ 0, %5 ], [ 0, %2 ]
+65:                                               ; preds = %2, %5, %60, %61, %40, %44, %.critedge, %32, %59
+  %.028 = phi i32 [ 1, %59 ], [ 0, %32 ], [ 0, %.critedge ], [ 0, %44 ], [ 0, %40 ], [ 0, %61 ], [ 0, %60 ], [ 0, %5 ], [ 0, %2 ]
   ret i32 %.028
 }
 

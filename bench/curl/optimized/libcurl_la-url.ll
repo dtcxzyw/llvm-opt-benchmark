@@ -3945,13 +3945,13 @@ if.end.i:                                         ; preds = %if.else.i
   %4 = load ptr, ptr @Curl_cfree, align 8
   tail call void %4(ptr noundef nonnull %call.i) #11
   %tobool12.not.i = icmp eq i32 %call11.i, 0
-  br i1 %tobool12.not.i, label %parse_connect_to_string.exit.thread, label %if.end17.i
+  br i1 %tobool12.not.i, label %if.else.sink.split, label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %call10.i
   %5 = load i8, ptr %add.ptr.i, align 1
   %cmp14.i = icmp eq i8 %5, 58
-  br i1 %cmp14.i, label %if.then19.i, label %parse_connect_to_string.exit.thread
+  br i1 %cmp14.i, label %if.then19.i, label %if.else.sink.split
 
 if.then19.i:                                      ; preds = %if.end17.i, %while.body
   %conn_to_host.pn30.i = phi ptr [ %add.ptr.i, %if.end17.i ], [ %0, %while.body ]
@@ -3967,21 +3967,21 @@ if.end40.thread.i:                                ; preds = %if.then19.i
 if.else25.i:                                      ; preds = %if.then19.i
   %call26.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %ptr.031.i, i32 noundef 58) #12
   %tobool27.not.i = icmp eq ptr %call26.i, null
-  br i1 %tobool27.not.i, label %parse_connect_to_string.exit.thread, label %if.then28.i
+  br i1 %tobool27.not.i, label %if.else.sink.split, label %if.then28.i
 
 if.then28.i:                                      ; preds = %if.else25.i
   store ptr null, ptr %endp.i, align 8
   %call29.i = call i64 @strtol(ptr noundef nonnull %ptr.031.i, ptr noundef nonnull %endp.i, i32 noundef 10) #11
   %7 = load ptr, ptr %endp.i, align 8
   %cmp30.i = icmp eq ptr %7, %call26.i
-  br i1 %cmp30.i, label %if.end40.i, label %parse_connect_to_string.exit.thread
+  br i1 %cmp30.i, label %if.end40.i, label %if.else.sink.split
 
 if.end40.i:                                       ; preds = %if.then28.i
   %8 = load i32, ptr %remote_port.i, align 4
   %conv32.i = sext i32 %8 to i64
   %cmp33.i = icmp eq i64 %call29.i, %conv32.i
   %add.ptr36.i = getelementptr inbounds i8, ptr %call26.i, i64 1
-  br i1 %cmp33.i, label %if.then44.i, label %parse_connect_to_string.exit.thread
+  br i1 %cmp33.i, label %if.then44.i, label %if.else.sink.split
 
 if.then44.i:                                      ; preds = %if.end40.i, %if.end40.thread.i
   %ptr.158.i = phi ptr [ %incdec.ptr24.i, %if.end40.thread.i ], [ %add.ptr36.i, %if.end40.i ]
@@ -3992,8 +3992,7 @@ if.then44.i:                                      ; preds = %if.end40.i, %if.end
 
 parse_connect_to_string.exit.thread66:            ; preds = %if.then44.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endp.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endp.i)
-  br label %if.else
+  br label %if.else.sink.split
 
 if.end.i.i:                                       ; preds = %if.then44.i
   %10 = load ptr, ptr @Curl_cstrdup, align 8
@@ -4184,10 +4183,6 @@ do.end162.i.i:                                    ; preds = %if.else156.i.i, %if
   %tobool164.not.i.i = icmp eq ptr %call163.i.i, null
   br i1 %tobool164.not.i.i, label %parse_connect_to_string.exit.thread77, label %land.lhs.true5
 
-parse_connect_to_string.exit.thread:              ; preds = %if.end40.i, %if.end17.i, %if.then28.i, %if.else25.i, %if.end.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endp.i)
-  br label %if.else
-
 parse_connect_to_string.exit.thread77:            ; preds = %do.end162.i.i, %if.then155.i.i
   %result.0.i.i.ph = phi i32 [ 49, %if.then155.i.i ], [ 27, %do.end162.i.i ]
   %38 = load ptr, ptr @Curl_cfree, align 8
@@ -4223,9 +4218,13 @@ if.then15:                                        ; preds = %land.lhs.true11
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.51, ptr noundef nonnull %call163.i.i) #11
   br label %if.end23
 
-if.else:                                          ; preds = %parse_connect_to_string.exit.thread66, %parse_connect_to_string.exit.thread, %land.lhs.true5
-  %host.45987 = phi ptr [ %call163.i.i, %land.lhs.true5 ], [ null, %parse_connect_to_string.exit.thread ], [ null, %parse_connect_to_string.exit.thread66 ]
-  %port.46086 = phi i32 [ %port.0.i.i, %land.lhs.true5 ], [ -1, %parse_connect_to_string.exit.thread ], [ -1, %parse_connect_to_string.exit.thread66 ]
+if.else.sink.split:                               ; preds = %if.end.i, %if.else25.i, %if.then28.i, %if.end17.i, %if.end40.i, %parse_connect_to_string.exit.thread66
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endp.i)
+  br label %if.else
+
+if.else:                                          ; preds = %if.else.sink.split, %land.lhs.true5
+  %host.45987 = phi ptr [ %call163.i.i, %land.lhs.true5 ], [ null, %if.else.sink.split ]
+  %port.46086 = phi i32 [ %port.0.i.i, %land.lhs.true5 ], [ -1, %if.else.sink.split ]
   %bf.load18 = load i32, ptr %bits.i, align 8
   %bf.clear19 = and i32 %bf.load18, -513
   store i32 %bf.clear19, ptr %bits.i, align 8

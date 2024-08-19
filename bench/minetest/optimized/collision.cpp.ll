@@ -1878,15 +1878,7 @@ if.then367:                                       ; preds = %for.cond214.prehead
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %sp2) #25
   %173 = load ptr, ptr %cinfo, align 8, !tbaa !132
   %tobool.not.i.i.i1465 = icmp eq ptr %173, null
-  br i1 %tobool.not.i.i.i1465, label %_ZNSt6vectorI19NearbyCollisionInfoSaIS0_EED2Ev.exit, label %if.then.i.i.i1466
-
-if.then.i.i.i1466:                                ; preds = %if.then367
-  call void @_ZdlPv(ptr noundef nonnull %173) #24
-  br label %_ZNSt6vectorI19NearbyCollisionInfoSaIS0_EED2Ev.exit
-
-_ZNSt6vectorI19NearbyCollisionInfoSaIS0_EED2Ev.exit: ; preds = %if.then.i.i.i1466, %if.then367
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %cinfo) #25
-  br label %nrvo.skipdtor
+  br i1 %tobool.not.i.i.i1465, label %nrvo.skipdtor.sink.split, label %nrvo.skipdtor.sink.split.sink.split
 
 cleanup.cont389.critedge:                         ; preds = %for.end365
   call void @_ZN13ScopeProfilerD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %sp2) #25
@@ -3045,15 +3037,7 @@ for.cond.cleanup794:                              ; preds = %if.end860, %while.e
   store i8 %.lcssa2212, ptr %agg.result, align 8, !tbaa !28
   store i8 %.lcssa2213, ptr %standing_on_object.i, align 2, !tbaa !36
   %tobool.not.i.i.i1695 = icmp eq ptr %347, null
-  br i1 %tobool.not.i.i.i1695, label %_ZNSt6vectorI19NearbyCollisionInfoSaIS0_EED2Ev.exit1697, label %if.then.i.i.i1696
-
-if.then.i.i.i1696:                                ; preds = %for.cond.cleanup794
-  call void @_ZdlPv(ptr noundef nonnull %347) #24
-  br label %_ZNSt6vectorI19NearbyCollisionInfoSaIS0_EED2Ev.exit1697
-
-_ZNSt6vectorI19NearbyCollisionInfoSaIS0_EED2Ev.exit1697: ; preds = %if.then.i.i.i1696, %for.cond.cleanup794
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %cinfo) #25
-  br label %nrvo.skipdtor
+  br i1 %tobool.not.i.i.i1695, label %nrvo.skipdtor.sink.split, label %nrvo.skipdtor.sink.split.sink.split
 
 for.body795:                                      ; preds = %if.end860, %for.body795.preheader
   %357 = phi float [ %380, %if.end860 ], [ %350, %for.body795.preheader ]
@@ -3147,7 +3131,16 @@ if.then.i.i.i1716:                                ; preds = %ehcleanup879
   call void @_ZdlPv(ptr noundef nonnull %384) #24
   br label %ehcleanup887
 
-nrvo.skipdtor:                                    ; preds = %_ZNSt6vectorI19NearbyCollisionInfoSaIS0_EED2Ev.exit1697, %_ZNSt6vectorI19NearbyCollisionInfoSaIS0_EED2Ev.exit, %invoke.cont39
+nrvo.skipdtor.sink.split.sink.split:              ; preds = %for.cond.cleanup794, %if.then367
+  %.sink = phi ptr [ %173, %if.then367 ], [ %347, %for.cond.cleanup794 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sink) #24
+  br label %nrvo.skipdtor.sink.split
+
+nrvo.skipdtor.sink.split:                         ; preds = %nrvo.skipdtor.sink.split.sink.split, %for.cond.cleanup794, %if.then367
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %cinfo) #25
+  br label %nrvo.skipdtor
+
+nrvo.skipdtor:                                    ; preds = %nrvo.skipdtor.sink.split, %invoke.cont39
   call void @_ZN13ScopeProfilerD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %sp) #25
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %sp) #25
   ret void

@@ -1649,7 +1649,6 @@ define { ptr, ptr } @_ZN8uu_mkdir5mkdir17h5dcc11da47961082E(ptr noalias noundef 
 
 "_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h20e2996e423d810fE.exit": ; preds = %25, %29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !376
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %40
 
 33:                                               ; preds = %.noexc, %23
@@ -1670,12 +1669,12 @@ define { ptr, ptr } @_ZN8uu_mkdir5mkdir17h5dcc11da47961082E(ptr noalias noundef 
 
 "_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h20e2996e423d810fE.exit15": ; preds = %33, %36
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !389
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %40
 
 40:                                               ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h20e2996e423d810fE.exit15", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h20e2996e423d810fE.exit"
   %.sroa.3.0 = phi ptr [ @anon.254c1ce08f6f1a5effddeda4a76dd85f.3, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h20e2996e423d810fE.exit15" ], [ %18, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h20e2996e423d810fE.exit" ]
   %.sroa.0.0 = phi ptr [ %.sroa.0.0.i.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h20e2996e423d810fE.exit15" ], [ %17, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h20e2996e423d810fE.exit" ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   %41 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %42 = insertvalue { ptr, ptr } %41, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %42

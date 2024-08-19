@@ -2229,7 +2229,7 @@ define hidden void @"_ZN5serde2de5impls74_$LT$impl$u20$serde..de..Deserialize$u2
   %10 = icmp eq i64 %9, 2
   %11 = getelementptr inbounds i8, ptr %3, i64 8
   %12 = load ptr, ptr %11, align 8, !noalias !381
-  br i1 %10, label %19, label %13
+  br i1 %10, label %"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_string17h9912537633fd66e1E.llvm.5435959977682051014.exit", label %13
 
 13:                                               ; preds = %2
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 16
@@ -2244,19 +2244,15 @@ define hidden void @"_ZN5serde2de5impls74_$LT$impl$u20$serde..de..Deserialize$u2
   %.sink11.i.i = extractvalue { i64, ptr } %15, 0
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.4.0.copyload.i.i, ptr %18, align 8, !alias.scope !379, !noalias !380
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !381
   br label %"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_string17h9912537633fd66e1E.llvm.5435959977682051014.exit"
 
-19:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !381
-  br label %"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_string17h9912537633fd66e1E.llvm.5435959977682051014.exit"
-
-"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_string17h9912537633fd66e1E.llvm.5435959977682051014.exit": ; preds = %13, %19
-  %.sink.i = phi ptr [ %12, %19 ], [ %16, %13 ]
-  %.sink11.i.sink.i = phi i64 [ -9223372036854775808, %19 ], [ %.sink11.i.i, %13 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink.i, ptr %20, align 8, !alias.scope !366, !noalias !369
+"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_string17h9912537633fd66e1E.llvm.5435959977682051014.exit": ; preds = %2, %13
+  %.sink.i = phi ptr [ %16, %13 ], [ %12, %2 ]
+  %.sink11.i.sink.i = phi i64 [ %.sink11.i.i, %13 ], [ -9223372036854775808, %2 ]
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sink.i, ptr %19, align 8, !alias.scope !366, !noalias !369
   store i64 %.sink11.i.sink.i, ptr %0, align 8, !alias.scope !366, !noalias !369
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !381
   ret void
 }
 
@@ -2734,17 +2730,16 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde.
   store ptr %16, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.4.0.copyload, ptr %19, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %22
 
 20:                                               ; preds = %2
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %12, ptr %21, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %22
 
 22:                                               ; preds = %13, %20
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   ret void
 }
 
@@ -2766,7 +2761,7 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde.
   %10 = icmp eq i64 %9, 2
   %11 = getelementptr inbounds i8, ptr %3, i64 8
   %12 = load ptr, ptr %11, align 8, !noalias !453
-  br i1 %10, label %19, label %13
+  br i1 %10, label %"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17ha43e9c37634ed7a0E.llvm.5435959977682051014.exit", label %13
 
 13:                                               ; preds = %2
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 16
@@ -2781,19 +2776,15 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde.
   %.sink11.i = extractvalue { i64, ptr } %15, 0
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.4.0.copyload.i, ptr %18, align 8, !alias.scope !445, !noalias !448
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !453
   br label %"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17ha43e9c37634ed7a0E.llvm.5435959977682051014.exit"
 
-19:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !453
-  br label %"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17ha43e9c37634ed7a0E.llvm.5435959977682051014.exit"
-
-"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17ha43e9c37634ed7a0E.llvm.5435959977682051014.exit": ; preds = %13, %19
-  %.sink = phi ptr [ %12, %19 ], [ %16, %13 ]
-  %.sink11.i.sink = phi i64 [ -9223372036854775808, %19 ], [ %.sink11.i, %13 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink, ptr %20, align 8
+"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17ha43e9c37634ed7a0E.llvm.5435959977682051014.exit": ; preds = %2, %13
+  %.sink = phi ptr [ %16, %13 ], [ %12, %2 ]
+  %.sink11.i.sink = phi i64 [ %.sink11.i, %13 ], [ -9223372036854775808, %2 ]
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sink, ptr %19, align 8
   store i64 %.sink11.i.sink, ptr %0, align 8
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !453
   ret void
 }
 
@@ -6244,7 +6235,7 @@ define void @_ZN6diesel5mysql10connection3raw13RawConnection7prepare17h363b432d1
   %15 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr63drop_in_place$LT$diesel..mysql..connection..stmt..Statement$GT$17h0b14d9c308cfee6dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6) #33
-          to label %common.resume unwind label %35
+          to label %common.resume unwind label %34
 
 _ZN6diesel5mysql10connection4stmt9Statement7prepare17h043e6514bf210b06E.exit: ; preds = %.noexc
   %16 = load i64, ptr %5, align 8, !range !955, !noundef !16
@@ -6256,8 +6247,7 @@ _ZN6diesel5mysql10connection4stmt9Statement7prepare17h043e6514bf210b06E.exit: ; 
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   store i64 0, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  br label %34
+  br label %"_ZN4core3ptr63drop_in_place$LT$diesel..mysql..connection..stmt..Statement$GT$17h0b14d9c308cfee6dE.exit"
 
 20:                                               ; preds = %_ZN6diesel5mysql10connection4stmt9Statement7prepare17h043e6514bf210b06E.exit
   %.sroa.48.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
@@ -6303,15 +6293,12 @@ common.resume:                                    ; preds = %14, %24, %28
   %common.resume.op = phi { ptr, i32 } [ %25, %28 ], [ %25, %24 ], [ %15, %14 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr63drop_in_place$LT$diesel..mysql..connection..stmt..Statement$GT$17h0b14d9c308cfee6dE.exit": ; preds = %"_ZN84_$LT$diesel..mysql..connection..stmt..Statement$u20$as$u20$core..ops..drop..Drop$GT$4drop17h69b84362aa0013b6E.exit.i", %31
+"_ZN4core3ptr63drop_in_place$LT$diesel..mysql..connection..stmt..Statement$GT$17h0b14d9c308cfee6dE.exit": ; preds = %31, %"_ZN84_$LT$diesel..mysql..connection..stmt..Statement$u20$as$u20$core..ops..drop..Drop$GT$4drop17h69b84362aa0013b6E.exit.i", %18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  br label %34
-
-34:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$diesel..mysql..connection..stmt..Statement$GT$17h0b14d9c308cfee6dE.exit", %18
   ret void
 
-35:                                               ; preds = %14
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %14
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #34
   unreachable
@@ -6722,8 +6709,7 @@ _ZN6diesel5mysql5value10MysqlValue10time_value17h70e069816a28c4d6E.exit.thread: 
   store ptr %.sroa.0.02330, ptr %0, align 8
   %37 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.7.02429, ptr %37, align 8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
-  br label %52
+  br label %51
 
 38:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !1393
@@ -6783,11 +6769,8 @@ _ZN6diesel5mysql5value10MysqlValue10time_value17h70e069816a28c4d6E.exit.thread: 
   store ptr null, ptr %0, align 8
   br label %51
 
-51:                                               ; preds = %49, %"_ZN6diesel5mysql5types13date_and_time6chrono152_$LT$impl$u20$diesel..deserialize..FromSql$LT$diesel..sql_types..Date$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$chrono..naive..date..NaiveDate$GT$8from_sql28_$u7b$$u7b$closure$u7d$$u7d$17h87ba0374f6edfcf2E.exit"
+51:                                               ; preds = %"_ZN6diesel5mysql5types13date_and_time6chrono152_$LT$impl$u20$diesel..deserialize..FromSql$LT$diesel..sql_types..Date$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$chrono..naive..date..NaiveDate$GT$8from_sql28_$u7b$$u7b$closure$u7d$$u7d$17h87ba0374f6edfcf2E.exit", %49, %_ZN6diesel5mysql5value10MysqlValue10time_value17h70e069816a28c4d6E.exit.thread
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
-  br label %52
-
-52:                                               ; preds = %51, %_ZN6diesel5mysql5value10MysqlValue10time_value17h70e069816a28c4d6E.exit.thread
   ret void
 }
 

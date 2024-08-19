@@ -4564,8 +4564,7 @@ if.then23:                                        ; preds = %bdrv_cow_bs.exit
 
 if.then26:                                        ; preds = %if.then23
   call void @error_report_err(ptr noundef nonnull %14) #12
-  store ptr null, ptr %local_err, align 8
-  br label %if.end46
+  br label %if.end46.sink.split
 
 if.then34:                                        ; preds = %land.lhs.true
   %call35 = tail call ptr @bdrv_backing_chain_next(ptr noundef %call7) #12
@@ -4585,11 +4584,15 @@ if.end39:                                         ; preds = %if.then34
 if.then43:                                        ; preds = %if.end39
   %15 = load ptr, ptr %local_err, align 8
   call void @error_report_err(ptr noundef %15) #12
+  br label %if.end46.sink.split
+
+if.end46.sink.split:                              ; preds = %if.then26, %if.then43
+  %ret1.0.ph = phi i32 [ -1, %if.then26 ], [ %call41, %if.then43 ]
   store ptr null, ptr %local_err, align 8
   br label %if.end46
 
-if.end46:                                         ; preds = %land.lhs.true, %if.end10, %if.then43, %if.end39, %bdrv_cow_bs.exit, %if.then26, %if.then23
-  %ret1.0 = phi i32 [ %call41, %if.then43 ], [ %call41, %if.end39 ], [ -1, %if.then26 ], [ 0, %if.then23 ], [ 0, %bdrv_cow_bs.exit ], [ 0, %if.end10 ], [ 0, %land.lhs.true ]
+if.end46:                                         ; preds = %if.end46.sink.split, %land.lhs.true, %if.end10, %if.end39, %bdrv_cow_bs.exit, %if.then23
+  %ret1.0 = phi i32 [ %call41, %if.end39 ], [ 0, %if.then23 ], [ 0, %bdrv_cow_bs.exit ], [ 0, %if.end10 ], [ 0, %land.lhs.true ], [ %ret1.0.ph, %if.end46.sink.split ]
   call void @bdrv_graph_rdunlock_main_loop() #12
   %to_replace = getelementptr inbounds i8, ptr %job, i64 560
   %16 = load ptr, ptr %to_replace, align 8

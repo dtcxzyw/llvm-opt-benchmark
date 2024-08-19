@@ -2393,7 +2393,7 @@ if.end1052:                                       ; preds = %sw.default.i158, %i
   ]
 
 if.then1073:                                      ; preds = %if.end1052
-  switch i32 %.pr354, label %sw.default.i162 [
+  switch i32 %.pr354, label %if.end1105.sink.split [
     i32 0, label %sw.bb.i160
     i32 1, label %if.end1105
   ]
@@ -2402,10 +2402,6 @@ sw.bb.i160:                                       ; preds = %if.then1073
   %call.i161 = call fastcc ptr @_(ptr noundef nonnull @.str.227)
   call void (ptr, ...) @die(ptr noundef %call.i161, ptr noundef nonnull @.str.145) #18
   unreachable
-
-sw.default.i162:                                  ; preds = %if.then1073
-  store i32 1, ptr %options, align 8
-  br label %if.end1105
 
 if.then1078:                                      ; preds = %if.end1052
   %config_autosquash = getelementptr inbounds i8, ptr %options, i64 352
@@ -2428,11 +2424,7 @@ if.then1089:                                      ; preds = %if.end1085
   %155 = load ptr, ptr %default_backend, align 8
   %call1090 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %155, ptr noundef nonnull dereferenceable(6) @.str) #20
   %tobool1091.not = icmp eq i32 %call1090, 0
-  br i1 %tobool1091.not, label %if.then1092, label %if.else1094
-
-if.then1092:                                      ; preds = %if.then1089
-  store i32 1, ptr %options, align 8
-  br label %if.end1105
+  br i1 %tobool1091.not, label %if.end1105.sink.split, label %if.else1094
 
 if.else1094:                                      ; preds = %if.then1089
   %call1096 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %155, ptr noundef nonnull dereferenceable(6) @.str.42) #20
@@ -2449,8 +2441,12 @@ if.else1100:                                      ; preds = %if.else1094
   call void (ptr, ...) @die(ptr noundef %call1101, ptr noundef %156) #18
   unreachable
 
-if.end1105:                                       ; preds = %if.then1073, %sw.default.i162, %if.then1092, %if.end1085
-  %157 = phi i32 [ %.pr354, %if.then1073 ], [ 1, %sw.default.i162 ], [ 1, %if.then1092 ], [ %.pr354, %if.end1085 ]
+if.end1105.sink.split:                            ; preds = %if.then1089, %if.then1073
+  store i32 1, ptr %options, align 8
+  br label %if.end1105
+
+if.end1105:                                       ; preds = %if.end1105.sink.split, %if.then1073, %if.end1085
+  %157 = phi i32 [ %.pr354, %if.then1073 ], [ %.pr354, %if.end1085 ], [ 1, %if.end1105.sink.split ]
   %cmp1107 = icmp ne i32 %157, 1
   %158 = load ptr, ptr %strategy, align 8
   %tobool1111 = icmp ne ptr %158, null

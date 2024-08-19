@@ -1515,11 +1515,11 @@ _ZN6uu_fmt9linebreak19find_kp_breakpoints17h9ece749410d68b29E.exit._crit_edge: ;
 
 "_ZN4core3ptr90drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RF$uu_fmt..parasplit..WordInfo$C$bool$RP$$GT$$GT$17hd247e40fd71ae9e7E.exit": ; preds = %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.llvm.9442607150714509085.exit", %557, %561
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !277
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
   br label %563
 
 563:                                              ; preds = %"_ZN4core3ptr90drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RF$uu_fmt..parasplit..WordInfo$C$bool$RP$$GT$$GT$17hd247e40fd71ae9e7E.exit67", %"_ZN4core3ptr90drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RF$uu_fmt..parasplit..WordInfo$C$bool$RP$$GT$$GT$17hd247e40fd71ae9e7E.exit"
   %.1 = phi ptr [ %.0, %"_ZN4core3ptr90drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RF$uu_fmt..parasplit..WordInfo$C$bool$RP$$GT$$GT$17hd247e40fd71ae9e7E.exit67" ], [ %.0.i55, %"_ZN4core3ptr90drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RF$uu_fmt..parasplit..WordInfo$C$bool$RP$$GT$$GT$17hd247e40fd71ae9e7E.exit" ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
   ret ptr %.1
 
 564:                                              ; preds = %554
@@ -1666,7 +1666,6 @@ _ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hc208400824a4
 
 "_ZN4core3ptr90drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RF$uu_fmt..parasplit..WordInfo$C$bool$RP$$GT$$GT$17hd247e40fd71ae9e7E.exit67": ; preds = %_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hc208400824a46bc4E.exit.thread, %621, %625
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !310
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
   br label %563
 
 627:                                              ; preds = %.loopexit.split-lp102

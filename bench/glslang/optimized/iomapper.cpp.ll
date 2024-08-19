@@ -954,7 +954,7 @@ _ZN7glslang22TDefaultIoResolverBase8findSlotEii.exit: ; preds = %_ZSt7advanceIN9
   %27 = getelementptr inbounds i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %.sroa.011.0.lcssa.i.i.i, %28
-  br i1 %29, label %33, label %.preheader
+  br i1 %29, label %._crit_edge, label %.preheader
 
 .preheader:                                       ; preds = %_ZN7glslang22TDefaultIoResolverBase8findSlotEii.exit
   %30 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIiSt4pairIKiSt6vectorIiSaIiEEESaIS6_ENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 4 dereferenceable(4) %6)
@@ -963,37 +963,28 @@ _ZN7glslang22TDefaultIoResolverBase8findSlotEii.exit: ; preds = %_ZSt7advanceIN9
   %.not1516 = icmp eq ptr %.sroa.011.0.lcssa.i.i.i, %32
   br i1 %.not1516, label %._crit_edge, label %.lr.ph
 
-33:                                               ; preds = %_ZN7glslang22TDefaultIoResolverBase8findSlotEii.exit
-  %34 = load i32, ptr %6, align 4
-  %35 = call noundef i32 @_ZN7glslang22TDefaultIoResolverBase11reserveSlotEiii(ptr noundef nonnull align 8 dereferenceable(224) %0, i32 noundef %34, i32 noundef %2, i32 noundef %3)
-  br label %46
+.lr.ph:                                           ; preds = %.preheader, %35
+  %.0818 = phi i32 [ %36, %35 ], [ %2, %.preheader ]
+  %.sroa.010.017 = phi ptr [ %37, %35 ], [ %.sroa.011.0.lcssa.i.i.i, %.preheader ]
+  %33 = load i32, ptr %.sroa.010.017, align 4
+  %34 = sub nsw i32 %33, %.0818
+  %.not = icmp slt i32 %34, %3
+  br i1 %.not, label %35, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader, %38
-  %.0818 = phi i32 [ %39, %38 ], [ %2, %.preheader ]
-  %.sroa.010.017 = phi ptr [ %40, %38 ], [ %.sroa.011.0.lcssa.i.i.i, %.preheader ]
-  %36 = load i32, ptr %.sroa.010.017, align 4
-  %37 = sub nsw i32 %36, %.0818
-  %.not = icmp slt i32 %37, %3
-  br i1 %.not, label %38, label %._crit_edge
-
-38:                                               ; preds = %.lr.ph
-  %39 = add nsw i32 %36, 1
-  %40 = getelementptr inbounds i8, ptr %.sroa.010.017, i64 4
-  %41 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIiSt4pairIKiSt6vectorIiSaIiEEESaIS6_ENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 4 dereferenceable(4) %6)
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
-  %43 = load ptr, ptr %42, align 8
-  %.not15 = icmp eq ptr %40, %43
+35:                                               ; preds = %.lr.ph
+  %36 = add nsw i32 %33, 1
+  %37 = getelementptr inbounds i8, ptr %.sroa.010.017, i64 4
+  %38 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__detail9_Map_baseIiSt4pairIKiSt6vectorIiSaIiEEESaIS6_ENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %40 = load ptr, ptr %39, align 8
+  %.not15 = icmp eq ptr %37, %40
   br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %38, %.lr.ph, %.preheader
-  %.08.lcssa = phi i32 [ %2, %.preheader ], [ %.0818, %.lr.ph ], [ %39, %38 ]
-  %44 = load i32, ptr %6, align 4
-  %45 = call noundef i32 @_ZN7glslang22TDefaultIoResolverBase11reserveSlotEiii(ptr noundef nonnull align 8 dereferenceable(224) %0, i32 noundef %44, i32 noundef %.08.lcssa, i32 noundef %3)
-  br label %46
-
-46:                                               ; preds = %._crit_edge, %33
-  %.0 = phi i32 [ %2, %33 ], [ %.08.lcssa, %._crit_edge ]
-  ret i32 %.0
+._crit_edge:                                      ; preds = %.lr.ph, %35, %.preheader, %_ZN7glslang22TDefaultIoResolverBase8findSlotEii.exit
+  %.08.lcssa.sink = phi i32 [ %2, %_ZN7glslang22TDefaultIoResolverBase8findSlotEii.exit ], [ %2, %.preheader ], [ %.0818, %.lr.ph ], [ %36, %35 ]
+  %41 = load i32, ptr %6, align 4
+  %42 = call noundef i32 @_ZN7glslang22TDefaultIoResolverBase11reserveSlotEiii(ptr noundef nonnull align 8 dereferenceable(224) %0, i32 noundef %41, i32 noundef %.08.lcssa.sink, i32 noundef %3)
+  ret i32 %.08.lcssa.sink
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

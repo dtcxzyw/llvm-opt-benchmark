@@ -2267,11 +2267,7 @@ if.then48:                                        ; preds = %if.then42
 if.end49:                                         ; preds = %if.then48, %if.then42
   %and51 = and i32 %9, 4
   %cmp52.not = icmp eq i32 %and51, 0
-  br i1 %cmp52.not, label %if.end74, label %if.then54
-
-if.then54:                                        ; preds = %if.end49
-  store i32 1, ptr %tlstree, align 4
-  br label %if.end74
+  br i1 %cmp52.not, label %if.end74, label %if.end74.sink.split
 
 if.else56:                                        ; preds = %if.end21
   %block_padding = getelementptr inbounds i8, ptr %s, i64 3168
@@ -2298,14 +2294,15 @@ if.then66:                                        ; preds = %if.else56
 if.end67:                                         ; preds = %if.then66, %if.else56
   %and69 = and i32 %13, 8
   %cmp70.not = icmp eq i32 %and69, 0
-  br i1 %cmp70.not, label %if.end74, label %if.then72
+  br i1 %cmp70.not, label %if.end74, label %if.end74.sink.split
 
-if.then72:                                        ; preds = %if.end67
+if.end74.sink.split:                              ; preds = %if.end67, %if.end49
+  %.ph = phi i32 [ %cond44, %if.end49 ], [ %cond61, %if.end67 ]
   store i32 1, ptr %tlstree, align 4
   br label %if.end74
 
-if.end74:                                         ; preds = %if.end67, %if.then72, %if.end49, %if.then54
-  %14 = phi i32 [ %cond61, %if.end67 ], [ %cond61, %if.then72 ], [ %cond44, %if.end49 ], [ %cond44, %if.then54 ]
+if.end74:                                         ; preds = %if.end74.sink.split, %if.end67, %if.end49
+  %14 = phi i32 [ %cond61, %if.end67 ], [ %cond44, %if.end49 ], [ %.ph, %if.end74.sink.split ]
   %tobool75.not = icmp eq i32 %14, 0
   br i1 %tobool75.not, label %if.end79, label %if.then76
 

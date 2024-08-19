@@ -13090,19 +13090,14 @@ rb_check_arity.exit:                              ; preds = %3
 rb_num2long_inline.exit:                          ; preds = %9
   %11 = ashr i64 %7, 1
   %12 = icmp slt i64 %11, 1
-  br i1 %12, label %rb_sec2hrtime.exit, label %13
+  br i1 %12, label %.thread.sink.split, label %13
 
 13:                                               ; preds = %rb_num2long_inline.exit
   %14 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %11, i64 1000000000)
   %15 = extractvalue { i64, i1 } %14, 1
   %16 = extractvalue { i64, i1 } %14, 0
   %.0.i.i = select i1 %15, i64 -1, i64 %16
-  br label %rb_sec2hrtime.exit
-
-rb_sec2hrtime.exit:                               ; preds = %rb_num2long_inline.exit, %13
-  %.0.i9 = phi i64 [ %.0.i.i, %13 ], [ 0, %rb_num2long_inline.exit ]
-  store i64 %.0.i9, ptr %4, align 8
-  br label %.thread
+  br label %.thread.sink.split
 
 17:                                               ; preds = %9
   %18 = tail call double @rb_num2dbl(i64 noundef %7) #19
@@ -13113,12 +13108,17 @@ rb_sec2hrtime.exit:                               ; preds = %rb_num2long_inline.
   %storemerge.i = select i1 %20, i64 %22, i64 0
   %storemerge9.i = select i1 %19, i64 %storemerge.i, i64 -1
   %.0.i10 = select i1 %19, ptr %4, ptr null
-  store i64 %storemerge9.i, ptr %4, align 8
+  br label %.thread.sink.split
+
+.thread.sink.split:                               ; preds = %13, %rb_num2long_inline.exit, %17
+  %.0.i9.sink = phi i64 [ %storemerge9.i, %17 ], [ %.0.i.i, %13 ], [ 0, %rb_num2long_inline.exit ]
+  %.0.ph = phi ptr [ %.0.i10, %17 ], [ %4, %13 ], [ %4, %rb_num2long_inline.exit ]
+  store i64 %.0.i9.sink, ptr %4, align 8
   br label %.thread
 
-.thread:                                          ; preds = %rb_check_arity.exit, %rb_sec2hrtime.exit, %17, %6
-  %.0812 = phi i64 [ 4, %6 ], [ %7, %rb_sec2hrtime.exit ], [ %7, %17 ], [ 4, %rb_check_arity.exit ]
-  %.0 = phi ptr [ null, %6 ], [ %4, %rb_sec2hrtime.exit ], [ %.0.i10, %17 ], [ null, %rb_check_arity.exit ]
+.thread:                                          ; preds = %.thread.sink.split, %rb_check_arity.exit, %6
+  %.0812 = phi i64 [ 4, %6 ], [ 4, %rb_check_arity.exit ], [ %7, %.thread.sink.split ]
+  %.0 = phi ptr [ null, %6 ], [ null, %rb_check_arity.exit ], [ %.0.ph, %.thread.sink.split ]
   %23 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ruby_threadptr_data_type) #19
   %24 = call fastcc i64 @thread_join(ptr noundef %23, i64 noundef %.0812, ptr noundef %.0)
   ret i64 %24

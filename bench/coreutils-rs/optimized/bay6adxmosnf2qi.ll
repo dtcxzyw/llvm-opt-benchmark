@@ -2880,13 +2880,13 @@ default.unreachable:                              ; preds = %.noexc109, %147, %8
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd06e351f639dd006E.exit122": ; preds = %401, %404, %408
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !472
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %53)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %54)
   br label %410
 
 410:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd06e351f639dd006E.exit133", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd06e351f639dd006E.exit122"
   %.sroa.7.2 = phi ptr [ undef, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd06e351f639dd006E.exit122" ], [ %.sroa.7.1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd06e351f639dd006E.exit133" ]
   %.sroa.0.2 = phi ptr [ null, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd06e351f639dd006E.exit122" ], [ %.sroa.0.1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd06e351f639dd006E.exit133" ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %54)
   %411 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.2, 0
   %412 = insertvalue { ptr, ptr } %411, ptr %.sroa.7.2, 1
   ret { ptr, ptr } %412
@@ -2998,8 +2998,6 @@ default.unreachable:                              ; preds = %.noexc109, %147, %8
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd06e351f639dd006E.exit133": ; preds = %442, %445, %449
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !506
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %53)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %54)
   br label %410
 
 451:                                              ; preds = %380, %.body, %60, %57

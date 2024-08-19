@@ -8813,7 +8813,6 @@ default.unreachable:                              ; preds = %15, %.lr.ph
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !1079
   call void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd69d53b9ca9dbe3eE.llvm.4248407042397360440"(ptr noalias noundef nonnull align 8 dereferenceable(72) %8), !noalias !1079
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8), !noalias !1079
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %31
 
 15:                                               ; preds = %.lr.ph
@@ -8942,6 +8941,7 @@ default.unreachable:                              ; preds = %15, %.lr.ph
 
 31:                                               ; preds = %37, %._crit_edge
   %32 = phi i1 [ true, %37 ], [ false, %._crit_edge ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   ret i1 %32
 
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hbdd6cf6a5913d72eE.llvm.6030771845222660662.exit": ; preds = %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %.lr.ph, %28, %.thread59, %27, %26, %25, %.thread56, %.thread53, %24, %23, %22, %21, %20, %.thread50, %.thread47, %.thread44, %.thread41, %.thread38, %.thread35, %.thread32, %19, %18, %.thread29, %.thread26, %.thread23, %.thread20, %.thread17, %15
@@ -8977,7 +8977,6 @@ default.unreachable:                              ; preds = %15, %.lr.ph
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1092
   call void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd69d53b9ca9dbe3eE.llvm.4248407042397360440"(ptr noalias noundef nonnull align 8 dereferenceable(72) %4), !noalias !1092
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !1092
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %31
 
 38:                                               ; preds = %13
@@ -9046,7 +9045,6 @@ default.unreachable:                              ; preds = %15, %.lr.ph
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !1109
   call void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd69d53b9ca9dbe3eE.llvm.4248407042397360440"(ptr noalias noundef nonnull align 8 dereferenceable(72) %8), !noalias !1109
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8), !noalias !1109
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %32
 
 15:                                               ; preds = %.lr.ph
@@ -9169,6 +9167,7 @@ default.unreachable:                              ; preds = %15, %.lr.ph
 
 32:                                               ; preds = %38, %._crit_edge
   %33 = phi i1 [ true, %38 ], [ false, %._crit_edge ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   ret i1 %33
 
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hbdd6cf6a5913d72eE.llvm.6030771845222660662.exit": ; preds = %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %.lr.ph, %29, %.thread50, %.thread47, %28, %27, %.thread44, %.thread41, %26, %25, %24, %23, %22, %21, %20, %.thread38, %.thread35, %.thread32, %.thread29, %.thread26, %19, %18, %.thread23, %.thread20, %.thread17, %15
@@ -9204,7 +9203,6 @@ default.unreachable:                              ; preds = %15, %.lr.ph
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1122
   call void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd69d53b9ca9dbe3eE.llvm.4248407042397360440"(ptr noalias noundef nonnull align 8 dereferenceable(72) %4), !noalias !1122
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !1122
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %32
 
 39:                                               ; preds = %13
@@ -9249,11 +9247,11 @@ define hidden noundef zeroext i1 @_ZN6rustls4msgs9handshake14has_duplicates17h39
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !1129
   call void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h07a2aeb152dbdf22E.llvm.4248407042397360440"(ptr noalias noundef nonnull align 8 dereferenceable(72) %8), !noalias !1129
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8), !noalias !1129
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %13
 
 13:                                               ; preds = %25, %._crit_edge
   %14 = phi i1 [ true, %25 ], [ false, %._crit_edge ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   ret i1 %14
 
 .lr.ph:                                           ; preds = %2, %24
@@ -9296,7 +9294,6 @@ define hidden noundef zeroext i1 @_ZN6rustls4msgs9handshake14has_duplicates17h39
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1150
   call void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h07a2aeb152dbdf22E.llvm.4248407042397360440"(ptr noalias noundef nonnull align 8 dereferenceable(72) %4), !noalias !1150
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !1150
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %13
 
 26:                                               ; preds = %11
@@ -9341,7 +9338,6 @@ define hidden noundef zeroext i1 @_ZN6rustls4msgs9handshake14has_duplicates17h96
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !1157
   call void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd69d53b9ca9dbe3eE.llvm.4248407042397360440"(ptr noalias noundef nonnull align 8 dereferenceable(72) %8), !noalias !1157
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8), !noalias !1157
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %41
 
 .lr.ph:                                           ; preds = %2, %46
@@ -9464,6 +9460,7 @@ default.unreachable:                              ; preds = %.lr.ph
 
 41:                                               ; preds = %47, %._crit_edge
   %42 = phi i1 [ true, %47 ], [ false, %._crit_edge ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   ret i1 %42
 
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hbdd6cf6a5913d72eE.llvm.6030771845222660662.exit": ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %.lr.ph
@@ -9499,7 +9496,6 @@ default.unreachable:                              ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1180
   call void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd69d53b9ca9dbe3eE.llvm.4248407042397360440"(ptr noalias noundef nonnull align 8 dereferenceable(72) %4), !noalias !1180
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !1180
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %41
 
 48:                                               ; preds = %11
@@ -9568,7 +9564,6 @@ default.unreachable:                              ; preds = %15, %.lr.ph
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !1197
   call void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd69d53b9ca9dbe3eE.llvm.4248407042397360440"(ptr noalias noundef nonnull align 8 dereferenceable(72) %8), !noalias !1197
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8), !noalias !1197
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %32
 
 15:                                               ; preds = %.lr.ph
@@ -9691,6 +9686,7 @@ default.unreachable:                              ; preds = %15, %.lr.ph
 
 32:                                               ; preds = %38, %._crit_edge
   %33 = phi i1 [ true, %38 ], [ false, %._crit_edge ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   ret i1 %33
 
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hbdd6cf6a5913d72eE.llvm.6030771845222660662.exit": ; preds = %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %.lr.ph, %29, %.thread50, %.thread47, %28, %27, %.thread44, %.thread41, %26, %25, %24, %23, %22, %21, %20, %.thread38, %.thread35, %.thread32, %.thread29, %.thread26, %19, %18, %.thread23, %.thread20, %.thread17, %15
@@ -9726,7 +9722,6 @@ default.unreachable:                              ; preds = %15, %.lr.ph
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1210
   call void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd69d53b9ca9dbe3eE.llvm.4248407042397360440"(ptr noalias noundef nonnull align 8 dereferenceable(72) %4), !noalias !1210
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !1210
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %32
 
 39:                                               ; preds = %13
@@ -9771,7 +9766,6 @@ define hidden noundef zeroext i1 @_ZN6rustls4msgs9handshake14has_duplicates17hc2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !1217
   call void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd69d53b9ca9dbe3eE.llvm.4248407042397360440"(ptr noalias noundef nonnull align 8 dereferenceable(72) %8), !noalias !1217
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8), !noalias !1217
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %41
 
 .lr.ph:                                           ; preds = %2, %46
@@ -9894,6 +9888,7 @@ default.unreachable:                              ; preds = %.lr.ph
 
 41:                                               ; preds = %47, %._crit_edge
   %42 = phi i1 [ true, %47 ], [ false, %._crit_edge ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   ret i1 %42
 
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hbdd6cf6a5913d72eE.llvm.6030771845222660662.exit": ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %.lr.ph
@@ -9929,7 +9924,6 @@ default.unreachable:                              ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1240
   call void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd69d53b9ca9dbe3eE.llvm.4248407042397360440"(ptr noalias noundef nonnull align 8 dereferenceable(72) %4), !noalias !1240
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !1240
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %41
 
 48:                                               ; preds = %11
@@ -9990,7 +9984,6 @@ default.unreachable:                              ; preds = %17, %.lr.ph
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !1257
   call void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd69d53b9ca9dbe3eE.llvm.4248407042397360440"(ptr noalias noundef nonnull align 8 dereferenceable(72) %8), !noalias !1257
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8), !noalias !1257
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %40
 
 17:                                               ; preds = %.lr.ph
@@ -10104,6 +10097,7 @@ default.unreachable:                              ; preds = %17, %.lr.ph
 
 40:                                               ; preds = %46, %._crit_edge
   %41 = phi i1 [ true, %46 ], [ false, %._crit_edge ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   ret i1 %41
 
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hbdd6cf6a5913d72eE.llvm.6030771845222660662.exit": ; preds = %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %37, %36, %35, %34, %33, %32, %.thread20, %31, %30, %29, %28, %27, %26, %.thread17, %.thread14, %25, %24, %23, %22, %21, %20, %17
@@ -10139,7 +10133,6 @@ default.unreachable:                              ; preds = %17, %.lr.ph
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1270
   call void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd69d53b9ca9dbe3eE.llvm.4248407042397360440"(ptr noalias noundef nonnull align 8 dereferenceable(72) %4), !noalias !1270
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !1270
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %40
 
 47:                                               ; preds = %15
@@ -10336,7 +10329,6 @@ define hidden void @_ZN6rustls5tls1217ConnectionSecrets17from_key_exchange17h466
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %13, i64 120, i1 false)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %13)
   br label %45
 
 .noexc22:                                         ; preds = %33
@@ -10367,11 +10359,11 @@ define hidden void @_ZN6rustls5tls1217ConnectionSecrets17from_key_exchange17h466
   br i1 %44, label %.loopexit, label %.lr.ph.i.i.i.i
 
 45:                                               ; preds = %.loopexit, %36
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %13)
   ret void
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.noexc22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !1286
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %13)
   br label %45
 
 46:                                               ; preds = %25
@@ -11244,10 +11236,10 @@ define hidden void @_ZN6rustls5tls1217ConnectionSecrets15extract_secrets17hc3def
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h8e8ccce731b64633E.exit": ; preds = %75, %78
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !1473
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   br label %82
 
 82:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h8e8ccce731b64633E.exit78", %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h8e8ccce731b64633E.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   ret void
 
 83:                                               ; preds = %73
@@ -11283,7 +11275,6 @@ define hidden void @_ZN6rustls5tls1217ConnectionSecrets15extract_secrets17hc3def
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h8e8ccce731b64633E.exit78": ; preds = %85, %88
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1480
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   br label %82
 
 92:                                               ; preds = %.body73, %.body

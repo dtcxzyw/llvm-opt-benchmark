@@ -4784,16 +4784,15 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h9e8fedde614296a6E.exit.i": ; preds = %613
   %711 = getelementptr inbounds i8, ptr %186, i64 8
   %712 = load i8, ptr %711, align 8, !range !29, !alias.scope !508, !noalias !502, !noundef !4
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %186), !noalias !502
   br label %714
 
 713:                                              ; preds = %"_ZN10aws_config16default_provider8use_fips17use_fips_provider28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hba353f43085bae92E.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %182), !noalias !511
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %186), !noalias !502
   br label %714
 
 714:                                              ; preds = %713, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h9e8fedde614296a6E.exit.i"
   %715 = phi i8 [ 2, %713 ], [ %712, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h9e8fedde614296a6E.exit.i" ]
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %186), !noalias !502
   call void @llvm.experimental.noalias.scope.decl(metadata !519)
   call void @llvm.experimental.noalias.scope.decl(metadata !522)
   %716 = load ptr, ptr %610, align 8, !alias.scope !525, !noalias !502, !noundef !4
@@ -5376,16 +5375,15 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h2772846fa820aa2bE.exit.i": ; preds = %802
   %900 = getelementptr inbounds i8, ptr %163, i64 8
   %901 = load i8, ptr %900, align 8, !range !29, !alias.scope !537, !noalias !531, !noundef !4
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %163), !noalias !531
   br label %903
 
 902:                                              ; preds = %"_ZN10aws_config16default_provider14use_dual_stack23use_dual_stack_provider28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he8f2f74bf2e99fffE.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %159), !noalias !540
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %163), !noalias !531
   br label %903
 
 903:                                              ; preds = %902, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h2772846fa820aa2bE.exit.i"
   %904 = phi i8 [ 2, %902 ], [ %901, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h2772846fa820aa2bE.exit.i" ]
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %163), !noalias !531
   call void @llvm.experimental.noalias.scope.decl(metadata !548)
   call void @llvm.experimental.noalias.scope.decl(metadata !551)
   %905 = load ptr, ptr %799, align 8, !alias.scope !554, !noalias !531, !noundef !4
@@ -5820,9 +5818,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 1056:                                             ; preds = %1055
   %1057 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %228)
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %229)
-  br label %1065
+  br label %.sink.split
 
 1058:                                             ; preds = %1055
   %1059 = getelementptr inbounds i8, ptr %1, i64 1288
@@ -5832,9 +5828,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 1060:                                             ; preds = %1058
   %1061 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %228)
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %229)
-  br label %1065
+  br label %.sink.split
 
 .thread1031:                                      ; preds = %1058
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %228)
@@ -5849,8 +5843,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %1064 = getelementptr inbounds i8, ptr %1, i64 3072
   br label %.thread23.i
 
-1065:                                             ; preds = %.body379, %1060, %1056
-  %.pn100 = phi { ptr, i32 } [ %.pn98, %.body379 ], [ %1061, %1060 ], [ %1057, %1056 ]
+.sink.split:                                      ; preds = %1056, %1060
+  %.pn100.ph = phi { ptr, i32 } [ %1057, %1056 ], [ %1061, %1060 ]
+  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %228)
+  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %229)
+  br label %1065
+
+1065:                                             ; preds = %.sink.split, %.body379
+  %.pn100 = phi { ptr, i32 } [ %.pn98, %.body379 ], [ %.pn100.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(i64 952, ptr nonnull %.sroa.0778)
   br label %1243
 
@@ -6093,7 +6093,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
           cleanup
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %130), !noalias !624
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %131), !noalias !624
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %132), !noalias !624
   br label %1191
 
 1145:                                             ; preds = %1140
@@ -6105,7 +6104,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   %1147 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %131), !noalias !624
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %132), !noalias !624
   br label %1191
 
 1148:                                             ; preds = %1145
@@ -6116,7 +6114,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 1149:                                             ; preds = %1148
   %1150 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %132), !noalias !624
   br label %1191
 
 1151:                                             ; preds = %1148
@@ -6289,6 +6286,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 1191:                                             ; preds = %1149, %1146, %1143
   %.pn17.pn.pn.ph.i.i = phi { ptr, i32 } [ %1144, %1143 ], [ %1147, %1146 ], [ %1150, %1149 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %132), !noalias !624
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %133), !noalias !624
   %1192 = load i64, ptr %137, align 8, !range !127, !alias.scope !671, !noalias !624, !noundef !4
   %1193 = icmp eq i64 %1192, -9223372036854775808
@@ -10222,16 +10220,15 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5d1af1aaa99fe792E.exit.i": ; preds = %2349
   %2447 = getelementptr inbounds i8, ptr %51, i64 8
   %2448 = load i8, ptr %2447, align 8, !range !29, !alias.scope !1007, !noalias !1001, !noundef !4
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %51), !noalias !1001
   br label %2450
 
 2449:                                             ; preds = %"_ZN10aws_config16default_provider31ignore_configured_endpoint_urls40ignore_configured_endpoint_urls_provider28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8672fb60b2ba0f7aE.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %47), !noalias !1010
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %51), !noalias !1001
   br label %2450
 
 2450:                                             ; preds = %2449, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5d1af1aaa99fe792E.exit.i"
   %2451 = phi i8 [ 2, %2449 ], [ %2448, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5d1af1aaa99fe792E.exit.i" ]
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %51), !noalias !1001
   call void @llvm.experimental.noalias.scope.decl(metadata !1018)
   call void @llvm.experimental.noalias.scope.decl(metadata !1021)
   %2452 = load ptr, ptr %2346, align 8, !alias.scope !1024, !noalias !1001, !noundef !4

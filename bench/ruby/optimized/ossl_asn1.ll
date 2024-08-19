@@ -1700,7 +1700,7 @@ define internal noundef i64 @ossl_asn1_initialize(i32 noundef %0, ptr noundef %1
   %10 = icmp eq i32 %9, -1
   %11 = icmp sgt i32 %0, 1
   %or.cond = or i1 %11, %10
-  br i1 %or.cond, label %12, label %54
+  br i1 %or.cond, label %12, label %52
 
 12:                                               ; preds = %3
   %13 = load i64, ptr %5, align 8
@@ -1744,82 +1744,78 @@ RB_SYMBOL_P.exit.thread15:                        ; preds = %23, %RB_SYMBOL_P.ex
 RB_SYMBOL_P.exit.thread:                          ; preds = %20, %RB_SYMBOL_P.exit
   %33 = load i64, ptr %7, align 8
   %34 = icmp eq i64 %33, 4
-  br i1 %34, label %38, label %40
+  br i1 %34, label %.sink.split, label %38
 
 .thread:                                          ; preds = %17
   %35 = load i64, ptr %7, align 8
   %36 = icmp eq i64 %35, 4
-  br i1 %36, label %.thread16, label %40
+  br i1 %36, label %.sink.split, label %38
 
-.thread16:                                        ; preds = %.thread
-  %37 = load i64, ptr @sym_UNIVERSAL, align 8
+.sink.split:                                      ; preds = %RB_SYMBOL_P.exit.thread, %.thread
+  %sym_UNIVERSAL.sink = phi ptr [ @sym_UNIVERSAL, %.thread ], [ @sym_CONTEXT_SPECIFIC, %RB_SYMBOL_P.exit.thread ]
+  %37 = load i64, ptr %sym_UNIVERSAL.sink, align 8
   store i64 %37, ptr %7, align 8
-  br label %40
+  br label %38
 
-38:                                               ; preds = %RB_SYMBOL_P.exit.thread
-  %39 = load i64, ptr @sym_CONTEXT_SPECIFIC, align 8
-  store i64 %39, ptr %7, align 8
-  br label %40
+38:                                               ; preds = %.sink.split, %.thread, %RB_SYMBOL_P.exit.thread
+  %39 = phi i64 [ %35, %.thread ], [ %33, %RB_SYMBOL_P.exit.thread ], [ %37, %.sink.split ]
+  %40 = and i64 %39, 255
+  %41 = icmp eq i64 %40, 12
+  br i1 %41, label %RB_SYMBOL_P.exit14.thread, label %42
 
-40:                                               ; preds = %.thread, %.thread16, %38, %RB_SYMBOL_P.exit.thread
-  %41 = phi i64 [ %35, %.thread ], [ %37, %.thread16 ], [ %39, %38 ], [ %33, %RB_SYMBOL_P.exit.thread ]
-  %42 = and i64 %41, 255
-  %43 = icmp eq i64 %42, 12
-  br i1 %43, label %RB_SYMBOL_P.exit14.thread, label %44
+42:                                               ; preds = %38
+  %43 = and i64 %39, 7
+  %44 = icmp ne i64 %43, 0
+  %45 = icmp eq i64 %39, 0
+  %46 = or i1 %45, %44
+  br i1 %46, label %RB_SYMBOL_P.exit14.thread17, label %RB_SYMBOL_P.exit14
 
-44:                                               ; preds = %40
-  %45 = and i64 %41, 7
-  %46 = icmp ne i64 %45, 0
-  %47 = icmp eq i64 %41, 0
-  %48 = or i1 %47, %46
-  br i1 %48, label %RB_SYMBOL_P.exit14.thread17, label %RB_SYMBOL_P.exit14
+RB_SYMBOL_P.exit14:                               ; preds = %42
+  %47 = inttoptr i64 %39 to ptr
+  %48 = load i64, ptr %47, align 8
+  %49 = and i64 %48, 31
+  %50 = icmp eq i64 %49, 20
+  br i1 %50, label %RB_SYMBOL_P.exit14.thread, label %RB_SYMBOL_P.exit14.thread17
 
-RB_SYMBOL_P.exit14:                               ; preds = %44
-  %49 = inttoptr i64 %41 to ptr
-  %50 = load i64, ptr %49, align 8
-  %51 = and i64 %50, 31
-  %52 = icmp eq i64 %51, 20
-  br i1 %52, label %RB_SYMBOL_P.exit14.thread, label %RB_SYMBOL_P.exit14.thread17
-
-RB_SYMBOL_P.exit14.thread17:                      ; preds = %44, %RB_SYMBOL_P.exit14
-  %53 = load i64, ptr @eASN1Error, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %53, ptr noundef nonnull @.str.120) #10
+RB_SYMBOL_P.exit14.thread17:                      ; preds = %42, %RB_SYMBOL_P.exit14
+  %51 = load i64, ptr @eASN1Error, align 8
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %51, ptr noundef nonnull @.str.120) #10
   unreachable
 
-54:                                               ; preds = %3
-  %55 = sext i32 %9 to i64
-  %56 = shl nsw i64 %55, 1
-  %57 = or disjoint i64 %56, 1
-  store i64 %57, ptr %5, align 8
+52:                                               ; preds = %3
+  %53 = sext i32 %9 to i64
+  %54 = shl nsw i64 %53, 1
+  %55 = or disjoint i64 %54, 1
+  store i64 %55, ptr %5, align 8
   store i64 4, ptr %6, align 8
-  %58 = load i64, ptr @sym_UNIVERSAL, align 8
-  store i64 %58, ptr %7, align 8
+  %56 = load i64, ptr @sym_UNIVERSAL, align 8
+  store i64 %56, ptr %7, align 8
   br label %RB_SYMBOL_P.exit14.thread
 
-RB_SYMBOL_P.exit14.thread:                        ; preds = %40, %RB_SYMBOL_P.exit14, %54
-  %59 = phi i64 [ %13, %40 ], [ %13, %RB_SYMBOL_P.exit14 ], [ %57, %54 ]
-  %60 = load i64, ptr @sivTAG, align 8
-  %61 = call i64 @rb_ivar_set(i64 noundef %2, i64 noundef %60, i64 noundef %59) #9
-  %62 = load i64, ptr @sivVALUE, align 8
-  %63 = load i64, ptr %4, align 8
-  %64 = call i64 @rb_ivar_set(i64 noundef %2, i64 noundef %62, i64 noundef %63) #9
-  %65 = load i64, ptr @sivTAGGING, align 8
-  %66 = load i64, ptr %6, align 8
-  %67 = call i64 @rb_ivar_set(i64 noundef %2, i64 noundef %65, i64 noundef %66) #9
-  %68 = load i64, ptr @sivTAG_CLASS, align 8
-  %69 = load i64, ptr %7, align 8
-  %70 = call i64 @rb_ivar_set(i64 noundef %2, i64 noundef %68, i64 noundef %69) #9
-  %71 = load i64, ptr @sivINDEFINITE_LENGTH, align 8
-  %72 = call i64 @rb_ivar_set(i64 noundef %2, i64 noundef %71, i64 noundef 0) #9
-  %73 = icmp eq i32 %9, 3
-  br i1 %73, label %74, label %77
+RB_SYMBOL_P.exit14.thread:                        ; preds = %38, %RB_SYMBOL_P.exit14, %52
+  %57 = phi i64 [ %13, %38 ], [ %13, %RB_SYMBOL_P.exit14 ], [ %55, %52 ]
+  %58 = load i64, ptr @sivTAG, align 8
+  %59 = call i64 @rb_ivar_set(i64 noundef %2, i64 noundef %58, i64 noundef %57) #9
+  %60 = load i64, ptr @sivVALUE, align 8
+  %61 = load i64, ptr %4, align 8
+  %62 = call i64 @rb_ivar_set(i64 noundef %2, i64 noundef %60, i64 noundef %61) #9
+  %63 = load i64, ptr @sivTAGGING, align 8
+  %64 = load i64, ptr %6, align 8
+  %65 = call i64 @rb_ivar_set(i64 noundef %2, i64 noundef %63, i64 noundef %64) #9
+  %66 = load i64, ptr @sivTAG_CLASS, align 8
+  %67 = load i64, ptr %7, align 8
+  %68 = call i64 @rb_ivar_set(i64 noundef %2, i64 noundef %66, i64 noundef %67) #9
+  %69 = load i64, ptr @sivINDEFINITE_LENGTH, align 8
+  %70 = call i64 @rb_ivar_set(i64 noundef %2, i64 noundef %69, i64 noundef 0) #9
+  %71 = icmp eq i32 %9, 3
+  br i1 %71, label %72, label %75
 
-74:                                               ; preds = %RB_SYMBOL_P.exit14.thread
-  %75 = load i64, ptr @sivUNUSED_BITS, align 8
-  %76 = call i64 @rb_ivar_set(i64 noundef %2, i64 noundef %75, i64 noundef 1) #9
-  br label %77
+72:                                               ; preds = %RB_SYMBOL_P.exit14.thread
+  %73 = load i64, ptr @sivUNUSED_BITS, align 8
+  %74 = call i64 @rb_ivar_set(i64 noundef %2, i64 noundef %73, i64 noundef 1) #9
+  br label %75
 
-77:                                               ; preds = %74, %RB_SYMBOL_P.exit14.thread
+75:                                               ; preds = %72, %RB_SYMBOL_P.exit14.thread
   ret i64 %2
 }
 

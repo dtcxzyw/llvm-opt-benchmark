@@ -7950,7 +7950,7 @@ l_strton.exit.i.i.i:                              ; preds = %cond.false.i.i.i.i,
 705:                                              ; preds = %l_strton.exit.i.i.i, %if.end.i2442
   %706 = phi i8 [ %.pr.i.i.i, %l_strton.exit.i.i.i ], [ %700, %if.end.i2442 ]
   %707 = phi ptr [ %.ph.i.i.i, %l_strton.exit.i.i.i ], [ %add.ptr.i2428, %if.end.i2442 ]
-  switch i8 %706, label %luaV_tointeger.exit.thread.i.i [
+  switch i8 %706, label %if.then.i.i2450 [
     i8 19, label %if.then.i.i.i.i
     i8 3, label %luaV_tointeger.exit.thread29.i.i
   ]
@@ -7965,27 +7965,18 @@ if.then.i.i.i.i:                                  ; preds = %705
   %cmp7.i.i.i.i.i = fcmp oge double %f.0.i.i.i.i.i, 0xC3E0000000000000
   %cmp8.i.i.i.i.i = fcmp olt double %f.0.i.i.i.i.i, 0x43E0000000000000
   %or.cond.i.i.i.i.i = and i1 %cmp7.i.i.i.i.i, %cmp8.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i.i, label %luaV_tointeger.exit.i.i, label %luaV_tointeger.exit.thread32.i.i
-
-luaV_tointeger.exit.thread32.i.i:                 ; preds = %if.then.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %v.i.i.i)
-  br label %if.then.i.i2450
+  br i1 %or.cond.i.i.i.i.i, label %luaV_tointeger.exit.i.i, label %if.then.i.i2450
 
 luaV_tointeger.exit.thread29.i.i:                 ; preds = %705
   %710 = load i64, ptr %707, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %v.i.i.i)
   br label %if.end18.i.i
-
-luaV_tointeger.exit.thread.i.i:                   ; preds = %705
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %v.i.i.i)
-  br label %if.then.i.i2450
 
 luaV_tointeger.exit.i.i:                          ; preds = %if.then.i.i.i.i
   %conv.i.i.i.i.i = fptosi double %f.0.i.i.i.i.i to i64
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %v.i.i.i)
   br label %if.end18.i.i
 
-if.then.i.i2450:                                  ; preds = %luaV_tointeger.exit.thread.i.i, %luaV_tointeger.exit.thread32.i.i
+if.then.i.i2450:                                  ; preds = %if.then.i.i.i.i, %705
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %v.i.i.i)
   %711 = load i8, ptr %tt_.i.i.i.i, align 8
   %cmp1.i.i2451 = icmp eq i8 %711, 19
   br i1 %cmp1.i.i2451, label %cond.true.i.i2455, label %cond.false.i.i2452
@@ -8066,6 +8057,7 @@ if.else.i.i2454:                                  ; preds = %if.end.i.i
 
 if.end18.i.i:                                     ; preds = %luaV_tointeger.exit.i.i, %luaV_tointeger.exit.thread29.i.i
   %limit.0.i = phi i64 [ %710, %luaV_tointeger.exit.thread29.i.i ], [ %conv.i.i.i.i.i, %luaV_tointeger.exit.i.i ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %v.i.i.i)
   %cmp19.i.i = icmp sgt i64 %699, 0
   br i1 %cmp19.i.i, label %cond.true21.i.i, label %forlimit.exit.i
 

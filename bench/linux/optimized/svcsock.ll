@@ -3290,8 +3290,7 @@ define internal i32 @svc_udp_sendto(ptr noundef %0) #0 align 16 {
   %33 = load i32, ptr %32, align 4
   %34 = getelementptr inbounds i8, ptr %2, i64 20
   store i32 %33, ptr %34, align 4
-  store i64 28, ptr %2, align 8
-  br label %43
+  br label %.sink.split
 
 35:                                               ; preds = %22
   %36 = getelementptr inbounds i8, ptr %2, i64 16
@@ -3305,10 +3304,14 @@ define internal i32 @svc_udp_sendto(ptr noundef %0) #0 align 16 {
   store i32 %40, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %0, i64 192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %36, ptr noundef align 4 dereferenceable(16) %42, i64 16, i1 false)
-  store i64 36, ptr %2, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %28, %35
+  %.sink = phi i64 [ 36, %35 ], [ 28, %28 ]
+  store i64 %.sink, ptr %2, align 8
   br label %43
 
-43:                                               ; preds = %35, %28, %22
+43:                                               ; preds = %.sink.split, %22
   %44 = getelementptr inbounds i8, ptr %5, i64 72
   call void @mutex_lock(ptr noundef %44) #16
   %45 = getelementptr inbounds i8, ptr %5, i64 48

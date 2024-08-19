@@ -321,7 +321,7 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
   %164 = getelementptr inbounds i8, ptr %.val.i, i64 304
   %165 = load i32, ptr %164, align 8
   %166 = call zeroext i1 @statistic_proc_security_check(ptr noundef nonnull %9, i32 noundef %165) #10
-  br i1 %166, label %167, label %calc_hist_selectivity.exit.thread.i
+  br i1 %166, label %167, label %.sink.split.i
 
 167:                                              ; preds = %162
   %168 = getelementptr inbounds i8, ptr %.val.i, i64 400
@@ -331,16 +331,16 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
 
 170:                                              ; preds = %167
   %171 = call zeroext i1 @statistic_proc_security_check(ptr noundef nonnull %9, i32 noundef %169) #10
-  br i1 %171, label %172, label %calc_hist_selectivity.exit.thread.i
+  br i1 %171, label %172, label %.sink.split.i
 
 172:                                              ; preds = %170, %167
   %173 = load ptr, ptr %127, align 8
   %.not88.i.i = icmp eq ptr %173, null
-  br i1 %.not88.i.i, label %calc_hist_selectivity.exit.thread.i, label %174
+  br i1 %.not88.i.i, label %.sink.split.i, label %174
 
 174:                                              ; preds = %172
   %175 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %2, ptr noundef nonnull %173, i32 noundef 7, i32 noundef 0, i32 noundef 1) #10
-  br i1 %175, label %176, label %calc_hist_selectivity.exit.thread.i
+  br i1 %175, label %176, label %.sink.split.i
 
 176:                                              ; preds = %174
   %177 = getelementptr inbounds i8, ptr %2, i64 24
@@ -524,24 +524,9 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 691, ptr noundef nonnull @__func__.calc_hist_selectivity) #10
   unreachable
 
-calc_hist_selectivity.exit.thread.i:              ; preds = %174, %172, %170, %162
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  br label %268
-
 calc_hist_selectivity.exit.thread37.i:            ; preds = %203, %201, %176
   call void @free_attstatsslot(ptr noundef nonnull %2) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  br label %268
+  br label %.sink.split.i
 
 calc_hist_selectivity.exit.i:                     ; preds = %258, %255, %249, %239, %233, %231, %228, %225, %223, %220, %217, %215, %213, %205
   %.083.ph.ph.i.i = phi double [ -1.000000e+00, %205 ], [ %250, %249 ], [ %257, %255 ], [ %263, %258 ], [ %244, %239 ], [ %238, %233 ], [ %232, %231 ], [ %230, %228 ], [ %227, %225 ], [ %224, %223 ], [ %222, %220 ], [ %219, %217 ], [ %216, %215 ], [ %214, %213 ]
@@ -556,7 +541,16 @@ calc_hist_selectivity.exit.i:                     ; preds = %258, %255, %249, %2
   %267 = fcmp olt double %.083.ph.ph.i.i, 0.000000e+00
   br i1 %267, label %268, label %270
 
-268:                                              ; preds = %calc_hist_selectivity.exit.i, %calc_hist_selectivity.exit.thread37.i, %calc_hist_selectivity.exit.thread.i
+.sink.split.i:                                    ; preds = %calc_hist_selectivity.exit.thread37.i, %174, %172, %170, %162
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
+  br label %268
+
+268:                                              ; preds = %.sink.split.i, %calc_hist_selectivity.exit.i
   %269 = call fastcc double @default_multirange_selectivity(i32 noundef %.074)
   br label %270
 

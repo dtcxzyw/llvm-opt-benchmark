@@ -5714,7 +5714,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg3tri12GeodesicHeatI6CMeshOE16Comp
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %12, %14
-  br i1 %15, label %209, label %16
+  br i1 %15, label %210, label %16
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds i8, ptr %0, i64 264
@@ -6192,17 +6192,17 @@ _ZN5Eigen9ArrayBaseINS_12ArrayWrapperINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEEEmIE
   call void @free(ptr noundef %206) #32
   %207 = load ptr, ptr %4, align 8
   call void @free(ptr noundef %207) #32
-  br label %209
+  br label %210
 
 .body:                                            ; preds = %64, %203, %59
   %.pn33 = phi { ptr, i32 } [ %60, %59 ], [ %.pn.pn.pn, %203 ], [ %65, %64 ]
-  %.sink = load ptr, ptr %5, align 8
-  call void @free(ptr noundef %.sink) #32
-  %208 = load ptr, ptr %4, align 8
+  %208 = load ptr, ptr %5, align 8
   call void @free(ptr noundef %208) #32
+  %209 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %209) #32
   br label %common.resume
 
-209:                                              ; preds = %3, %205
+210:                                              ; preds = %3, %205
   %.019 = phi i1 [ %.1, %205 ], [ false, %3 ]
   ret i1 %.019
 }

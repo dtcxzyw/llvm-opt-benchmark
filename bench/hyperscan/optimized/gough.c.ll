@@ -222,80 +222,74 @@ if.end124.i:                                      ; preds = %if.end116.i
 
 sw.bb.i:                                          ; preds = %if.end124.i
   %cmp131.i = icmp eq i64 %cond45.i, %add130.i
-  br i1 %cmp131.i, label %if.then133.i, label %if.end135.i
-
-if.then133.i:                                     ; preds = %sw.bb.i
-  %32 = load i16, ptr %start_anchored.i, align 4
-  %conv134.i = trunc i16 %32 to i8
-  store i8 %conv134.i, ptr %s.i, align 1
-  br label %sw.epilog.i
+  br i1 %cmp131.i, label %sw.epilog.i.sink.split, label %if.end135.i
 
 if.end135.i:                                      ; preds = %sw.bb.i
-  %33 = load i8, ptr %s.i, align 1
+  %32 = load i8, ptr %s.i, align 1
   %som141.i = getelementptr inbounds i8, ptr %arrayidx128.i, i64 16
-  %34 = load i64, ptr %som141.i, align 8
-  %35 = load i32, ptr %aux_offset.i.i, align 4
-  %36 = load i32, ptr %haig_offset.i.i.i, align 4
-  %idx.ext.i.i.i = zext i32 %36 to i64
+  %33 = load i64, ptr %som141.i, align 8
+  %34 = load i32, ptr %aux_offset.i.i, align 4
+  %35 = load i32, ptr %haig_offset.i.i.i, align 4
+  %idx.ext.i.i.i = zext i32 %35 to i64
   %add.ptr1.i.i.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext.i.i.i
-  %37 = load i32, ptr %add.ptr1.i.i.i, align 4
-  %tobool.i.not.i = icmp eq i32 %37, 0
+  %36 = load i32, ptr %add.ptr1.i.i.i, align 4
+  %tobool.i.not.i = icmp eq i32 %36, 0
   br i1 %tobool.i.not.i, label %entry.return_crit_edge.i, label %if.end.i
 
 entry.return_crit_edge.i:                         ; preds = %if.end135.i
-  %.pre.i = zext i8 %33 to i64
+  %.pre.i = zext i8 %32 to i64
   br label %goughEnableStarts.exit
 
 if.end.i:                                         ; preds = %if.end135.i
-  %idx.ext.i16.i = zext i32 %37 to i64
+  %idx.ext.i16.i = zext i32 %36 to i64
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext.i16.i
-  %idxprom.i = zext i8 %33 to i64
+  %idxprom.i = zext i8 %32 to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %add.ptr2.i.i, i64 %idxprom.i
-  %38 = load i32, ptr %arrayidx.i, align 4
-  %tobool4.not.i = icmp eq i32 %38, 0
+  %37 = load i32, ptr %arrayidx.i, align 4
+  %tobool4.not.i = icmp eq i32 %37, 0
   br i1 %tobool4.not.i, label %goughEnableStarts.exit, label %do.end9.i
 
 do.end9.i:                                        ; preds = %if.end.i
-  %idx.ext.i123 = zext i32 %38 to i64
+  %idx.ext.i123 = zext i32 %37 to i64
   %add.ptr10.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext.i123
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %sw.epilog.i.i, %do.end9.i
   %pc.addr.i.0.i = phi ptr [ %add.ptr10.i, %do.end9.i ], [ %incdec.ptr.i.i, %sw.epilog.i.i ]
   %dest1.i.i = getelementptr inbounds i8, ptr %pc.addr.i.0.i, i64 4
-  %39 = load i32, ptr %dest1.i.i, align 4
+  %38 = load i32, ptr %dest1.i.i, align 4
   %src2.i.i = getelementptr inbounds i8, ptr %pc.addr.i.0.i, i64 8
-  %40 = load i32, ptr %src2.i.i, align 4
-  %41 = load i32, ptr %pc.addr.i.0.i, align 4
-  switch i32 %41, label %goughEnableStarts.exit.loopexit [
+  %39 = load i32, ptr %src2.i.i, align 4
+  %40 = load i32, ptr %pc.addr.i.0.i, align 4
+  switch i32 %40, label %goughEnableStarts.exit.loopexit [
     i32 3, label %sw.bb16.i.i
     i32 1, label %sw.bb5.i.i
     i32 2, label %sw.bb9.i.i
   ]
 
 sw.bb5.i.i:                                       ; preds = %while.body.i.i
-  %idxprom.i.i = zext i32 %40 to i64
+  %idxprom.i.i = zext i32 %39 to i64
   %arrayidx.i.i = getelementptr inbounds [1 x i64], ptr %add.ptr.i12, i64 0, i64 %idxprom.i.i
-  %42 = load i64, ptr %arrayidx.i.i, align 8
-  %idxprom7.i.i = zext i32 %39 to i64
+  %41 = load i64, ptr %arrayidx.i.i, align 8
+  %idxprom7.i.i = zext i32 %38 to i64
   %arrayidx8.i.i = getelementptr inbounds [1 x i64], ptr %add.ptr.i12, i64 0, i64 %idxprom7.i.i
-  store i64 %42, ptr %arrayidx8.i.i, align 8
+  store i64 %41, ptr %arrayidx8.i.i, align 8
   br label %sw.epilog.i.i
 
 sw.bb9.i.i:                                       ; preds = %while.body.i.i
-  %conv.i.i = zext i32 %40 to i64
-  %sub.i.i = sub i64 %34, %conv.i.i
-  %idxprom14.i.i = zext i32 %39 to i64
+  %conv.i.i = zext i32 %39 to i64
+  %sub.i.i = sub i64 %33, %conv.i.i
+  %idxprom14.i.i = zext i32 %38 to i64
   %arrayidx15.i.i = getelementptr inbounds [1 x i64], ptr %add.ptr.i12, i64 0, i64 %idxprom14.i.i
   store i64 %sub.i.i, ptr %arrayidx15.i.i, align 8
   br label %sw.epilog.i.i
 
 sw.bb16.i.i:                                      ; preds = %while.body.i.i
-  %idxprom18.i.i = zext i32 %40 to i64
+  %idxprom18.i.i = zext i32 %39 to i64
   %arrayidx19.i.i = getelementptr inbounds [1 x i64], ptr %add.ptr.i12, i64 0, i64 %idxprom18.i.i
-  %43 = load i64, ptr %arrayidx19.i.i, align 8
-  %cmp.i.i = icmp eq i64 %43, -1
-  %idxprom25.i.i = zext i32 %39 to i64
+  %42 = load i64, ptr %arrayidx19.i.i, align 8
+  %cmp.i.i = icmp eq i64 %42, -1
+  %idxprom25.i.i = zext i32 %38 to i64
   %arrayidx26.i.i = getelementptr inbounds [1 x i64], ptr %add.ptr.i12, i64 0, i64 %idxprom25.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -304,12 +298,12 @@ if.then.i.i:                                      ; preds = %sw.bb16.i.i
   br label %sw.epilog.i.i
 
 if.else.i.i:                                      ; preds = %sw.bb16.i.i
-  %44 = load i64, ptr %arrayidx26.i.i, align 8
-  %cmp30.i.not.i = icmp eq i64 %44, -1
+  %43 = load i64, ptr %arrayidx26.i.i, align 8
+  %cmp30.i.not.i = icmp eq i64 %43, -1
   br i1 %cmp30.i.not.i, label %sw.epilog.i.i, label %if.then32.i.i
 
 if.then32.i.i:                                    ; preds = %if.else.i.i
-  %..i = tail call i64 @llvm.umin.i64(i64 %44, i64 %43)
+  %..i = tail call i64 @llvm.umin.i64(i64 %43, i64 %42)
   store i64 %..i, ptr %arrayidx26.i.i, align 8
   br label %sw.epilog.i.i
 
@@ -324,28 +318,33 @@ goughEnableStarts.exit.loopexit:                  ; preds = %while.body.i.i
 goughEnableStarts.exit:                           ; preds = %goughEnableStarts.exit.loopexit, %entry.return_crit_edge.i, %if.end.i
   %.pre = phi i32 [ %27, %entry.return_crit_edge.i ], [ %27, %if.end.i ], [ %.pre.pre, %goughEnableStarts.exit.loopexit ]
   %idx.ext2.i.pre-phi.i = phi i64 [ %.pre.i, %entry.return_crit_edge.i ], [ %idxprom.i, %if.end.i ], [ %idxprom.i, %goughEnableStarts.exit.loopexit ]
-  %idx.ext.i.i = zext i32 %35 to i64
+  %idx.ext.i.i = zext i32 %34 to i64
   %add.ptr1.i.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext.i.i
   %retval.0.in.i = getelementptr inbounds %struct.mstate_aux, ptr %add.ptr1.i.i, i64 %idx.ext2.i.pre-phi.i, i32 2
-  %retval.0.i = load i16, ptr %retval.0.in.i, align 4
+  br label %sw.epilog.i.sink.split
+
+sw.bb144.i:                                       ; preds = %if.end124.i
+  %44 = load i8, ptr %s.i, align 1
+  %45 = load ptr, ptr %state.i, align 8
+  store i8 %44, ptr %45, align 1
+  %46 = load i32, ptr %cur.i41, align 8
+  %inc147.i = add i32 %46, 1
+  store i32 %inc147.i, ptr %cur.i41, align 8
+  %tobool149.i.not = icmp ne i8 %44, 0
+  %conv151.i = zext i1 %tobool149.i.not to i8
+  br label %nfaExecGough8_Q2i.exit
+
+sw.epilog.i.sink.split:                           ; preds = %sw.bb.i, %goughEnableStarts.exit
+  %retval.0.in.i.sink = phi ptr [ %retval.0.in.i, %goughEnableStarts.exit ], [ %start_anchored.i, %sw.bb.i ]
+  %.ph = phi i32 [ %.pre, %goughEnableStarts.exit ], [ %27, %sw.bb.i ]
+  %retval.0.i = load i16, ptr %retval.0.in.i.sink, align 4
   %conv143.i = trunc i16 %retval.0.i to i8
   store i8 %conv143.i, ptr %s.i, align 1
   br label %sw.epilog.i
 
-sw.bb144.i:                                       ; preds = %if.end124.i
-  %45 = load i8, ptr %s.i, align 1
-  %46 = load ptr, ptr %state.i, align 8
-  store i8 %45, ptr %46, align 1
-  %47 = load i32, ptr %cur.i41, align 8
-  %inc147.i = add i32 %47, 1
-  store i32 %inc147.i, ptr %cur.i41, align 8
-  %tobool149.i.not = icmp ne i8 %45, 0
-  %conv151.i = zext i1 %tobool149.i.not to i8
-  br label %nfaExecGough8_Q2i.exit
-
-sw.epilog.i:                                      ; preds = %if.end124.i, %goughEnableStarts.exit, %if.then133.i
-  %48 = phi i32 [ %27, %if.end124.i ], [ %.pre, %goughEnableStarts.exit ], [ %27, %if.then133.i ]
-  %inc153.i = add i32 %48, 1
+sw.epilog.i:                                      ; preds = %sw.epilog.i.sink.split, %if.end124.i
+  %47 = phi i32 [ %27, %if.end124.i ], [ %.ph, %sw.epilog.i.sink.split ]
+  %inc153.i = add i32 %47, 1
   store i32 %inc153.i, ptr %cur.i41, align 8
   br label %while.body.i.backedge
 
@@ -573,79 +572,74 @@ if.end117.i:                                      ; preds = %if.end109.i
 
 sw.bb.i:                                          ; preds = %if.end117.i
   %cmp124.i = icmp eq i64 %cond42.i, %add123.i
-  br i1 %cmp124.i, label %if.then126.i, label %if.end127.i
-
-if.then126.i:                                     ; preds = %sw.bb.i
-  %32 = load i16, ptr %start_anchored.i, align 4
-  store i16 %32, ptr %s.i, align 2
-  br label %sw.epilog.i
+  br i1 %cmp124.i, label %sw.epilog.i.sink.split, label %if.end127.i
 
 if.end127.i:                                      ; preds = %sw.bb.i
-  %33 = load i16, ptr %s.i, align 2
+  %32 = load i16, ptr %s.i, align 2
   %som132.i = getelementptr inbounds i8, ptr %arrayidx121.i, i64 16
-  %34 = load i64, ptr %som132.i, align 8
-  %35 = load i32, ptr %aux_offset.i.i, align 4
-  %36 = load i32, ptr %haig_offset.i.i.i, align 4
-  %idx.ext.i.i.i = zext i32 %36 to i64
+  %33 = load i64, ptr %som132.i, align 8
+  %34 = load i32, ptr %aux_offset.i.i, align 4
+  %35 = load i32, ptr %haig_offset.i.i.i, align 4
+  %idx.ext.i.i.i = zext i32 %35 to i64
   %add.ptr1.i.i.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext.i.i.i
-  %37 = load i32, ptr %add.ptr1.i.i.i, align 4
-  %tobool.i.not.i = icmp eq i32 %37, 0
+  %36 = load i32, ptr %add.ptr1.i.i.i, align 4
+  %tobool.i.not.i = icmp eq i32 %36, 0
   br i1 %tobool.i.not.i, label %entry.return_crit_edge.i, label %if.end.i
 
 entry.return_crit_edge.i:                         ; preds = %if.end127.i
-  %.pre.i = zext i16 %33 to i64
+  %.pre.i = zext i16 %32 to i64
   br label %goughEnableStarts.exit
 
 if.end.i:                                         ; preds = %if.end127.i
-  %idx.ext.i16.i = zext i32 %37 to i64
+  %idx.ext.i16.i = zext i32 %36 to i64
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext.i16.i
-  %idxprom.i = zext i16 %33 to i64
+  %idxprom.i = zext i16 %32 to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %add.ptr2.i.i, i64 %idxprom.i
-  %38 = load i32, ptr %arrayidx.i, align 4
-  %tobool4.not.i = icmp eq i32 %38, 0
+  %37 = load i32, ptr %arrayidx.i, align 4
+  %tobool4.not.i = icmp eq i32 %37, 0
   br i1 %tobool4.not.i, label %goughEnableStarts.exit, label %do.end9.i
 
 do.end9.i:                                        ; preds = %if.end.i
-  %idx.ext.i123 = zext i32 %38 to i64
+  %idx.ext.i123 = zext i32 %37 to i64
   %add.ptr10.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext.i123
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %sw.epilog.i.i, %do.end9.i
   %pc.addr.i.0.i = phi ptr [ %add.ptr10.i, %do.end9.i ], [ %incdec.ptr.i.i, %sw.epilog.i.i ]
   %dest1.i.i = getelementptr inbounds i8, ptr %pc.addr.i.0.i, i64 4
-  %39 = load i32, ptr %dest1.i.i, align 4
+  %38 = load i32, ptr %dest1.i.i, align 4
   %src2.i.i = getelementptr inbounds i8, ptr %pc.addr.i.0.i, i64 8
-  %40 = load i32, ptr %src2.i.i, align 4
-  %41 = load i32, ptr %pc.addr.i.0.i, align 4
-  switch i32 %41, label %goughEnableStarts.exit.loopexit [
+  %39 = load i32, ptr %src2.i.i, align 4
+  %40 = load i32, ptr %pc.addr.i.0.i, align 4
+  switch i32 %40, label %goughEnableStarts.exit.loopexit [
     i32 3, label %sw.bb16.i.i
     i32 1, label %sw.bb5.i.i
     i32 2, label %sw.bb9.i.i
   ]
 
 sw.bb5.i.i:                                       ; preds = %while.body.i.i
-  %idxprom.i.i = zext i32 %40 to i64
+  %idxprom.i.i = zext i32 %39 to i64
   %arrayidx.i.i = getelementptr inbounds [1 x i64], ptr %add.ptr.i12, i64 0, i64 %idxprom.i.i
-  %42 = load i64, ptr %arrayidx.i.i, align 8
-  %idxprom7.i.i = zext i32 %39 to i64
+  %41 = load i64, ptr %arrayidx.i.i, align 8
+  %idxprom7.i.i = zext i32 %38 to i64
   %arrayidx8.i.i = getelementptr inbounds [1 x i64], ptr %add.ptr.i12, i64 0, i64 %idxprom7.i.i
-  store i64 %42, ptr %arrayidx8.i.i, align 8
+  store i64 %41, ptr %arrayidx8.i.i, align 8
   br label %sw.epilog.i.i
 
 sw.bb9.i.i:                                       ; preds = %while.body.i.i
-  %conv.i.i = zext i32 %40 to i64
-  %sub.i.i = sub i64 %34, %conv.i.i
-  %idxprom14.i.i = zext i32 %39 to i64
+  %conv.i.i = zext i32 %39 to i64
+  %sub.i.i = sub i64 %33, %conv.i.i
+  %idxprom14.i.i = zext i32 %38 to i64
   %arrayidx15.i.i = getelementptr inbounds [1 x i64], ptr %add.ptr.i12, i64 0, i64 %idxprom14.i.i
   store i64 %sub.i.i, ptr %arrayidx15.i.i, align 8
   br label %sw.epilog.i.i
 
 sw.bb16.i.i:                                      ; preds = %while.body.i.i
-  %idxprom18.i.i = zext i32 %40 to i64
+  %idxprom18.i.i = zext i32 %39 to i64
   %arrayidx19.i.i = getelementptr inbounds [1 x i64], ptr %add.ptr.i12, i64 0, i64 %idxprom18.i.i
-  %43 = load i64, ptr %arrayidx19.i.i, align 8
-  %cmp.i.i = icmp eq i64 %43, -1
-  %idxprom25.i.i = zext i32 %39 to i64
+  %42 = load i64, ptr %arrayidx19.i.i, align 8
+  %cmp.i.i = icmp eq i64 %42, -1
+  %idxprom25.i.i = zext i32 %38 to i64
   %arrayidx26.i.i = getelementptr inbounds [1 x i64], ptr %add.ptr.i12, i64 0, i64 %idxprom25.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -654,12 +648,12 @@ if.then.i.i:                                      ; preds = %sw.bb16.i.i
   br label %sw.epilog.i.i
 
 if.else.i.i:                                      ; preds = %sw.bb16.i.i
-  %44 = load i64, ptr %arrayidx26.i.i, align 8
-  %cmp30.i.not.i = icmp eq i64 %44, -1
+  %43 = load i64, ptr %arrayidx26.i.i, align 8
+  %cmp30.i.not.i = icmp eq i64 %43, -1
   br i1 %cmp30.i.not.i, label %sw.epilog.i.i, label %if.then32.i.i
 
 if.then32.i.i:                                    ; preds = %if.else.i.i
-  %..i = tail call i64 @llvm.umin.i64(i64 %44, i64 %43)
+  %..i = tail call i64 @llvm.umin.i64(i64 %43, i64 %42)
   store i64 %..i, ptr %arrayidx26.i.i, align 8
   br label %sw.epilog.i.i
 
@@ -674,27 +668,32 @@ goughEnableStarts.exit.loopexit:                  ; preds = %while.body.i.i
 goughEnableStarts.exit:                           ; preds = %goughEnableStarts.exit.loopexit, %entry.return_crit_edge.i, %if.end.i
   %.pre = phi i32 [ %27, %entry.return_crit_edge.i ], [ %27, %if.end.i ], [ %.pre.pre, %goughEnableStarts.exit.loopexit ]
   %idx.ext2.i.pre-phi.i = phi i64 [ %.pre.i, %entry.return_crit_edge.i ], [ %idxprom.i, %if.end.i ], [ %idxprom.i, %goughEnableStarts.exit.loopexit ]
-  %idx.ext.i.i = zext i32 %35 to i64
+  %idx.ext.i.i = zext i32 %34 to i64
   %add.ptr1.i.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext.i.i
   %retval.0.in.i = getelementptr inbounds %struct.mstate_aux, ptr %add.ptr1.i.i, i64 %idx.ext2.i.pre-phi.i, i32 2
-  %retval.0.i = load i16, ptr %retval.0.in.i, align 4
-  store i16 %retval.0.i, ptr %s.i, align 2
-  br label %sw.epilog.i
+  br label %sw.epilog.i.sink.split
 
 sw.bb134.i:                                       ; preds = %if.end117.i
-  %45 = load i16, ptr %s.i, align 2
-  %46 = load ptr, ptr %state.i, align 8
-  store i16 %45, ptr %46, align 2
-  %47 = load i32, ptr %cur.i38, align 8
-  %inc137.i = add i32 %47, 1
+  %44 = load i16, ptr %s.i, align 2
+  %45 = load ptr, ptr %state.i, align 8
+  store i16 %44, ptr %45, align 2
+  %46 = load i32, ptr %cur.i38, align 8
+  %inc137.i = add i32 %46, 1
   store i32 %inc137.i, ptr %cur.i38, align 8
-  %tobool139.i.not = icmp ne i16 %45, 0
+  %tobool139.i.not = icmp ne i16 %44, 0
   %conv141.i = zext i1 %tobool139.i.not to i8
   br label %nfaExecGough16_Q2i.exit
 
-sw.epilog.i:                                      ; preds = %if.end117.i, %goughEnableStarts.exit, %if.then126.i
-  %48 = phi i32 [ %27, %if.end117.i ], [ %.pre, %goughEnableStarts.exit ], [ %27, %if.then126.i ]
-  %inc143.i = add i32 %48, 1
+sw.epilog.i.sink.split:                           ; preds = %sw.bb.i, %goughEnableStarts.exit
+  %retval.0.in.i.sink = phi ptr [ %retval.0.in.i, %goughEnableStarts.exit ], [ %start_anchored.i, %sw.bb.i ]
+  %.ph = phi i32 [ %.pre, %goughEnableStarts.exit ], [ %27, %sw.bb.i ]
+  %retval.0.i = load i16, ptr %retval.0.in.i.sink, align 4
+  store i16 %retval.0.i, ptr %s.i, align 2
+  br label %sw.epilog.i
+
+sw.epilog.i:                                      ; preds = %sw.epilog.i.sink.split, %if.end117.i
+  %47 = phi i32 [ %27, %if.end117.i ], [ %.ph, %sw.epilog.i.sink.split ]
+  %inc143.i = add i32 %47, 1
   store i32 %inc143.i, ptr %cur.i38, align 8
   br label %while.body.i.backedge
 
@@ -945,80 +944,74 @@ if.end124.i:                                      ; preds = %if.end116.i
 
 sw.bb.i:                                          ; preds = %if.end124.i
   %cmp131.i = icmp eq i64 %cond45.i, %add130.i
-  br i1 %cmp131.i, label %if.then133.i, label %if.end135.i
-
-if.then133.i:                                     ; preds = %sw.bb.i
-  %35 = load i16, ptr %start_anchored.i, align 4
-  %conv134.i = trunc i16 %35 to i8
-  store i8 %conv134.i, ptr %s.i, align 1
-  br label %sw.epilog.i
+  br i1 %cmp131.i, label %sw.epilog.i.sink.split, label %if.end135.i
 
 if.end135.i:                                      ; preds = %sw.bb.i
-  %36 = load i8, ptr %s.i, align 1
+  %35 = load i8, ptr %s.i, align 1
   %som141.i = getelementptr inbounds i8, ptr %arrayidx128.i, i64 16
-  %37 = load i64, ptr %som141.i, align 8
-  %38 = load i32, ptr %aux_offset.i.i, align 4
-  %39 = load i32, ptr %haig_offset.i.i.i, align 4
-  %idx.ext.i.i.i = zext i32 %39 to i64
+  %36 = load i64, ptr %som141.i, align 8
+  %37 = load i32, ptr %aux_offset.i.i, align 4
+  %38 = load i32, ptr %haig_offset.i.i.i, align 4
+  %idx.ext.i.i.i = zext i32 %38 to i64
   %add.ptr1.i.i.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext.i.i.i
-  %40 = load i32, ptr %add.ptr1.i.i.i, align 4
-  %tobool.i.not.i = icmp eq i32 %40, 0
+  %39 = load i32, ptr %add.ptr1.i.i.i, align 4
+  %tobool.i.not.i = icmp eq i32 %39, 0
   br i1 %tobool.i.not.i, label %entry.return_crit_edge.i, label %if.end.i
 
 entry.return_crit_edge.i:                         ; preds = %if.end135.i
-  %.pre.i = zext i8 %36 to i64
+  %.pre.i = zext i8 %35 to i64
   br label %goughEnableStarts.exit
 
 if.end.i:                                         ; preds = %if.end135.i
-  %idx.ext.i16.i = zext i32 %40 to i64
+  %idx.ext.i16.i = zext i32 %39 to i64
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext.i16.i
-  %idxprom.i = zext i8 %36 to i64
+  %idxprom.i = zext i8 %35 to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %add.ptr2.i.i, i64 %idxprom.i
-  %41 = load i32, ptr %arrayidx.i, align 4
-  %tobool4.not.i = icmp eq i32 %41, 0
+  %40 = load i32, ptr %arrayidx.i, align 4
+  %tobool4.not.i = icmp eq i32 %40, 0
   br i1 %tobool4.not.i, label %goughEnableStarts.exit, label %do.end9.i
 
 do.end9.i:                                        ; preds = %if.end.i
-  %idx.ext.i123 = zext i32 %41 to i64
+  %idx.ext.i123 = zext i32 %40 to i64
   %add.ptr10.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext.i123
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %sw.epilog.i.i, %do.end9.i
   %pc.addr.i.0.i = phi ptr [ %add.ptr10.i, %do.end9.i ], [ %incdec.ptr.i.i, %sw.epilog.i.i ]
   %dest1.i.i = getelementptr inbounds i8, ptr %pc.addr.i.0.i, i64 4
-  %42 = load i32, ptr %dest1.i.i, align 4
+  %41 = load i32, ptr %dest1.i.i, align 4
   %src2.i.i = getelementptr inbounds i8, ptr %pc.addr.i.0.i, i64 8
-  %43 = load i32, ptr %src2.i.i, align 4
-  %44 = load i32, ptr %pc.addr.i.0.i, align 4
-  switch i32 %44, label %goughEnableStarts.exit.loopexit [
+  %42 = load i32, ptr %src2.i.i, align 4
+  %43 = load i32, ptr %pc.addr.i.0.i, align 4
+  switch i32 %43, label %goughEnableStarts.exit.loopexit [
     i32 3, label %sw.bb16.i.i
     i32 1, label %sw.bb5.i.i
     i32 2, label %sw.bb9.i.i
   ]
 
 sw.bb5.i.i:                                       ; preds = %while.body.i.i
-  %idxprom.i.i = zext i32 %43 to i64
+  %idxprom.i.i = zext i32 %42 to i64
   %arrayidx.i.i = getelementptr inbounds [1 x i64], ptr %add.ptr.i12, i64 0, i64 %idxprom.i.i
-  %45 = load i64, ptr %arrayidx.i.i, align 8
-  %idxprom7.i.i = zext i32 %42 to i64
+  %44 = load i64, ptr %arrayidx.i.i, align 8
+  %idxprom7.i.i = zext i32 %41 to i64
   %arrayidx8.i.i = getelementptr inbounds [1 x i64], ptr %add.ptr.i12, i64 0, i64 %idxprom7.i.i
-  store i64 %45, ptr %arrayidx8.i.i, align 8
+  store i64 %44, ptr %arrayidx8.i.i, align 8
   br label %sw.epilog.i.i
 
 sw.bb9.i.i:                                       ; preds = %while.body.i.i
-  %conv.i.i = zext i32 %43 to i64
-  %sub.i.i = sub i64 %37, %conv.i.i
-  %idxprom14.i.i = zext i32 %42 to i64
+  %conv.i.i = zext i32 %42 to i64
+  %sub.i.i = sub i64 %36, %conv.i.i
+  %idxprom14.i.i = zext i32 %41 to i64
   %arrayidx15.i.i = getelementptr inbounds [1 x i64], ptr %add.ptr.i12, i64 0, i64 %idxprom14.i.i
   store i64 %sub.i.i, ptr %arrayidx15.i.i, align 8
   br label %sw.epilog.i.i
 
 sw.bb16.i.i:                                      ; preds = %while.body.i.i
-  %idxprom18.i.i = zext i32 %43 to i64
+  %idxprom18.i.i = zext i32 %42 to i64
   %arrayidx19.i.i = getelementptr inbounds [1 x i64], ptr %add.ptr.i12, i64 0, i64 %idxprom18.i.i
-  %46 = load i64, ptr %arrayidx19.i.i, align 8
-  %cmp.i.i = icmp eq i64 %46, -1
-  %idxprom25.i.i = zext i32 %42 to i64
+  %45 = load i64, ptr %arrayidx19.i.i, align 8
+  %cmp.i.i = icmp eq i64 %45, -1
+  %idxprom25.i.i = zext i32 %41 to i64
   %arrayidx26.i.i = getelementptr inbounds [1 x i64], ptr %add.ptr.i12, i64 0, i64 %idxprom25.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -1027,12 +1020,12 @@ if.then.i.i:                                      ; preds = %sw.bb16.i.i
   br label %sw.epilog.i.i
 
 if.else.i.i:                                      ; preds = %sw.bb16.i.i
-  %47 = load i64, ptr %arrayidx26.i.i, align 8
-  %cmp30.i.not.i = icmp eq i64 %47, -1
+  %46 = load i64, ptr %arrayidx26.i.i, align 8
+  %cmp30.i.not.i = icmp eq i64 %46, -1
   br i1 %cmp30.i.not.i, label %sw.epilog.i.i, label %if.then32.i.i
 
 if.then32.i.i:                                    ; preds = %if.else.i.i
-  %..i = tail call i64 @llvm.umin.i64(i64 %47, i64 %46)
+  %..i = tail call i64 @llvm.umin.i64(i64 %46, i64 %45)
   store i64 %..i, ptr %arrayidx26.i.i, align 8
   br label %sw.epilog.i.i
 
@@ -1047,28 +1040,33 @@ goughEnableStarts.exit.loopexit:                  ; preds = %while.body.i.i
 goughEnableStarts.exit:                           ; preds = %goughEnableStarts.exit.loopexit, %entry.return_crit_edge.i, %if.end.i
   %.pre = phi i32 [ %28, %entry.return_crit_edge.i ], [ %28, %if.end.i ], [ %.pre.pre, %goughEnableStarts.exit.loopexit ]
   %idx.ext2.i.pre-phi.i = phi i64 [ %.pre.i, %entry.return_crit_edge.i ], [ %idxprom.i, %if.end.i ], [ %idxprom.i, %goughEnableStarts.exit.loopexit ]
-  %idx.ext.i.i = zext i32 %38 to i64
+  %idx.ext.i.i = zext i32 %37 to i64
   %add.ptr1.i.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext.i.i
   %retval.0.in.i = getelementptr inbounds %struct.mstate_aux, ptr %add.ptr1.i.i, i64 %idx.ext2.i.pre-phi.i, i32 2
-  %retval.0.i = load i16, ptr %retval.0.in.i, align 4
+  br label %sw.epilog.i.sink.split
+
+sw.bb144.i:                                       ; preds = %if.end124.i
+  %47 = load i8, ptr %s.i, align 1
+  %48 = load ptr, ptr %state.i, align 8
+  store i8 %47, ptr %48, align 1
+  %49 = load i32, ptr %cur.i41, align 8
+  %inc147.i = add i32 %49, 1
+  store i32 %inc147.i, ptr %cur.i41, align 8
+  %tobool149.i.not = icmp ne i8 %47, 0
+  %conv151.i = zext i1 %tobool149.i.not to i8
+  br label %nfaExecGough8_Q2i.exit
+
+sw.epilog.i.sink.split:                           ; preds = %sw.bb.i, %goughEnableStarts.exit
+  %retval.0.in.i.sink = phi ptr [ %retval.0.in.i, %goughEnableStarts.exit ], [ %start_anchored.i, %sw.bb.i ]
+  %.ph = phi i32 [ %.pre, %goughEnableStarts.exit ], [ %28, %sw.bb.i ]
+  %retval.0.i = load i16, ptr %retval.0.in.i.sink, align 4
   %conv143.i = trunc i16 %retval.0.i to i8
   store i8 %conv143.i, ptr %s.i, align 1
   br label %sw.epilog.i
 
-sw.bb144.i:                                       ; preds = %if.end124.i
-  %48 = load i8, ptr %s.i, align 1
-  %49 = load ptr, ptr %state.i, align 8
-  store i8 %48, ptr %49, align 1
-  %50 = load i32, ptr %cur.i41, align 8
-  %inc147.i = add i32 %50, 1
-  store i32 %inc147.i, ptr %cur.i41, align 8
-  %tobool149.i.not = icmp ne i8 %48, 0
-  %conv151.i = zext i1 %tobool149.i.not to i8
-  br label %nfaExecGough8_Q2i.exit
-
-sw.epilog.i:                                      ; preds = %if.end124.i, %goughEnableStarts.exit, %if.then133.i
-  %51 = phi i32 [ %28, %if.end124.i ], [ %.pre, %goughEnableStarts.exit ], [ %28, %if.then133.i ]
-  %inc153.i = add i32 %51, 1
+sw.epilog.i:                                      ; preds = %sw.epilog.i.sink.split, %if.end124.i
+  %50 = phi i32 [ %28, %if.end124.i ], [ %.ph, %sw.epilog.i.sink.split ]
+  %inc153.i = add i32 %50, 1
   store i32 %inc153.i, ptr %cur.i41, align 8
   br label %while.body.i.backedge
 
@@ -1319,79 +1317,74 @@ if.end117.i:                                      ; preds = %if.end109.i
 
 sw.bb.i:                                          ; preds = %if.end117.i
   %cmp124.i = icmp eq i64 %cond42.i, %add123.i
-  br i1 %cmp124.i, label %if.then126.i, label %if.end127.i
-
-if.then126.i:                                     ; preds = %sw.bb.i
-  %35 = load i16, ptr %start_anchored.i, align 4
-  store i16 %35, ptr %s.i, align 2
-  br label %sw.epilog.i
+  br i1 %cmp124.i, label %sw.epilog.i.sink.split, label %if.end127.i
 
 if.end127.i:                                      ; preds = %sw.bb.i
-  %36 = load i16, ptr %s.i, align 2
+  %35 = load i16, ptr %s.i, align 2
   %som132.i = getelementptr inbounds i8, ptr %arrayidx121.i, i64 16
-  %37 = load i64, ptr %som132.i, align 8
-  %38 = load i32, ptr %aux_offset.i.i, align 4
-  %39 = load i32, ptr %haig_offset.i.i.i, align 4
-  %idx.ext.i.i.i = zext i32 %39 to i64
+  %36 = load i64, ptr %som132.i, align 8
+  %37 = load i32, ptr %aux_offset.i.i, align 4
+  %38 = load i32, ptr %haig_offset.i.i.i, align 4
+  %idx.ext.i.i.i = zext i32 %38 to i64
   %add.ptr1.i.i.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext.i.i.i
-  %40 = load i32, ptr %add.ptr1.i.i.i, align 4
-  %tobool.i.not.i = icmp eq i32 %40, 0
+  %39 = load i32, ptr %add.ptr1.i.i.i, align 4
+  %tobool.i.not.i = icmp eq i32 %39, 0
   br i1 %tobool.i.not.i, label %entry.return_crit_edge.i, label %if.end.i
 
 entry.return_crit_edge.i:                         ; preds = %if.end127.i
-  %.pre.i = zext i16 %36 to i64
+  %.pre.i = zext i16 %35 to i64
   br label %goughEnableStarts.exit
 
 if.end.i:                                         ; preds = %if.end127.i
-  %idx.ext.i16.i = zext i32 %40 to i64
+  %idx.ext.i16.i = zext i32 %39 to i64
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext.i16.i
-  %idxprom.i = zext i16 %36 to i64
+  %idxprom.i = zext i16 %35 to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %add.ptr2.i.i, i64 %idxprom.i
-  %41 = load i32, ptr %arrayidx.i, align 4
-  %tobool4.not.i = icmp eq i32 %41, 0
+  %40 = load i32, ptr %arrayidx.i, align 4
+  %tobool4.not.i = icmp eq i32 %40, 0
   br i1 %tobool4.not.i, label %goughEnableStarts.exit, label %do.end9.i
 
 do.end9.i:                                        ; preds = %if.end.i
-  %idx.ext.i123 = zext i32 %41 to i64
+  %idx.ext.i123 = zext i32 %40 to i64
   %add.ptr10.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext.i123
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %sw.epilog.i.i, %do.end9.i
   %pc.addr.i.0.i = phi ptr [ %add.ptr10.i, %do.end9.i ], [ %incdec.ptr.i.i, %sw.epilog.i.i ]
   %dest1.i.i = getelementptr inbounds i8, ptr %pc.addr.i.0.i, i64 4
-  %42 = load i32, ptr %dest1.i.i, align 4
+  %41 = load i32, ptr %dest1.i.i, align 4
   %src2.i.i = getelementptr inbounds i8, ptr %pc.addr.i.0.i, i64 8
-  %43 = load i32, ptr %src2.i.i, align 4
-  %44 = load i32, ptr %pc.addr.i.0.i, align 4
-  switch i32 %44, label %goughEnableStarts.exit.loopexit [
+  %42 = load i32, ptr %src2.i.i, align 4
+  %43 = load i32, ptr %pc.addr.i.0.i, align 4
+  switch i32 %43, label %goughEnableStarts.exit.loopexit [
     i32 3, label %sw.bb16.i.i
     i32 1, label %sw.bb5.i.i
     i32 2, label %sw.bb9.i.i
   ]
 
 sw.bb5.i.i:                                       ; preds = %while.body.i.i
-  %idxprom.i.i = zext i32 %43 to i64
+  %idxprom.i.i = zext i32 %42 to i64
   %arrayidx.i.i = getelementptr inbounds [1 x i64], ptr %add.ptr.i12, i64 0, i64 %idxprom.i.i
-  %45 = load i64, ptr %arrayidx.i.i, align 8
-  %idxprom7.i.i = zext i32 %42 to i64
+  %44 = load i64, ptr %arrayidx.i.i, align 8
+  %idxprom7.i.i = zext i32 %41 to i64
   %arrayidx8.i.i = getelementptr inbounds [1 x i64], ptr %add.ptr.i12, i64 0, i64 %idxprom7.i.i
-  store i64 %45, ptr %arrayidx8.i.i, align 8
+  store i64 %44, ptr %arrayidx8.i.i, align 8
   br label %sw.epilog.i.i
 
 sw.bb9.i.i:                                       ; preds = %while.body.i.i
-  %conv.i.i = zext i32 %43 to i64
-  %sub.i.i = sub i64 %37, %conv.i.i
-  %idxprom14.i.i = zext i32 %42 to i64
+  %conv.i.i = zext i32 %42 to i64
+  %sub.i.i = sub i64 %36, %conv.i.i
+  %idxprom14.i.i = zext i32 %41 to i64
   %arrayidx15.i.i = getelementptr inbounds [1 x i64], ptr %add.ptr.i12, i64 0, i64 %idxprom14.i.i
   store i64 %sub.i.i, ptr %arrayidx15.i.i, align 8
   br label %sw.epilog.i.i
 
 sw.bb16.i.i:                                      ; preds = %while.body.i.i
-  %idxprom18.i.i = zext i32 %43 to i64
+  %idxprom18.i.i = zext i32 %42 to i64
   %arrayidx19.i.i = getelementptr inbounds [1 x i64], ptr %add.ptr.i12, i64 0, i64 %idxprom18.i.i
-  %46 = load i64, ptr %arrayidx19.i.i, align 8
-  %cmp.i.i = icmp eq i64 %46, -1
-  %idxprom25.i.i = zext i32 %42 to i64
+  %45 = load i64, ptr %arrayidx19.i.i, align 8
+  %cmp.i.i = icmp eq i64 %45, -1
+  %idxprom25.i.i = zext i32 %41 to i64
   %arrayidx26.i.i = getelementptr inbounds [1 x i64], ptr %add.ptr.i12, i64 0, i64 %idxprom25.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -1400,12 +1393,12 @@ if.then.i.i:                                      ; preds = %sw.bb16.i.i
   br label %sw.epilog.i.i
 
 if.else.i.i:                                      ; preds = %sw.bb16.i.i
-  %47 = load i64, ptr %arrayidx26.i.i, align 8
-  %cmp30.i.not.i = icmp eq i64 %47, -1
+  %46 = load i64, ptr %arrayidx26.i.i, align 8
+  %cmp30.i.not.i = icmp eq i64 %46, -1
   br i1 %cmp30.i.not.i, label %sw.epilog.i.i, label %if.then32.i.i
 
 if.then32.i.i:                                    ; preds = %if.else.i.i
-  %..i = tail call i64 @llvm.umin.i64(i64 %47, i64 %46)
+  %..i = tail call i64 @llvm.umin.i64(i64 %46, i64 %45)
   store i64 %..i, ptr %arrayidx26.i.i, align 8
   br label %sw.epilog.i.i
 
@@ -1420,27 +1413,32 @@ goughEnableStarts.exit.loopexit:                  ; preds = %while.body.i.i
 goughEnableStarts.exit:                           ; preds = %goughEnableStarts.exit.loopexit, %entry.return_crit_edge.i, %if.end.i
   %.pre = phi i32 [ %28, %entry.return_crit_edge.i ], [ %28, %if.end.i ], [ %.pre.pre, %goughEnableStarts.exit.loopexit ]
   %idx.ext2.i.pre-phi.i = phi i64 [ %.pre.i, %entry.return_crit_edge.i ], [ %idxprom.i, %if.end.i ], [ %idxprom.i, %goughEnableStarts.exit.loopexit ]
-  %idx.ext.i.i = zext i32 %38 to i64
+  %idx.ext.i.i = zext i32 %37 to i64
   %add.ptr1.i.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext.i.i
   %retval.0.in.i = getelementptr inbounds %struct.mstate_aux, ptr %add.ptr1.i.i, i64 %idx.ext2.i.pre-phi.i, i32 2
-  %retval.0.i = load i16, ptr %retval.0.in.i, align 4
-  store i16 %retval.0.i, ptr %s.i, align 2
-  br label %sw.epilog.i
+  br label %sw.epilog.i.sink.split
 
 sw.bb134.i:                                       ; preds = %if.end117.i
-  %48 = load i16, ptr %s.i, align 2
-  %49 = load ptr, ptr %state.i, align 8
-  store i16 %48, ptr %49, align 2
-  %50 = load i32, ptr %cur.i38, align 8
-  %inc137.i = add i32 %50, 1
+  %47 = load i16, ptr %s.i, align 2
+  %48 = load ptr, ptr %state.i, align 8
+  store i16 %47, ptr %48, align 2
+  %49 = load i32, ptr %cur.i38, align 8
+  %inc137.i = add i32 %49, 1
   store i32 %inc137.i, ptr %cur.i38, align 8
-  %tobool139.i.not = icmp ne i16 %48, 0
+  %tobool139.i.not = icmp ne i16 %47, 0
   %conv141.i = zext i1 %tobool139.i.not to i8
   br label %nfaExecGough16_Q2i.exit
 
-sw.epilog.i:                                      ; preds = %if.end117.i, %goughEnableStarts.exit, %if.then126.i
-  %51 = phi i32 [ %28, %if.end117.i ], [ %.pre, %goughEnableStarts.exit ], [ %28, %if.then126.i ]
-  %inc143.i = add i32 %51, 1
+sw.epilog.i.sink.split:                           ; preds = %sw.bb.i, %goughEnableStarts.exit
+  %retval.0.in.i.sink = phi ptr [ %retval.0.in.i, %goughEnableStarts.exit ], [ %start_anchored.i, %sw.bb.i ]
+  %.ph = phi i32 [ %.pre, %goughEnableStarts.exit ], [ %28, %sw.bb.i ]
+  %retval.0.i = load i16, ptr %retval.0.in.i.sink, align 4
+  store i16 %retval.0.i, ptr %s.i, align 2
+  br label %sw.epilog.i
+
+sw.epilog.i:                                      ; preds = %sw.epilog.i.sink.split, %if.end117.i
+  %50 = phi i32 [ %28, %if.end117.i ], [ %.ph, %sw.epilog.i.sink.split ]
+  %inc143.i = add i32 %50, 1
   store i32 %inc143.i, ptr %cur.i38, align 8
   br label %while.body.i.backedge
 
@@ -1634,80 +1632,74 @@ if.end124.i:                                      ; preds = %if.end116.i
 
 sw.bb.i:                                          ; preds = %if.end124.i
   %cmp131.i = icmp eq i64 %24, %add130.i
-  br i1 %cmp131.i, label %if.then133.i, label %if.end135.i
-
-if.then133.i:                                     ; preds = %sw.bb.i
-  %27 = load i16, ptr %start_anchored.i, align 4
-  %conv134.i = trunc i16 %27 to i8
-  store i8 %conv134.i, ptr %s.i, align 1
-  br label %sw.epilog.i
+  br i1 %cmp131.i, label %sw.epilog.i.sink.split, label %if.end135.i
 
 if.end135.i:                                      ; preds = %sw.bb.i
-  %28 = load i8, ptr %s.i, align 1
+  %27 = load i8, ptr %s.i, align 1
   %som141.i = getelementptr inbounds i8, ptr %arrayidx128.i, i64 16
-  %29 = load i64, ptr %som141.i, align 8
-  %30 = load i32, ptr %aux_offset.i.i, align 4
-  %31 = load i32, ptr %haig_offset.i.i.i, align 4
-  %idx.ext.i.i.i = zext i32 %31 to i64
+  %28 = load i64, ptr %som141.i, align 8
+  %29 = load i32, ptr %aux_offset.i.i, align 4
+  %30 = load i32, ptr %haig_offset.i.i.i, align 4
+  %idx.ext.i.i.i = zext i32 %30 to i64
   %add.ptr1.i.i.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext.i.i.i
-  %32 = load i32, ptr %add.ptr1.i.i.i, align 4
-  %tobool.i.not.i = icmp eq i32 %32, 0
+  %31 = load i32, ptr %add.ptr1.i.i.i, align 4
+  %tobool.i.not.i = icmp eq i32 %31, 0
   br i1 %tobool.i.not.i, label %entry.return_crit_edge.i, label %if.end.i
 
 entry.return_crit_edge.i:                         ; preds = %if.end135.i
-  %.pre.i = zext i8 %28 to i64
+  %.pre.i = zext i8 %27 to i64
   br label %goughEnableStarts.exit
 
 if.end.i:                                         ; preds = %if.end135.i
-  %idx.ext.i16.i = zext i32 %32 to i64
+  %idx.ext.i16.i = zext i32 %31 to i64
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext.i16.i
-  %idxprom.i = zext i8 %28 to i64
+  %idxprom.i = zext i8 %27 to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %add.ptr2.i.i, i64 %idxprom.i
-  %33 = load i32, ptr %arrayidx.i, align 4
-  %tobool4.not.i = icmp eq i32 %33, 0
+  %32 = load i32, ptr %arrayidx.i, align 4
+  %tobool4.not.i = icmp eq i32 %32, 0
   br i1 %tobool4.not.i, label %goughEnableStarts.exit, label %do.end9.i
 
 do.end9.i:                                        ; preds = %if.end.i
-  %idx.ext.i126 = zext i32 %33 to i64
+  %idx.ext.i126 = zext i32 %32 to i64
   %add.ptr10.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext.i126
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %sw.epilog.i.i, %do.end9.i
   %pc.addr.i.0.i = phi ptr [ %add.ptr10.i, %do.end9.i ], [ %incdec.ptr.i.i, %sw.epilog.i.i ]
   %dest1.i.i = getelementptr inbounds i8, ptr %pc.addr.i.0.i, i64 4
-  %34 = load i32, ptr %dest1.i.i, align 4
+  %33 = load i32, ptr %dest1.i.i, align 4
   %src2.i.i = getelementptr inbounds i8, ptr %pc.addr.i.0.i, i64 8
-  %35 = load i32, ptr %src2.i.i, align 4
-  %36 = load i32, ptr %pc.addr.i.0.i, align 4
-  switch i32 %36, label %goughEnableStarts.exit.loopexit [
+  %34 = load i32, ptr %src2.i.i, align 4
+  %35 = load i32, ptr %pc.addr.i.0.i, align 4
+  switch i32 %35, label %goughEnableStarts.exit.loopexit [
     i32 3, label %sw.bb16.i.i
     i32 1, label %sw.bb5.i.i
     i32 2, label %sw.bb9.i.i
   ]
 
 sw.bb5.i.i:                                       ; preds = %while.body.i.i
-  %idxprom.i.i = zext i32 %35 to i64
+  %idxprom.i.i = zext i32 %34 to i64
   %arrayidx.i.i = getelementptr inbounds [1 x i64], ptr %add.ptr.i15, i64 0, i64 %idxprom.i.i
-  %37 = load i64, ptr %arrayidx.i.i, align 8
-  %idxprom7.i.i = zext i32 %34 to i64
+  %36 = load i64, ptr %arrayidx.i.i, align 8
+  %idxprom7.i.i = zext i32 %33 to i64
   %arrayidx8.i.i = getelementptr inbounds [1 x i64], ptr %add.ptr.i15, i64 0, i64 %idxprom7.i.i
-  store i64 %37, ptr %arrayidx8.i.i, align 8
+  store i64 %36, ptr %arrayidx8.i.i, align 8
   br label %sw.epilog.i.i
 
 sw.bb9.i.i:                                       ; preds = %while.body.i.i
-  %conv.i.i = zext i32 %35 to i64
-  %sub.i.i = sub i64 %29, %conv.i.i
-  %idxprom14.i.i = zext i32 %34 to i64
+  %conv.i.i = zext i32 %34 to i64
+  %sub.i.i = sub i64 %28, %conv.i.i
+  %idxprom14.i.i = zext i32 %33 to i64
   %arrayidx15.i.i = getelementptr inbounds [1 x i64], ptr %add.ptr.i15, i64 0, i64 %idxprom14.i.i
   store i64 %sub.i.i, ptr %arrayidx15.i.i, align 8
   br label %sw.epilog.i.i
 
 sw.bb16.i.i:                                      ; preds = %while.body.i.i
-  %idxprom18.i.i = zext i32 %35 to i64
+  %idxprom18.i.i = zext i32 %34 to i64
   %arrayidx19.i.i = getelementptr inbounds [1 x i64], ptr %add.ptr.i15, i64 0, i64 %idxprom18.i.i
-  %38 = load i64, ptr %arrayidx19.i.i, align 8
-  %cmp.i.i = icmp eq i64 %38, -1
-  %idxprom25.i.i = zext i32 %34 to i64
+  %37 = load i64, ptr %arrayidx19.i.i, align 8
+  %cmp.i.i = icmp eq i64 %37, -1
+  %idxprom25.i.i = zext i32 %33 to i64
   %arrayidx26.i.i = getelementptr inbounds [1 x i64], ptr %add.ptr.i15, i64 0, i64 %idxprom25.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -1716,12 +1708,12 @@ if.then.i.i:                                      ; preds = %sw.bb16.i.i
   br label %sw.epilog.i.i
 
 if.else.i.i:                                      ; preds = %sw.bb16.i.i
-  %39 = load i64, ptr %arrayidx26.i.i, align 8
-  %cmp30.i.not.i = icmp eq i64 %39, -1
+  %38 = load i64, ptr %arrayidx26.i.i, align 8
+  %cmp30.i.not.i = icmp eq i64 %38, -1
   br i1 %cmp30.i.not.i, label %sw.epilog.i.i, label %if.then32.i.i
 
 if.then32.i.i:                                    ; preds = %if.else.i.i
-  %..i = tail call i64 @llvm.umin.i64(i64 %39, i64 %38)
+  %..i = tail call i64 @llvm.umin.i64(i64 %38, i64 %37)
   store i64 %..i, ptr %arrayidx26.i.i, align 8
   br label %sw.epilog.i.i
 
@@ -1736,17 +1728,22 @@ goughEnableStarts.exit.loopexit:                  ; preds = %while.body.i.i
 goughEnableStarts.exit:                           ; preds = %goughEnableStarts.exit.loopexit, %entry.return_crit_edge.i, %if.end.i
   %.pre134 = phi i32 [ %.pre.pre, %entry.return_crit_edge.i ], [ %.pre.pre, %if.end.i ], [ %.pre134.pre, %goughEnableStarts.exit.loopexit ]
   %idx.ext2.i.pre-phi.i = phi i64 [ %.pre.i, %entry.return_crit_edge.i ], [ %idxprom.i, %if.end.i ], [ %idxprom.i, %goughEnableStarts.exit.loopexit ]
-  %idx.ext.i.i = zext i32 %30 to i64
+  %idx.ext.i.i = zext i32 %29 to i64
   %add.ptr1.i.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext.i.i
   %retval.0.in.i = getelementptr inbounds %struct.mstate_aux, ptr %add.ptr1.i.i, i64 %idx.ext2.i.pre-phi.i, i32 2
-  %retval.0.i = load i16, ptr %retval.0.in.i, align 4
+  br label %sw.epilog.i.sink.split
+
+sw.epilog.i.sink.split:                           ; preds = %sw.bb.i, %goughEnableStarts.exit
+  %retval.0.in.i.sink = phi ptr [ %retval.0.in.i, %goughEnableStarts.exit ], [ %start_anchored.i, %sw.bb.i ]
+  %.ph = phi i32 [ %.pre134, %goughEnableStarts.exit ], [ %.pre.pre, %sw.bb.i ]
+  %retval.0.i = load i16, ptr %retval.0.in.i.sink, align 4
   %conv143.i = trunc i16 %retval.0.i to i8
   store i8 %conv143.i, ptr %s.i, align 1
   br label %sw.epilog.i
 
-sw.epilog.i:                                      ; preds = %if.end124.i, %goughEnableStarts.exit, %if.then133.i
-  %40 = phi i32 [ %.pre.pre, %if.end124.i ], [ %.pre134, %goughEnableStarts.exit ], [ %.pre.pre, %if.then133.i ]
-  %inc153.i = add i32 %40, 1
+sw.epilog.i:                                      ; preds = %sw.epilog.i.sink.split, %if.end124.i
+  %39 = phi i32 [ %.pre.pre, %if.end124.i ], [ %.ph, %sw.epilog.i.sink.split ]
+  %inc153.i = add i32 %39, 1
   store i32 %inc153.i, ptr %cur.i44, align 8
   br label %while.body.i.backedge
 
@@ -1755,13 +1752,13 @@ while.body.i.backedge:                            ; preds = %sw.epilog.i, %if.en
   br label %while.body.i
 
 nfaExecGough8_Q2i.exit:                           ; preds = %if.end124.i
-  %41 = load i8, ptr %s.i, align 1
-  %42 = load ptr, ptr %state.i, align 8
-  store i8 %41, ptr %42, align 1
-  %43 = load i32, ptr %cur.i44, align 8
-  %inc147.i = add i32 %43, 1
+  %40 = load i8, ptr %s.i, align 1
+  %41 = load ptr, ptr %state.i, align 8
+  store i8 %40, ptr %41, align 1
+  %42 = load i32, ptr %cur.i44, align 8
+  %inc147.i = add i32 %42, 1
   store i32 %inc147.i, ptr %cur.i44, align 8
-  %tobool149.i.not.not = icmp eq i8 %41, 0
+  %tobool149.i.not.not = icmp eq i8 %40, 0
   br i1 %tobool149.i.not.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %nfaExecGough8_Q2i.exit
@@ -1958,79 +1955,74 @@ if.end117.i:                                      ; preds = %if.end109.i
 
 sw.bb.i:                                          ; preds = %if.end117.i
   %cmp124.i = icmp eq i64 %24, %add123.i
-  br i1 %cmp124.i, label %if.then126.i, label %if.end127.i
-
-if.then126.i:                                     ; preds = %sw.bb.i
-  %27 = load i16, ptr %start_anchored.i, align 4
-  store i16 %27, ptr %s.i, align 2
-  br label %sw.epilog.i
+  br i1 %cmp124.i, label %sw.epilog.i.sink.split, label %if.end127.i
 
 if.end127.i:                                      ; preds = %sw.bb.i
-  %28 = load i16, ptr %s.i, align 2
+  %27 = load i16, ptr %s.i, align 2
   %som132.i = getelementptr inbounds i8, ptr %arrayidx121.i, i64 16
-  %29 = load i64, ptr %som132.i, align 8
-  %30 = load i32, ptr %aux_offset.i.i, align 4
-  %31 = load i32, ptr %haig_offset.i.i.i, align 4
-  %idx.ext.i.i.i = zext i32 %31 to i64
+  %28 = load i64, ptr %som132.i, align 8
+  %29 = load i32, ptr %aux_offset.i.i, align 4
+  %30 = load i32, ptr %haig_offset.i.i.i, align 4
+  %idx.ext.i.i.i = zext i32 %30 to i64
   %add.ptr1.i.i.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext.i.i.i
-  %32 = load i32, ptr %add.ptr1.i.i.i, align 4
-  %tobool.i.not.i = icmp eq i32 %32, 0
+  %31 = load i32, ptr %add.ptr1.i.i.i, align 4
+  %tobool.i.not.i = icmp eq i32 %31, 0
   br i1 %tobool.i.not.i, label %entry.return_crit_edge.i, label %if.end.i
 
 entry.return_crit_edge.i:                         ; preds = %if.end127.i
-  %.pre.i = zext i16 %28 to i64
+  %.pre.i = zext i16 %27 to i64
   br label %goughEnableStarts.exit
 
 if.end.i:                                         ; preds = %if.end127.i
-  %idx.ext.i16.i = zext i32 %32 to i64
+  %idx.ext.i16.i = zext i32 %31 to i64
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext.i16.i
-  %idxprom.i = zext i16 %28 to i64
+  %idxprom.i = zext i16 %27 to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %add.ptr2.i.i, i64 %idxprom.i
-  %33 = load i32, ptr %arrayidx.i, align 4
-  %tobool4.not.i = icmp eq i32 %33, 0
+  %32 = load i32, ptr %arrayidx.i, align 4
+  %tobool4.not.i = icmp eq i32 %32, 0
   br i1 %tobool4.not.i, label %goughEnableStarts.exit, label %do.end9.i
 
 do.end9.i:                                        ; preds = %if.end.i
-  %idx.ext.i126 = zext i32 %33 to i64
+  %idx.ext.i126 = zext i32 %32 to i64
   %add.ptr10.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext.i126
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %sw.epilog.i.i, %do.end9.i
   %pc.addr.i.0.i = phi ptr [ %add.ptr10.i, %do.end9.i ], [ %incdec.ptr.i.i, %sw.epilog.i.i ]
   %dest1.i.i = getelementptr inbounds i8, ptr %pc.addr.i.0.i, i64 4
-  %34 = load i32, ptr %dest1.i.i, align 4
+  %33 = load i32, ptr %dest1.i.i, align 4
   %src2.i.i = getelementptr inbounds i8, ptr %pc.addr.i.0.i, i64 8
-  %35 = load i32, ptr %src2.i.i, align 4
-  %36 = load i32, ptr %pc.addr.i.0.i, align 4
-  switch i32 %36, label %goughEnableStarts.exit.loopexit [
+  %34 = load i32, ptr %src2.i.i, align 4
+  %35 = load i32, ptr %pc.addr.i.0.i, align 4
+  switch i32 %35, label %goughEnableStarts.exit.loopexit [
     i32 3, label %sw.bb16.i.i
     i32 1, label %sw.bb5.i.i
     i32 2, label %sw.bb9.i.i
   ]
 
 sw.bb5.i.i:                                       ; preds = %while.body.i.i
-  %idxprom.i.i = zext i32 %35 to i64
+  %idxprom.i.i = zext i32 %34 to i64
   %arrayidx.i.i = getelementptr inbounds [1 x i64], ptr %add.ptr.i15, i64 0, i64 %idxprom.i.i
-  %37 = load i64, ptr %arrayidx.i.i, align 8
-  %idxprom7.i.i = zext i32 %34 to i64
+  %36 = load i64, ptr %arrayidx.i.i, align 8
+  %idxprom7.i.i = zext i32 %33 to i64
   %arrayidx8.i.i = getelementptr inbounds [1 x i64], ptr %add.ptr.i15, i64 0, i64 %idxprom7.i.i
-  store i64 %37, ptr %arrayidx8.i.i, align 8
+  store i64 %36, ptr %arrayidx8.i.i, align 8
   br label %sw.epilog.i.i
 
 sw.bb9.i.i:                                       ; preds = %while.body.i.i
-  %conv.i.i = zext i32 %35 to i64
-  %sub.i.i = sub i64 %29, %conv.i.i
-  %idxprom14.i.i = zext i32 %34 to i64
+  %conv.i.i = zext i32 %34 to i64
+  %sub.i.i = sub i64 %28, %conv.i.i
+  %idxprom14.i.i = zext i32 %33 to i64
   %arrayidx15.i.i = getelementptr inbounds [1 x i64], ptr %add.ptr.i15, i64 0, i64 %idxprom14.i.i
   store i64 %sub.i.i, ptr %arrayidx15.i.i, align 8
   br label %sw.epilog.i.i
 
 sw.bb16.i.i:                                      ; preds = %while.body.i.i
-  %idxprom18.i.i = zext i32 %35 to i64
+  %idxprom18.i.i = zext i32 %34 to i64
   %arrayidx19.i.i = getelementptr inbounds [1 x i64], ptr %add.ptr.i15, i64 0, i64 %idxprom18.i.i
-  %38 = load i64, ptr %arrayidx19.i.i, align 8
-  %cmp.i.i = icmp eq i64 %38, -1
-  %idxprom25.i.i = zext i32 %34 to i64
+  %37 = load i64, ptr %arrayidx19.i.i, align 8
+  %cmp.i.i = icmp eq i64 %37, -1
+  %idxprom25.i.i = zext i32 %33 to i64
   %arrayidx26.i.i = getelementptr inbounds [1 x i64], ptr %add.ptr.i15, i64 0, i64 %idxprom25.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -2039,12 +2031,12 @@ if.then.i.i:                                      ; preds = %sw.bb16.i.i
   br label %sw.epilog.i.i
 
 if.else.i.i:                                      ; preds = %sw.bb16.i.i
-  %39 = load i64, ptr %arrayidx26.i.i, align 8
-  %cmp30.i.not.i = icmp eq i64 %39, -1
+  %38 = load i64, ptr %arrayidx26.i.i, align 8
+  %cmp30.i.not.i = icmp eq i64 %38, -1
   br i1 %cmp30.i.not.i, label %sw.epilog.i.i, label %if.then32.i.i
 
 if.then32.i.i:                                    ; preds = %if.else.i.i
-  %..i = tail call i64 @llvm.umin.i64(i64 %39, i64 %38)
+  %..i = tail call i64 @llvm.umin.i64(i64 %38, i64 %37)
   store i64 %..i, ptr %arrayidx26.i.i, align 8
   br label %sw.epilog.i.i
 
@@ -2059,16 +2051,21 @@ goughEnableStarts.exit.loopexit:                  ; preds = %while.body.i.i
 goughEnableStarts.exit:                           ; preds = %goughEnableStarts.exit.loopexit, %entry.return_crit_edge.i, %if.end.i
   %.pre134 = phi i32 [ %.pre.pre, %entry.return_crit_edge.i ], [ %.pre.pre, %if.end.i ], [ %.pre134.pre, %goughEnableStarts.exit.loopexit ]
   %idx.ext2.i.pre-phi.i = phi i64 [ %.pre.i, %entry.return_crit_edge.i ], [ %idxprom.i, %if.end.i ], [ %idxprom.i, %goughEnableStarts.exit.loopexit ]
-  %idx.ext.i.i = zext i32 %30 to i64
+  %idx.ext.i.i = zext i32 %29 to i64
   %add.ptr1.i.i = getelementptr inbounds i8, ptr %n, i64 %idx.ext.i.i
   %retval.0.in.i = getelementptr inbounds %struct.mstate_aux, ptr %add.ptr1.i.i, i64 %idx.ext2.i.pre-phi.i, i32 2
-  %retval.0.i = load i16, ptr %retval.0.in.i, align 4
+  br label %sw.epilog.i.sink.split
+
+sw.epilog.i.sink.split:                           ; preds = %sw.bb.i, %goughEnableStarts.exit
+  %retval.0.in.i.sink = phi ptr [ %retval.0.in.i, %goughEnableStarts.exit ], [ %start_anchored.i, %sw.bb.i ]
+  %.ph = phi i32 [ %.pre134, %goughEnableStarts.exit ], [ %.pre.pre, %sw.bb.i ]
+  %retval.0.i = load i16, ptr %retval.0.in.i.sink, align 4
   store i16 %retval.0.i, ptr %s.i, align 2
   br label %sw.epilog.i
 
-sw.epilog.i:                                      ; preds = %if.end117.i, %goughEnableStarts.exit, %if.then126.i
-  %40 = phi i32 [ %.pre.pre, %if.end117.i ], [ %.pre134, %goughEnableStarts.exit ], [ %.pre.pre, %if.then126.i ]
-  %inc143.i = add i32 %40, 1
+sw.epilog.i:                                      ; preds = %sw.epilog.i.sink.split, %if.end117.i
+  %39 = phi i32 [ %.pre.pre, %if.end117.i ], [ %.ph, %sw.epilog.i.sink.split ]
+  %inc143.i = add i32 %39, 1
   store i32 %inc143.i, ptr %cur.i41, align 8
   br label %while.body.i.backedge
 
@@ -2077,13 +2074,13 @@ while.body.i.backedge:                            ; preds = %sw.epilog.i, %if.en
   br label %while.body.i
 
 nfaExecGough16_Q2i.exit:                          ; preds = %if.end117.i
-  %41 = load i16, ptr %s.i, align 2
-  %42 = load ptr, ptr %state.i, align 8
-  store i16 %41, ptr %42, align 2
-  %43 = load i32, ptr %cur.i41, align 8
-  %inc137.i = add i32 %43, 1
+  %40 = load i16, ptr %s.i, align 2
+  %41 = load ptr, ptr %state.i, align 8
+  store i16 %40, ptr %41, align 2
+  %42 = load i32, ptr %cur.i41, align 8
+  %inc137.i = add i32 %42, 1
   store i32 %inc137.i, ptr %cur.i41, align 8
-  %tobool139.i.not.not = icmp eq i16 %41, 0
+  %tobool139.i.not.not = icmp eq i16 %40, 0
   br i1 %tobool139.i.not.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %nfaExecGough16_Q2i.exit

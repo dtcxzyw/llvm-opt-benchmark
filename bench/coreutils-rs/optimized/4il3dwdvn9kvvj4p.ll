@@ -3631,11 +3631,11 @@ select.unfold:                                    ; preds = %51
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h718722ff715cbabcE.exit": ; preds = %192, %195, %199
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !707
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36)
   br label %201
 
 201:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h718722ff715cbabcE.exit315", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h718722ff715cbabcE.exit"
   %.2 = phi ptr [ null, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h718722ff715cbabcE.exit" ], [ %.0, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h718722ff715cbabcE.exit315" ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36)
   ret ptr %.2
 
 202:                                              ; preds = %104
@@ -5227,7 +5227,6 @@ select.unfold448:                                 ; preds = %867
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h718722ff715cbabcE.exit315": ; preds = %896, %899, %903
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !958
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36)
   br label %201
 
 905:                                              ; preds = %.body
@@ -5651,11 +5650,11 @@ select.unfold:                                    ; preds = %51
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h718722ff715cbabcE.exit": ; preds = %192, %195, %199
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !1010
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36)
   br label %201
 
 201:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h718722ff715cbabcE.exit315", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h718722ff715cbabcE.exit"
   %.2 = phi ptr [ null, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h718722ff715cbabcE.exit" ], [ %.0, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h718722ff715cbabcE.exit315" ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36)
   ret ptr %.2
 
 202:                                              ; preds = %104
@@ -7247,7 +7246,6 @@ select.unfold448:                                 ; preds = %867
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h718722ff715cbabcE.exit315": ; preds = %896, %899, %903
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1260
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36)
   br label %201
 
 905:                                              ; preds = %.body
@@ -7671,11 +7669,11 @@ select.unfold:                                    ; preds = %51
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h718722ff715cbabcE.exit": ; preds = %192, %195, %199
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !1312
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36)
   br label %201
 
 201:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h718722ff715cbabcE.exit315", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h718722ff715cbabcE.exit"
   %.2 = phi ptr [ null, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h718722ff715cbabcE.exit" ], [ %.0, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h718722ff715cbabcE.exit315" ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36)
   ret ptr %.2
 
 202:                                              ; preds = %104
@@ -9267,7 +9265,6 @@ select.unfold448:                                 ; preds = %867
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h718722ff715cbabcE.exit315": ; preds = %896, %899, %903
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1562
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36)
   br label %201
 
 905:                                              ; preds = %.body

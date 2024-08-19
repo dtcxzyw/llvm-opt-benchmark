@@ -5954,96 +5954,91 @@ get_path_and_lineno.exit:                         ; preds = %get_event_name.exit
   %40 = load i64, ptr %39, align 8
   %41 = and i64 %40, 31
   %42 = icmp eq i64 %41, 28
-  br i1 %42, label %43, label %.critedge
-
-43:                                               ; preds = %38
-  %44 = getelementptr inbounds i8, ptr %39, i64 8
-  %45 = load i64, ptr %44, align 8
-  store i64 %45, ptr %7, align 8
-  br label %RB_FL_TEST.exit.thread
+  br i1 %42, label %RB_FL_TEST.exit.thread.sink.split, label %.critedge
 
 .critedge:                                        ; preds = %38
-  %46 = icmp eq i64 %41, 27
-  %47 = and i64 %40, 4096
-  %.not37 = icmp eq i64 %47, 0
-  %or.cond50 = or i1 %46, %.not37
-  br i1 %or.cond50, label %RB_FL_TEST.exit.thread, label %48
+  %43 = icmp eq i64 %41, 27
+  %44 = and i64 %40, 4096
+  %.not37 = icmp eq i64 %44, 0
+  %or.cond50 = or i1 %43, %.not37
+  br i1 %or.cond50, label %RB_FL_TEST.exit.thread, label %RB_FL_TEST.exit.thread.sink.split
 
-48:                                               ; preds = %.critedge
-  %49 = getelementptr inbounds i8, ptr %39, i64 128
-  %50 = load i64, ptr %49, align 8
-  store i64 %50, ptr %7, align 8
+RB_FL_TEST.exit.thread.sink.split:                ; preds = %.critedge, %38
+  %.sink = phi i64 [ 8, %38 ], [ 128, %.critedge ]
+  %45 = getelementptr inbounds i8, ptr %39, i64 %.sink
+  %46 = load i64, ptr %45, align 8
+  store i64 %46, ptr %7, align 8
   br label %RB_FL_TEST.exit.thread
 
-RB_FL_TEST.exit.thread:                           ; preds = %.critedge, %.thread, %43, %48, %34
+RB_FL_TEST.exit.thread:                           ; preds = %RB_FL_TEST.exit.thread.sink.split, %.critedge, %.thread, %34
   store i64 %17, ptr %8, align 16
-  %51 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 %.0, ptr %51, align 8
-  %52 = sext i32 %.sink.i to i64
-  %53 = shl nsw i64 %52, 1
-  %54 = or disjoint i64 %53, 1
-  %55 = getelementptr inbounds i8, ptr %8, i64 16
-  store i64 %54, ptr %55, align 16
-  %56 = load i64, ptr %6, align 8
-  %.not38 = icmp eq i64 %56, 0
-  br i1 %.not38, label %59, label %57
+  %47 = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 %.0, ptr %47, align 8
+  %48 = sext i32 %.sink.i to i64
+  %49 = shl nsw i64 %48, 1
+  %50 = or disjoint i64 %49, 1
+  %51 = getelementptr inbounds i8, ptr %8, i64 16
+  store i64 %50, ptr %51, align 16
+  %52 = load i64, ptr %6, align 8
+  %.not38 = icmp eq i64 %52, 0
+  br i1 %.not38, label %55, label %53
 
-57:                                               ; preds = %RB_FL_TEST.exit.thread
-  %58 = call i64 @rb_id2sym(i64 noundef %56) #4
-  br label %59
+53:                                               ; preds = %RB_FL_TEST.exit.thread
+  %54 = call i64 @rb_id2sym(i64 noundef %52) #4
+  br label %55
 
-59:                                               ; preds = %RB_FL_TEST.exit.thread, %57
-  %60 = phi i64 [ %58, %57 ], [ 4, %RB_FL_TEST.exit.thread ]
-  %61 = getelementptr inbounds i8, ptr %8, i64 24
-  store i64 %60, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %8, i64 32
-  store i64 4, ptr %62, align 16
-  %63 = icmp ne i64 %2, 0
-  %64 = icmp ne i64 %.0, 4
-  %or.cond = select i1 %63, i1 %64, i1 false
-  %65 = icmp ne i32 %0, 32
-  %or.cond3 = and i1 %65, %or.cond
-  %66 = icmp ne i32 %0, 64
-  %or.cond5 = and i1 %66, %or.cond3
-  br i1 %or.cond5, label %67, label %imemo_type_p.exit.thread
+55:                                               ; preds = %RB_FL_TEST.exit.thread, %53
+  %56 = phi i64 [ %54, %53 ], [ 4, %RB_FL_TEST.exit.thread ]
+  %57 = getelementptr inbounds i8, ptr %8, i64 24
+  store i64 %56, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %8, i64 32
+  store i64 4, ptr %58, align 16
+  %59 = icmp ne i64 %2, 0
+  %60 = icmp ne i64 %.0, 4
+  %or.cond = select i1 %59, i1 %60, i1 false
+  %61 = icmp ne i32 %0, 32
+  %or.cond3 = and i1 %61, %or.cond
+  %62 = icmp ne i32 %0, 64
+  %or.cond5 = and i1 %62, %or.cond3
+  br i1 %or.cond5, label %63, label %imemo_type_p.exit.thread
 
-67:                                               ; preds = %59
-  %68 = load ptr, ptr %20, align 8
-  %69 = getelementptr i8, ptr %68, i64 32
-  %.val = load ptr, ptr %69, align 8
+63:                                               ; preds = %55
+  %64 = load ptr, ptr %20, align 8
+  %65 = getelementptr i8, ptr %64, i64 32
+  %.val = load ptr, ptr %65, align 8
   %.val.val = load i64, ptr %.val, align 8
-  %70 = and i64 %.val.val, 128
-  %.not39.not = icmp eq i64 %70, 0
-  br i1 %.not39.not, label %71, label %imemo_type_p.exit.thread
+  %66 = and i64 %.val.val, 128
+  %.not39.not = icmp eq i64 %66, 0
+  br i1 %.not39.not, label %67, label %imemo_type_p.exit.thread
 
-71:                                               ; preds = %67
-  %72 = getelementptr inbounds i8, ptr %68, i64 16
-  %73 = load ptr, ptr %72, align 8
-  %74 = ptrtoint ptr %73 to i64
-  %75 = and i64 %74, 7
-  %76 = icmp ne i64 %75, 0
-  %77 = icmp eq ptr %73, null
-  %78 = or i1 %77, %76
-  br i1 %78, label %imemo_type_p.exit.thread, label %imemo_type_p.exit
+67:                                               ; preds = %63
+  %68 = getelementptr inbounds i8, ptr %64, i64 16
+  %69 = load ptr, ptr %68, align 8
+  %70 = ptrtoint ptr %69 to i64
+  %71 = and i64 %70, 7
+  %72 = icmp ne i64 %71, 0
+  %73 = icmp eq ptr %69, null
+  %74 = or i1 %73, %72
+  br i1 %74, label %imemo_type_p.exit.thread, label %imemo_type_p.exit
 
-imemo_type_p.exit:                                ; preds = %71
-  %79 = load i64, ptr %73, align 8
-  %80 = and i64 %79, 61471
-  %.not52 = icmp eq i64 %80, 28698
-  br i1 %.not52, label %81, label %imemo_type_p.exit.thread
+imemo_type_p.exit:                                ; preds = %67
+  %75 = load i64, ptr %69, align 8
+  %76 = and i64 %75, 61471
+  %.not52 = icmp eq i64 %76, 28698
+  br i1 %.not52, label %77, label %imemo_type_p.exit.thread
 
-81:                                               ; preds = %imemo_type_p.exit
-  %82 = call i64 @rb_binding_new() #4
-  store i64 %82, ptr %62, align 16
+77:                                               ; preds = %imemo_type_p.exit
+  %78 = call i64 @rb_binding_new() #4
+  store i64 %78, ptr %58, align 16
   br label %imemo_type_p.exit.thread
 
-imemo_type_p.exit.thread:                         ; preds = %71, %81, %imemo_type_p.exit, %67, %59
-  %83 = load i64, ptr %7, align 8
-  %.not41 = icmp eq i64 %83, 0
-  %84 = select i1 %.not41, i64 4, i64 %83
-  %85 = getelementptr inbounds i8, ptr %8, i64 40
-  store i64 %84, ptr %85, align 8
-  %86 = call i64 @rb_proc_call_with_block(i64 noundef %1, i32 noundef 6, ptr noundef nonnull %8, i64 noundef 4) #4
+imemo_type_p.exit.thread:                         ; preds = %67, %77, %imemo_type_p.exit, %63, %55
+  %79 = load i64, ptr %7, align 8
+  %.not41 = icmp eq i64 %79, 0
+  %80 = select i1 %.not41, i64 4, i64 %79
+  %81 = getelementptr inbounds i8, ptr %8, i64 40
+  store i64 %80, ptr %81, align 8
+  %82 = call i64 @rb_proc_call_with_block(i64 noundef %1, i32 noundef 6, ptr noundef nonnull %8, i64 noundef 4) #4
   ret void
 }
 

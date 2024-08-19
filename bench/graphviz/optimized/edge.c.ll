@@ -599,163 +599,156 @@ agfindedge_by_id.exit:                            ; preds = %agsubrep.exit.threa
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   %37 = tail call i32 @agisundirected(ptr noundef %0) #6
   %.not = icmp eq i32 %37, 0
-  br i1 %.not, label %63, label %40
+  br i1 %.not, label %62, label %40
 
 .thread64:                                        ; preds = %agsubrep.exit.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   %38 = call i32 @agisundirected(ptr noundef nonnull %0) #6
   %.not65 = icmp eq i32 %38, 0
-  br i1 %.not65, label %63, label %.thread66
-
-.thread66:                                        ; preds = %.thread64
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
-  br label %41
+  br i1 %.not65, label %62, label %.thread66
 
 .thread:                                          ; preds = %agfindedge_by_id.exit
   %39 = call i32 @agisundirected(ptr noundef nonnull %0) #6
   %.not57 = icmp eq i32 %39, 0
-  br i1 %.not57, label %63, label %.thread58
-
-.thread58:                                        ; preds = %.thread
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
-  br label %41
+  br i1 %.not57, label %62, label %.thread66
 
 40:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
   br label %agfindedge_by_id.exit47
 
-41:                                               ; preds = %.thread66, %.thread58
+.thread66:                                        ; preds = %.thread, %.thread64
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
   store i64 2, ptr %9, align 8
   %.sroa.2.0..sroa_idx.i.i41 = getelementptr inbounds i8, ptr %9, i64 8
   store i64 %3, ptr %.sroa.2.0..sroa_idx.i.i41, align 8
-  %42 = getelementptr inbounds i8, ptr %9, i64 56
-  store ptr %2, ptr %42, align 8
+  %41 = getelementptr inbounds i8, ptr %9, i64 56
+  store ptr %2, ptr %41, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
-  %43 = getelementptr inbounds i8, ptr %1, i64 24
-  %44 = load ptr, ptr %43, align 8
-  %45 = icmp eq ptr %44, %0
-  br i1 %45, label %agsubrep.exit.thread.i.i46, label %agsubrep.exit.i.i42
+  %42 = getelementptr inbounds i8, ptr %1, i64 24
+  %43 = load ptr, ptr %42, align 8
+  %44 = icmp eq ptr %43, %0
+  br i1 %44, label %agsubrep.exit.thread.i.i46, label %agsubrep.exit.i.i42
 
-agsubrep.exit.thread.i.i46:                       ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %1, i64 32
+agsubrep.exit.thread.i.i46:                       ; preds = %.thread66
+  %45 = getelementptr inbounds i8, ptr %1, i64 32
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8)
-  br label %52
+  br label %51
 
-agsubrep.exit.i.i42:                              ; preds = %41
-  %47 = getelementptr inbounds i8, ptr %8, i64 32
-  store ptr %1, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 72
+agsubrep.exit.i.i42:                              ; preds = %.thread66
+  %46 = getelementptr inbounds i8, ptr %8, i64 32
+  store ptr %1, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %0, i64 72
+  %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr %48, align 8
-  %50 = load ptr, ptr %49, align 8
-  %51 = call ptr %50(ptr noundef nonnull %49, ptr noundef nonnull %8, i32 noundef 4) #6
+  %50 = call ptr %49(ptr noundef nonnull %48, ptr noundef nonnull %8, i32 noundef 4) #6
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8)
-  %.not.i.i43 = icmp eq ptr %51, null
-  br i1 %.not.i.i43, label %agfindedge_by_id.exit47, label %52
+  %.not.i.i43 = icmp eq ptr %50, null
+  br i1 %.not.i.i43, label %agfindedge_by_id.exit47, label %51
 
-52:                                               ; preds = %agsubrep.exit.i.i42, %agsubrep.exit.thread.i.i46
-  %.0.i21.i.i44 = phi ptr [ %46, %agsubrep.exit.thread.i.i46 ], [ %51, %agsubrep.exit.i.i42 ]
-  %53 = getelementptr inbounds i8, ptr %0, i64 88
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %.0.i21.i.i44, i64 40
-  %56 = load ptr, ptr %55, align 8
-  %57 = call i32 @dtrestore(ptr noundef %54, ptr noundef %56) #6
-  %58 = load ptr, ptr %53, align 8
-  %59 = load ptr, ptr %58, align 8
-  %60 = call ptr %59(ptr noundef nonnull %58, ptr noundef nonnull %9, i32 noundef 4) #6
-  %61 = load ptr, ptr %53, align 8
-  %62 = call ptr @dtextract(ptr noundef %61) #6
-  store ptr %62, ptr %55, align 8
+51:                                               ; preds = %agsubrep.exit.i.i42, %agsubrep.exit.thread.i.i46
+  %.0.i21.i.i44 = phi ptr [ %45, %agsubrep.exit.thread.i.i46 ], [ %50, %agsubrep.exit.i.i42 ]
+  %52 = getelementptr inbounds i8, ptr %0, i64 88
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %.0.i21.i.i44, i64 40
+  %55 = load ptr, ptr %54, align 8
+  %56 = call i32 @dtrestore(ptr noundef %53, ptr noundef %55) #6
+  %57 = load ptr, ptr %52, align 8
+  %58 = load ptr, ptr %57, align 8
+  %59 = call ptr %58(ptr noundef nonnull %57, ptr noundef nonnull %9, i32 noundef 4) #6
+  %60 = load ptr, ptr %52, align 8
+  %61 = call ptr @dtextract(ptr noundef %60) #6
+  store ptr %61, ptr %54, align 8
   br label %agfindedge_by_id.exit47
 
-agfindedge_by_id.exit47:                          ; preds = %40, %agsubrep.exit.i.i42, %52
-  %.0.i.i45 = phi ptr [ null, %40 ], [ %60, %52 ], [ null, %agsubrep.exit.i.i42 ]
+agfindedge_by_id.exit47:                          ; preds = %40, %agsubrep.exit.i.i42, %51
+  %.0.i.i45 = phi ptr [ null, %40 ], [ %59, %51 ], [ null, %agsubrep.exit.i.i42 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %63
+  br label %62
 
-63:                                               ; preds = %.thread64, %.thread, %agfindedge_by_id.exit47, %36
+62:                                               ; preds = %.thread64, %.thread, %agfindedge_by_id.exit47, %36
   %.0 = phi ptr [ %.0.i.i45, %agfindedge_by_id.exit47 ], [ null, %36 ], [ null, %.thread ], [ null, %.thread64 ]
-  %64 = icmp eq ptr %.0, null
-  %65 = icmp ne i32 %4, 0
-  %or.cond = and i1 %65, %64
-  br i1 %or.cond, label %66, label %.thread59
+  %63 = icmp eq ptr %.0, null
+  %64 = icmp ne i32 %4, 0
+  %or.cond = and i1 %64, %63
+  br i1 %or.cond, label %65, label %.thread59
 
-66:                                               ; preds = %63
-  %67 = call fastcc zeroext i1 @ok_to_make_edge(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  br i1 %67, label %68, label %.thread59
+65:                                               ; preds = %62
+  %66 = call fastcc zeroext i1 @ok_to_make_edge(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  br i1 %66, label %67, label %.thread59
 
-68:                                               ; preds = %66
-  %69 = call ptr @agroot(ptr noundef %0) #6
-  %.not37 = icmp eq ptr %69, %0
-  br i1 %.not37, label %93, label %70
+67:                                               ; preds = %65
+  %68 = call ptr @agroot(ptr noundef %0) #6
+  %.not37 = icmp eq ptr %68, %0
+  br i1 %.not37, label %92, label %69
 
-70:                                               ; preds = %68
+69:                                               ; preds = %67
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
-  br i1 %or.cond.i.i, label %agfindedge_by_id.exit55.thread, label %71
+  br i1 %or.cond.i.i, label %agfindedge_by_id.exit55.thread, label %70
 
-71:                                               ; preds = %70
+70:                                               ; preds = %69
   store i64 2, ptr %7, align 8
   %.sroa.2.0..sroa_idx.i.i49 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %3, ptr %.sroa.2.0..sroa_idx.i.i49, align 8
-  %72 = getelementptr inbounds i8, ptr %7, i64 56
-  store ptr %1, ptr %72, align 8
+  %71 = getelementptr inbounds i8, ptr %7, i64 56
+  store ptr %1, ptr %71, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
-  %73 = getelementptr inbounds i8, ptr %2, i64 24
-  %74 = load ptr, ptr %73, align 8
-  %75 = icmp eq ptr %74, %69
-  br i1 %75, label %agsubrep.exit.thread.i.i54, label %agsubrep.exit.i.i50
+  %72 = getelementptr inbounds i8, ptr %2, i64 24
+  %73 = load ptr, ptr %72, align 8
+  %74 = icmp eq ptr %73, %68
+  br i1 %74, label %agsubrep.exit.thread.i.i54, label %agsubrep.exit.i.i50
 
-agsubrep.exit.thread.i.i54:                       ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %2, i64 32
+agsubrep.exit.thread.i.i54:                       ; preds = %70
+  %75 = getelementptr inbounds i8, ptr %2, i64 32
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
   br label %agfindedge_by_id.exit55
 
-agsubrep.exit.i.i50:                              ; preds = %71
-  %77 = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr %2, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %69, i64 72
+agsubrep.exit.i.i50:                              ; preds = %70
+  %76 = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr %2, ptr %76, align 8
+  %77 = getelementptr inbounds i8, ptr %68, i64 72
+  %78 = load ptr, ptr %77, align 8
   %79 = load ptr, ptr %78, align 8
-  %80 = load ptr, ptr %79, align 8
-  %81 = call ptr %80(ptr noundef nonnull %79, ptr noundef nonnull %6, i32 noundef 4) #6
+  %80 = call ptr %79(ptr noundef nonnull %78, ptr noundef nonnull %6, i32 noundef 4) #6
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
-  %.not.i.i51 = icmp eq ptr %81, null
+  %.not.i.i51 = icmp eq ptr %80, null
   br i1 %.not.i.i51, label %agfindedge_by_id.exit55.thread, label %agfindedge_by_id.exit55
 
-agfindedge_by_id.exit55.thread:                   ; preds = %70, %agsubrep.exit.i.i50
+agfindedge_by_id.exit55.thread:                   ; preds = %69, %agsubrep.exit.i.i50
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
-  br label %93
+  br label %92
 
 agfindedge_by_id.exit55:                          ; preds = %agsubrep.exit.thread.i.i54, %agsubrep.exit.i.i50
-  %.0.i21.i.i52 = phi ptr [ %76, %agsubrep.exit.thread.i.i54 ], [ %81, %agsubrep.exit.i.i50 ]
-  %82 = getelementptr inbounds i8, ptr %69, i64 88
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %.0.i21.i.i52, i64 40
-  %85 = load ptr, ptr %84, align 8
-  %86 = call i32 @dtrestore(ptr noundef %83, ptr noundef %85) #6
-  %87 = load ptr, ptr %82, align 8
-  %88 = load ptr, ptr %87, align 8
-  %89 = call ptr %88(ptr noundef nonnull %87, ptr noundef nonnull %7, i32 noundef 4) #6
-  %90 = load ptr, ptr %82, align 8
-  %91 = call ptr @dtextract(ptr noundef %90) #6
-  store ptr %91, ptr %84, align 8
+  %.0.i21.i.i52 = phi ptr [ %75, %agsubrep.exit.thread.i.i54 ], [ %80, %agsubrep.exit.i.i50 ]
+  %81 = getelementptr inbounds i8, ptr %68, i64 88
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds i8, ptr %.0.i21.i.i52, i64 40
+  %84 = load ptr, ptr %83, align 8
+  %85 = call i32 @dtrestore(ptr noundef %82, ptr noundef %84) #6
+  %86 = load ptr, ptr %81, align 8
+  %87 = load ptr, ptr %86, align 8
+  %88 = call ptr %87(ptr noundef nonnull %86, ptr noundef nonnull %7, i32 noundef 4) #6
+  %89 = load ptr, ptr %81, align 8
+  %90 = call ptr @dtextract(ptr noundef %89) #6
+  store ptr %90, ptr %83, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
-  %.not38 = icmp eq ptr %89, null
-  br i1 %.not38, label %93, label %92
+  %.not38 = icmp eq ptr %88, null
+  br i1 %.not38, label %92, label %91
 
-92:                                               ; preds = %agfindedge_by_id.exit55
-  call fastcc void @installedge(ptr noundef %0, ptr noundef nonnull %89)
+91:                                               ; preds = %agfindedge_by_id.exit55
+  call fastcc void @installedge(ptr noundef %0, ptr noundef nonnull %88)
   br label %.thread59
 
-93:                                               ; preds = %agfindedge_by_id.exit55.thread, %agfindedge_by_id.exit55, %68
-  %94 = call i32 @agallocid(ptr noundef %0, i32 noundef 2, i64 noundef %3) #6
-  %.not39 = icmp eq i32 %94, 0
-  br i1 %.not39, label %.thread59, label %95
+92:                                               ; preds = %agfindedge_by_id.exit55.thread, %agfindedge_by_id.exit55, %67
+  %93 = call i32 @agallocid(ptr noundef %0, i32 noundef 2, i64 noundef %3) #6
+  %.not39 = icmp eq i32 %93, 0
+  br i1 %.not39, label %.thread59, label %94
 
-95:                                               ; preds = %93
-  %96 = call fastcc ptr @newedge(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3)
+94:                                               ; preds = %92
+  %95 = call fastcc ptr @newedge(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3)
   br label %.thread59
 
-.thread59:                                        ; preds = %agfindedge_by_id.exit, %92, %95, %93, %66, %63
-  %.1 = phi ptr [ %89, %92 ], [ %96, %95 ], [ null, %93 ], [ null, %66 ], [ %.0, %63 ], [ %32, %agfindedge_by_id.exit ]
+.thread59:                                        ; preds = %agfindedge_by_id.exit, %91, %94, %92, %65, %62
+  %.1 = phi ptr [ %88, %91 ], [ %95, %94 ], [ null, %92 ], [ null, %65 ], [ %.0, %62 ], [ %32, %agfindedge_by_id.exit ]
   ret ptr %.1
 }
 
@@ -904,7 +897,7 @@ define ptr @agedge(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %
 16:                                               ; preds = %5
   %17 = icmp eq ptr %3, null
   %.not84 = icmp eq i32 %4, 0
-  br i1 %17, label %18, label %127
+  br i1 %17, label %18, label %126
 
 18:                                               ; preds = %16
   br i1 %.not84, label %22, label %19
@@ -984,233 +977,226 @@ agfindedge_by_key.exit:                           ; preds = %agsubrep.exit.threa
   %.not86149 = icmp eq i32 %49, 0
   br i1 %.not86149, label %.thread120, label %.thread150
 
-.thread150:                                       ; preds = %.thread148
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11)
-  br label %52
-
 .thread:                                          ; preds = %agfindedge_by_key.exit
   %50 = call i32 @agisundirected(ptr noundef nonnull %0) #6
   %.not86118 = icmp eq i32 %50, 0
-  br i1 %.not86118, label %.thread120, label %.thread119
-
-.thread119:                                       ; preds = %.thread
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11)
-  br label %52
+  br i1 %.not86118, label %.thread120, label %.thread150
 
 51:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11)
   br label %.thread127
 
-52:                                               ; preds = %.thread150, %.thread119
+.thread150:                                       ; preds = %.thread, %.thread148
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11)
   store i64 %.sroa.0.sroa.0.0, ptr %11, align 8
   %.sroa.2.0..sroa_idx.i94 = getelementptr inbounds i8, ptr %11, i64 8
   store i64 %.sroa.9.0, ptr %.sroa.2.0..sroa_idx.i94, align 8
-  %53 = getelementptr inbounds i8, ptr %11, i64 56
-  store ptr %2, ptr %53, align 8
+  %52 = getelementptr inbounds i8, ptr %11, i64 56
+  store ptr %2, ptr %52, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
-  %54 = getelementptr inbounds i8, ptr %1, i64 24
-  %55 = load ptr, ptr %54, align 8
-  %56 = icmp eq ptr %55, %0
-  br i1 %56, label %agsubrep.exit.thread.i99, label %agsubrep.exit.i95
+  %53 = getelementptr inbounds i8, ptr %1, i64 24
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp eq ptr %54, %0
+  br i1 %55, label %agsubrep.exit.thread.i99, label %agsubrep.exit.i95
 
-agsubrep.exit.thread.i99:                         ; preds = %52
-  %57 = getelementptr inbounds i8, ptr %1, i64 32
+agsubrep.exit.thread.i99:                         ; preds = %.thread150
+  %56 = getelementptr inbounds i8, ptr %1, i64 32
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10)
-  br label %63
+  br label %62
 
-agsubrep.exit.i95:                                ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %10, i64 32
-  store ptr %1, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 72
+agsubrep.exit.i95:                                ; preds = %.thread150
+  %57 = getelementptr inbounds i8, ptr %10, i64 32
+  store ptr %1, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %0, i64 72
+  %59 = load ptr, ptr %58, align 8
   %60 = load ptr, ptr %59, align 8
-  %61 = load ptr, ptr %60, align 8
-  %62 = call ptr %61(ptr noundef nonnull %60, ptr noundef nonnull %10, i32 noundef 4) #6
+  %61 = call ptr %60(ptr noundef nonnull %59, ptr noundef nonnull %10, i32 noundef 4) #6
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10)
-  %.not.i96 = icmp eq ptr %62, null
-  br i1 %.not.i96, label %.thread127, label %63
+  %.not.i96 = icmp eq ptr %61, null
+  br i1 %.not.i96, label %.thread127, label %62
 
 .thread127:                                       ; preds = %agsubrep.exit.i95, %51
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   br label %.thread120
 
-63:                                               ; preds = %agsubrep.exit.thread.i99, %agsubrep.exit.i95
-  %.0.i21.i97 = phi ptr [ %57, %agsubrep.exit.thread.i99 ], [ %62, %agsubrep.exit.i95 ]
-  %64 = getelementptr inbounds i8, ptr %0, i64 88
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %.0.i21.i97, i64 40
-  %67 = load ptr, ptr %66, align 8
-  %68 = call i32 @dtrestore(ptr noundef %65, ptr noundef %67) #6
-  %69 = load ptr, ptr %64, align 8
-  %70 = load ptr, ptr %69, align 8
-  %71 = call ptr %70(ptr noundef nonnull %69, ptr noundef nonnull %11, i32 noundef 4) #6
-  %72 = load ptr, ptr %64, align 8
-  %73 = call ptr @dtextract(ptr noundef %72) #6
-  store ptr %73, ptr %66, align 8
+62:                                               ; preds = %agsubrep.exit.thread.i99, %agsubrep.exit.i95
+  %.0.i21.i97 = phi ptr [ %56, %agsubrep.exit.thread.i99 ], [ %61, %agsubrep.exit.i95 ]
+  %63 = getelementptr inbounds i8, ptr %0, i64 88
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %.0.i21.i97, i64 40
+  %66 = load ptr, ptr %65, align 8
+  %67 = call i32 @dtrestore(ptr noundef %64, ptr noundef %66) #6
+  %68 = load ptr, ptr %63, align 8
+  %69 = load ptr, ptr %68, align 8
+  %70 = call ptr %69(ptr noundef nonnull %68, ptr noundef nonnull %11, i32 noundef 4) #6
+  %71 = load ptr, ptr %63, align 8
+  %72 = call ptr @dtextract(ptr noundef %71) #6
+  store ptr %72, ptr %65, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
-  %.not87 = icmp eq ptr %71, null
+  %.not87 = icmp eq ptr %70, null
   br i1 %.not87, label %.thread130, label %.thread123
 
 .thread120:                                       ; preds = %.thread148, %.thread, %.thread127
   %cond = icmp eq i32 %4, 0
-  br i1 %cond, label %.thread123, label %76
+  br i1 %cond, label %.thread123, label %75
 
 .thread120.thread:                                ; preds = %47
   %cond151 = icmp eq i32 %4, 0
   br i1 %cond151, label %.thread123, label %.thread152
 
 .thread152:                                       ; preds = %.thread120.thread
-  %74 = call ptr @agroot(ptr noundef %0) #6
+  %73 = call ptr @agroot(ptr noundef %0) #6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
   br label %agfindedge_by_key.exit108.thread
 
-.thread130:                                       ; preds = %63
+.thread130:                                       ; preds = %62
   %cond131 = icmp eq i32 %4, 0
   br i1 %cond131, label %.thread123, label %.thread132
 
 .thread132:                                       ; preds = %.thread130
-  %75 = call ptr @agroot(ptr noundef nonnull %0) #6
+  %74 = call ptr @agroot(ptr noundef nonnull %0) #6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
-  br label %78
+  br label %77
 
-76:                                               ; preds = %.thread120
-  %77 = call ptr @agroot(ptr noundef %0) #6
+75:                                               ; preds = %.thread120
+  %76 = call ptr @agroot(ptr noundef %0) #6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
-  br i1 %or.cond.i, label %agfindedge_by_key.exit108.thread, label %78
+  br i1 %or.cond.i, label %agfindedge_by_key.exit108.thread, label %77
 
-78:                                               ; preds = %.thread132, %76
-  %79 = phi ptr [ %75, %.thread132 ], [ %77, %76 ]
+77:                                               ; preds = %.thread132, %75
+  %78 = phi ptr [ %74, %.thread132 ], [ %76, %75 ]
   store i64 %.sroa.0.sroa.0.0, ptr %9, align 8
   %.sroa.2.0..sroa_idx.i102 = getelementptr inbounds i8, ptr %9, i64 8
   store i64 %.sroa.9.0, ptr %.sroa.2.0..sroa_idx.i102, align 8
-  %80 = getelementptr inbounds i8, ptr %9, i64 56
-  store ptr %1, ptr %80, align 8
+  %79 = getelementptr inbounds i8, ptr %9, i64 56
+  store ptr %1, ptr %79, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
-  %81 = getelementptr inbounds i8, ptr %2, i64 24
-  %82 = load ptr, ptr %81, align 8
-  %83 = icmp eq ptr %82, %79
-  br i1 %83, label %agsubrep.exit.thread.i107, label %agsubrep.exit.i103
+  %80 = getelementptr inbounds i8, ptr %2, i64 24
+  %81 = load ptr, ptr %80, align 8
+  %82 = icmp eq ptr %81, %78
+  br i1 %82, label %agsubrep.exit.thread.i107, label %agsubrep.exit.i103
 
-agsubrep.exit.thread.i107:                        ; preds = %78
-  %84 = getelementptr inbounds i8, ptr %2, i64 32
+agsubrep.exit.thread.i107:                        ; preds = %77
+  %83 = getelementptr inbounds i8, ptr %2, i64 32
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8)
   br label %agfindedge_by_key.exit108
 
-agsubrep.exit.i103:                               ; preds = %78
-  %85 = getelementptr inbounds i8, ptr %8, i64 32
-  store ptr %2, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %79, i64 72
+agsubrep.exit.i103:                               ; preds = %77
+  %84 = getelementptr inbounds i8, ptr %8, i64 32
+  store ptr %2, ptr %84, align 8
+  %85 = getelementptr inbounds i8, ptr %78, i64 72
+  %86 = load ptr, ptr %85, align 8
   %87 = load ptr, ptr %86, align 8
-  %88 = load ptr, ptr %87, align 8
-  %89 = call ptr %88(ptr noundef nonnull %87, ptr noundef nonnull %8, i32 noundef 4) #6
+  %88 = call ptr %87(ptr noundef nonnull %86, ptr noundef nonnull %8, i32 noundef 4) #6
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8)
-  %.not.i104 = icmp eq ptr %89, null
+  %.not.i104 = icmp eq ptr %88, null
   br i1 %.not.i104, label %agfindedge_by_key.exit108.thread, label %agfindedge_by_key.exit108
 
-agfindedge_by_key.exit108.thread:                 ; preds = %.thread152, %76, %agsubrep.exit.i103
+agfindedge_by_key.exit108.thread:                 ; preds = %.thread152, %75, %agsubrep.exit.i103
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %101
+  br label %100
 
 agfindedge_by_key.exit108:                        ; preds = %agsubrep.exit.thread.i107, %agsubrep.exit.i103
-  %.0.i21.i105 = phi ptr [ %84, %agsubrep.exit.thread.i107 ], [ %89, %agsubrep.exit.i103 ]
-  %90 = getelementptr inbounds i8, ptr %79, i64 88
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %.0.i21.i105, i64 40
-  %93 = load ptr, ptr %92, align 8
-  %94 = call i32 @dtrestore(ptr noundef %91, ptr noundef %93) #6
-  %95 = load ptr, ptr %90, align 8
-  %96 = load ptr, ptr %95, align 8
-  %97 = call ptr %96(ptr noundef nonnull %95, ptr noundef nonnull %9, i32 noundef 4) #6
-  %98 = load ptr, ptr %90, align 8
-  %99 = call ptr @dtextract(ptr noundef %98) #6
-  store ptr %99, ptr %92, align 8
+  %.0.i21.i105 = phi ptr [ %83, %agsubrep.exit.thread.i107 ], [ %88, %agsubrep.exit.i103 ]
+  %89 = getelementptr inbounds i8, ptr %78, i64 88
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds i8, ptr %.0.i21.i105, i64 40
+  %92 = load ptr, ptr %91, align 8
+  %93 = call i32 @dtrestore(ptr noundef %90, ptr noundef %92) #6
+  %94 = load ptr, ptr %89, align 8
+  %95 = load ptr, ptr %94, align 8
+  %96 = call ptr %95(ptr noundef nonnull %94, ptr noundef nonnull %9, i32 noundef 4) #6
+  %97 = load ptr, ptr %89, align 8
+  %98 = call ptr @dtextract(ptr noundef %97) #6
+  store ptr %98, ptr %91, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  %100 = icmp eq ptr %97, null
-  br i1 %100, label %101, label %.thread137
+  %99 = icmp eq ptr %96, null
+  br i1 %99, label %100, label %.thread137
 
-101:                                              ; preds = %agfindedge_by_key.exit108.thread, %agfindedge_by_key.exit108
-  %102 = call i32 @agisundirected(ptr noundef %0) #6
-  %.not89 = icmp eq i32 %102, 0
-  br i1 %.not89, label %.thread146, label %103
+100:                                              ; preds = %agfindedge_by_key.exit108.thread, %agfindedge_by_key.exit108
+  %101 = call i32 @agisundirected(ptr noundef %0) #6
+  %.not89 = icmp eq i32 %101, 0
+  br i1 %.not89, label %.thread146, label %102
 
-103:                                              ; preds = %101
-  %104 = call ptr @agroot(ptr noundef %0) #6
+102:                                              ; preds = %100
+  %103 = call ptr @agroot(ptr noundef %0) #6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
-  br i1 %or.cond.i, label %.thread142, label %105
+  br i1 %or.cond.i, label %.thread142, label %104
 
-105:                                              ; preds = %103
+104:                                              ; preds = %102
   store i64 %.sroa.0.sroa.0.0, ptr %7, align 8
   %.sroa.2.0..sroa_idx.i110 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %.sroa.9.0, ptr %.sroa.2.0..sroa_idx.i110, align 8
-  %106 = getelementptr inbounds i8, ptr %7, i64 56
-  store ptr %2, ptr %106, align 8
+  %105 = getelementptr inbounds i8, ptr %7, i64 56
+  store ptr %2, ptr %105, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
-  %107 = getelementptr inbounds i8, ptr %1, i64 24
-  %108 = load ptr, ptr %107, align 8
-  %109 = icmp eq ptr %108, %104
-  br i1 %109, label %agsubrep.exit.thread.i115, label %agsubrep.exit.i111
+  %106 = getelementptr inbounds i8, ptr %1, i64 24
+  %107 = load ptr, ptr %106, align 8
+  %108 = icmp eq ptr %107, %103
+  br i1 %108, label %agsubrep.exit.thread.i115, label %agsubrep.exit.i111
 
-agsubrep.exit.thread.i115:                        ; preds = %105
-  %110 = getelementptr inbounds i8, ptr %1, i64 32
+agsubrep.exit.thread.i115:                        ; preds = %104
+  %109 = getelementptr inbounds i8, ptr %1, i64 32
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
-  br label %116
+  br label %115
 
-agsubrep.exit.i111:                               ; preds = %105
-  %111 = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr %1, ptr %111, align 8
-  %112 = getelementptr inbounds i8, ptr %104, i64 72
+agsubrep.exit.i111:                               ; preds = %104
+  %110 = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr %1, ptr %110, align 8
+  %111 = getelementptr inbounds i8, ptr %103, i64 72
+  %112 = load ptr, ptr %111, align 8
   %113 = load ptr, ptr %112, align 8
-  %114 = load ptr, ptr %113, align 8
-  %115 = call ptr %114(ptr noundef nonnull %113, ptr noundef nonnull %6, i32 noundef 4) #6
+  %114 = call ptr %113(ptr noundef nonnull %112, ptr noundef nonnull %6, i32 noundef 4) #6
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
-  %.not.i112 = icmp eq ptr %115, null
-  br i1 %.not.i112, label %.thread142, label %116
+  %.not.i112 = icmp eq ptr %114, null
+  br i1 %.not.i112, label %.thread142, label %115
 
-.thread142:                                       ; preds = %103, %agsubrep.exit.i111
+.thread142:                                       ; preds = %102, %agsubrep.exit.i111
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   br label %.thread146
 
-116:                                              ; preds = %agsubrep.exit.thread.i115, %agsubrep.exit.i111
-  %.0.i21.i113 = phi ptr [ %110, %agsubrep.exit.thread.i115 ], [ %115, %agsubrep.exit.i111 ]
-  %117 = getelementptr inbounds i8, ptr %104, i64 88
-  %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %.0.i21.i113, i64 40
-  %120 = load ptr, ptr %119, align 8
-  %121 = call i32 @dtrestore(ptr noundef %118, ptr noundef %120) #6
-  %122 = load ptr, ptr %117, align 8
-  %123 = load ptr, ptr %122, align 8
-  %124 = call ptr %123(ptr noundef nonnull %122, ptr noundef nonnull %7, i32 noundef 4) #6
-  %125 = load ptr, ptr %117, align 8
-  %126 = call ptr @dtextract(ptr noundef %125) #6
-  store ptr %126, ptr %119, align 8
+115:                                              ; preds = %agsubrep.exit.thread.i115, %agsubrep.exit.i111
+  %.0.i21.i113 = phi ptr [ %109, %agsubrep.exit.thread.i115 ], [ %114, %agsubrep.exit.i111 ]
+  %116 = getelementptr inbounds i8, ptr %103, i64 88
+  %117 = load ptr, ptr %116, align 8
+  %118 = getelementptr inbounds i8, ptr %.0.i21.i113, i64 40
+  %119 = load ptr, ptr %118, align 8
+  %120 = call i32 @dtrestore(ptr noundef %117, ptr noundef %119) #6
+  %121 = load ptr, ptr %116, align 8
+  %122 = load ptr, ptr %121, align 8
+  %123 = call ptr %122(ptr noundef nonnull %121, ptr noundef nonnull %7, i32 noundef 4) #6
+  %124 = load ptr, ptr %116, align 8
+  %125 = call ptr @dtextract(ptr noundef %124) #6
+  store ptr %125, ptr %118, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
-  %.not90 = icmp eq ptr %124, null
+  %.not90 = icmp eq ptr %123, null
   br i1 %.not90, label %.thread146, label %.thread137
 
-.thread137:                                       ; preds = %agfindedge_by_key.exit108, %116
-  %.1140 = phi ptr [ %124, %116 ], [ %97, %agfindedge_by_key.exit108 ]
+.thread137:                                       ; preds = %agfindedge_by_key.exit108, %115
+  %.1140 = phi ptr [ %123, %115 ], [ %96, %agfindedge_by_key.exit108 ]
   call fastcc void @installedge(ptr noundef %0, ptr noundef nonnull %.1140)
   br label %.thread123
 
-127:                                              ; preds = %16
+126:                                              ; preds = %16
   br i1 %.not84, label %.thread123, label %.thread146
 
-.thread146:                                       ; preds = %101, %19, %116, %.thread142, %127
-  %128 = call fastcc zeroext i1 @ok_to_make_edge(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  br i1 %128, label %129, label %.thread123
+.thread146:                                       ; preds = %100, %19, %115, %.thread142, %126
+  %127 = call fastcc zeroext i1 @ok_to_make_edge(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  br i1 %127, label %128, label %.thread123
 
-129:                                              ; preds = %.thread146
-  %130 = call i32 @agmapnametoid(ptr noundef %0, i32 noundef 2, ptr noundef %3, ptr noundef nonnull %14, i1 noundef zeroext true) #6
-  %.not92 = icmp eq i32 %130, 0
-  br i1 %.not92, label %.thread123, label %131
+128:                                              ; preds = %.thread146
+  %129 = call i32 @agmapnametoid(ptr noundef %0, i32 noundef 2, ptr noundef %3, ptr noundef nonnull %14, i1 noundef zeroext true) #6
+  %.not92 = icmp eq i32 %129, 0
+  br i1 %.not92, label %.thread123, label %130
 
-131:                                              ; preds = %129
-  %132 = load i64, ptr %14, align 8
-  %133 = call fastcc ptr @newedge(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %132)
-  call void @agregister(ptr noundef %0, i32 noundef 2, ptr noundef %133) #6
+130:                                              ; preds = %128
+  %131 = load i64, ptr %14, align 8
+  %132 = call fastcc ptr @newedge(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %131)
+  call void @agregister(ptr noundef %0, i32 noundef 2, ptr noundef %132) #6
   br label %.thread123
 
-.thread123:                                       ; preds = %.thread120.thread, %agfindedge_by_key.exit, %.thread130, %.thread120, %131, %129, %.thread146, %127, %63, %.thread137
-  %.0 = phi ptr [ %.1140, %.thread137 ], [ %71, %63 ], [ %133, %131 ], [ null, %.thread120 ], [ null, %129 ], [ null, %.thread146 ], [ null, %127 ], [ null, %.thread130 ], [ %43, %agfindedge_by_key.exit ], [ null, %.thread120.thread ]
+.thread123:                                       ; preds = %.thread120.thread, %agfindedge_by_key.exit, %.thread130, %.thread120, %130, %128, %.thread146, %126, %62, %.thread137
+  %.0 = phi ptr [ %.1140, %.thread137 ], [ %70, %62 ], [ %132, %130 ], [ null, %.thread120 ], [ null, %128 ], [ null, %.thread146 ], [ null, %126 ], [ null, %.thread130 ], [ %43, %agfindedge_by_key.exit ], [ null, %.thread120.thread ]
   ret ptr %.0
 }
 

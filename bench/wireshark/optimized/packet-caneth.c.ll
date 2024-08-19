@@ -120,12 +120,12 @@ test_caneth.exit:                                 ; preds = %13
   %31 = load i32, ptr %8, align 4
   %32 = add i32 %31, -1
   store i32 %32, ptr %8, align 4
-  %.not2832 = icmp eq i32 %31, 0
-  br i1 %.not2832, label %._crit_edge, label %.lr.ph
+  %.not2833 = icmp eq i32 %31, 0
+  br i1 %.not2833, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17, %dissect_caneth_can.exit
-  %.02733 = phi i32 [ %77, %dissect_caneth_can.exit ], [ 10, %17 ]
-  %33 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.02733, i32 noundef 15) #3
+  %.02734 = phi i32 [ %69, %dissect_caneth_can.exit ], [ 10, %17 ]
+  %33 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.02734, i32 noundef 15) #3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
@@ -136,89 +136,78 @@ test_caneth.exit:                                 ; preds = %13
   %38 = call zeroext i8 @tvb_get_guint8(ptr noundef %33, i32 noundef 13) #3
   %39 = call zeroext i8 @tvb_get_guint8(ptr noundef %33, i32 noundef 14) #3
   %.not.i29 = icmp eq i8 %38, 0
-  br i1 %.not.i29, label %45, label %40
-
-40:                                               ; preds = %.lr.ph
-  %41 = load i32, ptr @hf_caneth_can_ident_ext, align 4
-  %42 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %37, i32 noundef %41, ptr noundef %33, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %6) #3
-  %43 = load i32, ptr %6, align 4
-  %44 = and i32 %43, 536870911
-  br label %50
-
-45:                                               ; preds = %.lr.ph
-  %46 = load i32, ptr @hf_caneth_can_ident_std, align 4
-  %47 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %37, i32 noundef %46, ptr noundef %33, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %6) #3
-  %48 = load i32, ptr %6, align 4
-  %49 = and i32 %48, 2047
-  br label %50
-
-50:                                               ; preds = %45, %40
-  %51 = phi i32 [ 0, %45 ], [ -2147483648, %40 ]
-  %storemerge.i = phi i32 [ %49, %45 ], [ %44, %40 ]
+  %..i30 = select i1 %.not.i29, i32 2047, i32 536870911
+  %.2.i = select i1 %.not.i29, i32 0, i32 -2147483648
+  %hf_caneth_can_ident_std.val.i = load i32, ptr @hf_caneth_can_ident_std, align 4
+  %hf_caneth_can_ident_ext.val.i = load i32, ptr @hf_caneth_can_ident_ext, align 4
+  %40 = select i1 %.not.i29, i32 %hf_caneth_can_ident_std.val.i, i32 %hf_caneth_can_ident_ext.val.i
+  %41 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %37, i32 noundef %40, ptr noundef %33, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %6) #3
+  %42 = load i32, ptr %6, align 4
+  %43 = and i32 %42, %..i30
   %.not29.i = icmp eq i8 %39, 0
-  %52 = select i1 %.not29.i, i32 0, i32 1073741824
-  %53 = or disjoint i32 %51, %52
-  %54 = or disjoint i32 %53, %storemerge.i
-  store i32 %54, ptr %7, align 4
-  %55 = load i32, ptr @hf_caneth_can_len, align 4
-  %56 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %37, i32 noundef %55, ptr noundef %33, i32 noundef 4, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #3
-  %57 = load i32, ptr @hf_caneth_can_extflag, align 4
-  %58 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %57, ptr noundef %33, i32 noundef 13, i32 noundef 1, i32 noundef 0) #3
-  %59 = load i32, ptr @hf_caneth_can_rtrflag, align 4
-  %60 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %59, ptr noundef %33, i32 noundef 14, i32 noundef 1, i32 noundef 0) #3
-  %61 = load i32, ptr %5, align 4
-  %62 = call ptr @tvb_new_subset_length(ptr noundef %33, i32 noundef 5, i32 noundef %61) #3
-  %63 = call i32 @socketcan_call_subdissectors(ptr noundef %62, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, i32 noundef 0) #3
-  %.not30.i = icmp eq i32 %63, 0
-  br i1 %.not30.i, label %64, label %66
+  %44 = select i1 %.not29.i, i32 0, i32 1073741824
+  %45 = or disjoint i32 %44, %.2.i
+  %46 = or disjoint i32 %45, %43
+  store i32 %46, ptr %7, align 4
+  %47 = load i32, ptr @hf_caneth_can_len, align 4
+  %48 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %37, i32 noundef %47, ptr noundef %33, i32 noundef 4, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #3
+  %49 = load i32, ptr @hf_caneth_can_extflag, align 4
+  %50 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %49, ptr noundef %33, i32 noundef 13, i32 noundef 1, i32 noundef 0) #3
+  %51 = load i32, ptr @hf_caneth_can_rtrflag, align 4
+  %52 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %51, ptr noundef %33, i32 noundef 14, i32 noundef 1, i32 noundef 0) #3
+  %53 = load i32, ptr %5, align 4
+  %54 = call ptr @tvb_new_subset_length(ptr noundef %33, i32 noundef 5, i32 noundef %53) #3
+  %55 = call i32 @socketcan_call_subdissectors(ptr noundef %54, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, i32 noundef 0) #3
+  %.not30.i = icmp eq i32 %55, 0
+  br i1 %.not30.i, label %56, label %58
 
-64:                                               ; preds = %50
-  %65 = call i32 @call_data_dissector(ptr noundef %62, ptr noundef %1, ptr noundef %2) #3
-  br label %66
+56:                                               ; preds = %.lr.ph
+  %57 = call i32 @call_data_dissector(ptr noundef %54, ptr noundef %1, ptr noundef %2) #3
+  br label %58
 
-66:                                               ; preds = %64, %50
-  %67 = load i32, ptr %5, align 4
-  %68 = add i32 %67, 5
-  %69 = call i32 @tvb_captured_length_remaining(ptr noundef %33, i32 noundef %68) #3
-  %70 = icmp sgt i32 %69, 0
-  br i1 %70, label %71, label %dissect_caneth_can.exit
+58:                                               ; preds = %56, %.lr.ph
+  %59 = load i32, ptr %5, align 4
+  %60 = add i32 %59, 5
+  %61 = call i32 @tvb_captured_length_remaining(ptr noundef %33, i32 noundef %60) #3
+  %62 = icmp sgt i32 %61, 0
+  br i1 %62, label %63, label %dissect_caneth_can.exit
 
-71:                                               ; preds = %66
-  %72 = load i32, ptr @hf_caneth_can_padding, align 4
-  %73 = load i32, ptr %5, align 4
-  %74 = add i32 %73, 5
-  %75 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %72, ptr noundef %33, i32 noundef %74, i32 noundef -1, i32 noundef 0) #3
+63:                                               ; preds = %58
+  %64 = load i32, ptr @hf_caneth_can_padding, align 4
+  %65 = load i32, ptr %5, align 4
+  %66 = add i32 %65, 5
+  %67 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %64, ptr noundef %33, i32 noundef %66, i32 noundef -1, i32 noundef 0) #3
   br label %dissect_caneth_can.exit
 
-dissect_caneth_can.exit:                          ; preds = %66, %71
-  %76 = call i32 @tvb_captured_length(ptr noundef %33) #3
+dissect_caneth_can.exit:                          ; preds = %58, %63
+  %68 = call i32 @tvb_captured_length(ptr noundef %33) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %77 = add i32 %.02733, 15
-  %78 = load i32, ptr %8, align 4
-  %79 = add i32 %78, -1
-  store i32 %79, ptr %8, align 4
-  %.not28 = icmp eq i32 %78, 0
+  %69 = add i32 %.02734, 15
+  %70 = load i32, ptr %8, align 4
+  %71 = add i32 %70, -1
+  store i32 %71, ptr %8, align 4
+  %.not28 = icmp eq i32 %70, 0
   br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %dissect_caneth_can.exit, %17
-  %.027.lcssa = phi i32 [ 10, %17 ], [ %77, %dissect_caneth_can.exit ]
-  %80 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.027.lcssa) #3
-  %81 = icmp sgt i32 %80, 0
-  br i1 %81, label %82, label %85
+  %.027.lcssa = phi i32 [ 10, %17 ], [ %69, %dissect_caneth_can.exit ]
+  %72 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.027.lcssa) #3
+  %73 = icmp sgt i32 %72, 0
+  br i1 %73, label %74, label %77
 
-82:                                               ; preds = %._crit_edge
-  %83 = load i32, ptr @hf_caneth_options, align 4
-  %84 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %83, ptr noundef %0, i32 noundef %.027.lcssa, i32 noundef -1, i32 noundef 0) #3
-  br label %85
+74:                                               ; preds = %._crit_edge
+  %75 = load i32, ptr @hf_caneth_options, align 4
+  %76 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %75, ptr noundef %0, i32 noundef %.027.lcssa, i32 noundef -1, i32 noundef 0) #3
+  br label %77
 
-85:                                               ; preds = %82, %._crit_edge
-  %86 = call i32 @tvb_captured_length(ptr noundef %0) #3
+77:                                               ; preds = %74, %._crit_edge
+  %78 = call i32 @tvb_captured_length(ptr noundef %0) #3
   br label %test_caneth.exit.thread
 
-test_caneth.exit.thread:                          ; preds = %13, %11, %4, %test_caneth.exit, %85
-  %.0 = phi i32 [ %86, %85 ], [ 0, %test_caneth.exit ], [ 0, %4 ], [ 0, %11 ], [ 0, %13 ]
+test_caneth.exit.thread:                          ; preds = %13, %11, %4, %test_caneth.exit, %77
+  %.0 = phi i32 [ %78, %77 ], [ 0, %test_caneth.exit ], [ 0, %4 ], [ 0, %11 ], [ 0, %13 ]
   ret i32 %.0
 }
 

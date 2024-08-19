@@ -1898,19 +1898,19 @@ proto_item_set_generated.exit872:                 ; preds = %539, %548, %551
   br i1 %.not835, label %.thread882, label %.thread928
 
 .thread928.sink.split.sink.split:                 ; preds = %591, %566
-  %.sink969 = phi ptr [ %568, %566 ], [ %593, %591 ]
-  %storemerge.ph = phi i32 [ 2, %566 ], [ 3, %591 ]
+  %.sink958 = phi ptr [ %568, %566 ], [ %593, %591 ]
+  %.sink952.ph = phi i32 [ 2, %566 ], [ 3, %591 ]
   %.sink.ph = phi i32 [ 4, %566 ], [ 16, %591 ]
-  %595 = getelementptr inbounds i8, ptr %.sink969, i64 28
+  %595 = getelementptr inbounds i8, ptr %.sink958, i64 28
   %596 = load i32, ptr %595, align 4
   %597 = or i32 %596, 2
   store i32 %597, ptr %595, align 4
   br label %.thread928.sink.split
 
 .thread928.sink.split:                            ; preds = %.thread928.sink.split.sink.split, %591, %571, %566, %558
-  %storemerge = phi i32 [ 2, %558 ], [ 2, %566 ], [ 3, %571 ], [ 3, %591 ], [ %storemerge.ph, %.thread928.sink.split.sink.split ]
+  %.sink952 = phi i32 [ 2, %558 ], [ 2, %566 ], [ 3, %571 ], [ 3, %591 ], [ %.sink952.ph, %.thread928.sink.split.sink.split ]
   %.sink = phi i32 [ 4, %558 ], [ 4, %566 ], [ 16, %571 ], [ 16, %591 ], [ %.sink.ph, %.thread928.sink.split.sink.split ]
-  store i32 %storemerge, ptr %8, align 8
+  store i32 %.sink952, ptr %8, align 8
   store i32 %.sink, ptr %294, align 4
   store ptr %7, ptr %295, align 8
   store ptr null, ptr %296, align 8

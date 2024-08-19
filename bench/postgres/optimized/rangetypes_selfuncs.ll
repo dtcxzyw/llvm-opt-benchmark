@@ -266,7 +266,7 @@ define dso_local i64 @rangesel(ptr noundef %0) local_unnamed_addr #0 {
   %134 = getelementptr inbounds i8, ptr %.026, i64 304
   %135 = load i32, ptr %134, align 8
   %136 = call zeroext i1 @statistic_proc_security_check(ptr noundef nonnull %8, i32 noundef %135) #10
-  br i1 %136, label %137, label %calc_hist_selectivity.exit.thread.i
+  br i1 %136, label %137, label %.sink.split.i
 
 137:                                              ; preds = %133
   %138 = getelementptr inbounds i8, ptr %.026, i64 400
@@ -276,16 +276,16 @@ define dso_local i64 @rangesel(ptr noundef %0) local_unnamed_addr #0 {
 
 140:                                              ; preds = %137
   %141 = call zeroext i1 @statistic_proc_security_check(ptr noundef nonnull %8, i32 noundef %139) #10
-  br i1 %141, label %142, label %calc_hist_selectivity.exit.thread.i
+  br i1 %141, label %142, label %.sink.split.i
 
 142:                                              ; preds = %140, %137
   %143 = load ptr, ptr %99, align 8
   %.not78.i.i = icmp eq ptr %143, null
-  br i1 %.not78.i.i, label %calc_hist_selectivity.exit.thread.i, label %144
+  br i1 %.not78.i.i, label %.sink.split.i, label %144
 
 144:                                              ; preds = %142
   %145 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %2, ptr noundef nonnull %143, i32 noundef 7, i32 noundef 0, i32 noundef 1) #10
-  br i1 %145, label %146, label %calc_hist_selectivity.exit.thread.i
+  br i1 %145, label %146, label %.sink.split.i
 
 146:                                              ; preds = %144
   %147 = getelementptr inbounds i8, ptr %2, i64 24
@@ -457,22 +457,9 @@ define dso_local i64 @rangesel(ptr noundef %0) local_unnamed_addr #0 {
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 580, ptr noundef nonnull @__func__.calc_hist_selectivity) #10
   unreachable
 
-calc_hist_selectivity.exit.thread.i:              ; preds = %144, %142, %140, %133
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  br label %236
-
 calc_hist_selectivity.exit.thread36.i:            ; preds = %173, %171, %146
   call void @free_attstatsslot(ptr noundef nonnull %2) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  br label %236
+  br label %.sink.split.i
 
 calc_hist_selectivity.exit.i:                     ; preds = %226, %223, %217, %207, %201, %199, %196, %193, %191, %188, %185, %183, %181, %175
   %.073.ph.ph.i.i = phi double [ -1.000000e+00, %175 ], [ %218, %217 ], [ %225, %223 ], [ %231, %226 ], [ %212, %207 ], [ %206, %201 ], [ %200, %199 ], [ %198, %196 ], [ %195, %193 ], [ %192, %191 ], [ %190, %188 ], [ %187, %185 ], [ %184, %183 ], [ %182, %181 ]
@@ -486,7 +473,15 @@ calc_hist_selectivity.exit.i:                     ; preds = %226, %223, %217, %2
   %235 = fcmp olt double %.073.ph.ph.i.i, 0.000000e+00
   br i1 %235, label %236, label %default_range_selectivity.exit.i
 
-236:                                              ; preds = %calc_hist_selectivity.exit.i, %calc_hist_selectivity.exit.thread36.i, %calc_hist_selectivity.exit.thread.i
+.sink.split.i:                                    ; preds = %calc_hist_selectivity.exit.thread36.i, %144, %142, %140, %133
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  br label %236
+
+236:                                              ; preds = %.sink.split.i, %calc_hist_selectivity.exit.i
   switch i32 %.029, label %default_range_selectivity.exit.i [
     i32 3896, label %238
     i32 3890, label %237

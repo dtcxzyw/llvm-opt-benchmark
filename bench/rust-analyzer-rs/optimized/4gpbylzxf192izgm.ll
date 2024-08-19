@@ -250,13 +250,6 @@ define hidden void @"_ZN117_$LT$itertools..adaptors..coalesce..CoalesceBy$LT$I$C
 
 49:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1589ea77fb9f465E.exit.thread"
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %52
-
-.loopexit:                                        ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1589ea77fb9f465E.exit.i", %47, %21
-  %.sroa.036.1 = phi i64 [ %.sroa.03.0, %21 ], [ %.sroa.56.i.sroa.0.0.copyload46, %47 ], [ %.sroa.036.0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1589ea77fb9f465E.exit.i" ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.sroa.6, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.639, i64 24, i1 false), !noalias !82
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.5.i.sroa.6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.639)
   br label %51
 
 50:                                               ; preds = %"_ZN4core3ptr37drop_in_place$LT$text_edit..Indel$GT$17hfdc0a47c192a906dE.exit.i.i.i.i", %32
@@ -268,21 +261,22 @@ define hidden void @"_ZN117_$LT$itertools..adaptors..coalesce..CoalesceBy$LT$I$C
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6), !noalias !58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i.sroa.6, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.56.i.sroa.7, i64 24, i1 false), !alias.scope !78, !noalias !57
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.56.i.sroa.7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.sroa.6, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i.sroa.6, i64 24, i1 false), !noalias !82
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %47, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1589ea77fb9f465E.exit.i", %21, %50
+  %.sroa.5.i.sroa.6.sink = phi ptr [ %.sroa.5.i.sroa.6, %50 ], [ %.sroa.639, %21 ], [ %.sroa.639, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1589ea77fb9f465E.exit.i" ], [ %.sroa.639, %47 ]
+  %.sroa.4.sroa.0.055 = phi i64 [ %.sroa.56.i.sroa.0.0.copyload, %50 ], [ %.sroa.03.0, %21 ], [ %.sroa.56.i.sroa.0.0.copyload46, %47 ], [ %.sroa.036.0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1589ea77fb9f465E.exit.i" ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.sroa.6, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i.sroa.6.sink, i64 24, i1 false), !noalias !82
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.5.i.sroa.6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.639)
-  br label %51
-
-51:                                               ; preds = %50, %.loopexit
-  %.sroa.4.sroa.0.055 = phi i64 [ %.sroa.56.i.sroa.0.0.copyload, %50 ], [ %.sroa.036.1, %.loopexit ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.sroa.6, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.4.sroa.6)
   store i64 %.sroa.4.sroa.0.055, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3, i64 24, i1 false)
-  br label %52
+  br label %51
 
-52:                                               ; preds = %51, %49
+51:                                               ; preds = %.loopexit, %49
   ret void
 }
 

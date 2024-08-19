@@ -471,69 +471,62 @@ define hidden noundef i32 @_Z15RGBE_ReadHeaderP8_IO_FILEPiS1_P16rgbe_header_info
 52:                                               ; preds = %51
   %53 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.7, ptr noundef nonnull %6) #14
   %54 = icmp eq i32 %53, 1
-  br i1 %54, label %55, label %57
+  br i1 %54, label %.critedge.sink.split, label %55
 
 55:                                               ; preds = %52
-  %56 = load float, ptr %6, align 4
-  store float %56, ptr %40, align 4
-  br label %.critedge.sink.split
+  %56 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.8, ptr noundef nonnull %6) #14
+  %57 = icmp eq i32 %56, 1
+  br i1 %57, label %.critedge.sink.split, label %.outer.backedge
 
-57:                                               ; preds = %52
-  %58 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.8, ptr noundef nonnull %6) #14
-  %59 = icmp eq i32 %58, 1
-  br i1 %59, label %60, label %.outer.backedge
-
-60:                                               ; preds = %57
-  %61 = load float, ptr %6, align 4
-  store float %61, ptr %39, align 4
-  br label %.critedge.sink.split
-
-.critedge.sink.split:                             ; preds = %60, %55
-  %.sink63 = phi i32 [ 2, %55 ], [ 4, %60 ]
-  %62 = load i32, ptr %3, align 4
-  %63 = or i32 %62, %.sink63
-  store i32 %63, ptr %3, align 4
+.critedge.sink.split:                             ; preds = %55, %52
+  %.sink64 = phi ptr [ %40, %52 ], [ %39, %55 ]
+  %.sink63 = phi i32 [ 2, %52 ], [ 4, %55 ]
+  %58 = load float, ptr %6, align 4
+  store float %58, ptr %.sink64, align 4
+  %59 = load i32, ptr %3, align 4
+  %60 = or i32 %59, %.sink63
+  store i32 %60, ptr %3, align 4
   br label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %.critedge.sink.split, %57
+.outer.backedge:                                  ; preds = %.critedge.sink.split, %55
   br label %.outer, !llvm.loop !12
 
 .split48.us:                                      ; preds = %41, %49
   %.us-phi = phi i1 [ %.0.ph.ph, %49 ], [ %.0.ph.us, %41 ]
   %lhsv = load i16, ptr %5, align 16
   %.not42 = icmp eq i16 %lhsv, 10
-  br i1 %.not42, label %65, label %64
+  br i1 %.not42, label %62, label %61
 
-64:                                               ; preds = %.split48.us
+61:                                               ; preds = %.split48.us
   call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 2, ptr noundef nonnull @.str.10)
   unreachable
 
-65:                                               ; preds = %.split48.us
-  br i1 %.us-phi, label %67, label %66
+62:                                               ; preds = %.split48.us
+  br i1 %.us-phi, label %64, label %63
 
-66:                                               ; preds = %65
+63:                                               ; preds = %62
   call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 2, ptr noundef nonnull @.str.11)
   unreachable
 
-67:                                               ; preds = %65
-  %68 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 128, ptr noundef %0)
-  %69 = icmp eq ptr %68, null
-  br i1 %69, label %70, label %71
+64:                                               ; preds = %62
+  %65 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 128, ptr noundef %0)
+  %66 = icmp eq ptr %65, null
+  br i1 %66, label %67, label %68
 
-70:                                               ; preds = %67
+67:                                               ; preds = %64
   call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 0, ptr noundef null)
   unreachable
 
-71:                                               ; preds = %67
-  %72 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.12, ptr noundef %2, ptr noundef %1) #14
-  %73 = icmp slt i32 %72, 2
-  br i1 %73, label %74, label %75
+68:                                               ; preds = %64
+  %69 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.12, ptr noundef %2, ptr noundef %1) #14
+  %70 = icmp slt i32 %69, 2
+  br i1 %70, label %71, label %72
 
-74:                                               ; preds = %71
+71:                                               ; preds = %68
   call fastcc void @_ZL10rgbe_erroriPKc(i32 noundef 2, ptr noundef nonnull @.str.13)
   unreachable
 
-75:                                               ; preds = %71
+72:                                               ; preds = %68
   ret i32 0
 }
 

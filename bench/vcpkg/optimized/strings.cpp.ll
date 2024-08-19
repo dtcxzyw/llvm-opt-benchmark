@@ -3686,7 +3686,7 @@ define dso_local noundef i64 @_ZN5vcpkg7Strings18byte_edit_distanceENS_10StringV
 ._crit_edge.us:                                   ; preds = %30
   %42 = add nuw i64 %.03491.us, 1
   %exitcond96.not = icmp eq i64 %42, %3
-  br i1 %exitcond96.not, label %._crit_edge93.loopexit, label %.lr.ph88.us, !llvm.loop !84
+  br i1 %exitcond96.not, label %._crit_edge93.sink.split, label %.lr.ph88.us, !llvm.loop !84
 
 .lr.ph:                                           ; preds = %15, %.lr.ph
   %43 = phi i8 [ %.sroa.speculated57, %.lr.ph ], [ %19, %15 ]
@@ -3718,17 +3718,14 @@ define dso_local noundef i64 @_ZN5vcpkg7Strings18byte_edit_distanceENS_10StringV
   %.sroa.speculated52 = tail call i8 @llvm.smin.i8(i8 %53, i8 %59)
   %60 = add nuw i64 %.03491, 1
   %exitcond94.not = icmp eq i64 %60, %3
-  br i1 %exitcond94.not, label %._crit_edge93.split, label %.lr.ph92.split, !llvm.loop !84
+  br i1 %exitcond94.not, label %._crit_edge93.sink.split, label %.lr.ph92.split, !llvm.loop !84
 
-._crit_edge93.split:                              ; preds = %.lr.ph92.split
-  store i8 %.sroa.speculated52, ptr %5, align 16
+._crit_edge93.sink.split:                         ; preds = %.lr.ph92.split, %._crit_edge.us
+  %.sroa.speculated52.us.lcssa.sink = phi i8 [ %.sroa.speculated52.us, %._crit_edge.us ], [ %.sroa.speculated52, %.lr.ph92.split ]
+  store i8 %.sroa.speculated52.us.lcssa.sink, ptr %5, align 16
   br label %._crit_edge93
 
-._crit_edge93.loopexit:                           ; preds = %._crit_edge.us
-  store i8 %.sroa.speculated52.us, ptr %5, align 16
-  br label %._crit_edge93
-
-._crit_edge93:                                    ; preds = %._crit_edge93.loopexit, %.preheader.thread, %._crit_edge93.split, %.preheader
+._crit_edge93:                                    ; preds = %._crit_edge93.sink.split, %.preheader.thread, %.preheader
   %61 = add nsw i64 %1, -1
   %62 = getelementptr inbounds [100 x i8], ptr %5, i64 0, i64 %61
   %63 = load i8, ptr %62, align 1
@@ -9428,10 +9425,10 @@ _ZZN3fmt3v106detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic
   br i1 %172, label %100, label %_ZN3fmt3v106detail11find_escapeEPKcS3_.exit, !llvm.loop !172
 
 _ZN3fmt3v106detail11find_escapeEPKcS3_.exit.sink.split: ; preds = %_ZZN3fmt3v106detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit26.thread, %_ZZN3fmt3v106detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit.thread
-  %storemerge = phi ptr [ %.2.i.i, %_ZZN3fmt3v106detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit.thread ], [ %.1.i.i47, %_ZZN3fmt3v106detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit26.thread ]
+  %.2.i.i.lcssa.sink = phi ptr [ %.2.i.i, %_ZZN3fmt3v106detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit.thread ], [ %.1.i.i47, %_ZZN3fmt3v106detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit26.thread ]
   %.sink = phi ptr [ %166, %_ZZN3fmt3v106detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit.thread ], [ %97, %_ZZN3fmt3v106detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit26.thread ]
   %.lcssa73.sink = phi i32 [ %159, %_ZZN3fmt3v106detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit.thread ], [ %90, %_ZZN3fmt3v106detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit26.thread ]
-  store ptr %storemerge, ptr %5, align 8
+  store ptr %.2.i.i.lcssa.sink, ptr %5, align 8
   store ptr %.sink, ptr %20, align 8
   store i32 %.lcssa73.sink, ptr %21, align 8
   br label %_ZN3fmt3v106detail11find_escapeEPKcS3_.exit

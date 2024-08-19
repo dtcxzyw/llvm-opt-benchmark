@@ -2278,7 +2278,6 @@ cleanup.thread7.i:                                ; preds = %call3.i.noexc.i
   %4 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !75
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8, !tbaa !75
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i) #23
   br label %if.then.i.i
 
 if.else.i.i.i.i:                                  ; preds = %call3.i.noexc.i
@@ -2420,11 +2419,11 @@ cleanup.i:                                        ; preds = %if.then.i41.i.i.i, 
   store ptr %incdec.ptr.i.i.i7, ptr %_M_finish.i.i.i.i, align 8, !tbaa !75
   %add.ptr19.i.i.i = getelementptr inbounds %"class.std::unique_ptr.66", ptr %cond.i31.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !73
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i) #23
   br label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup.i, %cleanup.thread7.i
   %18 = phi ptr [ %incdec.ptr.i.i.i7, %cleanup.i ], [ %incdec.ptr.i.i.i.i, %cleanup.thread7.i ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i) #23
   invoke void @X509_free(ptr noundef nonnull %call.i2)
           to label %_ZNSt10unique_ptrI7x509_stN5folly23static_function_deleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit.i unwind label %terminate.lpad.i.i
 

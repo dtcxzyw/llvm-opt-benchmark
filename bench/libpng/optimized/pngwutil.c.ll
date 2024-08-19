@@ -3401,11 +3401,7 @@ png_write_chunk_data.exit.i:                      ; preds = %94, %.split.i
   br i1 %.us-phi.i, label %png_write_compressed_data_out.exit, label %102
 
 .split23.us.i.thread:                             ; preds = %png_write_chunk_data.exit.i
-  br i1 %97, label %png_write_compressed_data_out.exit.thread79, label %102
-
-png_write_compressed_data_out.exit.thread79:      ; preds = %.split23.us.i.thread
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  br label %107
+  br i1 %97, label %png_write_compressed_data_out.exit.thread69, label %102
 
 102:                                              ; preds = %.split23.us.i.thread, %.split23.us.i
   call void @png_error(ptr noundef %0, ptr noundef nonnull @.str.47) #13
@@ -3422,38 +3418,35 @@ png_write_compressed_data_out.exit.thread79:      ; preds = %.split23.us.i.threa
   call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %spec.store.select1, i64 noundef %106) #12
   br label %png_write_compressed_data_out.exit.thread69
 
-png_write_compressed_data_out.exit.thread69:      ; preds = %105, %103
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  br label %107
-
 png_write_compressed_data_out.exit:               ; preds = %.split23.us.i
   call void @llvm.experimental.noalias.scope.decl(metadata !95)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   br label %png_write_chunk_end.exit
 
-107:                                              ; preds = %png_write_compressed_data_out.exit.thread79, %png_write_compressed_data_out.exit.thread69
-  %108 = getelementptr inbounds i8, ptr %0, i64 1140
-  store i32 130, ptr %108, align 4, !alias.scope !95
-  %109 = getelementptr inbounds i8, ptr %0, i64 588
-  %110 = load i32, ptr %109, align 4, !alias.scope !95
-  %111 = lshr i32 %110, 24
-  %112 = trunc nuw i32 %111 to i8
-  store i8 %112, ptr %7, align 1, !noalias !95
-  %113 = lshr i32 %110, 16
-  %114 = trunc i32 %113 to i8
-  %115 = getelementptr inbounds i8, ptr %7, i64 1
-  store i8 %114, ptr %115, align 1, !noalias !95
-  %116 = lshr i32 %110, 8
-  %117 = trunc i32 %116 to i8
-  %118 = getelementptr inbounds i8, ptr %7, i64 2
-  store i8 %117, ptr %118, align 1, !noalias !95
-  %119 = trunc i32 %110 to i8
-  %120 = getelementptr inbounds i8, ptr %7, i64 3
-  store i8 %119, ptr %120, align 1, !noalias !95
+png_write_compressed_data_out.exit.thread69:      ; preds = %.split23.us.i.thread, %103, %105
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  %107 = getelementptr inbounds i8, ptr %0, i64 1140
+  store i32 130, ptr %107, align 4, !alias.scope !95
+  %108 = getelementptr inbounds i8, ptr %0, i64 588
+  %109 = load i32, ptr %108, align 4, !alias.scope !95
+  %110 = lshr i32 %109, 24
+  %111 = trunc nuw i32 %110 to i8
+  store i8 %111, ptr %7, align 1, !noalias !95
+  %112 = lshr i32 %109, 16
+  %113 = trunc i32 %112 to i8
+  %114 = getelementptr inbounds i8, ptr %7, i64 1
+  store i8 %113, ptr %114, align 1, !noalias !95
+  %115 = lshr i32 %109, 8
+  %116 = trunc i32 %115 to i8
+  %117 = getelementptr inbounds i8, ptr %7, i64 2
+  store i8 %116, ptr %117, align 1, !noalias !95
+  %118 = trunc i32 %109 to i8
+  %119 = getelementptr inbounds i8, ptr %7, i64 3
+  store i8 %118, ptr %119, align 1, !noalias !95
   call void @png_write_data(ptr noundef nonnull %0, ptr noundef nonnull %7, i64 noundef 4) #12
   br label %png_write_chunk_end.exit
 
-png_write_chunk_end.exit:                         ; preds = %png_write_compressed_data_out.exit, %png_write_compressed_data_out.exit.thread, %107
+png_write_chunk_end.exit:                         ; preds = %png_write_compressed_data_out.exit, %png_write_compressed_data_out.exit.thread, %png_write_compressed_data_out.exit.thread69
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   ret void
 }

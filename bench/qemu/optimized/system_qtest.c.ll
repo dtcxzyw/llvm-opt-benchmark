@@ -1273,8 +1273,7 @@ if.end.i1526.i:                                   ; preds = %if.else.i1524.i, %i
   call fastcc void @glib_autoptr_cleanup_RCUReadAuto(ptr nonnull inttoptr (i64 1 to ptr))
   %128 = load i8, ptr %data578.i, align 1
   %conv619.i = zext i8 %128 to i64
-  store i64 %conv619.i, ptr %value554.i, align 8
-  br label %if.end770.i
+  br label %if.end770.sink.split.i
 
 while.end632.i:                                   ; preds = %do.end571.i
   %129 = load atomic i64, ptr @cpus_queue monotonic, align 8
@@ -1338,8 +1337,7 @@ if.end.i1495.i:                                   ; preds = %if.else.i1493.i, %i
   %145 = call i16 @llvm.bswap.i16(i16 %144)
   %retval.0.i.i = select i1 %call.i534.i, i16 %145, i16 %144
   %conv669.i = zext i16 %retval.0.i.i to i64
-  store i64 %conv669.i, ptr %value554.i, align 8
-  br label %if.end770.i
+  br label %if.end770.sink.split.i
 
 while.end682.i:                                   ; preds = %do.end571.i
   %146 = load atomic i64, ptr @cpus_queue monotonic, align 8
@@ -1403,8 +1401,7 @@ if.end.i1464.i:                                   ; preds = %if.else.i1462.i, %i
   %162 = call i32 @llvm.bswap.i32(i32 %161)
   %retval.0.i548.i = select i1 %call.i547.i, i32 %162, i32 %161
   %conv719.i = zext i32 %retval.0.i548.i to i64
-  store i64 %conv719.i, ptr %value554.i, align 8
-  br label %if.end770.i
+  br label %if.end770.sink.split.i
 
 while.end731.i:                                   ; preds = %do.end571.i
   %163 = load atomic i64, ptr @cpus_queue monotonic, align 8
@@ -1469,10 +1466,14 @@ if.end.i1433.i:                                   ; preds = %if.else.i1431.i, %i
 if.then.i563.i:                                   ; preds = %if.end.i1433.i
   %178 = load i64, ptr %value554.i, align 8
   %179 = call i64 @llvm.bswap.i64(i64 %178)
-  store i64 %179, ptr %value554.i, align 8
+  br label %if.end770.sink.split.i
+
+if.end770.sink.split.i:                           ; preds = %if.then.i563.i, %if.end.i1464.i, %if.end.i1495.i, %if.end.i1526.i
+  %.sink.i = phi i64 [ %179, %if.then.i563.i ], [ %conv669.i, %if.end.i1495.i ], [ %conv719.i, %if.end.i1464.i ], [ %conv619.i, %if.end.i1526.i ]
+  store i64 %.sink.i, ptr %value554.i, align 8
   br label %if.end770.i
 
-if.end770.i:                                      ; preds = %if.then.i563.i, %if.end.i1433.i, %if.end.i1464.i, %if.end.i1495.i, %if.end.i1526.i, %do.end571.i
+if.end770.i:                                      ; preds = %if.end770.sink.split.i, %if.end.i1433.i, %do.end571.i
   %180 = load ptr, ptr @qtest_log_fp, align 8
   %tobool.not.i7 = icmp eq ptr %180, null
   br i1 %tobool.not.i7, label %qtest_send_prefix.exit, label %lor.lhs.false.i8

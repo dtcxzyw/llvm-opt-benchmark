@@ -1708,21 +1708,10 @@ cleanup.i:                                        ; preds = %invoke.cont59.i, %i
 cleanup.i.thread:                                 ; preds = %invoke.cont4.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %in, ptr noundef nonnull align 8 dereferenceable(16) %in.i, i64 16, i1 false)
   %tobool.not.i.i.i63.i113 = icmp eq ptr %cached_hashes.sroa.0.0.i, null
-  br i1 %tobool.not.i.i.i63.i113, label %invoke.cont.thread, label %if.then.i.i.i64.i.thread117
-
-invoke.cont.thread:                               ; preds = %cleanup.i.thread
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %in.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cert.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp63.i)
-  br label %if.end11
+  br i1 %tobool.not.i.i.i63.i113, label %if.end11, label %if.then.i.i.i64.i.thread117
 
 if.then.i.i.i64.i.thread117:                      ; preds = %cleanup.i.thread
   call void @_ZdlPv(ptr noundef nonnull %cached_hashes.sroa.0.0.i) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %in.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cert.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp63.i)
   br label %if.end11
 
 if.then.i.i.i64.i:                                ; preds = %cleanup.i
@@ -1750,7 +1739,11 @@ invoke.cont:                                      ; preds = %cleanup.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp63.i)
   br label %cleanup110
 
-if.end11:                                         ; preds = %invoke.cont.thread, %if.then.i.i.i64.i.thread117
+if.end11:                                         ; preds = %cleanup.i.thread, %if.then.i.i.i64.i.thread117
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %in.i)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cert.i)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp63.i)
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %uncompressed)
           to label %invoke.cont13 unwind label %ehcleanup109.thread73
 

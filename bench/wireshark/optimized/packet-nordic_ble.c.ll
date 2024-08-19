@@ -234,15 +234,15 @@ define internal noundef i32 @dissect_nordic_ble(ptr noundef %0, ptr noundef %1, 
   br label %37
 
 37:                                               ; preds = %.split.i, %.split26.i
-  %storemerge.i = phi i8 [ %36, %.split.i ], [ 0, %.split26.i ]
+  %.sink29.i = phi i8 [ %36, %.split.i ], [ 0, %.split26.i ]
   %.sink.i = phi i32 [ 1, %.split.i ], [ 2, %.split26.i ]
   %38 = load i32, ptr @hf_nordic_ble_header, align 4
   %39 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %38, ptr noundef %0, i32 noundef %.sink.i, i32 noundef -1, i32 noundef 0) #3
   %40 = load i32, ptr @ett_packet_header, align 4
   %41 = tail call ptr @proto_item_add_subtree(ptr noundef %39, i32 noundef %40) #3
-  %42 = zext i8 %storemerge.i to i32
+  %42 = zext i8 %.sink29.i to i32
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef nonnull @.str.94, i32 noundef %42) #3
-  %43 = icmp eq i8 %storemerge.i, 0
+  %43 = icmp eq i8 %.sink29.i, 0
   br i1 %43, label %44, label %65
 
 44:                                               ; preds = %37
@@ -285,7 +285,7 @@ define internal noundef i32 @dissect_nordic_ble(ptr noundef %0, ptr noundef %1, 
 65:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %cond = icmp eq i8 %storemerge.i, 1
+  %cond = icmp eq i8 %.sink29.i, 1
   br i1 %cond, label %66, label %75
 
 66:                                               ; preds = %65
@@ -341,7 +341,7 @@ dissect_packet_header.exit.thread:                ; preds = %dissect_lengths.exi
   %90 = load i32, ptr @hf_nordic_ble_protover, align 4
   %91 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %90, ptr noundef %0, i32 noundef %.022.i.i, i32 noundef 1, i32 noundef 0) #3
   %92 = add nuw nsw i32 %.022.i.i, 1
-  %93 = icmp ugt i8 %storemerge.i, 3
+  %93 = icmp ugt i8 %.sink29.i, 3
   br i1 %93, label %94, label %96
 
 94:                                               ; preds = %89
@@ -357,7 +357,7 @@ dissect_packet_header.exit.thread:                ; preds = %dissect_lengths.exi
   %101 = add nuw nsw i32 %.022.i.i, 3
   %102 = load i32, ptr @hf_nordic_ble_packet_id, align 4
   %103 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %102, ptr noundef %0, i32 noundef %101, i32 noundef 1, i32 noundef 0) #3
-  %104 = icmp ugt i8 %storemerge.i, 2
+  %104 = icmp ugt i8 %.sink29.i, 2
   br i1 %104, label %105, label %112
 
 105:                                              ; preds = %96
@@ -391,7 +391,7 @@ dissect_packet_header.exit.thread:                ; preds = %dissect_lengths.exi
   %122 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0.i.i) #3
   %123 = add nuw nsw i32 %.0.i.i, 1
   %124 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %123) #3
-  %125 = icmp ult i8 %storemerge.i, 3
+  %125 = icmp ult i8 %.sink29.i, 3
   br i1 %125, label %126, label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %120
@@ -432,8 +432,8 @@ dissect_packet_header.exit.thread:                ; preds = %dissect_lengths.exi
   %148 = and i8 %145, 24
   %149 = zext nneg i8 %148 to i16
   %150 = or disjoint i16 %.masked, %149
-  %storemerge29.i = select i1 %.not.i.i.i, i16 %146, i16 %150
-  store i16 %storemerge29.i, ptr %136, align 8
+  %storemerge.i = select i1 %.not.i.i.i, i16 %146, i16 %150
+  store i16 %storemerge.i, ptr %136, align 8
   %151 = and i8 %122, 2
   %.not85.i.i.i = icmp eq i8 %151, 0
   %152 = getelementptr inbounds i8, ptr %1, i64 208
@@ -459,7 +459,7 @@ dissect_packet_header.exit.thread:                ; preds = %dissect_lengths.exi
   store i32 %.95.i.i.i, ptr %157, align 4
   store ptr %.str.96..str.97.i.i.i, ptr %158, align 8
   store ptr null, ptr %159, align 8
-  %161 = and i16 %storemerge29.i, -97
+  %161 = and i16 %storemerge.i, -97
   %162 = or disjoint i16 %161, %.96.i.i.i
   store i32 %.97.i.i.i, ptr %160, align 4
   br label %163

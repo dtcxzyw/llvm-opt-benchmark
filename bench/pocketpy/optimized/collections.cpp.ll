@@ -7910,26 +7910,26 @@ _ZN4pkpy6py_varINS_10pod_vectorIPNS_8PyObjectELi4EEEEES3_PNS_2VMEOT_.exit.i: ; p
 
 70:                                               ; preds = %67, %66
   %.sink.i = phi ptr [ %69, %67 ], [ %.0.i.i, %66 ]
-  %.sink11.i = load ptr, ptr %5, align 8
-  %71 = getelementptr inbounds i8, ptr %.sink11.i, i64 8
-  store ptr %.sink.i, ptr %71, align 8
-  %72 = invoke noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5TupleEJRS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %49, i16 7, ptr noundef nonnull align 8 dereferenceable(36) %5)
+  %71 = load ptr, ptr %5, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  store ptr %.sink.i, ptr %72, align 8
+  %73 = invoke noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5TupleEJRS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %49, i16 7, ptr noundef nonnull align 8 dereferenceable(36) %5)
           to label %_ZN4pkpy6py_varIRNS_5TupleEEEPNS_8PyObjectEPNS_2VMEOT_.exit.i unwind label %45
 
 _ZN4pkpy6py_varIRNS_5TupleEEEPNS_8PyObjectEPNS_2VMEOT_.exit.i: ; preds = %70
-  %73 = load ptr, ptr %11, align 8
-  %.not.i12.i = icmp eq ptr %73, null
-  br i1 %.not.i12.i, label %"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_25clES2_NS_8ArgsViewE.exit", label %74
+  %74 = load ptr, ptr %11, align 8
+  %.not.i12.i = icmp eq ptr %74, null
+  br i1 %.not.i12.i, label %"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_25clES2_NS_8ArgsViewE.exit", label %75
 
-74:                                               ; preds = %_ZN4pkpy6py_varIRNS_5TupleEEEPNS_8PyObjectEPNS_2VMEOT_.exit.i
-  call void @_ZN4pkpy14pool64_deallocEPv(ptr noundef nonnull %73) #25
+75:                                               ; preds = %_ZN4pkpy6py_varIRNS_5TupleEEEPNS_8PyObjectEPNS_2VMEOT_.exit.i
+  call void @_ZN4pkpy14pool64_deallocEPv(ptr noundef nonnull %74) #25
   br label %"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_25clES2_NS_8ArgsViewE.exit"
 
-"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_25clES2_NS_8ArgsViewE.exit": ; preds = %_ZN4pkpy6py_varIRNS_5TupleEEEPNS_8PyObjectEPNS_2VMEOT_.exit.i, %74
+"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_25clES2_NS_8ArgsViewE.exit": ; preds = %_ZN4pkpy6py_varIRNS_5TupleEEEPNS_8PyObjectEPNS_2VMEOT_.exit.i, %75
   call void @_ZN4pkpy5TupleD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %5) #25
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  ret ptr %72
+  ret ptr %73
 }
 
 declare void @_ZN4pkpy5TupleC1Ei(ptr noundef nonnull align 8 dereferenceable(36), i32 noundef) unnamed_addr #0

@@ -711,11 +711,7 @@ _ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit:  ; preds = %invoke.cont, %if.th
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp7.i9)
   %10 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   %cmp.not5.i.i.i.i13 = icmp eq ptr %10, null
-  br i1 %cmp.not5.i.i.i.i13, label %invoke.cont5.thread, label %while.body.i.i.i.i14
-
-invoke.cont5.thread:                              ; preds = %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp7.i9)
-  br label %if.then.i.i41
+  br i1 %cmp.not5.i.i.i.i13, label %if.then.i.i41.sink.split, label %while.body.i.i.i.i14
 
 while.body.i.i.i.i14:                             ; preds = %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit, %while.body.i.i.i.i14
   %__x.addr.07.i.i.i.i15 = phi ptr [ %__x.addr.1.i.i.i.i22, %while.body.i.i.i.i14 ], [ %10, %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit ]
@@ -732,13 +728,13 @@ while.body.i.i.i.i14:                             ; preds = %_ZNSt8functionIFN4p
 
 _ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i24: ; preds = %while.body.i.i.i.i14
   %cmp.i.i.i.i25 = icmp eq ptr %__y.addr.1.i.i.i.i19, %add.ptr.i.i.i.i
-  br i1 %cmp.i.i.i.i25, label %invoke.cont5.thread803, label %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i26
+  br i1 %cmp.i.i.i.i25, label %if.then.i.i41.sink.split, label %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i26
 
 _ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i26:    ; preds = %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i24
   %_M_storage.i.i.i3.i.i.i27 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i19, i64 32
   %12 = load i8, ptr %_M_storage.i.i.i3.i.i.i27, align 1
   %cmp.i4.i.i.i28 = icmp sgt i8 %12, 100
-  br i1 %cmp.i4.i.i.i28, label %invoke.cont5.thread803, label %_ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i33
+  br i1 %cmp.i4.i.i.i28, label %if.then.i.i41.sink.split, label %_ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i33
 
 _ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i33: ; preds = %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i26
   %movingFromCamera.i30 = getelementptr inbounds i8, ptr %this, i64 60
@@ -755,10 +751,6 @@ _ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i33: ; preds = %_ZNSt3setIcSt
   invoke void @_ZNK4pbrt9TransformmlERKS0_(ptr nonnull sret(%"class.pbrt::Transform") align 4 %ref.tmp7.i9, ptr noundef nonnull align 4 dereferenceable(128) %agg.tmp1.i.i.i845, ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp.i.i.i.i844)
           to label %invoke.cont5 unwind label %lpad4
 
-invoke.cont5.thread803:                           ; preds = %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i26, %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i24
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp7.i9)
-  br label %if.then.i.i41
-
 invoke.cont5:                                     ; preds = %.noexc849
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %agg.tmp1.i.i.i845), !noalias !16
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp.i.i.i.i844), !noalias !16
@@ -768,9 +760,13 @@ invoke.cont5:                                     ; preds = %.noexc849
   %tobool.not.i.i40 = icmp eq ptr %.pr.pre, null
   br i1 %tobool.not.i.i40, label %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit44, label %if.then.i.i41
 
-if.then.i.i41:                                    ; preds = %invoke.cont5.thread803, %invoke.cont5.thread, %invoke.cont5
-  %needsReset.1716 = phi i1 [ %needsReset.0802, %invoke.cont5.thread ], [ true, %invoke.cont5 ], [ %needsReset.0802, %invoke.cont5.thread803 ]
-  %14 = phi ptr [ @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE3$_1E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", %invoke.cont5.thread ], [ %.pr.pre, %invoke.cont5 ], [ @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE3$_1E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", %invoke.cont5.thread803 ]
+if.then.i.i41.sink.split:                         ; preds = %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i24, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i26, %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp7.i9)
+  br label %if.then.i.i41
+
+if.then.i.i41:                                    ; preds = %if.then.i.i41.sink.split, %invoke.cont5
+  %needsReset.1716 = phi i1 [ true, %invoke.cont5 ], [ %needsReset.0802, %if.then.i.i41.sink.split ]
+  %14 = phi ptr [ %.pr.pre, %invoke.cont5 ], [ @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE3$_1E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", %if.then.i.i41.sink.split ]
   %call.i.i42 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2, i32 noundef 3)
           to label %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit44 unwind label %terminate.lpad.i.i43
 
@@ -793,11 +789,7 @@ _ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit44: ; preds = %invoke.cont5, %if.
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp7.i49)
   %18 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   %cmp.not5.i.i.i.i53 = icmp eq ptr %18, null
-  br i1 %cmp.not5.i.i.i.i53, label %invoke.cont9.thread, label %while.body.i.i.i.i54
-
-invoke.cont9.thread:                              ; preds = %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit44
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp7.i49)
-  br label %if.then.i.i81
+  br i1 %cmp.not5.i.i.i.i53, label %if.then.i.i81.sink.split, label %while.body.i.i.i.i54
 
 while.body.i.i.i.i54:                             ; preds = %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit44, %while.body.i.i.i.i54
   %__x.addr.07.i.i.i.i55 = phi ptr [ %__x.addr.1.i.i.i.i62, %while.body.i.i.i.i54 ], [ %18, %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit44 ]
@@ -814,13 +806,13 @@ while.body.i.i.i.i54:                             ; preds = %_ZNSt8functionIFN4p
 
 _ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i64: ; preds = %while.body.i.i.i.i54
   %cmp.i.i.i.i65 = icmp eq ptr %__y.addr.1.i.i.i.i59, %add.ptr.i.i.i.i
-  br i1 %cmp.i.i.i.i65, label %invoke.cont9.thread807, label %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i66
+  br i1 %cmp.i.i.i.i65, label %if.then.i.i81.sink.split, label %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i66
 
 _ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i66:    ; preds = %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i64
   %_M_storage.i.i.i3.i.i.i67 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i59, i64 32
   %20 = load i8, ptr %_M_storage.i.i.i3.i.i.i67, align 1
   %cmp.i4.i.i.i68 = icmp sgt i8 %20, 115
-  br i1 %cmp.i4.i.i.i68, label %invoke.cont9.thread807, label %_ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i73
+  br i1 %cmp.i4.i.i.i68, label %if.then.i.i81.sink.split, label %_ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i73
 
 _ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i73: ; preds = %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i66
   %movingFromCamera.i70 = getelementptr inbounds i8, ptr %this, i64 60
@@ -837,10 +829,6 @@ _ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i73: ; preds = %_ZNSt3setIcSt
   invoke void @_ZNK4pbrt9TransformmlERKS0_(ptr nonnull sret(%"class.pbrt::Transform") align 4 %ref.tmp7.i49, ptr noundef nonnull align 4 dereferenceable(128) %agg.tmp1.i.i.i852, ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp.i.i.i.i851)
           to label %invoke.cont9 unwind label %lpad8
 
-invoke.cont9.thread807:                           ; preds = %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i66, %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i64
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp7.i49)
-  br label %if.then.i.i81
-
 invoke.cont9:                                     ; preds = %.noexc856
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %agg.tmp1.i.i.i852), !noalias !24
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp.i.i.i.i851), !noalias !24
@@ -850,9 +838,13 @@ invoke.cont9:                                     ; preds = %.noexc856
   %tobool.not.i.i80 = icmp eq ptr %.pr718.pre, null
   br i1 %tobool.not.i.i80, label %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit84, label %if.then.i.i81
 
-if.then.i.i81:                                    ; preds = %invoke.cont9.thread807, %invoke.cont9.thread, %invoke.cont9
-  %needsReset.2721 = phi i1 [ %needsReset.1717, %invoke.cont9.thread ], [ true, %invoke.cont9 ], [ %needsReset.1717, %invoke.cont9.thread807 ]
-  %22 = phi ptr [ @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE3$_2E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", %invoke.cont9.thread ], [ %.pr718.pre, %invoke.cont9 ], [ @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE3$_2E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", %invoke.cont9.thread807 ]
+if.then.i.i81.sink.split:                         ; preds = %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i64, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i66, %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit44
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp7.i49)
+  br label %if.then.i.i81
+
+if.then.i.i81:                                    ; preds = %if.then.i.i81.sink.split, %invoke.cont9
+  %needsReset.2721 = phi i1 [ true, %invoke.cont9 ], [ %needsReset.1717, %if.then.i.i81.sink.split ]
+  %22 = phi ptr [ %.pr718.pre, %invoke.cont9 ], [ @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE3$_2E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", %if.then.i.i81.sink.split ]
   %call.i.i82 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp6, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp6, i32 noundef 3)
           to label %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit84 unwind label %terminate.lpad.i.i83
 
@@ -875,11 +867,7 @@ _ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit84: ; preds = %invoke.cont9, %if.
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp7.i89)
   %26 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   %cmp.not5.i.i.i.i93 = icmp eq ptr %26, null
-  br i1 %cmp.not5.i.i.i.i93, label %invoke.cont13.thread, label %while.body.i.i.i.i94
-
-invoke.cont13.thread:                             ; preds = %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit84
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp7.i89)
-  br label %if.then.i.i121
+  br i1 %cmp.not5.i.i.i.i93, label %if.then.i.i121.sink.split, label %while.body.i.i.i.i94
 
 while.body.i.i.i.i94:                             ; preds = %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit84, %while.body.i.i.i.i94
   %__x.addr.07.i.i.i.i95 = phi ptr [ %__x.addr.1.i.i.i.i102, %while.body.i.i.i.i94 ], [ %26, %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit84 ]
@@ -896,13 +884,13 @@ while.body.i.i.i.i94:                             ; preds = %_ZNSt8functionIFN4p
 
 _ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i104: ; preds = %while.body.i.i.i.i94
   %cmp.i.i.i.i105 = icmp eq ptr %__y.addr.1.i.i.i.i99, %add.ptr.i.i.i.i
-  br i1 %cmp.i.i.i.i105, label %invoke.cont13.thread811, label %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i106
+  br i1 %cmp.i.i.i.i105, label %if.then.i.i121.sink.split, label %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i106
 
 _ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i106:   ; preds = %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i104
   %_M_storage.i.i.i3.i.i.i107 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i99, i64 32
   %28 = load i8, ptr %_M_storage.i.i.i3.i.i.i107, align 1
   %cmp.i4.i.i.i108 = icmp sgt i8 %28, 119
-  br i1 %cmp.i4.i.i.i108, label %invoke.cont13.thread811, label %_ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i113
+  br i1 %cmp.i4.i.i.i108, label %if.then.i.i121.sink.split, label %_ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i113
 
 _ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i113: ; preds = %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i106
   %movingFromCamera.i110 = getelementptr inbounds i8, ptr %this, i64 60
@@ -918,10 +906,6 @@ _ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i113: ; preds = %_ZNSt3setIcS
   invoke void @_ZNK4pbrt9TransformmlERKS0_(ptr nonnull sret(%"class.pbrt::Transform") align 4 %ref.tmp7.i89, ptr noundef nonnull align 4 dereferenceable(128) %agg.tmp1.i.i.i859, ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp.i.i.i.i858)
           to label %invoke.cont13 unwind label %lpad12
 
-invoke.cont13.thread811:                          ; preds = %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i106, %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i104
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp7.i89)
-  br label %if.then.i.i121
-
 invoke.cont13:                                    ; preds = %.noexc862
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %agg.tmp1.i.i.i859), !noalias !32
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp.i.i.i.i858), !noalias !32
@@ -931,9 +915,13 @@ invoke.cont13:                                    ; preds = %.noexc862
   %tobool.not.i.i120 = icmp eq ptr %.pr723.pre, null
   br i1 %tobool.not.i.i120, label %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit124, label %if.then.i.i121
 
-if.then.i.i121:                                   ; preds = %invoke.cont13.thread811, %invoke.cont13.thread, %invoke.cont13
-  %needsReset.3726 = phi i1 [ %needsReset.2722, %invoke.cont13.thread ], [ true, %invoke.cont13 ], [ %needsReset.2722, %invoke.cont13.thread811 ]
-  %30 = phi ptr [ @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE3$_3E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", %invoke.cont13.thread ], [ %.pr723.pre, %invoke.cont13 ], [ @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE3$_3E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", %invoke.cont13.thread811 ]
+if.then.i.i121.sink.split:                        ; preds = %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i104, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i106, %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit84
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp7.i89)
+  br label %if.then.i.i121
+
+if.then.i.i121:                                   ; preds = %if.then.i.i121.sink.split, %invoke.cont13
+  %needsReset.3726 = phi i1 [ true, %invoke.cont13 ], [ %needsReset.2722, %if.then.i.i121.sink.split ]
+  %30 = phi ptr [ %.pr723.pre, %invoke.cont13 ], [ @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE3$_3E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", %if.then.i.i121.sink.split ]
   %call.i.i122 = invoke noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp10, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp10, i32 noundef 3)
           to label %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit124 unwind label %terminate.lpad.i.i123
 
@@ -956,11 +944,7 @@ _ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit124: ; preds = %invoke.cont13, %i
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp7.i129)
   %34 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   %cmp.not5.i.i.i.i133 = icmp eq ptr %34, null
-  br i1 %cmp.not5.i.i.i.i133, label %invoke.cont17.thread, label %while.body.i.i.i.i134
-
-invoke.cont17.thread:                             ; preds = %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit124
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp7.i129)
-  br label %if.then.i.i161
+  br i1 %cmp.not5.i.i.i.i133, label %if.then.i.i161.sink.split, label %while.body.i.i.i.i134
 
 while.body.i.i.i.i134:                            ; preds = %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit124, %while.body.i.i.i.i134
   %__x.addr.07.i.i.i.i135 = phi ptr [ %__x.addr.1.i.i.i.i142, %while.body.i.i.i.i134 ], [ %34, %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit124 ]
@@ -977,13 +961,13 @@ while.body.i.i.i.i134:                            ; preds = %_ZNSt8functionIFN4p
 
 _ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i144: ; preds = %while.body.i.i.i.i134
   %cmp.i.i.i.i145 = icmp eq ptr %__y.addr.1.i.i.i.i139, %add.ptr.i.i.i.i
-  br i1 %cmp.i.i.i.i145, label %invoke.cont17.thread815, label %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i146
+  br i1 %cmp.i.i.i.i145, label %if.then.i.i161.sink.split, label %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i146
 
 _ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i146:   ; preds = %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i144
   %_M_storage.i.i.i3.i.i.i147 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i139, i64 32
   %36 = load i8, ptr %_M_storage.i.i.i3.i.i.i147, align 1
   %cmp.i4.i.i.i148 = icmp sgt i8 %36, 113
-  br i1 %cmp.i4.i.i.i148, label %invoke.cont17.thread815, label %_ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i153
+  br i1 %cmp.i4.i.i.i148, label %if.then.i.i161.sink.split, label %_ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i153
 
 _ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i153: ; preds = %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i146
   %movingFromCamera.i150 = getelementptr inbounds i8, ptr %this, i64 60
@@ -1001,10 +985,6 @@ _ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i153: ; preds = %_ZNSt3setIcS
   invoke void @_ZNK4pbrt9TransformmlERKS0_(ptr nonnull sret(%"class.pbrt::Transform") align 4 %ref.tmp7.i129, ptr noundef nonnull align 4 dereferenceable(128) %agg.tmp1.i.i.i865, ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp.i.i.i.i864)
           to label %invoke.cont17 unwind label %lpad16
 
-invoke.cont17.thread815:                          ; preds = %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i146, %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i144
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp7.i129)
-  br label %if.then.i.i161
-
 invoke.cont17:                                    ; preds = %.noexc870
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %agg.tmp1.i.i.i865), !noalias !40
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp.i.i.i.i864), !noalias !40
@@ -1014,9 +994,13 @@ invoke.cont17:                                    ; preds = %.noexc870
   %tobool.not.i.i160 = icmp eq ptr %.pr728.pre, null
   br i1 %tobool.not.i.i160, label %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit164, label %if.then.i.i161
 
-if.then.i.i161:                                   ; preds = %invoke.cont17.thread815, %invoke.cont17.thread, %invoke.cont17
-  %needsReset.4731 = phi i1 [ %needsReset.3727, %invoke.cont17.thread ], [ true, %invoke.cont17 ], [ %needsReset.3727, %invoke.cont17.thread815 ]
-  %38 = phi ptr [ @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE3$_4E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", %invoke.cont17.thread ], [ %.pr728.pre, %invoke.cont17 ], [ @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE3$_4E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", %invoke.cont17.thread815 ]
+if.then.i.i161.sink.split:                        ; preds = %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i144, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i146, %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit124
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp7.i129)
+  br label %if.then.i.i161
+
+if.then.i.i161:                                   ; preds = %if.then.i.i161.sink.split, %invoke.cont17
+  %needsReset.4731 = phi i1 [ true, %invoke.cont17 ], [ %needsReset.3727, %if.then.i.i161.sink.split ]
+  %38 = phi ptr [ %.pr728.pre, %invoke.cont17 ], [ @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE3$_4E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", %if.then.i.i161.sink.split ]
   %call.i.i162 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp14, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp14, i32 noundef 3)
           to label %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit164 unwind label %terminate.lpad.i.i163
 
@@ -1039,11 +1023,7 @@ _ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit164: ; preds = %invoke.cont17, %i
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp7.i169)
   %42 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   %cmp.not5.i.i.i.i173 = icmp eq ptr %42, null
-  br i1 %cmp.not5.i.i.i.i173, label %invoke.cont21.thread, label %while.body.i.i.i.i174
-
-invoke.cont21.thread:                             ; preds = %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit164
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp7.i169)
-  br label %if.then.i.i201
+  br i1 %cmp.not5.i.i.i.i173, label %if.then.i.i201.sink.split, label %while.body.i.i.i.i174
 
 while.body.i.i.i.i174:                            ; preds = %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit164, %while.body.i.i.i.i174
   %__x.addr.07.i.i.i.i175 = phi ptr [ %__x.addr.1.i.i.i.i182, %while.body.i.i.i.i174 ], [ %42, %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit164 ]
@@ -1060,13 +1040,13 @@ while.body.i.i.i.i174:                            ; preds = %_ZNSt8functionIFN4p
 
 _ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i184: ; preds = %while.body.i.i.i.i174
   %cmp.i.i.i.i185 = icmp eq ptr %__y.addr.1.i.i.i.i179, %add.ptr.i.i.i.i
-  br i1 %cmp.i.i.i.i185, label %invoke.cont21.thread819, label %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i186
+  br i1 %cmp.i.i.i.i185, label %if.then.i.i201.sink.split, label %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i186
 
 _ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i186:   ; preds = %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i184
   %_M_storage.i.i.i3.i.i.i187 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i179, i64 32
   %44 = load i8, ptr %_M_storage.i.i.i3.i.i.i187, align 1
   %cmp.i4.i.i.i188 = icmp sgt i8 %44, 101
-  br i1 %cmp.i4.i.i.i188, label %invoke.cont21.thread819, label %_ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i193
+  br i1 %cmp.i4.i.i.i188, label %if.then.i.i201.sink.split, label %_ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i193
 
 _ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i193: ; preds = %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i186
   %movingFromCamera.i190 = getelementptr inbounds i8, ptr %this, i64 60
@@ -1083,10 +1063,6 @@ _ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i193: ; preds = %_ZNSt3setIcS
   invoke void @_ZNK4pbrt9TransformmlERKS0_(ptr nonnull sret(%"class.pbrt::Transform") align 4 %ref.tmp7.i169, ptr noundef nonnull align 4 dereferenceable(128) %agg.tmp1.i.i.i873, ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp.i.i.i.i872)
           to label %invoke.cont21 unwind label %lpad20
 
-invoke.cont21.thread819:                          ; preds = %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i186, %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i184
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp7.i169)
-  br label %if.then.i.i201
-
 invoke.cont21:                                    ; preds = %.noexc877
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %agg.tmp1.i.i.i873), !noalias !48
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp.i.i.i.i872), !noalias !48
@@ -1096,9 +1072,13 @@ invoke.cont21:                                    ; preds = %.noexc877
   %tobool.not.i.i200 = icmp eq ptr %.pr733.pre, null
   br i1 %tobool.not.i.i200, label %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit204, label %if.then.i.i201
 
-if.then.i.i201:                                   ; preds = %invoke.cont21.thread819, %invoke.cont21.thread, %invoke.cont21
-  %needsReset.5736 = phi i1 [ %needsReset.4732, %invoke.cont21.thread ], [ true, %invoke.cont21 ], [ %needsReset.4732, %invoke.cont21.thread819 ]
-  %46 = phi ptr [ @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE3$_5E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", %invoke.cont21.thread ], [ %.pr733.pre, %invoke.cont21 ], [ @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE3$_5E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", %invoke.cont21.thread819 ]
+if.then.i.i201.sink.split:                        ; preds = %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i184, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i186, %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit164
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp7.i169)
+  br label %if.then.i.i201
+
+if.then.i.i201:                                   ; preds = %if.then.i.i201.sink.split, %invoke.cont21
+  %needsReset.5736 = phi i1 [ true, %invoke.cont21 ], [ %needsReset.4732, %if.then.i.i201.sink.split ]
+  %46 = phi ptr [ %.pr733.pre, %invoke.cont21 ], [ @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE3$_5E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", %if.then.i.i201.sink.split ]
   %call.i.i202 = invoke noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp18, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp18, i32 noundef 3)
           to label %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit204 unwind label %terminate.lpad.i.i203
 
@@ -1119,11 +1099,7 @@ _ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit204: ; preds = %invoke.cont21, %i
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp7.i208)
   %49 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   %cmp.not5.i.i.i.i212 = icmp eq ptr %49, null
-  br i1 %cmp.not5.i.i.i.i212, label %invoke.cont25.thread, label %while.body.i.i.i.i213
-
-invoke.cont25.thread:                             ; preds = %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit204
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp7.i208)
-  br label %if.then.i.i240
+  br i1 %cmp.not5.i.i.i.i212, label %if.then.i.i240.sink.split, label %while.body.i.i.i.i213
 
 while.body.i.i.i.i213:                            ; preds = %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit204, %while.body.i.i.i.i213
   %__x.addr.07.i.i.i.i214 = phi ptr [ %__x.addr.1.i.i.i.i221, %while.body.i.i.i.i213 ], [ %49, %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit204 ]
@@ -1140,13 +1116,13 @@ while.body.i.i.i.i213:                            ; preds = %_ZNSt8functionIFN4p
 
 _ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i223: ; preds = %while.body.i.i.i.i213
   %cmp.i.i.i.i224 = icmp eq ptr %__y.addr.1.i.i.i.i218, %add.ptr.i.i.i.i
-  br i1 %cmp.i.i.i.i224, label %invoke.cont25.thread823, label %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i225
+  br i1 %cmp.i.i.i.i224, label %if.then.i.i240.sink.split, label %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i225
 
 _ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i225:   ; preds = %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i223
   %_M_storage.i.i.i3.i.i.i226 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i218, i64 32
   %51 = load i8, ptr %_M_storage.i.i.i3.i.i.i226, align 1
   %cmp.i4.i.i.i227 = icmp sgt i8 %51, 76
-  br i1 %cmp.i4.i.i.i227, label %invoke.cont25.thread823, label %_ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i232
+  br i1 %cmp.i4.i.i.i227, label %if.then.i.i240.sink.split, label %_ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i232
 
 _ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i232: ; preds = %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i225
   %movingFromCamera.i229 = getelementptr inbounds i8, ptr %this, i64 60
@@ -1160,10 +1136,6 @@ _ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i232: ; preds = %_ZNSt3setIcS
   invoke void @_ZNK4pbrt9TransformmlERKS0_(ptr nonnull sret(%"class.pbrt::Transform") align 4 %ref.tmp7.i208, ptr noundef nonnull align 4 dereferenceable(128) %agg.tmp1.i.i.i880, ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp.i.i.i.i879)
           to label %invoke.cont25 unwind label %lpad24
 
-invoke.cont25.thread823:                          ; preds = %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i225, %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i223
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp7.i208)
-  br label %if.then.i.i240
-
 invoke.cont25:                                    ; preds = %.noexc881
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %agg.tmp1.i.i.i880), !noalias !56
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp.i.i.i.i879), !noalias !56
@@ -1173,9 +1145,13 @@ invoke.cont25:                                    ; preds = %.noexc881
   %tobool.not.i.i239 = icmp eq ptr %.pr738.pre, null
   br i1 %tobool.not.i.i239, label %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit243, label %if.then.i.i240
 
-if.then.i.i240:                                   ; preds = %invoke.cont25.thread823, %invoke.cont25.thread, %invoke.cont25
-  %needsReset.6741 = phi i1 [ %needsReset.5737, %invoke.cont25.thread ], [ true, %invoke.cont25 ], [ %needsReset.5737, %invoke.cont25.thread823 ]
-  %52 = phi ptr [ @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE3$_6E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", %invoke.cont25.thread ], [ %.pr738.pre, %invoke.cont25 ], [ @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE3$_6E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", %invoke.cont25.thread823 ]
+if.then.i.i240.sink.split:                        ; preds = %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i223, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i225, %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit204
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp7.i208)
+  br label %if.then.i.i240
+
+if.then.i.i240:                                   ; preds = %if.then.i.i240.sink.split, %invoke.cont25
+  %needsReset.6741 = phi i1 [ true, %invoke.cont25 ], [ %needsReset.5737, %if.then.i.i240.sink.split ]
+  %52 = phi ptr [ %.pr738.pre, %invoke.cont25 ], [ @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE3$_6E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", %if.then.i.i240.sink.split ]
   %call.i.i241 = invoke noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp22, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp22, i32 noundef 3)
           to label %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit243 unwind label %terminate.lpad.i.i242
 
@@ -1196,11 +1172,7 @@ _ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit243: ; preds = %invoke.cont25, %i
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp7.i247)
   %55 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   %cmp.not5.i.i.i.i251 = icmp eq ptr %55, null
-  br i1 %cmp.not5.i.i.i.i251, label %invoke.cont29.thread, label %while.body.i.i.i.i252
-
-invoke.cont29.thread:                             ; preds = %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit243
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp7.i247)
-  br label %if.then.i.i279
+  br i1 %cmp.not5.i.i.i.i251, label %if.then.i.i279.sink.split, label %while.body.i.i.i.i252
 
 while.body.i.i.i.i252:                            ; preds = %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit243, %while.body.i.i.i.i252
   %__x.addr.07.i.i.i.i253 = phi ptr [ %__x.addr.1.i.i.i.i260, %while.body.i.i.i.i252 ], [ %55, %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit243 ]
@@ -1217,13 +1189,13 @@ while.body.i.i.i.i252:                            ; preds = %_ZNSt8functionIFN4p
 
 _ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i262: ; preds = %while.body.i.i.i.i252
   %cmp.i.i.i.i263 = icmp eq ptr %__y.addr.1.i.i.i.i257, %add.ptr.i.i.i.i
-  br i1 %cmp.i.i.i.i263, label %invoke.cont29.thread827, label %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i264
+  br i1 %cmp.i.i.i.i263, label %if.then.i.i279.sink.split, label %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i264
 
 _ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i264:   ; preds = %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i262
   %_M_storage.i.i.i3.i.i.i265 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i257, i64 32
   %57 = load i8, ptr %_M_storage.i.i.i3.i.i.i265, align 1
   %cmp.i4.i.i.i266 = icmp sgt i8 %57, 82
-  br i1 %cmp.i4.i.i.i266, label %invoke.cont29.thread827, label %_ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i271
+  br i1 %cmp.i4.i.i.i266, label %if.then.i.i279.sink.split, label %_ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i271
 
 _ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i271: ; preds = %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i264
   %movingFromCamera.i268 = getelementptr inbounds i8, ptr %this, i64 60
@@ -1237,10 +1209,6 @@ _ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i271: ; preds = %_ZNSt3setIcS
   invoke void @_ZNK4pbrt9TransformmlERKS0_(ptr nonnull sret(%"class.pbrt::Transform") align 4 %ref.tmp7.i247, ptr noundef nonnull align 4 dereferenceable(128) %agg.tmp1.i.i.i884, ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp.i.i.i.i883)
           to label %invoke.cont29 unwind label %lpad28
 
-invoke.cont29.thread827:                          ; preds = %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i264, %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i262
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp7.i247)
-  br label %if.then.i.i279
-
 invoke.cont29:                                    ; preds = %.noexc885
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %agg.tmp1.i.i.i884), !noalias !63
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp.i.i.i.i883), !noalias !63
@@ -1250,9 +1218,13 @@ invoke.cont29:                                    ; preds = %.noexc885
   %tobool.not.i.i278 = icmp eq ptr %.pr743.pre, null
   br i1 %tobool.not.i.i278, label %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit282, label %if.then.i.i279
 
-if.then.i.i279:                                   ; preds = %invoke.cont29.thread827, %invoke.cont29.thread, %invoke.cont29
-  %needsReset.7746 = phi i1 [ %needsReset.6742, %invoke.cont29.thread ], [ true, %invoke.cont29 ], [ %needsReset.6742, %invoke.cont29.thread827 ]
-  %58 = phi ptr [ @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE3$_7E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", %invoke.cont29.thread ], [ %.pr743.pre, %invoke.cont29 ], [ @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE3$_7E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", %invoke.cont29.thread827 ]
+if.then.i.i279.sink.split:                        ; preds = %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i262, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i264, %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit243
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp7.i247)
+  br label %if.then.i.i279
+
+if.then.i.i279:                                   ; preds = %if.then.i.i279.sink.split, %invoke.cont29
+  %needsReset.7746 = phi i1 [ true, %invoke.cont29 ], [ %needsReset.6742, %if.then.i.i279.sink.split ]
+  %58 = phi ptr [ %.pr743.pre, %invoke.cont29 ], [ @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE3$_7E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", %if.then.i.i279.sink.split ]
   %call.i.i280 = invoke noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp26, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp26, i32 noundef 3)
           to label %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit282 unwind label %terminate.lpad.i.i281
 
@@ -1273,11 +1245,7 @@ _ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit282: ; preds = %invoke.cont29, %i
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp7.i286)
   %61 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   %cmp.not5.i.i.i.i290 = icmp eq ptr %61, null
-  br i1 %cmp.not5.i.i.i.i290, label %invoke.cont33.thread, label %while.body.i.i.i.i291
-
-invoke.cont33.thread:                             ; preds = %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit282
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp7.i286)
-  br label %if.then.i.i318
+  br i1 %cmp.not5.i.i.i.i290, label %if.then.i.i318.sink.split, label %while.body.i.i.i.i291
 
 while.body.i.i.i.i291:                            ; preds = %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit282, %while.body.i.i.i.i291
   %__x.addr.07.i.i.i.i292 = phi ptr [ %__x.addr.1.i.i.i.i299, %while.body.i.i.i.i291 ], [ %61, %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit282 ]
@@ -1294,13 +1262,13 @@ while.body.i.i.i.i291:                            ; preds = %_ZNSt8functionIFN4p
 
 _ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i301: ; preds = %while.body.i.i.i.i291
   %cmp.i.i.i.i302 = icmp eq ptr %__y.addr.1.i.i.i.i296, %add.ptr.i.i.i.i
-  br i1 %cmp.i.i.i.i302, label %invoke.cont33.thread831, label %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i303
+  br i1 %cmp.i.i.i.i302, label %if.then.i.i318.sink.split, label %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i303
 
 _ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i303:   ; preds = %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i301
   %_M_storage.i.i.i3.i.i.i304 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i296, i64 32
   %63 = load i8, ptr %_M_storage.i.i.i3.i.i.i304, align 1
   %cmp.i4.i.i.i305 = icmp sgt i8 %63, 85
-  br i1 %cmp.i4.i.i.i305, label %invoke.cont33.thread831, label %_ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i310
+  br i1 %cmp.i4.i.i.i305, label %if.then.i.i318.sink.split, label %_ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i310
 
 _ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i310: ; preds = %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i303
   %movingFromCamera.i307 = getelementptr inbounds i8, ptr %this, i64 60
@@ -1314,10 +1282,6 @@ _ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i310: ; preds = %_ZNSt3setIcS
   invoke void @_ZNK4pbrt9TransformmlERKS0_(ptr nonnull sret(%"class.pbrt::Transform") align 4 %ref.tmp7.i286, ptr noundef nonnull align 4 dereferenceable(128) %agg.tmp1.i.i.i888, ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp.i.i.i.i887)
           to label %invoke.cont33 unwind label %lpad32
 
-invoke.cont33.thread831:                          ; preds = %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i303, %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i301
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp7.i286)
-  br label %if.then.i.i318
-
 invoke.cont33:                                    ; preds = %.noexc889
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %agg.tmp1.i.i.i888), !noalias !70
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp.i.i.i.i887), !noalias !70
@@ -1327,9 +1291,13 @@ invoke.cont33:                                    ; preds = %.noexc889
   %tobool.not.i.i317 = icmp eq ptr %.pr748.pre, null
   br i1 %tobool.not.i.i317, label %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit321, label %if.then.i.i318
 
-if.then.i.i318:                                   ; preds = %invoke.cont33.thread831, %invoke.cont33.thread, %invoke.cont33
-  %needsReset.8751 = phi i1 [ %needsReset.7747, %invoke.cont33.thread ], [ true, %invoke.cont33 ], [ %needsReset.7747, %invoke.cont33.thread831 ]
-  %64 = phi ptr [ @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE3$_8E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", %invoke.cont33.thread ], [ %.pr748.pre, %invoke.cont33 ], [ @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE3$_8E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", %invoke.cont33.thread831 ]
+if.then.i.i318.sink.split:                        ; preds = %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i301, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i303, %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit282
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp7.i286)
+  br label %if.then.i.i318
+
+if.then.i.i318:                                   ; preds = %if.then.i.i318.sink.split, %invoke.cont33
+  %needsReset.8751 = phi i1 [ true, %invoke.cont33 ], [ %needsReset.7747, %if.then.i.i318.sink.split ]
+  %64 = phi ptr [ %.pr748.pre, %invoke.cont33 ], [ @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE3$_8E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", %if.then.i.i318.sink.split ]
   %call.i.i319 = invoke noundef zeroext i1 %64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp30, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp30, i32 noundef 3)
           to label %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit321 unwind label %terminate.lpad.i.i320
 
@@ -1350,11 +1318,7 @@ _ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit321: ; preds = %invoke.cont33, %i
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp7.i325)
   %67 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   %cmp.not5.i.i.i.i329 = icmp eq ptr %67, null
-  br i1 %cmp.not5.i.i.i.i329, label %invoke.cont37.thread, label %while.body.i.i.i.i330
-
-invoke.cont37.thread:                             ; preds = %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit321
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp7.i325)
-  br label %if.then.i.i357
+  br i1 %cmp.not5.i.i.i.i329, label %if.then.i.i357.sink.split, label %while.body.i.i.i.i330
 
 while.body.i.i.i.i330:                            ; preds = %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit321, %while.body.i.i.i.i330
   %__x.addr.07.i.i.i.i331 = phi ptr [ %__x.addr.1.i.i.i.i338, %while.body.i.i.i.i330 ], [ %67, %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit321 ]
@@ -1371,13 +1335,13 @@ while.body.i.i.i.i330:                            ; preds = %_ZNSt8functionIFN4p
 
 _ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i340: ; preds = %while.body.i.i.i.i330
   %cmp.i.i.i.i341 = icmp eq ptr %__y.addr.1.i.i.i.i335, %add.ptr.i.i.i.i
-  br i1 %cmp.i.i.i.i341, label %invoke.cont37.thread835, label %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i342
+  br i1 %cmp.i.i.i.i341, label %if.then.i.i357.sink.split, label %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i342
 
 _ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i342:   ; preds = %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i340
   %_M_storage.i.i.i3.i.i.i343 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i335, i64 32
   %69 = load i8, ptr %_M_storage.i.i.i3.i.i.i343, align 1
   %cmp.i4.i.i.i344 = icmp sgt i8 %69, 68
-  br i1 %cmp.i4.i.i.i344, label %invoke.cont37.thread835, label %_ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i349
+  br i1 %cmp.i4.i.i.i344, label %if.then.i.i357.sink.split, label %_ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i349
 
 _ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i349: ; preds = %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i342
   %movingFromCamera.i346 = getelementptr inbounds i8, ptr %this, i64 60
@@ -1391,10 +1355,6 @@ _ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i349: ; preds = %_ZNSt3setIcS
   invoke void @_ZNK4pbrt9TransformmlERKS0_(ptr nonnull sret(%"class.pbrt::Transform") align 4 %ref.tmp7.i325, ptr noundef nonnull align 4 dereferenceable(128) %agg.tmp1.i.i.i892, ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp.i.i.i.i891)
           to label %invoke.cont37 unwind label %lpad36
 
-invoke.cont37.thread835:                          ; preds = %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i342, %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i340
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp7.i325)
-  br label %if.then.i.i357
-
 invoke.cont37:                                    ; preds = %.noexc893
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %agg.tmp1.i.i.i892), !noalias !77
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp.i.i.i.i891), !noalias !77
@@ -1404,9 +1364,13 @@ invoke.cont37:                                    ; preds = %.noexc893
   %tobool.not.i.i356 = icmp eq ptr %.pr753.pre, null
   br i1 %tobool.not.i.i356, label %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit360, label %if.then.i.i357
 
-if.then.i.i357:                                   ; preds = %invoke.cont37.thread835, %invoke.cont37.thread, %invoke.cont37
-  %needsReset.9756 = phi i1 [ %needsReset.8752, %invoke.cont37.thread ], [ true, %invoke.cont37 ], [ %needsReset.8752, %invoke.cont37.thread835 ]
-  %70 = phi ptr [ @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE3$_9E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", %invoke.cont37.thread ], [ %.pr753.pre, %invoke.cont37 ], [ @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE3$_9E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", %invoke.cont37.thread835 ]
+if.then.i.i357.sink.split:                        ; preds = %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i340, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i342, %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit321
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp7.i325)
+  br label %if.then.i.i357
+
+if.then.i.i357:                                   ; preds = %if.then.i.i357.sink.split, %invoke.cont37
+  %needsReset.9756 = phi i1 [ true, %invoke.cont37 ], [ %needsReset.8752, %if.then.i.i357.sink.split ]
+  %70 = phi ptr [ %.pr753.pre, %invoke.cont37 ], [ @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE3$_9E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", %if.then.i.i357.sink.split ]
   %call.i.i358 = invoke noundef zeroext i1 %70(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp34, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp34, i32 noundef 3)
           to label %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit360 unwind label %terminate.lpad.i.i359
 
@@ -1427,11 +1391,7 @@ _ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit360: ; preds = %invoke.cont37, %i
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp7.i364)
   %73 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   %cmp.not5.i.i.i.i368 = icmp eq ptr %73, null
-  br i1 %cmp.not5.i.i.i.i368, label %invoke.cont41.thread, label %while.body.i.i.i.i369
-
-invoke.cont41.thread:                             ; preds = %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit360
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp7.i364)
-  br label %if.then.i.i396
+  br i1 %cmp.not5.i.i.i.i368, label %if.then.i.i396.sink.split, label %while.body.i.i.i.i369
 
 while.body.i.i.i.i369:                            ; preds = %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit360, %while.body.i.i.i.i369
   %__x.addr.07.i.i.i.i370 = phi ptr [ %__x.addr.1.i.i.i.i377, %while.body.i.i.i.i369 ], [ %73, %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit360 ]
@@ -1448,13 +1408,13 @@ while.body.i.i.i.i369:                            ; preds = %_ZNSt8functionIFN4p
 
 _ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i379: ; preds = %while.body.i.i.i.i369
   %cmp.i.i.i.i380 = icmp eq ptr %__y.addr.1.i.i.i.i374, %add.ptr.i.i.i.i
-  br i1 %cmp.i.i.i.i380, label %invoke.cont41.thread839, label %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i381
+  br i1 %cmp.i.i.i.i380, label %if.then.i.i396.sink.split, label %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i381
 
 _ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i381:   ; preds = %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i379
   %_M_storage.i.i.i3.i.i.i382 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i374, i64 32
   %75 = load i8, ptr %_M_storage.i.i.i3.i.i.i382, align 1
   %cmp.i4.i.i.i383 = icmp sgt i8 %75, 114
-  br i1 %cmp.i4.i.i.i383, label %invoke.cont41.thread839, label %_ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i388
+  br i1 %cmp.i4.i.i.i383, label %if.then.i.i396.sink.split, label %_ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i388
 
 _ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i388: ; preds = %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i381
   %movingFromCamera.i385 = getelementptr inbounds i8, ptr %this, i64 60
@@ -1467,10 +1427,6 @@ _ZNKSt8functionIFN4pbrt9TransformES1_EEclES1_.exit.i388: ; preds = %_ZNSt3setIcS
   invoke void @_ZN4pbrt12SquareMatrixILi4EEC1Ev(ptr noundef nonnull align 4 dereferenceable(64) %mInv.i.i.i.i.i)
           to label %invoke.cont41 unwind label %lpad40
 
-invoke.cont41.thread839:                          ; preds = %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i381, %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i379
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp7.i364)
-  br label %if.then.i.i396
-
 invoke.cont41:                                    ; preds = %.noexc895
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %movingFromCamera.i385, ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp7.i364, i64 128, i1 false)
   %.pr758.pre = load ptr, ptr %_M_manager.i.i361, align 8
@@ -1478,9 +1434,13 @@ invoke.cont41:                                    ; preds = %.noexc895
   %tobool.not.i.i395 = icmp eq ptr %.pr758.pre, null
   br i1 %tobool.not.i.i395, label %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit399, label %if.then.i.i396
 
-if.then.i.i396:                                   ; preds = %invoke.cont41.thread839, %invoke.cont41.thread, %invoke.cont41
-  %needsReset.10761 = phi i1 [ %needsReset.9757, %invoke.cont41.thread ], [ true, %invoke.cont41 ], [ %needsReset.9757, %invoke.cont41.thread839 ]
-  %76 = phi ptr [ @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE4$_10E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", %invoke.cont41.thread ], [ %.pr758.pre, %invoke.cont41 ], [ @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE4$_10E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", %invoke.cont41.thread839 ]
+if.then.i.i396.sink.split:                        ; preds = %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i.i379, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit.i381, %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit360
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ref.tmp7.i364)
+  br label %if.then.i.i396
+
+if.then.i.i396:                                   ; preds = %if.then.i.i396.sink.split, %invoke.cont41
+  %needsReset.10761 = phi i1 [ true, %invoke.cont41 ], [ %needsReset.9757, %if.then.i.i396.sink.split ]
+  %76 = phi ptr [ %.pr758.pre, %invoke.cont41 ], [ @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE4$_10E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", %if.then.i.i396.sink.split ]
   %call.i.i397 = invoke noundef zeroext i1 %76(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp38, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp38, i32 noundef 3)
           to label %_ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit399 unwind label %terminate.lpad.i.i398
 

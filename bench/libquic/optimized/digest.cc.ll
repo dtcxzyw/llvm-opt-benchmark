@@ -643,11 +643,11 @@ if.else93.i:                                      ; preds = %invoke.cont84.i
           to label %if.end97.i unwind label %lpad90.i
 
 if.end97.i:                                       ; preds = %if.else93.i, %if.then88.i
-  %storemerge.in.in.i = phi ptr [ %ref.tmp89.i, %if.then88.i ], [ %ref.tmp94.i, %if.else93.i ]
+  %.sink.in.i = phi ptr [ %ref.tmp89.i, %if.then88.i ], [ %ref.tmp94.i, %if.else93.i ]
   %filename_.i44.sink231.i = phi ptr [ %filename_.i40.i, %if.then88.i ], [ %filename_.i44.i, %if.else93.i ]
-  %storemerge.in.i = load i8, ptr %storemerge.in.in.i, align 8
-  %storemerge.i = and i8 %storemerge.in.i, 1
-  store i8 %storemerge.i, ptr %target_source.i, align 8
+  %.sink.i = load i8, ptr %.sink.in.i, align 8
+  %frombool.i45.i = and i8 %.sink.i, 1
+  store i8 %frombool.i45.i, ptr %target_source.i, align 8
   %call.i48.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %filename_.i39.i, ptr noundef nonnull align 8 dereferenceable(32) %filename_.i44.sink231.i) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename_.i44.sink231.i) #19
   %call99.i = invoke fastcc noundef zeroext i1 @_ZL7SumFilePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK9env_md_stRK6Source(ptr noundef nonnull %calculated_hex_digest.i, ptr noundef %md, ptr noundef nonnull align 8 dereferenceable(40) %target_source.i)

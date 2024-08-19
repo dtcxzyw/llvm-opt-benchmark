@@ -185,8 +185,8 @@ if.end:                                           ; preds = %invoke.cont5, %if.t
   %ref.tmp4.sink213 = phi ptr [ %ref.tmp, %if.then ], [ %ref.tmp4, %invoke.cont5 ]
   %_M_finish.i.i.i.i1 = getelementptr inbounds i8, ptr %argTypes, i64 8
   %_M_end_of_storage.i.i.i.i2 = getelementptr inbounds i8, ptr %argTypes, i64 16
-  %.pr.i194 = load ptr, ptr %ref.tmp4.sink213, align 8
-  store ptr %.pr.i194, ptr %argTypes, align 8
+  %.sink = load ptr, ptr %ref.tmp4.sink213, align 8
+  store ptr %.sink, ptr %argTypes, align 8
   %0 = load ptr, ptr %ref.tmp4.sink213.sroa.phi, align 8
   store ptr %0, ptr %_M_finish.i.i.i.i1, align 8
   %1 = load ptr, ptr %ref.tmp4.sink213.sroa.phi215, align 8
@@ -197,7 +197,7 @@ if.end:                                           ; preds = %invoke.cont5, %if.t
 
 cond.true:                                        ; preds = %if.end
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %.pr.i194 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %.sink to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %2 = and i64 %sub.ptr.sub.i, 34359738360
   %cmp209.not = icmp eq i64 %2, 0
@@ -280,11 +280,11 @@ for.inc:                                          ; preds = %if.else.i.i, %if.th
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %cond.true
-  %cmp.not3.i.i.i.i179 = icmp eq ptr %.pr.i194, %0
+  %cmp.not3.i.i.i.i179 = icmp eq ptr %.sink, %0
   br i1 %cmp.not3.i.i.i.i179, label %invoke.cont.i195, label %for.body.i.i.i.i180
 
 for.body.i.i.i.i180:                              ; preds = %for.end, %_ZSt8_DestroyIN4cvc58internal8TypeNodeEEvPT_.exit.i.i.i.i190
-  %__first.addr.04.i.i.i.i181 = phi ptr [ %incdec.ptr.i.i.i.i191, %_ZSt8_DestroyIN4cvc58internal8TypeNodeEEvPT_.exit.i.i.i.i190 ], [ %.pr.i194, %for.end ]
+  %__first.addr.04.i.i.i.i181 = phi ptr [ %incdec.ptr.i.i.i.i191, %_ZSt8_DestroyIN4cvc58internal8TypeNodeEEvPT_.exit.i.i.i.i190 ], [ %.sink, %for.end ]
   %10 = load ptr, ptr %__first.addr.04.i.i.i.i181, align 8
   %bf.load.i.i.i.i.i.i.i182 = load i64, ptr %10, align 8
   %11 = and i64 %bf.load.i.i.i.i.i.i.i182, 1152920405095219200
@@ -317,11 +317,11 @@ _ZSt8_DestroyIN4cvc58internal8TypeNodeEEvPT_.exit.i.i.i.i190: ; preds = %if.then
   br i1 %cmp.not.i.i.i.i192, label %invoke.cont.i195, label %for.body.i.i.i.i180, !llvm.loop !6
 
 invoke.cont.i195:                                 ; preds = %_ZSt8_DestroyIN4cvc58internal8TypeNodeEEvPT_.exit.i.i.i.i190, %for.end
-  %tobool.not.i.i.i196 = icmp eq ptr %.pr.i194, null
+  %tobool.not.i.i.i196 = icmp eq ptr %.sink, null
   br i1 %tobool.not.i.i.i196, label %_ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EED2Ev.exit200, label %if.then.i.i.i197
 
 if.then.i.i.i197:                                 ; preds = %invoke.cont.i195
-  call void @_ZdlPv(ptr noundef nonnull %.pr.i194) #16
+  call void @_ZdlPv(ptr noundef nonnull %.sink) #16
   br label %_ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EED2Ev.exit200
 
 _ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EED2Ev.exit200: ; preds = %invoke.cont.i195, %if.then.i.i.i197

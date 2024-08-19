@@ -3483,11 +3483,7 @@ _ZN6duckdb20IntegerCastOperation14HandleHexDigitINS_22IntegerDecimalCastDataIaEE
 while.end.i77.i.i:                                ; preds = %_ZN6duckdb20IntegerCastOperation14HandleHexDigitINS_22IntegerDecimalCastDataIaEELb0EEEbRT_h.exit.i.i.i
   %49 = add i64 %add.i.i107.i.i, 128
   %or.cond.i.i.i.i.i78.i.i = icmp ult i64 %49, 256
-  br i1 %or.cond.i.i.i.i.i78.i.i, label %_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIaEELb0EEEbRT_.exit.i.i.i, label %cleanup.i
-
-_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIaEELb0EEEbRT_.exit.i.i.i: ; preds = %while.end.i77.i.i
-  store i64 %add.i.i107.i.i, ptr %cast_data.i, align 8, !tbaa !29
-  br label %if.then4.i
+  br i1 %or.cond.i.i.i.i.i78.i.i, label %if.then4.i.sink.split, label %cleanup.i
 
 if.then27.i41.i:                                  ; preds = %if.then9.i39.i, %if.then9.i39.i
   %dec29.i42.i = add i64 %len.addr.0234.i.i, -1
@@ -3538,11 +3534,7 @@ _ZN6duckdb20IntegerCastOperation17HandleBinaryDigitINS_22IntegerDecimalCastDataI
 while.end.i111.i.i:                               ; preds = %while.cond.backedge.i.i47.i
   %51 = add i64 %add.i40.i.i.i, 128
   %or.cond.i.i.i.i.i112.i.i = icmp ult i64 %51, 256
-  br i1 %or.cond.i.i.i.i.i112.i.i, label %_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIaEELb0EEEbRT_.exit.i113.i.i, label %cleanup.i
-
-_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIaEELb0EEEbRT_.exit.i113.i.i: ; preds = %while.end.i111.i.i
-  store i64 %add.i40.i.i.i, ptr %cast_data.i, align 8, !tbaa !29
-  br label %if.then4.i
+  br i1 %or.cond.i.i.i.i.i112.i.i, label %if.then4.i.sink.split, label %cleanup.i
 
 if.else32.i60.i:                                  ; preds = %if.then9.i39.i
   %52 = add i8 %44, -48
@@ -3806,7 +3798,12 @@ _ZN6duckdbL14TryIntegerCastINS_22IntegerDecimalCastDataIaEELb1ELb1ENS_27IntegerD
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %exponent.i150.i.i) #26
   br i1 %call85.i.i.i, label %if.then4.i, label %cleanup.i
 
-if.then4.i:                                       ; preds = %_ZN6duckdbL14TryIntegerCastINS_22IntegerDecimalCastDataIaEELb1ELb1ENS_27IntegerDecimalCastOperationELb1ELc46EEEbPKcmRT_b.exit.i, %if.end104.i.i.i, %_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIaEELb0EEEbRT_.exit.i113.i.i, %_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIaEELb0EEEbRT_.exit.i.i.i, %if.end96.i.i.i, %cleanup78.i.i.i
+if.then4.i.sink.split:                            ; preds = %while.end.i111.i.i, %while.end.i77.i.i
+  %add.i40.i.i.i.lcssa.sink = phi i64 [ %add.i.i107.i.i, %while.end.i77.i.i ], [ %add.i40.i.i.i, %while.end.i111.i.i ]
+  store i64 %add.i40.i.i.i.lcssa.sink, ptr %cast_data.i, align 8, !tbaa !29
+  br label %if.then4.i
+
+if.then4.i:                                       ; preds = %if.then4.i.sink.split, %_ZN6duckdbL14TryIntegerCastINS_22IntegerDecimalCastDataIaEELb1ELb1ENS_27IntegerDecimalCastOperationELb1ELc46EEEbPKcmRT_b.exit.i, %if.end104.i.i.i, %if.end96.i.i.i, %cleanup78.i.i.i
   %70 = load i64, ptr %cast_data.i, align 8, !tbaa !29
   %conv.i3 = trunc i64 %70 to i8
   store i8 %conv.i3, ptr %result, align 1, !tbaa !7
@@ -4538,11 +4535,7 @@ _ZN6duckdb20IntegerCastOperation14HandleHexDigitINS_22IntegerDecimalCastDataIsEE
 while.end.i77.i.i:                                ; preds = %_ZN6duckdb20IntegerCastOperation14HandleHexDigitINS_22IntegerDecimalCastDataIsEELb0EEEbRT_h.exit.i.i.i
   %52 = add i64 %add.i.i107.i.i, 32768
   %or.cond.i.i.i.i.i78.i.i = icmp ult i64 %52, 65536
-  br i1 %or.cond.i.i.i.i.i78.i.i, label %_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIsEELb0EEEbRT_.exit.i.i.i, label %cleanup.i
-
-_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIsEELb0EEEbRT_.exit.i.i.i: ; preds = %while.end.i77.i.i
-  store i64 %add.i.i107.i.i, ptr %cast_data.i, align 8, !tbaa !47
-  br label %if.then4.i
+  br i1 %or.cond.i.i.i.i.i78.i.i, label %if.then4.i.sink.split, label %cleanup.i
 
 if.then27.i41.i:                                  ; preds = %if.then9.i39.i, %if.then9.i39.i
   %dec29.i42.i = add i64 %len.addr.0234.i.i, -1
@@ -4593,11 +4586,7 @@ _ZN6duckdb20IntegerCastOperation17HandleBinaryDigitINS_22IntegerDecimalCastDataI
 while.end.i111.i.i:                               ; preds = %while.cond.backedge.i.i47.i
   %54 = add i64 %add.i40.i.i.i, 32768
   %or.cond.i.i.i.i.i112.i.i = icmp ult i64 %54, 65536
-  br i1 %or.cond.i.i.i.i.i112.i.i, label %_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIsEELb0EEEbRT_.exit.i113.i.i, label %cleanup.i
-
-_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIsEELb0EEEbRT_.exit.i113.i.i: ; preds = %while.end.i111.i.i
-  store i64 %add.i40.i.i.i, ptr %cast_data.i, align 8, !tbaa !47
-  br label %if.then4.i
+  br i1 %or.cond.i.i.i.i.i112.i.i, label %if.then4.i.sink.split, label %cleanup.i
 
 if.else32.i60.i:                                  ; preds = %if.then9.i39.i
   %55 = add i8 %47, -48
@@ -4861,7 +4850,12 @@ _ZN6duckdbL14TryIntegerCastINS_22IntegerDecimalCastDataIsEELb1ELb1ENS_27IntegerD
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %exponent.i150.i.i) #26
   br i1 %call85.i.i.i, label %if.then4.i, label %cleanup.i
 
-if.then4.i:                                       ; preds = %_ZN6duckdbL14TryIntegerCastINS_22IntegerDecimalCastDataIsEELb1ELb1ENS_27IntegerDecimalCastOperationELb1ELc46EEEbPKcmRT_b.exit.i, %if.end104.i.i.i, %_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIsEELb0EEEbRT_.exit.i113.i.i, %_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIsEELb0EEEbRT_.exit.i.i.i, %if.end96.i.i.i, %cleanup78.i.i.i
+if.then4.i.sink.split:                            ; preds = %while.end.i111.i.i, %while.end.i77.i.i
+  %add.i40.i.i.i.lcssa.sink = phi i64 [ %add.i.i107.i.i, %while.end.i77.i.i ], [ %add.i40.i.i.i, %while.end.i111.i.i ]
+  store i64 %add.i40.i.i.i.lcssa.sink, ptr %cast_data.i, align 8, !tbaa !47
+  br label %if.then4.i
+
+if.then4.i:                                       ; preds = %if.then4.i.sink.split, %_ZN6duckdbL14TryIntegerCastINS_22IntegerDecimalCastDataIsEELb1ELb1ENS_27IntegerDecimalCastOperationELb1ELc46EEEbPKcmRT_b.exit.i, %if.end104.i.i.i, %if.end96.i.i.i, %cleanup78.i.i.i
   %73 = load i64, ptr %cast_data.i, align 8, !tbaa !47
   %conv.i3 = trunc i64 %73 to i16
   store i16 %conv.i3, ptr %result, align 2, !tbaa !8
@@ -5589,11 +5583,7 @@ _ZN6duckdb20IntegerCastOperation14HandleHexDigitINS_22IntegerDecimalCastDataIiEE
 while.end.i77.i.i:                                ; preds = %_ZN6duckdb20IntegerCastOperation14HandleHexDigitINS_22IntegerDecimalCastDataIiEELb0EEEbRT_h.exit.i.i.i
   %49 = add i64 %add.i.i107.i.i, 2147483648
   %or.cond.i.i.i.i.i78.i.i = icmp ult i64 %49, 4294967296
-  br i1 %or.cond.i.i.i.i.i78.i.i, label %_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIiEELb0EEEbRT_.exit.i.i.i, label %cleanup.i
-
-_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIiEELb0EEEbRT_.exit.i.i.i: ; preds = %while.end.i77.i.i
-  store i64 %add.i.i107.i.i, ptr %cast_data.i, align 8, !tbaa !63
-  br label %if.then4.i
+  br i1 %or.cond.i.i.i.i.i78.i.i, label %if.then4.i.sink.split, label %cleanup.i
 
 if.then27.i41.i:                                  ; preds = %if.then9.i39.i, %if.then9.i39.i
   %dec29.i42.i = add i64 %len.addr.0234.i.i, -1
@@ -5644,11 +5634,7 @@ _ZN6duckdb20IntegerCastOperation17HandleBinaryDigitINS_22IntegerDecimalCastDataI
 while.end.i111.i.i:                               ; preds = %while.cond.backedge.i.i47.i
   %51 = add i64 %add.i40.i.i.i, 2147483648
   %or.cond.i.i.i.i.i112.i.i = icmp ult i64 %51, 4294967296
-  br i1 %or.cond.i.i.i.i.i112.i.i, label %_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIiEELb0EEEbRT_.exit.i113.i.i, label %cleanup.i
-
-_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIiEELb0EEEbRT_.exit.i113.i.i: ; preds = %while.end.i111.i.i
-  store i64 %add.i40.i.i.i, ptr %cast_data.i, align 8, !tbaa !63
-  br label %if.then4.i
+  br i1 %or.cond.i.i.i.i.i112.i.i, label %if.then4.i.sink.split, label %cleanup.i
 
 if.else32.i61.i:                                  ; preds = %if.then9.i39.i
   %52 = add i8 %44, -48
@@ -5912,7 +5898,12 @@ _ZN6duckdbL14TryIntegerCastINS_22IntegerDecimalCastDataIiEELb1ELb1ENS_27IntegerD
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %exponent.i150.i.i) #26
   br i1 %call85.i.i.i, label %if.then4.i, label %cleanup.i
 
-if.then4.i:                                       ; preds = %_ZN6duckdbL14TryIntegerCastINS_22IntegerDecimalCastDataIiEELb1ELb1ENS_27IntegerDecimalCastOperationELb1ELc46EEEbPKcmRT_b.exit.i, %if.end104.i.i.i, %_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIiEELb0EEEbRT_.exit.i113.i.i, %_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIiEELb0EEEbRT_.exit.i.i.i, %if.end96.i.i.i, %cleanup78.i.i.i
+if.then4.i.sink.split:                            ; preds = %while.end.i111.i.i, %while.end.i77.i.i
+  %add.i40.i.i.i.lcssa.sink = phi i64 [ %add.i.i107.i.i, %while.end.i77.i.i ], [ %add.i40.i.i.i, %while.end.i111.i.i ]
+  store i64 %add.i40.i.i.i.lcssa.sink, ptr %cast_data.i, align 8, !tbaa !63
+  br label %if.then4.i
+
+if.then4.i:                                       ; preds = %if.then4.i.sink.split, %_ZN6duckdbL14TryIntegerCastINS_22IntegerDecimalCastDataIiEELb1ELb1ENS_27IntegerDecimalCastOperationELb1ELc46EEEbPKcmRT_b.exit.i, %if.end104.i.i.i, %if.end96.i.i.i, %cleanup78.i.i.i
   %70 = load i64, ptr %cast_data.i, align 8, !tbaa !63
   %conv.i3 = trunc i64 %70 to i32
   store i32 %conv.i3, ptr %result, align 4, !tbaa !10
@@ -6617,11 +6608,7 @@ _ZN6duckdb20IntegerCastOperation14HandleHexDigitINS_22IntegerDecimalCastDataIlEE
   %mul.i.i102.i.i = shl nsw i64 %add.i.i103.i181.i, 4
   %add.i.i103.i.i = add nsw i64 %mul.i.i102.i.i, %conv.i.i99.i.i
   %exitcond.not.i104.i.i = icmp eq i64 %inc.i101.i.i, %dec17.i52.i
-  br i1 %exitcond.not.i104.i.i, label %_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIlEELb0EEEbRT_.exit.i.i.i, label %while.body.i94.i.i
-
-_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIlEELb0EEEbRT_.exit.i.i.i: ; preds = %_ZN6duckdb20IntegerCastOperation14HandleHexDigitINS_22IntegerDecimalCastDataIlEELb0EEEbRT_h.exit.i.i.i
-  store i64 %add.i.i103.i.i, ptr %cast_data.i, align 8, !tbaa !79
-  br label %if.then4.i
+  br i1 %exitcond.not.i104.i.i, label %if.then4.i.sink.split, label %while.body.i94.i.i
 
 if.then27.i41.i:                                  ; preds = %if.then9.i39.i, %if.then9.i39.i
   %dec29.i42.i = add i64 %len.addr.0219.i.i, -1
@@ -6647,7 +6634,7 @@ while.cond.backedge.i.i47.i:                      ; preds = %_ZN6duckdb20Integer
   %add.i40.i.i.i = phi i64 [ %add.i4143.i.i.i, %if.then.i137.i.i ], [ %add.i.i136.i.i, %_ZN6duckdb20IntegerCastOperation17HandleBinaryDigitINS_22IntegerDecimalCastDataIlEELb0EEEbRT_h.exit.i.i.i ]
   %pos.0.be.i.i48.i = phi i64 [ %inc.i138.i.i, %if.then.i137.i.i ], [ %inc16.i.i46.i, %_ZN6duckdb20IntegerCastOperation17HandleBinaryDigitINS_22IntegerDecimalCastDataIlEELb0EEEbRT_h.exit.i.i.i ]
   %cmp.i.i49.i = icmp ult i64 %pos.0.be.i.i48.i, %dec29.i42.i
-  br i1 %cmp.i.i49.i, label %while.body.i128.i.i, label %_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIlEELb0EEEbRT_.exit.i118.i.i, !llvm.loop !86
+  br i1 %cmp.i.i49.i, label %while.body.i128.i.i, label %if.then4.i.sink.split, !llvm.loop !86
 
 if.else.i132.i.i:                                 ; preds = %while.body.i128.i.i
   switch i8 %47, label %cleanup.i [
@@ -6668,10 +6655,6 @@ _ZN6duckdb20IntegerCastOperation17HandleBinaryDigitINS_22IntegerDecimalCastDataI
   %mul.i.i135.i.i = shl nsw i64 %add.i4143.i.i.i, 1
   %add.i.i136.i.i = or disjoint i64 %digit.0.i133.i.i, %mul.i.i135.i.i
   br label %while.cond.backedge.i.i47.i
-
-_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIlEELb0EEEbRT_.exit.i118.i.i: ; preds = %while.cond.backedge.i.i47.i
-  store i64 %add.i40.i.i.i, ptr %cast_data.i, align 8, !tbaa !79
-  br label %if.then4.i
 
 if.else32.i61.i:                                  ; preds = %if.then9.i39.i
   %48 = add i8 %42, -48
@@ -6917,7 +6900,12 @@ _ZN6duckdbL14TryIntegerCastINS_22IntegerDecimalCastDataIlEELb1ELb1ENS_27IntegerD
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %exponent.i140.i.i) #26
   br i1 %call85.i.i.i, label %if.then4.i, label %cleanup.i
 
-if.then4.i:                                       ; preds = %_ZN6duckdbL14TryIntegerCastINS_22IntegerDecimalCastDataIlEELb1ELb1ENS_27IntegerDecimalCastOperationELb1ELc46EEEbPKcmRT_b.exit.i, %if.end104.i.i.i, %_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIlEELb0EEEbRT_.exit.i118.i.i, %_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIlEELb0EEEbRT_.exit.i.i.i, %if.end96.i.i.i, %cleanup78.i.i.i
+if.then4.i.sink.split:                            ; preds = %while.cond.backedge.i.i47.i, %_ZN6duckdb20IntegerCastOperation14HandleHexDigitINS_22IntegerDecimalCastDataIlEELb0EEEbRT_h.exit.i.i.i
+  %add.i40.i.i.i.lcssa.sink = phi i64 [ %add.i.i103.i.i, %_ZN6duckdb20IntegerCastOperation14HandleHexDigitINS_22IntegerDecimalCastDataIlEELb0EEEbRT_h.exit.i.i.i ], [ %add.i40.i.i.i, %while.cond.backedge.i.i47.i ]
+  store i64 %add.i40.i.i.i.lcssa.sink, ptr %cast_data.i, align 8, !tbaa !79
+  br label %if.then4.i
+
+if.then4.i:                                       ; preds = %if.then4.i.sink.split, %_ZN6duckdbL14TryIntegerCastINS_22IntegerDecimalCastDataIlEELb1ELb1ENS_27IntegerDecimalCastOperationELb1ELc46EEEbPKcmRT_b.exit.i, %if.end104.i.i.i, %if.end96.i.i.i, %cleanup78.i.i.i
   %64 = load i64, ptr %cast_data.i, align 8, !tbaa !79
   store i64 %64, ptr %result, align 8, !tbaa !12
   br label %cleanup.i
@@ -7657,11 +7645,7 @@ _ZN6duckdb20IntegerCastOperation14HandleHexDigitINS_22IntegerDecimalCastDataIhEE
 
 while.end.i89.i.i:                                ; preds = %_ZN6duckdb20IntegerCastOperation14HandleHexDigitINS_22IntegerDecimalCastDataIhEELb0EEEbRT_h.exit.i.i.i
   %cmp2.i.i.i.i.i90.i.i = icmp ult i64 %add.i.i119.i.i, 256
-  br i1 %cmp2.i.i.i.i.i90.i.i, label %_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIhEELb0EEEbRT_.exit.i.i.i, label %cleanup.i
-
-_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIhEELb0EEEbRT_.exit.i.i.i: ; preds = %while.end.i89.i.i
-  store i64 %add.i.i119.i.i, ptr %cast_data.i, align 8, !tbaa !98
-  br label %if.then4.i
+  br i1 %cmp2.i.i.i.i.i90.i.i, label %if.then4.i.sink.split, label %cleanup.i
 
 if.then36.i41.i:                                  ; preds = %if.then17.i39.i, %if.then17.i39.i
   %dec38.i42.i = add i64 %len.addr.0247.i.i, -1
@@ -7711,11 +7695,7 @@ _ZN6duckdb20IntegerCastOperation17HandleBinaryDigitINS_22IntegerDecimalCastDataI
 
 while.end.i123.i.i:                               ; preds = %while.cond.backedge.i.i47.i
   %cmp2.i.i.i.i.i124.i.i = icmp ult i64 %add.i40.i.i.i, 256
-  br i1 %cmp2.i.i.i.i.i124.i.i, label %_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIhEELb0EEEbRT_.exit.i125.i.i, label %cleanup.i
-
-_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIhEELb0EEEbRT_.exit.i125.i.i: ; preds = %while.end.i123.i.i
-  store i64 %add.i40.i.i.i, ptr %cast_data.i, align 8, !tbaa !98
-  br label %if.then4.i
+  br i1 %cmp2.i.i.i.i.i124.i.i, label %if.then4.i.sink.split, label %cleanup.i
 
 if.else41.i60.i:                                  ; preds = %if.then17.i39.i
   %52 = add i8 %46, -48
@@ -7975,7 +7955,12 @@ _ZN6duckdbL14TryIntegerCastINS_22IntegerDecimalCastDataIhEELb0ELb1ENS_27IntegerD
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %exponent.i162.i.i) #26
   br i1 %call85.i.i.i, label %if.then4.i, label %cleanup.i
 
-if.then4.i:                                       ; preds = %_ZN6duckdbL14TryIntegerCastINS_22IntegerDecimalCastDataIhEELb0ELb1ENS_27IntegerDecimalCastOperationELb1ELc46EEEbPKcmRT_b.exit.i, %if.end104.i.i.i, %_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIhEELb0EEEbRT_.exit.i125.i.i, %_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIhEELb0EEEbRT_.exit.i.i.i, %if.end96.i.i.i, %cleanup78.i.i.i
+if.then4.i.sink.split:                            ; preds = %while.end.i123.i.i, %while.end.i89.i.i
+  %add.i40.i.i.i.lcssa.sink = phi i64 [ %add.i.i119.i.i, %while.end.i89.i.i ], [ %add.i40.i.i.i, %while.end.i123.i.i ]
+  store i64 %add.i40.i.i.i.lcssa.sink, ptr %cast_data.i, align 8, !tbaa !98
+  br label %if.then4.i
+
+if.then4.i:                                       ; preds = %if.then4.i.sink.split, %_ZN6duckdbL14TryIntegerCastINS_22IntegerDecimalCastDataIhEELb0ELb1ENS_27IntegerDecimalCastOperationELb1ELc46EEEbPKcmRT_b.exit.i, %if.end104.i.i.i, %if.end96.i.i.i, %cleanup78.i.i.i
   %68 = load i64, ptr %cast_data.i, align 8, !tbaa !98
   %conv.i3 = trunc i64 %68 to i8
   store i8 %conv.i3, ptr %result, align 1, !tbaa !7
@@ -8721,11 +8706,7 @@ _ZN6duckdb20IntegerCastOperation14HandleHexDigitINS_22IntegerDecimalCastDataItEE
 
 while.end.i89.i.i:                                ; preds = %_ZN6duckdb20IntegerCastOperation14HandleHexDigitINS_22IntegerDecimalCastDataItEELb0EEEbRT_h.exit.i.i.i
   %cmp2.i.i.i.i.i90.i.i = icmp ult i64 %add.i.i119.i63.i, 65536
-  br i1 %cmp2.i.i.i.i.i90.i.i, label %_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataItEELb0EEEbRT_.exit.i.i.i, label %cleanup.i
-
-_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataItEELb0EEEbRT_.exit.i.i.i: ; preds = %while.end.i89.i.i
-  store i64 %add.i.i119.i63.i, ptr %cast_data.i, align 8, !tbaa !117
-  br label %if.then4.i
+  br i1 %cmp2.i.i.i.i.i90.i.i, label %if.then4.i.sink.split, label %cleanup.i
 
 if.then36.i41.i:                                  ; preds = %if.then17.i39.i, %if.then17.i39.i
   %dec38.i42.i = add i64 %len.addr.0247.i.i, -1
@@ -8775,11 +8756,7 @@ _ZN6duckdb20IntegerCastOperation17HandleBinaryDigitINS_22IntegerDecimalCastDataI
 
 while.end.i123.i.i:                               ; preds = %while.cond.backedge.i.i47.i
   %cmp2.i.i.i.i.i124.i.i = icmp ult i64 %add.i40.i.i.i, 65536
-  br i1 %cmp2.i.i.i.i.i124.i.i, label %_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataItEELb0EEEbRT_.exit.i125.i.i, label %cleanup.i
-
-_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataItEELb0EEEbRT_.exit.i125.i.i: ; preds = %while.end.i123.i.i
-  store i64 %add.i40.i.i.i, ptr %cast_data.i, align 8, !tbaa !117
-  br label %if.then4.i
+  br i1 %cmp2.i.i.i.i.i124.i.i, label %if.then4.i.sink.split, label %cleanup.i
 
 if.else41.i65.i:                                  ; preds = %if.then17.i39.i
   %52 = add i8 %46, -48
@@ -9039,7 +9016,12 @@ _ZN6duckdbL14TryIntegerCastINS_22IntegerDecimalCastDataItEELb0ELb1ENS_27IntegerD
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %exponent.i162.i.i) #26
   br i1 %call85.i.i.i, label %if.then4.i, label %cleanup.i
 
-if.then4.i:                                       ; preds = %_ZN6duckdbL14TryIntegerCastINS_22IntegerDecimalCastDataItEELb0ELb1ENS_27IntegerDecimalCastOperationELb1ELc46EEEbPKcmRT_b.exit.i, %if.end104.i.i.i, %_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataItEELb0EEEbRT_.exit.i125.i.i, %_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataItEELb0EEEbRT_.exit.i.i.i, %if.end96.i.i.i, %cleanup78.i.i.i
+if.then4.i.sink.split:                            ; preds = %while.end.i123.i.i, %while.end.i89.i.i
+  %add.i40.i.i.i.lcssa.sink = phi i64 [ %add.i.i119.i63.i, %while.end.i89.i.i ], [ %add.i40.i.i.i, %while.end.i123.i.i ]
+  store i64 %add.i40.i.i.i.lcssa.sink, ptr %cast_data.i, align 8, !tbaa !117
+  br label %if.then4.i
+
+if.then4.i:                                       ; preds = %if.then4.i.sink.split, %_ZN6duckdbL14TryIntegerCastINS_22IntegerDecimalCastDataItEELb0ELb1ENS_27IntegerDecimalCastOperationELb1ELc46EEEbPKcmRT_b.exit.i, %if.end104.i.i.i, %if.end96.i.i.i, %cleanup78.i.i.i
   %68 = load i64, ptr %cast_data.i, align 8, !tbaa !117
   %conv.i3 = trunc i64 %68 to i16
   store i16 %conv.i3, ptr %result, align 2, !tbaa !8
@@ -9783,11 +9765,7 @@ _ZN6duckdb20IntegerCastOperation14HandleHexDigitINS_22IntegerDecimalCastDataIjEE
 
 while.end.i89.i.i:                                ; preds = %_ZN6duckdb20IntegerCastOperation14HandleHexDigitINS_22IntegerDecimalCastDataIjEELb0EEEbRT_h.exit.i.i.i
   %cmp2.i.i.i.i.i90.i.i = icmp ult i64 %add.i.i119.i.i, 4294967296
-  br i1 %cmp2.i.i.i.i.i90.i.i, label %_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIjEELb0EEEbRT_.exit.i.i.i, label %cleanup.i
-
-_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIjEELb0EEEbRT_.exit.i.i.i: ; preds = %while.end.i89.i.i
-  store i64 %add.i.i119.i.i, ptr %cast_data.i, align 8, !tbaa !136
-  br label %if.then4.i
+  br i1 %cmp2.i.i.i.i.i90.i.i, label %if.then4.i.sink.split, label %cleanup.i
 
 if.then36.i41.i:                                  ; preds = %if.then17.i39.i, %if.then17.i39.i
   %dec38.i42.i = add i64 %len.addr.0247.i.i, -1
@@ -9837,11 +9815,7 @@ _ZN6duckdb20IntegerCastOperation17HandleBinaryDigitINS_22IntegerDecimalCastDataI
 
 while.end.i123.i.i:                               ; preds = %while.cond.backedge.i.i47.i
   %cmp2.i.i.i.i.i124.i.i = icmp ult i64 %add.i40.i.i.i, 4294967296
-  br i1 %cmp2.i.i.i.i.i124.i.i, label %_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIjEELb0EEEbRT_.exit.i125.i.i, label %cleanup.i
-
-_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIjEELb0EEEbRT_.exit.i125.i.i: ; preds = %while.end.i123.i.i
-  store i64 %add.i40.i.i.i, ptr %cast_data.i, align 8, !tbaa !136
-  br label %if.then4.i
+  br i1 %cmp2.i.i.i.i.i124.i.i, label %if.then4.i.sink.split, label %cleanup.i
 
 if.else41.i60.i:                                  ; preds = %if.then17.i39.i
   %50 = add i8 %44, -48
@@ -10101,7 +10075,12 @@ _ZN6duckdbL14TryIntegerCastINS_22IntegerDecimalCastDataIjEELb0ELb1ENS_27IntegerD
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %exponent.i162.i.i) #26
   br i1 %call85.i.i.i, label %if.then4.i, label %cleanup.i
 
-if.then4.i:                                       ; preds = %_ZN6duckdbL14TryIntegerCastINS_22IntegerDecimalCastDataIjEELb0ELb1ENS_27IntegerDecimalCastOperationELb1ELc46EEEbPKcmRT_b.exit.i, %if.end104.i.i.i, %_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIjEELb0EEEbRT_.exit.i125.i.i, %_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataIjEELb0EEEbRT_.exit.i.i.i, %if.end96.i.i.i, %cleanup78.i.i.i
+if.then4.i.sink.split:                            ; preds = %while.end.i123.i.i, %while.end.i89.i.i
+  %add.i40.i.i.i.lcssa.sink = phi i64 [ %add.i.i119.i.i, %while.end.i89.i.i ], [ %add.i40.i.i.i, %while.end.i123.i.i ]
+  store i64 %add.i40.i.i.i.lcssa.sink, ptr %cast_data.i, align 8, !tbaa !136
+  br label %if.then4.i
+
+if.then4.i:                                       ; preds = %if.then4.i.sink.split, %_ZN6duckdbL14TryIntegerCastINS_22IntegerDecimalCastDataIjEELb0ELb1ENS_27IntegerDecimalCastOperationELb1ELc46EEEbPKcmRT_b.exit.i, %if.end104.i.i.i, %if.end96.i.i.i, %cleanup78.i.i.i
   %66 = load i64, ptr %cast_data.i, align 8, !tbaa !136
   %conv.i3 = trunc i64 %66 to i32
   store i32 %conv.i3, ptr %result, align 4, !tbaa !10
@@ -10831,11 +10810,7 @@ _ZN6duckdb20IntegerCastOperation14HandleHexDigitINS_22IntegerDecimalCastDataImEE
   %mul.i.i114.i.i = shl nuw i64 %add.i.i115.i180.i, 4
   %add.i.i115.i.i = add i64 %mul.i.i114.i.i, %conv.i.i111.i.i
   %exitcond.not.i116.i.i = icmp eq i64 %inc.i113.i.i, %dec26.i52.i
-  br i1 %exitcond.not.i116.i.i, label %_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataImEELb0EEEbRT_.exit.i.i.i, label %while.body.i106.i.i
-
-_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataImEELb0EEEbRT_.exit.i.i.i: ; preds = %_ZN6duckdb20IntegerCastOperation14HandleHexDigitINS_22IntegerDecimalCastDataImEELb0EEEbRT_h.exit.i.i.i
-  store i64 %add.i.i115.i.i, ptr %cast_data.i, align 8, !tbaa !156
-  br label %if.then4.i
+  br i1 %exitcond.not.i116.i.i, label %if.then4.i.sink.split, label %while.body.i106.i.i
 
 if.then36.i41.i:                                  ; preds = %if.then17.i39.i, %if.then17.i39.i
   %dec38.i42.i = add i64 %len.addr.0227.i.i, -1
@@ -10861,7 +10836,7 @@ while.cond.backedge.i.i47.i:                      ; preds = %_ZN6duckdb20Integer
   %add.i40.i.i.i = phi i64 [ %add.i4143.i.i.i, %if.then.i149.i.i ], [ %add.i.i148.i.i, %_ZN6duckdb20IntegerCastOperation17HandleBinaryDigitINS_22IntegerDecimalCastDataImEELb0EEEbRT_h.exit.i.i.i ]
   %pos.0.be.i.i48.i = phi i64 [ %inc.i150.i.i, %if.then.i149.i.i ], [ %inc16.i.i46.i, %_ZN6duckdb20IntegerCastOperation17HandleBinaryDigitINS_22IntegerDecimalCastDataImEELb0EEEbRT_h.exit.i.i.i ]
   %cmp.i.i49.i = icmp ult i64 %pos.0.be.i.i48.i, %dec38.i42.i
-  br i1 %cmp.i.i49.i, label %while.body.i140.i.i, label %_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataImEELb0EEEbRT_.exit.i130.i.i, !llvm.loop !163
+  br i1 %cmp.i.i49.i, label %while.body.i140.i.i, label %if.then4.i.sink.split, !llvm.loop !163
 
 if.else.i144.i.i:                                 ; preds = %while.body.i140.i.i
   switch i8 %53, label %cleanup.i [
@@ -10882,10 +10857,6 @@ _ZN6duckdb20IntegerCastOperation17HandleBinaryDigitINS_22IntegerDecimalCastDataI
   %mul.i.i147.i.i = shl nuw i64 %add.i4143.i.i.i, 1
   %add.i.i148.i.i = or disjoint i64 %digit.0.i145.i.i, %mul.i.i147.i.i
   br label %while.cond.backedge.i.i47.i
-
-_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataImEELb0EEEbRT_.exit.i130.i.i: ; preds = %while.cond.backedge.i.i47.i
-  store i64 %add.i40.i.i.i, ptr %cast_data.i, align 8, !tbaa !156
-  br label %if.then4.i
 
 if.else41.i61.i:                                  ; preds = %if.then17.i39.i
   %54 = add i8 %48, -48
@@ -11131,7 +11102,12 @@ _ZN6duckdbL14TryIntegerCastINS_22IntegerDecimalCastDataImEELb0ELb1ENS_27IntegerD
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %exponent.i152.i.i) #26
   br i1 %call85.i.i.i, label %if.then4.i, label %cleanup.i
 
-if.then4.i:                                       ; preds = %_ZN6duckdbL14TryIntegerCastINS_22IntegerDecimalCastDataImEELb0ELb1ENS_27IntegerDecimalCastOperationELb1ELc46EEEbPKcmRT_b.exit.i, %if.end104.i.i.i, %_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataImEELb0EEEbRT_.exit.i130.i.i, %_ZN6duckdb27IntegerDecimalCastOperation8FinalizeINS_22IntegerDecimalCastDataImEELb0EEEbRT_.exit.i.i.i, %if.end96.i.i.i, %cleanup78.i.i.i
+if.then4.i.sink.split:                            ; preds = %while.cond.backedge.i.i47.i, %_ZN6duckdb20IntegerCastOperation14HandleHexDigitINS_22IntegerDecimalCastDataImEELb0EEEbRT_h.exit.i.i.i
+  %add.i40.i.i.i.lcssa.sink = phi i64 [ %add.i.i115.i.i, %_ZN6duckdb20IntegerCastOperation14HandleHexDigitINS_22IntegerDecimalCastDataImEELb0EEEbRT_h.exit.i.i.i ], [ %add.i40.i.i.i, %while.cond.backedge.i.i47.i ]
+  store i64 %add.i40.i.i.i.lcssa.sink, ptr %cast_data.i, align 8, !tbaa !156
+  br label %if.then4.i
+
+if.then4.i:                                       ; preds = %if.then4.i.sink.split, %_ZN6duckdbL14TryIntegerCastINS_22IntegerDecimalCastDataImEELb0ELb1ENS_27IntegerDecimalCastOperationELb1ELc46EEEbPKcmRT_b.exit.i, %if.end104.i.i.i, %if.end96.i.i.i, %cleanup78.i.i.i
   %70 = load i64, ptr %cast_data.i, align 8, !tbaa !156
   store i64 %70, ptr %result, align 8, !tbaa !12
   br label %cleanup.i

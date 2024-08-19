@@ -8453,6 +8453,7 @@ target triple = "x86_64-pc-linux-gnu"
 @gsm_map_dialogue_MAP_UserAbortInfo_sequence = internal constant [3 x %struct._ber_sequence_t] [%struct._ber_sequence_t { ptr @hf_gsm_map_dialogue_map_UserAbortChoice, i8 99, i32 -1, i32 12, ptr @dissect_gsm_map_dialogue_MAP_UserAbortChoice }, %struct._ber_sequence_t { ptr @hf_gsm_map_dialogue_extensionContainer, i8 0, i32 16, i32 5, ptr @dissect_gsm_map_ExtensionContainer }, %struct._ber_sequence_t zeroinitializer], align 16
 @gsm_map_dialogue_MAP_UserAbortChoice_choice = internal constant [5 x %struct._ber_choice_t] [%struct._ber_choice_t { i32 0, ptr @hf_gsm_map_dialogue_userSpecificReason, i8 2, i32 0, i32 2, ptr @dissect_gsm_map_dialogue_NULL }, %struct._ber_choice_t { i32 1, ptr @hf_gsm_map_dialogue_userResourceLimitation, i8 2, i32 1, i32 2, ptr @dissect_gsm_map_dialogue_NULL }, %struct._ber_choice_t { i32 2, ptr @hf_gsm_map_dialogue_resourceUnavailable, i8 2, i32 2, i32 2, ptr @dissect_gsm_map_dialogue_ResourceUnavailableReason }, %struct._ber_choice_t { i32 3, ptr @hf_gsm_map_dialogue_applicationProcedureCancellation, i8 2, i32 3, i32 2, ptr @dissect_gsm_map_dialogue_ProcedureCancellationReason }, %struct._ber_choice_t zeroinitializer], align 16
 @gsm_map_dialogue_MAP_ProviderAbortInfo_sequence = internal constant [3 x %struct._ber_sequence_t] [%struct._ber_sequence_t { ptr @hf_gsm_map_dialogue_map_ProviderAbortReason, i8 0, i32 10, i32 4, ptr @dissect_gsm_map_dialogue_MAP_ProviderAbortReason }, %struct._ber_sequence_t { ptr @hf_gsm_map_dialogue_extensionContainer, i8 0, i32 16, i32 5, ptr @dissect_gsm_map_ExtensionContainer }, %struct._ber_sequence_t zeroinitializer], align 16
+@switch.table.dissect_gsm_map_lcs_LCSCodewordString = private unnamed_addr constant [5 x i32] [i32 44, i32 0, i32 6, i32 44, i32 6], align 4
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext range(i8 0, 6) i8 @dissect_cbs_data_coding_scheme(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
@@ -8876,7 +8877,7 @@ define hidden i32 @dissect_gsm_map_GSN_Address(i1 noundef zeroext %0, ptr nounde
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #5
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %25, label %10
+  br i1 %.not, label %21, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %3, i64 24
@@ -8885,24 +8886,23 @@ define hidden i32 @dissect_gsm_map_GSN_Address(i1 noundef zeroext %0, ptr nounde
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #5
   %15 = load ptr, ptr %7, align 8
   %16 = call zeroext i8 @tvb_get_guint8(ptr noundef %15, i32 noundef 0) #5
-  switch i8 %16, label %25 [
-    i8 4, label %17
-    i8 80, label %21
+  switch i8 %16, label %21 [
+    i8 4, label %.sink.split
+    i8 80, label %17
   ]
 
 17:                                               ; preds = %10
-  %18 = load i32, ptr @hf_gsm_map_GSNAddress_IPv4, align 4
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %10, %17
+  %hf_gsm_map_GSNAddress_IPv4.sink = phi ptr [ @hf_gsm_map_GSNAddress_IPv6, %17 ], [ @hf_gsm_map_GSNAddress_IPv4, %10 ]
+  %.sink13 = phi i32 [ 16, %17 ], [ 4, %10 ]
+  %18 = load i32, ptr %hf_gsm_map_GSNAddress_IPv4.sink, align 4
   %19 = load ptr, ptr %7, align 8
-  %20 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef 4, i32 noundef 0) #5
-  br label %25
+  %20 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %.sink13, i32 noundef 0) #5
+  br label %21
 
-21:                                               ; preds = %10
-  %22 = load i32, ptr @hf_gsm_map_GSNAddress_IPv6, align 4
-  %23 = load ptr, ptr %7, align 8
-  %24 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %22, ptr noundef %23, i32 noundef 1, i32 noundef 16, i32 noundef 0) #5
-  br label %25
-
-25:                                               ; preds = %17, %21, %10, %6
+21:                                               ; preds = %.sink.split, %10, %6
   ret i32 %8
 }
 
@@ -9278,7 +9278,7 @@ define hidden i32 @dissect_gsm_map_ss_USSD_String(i1 noundef zeroext %0, ptr nou
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #5
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %29, label %10
+  br i1 %.not, label %22, label %10
 
 10:                                               ; preds = %6
   %11 = call i32 @tvb_ensure_captured_length_remaining(ptr noundef nonnull %9, i32 noundef 0) #5
@@ -9287,33 +9287,20 @@ define hidden i32 @dissect_gsm_map_ss_USSD_String(i1 noundef zeroext %0, ptr nou
   %14 = load i32, ptr @ett_gsm_map_ussd_string, align 4
   %15 = call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14) #5
   %16 = load i8, ptr @sms_encoding, align 1
-  switch i8 %16, label %29 [
-    i8 1, label %17
-    i8 4, label %17
-    i8 2, label %21
-    i8 3, label %25
-    i8 5, label %25
-  ]
+  %switch.tableidx = add i8 %16, -1
+  %17 = icmp ult i8 %switch.tableidx, 5
+  br i1 %17, label %switch.lookup, label %22
 
-17:                                               ; preds = %10, %10
-  %18 = load i32, ptr @hf_gsm_map_ussd_string, align 4
-  %19 = load ptr, ptr %7, align 8
-  %20 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %18, ptr noundef %19, i32 noundef 0, i32 noundef %11, i32 noundef 44) #5
-  br label %29
+switch.lookup:                                    ; preds = %10
+  %18 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.dissect_gsm_map_lcs_LCSCodewordString, i64 0, i64 %18
+  %switch.load = load i32, ptr %switch.gep, align 4
+  %19 = load i32, ptr @hf_gsm_map_ussd_string, align 4
+  %20 = load ptr, ptr %7, align 8
+  %21 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %19, ptr noundef %20, i32 noundef 0, i32 noundef %11, i32 noundef %switch.load) #5
+  br label %22
 
-21:                                               ; preds = %10
-  %22 = load i32, ptr @hf_gsm_map_ussd_string, align 4
-  %23 = load ptr, ptr %7, align 8
-  %24 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %22, ptr noundef %23, i32 noundef 0, i32 noundef %11, i32 noundef 0) #5
-  br label %29
-
-25:                                               ; preds = %10, %10
-  %26 = load i32, ptr @hf_gsm_map_ussd_string, align 4
-  %27 = load ptr, ptr %7, align 8
-  %28 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %26, ptr noundef %27, i32 noundef 0, i32 noundef %11, i32 noundef 6) #5
-  br label %29
-
-29:                                               ; preds = %17, %21, %25, %10, %6
+22:                                               ; preds = %10, %switch.lookup, %6
   ret i32 %8
 }
 
@@ -12322,8 +12309,36 @@ define internal i32 @dissect_gsm_map_lcs_LocationEstimateType(i1 noundef zeroext
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_gsm_map_lcs_NameString(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = tail call i32 @dissect_gsm_map_ss_USSD_String(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
-  ret i32 %7
+  %7 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #5
+  %9 = load ptr, ptr %7, align 8
+  %.not.i = icmp eq ptr %9, null
+  br i1 %.not.i, label %dissect_gsm_map_ss_USSD_String.exit, label %10
+
+10:                                               ; preds = %6
+  %11 = call i32 @tvb_ensure_captured_length_remaining(ptr noundef nonnull %9, i32 noundef 0) #5
+  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  %13 = load ptr, ptr %12, align 8
+  %14 = load i32, ptr @ett_gsm_map_ussd_string, align 4
+  %15 = call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14) #5
+  %16 = load i8, ptr @sms_encoding, align 1
+  %switch.tableidx = add i8 %16, -1
+  %17 = icmp ult i8 %switch.tableidx, 5
+  br i1 %17, label %switch.lookup, label %dissect_gsm_map_ss_USSD_String.exit
+
+switch.lookup:                                    ; preds = %10
+  %18 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.dissect_gsm_map_lcs_LCSCodewordString, i64 0, i64 %18
+  %switch.load = load i32, ptr %switch.gep, align 4
+  %19 = load i32, ptr @hf_gsm_map_ussd_string, align 4
+  %20 = load ptr, ptr %7, align 8
+  %21 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %19, ptr noundef %20, i32 noundef 0, i32 noundef %11, i32 noundef %switch.load) #5
+  br label %dissect_gsm_map_ss_USSD_String.exit
+
+dissect_gsm_map_ss_USSD_String.exit:              ; preds = %10, %6, %switch.lookup
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -12334,8 +12349,36 @@ define internal i32 @dissect_gsm_map_lcs_LCS_FormatIndicator(i1 noundef zeroext 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_gsm_map_lcs_RequestorIDString(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = tail call i32 @dissect_gsm_map_ss_USSD_String(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
-  ret i32 %7
+  %7 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #5
+  %9 = load ptr, ptr %7, align 8
+  %.not.i = icmp eq ptr %9, null
+  br i1 %.not.i, label %dissect_gsm_map_ss_USSD_String.exit, label %10
+
+10:                                               ; preds = %6
+  %11 = call i32 @tvb_ensure_captured_length_remaining(ptr noundef nonnull %9, i32 noundef 0) #5
+  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  %13 = load ptr, ptr %12, align 8
+  %14 = load i32, ptr @ett_gsm_map_ussd_string, align 4
+  %15 = call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14) #5
+  %16 = load i8, ptr @sms_encoding, align 1
+  %switch.tableidx = add i8 %16, -1
+  %17 = icmp ult i8 %switch.tableidx, 5
+  br i1 %17, label %switch.lookup, label %dissect_gsm_map_ss_USSD_String.exit
+
+switch.lookup:                                    ; preds = %10
+  %18 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.dissect_gsm_map_lcs_LCSCodewordString, i64 0, i64 %18
+  %switch.load = load i32, ptr %switch.gep, align 4
+  %19 = load i32, ptr @hf_gsm_map_ussd_string, align 4
+  %20 = load ptr, ptr %7, align 8
+  %21 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %19, ptr noundef %20, i32 noundef 0, i32 noundef %11, i32 noundef %switch.load) #5
+  br label %dissect_gsm_map_ss_USSD_String.exit
+
+dissect_gsm_map_ss_USSD_String.exit:              ; preds = %10, %6, %switch.lookup
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -12406,8 +12449,36 @@ define internal i32 @dissect_gsm_map_lcs_ResponseTimeCategory(i1 noundef zeroext
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_gsm_map_lcs_LCSCodewordString(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = tail call i32 @dissect_gsm_map_ss_USSD_String(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
-  ret i32 %7
+  %7 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #5
+  %9 = load ptr, ptr %7, align 8
+  %.not.i = icmp eq ptr %9, null
+  br i1 %.not.i, label %dissect_gsm_map_ss_USSD_String.exit, label %10
+
+10:                                               ; preds = %6
+  %11 = call i32 @tvb_ensure_captured_length_remaining(ptr noundef nonnull %9, i32 noundef 0) #5
+  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  %13 = load ptr, ptr %12, align 8
+  %14 = load i32, ptr @ett_gsm_map_ussd_string, align 4
+  %15 = call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14) #5
+  %16 = load i8, ptr @sms_encoding, align 1
+  %switch.tableidx = add i8 %16, -1
+  %17 = icmp ult i8 %switch.tableidx, 5
+  br i1 %17, label %switch.lookup, label %dissect_gsm_map_ss_USSD_String.exit
+
+switch.lookup:                                    ; preds = %10
+  %18 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.dissect_gsm_map_lcs_LCSCodewordString, i64 0, i64 %18
+  %switch.load = load i32, ptr %switch.gep, align 4
+  %19 = load i32, ptr @hf_gsm_map_ussd_string, align 4
+  %20 = load ptr, ptr %7, align 8
+  %21 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %19, ptr noundef %20, i32 noundef 0, i32 noundef %11, i32 noundef %switch.load) #5
+  br label %dissect_gsm_map_ss_USSD_String.exit
+
+dissect_gsm_map_ss_USSD_String.exit:              ; preds = %10, %6, %switch.lookup
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -15547,31 +15618,29 @@ define internal i32 @dissect_gsm_map_ms_PDP_Type(i1 noundef zeroext %0, ptr noun
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #5
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %23, label %10
+  br i1 %.not, label %19, label %10
 
 10:                                               ; preds = %6
   %11 = load i32, ptr @hf_gsm_map_pdp_type_org, align 4
   %12 = call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %11, ptr noundef nonnull %9, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
   %13 = load ptr, ptr %7, align 8
   %14 = call zeroext i8 @tvb_get_guint8(ptr noundef %13, i32 noundef 1) #5
-  switch i8 %14, label %23 [
-    i8 0, label %15
-    i8 1, label %19
+  switch i8 %14, label %19 [
+    i8 0, label %.sink.split
+    i8 1, label %15
   ]
 
 15:                                               ; preds = %10
-  %16 = load i32, ptr @hf_gsm_map_etsi_pdp_type_number, align 4
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %10, %15
+  %hf_gsm_map_etsi_pdp_type_number.sink = phi ptr [ @hf_gsm_map_ietf_pdp_type_number, %15 ], [ @hf_gsm_map_etsi_pdp_type_number, %10 ]
+  %16 = load i32, ptr %hf_gsm_map_etsi_pdp_type_number.sink, align 4
   %17 = load ptr, ptr %7, align 8
   %18 = call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %16, ptr noundef %17, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
-  br label %23
+  br label %19
 
-19:                                               ; preds = %10
-  %20 = load i32, ptr @hf_gsm_map_ietf_pdp_type_number, align 4
-  %21 = load ptr, ptr %7, align 8
-  %22 = call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %20, ptr noundef %21, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
-  br label %23
-
-23:                                               ; preds = %15, %19, %10, %6
+19:                                               ; preds = %.sink.split, %10, %6
   ret i32 %8
 }
 
@@ -16779,7 +16848,7 @@ define internal i32 @dissect_gsm_map_ericsson_T_locationInformation(i1 noundef z
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #5
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %35, label %10
+  br i1 %.not, label %28, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %3, i64 24
@@ -16792,30 +16861,25 @@ define internal i32 @dissect_gsm_map_ericsson_T_locationInformation(i1 noundef z
   %18 = load ptr, ptr %7, align 8
   %19 = zext i8 %16 to i32
   %20 = call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %17, ptr noundef %18, i32 noundef 0, i32 noundef 1, i32 noundef %19) #5
-  switch i8 %16, label %35 [
-    i8 0, label %21
-    i8 1, label %28
+  switch i8 %16, label %28 [
+    i8 0, label %.sink.split
+    i8 1, label %21
   ]
 
 21:                                               ; preds = %10
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %10, %21
+  %hf_gsm_map_ericsson_locationInformation_ci.sink = phi ptr [ @hf_gsm_map_ericsson_locationInformation_sac, %21 ], [ @hf_gsm_map_ericsson_locationInformation_ci, %10 ]
   %22 = load i32, ptr @hf_gsm_map_ericsson_locationInformation_lac, align 4
   %23 = load ptr, ptr %7, align 8
   %24 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %22, ptr noundef %23, i32 noundef 1, i32 noundef 2, i32 noundef 0) #5
-  %25 = load i32, ptr @hf_gsm_map_ericsson_locationInformation_ci, align 4
+  %25 = load i32, ptr %hf_gsm_map_ericsson_locationInformation_ci.sink, align 4
   %26 = load ptr, ptr %7, align 8
   %27 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %25, ptr noundef %26, i32 noundef 3, i32 noundef 2, i32 noundef 0) #5
-  br label %35
+  br label %28
 
-28:                                               ; preds = %10
-  %29 = load i32, ptr @hf_gsm_map_ericsson_locationInformation_lac, align 4
-  %30 = load ptr, ptr %7, align 8
-  %31 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %29, ptr noundef %30, i32 noundef 1, i32 noundef 2, i32 noundef 0) #5
-  %32 = load i32, ptr @hf_gsm_map_ericsson_locationInformation_sac, align 4
-  %33 = load ptr, ptr %7, align 8
-  %34 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %32, ptr noundef %33, i32 noundef 3, i32 noundef 2, i32 noundef 0) #5
-  br label %35
-
-35:                                               ; preds = %21, %28, %10, %6
+28:                                               ; preds = %.sink.split, %10, %6
   ret i32 %8
 }
 

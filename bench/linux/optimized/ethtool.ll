@@ -1954,12 +1954,7 @@ reg_pattern_test.exit62.thread:                   ; preds = %.preheader.i61, %re
   %423 = load ptr, ptr %419, align 8
   %424 = call i32 %423(ptr noundef %40, i16 noundef zeroext %421, i16 noundef zeroext 1, ptr noundef nonnull %6) #15
   %425 = icmp slt i32 %424, 0
-  br i1 %425, label %.thread67, label %426
-
-.thread67:                                        ; preds = %420
-  store i64 1, ptr %418, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #15
-  br label %437
+  br i1 %425, label %.sink.split, label %426
 
 426:                                              ; preds = %420
   %427 = load i16, ptr %6, align 2
@@ -1973,12 +1968,7 @@ reg_pattern_test.exit62.thread:                   ; preds = %.preheader.i61, %re
   %.pre241 = load i64, ptr %418, align 8
   %433 = icmp eq i64 %.pre241, 0
   %or.cond = select i1 %432, i1 %433, i1 false
-  br i1 %or.cond, label %.thread243, label %434
-
-.thread243:                                       ; preds = %431
-  store i64 2, ptr %418, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #15
-  br label %437
+  br i1 %or.cond, label %.sink.split, label %434
 
 434:                                              ; preds = %431
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #15
@@ -1986,7 +1976,13 @@ reg_pattern_test.exit62.thread:                   ; preds = %.preheader.i61, %re
   %436 = icmp eq i64 %435, 0
   br i1 %436, label %440, label %437
 
-437:                                              ; preds = %.thread243, %.thread67, %434
+.sink.split:                                      ; preds = %420, %431
+  %.sink307 = phi i64 [ 2, %431 ], [ 1, %420 ]
+  store i64 %.sink307, ptr %418, align 8
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #15
+  br label %437
+
+437:                                              ; preds = %.sink.split, %434
   %438 = load i32, ptr %25, align 4
   %439 = or i32 %438, 2
   store i32 %439, ptr %25, align 4

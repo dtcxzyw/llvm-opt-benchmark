@@ -752,8 +752,7 @@ default.unreachable:                              ; preds = %87
   %363 = or disjoint i64 %362, %358
   store i64 %363, ptr %348, align 8
   %364 = getelementptr inbounds i8, ptr %345, i64 4
-  store ptr %364, ptr %7, align 8
-  br label %391
+  br label %.sink.split
 
 365:                                              ; preds = %342
   %366 = getelementptr inbounds i8, ptr %11, i64 1928
@@ -779,8 +778,7 @@ default.unreachable:                              ; preds = %87
 
 378:                                              ; preds = %369
   %379 = getelementptr inbounds i8, ptr %371, i64 7
-  store ptr %379, ptr %7, align 8
-  br label %391
+  br label %.sink.split
 
 380:                                              ; preds = %342
   %381 = load ptr, ptr %7, align 8
@@ -796,10 +794,14 @@ default.unreachable:                              ; preds = %87
   %389 = or disjoint i64 %388, %383
   store i64 %389, ptr %384, align 8
   %390 = getelementptr inbounds i8, ptr %381, i64 2
-  store ptr %390, ptr %7, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %380, %378, %344
+  %.sink912 = phi ptr [ %364, %344 ], [ %379, %378 ], [ %390, %380 ]
+  store ptr %.sink912, ptr %7, align 8
   br label %391
 
-391:                                              ; preds = %344, %378, %380, %342
+391:                                              ; preds = %.sink.split, %342
   %392 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr @H5D_LOPS_CONTIG, ptr %392, align 8
   br label %.thread768
@@ -1177,8 +1179,8 @@ default.unreachable:                              ; preds = %87
   %603 = load i32, ptr %602, align 4
   %604 = getelementptr inbounds i8, ptr %11, i64 164
   store i32 %603, ptr %604, align 4
-  %.not916 = icmp eq i8 %532, 1
-  br i1 %.not916, label %._crit_edge817, label %.lr.ph816
+  %.not921 = icmp eq i8 %532, 1
+  br i1 %.not921, label %._crit_edge817, label %.lr.ph816
 
 .lr.ph816:                                        ; preds = %._crit_edge813
   %605 = zext nneg i8 %532 to i64
@@ -1300,8 +1302,7 @@ default.unreachable:                              ; preds = %87
   %672 = shl nuw i32 %671, 24
   %673 = or disjoint i32 %668, %672
   %674 = getelementptr inbounds i8, ptr %612, i64 5
-  store ptr %674, ptr %7, align 8
-  br label %696
+  br label %.sink.split913
 
 675:                                              ; preds = %654
   %676 = getelementptr inbounds i8, ptr %612, i64 9
@@ -1323,8 +1324,7 @@ default.unreachable:                              ; preds = %87
 
 685:                                              ; preds = %677
   %686 = getelementptr inbounds i8, ptr %678, i64 7
-  store ptr %686, ptr %7, align 8
-  br label %696
+  br label %.sink.split913
 
 687:                                              ; preds = %654
   %688 = load i8, ptr %622, align 1
@@ -1336,12 +1336,17 @@ default.unreachable:                              ; preds = %87
   %693 = shl nuw nsw i32 %692, 8
   %694 = or disjoint i32 %693, %689
   %695 = getelementptr inbounds i8, ptr %612, i64 3
-  store ptr %695, ptr %7, align 8
+  br label %.sink.split913
+
+.sink.split913:                                   ; preds = %656, %685, %687
+  %.sink914 = phi ptr [ %695, %687 ], [ %686, %685 ], [ %674, %656 ]
+  %.1620.ph = phi i32 [ %694, %687 ], [ %683, %685 ], [ %673, %656 ]
+  store ptr %.sink914, ptr %7, align 8
   br label %696
 
-696:                                              ; preds = %654, %687, %685, %656
-  %697 = phi ptr [ %622, %654 ], [ %695, %687 ], [ %686, %685 ], [ %674, %656 ]
-  %.1620 = phi i32 [ 0, %654 ], [ %694, %687 ], [ %683, %685 ], [ %673, %656 ]
+696:                                              ; preds = %.sink.split913, %654
+  %697 = phi ptr [ %622, %654 ], [ %.sink914, %.sink.split913 ]
+  %.1620 = phi i32 [ 0, %654 ], [ %.1620.ph, %.sink.split913 ]
   %698 = getelementptr inbounds i8, ptr %11, i64 1944
   store i32 %.1620, ptr %698, align 8
   %699 = load i8, ptr %697, align 1
@@ -1897,7 +1902,6 @@ default.unreachable878:                           ; preds = %630
   %1047 = shl nuw nsw i64 %1046, 24
   %1048 = or disjoint i64 %1043, %1047
   %1049 = getelementptr inbounds i8, ptr %1031, i64 4
-  store ptr %1049, ptr %8, align 8
   br label %1073
 
 1050:                                             ; preds = %1028
@@ -1920,7 +1924,6 @@ default.unreachable878:                           ; preds = %630
 
 1061:                                             ; preds = %1053
   %1062 = getelementptr inbounds i8, ptr %1054, i64 7
-  store ptr %1062, ptr %8, align 8
   br label %1073
 
 1063:                                             ; preds = %1028
@@ -1933,11 +1936,12 @@ default.unreachable878:                           ; preds = %630
   %1070 = shl nuw nsw i64 %1069, 8
   %1071 = or disjoint i64 %1070, %1066
   %1072 = getelementptr inbounds i8, ptr %1064, i64 2
-  store ptr %1072, ptr %8, align 8
   br label %1073
 
 1073:                                             ; preds = %1030, %1061, %1063
-  %.1614 = phi i64 [ %1071, %1063 ], [ %1059, %1061 ], [ %1048, %1030 ]
+  %.sink916 = phi ptr [ %1049, %1030 ], [ %1062, %1061 ], [ %1072, %1063 ]
+  %.1614 = phi i64 [ %1048, %1030 ], [ %1059, %1061 ], [ %1071, %1063 ]
+  store ptr %.sink916, ptr %8, align 8
   %.not691 = icmp eq i64 %.1614, 0
   br i1 %.not691, label %.thread875, label %1074
 
@@ -2166,9 +2170,9 @@ default.unreachable878:                           ; preds = %630
   %1222 = getelementptr inbounds i8, ptr %1217, i64 168
   %1223 = load i64, ptr %1222, align 8
   %1224 = icmp eq i64 %1223, 0
-  br i1 %1224, label %.sink.split, label %1236
+  br i1 %1224, label %.sink.split917, label %1236
 
-.sink.split:                                      ; preds = %1221
+.sink.split917:                                   ; preds = %1221
   %1225 = getelementptr inbounds i8, ptr %1217, i64 128
   %1226 = load ptr, ptr %1225, align 8
   %.not694 = icmp eq ptr %1226, null
@@ -2183,13 +2187,13 @@ default.unreachable878:                           ; preds = %630
   %1232 = load ptr, ptr %1231, align 8
   %.not695 = icmp eq ptr %1232, null
   %1233 = getelementptr inbounds i8, ptr %1230, i64 72
-  %.sink915 = select i1 %.not695, ptr %1233, ptr %1232
-  %1234 = load ptr, ptr %.sink915, align 8
+  %.sink920 = select i1 %.not695, ptr %1233, ptr %1232
+  %1234 = load ptr, ptr %.sink920, align 8
   %1235 = getelementptr inbounds i8, ptr %1230, i64 16
   store ptr %1234, ptr %1235, align 8
   br label %1236
 
-1236:                                             ; preds = %.sink.split, %1221, %1215
+1236:                                             ; preds = %.sink.split917, %1221, %1215
   %1237 = load ptr, ptr %974, align 8
   %1238 = getelementptr inbounds %struct.H5O_storage_virtual_ent_t, ptr %1237, i64 %.0799, i32 3
   %1239 = load ptr, ptr %1238, align 8

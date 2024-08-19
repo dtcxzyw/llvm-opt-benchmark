@@ -3592,30 +3592,26 @@ stbi__start_file.exit:                            ; preds = %24, %26
   %32 = getelementptr inbounds i8, ptr %2, i64 32
   %33 = load i32, ptr %32, align 8
   %.not1.i.i = icmp eq i32 %33, 16
-  %or.cond.i = select i1 %.not.i.i.i, i1 %.not1.i.i, i1 false
-  br i1 %or.cond.i, label %stbi__png_is16.exit.i, label %34
-
-stbi__png_is16.exit.i:                            ; preds = %stbi__start_file.exit
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
-  br label %stbi__is_16_main.exit
+  %or.cond.i.i = select i1 %.not.i.i.i, i1 %.not1.i.i, i1 false
+  br i1 %or.cond.i.i, label %stbi__is_16_main.exit, label %34
 
 34:                                               ; preds = %stbi__start_file.exit
-  %.sink11.i.i = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds i8, ptr %.sink11.i.i, i64 208
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %.sink11.i.i, i64 192
-  store ptr %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %.sink11.i.i, i64 216
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %.sink11.i.i, i64 200
-  store ptr %39, ptr %40, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
+  %35 = load ptr, ptr %2, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 208
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %35, i64 192
+  store ptr %37, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %35, i64 216
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %35, i64 200
+  store ptr %40, ptr %41, align 8
   br label %stbi__is_16_main.exit
 
-stbi__is_16_main.exit:                            ; preds = %stbi__png_is16.exit.i, %34
-  %41 = phi i32 [ 0, %34 ], [ 1, %stbi__png_is16.exit.i ]
-  %42 = call i32 @fseek(ptr noundef %0, i64 noundef %4, i32 noundef 0)
-  ret i32 %41
+stbi__is_16_main.exit:                            ; preds = %stbi__start_file.exit, %34
+  %42 = phi i32 [ 0, %34 ], [ 1, %stbi__start_file.exit ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
+  %43 = call i32 @fseek(ptr noundef %0, i64 noundef %4, i32 noundef 0)
+  ret i32 %42
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3722,29 +3718,25 @@ define hidden range(i32 0, 2) i32 @stbi_is_16_bit_from_memory(ptr noundef %0, i3
   %15 = getelementptr inbounds i8, ptr %3, i64 32
   %16 = load i32, ptr %15, align 8
   %.not1.i.i = icmp eq i32 %16, 16
-  %or.cond.i = select i1 %.not.i.i.i, i1 %.not1.i.i, i1 false
-  br i1 %or.cond.i, label %stbi__png_is16.exit.i, label %17
-
-stbi__png_is16.exit.i:                            ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  br label %stbi__is_16_main.exit
+  %or.cond.i.i = select i1 %.not.i.i.i, i1 %.not1.i.i, i1 false
+  br i1 %or.cond.i.i, label %stbi__is_16_main.exit, label %17
 
 17:                                               ; preds = %2
-  %.sink11.i.i = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds i8, ptr %.sink11.i.i, i64 208
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %.sink11.i.i, i64 192
-  store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %.sink11.i.i, i64 216
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %.sink11.i.i, i64 200
-  store ptr %22, ptr %23, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  %18 = load ptr, ptr %3, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 208
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %18, i64 192
+  store ptr %20, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %18, i64 216
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %18, i64 200
+  store ptr %23, ptr %24, align 8
   br label %stbi__is_16_main.exit
 
-stbi__is_16_main.exit:                            ; preds = %stbi__png_is16.exit.i, %17
-  %24 = phi i32 [ 0, %17 ], [ 1, %stbi__png_is16.exit.i ]
-  ret i32 %24
+stbi__is_16_main.exit:                            ; preds = %2, %17
+  %25 = phi i32 [ 0, %17 ], [ 1, %2 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  ret i32 %25
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3805,29 +3797,25 @@ stbi__start_callbacks.exit:                       ; preds = %24, %26
   %32 = getelementptr inbounds i8, ptr %3, i64 32
   %33 = load i32, ptr %32, align 8
   %.not1.i.i = icmp eq i32 %33, 16
-  %or.cond.i = select i1 %.not.i.i.i, i1 %.not1.i.i, i1 false
-  br i1 %or.cond.i, label %stbi__png_is16.exit.i, label %34
-
-stbi__png_is16.exit.i:                            ; preds = %stbi__start_callbacks.exit
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  br label %stbi__is_16_main.exit
+  %or.cond.i.i = select i1 %.not.i.i.i, i1 %.not1.i.i, i1 false
+  br i1 %or.cond.i.i, label %stbi__is_16_main.exit, label %34
 
 34:                                               ; preds = %stbi__start_callbacks.exit
-  %.sink11.i.i = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds i8, ptr %.sink11.i.i, i64 208
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %.sink11.i.i, i64 192
-  store ptr %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %.sink11.i.i, i64 216
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %.sink11.i.i, i64 200
-  store ptr %39, ptr %40, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  %35 = load ptr, ptr %3, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 208
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %35, i64 192
+  store ptr %37, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %35, i64 216
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %35, i64 200
+  store ptr %40, ptr %41, align 8
   br label %stbi__is_16_main.exit
 
-stbi__is_16_main.exit:                            ; preds = %stbi__png_is16.exit.i, %34
-  %41 = phi i32 [ 0, %34 ], [ 1, %stbi__png_is16.exit.i ]
-  ret i32 %41
+stbi__is_16_main.exit:                            ; preds = %stbi__start_callbacks.exit, %34
+  %42 = phi i32 [ 0, %34 ], [ 1, %stbi__start_callbacks.exit ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  ret i32 %42
 }
 
 ; Function Attrs: nofree nounwind uwtable

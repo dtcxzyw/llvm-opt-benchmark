@@ -16648,8 +16648,6 @@ cleanup.thread:                                   ; preds = %invoke.cont46
   %17 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !685
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8, !tbaa !685
-  call void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %constant_value) #22
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %constant_value) #22
   br label %for.inc
 
 if.else.i.i:                                      ; preds = %invoke.cont46
@@ -16799,11 +16797,11 @@ cleanup:                                          ; preds = %if.then.i41.i, %_ZN
   store ptr %incdec.ptr.i14, ptr %_M_finish.i.i, align 8, !tbaa !685
   %add.ptr19.i = getelementptr inbounds %"class.duckdb::unique_ptr.136", ptr %cond.i31.i, i64 %cond.i.i
   store ptr %add.ptr19.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !683
-  call void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %constant_value) #22
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %constant_value) #22
   br label %for.inc
 
 for.inc:                                          ; preds = %cleanup, %cleanup.thread
+  call void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %constant_value) #22
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %constant_value) #22
   %inc = add nuw i64 %i.0183, 1
   %34 = load ptr, ptr %_M_finish.i, align 8, !tbaa !147
   %35 = load ptr, ptr %children, align 8, !tbaa !149

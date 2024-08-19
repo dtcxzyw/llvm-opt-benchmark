@@ -166,7 +166,7 @@ land.lhs.true.i.i.i.i:                            ; preds = %_ZN6hermes17CallGra
   %optimizationSettings_.i.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i.i, i64 632
   %9 = load i8, ptr %optimizationSettings_.i.i.i.i.i, align 8
   %tobool.i.i.i.i = trunc i8 %9 to i1
-  br i1 %tobool.i.i.i.i, label %if.end.i.i.i.i, label %_ZL13propagateArgsRN4llvh8DenseSetIPN6hermes8CallInstENS_12DenseMapInfoIS3_EEEEPNS1_8FunctionE.exit.thread.i.i.i
+  br i1 %tobool.i.i.i.i, label %if.end.i.i.i.i, label %return.sink.split.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %land.lhs.true.i.i.i.i, %_ZN6hermes17CallGraphProvider17getKnownCallsitesEPNS_8FunctionE.exit.i.i.i
   %parent_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.064.i, i64 56
@@ -177,7 +177,7 @@ if.end.i.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
   %Size.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.064.i, i64 104
   %11 = load i32, ptr %Size.i.i.i.i.i, align 8
   %cmp40.i.i.i.i = icmp sgt i32 %11, 0
-  br i1 %cmp40.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZL13propagateArgsRN4llvh8DenseSetIPN6hermes8CallInstENS_12DenseMapInfoIS3_EEEEPNS1_8FunctionE.exit.thread.i.i.i
+  br i1 %cmp40.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %return.sink.split.i.i.i
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i.i.i.i
   %NumEntries.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.sink.i.i.ph.pn.i.i.i.i.i, i64 16
@@ -185,7 +185,7 @@ for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i.i.i.i
   %wide.trip.count.i.i.i.i = zext nneg i32 %11 to i64
   %12 = load i32, ptr %NumEntries.i.i.i.i.i.i.i.i.i, align 8
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %_ZL13propagateArgsRN4llvh8DenseSetIPN6hermes8CallInstENS_12DenseMapInfoIS3_EEEEPNS1_8FunctionE.exit.i.i.i, label %for.body.i.i.i.i
+  br i1 %13, label %return.sink.split.i.i.i, label %for.body.i.i.i.i
 
 for.body.ithread-pre-split.i.i.i:                 ; preds = %for.inc45.i.i.i.i
   %.pr.i.i.i = load i32, ptr %NumEntries.i.i.i.i.i.i.i.i.i, align 8
@@ -320,19 +320,15 @@ for.inc45.i.i.i.i:                                ; preds = %while.body.i6.i12.i
   %changed.1.i.i.i.i = phi i1 [ %changed.042.i.i.i.i, %for.end.i.i.i.i ], [ true, %if.then38.i.i.i.i ], [ %changed.042.i.i.i.i, %land.lhs.true34.i.i.i.i ], [ %changed.042.i.i.i.i, %_ZN4llvh6detail12DenseSetImplIPN6hermes8CallInstENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_EENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit.i.i.i.i ], [ %changed.042.i.i.i.i, %for.body.i.i.i.i ], [ %changed.042.i.i.i.i, %while.body.i6.i12.i9.i.i.i.i.i.i ]
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %_ZL13propagateArgsRN4llvh8DenseSetIPN6hermes8CallInstENS_12DenseMapInfoIS3_EEEEPNS1_8FunctionE.exit.i.i.i, label %for.body.ithread-pre-split.i.i.i, !llvm.loop !7
+  br i1 %exitcond.not.i.i.i.i, label %return.sink.split.i.i.i, label %for.body.ithread-pre-split.i.i.i, !llvm.loop !7
 
-_ZL13propagateArgsRN4llvh8DenseSetIPN6hermes8CallInstENS_12DenseMapInfoIS3_EEEEPNS1_8FunctionE.exit.thread.i.i.i: ; preds = %if.end.i.i.i.i, %land.lhs.true.i.i.i.i
+return.sink.split.i.i.i:                          ; preds = %for.inc45.i.i.i.i, %for.body.lr.ph.i.i.i.i, %if.end.i.i.i.i, %land.lhs.true.i.i.i.i
+  %retval.0.ph.i.i.i = phi i1 [ false, %land.lhs.true.i.i.i.i ], [ false, %if.end.i.i.i.i ], [ false, %for.body.lr.ph.i.i.i.i ], [ %changed.1.i.i.i.i, %for.inc45.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %builder.i.i.i.i)
   br label %_ZN12_GLOBAL__N_117TypeInferenceImpl11inferParamsEPN6hermes8FunctionE.exit.i.i
 
-_ZL13propagateArgsRN4llvh8DenseSetIPN6hermes8CallInstENS_12DenseMapInfoIS3_EEEEPNS1_8FunctionE.exit.i.i.i: ; preds = %for.inc45.i.i.i.i, %for.body.lr.ph.i.i.i.i
-  %.us-phi.i.i.i = phi i1 [ false, %for.body.lr.ph.i.i.i.i ], [ %changed.1.i.i.i.i, %for.inc45.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %builder.i.i.i.i)
-  br label %_ZN12_GLOBAL__N_117TypeInferenceImpl11inferParamsEPN6hermes8FunctionE.exit.i.i
-
-_ZN12_GLOBAL__N_117TypeInferenceImpl11inferParamsEPN6hermes8FunctionE.exit.i.i: ; preds = %if.end9.i.i.i.i.i.i, %_ZL13propagateArgsRN4llvh8DenseSetIPN6hermes8CallInstENS_12DenseMapInfoIS3_EEEEPNS1_8FunctionE.exit.i.i.i, %_ZL13propagateArgsRN4llvh8DenseSetIPN6hermes8CallInstENS_12DenseMapInfoIS3_EEEEPNS1_8FunctionE.exit.thread.i.i.i, %for.body.i
-  %retval.0.i.i.i = phi i1 [ false, %_ZL13propagateArgsRN4llvh8DenseSetIPN6hermes8CallInstENS_12DenseMapInfoIS3_EEEEPNS1_8FunctionE.exit.thread.i.i.i ], [ %.us-phi.i.i.i, %_ZL13propagateArgsRN4llvh8DenseSetIPN6hermes8CallInstENS_12DenseMapInfoIS3_EEEEPNS1_8FunctionE.exit.i.i.i ], [ false, %for.body.i ], [ false, %if.end9.i.i.i.i.i.i ]
+_ZN12_GLOBAL__N_117TypeInferenceImpl11inferParamsEPN6hermes8FunctionE.exit.i.i: ; preds = %if.end9.i.i.i.i.i.i, %return.sink.split.i.i.i, %for.body.i
+  %retval.0.i.i.i = phi i1 [ false, %for.body.i ], [ %retval.0.ph.i.i.i, %return.sink.split.i.i.i ], [ false, %if.end9.i.i.i.i.i.i ]
   %Next.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.064.i, i64 88
   %BasicBlockList.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.064.i, i64 80
   %add.ptr.i74.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.064.i, i64 16

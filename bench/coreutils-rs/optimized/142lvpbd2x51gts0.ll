@@ -801,7 +801,7 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   %28 = load i64, ptr %4, align 8, !range !107, !noalias !102, !noundef !4
   switch i64 %28, label %29 [
     i64 1, label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h3f25793aacad6c24E.llvm.8413382511861282981.exit.i.i.i"
-    i64 2, label %32
+    i64 2, label %"_ZN6uu_fmt9parasplit9ParaWords12create_words28_$u7b$$u7b$closure$u7d$$u7d$17h22a1e39031b753aeE.llvm.2379230569744416459.exit"
   ]
 
 29:                                               ; preds = %27
@@ -811,29 +811,25 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
 "_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h3f25793aacad6c24E.llvm.8413382511861282981.exit.i.i.i": ; preds = %27
   %30 = getelementptr inbounds i8, ptr %4, i64 8
   %31 = load i64, ptr %30, align 8, !noalias !102, !noundef !4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !102
   br label %"_ZN6uu_fmt9parasplit9ParaWords12create_words28_$u7b$$u7b$closure$u7d$$u7d$17h22a1e39031b753aeE.llvm.2379230569744416459.exit"
 
-32:                                               ; preds = %27
+"_ZN6uu_fmt9parasplit9ParaWords12create_words28_$u7b$$u7b$closure$u7d$$u7d$17h22a1e39031b753aeE.llvm.2379230569744416459.exit": ; preds = %27, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h3f25793aacad6c24E.llvm.8413382511861282981.exit.i.i.i"
+  %32 = phi i64 [ %31, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h3f25793aacad6c24E.llvm.8413382511861282981.exit.i.i.i" ], [ %24, %27 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !102
-  br label %"_ZN6uu_fmt9parasplit9ParaWords12create_words28_$u7b$$u7b$closure$u7d$$u7d$17h22a1e39031b753aeE.llvm.2379230569744416459.exit"
-
-"_ZN6uu_fmt9parasplit9ParaWords12create_words28_$u7b$$u7b$closure$u7d$$u7d$17h22a1e39031b753aeE.llvm.2379230569744416459.exit": ; preds = %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h3f25793aacad6c24E.llvm.8413382511861282981.exit.i.i.i", %32
-  %33 = phi i64 [ %24, %32 ], [ %31, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h3f25793aacad6c24E.llvm.8413382511861282981.exit.i.i.i" ]
-  %34 = getelementptr inbounds i8, ptr %25, i64 %33
-  %35 = sub i64 %24, %33
+  %33 = getelementptr inbounds i8, ptr %25, i64 %32
+  %34 = sub i64 %24, %32
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !92
   store ptr %6, ptr %0, align 8, !alias.scope !108, !noalias !109
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %34, ptr %36, align 8, !alias.scope !108, !noalias !109
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %35, ptr %37, align 8, !alias.scope !108, !noalias !109
-  %38 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %24, ptr %38, align 8, !alias.scope !108, !noalias !109
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 0, ptr %39, align 8, !alias.scope !108, !noalias !109
-  %40 = getelementptr inbounds i8, ptr %0, i64 40
-  store i8 0, ptr %40, align 8, !alias.scope !108, !noalias !109
+  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %33, ptr %35, align 8, !alias.scope !108, !noalias !109
+  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %34, ptr %36, align 8, !alias.scope !108, !noalias !109
+  %37 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %24, ptr %37, align 8, !alias.scope !108, !noalias !109
+  %38 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 0, ptr %38, align 8, !alias.scope !108, !noalias !109
+  %39 = getelementptr inbounds i8, ptr %0, i64 40
+  store i8 0, ptr %39, align 8, !alias.scope !108, !noalias !109
   ret void
 }
 
@@ -1689,7 +1685,7 @@ define hidden void @"_ZN6uu_fmt9parasplit9ParaWords12create_words28_$u7b$$u7b$cl
   %28 = load i64, ptr %4, align 8, !range !107, !noalias !212, !noundef !4
   switch i64 %28, label %29 [
     i64 1, label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h3f25793aacad6c24E.llvm.8413382511861282981.exit.i.i"
-    i64 2, label %32
+    i64 2, label %_ZN6uu_fmt9parasplit9WordSplit3new17hdc2494d9dc6a263dE.exit
   ]
 
 29:                                               ; preds = %27
@@ -1699,29 +1695,25 @@ define hidden void @"_ZN6uu_fmt9parasplit9ParaWords12create_words28_$u7b$$u7b$cl
 "_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h3f25793aacad6c24E.llvm.8413382511861282981.exit.i.i": ; preds = %27
   %30 = getelementptr inbounds i8, ptr %4, i64 8
   %31 = load i64, ptr %30, align 8, !noalias !212, !noundef !4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !212
   br label %_ZN6uu_fmt9parasplit9WordSplit3new17hdc2494d9dc6a263dE.exit
 
-32:                                               ; preds = %27
+_ZN6uu_fmt9parasplit9WordSplit3new17hdc2494d9dc6a263dE.exit: ; preds = %27, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h3f25793aacad6c24E.llvm.8413382511861282981.exit.i.i"
+  %32 = phi i64 [ %31, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h3f25793aacad6c24E.llvm.8413382511861282981.exit.i.i" ], [ %24, %27 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !212
-  br label %_ZN6uu_fmt9parasplit9WordSplit3new17hdc2494d9dc6a263dE.exit
-
-_ZN6uu_fmt9parasplit9WordSplit3new17hdc2494d9dc6a263dE.exit: ; preds = %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h3f25793aacad6c24E.llvm.8413382511861282981.exit.i.i", %32
-  %33 = phi i64 [ %24, %32 ], [ %31, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h3f25793aacad6c24E.llvm.8413382511861282981.exit.i.i" ]
-  %34 = getelementptr inbounds i8, ptr %25, i64 %33
-  %35 = sub i64 %24, %33
+  %33 = getelementptr inbounds i8, ptr %25, i64 %32
+  %34 = sub i64 %24, %32
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !202
   store ptr %6, ptr %0, align 8, !alias.scope !199, !noalias !217
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %34, ptr %36, align 8, !alias.scope !199, !noalias !217
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %35, ptr %37, align 8, !alias.scope !199, !noalias !217
-  %38 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %24, ptr %38, align 8, !alias.scope !199, !noalias !217
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 0, ptr %39, align 8, !alias.scope !199, !noalias !217
-  %40 = getelementptr inbounds i8, ptr %0, i64 40
-  store i8 0, ptr %40, align 8, !alias.scope !199, !noalias !217
+  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %33, ptr %35, align 8, !alias.scope !199, !noalias !217
+  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %34, ptr %36, align 8, !alias.scope !199, !noalias !217
+  %37 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %24, ptr %37, align 8, !alias.scope !199, !noalias !217
+  %38 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 0, ptr %38, align 8, !alias.scope !199, !noalias !217
+  %39 = getelementptr inbounds i8, ptr %0, i64 40
+  store i8 0, ptr %39, align 8, !alias.scope !199, !noalias !217
   ret void
 }
 

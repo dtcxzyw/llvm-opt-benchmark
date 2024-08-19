@@ -2211,148 +2211,139 @@ define ptr @wtap_get_savable_file_types_subtypes_for_file(i32 noundef %0, ptr no
   store i32 -1, ptr %7, align 4
   %8 = tail call fastcc i32 @wtap_dump_can_write_format(i32 noundef %0, ptr noundef %1, i32 noundef %2)
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %10, label %9
+  br i1 %.not, label %9, label %31
 
 9:                                                ; preds = %4
-  store i32 %0, ptr %6, align 4
-  br label %32
+  %10 = load i32, ptr @pcap_file_type_subtype, align 4
+  %11 = tail call fastcc i32 @wtap_dump_can_write_format(i32 noundef %10, ptr noundef %1, i32 noundef %2)
+  %.not26 = icmp eq i32 %11, 0
+  br i1 %.not26, label %14, label %12
 
-10:                                               ; preds = %4
-  %11 = load i32, ptr @pcap_file_type_subtype, align 4
-  %12 = tail call fastcc i32 @wtap_dump_can_write_format(i32 noundef %11, ptr noundef %1, i32 noundef %2)
-  %.not26 = icmp eq i32 %12, 0
-  br i1 %.not26, label %15, label %13
+12:                                               ; preds = %9
+  %13 = load i32, ptr @pcap_file_type_subtype, align 4
+  br label %31
 
-13:                                               ; preds = %10
-  %14 = load i32, ptr @pcap_file_type_subtype, align 4
-  store i32 %14, ptr %6, align 4
-  br label %32
+14:                                               ; preds = %9
+  %15 = load i32, ptr @pcapng_file_type_subtype, align 4
+  %16 = tail call fastcc i32 @wtap_dump_can_write_format(i32 noundef %15, ptr noundef %1, i32 noundef %2)
+  %.not27 = icmp eq i32 %16, 0
+  br i1 %.not27, label %19, label %17
 
-15:                                               ; preds = %10
-  %16 = load i32, ptr @pcapng_file_type_subtype, align 4
-  %17 = tail call fastcc i32 @wtap_dump_can_write_format(i32 noundef %16, ptr noundef %1, i32 noundef %2)
-  %.not27 = icmp eq i32 %17, 0
-  br i1 %.not27, label %20, label %18
+17:                                               ; preds = %14
+  %18 = load i32, ptr @pcapng_file_type_subtype, align 4
+  br label %31
 
-18:                                               ; preds = %15
-  %19 = load i32, ptr @pcapng_file_type_subtype, align 4
-  store i32 %19, ptr %6, align 4
-  br label %32
+19:                                               ; preds = %14
+  %20 = load ptr, ptr @file_type_subtype_table_arr, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = load i32, ptr %21, align 8
+  %23 = icmp sgt i32 %22, 0
+  br i1 %23, label %.lr.ph, label %.thread
 
-20:                                               ; preds = %15
-  %21 = load ptr, ptr @file_type_subtype_table_arr, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
-  %23 = load i32, ptr %22, align 8
-  %24 = icmp sgt i32 %23, 0
-  br i1 %24, label %.lr.ph, label %.thread
-
-.lr.ph:                                           ; preds = %20, %26
-  %storemerge36 = phi i32 [ %27, %26 ], [ 0, %20 ]
-  %25 = tail call fastcc i32 @wtap_dump_can_write_format(i32 noundef %storemerge36, ptr noundef %1, i32 noundef %2)
-  %.not28 = icmp eq i32 %25, 0
-  br i1 %.not28, label %26, label %.thread40
+.lr.ph:                                           ; preds = %19, %25
+  %storemerge36 = phi i32 [ %26, %25 ], [ 0, %19 ]
+  %24 = tail call fastcc i32 @wtap_dump_can_write_format(i32 noundef %storemerge36, ptr noundef %1, i32 noundef %2)
+  %.not28 = icmp eq i32 %24, 0
+  br i1 %.not28, label %25, label %.thread40
 
 .thread40:                                        ; preds = %.lr.ph
   store i32 %storemerge36, ptr %6, align 4
-  br label %35
+  br label %33
 
-26:                                               ; preds = %.lr.ph
-  %27 = add nuw nsw i32 %storemerge36, 1
-  %28 = load ptr, ptr @file_type_subtype_table_arr, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
-  %30 = load i32, ptr %29, align 8
-  %31 = icmp slt i32 %27, %30
-  br i1 %31, label %.lr.ph, label %.thread, !llvm.loop !27
+25:                                               ; preds = %.lr.ph
+  %26 = add nuw nsw i32 %storemerge36, 1
+  %27 = load ptr, ptr @file_type_subtype_table_arr, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %29 = load i32, ptr %28, align 8
+  %30 = icmp slt i32 %26, %29
+  br i1 %30, label %.lr.ph, label %.thread, !llvm.loop !27
 
-32:                                               ; preds = %13, %18, %9
-  %33 = phi i32 [ %14, %13 ], [ %19, %18 ], [ %0, %9 ]
-  %34 = icmp eq i32 %33, -1
-  br i1 %34, label %.thread, label %35
+31:                                               ; preds = %4, %12, %17
+  %.sink = phi i32 [ %13, %12 ], [ %18, %17 ], [ %0, %4 ]
+  store i32 %.sink, ptr %6, align 4
+  %32 = icmp eq i32 %.sink, -1
+  br i1 %32, label %.thread, label %33
 
-35:                                               ; preds = %.thread40, %32
-  %36 = phi i32 [ %storemerge36, %.thread40 ], [ %33, %32 ]
-  %37 = load i32, ptr @pcap_file_type_subtype, align 4
-  %38 = icmp eq i32 %36, %37
-  %39 = load i32, ptr @pcapng_file_type_subtype, align 4
-  br i1 %38, label %40, label %44
+33:                                               ; preds = %.thread40, %31
+  %34 = phi i32 [ %storemerge36, %.thread40 ], [ %.sink, %31 ]
+  %35 = load i32, ptr @pcap_file_type_subtype, align 4
+  %36 = icmp eq i32 %34, %35
+  %37 = load i32, ptr @pcapng_file_type_subtype, align 4
+  br i1 %36, label %38, label %40
 
-40:                                               ; preds = %35
-  %41 = tail call fastcc i32 @wtap_dump_can_write_format(i32 noundef %39, ptr noundef %1, i32 noundef %2)
-  %.not30 = icmp eq i32 %41, 0
-  br i1 %.not30, label %50, label %42
+38:                                               ; preds = %33
+  %39 = tail call fastcc i32 @wtap_dump_can_write_format(i32 noundef %37, ptr noundef %1, i32 noundef %2)
+  %.not30 = icmp eq i32 %39, 0
+  br i1 %.not30, label %45, label %.sink.split
+
+40:                                               ; preds = %33
+  %41 = icmp eq i32 %34, %37
+  br i1 %41, label %42, label %45
 
 42:                                               ; preds = %40
-  %43 = load i32, ptr @pcapng_file_type_subtype, align 4
-  store i32 %43, ptr %7, align 4
-  br label %50
+  %43 = tail call fastcc i32 @wtap_dump_can_write_format(i32 noundef %35, ptr noundef %1, i32 noundef %2)
+  %.not29 = icmp eq i32 %43, 0
+  br i1 %.not29, label %45, label %.sink.split
 
-44:                                               ; preds = %35
-  %45 = icmp eq i32 %36, %39
-  br i1 %45, label %46, label %50
+.sink.split:                                      ; preds = %42, %38
+  %pcap_file_type_subtype.sink = phi ptr [ @pcapng_file_type_subtype, %38 ], [ @pcap_file_type_subtype, %42 ]
+  %44 = load i32, ptr %pcap_file_type_subtype.sink, align 4
+  store i32 %44, ptr %7, align 4
+  br label %45
 
-46:                                               ; preds = %44
-  %47 = tail call fastcc i32 @wtap_dump_can_write_format(i32 noundef %37, ptr noundef %1, i32 noundef %2)
-  %.not29 = icmp eq i32 %47, 0
-  br i1 %.not29, label %50, label %48
-
-48:                                               ; preds = %46
-  %49 = load i32, ptr @pcap_file_type_subtype, align 4
-  store i32 %49, ptr %7, align 4
-  br label %50
-
-50:                                               ; preds = %44, %48, %46, %40, %42
-  %51 = phi i32 [ -1, %44 ], [ %49, %48 ], [ -1, %46 ], [ -1, %40 ], [ %43, %42 ]
-  %52 = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 4) #22
+45:                                               ; preds = %.sink.split, %40, %42, %38
+  %46 = phi i32 [ -1, %40 ], [ -1, %42 ], [ -1, %38 ], [ %44, %.sink.split ]
+  %47 = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 4) #22
   store i32 0, ptr %5, align 4
-  %53 = load ptr, ptr @file_type_subtype_table_arr, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
-  %55 = load i32, ptr %54, align 8
-  %56 = icmp sgt i32 %55, 0
-  br i1 %56, label %.lr.ph38, label %._crit_edge
+  %48 = load ptr, ptr @file_type_subtype_table_arr, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp sgt i32 %50, 0
+  br i1 %51, label %.lr.ph38, label %._crit_edge
 
-.lr.ph38:                                         ; preds = %50, %63
-  %storemerge3137 = phi i32 [ %65, %63 ], [ 0, %50 ]
-  %57 = icmp eq i32 %storemerge3137, %36
-  %58 = icmp eq i32 %storemerge3137, %51
-  %or.cond = select i1 %57, i1 true, i1 %58
-  br i1 %or.cond, label %63, label %59
+.lr.ph38:                                         ; preds = %45, %58
+  %storemerge3137 = phi i32 [ %60, %58 ], [ 0, %45 ]
+  %52 = icmp eq i32 %storemerge3137, %34
+  %53 = icmp eq i32 %storemerge3137, %46
+  %or.cond = select i1 %52, i1 true, i1 %53
+  br i1 %or.cond, label %58, label %54
 
-59:                                               ; preds = %.lr.ph38
-  %60 = call fastcc i32 @wtap_dump_can_write_format(i32 noundef %storemerge3137, ptr noundef %1, i32 noundef %2)
-  %.not33 = icmp eq i32 %60, 0
-  br i1 %.not33, label %63, label %61
+54:                                               ; preds = %.lr.ph38
+  %55 = call fastcc i32 @wtap_dump_can_write_format(i32 noundef %storemerge3137, ptr noundef %1, i32 noundef %2)
+  %.not33 = icmp eq i32 %55, 0
+  br i1 %.not33, label %58, label %56
 
-61:                                               ; preds = %59
-  %62 = call ptr @g_array_append_vals(ptr noundef %52, ptr noundef nonnull %5, i32 noundef 1) #22
-  br label %63
+56:                                               ; preds = %54
+  %57 = call ptr @g_array_append_vals(ptr noundef %47, ptr noundef nonnull %5, i32 noundef 1) #22
+  br label %58
 
-63:                                               ; preds = %59, %61, %.lr.ph38
-  %64 = load i32, ptr %5, align 4
-  %65 = add i32 %64, 1
-  store i32 %65, ptr %5, align 4
-  %66 = load ptr, ptr @file_type_subtype_table_arr, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 8
-  %68 = load i32, ptr %67, align 8
-  %69 = icmp slt i32 %65, %68
-  br i1 %69, label %.lr.ph38, label %._crit_edge, !llvm.loop !28
+58:                                               ; preds = %54, %56, %.lr.ph38
+  %59 = load i32, ptr %5, align 4
+  %60 = add i32 %59, 1
+  store i32 %60, ptr %5, align 4
+  %61 = load ptr, ptr @file_type_subtype_table_arr, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp slt i32 %60, %63
+  br i1 %64, label %.lr.ph38, label %._crit_edge, !llvm.loop !28
 
-._crit_edge:                                      ; preds = %63, %50
-  %70 = icmp eq i32 %3, 0
-  %71 = select i1 %70, ptr @compare_file_type_subtypes_by_name, ptr @compare_file_type_subtypes_by_description
-  call void @g_array_sort(ptr noundef %52, ptr noundef nonnull %71) #22
-  %.not32 = icmp eq i32 %51, -1
-  br i1 %.not32, label %74, label %72
+._crit_edge:                                      ; preds = %58, %45
+  %65 = icmp eq i32 %3, 0
+  %66 = select i1 %65, ptr @compare_file_type_subtypes_by_name, ptr @compare_file_type_subtypes_by_description
+  call void @g_array_sort(ptr noundef %47, ptr noundef nonnull %66) #22
+  %.not32 = icmp eq i32 %46, -1
+  br i1 %.not32, label %69, label %67
 
-72:                                               ; preds = %._crit_edge
-  %73 = call ptr @g_array_prepend_vals(ptr noundef %52, ptr noundef nonnull %7, i32 noundef 1) #22
-  br label %74
+67:                                               ; preds = %._crit_edge
+  %68 = call ptr @g_array_prepend_vals(ptr noundef %47, ptr noundef nonnull %7, i32 noundef 1) #22
+  br label %69
 
-74:                                               ; preds = %72, %._crit_edge
-  %75 = call ptr @g_array_prepend_vals(ptr noundef %52, ptr noundef nonnull %6, i32 noundef 1) #22
+69:                                               ; preds = %67, %._crit_edge
+  %70 = call ptr @g_array_prepend_vals(ptr noundef %47, ptr noundef nonnull %6, i32 noundef 1) #22
   br label %.thread
 
-.thread:                                          ; preds = %26, %20, %32, %74
-  %.0 = phi ptr [ %52, %74 ], [ null, %32 ], [ null, %20 ], [ null, %26 ]
+.thread:                                          ; preds = %25, %19, %31, %69
+  %.0 = phi ptr [ %47, %69 ], [ null, %31 ], [ null, %19 ], [ null, %25 ]
   ret ptr %.0
 }
 

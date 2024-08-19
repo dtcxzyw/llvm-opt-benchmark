@@ -5485,27 +5485,24 @@ _ZNK2cv11_InputArray6getMatEi.exit.i:             ; preds = %2235, %2232
   %.020.i.i = phi i64 [ 0, %.lr.ph.i612.i ], [ %2258, %.noexc615.i ]
   %2246 = getelementptr inbounds %"struct.cv::text::(anonymous namespace)::Component", ptr %2096, i64 %.020.i.i
   %2247 = urem i64 %.020.i.i, 3
-  switch i64 %2247, label %2250 [
-    i64 0, label %2248
-    i64 1, label %2249
+  switch i64 %2247, label %2249 [
+    i64 0, label %2250
+    i64 1, label %2248
   ]
 
 2248:                                             ; preds = %2245
-  store double 2.550000e+02, ptr %6, align 8, !noalias !54
-  br label %2251
+  br label %2250
 
 2249:                                             ; preds = %2245
-  store double 0.000000e+00, ptr %6, align 8, !noalias !54
-  br label %2251
+  br label %2250
 
-2250:                                             ; preds = %2245
-  store double 0.000000e+00, ptr %6, align 8, !noalias !54
-  br label %2251
-
-2251:                                             ; preds = %2250, %2249, %2248
-  %.sink24.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN2cv4text12_GLOBAL__N_15GREENE, i64 8), %2249 ], [ getelementptr inbounds (i8, ptr @_ZN2cv4text12_GLOBAL__N_13REDE, i64 8), %2250 ], [ getelementptr inbounds (i8, ptr @_ZN2cv4text12_GLOBAL__N_14BLUEE, i64 8), %2248 ]
-  %.sink23.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN2cv4text12_GLOBAL__N_15GREENE, i64 16), %2249 ], [ getelementptr inbounds (i8, ptr @_ZN2cv4text12_GLOBAL__N_13REDE, i64 16), %2250 ], [ getelementptr inbounds (i8, ptr @_ZN2cv4text12_GLOBAL__N_14BLUEE, i64 16), %2248 ]
-  %.sink22.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN2cv4text12_GLOBAL__N_15GREENE, i64 24), %2249 ], [ getelementptr inbounds (i8, ptr @_ZN2cv4text12_GLOBAL__N_13REDE, i64 24), %2250 ], [ getelementptr inbounds (i8, ptr @_ZN2cv4text12_GLOBAL__N_14BLUEE, i64 24), %2248 ]
+2250:                                             ; preds = %2249, %2248, %2245
+  %_ZN2cv4text12_GLOBAL__N_15GREENE.sink.i.i = phi ptr [ @_ZN2cv4text12_GLOBAL__N_15GREENE, %2248 ], [ @_ZN2cv4text12_GLOBAL__N_13REDE, %2249 ], [ @_ZN2cv4text12_GLOBAL__N_14BLUEE, %2245 ]
+  %.sink24.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN2cv4text12_GLOBAL__N_15GREENE, i64 8), %2248 ], [ getelementptr inbounds (i8, ptr @_ZN2cv4text12_GLOBAL__N_13REDE, i64 8), %2249 ], [ getelementptr inbounds (i8, ptr @_ZN2cv4text12_GLOBAL__N_14BLUEE, i64 8), %2245 ]
+  %.sink23.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN2cv4text12_GLOBAL__N_15GREENE, i64 16), %2248 ], [ getelementptr inbounds (i8, ptr @_ZN2cv4text12_GLOBAL__N_13REDE, i64 16), %2249 ], [ getelementptr inbounds (i8, ptr @_ZN2cv4text12_GLOBAL__N_14BLUEE, i64 16), %2245 ]
+  %.sink22.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN2cv4text12_GLOBAL__N_15GREENE, i64 24), %2248 ], [ getelementptr inbounds (i8, ptr @_ZN2cv4text12_GLOBAL__N_13REDE, i64 24), %2249 ], [ getelementptr inbounds (i8, ptr @_ZN2cv4text12_GLOBAL__N_14BLUEE, i64 24), %2245 ]
+  %2251 = load double, ptr %_ZN2cv4text12_GLOBAL__N_15GREENE.sink.i.i, align 8, !noalias !54
+  store double %2251, ptr %6, align 8, !noalias !54
   %2252 = load double, ptr %.sink24.i.i, align 8, !noalias !54
   store double %2252, ptr %2236, align 8, !noalias !54
   %2253 = load double, ptr %.sink23.i.i, align 8, !noalias !54
@@ -5521,7 +5518,7 @@ _ZNK2cv11_InputArray6getMatEi.exit.i:             ; preds = %2235, %2232
   invoke void @_ZN2cv9rectangleERKNS_17_InputOutputArrayENS_6Point_IiEES4_RKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 %2255, i64 %2257, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 2, i32 noundef 8, i32 noundef 0)
           to label %.noexc615.i unwind label %2267, !noalias !54
 
-.noexc615.i:                                      ; preds = %2251
+.noexc615.i:                                      ; preds = %2250
   %2258 = add nuw i64 %.020.i.i, 1
   %exitcond1080.not.i = icmp eq i64 %2258, %umax1079.i
   br i1 %exitcond1080.not.i, label %.loopexit.i121, label %2245, !llvm.loop !95
@@ -5554,7 +5551,7 @@ _ZNK2cv11_InputArray6getMatEi.exit.i:             ; preds = %2235, %2232
           cleanup
   br label %2269
 
-2267:                                             ; preds = %2251
+2267:                                             ; preds = %2250
   %2268 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %24) #19, !noalias !54

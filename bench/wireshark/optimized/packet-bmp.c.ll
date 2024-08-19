@@ -514,6 +514,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.314 = private unnamed_addr constant [10 x i8] c" name: %s\00", align 1
 @.str.315 = private unnamed_addr constant [8 x i8] c" id: %s\00", align 1
 @switch.table.dissect_bmp_pdu = private unnamed_addr constant [7 x ptr] [ptr @ett_bmp_route_monitoring, ptr @ett_bmp_stat_report, ptr @ett_bmp_peer_down, ptr @ett_bmp_peer_up, ptr @ett_bmp_init, ptr @ett_bmp_term, ptr @ett_bmp_route_mirroring], align 8
+@switch.table.dissect_bmp_pdu.3 = private unnamed_addr constant [5 x ptr] [ptr @hf_peer_up_tlv_string, ptr @hf_peer_up_tlv_sys_descr, ptr @hf_peer_up_tlv_sys_name, ptr @hf_peer_state_tlv_vrf_table_name, ptr @hf_peer_up_tlv_admin_label], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_bmp() local_unnamed_addr #0 {
@@ -643,8 +644,8 @@ switch.lookup:                                    ; preds = %4
     i8 2, label %71
     i8 3, label %71
     i8 6, label %71
-    i8 5, label %364
-    i8 100, label %382
+    i8 5, label %349
+    i8 100, label %367
   ]
 
 45:                                               ; preds = %35
@@ -730,7 +731,7 @@ switch.lookup:                                    ; preds = %4
   %106 = call ptr @proto_tree_add_item(ptr noundef %76, i32 noundef %105, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef 0) #5
   %107 = and i32 %39, 255
   %108 = icmp eq i32 %107, 4
-  switch i8 %26, label %363 [
+  switch i8 %26, label %348 [
     i8 0, label %111
     i8 6, label %.preheader.i
     i8 1, label %139
@@ -1095,8 +1096,8 @@ dissect_bmp_peer_down_notification.exit.i:        ; preds = %.thread.i, %295
   %320 = icmp sgt i32 %319, 0
   br i1 %320, label %.lr.ph.i104.i, label %dissect_bmp_peer_up_notification.exit.i
 
-.lr.ph.i104.i:                                    ; preds = %305, %360
-  %.171.i.i = phi i32 [ %.2.i.i, %360 ], [ %318, %305 ]
+.lr.ph.i104.i:                                    ; preds = %305, %345
+  %.171.i.i = phi i32 [ %.2.i.i, %345 ], [ %318, %305 ]
   %321 = load i32, ptr @hf_peer_state_tlv, align 4
   %322 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %321, ptr noundef %0, i32 noundef %.171.i.i, i32 noundef 4, i32 noundef 0) #5
   %323 = load i32, ptr @ett_bmp_peer_state_tlv, align 4
@@ -1118,57 +1119,31 @@ dissect_bmp_peer_down_notification.exit.i:        ; preds = %.thread.i, %295
   %337 = load i32, ptr %15, align 4
   %338 = call ptr @proto_tree_add_item(ptr noundef %324, i32 noundef %336, ptr noundef %0, i32 noundef %330, i32 noundef %337, i32 noundef 0) #5
   %339 = load i32, ptr %14, align 4
-  switch i32 %339, label %360 [
-    i32 0, label %340
-    i32 1, label %344
-    i32 2, label %348
-    i32 3, label %352
-    i32 4, label %356
-  ]
+  %340 = icmp ult i32 %339, 5
+  br i1 %340, label %switch.lookup59, label %345
 
-340:                                              ; preds = %.lr.ph.i104.i
-  %341 = load i32, ptr @hf_peer_up_tlv_string, align 4
-  %342 = load i32, ptr %15, align 4
-  %343 = call ptr @proto_tree_add_item(ptr noundef %324, i32 noundef %341, ptr noundef %0, i32 noundef %330, i32 noundef %342, i32 noundef 0) #5
-  br label %360
+switch.lookup59:                                  ; preds = %.lr.ph.i104.i
+  %341 = zext nneg i32 %339 to i64
+  %switch.gep60 = getelementptr inbounds [5 x ptr], ptr @switch.table.dissect_bmp_pdu.3, i64 0, i64 %341
+  %switch.load61 = load ptr, ptr %switch.gep60, align 8
+  %342 = load i32, ptr %switch.load61, align 4
+  %343 = load i32, ptr %15, align 4
+  %344 = call ptr @proto_tree_add_item(ptr noundef %324, i32 noundef %342, ptr noundef %0, i32 noundef %330, i32 noundef %343, i32 noundef 0) #5
+  br label %345
 
-344:                                              ; preds = %.lr.ph.i104.i
-  %345 = load i32, ptr @hf_peer_up_tlv_sys_descr, align 4
-  %346 = load i32, ptr %15, align 4
-  %347 = call ptr @proto_tree_add_item(ptr noundef %324, i32 noundef %345, ptr noundef %0, i32 noundef %330, i32 noundef %346, i32 noundef 0) #5
-  br label %360
-
-348:                                              ; preds = %.lr.ph.i104.i
-  %349 = load i32, ptr @hf_peer_up_tlv_sys_name, align 4
-  %350 = load i32, ptr %15, align 4
-  %351 = call ptr @proto_tree_add_item(ptr noundef %324, i32 noundef %349, ptr noundef %0, i32 noundef %330, i32 noundef %350, i32 noundef 0) #5
-  br label %360
-
-352:                                              ; preds = %.lr.ph.i104.i
-  %353 = load i32, ptr @hf_peer_state_tlv_vrf_table_name, align 4
-  %354 = load i32, ptr %15, align 4
-  %355 = call ptr @proto_tree_add_item(ptr noundef %324, i32 noundef %353, ptr noundef %0, i32 noundef %330, i32 noundef %354, i32 noundef 0) #5
-  br label %360
-
-356:                                              ; preds = %.lr.ph.i104.i
-  %357 = load i32, ptr @hf_peer_up_tlv_admin_label, align 4
-  %358 = load i32, ptr %15, align 4
-  %359 = call ptr @proto_tree_add_item(ptr noundef %324, i32 noundef %357, ptr noundef %0, i32 noundef %330, i32 noundef %358, i32 noundef 0) #5
-  br label %360
-
-360:                                              ; preds = %356, %352, %348, %344, %340, %.lr.ph.i104.i
+345:                                              ; preds = %.lr.ph.i104.i, %switch.lookup59
   %.pn.i.i = load i32, ptr %15, align 4
   %.2.i.i = add i32 %.pn.i.i, %330
-  %361 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2.i.i) #5
-  %362 = icmp sgt i32 %361, 0
-  br i1 %362, label %.lr.ph.i104.i, label %dissect_bmp_peer_up_notification.exit.i, !llvm.loop !8
+  %346 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2.i.i) #5
+  %347 = icmp sgt i32 %346, 0
+  br i1 %347, label %.lr.ph.i104.i, label %dissect_bmp_peer_up_notification.exit.i, !llvm.loop !8
 
-dissect_bmp_peer_up_notification.exit.i:          ; preds = %360, %305
+dissect_bmp_peer_up_notification.exit.i:          ; preds = %345, %305
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   br label %dissect_bmp_peer_header.exit
 
-363:                                              ; preds = %98
+348:                                              ; preds = %98
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.303, ptr noundef nonnull @.str.304, i32 noundef 1087) #6
   unreachable
 
@@ -1178,70 +1153,70 @@ dissect_bmp_peer_header.exit:                     ; preds = %136, %.preheader.i,
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
   br label %dissect_bmp_init.exit
 
-364:                                              ; preds = %35
-  %365 = load i32, ptr @hf_term_types, align 4
-  %366 = zext i16 %44 to i32
-  %367 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %365, ptr noundef %0, i32 noundef 6, i32 noundef %366, i32 noundef 0) #5
-  %368 = load i32, ptr @ett_bmp_term_types, align 4
-  %369 = call ptr @proto_item_add_subtree(ptr noundef %367, i32 noundef %368) #5
-  %370 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6) #5
-  %371 = zext i16 %370 to i32
-  %372 = call ptr @val_to_str(i32 noundef %371, ptr noundef nonnull @term_typevals, ptr noundef nonnull @.str.300) #5
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %369, ptr noundef nonnull @.str.301, ptr noundef %372) #5
-  %373 = load i32, ptr @hf_term_type, align 4
-  %374 = call ptr @proto_tree_add_item(ptr noundef %369, i32 noundef %373, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #5
-  %375 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 8) #5
-  %376 = load i32, ptr @hf_term_len, align 4
-  %377 = call ptr @proto_tree_add_item(ptr noundef %369, i32 noundef %376, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef 0) #5
-  %378 = icmp eq i16 %370, 0
-  %379 = zext i16 %375 to i32
+349:                                              ; preds = %35
+  %350 = load i32, ptr @hf_term_types, align 4
+  %351 = zext i16 %44 to i32
+  %352 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %350, ptr noundef %0, i32 noundef 6, i32 noundef %351, i32 noundef 0) #5
+  %353 = load i32, ptr @ett_bmp_term_types, align 4
+  %354 = call ptr @proto_item_add_subtree(ptr noundef %352, i32 noundef %353) #5
+  %355 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6) #5
+  %356 = zext i16 %355 to i32
+  %357 = call ptr @val_to_str(i32 noundef %356, ptr noundef nonnull @term_typevals, ptr noundef nonnull @.str.300) #5
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %354, ptr noundef nonnull @.str.301, ptr noundef %357) #5
+  %358 = load i32, ptr @hf_term_type, align 4
+  %359 = call ptr @proto_tree_add_item(ptr noundef %354, i32 noundef %358, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #5
+  %360 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 8) #5
+  %361 = load i32, ptr @hf_term_len, align 4
+  %362 = call ptr @proto_tree_add_item(ptr noundef %354, i32 noundef %361, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef 0) #5
+  %363 = icmp eq i16 %355, 0
+  %364 = zext i16 %360 to i32
   %hf_term_info.val.i = load i32, ptr @hf_term_info, align 4
   %hf_term_reason.val.i = load i32, ptr @hf_term_reason, align 4
-  %380 = select i1 %378, i32 %hf_term_info.val.i, i32 %hf_term_reason.val.i
-  %381 = call ptr @proto_tree_add_item(ptr noundef %369, i32 noundef %380, ptr noundef %0, i32 noundef 10, i32 noundef %379, i32 noundef 0) #5
+  %365 = select i1 %363, i32 %hf_term_info.val.i, i32 %hf_term_reason.val.i
+  %366 = call ptr @proto_tree_add_item(ptr noundef %354, i32 noundef %365, ptr noundef %0, i32 noundef 10, i32 noundef %364, i32 noundef 0) #5
   br label %dissect_bmp_init.exit
 
-382:                                              ; preds = %35
+367:                                              ; preds = %35
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
-  %383 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #5
-  %384 = load i32, ptr @hf_route_policy_flags, align 4
-  %385 = load i32, ptr @ett_bmp_route_policy_flags, align 4
-  %386 = call ptr @proto_tree_add_bitmask(ptr noundef %36, ptr noundef %0, i32 noundef 6, i32 noundef %384, i32 noundef %385, ptr noundef nonnull @dissect_bmp_route_policy.route_policy_flags, i32 noundef 0) #5
-  %387 = load i32, ptr @hf_route_policy_rd, align 4
-  %388 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %387, ptr noundef %0, i32 noundef 7, i32 noundef 8, i32 noundef 0) #5
-  %389 = load i32, ptr @hf_route_policy_prefix_length, align 4
-  %390 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %389, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0) #5
-  %.not.i53 = icmp sgt i8 %383, -1
-  br i1 %.not.i53, label %394, label %391
+  %368 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #5
+  %369 = load i32, ptr @hf_route_policy_flags, align 4
+  %370 = load i32, ptr @ett_bmp_route_policy_flags, align 4
+  %371 = call ptr @proto_tree_add_bitmask(ptr noundef %36, ptr noundef %0, i32 noundef 6, i32 noundef %369, i32 noundef %370, ptr noundef nonnull @dissect_bmp_route_policy.route_policy_flags, i32 noundef 0) #5
+  %372 = load i32, ptr @hf_route_policy_rd, align 4
+  %373 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %372, ptr noundef %0, i32 noundef 7, i32 noundef 8, i32 noundef 0) #5
+  %374 = load i32, ptr @hf_route_policy_prefix_length, align 4
+  %375 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %374, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0) #5
+  %.not.i53 = icmp sgt i8 %368, -1
+  br i1 %.not.i53, label %379, label %376
 
-391:                                              ; preds = %382
-  %392 = load i32, ptr @hf_route_policy_prefix_ipv6, align 4
-  %393 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %392, ptr noundef %0, i32 noundef 16, i32 noundef 16, i32 noundef 0) #5
-  br label %399
+376:                                              ; preds = %367
+  %377 = load i32, ptr @hf_route_policy_prefix_ipv6, align 4
+  %378 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %377, ptr noundef %0, i32 noundef 16, i32 noundef 16, i32 noundef 0) #5
+  br label %384
 
-394:                                              ; preds = %382
-  %395 = load i32, ptr @hf_route_policy_prefix_reserved, align 4
-  %396 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %395, ptr noundef %0, i32 noundef 16, i32 noundef 12, i32 noundef 0) #5
-  %397 = load i32, ptr @hf_route_policy_prefix_ipv4, align 4
-  %398 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %397, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef 0) #5
-  br label %399
+379:                                              ; preds = %367
+  %380 = load i32, ptr @hf_route_policy_prefix_reserved, align 4
+  %381 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %380, ptr noundef %0, i32 noundef 16, i32 noundef 12, i32 noundef 0) #5
+  %382 = load i32, ptr @hf_route_policy_prefix_ipv4, align 4
+  %383 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %382, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef 0) #5
+  br label %384
 
-399:                                              ; preds = %394, %391
-  %400 = load i32, ptr @hf_route_policy_route_origin, align 4
-  %401 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %400, ptr noundef %0, i32 noundef 32, i32 noundef 4, i32 noundef 0) #5
-  %402 = load i32, ptr @hf_route_policy_event_count, align 4
-  %403 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %36, i32 noundef %402, ptr noundef %0, i32 noundef 36, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %13) #5
-  %404 = load i32, ptr @hf_route_policy_total_event_length, align 4
-  %405 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %404, ptr noundef %0, i32 noundef 37, i32 noundef 2, i32 noundef 0) #5
+384:                                              ; preds = %379, %376
+  %385 = load i32, ptr @hf_route_policy_route_origin, align 4
+  %386 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %385, ptr noundef %0, i32 noundef 32, i32 noundef 4, i32 noundef 0) #5
+  %387 = load i32, ptr @hf_route_policy_event_count, align 4
+  %388 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %36, i32 noundef %387, ptr noundef %0, i32 noundef 36, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %13) #5
+  %389 = load i32, ptr @hf_route_policy_total_event_length, align 4
+  %390 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %389, ptr noundef %0, i32 noundef 37, i32 noundef 2, i32 noundef 0) #5
   %.pr.i = load i32, ptr %13, align 4
   %.not4243.i = icmp eq i32 %.pr.i, 0
   br i1 %.not4243.i, label %dissect_bmp_route_policy.exit, label %.lr.ph.i54
 
-.lr.ph.i54:                                       ; preds = %399
-  %406 = getelementptr inbounds i8, ptr %1, i64 408
-  br label %407
+.lr.ph.i54:                                       ; preds = %384
+  %391 = getelementptr inbounds i8, ptr %1, i64 408
+  br label %392
 
-407:                                              ; preds = %dissect_bmp_route_policy_event.exit.i, %.lr.ph.i54
+392:                                              ; preds = %dissect_bmp_route_policy_event.exit.i, %.lr.ph.i54
   %.144.i = phi i32 [ 39, %.lr.ph.i54 ], [ %.0.lcssa.i.i, %dissect_bmp_route_policy_event.exit.i ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
@@ -1251,246 +1226,231 @@ dissect_bmp_peer_header.exit:                     ; preds = %136, %.preheader.i,
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
-  %408 = load i32, ptr @hf_route_policy_single_event_length, align 4
-  %409 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %36, i32 noundef %408, ptr noundef %0, i32 noundef %.144.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #5
-  %410 = add i32 %.144.i, 2
+  %393 = load i32, ptr @hf_route_policy_single_event_length, align 4
+  %394 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %36, i32 noundef %393, ptr noundef %0, i32 noundef %.144.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #5
+  %395 = add i32 %.144.i, 2
+  %396 = load i32, ptr %5, align 4
+  %397 = add i32 %396, -2
+  store i32 %397, ptr %5, align 4
+  %398 = load i32, ptr @hf_route_policy_event_index, align 4
+  %399 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %398, ptr noundef %0, i32 noundef %395, i32 noundef 1, i32 noundef 0) #5
+  %400 = add i32 %.144.i, 3
+  %401 = load i32, ptr %5, align 4
+  %402 = add i32 %401, -1
+  store i32 %402, ptr %5, align 4
+  %403 = load i32, ptr @hf_route_policy_timestamp_sec, align 4
+  %404 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %403, ptr noundef %0, i32 noundef %400, i32 noundef 4, i32 noundef 0) #5
+  %405 = add i32 %.144.i, 7
+  %406 = load i32, ptr %5, align 4
+  %407 = add i32 %406, -4
+  store i32 %407, ptr %5, align 4
+  %408 = load i32, ptr @hf_route_policy_timestamp_msec, align 4
+  %409 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %408, ptr noundef %0, i32 noundef %405, i32 noundef 4, i32 noundef 0) #5
+  %410 = add i32 %.144.i, 11
   %411 = load i32, ptr %5, align 4
-  %412 = add i32 %411, -2
+  %412 = add i32 %411, -4
   store i32 %412, ptr %5, align 4
-  %413 = load i32, ptr @hf_route_policy_event_index, align 4
-  %414 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %413, ptr noundef %0, i32 noundef %410, i32 noundef 1, i32 noundef 0) #5
-  %415 = add i32 %.144.i, 3
+  %413 = load i32, ptr @hf_route_policy_path_identifier, align 4
+  %414 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %413, ptr noundef %0, i32 noundef %410, i32 noundef 4, i32 noundef 0) #5
+  %415 = add i32 %.144.i, 15
   %416 = load i32, ptr %5, align 4
-  %417 = add i32 %416, -1
+  %417 = add i32 %416, -4
   store i32 %417, ptr %5, align 4
-  %418 = load i32, ptr @hf_route_policy_timestamp_sec, align 4
-  %419 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %418, ptr noundef %0, i32 noundef %415, i32 noundef 4, i32 noundef 0) #5
-  %420 = add i32 %.144.i, 7
+  %418 = load i32, ptr @hf_route_policy_afi, align 4
+  %419 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %418, ptr noundef %0, i32 noundef %415, i32 noundef 2, i32 noundef 0) #5
+  %420 = add i32 %.144.i, 17
   %421 = load i32, ptr %5, align 4
-  %422 = add i32 %421, -4
+  %422 = add i32 %421, -2
   store i32 %422, ptr %5, align 4
-  %423 = load i32, ptr @hf_route_policy_timestamp_msec, align 4
-  %424 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %423, ptr noundef %0, i32 noundef %420, i32 noundef 4, i32 noundef 0) #5
-  %425 = add i32 %.144.i, 11
+  %423 = load i32, ptr @hf_route_policy_safi, align 4
+  %424 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %423, ptr noundef %0, i32 noundef %420, i32 noundef 1, i32 noundef 0) #5
+  %425 = add i32 %.144.i, 18
   %426 = load i32, ptr %5, align 4
-  %427 = add i32 %426, -4
+  %427 = add i32 %426, -1
   store i32 %427, ptr %5, align 4
-  %428 = load i32, ptr @hf_route_policy_path_identifier, align 4
-  %429 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %428, ptr noundef %0, i32 noundef %425, i32 noundef 4, i32 noundef 0) #5
-  %430 = add i32 %.144.i, 15
-  %431 = load i32, ptr %5, align 4
-  %432 = add i32 %431, -4
-  store i32 %432, ptr %5, align 4
-  %433 = load i32, ptr @hf_route_policy_afi, align 4
-  %434 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %433, ptr noundef %0, i32 noundef %430, i32 noundef 2, i32 noundef 0) #5
-  %435 = add i32 %.144.i, 17
-  %436 = load i32, ptr %5, align 4
-  %437 = add i32 %436, -2
-  store i32 %437, ptr %5, align 4
-  %438 = load i32, ptr @hf_route_policy_safi, align 4
-  %439 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %438, ptr noundef %0, i32 noundef %435, i32 noundef 1, i32 noundef 0) #5
-  %440 = add i32 %.144.i, 18
-  %441 = load i32, ptr %5, align 4
-  %442 = add i32 %441, -1
-  store i32 %442, ptr %5, align 4
-  %.not137.i.i = icmp eq i32 %442, 0
+  %.not137.i.i = icmp eq i32 %427, 0
   br i1 %.not137.i.i, label %dissect_bmp_route_policy_event.exit.i, label %.lr.ph140.i.i
 
-.lr.ph140.i.i:                                    ; preds = %407, %572
-  %.0138.i.i = phi i32 [ %.1.i.i55, %572 ], [ %440, %407 ]
-  %443 = load i32, ptr @hf_route_policy_tlv, align 4
-  %444 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %443, ptr noundef %0, i32 noundef %.0138.i.i, i32 noundef 4, i32 noundef 0) #5
-  %445 = load i32, ptr @ett_bmp_route_policy_tlv, align 4
-  %446 = call ptr @proto_item_add_subtree(ptr noundef %444, i32 noundef %445) #5
-  %447 = load i32, ptr @hf_route_policy_tlv_type, align 4
-  %448 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %446, i32 noundef %447, ptr noundef %0, i32 noundef %.0138.i.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6) #5
-  %449 = add i32 %.0138.i.i, 2
-  %450 = load i32, ptr %5, align 4
-  %451 = add i32 %450, -2
-  store i32 %451, ptr %5, align 4
-  %452 = load i32, ptr @hf_route_policy_tlv_length, align 4
-  %453 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %446, i32 noundef %452, ptr noundef %0, i32 noundef %449, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %7) #5
-  %454 = add i32 %.0138.i.i, 4
-  %455 = load i32, ptr %5, align 4
-  %456 = add i32 %455, -2
-  store i32 %456, ptr %5, align 4
-  %457 = load i32, ptr %6, align 4
-  %458 = load i32, ptr %7, align 4
-  %459 = call ptr @val_to_str(i32 noundef %457, ptr noundef nonnull @route_policy_tlv_typevals, ptr noundef nonnull @.str.312) #5
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %444, ptr noundef nonnull @.str.311, i32 noundef %457, i32 noundef %458, ptr noundef %459) #5
-  %460 = load i32, ptr %7, align 4
-  %461 = add i32 %460, 4
-  call void @proto_item_set_len(ptr noundef %444, i32 noundef %461) #5
-  %462 = load i32, ptr @hf_route_policy_tlv_value, align 4
-  %463 = load i32, ptr %7, align 4
-  %464 = call ptr @proto_tree_add_item(ptr noundef %446, i32 noundef %462, ptr noundef %0, i32 noundef %454, i32 noundef %463, i32 noundef 0) #5
-  %465 = load i32, ptr %6, align 4
-  switch i32 %465, label %567 [
-    i32 0, label %466
-    i32 1, label %478
-    i32 2, label %545
-    i32 3, label %552
-    i32 4, label %559
+.lr.ph140.i.i:                                    ; preds = %392, %545
+  %.0138.i.i = phi i32 [ %.1.i.i55, %545 ], [ %425, %392 ]
+  %428 = load i32, ptr @hf_route_policy_tlv, align 4
+  %429 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %428, ptr noundef %0, i32 noundef %.0138.i.i, i32 noundef 4, i32 noundef 0) #5
+  %430 = load i32, ptr @ett_bmp_route_policy_tlv, align 4
+  %431 = call ptr @proto_item_add_subtree(ptr noundef %429, i32 noundef %430) #5
+  %432 = load i32, ptr @hf_route_policy_tlv_type, align 4
+  %433 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %431, i32 noundef %432, ptr noundef %0, i32 noundef %.0138.i.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6) #5
+  %434 = add i32 %.0138.i.i, 2
+  %435 = load i32, ptr %5, align 4
+  %436 = add i32 %435, -2
+  store i32 %436, ptr %5, align 4
+  %437 = load i32, ptr @hf_route_policy_tlv_length, align 4
+  %438 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %431, i32 noundef %437, ptr noundef %0, i32 noundef %434, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %7) #5
+  %439 = add i32 %.0138.i.i, 4
+  %440 = load i32, ptr %5, align 4
+  %441 = add i32 %440, -2
+  store i32 %441, ptr %5, align 4
+  %442 = load i32, ptr %6, align 4
+  %443 = load i32, ptr %7, align 4
+  %444 = call ptr @val_to_str(i32 noundef %442, ptr noundef nonnull @route_policy_tlv_typevals, ptr noundef nonnull @.str.312) #5
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %429, ptr noundef nonnull @.str.311, i32 noundef %442, i32 noundef %443, ptr noundef %444) #5
+  %445 = load i32, ptr %7, align 4
+  %446 = add i32 %445, 4
+  call void @proto_item_set_len(ptr noundef %429, i32 noundef %446) #5
+  %447 = load i32, ptr @hf_route_policy_tlv_value, align 4
+  %448 = load i32, ptr %7, align 4
+  %449 = call ptr @proto_tree_add_item(ptr noundef %431, i32 noundef %447, ptr noundef %0, i32 noundef %439, i32 noundef %448, i32 noundef 0) #5
+  %450 = load i32, ptr %6, align 4
+  switch i32 %450, label %542 [
+    i32 0, label %451
+    i32 1, label %461
+    i32 2, label %526
+    i32 3, label %531
+    i32 4, label %536
   ]
 
-466:                                              ; preds = %.lr.ph140.i.i
-  %467 = load i32, ptr @hf_route_policy_tlv_vrf_table_id, align 4
-  %468 = call ptr @proto_tree_add_item(ptr noundef %446, i32 noundef %467, ptr noundef %0, i32 noundef %454, i32 noundef 4, i32 noundef 0) #5
-  %469 = load i32, ptr @hf_route_policy_tlv_vrf_table_name, align 4
-  %470 = add i32 %.0138.i.i, 8
-  %471 = load i32, ptr %7, align 4
-  %472 = add i32 %471, -4
-  %473 = call ptr @proto_tree_add_item(ptr noundef %446, i32 noundef %469, ptr noundef %0, i32 noundef %470, i32 noundef %472, i32 noundef 0) #5
-  %474 = load i32, ptr %7, align 4
-  %475 = add i32 %474, %454
-  %476 = load i32, ptr %5, align 4
-  %477 = sub i32 %476, %474
-  store i32 %477, ptr %5, align 4
-  br label %572
+451:                                              ; preds = %.lr.ph140.i.i
+  %452 = load i32, ptr @hf_route_policy_tlv_vrf_table_id, align 4
+  %453 = call ptr @proto_tree_add_item(ptr noundef %431, i32 noundef %452, ptr noundef %0, i32 noundef %439, i32 noundef 4, i32 noundef 0) #5
+  %454 = load i32, ptr @hf_route_policy_tlv_vrf_table_name, align 4
+  %455 = add i32 %.0138.i.i, 8
+  %456 = load i32, ptr %7, align 4
+  %457 = add i32 %456, -4
+  %458 = call ptr @proto_tree_add_item(ptr noundef %431, i32 noundef %454, ptr noundef %0, i32 noundef %455, i32 noundef %457, i32 noundef 0) #5
+  %459 = load i32, ptr %7, align 4
+  %460 = add i32 %459, %439
+  br label %545
 
-478:                                              ; preds = %.lr.ph140.i.i
-  %479 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %454) #5
-  %480 = load i32, ptr @hf_route_policy_tlv_policy_flags, align 4
-  %481 = load i32, ptr @ett_bmp_route_policy_tlv_policy_flags, align 4
-  %482 = call ptr @proto_tree_add_bitmask(ptr noundef %446, ptr noundef %0, i32 noundef %454, i32 noundef %480, i32 noundef %481, ptr noundef nonnull @dissect_bmp_route_policy_event.route_policy_tlv_policy_flags, i32 noundef 0) #5
-  %483 = add i32 %.0138.i.i, 5
-  %484 = load i32, ptr @hf_route_policy_tlv_policy_count, align 4
-  %485 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %446, i32 noundef %484, ptr noundef %0, i32 noundef %483, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #5
-  %486 = add i32 %.0138.i.i, 6
-  %487 = load i32, ptr @hf_route_policy_tlv_policy_class, align 4
-  %488 = call ptr @proto_tree_add_item(ptr noundef %446, i32 noundef %487, ptr noundef %0, i32 noundef %486, i32 noundef 1, i32 noundef 0) #5
-  %489 = add i32 %.0138.i.i, 7
-  %.not132.i.i = icmp sgt i8 %479, -1
-  br i1 %.not132.i.i, label %493, label %490
+461:                                              ; preds = %.lr.ph140.i.i
+  %462 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %439) #5
+  %463 = load i32, ptr @hf_route_policy_tlv_policy_flags, align 4
+  %464 = load i32, ptr @ett_bmp_route_policy_tlv_policy_flags, align 4
+  %465 = call ptr @proto_tree_add_bitmask(ptr noundef %431, ptr noundef %0, i32 noundef %439, i32 noundef %463, i32 noundef %464, ptr noundef nonnull @dissect_bmp_route_policy_event.route_policy_tlv_policy_flags, i32 noundef 0) #5
+  %466 = add i32 %.0138.i.i, 5
+  %467 = load i32, ptr @hf_route_policy_tlv_policy_count, align 4
+  %468 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %431, i32 noundef %467, ptr noundef %0, i32 noundef %466, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #5
+  %469 = add i32 %.0138.i.i, 6
+  %470 = load i32, ptr @hf_route_policy_tlv_policy_class, align 4
+  %471 = call ptr @proto_tree_add_item(ptr noundef %431, i32 noundef %470, ptr noundef %0, i32 noundef %469, i32 noundef 1, i32 noundef 0) #5
+  %472 = add i32 %.0138.i.i, 7
+  %.not132.i.i = icmp sgt i8 %462, -1
+  br i1 %.not132.i.i, label %476, label %473
 
-490:                                              ; preds = %478
-  %491 = load i32, ptr @hf_route_policy_tlv_policy_peer_ipv6, align 4
-  %492 = call ptr @proto_tree_add_item(ptr noundef %446, i32 noundef %491, ptr noundef %0, i32 noundef %489, i32 noundef 16, i32 noundef 0) #5
-  br label %499
+473:                                              ; preds = %461
+  %474 = load i32, ptr @hf_route_policy_tlv_policy_peer_ipv6, align 4
+  %475 = call ptr @proto_tree_add_item(ptr noundef %431, i32 noundef %474, ptr noundef %0, i32 noundef %472, i32 noundef 16, i32 noundef 0) #5
+  br label %482
 
-493:                                              ; preds = %478
-  %494 = load i32, ptr @hf_route_policy_tlv_policy_peer_reserved, align 4
-  %495 = call ptr @proto_tree_add_item(ptr noundef %446, i32 noundef %494, ptr noundef %0, i32 noundef %489, i32 noundef 12, i32 noundef 0) #5
-  %496 = add i32 %.0138.i.i, 19
-  %497 = load i32, ptr @hf_route_policy_tlv_policy_peer_ipv4, align 4
-  %498 = call ptr @proto_tree_add_item(ptr noundef %446, i32 noundef %497, ptr noundef %0, i32 noundef %496, i32 noundef 4, i32 noundef 0) #5
-  br label %499
+476:                                              ; preds = %461
+  %477 = load i32, ptr @hf_route_policy_tlv_policy_peer_reserved, align 4
+  %478 = call ptr @proto_tree_add_item(ptr noundef %431, i32 noundef %477, ptr noundef %0, i32 noundef %472, i32 noundef 12, i32 noundef 0) #5
+  %479 = add i32 %.0138.i.i, 19
+  %480 = load i32, ptr @hf_route_policy_tlv_policy_peer_ipv4, align 4
+  %481 = call ptr @proto_tree_add_item(ptr noundef %431, i32 noundef %480, ptr noundef %0, i32 noundef %479, i32 noundef 4, i32 noundef 0) #5
+  br label %482
 
-499:                                              ; preds = %493, %490
+482:                                              ; preds = %476, %473
   %.2.i.i57 = add i32 %.0138.i.i, 23
-  %500 = load i32, ptr @hf_route_policy_tlv_policy_peer_router_id, align 4
-  %501 = call ptr @proto_tree_add_item(ptr noundef %446, i32 noundef %500, ptr noundef %0, i32 noundef %.2.i.i57, i32 noundef 4, i32 noundef 0) #5
-  %502 = add i32 %.0138.i.i, 27
-  %503 = load i32, ptr @hf_route_policy_tlv_policy_peer_as, align 4
-  %504 = call ptr @proto_tree_add_item(ptr noundef %446, i32 noundef %503, ptr noundef %0, i32 noundef %502, i32 noundef 4, i32 noundef 0) #5
-  %505 = add i32 %.0138.i.i, 31
+  %483 = load i32, ptr @hf_route_policy_tlv_policy_peer_router_id, align 4
+  %484 = call ptr @proto_tree_add_item(ptr noundef %431, i32 noundef %483, ptr noundef %0, i32 noundef %.2.i.i57, i32 noundef 4, i32 noundef 0) #5
+  %485 = add i32 %.0138.i.i, 27
+  %486 = load i32, ptr @hf_route_policy_tlv_policy_peer_as, align 4
+  %487 = call ptr @proto_tree_add_item(ptr noundef %431, i32 noundef %486, ptr noundef %0, i32 noundef %485, i32 noundef 4, i32 noundef 0) #5
+  %488 = add i32 %.0138.i.i, 31
   %.pr134.i.i = load i32, ptr %8, align 4
   %.not133135.i.i = icmp eq i32 %.pr134.i.i, 0
   br i1 %.not133135.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i58
 
-.lr.ph.i.i58:                                     ; preds = %499, %.lr.ph.i.i58
-  %.3136.i.i = phi i32 [ %539, %.lr.ph.i.i58 ], [ %505, %499 ]
-  %506 = load i32, ptr @hf_route_policy_tlv_policy, align 4
-  %507 = call ptr @proto_tree_add_item(ptr noundef %446, i32 noundef %506, ptr noundef %0, i32 noundef %.3136.i.i, i32 noundef 4, i32 noundef 0) #5
-  %508 = load i32, ptr @ett_bmp_route_policy_tlv_policy, align 4
-  %509 = call ptr @proto_item_add_subtree(ptr noundef %507, i32 noundef %508) #5
-  %510 = load i32, ptr @hf_route_policy_tlv_policy_name_length, align 4
-  %511 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %509, i32 noundef %510, ptr noundef %0, i32 noundef %.3136.i.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %11) #5
-  %512 = add i32 %.3136.i.i, 2
-  %513 = load i32, ptr @hf_route_policy_tlv_policy_item_id_length, align 4
-  %514 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %509, i32 noundef %513, ptr noundef %0, i32 noundef %512, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %12) #5
-  %515 = add i32 %.3136.i.i, 4
-  %516 = load i32, ptr %11, align 4
+.lr.ph.i.i58:                                     ; preds = %482, %.lr.ph.i.i58
+  %.3136.i.i = phi i32 [ %522, %.lr.ph.i.i58 ], [ %488, %482 ]
+  %489 = load i32, ptr @hf_route_policy_tlv_policy, align 4
+  %490 = call ptr @proto_tree_add_item(ptr noundef %431, i32 noundef %489, ptr noundef %0, i32 noundef %.3136.i.i, i32 noundef 4, i32 noundef 0) #5
+  %491 = load i32, ptr @ett_bmp_route_policy_tlv_policy, align 4
+  %492 = call ptr @proto_item_add_subtree(ptr noundef %490, i32 noundef %491) #5
+  %493 = load i32, ptr @hf_route_policy_tlv_policy_name_length, align 4
+  %494 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %492, i32 noundef %493, ptr noundef %0, i32 noundef %.3136.i.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %11) #5
+  %495 = add i32 %.3136.i.i, 2
+  %496 = load i32, ptr @hf_route_policy_tlv_policy_item_id_length, align 4
+  %497 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %492, i32 noundef %496, ptr noundef %0, i32 noundef %495, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %12) #5
+  %498 = add i32 %.3136.i.i, 4
+  %499 = load i32, ptr %11, align 4
+  %500 = load i32, ptr %12, align 4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %492, ptr noundef nonnull @.str.313, i32 noundef %499, i32 noundef %500) #5
+  %501 = load i32, ptr %11, align 4
+  %502 = add i32 %501, 4
+  %503 = load i32, ptr %12, align 4
+  %504 = add i32 %502, %503
+  call void @proto_item_set_len(ptr noundef %492, i32 noundef %504) #5
+  %505 = load i32, ptr @hf_route_policy_tlv_policy_name, align 4
+  %506 = load i32, ptr %11, align 4
+  %507 = load ptr, ptr %391, align 8
+  %508 = call ptr @proto_tree_add_item_ret_string(ptr noundef %492, i32 noundef %505, ptr noundef %0, i32 noundef %498, i32 noundef %506, i32 noundef 0, ptr noundef %507, ptr noundef nonnull %9) #5
+  %509 = load ptr, ptr %9, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %492, ptr noundef nonnull @.str.314, ptr noundef %509) #5
+  %510 = load i32, ptr %11, align 4
+  %511 = add i32 %510, %498
+  %512 = load i32, ptr @hf_route_policy_tlv_policy_item_id, align 4
+  %513 = load i32, ptr %12, align 4
+  %514 = load ptr, ptr %391, align 8
+  %515 = call ptr @proto_tree_add_item_ret_string(ptr noundef %492, i32 noundef %512, ptr noundef %0, i32 noundef %511, i32 noundef %513, i32 noundef 0, ptr noundef %514, ptr noundef nonnull %10) #5
+  %516 = load ptr, ptr %10, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %492, ptr noundef nonnull @.str.315, ptr noundef %516) #5
   %517 = load i32, ptr %12, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %509, ptr noundef nonnull @.str.313, i32 noundef %516, i32 noundef %517) #5
-  %518 = load i32, ptr %11, align 4
-  %519 = add i32 %518, 4
-  %520 = load i32, ptr %12, align 4
-  %521 = add i32 %519, %520
-  call void @proto_item_set_len(ptr noundef %509, i32 noundef %521) #5
-  %522 = load i32, ptr @hf_route_policy_tlv_policy_name, align 4
-  %523 = load i32, ptr %11, align 4
-  %524 = load ptr, ptr %406, align 8
-  %525 = call ptr @proto_tree_add_item_ret_string(ptr noundef %509, i32 noundef %522, ptr noundef %0, i32 noundef %515, i32 noundef %523, i32 noundef 0, ptr noundef %524, ptr noundef nonnull %9) #5
-  %526 = load ptr, ptr %9, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %509, ptr noundef nonnull @.str.314, ptr noundef %526) #5
-  %527 = load i32, ptr %11, align 4
-  %528 = add i32 %527, %515
-  %529 = load i32, ptr @hf_route_policy_tlv_policy_item_id, align 4
-  %530 = load i32, ptr %12, align 4
-  %531 = load ptr, ptr %406, align 8
-  %532 = call ptr @proto_tree_add_item_ret_string(ptr noundef %509, i32 noundef %529, ptr noundef %0, i32 noundef %528, i32 noundef %530, i32 noundef 0, ptr noundef %531, ptr noundef nonnull %10) #5
-  %533 = load ptr, ptr %10, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %509, ptr noundef nonnull @.str.315, ptr noundef %533) #5
-  %534 = load i32, ptr %12, align 4
-  %535 = add i32 %534, %528
-  %536 = load i32, ptr @hf_route_policy_tlv_policy_flag, align 4
-  %537 = load i32, ptr @ett_bmp_route_policy_tlv_policy_flags, align 4
-  %538 = call ptr @proto_tree_add_bitmask(ptr noundef %509, ptr noundef %0, i32 noundef %535, i32 noundef %536, i32 noundef %537, ptr noundef nonnull @dissect_bmp_route_policy_event.route_policy_tlv_policy_flag, i32 noundef 0) #5
-  %539 = add i32 %535, 1
-  %540 = load i32, ptr %8, align 4
-  %541 = add i32 %540, -1
-  store i32 %541, ptr %8, align 4
-  %.not133.i.i = icmp eq i32 %541, 0
+  %518 = add i32 %517, %511
+  %519 = load i32, ptr @hf_route_policy_tlv_policy_flag, align 4
+  %520 = load i32, ptr @ett_bmp_route_policy_tlv_policy_flags, align 4
+  %521 = call ptr @proto_tree_add_bitmask(ptr noundef %492, ptr noundef %0, i32 noundef %518, i32 noundef %519, i32 noundef %520, ptr noundef nonnull @dissect_bmp_route_policy_event.route_policy_tlv_policy_flag, i32 noundef 0) #5
+  %522 = add i32 %518, 1
+  %523 = load i32, ptr %8, align 4
+  %524 = add i32 %523, -1
+  store i32 %524, ptr %8, align 4
+  %.not133.i.i = icmp eq i32 %524, 0
   br i1 %.not133.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i58, !llvm.loop !9
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i58, %499
-  %.3.lcssa.i.i = phi i32 [ %505, %499 ], [ %539, %.lr.ph.i.i58 ]
-  %542 = load i32, ptr %7, align 4
-  %543 = load i32, ptr %5, align 4
-  %544 = sub i32 %543, %542
-  store i32 %544, ptr %5, align 4
-  br label %572
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i58, %482
+  %.3.lcssa.i.i = phi i32 [ %488, %482 ], [ %522, %.lr.ph.i.i58 ]
+  %525 = load i32, ptr %7, align 4
+  br label %545
 
-545:                                              ; preds = %.lr.ph140.i.i
-  %546 = load i32, ptr %7, align 4
-  %547 = trunc i32 %546 to i16
-  call void @dissect_bgp_path_attr(ptr noundef %446, ptr noundef %0, i16 noundef zeroext %547, i32 noundef %454, ptr noundef %1) #5
-  %548 = load i32, ptr %7, align 4
-  %549 = add i32 %548, %454
-  %550 = load i32, ptr %5, align 4
-  %551 = sub i32 %550, %548
-  store i32 %551, ptr %5, align 4
-  br label %572
+526:                                              ; preds = %.lr.ph140.i.i
+  %527 = load i32, ptr %7, align 4
+  %528 = trunc i32 %527 to i16
+  call void @dissect_bgp_path_attr(ptr noundef %431, ptr noundef %0, i16 noundef zeroext %528, i32 noundef %439, ptr noundef %1) #5
+  %529 = load i32, ptr %7, align 4
+  %530 = add i32 %529, %439
+  br label %545
 
-552:                                              ; preds = %.lr.ph140.i.i
-  %553 = load i32, ptr %7, align 4
-  %554 = trunc i32 %553 to i16
-  call void @dissect_bgp_path_attr(ptr noundef %446, ptr noundef %0, i16 noundef zeroext %554, i32 noundef %454, ptr noundef %1) #5
-  %555 = load i32, ptr %7, align 4
-  %556 = add i32 %555, %454
-  %557 = load i32, ptr %5, align 4
-  %558 = sub i32 %557, %555
-  store i32 %558, ptr %5, align 4
-  br label %572
+531:                                              ; preds = %.lr.ph140.i.i
+  %532 = load i32, ptr %7, align 4
+  %533 = trunc i32 %532 to i16
+  call void @dissect_bgp_path_attr(ptr noundef %431, ptr noundef %0, i16 noundef zeroext %533, i32 noundef %439, ptr noundef %1) #5
+  %534 = load i32, ptr %7, align 4
+  %535 = add i32 %534, %439
+  br label %545
 
-559:                                              ; preds = %.lr.ph140.i.i
-  %560 = load i32, ptr @hf_route_policy_tlv_string, align 4
-  %561 = load i32, ptr %7, align 4
-  %562 = call ptr @proto_tree_add_item(ptr noundef %446, i32 noundef %560, ptr noundef %0, i32 noundef %454, i32 noundef %561, i32 noundef 0) #5
-  %563 = load i32, ptr %7, align 4
-  %564 = add i32 %563, %454
-  %565 = load i32, ptr %5, align 4
-  %566 = sub i32 %565, %563
-  store i32 %566, ptr %5, align 4
-  br label %572
+536:                                              ; preds = %.lr.ph140.i.i
+  %537 = load i32, ptr @hf_route_policy_tlv_string, align 4
+  %538 = load i32, ptr %7, align 4
+  %539 = call ptr @proto_tree_add_item(ptr noundef %431, i32 noundef %537, ptr noundef %0, i32 noundef %439, i32 noundef %538, i32 noundef 0) #5
+  %540 = load i32, ptr %7, align 4
+  %541 = add i32 %540, %439
+  br label %545
 
-567:                                              ; preds = %.lr.ph140.i.i
-  %568 = load i32, ptr %7, align 4
-  %569 = add i32 %568, %454
-  %570 = load i32, ptr %5, align 4
-  %571 = sub i32 %570, %568
-  store i32 %571, ptr %5, align 4
-  br label %572
+542:                                              ; preds = %.lr.ph140.i.i
+  %543 = load i32, ptr %7, align 4
+  %544 = add i32 %543, %439
+  br label %545
 
-572:                                              ; preds = %567, %559, %552, %545, %._crit_edge.i.i, %466
-  %.pr.i.i = phi i32 [ %571, %567 ], [ %566, %559 ], [ %558, %552 ], [ %551, %545 ], [ %544, %._crit_edge.i.i ], [ %477, %466 ]
-  %.1.i.i55 = phi i32 [ %569, %567 ], [ %564, %559 ], [ %556, %552 ], [ %549, %545 ], [ %.3.lcssa.i.i, %._crit_edge.i.i ], [ %475, %466 ]
-  %.not.i.i56 = icmp eq i32 %.pr.i.i, 0
+545:                                              ; preds = %542, %536, %531, %526, %._crit_edge.i.i, %451
+  %.sink145.i.i = phi i32 [ %543, %542 ], [ %540, %536 ], [ %534, %531 ], [ %529, %526 ], [ %525, %._crit_edge.i.i ], [ %459, %451 ]
+  %.1.i.i55 = phi i32 [ %544, %542 ], [ %541, %536 ], [ %535, %531 ], [ %530, %526 ], [ %.3.lcssa.i.i, %._crit_edge.i.i ], [ %460, %451 ]
+  %546 = load i32, ptr %5, align 4
+  %547 = sub i32 %546, %.sink145.i.i
+  store i32 %547, ptr %5, align 4
+  %.not.i.i56 = icmp eq i32 %546, %.sink145.i.i
   br i1 %.not.i.i56, label %dissect_bmp_route_policy_event.exit.i, label %.lr.ph140.i.i, !llvm.loop !10
 
-dissect_bmp_route_policy_event.exit.i:            ; preds = %572, %407
-  %.0.lcssa.i.i = phi i32 [ %440, %407 ], [ %.1.i.i55, %572 ]
+dissect_bmp_route_policy_event.exit.i:            ; preds = %545, %392
+  %.0.lcssa.i.i = phi i32 [ %425, %392 ], [ %.1.i.i55, %545 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
@@ -1499,19 +1459,19 @@ dissect_bmp_route_policy_event.exit.i:            ; preds = %572, %407
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
-  %573 = load i32, ptr %13, align 4
-  %574 = add i32 %573, -1
-  store i32 %574, ptr %13, align 4
-  %.not42.i = icmp eq i32 %574, 0
-  br i1 %.not42.i, label %dissect_bmp_route_policy.exit, label %407, !llvm.loop !11
+  %548 = load i32, ptr %13, align 4
+  %549 = add i32 %548, -1
+  store i32 %549, ptr %13, align 4
+  %.not42.i = icmp eq i32 %549, 0
+  br i1 %.not42.i, label %dissect_bmp_route_policy.exit, label %392, !llvm.loop !11
 
-dissect_bmp_route_policy.exit:                    ; preds = %dissect_bmp_route_policy_event.exit.i, %399
+dissect_bmp_route_policy.exit:                    ; preds = %dissect_bmp_route_policy_event.exit.i, %384
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   br label %dissect_bmp_init.exit
 
-dissect_bmp_init.exit:                            ; preds = %.lr.ph.i, %45, %35, %dissect_bmp_route_policy.exit, %364, %dissect_bmp_peer_header.exit
-  %575 = call i32 @tvb_captured_length(ptr noundef %0) #5
-  ret i32 %575
+dissect_bmp_init.exit:                            ; preds = %.lr.ph.i, %45, %35, %dissect_bmp_route_policy.exit, %349, %dissect_bmp_peer_header.exit
+  %550 = call i32 @tvb_captured_length(ptr noundef %0) #5
+  ret i32 %550
 }
 
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1

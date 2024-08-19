@@ -1078,24 +1078,21 @@ for.cond:                                         ; preds = %for.body
   %sibling = getelementptr inbounds i8, ptr %storemerge21, i64 8
   %storemerge = load ptr, ptr %sibling, align 8
   %tobool11.not = icmp eq ptr %storemerge, null
-  br i1 %tobool11.not, label %for.cond.for.end_crit_edge, label %for.body, !llvm.loop !15
+  br i1 %tobool11.not, label %for.end.sink.split, label %for.body, !llvm.loop !15
 
 for.body:                                         ; preds = %rcu_read_lock.exit, %for.cond
   %storemerge21 = phi ptr [ %storemerge, %for.cond ], [ %storemerge18, %rcu_read_lock.exit ]
   %name12 = getelementptr inbounds i8, ptr %storemerge21, i64 24
   %call13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name12, ptr noundef nonnull dereferenceable(1) %name) #17
   %tobool14.not = icmp eq i32 %call13, 0
-  br i1 %tobool14.not, label %for.body.for.end_crit_edge, label %for.cond
+  br i1 %tobool14.not, label %for.end.sink.split, label %for.cond
 
-for.body.for.end_crit_edge:                       ; preds = %for.body
-  store ptr %storemerge21, ptr %node, align 8
+for.end.sink.split:                               ; preds = %for.cond, %for.body
+  %.sink = phi ptr [ %storemerge21, %for.body ], [ null, %for.cond ]
+  store ptr %.sink, ptr %node, align 8
   br label %for.end
 
-for.cond.for.end_crit_edge:                       ; preds = %for.cond
-  store ptr null, ptr %node, align 8
-  br label %for.end
-
-for.end:                                          ; preds = %for.cond.for.end_crit_edge, %for.body.for.end_crit_edge, %rcu_read_lock.exit
+for.end:                                          ; preds = %for.end.sink.split, %rcu_read_lock.exit
   %call.i8 = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i9 = getelementptr inbounds i8, ptr %call.i8, i64 12
   %16 = load i32, ptr %depth.i9, align 4

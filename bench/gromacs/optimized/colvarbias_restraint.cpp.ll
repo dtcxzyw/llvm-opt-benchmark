@@ -4776,8 +4776,7 @@ define noundef i32 @_ZN29colvarbias_restraint_k_moving6updateEv(ptr noundef nonn
   %188 = sext i32 %186 to i64
   %189 = getelementptr inbounds double, ptr %184, i64 %188
   %190 = load double, ptr %189, align 8
-  store double %190, ptr %2, align 8
-  br label %204
+  br label %.sink.split
 
 191:                                              ; preds = %176
   %192 = sitofp i32 %186 to double
@@ -4795,11 +4794,15 @@ define noundef i32 @_ZN29colvarbias_restraint_k_moving6updateEv(ptr noundef nonn
 
 202:                                              ; preds = %191
   %203 = fsub double 1.000000e+00, %196
-  store double %203, ptr %2, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %187, %202
+  %.sink = phi double [ %203, %202 ], [ %190, %187 ]
+  store double %.sink, ptr %2, align 8
   br label %204
 
-204:                                              ; preds = %191, %202, %187
-  %205 = phi double [ %196, %191 ], [ %203, %202 ], [ %190, %187 ]
+204:                                              ; preds = %.sink.split, %191
+  %205 = phi double [ %196, %191 ], [ %.sink, %.sink.split ]
   %206 = getelementptr inbounds i8, ptr %0, i64 40
   %207 = load double, ptr %206, align 8
   %208 = fcmp oeq double %207, 0.000000e+00
@@ -5040,8 +5043,7 @@ define noundef i32 @_ZN29colvarbias_restraint_k_moving6updateEv(ptr noundef nonn
   %351 = sext i32 %349 to i64
   %352 = getelementptr inbounds double, ptr %347, i64 %351
   %353 = load double, ptr %352, align 8
-  store double %353, ptr %2, align 8
-  br label %389
+  br label %.sink.split130
 
 354:                                              ; preds = %275
   %355 = landingpad { ptr, i32 }
@@ -5130,11 +5132,15 @@ define noundef i32 @_ZN29colvarbias_restraint_k_moving6updateEv(ptr noundef nonn
 
 387:                                              ; preds = %376
   %388 = fsub double 1.000000e+00, %381
-  store double %388, ptr %2, align 8
+  br label %.sink.split130
+
+.sink.split130:                                   ; preds = %350, %387
+  %.sink132 = phi double [ %388, %387 ], [ %353, %350 ]
+  store double %.sink132, ptr %2, align 8
   br label %389
 
-389:                                              ; preds = %376, %387, %350
-  %390 = phi double [ %381, %376 ], [ %388, %387 ], [ %353, %350 ]
+389:                                              ; preds = %.sink.split130, %376
+  %390 = phi double [ %381, %376 ], [ %.sink132, %.sink.split130 ]
   %391 = getelementptr inbounds i8, ptr %0, i64 16
   %392 = load double, ptr %391, align 8
   %393 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5389,9 +5395,9 @@ define noundef i32 @_ZN29colvarbias_restraint_k_moving6updateEv(ptr noundef nonn
   ret i32 0
 
 511:                                              ; preds = %435, %465, %354, %375, %145, %175
-  %.sink = phi ptr [ %10, %175 ], [ %10, %145 ], [ %19, %375 ], [ %19, %354 ], [ %30, %465 ], [ %30, %435 ]
+  %.sink133 = phi ptr [ %10, %175 ], [ %10, %145 ], [ %19, %375 ], [ %19, %354 ], [ %30, %465 ], [ %30, %435 ]
   %.pn62.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %175 ], [ %146, %145 ], [ %.pn53.pn.pn.pn.pn.pn, %375 ], [ %355, %354 ], [ %.pn62.pn.pn.pn.pn.pn.pn.pn.pn, %465 ], [ %436, %435 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #27
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink133) #27
   resume { ptr, i32 } %.pn62.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
 

@@ -41,11 +41,7 @@ define range(i32 -1, 1) i32 @slurm_get_cluster_info(ptr noundef writeonly %0, pt
 16:                                               ; preds = %10
   %17 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1) #3
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %_get_clusters_from_fed.exit.thread13, label %_get_clusters_from_fed.exit
-
-_get_clusters_from_fed.exit.thread13:             ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %28
+  br i1 %.not.i, label %.sink.split, label %_get_clusters_from_fed.exit
 
 18:                                               ; preds = %10
   %19 = call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.2) #3
@@ -78,10 +74,13 @@ _get_clusters_from_fed.exit.thread:               ; preds = %23
 
 _get_clusters_from_fed.exit:                      ; preds = %16
   call void @list_destroy(ptr noundef nonnull %11) #3
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %16, %_get_clusters_from_fed.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %28
 
-28:                                               ; preds = %_get_clusters_from_fed.exit, %_get_clusters_from_fed.exit.thread13, %7
+28:                                               ; preds = %.sink.split, %7
   %29 = call ptr @slurmdb_get_info_cluster(ptr noundef %1) #3
   store ptr %29, ptr %0, align 8
   %.not10 = icmp eq ptr %29, null

@@ -3945,8 +3945,7 @@ while.cond.i17:                                   ; preds = %if.end, %while.cond
 
 if.end.i:                                         ; preds = %while.cond.i17
   %incdec.ptr13.i = getelementptr i8, ptr %.pn.i, i64 2
-  store ptr %incdec.ptr13.i, ptr %cur.i, align 8
-  br label %found.i
+  br label %found.sink.split.i
 
 if.end14.i:                                       ; preds = %if.end
   %13 = add i8 %11, -48
@@ -4082,7 +4081,7 @@ while.cond58.i:                                   ; preds = %while.cond58.i.preh
   br i1 %or.cond54.i, label %while.body204.i, label %lor.lhs.false81.i
 
 lor.lhs.false81.i:                                ; preds = %while.cond58.i
-  switch i8 %28, label %found.loopexit.i [
+  switch i8 %28, label %found.sink.split.i [
     i8 45, label %while.body204.i
     i8 46, label %while.body204.i
     i8 95, label %while.body204.i
@@ -4110,7 +4109,7 @@ land.lhs.true101.i:                               ; preds = %lor.lhs.false81.i
   br i1 %or.cond19.i, label %land.lhs.true130.i, label %switch.early.test.i11
 
 switch.early.test.i11:                            ; preds = %land.lhs.true101.i
-  switch i8 %.fr63.i, label %found.loopexit.i [
+  switch i8 %.fr63.i, label %found.sink.split.i [
     i8 102, label %land.lhs.true130.i
     i8 101, label %land.lhs.true130.i
     i8 100, label %land.lhs.true130.i
@@ -4134,7 +4133,7 @@ land.lhs.true130.i:                               ; preds = %switch.early.test.i
   br i1 %or.cond22.i, label %while.body204.i, label %switch.early.test59.i
 
 switch.early.test59.i:                            ; preds = %land.lhs.true130.i
-  switch i8 %.fr64.i, label %found.loopexit.i [
+  switch i8 %.fr64.i, label %found.sink.split.i [
     i8 102, label %while.body204.i
     i8 101, label %while.body204.i
     i8 100, label %while.body204.i
@@ -4156,11 +4155,12 @@ while.body204.i:                                  ; preds = %switch.early.test59
   %.pre.i = load i8, ptr %storemerge.i, align 1
   br label %while.cond58.i, !llvm.loop !44
 
-found.loopexit.i:                                 ; preds = %switch.early.test59.i, %switch.early.test.i11, %lor.lhs.false81.i
-  store ptr %storemerge61.i, ptr %cur.i, align 8
+found.sink.split.i:                               ; preds = %switch.early.test59.i, %switch.early.test.i11, %lor.lhs.false81.i, %if.end.i
+  %storemerge61.lcssa.sink.i = phi ptr [ %incdec.ptr13.i, %if.end.i ], [ %storemerge61.i, %lor.lhs.false81.i ], [ %storemerge61.i, %switch.early.test.i11 ], [ %storemerge61.i, %switch.early.test59.i ]
+  store ptr %storemerge61.lcssa.sink.i, ptr %cur.i, align 8
   br label %found.i
 
-found.i:                                          ; preds = %found.loopexit.i, %if.end51.i, %if.end.i
+found.i:                                          ; preds = %found.sink.split.i, %if.end51.i
   %cmp211.not.i = icmp eq ptr %uri, null
   br i1 %cmp211.not.i, label %found.if.end231_crit_edge.i, label %if.then213.i
 

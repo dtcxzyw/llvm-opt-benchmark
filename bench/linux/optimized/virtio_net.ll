@@ -11842,12 +11842,12 @@ define internal fastcc ptr @xdp_linearize_page(ptr nocapture noundef readonly %0
   %9 = add nuw nsw i32 %4, -3777
   %10 = add i32 %9, %8
   %11 = icmp ult i32 %10, -4097
-  br i1 %11, label %179, label %12
+  br i1 %11, label %177, label %12
 
 12:                                               ; preds = %6
   %13 = tail call ptr @alloc_pages(i32 noundef 2080, i32 noundef 0) #25
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %179, label %15
+  br i1 %14, label %177, label %15
 
 15:                                               ; preds = %12
   %16 = load i64, ptr @vmemmap_base, align 8
@@ -12008,8 +12008,7 @@ define internal fastcc ptr @xdp_linearize_page(ptr nocapture noundef readonly %0
 
 .thread2:                                         ; preds = %117
   call void @__folio_put(ptr noundef %118) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #25
-  br label %178
+  br label %.thread
 
 123:                                              ; preds = %86
   %124 = load i64, ptr @vmemmap_base, align 8
@@ -12077,41 +12076,34 @@ define internal fastcc ptr @xdp_linearize_page(ptr nocapture noundef readonly %0
   %170 = icmp ult i8 %169, 2
   call void @llvm.assume(i1 %170)
   %171 = icmp eq i8 %169, 0
-  br i1 %171, label %173, label %172
+  br i1 %171, label %.backedge, label %172
 
 172:                                              ; preds = %166
   call void @__folio_put(ptr noundef %167) #25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #25
   br label %.backedge
 
-.thread:                                          ; preds = %.lr.ph, %117
+.backedge:                                        ; preds = %166, %172
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #25
-  br label %178
-
-173:                                              ; preds = %166
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #25
-  br label %.backedge
-
-.backedge:                                        ; preds = %173, %172
-  %174 = load i32, ptr %1, align 4
-  %175 = add i32 %174, -1
-  store i32 %175, ptr %1, align 4
-  %176 = icmp eq i32 %175, 0
-  br i1 %176, label %._crit_edge, label %.lr.ph
+  %173 = load i32, ptr %1, align 4
+  %174 = add i32 %173, -1
+  store i32 %174, ptr %1, align 4
+  %175 = icmp eq i32 %174, 0
+  br i1 %175, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.backedge, %15
   %.lcssa = phi i32 [ %35, %15 ], [ %142, %.backedge ]
-  %177 = add i32 %.lcssa, -256
-  store i32 %177, ptr %5, align 4
-  br label %179
+  %176 = add i32 %.lcssa, -256
+  store i32 %176, ptr %5, align 4
+  br label %177
 
-178:                                              ; preds = %.thread2, %.thread
+.thread:                                          ; preds = %.lr.ph, %117, %.thread2
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #25
   call void @__free_pages(ptr noundef nonnull %13, i32 noundef 0) #25
-  br label %179
+  br label %177
 
-179:                                              ; preds = %178, %._crit_edge, %12, %6
-  %180 = phi ptr [ null, %178 ], [ %13, %._crit_edge ], [ null, %6 ], [ null, %12 ]
-  ret ptr %180
+177:                                              ; preds = %.thread, %._crit_edge, %12, %6
+  %178 = phi ptr [ null, %.thread ], [ %13, %._crit_edge ], [ null, %6 ], [ null, %12 ]
+  ret ptr %178
 }
 
 ; Function Attrs: null_pointer_is_valid

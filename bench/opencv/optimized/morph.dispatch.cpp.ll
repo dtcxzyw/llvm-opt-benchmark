@@ -3925,19 +3925,19 @@ _ZN2cv3PtrINS_10BaseFilterEEaSERKS2_.exit:        ; preds = %240, %_ZNSt16_Sp_co
   br label %.body
 
 _ZN2cv3PtrINS_16BaseColumnFilterEED2Ev.exit.sink.split.sink.split: ; preds = %291, %204
-  %.sink171 = phi ptr [ %205, %204 ], [ %292, %291 ]
-  %.sink170 = phi ptr [ %203, %204 ], [ %290, %291 ]
-  store i32 0, ptr %.sink171, align 8
-  %319 = getelementptr inbounds i8, ptr %.sink170, i64 12
+  %.sink172 = phi ptr [ %205, %204 ], [ %292, %291 ]
+  %.sink171 = phi ptr [ %203, %204 ], [ %290, %291 ]
+  store i32 0, ptr %.sink172, align 8
+  %319 = getelementptr inbounds i8, ptr %.sink171, i64 12
   store i32 0, ptr %319, align 4
-  %320 = load ptr, ptr %.sink170, align 8
+  %320 = load ptr, ptr %.sink171, align 8
   %321 = getelementptr inbounds i8, ptr %320, i64 16
   %322 = load ptr, ptr %321, align 8
-  call void %322(ptr noundef nonnull align 8 dereferenceable(16) %.sink170) #25
+  call void %322(ptr noundef nonnull align 8 dereferenceable(16) %.sink171) #25
   br label %_ZN2cv3PtrINS_16BaseColumnFilterEED2Ev.exit.sink.split
 
 _ZN2cv3PtrINS_16BaseColumnFilterEED2Ev.exit.sink.split: ; preds = %_ZN2cv3PtrINS_16BaseColumnFilterEED2Ev.exit.sink.split.sink.split, %315, %228
-  %.sink161 = phi ptr [ %203, %228 ], [ %290, %315 ], [ %.sink170, %_ZN2cv3PtrINS_16BaseColumnFilterEED2Ev.exit.sink.split.sink.split ]
+  %.sink161 = phi ptr [ %203, %228 ], [ %290, %315 ], [ %.sink171, %_ZN2cv3PtrINS_16BaseColumnFilterEED2Ev.exit.sink.split.sink.split ]
   %323 = load ptr, ptr %.sink161, align 8
   %324 = getelementptr inbounds i8, ptr %323, i64 24
   %325 = load ptr, ptr %324, align 8
@@ -4037,11 +4037,11 @@ _ZN2cv3PtrINS_16BaseColumnFilterEED2Ev.exit:      ; preds = %_ZN2cv3PtrINS_16Bas
   br label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %361, %.fold.split, %360, %360, %355
-  %storemerge = phi double [ %359, %355 ], [ 0.000000e+00, %360 ], [ %362, %361 ], [ 0.000000e+00, %360 ], [ -3.276800e+04, %.fold.split ]
-  store double %storemerge, ptr %20, align 8
-  store double %storemerge, ptr %331, align 8
-  store double %storemerge, ptr %334, align 8
-  store double %storemerge, ptr %337, align 8
+  %.sink165 = phi double [ %359, %355 ], [ 0.000000e+00, %360 ], [ %362, %361 ], [ 0.000000e+00, %360 ], [ -3.276800e+04, %.fold.split ]
+  store double %.sink165, ptr %20, align 8
+  store double %.sink165, ptr %331, align 8
+  store double %.sink165, ptr %334, align 8
+  store double %.sink165, ptr %337, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %328, %_ZN2cv3PtrINS_16BaseColumnFilterEED2Ev.exit

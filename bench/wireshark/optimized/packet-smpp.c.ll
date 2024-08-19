@@ -4451,13 +4451,11 @@ define internal fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, pt
 
 98:                                               ; preds = %81
   %99 = add i64 %96, %79
-  store i64 %99, ptr %8, align 8
-  br label %112
+  br label %.sink.split
 
 100:                                              ; preds = %81
   %101 = sub i64 %79, %96
-  store i64 %101, ptr %8, align 8
-  br label %112
+  br label %.sink.split
 
 102:                                              ; preds = %15
   %103 = mul nsw i32 %46, 24
@@ -4474,7 +4472,12 @@ define internal fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, pt
   %111 = call ptr @proto_tree_add_time(ptr noundef %0, i32 noundef %3, ptr noundef %1, i32 noundef %110, i32 noundef %13, ptr noundef nonnull %8) #9
   br label %120
 
-112:                                              ; preds = %78, %81, %98, %100
+.sink.split:                                      ; preds = %100, %98
+  %.sink = phi i64 [ %99, %98 ], [ %101, %100 ]
+  store i64 %.sink, ptr %8, align 8
+  br label %112
+
+112:                                              ; preds = %.sink.split, %78, %81
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   %113 = load i32, ptr %4, align 4
   %114 = load i32, ptr %7, align 4

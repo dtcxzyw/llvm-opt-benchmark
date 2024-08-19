@@ -14274,14 +14274,11 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler8i32_load17hd522cff0fdf3771fE.exi
 
 217:                                              ; preds = %"_ZN16wasmtime_environ4fact10trampoline8Compiler14translate_enum28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd9ffc1b17a121139E.exit.i.i.i.i.i"
   %218 = icmp ugt i64 %.sroa.6.0141189, 4294967295
-  br i1 %218, label %.split.i.i.i, label %220
+  br i1 %218, label %.split.i.i.i.invoke, label %220
 
-.split.i.i.i:                                     ; preds = %217
+.split.i.i.i.invoke:                              ; preds = %217, %220
+  %219 = phi ptr [ @anon.9b245dddcf682bd7d7bb6af6fb912ebe.76, %220 ], [ @anon.9b245dddcf682bd7d7bb6af6fb912ebe.75, %217 ]
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %7), !noalias !2802
-  br label %.split.i.i.i.invoke
-
-.split.i.i.i.invoke:                              ; preds = %.split11.i.i.i, %.split.i.i.i
-  %219 = phi ptr [ @anon.9b245dddcf682bd7d7bb6af6fb912ebe.75, %.split.i.i.i ], [ @anon.9b245dddcf682bd7d7bb6af6fb912ebe.76, %.split11.i.i.i ]
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.9b245dddcf682bd7d7bb6af6fb912ebe.5, i64 noundef 43, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9b245dddcf682bd7d7bb6af6fb912ebe.6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %219) #44
           to label %.split.i.i.i.cont unwind label %.loopexit.split-lp158
 
@@ -14290,11 +14287,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler8i32_load17hd522cff0fdf3771fE.exi
 
 220:                                              ; preds = %217
   %221 = icmp ugt i64 %209, 4294967295
-  br i1 %221, label %.split11.i.i.i, label %230
-
-.split11.i.i.i:                                   ; preds = %220
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %7), !noalias !2802
-  br label %.split.i.i.i.invoke
+  br i1 %221, label %.split.i.i.i.invoke, label %230
 
 .loopexit157:                                     ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler13push_dst_addr17h5ae0cb115e114961E.exit, %238, %240, %233, %_ZN16wasmtime_environ4fact10trampoline6Memory6memarg17h2ad4b467e561f1e6E.llvm.725258463910346102.exit.i, %_ZN16wasmtime_environ4fact10trampoline6Memory6memarg17h2ad4b467e561f1e6E.llvm.725258463910346102.exit.i120, %_ZN16wasmtime_environ4fact10trampoline6Memory6memarg17h2ad4b467e561f1e6E.llvm.725258463910346102.exit.i126
   %lpad.loopexit159 = landingpad { ptr, i32 }
@@ -16128,14 +16121,11 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler8i32_load17hd522cff0fdf3771fE.exi
   %225 = icmp ne ptr %224, null
   call void @llvm.assume(i1 %225)
   %226 = icmp ugt i64 %.sroa.6.0141191, 4294967295
-  br i1 %226, label %.split.i.i.i, label %228
+  br i1 %226, label %.split.i.i.i.invoke, label %228
 
-.split.i.i.i:                                     ; preds = %"_ZN97_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17hdf02afad844995b1E.exit.i.i.i"
+.split.i.i.i.invoke:                              ; preds = %"_ZN97_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17hdf02afad844995b1E.exit.i.i.i", %228
+  %227 = phi ptr [ @anon.9b245dddcf682bd7d7bb6af6fb912ebe.73, %228 ], [ @anon.9b245dddcf682bd7d7bb6af6fb912ebe.72, %"_ZN97_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17hdf02afad844995b1E.exit.i.i.i" ]
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %7), !noalias !3040
-  br label %.split.i.i.i.invoke
-
-.split.i.i.i.invoke:                              ; preds = %.split14.i.i.i, %.split.i.i.i
-  %227 = phi ptr [ @anon.9b245dddcf682bd7d7bb6af6fb912ebe.72, %.split.i.i.i ], [ @anon.9b245dddcf682bd7d7bb6af6fb912ebe.73, %.split14.i.i.i ]
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.9b245dddcf682bd7d7bb6af6fb912ebe.5, i64 noundef 43, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9b245dddcf682bd7d7bb6af6fb912ebe.6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %227) #44
           to label %.split.i.i.i.cont unwind label %.loopexit.split-lp160
 
@@ -16144,11 +16134,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler8i32_load17hd522cff0fdf3771fE.exi
 
 228:                                              ; preds = %"_ZN97_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17hdf02afad844995b1E.exit.i.i.i"
   %229 = icmp ugt i64 %211, 4294967295
-  br i1 %229, label %.split14.i.i.i, label %238
-
-.split14.i.i.i:                                   ; preds = %228
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %7), !noalias !3040
-  br label %.split.i.i.i.invoke
+  br i1 %229, label %.split.i.i.i.invoke, label %238
 
 .loopexit159:                                     ; preds = %_ZN16wasmtime_environ4fact10trampoline8Compiler13push_dst_addr17h5ae0cb115e114961E.exit, %250, %252, %219, %245, %_ZN16wasmtime_environ4fact10trampoline6Memory6memarg17h2ad4b467e561f1e6E.llvm.725258463910346102.exit.i, %_ZN16wasmtime_environ4fact10trampoline6Memory6memarg17h2ad4b467e561f1e6E.llvm.725258463910346102.exit.i121, %_ZN16wasmtime_environ4fact10trampoline6Memory6memarg17h2ad4b467e561f1e6E.llvm.725258463910346102.exit.i127
   %lpad.loopexit161 = landingpad { ptr, i32 }

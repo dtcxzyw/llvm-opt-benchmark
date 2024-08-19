@@ -655,11 +655,11 @@ define range(i32 -1, 1) i32 @logg(i32 noundef %0, ptr nocapture noundef readonly
 123:                                              ; preds = %117
   %124 = load ptr, ptr @logg_fp, align 8
   %.not19.i.i = icmp eq ptr %124, null
-  br i1 %.not19.i.i, label %rename_logg.exit.thread.i, label %125
+  br i1 %.not19.i.i, label %logg_open.exit.sink.split, label %125
 
 125:                                              ; preds = %123
   %126 = call i64 @fwrite(ptr nonnull @.str.11, i64 59, i64 1, ptr nonnull %124)
-  br label %rename_logg.exit.thread.i
+  br label %logg_open.exit.sink.split
 
 127:                                              ; preds = %117
   %128 = call i64 @time(ptr noundef null) #17
@@ -679,7 +679,7 @@ define range(i32 -1, 1) i32 @logg(i32 noundef %0, ptr nocapture noundef readonly
 
 134:                                              ; preds = %132, %130
   call void @free(ptr noundef nonnull %122) #17
-  br label %rename_logg.exit.thread.i
+  br label %logg_open.exit.sink.split
 
 135:                                              ; preds = %127
   %136 = load ptr, ptr @logg_file, align 8
@@ -698,20 +698,18 @@ define range(i32 -1, 1) i32 @logg(i32 noundef %0, ptr nocapture noundef readonly
   store ptr null, ptr @logg_fp, align 8
   br label %rename_logg.exit.i
 
-rename_logg.exit.thread.i:                        ; preds = %134, %125, %123
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
-  br label %logg_open.exit
-
 rename_logg.exit.i:                               ; preds = %144, %135
   %146 = load ptr, ptr @logg_file, align 8
   %147 = call i32 @rename(ptr noundef %146, ptr noundef nonnull %122) #17
   call void @free(ptr noundef nonnull %122) #17
+  br label %logg_open.exit.sink.split
+
+logg_open.exit.sink.split:                        ; preds = %123, %125, %134, %rename_logg.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   br label %logg_open.exit
 
-logg_open.exit:                                   ; preds = %rename_logg.exit.i, %92, %101, %103, %rename_logg.exit.thread.i
+logg_open.exit:                                   ; preds = %logg_open.exit.sink.split, %92, %101, %103
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
   %148 = load ptr, ptr @logg_fp, align 8
   %149 = icmp eq ptr %148, null

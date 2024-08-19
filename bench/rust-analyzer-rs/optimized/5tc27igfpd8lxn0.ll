@@ -97,16 +97,15 @@ define hidden noundef ptr @"_ZN107_$LT$chalk_ir..fold..shift..DownShifter$LT$I$G
   store i32 %13, ptr %15, align 8
   store i8 21, ptr %6, align 8
   %16 = call noundef nonnull ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$9intern_ty17hb037777477b019b3E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %18
 
 17:                                               ; preds = %4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %18
 
 18:                                               ; preds = %17, %8
   %.0 = phi ptr [ null, %17 ], [ %16, %8 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   ret ptr %.0
 }
 
@@ -236,16 +235,15 @@ define hidden noundef ptr @"_ZN107_$LT$chalk_ir..fold..shift..DownShifter$LT$I$G
   store i32 %13, ptr %15, align 8
   store i32 0, ptr %6, align 8
   %16 = call noundef nonnull ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$15intern_lifetime17hd2c5e410a181cb8eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %18
 
 17:                                               ; preds = %4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !33
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %18
 
 18:                                               ; preds = %17, %8
   %.0 = phi ptr [ null, %17 ], [ %16, %8 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   ret ptr %.0
 }
 

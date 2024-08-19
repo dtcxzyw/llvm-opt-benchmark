@@ -210,7 +210,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 26:                                               ; preds = %23
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.2) #14
-  br label %818
+  br label %816
 
 27:                                               ; preds = %23
   %28 = call ptr @optget(ptr noundef nonnull %24, ptr noundef nonnull @.str.3) #14
@@ -242,7 +242,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %putchar16.i = call i32 @putchar(i32 10)
   %34 = load ptr, ptr @opts, align 8
   call void @optfree(ptr noundef %34) #14
-  br label %818
+  br label %816
 
 35:                                               ; preds = %27
   %36 = load ptr, ptr @opts, align 8
@@ -298,8 +298,8 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %55 = getelementptr inbounds i8, ptr %54, i64 32
   %56 = load i32, ptr %55, align 8
   %.not253 = icmp ne i32 %56, 0
-  %.411 = zext i1 %.not253 to i16
-  store i16 %.411, ptr @foreground, align 2
+  %.413 = zext i1 %.not253 to i16
+  store i16 %.413, ptr @foreground, align 2
   br label %.critedge336
 
 .critedge336:                                     ; preds = %47, %.critedge336.sink.split, %45
@@ -315,7 +315,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 64:                                               ; preds = %.critedge336
   %65 = load ptr, ptr @stderr, align 8
   %66 = call i64 @fwrite(ptr nonnull @.str.10, i64 49, i64 1, ptr %65) #16
-  br label %818
+  br label %816
 
 67:                                               ; preds = %.critedge336
   %68 = load ptr, ptr @opts, align 8
@@ -328,7 +328,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %72 = load ptr, ptr @stderr, align 8
   %73 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %72, ptr noundef nonnull @.str.11, ptr noundef nonnull %62) #17
   call void @free(ptr noundef nonnull %62) #14
-  br label %818
+  br label %816
 
 74:                                               ; preds = %67
   call void @free(ptr noundef nonnull %62) #14
@@ -360,7 +360,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   call void @print_version(ptr noundef %90) #14
   %91 = load ptr, ptr @opts, align 8
   call void @optfree(ptr noundef %91) #14
-  br label %818
+  br label %816
 
 92:                                               ; preds = %81
   %93 = call ptr @optget(ptr noundef %86, ptr noundef nonnull @.str.15) #14
@@ -431,7 +431,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 137:                                              ; preds = %133
   %138 = load ptr, ptr @stderr, align 8
   %139 = call i64 @fwrite(ptr nonnull @.str.23, i64 35, i64 1, ptr %138) #16
-  br label %818
+  br label %816
 
 140:                                              ; preds = %133
   %141 = call i64 @time(ptr noundef nonnull %5) #14
@@ -443,7 +443,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 144:                                              ; preds = %140
   %145 = load ptr, ptr @stderr, align 8
   %146 = call i64 @fwrite(ptr nonnull @.str.25, i64 44, i64 1, ptr %145) #16
-  br label %818
+  br label %816
 
 147:                                              ; preds = %123
   store ptr null, ptr @logg_file, align 8
@@ -486,7 +486,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %163 = load i32, ptr %162, align 4
   %164 = call ptr @strerror(i32 noundef %163) #14
   %165 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.26, ptr noundef %164) #14
-  br label %818
+  br label %816
 
 166:                                              ; preds = %155
   store ptr null, ptr @gengine, align 8
@@ -569,7 +569,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 218:                                              ; preds = %214
   call void @optfree(ptr noundef %217) #14
-  br label %818
+  br label %816
 
 219:                                              ; preds = %214
   %220 = call ptr @optget(ptr noundef %217, ptr noundef nonnull @.str.32) #14
@@ -1257,7 +1257,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %615 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.103, ptr noundef %614) #14
   %616 = load ptr, ptr @main.engine, align 8
   %617 = call i32 @cl_engine_free(ptr noundef %616) #14
-  br label %818
+  br label %816
 
 618:                                              ; preds = %608, %601
   %619 = load ptr, ptr @opts, align 8
@@ -1280,7 +1280,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %630 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.105, ptr noundef %629) #14
   %631 = load ptr, ptr @main.engine, align 8
   %632 = call i32 @cl_engine_free(ptr noundef %631) #14
-  br label %818
+  br label %816
 
 633:                                              ; preds = %623, %618
   %634 = load ptr, ptr @main.engine, align 8
@@ -1336,7 +1336,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 .critedge.thread:                                 ; preds = %.lr.ph385, %653, %656, %639
   %or.cond12 = select i1 %.not270, i1 %270, i1 false
-  br i1 %or.cond12, label %660, label %741
+  br i1 %or.cond12, label %660, label %740
 
 660:                                              ; preds = %.critedge.thread
   %661 = call i32 @umask(i32 noundef 511) #14
@@ -1459,156 +1459,155 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 .thread352:                                       ; preds = %726
   %739 = load i32, ptr %8, align 4
-  %740 = add i32 %739, 1
-  store i32 %740, ptr %8, align 4
-  br label %766
+  br label %.sink.split
 
-741:                                              ; preds = %.critedge.thread
-  br i1 %640, label %742, label %766
+740:                                              ; preds = %.critedge.thread
+  br i1 %640, label %741, label %764
 
-742:                                              ; preds = %741
-  %743 = load ptr, ptr %7, align 8
-  %744 = load i32, ptr %8, align 4
-  %745 = add i32 %744, 1
-  %746 = zext i32 %745 to i64
-  %747 = shl nuw nsw i64 %746, 2
-  %748 = call ptr @realloc(ptr noundef %743, i64 noundef %747) #20
-  %.not332 = icmp eq ptr %748, null
-  br i1 %.not332, label %.critedge.thread361, label %749
+741:                                              ; preds = %740
+  %742 = load ptr, ptr %7, align 8
+  %743 = load i32, ptr %8, align 4
+  %744 = add i32 %743, 1
+  %745 = zext i32 %744 to i64
+  %746 = shl nuw nsw i64 %745, 2
+  %747 = call ptr @realloc(ptr noundef %742, i64 noundef %746) #20
+  %.not332 = icmp eq ptr %747, null
+  br i1 %.not332, label %.critedge.thread361, label %748
 
-749:                                              ; preds = %742
-  store ptr %748, ptr %7, align 8
-  %750 = load ptr, ptr @opts, align 8
-  %751 = call i32 @localserver(ptr noundef %750) #14
-  %752 = load ptr, ptr %7, align 8
-  %753 = load i32, ptr %8, align 4
-  %754 = zext i32 %753 to i64
-  %755 = getelementptr inbounds i32, ptr %752, i64 %754
-  store i32 %751, ptr %755, align 4
-  %756 = load ptr, ptr %7, align 8
-  %757 = load i32, ptr %8, align 4
-  %758 = zext i32 %757 to i64
-  %759 = getelementptr inbounds i32, ptr %756, i64 %758
-  %760 = load i32, ptr %759, align 4
-  %761 = icmp eq i32 %760, -1
-  br i1 %761, label %.critedge.thread361, label %762
+748:                                              ; preds = %741
+  store ptr %747, ptr %7, align 8
+  %749 = load ptr, ptr @opts, align 8
+  %750 = call i32 @localserver(ptr noundef %749) #14
+  %751 = load ptr, ptr %7, align 8
+  %752 = load i32, ptr %8, align 4
+  %753 = zext i32 %752 to i64
+  %754 = getelementptr inbounds i32, ptr %751, i64 %753
+  store i32 %750, ptr %754, align 4
+  %755 = load ptr, ptr %7, align 8
+  %756 = load i32, ptr %8, align 4
+  %757 = zext i32 %756 to i64
+  %758 = getelementptr inbounds i32, ptr %755, i64 %757
+  %759 = load i32, ptr %758, align 4
+  %760 = icmp eq i32 %759, -1
+  br i1 %760, label %.critedge.thread361, label %761
 
-762:                                              ; preds = %749
-  %763 = icmp sgt i32 %760, 0
-  br i1 %763, label %764, label %766
+761:                                              ; preds = %748
+  %762 = icmp sgt i32 %759, 0
+  br i1 %762, label %.sink.split, label %764
 
-764:                                              ; preds = %762
-  %765 = add i32 %757, 1
-  store i32 %765, ptr %8, align 4
-  br label %766
+.sink.split:                                      ; preds = %761, %.thread352
+  %.sink412 = phi i32 [ %739, %.thread352 ], [ %756, %761 ]
+  %763 = add i32 %.sink412, 1
+  store i32 %763, ptr %8, align 4
+  br label %764
 
-766:                                              ; preds = %.thread352, %764, %762, %741
-  %767 = load i16, ptr @foreground, align 2
-  %768 = icmp eq i16 %767, 0
-  br i1 %768, label %769, label %779
+764:                                              ; preds = %.sink.split, %761, %740
+  %765 = load i16, ptr @foreground, align 2
+  %766 = icmp eq i16 %765, 0
+  br i1 %766, label %767, label %777
 
-769:                                              ; preds = %766
-  %770 = load i16, ptr @debug_mode, align 2
-  %.not333 = icmp eq i16 %770, 0
-  br i1 %.not333, label %771, label %776
+767:                                              ; preds = %764
+  %768 = load i16, ptr @debug_mode, align 2
+  %.not333 = icmp eq i16 %768, 0
+  br i1 %.not333, label %769, label %774
 
-771:                                              ; preds = %769
-  %772 = call i32 @chdir(ptr noundef nonnull @.str.115) #14
-  %773 = icmp eq i32 %772, -1
-  br i1 %773, label %774, label %776
+769:                                              ; preds = %767
+  %770 = call i32 @chdir(ptr noundef nonnull @.str.115) #14
+  %771 = icmp eq i32 %770, -1
+  br i1 %771, label %772, label %774
 
-774:                                              ; preds = %771
-  %775 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.116) #14
-  br label %776
+772:                                              ; preds = %769
+  %773 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.116) #14
+  br label %774
 
-776:                                              ; preds = %771, %774, %769
-  %777 = call i32 @getpid() #14
-  %.not334 = icmp eq i32 %14, %777
-  br i1 %.not334, label %779, label %778
+774:                                              ; preds = %769, %772, %767
+  %775 = call i32 @getpid() #14
+  %.not334 = icmp eq i32 %14, %775
+  br i1 %.not334, label %777, label %776
 
-778:                                              ; preds = %776
+776:                                              ; preds = %774
   call void @daemonize_signal_parent(i32 noundef %14) #14
-  br label %779
+  br label %777
 
-779:                                              ; preds = %776, %778, %766
-  %780 = load i32, ptr %8, align 4
-  %781 = icmp eq i32 %780, 0
-  br i1 %781, label %782, label %784
+777:                                              ; preds = %774, %776, %764
+  %778 = load i32, ptr %8, align 4
+  %779 = icmp eq i32 %778, 0
+  br i1 %779, label %780, label %782
 
-782:                                              ; preds = %779
-  %783 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.117) #14
+780:                                              ; preds = %777
+  %781 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.117) #14
   br label %.critedge
 
-784:                                              ; preds = %779
-  %785 = load ptr, ptr %7, align 8
-  %786 = load ptr, ptr @main.engine, align 8
-  %787 = load ptr, ptr @opts, align 8
-  %788 = call i32 @recvloop(ptr noundef %785, i32 noundef %780, ptr noundef %786, i32 noundef %.7, ptr noundef %787) #14
+782:                                              ; preds = %777
+  %783 = load ptr, ptr %7, align 8
+  %784 = load ptr, ptr @main.engine, align 8
+  %785 = load ptr, ptr @opts, align 8
+  %786 = call i32 @recvloop(ptr noundef %783, i32 noundef %778, ptr noundef %784, i32 noundef %.7, ptr noundef %785) #14
   br label %.critedge
 
-.critedge:                                        ; preds = %648, %400, %358, %656, %576, %784, %782, %636, %590, %585, %500, %494, %447, %436, %412, %374, %300, %296, %247, %226
-  %.0206 = phi i32 [ 0, %226 ], [ 0, %247 ], [ %.1207, %296 ], [ %.1207, %358 ], [ %.1207, %374 ], [ %.1207, %400 ], [ %.1207, %412 ], [ %.1207, %436 ], [ %.1207, %494 ], [ %.1207, %500 ], [ %.1207, %585 ], [ %.1207, %590 ], [ %.1207, %636 ], [ %.1207, %782 ], [ %.1207, %784 ], [ %.1207, %447 ], [ %.1207, %300 ], [ %.1207, %576 ], [ %.1207, %656 ], [ %.1207, %648 ]
-  %.0197 = phi i32 [ 1, %226 ], [ 1, %247 ], [ 1, %296 ], [ 1, %358 ], [ 1, %374 ], [ 1, %400 ], [ 1, %412 ], [ 1, %436 ], [ 1, %494 ], [ 1, %500 ], [ 1, %585 ], [ 1, %590 ], [ 1, %636 ], [ 1, %782 ], [ %788, %784 ], [ 1, %447 ], [ 1, %300 ], [ 1, %576 ], [ 1, %656 ], [ 1, %648 ]
-  %789 = icmp eq i32 %57, 0
-  br i1 %789, label %.critedge.thread354, label %.critedge.thread361
+.critedge:                                        ; preds = %648, %400, %358, %656, %576, %782, %780, %636, %590, %585, %500, %494, %447, %436, %412, %374, %300, %296, %247, %226
+  %.0206 = phi i32 [ 0, %226 ], [ 0, %247 ], [ %.1207, %296 ], [ %.1207, %358 ], [ %.1207, %374 ], [ %.1207, %400 ], [ %.1207, %412 ], [ %.1207, %436 ], [ %.1207, %494 ], [ %.1207, %500 ], [ %.1207, %585 ], [ %.1207, %590 ], [ %.1207, %636 ], [ %.1207, %780 ], [ %.1207, %782 ], [ %.1207, %447 ], [ %.1207, %300 ], [ %.1207, %576 ], [ %.1207, %656 ], [ %.1207, %648 ]
+  %.0197 = phi i32 [ 1, %226 ], [ 1, %247 ], [ 1, %296 ], [ 1, %358 ], [ 1, %374 ], [ 1, %400 ], [ 1, %412 ], [ 1, %436 ], [ 1, %494 ], [ 1, %500 ], [ 1, %585 ], [ 1, %590 ], [ 1, %636 ], [ 1, %780 ], [ %786, %782 ], [ 1, %447 ], [ 1, %300 ], [ 1, %576 ], [ 1, %656 ], [ 1, %648 ]
+  %787 = icmp eq i32 %57, 0
+  br i1 %787, label %.critedge.thread354, label %.critedge.thread361
 
 .critedge.thread354:                              ; preds = %668, %271, %693, %704, %720, %733, %660, %.critedge
   %.0197359 = phi i32 [ %.0197, %.critedge ], [ 1, %660 ], [ 1, %733 ], [ 1, %720 ], [ 1, %704 ], [ 1, %693 ], [ 1, %271 ], [ 1, %668 ]
   %.0206357 = phi i32 [ %.0206, %.critedge ], [ 1, %660 ], [ 1, %733 ], [ 1, %720 ], [ 1, %704 ], [ 1, %693 ], [ %.1207, %271 ], [ 1, %668 ]
-  %790 = load i32, ptr %8, align 4
-  %791 = icmp ugt i32 %790, 1
-  %792 = select i1 %791, ptr @.str.119, ptr @.str
-  %793 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.118, ptr noundef nonnull %792) #14
-  %794 = load i32, ptr %8, align 4
-  %.not391 = icmp eq i32 %794, 0
+  %788 = load i32, ptr %8, align 4
+  %789 = icmp ugt i32 %788, 1
+  %790 = select i1 %789, ptr @.str.119, ptr @.str
+  %791 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.118, ptr noundef nonnull %790) #14
+  %792 = load i32, ptr %8, align 4
+  %.not391 = icmp eq i32 %792, 0
   br i1 %.not391, label %.critedge.thread361, label %.lr.ph388
 
 .lr.ph388:                                        ; preds = %.critedge.thread354, %.lr.ph388
   %indvars.iv400 = phi i64 [ %indvars.iv.next401, %.lr.ph388 ], [ 0, %.critedge.thread354 ]
-  %795 = load ptr, ptr %7, align 8
-  %796 = getelementptr inbounds i32, ptr %795, i64 %indvars.iv400
-  %797 = load i32, ptr %796, align 4
-  %798 = call i32 @close(i32 noundef %797) #14
+  %793 = load ptr, ptr %7, align 8
+  %794 = getelementptr inbounds i32, ptr %793, i64 %indvars.iv400
+  %795 = load i32, ptr %794, align 4
+  %796 = call i32 @close(i32 noundef %795) #14
   %indvars.iv.next401 = add nuw nsw i64 %indvars.iv400, 1
-  %799 = load i32, ptr %8, align 4
-  %800 = zext i32 %799 to i64
-  %801 = icmp ult i64 %indvars.iv.next401, %800
-  br i1 %801, label %.lr.ph388, label %._crit_edge389
+  %797 = load i32, ptr %8, align 4
+  %798 = zext i32 %797 to i64
+  %799 = icmp ult i64 %indvars.iv.next401, %798
+  br i1 %799, label %.lr.ph388, label %._crit_edge389
 
 ._crit_edge389:                                   ; preds = %.lr.ph388
-  %802 = icmp ne i32 %799, 0
-  %803 = icmp ne i32 %.0206357, 0
-  %or.cond14 = and i1 %803, %802
-  br i1 %or.cond14, label %804, label %.critedge.thread361
+  %800 = icmp ne i32 %797, 0
+  %801 = icmp ne i32 %.0206357, 0
+  %or.cond14 = and i1 %801, %800
+  br i1 %or.cond14, label %802, label %.critedge.thread361
 
-804:                                              ; preds = %._crit_edge389
-  %805 = load ptr, ptr @opts, align 8
-  %806 = call ptr @optget(ptr noundef %805, ptr noundef nonnull @.str.41) #14
-  %807 = getelementptr inbounds i8, ptr %806, i64 16
-  %808 = load ptr, ptr %807, align 8
-  %809 = call i32 @unlink(ptr noundef %808) #14
-  %810 = icmp eq i32 %809, -1
-  br i1 %810, label %811, label %814
+802:                                              ; preds = %._crit_edge389
+  %803 = load ptr, ptr @opts, align 8
+  %804 = call ptr @optget(ptr noundef %803, ptr noundef nonnull @.str.41) #14
+  %805 = getelementptr inbounds i8, ptr %804, i64 16
+  %806 = load ptr, ptr %805, align 8
+  %807 = call i32 @unlink(ptr noundef %806) #14
+  %808 = icmp eq i32 %807, -1
+  br i1 %808, label %809, label %812
 
-811:                                              ; preds = %804
-  %812 = load ptr, ptr %807, align 8
-  %813 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.120, ptr noundef %812) #14
+809:                                              ; preds = %802
+  %810 = load ptr, ptr %805, align 8
+  %811 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.120, ptr noundef %810) #14
   br label %.critedge.thread361
 
-814:                                              ; preds = %804
-  %815 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.121) #14
+812:                                              ; preds = %802
+  %813 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.121) #14
   br label %.critedge.thread361
 
-.critedge.thread361:                              ; preds = %.critedge.thread354, %742, %749, %._crit_edge389, %814, %811, %.critedge
-  %.0197358 = phi i32 [ %.0197359, %._crit_edge389 ], [ %.0197359, %814 ], [ %.0197359, %811 ], [ %.0197, %.critedge ], [ 1, %749 ], [ 1, %742 ], [ %.0197359, %.critedge.thread354 ]
-  %816 = load ptr, ptr %7, align 8
-  call void @free(ptr noundef %816) #14
+.critedge.thread361:                              ; preds = %.critedge.thread354, %741, %748, %._crit_edge389, %812, %809, %.critedge
+  %.0197358 = phi i32 [ %.0197359, %._crit_edge389 ], [ %.0197359, %812 ], [ %.0197359, %809 ], [ %.0197, %.critedge ], [ 1, %748 ], [ 1, %741 ], [ %.0197359, %.critedge.thread354 ]
+  %814 = load ptr, ptr %7, align 8
+  call void @free(ptr noundef %814) #14
   call void @logg_close() #14
-  %817 = load ptr, ptr @opts, align 8
-  call void @optfree(ptr noundef %817) #14
-  br label %818
+  %815 = load ptr, ptr @opts, align 8
+  call void @optfree(ptr noundef %815) #14
+  br label %816
 
-818:                                              ; preds = %.critedge.thread361, %628, %613, %218, %161, %144, %137, %87, %71, %64, %31, %26
+816:                                              ; preds = %.critedge.thread361, %628, %613, %218, %161, %144, %137, %87, %71, %64, %31, %26
   %.0 = phi i32 [ 1, %26 ], [ 0, %31 ], [ 1, %64 ], [ 1, %71 ], [ 0, %87 ], [ 1, %144 ], [ 1, %161 ], [ %216, %218 ], [ %.0197358, %.critedge.thread361 ], [ 1, %613 ], [ 1, %628 ], [ 1, %137 ]
   ret i32 %.0
 }

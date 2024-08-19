@@ -4092,8 +4092,8 @@ define dso_local range(i32 0, 1901) i32 @select_p_select_nodeinfo_set_all() loca
   %.not1321 = icmp eq ptr %12, null
   br i1 %.not1321, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %11, %62
-  %13 = phi ptr [ %65, %62 ], [ %12, %11 ]
+.lr.ph:                                           ; preds = %11, %63
+  %13 = phi ptr [ %66, %63 ], [ %12, %11 ]
   store ptr null, ptr %2, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 432
   %15 = load ptr, ptr %14, align 8
@@ -4104,7 +4104,7 @@ define dso_local range(i32 0, 1901) i32 @select_p_select_nodeinfo_set_all() loca
 
 18:                                               ; preds = %.lr.ph
   %19 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.14) #11
-  br label %62
+  br label %63
 
 20:                                               ; preds = %.lr.ph
   %21 = getelementptr inbounds i8, ptr %17, i64 16
@@ -4148,43 +4148,43 @@ define dso_local range(i32 0, 1901) i32 @select_p_select_nodeinfo_set_all() loca
 
 48:                                               ; preds = %45, %27
   %.sink = phi double [ 0.000000e+00, %45 ], [ %44, %27 ]
-  %.sink23 = load ptr, ptr %2, align 8
-  %49 = getelementptr inbounds i8, ptr %.sink23, i64 24
-  store double %.sink, ptr %49, align 8
-  %50 = load ptr, ptr @cr_ptr, align 8
-  %.not16 = icmp eq ptr %50, null
-  br i1 %.not16, label %60, label %51
+  %49 = load ptr, ptr %2, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 24
+  store double %.sink, ptr %50, align 8
+  %51 = load ptr, ptr @cr_ptr, align 8
+  %.not16 = icmp eq ptr %51, null
+  br i1 %.not16, label %61, label %52
 
-51:                                               ; preds = %48
-  %52 = load ptr, ptr %50, align 8
-  %.not17 = icmp eq ptr %52, null
-  br i1 %.not17, label %60, label %53
+52:                                               ; preds = %48
+  %53 = load ptr, ptr %51, align 8
+  %.not17 = icmp eq ptr %53, null
+  br i1 %.not17, label %61, label %54
 
-53:                                               ; preds = %51
-  %54 = getelementptr inbounds i8, ptr %13, i64 192
-  %55 = load i32, ptr %54, align 8
-  %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds %struct.node_cr_record, ptr %52, i64 %56, i32 1
-  %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %.sink23, i64 8
-  store i64 %58, ptr %59, align 8
-  br label %62
+54:                                               ; preds = %52
+  %55 = getelementptr inbounds i8, ptr %13, i64 192
+  %56 = load i32, ptr %55, align 8
+  %57 = zext i32 %56 to i64
+  %58 = getelementptr inbounds %struct.node_cr_record, ptr %53, i64 %57, i32 1
+  %59 = load i64, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %49, i64 8
+  store i64 %59, ptr %60, align 8
+  br label %63
 
-60:                                               ; preds = %51, %48
-  %61 = getelementptr inbounds i8, ptr %.sink23, i64 8
-  store i64 0, ptr %61, align 8
-  br label %62
+61:                                               ; preds = %52, %48
+  %62 = getelementptr inbounds i8, ptr %49, i64 8
+  store i64 0, ptr %62, align 8
+  br label %63
 
-62:                                               ; preds = %53, %60, %18
-  %63 = load i32, ptr %1, align 4
-  %64 = add nsw i32 %63, 1
-  store i32 %64, ptr %1, align 4
-  %65 = call ptr @next_node(ptr noundef nonnull %1) #11
-  %.not13 = icmp eq ptr %65, null
+63:                                               ; preds = %54, %61, %18
+  %64 = load i32, ptr %1, align 4
+  %65 = add nsw i32 %64, 1
+  store i32 %65, ptr %1, align 4
+  %66 = call ptr @next_node(ptr noundef nonnull %1) #11
+  %.not13 = icmp eq ptr %66, null
   br i1 %.not13, label %.loopexit, label %.lr.ph, !llvm.loop !38
 
-.loopexit:                                        ; preds = %62, %11, %6, %9
-  %.0 = phi i32 [ 1900, %9 ], [ 1900, %6 ], [ 0, %11 ], [ 0, %62 ]
+.loopexit:                                        ; preds = %63, %11, %6, %9
+  %.0 = phi i32 [ 1900, %9 ], [ 1900, %6 ], [ 0, %11 ], [ 0, %63 ]
   ret i32 %.0
 }
 

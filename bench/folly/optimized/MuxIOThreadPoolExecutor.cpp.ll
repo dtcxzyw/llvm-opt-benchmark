@@ -12738,7 +12738,6 @@ cleanup80.thread:                                 ; preds = %_ZN5folly6detail17d
   %ready_.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %waker_.i, i8 0, i64 16, i1 false)
   store ptr %nextSleeper.0, ptr %ready_.i, align 8, !tbaa !566
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %state) #34
   br label %cleanup93
 
 while.end59:                                      ; preds = %_ZN5folly6detail17distributed_mutex33recordTimedWaiterAndClearTimedBitERbRm.exit
@@ -12857,7 +12856,6 @@ cleanup80.thread153:                              ; preds = %_ZN5folly6detail17d
   %ready_.i131 = getelementptr inbounds i8, ptr %agg.result, i64 40
   store ptr %nextSleeper.0, ptr %ready_.i131, align 8, !tbaa !566
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %signal) #34
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %state) #34
   br label %cleanup93
 
 cleanup80:                                        ; preds = %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit, %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit.thread144
@@ -12867,6 +12865,7 @@ cleanup80:                                        ; preds = %_ZN5folly6detail17d
   br label %_ZN5folly6detail17distributed_mutex6WaiterISt6atomicE10initializeEmNS0_17InlineFunctionRefIFvvELm48EEE.exit
 
 cleanup93:                                        ; preds = %cleanup80.thread153, %cleanup80.thread
+  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %state) #34
   ret void
 }
 
@@ -13911,7 +13910,6 @@ cleanup79.thread:                                 ; preds = %_ZN5folly6detail17d
   %ready_.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %waker_.i, i8 0, i64 16, i1 false)
   store ptr %nextSleeper.0, ptr %ready_.i, align 8, !tbaa !566
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %state) #34
   br label %cleanup92
 
 while.end58:                                      ; preds = %_ZN5folly6detail17distributed_mutex33recordTimedWaiterAndClearTimedBitERbRm.exit
@@ -14028,7 +14026,6 @@ cleanup79.thread152:                              ; preds = %_ZN5folly6detail17d
   %ready_.i130 = getelementptr inbounds i8, ptr %agg.result, i64 40
   store ptr %nextSleeper.0, ptr %ready_.i130, align 8, !tbaa !566
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %signal) #34
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %state) #34
   br label %cleanup92
 
 cleanup79:                                        ; preds = %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit, %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit.thread143
@@ -14038,6 +14035,7 @@ cleanup79:                                        ; preds = %_ZN5folly6detail17d
   br label %_ZN5folly6detail17distributed_mutex6WaiterISt6atomicE10initializeEmNS0_17InlineFunctionRefIFvvELm48EEE.exit
 
 cleanup92:                                        ; preds = %cleanup79.thread152, %cleanup79.thread
+  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %state) #34
   ret void
 }
 
@@ -14465,7 +14463,6 @@ cleanup79.thread:                                 ; preds = %_ZN5folly6detail17d
   %ready_.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %waker_.i, i8 0, i64 16, i1 false)
   store ptr %nextSleeper.0, ptr %ready_.i, align 8, !tbaa !566
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %state) #34
   br label %cleanup92
 
 while.end58:                                      ; preds = %_ZN5folly6detail17distributed_mutex33recordTimedWaiterAndClearTimedBitERbRm.exit
@@ -14585,7 +14582,6 @@ cleanup79.thread152:                              ; preds = %_ZN5folly6detail17d
   %ready_.i130 = getelementptr inbounds i8, ptr %agg.result, i64 40
   store ptr %nextSleeper.0, ptr %ready_.i130, align 8, !tbaa !566
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %signal) #34
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %state) #34
   br label %cleanup92
 
 cleanup79:                                        ; preds = %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit, %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit.thread143
@@ -14595,6 +14591,7 @@ cleanup79:                                        ; preds = %_ZN5folly6detail17d
   br label %_ZN5folly6detail17distributed_mutex6WaiterISt6atomicE10initializeEmNS0_17InlineFunctionRefIFvvELm48EEE.exit
 
 cleanup92:                                        ; preds = %cleanup79.thread152, %cleanup79.thread
+  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %state) #34
   ret void
 }
 
@@ -14729,7 +14726,6 @@ cleanup80.thread:                                 ; preds = %_ZN5folly6detail17d
   %ready_.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %waker_.i, i8 0, i64 16, i1 false)
   store ptr %nextSleeper.0, ptr %ready_.i, align 8, !tbaa !566
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %state) #34
   br label %cleanup93
 
 while.end59:                                      ; preds = %_ZN5folly6detail17distributed_mutex33recordTimedWaiterAndClearTimedBitERbRm.exit
@@ -14848,7 +14844,6 @@ cleanup80.thread153:                              ; preds = %_ZN5folly6detail17d
   %ready_.i131 = getelementptr inbounds i8, ptr %agg.result, i64 40
   store ptr %nextSleeper.0, ptr %ready_.i131, align 8, !tbaa !566
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %signal) #34
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %state) #34
   br label %cleanup93
 
 cleanup80:                                        ; preds = %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit, %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit.thread144
@@ -14858,6 +14853,7 @@ cleanup80:                                        ; preds = %_ZN5folly6detail17d
   br label %_ZN5folly6detail17distributed_mutex6WaiterISt6atomicE10initializeEmNS0_17InlineFunctionRefIFvvELm48EEE.exit
 
 cleanup93:                                        ; preds = %cleanup80.thread153, %cleanup80.thread
+  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %state) #34
   ret void
 }
 

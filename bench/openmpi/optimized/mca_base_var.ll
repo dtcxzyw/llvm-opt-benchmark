@@ -1564,321 +1564,321 @@ mca_base_var_register.exit.thread70:              ; preds = %21
   br i1 %.not.i, label %mca_base_var_register.exit.thread, label %.lr.ph.i, !llvm.loop !17
 
 mca_base_var_register.exit.thread:                ; preds = %.lr.ph.i, %29, %26
-  %.sink = load ptr, ptr %2, align 8
-  call void @free(ptr noundef %.sink) #22
-  %39 = load ptr, ptr @mca_base_var_files, align 8
-  %40 = call noalias ptr @strdup(ptr noundef %39) #22
-  store ptr %40, ptr @mca_base_envar_files, align 8
-  %41 = load i8, ptr @mca_base_var_initialized, align 1
-  %42 = trunc i8 %41 to i1
-  %43 = load i32, ptr getelementptr inbounds (i8, ptr @mca_base_vars, i64 88), align 8
-  %44 = icmp sgt i32 %43, %23
-  %or.cond.not = select i1 %42, i1 %44, i1 false
-  br i1 %or.cond.not, label %45, label %mca_base_var_register_synonym.exit
+  %39 = load ptr, ptr %2, align 8
+  call void @free(ptr noundef %39) #22
+  %40 = load ptr, ptr @mca_base_var_files, align 8
+  %41 = call noalias ptr @strdup(ptr noundef %40) #22
+  store ptr %41, ptr @mca_base_envar_files, align 8
+  %42 = load i8, ptr @mca_base_var_initialized, align 1
+  %43 = trunc i8 %42 to i1
+  %44 = load i32, ptr getelementptr inbounds (i8, ptr @mca_base_vars, i64 88), align 8
+  %45 = icmp sgt i32 %44, %23
+  %or.cond.not = select i1 %43, i1 %45, i1 false
+  br i1 %or.cond.not, label %46, label %mca_base_var_register_synonym.exit
 
-45:                                               ; preds = %mca_base_var_register.exit.thread
-  %46 = load i8, ptr @opal_uses_threads, align 1
-  %47 = trunc i8 %46 to i1
-  br i1 %47, label %48, label %50
+46:                                               ; preds = %mca_base_var_register.exit.thread
+  %47 = load i8, ptr @opal_uses_threads, align 1
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %49, label %51
 
-48:                                               ; preds = %45
-  %49 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_base_vars, i64 32)) #22
+49:                                               ; preds = %46
+  %50 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_base_vars, i64 32)) #22
   %.pre.i.i.i = load i8, ptr @opal_uses_threads, align 1
-  br label %50
+  br label %51
 
-50:                                               ; preds = %48, %45
-  %51 = phi i8 [ %46, %45 ], [ %.pre.i.i.i, %48 ]
-  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_base_vars, i64 112), align 8
-  %53 = zext nneg i32 %23 to i64
-  %54 = getelementptr inbounds ptr, ptr %52, i64 %53
-  %55 = load ptr, ptr %54, align 8
-  %56 = trunc i8 %51 to i1
-  br i1 %56, label %57, label %opal_pointer_array_get_item.exit.i.i
+51:                                               ; preds = %49, %46
+  %52 = phi i8 [ %47, %46 ], [ %.pre.i.i.i, %49 ]
+  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_base_vars, i64 112), align 8
+  %54 = zext nneg i32 %23 to i64
+  %55 = getelementptr inbounds ptr, ptr %53, i64 %54
+  %56 = load ptr, ptr %55, align 8
+  %57 = trunc i8 %52 to i1
+  br i1 %57, label %58, label %opal_pointer_array_get_item.exit.i.i
 
-57:                                               ; preds = %50
-  %58 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_base_vars, i64 32)) #22
+58:                                               ; preds = %51
+  %59 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_base_vars, i64 32)) #22
   br label %opal_pointer_array_get_item.exit.i.i
 
-opal_pointer_array_get_item.exit.i.i:             ; preds = %57, %50
-  %59 = icmp eq ptr %55, null
-  br i1 %59, label %mca_base_var_register_synonym.exit, label %60
+opal_pointer_array_get_item.exit.i.i:             ; preds = %58, %51
+  %60 = icmp eq ptr %56, null
+  br i1 %60, label %mca_base_var_register_synonym.exit, label %61
 
-60:                                               ; preds = %opal_pointer_array_get_item.exit.i.i
-  %61 = getelementptr inbounds i8, ptr %55, i64 104
-  %62 = load i32, ptr %61, align 8
-  %63 = and i32 %62, 131072
-  %.not13.i = icmp eq i32 %63, 0
-  br i1 %.not13.i, label %64, label %mca_base_var_register_synonym.exit
+61:                                               ; preds = %opal_pointer_array_get_item.exit.i.i
+  %62 = getelementptr inbounds i8, ptr %56, i64 104
+  %63 = load i32, ptr %62, align 8
+  %64 = and i32 %63, 131072
+  %.not13.i = icmp eq i32 %64, 0
+  br i1 %.not13.i, label %65, label %mca_base_var_register_synonym.exit
 
-64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %55, i64 120
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %55, i64 28
-  %68 = load i32, ptr %67, align 4
-  %69 = getelementptr inbounds i8, ptr %55, i64 136
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %55, i64 144
-  %72 = load i32, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %55, i64 24
-  %74 = load i32, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %55, i64 108
-  %76 = load i32, ptr %75, align 4
-  %77 = call fastcc i32 @register_variable(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef null, ptr noundef nonnull @.str.32, ptr noundef %66, i32 noundef %68, ptr noundef %70, i32 noundef %72, i32 noundef 131080, i32 noundef %74, i32 noundef %76, i32 noundef %23, ptr noundef null)
+65:                                               ; preds = %61
+  %66 = getelementptr inbounds i8, ptr %56, i64 120
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds i8, ptr %56, i64 28
+  %69 = load i32, ptr %68, align 4
+  %70 = getelementptr inbounds i8, ptr %56, i64 136
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %56, i64 144
+  %73 = load i32, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %56, i64 24
+  %75 = load i32, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %56, i64 108
+  %77 = load i32, ptr %76, align 4
+  %78 = call fastcc i32 @register_variable(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef null, ptr noundef nonnull @.str.32, ptr noundef %67, i32 noundef %69, ptr noundef %71, i32 noundef %73, i32 noundef 131080, i32 noundef %75, i32 noundef %77, i32 noundef %23, ptr noundef null)
   br label %mca_base_var_register_synonym.exit
 
-mca_base_var_register_synonym.exit:               ; preds = %mca_base_var_register.exit.thread, %opal_pointer_array_get_item.exit.i.i, %60, %64
-  %78 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 56), align 8
-  %79 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull @mca_base_var_override_file, ptr noundef nonnull @.str.34, ptr noundef %78) #22
-  %80 = icmp slt i32 %79, 0
-  br i1 %80, label %mca_base_var_register.exit48.thread72, label %81
+mca_base_var_register_synonym.exit:               ; preds = %mca_base_var_register.exit.thread, %opal_pointer_array_get_item.exit.i.i, %61, %65
+  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 56), align 8
+  %80 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull @mca_base_var_override_file, ptr noundef nonnull @.str.34, ptr noundef %79) #22
+  %81 = icmp slt i32 %80, 0
+  br i1 %81, label %mca_base_var_register.exit48.thread72, label %82
 
-81:                                               ; preds = %mca_base_var_register_synonym.exit
-  %82 = load ptr, ptr @mca_base_var_override_file, align 8
-  store ptr %82, ptr %2, align 8
-  %83 = call fastcc i32 @register_variable(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @mca_base_var_override_file)
-  %84 = icmp slt i32 %83, 0
-  br i1 %84, label %mca_base_var_register.exit41.thread71, label %86
+82:                                               ; preds = %mca_base_var_register_synonym.exit
+  %83 = load ptr, ptr @mca_base_var_override_file, align 8
+  store ptr %83, ptr %2, align 8
+  %84 = call fastcc i32 @register_variable(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @mca_base_var_override_file)
+  %85 = icmp slt i32 %84, 0
+  br i1 %85, label %mca_base_var_register.exit41.thread71, label %87
 
-mca_base_var_register.exit41.thread71:            ; preds = %81
-  %85 = load ptr, ptr %2, align 8
-  call void @free(ptr noundef %85) #22
+mca_base_var_register.exit41.thread71:            ; preds = %82
+  %86 = load ptr, ptr %2, align 8
+  call void @free(ptr noundef %86) #22
   br label %mca_base_var_register.exit48.thread72
 
-86:                                               ; preds = %81
-  %87 = call ptr @mca_base_alias_lookup(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31) #22
-  %88 = icmp eq ptr %87, null
-  br i1 %88, label %mca_base_var_register.exit41.thread, label %89
+87:                                               ; preds = %82
+  %88 = call ptr @mca_base_alias_lookup(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31) #22
+  %89 = icmp eq ptr %88, null
+  br i1 %89, label %mca_base_var_register.exit41.thread, label %90
 
-89:                                               ; preds = %86
-  %90 = getelementptr inbounds i8, ptr %87, i64 32
-  %91 = getelementptr inbounds i8, ptr %87, i64 48
-  %.03134.i35 = load volatile ptr, ptr %91, align 8
-  %.not35.i36 = icmp eq ptr %.03134.i35, %90
+90:                                               ; preds = %87
+  %91 = getelementptr inbounds i8, ptr %88, i64 32
+  %92 = getelementptr inbounds i8, ptr %88, i64 48
+  %.03134.i35 = load volatile ptr, ptr %92, align 8
+  %.not35.i36 = icmp eq ptr %.03134.i35, %91
   br i1 %.not35.i36, label %mca_base_var_register.exit41.thread, label %.lr.ph.i37
 
-.lr.ph.i37:                                       ; preds = %89, %.lr.ph.i37
-  %.03136.i38 = phi ptr [ %.031.i39, %.lr.ph.i37 ], [ %.03134.i35, %89 ]
-  %92 = getelementptr inbounds i8, ptr %.03136.i38, i64 48
-  %93 = load i32, ptr %92, align 8
-  %94 = and i32 %93, 1
-  %95 = getelementptr inbounds i8, ptr %.03136.i38, i64 40
-  %96 = load ptr, ptr %95, align 8
-  %97 = call i32 @mca_base_var_register_synonym(i32 noundef %83, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef %96, ptr noundef nonnull @.str.35, i32 noundef %94)
-  %98 = getelementptr inbounds i8, ptr %.03136.i38, i64 16
-  %.031.i39 = load volatile ptr, ptr %98, align 8
-  %.not.i40 = icmp eq ptr %.031.i39, %90
+.lr.ph.i37:                                       ; preds = %90, %.lr.ph.i37
+  %.03136.i38 = phi ptr [ %.031.i39, %.lr.ph.i37 ], [ %.03134.i35, %90 ]
+  %93 = getelementptr inbounds i8, ptr %.03136.i38, i64 48
+  %94 = load i32, ptr %93, align 8
+  %95 = and i32 %94, 1
+  %96 = getelementptr inbounds i8, ptr %.03136.i38, i64 40
+  %97 = load ptr, ptr %96, align 8
+  %98 = call i32 @mca_base_var_register_synonym(i32 noundef %84, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef %97, ptr noundef nonnull @.str.35, i32 noundef %95)
+  %99 = getelementptr inbounds i8, ptr %.03136.i38, i64 16
+  %.031.i39 = load volatile ptr, ptr %99, align 8
+  %.not.i40 = icmp eq ptr %.031.i39, %91
   br i1 %.not.i40, label %mca_base_var_register.exit41.thread, label %.lr.ph.i37, !llvm.loop !17
 
-mca_base_var_register.exit41.thread:              ; preds = %.lr.ph.i37, %89, %86
-  %.sink79 = load ptr, ptr %2, align 8
-  call void @free(ptr noundef %.sink79) #22
-  %99 = load ptr, ptr @mca_base_var_files, align 8
-  %100 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(5) @.str.28) #24
-  %101 = icmp eq i32 %100, 0
-  br i1 %101, label %mca_base_var_register.exit48.thread72, label %102
+mca_base_var_register.exit41.thread:              ; preds = %.lr.ph.i37, %90, %87
+  %100 = load ptr, ptr %2, align 8
+  call void @free(ptr noundef %100) #22
+  %101 = load ptr, ptr @mca_base_var_files, align 8
+  %102 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %101, ptr noundef nonnull dereferenceable(5) @.str.28) #24
+  %103 = icmp eq i32 %102, 0
+  br i1 %103, label %mca_base_var_register.exit48.thread72, label %104
 
-102:                                              ; preds = %mca_base_var_register.exit41.thread
+104:                                              ; preds = %mca_base_var_register.exit41.thread
   store i8 0, ptr @mca_base_var_suppress_override_warning, align 1
-  %103 = call fastcc i32 @register_variable(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 2, i32 noundef -1, ptr noundef nonnull @mca_base_var_suppress_override_warning)
-  %104 = icmp slt i32 %103, 0
-  br i1 %104, label %mca_base_var_register.exit48.thread72, label %105
+  %105 = call fastcc i32 @register_variable(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 2, i32 noundef -1, ptr noundef nonnull @mca_base_var_suppress_override_warning)
+  %106 = icmp slt i32 %105, 0
+  br i1 %106, label %mca_base_var_register.exit48.thread72, label %107
 
-105:                                              ; preds = %102
-  %106 = call ptr @mca_base_alias_lookup(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31) #22
-  %107 = icmp eq ptr %106, null
-  br i1 %107, label %mca_base_var_register.exit48.thread, label %108
+107:                                              ; preds = %104
+  %108 = call ptr @mca_base_alias_lookup(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31) #22
+  %109 = icmp eq ptr %108, null
+  br i1 %109, label %mca_base_var_register.exit48.thread, label %110
 
-108:                                              ; preds = %105
-  %109 = getelementptr inbounds i8, ptr %106, i64 32
-  %110 = getelementptr inbounds i8, ptr %106, i64 48
-  %.03134.i42 = load volatile ptr, ptr %110, align 8
-  %.not35.i43 = icmp eq ptr %.03134.i42, %109
+110:                                              ; preds = %107
+  %111 = getelementptr inbounds i8, ptr %108, i64 32
+  %112 = getelementptr inbounds i8, ptr %108, i64 48
+  %.03134.i42 = load volatile ptr, ptr %112, align 8
+  %.not35.i43 = icmp eq ptr %.03134.i42, %111
   br i1 %.not35.i43, label %mca_base_var_register.exit48.thread, label %.lr.ph.i44
 
-.lr.ph.i44:                                       ; preds = %108, %.lr.ph.i44
-  %.03136.i45 = phi ptr [ %.031.i46, %.lr.ph.i44 ], [ %.03134.i42, %108 ]
-  %111 = getelementptr inbounds i8, ptr %.03136.i45, i64 48
-  %112 = load i32, ptr %111, align 8
-  %113 = and i32 %112, 1
-  %114 = getelementptr inbounds i8, ptr %.03136.i45, i64 40
-  %115 = load ptr, ptr %114, align 8
-  %116 = call i32 @mca_base_var_register_synonym(i32 noundef %103, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef %115, ptr noundef nonnull @.str.37, i32 noundef %113)
-  %117 = getelementptr inbounds i8, ptr %.03136.i45, i64 16
-  %.031.i46 = load volatile ptr, ptr %117, align 8
-  %.not.i47 = icmp eq ptr %.031.i46, %109
+.lr.ph.i44:                                       ; preds = %110, %.lr.ph.i44
+  %.03136.i45 = phi ptr [ %.031.i46, %.lr.ph.i44 ], [ %.03134.i42, %110 ]
+  %113 = getelementptr inbounds i8, ptr %.03136.i45, i64 48
+  %114 = load i32, ptr %113, align 8
+  %115 = and i32 %114, 1
+  %116 = getelementptr inbounds i8, ptr %.03136.i45, i64 40
+  %117 = load ptr, ptr %116, align 8
+  %118 = call i32 @mca_base_var_register_synonym(i32 noundef %105, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef %117, ptr noundef nonnull @.str.37, i32 noundef %115)
+  %119 = getelementptr inbounds i8, ptr %.03136.i45, i64 16
+  %.031.i46 = load volatile ptr, ptr %119, align 8
+  %.not.i47 = icmp eq ptr %.031.i46, %111
   br i1 %.not.i47, label %mca_base_var_register.exit48.thread, label %.lr.ph.i44, !llvm.loop !17
 
-mca_base_var_register.exit48.thread:              ; preds = %.lr.ph.i44, %108, %105
+mca_base_var_register.exit48.thread:              ; preds = %.lr.ph.i44, %110, %107
   store ptr null, ptr @mca_base_var_file_prefix, align 8
-  %118 = call fastcc i32 @register_variable(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 1, i32 noundef -1, ptr noundef nonnull @mca_base_var_file_prefix)
-  %119 = icmp slt i32 %118, 0
-  br i1 %119, label %mca_base_var_register.exit48.thread72, label %120
+  %120 = call fastcc i32 @register_variable(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 1, i32 noundef -1, ptr noundef nonnull @mca_base_var_file_prefix)
+  %121 = icmp slt i32 %120, 0
+  br i1 %121, label %mca_base_var_register.exit48.thread72, label %122
 
-120:                                              ; preds = %mca_base_var_register.exit48.thread
-  %121 = call ptr @mca_base_alias_lookup(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31) #22
-  %122 = icmp eq ptr %121, null
-  br i1 %122, label %mca_base_var_register.exit55.thread, label %123
+122:                                              ; preds = %mca_base_var_register.exit48.thread
+  %123 = call ptr @mca_base_alias_lookup(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31) #22
+  %124 = icmp eq ptr %123, null
+  br i1 %124, label %mca_base_var_register.exit55.thread, label %125
 
-123:                                              ; preds = %120
-  %124 = getelementptr inbounds i8, ptr %121, i64 32
-  %125 = getelementptr inbounds i8, ptr %121, i64 48
-  %.03134.i49 = load volatile ptr, ptr %125, align 8
-  %.not35.i50 = icmp eq ptr %.03134.i49, %124
+125:                                              ; preds = %122
+  %126 = getelementptr inbounds i8, ptr %123, i64 32
+  %127 = getelementptr inbounds i8, ptr %123, i64 48
+  %.03134.i49 = load volatile ptr, ptr %127, align 8
+  %.not35.i50 = icmp eq ptr %.03134.i49, %126
   br i1 %.not35.i50, label %mca_base_var_register.exit55.thread, label %.lr.ph.i51
 
-.lr.ph.i51:                                       ; preds = %123, %.lr.ph.i51
-  %.03136.i52 = phi ptr [ %.031.i53, %.lr.ph.i51 ], [ %.03134.i49, %123 ]
-  %126 = getelementptr inbounds i8, ptr %.03136.i52, i64 48
-  %127 = load i32, ptr %126, align 8
-  %128 = and i32 %127, 1
-  %129 = getelementptr inbounds i8, ptr %.03136.i52, i64 40
-  %130 = load ptr, ptr %129, align 8
-  %131 = call i32 @mca_base_var_register_synonym(i32 noundef %118, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef %130, ptr noundef nonnull @.str.39, i32 noundef %128)
-  %132 = getelementptr inbounds i8, ptr %.03136.i52, i64 16
-  %.031.i53 = load volatile ptr, ptr %132, align 8
-  %.not.i54 = icmp eq ptr %.031.i53, %124
+.lr.ph.i51:                                       ; preds = %125, %.lr.ph.i51
+  %.03136.i52 = phi ptr [ %.031.i53, %.lr.ph.i51 ], [ %.03134.i49, %125 ]
+  %128 = getelementptr inbounds i8, ptr %.03136.i52, i64 48
+  %129 = load i32, ptr %128, align 8
+  %130 = and i32 %129, 1
+  %131 = getelementptr inbounds i8, ptr %.03136.i52, i64 40
+  %132 = load ptr, ptr %131, align 8
+  %133 = call i32 @mca_base_var_register_synonym(i32 noundef %120, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef %132, ptr noundef nonnull @.str.39, i32 noundef %130)
+  %134 = getelementptr inbounds i8, ptr %.03136.i52, i64 16
+  %.031.i53 = load volatile ptr, ptr %134, align 8
+  %.not.i54 = icmp eq ptr %.031.i53, %126
   br i1 %.not.i54, label %mca_base_var_register.exit55.thread, label %.lr.ph.i51, !llvm.loop !17
 
-mca_base_var_register.exit55.thread:              ; preds = %.lr.ph.i51, %123, %120
+mca_base_var_register.exit55.thread:              ; preds = %.lr.ph.i51, %125, %122
   store ptr null, ptr @mca_base_envar_file_prefix, align 8
-  %133 = call fastcc i32 @register_variable(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 1, i32 noundef -1, ptr noundef nonnull @mca_base_envar_file_prefix)
-  %134 = icmp slt i32 %133, 0
-  br i1 %134, label %mca_base_var_register.exit48.thread72, label %135
+  %135 = call fastcc i32 @register_variable(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 1, i32 noundef -1, ptr noundef nonnull @mca_base_envar_file_prefix)
+  %136 = icmp slt i32 %135, 0
+  br i1 %136, label %mca_base_var_register.exit48.thread72, label %137
 
-135:                                              ; preds = %mca_base_var_register.exit55.thread
-  %136 = call ptr @mca_base_alias_lookup(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31) #22
-  %137 = icmp eq ptr %136, null
-  br i1 %137, label %mca_base_var_register.exit62.thread, label %138
+137:                                              ; preds = %mca_base_var_register.exit55.thread
+  %138 = call ptr @mca_base_alias_lookup(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31) #22
+  %139 = icmp eq ptr %138, null
+  br i1 %139, label %mca_base_var_register.exit62.thread, label %140
 
-138:                                              ; preds = %135
-  %139 = getelementptr inbounds i8, ptr %136, i64 32
-  %140 = getelementptr inbounds i8, ptr %136, i64 48
-  %.03134.i56 = load volatile ptr, ptr %140, align 8
-  %.not35.i57 = icmp eq ptr %.03134.i56, %139
+140:                                              ; preds = %137
+  %141 = getelementptr inbounds i8, ptr %138, i64 32
+  %142 = getelementptr inbounds i8, ptr %138, i64 48
+  %.03134.i56 = load volatile ptr, ptr %142, align 8
+  %.not35.i57 = icmp eq ptr %.03134.i56, %141
   br i1 %.not35.i57, label %mca_base_var_register.exit62.thread, label %.lr.ph.i58
 
-.lr.ph.i58:                                       ; preds = %138, %.lr.ph.i58
-  %.03136.i59 = phi ptr [ %.031.i60, %.lr.ph.i58 ], [ %.03134.i56, %138 ]
-  %141 = getelementptr inbounds i8, ptr %.03136.i59, i64 48
-  %142 = load i32, ptr %141, align 8
-  %143 = and i32 %142, 1
-  %144 = getelementptr inbounds i8, ptr %.03136.i59, i64 40
-  %145 = load ptr, ptr %144, align 8
-  %146 = call i32 @mca_base_var_register_synonym(i32 noundef %133, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef %145, ptr noundef nonnull @.str.41, i32 noundef %143)
-  %147 = getelementptr inbounds i8, ptr %.03136.i59, i64 16
-  %.031.i60 = load volatile ptr, ptr %147, align 8
-  %.not.i61 = icmp eq ptr %.031.i60, %139
+.lr.ph.i58:                                       ; preds = %140, %.lr.ph.i58
+  %.03136.i59 = phi ptr [ %.031.i60, %.lr.ph.i58 ], [ %.03134.i56, %140 ]
+  %143 = getelementptr inbounds i8, ptr %.03136.i59, i64 48
+  %144 = load i32, ptr %143, align 8
+  %145 = and i32 %144, 1
+  %146 = getelementptr inbounds i8, ptr %.03136.i59, i64 40
+  %147 = load ptr, ptr %146, align 8
+  %148 = call i32 @mca_base_var_register_synonym(i32 noundef %135, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef %147, ptr noundef nonnull @.str.41, i32 noundef %145)
+  %149 = getelementptr inbounds i8, ptr %.03136.i59, i64 16
+  %.031.i60 = load volatile ptr, ptr %149, align 8
+  %.not.i61 = icmp eq ptr %.031.i60, %141
   br i1 %.not.i61, label %mca_base_var_register.exit62.thread, label %.lr.ph.i58, !llvm.loop !17
 
-mca_base_var_register.exit62.thread:              ; preds = %.lr.ph.i58, %138, %135
-  %148 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 112), align 8
-  %149 = load ptr, ptr @cwd, align 8
-  %150 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull @mca_base_param_file_path, ptr noundef nonnull @.str.43, ptr noundef %148, i32 noundef 58, ptr noundef %149) #22
-  %151 = icmp slt i32 %150, 0
-  br i1 %151, label %mca_base_var_register.exit48.thread72, label %152
+mca_base_var_register.exit62.thread:              ; preds = %.lr.ph.i58, %140, %137
+  %150 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_install_dirs, i64 112), align 8
+  %151 = load ptr, ptr @cwd, align 8
+  %152 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull @mca_base_param_file_path, ptr noundef nonnull @.str.43, ptr noundef %150, i32 noundef 58, ptr noundef %151) #22
+  %153 = icmp slt i32 %152, 0
+  br i1 %153, label %mca_base_var_register.exit48.thread72, label %154
 
-152:                                              ; preds = %mca_base_var_register.exit62.thread
-  %153 = load ptr, ptr @mca_base_param_file_path, align 8
-  store ptr %153, ptr %2, align 8
-  %154 = call fastcc i32 @register_variable(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 1, i32 noundef -1, ptr noundef nonnull @mca_base_param_file_path)
-  %155 = icmp slt i32 %154, 0
-  br i1 %155, label %mca_base_var_register.exit69.thread75, label %157
+154:                                              ; preds = %mca_base_var_register.exit62.thread
+  %155 = load ptr, ptr @mca_base_param_file_path, align 8
+  store ptr %155, ptr %2, align 8
+  %156 = call fastcc i32 @register_variable(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 1, i32 noundef -1, ptr noundef nonnull @mca_base_param_file_path)
+  %157 = icmp slt i32 %156, 0
+  br i1 %157, label %mca_base_var_register.exit69.thread75, label %159
 
-mca_base_var_register.exit69.thread75:            ; preds = %152
-  %156 = load ptr, ptr %2, align 8
-  call void @free(ptr noundef %156) #22
+mca_base_var_register.exit69.thread75:            ; preds = %154
+  %158 = load ptr, ptr %2, align 8
+  call void @free(ptr noundef %158) #22
   br label %mca_base_var_register.exit48.thread72
 
-157:                                              ; preds = %152
-  %158 = call ptr @mca_base_alias_lookup(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31) #22
-  %159 = icmp eq ptr %158, null
-  br i1 %159, label %mca_base_var_register.exit69.thread, label %160
+159:                                              ; preds = %154
+  %160 = call ptr @mca_base_alias_lookup(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31) #22
+  %161 = icmp eq ptr %160, null
+  br i1 %161, label %mca_base_var_register.exit69.thread, label %162
 
-160:                                              ; preds = %157
-  %161 = getelementptr inbounds i8, ptr %158, i64 32
-  %162 = getelementptr inbounds i8, ptr %158, i64 48
-  %.03134.i63 = load volatile ptr, ptr %162, align 8
-  %.not35.i64 = icmp eq ptr %.03134.i63, %161
+162:                                              ; preds = %159
+  %163 = getelementptr inbounds i8, ptr %160, i64 32
+  %164 = getelementptr inbounds i8, ptr %160, i64 48
+  %.03134.i63 = load volatile ptr, ptr %164, align 8
+  %.not35.i64 = icmp eq ptr %.03134.i63, %163
   br i1 %.not35.i64, label %mca_base_var_register.exit69.thread, label %.lr.ph.i65
 
-.lr.ph.i65:                                       ; preds = %160, %.lr.ph.i65
-  %.03136.i66 = phi ptr [ %.031.i67, %.lr.ph.i65 ], [ %.03134.i63, %160 ]
-  %163 = getelementptr inbounds i8, ptr %.03136.i66, i64 48
-  %164 = load i32, ptr %163, align 8
-  %165 = and i32 %164, 1
-  %166 = getelementptr inbounds i8, ptr %.03136.i66, i64 40
-  %167 = load ptr, ptr %166, align 8
-  %168 = call i32 @mca_base_var_register_synonym(i32 noundef %154, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef %167, ptr noundef nonnull @.str.44, i32 noundef %165)
-  %169 = getelementptr inbounds i8, ptr %.03136.i66, i64 16
-  %.031.i67 = load volatile ptr, ptr %169, align 8
-  %.not.i68 = icmp eq ptr %.031.i67, %161
+.lr.ph.i65:                                       ; preds = %162, %.lr.ph.i65
+  %.03136.i66 = phi ptr [ %.031.i67, %.lr.ph.i65 ], [ %.03134.i63, %162 ]
+  %165 = getelementptr inbounds i8, ptr %.03136.i66, i64 48
+  %166 = load i32, ptr %165, align 8
+  %167 = and i32 %166, 1
+  %168 = getelementptr inbounds i8, ptr %.03136.i66, i64 40
+  %169 = load ptr, ptr %168, align 8
+  %170 = call i32 @mca_base_var_register_synonym(i32 noundef %156, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef %169, ptr noundef nonnull @.str.44, i32 noundef %167)
+  %171 = getelementptr inbounds i8, ptr %.03136.i66, i64 16
+  %.031.i67 = load volatile ptr, ptr %171, align 8
+  %.not.i68 = icmp eq ptr %.031.i67, %163
   br i1 %.not.i68, label %mca_base_var_register.exit69.thread, label %.lr.ph.i65, !llvm.loop !17
 
-mca_base_var_register.exit69.thread:              ; preds = %.lr.ph.i65, %160, %157
-  %.sink80 = load ptr, ptr %2, align 8
-  call void @free(ptr noundef %.sink80) #22
+mca_base_var_register.exit69.thread:              ; preds = %.lr.ph.i65, %162, %159
+  %172 = load ptr, ptr %2, align 8
+  call void @free(ptr noundef %172) #22
   store ptr null, ptr @force_agg_path, align 8
-  %170 = call i32 @mca_base_var_register(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 1, ptr noundef nonnull @force_agg_path)
-  %171 = icmp slt i32 %170, 0
-  br i1 %171, label %mca_base_var_register.exit48.thread72, label %172
+  %173 = call i32 @mca_base_var_register(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 1, ptr noundef nonnull @force_agg_path)
+  %174 = icmp slt i32 %173, 0
+  br i1 %174, label %mca_base_var_register.exit48.thread72, label %175
 
-172:                                              ; preds = %mca_base_var_register.exit69.thread
-  %173 = load ptr, ptr @force_agg_path, align 8
-  %.not31 = icmp eq ptr %173, null
-  br i1 %.not31, label %180, label %174
+175:                                              ; preds = %mca_base_var_register.exit69.thread
+  %176 = load ptr, ptr @force_agg_path, align 8
+  %.not31 = icmp eq ptr %176, null
+  br i1 %.not31, label %183, label %177
 
-174:                                              ; preds = %172
-  %175 = load ptr, ptr @mca_base_param_file_path, align 8
-  %.not32 = icmp eq ptr %175, null
-  br i1 %.not32, label %178, label %176
+177:                                              ; preds = %175
+  %178 = load ptr, ptr @mca_base_param_file_path, align 8
+  %.not32 = icmp eq ptr %178, null
+  br i1 %.not32, label %181, label %179
 
-176:                                              ; preds = %174
-  %177 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull @mca_base_param_file_path, ptr noundef nonnull @.str.48, ptr noundef nonnull %173, i32 noundef 58, ptr noundef nonnull %175) #22
-  call void @free(ptr noundef nonnull %175) #22
-  br label %180
+179:                                              ; preds = %177
+  %180 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull @mca_base_param_file_path, ptr noundef nonnull @.str.48, ptr noundef nonnull %176, i32 noundef 58, ptr noundef nonnull %178) #22
+  call void @free(ptr noundef nonnull %178) #22
+  br label %183
 
-178:                                              ; preds = %174
-  %179 = call noalias ptr @strdup(ptr noundef nonnull %173) #22
-  store ptr %179, ptr @mca_base_param_file_path, align 8
-  br label %180
+181:                                              ; preds = %177
+  %182 = call noalias ptr @strdup(ptr noundef nonnull %176) #22
+  store ptr %182, ptr @mca_base_param_file_path, align 8
+  br label %183
 
-180:                                              ; preds = %176, %178, %172
-  %181 = load ptr, ptr @mca_base_var_file_prefix, align 8
-  %.not33 = icmp eq ptr %181, null
-  br i1 %.not33, label %184, label %182
+183:                                              ; preds = %179, %181, %175
+  %184 = load ptr, ptr @mca_base_var_file_prefix, align 8
+  %.not33 = icmp eq ptr %184, null
+  br i1 %.not33, label %187, label %185
 
-182:                                              ; preds = %180
-  %183 = load ptr, ptr @mca_base_param_file_path, align 8
-  call fastcc void @resolve_relative_paths(ptr noundef nonnull @mca_base_var_file_prefix, ptr noundef %183, i1 noundef zeroext %0, ptr noundef nonnull @mca_base_var_files, i8 noundef signext 58)
-  br label %184
+185:                                              ; preds = %183
+  %186 = load ptr, ptr @mca_base_param_file_path, align 8
+  call fastcc void @resolve_relative_paths(ptr noundef nonnull @mca_base_var_file_prefix, ptr noundef %186, i1 noundef zeroext %0, ptr noundef nonnull @mca_base_var_files, i8 noundef signext 58)
+  br label %187
 
-184:                                              ; preds = %182, %180
-  %185 = load ptr, ptr @mca_base_var_files, align 8
-  call fastcc void @read_files(ptr noundef %185, ptr noundef nonnull @mca_base_var_file_values, i8 noundef signext 44)
-  %186 = load ptr, ptr @mca_base_envar_file_prefix, align 8
-  %.not34 = icmp eq ptr %186, null
-  br i1 %.not34, label %189, label %187
+187:                                              ; preds = %185, %183
+  %188 = load ptr, ptr @mca_base_var_files, align 8
+  call fastcc void @read_files(ptr noundef %188, ptr noundef nonnull @mca_base_var_file_values, i8 noundef signext 44)
+  %189 = load ptr, ptr @mca_base_envar_file_prefix, align 8
+  %.not34 = icmp eq ptr %189, null
+  br i1 %.not34, label %192, label %190
 
-187:                                              ; preds = %184
-  %188 = load ptr, ptr @mca_base_param_file_path, align 8
-  call fastcc void @resolve_relative_paths(ptr noundef nonnull @mca_base_envar_file_prefix, ptr noundef %188, i1 noundef zeroext %0, ptr noundef nonnull @mca_base_envar_files, i8 noundef signext 44)
-  br label %189
+190:                                              ; preds = %187
+  %191 = load ptr, ptr @mca_base_param_file_path, align 8
+  call fastcc void @resolve_relative_paths(ptr noundef nonnull @mca_base_envar_file_prefix, ptr noundef %191, i1 noundef zeroext %0, ptr noundef nonnull @mca_base_envar_files, i8 noundef signext 44)
+  br label %192
 
-189:                                              ; preds = %187, %184
-  %190 = load ptr, ptr @mca_base_envar_files, align 8
-  call fastcc void @read_files(ptr noundef %190, ptr noundef nonnull @mca_base_envar_file_values, i8 noundef signext 44)
-  %191 = load ptr, ptr @mca_base_var_override_file, align 8
-  %192 = call i32 @access(ptr noundef %191, i32 noundef 0) #22
-  %193 = icmp eq i32 %192, 0
-  br i1 %193, label %194, label %mca_base_var_register.exit48.thread72
+192:                                              ; preds = %190, %187
+  %193 = load ptr, ptr @mca_base_envar_files, align 8
+  call fastcc void @read_files(ptr noundef %193, ptr noundef nonnull @mca_base_envar_file_values, i8 noundef signext 44)
+  %194 = load ptr, ptr @mca_base_var_override_file, align 8
+  %195 = call i32 @access(ptr noundef %194, i32 noundef 0) #22
+  %196 = icmp eq i32 %195, 0
+  br i1 %196, label %197, label %mca_base_var_register.exit48.thread72
 
-194:                                              ; preds = %189
-  %195 = load ptr, ptr @mca_base_var_override_file, align 8
-  call fastcc void @read_files(ptr noundef %195, ptr noundef nonnull @mca_base_var_override_values, i8 noundef signext 58)
+197:                                              ; preds = %192
+  %198 = load ptr, ptr @mca_base_var_override_file, align 8
+  call fastcc void @read_files(ptr noundef %198, ptr noundef nonnull @mca_base_var_override_values, i8 noundef signext 58)
   br label %mca_base_var_register.exit48.thread72
 
-mca_base_var_register.exit48.thread72:            ; preds = %mca_base_var_register.exit55.thread, %mca_base_var_register.exit48.thread, %102, %mca_base_var_register.exit69.thread75, %mca_base_var_register.exit41.thread71, %mca_base_var_register.exit.thread70, %189, %194, %mca_base_var_register.exit69.thread, %mca_base_var_register.exit62.thread, %mca_base_var_register.exit41.thread, %mca_base_var_register_synonym.exit
-  %.0 = phi i32 [ -2, %mca_base_var_register_synonym.exit ], [ 0, %mca_base_var_register.exit41.thread ], [ -2, %mca_base_var_register.exit62.thread ], [ %170, %mca_base_var_register.exit69.thread ], [ 0, %194 ], [ 0, %189 ], [ %23, %mca_base_var_register.exit.thread70 ], [ %83, %mca_base_var_register.exit41.thread71 ], [ %154, %mca_base_var_register.exit69.thread75 ], [ %103, %102 ], [ %118, %mca_base_var_register.exit48.thread ], [ %133, %mca_base_var_register.exit55.thread ]
+mca_base_var_register.exit48.thread72:            ; preds = %mca_base_var_register.exit55.thread, %mca_base_var_register.exit48.thread, %104, %mca_base_var_register.exit69.thread75, %mca_base_var_register.exit41.thread71, %mca_base_var_register.exit.thread70, %192, %197, %mca_base_var_register.exit69.thread, %mca_base_var_register.exit62.thread, %mca_base_var_register.exit41.thread, %mca_base_var_register_synonym.exit
+  %.0 = phi i32 [ -2, %mca_base_var_register_synonym.exit ], [ 0, %mca_base_var_register.exit41.thread ], [ -2, %mca_base_var_register.exit62.thread ], [ %173, %mca_base_var_register.exit69.thread ], [ 0, %197 ], [ 0, %192 ], [ %23, %mca_base_var_register.exit.thread70 ], [ %84, %mca_base_var_register.exit41.thread71 ], [ %156, %mca_base_var_register.exit69.thread75 ], [ %105, %104 ], [ %120, %mca_base_var_register.exit48.thread ], [ %135, %mca_base_var_register.exit55.thread ]
   ret i32 %.0
 }
 

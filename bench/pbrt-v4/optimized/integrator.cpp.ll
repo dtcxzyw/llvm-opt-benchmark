@@ -23518,9 +23518,9 @@ _ZNK4pbrt15SampledSpectrumdvEf.exit85.i.i.i.i:    ; preds = %for.body.i.i74.i.i.
   br label %if.end47.i.i.i.i
 
 if.end47.i.i.i.i:                                 ; preds = %_ZNK4pbrt15SampledSpectrumdvEf.exit85.i.i.i.i, %_ZNK4pbrt15SampledSpectrumdvEf.exit.i.i.i.i
-  %storemerge.i.i.i.i = phi <2 x float> [ %retval.sroa.0.0.copyload.i80.i.i.i.i, %_ZNK4pbrt15SampledSpectrumdvEf.exit85.i.i.i.i ], [ %retval.sroa.0.0.copyload.i18.i.i.i.i, %_ZNK4pbrt15SampledSpectrumdvEf.exit.i.i.i.i ]
+  %retval.sroa.0.0.copyload.i80.sink.i.i.i.i = phi <2 x float> [ %retval.sroa.0.0.copyload.i80.i.i.i.i, %_ZNK4pbrt15SampledSpectrumdvEf.exit85.i.i.i.i ], [ %retval.sroa.0.0.copyload.i18.i.i.i.i, %_ZNK4pbrt15SampledSpectrumdvEf.exit.i.i.i.i ]
   %retval.sroa.2.0.copyload.i82.sink.i.i.i.i = phi <2 x float> [ %retval.sroa.2.0.copyload.i82.i.i.i.i, %_ZNK4pbrt15SampledSpectrumdvEf.exit85.i.i.i.i ], [ %retval.sroa.2.0.copyload.i20.i.i.i.i, %_ZNK4pbrt15SampledSpectrumdvEf.exit.i.i.i.i ]
-  store <2 x float> %storemerge.i.i.i.i, ptr %L.i.i.i.i, align 16
+  store <2 x float> %retval.sroa.0.0.copyload.i80.sink.i.i.i.i, ptr %L.i.i.i.i, align 16
   %ref.tmp33.sroa.2.0.L.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %L.i.i.i.i, i64 8
   store <2 x float> %retval.sroa.2.0.copyload.i82.sink.i.i.i.i, ptr %ref.tmp33.sroa.2.0.L.sroa_idx.i.i.i.i, align 8
   %95 = load i32, ptr %pixelIndex46.i.i.i.i, align 4

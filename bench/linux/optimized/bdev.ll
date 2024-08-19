@@ -1598,68 +1598,63 @@ define dso_local ptr @bdev_open_by_path(ptr noundef %0, i32 noundef %1, ptr noun
 
 21:                                               ; preds = %13
   %22 = call zeroext i1 @may_open_dev(ptr noundef nonnull %5) #12
-  br i1 %22, label %27, label %.thread6
-
-.thread:                                          ; preds = %4, %7, %10
-  %.ph = phi i32 [ %11, %10 ], [ -22, %7 ], [ -22, %4 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
-  br label %23
+  br i1 %22, label %26, label %.thread6
 
 .thread6:                                         ; preds = %21, %13
   %.ph5 = phi i32 [ -15, %13 ], [ -13, %21 ]
   call void @path_put(ptr noundef nonnull %5) #12
+  br label %.thread
+
+.thread:                                          ; preds = %10, %7, %4, %.thread6
+  %23 = phi i32 [ %.ph5, %.thread6 ], [ %11, %10 ], [ -22, %7 ], [ -22, %4 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
-  br label %23
+  %24 = sext i32 %23 to i64
+  %25 = inttoptr i64 %24 to ptr
+  br label %53
 
-23:                                               ; preds = %.thread6, %.thread
-  %24 = phi i32 [ %.ph, %.thread ], [ %.ph5, %.thread6 ]
-  %25 = sext i32 %24 to i64
-  %26 = inttoptr i64 %25 to ptr
-  br label %54
-
-27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %17, i64 76
-  %29 = load i32, ptr %28, align 4
+26:                                               ; preds = %21
+  %27 = getelementptr inbounds i8, ptr %17, i64 76
+  %28 = load i32, ptr %27, align 4
   call void @path_put(ptr noundef nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
-  %30 = call ptr @bdev_open_by_dev(i32 noundef %29, i32 noundef %1, ptr noundef %2, ptr noundef %3)
-  %31 = icmp ugt ptr %30, inttoptr (i64 -4096 to ptr)
-  %32 = and i32 %1, 2
-  %33 = icmp eq i32 %32, 0
-  %34 = or i1 %33, %31
-  br i1 %34, label %54, label %35
+  %29 = call ptr @bdev_open_by_dev(i32 noundef %28, i32 noundef %1, ptr noundef %2, ptr noundef %3)
+  %30 = icmp ugt ptr %29, inttoptr (i64 -4096 to ptr)
+  %31 = and i32 %1, 2
+  %32 = icmp eq i32 %31, 0
+  %33 = or i1 %32, %30
+  br i1 %33, label %53, label %34
 
-35:                                               ; preds = %27
-  %36 = load ptr, ptr %30, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 48
-  %38 = load i8, ptr %37, align 8, !range !28, !noundef !29
-  %39 = icmp eq i8 %38, 0
-  br i1 %39, label %40, label %53
+34:                                               ; preds = %26
+  %35 = load ptr, ptr %29, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 48
+  %37 = load i8, ptr %36, align 8, !range !28, !noundef !29
+  %38 = icmp eq i8 %37, 0
+  br i1 %38, label %39, label %52
 
-40:                                               ; preds = %35
-  %41 = getelementptr inbounds i8, ptr %36, i64 16
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 64
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 48
-  %46 = load i8, ptr %45, align 8, !range !28, !noundef !29
-  %47 = icmp eq i8 %46, 0
-  br i1 %47, label %48, label %53
+39:                                               ; preds = %34
+  %40 = getelementptr inbounds i8, ptr %35, i64 16
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 64
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 48
+  %45 = load i8, ptr %44, align 8, !range !28, !noundef !29
+  %46 = icmp eq i8 %45, 0
+  br i1 %46, label %47, label %52
 
-48:                                               ; preds = %40
-  %49 = getelementptr inbounds i8, ptr %42, i64 352
-  %50 = load volatile i64, ptr %49, align 8
-  %51 = and i64 %50, 2
-  %52 = icmp eq i64 %51, 0
-  br i1 %52, label %54, label %53
+47:                                               ; preds = %39
+  %48 = getelementptr inbounds i8, ptr %41, i64 352
+  %49 = load volatile i64, ptr %48, align 8
+  %50 = and i64 %49, 2
+  %51 = icmp eq i64 %50, 0
+  br i1 %51, label %53, label %52
 
-53:                                               ; preds = %48, %40, %35
-  call void @bdev_release(ptr noundef %30)
-  br label %54
+52:                                               ; preds = %47, %39, %34
+  call void @bdev_release(ptr noundef %29)
+  br label %53
 
-54:                                               ; preds = %53, %48, %27, %23
-  %55 = phi ptr [ %26, %23 ], [ inttoptr (i64 -13 to ptr), %53 ], [ %30, %48 ], [ %30, %27 ]
-  ret ptr %55
+53:                                               ; preds = %52, %47, %26, %.thread
+  %54 = phi ptr [ %25, %.thread ], [ inttoptr (i64 -13 to ptr), %52 ], [ %29, %47 ], [ %29, %26 ]
+  ret ptr %54
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

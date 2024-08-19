@@ -200,10 +200,6 @@ common.resume:                                    ; preds = %60, %68, %35, %38
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6), !noalias !37
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha0938daf376ffeadE.exit"
 
-"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha0938daf376ffeadE.exit": ; preds = %55, %58
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %14)
-  br label %80
-
 59:                                               ; preds = %"_ZN68_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..clone..Clone$GT$5clone17h8084aa6ff4a7578dE.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6, i64 24, i1 false)
@@ -214,8 +210,7 @@ common.resume:                                    ; preds = %60, %68, %35, %38
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %14)
-  br label %80
+  br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha0938daf376ffeadE.exit"
 
 60:                                               ; preds = %62
   %61 = landingpad { ptr, i32 }
@@ -279,7 +274,8 @@ common.resume:                                    ; preds = %60, %68, %35, %38
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #20
   unreachable
 
-80:                                               ; preds = %59, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha0938daf376ffeadE.exit"
+"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha0938daf376ffeadE.exit": ; preds = %58, %55, %59
+  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %14)
   ret void
 }
 

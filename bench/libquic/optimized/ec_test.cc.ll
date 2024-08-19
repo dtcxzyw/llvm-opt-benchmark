@@ -147,8 +147,6 @@ entry:
 
 _ZL18DecodeECPrivateKeyPKhm.exit.thread.i:        ; preds = %entry
   store ptr null, ptr %key.i, align 8, !alias.scope !7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cbs.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ret.i.i)
   br label %if.then.i
 
 lor.lhs.false.i.i:                                ; preds = %entry
@@ -173,12 +171,7 @@ lpad.i.i:                                         ; preds = %lor.lhs.false.i.i
 if.then.i.i.i:                                    ; preds = %invoke.cont.i.i
   store ptr null, ptr %key.i, align 8, !alias.scope !7
   invoke void @EC_KEY_free(ptr noundef nonnull %call.i.i)
-          to label %_ZL18DecodeECPrivateKeyPKhm.exit.thread89.i unwind label %terminate.lpad.i.i.i, !noalias !7
-
-_ZL18DecodeECPrivateKeyPKhm.exit.thread89.i:      ; preds = %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cbs.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ret.i.i)
-  br label %if.then.i
+          to label %if.then.i unwind label %terminate.lpad.i.i.i, !noalias !7
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   %2 = landingpad { ptr, i32 }
@@ -187,7 +180,9 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   call void @__clang_call_terminate(ptr %3) #19
   unreachable
 
-if.then.i:                                        ; preds = %_ZL18DecodeECPrivateKeyPKhm.exit.thread89.i, %_ZL18DecodeECPrivateKeyPKhm.exit.thread.i
+if.then.i:                                        ; preds = %if.then.i.i.i, %_ZL18DecodeECPrivateKeyPKhm.exit.thread.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cbs.i.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ret.i.i)
   %4 = load ptr, ptr @stderr, align 8
   %5 = call i64 @fwrite(ptr nonnull @.str.2, i64 29, i64 1, ptr %4) #20
   %6 = load ptr, ptr @stderr, align 8
@@ -491,8 +486,6 @@ lor.lhs.false:                                    ; preds = %_ZL20Testd2i_ECPriv
 
 _ZL18DecodeECPrivateKeyPKhm.exit.thread.i32:      ; preds = %lor.lhs.false
   store ptr null, ptr %key.i3, align 8, !alias.scope !10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cbs.i.i1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ret.i.i2)
   br label %if.then.sink.split.i
 
 lor.lhs.false.i.i7:                               ; preds = %lor.lhs.false
@@ -511,12 +504,7 @@ lpad.i.i9:                                        ; preds = %lor.lhs.false.i.i7
 if.then.i.i.i15:                                  ; preds = %invoke.cont.i.i13
   store ptr null, ptr %key.i3, align 8, !alias.scope !10
   invoke void @EC_KEY_free(ptr noundef nonnull %call.i.i5)
-          to label %_ZL18DecodeECPrivateKeyPKhm.exit.thread93.i unwind label %terminate.lpad.i.i.i16, !noalias !10
-
-_ZL18DecodeECPrivateKeyPKhm.exit.thread93.i:      ; preds = %if.then.i.i.i15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cbs.i.i1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ret.i.i2)
-  br label %if.then.sink.split.i
+          to label %if.then.sink.split.i unwind label %terminate.lpad.i.i.i16, !noalias !10
 
 terminate.lpad.i.i.i16:                           ; preds = %if.then.i.i.i15
   %35 = landingpad { ptr, i32 }
@@ -536,7 +524,9 @@ lor.lhs.false.i20:                                ; preds = %invoke.cont.i.i13
 invoke.cont.i:                                    ; preds = %lor.lhs.false.i20
   br i1 %call2.i, label %if.end.i21, label %if.then.i17
 
-if.then.sink.split.i:                             ; preds = %_ZL18DecodeECPrivateKeyPKhm.exit.thread93.i, %_ZL18DecodeECPrivateKeyPKhm.exit.thread.i32
+if.then.sink.split.i:                             ; preds = %if.then.i.i.i15, %_ZL18DecodeECPrivateKeyPKhm.exit.thread.i32
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cbs.i.i1)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ret.i.i2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %out.i4, i8 0, i64 24, i1 false)
   br label %if.then.i17
 
@@ -741,8 +731,6 @@ lor.lhs.false2:                                   ; preds = %_ZL15TestZeroPaddin
 
 _ZL18DecodeECPrivateKeyPKhm.exit.thread.i69:      ; preds = %lor.lhs.false2
   store ptr null, ptr %key.i35, align 8, !alias.scope !16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cbs.i.i33)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ret.i.i34)
   br label %if.then.i49
 
 lor.lhs.false.i.i39:                              ; preds = %lor.lhs.false2
@@ -761,12 +749,7 @@ lpad.i.i41:                                       ; preds = %lor.lhs.false.i.i39
 if.then.i.i.i47:                                  ; preds = %invoke.cont.i.i45
   store ptr null, ptr %key.i35, align 8, !alias.scope !16
   invoke void @EC_KEY_free(ptr noundef nonnull %call.i.i37)
-          to label %_ZL18DecodeECPrivateKeyPKhm.exit.thread29.i unwind label %terminate.lpad.i.i.i48, !noalias !16
-
-_ZL18DecodeECPrivateKeyPKhm.exit.thread29.i:      ; preds = %if.then.i.i.i47
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cbs.i.i33)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ret.i.i34)
-  br label %if.then.i49
+          to label %if.then.i49 unwind label %terminate.lpad.i.i.i48, !noalias !16
 
 terminate.lpad.i.i.i48:                           ; preds = %if.then.i.i.i47
   %61 = landingpad { ptr, i32 }
@@ -775,7 +758,9 @@ terminate.lpad.i.i.i48:                           ; preds = %if.then.i.i.i47
   call void @__clang_call_terminate(ptr %62) #19
   unreachable
 
-if.then.i49:                                      ; preds = %_ZL18DecodeECPrivateKeyPKhm.exit.thread29.i, %_ZL18DecodeECPrivateKeyPKhm.exit.thread.i69
+if.then.i49:                                      ; preds = %if.then.i.i.i47, %_ZL18DecodeECPrivateKeyPKhm.exit.thread.i69
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cbs.i.i33)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ret.i.i34)
   %63 = load ptr, ptr @stderr, align 8
   invoke void @ERR_print_errors_fp(ptr noundef %63)
           to label %_ZL18TestSpecifiedCurvev.exit.thread unwind label %lpad.i50

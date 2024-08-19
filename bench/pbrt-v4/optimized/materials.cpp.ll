@@ -1689,9 +1689,9 @@ _ZNK4pbrt15SampledSpectrumdvERKS0_.exit:          ; preds = %do.end.i.i
   br label %if.end70
 
 if.end70:                                         ; preds = %_ZNK4pbrt15SampledSpectrumdvERKS0_.exit, %_ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit55
-  %storemerge = phi <2 x float> [ %retval.sroa.0.0.i37, %_ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit55 ], [ %retval.sroa.0.0.copyload.i155, %_ZNK4pbrt15SampledSpectrumdvERKS0_.exit ]
-  %retval.sroa.2.0.copyload.i157.sink = phi <2 x float> [ %retval.sroa.6.0.i36, %_ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit55 ], [ %retval.sroa.2.0.copyload.i157, %_ZNK4pbrt15SampledSpectrumdvERKS0_.exit ]
-  store <2 x float> %storemerge, ptr %ck, align 8
+  %retval.sroa.0.0.copyload.i155.sink = phi <2 x float> [ %retval.sroa.0.0.copyload.i155, %_ZNK4pbrt15SampledSpectrumdvERKS0_.exit ], [ %retval.sroa.0.0.i37, %_ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit55 ]
+  %retval.sroa.2.0.copyload.i157.sink = phi <2 x float> [ %retval.sroa.2.0.copyload.i157, %_ZNK4pbrt15SampledSpectrumdvERKS0_.exit ], [ %retval.sroa.6.0.i36, %_ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit55 ]
+  store <2 x float> %retval.sroa.0.0.copyload.i155.sink, ptr %ck, align 8
   %ref.tmp45.sroa.2.0.ck.sroa_idx = getelementptr inbounds i8, ptr %ck, i64 8
   store <2 x float> %retval.sroa.2.0.copyload.i157.sink, ptr %ref.tmp45.sroa.2.0.ck.sroa_idx, align 8
   br label %for.body.i160
@@ -2269,9 +2269,9 @@ _ZNK4pbrt15SampledSpectrumdvERKS0_.exit:          ; preds = %do.end.i.i
   br label %if.end70
 
 if.end70:                                         ; preds = %_ZNK4pbrt15SampledSpectrumdvERKS0_.exit, %if.then20
-  %storemerge = phi <2 x float> [ %16, %if.then20 ], [ %retval.sroa.0.0.copyload.i93, %_ZNK4pbrt15SampledSpectrumdvERKS0_.exit ]
-  %retval.sroa.2.0.copyload.i95.sink = phi <2 x float> [ %17, %if.then20 ], [ %retval.sroa.2.0.copyload.i95, %_ZNK4pbrt15SampledSpectrumdvERKS0_.exit ]
-  store <2 x float> %storemerge, ptr %ck, align 8
+  %retval.sroa.0.0.copyload.i93.sink = phi <2 x float> [ %retval.sroa.0.0.copyload.i93, %_ZNK4pbrt15SampledSpectrumdvERKS0_.exit ], [ %16, %if.then20 ]
+  %retval.sroa.2.0.copyload.i95.sink = phi <2 x float> [ %retval.sroa.2.0.copyload.i95, %_ZNK4pbrt15SampledSpectrumdvERKS0_.exit ], [ %17, %if.then20 ]
+  store <2 x float> %retval.sroa.0.0.copyload.i93.sink, ptr %ck, align 8
   %ref.tmp45.sroa.2.0.ck.sroa_idx = getelementptr inbounds i8, ptr %ck, i64 8
   store <2 x float> %retval.sroa.2.0.copyload.i95.sink, ptr %ref.tmp45.sroa.2.0.ck.sroa_idx, align 8
   br label %for.body.i98
@@ -8674,7 +8674,7 @@ entry:
   %materials = alloca [2 x %"class.pbrt::Material"], align 16
   %coerce.val.ip = inttoptr i64 %alloc.coerce to ptr
   %call = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #20
-  %indvars.iv.sroa.gep119 = getelementptr inbounds i8, ptr %materials, i64 8
+  %indvars.iv.sroa.gep116 = getelementptr inbounds i8, ptr %materials, i64 8
   br i1 %call, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
@@ -8908,7 +8908,7 @@ for.cond:                                         ; preds = %if.end108
 
 for.body:                                         ; preds = %arrayctor.loop.preheader, %for.cond
   %cmp95 = phi i1 [ true, %arrayctor.loop.preheader ], [ false, %for.cond ]
-  %indvars.iv.sroa.phi = phi ptr [ %materials, %arrayctor.loop.preheader ], [ %indvars.iv.sroa.gep119, %for.cond ]
+  %indvars.iv.sroa.phi = phi ptr [ %materials, %arrayctor.loop.preheader ], [ %indvars.iv.sroa.gep116, %for.cond ]
   %indvars.iv = phi i64 [ 0, %arrayctor.loop.preheader ], [ 1, %for.cond ]
   %16 = load ptr, ptr %materialNames, align 8
   %add.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %16, i64 %indvars.iv
@@ -8919,11 +8919,11 @@ invoke.cont97:                                    ; preds = %for.body
   %cmp.i94 = icmp eq ptr %call98, %add.ptr.i.i
   br i1 %cmp.i94, label %if.then104.invoke, label %if.end108
 
-if.then104.invoke:                                ; preds = %if.end108, %invoke.cont97
-  %17 = phi ptr [ @.str.87, %invoke.cont97 ], [ @.str.88, %if.end108 ]
-  %.pn112 = load ptr, ptr %materialNames, align 8
-  %18 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pn112, i64 %indvars.iv
-  invoke void @_ZN4pbrt9ErrorExitIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKcDpOT_(ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(32) %18) #19
+if.then104.invoke:                                ; preds = %invoke.cont97, %if.end108
+  %17 = phi ptr [ @.str.88, %if.end108 ], [ @.str.87, %invoke.cont97 ]
+  %18 = load ptr, ptr %materialNames, align 8
+  %add.ptr.i97 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %18, i64 %indvars.iv
+  invoke void @_ZN4pbrt9ErrorExitIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKcDpOT_(ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i97) #19
           to label %if.then104.cont unwind label %lpad93.loopexit.split-lp
 
 if.then104.cont:                                  ; preds = %if.then104.invoke

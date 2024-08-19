@@ -84113,14 +84113,14 @@ _ZNK5Yosys7SigPool5checkERKNS_5RTLIL6SigBitE.exit51.i: ; preds = %2207
 2220:                                             ; preds = %_ZNK5Yosys7SigPool5checkERKNS_5RTLIL6SigBitE.exit51.i, %_ZNK5Yosys7SigPool5checkERKNS_5RTLIL6SigBitE.exit51.thr_comm.i, %._ZNK5Yosys7SigPool5checkERKNS_5RTLIL6SigBitE.exit51_crit_edge.i
   %2221 = load ptr, ptr %93, align 8
   %.not.i1100 = icmp eq ptr %2221, null
-  br i1 %.not.i1100, label %.thread, label %2222
+  br i1 %.not.i1100, label %.sink.split, label %2222
 
 2222:                                             ; preds = %2220
   %2223 = load i32, ptr %1822, align 8
   %2224 = load ptr, ptr %76, align 8
   %2225 = load ptr, ptr %1823, align 8
   %2226 = icmp eq ptr %2224, %2225
-  br i1 %2226, label %.thread, label %2227
+  br i1 %2226, label %.sink.split, label %2227
 
 2227:                                             ; preds = %2222
   %2228 = getelementptr inbounds i8, ptr %2221, i64 72
@@ -84171,7 +84171,7 @@ _ZNK5Yosys7SigPool5checkERKNS_5RTLIL6SigBitE.exit51.i: ; preds = %2207
   %2262 = getelementptr inbounds i32, ptr %2259, i64 %2261
   %2263 = load i32, ptr %2262, align 4
   %2264 = icmp sgt i32 %2263, -1
-  br i1 %2264, label %.lr.ph.i.i.i1102, label %.thread
+  br i1 %2264, label %.lr.ph.i.i.i1102, label %.sink.split
 
 .lr.ph.i.i.i1102:                                 ; preds = %._crit_edge.i.i.i1101
   %2265 = load ptr, ptr %1824, align 8
@@ -84200,14 +84200,7 @@ _ZNK5Yosys7hashlib4poolINS_7SigPool8bitDef_tENS0_8hash_opsIS3_EEE9do_lookupERKS3
   %2276 = getelementptr inbounds i8, ptr %2268, i64 16
   %2277 = load i32, ptr %2276, align 8
   %2278 = icmp sgt i32 %2277, -1
-  br i1 %2278, label %2266, label %_ZNK5Yosys7hashlib4poolINS_7SigPool8bitDef_tENS0_8hash_opsIS3_EEE9do_lookupERKS3_Ri.exit.loopexit.i.i1104, !llvm.loop !606
-
-_ZNK5Yosys7hashlib4poolINS_7SigPool8bitDef_tENS0_8hash_opsIS3_EEE9do_lookupERKS3_Ri.exit.loopexit.i.i1104: ; preds = %2275
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %69)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %70)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %71)
-  br label %2487
+  br i1 %2278, label %2266, label %.sink.split, !llvm.loop !606
 
 2279:                                             ; preds = %_ZNK5Yosys7SigPool5checkERKNS_5RTLIL6SigBitE.exit51.i, %_ZNK5Yosys7SigPool5checkERKNS_5RTLIL6SigBitE.exit51.thr_comm.i, %._ZNK5Yosys7SigPool5checkERKNS_5RTLIL6SigBitE.exit51_crit_edge.i
   %2280 = load ptr, ptr %83, align 8
@@ -84300,7 +84293,7 @@ _ZNK5Yosys7hashlib4poolIPNS_5RTLIL4WireENS0_8hash_opsIS4_EEE9do_lookupERKS4_Ri.e
   %2331 = load ptr, ptr %83, align 8
   %2332 = load ptr, ptr %1826, align 8
   %2333 = icmp eq ptr %2331, %2332
-  br i1 %2333, label %.noexc412.thread, label %2334
+  br i1 %2333, label %.sink.split, label %2334
 
 2334:                                             ; preds = %2330
   %2335 = load ptr, ptr %68, align 8
@@ -84367,7 +84360,7 @@ _ZN5Yosys7hashlib12hash_obj_ops4hashINS_5RTLIL4WireEEEjPKT_.exit.i.i.i: ; preds 
   %2374 = getelementptr inbounds i32, ptr %2371, i64 %2373
   %2375 = load i32, ptr %2374, align 4
   %2376 = icmp sgt i32 %2375, -1
-  br i1 %2376, label %.lr.ph.i.i1084, label %.noexc412.thread
+  br i1 %2376, label %.lr.ph.i.i1084, label %.sink.split
 
 .lr.ph.i.i1084:                                   ; preds = %._crit_edge.i.i1082
   %2377 = load ptr, ptr %1827, align 8
@@ -84393,21 +84386,7 @@ _ZN5Yosys7hashlib12hash_obj_ops4hashINS_5RTLIL4WireEEEjPKT_.exit.i.i.i: ; preds 
   %2385 = getelementptr inbounds i8, ptr %2381, i64 8
   %2386 = load i32, ptr %2385, align 8
   %2387 = icmp sgt i32 %2386, -1
-  br i1 %2387, label %2379, label %.noexc412, !llvm.loop !618
-
-.noexc412.thread:                                 ; preds = %._crit_edge.i.i1082, %2330
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %69)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %70)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %71)
-  br label %2487
-
-.noexc412:                                        ; preds = %2384
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %69)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %70)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %71)
-  br label %2487
+  br i1 %2387, label %2379, label %.sink.split, !llvm.loop !618
 
 2388:                                             ; preds = %.noexc411
   invoke void @_ZN5Yosys5RTLIL7SigSpecC1ERKNS0_6SigBitEi(ptr noundef nonnull align 8 dereferenceable(64) %69, ptr noundef nonnull align 8 dereferenceable(12) %92, i32 noundef 1)
@@ -84705,13 +84684,6 @@ _ZNK5Yosys5RTLIL8IdString8isPublicEv.exit56.i:    ; preds = %_ZNK5Yosys5RTLIL8Id
   call void @_ZN5Yosys5RTLIL7SigSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %.sink.i403) #25
   br label %.body421
 
-.thread:                                          ; preds = %2220, %._crit_edge.i.i.i1101, %2222
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %69)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %70)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %71)
-  br label %2487
-
 2486:                                             ; preds = %.noexc398.thread, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i1052
   %.0.i = phi i1 [ %2058, %.noexc398.thread ], [ %2416, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i1052 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68)
@@ -84720,7 +84692,14 @@ _ZNK5Yosys5RTLIL8IdString8isPublicEv.exit56.i:    ; preds = %_ZNK5Yosys5RTLIL8Id
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %71)
   br i1 %.0.i, label %_ZN5Yosys6SigMap3addERKNS_5RTLIL6SigBitE.exit, label %2487
 
-2487:                                             ; preds = %.noexc412, %.noexc412.thread, %_ZNK5Yosys7hashlib4poolINS_7SigPool8bitDef_tENS0_8hash_opsIS3_EEE9do_lookupERKS3_Ri.exit.loopexit.i.i1104, %2427, %2083, %.noexc420, %2467, %_ZNK5Yosys5RTLIL8IdString8isPublicEv.exit56.i, %2442, %2066, %.thread, %2486
+.sink.split:                                      ; preds = %2384, %2275, %2222, %._crit_edge.i.i.i1101, %2220, %2330, %._crit_edge.i.i1082
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68)
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %69)
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %70)
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %71)
+  br label %2487
+
+2487:                                             ; preds = %.sink.split, %2427, %2083, %.noexc420, %2467, %_ZNK5Yosys5RTLIL8IdString8isPublicEv.exit56.i, %2442, %2066, %2486
   %2488 = load ptr, ptr %82, align 8
   %2489 = load ptr, ptr %1817, align 8
   %2490 = icmp eq ptr %2488, %2489

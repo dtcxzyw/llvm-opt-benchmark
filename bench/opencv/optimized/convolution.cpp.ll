@@ -2323,12 +2323,10 @@ _ZNK2cv3PtrINS_3dnn14dnn4_v2024052115ActivationLayerEE11dynamicCastINS2_10ReLU6L
 328:                                              ; preds = %_ZNK2cv3PtrINS_3dnn14dnn4_v2024052115ActivationLayerEE11dynamicCastINS2_10ReLU6LayerEEENS0_IT_EEv.exit.thread
   store float 0.000000e+00, ptr %38, align 4
   store i8 1, ptr %40, align 1
-  store ptr null, ptr %37, align 8
   br label %337
 
 329:                                              ; preds = %_ZNK2cv3PtrINS_3dnn14dnn4_v2024052115ActivationLayerEE11dynamicCastINS2_10ReLU6LayerEEENS0_IT_EEv.exit.thread
   %330 = load ptr, ptr %4, align 8
-  store ptr %330, ptr %37, align 8
   br label %337
 
 331:                                              ; preds = %_ZNK2cv3PtrINS_3dnn14dnn4_v2024052115ActivationLayerEE11dynamicCastINS2_10ReLU6LayerEEENS0_IT_EEv.exit
@@ -2339,7 +2337,6 @@ _ZNK2cv3PtrINS_3dnn14dnn4_v2024052115ActivationLayerEE11dynamicCastINS2_10ReLU6L
   %335 = load float, ptr %334, align 8
   store float %335, ptr %39, align 4
   store i8 1, ptr %40, align 1
-  store ptr null, ptr %37, align 8
   br label %337
 
 _ZN2cv3PtrINS_3dnn14dnn4_v2024052110ReLU6LayerEED2Ev.exit.thread: ; preds = %_ZNK2cv3PtrINS_3dnn14dnn4_v2024052115ActivationLayerEE11dynamicCastINS2_9ReLULayerEEENS0_IT_EEv.exit.thread
@@ -2348,8 +2345,10 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052110ReLU6LayerEED2Ev.exit.thread: ; preds = %_ZN
   br label %_ZN2cv3PtrINS_3dnn14dnn4_v202405219ReLULayerEED2Ev.exit
 
 337:                                              ; preds = %331, %328, %329
+  %.sink = phi ptr [ null, %331 ], [ null, %328 ], [ %330, %329 ]
   %.sroa.4.0.i213425 = phi ptr [ %316, %331 ], [ %.sroa.4.0.i213426, %328 ], [ %.sroa.4.0.i213426, %329 ]
   %.sroa.4.0.i419423 = phi ptr [ %.sroa.4.0.i418450, %331 ], [ %.sroa.4.0.i419424, %328 ], [ %.sroa.4.0.i419424, %329 ]
+  store ptr %.sink, ptr %37, align 8
   %.not.i.i.i.i = icmp eq ptr %.sroa.4.0.i213425, null
   br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_3dnn14dnn4_v2024052110ReLU6LayerEED2Ev.exit, label %338
 

@@ -634,7 +634,6 @@ _ZN4ring4test8TestCase23consume_optional_string17h52d559269975975aE.exit: ; pred
 56:                                               ; preds = %_ZN4ring4test8TestCase23consume_optional_string17h52d559269975975aE.exit, %_ZN4ring4test8TestCase23consume_optional_string17h52d559269975975aE.exit.thread
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5)
   store i64 -9223372036854775808, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30)
   br label %201
 
 57:                                               ; preds = %115, %79, %58
@@ -703,7 +702,6 @@ _ZN4ring4test8TestCase23consume_optional_string17h52d559269975975aE.exit: ; pred
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h1a21e7e089907eb3E.exit": ; preds = %72, %75
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13), !noalias !146
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30)
   br label %201
 
 79:                                               ; preds = %81
@@ -1114,6 +1112,7 @@ _ZN4core3ops5range11RangeBounds8contains17h3e0e515374aa62cbE.exit.backedge.i99: 
   br label %72
 
 201:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h1a21e7e089907eb3E.exit", %56
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30)
   ret void
 
 202:                                              ; preds = %57

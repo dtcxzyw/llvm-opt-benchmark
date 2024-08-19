@@ -1697,86 +1697,74 @@ fill_dummy_ip4.exit:                              ; preds = %._crit_edge.i, %sub
   %55 = load ptr, ptr @ipv4_hash_table, align 8
   %.0..0..0..0.6 = load volatile ptr, ptr %9, align 8
   %56 = call ptr @wmem_map_insert(ptr noundef %55, ptr noundef %12, ptr noundef %.0..0..0..0.6) #20
-  br label %62
+  %.old = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4), align 4
+  %.not18.old = icmp eq i32 %.old, 0
+  br i1 %.not18.old, label %82, label %62
 
 57:                                               ; preds = %1
   %.0..0..0..0.7 = load volatile ptr, ptr %9, align 8
   %58 = getelementptr inbounds i8, ptr %.0..0..0..0.7, i64 4
   %59 = load i8, ptr %58, align 4
   %60 = and i8 %59, 3
-  %.not = icmp eq i8 %60, 0
-  br i1 %.not, label %62, label %61
-
-61:                                               ; preds = %57
-  %.0..0..0..0.8 = load volatile ptr, ptr %9, align 8
-  br label %86
+  %.not = icmp ne i8 %60, 0
+  %61 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4), align 4
+  %.not18 = icmp eq i32 %61, 0
+  %or.cond29 = select i1 %.not, i1 true, i1 %.not18
+  br i1 %or.cond29, label %82, label %62
 
 62:                                               ; preds = %57, %fill_dummy_ip4.exit
-  %63 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4), align 4
-  %.not18 = icmp eq i32 %63, 0
-  br i1 %.not18, label %64, label %65
+  %63 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 16), align 4
+  %.not19 = icmp eq i32 %63, 0
+  br i1 %.not19, label %82, label %64
 
 64:                                               ; preds = %62
-  %.0..0..0..0.9 = load volatile ptr, ptr %9, align 8
-  br label %86
-
-65:                                               ; preds = %62
-  %66 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 16), align 4
-  %.not19 = icmp eq i32 %66, 0
-  br i1 %.not19, label %85, label %67
-
-67:                                               ; preds = %65
   %.0..0..0..0.10 = load volatile ptr, ptr %9, align 8
-  %68 = getelementptr inbounds i8, ptr %.0..0..0..0.10, i64 4
-  %69 = load i8, ptr %68, align 4
-  %70 = or i8 %69, 1
-  store i8 %70, ptr %68, align 4
+  %65 = getelementptr inbounds i8, ptr %.0..0..0..0.10, i64 4
+  %66 = load i8, ptr %65, align 4
+  %67 = or i8 %66, 1
+  store i8 %67, ptr %65, align 4
   %.b = load i1, ptr @async_dns_initialized, align 4
-  br i1 %.b, label %71, label %85
+  br i1 %.b, label %68, label %82
 
-71:                                               ; preds = %67
-  %72 = load i32, ptr @resolve_synchronously, align 4
-  %73 = icmp ne i32 %72, 0
-  %74 = load i32, ptr @name_resolve_concurrency, align 4
-  %75 = icmp eq i32 %74, 0
-  %or.cond = select i1 %73, i1 true, i1 %75
-  br i1 %or.cond, label %sync_lookup_ip4.exit, label %80
+68:                                               ; preds = %64
+  %69 = load i32, ptr @resolve_synchronously, align 4
+  %70 = icmp ne i32 %69, 0
+  %71 = load i32, ptr @name_resolve_concurrency, align 4
+  %72 = icmp eq i32 %71, 0
+  %or.cond = select i1 %70, i1 true, i1 %72
+  br i1 %or.cond, label %sync_lookup_ip4.exit, label %77
 
-sync_lookup_ip4.exit:                             ; preds = %71
+sync_lookup_ip4.exit:                             ; preds = %68
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 %0, ptr %2, align 4
   store i32 0, ptr %3, align 4
-  %76 = call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #24
-  %77 = getelementptr inbounds i8, ptr %76, i64 16
-  store i32 2, ptr %77, align 8
-  store i32 %0, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %76, i64 24
-  store ptr %3, ptr %78, align 8
-  %79 = load ptr, ptr @ghba_chan, align 8
-  call void @ares_gethostbyaddr(ptr noundef %79, ptr noundef nonnull %2, i32 noundef 4, i32 noundef 2, ptr noundef nonnull @c_ares_ghba_sync_cb, ptr noundef nonnull %76) #20
+  %73 = call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #24
+  %74 = getelementptr inbounds i8, ptr %73, i64 16
+  store i32 2, ptr %74, align 8
+  store i32 %0, ptr %73, align 8
+  %75 = getelementptr inbounds i8, ptr %73, i64 24
+  store ptr %3, ptr %75, align 8
+  %76 = load ptr, ptr @ghba_chan, align 8
+  call void @ares_gethostbyaddr(ptr noundef %76, ptr noundef nonnull %2, i32 noundef 4, i32 noundef 2, ptr noundef nonnull @c_ares_ghba_sync_cb, ptr noundef nonnull %73) #20
   call fastcc void @wait_for_sync_resolv(ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br label %85
+  br label %82
 
-80:                                               ; preds = %71
-  %81 = load ptr, ptr @addr_resolv_scope, align 8
-  %82 = call noalias ptr @wmem_alloc(ptr noundef %81, i64 noundef 20) #20
-  %83 = getelementptr inbounds i8, ptr %82, i64 16
-  store i32 2, ptr %83, align 4
-  store i32 %0, ptr %82, align 4
-  %84 = load ptr, ptr @async_dns_queue_head, align 8
-  call void @wmem_list_append(ptr noundef %84, ptr noundef nonnull %82) #20
-  br label %85
+77:                                               ; preds = %68
+  %78 = load ptr, ptr @addr_resolv_scope, align 8
+  %79 = call noalias ptr @wmem_alloc(ptr noundef %78, i64 noundef 20) #20
+  %80 = getelementptr inbounds i8, ptr %79, i64 16
+  store i32 2, ptr %80, align 4
+  store i32 %0, ptr %79, align 4
+  %81 = load ptr, ptr @async_dns_queue_head, align 8
+  call void @wmem_list_append(ptr noundef %81, ptr noundef nonnull %79) #20
+  br label %82
 
-85:                                               ; preds = %67, %80, %sync_lookup_ip4.exit, %65
+82:                                               ; preds = %62, %sync_lookup_ip4.exit, %77, %64, %fill_dummy_ip4.exit, %57
   %.0..0..0..0.11 = load volatile ptr, ptr %9, align 8
-  br label %86
-
-86:                                               ; preds = %85, %64, %61
-  %.0 = phi ptr [ %.0..0..0..0.11, %85 ], [ %.0..0..0..0.9, %64 ], [ %.0..0..0..0.8, %61 ]
-  ret ptr %.0
+  ret ptr %.0..0..0..0.11
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1818,96 +1806,95 @@ define nonnull ptr @get_hostname6(ptr noundef %0) local_unnamed_addr #2 {
   %19 = load ptr, ptr @ipv6_hash_table, align 8
   %.0..0..0..0..0..0.8.i = load volatile ptr, ptr %4, align 8
   %20 = tail call ptr @wmem_map_insert(ptr noundef %19, ptr noundef %10, ptr noundef %.0..0..0..0..0..0.8.i) #20
-  br label %25
+  %.old.i = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4), align 4
+  %.not20.old.i = icmp eq i32 %.old.i, 0
+  br i1 %.not20.old.i, label %host_lookup6.exit.thread, label %26
+
+host_lookup6.exit.thread:                         ; preds = %8
+  %.0..0..0..0..0..0.13.i5 = load volatile ptr, ptr %4, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  br label %47
 
 21:                                               ; preds = %1
   %.0..0..0..0..0..0.9.i = load volatile ptr, ptr %4, align 8
   %22 = getelementptr inbounds i8, ptr %.0..0..0..0..0..0.9.i, i64 16
   %23 = load i8, ptr %22, align 1
   %24 = and i8 %23, 3
-  %.not.i = icmp eq i8 %24, 0
-  br i1 %.not.i, label %25, label %host_lookup6.exit
+  %.not.i = icmp ne i8 %24, 0
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4), align 4
+  %.not20.i = icmp eq i32 %25, 0
+  %or.cond22.i = select i1 %.not.i, i1 true, i1 %.not20.i
+  br i1 %or.cond22.i, label %host_lookup6.exit, label %26
 
-25:                                               ; preds = %21, %8
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4), align 4
-  %.not20.i = icmp eq i32 %26, 0
-  br i1 %.not20.i, label %host_lookup6.exit.thread, label %27
+26:                                               ; preds = %21, %8
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 16), align 4
+  %.not21.i = icmp eq i32 %27, 0
+  br i1 %.not21.i, label %host_lookup6.exitthread-pre-split, label %28
 
-host_lookup6.exit.thread:                         ; preds = %25
-  %.0..0..0..0..0..0.11.i = load volatile ptr, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %47
-
-27:                                               ; preds = %25
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 16), align 4
-  %.not21.i = icmp eq i32 %28, 0
-  %.0..0..0.i.ph10 = load volatile ptr, ptr %4, align 8
-  br i1 %.not21.i, label %host_lookup6.exit.thread8, label %29
-
-host_lookup6.exit.thread8:                        ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %49
-
-29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %.0..0..0.i.ph10, i64 16
-  %31 = load i8, ptr %30, align 1
-  %32 = or i8 %31, 1
-  store i8 %32, ptr %30, align 1
+28:                                               ; preds = %26
+  %.0..0..0..0..0..0.12.i = load volatile ptr, ptr %4, align 8
+  %29 = getelementptr inbounds i8, ptr %.0..0..0..0..0..0.12.i, i64 16
+  %30 = load i8, ptr %29, align 1
+  %31 = or i8 %30, 1
+  store i8 %31, ptr %29, align 1
   %.b.i = load i1, ptr @async_dns_initialized, align 4
-  br i1 %.b.i, label %33, label %host_lookup6.exit
+  br i1 %.b.i, label %32, label %host_lookup6.exitthread-pre-split
 
-33:                                               ; preds = %29
-  %34 = load i32, ptr @resolve_synchronously, align 4
-  %35 = icmp ne i32 %34, 0
-  %36 = load i32, ptr @name_resolve_concurrency, align 4
-  %37 = icmp eq i32 %36, 0
-  %or.cond.i = select i1 %35, i1 true, i1 %37
-  br i1 %or.cond.i, label %sync_lookup_ip6.exit.i, label %42
+32:                                               ; preds = %28
+  %33 = load i32, ptr @resolve_synchronously, align 4
+  %34 = icmp ne i32 %33, 0
+  %35 = load i32, ptr @name_resolve_concurrency, align 4
+  %36 = icmp eq i32 %35, 0
+  %or.cond.i = select i1 %34, i1 true, i1 %36
+  br i1 %or.cond.i, label %sync_lookup_ip6.exit.i, label %41
 
-sync_lookup_ip6.exit.i:                           ; preds = %33
+sync_lookup_ip6.exit.i:                           ; preds = %32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 0, ptr %2, align 4
-  %38 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #24
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
-  store i32 10, ptr %39, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 1 dereferenceable(16) %0, i64 16, i1 false)
-  %40 = getelementptr inbounds i8, ptr %38, i64 24
-  store ptr %2, ptr %40, align 8
-  %41 = load ptr, ptr @ghba_chan, align 8
-  call void @ares_gethostbyaddr(ptr noundef %41, ptr noundef %0, i32 noundef 16, i32 noundef 10, ptr noundef nonnull @c_ares_ghba_sync_cb, ptr noundef %38) #20
+  %37 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #24
+  %38 = getelementptr inbounds i8, ptr %37, i64 16
+  store i32 10, ptr %38, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 1 dereferenceable(16) %0, i64 16, i1 false)
+  %39 = getelementptr inbounds i8, ptr %37, i64 24
+  store ptr %2, ptr %39, align 8
+  %40 = load ptr, ptr @ghba_chan, align 8
+  call void @ares_gethostbyaddr(ptr noundef %40, ptr noundef %0, i32 noundef 16, i32 noundef 10, ptr noundef nonnull @c_ares_ghba_sync_cb, ptr noundef %37) #20
   call fastcc void @wait_for_sync_resolv(ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  br label %host_lookup6.exitthread-pre-split
+
+41:                                               ; preds = %32
+  %42 = load ptr, ptr @addr_resolv_scope, align 8
+  %43 = tail call noalias ptr @wmem_alloc(ptr noundef %42, i64 noundef 20) #20
+  %44 = getelementptr inbounds i8, ptr %43, i64 16
+  store i32 10, ptr %44, align 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %43, ptr noundef nonnull align 1 dereferenceable(16) %0, i64 16, i1 false)
+  %45 = load ptr, ptr @async_dns_queue_head, align 8
+  tail call void @wmem_list_append(ptr noundef %45, ptr noundef %43) #20
+  br label %host_lookup6.exitthread-pre-split
+
+host_lookup6.exitthread-pre-split:                ; preds = %41, %sync_lookup_ip6.exit.i, %28, %26
+  %.pr = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4), align 4
   br label %host_lookup6.exit
 
-42:                                               ; preds = %33
-  %43 = load ptr, ptr @addr_resolv_scope, align 8
-  %44 = tail call noalias ptr @wmem_alloc(ptr noundef %43, i64 noundef 20) #20
-  %45 = getelementptr inbounds i8, ptr %44, i64 16
-  store i32 10, ptr %45, align 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %44, ptr noundef nonnull align 1 dereferenceable(16) %0, i64 16, i1 false)
-  %46 = load ptr, ptr @async_dns_queue_head, align 8
-  tail call void @wmem_list_append(ptr noundef %46, ptr noundef %44) #20
-  br label %host_lookup6.exit
-
-host_lookup6.exit:                                ; preds = %29, %sync_lookup_ip6.exit.i, %42, %21
-  %.pr.pr = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 4), align 4
-  %.0..0..0.i.ph = load volatile ptr, ptr %4, align 8
+host_lookup6.exit:                                ; preds = %host_lookup6.exitthread-pre-split, %21
+  %46 = phi i32 [ %.pr, %host_lookup6.exitthread-pre-split ], [ %25, %21 ]
+  %.0..0..0..0..0..0.13.i = load volatile ptr, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %.not = icmp eq i32 %.pr.pr, 0
+  %.not = icmp eq i32 %46, 0
   br i1 %.not, label %47, label %49
 
 47:                                               ; preds = %host_lookup6.exit.thread, %host_lookup6.exit
-  %.0.i7 = phi ptr [ %.0..0..0..0..0..0.11.i, %host_lookup6.exit.thread ], [ %.0..0..0.i.ph, %host_lookup6.exit ]
-  %48 = getelementptr inbounds i8, ptr %.0.i7, i64 17
+  %.0..0..0..0.13.i7 = phi ptr [ %.0..0..0..0..0..0.13.i5, %host_lookup6.exit.thread ], [ %.0..0..0..0..0..0.13.i, %host_lookup6.exit ]
+  %48 = getelementptr inbounds i8, ptr %.0..0..0..0.13.i7, i64 17
   br label %54
 
-49:                                               ; preds = %host_lookup6.exit.thread8, %host_lookup6.exit
-  %.0..0.i.ph12 = phi ptr [ %.0..0..0.i.ph10, %host_lookup6.exit.thread8 ], [ %.0..0..0.i.ph, %host_lookup6.exit ]
-  %50 = getelementptr inbounds i8, ptr %.0..0.i.ph12, i64 16
+49:                                               ; preds = %host_lookup6.exit
+  %50 = getelementptr inbounds i8, ptr %.0..0..0..0..0..0.13.i, i64 16
   %51 = load i8, ptr %50, align 1
   %52 = or i8 %51, 4
   store i8 %52, ptr %50, align 1
-  %53 = getelementptr inbounds i8, ptr %.0..0.i.ph12, i64 63
+  %53 = getelementptr inbounds i8, ptr %.0..0..0..0..0..0.13.i, i64 63
   br label %54
 
 54:                                               ; preds = %49, %47
@@ -2764,13 +2751,7 @@ add_manually_resolved.exit.i:                     ; preds = %250, %248
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %254 = tail call noalias ptr @fopen(ptr noundef readonly %253, ptr noundef nonnull @.str.52)
   %255 = icmp eq ptr %254, null
-  br i1 %255, label %read_ss7pcs_file.exit.thread.i.i, label %.preheader.i.i.i
-
-read_ss7pcs_file.exit.thread.i.i:                 ; preds = %add_manually_resolved.exit.i
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br label %312
+  br i1 %255, label %.sink.split.i.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %add_manually_resolved.exit.i
   %256 = call ptr @fgets(ptr noundef nonnull %1, i32 noundef 1024, ptr noundef nonnull %254)
@@ -2779,10 +2760,7 @@ read_ss7pcs_file.exit.thread.i.i:                 ; preds = %add_manually_resolv
 
 read_ss7pcs_file.exit.thread6.i.i:                ; preds = %.preheader.i.i.i
   %257 = call i32 @fclose(ptr noundef nonnull %254)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br label %312
+  br label %.sink.split.i.i
 
 fgetline.exit.lr.ph.i.i.i:                        ; preds = %.preheader.i.i.i, %add_ss7pc_name.exit.i.i.i
   %.not.i15.i = phi i1 [ false, %add_ss7pc_name.exit.i.i.i ], [ true, %.preheader.i.i.i ]
@@ -2902,7 +2880,13 @@ read_ss7pcs_file.exit.i.i:                        ; preds = %.backedge.i.i.i, %f
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br i1 %.not.i15.i, label %312, label %host_name_lookup_init.exit
 
-312:                                              ; preds = %read_ss7pcs_file.exit.i.i, %read_ss7pcs_file.exit.thread6.i.i, %read_ss7pcs_file.exit.thread.i.i
+.sink.split.i.i:                                  ; preds = %read_ss7pcs_file.exit.thread6.i.i, %add_manually_resolved.exit.i
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  br label %312
+
+312:                                              ; preds = %.sink.split.i.i, %read_ss7pcs_file.exit.i.i
   %313 = tail call ptr @__errno_location() #21
   %314 = load i32, ptr %313, align 4
   %.not3.i.i = icmp eq i32 %314, 2
@@ -6289,7 +6273,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_services_file(ptr nocapture no
   %4 = alloca [1024 x i8], align 16
   %5 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.52)
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %50, label %.split4
+  br i1 %6, label %51, label %.split4
 
 .split4:                                          ; preds = %1
   %7 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 1024, ptr noundef nonnull %5)
@@ -6378,33 +6362,33 @@ fgetline.exit:                                    ; preds = %.split4
   %.not17.i = icmp eq ptr %42, null
   br i1 %.not17.i, label %.sink.split.i, label %.lr.ph.i, !llvm.loop !45
 
-.sink.split.i:                                    ; preds = %37, %40, %.preheader.i, %25
-  %.sink.i = load ptr, ptr %3, align 8
-  call void @wmem_free(ptr noundef null, ptr noundef %.sink.i) #20
+.sink.split.i:                                    ; preds = %40, %37, %.preheader.i, %25
+  %43 = load ptr, ptr %3, align 8
+  call void @wmem_free(ptr noundef null, ptr noundef %43) #20
   br label %parse_service_line.exit
 
 parse_service_line.exit:                          ; preds = %16, %19, %22, %.sink.split.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %43 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 1024, ptr noundef nonnull %5)
-  %.not.i8 = icmp eq ptr %43, null
+  %44 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 1024, ptr noundef nonnull %5)
+  %.not.i8 = icmp eq ptr %44, null
   br i1 %.not.i8, label %._crit_edge, label %fgetline.exit11
 
 fgetline.exit11:                                  ; preds = %parse_service_line.exit
-  %44 = call i64 @strcspn(ptr noundef nonnull %4, ptr noundef nonnull @.str.54) #23
-  %sext.i9 = shl i64 %44, 32
-  %45 = ashr exact i64 %sext.i9, 32
-  %46 = getelementptr i8, ptr %4, i64 %45
-  store i8 0, ptr %46, align 1
-  %47 = and i64 %44, 2147483648
-  %48 = icmp eq i64 %47, 0
-  br i1 %48, label %.split, label %._crit_edge, !llvm.loop !46
+  %45 = call i64 @strcspn(ptr noundef nonnull %4, ptr noundef nonnull @.str.54) #23
+  %sext.i9 = shl i64 %45, 32
+  %46 = ashr exact i64 %sext.i9, 32
+  %47 = getelementptr i8, ptr %4, i64 %46
+  store i8 0, ptr %47, align 1
+  %48 = and i64 %45, 2147483648
+  %49 = icmp eq i64 %48, 0
+  br i1 %49, label %.split, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %parse_service_line.exit, %fgetline.exit11, %.split4, %fgetline.exit
-  %49 = call i32 @fclose(ptr noundef nonnull %5)
-  br label %50
+  %50 = call i32 @fclose(ptr noundef nonnull %5)
+  br label %51
 
-50:                                               ; preds = %1, %._crit_edge
+51:                                               ; preds = %1, %._crit_edge
   %.0 = phi i32 [ 1, %._crit_edge ], [ 0, %1 ]
   ret i32 %.0
 }

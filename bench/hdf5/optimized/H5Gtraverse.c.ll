@@ -958,17 +958,20 @@ define internal fastcc range(i32 -1, 1) i32 @H5G__traverse_real(ptr nocapture no
   %202 = getelementptr inbounds i8, ptr %198, i64 8
   %203 = load ptr, ptr %202, align 8
   %204 = load i64, ptr %203, align 8
-  store i64 %204, ptr %26, align 8
-  br label %209
+  br label %.sink.split
 
 205:                                              ; preds = %199
   %206 = getelementptr inbounds i8, ptr %198, i64 8
   %207 = load ptr, ptr %206, align 8
   %208 = call i64 @H5D_get_dcpl_id(ptr noundef %207) #6
-  store i64 %208, ptr %26, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %205, %201
+  %.sink371 = phi i64 [ %204, %201 ], [ %208, %205 ]
+  store i64 %.sink371, ptr %26, align 8
   br label %209
 
-209:                                              ; preds = %199, %201, %205, %197, %195
+209:                                              ; preds = %.sink.split, %199, %197, %195
   store i32 0, ptr %77, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, i8 0, i64 16, i1 false)
   %210 = load ptr, ptr %7, align 8

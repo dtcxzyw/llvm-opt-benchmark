@@ -13530,13 +13530,13 @@ define internal i32 @dissect_amqp_1_0_variable(ptr noundef %0, ptr noundef %1, i
   %20 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %16, i32 noundef %.028) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %21 = icmp eq ptr %4, null
-  br i1 %21, label %find_data_dissector.exit.thread, label %22
+  br i1 %21, label %.critedge.sink.split, label %22
 
 22:                                               ; preds = %19
   %23 = load i32, ptr @hf_amqp_1_0_to_str, align 4
   %24 = tail call ptr @proto_find_finfo(ptr noundef nonnull %4, i32 noundef %23) #12
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %find_data_dissector.exit.thread, label %26
+  br i1 %25, label %.critedge.sink.split, label %26
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds i8, ptr %24, i64 8
@@ -13697,16 +13697,11 @@ define internal i32 @dissect_amqp_1_0_variable(ptr noundef %0, ptr noundef %1, i
 
 find_data_dissector.exit.thread.sink.split:       ; preds = %30, %51, %26
   %114 = tail call ptr @g_ptr_array_free(ptr noundef nonnull %24, i32 noundef 1) #12
-  br label %find_data_dissector.exit.thread
-
-find_data_dissector.exit.thread:                  ; preds = %find_data_dissector.exit.thread.sink.split, %19, %22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %.critedge
+  br label %.critedge.sink.split
 
 find_data_dissector.exit.thread32:                ; preds = %.thread.i, %55
   %115 = call ptr @g_ptr_array_free(ptr noundef nonnull %24, i32 noundef 1) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %.critedge
+  br label %.critedge.sink.split
 
 find_data_dissector.exit:                         ; preds = %108
   %116 = getelementptr inbounds i8, ptr %61, i64 32
@@ -13718,7 +13713,11 @@ find_data_dissector.exit:                         ; preds = %108
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %123
 
-.critedge:                                        ; preds = %find_data_dissector.exit.thread32, %find_data_dissector.exit.thread, %15
+.critedge.sink.split:                             ; preds = %22, %19, %find_data_dissector.exit.thread.sink.split, %find_data_dissector.exit.thread32
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedge.sink.split, %15
   %122 = call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %5, ptr noundef %0, i32 noundef %16, i32 noundef %.028, i32 noundef 0) #12
   br label %123
 

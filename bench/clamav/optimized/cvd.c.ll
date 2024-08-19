@@ -2124,8 +2124,6 @@ sub_2:                                            ; preds = %sub_1145
 
 cvdgetfileage.exit124.thread:                     ; preds = %141
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.122, ptr noundef nonnull %8) #19
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %148
 
 145:                                              ; preds = %141
@@ -2135,12 +2133,12 @@ cvdgetfileage.exit124.thread:                     ; preds = %141
 
 cvdgetfileage.exit124:                            ; preds = %145
   %147 = call i32 @fclose(ptr noundef nonnull %143)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %148
 
 148:                                              ; preds = %cvdgetfileage.exit124, %cvdgetfileage.exit124.thread
   %.0.i121130 = phi i32 [ 8, %cvdgetfileage.exit124.thread ], [ %146, %cvdgetfileage.exit124 ]
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.82, ptr noundef nonnull %8) #19
   br label %.loopexit
 

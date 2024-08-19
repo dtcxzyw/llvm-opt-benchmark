@@ -127,7 +127,6 @@ define hidden void @"_ZN120_$LT$alloc..collections..btree..set..BTreeSet$LT$T$GT
 
 "_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17h9ffd0595114d0205E.exit": ; preds = %11, %14, %18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %23
 
 20:                                               ; preds = %3
@@ -138,6 +137,7 @@ define hidden void @"_ZN120_$LT$alloc..collections..btree..set..BTreeSet$LT$T$GT
           to label %24 unwind label %30
 
 23:                                               ; preds = %24, %"_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17h9ffd0595114d0205E.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   ret void
 
 24:                                               ; preds = %20
@@ -156,7 +156,6 @@ define hidden void @"_ZN120_$LT$alloc..collections..btree..set..BTreeSet$LT$T$GT
   store ptr %25, ptr %28, align 8, !alias.scope !25, !noalias !28
   call void @"_ZN5alloc11collections5btree3set21BTreeSet$LT$T$C$A$GT$16from_sorted_iter17h3a979b503427e82fE.llvm.7817899842202007168"(ptr noalias nocapture noundef nonnull sret({ { { ptr, [1 x i64] }, i64, { {} }, {} } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %23
 
 29:                                               ; preds = %30
@@ -212,7 +211,6 @@ define hidden void @"_ZN120_$LT$alloc..collections..btree..set..BTreeSet$LT$T$GT
 
 "_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17h9ffd0595114d0205E.exit": ; preds = %11, %14, %18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !30
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %23
 
 20:                                               ; preds = %3
@@ -223,6 +221,7 @@ define hidden void @"_ZN120_$LT$alloc..collections..btree..set..BTreeSet$LT$T$GT
           to label %24 unwind label %30
 
 23:                                               ; preds = %24, %"_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17h9ffd0595114d0205E.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   ret void
 
 24:                                               ; preds = %20
@@ -241,7 +240,6 @@ define hidden void @"_ZN120_$LT$alloc..collections..btree..set..BTreeSet$LT$T$GT
   store ptr %25, ptr %28, align 8, !alias.scope !37, !noalias !40
   call void @"_ZN5alloc11collections5btree3set21BTreeSet$LT$T$C$A$GT$16from_sorted_iter17h3a979b503427e82fE.llvm.7817899842202007168"(ptr noalias nocapture noundef nonnull sret({ { { ptr, [1 x i64] }, i64, { {} }, {} } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %23
 
 29:                                               ; preds = %30

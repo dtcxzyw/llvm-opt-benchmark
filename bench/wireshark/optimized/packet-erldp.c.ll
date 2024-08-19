@@ -644,7 +644,7 @@ dissect_erldp_handshake.exit:                     ; preds = %25, %.critedge.i, %
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %93 = call i32 @tvb_captured_length(ptr noundef %0) #5
-  br label %173
+  br label %171
 
 is_handshake.exit.thread:                         ; preds = %4, %22, %is_handshake.exit
   %94 = load i32, ptr @hf_erldp_length_4, align 4
@@ -656,11 +656,11 @@ is_handshake.exit.thread:                         ; preds = %4, %22, %is_handsha
 98:                                               ; preds = %is_handshake.exit.thread
   %99 = load ptr, ptr %13, align 8
   call void @col_set_str(ptr noundef %99, i32 noundef 25, ptr noundef nonnull @.str.209) #5
-  br label %173
+  br label %171
 
 100:                                              ; preds = %is_handshake.exit.thread
   %101 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #5
-  switch i8 %101, label %168 [
+  switch i8 %101, label %166 [
     i8 112, label %102
     i8 -125, label %123
   ]
@@ -759,52 +759,50 @@ dissect_etf_versioned_type.exit:                  ; preds = %106, %110
   %153 = call ptr @fragment_add_seq_next(ptr noundef nonnull @erldp_reassembly_table, ptr noundef %125, i32 noundef 18, ptr noundef nonnull %1, i32 noundef %149, ptr noundef null, i32 noundef %145, i32 noundef %152) #5
   %154 = call ptr @process_reassembled_data(ptr noundef %125, i32 noundef 18, ptr noundef nonnull %1, ptr noundef nonnull @.str.241, ptr noundef %153, ptr noundef nonnull @etf_frag_items, ptr noundef null, ptr noundef %18) #5
   %155 = icmp eq ptr %154, null
-  br i1 %155, label %156, label %161
+  br i1 %155, label %156, label %159
 
 156:                                              ; preds = %147
   %157 = call ptr @tvb_new_subset_remaining(ptr noundef %125, i32 noundef 18) #5
   %158 = call i32 @call_data_dissector(ptr noundef %157, ptr noundef nonnull %1, ptr noundef %18) #5
-  %159 = load ptr, ptr %13, align 8
-  %160 = load i64, ptr %8, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %159, i32 noundef 25, ptr noundef nonnull @.str.242, i64 noundef %160) #5
-  br label %166
+  br label %162
 
-161:                                              ; preds = %147
-  %162 = call fastcc i32 @dissect_etf_dist_header(ptr noundef nonnull %1, ptr noundef nonnull %154, i32 noundef 0, ptr noundef %129)
-  %163 = load ptr, ptr %6, align 8
-  call void @proto_item_set_len(ptr noundef %163, i32 noundef %162) #5
-  call fastcc void @dissect_etf_pdu_data(ptr noundef nonnull %1, ptr noundef nonnull %154, i32 noundef %162, ptr noundef %18)
-  %164 = load ptr, ptr %13, align 8
-  %165 = load i64, ptr %8, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %164, i32 noundef 25, ptr noundef nonnull @.str.243, i64 noundef %165) #5
-  br label %166
+159:                                              ; preds = %147
+  %160 = call fastcc i32 @dissect_etf_dist_header(ptr noundef nonnull %1, ptr noundef nonnull %154, i32 noundef 0, ptr noundef %129)
+  %161 = load ptr, ptr %6, align 8
+  call void @proto_item_set_len(ptr noundef %161, i32 noundef %160) #5
+  call fastcc void @dissect_etf_pdu_data(ptr noundef nonnull %1, ptr noundef nonnull %154, i32 noundef %160, ptr noundef %18)
+  br label %162
 
-166:                                              ; preds = %161, %156
-  %.1.i = phi i32 [ 18, %156 ], [ %162, %161 ]
+162:                                              ; preds = %159, %156
+  %.str.243.sink.i = phi ptr [ @.str.243, %159 ], [ @.str.242, %156 ]
+  %.1.i = phi i32 [ %160, %159 ], [ 18, %156 ]
+  %163 = load ptr, ptr %13, align 8
+  %164 = load i64, ptr %8, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %163, i32 noundef 25, ptr noundef nonnull %.str.243.sink.i, i64 noundef %164) #5
   store i32 %144, ptr %143, align 8
-  %167 = call i32 @tvb_reported_length_remaining(ptr noundef %125, i32 noundef %.1.i) #5
+  %165 = call i32 @tvb_reported_length_remaining(ptr noundef %125, i32 noundef %.1.i) #5
   br label %dissect_etf_pdu.exit
 
-dissect_etf_pdu.exit:                             ; preds = %123, %127, %135, %138, %166
+dissect_etf_pdu.exit:                             ; preds = %123, %127, %135, %138, %162
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %dissect_etf_versioned_type.exit48
 
-168:                                              ; preds = %100
-  %169 = load i32, ptr @hf_erldp_type, align 4
-  %170 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %169, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #5
-  %171 = load ptr, ptr %13, align 8
-  call void @col_set_str(ptr noundef %171, i32 noundef 25, ptr noundef nonnull @.str.213) #5
+166:                                              ; preds = %100
+  %167 = load i32, ptr @hf_erldp_type, align 4
+  %168 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %167, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #5
+  %169 = load ptr, ptr %13, align 8
+  call void @col_set_str(ptr noundef %169, i32 noundef 25, ptr noundef nonnull @.str.213) #5
   br label %dissect_etf_versioned_type.exit48
 
-dissect_etf_versioned_type.exit48:                ; preds = %120, %116, %dissect_etf_versioned_type.exit, %168, %dissect_etf_pdu.exit
-  %172 = call i32 @tvb_captured_length(ptr noundef %0) #5
-  br label %173
+dissect_etf_versioned_type.exit48:                ; preds = %120, %116, %dissect_etf_versioned_type.exit, %166, %dissect_etf_pdu.exit
+  %170 = call i32 @tvb_captured_length(ptr noundef %0) #5
+  br label %171
 
-173:                                              ; preds = %dissect_etf_versioned_type.exit48, %98, %dissect_erldp_handshake.exit
-  %.0 = phi i32 [ %93, %dissect_erldp_handshake.exit ], [ 4, %98 ], [ %172, %dissect_etf_versioned_type.exit48 ]
+171:                                              ; preds = %dissect_etf_versioned_type.exit48, %98, %dissect_erldp_handshake.exit
+  %.0 = phi i32 [ %93, %dissect_erldp_handshake.exit ], [ 4, %98 ], [ %170, %dissect_etf_versioned_type.exit48 ]
   ret i32 %.0
 }
 

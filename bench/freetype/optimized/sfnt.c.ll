@@ -5470,7 +5470,7 @@ define internal i32 @sfnt_init_face(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %88
 
 88:                                               ; preds = %.backedge.i, %.lr.ph.i
-  %.0214 = phi i32 [ %2, %.lr.ph.i ], [ %.2216, %.backedge.i ]
+  %.0215 = phi i32 [ %2, %.lr.ph.i ], [ %.2217, %.backedge.i ]
   %.0210 = phi i64 [ 0, %.lr.ph.i ], [ %.2212, %.backedge.i ]
   %89 = phi i32 [ %60, %.lr.ph.i ], [ %394, %.backedge.i ]
   %90 = phi i64 [ %59, %.lr.ph.i ], [ %393, %.backedge.i ]
@@ -6039,8 +6039,7 @@ woff_open_font.exit.thread107.i:                  ; preds = %.loopexit.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
-  store i32 0, ptr %18, align 4
-  br label %.backedge.i
+  br label %.backedge.sink.split.i
 
 .loopexit237.i.i:                                 ; preds = %362, %370
   call void @FT_Stream_ExitFrame(ptr noundef nonnull %.067131.i) #27
@@ -6065,9 +6064,15 @@ woff_open_font.exit.i:                            ; preds = %.loopexit.i.i
   %.not87.i = icmp eq i32 %.pre275.i.i, 0
   br i1 %.not87.i, label %.backedge.i, label %sfnt_open_font.exit.thread
 
-.backedge.i:                                      ; preds = %woff2_open_font.exit.i, %woff2_open_font.exit.thread112.i, %woff_open_font.exit.i, %woff_open_font.exit.thread107.i
-  %.2216 = phi i32 [ %.1215, %woff2_open_font.exit.thread112.i ], [ %.1215, %woff2_open_font.exit.i ], [ %.0214, %woff_open_font.exit.thread107.i ], [ %.0214, %woff_open_font.exit.i ]
-  %.2212 = phi i64 [ %.1211, %woff2_open_font.exit.thread112.i ], [ %.1211, %woff2_open_font.exit.i ], [ %.0210, %woff_open_font.exit.thread107.i ], [ %.0210, %woff_open_font.exit.i ]
+.backedge.sink.split.i:                           ; preds = %woff2_open_font.exit.thread112.i, %woff_open_font.exit.thread107.i
+  %.3218 = phi i32 [ %.1216, %woff2_open_font.exit.thread112.i ], [ %.0215, %woff_open_font.exit.thread107.i ]
+  %.3213 = phi i64 [ %.1211, %woff2_open_font.exit.thread112.i ], [ %.0210, %woff_open_font.exit.thread107.i ]
+  store i32 0, ptr %18, align 4
+  br label %.backedge.i
+
+.backedge.i:                                      ; preds = %woff2_open_font.exit.i, %.backedge.sink.split.i, %woff_open_font.exit.i
+  %.2217 = phi i32 [ %.3218, %.backedge.sink.split.i ], [ %.1216, %woff2_open_font.exit.i ], [ %.0215, %woff_open_font.exit.i ]
+  %.2212 = phi i64 [ %.3213, %.backedge.sink.split.i ], [ %.1211, %woff2_open_font.exit.i ], [ %.0210, %woff_open_font.exit.i ]
   %.067.be.i = load ptr, ptr %77, align 8
   %393 = call i64 @FT_Stream_Pos(ptr noundef %.067.be.i) #27
   %394 = call i32 @FT_Stream_ReadULong(ptr noundef %.067.be.i, ptr noundef nonnull %18) #27
@@ -6092,7 +6097,7 @@ woff_open_font.exit.i:                            ; preds = %.loopexit.i.i
   %400 = load ptr, ptr %399, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, i8 0, i64 48, i1 false)
   store ptr null, ptr %12, align 8
-  %401 = call i32 @llvm.abs.i32(i32 %.0214, i1 true)
+  %401 = call i32 @llvm.abs.i32(i32 %.0215, i1 true)
   %402 = and i32 %401, 65535
   %403 = call i32 @FT_Stream_ReadFields(ptr noundef %.067131.i, ptr noundef nonnull @woff2_open_font.woff2_header_fields, ptr noundef nonnull %10) #27
   store i32 %403, ptr %9, align 4
@@ -6627,7 +6632,7 @@ ReadBase128.exit.thread:                          ; preds = %494, %499, %496
 642:                                              ; preds = %637
   %643 = load i16, ptr %71, align 8
   %644 = zext i16 %643 to i64
-  %645 = icmp slt i32 %.0214, 0
+  %645 = icmp slt i32 %.0215, 0
   %646 = icmp ne i32 %402, 0
   %or.cond23.i.i = select i1 %645, i1 %646, i1 false
   %647 = sext i1 %or.cond23.i.i to i32
@@ -6637,7 +6642,7 @@ ReadBase128.exit.thread:                          ; preds = %494, %499, %496
   br i1 %.not269.i.i, label %652, label %649
 
 649:                                              ; preds = %642
-  %650 = icmp sgt i32 %.0214, -1
+  %650 = icmp sgt i32 %.0215, -1
   br i1 %650, label %651, label %652
 
 651:                                              ; preds = %649
@@ -6953,11 +6958,11 @@ ReadBase128.exit.thread:                          ; preds = %494, %499, %496
   %808 = load i64, ptr %78, align 8
   %809 = and i64 %808, -1025
   store i64 %809, ptr %78, align 8
-  %.0214.lobit = ashr i32 %.0214, 31
+  %.0215.lobit = ashr i32 %.0215, 31
   br label %.loopexit.i91.i
 
 .loopexit.i91.i:                                  ; preds = %455, %.lr.ph.i94.i, %568, %564, %.lr.ph341.i.i, %.lr.ph336.i.i, %797, %ReadBase128.exit.thread, %ReadBase128.exit201.thread, %794, %787, %779, %776, %773, %772, %769, %766, %709, %705, %._crit_edge344.i.i, %662, %661, %651, %641, %630, %619, %615, %600, %579, %555, %554, %550, %549, %544, %540, %518, %513, %443, %440
-  %.1215 = phi i32 [ %.0214, %540 ], [ %.0214, %549 ], [ %.0214, %554 ], [ %.0214, %615 ], [ %.0214, %766 ], [ %.0214, %769 ], [ %.0214, %772 ], [ %.0214, %794 ], [ %.0214, %787 ], [ %.0214, %779 ], [ %.0214, %776 ], [ %.0214, %773 ], [ %.0214, %709 ], [ %.0214, %705 ], [ %.0214, %661 ], [ %.0214, %._crit_edge344.i.i ], [ %.0214, %662 ], [ %.0214, %651 ], [ %.0214, %641 ], [ %.0214, %630 ], [ %.0214, %619 ], [ %.0214, %600 ], [ %.0214, %579 ], [ %.0214, %555 ], [ %.0214, %550 ], [ %.0214, %544 ], [ %.0214, %518 ], [ %.0214, %513 ], [ %.0214, %443 ], [ %.0214, %440 ], [ %.0214, %ReadBase128.exit201.thread ], [ %.0214, %ReadBase128.exit.thread ], [ %.0214.lobit, %797 ], [ %.0214, %.lr.ph336.i.i ], [ %.0214, %.lr.ph341.i.i ], [ %.0214, %564 ], [ %.0214, %568 ], [ %.0214, %.lr.ph.i94.i ], [ %.0214, %455 ]
+  %.1216 = phi i32 [ %.0215, %540 ], [ %.0215, %549 ], [ %.0215, %554 ], [ %.0215, %615 ], [ %.0215, %766 ], [ %.0215, %769 ], [ %.0215, %772 ], [ %.0215, %794 ], [ %.0215, %787 ], [ %.0215, %779 ], [ %.0215, %776 ], [ %.0215, %773 ], [ %.0215, %709 ], [ %.0215, %705 ], [ %.0215, %661 ], [ %.0215, %._crit_edge344.i.i ], [ %.0215, %662 ], [ %.0215, %651 ], [ %.0215, %641 ], [ %.0215, %630 ], [ %.0215, %619 ], [ %.0215, %600 ], [ %.0215, %579 ], [ %.0215, %555 ], [ %.0215, %550 ], [ %.0215, %544 ], [ %.0215, %518 ], [ %.0215, %513 ], [ %.0215, %443 ], [ %.0215, %440 ], [ %.0215, %ReadBase128.exit201.thread ], [ %.0215, %ReadBase128.exit.thread ], [ %.0215.lobit, %797 ], [ %.0215, %.lr.ph336.i.i ], [ %.0215, %.lr.ph341.i.i ], [ %.0215, %564 ], [ %.0215, %568 ], [ %.0215, %.lr.ph.i94.i ], [ %.0215, %455 ]
   %.1211 = phi i64 [ %.0210, %540 ], [ %.0210, %549 ], [ %.0210, %554 ], [ %.0210, %615 ], [ %644, %766 ], [ %644, %769 ], [ %644, %772 ], [ %644, %794 ], [ %644, %787 ], [ %644, %779 ], [ %644, %776 ], [ %644, %773 ], [ %644, %709 ], [ %644, %705 ], [ %644, %661 ], [ %644, %._crit_edge344.i.i ], [ %644, %662 ], [ %644, %651 ], [ %.0210, %641 ], [ %.0210, %630 ], [ %.0210, %619 ], [ %.0210, %600 ], [ %.0210, %579 ], [ %.0210, %555 ], [ %.0210, %550 ], [ %.0210, %544 ], [ %.0210, %518 ], [ %.0210, %513 ], [ %.0210, %443 ], [ %.0210, %440 ], [ %.0210, %ReadBase128.exit201.thread ], [ %.0210, %ReadBase128.exit.thread ], [ %644, %797 ], [ %.0210, %.lr.ph336.i.i ], [ %.0210, %.lr.ph341.i.i ], [ %.0210, %564 ], [ %.0210, %568 ], [ %.0210, %.lr.ph.i94.i ], [ %.0210, %455 ]
   %.0226.i.i = phi ptr [ null, %540 ], [ null, %549 ], [ null, %554 ], [ null, %615 ], [ %710, %766 ], [ %710, %769 ], [ %710, %772 ], [ %710, %794 ], [ %710, %787 ], [ %710, %779 ], [ %710, %776 ], [ %710, %773 ], [ %710, %709 ], [ null, %705 ], [ null, %661 ], [ null, %._crit_edge344.i.i ], [ null, %662 ], [ null, %651 ], [ null, %641 ], [ null, %630 ], [ null, %619 ], [ null, %600 ], [ null, %579 ], [ null, %555 ], [ null, %550 ], [ null, %544 ], [ null, %518 ], [ null, %513 ], [ null, %443 ], [ null, %440 ], [ null, %ReadBase128.exit201.thread ], [ null, %ReadBase128.exit.thread ], [ %710, %797 ], [ null, %.lr.ph336.i.i ], [ null, %.lr.ph341.i.i ], [ null, %564 ], [ null, %568 ], [ null, %.lr.ph.i94.i ], [ null, %455 ]
   %.0225.i.i = phi ptr [ null, %540 ], [ null, %549 ], [ null, %554 ], [ null, %615 ], [ null, %766 ], [ null, %769 ], [ null, %772 ], [ %774, %794 ], [ %774, %787 ], [ %774, %779 ], [ %774, %776 ], [ %774, %773 ], [ null, %709 ], [ null, %705 ], [ null, %661 ], [ null, %._crit_edge344.i.i ], [ null, %662 ], [ null, %651 ], [ null, %641 ], [ null, %630 ], [ null, %619 ], [ null, %600 ], [ null, %579 ], [ null, %555 ], [ null, %550 ], [ null, %544 ], [ null, %518 ], [ null, %513 ], [ null, %443 ], [ null, %440 ], [ null, %ReadBase128.exit201.thread ], [ null, %ReadBase128.exit.thread ], [ %774, %797 ], [ null, %.lr.ph336.i.i ], [ null, %.lr.ph341.i.i ], [ null, %564 ], [ null, %568 ], [ null, %.lr.ph.i94.i ], [ null, %455 ]
@@ -7012,8 +7017,7 @@ woff2_open_font.exit.thread112.i:                 ; preds = %821
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %14)
-  store i32 0, ptr %18, align 4
-  br label %.backedge.i
+  br label %.backedge.sink.split.i
 
 823:                                              ; preds = %821
   %824 = load ptr, ptr %12, align 8
@@ -7112,9 +7116,9 @@ woff2_open_font.exit.i:                           ; preds = %825, %823
   store ptr %855, ptr %856, align 8
   %857 = load i32, ptr %18, align 4
   %.not80.i = icmp eq i32 %857, 0
-  br i1 %.not80.i, label %sfnt_open_font.exit.thread226, label %sfnt_open_font.exit.thread
+  br i1 %.not80.i, label %sfnt_open_font.exit.thread228, label %sfnt_open_font.exit.thread
 
-sfnt_open_font.exit.thread226:                    ; preds = %854
+sfnt_open_font.exit.thread228:                    ; preds = %854
   store i64 %90, ptr %855, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
   store i32 0, ptr %19, align 4
@@ -7133,10 +7137,10 @@ sfnt_open_font.exit:                              ; preds = %.lr.ph141.i, %.preh
   %.not171 = icmp eq i32 %.pre.i, 0
   br i1 %.not171, label %858, label %1004
 
-858:                                              ; preds = %sfnt_open_font.exit.thread226, %sfnt_open_font.exit
+858:                                              ; preds = %sfnt_open_font.exit.thread228, %sfnt_open_font.exit
   %859 = load ptr, ptr %77, align 8
-  %860 = icmp slt i32 %.0214, 0
-  %861 = call i32 @llvm.abs.i32(i32 %.0214, i1 true)
+  %860 = icmp slt i32 %.0215, 0
+  %861 = call i32 @llvm.abs.i32(i32 %.0215, i1 true)
   %862 = and i32 %861, 65535
   %863 = icmp ne i32 %862, 0
   %or.cond = and i1 %860, %863
@@ -7145,13 +7149,13 @@ sfnt_open_font.exit:                              ; preds = %.lr.ph141.i, %.preh
   %865 = zext nneg i32 %spec.select to i64
   %866 = load i64, ptr %58, align 8
   %.not172 = icmp sgt i64 %866, %865
-  br i1 %.not172, label %._crit_edge298, label %867
+  br i1 %.not172, label %._crit_edge300, label %867
 
 867:                                              ; preds = %858
-  %868 = icmp sgt i32 %.0214, -1
-  br i1 %868, label %1004, label %._crit_edge298
+  %868 = icmp sgt i32 %.0215, -1
+  br i1 %868, label %1004, label %._crit_edge300
 
-._crit_edge298:                                   ; preds = %867, %858
+._crit_edge300:                                   ; preds = %867, %858
   %.1155 = phi i32 [ %spec.select, %858 ], [ 0, %867 ]
   %869 = getelementptr inbounds i8, ptr %1, i64 272
   %870 = load ptr, ptr %869, align 8
@@ -7163,7 +7167,7 @@ sfnt_open_font.exit:                              ; preds = %.lr.ph141.i, %.preh
   %.not173 = icmp eq i32 %874, 0
   br i1 %.not173, label %875, label %1004
 
-875:                                              ; preds = %._crit_edge298
+875:                                              ; preds = %._crit_edge300
   %876 = getelementptr inbounds i8, ptr %.0153, i64 192
   %877 = load ptr, ptr %876, align 8
   %878 = call i32 %877(ptr noundef nonnull %1, ptr noundef %859) #27
@@ -7311,8 +7315,8 @@ sfnt_open_font.exit:                              ; preds = %.lr.ph141.i, %.preh
   %956 = call i64 @FT_Stream_Pos(ptr noundef %859) #27
   %957 = add nsw i64 %.0151, -16
   %958 = add i64 %957, %956
-  %.not271 = icmp eq i16 %.0150, 0
-  br i1 %.not271, label %._crit_edge, label %.lr.ph
+  %.not273 = icmp eq i16 %.0150, 0
+  br i1 %.not273, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %955
   %959 = add i64 %958, 8
@@ -7320,23 +7324,23 @@ sfnt_open_font.exit:                              ; preds = %.lr.ph141.i, %.preh
   br label %961
 
 961:                                              ; preds = %.lr.ph, %961
-  %.0261 = phi i32 [ 0, %.lr.ph ], [ %965, %961 ]
-  %.0140260 = phi ptr [ %950, %.lr.ph ], [ %964, %961 ]
-  %.0142259 = phi i64 [ %959, %.lr.ph ], [ %963, %961 ]
-  %962 = call i32 @FT_Stream_ReadAt(ptr noundef %859, i64 noundef %.0142259, ptr noundef %.0140260, i64 noundef 4) #27
+  %.0263 = phi i32 [ 0, %.lr.ph ], [ %965, %961 ]
+  %.0140262 = phi ptr [ %950, %.lr.ph ], [ %964, %961 ]
+  %.0142261 = phi i64 [ %959, %.lr.ph ], [ %963, %961 ]
+  %962 = call i32 @FT_Stream_ReadAt(ptr noundef %859, i64 noundef %.0142261, ptr noundef %.0140262, i64 noundef 4) #27
   store i32 %962, ptr %19, align 4
-  %963 = add i64 %.0142259, %960
-  %964 = getelementptr inbounds i8, ptr %.0140260, i64 4
-  %965 = add nuw nsw i32 %.0261, 1
+  %963 = add i64 %.0142261, %960
+  %964 = getelementptr inbounds i8, ptr %.0140262, i64 4
+  %965 = add nuw nsw i32 %.0263, 1
   %exitcond.not = icmp eq i32 %965, %916
   br i1 %exitcond.not, label %._crit_edge, label %961, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %961, %955
   %966 = zext i16 %.1148 to i32
-  %.not272 = icmp eq i16 %.1148, 0
-  br i1 %.not272, label %._crit_edge266, label %.lr.ph265
+  %.not274 = icmp eq i16 %.1148, 0
+  br i1 %.not274, label %._crit_edge268, label %.lr.ph267
 
-.lr.ph265:                                        ; preds = %._crit_edge
+.lr.ph267:                                        ; preds = %._crit_edge
   %967 = mul nuw nsw i32 %914, %916
   %narrow = add nuw i32 %967, 4
   %968 = zext i32 %narrow to i64
@@ -7344,23 +7348,23 @@ sfnt_open_font.exit:                              ; preds = %.lr.ph141.i, %.preh
   %970 = zext i16 %.0146 to i64
   br label %971
 
-971:                                              ; preds = %.lr.ph265, %973
-  %.1263 = phi i32 [ 0, %.lr.ph265 ], [ %975, %973 ]
-  %.0141262 = phi i64 [ %969, %.lr.ph265 ], [ %974, %973 ]
-  %972 = call i32 @FT_Stream_ReadAt(ptr noundef %859, i64 noundef %.0141262, ptr noundef %953, i64 noundef %949) #27
+971:                                              ; preds = %.lr.ph267, %973
+  %.1265 = phi i32 [ 0, %.lr.ph267 ], [ %975, %973 ]
+  %.0141264 = phi i64 [ %969, %.lr.ph267 ], [ %974, %973 ]
+  %972 = call i32 @FT_Stream_ReadAt(ptr noundef %859, i64 noundef %.0141264, ptr noundef %953, i64 noundef %949) #27
   store i32 %972, ptr %19, align 4
   %bcmp = call i32 @bcmp(ptr %950, ptr %953, i64 %949)
   %.not185 = icmp eq i32 %bcmp, 0
-  br i1 %.not185, label %._crit_edge266, label %973
+  br i1 %.not185, label %._crit_edge268, label %973
 
 973:                                              ; preds = %971
-  %974 = add i64 %.0141262, %970
-  %975 = add nuw nsw i32 %.1263, 1
-  %exitcond297.not = icmp eq i32 %975, %966
-  br i1 %exitcond297.not, label %._crit_edge266, label %971, !llvm.loop !55
+  %974 = add i64 %.0141264, %970
+  %975 = add nuw nsw i32 %.1265, 1
+  %exitcond299.not = icmp eq i32 %975, %966
+  br i1 %exitcond299.not, label %._crit_edge268, label %971, !llvm.loop !55
 
-._crit_edge266:                                   ; preds = %973, %971, %._crit_edge
-  %.1.lcssa = phi i32 [ 0, %._crit_edge ], [ %.1263, %971 ], [ %966, %973 ]
+._crit_edge268:                                   ; preds = %973, %971, %._crit_edge
+  %.1.lcssa = phi i32 [ 0, %._crit_edge ], [ %.1265, %971 ], [ %966, %973 ]
   %976 = add nuw i32 %.1.lcssa, 1
   %977 = getelementptr inbounds i8, ptr %1, i64 1244
   store i32 %976, ptr %977, align 4
@@ -7369,10 +7373,10 @@ sfnt_open_font.exit:                              ; preds = %.lr.ph141.i, %.preh
   %spec.select190 = add i16 %.1148, %979
   br label %980
 
-980:                                              ; preds = %._crit_edge266, %943, %947, %952
-  %.2 = phi i16 [ %.1148, %947 ], [ %.1148, %952 ], [ %.1148, %943 ], [ %spec.select190, %._crit_edge266 ]
-  %.0145 = phi ptr [ %950, %947 ], [ %950, %952 ], [ null, %943 ], [ %950, %._crit_edge266 ]
-  %.0144 = phi ptr [ null, %947 ], [ %953, %952 ], [ null, %943 ], [ %953, %._crit_edge266 ]
+980:                                              ; preds = %._crit_edge268, %943, %947, %952
+  %.2 = phi i16 [ %.1148, %947 ], [ %.1148, %952 ], [ %.1148, %943 ], [ %spec.select190, %._crit_edge268 ]
+  %.0145 = phi ptr [ %950, %947 ], [ %950, %952 ], [ null, %943 ], [ %950, %._crit_edge268 ]
+  %.0144 = phi ptr [ null, %947 ], [ %953, %952 ], [ null, %943 ], [ %953, %._crit_edge268 ]
   call void @ft_mem_free(ptr noundef %881, ptr noundef %.0145) #27
   call void @ft_mem_free(ptr noundef %881, ptr noundef %.0144) #27
   %981 = load ptr, ptr %883, align 8
@@ -7400,7 +7404,7 @@ sfnt_open_font.exit:                              ; preds = %.lr.ph141.i, %.preh
   br i1 %991, label %992, label %994
 
 992:                                              ; preds = %989
-  %993 = icmp sgt i32 %.0214, -1
+  %993 = icmp sgt i32 %.0215, -1
   br i1 %993, label %1004, label %994
 
 994:                                              ; preds = %992, %989
@@ -7411,7 +7415,7 @@ sfnt_open_font.exit:                              ; preds = %.lr.ph141.i, %.preh
   store i64 %996, ptr %997, align 8
   %998 = load i64, ptr %58, align 8
   store i64 %998, ptr %1, align 8
-  %999 = sext i32 %.0214 to i64
+  %999 = sext i32 %.0215 to i64
   %1000 = getelementptr inbounds i8, ptr %1, i64 8
   store i64 %999, ptr %1000, align 8
   %.not189 = icmp eq i64 %.0210, 0
@@ -7425,8 +7429,8 @@ sfnt_open_font.exit:                              ; preds = %.lr.ph141.i, %.preh
   %1003 = load i32, ptr %19, align 4
   br label %1004
 
-1004:                                             ; preds = %sfnt_open_font.exit.thread, %992, %875, %._crit_edge298, %867, %sfnt_open_font.exit, %27, %1002
-  %.0143 = phi i32 [ %1003, %1002 ], [ 11, %27 ], [ %.pre.i, %sfnt_open_font.exit ], [ 6, %867 ], [ %874, %._crit_edge298 ], [ %878, %875 ], [ 6, %992 ], [ %.066.i.ph, %sfnt_open_font.exit.thread ]
+1004:                                             ; preds = %sfnt_open_font.exit.thread, %992, %875, %._crit_edge300, %867, %sfnt_open_font.exit, %27, %1002
+  %.0143 = phi i32 [ %1003, %1002 ], [ 11, %27 ], [ %.pre.i, %sfnt_open_font.exit ], [ 6, %867 ], [ %874, %._crit_edge300 ], [ %878, %875 ], [ 6, %992 ], [ %.066.i.ph, %sfnt_open_font.exit.thread ]
   ret i32 %.0143
 }
 
@@ -16608,13 +16612,13 @@ find_table.exit150.thr_comm:                      ; preds = %48
   %54 = getelementptr inbounds i8, ptr %4, i64 32
   store ptr null, ptr %54, align 8
   %.not = icmp eq ptr %.08.i, null
-  br i1 %.not, label %63, label %777
+  br i1 %.not, label %63, label %776
 
 find_table.exit150:                               ; preds = %.lr.ph.i145
   %55 = getelementptr inbounds i8, ptr %4, i64 32
   store ptr %50, ptr %55, align 8
   %56 = icmp eq ptr %.08.i, null
-  br i1 %56, label %777, label %.thread272
+  br i1 %56, label %776, label %.thread272
 
 .thread272:                                       ; preds = %find_table.exit150
   %57 = getelementptr inbounds i8, ptr %.08.i, i64 24
@@ -16624,7 +16628,7 @@ find_table.exit150:                               ; preds = %.lr.ph.i145
   %61 = xor i64 %60, %58
   %62 = and i64 %61, 256
   %.not128 = icmp eq i64 %62, 0
-  br i1 %.not128, label %63, label %777
+  br i1 %.not128, label %63, label %776
 
 63:                                               ; preds = %find_table.exit150.thr_comm, %.thread, %.thread272
   %64 = phi ptr [ %39, %.thread ], [ %47, %.thread272 ], [ %47, %find_table.exit150.thr_comm ]
@@ -16632,7 +16636,7 @@ find_table.exit150:                               ; preds = %.lr.ph.i145
   %66 = call ptr @ft_mem_alloc(ptr noundef %7, i64 noundef 80, ptr noundef nonnull %29) #27
   %67 = load i32, ptr %29, align 4
   %.not129 = icmp eq i32 %67, 0
-  br i1 %.not129, label %68, label %.thread308
+  br i1 %.not129, label %68, label %.sink.split
 
 68:                                               ; preds = %63
   call void @FT_Stream_OpenMemory(ptr noundef %66, ptr noundef %0, i64 noundef %1) #27
@@ -18246,11 +18250,7 @@ find_table.exit217.thread:                        ; preds = %744, %68, %._crit_e
   store i8 %771, ptr %770, align 1
   %772 = getelementptr inbounds i8, ptr %3, i64 120
   store i64 %.5257, ptr %772, align 8
-  store ptr %.7265, ptr %5, align 8
-  call void @FT_Stream_Close(ptr noundef %66) #27
-  call void @ft_mem_free(ptr noundef %7, ptr noundef %66) #27
-  %773 = load i32, ptr %29, align 4
-  br label %777
+  br label %.sink.split
 
 thread-pre-split:                                 ; preds = %.thread280, %106, %write_buf.exit, %reconstruct_glyf.exit, %reconstruct_hmtx.exit, %741, %151, %751, %read_num_hmetrics.exit.thread, %write_buf.exit.thread, %get_x_mins.exit.thread, %.loopexit.i172, %pad4.exit.thread, %find_table.exit217.thread
   %.0258.ph = phi ptr [ %.1259.lcssa523, %find_table.exit217.thread ], [ %.6264, %pad4.exit.thread ], [ %.1259422, %.loopexit.i172 ], [ %.1259422, %get_x_mins.exit.thread ], [ %.1259422, %write_buf.exit.thread ], [ %.1259422, %read_num_hmetrics.exit.thread ], [ %.7265, %751 ], [ %.1259422, %.thread280 ], [ %.1259422, %106 ], [ %.7265, %741 ], [ %.0.i155, %write_buf.exit ], [ %.1259422, %151 ], [ %661, %reconstruct_hmtx.exit ], [ %.4262, %reconstruct_glyf.exit ]
@@ -18258,25 +18258,25 @@ thread-pre-split:                                 ; preds = %.thread280, %106, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %88, %thread-pre-split
-  %774 = phi i32 [ %.pr, %thread-pre-split ], [ %91, %88 ]
+  %773 = phi i32 [ %.pr, %thread-pre-split ], [ %91, %88 ]
   %.0258 = phi ptr [ %.0258.ph, %thread-pre-split ], [ %.1259422, %88 ]
-  %.not140 = icmp eq i32 %774, 0
-  br i1 %.not140, label %775, label %.thread308
+  %.not140 = icmp eq i32 %773, 0
+  br i1 %.not140, label %774, label %.sink.split
 
-775:                                              ; preds = %.loopexit
+774:                                              ; preds = %.loopexit
   store i32 8, ptr %29, align 4
-  br label %.thread308
+  br label %.sink.split
 
-.thread308:                                       ; preds = %63, %775, %.loopexit
-  %.0258311 = phi ptr [ %.0258, %775 ], [ %.0258, %.loopexit ], [ %32, %63 ]
-  store ptr %.0258311, ptr %5, align 8
+.sink.split:                                      ; preds = %.loopexit, %774, %63, %756
+  %.0258311.sink = phi ptr [ %.7265, %756 ], [ %.0258, %774 ], [ %.0258, %.loopexit ], [ %32, %63 ]
+  store ptr %.0258311.sink, ptr %5, align 8
   call void @FT_Stream_Close(ptr noundef %66) #27
   call void @ft_mem_free(ptr noundef %7, ptr noundef %66) #27
-  %776 = load i32, ptr %29, align 4
-  br label %777
+  %775 = load i32, ptr %29, align 4
+  br label %776
 
-777:                                              ; preds = %find_table.exit150.thr_comm, %.thread272, %find_table.exit150, %.thread308, %756
-  %.0 = phi i32 [ %776, %.thread308 ], [ %773, %756 ], [ 8, %find_table.exit150 ], [ 8, %.thread272 ], [ 8, %find_table.exit150.thr_comm ]
+776:                                              ; preds = %.sink.split, %find_table.exit150.thr_comm, %.thread272, %find_table.exit150
+  %.0 = phi i32 [ 8, %find_table.exit150 ], [ 8, %.thread272 ], [ 8, %find_table.exit150.thr_comm ], [ %775, %.sink.split ]
   ret i32 %.0
 }
 

@@ -1384,9 +1384,7 @@ define dso_local i32 @inet6_sk_rebuild_header(ptr noundef %0) #1 align 16 {
   %54 = sub i32 0, %53
   %55 = getelementptr inbounds i8, ptr %0, i64 548
   store volatile i32 %54, ptr %55, align 4
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
-  br label %87
+  br label %.sink.split
 
 56:                                               ; preds = %19
   %57 = load volatile i8, ptr %4, align 2
@@ -1439,12 +1437,16 @@ define dso_local i32 @inet6_sk_rebuild_header(ptr noundef %0) #1 align 16 {
   call void @sk_setup_caps(ptr noundef %0, ptr noundef %49) #14
   %86 = getelementptr inbounds i8, ptr %66, i64 40
   store ptr null, ptr %86, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %.thread, %83
+  %.ph = phi i32 [ 0, %83 ], [ %53, %.thread ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
   br label %87
 
-87:                                               ; preds = %13, %83, %.thread
-  %88 = phi i32 [ %53, %.thread ], [ 0, %83 ], [ 0, %13 ]
+87:                                               ; preds = %.sink.split, %13
+  %88 = phi i32 [ 0, %13 ], [ %.ph, %.sink.split ]
   ret i32 %88
 }
 

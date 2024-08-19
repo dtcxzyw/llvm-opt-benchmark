@@ -8434,18 +8434,18 @@ if.then143:                                       ; preds = %if.end139
 if.end146:                                        ; preds = %if.end139
   %call147 = call fastcc ptr @power_rule(ptr noundef nonnull %p)
   %tobool148.not = icmp eq ptr %call147, null
-  br i1 %tobool148.not, label %if.end150, label %if.then149
-
-if.then149:                                       ; preds = %if.end146
-  store ptr %call147, ptr %_res, align 8
-  br label %done
+  br i1 %tobool148.not, label %if.end150, label %done.sink.split
 
 if.end150:                                        ; preds = %if.end146
   store i32 %5, ptr %mark, align 8
-  store ptr null, ptr %_res, align 8
+  br label %done.sink.split
+
+done.sink.split:                                  ; preds = %if.end146, %if.end150
+  %.sink = phi ptr [ null, %if.end150 ], [ %call147, %if.end146 ]
+  store ptr %.sink, ptr %_res, align 8
   br label %done
 
-done:                                             ; preds = %if.end119, %land.lhs.true131, %if.end77, %land.lhs.true89, %if.end40, %land.lhs.true47, %if.end150, %if.then149
+done:                                             ; preds = %done.sink.split, %if.end119, %land.lhs.true131, %if.end77, %land.lhs.true89, %if.end40, %land.lhs.true47
   %35 = load ptr, ptr %_res, align 8
   %call152 = call i32 @_PyPegen_insert_memo(ptr noundef nonnull %p, i32 noundef %5, i32 noundef 1132, ptr noundef %35) #4
   %36 = load i32, ptr %level, align 8
@@ -9362,18 +9362,14 @@ land.lhs.true:                                    ; preds = %do.end
 land.lhs.true20:                                  ; preds = %land.lhs.true
   %call21 = call i32 @_PyPegen_lookahead_with_int(i32 noundef 1, ptr noundef nonnull @_PyPegen_expect_token, ptr noundef nonnull %p, i32 noundef 8) #4
   %tobool22.not = icmp eq i32 %call21, 0
-  br i1 %tobool22.not, label %if.end33, label %if.then23
-
-if.then23:                                        ; preds = %land.lhs.true20
-  store ptr %call15, ptr %_res, align 8
-  br label %done
+  br i1 %tobool22.not, label %if.end33, label %done
 
 if.end33:                                         ; preds = %land.lhs.true20, %land.lhs.true, %do.end
   store i32 %5, ptr %mark, align 8
   %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %9 = load i32, ptr %call_invalid_rules, align 4
   %tobool35.not = icmp eq i32 %9, 0
-  br i1 %tobool35.not, label %if.end48, label %if.then36
+  br i1 %tobool35.not, label %done, label %if.then36
 
 if.then36:                                        ; preds = %if.end33
   %10 = load i32, ptr %error_indicator, align 8
@@ -9389,31 +9385,24 @@ if.then39:                                        ; preds = %if.then36
 if.end42:                                         ; preds = %if.then36
   %call43 = call fastcc ptr @invalid_arguments_rule(ptr noundef nonnull %p)
   %tobool44.not = icmp eq ptr %call43, null
-  br i1 %tobool44.not, label %if.end46, label %if.then45
-
-if.then45:                                        ; preds = %if.end42
-  store ptr %call43, ptr %_res, align 8
-  br label %done
+  br i1 %tobool44.not, label %if.end46, label %done
 
 if.end46:                                         ; preds = %if.end42
   store i32 %5, ptr %mark, align 8
-  br label %if.end48
-
-if.end48:                                         ; preds = %if.end46, %if.end33
-  store ptr null, ptr %_res, align 8
   br label %done
 
-done:                                             ; preds = %if.then23, %if.end48, %if.then45
-  %12 = phi ptr [ %call15, %if.then23 ], [ null, %if.end48 ], [ %call43, %if.then45 ]
-  %call49 = call i32 @_PyPegen_insert_memo(ptr noundef nonnull %p, i32 noundef %5, i32 noundef 1172, ptr noundef %12) #4
-  %13 = load i32, ptr %level, align 8
-  %dec51 = add i32 %13, -1
+done:                                             ; preds = %if.end33, %if.end46, %if.end42, %land.lhs.true20
+  %call15.sink = phi ptr [ %call15, %land.lhs.true20 ], [ %call43, %if.end42 ], [ null, %if.end46 ], [ null, %if.end33 ]
+  store ptr %call15.sink, ptr %_res, align 8
+  %call49 = call i32 @_PyPegen_insert_memo(ptr noundef nonnull %p, i32 noundef %5, i32 noundef 1172, ptr noundef %call15.sink) #4
+  %12 = load i32, ptr %level, align 8
+  %dec51 = add i32 %12, -1
   store i32 %dec51, ptr %level, align 8
-  %14 = load ptr, ptr %_res, align 8
+  %13 = load ptr, ptr %_res, align 8
   br label %return
 
 return:                                           ; preds = %done, %if.then39, %if.then11, %if.then5, %if.then1
-  %retval.0 = phi ptr [ null, %if.then1 ], [ %4, %if.then5 ], [ null, %if.then11 ], [ %14, %done ], [ null, %if.then39 ]
+  %retval.0 = phi ptr [ null, %if.then1 ], [ %4, %if.then5 ], [ null, %if.then11 ], [ %13, %done ], [ null, %if.then39 ]
   ret ptr %retval.0
 }
 
@@ -12151,18 +12140,18 @@ if.then117:                                       ; preds = %if.end113
 if.end120:                                        ; preds = %if.end113
   %call121 = call fastcc ptr @star_atom_rule(ptr noundef nonnull %p)
   %tobool122.not = icmp eq ptr %call121, null
-  br i1 %tobool122.not, label %if.end124, label %if.then123
-
-if.then123:                                       ; preds = %if.end120
-  store ptr %call121, ptr %_res, align 8
-  br label %done
+  br i1 %tobool122.not, label %if.end124, label %done.sink.split
 
 if.end124:                                        ; preds = %if.end120
   store i32 %5, ptr %mark, align 8
-  store ptr null, ptr %_res, align 8
+  br label %done.sink.split
+
+done.sink.split:                                  ; preds = %if.end120, %if.end124
+  %.sink = phi ptr [ null, %if.end124 ], [ %call121, %if.end120 ]
+  store ptr %.sink, ptr %_res, align 8
   br label %done
 
-done:                                             ; preds = %if.end93, %land.lhs.true105, %if.end46, %land.lhs.true53, %if.end124, %if.then123
+done:                                             ; preds = %done.sink.split, %if.end93, %land.lhs.true105, %if.end46, %land.lhs.true53
   %29 = load ptr, ptr %_res, align 8
   %call126 = call i32 @_PyPegen_insert_memo(ptr noundef nonnull %p, i32 noundef %5, i32 noundef 1182, ptr noundef %29) #4
   %30 = load i32, ptr %level, align 8
@@ -31979,11 +31968,7 @@ land.lhs.true19:                                  ; preds = %land.lhs.true
 land.lhs.true22:                                  ; preds = %land.lhs.true19
   %call23 = call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 6) #4
   %tobool24.not = icmp eq ptr %call23, null
-  br i1 %tobool24.not, label %if.end35, label %if.then25
-
-if.then25:                                        ; preds = %land.lhs.true22
-  store ptr %call20, ptr %_res, align 8
-  br label %done
+  br i1 %tobool24.not, label %if.end35, label %done
 
 if.end35:                                         ; preds = %land.lhs.true22, %land.lhs.true19, %land.lhs.true, %if.end14
   store i32 %5, ptr %mark, align 8
@@ -32000,18 +31985,14 @@ if.then39:                                        ; preds = %if.end35
 if.end42:                                         ; preds = %if.end35
   %call43 = call fastcc ptr @simple_stmts_rule(ptr noundef nonnull %p)
   %tobool44.not = icmp eq ptr %call43, null
-  br i1 %tobool44.not, label %if.end46, label %if.then45
-
-if.then45:                                        ; preds = %if.end42
-  store ptr %call43, ptr %_res, align 8
-  br label %done
+  br i1 %tobool44.not, label %if.end46, label %done
 
 if.end46:                                         ; preds = %if.end42
   store i32 %5, ptr %mark, align 8
   %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %10 = load i32, ptr %call_invalid_rules, align 4
   %tobool48.not = icmp eq i32 %10, 0
-  br i1 %tobool48.not, label %if.end61, label %if.then49
+  br i1 %tobool48.not, label %done, label %if.then49
 
 if.then49:                                        ; preds = %if.end46
   %11 = load i32, ptr %error_indicator, align 8
@@ -32027,31 +32008,24 @@ if.then52:                                        ; preds = %if.then49
 if.end55:                                         ; preds = %if.then49
   %call56 = call fastcc ptr @invalid_block_rule(ptr noundef nonnull %p)
   %tobool57.not = icmp eq ptr %call56, null
-  br i1 %tobool57.not, label %if.end59, label %if.then58
-
-if.then58:                                        ; preds = %if.end55
-  store ptr %call56, ptr %_res, align 8
-  br label %done
+  br i1 %tobool57.not, label %if.end59, label %done
 
 if.end59:                                         ; preds = %if.end55
   store i32 %5, ptr %mark, align 8
-  br label %if.end61
-
-if.end61:                                         ; preds = %if.end59, %if.end46
-  store ptr null, ptr %_res, align 8
   br label %done
 
-done:                                             ; preds = %if.then25, %if.end61, %if.then58, %if.then45
-  %13 = phi ptr [ %call20, %if.then25 ], [ null, %if.end61 ], [ %call56, %if.then58 ], [ %call43, %if.then45 ]
-  %call62 = call i32 @_PyPegen_insert_memo(ptr noundef nonnull %p, i32 noundef %5, i32 noundef 1029, ptr noundef %13) #4
-  %14 = load i32, ptr %level, align 8
-  %dec64 = add i32 %14, -1
+done:                                             ; preds = %if.end46, %if.end59, %if.end55, %if.end42, %land.lhs.true22
+  %call20.sink = phi ptr [ %call20, %land.lhs.true22 ], [ %call43, %if.end42 ], [ %call56, %if.end55 ], [ null, %if.end59 ], [ null, %if.end46 ]
+  store ptr %call20.sink, ptr %_res, align 8
+  %call62 = call i32 @_PyPegen_insert_memo(ptr noundef nonnull %p, i32 noundef %5, i32 noundef 1029, ptr noundef %call20.sink) #4
+  %13 = load i32, ptr %level, align 8
+  %dec64 = add i32 %13, -1
   store i32 %dec64, ptr %level, align 8
-  %15 = load ptr, ptr %_res, align 8
+  %14 = load ptr, ptr %_res, align 8
   br label %return
 
 return:                                           ; preds = %done, %if.then52, %if.then39, %if.then11, %if.then5, %if.then1
-  %retval.0 = phi ptr [ null, %if.then1 ], [ %4, %if.then5 ], [ null, %if.then11 ], [ %15, %done ], [ null, %if.then39 ], [ null, %if.then52 ]
+  %retval.0 = phi ptr [ null, %if.then1 ], [ %4, %if.then5 ], [ null, %if.then11 ], [ %14, %done ], [ null, %if.then39 ], [ null, %if.then52 ]
   ret ptr %retval.0
 }
 
@@ -44341,7 +44315,6 @@ if.then17:                                        ; preds = %if.end218.i, %if.en
   %37 = load i32, ptr %level, align 8
   %dec241.i = add i32 %37, -1
   store i32 %dec241.i, ptr %level, align 8
-  store ptr %retval.0.i, ptr %_res, align 8
   br label %done
 
 if.end18.thread.sink.split:                       ; preds = %land.lhs.true230.i, %land.lhs.true192.i, %land.lhs.true154.i, %land.lhs.true117.i, %land.lhs.true79.i, %land.lhs.true41.i, %land.lhs.true.i
@@ -44372,11 +44345,7 @@ if.then22:                                        ; preds = %if.end18.thread, %i
 if.end25:                                         ; preds = %if.end18
   %call26 = call fastcc ptr @capture_pattern_rule(ptr noundef nonnull %p)
   %tobool27.not = icmp eq ptr %call26, null
-  br i1 %tobool27.not, label %if.end29, label %if.then28
-
-if.then28:                                        ; preds = %if.end25
-  store ptr %call26, ptr %_res, align 8
-  br label %done
+  br i1 %tobool27.not, label %if.end29, label %done
 
 if.end29:                                         ; preds = %if.end25
   store i32 %5, ptr %mark, align 8
@@ -44393,11 +44362,7 @@ if.then33:                                        ; preds = %if.end29
 if.end36:                                         ; preds = %if.end29
   %call37 = call fastcc ptr @wildcard_pattern_rule(ptr noundef nonnull %p)
   %tobool38.not = icmp eq ptr %call37, null
-  br i1 %tobool38.not, label %if.end40, label %if.then39
-
-if.then39:                                        ; preds = %if.end36
-  store ptr %call37, ptr %_res, align 8
-  br label %done
+  br i1 %tobool38.not, label %if.end40, label %done
 
 if.end40:                                         ; preds = %if.end36
   store i32 %5, ptr %mark, align 8
@@ -44414,11 +44379,7 @@ if.then44:                                        ; preds = %if.end40
 if.end47:                                         ; preds = %if.end40
   %call48 = call fastcc ptr @value_pattern_rule(ptr noundef nonnull %p)
   %tobool49.not = icmp eq ptr %call48, null
-  br i1 %tobool49.not, label %if.end51, label %if.then50
-
-if.then50:                                        ; preds = %if.end47
-  store ptr %call48, ptr %_res, align 8
-  br label %done
+  br i1 %tobool49.not, label %if.end51, label %done
 
 if.end51:                                         ; preds = %if.end47
   store i32 %5, ptr %mark, align 8
@@ -44435,11 +44396,7 @@ if.then55:                                        ; preds = %if.end51
 if.end58:                                         ; preds = %if.end51
   %call59 = call fastcc ptr @group_pattern_rule(ptr noundef nonnull %p)
   %tobool60.not = icmp eq ptr %call59, null
-  br i1 %tobool60.not, label %if.end62, label %if.then61
-
-if.then61:                                        ; preds = %if.end58
-  store ptr %call59, ptr %_res, align 8
-  br label %done
+  br i1 %tobool60.not, label %if.end62, label %done
 
 if.end62:                                         ; preds = %if.end58
   store i32 %5, ptr %mark, align 8
@@ -44456,11 +44413,7 @@ if.then66:                                        ; preds = %if.end62
 if.end69:                                         ; preds = %if.end62
   %call70 = call fastcc ptr @sequence_pattern_rule(ptr noundef nonnull %p)
   %tobool71.not = icmp eq ptr %call70, null
-  br i1 %tobool71.not, label %if.end73, label %if.then72
-
-if.then72:                                        ; preds = %if.end69
-  store ptr %call70, ptr %_res, align 8
-  br label %done
+  br i1 %tobool71.not, label %if.end73, label %done
 
 if.end73:                                         ; preds = %if.end69
   store i32 %5, ptr %mark, align 8
@@ -44477,11 +44430,7 @@ if.then77:                                        ; preds = %if.end73
 if.end80:                                         ; preds = %if.end73
   %call81 = call fastcc ptr @mapping_pattern_rule(ptr noundef nonnull %p)
   %tobool82.not = icmp eq ptr %call81, null
-  br i1 %tobool82.not, label %if.end84, label %if.then83
-
-if.then83:                                        ; preds = %if.end80
-  store ptr %call81, ptr %_res, align 8
-  br label %done
+  br i1 %tobool82.not, label %if.end84, label %done
 
 if.end84:                                         ; preds = %if.end80
   store i32 %5, ptr %mark, align 8
@@ -44498,28 +44447,24 @@ if.then88:                                        ; preds = %if.end84
 if.end91:                                         ; preds = %if.end84
   %call92 = call fastcc ptr @class_pattern_rule(ptr noundef nonnull %p)
   %tobool93.not = icmp eq ptr %call92, null
-  br i1 %tobool93.not, label %if.end95, label %if.then94
-
-if.then94:                                        ; preds = %if.end91
-  store ptr %call92, ptr %_res, align 8
-  br label %done
+  br i1 %tobool93.not, label %if.end95, label %done
 
 if.end95:                                         ; preds = %if.end91
   store i32 %5, ptr %mark, align 8
-  store ptr null, ptr %_res, align 8
   br label %done
 
-done:                                             ; preds = %if.end95, %if.then94, %if.then83, %if.then72, %if.then61, %if.then50, %if.then39, %if.then28, %if.then17
-  %52 = phi ptr [ null, %if.end95 ], [ %call92, %if.then94 ], [ %call81, %if.then83 ], [ %call70, %if.then72 ], [ %call59, %if.then61 ], [ %call48, %if.then50 ], [ %call37, %if.then39 ], [ %call26, %if.then28 ], [ %retval.0.i, %if.then17 ]
-  %call97 = call i32 @_PyPegen_insert_memo(ptr noundef nonnull %p, i32 noundef %5, i32 noundef 1069, ptr noundef %52) #4
-  %53 = load i32, ptr %level, align 8
-  %dec99 = add i32 %53, -1
+done:                                             ; preds = %if.end91, %if.end80, %if.end69, %if.end58, %if.end47, %if.end36, %if.end25, %if.end95, %if.then17
+  %.sink = phi ptr [ null, %if.end95 ], [ %retval.0.i, %if.then17 ], [ %call26, %if.end25 ], [ %call37, %if.end36 ], [ %call48, %if.end47 ], [ %call59, %if.end58 ], [ %call70, %if.end69 ], [ %call81, %if.end80 ], [ %call92, %if.end91 ]
+  store ptr %.sink, ptr %_res, align 8
+  %call97 = call i32 @_PyPegen_insert_memo(ptr noundef nonnull %p, i32 noundef %5, i32 noundef 1069, ptr noundef %.sink) #4
+  %52 = load i32, ptr %level, align 8
+  %dec99 = add i32 %52, -1
   store i32 %dec99, ptr %level, align 8
-  %54 = load ptr, ptr %_res, align 8
+  %53 = load ptr, ptr %_res, align 8
   br label %return
 
 return:                                           ; preds = %done, %if.then88, %if.then77, %if.then66, %if.then55, %if.then44, %if.then33, %if.then22, %if.then11, %if.then5, %if.then1
-  %retval.0 = phi ptr [ null, %if.then1 ], [ %4, %if.then5 ], [ null, %if.then11 ], [ %54, %done ], [ null, %if.then22 ], [ null, %if.then33 ], [ null, %if.then44 ], [ null, %if.then55 ], [ null, %if.then66 ], [ null, %if.then77 ], [ null, %if.then88 ]
+  %retval.0 = phi ptr [ null, %if.then1 ], [ %4, %if.then5 ], [ null, %if.then11 ], [ %53, %done ], [ null, %if.then22 ], [ null, %if.then33 ], [ null, %if.then44 ], [ null, %if.then55 ], [ null, %if.then66 ], [ null, %if.then77 ], [ null, %if.then88 ]
   ret ptr %retval.0
 }
 
@@ -48856,8 +48801,7 @@ if.then31:                                        ; preds = %if.end190.i, %if.en
   %58 = load i32, ptr %level, align 8
   %dec232.i = add i32 %58, -1
   store i32 %dec232.i, ptr %level, align 8
-  store ptr %_res.0.i, ptr %_res, align 8
-  br label %done
+  br label %done.sink.split
 
 if.end32.thread.sink.split.sink.split:            ; preds = %land.lhs.true202.i, %land.lhs.true155.i, %land.lhs.true104.i, %land.lhs.true51.i, %land.lhs.true.i
   store i32 1, ptr %error_indicator, align 8
@@ -48895,11 +48839,7 @@ if.end39:                                         ; preds = %if.end32
 land.lhs.true42:                                  ; preds = %if.end39
   %call43 = call fastcc ptr @type_alias_rule(ptr noundef nonnull %p)
   %tobool44.not = icmp eq ptr %call43, null
-  br i1 %tobool44.not, label %if.end46, label %if.then45
-
-if.then45:                                        ; preds = %land.lhs.true42
-  store ptr %call43, ptr %_res, align 8
-  br label %done
+  br i1 %tobool44.not, label %if.end46, label %done.sink.split
 
 if.end46:                                         ; preds = %land.lhs.true42, %if.end39
   store i32 %5, ptr %mark, align 8
@@ -48973,11 +48913,7 @@ if.end84:                                         ; preds = %if.end77
 land.lhs.true87:                                  ; preds = %if.end84
   %call88 = call fastcc ptr @return_stmt_rule(ptr noundef nonnull %p)
   %tobool89.not = icmp eq ptr %call88, null
-  br i1 %tobool89.not, label %if.end91, label %if.then90
-
-if.then90:                                        ; preds = %land.lhs.true87
-  store ptr %call88, ptr %_res, align 8
-  br label %done
+  br i1 %tobool89.not, label %if.end91, label %done.sink.split
 
 if.end91:                                         ; preds = %land.lhs.true87, %if.end84
   store i32 %5, ptr %mark, align 8
@@ -48999,11 +48935,7 @@ if.end98:                                         ; preds = %if.end91
 land.lhs.true101:                                 ; preds = %if.end98
   %call102 = call fastcc ptr @import_stmt_rule(ptr noundef nonnull %p)
   %tobool103.not = icmp eq ptr %call102, null
-  br i1 %tobool103.not, label %if.end105, label %if.then104
-
-if.then104:                                       ; preds = %land.lhs.true101
-  store ptr %call102, ptr %_res, align 8
-  br label %done
+  br i1 %tobool103.not, label %if.end105, label %done.sink.split
 
 if.end105:                                        ; preds = %land.lhs.true101, %if.end98
   store i32 %5, ptr %mark, align 8
@@ -49025,11 +48957,7 @@ if.end112:                                        ; preds = %if.end105
 land.lhs.true115:                                 ; preds = %if.end112
   %call116 = call fastcc ptr @raise_stmt_rule(ptr noundef nonnull %p)
   %tobool117.not = icmp eq ptr %call116, null
-  br i1 %tobool117.not, label %if.end119, label %if.then118
-
-if.then118:                                       ; preds = %land.lhs.true115
-  store ptr %call116, ptr %_res, align 8
-  br label %done
+  br i1 %tobool117.not, label %if.end119, label %done.sink.split
 
 if.end119:                                        ; preds = %land.lhs.true115, %if.end112
   store i32 %5, ptr %mark, align 8
@@ -49103,11 +49031,7 @@ if.end163:                                        ; preds = %if.end156
 land.lhs.true166:                                 ; preds = %if.end163
   %call167 = call fastcc ptr @del_stmt_rule(ptr noundef nonnull %p)
   %tobool168.not = icmp eq ptr %call167, null
-  br i1 %tobool168.not, label %if.end170, label %if.then169
-
-if.then169:                                       ; preds = %land.lhs.true166
-  store ptr %call167, ptr %_res, align 8
-  br label %done
+  br i1 %tobool168.not, label %if.end170, label %done.sink.split
 
 if.end170:                                        ; preds = %land.lhs.true166, %if.end163
   store i32 %5, ptr %mark, align 8
@@ -49129,11 +49053,7 @@ if.end177:                                        ; preds = %if.end170
 land.lhs.true180:                                 ; preds = %if.end177
   %call181 = call fastcc ptr @yield_stmt_rule(ptr noundef nonnull %p)
   %tobool182.not = icmp eq ptr %call181, null
-  br i1 %tobool182.not, label %if.end184, label %if.then183
-
-if.then183:                                       ; preds = %land.lhs.true180
-  store ptr %call181, ptr %_res, align 8
-  br label %done
+  br i1 %tobool182.not, label %if.end184, label %done.sink.split
 
 if.end184:                                        ; preds = %land.lhs.true180, %if.end177
   store i32 %5, ptr %mark, align 8
@@ -49155,11 +49075,7 @@ if.end191:                                        ; preds = %if.end184
 land.lhs.true194:                                 ; preds = %if.end191
   %call195 = call fastcc ptr @assert_stmt_rule(ptr noundef nonnull %p)
   %tobool196.not = icmp eq ptr %call195, null
-  br i1 %tobool196.not, label %if.end198, label %if.then197
-
-if.then197:                                       ; preds = %land.lhs.true194
-  store ptr %call195, ptr %_res, align 8
-  br label %done
+  br i1 %tobool196.not, label %if.end198, label %done.sink.split
 
 if.end198:                                        ; preds = %land.lhs.true194, %if.end191
   store i32 %5, ptr %mark, align 8
@@ -49285,11 +49201,7 @@ if.end281:                                        ; preds = %if.end274
 land.lhs.true284:                                 ; preds = %if.end281
   %call285 = call fastcc ptr @global_stmt_rule(ptr noundef nonnull %p)
   %tobool286.not = icmp eq ptr %call285, null
-  br i1 %tobool286.not, label %if.end288, label %if.then287
-
-if.then287:                                       ; preds = %land.lhs.true284
-  store ptr %call285, ptr %_res, align 8
-  br label %done
+  br i1 %tobool286.not, label %if.end288, label %done.sink.split
 
 if.end288:                                        ; preds = %land.lhs.true284, %if.end281
   store i32 %5, ptr %mark, align 8
@@ -49311,18 +49223,18 @@ if.end295:                                        ; preds = %if.end288
 land.lhs.true298:                                 ; preds = %if.end295
   %call299 = call fastcc ptr @nonlocal_stmt_rule(ptr noundef nonnull %p)
   %tobool300.not = icmp eq ptr %call299, null
-  br i1 %tobool300.not, label %if.end302, label %if.then301
-
-if.then301:                                       ; preds = %land.lhs.true298
-  store ptr %call299, ptr %_res, align 8
-  br label %done
+  br i1 %tobool300.not, label %if.end302, label %done.sink.split
 
 if.end302:                                        ; preds = %land.lhs.true298, %if.end295
   store i32 %5, ptr %mark, align 8
-  store ptr null, ptr %_res, align 8
+  br label %done.sink.split
+
+done.sink.split:                                  ; preds = %land.lhs.true298, %land.lhs.true284, %land.lhs.true194, %land.lhs.true180, %land.lhs.true166, %land.lhs.true115, %land.lhs.true101, %land.lhs.true87, %land.lhs.true42, %if.then31, %if.end302
+  %.sink = phi ptr [ null, %if.end302 ], [ %_res.0.i, %if.then31 ], [ %call43, %land.lhs.true42 ], [ %call88, %land.lhs.true87 ], [ %call102, %land.lhs.true101 ], [ %call116, %land.lhs.true115 ], [ %call167, %land.lhs.true166 ], [ %call181, %land.lhs.true180 ], [ %call195, %land.lhs.true194 ], [ %call285, %land.lhs.true284 ], [ %call299, %land.lhs.true298 ]
+  store ptr %.sink, ptr %_res, align 8
   br label %done
 
-done:                                             ; preds = %if.end254, %land.lhs.true266, %if.end216, %land.lhs.true228, %if.end136, %land.lhs.true148, %if.end62, %land.lhs.true69, %if.end302, %if.then301, %if.then287, %if.then197, %if.then183, %if.then169, %if.then118, %if.then104, %if.then90, %if.then45, %if.then31
+done:                                             ; preds = %done.sink.split, %if.end254, %land.lhs.true266, %if.end216, %land.lhs.true228, %if.end136, %land.lhs.true148, %if.end62, %land.lhs.true69
   %104 = load ptr, ptr %_res, align 8
   %call304 = call i32 @_PyPegen_insert_memo(ptr noundef nonnull %p, i32 noundef %5, i32 noundef 1008, ptr noundef %104) #4
   %105 = load i32, ptr %level, align 8
@@ -55080,18 +54992,18 @@ if.then117:                                       ; preds = %if.end113
 if.end120:                                        ; preds = %if.end113
   %call121 = call fastcc ptr @del_t_atom_rule(ptr noundef nonnull %p)
   %tobool122.not = icmp eq ptr %call121, null
-  br i1 %tobool122.not, label %if.end124, label %if.then123
-
-if.then123:                                       ; preds = %if.end120
-  store ptr %call121, ptr %_res, align 8
-  br label %done
+  br i1 %tobool122.not, label %if.end124, label %done.sink.split
 
 if.end124:                                        ; preds = %if.end120
   store i32 %5, ptr %mark, align 8
-  store ptr null, ptr %_res, align 8
+  br label %done.sink.split
+
+done.sink.split:                                  ; preds = %if.end120, %if.end124
+  %.sink = phi ptr [ null, %if.end124 ], [ %call121, %if.end120 ]
+  store ptr %.sink, ptr %_res, align 8
   br label %done
 
-done:                                             ; preds = %if.end93, %land.lhs.true105, %if.end46, %land.lhs.true53, %if.end124, %if.then123
+done:                                             ; preds = %done.sink.split, %if.end93, %land.lhs.true105, %if.end46, %land.lhs.true53
   %29 = load ptr, ptr %_res, align 8
   %call126 = call i32 @_PyPegen_insert_memo(ptr noundef nonnull %p, i32 noundef %5, i32 noundef 1189, ptr noundef %29) #4
   %30 = load i32, ptr %level, align 8

@@ -5036,18 +5036,12 @@ if.then:                                          ; preds = %entry
   %and3 = and i64 %0, 4
   %tobool4.not = icmp eq i64 %and3, 0
   %incdec.ptr6 = getelementptr inbounds i8, ptr %flags, i64 1
-  br i1 %tobool4.not, label %if.else, label %if.then5
-
-if.then5:                                         ; preds = %if.then
-  store i8 79, ptr %flags, align 16
+  %. = select i1 %tobool4.not, i8 83, i8 79
+  store i8 %., ptr %flags, align 16
   br label %if.end7
 
-if.else:                                          ; preds = %if.then
-  store i8 83, ptr %flags, align 16
-  br label %if.end7
-
-if.end7:                                          ; preds = %if.then5, %if.else, %entry
-  %p.0 = phi ptr [ %incdec.ptr6, %if.then5 ], [ %incdec.ptr6, %if.else ], [ %flags, %entry ]
+if.end7:                                          ; preds = %if.then, %entry
+  %p.0 = phi ptr [ %flags, %entry ], [ %incdec.ptr6, %if.then ]
   %and9 = and i64 %0, 2
   %tobool10.not = icmp eq i64 %and9, 0
   br i1 %tobool10.not, label %if.end13, label %if.then11

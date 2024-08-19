@@ -3415,7 +3415,7 @@ define internal fastcc i32 @acpi_add_single_object(ptr nocapture noundef writeon
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %11 = tail call noalias align 8 dereferenceable_or_null(1408) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3520, i64 noundef 1408) #21
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %311, label %13
+  br i1 %12, label %309, label %13
 
 13:                                               ; preds = %4
   tail call void @acpi_init_device_object(ptr noundef nonnull %11, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @acpi_device_release)
@@ -3688,7 +3688,7 @@ define internal fastcc i32 @acpi_add_single_object(ptr nocapture noundef writeon
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #19
   %165 = load ptr, ptr %49, align 8
   %166 = call zeroext i1 @acpi_has_method(ptr noundef %165, ptr noundef nonnull @.str.89) #19
-  br i1 %166, label %167, label %286
+  br i1 %166, label %167, label %284
 
 167:                                              ; preds = %164
   %168 = load ptr, ptr %49, align 8
@@ -3708,29 +3708,28 @@ define internal fastcc i32 @acpi_add_single_object(ptr nocapture noundef writeon
 175:                                              ; preds = %167
   %176 = call ptr @acpi_format_exception(i32 noundef %173) #19
   call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.72, ptr noundef %168, ptr noundef nonnull @.str.91, ptr noundef %176) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #19
-  br label %246
+  br label %245
 
 177:                                              ; preds = %167
   %178 = load ptr, ptr %170, align 8
   %179 = icmp eq ptr %178, null
-  br i1 %179, label %244, label %180
+  br i1 %179, label %243, label %180
 
 180:                                              ; preds = %177
   %181 = getelementptr inbounds i8, ptr %178, i64 4
   %182 = load i32, ptr %181, align 4
   %183 = icmp ult i32 %182, 2
-  br i1 %183, label %244, label %184
+  br i1 %183, label %243, label %184
 
 184:                                              ; preds = %180
   %185 = getelementptr inbounds i8, ptr %178, i64 8
   %186 = load ptr, ptr %185, align 8
   %187 = icmp eq ptr %186, null
-  br i1 %187, label %244, label %188
+  br i1 %187, label %243, label %188
 
 188:                                              ; preds = %184
   %189 = load i32, ptr %186, align 8
-  switch i32 %189, label %244 [
+  switch i32 %189, label %243 [
     i32 4, label %190
     i32 1, label %210
   ]
@@ -3739,20 +3738,20 @@ define internal fastcc i32 @acpi_add_single_object(ptr nocapture noundef writeon
   %191 = getelementptr inbounds i8, ptr %186, i64 4
   %192 = load i32, ptr %191, align 4
   %193 = icmp ult i32 %192, 2
-  br i1 %193, label %244, label %194
+  br i1 %193, label %243, label %194
 
 194:                                              ; preds = %190
   %195 = getelementptr inbounds i8, ptr %186, i64 8
   %196 = load ptr, ptr %195, align 8
   %197 = load i32, ptr %196, align 8
   %198 = icmp eq i32 %197, 20
-  br i1 %198, label %199, label %244
+  br i1 %198, label %199, label %243
 
 199:                                              ; preds = %194
   %200 = getelementptr i8, ptr %196, i64 24
   %201 = load i32, ptr %200, align 8
   %202 = icmp eq i32 %201, 1
-  br i1 %202, label %203, label %244
+  br i1 %202, label %203, label %243
 
 203:                                              ; preds = %199
   %204 = getelementptr inbounds i8, ptr %196, i64 8
@@ -3778,7 +3777,7 @@ define internal fastcc i32 @acpi_add_single_object(ptr nocapture noundef writeon
   %217 = getelementptr i8, ptr %216, i64 24
   %218 = load i32, ptr %217, align 8
   %219 = icmp eq i32 %218, 1
-  br i1 %219, label %220, label %244
+  br i1 %219, label %220, label %243
 
 220:                                              ; preds = %213
   %221 = getelementptr i8, ptr %216, i64 32
@@ -3791,19 +3790,19 @@ define internal fastcc i32 @acpi_add_single_object(ptr nocapture noundef writeon
 
 ._crit_edge:                                      ; preds = %220
   %.pre14 = load ptr, ptr %170, align 8
-  br label %244
+  br label %243
 
 226:                                              ; preds = %220
   %227 = load volatile ptr, ptr %171, align 8
   %228 = icmp eq ptr %227, %171
-  br i1 %228, label %248, label %229
+  br i1 %228, label %247, label %229
 
 229:                                              ; preds = %226
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #19
   store i32 0, ptr %6, align 4, !annotation !10
   %230 = call i32 @acpi_power_wakeup_list_init(ptr noundef %171, ptr noundef nonnull %6) #19
   %231 = icmp eq i32 %230, 0
-  br i1 %231, label %232, label %242
+  br i1 %231, label %232, label %241
 
 232:                                              ; preds = %229
   %233 = load i32, ptr %6, align 4
@@ -3822,146 +3821,139 @@ define internal fastcc i32 @acpi_add_single_object(ptr nocapture noundef writeon
 
 .thread:                                          ; preds = %237, %232
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #19
-  %241 = load ptr, ptr %170, align 8
-  call void @kfree(ptr noundef %241) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #19
-  br label %250
+  br label %247
 
-242:                                              ; preds = %229
+241:                                              ; preds = %229
   call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.22, ptr noundef %168, ptr noundef nonnull @.str.92) #19
   call void @acpi_power_resources_list_free(ptr noundef %171) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #19
-  %243 = load ptr, ptr %170, align 8
-  call void @kfree(ptr noundef %243) #19
+  %242 = load ptr, ptr %170, align 8
+  call void @kfree(ptr noundef %242) #19
+  br label %245
+
+243:                                              ; preds = %._crit_edge, %213, %199, %194, %190, %188, %184, %180, %177
+  %244 = phi ptr [ %.pre14, %._crit_edge ], [ %178, %213 ], [ %178, %199 ], [ %178, %194 ], [ %178, %190 ], [ %178, %188 ], [ %178, %184 ], [ %178, %180 ], [ null, %177 ]
+  call void @kfree(ptr noundef %244) #19
+  br label %245
+
+245:                                              ; preds = %241, %243, %175
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #19
-  br label %246
+  %246 = getelementptr inbounds i8, ptr %11, i64 616
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %246, ptr noundef nonnull @.str.90) #20
+  br label %284
 
-244:                                              ; preds = %._crit_edge, %213, %199, %194, %190, %188, %184, %180, %177
-  %245 = phi ptr [ %.pre14, %._crit_edge ], [ %178, %213 ], [ %178, %199 ], [ %178, %194 ], [ %178, %190 ], [ %178, %188 ], [ %178, %184 ], [ %178, %180 ], [ null, %177 ]
-  call void @kfree(ptr noundef %245) #19
+247:                                              ; preds = %226, %.thread
+  %248 = load ptr, ptr %170, align 8
+  call void @kfree(ptr noundef %248) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #19
-  br label %246
+  %249 = getelementptr inbounds i8, ptr %11, i64 456
+  %250 = load i8, ptr %249, align 8
+  %251 = and i8 %250, -3
+  store i8 %251, ptr %249, align 8
+  %252 = call ptr @acpi_match_acpi_device(ptr noundef nonnull @acpi_wakeup_gpe_init.button_device_ids, ptr noundef %11) #19
+  %253 = icmp eq ptr %252, null
+  br i1 %253, label %269, label %254
 
-246:                                              ; preds = %242, %244, %175
-  %247 = getelementptr inbounds i8, ptr %11, i64 616
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %247, ptr noundef nonnull @.str.90) #20
-  br label %286
+254:                                              ; preds = %247
+  %255 = getelementptr inbounds i8, ptr %252, i64 16
+  %256 = load i64, ptr %255, align 8
+  %257 = and i64 %256, 1
+  %258 = icmp eq i64 %257, 0
+  br i1 %258, label %263, label %259
 
-248:                                              ; preds = %226
-  %249 = load ptr, ptr %170, align 8
-  call void @kfree(ptr noundef %249) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #19
-  br label %250
+259:                                              ; preds = %254
+  %260 = load i64, ptr %223, align 8
+  %261 = icmp eq i64 %260, 5
+  br i1 %261, label %262, label %263
 
-250:                                              ; preds = %.thread, %248
-  %251 = getelementptr inbounds i8, ptr %11, i64 456
-  %252 = load i8, ptr %251, align 8
-  %253 = and i8 %252, -3
-  store i8 %253, ptr %251, align 8
-  %254 = call ptr @acpi_match_acpi_device(ptr noundef nonnull @acpi_wakeup_gpe_init.button_device_ids, ptr noundef %11) #19
-  %255 = icmp eq ptr %254, null
-  br i1 %255, label %271, label %256
-
-256:                                              ; preds = %250
-  %257 = getelementptr inbounds i8, ptr %254, i64 16
-  %258 = load i64, ptr %257, align 8
-  %259 = and i64 %258, 1
-  %260 = icmp eq i64 %259, 0
-  br i1 %260, label %265, label %261
-
-261:                                              ; preds = %256
-  %262 = load i64, ptr %223, align 8
-  %263 = icmp eq i64 %262, 5
-  br i1 %263, label %264, label %265
-
-264:                                              ; preds = %261
+262:                                              ; preds = %259
   store i64 4, ptr %223, align 8
-  br label %265
+  br label %263
 
-265:                                              ; preds = %264, %261, %256
-  %266 = load ptr, ptr %169, align 8
-  %267 = load i64, ptr %215, align 8
-  %268 = trunc i64 %267 to i32
-  %269 = call i32 @acpi_mark_gpe_for_wake(ptr noundef %266, i32 noundef %268) #19
-  %270 = getelementptr inbounds i8, ptr %11, i64 616
-  call void @device_set_wakeup_capable(ptr noundef %270, i1 noundef zeroext true) #19
-  br label %279
+263:                                              ; preds = %262, %259, %254
+  %264 = load ptr, ptr %169, align 8
+  %265 = load i64, ptr %215, align 8
+  %266 = trunc i64 %265 to i32
+  %267 = call i32 @acpi_mark_gpe_for_wake(ptr noundef %264, i32 noundef %266) #19
+  %268 = getelementptr inbounds i8, ptr %11, i64 616
+  call void @device_set_wakeup_capable(ptr noundef %268, i1 noundef zeroext true) #19
+  br label %277
 
-271:                                              ; preds = %250
-  %272 = load ptr, ptr %49, align 8
-  %273 = load ptr, ptr %169, align 8
-  %274 = load i64, ptr %215, align 8
-  %275 = trunc i64 %274 to i32
-  %276 = call i32 @acpi_setup_gpe_for_wake(ptr noundef %272, ptr noundef %273, i32 noundef %275) #19
-  %277 = icmp eq i32 %276, 0
-  %278 = zext i1 %277 to i8
-  br label %279
+269:                                              ; preds = %247
+  %270 = load ptr, ptr %49, align 8
+  %271 = load ptr, ptr %169, align 8
+  %272 = load i64, ptr %215, align 8
+  %273 = trunc i64 %272 to i32
+  %274 = call i32 @acpi_setup_gpe_for_wake(ptr noundef %270, ptr noundef %271, i32 noundef %273) #19
+  %275 = icmp eq i32 %274, 0
+  %276 = zext i1 %275 to i8
+  br label %277
 
-279:                                              ; preds = %271, %265
-  %280 = phi i8 [ 1, %265 ], [ %278, %271 ]
-  %281 = load i8, ptr %251, align 8
-  %282 = and i8 %281, -2
-  %283 = or disjoint i8 %282, %280
-  store i8 %283, ptr %251, align 8
-  %284 = getelementptr inbounds i8, ptr %11, i64 488
-  store i32 0, ptr %284, align 8
-  %285 = call i32 @acpi_device_sleep_wake(ptr noundef %11, i32 noundef 0, i32 noundef 0, i32 noundef 0) #19
-  br label %286
+277:                                              ; preds = %269, %263
+  %278 = phi i8 [ 1, %263 ], [ %276, %269 ]
+  %279 = load i8, ptr %249, align 8
+  %280 = and i8 %279, -2
+  %281 = or disjoint i8 %280, %278
+  store i8 %281, ptr %249, align 8
+  %282 = getelementptr inbounds i8, ptr %11, i64 488
+  store i32 0, ptr %282, align 8
+  %283 = call i32 @acpi_device_sleep_wake(ptr noundef %11, i32 noundef 0, i32 noundef 0, i32 noundef 0) #19
+  br label %284
 
-286:                                              ; preds = %279, %246, %164
-  %287 = load ptr, ptr %49, align 8
-  %288 = icmp eq ptr %287, null
-  br i1 %288, label %293, label %289
+284:                                              ; preds = %277, %245, %164
+  %285 = load ptr, ptr %49, align 8
+  %286 = icmp eq ptr %285, null
+  br i1 %286, label %291, label %287
 
-289:                                              ; preds = %286
-  %290 = call i32 @acpi_attach_data(ptr noundef nonnull %287, ptr noundef nonnull @acpi_scan_drop_device, ptr noundef %11) #19
-  %291 = icmp eq i32 %290, 0
-  br i1 %291, label %293, label %292
+287:                                              ; preds = %284
+  %288 = call i32 @acpi_attach_data(ptr noundef nonnull %285, ptr noundef nonnull @acpi_scan_drop_device, ptr noundef %11) #19
+  %289 = icmp eq i32 %288, 0
+  br i1 %289, label %291, label %290
 
-292:                                              ; preds = %289
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.1, ptr noundef nonnull %287, ptr noundef nonnull @.str.2) #19
-  br label %293
+290:                                              ; preds = %287
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.1, ptr noundef nonnull %285, ptr noundef nonnull @.str.2) #19
+  br label %291
 
-293:                                              ; preds = %292, %289, %286
-  %294 = phi i1 [ false, %292 ], [ true, %286 ], [ true, %289 ]
-  %295 = phi i32 [ -19, %292 ], [ 0, %286 ], [ 0, %289 ]
-  br i1 %48, label %296, label %297
+291:                                              ; preds = %290, %287, %284
+  %292 = phi i1 [ false, %290 ], [ true, %284 ], [ true, %287 ]
+  %293 = phi i32 [ -19, %290 ], [ 0, %284 ], [ 0, %287 ]
+  br i1 %48, label %294, label %295
 
-296:                                              ; preds = %293
+294:                                              ; preds = %291
   call void @mutex_unlock(ptr noundef nonnull @acpi_dep_list_lock) #19
-  br label %297
+  br label %295
 
-297:                                              ; preds = %296, %293
-  br i1 %294, label %298, label %300
+295:                                              ; preds = %294, %291
+  br i1 %292, label %296, label %298
 
-298:                                              ; preds = %297
-  %299 = call i32 @acpi_device_add(ptr noundef nonnull %11)
-  br label %300
+296:                                              ; preds = %295
+  %297 = call i32 @acpi_device_add(ptr noundef nonnull %11)
+  br label %298
 
-300:                                              ; preds = %298, %297
-  %301 = phi i32 [ %295, %297 ], [ %299, %298 ]
-  %302 = icmp eq i32 %301, 0
-  br i1 %302, label %305, label %303
+298:                                              ; preds = %296, %295
+  %299 = phi i32 [ %293, %295 ], [ %297, %296 ]
+  %300 = icmp eq i32 %299, 0
+  br i1 %300, label %303, label %301
 
-303:                                              ; preds = %300
-  %304 = getelementptr inbounds i8, ptr %11, i64 616
-  call void @acpi_device_release(ptr noundef %304)
-  br label %311
+301:                                              ; preds = %298
+  %302 = getelementptr inbounds i8, ptr %11, i64 616
+  call void @acpi_device_release(ptr noundef %302)
+  br label %309
 
-305:                                              ; preds = %300
+303:                                              ; preds = %298
   call void @acpi_power_add_remove_device(ptr noundef nonnull %11, i1 noundef zeroext true) #19
-  %306 = getelementptr inbounds i8, ptr %11, i64 616
-  %307 = getelementptr inbounds i8, ptr %11, i64 676
-  %308 = load i8, ptr %307, align 4
-  %309 = and i8 %308, -17
-  store i8 %309, ptr %307, align 4
-  %310 = call i32 @kobject_uevent(ptr noundef %306, i32 noundef 0) #19
+  %304 = getelementptr inbounds i8, ptr %11, i64 616
+  %305 = getelementptr inbounds i8, ptr %11, i64 676
+  %306 = load i8, ptr %305, align 4
+  %307 = and i8 %306, -17
+  store i8 %307, ptr %305, align 4
+  %308 = call i32 @kobject_uevent(ptr noundef %304, i32 noundef 0) #19
   store ptr %11, ptr %0, align 8
-  br label %311
+  br label %309
 
-311:                                              ; preds = %305, %303, %4
-  %312 = phi i32 [ %301, %303 ], [ 0, %305 ], [ -12, %4 ]
-  ret i32 %312
+309:                                              ; preds = %303, %301, %4
+  %310 = phi i32 [ %299, %301 ], [ 0, %303 ], [ -12, %4 ]
+  ret i32 %310
 }
 
 ; Function Attrs: null_pointer_is_valid

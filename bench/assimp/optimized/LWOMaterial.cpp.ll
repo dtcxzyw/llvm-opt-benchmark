@@ -313,25 +313,21 @@ if.then18:                                        ; preds = %if.end, %sw.bb10, %
   %majorAxis = getelementptr inbounds i8, ptr %__begin1.sroa.0.0113, i64 116
   %4 = load i32, ptr %majorAxis, align 4
   switch i32 %4, label %sw.default22 [
-    i32 0, label %sw.bb19
+    i32 0, label %sw.epilog24
     i32 1, label %sw.bb20
   ]
 
-sw.bb19:                                          ; preds = %if.then18
-  store float 1.000000e+00, ptr %v, align 4
-  br label %sw.epilog24
-
 sw.bb20:                                          ; preds = %if.then18
-  store float 0.000000e+00, ptr %v, align 4
   br label %sw.epilog24
 
 sw.default22:                                     ; preds = %if.then18
-  store float 0.000000e+00, ptr %v, align 4
   br label %sw.epilog24
 
-sw.epilog24:                                      ; preds = %sw.default22, %sw.bb20, %sw.bb19
-  %.sink117 = phi float [ 0.000000e+00, %sw.default22 ], [ 1.000000e+00, %sw.bb20 ], [ 0.000000e+00, %sw.bb19 ]
-  %.sink = phi float [ 1.000000e+00, %sw.default22 ], [ 0.000000e+00, %sw.bb20 ], [ 0.000000e+00, %sw.bb19 ]
+sw.epilog24:                                      ; preds = %if.then18, %sw.default22, %sw.bb20
+  %.sink118 = phi float [ 0.000000e+00, %sw.default22 ], [ 0.000000e+00, %sw.bb20 ], [ 1.000000e+00, %if.then18 ]
+  %.sink117 = phi float [ 0.000000e+00, %sw.default22 ], [ 1.000000e+00, %sw.bb20 ], [ 0.000000e+00, %if.then18 ]
+  %.sink = phi float [ 1.000000e+00, %sw.default22 ], [ 0.000000e+00, %sw.bb20 ], [ 0.000000e+00, %if.then18 ]
+  store float %.sink118, ptr %v, align 4
   store float %.sink117, ptr %y.i, align 4
   store float %.sink, ptr %z.i, align 4
   %call3.i = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %pcMat, ptr noundef nonnull %v, i32 noundef 12, ptr noundef nonnull @.str.2, i32 noundef %type, i32 noundef %cur.0112, i32 noundef 1)
@@ -681,38 +677,24 @@ lor.lhs.false:                                    ; preds = %if.then
 if.then9:                                         ; preds = %lor.lhs.false, %if.then
   %6 = call float @llvm.fmuladd.f32(float %3, float 1.000000e+01, float 2.000000e+00)
   %square = fmul float %6, %6
-  store float %square, ptr %fGloss, align 4
   br label %if.end27
 
 if.else:                                          ; preds = %lor.lhs.false
   %cmp = fcmp ugt float %3, 1.600000e+01
-  br i1 %cmp, label %if.else14, label %if.then13
-
-if.then13:                                        ; preds = %if.else
-  store float 6.000000e+00, ptr %fGloss, align 4
-  br label %if.end27
+  br i1 %cmp, label %if.else14, label %if.end27
 
 if.else14:                                        ; preds = %if.else
   %cmp17 = fcmp ugt float %3, 6.400000e+01
-  br i1 %cmp17, label %if.else19, label %if.then18
-
-if.then18:                                        ; preds = %if.else14
-  store float 2.000000e+01, ptr %fGloss, align 4
-  br label %if.end27
+  br i1 %cmp17, label %if.else19, label %if.end27
 
 if.else19:                                        ; preds = %if.else14
   %cmp22 = fcmp ugt float %3, 2.560000e+02
-  br i1 %cmp22, label %if.else24, label %if.then23
-
-if.then23:                                        ; preds = %if.else19
-  store float 5.000000e+01, ptr %fGloss, align 4
+  %. = select i1 %cmp22, float 8.000000e+01, float 5.000000e+01
   br label %if.end27
 
-if.else24:                                        ; preds = %if.else19
-  store float 8.000000e+01, ptr %fGloss, align 4
-  br label %if.end27
-
-if.end27:                                         ; preds = %if.then13, %if.then23, %if.else24, %if.then18, %if.then9
+if.end27:                                         ; preds = %if.else19, %if.else14, %if.else, %if.then9
+  %.sink = phi float [ %square, %if.then9 ], [ 6.000000e+00, %if.else ], [ 2.000000e+01, %if.else14 ], [ %., %if.else19 ]
+  store float %.sink, ptr %fGloss, align 4
   %call.i64 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %pcMat, ptr noundef nonnull %mSpecularValue, i32 noundef 4, ptr noundef nonnull @.str.21, i32 noundef 0, i32 noundef 0, i32 noundef 1)
   %call.i65 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %pcMat, ptr noundef nonnull %fGloss, i32 noundef 4, ptr noundef nonnull @.str.22, i32 noundef 0, i32 noundef 0, i32 noundef 1)
   br label %if.end32

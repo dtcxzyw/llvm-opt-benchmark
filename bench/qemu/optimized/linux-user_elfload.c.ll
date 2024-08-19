@@ -237,70 +237,70 @@ if.end.i17:                                       ; preds = %if.else14
 if.end3.i.i21:                                    ; preds = %if.end.i17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ga.i14, i8 0, i64 56, i1 false)
   %18 = or i64 %1, %guest_loaddr
-  %brmerge.not = icmp eq i64 %18, 0
-  br i1 %brmerge.not, label %if.then1.i, label %if.then1.sink.split.i
+  %brmerge.not.i = icmp eq i64 %18, 0
+  br i1 %brmerge.not.i, label %if.then1.i, label %if.then1.sink.split.i
 
 if.then1.sink.split.i:                            ; preds = %if.end3.i.i21
-  %tobool4.not.i.i22.not = icmp eq i64 %1, 0
-  %.mux57 = select i1 %tobool4.not.i.i22.not, i64 %guest_hiaddr, i64 %1
-  %.mux = select i1 %tobool4.not.i.i22.not, i64 %guest_loaddr, i64 %17
-  store i64 %.mux, ptr %ga.i14, align 8
-  %arrayidx11.i.i24 = getelementptr inbounds i8, ptr %ga.i14, i64 8
-  store i64 %.mux57, ptr %arrayidx11.i.i24, align 8
+  %tobool4.not.i.not.i = icmp eq i64 %1, 0
+  %.pre101.mux.i = select i1 %tobool4.not.i.not.i, i64 %guest_hiaddr, i64 %1
+  %.mux.i = select i1 %tobool4.not.i.not.i, i64 %guest_loaddr, i64 %17
+  store i64 %.mux.i, ptr %ga.i14, align 8
+  %arrayidx11.i.i22 = getelementptr inbounds i8, ptr %ga.i14, i64 8
+  store i64 %.pre101.mux.i, ptr %arrayidx11.i.i22, align 8
   br label %if.then1.i
 
-if.then1.i:                                       ; preds = %if.end3.i.i21, %if.then1.sink.split.i
-  %n.0.i.i25 = phi i32 [ 1, %if.then1.sink.split.i ], [ 0, %if.end3.i.i21 ]
-  %nbounds.i.i26 = getelementptr inbounds i8, ptr %ga.i14, i64 48
-  store i32 %n.0.i.i25, ptr %nbounds.i.i26, align 8
+if.then1.i:                                       ; preds = %if.then1.sink.split.i, %if.end3.i.i21
+  %n.0.i.i23 = phi i32 [ 1, %if.then1.sink.split.i ], [ 0, %if.end3.i.i21 ]
+  %nbounds.i.i24 = getelementptr inbounds i8, ptr %ga.i14, i64 48
+  store i32 %n.0.i.i23, ptr %nbounds.i.i24, align 8
   %call2.i = tail call ptr @sbrk(i64 noundef 0) #20
   %19 = ptrtoint ptr %call2.i to i64
-  %sub.i.i.i27 = add i64 %19, 16777215
-  %20 = zext nneg i32 %n.0.i.i25 to i64
-  br label %for.cond.i.i28
+  %sub.i.i.i25 = add i64 %19, 16777215
+  %20 = zext nneg i32 %n.0.i.i23 to i64
+  br label %for.cond.i.i26
 
-for.cond.i.i28:                                   ; preds = %pgb_try_mmap_skip_brk.exit.i.i53, %if.then1.i
-  %indvars.iv.i.i29 = phi i64 [ %indvars.iv.next.i.i30, %pgb_try_mmap_skip_brk.exit.i.i53 ], [ %20, %if.then1.i ]
-  %indvars.iv.next.i.i30 = add nsw i64 %indvars.iv.i.i29, -1
-  %21 = icmp slt i64 %indvars.iv.i.i29, 1
-  br i1 %21, label %pgb_dynamic.exit, label %for.body.i.i31
+for.cond.i.i26:                                   ; preds = %pgb_try_mmap_skip_brk.exit.i.i51, %if.then1.i
+  %indvars.iv.i.i27 = phi i64 [ %indvars.iv.next.i.i28, %pgb_try_mmap_skip_brk.exit.i.i51 ], [ %20, %if.then1.i ]
+  %indvars.iv.next.i.i28 = add nsw i64 %indvars.iv.i.i27, -1
+  %21 = icmp slt i64 %indvars.iv.i.i27, 1
+  br i1 %21, label %pgb_dynamic.exit, label %for.body.i.i29
 
-for.body.i.i31:                                   ; preds = %for.cond.i.i28
-  %idxprom.i.i32 = and i64 %indvars.iv.next.i.i30, 2147483647
-  %arrayidx.i.i33 = getelementptr [3 x [2 x i64]], ptr %ga.i14, i64 0, i64 %idxprom.i.i32
-  %22 = load i64, ptr %arrayidx.i.i33, align 8
-  %arrayidx5.i.i34 = getelementptr i8, ptr %arrayidx.i.i33, i64 8
-  %23 = load i64, ptr %arrayidx5.i.i34, align 8
-  %24 = icmp eq i64 %indvars.iv.next.i.i30, 0
+for.body.i.i29:                                   ; preds = %for.cond.i.i26
+  %idxprom.i.i30 = and i64 %indvars.iv.next.i.i28, 2147483647
+  %arrayidx.i.i31 = getelementptr [3 x [2 x i64]], ptr %ga.i14, i64 0, i64 %idxprom.i.i30
+  %22 = load i64, ptr %arrayidx.i.i31, align 8
+  %arrayidx5.i.i32 = getelementptr i8, ptr %arrayidx.i.i31, i64 8
+  %23 = load i64, ptr %arrayidx5.i.i32, align 8
+  %24 = icmp eq i64 %indvars.iv.next.i.i28, 0
   %25 = load i64, ptr @reserved_va, align 8
-  %tobool.i.i35 = icmp ne i64 %25, 0
-  %26 = select i1 %24, i1 %tobool.i.i35, i1 false
-  %cmp.not.i.i.i36 = icmp ult i64 %sub.i.i.i27, %22
-  %cmp1.not.i.i.i37 = icmp ult i64 %23, %19
-  %or.cond.i.i.i38 = or i1 %cmp.not.i.i.i36, %cmp1.not.i.i.i37
-  br i1 %or.cond.i.i.i38, label %if.end.i.i.i43, label %if.end6.loopexit.i
+  %tobool.i.i33 = icmp ne i64 %25, 0
+  %26 = select i1 %24, i1 %tobool.i.i33, i1 false
+  %cmp.not.i.i.i34 = icmp ult i64 %sub.i.i.i25, %22
+  %cmp1.not.i.i.i35 = icmp ult i64 %23, %19
+  %or.cond.i.i.i36 = or i1 %cmp.not.i.i.i34, %cmp1.not.i.i.i35
+  br i1 %or.cond.i.i.i36, label %if.end.i.i.i41, label %if.end6.loopexit.i
 
-if.end.i.i.i43:                                   ; preds = %for.body.i.i31
-  %sub.i.i.i.i44 = sub i64 %23, %22
-  %add.i.i.i.i45 = add i64 %sub.i.i.i.i44, 1
+if.end.i.i.i41:                                   ; preds = %for.body.i.i29
+  %sub.i.i.i.i42 = sub i64 %23, %22
+  %add.i.i.i.i43 = add i64 %sub.i.i.i.i42, 1
   %27 = inttoptr i64 %22 to ptr
-  %call.i.i.i.i46 = tail call ptr @mmap64(ptr noundef %27, i64 noundef %add.i.i.i.i45, i32 noundef 0, i32 noundef 1064994, i32 noundef -1, i64 noundef 0) #20
-  %cmp.i.i.i.i47 = icmp eq ptr %call.i.i.i.i46, inttoptr (i64 -1 to ptr)
-  br i1 %cmp.i.i.i.i47, label %if.end6.loopexit.i, label %if.end.i.i.i.i48
+  %call.i.i.i.i44 = tail call ptr @mmap64(ptr noundef %27, i64 noundef %add.i.i.i.i43, i32 noundef 0, i32 noundef 1064994, i32 noundef -1, i64 noundef 0) #20
+  %cmp.i.i.i.i45 = icmp eq ptr %call.i.i.i.i44, inttoptr (i64 -1 to ptr)
+  br i1 %cmp.i.i.i.i45, label %if.end6.loopexit.i, label %if.end.i.i.i.i46
 
-if.end.i.i.i.i48:                                 ; preds = %if.end.i.i.i43
-  %cmp3.i.i.i.i49 = icmp eq ptr %call.i.i.i.i46, %27
-  %or.cond.i.i.i.i50 = and i1 %26, %cmp3.i.i.i.i49
-  br i1 %or.cond.i.i.i.i50, label %pgb_try_mmap_skip_brk.exit.i.i53, label %if.then5.i.i.i.i51
+if.end.i.i.i.i46:                                 ; preds = %if.end.i.i.i41
+  %cmp3.i.i.i.i47 = icmp eq ptr %call.i.i.i.i44, %27
+  %or.cond.i.i.i.i48 = and i1 %26, %cmp3.i.i.i.i47
+  br i1 %or.cond.i.i.i.i48, label %pgb_try_mmap_skip_brk.exit.i.i51, label %if.then5.i.i.i.i49
 
-if.then5.i.i.i.i51:                               ; preds = %if.end.i.i.i.i48
-  %call6.i.i.i.i52 = tail call i32 @munmap(ptr noundef %call.i.i.i.i46, i64 noundef %add.i.i.i.i45) #20
-  br label %pgb_try_mmap_skip_brk.exit.i.i53
+if.then5.i.i.i.i49:                               ; preds = %if.end.i.i.i.i46
+  %call6.i.i.i.i50 = tail call i32 @munmap(ptr noundef %call.i.i.i.i44, i64 noundef %add.i.i.i.i43) #20
+  br label %pgb_try_mmap_skip_brk.exit.i.i51
 
-pgb_try_mmap_skip_brk.exit.i.i53:                 ; preds = %if.then5.i.i.i.i51, %if.end.i.i.i.i48
-  br i1 %cmp3.i.i.i.i49, label %for.cond.i.i28, label %if.end6.loopexit.i, !llvm.loop !5
+pgb_try_mmap_skip_brk.exit.i.i51:                 ; preds = %if.then5.i.i.i.i49, %if.end.i.i.i.i46
+  br i1 %cmp3.i.i.i.i47, label %for.cond.i.i26, label %if.end6.loopexit.i, !llvm.loop !5
 
-if.end6.loopexit.i:                               ; preds = %pgb_try_mmap_skip_brk.exit.i.i53, %if.end.i.i.i43, %for.body.i.i31
+if.end6.loopexit.i:                               ; preds = %pgb_try_mmap_skip_brk.exit.i.i51, %if.end.i.i.i41, %for.body.i.i29
   %.pre.i = load i64, ptr @reserved_va, align 8
   br label %if.end6.i
 
@@ -308,20 +308,20 @@ if.end6.i:                                        ; preds = %if.end6.loopexit.i,
   %28 = phi i64 [ %.pre.i, %if.end6.loopexit.i ], [ %1, %if.end.i17 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ga.i14, i8 0, i64 56, i1 false)
   %tobool4.not.i26.i = icmp eq i64 %28, 0
-  %arrayidx21.i.i39 = getelementptr inbounds i8, ptr %ga.i14, i64 8
+  %arrayidx21.i.i37 = getelementptr inbounds i8, ptr %ga.i14, i64 8
   br i1 %tobool4.not.i26.i, label %if.else.i33.i, label %if.then5.i27.i
 
 if.then5.i27.i:                                   ; preds = %if.end6.i
-  store i64 %28, ptr %arrayidx21.i.i39, align 8
+  store i64 %28, ptr %arrayidx21.i.i37, align 8
   br label %pgb_addr_set.exit36.i
 
 if.else.i33.i:                                    ; preds = %if.end6.i
-  store i64 4095, ptr %arrayidx21.i.i39, align 8
+  store i64 4095, ptr %arrayidx21.i.i37, align 8
   br i1 %cmp.i.i18, label %if.then25.i34.i, label %pgb_addr_set.exit36.i
 
 if.then25.i34.i:                                  ; preds = %if.else.i33.i
-  %arrayidx28.i.i42 = getelementptr inbounds i8, ptr %ga.i14, i64 16
-  store i64 %guest_loaddr, ptr %arrayidx28.i.i42, align 8
+  %arrayidx28.i.i40 = getelementptr inbounds i8, ptr %ga.i14, i64 16
+  store i64 %guest_loaddr, ptr %arrayidx28.i.i40, align 8
   %arrayidx33.i35.i = getelementptr inbounds i8, ptr %ga.i14, i64 24
   store i64 %guest_hiaddr, ptr %arrayidx33.i35.i, align 8
   br label %pgb_addr_set.exit36.i
@@ -333,11 +333,11 @@ pgb_addr_set.exit36.i:                            ; preds = %if.then25.i34.i, %i
   %call8.i = tail call ptr @read_self_maps() #20
   %call9.i = tail call ptr @sbrk(i64 noundef 0) #20
   %29 = ptrtoint ptr %call9.i to i64
-  %tobool.not.i40 = icmp eq ptr %call8.i, null
-  br i1 %tobool.not.i40, label %if.then10.i, label %if.else12.i
+  %tobool.not.i38 = icmp eq ptr %call8.i, null
+  br i1 %tobool.not.i38, label %if.then10.i, label %if.else12.i
 
 if.then10.i:                                      ; preds = %pgb_addr_set.exit36.i
-  %add.i.i41 = add i64 %conv., -1
+  %add.i.i39 = add i64 %conv., -1
   %sub1.i.i = sub i64 0, %conv.
   %sub.i.i.i37.i = add i64 %29, 16777215
   %30 = zext nneg i32 %n.0.i30.i to i64
@@ -345,7 +345,7 @@ if.then10.i:                                      ; preds = %pgb_addr_set.exit36
 
 for.cond.i38.i:                                   ; preds = %for.inc.i.i, %if.then10.i
   %base.0.i.i = phi i64 [ 1073741824, %if.then10.i ], [ %add5.i.i, %for.inc.i.i ]
-  %sub.i.i = add i64 %add.i.i41, %base.0.i.i
+  %sub.i.i = add i64 %add.i.i39, %base.0.i.i
   %and.i.i = and i64 %sub.i.i, %sub1.i.i
   br label %for.cond.i.i.i
 
@@ -546,8 +546,8 @@ for.end.i:                                        ; preds = %for.body.i
   tail call void @exit(i32 noundef 1) #21
   unreachable
 
-pgb_dynamic.exit:                                 ; preds = %for.cond.i.i28, %if.end15.i
-  %storemerge.i = phi i64 [ %ret.0.i, %if.end15.i ], [ 0, %for.cond.i.i28 ]
+pgb_dynamic.exit:                                 ; preds = %for.cond.i.i26, %if.end15.i
+  %storemerge.i = phi i64 [ %ret.0.i, %if.end15.i ], [ 0, %for.cond.i.i26 ]
   store i64 %storemerge.i, ptr @guest_base, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ga.i14)
   br label %if.end15
@@ -565,8 +565,8 @@ if.else19:                                        ; preds = %if.end15
 do.body:                                          ; preds = %if.end15
   %55 = load i32, ptr @qemu_loglevel, align 4
   %and.i = and i32 %55, 16384
-  %cmp.i56.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i56.not, label %do.end, label %if.then25
+  %cmp.i52.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i52.not, label %do.end, label %if.then25
 
 if.then25:                                        ; preds = %do.body
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i64 noundef %54) #20

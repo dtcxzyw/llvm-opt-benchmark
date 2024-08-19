@@ -635,7 +635,6 @@ define hidden noundef zeroext i1 @_ZN8uu_split6number16FixedWidthNumber9incremen
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h1007a174d87f2f34E.exit": ; preds = %20, %23, %27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !83
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %38
 
 29:                                               ; preds = %"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$14spec_next_back17h52e22c8550e58142E.exit.thread"
@@ -659,10 +658,10 @@ define hidden noundef zeroext i1 @_ZN8uu_split6number16FixedWidthNumber9incremen
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h1007a174d87f2f34E.exit24": ; preds = %29, %32, %36
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1), !noalias !90
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %38
 
 38:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h1007a174d87f2f34E.exit24", %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h1007a174d87f2f34E.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   ret i1 %19
 
 39:                                               ; preds = %8

@@ -2262,36 +2262,29 @@ define internal fastcc noundef zeroext i1 @_ZL21append_to_string_flagP7JVMFlagPK
   %16 = icmp eq i64 %14, 0
   br i1 %16, label %.thread, label %17
 
-.thread:                                          ; preds = %10, %13
-  store ptr %1, ptr %4, align 8
-  br label %25
-
 17:                                               ; preds = %13
   %18 = icmp eq i64 %15, 0
-  br i1 %18, label %19, label %20
+  br i1 %18, label %.thread, label %19
 
 19:                                               ; preds = %17
-  store ptr %12, ptr %4, align 8
-  br label %25
+  %20 = add i64 %14, 2
+  %21 = add i64 %20, %15
+  %22 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %21, i8 noundef zeroext 19, i32 noundef 0) #31
+  %23 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %22, i64 noundef %21, ptr noundef nonnull @.str.316, ptr noundef nonnull %12, ptr noundef %1) #31
+  br label %.thread
 
-20:                                               ; preds = %17
-  %21 = add i64 %14, 2
-  %22 = add i64 %21, %15
-  %23 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %22, i8 noundef zeroext 19, i32 noundef 0) #31
-  %24 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %23, i64 noundef %22, ptr noundef nonnull @.str.316, ptr noundef nonnull %12, ptr noundef %1) #31
-  store ptr %23, ptr %4, align 8
-  br label %25
-
-25:                                               ; preds = %19, %20, %.thread
-  %.016 = phi ptr [ null, %.thread ], [ null, %19 ], [ %23, %20 ]
-  %26 = call noundef i32 @_ZN13JVMFlagAccess9set_ccstrEP7JVMFlagPPKc13JVMFlagOrigin(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef %2) #31
-  %27 = load ptr, ptr %4, align 8
-  call void @_Z8FreeHeapPv(ptr noundef %27) #31
+.thread:                                          ; preds = %17, %13, %10, %19
+  %.sink = phi ptr [ %22, %19 ], [ %1, %10 ], [ %1, %13 ], [ %12, %17 ]
+  %.016 = phi ptr [ %22, %19 ], [ null, %10 ], [ null, %13 ], [ null, %17 ]
+  store ptr %.sink, ptr %4, align 8
+  %24 = call noundef i32 @_ZN13JVMFlagAccess9set_ccstrEP7JVMFlagPPKc13JVMFlagOrigin(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef %2) #31
+  %25 = load ptr, ptr %4, align 8
+  call void @_Z8FreeHeapPv(ptr noundef %25) #31
   call void @_Z8FreeHeapPv(ptr noundef %.016) #31
   br label %_ZN13JVMFlagAccess9get_ccstrEPK7JVMFlagPPKc.exit.thread
 
-_ZN13JVMFlagAccess9get_ccstrEPK7JVMFlagPPKc.exit.thread: ; preds = %6, %3, %25
-  %.not26 = phi i1 [ true, %25 ], [ false, %3 ], [ false, %6 ]
+_ZN13JVMFlagAccess9get_ccstrEPK7JVMFlagPPKc.exit.thread: ; preds = %6, %3, %.thread
+  %.not26 = phi i1 [ true, %.thread ], [ false, %3 ], [ false, %6 ]
   ret i1 %.not26
 }
 

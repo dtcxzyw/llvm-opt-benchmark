@@ -1544,7 +1544,6 @@ define hidden void @"_ZN114_$LT$tungstenite..handshake..client..ClientHandshake$
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.6.0..sroa_idx2, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.6, i64 104, i1 false)
   %.sroa.7.0..sroa_idx3 = getelementptr inbounds i8, ptr %0, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %.sroa.7.0..sroa_idx3, ptr noundef nonnull align 8 dereferenceable(328) %.sroa.5, i64 328, i1 false)
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %.sroa.6)
   br label %111
 
 58:                                               ; preds = %.thread49, %112, %88, %73, %.body
@@ -1647,7 +1646,6 @@ define hidden void @"_ZN114_$LT$tungstenite..handshake..client..ClientHandshake$
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   call void @"_ZN4core3ptr147drop_in_place$LT$tokio_tungstenite..compat..AllowStd$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$17h7fe7d2c6612c46f5E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %17)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %.sroa.6)
   br label %111
 
 97:                                               ; preds = %34
@@ -1691,6 +1689,7 @@ define hidden void @"_ZN114_$LT$tungstenite..handshake..client..ClientHandshake$
   br label %.thread49
 
 111:                                              ; preds = %96, %57
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %.sroa.6)
   ret void
 
 112:                                              ; preds = %27
@@ -9429,7 +9428,6 @@ define hidden { i64, ptr } @"_ZN5serde2de5impls86_$LT$impl$u20$serde..de..Deseri
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8, !noalias !1369, !nonnull !4, !align !5, !noundef !4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !1369
   br label %"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17hcbd46adad88e5a07E.exit"
 
 9:                                                ; preds = %5
@@ -9445,12 +9443,12 @@ define hidden { i64, ptr } @"_ZN5serde2de5impls86_$LT$impl$u20$serde..de..Deseri
   %.pn.i.i = phi { i64, ptr } [ %12, %9 ], [ zeroinitializer, %5 ]
   %.sroa.0.1.i.i = extractvalue { i64, ptr } %.pn.i.i, 0
   %.sroa.4.1.i.i = extractvalue { i64, ptr } %.pn.i.i, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !1369
   br label %"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17hcbd46adad88e5a07E.exit"
 
 "_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17hcbd46adad88e5a07E.exit": ; preds = %6, %._crit_edge.i.i
   %.sroa.4.0.i.i = phi ptr [ %8, %6 ], [ %.sroa.4.1.i.i, %._crit_edge.i.i ]
   %.sroa.0.0.i.i = phi i64 [ 1, %6 ], [ %.sroa.0.1.i.i, %._crit_edge.i.i ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !1369
   %15 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i.i, 0
   %16 = insertvalue { i64, ptr } %15, ptr %.sroa.4.0.i.i, 1
   ret { i64, ptr } %16

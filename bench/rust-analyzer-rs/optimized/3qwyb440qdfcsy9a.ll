@@ -4447,11 +4447,11 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i.i.i: ; preds = %921, %"_ZN10
 
 966:                                              ; preds = %964, %961, %.noexc20.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %75), !noalias !634
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %80), !noalias !571
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.8.i677)
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %997, %966
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %80), !noalias !571
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.8.i677)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %.sroa.8.i677)
   %967 = load ptr, ptr %.sroa.6.0..sroa_idx.i680, align 8, !alias.scope !643, !noalias !578, !nonnull !5, !noundef !5
   %968 = load ptr, ptr %.sroa.4.0..sroa_idx27.i, align 8, !alias.scope !643, !noalias !578, !nonnull !5, !noundef !5
@@ -4518,8 +4518,6 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i.i.i: ; preds = %921, %"_ZN10
 
 997:                                              ; preds = %995, %992, %.noexc24.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %74), !noalias !655
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %80), !noalias !571
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.8.i677)
   br label %.backedge.i
 
 998:                                              ; preds = %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h05083c04b88f03eaE.exit.i.i.i", %_ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit.i.i.i
@@ -6067,7 +6065,7 @@ select.unfold.cont:                               ; preds = %select.unfold.invok
   %1431 = zext i1 %.not.i.i.i to i8
   br label %.thread152.i
 
-.thread152.i:                                     ; preds = %"_ZN4core3ptr141drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$alloc..string..String$C$core..option..Option$LT$alloc..string..String$GT$$RP$$GT$$GT$17h8cb82ce7c7d41e1aE.exit68.i", %1430
+.thread152.i:                                     ; preds = %1430, %"_ZN4core3ptr141drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$alloc..string..String$C$core..option..Option$LT$alloc..string..String$GT$$RP$$GT$$GT$17h8cb82ce7c7d41e1aE.exit68.i"
   %.032154.i = phi i8 [ %1431, %1430 ], [ 2, %"_ZN4core3ptr141drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$alloc..string..String$C$core..option..Option$LT$alloc..string..String$GT$$RP$$GT$$GT$17h8cb82ce7c7d41e1aE.exit68.i" ]
   %1432 = phi i1 [ %.not.i.i.i, %1430 ], [ %1391, %"_ZN4core3ptr141drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$alloc..string..String$C$core..option..Option$LT$alloc..string..String$GT$$RP$$GT$$GT$17h8cb82ce7c7d41e1aE.exit68.i" ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %56), !noalias !950

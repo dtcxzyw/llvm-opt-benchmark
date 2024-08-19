@@ -10534,12 +10534,12 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit: ; preds
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1994)
   %47 = load i8, ptr %8, align 8, !range !15, !alias.scope !1997, !noalias !1986, !noundef !4
   %48 = icmp eq i8 %47, 2
-  br i1 %48, label %.thread35.i, label %49
+  br i1 %48, label %.thread21.i.sink.split, label %49
 
 49:                                               ; preds = %44
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1998)
   %50 = icmp eq i8 %47, 0
-  br i1 %50, label %51, label %.thread35.i
+  br i1 %50, label %51, label %.thread21.i.sink.split
 
 51:                                               ; preds = %49
   %52 = getelementptr inbounds i8, ptr %8, i64 8
@@ -10547,7 +10547,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit: ; preds
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2004)
   %53 = load i64, ptr %52, align 8, !range !26, !alias.scope !2007, !noalias !1986, !noundef !4
   %54 = icmp eq i64 %53, -9223372036854775808
-  br i1 %54, label %.thread35.i, label %55
+  br i1 %54, label %.thread21.i.sink.split, label %55
 
 55:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !2008
@@ -10562,7 +10562,6 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit: ; preds
 
 .thread35:                                        ; preds = %.noexc.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !2008
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8), !noalias !1986
   br label %.thread21.i.sink.split
 
 58:                                               ; preds = %.noexc.i
@@ -10572,10 +10571,6 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit: ; preds
   %62 = getelementptr inbounds i8, ptr %8, i64 24
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.4248407042397360440"(ptr noalias noundef nonnull readonly align 1 %62, ptr noundef nonnull %59, i64 noundef %57, i64 noundef %61)
           to label %63 unwind label %67, !noalias !2017
-
-.thread35.i:                                      ; preds = %51, %49, %44
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8), !noalias !1986
-  br label %.thread21.i.sink.split
 
 63:                                               ; preds = %58
   %.pre.i.pre = load i64, ptr %15, align 8, !range !5, !noalias !1986
@@ -10694,7 +10689,8 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit: ; preds
   %97 = icmp eq i64 %94, %96
   br i1 %97, label %101, label %"_ZN6rustls13limited_cache25LimitedCache$LT$K$C$V$GT$30get_or_insert_default_and_edit17h2e66e61ef5f4416bE.exit"
 
-.thread21.i.sink.split:                           ; preds = %.thread35.i, %.thread35
+.thread21.i.sink.split:                           ; preds = %44, %49, %51, %.thread35
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8), !noalias !1986
   %98 = getelementptr inbounds i8, ptr %46, i64 -8
   store i16 %2, ptr %98, align 8, !alias.scope !2018, !noalias !2017
   %99 = getelementptr inbounds i8, ptr %46, i64 -6

@@ -798,9 +798,7 @@ compute_channel_noise.exit:                       ; preds = %56, %68, %69
   %477 = fmul reassoc nsz arcp contract afn float %476, 0x401DCC6400000000
   %478 = fmul reassoc nsz arcp contract afn float %477, %446
   store float %478, ptr %359, align 16, !tbaa !13, !noalias !64
-  call void @dwt_denoise(ptr noundef nonnull %290, i32 noundef 0, i32 noundef 0, i32 noundef 5, ptr noundef nonnull %7) #24, !noalias !64
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #24, !noalias !64
-  br label %.loopexit81
+  br label %.loopexit81.sink.split
 
 .preheader65:                                     ; preds = %.loopexit68, %.preheader65
   %479 = phi i64 [ %503, %.preheader65 ], [ %393, %.loopexit68 ]
@@ -1078,7 +1076,7 @@ compute_channel_noise.exit:                       ; preds = %56, %68, %69
 
 657:                                              ; preds = %645
   %658 = icmp eq i64 %644, %279
-  br i1 %658, label %.loopexit, label %659
+  br i1 %658, label %.loopexit81.sink.split, label %659
 
 659:                                              ; preds = %657, %.loopexit62
   %660 = phi i64 [ 0, %.loopexit62 ], [ %644, %657 ]
@@ -1102,7 +1100,7 @@ compute_channel_noise.exit:                       ; preds = %56, %68, %69
   %670 = phi i64 [ %660, %659 ], [ %667, %.preheader59 ]
   %671 = sub nsw i64 %660, %279
   %672 = icmp ugt i64 %671, -8
-  br i1 %672, label %.loopexit, label %.preheader
+  br i1 %672, label %.loopexit81.sink.split, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit60, %.preheader
   %673 = phi i64 [ %697, %.preheader ], [ %670, %.loopexit60 ]
@@ -1147,12 +1145,7 @@ compute_channel_noise.exit:                       ; preds = %56, %68, %69
   store float 5.000000e-01, ptr %696, align 4, !tbaa !13, !noalias !64
   %697 = add nuw i64 %673, 8
   %698 = icmp eq i64 %697, %279
-  br i1 %698, label %.loopexit, label %.preheader, !llvm.loop !74
-
-.loopexit:                                        ; preds = %.preheader, %.loopexit60, %657
-  call void @dwt_denoise(ptr noundef nonnull %290, i32 noundef %276, i32 noundef 0, i32 noundef 5, ptr noundef nonnull %7) #24, !noalias !64
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #24, !noalias !64
-  br label %.loopexit81
+  br i1 %698, label %.loopexit81.sink.split, label %.preheader, !llvm.loop !74
 
 699:                                              ; preds = %289
   %700 = getelementptr inbounds i8, ptr %4, i64 4
@@ -1199,7 +1192,13 @@ compute_channel_noise.exit:                       ; preds = %56, %68, %69
   %741 = add i32 %703, 599
   br label %742
 
-.loopexit81:                                      ; preds = %.loopexit75, %.loopexit, %396
+.loopexit81.sink.split:                           ; preds = %.preheader, %657, %.loopexit60, %396
+  %.sink = phi i32 [ 0, %396 ], [ %276, %.loopexit60 ], [ %276, %657 ], [ %276, %.preheader ]
+  call void @dwt_denoise(ptr noundef nonnull %290, i32 noundef %.sink, i32 noundef 0, i32 noundef 5, ptr noundef nonnull %7) #24, !noalias !64
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #24, !noalias !64
+  br label %.loopexit81
+
+.loopexit81:                                      ; preds = %.loopexit75, %.loopexit81.sink.split
   call void @free(ptr noundef %285) #24, !noalias !64
   br label %1133
 

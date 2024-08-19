@@ -1726,9 +1726,9 @@ define dso_local i32 @io_init_tasks_stdio(ptr noundef %0) local_unnamed_addr #0 
   %23 = getelementptr inbounds i8, ptr %0, i64 512
   br label %24
 
-24:                                               ; preds = %.lr.ph, %479
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %479 ]
-  %.0820 = phi i32 [ 0, %.lr.ph ], [ %480, %479 ]
+24:                                               ; preds = %.lr.ph, %_init_task_stdio_fds.exit.thread
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_init_task_stdio_fds.exit.thread ]
+  %.0820 = phi i32 [ 0, %.lr.ph ], [ %478, %_init_task_stdio_fds.exit.thread ]
   %25 = load ptr, ptr %12, align 8
   %26 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
@@ -2442,7 +2442,7 @@ _create_task_out_eio.exit161.i:                   ; preds = %372, %348
   call void @fd_set_close_on_exec(i32 noundef %390) #9
   %392 = getelementptr inbounds i8, ptr %27, i64 116
   store i32 -1, ptr %392, align 4
-  br label %478
+  br label %_init_task_stdio_fds.exit.thread
 
 393:                                              ; preds = %383
   %394 = getelementptr inbounds i8, ptr %27, i64 88
@@ -2454,7 +2454,7 @@ _create_task_out_eio.exit161.i:                   ; preds = %372, %348
   store i32 %396, ptr %397, align 8
   %398 = getelementptr inbounds i8, ptr %27, i64 116
   store i32 -1, ptr %398, align 4
-  br label %478
+  br label %_init_task_stdio_fds.exit.thread
 
 399:                                              ; preds = %379
   %400 = getelementptr inbounds i8, ptr %27, i64 88
@@ -2530,7 +2530,7 @@ thread-pre-split163.i:                            ; preds = %423, %419, %416
 .critedge4.i:                                     ; preds = %thread-pre-split163.i
   %437 = getelementptr inbounds i8, ptr %27, i64 116
   store i32 -1, ptr %437, align 4
-  br label %478
+  br label %_init_task_stdio_fds.exit.thread
 
 438:                                              ; preds = %405, %399
   %439 = call i32 @get_log_level() #9
@@ -2602,32 +2602,22 @@ _create_task_out_eio.exit162.i:                   ; preds = %471, %447
   %476 = load ptr, ptr %15, align 8
   %477 = load ptr, ptr %474, align 8
   call void @eio_new_initial_obj(ptr noundef %476, ptr noundef %477) #9
-  br label %478
+  br label %_init_task_stdio_fds.exit.thread
 
-_init_task_stdio_fds.exit.thread:                 ; preds = %56, %434, %445, %302, %346, %320, %158, %193, %202
+_init_task_stdio_fds.exit.thread:                 ; preds = %387, %393, %.critedge4.i, %_create_task_out_eio.exit162.i, %202, %193, %158, %320, %346, %302, %445, %434, %56
+  %478 = phi i32 [ -1, %56 ], [ -1, %434 ], [ -1, %445 ], [ -1, %302 ], [ -1, %346 ], [ -1, %320 ], [ -1, %158 ], [ -1, %193 ], [ -1, %202 ], [ %.0820, %_create_task_out_eio.exit162.i ], [ %.0820, %.critedge4.i ], [ %.0820, %393 ], [ %.0820, %387 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  br label %479
-
-478:                                              ; preds = %_create_task_out_eio.exit162.i, %.critedge4.i, %393, %387
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  br label %479
-
-479:                                              ; preds = %_init_task_stdio_fds.exit.thread, %478
-  %480 = phi i32 [ %.0820, %478 ], [ -1, %_init_task_stdio_fds.exit.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %481 = load i32, ptr %10, align 8
-  %482 = zext i32 %481 to i64
-  %483 = icmp ult i64 %indvars.iv.next, %482
-  br i1 %483, label %24, label %._crit_edge, !llvm.loop !17
+  %479 = load i32, ptr %10, align 8
+  %480 = zext i32 %479 to i64
+  %481 = icmp ult i64 %indvars.iv.next, %480
+  br i1 %481, label %24, label %._crit_edge, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %479, %1
-  %.08.lcssa = phi i32 [ 0, %1 ], [ %480, %479 ]
+._crit_edge:                                      ; preds = %_init_task_stdio_fds.exit.thread, %1
+  %.08.lcssa = phi i32 [ 0, %1 ], [ %478, %_init_task_stdio_fds.exit.thread ]
   ret i32 %.08.lcssa
 }
 

@@ -154,7 +154,7 @@ define hidden noundef range(i32 0, 2) i32 @_find_mask_iter_by_values(ptr noundef
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %1, i32 noundef 3, ptr noundef nonnull %6, i32 noundef -1) #12
   %15 = load i32, ptr %6, align 4, !tbaa !14
   %16 = icmp eq i32 %15, %3
-  br i1 %16, label %.loopexit, label %17
+  br i1 %16, label %.loopexit3.sink.split, label %17
 
 17:                                               ; preds = %.preheader
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #12
@@ -199,12 +199,7 @@ define hidden noundef range(i32 0, 2) i32 @_find_mask_iter_by_values(ptr noundef
   %34 = getelementptr inbounds i8, ptr %32, i64 504
   %35 = call i32 @g_strcmp0(ptr noundef nonnull %34, ptr noundef nonnull %33) #12
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %.loopexit, label %37
-
-.loopexit:                                        ; preds = %31, %.preheader
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  br label %.loopexit3
+  br i1 %36, label %.loopexit3.sink.split, label %37
 
 37:                                               ; preds = %31, %28, %.preheader4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #12
@@ -223,9 +218,7 @@ define hidden noundef range(i32 0, 2) i32 @_find_mask_iter_by_values(ptr noundef
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !tbaa.struct !15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  br label %.loopexit3
+  br label %.loopexit3.sink.split
 
 43:                                               ; preds = %40, %37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #12
@@ -236,8 +229,13 @@ define hidden noundef range(i32 0, 2) i32 @_find_mask_iter_by_values(ptr noundef
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %.loopexit3, label %.preheader4
 
-.loopexit3:                                       ; preds = %43, %23, %.loopexit2, %.loopexit
-  %46 = phi i32 [ 1, %.loopexit2 ], [ 1, %.loopexit ], [ 0, %23 ], [ 0, %43 ]
+.loopexit3.sink.split:                            ; preds = %31, %.preheader, %.loopexit2
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  br label %.loopexit3
+
+.loopexit3:                                       ; preds = %43, %23, %.loopexit3.sink.split
+  %46 = phi i32 [ 1, %.loopexit3.sink.split ], [ 0, %23 ], [ 0, %43 ]
   ret i32 %46
 }
 
@@ -4901,9 +4899,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_lib_masks_selection_change_
 
 .loopexit:                                        ; preds = %33, %.preheader
   call void @gtk_tree_selection_select_iter(ptr noundef %1, ptr noundef nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
-  br label %.loopexit3
+  br label %.loopexit3.sink.split
 
 39:                                               ; preds = %33, %30, %.preheader4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #12
@@ -4921,9 +4917,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_lib_masks_selection_change_
 .loopexit2:                                       ; preds = %42, %22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
-  br label %.loopexit3
+  br label %.loopexit3.sink.split
 
 45:                                               ; preds = %42, %39
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #12
@@ -4934,8 +4928,13 @@ define internal fastcc noundef range(i32 0, 2) i32 @_lib_masks_selection_change_
   %47 = icmp eq i32 %46, 1
   br i1 %47, label %.preheader4, label %.loopexit3
 
-.loopexit3:                                       ; preds = %45, %25, %.loopexit2, %.loopexit
-  %48 = phi i32 [ 1, %.loopexit ], [ 1, %.loopexit2 ], [ 0, %25 ], [ 0, %45 ]
+.loopexit3.sink.split:                            ; preds = %.loopexit, %.loopexit2
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
+  br label %.loopexit3
+
+.loopexit3:                                       ; preds = %45, %25, %.loopexit3.sink.split
+  %48 = phi i32 [ 1, %.loopexit3.sink.split ], [ 0, %25 ], [ 0, %45 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #12
   ret i32 %48
 }

@@ -3128,17 +3128,7 @@ if.end98.i.i:                                     ; preds = %while.end.i.i
   store i32 0, ptr %bucket_id.i.i, align 4
   %sts.val20.i.i = load ptr, ptr %_M_left.i.i.i.i.i.i.i, align 8
   %cmp.i266.not656.i.i = icmp eq ptr %sts.val20.i.i, %7
-  br i1 %cmp.i266.not656.i.i, label %invoke.cont9.thread33, label %for.body105.i.i
-
-invoke.cont9.thread33:                            ; preds = %if.end98.i.i
-  %sts.val35.i.i34 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i, align 8
-  call fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_18TeddySetES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %sts.val35.i.i34)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %sts.i.i)
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %ts.i.i)
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %tmpSet.i.i)
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %nts.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bucket_id.i.i)
-  br label %if.end12
+  br i1 %cmp.i266.not656.i.i, label %if.end12, label %for.body105.i.i
 
 for.body105.i.i:                                  ; preds = %if.end98.i.i, %invoke.cont122.i.i
   %180 = phi i32 [ %inc126.i.i, %invoke.cont122.i.i ], [ 0, %if.end98.i.i ]
@@ -3211,23 +3201,13 @@ invoke.cont122.i.i:                               ; preds = %invoke.cont110.i.i
   store i32 %inc126.i.i, ptr %bucket_id.i.i, align 4
   %call.i278.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2.sroa.0.0657.i.i) #20
   %cmp.i266.not.i.i = icmp eq ptr %call.i278.i.i, %7
-  br i1 %cmp.i266.not.i.i, label %invoke.cont9, label %for.body105.i.i
+  br i1 %cmp.i266.not.i.i, label %if.end12, label %for.body105.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad79.i.i, %lpad.i221.i.i, %lpad.i.i.i, %lpad.body.i.i.i, %common.resume.sink.split.i.i.i, %lpad.i.i374.i.i, %lpad3.i.i, %lpad.loopexit.split-lp.i.i, %lpad.loopexit.i.i, %if.then.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %lpad.i.i.i.i
   %.pn.i.i = phi { ptr, i32 } [ %46, %lpad3.i.i ], [ %178, %lpad79.i.i ], [ %9, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %9, %if.then.i.i.i.i.i.i.i ], [ %9, %lpad.i.i.i.i ], [ %lpad.phi571.i.i, %lpad.i.i.i ], [ %163, %lpad.i221.i.i ], [ %lpad.phi565.i.i, %lpad.i.i374.i.i ], [ %lpad.phi568.i.i, %lpad.body.i.i.i ], [ %common.resume.op.ph.i.i.i, %common.resume.sink.split.i.i.i ], [ %lpad.loopexit561.i.i, %lpad.loopexit.i.i ], [ %lpad.loopexit.split-lp562.i.i, %lpad.loopexit.split-lp.i.i ]
   %sts.val36.i.i = load ptr, ptr %_M_parent.i.i.i.i.i.i.i, align 8
   call fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_18TeddySetES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %sts.val36.i.i)
   br label %ehcleanup
-
-invoke.cont9:                                     ; preds = %invoke.cont122.i.i
-  %sts.val35.i.i = load ptr, ptr %_M_parent.i.i.i.i.i.i.i, align 8
-  call fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_18TeddySetES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %sts.val35.i.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %sts.i.i)
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %ts.i.i)
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %tmpSet.i.i)
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %nts.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bucket_id.i.i)
-  br label %if.end12
 
 if.then11:                                        ; preds = %if.end6, %invoke.cont9.thread35
   store ptr null, ptr %agg.result, align 8
@@ -3238,7 +3218,14 @@ lpad8:                                            ; preds = %if.end12
           cleanup
   br label %ehcleanup
 
-if.end12:                                         ; preds = %invoke.cont9, %invoke.cont9.thread33
+if.end12:                                         ; preds = %invoke.cont122.i.i, %if.end98.i.i
+  %sts.val35.i.i = load ptr, ptr %_M_parent.i.i.i.i.i.i.i, align 8
+  call fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_18TeddySetES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %sts.val35.i.i)
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %sts.i.i)
+  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %ts.i.i)
+  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %tmpSet.i.i)
+  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %nts.i.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bucket_id.i.i)
   invoke void @_ZN5boost11make_uniqueIN3ue29HWLMProtoEJRhSt10unique_ptrINS1_22TeddyEngineDescriptionESt14default_deleteIS5_EERKSt6vectorINS1_11hwlmLiteralESaISA_EERSt3mapIjS9_IjSaIjEESt4lessIjESaISt4pairIKjSH_EEERbEEENS_10enable_if_IXntsr8is_arrayIT_EE5valueES4_ISS_S6_ISS_EEE4typeEDpOT0_(ptr sret(%"class.std::unique_ptr.24") align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %engType.addr, ptr noundef nonnull align 8 dereferenceable(8) %des, ptr noundef nonnull align 8 dereferenceable(24) %lits, ptr noundef nonnull align 8 dereferenceable(48) %bucketToLits, ptr noundef nonnull align 1 dereferenceable(1) %make_small.addr)
           to label %cleanup unwind label %lpad8
 

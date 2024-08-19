@@ -283,12 +283,12 @@ define internal noundef i32 @H5O__mdci_encode(ptr noundef %0, i1 zeroext %1, i64
 .sink.split:                                      ; preds = %34, %10
   %.sink27 = phi ptr [ %11, %10 ], [ %35, %34 ]
   %.sink26 = phi i64 [ 24, %10 ], [ 8, %34 ]
-  %.sink = load ptr, ptr %6, align 8
-  %39 = getelementptr inbounds i8, ptr %.sink, i64 1
-  %40 = load i64, ptr %.sink27, align 8
-  %41 = lshr i64 %40, %.sink26
-  %42 = trunc i64 %41 to i8
-  store i8 %42, ptr %39, align 1
+  %39 = load ptr, ptr %6, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 1
+  %41 = load i64, ptr %.sink27, align 8
+  %42 = lshr i64 %41, %.sink26
+  %43 = trunc i64 %42 to i8
+  store i8 %43, ptr %40, align 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %29, %.sink.split, %5

@@ -64,7 +64,7 @@ define dso_local range(i32 -19, 1) i32 @acpi_get_hp_hw_control_from_firmware(ptr
   %19 = phi ptr [ %17, %15 ], [ null, %1 ]
   %20 = tail call ptr @acpi_pci_find_root(ptr noundef %19) #4
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %109, label %22
+  br i1 %21, label %107, label %22
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds i8, ptr %20, i64 88
@@ -78,7 +78,7 @@ define dso_local range(i32 -19, 1) i32 @acpi_get_hp_hw_control_from_firmware(ptr
   %29 = and i16 %28, 32
   %30 = icmp eq i16 %29, 0
   %31 = select i1 %30, i32 -19, i32 0
-  br label %109
+  br label %107
 
 32:                                               ; preds = %22
   %33 = getelementptr inbounds i8, ptr %0, i64 184
@@ -157,8 +157,8 @@ define dso_local range(i32 -19, 1) i32 @acpi_get_hp_hw_control_from_firmware(ptr
   %75 = getelementptr inbounds i8, ptr %2, i64 8
   br label %76
 
-76:                                               ; preds = %101, %.thread
-  %77 = phi ptr [ %105, %101 ], [ %74, %.thread ]
+76:                                               ; preds = %99, %.thread
+  %77 = phi ptr [ %103, %99 ], [ %74, %.thread ]
   %78 = call i32 @acpi_get_name(ptr noundef nonnull %77, i32 noundef 0, ptr noundef nonnull %4) #4
   %79 = load ptr, ptr %5, align 8
   call void (ptr, ptr, ...) @_dev_info(ptr noundef %33, ptr noundef nonnull @.str, ptr noundef %79) #5
@@ -168,7 +168,7 @@ define dso_local range(i32 -19, 1) i32 @acpi_get_hp_hw_control_from_firmware(ptr
   store ptr null, ptr %75, align 8
   %81 = call i32 @acpi_get_name(ptr noundef %80, i32 noundef 0, ptr noundef nonnull %2) #4
   %82 = call i32 @acpi_evaluate_object(ptr noundef %80, ptr noundef nonnull @.str.3, ptr noundef null, ptr noundef null) #4
-  switch i32 %82, label %93 [
+  switch i32 %82, label %92 [
     i32 0, label %.thread5
     i32 5, label %86
   ]
@@ -181,7 +181,7 @@ define dso_local range(i32 -19, 1) i32 @acpi_get_hp_hw_control_from_firmware(ptr
   call void (ptr, ptr, ...) @_dev_info(ptr noundef %33, ptr noundef nonnull @.str.2, ptr noundef %84) #5
   %85 = load ptr, ptr %5, align 8
   call void @kfree(ptr noundef %85) #4
-  br label %109
+  br label %107
 
 86:                                               ; preds = %76
   %87 = load i8, ptr @debug_acpi, align 1, !range !8, !noundef !9
@@ -193,46 +193,40 @@ define dso_local range(i32 -19, 1) i32 @acpi_get_hp_hw_control_from_firmware(ptr
   %91 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.acpi_run_oshp, ptr noundef nonnull @__func__.acpi_run_oshp, ptr noundef %90) #5
   br label %.thread4
 
-.thread4:                                         ; preds = %89, %86
-  %92 = load ptr, ptr %75, align 8
-  call void @kfree(ptr noundef %92) #4
+92:                                               ; preds = %76
+  %93 = load ptr, ptr %75, align 8
+  %94 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.acpi_run_oshp, ptr noundef %93, i32 noundef %82) #5
+  br label %.thread4
+
+.thread4:                                         ; preds = %86, %89, %92
+  %95 = load ptr, ptr %75, align 8
+  call void @kfree(ptr noundef %95) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
-  br label %97
+  %96 = load ptr, ptr %3, align 8
+  %97 = call i32 @acpi_is_root_bridge(ptr noundef %96) #4
+  %98 = icmp eq i32 %97, 0
+  br i1 %98, label %99, label %.loopexit
 
-93:                                               ; preds = %76
-  %94 = load ptr, ptr %75, align 8
-  %95 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.acpi_run_oshp, ptr noundef %94, i32 noundef %82) #5
-  %96 = load ptr, ptr %75, align 8
-  call void @kfree(ptr noundef %96) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
-  br label %97
+99:                                               ; preds = %.thread4
+  %100 = load ptr, ptr %3, align 8
+  %101 = call i32 @acpi_get_parent(ptr noundef %100, ptr noundef nonnull %3) #4
+  %102 = icmp eq i32 %101, 0
+  %103 = load ptr, ptr %3, align 8
+  %104 = icmp ne ptr %103, null
+  %105 = select i1 %102, i1 %104, i1 false
+  br i1 %105, label %76, label %.loopexit, !llvm.loop !10
 
-97:                                               ; preds = %93, %.thread4
-  %98 = load ptr, ptr %3, align 8
-  %99 = call i32 @acpi_is_root_bridge(ptr noundef %98) #4
-  %100 = icmp eq i32 %99, 0
-  br i1 %100, label %101, label %.loopexit
-
-101:                                              ; preds = %97
-  %102 = load ptr, ptr %3, align 8
-  %103 = call i32 @acpi_get_parent(ptr noundef %102, ptr noundef nonnull %3) #4
-  %104 = icmp eq i32 %103, 0
-  %105 = load ptr, ptr %3, align 8
-  %106 = icmp ne ptr %105, null
-  %107 = select i1 %104, i1 %106, i1 false
-  br i1 %107, label %76, label %.loopexit, !llvm.loop !10
-
-.loopexit:                                        ; preds = %.preheader, %101, %97
+.loopexit:                                        ; preds = %.preheader, %99, %.thread4
   call void (ptr, ptr, ...) @_dev_info(ptr noundef %33, ptr noundef nonnull @.str.1) #5
-  %108 = load ptr, ptr %5, align 8
-  call void @kfree(ptr noundef %108) #4
-  br label %109
+  %106 = load ptr, ptr %5, align 8
+  call void @kfree(ptr noundef %106) #4
+  br label %107
 
-109:                                              ; preds = %.thread5, %.loopexit, %26, %18
-  %110 = phi i32 [ -19, %.loopexit ], [ 0, %.thread5 ], [ 0, %18 ], [ %31, %26 ]
+107:                                              ; preds = %.thread5, %.loopexit, %26, %18
+  %108 = phi i32 [ -19, %.loopexit ], [ 0, %.thread5 ], [ 0, %18 ], [ %31, %26 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
-  ret i32 %110
+  ret i32 %108
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

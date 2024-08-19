@@ -2201,11 +2201,11 @@ define internal fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_do
   br i1 %57, label %.lr.ph, label %.preheader.preheader, !llvm.loop !32
 
 .preheader.preheader:                             ; preds = %.lr.ph, %39
-  %.ph443 = phi i32 [ %40, %39 ], [ %55, %.lr.ph ]
+  %.ph444 = phi i32 [ %40, %39 ], [ %55, %.lr.ph ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge326
-  %58 = phi i32 [ %119, %._crit_edge326 ], [ %.ph443, %.preheader.preheader ]
+  %58 = phi i32 [ %119, %._crit_edge326 ], [ %.ph444, %.preheader.preheader ]
   %.0250 = phi i32 [ %.2, %._crit_edge326 ], [ 0, %.preheader.preheader ]
   %59 = load i32, ptr %8, align 4
   %60 = icmp slt i32 %59, %58
@@ -2703,9 +2703,9 @@ define internal fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_do
   br i1 %328, label %.loopexit.sink.split, label %.loopexit
 
 .loopexit.sink.split.sink.split:                  ; preds = %318, %285
-  %storemerge = phi i32 [ %287, %285 ], [ %316, %318 ]
+  %.sink421 = phi i32 [ %287, %285 ], [ %316, %318 ]
   call fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_domdec_tiiP14RowCoordinatorPK11gmx_ddbox_tblfPi(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext false, i64 noundef %6, float noundef %7, ptr noundef nonnull %10)
-  store i32 %storemerge, ptr %10, align 4
+  store i32 %.sink421, ptr %10, align 4
   %329 = load i32, ptr %15, align 4
   store i32 %329, ptr %14, align 4
   br label %.loopexit.sink.split

@@ -734,7 +734,7 @@ define hidden void @"_ZN19pyo3_macros_backend7pyclass18PyClassComplexEnum3new28_
   %23 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false)
   store i64 2, ptr %0, align 8
-  br label %41
+  br label %42
 
 24:                                               ; preds = %20
   unreachable
@@ -747,17 +747,17 @@ define hidden void @"_ZN19pyo3_macros_backend7pyclass18PyClassComplexEnum3new28_
 28:                                               ; preds = %20
   %29 = getelementptr inbounds i8, ptr %2, i64 8
   %30 = invoke { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4iter17hc946b8bde92d8095E"(ptr nonnull align 8 %29)
-          to label %38 unwind label %32
+          to label %39 unwind label %32
 
 31:                                               ; preds = %20
   invoke void @_ZN5quote9to_tokens8ToTokens17into_token_stream17ha615bc4ef54ff8c4E(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %15)
-          to label %42 unwind label %32
+          to label %43 unwind label %32
 
-32:                                               ; preds = %54, %44, %42, %38, %34, %31, %28, %25
+32:                                               ; preds = %55, %45, %43, %39, %34, %31, %28, %25
   %33 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr73drop_in_place$LT$pyo3_macros_backend..pyclass..EnumVariantPyO3Options$GT$17hce5e516287833d59E"(ptr nonnull align 8 %13) #11
-          to label %59 unwind label %57
+          to label %60 unwind label %58
 
 34:                                               ; preds = %25
   %35 = extractvalue { ptr, ptr } %27, 0
@@ -765,9 +765,9 @@ define hidden void @"_ZN19pyo3_macros_backend7pyclass18PyClassComplexEnum3new28_
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hb627075982d5bb84E"(ptr nonnull sret([24 x i8]) align 8 %6, ptr align 1 %35, ptr align 8 %36)
           to label %37 unwind label %32
 
-37:                                               ; preds = %38, %34
-  %.sink = phi ptr [ %6, %34 ], [ %5, %38 ]
-  %.sroa.544.0 = load ptr, ptr %14, align 8
+37:                                               ; preds = %34, %39
+  %.sink = phi ptr [ %5, %39 ], [ %6, %34 ]
+  %38 = load ptr, ptr %14, align 8
   %.sroa.040.24..sroa_idx = getelementptr inbounds i8, ptr %.sroa.040, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.040.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(88) %13, i64 88, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.040, ptr noundef nonnull align 8 dereferenceable(24) %.sink, i64 24, i1 false)
@@ -775,29 +775,29 @@ define hidden void @"_ZN19pyo3_macros_backend7pyclass18PyClassComplexEnum3new28_
   %.sroa.343.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.343.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.040, i64 112, i1 false)
   %.sroa.544.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr %.sroa.544.0, ptr %.sroa.544.0..sroa_idx, align 8
-  br label %41
+  store ptr %38, ptr %.sroa.544.0..sroa_idx, align 8
+  br label %42
 
-38:                                               ; preds = %28
-  %39 = extractvalue { ptr, ptr } %30, 0
-  %40 = extractvalue { ptr, ptr } %30, 1
-  invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hb1aab24ca65364ffE"(ptr nonnull sret([24 x i8]) align 8 %5, ptr align 1 %39, ptr align 8 %40)
+39:                                               ; preds = %28
+  %40 = extractvalue { ptr, ptr } %30, 0
+  %41 = extractvalue { ptr, ptr } %30, 1
+  invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hb1aab24ca65364ffE"(ptr nonnull sret([24 x i8]) align 8 %5, ptr align 1 %40, ptr align 8 %41)
           to label %37 unwind label %32
 
-41:                                               ; preds = %55, %37, %22
+42:                                               ; preds = %56, %37, %22
   ret void
 
-42:                                               ; preds = %31
-  %43 = invoke i32 @_ZN5quote7spanned10join_spans17h3bdea0c35a14c843E(ptr nonnull align 8 %4)
-          to label %44 unwind label %32
+43:                                               ; preds = %31
+  %44 = invoke i32 @_ZN5quote7spanned10join_spans17h3bdea0c35a14c843E(ptr nonnull align 8 %4)
+          to label %45 unwind label %32
 
-44:                                               ; preds = %42
-  %45 = load ptr, ptr %1, align 8
+45:                                               ; preds = %43
+  %46 = load ptr, ptr %1, align 8
   store ptr %14, ptr %8, align 8
   %.sroa.251.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hd96180c12f5a11d0E", ptr %.sroa.251.0..sroa_idx, align 8
-  %46 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr %45, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %8, i64 16
+  store ptr %46, ptr %47, align 8
   %.sroa.255.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 24
   store ptr @"_ZN57_$LT$proc_macro2..Ident$u20$as$u20$core..fmt..Display$GT$3fmt17hbd1f38650d43d07fE", ptr %.sroa.255.0..sroa_idx, align 8
   store i64 2, ptr %7, align 8
@@ -811,8 +811,8 @@ define hidden void @"_ZN19pyo3_macros_backend7pyclass18PyClassComplexEnum3new28_
   store i32 0, ptr %.sroa.8.0..sroa_idx, align 4
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 48
   store i8 3, ptr %.sroa.9.0..sroa_idx, align 8
-  %47 = getelementptr inbounds i8, ptr %7, i64 56
-  store i64 2, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %7, i64 56
+  store i64 2, ptr %48, align 8
   %.sroa.4.0..sroa_idx11 = getelementptr inbounds i8, ptr %7, i64 72
   store i64 2, ptr %.sroa.4.0..sroa_idx11, align 8
   %.sroa.6.0..sroa_idx16 = getelementptr inbounds i8, ptr %7, i64 88
@@ -823,8 +823,8 @@ define hidden void @"_ZN19pyo3_macros_backend7pyclass18PyClassComplexEnum3new28_
   store i32 0, ptr %.sroa.8.0..sroa_idx20, align 4
   %.sroa.9.0..sroa_idx22 = getelementptr inbounds i8, ptr %7, i64 104
   store i8 3, ptr %.sroa.9.0..sroa_idx22, align 8
-  %48 = getelementptr inbounds i8, ptr %7, i64 112
-  store i64 2, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %7, i64 112
+  store i64 2, ptr %49, align 8
   %.sroa.327.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 128
   store i64 2, ptr %.sroa.327.0..sroa_idx, align 8
   %.sroa.529.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 144
@@ -836,37 +836,37 @@ define hidden void @"_ZN19pyo3_macros_backend7pyclass18PyClassComplexEnum3new28_
   %.sroa.832.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 160
   store i8 3, ptr %.sroa.832.0..sroa_idx, align 8
   store ptr @anon.0a3de5dc611eb9e73e124dc0c16747ee.8, ptr %9, align 8
-  %49 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 4, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %9, i64 32
-  store ptr %7, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %9, i64 40
-  store i64 3, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr %8, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %9, i64 24
-  store i64 2, ptr %53, align 8
+  %50 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 4, ptr %50, align 8
+  %51 = getelementptr inbounds i8, ptr %9, i64 32
+  store ptr %7, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %9, i64 40
+  store i64 3, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %9, i64 16
+  store ptr %8, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %9, i64 24
+  store i64 2, ptr %54, align 8
   invoke void @_ZN5alloc3fmt6format17hfef544611ce8decdE(ptr nonnull sret([24 x i8]) align 8 %10, ptr nonnull align 8 %9)
-          to label %54 unwind label %32
-
-54:                                               ; preds = %44
-  invoke void @_ZN3syn5error5Error3new17hc9c89320e0d504a2E(ptr nonnull sret([24 x i8]) align 8 %11, i32 %43, ptr nonnull align 8 %10)
           to label %55 unwind label %32
 
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
+55:                                               ; preds = %45
+  invoke void @_ZN3syn5error5Error3new17hc9c89320e0d504a2E(ptr nonnull sret([24 x i8]) align 8 %11, i32 %44, ptr nonnull align 8 %10)
+          to label %56 unwind label %32
+
+56:                                               ; preds = %55
+  %57 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   store i64 2, ptr %0, align 8
   call void @"_ZN4core3ptr73drop_in_place$LT$pyo3_macros_backend..pyclass..EnumVariantPyO3Options$GT$17hce5e516287833d59E"(ptr nonnull align 8 %13)
-  br label %41
+  br label %42
 
-57:                                               ; preds = %32
-  %58 = landingpad { ptr, i32 }
+58:                                               ; preds = %32
+  %59 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #12
   unreachable
 
-59:                                               ; preds = %32
+60:                                               ; preds = %32
   resume { ptr, i32 } %33
 }
 

@@ -5712,8 +5712,8 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   br label %20
 
 20:                                               ; preds = %.lr.ph267, %213
-  %21 = phi i64 [ %8, %.lr.ph267 ], [ %216, %213 ]
-  %.promoted = phi ptr [ %1, %.lr.ph267 ], [ %214, %213 ]
+  %21 = phi i64 [ %8, %.lr.ph267 ], [ %215, %213 ]
+  %.promoted = phi ptr [ %1, %.lr.ph267 ], [ %.sink, %213 ]
   %22 = load i8, ptr %.promoted, align 1
   %23 = zext i8 %22 to i64
   %24 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %23
@@ -5735,7 +5735,6 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
 
 26:                                               ; preds = %20, %20, %20, %20, %20
   %27 = getelementptr inbounds i8, ptr %.promoted, i64 1
-  store ptr %27, ptr %5, align 8
   br label %213
 
 28:                                               ; preds = %20
@@ -5756,7 +5755,6 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds i8, ptr %.promoted, i64 2
-  store ptr %37, ptr %5, align 8
   br label %213
 
 38:                                               ; preds = %20
@@ -5777,7 +5775,6 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds i8, ptr %.promoted, i64 3
-  store ptr %47, ptr %5, align 8
   br label %213
 
 48:                                               ; preds = %20
@@ -5798,7 +5795,6 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds i8, ptr %.promoted, i64 4
-  store ptr %57, ptr %5, align 8
   br label %213
 
 58:                                               ; preds = %20, %20, %20
@@ -5846,8 +5842,8 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   %80 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %79
   %81 = load i8, ptr %80, align 1
   %82 = and i8 %81, -2
-  %or.cond577 = icmp eq i8 %82, 12
-  br i1 %or.cond577, label %.lr.ph239._crit_edge, label %.lr.ph578
+  %or.cond578 = icmp eq i8 %82, 12
+  br i1 %or.cond578, label %.lr.ph239._crit_edge, label %.lr.ph579
 
 .lr.ph239:                                        ; preds = %90
   %83 = load i8, ptr %91, align 1
@@ -5856,9 +5852,9 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   %86 = load i8, ptr %85, align 1
   %87 = and i8 %86, -2
   %or.cond = icmp eq i8 %87, 12
-  br i1 %or.cond, label %.lr.ph239._crit_edge, label %.lr.ph578
+  br i1 %or.cond, label %.lr.ph239._crit_edge, label %.lr.ph579
 
-.lr.ph578:                                        ; preds = %.lr.ph239.preheader, %.lr.ph239
+.lr.ph579:                                        ; preds = %.lr.ph239.preheader, %.lr.ph239
   %88 = phi i8 [ %86, %.lr.ph239 ], [ %81, %.lr.ph239.preheader ]
   %89 = phi ptr [ %91, %.lr.ph239 ], [ %74, %.lr.ph239.preheader ]
   switch i8 %88, label %.loopexit111.sink.split [
@@ -5867,7 +5863,7 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
     i8 9, label %90
   ]
 
-90:                                               ; preds = %.lr.ph578, %.lr.ph578, %.lr.ph578
+90:                                               ; preds = %.lr.ph579, %.lr.ph579, %.lr.ph579
   %91 = getelementptr inbounds i8, ptr %89, i64 1
   %92 = ptrtoint ptr %91 to i64
   %93 = sub i64 %6, %92
@@ -5875,9 +5871,9 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   br i1 %94, label %.lr.ph239, label %.loopexit111
 
 .lr.ph239._crit_edge:                             ; preds = %.lr.ph239, %.lr.ph239.preheader
-  %.lcssa536 = phi ptr [ %.promoted235, %.lr.ph239.preheader ], [ %89, %.lr.ph239 ]
-  %.lcssa533 = phi i8 [ %81, %.lr.ph239.preheader ], [ %86, %.lr.ph239 ]
-  %95 = getelementptr inbounds i8, ptr %.lcssa536, i64 2
+  %.lcssa537 = phi ptr [ %.promoted235, %.lr.ph239.preheader ], [ %89, %.lr.ph239 ]
+  %.lcssa534 = phi i8 [ %81, %.lr.ph239.preheader ], [ %86, %.lr.ph239 ]
+  %95 = getelementptr inbounds i8, ptr %.lcssa537, i64 2
   store ptr %95, ptr %5, align 8
   %96 = ptrtoint ptr %95 to i64
   %97 = sub i64 %6, %96
@@ -5891,7 +5887,7 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   %102 = zext i8 %101 to i64
   %103 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %102
   %104 = load i8, ptr %103, align 1
-  %105 = icmp eq i8 %104, %.lcssa533
+  %105 = icmp eq i8 %104, %.lcssa534
   br i1 %105, label %143, label %106
 
 106:                                              ; preds = %.lr.ph243
@@ -6032,7 +6028,6 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
 
 165:                                              ; preds = %.lr.ph263, %.lr.ph263
   %166 = getelementptr inbounds i8, ptr %160, i64 2
-  store ptr %166, ptr %5, align 8
   br label %213
 
 167:                                              ; preds = %.lr.ph263
@@ -6053,7 +6048,6 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
 
 175:                                              ; preds = %172
   %176 = getelementptr inbounds i8, ptr %160, i64 3
-  store ptr %176, ptr %5, align 8
   br label %213
 
 177:                                              ; preds = %.lr.ph263
@@ -6074,7 +6068,6 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
 
 185:                                              ; preds = %182
   %186 = getelementptr inbounds i8, ptr %160, i64 4
-  store ptr %186, ptr %5, align 8
   br label %213
 
 187:                                              ; preds = %.lr.ph263
@@ -6095,7 +6088,6 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
 
 195:                                              ; preds = %192
   %196 = getelementptr inbounds i8, ptr %160, i64 5
-  store ptr %196, ptr %5, align 8
   br label %213
 
 197:                                              ; preds = %.lr.ph263, %.lr.ph263, %.lr.ph263
@@ -6124,20 +6116,21 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   %211 = icmp eq i8 %210, 62
   %212 = getelementptr inbounds i8, ptr %204, i64 2
   %spec.select = select i1 %211, ptr %212, ptr %205
-  %spec.select518 = select i1 %211, i32 3, i32 0
+  %spec.select519 = select i1 %211, i32 3, i32 0
   br label %.loopexit111.sink.split
 
 213:                                              ; preds = %195, %185, %175, %165, %56, %46, %36, %26
-  %214 = phi ptr [ %196, %195 ], [ %186, %185 ], [ %176, %175 ], [ %166, %165 ], [ %57, %56 ], [ %47, %46 ], [ %37, %36 ], [ %27, %26 ]
-  %215 = ptrtoint ptr %214 to i64
-  %216 = sub i64 %6, %215
-  %217 = icmp sgt i64 %216, 0
-  br i1 %217, label %20, label %.loopexit111, !llvm.loop !38
+  %.sink = phi ptr [ %196, %195 ], [ %186, %185 ], [ %176, %175 ], [ %166, %165 ], [ %57, %56 ], [ %47, %46 ], [ %37, %36 ], [ %27, %26 ]
+  store ptr %.sink, ptr %5, align 8
+  %214 = ptrtoint ptr %.sink to i64
+  %215 = sub i64 %6, %214
+  %216 = icmp sgt i64 %215, 0
+  br i1 %216, label %20, label %.loopexit111, !llvm.loop !38
 
-.loopexit111.sink.split:                          ; preds = %20, %189, %192, %179, %182, %169, %172, %148, %50, %53, %40, %43, %30, %33, %.lr.ph, %.lr.ph578, %106, %106, %106, %106, %123, %116, %109, %.lr.ph263, %209, %.loopexit118, %134
-  %.sink = phi ptr [ %135, %134 ], [ %203, %.loopexit118 ], [ %spec.select, %209 ], [ %159, %.lr.ph263 ], [ %100, %109 ], [ %100, %116 ], [ %100, %123 ], [ %100, %106 ], [ %100, %106 ], [ %100, %106 ], [ %100, %106 ], [ %89, %.lr.ph578 ], [ %63, %.lr.ph ], [ %.promoted, %33 ], [ %.promoted, %30 ], [ %.promoted, %43 ], [ %.promoted, %40 ], [ %.promoted, %53 ], [ %.promoted, %50 ], [ %144, %148 ], [ %159, %172 ], [ %159, %169 ], [ %159, %182 ], [ %159, %179 ], [ %159, %192 ], [ %159, %189 ], [ %.promoted, %20 ]
-  %.0.ph = phi i32 [ 0, %134 ], [ 1, %.loopexit118 ], [ %spec.select518, %209 ], [ 0, %.lr.ph263 ], [ 0, %109 ], [ 0, %116 ], [ 0, %123 ], [ 0, %106 ], [ 0, %106 ], [ 0, %106 ], [ 0, %106 ], [ 0, %.lr.ph578 ], [ 0, %.lr.ph ], [ 0, %33 ], [ 0, %30 ], [ 0, %43 ], [ 0, %40 ], [ 0, %53 ], [ 0, %50 ], [ 0, %148 ], [ 0, %172 ], [ 0, %169 ], [ 0, %182 ], [ 0, %179 ], [ 0, %192 ], [ 0, %189 ], [ 0, %20 ]
-  store ptr %.sink, ptr %3, align 8
+.loopexit111.sink.split:                          ; preds = %20, %189, %192, %179, %182, %169, %172, %148, %50, %53, %40, %43, %30, %33, %.lr.ph, %.lr.ph579, %106, %106, %106, %106, %123, %116, %109, %.lr.ph263, %209, %.loopexit118, %134
+  %.sink518 = phi ptr [ %135, %134 ], [ %203, %.loopexit118 ], [ %spec.select, %209 ], [ %159, %.lr.ph263 ], [ %100, %109 ], [ %100, %116 ], [ %100, %123 ], [ %100, %106 ], [ %100, %106 ], [ %100, %106 ], [ %100, %106 ], [ %89, %.lr.ph579 ], [ %63, %.lr.ph ], [ %.promoted, %33 ], [ %.promoted, %30 ], [ %.promoted, %43 ], [ %.promoted, %40 ], [ %.promoted, %53 ], [ %.promoted, %50 ], [ %144, %148 ], [ %159, %172 ], [ %159, %169 ], [ %159, %182 ], [ %159, %179 ], [ %159, %192 ], [ %159, %189 ], [ %.promoted, %20 ]
+  %.0.ph = phi i32 [ 0, %134 ], [ 1, %.loopexit118 ], [ %spec.select519, %209 ], [ 0, %.lr.ph263 ], [ 0, %109 ], [ 0, %116 ], [ 0, %123 ], [ 0, %106 ], [ 0, %106 ], [ 0, %106 ], [ 0, %106 ], [ 0, %.lr.ph579 ], [ 0, %.lr.ph ], [ 0, %33 ], [ 0, %30 ], [ 0, %43 ], [ 0, %40 ], [ 0, %53 ], [ 0, %50 ], [ 0, %148 ], [ 0, %172 ], [ 0, %169 ], [ 0, %182 ], [ 0, %179 ], [ 0, %192 ], [ 0, %189 ], [ 0, %20 ]
+  store ptr %.sink518, ptr %3, align 8
   br label %.loopexit111
 
 .loopexit111:                                     ; preds = %28, %38, %48, %143, %167, %177, %187, %213, %.lr.ph239._crit_edge, %58, %73, %153, %68, %90, %138, %107, %114, %121, %197, %.loopexit111.sink.split, %4, %.loopexit117, %132

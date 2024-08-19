@@ -323,8 +323,6 @@ invoke.cont.thread.i:                             ; preds = %_ZN9grpc_core13RefC
   store i8 %3, ptr %9, align 16, !alias.scope !11
   %10 = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store i64 %5, ptr %10, align 8, !alias.scope !11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i), !noalias !11
   br label %invoke.cont11
 
 if.else.i.i:                                      ; preds = %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsEC2ERKS2_.exit
@@ -379,8 +377,6 @@ invoke.cont.i:                                    ; preds = %delete.notnull.i.i.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i), !noalias !11
   %20 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %20, ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp.i.i, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i), !noalias !11
   br label %invoke.cont11
 
 "_ZZN31grpc_composite_call_credentials18GetRequestMetadataESt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEPKN21grpc_call_credentials22GetRequestMetadataArgsEEN3$_0D2Ev.exit12.i": ; preds = %if.then.i.i.i.i.i, %if.then.i.i11.i.i
@@ -388,6 +384,8 @@ invoke.cont.i:                                    ; preds = %delete.notnull.i.i.
   br label %if.then.i33
 
 invoke.cont11:                                    ; preds = %invoke.cont.i, %invoke.cont.thread.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i), !noalias !11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp4.i)
   %arg.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 0, ptr %arg.i, align 16

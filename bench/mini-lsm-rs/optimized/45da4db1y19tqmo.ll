@@ -7752,10 +7752,10 @@ _ZN4core4iter6traits8iterator8Iterator6min_by17h6b87b0cd490ed9baE.exit.thread: ;
 
 "_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h242072e6bcf3891dE.exit165": ; preds = %439, %442
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1217
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32)
   br label %446
 
 446:                                              ; preds = %"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h242072e6bcf3891dE.exit171", %"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h242072e6bcf3891dE.exit165"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32)
   ret void
 
 447:                                              ; preds = %.lr.ph297
@@ -7902,7 +7902,6 @@ _ZN4core4iter6traits8iterator8Iterator6min_by17h6b87b0cd490ed9baE.exit.thread: ;
 
 "_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h242072e6bcf3891dE.exit171": ; preds = %492, %495
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1241
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32)
   br label %446
 
 499:                                              ; preds = %.lr.ph288.split

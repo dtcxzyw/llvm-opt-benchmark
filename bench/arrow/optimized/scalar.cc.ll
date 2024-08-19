@@ -45451,17 +45451,12 @@ entry:
 if.then.i:                                        ; preds = %entry
   %2 = load i8, ptr %0, align 1
   switch i8 %2, label %if.then [
-    i8 48, label %if.then3.i
+    i8 48, label %if.end.sink.split
     i8 49, label %if.then7.i
   ]
 
-if.then3.i:                                       ; preds = %if.then.i
-  store i8 0, ptr %value, align 1
-  br label %if.end
-
 if.then7.i:                                       ; preds = %if.then.i
-  store i8 1, ptr %value, align 1
-  br label %if.end
+  br label %if.end.sink.split
 
 if.then11.i:                                      ; preds = %entry
   store i8 1, ptr %value, align 1
@@ -45550,7 +45545,12 @@ _ZN5arrow6Status7InvalidIJRA16_KcRSt17basic_string_viewIcSt11char_traitsIcEERA21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !1238
   br label %return
 
-if.end:                                           ; preds = %if.then7.i, %if.then3.i, %land.rhs.i, %_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit
+if.end.sink.split:                                ; preds = %if.then.i, %if.then7.i
+  %.sink = phi i8 [ 1, %if.then7.i ], [ 0, %if.then.i ]
+  store i8 %.sink, ptr %value, align 1
+  br label %if.end
+
+if.end:                                           ; preds = %if.end.sink.split, %land.rhs.i, %_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit
   call void @_ZN5arrow15ScalarParseImpl6FinishIRbEENS_6StatusEOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 1 dereferenceable(1) %value)
   br label %return
 

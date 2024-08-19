@@ -512,10 +512,10 @@ define void @_ZN20migrations_internals12TomlMetadata14read_from_file17h9dd22b174
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8be47b2b84167756E.exit": ; preds = %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17ha87206b10330b9bfE.exit47", %86
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !66
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   br label %90
 
 90:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8be47b2b84167756E.exit60", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8be47b2b84167756E.exit56", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8be47b2b84167756E.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   ret void
 
 .body:                                            ; preds = %78
@@ -551,7 +551,6 @@ define void @_ZN20migrations_internals12TomlMetadata14read_from_file17h9dd22b174
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8be47b2b84167756E.exit56": ; preds = %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17ha87206b10330b9bfE.exit54", %99
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !98
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   br label %90
 
 103:                                              ; preds = %.body, %.body36, %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17ha87206b10330b9bfE.exit52", %.body38
@@ -592,7 +591,6 @@ define void @_ZN20migrations_internals12TomlMetadata14read_from_file17h9dd22b174
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8be47b2b84167756E.exit60": ; preds = %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17ha87206b10330b9bfE.exit58", %112
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !118
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   br label %90
 
 116:                                              ; preds = %27

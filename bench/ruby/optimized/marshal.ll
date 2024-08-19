@@ -2380,96 +2380,95 @@ define internal fastcc void @w_long(i64 noundef %0, ptr nocapture noundef readon
 
 5:                                                ; preds = %2
   %6 = icmp eq i64 %0, 0
-  br i1 %6, label %7, label %8
+  br i1 %6, label %ruby_marshal_write_long.exit.thread.sink.split, label %7
 
 7:                                                ; preds = %5
-  store i8 0, ptr %3, align 1
-  br label %ruby_marshal_write_long.exit.thread
-
-8:                                                ; preds = %5
   %or.cond.i = icmp ult i64 %0, 123
-  br i1 %or.cond.i, label %9, label %12
+  br i1 %or.cond.i, label %8, label %11
 
-9:                                                ; preds = %8
-  %10 = trunc nuw i64 %0 to i8
-  %11 = add nuw nsw i8 %10, 5
-  store i8 %11, ptr %3, align 1
-  br label %ruby_marshal_write_long.exit.thread
+8:                                                ; preds = %7
+  %9 = trunc nuw i64 %0 to i8
+  %10 = add nuw nsw i8 %9, 5
+  br label %ruby_marshal_write_long.exit.thread.sink.split
 
-12:                                               ; preds = %8
+11:                                               ; preds = %7
   %or.cond3.i = icmp ugt i64 %0, -124
-  br i1 %or.cond3.i, label %13, label %.preheader.i
+  br i1 %or.cond3.i, label %12, label %.preheader.i
 
-13:                                               ; preds = %12
-  %14 = trunc i64 %0 to i8
-  %15 = add nsw i8 %14, -5
-  store i8 %15, ptr %3, align 1
-  br label %ruby_marshal_write_long.exit.thread
+12:                                               ; preds = %11
+  %13 = trunc i64 %0 to i8
+  %14 = add nsw i8 %13, -5
+  br label %ruby_marshal_write_long.exit.thread.sink.split
 
-.preheader.i:                                     ; preds = %12, %27
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %27 ], [ 1, %12 ]
-  %.02937.i = phi i64 [ %18, %27 ], [ %0, %12 ]
-  %16 = trunc i64 %.02937.i to i8
-  %17 = getelementptr i8, ptr %3, i64 %indvars.iv.i
-  store i8 %16, ptr %17, align 1
-  %18 = ashr i64 %.02937.i, 8
-  %19 = icmp ult i64 %.02937.i, 256
-  br i1 %19, label %20, label %22
+.preheader.i:                                     ; preds = %11, %26
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %26 ], [ 1, %11 ]
+  %.02937.i = phi i64 [ %17, %26 ], [ %0, %11 ]
+  %15 = trunc i64 %.02937.i to i8
+  %16 = getelementptr i8, ptr %3, i64 %indvars.iv.i
+  store i8 %15, ptr %16, align 1
+  %17 = ashr i64 %.02937.i, 8
+  %18 = icmp ult i64 %.02937.i, 256
+  br i1 %18, label %19, label %21
 
-20:                                               ; preds = %.preheader.i
-  %21 = trunc i64 %indvars.iv.i to i8
+19:                                               ; preds = %.preheader.i
+  %20 = trunc i64 %indvars.iv.i to i8
   br label %ruby_marshal_write_long.exit
 
-22:                                               ; preds = %.preheader.i
-  %23 = icmp eq i64 %18, -1
-  br i1 %23, label %24, label %27
+21:                                               ; preds = %.preheader.i
+  %22 = icmp eq i64 %17, -1
+  br i1 %22, label %23, label %26
 
-24:                                               ; preds = %22
-  %25 = trunc i64 %indvars.iv.i to i8
-  %26 = sub nsw i8 0, %25
+23:                                               ; preds = %21
+  %24 = trunc i64 %indvars.iv.i to i8
+  %25 = sub nsw i8 0, %24
   br label %ruby_marshal_write_long.exit
 
-27:                                               ; preds = %22
+26:                                               ; preds = %21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
   br i1 %exitcond.not.i, label %ruby_marshal_write_long.exit.thread, label %.preheader.i, !llvm.loop !7
 
-ruby_marshal_write_long.exit:                     ; preds = %20, %24
-  %.sink.i = phi i8 [ %26, %24 ], [ %21, %20 ]
+ruby_marshal_write_long.exit:                     ; preds = %19, %23
+  %.sink.i = phi i8 [ %25, %23 ], [ %20, %19 ]
   %.036.ph.i = trunc i64 %indvars.iv.i to i32
   store i8 %.sink.i, ptr %3, align 1
-  %28 = add nuw i64 %indvars.iv.i, 1
-  %29 = icmp slt i32 %.036.ph.i, -1
-  br i1 %29, label %ruby_marshal_write_long.exit.thread5, label %ruby_marshal_write_long.exit.thread
+  %27 = add nuw i64 %indvars.iv.i, 1
+  %28 = icmp slt i32 %.036.ph.i, -1
+  br i1 %28, label %ruby_marshal_write_long.exit.thread5, label %ruby_marshal_write_long.exit.thread
 
 ruby_marshal_write_long.exit.thread5:             ; preds = %2, %ruby_marshal_write_long.exit
-  %30 = load i64, ptr @rb_eTypeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %30, ptr noundef nonnull @.str.37) #22
+  %29 = load i64, ptr @rb_eTypeError, align 8
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %29, ptr noundef nonnull @.str.37) #22
   unreachable
 
-ruby_marshal_write_long.exit.thread:              ; preds = %27, %13, %9, %7, %ruby_marshal_write_long.exit
-  %.028.i4 = phi i64 [ %28, %ruby_marshal_write_long.exit ], [ 1, %13 ], [ 1, %9 ], [ 1, %7 ], [ 10, %27 ]
-  %31 = and i64 %.028.i4, 4294967295
-  %32 = load i64, ptr %1, align 8
-  %33 = call i64 @rb_str_cat(i64 noundef %32, ptr noundef nonnull %3, i64 noundef %31) #21
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
-  %35 = load i64, ptr %34, align 8
-  %.not.i = icmp eq i64 %35, 0
-  br i1 %.not.i, label %w_nbyte.exit, label %36
+ruby_marshal_write_long.exit.thread.sink.split:   ; preds = %5, %8, %12
+  %.sink = phi i8 [ %14, %12 ], [ %10, %8 ], [ 0, %5 ]
+  store i8 %.sink, ptr %3, align 1
+  br label %ruby_marshal_write_long.exit.thread
 
-36:                                               ; preds = %ruby_marshal_write_long.exit.thread
-  %37 = inttoptr i64 %32 to ptr
-  %38 = getelementptr inbounds i8, ptr %37, i64 16
-  %39 = load i64, ptr %38, align 8
-  %40 = icmp sgt i64 %39, 8191
-  br i1 %40, label %41, label %w_nbyte.exit
+ruby_marshal_write_long.exit.thread:              ; preds = %26, %ruby_marshal_write_long.exit.thread.sink.split, %ruby_marshal_write_long.exit
+  %.028.i4 = phi i64 [ %27, %ruby_marshal_write_long.exit ], [ 1, %ruby_marshal_write_long.exit.thread.sink.split ], [ 10, %26 ]
+  %30 = and i64 %.028.i4, 4294967295
+  %31 = load i64, ptr %1, align 8
+  %32 = call i64 @rb_str_cat(i64 noundef %31, ptr noundef nonnull %3, i64 noundef %30) #21
+  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %34 = load i64, ptr %33, align 8
+  %.not.i = icmp eq i64 %34, 0
+  br i1 %.not.i, label %w_nbyte.exit, label %35
 
-41:                                               ; preds = %36
-  %42 = call i64 @rb_io_write(i64 noundef %35, i64 noundef %32) #21
-  %43 = call i64 @rb_str_resize(i64 noundef %32, i64 noundef 0) #21
+35:                                               ; preds = %ruby_marshal_write_long.exit.thread
+  %36 = inttoptr i64 %31 to ptr
+  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %38 = load i64, ptr %37, align 8
+  %39 = icmp sgt i64 %38, 8191
+  br i1 %39, label %40, label %w_nbyte.exit
+
+40:                                               ; preds = %35
+  %41 = call i64 @rb_io_write(i64 noundef %34, i64 noundef %31) #21
+  %42 = call i64 @rb_str_resize(i64 noundef %31, i64 noundef 0) #21
   br label %w_nbyte.exit
 
-w_nbyte.exit:                                     ; preds = %ruby_marshal_write_long.exit.thread, %36, %41
+w_nbyte.exit:                                     ; preds = %ruby_marshal_write_long.exit.thread, %35, %40
   ret void
 }
 

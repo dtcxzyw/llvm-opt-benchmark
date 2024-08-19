@@ -2524,20 +2524,14 @@ cond.end:                                         ; preds = %if.end51
   br i1 %cmp57, label %if.then59, label %if.end64
 
 if.then59:                                        ; preds = %cond.end
-  br i1 %tobool60.not87, label %if.else62, label %if.then61
-
-if.then61:                                        ; preds = %if.then59
   %shl = shl i64 %16, 3
   %add = or disjoint i64 %shl, 7
-  store i64 %add, ptr %end, align 8
-  br label %if.end64
-
-if.else62:                                        ; preds = %if.then59
   %sub = add nsw i64 %16, -1
-  store i64 %sub, ptr %end, align 8
+  %add.sink = select i1 %tobool60.not87, i64 %sub, i64 %add
+  store i64 %add.sink, ptr %end, align 8
   br label %if.end64
 
-if.end64:                                         ; preds = %if.then61, %if.else62, %cond.end
+if.end64:                                         ; preds = %if.then59, %cond.end
   %shl67 = shl i64 %16, 3
   %spec.select = select i1 %tobool60.not87, i64 %16, i64 %shl67
   %18 = load i64, ptr %start, align 8

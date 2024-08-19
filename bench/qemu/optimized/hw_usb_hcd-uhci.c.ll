@@ -2009,13 +2009,11 @@ if.end18:                                         ; preds = %qhdb_insert.exit, %
 
 if.then27:                                        ; preds = %if.end18
   %40 = load i32, ptr %qh, align 4
-  store i32 %40, ptr %link, align 4
-  br label %for.inc
+  br label %for.inc.sink.split
 
 if.else29:                                        ; preds = %if.end18
   %41 = load i32, ptr %link, align 4
-  store i32 %39, ptr %link, align 4
-  br label %for.inc
+  br label %for.inc.sink.split
 
 if.end32:                                         ; preds = %if.end
   %conv.i92 = zext i32 %and.i91 to i64
@@ -2127,8 +2125,7 @@ trace_usb_uhci_td_nextqh.exit:                    ; preds = %sw.bb49, %land.lhs.
   %62 = load i32, ptr %qh, align 4
   %63 = load i32, ptr %td, align 4
   %cond = select i1 %tobool52.not, i32 %63, i32 %62
-  store i32 %cond, ptr %link, align 4
-  br label %for.inc
+  br label %for.inc.sink.split
 
 sw.bb55:                                          ; preds = %if.end48
   %64 = load i32, ptr %link, align 4
@@ -2170,8 +2167,7 @@ trace_usb_uhci_td_async.exit:                     ; preds = %sw.bb55, %land.lhs.
   %71 = load i32, ptr %qh, align 4
   %72 = load i32, ptr %td, align 4
   %cond64 = select i1 %tobool58.not, i32 %72, i32 %71
-  store i32 %cond64, ptr %link, align 4
-  br label %for.inc
+  br label %for.inc.sink.split
 
 sw.bb65:                                          ; preds = %if.end48
   %73 = load i32, ptr %link, align 4
@@ -2236,16 +2232,22 @@ if.then75:                                        ; preds = %trace_usb_uhci_td_c
 
 if.then86:                                        ; preds = %if.then75
   %85 = load i32, ptr %qh, align 4
-  store i32 %85, ptr %link, align 4
-  br label %for.inc
+  br label %for.inc.sink.split
 
 default.unreachable162:                           ; preds = %if.end48
   unreachable
 
-for.inc:                                          ; preds = %if.then75, %if.then86, %trace_usb_uhci_td_complete.exit, %if.then27, %if.else29, %trace_usb_uhci_td_async.exit, %trace_usb_uhci_td_nextqh.exit
-  %86 = phi i32 [ %39, %if.else29 ], [ %40, %if.then27 ], [ %83, %if.then75 ], [ %85, %if.then86 ], [ %80, %trace_usb_uhci_td_complete.exit ], [ %cond64, %trace_usb_uhci_td_async.exit ], [ %cond, %trace_usb_uhci_td_nextqh.exit ]
-  %td_count.2 = phi i32 [ %td_count.1, %if.else29 ], [ %td_count.1, %if.then27 ], [ %inc, %if.then75 ], [ %inc, %if.then86 ], [ %inc, %trace_usb_uhci_td_complete.exit ], [ %td_count.0159, %trace_usb_uhci_td_async.exit ], [ %td_count.0159, %trace_usb_uhci_td_nextqh.exit ]
-  %curr_qh.1 = phi i32 [ %41, %if.else29 ], [ 0, %if.then27 ], [ %curr_qh.0161, %if.then75 ], [ 0, %if.then86 ], [ 0, %trace_usb_uhci_td_complete.exit ], [ %curr_qh.0161, %trace_usb_uhci_td_async.exit ], [ %curr_qh.0161, %trace_usb_uhci_td_nextqh.exit ]
+for.inc.sink.split:                               ; preds = %trace_usb_uhci_td_nextqh.exit, %trace_usb_uhci_td_async.exit, %if.else29, %if.then27, %if.then86
+  %.sink = phi i32 [ %85, %if.then86 ], [ %40, %if.then27 ], [ %39, %if.else29 ], [ %cond64, %trace_usb_uhci_td_async.exit ], [ %cond, %trace_usb_uhci_td_nextqh.exit ]
+  %td_count.2.ph = phi i32 [ %inc, %if.then86 ], [ %td_count.1, %if.then27 ], [ %td_count.1, %if.else29 ], [ %td_count.0159, %trace_usb_uhci_td_async.exit ], [ %td_count.0159, %trace_usb_uhci_td_nextqh.exit ]
+  %curr_qh.1.ph = phi i32 [ 0, %if.then86 ], [ 0, %if.then27 ], [ %41, %if.else29 ], [ %curr_qh.0161, %trace_usb_uhci_td_async.exit ], [ %curr_qh.0161, %trace_usb_uhci_td_nextqh.exit ]
+  store i32 %.sink, ptr %link, align 4
+  br label %for.inc
+
+for.inc:                                          ; preds = %for.inc.sink.split, %if.then75, %trace_usb_uhci_td_complete.exit
+  %86 = phi i32 [ %83, %if.then75 ], [ %80, %trace_usb_uhci_td_complete.exit ], [ %.sink, %for.inc.sink.split ]
+  %td_count.2 = phi i32 [ %inc, %if.then75 ], [ %inc, %trace_usb_uhci_td_complete.exit ], [ %td_count.2.ph, %for.inc.sink.split ]
+  %curr_qh.1 = phi i32 [ %curr_qh.0161, %if.then75 ], [ 0, %trace_usb_uhci_td_complete.exit ], [ %curr_qh.1.ph, %for.inc.sink.split ]
   %dec = add nsw i32 %cnt.0160, -1
   %and.i = and i32 %86, 1
   %tobool = icmp eq i32 %and.i, 0

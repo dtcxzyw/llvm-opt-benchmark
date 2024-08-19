@@ -281,8 +281,6 @@ BufferGetPage.exit:                               ; preds = %78
   %110 = zext nneg i32 %109 to i64
   %111 = getelementptr ptr, ptr %108, i64 %110
   %112 = load ptr, ptr %111, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   br label %BufferGetPage.exit.i
 
 113:                                              ; preds = %105
@@ -291,12 +289,12 @@ BufferGetPage.exit:                               ; preds = %78
   %116 = sext i32 %115 to i64
   %117 = shl nsw i64 %116, 13
   %118 = getelementptr i8, ptr %114, i64 %117
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   br label %BufferGetPage.exit.i
 
 BufferGetPage.exit.i:                             ; preds = %113, %107
   %.0.i.i5569 = phi ptr [ %112, %107 ], [ %118, %113 ]
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   %119 = getelementptr i8, ptr %.0.i.i5569, i64 12
   %.val82.i = load i16, ptr %119, align 4
   %120 = icmp ult i16 %.val82.i, 25

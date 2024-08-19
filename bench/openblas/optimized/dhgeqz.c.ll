@@ -1815,7 +1815,6 @@ split:                                            ; preds = %750, %._crit_edge17
   store double %1227, ptr %59, align 8, !tbaa !7
   %1228 = fneg double %1186
   %1229 = fmul double %1207, %1228
-  store double %1229, ptr %58, align 8, !tbaa !7
   br label %1250
 
 1230:                                             ; preds = %1184
@@ -1832,7 +1831,6 @@ split:                                            ; preds = %750, %._crit_edge17
 1236:                                             ; preds = %1230
   store double 0.000000e+00, ptr %38, align 8, !tbaa !7
   store double 1.000000e+00, ptr %59, align 8, !tbaa !7
-  store double 0.000000e+00, ptr %58, align 8, !tbaa !7
   br label %1250
 
 1237:                                             ; preds = %1230
@@ -1850,10 +1848,11 @@ split:                                            ; preds = %750, %._crit_edge17
   %1247 = fneg double %1242
   %1248 = fmul double %1238, %1247
   %1249 = call double @llvm.fmuladd.f64(double %1244, double %1240, double %1248)
-  store double %1249, ptr %58, align 8, !tbaa !7
   br label %1250
 
 1250:                                             ; preds = %1237, %1236, %1225
+  %.sink = phi double [ %1249, %1237 ], [ 0.000000e+00, %1236 ], [ %1229, %1225 ]
+  store double %.sink, ptr %58, align 8, !tbaa !7
   %1251 = call double @dlapy3_(ptr noundef nonnull %38, ptr noundef nonnull %59, ptr noundef nonnull %58) #5
   %1252 = load double, ptr %38, align 8, !tbaa !7
   %1253 = fdiv double %1252, %1251

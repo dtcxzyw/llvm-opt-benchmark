@@ -13138,11 +13138,11 @@ if.else118:                                       ; preds = %if.then.i921, %_Z2e
 
 if.end121:                                        ; preds = %if.then82, %_Z2eqI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit, %if.else118
   %m_mul_bc.sink = phi ptr [ %m_mul_bc, %if.else118 ], [ %m_mul_ad, %_Z2eqI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit ], [ %m_mul_ad, %if.then82 ]
-  %storemerge.in = phi ptr [ %bc_k, %if.else118 ], [ %ad_k, %_Z2eqI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit ], [ %ad_k, %if.then82 ]
+  %.sink1339.in = phi ptr [ %bc_k, %if.else118 ], [ %ad_k, %_Z2eqI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit ], [ %ad_k, %if.then82 ]
   %.sink = phi i1 [ %263, %if.else118 ], [ %262, %_Z2eqI12mpfx_managerEbRT_RKNS1_7numeralE16ext_numeral_kindS5_S6_.exit ], [ %262, %if.then82 ]
   call void @_ZN12mpfx_manager4swapER4mpfxS1_(ptr noundef nonnull align 4 dereferenceable(4) %m_result_lower, ptr noundef nonnull align 4 dereferenceable(4) %m_mul_bc.sink) #22
-  %storemerge = load i32, ptr %storemerge.in, align 4
-  store i32 %storemerge, ptr %new_l_kind, align 4
+  %.sink1339 = load i32, ptr %.sink1339.in, align 4
+  store i32 %.sink1339, ptr %new_l_kind, align 4
   %frombool.i.i928 = zext i1 %.sink to i8
   %m_l_open.i.i929 = getelementptr inbounds i8, ptr %r, i64 25
   store i8 %frombool.i.i928, ptr %m_l_open.i.i929, align 1

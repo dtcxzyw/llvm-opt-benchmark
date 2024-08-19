@@ -3435,11 +3435,7 @@ define internal range(i32 0, 256) i32 @dissect_iec60870_5_103(ptr noundef %0, pt
   %185 = add i8 %181, 1
   %186 = add nuw nsw i32 %.0113.us116, 1
   %exitcond131.not = icmp eq i32 %186, %80
-  br i1 %exitcond131.not, label %..loopexit_crit_edge.split.split.split.us, label %.lr.ph.split.split.us115, !llvm.loop !10
-
-..loopexit_crit_edge.split.split.split.us:        ; preds = %.lr.ph.split.split.us115
-  store i8 %185, ptr %7, align 1
-  br label %.loopexit
+  br i1 %exitcond131.not, label %.loopexit.sink.split, label %.lr.ph.split.split.us115, !llvm.loop !10
 
 .lr.ph.split.split.us117:                         ; preds = %.lr.ph.split, %.lr.ph.split.split.us117
   %187 = phi i8 [ %194, %.lr.ph.split.split.us117 ], [ %79, %.lr.ph.split ]
@@ -3453,11 +3449,7 @@ define internal range(i32 0, 256) i32 @dissect_iec60870_5_103(ptr noundef %0, pt
   %194 = add i8 %187, 2
   %195 = add nuw nsw i32 %.0113.us118, 1
   %exitcond130.not = icmp eq i32 %195, %80
-  br i1 %exitcond130.not, label %..loopexit_crit_edge.split.split.split.split.us, label %.lr.ph.split.split.us117, !llvm.loop !10
-
-..loopexit_crit_edge.split.split.split.split.us:  ; preds = %.lr.ph.split.split.us117
-  store i8 %194, ptr %7, align 1
-  br label %.loopexit
+  br i1 %exitcond130.not, label %.loopexit.sink.split, label %.lr.ph.split.split.us117, !llvm.loop !10
 
 .lr.ph.split.split.us119:                         ; preds = %.lr.ph.split, %.lr.ph.split
   %umax = tail call i32 @llvm.umax.i32(i32 %80, i32 1)
@@ -3472,13 +3464,14 @@ define internal range(i32 0, 256) i32 @dissect_iec60870_5_103(ptr noundef %0, pt
   %201 = add i8 %197, 1
   %202 = add nuw nsw i32 %.0113.us120, 1
   %exitcond.not = icmp eq i32 %202, %umax
-  br i1 %exitcond.not, label %..loopexit_crit_edge.split.split.split.split.split.us, label %196, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit.sink.split, label %196, !llvm.loop !10
 
-..loopexit_crit_edge.split.split.split.split.split.us: ; preds = %196
-  store i8 %201, ptr %7, align 1
+.loopexit.sink.split:                             ; preds = %196, %.lr.ph.split.split.us117, %.lr.ph.split.split.us115
+  %.lcssa135.sink = phi i8 [ %185, %.lr.ph.split.split.us115 ], [ %194, %.lr.ph.split.split.us117 ], [ %201, %196 ]
+  store i8 %.lcssa135.sink, ptr %7, align 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.split.split.us, %178, %.lr.ph.split, %57, %..loopexit_crit_edge.split.split.split.split.us, %..loopexit_crit_edge.split.split.split.split.split.us, %..loopexit_crit_edge.split.split.split.us, %42
+.loopexit:                                        ; preds = %.lr.ph.split.split.us, %178, %.loopexit.sink.split, %.lr.ph.split, %57, %42
   %203 = load i32, ptr @hf_iec60870_5_103_checksum, align 4
   %204 = load i8, ptr %7, align 1
   %205 = zext i8 %204 to i32

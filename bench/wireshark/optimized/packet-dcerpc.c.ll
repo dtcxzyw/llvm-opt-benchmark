@@ -1586,7 +1586,7 @@ proto_item_set_generated.exit204:                 ; preds = %141, %138, %135, %p
   %151 = load ptr, ptr %150, align 8
   %152 = zext i1 %.not188 to i32
   call fastcc void @show_stub_data(ptr noundef nonnull %1, ptr noundef %0, i32 noundef 0, ptr noundef %73, ptr noundef %151, i32 noundef %152)
-  br label %279
+  br label %276
 
 153:                                              ; preds = %147
   %154 = load ptr, ptr %1, align 8
@@ -1663,7 +1663,7 @@ proto_item_set_generated.exit204:                 ; preds = %141, %138, %135, %p
 182:                                              ; preds = %181, %180
   %.0..0..0..0.34 = load volatile ptr, ptr %8, align 8
   %.not193 = icmp eq ptr %.0..0..0..0.34, null
-  br i1 %.not193, label %274, label %183
+  br i1 %.not193, label %271, label %183
 
 183:                                              ; preds = %182
   store volatile i32 0, ptr %14, align 4
@@ -1671,235 +1671,226 @@ proto_item_set_generated.exit204:                 ; preds = %141, %138, %135, %p
   %184 = getelementptr inbounds i8, ptr %16, i64 48
   %185 = call i32 @_setjmp(ptr noundef nonnull %184) #19
   %.not194 = icmp eq i32 %185, 0
-  br i1 %.not194, label %188, label %186
-
-186:                                              ; preds = %183
-  %187 = getelementptr inbounds i8, ptr %16, i64 16
-  store volatile ptr %187, ptr %13, align 8
-  br label %189
+  %186 = getelementptr inbounds i8, ptr %16, i64 16
+  %.sink = select i1 %.not194, ptr null, ptr %186
+  store volatile ptr %.sink, ptr %13, align 8
+  %.0..0..0..0.12 = load volatile i32, ptr %14, align 4
+  %187 = and i32 %.0..0..0..0.12, 1
+  %.not195 = icmp eq i32 %187, 0
+  br i1 %.not195, label %190, label %188
 
 188:                                              ; preds = %183
-  store volatile ptr null, ptr %13, align 8
-  br label %189
-
-189:                                              ; preds = %188, %186
-  %.0..0..0..0.12 = load volatile i32, ptr %14, align 4
-  %190 = and i32 %.0..0..0..0.12, 1
-  %.not195 = icmp eq i32 %190, 0
-  br i1 %.not195, label %193, label %191
-
-191:                                              ; preds = %189
   %.0..0..0..0.13 = load volatile i32, ptr %14, align 4
-  %192 = or i32 %.0..0..0..0.13, 2
-  store volatile i32 %192, ptr %14, align 4
-  br label %193
+  %189 = or i32 %.0..0..0..0.13, 2
+  store volatile i32 %189, ptr %14, align 4
+  br label %190
 
-193:                                              ; preds = %191, %189
+190:                                              ; preds = %188, %183
   %.0..0..0..0.14 = load volatile i32, ptr %14, align 4
-  %194 = and i32 %.0..0..0..0.14, -2
-  store volatile i32 %194, ptr %14, align 4
+  %191 = and i32 %.0..0..0..0.14, -2
+  store volatile i32 %191, ptr %14, align 4
   %.0..0..0..0.15 = load volatile i32, ptr %14, align 4
-  %195 = icmp eq i32 %.0..0..0..0.15, 0
-  br i1 %195, label %196, label %241
+  %192 = icmp eq i32 %.0..0..0..0.15, 0
+  br i1 %192, label %193, label %238
 
-196:                                              ; preds = %193
+193:                                              ; preds = %190
   %.0..0..0..0.19 = load volatile ptr, ptr %13, align 8
-  %197 = icmp eq ptr %.0..0..0..0.19, null
-  br i1 %197, label %198, label %241
+  %194 = icmp eq ptr %.0..0..0..0.19, null
+  br i1 %194, label %195, label %238
 
-198:                                              ; preds = %196
+195:                                              ; preds = %193
   store i32 -1, ptr %17, align 4
-  %199 = getelementptr inbounds i8, ptr %3, i64 40
-  %200 = load ptr, ptr %199, align 8
+  %196 = getelementptr inbounds i8, ptr %3, i64 40
+  %197 = load ptr, ptr %196, align 8
   %.0..0..0..0.35 = load volatile ptr, ptr %8, align 8
   %.0..0..0..0.59 = load volatile i32, ptr %6, align 4
-  %201 = load i32, ptr @ett_dcerpc_complete_stub_data, align 4
+  %198 = load i32, ptr @ett_dcerpc_complete_stub_data, align 4
   %.0..0..0..0.60 = load volatile i32, ptr %6, align 4
   %.0..0..0..0.61 = load volatile i32, ptr %6, align 4
-  %202 = icmp eq i32 %.0..0..0..0.61, 1
-  %203 = select i1 %202, ptr @.str.432, ptr @.str.433
-  %204 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %200, ptr noundef %.0..0..0..0.35, i32 noundef 0, i32 noundef %.0..0..0..0.59, i32 noundef %201, ptr noundef null, ptr noundef nonnull @.str.431, i32 noundef %.0..0..0..0.60, ptr noundef nonnull %203) #16
+  %199 = icmp eq i32 %.0..0..0..0.61, 1
+  %200 = select i1 %199, ptr @.str.432, ptr @.str.433
+  %201 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %197, ptr noundef %.0..0..0..0.35, i32 noundef 0, i32 noundef %.0..0..0..0.59, i32 noundef %198, ptr noundef null, ptr noundef nonnull @.str.431, i32 noundef %.0..0..0..0.60, ptr noundef nonnull %200) #16
   %.0..0..0..0.36 = load volatile ptr, ptr %8, align 8
-  %205 = call fastcc i32 @dissect_verification_trailer(ptr noundef nonnull %1, ptr noundef %.0..0..0..0.36, i32 noundef 0, ptr noundef %204, ptr noundef nonnull %17)
-  %.not196 = icmp eq i32 %205, -1
-  br i1 %.not196, label %211, label %206
+  %202 = call fastcc i32 @dissect_verification_trailer(ptr noundef nonnull %1, ptr noundef %.0..0..0..0.36, i32 noundef 0, ptr noundef %201, ptr noundef nonnull %17)
+  %.not196 = icmp eq i32 %202, -1
+  br i1 %.not196, label %208, label %203
 
-206:                                              ; preds = %198
+203:                                              ; preds = %195
   %.0..0..0..0.37 = load volatile ptr, ptr %8, align 8
-  %207 = load i32, ptr %17, align 4
-  %208 = call i32 @tvb_captured_length_remaining(ptr noundef %.0..0..0..0.37, i32 noundef %207) #16
+  %204 = load i32, ptr %17, align 4
+  %205 = call i32 @tvb_captured_length_remaining(ptr noundef %.0..0..0..0.37, i32 noundef %204) #16
   %.0..0..0..0.62 = load volatile i32, ptr %6, align 4
-  %209 = sub i32 %.0..0..0..0.62, %208
-  store volatile i32 %209, ptr %6, align 4
-  br i1 %.not192, label %216, label %210
+  %206 = sub i32 %.0..0..0..0.62, %205
+  store volatile i32 %206, ptr %6, align 4
+  br i1 %.not192, label %213, label %207
 
-210:                                              ; preds = %206
+207:                                              ; preds = %203
   %.0..0..0..0.63 = load volatile i32, ptr %6, align 4
   call void @proto_item_set_len(ptr noundef nonnull %69, i32 noundef %.0..0..0..0.63) #16
-  br label %216
+  br label %213
 
-211:                                              ; preds = %198
-  %212 = load i32, ptr @hf_dcerpc_payload_stub_data, align 4
+208:                                              ; preds = %195
+  %209 = load i32, ptr @hf_dcerpc_payload_stub_data, align 4
   %.0..0..0..0.38 = load volatile ptr, ptr %8, align 8
   %.0..0..0..0.64 = load volatile i32, ptr %6, align 4
-  %213 = call ptr @proto_tree_add_item(ptr noundef %204, i32 noundef %212, ptr noundef %.0..0..0..0.38, i32 noundef 0, i32 noundef %.0..0..0..0.64, i32 noundef 0) #16
+  %210 = call ptr @proto_tree_add_item(ptr noundef %201, i32 noundef %209, ptr noundef %.0..0..0..0.38, i32 noundef 0, i32 noundef %.0..0..0..0.64, i32 noundef 0) #16
   %.0..0..0..0.65 = load volatile i32, ptr %6, align 4
   %.0..0..0..0.66 = load volatile i32, ptr %6, align 4
-  %214 = icmp eq i32 %.0..0..0..0.66, 1
-  %215 = select i1 %214, ptr @.str.432, ptr @.str.433
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %213, ptr noundef nonnull @.str.434, i32 noundef %.0..0..0..0.65, ptr noundef nonnull %215) #16
-  br label %216
+  %211 = icmp eq i32 %.0..0..0..0.66, 1
+  %212 = select i1 %211, ptr @.str.432, ptr @.str.433
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %210, ptr noundef nonnull @.str.434, i32 noundef %.0..0..0..0.65, ptr noundef nonnull %212) #16
+  br label %213
 
-216:                                              ; preds = %206, %210, %211
+213:                                              ; preds = %203, %207, %208
   %.0..0..0..0.39 = load volatile ptr, ptr %8, align 8
   %.0..0..0..0.67 = load volatile i32, ptr %6, align 4
   %.0..0..0..0.68 = load volatile i32, ptr %6, align 4
-  %217 = call ptr @tvb_new_subset_length_caplen(ptr noundef %.0..0..0..0.39, i32 noundef 0, i32 noundef %.0..0..0..0.67, i32 noundef %.0..0..0..0.68) #16
-  store volatile ptr %217, ptr %9, align 8
+  %214 = call ptr @tvb_new_subset_length_caplen(ptr noundef %.0..0..0..0.39, i32 noundef 0, i32 noundef %.0..0..0..0.67, i32 noundef %.0..0..0..0.68) #16
+  store volatile ptr %214, ptr %9, align 8
   %.0..0..0..0.88 = load volatile ptr, ptr %5, align 8
   %.0..0..0..0.33 = load volatile ptr, ptr %9, align 8
-  %218 = load ptr, ptr %60, align 8
-  %219 = getelementptr inbounds i8, ptr %3, i64 32
-  %220 = load ptr, ptr %219, align 8
-  %221 = call i32 %.0..0..0..0.88(ptr noundef %.0..0..0..0.33, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %73, ptr noundef %218, ptr noundef %220) #16
-  store volatile i32 %221, ptr %7, align 4
+  %215 = load ptr, ptr %60, align 8
+  %216 = getelementptr inbounds i8, ptr %3, i64 32
+  %217 = load ptr, ptr %216, align 8
+  %218 = call i32 %.0..0..0..0.88(ptr noundef %.0..0..0..0.33, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %73, ptr noundef %215, ptr noundef %217) #16
+  store volatile i32 %218, ptr %7, align 4
   %.0..0..0..0.40 = load volatile ptr, ptr %8, align 8
   %.0..0..0..0.44 = load volatile i32, ptr %7, align 4
-  %222 = call i32 @tvb_reported_length_remaining(ptr noundef %.0..0..0..0.40, i32 noundef %.0..0..0..0.44) #16
-  br i1 %.not196, label %234, label %223
+  %219 = call i32 @tvb_reported_length_remaining(ptr noundef %.0..0..0..0.40, i32 noundef %.0..0..0..0.44) #16
+  br i1 %.not196, label %231, label %220
 
-223:                                              ; preds = %216
+220:                                              ; preds = %213
   %.0..0..0..0.45 = load volatile i32, ptr %7, align 4
-  %224 = load i32, ptr %17, align 4
-  %225 = icmp sgt i32 %.0..0..0..0.45, %224
+  %221 = load i32, ptr %17, align 4
+  %222 = icmp sgt i32 %.0..0..0..0.45, %221
   %.0..0..0..0.46 = load volatile i32, ptr %7, align 4
-  br i1 %225, label %.thread, label %232
+  br i1 %222, label %.thread, label %229
 
-.thread:                                          ; preds = %223
-  %226 = sub i32 %.0..0..0..0.46, %224
-  %227 = load i32, ptr @hf_dcerpc_stub_data_with_sec_vt, align 4
+.thread:                                          ; preds = %220
+  %223 = sub i32 %.0..0..0..0.46, %221
+  %224 = load i32, ptr @hf_dcerpc_stub_data_with_sec_vt, align 4
   %.0..0..0..0.41 = load volatile ptr, ptr %8, align 8
-  %228 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %227, ptr noundef %.0..0..0..0.41, i32 noundef %224, i32 noundef %226, i32 noundef 0) #16
-  %229 = load ptr, ptr %37, align 8
-  %230 = icmp eq i32 %226, 1
-  %231 = select i1 %230, ptr @.str.432, ptr @.str.433
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %229, i32 noundef 25, ptr noundef nonnull @.str.435, i32 noundef %226, ptr noundef nonnull %231) #16
-  br label %241
+  %225 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %224, ptr noundef %.0..0..0..0.41, i32 noundef %221, i32 noundef %223, i32 noundef 0) #16
+  %226 = load ptr, ptr %37, align 8
+  %227 = icmp eq i32 %223, 1
+  %228 = select i1 %227, ptr @.str.432, ptr @.str.433
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %226, i32 noundef 25, ptr noundef nonnull @.str.435, i32 noundef %223, ptr noundef nonnull %228) #16
+  br label %238
 
-232:                                              ; preds = %223
-  %233 = sub i32 %224, %.0..0..0..0.46
-  br label %234
+229:                                              ; preds = %220
+  %230 = sub i32 %221, %.0..0..0..0.46
+  br label %231
 
-234:                                              ; preds = %232, %216
-  %.0169 = phi i32 [ %233, %232 ], [ %222, %216 ]
-  %235 = icmp sgt i32 %.0169, 0
-  br i1 %235, label %236, label %241
+231:                                              ; preds = %229, %213
+  %.0169 = phi i32 [ %230, %229 ], [ %219, %213 ]
+  %232 = icmp sgt i32 %.0169, 0
+  br i1 %232, label %233, label %238
 
-236:                                              ; preds = %234
+233:                                              ; preds = %231
   %.0..0..0..0.42 = load volatile ptr, ptr %8, align 8
   %.0..0..0..0.48 = load volatile i32, ptr %7, align 4
-  %237 = call ptr @proto_tree_add_expert(ptr noundef %73, ptr noundef nonnull %1, ptr noundef nonnull @ei_dcerpc_long_frame, ptr noundef %.0..0..0..0.42, i32 noundef %.0..0..0..0.48, i32 noundef %.0169) #16
-  %238 = load ptr, ptr %37, align 8
-  %239 = icmp eq i32 %.0169, 1
-  %240 = select i1 %239, ptr @.str.432, ptr @.str.433
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %238, i32 noundef 25, ptr noundef nonnull @.str.436, i32 noundef %.0169, ptr noundef nonnull %240) #16
-  br label %241
+  %234 = call ptr @proto_tree_add_expert(ptr noundef %73, ptr noundef nonnull %1, ptr noundef nonnull @ei_dcerpc_long_frame, ptr noundef %.0..0..0..0.42, i32 noundef %.0..0..0..0.48, i32 noundef %.0169) #16
+  %235 = load ptr, ptr %37, align 8
+  %236 = icmp eq i32 %.0169, 1
+  %237 = select i1 %236, ptr @.str.432, ptr @.str.433
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %235, i32 noundef 25, ptr noundef nonnull @.str.436, i32 noundef %.0169, ptr noundef nonnull %237) #16
+  br label %238
 
-241:                                              ; preds = %.thread, %234, %236, %196, %193
+238:                                              ; preds = %.thread, %231, %233, %193, %190
   %.0..0..0..0.16 = load volatile i32, ptr %14, align 4
-  %242 = icmp eq i32 %.0..0..0..0.16, 0
-  br i1 %242, label %243, label %266
+  %239 = icmp eq i32 %.0..0..0..0.16, 0
+  br i1 %239, label %240, label %263
 
-243:                                              ; preds = %241
+240:                                              ; preds = %238
   %.0..0..0..0.20 = load volatile ptr, ptr %13, align 8
   %.not197 = icmp eq ptr %.0..0..0..0.20, null
-  br i1 %.not197, label %266, label %244
+  br i1 %.not197, label %263, label %241
 
-244:                                              ; preds = %243
+241:                                              ; preds = %240
   %.0..0..0..0.21 = load volatile ptr, ptr %13, align 8
-  %245 = getelementptr inbounds i8, ptr %.0..0..0..0.21, i64 8
-  %246 = load volatile i64, ptr %245, align 8
-  %247 = icmp eq i64 %246, 3
-  br i1 %247, label %260, label %248
+  %242 = getelementptr inbounds i8, ptr %.0..0..0..0.21, i64 8
+  %243 = load volatile i64, ptr %242, align 8
+  %244 = icmp eq i64 %243, 3
+  br i1 %244, label %257, label %245
 
-248:                                              ; preds = %244
+245:                                              ; preds = %241
   %.0..0..0..0.22 = load volatile ptr, ptr %13, align 8
-  %249 = getelementptr inbounds i8, ptr %.0..0..0..0.22, i64 8
-  %250 = load volatile i64, ptr %249, align 8
-  %251 = icmp eq i64 %250, 2
-  br i1 %251, label %260, label %252
+  %246 = getelementptr inbounds i8, ptr %.0..0..0..0.22, i64 8
+  %247 = load volatile i64, ptr %246, align 8
+  %248 = icmp eq i64 %247, 2
+  br i1 %248, label %257, label %249
 
-252:                                              ; preds = %248
+249:                                              ; preds = %245
   %.0..0..0..0.23 = load volatile ptr, ptr %13, align 8
-  %253 = getelementptr inbounds i8, ptr %.0..0..0..0.23, i64 8
-  %254 = load volatile i64, ptr %253, align 8
-  %255 = icmp eq i64 %254, 7
-  br i1 %255, label %260, label %256
+  %250 = getelementptr inbounds i8, ptr %.0..0..0..0.23, i64 8
+  %251 = load volatile i64, ptr %250, align 8
+  %252 = icmp eq i64 %251, 7
+  br i1 %252, label %257, label %253
 
-256:                                              ; preds = %252
+253:                                              ; preds = %249
   %.0..0..0..0.24 = load volatile ptr, ptr %13, align 8
-  %257 = getelementptr inbounds i8, ptr %.0..0..0..0.24, i64 8
-  %258 = load volatile i64, ptr %257, align 8
-  %259 = icmp eq i64 %258, 9
-  br i1 %259, label %260, label %266
+  %254 = getelementptr inbounds i8, ptr %.0..0..0..0.24, i64 8
+  %255 = load volatile i64, ptr %254, align 8
+  %256 = icmp eq i64 %255, 9
+  br i1 %256, label %257, label %263
 
-260:                                              ; preds = %256, %252, %248, %244
+257:                                              ; preds = %253, %249, %245, %241
   %.0..0..0..0.17 = load volatile i32, ptr %14, align 4
-  %261 = or i32 %.0..0..0..0.17, 1
-  store volatile i32 %261, ptr %14, align 4
+  %258 = or i32 %.0..0..0..0.17, 1
+  store volatile i32 %258, ptr %14, align 4
   %.0..0..0..0.43 = load volatile ptr, ptr %8, align 8
   %.0..0..0..0.25 = load volatile ptr, ptr %13, align 8
-  %262 = getelementptr inbounds i8, ptr %.0..0..0..0.25, i64 8
-  %263 = load volatile i64, ptr %262, align 8
+  %259 = getelementptr inbounds i8, ptr %.0..0..0..0.25, i64 8
+  %260 = load volatile i64, ptr %259, align 8
   %.0..0..0..0.26 = load volatile ptr, ptr %13, align 8
-  %264 = getelementptr inbounds i8, ptr %.0..0..0..0.26, i64 16
-  %265 = load volatile ptr, ptr %264, align 8
-  call void @show_exception(ptr noundef %.0..0..0..0.43, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %263, ptr noundef %265) #16
-  br label %266
+  %261 = getelementptr inbounds i8, ptr %.0..0..0..0.26, i64 16
+  %262 = load volatile ptr, ptr %261, align 8
+  call void @show_exception(ptr noundef %.0..0..0..0.43, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %260, ptr noundef %262) #16
+  br label %263
 
-266:                                              ; preds = %260, %256, %243, %241
+263:                                              ; preds = %257, %253, %240, %238
   %.0..0..0..0.18 = load volatile i32, ptr %14, align 4
-  %267 = and i32 %.0..0..0..0.18, 1
-  %.not198 = icmp eq i32 %267, 0
-  br i1 %.not198, label %268, label %270
+  %264 = and i32 %.0..0..0..0.18, 1
+  %.not198 = icmp eq i32 %264, 0
+  br i1 %.not198, label %265, label %267
 
-268:                                              ; preds = %266
+265:                                              ; preds = %263
   %.0..0..0..0.27 = load volatile ptr, ptr %13, align 8
   %.not199 = icmp eq ptr %.0..0..0..0.27, null
-  br i1 %.not199, label %270, label %269
+  br i1 %.not199, label %267, label %266
 
-269:                                              ; preds = %268
+266:                                              ; preds = %265
   %.0..0..0..0.28 = load volatile ptr, ptr %13, align 8
   call void @except_rethrow(ptr noundef %.0..0..0..0.28) #20
   unreachable
 
-270:                                              ; preds = %268, %266
-  %271 = getelementptr inbounds i8, ptr %16, i64 40
-  %272 = load volatile ptr, ptr %271, align 8
-  call void @except_free(ptr noundef %272) #16
-  %273 = call ptr @except_pop() #16
-  br label %274
+267:                                              ; preds = %265, %263
+  %268 = getelementptr inbounds i8, ptr %16, i64 40
+  %269 = load volatile ptr, ptr %268, align 8
+  call void @except_free(ptr noundef %269) #16
+  %270 = call ptr @except_pop() #16
+  br label %271
 
-274:                                              ; preds = %270, %182
+271:                                              ; preds = %267, %182
   %.0..0..0..0.31 = load volatile i32, ptr %10, align 4
   %.not200 = icmp eq i32 %.0..0..0..0.31, 0
-  br i1 %.not200, label %278, label %275
+  br i1 %.not200, label %275, label %272
 
-275:                                              ; preds = %274
-  %276 = load i32, ptr @hf_dcerpc_auth_padding, align 4
+272:                                              ; preds = %271
+  %273 = load i32, ptr @hf_dcerpc_auth_padding, align 4
   %.0..0..0..0.30 = load volatile i32, ptr %11, align 4
   %.0..0..0..0.32 = load volatile i32, ptr %10, align 4
-  %277 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %276, ptr noundef %0, i32 noundef %.0..0..0..0.30, i32 noundef %.0..0..0..0.32, i32 noundef 0) #16
-  br label %278
+  %274 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %273, ptr noundef %0, i32 noundef %.0..0..0..0.30, i32 noundef %.0..0..0..0.32, i32 noundef 0) #16
+  br label %275
 
-278:                                              ; preds = %275, %274
+275:                                              ; preds = %272, %271
   %.0..0..0..0.29 = load volatile ptr, ptr %12, align 8
   store ptr %.0..0..0..0.29, ptr %1, align 8
-  br label %279
+  br label %276
 
-279:                                              ; preds = %278, %149
-  %280 = call i32 @tvb_captured_length(ptr noundef %0) #16
-  ret i32 %280
+276:                                              ; preds = %275, %149
+  %277 = call i32 @tvb_captured_length(ptr noundef %0) #16
+  ret i32 %277
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6078,402 +6069,393 @@ define internal fastcc i32 @dissect_verification_trailer(ptr nocapture noundef r
   %17 = getelementptr inbounds i8, ptr %16, i64 48
   %18 = call i32 @_setjmp(ptr noundef nonnull %17) #19
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %21, label %19
-
-19:                                               ; preds = %5
-  %20 = getelementptr inbounds i8, ptr %16, i64 16
-  store volatile ptr %20, ptr %13, align 8
-  br label %22
+  %19 = getelementptr inbounds i8, ptr %16, i64 16
+  %.sink = select i1 %.not, ptr null, ptr %19
+  store volatile ptr %.sink, ptr %13, align 8
+  %.0..0..0..0. = load volatile i32, ptr %14, align 4
+  %20 = and i32 %.0..0..0..0., 1
+  %.not20 = icmp eq i32 %20, 0
+  br i1 %.not20, label %23, label %21
 
 21:                                               ; preds = %5
-  store volatile ptr null, ptr %13, align 8
-  br label %22
-
-22:                                               ; preds = %21, %19
-  %.0..0..0..0. = load volatile i32, ptr %14, align 4
-  %23 = and i32 %.0..0..0..0., 1
-  %.not20 = icmp eq i32 %23, 0
-  br i1 %.not20, label %26, label %24
-
-24:                                               ; preds = %22
   %.0..0..0..0.1 = load volatile i32, ptr %14, align 4
-  %25 = or i32 %.0..0..0..0.1, 2
-  store volatile i32 %25, ptr %14, align 4
-  br label %26
+  %22 = or i32 %.0..0..0..0.1, 2
+  store volatile i32 %22, ptr %14, align 4
+  br label %23
 
-26:                                               ; preds = %24, %22
+23:                                               ; preds = %21, %5
   %.0..0..0..0.2 = load volatile i32, ptr %14, align 4
-  %27 = and i32 %.0..0..0..0.2, -2
-  store volatile i32 %27, ptr %14, align 4
+  %24 = and i32 %.0..0..0..0.2, -2
+  store volatile i32 %24, ptr %14, align 4
   %.0..0..0..0.3 = load volatile i32, ptr %14, align 4
-  %28 = icmp eq i32 %.0..0..0..0.3, 0
-  br i1 %28, label %29, label %179
+  %25 = icmp eq i32 %.0..0..0..0.3, 0
+  br i1 %25, label %26, label %176
 
-29:                                               ; preds = %26
+26:                                               ; preds = %23
   %.0..0..0..0.7 = load volatile ptr, ptr %13, align 8
-  %30 = icmp eq ptr %.0..0..0..0.7, null
-  br i1 %30, label %31, label %179
+  %27 = icmp eq ptr %.0..0..0..0.7, null
+  br i1 %27, label %28, label %176
 
-31:                                               ; preds = %29
+28:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  %32 = call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %2) #16
+  %29 = call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %2) #16
   %.not.i = icmp eq ptr %4, null
-  br i1 %.not.i, label %34, label %33
+  br i1 %.not.i, label %31, label %30
+
+30:                                               ; preds = %28
+  store i32 -1, ptr %4, align 4
+  br label %31
+
+31:                                               ; preds = %30, %28
+  %32 = icmp slt i32 %29, 12
+  br i1 %32, label %dissect_verification_trailer_impl.exit, label %33
 
 33:                                               ; preds = %31
-  store i32 -1, ptr %4, align 4
-  br label %34
+  %.096.i = call i32 @llvm.usub.sat.i32(i32 %29, i32 512)
+  %.095.i = call i32 @llvm.umin.i32(i32 %29, i32 512)
+  %34 = add i32 %.096.i, %2
+  %35 = load ptr, ptr @tvb_trailer_signature, align 8
+  %36 = call i32 @tvb_find_tvb(ptr noundef %1, ptr noundef %35, i32 noundef %34) #16
+  %37 = icmp eq i32 %36, -1
+  br i1 %37, label %dissect_verification_trailer_impl.exit, label %38
 
-34:                                               ; preds = %33, %31
-  %35 = icmp slt i32 %32, 12
-  br i1 %35, label %dissect_verification_trailer_impl.exit, label %36
+38:                                               ; preds = %33
+  %39 = sub i32 %36, %2
+  %40 = load i32, ptr @hf_dcerpc_payload_stub_data, align 4
+  %41 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %40, ptr noundef %1, i32 noundef %2, i32 noundef %39, i32 noundef 0) #16
+  %42 = icmp eq i32 %39, 1
+  %43 = select i1 %42, ptr @.str.432, ptr @.str.433
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %41, ptr noundef nonnull @.str.434, i32 noundef %39, ptr noundef nonnull %43) #16
+  br i1 %.not.i, label %45, label %44
 
-36:                                               ; preds = %34
-  %.096.i = call i32 @llvm.usub.sat.i32(i32 %32, i32 512)
-  %.095.i = call i32 @llvm.umin.i32(i32 %32, i32 512)
-  %37 = add i32 %.096.i, %2
-  %38 = load ptr, ptr @tvb_trailer_signature, align 8
-  %39 = call i32 @tvb_find_tvb(ptr noundef %1, ptr noundef %38, i32 noundef %37) #16
-  %40 = icmp eq i32 %39, -1
-  br i1 %40, label %dissect_verification_trailer_impl.exit, label %41
+44:                                               ; preds = %38
+  store i32 %36, ptr %4, align 4
+  br label %45
 
-41:                                               ; preds = %36
-  %42 = sub i32 %39, %2
-  %43 = load i32, ptr @hf_dcerpc_payload_stub_data, align 4
-  %44 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %43, ptr noundef %1, i32 noundef %2, i32 noundef %42, i32 noundef 0) #16
-  %45 = icmp eq i32 %42, 1
-  %46 = select i1 %45, ptr @.str.432, ptr @.str.433
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %44, ptr noundef nonnull @.str.434, i32 noundef %42, ptr noundef nonnull %46) #16
-  br i1 %.not.i, label %48, label %47
-
-47:                                               ; preds = %41
-  store i32 %39, ptr %4, align 4
-  br label %48
-
-48:                                               ; preds = %47, %41
-  %49 = load i32, ptr @ett_dcerpc_verification_trailer, align 4
-  %50 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %1, i32 noundef %39, i32 noundef -1, i32 noundef %49, ptr noundef nonnull %10, ptr noundef nonnull @.str.437) #16
-  %51 = load i32, ptr @hf_dcerpc_sec_vt_signature, align 4
-  %52 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %51, ptr noundef %1, i32 noundef %39, i32 noundef 8, i32 noundef 0) #16
-  %53 = add i32 %39, 8
+45:                                               ; preds = %44, %38
+  %46 = load i32, ptr @ett_dcerpc_verification_trailer, align 4
+  %47 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %1, i32 noundef %36, i32 noundef -1, i32 noundef %46, ptr noundef nonnull %10, ptr noundef nonnull @.str.437) #16
+  %48 = load i32, ptr @hf_dcerpc_sec_vt_signature, align 4
+  %49 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %48, ptr noundef %1, i32 noundef %36, i32 noundef 8, i32 noundef 0) #16
+  %50 = add i32 %36, 8
   %.neg.i = add nsw i32 %.095.i, -8
-  %54 = add i32 %.neg.i, %37
-  %55 = sub i32 %54, %39
-  %.old1.i = icmp sgt i32 %55, 3
+  %51 = add i32 %.neg.i, %34
+  %52 = sub i32 %51, %36
+  %.old1.i = icmp sgt i32 %52, 3
   br i1 %.old1.i, label %.preheader.i, label %.loopexit.i
 
-.preheader.i:                                     ; preds = %48
-  %56 = getelementptr inbounds i8, ptr %0, i64 408
-  br label %57
+.preheader.i:                                     ; preds = %45
+  %53 = getelementptr inbounds i8, ptr %0, i64 408
+  br label %54
 
-57:                                               ; preds = %176, %.preheader.i
-  %.197.i = phi i32 [ %.3.i, %176 ], [ %53, %.preheader.i ]
-  %.1.i = phi i32 [ %.2.i, %176 ], [ %55, %.preheader.i ]
-  %58 = call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %.197.i) #16
-  %59 = zext i16 %58 to i32
-  %60 = add i32 %.197.i, 2
-  %61 = call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %60) #16
-  %62 = and i32 %59, 16384
-  %63 = and i32 %59, 16383
-  %64 = zext i16 %61 to i32
-  %65 = add nuw nsw i32 %64, 4
-  %66 = load i32, ptr @ett_dcerpc_sec_vt_pcontext, align 4
-  %67 = call ptr @val_to_str(i32 noundef %63, ptr noundef nonnull @sec_vt_command_cmd_vals, ptr noundef nonnull @.str.439) #16
-  %68 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %50, ptr noundef %1, i32 noundef %.197.i, i32 noundef %65, i32 noundef %66, ptr noundef nonnull %11, ptr noundef nonnull @.str.438, ptr noundef %67) #16
-  %.not105.i = icmp sgt i16 %58, -1
-  br i1 %.not105.i, label %71, label %69
+54:                                               ; preds = %173, %.preheader.i
+  %.197.i = phi i32 [ %.3.i, %173 ], [ %50, %.preheader.i ]
+  %.1.i = phi i32 [ %.2.i, %173 ], [ %52, %.preheader.i ]
+  %55 = call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %.197.i) #16
+  %56 = zext i16 %55 to i32
+  %57 = add i32 %.197.i, 2
+  %58 = call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %57) #16
+  %59 = and i32 %56, 16384
+  %60 = and i32 %56, 16383
+  %61 = zext i16 %58 to i32
+  %62 = add nuw nsw i32 %61, 4
+  %63 = load i32, ptr @ett_dcerpc_sec_vt_pcontext, align 4
+  %64 = call ptr @val_to_str(i32 noundef %60, ptr noundef nonnull @sec_vt_command_cmd_vals, ptr noundef nonnull @.str.439) #16
+  %65 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %47, ptr noundef %1, i32 noundef %.197.i, i32 noundef %62, i32 noundef %63, ptr noundef nonnull %11, ptr noundef nonnull @.str.438, ptr noundef %64) #16
+  %.not105.i = icmp sgt i16 %55, -1
+  br i1 %.not105.i, label %68, label %66
 
-69:                                               ; preds = %57
+66:                                               ; preds = %54
+  %67 = load ptr, ptr %11, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %67, ptr noundef nonnull @.str.440) #16
+  br label %68
+
+68:                                               ; preds = %66, %54
+  %.not106.i = icmp eq i32 %59, 0
+  br i1 %.not106.i, label %71, label %69
+
+69:                                               ; preds = %68
   %70 = load ptr, ptr %11, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %70, ptr noundef nonnull @.str.440) #16
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %70, ptr noundef nonnull @.str.441) #16
   br label %71
 
-71:                                               ; preds = %69, %57
-  %.not106.i = icmp eq i32 %62, 0
-  br i1 %.not106.i, label %74, label %72
-
-72:                                               ; preds = %71
-  %73 = load ptr, ptr %11, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %73, ptr noundef nonnull @.str.441) #16
-  br label %74
-
-74:                                               ; preds = %72, %71
-  %75 = load i32, ptr @hf_dcerpc_sec_vt_command, align 4
-  %76 = load i32, ptr @ett_dcerpc_sec_vt_command, align 4
-  %77 = call ptr @proto_tree_add_bitmask(ptr noundef %68, ptr noundef %1, i32 noundef %.197.i, i32 noundef %75, i32 noundef %76, ptr noundef nonnull @sec_vt_command_fields, i32 noundef -2147483648) #16
-  %78 = load i32, ptr @hf_dcerpc_sec_vt_command_length, align 4
-  %79 = call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %78, ptr noundef %1, i32 noundef %60, i32 noundef 2, i32 noundef -2147483648) #16
-  %80 = add i32 %.197.i, 4
-  %81 = call ptr @tvb_new_subset_length(ptr noundef %1, i32 noundef %80, i32 noundef %64) #16
-  switch i32 %63, label %164 [
-    i32 1, label %82
-    i32 2, label %86
-    i32 3, label %109
+71:                                               ; preds = %69, %68
+  %72 = load i32, ptr @hf_dcerpc_sec_vt_command, align 4
+  %73 = load i32, ptr @ett_dcerpc_sec_vt_command, align 4
+  %74 = call ptr @proto_tree_add_bitmask(ptr noundef %65, ptr noundef %1, i32 noundef %.197.i, i32 noundef %72, i32 noundef %73, ptr noundef nonnull @sec_vt_command_fields, i32 noundef -2147483648) #16
+  %75 = load i32, ptr @hf_dcerpc_sec_vt_command_length, align 4
+  %76 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %75, ptr noundef %1, i32 noundef %57, i32 noundef 2, i32 noundef -2147483648) #16
+  %77 = add i32 %.197.i, 4
+  %78 = call ptr @tvb_new_subset_length(ptr noundef %1, i32 noundef %77, i32 noundef %61) #16
+  switch i32 %60, label %161 [
+    i32 1, label %79
+    i32 2, label %83
+    i32 3, label %106
   ]
 
-82:                                               ; preds = %74
-  %83 = load i32, ptr @hf_dcerpc_sec_vt_bitmask, align 4
-  %84 = load i32, ptr @ett_dcerpc_sec_vt_bitmask, align 4
-  %85 = call ptr @proto_tree_add_bitmask(ptr noundef %68, ptr noundef %81, i32 noundef 0, i32 noundef %83, i32 noundef %84, ptr noundef nonnull @sec_vt_bitmask_fields, i32 noundef -2147483648) #16
-  br label %167
+79:                                               ; preds = %71
+  %80 = load i32, ptr @hf_dcerpc_sec_vt_bitmask, align 4
+  %81 = load i32, ptr @ett_dcerpc_sec_vt_bitmask, align 4
+  %82 = call ptr @proto_tree_add_bitmask(ptr noundef %65, ptr noundef %78, i32 noundef 0, i32 noundef %80, i32 noundef %81, ptr noundef nonnull @sec_vt_bitmask_fields, i32 noundef -2147483648) #16
+  br label %164
 
-86:                                               ; preds = %74
+83:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   store ptr null, ptr %8, align 8
-  %87 = load i32, ptr @ett_dcerpc_sec_vt_pcontext, align 4
-  %88 = call ptr @proto_tree_add_subtree(ptr noundef %68, ptr noundef %81, i32 noundef 0, i32 noundef -1, i32 noundef %87, ptr noundef nonnull %8, ptr noundef nonnull @.str.442) #16
-  call void @tvb_get_letohguid(ptr noundef %81, i32 noundef 0, ptr noundef nonnull %9) #16
-  %89 = load ptr, ptr %56, align 8
-  %90 = call ptr @guids_get_guid_name(ptr noundef nonnull %9, ptr noundef %89) #16
-  %.not.i.i = icmp eq ptr %90, null
-  br i1 %.not.i.i, label %91, label %94
+  %84 = load i32, ptr @ett_dcerpc_sec_vt_pcontext, align 4
+  %85 = call ptr @proto_tree_add_subtree(ptr noundef %65, ptr noundef %78, i32 noundef 0, i32 noundef -1, i32 noundef %84, ptr noundef nonnull %8, ptr noundef nonnull @.str.442) #16
+  call void @tvb_get_letohguid(ptr noundef %78, i32 noundef 0, ptr noundef nonnull %9) #16
+  %86 = load ptr, ptr %53, align 8
+  %87 = call ptr @guids_get_guid_name(ptr noundef nonnull %9, ptr noundef %86) #16
+  %.not.i.i = icmp eq ptr %87, null
+  br i1 %.not.i.i, label %88, label %91
 
-91:                                               ; preds = %86
-  %92 = load ptr, ptr %56, align 8
-  %93 = call ptr @guid_to_str(ptr noundef %92, ptr noundef nonnull %9) #16
-  br label %94
+88:                                               ; preds = %83
+  %89 = load ptr, ptr %53, align 8
+  %90 = call ptr @guid_to_str(ptr noundef %89, ptr noundef nonnull %9) #16
+  br label %91
 
-94:                                               ; preds = %91, %86
-  %.0.i.i = phi ptr [ %90, %86 ], [ %93, %91 ]
-  %95 = load i32, ptr @hf_dcerpc_sec_vt_pcontext_uuid, align 4
-  %96 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_guid_format(ptr noundef %88, i32 noundef %95, ptr noundef %81, i32 noundef 0, i32 noundef 16, ptr noundef nonnull %9, ptr noundef nonnull @.str.443, ptr noundef %.0.i.i) #16
-  %97 = load i32, ptr @hf_dcerpc_sec_vt_pcontext_ver, align 4
-  %98 = call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %97, ptr noundef %81, i32 noundef 16, i32 noundef 4, i32 noundef -2147483648) #16
-  call void @tvb_get_letohguid(ptr noundef %81, i32 noundef 20, ptr noundef nonnull %9) #16
-  %99 = load ptr, ptr %56, align 8
-  %100 = call ptr @guids_get_guid_name(ptr noundef nonnull %9, ptr noundef %99) #16
-  %.not33.i.i = icmp eq ptr %100, null
-  br i1 %.not33.i.i, label %101, label %dissect_sec_vt_pcontext.exit.i
+91:                                               ; preds = %88, %83
+  %.0.i.i = phi ptr [ %87, %83 ], [ %90, %88 ]
+  %92 = load i32, ptr @hf_dcerpc_sec_vt_pcontext_uuid, align 4
+  %93 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_guid_format(ptr noundef %85, i32 noundef %92, ptr noundef %78, i32 noundef 0, i32 noundef 16, ptr noundef nonnull %9, ptr noundef nonnull @.str.443, ptr noundef %.0.i.i) #16
+  %94 = load i32, ptr @hf_dcerpc_sec_vt_pcontext_ver, align 4
+  %95 = call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %94, ptr noundef %78, i32 noundef 16, i32 noundef 4, i32 noundef -2147483648) #16
+  call void @tvb_get_letohguid(ptr noundef %78, i32 noundef 20, ptr noundef nonnull %9) #16
+  %96 = load ptr, ptr %53, align 8
+  %97 = call ptr @guids_get_guid_name(ptr noundef nonnull %9, ptr noundef %96) #16
+  %.not33.i.i = icmp eq ptr %97, null
+  br i1 %.not33.i.i, label %98, label %dissect_sec_vt_pcontext.exit.i
 
-101:                                              ; preds = %94
-  %102 = load ptr, ptr %56, align 8
-  %103 = call ptr @guid_to_str(ptr noundef %102, ptr noundef nonnull %9) #16
+98:                                               ; preds = %91
+  %99 = load ptr, ptr %53, align 8
+  %100 = call ptr @guid_to_str(ptr noundef %99, ptr noundef nonnull %9) #16
   br label %dissect_sec_vt_pcontext.exit.i
 
-dissect_sec_vt_pcontext.exit.i:                   ; preds = %101, %94
-  %.1.i.i = phi ptr [ %100, %94 ], [ %103, %101 ]
-  %104 = load i32, ptr @hf_dcerpc_sec_vt_pcontext_uuid, align 4
-  %105 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_guid_format(ptr noundef %88, i32 noundef %104, ptr noundef %81, i32 noundef 20, i32 noundef 16, ptr noundef nonnull %9, ptr noundef nonnull @.str.444, ptr noundef %.1.i.i) #16
-  %106 = load i32, ptr @hf_dcerpc_sec_vt_pcontext_ver, align 4
-  %107 = call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %106, ptr noundef %81, i32 noundef 36, i32 noundef 4, i32 noundef -2147483648) #16
-  %108 = load ptr, ptr %8, align 8
-  call void @proto_item_set_len(ptr noundef %108, i32 noundef 40) #16
+dissect_sec_vt_pcontext.exit.i:                   ; preds = %98, %91
+  %.1.i.i = phi ptr [ %97, %91 ], [ %100, %98 ]
+  %101 = load i32, ptr @hf_dcerpc_sec_vt_pcontext_uuid, align 4
+  %102 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_guid_format(ptr noundef %85, i32 noundef %101, ptr noundef %78, i32 noundef 20, i32 noundef 16, ptr noundef nonnull %9, ptr noundef nonnull @.str.444, ptr noundef %.1.i.i) #16
+  %103 = load i32, ptr @hf_dcerpc_sec_vt_pcontext_ver, align 4
+  %104 = call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %103, ptr noundef %78, i32 noundef 36, i32 noundef 4, i32 noundef -2147483648) #16
+  %105 = load ptr, ptr %8, align 8
+  call void @proto_item_set_len(ptr noundef %105, i32 noundef 40) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  br label %167
+  br label %164
 
-109:                                              ; preds = %74
+106:                                              ; preds = %71
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   store ptr null, ptr %6, align 8
-  %110 = load i32, ptr @ett_dcerpc_sec_vt_header, align 4
-  %111 = call ptr @proto_tree_add_subtree(ptr noundef %68, ptr noundef %81, i32 noundef 0, i32 noundef -1, i32 noundef %110, ptr noundef nonnull %6, ptr noundef nonnull @.str.445) #16
-  %112 = call zeroext i8 @tvb_get_guint8(ptr noundef %81, i32 noundef 0) #16
-  %113 = load i32, ptr @hf_dcerpc_packet_type, align 4
-  %114 = zext i8 %112 to i32
-  %115 = call ptr @proto_tree_add_uint(ptr noundef %111, i32 noundef %113, ptr noundef %81, i32 noundef 0, i32 noundef 1, i32 noundef %114) #16
-  %116 = load i32, ptr @hf_dcerpc_reserved, align 4
-  %117 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %116, ptr noundef %81, i32 noundef 1, i32 noundef 1, i32 noundef 0) #16
-  %118 = load i32, ptr @hf_dcerpc_reserved, align 4
-  %119 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %118, ptr noundef %81, i32 noundef 2, i32 noundef 2, i32 noundef 0) #16
-  %120 = call ptr @tvb_memcpy(ptr noundef %81, ptr noundef nonnull %7, i32 noundef 4, i64 noundef 4) #16
-  call fastcc void @proto_tree_add_dcerpc_drep(ptr noundef %111, ptr noundef %81, i32 noundef 4, ptr noundef nonnull %7, i32 noundef 4)
-  %121 = load i32, ptr @hf_dcerpc_cn_call_id, align 4
-  %122 = load i8, ptr %7, align 1
-  %123 = and i8 %122, 16
-  %.not.i.i.i = icmp eq i8 %123, 0
-  br i1 %.not.i.i.i, label %126, label %124
+  %107 = load i32, ptr @ett_dcerpc_sec_vt_header, align 4
+  %108 = call ptr @proto_tree_add_subtree(ptr noundef %65, ptr noundef %78, i32 noundef 0, i32 noundef -1, i32 noundef %107, ptr noundef nonnull %6, ptr noundef nonnull @.str.445) #16
+  %109 = call zeroext i8 @tvb_get_guint8(ptr noundef %78, i32 noundef 0) #16
+  %110 = load i32, ptr @hf_dcerpc_packet_type, align 4
+  %111 = zext i8 %109 to i32
+  %112 = call ptr @proto_tree_add_uint(ptr noundef %108, i32 noundef %110, ptr noundef %78, i32 noundef 0, i32 noundef 1, i32 noundef %111) #16
+  %113 = load i32, ptr @hf_dcerpc_reserved, align 4
+  %114 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %113, ptr noundef %78, i32 noundef 1, i32 noundef 1, i32 noundef 0) #16
+  %115 = load i32, ptr @hf_dcerpc_reserved, align 4
+  %116 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %115, ptr noundef %78, i32 noundef 2, i32 noundef 2, i32 noundef 0) #16
+  %117 = call ptr @tvb_memcpy(ptr noundef %78, ptr noundef nonnull %7, i32 noundef 4, i64 noundef 4) #16
+  call fastcc void @proto_tree_add_dcerpc_drep(ptr noundef %108, ptr noundef %78, i32 noundef 4, ptr noundef nonnull %7, i32 noundef 4)
+  %118 = load i32, ptr @hf_dcerpc_cn_call_id, align 4
+  %119 = load i8, ptr %7, align 1
+  %120 = and i8 %119, 16
+  %.not.i.i.i = icmp eq i8 %120, 0
+  br i1 %.not.i.i.i, label %123, label %121
 
-124:                                              ; preds = %109
-  %125 = call i32 @tvb_get_letohl(ptr noundef %81, i32 noundef 8) #16
-  br label %128
+121:                                              ; preds = %106
+  %122 = call i32 @tvb_get_letohl(ptr noundef %78, i32 noundef 8) #16
+  br label %125
 
-126:                                              ; preds = %109
-  %127 = call i32 @tvb_get_ntohl(ptr noundef %81, i32 noundef 8) #16
-  br label %128
+123:                                              ; preds = %106
+  %124 = call i32 @tvb_get_ntohl(ptr noundef %78, i32 noundef 8) #16
+  br label %125
 
-128:                                              ; preds = %126, %124
-  %.not17.i.i.i = icmp eq i32 %121, -1
-  br i1 %.not17.i.i.i, label %dissect_dcerpc_uint32.exit.i.i, label %129
+125:                                              ; preds = %123, %121
+  %.not17.i.i.i = icmp eq i32 %118, -1
+  br i1 %.not17.i.i.i, label %dissect_dcerpc_uint32.exit.i.i, label %126
 
-129:                                              ; preds = %128
-  %130 = load i8, ptr %7, align 1
-  %131 = and i8 %130, 16
-  %132 = zext nneg i8 %131 to i32
-  %133 = shl nuw i32 %132, 27
-  %134 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %121, ptr noundef %81, i32 noundef 8, i32 noundef 4, i32 noundef %133) #16
+126:                                              ; preds = %125
+  %127 = load i8, ptr %7, align 1
+  %128 = and i8 %127, 16
+  %129 = zext nneg i8 %128 to i32
+  %130 = shl nuw i32 %129, 27
+  %131 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %118, ptr noundef %78, i32 noundef 8, i32 noundef 4, i32 noundef %130) #16
   br label %dissect_dcerpc_uint32.exit.i.i
 
-dissect_dcerpc_uint32.exit.i.i:                   ; preds = %129, %128
-  call void @tvb_ensure_bytes_exist(ptr noundef %81, i32 noundef 8, i32 noundef 4) #16
-  %135 = load i32, ptr @hf_dcerpc_cn_ctx_id, align 4
-  %136 = load i8, ptr %7, align 1
-  %137 = and i8 %136, 16
-  %.not.i36.i.i = icmp eq i8 %137, 0
-  br i1 %.not.i36.i.i, label %140, label %138
+dissect_dcerpc_uint32.exit.i.i:                   ; preds = %126, %125
+  call void @tvb_ensure_bytes_exist(ptr noundef %78, i32 noundef 8, i32 noundef 4) #16
+  %132 = load i32, ptr @hf_dcerpc_cn_ctx_id, align 4
+  %133 = load i8, ptr %7, align 1
+  %134 = and i8 %133, 16
+  %.not.i36.i.i = icmp eq i8 %134, 0
+  br i1 %.not.i36.i.i, label %137, label %135
 
-138:                                              ; preds = %dissect_dcerpc_uint32.exit.i.i
-  %139 = call zeroext i16 @tvb_get_letohs(ptr noundef %81, i32 noundef 12) #16
-  br label %142
+135:                                              ; preds = %dissect_dcerpc_uint32.exit.i.i
+  %136 = call zeroext i16 @tvb_get_letohs(ptr noundef %78, i32 noundef 12) #16
+  br label %139
 
-140:                                              ; preds = %dissect_dcerpc_uint32.exit.i.i
-  %141 = call zeroext i16 @tvb_get_ntohs(ptr noundef %81, i32 noundef 12) #16
-  br label %142
+137:                                              ; preds = %dissect_dcerpc_uint32.exit.i.i
+  %138 = call zeroext i16 @tvb_get_ntohs(ptr noundef %78, i32 noundef 12) #16
+  br label %139
 
-142:                                              ; preds = %140, %138
-  %.not17.i37.i.i = icmp eq i32 %135, -1
-  br i1 %.not17.i37.i.i, label %dissect_dcerpc_uint16.exit.i.i, label %143
+139:                                              ; preds = %137, %135
+  %.not17.i37.i.i = icmp eq i32 %132, -1
+  br i1 %.not17.i37.i.i, label %dissect_dcerpc_uint16.exit.i.i, label %140
 
-143:                                              ; preds = %142
-  %144 = load i8, ptr %7, align 1
-  %145 = and i8 %144, 16
-  %146 = zext nneg i8 %145 to i32
-  %147 = shl nuw i32 %146, 27
-  %148 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %135, ptr noundef %81, i32 noundef 12, i32 noundef 2, i32 noundef %147) #16
+140:                                              ; preds = %139
+  %141 = load i8, ptr %7, align 1
+  %142 = and i8 %141, 16
+  %143 = zext nneg i8 %142 to i32
+  %144 = shl nuw i32 %143, 27
+  %145 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %132, ptr noundef %78, i32 noundef 12, i32 noundef 2, i32 noundef %144) #16
   br label %dissect_dcerpc_uint16.exit.i.i
 
-dissect_dcerpc_uint16.exit.i.i:                   ; preds = %143, %142
-  call void @tvb_ensure_bytes_exist(ptr noundef %81, i32 noundef 12, i32 noundef 2) #16
-  %149 = load i32, ptr @hf_dcerpc_opnum, align 4
-  %150 = load i8, ptr %7, align 1
-  %151 = and i8 %150, 16
-  %.not.i38.i.i = icmp eq i8 %151, 0
-  br i1 %.not.i38.i.i, label %154, label %152
+dissect_dcerpc_uint16.exit.i.i:                   ; preds = %140, %139
+  call void @tvb_ensure_bytes_exist(ptr noundef %78, i32 noundef 12, i32 noundef 2) #16
+  %146 = load i32, ptr @hf_dcerpc_opnum, align 4
+  %147 = load i8, ptr %7, align 1
+  %148 = and i8 %147, 16
+  %.not.i38.i.i = icmp eq i8 %148, 0
+  br i1 %.not.i38.i.i, label %151, label %149
 
-152:                                              ; preds = %dissect_dcerpc_uint16.exit.i.i
-  %153 = call zeroext i16 @tvb_get_letohs(ptr noundef %81, i32 noundef 14) #16
-  br label %156
+149:                                              ; preds = %dissect_dcerpc_uint16.exit.i.i
+  %150 = call zeroext i16 @tvb_get_letohs(ptr noundef %78, i32 noundef 14) #16
+  br label %153
 
-154:                                              ; preds = %dissect_dcerpc_uint16.exit.i.i
-  %155 = call zeroext i16 @tvb_get_ntohs(ptr noundef %81, i32 noundef 14) #16
-  br label %156
+151:                                              ; preds = %dissect_dcerpc_uint16.exit.i.i
+  %152 = call zeroext i16 @tvb_get_ntohs(ptr noundef %78, i32 noundef 14) #16
+  br label %153
 
-156:                                              ; preds = %154, %152
-  %.not17.i40.i.i = icmp eq i32 %149, -1
-  br i1 %.not17.i40.i.i, label %dissect_sec_vt_header.exit.i, label %157
+153:                                              ; preds = %151, %149
+  %.not17.i40.i.i = icmp eq i32 %146, -1
+  br i1 %.not17.i40.i.i, label %dissect_sec_vt_header.exit.i, label %154
 
-157:                                              ; preds = %156
-  %158 = load i8, ptr %7, align 1
-  %159 = and i8 %158, 16
-  %160 = zext nneg i8 %159 to i32
-  %161 = shl nuw i32 %160, 27
-  %162 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %149, ptr noundef %81, i32 noundef 14, i32 noundef 2, i32 noundef %161) #16
+154:                                              ; preds = %153
+  %155 = load i8, ptr %7, align 1
+  %156 = and i8 %155, 16
+  %157 = zext nneg i8 %156 to i32
+  %158 = shl nuw i32 %157, 27
+  %159 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %146, ptr noundef %78, i32 noundef 14, i32 noundef 2, i32 noundef %158) #16
   br label %dissect_sec_vt_header.exit.i
 
-dissect_sec_vt_header.exit.i:                     ; preds = %157, %156
-  call void @tvb_ensure_bytes_exist(ptr noundef %81, i32 noundef 14, i32 noundef 2) #16
-  %163 = load ptr, ptr %6, align 8
-  call void @proto_item_set_len(ptr noundef %163, i32 noundef 16) #16
+dissect_sec_vt_header.exit.i:                     ; preds = %154, %153
+  call void @tvb_ensure_bytes_exist(ptr noundef %78, i32 noundef 14, i32 noundef 2) #16
+  %160 = load ptr, ptr %6, align 8
+  call void @proto_item_set_len(ptr noundef %160, i32 noundef 16) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  br label %167
+  br label %164
 
-164:                                              ; preds = %74
-  %165 = load i32, ptr @hf_dcerpc_unknown, align 4
-  %166 = call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %165, ptr noundef %81, i32 noundef 0, i32 noundef %64, i32 noundef 0) #16
-  br label %167
+161:                                              ; preds = %71
+  %162 = load i32, ptr @hf_dcerpc_unknown, align 4
+  %163 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %162, ptr noundef %78, i32 noundef 0, i32 noundef %61, i32 noundef 0) #16
+  br label %164
 
-167:                                              ; preds = %164, %dissect_sec_vt_header.exit.i, %dissect_sec_vt_pcontext.exit.i, %82
-  %168 = add i32 %80, %64
-  %169 = sub nsw i32 %.1.i, %65
-  %170 = and i16 %61, 1
-  %.not107.i = icmp eq i16 %170, 0
-  br i1 %.not107.i, label %176, label %171
+164:                                              ; preds = %161, %dissect_sec_vt_header.exit.i, %dissect_sec_vt_pcontext.exit.i, %79
+  %165 = add i32 %77, %61
+  %166 = sub nsw i32 %.1.i, %62
+  %167 = and i16 %58, 1
+  %.not107.i = icmp eq i16 %167, 0
+  br i1 %.not107.i, label %173, label %168
 
-171:                                              ; preds = %167
-  %172 = load i32, ptr @hf_dcerpc_missalign, align 4
-  %173 = call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %172, ptr noundef %1, i32 noundef %168, i32 noundef 1, i32 noundef 0) #16
-  %174 = add i32 %168, 1
-  %175 = add nsw i32 %169, -1
-  br label %176
+168:                                              ; preds = %164
+  %169 = load i32, ptr @hf_dcerpc_missalign, align 4
+  %170 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %169, ptr noundef %1, i32 noundef %165, i32 noundef 1, i32 noundef 0) #16
+  %171 = add i32 %165, 1
+  %172 = add nsw i32 %166, -1
+  br label %173
 
-176:                                              ; preds = %171, %167
-  %.3.i = phi i32 [ %174, %171 ], [ %168, %167 ]
-  %.2.i = phi i32 [ %175, %171 ], [ %169, %167 ]
-  %177 = icmp sgt i32 %.2.i, 3
-  %or.cond.i = select i1 %.not106.i, i1 %177, i1 false
-  br i1 %or.cond.i, label %57, label %.loopexit.i, !llvm.loop !19
+173:                                              ; preds = %168, %164
+  %.3.i = phi i32 [ %171, %168 ], [ %165, %164 ]
+  %.2.i = phi i32 [ %172, %168 ], [ %166, %164 ]
+  %174 = icmp sgt i32 %.2.i, 3
+  %or.cond.i = select i1 %.not106.i, i1 %174, i1 false
+  br i1 %or.cond.i, label %54, label %.loopexit.i, !llvm.loop !19
 
-.loopexit.i:                                      ; preds = %176, %48
-  %.298.i = phi i32 [ %53, %48 ], [ %.3.i, %176 ]
-  %178 = load ptr, ptr %10, align 8
-  call void @proto_item_set_end(ptr noundef %178, ptr noundef %1, i32 noundef %.298.i) #16
+.loopexit.i:                                      ; preds = %173, %45
+  %.298.i = phi i32 [ %50, %45 ], [ %.3.i, %173 ]
+  %175 = load ptr, ptr %10, align 8
+  call void @proto_item_set_end(ptr noundef %175, ptr noundef %1, i32 noundef %.298.i) #16
   br label %dissect_verification_trailer_impl.exit
 
-dissect_verification_trailer_impl.exit:           ; preds = %34, %36, %.loopexit.i
-  %.0.i = phi i32 [ %.298.i, %.loopexit.i ], [ -1, %34 ], [ -1, %36 ]
+dissect_verification_trailer_impl.exit:           ; preds = %31, %33, %.loopexit.i
+  %.0.i = phi i32 [ %.298.i, %.loopexit.i ], [ -1, %31 ], [ -1, %33 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   store volatile i32 %.0.i, ptr %12, align 4
-  br label %179
+  br label %176
 
-179:                                              ; preds = %dissect_verification_trailer_impl.exit, %29, %26
+176:                                              ; preds = %dissect_verification_trailer_impl.exit, %26, %23
   %.0..0..0..0.4 = load volatile i32, ptr %14, align 4
-  %180 = icmp eq i32 %.0..0..0..0.4, 0
-  br i1 %180, label %181, label %200
+  %177 = icmp eq i32 %.0..0..0..0.4, 0
+  br i1 %177, label %178, label %197
 
-181:                                              ; preds = %179
+178:                                              ; preds = %176
   %.0..0..0..0.8 = load volatile ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %.0..0..0..0.8, null
-  br i1 %.not21, label %200, label %182
+  br i1 %.not21, label %197, label %179
 
-182:                                              ; preds = %181
+179:                                              ; preds = %178
   %.0..0..0..0.9 = load volatile ptr, ptr %13, align 8
-  %183 = getelementptr inbounds i8, ptr %.0..0..0..0.9, i64 8
-  %184 = load volatile i64, ptr %183, align 8
-  %185 = icmp eq i64 %184, 3
-  br i1 %185, label %198, label %186
+  %180 = getelementptr inbounds i8, ptr %.0..0..0..0.9, i64 8
+  %181 = load volatile i64, ptr %180, align 8
+  %182 = icmp eq i64 %181, 3
+  br i1 %182, label %195, label %183
 
-186:                                              ; preds = %182
+183:                                              ; preds = %179
   %.0..0..0..0.10 = load volatile ptr, ptr %13, align 8
-  %187 = getelementptr inbounds i8, ptr %.0..0..0..0.10, i64 8
-  %188 = load volatile i64, ptr %187, align 8
-  %189 = icmp eq i64 %188, 2
-  br i1 %189, label %198, label %190
+  %184 = getelementptr inbounds i8, ptr %.0..0..0..0.10, i64 8
+  %185 = load volatile i64, ptr %184, align 8
+  %186 = icmp eq i64 %185, 2
+  br i1 %186, label %195, label %187
 
-190:                                              ; preds = %186
+187:                                              ; preds = %183
   %.0..0..0..0.11 = load volatile ptr, ptr %13, align 8
-  %191 = getelementptr inbounds i8, ptr %.0..0..0..0.11, i64 8
-  %192 = load volatile i64, ptr %191, align 8
-  %193 = icmp eq i64 %192, 7
-  br i1 %193, label %198, label %194
+  %188 = getelementptr inbounds i8, ptr %.0..0..0..0.11, i64 8
+  %189 = load volatile i64, ptr %188, align 8
+  %190 = icmp eq i64 %189, 7
+  br i1 %190, label %195, label %191
 
-194:                                              ; preds = %190
+191:                                              ; preds = %187
   %.0..0..0..0.12 = load volatile ptr, ptr %13, align 8
-  %195 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 8
-  %196 = load volatile i64, ptr %195, align 8
-  %197 = icmp eq i64 %196, 9
-  br i1 %197, label %198, label %200
+  %192 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 8
+  %193 = load volatile i64, ptr %192, align 8
+  %194 = icmp eq i64 %193, 9
+  br i1 %194, label %195, label %197
 
-198:                                              ; preds = %194, %190, %186, %182
+195:                                              ; preds = %191, %187, %183, %179
   %.0..0..0..0.5 = load volatile i32, ptr %14, align 4
-  %199 = or i32 %.0..0..0..0.5, 1
-  store volatile i32 %199, ptr %14, align 4
-  br label %200
+  %196 = or i32 %.0..0..0..0.5, 1
+  store volatile i32 %196, ptr %14, align 4
+  br label %197
 
-200:                                              ; preds = %198, %194, %181, %179
+197:                                              ; preds = %195, %191, %178, %176
   %.0..0..0..0.6 = load volatile i32, ptr %14, align 4
-  %201 = and i32 %.0..0..0..0.6, 1
-  %.not22 = icmp eq i32 %201, 0
-  br i1 %.not22, label %202, label %204
+  %198 = and i32 %.0..0..0..0.6, 1
+  %.not22 = icmp eq i32 %198, 0
+  br i1 %.not22, label %199, label %201
 
-202:                                              ; preds = %200
+199:                                              ; preds = %197
   %.0..0..0..0.13 = load volatile ptr, ptr %13, align 8
   %.not23 = icmp eq ptr %.0..0..0..0.13, null
-  br i1 %.not23, label %204, label %203
+  br i1 %.not23, label %201, label %200
 
-203:                                              ; preds = %202
+200:                                              ; preds = %199
   %.0..0..0..0.14 = load volatile ptr, ptr %13, align 8
   call void @except_rethrow(ptr noundef %.0..0..0..0.14) #20
   unreachable
 
-204:                                              ; preds = %202, %200
-  %205 = getelementptr inbounds i8, ptr %16, i64 40
-  %206 = load volatile ptr, ptr %205, align 8
-  call void @except_free(ptr noundef %206) #16
-  %207 = call ptr @except_pop() #16
+201:                                              ; preds = %199, %197
+  %202 = getelementptr inbounds i8, ptr %16, i64 40
+  %203 = load volatile ptr, ptr %202, align 8
+  call void @except_free(ptr noundef %203) #16
+  %204 = call ptr @except_pop() #16
   %.0..0..0..0.15 = load volatile i32, ptr %12, align 4
   ret i32 %.0..0..0..0.15
 }
@@ -11136,7 +11118,7 @@ define internal fastcc void @dissect_dcerpc_cn_auth(ptr noundef %0, i32 noundef 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %20, i8 0, i64 40, i1 false)
   %26 = load i16, ptr %25, align 2
   %.not = icmp eq i16 %26, 0
-  br i1 %.not, label %294, label %27
+  br i1 %.not, label %291, label %27
 
 27:                                               ; preds = %6
   %28 = zext i16 %26 to i32
@@ -11146,7 +11128,7 @@ define internal fastcc void @dissect_dcerpc_cn_auth(ptr noundef %0, i32 noundef 
   %32 = zext i16 %31 to i32
   %33 = sub i32 %32, %1
   %.not120 = icmp sgt i32 %29, %33
-  br i1 %.not120, label %294, label %34
+  br i1 %.not120, label %291, label %34
 
 34:                                               ; preds = %27
   %35 = sub nsw i32 %32, %29
@@ -11160,7 +11142,7 @@ define internal fastcc void @dissect_dcerpc_cn_auth(ptr noundef %0, i32 noundef 
   %38 = add i32 %.0..0..0..0.23, -1
   %39 = call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %38) #16
   %.not121 = icmp eq i32 %39, 0
-  br i1 %.not121, label %294, label %._crit_edge
+  br i1 %.not121, label %291, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %37
   %.pre = load i16, ptr %25, align 2
@@ -11184,508 +11166,499 @@ define internal fastcc void @dissect_dcerpc_cn_auth(ptr noundef %0, i32 noundef 
   %45 = getelementptr inbounds i8, ptr %14, i64 48
   %46 = call i32 @_setjmp(ptr noundef nonnull %45) #19
   %.not122 = icmp eq i32 %46, 0
-  br i1 %.not122, label %49, label %47
-
-47:                                               ; preds = %40
-  %48 = getelementptr inbounds i8, ptr %14, i64 16
-  store volatile ptr %48, ptr %11, align 8
-  br label %50
+  %47 = getelementptr inbounds i8, ptr %14, i64 16
+  %.sink = select i1 %.not122, ptr null, ptr %47
+  store volatile ptr %.sink, ptr %11, align 8
+  %.0..0..0..0. = load volatile i32, ptr %12, align 4
+  %48 = and i32 %.0..0..0..0., 1
+  %.not123 = icmp eq i32 %48, 0
+  br i1 %.not123, label %51, label %49
 
 49:                                               ; preds = %40
-  store volatile ptr null, ptr %11, align 8
-  br label %50
-
-50:                                               ; preds = %49, %47
-  %.0..0..0..0. = load volatile i32, ptr %12, align 4
-  %51 = and i32 %.0..0..0..0., 1
-  %.not123 = icmp eq i32 %51, 0
-  br i1 %.not123, label %54, label %52
-
-52:                                               ; preds = %50
   %.0..0..0..0.1 = load volatile i32, ptr %12, align 4
-  %53 = or i32 %.0..0..0..0.1, 2
-  store volatile i32 %53, ptr %12, align 4
-  br label %54
+  %50 = or i32 %.0..0..0..0.1, 2
+  store volatile i32 %50, ptr %12, align 4
+  br label %51
 
-54:                                               ; preds = %52, %50
+51:                                               ; preds = %49, %40
   %.0..0..0..0.2 = load volatile i32, ptr %12, align 4
-  %55 = and i32 %.0..0..0..0.2, -2
-  store volatile i32 %55, ptr %12, align 4
+  %52 = and i32 %.0..0..0..0.2, -2
+  store volatile i32 %52, ptr %12, align 4
   %.0..0..0..0.3 = load volatile i32, ptr %12, align 4
-  %56 = icmp eq i32 %.0..0..0..0.3, 0
-  br i1 %56, label %57, label %257
+  %53 = icmp eq i32 %.0..0..0..0.3, 0
+  br i1 %53, label %54, label %254
 
-57:                                               ; preds = %54
+54:                                               ; preds = %51
   %.0..0..0..0.7 = load volatile ptr, ptr %11, align 8
-  %58 = icmp eq ptr %.0..0..0..0.7, null
-  br i1 %58, label %59, label %257
+  %55 = icmp eq ptr %.0..0..0..0.7, null
+  br i1 %55, label %56, label %254
 
-59:                                               ; preds = %57
+56:                                               ; preds = %54
   %.0..0..0..0.26 = load volatile i32, ptr %10, align 4
-  %60 = load ptr, ptr %23, align 8
-  %61 = getelementptr inbounds i8, ptr %4, i64 4
-  %62 = load i32, ptr @hf_dcerpc_auth_type, align 4
-  %63 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0..0..0..0.26) #16
-  %.not.i = icmp eq i32 %62, -1
-  br i1 %.not.i, label %dissect_dcerpc_uint8.exit, label %64
+  %57 = load ptr, ptr %23, align 8
+  %58 = getelementptr inbounds i8, ptr %4, i64 4
+  %59 = load i32, ptr @hf_dcerpc_auth_type, align 4
+  %60 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0..0..0..0.26) #16
+  %.not.i = icmp eq i32 %59, -1
+  br i1 %.not.i, label %dissect_dcerpc_uint8.exit, label %61
 
-64:                                               ; preds = %59
-  %65 = load i8, ptr %61, align 1
-  %66 = and i8 %65, 16
-  %67 = zext nneg i8 %66 to i32
-  %68 = shl nuw i32 %67, 27
-  %69 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %62, ptr noundef %0, i32 noundef %.0..0..0..0.26, i32 noundef 1, i32 noundef %68) #16
+61:                                               ; preds = %56
+  %62 = load i8, ptr %58, align 1
+  %63 = and i8 %62, 16
+  %64 = zext nneg i8 %63 to i32
+  %65 = shl nuw i32 %64, 27
+  %66 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %59, ptr noundef %0, i32 noundef %.0..0..0..0.26, i32 noundef 1, i32 noundef %65) #16
   br label %dissect_dcerpc_uint8.exit
 
-dissect_dcerpc_uint8.exit:                        ; preds = %59, %64
-  store i8 %63, ptr %15, align 1
+dissect_dcerpc_uint8.exit:                        ; preds = %56, %61
+  store i8 %60, ptr %15, align 1
   call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %.0..0..0..0.26, i32 noundef 1) #16
-  %70 = add i32 %.0..0..0..0.26, 1
-  store volatile i32 %70, ptr %10, align 4
+  %67 = add i32 %.0..0..0..0.26, 1
+  store volatile i32 %67, ptr %10, align 4
   %.0..0..0..0.27 = load volatile i32, ptr %10, align 4
-  %71 = load ptr, ptr %23, align 8
-  %72 = load i32, ptr @hf_dcerpc_auth_level, align 4
-  %73 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0..0..0..0.27) #16
-  %.not.i129 = icmp eq i32 %72, -1
-  br i1 %.not.i129, label %dissect_dcerpc_uint8.exit130, label %74
+  %68 = load ptr, ptr %23, align 8
+  %69 = load i32, ptr @hf_dcerpc_auth_level, align 4
+  %70 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0..0..0..0.27) #16
+  %.not.i129 = icmp eq i32 %69, -1
+  br i1 %.not.i129, label %dissect_dcerpc_uint8.exit130, label %71
 
-74:                                               ; preds = %dissect_dcerpc_uint8.exit
-  %75 = load i8, ptr %61, align 1
-  %76 = and i8 %75, 16
-  %77 = zext nneg i8 %76 to i32
-  %78 = shl nuw i32 %77, 27
-  %79 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %72, ptr noundef %0, i32 noundef %.0..0..0..0.27, i32 noundef 1, i32 noundef %78) #16
+71:                                               ; preds = %dissect_dcerpc_uint8.exit
+  %72 = load i8, ptr %58, align 1
+  %73 = and i8 %72, 16
+  %74 = zext nneg i8 %73 to i32
+  %75 = shl nuw i32 %74, 27
+  %76 = call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %69, ptr noundef %0, i32 noundef %.0..0..0..0.27, i32 noundef 1, i32 noundef %75) #16
   br label %dissect_dcerpc_uint8.exit130
 
-dissect_dcerpc_uint8.exit130:                     ; preds = %dissect_dcerpc_uint8.exit, %74
-  store i8 %73, ptr %16, align 1
+dissect_dcerpc_uint8.exit130:                     ; preds = %dissect_dcerpc_uint8.exit, %71
+  store i8 %70, ptr %16, align 1
   call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %.0..0..0..0.27, i32 noundef 1) #16
-  %80 = add i32 %.0..0..0..0.27, 1
-  store volatile i32 %80, ptr %10, align 4
+  %77 = add i32 %.0..0..0..0.27, 1
+  store volatile i32 %77, ptr %10, align 4
   %.0..0..0..0.28 = load volatile i32, ptr %10, align 4
-  %81 = load ptr, ptr %23, align 8
-  %82 = load i32, ptr @hf_dcerpc_auth_pad_len, align 4
-  %83 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0..0..0..0.28) #16
-  %.not.i131 = icmp eq i32 %82, -1
-  br i1 %.not.i131, label %dissect_dcerpc_uint8.exit132, label %84
+  %78 = load ptr, ptr %23, align 8
+  %79 = load i32, ptr @hf_dcerpc_auth_pad_len, align 4
+  %80 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0..0..0..0.28) #16
+  %.not.i131 = icmp eq i32 %79, -1
+  br i1 %.not.i131, label %dissect_dcerpc_uint8.exit132, label %81
 
-84:                                               ; preds = %dissect_dcerpc_uint8.exit130
-  %85 = load i8, ptr %61, align 1
-  %86 = and i8 %85, 16
-  %87 = zext nneg i8 %86 to i32
-  %88 = shl nuw i32 %87, 27
-  %89 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %82, ptr noundef %0, i32 noundef %.0..0..0..0.28, i32 noundef 1, i32 noundef %88) #16
+81:                                               ; preds = %dissect_dcerpc_uint8.exit130
+  %82 = load i8, ptr %58, align 1
+  %83 = and i8 %82, 16
+  %84 = zext nneg i8 %83 to i32
+  %85 = shl nuw i32 %84, 27
+  %86 = call ptr @proto_tree_add_item(ptr noundef %78, i32 noundef %79, ptr noundef %0, i32 noundef %.0..0..0..0.28, i32 noundef 1, i32 noundef %85) #16
   br label %dissect_dcerpc_uint8.exit132
 
-dissect_dcerpc_uint8.exit132:                     ; preds = %dissect_dcerpc_uint8.exit130, %84
-  store i8 %83, ptr %18, align 1
+dissect_dcerpc_uint8.exit132:                     ; preds = %dissect_dcerpc_uint8.exit130, %81
+  store i8 %80, ptr %18, align 1
   call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %.0..0..0..0.28, i32 noundef 1) #16
-  %90 = add i32 %.0..0..0..0.28, 1
-  store volatile i32 %90, ptr %10, align 4
+  %87 = add i32 %.0..0..0..0.28, 1
+  store volatile i32 %87, ptr %10, align 4
   %.0..0..0..0.29 = load volatile i32, ptr %10, align 4
-  %91 = load ptr, ptr %23, align 8
-  %92 = load i32, ptr @hf_dcerpc_auth_rsrvd, align 4
-  %93 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0..0..0..0.29) #16
-  %.not.i133 = icmp eq i32 %92, -1
-  br i1 %.not.i133, label %dissect_dcerpc_uint8.exit134, label %94
+  %88 = load ptr, ptr %23, align 8
+  %89 = load i32, ptr @hf_dcerpc_auth_rsrvd, align 4
+  %90 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0..0..0..0.29) #16
+  %.not.i133 = icmp eq i32 %89, -1
+  br i1 %.not.i133, label %dissect_dcerpc_uint8.exit134, label %91
 
-94:                                               ; preds = %dissect_dcerpc_uint8.exit132
-  %95 = load i8, ptr %61, align 1
-  %96 = and i8 %95, 16
-  %97 = zext nneg i8 %96 to i32
-  %98 = shl nuw i32 %97, 27
-  %99 = call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %92, ptr noundef %0, i32 noundef %.0..0..0..0.29, i32 noundef 1, i32 noundef %98) #16
+91:                                               ; preds = %dissect_dcerpc_uint8.exit132
+  %92 = load i8, ptr %58, align 1
+  %93 = and i8 %92, 16
+  %94 = zext nneg i8 %93 to i32
+  %95 = shl nuw i32 %94, 27
+  %96 = call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %89, ptr noundef %0, i32 noundef %.0..0..0..0.29, i32 noundef 1, i32 noundef %95) #16
   br label %dissect_dcerpc_uint8.exit134
 
-dissect_dcerpc_uint8.exit134:                     ; preds = %dissect_dcerpc_uint8.exit132, %94
+dissect_dcerpc_uint8.exit134:                     ; preds = %dissect_dcerpc_uint8.exit132, %91
   call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %.0..0..0..0.29, i32 noundef 1) #16
-  %100 = add i32 %.0..0..0..0.29, 1
-  store volatile i32 %100, ptr %10, align 4
+  %97 = add i32 %.0..0..0..0.29, 1
+  store volatile i32 %97, ptr %10, align 4
   %.0..0..0..0.30 = load volatile i32, ptr %10, align 4
-  %101 = load ptr, ptr %23, align 8
-  %102 = load i32, ptr @hf_dcerpc_auth_ctx_id, align 4
-  %103 = load i8, ptr %61, align 1
-  %104 = and i8 %103, 16
-  %.not.i135 = icmp eq i8 %104, 0
-  br i1 %.not.i135, label %107, label %105
+  %98 = load ptr, ptr %23, align 8
+  %99 = load i32, ptr @hf_dcerpc_auth_ctx_id, align 4
+  %100 = load i8, ptr %58, align 1
+  %101 = and i8 %100, 16
+  %.not.i135 = icmp eq i8 %101, 0
+  br i1 %.not.i135, label %104, label %102
 
-105:                                              ; preds = %dissect_dcerpc_uint8.exit134
-  %106 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0..0..0..0.30) #16
-  br label %109
+102:                                              ; preds = %dissect_dcerpc_uint8.exit134
+  %103 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0..0..0..0.30) #16
+  br label %106
 
-107:                                              ; preds = %dissect_dcerpc_uint8.exit134
-  %108 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0..0..0..0.30) #16
-  br label %109
+104:                                              ; preds = %dissect_dcerpc_uint8.exit134
+  %105 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0..0..0..0.30) #16
+  br label %106
 
-109:                                              ; preds = %107, %105
-  %110 = phi i32 [ %106, %105 ], [ %108, %107 ]
-  %.not17.i = icmp eq i32 %102, -1
-  br i1 %.not17.i, label %dissect_dcerpc_uint32.exit, label %111
+106:                                              ; preds = %104, %102
+  %107 = phi i32 [ %103, %102 ], [ %105, %104 ]
+  %.not17.i = icmp eq i32 %99, -1
+  br i1 %.not17.i, label %dissect_dcerpc_uint32.exit, label %108
 
-111:                                              ; preds = %109
-  %112 = load i8, ptr %61, align 1
-  %113 = and i8 %112, 16
-  %114 = zext nneg i8 %113 to i32
-  %115 = shl nuw i32 %114, 27
-  %116 = call ptr @proto_tree_add_item(ptr noundef %101, i32 noundef %102, ptr noundef %0, i32 noundef %.0..0..0..0.30, i32 noundef 4, i32 noundef %115) #16
+108:                                              ; preds = %106
+  %109 = load i8, ptr %58, align 1
+  %110 = and i8 %109, 16
+  %111 = zext nneg i8 %110 to i32
+  %112 = shl nuw i32 %111, 27
+  %113 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %99, ptr noundef %0, i32 noundef %.0..0..0..0.30, i32 noundef 4, i32 noundef %112) #16
   br label %dissect_dcerpc_uint32.exit
 
-dissect_dcerpc_uint32.exit:                       ; preds = %109, %111
-  store i32 %110, ptr %17, align 4
+dissect_dcerpc_uint32.exit:                       ; preds = %106, %108
+  store i32 %107, ptr %17, align 4
   call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %.0..0..0..0.30, i32 noundef 4) #16
-  %117 = add i32 %.0..0..0..0.30, 4
-  store volatile i32 %117, ptr %10, align 4
-  %118 = load ptr, ptr %22, align 8
-  %119 = load i8, ptr %15, align 4
+  %114 = add i32 %.0..0..0..0.30, 4
+  store volatile i32 %114, ptr %10, align 4
+  %115 = load ptr, ptr %22, align 8
+  %116 = load i8, ptr %15, align 4
+  %117 = zext i8 %116 to i32
+  %118 = call ptr @val_to_str(i32 noundef %117, ptr noundef nonnull @authn_protocol_vals, ptr noundef nonnull @.str.651) #16
+  %119 = load i8, ptr %16, align 1
   %120 = zext i8 %119 to i32
-  %121 = call ptr @val_to_str(i32 noundef %120, ptr noundef nonnull @authn_protocol_vals, ptr noundef nonnull @.str.651) #16
-  %122 = load i8, ptr %16, align 1
-  %123 = zext i8 %122 to i32
-  %124 = call ptr @val_to_str(i32 noundef %123, ptr noundef nonnull @authn_level_vals, ptr noundef nonnull @.str.652) #16
-  %125 = load i32, ptr %17, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %118, ptr noundef nonnull @.str.650, ptr noundef %121, ptr noundef %124, i32 noundef %125) #16
-  %126 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.0..0..0..0.24, i32 noundef 8, i32 noundef 8) #16
-  store ptr %126, ptr %24, align 8
+  %121 = call ptr @val_to_str(i32 noundef %120, ptr noundef nonnull @authn_level_vals, ptr noundef nonnull @.str.652) #16
+  %122 = load i32, ptr %17, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %115, ptr noundef nonnull @.str.650, ptr noundef %118, ptr noundef %121, i32 noundef %122) #16
+  %123 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.0..0..0..0.24, i32 noundef 8, i32 noundef 8) #16
+  store ptr %123, ptr %24, align 8
   %.0..0..0..0.31 = load volatile i32, ptr %10, align 4
-  %127 = load i16, ptr %25, align 2
-  %128 = zext i16 %127 to i32
+  %124 = load i16, ptr %25, align 2
+  %125 = zext i16 %124 to i32
   %.0..0..0..0.32 = load volatile i32, ptr %10, align 4
-  %129 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0..0..0..0.32) #16
-  %130 = icmp sgt i32 %129, %128
-  br i1 %130, label %131, label %134
+  %126 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0..0..0..0.32) #16
+  %127 = icmp sgt i32 %126, %125
+  br i1 %127, label %128, label %131
+
+128:                                              ; preds = %dissect_dcerpc_uint32.exit
+  %129 = load i16, ptr %25, align 2
+  %130 = zext i16 %129 to i32
+  br label %133
 
 131:                                              ; preds = %dissect_dcerpc_uint32.exit
-  %132 = load i16, ptr %25, align 2
-  %133 = zext i16 %132 to i32
-  br label %136
-
-134:                                              ; preds = %dissect_dcerpc_uint32.exit
   %.0..0..0..0.33 = load volatile i32, ptr %10, align 4
-  %135 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0..0..0..0.33) #16
+  %132 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0..0..0..0.33) #16
   %.pre148 = load i16, ptr %25, align 2
   %.pre152 = zext i16 %.pre148 to i32
-  br label %136
+  br label %133
 
-136:                                              ; preds = %134, %131
-  %.pre-phi153 = phi i32 [ %.pre152, %134 ], [ %133, %131 ]
-  %137 = phi i32 [ %135, %134 ], [ %133, %131 ]
-  %138 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.0..0..0..0.31, i32 noundef %137, i32 noundef %.pre-phi153) #16
-  store ptr %138, ptr %21, align 8
+133:                                              ; preds = %131, %128
+  %.pre-phi153 = phi i32 [ %.pre152, %131 ], [ %130, %128 ]
+  %134 = phi i32 [ %132, %131 ], [ %130, %128 ]
+  %135 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.0..0..0..0.31, i32 noundef %134, i32 noundef %.pre-phi153) #16
+  store ptr %135, ptr %21, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  %139 = call nonnull ptr @find_or_create_conversation(ptr noundef %2) #16
-  store ptr %139, ptr %9, align 8
-  %140 = getelementptr inbounds i8, ptr %9, i64 8
-  %141 = getelementptr inbounds i8, ptr %2, i64 408
-  %142 = load ptr, ptr %141, align 8
-  %143 = load i32, ptr @proto_dcerpc, align 4
-  %144 = call ptr @p_get_proto_data(ptr noundef %142, ptr noundef %2, i32 noundef %143, i32 noundef 0) #16
-  %145 = icmp eq ptr %144, null
-  br i1 %145, label %146, label %dcerpc_get_decode_data.exit.i.i
+  %136 = call nonnull ptr @find_or_create_conversation(ptr noundef %2) #16
+  store ptr %136, ptr %9, align 8
+  %137 = getelementptr inbounds i8, ptr %9, i64 8
+  %138 = getelementptr inbounds i8, ptr %2, i64 408
+  %139 = load ptr, ptr %138, align 8
+  %140 = load i32, ptr @proto_dcerpc, align 4
+  %141 = call ptr @p_get_proto_data(ptr noundef %139, ptr noundef %2, i32 noundef %140, i32 noundef 0) #16
+  %142 = icmp eq ptr %141, null
+  br i1 %142, label %143, label %dcerpc_get_decode_data.exit.i.i
 
-146:                                              ; preds = %136
-  %147 = load ptr, ptr %141, align 8
-  %148 = call noalias ptr @wmem_alloc0(ptr noundef %147, i64 noundef 16) #16
-  %149 = getelementptr inbounds i8, ptr %148, i64 4
-  store i32 -1, ptr %149, align 4
-  %150 = load ptr, ptr %141, align 8
-  %151 = load i32, ptr @proto_dcerpc, align 4
-  call void @p_add_proto_data(ptr noundef %150, ptr noundef nonnull %2, i32 noundef %151, i32 noundef 0, ptr noundef %148) #16
+143:                                              ; preds = %133
+  %144 = load ptr, ptr %138, align 8
+  %145 = call noalias ptr @wmem_alloc0(ptr noundef %144, i64 noundef 16) #16
+  %146 = getelementptr inbounds i8, ptr %145, i64 4
+  store i32 -1, ptr %146, align 4
+  %147 = load ptr, ptr %138, align 8
+  %148 = load i32, ptr @proto_dcerpc, align 4
+  call void @p_add_proto_data(ptr noundef %147, ptr noundef nonnull %2, i32 noundef %148, i32 noundef 0, ptr noundef %145) #16
   br label %dcerpc_get_decode_data.exit.i.i
 
-dcerpc_get_decode_data.exit.i.i:                  ; preds = %146, %136
-  %.0.i.i.i = phi ptr [ %148, %146 ], [ %144, %136 ]
-  %152 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 4
-  %153 = load i32, ptr %152, align 4
-  %cond.i.i = icmp eq i32 %153, 1
-  br i1 %cond.i.i, label %154, label %dcerpc_get_transport_salt.exit.i
+dcerpc_get_decode_data.exit.i.i:                  ; preds = %143, %133
+  %.0.i.i.i = phi ptr [ %145, %143 ], [ %141, %133 ]
+  %149 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 4
+  %150 = load i32, ptr %149, align 4
+  %cond.i.i = icmp eq i32 %150, 1
+  br i1 %cond.i.i, label %151, label %dcerpc_get_transport_salt.exit.i
 
-154:                                              ; preds = %dcerpc_get_decode_data.exit.i.i
-  %155 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8
-  %156 = load i64, ptr %155, align 8
+151:                                              ; preds = %dcerpc_get_decode_data.exit.i.i
+  %152 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8
+  %153 = load i64, ptr %152, align 8
   br label %dcerpc_get_transport_salt.exit.i
 
-dcerpc_get_transport_salt.exit.i:                 ; preds = %154, %dcerpc_get_decode_data.exit.i.i
-  %.0.i.i = phi i64 [ %156, %154 ], [ 0, %dcerpc_get_decode_data.exit.i.i ]
-  store i64 %.0.i.i, ptr %140, align 8
-  %157 = getelementptr inbounds i8, ptr %9, i64 16
-  %158 = load i8, ptr %15, align 4
-  store i8 %158, ptr %157, align 8
-  %159 = getelementptr inbounds i8, ptr %9, i64 17
-  %160 = load i8, ptr %16, align 1
-  store i8 %160, ptr %159, align 1
-  %161 = getelementptr inbounds i8, ptr %9, i64 20
-  %162 = load i32, ptr %17, align 8
-  store i32 %162, ptr %161, align 4
-  %163 = getelementptr inbounds i8, ptr %9, i64 24
-  store i32 -1, ptr %163, align 8
-  %164 = getelementptr inbounds i8, ptr %9, i64 28
-  store i32 0, ptr %164, align 4
-  %165 = load ptr, ptr @dcerpc_auths, align 8
-  %166 = call ptr @wmem_map_lookup(ptr noundef %165, ptr noundef nonnull %9) #16
-  %.not.i136 = icmp eq ptr %166, null
-  br i1 %.not.i136, label %167, label %174
+dcerpc_get_transport_salt.exit.i:                 ; preds = %151, %dcerpc_get_decode_data.exit.i.i
+  %.0.i.i = phi i64 [ %153, %151 ], [ 0, %dcerpc_get_decode_data.exit.i.i ]
+  store i64 %.0.i.i, ptr %137, align 8
+  %154 = getelementptr inbounds i8, ptr %9, i64 16
+  %155 = load i8, ptr %15, align 4
+  store i8 %155, ptr %154, align 8
+  %156 = getelementptr inbounds i8, ptr %9, i64 17
+  %157 = load i8, ptr %16, align 1
+  store i8 %157, ptr %156, align 1
+  %158 = getelementptr inbounds i8, ptr %9, i64 20
+  %159 = load i32, ptr %17, align 8
+  store i32 %159, ptr %158, align 4
+  %160 = getelementptr inbounds i8, ptr %9, i64 24
+  store i32 -1, ptr %160, align 8
+  %161 = getelementptr inbounds i8, ptr %9, i64 28
+  store i32 0, ptr %161, align 4
+  %162 = load ptr, ptr @dcerpc_auths, align 8
+  %163 = call ptr @wmem_map_lookup(ptr noundef %162, ptr noundef nonnull %9) #16
+  %.not.i136 = icmp eq ptr %163, null
+  br i1 %.not.i136, label %164, label %171
 
-167:                                              ; preds = %dcerpc_get_transport_salt.exit.i
-  %168 = call ptr @wmem_file_scope() #16
-  %169 = call noalias ptr @wmem_alloc(ptr noundef %168, i64 noundef 32) #16
-  %170 = icmp eq ptr %169, null
-  br i1 %170, label %find_or_create_dcerpc_auth_context.exit, label %171
+164:                                              ; preds = %dcerpc_get_transport_salt.exit.i
+  %165 = call ptr @wmem_file_scope() #16
+  %166 = call noalias ptr @wmem_alloc(ptr noundef %165, i64 noundef 32) #16
+  %167 = icmp eq ptr %166, null
+  br i1 %167, label %find_or_create_dcerpc_auth_context.exit, label %168
 
-171:                                              ; preds = %167
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %169, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
-  %172 = load ptr, ptr @dcerpc_auths, align 8
-  %173 = call ptr @wmem_map_insert(ptr noundef %172, ptr noundef nonnull %169, ptr noundef nonnull %169) #16
-  br label %174
+168:                                              ; preds = %164
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %166, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
+  %169 = load ptr, ptr @dcerpc_auths, align 8
+  %170 = call ptr @wmem_map_insert(ptr noundef %169, ptr noundef nonnull %166, ptr noundef nonnull %166) #16
+  br label %171
 
-174:                                              ; preds = %171, %dcerpc_get_transport_salt.exit.i
-  %.0.i = phi ptr [ %166, %dcerpc_get_transport_salt.exit.i ], [ %169, %171 ]
-  %175 = getelementptr inbounds i8, ptr %2, i64 80
-  %176 = load ptr, ptr %175, align 8
-  %177 = load i32, ptr %176, align 8
-  %178 = getelementptr inbounds i8, ptr %.0.i, i64 24
-  %179 = load i32, ptr %178, align 8
-  %180 = icmp ult i32 %177, %179
-  br i1 %180, label %181, label %182
+171:                                              ; preds = %168, %dcerpc_get_transport_salt.exit.i
+  %.0.i = phi ptr [ %163, %dcerpc_get_transport_salt.exit.i ], [ %166, %168 ]
+  %172 = getelementptr inbounds i8, ptr %2, i64 80
+  %173 = load ptr, ptr %172, align 8
+  %174 = load i32, ptr %173, align 8
+  %175 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %176 = load i32, ptr %175, align 8
+  %177 = icmp ult i32 %174, %176
+  br i1 %177, label %178, label %179
 
-181:                                              ; preds = %174
-  store i32 %177, ptr %178, align 8
-  br label %182
+178:                                              ; preds = %171
+  store i32 %174, ptr %175, align 8
+  br label %179
 
-find_or_create_dcerpc_auth_context.exit:          ; preds = %167
+find_or_create_dcerpc_auth_context.exit:          ; preds = %164
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  br label %199
-
-182:                                              ; preds = %181, %174
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  %183 = getelementptr inbounds i8, ptr %4, i64 2
-  %184 = load i8, ptr %183, align 2
-  switch i8 %184, label %196 [
-    i8 11, label %185
-    i8 14, label %185
-  ]
-
-185:                                              ; preds = %182, %182
-  %186 = load i32, ptr %178, align 8
-  %187 = load ptr, ptr %175, align 8
-  %188 = load i32, ptr %187, align 8
-  %189 = icmp eq i32 %186, %188
-  br i1 %189, label %190, label %196
-
-190:                                              ; preds = %185
-  %191 = getelementptr inbounds i8, ptr %4, i64 3
-  %192 = load i8, ptr %191, align 1
-  %193 = and i8 %192, 4
-  %194 = zext nneg i8 %193 to i32
-  %195 = getelementptr inbounds i8, ptr %.0.i, i64 28
-  store i32 %194, ptr %195, align 4
   br label %196
 
-196:                                              ; preds = %182, %185, %190
-  %197 = getelementptr inbounds i8, ptr %.0.i, i64 28
-  %198 = load i32, ptr %197, align 4
-  store i32 %198, ptr %5, align 8
-  br label %199
-
-199:                                              ; preds = %find_or_create_dcerpc_auth_context.exit, %196
-  %200 = load i8, ptr %16, align 1
-  %201 = load i8, ptr %15, align 4
-  %202 = load ptr, ptr @dcerpc_auth_subdissector_list, align 8
-  %203 = call ptr @g_slist_nth_data(ptr noundef %202, i32 noundef 0) #16
-  %.not11.i = icmp eq ptr %203, null
-  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %199, %211
-  %204 = phi ptr [ %214, %211 ], [ %203, %199 ]
-  %.0812.i = phi i32 [ %212, %211 ], [ 0, %199 ]
-  %205 = load i8, ptr %204, align 8
-  %206 = icmp eq i8 %205, %200
-  br i1 %206, label %207, label %211
-
-207:                                              ; preds = %.lr.ph.i
-  %208 = getelementptr inbounds i8, ptr %204, i64 1
-  %209 = load i8, ptr %208, align 1
-  %210 = icmp eq i8 %209, %201
-  br i1 %210, label %215, label %211
-
-211:                                              ; preds = %207, %.lr.ph.i
-  %212 = add i32 %.0812.i, 1
-  %213 = load ptr, ptr @dcerpc_auth_subdissector_list, align 8
-  %214 = call ptr @g_slist_nth_data(ptr noundef %213, i32 noundef %212) #16
-  %.not.i137 = icmp eq ptr %214, null
-  br i1 %.not.i137, label %.loopexit, label %.lr.ph.i, !llvm.loop !6
-
-215:                                              ; preds = %207
-  %216 = getelementptr inbounds i8, ptr %204, i64 8
-  store ptr %216, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %8)
-  %217 = getelementptr inbounds i8, ptr %7, i64 28
-  store i32 0, ptr %217, align 4
-  %218 = getelementptr inbounds i8, ptr %7, i64 32
-  store i32 1, ptr %218, align 8
-  %219 = getelementptr inbounds i8, ptr %8, i64 96
-  store i32 0, ptr %219, align 8
-  %220 = getelementptr inbounds i8, ptr %7, i64 72
-  store ptr %8, ptr %220, align 8
-  %221 = getelementptr inbounds i8, ptr %4, i64 2
-  %222 = load i8, ptr %221, align 2
-  switch i8 %222, label %231 [
-    i8 11, label %237
-    i8 14, label %237
-    i8 12, label %223
-    i8 15, label %223
-    i8 16, label %225
-    i8 0, label %227
-    i8 18, label %227
-    i8 19, label %227
-    i8 2, label %229
-    i8 3, label %229
+179:                                              ; preds = %178, %171
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
+  %180 = getelementptr inbounds i8, ptr %4, i64 2
+  %181 = load i8, ptr %180, align 2
+  switch i8 %181, label %193 [
+    i8 11, label %182
+    i8 14, label %182
   ]
 
-223:                                              ; preds = %215, %215
-  %224 = getelementptr inbounds i8, ptr %204, i64 16
-  br label %237
+182:                                              ; preds = %179, %179
+  %183 = load i32, ptr %175, align 8
+  %184 = load ptr, ptr %172, align 8
+  %185 = load i32, ptr %184, align 8
+  %186 = icmp eq i32 %183, %185
+  br i1 %186, label %187, label %193
 
-225:                                              ; preds = %215
-  %226 = getelementptr inbounds i8, ptr %204, i64 24
-  br label %237
+187:                                              ; preds = %182
+  %188 = getelementptr inbounds i8, ptr %4, i64 3
+  %189 = load i8, ptr %188, align 1
+  %190 = and i8 %189, 4
+  %191 = zext nneg i8 %190 to i32
+  %192 = getelementptr inbounds i8, ptr %.0.i, i64 28
+  store i32 %191, ptr %192, align 4
+  br label %193
 
-227:                                              ; preds = %215, %215, %215
-  %228 = getelementptr inbounds i8, ptr %204, i64 32
-  br label %237
+193:                                              ; preds = %179, %182, %187
+  %194 = getelementptr inbounds i8, ptr %.0.i, i64 28
+  %195 = load i32, ptr %194, align 4
+  store i32 %195, ptr %5, align 8
+  br label %196
 
-229:                                              ; preds = %215, %215
-  %230 = getelementptr inbounds i8, ptr %204, i64 40
-  br label %237
+196:                                              ; preds = %find_or_create_dcerpc_auth_context.exit, %193
+  %197 = load i8, ptr %16, align 1
+  %198 = load i8, ptr %15, align 4
+  %199 = load ptr, ptr @dcerpc_auth_subdissector_list, align 8
+  %200 = call ptr @g_slist_nth_data(ptr noundef %199, i32 noundef 0) #16
+  %.not11.i = icmp eq ptr %200, null
+  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i
 
-231:                                              ; preds = %215
-  %232 = zext i8 %222 to i32
-  %233 = load ptr, ptr %23, align 8
-  %234 = load ptr, ptr %21, align 8
-  %235 = call ptr @val_to_str(i32 noundef %232, ptr noundef nonnull @pckt_vals, ptr noundef nonnull @.str.447) #16
-  %236 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %233, ptr noundef %2, ptr noundef nonnull @ei_dcerpc_invalid_pdu_authentication_attempt, ptr noundef %234, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.653, ptr noundef %235) #16
+.lr.ph.i:                                         ; preds = %196, %208
+  %201 = phi ptr [ %211, %208 ], [ %200, %196 ]
+  %.0812.i = phi i32 [ %209, %208 ], [ 0, %196 ]
+  %202 = load i8, ptr %201, align 8
+  %203 = icmp eq i8 %202, %197
+  br i1 %203, label %204, label %208
+
+204:                                              ; preds = %.lr.ph.i
+  %205 = getelementptr inbounds i8, ptr %201, i64 1
+  %206 = load i8, ptr %205, align 1
+  %207 = icmp eq i8 %206, %198
+  br i1 %207, label %212, label %208
+
+208:                                              ; preds = %204, %.lr.ph.i
+  %209 = add i32 %.0812.i, 1
+  %210 = load ptr, ptr @dcerpc_auth_subdissector_list, align 8
+  %211 = call ptr @g_slist_nth_data(ptr noundef %210, i32 noundef %209) #16
+  %.not.i137 = icmp eq ptr %211, null
+  br i1 %.not.i137, label %.loopexit, label %.lr.ph.i, !llvm.loop !6
+
+212:                                              ; preds = %204
+  %213 = getelementptr inbounds i8, ptr %201, i64 8
+  store ptr %213, ptr %20, align 8
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %8)
+  %214 = getelementptr inbounds i8, ptr %7, i64 28
+  store i32 0, ptr %214, align 4
+  %215 = getelementptr inbounds i8, ptr %7, i64 32
+  store i32 1, ptr %215, align 8
+  %216 = getelementptr inbounds i8, ptr %8, i64 96
+  store i32 0, ptr %216, align 8
+  %217 = getelementptr inbounds i8, ptr %7, i64 72
+  store ptr %8, ptr %217, align 8
+  %218 = getelementptr inbounds i8, ptr %4, i64 2
+  %219 = load i8, ptr %218, align 2
+  switch i8 %219, label %228 [
+    i8 11, label %234
+    i8 14, label %234
+    i8 12, label %220
+    i8 15, label %220
+    i8 16, label %222
+    i8 0, label %224
+    i8 18, label %224
+    i8 19, label %224
+    i8 2, label %226
+    i8 3, label %226
+  ]
+
+220:                                              ; preds = %212, %212
+  %221 = getelementptr inbounds i8, ptr %201, i64 16
+  br label %234
+
+222:                                              ; preds = %212
+  %223 = getelementptr inbounds i8, ptr %201, i64 24
+  br label %234
+
+224:                                              ; preds = %212, %212, %212
+  %225 = getelementptr inbounds i8, ptr %201, i64 32
+  br label %234
+
+226:                                              ; preds = %212, %212
+  %227 = getelementptr inbounds i8, ptr %201, i64 40
+  br label %234
+
+228:                                              ; preds = %212
+  %229 = zext i8 %219 to i32
+  %230 = load ptr, ptr %23, align 8
+  %231 = load ptr, ptr %21, align 8
+  %232 = call ptr @val_to_str(i32 noundef %229, ptr noundef nonnull @pckt_vals, ptr noundef nonnull @.str.447) #16
+  %233 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %230, ptr noundef %2, ptr noundef nonnull @ei_dcerpc_invalid_pdu_authentication_attempt, ptr noundef %231, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.653, ptr noundef %232) #16
   br label %dissect_auth_verf.exit
 
-237:                                              ; preds = %229, %227, %225, %223, %215, %215
-  %.0.in.i = phi ptr [ %230, %229 ], [ %228, %227 ], [ %226, %225 ], [ %224, %223 ], [ %216, %215 ], [ %216, %215 ]
+234:                                              ; preds = %226, %224, %222, %220, %212, %212
+  %.0.in.i = phi ptr [ %227, %226 ], [ %225, %224 ], [ %223, %222 ], [ %221, %220 ], [ %213, %212 ], [ %213, %212 ]
   %.0.i139 = load ptr, ptr %.0.in.i, align 8
   %.not.i140 = icmp eq ptr %.0.i139, null
-  br i1 %.not.i140, label %242, label %238
+  br i1 %.not.i140, label %239, label %235
 
-238:                                              ; preds = %237
-  %239 = load ptr, ptr %21, align 8
+235:                                              ; preds = %234
+  %236 = load ptr, ptr %21, align 8
+  %237 = load ptr, ptr %23, align 8
+  %238 = call i32 %.0.i139(ptr noundef %236, i32 noundef 0, ptr noundef %2, ptr noundef %237, ptr noundef nonnull %7, ptr noundef nonnull %58) #16
+  br label %dissect_auth_verf.exit
+
+239:                                              ; preds = %234
   %240 = load ptr, ptr %23, align 8
-  %241 = call i32 %.0.i139(ptr noundef %239, i32 noundef 0, ptr noundef %2, ptr noundef %240, ptr noundef nonnull %7, ptr noundef nonnull %61) #16
+  %241 = load ptr, ptr %21, align 8
+  %242 = load i16, ptr %25, align 2
+  %243 = zext i16 %242 to i32
+  %244 = load i8, ptr %15, align 4
+  %245 = zext i8 %244 to i32
+  %246 = call ptr @val_to_str(i32 noundef %245, ptr noundef nonnull @authn_protocol_vals, ptr noundef nonnull @.str.447) #16
+  %247 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %240, ptr noundef %2, ptr noundef nonnull @ei_dcerpc_verifier_unavailable, ptr noundef %241, i32 noundef 0, i32 noundef %243, ptr noundef nonnull @.str.654, ptr noundef %246) #16
   br label %dissect_auth_verf.exit
 
-242:                                              ; preds = %237
-  %243 = load ptr, ptr %23, align 8
-  %244 = load ptr, ptr %21, align 8
-  %245 = load i16, ptr %25, align 2
-  %246 = zext i16 %245 to i32
-  %247 = load i8, ptr %15, align 4
-  %248 = zext i8 %247 to i32
-  %249 = call ptr @val_to_str(i32 noundef %248, ptr noundef nonnull @authn_protocol_vals, ptr noundef nonnull @.str.447) #16
-  %250 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %243, ptr noundef %2, ptr noundef nonnull @ei_dcerpc_verifier_unavailable, ptr noundef %244, i32 noundef 0, i32 noundef %246, ptr noundef nonnull @.str.654, ptr noundef %249) #16
-  br label %dissect_auth_verf.exit
-
-dissect_auth_verf.exit:                           ; preds = %231, %238, %242
+dissect_auth_verf.exit:                           ; preds = %228, %235, %239
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %8)
-  br label %257
+  br label %254
 
-.loopexit:                                        ; preds = %211, %199
+.loopexit:                                        ; preds = %208, %196
   store ptr null, ptr %20, align 8
-  %251 = load ptr, ptr %23, align 8
-  %252 = load i32, ptr @hf_dcerpc_auth_credentials, align 4
-  %253 = load ptr, ptr %21, align 8
-  %254 = load i16, ptr %25, align 2
-  %255 = zext i16 %254 to i32
-  %256 = call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %252, ptr noundef %253, i32 noundef 0, i32 noundef %255, i32 noundef 0) #16
-  br label %257
+  %248 = load ptr, ptr %23, align 8
+  %249 = load i32, ptr @hf_dcerpc_auth_credentials, align 4
+  %250 = load ptr, ptr %21, align 8
+  %251 = load i16, ptr %25, align 2
+  %252 = zext i16 %251 to i32
+  %253 = call ptr @proto_tree_add_item(ptr noundef %248, i32 noundef %249, ptr noundef %250, i32 noundef 0, i32 noundef %252, i32 noundef 0) #16
+  br label %254
 
-257:                                              ; preds = %dissect_auth_verf.exit, %.loopexit, %57, %54
+254:                                              ; preds = %dissect_auth_verf.exit, %.loopexit, %54, %51
   %.0..0..0..0.4 = load volatile i32, ptr %12, align 4
-  %258 = icmp eq i32 %.0..0..0..0.4, 0
-  br i1 %258, label %259, label %286
+  %255 = icmp eq i32 %.0..0..0..0.4, 0
+  br i1 %255, label %256, label %283
 
-259:                                              ; preds = %257
+256:                                              ; preds = %254
   %.0..0..0..0.8 = load volatile ptr, ptr %11, align 8
   %.not126 = icmp eq ptr %.0..0..0..0.8, null
-  br i1 %.not126, label %286, label %260
+  br i1 %.not126, label %283, label %257
 
-260:                                              ; preds = %259
+257:                                              ; preds = %256
   %.0..0..0..0.9 = load volatile ptr, ptr %11, align 8
-  %261 = getelementptr inbounds i8, ptr %.0..0..0..0.9, i64 8
-  %262 = load volatile i64, ptr %261, align 8
-  %263 = icmp eq i64 %262, 1
-  br i1 %263, label %280, label %264
+  %258 = getelementptr inbounds i8, ptr %.0..0..0..0.9, i64 8
+  %259 = load volatile i64, ptr %258, align 8
+  %260 = icmp eq i64 %259, 1
+  br i1 %260, label %277, label %261
 
-264:                                              ; preds = %260
+261:                                              ; preds = %257
   %.0..0..0..0.10 = load volatile ptr, ptr %11, align 8
-  %265 = getelementptr inbounds i8, ptr %.0..0..0..0.10, i64 8
-  %266 = load volatile i64, ptr %265, align 8
-  %267 = icmp eq i64 %266, 4
-  br i1 %267, label %280, label %268
+  %262 = getelementptr inbounds i8, ptr %.0..0..0..0.10, i64 8
+  %263 = load volatile i64, ptr %262, align 8
+  %264 = icmp eq i64 %263, 4
+  br i1 %264, label %277, label %265
 
-268:                                              ; preds = %264
+265:                                              ; preds = %261
   %.0..0..0..0.11 = load volatile ptr, ptr %11, align 8
-  %269 = getelementptr inbounds i8, ptr %.0..0..0..0.11, i64 8
-  %270 = load volatile i64, ptr %269, align 8
-  %271 = icmp eq i64 %270, 3
-  br i1 %271, label %280, label %272
+  %266 = getelementptr inbounds i8, ptr %.0..0..0..0.11, i64 8
+  %267 = load volatile i64, ptr %266, align 8
+  %268 = icmp eq i64 %267, 3
+  br i1 %268, label %277, label %269
 
-272:                                              ; preds = %268
+269:                                              ; preds = %265
   %.0..0..0..0.12 = load volatile ptr, ptr %11, align 8
-  %273 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 8
-  %274 = load volatile i64, ptr %273, align 8
-  %275 = icmp eq i64 %274, 2
-  br i1 %275, label %280, label %276
+  %270 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 8
+  %271 = load volatile i64, ptr %270, align 8
+  %272 = icmp eq i64 %271, 2
+  br i1 %272, label %277, label %273
 
-276:                                              ; preds = %272
+273:                                              ; preds = %269
   %.0..0..0..0.13 = load volatile ptr, ptr %11, align 8
-  %277 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
-  %278 = load volatile i64, ptr %277, align 8
-  %279 = icmp eq i64 %278, 7
-  br i1 %279, label %280, label %286
+  %274 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
+  %275 = load volatile i64, ptr %274, align 8
+  %276 = icmp eq i64 %275, 7
+  br i1 %276, label %277, label %283
 
-280:                                              ; preds = %276, %272, %268, %264, %260
+277:                                              ; preds = %273, %269, %265, %261, %257
   %.0..0..0..0.5 = load volatile i32, ptr %12, align 4
-  %281 = or i32 %.0..0..0..0.5, 1
-  store volatile i32 %281, ptr %12, align 4
+  %278 = or i32 %.0..0..0..0.5, 1
+  store volatile i32 %278, ptr %12, align 4
   %.0..0..0..0.14 = load volatile ptr, ptr %11, align 8
-  %282 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 8
-  %283 = load volatile i64, ptr %282, align 8
+  %279 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 8
+  %280 = load volatile i64, ptr %279, align 8
   %.0..0..0..0.15 = load volatile ptr, ptr %11, align 8
-  %284 = getelementptr inbounds i8, ptr %.0..0..0..0.15, i64 16
-  %285 = load volatile ptr, ptr %284, align 8
-  call void @show_exception(ptr noundef %0, ptr noundef %2, ptr noundef %3, i64 noundef %283, ptr noundef %285) #16
-  br label %286
+  %281 = getelementptr inbounds i8, ptr %.0..0..0..0.15, i64 16
+  %282 = load volatile ptr, ptr %281, align 8
+  call void @show_exception(ptr noundef %0, ptr noundef %2, ptr noundef %3, i64 noundef %280, ptr noundef %282) #16
+  br label %283
 
-286:                                              ; preds = %280, %276, %259, %257
+283:                                              ; preds = %277, %273, %256, %254
   %.0..0..0..0.6 = load volatile i32, ptr %12, align 4
-  %287 = and i32 %.0..0..0..0.6, 1
-  %.not127 = icmp eq i32 %287, 0
-  br i1 %.not127, label %288, label %290
+  %284 = and i32 %.0..0..0..0.6, 1
+  %.not127 = icmp eq i32 %284, 0
+  br i1 %.not127, label %285, label %287
 
-288:                                              ; preds = %286
+285:                                              ; preds = %283
   %.0..0..0..0.16 = load volatile ptr, ptr %11, align 8
   %.not128 = icmp eq ptr %.0..0..0..0.16, null
-  br i1 %.not128, label %290, label %289
+  br i1 %.not128, label %287, label %286
 
-289:                                              ; preds = %288
+286:                                              ; preds = %285
   %.0..0..0..0.17 = load volatile ptr, ptr %11, align 8
   call void @except_rethrow(ptr noundef %.0..0..0..0.17) #20
   unreachable
 
-290:                                              ; preds = %288, %286
-  %291 = getelementptr inbounds i8, ptr %14, i64 40
-  %292 = load volatile ptr, ptr %291, align 8
-  call void @except_free(ptr noundef %292) #16
-  %293 = call ptr @except_pop() #16
-  br label %294
+287:                                              ; preds = %285, %283
+  %288 = getelementptr inbounds i8, ptr %14, i64 40
+  %289 = load volatile ptr, ptr %288, align 8
+  call void @except_free(ptr noundef %289) #16
+  %290 = call ptr @except_pop() #16
+  br label %291
 
-294:                                              ; preds = %37, %290, %27, %6
+291:                                              ; preds = %37, %287, %27, %6
   ret void
 }
 
@@ -13181,225 +13154,216 @@ define internal fastcc i32 @dissect_dcerpc_cn_bs_body(ptr noundef %0, ptr nounde
   %20 = getelementptr inbounds i8, ptr %1, i64 8
   br label %21
 
-21:                                               ; preds = %.lr.ph74, %108
+21:                                               ; preds = %.lr.ph74, %105
   store volatile i32 0, ptr %9, align 4
   call void @except_setup_try(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull @dissect_dcerpc_cn_bs_body.catch_spec, i64 noundef 1) #16
   %22 = call i32 @_setjmp(ptr noundef nonnull %13) #19
   %.not57 = icmp eq i32 %22, 0
-  br i1 %.not57, label %24, label %23
-
-23:                                               ; preds = %21
-  store volatile ptr %14, ptr %8, align 8
-  br label %25
+  %. = select i1 %.not57, ptr null, ptr %14
+  store volatile ptr %., ptr %8, align 8
+  %.0..0..0..0.3 = load volatile i32, ptr %9, align 4
+  %23 = and i32 %.0..0..0..0.3, 1
+  %.not58 = icmp eq i32 %23, 0
+  br i1 %.not58, label %26, label %24
 
 24:                                               ; preds = %21
-  store volatile ptr null, ptr %8, align 8
-  br label %25
-
-25:                                               ; preds = %24, %23
-  %.0..0..0..0.3 = load volatile i32, ptr %9, align 4
-  %26 = and i32 %.0..0..0..0.3, 1
-  %.not58 = icmp eq i32 %26, 0
-  br i1 %.not58, label %29, label %27
-
-27:                                               ; preds = %25
   %.0..0..0..0.4 = load volatile i32, ptr %9, align 4
-  %28 = or i32 %.0..0..0..0.4, 2
-  store volatile i32 %28, ptr %9, align 4
-  br label %29
+  %25 = or i32 %.0..0..0..0.4, 2
+  store volatile i32 %25, ptr %9, align 4
+  br label %26
 
-29:                                               ; preds = %27, %25
+26:                                               ; preds = %24, %21
   %.0..0..0..0.5 = load volatile i32, ptr %9, align 4
-  %30 = and i32 %.0..0..0..0.5, -2
-  store volatile i32 %30, ptr %9, align 4
+  %27 = and i32 %.0..0..0..0.5, -2
+  store volatile i32 %27, ptr %9, align 4
   %.0..0..0..0.6 = load volatile i32, ptr %9, align 4
-  %31 = icmp eq i32 %.0..0..0..0.6, 0
-  br i1 %31, label %32, label %39
+  %28 = icmp eq i32 %.0..0..0..0.6, 0
+  br i1 %28, label %29, label %36
 
-32:                                               ; preds = %29
+29:                                               ; preds = %26
   %.0..0..0..0.10 = load volatile ptr, ptr %8, align 8
-  %33 = icmp eq ptr %.0..0..0..0.10, null
-  br i1 %33, label %34, label %39
+  %30 = icmp eq ptr %.0..0..0..0.10, null
+  br i1 %30, label %31, label %36
 
-34:                                               ; preds = %32
+31:                                               ; preds = %29
   store i32 0, ptr %5, align 4
   %.0..0..0..0.27 = load volatile i32, ptr %4, align 4
-  %35 = load i32, ptr @dcerpc_cn_desegment, align 4
-  %36 = call fastcc i32 @dissect_dcerpc_cn(ptr noundef %0, i32 noundef %.0..0..0..0.27, ptr noundef %1, ptr noundef %2, i32 noundef %35, ptr noundef nonnull %5)
-  %.not59 = icmp eq i32 %36, 0
-  br i1 %.not59, label %39, label %37
+  %32 = load i32, ptr @dcerpc_cn_desegment, align 4
+  %33 = call fastcc i32 @dissect_dcerpc_cn(ptr noundef %0, i32 noundef %.0..0..0..0.27, ptr noundef %1, ptr noundef %2, i32 noundef %32, ptr noundef nonnull %5)
+  %.not59 = icmp eq i32 %33, 0
+  br i1 %.not59, label %36, label %34
 
-37:                                               ; preds = %34
+34:                                               ; preds = %31
   %.0..0..0..0.21 = load volatile i32, ptr %6, align 4
-  %38 = add i32 %.0..0..0..0.21, 1
-  store volatile i32 %38, ptr %6, align 4
-  br label %39
+  %35 = add i32 %.0..0..0..0.21, 1
+  store volatile i32 %35, ptr %6, align 4
+  br label %36
 
-39:                                               ; preds = %34, %37, %32, %29
+36:                                               ; preds = %31, %34, %29, %26
   %.0..0..0..0.7 = load volatile i32, ptr %9, align 4
-  %40 = icmp eq i32 %.0..0..0..0.7, 0
-  br i1 %40, label %41, label %65
+  %37 = icmp eq i32 %.0..0..0..0.7, 0
+  br i1 %37, label %38, label %62
 
-41:                                               ; preds = %39
+38:                                               ; preds = %36
   %.0..0..0..0.11 = load volatile ptr, ptr %8, align 8
   %.not60 = icmp eq ptr %.0..0..0..0.11, null
-  br i1 %.not60, label %65, label %42
+  br i1 %.not60, label %62, label %39
 
-42:                                               ; preds = %41
+39:                                               ; preds = %38
   %.0..0..0..0.12 = load volatile ptr, ptr %8, align 8
-  %43 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 8
-  %44 = load volatile i64, ptr %43, align 8
-  %45 = icmp eq i64 %44, 3
-  br i1 %45, label %58, label %46
+  %40 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 8
+  %41 = load volatile i64, ptr %40, align 8
+  %42 = icmp eq i64 %41, 3
+  br i1 %42, label %55, label %43
 
-46:                                               ; preds = %42
+43:                                               ; preds = %39
   %.0..0..0..0.13 = load volatile ptr, ptr %8, align 8
-  %47 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
-  %48 = load volatile i64, ptr %47, align 8
-  %49 = icmp eq i64 %48, 2
-  br i1 %49, label %58, label %50
+  %44 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
+  %45 = load volatile i64, ptr %44, align 8
+  %46 = icmp eq i64 %45, 2
+  br i1 %46, label %55, label %47
 
-50:                                               ; preds = %46
+47:                                               ; preds = %43
   %.0..0..0..0.14 = load volatile ptr, ptr %8, align 8
-  %51 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 8
-  %52 = load volatile i64, ptr %51, align 8
-  %53 = icmp eq i64 %52, 7
-  br i1 %53, label %58, label %54
+  %48 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 8
+  %49 = load volatile i64, ptr %48, align 8
+  %50 = icmp eq i64 %49, 7
+  br i1 %50, label %55, label %51
 
-54:                                               ; preds = %50
+51:                                               ; preds = %47
   %.0..0..0..0.15 = load volatile ptr, ptr %8, align 8
-  %55 = getelementptr inbounds i8, ptr %.0..0..0..0.15, i64 8
-  %56 = load volatile i64, ptr %55, align 8
-  %57 = icmp eq i64 %56, 9
-  br i1 %57, label %58, label %65
+  %52 = getelementptr inbounds i8, ptr %.0..0..0..0.15, i64 8
+  %53 = load volatile i64, ptr %52, align 8
+  %54 = icmp eq i64 %53, 9
+  br i1 %54, label %55, label %62
 
-58:                                               ; preds = %54, %50, %46, %42
+55:                                               ; preds = %51, %47, %43, %39
   %.0..0..0..0.8 = load volatile i32, ptr %9, align 4
-  %59 = or i32 %.0..0..0..0.8, 1
-  store volatile i32 %59, ptr %9, align 4
+  %56 = or i32 %.0..0..0..0.8, 1
+  store volatile i32 %56, ptr %9, align 4
   %.0..0..0..0.16 = load volatile ptr, ptr %8, align 8
-  %60 = getelementptr inbounds i8, ptr %.0..0..0..0.16, i64 8
-  %61 = load volatile i64, ptr %60, align 8
+  %57 = getelementptr inbounds i8, ptr %.0..0..0..0.16, i64 8
+  %58 = load volatile i64, ptr %57, align 8
   %.0..0..0..0.17 = load volatile ptr, ptr %8, align 8
-  %62 = getelementptr inbounds i8, ptr %.0..0..0..0.17, i64 16
-  %63 = load volatile ptr, ptr %62, align 8
-  call void @show_exception(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %61, ptr noundef %63) #16
+  %59 = getelementptr inbounds i8, ptr %.0..0..0..0.17, i64 16
+  %60 = load volatile ptr, ptr %59, align 8
+  call void @show_exception(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %58, ptr noundef %60) #16
   %.0..0..0..0.22 = load volatile i32, ptr %6, align 4
-  %64 = add i32 %.0..0..0..0.22, 1
-  store volatile i32 %64, ptr %6, align 4
-  br label %65
+  %61 = add i32 %.0..0..0..0.22, 1
+  store volatile i32 %61, ptr %6, align 4
+  br label %62
 
-65:                                               ; preds = %58, %54, %41, %39
+62:                                               ; preds = %55, %51, %38, %36
   %.0..0..0..0.9 = load volatile i32, ptr %9, align 4
-  %66 = and i32 %.0..0..0..0.9, 1
-  %.not61 = icmp eq i32 %66, 0
-  br i1 %.not61, label %67, label %69
+  %63 = and i32 %.0..0..0..0.9, 1
+  %.not61 = icmp eq i32 %63, 0
+  br i1 %.not61, label %64, label %66
 
-67:                                               ; preds = %65
+64:                                               ; preds = %62
   %.0..0..0..0.18 = load volatile ptr, ptr %8, align 8
   %.not62 = icmp eq ptr %.0..0..0..0.18, null
-  br i1 %.not62, label %69, label %68
+  br i1 %.not62, label %66, label %65
 
-68:                                               ; preds = %67
+65:                                               ; preds = %64
   %.0..0..0..0.19 = load volatile ptr, ptr %8, align 8
   call void @except_rethrow(ptr noundef %.0..0..0..0.19) #20
   unreachable
 
-69:                                               ; preds = %67, %65
-  %70 = load volatile ptr, ptr %15, align 8
-  call void @except_free(ptr noundef %70) #16
-  %71 = call ptr @except_pop() #16
+66:                                               ; preds = %64, %62
+  %67 = load volatile ptr, ptr %15, align 8
+  call void @except_free(ptr noundef %67) #16
+  %68 = call ptr @except_pop() #16
   %.0..0..0..0.23 = load volatile i32, ptr %6, align 4
-  %72 = icmp eq i32 %.0..0..0..0.23, 0
-  br i1 %72, label %73, label %93
+  %69 = icmp eq i32 %.0..0..0..0.23, 0
+  br i1 %69, label %70, label %90
 
-73:                                               ; preds = %69
-  %74 = load i32, ptr @dcerpc_cn_desegment, align 4
-  %.not63 = icmp eq i32 %74, 0
-  br i1 %.not63, label %.critedge, label %75
+70:                                               ; preds = %66
+  %71 = load i32, ptr @dcerpc_cn_desegment, align 4
+  %.not63 = icmp eq i32 %71, 0
+  br i1 %.not63, label %.critedge, label %72
 
-75:                                               ; preds = %73
-  %76 = load i16, ptr %16, align 8
-  %.not64 = icmp eq i16 %76, 0
-  br i1 %.not64, label %.critedge, label %77
+72:                                               ; preds = %70
+  %73 = load i16, ptr %16, align 8
+  %.not64 = icmp eq i16 %73, 0
+  br i1 %.not64, label %.critedge, label %74
 
-77:                                               ; preds = %75
+74:                                               ; preds = %72
   %.0..0..0..0.28 = load volatile i32, ptr %4, align 4
-  %78 = call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.0..0..0..0.28, i32 noundef 16) #16
-  %.not65 = icmp eq i32 %78, 0
-  br i1 %.not65, label %79, label %.critedge
+  %75 = call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.0..0..0..0.28, i32 noundef 16) #16
+  %.not65 = icmp eq i32 %75, 0
+  br i1 %.not65, label %76, label %.critedge
 
-79:                                               ; preds = %77
-  %80 = load ptr, ptr %17, align 8
-  %81 = call ptr @wmem_list_tail(ptr noundef %80) #16
-  %82 = call ptr @wmem_list_frame_prev(ptr noundef %81) #16
-  %.not6669 = icmp eq ptr %82, null
+76:                                               ; preds = %74
+  %77 = load ptr, ptr %17, align 8
+  %78 = call ptr @wmem_list_tail(ptr noundef %77) #16
+  %79 = call ptr @wmem_list_frame_prev(ptr noundef %78) #16
+  %.not6669 = icmp eq ptr %79, null
   br i1 %.not6669, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %79, %88
-  %.070 = phi ptr [ %89, %88 ], [ %82, %79 ]
-  %83 = load i32, ptr @proto_dcerpc, align 4
-  %84 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.070) #16
-  %85 = ptrtoint ptr %84 to i64
-  %86 = trunc i64 %85 to i32
-  %87 = icmp eq i32 %83, %86
-  br i1 %87, label %90, label %88
+.lr.ph:                                           ; preds = %76, %85
+  %.070 = phi ptr [ %86, %85 ], [ %79, %76 ]
+  %80 = load i32, ptr @proto_dcerpc, align 4
+  %81 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.070) #16
+  %82 = ptrtoint ptr %81 to i64
+  %83 = trunc i64 %82 to i32
+  %84 = icmp eq i32 %80, %83
+  br i1 %84, label %87, label %85
 
-88:                                               ; preds = %.lr.ph
-  %89 = call ptr @wmem_list_frame_prev(ptr noundef nonnull %.070) #16
-  %.not66 = icmp eq ptr %89, null
+85:                                               ; preds = %.lr.ph
+  %86 = call ptr @wmem_list_frame_prev(ptr noundef nonnull %.070) #16
+  %.not66 = icmp eq ptr %86, null
   br i1 %.not66, label %.critedge, label %.lr.ph, !llvm.loop !26
 
-90:                                               ; preds = %.lr.ph
+87:                                               ; preds = %.lr.ph
   %.0..0..0..0.29 = load volatile i32, ptr %4, align 4
   store i32 %.0..0..0..0.29, ptr %18, align 4
   %.0..0..0..0.30 = load volatile i32, ptr %4, align 4
-  %91 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0..0..0..0.30) #16
-  %92 = sub i32 16, %91
-  store i32 %92, ptr %19, align 8
-  br label %93
+  %88 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0..0..0..0.30) #16
+  %89 = sub i32 16, %88
+  store i32 %89, ptr %19, align 8
+  br label %90
 
-93:                                               ; preds = %90, %69
+90:                                               ; preds = %87, %66
   store volatile i32 1, ptr %7, align 4
   %.0..0..0..0.24 = load volatile i32, ptr %6, align 4
-  %94 = icmp sgt i32 %.0..0..0..0.24, 1
-  br i1 %94, label %95, label %97
+  %91 = icmp sgt i32 %.0..0..0..0.24, 1
+  br i1 %91, label %92, label %94
 
-95:                                               ; preds = %93
-  %96 = load ptr, ptr %20, align 8
+92:                                               ; preds = %90
+  %93 = load ptr, ptr %20, align 8
   %.0..0..0..0.25 = load volatile i32, ptr %6, align 4
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %96, i32 noundef 34, ptr noundef nonnull @.str.716, i32 noundef %.0..0..0..0.25) #16
-  br label %97
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %93, i32 noundef 34, ptr noundef nonnull @.str.716, i32 noundef %.0..0..0..0.25) #16
+  br label %94
 
-97:                                               ; preds = %95, %93
-  %98 = load i32, ptr %5, align 4
-  %99 = icmp eq i32 %98, 0
-  br i1 %99, label %100, label %108
+94:                                               ; preds = %92, %90
+  %95 = load i32, ptr %5, align 4
+  %96 = icmp eq i32 %95, 0
+  br i1 %96, label %97, label %105
 
-100:                                              ; preds = %97
-  %101 = load i32, ptr @hf_dcerpc_cn_deseg_req, align 4
+97:                                               ; preds = %94
+  %98 = load i32, ptr @hf_dcerpc_cn_deseg_req, align 4
   %.0..0..0..0.31 = load volatile i32, ptr %4, align 4
   %.0..0..0..0.32 = load volatile i32, ptr %4, align 4
-  %102 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0..0..0..0.32) #16
+  %99 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0..0..0..0.32) #16
   %.0..0..0..0.33 = load volatile i32, ptr %4, align 4
-  %103 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0..0..0..0.33) #16
+  %100 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0..0..0..0.33) #16
   %.0..0..0..0.34 = load volatile i32, ptr %4, align 4
-  %104 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0..0..0..0.34) #16
-  %105 = icmp eq i32 %104, 1
-  %106 = select i1 %105, ptr @.str.432, ptr @.str.433
-  %107 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %101, ptr noundef %0, i32 noundef %.0..0..0..0.31, i32 noundef 0, i32 noundef %102, ptr noundef nonnull @.str.717, i32 noundef %103, ptr noundef nonnull %106) #16
+  %101 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0..0..0..0.34) #16
+  %102 = icmp eq i32 %101, 1
+  %103 = select i1 %102, ptr @.str.432, ptr @.str.433
+  %104 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %98, ptr noundef %0, i32 noundef %.0..0..0..0.31, i32 noundef 0, i32 noundef %99, ptr noundef nonnull @.str.717, i32 noundef %100, ptr noundef nonnull %103) #16
   br label %.critedge
 
-108:                                              ; preds = %97
+105:                                              ; preds = %94
   %.0..0..0..0.35 = load volatile i32, ptr %4, align 4
-  %109 = add i32 %.0..0..0..0.35, %98
-  store volatile i32 %109, ptr %4, align 4
+  %106 = add i32 %.0..0..0..0.35, %95
+  store volatile i32 %106, ptr %4, align 4
   %.0..0..0..0.26 = load volatile i32, ptr %4, align 4
-  %110 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0..0..0..0.26) #16
-  %.not = icmp eq i32 %110, 0
+  %107 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0..0..0..0.26) #16
+  %.not = icmp eq i32 %107, 0
   br i1 %.not, label %.critedge, label %21, !llvm.loop !27
 
-.critedge:                                        ; preds = %108, %73, %75, %77, %79, %88, %3, %100
+.critedge:                                        ; preds = %105, %70, %72, %74, %76, %85, %3, %97
   %.0..0..0..0.20 = load volatile i32, ptr %7, align 4
   ret i32 %.0..0..0..0.20
 }

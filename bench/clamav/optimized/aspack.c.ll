@@ -497,20 +497,23 @@ switch.lookup:                                    ; preds = %8
 
 233:                                              ; preds = %229
   store i32 %110, ptr %231, align 4
-  store i32 %232, ptr %9, align 16
-  br label %237
+  br label %.sink.split.i.i
 
 234:                                              ; preds = %227
   %235 = load i32, ptr %76, align 4
   store i32 %235, ptr %77, align 8
   store i32 %110, ptr %76, align 4
   %236 = add i32 %.074.i.i, -3
-  store i32 %236, ptr %9, align 16
+  br label %.sink.split.i.i
+
+.sink.split.i.i:                                  ; preds = %234, %233
+  %.sink.i.i = phi i32 [ %232, %233 ], [ %236, %234 ]
+  store i32 %.sink.i.i, ptr %9, align 16
   br label %237
 
-237:                                              ; preds = %234, %233, %229
-  %238 = phi i32 [ %232, %233 ], [ %110, %229 ], [ %236, %234 ]
-  %.075.i.i = phi i32 [ %232, %233 ], [ %232, %229 ], [ %236, %234 ]
+237:                                              ; preds = %.sink.split.i.i, %229
+  %238 = phi i32 [ %110, %229 ], [ %.sink.i.i, %.sink.split.i.i ]
+  %.075.i.i = phi i32 [ %232, %229 ], [ %.sink.i.i, %.sink.split.i.i ]
   %.neg.i.i = xor i32 %.075.i.i, -1
   %or.cond92.i.i = icmp uge i32 %.075.i.i, %.073.ph.i21.i
   %239 = sub i32 %90, %.073.ph.i21.i

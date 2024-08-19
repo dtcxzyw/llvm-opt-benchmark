@@ -3104,124 +3104,124 @@ _ZNK7glslang11TConstUnionltERKS0_.exit454:        ; preds = %1363, %1373, %1377,
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %._crit_edge977, %._crit_edge966, %._crit_edge959, %_ZNK7glslang11TConstUnionltERKS0_.exit, %_ZNK7glslang11TConstUniongtERKS0_.exit, %_ZNK7glslang11TConstUniongtERKS0_.exit448, %_ZNK7glslang11TConstUnionltERKS0_.exit454, %1415, %1424
-  %.sink1173 = phi i32 [ %519, %._crit_edge977 ], [ %787, %._crit_edge966 ], [ %840, %._crit_edge959 ], [ %1259, %_ZNK7glslang11TConstUnionltERKS0_.exit ], [ %1310, %_ZNK7glslang11TConstUniongtERKS0_.exit ], [ %1362, %_ZNK7glslang11TConstUniongtERKS0_.exit448 ], [ %1414, %_ZNK7glslang11TConstUnionltERKS0_.exit454 ], [ %1423, %1415 ], [ %1433, %1424 ]
-  store i32 %.sink1173, ptr %6, align 8
+  %.sink = phi i32 [ %1433, %1424 ], [ %1423, %1415 ], [ %1414, %_ZNK7glslang11TConstUnionltERKS0_.exit454 ], [ %1362, %_ZNK7glslang11TConstUniongtERKS0_.exit448 ], [ %1310, %_ZNK7glslang11TConstUniongtERKS0_.exit ], [ %1259, %_ZNK7glslang11TConstUnionltERKS0_.exit ], [ %840, %._crit_edge959 ], [ %787, %._crit_edge966 ], [ %519, %._crit_edge977 ]
+  store i32 %.sink, ptr %6, align 8
   store ptr null, ptr %7, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, i8 0, i64 16, i1 false)
-  %.sink = load ptr, ptr %4, align 8
-  %1434 = getelementptr inbounds i8, ptr %.sink, i64 296
-  %1435 = load ptr, ptr %1434, align 8
-  %1436 = call noundef zeroext i1 %1435(ptr noundef nonnull align 8 dereferenceable(152) %4) #9
+  %1434 = load ptr, ptr %4, align 8
+  %1435 = getelementptr inbounds i8, ptr %1434, i64 296
+  %1436 = load ptr, ptr %1435, align 8
+  %1437 = call noundef zeroext i1 %1436(ptr noundef nonnull align 8 dereferenceable(152) %4) #9
   store ptr null, ptr %55, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  %1437 = load i32, ptr %6, align 8
-  %1438 = and i32 %1437, -132120577
-  store i32 %1438, ptr %6, align 8
+  %1438 = load i32, ptr %6, align 8
+  %1439 = and i32 %1438, -132120577
+  store i32 %1439, ptr %6, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %1208, %1124, %1107, %_ZNK7glslang11TConstUnioneoERKS0_.exit, %_ZNK7glslang11TConstUnionorERKS0_.exit, %_ZNK7glslang11TConstUnionanERKS0_.exit, %966, %954, %953, %734, %_ZNK7glslang11TConstUnionmlERKS0_.exit, %_ZNK7glslang11TConstUnionmiERKS0_.exit, %_ZNK7glslang11TConstUnionplERKS0_.exit, %.loopexit.sink.split, %.preheader934, %.preheader932, %.preheader930, %.preheader928, %.preheader926, %.preheader924, %.preheader922, %.preheader920, %.preheader918, %.preheader911, %381, %.preheader905, %.preheader
-  %1439 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #9
-  %1440 = call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %1439, i64 noundef 208) #9
-  %1441 = getelementptr inbounds i8, ptr %1440, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1441, i8 0, i64 20, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 384) (i8, ptr @_ZTVN7glslang12TIntermTypedE, i64 16), ptr %1440, align 8
-  %1442 = getelementptr inbounds i8, ptr %1440, i64 32
-  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %1442, align 8
-  %1443 = getelementptr inbounds i8, ptr %1440, i64 40
-  %1444 = load i32, ptr %1443, align 8
-  %1445 = and i32 %1444, -134217728
-  %1446 = getelementptr inbounds i8, ptr %1440, i64 128
-  %1447 = getelementptr inbounds i8, ptr %1440, i64 168
-  %1448 = getelementptr inbounds i8, ptr %1440, i64 160
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1446, i8 0, i64 32, i1 false)
-  %1449 = getelementptr inbounds i8, ptr %1440, i64 48
-  %1450 = getelementptr inbounds i8, ptr %1440, i64 56
-  %1451 = load i64, ptr %1450, align 8
-  store ptr null, ptr %1449, align 8
-  %1452 = getelementptr inbounds i8, ptr %1440, i64 64
-  %1453 = load i8, ptr %1452, align 8
-  %1454 = and i8 %1453, -16
-  store i8 %1454, ptr %1452, align 8
-  %1455 = getelementptr inbounds i8, ptr %1440, i64 68
-  store i32 -1, ptr %1455, align 4
-  %1456 = getelementptr inbounds i8, ptr %1440, i64 72
-  store i32 -1, ptr %1456, align 8
-  %1457 = getelementptr inbounds i8, ptr %1440, i64 76
-  %1458 = load i64, ptr %1457, align 4
-  %1459 = getelementptr inbounds i8, ptr %1440, i64 84
-  %1460 = load i64, ptr %1459, align 4
-  %1461 = getelementptr inbounds i8, ptr %1440, i64 93
-  %1462 = getelementptr inbounds i8, ptr %1440, i64 100
-  store i32 0, ptr %1461, align 1
-  store i32 -2048, ptr %1462, align 4
-  %1463 = getelementptr inbounds i8, ptr %1440, i64 104
-  %1464 = getelementptr inbounds i8, ptr %1440, i64 120
-  store i8 0, ptr %1464, align 8
-  %1465 = getelementptr inbounds i8, ptr %1440, i64 121
-  store i8 0, ptr %1465, align 1
-  store i32 0, ptr %1463, align 8
-  %1466 = getelementptr inbounds i8, ptr %1440, i64 92
-  store i8 0, ptr %1466, align 4
-  %1467 = and i64 %1458, 4290772992
-  %1468 = or disjoint i64 %1467, -4292882433
-  store i64 %1468, ptr %1457, align 4
-  %1469 = or i64 %1460, 144115185928372223
-  store i64 %1469, ptr %1459, align 4
-  %1470 = getelementptr inbounds i8, ptr %1440, i64 108
-  store i32 -1, ptr %1470, align 4
-  %1471 = getelementptr inbounds i8, ptr %1440, i64 112
-  store ptr null, ptr %1471, align 8
-  %1472 = and i64 %1451, -9223372019674906624
-  store i64 %1472, ptr %1450, align 8
-  %1473 = load i32, ptr %6, align 8
-  %1474 = and i32 %1473, 255
-  %1475 = or disjoint i32 %1474, %1445
-  %1476 = or disjoint i32 %1475, 256
-  store i32 %1476, ptr %1443, align 8
-  %1477 = load i32, ptr %9, align 8
-  store i32 %1477, ptr %1448, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1449, ptr noundef nonnull align 8 dereferenceable(80) %10, i64 80, i1 false)
-  %1478 = and i32 %1473, 2096896
-  %1479 = or disjoint i32 %1445, %1478
-  %1480 = or disjoint i32 %1479, %1474
-  store i32 %1480, ptr %1443, align 8
-  %1481 = load ptr, ptr %7, align 8
-  store ptr %1481, ptr %1446, align 8
-  %1482 = load ptr, ptr %51, align 8
-  %1483 = getelementptr inbounds i8, ptr %1440, i64 144
-  store ptr %1482, ptr %1483, align 8
-  %1484 = load ptr, ptr %54, align 8
-  %1485 = getelementptr inbounds i8, ptr %1440, i64 152
-  store ptr %1484, ptr %1485, align 8
+  %1440 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #9
+  %1441 = call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %1440, i64 noundef 208) #9
+  %1442 = getelementptr inbounds i8, ptr %1441, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1442, i8 0, i64 20, i1 false)
+  store ptr getelementptr inbounds inrange(-16, 384) (i8, ptr @_ZTVN7glslang12TIntermTypedE, i64 16), ptr %1441, align 8
+  %1443 = getelementptr inbounds i8, ptr %1441, i64 32
+  store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %1443, align 8
+  %1444 = getelementptr inbounds i8, ptr %1441, i64 40
+  %1445 = load i32, ptr %1444, align 8
+  %1446 = and i32 %1445, -134217728
+  %1447 = getelementptr inbounds i8, ptr %1441, i64 128
+  %1448 = getelementptr inbounds i8, ptr %1441, i64 168
+  %1449 = getelementptr inbounds i8, ptr %1441, i64 160
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1447, i8 0, i64 32, i1 false)
+  %1450 = getelementptr inbounds i8, ptr %1441, i64 48
+  %1451 = getelementptr inbounds i8, ptr %1441, i64 56
+  %1452 = load i64, ptr %1451, align 8
+  store ptr null, ptr %1450, align 8
+  %1453 = getelementptr inbounds i8, ptr %1441, i64 64
+  %1454 = load i8, ptr %1453, align 8
+  %1455 = and i8 %1454, -16
+  store i8 %1455, ptr %1453, align 8
+  %1456 = getelementptr inbounds i8, ptr %1441, i64 68
+  store i32 -1, ptr %1456, align 4
+  %1457 = getelementptr inbounds i8, ptr %1441, i64 72
+  store i32 -1, ptr %1457, align 8
+  %1458 = getelementptr inbounds i8, ptr %1441, i64 76
+  %1459 = load i64, ptr %1458, align 4
+  %1460 = getelementptr inbounds i8, ptr %1441, i64 84
+  %1461 = load i64, ptr %1460, align 4
+  %1462 = getelementptr inbounds i8, ptr %1441, i64 93
+  %1463 = getelementptr inbounds i8, ptr %1441, i64 100
+  store i32 0, ptr %1462, align 1
+  store i32 -2048, ptr %1463, align 4
+  %1464 = getelementptr inbounds i8, ptr %1441, i64 104
+  %1465 = getelementptr inbounds i8, ptr %1441, i64 120
+  store i8 0, ptr %1465, align 8
+  %1466 = getelementptr inbounds i8, ptr %1441, i64 121
+  store i8 0, ptr %1466, align 1
+  store i32 0, ptr %1464, align 8
+  %1467 = getelementptr inbounds i8, ptr %1441, i64 92
+  store i8 0, ptr %1467, align 4
+  %1468 = and i64 %1459, 4290772992
+  %1469 = or disjoint i64 %1468, -4292882433
+  store i64 %1469, ptr %1458, align 4
+  %1470 = or i64 %1461, 144115185928372223
+  store i64 %1470, ptr %1460, align 4
+  %1471 = getelementptr inbounds i8, ptr %1441, i64 108
+  store i32 -1, ptr %1471, align 4
+  %1472 = getelementptr inbounds i8, ptr %1441, i64 112
+  store ptr null, ptr %1472, align 8
+  %1473 = and i64 %1452, -9223372019674906624
+  store i64 %1473, ptr %1451, align 8
+  %1474 = load i32, ptr %6, align 8
+  %1475 = and i32 %1474, 255
+  %1476 = or disjoint i32 %1475, %1446
+  %1477 = or disjoint i32 %1476, 256
+  store i32 %1477, ptr %1444, align 8
+  %1478 = load i32, ptr %9, align 8
+  store i32 %1478, ptr %1449, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1450, ptr noundef nonnull align 8 dereferenceable(80) %10, i64 80, i1 false)
+  %1479 = and i32 %1474, 2096896
+  %1480 = or disjoint i32 %1446, %1479
+  %1481 = or disjoint i32 %1480, %1475
+  store i32 %1481, ptr %1444, align 8
+  %1482 = load ptr, ptr %7, align 8
+  store ptr %1482, ptr %1447, align 8
+  %1483 = load ptr, ptr %51, align 8
+  %1484 = getelementptr inbounds i8, ptr %1441, i64 144
+  store ptr %1483, ptr %1484, align 8
+  %1485 = load ptr, ptr %54, align 8
+  %1486 = getelementptr inbounds i8, ptr %1441, i64 152
+  store ptr %1485, ptr %1486, align 8
   %.sink.i.i = load ptr, ptr %55, align 8
-  %1486 = getelementptr inbounds i8, ptr %1440, i64 136
-  store ptr %.sink.i.i, ptr %1486, align 8
-  %1487 = load ptr, ptr %8, align 8
-  store ptr %1487, ptr %1447, align 8
-  %1488 = load ptr, ptr %60, align 8
-  %1489 = getelementptr inbounds i8, ptr %1440, i64 176
-  store ptr %1488, ptr %1489, align 8
-  %1490 = and i32 %1473, 132120576
-  %1491 = or disjoint i32 %1480, %1490
-  store i32 %1491, ptr %1443, align 8
-  store ptr getelementptr inbounds inrange(-16, 400) (i8, ptr @_ZTVN7glslang20TIntermConstantUnionE, i64 16), ptr %1440, align 8
-  %1492 = getelementptr inbounds i8, ptr %1440, i64 184
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7glslang16TConstUnionArrayE, i64 16), ptr %1492, align 8
-  %1493 = getelementptr inbounds i8, ptr %1440, i64 192
-  store ptr %.sink.i279, ptr %1493, align 8
-  %1494 = getelementptr inbounds i8, ptr %1440, i64 200
-  store i8 0, ptr %1494, align 8
-  %1495 = load ptr, ptr %0, align 8
-  %1496 = load ptr, ptr %1495, align 8
-  %1497 = call noundef nonnull align 8 dereferenceable(24) ptr %1496(ptr noundef nonnull align 8 dereferenceable(32) %0) #9
-  %1498 = load ptr, ptr %1440, align 8
-  %1499 = getelementptr inbounds i8, ptr %1498, i64 8
-  %1500 = load ptr, ptr %1499, align 8
-  call void %1500(ptr noundef nonnull align 8 dereferenceable(32) %1440, ptr noundef nonnull align 8 dereferenceable(24) %1497) #9
+  %1487 = getelementptr inbounds i8, ptr %1441, i64 136
+  store ptr %.sink.i.i, ptr %1487, align 8
+  %1488 = load ptr, ptr %8, align 8
+  store ptr %1488, ptr %1448, align 8
+  %1489 = load ptr, ptr %60, align 8
+  %1490 = getelementptr inbounds i8, ptr %1441, i64 176
+  store ptr %1489, ptr %1490, align 8
+  %1491 = and i32 %1474, 132120576
+  %1492 = or disjoint i32 %1481, %1491
+  store i32 %1492, ptr %1444, align 8
+  store ptr getelementptr inbounds inrange(-16, 400) (i8, ptr @_ZTVN7glslang20TIntermConstantUnionE, i64 16), ptr %1441, align 8
+  %1493 = getelementptr inbounds i8, ptr %1441, i64 184
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7glslang16TConstUnionArrayE, i64 16), ptr %1493, align 8
+  %1494 = getelementptr inbounds i8, ptr %1441, i64 192
+  store ptr %.sink.i279, ptr %1494, align 8
+  %1495 = getelementptr inbounds i8, ptr %1441, i64 200
+  store i8 0, ptr %1495, align 8
+  %1496 = load ptr, ptr %0, align 8
+  %1497 = load ptr, ptr %1496, align 8
+  %1498 = call noundef nonnull align 8 dereferenceable(24) ptr %1497(ptr noundef nonnull align 8 dereferenceable(32) %0) #9
+  %1499 = load ptr, ptr %1441, align 8
+  %1500 = getelementptr inbounds i8, ptr %1499, i64 8
+  %1501 = load ptr, ptr %1500, align 8
+  call void %1501(ptr noundef nonnull align 8 dereferenceable(32) %1441, ptr noundef nonnull align 8 dereferenceable(24) %1498) #9
   br label %.loopexit913
 
 .loopexit913:                                     ; preds = %520, %_ZN7glslang16TConstUnionArrayC2Ei.exit, %.loopexit
-  %.0 = phi ptr [ %1440, %.loopexit ], [ null, %_ZN7glslang16TConstUnionArrayC2Ei.exit ], [ null, %520 ]
+  %.0 = phi ptr [ %1441, %.loopexit ], [ null, %_ZN7glslang16TConstUnionArrayC2Ei.exit ], [ null, %520 ]
   ret ptr %.0
 }
 

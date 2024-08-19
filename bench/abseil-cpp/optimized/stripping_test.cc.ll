@@ -1278,20 +1278,13 @@ invoke.cont93:                                    ; preds = %_ZN7testing15Assert
   %60 = load i64, ptr %buffer_3.i.i.i79, align 8, !noalias !8
   %61 = inttoptr i64 %60 to ptr
   %cmp.not.i.i.i.i80 = icmp eq ptr %59, null
-  br i1 %cmp.not.i.i.i.i80, label %invoke.cont.i92, label %_ZNK7testing8internal11MatcherBaseIP8_IO_FILEE8IsSharedEv.exit.i.i.i81
+  br i1 %cmp.not.i.i.i.i80, label %invoke.cont97.sink.split.sink.split, label %_ZNK7testing8internal11MatcherBaseIP8_IO_FILEE8IsSharedEv.exit.i.i.i81
 
 _ZNK7testing8internal11MatcherBaseIP8_IO_FILEE8IsSharedEv.exit.i.i.i81: ; preds = %invoke.cont93
   %shared_destroy.i.i.i.i82 = getelementptr inbounds i8, ptr %59, i64 24
   %62 = load ptr, ptr %shared_destroy.i.i.i.i82, align 8, !noalias !8
   %cmp3.i.not.i.i.i83 = icmp eq ptr %62, null
-  br i1 %cmp3.i.not.i.i.i83, label %_ZNK7testing8internal11MatcherBaseIP8_IO_FILEE8IsSharedEv.exit.i.i.i.i85.thread, label %_ZNK7testing8internal11MatcherBaseIP8_IO_FILEE8IsSharedEv.exit.i.i.i.i85
-
-_ZNK7testing8internal11MatcherBaseIP8_IO_FILEE8IsSharedEv.exit.i.i.i.i85.thread: ; preds = %_ZNK7testing8internal11MatcherBaseIP8_IO_FILEE8IsSharedEv.exit.i.i.i81
-  %vtable_.i.i.i11.i144 = getelementptr inbounds i8, ptr %agg.tmp89, i64 8
-  store ptr %59, ptr %vtable_.i.i.i11.i144, align 8, !alias.scope !8
-  %buffer_.i.i.i12.i145 = getelementptr inbounds i8, ptr %agg.tmp89, i64 16
-  store i64 %60, ptr %buffer_.i.i.i12.i145, align 8, !alias.scope !8
-  br label %_ZNK7testing8internal11MatcherBaseIP8_IO_FILEE8IsSharedEv.exit.i.i.i2.i.thread
+  br i1 %cmp3.i.not.i.i.i83, label %invoke.cont97.sink.split.sink.split, label %_ZNK7testing8internal11MatcherBaseIP8_IO_FILEE8IsSharedEv.exit.i.i.i.i85
 
 _ZNK7testing8internal11MatcherBaseIP8_IO_FILEE8IsSharedEv.exit.i.i.i.i85: ; preds = %_ZNK7testing8internal11MatcherBaseIP8_IO_FILEE8IsSharedEv.exit.i.i.i81
   %63 = atomicrmw add ptr %61, i32 1 monotonic, align 4, !noalias !8
@@ -1301,19 +1294,7 @@ _ZNK7testing8internal11MatcherBaseIP8_IO_FILEE8IsSharedEv.exit.i.i.i.i85: ; pred
   %buffer_.i.i.i12.i = getelementptr inbounds i8, ptr %agg.tmp89, i64 16
   store i64 %60, ptr %buffer_.i.i.i12.i, align 8, !alias.scope !8
   %cmp3.i.not.i.i.i.i87 = icmp eq ptr %.pr, null
-  br i1 %cmp3.i.not.i.i.i.i87, label %_ZNK7testing8internal11MatcherBaseIP8_IO_FILEE8IsSharedEv.exit.i.i.i2.i.thread, label %_ZNK7testing8internal11MatcherBaseIP8_IO_FILEE8IsSharedEv.exit.i.i.i2.i
-
-invoke.cont.i92:                                  ; preds = %invoke.cont93
-  %vtable_.i.i.i.i93 = getelementptr inbounds i8, ptr %agg.tmp89, i64 8
-  store ptr null, ptr %vtable_.i.i.i.i93, align 8, !alias.scope !8
-  %buffer_.i.i.i.i94 = getelementptr inbounds i8, ptr %agg.tmp89, i64 16
-  store i64 %60, ptr %buffer_.i.i.i.i94, align 8, !alias.scope !8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIP8_IO_FILEEE, i64 16), ptr %agg.tmp89, align 8, !alias.scope !8
-  br label %invoke.cont97
-
-_ZNK7testing8internal11MatcherBaseIP8_IO_FILEE8IsSharedEv.exit.i.i.i2.i.thread: ; preds = %_ZNK7testing8internal11MatcherBaseIP8_IO_FILEE8IsSharedEv.exit.i.i.i.i85.thread, %_ZNK7testing8internal11MatcherBaseIP8_IO_FILEE8IsSharedEv.exit.i.i.i.i85
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIP8_IO_FILEEE, i64 16), ptr %agg.tmp89, align 8, !alias.scope !8
-  br label %invoke.cont97
+  br i1 %cmp3.i.not.i.i.i.i87, label %invoke.cont97.sink.split, label %_ZNK7testing8internal11MatcherBaseIP8_IO_FILEE8IsSharedEv.exit.i.i.i2.i
 
 _ZNK7testing8internal11MatcherBaseIP8_IO_FILEE8IsSharedEv.exit.i.i.i2.i: ; preds = %_ZNK7testing8internal11MatcherBaseIP8_IO_FILEE8IsSharedEv.exit.i.i.i.i85
   %64 = atomicrmw add ptr %61, i32 1 monotonic, align 4, !noalias !8
@@ -1339,7 +1320,19 @@ terminate.lpad.i.i.i91:                           ; preds = %if.then.i.i.i6.i
   call void @__clang_call_terminate(ptr %68) #33
   unreachable
 
-invoke.cont97:                                    ; preds = %_ZNK7testing8internal11MatcherBaseIP8_IO_FILEE8IsSharedEv.exit.i.i.i2.i.thread, %invoke.cont.i92, %_ZNK7testing8internal11MatcherBaseIP8_IO_FILEE8IsSharedEv.exit.i.i.i2.i, %land.lhs.true.i.i.i.i89, %if.then.i.i.i6.i
+invoke.cont97.sink.split.sink.split:              ; preds = %invoke.cont93, %_ZNK7testing8internal11MatcherBaseIP8_IO_FILEE8IsSharedEv.exit.i.i.i81
+  %.sink = phi ptr [ %59, %_ZNK7testing8internal11MatcherBaseIP8_IO_FILEE8IsSharedEv.exit.i.i.i81 ], [ null, %invoke.cont93 ]
+  %vtable_.i.i.i11.i144 = getelementptr inbounds i8, ptr %agg.tmp89, i64 8
+  store ptr %.sink, ptr %vtable_.i.i.i11.i144, align 8, !alias.scope !8
+  %buffer_.i.i.i12.i145 = getelementptr inbounds i8, ptr %agg.tmp89, i64 16
+  store i64 %60, ptr %buffer_.i.i.i12.i145, align 8, !alias.scope !8
+  br label %invoke.cont97.sink.split
+
+invoke.cont97.sink.split:                         ; preds = %invoke.cont97.sink.split.sink.split, %_ZNK7testing8internal11MatcherBaseIP8_IO_FILEE8IsSharedEv.exit.i.i.i.i85
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIP8_IO_FILEEE, i64 16), ptr %agg.tmp89, align 8, !alias.scope !8
+  br label %invoke.cont97
+
+invoke.cont97:                                    ; preds = %invoke.cont97.sink.split, %_ZNK7testing8internal11MatcherBaseIP8_IO_FILEE8IsSharedEv.exit.i.i.i2.i, %land.lhs.true.i.i.i.i89, %if.then.i.i.i6.i
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
   %vtable_2.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp89, i64 8
   %69 = load ptr, ptr %vtable_2.i.i.i.i, align 8, !noalias !11
@@ -1553,10 +1546,10 @@ if.end121:                                        ; preds = %_ZN7testing7Matcher
   br i1 %cmp.not.i.i140, label %cleanup123, label %cleanup123.sink.split
 
 cleanup123.sink.split:                            ; preds = %if.end121, %_ZN7testing7MessageD2Ev.exit38
-  %.sink148 = phi ptr [ %19, %_ZN7testing7MessageD2Ev.exit38 ], [ %109, %if.end121 ]
+  %.sink149 = phi ptr [ %19, %_ZN7testing7MessageD2Ev.exit38 ], [ %109, %if.end121 ]
   %message_.i.i28.sink.ph = phi ptr [ %message_.i.i28, %_ZN7testing7MessageD2Ev.exit38 ], [ %message_.i139, %if.end121 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink148) #29
-  call void @_ZdlPv(ptr noundef nonnull %.sink148) #30
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink149) #29
+  call void @_ZdlPv(ptr noundef nonnull %.sink149) #30
   br label %cleanup123
 
 cleanup123:                                       ; preds = %cleanup123.sink.split, %if.end121, %_ZN7testing7MessageD2Ev.exit38

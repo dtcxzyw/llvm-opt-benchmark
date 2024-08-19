@@ -7978,21 +7978,12 @@ _ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEE5reset
   %call1.i = tail call ptr @PEM_read_bio_X509_AUX(ptr noundef %4, ptr noundef null, ptr noundef nonnull @_ZN4node6crypto18NoPasswordCallbackEPciiPv, ptr noundef null) #20
   store ptr %call1.i, ptr %x.i, align 8
   %cmp.i.not.i = icmp eq ptr %call1.i, null
-  br i1 %cmp.i.not.i, label %_ZN4node6crypto12_GLOBAL__N_129SSL_CTX_use_certificate_chainEP10ssl_ctx_stOSt10unique_ptrI6bio_stNS_15FunctionDeleterIS5_XadL_Z12BIO_free_allEEEEEPS4_I7x509_stNS6_ISA_XadL_Z9X509_freeEEEEESD_.exit.thread, label %if.end.i
-
-_ZN4node6crypto12_GLOBAL__N_129SSL_CTX_use_certificate_chainEP10ssl_ctx_stOSt10unique_ptrI6bio_stNS_15FunctionDeleterIS5_XadL_Z12BIO_free_allEEEEEPS4_I7x509_stNS6_ISA_XadL_Z9X509_freeEEEEESD_.exit.thread: ; preds = %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEE5resetEPS0_.exit4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %x.i)
-  br label %if.then7
+  br i1 %cmp.i.not.i, label %if.then7.sink.split, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEE5resetEPS0_.exit4
   %call3.i = tail call ptr @OPENSSL_sk_new_null() #20
   %cmp.i3.not.i = icmp eq ptr %call3.i, null
-  br i1 %cmp.i3.not.i, label %_ZN4node6crypto12_GLOBAL__N_129SSL_CTX_use_certificate_chainEP10ssl_ctx_stOSt10unique_ptrI6bio_stNS_15FunctionDeleterIS5_XadL_Z12BIO_free_allEEEEEPS4_I7x509_stNS6_ISA_XadL_Z9X509_freeEEEEESD_.exit.thread11, label %while.cond.i
-
-_ZN4node6crypto12_GLOBAL__N_129SSL_CTX_use_certificate_chainEP10ssl_ctx_stOSt10unique_ptrI6bio_stNS_15FunctionDeleterIS5_XadL_Z12BIO_free_allEEEEEPS4_I7x509_stNS6_ISA_XadL_Z9X509_freeEEEEESD_.exit.thread11: ; preds = %if.end.i
-  tail call void @X509_free(ptr noundef nonnull %call1.i) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %x.i)
-  br label %if.then7
+  br i1 %cmp.i3.not.i, label %if.then7.sink.split.sink.split, label %while.cond.i
 
 while.cond.i:                                     ; preds = %if.end.i, %while.body.i
   %5 = load ptr, ptr %bio, align 8
@@ -8026,11 +8017,17 @@ if.then22.i:                                      ; preds = %while.end.i
 
 if.then7.critedge:                                ; preds = %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit.thread.i, %while.end.i
   tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %call3.i, ptr noundef nonnull @X509_free) #20
+  br label %if.then7.sink.split.sink.split
+
+if.then7.sink.split.sink.split:                   ; preds = %if.end.i, %if.then7.critedge
   tail call void @X509_free(ptr noundef nonnull %call1.i) #20
+  br label %if.then7.sink.split
+
+if.then7.sink.split:                              ; preds = %if.then7.sink.split.sink.split, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEE5resetEPS0_.exit4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %x.i)
   br label %if.then7
 
-if.then7:                                         ; preds = %if.then7.critedge, %_ZN4node6crypto12_GLOBAL__N_129SSL_CTX_use_certificate_chainEP10ssl_ctx_stOSt10unique_ptrI6bio_stNS_15FunctionDeleterIS5_XadL_Z12BIO_free_allEEEEEPS4_I7x509_stNS6_ISA_XadL_Z9X509_freeEEEEESD_.exit.thread11, %_ZN4node6crypto12_GLOBAL__N_129SSL_CTX_use_certificate_chainEP10ssl_ctx_stOSt10unique_ptrI6bio_stNS_15FunctionDeleterIS5_XadL_Z12BIO_free_allEEEEEPS4_I7x509_stNS6_ISA_XadL_Z9X509_freeEEEEESD_.exit.thread, %if.then22.i
+if.then7:                                         ; preds = %if.then7.sink.split, %if.then22.i
   %call8 = tail call i64 @ERR_get_error() #20
   tail call void @_ZN4node6crypto16ThrowCryptoErrorEPNS_11EnvironmentEmPKc(ptr noundef %env, i64 noundef %call8, ptr noundef nonnull @.str.88) #20
   br label %cleanup

@@ -10347,7 +10347,7 @@ for.cond.us.i:                                    ; preds = %do.end.i, %if.end12
   %call4.us.i = call i64 @nghttp2_hd_inflate_hd_nv(ptr noundef nonnull %hd_inflater.i, ptr noundef nonnull %nv.i, ptr noundef nonnull %inflate_flags.i, ptr noundef %in.addr.0.us.i, i64 noundef %inlen.addr.0.us.i, i32 noundef %land.ext) #17
   %conv5.us.i = trunc i64 %call4.us.i to i32
   %cmp.i73.us.i = icmp sgt i32 %conv5.us.i, -901
-  br i1 %cmp.i73.us.i, label %if.end9.us.i, label %inflate_header_block.exit.thread
+  br i1 %cmp.i73.us.i, label %if.end9.us.i, label %if.then850.sink.split
 
 if.end9.us.i:                                     ; preds = %for.cond.us.i
   %cmp10.us.i = icmp slt i64 %call4.us.i, 0
@@ -10367,7 +10367,7 @@ if.end124.us.i:                                   ; preds = %if.end34.us.i
   %cmp126.us.i = icmp eq i32 %and125.us.i, 0
   %cmp129.us.i = icmp eq i64 %sub.us.i, 0
   %or.cond.us.i = and i1 %cmp129.us.i, %cmp126.us.i
-  br i1 %or.cond.us.i, label %inflate_header_block.exit.thread1259, label %for.cond.us.i
+  br i1 %or.cond.us.i, label %if.end852.sink.split, label %for.cond.us.i
 
 do.end.split.i:                                   ; preds = %do.end.i
   %tobool41.not.i = icmp eq ptr %subject_stream.0.fr.i, null
@@ -10381,7 +10381,7 @@ for.cond.us133.i:                                 ; preds = %do.end.split.i, %if
   %call4.us136.i = call i64 @nghttp2_hd_inflate_hd_nv(ptr noundef nonnull %hd_inflater.i, ptr noundef nonnull %nv.i, ptr noundef nonnull %inflate_flags.i, ptr noundef %in.addr.0.us135.i, i64 noundef %inlen.addr.0.us134.i, i32 noundef %land.ext) #17
   %conv5.us137.i = trunc i64 %call4.us136.i to i32
   %cmp.i73.us138.i = icmp sgt i32 %conv5.us137.i, -901
-  br i1 %cmp.i73.us138.i, label %if.end9.us139.i, label %inflate_header_block.exit.thread
+  br i1 %cmp.i73.us138.i, label %if.end9.us139.i, label %if.then850.sink.split
 
 if.end9.us139.i:                                  ; preds = %for.cond.us133.i
   %cmp10.us140.i = icmp slt i64 %call4.us136.i, 0
@@ -10401,7 +10401,7 @@ if.end124.us148.i:                                ; preds = %if.end34.us141.i
   %cmp126.us150.i = icmp eq i32 %and125.us149.i, 0
   %cmp129.us151.i = icmp eq i64 %sub.us143.i, 0
   %or.cond.us152.i = and i1 %cmp129.us151.i, %cmp126.us150.i
-  br i1 %or.cond.us152.i, label %inflate_header_block.exit.thread1259, label %for.cond.us133.i
+  br i1 %or.cond.us152.i, label %if.end852.sink.split, label %for.cond.us133.i
 
 for.cond.i:                                       ; preds = %do.end.split.i, %if.end124.i
   %hd_proclen.0 = phi i64 [ %add.i924, %if.end124.i ], [ 0, %do.end.split.i ]
@@ -10411,7 +10411,7 @@ for.cond.i:                                       ; preds = %do.end.split.i, %if
   %call4.i = call i64 @nghttp2_hd_inflate_hd_nv(ptr noundef nonnull %hd_inflater.i, ptr noundef nonnull %nv.i, ptr noundef nonnull %inflate_flags.i, ptr noundef %in.addr.0.i, i64 noundef %inlen.addr.0.i, i32 noundef %land.ext) #17
   %conv5.i = trunc i64 %call4.i to i32
   %cmp.i73.i = icmp sgt i32 %conv5.i, -901
-  br i1 %cmp.i73.i, label %if.end9.i, label %inflate_header_block.exit.thread1327
+  br i1 %cmp.i73.i, label %if.end9.i, label %if.then850.sink.split
 
 if.end9.i:                                        ; preds = %for.cond.i
   %cmp10.i = icmp slt i64 %call4.i, 0
@@ -10436,13 +10436,13 @@ if.then20.i:                                      ; preds = %land.lhs.true.i934
   %157 = load i32, ptr %stream_id21.i, align 8
   %call22.i = call i32 @nghttp2_session_add_rst_stream(ptr noundef nonnull %session, i32 noundef %157, i32 noundef 9)
   %cmp.i74.i = icmp sgt i32 %call22.i, -901
-  br i1 %cmp.i74.i, label %if.end28.i, label %inflate_header_block.exit.thread
+  br i1 %cmp.i74.i, label %if.end28.i, label %if.then850.sink.split
 
 if.end28.i:                                       ; preds = %if.then20.i, %land.lhs.true.i934, %if.then12.i
   %158 = load i8, ptr %goaway_flags.i, align 1
   %159 = and i8 %158, 1
   %tobool.not.i.i.i927 = icmp eq i8 %159, 0
-  br i1 %tobool.not.i.i.i927, label %if.end.i.i.i928, label %inflate_header_block.exit.thread1259
+  br i1 %tobool.not.i.i.i927, label %if.end.i.i.i928, label %if.end852.sink.split
 
 if.end.i.i.i928:                                  ; preds = %if.end28.i
   %160 = load i32, ptr %last_proc_stream_id.i.i929, align 4
@@ -10456,11 +10456,11 @@ if.end8.i.i.i933:                                 ; preds = %if.end.i.i.i928
   %161 = load i8, ptr %goaway_flags.i, align 1
   %162 = or i8 %161, 1
   store i8 %162, ptr %goaway_flags.i, align 1
-  br label %inflate_header_block.exit.thread1259
+  br label %if.end852.sink.split
 
 nghttp2_session_terminate_session.exit.i:         ; preds = %if.end.i.i.i928
   %cmp.i76.i = icmp sgt i32 %call4.i.i.fr.i931, -901
-  br i1 %cmp.i76.i, label %inflate_header_block.exit.thread1259, label %inflate_header_block.exit.thread
+  br i1 %cmp.i76.i, label %if.end852.sink.split, label %if.then850.sink.split
 
 if.end34.i:                                       ; preds = %if.end9.i
   %add.ptr.i922 = getelementptr inbounds i8, ptr %in.addr.0.i, i64 %call4.i
@@ -10521,10 +10521,10 @@ if.then5.i.i:                                     ; preds = %if.else.i.i
 
 if.end18.i.i:                                     ; preds = %if.then5.i.i, %if.then.i.i
   %rv.0.i.i = phi i32 [ %call.i83.i, %if.then.i.i ], [ %call16.i.i, %if.then5.i.i ]
-  switch i32 %rv.0.i.i, label %inflate_header_block.exit.thread1327 [
+  switch i32 %rv.0.i.i, label %if.then850.sink.split [
     i32 0, label %do.end60.i
     i32 -521, label %do.end81.i
-    i32 -526, label %inflate_header_block.exit.thread1259
+    i32 -526, label %if.end852.sink.split
   ]
 
 do.end60.i:                                       ; preds = %if.end18.i.i
@@ -10545,7 +10545,7 @@ do.end60.i:                                       ; preds = %if.end18.i.i
   %186 = load ptr, ptr %base69.i, align 8
   %call70.i = call i32 (ptr, i32, ptr, ...) @session_call_error_callback(ptr noundef nonnull %session, i32 noundef -531, ptr noundef nonnull @.str.101, i32 noundef %conv62.i, i32 noundef %180, i32 noundef %conv64.i, ptr noundef %183, i32 noundef %conv67.i, ptr noundef %186)
   %cmp.i85.i = icmp sgt i32 %call70.i, -901
-  br i1 %cmp.i85.i, label %if.end118.i, label %inflate_header_block.exit.thread1327
+  br i1 %cmp.i85.i, label %if.end118.i, label %if.then850.sink.split
 
 do.end81.i:                                       ; preds = %if.end18.i.i, %if.else.i.i, %if.then45.i
   %187 = load i8, ptr %type961, align 4
@@ -10565,7 +10565,7 @@ do.end81.i:                                       ; preds = %if.end18.i.i, %if.e
   %194 = load ptr, ptr %base94.i, align 8
   %call95.i = call i32 (ptr, i32, ptr, ...) @session_call_error_callback(ptr noundef nonnull %session, i32 noundef -531, ptr noundef nonnull @.str.102, i32 noundef %conv83.i, i32 noundef %188, i32 noundef %conv87.i, ptr noundef %191, i32 noundef %conv92.i, ptr noundef %194)
   %cmp.i87.i = icmp sgt i32 %call95.i, -901
-  br i1 %cmp.i87.i, label %inflate_header_block.exit, label %inflate_header_block.exit.thread
+  br i1 %cmp.i87.i, label %inflate_header_block.exit, label %if.then850.sink.split
 
 if.then110.i:                                     ; preds = %if.then45.i, %if.then42.i
   %195 = load ptr, ptr %on_header_callback2.i.i, align 8
@@ -10603,9 +10603,9 @@ if.then5.i101.i:                                  ; preds = %if.else.i99.i
 
 if.end17.i.i:                                     ; preds = %if.then5.i101.i, %if.then.i92.i
   %rv.0.i97.i = phi i32 [ %call.i96.i, %if.then.i92.i ], [ %call16.i109.i, %if.then5.i101.i ]
-  switch i32 %rv.0.i97.i, label %inflate_header_block.exit.thread [
-    i32 -521, label %inflate_header_block.exit.thread1335
-    i32 -526, label %inflate_header_block.exit.thread1335
+  switch i32 %rv.0.i97.i, label %if.then850.sink.split [
+    i32 -521, label %if.end852.sink.split
+    i32 -526, label %if.end852.sink.split
     i32 0, label %if.end118.i
   ]
 
@@ -10618,39 +10618,14 @@ if.end118.i:                                      ; preds = %if.end17.i.i, %if.e
 if.then121.i:                                     ; preds = %if.end34.us.i, %if.end118.i, %if.end34.us141.i
   %hd_proclen.2 = phi i64 [ %add.us144.i, %if.end34.us141.i ], [ %add.i924, %if.end118.i ], [ %add.us.i, %if.end34.us.i ]
   %call123.i = call i32 @nghttp2_hd_inflate_end_headers(ptr noundef nonnull %hd_inflater.i) #17
-  br label %inflate_header_block.exit.thread1259
+  br label %if.end852.sink.split
 
 if.end124.i:                                      ; preds = %if.end118.i
   %and125.i = and i32 %209, 2
   %cmp126.i = icmp eq i32 %and125.i, 0
   %cmp129.i = icmp eq i64 %sub.i923, 0
   %or.cond.i = and i1 %cmp129.i, %cmp126.i
-  br i1 %or.cond.i, label %inflate_header_block.exit.thread1335, label %for.cond.i
-
-inflate_header_block.exit.thread:                 ; preds = %if.then20.i, %do.end81.i, %nghttp2_session_terminate_session.exit.i, %for.cond.us.i, %if.end17.i.i, %for.cond.us133.i
-  %retval.0.i921.ph = phi i32 [ %conv5.us137.i, %for.cond.us133.i ], [ -902, %if.end17.i.i ], [ %conv5.us.i, %for.cond.us.i ], [ %call22.i, %if.then20.i ], [ %call95.i, %do.end81.i ], [ %call4.i.i.fr.i931, %nghttp2_session_terminate_session.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %inflate_flags.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %nv.i)
-  br label %if.then850
-
-inflate_header_block.exit.thread1259:             ; preds = %if.end124.us.i, %if.end18.i.i, %if.end124.us148.i, %if.then121.i, %nghttp2_session_terminate_session.exit.i, %if.end8.i.i.i933, %if.end28.i
-  %hd_proclen.6.ph = phi i64 [ %hd_proclen.2, %if.then121.i ], [ %hd_proclen.3, %nghttp2_session_terminate_session.exit.i ], [ %hd_proclen.3, %if.end8.i.i.i933 ], [ %hd_proclen.3, %if.end28.i ], [ %add.us144.i, %if.end124.us148.i ], [ %add.i924, %if.end18.i.i ], [ %add.us.i, %if.end124.us.i ]
-  %retval.0.i921.ph1258 = phi i32 [ 0, %if.then121.i ], [ -523, %nghttp2_session_terminate_session.exit.i ], [ -523, %if.end8.i.i.i933 ], [ -523, %if.end28.i ], [ 0, %if.end124.us148.i ], [ %rv.0.i.i, %if.end18.i.i ], [ 0, %if.end124.us.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %inflate_flags.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %nv.i)
-  br label %if.end852
-
-inflate_header_block.exit.thread1327:             ; preds = %if.end18.i.i, %do.end60.i, %for.cond.i
-  %retval.0.i921.ph1326 = phi i32 [ %conv5.i, %for.cond.i ], [ %call70.i, %do.end60.i ], [ -902, %if.end18.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %inflate_flags.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %nv.i)
-  br label %if.then850
-
-inflate_header_block.exit.thread1335:             ; preds = %if.end17.i.i, %if.end17.i.i, %if.end124.i
-  %retval.0.i921.ph1334 = phi i32 [ 0, %if.end124.i ], [ %rv.0.i97.i, %if.end17.i.i ], [ %rv.0.i97.i, %if.end17.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %inflate_flags.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %nv.i)
-  br label %if.end852
+  br i1 %or.cond.i, label %if.end852.sink.split, label %for.cond.i
 
 inflate_header_block.exit:                        ; preds = %do.end81.i
   %stream_id100.i = getelementptr inbounds i8, ptr %subject_stream.0.fr.i, i64 168
@@ -10661,14 +10636,27 @@ inflate_header_block.exit:                        ; preds = %do.end81.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %nv.i)
   br i1 %cmp.i89.i, label %if.end852, label %if.then850
 
-if.then850:                                       ; preds = %inflate_header_block.exit, %inflate_header_block.exit.thread1327, %inflate_header_block.exit.thread
-  %retval.0.i9211256 = phi i32 [ %retval.0.i921.ph, %inflate_header_block.exit.thread ], [ %retval.0.i921.ph1326, %inflate_header_block.exit.thread1327 ], [ %call101.i, %inflate_header_block.exit ]
+if.then850.sink.split:                            ; preds = %nghttp2_session_terminate_session.exit.i, %do.end81.i, %if.then20.i, %for.cond.us.i, %for.cond.i, %do.end60.i, %if.end18.i.i, %if.end17.i.i, %for.cond.us133.i
+  %retval.0.i9211256.ph = phi i32 [ %conv5.us137.i, %for.cond.us133.i ], [ -902, %if.end17.i.i ], [ %conv5.i, %for.cond.i ], [ %call70.i, %do.end60.i ], [ -902, %if.end18.i.i ], [ %conv5.us.i, %for.cond.us.i ], [ %call22.i, %if.then20.i ], [ %call95.i, %do.end81.i ], [ %call4.i.i.fr.i931, %nghttp2_session_terminate_session.exit.i ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %inflate_flags.i)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %nv.i)
+  br label %if.then850
+
+if.then850:                                       ; preds = %inflate_header_block.exit, %if.then850.sink.split
+  %retval.0.i9211256 = phi i32 [ %retval.0.i9211256.ph, %if.then850.sink.split ], [ %call101.i, %inflate_header_block.exit ]
   %conv851 = sext i32 %retval.0.i9211256 to i64
   br label %return
 
-if.end852:                                        ; preds = %inflate_header_block.exit.thread1335, %inflate_header_block.exit.thread1259, %inflate_header_block.exit
-  %retval.0.i9211266 = phi i32 [ %retval.0.i921.ph1258, %inflate_header_block.exit.thread1259 ], [ -521, %inflate_header_block.exit ], [ %retval.0.i921.ph1334, %inflate_header_block.exit.thread1335 ]
-  %hd_proclen.61265 = phi i64 [ %hd_proclen.6.ph, %inflate_header_block.exit.thread1259 ], [ %add.i924, %inflate_header_block.exit ], [ %add.i924, %inflate_header_block.exit.thread1335 ]
+if.end852.sink.split:                             ; preds = %if.end124.us.i, %if.end124.i, %if.end17.i.i, %if.end17.i.i, %if.end18.i.i, %if.end124.us148.i, %if.end28.i, %if.end8.i.i.i933, %nghttp2_session_terminate_session.exit.i, %if.then121.i
+  %retval.0.i9211266.ph = phi i32 [ 0, %if.then121.i ], [ -523, %nghttp2_session_terminate_session.exit.i ], [ -523, %if.end8.i.i.i933 ], [ -523, %if.end28.i ], [ 0, %if.end124.us148.i ], [ %rv.0.i.i, %if.end18.i.i ], [ 0, %if.end124.i ], [ %rv.0.i97.i, %if.end17.i.i ], [ %rv.0.i97.i, %if.end17.i.i ], [ 0, %if.end124.us.i ]
+  %hd_proclen.61265.ph = phi i64 [ %hd_proclen.2, %if.then121.i ], [ %hd_proclen.3, %nghttp2_session_terminate_session.exit.i ], [ %hd_proclen.3, %if.end8.i.i.i933 ], [ %hd_proclen.3, %if.end28.i ], [ %add.us144.i, %if.end124.us148.i ], [ %add.i924, %if.end18.i.i ], [ %add.i924, %if.end17.i.i ], [ %add.i924, %if.end17.i.i ], [ %add.i924, %if.end124.i ], [ %add.us.i, %if.end124.us.i ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %inflate_flags.i)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %nv.i)
+  br label %if.end852
+
+if.end852:                                        ; preds = %if.end852.sink.split, %inflate_header_block.exit
+  %retval.0.i9211266 = phi i32 [ -521, %inflate_header_block.exit ], [ %retval.0.i9211266.ph, %if.end852.sink.split ]
+  %hd_proclen.61265 = phi i64 [ %add.i924, %inflate_header_block.exit ], [ %hd_proclen.61265.ph, %if.end852.sink.split ]
   %211 = load i32, ptr %state, align 8
   %cmp854 = icmp eq i32 %211, 15
   br i1 %cmp854, label %return, label %if.end857

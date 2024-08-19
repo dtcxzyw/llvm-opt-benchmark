@@ -822,11 +822,7 @@ if.end19.i:                                       ; preds = %if.end14.i, %if.end
   %4 = load i64, ptr %data_len.i.i.i, align 8
   %call1.i.i.i = call i32 @ossl_quic_wire_get_pkt_hdr_dst_conn_id(ptr noundef nonnull %arrayidx.i.i.i.i, i64 noundef %4, i64 noundef %demux.val.i.i, ptr noundef nonnull %dst_conn_id.i.i) #12
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
-  br i1 %tobool.not.i.i, label %demux_identify_conn.exit.thread.i, label %if.end.i.i
-
-demux_identify_conn.exit.thread.i:                ; preds = %if.end19.i
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %dst_conn_id.i.i)
-  br label %if.then23.i
+  br i1 %tobool.not.i.i, label %if.then23.sink.split.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end19.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %key.i.i.i)
@@ -836,8 +832,7 @@ if.end.i.i:                                       ; preds = %if.end19.i
 
 demux_identify_conn.exit.thread52.i:              ; preds = %if.end.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %key.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %dst_conn_id.i.i)
-  br label %if.then23.i
+  br label %if.then23.sink.split.i
 
 demux_identify_conn.exit.i:                       ; preds = %if.end.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %dst_conn_id2.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(21) %dst_conn_id.i.i, i64 21, i1 false)
@@ -848,7 +843,11 @@ demux_identify_conn.exit.i:                       ; preds = %if.end.i.i
   %cmp21.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %cmp21.i, label %if.then23.i, label %if.end31.i
 
-if.then23.i:                                      ; preds = %demux_identify_conn.exit.i, %demux_identify_conn.exit.thread52.i, %demux_identify_conn.exit.thread.i
+if.then23.sink.split.i:                           ; preds = %demux_identify_conn.exit.thread52.i, %if.end19.i
+  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %dst_conn_id.i.i)
+  br label %if.then23.i
+
+if.then23.i:                                      ; preds = %if.then23.sink.split.i, %demux_identify_conn.exit.i
   %7 = load ptr, ptr %urx_pending, align 8
   %cmp.i.i = icmp eq ptr %7, %urx_pending.val6
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i25.i

@@ -5054,7 +5054,7 @@ define internal fastcc i32 @intel_hdcp1_enable(ptr noundef %0) unnamed_addr #0 a
 121:                                              ; preds = %111
   %122 = call i32 %119(ptr noundef %112, ptr noundef nonnull %9) #9
   %123 = icmp eq i32 %122, 0
-  br i1 %123, label %124, label %.thread82
+  br i1 %123, label %124, label %.sink.split
 
 124:                                              ; preds = %121
   %125 = load i8, ptr %9, align 1, !range !11, !noundef !12
@@ -5073,7 +5073,7 @@ define internal fastcc i32 @intel_hdcp1_enable(ptr noundef %0) unnamed_addr #0 a
 132:                                              ; preds = %129, %127
   %133 = phi ptr [ %131, %129 ], [ null, %127 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %133, i32 noundef 2, ptr noundef nonnull @.str.86) #9
-  br label %.thread82
+  br label %.sink.split
 
 134:                                              ; preds = %124, %111
   %135 = getelementptr inbounds i8, ptr %113, i64 7176
@@ -5151,7 +5151,7 @@ define internal fastcc i32 @intel_hdcp1_enable(ptr noundef %0) unnamed_addr #0 a
 179:                                              ; preds = %176, %174
   %180 = phi ptr [ %178, %176 ], [ null, %174 ]
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %180, ptr noundef nonnull @.str.90) #12
-  br label %.thread82
+  br label %.sink.split
 
 181:                                              ; preds = %170
   %182 = load i8, ptr %135, align 8
@@ -5194,7 +5194,7 @@ define internal fastcc i32 @intel_hdcp1_enable(ptr noundef %0) unnamed_addr #0 a
   %205 = load ptr, ptr %114, align 8
   %206 = call i32 %205(ptr noundef %112, ptr noundef nonnull %5) #9
   %207 = icmp eq i32 %206, 0
-  br i1 %207, label %208, label %.thread82
+  br i1 %207, label %208, label %.sink.split
 
 208:                                              ; preds = %201
   %209 = load volatile i64, ptr @jiffies, align 64
@@ -5241,11 +5241,11 @@ define internal fastcc i32 @intel_hdcp1_enable(ptr noundef %0) unnamed_addr #0 a
 .thread47:                                        ; preds = %.thread46, %230
   %233 = phi ptr [ %232, %230 ], [ null, %.thread46 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %233, i32 noundef 2, ptr noundef nonnull @.str.11) #9
-  br label %.thread82
+  br label %.sink.split
 
 234:                                              ; preds = %212
   %235 = icmp slt i32 %215, 0
-  br i1 %235, label %.thread82, label %.thread48
+  br i1 %235, label %.sink.split, label %.thread48
 
 .thread48:                                        ; preds = %226, %234
   %236 = call i32 @drm_hdcp_check_ksvs_revoked(ptr noundef %113, ptr noundef nonnull %6, i32 noundef 1) #9
@@ -5264,7 +5264,7 @@ define internal fastcc i32 @intel_hdcp1_enable(ptr noundef %0) unnamed_addr #0 a
 243:                                              ; preds = %240, %238
   %244 = phi ptr [ %242, %240 ], [ null, %238 ]
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %244, ptr noundef nonnull @.str.93) #12
-  br label %.thread82
+  br label %.sink.split
 
 245:                                              ; preds = %.thread48
   %246 = load i8, ptr %135, align 8
@@ -5307,7 +5307,7 @@ define internal fastcc i32 @intel_hdcp1_enable(ptr noundef %0) unnamed_addr #0 a
   %269 = load ptr, ptr %268, align 8
   %270 = call i32 %269(ptr noundef %112, ptr noundef nonnull %8) #9
   %271 = icmp eq i32 %270, 0
-  br i1 %271, label %272, label %.thread82
+  br i1 %271, label %272, label %.sink.split
 
 272:                                              ; preds = %264
   %273 = load i8, ptr %8, align 1, !range !11, !noundef !12
@@ -5397,7 +5397,7 @@ intel_hdcp_get_repeater_ctl.exit:                 ; preds = %279, %280, %281, %2
   %306 = load ptr, ptr %305, align 8
   %307 = call i32 %306(ptr noundef %112, i32 noundef %115, i1 noundef zeroext true) #9
   %308 = icmp eq i32 %307, 0
-  br i1 %308, label %309, label %.thread82
+  br i1 %308, label %309, label %.sink.split
 
 309:                                              ; preds = %304
   %310 = load i8, ptr %135, align 8
@@ -5467,7 +5467,7 @@ intel_hdcp_get_repeater_ctl.exit:                 ; preds = %279, %280, %281, %2
 349:                                              ; preds = %346, %344
   %350 = phi ptr [ %348, %346 ], [ null, %344 ]
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %350, ptr noundef nonnull @.str.98) #12
-  br label %.thread82
+  br label %.sink.split
 
 351:                                              ; preds = %343
   %352 = load volatile i64, ptr @jiffies, align 64
@@ -5496,7 +5496,7 @@ intel_hdcp_get_repeater_ctl.exit:                 ; preds = %279, %280, %281, %2
   %366 = load ptr, ptr %362, align 8
   %367 = call i32 %366(ptr noundef %112, ptr noundef nonnull %7) #9
   %368 = icmp eq i32 %367, 0
-  br i1 %368, label %369, label %.thread82
+  br i1 %368, label %369, label %.sink.split
 
 369:                                              ; preds = %364
   %370 = load i8, ptr %135, align 8
@@ -5585,7 +5585,7 @@ intel_hdcp_get_repeater_ctl.exit:                 ; preds = %279, %280, %281, %2
   %421 = load ptr, ptr %191, align 8
   %422 = call i32 %421(ptr noundef %140, i32 %420, i1 noundef zeroext true) #9
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %413, i32 noundef 2, ptr noundef nonnull @.str.101, i32 noundef %422) #9
-  br label %.thread82
+  br label %.sink.split
 
 423:                                              ; preds = %406
   %424 = load i8, ptr %135, align 8
@@ -5615,7 +5615,7 @@ intel_hdcp_get_repeater_ctl.exit:                 ; preds = %279, %280, %281, %2
 438:                                              ; preds = %435, %433
   %439 = phi ptr [ %437, %435 ], [ null, %433 ]
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %439, ptr noundef nonnull @.str.104) #12
-  br label %.thread82
+  br label %.sink.split
 
 440:                                              ; preds = %429
   %441 = getelementptr inbounds i8, ptr %114, i64 72
@@ -5642,7 +5642,7 @@ intel_hdcp_get_repeater_ctl.exit:                 ; preds = %279, %280, %281, %2
   %454 = load ptr, ptr %18, align 8
   %455 = load i32, ptr %20, align 8
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %453, ptr noundef nonnull @.str.105, ptr noundef %454, i32 noundef %455) #12
-  br label %.thread82
+  br label %.sink.split
 
 456:                                              ; preds = %444
   br i1 %447, label %460, label %457
@@ -6510,12 +6510,7 @@ default.unreachable:                              ; preds = %694
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %920, i32 noundef 2, ptr noundef nonnull @.str.116, i32 noundef %548) #9
   call void @kfree(ptr noundef nonnull %560) #9
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  br label %.loopexit95
+  br label %.loopexit95.sink.split
 
 921:                                              ; preds = %472
   %922 = icmp eq ptr %113, null
@@ -6529,42 +6524,18 @@ default.unreachable:                              ; preds = %694
 .thread83:                                        ; preds = %921, %923
   %926 = phi ptr [ %925, %923 ], [ null, %921 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %926, i32 noundef 2, ptr noundef nonnull @.str.107) #9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  br label %.loopexit95
-
-.thread82:                                        ; preds = %364, %179, %243, %349, %419, %438, %452, %132, %121, %201, %234, %264, %304, %.thread47
-  %.ph81 = phi i32 [ -19, %.thread47 ], [ %307, %304 ], [ %270, %264 ], [ %215, %234 ], [ %206, %201 ], [ %122, %121 ], [ -22, %132 ], [ %445, %452 ], [ -110, %438 ], [ -110, %419 ], [ -110, %349 ], [ -1, %243 ], [ -110, %179 ], [ %367, %364 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  br label %932
+  br label %.loopexit95.sink.split
 
 .thread86:                                        ; preds = %526, %545, %555, %567, %528
   %.ph85 = phi i32 [ %531, %528 ], [ -12, %567 ], [ -22, %555 ], [ -1, %545 ], [ %519, %526 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  br label %932
+  br label %.sink.split
 
 .thread89:                                        ; preds = %569, %586
   %.ph88 = phi i32 [ -1, %586 ], [ %572, %569 ]
   call void @kfree(ptr noundef nonnull %560) #9
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  br label %932
+  br label %.sink.split
 
 927:                                              ; preds = %911, %912, %.thread79
   %928 = phi i32 [ %913, %912 ], [ 0, %911 ], [ %.ph77, %.thread79 ]
@@ -6580,13 +6551,30 @@ default.unreachable:                              ; preds = %694
   %930 = icmp eq i32 %928, 0
   br i1 %930, label %.loopexit95, label %932
 
-.loopexit95:                                      ; preds = %927, %.thread90, %.thread83
+.loopexit95.sink.split:                           ; preds = %.thread83, %.thread90
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  br label %.loopexit95
+
+.loopexit95:                                      ; preds = %927, %.loopexit95.sink.split
   %931 = getelementptr inbounds i8, ptr %0, i64 2664
   store i8 1, ptr %931, align 8
   br label %946
 
-932:                                              ; preds = %.thread89, %.thread86, %.thread82, %927
-  %933 = phi i32 [ %.ph81, %.thread82 ], [ %928, %927 ], [ %.ph85, %.thread86 ], [ %.ph88, %.thread89 ]
+.sink.split:                                      ; preds = %364, %.thread47, %304, %264, %234, %201, %121, %132, %452, %438, %419, %349, %243, %179, %.thread86, %.thread89
+  %.ph211 = phi i32 [ %.ph88, %.thread89 ], [ %.ph85, %.thread86 ], [ -19, %.thread47 ], [ %307, %304 ], [ %270, %264 ], [ %215, %234 ], [ %206, %201 ], [ %122, %121 ], [ -22, %132 ], [ %445, %452 ], [ -110, %438 ], [ -110, %419 ], [ -110, %349 ], [ -1, %243 ], [ -110, %179 ], [ %367, %364 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  br label %932
+
+932:                                              ; preds = %.sink.split, %927
+  %933 = phi i32 [ %928, %927 ], [ %.ph211, %.sink.split ]
   br i1 %12, label %936, label %934
 
 934:                                              ; preds = %932

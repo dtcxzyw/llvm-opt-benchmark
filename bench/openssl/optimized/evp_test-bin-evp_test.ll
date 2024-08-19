@@ -6249,7 +6249,6 @@ entry:
 if.then:                                          ; preds = %entry
   %output_len = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load i64, ptr %output_len, align 8
-  store i64 %2, ptr %got_len, align 8
   br label %if.end10
 
 if.else:                                          ; preds = %entry
@@ -6265,24 +6264,18 @@ if.then2:                                         ; preds = %if.else
 
 if.end:                                           ; preds = %if.else
   %4 = load i64, ptr %got_len, align 8
-  %5 = add i64 %4, 1
-  %or.cond = icmp ult i64 %5, 2
+  %5 = add i64 %4, -1
+  %or.cond = icmp ult i64 %5, -2
   %output_len6 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %output_len6, align 8
-  br i1 %or.cond, label %if.then5, label %if.else7
-
-if.then5:                                         ; preds = %if.end
-  store i64 %6, ptr %got_len, align 8
+  %mul = zext i1 %or.cond to i64
+  %spec.select = shl i64 %6, %mul
   br label %if.end10
 
-if.else7:                                         ; preds = %if.end
-  %mul = shl i64 %6, 1
-  store i64 %mul, ptr %got_len, align 8
-  br label %if.end10
-
-if.end10:                                         ; preds = %if.then5, %if.else7, %if.then
-  %7 = phi i64 [ %6, %if.then5 ], [ %mul, %if.else7 ], [ %2, %if.then ]
-  %cond = call i64 @llvm.umax.i64(i64 %7, i64 1)
+if.end10:                                         ; preds = %if.end, %if.then
+  %.sink = phi i64 [ %2, %if.then ], [ %spec.select, %if.end ]
+  store i64 %.sink, ptr %got_len, align 8
+  %cond = call i64 @llvm.umax.i64(i64 %.sink, i64 1)
   %call12 = call noalias ptr @CRYPTO_malloc(i64 noundef %cond, ptr noundef nonnull @.str.27, i32 noundef 3094) #11
   %call13 = call i32 @test_ptr(ptr noundef nonnull @.str.27, i32 noundef 3094, ptr noundef nonnull @.str.281, ptr noundef %call12) #11
   %tobool14.not = icmp eq i32 %call13, 0
@@ -6294,8 +6287,8 @@ if.then15:                                        ; preds = %if.end10
   br label %err31
 
 if.end17:                                         ; preds = %if.end10
-  %8 = load ptr, ptr %0, align 8
-  %call19 = call i32 @EVP_PKEY_derive(ptr noundef %8, ptr noundef %call12, ptr noundef nonnull %got_len) #11
+  %7 = load ptr, ptr %0, align 8
+  %call19 = call i32 @EVP_PKEY_derive(ptr noundef %7, ptr noundef %call12, ptr noundef nonnull %got_len) #11
   %cmp20 = icmp slt i32 %call19, 1
   br i1 %cmp20, label %if.then21, label %if.end23
 
@@ -6306,11 +6299,11 @@ if.then21:                                        ; preds = %if.end17
 
 if.end23:                                         ; preds = %if.end17
   %output = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = load ptr, ptr %output, align 8
+  %8 = load ptr, ptr %output, align 8
   %output_len24 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = load i64, ptr %output_len24, align 8
-  %11 = load i64, ptr %got_len, align 8
-  %call25 = call i32 @test_mem_eq(ptr noundef nonnull @.str.27, i32 noundef 3102, ptr noundef nonnull @.str.219, ptr noundef nonnull @.str.105, ptr noundef %9, i64 noundef %10, ptr noundef %call12, i64 noundef %11) #11
+  %9 = load i64, ptr %output_len24, align 8
+  %10 = load i64, ptr %got_len, align 8
+  %call25 = call i32 @test_mem_eq(ptr noundef nonnull @.str.27, i32 noundef 3102, ptr noundef nonnull @.str.219, ptr noundef nonnull @.str.105, ptr noundef %8, i64 noundef %9, ptr noundef %call12, i64 noundef %10) #11
   %tobool26.not = icmp eq i32 %call25, 0
   %err28 = getelementptr inbounds i8, ptr %t, i64 6568
   br i1 %tobool26.not, label %if.then27, label %if.end29

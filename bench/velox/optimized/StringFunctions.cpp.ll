@@ -14902,17 +14902,17 @@ if.else.i:                                        ; preds = %invoke.cont6
   br label %if.else.i.invoke
 
 if.else.i.invoke:                                 ; preds = %invoke.cont6, %if.else.i
-  %div.i.zext.pn = phi i64 [ %div.i.zext, %if.else.i ], [ %conv.i60, %invoke.cont6 ]
-  %mul12.i.pn = mul nuw i64 %conv.i61, %div.i.zext.pn
-  %35 = add nuw i64 %add.i, %mul12.i.pn
-  %vtable.i.sink = load ptr, ptr %proxy, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i.sink, i64 16
-  %36 = load ptr, ptr %vfn.i, align 8
-  invoke void %36(ptr noundef nonnull align 8 dereferenceable(96) %proxy, i64 noundef %35)
+  %conv.i60.sink = phi i64 [ %div.i.zext, %if.else.i ], [ %conv.i60, %invoke.cont6 ]
+  %mul.i = mul nuw i64 %conv.i61, %conv.i60.sink
+  %add5.i = add nuw i64 %add.i, %mul.i
+  %vtable.i = load ptr, ptr %proxy, align 8
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
+  %35 = load ptr, ptr %vfn.i, align 8
+  invoke void %35(ptr noundef nonnull align 8 dereferenceable(96) %proxy, i64 noundef %add5.i)
           to label %call23.i.noexc unwind label %lpad
 
 call23.i.noexc:                                   ; preds = %if.else.i.invoke
-  %37 = load ptr, ptr %data_.i.i, align 8
+  %36 = load ptr, ptr %data_.i.i, align 8
   %cmp.i.i.i = icmp ult i32 %15, 13
   %prefix_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   %cond.i = select i1 %cmp.i.i.i, ptr %prefix_.i, ptr %retval.sroa.2.0.copyload.i.i
@@ -14932,25 +14932,25 @@ call23.i.noexc:                                   ; preds = %if.else.i.invoke
   store i64 %conv.i61, ptr %ref.tmp22.i, align 8
   %_M_str.i82 = getelementptr inbounds i8, ptr %ref.tmp22.i, i64 8
   store ptr %cond.i80, ptr %_M_str.i82, align 8
-  %call25.i15 = call fastcc noundef i64 @_ZN8facebook5velox9functions10stringCoreL7replaceEPcRKSt17basic_string_viewIcSt11char_traitsIcEES9_S9_b(ptr noundef %37, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp19.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp22.i, i1 noundef zeroext false)
+  %call25.i15 = call fastcc noundef i64 @_ZN8facebook5velox9functions10stringCoreL7replaceEPcRKSt17basic_string_viewIcSt11char_traitsIcEES9_S9_b(ptr noundef %36, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp19.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp22.i, i1 noundef zeroext false)
   %capacity_.i = getelementptr inbounds i8, ptr %proxy, i64 24
-  %38 = load i64, ptr %capacity_.i, align 8
-  %cmp.i83 = icmp ult i64 %38, %call25.i15
+  %37 = load i64, ptr %capacity_.i, align 8
+  %cmp.i83 = icmp ult i64 %37, %call25.i15
   br i1 %cmp.i83, label %if.then.i85, label %invoke.cont8
 
 if.then.i85:                                      ; preds = %call23.i.noexc
   %vtable.i86 = load ptr, ptr %proxy, align 8
   %vfn.i87 = getelementptr inbounds i8, ptr %vtable.i86, i64 16
-  %39 = load ptr, ptr %vfn.i87, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(32) %proxy, i64 noundef %call25.i15)
+  %38 = load ptr, ptr %vfn.i87, align 8
+  invoke void %38(ptr noundef nonnull align 8 dereferenceable(32) %proxy, i64 noundef %call25.i15)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %call23.i.noexc, %if.then.i85
   %size_.i = getelementptr inbounds i8, ptr %proxy, i64 16
   store i64 %call25.i15, ptr %size_.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp16.i)
-  %40 = load i8, ptr %finalized_.i, align 8
-  %tobool.i = trunc i8 %40 to i1
+  %39 = load i8, ptr %finalized_.i, align 8
+  %tobool.i = trunc i8 %39 to i1
   br i1 %tobool.i, label %invoke.cont9, label %if.then.i89
 
 if.then.i89:                                      ; preds = %invoke.cont8
@@ -14958,29 +14958,29 @@ if.then.i89:                                      ; preds = %invoke.cont8
   br i1 %tobool2.not.i, label %if.then2.i.thread.i, label %if.end.i90
 
 if.then2.i.thread.i:                              ; preds = %if.then.i89
-  %41 = load ptr, ptr %vector_.i, align 8
-  %42 = load i32, ptr %offset_.i, align 8
+  %40 = load ptr, ptr %vector_.i, align 8
+  %41 = load i32, ptr %offset_.i, align 8
   store i32 0, ptr %ref.tmp16.i, align 8
   %prefix_.i12.i = getelementptr inbounds i8, ptr %ref.tmp16.i, i64 4
   store i32 0, ptr %prefix_.i12.i, align 4
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit.i
 
 if.end.i90:                                       ; preds = %if.then.i89
-  %43 = load ptr, ptr %dataBuffer_.i, align 8
-  %size_.i1.i = getelementptr inbounds i8, ptr %43, i64 24
-  %44 = load i64, ptr %size_.i1.i, align 8
-  %add.i91 = add i64 %44, %call25.i15
-  %vtable.i92 = load ptr, ptr %43, align 8
+  %42 = load ptr, ptr %dataBuffer_.i, align 8
+  %size_.i1.i = getelementptr inbounds i8, ptr %42, i64 24
+  %43 = load i64, ptr %size_.i1.i, align 8
+  %add.i91 = add i64 %43, %call25.i15
+  %vtable.i92 = load ptr, ptr %42, align 8
   %vfn.i93 = getelementptr inbounds i8, ptr %vtable.i92, i64 16
-  %45 = load ptr, ptr %vfn.i93, align 8
-  invoke void %45(ptr noundef nonnull align 8 dereferenceable(64) %43, i64 noundef %add.i91)
+  %44 = load ptr, ptr %vfn.i93, align 8
+  invoke void %44(ptr noundef nonnull align 8 dereferenceable(64) %42, i64 noundef %add.i91)
           to label %.noexc98 unwind label %lpad
 
 .noexc98:                                         ; preds = %if.end.i90
   %.pre.i = load i64, ptr %size_.i, align 8
-  %46 = load ptr, ptr %vector_.i, align 8
-  %47 = load i32, ptr %offset_.i, align 8
-  %48 = load ptr, ptr %data_.i.i, align 8
+  %45 = load ptr, ptr %vector_.i, align 8
+  %46 = load i32, ptr %offset_.i, align 8
+  %47 = load ptr, ptr %data_.i.i, align 8
   %conv.i97 = trunc i64 %.pre.i to i32
   store i32 %conv.i97, ptr %ref.tmp16.i, align 8
   %cmp.i.i = icmp slt i32 %conv.i97, 0
@@ -15004,20 +15004,20 @@ if.end6.i.i:                                      ; preds = %if.then2.i.i
   %value_7.i.i = getelementptr inbounds i8, ptr %ref.tmp16.i, i64 8
   store ptr null, ptr %value_7.i.i, align 8
   %conv.i.i = and i64 %.pre.i, 15
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix_.i.i, ptr align 1 %48, i64 %conv.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix_.i.i, ptr align 1 %47, i64 %conv.i.i, i1 false)
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit.i
 
 if.else.i.i:                                      ; preds = %if.end.i.i
-  %49 = load i32, ptr %48, align 1
-  store i32 %49, ptr %prefix_.i.i, align 4
+  %48 = load i32, ptr %47, align 1
+  store i32 %48, ptr %prefix_.i.i, align 4
   %value_13.i.i = getelementptr inbounds i8, ptr %ref.tmp16.i, i64 8
-  store ptr %48, ptr %value_13.i.i, align 8
+  store ptr %47, ptr %value_13.i.i, align 8
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit.i
 
 _ZN8facebook5velox10StringViewC2EPKci.exit.i:     ; preds = %if.else.i.i, %if.end6.i.i, %if.then2.i.i, %if.then2.i.thread.i
-  %50 = phi ptr [ %46, %if.then2.i.i ], [ %46, %if.end6.i.i ], [ %46, %if.else.i.i ], [ %41, %if.then2.i.thread.i ]
-  %51 = phi i32 [ %47, %if.then2.i.i ], [ %47, %if.end6.i.i ], [ %47, %if.else.i.i ], [ %42, %if.then2.i.thread.i ]
-  invoke void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE9setNoCopyEiRKS2_(ptr noundef nonnull align 8 dereferenceable(280) %50, i32 noundef %51, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp16.i)
+  %49 = phi ptr [ %45, %if.then2.i.i ], [ %45, %if.end6.i.i ], [ %45, %if.else.i.i ], [ %40, %if.then2.i.thread.i ]
+  %50 = phi i32 [ %46, %if.then2.i.i ], [ %46, %if.end6.i.i ], [ %46, %if.else.i.i ], [ %41, %if.then2.i.thread.i ]
+  invoke void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE9setNoCopyEiRKS2_(ptr noundef nonnull align 8 dereferenceable(280) %49, i32 noundef %50, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp16.i)
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %invoke.cont8, %_ZN8facebook5velox10StringViewC2EPKci.exit.i
@@ -15027,11 +15027,11 @@ invoke.cont9:                                     ; preds = %invoke.cont8, %_ZN8
   ret void
 
 lpad:                                             ; preds = %if.else.i.invoke, %_ZN8facebook5velox10StringViewC2EPKci.exit.i, %if.end.i90, %if.then.i85
-  %52 = landingpad { ptr, i32 }
+  %51 = landingpad { ptr, i32 }
           cleanup
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox4exec12StringWriterILb0EEE, i64 16), ptr %proxy, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value_.i) #23
-  resume { ptr, i32 } %52
+  resume { ptr, i32 } %51
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)

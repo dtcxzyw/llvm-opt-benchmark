@@ -71,21 +71,18 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load double, ptr %ret, align 8
   %cmp2 = fcmp ogt double %2, 1.000000e+00
-  br i1 %cmp2, label %if.then3, label %if.else
-
-if.then3:                                         ; preds = %if.then
-  store double 0x7FF0000000000000, ptr %ret, align 8
-  br label %if.end9
+  br i1 %cmp2, label %if.end9.sink.split, label %if.else
 
 if.else:                                          ; preds = %if.then
   %cmp5 = fcmp olt double %2, -1.000000e+00
-  br i1 %cmp5, label %if.then6, label %if.end9
+  br i1 %cmp5, label %if.end9.sink.split, label %if.end9
 
-if.then6:                                         ; preds = %if.else
-  store double 0xFFF0000000000000, ptr %ret, align 8
+if.end9.sink.split:                               ; preds = %if.else, %if.then
+  %.sink = phi double [ 0x7FF0000000000000, %if.then ], [ 0xFFF0000000000000, %if.else ]
+  store double %.sink, ptr %ret, align 8
   br label %if.end9
 
-if.end9:                                          ; preds = %if.then3, %if.then6, %if.else, %entry
+if.end9:                                          ; preds = %if.end9.sink.split, %if.else, %entry
   %tobool.not = icmp eq ptr %endptr, null
   br i1 %tobool.not, label %if.end11, label %if.then10
 
@@ -165,13 +162,13 @@ if.then.i.i:                                      ; preds = %if.end13.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %cmp5.i.i = fcmp olt double %.pre.i, -1.000000e+00
-  br i1 %cmp5.i.i, label %if.then6.i.i, label %_ZN6google8protobuf2io14NoLocaleStrtodEPKcPPc.exit.i
+  br i1 %cmp5.i.i, label %if.end9.sink.split.i.i, label %_ZN6google8protobuf2io14NoLocaleStrtodEPKcPPc.exit.i
 
-if.then6.i.i:                                     ; preds = %if.else.i.i
+if.end9.sink.split.i.i:                           ; preds = %if.else.i.i
   br label %_ZN6google8protobuf2io14NoLocaleStrtodEPKcPPc.exit.i
 
-_ZN6google8protobuf2io14NoLocaleStrtodEPKcPPc.exit.i: ; preds = %if.then6.i.i, %if.else.i.i, %if.then.i.i, %if.end13.i
-  %4 = phi double [ %.pre.i, %if.end13.i ], [ %.pre.i, %if.else.i.i ], [ 0xFFF0000000000000, %if.then6.i.i ], [ 0x7FF0000000000000, %if.then.i.i ]
+_ZN6google8protobuf2io14NoLocaleStrtodEPKcPPc.exit.i: ; preds = %if.end9.sink.split.i.i, %if.else.i.i, %if.then.i.i, %if.end13.i
+  %4 = phi double [ %.pre.i, %if.end13.i ], [ %.pre.i, %if.else.i.i ], [ 0x7FF0000000000000, %if.then.i.i ], [ 0xFFF0000000000000, %if.end9.sink.split.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ret.i.i)
   store volatile double %4, ptr %parsed_value.i, align 8
   %parsed_value.i.0.parsed_value.i.0.parsed_value.i.0.parsed_value.0.parsed_value.0.parsed_value.0..i = load volatile double, ptr %parsed_value.i, align 8

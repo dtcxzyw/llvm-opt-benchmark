@@ -2721,8 +2721,8 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   %96 = icmp eq i8 %.sroa.2.0.copyload, 3
   %.sink68.i.i.sroa.gep = getelementptr inbounds i8, ptr %26, i64 8
   %.sink68.i.i.sroa.gep197 = getelementptr inbounds i8, ptr %28, i64 8
-  %.sink218.sroa.gep = getelementptr inbounds i8, ptr %83, i64 32
-  %.sink218.sroa.gep234 = getelementptr inbounds i8, ptr %84, i64 32
+  %.sink215.sroa.gep = getelementptr inbounds i8, ptr %83, i64 32
+  %.sink215.sroa.gep234 = getelementptr inbounds i8, ptr %84, i64 32
   %.sink.sroa.gep = getelementptr inbounds i8, ptr %17, i64 8
   %.sink.sroa.gep237 = getelementptr inbounds i8, ptr %16, i64 8
   %.sink.sroa.gep238 = getelementptr inbounds i8, ptr %15, i64 8
@@ -4237,24 +4237,24 @@ switch.lookup:                                    ; preds = %431
   br i1 %.not73, label %452, label %451
 
 451:                                              ; preds = %448, %454
-  %.sink218.sroa.phi = phi ptr [ %.sink218.sroa.gep, %454 ], [ %.sink218.sroa.gep234, %448 ]
-  %.sink217 = phi ptr [ %456, %454 ], [ %450, %448 ]
-  %storemerge = phi i64 [ %455, %454 ], [ %449, %448 ]
+  %.sink215.sroa.phi = phi ptr [ %.sink215.sroa.gep, %454 ], [ %.sink215.sroa.gep234, %448 ]
+  %.sroa.262.0..sroa_idx.sink = phi ptr [ %456, %454 ], [ %450, %448 ]
+  %.sink214 = phi i64 [ %455, %454 ], [ %449, %448 ]
   %.sroa.044.9 = phi i8 [ 1, %454 ], [ 0, %448 ]
   %.sroa.339.0..sroa_idx = getelementptr inbounds i8, ptr %86, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.sroa.339.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(160) %.sink218.sroa.phi, i64 160, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.sroa.339.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(160) %.sink215.sroa.phi, i64 160, i1 false)
   %.sroa.238.0..sroa_idx = getelementptr inbounds i8, ptr %86, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.238.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sink217, i64 24, i1 false)
-  store i64 %storemerge, ptr %86, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.238.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.262.0..sroa_idx.sink, i64 24, i1 false)
+  store i64 %.sink214, ptr %86, align 8
   %.off = add nsw i32 %.sroa.12.0..sroa.12.0..sroa.12.0..sroa.12.0..sroa.0164.0.copyload, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %_ZN19pyo3_macros_backend6method17CallingConvention14from_signature17h2b817e2c0c9f4f51E.exit, label %457
 
 452:                                              ; preds = %448, %440, %454
-  %.sink215 = phi ptr [ %456, %454 ], [ %443, %440 ], [ %450, %448 ]
+  %.sink217 = phi ptr [ %456, %454 ], [ %443, %440 ], [ %450, %448 ]
   %.sroa.044.8 = phi i8 [ 1, %454 ], [ 1, %440 ], [ 0, %448 ]
   %453 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %453, ptr noundef nonnull align 8 dereferenceable(24) %.sink215, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %453, ptr noundef nonnull align 8 dereferenceable(24) %.sink217, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %90)
           to label %491 unwind label %398

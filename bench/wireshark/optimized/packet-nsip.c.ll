@@ -1123,8 +1123,8 @@ define internal fastcc void @decode_ip_elements(ptr nocapture noundef readonly %
   br label %20
 
 20:                                               ; preds = %.lr.ph, %decode_ip_element.exit
-  %21 = phi i32 [ %.pre, %.lr.ph ], [ %72, %decode_ip_element.exit ]
-  %.01 = phi i32 [ 0, %.lr.ph ], [ %73, %decode_ip_element.exit ]
+  %21 = phi i32 [ %.pre, %.lr.ph ], [ %73, %decode_ip_element.exit ]
+  %.01 = phi i32 [ 0, %.lr.ph ], [ %74, %decode_ip_element.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %22 = load ptr, ptr %1, align 8
   %23 = load i32, ptr %7, align 4
@@ -1151,80 +1151,80 @@ define internal fastcc void @decode_ip_elements(ptr nocapture noundef readonly %
   %32 = load i32, ptr %19, align 4
   %33 = add i32 %32, %27
   store i32 %33, ptr %18, align 8
-  br label %47
+  br label %48
 
 34:                                               ; preds = %30
   br label %35
 
-35:                                               ; preds = %30, %34
-  %hf_nsip_ip_address_ipv6.sink = phi ptr [ @hf_nsip_ip_address_ipv6, %34 ], [ @hf_nsip_ip_address_ipv4, %30 ]
+35:                                               ; preds = %34, %30
+  %hf_nsip_ip_address_ipv4.sink.i = phi ptr [ @hf_nsip_ip_address_ipv6, %34 ], [ @hf_nsip_ip_address_ipv4, %30 ]
   %.sink53.i = phi i32 [ 3, %34 ], [ 2, %30 ]
-  %36 = load i32, ptr %hf_nsip_ip_address_ipv6.sink, align 4
+  %36 = load i32, ptr %hf_nsip_ip_address_ipv4.sink.i, align 4
   %37 = load ptr, ptr %1, align 8
   %38 = load i32, ptr %19, align 4
   %39 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %36, ptr noundef %37, i32 noundef %27, i32 noundef %38, i32 noundef 0) #5
-  %.sink.i = load ptr, ptr %4, align 8
-  %40 = call ptr @wmem_packet_scope() #5
-  %41 = load ptr, ptr %1, align 8
-  %42 = load i32, ptr %18, align 8
-  %43 = call ptr @tvb_address_to_str(ptr noundef %40, ptr noundef %41, i32 noundef %.sink53.i, i32 noundef %42) #5
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.sink.i, ptr noundef nonnull @.str.126, ptr noundef %43) #5
+  %40 = load ptr, ptr %4, align 8
+  %41 = call ptr @wmem_packet_scope() #5
+  %42 = load ptr, ptr %1, align 8
+  %43 = load i32, ptr %18, align 8
+  %44 = call ptr @tvb_address_to_str(ptr noundef %41, ptr noundef %42, i32 noundef %.sink53.i, i32 noundef %43) #5
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %40, ptr noundef nonnull @.str.126, ptr noundef %44) #5
   %.pr.i = load ptr, ptr %10, align 8
-  %44 = load i32, ptr %19, align 4
-  %45 = load i32, ptr %18, align 8
-  %46 = add i32 %45, %44
-  store i32 %46, ptr %18, align 8
+  %45 = load i32, ptr %19, align 4
+  %46 = load i32, ptr %18, align 8
+  %47 = add i32 %46, %45
+  store i32 %47, ptr %18, align 8
   %.not37.i = icmp eq ptr %.pr.i, null
-  br i1 %.not37.i, label %.thread44.i, label %47
+  br i1 %.not37.i, label %.thread44.i, label %48
 
-47:                                               ; preds = %35, %.thread41.i
-  %48 = phi i32 [ %33, %.thread41.i ], [ %46, %35 ]
-  %49 = load ptr, ptr %1, align 8
-  %50 = call zeroext i16 @tvb_get_ntohs(ptr noundef %49, i32 noundef %48) #5
-  %51 = load i32, ptr @hf_nsip_ip_element_udp_port, align 4
-  %52 = load ptr, ptr %1, align 8
-  %53 = load i32, ptr %18, align 8
-  %54 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %51, ptr noundef %52, i32 noundef %53, i32 noundef 2, i32 noundef 0) #5
-  %55 = load ptr, ptr %4, align 8
-  %56 = zext i16 %50 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %55, ptr noundef nonnull @.str.127, i32 noundef %56) #5
+48:                                               ; preds = %35, %.thread41.i
+  %49 = phi i32 [ %33, %.thread41.i ], [ %47, %35 ]
+  %50 = load ptr, ptr %1, align 8
+  %51 = call zeroext i16 @tvb_get_ntohs(ptr noundef %50, i32 noundef %49) #5
+  %52 = load i32, ptr @hf_nsip_ip_element_udp_port, align 4
+  %53 = load ptr, ptr %1, align 8
+  %54 = load i32, ptr %18, align 8
+  %55 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %52, ptr noundef %53, i32 noundef %54, i32 noundef 2, i32 noundef 0) #5
+  %56 = load ptr, ptr %4, align 8
+  %57 = zext i16 %51 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %56, ptr noundef nonnull @.str.127, i32 noundef %57) #5
   %.pre.i = load i32, ptr %18, align 8
   %.pre46.i = load ptr, ptr %10, align 8
-  %57 = icmp eq ptr %.pre46.i, null
-  %58 = add i32 %.pre.i, 2
-  store i32 %58, ptr %18, align 8
-  br i1 %57, label %.thread44.i, label %61
+  %58 = icmp eq ptr %.pre46.i, null
+  %59 = add i32 %.pre.i, 2
+  store i32 %59, ptr %18, align 8
+  br i1 %58, label %.thread44.i, label %62
 
-.thread44.i:                                      ; preds = %47, %35, %.thread.i
-  %59 = phi i32 [ %.pre.i, %47 ], [ %46, %35 ], [ %29, %.thread.i ]
-  %60 = add i32 %59, 3
+.thread44.i:                                      ; preds = %48, %35, %.thread.i
+  %60 = phi i32 [ %.pre.i, %48 ], [ %47, %35 ], [ %29, %.thread.i ]
+  %61 = add i32 %60, 3
   br label %decode_ip_element.exit
 
-61:                                               ; preds = %47
-  %62 = load i32, ptr @hf_nsip_ip_element_signalling_weight, align 4
-  %63 = load ptr, ptr %1, align 8
-  %64 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %62, ptr noundef %63, i32 noundef %58, i32 noundef 1, i32 noundef 0) #5
+62:                                               ; preds = %48
+  %63 = load i32, ptr @hf_nsip_ip_element_signalling_weight, align 4
+  %64 = load ptr, ptr %1, align 8
+  %65 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %63, ptr noundef %64, i32 noundef %59, i32 noundef 1, i32 noundef 0) #5
   %.pr43.i = load ptr, ptr %10, align 8
-  %65 = load i32, ptr %18, align 8
-  %66 = add i32 %65, 1
-  store i32 %66, ptr %18, align 8
+  %66 = load i32, ptr %18, align 8
+  %67 = add i32 %66, 1
+  store i32 %67, ptr %18, align 8
   %.not39.i = icmp eq ptr %.pr43.i, null
-  br i1 %.not39.i, label %decode_ip_element.exit, label %67
+  br i1 %.not39.i, label %decode_ip_element.exit, label %68
 
-67:                                               ; preds = %61
-  %68 = load i32, ptr @hf_nsip_ip_element_data_weight, align 4
-  %69 = load ptr, ptr %1, align 8
-  %70 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %68, ptr noundef %69, i32 noundef %66, i32 noundef 1, i32 noundef 0) #5
+68:                                               ; preds = %62
+  %69 = load i32, ptr @hf_nsip_ip_element_data_weight, align 4
+  %70 = load ptr, ptr %1, align 8
+  %71 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %69, ptr noundef %70, i32 noundef %67, i32 noundef 1, i32 noundef 0) #5
   %.pre47.i = load i32, ptr %18, align 8
   br label %decode_ip_element.exit
 
-decode_ip_element.exit:                           ; preds = %.thread44.i, %61, %67
-  %71 = phi i32 [ %60, %.thread44.i ], [ %.pre47.i, %67 ], [ %66, %61 ]
-  %72 = add i32 %71, 1
-  store i32 %72, ptr %18, align 8
+decode_ip_element.exit:                           ; preds = %.thread44.i, %62, %68
+  %72 = phi i32 [ %61, %.thread44.i ], [ %.pre47.i, %68 ], [ %67, %62 ]
+  %73 = add i32 %72, 1
+  store i32 %73, ptr %18, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %73 = add nuw nsw i32 %.01, 1
-  %exitcond.not = icmp eq i32 %73, %9
+  %74 = add nuw nsw i32 %.01, 1
+  %exitcond.not = icmp eq i32 %74, %9
   br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %decode_ip_element.exit, %3

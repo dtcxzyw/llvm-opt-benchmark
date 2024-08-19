@@ -197,10 +197,10 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %121 = sub nsw i32 0, %120
   store i32 %121, ptr %17, align 4, !tbaa !3
   %122 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %17, i32 noundef 6) #5
-  br label %1349
+  br label %1348
 
 123:                                              ; preds = %117
-  br i1 %77, label %1349, label %124
+  br i1 %77, label %1348, label %124
 
 124:                                              ; preds = %123
   br i1 %63, label %126, label %125
@@ -242,7 +242,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 142:                                              ; preds = %136
   store double 1.000000e+00, ptr %13, align 8, !tbaa !7
-  br label %1349
+  br label %1348
 
 143:                                              ; preds = %136
   %144 = call i32 @ilaenv_(ptr noundef nonnull @c__2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @c_n1, i32 noundef 6, i32 noundef 1) #5
@@ -1976,8 +1976,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1334 = load i8, ptr %0, align 1, !tbaa !43
   store i8 %1334, ptr %33, align 1, !tbaa !43
   %1335 = load i8, ptr %1, align 1, !tbaa !43
-  store i8 %1335, ptr %34, align 1, !tbaa !43
-  br label %1343
+  br label %.sink.split
 
 .loopexit63:                                      ; preds = %.loopexit54
   %.pre161 = load i32, ptr %3, align 4, !tbaa !3
@@ -1986,7 +1985,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1337 = load i8, ptr %1, align 1, !tbaa !43
   store i8 %1337, ptr %34, align 1, !tbaa !43
   %1338 = icmp eq i32 %1328, %.pre161
-  br i1 %1338, label %1343, label %1339
+  br i1 %1338, label %1342, label %1339
 
 1339:                                             ; preds = %.loopexit63
   br i1 %68, label %1340, label %1341
@@ -1996,27 +1995,29 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %1341
 
 1341:                                             ; preds = %1340, %1339
-  br i1 %75, label %1342, label %1343
+  br i1 %75, label %.sink.split, label %1342
 
-1342:                                             ; preds = %1341
-  store i8 86, ptr %34, align 1, !tbaa !43
-  br label %1343
+.sink.split:                                      ; preds = %1341, %.loopexit63.thread
+  %.sink = phi i8 [ %1335, %.loopexit63.thread ], [ 86, %1341 ]
+  %.ph = phi i32 [ %.ph165, %.loopexit63.thread ], [ %1328, %1341 ]
+  store i8 %.sink, ptr %34, align 1, !tbaa !43
+  br label %1342
 
-1343:                                             ; preds = %.loopexit63.thread, %1342, %1341, %.loopexit63
-  %1344 = phi i32 [ %.ph165, %.loopexit63.thread ], [ %1328, %1342 ], [ %1328, %1341 ], [ %1328, %.loopexit63 ]
-  %1345 = load i32, ptr %4, align 4, !tbaa !3
-  %1346 = icmp slt i32 %1344, %1345
-  br i1 %1346, label %1347, label %1348
+1342:                                             ; preds = %.sink.split, %1341, %.loopexit63
+  %1343 = phi i32 [ %1328, %1341 ], [ %1328, %.loopexit63 ], [ %.ph, %.sink.split ]
+  %1344 = load i32, ptr %4, align 4, !tbaa !3
+  %1345 = icmp slt i32 %1343, %1344
+  br i1 %1345, label %1346, label %1347
 
-1347:                                             ; preds = %1343
+1346:                                             ; preds = %1342
   call void @dgghrd_(ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef nonnull %2, ptr noundef nonnull %27, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %6, ptr noundef %7, ptr noundef nonnull %8, ptr noundef %9, ptr noundef nonnull %10, ptr noundef %11, ptr noundef nonnull %12, ptr noundef nonnull %28) #5
+  br label %1347
+
+1347:                                             ; preds = %1346, %1342
+  store double %61, ptr %13, align 8, !tbaa !7
   br label %1348
 
-1348:                                             ; preds = %1347, %1343
-  store double %61, ptr %13, align 8, !tbaa !7
-  br label %1349
-
-1349:                                             ; preds = %1348, %142, %123, %119
+1348:                                             ; preds = %1347, %142, %123, %119
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36) #5

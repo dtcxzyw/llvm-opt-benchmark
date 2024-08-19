@@ -91074,124 +91074,106 @@ define hidden void @_ZNK14vcastLtoBSNode4emitEP17C2_MacroAssemblerP13PhaseRegAll
   %31 = call noundef i32 %30(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef %2, ptr noundef nonnull %0, i32 noundef 1) #23
   %or.cond.i.i53 = icmp ult i32 %31, 32
   %spec.select.i.i54 = select i1 %or.cond.i.i53, i32 %31, i32 -1
-  br i1 %21, label %32, label %47
+  br i1 %21, label %32, label %33
 
 32:                                               ; preds = %3
+  %.sink105.sroa.gep123 = getelementptr inbounds i8, ptr %6, i64 40
   call void @_ZN9Assembler7vpshufdE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, i32 %spec.select.i.i54, i32 noundef 8, i32 noundef 0) #23
-  %33 = load ptr, ptr %8, align 8
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 32
-  %36 = load ptr, ptr %35, align 8
-  %37 = call noundef i32 %36(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef %2, ptr noundef nonnull %0) #23
-  %or.cond.i.i55 = icmp ult i32 %37, 32
-  %spec.select.i.i56 = select i1 %or.cond.i.i55, i32 %37, i32 -1
-  %38 = load ptr, ptr %8, align 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 32
-  %41 = load ptr, ptr %40, align 8
-  %42 = call noundef i32 %41(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef %2, ptr noundef nonnull %0) #23
-  %or.cond.i.i57 = icmp ult i32 %42, 32
-  %spec.select.i.i58 = select i1 %or.cond.i.i57, i32 %42, i32 -1
-  %43 = load ptr, ptr %4, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
-  %45 = load ptr, ptr %44, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(40) %6) #23
-  %46 = getelementptr inbounds i8, ptr %6, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
-  call void @_ZN14MacroAssembler5vpandE11XMMRegisterS0_14AddressLiterali8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i56, i32 %spec.select.i.i58, ptr noundef nonnull %6, i32 noundef 0, i32 -1) #23
-  br label %72
+  br label %44
 
-47:                                               ; preds = %3
+33:                                               ; preds = %3
+  %.sink105.sroa.gep = getelementptr inbounds i8, ptr %7, i64 40
   call void @_ZN9Assembler9vpermilpsE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, i32 %spec.select.i.i54, i32 noundef 8, i32 noundef 1) #23
-  %48 = load ptr, ptr %8, align 8
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 32
-  %51 = load ptr, ptr %50, align 8
-  %52 = call noundef i32 %51(ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef %2, ptr noundef nonnull %0) #23
-  %or.cond.i.i69 = icmp ult i32 %52, 32
-  %spec.select.i.i70 = select i1 %or.cond.i.i69, i32 %52, i32 -1
-  %53 = load ptr, ptr %8, align 8
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 32
-  %56 = load ptr, ptr %55, align 8
-  %57 = call noundef i32 %56(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef %2, ptr noundef nonnull %0) #23
-  %or.cond.i.i71 = icmp ult i32 %57, 32
-  %spec.select.i.i72 = select i1 %or.cond.i.i71, i32 %57, i32 -1
+  %34 = load ptr, ptr %8, align 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 32
+  %37 = load ptr, ptr %36, align 8
+  %38 = call noundef i32 %37(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef %2, ptr noundef nonnull %0) #23
+  %or.cond.i.i69 = icmp ult i32 %38, 32
+  %spec.select.i.i70 = select i1 %or.cond.i.i69, i32 %38, i32 -1
+  %39 = load ptr, ptr %8, align 8
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 32
+  %42 = load ptr, ptr %41, align 8
+  %43 = call noundef i32 %42(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef %2, ptr noundef nonnull %0) #23
+  %or.cond.i.i71 = icmp ult i32 %43, 32
+  %spec.select.i.i72 = select i1 %or.cond.i.i71, i32 %43, i32 -1
   call void @_ZN9Assembler7vpermpdE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i70, i32 %spec.select.i.i72, i32 noundef 8, i32 noundef 1) #23
+  br label %44
+
+44:                                               ; preds = %33, %32
+  %.sink105.sroa.phi = phi ptr [ %.sink105.sroa.gep, %33 ], [ %.sink105.sroa.gep123, %32 ]
+  %.sink105 = phi ptr [ %7, %33 ], [ %6, %32 ]
+  %45 = load ptr, ptr %8, align 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 32
+  %48 = load ptr, ptr %47, align 8
+  %49 = call noundef i32 %48(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef %2, ptr noundef nonnull %0) #23
+  %or.cond.i.i73 = icmp ult i32 %49, 32
+  %spec.select.i.i74 = select i1 %or.cond.i.i73, i32 %49, i32 -1
+  %50 = load ptr, ptr %8, align 8
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 32
+  %53 = load ptr, ptr %52, align 8
+  %54 = call noundef i32 %53(ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef %2, ptr noundef nonnull %0) #23
+  %or.cond.i.i75 = icmp ult i32 %54, 32
+  %spec.select.i.i76 = select i1 %or.cond.i.i75, i32 %54, i32 -1
+  %55 = load ptr, ptr %4, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 16
+  %57 = load ptr, ptr %56, align 8
+  call void %57(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(40) %.sink105) #23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sink105.sroa.phi, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
+  call void @_ZN14MacroAssembler5vpandE11XMMRegisterS0_14AddressLiterali8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i74, i32 %spec.select.i.i76, ptr noundef nonnull %.sink105, i32 noundef 0, i32 -1) #23
   %58 = load ptr, ptr %8, align 8
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 32
   %61 = load ptr, ptr %60, align 8
   %62 = call noundef i32 %61(ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef %2, ptr noundef nonnull %0) #23
-  %or.cond.i.i73 = icmp ult i32 %62, 32
-  %spec.select.i.i74 = select i1 %or.cond.i.i73, i32 %62, i32 -1
+  %or.cond.i.i77 = icmp ult i32 %62, 32
+  %spec.select.i.i78 = select i1 %or.cond.i.i77, i32 %62, i32 -1
   %63 = load ptr, ptr %8, align 8
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 32
   %66 = load ptr, ptr %65, align 8
   %67 = call noundef i32 %66(ptr noundef nonnull align 8 dereferenceable(8) %63, ptr noundef %2, ptr noundef nonnull %0) #23
-  %or.cond.i.i75 = icmp ult i32 %67, 32
-  %spec.select.i.i76 = select i1 %or.cond.i.i75, i32 %67, i32 -1
-  %68 = load ptr, ptr %4, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 16
-  %70 = load ptr, ptr %69, align 8
-  call void %70(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(40) %7) #23
-  %71 = getelementptr inbounds i8, ptr %7, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
-  call void @_ZN14MacroAssembler5vpandE11XMMRegisterS0_14AddressLiterali8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i74, i32 %spec.select.i.i76, ptr noundef nonnull %7, i32 noundef 0, i32 -1) #23
-  br label %72
-
-72:                                               ; preds = %47, %32
-  %73 = load ptr, ptr %8, align 8
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 32
-  %76 = load ptr, ptr %75, align 8
-  %77 = call noundef i32 %76(ptr noundef nonnull align 8 dereferenceable(8) %73, ptr noundef %2, ptr noundef nonnull %0) #23
-  %or.cond.i.i77 = icmp ult i32 %77, 32
-  %spec.select.i.i78 = select i1 %or.cond.i.i77, i32 %77, i32 -1
-  %78 = load ptr, ptr %8, align 8
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 32
-  %81 = load ptr, ptr %80, align 8
-  %82 = call noundef i32 %81(ptr noundef nonnull align 8 dereferenceable(8) %78, ptr noundef %2, ptr noundef nonnull %0) #23
-  %or.cond.i.i79 = icmp ult i32 %82, 32
-  %spec.select.i.i80 = select i1 %or.cond.i.i79, i32 %82, i32 -1
-  %83 = load ptr, ptr %8, align 8
-  %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 32
-  %86 = load ptr, ptr %85, align 8
-  %87 = call noundef i32 %86(ptr noundef nonnull align 8 dereferenceable(8) %83, ptr noundef %2, ptr noundef nonnull %0) #23
-  %or.cond.i.i81 = icmp ult i32 %87, 32
-  %spec.select.i.i82 = select i1 %or.cond.i.i81, i32 %87, i32 -1
+  %or.cond.i.i79 = icmp ult i32 %67, 32
+  %spec.select.i.i80 = select i1 %or.cond.i.i79, i32 %67, i32 -1
+  %68 = load ptr, ptr %8, align 8
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds i8, ptr %69, i64 32
+  %71 = load ptr, ptr %70, align 8
+  %72 = call noundef i32 %71(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef %2, ptr noundef nonnull %0) #23
+  %or.cond.i.i81 = icmp ult i32 %72, 32
+  %spec.select.i.i82 = select i1 %or.cond.i.i81, i32 %72, i32 -1
   call void @_ZN9Assembler9vpackusdwE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i78, i32 %spec.select.i.i80, i32 %spec.select.i.i82, i32 noundef 0) #23
-  br i1 %13, label %88, label %104
+  br i1 %13, label %73, label %89
 
-88:                                               ; preds = %72
-  %89 = load ptr, ptr %8, align 8
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 32
-  %92 = load ptr, ptr %91, align 8
-  %93 = call noundef i32 %92(ptr noundef nonnull align 8 dereferenceable(8) %89, ptr noundef %2, ptr noundef nonnull %0) #23
-  %or.cond.i.i83 = icmp ult i32 %93, 32
-  %spec.select.i.i84 = select i1 %or.cond.i.i83, i32 %93, i32 -1
-  %94 = load ptr, ptr %8, align 8
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 32
-  %97 = load ptr, ptr %96, align 8
-  %98 = call noundef i32 %97(ptr noundef nonnull align 8 dereferenceable(8) %94, ptr noundef %2, ptr noundef nonnull %0) #23
-  %or.cond.i.i85 = icmp ult i32 %98, 32
-  %spec.select.i.i86 = select i1 %or.cond.i.i85, i32 %98, i32 -1
-  %99 = load ptr, ptr %8, align 8
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 32
-  %102 = load ptr, ptr %101, align 8
-  %103 = call noundef i32 %102(ptr noundef nonnull align 8 dereferenceable(8) %99, ptr noundef %2, ptr noundef nonnull %0) #23
-  %or.cond.i.i87 = icmp ult i32 %103, 32
-  %spec.select.i.i88 = select i1 %or.cond.i.i87, i32 %103, i32 -1
+73:                                               ; preds = %44
+  %74 = load ptr, ptr %8, align 8
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %75, i64 32
+  %77 = load ptr, ptr %76, align 8
+  %78 = call noundef i32 %77(ptr noundef nonnull align 8 dereferenceable(8) %74, ptr noundef %2, ptr noundef nonnull %0) #23
+  %or.cond.i.i83 = icmp ult i32 %78, 32
+  %spec.select.i.i84 = select i1 %or.cond.i.i83, i32 %78, i32 -1
+  %79 = load ptr, ptr %8, align 8
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 32
+  %82 = load ptr, ptr %81, align 8
+  %83 = call noundef i32 %82(ptr noundef nonnull align 8 dereferenceable(8) %79, ptr noundef %2, ptr noundef nonnull %0) #23
+  %or.cond.i.i85 = icmp ult i32 %83, 32
+  %spec.select.i.i86 = select i1 %or.cond.i.i85, i32 %83, i32 -1
+  %84 = load ptr, ptr %8, align 8
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr inbounds i8, ptr %85, i64 32
+  %87 = load ptr, ptr %86, align 8
+  %88 = call noundef i32 %87(ptr noundef nonnull align 8 dereferenceable(8) %84, ptr noundef %2, ptr noundef nonnull %0) #23
+  %or.cond.i.i87 = icmp ult i32 %88, 32
+  %spec.select.i.i88 = select i1 %or.cond.i.i87, i32 %88, i32 -1
   call void @_ZN9Assembler9vpackuswbE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i84, i32 %spec.select.i.i86, i32 %spec.select.i.i88, i32 noundef 0) #23
-  br label %104
+  br label %89
 
-104:                                              ; preds = %88, %72
+89:                                               ; preds = %73, %44
   ret void
 }
 

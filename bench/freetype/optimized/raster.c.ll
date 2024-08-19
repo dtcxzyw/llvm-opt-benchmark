@@ -183,160 +183,157 @@ define internal i32 @ft_raster1_render(ptr nocapture noundef readonly %0, ptr no
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   %14 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %12, %14
-  br i1 %.not, label %16, label %15
+  br i1 %.not, label %15, label %.thread.sink.split
 
 15:                                               ; preds = %4
-  store i32 6, ptr %5, align 4
-  br label %.thread
-
-16:                                               ; preds = %4
   %.not55 = icmp eq i32 %2, 2
-  br i1 %.not55, label %17, label %95
+  br i1 %.not55, label %16, label %93
 
-17:                                               ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %1, i64 296
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
-  %21 = load i32, ptr %20, align 8
-  %22 = and i32 %21, 1
-  %.not56 = icmp eq i32 %22, 0
-  br i1 %.not56, label %30, label %23
+16:                                               ; preds = %15
+  %17 = getelementptr inbounds i8, ptr %1, i64 296
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %20 = load i32, ptr %19, align 8
+  %21 = and i32 %20, 1
+  %.not56 = icmp eq i32 %21, 0
+  br i1 %.not56, label %29, label %22
 
-23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %1, i64 168
-  %25 = load ptr, ptr %24, align 8
-  tail call void @ft_mem_free(ptr noundef %10, ptr noundef %25) #10
-  store ptr null, ptr %24, align 8
-  %26 = load ptr, ptr %18, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
-  %28 = load i32, ptr %27, align 8
-  %29 = and i32 %28, -2
-  store i32 %29, ptr %27, align 8
-  br label %30
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds i8, ptr %1, i64 168
+  %24 = load ptr, ptr %23, align 8
+  tail call void @ft_mem_free(ptr noundef %10, ptr noundef %24) #10
+  store ptr null, ptr %23, align 8
+  %25 = load ptr, ptr %17, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %27 = load i32, ptr %26, align 8
+  %28 = and i32 %27, -2
+  store i32 %28, ptr %26, align 8
+  br label %29
 
-30:                                               ; preds = %23, %17
-  %31 = tail call zeroext i8 @ft_glyphslot_preset_bitmap(ptr noundef nonnull %1, i32 noundef 2, ptr noundef %3) #10
-  %.not57 = icmp eq i8 %31, 0
-  br i1 %.not57, label %33, label %32
+29:                                               ; preds = %22, %16
+  %30 = tail call zeroext i8 @ft_glyphslot_preset_bitmap(ptr noundef nonnull %1, i32 noundef 2, ptr noundef %3) #10
+  %.not57 = icmp eq i8 %30, 0
+  br i1 %.not57, label %31, label %.thread.sink.split
 
-32:                                               ; preds = %30
-  store i32 98, ptr %5, align 4
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds i8, ptr %1, i64 160
+  %33 = load i32, ptr %32, align 8
+  %34 = sext i32 %33 to i64
+  %35 = load i32, ptr %8, align 8
+  %36 = zext i32 %35 to i64
+  %37 = call ptr @ft_mem_realloc(ptr noundef %10, i64 noundef %34, i64 noundef 0, i64 noundef %36, ptr noundef null, ptr noundef nonnull %5) #10
+  %38 = getelementptr inbounds i8, ptr %1, i64 168
+  store ptr %37, ptr %38, align 8
+  %39 = load i32, ptr %5, align 4
+  %.not58 = icmp eq i32 %39, 0
+  br i1 %.not58, label %40, label %.thread
+
+40:                                               ; preds = %31
+  %41 = load ptr, ptr %17, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %43 = load i32, ptr %42, align 8
+  %44 = or i32 %43, 1
+  store i32 %44, ptr %42, align 8
+  %45 = getelementptr inbounds i8, ptr %1, i64 192
+  %46 = load i32, ptr %45, align 8
+  %.neg = mul i32 %46, -64
+  %47 = sext i32 %.neg to i64
+  %48 = load i32, ptr %8, align 8
+  %49 = getelementptr inbounds i8, ptr %1, i64 196
+  %50 = load i32, ptr %49, align 4
+  %51 = sub nsw i32 %48, %50
+  %52 = shl nsw i32 %51, 6
+  %53 = sext i32 %52 to i64
+  %.not59 = icmp eq ptr %3, null
+  br i1 %.not59, label %60, label %54
+
+54:                                               ; preds = %40
+  %55 = load i64, ptr %3, align 8
+  %56 = add nsw i64 %55, %47
+  %57 = getelementptr inbounds i8, ptr %3, i64 8
+  %58 = load i64, ptr %57, align 8
+  %59 = add nsw i64 %58, %53
+  br label %60
+
+60:                                               ; preds = %54, %40
+  %.151 = phi i64 [ %56, %54 ], [ %47, %40 ]
+  %.1 = phi i64 [ %59, %54 ], [ %53, %40 ]
+  %61 = icmp ne i64 %.151, 0
+  %62 = icmp ne i64 %.1, 0
+  %or.cond = select i1 %61, i1 true, i1 %62
+  br i1 %or.cond, label %63, label %64
+
+63:                                               ; preds = %60
+  call void @FT_Outline_Translate(ptr noundef nonnull %7, i64 noundef %.151, i64 noundef %.1) #10
+  br label %64
+
+64:                                               ; preds = %63, %60
+  store ptr %8, ptr %6, align 8
+  %65 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %7, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %6, i64 16
+  store i32 0, ptr %66, align 8
+  %67 = getelementptr inbounds i8, ptr %0, i64 112
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds i8, ptr %0, i64 104
+  %70 = load ptr, ptr %69, align 8
+  %71 = call i32 %68(ptr noundef %70, ptr noundef nonnull %6) #10
+  store i32 %71, ptr %5, align 4
+  %.not60 = icmp eq i32 %71, 0
+  br i1 %.not60, label %72, label %.thread
+
+72:                                               ; preds = %64
+  store i32 1651078259, ptr %11, align 8
+  br label %85
+
+.thread.sink.split:                               ; preds = %29, %4
+  %.sink = phi i32 [ 6, %4 ], [ 98, %29 ]
+  store i32 %.sink, ptr %5, align 4
   br label %.thread
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %1, i64 160
-  %35 = load i32, ptr %34, align 8
-  %36 = sext i32 %35 to i64
-  %37 = load i32, ptr %8, align 8
-  %38 = zext i32 %37 to i64
-  %39 = call ptr @ft_mem_realloc(ptr noundef %10, i64 noundef %36, i64 noundef 0, i64 noundef %38, ptr noundef null, ptr noundef nonnull %5) #10
-  %40 = getelementptr inbounds i8, ptr %1, i64 168
-  store ptr %39, ptr %40, align 8
-  %41 = load i32, ptr %5, align 4
-  %.not58 = icmp eq i32 %41, 0
-  br i1 %.not58, label %42, label %.thread
+.thread:                                          ; preds = %.thread.sink.split, %31, %64
+  %.068 = phi i64 [ %.1, %64 ], [ 0, %31 ], [ 0, %.thread.sink.split ]
+  %.05066 = phi i64 [ %.151, %64 ], [ 0, %31 ], [ 0, %.thread.sink.split ]
+  %73 = getelementptr inbounds i8, ptr %1, i64 296
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 8
+  %76 = load i32, ptr %75, align 8
+  %77 = and i32 %76, 1
+  %.not61 = icmp eq i32 %77, 0
+  br i1 %.not61, label %85, label %78
 
-42:                                               ; preds = %33
-  %43 = load ptr, ptr %18, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
-  %45 = load i32, ptr %44, align 8
-  %46 = or i32 %45, 1
-  store i32 %46, ptr %44, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 192
-  %48 = load i32, ptr %47, align 8
-  %.neg = mul i32 %48, -64
-  %49 = sext i32 %.neg to i64
-  %50 = load i32, ptr %8, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 196
-  %52 = load i32, ptr %51, align 4
-  %53 = sub nsw i32 %50, %52
-  %54 = shl nsw i32 %53, 6
-  %55 = sext i32 %54 to i64
-  %.not59 = icmp eq ptr %3, null
-  br i1 %.not59, label %62, label %56
+78:                                               ; preds = %.thread
+  %79 = getelementptr inbounds i8, ptr %1, i64 168
+  %80 = load ptr, ptr %79, align 8
+  call void @ft_mem_free(ptr noundef %10, ptr noundef %80) #10
+  store ptr null, ptr %79, align 8
+  %81 = load ptr, ptr %73, align 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 8
+  %83 = load i32, ptr %82, align 8
+  %84 = and i32 %83, -2
+  store i32 %84, ptr %82, align 8
+  br label %85
 
-56:                                               ; preds = %42
-  %57 = load i64, ptr %3, align 8
-  %58 = add nsw i64 %57, %49
-  %59 = getelementptr inbounds i8, ptr %3, i64 8
-  %60 = load i64, ptr %59, align 8
-  %61 = add nsw i64 %60, %55
-  br label %62
+85:                                               ; preds = %.thread, %78, %72
+  %.067 = phi i64 [ %.068, %.thread ], [ %.068, %78 ], [ %.1, %72 ]
+  %.05065 = phi i64 [ %.05066, %.thread ], [ %.05066, %78 ], [ %.151, %72 ]
+  %86 = icmp ne i64 %.05065, 0
+  %87 = icmp ne i64 %.067, 0
+  %or.cond3 = select i1 %86, i1 true, i1 %87
+  br i1 %or.cond3, label %88, label %91
 
-62:                                               ; preds = %56, %42
-  %.151 = phi i64 [ %58, %56 ], [ %49, %42 ]
-  %.1 = phi i64 [ %61, %56 ], [ %55, %42 ]
-  %63 = icmp ne i64 %.151, 0
-  %64 = icmp ne i64 %.1, 0
-  %or.cond = select i1 %63, i1 true, i1 %64
-  br i1 %or.cond, label %65, label %66
+88:                                               ; preds = %85
+  %89 = sub nsw i64 0, %.05065
+  %90 = sub nsw i64 0, %.067
+  call void @FT_Outline_Translate(ptr noundef nonnull %7, i64 noundef %89, i64 noundef %90) #10
+  br label %91
 
-65:                                               ; preds = %62
-  call void @FT_Outline_Translate(ptr noundef nonnull %7, i64 noundef %.151, i64 noundef %.1) #10
-  br label %66
-
-66:                                               ; preds = %65, %62
-  store ptr %8, ptr %6, align 8
-  %67 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %7, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %6, i64 16
-  store i32 0, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 112
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 104
-  %72 = load ptr, ptr %71, align 8
-  %73 = call i32 %70(ptr noundef %72, ptr noundef nonnull %6) #10
-  store i32 %73, ptr %5, align 4
-  %.not60 = icmp eq i32 %73, 0
-  br i1 %.not60, label %74, label %.thread
-
-74:                                               ; preds = %66
-  store i32 1651078259, ptr %11, align 8
-  br label %87
-
-.thread:                                          ; preds = %15, %32, %33, %66
-  %.068 = phi i64 [ %.1, %66 ], [ 0, %33 ], [ 0, %32 ], [ 0, %15 ]
-  %.05066 = phi i64 [ %.151, %66 ], [ 0, %33 ], [ 0, %32 ], [ 0, %15 ]
-  %75 = getelementptr inbounds i8, ptr %1, i64 296
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 8
-  %78 = load i32, ptr %77, align 8
-  %79 = and i32 %78, 1
-  %.not61 = icmp eq i32 %79, 0
-  br i1 %.not61, label %87, label %80
-
-80:                                               ; preds = %.thread
-  %81 = getelementptr inbounds i8, ptr %1, i64 168
-  %82 = load ptr, ptr %81, align 8
-  call void @ft_mem_free(ptr noundef %10, ptr noundef %82) #10
-  store ptr null, ptr %81, align 8
-  %83 = load ptr, ptr %75, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 8
-  %85 = load i32, ptr %84, align 8
-  %86 = and i32 %85, -2
-  store i32 %86, ptr %84, align 8
-  br label %87
-
-87:                                               ; preds = %.thread, %80, %74
-  %.067 = phi i64 [ %.068, %.thread ], [ %.068, %80 ], [ %.1, %74 ]
-  %.05065 = phi i64 [ %.05066, %.thread ], [ %.05066, %80 ], [ %.151, %74 ]
-  %88 = icmp ne i64 %.05065, 0
-  %89 = icmp ne i64 %.067, 0
-  %or.cond3 = select i1 %88, i1 true, i1 %89
-  br i1 %or.cond3, label %90, label %93
-
-90:                                               ; preds = %87
-  %91 = sub nsw i64 0, %.05065
-  %92 = sub nsw i64 0, %.067
-  call void @FT_Outline_Translate(ptr noundef nonnull %7, i64 noundef %91, i64 noundef %92) #10
+91:                                               ; preds = %85, %88
+  %92 = load i32, ptr %5, align 4
   br label %93
 
-93:                                               ; preds = %87, %90
-  %94 = load i32, ptr %5, align 4
-  br label %95
-
-95:                                               ; preds = %16, %93
-  %.052 = phi i32 [ %94, %93 ], [ 19, %16 ]
+93:                                               ; preds = %15, %91
+  %.052 = phi i32 [ %92, %91 ], [ 19, %15 ]
   ret i32 %.052
 }
 

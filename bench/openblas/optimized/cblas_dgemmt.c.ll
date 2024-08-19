@@ -76,8 +76,7 @@ define void @cblas_dgemmt(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   %69 = select i1 %62, i32 3, i32 %68
   %70 = select i1 %61, i32 2, i32 %69
   %71 = select i1 %58, i32 1, i32 %70
-  store i32 %71, ptr %15, align 4, !tbaa !3
-  br label %123
+  br label %.sink.split
 
 72:                                               ; preds = %14
   %73 = icmp ne i32 %3, 111
@@ -133,10 +132,14 @@ define void @cblas_dgemmt(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   %120 = select i1 %113, i32 2, i32 %119
   %121 = select i1 %112, i32 3, i32 %120
   %122 = select i1 %109, i32 1, i32 %121
-  store i32 %122, ptr %15, align 4, !tbaa !3
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %60, %111
+  %.sink = phi i32 [ %122, %111 ], [ %71, %60 ]
+  store i32 %.sink, ptr %15, align 4, !tbaa !3
   br label %123
 
-123:                                              ; preds = %111, %60, %14
+123:                                              ; preds = %.sink.split, %14
   %124 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %15, i32 noundef 8) #5
   br label %293
 

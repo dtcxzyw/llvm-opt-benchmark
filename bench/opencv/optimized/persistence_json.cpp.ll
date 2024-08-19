@@ -3047,15 +3047,12 @@ _Z10cv_isalnumc.exit.thread:                      ; preds = %78
   store ptr %77, ptr %4, align 8
   %115 = getelementptr inbounds i8, ptr %0, i64 16
   %116 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %.outer
-
-.outer:                                           ; preds = %.outer.backedge, %114
-  %.087179.ph = phi i32 [ 0, %114 ], [ %.087179.ph.be, %.outer.backedge ]
-  %.ph = phi ptr [ %77, %114 ], [ %.ph.be, %.outer.backedge ]
   br label %117
 
-117:                                              ; preds = %.outer, %270
-  %118 = phi ptr [ %271, %270 ], [ %.ph, %.outer ]
+117:                                              ; preds = %.backedge, %114
+  %.087179 = phi i32 [ 0, %114 ], [ %.087179.be, %.backedge ]
+  %.094178 = phi ptr [ %77, %114 ], [ %.094178.be, %.backedge ]
+  %118 = phi ptr [ %77, %114 ], [ %.be, %.backedge ]
   %119 = load i8, ptr %118, align 1
   switch i8 %119, label %270 [
     i8 92, label %120
@@ -3067,14 +3064,14 @@ _Z10cv_isalnumc.exit.thread:                      ; preds = %78
 
 120:                                              ; preds = %117
   %121 = ptrtoint ptr %118 to i64
-  %122 = ptrtoint ptr %.ph to i64
+  %122 = ptrtoint ptr %.094178 to i64
   %123 = sub i64 %121, %122
   %124 = trunc i64 %123 to i32
   %125 = icmp sgt i32 %124, 0
   br i1 %125, label %126, label %144
 
 126:                                              ; preds = %120
-  %127 = add nuw nsw i32 %.087179.ph, %124
+  %127 = add nuw nsw i32 %.087179, %124
   %128 = icmp sgt i32 %127, 4095
   br i1 %128, label %129, label %140
 
@@ -3106,14 +3103,14 @@ _Z10cv_isalnumc.exit.thread:                      ; preds = %78
   br label %489
 
 140:                                              ; preds = %126
-  %141 = zext nneg i32 %.087179.ph to i64
+  %141 = zext nneg i32 %.087179 to i64
   %142 = getelementptr inbounds i8, ptr %115, i64 %141
   %143 = and i64 %123, 2147483647
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %142, ptr nonnull align 1 %.ph, i64 %143, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %142, ptr align 1 %.094178, i64 %143, i1 false)
   br label %144
 
 144:                                              ; preds = %140, %120
-  %.188 = phi i32 [ %127, %140 ], [ %.087179.ph, %120 ]
+  %.188 = phi i32 [ %127, %140 ], [ %.087179, %120 ]
   %145 = getelementptr inbounds i8, ptr %118, i64 1
   store ptr %145, ptr %4, align 8
   %146 = add nuw nsw i32 %.188, 1
@@ -3236,24 +3233,18 @@ _Z10cv_isalnumc.exit.thread:                      ; preds = %78
   %190 = getelementptr inbounds [5120 x i8], ptr %115, i64 0, i64 %189
   store i8 %.sink, ptr %190, align 1
   %191 = getelementptr inbounds i8, ptr %118, i64 2
-  store ptr %191, ptr %4, align 8
-  br label %.outer.backedge
-
-.outer.backedge:                                  ; preds = %188, %222
-  %.087179.ph.be = phi i32 [ %.491, %222 ], [ %146, %188 ]
-  %.ph.be = phi ptr [ %221, %222 ], [ %191, %188 ]
-  br label %.outer, !llvm.loop !24
+  br label %.sink.split
 
 192:                                              ; preds = %117
   %193 = ptrtoint ptr %118 to i64
-  %194 = ptrtoint ptr %.ph to i64
+  %194 = ptrtoint ptr %.094178 to i64
   %195 = sub i64 %193, %194
   %196 = trunc i64 %195 to i32
   %197 = icmp sgt i32 %196, 0
   br i1 %197, label %198, label %216
 
 198:                                              ; preds = %192
-  %199 = add nuw nsw i32 %.087179.ph, %196
+  %199 = add nuw nsw i32 %.087179, %196
   %200 = icmp sgt i32 %199, 4095
   br i1 %200, label %201, label %212
 
@@ -3285,14 +3276,14 @@ _Z10cv_isalnumc.exit.thread:                      ; preds = %78
   br label %489
 
 212:                                              ; preds = %198
-  %213 = zext nneg i32 %.087179.ph to i64
+  %213 = zext nneg i32 %.087179 to i64
   %214 = getelementptr inbounds i8, ptr %115, i64 %213
   %215 = and i64 %195, 2147483647
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %214, ptr nonnull align 1 %.ph, i64 %215, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %214, ptr align 1 %.094178, i64 %215, i1 false)
   br label %216
 
 216:                                              ; preds = %212, %192
-  %.491 = phi i32 [ %199, %212 ], [ %.087179.ph, %192 ]
+  %.491 = phi i32 [ %199, %212 ], [ %.087179, %192 ]
   %217 = load ptr, ptr %116, align 8
   %218 = load ptr, ptr %217, align 8
   %219 = getelementptr inbounds i8, ptr %218, i64 32
@@ -3305,7 +3296,7 @@ _Z10cv_isalnumc.exit.thread:                      ; preds = %78
 222:                                              ; preds = %216
   %223 = load i8, ptr %221, align 1
   %.not143 = icmp eq i8 %223, 0
-  br i1 %.not143, label %224, label %.outer.backedge
+  br i1 %.not143, label %224, label %.backedge
 
 224:                                              ; preds = %222, %216
   %225 = load ptr, ptr %116, align 8
@@ -3336,14 +3327,14 @@ _Z10cv_isalnumc.exit.thread:                      ; preds = %78
 
 235:                                              ; preds = %117
   %236 = ptrtoint ptr %118 to i64
-  %237 = ptrtoint ptr %.ph to i64
+  %237 = ptrtoint ptr %.094178 to i64
   %238 = sub i64 %236, %237
   %239 = trunc i64 %238 to i32
   %240 = icmp sgt i32 %239, 0
   br i1 %240, label %241, label %272
 
 241:                                              ; preds = %235
-  %242 = add nuw nsw i32 %.087179.ph, %239
+  %242 = add nuw nsw i32 %.087179, %239
   %243 = icmp sgt i32 %242, 4095
   br i1 %243, label %244, label %255
 
@@ -3375,10 +3366,10 @@ _Z10cv_isalnumc.exit.thread:                      ; preds = %78
   br label %489
 
 255:                                              ; preds = %241
-  %256 = zext nneg i32 %.087179.ph to i64
+  %256 = zext nneg i32 %.087179 to i64
   %257 = getelementptr inbounds i8, ptr %115, i64 %256
   %258 = and i64 %238, 2147483647
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %257, ptr nonnull align 1 %.ph, i64 %258, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %257, ptr align 1 %.094178, i64 %258, i1 false)
   br label %272
 
 259:                                              ; preds = %117, %117
@@ -3410,11 +3401,23 @@ _Z10cv_isalnumc.exit.thread:                      ; preds = %78
 
 270:                                              ; preds = %117
   %271 = getelementptr inbounds i8, ptr %118, i64 1
-  store ptr %271, ptr %4, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %188, %270
+  %.sink238 = phi ptr [ %271, %270 ], [ %191, %188 ]
+  %.195.ph = phi ptr [ %.094178, %270 ], [ %191, %188 ]
+  %.390.ph237 = phi i32 [ %.087179, %270 ], [ %146, %188 ]
+  store ptr %.sink238, ptr %4, align 8
+  br label %.backedge
+
+.backedge:                                        ; preds = %.sink.split, %222
+  %.087179.be = phi i32 [ %.491, %222 ], [ %.390.ph237, %.sink.split ]
+  %.094178.be = phi ptr [ %221, %222 ], [ %.195.ph, %.sink.split ]
+  %.be = phi ptr [ %221, %222 ], [ %.sink238, %.sink.split ]
   br label %117, !llvm.loop !24
 
 272:                                              ; preds = %255, %235
-  %.390.ph = phi i32 [ %.087179.ph, %235 ], [ %242, %255 ]
+  %.390.ph = phi i32 [ %.087179, %235 ], [ %242, %255 ]
   %273 = load i8, ptr %118, align 1
   %.not135 = icmp eq i8 %273, 34
   br i1 %.not135, label %285, label %274
@@ -3883,9 +3886,9 @@ _Z10cv_isalnumc.exit.thread:                      ; preds = %78
   ret ptr %488
 
 489:                                              ; preds = %483, %485, %464, %466, %443, %445, %418, %420, %403, %405, %376, %378, %344, %346, %315, %317, %281, %283, %266, %268, %251, %253, %231, %233, %208, %210, %184, %186, %173, %175, %155, %157, %136, %138, %108, %110, %72, %74, %56, %58
-  %.sink237 = phi ptr [ %6, %58 ], [ %6, %56 ], [ %8, %74 ], [ %8, %72 ], [ %10, %110 ], [ %10, %108 ], [ %12, %138 ], [ %12, %136 ], [ %14, %157 ], [ %14, %155 ], [ %16, %175 ], [ %16, %173 ], [ %18, %186 ], [ %18, %184 ], [ %20, %210 ], [ %20, %208 ], [ %22, %233 ], [ %22, %231 ], [ %24, %253 ], [ %24, %251 ], [ %26, %268 ], [ %26, %266 ], [ %28, %283 ], [ %28, %281 ], [ %30, %317 ], [ %30, %315 ], [ %32, %346 ], [ %32, %344 ], [ %35, %378 ], [ %35, %376 ], [ %38, %405 ], [ %38, %403 ], [ %40, %420 ], [ %40, %418 ], [ %42, %445 ], [ %42, %443 ], [ %44, %466 ], [ %44, %464 ], [ %47, %485 ], [ %47, %483 ]
+  %.sink239 = phi ptr [ %6, %58 ], [ %6, %56 ], [ %8, %74 ], [ %8, %72 ], [ %10, %110 ], [ %10, %108 ], [ %12, %138 ], [ %12, %136 ], [ %14, %157 ], [ %14, %155 ], [ %16, %175 ], [ %16, %173 ], [ %18, %186 ], [ %18, %184 ], [ %20, %210 ], [ %20, %208 ], [ %22, %233 ], [ %22, %231 ], [ %24, %253 ], [ %24, %251 ], [ %26, %268 ], [ %26, %266 ], [ %28, %283 ], [ %28, %281 ], [ %30, %317 ], [ %30, %315 ], [ %32, %346 ], [ %32, %344 ], [ %35, %378 ], [ %35, %376 ], [ %38, %405 ], [ %38, %403 ], [ %40, %420 ], [ %40, %418 ], [ %42, %445 ], [ %42, %443 ], [ %44, %466 ], [ %44, %464 ], [ %47, %485 ], [ %47, %483 ]
   %.pn157.pn = phi { ptr, i32 } [ %59, %58 ], [ %57, %56 ], [ %75, %74 ], [ %73, %72 ], [ %111, %110 ], [ %109, %108 ], [ %139, %138 ], [ %137, %136 ], [ %158, %157 ], [ %156, %155 ], [ %176, %175 ], [ %174, %173 ], [ %187, %186 ], [ %185, %184 ], [ %211, %210 ], [ %209, %208 ], [ %234, %233 ], [ %232, %231 ], [ %254, %253 ], [ %252, %251 ], [ %269, %268 ], [ %267, %266 ], [ %284, %283 ], [ %282, %281 ], [ %318, %317 ], [ %316, %315 ], [ %347, %346 ], [ %345, %344 ], [ %379, %378 ], [ %377, %376 ], [ %406, %405 ], [ %404, %403 ], [ %421, %420 ], [ %419, %418 ], [ %446, %445 ], [ %444, %443 ], [ %467, %466 ], [ %465, %464 ], [ %486, %485 ], [ %484, %483 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink237) #13
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink239) #13
   resume { ptr, i32 } %.pn157.pn
 }
 

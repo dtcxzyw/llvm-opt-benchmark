@@ -2398,15 +2398,11 @@ if.then.i.i.i:                                    ; preds = %invoke.cont6
   store ptr %5, ptr %_M_invoker.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbP9func_declRK10ref_vectorI4expr11ast_managerER7obj_refIS3_S4_EEZN22demodulator_simplifierC1ERS4_RK10params_refR20dependent_expr_stateE3$_0E9_M_invokeERKSt9_Any_dataOS1_S7_SA_", ptr %_M_invoker4.i2.i.i, align 8
   %tobool.not.i.i4.i.i = icmp eq ptr %4, null
-  br i1 %tobool.not.i.i4.i.i, label %invoke.cont19.thread, label %if.then.i.i5.i.i
-
-invoke.cont19.thread:                             ; preds = %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
-  br label %if.then.i.i
+  br i1 %tobool.not.i.i4.i.i, label %if.then.i.i, label %if.then.i.i5.i.i
 
 if.then.i.i5.i.i:                                 ; preds = %if.then.i.i.i
   %call.i.i6.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
-          to label %invoke.cont19 unwind label %terminate.lpad.i.i7.i.i
+          to label %if.then.i.i unwind label %terminate.lpad.i.i7.i.i
 
 terminate.lpad.i.i7.i.i:                          ; preds = %if.then.i.i5.i.i
   %6 = landingpad { ptr, i32 }
@@ -2415,11 +2411,8 @@ terminate.lpad.i.i7.i.i:                          ; preds = %if.then.i.i5.i.i
   call void @__clang_call_terminate(ptr %7) #20
   unreachable
 
-invoke.cont19:                                    ; preds = %if.then.i.i5.i.i
+if.then.i.i:                                      ; preds = %if.then.i.i5.i.i, %if.then.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
-  br label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %invoke.cont19, %invoke.cont19.thread
   ret void
 
 lpad2:                                            ; preds = %invoke.cont
@@ -4239,29 +4232,22 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.i.i.i.i:      ; preds = %if.end
   store ptr %incdec.ptr4.i.i.i.i, ptr %all_occurrences, align 8
   %11 = load ptr, ptr %7, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %11, null
-  br i1 %cmp.i.i.i.i.i.i, label %_ZN8uint_setC2ERKS_.exit.thread43, label %_ZNK6vectorIjLb0EjE3endEv.exit.i.i.i.i
-
-_ZN8uint_setC2ERKS_.exit.thread43:                ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
-  br label %if.end.i.i4.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i4.i.i, label %_ZNK6vectorIjLb0EjE3endEv.exit.i.i.i.i
 
 _ZNK6vectorIjLb0EjE3endEv.exit.i.i.i.i:           ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i.i.i
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 -4
   %12 = load i32, ptr %arrayidx.i.i.i.i.i.i, align 4
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %12, 0
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN8uint_setC2ERKS_.exit, label %if.then.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i, label %if.end.i.i4.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %_ZNK6vectorIjLb0EjE3endEv.exit.i.i.i.i
   %13 = zext i32 %12 to i64
   %14 = shl nuw nsw i64 %13, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %incdec.ptr4.i.i.i.i, ptr nonnull align 4 %11, i64 %14, i1 false)
-  br label %_ZN8uint_setC2ERKS_.exit
-
-_ZN8uint_setC2ERKS_.exit:                         ; preds = %_ZNK6vectorIjLb0EjE3endEv.exit.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
   br label %if.end.i.i4.i.i
 
-if.end.i.i4.i.i:                                  ; preds = %_ZN8uint_setC2ERKS_.exit, %_ZN8uint_setC2ERKS_.exit.thread43
+if.end.i.i4.i.i:                                  ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %_ZNK6vectorIjLb0EjE3endEv.exit.i.i.i.i, %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i.i.i
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
   store ptr %all_occurrences, ptr %retval.i, align 8
   %m_index.i.i = getelementptr inbounds i8, ptr %retval.i, i64 8
   store i32 0, ptr %m_index.i.i, align 8

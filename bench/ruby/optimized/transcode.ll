@@ -1900,7 +1900,7 @@ define internal fastcc ptr @allocate_converted_string(ptr noundef %0, ptr nounde
   %.050 = select i1 %.not, i64 %., i64 %5
   %10 = tail call ptr @rb_econv_open(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %39, label %12
+  br i1 %11, label %40, label %12
 
 12:                                               ; preds = %7
   br i1 %.not, label %13, label %15
@@ -1918,67 +1918,67 @@ define internal fastcc ptr @allocate_converted_string(ptr noundef %0, ptr nounde
   br label %18
 
 18:                                               ; preds = %ruby_nonempty_memcpy.exit, %15
-  %.sink = phi ptr [ %34, %ruby_nonempty_memcpy.exit ], [ %17, %15 ]
+  %.sink = phi ptr [ %35, %ruby_nonempty_memcpy.exit ], [ %17, %15 ]
   %.2.sink = phi ptr [ %.2, %ruby_nonempty_memcpy.exit ], [ %.049, %15 ]
-  %.151 = phi i64 [ %26, %ruby_nonempty_memcpy.exit ], [ %.050, %15 ]
+  %.151 = phi i64 [ %27, %ruby_nonempty_memcpy.exit ], [ %.050, %15 ]
   %19 = call i32 @rb_econv_convert(ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef %16, ptr noundef nonnull %9, ptr noundef %.sink, i32 noundef 0)
-  %.sink65 = load ptr, ptr %9, align 8
-  %20 = ptrtoint ptr %.sink65 to i64
-  %21 = ptrtoint ptr %.2.sink to i64
-  %22 = sub i64 %20, %21
-  switch i32 %19, label %36 [
-    i32 2, label %23
-    i32 4, label %35
+  %20 = load ptr, ptr %9, align 8
+  %21 = ptrtoint ptr %20 to i64
+  %22 = ptrtoint ptr %.2.sink to i64
+  %23 = sub i64 %21, %22
+  switch i32 %19, label %37 [
+    i32 2, label %24
+    i32 4, label %36
   ]
 
-23:                                               ; preds = %18
-  %24 = icmp slt i64 %.151, 0
-  br i1 %24, label %36, label %25
+24:                                               ; preds = %18
+  %25 = icmp slt i64 %.151, 0
+  br i1 %25, label %37, label %26
 
-25:                                               ; preds = %23
-  %26 = shl nuw i64 %.151, 1
-  %27 = icmp eq ptr %.2.sink, %4
-  br i1 %27, label %28, label %31
+26:                                               ; preds = %24
+  %27 = shl nuw i64 %.151, 1
+  %28 = icmp eq ptr %.2.sink, %4
+  br i1 %28, label %29, label %32
 
-28:                                               ; preds = %25
-  %29 = call noalias nonnull ptr @ruby_xmalloc(i64 noundef %26) #23
+29:                                               ; preds = %26
+  %30 = call noalias nonnull ptr @ruby_xmalloc(i64 noundef %27) #23
   %.not.i = icmp eq i64 %.151, 0
-  br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %30
+  br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %31
 
-30:                                               ; preds = %28
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr nonnull readonly align 1 %.2.sink, i64 %.151, i1 false)
+31:                                               ; preds = %29
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull readonly align 1 %.2.sink, i64 %.151, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
-31:                                               ; preds = %25
-  %32 = call nonnull ptr @ruby_xrealloc(ptr noundef nonnull %.2.sink, i64 noundef %26) #26
+32:                                               ; preds = %26
+  %33 = call nonnull ptr @ruby_xrealloc(ptr noundef nonnull %.2.sink, i64 noundef %27) #26
   br label %ruby_nonempty_memcpy.exit
 
-ruby_nonempty_memcpy.exit:                        ; preds = %30, %28, %31
-  %.2 = phi ptr [ %32, %31 ], [ %29, %28 ], [ %29, %30 ]
-  %33 = getelementptr i8, ptr %.2, i64 %22
-  store ptr %33, ptr %9, align 8
-  %34 = getelementptr i8, ptr %.2, i64 %26
+ruby_nonempty_memcpy.exit:                        ; preds = %31, %29, %32
+  %.2 = phi ptr [ %33, %32 ], [ %30, %29 ], [ %30, %31 ]
+  %34 = getelementptr i8, ptr %.2, i64 %23
+  store ptr %34, ptr %9, align 8
+  %35 = getelementptr i8, ptr %.2, i64 %27
   br label %18, !llvm.loop !30
 
-35:                                               ; preds = %18
+36:                                               ; preds = %18
   call void @rb_econv_close(ptr noundef nonnull %10)
-  store i64 %22, ptr %6, align 8
-  br label %39
+  store i64 %23, ptr %6, align 8
+  br label %40
 
-36:                                               ; preds = %18, %23
+37:                                               ; preds = %18, %24
   %.not57 = icmp eq ptr %.2.sink, %4
-  br i1 %.not57, label %38, label %37
+  br i1 %.not57, label %39, label %38
 
-37:                                               ; preds = %36
+38:                                               ; preds = %37
   call void @ruby_xfree(ptr noundef nonnull %.2.sink) #21
-  br label %38
-
-38:                                               ; preds = %37, %36
-  call void @rb_econv_close(ptr noundef nonnull %10)
   br label %39
 
-39:                                               ; preds = %7, %38, %35
-  %.0 = phi ptr [ null, %38 ], [ %.2.sink, %35 ], [ null, %7 ]
+39:                                               ; preds = %38, %37
+  call void @rb_econv_close(ptr noundef nonnull %10)
+  br label %40
+
+40:                                               ; preds = %7, %39, %36
+  %.0 = phi ptr [ null, %39 ], [ %.2.sink, %36 ], [ null, %7 ]
   ret ptr %.0
 }
 

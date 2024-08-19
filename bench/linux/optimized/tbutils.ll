@@ -37,44 +37,42 @@ define dso_local noundef i32 @acpi_tb_initialize_facs() local_unnamed_addr #0 al
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #6
   %2 = load i8, ptr @acpi_gbl_reduced_hardware, align 1
   %3 = icmp eq i8 %2, 0
-  br i1 %3, label %4, label %21
+  br i1 %3, label %4, label %17
 
 4:                                                ; preds = %0
   store ptr null, ptr %1, align 8, !annotation !5
   %5 = load i64, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 132), align 1
   %6 = icmp eq i64 %5, 0
   %.pr = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 36), align 1
-  br i1 %6, label %16, label %7
+  br i1 %6, label %12, label %7
 
 7:                                                ; preds = %4
   %8 = icmp ne i32 %.pr, 0
   %9 = load i8, ptr @acpi_gbl_use32_bit_facs_addresses, align 1
   %10 = icmp ne i8 %9, 0
   %11 = select i1 %8, i1 %10, i1 false
-  br i1 %11, label %.thread, label %12
+  br i1 %11, label %.thread, label %.sink.split
 
-12:                                               ; preds = %7
-  %13 = load i32, ptr @acpi_gbl_xfacs_index, align 4
-  %14 = call i32 @acpi_get_table_by_index(i32 noundef %13, ptr noundef nonnull %1) #6
-  %15 = load ptr, ptr %1, align 8
-  br label %21
+12:                                               ; preds = %4
+  %13 = icmp eq i32 %.pr, 0
+  br i1 %13, label %19, label %.thread
 
-16:                                               ; preds = %4
-  %17 = icmp eq i32 %.pr, 0
-  br i1 %17, label %23, label %.thread
+.thread:                                          ; preds = %7, %12
+  br label %.sink.split
 
-.thread:                                          ; preds = %7, %16
-  %18 = load i32, ptr @acpi_gbl_facs_index, align 4
-  %19 = call i32 @acpi_get_table_by_index(i32 noundef %18, ptr noundef nonnull %1) #6
-  %20 = load ptr, ptr %1, align 8
-  br label %21
+.sink.split:                                      ; preds = %7, %.thread
+  %acpi_gbl_facs_index.sink = phi ptr [ @acpi_gbl_facs_index, %.thread ], [ @acpi_gbl_xfacs_index, %7 ]
+  %14 = load i32, ptr %acpi_gbl_facs_index.sink, align 4
+  %15 = call i32 @acpi_get_table_by_index(i32 noundef %14, ptr noundef nonnull %1) #6
+  %16 = load ptr, ptr %1, align 8
+  br label %17
 
-21:                                               ; preds = %.thread, %12, %0
-  %22 = phi ptr [ %20, %.thread ], [ %15, %12 ], [ null, %0 ]
-  store ptr %22, ptr @acpi_gbl_FACS, align 8
-  br label %23
+17:                                               ; preds = %.sink.split, %0
+  %18 = phi ptr [ null, %0 ], [ %16, %.sink.split ]
+  store ptr %18, ptr @acpi_gbl_FACS, align 8
+  br label %19
 
-23:                                               ; preds = %21, %16
+19:                                               ; preds = %17, %12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #6
   ret i32 0
 }

@@ -1022,7 +1022,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler7_newRegEPNS0_7B
   %11 = getelementptr inbounds i8, ptr %0, i64 464
   %12 = load i32, ptr %11, align 8, !tbaa !100
   %13 = icmp ult i32 %10, %12
-  br i1 %13, label %14, label %74
+  br i1 %13, label %14, label %66
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds i8, ptr %0, i64 456
@@ -1040,7 +1040,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler7_newRegEPNS0_7B
   %26 = load i32, ptr %2, align 4, !tbaa !77
   %27 = lshr i32 %26, 24
   %28 = icmp eq i32 %27, %25
-  br i1 %28, label %85, label %29
+  br i1 %28, label %78, label %29
 
 29:                                               ; preds = %14
   %30 = add i8 %21, -32
@@ -1049,7 +1049,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler7_newRegEPNS0_7B
 
 32:                                               ; preds = %29
   %33 = trunc nuw i32 %27 to i8
-  switch i8 %33, label %72 [
+  switch i8 %33, label %64 [
     i8 1, label %34
     i8 2, label %37
     i8 4, label %40
@@ -1059,157 +1059,139 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler7_newRegEPNS0_7B
 34:                                               ; preds = %32
   %35 = and i8 %21, 1
   %36 = or disjoint i8 %35, 34
-  store i8 %36, ptr %6, align 1, !tbaa !111
-  br label %85
+  br label %.sink.split
 
 37:                                               ; preds = %32
   %38 = and i8 %21, 1
   %39 = or disjoint i8 %38, 36
-  store i8 %39, ptr %6, align 1, !tbaa !111
-  br label %85
+  br label %.sink.split
 
 40:                                               ; preds = %32
   %41 = and i8 %21, 1
   %42 = or disjoint i8 %41, 38
-  store i8 %42, ptr %6, align 1, !tbaa !111
-  br label %85
+  br label %.sink.split
 
 43:                                               ; preds = %32
   %44 = and i8 %21, 1
   %45 = or disjoint i8 %44, 40
-  store i8 %45, ptr %6, align 1, !tbaa !111
-  br label %85
+  br label %.sink.split
 
 46:                                               ; preds = %29
   %47 = add i8 %21, -49
   %48 = icmp ult i8 %47, 2
-  br i1 %48, label %49, label %50
+  br i1 %48, label %.sink.split, label %49
 
 49:                                               ; preds = %46
-  store i8 50, ptr %6, align 1, !tbaa !111
-  br label %85
+  %50 = add i8 %21, -45
+  %51 = icmp ult i8 %50, 4
+  br i1 %51, label %52, label %55
 
-50:                                               ; preds = %46
-  %51 = add i8 %21, -45
-  %52 = icmp ult i8 %51, 4
-  br i1 %52, label %53, label %59
+52:                                               ; preds = %49
+  %53 = trunc nuw i32 %27 to i8
+  %switch.tableidx = add i8 %53, -1
+  %54 = icmp ult i8 %switch.tableidx, 8
+  br i1 %54, label %switch.hole_check, label %64
 
-53:                                               ; preds = %50
-  %54 = trunc nuw i32 %27 to i8
-  switch i8 %54, label %72 [
-    i8 1, label %55
-    i8 2, label %56
-    i8 4, label %57
-    i8 8, label %58
+55:                                               ; preds = %49
+  %56 = getelementptr inbounds [256 x i8], ptr @_ZN6asmjit9_abi_1_109TypeUtils9_typeDataE, i64 0, i64 %22
+  %57 = load i8, ptr %56, align 1, !tbaa !111
+  %58 = trunc nuw i32 %27 to i8
+  switch i8 %58, label %64 [
+    i8 16, label %61
+    i8 32, label %59
+    i8 64, label %60
   ]
 
-55:                                               ; preds = %53
-  store i8 45, ptr %6, align 1, !tbaa !111
-  br label %85
+59:                                               ; preds = %55
+  br label %61
 
-56:                                               ; preds = %53
-  store i8 46, ptr %6, align 1, !tbaa !111
-  br label %85
+60:                                               ; preds = %55
+  br label %61
 
-57:                                               ; preds = %53
-  store i8 47, ptr %6, align 1, !tbaa !111
-  br label %85
+61:                                               ; preds = %55, %60, %59
+  %.sink4 = phi i8 [ 57, %60 ], [ 47, %59 ], [ 37, %55 ]
+  %62 = add i8 %57, %.sink4
+  store i8 %62, ptr %6, align 1, !tbaa !111
+  %63 = icmp eq i8 %62, 0
+  br i1 %63, label %64, label %78
 
-58:                                               ; preds = %53
-  store i8 48, ptr %6, align 1, !tbaa !111
-  br label %85
+64:                                               ; preds = %switch.hole_check, %52, %61, %55, %32
+  %65 = tail call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter11reportErrorEjPKc(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef 3, ptr noundef null)
+  br label %100
 
-59:                                               ; preds = %50
-  %60 = getelementptr inbounds [256 x i8], ptr @_ZN6asmjit9_abi_1_109TypeUtils9_typeDataE, i64 0, i64 %22
-  %61 = load i8, ptr %60, align 1, !tbaa !111
-  %62 = trunc nuw i32 %27 to i8
-  switch i8 %62, label %72 [
-    i8 16, label %63
-    i8 32, label %65
-    i8 64, label %67
-  ]
+66:                                               ; preds = %4
+  %67 = getelementptr inbounds i8, ptr %0, i64 72
+  %68 = load i8, ptr %67, align 8, !tbaa !112
+  %69 = zext i8 %68 to i64
+  %70 = load i32, ptr %2, align 4, !tbaa !77
+  %71 = lshr i32 %70, 3
+  %72 = getelementptr inbounds [17 x %"struct.asmjit::_abi_1_10::ArchTraits"], ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 0, i64 %69, i32 10
+  %73 = and i32 %71, 31
+  %74 = zext nneg i32 %73 to i64
+  %75 = getelementptr inbounds [32 x i8], ptr %72, i64 0, i64 %74
+  %76 = load i8, ptr %75, align 1, !tbaa !111
+  br label %.sink.split
 
-63:                                               ; preds = %59
-  %64 = add i8 %61, 37
-  store i8 %64, ptr %6, align 1, !tbaa !111
-  br label %69
+switch.hole_check:                                ; preds = %52
+  %switch.shifted = lshr i8 -117, %switch.tableidx
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %64
 
-65:                                               ; preds = %59
-  %66 = add i8 %61, 47
-  store i8 %66, ptr %6, align 1, !tbaa !111
-  br label %69
+switch.lookup:                                    ; preds = %switch.hole_check
+  %77 = shl nuw nsw i8 %switch.tableidx, 3
+  %switch.shiftamt = zext nneg i8 %77 to i64
+  %switch.downshift = lshr i64 3471480559860788781, %switch.shiftamt
+  %switch.masked = trunc i64 %switch.downshift to i8
+  br label %.sink.split
 
-67:                                               ; preds = %59
-  %68 = add i8 %61, 57
-  store i8 %68, ptr %6, align 1, !tbaa !111
-  br label %69
+.sink.split:                                      ; preds = %switch.lookup, %46, %34, %37, %40, %43, %66
+  %.sink = phi i8 [ %76, %66 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ], [ 50, %46 ], [ %switch.masked, %switch.lookup ]
+  store i8 %.sink, ptr %6, align 1, !tbaa !111
+  br label %78
 
-69:                                               ; preds = %67, %65, %63
-  %70 = phi i8 [ %64, %63 ], [ %66, %65 ], [ %68, %67 ]
-  %71 = icmp eq i8 %70, 0
-  br i1 %71, label %72, label %85
+78:                                               ; preds = %.sink.split, %61, %14
+  %79 = phi i8 [ %21, %14 ], [ %62, %61 ], [ %.sink, %.sink.split ]
+  %80 = getelementptr inbounds i8, ptr %0, i64 72
+  %81 = load i8, ptr %80, align 8, !tbaa !112
+  %82 = call noundef i32 @_ZN6asmjit9_abi_1_109ArchUtils20typeIdToRegSignatureENS0_4ArchENS0_6TypeIdEPS3_PNS0_16OperandSignatureE(i8 noundef zeroext %81, i8 noundef zeroext %79, ptr noundef nonnull %6, ptr noundef nonnull %5) #15
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %86, label %84, !prof !54
 
-72:                                               ; preds = %69, %59, %53, %32
-  %73 = tail call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter11reportErrorEjPKc(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef 3, ptr noundef null)
-  br label %107
+84:                                               ; preds = %78
+  %85 = call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter11reportErrorEjPKc(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %82, ptr noundef null)
+  br label %100
 
-74:                                               ; preds = %4
-  %75 = getelementptr inbounds i8, ptr %0, i64 72
-  %76 = load i8, ptr %75, align 8, !tbaa !112
-  %77 = zext i8 %76 to i64
-  %78 = load i32, ptr %2, align 4, !tbaa !77
-  %79 = lshr i32 %78, 3
-  %80 = getelementptr inbounds [17 x %"struct.asmjit::_abi_1_10::ArchTraits"], ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 0, i64 %77, i32 10
-  %81 = and i32 %79, 31
-  %82 = zext nneg i32 %81 to i64
-  %83 = getelementptr inbounds [32 x i8], ptr %80, i64 0, i64 %82
-  %84 = load i8, ptr %83, align 1, !tbaa !111
-  store i8 %84, ptr %6, align 1, !tbaa !111
-  br label %85
-
-85:                                               ; preds = %74, %69, %58, %57, %56, %55, %49, %43, %40, %37, %34, %14
-  %86 = phi i8 [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ], [ 48, %58 ], [ 47, %57 ], [ 46, %56 ], [ 45, %55 ], [ 50, %49 ], [ %21, %14 ], [ %70, %69 ], [ %84, %74 ]
-  %87 = getelementptr inbounds i8, ptr %0, i64 72
-  %88 = load i8, ptr %87, align 8, !tbaa !112
-  %89 = call noundef i32 @_ZN6asmjit9_abi_1_109ArchUtils20typeIdToRegSignatureENS0_4ArchENS0_6TypeIdEPS3_PNS0_16OperandSignatureE(i8 noundef zeroext %88, i8 noundef zeroext %86, ptr noundef nonnull %6, ptr noundef nonnull %5) #15
-  %90 = icmp eq i32 %89, 0
-  br i1 %90, label %93, label %91, !prof !54
-
-91:                                               ; preds = %85
-  %92 = call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter11reportErrorEjPKc(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %89, ptr noundef null)
-  br label %107
-
-93:                                               ; preds = %85
+86:                                               ; preds = %78
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
-  %94 = load i8, ptr %6, align 1, !tbaa !111
+  %87 = load i8, ptr %6, align 1, !tbaa !111
+  %88 = load i32, ptr %5, align 4, !tbaa !98
+  %89 = call noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler10newVirtRegEPPNS0_7VirtRegENS0_6TypeIdENS0_16OperandSignatureEPKc(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef %7, i8 noundef zeroext %87, i32 %88, ptr noundef %3)
+  %90 = icmp eq i32 %89, 0
+  br i1 %90, label %91, label %99
+
+91:                                               ; preds = %86
+  %92 = load ptr, ptr %7, align 8, !tbaa !42, !nonnull !72, !noundef !72
+  %93 = getelementptr inbounds i8, ptr %92, i64 4
+  %94 = load i32, ptr %93, align 4, !tbaa !103
   %95 = load i32, ptr %5, align 4, !tbaa !98
-  %96 = call noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler10newVirtRegEPPNS0_7VirtRegENS0_6TypeIdENS0_16OperandSignatureEPKc(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef %7, i8 noundef zeroext %94, i32 %95, ptr noundef %3)
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %98, label %106
+  store i32 %95, ptr %1, align 4, !tbaa !98
+  %96 = getelementptr inbounds i8, ptr %1, i64 4
+  store i32 %94, ptr %96, align 4, !tbaa !113
+  %97 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 0, ptr %97, align 4, !tbaa !98
+  %98 = getelementptr inbounds i8, ptr %1, i64 12
+  store i32 0, ptr %98, align 4, !tbaa !98
+  br label %99
 
-98:                                               ; preds = %93
-  %99 = load ptr, ptr %7, align 8, !tbaa !42, !nonnull !72, !noundef !72
-  %100 = getelementptr inbounds i8, ptr %99, i64 4
-  %101 = load i32, ptr %100, align 4, !tbaa !103
-  %102 = load i32, ptr %5, align 4, !tbaa !98
-  store i32 %102, ptr %1, align 4, !tbaa !98
-  %103 = getelementptr inbounds i8, ptr %1, i64 4
-  store i32 %101, ptr %103, align 4, !tbaa !113
-  %104 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 0, ptr %104, align 4, !tbaa !98
-  %105 = getelementptr inbounds i8, ptr %1, i64 12
-  store i32 0, ptr %105, align 4, !tbaa !98
-  br label %106
-
-106:                                              ; preds = %98, %93
+99:                                               ; preds = %91, %86
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
-  br label %107
+  br label %100
 
-107:                                              ; preds = %106, %91, %72
-  %108 = phi i32 [ %73, %72 ], [ %92, %91 ], [ %96, %106 ]
+100:                                              ; preds = %99, %84, %64
+  %101 = phi i32 [ %65, %64 ], [ %85, %84 ], [ %89, %99 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
-  ret i32 %108
+  ret i32 %101
 }
 
 ; Function Attrs: mustprogress uwtable

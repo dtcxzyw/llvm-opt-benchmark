@@ -155,7 +155,7 @@ define internal fastcc void @phar_file_stat(ptr noundef %0, i64 noundef %1, i32 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 2, ptr %14, align 8
-  br label %182
+  br label %184
 
 15:                                               ; preds = %6
   %16 = load i8, ptr %0, align 1
@@ -290,7 +290,7 @@ define internal fastcc void @phar_file_stat(ptr noundef %0, i64 noundef %1, i32 
 80:                                               ; preds = %77
   %81 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 3, ptr %81, align 8
-  br label %182
+  br label %184
 
 82:                                               ; preds = %77
   %83 = getelementptr inbounds i8, ptr %11, i64 48
@@ -299,7 +299,7 @@ define internal fastcc void @phar_file_stat(ptr noundef %0, i64 noundef %1, i32 
   store i32 16895, ptr %84, align 8
   %85 = load ptr, ptr %12, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 248
-  br label %159
+  br label %161
 
 .thread:                                          ; preds = %63, %71
   %87 = load ptr, ptr %8, align 8
@@ -330,14 +330,14 @@ define internal fastcc void @phar_file_stat(ptr noundef %0, i64 noundef %1, i32 
   call void @_efree(ptr noundef %100) #10
   %.off191 = add i32 %2, -9
   %switch192 = icmp ult i32 %.off191, 7
-  br i1 %switch192, label %101, label %130
+  br i1 %switch192, label %101, label %132
 
 101:                                              ; preds = %98
   %102 = load ptr, ptr %7, align 8
   call void @_efree(ptr noundef %102) #10
   %103 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 3, ptr %103, align 8
-  br label %182
+  br label %184
 
 104:                                              ; preds = %.thread
   %105 = load ptr, ptr %12, align 8
@@ -364,7 +364,7 @@ define internal fastcc void @phar_file_stat(ptr noundef %0, i64 noundef %1, i32 
 115:                                              ; preds = %114
   %116 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 3, ptr %116, align 8
-  br label %182
+  br label %184
 
 117:                                              ; preds = %114
   %118 = getelementptr inbounds i8, ptr %11, i64 48
@@ -373,7 +373,7 @@ define internal fastcc void @phar_file_stat(ptr noundef %0, i64 noundef %1, i32 
   store i32 16895, ptr %119, align 8
   %120 = load ptr, ptr %12, align 8
   %121 = getelementptr inbounds i8, ptr %120, i64 248
-  br label %159
+  br label %161
 
 122:                                              ; preds = %104
   switch i32 %2, label %123 [
@@ -400,119 +400,119 @@ define internal fastcc void @phar_file_stat(ptr noundef %0, i64 noundef %1, i32 
 128:                                              ; preds = %122, %122, %122, %122, %122, %122, %122, %126
   %129 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 2, ptr %129, align 8
-  br label %182
+  br label %184
 
 .sink.split:                                      ; preds = %68, %63
-  %.0161.ph.in = phi ptr [ %67, %63 ], [ %70, %68 ]
-  %.0161.ph = load ptr, ptr %.0161.ph.in, align 8, !nonnull !4, !noundef !4
-  %.sink = load ptr, ptr %8, align 8
-  call void @_efree(ptr noundef %.sink) #10
-  br label %130
-
-130:                                              ; preds = %.sink.split, %98
-  %.0161 = phi ptr [ %99, %98 ], [ %.0161.ph, %.sink.split ]
-  %131 = load ptr, ptr %7, align 8
+  %.sink = phi ptr [ %67, %63 ], [ %70, %68 ]
+  %130 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
+  %131 = load ptr, ptr %8, align 8
   call void @_efree(ptr noundef %131) #10
-  %132 = getelementptr inbounds i8, ptr %.0161, i64 154
-  %133 = load i16, ptr %132, align 2
-  %134 = and i16 %133, 8
-  %.not186 = icmp eq i16 %134, 0
-  %135 = getelementptr inbounds i8, ptr %.0161, i64 136
-  br i1 %.not186, label %136, label %146
+  br label %132
 
-136:                                              ; preds = %130
-  %137 = load i32, ptr %.0161, align 8
-  %138 = zext i32 %137 to i64
-  %139 = getelementptr inbounds i8, ptr %11, i64 48
-  store i64 %138, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %.0161, i64 16
-  %141 = load i32, ptr %140, align 8
-  %142 = and i32 %141, 511
-  %143 = getelementptr inbounds i8, ptr %11, i64 24
-  %144 = load ptr, ptr %135, align 8
-  %.not187 = icmp eq ptr %144, null
+132:                                              ; preds = %.sink.split, %98
+  %.0161 = phi ptr [ %99, %98 ], [ %130, %.sink.split ]
+  %133 = load ptr, ptr %7, align 8
+  call void @_efree(ptr noundef %133) #10
+  %134 = getelementptr inbounds i8, ptr %.0161, i64 154
+  %135 = load i16, ptr %134, align 2
+  %136 = and i16 %135, 8
+  %.not186 = icmp eq i16 %136, 0
+  %137 = getelementptr inbounds i8, ptr %.0161, i64 136
+  br i1 %.not186, label %138, label %148
+
+138:                                              ; preds = %132
+  %139 = load i32, ptr %.0161, align 8
+  %140 = zext i32 %139 to i64
+  %141 = getelementptr inbounds i8, ptr %11, i64 48
+  store i64 %140, ptr %141, align 8
+  %142 = getelementptr inbounds i8, ptr %.0161, i64 16
+  %143 = load i32, ptr %142, align 8
+  %144 = and i32 %143, 511
+  %145 = getelementptr inbounds i8, ptr %11, i64 24
+  %146 = load ptr, ptr %137, align 8
+  %.not187 = icmp eq ptr %146, null
   %storemerge.v = select i1 %.not187, i32 32768, i32 40960
-  %storemerge = or disjoint i32 %storemerge.v, %142
-  store i32 %storemerge, ptr %143, align 8
-  %145 = getelementptr inbounds i8, ptr %.0161, i64 4
-  br label %159
+  %storemerge = or disjoint i32 %storemerge.v, %144
+  store i32 %storemerge, ptr %145, align 8
+  %147 = getelementptr inbounds i8, ptr %.0161, i64 4
+  br label %161
 
-146:                                              ; preds = %130
-  %147 = getelementptr inbounds i8, ptr %11, i64 48
-  store i64 0, ptr %147, align 8
-  %148 = getelementptr inbounds i8, ptr %.0161, i64 16
-  %149 = load i32, ptr %148, align 8
-  %150 = and i32 %149, 511
-  %151 = getelementptr inbounds i8, ptr %11, i64 24
-  %152 = or disjoint i32 %150, 16384
-  store i32 %152, ptr %151, align 8
-  %153 = load ptr, ptr %135, align 8
-  %.not188 = icmp eq ptr %153, null
-  br i1 %.not188, label %156, label %154
+148:                                              ; preds = %132
+  %149 = getelementptr inbounds i8, ptr %11, i64 48
+  store i64 0, ptr %149, align 8
+  %150 = getelementptr inbounds i8, ptr %.0161, i64 16
+  %151 = load i32, ptr %150, align 8
+  %152 = and i32 %151, 511
+  %153 = getelementptr inbounds i8, ptr %11, i64 24
+  %154 = or disjoint i32 %152, 16384
+  store i32 %154, ptr %153, align 8
+  %155 = load ptr, ptr %137, align 8
+  %.not188 = icmp eq ptr %155, null
+  br i1 %.not188, label %158, label %156
 
-154:                                              ; preds = %146
-  %155 = or disjoint i32 %150, 57344
-  store i32 %155, ptr %151, align 8
-  br label %156
+156:                                              ; preds = %148
+  %157 = or disjoint i32 %152, 57344
+  store i32 %157, ptr %153, align 8
+  br label %158
 
-156:                                              ; preds = %154, %146
-  %157 = phi i32 [ %155, %154 ], [ %152, %146 ]
-  %158 = getelementptr inbounds i8, ptr %.0161, i64 4
-  br label %159
+158:                                              ; preds = %156, %148
+  %159 = phi i32 [ %157, %156 ], [ %154, %148 ]
+  %160 = getelementptr inbounds i8, ptr %.0161, i64 4
+  br label %161
 
-159:                                              ; preds = %136, %156, %117, %82
-  %.sink209.in = phi ptr [ %145, %136 ], [ %158, %156 ], [ %121, %117 ], [ %86, %82 ]
-  %160 = phi i32 [ %storemerge, %136 ], [ %157, %156 ], [ 16895, %117 ], [ 16895, %82 ]
-  %.1 = phi ptr [ %.0161, %136 ], [ %.0161, %156 ], [ null, %117 ], [ null, %82 ]
+161:                                              ; preds = %138, %158, %117, %82
+  %.sink209.in = phi ptr [ %147, %138 ], [ %160, %158 ], [ %121, %117 ], [ %86, %82 ]
+  %162 = phi i32 [ %storemerge, %138 ], [ %159, %158 ], [ 16895, %117 ], [ 16895, %82 ]
+  %.1 = phi ptr [ %.0161, %138 ], [ %.0161, %158 ], [ null, %117 ], [ null, %82 ]
   %.sink209 = load i32, ptr %.sink209.in, align 4
-  %161 = zext i32 %.sink209 to i64
-  %162 = getelementptr inbounds i8, ptr %11, i64 88
-  store i64 %161, ptr %162, align 8
-  %163 = getelementptr inbounds i8, ptr %11, i64 72
-  store i64 %161, ptr %163, align 8
-  %164 = getelementptr inbounds i8, ptr %11, i64 104
-  store i64 %161, ptr %164, align 8
-  %165 = load ptr, ptr %12, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 324
-  %167 = load i16, ptr %166, align 4
-  %168 = and i16 %167, 4
-  %.not189 = icmp eq i16 %168, 0
-  br i1 %.not189, label %169, label %172
+  %163 = zext i32 %.sink209 to i64
+  %164 = getelementptr inbounds i8, ptr %11, i64 88
+  store i64 %163, ptr %164, align 8
+  %165 = getelementptr inbounds i8, ptr %11, i64 72
+  store i64 %163, ptr %165, align 8
+  %166 = getelementptr inbounds i8, ptr %11, i64 104
+  store i64 %163, ptr %166, align 8
+  %167 = load ptr, ptr %12, align 8
+  %168 = getelementptr inbounds i8, ptr %167, i64 324
+  %169 = load i16, ptr %168, align 4
+  %170 = and i16 %169, 4
+  %.not189 = icmp eq i16 %170, 0
+  br i1 %.not189, label %171, label %174
 
-169:                                              ; preds = %159
-  %170 = getelementptr inbounds i8, ptr %11, i64 24
-  %171 = and i32 %160, -147
-  store i32 %171, ptr %170, align 8
-  br label %172
+171:                                              ; preds = %161
+  %172 = getelementptr inbounds i8, ptr %11, i64 24
+  %173 = and i32 %162, -147
+  store i32 %173, ptr %172, align 8
+  br label %174
 
-172:                                              ; preds = %169, %159
-  %173 = getelementptr inbounds i8, ptr %11, i64 16
-  store i64 1, ptr %173, align 8
-  %174 = getelementptr inbounds i8, ptr %11, i64 40
-  store i64 -1, ptr %174, align 8
+174:                                              ; preds = %171, %161
+  %175 = getelementptr inbounds i8, ptr %11, i64 16
+  store i64 1, ptr %175, align 8
+  %176 = getelementptr inbounds i8, ptr %11, i64 40
+  store i64 -1, ptr %176, align 8
   store i64 12, ptr %11, align 8
   %.not190 = icmp eq ptr %.1, null
-  br i1 %.not190, label %180, label %175
+  br i1 %.not190, label %182, label %177
 
-175:                                              ; preds = %172
-  %176 = getelementptr inbounds i8, ptr %.1, i64 152
-  %177 = load i16, ptr %176, align 8
-  %178 = zext i16 %177 to i64
-  %179 = getelementptr inbounds i8, ptr %11, i64 8
-  store i64 %178, ptr %179, align 8
-  br label %180
-
-180:                                              ; preds = %175, %172
-  %181 = getelementptr inbounds i8, ptr %11, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %181, i8 -1, i64 16, i1 false)
-  call fastcc void @phar_fancy_stat(ptr noundef nonnull %11, i32 noundef %2, ptr noundef %5)
+177:                                              ; preds = %174
+  %178 = getelementptr inbounds i8, ptr %.1, i64 152
+  %179 = load i16, ptr %178, align 8
+  %180 = zext i16 %179 to i64
+  %181 = getelementptr inbounds i8, ptr %11, i64 8
+  store i64 %180, ptr %181, align 8
   br label %182
+
+182:                                              ; preds = %177, %174
+  %183 = getelementptr inbounds i8, ptr %11, i64 56
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %183, i8 -1, i64 16, i1 false)
+  call fastcc void @phar_fancy_stat(ptr noundef nonnull %11, i32 noundef %2, ptr noundef %5)
+  br label %184
 
 .critedge:                                        ; preds = %22, %15, %18, %43, %20, %26, %53
   call void %3(ptr noundef %4, ptr noundef %5) #10
-  br label %182
+  br label %184
 
-182:                                              ; preds = %.critedge, %180, %128, %115, %101, %80, %13
+184:                                              ; preds = %.critedge, %182, %128, %115, %101, %80, %13
   ret void
 }
 
@@ -3427,14 +3427,14 @@ define internal fastcc ptr @phar_get_name_for_relative_paths(ptr noundef %0, i1 
 
 .critedge.sink.split.sink.split:                  ; preds = %49, %57, %37, %42
   %.021.ph.ph = phi ptr [ null, %42 ], [ null, %37 ], [ %56, %49 ], [ %59, %57 ]
-  %.sink29 = load ptr, ptr %4, align 8
-  call void @_efree(ptr noundef %.sink29) #10
+  %60 = load ptr, ptr %4, align 8
+  call void @_efree(ptr noundef %60) #10
   br label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %25, %.critedge.sink.split.sink.split, %18
   %.021.ph = phi ptr [ null, %18 ], [ %26, %25 ], [ %.021.ph.ph, %.critedge.sink.split.sink.split ]
-  %.sink = load ptr, ptr %3, align 8
-  call void @_efree(ptr noundef %.sink) #10
+  %61 = load ptr, ptr %3, align 8
+  call void @_efree(ptr noundef %61) #10
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %15, %2, %13, %9

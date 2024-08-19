@@ -2123,11 +2123,7 @@ php_skip_variable.exit:                           ; preds = %67
   %.0.i.i48 = select i1 %83, i16 0, i16 %89
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
   %90 = icmp ult i16 %.0.i.i48, 2
-  br i1 %90, label %php_read_APP.exit.thread, label %91
-
-php_read_APP.exit.thread:                         ; preds = %81
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br label %php_next_marker.exit.thread
+  br i1 %90, label %php_next_marker.exit.thread.sink.split, label %91
 
 91:                                               ; preds = %81
   %92 = zext i16 %.0.i.i48 to i64
@@ -2176,8 +2172,7 @@ php_read_APP.exit.thread62:                       ; preds = %110, %103
 
 php_read_APP.exit:                                ; preds = %php_read_stream_all_chunks.exit.i
   call void @_efree(ptr noundef %94) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br label %php_next_marker.exit.thread
+  br label %php_next_marker.exit.thread.sink.split
 
 112:                                              ; preds = %80
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
@@ -2221,8 +2216,12 @@ php_skip_variable.exit56:                         ; preds = %125
   %137 = call i32 @_php_stream_seek(ptr noundef %0, i64 noundef %136, i32 noundef 1) #13
   br label %.preheader.i.preheader
 
-php_next_marker.exit.thread:                      ; preds = %125, %112, %67, %62, %28, %.preheader.i, %25, %25, %25, %php_read_APP.exit, %php_read_APP.exit.thread
-  %.034 = phi ptr [ %.036.ph, %php_read_APP.exit ], [ %.036.ph, %php_read_APP.exit.thread ], [ %.036.ph, %25 ], [ %.036.ph, %25 ], [ %.036.ph, %25 ], [ %.036.ph, %.preheader.i ], [ %.036.ph, %125 ], [ %.036.ph, %112 ], [ %.036.ph, %67 ], [ %29, %62 ], [ %29, %28 ]
+php_next_marker.exit.thread.sink.split:           ; preds = %81, %php_read_APP.exit
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  br label %php_next_marker.exit.thread
+
+php_next_marker.exit.thread:                      ; preds = %125, %112, %67, %62, %28, %.preheader.i, %25, %25, %25, %php_next_marker.exit.thread.sink.split
+  %.034 = phi ptr [ %.036.ph, %php_next_marker.exit.thread.sink.split ], [ %.036.ph, %25 ], [ %.036.ph, %25 ], [ %.036.ph, %25 ], [ %.036.ph, %.preheader.i ], [ %.036.ph, %125 ], [ %.036.ph, %112 ], [ %.036.ph, %67 ], [ %29, %62 ], [ %29, %28 ]
   ret ptr %.034
 }
 

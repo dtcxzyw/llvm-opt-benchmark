@@ -5820,17 +5820,16 @@ define noundef range(i8 0, -124) i8 @_ZN12typst_syntax4node10LinkedNode17prev_si
 
 18:                                               ; preds = %1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   br label %19
 
 _ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit: ; preds = %17, %13, %6
   %.0.i = phi i8 [ -128, %17 ], [ %16, %13 ], [ %8, %6 ]
   call void @"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..LinkedNode$GT$17h90790b914957a83aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   br label %19
 
 19:                                               ; preds = %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit, %18
   %.0 = phi i8 [ -126, %18 ], [ %.0.i, %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret i8 %.0
 }
 
@@ -5878,17 +5877,16 @@ define noundef range(i8 0, -124) i8 @_ZN12typst_syntax4node10LinkedNode17next_si
 
 18:                                               ; preds = %1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   br label %19
 
 _ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit: ; preds = %17, %13, %6
   %.0.i = phi i8 [ -128, %17 ], [ %16, %13 ], [ %8, %6 ]
   call void @"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..LinkedNode$GT$17h90790b914957a83aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   br label %19
 
 19:                                               ; preds = %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit, %18
   %.0 = phi i8 [ -126, %18 ], [ %.0.i, %_ZN12typst_syntax4node10SyntaxNode4kind17h402b8a7b2cea31b3E.exit ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret i8 %.0
 }
 
@@ -5943,7 +5941,7 @@ define void @_ZN12typst_syntax4node10LinkedNode9prev_leaf17haa29ee23dd868697E(pt
 26:                                               ; preds = %.loopexit, %.loopexit.split-lp, %30, %39
   %.pn7 = phi { ptr, i32 } [ %40, %39 ], [ %31, %30 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..LinkedNode$GT$17h90790b914957a83aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #38
-          to label %48 unwind label %41
+          to label %47 unwind label %41
 
 .loopexit:                                        ; preds = %25
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -5985,11 +5983,11 @@ define void @_ZN12typst_syntax4node10LinkedNode9prev_leaf17haa29ee23dd868697E(pt
 35:                                               ; preds = %34
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..LinkedNode$GT$17h90790b914957a83aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %36
 
-36:                                               ; preds = %47, %46, %35
+36:                                               ; preds = %44, %46, %35
+  call void @"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..LinkedNode$GT$17h90790b914957a83aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   ret void
 
 37:                                               ; preds = %32
@@ -6024,20 +6022,13 @@ define void @_ZN12typst_syntax4node10LinkedNode9prev_leaf17haa29ee23dd868697E(pt
 44:                                               ; preds = %43
   %45 = getelementptr inbounds i8, ptr %10, i64 16
   invoke void @_ZN12typst_syntax4node10LinkedNode9prev_leaf17haa29ee23dd868697E(ptr noalias nocapture noundef nonnull sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %45)
-          to label %47 unwind label %.loopexit.split-lp
+          to label %36 unwind label %.loopexit.split-lp
 
 46:                                               ; preds = %43
   store ptr null, ptr %0, align 8
-  call void @"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..LinkedNode$GT$17h90790b914957a83aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %36
 
-47:                                               ; preds = %44
-  call void @"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..LinkedNode$GT$17h90790b914957a83aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  br label %36
-
-48:                                               ; preds = %26
+47:                                               ; preds = %26
   resume { ptr, i32 } %.pn7
 }
 
@@ -7030,7 +7021,7 @@ define void @_ZN12typst_syntax4node10LinkedNode9next_leaf17h695c0027cb64b3d0E(pt
 26:                                               ; preds = %.loopexit, %.loopexit.split-lp, %30, %39
   %.pn7 = phi { ptr, i32 } [ %40, %39 ], [ %31, %30 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..LinkedNode$GT$17h90790b914957a83aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #38
-          to label %48 unwind label %41
+          to label %47 unwind label %41
 
 .loopexit:                                        ; preds = %25
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -7072,11 +7063,11 @@ define void @_ZN12typst_syntax4node10LinkedNode9next_leaf17h695c0027cb64b3d0E(pt
 35:                                               ; preds = %34
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..LinkedNode$GT$17h90790b914957a83aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %36
 
-36:                                               ; preds = %47, %46, %35
+36:                                               ; preds = %44, %46, %35
+  call void @"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..LinkedNode$GT$17h90790b914957a83aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   ret void
 
 37:                                               ; preds = %32
@@ -7111,20 +7102,13 @@ define void @_ZN12typst_syntax4node10LinkedNode9next_leaf17h695c0027cb64b3d0E(pt
 44:                                               ; preds = %43
   %45 = getelementptr inbounds i8, ptr %10, i64 16
   invoke void @_ZN12typst_syntax4node10LinkedNode9next_leaf17h695c0027cb64b3d0E(ptr noalias nocapture noundef nonnull sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %45)
-          to label %47 unwind label %.loopexit.split-lp
+          to label %36 unwind label %.loopexit.split-lp
 
 46:                                               ; preds = %43
   store ptr null, ptr %0, align 8
-  call void @"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..LinkedNode$GT$17h90790b914957a83aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %36
 
-47:                                               ; preds = %44
-  call void @"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..LinkedNode$GT$17h90790b914957a83aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  br label %36
-
-48:                                               ; preds = %26
+47:                                               ; preds = %26
   resume { ptr, i32 } %.pn7
 }
 

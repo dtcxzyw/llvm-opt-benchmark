@@ -1042,12 +1042,7 @@ if.end209:                                        ; preds = %if.end202
   store i16 %walker_start_place.sroa.5.0.extract.trunc, ptr %walker_start_place.sroa.5.0.m_pos.sroa_idx, align 2, !tbaa !31
   store i16 %walker_start_place.sroa.6.0.extract.trunc, ptr %walker_start_place.sroa.6.0.m_pos.sroa_idx, align 8, !tbaa !31
   %call217 = call noundef zeroext i1 @_ZN10DungeonGen16findPlaceForDoorERN3irr4core8vector3dIsEES4_(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 2 dereferenceable(6) %doorplace, ptr noundef nonnull align 2 dereferenceable(6) %doordir)
-  br i1 %call217, label %if.end219, label %cleanup336.thread490
-
-cleanup336.thread490:                             ; preds = %if.end209
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %doordir) #24
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %doorplace) #24
-  br label %cleanup345
+  br i1 %call217, label %if.end219, label %cleanup345.sink.split
 
 if.end219:                                        ; preds = %if.end209
   %48 = load i32, ptr %random, align 4, !tbaa !53
@@ -1144,9 +1139,7 @@ if.end315:                                        ; preds = %land.lhs.true, %if.
 cleanup336.thread496:                             ; preds = %if.end315
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %corridor_end_dir) #24
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %corridor_end) #24
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %doordir) #24
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %doorplace) #24
-  br label %cleanup345
+  br label %cleanup345.sink.split
 
 if.end320:                                        ; preds = %if.end315
   %57 = load i32, ptr %random, align 4, !tbaa !53
@@ -1185,7 +1178,12 @@ cleanup336:                                       ; preds = %if.else327, %if.the
   %cmp180 = icmp ult i32 %add203, %conv179
   br i1 %cmp180, label %for.body182, label %cleanup345, !llvm.loop !118
 
-cleanup345:                                       ; preds = %cleanup336, %if.end202, %cleanup336.thread496, %cleanup336.thread490, %if.end165, %for.cond.cleanup
+cleanup345.sink.split:                            ; preds = %if.end209, %cleanup336.thread496
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %doordir) #24
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %doorplace) #24
+  br label %cleanup345
+
+cleanup345:                                       ; preds = %cleanup336, %if.end202, %cleanup345.sink.split, %if.end165, %for.cond.cleanup
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %roomplace) #24
   ret void
 }

@@ -292,8 +292,8 @@ define hidden void @"_ZN101_$LT$serde_json..iter..LineColIterator$LT$I$GT$$u20$a
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2b9421d6f5db5c2dE.exit": ; preds = %2
   call void @_ZN3std2io24uninlined_slow_read_byte17h44cf8da63a57bac5E.llvm.11948190557966450743(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3), !noalias !33
   %.pr = load i8, ptr %4, align 8
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3), !noalias !33
   %7 = icmp eq i8 %.pr, 2
   br i1 %7, label %8, label %9
 
@@ -46988,13 +46988,13 @@ define hidden void @_ZN9tiny_http6common6Header10from_bytes17h461a592937445ea8E(
 
 24:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$2or17h3bebce7a94ef3550E.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$2or17h3bebce7a94ef3550E.exit.thread"
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %43
+  br label %42
 
 .body:                                            ; preds = %20, %23
   %25 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr51drop_in_place$LT$tiny_http..common..HeaderField$GT$17h13c22422d7df66bfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #56
-          to label %46 unwind label %44
+          to label %45 unwind label %43
 
 "_ZN4core6result19Result$LT$T$C$E$GT$2or17hc65399d70f7841a0E.exit.thread": ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !10958
@@ -47019,7 +47019,6 @@ define hidden void @_ZN9tiny_http6common6Header10from_bytes17h461a592937445ea8E(
   store ptr %27, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %29, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %42
 
 33:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$2or17hc65399d70f7841a0E.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$2or17hc65399d70f7841a0E.exit.thread"
@@ -47044,22 +47043,19 @@ define hidden void @_ZN9tiny_http6common6Header10from_bytes17h461a592937445ea8E(
 
 "_ZN4core3ptr51drop_in_place$LT$tiny_http..common..HeaderField$GT$17h13c22422d7df66bfE.exit": ; preds = %33, %36, %40
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !10966
-  br label %43
-
-42:                                               ; preds = %43, %32
-  ret void
-
-43:                                               ; preds = %"_ZN4core3ptr51drop_in_place$LT$tiny_http..common..HeaderField$GT$17h13c22422d7df66bfE.exit", %24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %42
 
-44:                                               ; preds = %.body
-  %45 = landingpad { ptr, i32 }
+42:                                               ; preds = %24, %"_ZN4core3ptr51drop_in_place$LT$tiny_http..common..HeaderField$GT$17h13c22422d7df66bfE.exit", %32
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
+  ret void
+
+43:                                               ; preds = %.body
+  %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #57
   unreachable
 
-46:                                               ; preds = %.body
+45:                                               ; preds = %.body
   resume { ptr, i32 } %25
 }
 
@@ -47117,13 +47113,13 @@ define hidden void @_ZN9tiny_http6common6Header10from_bytes17hc3091ef47073c78dE(
 
 24:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$2or17h45a29ee9de401dffE.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$2or17h45a29ee9de401dffE.exit.thread"
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %43
+  br label %42
 
 .body:                                            ; preds = %20, %23
   %25 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr51drop_in_place$LT$tiny_http..common..HeaderField$GT$17h13c22422d7df66bfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #56
-          to label %46 unwind label %44
+          to label %45 unwind label %43
 
 "_ZN4core6result19Result$LT$T$C$E$GT$2or17hc65399d70f7841a0E.exit.thread": ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !10987
@@ -47148,7 +47144,6 @@ define hidden void @_ZN9tiny_http6common6Header10from_bytes17hc3091ef47073c78dE(
   store ptr %27, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %29, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %42
 
 33:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$2or17hc65399d70f7841a0E.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$2or17hc65399d70f7841a0E.exit.thread"
@@ -47173,22 +47168,19 @@ define hidden void @_ZN9tiny_http6common6Header10from_bytes17hc3091ef47073c78dE(
 
 "_ZN4core3ptr51drop_in_place$LT$tiny_http..common..HeaderField$GT$17h13c22422d7df66bfE.exit": ; preds = %33, %36, %40
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !10995
-  br label %43
-
-42:                                               ; preds = %43, %32
-  ret void
-
-43:                                               ; preds = %"_ZN4core3ptr51drop_in_place$LT$tiny_http..common..HeaderField$GT$17h13c22422d7df66bfE.exit", %24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %42
 
-44:                                               ; preds = %.body
-  %45 = landingpad { ptr, i32 }
+42:                                               ; preds = %24, %"_ZN4core3ptr51drop_in_place$LT$tiny_http..common..HeaderField$GT$17h13c22422d7df66bfE.exit", %32
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
+  ret void
+
+43:                                               ; preds = %.body
+  %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #57
   unreachable
 
-46:                                               ; preds = %.body
+45:                                               ; preds = %.body
   resume { ptr, i32 } %25
 }
 

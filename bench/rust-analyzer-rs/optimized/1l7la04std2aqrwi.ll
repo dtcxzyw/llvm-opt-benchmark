@@ -44977,10 +44977,10 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1117: ; preds = %1281
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.0.i1250)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %181)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %201)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %280)
   br label %1705
 
 1705:                                             ; preds = %2897, %1699
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %280)
   ret void
 
 .thread835:                                       ; preds = %1315, %1312, %1349, %1338, %.thread845
@@ -49131,7 +49131,6 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit1503: ; preds = %2461
   store i64 %2900, ptr %2902, align 8, !alias.scope !9489, !noalias !9496
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.0.i1632)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %279)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %280)
   br label %1705
 
 .thread1092:                                      ; preds = %2515, %2504, %.thread1098

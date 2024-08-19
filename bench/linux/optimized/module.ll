@@ -144,10 +144,10 @@ define dso_local noundef range(i32 -8, 1) i32 @apply_relocate_add(ptr nocapture 
   %25 = getelementptr inbounds i8, ptr %4, i64 24
   br label %26
 
-26:                                               ; preds = %72, %21
-  %27 = phi i64 [ %19, %21 ], [ %73, %72 ]
-  %28 = phi i64 [ 0, %21 ], [ %75, %72 ]
-  %29 = phi i32 [ 0, %21 ], [ %74, %72 ]
+26:                                               ; preds = %69, %21
+  %27 = phi i64 [ %19, %21 ], [ %70, %69 ]
+  %28 = phi i64 [ 0, %21 ], [ %72, %69 ]
+  %29 = phi i32 [ 0, %21 ], [ %71, %69 ]
   %30 = load i32, ptr %22, align 4
   %31 = zext i32 %30 to i64
   %32 = getelementptr %struct.elf64_shdr, ptr %0, i64 %31, i32 3
@@ -168,84 +168,82 @@ define dso_local noundef range(i32 -8, 1) i32 @apply_relocate_add(ptr nocapture 
   %47 = add i64 %46, %44
   store i64 %47, ptr %6, align 8
   %48 = trunc i64 %41 to i32
-  switch i32 %48, label %60 [
-    i32 0, label %72
-    i32 1, label %63
+  switch i32 %48, label %55 [
+    i32 0, label %69
+    i32 1, label %60
     i32 10, label %49
     i32 11, label %51
-    i32 2, label %54
-    i32 4, label %54
-    i32 24, label %57
+    i32 2, label %.sink.split
+    i32 4, label %.sink.split
+    i32 24, label %54
   ]
 
 49:                                               ; preds = %26
   %50 = icmp ult i64 %47, 4294967296
-  br i1 %50, label %63, label %78
+  br i1 %50, label %60, label %75
 
 51:                                               ; preds = %26
   %52 = add i64 %47, 2147483648
   %53 = icmp ult i64 %52, 4294967296
-  br i1 %53, label %63, label %78
+  br i1 %53, label %60, label %75
 
-54:                                               ; preds = %26, %26
-  %55 = ptrtoint ptr %37 to i64
-  %56 = sub i64 %47, %55
-  store i64 %56, ptr %6, align 8
-  br label %63
+54:                                               ; preds = %26
+  br label %.sink.split
 
-57:                                               ; preds = %26
+55:                                               ; preds = %26
+  %56 = and i64 %41, 4294967295
+  %57 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9, ptr noundef %25, i64 noundef %56) #12
+  br label %.thread
+
+.sink.split:                                      ; preds = %26, %26, %54
+  %.ph43 = phi i64 [ 8, %54 ], [ 4, %26 ], [ 4, %26 ]
   %58 = ptrtoint ptr %37 to i64
   %59 = sub i64 %47, %58
   store i64 %59, ptr %6, align 8
-  br label %63
+  br label %60
 
-60:                                               ; preds = %26
-  %61 = and i64 %41, 4294967295
-  %62 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9, ptr noundef %25, i64 noundef %61) #12
+60:                                               ; preds = %.sink.split, %51, %49, %26
+  %61 = phi i64 [ %47, %26 ], [ %47, %49 ], [ %47, %51 ], [ %59, %.sink.split ]
+  %62 = phi i64 [ 8, %26 ], [ 4, %49 ], [ 4, %51 ], [ %.ph43, %.sink.split ]
+  %63 = call i32 @bcmp(ptr noundef %37, ptr noundef nonnull dereferenceable(1) %7, i64 %62)
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %67, label %65
+
+65:                                               ; preds = %60
+  %66 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10, i32 noundef %48, ptr noundef %37, i64 noundef %61) #12
   br label %.thread
 
-63:                                               ; preds = %57, %54, %51, %49, %26
-  %64 = phi i64 [ %59, %57 ], [ %56, %54 ], [ %47, %26 ], [ %47, %49 ], [ %47, %51 ]
-  %65 = phi i64 [ 8, %57 ], [ 4, %54 ], [ 8, %26 ], [ 4, %49 ], [ 4, %51 ]
-  %66 = call i32 @bcmp(ptr noundef %37, ptr noundef nonnull dereferenceable(1) %7, i64 %65)
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %70, label %68
-
-68:                                               ; preds = %63
-  %69 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10, i32 noundef %48, ptr noundef %37, i64 noundef %64) #12
-  br label %.thread
-
-70:                                               ; preds = %63
-  %71 = call ptr %12(ptr noundef %37, ptr noundef nonnull %6, i64 noundef %65) #10, !callees !6
+67:                                               ; preds = %60
+  %68 = call ptr %12(ptr noundef %37, ptr noundef nonnull %6, i64 noundef %62) #10, !callees !6
   %.pre = load i64, ptr %18, align 8
-  br label %72
+  br label %69
 
-72:                                               ; preds = %70, %26
-  %73 = phi i64 [ %.pre, %70 ], [ %27, %26 ]
-  %74 = add i32 %29, 1
-  %75 = zext i32 %74 to i64
-  %76 = udiv i64 %73, 24
-  %77 = icmp ugt i64 %76, %75
-  br i1 %77, label %26, label %.thread, !llvm.loop !7
+69:                                               ; preds = %67, %26
+  %70 = phi i64 [ %.pre, %67 ], [ %27, %26 ]
+  %71 = add i32 %29, 1
+  %72 = zext i32 %71 to i64
+  %73 = udiv i64 %70, 24
+  %74 = icmp ugt i64 %73, %72
+  br i1 %74, label %26, label %.thread, !llvm.loop !7
 
-78:                                               ; preds = %49, %51
-  %79 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12, i32 noundef %48, i64 noundef %47) #12
-  %80 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13, ptr noundef %25) #12
+75:                                               ; preds = %49, %51
+  %76 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12, i32 noundef %48, i64 noundef %47) #12
+  %77 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13, ptr noundef %25) #12
   br label %.thread
 
-.thread:                                          ; preds = %72, %68, %60, %78, %11
-  %81 = phi i32 [ -8, %78 ], [ 0, %11 ], [ -8, %60 ], [ -8, %68 ], [ 0, %72 ]
+.thread:                                          ; preds = %69, %65, %55, %75, %11
+  %78 = phi i32 [ -8, %75 ], [ 0, %11 ], [ -8, %55 ], [ -8, %65 ], [ 0, %69 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
-  br i1 %9, label %83, label %82
+  br i1 %9, label %80, label %79
 
-82:                                               ; preds = %.thread
+79:                                               ; preds = %.thread
   call void @text_poke_sync() #10
   call void @mutex_unlock(ptr noundef nonnull @text_mutex) #10
-  br label %83
+  br label %80
 
-83:                                               ; preds = %82, %.thread
-  ret i32 %81
+80:                                               ; preds = %79, %.thread
+  ret i32 %78
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

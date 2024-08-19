@@ -4950,7 +4950,7 @@ define dso_local i32 @gres_ctld_step_dealloc(ptr noundef %0, ptr noundef %1, i32
   %7 = alloca %struct.gres_search_key, align 4
   %8 = alloca %struct.slurm_step_id_msg, align 4
   %9 = icmp eq ptr %0, null
-  br i1 %9, label %195, label %10
+  br i1 %9, label %193, label %10
 
 10:                                               ; preds = %6
   %11 = icmp eq ptr %1, null
@@ -4958,7 +4958,7 @@ define dso_local i32 @gres_ctld_step_dealloc(ptr noundef %0, ptr noundef %1, i32
 
 12:                                               ; preds = %10
   %13 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.gres_ctld_step_dealloc, i32 noundef %2) #8
-  br label %195
+  br label %193
 
 14:                                               ; preds = %10
   store i32 %2, ptr %8, align 4
@@ -4978,9 +4978,9 @@ define dso_local i32 @gres_ctld_step_dealloc(ptr noundef %0, ptr noundef %1, i32
   %22 = sext i32 %4 to i64
   br i1 %5, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %148
-  %23 = phi ptr [ %150, %148 ], [ %18, %.lr.ph ]
-  %.01524.us = phi i32 [ %149, %148 ], [ 0, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %147
+  %23 = phi ptr [ %149, %147 ], [ %18, %.lr.ph ]
+  %.01524.us = phi i32 [ %148, %147 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %24 = getelementptr inbounds i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
@@ -5207,118 +5207,110 @@ _step_dealloc.exit.us:                            ; preds = %45, %50
   %144 = getelementptr inbounds i8, ptr %34, i64 16
   %145 = load ptr, ptr %144, align 8
   %146 = call i32 (ptr, ...) @error(ptr noundef nonnull %.str.61.sink, ptr noundef %145, ptr noundef nonnull @__func__._step_dealloc, ptr noundef nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  br label %148
+  br label %147
 
-147:                                              ; preds = %139, %137, %132, %73, %69, %48, %41, %35, %33
+147:                                              ; preds = %33, %35, %41, %48, %69, %73, %132, %137, %139, %_step_dealloc.exit.us
+  %148 = phi i32 [ -1, %_step_dealloc.exit.us ], [ %.01524.us, %139 ], [ %.01524.us, %137 ], [ %.01524.us, %132 ], [ %.01524.us, %73 ], [ %.01524.us, %69 ], [ %.01524.us, %48 ], [ %.01524.us, %41 ], [ %.01524.us, %35 ], [ %.01524.us, %33 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  br label %148
-
-148:                                              ; preds = %147, %_step_dealloc.exit.us
-  %149 = phi i32 [ %.01524.us, %147 ], [ -1, %_step_dealloc.exit.us ]
-  %150 = call ptr @list_next(ptr noundef %17) #8
-  %.not.us = icmp eq ptr %150, null
+  %149 = call ptr @list_next(ptr noundef %17) #8
+  %.not.us = icmp eq ptr %149, null
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !51
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %192
-  %151 = phi ptr [ %194, %192 ], [ %18, %.lr.ph ]
-  %.01524 = phi i32 [ %193, %192 ], [ 0, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %190
+  %150 = phi ptr [ %192, %190 ], [ %18, %.lr.ph ]
+  %.01524 = phi i32 [ %191, %190 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  %152 = getelementptr inbounds i8, ptr %151, i64 8
-  %153 = load ptr, ptr %152, align 8
-  %154 = load i32, ptr %151, align 8
-  store i32 %154, ptr %7, align 4
-  %155 = getelementptr inbounds i8, ptr %151, i64 4
-  %156 = load i32, ptr %155, align 4
-  store i32 %156, ptr %19, align 4
-  %157 = getelementptr inbounds i8, ptr %153, i64 8
-  %158 = load ptr, ptr %157, align 8
-  %.not.i = icmp eq ptr %158, null
-  br i1 %.not.i, label %161, label %159
+  %151 = getelementptr inbounds i8, ptr %150, i64 8
+  %152 = load ptr, ptr %151, align 8
+  %153 = load i32, ptr %150, align 8
+  store i32 %153, ptr %7, align 4
+  %154 = getelementptr inbounds i8, ptr %150, i64 4
+  %155 = load i32, ptr %154, align 4
+  store i32 %155, ptr %19, align 4
+  %156 = getelementptr inbounds i8, ptr %152, i64 8
+  %157 = load ptr, ptr %156, align 8
+  %.not.i = icmp eq ptr %157, null
+  br i1 %.not.i, label %160, label %158
 
-159:                                              ; preds = %.lr.ph.split
-  %160 = load i32, ptr %153, align 8
-  br label %161
+158:                                              ; preds = %.lr.ph.split
+  %159 = load i32, ptr %152, align 8
+  br label %160
 
-161:                                              ; preds = %159, %.lr.ph.split
-  %.sink.i = phi i32 [ %160, %159 ], [ -2, %.lr.ph.split ]
+160:                                              ; preds = %158, %.lr.ph.split
+  %.sink.i = phi i32 [ %159, %158 ], [ -2, %.lr.ph.split ]
   store i32 %.sink.i, ptr %20, align 4
   store i32 %4, ptr %21, align 4
-  %162 = call ptr @list_find_first(ptr noundef nonnull %1, ptr noundef nonnull @gres_find_job_by_key_with_cnt, ptr noundef nonnull %7) #8
-  %.not114.i = icmp eq ptr %162, null
-  br i1 %.not114.i, label %191, label %163
+  %161 = call ptr @list_find_first(ptr noundef nonnull %1, ptr noundef nonnull @gres_find_job_by_key_with_cnt, ptr noundef nonnull %7) #8
+  %.not114.i = icmp eq ptr %161, null
+  br i1 %.not114.i, label %190, label %162
 
-163:                                              ; preds = %161
-  %164 = getelementptr inbounds i8, ptr %162, i64 8
-  %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 112
-  %167 = load i64, ptr %166, align 8
-  %168 = icmp eq i64 %167, -3
-  br i1 %168, label %191, label %169
+162:                                              ; preds = %160
+  %163 = getelementptr inbounds i8, ptr %161, i64 8
+  %164 = load ptr, ptr %163, align 8
+  %165 = getelementptr inbounds i8, ptr %164, i64 112
+  %166 = load i64, ptr %165, align 8
+  %167 = icmp eq i64 %166, -3
+  br i1 %167, label %190, label %168
 
-169:                                              ; preds = %163
-  %170 = getelementptr inbounds i8, ptr %165, i64 120
-  %171 = load i32, ptr %170, align 8
-  %172 = icmp ult i32 %171, %4
-  br i1 %172, label %191, label %173
+168:                                              ; preds = %162
+  %169 = getelementptr inbounds i8, ptr %164, i64 120
+  %170 = load i32, ptr %169, align 8
+  %171 = icmp ult i32 %170, %4
+  br i1 %171, label %190, label %172
 
-173:                                              ; preds = %169
-  %174 = getelementptr inbounds i8, ptr %153, i64 104
-  %175 = load ptr, ptr %174, align 8
-  %.not115.i = icmp eq ptr %175, null
-  br i1 %.not115.i, label %_step_dealloc.exit, label %179
+172:                                              ; preds = %168
+  %173 = getelementptr inbounds i8, ptr %152, i64 104
+  %174 = load ptr, ptr %173, align 8
+  %.not115.i = icmp eq ptr %174, null
+  br i1 %.not115.i, label %_step_dealloc.exit, label %178
 
-_step_dealloc.exit:                               ; preds = %173
-  %176 = getelementptr inbounds i8, ptr %162, i64 16
-  %177 = load ptr, ptr %176, align 8
-  %178 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.61, ptr noundef %177, ptr noundef nonnull @__func__._step_dealloc, ptr noundef nonnull %8) #8
+_step_dealloc.exit:                               ; preds = %172
+  %175 = getelementptr inbounds i8, ptr %161, i64 16
+  %176 = load ptr, ptr %175, align 8
+  %177 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.61, ptr noundef %176, ptr noundef nonnull @__func__._step_dealloc, ptr noundef nonnull %8) #8
+  br label %190
+
+178:                                              ; preds = %172
+  %179 = call i32 @bit_test(ptr noundef nonnull %174, i64 noundef %22) #8
+  %.not116.i = icmp eq i32 %179, 0
+  br i1 %.not116.i, label %190, label %180
+
+180:                                              ; preds = %178
+  %181 = getelementptr inbounds i8, ptr %152, i64 112
+  %182 = load ptr, ptr %181, align 8
+  %.not117.i = icmp eq ptr %182, null
+  br i1 %.not117.i, label %190, label %183
+
+183:                                              ; preds = %180
+  %184 = getelementptr inbounds ptr, ptr %182, i64 %22
+  %185 = load ptr, ptr %184, align 8
+  %.not118.i = icmp eq ptr %185, null
+  br i1 %.not118.i, label %187, label %186
+
+186:                                              ; preds = %183
+  call void @slurm_bit_free(ptr noundef nonnull %184) #8
+  %.pre.i = load ptr, ptr %181, align 8
+  br label %187
+
+187:                                              ; preds = %186, %183
+  %188 = phi ptr [ %.pre.i, %186 ], [ %182, %183 ]
+  %189 = getelementptr inbounds ptr, ptr %188, i64 %22
+  store ptr null, ptr %189, align 8
+  br label %190
+
+190:                                              ; preds = %180, %187, %178, %168, %162, %160, %_step_dealloc.exit
+  %191 = phi i32 [ -1, %_step_dealloc.exit ], [ %.01524, %160 ], [ %.01524, %162 ], [ %.01524, %168 ], [ %.01524, %178 ], [ %.01524, %187 ], [ %.01524, %180 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  br label %192
-
-179:                                              ; preds = %173
-  %180 = call i32 @bit_test(ptr noundef nonnull %175, i64 noundef %22) #8
-  %.not116.i = icmp eq i32 %180, 0
-  br i1 %.not116.i, label %191, label %181
-
-181:                                              ; preds = %179
-  %182 = getelementptr inbounds i8, ptr %153, i64 112
-  %183 = load ptr, ptr %182, align 8
-  %.not117.i = icmp eq ptr %183, null
-  br i1 %.not117.i, label %191, label %184
-
-184:                                              ; preds = %181
-  %185 = getelementptr inbounds ptr, ptr %183, i64 %22
-  %186 = load ptr, ptr %185, align 8
-  %.not118.i = icmp eq ptr %186, null
-  br i1 %.not118.i, label %188, label %187
-
-187:                                              ; preds = %184
-  call void @slurm_bit_free(ptr noundef nonnull %185) #8
-  %.pre.i = load ptr, ptr %182, align 8
-  br label %188
-
-188:                                              ; preds = %187, %184
-  %189 = phi ptr [ %.pre.i, %187 ], [ %183, %184 ]
-  %190 = getelementptr inbounds ptr, ptr %189, i64 %22
-  store ptr null, ptr %190, align 8
-  br label %191
-
-191:                                              ; preds = %161, %163, %169, %179, %188, %181
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  br label %192
-
-192:                                              ; preds = %_step_dealloc.exit, %191
-  %193 = phi i32 [ %.01524, %191 ], [ -1, %_step_dealloc.exit ]
-  %194 = call ptr @list_next(ptr noundef %17) #8
-  %.not = icmp eq ptr %194, null
+  %192 = call ptr @list_next(ptr noundef %17) #8
+  %.not = icmp eq ptr %192, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !51
 
-._crit_edge:                                      ; preds = %192, %148, %14
-  %.015.lcssa = phi i32 [ 0, %14 ], [ %149, %148 ], [ %193, %192 ]
+._crit_edge:                                      ; preds = %190, %147, %14
+  %.015.lcssa = phi i32 [ 0, %14 ], [ %148, %147 ], [ %191, %190 ]
   call void @list_iterator_destroy(ptr noundef %17) #8
-  br label %195
+  br label %193
 
-195:                                              ; preds = %6, %._crit_edge, %12
+193:                                              ; preds = %6, %._crit_edge, %12
   %.0 = phi i32 [ -1, %12 ], [ %.015.lcssa, %._crit_edge ], [ 0, %6 ]
   ret i32 %.0
 }

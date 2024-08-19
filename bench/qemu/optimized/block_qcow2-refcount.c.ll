@@ -2602,14 +2602,14 @@ land.lhs.true.i:                                  ; preds = %if.else.i
 
 if.then3.i:                                       ; preds = %land.lhs.true.i
   %tobool5.not.i = icmp eq i64 %and62, 0
-  br i1 %tobool5.not.i, label %sw.bb106, label %sw.bb77
+  br i1 %tobool5.not.i, label %sw.epilog.thread.sink.split, label %sw.bb77
 
 if.else7.i:                                       ; preds = %land.lhs.true.i, %if.else.i
   %tobool9.not.i = icmp eq i64 %and62, 0
-  br i1 %tobool9.not.i, label %sw.bb106, label %sw.bb77
+  br i1 %tobool9.not.i, label %sw.epilog.thread.sink.split, label %sw.bb77
 
 sw.bb:                                            ; preds = %for.body59
-  br i1 %cmp64.not, label %if.end76, label %if.then66
+  br i1 %cmp64.not, label %sw.epilog.thread.sink.split, label %if.then66
 
 if.then66:                                        ; preds = %sw.bb
   call void @qcow2_parse_compressed_l2_entry(ptr noundef nonnull %bs, i64 noundef %and61, ptr noundef nonnull %coffset, ptr noundef nonnull %csize) #17
@@ -2618,11 +2618,7 @@ if.then66:                                        ; preds = %sw.bb
   %conv67 = sext i32 %29 to i64
   %call71 = call fastcc i32 @update_refcount(ptr noundef nonnull %bs, i64 noundef %28, i64 noundef %conv67, i64 noundef %conv68, i1 noundef zeroext %cmp69, i32 noundef 3)
   %cmp72 = icmp slt i32 %call71, 0
-  br i1 %cmp72, label %fail, label %if.end76
-
-if.end76:                                         ; preds = %if.then66, %sw.bb
-  store i64 2, ptr %refcount, align 8
-  br label %sw.epilog.thread
+  br i1 %cmp72, label %fail, label %sw.epilog.thread.sink.split
 
 sw.bb77:                                          ; preds = %if.then3.i, %if.else7.i
   %.val = load i32, ptr %cluster_size, align 4
@@ -2665,10 +2661,6 @@ if.end100:                                        ; preds = %if.then91, %if.end8
   %cmp102 = icmp slt i32 %call101, 0
   br i1 %cmp102, label %fail, label %sw.epilog
 
-sw.bb106:                                         ; preds = %if.else7.i, %if.then3.i
-  store i64 0, ptr %refcount, align 8
-  br label %sw.epilog.thread
-
 sw.epilog:                                        ; preds = %if.end100
   %.pre = load i64, ptr %refcount, align 8
   %.pre.fr = freeze i64 %.pre
@@ -2676,8 +2668,13 @@ sw.epilog:                                        ; preds = %if.end100
   %spec.select294 = select i1 %cmp107, i64 -9223372036854775808, i64 0
   br label %sw.epilog.thread
 
-sw.epilog.thread:                                 ; preds = %sw.epilog, %if.end76, %sw.bb106
-  %32 = phi i64 [ 0, %sw.bb106 ], [ 0, %if.end76 ], [ %spec.select294, %sw.epilog ]
+sw.epilog.thread.sink.split:                      ; preds = %if.then3.i, %if.else7.i, %sw.bb, %if.then66
+  %.sink = phi i64 [ 2, %if.then66 ], [ 2, %sw.bb ], [ 0, %if.else7.i ], [ 0, %if.then3.i ]
+  store i64 %.sink, ptr %refcount, align 8
+  br label %sw.epilog.thread
+
+sw.epilog.thread:                                 ; preds = %sw.epilog, %sw.epilog.thread.sink.split
+  %32 = phi i64 [ %spec.select294, %sw.epilog ], [ 0, %sw.epilog.thread.sink.split ]
   %spec.select = or disjoint i64 %32, %and61
   %cmp111.not = icmp eq i64 %spec.select, %25
   br i1 %cmp111.not, label %for.inc122, label %if.then113

@@ -2177,7 +2177,7 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %8, %RB_SYMBOL_P.exi
   %.0 = phi i32 [ %6, %RB_SYMBOL_P.exit ], [ %21, %RB_SYMBOL_P.exit.thread39 ], [ %6, %3 ], [ %6, %8 ]
   %23 = load i64, ptr %5, align 8
   %24 = icmp eq i64 %23, 4
-  br i1 %24, label %38, label %25
+  br i1 %24, label %36, label %25
 
 25:                                               ; preds = %RB_SYMBOL_P.exit.thread
   %26 = load i64, ptr @rb_struct_s_def.keyword_ids, align 8
@@ -2210,100 +2210,97 @@ rbimpl_intern_const.exit:                         ; preds = %rbimpl_intern_const
   %31 = call i32 @rb_get_kwargs(i64 noundef %30, ptr noundef nonnull @rb_struct_s_def.keyword_ids, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4) #15
   %32 = load i64, ptr %4, align 8
   %33 = icmp eq i64 %32, 36
-  br i1 %33, label %34, label %35
+  br i1 %33, label %.sink.split, label %34
 
 34:                                               ; preds = %29
-  store i64 4, ptr %4, align 8
-  br label %38
+  %35 = and i64 %32, -5
+  %.not40 = icmp eq i64 %35, 0
+  br i1 %.not40, label %36, label %.sink.split
 
-35:                                               ; preds = %29
-  %36 = and i64 %32, -5
-  %.not40 = icmp eq i64 %36, 0
-  br i1 %.not40, label %38, label %37
+.sink.split:                                      ; preds = %34, %29
+  %.sink = phi i64 [ 4, %29 ], [ 20, %34 ]
+  store i64 %.sink, ptr %4, align 8
+  br label %36
 
-37:                                               ; preds = %35
-  store i64 20, ptr %4, align 8
-  br label %38
+36:                                               ; preds = %.sink.split, %34, %RB_SYMBOL_P.exit.thread
+  %37 = call i64 @rb_ident_hash_new() #15
+  %38 = inttoptr i64 %37 to ptr
+  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  store i64 0, ptr %39, align 8
+  %40 = sext i32 %.0 to i64
+  %41 = icmp sgt i32 %.0, 0
+  br i1 %41, label %.lr.ph, label %._crit_edge
 
-38:                                               ; preds = %34, %37, %35, %RB_SYMBOL_P.exit.thread
-  %39 = call i64 @rb_ident_hash_new() #15
-  %40 = inttoptr i64 %39 to ptr
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
-  store i64 0, ptr %41, align 8
-  %42 = sext i32 %.0 to i64
-  %43 = icmp sgt i32 %.0, 0
-  br i1 %43, label %.lr.ph, label %._crit_edge
+.lr.ph:                                           ; preds = %36, %53
+  %.03444 = phi i64 [ %55, %53 ], [ 0, %36 ]
+  %42 = getelementptr i64, ptr %.032, i64 %.03444
+  %43 = load i64, ptr %42, align 8
+  %44 = call i64 @rb_to_symbol(i64 noundef %43) #15
+  %45 = call i32 @rb_is_attrset_sym(i64 noundef %44) #16
+  %.not38 = icmp eq i32 %45, 0
+  br i1 %.not38, label %48, label %46
 
-.lr.ph:                                           ; preds = %38, %55
-  %.03444 = phi i64 [ %57, %55 ], [ 0, %38 ]
-  %44 = getelementptr i64, ptr %.032, i64 %.03444
-  %45 = load i64, ptr %44, align 8
-  %46 = call i64 @rb_to_symbol(i64 noundef %45) #15
-  %47 = call i32 @rb_is_attrset_sym(i64 noundef %46) #16
-  %.not38 = icmp eq i32 %47, 0
-  br i1 %.not38, label %50, label %48
+46:                                               ; preds = %.lr.ph
+  %47 = load i64, ptr @rb_eArgError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %47, ptr noundef nonnull @.str.53, i64 noundef %44) #17
+  unreachable
 
 48:                                               ; preds = %.lr.ph
-  %49 = load i64, ptr @rb_eArgError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %49, ptr noundef nonnull @.str.53, i64 noundef %46) #17
+  %49 = call i64 @rb_hash_has_key(i64 noundef %37, i64 noundef %44) #15
+  %50 = and i64 %49, -5
+  %.not41 = icmp eq i64 %50, 0
+  br i1 %.not41, label %53, label %51
+
+51:                                               ; preds = %48
+  %52 = load i64, ptr @rb_eArgError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %52, ptr noundef nonnull @.str.54, i64 noundef %44) #17
   unreachable
 
-50:                                               ; preds = %.lr.ph
-  %51 = call i64 @rb_hash_has_key(i64 noundef %39, i64 noundef %46) #15
-  %52 = and i64 %51, -5
-  %.not41 = icmp eq i64 %52, 0
-  br i1 %.not41, label %55, label %53
-
-53:                                               ; preds = %50
-  %54 = load i64, ptr @rb_eArgError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %54, ptr noundef nonnull @.str.54, i64 noundef %46) #17
-  unreachable
-
-55:                                               ; preds = %50
-  %56 = call i64 @rb_hash_aset(i64 noundef %39, i64 noundef %46, i64 noundef 20) #15
-  %57 = add nuw nsw i64 %.03444, 1
-  %exitcond.not = icmp eq i64 %57, %42
+53:                                               ; preds = %48
+  %54 = call i64 @rb_hash_aset(i64 noundef %37, i64 noundef %44, i64 noundef 20) #15
+  %55 = add nuw nsw i64 %.03444, 1
+  %exitcond.not = icmp eq i64 %55, %40
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %55, %38
-  %58 = call i64 @rb_hash_keys(i64 noundef %39) #15
-  %59 = inttoptr i64 %58 to ptr
-  %60 = getelementptr inbounds i8, ptr %59, i64 8
-  store i64 0, ptr %60, align 8
-  %61 = load i64, ptr %59, align 8
-  %62 = or i64 %61, 2048
-  store i64 %62, ptr %59, align 8
-  %63 = icmp eq i64 %.035, 4
-  br i1 %63, label %64, label %71
+._crit_edge:                                      ; preds = %53, %36
+  %56 = call i64 @rb_hash_keys(i64 noundef %37) #15
+  %57 = inttoptr i64 %56 to ptr
+  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  store i64 0, ptr %58, align 8
+  %59 = load i64, ptr %57, align 8
+  %60 = or i64 %59, 2048
+  store i64 %60, ptr %57, align 8
+  %61 = icmp eq i64 %.035, 4
+  br i1 %61, label %62, label %69
 
-64:                                               ; preds = %._crit_edge
-  %65 = call i64 @rb_class_new(i64 noundef %2) #15
-  %66 = inttoptr i64 %2 to ptr
-  %67 = getelementptr inbounds i8, ptr %66, i64 8
-  %68 = load i64, ptr %67, align 8
-  %69 = call i64 @rb_make_metaclass(i64 noundef %65, i64 noundef %68) #15
-  %70 = call i64 @rb_class_inherited(i64 noundef %2, i64 noundef %65) #15
-  br label %73
+62:                                               ; preds = %._crit_edge
+  %63 = call i64 @rb_class_new(i64 noundef %2) #15
+  %64 = inttoptr i64 %2 to ptr
+  %65 = getelementptr inbounds i8, ptr %64, i64 8
+  %66 = load i64, ptr %65, align 8
+  %67 = call i64 @rb_make_metaclass(i64 noundef %63, i64 noundef %66) #15
+  %68 = call i64 @rb_class_inherited(i64 noundef %2, i64 noundef %63) #15
+  br label %71
 
-71:                                               ; preds = %._crit_edge
-  %72 = call fastcc i64 @new_struct(i64 noundef %.035, i64 noundef %2)
-  br label %73
+69:                                               ; preds = %._crit_edge
+  %70 = call fastcc i64 @new_struct(i64 noundef %.035, i64 noundef %2)
+  br label %71
 
-73:                                               ; preds = %71, %64
-  %.033 = phi i64 [ %65, %64 ], [ %72, %71 ]
-  %74 = call fastcc i64 @setup_struct(i64 noundef %.033, i64 noundef %58)
-  %75 = load i64, ptr @id_keyword_init, align 8
-  %76 = load i64, ptr %4, align 8
-  %77 = call i64 @rb_ivar_set(i64 noundef %.033, i64 noundef %75, i64 noundef %76) #15
-  %78 = call i32 @rb_block_given_p() #15
-  %.not37 = icmp eq i32 %78, 0
-  br i1 %.not37, label %81, label %79
+71:                                               ; preds = %69, %62
+  %.033 = phi i64 [ %63, %62 ], [ %70, %69 ]
+  %72 = call fastcc i64 @setup_struct(i64 noundef %.033, i64 noundef %56)
+  %73 = load i64, ptr @id_keyword_init, align 8
+  %74 = load i64, ptr %4, align 8
+  %75 = call i64 @rb_ivar_set(i64 noundef %.033, i64 noundef %73, i64 noundef %74) #15
+  %76 = call i32 @rb_block_given_p() #15
+  %.not37 = icmp eq i32 %76, 0
+  br i1 %.not37, label %79, label %77
 
-79:                                               ; preds = %73
-  %80 = call i64 @rb_mod_module_eval(i32 noundef 0, ptr noundef null, i64 noundef %.033) #15
-  br label %81
+77:                                               ; preds = %71
+  %78 = call i64 @rb_mod_module_eval(i32 noundef 0, ptr noundef null, i64 noundef %.033) #15
+  br label %79
 
-81:                                               ; preds = %79, %73
+79:                                               ; preds = %77, %71
   ret i64 %.033
 }
 

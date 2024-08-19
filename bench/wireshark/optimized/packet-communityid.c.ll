@@ -485,99 +485,106 @@ define internal fastcc range(i32 0, 2) i32 @communityid_calc(i8 noundef zeroext 
   store i16 %28, ptr %13, align 2
   switch i8 %0, label %.thread [
     i8 1, label %29
-    i8 58, label %32
+    i8 58, label %31
   ]
 
 29:                                               ; preds = %26
   %rev87 = tail call i16 @llvm.bswap.i16(i16 %27)
   %rev88 = tail call i16 @llvm.bswap.i16(i16 %28)
   %30 = icmp ult i16 %rev87, 19
-  br i1 %30, label %switch.hole_check, label %.critedge
+  br i1 %30, label %switch.hole_check, label %43
+
+31:                                               ; preds = %26
+  %rev = tail call i16 @llvm.bswap.i16(i16 %27)
+  %rev84 = tail call i16 @llvm.bswap.i16(i16 %28)
+  switch i16 %rev, label %43 [
+    i16 128, label %.thread.critedge
+    i16 129, label %32
+    i16 130, label %33
+    i16 131, label %34
+    i16 133, label %35
+    i16 134, label %36
+    i16 135, label %37
+    i16 136, label %38
+    i16 139, label %39
+    i16 140, label %40
+    i16 144, label %41
+    i16 145, label %42
+  ]
+
+32:                                               ; preds = %31
+  store i16 128, ptr %13, align 2
+  br label %.thread.critedge
+
+33:                                               ; preds = %31
+  store i16 131, ptr %13, align 2
+  br label %.thread.critedge
+
+34:                                               ; preds = %31
+  store i16 130, ptr %13, align 2
+  br label %.thread.critedge
+
+35:                                               ; preds = %31
+  store i16 134, ptr %13, align 2
+  br label %.thread.critedge
+
+36:                                               ; preds = %31
+  store i16 133, ptr %13, align 2
+  br label %.thread.critedge
+
+37:                                               ; preds = %31
+  store i16 136, ptr %13, align 2
+  br label %.thread.critedge
+
+38:                                               ; preds = %31
+  store i16 135, ptr %13, align 2
+  br label %.thread.critedge
+
+39:                                               ; preds = %31
+  store i16 140, ptr %13, align 2
+  br label %.thread.critedge
+
+40:                                               ; preds = %31
+  store i16 139, ptr %13, align 2
+  br label %.thread.critedge
+
+41:                                               ; preds = %31
+  store i16 145, ptr %13, align 2
+  br label %.thread.critedge
+
+42:                                               ; preds = %31
+  store i16 144, ptr %13, align 2
+  br label %.thread.critedge
+
+43:                                               ; preds = %switch.hole_check, %29, %31
+  %.sink = phi i16 [ %rev88, %29 ], [ %rev84, %31 ], [ %rev88, %switch.hole_check ]
+  store i16 %27, ptr %12, align 2
+  %rev90 = tail call i16 @llvm.bswap.i16(i16 %.sink)
+  store i16 %rev90, ptr %13, align 2
+  br label %58
 
 switch.hole_check:                                ; preds = %29
   %switch.maskindex = zext nneg i16 %rev87 to i32
   %switch.shifted = lshr i32 517889, %switch.maskindex
   %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %.critedge
+  br i1 %switch.lobit, label %switch.lookup, label %43
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %31 = zext nneg i16 %rev87 to i64
-  %switch.gep = getelementptr inbounds [19 x i16], ptr @switch.table.communityid_calc, i64 0, i64 %31
+  %44 = zext nneg i16 %rev87 to i64
+  %switch.gep = getelementptr inbounds [19 x i16], ptr @switch.table.communityid_calc, i64 0, i64 %44
   %switch.load = load i16, ptr %switch.gep, align 2
-  br label %44
+  br label %.thread.critedge
 
-32:                                               ; preds = %26
-  %rev = tail call i16 @llvm.bswap.i16(i16 %27)
-  %rev84 = tail call i16 @llvm.bswap.i16(i16 %28)
-  switch i16 %rev, label %.critedge [
-    i16 128, label %44
-    i16 129, label %33
-    i16 130, label %34
-    i16 131, label %35
-    i16 133, label %36
-    i16 134, label %37
-    i16 135, label %38
-    i16 136, label %39
-    i16 139, label %40
-    i16 140, label %41
-    i16 144, label %42
-    i16 145, label %43
-  ]
-
-33:                                               ; preds = %32
-  store i16 128, ptr %13, align 2
-  br label %44
-
-34:                                               ; preds = %32
-  store i16 131, ptr %13, align 2
-  br label %44
-
-35:                                               ; preds = %32
-  store i16 130, ptr %13, align 2
-  br label %44
-
-36:                                               ; preds = %32
-  store i16 134, ptr %13, align 2
-  br label %44
-
-37:                                               ; preds = %32
-  store i16 133, ptr %13, align 2
-  br label %44
-
-38:                                               ; preds = %32
-  store i16 136, ptr %13, align 2
-  br label %44
-
-39:                                               ; preds = %32
-  store i16 135, ptr %13, align 2
-  br label %44
-
-40:                                               ; preds = %32
-  store i16 140, ptr %13, align 2
-  br label %44
-
-41:                                               ; preds = %32
-  store i16 139, ptr %13, align 2
-  br label %44
-
-42:                                               ; preds = %32
-  store i16 145, ptr %13, align 2
-  br label %44
-
-43:                                               ; preds = %32
-  store i16 144, ptr %13, align 2
-  br label %44
-
-44:                                               ; preds = %32, %33, %34, %35, %36, %37, %38, %39, %40, %41, %42, %43, %switch.lookup
-  %.sink = phi i16 [ %switch.load, %switch.lookup ], [ 144, %43 ], [ 145, %42 ], [ 139, %41 ], [ 140, %40 ], [ 135, %39 ], [ 136, %38 ], [ 133, %37 ], [ 134, %36 ], [ 130, %35 ], [ 131, %34 ], [ 128, %33 ], [ 129, %32 ]
+.thread.critedge:                                 ; preds = %31, %switch.lookup, %32, %33, %34, %35, %36, %37, %38, %39, %40, %41, %42
+  %.sink.ph = phi i16 [ 128, %32 ], [ 131, %33 ], [ 130, %34 ], [ 134, %35 ], [ 133, %36 ], [ 136, %37 ], [ 135, %38 ], [ 140, %39 ], [ 139, %40 ], [ 145, %41 ], [ 144, %42 ], [ %switch.load, %switch.lookup ], [ 129, %31 ]
   store i16 %27, ptr %12, align 2
-  %rev90 = tail call i16 @llvm.bswap.i16(i16 %.sink)
-  store i16 %rev90, ptr %13, align 2
+  %rev90.c = tail call i16 @llvm.bswap.i16(i16 %.sink.ph)
+  store i16 %rev90.c, ptr %13, align 2
   br label %.thread
 
-.thread:                                          ; preds = %44, %26, %23
-  %.0735 = phi ptr [ %12, %44 ], [ %4, %23 ], [ %12, %26 ]
-  %.0744 = phi ptr [ %13, %44 ], [ %5, %23 ], [ %13, %26 ]
+.thread:                                          ; preds = %.thread.critedge, %26, %23
+  %.0735 = phi ptr [ %4, %23 ], [ %12, %26 ], [ %12, %.thread.critedge ]
+  %.0744 = phi ptr [ %5, %23 ], [ %13, %26 ], [ %13, %.thread.critedge ]
   %45 = zext nneg i8 %1 to i64
   %46 = tail call i32 @memcmp(ptr noundef nonnull readonly %2, ptr noundef nonnull readonly %3, i64 noundef %45) #8
   %47 = icmp ne ptr %.0735, null
@@ -606,18 +613,11 @@ communityid_tuple_lt.exit:                        ; preds = %.thread, %49
   %spec.select96 = select i1 %or.cond.i, ptr %.0744, ptr %.0735
   br label %58
 
-.critedge:                                        ; preds = %32, %switch.hole_check, %29
-  %.sink.ph = phi i16 [ %rev84, %32 ], [ %rev88, %switch.hole_check ], [ %rev88, %29 ]
-  store i16 %27, ptr %12, align 2
-  %rev90.c = tail call i16 @llvm.bswap.i16(i16 %.sink.ph)
-  store i16 %rev90.c, ptr %13, align 2
-  br label %58
-
-58:                                               ; preds = %.critedge, %57, %communityid_tuple_lt.exit
-  %.175 = phi ptr [ %.0744, %communityid_tuple_lt.exit ], [ %spec.select, %57 ], [ %13, %.critedge ]
-  %.1 = phi ptr [ %.0735, %communityid_tuple_lt.exit ], [ %spec.select96, %57 ], [ %12, %.critedge ]
-  %.072 = phi ptr [ %3, %communityid_tuple_lt.exit ], [ %2, %57 ], [ %3, %.critedge ]
-  %.071 = phi ptr [ %2, %communityid_tuple_lt.exit ], [ %3, %57 ], [ %2, %.critedge ]
+58:                                               ; preds = %43, %57, %communityid_tuple_lt.exit
+  %.175 = phi ptr [ %13, %43 ], [ %.0744, %communityid_tuple_lt.exit ], [ %spec.select, %57 ]
+  %.1 = phi ptr [ %12, %43 ], [ %.0735, %communityid_tuple_lt.exit ], [ %spec.select96, %57 ]
+  %.072 = phi ptr [ %3, %43 ], [ %3, %communityid_tuple_lt.exit ], [ %2, %57 ]
+  %.071 = phi ptr [ %2, %43 ], [ %2, %communityid_tuple_lt.exit ], [ %3, %57 ]
   %59 = load i16, ptr @cid_cfg.1, align 4
   %rev93 = call i16 @llvm.bswap.i16(i16 %59)
   store i16 %rev93, ptr %10, align 2

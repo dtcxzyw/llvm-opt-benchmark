@@ -678,7 +678,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_hmac_drbg_self_test(i32 noundef %0) l
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %2)
   %29 = mul i64 %28, 3
   %30 = icmp ugt i64 %29, 769
-  br i1 %30, label %mbedtls_hmac_drbg_seed.exit.thread41, label %31
+  br i1 %30, label %mbedtls_hmac_drbg_seed.exit.thread.sink.split, label %31
 
 31:                                               ; preds = %27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %2, i8 0, i64 384, i1 false)
@@ -697,16 +697,15 @@ define hidden range(i32 0, 2) i32 @mbedtls_hmac_drbg_self_test(i32 noundef %0) l
   %.not37.i.i = icmp eq i32 %40, 0
   br i1 %.not37.i.i, label %42, label %mbedtls_hmac_drbg_seed.exit
 
-mbedtls_hmac_drbg_seed.exit.thread41:             ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %2)
-  br label %mbedtls_hmac_drbg_seed.exit.thread
-
 mbedtls_hmac_drbg_seed.exit:                      ; preds = %31
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef %39) #12
+  br label %mbedtls_hmac_drbg_seed.exit.thread.sink.split
+
+mbedtls_hmac_drbg_seed.exit.thread.sink.split:    ; preds = %27, %mbedtls_hmac_drbg_seed.exit
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %2)
   br label %mbedtls_hmac_drbg_seed.exit.thread
 
-mbedtls_hmac_drbg_seed.exit.thread:               ; preds = %11, %9, %mbedtls_hmac_drbg_seed.exit, %mbedtls_hmac_drbg_seed.exit.thread41
+mbedtls_hmac_drbg_seed.exit.thread:               ; preds = %mbedtls_hmac_drbg_seed.exit.thread.sink.split, %11, %9
   br i1 %.not, label %.critedge37, label %41
 
 41:                                               ; preds = %mbedtls_hmac_drbg_seed.exit.thread

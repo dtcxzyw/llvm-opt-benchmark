@@ -1579,7 +1579,7 @@ define range(i32 -32, 1) i32 @pmix_bfrops_base_print_pinfo(ptr noundef %0, ptr n
   %8 = select i1 %7, ptr @.str.1, ptr %1
   %9 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.67, ptr noundef nonnull %8) #8
   %10 = icmp slt i32 %9, 0
-  br i1 %10, label %31, label %11
+  br i1 %10, label %32, label %11
 
 11:                                               ; preds = %4
   %12 = load ptr, ptr %5, align 8
@@ -1604,15 +1604,15 @@ define range(i32 -32, 1) i32 @pmix_bfrops_base_print_pinfo(ptr noundef %0, ptr n
   %28 = call ptr @PMIx_Proc_state_string(i8 noundef zeroext %27) #8
   %29 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.68, ptr noundef nonnull %8, ptr noundef %15, ptr noundef %16, ptr noundef %18, ptr noundef %20, ptr noundef %16, i64 noundef %23, i32 noundef %25, ptr noundef %28) #8
   %30 = icmp slt i32 %29, 0
-  br i1 %30, label %.sink.split, label %31
+  br i1 %30, label %.sink.split, label %32
 
 .sink.split:                                      ; preds = %14, %11
   %.0.ph = phi i32 [ %13, %11 ], [ -32, %14 ]
-  %.sink = load ptr, ptr %5, align 8
-  call void @free(ptr noundef %.sink) #8
-  br label %31
+  %31 = load ptr, ptr %5, align 8
+  call void @free(ptr noundef %31) #8
+  br label %32
 
-31:                                               ; preds = %.sink.split, %4, %14
+32:                                               ; preds = %.sink.split, %4, %14
   %.0 = phi i32 [ 0, %14 ], [ -32, %4 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }

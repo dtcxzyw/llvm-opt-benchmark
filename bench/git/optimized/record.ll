@@ -3102,22 +3102,18 @@ while.end.i:                                      ; preds = %while.end.loopexit.
   %sub10.i = sub i32 9, %i.0.lcssa.i
   %conv12.i = sext i32 %sub10.i to i64
   %cmp.i = icmp ugt i64 %conv12.i, %out.coerce1
-  br i1 %cmp.i, label %put_var_int.exit.thread, label %put_var_int.exit
-
-put_var_int.exit.thread:                          ; preds = %while.end.i
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buf.i)
-  br label %return
+  br i1 %cmp.i, label %return, label %put_var_int.exit
 
 put_var_int.exit:                                 ; preds = %while.end.i
   %add.i = add nsw i32 %i.0.lcssa.i, 1
   %idxprom17.i = sext i32 %add.i to i64
   %arrayidx18.i = getelementptr inbounds [10 x i8], ptr %buf.i, i64 0, i64 %idxprom17.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out.coerce0, ptr nonnull align 1 %arrayidx18.i, i64 %conv12.i, i1 false)
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buf.i)
   br label %return
 
-return:                                           ; preds = %put_var_int.exit, %put_var_int.exit.thread
-  %retval.0 = phi i32 [ -1, %put_var_int.exit.thread ], [ %sub10.i, %put_var_int.exit ]
+return:                                           ; preds = %while.end.i, %put_var_int.exit
+  %retval.0 = phi i32 [ %sub10.i, %put_var_int.exit ], [ -1, %while.end.i ]
+  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buf.i)
   ret i32 %retval.0
 }
 

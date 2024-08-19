@@ -1225,8 +1225,8 @@ define hidden void @_ZN10tokio_util5codec7decoder7Decoder10decode_eof17h7038b6a6
   br label %25
 
 25:                                               ; preds = %17, %19, %21, %9
-  %.sink.sink = phi i8 [ 1, %9 ], [ 1, %21 ], [ 0, %19 ], [ 0, %17 ]
-  store i8 %.sink.sink, ptr %0, align 8
+  %.sink = phi i8 [ 0, %17 ], [ 0, %19 ], [ 1, %21 ], [ 1, %9 ]
+  store i8 %.sink, ptr %0, align 8
   ret void
 }
 

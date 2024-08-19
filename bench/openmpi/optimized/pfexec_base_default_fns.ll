@@ -219,7 +219,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %38, %3
   %58 = getelementptr inbounds i8, ptr %2, i64 272
   %59 = load i64, ptr %58, align 8
   %.not164.i = icmp eq i64 %59, 0
-  br i1 %.not164.i, label %register_nspace.exit.thread, label %.lr.ph.i
+  br i1 %.not164.i, label %.sink.split, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %pmix_obj_new_tma.exit
   %60 = getelementptr inbounds i8, ptr %2, i64 264
@@ -239,7 +239,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %38, %3
 
 ._crit_edge.i:                                    ; preds = %62
   %68 = icmp eq i32 %66, 0
-  br i1 %68, label %register_nspace.exit.thread, label %.preheader138.i
+  br i1 %68, label %.sink.split, label %.preheader138.i
 
 .preheader138.i:                                  ; preds = %._crit_edge.i
   %.0112141.i = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 2824), align 8
@@ -278,7 +278,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %38, %3
 
 82:                                               ; preds = %81, %.thread.i
   %.not22.i.i = icmp eq ptr %78, null
-  br i1 %.not22.i.i, label %register_nspace.exit.thread, label %83
+  br i1 %.not22.i.i, label %.sink.split, label %83
 
 83:                                               ; preds = %82
   %84 = call i32 @pthread_mutex_init(ptr noundef nonnull %78, ptr noundef null) #12
@@ -536,14 +536,7 @@ pmix_obj_new_tma.exit.thread137.i:                ; preds = %.lr.ph.i.i.i, %83
 
 register_nspace.exit.thread364:                   ; preds = %._crit_edge163.i
   call void @PMIx_Data_array_destruct(ptr noundef nonnull %11) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 260, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  br label %229
+  br label %.sink.split
 
 ._crit_edge163.thread.i:                          ; preds = %._crit_edge163.i, %197
   %211 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
@@ -570,18 +563,7 @@ register_nspace.exit.thread364:                   ; preds = %._crit_edge163.i
 register_nspace.exit.thread.sink.split:           ; preds = %116, %114, %112, %110, %107, %102
   %.0.i.ph.ph = phi i32 [ %106, %102 ], [ %109, %107 ], [ %111, %110 ], [ %113, %112 ], [ %115, %114 ], [ %117, %116 ]
   call void @PMIx_Info_list_release(ptr noundef %105) #12
-  br label %register_nspace.exit.thread
-
-register_nspace.exit.thread:                      ; preds = %register_nspace.exit.thread.sink.split, %._crit_edge.i, %82, %pmix_obj_new_tma.exit
-  %.0.i.ph = phi i32 [ -27, %pmix_obj_new_tma.exit ], [ -32, %82 ], [ -27, %._crit_edge.i ], [ %.0.i.ph.ph, %register_nspace.exit.thread.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 260, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  br label %229
+  br label %.sink.split
 
 register_nspace.exit:                             ; preds = %._crit_edge163.thread.i, %217, %222
   %224 = getelementptr inbounds i8, ptr %215, i64 40
@@ -607,8 +589,19 @@ register_nspace.exit:                             ; preds = %._crit_edge163.thre
   %228 = getelementptr inbounds i8, ptr %2, i64 248
   br label %267
 
-229:                                              ; preds = %register_nspace.exit.thread364, %register_nspace.exit.thread, %register_nspace.exit
-  %.0.i363 = phi i32 [ %.0.i.ph, %register_nspace.exit.thread ], [ %226, %register_nspace.exit ], [ -1, %register_nspace.exit.thread364 ]
+.sink.split:                                      ; preds = %pmix_obj_new_tma.exit, %82, %._crit_edge.i, %register_nspace.exit.thread.sink.split, %register_nspace.exit.thread364
+  %.0.i363.ph = phi i32 [ -1, %register_nspace.exit.thread364 ], [ -27, %pmix_obj_new_tma.exit ], [ -32, %82 ], [ -27, %._crit_edge.i ], [ %.0.i.ph.ph, %register_nspace.exit.thread.sink.split ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 260, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
+  br label %229
+
+229:                                              ; preds = %.sink.split, %register_nspace.exit
+  %.0.i363 = phi i32 [ %226, %register_nspace.exit ], [ %.0.i363.ph, %.sink.split ]
   %230 = load ptr, ptr %55, align 8
   %231 = load ptr, ptr %53, align 8
   %232 = getelementptr inbounds i8, ptr %231, i64 120

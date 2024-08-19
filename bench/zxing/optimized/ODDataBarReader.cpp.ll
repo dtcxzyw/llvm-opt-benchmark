@@ -1123,7 +1123,7 @@ _ZN5ZXing4OneD18ParseFinderPatternERKNS_11PatternViewEb.exit: ; preds = %39
   %42 = xor i32 %.117.i.i.i, -1
   %43 = select i1 %2, i32 %42, i32 %41
   %.not = icmp eq i32 %43, 0
-  br i1 %.not, label %97, label %44
+  br i1 %.not, label %99, label %44
 
 44:                                               ; preds = %_ZN5ZXing4OneD18ParseFinderPatternERKNS_11PatternViewEb.exit
   br i1 %2, label %45, label %.thread
@@ -1144,7 +1144,7 @@ _ZN5ZXing4OneD18ParseFinderPatternERKNS_11PatternViewEb.exit: ; preds = %39
   %52 = call fastcc i64 @_ZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEbb(ptr noundef nonnull align 8 dereferenceable(32) %4, i1 noundef zeroext true, i1 noundef zeroext true)
   %53 = and i64 %52, 4294967295
   %.not43 = icmp eq i64 %53, 4294967295
-  br i1 %.not43, label %97, label %61
+  br i1 %.not43, label %99, label %61
 
 .thread:                                          ; preds = %44
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
@@ -1161,7 +1161,7 @@ _ZN5ZXing4OneD18ParseFinderPatternERKNS_11PatternViewEb.exit: ; preds = %39
   %59 = call fastcc i64 @_ZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEbb(ptr noundef nonnull align 8 dereferenceable(32) %4, i1 noundef zeroext true, i1 noundef zeroext false)
   %60 = and i64 %59, 4294967295
   %.not42 = icmp eq i64 %60, 4294967295
-  br i1 %.not42, label %97, label %.thread34
+  br i1 %.not42, label %99, label %.thread34
 
 61:                                               ; preds = %45
   %62 = load ptr, ptr %1, align 8, !noalias !30
@@ -1173,104 +1173,104 @@ _ZN5ZXing4OneD18ParseFinderPatternERKNS_11PatternViewEb.exit: ; preds = %39
   br label %65
 
 65:                                               ; preds = %.thread34, %61
-  %storemerge = phi ptr [ %64, %.thread34 ], [ %62, %61 ]
+  %.sink61 = phi ptr [ %64, %.thread34 ], [ %62, %61 ]
   %.sroa.327.0.extract.trunc3337.in.in = phi i64 [ %59, %.thread34 ], [ %52, %61 ]
-  %.sink = load ptr, ptr %40, align 8, !noalias !15
-  %.sink58 = load ptr, ptr %7, align 8, !noalias !15
-  store ptr %storemerge, ptr %5, align 8
-  %66 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 8, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %.sink58, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr %.sink, ptr %68, align 8
-  %69 = call fastcc i64 @_ZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEbb(ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext false, i1 noundef zeroext %2)
-  %70 = and i64 %69, 4294967295
-  %.not44 = icmp eq i64 %70, 4294967295
-  br i1 %.not44, label %97, label %71
+  %66 = load ptr, ptr %7, align 8, !noalias !15
+  %67 = load ptr, ptr %40, align 8, !noalias !15
+  store ptr %.sink61, ptr %5, align 8
+  %68 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 8, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %66, ptr %69, align 8
+  %70 = getelementptr inbounds i8, ptr %5, i64 24
+  store ptr %67, ptr %70, align 8
+  %71 = call fastcc i64 @_ZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEbb(ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext false, i1 noundef zeroext %2)
+  %72 = and i64 %71, 4294967295
+  %.not44 = icmp eq i64 %72, 4294967295
+  br i1 %.not44, label %99, label %73
 
-71:                                               ; preds = %65
-  %72 = load ptr, ptr %7, align 8
-  %73 = load ptr, ptr %1, align 8
-  %.not6.i.i.i = icmp eq ptr %72, %73
+73:                                               ; preds = %65
+  %74 = load ptr, ptr %7, align 8
+  %75 = load ptr, ptr %1, align 8
+  %.not6.i.i.i = icmp eq ptr %74, %75
   br i1 %.not6.i.i.i, label %_ZNK5ZXing11PatternView13pixelsInFrontEv.exit, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %71, %.lr.ph.i.i.i
-  %.08.i.i.i = phi ptr [ %76, %.lr.ph.i.i.i ], [ %72, %71 ]
-  %.057.i.i.i = phi i16 [ %75, %.lr.ph.i.i.i ], [ 0, %71 ]
-  %74 = load i16, ptr %.08.i.i.i, align 2
-  %75 = add i16 %74, %.057.i.i.i
-  %76 = getelementptr inbounds i8, ptr %.08.i.i.i, i64 2
-  %.not.i.i.i = icmp eq ptr %76, %73
+.lr.ph.i.i.i:                                     ; preds = %73, %.lr.ph.i.i.i
+  %.08.i.i.i = phi ptr [ %78, %.lr.ph.i.i.i ], [ %74, %73 ]
+  %.057.i.i.i = phi i16 [ %77, %.lr.ph.i.i.i ], [ 0, %73 ]
+  %76 = load i16, ptr %.08.i.i.i, align 2
+  %77 = add i16 %76, %.057.i.i.i
+  %78 = getelementptr inbounds i8, ptr %.08.i.i.i, i64 2
+  %.not.i.i.i = icmp eq ptr %78, %75
   br i1 %.not.i.i.i, label %_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !8
 
 _ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i: ; preds = %.lr.ph.i.i.i
-  %77 = zext i16 %75 to i32
+  %79 = zext i16 %77 to i32
   br label %_ZNK5ZXing11PatternView13pixelsInFrontEv.exit
 
-_ZNK5ZXing11PatternView13pixelsInFrontEv.exit:    ; preds = %71, %_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i
-  %.05.lcssa.i.i.i = phi i32 [ 0, %71 ], [ %77, %_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i ]
-  %78 = getelementptr inbounds i8, ptr %73, i64 -2
-  %79 = load i16, ptr %78, align 2
-  %80 = zext i16 %79 to i32
-  %81 = sub nsw i32 %.05.lcssa.i.i.i, %80
-  %82 = getelementptr inbounds i8, ptr %1, i64 8
-  %83 = load i32, ptr %82, align 8
-  %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds i16, ptr %73, i64 %84
-  %.not6.i.i.i17 = icmp eq ptr %72, %85
+_ZNK5ZXing11PatternView13pixelsInFrontEv.exit:    ; preds = %73, %_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i
+  %.05.lcssa.i.i.i = phi i32 [ 0, %73 ], [ %79, %_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i ]
+  %80 = getelementptr inbounds i8, ptr %75, i64 -2
+  %81 = load i16, ptr %80, align 2
+  %82 = zext i16 %81 to i32
+  %83 = sub nsw i32 %.05.lcssa.i.i.i, %82
+  %84 = getelementptr inbounds i8, ptr %1, i64 8
+  %85 = load i32, ptr %84, align 8
+  %86 = sext i32 %85 to i64
+  %87 = getelementptr inbounds i16, ptr %75, i64 %86
+  %.not6.i.i.i17 = icmp eq ptr %74, %87
   br i1 %.not6.i.i.i17, label %_ZNK5ZXing11PatternView13pixelsTillEndEv.exit, label %.lr.ph.i.i.i18
 
 .lr.ph.i.i.i18:                                   ; preds = %_ZNK5ZXing11PatternView13pixelsInFrontEv.exit, %.lr.ph.i.i.i18
-  %.08.i.i.i19 = phi ptr [ %88, %.lr.ph.i.i.i18 ], [ %72, %_ZNK5ZXing11PatternView13pixelsInFrontEv.exit ]
-  %.057.i.i.i20 = phi i16 [ %87, %.lr.ph.i.i.i18 ], [ 0, %_ZNK5ZXing11PatternView13pixelsInFrontEv.exit ]
-  %86 = load i16, ptr %.08.i.i.i19, align 2
-  %87 = add i16 %86, %.057.i.i.i20
-  %88 = getelementptr inbounds i8, ptr %.08.i.i.i19, i64 2
-  %.not.i.i.i21 = icmp eq ptr %88, %85
+  %.08.i.i.i19 = phi ptr [ %90, %.lr.ph.i.i.i18 ], [ %74, %_ZNK5ZXing11PatternView13pixelsInFrontEv.exit ]
+  %.057.i.i.i20 = phi i16 [ %89, %.lr.ph.i.i.i18 ], [ 0, %_ZNK5ZXing11PatternView13pixelsInFrontEv.exit ]
+  %88 = load i16, ptr %.08.i.i.i19, align 2
+  %89 = add i16 %88, %.057.i.i.i20
+  %90 = getelementptr inbounds i8, ptr %.08.i.i.i19, i64 2
+  %.not.i.i.i21 = icmp eq ptr %90, %87
   br i1 %.not.i.i.i21, label %_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i22, label %.lr.ph.i.i.i18, !llvm.loop !8
 
 _ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i22: ; preds = %.lr.ph.i.i.i18
-  %89 = zext i16 %87 to i32
-  %90 = add nsw i32 %89, -1
+  %91 = zext i16 %89 to i32
+  %92 = add nsw i32 %91, -1
   br label %_ZNK5ZXing11PatternView13pixelsTillEndEv.exit
 
 _ZNK5ZXing11PatternView13pixelsTillEndEv.exit:    ; preds = %_ZNK5ZXing11PatternView13pixelsInFrontEv.exit, %_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i22
-  %.05.lcssa.i.i.i23 = phi i32 [ -1, %_ZNK5ZXing11PatternView13pixelsInFrontEv.exit ], [ %90, %_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i22 ]
-  %91 = getelementptr inbounds i8, ptr %73, i64 42
-  %92 = load i16, ptr %91, align 2
-  %93 = zext i16 %92 to i32
-  %94 = shl nuw nsw i32 %93, 1
-  %95 = add nsw i32 %94, %.05.lcssa.i.i.i23
+  %.05.lcssa.i.i.i23 = phi i32 [ -1, %_ZNK5ZXing11PatternView13pixelsInFrontEv.exit ], [ %92, %_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i22 ]
+  %93 = getelementptr inbounds i8, ptr %75, i64 42
+  %94 = load i16, ptr %93, align 2
+  %95 = zext i16 %94 to i32
+  %96 = shl nuw nsw i32 %95, 1
+  %97 = add nsw i32 %96, %.05.lcssa.i.i.i23
   store i64 %.sroa.327.0.extract.trunc3337.in.in, ptr %0, align 4
-  %96 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %69, ptr %96, align 4
-  br label %101
+  %98 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %71, ptr %98, align 4
+  br label %103
 
-97:                                               ; preds = %.thread, %45, %65, %_ZN5ZXing4OneD18ParseFinderPatternERKNS_11PatternViewEb.exit
+99:                                               ; preds = %.thread, %45, %65, %_ZN5ZXing4OneD18ParseFinderPatternERKNS_11PatternViewEb.exit
   store i32 -1, ptr %0, align 4
-  %98 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 0, ptr %98, align 4
-  %99 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 -1, ptr %99, align 4
-  %100 = getelementptr inbounds i8, ptr %0, i64 12
+  %100 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %100, align 4
-  br label %101
+  %101 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 -1, ptr %101, align 4
+  %102 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 0, ptr %102, align 4
+  br label %103
 
-101:                                              ; preds = %97, %_ZNK5ZXing11PatternView13pixelsTillEndEv.exit
-  %.sink67 = phi i32 [ 0, %97 ], [ %43, %_ZNK5ZXing11PatternView13pixelsTillEndEv.exit ]
-  %.sink65 = phi i32 [ -1, %97 ], [ %81, %_ZNK5ZXing11PatternView13pixelsTillEndEv.exit ]
-  %.sink63 = phi i32 [ 1, %97 ], [ %95, %_ZNK5ZXing11PatternView13pixelsTillEndEv.exit ]
-  %102 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %.sink67, ptr %102, align 4
-  %103 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %.sink65, ptr %103, align 4
-  %104 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 %.sink63, ptr %104, align 4
-  %105 = getelementptr inbounds i8, ptr %0, i64 28
-  store i32 -1, ptr %105, align 4
-  %106 = getelementptr inbounds i8, ptr %0, i64 32
-  store i32 1, ptr %106, align 4
+103:                                              ; preds = %99, %_ZNK5ZXing11PatternView13pixelsTillEndEv.exit
+  %.sink65 = phi i32 [ 0, %99 ], [ %43, %_ZNK5ZXing11PatternView13pixelsTillEndEv.exit ]
+  %.sink63 = phi i32 [ -1, %99 ], [ %83, %_ZNK5ZXing11PatternView13pixelsTillEndEv.exit ]
+  %.sink = phi i32 [ 1, %99 ], [ %97, %_ZNK5ZXing11PatternView13pixelsTillEndEv.exit ]
+  %104 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %.sink65, ptr %104, align 4
+  %105 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %.sink63, ptr %105, align 4
+  %106 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 %.sink, ptr %106, align 4
+  %107 = getelementptr inbounds i8, ptr %0, i64 28
+  store i32 -1, ptr %107, align 4
+  %108 = getelementptr inbounds i8, ptr %0, i64 32
+  store i32 1, ptr %108, align 4
   ret void
 }
 

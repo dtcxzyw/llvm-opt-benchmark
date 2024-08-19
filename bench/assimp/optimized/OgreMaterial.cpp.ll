@@ -3591,7 +3591,7 @@ invoke.cont19:                                    ; preds = %.noexc34
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %while.cond.outer.backedge, %invoke.cont19
-  %cmp148 = phi i1 [ true, %invoke.cont19 ], [ false, %while.cond.outer.backedge ]
+  %.ph = phi i1 [ true, %invoke.cont19 ], [ false, %while.cond.outer.backedge ]
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %while.cond.outer
@@ -3680,12 +3680,12 @@ lpad18.body:                                      ; preds = %lpad.i31, %lpad18
   br label %ehcleanup170
 
 lpad21.loopexit.loopexit:                         ; preds = %if.then133, %while.body
-  %lpad.loopexit141 = landingpad { ptr, i32 }
+  %lpad.loopexit142 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad21.loopexit.loopexit.split-lp:                ; preds = %if.else108, %if.then40, %invoke.cont30, %if.then29
-  %lpad.loopexit.split-lp142 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp143 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -3754,36 +3754,32 @@ invoke.cont46:                                    ; preds = %invoke.cont44
 invoke.cont48:                                    ; preds = %invoke.cont46
   %call.i64 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %identifier, ptr noundef nonnull @.str.57) #20
   %cmp.i65 = icmp eq i32 %call.i64, 0
-  br i1 %cmp.i65, label %if.then65, label %lor.lhs.false
+  br i1 %cmp.i65, label %if.end105, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont48
   %call.i66 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %identifier, ptr noundef nonnull @.str.58) #20
   %cmp.i67 = icmp eq i32 %call.i66, 0
-  br i1 %cmp.i67, label %if.then65, label %lor.lhs.false53
+  br i1 %cmp.i67, label %if.end105, label %lor.lhs.false53
 
 lor.lhs.false53:                                  ; preds = %lor.lhs.false
   %call.i68 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %identifier, ptr noundef nonnull @.str.59) #20
   %cmp.i69 = icmp eq i32 %call.i68, 0
-  br i1 %cmp.i69, label %if.then65, label %lor.lhs.false56
+  br i1 %cmp.i69, label %if.end105, label %lor.lhs.false56
 
 lor.lhs.false56:                                  ; preds = %lor.lhs.false53
   %call.i70 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %identifier, ptr noundef nonnull @.str.60) #20
   %cmp.i71 = icmp eq i32 %call.i70, 0
-  br i1 %cmp.i71, label %if.then65, label %lor.lhs.false59
+  br i1 %cmp.i71, label %if.end105, label %lor.lhs.false59
 
 lor.lhs.false59:                                  ; preds = %lor.lhs.false56
   %call.i72 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %identifier, ptr noundef nonnull @.str.61) #20
   %cmp.i73 = icmp eq i32 %call.i72, 0
-  br i1 %cmp.i73, label %if.then65, label %lor.lhs.false62
+  br i1 %cmp.i73, label %if.end105, label %lor.lhs.false62
 
 lor.lhs.false62:                                  ; preds = %lor.lhs.false59
   %call.i74 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %identifier, ptr noundef nonnull @.str.62) #20
   %cmp.i75 = icmp eq i32 %call.i74, 0
-  br i1 %cmp.i75, label %if.then65, label %if.else
-
-if.then65:                                        ; preds = %lor.lhs.false62, %lor.lhs.false59, %lor.lhs.false56, %lor.lhs.false53, %lor.lhs.false, %invoke.cont48
-  store i32 6, ptr %textureType, align 4
-  br label %if.end105
+  br i1 %cmp.i75, label %if.end105, label %if.else
 
 lpad43:                                           ; preds = %invoke.cont42
   %14 = landingpad { ptr, i32 }
@@ -3800,75 +3796,62 @@ lpad45:                                           ; preds = %invoke.cont46, %inv
 if.else:                                          ; preds = %lor.lhs.false62
   %call.i76 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %identifier, ptr noundef nonnull @.str.63) #20
   %cmp.i77 = icmp eq i32 %call.i76, 0
-  br i1 %cmp.i77, label %if.then77, label %lor.lhs.false68
+  br i1 %cmp.i77, label %if.end105, label %lor.lhs.false68
 
 lor.lhs.false68:                                  ; preds = %if.else
   %call.i78 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %identifier, ptr noundef nonnull @.str.64) #20
   %cmp.i79 = icmp eq i32 %call.i78, 0
-  br i1 %cmp.i79, label %if.then77, label %lor.lhs.false71
+  br i1 %cmp.i79, label %if.end105, label %lor.lhs.false71
 
 lor.lhs.false71:                                  ; preds = %lor.lhs.false68
   %call.i80 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %identifier, ptr noundef nonnull @.str.65) #20
   %cmp.i81 = icmp eq i32 %call.i80, 0
-  br i1 %cmp.i81, label %if.then77, label %lor.lhs.false74
+  br i1 %cmp.i81, label %if.end105, label %lor.lhs.false74
 
 lor.lhs.false74:                                  ; preds = %lor.lhs.false71
   %call.i82 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %identifier, ptr noundef nonnull @.str.66) #20
   %cmp.i83 = icmp eq i32 %call.i82, 0
-  br i1 %cmp.i83, label %if.then77, label %if.else78
-
-if.then77:                                        ; preds = %lor.lhs.false74, %lor.lhs.false71, %lor.lhs.false68, %if.else
-  store i32 2, ptr %textureType, align 4
-  br label %if.end105
+  br i1 %cmp.i83, label %if.end105, label %if.else78
 
 if.else78:                                        ; preds = %lor.lhs.false74
   %call.i84 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %identifier, ptr noundef nonnull @.str.67) #20
   %cmp.i85 = icmp eq i32 %call.i84, 0
-  br i1 %cmp.i85, label %if.then93, label %lor.lhs.false81
+  br i1 %cmp.i85, label %if.end105, label %lor.lhs.false81
 
 lor.lhs.false81:                                  ; preds = %if.else78
   %call.i86 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %identifier, ptr noundef nonnull @.str.68) #20
   %cmp.i87 = icmp eq i32 %call.i86, 0
-  br i1 %cmp.i87, label %if.then93, label %lor.lhs.false84
+  br i1 %cmp.i87, label %if.end105, label %lor.lhs.false84
 
 lor.lhs.false84:                                  ; preds = %lor.lhs.false81
   %call.i88 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %identifier, ptr noundef nonnull @.str.69) #20
   %cmp.i89 = icmp eq i32 %call.i88, 0
-  br i1 %cmp.i89, label %if.then93, label %lor.lhs.false87
+  br i1 %cmp.i89, label %if.end105, label %lor.lhs.false87
 
 lor.lhs.false87:                                  ; preds = %lor.lhs.false84
   %call.i90 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %identifier, ptr noundef nonnull @.str.70) #20
   %cmp.i91 = icmp eq i32 %call.i90, 0
-  br i1 %cmp.i91, label %if.then93, label %lor.lhs.false90
+  br i1 %cmp.i91, label %if.end105, label %lor.lhs.false90
 
 lor.lhs.false90:                                  ; preds = %lor.lhs.false87
   %call.i92 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %identifier, ptr noundef nonnull @.str.71) #20
   %cmp.i93 = icmp eq i32 %call.i92, 0
-  br i1 %cmp.i93, label %if.then93, label %if.else94
-
-if.then93:                                        ; preds = %lor.lhs.false90, %lor.lhs.false87, %lor.lhs.false84, %lor.lhs.false81, %if.else78
-  store i32 10, ptr %textureType, align 4
-  br label %if.end105
+  br i1 %cmp.i93, label %if.end105, label %if.else94
 
 if.else94:                                        ; preds = %lor.lhs.false90
   %call.i94 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %identifier, ptr noundef nonnull @.str.72) #20
   %cmp.i95 = icmp eq i32 %call.i94, 0
-  br i1 %cmp.i95, label %if.then100, label %lor.lhs.false97
+  br i1 %cmp.i95, label %if.end105, label %lor.lhs.false97
 
 lor.lhs.false97:                                  ; preds = %if.else94
   %call.i96 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %identifier, ptr noundef nonnull @.str.73) #20
   %cmp.i97 = icmp eq i32 %call.i96, 0
-  br i1 %cmp.i97, label %if.then100, label %if.else101
-
-if.then100:                                       ; preds = %lor.lhs.false97, %if.else94
-  store i32 9, ptr %textureType, align 4
+  %spec.select = select i1 %cmp.i97, i32 9, i32 1
   br label %if.end105
 
-if.else101:                                       ; preds = %lor.lhs.false97
-  store i32 1, ptr %textureType, align 4
-  br label %if.end105
-
-if.end105:                                        ; preds = %if.then77, %if.then100, %if.else101, %if.then93, %if.then65
+if.end105:                                        ; preds = %lor.lhs.false97, %if.else94, %if.else78, %lor.lhs.false81, %lor.lhs.false84, %lor.lhs.false87, %lor.lhs.false90, %if.else, %lor.lhs.false68, %lor.lhs.false71, %lor.lhs.false74, %invoke.cont48, %lor.lhs.false, %lor.lhs.false53, %lor.lhs.false56, %lor.lhs.false59, %lor.lhs.false62
+  %.sink = phi i32 [ 6, %lor.lhs.false62 ], [ 6, %lor.lhs.false59 ], [ 6, %lor.lhs.false56 ], [ 6, %lor.lhs.false53 ], [ 6, %lor.lhs.false ], [ 6, %invoke.cont48 ], [ 2, %lor.lhs.false74 ], [ 2, %lor.lhs.false71 ], [ 2, %lor.lhs.false68 ], [ 2, %if.else ], [ 10, %lor.lhs.false90 ], [ 10, %lor.lhs.false87 ], [ 10, %lor.lhs.false84 ], [ 10, %lor.lhs.false81 ], [ 10, %if.else78 ], [ 9, %if.else94 ], [ %spec.select, %lor.lhs.false97 ]
+  store i32 %.sink, ptr %textureType, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %identifier) #20
   br label %while.cond.outer.backedge
 
@@ -3886,44 +3869,27 @@ if.else108:                                       ; preds = %invoke.cont32
 invoke.cont109:                                   ; preds = %if.else108
   %call110 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %unitNameLower, ptr noundef nonnull @.str.74, i64 noundef 0) #20
   %cmp111.not = icmp eq i64 %call110, -1
-  br i1 %cmp111.not, label %if.else113, label %if.then112
-
-if.then112:                                       ; preds = %invoke.cont109
-  store i32 6, ptr %textureType, align 4
-  br label %if.end129
+  br i1 %cmp111.not, label %if.else113, label %if.end129
 
 if.else113:                                       ; preds = %invoke.cont109
   %call114 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %unitNameLower, ptr noundef nonnull @.str.75, i64 noundef 0) #20
   %cmp115.not = icmp eq i64 %call114, -1
-  br i1 %cmp115.not, label %if.else117, label %if.then116
-
-if.then116:                                       ; preds = %if.else113
-  store i32 2, ptr %textureType, align 4
-  br label %if.end129
+  br i1 %cmp115.not, label %if.else117, label %if.end129
 
 if.else117:                                       ; preds = %if.else113
   %call118 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %unitNameLower, ptr noundef nonnull @.str.76, i64 noundef 0) #20
   %cmp119.not = icmp eq i64 %call118, -1
-  br i1 %cmp119.not, label %if.else121, label %if.then120
-
-if.then120:                                       ; preds = %if.else117
-  store i32 10, ptr %textureType, align 4
-  br label %if.end129
+  br i1 %cmp119.not, label %if.else121, label %if.end129
 
 if.else121:                                       ; preds = %if.else117
   %call122 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %unitNameLower, ptr noundef nonnull @.str.77, i64 noundef 0) #20
   %cmp123.not = icmp eq i64 %call122, -1
-  br i1 %cmp123.not, label %if.else125, label %if.then124
-
-if.then124:                                       ; preds = %if.else121
-  store i32 9, ptr %textureType, align 4
+  %. = select i1 %cmp123.not, i32 1, i32 9
   br label %if.end129
 
-if.else125:                                       ; preds = %if.else121
-  store i32 1, ptr %textureType, align 4
-  br label %if.end129
-
-if.end129:                                        ; preds = %if.then116, %if.then124, %if.else125, %if.then120, %if.then112
+if.end129:                                        ; preds = %if.else121, %if.else117, %if.else113, %invoke.cont109
+  %.sink137 = phi i32 [ 6, %invoke.cont109 ], [ 2, %if.else113 ], [ 10, %if.else117 ], [ %., %if.else121 ]
+  store i32 %.sink137, ptr %textureType, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %unitNameLower) #20
   br label %while.cond.outer.backedge
 
@@ -3977,7 +3943,7 @@ invoke.cont144:                                   ; preds = %if.then143
           to label %cleanup unwind label %lpad21.loopexit.split-lp
 
 if.end147:                                        ; preds = %while.end
-  br i1 %cmp148, label %if.then149, label %if.end153
+  br i1 %.ph, label %if.then149, label %if.end153
 
 if.then149:                                       ; preds = %if.end147
   %call151 = invoke noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
@@ -4042,7 +4008,7 @@ cleanup:                                          ; preds = %invoke.cont163, %in
   br label %cleanup173
 
 ehcleanup:                                        ; preds = %lpad21.loopexit.loopexit, %lpad21.loopexit.loopexit.split-lp, %lpad21.loopexit.split-lp, %lpad.i51, %lpad45, %lpad43
-  %.pn = phi { ptr, i32 } [ %15, %lpad45 ], [ %14, %lpad43 ], [ %8, %lpad.i51 ], [ %lpad.loopexit.split-lp, %lpad21.loopexit.split-lp ], [ %lpad.loopexit141, %lpad21.loopexit.loopexit ], [ %lpad.loopexit.split-lp142, %lpad21.loopexit.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %15, %lpad45 ], [ %14, %lpad43 ], [ %8, %lpad.i51 ], [ %lpad.loopexit.split-lp, %lpad21.loopexit.split-lp ], [ %lpad.loopexit142, %lpad21.loopexit.loopexit ], [ %lpad.loopexit.split-lp143, %lpad21.loopexit.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %textureRef) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %partColorOp) #20
   br label %ehcleanup170
@@ -5925,24 +5891,24 @@ if.end12.lr.ph:                                   ; preds = %entry
   br i1 %tobool.not, label %if.end12.us.preheader, label %if.end12.lr.ph.split
 
 if.end12.us.preheader:                            ; preds = %if.end12.lr.ph
-  %narrow.us77 = add nsw i8 %0, -48
-  %sub.us78 = zext nneg i8 %narrow.us77 to i64
+  %narrow.us78 = add nsw i8 %0, -48
+  %sub.us79 = zext nneg i8 %narrow.us78 to i64
   br label %if.end18.us
 
 if.end12.us:                                      ; preds = %if.end18.us
-  %mul.us = mul i64 %add.us81, 10
+  %mul.us = mul i64 %add.us82, 10
   %narrow.us = add nsw i8 %2, -48
   %sub.us = zext nneg i8 %narrow.us to i64
   %add.us = add i64 %mul.us, %sub.us
-  %cmp15.us = icmp ult i64 %add.us, %add.us81
+  %cmp15.us = icmp ult i64 %add.us, %add.us82
   br i1 %cmp15.us, label %if.then16, label %if.end18.us, !llvm.loop !34
 
 if.end18.us:                                      ; preds = %if.end12.us.preheader, %if.end12.us
-  %add.us81 = phi i64 [ %sub.us78, %if.end12.us.preheader ], [ %add.us, %if.end12.us ]
-  %incdec.ptr3032.us80 = phi ptr [ %in, %if.end12.us.preheader ], [ %incdec.ptr.us, %if.end12.us ]
-  %cur.033.us79 = phi i32 [ 0, %if.end12.us.preheader ], [ %inc.us, %if.end12.us ]
-  %incdec.ptr.us = getelementptr inbounds i8, ptr %incdec.ptr3032.us80, i64 1
-  %inc.us = add i32 %cur.033.us79, 1
+  %add.us82 = phi i64 [ %sub.us79, %if.end12.us.preheader ], [ %add.us, %if.end12.us ]
+  %incdec.ptr3032.us81 = phi ptr [ %in, %if.end12.us.preheader ], [ %incdec.ptr.us, %if.end12.us ]
+  %cur.033.us80 = phi i32 [ 0, %if.end12.us.preheader ], [ %inc.us, %if.end12.us ]
+  %incdec.ptr.us = getelementptr inbounds i8, ptr %incdec.ptr3032.us81, i64 1
+  %inc.us = add i32 %cur.033.us80, 1
   %2 = load i8, ptr %incdec.ptr.us, align 1
   %3 = add i8 %2, -58
   %or.cond14.us = icmp ult i8 %3, -10
@@ -5950,8 +5916,8 @@ if.end18.us:                                      ; preds = %if.end12.us.prehead
 
 if.end12.lr.ph.split:                             ; preds = %if.end12.lr.ph
   %4 = load i32, ptr %max_inout, align 4
-  %narrow72 = add nsw i8 %0, -48
-  %sub73 = zext nneg i8 %narrow72 to i64
+  %narrow73 = add nsw i8 %0, -48
+  %sub74 = zext nneg i8 %narrow73 to i64
   br label %if.end18
 
 if.then:                                          ; preds = %entry
@@ -5992,26 +5958,26 @@ cleanup.action:                                   ; preds = %ehcleanup.thread20,
   br label %eh.resume
 
 if.end12:                                         ; preds = %if.end29
-  %mul = mul i64 %add76, 10
+  %mul = mul i64 %add77, 10
   %narrow = add nsw i8 %12, -48
   %sub = zext nneg i8 %narrow to i64
   %add = add i64 %mul, %sub
-  %cmp15 = icmp ult i64 %add, %add76
+  %cmp15 = icmp ult i64 %add, %add77
   br i1 %cmp15, label %if.then16, label %if.end18, !llvm.loop !34
 
 if.then16:                                        ; preds = %if.end12, %if.end12.us
-  %storemerge63 = phi ptr [ %incdec.ptr.us, %if.end12.us ], [ %incdec.ptr, %if.end12 ]
-  store ptr %storemerge63, ptr %in.addr, align 8
+  %incdec.ptr58.lcssa.sink = phi ptr [ %incdec.ptr.us, %if.end12.us ], [ %incdec.ptr, %if.end12 ]
+  store ptr %incdec.ptr58.lcssa.sink, ptr %in.addr, align 8
   %call17 = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   call void @_ZN6Assimp6Logger4warnIJRA24_KcRPS2_RA37_S2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %call17, ptr noundef nonnull align 1 dereferenceable(24) @.str.96, ptr noundef nonnull align 8 dereferenceable(8) %in.addr, ptr noundef nonnull align 1 dereferenceable(37) @.str.97)
   br label %return
 
 if.end18:                                         ; preds = %if.end12.lr.ph.split, %if.end12
-  %add76 = phi i64 [ %sub73, %if.end12.lr.ph.split ], [ %add, %if.end12 ]
-  %incdec.ptr303275 = phi ptr [ %in, %if.end12.lr.ph.split ], [ %incdec.ptr, %if.end12 ]
-  %cur.03374 = phi i32 [ 0, %if.end12.lr.ph.split ], [ %inc, %if.end12 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %incdec.ptr303275, i64 1
-  %inc = add i32 %cur.03374, 1
+  %add77 = phi i64 [ %sub74, %if.end12.lr.ph.split ], [ %add, %if.end12 ]
+  %incdec.ptr303276 = phi ptr [ %in, %if.end12.lr.ph.split ], [ %incdec.ptr, %if.end12 ]
+  %cur.03375 = phi i32 [ 0, %if.end12.lr.ph.split ], [ %inc, %if.end12 ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %incdec.ptr303276, i64 1
+  %inc = add i32 %cur.03375, 1
   %cmp19 = icmp eq i32 %4, %inc
   br i1 %cmp19, label %if.then20, label %if.end29
 
@@ -6047,15 +6013,15 @@ if.end29:                                         ; preds = %if.end18
   br i1 %or.cond14, label %for.end, label %if.end12, !llvm.loop !34
 
 for.end:                                          ; preds = %if.end29, %if.end18.us
-  %storemerge = phi ptr [ %incdec.ptr.us, %if.end18.us ], [ %incdec.ptr, %if.end29 ]
+  %incdec.ptr.lcssa60.sink = phi ptr [ %incdec.ptr.us, %if.end18.us ], [ %incdec.ptr, %if.end29 ]
   %cur.0.lcssa = phi i32 [ %inc.us, %if.end18.us ], [ %inc, %if.end29 ]
-  %value.0.lcssa = phi i64 [ %add.us81, %if.end18.us ], [ %add76, %if.end29 ]
-  store ptr %storemerge, ptr %in.addr, align 8
+  %value.0.lcssa = phi i64 [ %add.us82, %if.end18.us ], [ %add77, %if.end29 ]
+  store ptr %incdec.ptr.lcssa60.sink, ptr %in.addr, align 8
   %tobool30.not = icmp eq ptr %out, null
   br i1 %tobool30.not, label %if.end32, label %if.then31
 
 if.then31:                                        ; preds = %for.end
-  store ptr %storemerge, ptr %out, align 8
+  store ptr %incdec.ptr.lcssa60.sink, ptr %out, align 8
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then31, %for.end
@@ -6067,7 +6033,7 @@ if.then34:                                        ; preds = %if.end32
   br label %return
 
 return:                                           ; preds = %if.end32, %if.then34, %if.then20, %while.end, %if.then16
-  %retval.0 = phi i64 [ 0, %if.then16 ], [ %add76, %while.end ], [ %add76, %if.then20 ], [ %value.0.lcssa, %if.then34 ], [ %value.0.lcssa, %if.end32 ]
+  %retval.0 = phi i64 [ 0, %if.then16 ], [ %add77, %while.end ], [ %add77, %if.then20 ], [ %value.0.lcssa, %if.then34 ], [ %value.0.lcssa, %if.end32 ]
   ret i64 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup, %cleanup.action

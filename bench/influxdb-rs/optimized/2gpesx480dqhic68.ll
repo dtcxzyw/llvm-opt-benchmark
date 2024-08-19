@@ -656,10 +656,10 @@ define internal fastcc void @"_ZN75_$LT$parquet..format..IntType$u20$as$u20$parq
 
 141:                                              ; preds = %139
   call void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
   br label %142
 
 142:                                              ; preds = %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit", %141
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
   ret void
 
 143:                                              ; preds = %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit110", %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit125", %140, %135, %130, %92
@@ -679,7 +679,6 @@ define internal fastcc void @"_ZN75_$LT$parquet..format..IntType$u20$as$u20$parq
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit": ; preds = %143, %146
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !144
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
   br label %142
 
 "_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit125": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he5d25177cc006e74E.exit.i.i122", %114
@@ -837,10 +836,10 @@ define internal fastcc void @"_ZN75_$LT$parquet..format..MapType$u20$as$u20$parq
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit": ; preds = %46, %55
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !188
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %59
 
 59:                                               ; preds = %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit28", %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   ret void
 
 60:                                               ; preds = %30
@@ -866,7 +865,6 @@ define internal fastcc void @"_ZN75_$LT$parquet..format..MapType$u20$as$u20$parq
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit28": ; preds = %60, %63
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !199
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %59
 
 67:                                               ; preds = %22
@@ -1016,10 +1014,10 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..BsonType$u20$as$u20$par
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit": ; preds = %46, %55
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !243
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %59
 
 59:                                               ; preds = %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit28", %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   ret void
 
 60:                                               ; preds = %30
@@ -1045,7 +1043,6 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..BsonType$u20$as$u20$par
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit28": ; preds = %60, %63
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !254
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %59
 
 67:                                               ; preds = %22
@@ -1195,10 +1192,10 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..DateType$u20$as$u20$par
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit": ; preds = %46, %55
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !298
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %59
 
 59:                                               ; preds = %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit28", %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   ret void
 
 60:                                               ; preds = %30
@@ -1224,7 +1221,6 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..DateType$u20$as$u20$par
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit28": ; preds = %60, %63
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !309
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %59
 
 67:                                               ; preds = %22
@@ -1374,10 +1370,10 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..EnumType$u20$as$u20$par
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit": ; preds = %46, %55
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !353
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %59
 
 59:                                               ; preds = %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit28", %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   ret void
 
 60:                                               ; preds = %30
@@ -1403,7 +1399,6 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..EnumType$u20$as$u20$par
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit28": ; preds = %60, %63
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !364
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %59
 
 67:                                               ; preds = %22
@@ -1553,10 +1548,10 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..JsonType$u20$as$u20$par
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit": ; preds = %46, %55
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !408
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %59
 
 59:                                               ; preds = %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit28", %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   ret void
 
 60:                                               ; preds = %30
@@ -1582,7 +1577,6 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..JsonType$u20$as$u20$par
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit28": ; preds = %60, %63
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !419
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %59
 
 67:                                               ; preds = %22
@@ -1945,7 +1939,6 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..KeyValue$u20$as$u20$par
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit": ; preds = %118, %121
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !502
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20)
   br label %133
 
 125:                                              ; preds = %98, %46, %33
@@ -1975,10 +1968,10 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..KeyValue$u20$as$u20$par
 
 132:                                              ; preds = %130
   call void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20)
   br label %133
 
 133:                                              ; preds = %132, %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20)
   ret void
 
 "_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit118": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he5d25177cc006e74E.exit.i.i115", %62
@@ -2339,7 +2332,6 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..KeyValue$u20$as$u20$par
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit": ; preds = %118, %121
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !585
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20)
   br label %133
 
 125:                                              ; preds = %98, %46, %33
@@ -2369,10 +2361,10 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..KeyValue$u20$as$u20$par
 
 132:                                              ; preds = %130
   call void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20)
   br label %133
 
 133:                                              ; preds = %132, %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20)
   ret void
 
 "_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit118": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he5d25177cc006e74E.exit.i.i115", %62
@@ -2520,10 +2512,10 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..ListType$u20$as$u20$par
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit": ; preds = %46, %55
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !629
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %59
 
 59:                                               ; preds = %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit28", %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   ret void
 
 60:                                               ; preds = %30
@@ -2549,7 +2541,6 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..ListType$u20$as$u20$par
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit28": ; preds = %60, %63
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !640
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %59
 
 67:                                               ; preds = %22
@@ -2699,10 +2690,10 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..NullType$u20$as$u20$par
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit": ; preds = %46, %55
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !684
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %59
 
 59:                                               ; preds = %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit28", %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   ret void
 
 60:                                               ; preds = %30
@@ -2728,7 +2719,6 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..NullType$u20$as$u20$par
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit28": ; preds = %60, %63
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !695
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %59
 
 67:                                               ; preds = %22
@@ -3002,7 +2992,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
   br label %214
 
 .body:                                            ; preds = %.loopexit.split-lp.loopexit.loopexit, %.loopexit.split-lp.loopexit.loopexit.split-lp, %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.body430, %1317, %1290, %1261, %1212, %1183, %1159, %224
-  %.pn = phi { ptr, i32 } [ %1318, %1317 ], [ %1291, %1290 ], [ %1262, %1261 ], [ %1213, %1212 ], [ %1184, %1183 ], [ %1160, %1159 ], [ %225, %224 ], [ %.pn.i, %.body430 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp524, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit558, %.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp559, %.loopexit.split-lp.loopexit.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %1318, %1317 ], [ %1291, %1290 ], [ %1262, %1261 ], [ %1213, %1212 ], [ %1184, %1183 ], [ %1160, %1159 ], [ %225, %224 ], [ %.pn.i, %.body430 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp524, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit559, %.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp560, %.loopexit.split-lp.loopexit.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %201) #9
           to label %1350 unwind label %1249
 
@@ -3012,12 +3002,12 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
   br label %.body
 
 .loopexit.split-lp.loopexit.loopexit:             ; preds = %373, %1144
-  %lpad.loopexit558 = landingpad { ptr, i32 }
+  %lpad.loopexit559 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit.split-lp.loopexit.loopexit.split-lp:    ; preds = %426, %429
-  %lpad.loopexit.split-lp559 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp560 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
@@ -3390,17 +3380,17 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
   br label %384
 
 .body430:                                         ; preds = %.loopexit526.loopexit, %.loopexit526.loopexit.split-lp, %.loopexit.split-lp527, %.loopexit.split-lp.i, %1118, %1095, %1071, %1045, %1007, %966, %474, %435, %395
-  %.pn.i = phi { ptr, i32 } [ %1119, %1118 ], [ %1096, %1095 ], [ %1072, %1071 ], [ %1046, %1045 ], [ %1008, %1007 ], [ %967, %966 ], [ %475, %474 ], [ %436, %435 ], [ %396, %395 ], [ %.pn.i415, %.loopexit.split-lp.i ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp527 ], [ %lpad.loopexit560, %.loopexit526.loopexit ], [ %lpad.loopexit.split-lp561, %.loopexit526.loopexit.split-lp ]
+  %.pn.i = phi { ptr, i32 } [ %1119, %1118 ], [ %1096, %1095 ], [ %1072, %1071 ], [ %1046, %1045 ], [ %1008, %1007 ], [ %967, %966 ], [ %475, %474 ], [ %436, %435 ], [ %396, %395 ], [ %.pn.i415, %.loopexit.split-lp.i ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp527 ], [ %lpad.loopexit561, %.loopexit526.loopexit ], [ %lpad.loopexit.split-lp562, %.loopexit526.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %167) #9
           to label %.body unwind label %432, !noalias !771
 
 .loopexit526.loopexit:                            ; preds = %484, %482, %929, %729, %727, %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit441", %976, %974, %1017, %1015, %1142, %1131, %1125, %1123, %1116, %1115, %1107, %1102, %1100, %1090, %1082, %1078, %1076, %1064, %1056, %1052, %1050, %1038, %1031, %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit398", %1000, %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit411", %960, %471, %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit407.i", %445, %443, %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit.i", %405, %403, %393, %392, %383
-  %lpad.loopexit560 = landingpad { ptr, i32 }
+  %lpad.loopexit561 = landingpad { ptr, i32 }
           cleanup
   br label %.body430
 
 .loopexit526.loopexit.split-lp:                   ; preds = %492, %490, %984, %982, %1025, %1023, %1124, %1101, %1077, %1051, %453, %451, %413, %411
-  %lpad.loopexit.split-lp561 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp562 = landingpad { ptr, i32 }
           cleanup
   br label %.body430
 
@@ -3578,7 +3568,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
 .thread:                                          ; preds = %.noexc370, %429
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %126), !noalias !833
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %167), !noalias !761
-  br label %.loopexit563
+  br label %.loopexit564
 
 432:                                              ; preds = %1118, %1095, %1071, %1045, %1007, %966, %474, %435, %395, %.body430
   %433 = landingpad { ptr, i32 }
@@ -4699,7 +4689,6 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit.i417": ; preds = %729, %.noexc427
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !1086
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %93), !noalias !939
   br label %947
 
 732:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7c39114a5ae283dE.exit.i"
@@ -5386,11 +5375,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
 
 929:                                              ; preds = %927
   invoke void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %93)
-          to label %.noexc429 unwind label %.loopexit526.loopexit
-
-.noexc429:                                        ; preds = %929
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %93), !noalias !939
-  br label %947
+          to label %947 unwind label %.loopexit526.loopexit
 
 930:                                              ; preds = %748
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %57), !noalias !939
@@ -5456,7 +5441,8 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %91), !noalias !939
   br label %727
 
-947:                                              ; preds = %.noexc429, %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit.i417"
+947:                                              ; preds = %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit.i417", %929
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %93), !noalias !939
   %948 = load i64, ptr %158, align 8, !range !31, !noalias !761, !noundef !4
   %949 = icmp eq i64 %948, 4
   br i1 %949, label %950, label %959
@@ -6465,7 +6451,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2264.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2264, i64 32, i1 false)
   br label %1235
 
-1235:                                             ; preds = %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit366", %.loopexit563, %1344, %1343, %1340, %1335, %1334, %1329, %1308, %1307, %1302, %1279, %1278, %1273, %1248, %1247, %1234, %1225, %1204, %1197, %1178, %1173, %257
+1235:                                             ; preds = %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit366", %.loopexit564, %1344, %1343, %1340, %1335, %1334, %1329, %1308, %1307, %1302, %1279, %1278, %1273, %1248, %1247, %1234, %1225, %1204, %1197, %1178, %1173, %257
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %107), !noalias !1301
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2a6f3122bc871979E.llvm.9135219245553044050"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %107, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %201)
   %1236 = getelementptr inbounds i8, ptr %107, i64 8
@@ -6482,7 +6468,6 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit": ; preds = %1235, %1238
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %107), !noalias !1301
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %201)
   br label %1342
 
 1242:                                             ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9dd165d3016210bbE.exit"
@@ -6840,10 +6825,10 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
 
 1341:                                             ; preds = %1339
   call void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %201)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %201)
   br label %1342
 
 1342:                                             ; preds = %1341, %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %201)
   ret void
 
 1343:                                             ; preds = %1189
@@ -6855,17 +6840,17 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
   br label %1235
 
 1345:                                             ; preds = %1144
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %167), !noalias !761
   %.pre = load i64, ptr %197, align 8, !range !31
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %167), !noalias !761
   %1346 = icmp eq i64 %.pre, 4
-  br i1 %1346, label %1347, label %.loopexit563
+  br i1 %1346, label %1347, label %.loopexit564
 
 1347:                                             ; preds = %1345
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %197)
   %1348 = icmp eq ptr %374, %259
   br i1 %1348, label %._crit_edge, label %373
 
-.loopexit563:                                     ; preds = %1345, %.thread
+.loopexit564:                                     ; preds = %1345, %.thread
   %1349 = phi i64 [ %427, %.thread ], [ %.pre, %1345 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2186, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2183.0..sroa_idx.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %197)
@@ -7273,10 +7258,10 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..TimeType$u20$as$u20$par
 
 136:                                              ; preds = %134
   call void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
   br label %137
 
 137:                                              ; preds = %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit", %136
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
   ret void
 
 138:                                              ; preds = %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit110", %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit123", %135, %130, %125, %88
@@ -7296,7 +7281,6 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..TimeType$u20$as$u20$par
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit": ; preds = %138, %141
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1435
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
   br label %137
 
 "_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit123": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he5d25177cc006e74E.exit.i.i120", %110
@@ -7783,7 +7767,6 @@ default.unreachable:                              ; preds = %69
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit": ; preds = %171, %174
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31), !noalias !1580
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %54)
   br label %390
 
 178:                                              ; preds = %276, %184, %82, %.body
@@ -8447,10 +8430,10 @@ default.unreachable:                              ; preds = %69
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit235": ; preds = %377, %386
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1826
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %54)
   br label %390
 
 390:                                              ; preds = %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit235", %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %54)
   ret void
 
 "_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit205": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he5d25177cc006e74E.exit.i.i202", %292
@@ -8598,10 +8581,10 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..UUIDType$u20$as$u20$par
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit": ; preds = %46, %55
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1870
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %59
 
 59:                                               ; preds = %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit28", %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   ret void
 
 60:                                               ; preds = %30
@@ -8627,7 +8610,6 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..UUIDType$u20$as$u20$par
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit28": ; preds = %60, %63
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1881
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %59
 
 67:                                               ; preds = %22
@@ -8947,7 +8929,6 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$p
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit": ; preds = %127, %130
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18), !noalias !1958
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %56)
   br label %376
 
 134:                                              ; preds = %351, %325, %295, %266, %239, %192, %143, %88, %69
@@ -9805,10 +9786,10 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$p
 
 375:                                              ; preds = %373
   call void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %56)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %56)
   br label %376
 
 376:                                              ; preds = %375, %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %56)
   ret void
 
 377:                                              ; preds = %69
@@ -10122,7 +10103,6 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$p
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit": ; preds = %127, %130
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18), !noalias !2157
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %56)
   br label %376
 
 134:                                              ; preds = %351, %325, %295, %266, %239, %192, %143, %88, %69
@@ -10980,10 +10960,10 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$p
 
 375:                                              ; preds = %373
   call void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %56)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %56)
   br label %376
 
 376:                                              ; preds = %375, %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %56)
   ret void
 
 377:                                              ; preds = %69
@@ -11127,10 +11107,10 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..StringType$u20$as$u20$p
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit": ; preds = %46, %55
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !2323
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %59
 
 59:                                               ; preds = %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit28", %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   ret void
 
 60:                                               ; preds = %30
@@ -11156,7 +11136,6 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..StringType$u20$as$u20$p
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit28": ; preds = %60, %63
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !2334
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %59
 
 67:                                               ; preds = %22
@@ -11899,7 +11878,6 @@ define hidden void @"_ZN79_$LT$parquet..format..ColumnIndex$u20$as$u20$parquet..
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit": ; preds = %229, %232
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !2436
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %39)
   br label %251
 
 236:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hed9283f9c01c6b95E.exit"
@@ -11952,10 +11930,10 @@ define hidden void @"_ZN79_$LT$parquet..format..ColumnIndex$u20$as$u20$parquet..
 
 250:                                              ; preds = %248
   call void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %39)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %39)
   br label %251
 
 251:                                              ; preds = %250, %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %39)
   ret void
 
 252:                                              ; preds = %183
@@ -12502,10 +12480,10 @@ define internal fastcc void @"_ZN79_$LT$parquet..format..ColumnOrder$u20$as$u20$
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit": ; preds = %150, %159
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !2592
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24)
   br label %163
 
 163:                                              ; preds = %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit83", %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24)
   ret void
 
 164:                                              ; preds = %136, %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit71", %149
@@ -12525,7 +12503,6 @@ define internal fastcc void @"_ZN79_$LT$parquet..format..ColumnOrder$u20$as$u20$
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit83": ; preds = %164, %167
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !2603
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24)
   br label %163
 
 "_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit71": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he5d25177cc006e74E.exit.i.i68", %65
@@ -12932,10 +12909,10 @@ define internal fastcc void @"_ZN79_$LT$parquet..format..DecimalType$u20$as$u20$
 
 135:                                              ; preds = %133
   call void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
   br label %136
 
 136:                                              ; preds = %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit", %135
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
   ret void
 
 137:                                              ; preds = %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit110", %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit123", %134, %129, %124, %87
@@ -12955,7 +12932,6 @@ define internal fastcc void @"_ZN79_$LT$parquet..format..DecimalType$u20$as$u20$
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit": ; preds = %137, %140
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !2718
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
   br label %136
 
 "_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit123": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he5d25177cc006e74E.exit.i.i120", %109
@@ -13113,10 +13089,10 @@ define internal fastcc void @"_ZN79_$LT$parquet..format..Float16Type$u20$as$u20$
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit": ; preds = %46, %55
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !2762
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %59
 
 59:                                               ; preds = %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit28", %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   ret void
 
 60:                                               ; preds = %30
@@ -13142,7 +13118,6 @@ define internal fastcc void @"_ZN79_$LT$parquet..format..Float16Type$u20$as$u20$
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit28": ; preds = %60, %63
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !2773
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %59
 
 67:                                               ; preds = %22
@@ -13566,7 +13541,6 @@ default.unreachable697:                           ; preds = %96
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit": ; preds = %141, %144
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !2868
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %80)
   br label %486
 
 148:                                              ; preds = %438, %415, %392, %369, %346, %321, %296, %271, %248, %223, %200, %177, %154, %121, %93
@@ -14793,10 +14767,10 @@ default.unreachable697:                           ; preds = %96
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit608": ; preds = %473, %482
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !2913
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %80)
   br label %486
 
 486:                                              ; preds = %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit608", %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %80)
   ret void
 
 487:                                              ; preds = %444
@@ -14873,14 +14847,14 @@ define hidden void @"_ZN79_$LT$parquet..format..OffsetIndex$u20$as$u20$parquet..
   %53 = getelementptr inbounds i8, ptr %2, i64 8
   %54 = load i64, ptr %53, align 8, !alias.scope !2933, !noalias !2931, !noundef !4
   %55 = icmp eq i64 %52, %54
-  %.sink224.sroa.gep = getelementptr inbounds i8, ptr %5, i64 8
-  %.sink224.sroa.gep353 = getelementptr inbounds i8, ptr %19, i64 8
-  %.sink224.sroa.gep355 = getelementptr inbounds i8, ptr %5, i64 32
-  %.sink224.sroa.gep356 = getelementptr inbounds i8, ptr %19, i64 32
-  %.sink224.sroa.gep358 = getelementptr inbounds i8, ptr %5, i64 16
-  %.sink224.sroa.gep359 = getelementptr inbounds i8, ptr %19, i64 16
-  %.sink224.sroa.gep361 = getelementptr inbounds i8, ptr %5, i64 24
-  %.sink224.sroa.gep362 = getelementptr inbounds i8, ptr %19, i64 24
+  %.sink225.sroa.gep = getelementptr inbounds i8, ptr %5, i64 8
+  %.sink225.sroa.gep354 = getelementptr inbounds i8, ptr %19, i64 8
+  %.sink225.sroa.gep356 = getelementptr inbounds i8, ptr %5, i64 32
+  %.sink225.sroa.gep357 = getelementptr inbounds i8, ptr %19, i64 32
+  %.sink225.sroa.gep359 = getelementptr inbounds i8, ptr %5, i64 16
+  %.sink225.sroa.gep360 = getelementptr inbounds i8, ptr %19, i64 16
+  %.sink225.sroa.gep362 = getelementptr inbounds i8, ptr %5, i64 24
+  %.sink225.sroa.gep363 = getelementptr inbounds i8, ptr %19, i64 24
   br i1 %55, label %56, label %57
 
 56:                                               ; preds = %3
@@ -14892,17 +14866,17 @@ define hidden void @"_ZN79_$LT$parquet..format..OffsetIndex$u20$as$u20$parquet..
   br label %57
 
 .body:                                            ; preds = %.loopexit.loopexit, %.loopexit.loopexit.split-lp, %.loopexit.split-lp, %.loopexit142, %67
-  %.pn = phi { ptr, i32 } [ %68, %67 ], [ %.pn.i, %.loopexit142 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit149, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp150, %.loopexit.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %68, %67 ], [ %.pn.i, %.loopexit142 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit150, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp151, %.loopexit.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %44) #9
           to label %292 unwind label %290
 
 .loopexit.loopexit:                               ; preds = %252, %130
-  %lpad.loopexit149 = landingpad { ptr, i32 }
+  %lpad.loopexit150 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit.loopexit.split-lp:                      ; preds = %256, %253
-  %lpad.loopexit.split-lp150 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp151 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
@@ -15122,7 +15096,7 @@ define hidden void @"_ZN79_$LT$parquet..format..OffsetIndex$u20$as$u20$parquet..
   br label %141
 
 .loopexit142:                                     ; preds = %.loopexit142.loopexit, %.loopexit142.loopexit.split-lp, %.loopexit.split-lp143, %214, %181, %148
-  %.pn.i = phi { ptr, i32 } [ %215, %214 ], [ %182, %181 ], [ %149, %148 ], [ %lpad.loopexit.split-lp145, %.loopexit.split-lp143 ], [ %lpad.loopexit, %.loopexit142.loopexit ], [ %lpad.loopexit.split-lp151, %.loopexit142.loopexit.split-lp ]
+  %.pn.i = phi { ptr, i32 } [ %215, %214 ], [ %182, %181 ], [ %149, %148 ], [ %lpad.loopexit.split-lp145, %.loopexit.split-lp143 ], [ %lpad.loopexit, %.loopexit142.loopexit ], [ %lpad.loopexit.split-lp152, %.loopexit142.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %35) #9
           to label %.body unwind label %259, !noalias !2989
 
@@ -15132,7 +15106,7 @@ define hidden void @"_ZN79_$LT$parquet..format..OffsetIndex$u20$as$u20$parquet..
   br label %.loopexit142
 
 .loopexit142.loopexit.split-lp:                   ; preds = %232, %230, %199, %197, %166, %164
-  %lpad.loopexit.split-lp151 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp152 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit142
 
@@ -15267,17 +15241,17 @@ define hidden void @"_ZN79_$LT$parquet..format..OffsetIndex$u20$as$u20$parquet..
   br label %.invoke
 
 .invoke:                                          ; preds = %209, %175
-  %.sink224.sroa.phi = phi ptr [ %.sink224.sroa.gep, %209 ], [ %.sink224.sroa.gep353, %175 ]
-  %.sink224.sroa.phi354 = phi ptr [ %.sink224.sroa.gep355, %209 ], [ %.sink224.sroa.gep356, %175 ]
-  %.sink224.sroa.phi357 = phi ptr [ %.sink224.sroa.gep358, %209 ], [ %.sink224.sroa.gep359, %175 ]
-  %.sink224.sroa.phi360 = phi ptr [ %.sink224.sroa.gep361, %209 ], [ %.sink224.sroa.gep362, %175 ]
-  %.sink224 = phi ptr [ %5, %209 ], [ %19, %175 ]
+  %.sink225.sroa.phi = phi ptr [ %.sink225.sroa.gep, %209 ], [ %.sink225.sroa.gep354, %175 ]
+  %.sink225.sroa.phi355 = phi ptr [ %.sink225.sroa.gep356, %209 ], [ %.sink225.sroa.gep357, %175 ]
+  %.sink225.sroa.phi358 = phi ptr [ %.sink225.sroa.gep359, %209 ], [ %.sink225.sroa.gep360, %175 ]
+  %.sink225.sroa.phi361 = phi ptr [ %.sink225.sroa.gep362, %209 ], [ %.sink225.sroa.gep363, %175 ]
+  %.sink225 = phi ptr [ %5, %209 ], [ %19, %175 ]
   %.sink = phi ptr [ %4, %209 ], [ %18, %175 ]
-  store i64 2, ptr %.sink224.sroa.phi, align 8, !noalias !2989
-  store ptr null, ptr %.sink224.sroa.phi354, align 8, !noalias !2989
-  store ptr %.sink, ptr %.sink224.sroa.phi357, align 8, !noalias !2989
-  store i64 1, ptr %.sink224.sroa.phi360, align 8, !noalias !2989
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink224, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  store i64 2, ptr %.sink225.sroa.phi, align 8, !noalias !2989
+  store ptr null, ptr %.sink225.sroa.phi355, align 8, !noalias !2989
+  store ptr %.sink, ptr %.sink225.sroa.phi358, align 8, !noalias !2989
+  store i64 1, ptr %.sink225.sroa.phi361, align 8, !noalias !2989
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink225, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.cont unwind label %.loopexit.split-lp143, !noalias !2989
 
 .cont:                                            ; preds = %.invoke
@@ -15575,7 +15549,7 @@ define hidden void @"_ZN79_$LT$parquet..format..OffsetIndex$u20$as$u20$parquet..
 .thread:                                          ; preds = %.noexc104, %256
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13), !noalias !3138
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35), !noalias !2979
-  br label %.loopexit153
+  br label %.loopexit154
 
 "_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit111": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he5d25177cc006e74E.exit.i.i108", %227
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27), !noalias !2979
@@ -15653,13 +15627,13 @@ define hidden void @"_ZN79_$LT$parquet..format..OffsetIndex$u20$as$u20$parquet..
 
 276:                                              ; preds = %274
   call void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %44)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %44)
   br label %277
 
 277:                                              ; preds = %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit", %276
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %44)
   ret void
 
-278:                                              ; preds = %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit99", %.loopexit153, %275, %99
+278:                                              ; preds = %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit99", %.loopexit154, %275, %99
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !3165
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2a6f3122bc871979E.llvm.9135219245553044050"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %44)
   %279 = getelementptr inbounds i8, ptr %9, i64 8
@@ -15676,21 +15650,20 @@ define hidden void @"_ZN79_$LT$parquet..format..OffsetIndex$u20$as$u20$parquet..
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit": ; preds = %278, %281
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !3165
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %44)
   br label %277
 
 285:                                              ; preds = %252
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35), !noalias !2979
   %.pre = load i64, ptr %40, align 8, !range !31
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35), !noalias !2979
   %286 = icmp eq i64 %.pre, 4
-  br i1 %286, label %287, label %.loopexit153
+  br i1 %286, label %287, label %.loopexit154
 
 287:                                              ; preds = %285
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %40)
   %288 = icmp eq ptr %131, %101
   br i1 %288, label %._crit_edge, label %130
 
-.loopexit153:                                     ; preds = %285, %.thread
+.loopexit154:                                     ; preds = %285, %.thread
   %289 = phi i64 [ %254, %.thread ], [ %.pre, %285 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.264, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.275.0..sroa_idx.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %40)
@@ -15907,7 +15880,7 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
   br label %139
 
 .body:                                            ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp, %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.loopexit676, %820, %795, %758, %731, %684, %650, %626, %197, %149
-  %.pn = phi { ptr, i32 } [ %821, %820 ], [ %796, %795 ], [ %759, %758 ], [ %732, %731 ], [ %685, %684 ], [ %651, %650 ], [ %627, %626 ], [ %198, %197 ], [ %150, %149 ], [ %.pn.i, %.loopexit676 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit668, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit671, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp674, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit700, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp701, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %821, %820 ], [ %796, %795 ], [ %759, %758 ], [ %732, %731 ], [ %685, %684 ], [ %651, %650 ], [ %627, %626 ], [ %198, %197 ], [ %150, %149 ], [ %.pn.i, %.loopexit676 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit668, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit671, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp674, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit701, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp702, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %126) #9
           to label %861 unwind label %721
 
@@ -15927,12 +15900,12 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit: ; preds = %286, %616
-  %lpad.loopexit700 = landingpad { ptr, i32 }
+  %lpad.loopexit701 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp: ; preds = %341, %344
-  %lpad.loopexit.split-lp701 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp702 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
@@ -16352,17 +16325,17 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
   br label %297
 
 .loopexit676:                                     ; preds = %.loopexit676.loopexit, %.loopexit676.loopexit.split-lp, %.loopexit.split-lp677, %592, %570, %544, %518, %490, %466, %423, %389, %356, %309
-  %.pn.i = phi { ptr, i32 } [ %593, %592 ], [ %571, %570 ], [ %545, %544 ], [ %519, %518 ], [ %491, %490 ], [ %467, %466 ], [ %424, %423 ], [ %390, %389 ], [ %357, %356 ], [ %310, %309 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp677 ], [ %lpad.loopexit702, %.loopexit676.loopexit ], [ %lpad.loopexit.split-lp703, %.loopexit676.loopexit.split-lp ]
+  %.pn.i = phi { ptr, i32 } [ %593, %592 ], [ %571, %570 ], [ %545, %544 ], [ %519, %518 ], [ %491, %490 ], [ %467, %466 ], [ %424, %423 ], [ %390, %389 ], [ %357, %356 ], [ %310, %309 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp677 ], [ %lpad.loopexit703, %.loopexit676.loopexit ], [ %lpad.loopexit.split-lp704, %.loopexit676.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %76) #9
           to label %.body unwind label %347, !noalias !3295
 
 .loopexit676.loopexit:                            ; preds = %614, %603, %599, %597, %590, %589, %581, %577, %575, %563, %555, %551, %549, %537, %529, %525, %523, %511, %503, %497, %495, %485, %477, %473, %471, %459, %450, %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit469.i", %433, %431, %415, %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit459.i", %399, %397, %387, %386, %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit442.i", %366, %364, %349, %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit.i", %319, %317, %304, %296
-  %lpad.loopexit702 = landingpad { ptr, i32 }
+  %lpad.loopexit703 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit676
 
 .loopexit676.loopexit.split-lp:                   ; preds = %598, %576, %550, %524, %496, %472, %441, %439, %407, %405, %374, %372, %327, %325
-  %lpad.loopexit.split-lp703 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp704 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit676
 
@@ -16537,7 +16510,7 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
 .thread:                                          ; preds = %.noexc530, %344
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30), !noalias !3352
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %76), !noalias !3285
-  br label %.loopexit705
+  br label %.loopexit706
 
 347:                                              ; preds = %592, %570, %544, %518, %490, %466, %423, %389, %356, %309, %.loopexit676
   %348 = landingpad { ptr, i32 }
@@ -17822,7 +17795,7 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2358.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2358, i64 32, i1 false)
   br label %707
 
-707:                                              ; preds = %834, %839, %840, %807, %812, %813, %744, %749, %750, %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit513", %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit526", %.loopexit705, %855, %854, %853, %845, %786, %785, %779, %771, %720, %719, %706, %697, %675, %664, %645, %640, %621, %230, %191
+707:                                              ; preds = %834, %839, %840, %807, %812, %813, %744, %749, %750, %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit513", %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit526", %.loopexit706, %855, %854, %853, %845, %786, %785, %779, %771, %720, %719, %706, %697, %675, %664, %645, %640, %621, %230, %191
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !3549
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2a6f3122bc871979E.llvm.9135219245553044050"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %126)
   %708 = getelementptr inbounds i8, ptr %8, i64 8
@@ -17839,7 +17812,6 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit": ; preds = %707, %710
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !3549
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %126)
   br label %847
 
 714:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7c39114a5ae283dE.exit"
@@ -18327,10 +18299,10 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
 
 846:                                              ; preds = %844
   call void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %126)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %126)
   br label %847
 
 847:                                              ; preds = %846, %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %126)
   ret void
 
 848:                                              ; preds = %.lr.ph686
@@ -18361,17 +18333,17 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
   br label %707
 
 856:                                              ; preds = %616
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %76), !noalias !3285
   %.pre = load i64, ptr %119, align 8, !range !31
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %76), !noalias !3285
   %857 = icmp eq i64 %.pre, 4
-  br i1 %857, label %858, label %.loopexit705
+  br i1 %857, label %858, label %.loopexit706
 
 858:                                              ; preds = %856
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %119)
   %859 = icmp eq ptr %287, %232
   br i1 %859, label %._crit_edge, label %286
 
-.loopexit705:                                     ; preds = %856, %.thread
+.loopexit706:                                     ; preds = %856, %.thread
   %860 = phi i64 [ %342, %.thread ], [ %.pre, %856 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2268, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2201.0..sroa_idx.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %119)
@@ -18884,10 +18856,10 @@ define internal fastcc void @"_ZN81_$LT$parquet..format..SortingColumn$u20$as$u2
 
 170:                                              ; preds = %168
   call void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
   br label %171
 
 171:                                              ; preds = %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit", %170
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
   ret void
 
 172:                                              ; preds = %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit149", %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit162", %179, %169, %164, %159, %139, %134, %94
@@ -18907,7 +18879,6 @@ define internal fastcc void @"_ZN81_$LT$parquet..format..SortingColumn$u20$as$u2
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit": ; preds = %172, %175
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !3694
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
   br label %171
 
 179:                                              ; preds = %150
@@ -19323,10 +19294,10 @@ define internal fastcc void @"_ZN81_$LT$parquet..format..TimestampType$u20$as$u2
 
 136:                                              ; preds = %134
   call void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
   br label %137
 
 137:                                              ; preds = %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit", %136
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
   ret void
 
 138:                                              ; preds = %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit110", %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit123", %135, %130, %125, %88
@@ -19346,7 +19317,6 @@ define internal fastcc void @"_ZN81_$LT$parquet..format..TimestampType$u20$as$u2
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit": ; preds = %138, %141
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !3809
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
   br label %137
 
 "_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit123": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he5d25177cc006e74E.exit.i.i120", %110
@@ -20482,7 +20452,6 @@ define hidden void @"_ZN82_$LT$parquet..format..ColumnMetaData$u20$as$u20$parque
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit": ; preds = %364, %367
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !3965
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %91)
   br label %590
 
 371:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7c39114a5ae283dE.exit"
@@ -21262,10 +21231,10 @@ define hidden void @"_ZN82_$LT$parquet..format..ColumnMetaData$u20$as$u20$parque
 
 589:                                              ; preds = %587
   call void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %91)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %91)
   br label %590
 
 590:                                              ; preds = %589, %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %91)
   ret void
 
 591:                                              ; preds = %390
@@ -21809,10 +21778,10 @@ define internal fastcc void @"_ZN83_$LT$parquet..format..BloomFilterHash$u20$as$
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit": ; preds = %150, %159
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !4158
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24)
   br label %163
 
 163:                                              ; preds = %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit83", %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24)
   ret void
 
 164:                                              ; preds = %136, %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit71", %149
@@ -21832,7 +21801,6 @@ define internal fastcc void @"_ZN83_$LT$parquet..format..BloomFilterHash$u20$as$
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit83": ; preds = %164, %167
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !4169
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24)
   br label %163
 
 "_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit71": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he5d25177cc006e74E.exit.i.i68", %65
@@ -22906,10 +22874,10 @@ define hidden void @"_ZN85_$LT$parquet..format..BloomFilterHeader$u20$as$u20$par
 
 351:                                              ; preds = %349
   call void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %53)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %53)
   br label %352
 
 352:                                              ; preds = %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit", %351
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %53)
   ret void
 
 353:                                              ; preds = %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit188", %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit201", %363, %360, %350, %345, %340, %323, %318, %301, %296, %119
@@ -22929,7 +22897,6 @@ define hidden void @"_ZN85_$LT$parquet..format..BloomFilterHeader$u20$as$u20$par
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit": ; preds = %353, %356
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !4467
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %53)
   br label %352
 
 360:                                              ; preds = %334
@@ -23448,10 +23415,10 @@ define internal fastcc void @"_ZN85_$LT$parquet..format..PageEncodingStats$u20$a
 
 168:                                              ; preds = %166
   call void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
   br label %169
 
 169:                                              ; preds = %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit", %168
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
   ret void
 
 170:                                              ; preds = %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit149", %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit162", %177, %167, %162, %157, %138, %133, %94
@@ -23471,7 +23438,6 @@ define internal fastcc void @"_ZN85_$LT$parquet..format..PageEncodingStats$u20$a
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit": ; preds = %170, %173
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !4588
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
   br label %169
 
 177:                                              ; preds = %149
@@ -23986,10 +23952,10 @@ define internal fastcc void @"_ZN85_$LT$parquet..format..PageEncodingStats$u20$a
 
 168:                                              ; preds = %166
   call void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
   br label %169
 
 169:                                              ; preds = %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit", %168
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
   ret void
 
 170:                                              ; preds = %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit149", %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit162", %177, %167, %162, %157, %138, %133, %94
@@ -24009,7 +23975,6 @@ define internal fastcc void @"_ZN85_$LT$parquet..format..PageEncodingStats$u20$a
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit": ; preds = %170, %173
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !4709
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
   br label %169
 
 177:                                              ; preds = %149
@@ -24987,7 +24952,6 @@ define internal fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit": ; preds = %345, %348
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %45), !noalias !4999
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %90)
   br label %610
 
 352:                                              ; preds = %358, %118, %.body
@@ -25816,10 +25780,10 @@ define internal fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit213": ; preds = %597, %606
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !5288
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %90)
   br label %610
 
 610:                                              ; preds = %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit213", %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %90)
   ret void
 
 "_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit129": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he5d25177cc006e74E.exit.i.i126", %374
@@ -26272,7 +26236,6 @@ define internal fastcc void @"_ZN88_$LT$parquet..format..ColumnCryptoMetaData$u2
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit": ; preds = %170, %173
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31), !noalias !5428
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %52)
   br label %366
 
 177:                                              ; preds = %183, %81, %.body
@@ -26767,8 +26730,8 @@ define internal fastcc void @"_ZN88_$LT$parquet..format..ColumnCryptoMetaData$u2
   br label %309
 
 330:                                              ; preds = %324
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28), !noalias !5477
   %.pre = load i64, ptr %47, align 8, !range !31
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28), !noalias !5477
   %331 = icmp eq i64 %.pre, 4
   br i1 %331, label %332, label %338
 
@@ -26896,10 +26859,10 @@ define internal fastcc void @"_ZN88_$LT$parquet..format..ColumnCryptoMetaData$u2
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit148": ; preds = %353, %362
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !5598
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %52)
   br label %366
 
 366:                                              ; preds = %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit148", %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %52)
   ret void
 
 "_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit129": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he5d25177cc006e74E.exit.i.i126", %199
@@ -27377,10 +27340,10 @@ define internal fastcc void @"_ZN90_$LT$parquet..format..BloomFilterCompression$
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit": ; preds = %150, %159
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !5754
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24)
   br label %163
 
 163:                                              ; preds = %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit83", %"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24)
   ret void
 
 164:                                              ; preds = %136, %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit71", %149
@@ -27400,7 +27363,6 @@ define internal fastcc void @"_ZN90_$LT$parquet..format..BloomFilterCompression$
 
 "_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hdff87a487151c0eaE.exit83": ; preds = %164, %167
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !5765
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24)
   br label %163
 
 "_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h8f750fcce49569f4E.exit71": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he5d25177cc006e74E.exit.i.i68", %65

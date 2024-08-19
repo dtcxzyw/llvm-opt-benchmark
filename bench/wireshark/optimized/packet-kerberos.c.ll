@@ -3267,7 +3267,7 @@ define internal fastcc i32 @dissect_kerberos_common(ptr noundef %0, ptr noundef 
   %24 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0..0..0..0.33) #16
   %25 = and i32 %24, 2147483647
   %26 = icmp ugt i32 %25, 10485760
-  br i1 %26, label %169, label %27
+  br i1 %26, label %166, label %27
 
 27:                                               ; preds = %23
   br i1 %4, label %28, label %31
@@ -3320,11 +3320,11 @@ show_krb_recordmark.exit:                         ; preds = %37, %39
   %51 = call i32 @get_ber_identifier(ptr noundef %0, i32 noundef %.0..0..0..0.33, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14) #16
   %52 = load i8, ptr %12, align 1
   %.not = icmp eq i8 %52, 1
-  br i1 %.not, label %53, label %169
+  br i1 %.not, label %53, label %166
 
 53:                                               ; preds = %50
   %54 = load i32, ptr %14, align 4
-  switch i32 %54, label %169 [
+  switch i32 %54, label %166 [
     i32 1, label %55
     i32 2, label %55
     i32 3, label %55
@@ -3414,206 +3414,197 @@ kerberos_get_private_data.exit:                   ; preds = %70, %78
   %89 = getelementptr inbounds i8, ptr %18, i64 48
   %90 = call i32 @_setjmp(ptr noundef nonnull %89) #19
   %.not70 = icmp eq i32 %90, 0
-  br i1 %.not70, label %93, label %91
-
-91:                                               ; preds = %kerberos_get_private_data.exit
-  %92 = getelementptr inbounds i8, ptr %18, i64 16
-  store volatile ptr %92, ptr %15, align 8
-  br label %94
+  %91 = getelementptr inbounds i8, ptr %18, i64 16
+  %.sink = select i1 %.not70, ptr null, ptr %91
+  store volatile ptr %.sink, ptr %15, align 8
+  %.0..0..0..0. = load volatile i32, ptr %16, align 4
+  %92 = and i32 %.0..0..0..0., 1
+  %.not71 = icmp eq i32 %92, 0
+  br i1 %.not71, label %95, label %93
 
 93:                                               ; preds = %kerberos_get_private_data.exit
-  store volatile ptr null, ptr %15, align 8
-  br label %94
-
-94:                                               ; preds = %93, %91
-  %.0..0..0..0. = load volatile i32, ptr %16, align 4
-  %95 = and i32 %.0..0..0..0., 1
-  %.not71 = icmp eq i32 %95, 0
-  br i1 %.not71, label %98, label %96
-
-96:                                               ; preds = %94
   %.0..0..0..0.1 = load volatile i32, ptr %16, align 4
-  %97 = or i32 %.0..0..0..0.1, 2
-  store volatile i32 %97, ptr %16, align 4
-  br label %98
+  %94 = or i32 %.0..0..0..0.1, 2
+  store volatile i32 %94, ptr %16, align 4
+  br label %95
 
-98:                                               ; preds = %96, %94
+95:                                               ; preds = %93, %kerberos_get_private_data.exit
   %.0..0..0..0.2 = load volatile i32, ptr %16, align 4
-  %99 = and i32 %.0..0..0..0.2, -2
-  store volatile i32 %99, ptr %16, align 4
+  %96 = and i32 %.0..0..0..0.2, -2
+  store volatile i32 %96, ptr %16, align 4
   %.0..0..0..0.3 = load volatile i32, ptr %16, align 4
-  %100 = icmp eq i32 %.0..0..0..0.3, 0
-  br i1 %100, label %101, label %106
+  %97 = icmp eq i32 %.0..0..0..0.3, 0
+  br i1 %97, label %98, label %103
 
-101:                                              ; preds = %98
+98:                                               ; preds = %95
   %.0..0..0..0.7 = load volatile ptr, ptr %15, align 8
-  %102 = icmp eq ptr %.0..0..0..0.7, null
-  br i1 %102, label %103, label %106
+  %99 = icmp eq ptr %.0..0..0..0.7, null
+  br i1 %99, label %100, label %103
 
-103:                                              ; preds = %101
+100:                                              ; preds = %98
   %.0..0..0..0.37 = load volatile i32, ptr %8, align 4
   %.0..0..0..0.26 = load volatile ptr, ptr %9, align 8
-  %104 = load i32, ptr @ett_kerberos_Applications, align 4
-  %105 = call i32 @dissect_ber_choice(ptr noundef nonnull %11, ptr noundef %.0..0..0..0.26, ptr noundef %0, i32 noundef %.0..0..0..0.37, ptr noundef nonnull @Applications_choice, i32 noundef -1, i32 noundef %104, ptr noundef null) #16
-  store volatile i32 %105, ptr %8, align 4
-  br label %106
+  %101 = load i32, ptr @ett_kerberos_Applications, align 4
+  %102 = call i32 @dissect_ber_choice(ptr noundef nonnull %11, ptr noundef %.0..0..0..0.26, ptr noundef %0, i32 noundef %.0..0..0..0.37, ptr noundef nonnull @Applications_choice, i32 noundef -1, i32 noundef %101, ptr noundef null) #16
+  store volatile i32 %102, ptr %8, align 4
+  br label %103
 
-106:                                              ; preds = %103, %101, %98
+103:                                              ; preds = %100, %98, %95
   %.0..0..0..0.4 = load volatile i32, ptr %16, align 4
-  %107 = icmp eq i32 %.0..0..0..0.4, 0
-  br i1 %107, label %108, label %131
+  %104 = icmp eq i32 %.0..0..0..0.4, 0
+  br i1 %104, label %105, label %128
 
-108:                                              ; preds = %106
+105:                                              ; preds = %103
   %.0..0..0..0.8 = load volatile ptr, ptr %15, align 8
   %.not72 = icmp eq ptr %.0..0..0..0.8, null
-  br i1 %.not72, label %131, label %109
+  br i1 %.not72, label %128, label %106
 
-109:                                              ; preds = %108
+106:                                              ; preds = %105
   %.0..0..0..0.9 = load volatile ptr, ptr %15, align 8
-  %110 = getelementptr inbounds i8, ptr %.0..0..0..0.9, i64 8
-  %111 = load volatile i64, ptr %110, align 8
-  %112 = icmp eq i64 %111, 1
-  br i1 %112, label %129, label %113
+  %107 = getelementptr inbounds i8, ptr %.0..0..0..0.9, i64 8
+  %108 = load volatile i64, ptr %107, align 8
+  %109 = icmp eq i64 %108, 1
+  br i1 %109, label %126, label %110
 
-113:                                              ; preds = %109
+110:                                              ; preds = %106
   %.0..0..0..0.10 = load volatile ptr, ptr %15, align 8
-  %114 = getelementptr inbounds i8, ptr %.0..0..0..0.10, i64 8
-  %115 = load volatile i64, ptr %114, align 8
-  %116 = icmp eq i64 %115, 4
-  br i1 %116, label %129, label %117
+  %111 = getelementptr inbounds i8, ptr %.0..0..0..0.10, i64 8
+  %112 = load volatile i64, ptr %111, align 8
+  %113 = icmp eq i64 %112, 4
+  br i1 %113, label %126, label %114
 
-117:                                              ; preds = %113
+114:                                              ; preds = %110
   %.0..0..0..0.11 = load volatile ptr, ptr %15, align 8
-  %118 = getelementptr inbounds i8, ptr %.0..0..0..0.11, i64 8
-  %119 = load volatile i64, ptr %118, align 8
-  %120 = icmp eq i64 %119, 3
-  br i1 %120, label %129, label %121
+  %115 = getelementptr inbounds i8, ptr %.0..0..0..0.11, i64 8
+  %116 = load volatile i64, ptr %115, align 8
+  %117 = icmp eq i64 %116, 3
+  br i1 %117, label %126, label %118
 
-121:                                              ; preds = %117
+118:                                              ; preds = %114
   %.0..0..0..0.12 = load volatile ptr, ptr %15, align 8
-  %122 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 8
-  %123 = load volatile i64, ptr %122, align 8
-  %124 = icmp eq i64 %123, 2
-  br i1 %124, label %129, label %125
+  %119 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 8
+  %120 = load volatile i64, ptr %119, align 8
+  %121 = icmp eq i64 %120, 2
+  br i1 %121, label %126, label %122
 
-125:                                              ; preds = %121
+122:                                              ; preds = %118
   %.0..0..0..0.13 = load volatile ptr, ptr %15, align 8
-  %126 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
-  %127 = load volatile i64, ptr %126, align 8
-  %128 = icmp eq i64 %127, 7
-  br i1 %128, label %129, label %131
+  %123 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
+  %124 = load volatile i64, ptr %123, align 8
+  %125 = icmp eq i64 %124, 7
+  br i1 %125, label %126, label %128
 
-129:                                              ; preds = %125, %121, %117, %113, %109
+126:                                              ; preds = %122, %118, %114, %110, %106
   %.0..0..0..0.5 = load volatile i32, ptr %16, align 4
-  %130 = or i32 %.0..0..0..0.5, 1
-  store volatile i32 %130, ptr %16, align 4
+  %127 = or i32 %.0..0..0..0.5, 1
+  store volatile i32 %127, ptr %16, align 4
   call void @longjmp(ptr noundef nonnull %89, i32 noundef 1) #20
   unreachable
 
-131:                                              ; preds = %125, %108, %106
+128:                                              ; preds = %122, %105, %103
   %.0..0..0..0.6 = load volatile i32, ptr %16, align 4
-  %132 = and i32 %.0..0..0..0.6, 1
-  %.not73 = icmp eq i32 %132, 0
-  br i1 %.not73, label %133, label %135
+  %129 = and i32 %.0..0..0..0.6, 1
+  %.not73 = icmp eq i32 %129, 0
+  br i1 %.not73, label %130, label %132
 
-133:                                              ; preds = %131
+130:                                              ; preds = %128
   %.0..0..0..0.14 = load volatile ptr, ptr %15, align 8
   %.not74 = icmp eq ptr %.0..0..0..0.14, null
-  br i1 %.not74, label %135, label %134
+  br i1 %.not74, label %132, label %131
 
-134:                                              ; preds = %133
+131:                                              ; preds = %130
   %.0..0..0..0.15 = load volatile ptr, ptr %15, align 8
   call void @except_rethrow(ptr noundef %.0..0..0..0.15) #20
   unreachable
 
-135:                                              ; preds = %133, %131
-  %136 = getelementptr inbounds i8, ptr %18, i64 40
-  %137 = load volatile ptr, ptr %136, align 8
-  call void @except_free(ptr noundef %137) #16
-  %138 = call ptr @except_pop() #16
+132:                                              ; preds = %130, %128
+  %133 = getelementptr inbounds i8, ptr %18, i64 40
+  %134 = load volatile ptr, ptr %133, align 8
+  call void @except_free(ptr noundef %134) #16
+  %135 = call ptr @except_pop() #16
   %.0..0..0..0.27 = load volatile ptr, ptr %9, align 8
   %.not75 = icmp eq ptr %.0..0..0..0.27, null
-  br i1 %.not75, label %148, label %139
+  br i1 %.not75, label %145, label %136
 
-139:                                              ; preds = %135
+136:                                              ; preds = %132
   %.0..0..0..0.28 = load volatile ptr, ptr %9, align 8
   store ptr %.0..0..0..0.28, ptr %19, align 8
-  %140 = getelementptr inbounds i8, ptr %19, i64 8
-  store ptr %1, ptr %140, align 8
-  %141 = getelementptr inbounds i8, ptr %19, i64 16
-  store ptr @ei_kerberos_learnt_keytype, ptr %141, align 8
-  %142 = getelementptr inbounds i8, ptr %19, i64 24
-  store ptr @.str.964, ptr %142, align 8
-  %143 = getelementptr inbounds i8, ptr %19, i64 32
-  store ptr %0, ptr %143, align 8
-  %144 = getelementptr inbounds i8, ptr %19, i64 40
-  store i32 0, ptr %144, align 8
-  %145 = getelementptr inbounds i8, ptr %19, i64 44
-  store i32 0, ptr %145, align 4
-  %146 = getelementptr inbounds i8, ptr %76, i64 152
-  %147 = load ptr, ptr %146, align 8
-  call void @wmem_list_foreach(ptr noundef %147, ptr noundef nonnull @kerberos_display_key, ptr noundef nonnull %19) #16
-  br label %148
+  %137 = getelementptr inbounds i8, ptr %19, i64 8
+  store ptr %1, ptr %137, align 8
+  %138 = getelementptr inbounds i8, ptr %19, i64 16
+  store ptr @ei_kerberos_learnt_keytype, ptr %138, align 8
+  %139 = getelementptr inbounds i8, ptr %19, i64 24
+  store ptr @.str.964, ptr %139, align 8
+  %140 = getelementptr inbounds i8, ptr %19, i64 32
+  store ptr %0, ptr %140, align 8
+  %141 = getelementptr inbounds i8, ptr %19, i64 40
+  store i32 0, ptr %141, align 8
+  %142 = getelementptr inbounds i8, ptr %19, i64 44
+  store i32 0, ptr %142, align 4
+  %143 = getelementptr inbounds i8, ptr %76, i64 152
+  %144 = load ptr, ptr %143, align 8
+  call void @wmem_list_foreach(ptr noundef %144, ptr noundef nonnull @kerberos_display_key, ptr noundef nonnull %19) #16
+  br label %145
 
-148:                                              ; preds = %139, %135
+145:                                              ; preds = %136, %132
   %.0..0..0..0.29 = load volatile ptr, ptr %9, align 8
   %.not76 = icmp eq ptr %.0..0..0..0.29, null
-  br i1 %.not76, label %158, label %149
+  br i1 %.not76, label %155, label %146
 
-149:                                              ; preds = %148
+146:                                              ; preds = %145
   %.0..0..0..0.30 = load volatile ptr, ptr %9, align 8
   store ptr %.0..0..0..0.30, ptr %20, align 8
-  %150 = getelementptr inbounds i8, ptr %20, i64 8
-  store ptr %1, ptr %150, align 8
-  %151 = getelementptr inbounds i8, ptr %20, i64 16
-  store ptr @ei_kerberos_missing_keytype, ptr %151, align 8
-  %152 = getelementptr inbounds i8, ptr %20, i64 24
-  store ptr @.str.965, ptr %152, align 8
-  %153 = getelementptr inbounds i8, ptr %20, i64 32
-  store ptr %0, ptr %153, align 8
-  %154 = getelementptr inbounds i8, ptr %20, i64 40
-  store i32 0, ptr %154, align 8
-  %155 = getelementptr inbounds i8, ptr %20, i64 44
-  store i32 0, ptr %155, align 4
-  %156 = getelementptr inbounds i8, ptr %76, i64 160
-  %157 = load ptr, ptr %156, align 8
-  call void @wmem_list_foreach(ptr noundef %157, ptr noundef nonnull @kerberos_display_key, ptr noundef nonnull %20) #16
-  br label %158
+  %147 = getelementptr inbounds i8, ptr %20, i64 8
+  store ptr %1, ptr %147, align 8
+  %148 = getelementptr inbounds i8, ptr %20, i64 16
+  store ptr @ei_kerberos_missing_keytype, ptr %148, align 8
+  %149 = getelementptr inbounds i8, ptr %20, i64 24
+  store ptr @.str.965, ptr %149, align 8
+  %150 = getelementptr inbounds i8, ptr %20, i64 32
+  store ptr %0, ptr %150, align 8
+  %151 = getelementptr inbounds i8, ptr %20, i64 40
+  store i32 0, ptr %151, align 8
+  %152 = getelementptr inbounds i8, ptr %20, i64 44
+  store i32 0, ptr %152, align 4
+  %153 = getelementptr inbounds i8, ptr %76, i64 160
+  %154 = load ptr, ptr %153, align 8
+  call void @wmem_list_foreach(ptr noundef %154, ptr noundef nonnull @kerberos_display_key, ptr noundef nonnull %20) #16
+  br label %155
 
-158:                                              ; preds = %149, %148
+155:                                              ; preds = %146, %145
   %.0..0..0..0.31 = load volatile ptr, ptr %9, align 8
   %.not77 = icmp eq ptr %.0..0..0..0.31, null
-  br i1 %.not77, label %168, label %159
+  br i1 %.not77, label %165, label %156
 
-159:                                              ; preds = %158
+156:                                              ; preds = %155
   %.0..0..0..0.32 = load volatile ptr, ptr %9, align 8
   store ptr %.0..0..0..0.32, ptr %21, align 8
-  %160 = getelementptr inbounds i8, ptr %21, i64 8
-  store ptr %1, ptr %160, align 8
-  %161 = getelementptr inbounds i8, ptr %21, i64 16
-  store ptr @ei_kerberos_decrypted_keytype, ptr %161, align 8
-  %162 = getelementptr inbounds i8, ptr %21, i64 24
-  store ptr @.str.966, ptr %162, align 8
-  %163 = getelementptr inbounds i8, ptr %21, i64 32
-  store ptr %0, ptr %163, align 8
-  %164 = getelementptr inbounds i8, ptr %21, i64 40
-  store i32 0, ptr %164, align 8
-  %165 = getelementptr inbounds i8, ptr %21, i64 44
-  store i32 0, ptr %165, align 4
-  %166 = getelementptr inbounds i8, ptr %76, i64 144
-  %167 = load ptr, ptr %166, align 8
-  call void @wmem_list_foreach(ptr noundef %167, ptr noundef nonnull @kerberos_display_key, ptr noundef nonnull %21) #16
-  br label %168
+  %157 = getelementptr inbounds i8, ptr %21, i64 8
+  store ptr %1, ptr %157, align 8
+  %158 = getelementptr inbounds i8, ptr %21, i64 16
+  store ptr @ei_kerberos_decrypted_keytype, ptr %158, align 8
+  %159 = getelementptr inbounds i8, ptr %21, i64 24
+  store ptr @.str.966, ptr %159, align 8
+  %160 = getelementptr inbounds i8, ptr %21, i64 32
+  store ptr %0, ptr %160, align 8
+  %161 = getelementptr inbounds i8, ptr %21, i64 40
+  store i32 0, ptr %161, align 8
+  %162 = getelementptr inbounds i8, ptr %21, i64 44
+  store i32 0, ptr %162, align 4
+  %163 = getelementptr inbounds i8, ptr %76, i64 144
+  %164 = load ptr, ptr %163, align 8
+  call void @wmem_list_foreach(ptr noundef %164, ptr noundef nonnull @kerberos_display_key, ptr noundef nonnull %21) #16
+  br label %165
 
-168:                                              ; preds = %159, %158
+165:                                              ; preds = %156, %155
   %.0..0..0..0.24 = load volatile ptr, ptr %10, align 8
   %.0..0..0..0.38 = load volatile i32, ptr %8, align 4
   call void @proto_item_set_len(ptr noundef %.0..0..0..0.24, i32 noundef %.0..0..0..0.38) #16
   %.0..0..0..0.39 = load volatile i32, ptr %8, align 4
-  br label %169
+  br label %166
 
-169:                                              ; preds = %53, %50, %23, %168
-  %.0 = phi i32 [ %.0..0..0..0.39, %168 ], [ -1, %23 ], [ 0, %50 ], [ 0, %53 ]
+166:                                              ; preds = %53, %50, %23, %165
+  %.0 = phi i32 [ %.0..0..0..0.39, %165 ], [ -1, %23 ], [ 0, %50 ], [ 0, %53 ]
   ret i32 %.0
 }
 

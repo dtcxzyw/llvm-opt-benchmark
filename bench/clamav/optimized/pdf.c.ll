@@ -1701,13 +1701,13 @@ define i32 @pdf_extract_obj(ptr noundef %0, ptr noundef %1, i32 noundef %2) loca
 
 18:                                               ; preds = %3
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.58) #23
-  br label %441
+  br label %438
 
 19:                                               ; preds = %3
   %20 = getelementptr inbounds i8, ptr %1, i64 320
   %21 = load i8, ptr %20, align 8
   %22 = trunc i8 %21 to i1
-  br i1 %22, label %441, label %23
+  br i1 %22, label %438, label %23
 
 23:                                               ; preds = %19
   store i8 1, ptr %20, align 8
@@ -1726,7 +1726,7 @@ define i32 @pdf_extract_obj(ptr noundef %0, ptr noundef %1, i32 noundef %2) loca
 
 31:                                               ; preds = %26
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.60) #23
-  br label %441
+  br label %438
 
 32:                                               ; preds = %26, %23
   %33 = getelementptr inbounds i8, ptr %1, i64 20
@@ -1742,7 +1742,7 @@ define i32 @pdf_extract_obj(ptr noundef %0, ptr noundef %1, i32 noundef %2) loca
   %38 = and i32 %34, 1048576
   %.not339 = icmp eq i32 %38, 0
   %narrow411.not = and i1 %.not339, %narrow410.not412
-  br i1 %narrow411.not, label %441, label %39
+  br i1 %narrow411.not, label %438, label %39
 
 39:                                               ; preds = %32
   %40 = load i32, ptr %11, align 8
@@ -1764,7 +1764,7 @@ define i32 @pdf_extract_obj(ptr noundef %0, ptr noundef %1, i32 noundef %2) loca
   %53 = load i32, ptr %52, align 4
   %54 = call ptr @cli_strerror(i32 noundef %53, ptr noundef nonnull %7, i64 noundef 128) #23
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.63, ptr noundef nonnull %4, ptr noundef %54) #23
-  br label %441
+  br label %438
 
 55:                                               ; preds = %39
   %56 = and i32 %2, 1
@@ -2049,7 +2049,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %135
   %199 = load i32, ptr %190, align 8
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.84, i32 noundef %199) #23
   tail call void @pdf_free_dict(ptr noundef %.0281) #23
-  br label %441
+  br label %438
 
 200:                                              ; preds = %189
   %201 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #26
@@ -2060,7 +2060,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %135
 203:                                              ; preds = %200
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.84, i32 noundef %202) #23
   tail call void @pdf_free_dict(ptr noundef %.0281) #23
-  br label %441
+  br label %438
 
 204:                                              ; preds = %200
   %205 = add i32 %202, -1
@@ -2191,7 +2191,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %135
 
 265:                                              ; preds = %261
   call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.89) #23
-  br label %441
+  br label %438
 
 266:                                              ; preds = %254
   call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.90) #23
@@ -2491,80 +2491,73 @@ filter_writen.exit:                               ; preds = %336, %341
   %407 = load ptr, ptr %406, align 8
   %408 = call i32 @cli_magic_scan_desc(i32 noundef %49, ptr noundef nonnull %4, ptr noundef %407, ptr noundef null, i32 noundef 0) #23
   %.not377 = icmp eq i32 %408, 0
-  br i1 %.not377, label %410, label %409
+  br i1 %.not377, label %409, label %.thread408.sink.split
 
 409:                                              ; preds = %404
-  store i32 %408, ptr %6, align 4
-  br label %.thread408
+  %410 = load i32, ptr %6, align 4
+  %or.cond7 = icmp ult i32 %410, 2
+  br i1 %or.cond7, label %411, label %.thread408
 
-410:                                              ; preds = %404
-  %411 = load i32, ptr %6, align 4
-  %or.cond7 = icmp ult i32 %411, 2
-  br i1 %or.cond7, label %412, label %.thread408
+411:                                              ; preds = %409
+  %412 = call fastcc i32 @run_pdf_hooks(ptr noundef nonnull %0, i32 noundef 2, i32 noundef %49)
+  %413 = icmp eq i32 %412, 1
+  br i1 %413, label %.thread408.sink.split, label %414
 
-412:                                              ; preds = %410
-  %413 = call fastcc i32 @run_pdf_hooks(ptr noundef nonnull %0, i32 noundef 2, i32 noundef %49)
-  %414 = icmp eq i32 %413, 1
-  br i1 %414, label %415, label %416
-
-415:                                              ; preds = %412
-  store i32 1, ptr %6, align 4
-  br label %.thread408
-
-416:                                              ; preds = %412
+414:                                              ; preds = %411
   %.pr407 = load i32, ptr %6, align 4
   %or.cond9 = icmp ult i32 %.pr407, 2
-  br i1 %or.cond9, label %417, label %.thread408
+  br i1 %or.cond9, label %415, label %.thread408
 
-417:                                              ; preds = %416
-  %418 = load i32, ptr %33, align 4
-  %419 = and i32 %418, 16777216
-  %.not378 = icmp eq i32 %419, 0
-  br i1 %.not378, label %.thread408, label %420
+415:                                              ; preds = %414
+  %416 = load i32, ptr %33, align 4
+  %417 = and i32 %416, 16777216
+  %.not378 = icmp eq i32 %417, 0
+  br i1 %.not378, label %.thread408, label %418
 
-420:                                              ; preds = %417
-  %421 = call i64 @lseek(i32 noundef %49, i64 noundef 0, i32 noundef 0) #23
-  %422 = load i32, ptr %11, align 8
-  %423 = lshr i32 %422, 8
-  %424 = and i32 %422, 255
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.101, i32 noundef %423, i32 noundef %424) #23
+418:                                              ; preds = %415
+  %419 = call i64 @lseek(i32 noundef %49, i64 noundef 0, i32 noundef 0) #23
+  %420 = load i32, ptr %11, align 8
+  %421 = lshr i32 %420, 8
+  %422 = and i32 %420, 255
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.101, i32 noundef %421, i32 noundef %422) #23
   %.val394 = load i32, ptr %11, align 8
-  %425 = call fastcc i32 @pdf_scan_contents(i32 noundef %49, ptr noundef nonnull %0, i32 %.val394)
-  %.not379 = icmp eq i32 %425, 0
-  br i1 %.not379, label %.thread408, label %426
+  %423 = call fastcc i32 @pdf_scan_contents(i32 noundef %49, ptr noundef nonnull %0, i32 %.val394)
+  %.not379 = icmp eq i32 %423, 0
+  br i1 %.not379, label %.thread408, label %.thread408.sink.split
 
-426:                                              ; preds = %420
-  store i32 %425, ptr %6, align 4
+.thread408.sink.split:                            ; preds = %418, %411, %404
+  %.sink = phi i32 [ %408, %404 ], [ 1, %411 ], [ %423, %418 ]
+  store i32 %.sink, ptr %6, align 4
   br label %.thread408
 
-.thread408:                                       ; preds = %410, %220, %.critedge.thread403, %420, %416, %417, %426, %415, %409
-  %427 = call i32 @close(i32 noundef %49) #23
-  %428 = load i32, ptr %6, align 4
-  %.not380 = icmp ne i32 %428, 20
+.thread408:                                       ; preds = %.thread408.sink.split, %409, %220, %.critedge.thread403, %418, %414, %415
+  %424 = call i32 @close(i32 noundef %49) #23
+  %425 = load i32, ptr %6, align 4
+  %.not380 = icmp ne i32 %425, 20
   %brmerge.not = and i1 %57, %.not380
-  br i1 %brmerge.not, label %429, label %441
+  br i1 %brmerge.not, label %426, label %438
 
-429:                                              ; preds = %.thread408
-  %430 = getelementptr inbounds i8, ptr %0, i64 80
-  %431 = load ptr, ptr %430, align 8
-  %432 = getelementptr inbounds i8, ptr %431, i64 48
-  %433 = load ptr, ptr %432, align 8
-  %434 = getelementptr inbounds i8, ptr %433, i64 40
-  %435 = load i32, ptr %434, align 8
-  %.not381 = icmp eq i32 %435, 0
-  br i1 %.not381, label %436, label %441
+426:                                              ; preds = %.thread408
+  %427 = getelementptr inbounds i8, ptr %0, i64 80
+  %428 = load ptr, ptr %427, align 8
+  %429 = getelementptr inbounds i8, ptr %428, i64 48
+  %430 = load ptr, ptr %429, align 8
+  %431 = getelementptr inbounds i8, ptr %430, i64 40
+  %432 = load i32, ptr %431, align 8
+  %.not381 = icmp eq i32 %432, 0
+  br i1 %.not381, label %433, label %438
 
-436:                                              ; preds = %429
-  %437 = call i32 @cli_unlink(ptr noundef nonnull %4) #23
-  %438 = icmp ne i32 %437, 0
-  %439 = load i32, ptr %6, align 4
-  %440 = icmp ne i32 %439, 1
-  %or.cond11 = select i1 %438, i1 %440, i1 false
-  %spec.select = select i1 %or.cond11, i32 10, i32 %439
-  br label %441
+433:                                              ; preds = %426
+  %434 = call i32 @cli_unlink(ptr noundef nonnull %4) #23
+  %435 = icmp ne i32 %434, 0
+  %436 = load i32, ptr %6, align 4
+  %437 = icmp ne i32 %436, 1
+  %or.cond11 = select i1 %435, i1 %437, i1 false
+  %spec.select = select i1 %or.cond11, i32 10, i32 %436
+  br label %438
 
-441:                                              ; preds = %436, %429, %.thread408, %32, %19, %265, %203, %198, %51, %31, %18
-  %.0 = phi i32 [ 0, %18 ], [ 26, %31 ], [ 17, %51 ], [ 20, %265 ], [ 20, %203 ], [ 20, %198 ], [ 0, %19 ], [ 0, %32 ], [ %428, %.thread408 ], [ %428, %429 ], [ %spec.select, %436 ]
+438:                                              ; preds = %433, %426, %.thread408, %32, %19, %265, %203, %198, %51, %31, %18
+  %.0 = phi i32 [ 0, %18 ], [ 26, %31 ], [ 17, %51 ], [ 20, %265 ], [ 20, %203 ], [ 20, %198 ], [ 0, %19 ], [ 0, %32 ], [ %425, %.thread408 ], [ %425, %426 ], [ %spec.select, %433 ]
   ret i32 %.0
 }
 

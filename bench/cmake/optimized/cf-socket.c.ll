@@ -1451,14 +1451,14 @@ define internal noundef i32 @cf_udp_connect(ptr noundef %0, ptr noundef %1, i1 z
 
 13:                                               ; preds = %4
   store i8 1, ptr %3, align 1
-  br label %120
+  br label %119
 
 14:                                               ; preds = %4
   store i8 0, ptr %3, align 1
   %15 = getelementptr inbounds i8, ptr %9, i64 152
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, -1
-  br i1 %17, label %18, label %120
+  br i1 %17, label %18, label %119
 
 18:                                               ; preds = %14
   %19 = tail call fastcc i32 @cf_socket_open(ptr noundef nonnull %0, ptr noundef %1)
@@ -1467,30 +1467,30 @@ define internal noundef i32 @cf_udp_connect(ptr noundef %0, ptr noundef %1, i1 z
 
 20:                                               ; preds = %18
   %.not57 = icmp eq ptr %1, null
-  br i1 %.not57, label %120, label %21
+  br i1 %.not57, label %119, label %21
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds i8, ptr %1, i64 2642
   %23 = load i64, ptr %22, align 2
   %24 = and i64 %23, 268435456
   %.not64 = icmp eq i64 %24, 0
-  br i1 %.not64, label %120, label %25
+  br i1 %.not64, label %119, label %25
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %0, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 12
   %28 = load i32, ptr %27, align 4
   %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %30, label %120
+  br i1 %29, label %30, label %119
 
 30:                                               ; preds = %25
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.47, i32 noundef %19) #13
-  br label %120
+  br label %119
 
 31:                                               ; preds = %18
   %32 = load i32, ptr %9, align 8
   %33 = icmp eq i32 %32, 5
-  br i1 %33, label %34, label %105
+  br i1 %33, label %34, label %104
 
 34:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
@@ -1591,16 +1591,9 @@ define internal noundef i32 @cf_udp_connect(ptr noundef %0, ptr noundef %1, i1 z
   %88 = call i32 @setsockopt(i32 noundef %87, i32 noundef 41, i32 noundef 23, ptr noundef nonnull %7, i32 noundef 4) #13
   br label %cf_udp_setup_quic.exit.thread
 
-cf_udp_setup_quic.exit.thread:                    ; preds = %86, %83, %79
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  br label %90
-
 cf_udp_setup_quic.exit.thread61:                  ; preds = %44, %44
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  br label %90
+  br label %cf_udp_setup_quic.exit.thread
 
 cf_udp_setup_quic.exit:                           ; preds = %48, %49, %53
   %89 = getelementptr inbounds i8, ptr %1, i64 3340
@@ -1608,66 +1601,68 @@ cf_udp_setup_quic.exit:                           ; preds = %48, %49, %53
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  br label %120
+  br label %119
 
-90:                                               ; preds = %cf_udp_setup_quic.exit.thread61, %cf_udp_setup_quic.exit.thread
+cf_udp_setup_quic.exit.thread:                    ; preds = %79, %83, %86, %cf_udp_setup_quic.exit.thread61
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %.not56 = icmp eq ptr %1, null
-  br i1 %.not56, label %117, label %91
+  br i1 %.not56, label %116, label %90
 
-91:                                               ; preds = %90
-  %92 = getelementptr inbounds i8, ptr %1, i64 2642
-  %93 = load i64, ptr %92, align 2
-  %94 = and i64 %93, 268435456
-  %.not66 = icmp eq i64 %94, 0
-  br i1 %.not66, label %117, label %95
+90:                                               ; preds = %cf_udp_setup_quic.exit.thread
+  %91 = getelementptr inbounds i8, ptr %1, i64 2642
+  %92 = load i64, ptr %91, align 2
+  %93 = and i64 %92, 268435456
+  %.not66 = icmp eq i64 %93, 0
+  br i1 %.not66, label %116, label %94
 
-95:                                               ; preds = %91
-  %96 = load ptr, ptr %0, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 12
-  %98 = load i32, ptr %97, align 4
-  %99 = icmp sgt i32 %98, 0
-  br i1 %99, label %100, label %117
+94:                                               ; preds = %90
+  %95 = load ptr, ptr %0, align 8
+  %96 = getelementptr inbounds i8, ptr %95, i64 12
+  %97 = load i32, ptr %96, align 4
+  %98 = icmp sgt i32 %97, 0
+  br i1 %98, label %99, label %116
 
-100:                                              ; preds = %95
-  %101 = load i32, ptr %15, align 8
-  %102 = getelementptr inbounds i8, ptr %9, i64 276
-  %103 = getelementptr inbounds i8, ptr %9, i64 324
-  %104 = load i32, ptr %103, align 4
-  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.48, i32 noundef %101, ptr noundef nonnull %102, i32 noundef %104) #13
-  br label %117
+99:                                               ; preds = %94
+  %100 = load i32, ptr %15, align 8
+  %101 = getelementptr inbounds i8, ptr %9, i64 276
+  %102 = getelementptr inbounds i8, ptr %9, i64 324
+  %103 = load i32, ptr %102, align 4
+  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.48, i32 noundef %100, ptr noundef nonnull %101, i32 noundef %103) #13
+  br label %116
 
-105:                                              ; preds = %31
+104:                                              ; preds = %31
   %.not54 = icmp eq ptr %1, null
-  br i1 %.not54, label %117, label %106
+  br i1 %.not54, label %116, label %105
 
-106:                                              ; preds = %105
-  %107 = getelementptr inbounds i8, ptr %1, i64 2642
-  %108 = load i64, ptr %107, align 2
-  %109 = and i64 %108, 268435456
-  %.not65 = icmp eq i64 %109, 0
-  br i1 %.not65, label %117, label %110
+105:                                              ; preds = %104
+  %106 = getelementptr inbounds i8, ptr %1, i64 2642
+  %107 = load i64, ptr %106, align 2
+  %108 = and i64 %107, 268435456
+  %.not65 = icmp eq i64 %108, 0
+  br i1 %.not65, label %116, label %109
 
-110:                                              ; preds = %106
-  %111 = load ptr, ptr %0, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 12
-  %113 = load i32, ptr %112, align 4
-  %114 = icmp sgt i32 %113, 0
-  br i1 %114, label %115, label %117
+109:                                              ; preds = %105
+  %110 = load ptr, ptr %0, align 8
+  %111 = getelementptr inbounds i8, ptr %110, i64 12
+  %112 = load i32, ptr %111, align 4
+  %113 = icmp sgt i32 %112, 0
+  br i1 %113, label %114, label %116
 
-115:                                              ; preds = %110
-  %116 = load i32, ptr %15, align 8
-  tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.49, i32 noundef %116) #13
-  br label %117
+114:                                              ; preds = %109
+  %115 = load i32, ptr %15, align 8
+  tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.49, i32 noundef %115) #13
+  br label %116
 
-117:                                              ; preds = %115, %110, %106, %105, %100, %95, %91, %90
+116:                                              ; preds = %114, %109, %105, %104, %99, %94, %90, %cf_udp_setup_quic.exit.thread
   store i8 1, ptr %3, align 1
-  %118 = load i8, ptr %10, align 4
-  %119 = or i8 %118, 1
-  store i8 %119, ptr %10, align 4
-  br label %120
+  %117 = load i8, ptr %10, align 4
+  %118 = or i8 %117, 1
+  store i8 %118, ptr %10, align 4
+  br label %119
 
-120:                                              ; preds = %cf_udp_setup_quic.exit, %20, %21, %25, %30, %117, %14, %13
-  %.043 = phi i32 [ 0, %13 ], [ %19, %30 ], [ %19, %25 ], [ %19, %21 ], [ %19, %20 ], [ 7, %cf_udp_setup_quic.exit ], [ 0, %117 ], [ 7, %14 ]
+119:                                              ; preds = %cf_udp_setup_quic.exit, %20, %21, %25, %30, %116, %14, %13
+  %.043 = phi i32 [ 0, %13 ], [ %19, %30 ], [ %19, %25 ], [ %19, %21 ], [ %19, %20 ], [ 7, %cf_udp_setup_quic.exit ], [ 0, %116 ], [ 7, %14 ]
   ret i32 %.043
 }
 

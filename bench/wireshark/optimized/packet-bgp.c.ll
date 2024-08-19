@@ -10430,22 +10430,19 @@ define internal i32 @dissect_bgp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %27 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %26, ptr noundef %0, i32 noundef 0, i32 noundef %.0..0..0..0.11, i32 noundef 0) #4
   %.0..0..0..0.12 = load volatile i32, ptr %5, align 4
   %28 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0..0..0..0.12) #4
-  store volatile ptr %28, ptr %6, align 8
-  br label %30
+  br label %29
 
-29:                                               ; preds = %._crit_edge
-  store volatile ptr %0, ptr %6, align 8
-  br label %30
-
-30:                                               ; preds = %29, %21
+29:                                               ; preds = %._crit_edge, %21
+  %.sink = phi ptr [ %28, %21 ], [ %0, %._crit_edge ]
+  store volatile ptr %.sink, ptr %6, align 8
   %.0..0..0..0. = load volatile ptr, ptr %6, align 8
-  %31 = load i32, ptr @bgp_desegment, align 4
-  tail call void @tcp_dissect_pdus(ptr noundef %.0..0..0..0., ptr noundef nonnull %1, ptr noundef %2, i32 noundef %31, i32 noundef 19, ptr noundef nonnull @get_bgp_len, ptr noundef nonnull @dissect_bgp_pdu, ptr noundef null) #4
-  %32 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
+  %30 = load i32, ptr @bgp_desegment, align 4
+  tail call void @tcp_dissect_pdus(ptr noundef %.0..0..0..0., ptr noundef nonnull %1, ptr noundef %2, i32 noundef %30, i32 noundef 19, ptr noundef nonnull @get_bgp_len, ptr noundef nonnull @dissect_bgp_pdu, ptr noundef null) #4
+  %31 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %30
-  %.0 = phi i32 [ %32, %30 ], [ 0, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %29
+  %.0 = phi i32 [ %31, %29 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 

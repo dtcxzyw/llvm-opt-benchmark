@@ -11677,11 +11677,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %if.then.i.i.i
   store ptr %.pr.i.i.i, ptr %s.i.i, align 8, !alias.scope !795, !noalias !775
   store ptr null, ptr %ref.tmp.i.i.i, align 8, !noalias !792
   %cmp.i.i141.i.i = icmp eq ptr %.pr.i.i.i, null
-  br i1 %cmp.i.i141.i.i, label %_ZN5arrow6StatusD2Ev.exit.if.end22_crit_edge.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEv.exit.thread.i.i
-
-_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEv.exit.thread.i.i: ; preds = %.noexc64.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i), !noalias !775
-  br label %cond.false.i.i.i
+  br i1 %cmp.i.i141.i.i, label %_ZN5arrow6StatusD2Ev.exit.if.end22_crit_edge.i.i.i, label %cond.false.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit.if.end22_crit_edge.i.i.i: ; preds = %.noexc64.i
   %.pre.i.i.i = load ptr, ptr %values.i.i.i, align 8, !noalias !796
@@ -12057,11 +12053,11 @@ _ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryType
   %ref.tmp27.sroa.0.0.i.i.i = phi ptr [ %.pr.i.i.i.i, %_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUllE_clEl.exit.i.i.i ], [ %.pr.i153.i.i.i, %_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUllE_clEl.exit159.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %bit_counter.i.i.i.i.i), !noalias !801
   store ptr %ref.tmp27.sroa.0.0.i.i.i, ptr %s.i.i, align 8, !alias.scope !780, !noalias !775
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i), !noalias !775
   br label %cond.false.i.i.i
 
-cond.false.i.i.i:                                 ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEv.exit.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEv.exit.thread.i.i
-  %105 = phi ptr [ %.pr.i.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEv.exit.thread.i.i ], [ %ref.tmp27.sroa.0.0.i.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEv.exit.i.i ]
+cond.false.i.i.i:                                 ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEv.exit.i.i, %.noexc64.i
+  %105 = phi ptr [ %ref.tmp27.sroa.0.0.i.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEv.exit.i.i ], [ %.pr.i.i.i, %.noexc64.i ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i), !noalias !775
   %call.i144.i.i = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
           to label %call.i.noexc.i.i unwind label %lpad.i.i, !noalias !775
 
@@ -12264,11 +12260,7 @@ _ZN5arrow6StatusD2Ev.exit.i434.i.i:               ; preds = %if.then.i419.i.i
   store ptr %.pr.i438.i.i, ptr %s54.i.i, align 8, !alias.scope !839, !noalias !775
   store ptr null, ptr %ref.tmp.i221.i.i, align 8, !noalias !836
   %cmp.i.i439.i.i = icmp eq ptr %.pr.i438.i.i, null
-  br i1 %cmp.i.i439.i.i, label %_ZN5arrow6StatusD2Ev.exit.if.end22_crit_edge.i440.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEv.exit.thread.i.i
-
-_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEv.exit.thread.i.i: ; preds = %.noexc71.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i221.i.i), !noalias !775
-  br label %cond.false.i445.i.i
+  br i1 %cmp.i.i439.i.i, label %_ZN5arrow6StatusD2Ev.exit.if.end22_crit_edge.i440.i.i, label %cond.false.i445.i.i
 
 _ZN5arrow6StatusD2Ev.exit.if.end22_crit_edge.i440.i.i: ; preds = %.noexc71.i
   %.pre.i441.i.i = load ptr, ptr %values.i.i.i, align 8, !noalias !840
@@ -12644,11 +12636,11 @@ _ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryType
   %ref.tmp27.sroa.0.0.i320.i.i = phi ptr [ %.pr.i.i397.i.i, %_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUllE_clEl.exit.i.i.i ], [ %.pr.i153.i317.i.i, %_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUllE_clEl.exit159.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %bit_counter.i.i.i220.i.i), !noalias !845
   store ptr %ref.tmp27.sroa.0.0.i320.i.i, ptr %s54.i.i, align 8, !alias.scope !824, !noalias !775
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i221.i.i), !noalias !775
   br label %cond.false.i445.i.i
 
-cond.false.i445.i.i:                              ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEv.exit.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEv.exit.thread.i.i
-  %210 = phi ptr [ %.pr.i438.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEv.exit.thread.i.i ], [ %ref.tmp27.sroa.0.0.i320.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEv.exit.i.i ]
+cond.false.i445.i.i:                              ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEv.exit.i.i, %.noexc71.i
+  %210 = phi ptr [ %ref.tmp27.sroa.0.0.i320.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEv.exit.i.i ], [ %.pr.i438.i.i, %.noexc71.i ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i221.i.i), !noalias !775
   %call.i463.i.i = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
           to label %call.i.noexc462.i.i unwind label %lpad58.i.i, !noalias !775
 
@@ -12851,11 +12843,7 @@ _ZN5arrow6StatusD2Ev.exit.i755.i.i:               ; preds = %if.then.i740.i.i
   store ptr %.pr.i759.i.i, ptr %s81.i.i, align 8, !alias.scope !883, !noalias !775
   store ptr null, ptr %ref.tmp.i542.i.i, align 8, !noalias !880
   %cmp.i.i760.i.i = icmp eq ptr %.pr.i759.i.i, null
-  br i1 %cmp.i.i760.i.i, label %_ZN5arrow6StatusD2Ev.exit.if.end22_crit_edge.i761.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEv.exit.thread.i.i
-
-_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEv.exit.thread.i.i: ; preds = %.noexc78.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i542.i.i), !noalias !775
-  br label %cond.false.i766.i.i
+  br i1 %cmp.i.i760.i.i, label %_ZN5arrow6StatusD2Ev.exit.if.end22_crit_edge.i761.i.i, label %cond.false.i766.i.i
 
 _ZN5arrow6StatusD2Ev.exit.if.end22_crit_edge.i761.i.i: ; preds = %.noexc78.i
   %.pre.i762.i.i = load ptr, ptr %values.i.i.i, align 8, !noalias !884
@@ -13231,11 +13219,11 @@ _ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryType
   %ref.tmp27.sroa.0.0.i641.i.i = phi ptr [ %.pr.i.i718.i.i, %_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUllE_clEl.exit.i.i.i ], [ %.pr.i153.i638.i.i, %_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUllE_clEl.exit159.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %bit_counter.i.i.i541.i.i), !noalias !889
   store ptr %ref.tmp27.sroa.0.0.i641.i.i, ptr %s81.i.i, align 8, !alias.scope !868, !noalias !775
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i542.i.i), !noalias !775
   br label %cond.false.i766.i.i
 
-cond.false.i766.i.i:                              ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEv.exit.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEv.exit.thread.i.i
-  %315 = phi ptr [ %.pr.i759.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEv.exit.thread.i.i ], [ %ref.tmp27.sroa.0.0.i641.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEv.exit.i.i ]
+cond.false.i766.i.i:                              ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEv.exit.i.i, %.noexc78.i
+  %315 = phi ptr [ %ref.tmp27.sroa.0.0.i641.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEv.exit.i.i ], [ %.pr.i759.i.i, %.noexc78.i ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i542.i.i), !noalias !775
   %call.i784.i.i = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
           to label %call.i.noexc783.i.i unwind label %lpad85.i.i, !noalias !775
 
@@ -13438,11 +13426,7 @@ _ZN5arrow6StatusD2Ev.exit.i1053.i.i:              ; preds = %if.then.i1038.i.i
   store ptr %.pr.i1057.i.i, ptr %s108.i.i, align 8, !alias.scope !927, !noalias !775
   store ptr null, ptr %ref.tmp.i863.i.i, align 8, !noalias !924
   %cmp.i.i1058.i.i = icmp eq ptr %.pr.i1057.i.i, null
-  br i1 %cmp.i.i1058.i.i, label %_ZN5arrow6StatusD2Ev.exit.if.end22_crit_edge.i1059.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEv.exit.thread.i.i
-
-_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEv.exit.thread.i.i: ; preds = %.noexc85.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i863.i.i), !noalias !775
-  br label %cond.false.i1064.i.i
+  br i1 %cmp.i.i1058.i.i, label %_ZN5arrow6StatusD2Ev.exit.if.end22_crit_edge.i1059.i.i, label %cond.false.i1064.i.i
 
 _ZN5arrow6StatusD2Ev.exit.if.end22_crit_edge.i1059.i.i: ; preds = %.noexc85.i
   %.pre.i1060.i.i = load ptr, ptr %values.i.i.i, align 8, !noalias !928
@@ -13815,11 +13799,11 @@ _ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryType
   %ref.tmp27.sroa.0.0.i959.i.i = phi ptr [ %.pr.i.i1017.i.i, %_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUllE_clEl.exit.i.i.i ], [ %.pr.i153.i956.i.i, %_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUllE_clEl.exit159.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %bit_counter.i.i.i862.i.i), !noalias !933
   store ptr %ref.tmp27.sroa.0.0.i959.i.i, ptr %s108.i.i, align 8, !alias.scope !912, !noalias !775
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i863.i.i), !noalias !775
   br label %cond.false.i1064.i.i
 
-cond.false.i1064.i.i:                             ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEv.exit.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEv.exit.thread.i.i
-  %420 = phi ptr [ %.pr.i1057.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEv.exit.thread.i.i ], [ %ref.tmp27.sroa.0.0.i959.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEv.exit.i.i ]
+cond.false.i1064.i.i:                             ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEv.exit.i.i, %.noexc85.i
+  %420 = phi ptr [ %ref.tmp27.sroa.0.0.i959.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEv.exit.i.i ], [ %.pr.i1057.i.i, %.noexc85.i ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i863.i.i), !noalias !775
   %call.i1082.i.i = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
           to label %call.i.noexc1081.i.i unwind label %lpad112.i.i, !noalias !775
 
@@ -14379,11 +14363,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %if.then.i.i.i
   store ptr %.pr.i.i.i, ptr %s.i.i, align 8, !alias.scope !1010, !noalias !990
   store ptr null, ptr %ref.tmp.i.i.i, align 8, !noalias !1007
   %cmp.i.i141.i.i = icmp eq ptr %.pr.i.i.i, null
-  br i1 %cmp.i.i141.i.i, label %_ZN5arrow6StatusD2Ev.exit.if.end21_crit_edge.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEv.exit.thread.i.i
-
-_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEv.exit.thread.i.i: ; preds = %.noexc64.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i), !noalias !990
-  br label %cond.false.i.i.i
+  br i1 %cmp.i.i141.i.i, label %_ZN5arrow6StatusD2Ev.exit.if.end21_crit_edge.i.i.i, label %cond.false.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit.if.end21_crit_edge.i.i.i: ; preds = %.noexc64.i
   %.pre.i.i.i = load ptr, ptr %values.i.i.i, align 8, !noalias !1011
@@ -14755,11 +14735,11 @@ _ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinar
   %ref.tmp26.sroa.0.0.i.i.i = phi ptr [ %.pr.i.i.i.i, %_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUllE_clEl.exit.i.i.i ], [ %.pr.i151.i.i.i, %_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUllE_clEl.exit157.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %bit_counter.i.i.i.i.i), !noalias !1016
   store ptr %ref.tmp26.sroa.0.0.i.i.i, ptr %s.i.i, align 8, !alias.scope !995, !noalias !990
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i), !noalias !990
   br label %cond.false.i.i.i
 
-cond.false.i.i.i:                                 ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEv.exit.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEv.exit.thread.i.i
-  %105 = phi ptr [ %.pr.i.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEv.exit.thread.i.i ], [ %ref.tmp26.sroa.0.0.i.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEv.exit.i.i ]
+cond.false.i.i.i:                                 ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEv.exit.i.i, %.noexc64.i
+  %105 = phi ptr [ %ref.tmp26.sroa.0.0.i.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEv.exit.i.i ], [ %.pr.i.i.i, %.noexc64.i ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i), !noalias !990
   %call.i144.i.i = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
           to label %call.i.noexc.i.i unwind label %lpad.i.i, !noalias !990
 
@@ -14962,11 +14942,7 @@ _ZN5arrow6StatusD2Ev.exit.i430.i.i:               ; preds = %if.then.i415.i.i
   store ptr %.pr.i434.i.i, ptr %s54.i.i, align 8, !alias.scope !1054, !noalias !990
   store ptr null, ptr %ref.tmp.i221.i.i, align 8, !noalias !1051
   %cmp.i.i435.i.i = icmp eq ptr %.pr.i434.i.i, null
-  br i1 %cmp.i.i435.i.i, label %_ZN5arrow6StatusD2Ev.exit.if.end21_crit_edge.i436.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEv.exit.thread.i.i
-
-_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEv.exit.thread.i.i: ; preds = %.noexc71.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i221.i.i), !noalias !990
-  br label %cond.false.i441.i.i
+  br i1 %cmp.i.i435.i.i, label %_ZN5arrow6StatusD2Ev.exit.if.end21_crit_edge.i436.i.i, label %cond.false.i441.i.i
 
 _ZN5arrow6StatusD2Ev.exit.if.end21_crit_edge.i436.i.i: ; preds = %.noexc71.i
   %.pre.i437.i.i = load ptr, ptr %values.i.i.i, align 8, !noalias !1055
@@ -15338,11 +15314,11 @@ _ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinar
   %ref.tmp26.sroa.0.0.i318.i.i = phi ptr [ %.pr.i.i393.i.i, %_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUllE_clEl.exit.i.i.i ], [ %.pr.i151.i315.i.i, %_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUllE_clEl.exit157.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %bit_counter.i.i.i220.i.i), !noalias !1060
   store ptr %ref.tmp26.sroa.0.0.i318.i.i, ptr %s54.i.i, align 8, !alias.scope !1039, !noalias !990
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i221.i.i), !noalias !990
   br label %cond.false.i441.i.i
 
-cond.false.i441.i.i:                              ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEv.exit.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEv.exit.thread.i.i
-  %210 = phi ptr [ %.pr.i434.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEv.exit.thread.i.i ], [ %ref.tmp26.sroa.0.0.i318.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEv.exit.i.i ]
+cond.false.i441.i.i:                              ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEv.exit.i.i, %.noexc71.i
+  %210 = phi ptr [ %ref.tmp26.sroa.0.0.i318.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEv.exit.i.i ], [ %.pr.i434.i.i, %.noexc71.i ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i221.i.i), !noalias !990
   %call.i459.i.i = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
           to label %call.i.noexc458.i.i unwind label %lpad58.i.i, !noalias !990
 
@@ -15545,11 +15521,7 @@ _ZN5arrow6StatusD2Ev.exit.i747.i.i:               ; preds = %if.then.i732.i.i
   store ptr %.pr.i751.i.i, ptr %s81.i.i, align 8, !alias.scope !1098, !noalias !990
   store ptr null, ptr %ref.tmp.i538.i.i, align 8, !noalias !1095
   %cmp.i.i752.i.i = icmp eq ptr %.pr.i751.i.i, null
-  br i1 %cmp.i.i752.i.i, label %_ZN5arrow6StatusD2Ev.exit.if.end21_crit_edge.i753.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEv.exit.thread.i.i
-
-_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEv.exit.thread.i.i: ; preds = %.noexc78.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i538.i.i), !noalias !990
-  br label %cond.false.i758.i.i
+  br i1 %cmp.i.i752.i.i, label %_ZN5arrow6StatusD2Ev.exit.if.end21_crit_edge.i753.i.i, label %cond.false.i758.i.i
 
 _ZN5arrow6StatusD2Ev.exit.if.end21_crit_edge.i753.i.i: ; preds = %.noexc78.i
   %.pre.i754.i.i = load ptr, ptr %values.i.i.i, align 8, !noalias !1099
@@ -15921,11 +15893,11 @@ _ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinar
   %ref.tmp26.sroa.0.0.i635.i.i = phi ptr [ %.pr.i.i710.i.i, %_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUllE_clEl.exit.i.i.i ], [ %.pr.i151.i632.i.i, %_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUllE_clEl.exit157.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %bit_counter.i.i.i537.i.i), !noalias !1104
   store ptr %ref.tmp26.sroa.0.0.i635.i.i, ptr %s81.i.i, align 8, !alias.scope !1083, !noalias !990
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i538.i.i), !noalias !990
   br label %cond.false.i758.i.i
 
-cond.false.i758.i.i:                              ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEv.exit.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEv.exit.thread.i.i
-  %315 = phi ptr [ %.pr.i751.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEv.exit.thread.i.i ], [ %ref.tmp26.sroa.0.0.i635.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEv.exit.i.i ]
+cond.false.i758.i.i:                              ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEv.exit.i.i, %.noexc78.i
+  %315 = phi ptr [ %ref.tmp26.sroa.0.0.i635.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEv.exit.i.i ], [ %.pr.i751.i.i, %.noexc78.i ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i538.i.i), !noalias !990
   %call.i776.i.i = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
           to label %call.i.noexc775.i.i unwind label %lpad85.i.i, !noalias !990
 
@@ -16128,11 +16100,7 @@ _ZN5arrow6StatusD2Ev.exit.i1041.i.i:              ; preds = %if.then.i1026.i.i
   store ptr %.pr.i1045.i.i, ptr %s108.i.i, align 8, !alias.scope !1142, !noalias !990
   store ptr null, ptr %ref.tmp.i855.i.i, align 8, !noalias !1139
   %cmp.i.i1046.i.i = icmp eq ptr %.pr.i1045.i.i, null
-  br i1 %cmp.i.i1046.i.i, label %_ZN5arrow6StatusD2Ev.exit.if.end21_crit_edge.i1047.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEv.exit.thread.i.i
-
-_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEv.exit.thread.i.i: ; preds = %.noexc85.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i855.i.i), !noalias !990
-  br label %cond.false.i1052.i.i
+  br i1 %cmp.i.i1046.i.i, label %_ZN5arrow6StatusD2Ev.exit.if.end21_crit_edge.i1047.i.i, label %cond.false.i1052.i.i
 
 _ZN5arrow6StatusD2Ev.exit.if.end21_crit_edge.i1047.i.i: ; preds = %.noexc85.i
   %.pre.i1048.i.i = load ptr, ptr %values.i.i.i, align 8, !noalias !1143
@@ -16501,11 +16469,11 @@ _ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinar
   %ref.tmp26.sroa.0.0.i949.i.i = phi ptr [ %.pr.i.i1005.i.i, %_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUllE_clEl.exit.i.i.i ], [ %.pr.i151.i946.i.i, %_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUllE_clEl.exit157.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %bit_counter.i.i.i854.i.i), !noalias !1148
   store ptr %ref.tmp26.sroa.0.0.i949.i.i, ptr %s108.i.i, align 8, !alias.scope !1127, !noalias !990
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i855.i.i), !noalias !990
   br label %cond.false.i1052.i.i
 
-cond.false.i1052.i.i:                             ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEv.exit.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEv.exit.thread.i.i
-  %420 = phi ptr [ %.pr.i1045.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEv.exit.thread.i.i ], [ %ref.tmp26.sroa.0.0.i949.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEv.exit.i.i ]
+cond.false.i1052.i.i:                             ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEv.exit.i.i, %.noexc85.i
+  %420 = phi ptr [ %ref.tmp26.sroa.0.0.i949.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEv.exit.i.i ], [ %.pr.i1045.i.i, %.noexc85.i ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i855.i.i), !noalias !990
   %call.i1070.i.i = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
           to label %call.i.noexc1069.i.i unwind label %lpad112.i.i, !noalias !990
 
@@ -24787,14 +24755,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %if.end.i.i.i.i
   store ptr %.pr.i.i.i, ptr %s.i.i, align 8, !alias.scope !1722, !noalias !1688
   store ptr null, ptr %ref.tmp6.i.i.i, align 8, !noalias !1719
   %cmp.i.i139.i.i = icmp eq ptr %.pr.i.i.i, null
-  br i1 %cmp.i.i139.i.i, label %_ZN5arrow6StatusD2Ev.exit42.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIhEEEENS_6StatusEv.exit.thread.i.i
-
-_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIhEEEENS_6StatusEv.exit.thread.i.i: ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i
-  call void @_ZN5arrow18FixedSizeListArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %typed_values.i.i.i) #23, !noalias !1710
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %typed_values.i.i.i), !noalias !1688
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i), !noalias !1688
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp6.i.i.i), !noalias !1688
-  br label %cond.false.i.i.i
+  br i1 %cmp.i.i139.i.i, label %_ZN5arrow6StatusD2Ev.exit42.i.i.i, label %cond.false.i.i.i
 
 lpad.i.i.i:                                       ; preds = %.noexc61.i
   %39 = landingpad { ptr, i32 }
@@ -25244,14 +25205,14 @@ _ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9
   %.pr.i.i305.lcssa.sink.i.i.i.i.i = phi ptr [ %.pr.i.i305.i.i.i.i.i, %nrvo.skipdtor133.i.i.i.i.i ], [ %.pr.i.i.i.i.i.i.i, %nrvo.skipdtor97.i.i.i.i.i ]
   store ptr %.pr.i.i305.lcssa.sink.i.i.i.i.i, ptr %s.i.i, align 8, !alias.scope !1771, !noalias !1688
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %bit_counter.i.i.i.i.i), !noalias !1729
+  br label %cond.false.i.i.i
+
+cond.false.i.i.i:                                 ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIhEEEENS_6StatusEv.exit.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i
+  %114 = phi ptr [ %.pr.i.i305.lcssa.sink.i.i.i.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIhEEEENS_6StatusEv.exit.i.i ], [ %.pr.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i ]
   call void @_ZN5arrow18FixedSizeListArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %typed_values.i.i.i) #23, !noalias !1710
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %typed_values.i.i.i), !noalias !1688
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i), !noalias !1688
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp6.i.i.i), !noalias !1688
-  br label %cond.false.i.i.i
-
-cond.false.i.i.i:                                 ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIhEEEENS_6StatusEv.exit.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIhEEEENS_6StatusEv.exit.thread.i.i
-  %114 = phi ptr [ %.pr.i.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIhEEEENS_6StatusEv.exit.thread.i.i ], [ %.pr.i.i305.lcssa.sink.i.i.i.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIhEEEENS_6StatusEv.exit.i.i ]
   %call.i151155.i.i = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
           to label %call.i151.noexc.i.i unwind label %lpad.i.i, !noalias !1688
 
@@ -25536,14 +25497,7 @@ _ZN5arrow6StatusD2Ev.exit.i484.i.i:               ; preds = %if.end.i.i479.i.i
   store ptr %.pr.i485.i.i, ptr %s54.i.i, align 8, !alias.scope !1787, !noalias !1688
   store ptr null, ptr %ref.tmp6.i234.i.i, align 8, !noalias !1784
   %cmp.i.i486.i.i = icmp eq ptr %.pr.i485.i.i, null
-  br i1 %cmp.i.i486.i.i, label %_ZN5arrow6StatusD2Ev.exit42.i274.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterItEEEENS_6StatusEv.exit.thread.i.i
-
-_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterItEEEENS_6StatusEv.exit.thread.i.i: ; preds = %_ZN5arrow6StatusD2Ev.exit.i484.i.i
-  call void @_ZN5arrow18FixedSizeListArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %typed_values.i232.i.i) #23, !noalias !1775
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %typed_values.i232.i.i), !noalias !1688
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i233.i.i), !noalias !1688
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp6.i234.i.i), !noalias !1688
-  br label %cond.false.i507.i.i
+  br i1 %cmp.i.i486.i.i, label %_ZN5arrow6StatusD2Ev.exit42.i274.i.i, label %cond.false.i507.i.i
 
 lpad.i236.i.i:                                    ; preds = %.noexc62.i
   %154 = landingpad { ptr, i32 }
@@ -25993,14 +25947,14 @@ _ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9
   %.pr.i.i305.lcssa.sink.i.i.i289.i.i = phi ptr [ %.pr.i.i305.i.i.i390.i.i, %nrvo.skipdtor133.i.i.i392.i.i ], [ %.pr.i.i.i.i.i469.i.i, %nrvo.skipdtor97.i.i.i471.i.i ]
   store ptr %.pr.i.i305.lcssa.sink.i.i.i289.i.i, ptr %s54.i.i, align 8, !alias.scope !1835, !noalias !1688
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %bit_counter.i.i.i231.i.i), !noalias !1794
+  br label %cond.false.i507.i.i
+
+cond.false.i507.i.i:                              ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterItEEEENS_6StatusEv.exit.i.i, %_ZN5arrow6StatusD2Ev.exit.i484.i.i
+  %229 = phi ptr [ %.pr.i.i305.lcssa.sink.i.i.i289.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterItEEEENS_6StatusEv.exit.i.i ], [ %.pr.i485.i.i, %_ZN5arrow6StatusD2Ev.exit.i484.i.i ]
   call void @_ZN5arrow18FixedSizeListArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %typed_values.i232.i.i) #23, !noalias !1775
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %typed_values.i232.i.i), !noalias !1688
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i233.i.i), !noalias !1688
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp6.i234.i.i), !noalias !1688
-  br label %cond.false.i507.i.i
-
-cond.false.i507.i.i:                              ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterItEEEENS_6StatusEv.exit.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterItEEEENS_6StatusEv.exit.thread.i.i
-  %229 = phi ptr [ %.pr.i485.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterItEEEENS_6StatusEv.exit.thread.i.i ], [ %.pr.i.i305.lcssa.sink.i.i.i289.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterItEEEENS_6StatusEv.exit.i.i ]
   %call.i508525.i.i = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
           to label %call.i508.noexc.i.i unwind label %lpad58.i.i, !noalias !1688
 
@@ -26285,14 +26239,7 @@ _ZN5arrow6StatusD2Ev.exit.i856.i.i:               ; preds = %if.end.i.i851.i.i
   store ptr %.pr.i857.i.i, ptr %s81.i.i, align 8, !alias.scope !1851, !noalias !1688
   store ptr null, ptr %ref.tmp6.i606.i.i, align 8, !noalias !1848
   %cmp.i.i858.i.i = icmp eq ptr %.pr.i857.i.i, null
-  br i1 %cmp.i.i858.i.i, label %_ZN5arrow6StatusD2Ev.exit42.i646.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIjEEEENS_6StatusEv.exit.thread.i.i
-
-_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIjEEEENS_6StatusEv.exit.thread.i.i: ; preds = %_ZN5arrow6StatusD2Ev.exit.i856.i.i
-  call void @_ZN5arrow18FixedSizeListArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %typed_values.i604.i.i) #23, !noalias !1839
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %typed_values.i604.i.i), !noalias !1688
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i605.i.i), !noalias !1688
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp6.i606.i.i), !noalias !1688
-  br label %cond.false.i879.i.i
+  br i1 %cmp.i.i858.i.i, label %_ZN5arrow6StatusD2Ev.exit42.i646.i.i, label %cond.false.i879.i.i
 
 lpad.i608.i.i:                                    ; preds = %.noexc63.i
   %269 = landingpad { ptr, i32 }
@@ -26742,14 +26689,14 @@ _ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9
   %.pr.i.i305.lcssa.sink.i.i.i661.i.i = phi ptr [ %.pr.i.i305.i.i.i762.i.i, %nrvo.skipdtor133.i.i.i764.i.i ], [ %.pr.i.i.i.i.i841.i.i, %nrvo.skipdtor97.i.i.i843.i.i ]
   store ptr %.pr.i.i305.lcssa.sink.i.i.i661.i.i, ptr %s81.i.i, align 8, !alias.scope !1899, !noalias !1688
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %bit_counter.i.i.i603.i.i), !noalias !1858
+  br label %cond.false.i879.i.i
+
+cond.false.i879.i.i:                              ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIjEEEENS_6StatusEv.exit.i.i, %_ZN5arrow6StatusD2Ev.exit.i856.i.i
+  %344 = phi ptr [ %.pr.i.i305.lcssa.sink.i.i.i661.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIjEEEENS_6StatusEv.exit.i.i ], [ %.pr.i857.i.i, %_ZN5arrow6StatusD2Ev.exit.i856.i.i ]
   call void @_ZN5arrow18FixedSizeListArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %typed_values.i604.i.i) #23, !noalias !1839
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %typed_values.i604.i.i), !noalias !1688
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i605.i.i), !noalias !1688
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp6.i606.i.i), !noalias !1688
-  br label %cond.false.i879.i.i
-
-cond.false.i879.i.i:                              ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIjEEEENS_6StatusEv.exit.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIjEEEENS_6StatusEv.exit.thread.i.i
-  %344 = phi ptr [ %.pr.i857.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIjEEEENS_6StatusEv.exit.thread.i.i ], [ %.pr.i.i305.lcssa.sink.i.i.i661.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIjEEEENS_6StatusEv.exit.i.i ]
   %call.i880897.i.i = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
           to label %call.i880.noexc.i.i unwind label %lpad85.i.i, !noalias !1688
 
@@ -27034,14 +26981,7 @@ _ZN5arrow6StatusD2Ev.exit.i1198.i.i:              ; preds = %if.end.i.i1193.i.i
   store ptr %.pr.i1199.i.i, ptr %s108.i.i, align 8, !alias.scope !1915, !noalias !1688
   store ptr null, ptr %ref.tmp6.i978.i.i, align 8, !noalias !1912
   %cmp.i.i1200.i.i = icmp eq ptr %.pr.i1199.i.i, null
-  br i1 %cmp.i.i1200.i.i, label %_ZN5arrow6StatusD2Ev.exit42.i1018.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterImEEEENS_6StatusEv.exit.thread.i.i
-
-_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterImEEEENS_6StatusEv.exit.thread.i.i: ; preds = %_ZN5arrow6StatusD2Ev.exit.i1198.i.i
-  call void @_ZN5arrow18FixedSizeListArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %typed_values.i976.i.i) #23, !noalias !1903
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %typed_values.i976.i.i), !noalias !1688
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i977.i.i), !noalias !1688
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp6.i978.i.i), !noalias !1688
-  br label %cond.false.i1221.i.i
+  br i1 %cmp.i.i1200.i.i, label %_ZN5arrow6StatusD2Ev.exit42.i1018.i.i, label %cond.false.i1221.i.i
 
 lpad.i980.i.i:                                    ; preds = %.noexc64.i
   %384 = landingpad { ptr, i32 }
@@ -27488,14 +27428,14 @@ _ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9
   %.pr.i.i305.lcssa.sink.i.i.i1033.i.i = phi ptr [ %.pr.i.i305.i.i.i1121.i.i, %nrvo.skipdtor130.i.i.i.i.i ], [ %.pr.i.i.i.i.i1184.i.i, %nrvo.skipdtor94.i.i.i.i.i ]
   store ptr %.pr.i.i305.lcssa.sink.i.i.i1033.i.i, ptr %s108.i.i, align 8, !alias.scope !1963, !noalias !1688
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %bit_counter.i.i.i975.i.i), !noalias !1922
+  br label %cond.false.i1221.i.i
+
+cond.false.i1221.i.i:                             ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterImEEEENS_6StatusEv.exit.i.i, %_ZN5arrow6StatusD2Ev.exit.i1198.i.i
+  %459 = phi ptr [ %.pr.i.i305.lcssa.sink.i.i.i1033.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterImEEEENS_6StatusEv.exit.i.i ], [ %.pr.i1199.i.i, %_ZN5arrow6StatusD2Ev.exit.i1198.i.i ]
   call void @_ZN5arrow18FixedSizeListArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %typed_values.i976.i.i) #23, !noalias !1903
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %typed_values.i976.i.i), !noalias !1688
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i977.i.i), !noalias !1688
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp6.i978.i.i), !noalias !1688
-  br label %cond.false.i1221.i.i
-
-cond.false.i1221.i.i:                             ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterImEEEENS_6StatusEv.exit.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterImEEEENS_6StatusEv.exit.thread.i.i
-  %459 = phi ptr [ %.pr.i1199.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterImEEEENS_6StatusEv.exit.thread.i.i ], [ %.pr.i.i305.lcssa.sink.i.i.i1033.i.i, %_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterImEEEENS_6StatusEv.exit.i.i ]
   %call.i12221239.i.i = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
           to label %call.i1222.noexc.i.i unwind label %lpad112.i.i, !noalias !1688
 

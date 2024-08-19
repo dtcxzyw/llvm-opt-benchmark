@@ -791,8 +791,8 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2:     ; preds = %.critedge
 
 _ZN7QStringD2Ev.exit4.sink.split:                 ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i
   %.0.ph = phi i1 [ %.0.i, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i ], [ true, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2 ]
-  %.sink = load ptr, ptr %2, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %.sink, i64 noundef 2, i64 noundef 8) #21
+  %20 = load ptr, ptr %2, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %20, i64 noundef 2, i64 noundef 8) #21
   br label %_ZN7QStringD2Ev.exit4
 
 _ZN7QStringD2Ev.exit4:                            ; preds = %_ZN7QStringD2Ev.exit4.sink.split, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %_ZN14ExtcapArgument10isRequiredEv.exit, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2, %.critedge

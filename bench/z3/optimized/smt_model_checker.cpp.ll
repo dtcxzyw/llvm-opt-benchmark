@@ -2481,15 +2481,11 @@ if.then.i.i.i44:                                  ; preds = %invoke.cont30
   %dec.i.i.i.i = add i32 %35, -1
   store i32 %dec.i.i.i.i, ptr %m_ref_count.i.i.i.i, align 4
   %cmp.i.i.i46 = icmp eq i32 %dec.i.i.i.i, 0
-  br i1 %cmp.i.i.i46, label %if.then2.i.i.i, label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
+  br i1 %cmp.i.i.i46, label %if.then2.i.i.i, label %if.end51.sink.split
 
 if.then2.i.i.i:                                   ; preds = %if.then.i.i.i44
   invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %29, ptr noundef nonnull %30)
-          to label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit unwind label %lpad22
-
-_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit:      ; preds = %if.then2.i.i.i, %if.then.i.i.i44
-  store ptr %call31, ptr %sk_value, align 8
-  br label %if.end51
+          to label %if.end51.sink.split unwind label %lpad22
 
 if.else39:                                        ; preds = %if.end26
   %call44 = invoke noundef ptr @_ZN3smt13model_checker17get_term_from_ctxEP4expr(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull %30)
@@ -2508,19 +2504,21 @@ if.then.i.i.i54:                                  ; preds = %invoke.cont43
   %dec.i.i.i.i57 = add i32 %37, -1
   store i32 %dec.i.i.i.i57, ptr %m_ref_count.i.i.i.i, align 4
   %cmp.i.i.i58 = icmp eq i32 %dec.i.i.i.i57, 0
-  br i1 %cmp.i.i.i58, label %if.then2.i.i.i59, label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit61
+  br i1 %cmp.i.i.i58, label %if.then2.i.i.i59, label %if.end51.sink.split
 
 if.then2.i.i.i59:                                 ; preds = %if.then.i.i.i54
   invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %29, ptr noundef nonnull %30)
-          to label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit61 unwind label %lpad22
+          to label %if.end51.sink.split unwind label %lpad22
 
-_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit61:    ; preds = %if.then2.i.i.i59, %if.then.i.i.i54
-  store ptr %call44, ptr %sk_value, align 8
+if.end51.sink.split:                              ; preds = %if.then.i.i.i54, %if.then2.i.i.i59, %if.then.i.i.i44, %if.then2.i.i.i
+  %call44.sink = phi ptr [ %call31, %if.then2.i.i.i ], [ %call31, %if.then.i.i.i44 ], [ %call44, %if.then2.i.i.i59 ], [ %call44, %if.then.i.i.i54 ]
+  %max_generation.1.ph = phi i32 [ %.sroa.speculated420, %if.then2.i.i.i ], [ %.sroa.speculated420, %if.then.i.i.i44 ], [ %max_generation.0546, %if.then2.i.i.i59 ], [ %max_generation.0546, %if.then.i.i.i54 ]
+  store ptr %call44.sink, ptr %sk_value, align 8
   br label %if.end51
 
-if.end51:                                         ; preds = %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit61, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit, %invoke.cont43
-  %38 = phi ptr [ %call31, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ %30, %invoke.cont43 ], [ %call44, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit61 ]
-  %max_generation.1 = phi i32 [ %.sroa.speculated420, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ %max_generation.0546, %invoke.cont43 ], [ %max_generation.0546, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit61 ]
+if.end51:                                         ; preds = %if.end51.sink.split, %invoke.cont43
+  %38 = phi ptr [ %30, %invoke.cont43 ], [ %call44.sink, %if.end51.sink.split ]
+  %max_generation.1 = phi i32 [ %max_generation.0546, %invoke.cont43 ], [ %max_generation.1.ph, %if.end51.sink.split ]
   %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %38, i64 4
   %bf.load.i.i.i.i = load i32, ptr %m_kind.i.i.i.i, align 4
   %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i, 65535

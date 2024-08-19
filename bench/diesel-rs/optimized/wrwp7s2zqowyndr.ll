@@ -701,7 +701,7 @@ common.resume:                                    ; preds = %.thread252, %.threa
   store i64 %.sroa.7.i.sroa.6.0.copyload214, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3183.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %.sroa.7.i.sroa.7.0.copyload218, ptr %.sroa.3183.0..sroa_idx, align 8
-  br label %158
+  br label %156
 
 .thread257:                                       ; preds = %49, %64, %93, %96
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -729,7 +729,7 @@ common.resume:                                    ; preds = %.thread252, %.threa
   store i8 %57, ptr %.sroa.250.0..sroa_idx, align 8
   %.sroa.351.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.351.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.351, i64 23, i1 false)
-  br label %159
+  br label %158
 
 61:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %30)
@@ -861,7 +861,7 @@ common.resume:                                    ; preds = %.thread252, %.threa
 
 "_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h7b0bdd8017425135E.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4e34a91b1deecf21E.exit.i", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hacb65fa40cf4f496E.exit", %76
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30)
-  br label %159
+  br label %158
 
 100:                                              ; preds = %.thread289, %.thread252, %128, %77
   %101 = landingpad { ptr, i32 }
@@ -934,7 +934,6 @@ common.resume:                                    ; preds = %.thread252, %.threa
   %127 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.080, ptr %127, align 8
   store i64 -9223372036854775798, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %32)
   br label %156
 
 .thread298:                                       ; preds = %114, %140, %143
@@ -1040,13 +1039,14 @@ common.resume:                                    ; preds = %.thread252, %.threa
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %23)
   br label %.critedge
 
-156:                                              ; preds = %158, %125
+156:                                              ; preds = %52, %158, %.critedge, %125
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %32)
   ret void
 
 .critedge:                                        ; preds = %157, %.thread332
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.617)
-  br label %158
+  br label %156
 
 157:                                              ; preds = %.noexc102
   store i64 %117, ptr %0, align 8
@@ -1065,13 +1065,9 @@ common.resume:                                    ; preds = %.thread252, %.threa
   invoke void @"_ZN4core3ptr114drop_in_place$LT$diesel..connection..statement_cache..StatementCacheKey$LT$diesel..sqlite..backend..Sqlite$GT$$GT$17h157a5dbd1b1f1e3aE.llvm.12167227474035961171"(ptr noalias noundef nonnull align 8 dereferenceable(48) %110)
           to label %common.resume unwind label %100
 
-158:                                              ; preds = %.critedge, %159, %52
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %32)
-  br label %156
-
-159:                                              ; preds = %60, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h7b0bdd8017425135E.exit"
+158:                                              ; preds = %60, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h7b0bdd8017425135E.exit"
   call fastcc void @"_ZN4core3ptr114drop_in_place$LT$diesel..connection..statement_cache..StatementCacheKey$LT$diesel..sqlite..backend..Sqlite$GT$$GT$17h157a5dbd1b1f1e3aE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %32)
-  br label %158
+  br label %156
 
 .thread252:                                       ; preds = %77, %.thread257
   %.pn.pn255 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread257 ], [ %78, %77 ]

@@ -2206,11 +2206,11 @@ if.end15:                                         ; preds = %if.then5, %if.else1
   %call1.i.i = call i64 @fread(ptr noundef nonnull %buffer.i.i, i64 noundef 1, i64 noundef 4, ptr noundef nonnull %3) #28
   %4 = load i32, ptr %call.i.i, align 4
   %tobool.not.i.i = icmp eq i32 %4, 0
-  br i1 %tobool.not.i.i, label %if.else.i.i, label %sw.bb26
+  br i1 %tobool.not.i.i, label %if.else.i.i, label %return.sink.split.sink.split
 
 if.else.i.i:                                      ; preds = %if.end15
   %cmp.not.i.i = icmp eq i64 %call1.i.i, 4
-  br i1 %cmp.not.i.i, label %if.else4.i.i, label %sw.bb30
+  br i1 %cmp.not.i.i, label %if.else4.i.i, label %return.sink.split.sink.split
 
 if.else4.i.i:                                     ; preds = %if.else.i.i
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %buffer.i.i, ptr noundef nonnull dereferenceable(3) @.str.31, i64 3)
@@ -2220,19 +2220,19 @@ if.else4.i.i:                                     ; preds = %if.else.i.i
 if.then8.i.i:                                     ; preds = %if.else4.i.i
   %call.i2.i = tail call noundef i32 @fseeko64(ptr noundef nonnull %3, i64 noundef 2, i32 noundef 1)
   %cmp10.i.i = icmp slt i32 %call.i2.i, 0
-  br i1 %cmp10.i.i, label %sw.bb28, label %for.body.i.i
+  br i1 %cmp10.i.i, label %return.sink.split.sink.split, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then8.i.i, %if.end18.i.i
   %tag_length.015.i.i = phi i32 [ %or.i.i, %if.end18.i.i ], [ 0, %if.then8.i.i ]
   %i.014.i.i = phi i32 [ %inc.i.i, %if.end18.i.i ], [ 0, %if.then8.i.i ]
   %call14.i.i = call i64 @fread(ptr noundef nonnull %buffer.i.i, i64 noundef 1, i64 noundef 1, ptr noundef nonnull %3) #28
   %cmp15.i.i = icmp eq i64 %call14.i.i, 0
-  br i1 %cmp15.i.i, label %sw.bb26, label %lor.lhs.false.i.i
+  br i1 %cmp15.i.i, label %return.sink.split.sink.split, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %for.body.i.i
   %5 = load i8, ptr %buffer.i.i, align 1
   %tobool16.not.i.i = icmp sgt i8 %5, -1
-  br i1 %tobool16.not.i.i, label %if.end18.i.i, label %sw.bb26
+  br i1 %tobool16.not.i.i, label %if.end18.i.i, label %return.sink.split.sink.split
 
 if.end18.i.i:                                     ; preds = %lor.lhs.false.i.i
   %conv.i.i = zext nneg i8 %5 to i32
@@ -2246,23 +2246,23 @@ for.end.i.i:                                      ; preds = %if.end18.i.i
   %conv22.i.i = zext i32 %or.i.i to i64
   %call.i1.i = tail call noundef i32 @fseeko64(ptr noundef nonnull %3, i64 noundef %conv22.i.i, i32 noundef 1)
   %cmp24.i.i = icmp slt i32 %call.i1.i, 0
-  br i1 %cmp24.i.i, label %sw.bb28, label %if.end27.i.i
+  br i1 %cmp24.i.i, label %return.sink.split.sink.split, label %if.end27.i.i
 
 if.end27.i.i:                                     ; preds = %for.end.i.i
   store i32 0, ptr %call.i.i, align 4
   %call30.i.i = call i64 @fread(ptr noundef nonnull %buffer.i.i, i64 noundef 1, i64 noundef 4, ptr noundef nonnull %3) #28
   %6 = load i32, ptr %call.i.i, align 4
   %tobool32.not.i.i = icmp eq i32 %6, 0
-  br i1 %tobool32.not.i.i, label %if.else34.i.i, label %sw.bb26
+  br i1 %tobool32.not.i.i, label %if.else34.i.i, label %return.sink.split.sink.split
 
 if.else34.i.i:                                    ; preds = %if.end27.i.i
   %cmp35.not.i.i = icmp eq i64 %call30.i.i, 4
-  br i1 %cmp35.not.i.i, label %if.end42.i.i, label %sw.bb30
+  br i1 %cmp35.not.i.i, label %if.end42.i.i, label %return.sink.split.sink.split
 
 if.end42.i.i:                                     ; preds = %if.else34.i.i, %if.else4.i.i
   %bcmp12.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) @FLAC__STREAM_SYNC_STRING, ptr noundef nonnull dereferenceable(4) %buffer.i.i, i64 4)
   %cmp45.i.i = icmp eq i32 %bcmp12.i.i, 0
-  br i1 %cmp45.i.i, label %sw.bb, label %sw.bb30
+  br i1 %cmp45.i.i, label %sw.bb, label %return.sink.split.sink.split
 
 sw.bb:                                            ; preds = %if.end42.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buffer.i.i)
@@ -2329,20 +2329,13 @@ read_metadata_block_header_.exit:                 ; preds = %read_metadata_block
   %cmp22.not = icmp eq i32 %13, 0
   br i1 %cmp22.not, label %return, label %return.sink.split
 
-sw.bb26:                                          ; preds = %lor.lhs.false.i.i, %for.body.i.i, %if.end15, %if.end27.i.i
+return.sink.split.sink.split:                     ; preds = %for.body.i.i, %lor.lhs.false.i.i, %if.end42.i.i, %if.else34.i.i, %if.else.i.i, %for.end.i.i, %if.then8.i.i, %if.end27.i.i, %if.end15
+  %.sink.ph = phi i32 [ 6, %if.end15 ], [ 6, %if.end27.i.i ], [ 7, %if.then8.i.i ], [ 7, %for.end.i.i ], [ 3, %if.else.i.i ], [ 3, %if.else34.i.i ], [ 3, %if.end42.i.i ], [ 6, %lor.lhs.false.i.i ], [ 6, %for.body.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buffer.i.i)
   br label %return.sink.split
 
-sw.bb28:                                          ; preds = %if.then8.i.i, %for.end.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buffer.i.i)
-  br label %return.sink.split
-
-sw.bb30:                                          ; preds = %if.else.i.i, %if.else34.i.i, %if.end42.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buffer.i.i)
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %read_metadata_block_header_.exit, %lor.lhs.false2, %if.then5, %sw.bb26, %sw.bb28, %sw.bb30
-  %.sink = phi i32 [ 3, %sw.bb30 ], [ 7, %sw.bb28 ], [ 6, %sw.bb26 ], [ 2, %if.then5 ], [ 2, %lor.lhs.false2 ], [ 5, %read_metadata_block_header_.exit ]
+return.sink.split:                                ; preds = %return.sink.split.sink.split, %read_metadata_block_header_.exit, %lor.lhs.false2, %if.then5
+  %.sink = phi i32 [ 2, %if.then5 ], [ 2, %lor.lhs.false2 ], [ 5, %read_metadata_block_header_.exit ], [ %.sink.ph, %return.sink.split.sink.split ]
   %status31 = getelementptr inbounds i8, ptr %iterator, i64 176
   store i32 %.sink, ptr %status31, align 8
   br label %return
@@ -6223,12 +6216,12 @@ while.body.i.i:                                   ; preds = %if.end7.i, %while.c
   %cond.i.i = tail call i64 @llvm.umin.i64(i64 %bytes.addr.010.i.i, i64 8192)
   %call.i22.i = call i64 @fread(ptr noundef nonnull %buffer.i.i, i64 noundef 1, i64 noundef %cond.i.i, ptr noundef nonnull %call.i24)
   %cmp2.not.i.i = icmp eq i64 %call.i22.i, %cond.i.i
-  br i1 %cmp2.not.i.i, label %if.end.i25.i, label %sw.bb6.i32.i
+  br i1 %cmp2.not.i.i, label %if.end.i25.i, label %get_equivalent_status_.exit39.i
 
 if.end.i25.i:                                     ; preds = %while.body.i.i
   %call4.i.i = call i64 @fwrite(ptr noundef nonnull %buffer.i.i, i64 noundef 1, i64 noundef %cond.i.i, ptr noundef nonnull %call25.i.i)
   %cmp5.not.i.i = icmp eq i64 %call4.i.i, %cond.i.i
-  br i1 %cmp5.not.i.i, label %while.cond.i.i, label %sw.bb8.i30.i
+  br i1 %cmp5.not.i.i, label %while.cond.i.i, label %get_equivalent_status_.exit39.i
 
 copy_n_bytes_from_file_.exit.i:                   ; preds = %while.cond.i.i, %if.end7.i
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %buffer.i.i)
@@ -6236,11 +6229,8 @@ copy_n_bytes_from_file_.exit.i:                   ; preds = %while.cond.i.i, %if
   %add.ptr.i.i.i.i28 = getelementptr inbounds i8, ptr %buffer.i.i.i22, i64 4
   br label %for.cond.i
 
-sw.bb6.i32.i:                                     ; preds = %while.body.i.i
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %buffer.i.i)
-  br label %err.i
-
-sw.bb8.i30.i:                                     ; preds = %if.end.i25.i
+get_equivalent_status_.exit39.i:                  ; preds = %if.end.i25.i, %while.body.i.i
+  %retval.0.i27.i = phi i32 [ 6, %while.body.i.i ], [ 8, %if.end.i25.i ]
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %buffer.i.i)
   br label %err.i
 
@@ -6343,8 +6333,8 @@ if.then35.i:                                      ; preds = %land.lhs.true5.i.i,
   %call36.i = tail call fastcc i32 @get_equivalent_status_(i32 noundef %.sink.i75.i)
   br label %err.i
 
-err.i:                                            ; preds = %write_metadata_block_header_cb_.exit.i.i49, %if.then24.i, %if.then35.i, %for.end.i, %write_metadata_block_header_cb_.exit.thread.i.i32, %sw.bb8.i30.i, %sw.bb6.i32.i
-  %call36.sink.i = phi i32 [ %call36.i, %if.then35.i ], [ 8, %sw.bb8.i30.i ], [ 6, %sw.bb6.i32.i ], [ 8, %write_metadata_block_header_cb_.exit.thread.i.i32 ], [ 7, %for.end.i ], [ %., %if.then24.i ], [ 8, %write_metadata_block_header_cb_.exit.i.i49 ]
+err.i:                                            ; preds = %write_metadata_block_header_cb_.exit.i.i49, %if.then24.i, %if.then35.i, %for.end.i, %write_metadata_block_header_cb_.exit.thread.i.i32, %get_equivalent_status_.exit39.i
+  %call36.sink.i = phi i32 [ %call36.i, %if.then35.i ], [ %retval.0.i27.i, %get_equivalent_status_.exit39.i ], [ 8, %write_metadata_block_header_cb_.exit.thread.i.i32 ], [ 7, %for.end.i ], [ %., %if.then24.i ], [ 8, %write_metadata_block_header_cb_.exit.i.i49 ]
   %status37.i = getelementptr inbounds i8, ptr %chain, i64 36
   store i32 %call36.sink.i, ptr %status37.i, align 4
   %call45.i = tail call i32 @fclose(ptr noundef nonnull %call.i24)
@@ -7043,12 +7033,12 @@ while.body.i:                                     ; preds = %entry, %while.cond.
   %cond.i = call i64 @llvm.umin.i64(i64 %bytes.addr.010.i, i64 8192)
   %call.i = call i64 %read_cb(ptr noundef nonnull %buffer.i, i64 noundef 1, i64 noundef %cond.i, ptr noundef %handle) #28
   %cmp2.not.i = icmp eq i64 %call.i, %cond.i
-  br i1 %cmp2.not.i, label %if.end.i, label %sw.bb6.i
+  br i1 %cmp2.not.i, label %if.end.i, label %get_equivalent_status_.exit
 
 if.end.i:                                         ; preds = %while.body.i
   %call4.i = call i64 %temp_write_cb(ptr noundef nonnull %buffer.i, i64 noundef 1, i64 noundef %cond.i, ptr noundef %temp_handle) #28
   %cmp5.not.i = icmp eq i64 %call4.i, %cond.i
-  br i1 %cmp5.not.i, label %while.cond.i, label %sw.bb8.i
+  br i1 %cmp5.not.i, label %while.cond.i, label %get_equivalent_status_.exit
 
 copy_n_bytes_from_file_cb_.exit:                  ; preds = %while.cond.i, %entry
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %buffer.i)
@@ -7056,16 +7046,9 @@ copy_n_bytes_from_file_cb_.exit:                  ; preds = %while.cond.i, %entr
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i21, i64 4
   br label %for.cond
 
-sw.bb6.i:                                         ; preds = %while.body.i
+get_equivalent_status_.exit:                      ; preds = %if.end.i, %while.body.i
+  %retval.0.i20 = phi i32 [ 6, %while.body.i ], [ 8, %if.end.i ]
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %buffer.i)
-  br label %get_equivalent_status_.exit
-
-sw.bb8.i:                                         ; preds = %if.end.i
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %buffer.i)
-  br label %get_equivalent_status_.exit
-
-get_equivalent_status_.exit:                      ; preds = %sw.bb6.i, %sw.bb8.i
-  %retval.0.i20 = phi i32 [ 8, %sw.bb8.i ], [ 6, %sw.bb6.i ]
   %status2 = getelementptr inbounds i8, ptr %chain, i64 36
   store i32 %retval.0.i20, ptr %status2, align 4
   br label %return
@@ -7161,12 +7144,12 @@ while.body.i29:                                   ; preds = %if.end18, %if.end10
 land.lhs.true.i:                                  ; preds = %while.body.i29
   %call2.i = call i32 %eof_cb(ptr noundef %handle) #28
   %tobool3.not.i = icmp eq i32 %call2.i, 0
-  br i1 %tobool3.not.i, label %sw.bb6.i41, label %if.end10.i
+  br i1 %tobool3.not.i, label %get_equivalent_status_.exit48, label %if.end10.i
 
 land.lhs.true5.i:                                 ; preds = %while.body.i29
   %call7.i = call i64 %temp_write_cb(ptr noundef nonnull %buffer.i27, i64 noundef 1, i64 noundef %call1.i, ptr noundef %temp_handle) #28
   %cmp8.not.i = icmp eq i64 %call7.i, %call1.i
-  br i1 %cmp8.not.i, label %if.end10.i, label %sw.bb8.i39
+  br i1 %cmp8.not.i, label %if.end10.i, label %get_equivalent_status_.exit48
 
 if.end10.i:                                       ; preds = %land.lhs.true5.i, %land.lhs.true.i
   %call.i33 = call i32 %eof_cb(ptr noundef %handle) #28
@@ -7177,16 +7160,9 @@ copy_remaining_bytes_from_file_cb_.exit:          ; preds = %if.end10.i, %if.end
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %buffer.i27)
   br label %return
 
-sw.bb6.i41:                                       ; preds = %land.lhs.true.i
+get_equivalent_status_.exit48:                    ; preds = %land.lhs.true5.i, %land.lhs.true.i
+  %retval.0.i36 = phi i32 [ 6, %land.lhs.true.i ], [ 8, %land.lhs.true5.i ]
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %buffer.i27)
-  br label %get_equivalent_status_.exit48
-
-sw.bb8.i39:                                       ; preds = %land.lhs.true5.i
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %buffer.i27)
-  br label %get_equivalent_status_.exit48
-
-get_equivalent_status_.exit48:                    ; preds = %sw.bb6.i41, %sw.bb8.i39
-  %retval.0.i36 = phi i32 [ 8, %sw.bb8.i39 ], [ 6, %sw.bb6.i41 ]
   %status23 = getelementptr inbounds i8, ptr %chain, i64 36
   store i32 %retval.0.i36, ptr %status23, align 4
   br label %return

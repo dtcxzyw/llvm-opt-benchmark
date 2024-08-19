@@ -3684,12 +3684,12 @@ define internal fastcc range(i32 0, 2) i32 @prf(ptr nocapture noundef readonly %
   %16 = alloca [16 x i8], align 16
   %17 = getelementptr inbounds i8, ptr %0, i64 656
   %18 = load i16, ptr %17, align 8
-  switch i16 %18, label %162 [
+  switch i16 %18, label %157 [
     i16 768, label %19
-    i16 769, label %75
-    i16 770, label %75
-    i16 -257, label %75
-    i16 256, label %75
+    i16 769, label %70
+    i16 770, label %70
+    i16 -257, label %70
+    i16 256, label %70
   ]
 
 19:                                               ; preds = %7
@@ -3709,9 +3709,9 @@ define internal fastcc range(i32 0, 2) i32 @prf(ptr nocapture noundef readonly %
   %24 = getelementptr inbounds i8, ptr %4, i64 8
   br label %25
 
-25:                                               ; preds = %55, %.lr.ph63.i
-  %.03661.i = phi i32 [ 0, %.lr.ph63.i ], [ %26, %55 ]
-  %.03760.i = phi i32 [ 0, %.lr.ph63.i ], [ %72, %55 ]
+25:                                               ; preds = %50, %.lr.ph63.i
+  %.03661.i = phi i32 [ 0, %.lr.ph63.i ], [ %26, %50 ]
+  %.03760.i = phi i32 [ 0, %.lr.ph63.i ], [ %67, %50 ]
   %26 = add i32 %.03661.i, 1
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1186, i32 noundef %26)
   %27 = icmp ult i32 %.03661.i, 2147483647
@@ -3740,10 +3740,10 @@ define internal fastcc range(i32 0, 2) i32 @prf(ptr nocapture noundef readonly %
 36:                                               ; preds = %._crit_edge.i
   %37 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull dereferenceable(17) @.str.546) #26
   %.not43.i = icmp eq i32 %37, 0
-  br i1 %.not43.i, label %38, label %47
+  br i1 %.not43.i, label %38, label %43
 
 38:                                               ; preds = %36, %._crit_edge.i
-  br i1 %.not45.i, label %43, label %39
+  br i1 %.not45.i, label %.sink.split.i, label %39
 
 39:                                               ; preds = %38
   %40 = load ptr, ptr %4, align 8
@@ -3751,320 +3751,314 @@ define internal fastcc range(i32 0, 2) i32 @prf(ptr nocapture noundef readonly %
   %.val52.i = load ptr, ptr %14, align 8
   %42 = sext i32 %41 to i64
   call void @gcry_md_write(ptr noundef %.val52.i, ptr noundef %40, i64 noundef %42) #23
-  br label %43
+  br label %.sink.split.i
 
-43:                                               ; preds = %39, %38
+43:                                               ; preds = %36
   %44 = load ptr, ptr %3, align 8
   %45 = load i32, ptr %23, align 8
-  %.val51.i = load ptr, ptr %14, align 8
-  %46 = sext i32 %45 to i64
-  call void @gcry_md_write(ptr noundef %.val51.i, ptr noundef %44, i64 noundef %46) #23
-  br label %55
-
-47:                                               ; preds = %36
-  %48 = load ptr, ptr %3, align 8
-  %49 = load i32, ptr %23, align 8
   %.val50.i = load ptr, ptr %14, align 8
-  %50 = sext i32 %49 to i64
-  call void @gcry_md_write(ptr noundef %.val50.i, ptr noundef %48, i64 noundef %50) #23
-  br i1 %.not45.i, label %55, label %51
+  %46 = sext i32 %45 to i64
+  call void @gcry_md_write(ptr noundef %.val50.i, ptr noundef %44, i64 noundef %46) #23
+  br i1 %.not45.i, label %50, label %.sink.split.i
 
-51:                                               ; preds = %47
-  %52 = load ptr, ptr %4, align 8
-  %53 = load i32, ptr %24, align 8
+.sink.split.i:                                    ; preds = %43, %39, %38
+  %.sink70.i = phi ptr [ %3, %39 ], [ %3, %38 ], [ %4, %43 ]
+  %.sink69.i = phi ptr [ %23, %39 ], [ %23, %38 ], [ %24, %43 ]
+  %47 = load ptr, ptr %.sink70.i, align 8
+  %48 = load i32, ptr %.sink69.i, align 8
   %.val49.i = load ptr, ptr %14, align 8
-  %54 = sext i32 %53 to i64
-  call void @gcry_md_write(ptr noundef %.val49.i, ptr noundef %52, i64 noundef %54) #23
-  br label %55
+  %49 = sext i32 %48 to i64
+  call void @gcry_md_write(ptr noundef %.val49.i, ptr noundef %47, i64 noundef %49) #23
+  br label %50
 
-55:                                               ; preds = %51, %47, %43
+50:                                               ; preds = %.sink.split.i, %43
   %.val55.i = load ptr, ptr %14, align 8
-  %56 = call ptr @gcry_md_read(ptr noundef %.val55.i, i32 noundef 2) #23
-  %57 = call i32 @gcry_md_get_algo_dlen(i32 noundef 2) #23
-  %58 = zext i32 %57 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %15, ptr align 1 %56, i64 %58, i1 false)
+  %51 = call ptr @gcry_md_read(ptr noundef %.val55.i, i32 noundef 2) #23
+  %52 = call i32 @gcry_md_get_algo_dlen(i32 noundef 2) #23
+  %53 = zext i32 %52 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %15, ptr align 1 %51, i64 %53, i1 false)
   %.val57.i = load ptr, ptr %14, align 8
   call void @gcry_md_reset(ptr noundef %.val57.i) #23
-  %59 = load i32, ptr %22, align 8
-  call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1187, i32 noundef %26, i32 noundef %59)
-  %60 = load ptr, ptr %1, align 8
-  %61 = load i32, ptr %22, align 8
+  %54 = load i32, ptr %22, align 8
+  call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1187, i32 noundef %26, i32 noundef %54)
+  %55 = load ptr, ptr %1, align 8
+  %56 = load i32, ptr %22, align 8
   %.val46.i = load ptr, ptr %13, align 8
-  %62 = sext i32 %61 to i64
-  call void @gcry_md_write(ptr noundef %.val46.i, ptr noundef %60, i64 noundef %62) #23
+  %57 = sext i32 %56 to i64
+  call void @gcry_md_write(ptr noundef %.val46.i, ptr noundef %55, i64 noundef %57) #23
   %.val.i = load ptr, ptr %13, align 8
   call void @gcry_md_write(ptr noundef %.val.i, ptr noundef nonnull %15, i64 noundef 20) #23
   %.val47.i = load ptr, ptr %13, align 8
-  %63 = call ptr @gcry_md_read(ptr noundef %.val47.i, i32 noundef 1) #23
-  %64 = call i32 @gcry_md_get_algo_dlen(i32 noundef 1) #23
-  %65 = zext i32 %64 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %16, ptr align 1 %63, i64 %65, i1 false)
+  %58 = call ptr @gcry_md_read(ptr noundef %.val47.i, i32 noundef 1) #23
+  %59 = call i32 @gcry_md_get_algo_dlen(i32 noundef 1) #23
+  %60 = zext i32 %59 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %16, ptr align 1 %58, i64 %60, i1 false)
   %.val58.i = load ptr, ptr %13, align 8
   call void @gcry_md_reset(ptr noundef %.val58.i) #23
-  %66 = load ptr, ptr %5, align 8
-  %67 = zext i32 %.03760.i to i64
-  %68 = getelementptr i8, ptr %66, i64 %67
-  %69 = sub i32 %6, %.03760.i
-  %70 = call i32 @llvm.umin.i32(i32 %69, i32 16)
-  %71 = zext nneg i32 %70 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %68, ptr nonnull align 16 %16, i64 %71, i1 false)
-  %72 = add i32 %.03760.i, 16
-  %73 = icmp ult i32 %72, %6
-  br i1 %73, label %25, label %ssl3_prf.exit, !llvm.loop !8
+  %61 = load ptr, ptr %5, align 8
+  %62 = zext i32 %.03760.i to i64
+  %63 = getelementptr i8, ptr %61, i64 %62
+  %64 = sub i32 %6, %.03760.i
+  %65 = call i32 @llvm.umin.i32(i32 %64, i32 16)
+  %66 = zext nneg i32 %65 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %63, ptr nonnull align 16 %16, i64 %66, i1 false)
+  %67 = add i32 %.03760.i, 16
+  %68 = icmp ult i32 %67, %6
+  br i1 %68, label %25, label %ssl3_prf.exit, !llvm.loop !8
 
-ssl3_prf.exit:                                    ; preds = %55, %19
+ssl3_prf.exit:                                    ; preds = %50, %19
   %.val56.i = load ptr, ptr %14, align 8
   call void @gcry_md_close(ptr noundef %.val56.i) #23
   %.val48.i = load ptr, ptr %13, align 8
   call void @gcry_md_close(ptr noundef %.val48.i) #23
-  %74 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %6, ptr %74, align 8
+  %69 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %6, ptr %69, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
-  br label %173
+  br label %168
 
-75:                                               ; preds = %7, %7, %7, %7
+70:                                               ; preds = %7, %7, %7, %7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  %76 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #26
+  %71 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #26
   %.not.i32 = icmp eq ptr %4, null
-  br i1 %.not.i32, label %81, label %77
+  br i1 %.not.i32, label %76, label %72
 
-77:                                               ; preds = %75
-  %78 = getelementptr inbounds i8, ptr %4, i64 8
-  %79 = load i32, ptr %78, align 8
-  %80 = zext i32 %79 to i64
-  br label %81
+72:                                               ; preds = %70
+  %73 = getelementptr inbounds i8, ptr %4, i64 8
+  %74 = load i32, ptr %73, align 8
+  %75 = zext i32 %74 to i64
+  br label %76
 
-81:                                               ; preds = %77, %75
-  %82 = phi i64 [ %80, %77 ], [ 0, %75 ]
-  %83 = tail call i32 @llvm.umax.i32(i32 %6, i32 20)
-  %84 = zext i32 %83 to i64
-  %85 = tail call noalias ptr @g_malloc(i64 noundef %84) #25
-  store ptr %85, ptr %9, align 8
-  %.not6.i.i = icmp eq ptr %85, null
-  br i1 %.not6.i.i, label %86, label %87
+76:                                               ; preds = %72, %70
+  %77 = phi i64 [ %75, %72 ], [ 0, %70 ]
+  %78 = tail call i32 @llvm.umax.i32(i32 %6, i32 20)
+  %79 = zext i32 %78 to i64
+  %80 = tail call noalias ptr @g_malloc(i64 noundef %79) #25
+  store ptr %80, ptr %9, align 8
+  %.not6.i.i = icmp eq ptr %80, null
+  br i1 %.not6.i.i, label %81, label %82
 
-86:                                               ; preds = %81
+81:                                               ; preds = %76
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1188)
   br label %tls_prf.exit
 
-87:                                               ; preds = %81
-  %88 = getelementptr inbounds i8, ptr %9, i64 8
-  store i32 %83, ptr %88, align 8
-  %89 = tail call i32 @llvm.umax.i32(i32 %6, i32 16)
-  %90 = zext i32 %89 to i64
-  %91 = tail call noalias ptr @g_malloc(i64 noundef %90) #25
-  store ptr %91, ptr %10, align 8
-  %.not6.i59.i = icmp eq ptr %91, null
-  br i1 %.not6.i59.i, label %92, label %93
+82:                                               ; preds = %76
+  %83 = getelementptr inbounds i8, ptr %9, i64 8
+  store i32 %78, ptr %83, align 8
+  %84 = tail call i32 @llvm.umax.i32(i32 %6, i32 16)
+  %85 = zext i32 %84 to i64
+  %86 = tail call noalias ptr @g_malloc(i64 noundef %85) #25
+  store ptr %86, ptr %10, align 8
+  %.not6.i59.i = icmp eq ptr %86, null
+  br i1 %.not6.i59.i, label %87, label %88
 
-92:                                               ; preds = %87
+87:                                               ; preds = %82
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1189)
-  br label %160
+  br label %155
 
-93:                                               ; preds = %87
-  %94 = getelementptr inbounds i8, ptr %10, i64 8
-  store i32 %89, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %3, i64 8
-  %96 = load i32, ptr %95, align 8
-  %97 = zext i32 %96 to i64
-  %98 = add i64 %82, %76
-  %99 = add i64 %98, %97
-  %100 = tail call noalias ptr @g_malloc(i64 noundef %99) #25
-  store ptr %100, ptr %8, align 8
-  %.not.i.i = icmp ne i64 %99, 0
-  %.not6.i62.i = icmp eq ptr %100, null
+88:                                               ; preds = %82
+  %89 = getelementptr inbounds i8, ptr %10, i64 8
+  store i32 %84, ptr %89, align 8
+  %90 = getelementptr inbounds i8, ptr %3, i64 8
+  %91 = load i32, ptr %90, align 8
+  %92 = zext i32 %91 to i64
+  %93 = add i64 %77, %71
+  %94 = add i64 %93, %92
+  %95 = tail call noalias ptr @g_malloc(i64 noundef %94) #25
+  store ptr %95, ptr %8, align 8
+  %.not.i.i = icmp ne i64 %94, 0
+  %.not6.i62.i = icmp eq ptr %95, null
   %or.cond.i.i = select i1 %.not.i.i, i1 %.not6.i62.i, i1 false
-  br i1 %or.cond.i.i, label %101, label %105
+  br i1 %or.cond.i.i, label %96, label %100
 
-101:                                              ; preds = %93
-  %102 = load i32, ptr %95, align 8
-  %103 = trunc i64 %98 to i32
-  %104 = add i32 %102, %103
-  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1190, i32 noundef %104)
-  br label %158
+96:                                               ; preds = %88
+  %97 = load i32, ptr %90, align 8
+  %98 = trunc i64 %93 to i32
+  %99 = add i32 %97, %98
+  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1190, i32 noundef %99)
+  br label %153
 
-105:                                              ; preds = %93
-  %106 = trunc i64 %99 to i32
-  %107 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %106, ptr %107, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %100, ptr readonly align 1 %2, i64 %76, i1 false)
-  %108 = getelementptr i8, ptr %100, i64 %76
-  %109 = load ptr, ptr %3, align 8
-  %110 = load i32, ptr %95, align 8
-  %111 = zext i32 %110 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %108, ptr align 1 %109, i64 %111, i1 false)
-  %.not56.i = icmp eq i64 %82, 0
-  br i1 %.not56.i, label %118, label %112
+100:                                              ; preds = %88
+  %101 = trunc i64 %94 to i32
+  %102 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 %101, ptr %102, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %95, ptr readonly align 1 %2, i64 %71, i1 false)
+  %103 = getelementptr i8, ptr %95, i64 %71
+  %104 = load ptr, ptr %3, align 8
+  %105 = load i32, ptr %90, align 8
+  %106 = zext i32 %105 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %103, ptr align 1 %104, i64 %106, i1 false)
+  %.not56.i = icmp eq i64 %77, 0
+  br i1 %.not56.i, label %113, label %107
 
-112:                                              ; preds = %105
-  %113 = getelementptr i8, ptr %108, i64 %111
-  %114 = load ptr, ptr %4, align 8
-  %115 = getelementptr inbounds i8, ptr %4, i64 8
-  %116 = load i32, ptr %115, align 8
-  %117 = zext i32 %116 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %113, ptr align 1 %114, i64 %117, i1 false)
-  br label %118
+107:                                              ; preds = %100
+  %108 = getelementptr i8, ptr %103, i64 %106
+  %109 = load ptr, ptr %4, align 8
+  %110 = getelementptr inbounds i8, ptr %4, i64 8
+  %111 = load i32, ptr %110, align 8
+  %112 = zext i32 %111 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %108, ptr align 1 %109, i64 %112, i1 false)
+  br label %113
 
-118:                                              ; preds = %112, %105
-  %119 = getelementptr inbounds i8, ptr %1, i64 8
-  %120 = load i32, ptr %119, align 8
-  %121 = lshr i32 %120, 1
-  %122 = and i32 %120, 1
-  %123 = add nuw i32 %121, %122
-  %124 = zext i32 %123 to i64
-  %125 = tail call noalias ptr @g_malloc(i64 noundef %124) #25
-  store ptr %125, ptr %11, align 8
-  %.not.i65.i = icmp ne i32 %123, 0
-  %.not6.i66.i = icmp eq ptr %125, null
+113:                                              ; preds = %107, %100
+  %114 = getelementptr inbounds i8, ptr %1, i64 8
+  %115 = load i32, ptr %114, align 8
+  %116 = lshr i32 %115, 1
+  %117 = and i32 %115, 1
+  %118 = add nuw i32 %116, %117
+  %119 = zext i32 %118 to i64
+  %120 = tail call noalias ptr @g_malloc(i64 noundef %119) #25
+  store ptr %120, ptr %11, align 8
+  %.not.i65.i = icmp ne i32 %118, 0
+  %.not6.i66.i = icmp eq ptr %120, null
   %or.cond.i67.i = select i1 %.not.i65.i, i1 %.not6.i66.i, i1 false
-  br i1 %or.cond.i67.i, label %126, label %127
+  br i1 %or.cond.i67.i, label %121, label %122
 
-126:                                              ; preds = %118
-  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1191, i32 noundef %123)
-  br label %157
+121:                                              ; preds = %113
+  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1191, i32 noundef %118)
+  br label %152
 
-127:                                              ; preds = %118
-  %128 = getelementptr inbounds i8, ptr %11, i64 8
-  store i32 %123, ptr %128, align 8
-  %129 = tail call noalias ptr @g_malloc(i64 noundef %124) #25
-  store ptr %129, ptr %12, align 8
-  %.not6.i71.i = icmp eq ptr %129, null
+122:                                              ; preds = %113
+  %123 = getelementptr inbounds i8, ptr %11, i64 8
+  store i32 %118, ptr %123, align 8
+  %124 = tail call noalias ptr @g_malloc(i64 noundef %119) #25
+  store ptr %124, ptr %12, align 8
+  %.not6.i71.i = icmp eq ptr %124, null
   %or.cond.i72.i = select i1 %.not.i65.i, i1 %.not6.i71.i, i1 false
-  br i1 %or.cond.i72.i, label %130, label %131
+  br i1 %or.cond.i72.i, label %125, label %126
 
-130:                                              ; preds = %127
-  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1192, i32 noundef %123)
-  br label %156
+125:                                              ; preds = %122
+  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1192, i32 noundef %118)
+  br label %151
 
-131:                                              ; preds = %127
-  %132 = getelementptr inbounds i8, ptr %12, i64 8
-  store i32 %123, ptr %132, align 8
-  %133 = load ptr, ptr %1, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %125, ptr align 1 %133, i64 %124, i1 false)
-  %134 = load i32, ptr %119, align 8
-  %135 = sub i32 %134, %123
-  %136 = zext i32 %135 to i64
-  %137 = getelementptr i8, ptr %133, i64 %136
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %129, ptr align 1 %137, i64 %124, i1 false)
-  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1193, i32 noundef %123, i32 noundef %106)
-  %138 = tail call i32 @gcry_md_map_name(ptr noundef nonnull readonly @.str.338) #26
-  %139 = call fastcc i32 @tls_hash(ptr noundef nonnull %11, ptr noundef nonnull %8, i32 noundef %138, ptr noundef nonnull %10, i32 noundef %6)
-  %.not57.i = icmp eq i32 %139, 0
-  br i1 %.not57.i, label %140, label %155
+126:                                              ; preds = %122
+  %127 = getelementptr inbounds i8, ptr %12, i64 8
+  store i32 %118, ptr %127, align 8
+  %128 = load ptr, ptr %1, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %120, ptr align 1 %128, i64 %119, i1 false)
+  %129 = load i32, ptr %114, align 8
+  %130 = sub i32 %129, %118
+  %131 = zext i32 %130 to i64
+  %132 = getelementptr i8, ptr %128, i64 %131
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %124, ptr align 1 %132, i64 %119, i1 false)
+  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1193, i32 noundef %118, i32 noundef %101)
+  %133 = tail call i32 @gcry_md_map_name(ptr noundef nonnull readonly @.str.338) #26
+  %134 = call fastcc i32 @tls_hash(ptr noundef nonnull %11, ptr noundef nonnull %8, i32 noundef %133, ptr noundef nonnull %10, i32 noundef %6)
+  %.not57.i = icmp eq i32 %134, 0
+  br i1 %.not57.i, label %135, label %150
 
-140:                                              ; preds = %131
+135:                                              ; preds = %126
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1194)
-  %141 = tail call i32 @gcry_md_map_name(ptr noundef nonnull readonly @.str.339) #26
-  %142 = call fastcc i32 @tls_hash(ptr noundef nonnull %12, ptr noundef nonnull %8, i32 noundef %141, ptr noundef nonnull %9, i32 noundef %6)
-  %.not58.i = icmp eq i32 %142, 0
-  br i1 %.not58.i, label %.preheader.i, label %155
+  %136 = tail call i32 @gcry_md_map_name(ptr noundef nonnull readonly @.str.339) #26
+  %137 = call fastcc i32 @tls_hash(ptr noundef nonnull %12, ptr noundef nonnull %8, i32 noundef %136, ptr noundef nonnull %9, i32 noundef %6)
+  %.not58.i = icmp eq i32 %137, 0
+  br i1 %.not58.i, label %.preheader.i, label %150
 
-.preheader.i:                                     ; preds = %140
+.preheader.i:                                     ; preds = %135
   %.not81.i = icmp eq i32 %6, 0
   br i1 %.not81.i, label %._crit_edge.i34, label %.lr.ph.i33
 
 .lr.ph.i33:                                       ; preds = %.preheader.i
-  %143 = load ptr, ptr %10, align 8
-  %144 = load ptr, ptr %9, align 8
+  %138 = load ptr, ptr %10, align 8
+  %139 = load ptr, ptr %9, align 8
   %wide.trip.count.i = zext i32 %6 to i64
-  br label %145
+  br label %140
 
-145:                                              ; preds = %145, %.lr.ph.i33
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i33 ], [ %indvars.iv.next.i, %145 ]
-  %146 = getelementptr i8, ptr %143, i64 %indvars.iv.i
-  %147 = load i8, ptr %146, align 1
-  %148 = getelementptr i8, ptr %144, i64 %indvars.iv.i
-  %149 = load i8, ptr %148, align 1
-  %150 = xor i8 %149, %147
-  %151 = load ptr, ptr %5, align 8
-  %152 = getelementptr i8, ptr %151, i64 %indvars.iv.i
-  store i8 %150, ptr %152, align 1
+140:                                              ; preds = %140, %.lr.ph.i33
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i33 ], [ %indvars.iv.next.i, %140 ]
+  %141 = getelementptr i8, ptr %138, i64 %indvars.iv.i
+  %142 = load i8, ptr %141, align 1
+  %143 = getelementptr i8, ptr %139, i64 %indvars.iv.i
+  %144 = load i8, ptr %143, align 1
+  %145 = xor i8 %144, %142
+  %146 = load ptr, ptr %5, align 8
+  %147 = getelementptr i8, ptr %146, i64 %indvars.iv.i
+  store i8 %145, ptr %147, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i34, label %145, !llvm.loop !9
+  br i1 %exitcond.not.i, label %._crit_edge.i34, label %140, !llvm.loop !9
 
-._crit_edge.i34:                                  ; preds = %145, %.preheader.i
-  %.pre-phi.i = phi i64 [ 0, %.preheader.i ], [ %wide.trip.count.i, %145 ]
-  %153 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %6, ptr %153, align 8
-  %154 = load ptr, ptr %5, align 8
-  tail call void @ssl_print_data(ptr noundef nonnull @.str.1195, ptr noundef %154, i64 noundef %.pre-phi.i)
-  br label %155
+._crit_edge.i34:                                  ; preds = %140, %.preheader.i
+  %.pre-phi.i = phi i64 [ 0, %.preheader.i ], [ %wide.trip.count.i, %140 ]
+  %148 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %6, ptr %148, align 8
+  %149 = load ptr, ptr %5, align 8
+  tail call void @ssl_print_data(ptr noundef nonnull @.str.1195, ptr noundef %149, i64 noundef %.pre-phi.i)
+  br label %150
 
-155:                                              ; preds = %._crit_edge.i34, %140, %131
-  %.4.i = phi i32 [ 0, %131 ], [ 0, %140 ], [ 1, %._crit_edge.i34 ]
-  tail call void @g_free(ptr noundef %129) #23
+150:                                              ; preds = %._crit_edge.i34, %135, %126
+  %.4.i = phi i32 [ 0, %126 ], [ 0, %135 ], [ 1, %._crit_edge.i34 ]
+  tail call void @g_free(ptr noundef %124) #23
   %.pre.pre.pre.i = load ptr, ptr %10, align 8
   %.pre83.pre.pre.pre.i = load ptr, ptr %9, align 8
-  br label %156
+  br label %151
 
-156:                                              ; preds = %155, %130
-  %.pre83.pre.pre.i = phi ptr [ %85, %130 ], [ %.pre83.pre.pre.pre.i, %155 ]
-  %.pre.pre.i = phi ptr [ %91, %130 ], [ %.pre.pre.pre.i, %155 ]
-  %.3.i = phi i32 [ 0, %130 ], [ %.4.i, %155 ]
-  tail call void @g_free(ptr noundef %125) #23
-  br label %157
+151:                                              ; preds = %150, %125
+  %.pre83.pre.pre.i = phi ptr [ %80, %125 ], [ %.pre83.pre.pre.pre.i, %150 ]
+  %.pre.pre.i = phi ptr [ %86, %125 ], [ %.pre.pre.pre.i, %150 ]
+  %.3.i = phi i32 [ 0, %125 ], [ %.4.i, %150 ]
+  tail call void @g_free(ptr noundef %120) #23
+  br label %152
 
-157:                                              ; preds = %156, %126
-  %.pre83.pre.i = phi ptr [ %85, %126 ], [ %.pre83.pre.pre.i, %156 ]
-  %.pre.i = phi ptr [ %91, %126 ], [ %.pre.pre.i, %156 ]
-  %.2.i = phi i32 [ 0, %126 ], [ %.3.i, %156 ]
-  tail call void @g_free(ptr noundef %100) #23
-  br label %158
+152:                                              ; preds = %151, %121
+  %.pre83.pre.i = phi ptr [ %80, %121 ], [ %.pre83.pre.pre.i, %151 ]
+  %.pre.i = phi ptr [ %86, %121 ], [ %.pre.pre.i, %151 ]
+  %.2.i = phi i32 [ 0, %121 ], [ %.3.i, %151 ]
+  tail call void @g_free(ptr noundef %95) #23
+  br label %153
 
-158:                                              ; preds = %157, %101
-  %.pre83.i = phi ptr [ %85, %101 ], [ %.pre83.pre.i, %157 ]
-  %159 = phi ptr [ %91, %101 ], [ %.pre.i, %157 ]
-  %.1.i = phi i32 [ 0, %101 ], [ %.2.i, %157 ]
-  tail call void @g_free(ptr noundef %159) #23
-  br label %160
+153:                                              ; preds = %152, %96
+  %.pre83.i = phi ptr [ %80, %96 ], [ %.pre83.pre.i, %152 ]
+  %154 = phi ptr [ %86, %96 ], [ %.pre.i, %152 ]
+  %.1.i = phi i32 [ 0, %96 ], [ %.2.i, %152 ]
+  tail call void @g_free(ptr noundef %154) #23
+  br label %155
 
-160:                                              ; preds = %158, %92
-  %161 = phi ptr [ %85, %92 ], [ %.pre83.i, %158 ]
-  %.0.i = phi i32 [ 0, %92 ], [ %.1.i, %158 ]
-  tail call void @g_free(ptr noundef %161) #23
+155:                                              ; preds = %153, %87
+  %156 = phi ptr [ %80, %87 ], [ %.pre83.i, %153 ]
+  %.0.i = phi i32 [ 0, %87 ], [ %.1.i, %153 ]
+  tail call void @g_free(ptr noundef %156) #23
   br label %tls_prf.exit
 
-tls_prf.exit:                                     ; preds = %86, %160
-  %.052.i = phi i32 [ 0, %86 ], [ %.0.i, %160 ]
+tls_prf.exit:                                     ; preds = %81, %155
+  %.052.i = phi i32 [ 0, %81 ], [ %.0.i, %155 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  br label %173
+  br label %168
 
-162:                                              ; preds = %7
-  %163 = getelementptr inbounds i8, ptr %0, i64 568
-  %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 12
-  %166 = load i32, ptr %165, align 4
-  switch i32 %166, label %171 [
-    i32 68, label %167
-    i32 67, label %169
+157:                                              ; preds = %7
+  %158 = getelementptr inbounds i8, ptr %0, i64 568
+  %159 = load ptr, ptr %158, align 8
+  %160 = getelementptr inbounds i8, ptr %159, i64 12
+  %161 = load i32, ptr %160, align 4
+  switch i32 %161, label %166 [
+    i32 68, label %162
+    i32 67, label %164
   ]
 
-167:                                              ; preds = %162
-  %168 = tail call fastcc i32 @tls12_prf(i32 noundef 326, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6)
-  br label %173
+162:                                              ; preds = %157
+  %163 = tail call fastcc i32 @tls12_prf(i32 noundef 326, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6)
+  br label %168
 
-169:                                              ; preds = %162
-  %170 = tail call fastcc i32 @tls12_prf(i32 noundef 9, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6)
-  br label %173
+164:                                              ; preds = %157
+  %165 = tail call fastcc i32 @tls12_prf(i32 noundef 9, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6)
+  br label %168
 
-171:                                              ; preds = %162
-  %172 = tail call fastcc i32 @tls12_prf(i32 noundef 8, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6)
-  br label %173
+166:                                              ; preds = %157
+  %167 = tail call fastcc i32 @tls12_prf(i32 noundef 8, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6)
+  br label %168
 
-173:                                              ; preds = %171, %169, %167, %tls_prf.exit, %ssl3_prf.exit
-  %.0 = phi i32 [ %172, %171 ], [ %170, %169 ], [ %168, %167 ], [ %.052.i, %tls_prf.exit ], [ 1, %ssl3_prf.exit ]
+168:                                              ; preds = %166, %164, %162, %tls_prf.exit, %ssl3_prf.exit
+  %.0 = phi i32 [ %167, %166 ], [ %165, %164 ], [ %163, %162 ], [ %.052.i, %tls_prf.exit ], [ 1, %ssl3_prf.exit ]
   ret i32 %.0
 }
 

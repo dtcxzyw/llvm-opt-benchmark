@@ -120,7 +120,7 @@ if.else.i:                                        ; preds = %if.then
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i, label %if.then.i.i.i.invoke, label %_ZNKSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE12_M_check_lenEmPKc.exit.i.i
 
-if.then.i.i.i.invoke:                             ; preds = %if.else.i22, %if.else.i
+if.then.i.i.i.invoke:                             ; preds = %if.else.i, %if.else.i22
   store ptr %cond.i10.i.i378192, ptr %normal, align 8
   store ptr %cond.i10.i.i8691, ptr %split, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #24
@@ -891,6 +891,7 @@ for.end122:                                       ; preds = %_ZN6google8protobuf
 for.body141.lr.ph:                                ; preds = %for.end122
   %cmp171 = icmp eq i64 %indvars.iv635, 5
   %arrayidx179 = getelementptr inbounds [6 x %"class.std::vector.14"], ptr %aligned_to_8, i64 0, i64 %indvars.iv635
+  %. = select i1 %cmp171, double -1.000000e+00, double 0x41BFFFFFFF000000
   br label %for.body141
 
 for.body141:                                      ; preds = %for.body141.lr.ph, %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupD2Ev.exit196
@@ -1015,7 +1016,7 @@ lpad160.loopexit:                                 ; preds = %cond.true.i.i380
           cleanup
   br label %lpad160
 
-lpad160.loopexit.split-lp.loopexit:               ; preds = %if.end177
+lpad160.loopexit.split-lp.loopexit:               ; preds = %for.end164
   %lpad.loopexit500 = landingpad { ptr, i32 }
           cleanup
   br label %lpad160
@@ -1044,27 +1045,14 @@ for.cond145.for.end164_crit_edge:                 ; preds = %for.inc162
 for.end164:                                       ; preds = %for.cond145.for.end164_crit_edge, %for.body141
   %field_group142.val78 = phi ptr [ %cond.i47.i383573, %for.cond145.for.end164_crit_edge ], [ null, %for.body141 ]
   %div.i183559.lcssa = phi double [ %div.i183558, %for.cond145.for.end164_crit_edge ], [ 0.000000e+00, %for.body141 ]
-  store double %div.i183559.lcssa, ptr %field_group142, align 8
   %sub = add nsw i64 %sub.ptr.div.i162, -1
   %cmp169 = icmp eq i64 %sub, %indvars.iv629
-  br i1 %cmp169, label %if.then170, label %if.end177
-
-if.then170:                                       ; preds = %for.end164
-  br i1 %cmp171, label %if.then172, label %if.else174
-
-if.then172:                                       ; preds = %if.then170
-  store double -1.000000e+00, ptr %field_group142, align 8
-  br label %if.end177
-
-if.else174:                                       ; preds = %if.then170
-  store double 0x41BFFFFFFF000000, ptr %field_group142, align 8
-  br label %if.end177
-
-if.end177:                                        ; preds = %if.then172, %if.else174, %for.end164
+  %storemerge = select i1 %cmp169, double %., double %div.i183559.lcssa
+  store double %storemerge, ptr %field_group142, align 8
   invoke fastcc void @_ZNSt6vectorIN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESaIS5_EE9push_backERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx179, ptr noundef nonnull align 8 dereferenceable(32) %field_group142)
           to label %invoke.cont180 unwind label %lpad160.loopexit.split-lp.loopexit
 
-invoke.cont180:                                   ; preds = %if.end177
+invoke.cont180:                                   ; preds = %for.end164
   %tobool.not.i.i.i.i194 = icmp eq ptr %field_group142.val78, null
   br i1 %tobool.not.i.i.i.i194, label %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupD2Ev.exit196, label %if.then.i.i.i.i195
 

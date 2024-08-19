@@ -5855,9 +5855,9 @@ i_get_exception_base.exit:                        ; preds = %14, %20
   br label %52
 
 52:                                               ; preds = %42, %.thread
-  %storemerge = phi i64 [ %51, %42 ], [ %41, %.thread ]
+  %.sink102 = phi i64 [ %51, %42 ], [ %41, %.thread ]
   %.sink = phi ptr [ %47, %42 ], [ %37, %.thread ]
-  store i64 %storemerge, ptr %2, align 8
+  store i64 %.sink102, ptr %2, align 8
   store i32 4, ptr %.sink, align 8
   %53 = load ptr, ptr @zend_known_strings, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 8

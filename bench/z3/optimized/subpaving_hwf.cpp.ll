@@ -12856,14 +12856,14 @@ _Z2eqI3f2nI11hwf_managerEEbRT_RKNS3_7numeralE16ext_numeral_kindS7_S8_.exit.if.el
   br label %if.end121
 
 if.end121:                                        ; preds = %if.then.i, %_Z2eqI3f2nI11hwf_managerEEbRT_RKNS3_7numeralE16ext_numeral_kindS7_S8_.exit.if.else118_crit_edge, %if.then82, %_Z2eqI3f2nI11hwf_managerEEbRT_RKNS3_7numeralE16ext_numeral_kindS7_S8_.exit.if.then115_crit_edge
-  %m_mul_bc.sink1123 = phi ptr [ %m_mul_ad, %_Z2eqI3f2nI11hwf_managerEEbRT_RKNS3_7numeralE16ext_numeral_kindS7_S8_.exit.if.then115_crit_edge ], [ %m_mul_ad, %if.then82 ], [ %m_mul_bc, %_Z2eqI3f2nI11hwf_managerEEbRT_RKNS3_7numeralE16ext_numeral_kindS7_S8_.exit.if.else118_crit_edge ], [ %m_mul_bc, %if.then.i ]
-  %storemerge = phi i32 [ %.pre985, %_Z2eqI3f2nI11hwf_managerEEbRT_RKNS3_7numeralE16ext_numeral_kindS7_S8_.exit.if.then115_crit_edge ], [ %.pre986, %if.then82 ], [ %.pre984, %_Z2eqI3f2nI11hwf_managerEEbRT_RKNS3_7numeralE16ext_numeral_kindS7_S8_.exit.if.else118_crit_edge ], [ %239, %if.then.i ]
+  %m_mul_bc.sink1062 = phi ptr [ %m_mul_ad, %_Z2eqI3f2nI11hwf_managerEEbRT_RKNS3_7numeralE16ext_numeral_kindS7_S8_.exit.if.then115_crit_edge ], [ %m_mul_ad, %if.then82 ], [ %m_mul_bc, %_Z2eqI3f2nI11hwf_managerEEbRT_RKNS3_7numeralE16ext_numeral_kindS7_S8_.exit.if.else118_crit_edge ], [ %m_mul_bc, %if.then.i ]
+  %.sink1059 = phi i32 [ %.pre985, %_Z2eqI3f2nI11hwf_managerEEbRT_RKNS3_7numeralE16ext_numeral_kindS7_S8_.exit.if.then115_crit_edge ], [ %.pre986, %if.then82 ], [ %.pre984, %_Z2eqI3f2nI11hwf_managerEEbRT_RKNS3_7numeralE16ext_numeral_kindS7_S8_.exit.if.else118_crit_edge ], [ %239, %if.then.i ]
   %.sink = phi i1 [ %225, %_Z2eqI3f2nI11hwf_managerEEbRT_RKNS3_7numeralE16ext_numeral_kindS7_S8_.exit.if.then115_crit_edge ], [ %225, %if.then82 ], [ %226, %_Z2eqI3f2nI11hwf_managerEEbRT_RKNS3_7numeralE16ext_numeral_kindS7_S8_.exit.if.else118_crit_edge ], [ %226, %if.then.i ]
   %243 = load double, ptr %m_result_lower, align 8
-  %244 = load double, ptr %m_mul_bc.sink1123, align 8
+  %244 = load double, ptr %m_mul_bc.sink1062, align 8
   store double %244, ptr %m_result_lower, align 8
-  store double %243, ptr %m_mul_bc.sink1123, align 8
-  store i32 %storemerge, ptr %new_l_kind, align 4
+  store double %243, ptr %m_mul_bc.sink1062, align 8
+  store i32 %.sink1059, ptr %new_l_kind, align 4
   %frombool.i.i747 = zext i1 %.sink to i8
   %m_l_open.i.i748 = getelementptr inbounds i8, ptr %r, i64 33
   store i8 %frombool.i.i747, ptr %m_l_open.i.i748, align 1

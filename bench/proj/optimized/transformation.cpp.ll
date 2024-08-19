@@ -6019,9 +6019,9 @@ define void @_ZN5osgeo4proj9operation14Transformation13createTOWGS84ERKN7dropbox
   br label %_ZN7dropbox6oxygen22nn_static_pointer_castIN5osgeo4proj3crs3CRSENS4_13GeographicCRSEEENS0_2nnISt10shared_ptrIT_EEERKNS7_IS8_IT0_EEE.exit
 
 _ZN7dropbox6oxygen22nn_static_pointer_castIN5osgeo4proj3crs3CRSENS4_13GeographicCRSEEENS0_2nnISt10shared_ptrIT_EEERKNS7_IS8_IT0_EEE.exit: ; preds = %90, %87, %81, %71, %68, %62
-  %storemerge = phi ptr [ %63, %62 ], [ %63, %68 ], [ %63, %71 ], [ %82, %81 ], [ %82, %87 ], [ %82, %90 ]
+  %.sink68 = phi ptr [ %63, %62 ], [ %63, %68 ], [ %63, %71 ], [ %82, %81 ], [ %82, %87 ], [ %82, %90 ]
   %.sink = phi ptr [ %64, %62 ], [ %64, %68 ], [ %64, %71 ], [ %83, %81 ], [ %83, %87 ], [ %83, %90 ]
-  store ptr %storemerge, ptr %7, align 8
+  store ptr %.sink68, ptr %7, align 8
   %92 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %.sink, ptr %92, align 8
   %93 = load ptr, ptr %4, align 8
@@ -6296,8 +6296,8 @@ _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18Positio
   br label %327
 
 _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEESaIS9_EED2Ev.exit.sink.split: ; preds = %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEES9_EvT_SB_RSaIT0_E.exit.i46, %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEES9_EvT_SB_RSaIT0_E.exit.i
-  %.sink68 = phi ptr [ %165, %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEES9_EvT_SB_RSaIT0_E.exit.i ], [ %218, %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEES9_EvT_SB_RSaIT0_E.exit.i46 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sink68) #24
+  %.sink69 = phi ptr [ %165, %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEES9_EvT_SB_RSaIT0_E.exit.i ], [ %218, %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEES9_EvT_SB_RSaIT0_E.exit.i46 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sink69) #24
   br label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEESaIS9_EED2Ev.exit
 
 _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEESaIS9_EED2Ev.exit: ; preds = %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEESaIS9_EED2Ev.exit.sink.split, %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEES9_EvT_SB_RSaIT0_E.exit.i46, %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEES9_EvT_SB_RSaIT0_E.exit.i
@@ -6525,9 +6525,9 @@ _ZNSt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEED2Ev.exit: ; preds = %_ZN7dropb
   ret void
 
 327:                                              ; preds = %219, %166
-  %.sink69 = phi ptr [ %10, %219 ], [ %9, %166 ]
+  %.sink70 = phi ptr [ %10, %219 ], [ %9, %166 ]
   %.pn = phi { ptr, i32 } [ %220, %219 ], [ %167, %166 ]
-  call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %.sink69) #23
+  call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj8metadata18PositionalAccuracyEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %.sink70) #23
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #23
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #23
   br label %328

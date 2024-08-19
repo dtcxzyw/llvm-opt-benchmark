@@ -1236,7 +1236,6 @@ define hidden void @"_ZN111_$LT$actix_tls..connect..connector..ConnectServiceRes
 "_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hbb2f9341f2fb5e89E.exit.thread.i.i": ; preds = %179
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %40), !noalias !99
   call fastcc void @"_ZN4core3ptr245drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$core..result..Result$LT$alloc..vec..into_iter..IntoIter$LT$core..net..socket_addr..SocketAddr$GT$$C$std..io..error..Error$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$$GT$17hf7ac4dbd2eec009aE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %41), !noalias !99
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %41), !noalias !99
   br label %195
 
 182:                                              ; preds = %.thread10.i.i.i
@@ -1253,7 +1252,6 @@ define hidden void @"_ZN111_$LT$actix_tls..connect..connector..ConnectServiceRes
 "_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hbb2f9341f2fb5e89E.exit.thread250.i.i": ; preds = %184
   call void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdaccc6798f4ac0e8E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %40), !noalias !99
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %40), !noalias !99
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %41), !noalias !99
   br label %195
 
 186:                                              ; preds = %.thread.i.i.i, %182
@@ -1301,6 +1299,7 @@ common.resume:                                    ; preds = %520, %.thread.i.i.i
   br label %"_ZN99_$LT$actix_tls..connect..resolver..ResolverFut$LT$R$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h530adbd57b9e6bd0E.exit.i"
 
 195:                                              ; preds = %"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hbb2f9341f2fb5e89E.exit.thread250.i.i", %"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hbb2f9341f2fb5e89E.exit.thread.i.i"
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %41), !noalias !99
   store i32 4, ptr %65, align 8, !alias.scope !86, !noalias !106
   br label %499
 

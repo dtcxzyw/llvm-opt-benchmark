@@ -346,12 +346,7 @@ if.else.i.i:                                      ; preds = %if.end.i9.i
   store i32 2, ptr %hints.i.i.i, align 8
   %call.i6.i.i = call i32 @getaddrinfo(ptr noundef nonnull %buf.i.i, ptr noundef null, ptr noundef nonnull %hints.i.i.i, ptr noundef nonnull %ai.i.i.i) #18
   %tobool.not.i.i10.i = icmp eq i32 %call.i6.i.i, 0
-  br i1 %tobool.not.i.i10.i, label %if.then.i.i.i, label %canonical_name.exit.thread.i.i
-
-canonical_name.exit.thread.i.i:                   ; preds = %if.else.i.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %hints.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ai.i.i.i)
-  br label %if.then8.i.i
+  br i1 %tobool.not.i.i10.i, label %if.then.i.i.i, label %if.then8.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i.i
   %11 = load ptr, ptr %ai.i.i.i, align 8
@@ -371,8 +366,6 @@ land.lhs.true3.i.i.i:                             ; preds = %land.lhs.true.i.i.i
 
 canonical_name.exit.thread3.i.i:                  ; preds = %land.lhs.true3.i.i.i, %land.lhs.true.i.i.i, %if.then.i.i.i
   call void @freeaddrinfo(ptr noundef %11) #18
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %hints.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ai.i.i.i)
   br label %if.then8.i.i
 
 canonical_name.exit.i.i:                          ; preds = %land.lhs.true3.i.i.i
@@ -384,7 +377,9 @@ canonical_name.exit.i.i:                          ; preds = %land.lhs.true3.i.i.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ai.i.i.i)
   br label %add_domainname.exit.i
 
-if.then8.i.i:                                     ; preds = %canonical_name.exit.thread3.i.i, %canonical_name.exit.thread.i.i
+if.then8.i.i:                                     ; preds = %canonical_name.exit.thread3.i.i, %if.else.i.i
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %hints.i.i.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ai.i.i.i)
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @git_default_email, ptr noundef nonnull @.str.24, ptr noundef nonnull %buf.i.i) #18
   store i1 true, ptr @default_email_is_bogus, align 4
   br label %add_domainname.exit.i

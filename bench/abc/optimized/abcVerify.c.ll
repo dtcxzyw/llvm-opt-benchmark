@@ -1130,7 +1130,7 @@ define void @Abc_NtkCecFraigPartAuto(ptr noundef %0, ptr noundef %1, i32 noundef
 
 10:                                               ; preds = %4
   %puts62 = call i32 @puts(ptr nonnull dereferenceable(1) @str.44)
-  br label %100
+  br label %101
 
 11:                                               ; preds = %4
   %12 = call i32 @Abc_NtkMiterIsConstant(ptr noundef nonnull %8) #14
@@ -1162,12 +1162,12 @@ define void @Abc_NtkCecFraigPartAuto(ptr noundef %0, ptr noundef %1, i32 noundef
 
 21:                                               ; preds = %13, %20
   call void @Abc_NtkDelete(ptr noundef nonnull %8) #14
-  br label %100
+  br label %101
 
 22:                                               ; preds = %11
   %puts59 = call i32 @puts(ptr nonnull dereferenceable(1) @str.42)
   call void @Abc_NtkDelete(ptr noundef nonnull %8) #14
-  br label %100
+  br label %101
 
 23:                                               ; preds = %11
   %24 = call ptr (...) @Abc_FrameGetGlobalFrame() #14
@@ -1282,99 +1282,99 @@ define void @Abc_NtkCecFraigPartAuto(ptr noundef %0, ptr noundef %1, i32 noundef
 
 .critedge.sink.split:                             ; preds = %41, %60
   %.148.ph = phi i32 [ 0, %60 ], [ %.04781, %41 ]
-  %.sink = load ptr, ptr %6, align 8
-  call void @Abc_NtkDelete(ptr noundef %.sink) #14
+  %74 = load ptr, ptr %6, align 8
+  call void @Abc_NtkDelete(ptr noundef %74) #14
   br label %.critedge
 
 .critedge:                                        ; preds = %71, %.critedge.sink.split, %23
   %.076 = phi i32 [ 0, %23 ], [ %.082, %.critedge.sink.split ], [ %.1, %71 ]
   %.148 = phi i32 [ 1, %23 ], [ %.148.ph, %.critedge.sink.split ], [ %.249, %71 ]
-  %74 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27)
+  %75 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27)
   %.val11.i = load i32, ptr %31, align 4
-  %75 = icmp sgt i32 %.val11.i, 0
-  br i1 %75, label %.lr.ph.i, label %.critedge.i
+  %76 = icmp sgt i32 %.val11.i, 0
+  br i1 %76, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %.critedge
-  %76 = getelementptr i8, ptr %26, i64 8
-  br label %77
+  %77 = getelementptr i8, ptr %26, i64 8
+  br label %78
 
-77:                                               ; preds = %84, %.lr.ph.i
-  %.val14.i = phi i32 [ %.val11.i, %.lr.ph.i ], [ %.val.i70, %84 ]
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %84 ]
-  %.val8.i = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds ptr, ptr %.val8.i, i64 %indvars.iv.i
-  %79 = load ptr, ptr %78, align 8
-  %.not.i = icmp eq ptr %79, null
-  br i1 %.not.i, label %84, label %80
+78:                                               ; preds = %85, %.lr.ph.i
+  %.val14.i = phi i32 [ %.val11.i, %.lr.ph.i ], [ %.val.i70, %85 ]
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %85 ]
+  %.val8.i = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds ptr, ptr %.val8.i, i64 %indvars.iv.i
+  %80 = load ptr, ptr %79, align 8
+  %.not.i = icmp eq ptr %80, null
+  br i1 %.not.i, label %85, label %81
 
-80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %79, i64 8
-  %82 = load ptr, ptr %81, align 8
-  %.not.i.i = icmp eq ptr %82, null
-  br i1 %.not.i.i, label %Vec_PtrFree.exit.i, label %83
+81:                                               ; preds = %78
+  %82 = getelementptr inbounds i8, ptr %80, i64 8
+  %83 = load ptr, ptr %82, align 8
+  %.not.i.i = icmp eq ptr %83, null
+  br i1 %.not.i.i, label %Vec_PtrFree.exit.i, label %84
 
-83:                                               ; preds = %80
-  call void @free(ptr noundef nonnull %82) #14
+84:                                               ; preds = %81
+  call void @free(ptr noundef nonnull %83) #14
   br label %Vec_PtrFree.exit.i
 
-Vec_PtrFree.exit.i:                               ; preds = %83, %80
-  call void @free(ptr noundef nonnull %79) #14
+Vec_PtrFree.exit.i:                               ; preds = %84, %81
+  call void @free(ptr noundef nonnull %80) #14
   %.val.pre.i = load i32, ptr %31, align 4
-  br label %84
+  br label %85
 
-84:                                               ; preds = %Vec_PtrFree.exit.i, %77
-  %.val.i70 = phi i32 [ %.val14.i, %77 ], [ %.val.pre.i, %Vec_PtrFree.exit.i ]
+85:                                               ; preds = %Vec_PtrFree.exit.i, %78
+  %.val.i70 = phi i32 [ %.val14.i, %78 ], [ %.val.pre.i, %Vec_PtrFree.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %85 = sext i32 %.val.i70 to i64
-  %86 = icmp slt i64 %indvars.iv.next.i, %85
-  br i1 %86, label %77, label %.critedge.i, !llvm.loop !15
+  %86 = sext i32 %.val.i70 to i64
+  %87 = icmp slt i64 %indvars.iv.next.i, %86
+  br i1 %87, label %78, label %.critedge.i, !llvm.loop !15
 
-.critedge.i:                                      ; preds = %84, %.critedge
-  %87 = getelementptr inbounds i8, ptr %26, i64 8
-  %88 = load ptr, ptr %87, align 8
-  %.not.i9.i = icmp eq ptr %88, null
-  br i1 %.not.i9.i, label %Vec_VecFree.exit, label %89
+.critedge.i:                                      ; preds = %85, %.critedge
+  %88 = getelementptr inbounds i8, ptr %26, i64 8
+  %89 = load ptr, ptr %88, align 8
+  %.not.i9.i = icmp eq ptr %89, null
+  br i1 %.not.i9.i, label %Vec_VecFree.exit, label %90
 
-89:                                               ; preds = %.critedge.i
-  call void @free(ptr noundef nonnull %88) #14
+90:                                               ; preds = %.critedge.i
+  call void @free(ptr noundef nonnull %89) #14
   br label %Vec_VecFree.exit
 
-Vec_VecFree.exit:                                 ; preds = %.critedge.i, %89
+Vec_VecFree.exit:                                 ; preds = %.critedge.i, %90
   call void @free(ptr noundef nonnull %26) #14
-  %90 = load ptr, ptr %30, align 8
-  %.not.i71 = icmp eq ptr %90, null
-  br i1 %.not.i71, label %Vec_PtrFree.exit, label %91
+  %91 = load ptr, ptr %30, align 8
+  %.not.i71 = icmp eq ptr %91, null
+  br i1 %.not.i71, label %Vec_PtrFree.exit, label %92
 
-91:                                               ; preds = %Vec_VecFree.exit
-  call void @free(ptr noundef nonnull %90) #14
+92:                                               ; preds = %Vec_VecFree.exit
+  call void @free(ptr noundef nonnull %91) #14
   br label %Vec_PtrFree.exit
 
-Vec_PtrFree.exit:                                 ; preds = %Vec_VecFree.exit, %91
+Vec_PtrFree.exit:                                 ; preds = %Vec_VecFree.exit, %92
   call void @free(ptr noundef nonnull %27) #14
-  %92 = call ptr (...) @Abc_FrameGetGlobalFrame() #14
-  %93 = call i32 @Cmd_CommandExecute(ptr noundef %92, ptr noundef nonnull @.str.22) #14
-  switch i32 %.148, label %99 [
-    i32 1, label %94
-    i32 -1, label %95
+  %93 = call ptr (...) @Abc_FrameGetGlobalFrame() #14
+  %94 = call i32 @Cmd_CommandExecute(ptr noundef %93, ptr noundef nonnull @.str.22) #14
+  switch i32 %.148, label %100 [
+    i32 1, label %95
+    i32 -1, label %96
   ]
 
-94:                                               ; preds = %Vec_PtrFree.exit
-  %puts58 = call i32 @puts(ptr nonnull dereferenceable(1) @str.22)
-  br label %99
-
 95:                                               ; preds = %Vec_PtrFree.exit
-  %96 = getelementptr i8, ptr %0, i64 64
-  %.val65 = load ptr, ptr %96, align 8
-  %97 = getelementptr i8, ptr %.val65, i64 4
-  %.val65.val = load i32, ptr %97, align 4
-  %98 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %.076, i32 noundef %.val65.val)
-  br label %99
-
-99:                                               ; preds = %Vec_PtrFree.exit, %95, %94
-  call void @Abc_NtkDelete(ptr noundef nonnull %8) #14
+  %puts58 = call i32 @puts(ptr nonnull dereferenceable(1) @str.22)
   br label %100
 
-100:                                              ; preds = %99, %22, %21, %10
+96:                                               ; preds = %Vec_PtrFree.exit
+  %97 = getelementptr i8, ptr %0, i64 64
+  %.val65 = load ptr, ptr %97, align 8
+  %98 = getelementptr i8, ptr %.val65, i64 4
+  %.val65.val = load i32, ptr %98, align 4
+  %99 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %.076, i32 noundef %.val65.val)
+  br label %100
+
+100:                                              ; preds = %Vec_PtrFree.exit, %96, %95
+  call void @Abc_NtkDelete(ptr noundef nonnull %8) #14
+  br label %101
+
+101:                                              ; preds = %100, %22, %21, %10
   ret void
 }
 

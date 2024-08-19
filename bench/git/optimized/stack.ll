@@ -441,9 +441,9 @@ if.end29:                                         ; preds = %if.end26
   br i1 %cmp3, label %return, label %if.end5
 
 return.sink.split:                                ; preds = %reftable_stack_reload_once.exit, %if.end21, %if.end10
-  %retval.0.ph = phi i32 [ %call11, %if.end10 ], [ %err.0108.i, %reftable_stack_reload_once.exit ], [ %call23, %if.end21 ]
-  %.sink = load ptr, ptr %names, align 8
-  call void @free_names(ptr noundef %.sink) #14
+  %retval.0.ph = phi i32 [ %call23, %if.end21 ], [ %err.0108.i, %reftable_stack_reload_once.exit ], [ %call11, %if.end10 ]
+  %42 = load ptr, ptr %names, align 8
+  call void @free_names(ptr noundef %42) #14
   br label %return
 
 return:                                           ; preds = %if.end29, %land.lhs.true, %if.end26, %return.sink.split, %if.end, %entry

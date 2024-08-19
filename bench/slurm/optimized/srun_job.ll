@@ -3593,7 +3593,7 @@ _build_key.exit31:                                ; preds = %52, %54
 
 61:                                               ; preds = %.loopexit
   %.not25 = icmp eq i64 %48, 0
-  br i1 %.not25, label %74, label %62
+  br i1 %.not25, label %75, label %62
 
 62:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -3626,15 +3626,15 @@ _build_key.exit34:                                ; preds = %65, %67
   br i1 %72, label %.sink.split.sink.split, label %.sink.split
 
 .sink.split.sink.split:                           ; preds = %70, %57
-  %.sink = load ptr, ptr %6, align 8
-  %73 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.82, ptr noundef %.sink) #16
+  %73 = load ptr, ptr %6, align 8
+  %74 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.82, ptr noundef %73) #16
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %_build_key.exit34, %70, %_build_key.exit31, %57
   call void @slurm_xfree(ptr noundef nonnull %6) #16
-  br label %74
+  br label %75
 
-74:                                               ; preds = %.sink.split, %61
+75:                                               ; preds = %.sink.split, %61
   ret void
 }
 

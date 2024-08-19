@@ -9331,7 +9331,7 @@ _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp5) #16
   %8 = load ptr, ptr %message_.i, align 8, !tbaa !27
   %cmp.not.i.i265 = icmp eq ptr %8, null
-  br i1 %cmp.not.i.i265, label %_ZN7testing15AssertionResultD2Ev.exit, label %delete.notnull.i.i.i
+  br i1 %cmp.not.i.i265, label %cleanup211, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %_ZN7testing7MessageD2Ev.exit
   %9 = load ptr, ptr %8, align 8, !tbaa !28
@@ -9352,10 +9352,6 @@ if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i.i.
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %8) #17
-  br label %_ZN7testing15AssertionResultD2Ev.exit
-
-_ZN7testing15AssertionResultD2Ev.exit:            ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i, %_ZN7testing7MessageD2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #16
   br label %cleanup211
 
 lpad6:                                            ; preds = %if.else
@@ -9415,10 +9411,10 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
 _ZN7testing15AssertionResultD2Ev.exit500:         ; preds = %_ZN4entt8resourceIK4baseEC2I7derivedvEERKNS0_IT_EE.exit, %_ZN4entt8resourceIK4baseEC2I7derivedvEERKNS0_IT_EE.exit.thread
   %message_.i530 = phi ptr [ %message_.i529, %_ZN4entt8resourceIK4baseEC2I7derivedvEERKNS0_IT_EE.exit.thread ], [ %message_.i, %_ZN4entt8resourceIK4baseEC2I7derivedvEERKNS0_IT_EE.exit ]
   store ptr null, ptr %message_.i530, align 8, !tbaa !27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #16
   br label %cleanup211
 
-cleanup211:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit500, %_ZN7testing15AssertionResultD2Ev.exit
+cleanup211:                                       ; preds = %_ZN7testing7MessageD2Ev.exit, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i, %_ZN7testing15AssertionResultD2Ev.exit500
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #16
   %21 = load ptr, ptr %_M_refcount.i.i.i257, align 8, !tbaa !38
   %cmp.not.i.i.i = icmp eq ptr %21, null
   br i1 %cmp.not.i.i.i, label %_ZN4entt8resourceIK4baseED2Ev.exit, label %if.then.i.i.i501

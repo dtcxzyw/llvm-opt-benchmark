@@ -1458,7 +1458,7 @@ topology_constraints_cpy.exit:                    ; preds = %topology_numbering_
   call fastcc void @optimize_arity(ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef %68)
   %69 = load ptr, ptr %2, align 8
   %70 = load i32, ptr %3, align 4
-  %71 = call ptr @tm_build_synthetic_topology(ptr noundef %69, ptr noundef null, i32 noundef %70, ptr noundef %49, i32 noundef %44)
+  %71 = tail call ptr @tm_build_synthetic_topology(ptr noundef %69, ptr noundef null, i32 noundef %70, ptr noundef %49, i32 noundef %44)
   %72 = load ptr, ptr %4, align 8
   %73 = getelementptr inbounds i8, ptr %71, i64 64
   store ptr %72, ptr %73, align 8
@@ -1482,7 +1482,7 @@ topology_constraints_cpy.exit:                    ; preds = %topology_numbering_
   br i1 %.not, label %90, label %84
 
 84:                                               ; preds = %83
-  %85 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7)
+  %85 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7)
   %86 = icmp sgt i32 %54, 0
   br i1 %86, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1494,13 +1494,13 @@ topology_constraints_cpy.exit:                    ; preds = %topology_numbering_
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %87 = getelementptr inbounds i32, ptr %.037, i64 %indvars.iv
   %88 = load i32, ptr %87, align 4
-  %89 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %88)
+  %89 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %88)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %84
-  %putchar = call i32 @putchar(i32 10)
+  %putchar = tail call i32 @putchar(i32 10)
   br label %90
 
 90:                                               ; preds = %._crit_edge, %83
@@ -1519,17 +1519,17 @@ topology_constraints_cpy.exit:                    ; preds = %topology_numbering_
   %indvars.iv.i23 = phi i64 [ %indvars.iv.next.i25, %103 ], [ 0, %.lr.ph.i22.preheader ]
   %95 = getelementptr inbounds i32, ptr %.pre, i64 %indvars.iv.i23
   %96 = load i32, ptr %95, align 4
-  %97 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %96)
+  %97 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %96)
   br i1 %.not.i24, label %102, label %98
 
 98:                                               ; preds = %.lr.ph.i22
   %99 = getelementptr inbounds double, ptr %72, i64 %indvars.iv.i23
   %100 = load double, ptr %99, align 8
-  %101 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, double noundef %100)
+  %101 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, double noundef %100)
   br label %103
 
 102:                                              ; preds = %.lr.ph.i22
-  %putchar8.i26 = call i32 @putchar(i32 58)
+  %putchar8.i26 = tail call i32 @putchar(i32 58)
   br label %103
 
 103:                                              ; preds = %102, %98
@@ -1538,37 +1538,37 @@ topology_constraints_cpy.exit:                    ; preds = %topology_numbering_
   br i1 %104, label %.lr.ph.i22, label %tm_display_arity.exit27, !llvm.loop !20
 
 tm_display_arity.exit27:                          ; preds = %103, %90
-  %putchar.i21 = call i32 @putchar(i32 10)
+  %putchar.i21 = tail call i32 @putchar(i32 10)
   br label %105
 
 105:                                              ; preds = %tm_display_arity.exit27, %topology_constraints_cpy.exit
-  call void @free(ptr noundef %69) #22
-  call void @free(ptr noundef %49) #22
+  tail call void @free(ptr noundef %69) #22
+  tail call void @free(ptr noundef %49) #22
   %106 = load ptr, ptr %0, align 8
   %107 = getelementptr inbounds i8, ptr %106, i64 32
   %108 = load ptr, ptr %107, align 8
-  call void @free(ptr noundef %108) #22
+  tail call void @free(ptr noundef %108) #22
   %109 = getelementptr inbounds i8, ptr %106, i64 40
   %110 = load ptr, ptr %109, align 8
-  call void @free(ptr noundef %110) #22
+  tail call void @free(ptr noundef %110) #22
   %111 = getelementptr inbounds i8, ptr %106, i64 72
   %112 = load ptr, ptr %111, align 8
-  call void @free(ptr noundef %112) #22
+  tail call void @free(ptr noundef %112) #22
   %113 = getelementptr inbounds i8, ptr %106, i64 16
   %114 = load ptr, ptr %113, align 8
-  call void @free(ptr noundef %114) #22
+  tail call void @free(ptr noundef %114) #22
   %115 = load ptr, ptr %106, align 8
-  call void @free(ptr noundef %115) #22
+  tail call void @free(ptr noundef %115) #22
   %116 = getelementptr inbounds i8, ptr %106, i64 64
   %117 = load ptr, ptr %116, align 8
-  call void @free(ptr noundef %117) #22
-  call void @free(ptr noundef %106) #22
+  tail call void @free(ptr noundef %117) #22
+  tail call void @free(ptr noundef %106) #22
   store ptr %71, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @optimize_arity(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #3 {
+define internal fastcc void @optimize_arity(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #3 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = icmp slt i32 %3, 0
@@ -1602,10 +1602,10 @@ define internal fastcc void @optimize_arity(ptr nocapture noundef %0, ptr nocapt
   %23 = shl nsw i64 %20, 3
   %24 = tail call noalias ptr @malloc(i64 noundef %23) #26
   store ptr %24, ptr %6, align 8
-  %.not173 = icmp eq i32 %.tr98104, 0
+  %.not174 = icmp eq i32 %.tr98104, 0
   %.pre159 = load ptr, ptr %1, align 8
   %.pre160.pre = load ptr, ptr %0, align 8
-  br i1 %.not173, label %._crit_edge114, label %.lr.ph113
+  br i1 %.not174, label %._crit_edge114, label %.lr.ph113
 
 .lr.ph113:                                        ; preds = %17, %.lr.ph113
   %indvars.iv141 = phi i64 [ %indvars.iv.next142, %.lr.ph113 ], [ 0, %17 ]
@@ -1743,19 +1743,19 @@ tailrecurse:                                      ; preds = %52
 .loopexit.sink.split:                             ; preds = %83, %43, %._crit_edge, %._crit_edge114
   %.pre160.pre.sink = phi ptr [ %.pre160.pre, %._crit_edge114 ], [ %.pre158.pre, %._crit_edge ], [ %.pre160.pre, %43 ], [ %.pre158.pre, %83 ]
   %.sink = phi ptr [ %38, %._crit_edge114 ], [ %78, %._crit_edge ], [ %38, %43 ], [ %78, %83 ]
-  %.sink185 = phi i32 [ 3, %._crit_edge114 ], [ 2, %._crit_edge ], [ 3, %43 ], [ 2, %83 ]
-  %.sink183 = phi i32 [ %36, %._crit_edge114 ], [ %76, %._crit_edge ], [ %36, %43 ], [ %76, %83 ]
+  %.sink186 = phi i32 [ 3, %._crit_edge114 ], [ 2, %._crit_edge ], [ 3, %43 ], [ 2, %83 ]
+  %.sink184 = phi i32 [ %36, %._crit_edge114 ], [ %76, %._crit_edge ], [ %36, %43 ], [ %76, %83 ]
   tail call void @free(ptr noundef %.pre160.pre.sink) #22
   %94 = load ptr, ptr %1, align 8
   tail call void @free(ptr noundef %94) #22
   %95 = load i32, ptr %.sink, align 4
-  %96 = icmp eq i32 %95, %.sink185
-  %.tr98104.lcssa. = select i1 %96, i32 %.tr98104, i32 %.sink183
+  %96 = icmp eq i32 %95, %.sink186
+  %.tr98104.lcssa. = select i1 %96, i32 %.tr98104, i32 %.sink184
   call fastcc void @optimize_arity(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %2, i32 noundef %.tr98104.lcssa.)
-  %storemerge = load ptr, ptr %5, align 8
-  store ptr %storemerge, ptr %0, align 8
-  %.sink172 = load ptr, ptr %6, align 8
-  store ptr %.sink172, ptr %1, align 8
+  %97 = load ptr, ptr %5, align 8
+  store ptr %97, ptr %0, align 8
+  %98 = load ptr, ptr %6, align 8
+  store ptr %98, ptr %1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse, %.loopexit.sink.split, %4

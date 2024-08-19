@@ -1265,15 +1265,10 @@ __vm_create_scratch_for_read.exit:                ; preds = %2, %10, %16, %18, %
 59:                                               ; preds = %55, %43
   %60 = icmp eq i32 %44, -114
   %61 = select i1 %60, i32 0, i32 %44
-  switch i32 %61, label %.thread6.thread [
+  switch i32 %61, label %.sink.split [
     i32 -35, label %62
     i32 0, label %71
   ]
-
-.thread6.thread:                                  ; preds = %59
-  call void @i915_gem_ww_ctx_fini(ptr noundef nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #10
-  br label %78
 
 62:                                               ; preds = %59
   %63 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %34, i32 1, ptr elementtype(i32) %34) #10, !srcloc !6
@@ -1303,12 +1298,7 @@ __vm_create_scratch_for_read.exit:                ; preds = %2, %10, %16, %18, %
 74:                                               ; preds = %.thread, %71
   %75 = call i32 @i915_gem_ww_ctx_backoff(ptr noundef nonnull %3) #10
   %76 = icmp eq i32 %75, 0
-  br i1 %76, label %33, label %.thread7
-
-.thread7:                                         ; preds = %74
-  call void @i915_gem_ww_ctx_fini(ptr noundef nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #10
-  br label %78
+  br i1 %76, label %33, label %.sink.split
 
 .thread6:                                         ; preds = %71
   call void @i915_gem_ww_ctx_fini(ptr noundef nonnull %3) #10
@@ -1316,8 +1306,14 @@ __vm_create_scratch_for_read.exit:                ; preds = %2, %10, %16, %18, %
   %77 = icmp eq i32 %72, 0
   br i1 %77, label %89, label %78
 
-78:                                               ; preds = %.thread6.thread, %.thread7, %.thread6
-  %79 = phi i32 [ %75, %.thread7 ], [ %72, %.thread6 ], [ %44, %.thread6.thread ]
+.sink.split:                                      ; preds = %74, %59
+  %.ph = phi i32 [ %44, %59 ], [ %75, %74 ]
+  call void @i915_gem_ww_ctx_fini(ptr noundef nonnull %3) #10
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #10
+  br label %78
+
+78:                                               ; preds = %.sink.split, %.thread6
+  %79 = phi i32 [ %72, %.thread6 ], [ %.ph, %.sink.split ]
   %80 = load ptr, ptr %28, align 8
   %81 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %80, i32 -1, ptr elementtype(i32) %80) #10, !srcloc !20
   %82 = icmp eq i32 %81, 1

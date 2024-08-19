@@ -5840,27 +5840,22 @@ for.end31:                                        ; preds = %for.body14
   %..i = select i1 %cmp6.i, i32 1, i32 2
   %retval.0.i = select i1 %or.cond.i, i32 0, i32 %..i
   switch i32 %retval.0.i, label %if.end4.i120 [
-    i32 0, label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread382
+    i32 0, label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit122
     i32 1, label %if.then3.i117
   ]
 
-_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread382: ; preds = %for.end31
-  store float %22, ptr %va34, align 4
-  br label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit122
-
 if.then3.i117:                                    ; preds = %for.end31
-  store float %23, ptr %va34, align 4
   br label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit122
 
 if.end4.i120:                                     ; preds = %for.end31
-  store float %.sroa.speculated.i10.i108, ptr %va34, align 4
   br label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit122
 
-_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit122:        ; preds = %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread382, %if.then3.i117, %if.end4.i120
-  %retval.0.i115.sroa.speculated378 = phi float [ %23, %if.then3.i117 ], [ %.sroa.speculated.i10.i108, %if.end4.i120 ], [ %22, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread382 ]
-  %retval.0.i119.sroa.speculated = phi float [ %21, %if.then3.i117 ], [ %.sroa.speculated.i.i99, %if.end4.i120 ], [ %20, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread382 ]
+_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit122:        ; preds = %for.end31, %if.then3.i117, %if.end4.i120
+  %.lcssa539.sink = phi float [ %23, %if.then3.i117 ], [ %.sroa.speculated.i10.i108, %if.end4.i120 ], [ %22, %for.end31 ]
+  %retval.0.i119.sroa.speculated = phi float [ %21, %if.then3.i117 ], [ %.sroa.speculated.i.i99, %if.end4.i120 ], [ %20, %for.end31 ]
+  store float %.lcssa539.sink, ptr %va34, align 4
   store float %retval.0.i119.sroa.speculated, ptr %vb37, align 4
-  %cmp40 = fcmp une float %retval.0.i115.sroa.speculated378, %retval.0.i119.sroa.speculated
+  %cmp40 = fcmp une float %.lcssa539.sink, %retval.0.i119.sroa.speculated
   br i1 %cmp40, label %arrayctor.loop, label %if.then41
 
 if.then41:                                        ; preds = %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit122

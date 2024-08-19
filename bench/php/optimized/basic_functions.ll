@@ -4674,11 +4674,11 @@ define internal fastcc void @add_config_entries(ptr nocapture noundef readonly %
   %11 = getelementptr inbounds i8, ptr %3, i64 8
   br label %12
 
-12:                                               ; preds = %.lr.ph, %75
-  %.02637 = phi ptr [ null, %.lr.ph ], [ %.1, %75 ]
-  %.02736 = phi i32 [ %7, %.lr.ph ], [ %76, %75 ]
-  %.02835 = phi ptr [ %9, %.lr.ph ], [ %.129, %75 ]
-  %.03034 = phi i32 [ 0, %.lr.ph ], [ %.131, %75 ]
+12:                                               ; preds = %.lr.ph, %74
+  %.02637 = phi ptr [ null, %.lr.ph ], [ %.1, %74 ]
+  %.02736 = phi i32 [ %7, %.lr.ph ], [ %75, %74 ]
+  %.02835 = phi ptr [ %9, %.lr.ph ], [ %.129, %74 ]
+  %.03034 = phi i32 [ 0, %.lr.ph ], [ %.131, %74 ]
   %13 = load i32, ptr %5, align 8
   %14 = and i32 %13, 4
   %.not32 = icmp eq i32 %14, 0
@@ -4706,14 +4706,14 @@ define internal fastcc void @add_config_entries(ptr nocapture noundef readonly %
   %26 = getelementptr inbounds i8, ptr %.02835, i64 8
   %27 = load i8, ptr %26, align 8
   %28 = icmp eq i8 %27, 0
-  br i1 %28, label %75, label %29
+  br i1 %28, label %74, label %29
 
 29:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   switch i8 %27, label %add_config_entry.exit [
     i8 6, label %30
-    i8 7, label %70
+    i8 7, label %69
   ]
 
 30:                                               ; preds = %29
@@ -4722,104 +4722,98 @@ define internal fastcc void @add_config_entries(ptr nocapture noundef readonly %
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %33, 64
   %.not.i = icmp eq i32 %34, 0
-  br i1 %.not.i, label %36, label %35
+  br i1 %.not.i, label %35, label %61
 
 35:                                               ; preds = %30
-  store ptr %31, ptr %3, align 8
-  br label %62
-
-36:                                               ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %31, i64 16
-  %38 = load i64, ptr %37, align 8
-  switch i64 %38, label %47 [
-    i64 0, label %39
-    i64 1, label %41
+  %36 = getelementptr inbounds i8, ptr %31, i64 16
+  %37 = load i64, ptr %36, align 8
+  switch i64 %37, label %46 [
+    i64 0, label %38
+    i64 1, label %40
   ]
 
-39:                                               ; preds = %36
-  %40 = load ptr, ptr @zend_empty_string, align 8
-  store ptr %40, ptr %3, align 8
-  br label %62
+38:                                               ; preds = %35
+  %39 = load ptr, ptr @zend_empty_string, align 8
+  br label %61
 
-41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %31, i64 24
-  %43 = load i8, ptr %42, align 8
-  %44 = zext i8 %43 to i64
-  %45 = getelementptr inbounds [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %44
-  %46 = load ptr, ptr %45, align 8
-  store ptr %46, ptr %3, align 8
-  br label %62
+40:                                               ; preds = %35
+  %41 = getelementptr inbounds i8, ptr %31, i64 24
+  %42 = load i8, ptr %41, align 8
+  %43 = zext i8 %42 to i64
+  %44 = getelementptr inbounds [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %43
+  %45 = load ptr, ptr %44, align 8
+  br label %61
 
-47:                                               ; preds = %36
-  %48 = and i32 %33, 128
-  %.not107.i = icmp eq i32 %48, 0
-  br i1 %.not107.i, label %49, label %52
+46:                                               ; preds = %35
+  %47 = and i32 %33, 128
+  %.not107.i = icmp eq i32 %47, 0
+  br i1 %.not107.i, label %48, label %51
 
-49:                                               ; preds = %47
-  %50 = load i32, ptr %31, align 4
-  %51 = add i32 %50, 1
-  store i32 %51, ptr %31, align 4
-  store ptr %31, ptr %3, align 8
-  br label %62
+48:                                               ; preds = %46
+  %49 = load i32, ptr %31, align 4
+  %50 = add i32 %49, 1
+  store i32 %50, ptr %31, align 4
+  br label %61
 
-52:                                               ; preds = %47
-  %53 = getelementptr inbounds i8, ptr %31, i64 24
-  %54 = and i64 %38, -8
-  %55 = add i64 %54, 32
-  %56 = call noalias ptr @_emalloc(i64 noundef %55) #20
-  store i32 1, ptr %56, align 4
-  %57 = getelementptr inbounds i8, ptr %56, i64 4
-  store i32 22, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %56, i64 8
-  store i64 0, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %56, i64 16
-  store i64 %38, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %56, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %60, ptr nonnull align 1 %53, i64 %38, i1 false)
-  %61 = getelementptr inbounds [1 x i8], ptr %60, i64 0, i64 %38
-  store i8 0, ptr %61, align 1
-  store ptr %56, ptr %3, align 8
-  br label %62
+51:                                               ; preds = %46
+  %52 = getelementptr inbounds i8, ptr %31, i64 24
+  %53 = and i64 %37, -8
+  %54 = add i64 %53, 32
+  %55 = call noalias ptr @_emalloc(i64 noundef %54) #20
+  store i32 1, ptr %55, align 4
+  %56 = getelementptr inbounds i8, ptr %55, i64 4
+  store i32 22, ptr %56, align 4
+  %57 = getelementptr inbounds i8, ptr %55, i64 8
+  store i64 0, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %55, i64 16
+  store i64 %37, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %55, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %59, ptr nonnull align 1 %52, i64 %37, i1 false)
+  %60 = getelementptr inbounds [1 x i8], ptr %59, i64 0, i64 %37
+  store i8 0, ptr %60, align 1
+  br label %61
 
-62:                                               ; preds = %52, %49, %41, %39, %35
-  %.sink = phi i32 [ 262, %52 ], [ 262, %49 ], [ 6, %41 ], [ 6, %39 ], [ 6, %35 ]
+61:                                               ; preds = %30, %51, %48, %40, %38
+  %.sink38 = phi ptr [ %55, %51 ], [ %31, %48 ], [ %45, %40 ], [ %39, %38 ], [ %31, %30 ]
+  %.sink = phi i32 [ 262, %51 ], [ 262, %48 ], [ 6, %40 ], [ 6, %38 ], [ 6, %30 ]
+  store ptr %.sink38, ptr %3, align 8
   store i32 %.sink, ptr %11, align 8
   %.not108.i = icmp eq ptr %.1, null
-  br i1 %.not108.i, label %67, label %63
+  br i1 %.not108.i, label %66, label %62
 
-63:                                               ; preds = %62
-  %64 = getelementptr inbounds i8, ptr %.1, i64 24
-  %65 = getelementptr inbounds i8, ptr %.1, i64 16
-  %66 = load i64, ptr %65, align 8
-  call void @add_assoc_zval_ex(ptr noundef %1, ptr noundef nonnull %64, i64 noundef %66, ptr noundef nonnull %3) #18
+62:                                               ; preds = %61
+  %63 = getelementptr inbounds i8, ptr %.1, i64 24
+  %64 = getelementptr inbounds i8, ptr %.1, i64 16
+  %65 = load i64, ptr %64, align 8
+  call void @add_assoc_zval_ex(ptr noundef %1, ptr noundef nonnull %63, i64 noundef %65, ptr noundef nonnull %3) #18
   br label %add_config_entry.exit
 
-67:                                               ; preds = %62
-  %68 = load ptr, ptr %1, align 8
-  %69 = call ptr @zend_hash_index_update(ptr noundef %68, i64 noundef %.0, ptr noundef nonnull %3) #18
+66:                                               ; preds = %61
+  %67 = load ptr, ptr %1, align 8
+  %68 = call ptr @zend_hash_index_update(ptr noundef %67, i64 noundef %.0, ptr noundef nonnull %3) #18
   br label %add_config_entry.exit
 
-70:                                               ; preds = %29
-  %71 = call ptr @_zend_new_array_0() #18
-  store ptr %71, ptr %4, align 8
+69:                                               ; preds = %29
+  %70 = call ptr @_zend_new_array_0() #18
+  store ptr %70, ptr %4, align 8
   store i32 775, ptr %10, align 8
-  %72 = load ptr, ptr %.02835, align 8
-  call fastcc void @add_config_entries(ptr noundef %72, ptr noundef nonnull %4)
-  %73 = load ptr, ptr %1, align 8
-  %74 = call ptr @zend_hash_update(ptr noundef %73, ptr noundef %.1, ptr noundef nonnull %4) #18
+  %71 = load ptr, ptr %.02835, align 8
+  call fastcc void @add_config_entries(ptr noundef %71, ptr noundef nonnull %4)
+  %72 = load ptr, ptr %1, align 8
+  %73 = call ptr @zend_hash_update(ptr noundef %72, ptr noundef %.1, ptr noundef nonnull %4) #18
   br label %add_config_entry.exit
 
-add_config_entry.exit:                            ; preds = %29, %63, %67, %70
+add_config_entry.exit:                            ; preds = %29, %62, %66, %69
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %75
+  br label %74
 
-75:                                               ; preds = %25, %add_config_entry.exit
-  %76 = add i32 %.02736, -1
-  %.not = icmp eq i32 %76, 0
+74:                                               ; preds = %25, %add_config_entry.exit
+  %75 = add i32 %.02736, -1
+  %.not = icmp eq i32 %75, 0
   br i1 %.not, label %._crit_edge, label %12
 
-._crit_edge:                                      ; preds = %75, %2
+._crit_edge:                                      ; preds = %74, %2
   ret void
 }
 

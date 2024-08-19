@@ -1290,7 +1290,6 @@ define internal fastcc void @_ZN8fs_extra3dir16get_dir_content217h5a8b06470fd5fb
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.059.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23), !noalias !249
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26), !noalias !249
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27), !noalias !249
   br label %_ZN8fs_extra3dir16_get_dir_content17ha7f3c692230dc847E.exit
 
 74:                                               ; preds = %64
@@ -1749,13 +1748,13 @@ define internal fastcc void @_ZN8fs_extra3dir16get_dir_content217h5a8b06470fd5fb
 211:                                              ; preds = %204
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26), !noalias !249
   call void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17hd2b36cb3b0b9eacbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27), !noalias !246
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27), !noalias !249
   br label %_ZN8fs_extra3dir16_get_dir_content17ha7f3c692230dc847E.exit
 
 212:                                              ; preds = %208
   resume { ptr, i32 } %.pn107.i
 
 _ZN8fs_extra3dir16_get_dir_content17ha7f3c692230dc847E.exit: ; preds = %73, %211
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27), !noalias !249
   ret void
 }
 

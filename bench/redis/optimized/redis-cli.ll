@@ -3819,11 +3819,7 @@ if.end11:                                         ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %li.i)
   %6 = load ptr, ptr @cluster_manager.0, align 8
   %cmp.i94 = icmp eq ptr %6, null
-  br i1 %cmp.i94, label %clusterManagerNodeByAbbreviatedName.exit.thread, label %if.end.i
-
-clusterManagerNodeByAbbreviatedName.exit.thread:  ; preds = %if.end11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i)
-  br label %if.then16
+  br i1 %cmp.i94, label %if.then16, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end11
   %call.i95 = call ptr @hi_sdsempty() #33
@@ -3857,10 +3853,10 @@ if.end10.i:                                       ; preds = %land.lhs.true.i, %w
 
 clusterManagerNodeByAbbreviatedName.exit.thread123: ; preds = %if.end.i, %if.end10.i
   call void @hi_sdsfree(ptr noundef %call1.i) #33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i)
   br label %if.then16
 
-if.then16:                                        ; preds = %clusterManagerNodeByAbbreviatedName.exit.thread123, %clusterManagerNodeByAbbreviatedName.exit.thread
+if.then16:                                        ; preds = %if.end11, %clusterManagerNodeByAbbreviatedName.exit.thread123
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i)
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.381, ptr noundef %5)
   br label %return
 

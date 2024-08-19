@@ -51342,23 +51342,23 @@ if.then.i58:                                      ; preds = %lor.lhs.false.i49, 
           to label %for.inc.sink.split.sink.split unwind label %lpad.loopexit
 
 for.inc.sink.split.sink.split:                    ; preds = %if.then.i58, %if.then.i28
-  %call.i13.sink.ph = phi i32 [ %call.i13, %if.then.i28 ], [ %call.i35, %if.then.i58 ]
-  %.pre.i59.sink = load ptr, ptr %vars, align 8
-  %arrayidx8.phi.trans.insert.i60 = getelementptr inbounds i8, ptr %.pre.i59.sink, i64 -4
+  %call.i35.sink.ph = phi i32 [ %call.i13, %if.then.i28 ], [ %call.i35, %if.then.i58 ]
+  %.pre.i59 = load ptr, ptr %vars, align 8
+  %arrayidx8.phi.trans.insert.i60 = getelementptr inbounds i8, ptr %.pre.i59, i64 -4
   %.pre1.i61 = load i32, ptr %arrayidx8.phi.trans.insert.i60, align 4
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %for.inc.sink.split.sink.split, %lor.lhs.false.i49, %lor.lhs.false.i
-  %.sink91 = phi i32 [ %28, %lor.lhs.false.i ], [ %45, %lor.lhs.false.i49 ], [ %.pre1.i61, %for.inc.sink.split.sink.split ]
-  %.sink90 = phi ptr [ %27, %lor.lhs.false.i ], [ %44, %lor.lhs.false.i49 ], [ %.pre.i59.sink, %for.inc.sink.split.sink.split ]
-  %call.i13.sink = phi i32 [ %call.i13, %lor.lhs.false.i ], [ %call.i35, %lor.lhs.false.i49 ], [ %call.i13.sink.ph, %for.inc.sink.split.sink.split ]
-  %idx.ext.i25 = zext i32 %.sink91 to i64
-  %add.ptr.i26 = getelementptr inbounds i32, ptr %.sink90, i64 %idx.ext.i25
-  store i32 %call.i13.sink, ptr %add.ptr.i26, align 4
-  %.sink = load ptr, ptr %vars, align 8
-  %arrayidx10.i56 = getelementptr inbounds i8, ptr %.sink, i64 -4
-  %47 = load i32, ptr %arrayidx10.i56, align 4
-  %inc.i57 = add i32 %47, 1
+  %.sink90 = phi i32 [ %28, %lor.lhs.false.i ], [ %45, %lor.lhs.false.i49 ], [ %.pre1.i61, %for.inc.sink.split.sink.split ]
+  %.sink = phi ptr [ %27, %lor.lhs.false.i ], [ %44, %lor.lhs.false.i49 ], [ %.pre.i59, %for.inc.sink.split.sink.split ]
+  %call.i35.sink = phi i32 [ %call.i13, %lor.lhs.false.i ], [ %call.i35, %lor.lhs.false.i49 ], [ %call.i35.sink.ph, %for.inc.sink.split.sink.split ]
+  %idx.ext.i54 = zext i32 %.sink90 to i64
+  %add.ptr.i55 = getelementptr inbounds i32, ptr %.sink, i64 %idx.ext.i54
+  store i32 %call.i35.sink, ptr %add.ptr.i55, align 4
+  %47 = load ptr, ptr %vars, align 8
+  %arrayidx10.i56 = getelementptr inbounds i8, ptr %47, i64 -4
+  %48 = load i32, ptr %arrayidx10.i56, align 4
+  %inc.i57 = add i32 %48, 1
   store i32 %inc.i57, ptr %arrayidx10.i56, align 4
   br label %for.inc
 
@@ -51374,14 +51374,14 @@ for.end:                                          ; preds = %for.inc
 
 _ZNK6vectorIjLb0EjE5emptyEv.exit:                 ; preds = %for.end
   %arrayidx.i65 = getelementptr inbounds i8, ptr %.pre, i64 -4
-  %48 = load i32, ptr %arrayidx.i65, align 4
-  %cmp3.i = icmp eq i32 %48, 0
+  %49 = load i32, ptr %arrayidx.i65, align 4
+  %cmp3.i = icmp eq i32 %49, 0
   br i1 %cmp3.i, label %if.then.i.i.i, label %_ZNK6vectorIjLb0EjE4sizeEv.exit
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %_ZNK6vectorIjLb0EjE5emptyEv.exit
   %m_solver.i66 = getelementptr inbounds i8, ptr %this, i64 456
-  %49 = load ptr, ptr %m_solver.i66, align 8
-  invoke void @_ZN2lp10lar_solver13random_updateEjPKj(ptr noundef nonnull align 8 dereferenceable(1888) %49, i32 noundef %48, ptr noundef nonnull %.pre)
+  %50 = load ptr, ptr %m_solver.i66, align 8
+  invoke void @_ZN2lp10lar_solver13random_updateEjPKj(ptr noundef nonnull align 8 dereferenceable(1888) %50, i32 noundef %49, ptr noundef nonnull %.pre)
           to label %if.end70 unwind label %lpad.loopexit.split-lp
 
 if.end70:                                         ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit
@@ -51396,10 +51396,10 @@ if.then.i.i.i:                                    ; preds = %_ZNK6vectorIjLb0EjE
           to label %return unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
-  %50 = landingpad { ptr, i32 }
+  %51 = landingpad { ptr, i32 }
           catch ptr null
-  %51 = extractvalue { ptr, i32 } %50, 0
-  call void @__clang_call_terminate(ptr %51) #26
+  %52 = extractvalue { ptr, i32 } %51, 0
+  call void @__clang_call_terminate(ptr %52) #26
   unreachable
 
 return:                                           ; preds = %_ZN14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EEN3smt10theory_lra3imp14var_value_hashENS4_12var_value_eqEE5resetEv.exit, %_ZNK3smt6theory12get_num_varsEv.exit, %for.end, %if.then.i.i.i, %if.end70, %land.lhs.true

@@ -3844,7 +3844,7 @@ define linkonce_odr i8 @_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRN3nix15Sin
   switch i8 %13, label %35 [
     i8 0, label %14
     i8 1, label %33
-    i8 -1, label %_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit.thread
+    i8 -1, label %.sink.split
   ]
 
 14:                                               ; preds = %2
@@ -3872,21 +3872,16 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_
 _ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZSt3getILm0EJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit.i.i.i.i.i
   %26 = sub i64 %19, %21
   %27 = icmp slt i64 %26, 0
-  br i1 %27, label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread.critedge, label %_ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i.i.i.i.i
+  br i1 %27, label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread.critedge, label %.sink.split
 
 _ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i.i.i
   %28 = sub i64 %19, %21
   %29 = icmp slt i64 %28, 0
-  br i1 %29, label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread.critedge, label %_ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i.i.i.i.i
+  br i1 %29, label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread.critedge, label %.sink.split
 
 _ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i.i.i
   %30 = icmp slt i32 %25, 0
-  br i1 %30, label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread.critedge, label %_ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i.i.i.i.i
-
-_ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i, %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i.i, %_ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %37
+  br i1 %30, label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread.critedge, label %.sink.split
 
 31:                                               ; preds = %14
   %32 = icmp eq i8 %16, -1
@@ -3898,11 +3893,6 @@ _ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_1
   %34 = trunc i8 %.pre to i1
   br label %_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit
 
-_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit.thread: ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %37
-
 35:                                               ; preds = %2
   unreachable
 
@@ -3912,7 +3902,12 @@ _ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17Deri
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br i1 %36, label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread, label %37
 
-37:                                               ; preds = %_ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i.i.i.i.i, %_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit.thread, %_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit
+.sink.split:                                      ; preds = %2, %_ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i.i, %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i.i, %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %37
+
+37:                                               ; preds = %.sink.split, %_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store i8 1, ptr %5, align 1
@@ -3924,7 +3919,7 @@ _ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17Deri
   switch i8 %40, label %61 [
     i8 0, label %41
     i8 1, label %59
-    i8 -1, label %_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit16.thread
+    i8 -1, label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.sink.split
   ]
 
 41:                                               ; preds = %37
@@ -3951,21 +3946,16 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i.i.i8: ; preds = %
 _ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i.i15: ; preds = %_ZSt3getILm0EJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit.i.i.i.i.i6
   %52 = sub i64 %45, %47
   %53 = icmp slt i64 %52, 0
-  br i1 %53, label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread.critedge19, label %_ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i.i.i.i.i11
+  br i1 %53, label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread.critedge19, label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.sink.split
 
 _ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i.i14: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i.i.i8
   %54 = sub i64 %45, %47
   %55 = icmp slt i64 %54, 0
-  br i1 %55, label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread.critedge19, label %_ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i.i.i.i.i11
+  br i1 %55, label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread.critedge19, label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.sink.split
 
 _ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i10: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i.i.i8
   %56 = icmp slt i32 %51, 0
-  br i1 %56, label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread.critedge19, label %_ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i.i.i.i.i11
-
-_ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i.i.i.i.i11: ; preds = %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i10, %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i.i14, %_ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i.i15
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit
+  br i1 %56, label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread.critedge19, label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.sink.split
 
 57:                                               ; preds = %41
   %58 = icmp eq i8 %42, -1
@@ -3977,11 +3967,6 @@ _ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_1
   %60 = trunc i8 %.pre18 to i1
   br label %_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit16
 
-_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit16.thread: ; preds = %37
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit
-
 61:                                               ; preds = %37
   unreachable
 
@@ -3991,7 +3976,12 @@ _ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17Deri
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br i1 %62, label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread, label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit
 
-_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit: ; preds = %_ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i.i.i.i.i11, %_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit16.thread, %_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit16
+_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.sink.split: ; preds = %37, %_ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i.i15, %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i.i14, %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  br label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit
+
+_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit: ; preds = %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.sink.split, %_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit16
   %63 = load ptr, ptr %0, align 8
   %64 = load ptr, ptr %1, align 8
   %65 = call i8 @_ZStssINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix9StorePathEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISB_EEEEDTclL_ZNS9_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISE_EEEEEE4typeERKSt4pairISA_SD_ESL_(ptr noundef nonnull align 8 dereferenceable(64) %63, ptr noundef nonnull align 8 dereferenceable(64) %64)
@@ -4211,7 +4201,7 @@ _ZSt3getILm1EJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEERKNSt19varia
   switch i8 %18, label %40 [
     i8 0, label %19
     i8 1, label %38
-    i8 -1, label %_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit14.thread
+    i8 -1, label %.sink.split
   ]
 
 19:                                               ; preds = %_ZSt3getILm1EJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit
@@ -4239,21 +4229,16 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i.i.i6: ; preds = %
 _ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i.i13: ; preds = %_ZSt3getILm0EJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit.i.i.i.i.i4
   %31 = sub i64 %24, %26
   %32 = icmp slt i64 %31, 0
-  br i1 %32, label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRN3nix15SingleBuiltPathERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_9StorePathEEEESG_Lm0EJLm1EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit.critedge, label %_ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i.i.i.i.i9
+  br i1 %32, label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRN3nix15SingleBuiltPathERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_9StorePathEEEESG_Lm0EJLm1EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit.critedge, label %.sink.split
 
 _ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i.i12: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i.i.i6
   %33 = sub i64 %24, %26
   %34 = icmp slt i64 %33, 0
-  br i1 %34, label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRN3nix15SingleBuiltPathERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_9StorePathEEEESG_Lm0EJLm1EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit.critedge, label %_ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i.i.i.i.i9
+  br i1 %34, label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRN3nix15SingleBuiltPathERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_9StorePathEEEESG_Lm0EJLm1EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit.critedge, label %.sink.split
 
 _ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i8: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i.i.i6
   %35 = icmp slt i32 %30, 0
-  br i1 %35, label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRN3nix15SingleBuiltPathERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_9StorePathEEEESG_Lm0EJLm1EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit.critedge, label %_ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i.i.i.i.i9
-
-_ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i.i.i.i.i9: ; preds = %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i8, %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i.i12, %_ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i.i13
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %42
+  br i1 %35, label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRN3nix15SingleBuiltPathERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_9StorePathEEEESG_Lm0EJLm1EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit.critedge, label %.sink.split
 
 36:                                               ; preds = %19
   %37 = icmp eq i8 %21, -1
@@ -4265,11 +4250,6 @@ _ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_1
   %39 = trunc i8 %.pre to i1
   br label %_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit14
 
-_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit14.thread: ; preds = %_ZSt3getILm1EJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %42
-
 40:                                               ; preds = %_ZSt3getILm1EJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit
   unreachable
 
@@ -4279,7 +4259,12 @@ _ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17Deri
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br i1 %41, label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRN3nix15SingleBuiltPathERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_9StorePathEEEESG_Lm0EJLm1EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit, label %42
 
-42:                                               ; preds = %_ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i.i.i.i.i9, %_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit14.thread, %_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit14
+.sink.split:                                      ; preds = %_ZSt3getILm1EJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit, %_ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i.i13, %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i.i12, %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i8
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  br label %42
+
+42:                                               ; preds = %.sink.split, %_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit14
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store i8 1, ptr %5, align 1
@@ -4291,7 +4276,7 @@ _ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17Deri
   switch i8 %45, label %66 [
     i8 0, label %46
     i8 1, label %64
-    i8 -1, label %_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit.thread
+    i8 -1, label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.sink.split
   ]
 
 46:                                               ; preds = %42
@@ -4318,21 +4303,16 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_
 _ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZSt3getILm0EJN3nix17DerivedPathOpaqueENS0_20SingleBuiltPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit.i.i.i.i.i
   %57 = sub i64 %50, %52
   %58 = icmp slt i64 %57, 0
-  br i1 %58, label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRN3nix15SingleBuiltPathERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_9StorePathEEEESG_Lm0EJLm1EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit.critedge21, label %_ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i.i.i.i.i
+  br i1 %58, label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRN3nix15SingleBuiltPathERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_9StorePathEEEESG_Lm0EJLm1EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit.critedge21, label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.sink.split
 
 _ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i.i.i
   %59 = sub i64 %50, %52
   %60 = icmp slt i64 %59, 0
-  br i1 %60, label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRN3nix15SingleBuiltPathERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_9StorePathEEEESG_Lm0EJLm1EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit.critedge21, label %_ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i.i.i.i.i
+  br i1 %60, label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRN3nix15SingleBuiltPathERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_9StorePathEEEESG_Lm0EJLm1EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit.critedge21, label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.sink.split
 
 _ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i.i.i
   %61 = icmp slt i32 %56, 0
-  br i1 %61, label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRN3nix15SingleBuiltPathERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_9StorePathEEEESG_Lm0EJLm1EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit.critedge21, label %_ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i.i.i.i.i
-
-_ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i, %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i.i, %_ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i
+  br i1 %61, label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRN3nix15SingleBuiltPathERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_9StorePathEEEESG_Lm0EJLm1EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit.critedge21, label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.sink.split
 
 62:                                               ; preds = %46
   %63 = icmp eq i8 %47, -1
@@ -4344,11 +4324,6 @@ _ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_1
   %65 = trunc i8 %.pre20 to i1
   br label %_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit
 
-_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit.thread: ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i
-
 66:                                               ; preds = %42
   unreachable
 
@@ -4358,7 +4333,12 @@ _ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17Deri
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br i1 %67, label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRN3nix15SingleBuiltPathERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_9StorePathEEEESG_Lm0EJLm1EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit, label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i
 
-_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i: ; preds = %_ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i.i.i.i.i, %_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit.thread, %_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit
+_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.sink.split: ; preds = %42, %_ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i.i, %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i.i, %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  br label %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i
+
+_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i: ; preds = %_ZNKSt8__detail10_Synth3wayclIN3nix15SingleBuiltPathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.sink.split, %_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJN3nix17DerivedPathOpaqueENS4_20SingleBuiltPathBuiltEEEbRKSt7variantIJDpT_EESC_EUlOT_T0_E_JRKS7_IJS5_S6_EEEEDcOSF_DpOT1_.exit
   %68 = call i8 @_ZStssINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix9StorePathEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISB_EEEEDTclL_ZNS9_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISE_EEEEEE4typeERKSt4pairISA_SD_ESL_(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull align 8 dereferenceable(64) %15)
   %.lobit = lshr i8 %68, 7
   br label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRN3nix15SingleBuiltPathERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_9StorePathEEEESG_Lm0EJLm1EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit

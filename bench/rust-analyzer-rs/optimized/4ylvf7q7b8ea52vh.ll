@@ -190,10 +190,10 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %35 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %35, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   br label %36
 
 36:                                               ; preds = %.loopexit11, %33
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   ret void
 
 37:                                               ; preds = %39
@@ -356,7 +356,6 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.8.i.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   br label %36
 
 73:                                               ; preds = %.body, %37

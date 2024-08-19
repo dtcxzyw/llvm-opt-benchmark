@@ -253,10 +253,10 @@ default.unreachable.i:                            ; preds = %2
   %24 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %24, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %25
 
 25:                                               ; preds = %67, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25224786920a1feeE.exit.thread"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   ret void
 
 26:                                               ; preds = %63, %28
@@ -414,7 +414,6 @@ default.unreachable.i.i.i:                        ; preds = %38
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !54
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %25
 
 68:                                               ; preds = %.body, %26
@@ -1238,7 +1237,6 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   store ptr inttoptr (i64 8 to ptr), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %12, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %18
 
 13:                                               ; preds = %2
@@ -1252,6 +1250,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br i1 %trunc, label %37, label %19
 
 18:                                               ; preds = %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h31128d2fd865f0e4E.exit", %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
 
 19:                                               ; preds = %13
@@ -1327,7 +1326,6 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 "_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h31128d2fd865f0e4E.exit": ; preds = %.noexc9, %.noexc
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %18
 
 40:                                               ; preds = %39
@@ -1413,10 +1411,10 @@ default.unreachable.i:                            ; preds = %2
   %25 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %25, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   br label %26
 
 26:                                               ; preds = %62, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdf8555481e225247E.exit.thread"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   ret void
 
 27:                                               ; preds = %58, %29
@@ -1559,7 +1557,6 @@ default.unreachable:                              ; preds = %41
 62:                                               ; preds = %.noexc, %41
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !257
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   br label %26
 
 63:                                               ; preds = %.body, %27
@@ -3159,82 +3156,35 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %25 = add nuw nsw i64 %.sroa.7.023, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !537)
   %26 = load i64, ptr %.sroa.015.024, align 8, !range !540, !alias.scope !541, !noalias !537, !noundef !11
-  switch i64 %26, label %default.unreachable [
-    i64 0, label %27
-    i64 1, label %28
-    i64 2, label %29
-    i64 3, label %30
-    i64 4, label %31
-    i64 5, label %32
-    i64 6, label %33
-    i64 7, label %35
-  ]
+  %switch = icmp ult i64 %26, 6
+  br i1 %switch, label %"_ZN83_$LT$meilisearch_types..settings..RankingRuleView$u20$as$u20$core..clone..Clone$GT$5clone17hb27740661da1d911E.exit", label %.invoke
 
-default.unreachable:                              ; preds = %23
-  unreachable
+.invoke:                                          ; preds = %23
+  %27 = getelementptr inbounds i8, ptr %.sroa.015.024, i64 8
+  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hdbaa59186bb9a20dE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %27)
+          to label %"_ZN83_$LT$meilisearch_types..settings..RankingRuleView$u20$as$u20$core..clone..Clone$GT$5clone17hb27740661da1d911E.exit" unwind label %32
 
-27:                                               ; preds = %23
-  store i64 0, ptr %5, align 8, !alias.scope !537
-  br label %"_ZN83_$LT$meilisearch_types..settings..RankingRuleView$u20$as$u20$core..clone..Clone$GT$5clone17hb27740661da1d911E.exit"
+"_ZN83_$LT$meilisearch_types..settings..RankingRuleView$u20$as$u20$core..clone..Clone$GT$5clone17hb27740661da1d911E.exit": ; preds = %23, %.invoke
+  store i64 %26, ptr %5, align 8, !alias.scope !537
+  %28 = getelementptr inbounds [0 x { [4 x i64] }], ptr %14, i64 0, i64 %.sroa.7.023
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
+  %29 = icmp eq i64 %21, 0
+  br i1 %29, label %.thread, label %20
 
-28:                                               ; preds = %23
-  store i64 1, ptr %5, align 8, !alias.scope !537
-  br label %"_ZN83_$LT$meilisearch_types..settings..RankingRuleView$u20$as$u20$core..clone..Clone$GT$5clone17hb27740661da1d911E.exit"
-
-29:                                               ; preds = %23
-  store i64 2, ptr %5, align 8, !alias.scope !537
-  br label %"_ZN83_$LT$meilisearch_types..settings..RankingRuleView$u20$as$u20$core..clone..Clone$GT$5clone17hb27740661da1d911E.exit"
-
-30:                                               ; preds = %23
-  store i64 3, ptr %5, align 8, !alias.scope !537
-  br label %"_ZN83_$LT$meilisearch_types..settings..RankingRuleView$u20$as$u20$core..clone..Clone$GT$5clone17hb27740661da1d911E.exit"
-
-31:                                               ; preds = %23
-  store i64 4, ptr %5, align 8, !alias.scope !537
-  br label %"_ZN83_$LT$meilisearch_types..settings..RankingRuleView$u20$as$u20$core..clone..Clone$GT$5clone17hb27740661da1d911E.exit"
-
-32:                                               ; preds = %23
-  store i64 5, ptr %5, align 8, !alias.scope !537
-  br label %"_ZN83_$LT$meilisearch_types..settings..RankingRuleView$u20$as$u20$core..clone..Clone$GT$5clone17hb27740661da1d911E.exit"
-
-33:                                               ; preds = %23
-  %34 = getelementptr inbounds i8, ptr %.sroa.015.024, i64 8
-  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hdbaa59186bb9a20dE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %34)
-          to label %.noexc unwind label %41
-
-.noexc:                                           ; preds = %33
-  store i64 6, ptr %5, align 8, !alias.scope !537
-  br label %"_ZN83_$LT$meilisearch_types..settings..RankingRuleView$u20$as$u20$core..clone..Clone$GT$5clone17hb27740661da1d911E.exit"
-
-35:                                               ; preds = %23
-  %36 = getelementptr inbounds i8, ptr %.sroa.015.024, i64 8
-  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hdbaa59186bb9a20dE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %36)
-          to label %.noexc14 unwind label %41
-
-.noexc14:                                         ; preds = %35
-  store i64 7, ptr %5, align 8, !alias.scope !537
-  br label %"_ZN83_$LT$meilisearch_types..settings..RankingRuleView$u20$as$u20$core..clone..Clone$GT$5clone17hb27740661da1d911E.exit"
-
-"_ZN83_$LT$meilisearch_types..settings..RankingRuleView$u20$as$u20$core..clone..Clone$GT$5clone17hb27740661da1d911E.exit": ; preds = %.noexc14, %.noexc, %32, %31, %30, %29, %28, %27
-  %37 = getelementptr inbounds [0 x { [4 x i64] }], ptr %14, i64 0, i64 %.sroa.7.023
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  %38 = icmp eq i64 %21, 0
-  br i1 %38, label %.thread, label %20
-
-39:                                               ; preds = %41
-  %40 = landingpad { ptr, i32 }
+30:                                               ; preds = %32
+  %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #22
   unreachable
 
-41:                                               ; preds = %33, %35
+32:                                               ; preds = %.invoke
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   store i64 %.sroa.7.023, ptr %16, align 8
   invoke void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$meilisearch_types..settings..RankingRuleView$GT$$GT$17h3409ab1a9307ca46E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #21
-          to label %42 unwind label %39
+          to label %33 unwind label %30
 
-42:                                               ; preds = %41
+33:                                               ; preds = %32
   resume { ptr, i32 } %lpad.loopexit
 }
 

@@ -1224,18 +1224,18 @@ define internal fastcc noundef ptr @_ZL15get_signal_nameiPcm(i32 noundef %0, ptr
   %31 = tail call ptr @__errno_location() #21
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, 22
-  br i1 %33, label %_ZL15is_valid_signali.exit, label %34
-
-_ZL15is_valid_signali.exit:                       ; preds = %30
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4)
-  br label %35
+  br i1 %33, label %.sink.split, label %34
 
 34:                                               ; preds = %26, %30
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %30, %34
+  %.2.ph = phi ptr [ @.str.20, %34 ], [ @.str.47, %30 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4)
   br label %35
 
-35:                                               ; preds = %34, %_ZL15is_valid_signali.exit, %.loopexit
-  %.2 = phi ptr [ %.1, %.loopexit ], [ @.str.20, %34 ], [ @.str.47, %_ZL15is_valid_signali.exit ]
+35:                                               ; preds = %.sink.split, %.loopexit
+  %.2 = phi ptr [ %.1, %.loopexit ], [ %.2.ph, %.sink.split ]
   %36 = icmp ne ptr %1, null
   %37 = icmp ne i64 %2, 0
   %or.cond = and i1 %36, %37

@@ -1170,7 +1170,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_distort_xtransform(ptr noca
   %53 = extractelement <4 x i32> %50, i64 3
   %54 = icmp sgt i32 %53, 0
   %55 = select i1 %52, i1 %54, i1 false
-  br i1 %55, label %85, label %228
+  br i1 %55, label %85, label %227
 
 56:                                               ; preds = %56, %16
   %57 = phi i64 [ 0, %16 ], [ %82, %56 ]
@@ -1217,7 +1217,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_distort_xtransform(ptr noca
   call fastcc void @_build_global_distortion_map(ptr noundef %0, ptr %88, ptr %90, float noundef %10, i32 noundef 1, ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef %4, ptr noundef nonnull %8)
   %91 = load ptr, ptr %8, align 8, !tbaa !84
   %92 = icmp eq ptr %91, null
-  br i1 %92, label %227, label %93
+  br i1 %92, label %.sink.split, label %93
 
 93:                                               ; preds = %85
   %94 = load i32, ptr %44, align 8, !tbaa !30
@@ -1333,9 +1333,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_distort_xtransform(ptr noca
 
 .loopexit:                                        ; preds = %224, %182, %93
   call void @free(ptr noundef %91) #29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #29
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #29
-  br label %228
+  br label %.sink.split
 
 189:                                              ; preds = %224, %184
   %190 = phi i64 [ %225, %224 ], [ %185, %184 ]
@@ -1385,15 +1383,16 @@ define internal fastcc noundef range(i32 0, 2) i32 @_distort_xtransform(ptr noca
   %226 = icmp eq i64 %225, %3
   br i1 %226, label %.loopexit, label %189, !llvm.loop !88
 
-227:                                              ; preds = %85
+.sink.split:                                      ; preds = %85, %.loopexit
+  %.ph = phi i32 [ 1, %.loopexit ], [ 0, %85 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #29
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #29
-  br label %228
+  br label %227
 
-228:                                              ; preds = %227, %.loopexit, %41
-  %229 = phi i32 [ 0, %227 ], [ 1, %.loopexit ], [ 1, %41 ]
+227:                                              ; preds = %.sink.split, %41
+  %228 = phi i32 [ 1, %41 ], [ %.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #29
-  ret i32 %229
+  ret i32 %228
 }
 
 ; Function Attrs: nounwind uwtable

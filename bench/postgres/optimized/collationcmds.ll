@@ -1374,9 +1374,6 @@ normalize_libc_locale_name.exit:                  ; preds = %72
 
 get_icu_locale_comment.exit.thread97:             ; preds = %.lr.ph20.i
   %152 = getelementptr i8, ptr %147, i64 %wide.trip.count.i
-  store i8 0, ptr %152, align 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3)
   br label %158
 
 get_icu_locale_comment.exit.thread:               ; preds = %.lr.ph.i, %135
@@ -1390,13 +1387,14 @@ get_icu_locale_comment.exit:                      ; preds = %.preheader.i76
   %155 = call ptr @palloc(i64 noundef %154) #11
   %156 = sext i32 %137 to i64
   %157 = getelementptr i8, ptr %155, i64 %156
-  store i8 0, ptr %157, align 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3)
   br label %158
 
 158:                                              ; preds = %get_icu_locale_comment.exit, %get_icu_locale_comment.exit.thread97
-  %159 = phi ptr [ %147, %get_icu_locale_comment.exit.thread97 ], [ %155, %get_icu_locale_comment.exit ]
+  %.sink = phi ptr [ %157, %get_icu_locale_comment.exit ], [ %152, %get_icu_locale_comment.exit.thread97 ]
+  %159 = phi ptr [ %155, %get_icu_locale_comment.exit ], [ %147, %get_icu_locale_comment.exit.thread97 ]
+  store i8 0, ptr %.sink, align 1
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3)
   call void @CreateComments(i32 noundef %134, i32 noundef 3456, i32 noundef 0, ptr noundef nonnull %159) #11
   br label %160
 

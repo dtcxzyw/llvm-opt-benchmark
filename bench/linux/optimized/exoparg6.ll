@@ -166,62 +166,55 @@ define internal fastcc zeroext i8 @acpi_ex_do_match(i32 noundef %0, ptr noundef 
   %4 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #3
   store i8 1, ptr %4, align 1
-  switch i32 %0, label %30 [
-    i32 0, label %28
+  switch i32 %0, label %25 [
+    i32 0, label %23
     i32 1, label %5
     i32 2, label %8
-    i32 3, label %15
-    i32 4, label %18
-    i32 5, label %25
+    i32 3, label %11
+    i32 4, label %14
+    i32 5, label %17
   ]
 
 5:                                                ; preds = %3
   %6 = call i32 @acpi_ex_do_logical_op(i16 noundef zeroext 147, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %4) #3
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %28, label %30
+  br i1 %7, label %23, label %25
 
 8:                                                ; preds = %3
   %9 = call i32 @acpi_ex_do_logical_op(i16 noundef zeroext 149, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %4) #3
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %30
+  br i1 %10, label %.sink.split, label %25
 
-11:                                               ; preds = %8
-  %12 = load i8, ptr %4, align 1
-  %13 = icmp eq i8 %12, 0
-  %14 = zext i1 %13 to i8
-  store i8 %14, ptr %4, align 1
-  br label %28
+11:                                               ; preds = %3
+  %12 = call i32 @acpi_ex_do_logical_op(i16 noundef zeroext 148, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %4) #3
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %23, label %25
 
-15:                                               ; preds = %3
-  %16 = call i32 @acpi_ex_do_logical_op(i16 noundef zeroext 148, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %4) #3
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %28, label %30
+14:                                               ; preds = %3
+  %15 = call i32 @acpi_ex_do_logical_op(i16 noundef zeroext 148, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %4) #3
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %.sink.split, label %25
 
-18:                                               ; preds = %3
-  %19 = call i32 @acpi_ex_do_logical_op(i16 noundef zeroext 148, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %4) #3
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %30
+17:                                               ; preds = %3
+  %18 = call i32 @acpi_ex_do_logical_op(i16 noundef zeroext 149, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %4) #3
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %23, label %25
 
-21:                                               ; preds = %18
-  %22 = load i8, ptr %4, align 1
-  %23 = icmp eq i8 %22, 0
-  %24 = zext i1 %23 to i8
-  store i8 %24, ptr %4, align 1
-  br label %28
+.sink.split:                                      ; preds = %14, %8
+  %20 = load i8, ptr %4, align 1
+  %21 = icmp eq i8 %20, 0
+  %22 = zext i1 %21 to i8
+  store i8 %22, ptr %4, align 1
+  br label %23
 
-25:                                               ; preds = %3
-  %26 = call i32 @acpi_ex_do_logical_op(i16 noundef zeroext 149, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %4) #3
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %30
+23:                                               ; preds = %.sink.split, %17, %11, %5, %3
+  %24 = load i8, ptr %4, align 1
+  br label %25
 
-28:                                               ; preds = %25, %21, %15, %11, %5, %3
-  %29 = load i8, ptr %4, align 1
-  br label %30
-
-30:                                               ; preds = %28, %25, %18, %15, %8, %5, %3
-  %31 = phi i8 [ %29, %28 ], [ 0, %5 ], [ 0, %8 ], [ 0, %15 ], [ 0, %18 ], [ 0, %25 ], [ 0, %3 ]
+25:                                               ; preds = %23, %17, %14, %11, %8, %5, %3
+  %26 = phi i8 [ %24, %23 ], [ 0, %5 ], [ 0, %8 ], [ 0, %11 ], [ 0, %14 ], [ 0, %17 ], [ 0, %3 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #3
-  ret i8 %31
+  ret i8 %26
 }
 
 ; Function Attrs: null_pointer_is_valid

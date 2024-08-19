@@ -4608,11 +4608,7 @@ map_is_allocated.exit.thread:                     ; preds = %while.body
 if.end.i:                                         ; preds = %while.body
   %1 = load i64, ptr %num.i, align 8
   %cmp114.i = icmp sgt i64 %bytes.024, 0
-  br i1 %cmp114.i, label %while.body.i, label %map_is_allocated.exit.thread17
-
-map_is_allocated.exit.thread17:                   ; preds = %if.end.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %num.i)
-  br label %if.else
+  br i1 %cmp114.i, label %while.body.i, label %if.else
 
 while.body.i:                                     ; preds = %if.end.i, %if.then5.i
   %num.1 = phi i64 [ %add6.i, %if.then5.i ], [ %1, %if.end.i ]
@@ -4626,20 +4622,16 @@ while.body.i:                                     ; preds = %if.end.i, %if.then5
   %3 = load i64, ptr %num.i, align 8
   %tobool.i = icmp ne i64 %3, 0
   %or.cond.i = select i1 %cmp4.i, i1 %tobool.i, i1 false
-  br i1 %or.cond.i, label %if.then5.i, label %map_is_allocated.exit
+  br i1 %or.cond.i, label %if.then5.i, label %if.else
 
 if.then5.i:                                       ; preds = %while.body.i
   %add6.i = add i64 %3, %num.1
   %cmp1.i = icmp sgt i64 %sub.i, 0
-  br i1 %cmp1.i, label %while.body.i, label %map_is_allocated.exit, !llvm.loop !28
+  br i1 %cmp1.i, label %while.body.i, label %if.else, !llvm.loop !28
 
-map_is_allocated.exit:                            ; preds = %while.body.i, %if.then5.i
-  %num.2 = phi i64 [ %add6.i, %if.then5.i ], [ %num.1, %while.body.i ]
+if.else:                                          ; preds = %if.then5.i, %while.body.i, %if.end.i
+  %num.219 = phi i64 [ %1, %if.end.i ], [ %add6.i, %if.then5.i ], [ %num.1, %while.body.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %num.i)
-  br label %if.else
-
-if.else:                                          ; preds = %map_is_allocated.exit, %map_is_allocated.exit.thread17
-  %num.219 = phi i64 [ %1, %map_is_allocated.exit.thread17 ], [ %num.2, %map_is_allocated.exit ]
   %tobool10.not = icmp eq i64 %num.219, 0
   br i1 %tobool10.not, label %if.then11, label %if.end13
 
@@ -4688,8 +4680,8 @@ while.cond.outer:                                 ; preds = %sw.bb, %entry
   %has_rw_option.0.ph = phi i8 [ %has_rw_option.0.ph66, %sw.bb ], [ 0, %entry ]
   br label %while.cond.outer65
 
-while.cond.outer65:                               ; preds = %while.cond.outer65.backedge, %while.cond.outer
-  %has_rw_option.0.ph66 = phi i8 [ %has_rw_option.0.ph, %while.cond.outer ], [ 1, %while.cond.outer65.backedge ]
+while.cond.outer65:                               ; preds = %while.cond.outer, %sw.epilog.sink.split
+  %has_rw_option.0.ph66 = phi i8 [ %has_rw_option.0.ph, %while.cond.outer ], [ 1, %sw.epilog.sink.split ]
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.outer65, %sw.bb5
@@ -4734,7 +4726,7 @@ if.then11:                                        ; preds = %sw.bb9
 if.end12:                                         ; preds = %sw.bb9
   %4 = load i32, ptr %flags, align 4
   %and = and i32 %4, -3
-  br label %while.cond.outer65.backedge
+  br label %sw.epilog.sink.split
 
 sw.bb13:                                          ; preds = %while.cond
   %tobool14 = trunc nuw i8 %has_rw_option.0.ph66 to i1
@@ -4747,17 +4739,17 @@ if.then15:                                        ; preds = %sw.bb13
 if.end16:                                         ; preds = %sw.bb13
   %5 = load i32, ptr %flags, align 4
   %or = or i32 %5, 2
-  br label %while.cond.outer65.backedge
-
-while.cond.outer65.backedge:                      ; preds = %if.end16, %if.end12
-  %storemerge = phi i32 [ %or, %if.end16 ], [ %and, %if.end12 ]
-  store i32 %storemerge, ptr %flags, align 4
-  br label %while.cond.outer65, !llvm.loop !30
+  br label %sw.epilog.sink.split
 
 sw.default:                                       ; preds = %while.cond
   call void @qemu_opts_reset(ptr noundef nonnull @reopen_opts) #25
   %call.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.177, ptr noundef nonnull @.str.178)
   br label %return
+
+sw.epilog.sink.split:                             ; preds = %if.end12, %if.end16
+  %or.sink = phi i32 [ %or, %if.end16 ], [ %and, %if.end12 ]
+  store i32 %or.sink, ptr %flags, align 4
+  br label %while.cond.outer65, !llvm.loop !30
 
 while.end:                                        ; preds = %while.cond
   %6 = load i32, ptr @optind, align 4

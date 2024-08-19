@@ -444,7 +444,7 @@ define internal fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noun
   %34 = tail call ptr @proto_registrar_get_name(i32 noundef %2) #4
   tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %27, ptr noundef nonnull @.str.3, ptr noundef %34, ptr noundef nonnull @.str.4) #4
   tail call void @proto_item_set_len(ptr noundef %25, i32 noundef 4) #4
-  br label %78
+  br label %72
 
 35:                                               ; preds = %29
   %36 = and i32 %.0, 2147483647
@@ -466,7 +466,7 @@ define internal fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noun
 
 45:                                               ; preds = %43, %38
   tail call void @proto_item_set_len(ptr noundef %25, i32 noundef 4) #4
-  br label %78
+  br label %72
 
 46:                                               ; preds = %23
   br i1 %18, label %47, label %50
@@ -482,50 +482,47 @@ define internal fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noun
   %53 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %27, ptr noundef %0, i32 noundef %.070, i32 noundef %51, i32 noundef %52, ptr noundef nonnull @wmio_encoded_string_flags, i32 noundef 0, ptr noundef nonnull %9) #4
   %54 = add i32 %.070, 1
   %55 = load i64, ptr %9, align 8
-  switch i64 %55, label %68 [
-    i64 0, label %56
-    i64 1, label %62
+  switch i64 %55, label %62 [
+    i64 0, label %.sink.split
+    i64 1, label %56
   ]
 
 56:                                               ; preds = %50
-  %57 = call ptr @proto_tree_add_item_ret_length(ptr noundef %27, i32 noundef %2, ptr noundef %0, i32 noundef %54, i32 noundef -1, i32 noundef 0, ptr noundef nonnull %8) #4
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %50, %56
+  %.sink = phi i32 [ -2147483644, %56 ], [ 0, %50 ]
+  %.sink77 = phi i32 [ 4, %56 ], [ 0, %50 ]
+  %57 = call ptr @proto_tree_add_item_ret_length(ptr noundef %27, i32 noundef %2, ptr noundef %0, i32 noundef %54, i32 noundef -1, i32 noundef %.sink, ptr noundef nonnull %8) #4
   %58 = getelementptr inbounds i8, ptr %3, i64 408
   %59 = load ptr, ptr %58, align 8
   %60 = load i32, ptr %8, align 4
-  %61 = call ptr @tvb_get_string_enc(ptr noundef %59, ptr noundef %0, i32 noundef %54, i32 noundef %60, i32 noundef 0) #4
-  br label %68
+  %61 = call ptr @tvb_get_string_enc(ptr noundef %59, ptr noundef %0, i32 noundef %54, i32 noundef %60, i32 noundef %.sink77) #4
+  br label %62
 
-62:                                               ; preds = %50
-  %63 = call ptr @proto_tree_add_item_ret_length(ptr noundef %27, i32 noundef %2, ptr noundef %0, i32 noundef %54, i32 noundef -1, i32 noundef -2147483644, ptr noundef nonnull %8) #4
-  %64 = getelementptr inbounds i8, ptr %3, i64 408
-  %65 = load ptr, ptr %64, align 8
-  %66 = load i32, ptr %8, align 4
-  %67 = call ptr @tvb_get_string_enc(ptr noundef %65, ptr noundef %0, i32 noundef %54, i32 noundef %66, i32 noundef 4) #4
-  br label %68
-
-68:                                               ; preds = %50, %62, %56
-  %.069 = phi ptr [ %61, %56 ], [ %67, %62 ], [ null, %50 ]
-  %69 = load i32, ptr %8, align 4
-  %70 = add i32 %69, %54
-  %71 = call ptr @proto_registrar_get_name(i32 noundef %2) #4
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %27, ptr noundef nonnull @.str.3, ptr noundef %71, ptr noundef %.069) #4
+62:                                               ; preds = %.sink.split, %50
+  %.069 = phi ptr [ null, %50 ], [ %61, %.sink.split ]
+  %63 = load i32, ptr %8, align 4
+  %64 = add i32 %63, %54
+  %65 = call ptr @proto_registrar_get_name(i32 noundef %2) #4
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %27, ptr noundef nonnull @.str.3, ptr noundef %65, ptr noundef %.069) #4
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %76, label %72
+  br i1 %.not, label %70, label %66
 
-72:                                               ; preds = %68
-  %73 = load i32, ptr @hf_wmio_class_name_length, align 4
-  %74 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %73, ptr noundef %0, i32 noundef %70, i32 noundef 4, i32 noundef -2147483648) #4
-  %75 = add i32 %70, 4
-  br label %76
+66:                                               ; preds = %62
+  %67 = load i32, ptr @hf_wmio_class_name_length, align 4
+  %68 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %67, ptr noundef %0, i32 noundef %64, i32 noundef 4, i32 noundef -2147483648) #4
+  %69 = add i32 %64, 4
+  br label %70
 
-76:                                               ; preds = %72, %68
-  %.2 = phi i32 [ %75, %72 ], [ %70, %68 ]
-  %77 = sub i32 %.2, %.070
-  call void @proto_item_set_len(ptr noundef %25, i32 noundef %77) #4
-  br label %78
+70:                                               ; preds = %66, %62
+  %.2 = phi i32 [ %69, %66 ], [ %64, %62 ]
+  %71 = sub i32 %.2, %.070
+  call void @proto_item_set_len(ptr noundef %25, i32 noundef %71) #4
+  br label %72
 
-78:                                               ; preds = %33, %45, %76
-  %.1 = phi i32 [ %.070, %33 ], [ %.070, %45 ], [ %.2, %76 ]
+72:                                               ; preds = %33, %45, %70
+  %.1 = phi i32 [ %.070, %33 ], [ %.070, %45 ], [ %.2, %70 ]
   ret i32 %.1
 }
 

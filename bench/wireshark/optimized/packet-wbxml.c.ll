@@ -2488,7 +2488,7 @@ define internal fastcc void @dissect_wbxml_common(ptr noundef %0, ptr noundef %1
   %20 = load i32, ptr @proto_wbxml, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %21, ptr noundef nonnull @.str.155, i32 noundef %16) #4
-  br label %166
+  br label %163
 
 22:                                               ; preds = %4
   %23 = call i32 @tvb_get_guintvar(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %11, ptr noundef %1, ptr noundef nonnull @ei_wbxml_oversized_uintvar) #4
@@ -2657,7 +2657,7 @@ show_wbxml_string_table.exit:                     ; preds = %.lr.ph.i, %91
 120:                                              ; preds = %113
   %121 = load ptr, ptr %8, align 8
   %122 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %121, ptr noundef nonnull @ei_wbxml_data_not_shown) #4
-  br label %166
+  br label %163
 
 123:                                              ; preds = %113
   %.not115 = icmp eq ptr %3, null
@@ -2667,7 +2667,7 @@ show_wbxml_string_table.exit:                     ; preds = %.lr.ph.i, %91
   %125 = load ptr, ptr %8, align 8
   %126 = load ptr, ptr %3, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %125, ptr noundef nonnull @.str.164, ptr noundef %126) #4
-  br label %157
+  br label %155
 
 127:                                              ; preds = %123
   %128 = icmp ugt i32 %23, 1
@@ -2689,18 +2689,18 @@ get_wbxml_decoding_from_public_id.exit:           ; preds = %.preheader.i.prehea
   %133 = getelementptr inbounds i8, ptr %.014.i140, i64 8
   %134 = load ptr, ptr %133, align 8
   %.not116 = icmp eq ptr %134, null
-  br i1 %.not116, label %get_wbxml_decoding_from_public_id.exit.thread, label %157
+  br i1 %.not116, label %get_wbxml_decoding_from_public_id.exit.thread, label %155
 
 get_wbxml_decoding_from_public_id.exit.thread:    ; preds = %.preheader.i, %127, %get_wbxml_decoding_from_public_id.exit
   %135 = getelementptr inbounds i8, ptr %1, i64 296
   %136 = load ptr, ptr %135, align 8
   %.not.i = icmp eq ptr %136, null
-  br i1 %.not.i, label %.thread133, label %137
+  br i1 %.not.i, label %.sink.split, label %137
 
 137:                                              ; preds = %get_wbxml_decoding_from_public_id.exit.thread
   %138 = load i8, ptr %136, align 1
   %.not17.i = icmp eq i8 %138, 0
-  br i1 %.not17.i, label %.thread133, label %.preheader.i118.preheader
+  br i1 %.not17.i, label %.sink.split, label %.preheader.i118.preheader
 
 .preheader.i118.preheader:                        ; preds = %137, %.preheader.i118
   %139 = phi ptr [ %149, %.preheader.i118 ], [ @.str.105, %137 ]
@@ -2724,46 +2724,42 @@ get_wbxml_decoding_from_public_id.exit.thread:    ; preds = %.preheader.i, %127,
   %148 = getelementptr i8, ptr %.023.i141, i64 24
   %149 = load ptr, ptr %148, align 8
   %.not19.i = icmp eq ptr %149, null
-  br i1 %.not19.i, label %.thread133, label %.preheader.i118.preheader
+  br i1 %.not19.i, label %.sink.split, label %.preheader.i118.preheader
 
 get_wbxml_decoding_from_content_type.exit:        ; preds = %142, %145
   %150 = getelementptr inbounds i8, ptr %.023.i141, i64 16
   %151 = load ptr, ptr %150, align 8
   %.not117 = icmp eq ptr %151, null
-  br i1 %.not117, label %.thread133, label %get_wbxml_decoding_from_content_type.exit.thread129
-
-.thread133:                                       ; preds = %.preheader.i118, %get_wbxml_decoding_from_content_type.exit, %137, %get_wbxml_decoding_from_public_id.exit.thread
-  %152 = load ptr, ptr %8, align 8
-  %153 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %152, ptr noundef nonnull @ei_wbxml_content_type_not_supported) #4
-  br label %162
+  br i1 %.not117, label %.sink.split, label %get_wbxml_decoding_from_content_type.exit.thread129
 
 get_wbxml_decoding_from_content_type.exit.thread129: ; preds = %145, %get_wbxml_decoding_from_content_type.exit
   %.013.i132 = phi ptr [ %151, %get_wbxml_decoding_from_content_type.exit ], [ %146, %145 ]
-  %154 = load ptr, ptr %8, align 8
-  %155 = load ptr, ptr %135, align 8
-  %156 = load ptr, ptr %.013.i132, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %154, ptr noundef nonnull @.str.165, ptr noundef %155, ptr noundef %156) #4
-  br label %157
+  %152 = load ptr, ptr %8, align 8
+  %153 = load ptr, ptr %135, align 8
+  %154 = load ptr, ptr %.013.i132, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %152, ptr noundef nonnull @.str.165, ptr noundef %153, ptr noundef %154) #4
+  br label %155
 
-157:                                              ; preds = %get_wbxml_decoding_from_public_id.exit, %get_wbxml_decoding_from_content_type.exit.thread129, %124
+155:                                              ; preds = %get_wbxml_decoding_from_public_id.exit, %get_wbxml_decoding_from_content_type.exit.thread129, %124
   %.099 = phi ptr [ %3, %124 ], [ %134, %get_wbxml_decoding_from_public_id.exit ], [ %.013.i132, %get_wbxml_decoding_from_content_type.exit.thread129 ]
-  %158 = load i32, ptr @skip_wbxml_token_mapping, align 4
-  %.not137 = icmp eq i32 %158, 0
-  br i1 %.not137, label %162, label %159
+  %156 = load i32, ptr @skip_wbxml_token_mapping, align 4
+  %.not137 = icmp eq i32 %156, 0
+  br i1 %.not137, label %159, label %.sink.split
 
-159:                                              ; preds = %157
-  %160 = load ptr, ptr %8, align 8
-  %161 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %160, ptr noundef nonnull @ei_wbxml_content_type_disabled) #4
-  br label %162
+.sink.split:                                      ; preds = %.preheader.i118, %155, %get_wbxml_decoding_from_public_id.exit.thread, %137, %get_wbxml_decoding_from_content_type.exit
+  %ei_wbxml_content_type_not_supported.sink = phi ptr [ @ei_wbxml_content_type_not_supported, %get_wbxml_decoding_from_content_type.exit ], [ @ei_wbxml_content_type_not_supported, %137 ], [ @ei_wbxml_content_type_not_supported, %get_wbxml_decoding_from_public_id.exit.thread ], [ @ei_wbxml_content_type_disabled, %155 ], [ @ei_wbxml_content_type_not_supported, %.preheader.i118 ]
+  %157 = load ptr, ptr %8, align 8
+  %158 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %157, ptr noundef nonnull %ei_wbxml_content_type_not_supported.sink) #4
+  br label %159
 
-162:                                              ; preds = %.thread133, %159, %157
-  %.1 = phi ptr [ null, %159 ], [ %.099, %157 ], [ null, %.thread133 ]
-  %163 = load i32, ptr @ett_wbxml_tags, align 4
-  %164 = call ptr @proto_tree_add_subtree(ptr noundef %118, ptr noundef %0, i32 noundef %116, i32 noundef -1, i32 noundef %163, ptr noundef null, ptr noundef nonnull @.str.166) #4
-  %165 = call fastcc i32 @parse_wbxml_tag_defined(ptr noundef %164, ptr noundef %0, ptr noundef %1, i32 noundef %116, i32 noundef %87, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef %.1)
-  br label %166
+159:                                              ; preds = %.sink.split, %155
+  %.1 = phi ptr [ %.099, %155 ], [ null, %.sink.split ]
+  %160 = load i32, ptr @ett_wbxml_tags, align 4
+  %161 = call ptr @proto_tree_add_subtree(ptr noundef %118, ptr noundef %0, i32 noundef %116, i32 noundef -1, i32 noundef %160, ptr noundef null, ptr noundef nonnull @.str.166) #4
+  %162 = call fastcc i32 @parse_wbxml_tag_defined(ptr noundef %161, ptr noundef %0, ptr noundef %1, i32 noundef %116, i32 noundef %87, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef %.1)
+  br label %163
 
-166:                                              ; preds = %162, %120, %17
+163:                                              ; preds = %159, %120, %17
   ret void
 }
 

@@ -1212,7 +1212,6 @@ define internal fastcc range(i32 -1, 1) i32 @H5L__create_hard_api_common(i64 nou
   %103 = load ptr, ptr %73, align 8
   %.else.val84149 = load ptr, ptr %7, align 8
   store ptr %103, ptr %.else.val84149, align 8
-  store i32 0, ptr %11, align 8
   br label %125
 
 .thread.thread:                                   ; preds = %71
@@ -1248,7 +1247,6 @@ define internal fastcc range(i32 -1, 1) i32 @H5L__create_hard_api_common(i64 nou
   store ptr %101, ptr %115, align 8
   %116 = load ptr, ptr %73, align 8
   store ptr %116, ptr %10, align 8
-  store i32 0, ptr %11, align 8
   br label %125
 
 .else87:                                          ; preds = %.thread.thread
@@ -1261,7 +1259,6 @@ define internal fastcc range(i32 -1, 1) i32 @H5L__create_hard_api_common(i64 nou
 .cont85:                                          ; preds = %.thread128, %.else87
   %118 = phi ptr [ %.else.val88, %.else87 ], [ %10, %.thread128 ]
   store ptr null, ptr %118, align 8
-  store i32 0, ptr %11, align 8
   br label %125
 
 119:                                              ; preds = %.critedge
@@ -1283,6 +1280,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5L__create_hard_api_common(i64 nou
   br label %131
 
 125:                                              ; preds = %.thread147, %.thread143, %.cont85
+  store i32 0, ptr %11, align 8
   %126 = load ptr, ptr %65, align 8
   %127 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %126, ptr %127, align 8

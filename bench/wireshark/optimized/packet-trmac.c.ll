@@ -257,7 +257,7 @@ define internal i32 @dissect_trmac(ptr noundef %0, ptr noundef %1, ptr noundef %
   %8 = alloca i32, align 4
   %9 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   %10 = icmp ult i32 %9, 3
-  br i1 %10, label %396, label %11
+  br i1 %10, label %395, label %11
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds i8, ptr %1, i64 8
@@ -295,8 +295,8 @@ define internal i32 @dissect_trmac(ptr noundef %0, ptr noundef %1, ptr noundef %
   %37 = getelementptr inbounds i8, ptr %1, i64 408
   br label %38
 
-38:                                               ; preds = %.lr.ph, %391
-  %.033 = phi i32 [ 4, %.lr.ph ], [ %392, %391 ]
+38:                                               ; preds = %.lr.ph, %sv_text.exit.thread
+  %.033 = phi i32 [ 4, %.lr.ph ], [ %391, %sv_text.exit.thread ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %6)
   %39 = load i32, ptr @ett_tr_sv, align 4
@@ -356,7 +356,7 @@ sv_text.exit.thread30:                            ; preds = %38
 
 56:                                               ; preds = %55
   %57 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %44, ptr noundef nonnull @ei_trmac_sv_len, ptr noundef nonnull @.str.133) #3
-  br label %sv_text.exit
+  br label %sv_text.exit.thread
 
 58:                                               ; preds = %55
   %59 = add i32 %.033, 2
@@ -375,7 +375,7 @@ sv_text.exit.thread30:                            ; preds = %38
 
 67:                                               ; preds = %66
   %68 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %44, ptr noundef nonnull @ei_trmac_sv_len, ptr noundef nonnull @.str.136) #3
-  br label %sv_text.exit
+  br label %sv_text.exit.thread
 
 69:                                               ; preds = %66
   %70 = load i32, ptr @hf_trmac_naun, align 4
@@ -393,7 +393,7 @@ sv_text.exit.thread30:                            ; preds = %38
 
 77:                                               ; preds = %76
   %78 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %44, ptr noundef nonnull @ei_trmac_sv_len, ptr noundef nonnull @.str.133) #3
-  br label %sv_text.exit
+  br label %sv_text.exit.thread
 
 79:                                               ; preds = %76
   %80 = add i32 %.033, 2
@@ -411,7 +411,7 @@ sv_text.exit.thread30:                            ; preds = %38
 
 87:                                               ; preds = %86
   %88 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %44, ptr noundef nonnull @ei_trmac_sv_len, ptr noundef nonnull @.str.138) #3
-  br label %sv_text.exit
+  br label %sv_text.exit.thread
 
 89:                                               ; preds = %86
   %90 = load i32, ptr @hf_trmac_assign_physical_drop_number, align 4
@@ -428,7 +428,7 @@ sv_text.exit.thread30:                            ; preds = %38
 
 96:                                               ; preds = %95
   %97 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %44, ptr noundef nonnull @ei_trmac_sv_len, ptr noundef nonnull @.str.133) #3
-  br label %sv_text.exit
+  br label %sv_text.exit.thread
 
 98:                                               ; preds = %95
   %99 = add i32 %.033, 2
@@ -447,7 +447,7 @@ sv_text.exit.thread30:                            ; preds = %38
 
 107:                                              ; preds = %106
   %108 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %44, ptr noundef nonnull @ei_trmac_sv_len, ptr noundef nonnull @.str.133) #3
-  br label %sv_text.exit
+  br label %sv_text.exit.thread
 
 109:                                              ; preds = %106
   %110 = load i32, ptr @hf_trmac_authorized_function_classes, align 4
@@ -465,7 +465,7 @@ sv_text.exit.thread30:                            ; preds = %38
 
 117:                                              ; preds = %116
   %118 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %44, ptr noundef nonnull @ei_trmac_sv_len, ptr noundef nonnull @.str.133) #3
-  br label %sv_text.exit
+  br label %sv_text.exit.thread
 
 119:                                              ; preds = %116
   %120 = load i32, ptr @hf_trmac_authorized_access_priority, align 4
@@ -483,7 +483,7 @@ sv_text.exit.thread30:                            ; preds = %38
 
 127:                                              ; preds = %126
   %128 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %44, ptr noundef nonnull @ei_trmac_sv_len, ptr noundef nonnull @.str.133) #3
-  br label %sv_text.exit
+  br label %sv_text.exit.thread
 
 129:                                              ; preds = %126
   %130 = load i32, ptr @hf_trmac_correlator, align 4
@@ -501,7 +501,7 @@ sv_text.exit.thread30:                            ; preds = %38
 
 137:                                              ; preds = %136
   %138 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %44, ptr noundef nonnull @ei_trmac_sv_len, ptr noundef nonnull @.str.136) #3
-  br label %sv_text.exit
+  br label %sv_text.exit.thread
 
 139:                                              ; preds = %136
   %140 = load i32, ptr @hf_trmac_sa_of_last_amp_or_smp_frame, align 4
@@ -519,7 +519,7 @@ sv_text.exit.thread30:                            ; preds = %38
 
 147:                                              ; preds = %146
   %148 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %44, ptr noundef nonnull @ei_trmac_sv_len, ptr noundef nonnull @.str.138) #3
-  br label %sv_text.exit
+  br label %sv_text.exit.thread
 
 149:                                              ; preds = %146
   %150 = load i32, ptr @hf_trmac_physical_drop_number, align 4
@@ -537,7 +537,7 @@ sv_text.exit.thread30:                            ; preds = %38
 
 157:                                              ; preds = %155
   %158 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %44, ptr noundef nonnull @ei_trmac_sv_len, ptr noundef nonnull @.str.142) #3
-  br label %sv_text.exit
+  br label %sv_text.exit.thread
 
 159:                                              ; preds = %155
   %160 = icmp eq i8 %41, 4
@@ -585,7 +585,7 @@ sv_text.exit.thread30:                            ; preds = %38
   %197 = zext i8 %196 to i32
   %198 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %190) #3
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %193, ptr noundef nonnull @.str.146, i32 noundef %195, i32 noundef %197, i32 noundef %198) #3
-  br label %sv_text.exit
+  br label %sv_text.exit.thread
 
 199:                                              ; preds = %47
   %.not304.i = icmp eq i8 %41, 4
@@ -593,7 +593,7 @@ sv_text.exit.thread30:                            ; preds = %38
 
 200:                                              ; preds = %199
   %201 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %44, ptr noundef nonnull @ei_trmac_sv_len, ptr noundef nonnull @.str.133) #3
-  br label %sv_text.exit
+  br label %sv_text.exit.thread
 
 202:                                              ; preds = %199
   %203 = load i32, ptr @hf_trmac_individual_address_count, align 4
@@ -610,28 +610,28 @@ sv_text.exit.thread30:                            ; preds = %38
   %211 = add i32 %.033, 2
   %212 = add nsw i32 %42, -2
   %213 = call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %210, ptr noundef %0, i32 noundef %211, i32 noundef %212, i32 noundef 0) #3
-  br label %sv_text.exit
+  br label %sv_text.exit.thread
 
 214:                                              ; preds = %47
   %215 = load i32, ptr @hf_trmac_ring_station_version_number, align 4
   %216 = add i32 %.033, 2
   %217 = add nsw i32 %42, -2
   %218 = call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %215, ptr noundef %0, i32 noundef %216, i32 noundef %217, i32 noundef 0) #3
-  br label %sv_text.exit
+  br label %sv_text.exit.thread
 
 219:                                              ; preds = %47
   %220 = load i32, ptr @hf_trmac_wrap_data, align 4
   %221 = add i32 %.033, 2
   %222 = add nsw i32 %42, -2
   %223 = call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %220, ptr noundef %0, i32 noundef %221, i32 noundef %222, i32 noundef 0) #3
-  br label %sv_text.exit
+  br label %sv_text.exit.thread
 
 224:                                              ; preds = %47
   %225 = load i32, ptr @hf_trmac_frame_forward, align 4
   %226 = add i32 %.033, 2
   %227 = add nsw i32 %42, -2
   %228 = call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %225, ptr noundef %0, i32 noundef %226, i32 noundef %227, i32 noundef 0) #3
-  br label %sv_text.exit
+  br label %sv_text.exit.thread
 
 229:                                              ; preds = %47
   %.not303.i = icmp eq i8 %41, 8
@@ -639,7 +639,7 @@ sv_text.exit.thread30:                            ; preds = %38
 
 230:                                              ; preds = %229
   %231 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %44, ptr noundef nonnull @ei_trmac_sv_len, ptr noundef nonnull @.str.136) #3
-  br label %sv_text.exit
+  br label %sv_text.exit.thread
 
 232:                                              ; preds = %229
   %233 = load i32, ptr @hf_trmac_station_identifier, align 4
@@ -656,7 +656,7 @@ sv_text.exit.thread30:                            ; preds = %38
   %241 = add i32 %.033, 2
   %242 = add nsw i32 %42, -2
   %243 = call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %240, ptr noundef %0, i32 noundef %241, i32 noundef %242, i32 noundef 0) #3
-  br label %sv_text.exit
+  br label %sv_text.exit.thread
 
 244:                                              ; preds = %47
   %.not302.i = icmp eq i8 %41, 4
@@ -664,7 +664,7 @@ sv_text.exit.thread30:                            ; preds = %38
 
 245:                                              ; preds = %244
   %246 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %44, ptr noundef nonnull @ei_trmac_sv_len, ptr noundef nonnull @.str.133) #3
-  br label %sv_text.exit
+  br label %sv_text.exit.thread
 
 247:                                              ; preds = %244
   %248 = load i32, ptr @hf_trmac_transmit_status_code, align 4
@@ -684,7 +684,7 @@ sv_text.exit.thread30:                            ; preds = %38
 
 255:                                              ; preds = %254
   %256 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %44, ptr noundef nonnull @ei_trmac_sv_len, ptr noundef nonnull @.str.148) #3
-  br label %sv_text.exit
+  br label %sv_text.exit.thread
 
 257:                                              ; preds = %254
   %258 = load i32, ptr @hf_trmac_group_address32, align 4
@@ -712,7 +712,7 @@ sv_text.exit.thread30:                            ; preds = %38
 
 272:                                              ; preds = %271
   %273 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %44, ptr noundef nonnull @ei_trmac_sv_len, ptr noundef nonnull @.str.138) #3
-  br label %sv_text.exit
+  br label %sv_text.exit.thread
 
 274:                                              ; preds = %271
   %275 = load i32, ptr @hf_trmac_functional_addresses, align 4
@@ -729,7 +729,7 @@ sv_text.exit.thread30:                            ; preds = %38
 
 281:                                              ; preds = %280
   %282 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %44, ptr noundef nonnull @ei_trmac_sv_len, ptr noundef nonnull @.str.136) #3
-  br label %sv_text.exit
+  br label %sv_text.exit.thread
 
 283:                                              ; preds = %280
   %284 = add i32 %.033, 2
@@ -784,7 +784,7 @@ sv_text.exit.thread30:                            ; preds = %38
 
 329:                                              ; preds = %328
   %330 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %44, ptr noundef nonnull @ei_trmac_sv_len, ptr noundef nonnull @.str.136) #3
-  br label %sv_text.exit
+  br label %sv_text.exit.thread
 
 331:                                              ; preds = %328
   %332 = add i32 %.033, 2
@@ -839,7 +839,7 @@ sv_text.exit.thread30:                            ; preds = %38
 
 377:                                              ; preds = %376
   %378 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %44, ptr noundef nonnull @ei_trmac_sv_len, ptr noundef nonnull @.str.133) #3
-  br label %sv_text.exit
+  br label %sv_text.exit.thread
 
 379:                                              ; preds = %376
   %380 = load i32, ptr @hf_trmac_error_code, align 4
@@ -856,32 +856,23 @@ sv_text.exit.thread30:                            ; preds = %38
   %388 = add i32 %.033, 2
   %389 = add nsw i32 %42, -2
   %390 = call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %387, ptr noundef %0, i32 noundef %388, i32 noundef %389, i32 noundef 0) #3
-  br label %sv_text.exit
+  br label %sv_text.exit.thread
 
-sv_text.exit.thread:                              ; preds = %257, %263, %162, %379, %331, %283, %274, %247, %232, %202, %149, %139, %129, %119, %109, %98, %89, %79, %69, %58
-  %.0.i.ph = phi i32 [ 4, %58 ], [ 8, %69 ], [ 4, %79 ], [ 6, %89 ], [ 4, %98 ], [ 4, %109 ], [ 4, %119 ], [ 4, %129 ], [ 8, %139 ], [ 6, %149 ], [ 4, %202 ], [ 8, %232 ], [ 4, %247 ], [ 6, %274 ], [ 8, %283 ], [ 8, %331 ], [ 4, %379 ], [ 4, %162 ], [ 8, %263 ], [ 6, %257 ]
+sv_text.exit.thread:                              ; preds = %386, %377, %329, %281, %272, %255, %245, %239, %230, %224, %219, %214, %209, %200, %181, %157, %147, %137, %127, %117, %107, %96, %87, %77, %67, %56, %58, %69, %79, %89, %98, %109, %119, %129, %139, %149, %202, %232, %247, %274, %283, %331, %379, %162, %263, %257
+  %.0.i29 = phi i32 [ 4, %58 ], [ 8, %69 ], [ 4, %79 ], [ 6, %89 ], [ 4, %98 ], [ 4, %109 ], [ 4, %119 ], [ 4, %129 ], [ 8, %139 ], [ 6, %149 ], [ 4, %202 ], [ 8, %232 ], [ 4, %247 ], [ 6, %274 ], [ 8, %283 ], [ 8, %331 ], [ 4, %379 ], [ 4, %162 ], [ 8, %263 ], [ 6, %257 ], [ %42, %56 ], [ %42, %67 ], [ %42, %77 ], [ %42, %87 ], [ %42, %96 ], [ %42, %107 ], [ %42, %117 ], [ %42, %127 ], [ %42, %137 ], [ %42, %147 ], [ %42, %157 ], [ %42, %181 ], [ %42, %200 ], [ %42, %209 ], [ %42, %214 ], [ %42, %219 ], [ %42, %224 ], [ %42, %230 ], [ %42, %239 ], [ %42, %245 ], [ %42, %255 ], [ %42, %272 ], [ %42, %281 ], [ %42, %329 ], [ %42, %377 ], [ %42, %386 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %6)
-  br label %391
+  %391 = add i32 %.0.i29, %.033
+  %392 = load i32, ptr %8, align 4
+  %393 = icmp ult i32 %391, %392
+  br i1 %393, label %38, label %.loopexit, !llvm.loop !4
 
-sv_text.exit:                                     ; preds = %56, %67, %77, %87, %96, %107, %117, %127, %137, %147, %157, %181, %200, %209, %214, %219, %224, %230, %239, %245, %255, %272, %281, %329, %377, %386
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %6)
-  br label %391
+.loopexit:                                        ; preds = %sv_text.exit.thread, %11, %sv_text.exit.thread30
+  %394 = call i32 @tvb_captured_length(ptr noundef %0) #3
+  br label %395
 
-391:                                              ; preds = %sv_text.exit, %sv_text.exit.thread
-  %.0.i29 = phi i32 [ %.0.i.ph, %sv_text.exit.thread ], [ %42, %sv_text.exit ]
-  %392 = add i32 %.0.i29, %.033
-  %393 = load i32, ptr %8, align 4
-  %394 = icmp ult i32 %392, %393
-  br i1 %394, label %38, label %.loopexit, !llvm.loop !4
-
-.loopexit:                                        ; preds = %391, %11, %sv_text.exit.thread30
-  %395 = call i32 @tvb_captured_length(ptr noundef %0) #3
-  br label %396
-
-396:                                              ; preds = %4, %.loopexit
-  %.025 = phi i32 [ %395, %.loopexit ], [ 0, %4 ]
+395:                                              ; preds = %4, %.loopexit
+  %.025 = phi i32 [ %394, %.loopexit ], [ 0, %4 ]
   ret i32 %.025
 }
 

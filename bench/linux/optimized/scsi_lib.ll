@@ -3107,7 +3107,7 @@ sdev_evt_send_simple.exit:                        ; preds = %23, %22, %12
   %31 = icmp eq i64 %30, 9
   br i1 %31, label %10, label %12, !llvm.loop !63
 
-.loopexit:                                        ; preds = %60
+.loopexit:                                        ; preds = %59
   br label %32, !llvm.loop !64
 
 32:                                               ; preds = %.loopexit, %10
@@ -3135,8 +3135,8 @@ sdev_evt_send_simple.exit:                        ; preds = %23, %22, %12
   %43 = icmp eq ptr %42, %3
   br i1 %43, label %split, label %.preheader
 
-.preheader:                                       ; preds = %41, %60
-  %44 = phi ptr [ %45, %60 ], [ %42, %41 ]
+.preheader:                                       ; preds = %41, %59
+  %44 = phi ptr [ %45, %59 ], [ %42, %41 ]
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr i8, ptr %44, i64 -8
   %47 = getelementptr inbounds i8, ptr %44, i64 8
@@ -3149,58 +3149,52 @@ sdev_evt_send_simple.exit:                        ; preds = %23, %22, %12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %2, i8 0, i64 24, i1 false), !annotation !28
   %50 = load i32, ptr %46, align 8
-  switch i32 %50, label %60 [
-    i32 1, label %51
-    i32 2, label %52
-    i32 3, label %54
-    i32 4, label %55
-    i32 5, label %56
-    i32 6, label %57
-    i32 7, label %58
-    i32 8, label %59
+  switch i32 %50, label %59 [
+    i32 1, label %.sink.split
+    i32 2, label %51
+    i32 3, label %53
+    i32 4, label %54
+    i32 5, label %55
+    i32 6, label %56
+    i32 7, label %57
+    i32 8, label %58
   ]
 
 51:                                               ; preds = %.preheader
-  store ptr @.str.18, ptr %2, align 16
-  br label %60
+  %52 = call i32 @scsi_rescan_device(ptr noundef %5) #16
+  br label %.sink.split
 
-52:                                               ; preds = %.preheader
-  %53 = call i32 @scsi_rescan_device(ptr noundef %5) #16
-  store ptr @.str.19, ptr %2, align 16
-  br label %60
+53:                                               ; preds = %.preheader
+  br label %.sink.split
 
 54:                                               ; preds = %.preheader
-  store ptr @.str.20, ptr %2, align 16
-  br label %60
+  br label %.sink.split
 
 55:                                               ; preds = %.preheader
-  store ptr @.str.21, ptr %2, align 16
-  br label %60
+  br label %.sink.split
 
 56:                                               ; preds = %.preheader
-  store ptr @.str.22, ptr %2, align 16
-  br label %60
+  br label %.sink.split
 
 57:                                               ; preds = %.preheader
-  store ptr @.str.23, ptr %2, align 16
-  br label %60
+  br label %.sink.split
 
 58:                                               ; preds = %.preheader
-  store ptr @.str.24, ptr %2, align 16
-  br label %60
+  br label %.sink.split
 
-59:                                               ; preds = %.preheader
-  store ptr @.str.25, ptr %2, align 16
-  br label %60
+.sink.split:                                      ; preds = %.preheader, %51, %53, %54, %55, %56, %57, %58
+  %.str.25.sink = phi ptr [ @.str.25, %58 ], [ @.str.24, %57 ], [ @.str.23, %56 ], [ @.str.22, %55 ], [ @.str.21, %54 ], [ @.str.20, %53 ], [ @.str.19, %51 ], [ @.str.18, %.preheader ]
+  store ptr %.str.25.sink, ptr %2, align 16
+  br label %59
 
-60:                                               ; preds = %59, %58, %57, %56, %55, %54, %52, %51, %.preheader
-  %.sroa.phi = phi ptr [ %2, %.preheader ], [ %.sroa.gep1, %59 ], [ %.sroa.gep1, %58 ], [ %.sroa.gep1, %57 ], [ %.sroa.gep1, %56 ], [ %.sroa.gep1, %55 ], [ %.sroa.gep1, %54 ], [ %.sroa.gep1, %52 ], [ %.sroa.gep1, %51 ]
+59:                                               ; preds = %.sink.split, %.preheader
+  %.sroa.phi = phi ptr [ %2, %.preheader ], [ %.sroa.gep1, %.sink.split ]
   store ptr null, ptr %.sroa.phi, align 8
-  %61 = call i32 @kobject_uevent_env(ptr noundef %11, i32 noundef 2, ptr noundef nonnull %2) #16
+  %60 = call i32 @kobject_uevent_env(ptr noundef %11, i32 noundef 2, ptr noundef nonnull %2) #16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #16
   call void @kfree(ptr noundef %46) #16
-  %62 = icmp eq ptr %45, %3
-  br i1 %62, label %.loopexit, label %.preheader, !llvm.loop !64
+  %61 = icmp eq ptr %45, %3
+  br i1 %61, label %.loopexit, label %.preheader, !llvm.loop !64
 
 split:                                            ; preds = %41
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16

@@ -234,12 +234,12 @@ define internal i32 @dissect_rpcrdma(ptr noundef %0, ptr noundef %1, ptr noundef
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %11 = call i32 @tvb_captured_length(ptr noundef %0) #9
   %12 = icmp ult i32 %11, 16
-  br i1 %12, label %162, label %13
+  br i1 %12, label %156, label %13
 
 13:                                               ; preds = %4
   %14 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4) #9
   %.not = icmp eq i32 %14, 1
-  br i1 %.not, label %15, label %162
+  br i1 %.not, label %15, label %156
 
 15:                                               ; preds = %13
   %16 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #9
@@ -262,11 +262,11 @@ define internal i32 @dissect_rpcrdma(ptr noundef %0, ptr noundef %1, ptr noundef
   %31 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %30, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
   %32 = load i32, ptr @hf_rpcordma_message_type, align 4
   %33 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %32, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
-  switch i32 %17, label %161 [
+  switch i32 %17, label %155 [
     i32 0, label %34
-    i32 1, label %116
-    i32 2, label %140
-    i32 4, label %149
+    i32 1, label %113
+    i32 2, label %134
+    i32 4, label %143
   ]
 
 34:                                               ; preds = %15
@@ -279,7 +279,7 @@ define internal i32 @dissect_rpcrdma(ptr noundef %0, ptr noundef %1, ptr noundef
 37:                                               ; preds = %34
   %38 = load ptr, ptr @rpc_handler, align 8
   %39 = call i32 @call_dissector(ptr noundef %38, ptr noundef nonnull %36, ptr noundef nonnull %1, ptr noundef %2) #9
-  br label %162
+  br label %156
 
 40:                                               ; preds = %34
   %41 = getelementptr inbounds i8, ptr %1, i64 80
@@ -293,7 +293,7 @@ define internal i32 @dissect_rpcrdma(ptr noundef %0, ptr noundef %1, ptr noundef
   %47 = load ptr, ptr %6, align 8
   %48 = icmp eq ptr %47, null
   %or.cond4.not = select i1 %or.cond, i1 true, i1 %48
-  br i1 %or.cond4.not, label %49, label %162
+  br i1 %or.cond4.not, label %49, label %156
 
 49:                                               ; preds = %40
   %50 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %35) #9
@@ -310,7 +310,7 @@ define internal i32 @dissect_rpcrdma(ptr noundef %0, ptr noundef %1, ptr noundef
   %57 = load i16, ptr %56, align 2
   %58 = and i16 %57, 8
   %.not154 = icmp eq i16 %58, 0
-  br i1 %.not154, label %59, label %91
+  br i1 %.not154, label %59, label %88
 
 59:                                               ; preds = %54
   %60 = call ptr @wmem_packet_scope() #9
@@ -322,229 +322,211 @@ define internal i32 @dissect_rpcrdma(ptr noundef %0, ptr noundef %1, ptr noundef
   %62 = getelementptr inbounds i8, ptr %10, i64 48
   %63 = call i32 @_setjmp(ptr noundef nonnull %62) #10
   %.not155 = icmp eq i32 %63, 0
-  br i1 %.not155, label %66, label %64
-
-64:                                               ; preds = %59
-  %65 = getelementptr inbounds i8, ptr %10, i64 16
-  store volatile ptr %65, ptr %7, align 8
-  br label %67
+  %64 = getelementptr inbounds i8, ptr %10, i64 16
+  %.sink = select i1 %.not155, ptr null, ptr %64
+  store volatile ptr %.sink, ptr %7, align 8
+  %.0..0..0..0. = load volatile i32, ptr %8, align 4
+  %65 = and i32 %.0..0..0..0., 1
+  %.not156 = icmp eq i32 %65, 0
+  br i1 %.not156, label %68, label %66
 
 66:                                               ; preds = %59
-  store volatile ptr null, ptr %7, align 8
-  br label %67
-
-67:                                               ; preds = %66, %64
-  %.0..0..0..0. = load volatile i32, ptr %8, align 4
-  %68 = and i32 %.0..0..0..0., 1
-  %.not156 = icmp eq i32 %68, 0
-  br i1 %.not156, label %71, label %69
-
-69:                                               ; preds = %67
   %.0..0..0..0.5 = load volatile i32, ptr %8, align 4
-  %70 = or i32 %.0..0..0..0.5, 2
-  store volatile i32 %70, ptr %8, align 4
-  br label %71
+  %67 = or i32 %.0..0..0..0.5, 2
+  store volatile i32 %67, ptr %8, align 4
+  br label %68
 
-71:                                               ; preds = %69, %67
+68:                                               ; preds = %66, %59
   %.0..0..0..0.6 = load volatile i32, ptr %8, align 4
-  %72 = and i32 %.0..0..0..0.6, -2
-  store volatile i32 %72, ptr %8, align 4
+  %69 = and i32 %.0..0..0..0.6, -2
+  store volatile i32 %69, ptr %8, align 4
   %.0..0..0..0.7 = load volatile i32, ptr %8, align 4
-  %73 = icmp eq i32 %.0..0..0..0.7, 0
-  br i1 %73, label %74, label %79
+  %70 = icmp eq i32 %.0..0..0..0.7, 0
+  br i1 %70, label %71, label %76
 
-74:                                               ; preds = %71
+71:                                               ; preds = %68
   %.0..0..0..0.11 = load volatile ptr, ptr %7, align 8
-  %75 = icmp eq ptr %.0..0..0..0.11, null
-  br i1 %75, label %76, label %79
+  %72 = icmp eq ptr %.0..0..0..0.11, null
+  br i1 %72, label %73, label %76
 
-76:                                               ; preds = %74
+73:                                               ; preds = %71
   store i1 true, ptr @g_rpcrdma_reduced, align 4
-  %77 = load ptr, ptr @rpc_handler, align 8
+  %74 = load ptr, ptr @rpc_handler, align 8
   %.0..0..0..0.76 = load volatile ptr, ptr %5, align 8
-  %78 = call i32 @call_dissector(ptr noundef %77, ptr noundef %.0..0..0..0.76, ptr noundef nonnull %1, ptr noundef %2) #9
-  br label %79
+  %75 = call i32 @call_dissector(ptr noundef %74, ptr noundef %.0..0..0..0.76, ptr noundef nonnull %1, ptr noundef %2) #9
+  br label %76
 
-79:                                               ; preds = %76, %74, %71
+76:                                               ; preds = %73, %71, %68
   %.0..0..0..0.8 = load volatile i32, ptr %8, align 4
-  %80 = and i32 %.0..0..0..0.8, 4
-  %.not157 = icmp eq i32 %80, 0
-  br i1 %.not157, label %81, label %83
+  %77 = and i32 %.0..0..0..0.8, 4
+  %.not157 = icmp eq i32 %77, 0
+  br i1 %.not157, label %78, label %80
 
-81:                                               ; preds = %79
+78:                                               ; preds = %76
   %.0..0..0..0.9 = load volatile i32, ptr %8, align 4
-  %82 = or i32 %.0..0..0..0.9, 4
-  store volatile i32 %82, ptr %8, align 4
+  %79 = or i32 %.0..0..0..0.9, 4
+  store volatile i32 %79, ptr %8, align 4
   store i1 false, ptr @g_rpcrdma_reduced, align 4
-  br label %83
+  br label %80
 
-83:                                               ; preds = %81, %79
+80:                                               ; preds = %78, %76
   %.0..0..0..0.10 = load volatile i32, ptr %8, align 4
-  %84 = and i32 %.0..0..0..0.10, 1
-  %.not158 = icmp eq i32 %84, 0
-  br i1 %.not158, label %85, label %87
+  %81 = and i32 %.0..0..0..0.10, 1
+  %.not158 = icmp eq i32 %81, 0
+  br i1 %.not158, label %82, label %84
 
-85:                                               ; preds = %83
+82:                                               ; preds = %80
   %.0..0..0..0.12 = load volatile ptr, ptr %7, align 8
   %.not159 = icmp eq ptr %.0..0..0..0.12, null
-  br i1 %.not159, label %87, label %86
+  br i1 %.not159, label %84, label %83
 
-86:                                               ; preds = %85
+83:                                               ; preds = %82
   %.0..0..0..0.13 = load volatile ptr, ptr %7, align 8
   call void @except_rethrow(ptr noundef %.0..0..0..0.13) #11
   unreachable
 
-87:                                               ; preds = %85, %83
-  %88 = getelementptr inbounds i8, ptr %10, i64 40
-  %89 = load volatile ptr, ptr %88, align 8
-  call void @except_free(ptr noundef %89) #9
-  %90 = call ptr @except_pop() #9
+84:                                               ; preds = %82, %80
+  %85 = getelementptr inbounds i8, ptr %10, i64 40
+  %86 = load volatile ptr, ptr %85, align 8
+  call void @except_free(ptr noundef %86) #9
+  %87 = call ptr @except_pop() #9
   br label %.critedge
 
-91:                                               ; preds = %54
-  %92 = call ptr @wmem_file_scope() #9
-  %93 = load i32, ptr @proto_rpcordma, align 4
-  %94 = call ptr @p_get_proto_data(ptr noundef %92, ptr noundef nonnull %1, i32 noundef %93, i32 noundef 0) #9
-  %.not161 = icmp eq ptr %94, null
-  br i1 %.not161, label %.critedge, label %95
+88:                                               ; preds = %54
+  %89 = call ptr @wmem_file_scope() #9
+  %90 = load i32, ptr @proto_rpcordma, align 4
+  %91 = call ptr @p_get_proto_data(ptr noundef %89, ptr noundef nonnull %1, i32 noundef %90, i32 noundef 0) #9
+  %.not161 = icmp eq ptr %91, null
+  br i1 %.not161, label %.critedge, label %92
 
-95:                                               ; preds = %91
-  %96 = load ptr, ptr %41, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 50
-  %98 = load i16, ptr %97, align 2
-  %99 = and i16 %98, 8
-  %100 = and i16 %98, -9
-  store i16 %100, ptr %97, align 2
-  %101 = load i32, ptr %94, align 4
-  %102 = call fastcc ptr @end_reassembly(i32 noundef %101, ptr noundef null, ptr noundef nonnull %1)
-  %103 = load ptr, ptr %41, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 50
-  %105 = load i16, ptr %104, align 2
-  %106 = and i16 %105, -9
-  %107 = or disjoint i16 %106, %99
-  store i16 %107, ptr %104, align 2
+92:                                               ; preds = %88
+  %93 = load ptr, ptr %41, align 8
+  %94 = getelementptr inbounds i8, ptr %93, i64 50
+  %95 = load i16, ptr %94, align 2
+  %96 = and i16 %95, 8
+  %97 = and i16 %95, -9
+  store i16 %97, ptr %94, align 2
+  %98 = load i32, ptr %91, align 4
+  %99 = call fastcc ptr @end_reassembly(i32 noundef %98, ptr noundef null, ptr noundef nonnull %1)
+  %100 = load ptr, ptr %41, align 8
+  %101 = getelementptr inbounds i8, ptr %100, i64 50
+  %102 = load i16, ptr %101, align 2
+  %103 = and i16 %102, -9
+  %104 = or disjoint i16 %103, %96
+  store i16 %104, ptr %101, align 2
   br label %.critedge
 
-.critedge:                                        ; preds = %49, %95, %91, %87
+.critedge:                                        ; preds = %49, %92, %88, %84
   %.0..0..0..0.77 = load volatile ptr, ptr %5, align 8
-  %108 = call fastcc ptr @process_rdma_lists(ptr noundef %.0..0..0..0.77, i32 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %1, ptr noundef %2)
+  %105 = call fastcc ptr @process_rdma_lists(ptr noundef %.0..0..0..0.77, i32 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %1, ptr noundef %2)
   store ptr null, ptr @gp_rdma_write_offsets, align 8
-  br i1 %48, label %111, label %109
+  br i1 %48, label %108, label %106
 
-109:                                              ; preds = %.critedge
+106:                                              ; preds = %.critedge
   %.0..0..0..0.78 = load volatile ptr, ptr %5, align 8
-  %110 = call i32 @call_data_dissector(ptr noundef %.0..0..0..0.78, ptr noundef nonnull %1, ptr noundef %2) #9
-  br label %161
+  %107 = call i32 @call_data_dissector(ptr noundef %.0..0..0..0.78, ptr noundef nonnull %1, ptr noundef %2) #9
+  br label %155
 
-111:                                              ; preds = %.critedge
-  %.not163 = icmp eq ptr %108, null
-  br i1 %.not163, label %113, label %112
+108:                                              ; preds = %.critedge
+  %.not163 = icmp eq ptr %105, null
+  br i1 %.not163, label %110, label %109
 
-112:                                              ; preds = %111
-  store volatile ptr %108, ptr %5, align 8
-  br label %113
+109:                                              ; preds = %108
+  store volatile ptr %105, ptr %5, align 8
+  br label %110
 
-113:                                              ; preds = %111, %112
-  %114 = load ptr, ptr @rpc_handler, align 8
+110:                                              ; preds = %108, %109
+  %111 = load ptr, ptr @rpc_handler, align 8
   %.0..0..0..0.79 = load volatile ptr, ptr %5, align 8
-  %115 = call i32 @call_dissector(ptr noundef %114, ptr noundef %.0..0..0..0.79, ptr noundef nonnull %1, ptr noundef %2) #9
-  br label %162
+  %112 = call i32 @call_dissector(ptr noundef %111, ptr noundef %.0..0..0..0.79, ptr noundef nonnull %1, ptr noundef %2) #9
+  br label %156
 
-116:                                              ; preds = %15
-  %117 = call fastcc i32 @parse_rdma_header(ptr noundef %0, i32 noundef 16, ptr noundef %25, ptr noundef nonnull %6)
-  %118 = getelementptr inbounds i8, ptr %1, i64 80
-  %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 50
-  %121 = load i16, ptr %120, align 2
-  %122 = and i16 %121, 8
-  %.not149 = icmp eq i16 %122, 0
-  %123 = call fastcc ptr @get_reassembled_data(ptr noundef %0, i32 noundef %117, ptr noundef nonnull %1, ptr noundef %2)
-  br i1 %.not149, label %125, label %124
+113:                                              ; preds = %15
+  %114 = call fastcc i32 @parse_rdma_header(ptr noundef %0, i32 noundef 16, ptr noundef %25, ptr noundef nonnull %6)
+  %115 = getelementptr inbounds i8, ptr %1, i64 80
+  %116 = load ptr, ptr %115, align 8
+  %117 = getelementptr inbounds i8, ptr %116, i64 50
+  %118 = load i16, ptr %117, align 2
+  %119 = and i16 %118, 8
+  %.not149 = icmp eq i16 %119, 0
+  %120 = call fastcc ptr @get_reassembled_data(ptr noundef %0, i32 noundef %114, ptr noundef nonnull %1, ptr noundef %2)
+  %.not.i = icmp eq ptr %120, null
+  %or.cond164 = select i1 %.not149, i1 %.not.i, i1 false
+  br i1 %or.cond164, label %121, label %process_rdma_lists.exit
 
-124:                                              ; preds = %116
-  store volatile ptr %123, ptr %5, align 8
-  br label %136
-
-125:                                              ; preds = %116
-  %.not.i = icmp eq ptr %123, null
-  br i1 %.not.i, label %126, label %process_rdma_lists.exit
-
-126:                                              ; preds = %125
-  %127 = load ptr, ptr %6, align 8
-  %128 = call fastcc ptr @process_rdma_list(ptr noundef %0, i32 noundef %117, ptr noundef %127, ptr noundef nonnull %1, ptr noundef %2)
-  %129 = getelementptr inbounds i8, ptr %6, i64 16
-  %130 = load ptr, ptr %129, align 8
-  %131 = call fastcc ptr @process_rdma_list(ptr noundef %0, i32 noundef %117, ptr noundef %130, ptr noundef nonnull %1, ptr noundef %2)
-  %132 = getelementptr inbounds i8, ptr %6, i64 8
-  %133 = load ptr, ptr %132, align 8
-  %134 = call fastcc ptr @process_rdma_list(ptr noundef %0, i32 noundef %117, ptr noundef %133, ptr noundef nonnull %1, ptr noundef %2)
-  %.not29.i = icmp eq ptr %131, null
-  %.not30.i = icmp eq ptr %134, null
-  %135 = select i1 %.not29.i, ptr %134, ptr null
-  %spec.select.i = select i1 %.not30.i, ptr %131, ptr %135
+121:                                              ; preds = %113
+  %122 = load ptr, ptr %6, align 8
+  %123 = call fastcc ptr @process_rdma_list(ptr noundef %0, i32 noundef %114, ptr noundef %122, ptr noundef nonnull %1, ptr noundef %2)
+  %124 = getelementptr inbounds i8, ptr %6, i64 16
+  %125 = load ptr, ptr %124, align 8
+  %126 = call fastcc ptr @process_rdma_list(ptr noundef %0, i32 noundef %114, ptr noundef %125, ptr noundef nonnull %1, ptr noundef %2)
+  %127 = getelementptr inbounds i8, ptr %6, i64 8
+  %128 = load ptr, ptr %127, align 8
+  %129 = call fastcc ptr @process_rdma_list(ptr noundef %0, i32 noundef %114, ptr noundef %128, ptr noundef nonnull %1, ptr noundef %2)
+  %.not29.i = icmp eq ptr %126, null
+  %.not30.i = icmp eq ptr %129, null
+  %130 = select i1 %.not29.i, ptr %129, ptr null
+  %spec.select.i = select i1 %.not30.i, ptr %126, ptr %130
   br label %process_rdma_lists.exit
 
-process_rdma_lists.exit:                          ; preds = %125, %126
-  %.0.i = phi ptr [ %spec.select.i, %126 ], [ %123, %125 ]
-  store volatile ptr %.0.i, ptr %5, align 8
-  br label %136
-
-136:                                              ; preds = %process_rdma_lists.exit, %124
+process_rdma_lists.exit:                          ; preds = %121, %113
+  %.0.i.sink = phi ptr [ %120, %113 ], [ %spec.select.i, %121 ]
+  store volatile ptr %.0.i.sink, ptr %5, align 8
   %.0..0..0..0.80 = load volatile ptr, ptr %5, align 8
   %.not150 = icmp eq ptr %.0..0..0..0.80, null
-  br i1 %.not150, label %161, label %137
+  br i1 %.not150, label %155, label %131
 
-137:                                              ; preds = %136
-  %138 = load ptr, ptr @rpc_handler, align 8
+131:                                              ; preds = %process_rdma_lists.exit
+  %132 = load ptr, ptr @rpc_handler, align 8
   %.0..0..0..0.81 = load volatile ptr, ptr %5, align 8
-  %139 = call i32 @call_dissector(ptr noundef %138, ptr noundef %.0..0..0..0.81, ptr noundef nonnull %1, ptr noundef %2) #9
-  br label %161
+  %133 = call i32 @call_dissector(ptr noundef %132, ptr noundef %.0..0..0..0.81, ptr noundef nonnull %1, ptr noundef %2) #9
+  br label %155
 
-140:                                              ; preds = %15
-  %141 = load i32, ptr @hf_rpcordma_rdma_align, align 4
-  %142 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %141, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
-  %143 = load i32, ptr @hf_rpcordma_rdma_thresh, align 4
-  %144 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %143, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %145 = call fastcc i32 @parse_rdma_header(ptr noundef %0, i32 noundef 24, ptr noundef %25, ptr noundef nonnull %6)
-  call void @proto_item_set_len(ptr noundef %23, i32 noundef %145) #9
-  %146 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %145) #9
-  store volatile ptr %146, ptr %5, align 8
-  %147 = load ptr, ptr @rpc_handler, align 8
+134:                                              ; preds = %15
+  %135 = load i32, ptr @hf_rpcordma_rdma_align, align 4
+  %136 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %135, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
+  %137 = load i32, ptr @hf_rpcordma_rdma_thresh, align 4
+  %138 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %137, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %139 = call fastcc i32 @parse_rdma_header(ptr noundef %0, i32 noundef 24, ptr noundef %25, ptr noundef nonnull %6)
+  call void @proto_item_set_len(ptr noundef %23, i32 noundef %139) #9
+  %140 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %139) #9
+  store volatile ptr %140, ptr %5, align 8
+  %141 = load ptr, ptr @rpc_handler, align 8
   %.0..0..0..0.82 = load volatile ptr, ptr %5, align 8
-  %148 = call i32 @call_dissector(ptr noundef %147, ptr noundef %.0..0..0..0.82, ptr noundef nonnull %1, ptr noundef %2) #9
-  br label %162
+  %142 = call i32 @call_dissector(ptr noundef %141, ptr noundef %.0..0..0..0.82, ptr noundef nonnull %1, ptr noundef %2) #9
+  br label %156
 
-149:                                              ; preds = %15
-  %150 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16) #9
-  %151 = load i32, ptr @hf_rpcordma_errcode, align 4
-  %152 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %151, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
-  switch i32 %150, label %158 [
-    i32 1, label %153
-    i32 2, label %161
+143:                                              ; preds = %15
+  %144 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16) #9
+  %145 = load i32, ptr @hf_rpcordma_errcode, align 4
+  %146 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %145, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
+  switch i32 %144, label %152 [
+    i32 1, label %147
+    i32 2, label %155
   ]
 
-153:                                              ; preds = %149
-  %154 = load i32, ptr @hf_rpcordma_vers_low, align 4
-  %155 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %154, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %156 = load i32, ptr @hf_rpcordma_vers_high, align 4
-  %157 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %156, ptr noundef %0, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
-  br label %161
+147:                                              ; preds = %143
+  %148 = load i32, ptr @hf_rpcordma_vers_low, align 4
+  %149 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %148, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
+  %150 = load i32, ptr @hf_rpcordma_vers_high, align 4
+  %151 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %150, ptr noundef %0, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
+  br label %155
 
-158:                                              ; preds = %149
+152:                                              ; preds = %143
   call void @proto_item_set_len(ptr noundef %23, i32 noundef 20) #9
-  %159 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 20) #9
-  store volatile ptr %159, ptr %5, align 8
+  %153 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 20) #9
+  store volatile ptr %153, ptr %5, align 8
   %.0..0..0..0.83 = load volatile ptr, ptr %5, align 8
-  %160 = call i32 @call_data_dissector(ptr noundef %.0..0..0..0.83, ptr noundef nonnull %1, ptr noundef %2) #9
-  br label %162
+  %154 = call i32 @call_data_dissector(ptr noundef %.0..0..0..0.83, ptr noundef nonnull %1, ptr noundef %2) #9
+  br label %156
 
-161:                                              ; preds = %153, %149, %136, %137, %109, %15
-  %.0145 = phi i32 [ 16, %15 ], [ 20, %149 ], [ 28, %153 ], [ %117, %137 ], [ %117, %136 ], [ %35, %109 ]
+155:                                              ; preds = %147, %143, %process_rdma_lists.exit, %131, %106, %15
+  %.0145 = phi i32 [ 16, %15 ], [ 20, %143 ], [ 28, %147 ], [ %114, %131 ], [ %114, %process_rdma_lists.exit ], [ %35, %106 ]
   call void @proto_item_set_len(ptr noundef %23, i32 noundef %.0145) #9
-  br label %162
+  br label %156
 
-162:                                              ; preds = %40, %13, %4, %161, %158, %140, %113, %37
-  %.0 = phi i32 [ %.0145, %161 ], [ %160, %158 ], [ %148, %140 ], [ %39, %37 ], [ %115, %113 ], [ 0, %4 ], [ 0, %13 ], [ 0, %40 ]
+156:                                              ; preds = %40, %13, %4, %155, %152, %134, %110, %37
+  %.0 = phi i32 [ %.0145, %155 ], [ %154, %152 ], [ %142, %134 ], [ %39, %37 ], [ %112, %110 ], [ 0, %4 ], [ 0, %13 ], [ 0, %40 ]
   ret i32 %.0
 }
 

@@ -1167,8 +1167,6 @@ vaarg.end13:                                      ; preds = %vaarg.in_mem9, %vaa
   %vaarg.addr14 = phi ptr [ %11, %vaarg.in_reg7 ], [ %overflow_arg_area11, %vaarg.in_mem9 ]
   %15 = load i32, ptr %vaarg.addr14, align 4
   %call = call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_marshal(ptr noundef nonnull %out_iovec, i32 noundef 1, i64 noundef 8, i32 noundef 0, ptr noundef nonnull @.str.10, ptr noundef %14, i32 noundef %15) #19
-  %conv = trunc i64 %call to i32
-  store i32 %conv, ptr %retval1, align 4
   br label %sw.epilog
 
 sw.bb21:                                          ; preds = %if.end
@@ -1286,8 +1284,6 @@ vaarg.end80:                                      ; preds = %vaarg.in_mem76, %va
   %vaarg.addr81 = phi ptr [ %48, %vaarg.in_reg74 ], [ %overflow_arg_area78, %vaarg.in_mem76 ]
   %58 = load i32, ptr %vaarg.addr81, align 4
   %call82 = call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_marshal(ptr noundef nonnull %out_iovec, i32 noundef 1, i64 noundef 8, i32 noundef 0, ptr noundef nonnull @.str.11, ptr noundef %56, i32 noundef %55, i32 noundef %57, i32 noundef %54, i32 noundef %58) #19
-  %conv83 = trunc i64 %call82 to i32
-  store i32 %conv83, ptr %retval1, align 4
   br label %sw.epilog
 
 sw.bb90:                                          ; preds = %if.end
@@ -1405,8 +1401,6 @@ vaarg.end149:                                     ; preds = %vaarg.in_mem145, %v
   %vaarg.addr150 = phi ptr [ %91, %vaarg.in_reg143 ], [ %overflow_arg_area147, %vaarg.in_mem145 ]
   %101 = load i32, ptr %vaarg.addr150, align 4
   %call151 = call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_marshal(ptr noundef nonnull %out_iovec, i32 noundef 1, i64 noundef 8, i32 noundef 0, ptr noundef nonnull @.str.12, i32 noundef %97, i32 noundef %101, ptr noundef %99, i32 noundef %98, i64 noundef %100) #19
-  %conv152 = trunc i64 %call151 to i32
-  store i32 %conv152, ptr %retval1, align 4
   br label %sw.epilog
 
 sw.bb159:                                         ; preds = %if.end
@@ -1500,8 +1494,6 @@ vaarg.end206:                                     ; preds = %vaarg.in_mem202, %v
   %vaarg.addr207 = phi ptr [ %125, %vaarg.in_reg200 ], [ %overflow_arg_area204, %vaarg.in_mem202 ]
   %133 = load i32, ptr %vaarg.addr207, align 4
   %call208 = call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_marshal(ptr noundef nonnull %out_iovec, i32 noundef 1, i64 noundef 8, i32 noundef 0, ptr noundef nonnull @.str.13, i32 noundef %130, i32 noundef %133, ptr noundef %131, i32 noundef %132) #19
-  %conv209 = trunc i64 %call208 to i32
-  store i32 %conv209, ptr %retval1, align 4
   br label %sw.epilog
 
 sw.bb216:                                         ; preds = %if.end
@@ -1595,8 +1587,6 @@ vaarg.end263:                                     ; preds = %vaarg.in_mem259, %v
   %vaarg.addr264 = phi ptr [ %157, %vaarg.in_reg257 ], [ %overflow_arg_area261, %vaarg.in_mem259 ]
   %165 = load i32, ptr %vaarg.addr264, align 4
   %call265 = call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_marshal(ptr noundef nonnull %out_iovec, i32 noundef 1, i64 noundef 8, i32 noundef 0, ptr noundef nonnull @.str.14, i32 noundef %162, i32 noundef %165, ptr noundef %163, ptr noundef %164) #19
-  %conv266 = trunc i64 %call265 to i32
-  store i32 %conv266, ptr %retval1, align 4
   br label %sw.epilog
 
 sw.bb273:                                         ; preds = %if.end
@@ -1645,8 +1635,6 @@ vaarg.end296:                                     ; preds = %vaarg.in_mem292, %v
   %vaarg.addr297 = phi ptr [ %174, %vaarg.in_reg290 ], [ %overflow_arg_area294, %vaarg.in_mem292 ]
   %178 = load ptr, ptr %vaarg.addr297, align 8
   %call298 = call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_marshal(ptr noundef nonnull %out_iovec, i32 noundef 1, i64 noundef 8, i32 noundef 0, ptr noundef nonnull @.str.15, ptr noundef %177, ptr noundef %178) #19
-  %conv299 = trunc i64 %call298 to i32
-  store i32 %conv299, ptr %retval1, align 4
   br label %sw.epilog
 
 sw.bb306:                                         ; preds = %if.end
@@ -1674,8 +1662,6 @@ vaarg.end317:                                     ; preds = %vaarg.in_mem313, %v
   %vaarg.addr318 = phi ptr [ %181, %vaarg.in_reg311 ], [ %overflow_arg_area315, %vaarg.in_mem313 ]
   %183 = load ptr, ptr %vaarg.addr318, align 8
   %call319 = call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_marshal(ptr noundef nonnull %out_iovec, i32 noundef 1, i64 noundef 8, i32 noundef 0, ptr noundef nonnull @.str.16, ptr noundef %183) #19
-  %conv320 = trunc i64 %call319 to i32
-  store i32 %conv320, ptr %retval1, align 4
   br label %sw.epilog
 
 sw.bb327:                                         ; preds = %if.end
@@ -1724,8 +1710,6 @@ vaarg.end350:                                     ; preds = %vaarg.in_mem346, %v
   %vaarg.addr351 = phi ptr [ %192, %vaarg.in_reg344 ], [ %overflow_arg_area348, %vaarg.in_mem346 ]
   %196 = load i32, ptr %vaarg.addr351, align 4
   %call352 = call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_marshal(ptr noundef nonnull %out_iovec, i32 noundef 1, i64 noundef 8, i32 noundef 0, ptr noundef nonnull @.str.10, ptr noundef %195, i32 noundef %196) #19
-  %conv353 = trunc i64 %call352 to i32
-  store i32 %conv353, ptr %retval1, align 4
   br label %sw.epilog
 
 sw.bb360:                                         ; preds = %if.end
@@ -1753,8 +1737,6 @@ vaarg.end371:                                     ; preds = %vaarg.in_mem367, %v
   %vaarg.addr372 = phi ptr [ %199, %vaarg.in_reg365 ], [ %overflow_arg_area369, %vaarg.in_mem367 ]
   %201 = load ptr, ptr %vaarg.addr372, align 8
   %call373 = call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_marshal(ptr noundef nonnull %out_iovec, i32 noundef 1, i64 noundef 8, i32 noundef 0, ptr noundef nonnull @.str.16, ptr noundef %201) #19
-  %conv374 = trunc i64 %call373 to i32
-  store i32 %conv374, ptr %retval1, align 4
   br label %sw.epilog
 
 sw.bb381:                                         ; preds = %if.end
@@ -1803,8 +1785,6 @@ vaarg.end404:                                     ; preds = %vaarg.in_mem400, %v
   %vaarg.addr405 = phi ptr [ %210, %vaarg.in_reg398 ], [ %overflow_arg_area402, %vaarg.in_mem400 ]
   %214 = load i32, ptr %vaarg.addr405, align 4
   %call406 = call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_marshal(ptr noundef nonnull %out_iovec, i32 noundef 1, i64 noundef 8, i32 noundef 0, ptr noundef nonnull @.str.10, ptr noundef %213, i32 noundef %214) #19
-  %conv407 = trunc i64 %call406 to i32
-  store i32 %conv407, ptr %retval1, align 4
   br label %sw.epilog
 
 sw.bb414:                                         ; preds = %if.end
@@ -1875,8 +1855,6 @@ vaarg.end449:                                     ; preds = %vaarg.in_mem445, %v
   %vaarg.addr450 = phi ptr [ %230, %vaarg.in_reg443 ], [ %overflow_arg_area447, %vaarg.in_mem445 ]
   %236 = load i32, ptr %vaarg.addr450, align 4
   %call451 = call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_marshal(ptr noundef nonnull %out_iovec, i32 noundef 1, i64 noundef 8, i32 noundef 0, ptr noundef nonnull @.str.17, ptr noundef %235, i32 noundef %234, i32 noundef %236) #19
-  %conv452 = trunc i64 %call451 to i32
-  store i32 %conv452, ptr %retval1, align 4
   br label %sw.epilog
 
 sw.bb459:                                         ; preds = %if.end
@@ -1925,8 +1903,6 @@ vaarg.end482:                                     ; preds = %vaarg.in_mem478, %v
   %vaarg.addr483 = phi ptr [ %245, %vaarg.in_reg476 ], [ %overflow_arg_area480, %vaarg.in_mem478 ]
   %249 = load i64, ptr %vaarg.addr483, align 8
   %call484 = call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_marshal(ptr noundef nonnull %out_iovec, i32 noundef 1, i64 noundef 8, i32 noundef 0, ptr noundef nonnull @.str.18, ptr noundef %248, i64 noundef %249) #19
-  %conv485 = trunc i64 %call484 to i32
-  store i32 %conv485, ptr %retval1, align 4
   br label %sw.epilog
 
 sw.bb492:                                         ; preds = %if.end
@@ -2035,8 +2011,6 @@ vaarg.end554:                                     ; preds = %vaarg.in_mem550, %v
   %vaarg.addr555 = phi ptr [ %276, %vaarg.in_reg548 ], [ %overflow_arg_area552, %vaarg.in_mem550 ]
   %284 = load i64, ptr %vaarg.addr555, align 8
   %call566 = call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_marshal(ptr noundef nonnull %out_iovec, i32 noundef 1, i64 noundef 8, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef %283, i64 noundef %282, i64 noundef %284, i64 noundef %281, i64 noundef %284) #19
-  %conv567 = trunc i64 %call566 to i32
-  store i32 %conv567, ptr %retval1, align 4
   br label %sw.epilog
 
 sw.bb574:                                         ; preds = %if.end
@@ -2085,8 +2059,6 @@ vaarg.end597:                                     ; preds = %vaarg.in_mem593, %v
   %vaarg.addr598 = phi ptr [ %293, %vaarg.in_reg591 ], [ %overflow_arg_area595, %vaarg.in_mem593 ]
   %297 = load ptr, ptr %vaarg.addr598, align 8
   %call599 = call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_marshal(ptr noundef nonnull %out_iovec, i32 noundef 1, i64 noundef 8, i32 noundef 0, ptr noundef nonnull @.str.15, ptr noundef %296, ptr noundef %297) #19
-  %conv600 = trunc i64 %call599 to i32
-  store i32 %conv600, ptr %retval1, align 4
   br label %sw.epilog
 
 sw.bb607:                                         ; preds = %if.end
@@ -2114,8 +2086,6 @@ vaarg.end618:                                     ; preds = %vaarg.in_mem614, %v
   %vaarg.addr619 = phi ptr [ %300, %vaarg.in_reg612 ], [ %overflow_arg_area616, %vaarg.in_mem614 ]
   %302 = load ptr, ptr %vaarg.addr619, align 8
   %call620 = call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_marshal(ptr noundef nonnull %out_iovec, i32 noundef 1, i64 noundef 8, i32 noundef 0, ptr noundef nonnull @.str.16, ptr noundef %302) #19
-  %conv621 = trunc i64 %call620 to i32
-  store i32 %conv621, ptr %retval1, align 4
   br label %sw.epilog
 
 sw.bb628:                                         ; preds = %if.end
@@ -2186,8 +2156,6 @@ vaarg.end663:                                     ; preds = %vaarg.in_mem659, %v
   %vaarg.addr664 = phi ptr [ %318, %vaarg.in_reg657 ], [ %overflow_arg_area661, %vaarg.in_mem659 ]
   %324 = load ptr, ptr %vaarg.addr664, align 8
   %call665 = call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_marshal(ptr noundef nonnull %out_iovec, i32 noundef 1, i64 noundef 8, i32 noundef 0, ptr noundef nonnull @.str.20, i32 noundef %323, ptr noundef %322, ptr noundef %324) #19
-  %conv666 = trunc i64 %call665 to i32
-  store i32 %conv666, ptr %retval1, align 4
   br label %sw.epilog
 
 sw.bb673:                                         ; preds = %if.end
@@ -2236,8 +2204,6 @@ vaarg.end696:                                     ; preds = %vaarg.in_mem692, %v
   %vaarg.addr697 = phi ptr [ %333, %vaarg.in_reg690 ], [ %overflow_arg_area694, %vaarg.in_mem692 ]
   %337 = load ptr, ptr %vaarg.addr697, align 8
   %call698 = call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_marshal(ptr noundef nonnull %out_iovec, i32 noundef 1, i64 noundef 8, i32 noundef 0, ptr noundef nonnull @.str.21, i32 noundef %336, ptr noundef %337) #19
-  %conv699 = trunc i64 %call698 to i32
-  store i32 %conv699, ptr %retval1, align 4
   br label %sw.epilog
 
 sw.bb706:                                         ; preds = %if.end
@@ -2355,8 +2321,6 @@ vaarg.end765:                                     ; preds = %vaarg.in_mem761, %v
   %vaarg.addr766 = phi ptr [ %370, %vaarg.in_reg759 ], [ %overflow_arg_area763, %vaarg.in_mem761 ]
   %380 = load i32, ptr %vaarg.addr766, align 4
   %call767 = call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_marshal(ptr noundef nonnull %out_iovec, i32 noundef 1, i64 noundef 8, i32 noundef 0, ptr noundef nonnull @.str.22, ptr noundef %378, ptr noundef %377, ptr noundef %379, i32 noundef %376, i32 noundef %380) #19
-  %conv768 = trunc i64 %call767 to i32
-  store i32 %conv768, ptr %retval1, align 4
   br label %sw.epilog
 
 sw.bb775:                                         ; preds = %if.end
@@ -2405,8 +2369,6 @@ vaarg.end798:                                     ; preds = %vaarg.in_mem794, %v
   %vaarg.addr799 = phi ptr [ %389, %vaarg.in_reg792 ], [ %overflow_arg_area796, %vaarg.in_mem794 ]
   %393 = load ptr, ptr %vaarg.addr799, align 8
   %call800 = call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_marshal(ptr noundef nonnull %out_iovec, i32 noundef 1, i64 noundef 8, i32 noundef 0, ptr noundef nonnull @.str.15, ptr noundef %392, ptr noundef %393) #19
-  %conv801 = trunc i64 %call800 to i32
-  store i32 %conv801, ptr %retval1, align 4
   br label %sw.epilog
 
 sw.bb808:                                         ; preds = %if.end
@@ -2434,23 +2396,23 @@ vaarg.end819:                                     ; preds = %vaarg.in_mem815, %v
   %vaarg.addr820 = phi ptr [ %396, %vaarg.in_reg813 ], [ %overflow_arg_area817, %vaarg.in_mem815 ]
   %398 = load ptr, ptr %vaarg.addr820, align 8
   %call821 = call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_marshal(ptr noundef nonnull %out_iovec, i32 noundef 1, i64 noundef 8, i32 noundef 0, ptr noundef nonnull @.str.16, ptr noundef %398) #19
-  %conv822 = trunc i64 %call821 to i32
-  store i32 %conv822, ptr %retval1, align 4
   br label %sw.epilog
 
 default.unreachable:                              ; preds = %if.end854, %if.end
   unreachable
 
 sw.epilog:                                        ; preds = %vaarg.end819, %vaarg.end798, %vaarg.end765, %vaarg.end696, %vaarg.end663, %vaarg.end618, %vaarg.end597, %vaarg.end554, %vaarg.end482, %vaarg.end449, %vaarg.end404, %vaarg.end371, %vaarg.end350, %vaarg.end317, %vaarg.end296, %vaarg.end263, %vaarg.end206, %vaarg.end149, %vaarg.end80, %vaarg.end13
-  %conv822.sink243 = phi i32 [ %conv822, %vaarg.end819 ], [ %conv801, %vaarg.end798 ], [ %conv768, %vaarg.end765 ], [ %conv699, %vaarg.end696 ], [ %conv666, %vaarg.end663 ], [ %conv621, %vaarg.end618 ], [ %conv600, %vaarg.end597 ], [ %conv567, %vaarg.end554 ], [ %conv485, %vaarg.end482 ], [ %conv452, %vaarg.end449 ], [ %conv407, %vaarg.end404 ], [ %conv374, %vaarg.end371 ], [ %conv353, %vaarg.end350 ], [ %conv320, %vaarg.end317 ], [ %conv299, %vaarg.end296 ], [ %conv266, %vaarg.end263 ], [ %conv209, %vaarg.end206 ], [ %conv152, %vaarg.end149 ], [ %conv83, %vaarg.end80 ], [ %conv, %vaarg.end13 ]
+  %call821.sink = phi i64 [ %call821, %vaarg.end819 ], [ %call800, %vaarg.end798 ], [ %call767, %vaarg.end765 ], [ %call698, %vaarg.end696 ], [ %call665, %vaarg.end663 ], [ %call620, %vaarg.end618 ], [ %call599, %vaarg.end597 ], [ %call566, %vaarg.end554 ], [ %call484, %vaarg.end482 ], [ %call451, %vaarg.end449 ], [ %call406, %vaarg.end404 ], [ %call373, %vaarg.end371 ], [ %call352, %vaarg.end350 ], [ %call319, %vaarg.end317 ], [ %call298, %vaarg.end296 ], [ %call265, %vaarg.end263 ], [ %call208, %vaarg.end206 ], [ %call151, %vaarg.end149 ], [ %call82, %vaarg.end80 ], [ %call, %vaarg.end13 ]
   %size.0 = phi i32 [ 0, %vaarg.end819 ], [ 0, %vaarg.end798 ], [ %376, %vaarg.end765 ], [ %336, %vaarg.end696 ], [ %323, %vaarg.end663 ], [ 0, %vaarg.end618 ], [ 0, %vaarg.end597 ], [ 0, %vaarg.end554 ], [ 0, %vaarg.end482 ], [ 0, %vaarg.end449 ], [ 0, %vaarg.end404 ], [ 0, %vaarg.end371 ], [ %196, %vaarg.end350 ], [ 0, %vaarg.end317 ], [ 0, %vaarg.end296 ], [ 0, %vaarg.end263 ], [ 0, %vaarg.end206 ], [ 0, %vaarg.end149 ], [ 0, %vaarg.end80 ], [ 0, %vaarg.end13 ]
-  %spec.select122 = call i32 @llvm.smax.i32(i32 %conv822.sink243, i32 0)
+  %conv822 = trunc i64 %call821.sink to i32
+  store i32 %conv822, ptr %retval1, align 4
+  %spec.select122 = call i32 @llvm.smax.i32(i32 %conv822, i32 0)
   call void @llvm.va_end.p0(ptr nonnull %ap)
-  %cmp830 = icmp slt i32 %conv822.sink243, 0
+  %cmp830 = icmp slt i32 %conv822, 0
   br i1 %cmp830, label %err_out, label %if.end833
 
 if.end833:                                        ; preds = %sw.epilog
-  %cmp823.not = icmp eq i32 %conv822.sink243, 0
+  %cmp823.not = icmp eq i32 %conv822, 0
   %spec.select123 = select i1 %cmp823.not, i32 0, i32 %type
   %call836 = call i64 (ptr, i32, i64, i32, ptr, ...) @v9fs_iov_marshal(ptr noundef nonnull %out_iovec, i32 noundef 1, i64 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.24, i32 noundef %spec.select123, i32 noundef %spec.select122) #19
   %399 = and i64 %call836, 4294967295

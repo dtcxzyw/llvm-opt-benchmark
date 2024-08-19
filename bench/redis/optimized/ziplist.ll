@@ -2584,7 +2584,7 @@ if.then.i17:                                      ; preds = %if.then5
 
 if.then4.i24:                                     ; preds = %if.then.i17
   %tobool.not.i25 = icmp eq ptr %p, null
-  br i1 %tobool.not.i25, label %zipStoreEntryEncoding.exit28.thread, label %if.end.i26
+  br i1 %tobool.not.i25, label %if.then11, label %if.end.i26
 
 if.end.i26:                                       ; preds = %if.then4.i24
   %conv7.i = trunc nuw nsw i32 %slen to i8
@@ -2597,7 +2597,7 @@ if.else.i19:                                      ; preds = %if.then.i17
   br i1 %cmp8.i20, label %if.then10.i23, label %if.else24.i21
 
 if.then10.i23:                                    ; preds = %if.else.i19
-  br i1 %tobool13.not.i, label %zipStoreEntryEncoding.exit28.thread, label %if.end16.i
+  br i1 %tobool13.not.i, label %if.then11, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.then10.i23
   %shr.i = lshr i32 %slen, 8
@@ -2610,7 +2610,7 @@ if.end16.i:                                       ; preds = %if.then10.i23
   br label %zipStoreEntryEncoding.exit28.thread95
 
 if.else24.i21:                                    ; preds = %if.else.i19
-  br i1 %tobool13.not.i, label %zipStoreEntryEncoding.exit28.thread, label %if.end31.i
+  br i1 %tobool13.not.i, label %if.then11, label %if.end31.i
 
 if.end31.i:                                       ; preds = %if.else24.i21
   store i8 -128, ptr %buf.i, align 1
@@ -2633,36 +2633,27 @@ if.end31.i:                                       ; preds = %if.else24.i21
 
 if.else50.i27:                                    ; preds = %if.then5
   %tobool51.not.i = icmp eq ptr %p, null
-  br i1 %tobool51.not.i, label %zipStoreEntryEncoding.exit28.thread87, label %zipStoreEntryEncoding.exit28
-
-zipStoreEntryEncoding.exit28.thread87:            ; preds = %if.else50.i27
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i)
-  br label %if.else13
-
-zipStoreEntryEncoding.exit28.thread:              ; preds = %if.then4.i24, %if.then10.i23, %if.else24.i21
-  %retval.0.i22.ph = phi i64 [ 5, %if.else24.i21 ], [ 2, %if.then10.i23 ], [ 1, %if.then4.i24 ]
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i)
-  br label %if.then11
+  br i1 %tobool51.not.i, label %if.else13, label %zipStoreEntryEncoding.exit28
 
 zipStoreEntryEncoding.exit28.thread95:            ; preds = %if.end.i26, %if.end16.i, %if.end31.i
   %len.0.i.ph = phi i64 [ 5, %if.end31.i ], [ 2, %if.end16.i ], [ 1, %if.end.i26 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %buf.i, i64 %len.0.i.ph, i1 false)
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i)
   br label %if.then11
 
 zipStoreEntryEncoding.exit28:                     ; preds = %if.else50.i27
   store i8 %encoding.04670, ptr %add.ptr, align 1
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i)
   br label %if.else13
 
-if.then11:                                        ; preds = %zipStoreEntryEncoding.exit28.thread95, %zipStoreEntryEncoding.exit28.thread
-  %retval.0.i22.ph.pn = phi i64 [ %retval.0.i22.ph, %zipStoreEntryEncoding.exit28.thread ], [ %len.0.i.ph, %zipStoreEntryEncoding.exit28.thread95 ]
+if.then11:                                        ; preds = %if.else24.i21, %if.then10.i23, %if.then4.i24, %zipStoreEntryEncoding.exit28.thread95
+  %retval.0.i22.ph.pn = phi i64 [ %len.0.i.ph, %zipStoreEntryEncoding.exit28.thread95 ], [ 5, %if.else24.i21 ], [ 2, %if.then10.i23 ], [ 1, %if.then4.i24 ]
+  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i)
   %add.ptr886 = getelementptr inbounds i8, ptr %add.ptr, i64 %retval.0.i22.ph.pn
   %conv12 = zext i32 %slen to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr886, ptr align 1 %s, i64 %conv12, i1 false)
   br label %if.end18
 
-if.else13:                                        ; preds = %zipStoreEntryEncoding.exit28, %zipStoreEntryEncoding.exit28.thread87
+if.else13:                                        ; preds = %if.else50.i27, %zipStoreEntryEncoding.exit28
+  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i)
   %add.ptr893 = getelementptr inbounds i8, ptr %add.ptr, i64 1
   switch i8 %encoding.04670, label %if.else25.i [
     i8 -2, label %if.then.i31

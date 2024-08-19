@@ -697,17 +697,12 @@ define hidden noundef align 8 ptr @"_ZN17meilisearch_types4keys1_80_$LT$impl$u20
   %68 = load i8, ptr %25, align 8, !range !223, !noundef !36
   %.val = load ptr, ptr %67, align 8
   call fastcc void @"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17hac6a5b9046846297E"(ptr %.val, i8 noundef %68)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br label %69
+  br label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h23738a11aec11490E.exit.thread"
 
-69:                                               ; preds = %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h23738a11aec11490E.exit.thread", %66
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h23738a11aec11490E.exit.thread" ], [ null, %66 ]
+"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h23738a11aec11490E.exit.thread": ; preds = %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h23738a11aec11490E.exit", %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h23738a11aec11490E.exit63", %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h26f4cea3215bd1b9E.exit", %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hfd3bc2bfe838375aE.exit", %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hee440ed410143612E.exit", %26, %32, %37, %43, %48, %54, %58, %62, %66
+  %.sroa.0.1 = phi ptr [ null, %66 ], [ %29, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h23738a11aec11490E.exit" ], [ %35, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h23738a11aec11490E.exit63" ], [ %41, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h26f4cea3215bd1b9E.exit" ], [ %46, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hfd3bc2bfe838375aE.exit" ], [ %52, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hee440ed410143612E.exit" ], [ %27, %26 ], [ %33, %32 ], [ %38, %37 ], [ %44, %43 ], [ %49, %48 ], [ %56, %54 ], [ %60, %58 ], [ %64, %62 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   ret ptr %.sroa.0.1
-
-"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h23738a11aec11490E.exit.thread": ; preds = %62, %58, %54, %48, %43, %37, %32, %26, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hee440ed410143612E.exit", %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hfd3bc2bfe838375aE.exit", %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h26f4cea3215bd1b9E.exit", %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h23738a11aec11490E.exit63", %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h23738a11aec11490E.exit"
-  %.sroa.0.0 = phi ptr [ %29, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h23738a11aec11490E.exit" ], [ %35, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h23738a11aec11490E.exit63" ], [ %41, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h26f4cea3215bd1b9E.exit" ], [ %46, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hfd3bc2bfe838375aE.exit" ], [ %52, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hee440ed410143612E.exit" ], [ %27, %26 ], [ %33, %32 ], [ %38, %37 ], [ %44, %43 ], [ %49, %48 ], [ %56, %54 ], [ %60, %58 ], [ %64, %62 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br label %69
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3733,7 +3728,6 @@ _ZN4time10utc_offset9UtcOffset11is_negative17h6a5446f94c357701E.exit.i: ; preds 
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h3d435a9404f40398E.exit": ; preds = %201, %206, %210
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !2449
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   br label %237
 
 212:                                              ; preds = %"_ZN4time10formatting11formattable130_$LT$impl$u20$time..formatting..formattable..sealed..Sealed$u20$for$u20$time..format_description..well_known..rfc3339..Rfc3339$GT$11format_into17h65e049a1d5606f5cE.exit"
@@ -3805,10 +3799,10 @@ _ZN4time10utc_offset9UtcOffset11is_negative17h6a5446f94c357701E.exit.i: ; preds 
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h3d435a9404f40398E.exit54": ; preds = %"_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17habf7f423134a03adE.exit", %231, %235
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !2471
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   br label %237
 
 237:                                              ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h3d435a9404f40398E.exit54", %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h3d435a9404f40398E.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   ret void
 
 238:                                              ; preds = %197
@@ -3930,7 +3924,6 @@ _ZN10serde_json3ser18format_escaped_str17hb314b7bc3dbee5f7E.exit.i: ; preds = %.
   %44 = call noundef nonnull align 8 ptr @"_ZN62_$LT$serde_json..error..Error$u20$as$u20$serde..ser..Error$GT$6custom17h660d04cd2edae269E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4), !noalias !2538
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %56
 
 45:                                               ; preds = %_ZN10serde_json3ser18format_escaped_str17hb314b7bc3dbee5f7E.exit.i, %35, %20, %19
@@ -3961,11 +3954,11 @@ _ZN10serde_json3ser18format_escaped_str17hb314b7bc3dbee5f7E.exit.i: ; preds = %.
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he66bee07c28499bfE.exit": ; preds = %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hd0c48330401e6b40E.exit", %50, %54
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !2541
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %56
 
 56:                                               ; preds = %43, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he66bee07c28499bfE.exit"
   %.sroa.0.0 = phi ptr [ %44, %43 ], [ %.sroa.0.0.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he66bee07c28499bfE.exit" ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   ret ptr %.sroa.0.0
 
 57:                                               ; preds = %45
@@ -4154,17 +4147,19 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   call void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_str17hb348aec148aacc45E.llvm.2931914954270698119"(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 8 dereferenceable(16) %10, ptr noalias noundef nonnull align 8 dereferenceable(56) %1), !noalias !2606
   %38 = load i8, ptr %10, align 8, !range !2390, !noalias !2598, !noundef !36
   %trunc.i.i.i = trunc nuw i8 %38 to i1
-  br i1 %trunc.i.i.i, label %43, label %39
+  %39 = getelementptr inbounds i8, ptr %10, i64 8
+  %40 = load ptr, ptr %39, align 8, !noalias !2598, !nonnull !36, !align !181
+  %41 = getelementptr inbounds i8, ptr %10, i64 1
+  %42 = load i8, ptr %41, align 1, !range !224, !noalias !2598
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !2598
+  br i1 %trunc.i.i.i, label %45, label %43
 
-default.unreachable:                              ; preds = %39
+default.unreachable:                              ; preds = %43
   unreachable
 
-39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %10, i64 1
-  %41 = load i8, ptr %40, align 1, !range !224, !noalias !2598, !noundef !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !2598
-  %42 = getelementptr inbounds i8, ptr %0, i64 1
-  switch i8 %41, label %default.unreachable [
+43:                                               ; preds = %37
+  %44 = getelementptr inbounds i8, ptr %0, i64 1
+  switch i8 %42, label %default.unreachable [
     i8 0, label %47
     i8 1, label %48
     i8 2, label %49
@@ -4201,148 +4196,145 @@ default.unreachable:                              ; preds = %39
     i8 33, label %80
   ]
 
-43:                                               ; preds = %37
-  %44 = getelementptr inbounds i8, ptr %10, i64 8
-  %45 = load ptr, ptr %44, align 8, !noalias !2598, !nonnull !36, !align !181, !noundef !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !2598
+45:                                               ; preds = %37
   %46 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %45, ptr %46, align 8, !alias.scope !2595, !noalias !2607
+  store ptr %40, ptr %46, align 8, !alias.scope !2595, !noalias !2607
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-47:                                               ; preds = %39
-  store i8 0, ptr %42, align 1, !alias.scope !2595, !noalias !2607
+47:                                               ; preds = %43
+  store i8 0, ptr %44, align 1, !alias.scope !2595, !noalias !2607
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-48:                                               ; preds = %39
-  store i8 1, ptr %42, align 1, !alias.scope !2595, !noalias !2607
+48:                                               ; preds = %43
+  store i8 1, ptr %44, align 1, !alias.scope !2595, !noalias !2607
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-49:                                               ; preds = %39
-  store i8 2, ptr %42, align 1, !alias.scope !2595, !noalias !2607
+49:                                               ; preds = %43
+  store i8 2, ptr %44, align 1, !alias.scope !2595, !noalias !2607
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-50:                                               ; preds = %39
-  store i8 3, ptr %42, align 1, !alias.scope !2595, !noalias !2607
+50:                                               ; preds = %43
+  store i8 3, ptr %44, align 1, !alias.scope !2595, !noalias !2607
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-51:                                               ; preds = %39
-  store i8 4, ptr %42, align 1, !alias.scope !2595, !noalias !2607
+51:                                               ; preds = %43
+  store i8 4, ptr %44, align 1, !alias.scope !2595, !noalias !2607
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-52:                                               ; preds = %39
-  store i8 5, ptr %42, align 1, !alias.scope !2595, !noalias !2607
+52:                                               ; preds = %43
+  store i8 5, ptr %44, align 1, !alias.scope !2595, !noalias !2607
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-53:                                               ; preds = %39
-  store i8 6, ptr %42, align 1, !alias.scope !2595, !noalias !2607
+53:                                               ; preds = %43
+  store i8 6, ptr %44, align 1, !alias.scope !2595, !noalias !2607
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-54:                                               ; preds = %39
-  store i8 7, ptr %42, align 1, !alias.scope !2595, !noalias !2607
+54:                                               ; preds = %43
+  store i8 7, ptr %44, align 1, !alias.scope !2595, !noalias !2607
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-55:                                               ; preds = %39
-  store i8 8, ptr %42, align 1, !alias.scope !2595, !noalias !2607
+55:                                               ; preds = %43
+  store i8 8, ptr %44, align 1, !alias.scope !2595, !noalias !2607
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-56:                                               ; preds = %39
-  store i8 9, ptr %42, align 1, !alias.scope !2595, !noalias !2607
+56:                                               ; preds = %43
+  store i8 9, ptr %44, align 1, !alias.scope !2595, !noalias !2607
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-57:                                               ; preds = %39
-  store i8 10, ptr %42, align 1, !alias.scope !2595, !noalias !2607
+57:                                               ; preds = %43
+  store i8 10, ptr %44, align 1, !alias.scope !2595, !noalias !2607
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-58:                                               ; preds = %39
-  store i8 11, ptr %42, align 1, !alias.scope !2595, !noalias !2607
+58:                                               ; preds = %43
+  store i8 11, ptr %44, align 1, !alias.scope !2595, !noalias !2607
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-59:                                               ; preds = %39
-  store i8 12, ptr %42, align 1, !alias.scope !2595, !noalias !2607
+59:                                               ; preds = %43
+  store i8 12, ptr %44, align 1, !alias.scope !2595, !noalias !2607
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-60:                                               ; preds = %39
-  store i8 13, ptr %42, align 1, !alias.scope !2595, !noalias !2607
+60:                                               ; preds = %43
+  store i8 13, ptr %44, align 1, !alias.scope !2595, !noalias !2607
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-61:                                               ; preds = %39
-  store i8 14, ptr %42, align 1, !alias.scope !2595, !noalias !2607
+61:                                               ; preds = %43
+  store i8 14, ptr %44, align 1, !alias.scope !2595, !noalias !2607
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-62:                                               ; preds = %39
-  store i8 15, ptr %42, align 1, !alias.scope !2595, !noalias !2607
+62:                                               ; preds = %43
+  store i8 15, ptr %44, align 1, !alias.scope !2595, !noalias !2607
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-63:                                               ; preds = %39
-  store i8 16, ptr %42, align 1, !alias.scope !2595, !noalias !2607
+63:                                               ; preds = %43
+  store i8 16, ptr %44, align 1, !alias.scope !2595, !noalias !2607
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-64:                                               ; preds = %39
-  store i8 17, ptr %42, align 1, !alias.scope !2595, !noalias !2607
+64:                                               ; preds = %43
+  store i8 17, ptr %44, align 1, !alias.scope !2595, !noalias !2607
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-65:                                               ; preds = %39
-  store i8 18, ptr %42, align 1, !alias.scope !2595, !noalias !2607
+65:                                               ; preds = %43
+  store i8 18, ptr %44, align 1, !alias.scope !2595, !noalias !2607
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-66:                                               ; preds = %39
-  store i8 19, ptr %42, align 1, !alias.scope !2595, !noalias !2607
+66:                                               ; preds = %43
+  store i8 19, ptr %44, align 1, !alias.scope !2595, !noalias !2607
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-67:                                               ; preds = %39
-  store i8 20, ptr %42, align 1, !alias.scope !2595, !noalias !2607
+67:                                               ; preds = %43
+  store i8 20, ptr %44, align 1, !alias.scope !2595, !noalias !2607
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-68:                                               ; preds = %39
-  store i8 21, ptr %42, align 1, !alias.scope !2595, !noalias !2607
+68:                                               ; preds = %43
+  store i8 21, ptr %44, align 1, !alias.scope !2595, !noalias !2607
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-69:                                               ; preds = %39
-  store i8 22, ptr %42, align 1, !alias.scope !2595, !noalias !2607
+69:                                               ; preds = %43
+  store i8 22, ptr %44, align 1, !alias.scope !2595, !noalias !2607
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-70:                                               ; preds = %39
-  store i8 23, ptr %42, align 1, !alias.scope !2595, !noalias !2607
+70:                                               ; preds = %43
+  store i8 23, ptr %44, align 1, !alias.scope !2595, !noalias !2607
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-71:                                               ; preds = %39
-  store i8 24, ptr %42, align 1, !alias.scope !2595, !noalias !2607
+71:                                               ; preds = %43
+  store i8 24, ptr %44, align 1, !alias.scope !2595, !noalias !2607
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-72:                                               ; preds = %39
-  store i8 25, ptr %42, align 1, !alias.scope !2595, !noalias !2607
+72:                                               ; preds = %43
+  store i8 25, ptr %44, align 1, !alias.scope !2595, !noalias !2607
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-73:                                               ; preds = %39
-  store i8 26, ptr %42, align 1, !alias.scope !2595, !noalias !2607
+73:                                               ; preds = %43
+  store i8 26, ptr %44, align 1, !alias.scope !2595, !noalias !2607
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-74:                                               ; preds = %39
-  store i8 27, ptr %42, align 1, !alias.scope !2595, !noalias !2607
+74:                                               ; preds = %43
+  store i8 27, ptr %44, align 1, !alias.scope !2595, !noalias !2607
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-75:                                               ; preds = %39
-  store i8 28, ptr %42, align 1, !alias.scope !2595, !noalias !2607
+75:                                               ; preds = %43
+  store i8 28, ptr %44, align 1, !alias.scope !2595, !noalias !2607
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-76:                                               ; preds = %39
-  store i8 29, ptr %42, align 1, !alias.scope !2595, !noalias !2607
+76:                                               ; preds = %43
+  store i8 29, ptr %44, align 1, !alias.scope !2595, !noalias !2607
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-77:                                               ; preds = %39
-  store i8 30, ptr %42, align 1, !alias.scope !2595, !noalias !2607
+77:                                               ; preds = %43
+  store i8 30, ptr %44, align 1, !alias.scope !2595, !noalias !2607
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-78:                                               ; preds = %39
-  store i8 31, ptr %42, align 1, !alias.scope !2595, !noalias !2607
+78:                                               ; preds = %43
+  store i8 31, ptr %44, align 1, !alias.scope !2595, !noalias !2607
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-79:                                               ; preds = %39
-  store i8 32, ptr %42, align 1, !alias.scope !2595, !noalias !2607
+79:                                               ; preds = %43
+  store i8 32, ptr %44, align 1, !alias.scope !2595, !noalias !2607
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-80:                                               ; preds = %39
-  store i8 33, ptr %42, align 1, !alias.scope !2595, !noalias !2607
+80:                                               ; preds = %43
+  store i8 33, ptr %44, align 1, !alias.scope !2595, !noalias !2607
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
 81:                                               ; preds = %33
@@ -4508,8 +4500,8 @@ default.unreachable:                              ; preds = %39
   store ptr %139, ptr %140, align 8
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit": ; preds = %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %43, %30, %138, %.loopexit, %135, %111, %.loopexit46, %117
-  %.sink = phi i8 [ 1, %30 ], [ 1, %138 ], [ 1, %.loopexit ], [ 0, %135 ], [ 1, %111 ], [ 1, %.loopexit46 ], [ 1, %117 ], [ 0, %47 ], [ 0, %48 ], [ 0, %49 ], [ 0, %50 ], [ 0, %51 ], [ 0, %52 ], [ 0, %53 ], [ 0, %54 ], [ 0, %55 ], [ 0, %56 ], [ 0, %57 ], [ 0, %58 ], [ 0, %59 ], [ 0, %60 ], [ 0, %61 ], [ 0, %62 ], [ 0, %63 ], [ 0, %64 ], [ 0, %65 ], [ 0, %66 ], [ 0, %67 ], [ 0, %68 ], [ 0, %69 ], [ 0, %70 ], [ 0, %71 ], [ 0, %72 ], [ 0, %73 ], [ 0, %74 ], [ 0, %75 ], [ 0, %76 ], [ 0, %77 ], [ 0, %78 ], [ 0, %79 ], [ 0, %80 ], [ 1, %43 ]
+"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit": ; preds = %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %45, %30, %138, %.loopexit, %135, %111, %.loopexit46, %117
+  %.sink = phi i8 [ 1, %30 ], [ 1, %138 ], [ 1, %.loopexit ], [ 0, %135 ], [ 1, %111 ], [ 1, %.loopexit46 ], [ 1, %117 ], [ 0, %47 ], [ 0, %48 ], [ 0, %49 ], [ 0, %50 ], [ 0, %51 ], [ 0, %52 ], [ 0, %53 ], [ 0, %54 ], [ 0, %55 ], [ 0, %56 ], [ 0, %57 ], [ 0, %58 ], [ 0, %59 ], [ 0, %60 ], [ 0, %61 ], [ 0, %62 ], [ 0, %63 ], [ 0, %64 ], [ 0, %65 ], [ 0, %66 ], [ 0, %67 ], [ 0, %68 ], [ 0, %69 ], [ 0, %70 ], [ 0, %71 ], [ 0, %72 ], [ 0, %73 ], [ 0, %74 ], [ 0, %75 ], [ 0, %76 ], [ 0, %77 ], [ 0, %78 ], [ 0, %79 ], [ 0, %80 ], [ 1, %45 ]
   store i8 %.sink, ptr %0, align 8
   ret void
 }

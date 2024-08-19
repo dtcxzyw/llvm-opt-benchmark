@@ -55,8 +55,8 @@ define dso_local ptr @get_groups_members(ptr noundef %0, ptr nocapture noundef %
   %.not63 = icmp eq ptr %18, null
   br i1 %.not63, label %._crit_edge67, label %.lr.ph66
 
-.lr.ph66:                                         ; preds = %16, %228
-  %.01264 = phi ptr [ %229, %228 ], [ %18, %16 ]
+.lr.ph66:                                         ; preds = %16, %226
+  %.01264 = phi ptr [ %227, %226 ], [ %18, %16 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -143,17 +143,6 @@ _get_group_cache.exit.i:                          ; preds = %.loopexit.i.i
   %.not.i = icmp eq i32 %.036, 0
   br i1 %.not.i, label %47, label %_get_group_members.exit.thread
 
-_get_group_members.exit.thread:                   ; preds = %_get_group_cache.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 65536, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
-  br label %210
-
 47:                                               ; preds = %_get_group_cache.exit.i.thread, %_get_group_cache.exit.i
   %48 = call i64 @sysconf(i32 noundef 69) #12
   %49 = trunc i64 %48 to i32
@@ -196,15 +185,7 @@ _get_group_members.exit.thread:                   ; preds = %_get_group_cache.ex
 _get_group_members.exit.thread89:                 ; preds = %59
   %71 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__._get_group_members, ptr noundef nonnull %.01264) #12
   call void @slurm_xfree(ptr noundef nonnull %3) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 65536, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
-  br label %209
+  br label %.sink.split
 
 ._crit_edge.i:                                    ; preds = %62, %47
   %.062.lcssa.i = phi i32 [ %50, %47 ], [ %63, %62 ]
@@ -500,18 +481,14 @@ _put_group_cache.exit.i:                          ; preds = %203
 _get_group_members.exit.thread93:                 ; preds = %_put_group_cache.exit.i
   call void @slurm_xfree(ptr noundef nonnull %7) #12
   %207 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 65536, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
-  br label %209
+  br label %.sink.split
 
 _get_group_members.exit:                          ; preds = %_put_group_cache.exit.i
   %208 = load ptr, ptr %7, align 8
+  br label %_get_group_members.exit.thread
+
+.sink.split:                                      ; preds = %_get_group_members.exit.thread89, %_get_group_members.exit.thread93
+  %.sink = phi ptr [ %207, %_get_group_members.exit.thread93 ], [ null, %_get_group_members.exit.thread89 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -520,134 +497,138 @@ _get_group_members.exit:                          ; preds = %_put_group_cache.ex
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 65536, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
-  br label %210
-
-209:                                              ; preds = %_get_group_members.exit.thread93, %_get_group_members.exit.thread89
-  %storemerge = phi ptr [ null, %_get_group_members.exit.thread89 ], [ %207, %_get_group_members.exit.thread93 ]
-  store ptr %storemerge, ptr %14, align 8
+  store ptr %.sink, ptr %14, align 8
   call void @slurm_xfree(ptr noundef nonnull %14) #12
-  br label %228
+  br label %226
 
-210:                                              ; preds = %_get_group_members.exit, %_get_group_members.exit.thread
-  %.064.i45 = phi ptr [ %.019.i.i, %_get_group_members.exit.thread ], [ %208, %_get_group_members.exit ]
-  %.1244 = phi i32 [ %.036, %_get_group_members.exit.thread ], [ %184, %_get_group_members.exit ]
+_get_group_members.exit.thread:                   ; preds = %_get_group_cache.exit.i, %_get_group_members.exit
+  %.064.i45 = phi ptr [ %208, %_get_group_members.exit ], [ %.019.i.i, %_get_group_cache.exit.i ]
+  %.1244 = phi i32 [ %184, %_get_group_members.exit ], [ %.036, %_get_group_cache.exit.i ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 65536, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   store ptr %.064.i45, ptr %14, align 8
-  %211 = load ptr, ptr %11, align 8
-  %.not17 = icmp eq ptr %211, null
-  br i1 %.not17, label %212, label %213
+  %209 = load ptr, ptr %11, align 8
+  %.not17 = icmp eq ptr %209, null
+  br i1 %.not17, label %210, label %211
 
-212:                                              ; preds = %210
+210:                                              ; preds = %_get_group_members.exit.thread
   store ptr %.064.i45, ptr %11, align 8
   store i32 %.1244, ptr %1, align 4
-  br label %228
+  br label %226
 
-213:                                              ; preds = %210
-  %214 = load i32, ptr %1, align 4
-  %215 = add nsw i32 %214, %.1244
-  %216 = sext i32 %215 to i64
-  %217 = shl nsw i64 %216, 2
-  %218 = call ptr @slurm_xrecalloc(ptr noundef nonnull %11, i64 noundef 1, i64 noundef %217, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 160, ptr noundef nonnull @__func__.get_groups_members) #12
-  %219 = icmp sgt i32 %.1244, 0
-  br i1 %219, label %.lr.ph.preheader, label %._crit_edge
+211:                                              ; preds = %_get_group_members.exit.thread
+  %212 = load i32, ptr %1, align 4
+  %213 = add nsw i32 %212, %.1244
+  %214 = sext i32 %213 to i64
+  %215 = shl nsw i64 %214, 2
+  %216 = call ptr @slurm_xrecalloc(ptr noundef nonnull %11, i64 noundef 1, i64 noundef %215, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 160, ptr noundef nonnull @__func__.get_groups_members) #12
+  %217 = icmp sgt i32 %.1244, 0
+  br i1 %217, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %213
+.lr.ph.preheader:                                 ; preds = %211
   %wide.trip.count = zext nneg i32 %.1244 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv86 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next87, %.lr.ph ]
-  %220 = load ptr, ptr %14, align 8
-  %221 = getelementptr inbounds i32, ptr %220, i64 %indvars.iv86
-  %222 = load i32, ptr %221, align 4
-  %223 = load ptr, ptr %11, align 8
-  %224 = load i32, ptr %1, align 4
-  %225 = add nsw i32 %224, 1
-  store i32 %225, ptr %1, align 4
-  %226 = sext i32 %224 to i64
-  %227 = getelementptr inbounds i32, ptr %223, i64 %226
-  store i32 %222, ptr %227, align 4
+  %218 = load ptr, ptr %14, align 8
+  %219 = getelementptr inbounds i32, ptr %218, i64 %indvars.iv86
+  %220 = load i32, ptr %219, align 4
+  %221 = load ptr, ptr %11, align 8
+  %222 = load i32, ptr %1, align 4
+  %223 = add nsw i32 %222, 1
+  store i32 %223, ptr %1, align 4
+  %224 = sext i32 %222 to i64
+  %225 = getelementptr inbounds i32, ptr %221, i64 %224
+  store i32 %220, ptr %225, align 4
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %.lr.ph, %213
+._crit_edge:                                      ; preds = %.lr.ph, %211
   call void @slurm_xfree(ptr noundef nonnull %14) #12
-  br label %228
+  br label %226
 
-228:                                              ; preds = %212, %._crit_edge, %209
-  %229 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %13) #12
-  %.not = icmp eq ptr %229, null
+226:                                              ; preds = %210, %._crit_edge, %.sink.split
+  %227 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %13) #12
+  %.not = icmp eq ptr %227, null
   br i1 %.not, label %._crit_edge67, label %.lr.ph66, !llvm.loop !13
 
-._crit_edge67:                                    ; preds = %228, %16
+._crit_edge67:                                    ; preds = %226, %16
   call void @slurm_xfree(ptr noundef nonnull %12) #12
-  %230 = load ptr, ptr %11, align 8
-  %.not.i18 = icmp eq ptr %230, null
-  br i1 %.not.i18, label %_remove_duplicate_uids.exit, label %231
+  %228 = load ptr, ptr %11, align 8
+  %.not.i18 = icmp eq ptr %228, null
+  br i1 %.not.i18, label %_remove_duplicate_uids.exit, label %229
 
-231:                                              ; preds = %._crit_edge67
-  %232 = load i32, ptr %1, align 4
-  %.not28.i = icmp eq i32 %232, 0
-  br i1 %.not28.i, label %_remove_duplicate_uids.exit, label %233
+229:                                              ; preds = %._crit_edge67
+  %230 = load i32, ptr %1, align 4
+  %.not28.i = icmp eq i32 %230, 0
+  br i1 %.not28.i, label %_remove_duplicate_uids.exit, label %231
 
-233:                                              ; preds = %231
-  %234 = sext i32 %232 to i64
-  %235 = call ptr @slurm_xcalloc(i64 noundef %234, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 120, ptr noundef nonnull @__func__._remove_duplicate_uids) #12
-  %236 = load ptr, ptr %11, align 8
-  %237 = load i32, ptr %1, align 4
-  %238 = sext i32 %237 to i64
-  call void @qsort(ptr noundef %236, i64 noundef %238, i64 noundef 4, ptr noundef nonnull @_uid_cmp) #12
-  %239 = load ptr, ptr %11, align 8
-  %240 = load i32, ptr %239, align 4
-  %241 = load i32, ptr %1, align 4
-  %242 = icmp sgt i32 %241, 0
-  br i1 %242, label %.lr.ph.i20, label %._crit_edge.i19
+231:                                              ; preds = %229
+  %232 = sext i32 %230 to i64
+  %233 = call ptr @slurm_xcalloc(i64 noundef %232, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 120, ptr noundef nonnull @__func__._remove_duplicate_uids) #12
+  %234 = load ptr, ptr %11, align 8
+  %235 = load i32, ptr %1, align 4
+  %236 = sext i32 %235 to i64
+  call void @qsort(ptr noundef %234, i64 noundef %236, i64 noundef 4, ptr noundef nonnull @_uid_cmp) #12
+  %237 = load ptr, ptr %11, align 8
+  %238 = load i32, ptr %237, align 4
+  %239 = load i32, ptr %1, align 4
+  %240 = icmp sgt i32 %239, 0
+  br i1 %240, label %.lr.ph.i20, label %._crit_edge.i19
 
-.lr.ph.i20:                                       ; preds = %233, %255
-  %243 = phi i32 [ %256, %255 ], [ %241, %233 ]
-  %244 = phi ptr [ %257, %255 ], [ %239, %233 ]
-  %indvars.iv.i21 = phi i64 [ %indvars.iv.next.i24, %255 ], [ 0, %233 ]
-  %.02430.i = phi i32 [ %.1.i23, %255 ], [ %240, %233 ]
-  %.02529.i = phi i32 [ %.126.i, %255 ], [ 0, %233 ]
-  %245 = getelementptr inbounds i32, ptr %244, i64 %indvars.iv.i21
-  %246 = load i32, ptr %245, align 4
-  %247 = icmp eq i32 %246, %.02430.i
-  br i1 %247, label %255, label %248
+.lr.ph.i20:                                       ; preds = %231, %253
+  %241 = phi i32 [ %254, %253 ], [ %239, %231 ]
+  %242 = phi ptr [ %255, %253 ], [ %237, %231 ]
+  %indvars.iv.i21 = phi i64 [ %indvars.iv.next.i24, %253 ], [ 0, %231 ]
+  %.02430.i = phi i32 [ %.1.i23, %253 ], [ %238, %231 ]
+  %.02529.i = phi i32 [ %.126.i, %253 ], [ 0, %231 ]
+  %243 = getelementptr inbounds i32, ptr %242, i64 %indvars.iv.i21
+  %244 = load i32, ptr %243, align 4
+  %245 = icmp eq i32 %244, %.02430.i
+  br i1 %245, label %253, label %246
 
-248:                                              ; preds = %.lr.ph.i20
-  %249 = add nsw i32 %.02529.i, 1
-  %250 = sext i32 %.02529.i to i64
-  %251 = getelementptr inbounds i32, ptr %235, i64 %250
-  store i32 %.02430.i, ptr %251, align 4
-  %252 = load ptr, ptr %11, align 8
-  %253 = getelementptr inbounds i32, ptr %252, i64 %indvars.iv.i21
-  %254 = load i32, ptr %253, align 4
+246:                                              ; preds = %.lr.ph.i20
+  %247 = add nsw i32 %.02529.i, 1
+  %248 = sext i32 %.02529.i to i64
+  %249 = getelementptr inbounds i32, ptr %233, i64 %248
+  store i32 %.02430.i, ptr %249, align 4
+  %250 = load ptr, ptr %11, align 8
+  %251 = getelementptr inbounds i32, ptr %250, i64 %indvars.iv.i21
+  %252 = load i32, ptr %251, align 4
   %.pre.i22 = load i32, ptr %1, align 4
-  br label %255
+  br label %253
 
-255:                                              ; preds = %248, %.lr.ph.i20
-  %256 = phi i32 [ %243, %.lr.ph.i20 ], [ %.pre.i22, %248 ]
-  %257 = phi ptr [ %244, %.lr.ph.i20 ], [ %252, %248 ]
-  %.126.i = phi i32 [ %.02529.i, %.lr.ph.i20 ], [ %249, %248 ]
-  %.1.i23 = phi i32 [ %.02430.i, %.lr.ph.i20 ], [ %254, %248 ]
+253:                                              ; preds = %246, %.lr.ph.i20
+  %254 = phi i32 [ %241, %.lr.ph.i20 ], [ %.pre.i22, %246 ]
+  %255 = phi ptr [ %242, %.lr.ph.i20 ], [ %250, %246 ]
+  %.126.i = phi i32 [ %.02529.i, %.lr.ph.i20 ], [ %247, %246 ]
+  %.1.i23 = phi i32 [ %.02430.i, %.lr.ph.i20 ], [ %252, %246 ]
   %indvars.iv.next.i24 = add nuw nsw i64 %indvars.iv.i21, 1
-  %258 = sext i32 %256 to i64
-  %259 = icmp slt i64 %indvars.iv.next.i24, %258
-  br i1 %259, label %.lr.ph.i20, label %._crit_edge.i19, !llvm.loop !14
+  %256 = sext i32 %254 to i64
+  %257 = icmp slt i64 %indvars.iv.next.i24, %256
+  br i1 %257, label %.lr.ph.i20, label %._crit_edge.i19, !llvm.loop !14
 
-._crit_edge.i19:                                  ; preds = %255, %233
-  %.025.lcssa.i = phi i32 [ 0, %233 ], [ %.126.i, %255 ]
-  %.024.lcssa.i = phi i32 [ %240, %233 ], [ %.1.i23, %255 ]
-  %260 = add nsw i32 %.025.lcssa.i, 1
-  %261 = sext i32 %.025.lcssa.i to i64
-  %262 = getelementptr inbounds i32, ptr %235, i64 %261
-  store i32 %.024.lcssa.i, ptr %262, align 4
+._crit_edge.i19:                                  ; preds = %253, %231
+  %.025.lcssa.i = phi i32 [ 0, %231 ], [ %.126.i, %253 ]
+  %.024.lcssa.i = phi i32 [ %238, %231 ], [ %.1.i23, %253 ]
+  %258 = add nsw i32 %.025.lcssa.i, 1
+  %259 = sext i32 %.025.lcssa.i to i64
+  %260 = getelementptr inbounds i32, ptr %233, i64 %259
+  store i32 %.024.lcssa.i, ptr %260, align 4
   call void @slurm_xfree(ptr noundef nonnull %11) #12
-  store i32 %260, ptr %1, align 4
+  store i32 %258, ptr %1, align 4
   br label %_remove_duplicate_uids.exit
 
-_remove_duplicate_uids.exit:                      ; preds = %._crit_edge.i19, %231, %._crit_edge67, %2
-  %.013 = phi ptr [ null, %2 ], [ null, %._crit_edge67 ], [ %230, %231 ], [ %235, %._crit_edge.i19 ]
+_remove_duplicate_uids.exit:                      ; preds = %._crit_edge.i19, %229, %._crit_edge67, %2
+  %.013 = phi ptr [ null, %2 ], [ null, %._crit_edge67 ], [ %228, %229 ], [ %233, %._crit_edge.i19 ]
   ret ptr %.013
 }
 

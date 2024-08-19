@@ -954,17 +954,16 @@ define hidden void @"_ZN122_$LT$wasmparser..readers..SectionLimitedIntoIterWithO
   store i32 %.sroa.510.0, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.78.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %.sroa.78.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(44) %.sroa.78, i64 44, i1 false)
-  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %.sroa.78)
   br label %33
 
 31:                                               ; preds = %2, %16
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   %32 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 4, ptr %32, align 8
-  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %.sroa.78)
   br label %33
 
 33:                                               ; preds = %31, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h55926f0d166158d4E.llvm.1622313557807394724.exit"
+  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %.sroa.78)
   ret void
 }
 

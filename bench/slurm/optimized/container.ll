@@ -196,132 +196,115 @@ define internal fastcc ptr @_generate_spooldir(ptr nocapture noundef readonly %0
   %4 = load ptr, ptr @oci_conf, align 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %8, label %6
+  br i1 %.not, label %6, label %9
 
 6:                                                ; preds = %2
-  %7 = tail call ptr @xstrdup(ptr noundef nonnull %5) #9
-  store ptr %7, ptr %3, align 8
-  br label %17
+  %7 = getelementptr inbounds i8, ptr %0, i64 120
+  %8 = load i32, ptr %7, align 8
+  %switch.selectcmp = icmp eq i32 %8, -6
+  %switch.select = select i1 %switch.selectcmp, ptr @.str.21, ptr @.str.22
+  %switch.selectcmp44 = icmp eq i32 %8, -5
+  %switch.select45 = select i1 %switch.selectcmp44, ptr @.str.20, ptr %switch.select
+  br label %9
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 120
-  %10 = load i32, ptr %9, align 8
-  switch i32 %10, label %15 [
-    i32 -5, label %11
-    i32 -6, label %13
-  ]
-
-11:                                               ; preds = %8
-  %12 = tail call ptr @xstrdup(ptr noundef nonnull @.str.20) #9
-  store ptr %12, ptr %3, align 8
-  br label %17
-
-13:                                               ; preds = %8
-  %14 = tail call ptr @xstrdup(ptr noundef nonnull @.str.21) #9
-  store ptr %14, ptr %3, align 8
-  br label %17
-
-15:                                               ; preds = %8
-  %16 = tail call ptr @xstrdup(ptr noundef nonnull @.str.22) #9
-  store ptr %16, ptr %3, align 8
-  br label %17
-
-17:                                               ; preds = %11, %15, %13, %6
-  %18 = phi ptr [ %12, %11 ], [ %16, %15 ], [ %14, %13 ], [ %7, %6 ]
+9:                                                ; preds = %6, %2
+  %.str.20.sink = phi ptr [ %5, %2 ], [ %switch.select45, %6 ]
+  %10 = tail call ptr @xstrdup(ptr noundef nonnull %.str.20.sink) #9
+  store ptr %10, ptr %3, align 8
   %.not31 = icmp eq ptr %1, null
-  br i1 %.not31, label %24, label %19
+  br i1 %.not31, label %16, label %11
 
-19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %1, i64 56
-  %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 160
-  %23 = load ptr, ptr %22, align 8
+11:                                               ; preds = %9
+  %12 = getelementptr inbounds i8, ptr %1, i64 56
+  %13 = load i32, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %1, i64 160
+  %15 = load ptr, ptr %14, align 8
   br label %.loopexit35
 
-24:                                               ; preds = %17
-  %25 = load i8, ptr %18, align 1
-  %26 = icmp eq i8 %25, 47
-  %.024.idx = zext i1 %26 to i64
-  %.024 = getelementptr inbounds i8, ptr %18, i64 %.024.idx
-  br label %27
+16:                                               ; preds = %9
+  %17 = load i8, ptr %10, align 1
+  %18 = icmp eq i8 %17, 47
+  %.024.idx = zext i1 %18 to i64
+  %.024 = getelementptr inbounds i8, ptr %10, i64 %.024.idx
+  br label %19
 
-27:                                               ; preds = %24, %.loopexit
-  %.137 = phi ptr [ %.024, %24 ], [ %.2, %.loopexit ]
-  %28 = tail call ptr @xstrchr(ptr noundef nonnull %.137, i32 noundef 47) #9
-  %.not33 = icmp eq ptr %28, null
-  br i1 %.not33, label %29, label %32
+19:                                               ; preds = %16, %.loopexit
+  %.137 = phi ptr [ %.024, %16 ], [ %.2, %.loopexit ]
+  %20 = tail call ptr @xstrchr(ptr noundef nonnull %.137, i32 noundef 47) #9
+  %.not33 = icmp eq ptr %20, null
+  br i1 %.not33, label %21, label %24
 
-29:                                               ; preds = %27
-  %30 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.137) #11
-  %31 = getelementptr inbounds i8, ptr %.137, i64 %30
-  br label %34
+21:                                               ; preds = %19
+  %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.137) #11
+  %23 = getelementptr inbounds i8, ptr %.137, i64 %22
+  br label %26
 
-32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %28, i64 1
-  br label %34
+24:                                               ; preds = %19
+  %25 = getelementptr inbounds i8, ptr %20, i64 1
+  br label %26
 
-34:                                               ; preds = %32, %29
-  %.025 = phi ptr [ %28, %32 ], [ %31, %29 ]
-  %.2 = phi ptr [ %33, %32 ], [ null, %29 ]
-  %35 = load i8, ptr %.025, align 1
+26:                                               ; preds = %24, %21
+  %.025 = phi ptr [ %20, %24 ], [ %23, %21 ]
+  %.2 = phi ptr [ %25, %24 ], [ null, %21 ]
+  %27 = load i8, ptr %.025, align 1
   store i8 0, ptr %.025, align 1
-  %36 = load i8, ptr %.137, align 1
-  %.not13.i = icmp eq i8 %36, 0
+  %28 = load i8, ptr %.137, align 1
+  %.not13.i = icmp eq i8 %28, 0
   br i1 %.not13.i, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %34, %.thread.i
-  %.014.i = phi ptr [ %.1.i, %.thread.i ], [ %.137, %34 ]
-  %37 = tail call ptr @xstrchr(ptr noundef nonnull %.014.i, i32 noundef 37) #9
-  %.not11.i = icmp eq ptr %37, null
-  br i1 %.not11.i, label %.loopexit, label %38
+.lr.ph.i:                                         ; preds = %26, %.thread.i
+  %.014.i = phi ptr [ %.1.i, %.thread.i ], [ %.137, %26 ]
+  %29 = tail call ptr @xstrchr(ptr noundef nonnull %.014.i, i32 noundef 37) #9
+  %.not11.i = icmp eq ptr %29, null
+  br i1 %.not11.i, label %.loopexit, label %30
 
-38:                                               ; preds = %.lr.ph.i
-  %39 = getelementptr inbounds i8, ptr %37, i64 1
-  %40 = load i8, ptr %39, align 1
-  switch i8 %40, label %.thread.i [
-    i8 37, label %41
+30:                                               ; preds = %.lr.ph.i
+  %31 = getelementptr inbounds i8, ptr %29, i64 1
+  %32 = load i8, ptr %31, align 1
+  switch i8 %32, label %.thread.i [
+    i8 37, label %33
     i8 116, label %_pattern_has_taskid.exit
   ]
 
-41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %37, i64 2
-  %43 = load i8, ptr %42, align 1
-  %.not12.i = icmp eq i8 %43, 0
-  %spec.select.i = select i1 %.not12.i, ptr %39, ptr %42
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds i8, ptr %29, i64 2
+  %35 = load i8, ptr %34, align 1
+  %.not12.i = icmp eq i8 %35, 0
+  %spec.select.i = select i1 %.not12.i, ptr %31, ptr %34
   br label %.thread.i
 
-.thread.i:                                        ; preds = %41, %38
-  %44 = phi i8 [ 1, %41 ], [ %40, %38 ]
-  %.1.i = phi ptr [ %spec.select.i, %41 ], [ %39, %38 ]
-  %.not.i = icmp eq i8 %44, 0
+.thread.i:                                        ; preds = %33, %30
+  %36 = phi i8 [ 1, %33 ], [ %32, %30 ]
+  %.1.i = phi ptr [ %spec.select.i, %33 ], [ %31, %30 ]
+  %.not.i = icmp eq i8 %36, 0
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !7
 
-_pattern_has_taskid.exit:                         ; preds = %38
+_pattern_has_taskid.exit:                         ; preds = %30
   store i8 0, ptr %.137, align 1
-  store i8 %35, ptr %.025, align 1
+  store i8 %27, ptr %.025, align 1
   br label %.loopexit35
 
-.loopexit:                                        ; preds = %.thread.i, %.lr.ph.i, %34
-  store i8 %35, ptr %.025, align 1
+.loopexit:                                        ; preds = %.thread.i, %.lr.ph.i, %26
+  store i8 %27, ptr %.025, align 1
   %.not32 = icmp eq ptr %.2, null
-  br i1 %.not32, label %.loopexit35, label %27, !llvm.loop !9
+  br i1 %.not32, label %.loopexit35, label %19, !llvm.loop !9
 
-.loopexit35:                                      ; preds = %.loopexit, %_pattern_has_taskid.exit, %19
-  %.026 = phi ptr [ %23, %19 ], [ null, %_pattern_has_taskid.exit ], [ null, %.loopexit ]
-  %.0 = phi i32 [ %21, %19 ], [ -1, %_pattern_has_taskid.exit ], [ -1, %.loopexit ]
-  %45 = load ptr, ptr %3, align 8
-  %46 = tail call fastcc ptr @_generate_pattern(ptr noundef %45, ptr noundef %0, i32 noundef %.0, ptr noundef %.026)
-  %47 = tail call i32 @get_log_level() #9
-  %48 = icmp sgt i32 %47, 6
-  br i1 %48, label %49, label %50
+.loopexit35:                                      ; preds = %.loopexit, %_pattern_has_taskid.exit, %11
+  %.026 = phi ptr [ %15, %11 ], [ null, %_pattern_has_taskid.exit ], [ null, %.loopexit ]
+  %.0 = phi i32 [ %13, %11 ], [ -1, %_pattern_has_taskid.exit ], [ -1, %.loopexit ]
+  %37 = load ptr, ptr %3, align 8
+  %38 = tail call fastcc ptr @_generate_pattern(ptr noundef %37, ptr noundef %0, i32 noundef %.0, ptr noundef %.026)
+  %39 = tail call i32 @get_log_level() #9
+  %40 = icmp sgt i32 %39, 6
+  br i1 %40, label %41, label %42
 
-49:                                               ; preds = %.loopexit35
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.23, ptr noundef nonnull @__func__._generate_spooldir, i32 noundef %.0, ptr noundef %45, ptr noundef %46) #9
-  br label %50
+41:                                               ; preds = %.loopexit35
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.23, ptr noundef nonnull @__func__._generate_spooldir, i32 noundef %.0, ptr noundef %37, ptr noundef %38) #9
+  br label %42
 
-50:                                               ; preds = %49, %.loopexit35
+42:                                               ; preds = %41, %.loopexit35
   call void @slurm_xfree(ptr noundef nonnull %3) #9
-  ret ptr %46
+  ret ptr %38
 }
 
 ; Function Attrs: nounwind uwtable

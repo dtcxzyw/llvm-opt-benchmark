@@ -6660,7 +6660,7 @@ sub_124:                                          ; preds = %sub_023
 40:                                               ; preds = %34
   %41 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.271, i64 noundef 5) #19
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %47
+  br i1 %42, label %43, label %49
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds i8, ptr %0, i64 5
@@ -6668,13 +6668,13 @@ sub_124:                                          ; preds = %sub_023
   br label %.sink.split
 
 .sink.split:                                      ; preds = %9, %14, %19, %26, %31, %37, %43
-  %.sink30 = load ptr, ptr %2, align 8
-  %46 = call i32 @setenv(ptr noundef %.sink30, ptr noundef %1, i32 noundef 0) #17
-  %.sink = load ptr, ptr %2, align 8
-  call void @free(ptr noundef %.sink) #17
-  br label %47
+  %46 = load ptr, ptr %2, align 8
+  %47 = call i32 @setenv(ptr noundef %46, ptr noundef %1, i32 noundef 0) #17
+  %48 = load ptr, ptr %2, align 8
+  call void @free(ptr noundef %48) #17
+  br label %49
 
-47:                                               ; preds = %.sink.split, %40
+49:                                               ; preds = %.sink.split, %40
   %.0 = phi i1 [ false, %40 ], [ true, %.sink.split ]
   ret i1 %.0
 }
@@ -6745,10 +6745,10 @@ sub_115:                                          ; preds = %sub_014
   br label %.tail13.thread.sink.split
 
 .tail13.thread.sink.split:                        ; preds = %9, %14, %20, %27
-  %.sink1 = load ptr, ptr %2, align 8
-  %30 = call i32 @setenv(ptr noundef %.sink1, ptr noundef %1, i32 noundef 0) #17
-  %.sink = load ptr, ptr %2, align 8
-  call void @free(ptr noundef %.sink) #17
+  %30 = load ptr, ptr %2, align 8
+  %31 = call i32 @setenv(ptr noundef %30, ptr noundef %1, i32 noundef 0) #17
+  %32 = load ptr, ptr %2, align 8
+  call void @free(ptr noundef %32) #17
   br label %.tail13.thread
 
 .tail13.thread:                                   ; preds = %.tail13.thread.sink.split, %sub_115, %sub_014, %.tail13

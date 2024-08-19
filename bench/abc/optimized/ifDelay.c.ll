@@ -867,7 +867,7 @@ define i32 @If_CutSopBalanceEvalInt(ptr nocapture noundef readonly %0, ptr nocap
   %12 = getelementptr i8, ptr %0, i64 4
   %.val80 = load i32, ptr %12, align 4
   %13 = icmp sgt i32 %.val80, 70
-  br i1 %13, label %436, label %.preheader
+  br i1 %13, label %437, label %.preheader
 
 .preheader:                                       ; preds = %7
   %14 = icmp sgt i32 %.val80, 0
@@ -885,7 +885,7 @@ define i32 @If_CutSopBalanceEvalInt(ptr nocapture noundef readonly %0, ptr nocap
 
 18:                                               ; preds = %.lr.ph220, %If_LogCounterAddAig.exit138
   %indvars.iv243 = phi i64 [ 0, %.lr.ph220 ], [ %indvars.iv.next244, %If_LogCounterAddAig.exit138 ]
-  %.052219 = phi i32 [ 0, %.lr.ph220 ], [ %417, %If_LogCounterAddAig.exit138 ]
+  %.052219 = phi i32 [ 0, %.lr.ph220 ], [ %418, %If_LogCounterAddAig.exit138 ]
   %.0204217 = phi i32 [ 0, %.lr.ph220 ], [ %.0.i129.sink, %If_LogCounterAddAig.exit138 ]
   %.val81 = load ptr, ptr %15, align 8
   %19 = getelementptr inbounds i32, ptr %.val81, i64 %indvars.iv243
@@ -1744,68 +1744,68 @@ If_LogCreateAndXor.exit196:                       ; preds = %.Vec_IntGrow.exit10
 
 If_LogCounterAddAig.exit138:                      ; preds = %.loopexit.i146, %.preheader.split.i143, %.loopexit.us.i133, %.preheader.split.us.i130, %.thread.i141, %.split66
   %.0.i129.sink = phi i32 [ %354, %.split66 ], [ %381, %.thread.i141 ], [ %.2.us.i134, %.loopexit.us.i133 ], [ %.181.us.i131, %.preheader.split.us.i130 ], [ %.2.i147, %.loopexit.i146 ], [ %.181.i144, %.preheader.split.i143 ]
-  %.sink = load i32, ptr %10, align 16
-  %415 = icmp sgt i32 %.0.i129.sink, 1
-  %416 = zext i1 %415 to i32
-  %417 = add nsw i32 %.sink, %416
+  %415 = load i32, ptr %10, align 16
+  %416 = icmp sgt i32 %.0.i129.sink, 1
+  %417 = zext i1 %416 to i32
+  %418 = add nsw i32 %415, %417
   %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
   %.val79.pr = load i32, ptr %12, align 4
-  %418 = sext i32 %.val79.pr to i64
-  %419 = icmp slt i64 %indvars.iv.next244, %418
-  br i1 %419, label %18, label %.critedge, !llvm.loop !22
+  %419 = sext i32 %.val79.pr to i64
+  %420 = icmp slt i64 %indvars.iv.next244, %419
+  br i1 %420, label %18, label %.critedge, !llvm.loop !22
 
 .critedge:                                        ; preds = %If_LogCounterAddAig.exit138
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %432, label %420
+  br i1 %.not, label %433, label %421
 
 .critedge.thread:                                 ; preds = %.preheader
   %.not259 = icmp eq ptr %3, null
-  br i1 %.not259, label %432, label %If_LogCreateAndXorMulti.exit166
+  br i1 %.not259, label %433, label %If_LogCreateAndXorMulti.exit166
 
-420:                                              ; preds = %.critedge
+421:                                              ; preds = %.critedge
   %invariant.gep.i160 = getelementptr i8, ptr %11, i64 -8
-  %421 = icmp sgt i32 %.0.i129.sink, 1
-  br i1 %421, label %.lr.ph.preheader.i161, label %If_LogCreateAndXorMulti.exit166
+  %422 = icmp sgt i32 %.0.i129.sink, 1
+  br i1 %422, label %.lr.ph.preheader.i161, label %If_LogCreateAndXorMulti.exit166
 
-.lr.ph.preheader.i161:                            ; preds = %420
-  %422 = zext nneg i32 %.0.i129.sink to i64
+.lr.ph.preheader.i161:                            ; preds = %421
+  %423 = zext nneg i32 %.0.i129.sink to i64
   br label %.lr.ph.i162
 
 .lr.ph.i162:                                      ; preds = %.lr.ph.i162, %.lr.ph.preheader.i161
-  %indvars.iv.i163 = phi i64 [ %422, %.lr.ph.preheader.i161 ], [ %indvars.iv.next.i164, %.lr.ph.i162 ]
+  %indvars.iv.i163 = phi i64 [ %423, %.lr.ph.preheader.i161 ], [ %indvars.iv.next.i164, %.lr.ph.i162 ]
   %indvars.iv.next.i164 = add nsw i64 %indvars.iv.i163, -1
-  %423 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv.next.i164
-  %424 = load i32, ptr %423, align 4
+  %424 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv.next.i164
+  %425 = load i32, ptr %424, align 4
   %gep.i165 = getelementptr i32, ptr %invariant.gep.i160, i64 %indvars.iv.i163
-  %425 = load i32, ptr %gep.i165, align 4
-  %426 = tail call fastcc i32 @If_LogCreateAndXor(ptr noundef %3, i32 noundef %424, i32 noundef %425, i32 noundef %5)
-  store i32 %426, ptr %gep.i165, align 4
-  %427 = icmp ugt i64 %indvars.iv.i163, 2
-  br i1 %427, label %.lr.ph.i162, label %If_LogCreateAndXorMulti.exit166, !llvm.loop !21
+  %426 = load i32, ptr %gep.i165, align 4
+  %427 = tail call fastcc i32 @If_LogCreateAndXor(ptr noundef %3, i32 noundef %425, i32 noundef %426, i32 noundef %5)
+  store i32 %427, ptr %gep.i165, align 4
+  %428 = icmp ugt i64 %indvars.iv.i163, 2
+  br i1 %428, label %.lr.ph.i162, label %If_LogCreateAndXorMulti.exit166, !llvm.loop !21
 
-If_LogCreateAndXorMulti.exit166:                  ; preds = %.lr.ph.i162, %.critedge.thread, %420
-  %.052.lcssa262268 = phi i32 [ %417, %420 ], [ 0, %.critedge.thread ], [ %417, %.lr.ph.i162 ]
-  %428 = load i32, ptr %11, align 16
-  %429 = xor i32 %428, 1
-  store i32 %429, ptr %4, align 4
-  %430 = load i32, ptr %0, align 8
-  %431 = and i32 %430, 65536
-  %.not74 = icmp eq i32 %431, 0
-  %spec.store.select = select i1 %.not74, i32 %429, i32 %428
+If_LogCreateAndXorMulti.exit166:                  ; preds = %.lr.ph.i162, %.critedge.thread, %421
+  %.052.lcssa262268 = phi i32 [ %418, %421 ], [ 0, %.critedge.thread ], [ %418, %.lr.ph.i162 ]
+  %429 = load i32, ptr %11, align 16
+  %430 = xor i32 %429, 1
+  store i32 %430, ptr %4, align 4
+  %431 = load i32, ptr %0, align 8
+  %432 = and i32 %431, 65536
+  %.not74 = icmp eq i32 %432, 0
+  %spec.store.select = select i1 %.not74, i32 %430, i32 %429
   store i32 %spec.store.select, ptr %4, align 4
-  br label %436
+  br label %437
 
-432:                                              ; preds = %.critedge.thread, %.critedge
-  %.052.lcssa263 = phi i32 [ 0, %.critedge.thread ], [ %417, %.critedge ]
+433:                                              ; preds = %.critedge.thread, %.critedge
+  %.052.lcssa263 = phi i32 [ 0, %.critedge.thread ], [ %418, %.critedge ]
   %.val79.lcssa260 = phi i32 [ %.val80, %.critedge.thread ], [ %.val79.pr, %.critedge ]
-  %433 = add i32 %.val79.lcssa260, -1
-  %434 = load i32, ptr %6, align 4
-  %435 = add nsw i32 %433, %434
-  store i32 %435, ptr %6, align 4
-  br label %436
+  %434 = add i32 %.val79.lcssa260, -1
+  %435 = load i32, ptr %6, align 4
+  %436 = add nsw i32 %434, %435
+  store i32 %436, ptr %6, align 4
+  br label %437
 
-436:                                              ; preds = %If_LogCreateAndXorMulti.exit166, %432, %7
-  %.056 = phi i32 [ -1, %7 ], [ %.052.lcssa263, %432 ], [ %.052.lcssa262268, %If_LogCreateAndXorMulti.exit166 ]
+437:                                              ; preds = %If_LogCreateAndXorMulti.exit166, %433, %7
+  %.056 = phi i32 [ -1, %7 ], [ %.052.lcssa263, %433 ], [ %.052.lcssa262268, %If_LogCreateAndXorMulti.exit166 ]
   ret i32 %.056
 }
 

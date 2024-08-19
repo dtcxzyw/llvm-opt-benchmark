@@ -13808,11 +13808,11 @@ call.i.i.i.i.noexc74:                             ; preds = %_ZNSt5dequeIN3ue215
   br i1 %exitcond.not.i.i67, label %_ZN3ue214RoseLiteralMap10erase_backEm.exit.i68.invoke, label %for.body.i.i61, !llvm.loop !392
 
 _ZN3ue214RoseLiteralMap10erase_backEm.exit.i68.invoke: ; preds = %call.i.i.i.i.noexc74, %call.i.i.i.i.noexc130
-  %23 = getelementptr inbounds i8, ptr %this, i64 288
-  %.sink184 = load ptr, ptr %added_lit_ids, align 8, !noalias !8
-  %24 = load i32, ptr %.sink184, align 4
+  %literal_info.i125 = getelementptr inbounds i8, ptr %this, i64 288
+  %23 = load ptr, ptr %added_lit_ids, align 8, !noalias !8
+  %24 = load i32, ptr %23, align 4
   %conv.i126 = zext i32 %24 to i64
-  invoke void @_ZNSt5dequeIN3ue217rose_literal_infoESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(80) %23, i64 noundef %conv.i126)
+  invoke void @_ZNSt5dequeIN3ue217rose_literal_infoESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(80) %literal_info.i125, i64 noundef %conv.i126)
           to label %cleanup unwind label %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 for.inc44:                                        ; preds = %invoke.cont39, %invoke.cont30

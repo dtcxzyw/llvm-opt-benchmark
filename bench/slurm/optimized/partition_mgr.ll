@@ -1003,21 +1003,21 @@ define dso_local noundef i32 @dump_all_part_state() local_unnamed_addr #0 {
   br label %81
 
 81:                                               ; preds = %69, %78, %75, %56
-  %.sink = load ptr, ptr %2, align 8
-  %82 = call i32 @unlink(ptr noundef %.sink) #17
+  %82 = load ptr, ptr %2, align 8
+  %83 = call i32 @unlink(ptr noundef %82) #17
   call void @slurm_xfree(ptr noundef nonnull %1) #17
   call void @slurm_xfree(ptr noundef nonnull %3) #17
   call void @slurm_xfree(ptr noundef nonnull %2) #17
   call void @unlock_state_files() #17
   %.not35 = icmp eq ptr %9, null
-  br i1 %.not35, label %84, label %83
+  br i1 %.not35, label %85, label %84
 
-83:                                               ; preds = %81
+84:                                               ; preds = %81
   call void @free_buf(ptr noundef nonnull %9) #17
-  br label %84
+  br label %85
 
-84:                                               ; preds = %83, %81
-  %85 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #17
+85:                                               ; preds = %84, %81
+  %86 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #17
   call void @slurm_diff_tv_str(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 20, ptr noundef nonnull @__func__.dump_all_part_state, i64 noundef 0, ptr noundef nonnull %7) #17
   ret i32 0
 }

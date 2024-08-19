@@ -6057,12 +6057,12 @@ define dso_local noundef ptr @_ZN4Luau8stripNilENS_7NotNullINS_12BuiltinTypesEEE
   %8 = alloca %"struct.Luau::UnionType", align 8
   %9 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %2)
   %.not.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i, label %180, label %10
+  br i1 %.not.i.i, label %178, label %10
 
 10:                                               ; preds = %3
   %11 = load i32, ptr %9, align 8
   %12 = icmp eq i32 %11, 13
-  br i1 %12, label %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.i, label %180
+  br i1 %12, label %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.i, label %178
 
 _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.i: ; preds = %10
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
@@ -6421,12 +6421,7 @@ _ZN4LuauL20tryStripUnionFromNilERNS_9TypeArenaEPKNS_4TypeE.exit.thread38: ; pred
   %166 = ptrtoint ptr %.sroa.17.0.i to i64
   %167 = sub i64 %166, %.pre.i
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0.i, i64 noundef %167) #18
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  br label %175
+  br label %_ZN4LuauL20tryStripUnionFromNilERNS_9TypeArenaEPKNS_4TypeE.exit.thread15
 
 _ZN4Luau9UnionTypeD2Ev.exit37.loopexit.i:         ; preds = %116
   %lpad.loopexit.i = landingpad { ptr, i32 }
@@ -6465,51 +6460,39 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit40.i: ; preds = %168, %_ZN4Luau9Unio
   %.pn18.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %35 ], [ %lpad.phi.i, %_ZN4Luau9UnionTypeD2Ev.exit37.i ], [ %lpad.phi.i, %168 ], [ %77, %_ZN4Luau9UnionTypeD2Ev.exit37.thread86.i ], [ %159, %161 ], [ %159, %158 ]
   resume { ptr, i32 } %.pn18.pn.pn.i
 
-_ZN4LuauL20tryStripUnionFromNilERNS_9TypeArenaEPKNS_4TypeE.exit.thread: ; preds = %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit23.i, %151, %153
-  %.sroa.060.0.i.ph = phi ptr [ %150, %153 ], [ %150, %151 ], [ %9, %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit23.i ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  br label %178
-
-_ZN4LuauL20tryStripUnionFromNilERNS_9TypeArenaEPKNS_4TypeE.exit.thread15: ; preds = %_ZN4Luau9UnionTypeD2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  br label %175
-
 _ZN4LuauL20tryStripUnionFromNilERNS_9TypeArenaEPKNS_4TypeE.exit: ; preds = %143
   %172 = load ptr, ptr %.sroa.0.0.i, align 8
   %173 = ptrtoint ptr %.sroa.17.0.i to i64
   %174 = sub i64 %173, %145
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0.i, i64 noundef %174) #18
+  br label %_ZN4LuauL20tryStripUnionFromNilERNS_9TypeArenaEPKNS_4TypeE.exit.thread
+
+_ZN4LuauL20tryStripUnionFromNilERNS_9TypeArenaEPKNS_4TypeE.exit.thread15: ; preds = %_ZN4Luau9UnionTypeD2Ev.exit.i, %_ZN4LuauL20tryStripUnionFromNilERNS_9TypeArenaEPKNS_4TypeE.exit.thread38
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  br label %178
+  %175 = getelementptr inbounds i8, ptr %0, i64 16
+  %176 = load ptr, ptr %175, align 8
+  br label %180
 
-175:                                              ; preds = %_ZN4LuauL20tryStripUnionFromNilERNS_9TypeArenaEPKNS_4TypeE.exit.thread38, %_ZN4LuauL20tryStripUnionFromNilERNS_9TypeArenaEPKNS_4TypeE.exit.thread15
-  %176 = getelementptr inbounds i8, ptr %0, i64 16
-  %177 = load ptr, ptr %176, align 8
-  br label %182
+_ZN4LuauL20tryStripUnionFromNilERNS_9TypeArenaEPKNS_4TypeE.exit.thread: ; preds = %153, %151, %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit23.i, %_ZN4LuauL20tryStripUnionFromNilERNS_9TypeArenaEPKNS_4TypeE.exit
+  %.sroa.060.0.i13 = phi ptr [ %172, %_ZN4LuauL20tryStripUnionFromNilERNS_9TypeArenaEPKNS_4TypeE.exit ], [ %150, %153 ], [ %150, %151 ], [ %9, %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit23.i ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  %177 = call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %.sroa.060.0.i13)
+  br label %180
 
-178:                                              ; preds = %_ZN4LuauL20tryStripUnionFromNilERNS_9TypeArenaEPKNS_4TypeE.exit, %_ZN4LuauL20tryStripUnionFromNilERNS_9TypeArenaEPKNS_4TypeE.exit.thread
-  %.sroa.060.0.i13 = phi ptr [ %.sroa.060.0.i.ph, %_ZN4LuauL20tryStripUnionFromNilERNS_9TypeArenaEPKNS_4TypeE.exit.thread ], [ %172, %_ZN4LuauL20tryStripUnionFromNilERNS_9TypeArenaEPKNS_4TypeE.exit ]
-  %179 = call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %.sroa.060.0.i13)
-  br label %182
+178:                                              ; preds = %10, %3
+  %179 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %9)
+  br label %180
 
-180:                                              ; preds = %10, %3
-  %181 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %9)
-  br label %182
-
-182:                                              ; preds = %180, %178, %175
-  %.0 = phi ptr [ %179, %178 ], [ %177, %175 ], [ %181, %180 ]
+180:                                              ; preds = %178, %_ZN4LuauL20tryStripUnionFromNilERNS_9TypeArenaEPKNS_4TypeE.exit.thread, %_ZN4LuauL20tryStripUnionFromNilERNS_9TypeArenaEPKNS_4TypeE.exit.thread15
+  %.0 = phi ptr [ %177, %_ZN4LuauL20tryStripUnionFromNilERNS_9TypeArenaEPKNS_4TypeE.exit.thread ], [ %176, %_ZN4LuauL20tryStripUnionFromNilERNS_9TypeArenaEPKNS_4TypeE.exit.thread15 ], [ %179, %178 ]
   ret ptr %.0
 }
 

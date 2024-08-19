@@ -889,11 +889,7 @@ define internal fastcc i32 @nexthops_dump(ptr noundef %0, ptr noundef %1, i32 no
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %16 = call fastcc i32 @nh_notifier_info_init(ptr noundef nonnull %5, ptr noundef nonnull %15)
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %.thread4
-
-.thread4:                                         ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #13
-  br label %.loopexit
+  br i1 %17, label %18, label %.loopexit.sink.split
 
 18:                                               ; preds = %14
   %19 = load ptr, ptr %1, align 8
@@ -945,11 +941,15 @@ define internal fastcc i32 @nexthops_dump(ptr noundef %0, ptr noundef %1, i32 no
 
 45:                                               ; preds = %40
   %46 = sub nsw i32 1, %41
+  br label %.loopexit.sink.split
+
+.loopexit.sink.split:                             ; preds = %14, %45
+  %.ph = phi i32 [ %46, %45 ], [ %16, %14 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #13
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread, %45, %.thread4, %4
-  %47 = phi i32 [ 0, %4 ], [ %46, %45 ], [ %16, %.thread4 ], [ 0, %.thread ]
+.loopexit:                                        ; preds = %.thread, %.loopexit.sink.split, %4
+  %47 = phi i32 [ 0, %4 ], [ %.ph, %.loopexit.sink.split ], [ 0, %.thread ]
   ret i32 %47
 }
 

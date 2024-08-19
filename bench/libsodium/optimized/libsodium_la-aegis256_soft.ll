@@ -768,9 +768,9 @@ for.cond21.if.end31.loopexit192_crit_edge:        ; preds = %for.body24
   br label %if.end31
 
 if.end31:                                         ; preds = %for.cond21.if.end31.loopexit192_crit_edge, %for.cond11.if.end31.loopexit_crit_edge
-  %storemerge = phi i64 [ %xor1.i.i158, %for.cond21.if.end31.loopexit192_crit_edge ], [ %xor1.i.i142, %for.cond11.if.end31.loopexit_crit_edge ]
+  %xor1.i.i158.lcssa.sink = phi i64 [ %xor1.i.i158, %for.cond21.if.end31.loopexit192_crit_edge ], [ %xor1.i.i142, %for.cond11.if.end31.loopexit_crit_edge ]
   %i.2 = phi i64 [ %add22220, %for.cond21.if.end31.loopexit192_crit_edge ], [ %add12245, %for.cond11.if.end31.loopexit_crit_edge ]
-  store i64 %storemerge, ptr %state, align 16
+  store i64 %xor1.i.i158.lcssa.sink, ptr %state, align 16
   %rem32 = and i64 %clen, 15
   %tobool33.not = icmp eq i64 %rem32, 0
   br i1 %tobool33.not, label %if.end47, label %if.then34

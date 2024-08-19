@@ -240,7 +240,7 @@ define internal fastcc range(i32 0, 2) i32 @PreOptimize(ptr nocapture noundef %0
   %7 = phi ptr [ %.pr127, %.splitthread-pre-split ], [ %5, %1 ]
   %.0 = phi i32 [ 1, %.splitthread-pre-split ], [ 0, %1 ]
   %.not9.i = icmp eq ptr %7, null
-  br i1 %.not9.i, label %_Remove2Op.exit69.thread109, label %.lr.ph.i
+  br i1 %.not9.i, label %_MultiplyMatrix.exit.sink.split, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.split, %15
   %8 = phi ptr [ %16, %15 ], [ %7, %.split ]
@@ -268,7 +268,7 @@ define internal fastcc range(i32 0, 2) i32 @PreOptimize(ptr nocapture noundef %0
 _Remove1Op.exit:                                  ; preds = %15
   %.pr = load ptr, ptr %0, align 8
   %17 = icmp eq ptr %.pr, null
-  br i1 %17, label %_Remove2Op.exit69.thread109, label %.preheader.i
+  br i1 %17, label %_MultiplyMatrix.exit.sink.split, label %.preheader.i
 
 .preheader.i:                                     ; preds = %_Remove1Op.exit, %36
   %.021.i = phi i32 [ %.1.i18, %36 ], [ 0, %_Remove1Op.exit ]
@@ -316,7 +316,7 @@ _Remove2Op.exit:                                  ; preds = %.preheader.i, %36
   %.pr77 = load ptr, ptr %0, align 8
   %37 = or i32 %.015.i.ph, %.1.i
   %38 = icmp eq ptr %.pr77, null
-  br i1 %38, label %_Remove2Op.exit69.thread121, label %.preheader.i20
+  br i1 %38, label %_MultiplyMatrix.exit.sink.split, label %.preheader.i20
 
 .preheader.i20:                                   ; preds = %_Remove2Op.exit, %57
   %.021.i21 = phi i32 [ %.1.i25, %57 ], [ 0, %_Remove2Op.exit ]
@@ -364,7 +364,7 @@ _Remove2Op.exit29:                                ; preds = %.preheader.i20, %57
   %.pr80.pr = load ptr, ptr %0, align 8
   %58 = or i32 %.015.i27.ph.ph, %37
   %59 = icmp eq ptr %.pr80.pr, null
-  br i1 %59, label %_Remove2Op.exit69.thread121, label %.preheader.i30
+  br i1 %59, label %_MultiplyMatrix.exit.sink.split, label %.preheader.i30
 
 .preheader.i30:                                   ; preds = %_Remove2Op.exit29, %78
   %.021.i31 = phi i32 [ %.1.i35, %78 ], [ 0, %_Remove2Op.exit29 ]
@@ -412,7 +412,7 @@ _Remove2Op.exit39:                                ; preds = %.preheader.i30, %78
   %.pr82 = load ptr, ptr %0, align 8
   %79 = or i32 %.015.i37.ph, %58
   %80 = icmp eq ptr %.pr82, null
-  br i1 %80, label %_Remove2Op.exit69.thread109, label %.preheader.i40
+  br i1 %80, label %_MultiplyMatrix.exit.sink.split, label %.preheader.i40
 
 .preheader.i40:                                   ; preds = %_Remove2Op.exit39, %99
   %.021.i41 = phi i32 [ %.1.i45, %99 ], [ 0, %_Remove2Op.exit39 ]
@@ -460,7 +460,7 @@ _Remove2Op.exit49:                                ; preds = %.preheader.i40, %99
   %.pr87.pr.pr = load ptr, ptr %0, align 8
   %100 = or i32 %.015.i47.ph.ph.ph, %79
   %101 = icmp eq ptr %.pr87.pr.pr, null
-  br i1 %101, label %_Remove2Op.exit69.thread109, label %.preheader.i50
+  br i1 %101, label %_MultiplyMatrix.exit.sink.split, label %.preheader.i50
 
 .preheader.i50:                                   ; preds = %_Remove2Op.exit49, %120
   %.021.i51 = phi i32 [ %.1.i55, %120 ], [ 0, %_Remove2Op.exit49 ]
@@ -508,11 +508,7 @@ _Remove2Op.exit59:                                ; preds = %.preheader.i50, %12
   %.pr89 = load ptr, ptr %0, align 8
   %121 = or i32 %.015.i57.ph, %100
   %122 = icmp eq ptr %.pr89, null
-  br i1 %122, label %_Remove2Op.exit69.thread, label %.preheader.i60
-
-_Remove2Op.exit69.thread:                         ; preds = %_Remove2Op.exit59
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  br label %_MultiplyMatrix.exit
+  br i1 %122, label %_MultiplyMatrix.exit.sink.split, label %.preheader.i60
 
 .preheader.i60:                                   ; preds = %_Remove2Op.exit59, %141
   %.021.i61 = phi i32 [ %.1.i65, %141 ], [ 0, %_Remove2Op.exit59 ]
@@ -554,16 +550,6 @@ _Remove2Op.exit69.thread:                         ; preds = %_Remove2Op.exit59
   %.1.i65 = phi i32 [ 1, %135 ], [ %.021.i61, %131 ], [ %.021.i61, %127 ]
   %.not.i66 = icmp eq ptr %.pr.i63, null
   br i1 %.not.i66, label %_Remove2Op.exit69, label %.preheader.i60, !llvm.loop !12
-
-_Remove2Op.exit69.thread109:                      ; preds = %.split, %_Remove1Op.exit, %_Remove2Op.exit39, %_Remove2Op.exit49
-  %.ph93.ph108 = phi i32 [ %79, %_Remove2Op.exit39 ], [ %100, %_Remove2Op.exit49 ], [ %.1.i, %_Remove1Op.exit ], [ 0, %.split ]
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  br label %_MultiplyMatrix.exit
-
-_Remove2Op.exit69.thread121:                      ; preds = %_Remove2Op.exit29, %_Remove2Op.exit
-  %.ph93.ph.ph = phi i32 [ %58, %_Remove2Op.exit29 ], [ %37, %_Remove2Op.exit ]
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  br label %_MultiplyMatrix.exit
 
 _Remove2Op.exit69:                                ; preds = %.preheader.i60, %141
   %.015.i67.ph.ph.ph = phi i32 [ %.1.i65, %141 ], [ %.021.i61, %.preheader.i60 ]
@@ -703,9 +689,14 @@ isFloatMatrixIdentity.exit.i:                     ; preds = %197
   %.not.i73 = icmp eq ptr %.pr.i71, null
   br i1 %.not.i73, label %_MultiplyMatrix.exit, label %.preheader.i70, !llvm.loop !15
 
-_MultiplyMatrix.exit:                             ; preds = %.preheader.i70, %156, %162, %165, %168, %171, %174, %198, %204, %_Remove2Op.exit69.thread121, %_Remove2Op.exit69.thread109, %_Remove2Op.exit69.thread, %_Remove2Op.exit69
-  %205 = phi i32 [ %142, %_Remove2Op.exit69 ], [ %121, %_Remove2Op.exit69.thread ], [ %.ph93.ph108, %_Remove2Op.exit69.thread109 ], [ %.ph93.ph.ph, %_Remove2Op.exit69.thread121 ], [ %142, %204 ], [ %142, %198 ], [ %142, %174 ], [ %142, %171 ], [ %142, %168 ], [ %142, %165 ], [ %142, %162 ], [ %142, %156 ], [ %142, %.preheader.i70 ]
-  %.0.i = phi i32 [ 0, %_Remove2Op.exit69 ], [ 0, %_Remove2Op.exit69.thread ], [ 0, %_Remove2Op.exit69.thread109 ], [ 0, %_Remove2Op.exit69.thread121 ], [ %.03145.i, %.preheader.i70 ], [ 0, %156 ], [ 0, %162 ], [ 0, %165 ], [ 0, %168 ], [ 0, %171 ], [ 0, %174 ], [ 0, %198 ], [ %.132.i, %204 ]
+_MultiplyMatrix.exit.sink.split:                  ; preds = %_Remove2Op.exit, %_Remove2Op.exit29, %_Remove2Op.exit49, %_Remove2Op.exit39, %_Remove1Op.exit, %.split, %_Remove2Op.exit59
+  %.ph = phi i32 [ %121, %_Remove2Op.exit59 ], [ %79, %_Remove2Op.exit39 ], [ %100, %_Remove2Op.exit49 ], [ %.1.i, %_Remove1Op.exit ], [ 0, %.split ], [ %58, %_Remove2Op.exit29 ], [ %37, %_Remove2Op.exit ]
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  br label %_MultiplyMatrix.exit
+
+_MultiplyMatrix.exit:                             ; preds = %.preheader.i70, %156, %162, %165, %168, %171, %174, %198, %204, %_MultiplyMatrix.exit.sink.split, %_Remove2Op.exit69
+  %205 = phi i32 [ %142, %_Remove2Op.exit69 ], [ %.ph, %_MultiplyMatrix.exit.sink.split ], [ %142, %204 ], [ %142, %198 ], [ %142, %174 ], [ %142, %171 ], [ %142, %168 ], [ %142, %165 ], [ %142, %162 ], [ %142, %156 ], [ %142, %.preheader.i70 ]
+  %.0.i = phi i32 [ 0, %_Remove2Op.exit69 ], [ 0, %_MultiplyMatrix.exit.sink.split ], [ %.03145.i, %.preheader.i70 ], [ 0, %156 ], [ 0, %162 ], [ 0, %165 ], [ 0, %168 ], [ 0, %171 ], [ 0, %174 ], [ 0, %198 ], [ %.132.i, %204 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   %206 = or i32 %.0.i, %205
   %.not = icmp eq i32 %206, 0

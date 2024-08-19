@@ -152,7 +152,6 @@ define hidden void @_ZN3ini3Ini13read_from_opt17hb5012d60518b2bc9E(ptr noalias n
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7e2fbfb0f8efaa1bE.exit": ; preds = %19, %26, %30
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   br label %49
 
 32:                                               ; preds = %15
@@ -197,10 +196,10 @@ define hidden void @_ZN3ini3Ini13read_from_opt17hb5012d60518b2bc9E(ptr noalias n
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7e2fbfb0f8efaa1bE.exit28": ; preds = %40, %43, %47
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   br label %49
 
 49:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7e2fbfb0f8efaa1bE.exit28", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7e2fbfb0f8efaa1bE.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   ret void
 
 50:                                               ; preds = %11
@@ -265,7 +264,7 @@ define hidden void @_ZN3ini3Ini18load_from_file_opt17hcc751519d237f041E(ptr noal
   store ptr %27, ptr %.sroa.4.0..sroa_idx, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
-  br label %92
+  br label %95
 
 29:                                               ; preds = %73, %52, %37, %35, %42, %21
   %30 = landingpad { ptr, i32 }
@@ -276,7 +275,7 @@ define hidden void @_ZN3ini3Ini18load_from_file_opt17hcc751519d237f041E(ptr noal
   %eh.lpad-body = phi { ptr, i32 } [ %30, %29 ], [ %45, %44 ]
   %31 = load i32, ptr %18, align 4, !alias.scope !36, !noundef !4
   %32 = invoke noundef i32 @close(i32 noundef %31)
-          to label %20 unwind label %97
+          to label %20 unwind label %96
 
 33:                                               ; preds = %21
   %34 = icmp eq ptr %24, null
@@ -379,8 +378,7 @@ define hidden void @_ZN3ini3Ini18load_from_file_opt17hcc751519d237f041E(ptr noal
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7e2fbfb0f8efaa1bE.exit.i": ; preds = %63, %59, %.noexc24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !71
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !63
-  br label %93
+  br label %92
 
 65:                                               ; preds = %48
   invoke void @_ZN3ini6Parser5parse17hcefd780812aed337E(ptr noalias nocapture noundef nonnull sret({ i64, [21 x i64] }) align 8 dereferenceable(176) %8, ptr noalias noundef nonnull align 8 dereferenceable(40) %9)
@@ -427,8 +425,7 @@ define hidden void @_ZN3ini3Ini18load_from_file_opt17hcc751519d237f041E(ptr noal
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7e2fbfb0f8efaa1bE.exit28.i": ; preds = %80, %76, %.noexc25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !80
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !63
-  br label %93
+  br label %92
 
 82:                                               ; preds = %44
   %83 = landingpad { ptr, i32 }
@@ -459,13 +456,10 @@ define hidden void @_ZN3ini3Ini18load_from_file_opt17hcc751519d237f041E(ptr noal
   call void @llvm.experimental.noalias.scope.decl(metadata !101)
   %90 = load i32, ptr %18, align 4, !alias.scope !104, !noundef !4
   %91 = call noundef i32 @close(i32 noundef %90), !noalias !104
-  br label %92
+  br label %95
 
-92:                                               ; preds = %88, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
-  br label %96
-
-93:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7e2fbfb0f8efaa1bE.exit28.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7e2fbfb0f8efaa1bE.exit.i"
+92:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7e2fbfb0f8efaa1bE.exit28.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7e2fbfb0f8efaa1bE.exit.i"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !63
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %16)
   call void @llvm.experimental.noalias.scope.decl(metadata !105)
@@ -473,16 +467,16 @@ define hidden void @_ZN3ini3Ini18load_from_file_opt17hcc751519d237f041E(ptr noal
   call void @llvm.experimental.noalias.scope.decl(metadata !111)
   call void @llvm.experimental.noalias.scope.decl(metadata !114)
   call void @llvm.experimental.noalias.scope.decl(metadata !117)
-  %94 = load i32, ptr %18, align 4, !alias.scope !120, !noundef !4
-  %95 = call noundef i32 @close(i32 noundef %94), !noalias !120
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
-  br label %96
+  %93 = load i32, ptr %18, align 4, !alias.scope !120, !noundef !4
+  %94 = call noundef i32 @close(i32 noundef %93), !noalias !120
+  br label %95
 
-96:                                               ; preds = %93, %92
+95:                                               ; preds = %25, %88, %92
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
   ret void
 
-97:                                               ; preds = %.body
-  %98 = landingpad { ptr, i32 }
+96:                                               ; preds = %.body
+  %97 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #15
   unreachable

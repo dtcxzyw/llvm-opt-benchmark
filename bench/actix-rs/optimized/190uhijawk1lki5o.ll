@@ -3914,7 +3914,6 @@ define void @_ZN11actix_files5range9HttpRange5parse17heeccdf0d87ed8ba2E(ptr noal
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %12, ptr %19, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %30
 
 20:                                               ; preds = %13
@@ -3946,10 +3945,10 @@ define void @_ZN11actix_files5range9HttpRange5parse17heeccdf0d87ed8ba2E(ptr noal
 
 "_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$http_range..HttpRange$GT$$GT$17h05ff7c4e940be768E.exit": ; preds = %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h5def2f1a5a05b7b8E.exit", %24, %28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !757
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %30
 
 30:                                               ; preds = %"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$http_range..HttpRange$GT$$GT$17h05ff7c4e940be768E.exit", %18
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   ret void
 
 31:                                               ; preds = %20

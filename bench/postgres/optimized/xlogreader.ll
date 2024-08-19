@@ -620,7 +620,7 @@ define dso_local noundef ptr @XLogReadAhead(ptr noundef %0, i1 noundef zeroext %
   %5 = getelementptr inbounds i8, ptr %0, i64 1312
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
-  br i1 %7, label %322, label %8
+  br i1 %7, label %321, label %8
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -648,7 +648,7 @@ define dso_local noundef ptr @XLogReadAhead(ptr noundef %0, i1 noundef zeroext %
   %24 = add nuw nsw i32 %23, 24
   %25 = tail call fastcc i32 @ReadPageInternal(ptr noundef nonnull %0, i64 noundef %20, i32 noundef %24)
   %26 = icmp eq i32 %25, -2
-  br i1 %26, label %XLogDecodeNextRecord.exit.thread, label %.lr.ph.i
+  br i1 %26, label %.sink.split, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %8
   %27 = getelementptr inbounds i8, ptr %0, i64 168
@@ -799,7 +799,7 @@ XLogReadRecordAlloc.exit.thread.i:                ; preds = %100, %96, %88
   br label %106
 
 XLogReadRecordAlloc.exit.i:                       ; preds = %100, %96
-  br i1 %1, label %XLogDecodeNextRecord.exit.thread, label %106
+  br i1 %1, label %.sink.split, label %106
 
 106:                                              ; preds = %XLogReadRecordAlloc.exit.i, %XLogReadRecordAlloc.exit.thread.i
   %107 = phi i1 [ false, %XLogReadRecordAlloc.exit.thread.i ], [ true, %XLogReadRecordAlloc.exit.i ]
@@ -834,7 +834,7 @@ XLogReadRecordAlloc.exit.i:                       ; preds = %100, %96
   %narrow.i = add nuw nsw i32 %124, 24
   %125 = tail call fastcc i32 @ReadPageInternal(ptr noundef nonnull %0, i64 noundef %122, i32 noundef %narrow.i)
   %126 = icmp eq i32 %125, -2
-  br i1 %126, label %XLogDecodeNextRecord.exit.thread, label %127
+  br i1 %126, label %.sink.split, label %127
 
 127:                                              ; preds = %121
   %128 = icmp slt i32 %125, 0
@@ -859,7 +859,7 @@ XLogReadRecordAlloc.exit.i:                       ; preds = %100, %96
   %139 = add nuw nsw i32 %138, 24
   %140 = tail call fastcc i32 @ReadPageInternal(ptr noundef nonnull %0, i64 noundef %122, i32 noundef %139)
   %141 = icmp eq i32 %140, -2
-  br i1 %141, label %XLogDecodeNextRecord.exit.thread, label %34
+  br i1 %141, label %.sink.split, label %34
 
 142:                                              ; preds = %129
   %143 = and i32 %133, 1
@@ -1008,7 +1008,7 @@ ValidXLogRecord.exit.i:                           ; preds = %195
   %226 = tail call i32 @llvm.umin.i32(i32 %225, i32 8192)
   %227 = tail call fastcc i32 @ReadPageInternal(ptr noundef nonnull %0, i64 noundef %36, i32 noundef %226)
   %228 = icmp eq i32 %227, -2
-  br i1 %228, label %XLogDecodeNextRecord.exit.thread, label %229
+  br i1 %228, label %.sink.split, label %229
 
 229:                                              ; preds = %224
   %230 = icmp slt i32 %227, 0
@@ -1168,11 +1168,11 @@ XLogReadRecordAlloc.exit268.i:                    ; preds = %283, %278, %274, %2
   %308 = getelementptr inbounds i8, ptr %0, i64 152
   %309 = load ptr, ptr %308, align 8
   %.not251.i = icmp eq ptr %309, null
-  br i1 %.not251.i, label %310, label %321
+  br i1 %.not251.i, label %310, label %.sink.split
 
 310:                                              ; preds = %307
   store ptr %287, ptr %308, align 8
-  br label %321
+  br label %.sink.split
 
 311:                                              ; preds = %286
   br i1 %110, label %.thread280.i, label %.thread.i
@@ -1207,20 +1207,16 @@ XLogReadRecordAlloc.exit268.i:                    ; preds = %283, %278, %274, %2
   store i32 0, ptr %319, align 8
   %320 = getelementptr inbounds i8, ptr %0, i64 176
   store i32 0, ptr %320, align 8
-  br label %XLogDecodeNextRecord.exit.thread
+  br label %.sink.split
 
-XLogDecodeNextRecord.exit.thread:                 ; preds = %XLogReadRecordAlloc.exit.i, %135, %121, %317, %224, %8
+.sink.split:                                      ; preds = %135, %XLogReadRecordAlloc.exit.i, %121, %307, %310, %8, %224, %317
+  %.0.ph = phi ptr [ null, %317 ], [ null, %224 ], [ null, %8 ], [ %287, %310 ], [ %287, %307 ], [ null, %121 ], [ null, %XLogReadRecordAlloc.exit.i ], [ null, %135 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %4)
-  br label %322
+  br label %321
 
-321:                                              ; preds = %310, %307
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %4)
-  br label %322
-
-322:                                              ; preds = %XLogDecodeNextRecord.exit.thread, %2, %321
-  %.0 = phi ptr [ %287, %321 ], [ null, %2 ], [ null, %XLogDecodeNextRecord.exit.thread ]
+321:                                              ; preds = %.sink.split, %2
+  %.0 = phi ptr [ null, %2 ], [ %.0.ph, %.sink.split ]
   ret ptr %.0
 }
 

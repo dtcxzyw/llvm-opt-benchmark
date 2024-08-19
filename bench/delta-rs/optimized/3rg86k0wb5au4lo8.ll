@@ -86,16 +86,12 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$
   %.not.not.i.i = icmp eq i64 %16, -9223372036854775808
   br i1 %.not.not.i.i, label %.loopexit, label %.lr.ph.i.i
 
-"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h9f9cbffd1693049cE.exit": ; preds = %.lr.ph.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !11
-  br label %17
-
 .loopexit:                                        ; preds = %15, %2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !11
-  br label %17
+  br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h9f9cbffd1693049cE.exit"
 
-17:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h9f9cbffd1693049cE.exit", %.loopexit
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h9f9cbffd1693049cE.exit": ; preds = %.lr.ph.i.i, %.loopexit
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !11
   ret void
 }
 

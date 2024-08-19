@@ -24,7 +24,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$futures_util..future..maybe_done..
   %8 = select i1 %7, i64 %6, i64 1
   switch i64 %8, label %9 [
     i64 0, label %10
-    i64 1, label %24
+    i64 1, label %.sink.split
     i64 2, label %19
   ]
 
@@ -65,14 +65,14 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$futures_util..future..maybe_done..
 "_ZN4core3pin12Pin$LT$P$GT$3set17h8c802ad37e76509eE.llvm.10658646520225780758.exit": ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(240) %3, i64 240, i1 false), !noalias !19
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %3)
-  br label %24
+  br label %.sink.split
 
 23:                                               ; preds = %10
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %4)
-  br label %24
+  br label %.sink.split
 
-24:                                               ; preds = %2, %"_ZN4core3pin12Pin$LT$P$GT$3set17h8c802ad37e76509eE.llvm.10658646520225780758.exit", %23
-  %.0 = phi i1 [ true, %23 ], [ false, %"_ZN4core3pin12Pin$LT$P$GT$3set17h8c802ad37e76509eE.llvm.10658646520225780758.exit" ], [ false, %2 ]
+.sink.split:                                      ; preds = %"_ZN4core3pin12Pin$LT$P$GT$3set17h8c802ad37e76509eE.llvm.10658646520225780758.exit", %23, %2
+  %.0 = phi i1 [ false, %2 ], [ %18, %23 ], [ %18, %"_ZN4core3pin12Pin$LT$P$GT$3set17h8c802ad37e76509eE.llvm.10658646520225780758.exit" ]
   ret i1 %.0
 }
 

@@ -3318,22 +3318,14 @@ _enter_session.exit:                              ; preds = %if.end4, %if.then.i
   store ptr %call.i, ptr %session, align 8
   %call5 = tail call i32 @_PyInterpreterState_SetRunningMain(ptr noundef %interp) #13
   %cmp6 = icmp slt i32 %call5, 0
-  br i1 %cmp6, label %if.then7, label %if.end8
-
-if.then7:                                         ; preds = %_enter_session.exit
-  store i32 -4, ptr %errcode, align 4
-  br label %error
+  br i1 %cmp6, label %error, label %if.end8
 
 if.end8:                                          ; preds = %_enter_session.exit
   %running = getelementptr inbounds i8, ptr %session, i64 20
   store i32 1, ptr %running, align 4
   %call9 = tail call ptr @PyUnstable_InterpreterState_GetMainModule(ptr noundef %interp) #13
   %cmp10 = icmp eq ptr %call9, null
-  br i1 %cmp10, label %if.then11, label %if.end12
-
-if.then11:                                        ; preds = %if.end8
-  store i32 -5, ptr %errcode, align 4
-  br label %error
+  br i1 %cmp10, label %error, label %if.end12
 
 if.end12:                                         ; preds = %if.end8
   %call13 = tail call ptr @PyModule_GetDict(ptr noundef nonnull %call9) #13
@@ -3354,11 +3346,7 @@ if.then1.i:                                       ; preds = %if.end.i
 
 Py_DECREF.exit:                                   ; preds = %if.end12, %if.then1.i, %if.end.i
   %cmp14 = icmp eq ptr %call13, null
-  br i1 %cmp14, label %if.then15, label %if.end16
-
-if.then15:                                        ; preds = %Py_DECREF.exit
-  store i32 -5, ptr %errcode, align 4
-  br label %error
+  br i1 %cmp14, label %error, label %if.end16
 
 if.end16:                                         ; preds = %Py_DECREF.exit
   %9 = load i32, ptr %call13, align 8
@@ -3379,17 +3367,15 @@ _Py_NewRef.exit:                                  ; preds = %if.end16, %if.end.i
 if.then19:                                        ; preds = %_Py_NewRef.exit
   %call20 = tail call i32 @_PyXI_ApplyNamespace(ptr noundef nonnull %sharedns.0, ptr noundef nonnull %call13, ptr noundef null)
   %cmp21 = icmp slt i32 %call20, 0
-  br i1 %cmp21, label %if.then22, label %if.end23
-
-if.then22:                                        ; preds = %if.then19
-  store i32 -6, ptr %errcode, align 4
-  br label %error
+  br i1 %cmp21, label %error, label %if.end23
 
 if.end23:                                         ; preds = %if.then19
   tail call void @_PyXI_FreeNamespace(ptr noundef nonnull %sharedns.0)
   br label %return
 
-error:                                            ; preds = %if.then22, %if.then15, %if.then11, %if.then7
+error:                                            ; preds = %if.then19, %Py_DECREF.exit, %if.end8, %_enter_session.exit
+  %.sink = phi i32 [ -4, %_enter_session.exit ], [ -5, %if.end8 ], [ -5, %Py_DECREF.exit ], [ -6, %if.then19 ]
+  store i32 %.sink, ptr %errcode, align 4
   %error_override = getelementptr inbounds i8, ptr %session, i64 32
   store ptr %errcode, ptr %error_override, align 8
   call fastcc void @_capture_current_exception(ptr noundef nonnull %session)

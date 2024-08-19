@@ -9233,30 +9233,26 @@ _ZL16stbi__start_fileP13stbi__contextP8_IO_FILE.exit: ; preds = %if.then.i.i.i, 
   %depth.i.i = getelementptr inbounds i8, ptr %p.i.i, i64 32
   %5 = load i32, ptr %depth.i.i, align 8
   %cmp.not.i.i = icmp eq i32 %5, 16
-  %or.cond.i = select i1 %tobool.not.i.i.i, i1 %cmp.not.i.i, i1 false
-  br i1 %or.cond.i, label %_ZL14stbi__png_is16P13stbi__context.exit.i, label %6
-
-_ZL14stbi__png_is16P13stbi__context.exit.i:       ; preds = %_ZL16stbi__start_fileP13stbi__contextP8_IO_FILE.exit
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %p.i.i)
-  br label %_ZL16stbi__is_16_mainP13stbi__context.exit
+  %or.cond.i.i = select i1 %tobool.not.i.i.i, i1 %cmp.not.i.i, i1 false
+  br i1 %or.cond.i.i, label %_ZL16stbi__is_16_mainP13stbi__context.exit, label %6
 
 6:                                                ; preds = %_ZL16stbi__start_fileP13stbi__contextP8_IO_FILE.exit
-  %.sink6.i.i = load ptr, ptr %p.i.i, align 8
-  %img_buffer_original.i.i.i.i = getelementptr inbounds i8, ptr %.sink6.i.i, i64 208
-  %7 = load ptr, ptr %img_buffer_original.i.i.i.i, align 8
-  %img_buffer.i.i.i.i = getelementptr inbounds i8, ptr %.sink6.i.i, i64 192
-  store ptr %7, ptr %img_buffer.i.i.i.i, align 8
-  %img_buffer_original_end.i.i.i.i = getelementptr inbounds i8, ptr %.sink6.i.i, i64 216
-  %8 = load ptr, ptr %img_buffer_original_end.i.i.i.i, align 8
-  %img_buffer_end.i.i.i.i = getelementptr inbounds i8, ptr %.sink6.i.i, i64 200
-  store ptr %8, ptr %img_buffer_end.i.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %p.i.i)
+  %7 = load ptr, ptr %p.i.i, align 8
+  %img_buffer_original.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 208
+  %8 = load ptr, ptr %img_buffer_original.i.i.i.i, align 8
+  %img_buffer.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 192
+  store ptr %8, ptr %img_buffer.i.i.i.i, align 8
+  %img_buffer_original_end.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 216
+  %9 = load ptr, ptr %img_buffer_original_end.i.i.i.i, align 8
+  %img_buffer_end.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 200
+  store ptr %9, ptr %img_buffer_end.i.i.i.i, align 8
   br label %_ZL16stbi__is_16_mainP13stbi__context.exit
 
-_ZL16stbi__is_16_mainP13stbi__context.exit:       ; preds = %_ZL14stbi__png_is16P13stbi__context.exit.i, %6
-  %9 = phi i32 [ 0, %6 ], [ 1, %_ZL14stbi__png_is16P13stbi__context.exit.i ]
+_ZL16stbi__is_16_mainP13stbi__context.exit:       ; preds = %_ZL16stbi__start_fileP13stbi__contextP8_IO_FILE.exit, %6
+  %10 = phi i32 [ 0, %6 ], [ 1, %_ZL16stbi__start_fileP13stbi__contextP8_IO_FILE.exit ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %p.i.i)
   %call2 = call i32 @fseek(ptr noundef %f, i64 noundef %call, i32 noundef 0)
-  ret i32 %9
+  ret i32 %10
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9484,29 +9480,25 @@ entry:
   %depth.i.i = getelementptr inbounds i8, ptr %p.i.i, i64 32
   %0 = load i32, ptr %depth.i.i, align 8
   %cmp.not.i.i = icmp eq i32 %0, 16
-  %or.cond.i = select i1 %tobool.not.i.i.i, i1 %cmp.not.i.i, i1 false
-  br i1 %or.cond.i, label %_ZL14stbi__png_is16P13stbi__context.exit.i, label %1
-
-_ZL14stbi__png_is16P13stbi__context.exit.i:       ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %p.i.i)
-  br label %_ZL16stbi__is_16_mainP13stbi__context.exit
+  %or.cond.i.i = select i1 %tobool.not.i.i.i, i1 %cmp.not.i.i, i1 false
+  br i1 %or.cond.i.i, label %_ZL16stbi__is_16_mainP13stbi__context.exit, label %1
 
 1:                                                ; preds = %entry
-  %.sink6.i.i = load ptr, ptr %p.i.i, align 8
-  %img_buffer_original.i.i.i.i = getelementptr inbounds i8, ptr %.sink6.i.i, i64 208
-  %2 = load ptr, ptr %img_buffer_original.i.i.i.i, align 8
-  %img_buffer.i.i.i.i = getelementptr inbounds i8, ptr %.sink6.i.i, i64 192
-  store ptr %2, ptr %img_buffer.i.i.i.i, align 8
-  %img_buffer_original_end.i.i.i.i = getelementptr inbounds i8, ptr %.sink6.i.i, i64 216
-  %3 = load ptr, ptr %img_buffer_original_end.i.i.i.i, align 8
-  %img_buffer_end.i.i.i.i = getelementptr inbounds i8, ptr %.sink6.i.i, i64 200
-  store ptr %3, ptr %img_buffer_end.i.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %p.i.i)
+  %2 = load ptr, ptr %p.i.i, align 8
+  %img_buffer_original.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 208
+  %3 = load ptr, ptr %img_buffer_original.i.i.i.i, align 8
+  %img_buffer.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 192
+  store ptr %3, ptr %img_buffer.i.i.i.i, align 8
+  %img_buffer_original_end.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 216
+  %4 = load ptr, ptr %img_buffer_original_end.i.i.i.i, align 8
+  %img_buffer_end.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 200
+  store ptr %4, ptr %img_buffer_end.i.i.i.i, align 8
   br label %_ZL16stbi__is_16_mainP13stbi__context.exit
 
-_ZL16stbi__is_16_mainP13stbi__context.exit:       ; preds = %_ZL14stbi__png_is16P13stbi__context.exit.i, %1
-  %4 = phi i32 [ 0, %1 ], [ 1, %_ZL14stbi__png_is16P13stbi__context.exit.i ]
-  ret i32 %4
+_ZL16stbi__is_16_mainP13stbi__context.exit:       ; preds = %entry, %1
+  %5 = phi i32 [ 0, %1 ], [ 1, %entry ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %p.i.i)
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9568,29 +9560,25 @@ _ZL21stbi__start_callbacksP13stbi__contextP17stbi_io_callbacksPv.exit: ; preds =
   %depth.i.i = getelementptr inbounds i8, ptr %p.i.i, i64 32
   %5 = load i32, ptr %depth.i.i, align 8
   %cmp.not.i.i = icmp eq i32 %5, 16
-  %or.cond.i = select i1 %tobool.not.i.i.i, i1 %cmp.not.i.i, i1 false
-  br i1 %or.cond.i, label %_ZL14stbi__png_is16P13stbi__context.exit.i, label %6
-
-_ZL14stbi__png_is16P13stbi__context.exit.i:       ; preds = %_ZL21stbi__start_callbacksP13stbi__contextP17stbi_io_callbacksPv.exit
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %p.i.i)
-  br label %_ZL16stbi__is_16_mainP13stbi__context.exit
+  %or.cond.i.i = select i1 %tobool.not.i.i.i, i1 %cmp.not.i.i, i1 false
+  br i1 %or.cond.i.i, label %_ZL16stbi__is_16_mainP13stbi__context.exit, label %6
 
 6:                                                ; preds = %_ZL21stbi__start_callbacksP13stbi__contextP17stbi_io_callbacksPv.exit
-  %.sink6.i.i = load ptr, ptr %p.i.i, align 8
-  %img_buffer_original.i.i.i.i = getelementptr inbounds i8, ptr %.sink6.i.i, i64 208
-  %7 = load ptr, ptr %img_buffer_original.i.i.i.i, align 8
-  %img_buffer.i.i.i.i = getelementptr inbounds i8, ptr %.sink6.i.i, i64 192
-  store ptr %7, ptr %img_buffer.i.i.i.i, align 8
-  %img_buffer_original_end.i.i.i.i = getelementptr inbounds i8, ptr %.sink6.i.i, i64 216
-  %8 = load ptr, ptr %img_buffer_original_end.i.i.i.i, align 8
-  %img_buffer_end.i.i.i.i = getelementptr inbounds i8, ptr %.sink6.i.i, i64 200
-  store ptr %8, ptr %img_buffer_end.i.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %p.i.i)
+  %7 = load ptr, ptr %p.i.i, align 8
+  %img_buffer_original.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 208
+  %8 = load ptr, ptr %img_buffer_original.i.i.i.i, align 8
+  %img_buffer.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 192
+  store ptr %8, ptr %img_buffer.i.i.i.i, align 8
+  %img_buffer_original_end.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 216
+  %9 = load ptr, ptr %img_buffer_original_end.i.i.i.i, align 8
+  %img_buffer_end.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 200
+  store ptr %9, ptr %img_buffer_end.i.i.i.i, align 8
   br label %_ZL16stbi__is_16_mainP13stbi__context.exit
 
-_ZL16stbi__is_16_mainP13stbi__context.exit:       ; preds = %_ZL14stbi__png_is16P13stbi__context.exit.i, %6
-  %9 = phi i32 [ 0, %6 ], [ 1, %_ZL14stbi__png_is16P13stbi__context.exit.i ]
-  ret i32 %9
+_ZL16stbi__is_16_mainP13stbi__context.exit:       ; preds = %_ZL21stbi__start_callbacksP13stbi__contextP17stbi_io_callbacksPv.exit, %6
+  %10 = phi i32 [ 0, %6 ], [ 1, %_ZL21stbi__start_callbacksP13stbi__contextP17stbi_io_callbacksPv.exit ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %p.i.i)
+  ret i32 %10
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -167,7 +167,6 @@ define void @_ZN17diesel_migrations21file_based_migrations19FileBasedMigrations2
   store i64 2, ptr %0, align 8
   %.sroa.4.0..sroa_idx17 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx17, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %20
 
 11:                                               ; preds = %9
@@ -193,10 +192,10 @@ define void @_ZN17diesel_migrations21file_based_migrations19FileBasedMigrations2
 
 "_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hc799130e9d9b9519E.exit": ; preds = %13, %16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %20
 
 20:                                               ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hc799130e9d9b9519E.exit", %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret void
 
 21:                                               ; preds = %11
@@ -318,7 +317,7 @@ define void @_ZN17diesel_migrations21file_based_migrations16SqlFileMigration9fro
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.4)
-  br label %95
+  br label %96
 
 16:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
@@ -339,7 +338,7 @@ define void @_ZN17diesel_migrations21file_based_migrations16SqlFileMigration9fro
 .body:                                            ; preds = %34, %42, %51, %21
   %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %35, %42 ], [ %35, %34 ], [ %52, %51 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hc799130e9d9b9519E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #12
-          to label %98 unwind label %96
+          to label %99 unwind label %97
 
 23:                                               ; preds = %16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
@@ -446,9 +445,9 @@ define void @_ZN17diesel_migrations21file_based_migrations16SqlFileMigration9fro
 64:                                               ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !56
   invoke void @_ZN3std4path4Path11to_path_buf17ha756ed81cfe460bdE(ptr noalias nocapture noundef nonnull sret({ { { { { i64, ptr }, i64 } } } }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
-          to label %_ZN17diesel_migrations21file_based_migrations19DieselMigrationName9from_path17h7da14d8bda963233E.exit.thread unwind label %81
+          to label %.thread unwind label %81
 
-_ZN17diesel_migrations21file_based_migrations19DieselMigrationName9from_path17h7da14d8bda963233E.exit.thread: ; preds = %64
+.thread:                                          ; preds = %64
   %.sroa.420.8.copyload.i = load ptr, ptr %6, align 8, !noalias !56
   %.sroa.621.8..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 8
   %.sroa.621.8.copyload.i = load i64, ptr %.sroa.621.8..sroa_idx.i, align 8, !noalias !56
@@ -464,7 +463,7 @@ _ZN17diesel_migrations21file_based_migrations19DieselMigrationName9from_path17h7
   %.sroa.434.0..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 32
   store i64 %.sroa.722.8.copyload.i, ptr %.sroa.434.0..sroa_idx.i, align 8, !alias.scope !53, !noalias !58
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !56
-  br label %85
+  br label %86
 
 66:                                               ; preds = %.noexc22
   %67 = landingpad { ptr, i32 }
@@ -489,7 +488,7 @@ _ZN17diesel_migrations21file_based_migrations19DieselMigrationName9from_path17h7
   call void @llvm.experimental.noalias.scope.decl(metadata !62)
   %70 = load i64, ptr %7, align 8, !range !7, !alias.scope !62, !noalias !56, !noundef !4
   %71 = icmp eq i64 %70, -9223372036854775808
-  br i1 %71, label %_ZN17diesel_migrations21file_based_migrations19DieselMigrationName9from_path17h7da14d8bda963233E.exit, label %72
+  br i1 %71, label %83, label %72
 
 72:                                               ; preds = %69
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !65
@@ -511,7 +510,7 @@ _ZN17diesel_migrations21file_based_migrations19DieselMigrationName9from_path17h7
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h30846a94a26df7afE.exit.i.i": ; preds = %75, %.noexc23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !65
-  br label %_ZN17diesel_migrations21file_based_migrations19DieselMigrationName9from_path17h7da14d8bda963233E.exit
+  br label %83
 
 79:                                               ; preds = %66
   %80 = landingpad { ptr, i32 }
@@ -527,15 +526,15 @@ _ZN17diesel_migrations21file_based_migrations19DieselMigrationName9from_path17h7
 .body25:                                          ; preds = %66, %81
   %eh.lpad-body26 = phi { ptr, i32 } [ %82, %81 ], [ %67, %66 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hc799130e9d9b9519E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #12
-          to label %98 unwind label %96
+          to label %99 unwind label %97
 
-_ZN17diesel_migrations21file_based_migrations19DieselMigrationName9from_path17h7da14d8bda963233E.exit: ; preds = %69, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h30846a94a26df7afE.exit.i.i"
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !56
+83:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h30846a94a26df7afE.exit.i.i", %69
   %.pr = load i64, ptr %9, align 8
-  %83 = icmp eq i64 %.pr, -9223372036854775808
-  br i1 %83, label %85, label %84
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !56
+  %84 = icmp eq i64 %.pr, -9223372036854775808
+  br i1 %84, label %86, label %85
 
-84:                                               ; preds = %_ZN17diesel_migrations21file_based_migrations19DieselMigrationName9from_path17h7da14d8bda963233E.exit
+85:                                               ; preds = %83
   %.sroa.414.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.73, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.414.0..sroa_idx, i64 32, i1 false)
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 40
@@ -553,46 +552,46 @@ _ZN17diesel_migrations21file_based_migrations19DieselMigrationName9from_path17h7
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 72
   store i8 %56, ptr %.sroa.6.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0.sroa.0)
-  br label %95
+  br label %96
 
-85:                                               ; preds = %_ZN17diesel_migrations21file_based_migrations19DieselMigrationName9from_path17h7da14d8bda963233E.exit, %_ZN17diesel_migrations21file_based_migrations19DieselMigrationName9from_path17h7da14d8bda963233E.exit.thread
-  %86 = getelementptr inbounds i8, ptr %9, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.73, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 32, i1 false)
+86:                                               ; preds = %83, %.thread
+  %87 = getelementptr inbounds i8, ptr %9, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.73, ptr noundef nonnull align 8 dereferenceable(32) %87, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
-  %87 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.73, i64 32, i1 false)
+  %88 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %88, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.73, i64 32, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !74
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7c09114b7ce95af6E.llvm.1191848617827839331"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10)
-  %88 = getelementptr inbounds i8, ptr %4, i64 8
-  %89 = load i64, ptr %88, align 8, !range !7, !noalias !74, !noundef !4
-  %.not.i.i.i.i.i.i27 = icmp eq i64 %89, 0
-  br i1 %.not.i.i.i.i.i.i27, label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hc799130e9d9b9519E.exit28", label %90
+  %89 = getelementptr inbounds i8, ptr %4, i64 8
+  %90 = load i64, ptr %89, align 8, !range !7, !noalias !74, !noundef !4
+  %.not.i.i.i.i.i.i27 = icmp eq i64 %90, 0
+  br i1 %.not.i.i.i.i.i.i27, label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hc799130e9d9b9519E.exit28", label %91
 
-90:                                               ; preds = %85
-  %91 = load ptr, ptr %4, align 8, !noalias !74, !nonnull !4, !noundef !4
-  %92 = getelementptr inbounds i8, ptr %4, i64 16
-  %93 = load i64, ptr %92, align 8, !noalias !74, !noundef !4
-  %94 = getelementptr inbounds i8, ptr %10, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.1191848617827839331"(ptr noalias noundef nonnull readonly align 1 %94, ptr noundef nonnull %91, i64 noundef %89, i64 noundef %93)
+91:                                               ; preds = %86
+  %92 = load ptr, ptr %4, align 8, !noalias !74, !nonnull !4, !noundef !4
+  %93 = getelementptr inbounds i8, ptr %4, i64 16
+  %94 = load i64, ptr %93, align 8, !noalias !74, !noundef !4
+  %95 = getelementptr inbounds i8, ptr %10, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.1191848617827839331"(ptr noalias noundef nonnull readonly align 1 %95, ptr noundef nonnull %92, i64 noundef %90, i64 noundef %94)
   br label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hc799130e9d9b9519E.exit28"
 
-"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hc799130e9d9b9519E.exit28": ; preds = %85, %90
+"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hc799130e9d9b9519E.exit28": ; preds = %86, %91
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !74
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0.sroa.0)
-  br label %95
+  br label %96
 
-95:                                               ; preds = %14, %84, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hc799130e9d9b9519E.exit28"
+96:                                               ; preds = %14, %85, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hc799130e9d9b9519E.exit28"
   ret void
 
-96:                                               ; preds = %.body25, %.body
-  %97 = landingpad { ptr, i32 }
+97:                                               ; preds = %.body25, %.body
+  %98 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #13
   unreachable
 
-98:                                               ; preds = %.body25, %.body
+99:                                               ; preds = %.body25, %.body
   %.pn = phi { ptr, i32 } [ %eh.lpad-body26, %.body25 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn
 }
@@ -671,7 +670,6 @@ define void @_ZN17diesel_migrations21file_based_migrations19DieselMigrationName9
   %.sroa.224.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.224.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %23
 
 15:                                               ; preds = %11
@@ -706,10 +704,10 @@ define void @_ZN17diesel_migrations21file_based_migrations19DieselMigrationName9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %23
 
 23:                                               ; preds = %21, %13
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   ret void
 
 24:                                               ; preds = %27, %19

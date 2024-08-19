@@ -1638,18 +1638,14 @@ cond.end.i.i:                                     ; preds = %if.then.i.i
   %10 = load ptr, ptr %vfn11.i.i, align 8
   %call12.i.i = call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %arrayidx.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %key_decoded.i.i)
   %cmp13.i.i = icmp eq i32 %call12.i.i, 0
-  br i1 %cmp13.i.i, label %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindGreaterOrEqualEPKc.exit.thread.i, label %lor.lhs.false14.i.i
-
-_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindGreaterOrEqualEPKc.exit.thread.i: ; preds = %cond.end.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %key_decoded.i.i)
-  br label %land.lhs.true.i
+  br i1 %cmp13.i.i, label %land.lhs.true.i, label %lor.lhs.false14.i.i
 
 lor.lhs.false14.i.i:                              ; preds = %cond.end.i.i, %if.then.i.i
   %cond21.i.i = phi i32 [ %call12.i.i, %cond.end.i.i ], [ 1, %if.then.i.i ]
   %cmp15.i.i = icmp sgt i32 %cond21.i.i, 0
   %cmp16.i.i = icmp eq i32 %level.0.i.i, 0
   %or.cond.i.i = and i1 %cmp16.i.i, %cmp15.i.i
-  br i1 %or.cond.i.i, label %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindGreaterOrEqualEPKc.exit.i, label %if.else.i.i
+  br i1 %or.cond.i.i, label %land.lhs.true.i, label %if.else.i.i
 
 lor.lhs.false14.i.thread.i:                       ; preds = %while.body.i.i
   %cmp16.i14.i = icmp eq i32 %level.0.i.i, 0
@@ -1668,11 +1664,8 @@ if.else.i.i:                                      ; preds = %lor.lhs.false14.i.t
   %x.1.i.i = select i1 %cmp18.i.i, ptr %x.0.i.i, ptr %atomic-temp.i.0.i.i.i.i
   br label %while.body.i.i, !llvm.loop !11
 
-_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindGreaterOrEqualEPKc.exit.i: ; preds = %lor.lhs.false14.i.i
+land.lhs.true.i:                                  ; preds = %lor.lhs.false14.i.i, %cond.end.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %key_decoded.i.i)
-  br label %land.lhs.true.i
-
-land.lhs.true.i:                                  ; preds = %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindGreaterOrEqualEPKc.exit.i, %_ZNK7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE18FindGreaterOrEqualEPKc.exit.thread.i
   %arrayidx.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i.i, i64 8
   %11 = load ptr, ptr %compare_.i.i, align 8
   %vtable.i4.i = load ptr, ptr %11, align 8

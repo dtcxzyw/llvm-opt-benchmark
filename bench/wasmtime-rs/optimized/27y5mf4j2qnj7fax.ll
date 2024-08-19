@@ -1699,11 +1699,6 @@ _ZN14cranelift_wasm7environ4spec17TargetEnvironment12pointer_type17h3585ff930371
   %117 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %.sroa.11.0, ptr %117, align 4
   store i64 -9223372036854775805, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %36)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %40)
   br label %404
 
 118:                                              ; preds = %112
@@ -2265,14 +2260,14 @@ _ZN14cranelift_wasm7environ4spec17TargetEnvironment12pointer_type17h3585ff930371
   store i64 %318, ptr %0, align 8
   %.sroa.257.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.257.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.257, i64 24, i1 false)
+  br label %404
+
+404:                                              ; preds = %403, %115
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %36)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %40)
-  br label %404
-
-404:                                              ; preds = %403, %115
   ret void
 }
 
@@ -6403,7 +6398,7 @@ define hidden void @"_ZN5gimli4read5dwarf14Dwarf$LT$R$GT$11attr_string17h2fd4387
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 69, ptr %12, align 8
   store i64 1, ptr %0, align 8
-  br label %"_ZN5gimli4read3str17DebugStr$LT$R$GT$7get_str17ha5dfe5b4f27f374eE.exit"
+  br label %98
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds i8, ptr %3, i64 8
@@ -6425,7 +6420,6 @@ define hidden void @"_ZN5gimli4read5dwarf14Dwarf$LT$R$GT$11attr_string17h2fd4387
   store ptr %24, ptr %8, align 8, !alias.scope !1093, !noalias !1096
   store i64 %23, ptr %22, align 8, !alias.scope !1093, !noalias !1096
   call void @_ZN5gimli4read6reader6Reader26read_null_terminated_slice17hab882c64595e9aefE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %8), !noalias !1087
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !1089
   br label %"_ZN5gimli4read3str17DebugStr$LT$R$GT$7get_str17ha5dfe5b4f27f374eE.exit"
 
 25:                                               ; preds = %13
@@ -6435,8 +6429,11 @@ define hidden void @"_ZN5gimli4read5dwarf14Dwarf$LT$R$GT$11attr_string17h2fd4387
   %.sroa.28.sroa.2.0..sroa.28.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %26, ptr %.sroa.28.sroa.2.0..sroa.28.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !1084, !noalias !1087
   store i64 1, ptr %0, align 8, !alias.scope !1084, !noalias !1087
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !1089
   br label %"_ZN5gimli4read3str17DebugStr$LT$R$GT$7get_str17ha5dfe5b4f27f374eE.exit"
+
+"_ZN5gimli4read3str17DebugStr$LT$R$GT$7get_str17ha5dfe5b4f27f374eE.exit": ; preds = %21, %25
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !1089
+  br label %98
 
 28:                                               ; preds = %4
   %29 = getelementptr inbounds i8, ptr %3, i64 8
@@ -6480,8 +6477,7 @@ define hidden void @"_ZN5gimli4read5dwarf14Dwarf$LT$R$GT$11attr_string17h2fd4387
   store ptr %55, ptr %7, align 8, !alias.scope !1108, !noalias !1111
   store i64 %54, ptr %53, align 8, !alias.scope !1108, !noalias !1111
   call void @_ZN5gimli4read6reader6Reader26read_null_terminated_slice17hab882c64595e9aefE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %7), !noalias !1102
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !1104
-  br label %"_ZN5gimli4read3str17DebugStr$LT$R$GT$7get_str17ha5dfe5b4f27f374eE.exit"
+  br label %"_ZN5gimli4read3str21DebugLineStr$LT$R$GT$7get_str17h30160e14493f0954E.exit"
 
 56:                                               ; preds = %44
   %57 = ptrtoint ptr %48 to i64
@@ -6490,8 +6486,11 @@ define hidden void @"_ZN5gimli4read5dwarf14Dwarf$LT$R$GT$11attr_string17h2fd4387
   %.sroa.28.sroa.2.0..sroa.28.0..sroa_idx.sroa_idx.i21 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %57, ptr %.sroa.28.sroa.2.0..sroa.28.0..sroa_idx.sroa_idx.i21, align 8, !alias.scope !1099, !noalias !1102
   store i64 1, ptr %0, align 8, !alias.scope !1099, !noalias !1102
+  br label %"_ZN5gimli4read3str21DebugLineStr$LT$R$GT$7get_str17h30160e14493f0954E.exit"
+
+"_ZN5gimli4read3str21DebugLineStr$LT$R$GT$7get_str17h30160e14493f0954E.exit": ; preds = %52, %56
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !1104
-  br label %"_ZN5gimli4read3str17DebugStr$LT$R$GT$7get_str17ha5dfe5b4f27f374eE.exit"
+  br label %98
 
 59:                                               ; preds = %4
   %60 = getelementptr inbounds i8, ptr %3, i64 8
@@ -6503,7 +6502,7 @@ define hidden void @"_ZN5gimli4read5dwarf14Dwarf$LT$R$GT$11attr_string17h2fd4387
   %65 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %63, ptr %65, align 8
   store i64 0, ptr %0, align 8
-  br label %"_ZN5gimli4read3str17DebugStr$LT$R$GT$7get_str17ha5dfe5b4f27f374eE.exit"
+  br label %98
 
 66:                                               ; preds = %28
   %67 = getelementptr inbounds i8, ptr %32, i64 112
@@ -6523,8 +6522,7 @@ define hidden void @"_ZN5gimli4read5dwarf14Dwarf$LT$R$GT$11attr_string17h2fd4387
   store ptr %75, ptr %6, align 8, !alias.scope !1122, !noalias !1125
   store i64 %74, ptr %73, align 8, !alias.scope !1122, !noalias !1125
   call void @_ZN5gimli4read6reader6Reader26read_null_terminated_slice17hab882c64595e9aefE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %6), !noalias !1116
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1118
-  br label %"_ZN5gimli4read3str17DebugStr$LT$R$GT$7get_str17ha5dfe5b4f27f374eE.exit"
+  br label %"_ZN5gimli4read3str17DebugStr$LT$R$GT$7get_str17ha5dfe5b4f27f374eE.exit23"
 
 76:                                               ; preds = %66
   %77 = ptrtoint ptr %68 to i64
@@ -6533,14 +6531,17 @@ define hidden void @"_ZN5gimli4read5dwarf14Dwarf$LT$R$GT$11attr_string17h2fd4387
   %.sroa.28.sroa.2.0..sroa.28.0..sroa_idx.sroa_idx.i22 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %77, ptr %.sroa.28.sroa.2.0..sroa.28.0..sroa_idx.sroa_idx.i22, align 8, !alias.scope !1113, !noalias !1116
   store i64 1, ptr %0, align 8, !alias.scope !1113, !noalias !1116
+  br label %"_ZN5gimli4read3str17DebugStr$LT$R$GT$7get_str17ha5dfe5b4f27f374eE.exit23"
+
+"_ZN5gimli4read3str17DebugStr$LT$R$GT$7get_str17ha5dfe5b4f27f374eE.exit23": ; preds = %72, %76
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1118
-  br label %"_ZN5gimli4read3str17DebugStr$LT$R$GT$7get_str17ha5dfe5b4f27f374eE.exit"
+  br label %98
 
 79:                                               ; preds = %28
   %80 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 69, ptr %80, align 8
   store i64 1, ptr %0, align 8
-  br label %"_ZN5gimli4read3str17DebugStr$LT$R$GT$7get_str17ha5dfe5b4f27f374eE.exit"
+  br label %98
 
 81:                                               ; preds = %34
   %82 = getelementptr inbounds i8, ptr %9, i64 8
@@ -6563,8 +6564,7 @@ define hidden void @"_ZN5gimli4read5dwarf14Dwarf$LT$R$GT$11attr_string17h2fd4387
   store ptr %92, ptr %5, align 8, !alias.scope !1136, !noalias !1139
   store i64 %91, ptr %90, align 8, !alias.scope !1136, !noalias !1139
   call void @_ZN5gimli4read6reader6Reader26read_null_terminated_slice17hab882c64595e9aefE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %5), !noalias !1130
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1132
-  br label %"_ZN5gimli4read3str17DebugStr$LT$R$GT$7get_str17ha5dfe5b4f27f374eE.exit"
+  br label %"_ZN5gimli4read3str17DebugStr$LT$R$GT$7get_str17ha5dfe5b4f27f374eE.exit25"
 
 93:                                               ; preds = %81
   %94 = ptrtoint ptr %85 to i64
@@ -6573,8 +6573,11 @@ define hidden void @"_ZN5gimli4read5dwarf14Dwarf$LT$R$GT$11attr_string17h2fd4387
   %.sroa.28.sroa.2.0..sroa.28.0..sroa_idx.sroa_idx.i24 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %94, ptr %.sroa.28.sroa.2.0..sroa.28.0..sroa_idx.sroa_idx.i24, align 8, !alias.scope !1127, !noalias !1130
   store i64 1, ptr %0, align 8, !alias.scope !1127, !noalias !1130
+  br label %"_ZN5gimli4read3str17DebugStr$LT$R$GT$7get_str17ha5dfe5b4f27f374eE.exit25"
+
+"_ZN5gimli4read3str17DebugStr$LT$R$GT$7get_str17ha5dfe5b4f27f374eE.exit25": ; preds = %89, %93
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1132
-  br label %"_ZN5gimli4read3str17DebugStr$LT$R$GT$7get_str17ha5dfe5b4f27f374eE.exit"
+  br label %98
 
 96:                                               ; preds = %34
   %.sroa.414.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 1
@@ -6589,9 +6592,9 @@ define hidden void @"_ZN5gimli4read5dwarf14Dwarf$LT$R$GT$11attr_string17h2fd4387
   %.sroa.318.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.515.0.copyload, ptr %.sroa.318.0..sroa_idx, align 8
   store i64 1, ptr %0, align 8
-  br label %"_ZN5gimli4read3str17DebugStr$LT$R$GT$7get_str17ha5dfe5b4f27f374eE.exit"
+  br label %98
 
-"_ZN5gimli4read3str17DebugStr$LT$R$GT$7get_str17ha5dfe5b4f27f374eE.exit": ; preds = %93, %89, %76, %72, %56, %52, %25, %21, %79, %11, %59, %96
+98:                                               ; preds = %79, %"_ZN5gimli4read3str17DebugStr$LT$R$GT$7get_str17ha5dfe5b4f27f374eE.exit23", %"_ZN5gimli4read3str17DebugStr$LT$R$GT$7get_str17ha5dfe5b4f27f374eE.exit", %"_ZN5gimli4read3str21DebugLineStr$LT$R$GT$7get_str17h30160e14493f0954E.exit", %"_ZN5gimli4read3str17DebugStr$LT$R$GT$7get_str17ha5dfe5b4f27f374eE.exit25", %11, %59, %96
   ret void
 }
 

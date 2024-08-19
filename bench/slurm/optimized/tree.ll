@@ -1583,7 +1583,7 @@ define internal i32 @_handle_name_lookup(i32 noundef %0, ptr noundef %1) #0 {
 
 .thread:                                          ; preds = %9
   %11 = call ptr @slurm_init_buf(i32 noundef 1024) #7
-  br label %26
+  br label %25
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @tree_info, i64 40), align 8
@@ -1600,45 +1600,45 @@ define internal i32 @_handle_name_lookup(i32 noundef %0, ptr noundef %1) #0 {
   br label %19
 
 19:                                               ; preds = %15, %17
-  %20 = phi ptr [ %16, %15 ], [ %18, %17 ]
-  store ptr %20, ptr %5, align 8
-  %21 = call ptr @slurm_init_buf(i32 noundef 1024) #7
-  %.not16 = icmp eq ptr %20, null
-  br i1 %.not16, label %26, label %22
+  %.sink = phi ptr [ %16, %15 ], [ %18, %17 ]
+  store ptr %.sink, ptr %5, align 8
+  %20 = call ptr @slurm_init_buf(i32 noundef 1024) #7
+  %.not16 = icmp eq ptr %.sink, null
+  br i1 %.not16, label %25, label %21
 
-22:                                               ; preds = %19
-  %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #9
-  %24 = trunc i64 %23 to i32
-  %25 = add i32 %24, 1
-  br label %26
+21:                                               ; preds = %19
+  %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink) #9
+  %23 = trunc i64 %22 to i32
+  %24 = add i32 %23, 1
+  br label %25
 
-26:                                               ; preds = %.thread, %22, %19
-  %27 = phi ptr [ %21, %22 ], [ %21, %19 ], [ %11, %.thread ]
-  %.01220 = phi i32 [ 0, %22 ], [ 0, %19 ], [ -1, %.thread ]
-  %28 = phi ptr [ %20, %22 ], [ null, %19 ], [ null, %.thread ]
-  %.0 = phi i32 [ %25, %22 ], [ 0, %19 ], [ 0, %.thread ]
-  call void @slurm_packmem(ptr noundef %28, i32 noundef %.0, ptr noundef %27) #7
-  %29 = getelementptr inbounds i8, ptr %27, i64 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %27, i64 20
-  %32 = load i32, ptr %31, align 4
-  %33 = zext i32 %32 to i64
-  %34 = call i64 @slurm_msg_sendto(i32 noundef %0, ptr noundef %30, i64 noundef %33) #7
-  call void @slurm_free_buf(ptr noundef nonnull %27) #7
+25:                                               ; preds = %.thread, %21, %19
+  %26 = phi ptr [ %20, %21 ], [ %20, %19 ], [ %11, %.thread ]
+  %.01220 = phi i32 [ 0, %21 ], [ 0, %19 ], [ -1, %.thread ]
+  %27 = phi ptr [ %.sink, %21 ], [ null, %19 ], [ null, %.thread ]
+  %.0 = phi i32 [ %24, %21 ], [ 0, %19 ], [ 0, %.thread ]
+  call void @slurm_packmem(ptr noundef %27, i32 noundef %.0, ptr noundef %26) #7
+  %28 = getelementptr inbounds i8, ptr %26, i64 8
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %26, i64 20
+  %31 = load i32, ptr %30, align 4
+  %32 = zext i32 %31 to i64
+  %33 = call i64 @slurm_msg_sendto(i32 noundef %0, ptr noundef %29, i64 noundef %32) #7
+  call void @slurm_free_buf(ptr noundef nonnull %26) #7
   call void @slurm_xfree(ptr noundef nonnull %4) #7
   call void @slurm_xfree(ptr noundef nonnull %5) #7
-  %35 = call i32 @slurm_get_log_level() #7
-  %36 = icmp sgt i32 %35, 6
-  br i1 %36, label %37, label %38
+  %34 = call i32 @slurm_get_log_level() #7
+  %35 = icmp sgt i32 %34, 6
+  br i1 %35, label %36, label %37
 
-37:                                               ; preds = %26
+36:                                               ; preds = %25
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.55, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._handle_name_lookup) #7
-  br label %38
+  br label %37
 
-38:                                               ; preds = %37, %26
-  %39 = trunc i64 %34 to i32
-  %40 = call i32 @llvm.smax.i32(i32 %.01220, i32 %39)
-  ret i32 %40
+37:                                               ; preds = %36, %25
+  %38 = trunc i64 %33 to i32
+  %39 = call i32 @llvm.smax.i32(i32 %.01220, i32 %38)
+  ret i32 %39
 }
 
 ; Function Attrs: nounwind uwtable

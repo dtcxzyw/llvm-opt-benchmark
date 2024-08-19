@@ -4199,7 +4199,6 @@ invoke.cont73:                                    ; preds = %if.then67
   %tobool.i.not.i = icmp ult i16 %call74, 256
   %__u.val.i = load i8, ptr %pointable80, align 1
   %retval.0.i = select i1 %tobool.i.not.i, i8 %__u.val.i, i8 %ref.tmp68.sroa.0.0.extract.trunc
-  store i8 %retval.0.i, ptr %pointable, align 1, !tbaa !313
   br label %if.end106
 
 lpad70:                                           ; preds = %if.then67
@@ -4219,7 +4218,6 @@ invoke.cont91:                                    ; preds = %if.else83
   %tobool.i.not.i200 = icmp ult i16 %call92, 256
   %__u.val.i201 = load i8, ptr %pointable98, align 1
   %retval.0.i203 = select i1 %tobool.i.not.i200, i8 %__u.val.i201, i8 %ref.tmp84.sroa.0.0.extract.trunc
-  store i8 %retval.0.i203, ptr %pointable, align 1, !tbaa !313
   br label %if.end106
 
 lpad86:                                           ; preds = %if.else83
@@ -4229,66 +4227,66 @@ lpad86:                                           ; preds = %if.else83
 
 if.else102:                                       ; preds = %if.then61
   %pointable105 = getelementptr inbounds i8, ptr %15, i64 421
-  %61 = load i8, ptr %pointable105, align 1, !tbaa !314
-  store i8 %61, ptr %pointable, align 1, !tbaa !313
+  %61 = load i8, ptr %pointable105, align 1, !tbaa !313
   br label %if.end106
 
 if.end106:                                        ; preds = %if.else102, %invoke.cont91, %invoke.cont73
-  %62 = phi i8 [ %retval.0.i, %invoke.cont73 ], [ %retval.0.i203, %invoke.cont91 ], [ %61, %if.else102 ]
-  %cmp107.not = icmp eq i8 %62, 0
+  %.sink = phi i8 [ %61, %if.else102 ], [ %retval.0.i203, %invoke.cont91 ], [ %retval.0.i, %invoke.cont73 ]
+  store i8 %.sink, ptr %pointable, align 1, !tbaa !314
+  %cmp107.not = icmp eq i8 %.sink, 0
   br i1 %cmp107.not, label %if.end133, label %if.then108
 
 if.then108:                                       ; preds = %if.end106
   %vtable110 = load ptr, ptr %8, align 8, !tbaa !12
   %vfn111 = getelementptr inbounds i8, ptr %vtable110, i64 120
-  %63 = load ptr, ptr %vfn111, align 8
-  %call114 = invoke { <2 x float>, float } %63(ptr noundef nonnull align 8 dereferenceable(32) %8)
+  %62 = load ptr, ptr %vfn111, align 8
+  %call114 = invoke { <2 x float>, float } %62(ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %invoke.cont126 unwind label %lpad112
 
 invoke.cont126:                                   ; preds = %if.then108
   %call114.fca.0.extract = extractvalue { <2 x float>, float } %call114, 0
   %call114.fca.1.extract = extractvalue { <2 x float>, float } %call114, 1
-  %64 = load <2 x float>, ptr %current_intersection, align 8, !tbaa !114
-  %65 = fadd nsz <2 x float> %call114.fca.0.extract, %64
-  store <2 x float> %65, ptr %current_intersection, align 8, !tbaa !114
-  %66 = load float, ptr %Z.i, align 8, !tbaa !280
-  %add6.i = fadd nsz float %call114.fca.1.extract, %66
+  %63 = load <2 x float>, ptr %current_intersection, align 8, !tbaa !114
+  %64 = fadd nsz <2 x float> %call114.fca.0.extract, %63
+  store <2 x float> %64, ptr %current_intersection, align 8, !tbaa !114
+  %65 = load float, ptr %Z.i, align 8, !tbaa !280
+  %add6.i = fadd nsz float %call114.fca.1.extract, %65
   store float %add6.i, ptr %Z.i, align 8, !tbaa !280
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ref.tmp118) #33
   %m_id.i = getelementptr inbounds i8, ptr %8, i64 8
-  %67 = load i16, ptr %m_id.i, align 8, !tbaa !243
-  store i16 %67, ptr %ref.tmp118, align 2, !tbaa !84
+  %66 = load i16, ptr %m_id.i, align 8, !tbaa !243
+  store i16 %66, ptr %ref.tmp118, align 2, !tbaa !84
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp122) #33
-  %68 = load float, ptr %shootline_on_map, align 4, !tbaa !297
-  %69 = extractelement <2 x float> %65, i64 0
-  %sub.i209 = fsub nsz float %69, %68
-  %70 = load float, ptr %Y3.i.i, align 4, !tbaa !208
-  %71 = extractelement <2 x float> %65, i64 1
-  %sub4.i212 = fsub nsz float %71, %70
-  %72 = load float, ptr %Z5.i.i, align 4, !tbaa !280
-  %sub6.i215 = fsub nsz float %add6.i, %72
+  %67 = load float, ptr %shootline_on_map, align 4, !tbaa !297
+  %68 = extractelement <2 x float> %64, i64 0
+  %sub.i209 = fsub nsz float %68, %67
+  %69 = load float, ptr %Y3.i.i, align 4, !tbaa !208
+  %70 = extractelement <2 x float> %64, i64 1
+  %sub4.i212 = fsub nsz float %70, %69
+  %71 = load float, ptr %Z5.i.i, align 4, !tbaa !280
+  %sub6.i215 = fsub nsz float %add6.i, %71
   %mul4.i = fmul nsz float %sub4.i212, %sub4.i212
-  %73 = call nsz float @llvm.fmuladd.f32(float %sub.i209, float %sub.i209, float %mul4.i)
-  %74 = call nsz noundef float @llvm.fmuladd.f32(float %sub6.i215, float %sub6.i215, float %73)
-  store float %74, ptr %ref.tmp122, align 4, !tbaa !114
-  %75 = load ptr, ptr %_M_finish.i222, align 8, !tbaa !65
-  %76 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !315
-  %cmp.not.i = icmp eq ptr %75, %76
+  %72 = call nsz float @llvm.fmuladd.f32(float %sub.i209, float %sub.i209, float %mul4.i)
+  %73 = call nsz noundef float @llvm.fmuladd.f32(float %sub6.i215, float %sub6.i215, float %72)
+  store float %73, ptr %ref.tmp122, align 4, !tbaa !114
+  %74 = load ptr, ptr %_M_finish.i222, align 8, !tbaa !65
+  %75 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !315
+  %cmp.not.i = icmp eq ptr %74, %75
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont126
-  %77 = load i8, ptr %pointable, align 1, !tbaa !313
-  invoke void @_ZN12PointedThingC1EtRKN3irr4core8vector3dIfEES5_S5_f16PointabilityType(ptr noundef nonnull align 4 dereferenceable(69) %75, i16 noundef zeroext %67, ptr noundef nonnull align 4 dereferenceable(12) %current_intersection, ptr noundef nonnull align 4 dereferenceable(12) %current_normal, ptr noundef nonnull align 4 dereferenceable(12) %current_raw_normal, float noundef %74, i8 noundef zeroext %77)
+  %76 = load i8, ptr %pointable, align 1, !tbaa !314
+  invoke void @_ZN12PointedThingC1EtRKN3irr4core8vector3dIfEES5_S5_f16PointabilityType(ptr noundef nonnull align 4 dereferenceable(69) %74, i16 noundef zeroext %66, ptr noundef nonnull align 4 dereferenceable(12) %current_intersection, ptr noundef nonnull align 4 dereferenceable(12) %current_normal, ptr noundef nonnull align 4 dereferenceable(12) %current_raw_normal, float noundef %73, i8 noundef zeroext %76)
           to label %.noexc unwind label %lpad125
 
 .noexc:                                           ; preds = %if.then.i
-  %78 = load ptr, ptr %_M_finish.i222, align 8, !tbaa !317
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %78, i64 72
+  %77 = load ptr, ptr %_M_finish.i222, align 8, !tbaa !317
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %77, i64 72
   store ptr %incdec.ptr.i, ptr %_M_finish.i222, align 8, !tbaa !317
   br label %invoke.cont131
 
 if.else.i:                                        ; preds = %invoke.cont126
-  invoke void @_ZNSt6vectorI12PointedThingSaIS0_EE17_M_realloc_insertIJtRN3irr4core8vector3dIfEES8_S8_fR16PointabilityTypeEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %objects, ptr %75, ptr noundef nonnull align 2 dereferenceable(2) %ref.tmp118, ptr noundef nonnull align 4 dereferenceable(12) %current_intersection, ptr noundef nonnull align 4 dereferenceable(12) %current_normal, ptr noundef nonnull align 4 dereferenceable(12) %current_raw_normal, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp122, ptr noundef nonnull align 1 dereferenceable(1) %pointable)
+  invoke void @_ZNSt6vectorI12PointedThingSaIS0_EE17_M_realloc_insertIJtRN3irr4core8vector3dIfEES8_S8_fR16PointabilityTypeEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %objects, ptr %74, ptr noundef nonnull align 2 dereferenceable(2) %ref.tmp118, ptr noundef nonnull align 4 dereferenceable(12) %current_intersection, ptr noundef nonnull align 4 dereferenceable(12) %current_normal, ptr noundef nonnull align 4 dereferenceable(12) %current_raw_normal, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp122, ptr noundef nonnull align 1 dereferenceable(1) %pointable)
           to label %invoke.cont131 unwind label %lpad125
 
 invoke.cont131:                                   ; preds = %if.else.i, %.noexc
@@ -4297,12 +4295,12 @@ invoke.cont131:                                   ; preds = %if.else.i, %.noexc
   br label %if.end133
 
 lpad112:                                          ; preds = %if.then108
-  %79 = landingpad { ptr, i32 }
+  %78 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup134
 
 lpad125:                                          ; preds = %if.else.i, %if.then.i
-  %80 = landingpad { ptr, i32 }
+  %79 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp122) #33
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ref.tmp118) #33
@@ -4313,7 +4311,7 @@ if.end133:                                        ; preds = %invoke.cont131, %if
   br label %if.end135
 
 ehcleanup134:                                     ; preds = %lpad125, %lpad112, %lpad86, %lpad70
-  %.pn = phi { ptr, i32 } [ %80, %lpad125 ], [ %79, %lpad112 ], [ %59, %lpad70 ], [ %60, %lpad86 ]
+  %.pn = phi { ptr, i32 } [ %79, %lpad125 ], [ %78, %lpad112 ], [ %59, %lpad70 ], [ %60, %lpad86 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %pointable) #33
   br label %ehcleanup138
 
@@ -4339,12 +4337,12 @@ ehcleanup138:                                     ; preds = %ehcleanup134, %lpad
 ehcleanup142:                                     ; preds = %ehcleanup138, %lpad8
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup138 ], [ %10, %lpad8 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %selection_box) #33
-  %81 = load ptr, ptr %allObjects, align 8, !tbaa !281
-  %tobool.not.i.i.i225 = icmp eq ptr %81, null
+  %80 = load ptr, ptr %allObjects, align 8, !tbaa !281
+  %tobool.not.i.i.i225 = icmp eq ptr %80, null
   br i1 %tobool.not.i.i.i225, label %_ZNSt6vectorI26DistanceSortedActiveObjectSaIS0_EED2Ev.exit227, label %if.then.i.i.i226
 
 if.then.i.i.i226:                                 ; preds = %ehcleanup142
-  call void @_ZdlPv(ptr noundef nonnull %81) #31
+  call void @_ZdlPv(ptr noundef nonnull %80) #31
   br label %_ZNSt6vectorI26DistanceSortedActiveObjectSaIS0_EED2Ev.exit227
 
 _ZNSt6vectorI26DistanceSortedActiveObjectSaIS0_EED2Ev.exit227: ; preds = %if.then.i.i.i226, %ehcleanup142
@@ -6141,7 +6139,7 @@ _ZNSt12_Vector_baseI12PointedThingSaIS0_EE11_M_allocateEm.exit: ; preds = %cond.
   %add.ptr = getelementptr inbounds %struct.PointedThing, ptr %cond.i57, i64 %sub.ptr.div.i
   %3 = load i16, ptr %__args, align 2, !tbaa !84
   %4 = load float, ptr %__args7, align 4, !tbaa !114
-  %5 = load i8, ptr %__args9, align 1, !tbaa !313
+  %5 = load i8, ptr %__args9, align 1, !tbaa !314
   invoke void @_ZN12PointedThingC1EtRKN3irr4core8vector3dIfEES5_S5_f16PointabilityType(ptr noundef nonnull align 4 dereferenceable(69) %add.ptr, i16 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(12) %__args1, ptr noundef nonnull align 4 dereferenceable(12) %__args3, ptr noundef nonnull align 4 dereferenceable(12) %__args5, float noundef %4, i8 noundef zeroext %5)
           to label %invoke.cont unwind label %lpad
 
@@ -6900,8 +6898,8 @@ attributes #37 = { nounwind willreturn memory(none) }
 !310 = !{!"_ZTSSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEE", !311, i64 0}
 !311 = !{!"_ZTSSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE", !7, i64 0, !10, i64 8, !186, i64 16, !10, i64 24, !187, i64 32, !7, i64 48}
 !312 = !{!"_ZTSN3irr5video15E_MATERIAL_TYPEE", !8, i64 0}
-!313 = !{!296, !296, i64 0}
-!314 = !{!286, !296, i64 349}
+!313 = !{!286, !296, i64 349}
+!314 = !{!296, !296, i64 0}
 !315 = !{!316, !7, i64 16}
 !316 = !{!"_ZTSNSt12_Vector_baseI12PointedThingSaIS0_EE17_Vector_impl_dataE", !7, i64 0, !7, i64 8, !7, i64 16}
 !317 = !{!316, !7, i64 8}
@@ -6945,7 +6943,7 @@ attributes #37 = { nounwind willreturn memory(none) }
 !355 = !{!353, !20, i64 12}
 !356 = !{!353, !17, i64 16}
 !357 = !{i64 0, i64 8, !65, i64 8, i64 4, !114, i64 12, i64 1, !230, i64 16, i64 4, !229}
-!358 = !{i64 0, i64 1, !359, i64 2, i64 2, !84, i64 4, i64 2, !84, i64 6, i64 2, !84, i64 8, i64 2, !84, i64 10, i64 2, !84, i64 12, i64 2, !84, i64 14, i64 2, !84, i64 16, i64 2, !84, i64 18, i64 2, !84, i64 20, i64 2, !84, i64 24, i64 4, !114, i64 28, i64 4, !114, i64 32, i64 4, !114, i64 36, i64 4, !114, i64 40, i64 4, !114, i64 44, i64 4, !114, i64 48, i64 4, !114, i64 52, i64 4, !114, i64 56, i64 4, !114, i64 60, i64 2, !84, i64 64, i64 4, !114, i64 68, i64 1, !313}
+!358 = !{i64 0, i64 1, !359, i64 2, i64 2, !84, i64 4, i64 2, !84, i64 6, i64 2, !84, i64 8, i64 2, !84, i64 10, i64 2, !84, i64 12, i64 2, !84, i64 14, i64 2, !84, i64 16, i64 2, !84, i64 18, i64 2, !84, i64 20, i64 2, !84, i64 24, i64 4, !114, i64 28, i64 4, !114, i64 32, i64 4, !114, i64 36, i64 4, !114, i64 40, i64 4, !114, i64 44, i64 4, !114, i64 48, i64 4, !114, i64 52, i64 4, !114, i64 56, i64 4, !114, i64 60, i64 2, !84, i64 64, i64 4, !114, i64 68, i64 1, !314}
 !359 = !{!360, !360, i64 0}
 !360 = !{!"_ZTS16PointedThingType", !8, i64 0}
 !361 = !{!362, !364}

@@ -551,9 +551,9 @@ if.then33:                                        ; preds = %if.else
   br label %if.end39.sink.split
 
 if.end39.sink.split:                              ; preds = %if.then, %if.then33
-  %storemerge = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i3.i.i, %if.then ], [ %36, %if.then33 ]
-  %.sink = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i4.i.i, %if.then ], [ %37, %if.then33 ]
-  store <2 x float> %storemerge, ptr %pivotAworld, align 8
+  %.sink83 = phi <2 x float> [ %36, %if.then33 ], [ %retval.sroa.0.4.vec.insert.i3.i.i, %if.then ]
+  %.sink = phi <2 x float> [ %37, %if.then33 ], [ %retval.sroa.3.12.vec.insert.i4.i.i, %if.then ]
+  store <2 x float> %.sink83, ptr %pivotAworld, align 8
   store <2 x float> %.sink, ptr %ref.tmp27.sroa.2.0.pivotAworld.sroa_idx, align 8
   br label %if.end39
 

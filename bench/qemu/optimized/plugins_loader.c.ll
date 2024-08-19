@@ -436,13 +436,11 @@ err_symbol.i:                                     ; preds = %if.then31.i, %if.th
 
 plugin_load.exit.thread:                          ; preds = %if.then.i, %err_symbol.i
   call void @qemu_vfree(ptr noundef nonnull %call.i) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sym.i)
-  br label %cleanup
+  br label %cleanup.sink.split
 
 plugin_load.exit.thread16:                        ; preds = %if.then67.i, %if.then70.i
   call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @plugin, i64 112), ptr noundef nonnull @.str.3, i32 noundef 258) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sym.i)
-  br label %cleanup
+  br label %cleanup.sink.split
 
 do.body:                                          ; preds = %do.body58.i
   call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @plugin, i64 112), ptr noundef nonnull @.str.3, i32 noundef 258) #11
@@ -460,8 +458,13 @@ do.body:                                          ; preds = %do.body58.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entry2, i8 0, i64 16, i1 false)
   br i1 %tobool.not, label %cleanup, label %land.rhs, !llvm.loop !7
 
-cleanup:                                          ; preds = %do.body, %entry, %plugin_load.exit.thread16, %plugin_load.exit.thread
-  %retval.0 = phi i32 [ 1, %plugin_load.exit.thread ], [ %call64.i, %plugin_load.exit.thread16 ], [ 0, %entry ], [ 0, %do.body ]
+cleanup.sink.split:                               ; preds = %plugin_load.exit.thread, %plugin_load.exit.thread16
+  %retval.0.ph = phi i32 [ %call64.i, %plugin_load.exit.thread16 ], [ 1, %plugin_load.exit.thread ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sym.i)
+  br label %cleanup
+
+cleanup:                                          ; preds = %do.body, %cleanup.sink.split, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %retval.0.ph, %cleanup.sink.split ], [ 0, %do.body ]
   call void @g_free(ptr noundef nonnull %call) #11
   ret i32 %retval.0
 }

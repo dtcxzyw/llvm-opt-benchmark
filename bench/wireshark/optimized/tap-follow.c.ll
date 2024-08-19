@@ -342,88 +342,88 @@ thread-pre-split:                                 ; preds = %104
 114:                                              ; preds = %thread-pre-split, %111
   %115 = phi i32 [ %.pr, %thread-pre-split ], [ %112, %111 ]
   %116 = icmp eq i32 %115, 0
-  br i1 %116, label %122, label %117
+  br i1 %116, label %123, label %117
 
 117:                                              ; preds = %114
-  %.sink16.i = load i32, ptr %3, align 4
-  %118 = sext i32 %.sink16.i to i64
-  %119 = getelementptr i8, ptr %.2, i64 %118
-  %120 = load i32, ptr %105, align 4
-  %121 = icmp ugt i32 %115, %120
-  br i1 %121, label %122, label %follow_arg_range.exit
+  %118 = load i32, ptr %3, align 4
+  %119 = sext i32 %118 to i64
+  %120 = getelementptr i8, ptr %.2, i64 %119
+  %121 = load i32, ptr %105, align 4
+  %122 = icmp ugt i32 %115, %121
+  br i1 %122, label %123, label %follow_arg_range.exit
 
-122:                                              ; preds = %117, %114
+123:                                              ; preds = %117, %114
   call fastcc void @follow_exit(ptr noundef nonnull @.str.21) #15
   unreachable
 
 follow_arg_range.exit:                            ; preds = %102, %117
-  %.3 = phi ptr [ %.2, %102 ], [ %119, %117 ]
+  %.3 = phi ptr [ %.2, %102 ], [ %120, %117 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %.val39 = load i8, ptr %.3, align 1
   %.not.i41 = icmp eq i8 %.val39, 0
-  br i1 %.not.i41, label %follow_arg_done.exit, label %123
+  br i1 %.not.i41, label %follow_arg_done.exit, label %124
 
-123:                                              ; preds = %follow_arg_range.exit
+124:                                              ; preds = %follow_arg_range.exit
   call fastcc void @follow_exit(ptr noundef nonnull @.str.22) #15
   unreachable
 
 follow_arg_done.exit:                             ; preds = %follow_arg_range.exit
-  %124 = load i32, ptr %12, align 8
-  %125 = icmp sgt i32 %124, -1
-  br i1 %125, label %126, label %137
+  %125 = load i32, ptr %12, align 8
+  %126 = icmp sgt i32 %125, -1
+  br i1 %126, label %127, label %138
 
-126:                                              ; preds = %follow_arg_done.exit
-  %127 = call ptr @get_follow_index_func(ptr noundef %1) #12
-  %128 = load i32, ptr %12, align 8
-  %129 = load i32, ptr %14, align 4
-  %130 = call ptr %127(i32 noundef %128, i32 noundef %129) #12
-  %131 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %130, ptr %131, align 8
-  %132 = icmp eq ptr %130, null
-  br i1 %132, label %136, label %133
+127:                                              ; preds = %follow_arg_done.exit
+  %128 = call ptr @get_follow_index_func(ptr noundef %1) #12
+  %129 = load i32, ptr %12, align 8
+  %130 = load i32, ptr %14, align 4
+  %131 = call ptr %128(i32 noundef %129, i32 noundef %130) #12
+  %132 = getelementptr inbounds i8, ptr %15, i64 8
+  store ptr %131, ptr %132, align 8
+  %133 = icmp eq ptr %131, null
+  br i1 %133, label %137, label %134
 
-133:                                              ; preds = %126
-  %134 = load i32, ptr %14, align 4
-  %135 = icmp slt i32 %134, 0
-  br i1 %135, label %136, label %149
+134:                                              ; preds = %127
+  %135 = load i32, ptr %14, align 4
+  %136 = icmp slt i32 %135, 0
+  br i1 %136, label %137, label %150
 
-136:                                              ; preds = %133, %126
+137:                                              ; preds = %134, %127
   call fastcc void @follow_exit(ptr noundef nonnull @.str) #15
   unreachable
 
-137:                                              ; preds = %follow_arg_done.exit
-  %138 = call ptr @get_follow_address_func(ptr noundef %1) #12
-  %139 = getelementptr inbounds i8, ptr %11, i64 40
-  %140 = getelementptr i8, ptr %11, i64 64
-  %141 = getelementptr inbounds i8, ptr %11, i64 32
-  %142 = load i32, ptr %141, align 8
-  %143 = getelementptr i8, ptr %11, i64 36
-  %144 = load i32, ptr %143, align 4
-  %145 = call ptr %138(ptr noundef nonnull %139, ptr noundef %140, i32 noundef %142, i32 noundef %144) #12
-  %146 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %145, ptr %146, align 8
-  %147 = icmp eq ptr %145, null
-  br i1 %147, label %148, label %149
+138:                                              ; preds = %follow_arg_done.exit
+  %139 = call ptr @get_follow_address_func(ptr noundef %1) #12
+  %140 = getelementptr inbounds i8, ptr %11, i64 40
+  %141 = getelementptr i8, ptr %11, i64 64
+  %142 = getelementptr inbounds i8, ptr %11, i64 32
+  %143 = load i32, ptr %142, align 8
+  %144 = getelementptr i8, ptr %11, i64 36
+  %145 = load i32, ptr %144, align 4
+  %146 = call ptr %139(ptr noundef nonnull %140, ptr noundef %141, i32 noundef %143, i32 noundef %145) #12
+  %147 = getelementptr inbounds i8, ptr %15, i64 8
+  store ptr %146, ptr %147, align 8
+  %148 = icmp eq ptr %146, null
+  br i1 %148, label %149, label %150
 
-148:                                              ; preds = %137
+149:                                              ; preds = %138
   call fastcc void @follow_exit(ptr noundef nonnull @.str.1) #15
   unreachable
 
-149:                                              ; preds = %137, %133
-  %150 = phi ptr [ %145, %137 ], [ %130, %133 ]
-  %151 = call ptr @get_follow_tap_string(ptr noundef %1) #12
-  %152 = call ptr @get_follow_tap_handler(ptr noundef %1) #12
-  %153 = call ptr @register_tap_listener(ptr noundef %151, ptr noundef nonnull %15, ptr noundef nonnull %150, i32 noundef 0, ptr noundef null, ptr noundef %152, ptr noundef nonnull @follow_draw, ptr noundef nonnull @follow_free) #12
-  %.not38 = icmp eq ptr %153, null
-  br i1 %.not38, label %156, label %154
+150:                                              ; preds = %138, %134
+  %151 = phi ptr [ %146, %138 ], [ %131, %134 ]
+  %152 = call ptr @get_follow_tap_string(ptr noundef %1) #12
+  %153 = call ptr @get_follow_tap_handler(ptr noundef %1) #12
+  %154 = call ptr @register_tap_listener(ptr noundef %152, ptr noundef nonnull %15, ptr noundef nonnull %151, i32 noundef 0, ptr noundef null, ptr noundef %153, ptr noundef nonnull @follow_draw, ptr noundef nonnull @follow_free) #12
+  %.not38 = icmp eq ptr %154, null
+  br i1 %.not38, label %157, label %155
 
-154:                                              ; preds = %149
+155:                                              ; preds = %150
   call void @follow_free(ptr noundef nonnull %15)
-  %155 = call ptr @g_string_free(ptr noundef nonnull %153, i32 noundef 1) #12
+  %156 = call ptr @g_string_free(ptr noundef nonnull %154, i32 noundef 1) #12
   call fastcc void @follow_exit(ptr noundef nonnull @.str.2) #15
   unreachable
 
-156:                                              ; preds = %149
+157:                                              ; preds = %150
   ret void
 }
 

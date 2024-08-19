@@ -320,13 +320,13 @@ define hidden void @"_ZN108_$LT$tokio_util..codec..framed_impl..FramedImpl$LT$T$
   br label %128
 
 128:                                              ; preds = %121, %126
-  %.sroa.7410.1.ph = phi ptr [ %127, %126 ], [ %118, %121 ]
+  %.sroa.7410.0.ph = phi ptr [ %127, %126 ], [ %118, %121 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.3.i)
-  %129 = icmp ne ptr %.sroa.7410.1.ph, null
+  %129 = icmp ne ptr %.sroa.7410.0.ph, null
   call void @llvm.assume(i1 %129)
   call void @llvm.experimental.noalias.scope.decl(metadata !15)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46), !noalias !18
-  store ptr %.sroa.7410.1.ph, ptr %46, align 8, !noalias !23
+  store ptr %.sroa.7410.0.ph, ptr %46, align 8, !noalias !23
   %130 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hdbd148323133a678E monotonic, align 8, !noalias !23
   %131 = icmp eq i64 %130, 0
   br i1 %131, label %134, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread90.i.i
@@ -1621,7 +1621,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 553:                                              ; preds = %555, %558, %540, %545, %445, %613, %549
   ret void
 
-554:                                              ; preds = %122, %125
+554:                                              ; preds = %125, %122
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.3.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !70)
   br i1 %120, label %557, label %.critedge255
@@ -2066,13 +2066,13 @@ define hidden void @"_ZN108_$LT$tokio_util..codec..framed_impl..FramedImpl$LT$T$
   br label %128
 
 128:                                              ; preds = %121, %126
-  %.sroa.7410.1.ph = phi ptr [ %127, %126 ], [ %118, %121 ]
+  %.sroa.7410.0.ph = phi ptr [ %127, %126 ], [ %118, %121 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.3.i)
-  %129 = icmp ne ptr %.sroa.7410.1.ph, null
+  %129 = icmp ne ptr %.sroa.7410.0.ph, null
   call void @llvm.assume(i1 %129)
   call void @llvm.experimental.noalias.scope.decl(metadata !84)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46), !noalias !87
-  store ptr %.sroa.7410.1.ph, ptr %46, align 8, !noalias !92
+  store ptr %.sroa.7410.0.ph, ptr %46, align 8, !noalias !92
   %130 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hdbd148323133a678E monotonic, align 8, !noalias !92
   %131 = icmp eq i64 %130, 0
   br i1 %131, label %134, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread90.i.i
@@ -3367,7 +3367,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 553:                                              ; preds = %555, %558, %540, %545, %445, %613, %549
   ret void
 
-554:                                              ; preds = %122, %125
+554:                                              ; preds = %125, %122
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.3.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !135)
   br i1 %120, label %557, label %.critedge255

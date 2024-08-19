@@ -1340,11 +1340,7 @@ invoke.cont100:                                   ; preds = %invoke.cont98
   %16 = load i32, ptr %ec, align 4
   %cmp.i.i62 = icmp sgt i32 %16, 0
   %or.cond.i63 = select i1 %cmp.i61, i1 true, i1 %cmp.i.i62
-  br i1 %or.cond.i63, label %invoke.cont102, label %if.end214.thread276
-
-if.end214.thread276:                              ; preds = %invoke.cont100
-  store i32 7, ptr %ec, align 4
-  br label %if.then216
+  br i1 %or.cond.i63, label %invoke.cont102, label %if.then216.sink.split
 
 invoke.cont102:                                   ; preds = %invoke.cont100
   %cmp.i65 = icmp sgt i32 %16, 0
@@ -1428,16 +1424,12 @@ if.end123:                                        ; preds = %invoke.cont118
 if.then129:                                       ; preds = %if.end123
   %call130 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #11
   %new.isnull = icmp eq ptr %call130, null
-  br i1 %new.isnull, label %if.end214.thread, label %new.notnull
+  br i1 %new.isnull, label %if.then216.sink.split, label %new.notnull
 
 new.notnull:                                      ; preds = %if.then129
   %24 = load i32, ptr %ptnLength, align 4
   invoke void @_ZN6icu_7513UnicodeStringC1EPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %call130, ptr noundef nonnull %call119, i32 noundef %24)
           to label %if.end135 unwind label %lpad131
-
-if.end214.thread:                                 ; preds = %if.then129
-  store i32 7, ptr %ec, align 4
-  br label %if.then216
 
 lpad131:                                          ; preds = %new.notnull
   %25 = landingpad { ptr, i32 }
@@ -1791,7 +1783,11 @@ if.end214:                                        ; preds = %invoke.cont110, %if
   %cmp215 = icmp eq i32 %95, 7
   br i1 %cmp215, label %if.then216, label %if.end217
 
-if.then216:                                       ; preds = %if.end214.thread276, %if.end214.thread, %if.end214
+if.then216.sink.split:                            ; preds = %if.then129, %invoke.cont100
+  store i32 7, ptr %ec, align 4
+  br label %if.then216
+
+if.then216:                                       ; preds = %if.then216.sink.split, %if.end214
   store i32 7, ptr %status, align 4
   br label %if.end217
 

@@ -2265,12 +2265,16 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config25version_meets_req
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit": ; preds = %21, %24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !300
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit6", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit"
+  %.0.ph = phi i1 [ true, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ], [ false, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit6" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %28
 
-28:                                               ; preds = %1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit6"
-  %.0 = phi i1 [ false, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit6" ], [ true, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit" ], [ true, %1 ]
+28:                                               ; preds = %.sink.split, %1
+  %.0 = phi i1 [ true, %1 ], [ %.0.ph, %.sink.split ]
   ret i1 %.0
 
 "_ZN5alloc6string87_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..string..String$GT$$u20$for$u20$$RF$str$GT$2ne17hc5502816310be93cE.llvm.16014664509658940993.exit.thread": ; preds = %11, %"_ZN5alloc6string87_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..string..String$GT$$u20$for$u20$$RF$str$GT$2ne17hc5502816310be93cE.llvm.16014664509658940993.exit"
@@ -2314,9 +2318,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config25version_meets_req
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE.exit6": ; preds = %36, %39
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !315
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  br label %28
+  br label %.sink.split
 
 43:                                               ; preds = %17
   %44 = landingpad { ptr, i32 }
@@ -2375,13 +2377,13 @@ define void @_ZN15rustfmt_nightly6config6Config14from_toml_path17hb397612fb9f57f
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %15, ptr %20, align 8
   store i64 5, ptr %0, align 8
-  br label %70
+  br label %66
 
 21:                                               ; preds = %48, %42, %41, %27, %18
   %22 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #21
-          to label %58 unwind label %71
+          to label %58 unwind label %70
 
 23:                                               ; preds = %18
   %24 = load i64, ptr %9, align 8, !range !36, !noundef !5
@@ -2484,7 +2486,7 @@ define void @_ZN15rustfmt_nightly6config6Config14from_toml_path17hb397612fb9f57f
   %.pn = phi { ptr, i32 } [ %62, %61 ], [ %22, %21 ]
   %59 = load i32, ptr %12, align 4, !alias.scope !355, !noundef !5
   %60 = invoke noundef i32 @close(i32 noundef %59)
-          to label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hafe33a930aba0759E.exit" unwind label %71
+          to label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hafe33a930aba0759E.exit" unwind label %70
 
 61:                                               ; preds = %54, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd7039d1c23637d39E.exit", %35, %31
   %62 = landingpad { ptr, i32 }
@@ -2501,10 +2503,10 @@ define void @_ZN15rustfmt_nightly6config6Config14from_toml_path17hb397612fb9f57f
   call void @llvm.experimental.noalias.scope.decl(metadata !378)
   %64 = load i32, ptr %12, align 4, !alias.scope !381, !noundef !5
   %65 = call noundef i32 @close(i32 noundef %64), !noalias !381
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   br label %66
 
-66:                                               ; preds = %70, %63
+66:                                               ; preds = %19, %67, %63
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   ret void
 
 67:                                               ; preds = %.noexc, %35
@@ -2517,14 +2519,10 @@ define void @_ZN15rustfmt_nightly6config6Config14from_toml_path17hb397612fb9f57f
   call void @llvm.experimental.noalias.scope.decl(metadata !394)
   %68 = load i32, ptr %12, align 4, !alias.scope !397, !noundef !5
   %69 = call noundef i32 @close(i32 noundef %68), !noalias !397
-  br label %70
-
-70:                                               ; preds = %67, %19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   br label %66
 
-71:                                               ; preds = %58, %21
-  %72 = landingpad { ptr, i32 }
+70:                                               ; preds = %58, %21
+  %71 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7bbd4fcd6f160435E() #22
   unreachable
@@ -2954,7 +2952,7 @@ common.resume:                                    ; preds = %167, %41, %53, %.th
           to label %common.resume unwind label %105, !noalias !402
 
 .thread:                                          ; preds = %61, %52
-  %.sroa.12.2.ph = phi ptr [ %65, %61 ], [ %35, %52 ]
+  %.sroa.12.3.ph = phi ptr [ %65, %61 ], [ %35, %52 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25), !noalias !398
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20)
   br label %147
@@ -2969,9 +2967,9 @@ _ZN15rustfmt_nightly6config6Config23from_resolved_toml_path20resolve_project_fil
   ]
 
 147:                                              ; preds = %.thread, %_ZN15rustfmt_nightly6config6Config23from_resolved_toml_path20resolve_project_file17h3c84c1ab4e777998E.exit
-  %.sroa.12.43848 = phi ptr [ %.sroa.12.2.ph, %.thread ], [ %.sroa.12.1, %_ZN15rustfmt_nightly6config6Config23from_resolved_toml_path20resolve_project_file17h3c84c1ab4e777998E.exit ]
+  %.sroa.12.33848 = phi ptr [ %.sroa.12.3.ph, %.thread ], [ %.sroa.12.1, %_ZN15rustfmt_nightly6config6Config23from_resolved_toml_path20resolve_project_file17h3c84c1ab4e777998E.exit ]
   %148 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.12.43848, ptr %148, align 8
+  store ptr %.sroa.12.33848, ptr %148, align 8
   store i64 5, ptr %0, align 8
   br label %166
 

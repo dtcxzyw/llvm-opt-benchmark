@@ -226,11 +226,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   store ptr null, ptr %expected.i, align 8
   %call.i = call fastcc i64 @make_custom_der(ptr noundef nonnull readonly %arrayidx5, ptr noundef nonnull %expected.i, i32 noundef 0)
   %cmp.i = icmp eq i64 %call.i, 0
-  br i1 %cmp.i, label %do_encode_custom.exit.thread, label %if.end.i
-
-do_encode_custom.exit.thread:                     ; preds = %for.body
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %expected.i)
-  br label %sw.bb
+  br i1 %cmp.i, label %sw.bb, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body
   %6 = load ptr, ptr %expected.i, align 8
@@ -244,7 +240,6 @@ if.end.i:                                         ; preds = %for.body
 do_encode_custom.exit.thread83:                   ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i.i)
   call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str.8, i32 noundef 704) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %expected.i)
   br label %sw.bb
 
 if.end.i.i:                                       ; preds = %if.end.i
@@ -276,7 +271,8 @@ do_encode_custom.exit.thread85:                   ; preds = %if.then9.i.i, %lor.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %expected.i)
   br label %sw.epilog
 
-sw.bb:                                            ; preds = %do_encode_custom.exit.thread83, %do_encode_custom.exit.thread
+sw.bb:                                            ; preds = %for.body, %do_encode_custom.exit.thread83
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %expected.i)
   %10 = load i32, ptr %arrayidx, align 4
   %tobool6.not = icmp eq i32 %10, 0
   br i1 %tobool6.not, label %sw.epilog, label %if.then7
@@ -309,11 +305,7 @@ sw.epilog:                                        ; preds = %do_encode_custom.ex
   store ptr null, ptr %encoding.i, align 8
   %call.i48 = call fastcc i64 @make_custom_der(ptr noundef nonnull readonly %arrayidx5, ptr noundef nonnull %encoding.i, i32 noundef 1)
   %cmp.i49 = icmp eq i64 %call.i48, 0
-  br i1 %cmp.i49, label %do_decode_custom.exit.thread, label %if.end.i50
-
-do_decode_custom.exit.thread:                     ; preds = %sw.epilog
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %encoding.i)
-  br label %sw.bb17
+  br i1 %cmp.i49, label %sw.bb17, label %if.end.i50
 
 if.end.i50:                                       ; preds = %sw.epilog
   %17 = load ptr, ptr %encoding.i, align 8
@@ -334,7 +326,6 @@ do_decode_custom.exit.thread91:                   ; preds = %if.then.i.i
   call void %20(ptr noundef null) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bytes.addr.i.i)
   call void @CRYPTO_free(ptr noundef %17, ptr noundef nonnull @.str.8, i32 noundef 686) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %encoding.i)
   br label %sw.bb17
 
 if.then2.i.i:                                     ; preds = %if.then.i.i
@@ -360,7 +351,8 @@ do_decode_custom.exit.thread88:                   ; preds = %if.then2.i.i, %land
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %encoding.i)
   br label %for.inc
 
-sw.bb17:                                          ; preds = %do_decode_custom.exit.thread91, %do_decode_custom.exit.thread
+sw.bb17:                                          ; preds = %sw.epilog, %do_decode_custom.exit.thread91
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %encoding.i)
   %23 = load i32, ptr %arrayidx, align 4
   %tobool19.not = icmp eq i32 %23, 0
   br i1 %tobool19.not, label %for.inc, label %if.then20
@@ -418,11 +410,7 @@ for.body36:                                       ; preds = %for.body36.lr.ph, %
   %33 = load ptr, ptr %3, align 8
   %call.i57 = call i32 %33(ptr noundef %arrayidx42, ptr noundef nonnull %data.i) #7
   %cmp.i58 = icmp slt i32 %call.i57, 0
-  br i1 %cmp.i58, label %do_enc_dec.exit.thread, label %if.end.i59
-
-do_enc_dec.exit.thread:                           ; preds = %for.body36
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i)
-  br label %sw.bb45
+  br i1 %cmp.i58, label %sw.bb45, label %if.end.i59
 
 if.end.i59:                                       ; preds = %for.body36
   %34 = load ptr, ptr %data.i, align 8
@@ -445,7 +433,6 @@ do_enc_dec.exit.thread98:                         ; preds = %if.then.i.i74
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bytes.addr.i.i56)
   %38 = load ptr, ptr %data.i, align 8
   call void @CRYPTO_free(ptr noundef %38, ptr noundef nonnull @.str.8, i32 noundef 562) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i)
   br label %sw.bb45
 
 if.then2.i.i76:                                   ; preds = %if.then.i.i74
@@ -472,7 +459,8 @@ do_enc_dec.exit.thread95:                         ; preds = %if.then2.i.i76, %la
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i)
   br label %for.inc58
 
-sw.bb45:                                          ; preds = %do_enc_dec.exit.thread98, %do_enc_dec.exit.thread
+sw.bb45:                                          ; preds = %for.body36, %do_enc_dec.exit.thread98
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i)
   %42 = load i32, ptr %arrayidx42, align 4
   %tobool47.not = icmp eq i32 %42, 0
   br i1 %tobool47.not, label %for.inc58, label %if.then48

@@ -6009,20 +6009,20 @@ if.end.i:                                         ; preds = %if.then.i, %if.end
   %and1.i.i = and i64 %qs.val.i, 2
   %cmp.i.i = icmp eq i64 %and1.i.i, 0
   %or.cond.i = select i1 %cmp.i.i, i1 true, i1 %cmp.i
-  br i1 %or.cond.i, label %if.else7.i, label %sw.default
+  br i1 %or.cond.i, label %if.else7.i, label %return.sink.split
 
 if.else7.i:                                       ; preds = %if.end.i
   %ch.i = getelementptr inbounds i8, ptr %0, i64 72
   %5 = load ptr, ptr %ch.i, align 8
   %call8.i = call i32 @ossl_quic_channel_is_term_any(ptr noundef %5) #8
   %tobool9.not.i = icmp eq i32 %call8.i, 0
-  br i1 %tobool9.not.i, label %if.else11.i, label %sw.default
+  br i1 %tobool9.not.i, label %if.else11.i, label %return.sink.split
 
 if.else11.i:                                      ; preds = %if.else7.i
   %bf.load14.i = load i64, ptr %3, align 8
   %6 = and i64 %bf.load14.i, 16711680
   %cmp18.i = icmp eq i64 %6, 262144
-  br i1 %cmp18.i, label %quic_classify_stream.exit, label %land.lhs.true23.i
+  br i1 %cmp18.i, label %return.sink.split, label %land.lhs.true23.i
 
 land.lhs.true23.i:                                ; preds = %if.else11.i
   %7 = and i64 %bf.load14.i, 67108864
@@ -6035,29 +6035,21 @@ land.lhs.true37.i:                                ; preds = %land.lhs.true23.i
   %bf.cast.i34.i = and i32 %9, 255
   %10 = add nsw i32 %bf.cast.i34.i, -7
   %narrow.i35.i = icmp ult i32 %10, -2
-  br i1 %narrow.i35.i, label %sw.default, label %sw.bb2
-
-quic_classify_stream.exit:                        ; preds = %if.else11.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %final_size.i)
-  br label %return.sink.split
+  br i1 %narrow.i35.i, label %return.sink.split, label %sw.bb2
 
 sw.bb2:                                           ; preds = %land.lhs.true37.i, %land.lhs.true23.i
   %.sink = phi i64 [ 64, %land.lhs.true23.i ], [ 88, %land.lhs.true37.i ]
   %cond53.in.i = getelementptr inbounds i8, ptr %2, i64 %.sink
   %storemerge = load i64, ptr %cond53.in.i, align 8
   store i64 %storemerge, ptr %app_error_code.addr.0.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %final_size.i)
   br label %return.sink.split
 
-sw.default:                                       ; preds = %if.end.i, %if.else7.i, %land.lhs.true37.i
+return.sink.split:                                ; preds = %land.lhs.true37.i, %if.else7.i, %if.end.i, %if.else11.i, %sw.bb2
+  %retval.0.ph = phi i32 [ 1, %sw.bb2 ], [ 0, %if.else11.i ], [ -1, %if.end.i ], [ -1, %if.else7.i ], [ -1, %land.lhs.true37.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %final_size.i)
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %sw.bb2, %sw.default, %quic_classify_stream.exit
-  %retval.0.ph = phi i32 [ 0, %quic_classify_stream.exit ], [ 1, %sw.bb2 ], [ -1, %sw.default ]
-  %.sink8 = load ptr, ptr %ctx, align 8
-  %11 = getelementptr i8, ptr %.sink8, i64 80
-  %.val = load ptr, ptr %11, align 8
+  %11 = load ptr, ptr %ctx, align 8
+  %12 = getelementptr i8, ptr %11, i64 80
+  %.val = load ptr, ptr %12, align 8
   call void @ossl_crypto_mutex_unlock(ptr noundef %.val) #8
   br label %return
 

@@ -7248,10 +7248,10 @@ define void @_ZN16influxdb3_server17CommonServerState3new17h6a1397aee0c4b9caE(pt
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 104
   store i64 %.sroa.88.sroa.5.072.ph, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx, align 8
   store i8 42, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.7)
   br label %21
 
 21:                                               ; preds = %"_ZN4core3ptr61drop_in_place$LT$alloc..sync..Arc$LT$metric..Registry$GT$$GT$17h7abff0a9c1d3e06cE.exit56", %.thread
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.7)
   ret void
 
 22:                                               ; preds = %16
@@ -7393,7 +7393,6 @@ define void @_ZN16influxdb3_server17CommonServerState3new17h6a1397aee0c4b9caE(pt
 
 "_ZN4core3ptr61drop_in_place$LT$alloc..sync..Arc$LT$metric..Registry$GT$$GT$17h7abff0a9c1d3e06cE.exit56": ; preds = %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$trace_exporters..export..AsyncExporter$GT$$GT$$GT$17had4480e2abc8060fE.exit54", %71
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.7)
   br label %21
 
 72:                                               ; preds = %84, %80, %65, %53, %14

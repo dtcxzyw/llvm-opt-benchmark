@@ -6096,7 +6096,7 @@ _ZNK3euf6egraph9has_th_eqEv.exit.lr.ph:           ; preds = %entry
 
 _ZNK3euf6egraph9has_th_eqEv.exit:                 ; preds = %_ZNK3euf6egraph9has_th_eqEv.exit.lr.ph, %for.inc
   %2 = phi i32 [ %.pre, %_ZNK3euf6egraph9has_th_eqEv.exit.lr.ph ], [ %inc.i, %for.inc ]
-  %3 = phi ptr [ %0, %_ZNK3euf6egraph9has_th_eqEv.exit.lr.ph ], [ %27, %for.inc ]
+  %3 = phi ptr [ %0, %_ZNK3euf6egraph9has_th_eqEv.exit.lr.ph ], [ %28, %for.inc ]
   %arrayidx.i.i = getelementptr inbounds i8, ptr %3, i64 -4
   %4 = load i32, ptr %arrayidx.i.i, align 4
   %cmp.i = icmp ult i32 %2, %4
@@ -6187,24 +6187,24 @@ if.end23.i:                                       ; preds = %if.end16.i
 
 for.inc.sink.split:                               ; preds = %if.end23.i, %if.end16.i, %for.body.i, %_ZN6vectorIPmLb0EjE5resetEv.exit.i, %for.body
   %.sink16 = phi i64 [ 416, %for.body ], [ 400, %_ZN6vectorIPmLb0EjE5resetEv.exit.i ], [ 400, %for.body.i ], [ 400, %if.end16.i ], [ 400, %if.end23.i ]
-  %.sink18 = load i32, ptr %eq, align 8
-  %23 = load ptr, ptr %m_id2solver12, align 8
-  %idxprom.i = zext i32 %.sink18 to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %23, i64 %idxprom.i
-  %24 = load ptr, ptr %arrayidx.i, align 8
-  %vtable = load ptr, ptr %24, align 8
+  %23 = load i32, ptr %eq, align 8
+  %24 = load ptr, ptr %m_id2solver12, align 8
+  %idxprom.i = zext i32 %23 to i64
+  %arrayidx.i = getelementptr inbounds ptr, ptr %24, i64 %idxprom.i
+  %25 = load ptr, ptr %arrayidx.i, align 8
+  %vtable = load ptr, ptr %25, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 %.sink16
-  %25 = load ptr, ptr %vfn, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(80) %24, ptr noundef nonnull align 8 dereferenceable(32) %eq)
+  %26 = load ptr, ptr %vfn, align 8
+  call void %26(ptr noundef nonnull align 8 dereferenceable(80) %25, ptr noundef nonnull align 8 dereferenceable(32) %eq)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.cond.i, %for.inc.sink.split, %_ZN6vectorIPmLb0EjE3endEv.exit.i, %if.end10.i
   call void @_ZN3euf6egraph10force_pushEv(ptr noundef nonnull align 8 dereferenceable(536) %m_egraph)
-  %26 = load i32, ptr %m_new_th_eqs_qhead.i, align 8
-  %inc.i = add i32 %26, 1
+  %27 = load i32, ptr %m_new_th_eqs_qhead.i, align 8
+  %inc.i = add i32 %27, 1
   store i32 %inc.i, ptr %m_new_th_eqs_qhead.i, align 8
-  %27 = load ptr, ptr %m_new_th_eqs.i, align 8
-  %cmp.i.i = icmp eq ptr %27, null
+  %28 = load ptr, ptr %m_new_th_eqs.i, align 8
+  %cmp.i.i = icmp eq ptr %28, null
   br i1 %cmp.i.i, label %for.end, label %_ZNK3euf6egraph9has_th_eqEv.exit, !llvm.loop !35
 
 for.end:                                          ; preds = %land.rhs, %_ZNK3euf6egraph9has_th_eqEv.exit, %land.lhs.true, %for.inc, %entry

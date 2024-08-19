@@ -4706,7 +4706,7 @@ define internal fastcc i32 @ftp_state_get_resp(ptr noundef %0, i32 noundef %1, i
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
-  switch i32 %1, label %97 [
+  switch i32 %1, label %96 [
     i32 150, label %11
     i32 125, label %11
   ]
@@ -4803,11 +4803,10 @@ define internal fastcc i32 @ftp_state_get_resp(ptr noundef %0, i32 noundef %1, i
 
 56:                                               ; preds = %.loopexit
   store i64 %51, ptr %6, align 8
-  store i64 %51, ptr %4, align 8
-  br label %63
+  br label %.sink.split
 
 57:                                               ; preds = %.loopexit
-  br i1 %.not96, label %63, label %.thread95
+  br i1 %.not96, label %62, label %.thread95
 
 .thread95:                                        ; preds = %.thread93, %57
   %58 = phi i64 [ %51, %57 ], [ %55, %.thread93 ]
@@ -4815,107 +4814,109 @@ define internal fastcc i32 @ftp_state_get_resp(ptr noundef %0, i32 noundef %1, i
   %60 = load i32, ptr %59, align 4
   %61 = and i32 %60, 16384
   %.not82 = icmp eq i32 %61, 0
-  br i1 %.not82, label %63, label %62
+  br i1 %.not82, label %62, label %.sink.split
 
-62:                                               ; preds = %.thread95
-  store i64 -1, ptr %4, align 8
-  br label %63
+.sink.split:                                      ; preds = %.thread95, %56
+  %.sink = phi i64 [ %51, %56 ], [ -1, %.thread95 ]
+  %.ph = phi i64 [ %51, %56 ], [ %58, %.thread95 ]
+  store i64 %.sink, ptr %4, align 8
+  br label %62
 
-63:                                               ; preds = %57, %.thread95, %62, %56
-  %64 = phi i64 [ %51, %56 ], [ %58, %62 ], [ %58, %.thread95 ], [ %51, %57 ]
-  %65 = getelementptr inbounds i8, ptr %0, i64 2642
-  %66 = load i64, ptr %65, align 2
-  %67 = and i64 %66, 268435456
-  %.not83 = icmp eq i64 %67, 0
-  br i1 %.not83, label %69, label %68
+62:                                               ; preds = %.sink.split, %57, %.thread95
+  %63 = phi i64 [ %58, %.thread95 ], [ %51, %57 ], [ %.ph, %.sink.split ]
+  %64 = getelementptr inbounds i8, ptr %0, i64 2642
+  %65 = load i64, ptr %64, align 2
+  %66 = and i64 %65, 268435456
+  %.not83 = icmp eq i64 %66, 0
+  br i1 %.not83, label %68, label %67
 
-68:                                               ; preds = %63
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.97, i64 noundef %64) #10
-  br label %69
+67:                                               ; preds = %62
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.97, i64 noundef %63) #10
+  br label %68
 
-69:                                               ; preds = %63, %68
-  br i1 %.not96, label %75, label %70
+68:                                               ; preds = %62, %67
+  br i1 %.not96, label %74, label %69
 
-70:                                               ; preds = %69
-  %71 = load i64, ptr %65, align 2
-  %72 = and i64 %71, 268435456
-  %.not84 = icmp eq i64 %72, 0
-  br i1 %.not84, label %75, label %73
+69:                                               ; preds = %68
+  %70 = load i64, ptr %64, align 2
+  %71 = and i64 %70, 268435456
+  %.not84 = icmp eq i64 %71, 0
+  br i1 %.not84, label %74, label %72
 
-73:                                               ; preds = %70
-  %74 = load i64, ptr %4, align 8
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.98, i64 noundef %74) #10
-  br label %75
+72:                                               ; preds = %69
+  %73 = load i64, ptr %4, align 8
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.98, i64 noundef %73) #10
+  br label %74
 
-75:                                               ; preds = %73, %70, %69
-  %76 = getelementptr inbounds i8, ptr %10, i64 1095
-  store i8 %2, ptr %76, align 1
-  %77 = load i64, ptr %4, align 8
-  %78 = getelementptr inbounds i8, ptr %10, i64 1048
-  store i64 %77, ptr %78, align 8
-  %79 = load i64, ptr %65, align 2
-  %80 = and i64 %79, 4096
-  %.not85 = icmp eq i64 %80, 0
-  br i1 %.not85, label %95, label %81
+74:                                               ; preds = %72, %69, %68
+  %75 = getelementptr inbounds i8, ptr %10, i64 1095
+  store i8 %2, ptr %75, align 1
+  %76 = load i64, ptr %4, align 8
+  %77 = getelementptr inbounds i8, ptr %10, i64 1048
+  store i64 %76, ptr %77, align 8
+  %78 = load i64, ptr %64, align 2
+  %79 = and i64 %78, 4096
+  %.not85 = icmp eq i64 %79, 0
+  br i1 %.not85, label %94, label %80
 
-81:                                               ; preds = %75
-  %82 = call fastcc i32 @AllowServerConnect(ptr noundef nonnull %0, ptr noundef nonnull %5)
-  %.not86 = icmp eq i32 %82, 0
-  br i1 %.not86, label %83, label %108
+80:                                               ; preds = %74
+  %81 = call fastcc i32 @AllowServerConnect(ptr noundef nonnull %0, ptr noundef nonnull %5)
+  %.not86 = icmp eq i32 %81, 0
+  br i1 %.not86, label %82, label %107
 
-83:                                               ; preds = %81
-  %84 = load i8, ptr %5, align 1
-  %85 = trunc i8 %84 to i1
-  br i1 %85, label %108, label %86
+82:                                               ; preds = %80
+  %83 = load i8, ptr %5, align 1
+  %84 = trunc i8 %83 to i1
+  br i1 %84, label %107, label %85
 
-86:                                               ; preds = %83
-  %87 = load i64, ptr %65, align 2
-  %88 = and i64 %87, 268435456
-  %.not87 = icmp eq i64 %88, 0
-  br i1 %.not87, label %90, label %89
+85:                                               ; preds = %82
+  %86 = load i64, ptr %64, align 2
+  %87 = and i64 %86, 268435456
+  %.not87 = icmp eq i64 %87, 0
+  br i1 %.not87, label %89, label %88
 
-89:                                               ; preds = %86
+88:                                               ; preds = %85
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.99) #10
-  br label %90
+  br label %89
 
-90:                                               ; preds = %86, %89
+89:                                               ; preds = %85, %88
   %.val89 = load ptr, ptr %9, align 8
-  %91 = getelementptr inbounds i8, ptr %.val89, i64 1094
-  store i8 0, ptr %91, align 2
-  %92 = getelementptr inbounds i8, ptr %10, i64 1098
-  %93 = load i8, ptr %92, align 2
-  %94 = or i8 %93, 32
-  store i8 %94, ptr %92, align 2
-  br label %108
+  %90 = getelementptr inbounds i8, ptr %.val89, i64 1094
+  store i8 0, ptr %90, align 2
+  %91 = getelementptr inbounds i8, ptr %10, i64 1098
+  %92 = load i8, ptr %91, align 2
+  %93 = or i8 %92, 32
+  store i8 %93, ptr %91, align 2
+  br label %107
 
-95:                                               ; preds = %75
-  %96 = call fastcc i32 @InitiateTransfer(ptr noundef nonnull %0)
-  br label %108
+94:                                               ; preds = %74
+  %95 = call fastcc i32 @InitiateTransfer(ptr noundef nonnull %0)
+  br label %107
 
-97:                                               ; preds = %3
-  %98 = icmp eq i8 %2, 31
-  %99 = icmp eq i32 %1, 450
-  %or.cond3 = and i1 %99, %98
-  br i1 %or.cond3, label %100, label %103
+96:                                               ; preds = %3
+  %97 = icmp eq i8 %2, 31
+  %98 = icmp eq i32 %1, 450
+  %or.cond3 = and i1 %98, %97
+  br i1 %or.cond3, label %99, label %102
 
-100:                                              ; preds = %97
-  %101 = getelementptr inbounds i8, ptr %8, i64 16
-  store i32 2, ptr %101, align 8
+99:                                               ; preds = %96
+  %100 = getelementptr inbounds i8, ptr %8, i64 16
+  store i32 2, ptr %100, align 8
   %.val = load ptr, ptr %9, align 8
-  %102 = getelementptr inbounds i8, ptr %.val, i64 1094
-  store i8 0, ptr %102, align 2
-  br label %108
+  %101 = getelementptr inbounds i8, ptr %.val, i64 1094
+  store i8 0, ptr %101, align 2
+  br label %107
 
-103:                                              ; preds = %97
+102:                                              ; preds = %96
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.100, i32 noundef %1) #10
-  %104 = icmp eq i8 %2, 32
-  %105 = icmp eq i32 %1, 550
-  %106 = and i1 %105, %104
-  %107 = select i1 %106, i32 78, i32 19
-  br label %108
+  %103 = icmp eq i8 %2, 32
+  %104 = icmp eq i32 %1, 550
+  %105 = and i1 %104, %103
+  %106 = select i1 %105, i32 78, i32 19
+  br label %107
 
-108:                                              ; preds = %100, %83, %90, %81, %103, %95
-  %.0 = phi i32 [ %96, %95 ], [ %107, %103 ], [ %82, %81 ], [ 0, %90 ], [ 0, %83 ], [ 0, %100 ]
+107:                                              ; preds = %99, %82, %89, %80, %102, %94
+  %.0 = phi i32 [ %95, %94 ], [ %106, %102 ], [ %81, %80 ], [ 0, %89 ], [ 0, %82 ], [ 0, %99 ]
   ret i32 %.0
 }
 

@@ -206,7 +206,7 @@ define hidden void @"_ZN6diesel10type_impls6tuples137_$LT$impl$u20$diesel..deser
   %33 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %23, ptr %33, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %93
+  br label %75
 
 34:                                               ; preds = %24
   store i64 %25, ptr %15, align 8
@@ -325,7 +325,6 @@ define hidden void @"_ZN6diesel10type_impls6tuples137_$LT$impl$u20$diesel..deser
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   br label %75
 
 65:                                               ; preds = %.noexc
@@ -352,7 +351,8 @@ define hidden void @"_ZN6diesel10type_impls6tuples137_$LT$impl$u20$diesel..deser
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.12167227474035961171"(ptr noalias noundef nonnull readonly align 1 %74, ptr noundef nonnull %71, i64 noundef %69, i64 noundef %73)
           to label %78 unwind label %76
 
-75:                                               ; preds = %93, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4e34a91b1deecf21E.exit91", %64
+75:                                               ; preds = %31, %92, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4e34a91b1deecf21E.exit91", %64
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   ret void
 
 76:                                               ; preds = %70, %65
@@ -388,7 +388,6 @@ define hidden void @"_ZN6diesel10type_impls6tuples137_$LT$impl$u20$diesel..deser
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   br label %75
 
 86:                                               ; preds = %.thread126, %90, %89, %76, %62
@@ -414,16 +413,12 @@ define hidden void @"_ZN6diesel10type_impls6tuples137_$LT$impl$u20$diesel..deser
 92:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4e34a91b1deecf21E.exit", %35
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
-  br label %93
+  br label %75
 
 .thread126:                                       ; preds = %90, %.thread
   %.pn.pn113 = phi { ptr, i32 } [ %38, %.thread ], [ %91, %90 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4e34a91b1deecf21E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #13
           to label %88 unwind label %86
-
-93:                                               ; preds = %92, %31
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
-  br label %75
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -493,7 +488,6 @@ define internal fastcc void @"_ZN74_$LT$T$u20$as$u20$diesel..deserialize..FromSt
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr @anon.72775910608dcbbd41351667e0644261.7, ptr %17, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %41
 
 18:                                               ; preds = %15
@@ -563,10 +557,10 @@ define internal fastcc void @"_ZN74_$LT$T$u20$as$u20$diesel..deserialize..FromSt
   %39 = load i64, ptr %38, align 8, !noalias !92, !noundef !4
   %40 = add i64 %39, -1
   store i64 %40, ptr %38, align 8, !noalias !92
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %41
 
 41:                                               ; preds = %37, %"_ZN88_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..Row$LT$DB$GT$$GT$3get17hbb93f8af6491a5d9E.exit.thread"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   ret void
 
 42:                                               ; preds = %15, %23, %30

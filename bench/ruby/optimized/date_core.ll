@@ -1380,23 +1380,18 @@ c_gregorian_last_day_of_month.exit.i.i.i:         ; preds = %89, %77
   %100 = icmp slt i32 %.018.i.i.i, 1
   %101 = icmp sgt i32 %.018.i.i.i, %96
   %or.cond22.i.i.i = select i1 %100, i1 true, i1 %101
-  br i1 %or.cond22.i.i.i, label %select.unfold, label %valid_civil_sub.exit
+  br i1 %or.cond22.i.i.i, label %select.unfold, label %.sink.split
 
 guess_style.exit.thread.i:                        ; preds = %guess_style.exit.i, %67
   %102 = call fastcc i32 @valid_civil_p(i64 noundef %30, i32 noundef %40, i32 noundef %46, double noundef %.0.i, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %.not17.i = icmp eq i32 %102, 0
-  br i1 %.not17.i, label %select.unfold, label %valid_civil_sub.exit
-
-valid_civil_sub.exit:                             ; preds = %c_gregorian_last_day_of_month.exit.i.i.i, %guess_style.exit.thread.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  br label %103
+  br i1 %.not17.i, label %select.unfold, label %.sink.split
 
 select.unfold:                                    ; preds = %c_gregorian_last_day_of_month.exit.i.i.i, %guess_style.exit.thread.i, %72
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %guess_style.exit.thread.i, %c_gregorian_last_day_of_month.exit.i.i.i, %select.unfold
+  %.0.ph = phi i64 [ 0, %select.unfold ], [ 20, %c_gregorian_last_day_of_month.exit.i.i.i ], [ 20, %guess_style.exit.thread.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -1405,8 +1400,8 @@ select.unfold:                                    ; preds = %c_gregorian_last_da
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   br label %103
 
-103:                                              ; preds = %select.unfold, %valid_civil_sub.exit, %24, %19, %3
-  %.0 = phi i64 [ 0, %3 ], [ 0, %19 ], [ 0, %24 ], [ 0, %select.unfold ], [ 20, %valid_civil_sub.exit ]
+103:                                              ; preds = %.sink.split, %24, %19, %3
+  %.0 = phi i64 [ 0, %3 ], [ 0, %19 ], [ 0, %24 ], [ %.0.ph, %.sink.split ]
   ret i64 %.0
 }
 
@@ -8362,7 +8357,7 @@ mk_inspect.exit:                                  ; preds = %m_real_jd.exit.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @d_lite_strftime(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal noundef i64 @d_lite_strftime(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = tail call fastcc i64 @date_strftime_internal(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.345)
   ret i64 %4
 }
@@ -13505,7 +13500,7 @@ strftimev.exit:                                   ; preds = %1, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @dt_lite_strftime(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal noundef i64 @dt_lite_strftime(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = tail call fastcc i64 @date_strftime_internal(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.350)
   ret i64 %4
 }
@@ -22621,7 +22616,7 @@ declare i64 @rb_enc_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare nonnull ptr @rb_usascii_encoding() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @date_strftime_internal(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i64 @date_strftime_internal(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca [100 x i8], align 16
   %7 = alloca ptr, align 8
@@ -22682,7 +22677,7 @@ RSTRING_PTR.exit:                                 ; preds = %20, %26
   store ptr @tmx_funcs, ptr %30, align 8
   %31 = call ptr @memchr(ptr noundef %.sroa.2.0.i, i32 noundef 0, i64 noundef %28) #23
   %.not = icmp eq ptr %31, null
-  br i1 %.not, label %56, label %32
+  br i1 %.not, label %55, label %32
 
 32:                                               ; preds = %RSTRING_PTR.exit
   %33 = getelementptr inbounds i8, ptr %.sroa.2.0.i, i64 %28
@@ -22737,30 +22732,22 @@ RSTRING_PTR.exit:                                 ; preds = %20, %26
   %54 = icmp ult ptr %.1.lcssa8, %33
   br i1 %54, label %.lr.ph6, label %._crit_edge, !llvm.loop !36
 
-._crit_edge:                                      ; preds = %.critedge.thread, %32
-  %55 = load i64, ptr %5, align 8
-  call void @rb_enc_copy(i64 noundef %34, i64 noundef %55) #20
-  br label %63
+55:                                               ; preds = %RSTRING_PTR.exit
+  %56 = call fastcc i64 @date_strftime_alloc(ptr noundef nonnull %7, ptr noundef %.sroa.2.0.i, ptr noundef nonnull %8)
+  %57 = load ptr, ptr %7, align 8
+  %58 = call i64 @rb_str_new(ptr noundef %57, i64 noundef %56) #20
+  %.not41 = icmp eq ptr %57, %6
+  br i1 %.not41, label %._crit_edge, label %59
 
-56:                                               ; preds = %RSTRING_PTR.exit
-  %57 = call fastcc i64 @date_strftime_alloc(ptr noundef nonnull %7, ptr noundef %.sroa.2.0.i, ptr noundef nonnull %8)
-  %58 = load ptr, ptr %7, align 8
-  %59 = call i64 @rb_str_new(ptr noundef %58, i64 noundef %57) #20
-  %.not41 = icmp eq ptr %58, %6
-  br i1 %.not41, label %61, label %60
+59:                                               ; preds = %55
+  call void @ruby_xfree(ptr noundef %57) #20
+  br label %._crit_edge
 
-60:                                               ; preds = %56
-  call void @ruby_xfree(ptr noundef %58) #20
-  br label %61
-
-61:                                               ; preds = %60, %56
-  %62 = load i64, ptr %5, align 8
-  call void @rb_enc_copy(i64 noundef %59, i64 noundef %62) #20
-  br label %63
-
-63:                                               ; preds = %61, %._crit_edge
-  %.0 = phi i64 [ %34, %._crit_edge ], [ %59, %61 ]
-  ret i64 %.0
+._crit_edge:                                      ; preds = %.critedge.thread, %55, %59, %32
+  %.sink = phi i64 [ %34, %32 ], [ %58, %59 ], [ %58, %55 ], [ %34, %.critedge.thread ]
+  %60 = load i64, ptr %5, align 8
+  call void @rb_enc_copy(i64 noundef %.sink, i64 noundef %60) #20
+  ret i64 %.sink
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

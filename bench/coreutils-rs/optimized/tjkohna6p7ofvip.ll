@@ -120,7 +120,7 @@ define hidden void @"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as
   br label %.body
 
 "_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2f2bddef8004a5c2E.exit": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd4c9048eab5b7b3E.exit.i.i", %19, %._crit_edge25.i, %26, %9
-  %storemerge8 = phi i64 [ %28, %26 ], [ %.val4, %9 ], [ %.sroa.6.0.copyload.i, %._crit_edge25.i ], [ %21, %19 ], [ %.val3.i.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd4c9048eab5b7b3E.exit.i.i" ]
+  %storemerge8 = phi i64 [ %28, %26 ], [ %.val4, %9 ], [ %.sroa.6.0.copyload.i, %._crit_edge25.i ], [ %.val3.i.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd4c9048eab5b7b3E.exit.i.i" ], [ %21, %19 ]
   %31 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %31)
   br label %.thread
@@ -244,7 +244,7 @@ define hidden void @"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as
   br label %.body
 
 "_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hbc28d5e3ac80681eE.exit": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd4c9048eab5b7b3E.exit.i.i", %19, %._crit_edge25.i, %26, %9
-  %storemerge8 = phi i64 [ %28, %26 ], [ %.val4, %9 ], [ %.sroa.6.0.copyload.i, %._crit_edge25.i ], [ %21, %19 ], [ %.val3.i.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd4c9048eab5b7b3E.exit.i.i" ]
+  %storemerge8 = phi i64 [ %28, %26 ], [ %.val4, %9 ], [ %.sroa.6.0.copyload.i, %._crit_edge25.i ], [ %.val3.i.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd4c9048eab5b7b3E.exit.i.i" ], [ %21, %19 ]
   %31 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %31)
   br label %.thread
@@ -389,7 +389,7 @@ define hidden void @"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$
   br label %.body.i
 
 "_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2f2bddef8004a5c2E.exit.i": ; preds = %18, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd4c9048eab5b7b3E.exit.i.i.i", %25, %._crit_edge25.i.i, %8
-  %storemerge8.i = phi i64 [ %27, %25 ], [ %.sroa.4.0.copyload, %8 ], [ %.sroa.6.0.copyload.i.i, %._crit_edge25.i.i ], [ %.val3.i.i.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd4c9048eab5b7b3E.exit.i.i.i" ], [ %20, %18 ]
+  %storemerge8.i = phi i64 [ %27, %25 ], [ %.sroa.4.0.copyload, %8 ], [ %.sroa.6.0.copyload.i.i, %._crit_edge25.i.i ], [ %20, %18 ], [ %.val3.i.i.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd4c9048eab5b7b3E.exit.i.i.i" ]
   %30 = icmp ne ptr %.sroa.0.0.copyload, null
   tail call void @llvm.assume(i1 %30)
   br label %32
@@ -525,7 +525,7 @@ define hidden void @"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$
   br label %.body.i
 
 "_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hbc28d5e3ac80681eE.exit.i": ; preds = %18, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd4c9048eab5b7b3E.exit.i.i.i", %25, %._crit_edge25.i.i, %8
-  %storemerge8.i = phi i64 [ %27, %25 ], [ %.sroa.4.0.copyload, %8 ], [ %.sroa.6.0.copyload.i.i, %._crit_edge25.i.i ], [ %.val3.i.i.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd4c9048eab5b7b3E.exit.i.i.i" ], [ %20, %18 ]
+  %storemerge8.i = phi i64 [ %27, %25 ], [ %.sroa.4.0.copyload, %8 ], [ %.sroa.6.0.copyload.i.i, %._crit_edge25.i.i ], [ %20, %18 ], [ %.val3.i.i.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd4c9048eab5b7b3E.exit.i.i.i" ]
   %30 = icmp ne ptr %.sroa.0.0.copyload, null
   tail call void @llvm.assume(i1 %30)
   br label %32

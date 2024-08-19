@@ -2776,7 +2776,7 @@ define range(i32 -1, 1) i32 @H5O__condense_header(ptr noundef %0, ptr noundef %1
   %147 = load i64, ptr @H5E_OHDR_g, align 8
   %148 = load i64, ptr @H5E_CANTDECODE_g, align 8
   %149 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__move_cont, i32 noundef 1407, i64 noundef %147, i64 noundef %148, ptr noundef nonnull @.str.36) #7
-  br label %H5O__move_cont.exit.thread.i
+  br label %.loopexit367.i
 
 150:                                              ; preds = %133
   %151 = load i32, ptr %4, align 4
@@ -2846,7 +2846,7 @@ define range(i32 -1, 1) i32 @H5O__condense_header(ptr noundef %0, ptr noundef %1
   %184 = load i64, ptr @H5E_OHDR_g, align 8
   %185 = load i64, ptr @H5E_CANTSET_g, align 8
   %186 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__move_cont, i32 noundef 1407, i64 noundef %184, i64 noundef %185, ptr noundef nonnull @.str.37) #7
-  br label %H5O__move_cont.exit.thread.i
+  br label %.loopexit367.i
 
 187:                                              ; preds = %._crit_edge225.i.i, %175, %127
   %188 = phi ptr [ %.pre.i.i, %._crit_edge225.i.i ], [ %.pre226.i.i, %175 ], [ %131, %127 ]
@@ -2964,7 +2964,7 @@ define range(i32 -1, 1) i32 @H5O__condense_header(ptr noundef %0, ptr noundef %1
   %253 = load i64, ptr @H5E_OHDR_g, align 8
   %254 = load i64, ptr @H5E_CANTDELETE_g, align 8
   %255 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__move_cont, i32 noundef 1449, i64 noundef %253, i64 noundef %254, ptr noundef nonnull @.str.38) #7
-  br label %H5O__move_cont.exit.thread.i
+  br label %.loopexit367.i
 
 256:                                              ; preds = %242
   %257 = call ptr @H5O__chunk_protect(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %224) #7
@@ -2975,7 +2975,7 @@ define range(i32 -1, 1) i32 @H5O__condense_header(ptr noundef %0, ptr noundef %1
   %260 = load i64, ptr @H5E_OHDR_g, align 8
   %261 = load i64, ptr @H5E_CANTPROTECT_g, align 8
   %262 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__move_cont, i32 noundef 1453, i64 noundef %260, i64 noundef %261, ptr noundef nonnull @.str.19) #7
-  br label %H5O__move_cont.exit.thread.i
+  br label %.loopexit367.i
 
 263:                                              ; preds = %256
   %264 = load i64, ptr %8, align 8
@@ -3223,7 +3223,7 @@ define range(i32 -1, 1) i32 @H5O__condense_header(ptr noundef %0, ptr noundef %1
   %400 = trunc i8 %399 to i1
   %401 = call i32 @H5O__chunk_unprotect(ptr noundef %0, ptr noundef nonnull %257, i1 noundef zeroext %400) #7
   %402 = icmp slt i32 %401, 0
-  br i1 %402, label %.loopexit602.i, label %.loopexit367.loopexit.i
+  br i1 %402, label %.loopexit602.i, label %.loopexit367.i
 
 .thread.i:                                        ; preds = %392, %366
   %.lcssa.i.i = phi i8 [ %.promoted.i.i, %366 ], [ %394, %392 ]
@@ -3251,19 +3251,11 @@ H5O__move_cont.exit.thread590.i:                  ; preds = %.thread.i
   %414 = load i64, ptr @H5E_OHDR_g, align 8
   %415 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8
   %416 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__move_cont, i32 noundef 1541, i64 noundef %414, i64 noundef %415, ptr noundef nonnull @.str.9) #7
-  br label %H5O__move_cont.exit.thread.i
-
-H5O__move_cont.exit.thread.i:                     ; preds = %.loopexit602.i, %259, %252, %183, %146
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %.loopexit367.i
 
-.loopexit367.loopexit.i:                          ; preds = %398
+.loopexit367.i:                                   ; preds = %.loopexit602.i, %398, %259, %252, %183, %146
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br label %.loopexit367.i
-
-.loopexit367.i:                                   ; preds = %.loopexit367.loopexit.i, %H5O__move_cont.exit.thread.i
   %417 = load i64, ptr @H5E_OHDR_g, align 8
   %418 = load i64, ptr @H5E_CANTDELETE_g, align 8
   %419 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__move_msgs_forward, i32 noundef 1658, i64 noundef %417, i64 noundef %418, ptr noundef nonnull @.str.30) #7

@@ -135,6 +135,7 @@ target triple = "x86_64-pc-linux-gnu"
 @gbl_resolv_flags = external local_unnamed_addr global %struct._e_addr_resolve, align 4
 @.str.79 = private unnamed_addr constant [25 x i8] c"PRI: %d  CFI: %d  ID: %s\00", align 1
 @.str.80 = private unnamed_addr constant [25 x i8] c"PRI: %d  DEI: %d  ID: %s\00", align 1
+@switch.table.dissect_vlan = private unnamed_addr constant [4 x ptr] [ptr @hf_vlan_priority, ptr @hf_vlan_priority_7, ptr @hf_vlan_priority_6, ptr @hf_vlan_priority_5], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_vlan() local_unnamed_addr #0 {
@@ -268,7 +269,7 @@ define internal i32 @dissect_vlan(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 38:                                               ; preds = %24
   %39 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %33, ptr noundef nonnull @ei_vlan_too_many_tags) #3
-  br label %108
+  br label %99
 
 40:                                               ; preds = %24
   %41 = load i32, ptr @proto_vlan, align 4
@@ -294,131 +295,107 @@ define internal i32 @dissect_vlan(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %49 = call ptr @proto_item_add_subtree(ptr noundef %33, i32 noundef %48) #3
   %50 = load i32, ptr @vlan_version, align 4
   %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %55
+  br i1 %51, label %52, label %54
 
 52:                                               ; preds = %47
   %53 = load i32, ptr @hf_vlan_priority_old, align 4
   store i32 %53, ptr %6, align 4
-  %54 = load i32, ptr @hf_vlan_cfi, align 4
-  store i32 %54, ptr %7, align 4
-  br label %71
+  br label %61
 
-55:                                               ; preds = %47
-  %56 = load i32, ptr @vlan_priority_drop, align 4
-  switch i32 %56, label %65 [
-    i32 0, label %57
-    i32 1, label %59
-    i32 2, label %61
-    i32 3, label %63
-  ]
+54:                                               ; preds = %47
+  %55 = load i32, ptr @vlan_priority_drop, align 4
+  %56 = icmp ult i32 %55, 4
+  br i1 %56, label %switch.lookup, label %59
 
-57:                                               ; preds = %55
-  %58 = load i32, ptr @hf_vlan_priority, align 4
+switch.lookup:                                    ; preds = %54
+  %57 = zext nneg i32 %55 to i64
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_vlan, i64 0, i64 %57
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %58 = load i32, ptr %switch.load, align 4
   store i32 %58, ptr %6, align 4
-  br label %65
+  br label %59
 
-59:                                               ; preds = %55
-  %60 = load i32, ptr @hf_vlan_priority_7, align 4
-  store i32 %60, ptr %6, align 4
-  br label %65
+59:                                               ; preds = %54, %switch.lookup
+  %60 = icmp eq i32 %50, 1
+  %hf_vlan_cfi.hf_vlan_dei = select i1 %60, ptr @hf_vlan_cfi, ptr @hf_vlan_dei
+  br label %61
 
-61:                                               ; preds = %55
-  %62 = load i32, ptr @hf_vlan_priority_6, align 4
-  store i32 %62, ptr %6, align 4
-  br label %65
-
-63:                                               ; preds = %55
-  %64 = load i32, ptr @hf_vlan_priority_5, align 4
-  store i32 %64, ptr %6, align 4
-  br label %65
-
-65:                                               ; preds = %63, %61, %59, %57, %55
-  %66 = icmp eq i32 %50, 1
-  br i1 %66, label %67, label %69
-
-67:                                               ; preds = %65
-  %68 = load i32, ptr @hf_vlan_cfi, align 4
-  store i32 %68, ptr %7, align 4
-  br label %71
-
-69:                                               ; preds = %65
-  %70 = load i32, ptr @hf_vlan_dei, align 4
-  store i32 %70, ptr %7, align 4
-  br label %71
-
-71:                                               ; preds = %67, %69, %52
+61:                                               ; preds = %59, %52
+  %hf_vlan_cfi.sink = phi ptr [ @hf_vlan_cfi, %52 ], [ %hf_vlan_cfi.hf_vlan_dei, %59 ]
+  %62 = load i32, ptr %hf_vlan_cfi.sink, align 4
+  store i32 %62, ptr %7, align 4
   call void @proto_tree_add_bitmask_list(ptr noundef %49, ptr noundef %0, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %8, i32 noundef 0) #3
-  %72 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 20), align 4
-  %.not59 = icmp eq i32 %72, 0
-  br i1 %.not59, label %proto_item_set_generated.exit, label %73
+  %63 = load i32, ptr getelementptr inbounds (i8, ptr @gbl_resolv_flags, i64 20), align 4
+  %.not59 = icmp eq i32 %63, 0
+  br i1 %.not59, label %proto_item_set_generated.exit, label %64
 
-73:                                               ; preds = %71
-  %74 = load i32, ptr @hf_vlan_id_name, align 4
-  %75 = getelementptr inbounds i8, ptr %1, i64 408
-  %76 = load ptr, ptr %75, align 8
-  %77 = call ptr @get_vlan_name(ptr noundef %76, i16 noundef zeroext %18) #3
-  %78 = call ptr @proto_tree_add_string(ptr noundef %49, i32 noundef %74, ptr noundef %0, i32 noundef 0, i32 noundef 2, ptr noundef %77) #3
-  %.not.i = icmp eq ptr %78, null
-  br i1 %.not.i, label %proto_item_set_generated.exit, label %79
+64:                                               ; preds = %61
+  %65 = load i32, ptr @hf_vlan_id_name, align 4
+  %66 = getelementptr inbounds i8, ptr %1, i64 408
+  %67 = load ptr, ptr %66, align 8
+  %68 = call ptr @get_vlan_name(ptr noundef %67, i16 noundef zeroext %18) #3
+  %69 = call ptr @proto_tree_add_string(ptr noundef %49, i32 noundef %65, ptr noundef %0, i32 noundef 0, i32 noundef 2, ptr noundef %68) #3
+  %.not.i = icmp eq ptr %69, null
+  br i1 %.not.i, label %proto_item_set_generated.exit, label %70
 
-79:                                               ; preds = %73
-  %80 = getelementptr inbounds i8, ptr %78, i64 32
-  %81 = load ptr, ptr %80, align 8
-  %.not5.i = icmp eq ptr %81, null
-  br i1 %.not5.i, label %proto_item_set_generated.exit, label %82
+70:                                               ; preds = %64
+  %71 = getelementptr inbounds i8, ptr %69, i64 32
+  %72 = load ptr, ptr %71, align 8
+  %.not5.i = icmp eq ptr %72, null
+  br i1 %.not5.i, label %proto_item_set_generated.exit, label %73
 
-82:                                               ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %81, i64 28
-  %84 = load i32, ptr %83, align 4
-  %85 = or i32 %84, 2
-  store i32 %85, ptr %83, align 4
+73:                                               ; preds = %70
+  %74 = getelementptr inbounds i8, ptr %72, i64 28
+  %75 = load i32, ptr %74, align 4
+  %76 = or i32 %75, 2
+  store i32 %76, ptr %74, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %82, %79, %73, %71, %40
-  %.054 = phi ptr [ %49, %71 ], [ null, %40 ], [ %49, %73 ], [ %49, %79 ], [ %49, %82 ]
-  %86 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #3
-  %87 = zext i16 %86 to i32
-  %88 = icmp ult i16 %86, 1501
-  br i1 %88, label %89, label %98
+proto_item_set_generated.exit:                    ; preds = %73, %70, %64, %61, %40
+  %.054 = phi ptr [ %49, %61 ], [ null, %40 ], [ %49, %64 ], [ %49, %70 ], [ %49, %73 ]
+  %77 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #3
+  %78 = zext i16 %77 to i32
+  %79 = icmp ult i16 %77, 1501
+  br i1 %79, label %80, label %89
+
+80:                                               ; preds = %proto_item_set_generated.exit
+  %81 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 4) #3
+  %82 = icmp sgt i32 %81, 1
+  br i1 %82, label %83, label %86
+
+83:                                               ; preds = %80
+  %84 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4) #3
+  %85 = icmp ne i16 %84, -1
+  %spec.select = zext i1 %85 to i32
+  br label %86
+
+86:                                               ; preds = %83, %80
+  %.055 = phi i32 [ 1, %80 ], [ %spec.select, %83 ]
+  %87 = load i32, ptr @hf_vlan_len, align 4
+  %88 = load i32, ptr @hf_vlan_trailer, align 4
+  call void @dissect_802_3(i32 noundef %78, i32 noundef %.055, ptr noundef %0, i32 noundef 4, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %.054, i32 noundef %87, i32 noundef %88, ptr noundef nonnull @ei_vlan_len, i32 noundef 0) #3
+  br label %99
 
 89:                                               ; preds = %proto_item_set_generated.exit
-  %90 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 4) #3
-  %91 = icmp sgt i32 %90, 1
-  br i1 %91, label %92, label %95
+  %90 = load i32, ptr @hf_vlan_etype, align 4
+  %91 = call ptr @proto_tree_add_uint(ptr noundef %.054, i32 noundef %90, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef %78) #3
+  store i16 %77, ptr %9, align 8
+  %92 = getelementptr inbounds i8, ptr %9, i64 4
+  store i32 4, ptr %92, align 4
+  %93 = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %.054, ptr %93, align 8
+  %94 = load i32, ptr @hf_vlan_trailer, align 4
+  %95 = getelementptr inbounds i8, ptr %9, i64 16
+  store i32 %94, ptr %95, align 8
+  %96 = getelementptr inbounds i8, ptr %9, i64 20
+  store i32 0, ptr %96, align 4
+  %97 = load ptr, ptr @ethertype_handle, align 8
+  %98 = call i32 @call_dissector_with_data(ptr noundef %97, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %9) #3
+  br label %99
 
-92:                                               ; preds = %89
-  %93 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4) #3
-  %94 = icmp ne i16 %93, -1
-  %spec.select = zext i1 %94 to i32
-  br label %95
-
-95:                                               ; preds = %92, %89
-  %.055 = phi i32 [ 1, %89 ], [ %spec.select, %92 ]
-  %96 = load i32, ptr @hf_vlan_len, align 4
-  %97 = load i32, ptr @hf_vlan_trailer, align 4
-  call void @dissect_802_3(i32 noundef %87, i32 noundef %.055, ptr noundef %0, i32 noundef 4, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %.054, i32 noundef %96, i32 noundef %97, ptr noundef nonnull @ei_vlan_len, i32 noundef 0) #3
-  br label %108
-
-98:                                               ; preds = %proto_item_set_generated.exit
-  %99 = load i32, ptr @hf_vlan_etype, align 4
-  %100 = call ptr @proto_tree_add_uint(ptr noundef %.054, i32 noundef %99, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef %87) #3
-  store i16 %86, ptr %9, align 8
-  %101 = getelementptr inbounds i8, ptr %9, i64 4
-  store i32 4, ptr %101, align 4
-  %102 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %.054, ptr %102, align 8
-  %103 = load i32, ptr @hf_vlan_trailer, align 4
-  %104 = getelementptr inbounds i8, ptr %9, i64 16
-  store i32 %103, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %9, i64 20
-  store i32 0, ptr %105, align 4
-  %106 = load ptr, ptr @ethertype_handle, align 8
-  %107 = call i32 @call_dissector_with_data(ptr noundef %106, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %9) #3
-  br label %108
-
-108:                                              ; preds = %95, %98, %38
-  %109 = call i32 @tvb_captured_length(ptr noundef %0) #3
-  ret i32 %109
+99:                                               ; preds = %86, %89, %38
+  %100 = call i32 @tvb_captured_length(ptr noundef %0) #3
+  ret i32 %100
 }
 
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

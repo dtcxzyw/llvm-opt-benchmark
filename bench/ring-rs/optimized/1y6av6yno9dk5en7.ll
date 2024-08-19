@@ -2681,16 +2681,15 @@ _ZN4ring2ec7suite_b11private_key28scalar_from_big_endian_bytes17hf6ce9f7db3a0bd5
   %36 = call noundef zeroext i1 @_ZN4ring2ec7suite_b11private_key31big_endian_affine_from_jacobian17h06a85bd475b5d508E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 1 %2, i64 %3, ptr noalias noundef align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %11)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %14)
   br label %38
 
 37:                                               ; preds = %7
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %14)
   br label %38
 
 38:                                               ; preds = %37, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h41212762cd90b282E.exit"
   %.0 = phi i1 [ true, %37 ], [ %36, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h41212762cd90b282E.exit" ]
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %14)
   ret i1 %.0
 }
 
@@ -3495,25 +3494,15 @@ _ZN4ring6digest7Context6finish17ha820283835585a81E.exit.i: ; preds = %.noexc
   %66 = getelementptr inbounds i8, ptr %38, i64 40
   %67 = load ptr, ptr %66, align 8, !invariant.load !17, !noalias !1407, !nonnull !17
   %68 = invoke noundef zeroext i1 %67(ptr noundef nonnull align 1 %36, ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %65)
-          to label %.noexc36 unwind label %31
+          to label %69 unwind label %31
 
-.noexc36:                                         ; preds = %61
+69:                                               ; preds = %61
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7), !noalias !1407
-  br i1 %68, label %73, label %69
-
-69:                                               ; preds = %.noexc36
-  %70 = load i64, ptr %63, align 8, !noalias !1403, !noundef !17
-  %71 = load i64, ptr %62, align 8, !noalias !1403, !noundef !17
+  %70 = load i64, ptr %63, align 8, !noalias !1403
+  %71 = load i64, ptr %62, align 8, !noalias !1403
   %72 = icmp ne i64 %70, %71
+  %.0.i = select i1 %68, i1 true, i1 %72
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !1403
-  br label %_ZN9untrusted5input5Input8read_all17h75345cb0014326b2E.exit
-
-73:                                               ; preds = %.noexc36
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !1403
-  br label %_ZN9untrusted5input5Input8read_all17h75345cb0014326b2E.exit
-
-_ZN9untrusted5input5Input8read_all17h75345cb0014326b2E.exit: ; preds = %73, %69
-  %.0.i = phi i1 [ true, %73 ], [ %72, %69 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %13)
   call void @llvm.experimental.noalias.scope.decl(metadata !1414)
@@ -3522,45 +3511,38 @@ _ZN9untrusted5input5Input8read_all17h75345cb0014326b2E.exit: ; preds = %73, %69
   call void @llvm.experimental.noalias.scope.decl(metadata !1423)
   call void @llvm.experimental.noalias.scope.decl(metadata !1426)
   call void @llvm.experimental.noalias.scope.decl(metadata !1429)
-  %74 = load i64, ptr %.sroa.413.0..sroa_idx, align 8, !alias.scope !1432, !noundef !17
-  %75 = icmp eq i64 %74, 0
-  br i1 %75, label %"_ZN4core3ptr88drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..N$GT$$GT$17haee2f51765a298ddE.llvm.4129427866461079095.exit.i.i38", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.4129427866461079095.exit.i.i.i.i.i.i37"
+  %73 = load i64, ptr %.sroa.413.0..sroa_idx, align 8, !alias.scope !1432, !noundef !17
+  %74 = icmp eq i64 %73, 0
+  br i1 %74, label %"_ZN4core3ptr88drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..N$GT$$GT$17haee2f51765a298ddE.llvm.4129427866461079095.exit.i.i38", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.4129427866461079095.exit.i.i.i.i.i.i37"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.4129427866461079095.exit.i.i.i.i.i.i37": ; preds = %_ZN9untrusted5input5Input8read_all17h75345cb0014326b2E.exit
-  %76 = shl nsw i64 %74, 3
-  %77 = load ptr, ptr %15, align 8, !alias.scope !1432, !nonnull !17, !noundef !17
-  call void @__rust_dealloc(ptr noundef nonnull %77, i64 noundef %76, i64 noundef 8) #25, !noalias !1432
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.4129427866461079095.exit.i.i.i.i.i.i37": ; preds = %69
+  %75 = shl nsw i64 %73, 3
+  %76 = load ptr, ptr %15, align 8, !alias.scope !1432, !nonnull !17, !noundef !17
+  call void @__rust_dealloc(ptr noundef nonnull %76, i64 noundef %75, i64 noundef 8) #25, !noalias !1432
   br label %"_ZN4core3ptr88drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..N$GT$$GT$17haee2f51765a298ddE.llvm.4129427866461079095.exit.i.i38"
 
-"_ZN4core3ptr88drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..N$GT$$GT$17haee2f51765a298ddE.llvm.4129427866461079095.exit.i.i38": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.4129427866461079095.exit.i.i.i.i.i.i37", %_ZN9untrusted5input5Input8read_all17h75345cb0014326b2E.exit
+"_ZN4core3ptr88drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..N$GT$$GT$17haee2f51765a298ddE.llvm.4129427866461079095.exit.i.i38": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.4129427866461079095.exit.i.i.i.i.i.i37", %69
   call void @llvm.experimental.noalias.scope.decl(metadata !1433)
   call void @llvm.experimental.noalias.scope.decl(metadata !1436)
   call void @llvm.experimental.noalias.scope.decl(metadata !1439)
   call void @llvm.experimental.noalias.scope.decl(metadata !1442)
   call void @llvm.experimental.noalias.scope.decl(metadata !1445)
-  %78 = getelementptr inbounds i8, ptr %15, i64 48
-  %79 = load i64, ptr %78, align 8, !alias.scope !1448, !noundef !17
-  %80 = icmp eq i64 %79, 0
-  br i1 %80, label %"_ZN4core3ptr49drop_in_place$LT$ring..rsa..public_key..Inner$GT$17h2324f333ad63b75fE.exit40", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.4129427866461079095.exit.i.i.i.i.i1.i.i39"
+  %77 = getelementptr inbounds i8, ptr %15, i64 48
+  %78 = load i64, ptr %77, align 8, !alias.scope !1448, !noundef !17
+  %79 = icmp eq i64 %78, 0
+  br i1 %79, label %"_ZN4core3ptr49drop_in_place$LT$ring..rsa..public_key..Inner$GT$17h2324f333ad63b75fE.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.4129427866461079095.exit.i.i.i.i.i1.i.i39"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.4129427866461079095.exit.i.i.i.i.i1.i.i39": ; preds = %"_ZN4core3ptr88drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..N$GT$$GT$17haee2f51765a298ddE.llvm.4129427866461079095.exit.i.i38"
-  %81 = getelementptr inbounds i8, ptr %15, i64 40
-  %82 = shl nsw i64 %79, 3
-  %83 = load ptr, ptr %81, align 8, !alias.scope !1448, !nonnull !17, !noundef !17
-  call void @__rust_dealloc(ptr noundef nonnull %83, i64 noundef %82, i64 noundef 8) #25, !noalias !1448
-  br label %"_ZN4core3ptr49drop_in_place$LT$ring..rsa..public_key..Inner$GT$17h2324f333ad63b75fE.exit40"
+  %80 = getelementptr inbounds i8, ptr %15, i64 40
+  %81 = shl nsw i64 %78, 3
+  %82 = load ptr, ptr %80, align 8, !alias.scope !1448, !nonnull !17, !noundef !17
+  call void @__rust_dealloc(ptr noundef nonnull %82, i64 noundef %81, i64 noundef 8) #25, !noalias !1448
+  br label %"_ZN4core3ptr49drop_in_place$LT$ring..rsa..public_key..Inner$GT$17h2324f333ad63b75fE.exit"
 
-"_ZN4core3ptr49drop_in_place$LT$ring..rsa..public_key..Inner$GT$17h2324f333ad63b75fE.exit40": ; preds = %"_ZN4core3ptr88drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..N$GT$$GT$17haee2f51765a298ddE.llvm.4129427866461079095.exit.i.i38", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.4129427866461079095.exit.i.i.i.i.i1.i.i39"
+"_ZN4core3ptr49drop_in_place$LT$ring..rsa..public_key..Inner$GT$17h2324f333ad63b75fE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.4129427866461079095.exit.i.i.i.i.i1.i.i39", %"_ZN4core3ptr88drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..N$GT$$GT$17haee2f51765a298ddE.llvm.4129427866461079095.exit.i.i38", %30, %"_ZN4core3ptr88drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..N$GT$$GT$17haee2f51765a298ddE.llvm.4129427866461079095.exit.i.i", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.4129427866461079095.exit.i.i.i.i.i1.i.i"
+  %.0 = phi i1 [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.4129427866461079095.exit.i.i.i.i.i1.i.i" ], [ true, %"_ZN4core3ptr88drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..N$GT$$GT$17haee2f51765a298ddE.llvm.4129427866461079095.exit.i.i" ], [ true, %30 ], [ %.0.i, %"_ZN4core3ptr88drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..N$GT$$GT$17haee2f51765a298ddE.llvm.4129427866461079095.exit.i.i38" ], [ %.0.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.4129427866461079095.exit.i.i.i.i.i1.i.i39" ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15)
-  br label %84
-
-84:                                               ; preds = %"_ZN4core3ptr49drop_in_place$LT$ring..rsa..public_key..Inner$GT$17h2324f333ad63b75fE.exit", %"_ZN4core3ptr49drop_in_place$LT$ring..rsa..public_key..Inner$GT$17h2324f333ad63b75fE.exit40"
-  %.0 = phi i1 [ true, %"_ZN4core3ptr49drop_in_place$LT$ring..rsa..public_key..Inner$GT$17h2324f333ad63b75fE.exit" ], [ %.0.i, %"_ZN4core3ptr49drop_in_place$LT$ring..rsa..public_key..Inner$GT$17h2324f333ad63b75fE.exit40" ]
   ret i1 %.0
-
-"_ZN4core3ptr49drop_in_place$LT$ring..rsa..public_key..Inner$GT$17h2324f333ad63b75fE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.4129427866461079095.exit.i.i.i.i.i1.i.i", %"_ZN4core3ptr88drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..N$GT$$GT$17haee2f51765a298ddE.llvm.4129427866461079095.exit.i.i", %30
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15)
-  br label %84
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable

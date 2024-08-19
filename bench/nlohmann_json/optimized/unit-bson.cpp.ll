@@ -84606,7 +84606,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loo
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit.i.i670
-  %lpad.loopexit688 = landingpad { ptr, i32 }
+  %lpad.loopexit687 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
@@ -84616,7 +84616,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loo
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad28.i.body.thread338.loopexit, %lpad28.i.body.thread338.loopexit.split-lp, %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit, %lpad.i.i, %ehcleanup17.i, %lpad.i, %lpad12.i.body, %lpad67.i, %ehcleanup.i, %lpad28.i.body, %if.then.i.i.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %110, %lpad67.i ], [ %eh.lpad-body216, %lpad12.i.body ], [ %18, %lpad.i ], [ %lpad.phi397, %lpad28.i.body ], [ %lpad.phi397, %if.then.i.i.i.i ], [ %.pn.pn.pn.i, %ehcleanup17.i ], [ %68, %lpad.i.i ], [ %lpad.loopexit387, %lpad.loopexit ], [ %lpad.loopexit392, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit401, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit404, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit407, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit398, %lpad28.i.body.thread338.loopexit ], [ %lpad.loopexit.split-lp399, %lpad28.i.body.thread338.loopexit.split-lp ], [ %lpad.loopexit688, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %110, %lpad67.i ], [ %eh.lpad-body216, %lpad12.i.body ], [ %18, %lpad.i ], [ %lpad.phi397, %lpad28.i.body ], [ %lpad.phi397, %if.then.i.i.i.i ], [ %.pn.pn.pn.i, %ehcleanup17.i ], [ %68, %lpad.i.i ], [ %lpad.loopexit387, %lpad.loopexit ], [ %lpad.loopexit392, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit401, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit404, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit407, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit398, %lpad28.i.body.thread338.loopexit ], [ %lpad.loopexit.split-lp399, %lpad28.i.body.thread338.loopexit.split-lp ], [ %lpad.loopexit687, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %key) #27
   resume { ptr, i32 } %eh.lpad-body
 
@@ -84725,7 +84725,7 @@ if.end.i267:                                      ; preds = %call2.i.noexc277
   br i1 %exitcond.i275, label %land.rhs.i, label %for.body.i256, !llvm.loop !663
 
 call.i.noexc:                                     ; preds = %call2.i.noexc277
-  br i1 %cmp8.i257, label %land.rhs.i, label %invoke.cont17.thread
+  br i1 %cmp8.i257, label %land.rhs.i, label %cleanup.sink.split895
 
 land.rhs.i:                                       ; preds = %if.end.i267, %call.i.noexc
   %16 = load ptr, ptr %sax, align 8
@@ -84900,7 +84900,7 @@ invoke.cont14.i214:                               ; preds = %invoke.cont12.i212
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5.i153) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6.i154) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %last_token.i150) #27
-  br label %invoke.cont15.i.thread
+  br label %land.end20.i.thread.sink.split
 
 lpad9.i205:                                       ; preds = %invoke.cont.i204
   %30 = landingpad { ptr, i32 }
@@ -84981,7 +84981,7 @@ if.end.i.i182:                                    ; preds = %call2.i.i.noexc217
 
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_stringIiEEbNS1_14input_format_tET_RSB_.exit.i: ; preds = %.noexc219, %call2.i.i.noexc217
   %cmp.lcssa.i.i = phi i1 [ %cmp4.i.i, %call2.i.i.noexc217 ], [ %cmp.i.i184, %.noexc219 ]
-  br i1 %cmp.lcssa.i.i, label %land.rhs.i172, label %invoke.cont15.i.thread
+  br i1 %cmp.lcssa.i.i, label %land.rhs.i172, label %land.end20.i.thread.sink.split
 
 land.rhs.i172:                                    ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_stringIiEEbNS1_14input_format_tET_RSB_.exit.i, %if.end.i158
   %38 = load i64, ptr %chars_read.i, align 8
@@ -84992,18 +84992,11 @@ land.rhs.i172:                                    ; preds = %_ZN8nlohmann16json_
   %cmp.i.not.i.i.i175 = icmp eq ptr %39, %40
   br i1 %cmp.i.not.i.i.i175, label %invoke.cont15.i, label %land.end20.i
 
-invoke.cont15.i.thread:                           ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_stringIiEEbNS1_14input_format_tET_RSB_.exit.i, %invoke.cont14.i214
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %last_token.i150)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp.i151)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp4.i152)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp5.i153)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp6.i154)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp7.i155)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp8.i156)
-  br label %land.end20.i.thread
-
 invoke.cont15.i:                                  ; preds = %land.rhs.i172
   store i64 -1, ptr %current.i, align 8
+  br label %land.end20.i.thread.sink.split
+
+land.end20.i.thread.sink.split:                   ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_stringIiEEbNS1_14input_format_tET_RSB_.exit.i, %invoke.cont14.i214, %invoke.cont15.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %last_token.i150)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp.i151)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp4.i152)
@@ -85013,17 +85006,9 @@ invoke.cont15.i:                                  ; preds = %land.rhs.i172
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp8.i156)
   br label %land.end20.i.thread
 
-land.end20.i.thread:                              ; preds = %invoke.cont15.i, %invoke.cont13.i, %invoke.cont15.i.thread
+land.end20.i.thread:                              ; preds = %land.end20.i.thread.sink.split, %invoke.cont13.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value.i) #27
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %value.i)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %cr.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cr_str.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp66.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp70.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp71.i)
-  br label %cleanup
+  br label %cleanup.sink.split895
 
 land.end20.i:                                     ; preds = %land.rhs.i172
   %41 = load i8, ptr %39, align 1
@@ -85104,14 +85089,14 @@ _ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6v
   %dec.i.i675 = add nsw i32 %49, -1
   store i32 %dec.i.i675, ptr %48, align 4
   %cmp.i1.i676 = icmp sgt i32 %49, 0
-  br i1 %cmp.i1.i676, label %if.end.i678, label %invoke.cont17.thread686
+  br i1 %cmp.i1.i676, label %if.end.i678, label %cleanup.sink.split895
 
 if.end.i678:                                      ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIiLb1EEEbNS1_14input_format_tERT_.exit.i674
   %call5.i685 = invoke fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE23parse_bson_element_listEb(ptr noundef nonnull align 8 dereferenceable(552) %this, i1 noundef zeroext false)
           to label %call5.i.noexc684 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call5.i.noexc684:                                 ; preds = %if.end.i678
-  br i1 %call5.i685, label %if.end10.i679, label %invoke.cont17.thread686
+  br i1 %call5.i685, label %if.end10.i679, label %cleanup.sink.split895
 
 if.end10.i679:                                    ; preds = %call5.i.noexc684
   %50 = load ptr, ptr %sax, align 8
@@ -85164,14 +85149,14 @@ _ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6v
   %dec.i.i = add nsw i32 %57, -1
   store i32 %dec.i.i, ptr %56, align 4
   %cmp.i1.i = icmp sgt i32 %57, 0
-  br i1 %cmp.i1.i, label %if.end.i139, label %invoke.cont17.thread
+  br i1 %cmp.i1.i, label %if.end.i139, label %cleanup.sink.split895
 
 if.end.i139:                                      ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIiLb1EEEbNS1_14input_format_tERT_.exit.i
   %call5.i145 = invoke fastcc noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE23parse_bson_element_listEb(ptr noundef nonnull align 8 dereferenceable(552) %this, i1 noundef zeroext true)
           to label %call5.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call5.i.noexc:                                    ; preds = %if.end.i139
-  br i1 %call5.i145, label %if.end10.i, label %invoke.cont17.thread
+  br i1 %call5.i145, label %if.end10.i, label %cleanup.sink.split895
 
 if.end10.i:                                       ; preds = %call5.i.noexc
   %58 = load ptr, ptr %sax, align 8
@@ -85238,7 +85223,7 @@ if.end.i113:                                      ; preds = %call2.i.noexc123
 
 invoke.cont29.i:                                  ; preds = %call2.i.noexc123
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %vec.i97)
-  br i1 %cmp8.i103, label %land.lhs.true31.i.thread, label %invoke.cont17.thread
+  br i1 %cmp8.i103, label %land.lhs.true31.i.thread, label %cleanup.sink.split895
 
 land.lhs.true31.i.thread:                         ; preds = %invoke.cont29.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %last_token.i)
@@ -85336,7 +85321,7 @@ invoke.cont32.i.thread315:                        ; preds = %invoke.cont12.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp6.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp7.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp8.i)
-  br label %invoke.cont17.thread
+  br label %cleanup.sink.split895
 
 lpad9.i:                                          ; preds = %invoke.cont.i88
   %71 = landingpad { ptr, i32 }
@@ -85544,30 +85529,11 @@ land.end38.i:                                     ; preds = %invoke.cont32.i
 
 land.end38.i.thread353:                           ; preds = %invoke.cont32.i
   %tobool.not.i.i.i.i74359 = icmp eq ptr %value27.i.sroa.0.7, null
-  br i1 %tobool.not.i.i.i.i74359, label %invoke.cont17.thread370, label %if.then.i.i.i.i75.thread
-
-invoke.cont17.thread370:                          ; preds = %land.end38.i.thread353
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %value.i)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %cr.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cr_str.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp66.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp70.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp71.i)
-  br label %cleanup
+  br i1 %tobool.not.i.i.i.i74359, label %cleanup.sink.split895, label %if.then.i.i.i.i75.thread
 
 if.then.i.i.i.i75.thread:                         ; preds = %land.end38.i.thread353
   call void @_ZdlPv(ptr noundef nonnull %value27.i.sroa.0.7) #29
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %value.i)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %cr.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cr_str.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp66.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp70.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp71.i)
-  br label %cleanup
+  br label %cleanup.sink.split895
 
 if.then.i.i.i.i75:                                ; preds = %land.end38.i
   call void @_ZdlPv(ptr noundef nonnull %value27.i.sroa.0.7) #29
@@ -85694,7 +85660,7 @@ if.end.i48:                                       ; preds = %call2.i.noexc58
   br i1 %exitcond.i56, label %land.rhs49.i, label %for.body.i37, !llvm.loop !645
 
 call48.i.noexc:                                   ; preds = %call2.i.noexc58
-  br i1 %cmp8.i38, label %land.rhs49.i, label %invoke.cont17.thread
+  br i1 %cmp8.i38, label %land.rhs49.i, label %cleanup.sink.split895
 
 land.rhs49.i:                                     ; preds = %if.end.i48, %call48.i.noexc
   %101 = load ptr, ptr %sax, align 8
@@ -85746,7 +85712,7 @@ if.end.i26:                                       ; preds = %call2.i.noexc
   br i1 %exitcond.i, label %land.rhs56.i, label %for.body.i, !llvm.loop !672
 
 call55.i.noexc:                                   ; preds = %call2.i.noexc
-  br i1 %cmp8.i, label %land.rhs56.i, label %invoke.cont17.thread
+  br i1 %cmp8.i, label %land.rhs56.i, label %cleanup.sink.split895
 
 land.rhs56.i:                                     ; preds = %if.end.i26, %call55.i.noexc
   %107 = load ptr, ptr %sax, align 8
@@ -85805,7 +85771,7 @@ invoke.cont75.i:                                  ; preds = %invoke.cont73.i
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp70.i) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp71.i) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr_str.i) #27
-  br label %invoke.cont17.thread
+  br label %cleanup.sink.split895
 
 lpad67.i:                                         ; preds = %sw.default.i
   %110 = landingpad { ptr, i32 }
@@ -85824,28 +85790,6 @@ ehcleanup.i:                                      ; preds = %lpad.i12, %lpad74.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr_str.i) #27
   br label %lpad.body
 
-invoke.cont17.thread:                             ; preds = %call48.i.noexc, %call55.i.noexc, %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIiLb1EEEbNS1_14input_format_tERT_.exit.i, %call5.i.noexc, %call.i.noexc, %invoke.cont29.i, %invoke.cont75.i, %invoke.cont32.i.thread315
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %value.i)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %cr.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cr_str.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp66.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp70.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp71.i)
-  br label %cleanup
-
-invoke.cont17.thread686:                          ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIiLb1EEEbNS1_14input_format_tERT_.exit.i674, %call5.i.noexc684
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %value.i)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %cr.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cr_str.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp66.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp70.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp71.i)
-  br label %cleanup
-
 invoke.cont17:                                    ; preds = %land.end38.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i)
@@ -85861,8 +85805,19 @@ if.end23:                                         ; preds = %if.end10.i679, %lan
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %key) #27
   br label %while.cond, !llvm.loop !673
 
-cleanup:                                          ; preds = %if.end10.i679, %land.end38.i.thread377, %if.then.i.i.i.i75, %if.end10.i, %land.rhs56.i, %land.rhs49.i, %cleanup.action.i, %land.end20.i, %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit73, %sw.bb43.i, %invoke.cont, %invoke.cont17, %land.lhs.true, %invoke.cont2, %call3.i.noexc, %invoke.cont17.thread686, %invoke.cont17.thread370, %if.then.i.i.i.i75.thread, %land.end20.i.thread, %invoke.cont17.thread
-  %tobool.not288 = phi i1 [ false, %invoke.cont17.thread ], [ false, %land.end20.i.thread ], [ false, %if.then.i.i.i.i75.thread ], [ false, %invoke.cont17.thread370 ], [ false, %invoke.cont17.thread686 ], [ false, %call3.i.noexc ], [ false, %if.end10.i679 ], [ true, %invoke.cont ], [ false, %invoke.cont17 ], [ false, %land.lhs.true ], [ false, %invoke.cont2 ], [ false, %sw.bb43.i ], [ false, %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit73 ], [ false, %land.end20.i ], [ false, %cleanup.action.i ], [ false, %land.rhs49.i ], [ false, %land.rhs56.i ], [ false, %if.end10.i ], [ false, %if.then.i.i.i.i75 ], [ false, %land.end38.i.thread377 ]
+cleanup.sink.split895:                            ; preds = %call48.i.noexc, %call55.i.noexc, %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIiLb1EEEbNS1_14input_format_tERT_.exit.i, %call5.i.noexc, %call.i.noexc, %invoke.cont29.i, %call5.i.noexc684, %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE10get_numberIiLb1EEEbNS1_14input_format_tERT_.exit.i674, %if.then.i.i.i.i75.thread, %land.end20.i.thread, %land.end38.i.thread353, %invoke.cont75.i, %invoke.cont32.i.thread315
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %value.i)
+  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %cr.i)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cr_str.i)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp66.i)
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp70.i)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp71.i)
+  br label %cleanup
+
+cleanup:                                          ; preds = %if.end10.i679, %land.end38.i.thread377, %if.then.i.i.i.i75, %if.end10.i, %land.rhs56.i, %land.rhs49.i, %cleanup.action.i, %land.end20.i, %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit73, %sw.bb43.i, %invoke.cont, %invoke.cont17, %land.lhs.true, %invoke.cont2, %call3.i.noexc, %cleanup.sink.split895
+  %tobool.not288 = phi i1 [ false, %cleanup.sink.split895 ], [ false, %call3.i.noexc ], [ false, %if.end10.i679 ], [ true, %invoke.cont ], [ false, %invoke.cont17 ], [ false, %land.lhs.true ], [ false, %invoke.cont2 ], [ false, %sw.bb43.i ], [ false, %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEEN12_GLOBAL__N_112SaxCountdownEE3getEv.exit73 ], [ false, %land.end20.i ], [ false, %cleanup.action.i ], [ false, %land.rhs49.i ], [ false, %land.rhs56.i ], [ false, %if.end10.i ], [ false, %if.then.i.i.i.i75 ], [ false, %land.end38.i.thread377 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %key) #27
   ret i1 %tobool.not288
 }

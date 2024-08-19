@@ -4595,15 +4595,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %390 = load i64, ptr %_M_string_length.i.i1209, align 8, !tbaa !11
   %cmp3.i.i.i1390 = icmp ult i64 %390, 16
   call void @llvm.assume(i1 %cmp3.i.i.i1390)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1391
+  br label %cleanup468.sink.split
 
 if.then.i.i1387:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1385
   call void @_ZdlPv(ptr noundef %388) #27
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1391
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1391: ; preds = %if.then.i.i1387, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1388
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %depth_shader_vs351) #28
-  br label %cleanup468
+  br label %cleanup468.sink.split
 
 ehcleanup458:                                     ; preds = %ehcleanup428, %lpad401
   %.pn543 = phi { ptr, i32 } [ %351, %lpad401 ], [ %.pn540.pn, %ehcleanup428 ]
@@ -4659,17 +4655,17 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %399 = load i64, ptr %_M_string_length.i.i1209, align 8, !tbaa !11
   %cmp3.i.i.i1408 = icmp ult i64 %399, 16
   call void @llvm.assume(i1 %cmp3.i.i.i1408)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1409
+  br label %cleanup468.sink.split
 
 if.then.i.i1405:                                  ; preds = %cleanup468.critedge
   call void @_ZdlPv(ptr noundef %397) #27
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1409
+  br label %cleanup468.sink.split
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1409: ; preds = %if.then.i.i1405, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1406
+cleanup468.sink.split:                            ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1406, %if.then.i.i1405, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1388, %if.then.i.i1387
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %depth_shader_vs351) #28
   br label %cleanup468
 
-cleanup468:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1409, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1391, %land.lhs.true, %if.end348, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1160, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit949, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit708
+cleanup468:                                       ; preds = %cleanup468.sink.split, %land.lhs.true, %if.end348, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1160, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit949, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit708
   ret void
 
 ehcleanup471:                                     ; preds = %ehcleanup466, %ehcleanup347, %ehcleanup217, %ehcleanup98

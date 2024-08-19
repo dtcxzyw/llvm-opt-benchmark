@@ -138,7 +138,6 @@ define hidden void @_ZN10wasmparser9validator9operators17OperatorValidator8new_f
 
 .noexc25:                                         ; preds = %46
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br label %68
 
 52:                                               ; preds = %42
@@ -166,7 +165,6 @@ define hidden void @_ZN10wasmparser9validator9operators17OperatorValidator8new_f
 .noexc26:                                         ; preds = %52
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br label %68
 
 61:                                               ; preds = %42
@@ -188,12 +186,12 @@ define hidden void @_ZN10wasmparser9validator9operators17OperatorValidator8new_f
 
 68:                                               ; preds = %.noexc25, %.noexc26
   %.sroa.4.0.i.ph = phi ptr [ %60, %.noexc26 ], [ %51, %.noexc25 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %69 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.4.0.i.ph, ptr %69, align 8
   store i64 2, ptr %0, align 8
   call void @"_ZN4core3ptr72drop_in_place$LT$wasmparser..validator..operators..OperatorValidator$GT$17had9ddcffd21e4751E"(ptr noalias noundef nonnull align 8 dereferenceable(200) %12)
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %12)
   br label %80
 
 70:                                               ; preds = %61
@@ -210,7 +208,6 @@ define hidden void @_ZN10wasmparser9validator9operators17OperatorValidator8new_f
 
 ._crit_edge:                                      ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1cec11ea1559d9f6E.exit", %70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(200) %12, i64 200, i1 false)
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %12)
   br label %80
 
 77:                                               ; preds = %.lr.ph, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1cec11ea1559d9f6E.exit"
@@ -221,6 +218,7 @@ define hidden void @_ZN10wasmparser9validator9operators17OperatorValidator8new_f
           to label %81 unwind label %.loopexit
 
 80:                                               ; preds = %._crit_edge, %68
+  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %12)
   ret void
 
 81:                                               ; preds = %77

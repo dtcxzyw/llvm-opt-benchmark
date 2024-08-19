@@ -154,358 +154,333 @@ define internal i32 @dissect_pcap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store volatile i32 1, ptr %12, align 4
   %18 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @dissect_pcap.pcap_big_endian_magic, i64 noundef 4) #5
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %21
+  br i1 %19, label %29, label %20
 
 20:                                               ; preds = %4
-  store volatile i32 0, ptr %6, align 4
-  store volatile i32 1000, ptr %7, align 4
-  br label %33
+  %21 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @dissect_pcap.pcap_little_endian_magic, i64 noundef 4) #5
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %29, label %23
 
-21:                                               ; preds = %4
-  %22 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @dissect_pcap.pcap_little_endian_magic, i64 noundef 4) #5
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %25
+23:                                               ; preds = %20
+  %24 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @dissect_pcap.pcap_nsec_big_endian_magic, i64 noundef 4) #5
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %29, label %26
 
-24:                                               ; preds = %21
-  store volatile i32 -2147483648, ptr %6, align 4
-  store volatile i32 1000, ptr %7, align 4
-  br label %33
+26:                                               ; preds = %23
+  %27 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @dissect_pcap.pcap_nsec_little_endian_magic, i64 noundef 4) #5
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %170
 
-25:                                               ; preds = %21
-  %26 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @dissect_pcap.pcap_nsec_big_endian_magic, i64 noundef 4) #5
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %29
-
-28:                                               ; preds = %25
-  store volatile i32 0, ptr %6, align 4
-  store volatile i32 1, ptr %7, align 4
-  br label %33
-
-29:                                               ; preds = %25
-  %30 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @dissect_pcap.pcap_nsec_little_endian_magic, i64 noundef 4) #5
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %177
-
-32:                                               ; preds = %29
-  store volatile i32 -2147483648, ptr %6, align 4
-  store volatile i32 1, ptr %7, align 4
-  br label %33
-
-33:                                               ; preds = %24, %32, %28, %20
-  %.0 = phi ptr [ @.str.46, %20 ], [ @.str.47, %24 ], [ @.str.48, %28 ], [ @.str.49, %32 ]
-  %34 = load i32, ptr @proto_pcap, align 4
+29:                                               ; preds = %26, %23, %20, %4
+  %.sink142 = phi i32 [ 0, %4 ], [ -2147483648, %20 ], [ 0, %23 ], [ -2147483648, %26 ]
+  %.sink = phi i32 [ 1000, %4 ], [ 1000, %20 ], [ 1, %23 ], [ 1, %26 ]
+  %.0 = phi ptr [ @.str.46, %4 ], [ @.str.47, %20 ], [ @.str.48, %23 ], [ @.str.49, %26 ]
+  store volatile i32 %.sink142, ptr %6, align 4
+  store volatile i32 %.sink, ptr %7, align 4
+  %30 = load i32, ptr @proto_pcap, align 4
   %.0..0..0..0.63 = load volatile i32, ptr %5, align 4
-  %35 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %34, ptr noundef %0, i32 noundef %.0..0..0..0.63, i32 noundef -1, i32 noundef 0) #5
-  %36 = load i32, ptr @ett_pcap, align 4
-  %37 = call ptr @proto_item_add_subtree(ptr noundef %35, i32 noundef %36) #5
-  %38 = load i32, ptr @hf_pcap_header, align 4
+  %31 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %30, ptr noundef %0, i32 noundef %.0..0..0..0.63, i32 noundef -1, i32 noundef 0) #5
+  %32 = load i32, ptr @ett_pcap, align 4
+  %33 = call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %32) #5
+  %34 = load i32, ptr @hf_pcap_header, align 4
   %.0..0..0..0.64 = load volatile i32, ptr %5, align 4
-  %39 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %38, ptr noundef %0, i32 noundef %.0..0..0..0.64, i32 noundef 24, i32 noundef 0) #5
-  %40 = load i32, ptr @ett_pcap_header, align 4
-  %41 = call ptr @proto_item_add_subtree(ptr noundef %39, i32 noundef %40) #5
-  %42 = load i32, ptr @hf_pcap_header_magic_number, align 4
+  %35 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %34, ptr noundef %0, i32 noundef %.0..0..0..0.64, i32 noundef 24, i32 noundef 0) #5
+  %36 = load i32, ptr @ett_pcap_header, align 4
+  %37 = call ptr @proto_item_add_subtree(ptr noundef %35, i32 noundef %36) #5
+  %38 = load i32, ptr @hf_pcap_header_magic_number, align 4
   %.0..0..0..0.65 = load volatile i32, ptr %5, align 4
-  %43 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %42, ptr noundef %0, i32 noundef %.0..0..0..0.65, i32 noundef 4, i32 noundef 0) #5
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %43, ptr noundef nonnull @.str.50, ptr noundef nonnull %.0) #5
+  %39 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %38, ptr noundef %0, i32 noundef %.0..0..0..0.65, i32 noundef 4, i32 noundef 0) #5
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef nonnull @.str.50, ptr noundef nonnull %.0) #5
   %.0..0..0..0.66 = load volatile i32, ptr %5, align 4
-  %44 = add i32 %.0..0..0..0.66, 4
-  store volatile i32 %44, ptr %5, align 4
-  %45 = load i32, ptr @hf_pcap_header_version_major, align 4
+  %40 = add i32 %.0..0..0..0.66, 4
+  store volatile i32 %40, ptr %5, align 4
+  %41 = load i32, ptr @hf_pcap_header_version_major, align 4
   %.0..0..0..0.67 = load volatile i32, ptr %5, align 4
   %.0..0..0..0.23 = load volatile i32, ptr %6, align 4
-  %46 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %45, ptr noundef %0, i32 noundef %.0..0..0..0.67, i32 noundef 2, i32 noundef %.0..0..0..0.23) #5
+  %42 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %41, ptr noundef %0, i32 noundef %.0..0..0..0.67, i32 noundef 2, i32 noundef %.0..0..0..0.23) #5
   %.0..0..0..0.68 = load volatile i32, ptr %5, align 4
-  %47 = add i32 %.0..0..0..0.68, 2
-  store volatile i32 %47, ptr %5, align 4
-  %48 = load i32, ptr @hf_pcap_header_version_minor, align 4
+  %43 = add i32 %.0..0..0..0.68, 2
+  store volatile i32 %43, ptr %5, align 4
+  %44 = load i32, ptr @hf_pcap_header_version_minor, align 4
   %.0..0..0..0.69 = load volatile i32, ptr %5, align 4
   %.0..0..0..0.24 = load volatile i32, ptr %6, align 4
-  %49 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %48, ptr noundef %0, i32 noundef %.0..0..0..0.69, i32 noundef 2, i32 noundef %.0..0..0..0.24) #5
+  %45 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %44, ptr noundef %0, i32 noundef %.0..0..0..0.69, i32 noundef 2, i32 noundef %.0..0..0..0.24) #5
   %.0..0..0..0.70 = load volatile i32, ptr %5, align 4
-  %50 = add i32 %.0..0..0..0.70, 2
-  store volatile i32 %50, ptr %5, align 4
-  %51 = load i32, ptr @hf_pcap_header_this_zone, align 4
+  %46 = add i32 %.0..0..0..0.70, 2
+  store volatile i32 %46, ptr %5, align 4
+  %47 = load i32, ptr @hf_pcap_header_this_zone, align 4
   %.0..0..0..0.71 = load volatile i32, ptr %5, align 4
   %.0..0..0..0.25 = load volatile i32, ptr %6, align 4
-  %52 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %51, ptr noundef %0, i32 noundef %.0..0..0..0.71, i32 noundef 4, i32 noundef %.0..0..0..0.25) #5
+  %48 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %47, ptr noundef %0, i32 noundef %.0..0..0..0.71, i32 noundef 4, i32 noundef %.0..0..0..0.25) #5
   %.0..0..0..0.72 = load volatile i32, ptr %5, align 4
-  %53 = add i32 %.0..0..0..0.72, 4
-  store volatile i32 %53, ptr %5, align 4
-  %54 = load i32, ptr @hf_pcap_header_sigfigs, align 4
+  %49 = add i32 %.0..0..0..0.72, 4
+  store volatile i32 %49, ptr %5, align 4
+  %50 = load i32, ptr @hf_pcap_header_sigfigs, align 4
   %.0..0..0..0.73 = load volatile i32, ptr %5, align 4
   %.0..0..0..0.26 = load volatile i32, ptr %6, align 4
-  %55 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %54, ptr noundef %0, i32 noundef %.0..0..0..0.73, i32 noundef 4, i32 noundef %.0..0..0..0.26) #5
+  %51 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %50, ptr noundef %0, i32 noundef %.0..0..0..0.73, i32 noundef 4, i32 noundef %.0..0..0..0.26) #5
   %.0..0..0..0.74 = load volatile i32, ptr %5, align 4
-  %56 = add i32 %.0..0..0..0.74, 4
-  store volatile i32 %56, ptr %5, align 4
-  %57 = load i32, ptr @hf_pcap_header_snapshot_length, align 4
+  %52 = add i32 %.0..0..0..0.74, 4
+  store volatile i32 %52, ptr %5, align 4
+  %53 = load i32, ptr @hf_pcap_header_snapshot_length, align 4
   %.0..0..0..0.75 = load volatile i32, ptr %5, align 4
   %.0..0..0..0.27 = load volatile i32, ptr %6, align 4
-  %58 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %41, i32 noundef %57, ptr noundef %0, i32 noundef %.0..0..0..0.75, i32 noundef 4, i32 noundef %.0..0..0..0.27, ptr noundef nonnull %8) #5
+  %54 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %37, i32 noundef %53, ptr noundef %0, i32 noundef %.0..0..0..0.75, i32 noundef 4, i32 noundef %.0..0..0..0.27, ptr noundef nonnull %8) #5
   %.0..0..0..0.76 = load volatile i32, ptr %5, align 4
-  %59 = add i32 %.0..0..0..0.76, 4
-  store volatile i32 %59, ptr %5, align 4
-  %60 = load i32, ptr @hf_pcap_header_link_type, align 4
+  %55 = add i32 %.0..0..0..0.76, 4
+  store volatile i32 %55, ptr %5, align 4
+  %56 = load i32, ptr @hf_pcap_header_link_type, align 4
   %.0..0..0..0.77 = load volatile i32, ptr %5, align 4
   %.0..0..0..0.28 = load volatile i32, ptr %6, align 4
-  %61 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %60, ptr noundef %0, i32 noundef %.0..0..0..0.77, i32 noundef 4, i32 noundef %.0..0..0..0.28) #5
+  %57 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %56, ptr noundef %0, i32 noundef %.0..0..0..0.77, i32 noundef 4, i32 noundef %.0..0..0..0.28) #5
   %.0..0..0..0.78 = load volatile i32, ptr %5, align 4
   %.0..0..0..0.29 = load volatile i32, ptr %6, align 4
-  %62 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %.0..0..0..0.78, i32 noundef %.0..0..0..0.29) #5
-  store i32 %62, ptr %11, align 4
+  %58 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %.0..0..0..0.78, i32 noundef %.0..0..0..0.29) #5
+  store i32 %58, ptr %11, align 4
   %.0..0..0..0.79 = load volatile i32, ptr %5, align 4
-  %63 = add i32 %.0..0..0..0.79, 4
-  store volatile i32 %63, ptr %5, align 4
+  %59 = add i32 %.0..0..0..0.79, 4
+  store volatile i32 %59, ptr %5, align 4
   %.0..0..0..0.80137 = load volatile i32, ptr %5, align 4
-  %64 = call i32 @tvb_reported_length(ptr noundef %0) #5
-  %65 = icmp slt i32 %.0..0..0..0.80137, %64
-  br i1 %65, label %.lr.ph, label %.loopexit
+  %60 = call i32 @tvb_reported_length(ptr noundef %0) #5
+  %61 = icmp slt i32 %.0..0..0..0.80137, %60
+  br i1 %61, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %33
-  %66 = getelementptr inbounds i8, ptr %13, i64 8
-  %67 = getelementptr inbounds i8, ptr %1, i64 20
-  %68 = getelementptr inbounds i8, ptr %1, i64 24
-  %69 = getelementptr inbounds i8, ptr %17, i64 48
-  %70 = getelementptr inbounds i8, ptr %17, i64 16
-  %71 = getelementptr inbounds i8, ptr %17, i64 40
-  br label %72
+.lr.ph:                                           ; preds = %29
+  %62 = getelementptr inbounds i8, ptr %13, i64 8
+  %63 = getelementptr inbounds i8, ptr %1, i64 20
+  %64 = getelementptr inbounds i8, ptr %1, i64 24
+  %65 = getelementptr inbounds i8, ptr %17, i64 48
+  %66 = getelementptr inbounds i8, ptr %17, i64 16
+  %67 = getelementptr inbounds i8, ptr %17, i64 40
+  br label %68
 
-72:                                               ; preds = %.lr.ph, %170
-  %73 = load i32, ptr @hf_pcap_packet, align 4
+68:                                               ; preds = %.lr.ph, %163
+  %69 = load i32, ptr @hf_pcap_packet, align 4
   %.0..0..0..0.81 = load volatile i32, ptr %5, align 4
-  %74 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %73, ptr noundef %0, i32 noundef %.0..0..0..0.81, i32 noundef 16, i32 noundef 0) #5
-  %75 = load i32, ptr @ett_pcap_packet, align 4
-  %76 = call ptr @proto_item_add_subtree(ptr noundef %74, i32 noundef %75) #5
+  %70 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %69, ptr noundef %0, i32 noundef %.0..0..0..0.81, i32 noundef 16, i32 noundef 0) #5
+  %71 = load i32, ptr @ett_pcap_packet, align 4
+  %72 = call ptr @proto_item_add_subtree(ptr noundef %70, i32 noundef %71) #5
   %.0..0..0..0.18 = load volatile i32, ptr %12, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %74, ptr noundef nonnull @.str.51, i32 noundef %.0..0..0..0.18) #5
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %70, ptr noundef nonnull @.str.51, i32 noundef %.0..0..0..0.18) #5
   %.0..0..0..0.82 = load volatile i32, ptr %5, align 4
   %.0..0..0..0.30 = load volatile i32, ptr %6, align 4
-  %77 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %.0..0..0..0.82, i32 noundef %.0..0..0..0.30) #5
-  %78 = zext i32 %77 to i64
-  store i64 %78, ptr %13, align 8
+  %73 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %.0..0..0..0.82, i32 noundef %.0..0..0..0.30) #5
+  %74 = zext i32 %73 to i64
+  store i64 %74, ptr %13, align 8
   %.0..0..0..0.83 = load volatile i32, ptr %5, align 4
-  %79 = add i32 %.0..0..0..0.83, 4
+  %75 = add i32 %.0..0..0..0.83, 4
   %.0..0..0..0.31 = load volatile i32, ptr %6, align 4
-  %80 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %79, i32 noundef %.0..0..0..0.31) #5
+  %76 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %75, i32 noundef %.0..0..0..0.31) #5
   %.0..0..0..0.22 = load volatile i32, ptr %7, align 4
-  %81 = mul i32 %.0..0..0..0.22, %80
-  store i32 %81, ptr %66, align 8
-  %82 = load i32, ptr @hf_pcap_packet_timestamp, align 4
+  %77 = mul i32 %.0..0..0..0.22, %76
+  store i32 %77, ptr %62, align 8
+  %78 = load i32, ptr @hf_pcap_packet_timestamp, align 4
   %.0..0..0..0.84 = load volatile i32, ptr %5, align 4
-  %83 = call ptr @proto_tree_add_time(ptr noundef %76, i32 noundef %82, ptr noundef %0, i32 noundef %.0..0..0..0.84, i32 noundef 8, ptr noundef nonnull %13) #5
-  %84 = load i32, ptr @ett_pcap_timestamp, align 4
-  %85 = call ptr @proto_item_add_subtree(ptr noundef %83, i32 noundef %84) #5
-  %86 = load i32, ptr @hf_pcap_packet_timestamp_sec, align 4
+  %79 = call ptr @proto_tree_add_time(ptr noundef %72, i32 noundef %78, ptr noundef %0, i32 noundef %.0..0..0..0.84, i32 noundef 8, ptr noundef nonnull %13) #5
+  %80 = load i32, ptr @ett_pcap_timestamp, align 4
+  %81 = call ptr @proto_item_add_subtree(ptr noundef %79, i32 noundef %80) #5
+  %82 = load i32, ptr @hf_pcap_packet_timestamp_sec, align 4
   %.0..0..0..0.85 = load volatile i32, ptr %5, align 4
   %.0..0..0..0.32 = load volatile i32, ptr %6, align 4
-  %87 = call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %86, ptr noundef %0, i32 noundef %.0..0..0..0.85, i32 noundef 4, i32 noundef %.0..0..0..0.32) #5
+  %83 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %82, ptr noundef %0, i32 noundef %.0..0..0..0.85, i32 noundef 4, i32 noundef %.0..0..0..0.32) #5
   %.0..0..0..0.86 = load volatile i32, ptr %5, align 4
-  %88 = add i32 %.0..0..0..0.86, 4
-  store volatile i32 %88, ptr %5, align 4
-  %89 = load i32, ptr @hf_pcap_packet_timestamp_usec, align 4
+  %84 = add i32 %.0..0..0..0.86, 4
+  store volatile i32 %84, ptr %5, align 4
+  %85 = load i32, ptr @hf_pcap_packet_timestamp_usec, align 4
   %.0..0..0..0.87 = load volatile i32, ptr %5, align 4
   %.0..0..0..0.33 = load volatile i32, ptr %6, align 4
-  %90 = call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %89, ptr noundef %0, i32 noundef %.0..0..0..0.87, i32 noundef 4, i32 noundef %.0..0..0..0.33) #5
+  %86 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %85, ptr noundef %0, i32 noundef %.0..0..0..0.87, i32 noundef 4, i32 noundef %.0..0..0..0.33) #5
   %.0..0..0..0.88 = load volatile i32, ptr %5, align 4
-  %91 = add i32 %.0..0..0..0.88, 4
-  store volatile i32 %91, ptr %5, align 4
-  %92 = load i32, ptr @hf_pcap_packet_captured_length, align 4
+  %87 = add i32 %.0..0..0..0.88, 4
+  store volatile i32 %87, ptr %5, align 4
+  %88 = load i32, ptr @hf_pcap_packet_captured_length, align 4
   %.0..0..0..0.89 = load volatile i32, ptr %5, align 4
   %.0..0..0..0.34 = load volatile i32, ptr %6, align 4
-  %93 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %76, i32 noundef %92, ptr noundef %0, i32 noundef %.0..0..0..0.89, i32 noundef 4, i32 noundef %.0..0..0..0.34, ptr noundef nonnull %9) #5
+  %89 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %72, i32 noundef %88, ptr noundef %0, i32 noundef %.0..0..0..0.89, i32 noundef 4, i32 noundef %.0..0..0..0.34, ptr noundef nonnull %9) #5
   %.0..0..0..0.90 = load volatile i32, ptr %5, align 4
-  %94 = add i32 %.0..0..0..0.90, 4
-  store volatile i32 %94, ptr %5, align 4
-  %95 = load i32, ptr @hf_pcap_packet_original_length, align 4
+  %90 = add i32 %.0..0..0..0.90, 4
+  store volatile i32 %90, ptr %5, align 4
+  %91 = load i32, ptr @hf_pcap_packet_original_length, align 4
   %.0..0..0..0.91 = load volatile i32, ptr %5, align 4
   %.0..0..0..0.35 = load volatile i32, ptr %6, align 4
-  %96 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %76, i32 noundef %95, ptr noundef %0, i32 noundef %.0..0..0..0.91, i32 noundef 4, i32 noundef %.0..0..0..0.35, ptr noundef nonnull %10) #5
+  %92 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %72, i32 noundef %91, ptr noundef %0, i32 noundef %.0..0..0..0.91, i32 noundef 4, i32 noundef %.0..0..0..0.35, ptr noundef nonnull %10) #5
   %.0..0..0..0.92 = load volatile i32, ptr %5, align 4
-  %97 = add i32 %.0..0..0..0.92, 4
-  store volatile i32 %97, ptr %5, align 4
-  %98 = load i32, ptr %9, align 4
-  %99 = load i32, ptr %8, align 4
-  %100 = icmp ugt i32 %98, %99
-  br i1 %100, label %101, label %103
+  %93 = add i32 %.0..0..0..0.92, 4
+  store volatile i32 %93, ptr %5, align 4
+  %94 = load i32, ptr %9, align 4
+  %95 = load i32, ptr %8, align 4
+  %96 = icmp ugt i32 %94, %95
+  br i1 %96, label %97, label %99
 
-101:                                              ; preds = %72
-  %102 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %93, ptr noundef nonnull @ei_pcap_capt_larger_than_snap) #5
+97:                                               ; preds = %68
+  %98 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %89, ptr noundef nonnull @ei_pcap_capt_larger_than_snap) #5
   %.pre = load i32, ptr %9, align 4
-  br label %103
+  br label %99
 
-103:                                              ; preds = %101, %72
-  %104 = phi i32 [ %.pre, %101 ], [ %98, %72 ]
-  %105 = load i32, ptr %10, align 4
-  %106 = icmp ugt i32 %104, %105
-  br i1 %106, label %107, label %109
+99:                                               ; preds = %97, %68
+  %100 = phi i32 [ %.pre, %97 ], [ %94, %68 ]
+  %101 = load i32, ptr %10, align 4
+  %102 = icmp ugt i32 %100, %101
+  br i1 %102, label %103, label %105
 
-107:                                              ; preds = %103
-  %108 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %93, ptr noundef nonnull @ei_pcap_capt_larger_than_orig) #5
+103:                                              ; preds = %99
+  %104 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %89, ptr noundef nonnull @ei_pcap_capt_larger_than_orig) #5
   br label %.loopexit
 
-109:                                              ; preds = %103
-  %110 = load i32, ptr @hf_pcap_packet_data, align 4
+105:                                              ; preds = %99
+  %106 = load i32, ptr @hf_pcap_packet_data, align 4
   %.0..0..0..0.93 = load volatile i32, ptr %5, align 4
-  %111 = call ptr @proto_tree_add_item(ptr noundef %76, i32 noundef %110, ptr noundef %0, i32 noundef %.0..0..0..0.93, i32 noundef %104, i32 noundef 0) #5
-  %112 = load i32, ptr @ett_pcap_packet_data, align 4
-  %113 = call ptr @proto_item_add_subtree(ptr noundef %111, i32 noundef %112) #5
+  %107 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %106, ptr noundef %0, i32 noundef %.0..0..0..0.93, i32 noundef %100, i32 noundef 0) #5
+  %108 = load i32, ptr @ett_pcap_packet_data, align 4
+  %109 = call ptr @proto_item_add_subtree(ptr noundef %107, i32 noundef %108) #5
   %.0..0..0..0.19 = load volatile i32, ptr %12, align 4
-  store i32 %.0..0..0..0.19, ptr %67, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false)
-  %114 = load i32, ptr @pref_dissect_next_layer, align 4
-  %.not = icmp eq i32 %114, 0
-  br i1 %.not, label %170, label %115
+  store i32 %.0..0..0..0.19, ptr %63, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false)
+  %110 = load i32, ptr @pref_dissect_next_layer, align 4
+  %.not = icmp eq i32 %110, 0
+  br i1 %.not, label %163, label %111
 
-115:                                              ; preds = %109
+111:                                              ; preds = %105
   store volatile i32 0, ptr %15, align 4
   call void @except_setup_try(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull @dissect_pcap.catch_spec, i64 noundef 1) #5
-  %116 = call i32 @_setjmp(ptr noundef nonnull %69) #6
-  %.not131 = icmp eq i32 %116, 0
-  br i1 %.not131, label %118, label %117
-
-117:                                              ; preds = %115
-  store volatile ptr %70, ptr %14, align 8
-  br label %119
-
-118:                                              ; preds = %115
-  store volatile ptr null, ptr %14, align 8
-  br label %119
-
-119:                                              ; preds = %118, %117
+  %112 = call i32 @_setjmp(ptr noundef nonnull %65) #6
+  %.not131 = icmp eq i32 %112, 0
+  %. = select i1 %.not131, ptr null, ptr %66
+  store volatile ptr %., ptr %14, align 8
   %.0..0..0..0. = load volatile i32, ptr %15, align 4
-  %120 = and i32 %.0..0..0..0., 1
-  %.not132 = icmp eq i32 %120, 0
-  br i1 %.not132, label %123, label %121
+  %113 = and i32 %.0..0..0..0., 1
+  %.not132 = icmp eq i32 %113, 0
+  br i1 %.not132, label %116, label %114
+
+114:                                              ; preds = %111
+  %.0..0..0..0.1 = load volatile i32, ptr %15, align 4
+  %115 = or i32 %.0..0..0..0.1, 2
+  store volatile i32 %115, ptr %15, align 4
+  br label %116
+
+116:                                              ; preds = %114, %111
+  %.0..0..0..0.2 = load volatile i32, ptr %15, align 4
+  %117 = and i32 %.0..0..0..0.2, -2
+  store volatile i32 %117, ptr %15, align 4
+  %.0..0..0..0.3 = load volatile i32, ptr %15, align 4
+  %118 = icmp eq i32 %.0..0..0..0.3, 0
+  br i1 %118, label %119, label %127
+
+119:                                              ; preds = %116
+  %.0..0..0..0.7 = load volatile ptr, ptr %14, align 8
+  %120 = icmp eq ptr %.0..0..0..0.7, null
+  br i1 %120, label %121, label %127
 
 121:                                              ; preds = %119
-  %.0..0..0..0.1 = load volatile i32, ptr %15, align 4
-  %122 = or i32 %.0..0..0..0.1, 2
-  store volatile i32 %122, ptr %15, align 4
-  br label %123
-
-123:                                              ; preds = %121, %119
-  %.0..0..0..0.2 = load volatile i32, ptr %15, align 4
-  %124 = and i32 %.0..0..0..0.2, -2
-  store volatile i32 %124, ptr %15, align 4
-  %.0..0..0..0.3 = load volatile i32, ptr %15, align 4
-  %125 = icmp eq i32 %.0..0..0..0.3, 0
-  br i1 %125, label %126, label %134
-
-126:                                              ; preds = %123
-  %.0..0..0..0.7 = load volatile ptr, ptr %14, align 8
-  %127 = icmp eq ptr %.0..0..0..0.7, null
-  br i1 %127, label %128, label %134
-
-128:                                              ; preds = %126
-  %129 = load ptr, ptr @pcap_pktdata_handle, align 8
+  %122 = load ptr, ptr @pcap_pktdata_handle, align 8
   %.0..0..0..0.94 = load volatile i32, ptr %5, align 4
-  %130 = load i32, ptr %9, align 4
-  %131 = load i32, ptr %10, align 4
-  %132 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.0..0..0..0.94, i32 noundef %130, i32 noundef %131) #5
-  %133 = call i32 @call_dissector_with_data(ptr noundef %129, ptr noundef %132, ptr noundef nonnull %1, ptr noundef %113, ptr noundef nonnull %11) #5
-  br label %134
+  %123 = load i32, ptr %9, align 4
+  %124 = load i32, ptr %10, align 4
+  %125 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.0..0..0..0.94, i32 noundef %123, i32 noundef %124) #5
+  %126 = call i32 @call_dissector_with_data(ptr noundef %122, ptr noundef %125, ptr noundef nonnull %1, ptr noundef %109, ptr noundef nonnull %11) #5
+  br label %127
 
-134:                                              ; preds = %128, %126, %123
+127:                                              ; preds = %121, %119, %116
   %.0..0..0..0.4 = load volatile i32, ptr %15, align 4
-  %135 = icmp eq i32 %.0..0..0..0.4, 0
-  br i1 %135, label %136, label %163
+  %128 = icmp eq i32 %.0..0..0..0.4, 0
+  br i1 %128, label %129, label %156
 
-136:                                              ; preds = %134
+129:                                              ; preds = %127
   %.0..0..0..0.8 = load volatile ptr, ptr %14, align 8
   %.not133 = icmp eq ptr %.0..0..0..0.8, null
-  br i1 %.not133, label %163, label %137
+  br i1 %.not133, label %156, label %130
 
-137:                                              ; preds = %136
+130:                                              ; preds = %129
   %.0..0..0..0.9 = load volatile ptr, ptr %14, align 8
-  %138 = getelementptr inbounds i8, ptr %.0..0..0..0.9, i64 8
-  %139 = load volatile i64, ptr %138, align 8
-  %140 = icmp eq i64 %139, 1
-  br i1 %140, label %157, label %141
+  %131 = getelementptr inbounds i8, ptr %.0..0..0..0.9, i64 8
+  %132 = load volatile i64, ptr %131, align 8
+  %133 = icmp eq i64 %132, 1
+  br i1 %133, label %150, label %134
 
-141:                                              ; preds = %137
+134:                                              ; preds = %130
   %.0..0..0..0.10 = load volatile ptr, ptr %14, align 8
-  %142 = getelementptr inbounds i8, ptr %.0..0..0..0.10, i64 8
-  %143 = load volatile i64, ptr %142, align 8
-  %144 = icmp eq i64 %143, 4
-  br i1 %144, label %157, label %145
+  %135 = getelementptr inbounds i8, ptr %.0..0..0..0.10, i64 8
+  %136 = load volatile i64, ptr %135, align 8
+  %137 = icmp eq i64 %136, 4
+  br i1 %137, label %150, label %138
 
-145:                                              ; preds = %141
+138:                                              ; preds = %134
   %.0..0..0..0.11 = load volatile ptr, ptr %14, align 8
-  %146 = getelementptr inbounds i8, ptr %.0..0..0..0.11, i64 8
-  %147 = load volatile i64, ptr %146, align 8
-  %148 = icmp eq i64 %147, 3
-  br i1 %148, label %157, label %149
+  %139 = getelementptr inbounds i8, ptr %.0..0..0..0.11, i64 8
+  %140 = load volatile i64, ptr %139, align 8
+  %141 = icmp eq i64 %140, 3
+  br i1 %141, label %150, label %142
 
-149:                                              ; preds = %145
+142:                                              ; preds = %138
   %.0..0..0..0.12 = load volatile ptr, ptr %14, align 8
-  %150 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 8
-  %151 = load volatile i64, ptr %150, align 8
-  %152 = icmp eq i64 %151, 2
-  br i1 %152, label %157, label %153
+  %143 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 8
+  %144 = load volatile i64, ptr %143, align 8
+  %145 = icmp eq i64 %144, 2
+  br i1 %145, label %150, label %146
 
-153:                                              ; preds = %149
+146:                                              ; preds = %142
   %.0..0..0..0.13 = load volatile ptr, ptr %14, align 8
-  %154 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
-  %155 = load volatile i64, ptr %154, align 8
-  %156 = icmp eq i64 %155, 7
-  br i1 %156, label %157, label %163
+  %147 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
+  %148 = load volatile i64, ptr %147, align 8
+  %149 = icmp eq i64 %148, 7
+  br i1 %149, label %150, label %156
 
-157:                                              ; preds = %153, %149, %145, %141, %137
+150:                                              ; preds = %146, %142, %138, %134, %130
   %.0..0..0..0.5 = load volatile i32, ptr %15, align 4
-  %158 = or i32 %.0..0..0..0.5, 1
-  store volatile i32 %158, ptr %15, align 4
+  %151 = or i32 %.0..0..0..0.5, 1
+  store volatile i32 %151, ptr %15, align 4
   %.0..0..0..0.14 = load volatile ptr, ptr %14, align 8
-  %159 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 8
-  %160 = load volatile i64, ptr %159, align 8
+  %152 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 8
+  %153 = load volatile i64, ptr %152, align 8
   %.0..0..0..0.15 = load volatile ptr, ptr %14, align 8
-  %161 = getelementptr inbounds i8, ptr %.0..0..0..0.15, i64 16
-  %162 = load volatile ptr, ptr %161, align 8
-  call void @show_exception(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %113, i64 noundef %160, ptr noundef %162) #5
-  br label %163
+  %154 = getelementptr inbounds i8, ptr %.0..0..0..0.15, i64 16
+  %155 = load volatile ptr, ptr %154, align 8
+  call void @show_exception(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %109, i64 noundef %153, ptr noundef %155) #5
+  br label %156
 
-163:                                              ; preds = %157, %153, %136, %134
+156:                                              ; preds = %150, %146, %129, %127
   %.0..0..0..0.6 = load volatile i32, ptr %15, align 4
-  %164 = and i32 %.0..0..0..0.6, 1
-  %.not134 = icmp eq i32 %164, 0
-  br i1 %.not134, label %165, label %167
+  %157 = and i32 %.0..0..0..0.6, 1
+  %.not134 = icmp eq i32 %157, 0
+  br i1 %.not134, label %158, label %160
 
-165:                                              ; preds = %163
+158:                                              ; preds = %156
   %.0..0..0..0.16 = load volatile ptr, ptr %14, align 8
   %.not135 = icmp eq ptr %.0..0..0..0.16, null
-  br i1 %.not135, label %167, label %166
+  br i1 %.not135, label %160, label %159
 
-166:                                              ; preds = %165
+159:                                              ; preds = %158
   %.0..0..0..0.17 = load volatile ptr, ptr %14, align 8
   call void @except_rethrow(ptr noundef %.0..0..0..0.17) #7
   unreachable
 
-167:                                              ; preds = %165, %163
-  %168 = load volatile ptr, ptr %71, align 8
-  call void @except_free(ptr noundef %168) #5
-  %169 = call ptr @except_pop() #5
+160:                                              ; preds = %158, %156
+  %161 = load volatile ptr, ptr %67, align 8
+  call void @except_free(ptr noundef %161) #5
+  %162 = call ptr @except_pop() #5
+  br label %163
+
+163:                                              ; preds = %160, %105
+  %164 = load i32, ptr %9, align 4
+  %.0..0..0..0.95 = load volatile i32, ptr %5, align 4
+  %165 = add i32 %.0..0..0..0.95, %164
+  store volatile i32 %165, ptr %5, align 4
+  %166 = add i32 %164, 16
+  call void @proto_item_set_len(ptr noundef %70, i32 noundef %166) #5
+  %.0..0..0..0.20 = load volatile i32, ptr %12, align 4
+  %167 = add i32 %.0..0..0..0.20, 1
+  store volatile i32 %167, ptr %12, align 4
+  %.0..0..0..0.80 = load volatile i32, ptr %5, align 4
+  %168 = call i32 @tvb_reported_length(ptr noundef %0) #5
+  %169 = icmp slt i32 %.0..0..0..0.80, %168
+  br i1 %169, label %68, label %.loopexit, !llvm.loop !4
+
+.loopexit:                                        ; preds = %163, %29, %103
+  %.0..0..0..0.96 = load volatile i32, ptr %5, align 4
   br label %170
 
-170:                                              ; preds = %167, %109
-  %171 = load i32, ptr %9, align 4
-  %.0..0..0..0.95 = load volatile i32, ptr %5, align 4
-  %172 = add i32 %.0..0..0..0.95, %171
-  store volatile i32 %172, ptr %5, align 4
-  %173 = add i32 %171, 16
-  call void @proto_item_set_len(ptr noundef %74, i32 noundef %173) #5
-  %.0..0..0..0.20 = load volatile i32, ptr %12, align 4
-  %174 = add i32 %.0..0..0..0.20, 1
-  store volatile i32 %174, ptr %12, align 4
-  %.0..0..0..0.80 = load volatile i32, ptr %5, align 4
-  %175 = call i32 @tvb_reported_length(ptr noundef %0) #5
-  %176 = icmp slt i32 %.0..0..0..0.80, %175
-  br i1 %176, label %72, label %.loopexit, !llvm.loop !4
-
-.loopexit:                                        ; preds = %170, %33, %107
-  %.0..0..0..0.96 = load volatile i32, ptr %5, align 4
-  br label %177
-
-177:                                              ; preds = %29, %.loopexit
-  %.0130 = phi i32 [ %.0..0..0..0.96, %.loopexit ], [ 0, %29 ]
+170:                                              ; preds = %26, %.loopexit
+  %.0130 = phi i32 [ %.0..0..0..0.96, %.loopexit ], [ 0, %26 ]
   ret i32 %.0130
 }
 

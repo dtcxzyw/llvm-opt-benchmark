@@ -38,11 +38,7 @@ entry:
   %handle_scope.i = alloca %"class.v8::HandleScope", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %handle_scope.i)
   %call.i = tail call noundef zeroext i1 @_ZN2v87Isolate9InContextEv(ptr noundef nonnull align 1 dereferenceable(1) %isolate) #7
-  br i1 %call.i, label %if.end.i, label %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread
-
-_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i)
-  br label %do.body3
+  br i1 %call.i, label %if.end.i, label %do.body3.sink.split
 
 if.end.i:                                         ; preds = %entry
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i, ptr noundef nonnull %isolate) #7
@@ -70,8 +66,7 @@ _ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i:
 
 _ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread52: ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i, %if.end.i.i.i
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i)
-  br label %do.body3
+  br label %do.body3.sink.split
 
 _ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit: ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i
   %sub.i.i.i = add i64 %2, 271
@@ -83,7 +78,11 @@ _ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit: ; preds = %_ZN4node18Cont
   %cmp.not = icmp eq i64 %8, 0
   br i1 %cmp.not, label %do.body3, label %do.end4
 
-do.body3:                                         ; preds = %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread52, %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread, %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit
+do.body3.sink.split:                              ; preds = %entry, %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread52
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i)
+  br label %do.body3
+
+do.body3:                                         ; preds = %do.body3.sink.split, %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node14ErrnoExceptionEPN2v87IsolateEiPKcS4_S4_E4args) #7
   call void @abort() #8
   unreachable
@@ -275,11 +274,7 @@ entry:
   %handle_scope.i = alloca %"class.v8::HandleScope", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %handle_scope.i)
   %call.i = tail call noundef zeroext i1 @_ZN2v87Isolate9InContextEv(ptr noundef nonnull align 1 dereferenceable(1) %isolate) #7
-  br i1 %call.i, label %if.end.i, label %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread
-
-_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i)
-  br label %do.body3
+  br i1 %call.i, label %if.end.i, label %do.body3.sink.split
 
 if.end.i:                                         ; preds = %entry
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i, ptr noundef nonnull %isolate) #7
@@ -307,8 +302,7 @@ _ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i:
 
 _ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread82: ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i, %if.end.i.i.i
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i)
-  br label %do.body3
+  br label %do.body3.sink.split
 
 _ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit: ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i
   %sub.i.i.i = add i64 %2, 271
@@ -320,7 +314,11 @@ _ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit: ; preds = %_ZN4node18Cont
   %cmp.not = icmp eq i64 %8, 0
   br i1 %cmp.not, label %do.body3, label %do.end4
 
-do.body3:                                         ; preds = %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread82, %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread, %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit
+do.body3.sink.split:                              ; preds = %entry, %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit.thread82
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i)
+  br label %do.body3
+
+do.body3:                                         ; preds = %do.body3.sink.split, %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node11UVExceptionEPN2v87IsolateEiPKcS4_S4_S4_E4args) #7
   call void @abort() #8
   unreachable

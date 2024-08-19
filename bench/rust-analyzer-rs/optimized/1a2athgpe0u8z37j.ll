@@ -1229,7 +1229,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$18trim_start_mat
   %8 = load i64, ptr %4, align 8, !range !140, !noalias !135, !noundef !4
   switch i64 %8, label %9 [
     i64 1, label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17hfe50b99c544e117bE.llvm.3694531643567680760.exit"
-    i64 2, label %12
+    i64 2, label %.loopexit
   ]
 
 9:                                                ; preds = %7
@@ -1239,21 +1239,17 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$18trim_start_mat
 "_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17hfe50b99c544e117bE.llvm.3694531643567680760.exit": ; preds = %7
   %10 = getelementptr inbounds i8, ptr %4, i64 8
   %11 = load i64, ptr %10, align 8, !noalias !135, !noundef !4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !135
-  br label %13
+  br label %.loopexit
 
-12:                                               ; preds = %7
+.loopexit:                                        ; preds = %7, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17hfe50b99c544e117bE.llvm.3694531643567680760.exit"
+  %12 = phi i64 [ %11, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17hfe50b99c544e117bE.llvm.3694531643567680760.exit" ], [ %1, %7 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !135
-  br label %13
-
-13:                                               ; preds = %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17hfe50b99c544e117bE.llvm.3694531643567680760.exit", %12
-  %14 = phi i64 [ %1, %12 ], [ %11, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17hfe50b99c544e117bE.llvm.3694531643567680760.exit" ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 %14
-  %16 = sub i64 %1, %14
+  %13 = getelementptr inbounds i8, ptr %0, i64 %12
+  %14 = sub i64 %1, %12
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  %17 = insertvalue { ptr, i64 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i64 } %17, i64 %16, 1
-  ret { ptr, i64 } %18
+  %15 = insertvalue { ptr, i64 } poison, ptr %13, 0
+  %16 = insertvalue { ptr, i64 } %15, i64 %14, 1
+  ret { ptr, i64 } %16
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable
@@ -1365,7 +1361,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$18trim_start_mat
   %8 = load i64, ptr %4, align 8, !range !140, !noalias !156, !noundef !4
   switch i64 %8, label %9 [
     i64 1, label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h224a3a12e197805bE.llvm.3694531643567680760.exit"
-    i64 2, label %12
+    i64 2, label %.loopexit
   ]
 
 9:                                                ; preds = %7
@@ -1375,21 +1371,17 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$18trim_start_mat
 "_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h224a3a12e197805bE.llvm.3694531643567680760.exit": ; preds = %7
   %10 = getelementptr inbounds i8, ptr %4, i64 8
   %11 = load i64, ptr %10, align 8, !noalias !156, !noundef !4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !156
-  br label %13
+  br label %.loopexit
 
-12:                                               ; preds = %7
+.loopexit:                                        ; preds = %7, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h224a3a12e197805bE.llvm.3694531643567680760.exit"
+  %12 = phi i64 [ %11, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h224a3a12e197805bE.llvm.3694531643567680760.exit" ], [ %1, %7 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !156
-  br label %13
-
-13:                                               ; preds = %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h224a3a12e197805bE.llvm.3694531643567680760.exit", %12
-  %14 = phi i64 [ %1, %12 ], [ %11, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h224a3a12e197805bE.llvm.3694531643567680760.exit" ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 %14
-  %16 = sub i64 %1, %14
+  %13 = getelementptr inbounds i8, ptr %0, i64 %12
+  %14 = sub i64 %1, %12
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  %17 = insertvalue { ptr, i64 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i64 } %17, i64 %16, 1
-  ret { ptr, i64 } %18
+  %15 = insertvalue { ptr, i64 } poison, ptr %13, 0
+  %16 = insertvalue { ptr, i64 } %15, i64 %14, 1
+  ret { ptr, i64 } %16
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable

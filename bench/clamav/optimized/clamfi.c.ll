@@ -857,7 +857,6 @@ define dso_local i32 @clamfi_eom(ptr noundef %0) local_unnamed_addr #0 {
 .loopexit:                                        ; preds = %98, %119, %110, %127, %106
   %131 = load ptr, ptr @CleanAction, align 8
   %132 = call i32 %131(ptr noundef %0) #17
-  store i32 %132, ptr %2, align 4
   br label %309
 
 133:                                              ; preds = %66
@@ -1236,16 +1235,16 @@ makesanehdr.exit218:                              ; preds = %.preheader.i214, %m
 .loopexit224:                                     ; preds = %303, %148, %138
   %305 = load ptr, ptr @InfectedAction, align 8
   %306 = call i32 %305(ptr noundef %0) #17
-  store i32 %306, ptr %2, align 4
   br label %309
 
 .thread:                                          ; preds = %62, %135, %133
   %307 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.30) #17
   %308 = load i32, ptr @FailAction, align 4
-  store i32 %308, ptr %2, align 4
   br label %309
 
 309:                                              ; preds = %.loopexit224, %.thread, %.loopexit
+  %.sink = phi i32 [ %306, %.loopexit224 ], [ %308, %.thread ], [ %132, %.loopexit ]
+  store i32 %.sink, ptr %2, align 4
   call fastcc void @nullify(ptr noundef %0, ptr noundef %7, i32 noundef 1)
   call void @free(ptr noundef %7) #17
   call void @free(ptr noundef %51) #17

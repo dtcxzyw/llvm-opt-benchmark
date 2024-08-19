@@ -2828,11 +2828,13 @@ _ZN10serde_json3ser6to_vec17h7a6670e6eb377180E.exit: ; preds = %44
 
 .noexc5:                                          ; preds = %.noexc4
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %18), !noalias !503
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20), !noalias !503
-  br label %89
+  br label %.sink.split.i
 
 83:                                               ; preds = %.noexc3
   store i8 5, ptr %75, align 8, !alias.scope !503
+  br label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %83, %.noexc5
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20), !noalias !503
   br label %89
 
@@ -2853,7 +2855,7 @@ _ZN10serde_json3ser6to_vec17h7a6670e6eb377180E.exit: ; preds = %44
   invoke void @"_ZN4core3ptr102drop_in_place$LT$actix_http..responses..response..Response$LT$actix_http..body..boxed..BoxBody$GT$$GT$17h3b9eeabd34b9d87bE.llvm.7557364402226394005"(ptr noalias noundef nonnull align 8 dereferenceable(88) %29)
           to label %.noexc6 unwind label %255
 
-89:                                               ; preds = %83, %.noexc5, %.noexc
+89:                                               ; preds = %.sink.split.i, %.noexc
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %19)
   %90 = icmp eq i16 %68, 503
   br i1 %90, label %91, label %134
@@ -3202,7 +3204,6 @@ _ZN9actix_web8response7builder19HttpResponseBuilder12message_body17hfc9109ae308a
   %.sroa.5.8.copyload.i.i.i = load ptr, ptr %192, align 8, !noalias !656
   %.sroa.6.8..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.8..sroa_idx.i.i.i, i64 16, i1 false), !noalias !637
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !645
   br label %"_ZN9actix_web8response8response21HttpResponse$LT$B$GT$8map_body17ha036dab56429b59fE.exit.i"
 
 194:                                              ; preds = %.noexc.i.i.i
@@ -3235,7 +3236,6 @@ _ZN9actix_web8response7builder19HttpResponseBuilder12message_body17hfc9109ae308a
 
 204:                                              ; preds = %194
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %197, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !661
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !645
   br label %"_ZN9actix_web8response8response21HttpResponse$LT$B$GT$8map_body17ha036dab56429b59fE.exit.i"
 
 205:                                              ; preds = %211, %208, %.body.i.i.i
@@ -3271,6 +3271,7 @@ _ZN9actix_web8response7builder19HttpResponseBuilder12message_body17hfc9109ae308a
   %.sroa.5.0.i.i.i = phi ptr [ @anon.8861b0972a2e61a2953436062a0e7b57.3, %204 ], [ %.sroa.5.8.copyload.i.i.i, %193 ]
   %.sroa.3.0.i.i.i = phi ptr [ %197, %204 ], [ %190, %193 ]
   %.sroa.0.0.i.i.i = phi i64 [ 2, %204 ], [ 1, %193 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !645
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !655
   %214 = load ptr, ptr %185, align 8, !alias.scope !640, !noalias !643, !align !61, !noundef !4
   %215 = getelementptr inbounds i8, ptr %8, i64 32

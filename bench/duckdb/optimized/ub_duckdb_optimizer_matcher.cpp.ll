@@ -3201,7 +3201,7 @@ if.end:                                           ; preds = %entry
   %4 = load ptr, ptr %_M_finish.i75, align 8, !tbaa !34
   %5 = load ptr, ptr %entries, align 8, !tbaa !45
   %cmp3.not136.not = icmp eq ptr %4, %5
-  br i1 %cmp3.not136.not, label %for.end.critedge, label %for.body.lr.ph
+  br i1 %cmp3.not136.not, label %return.sink.split, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
   %_M_element_count.i.i.i = getelementptr inbounds i8, ptr %excluded_entries, i64 24
@@ -3423,7 +3423,7 @@ for.inc:                                          ; preds = %for.cond.i.i.i.i, %
   %sub.ptr.sub.i78 = sub i64 %sub.ptr.lhs.cast.i76, %sub.ptr.rhs.cast.i77
   %sub.ptr.div.i79 = ashr exact i64 %sub.ptr.sub.i78, 3
   %cmp3.not = icmp ult i64 %inc, %sub.ptr.div.i79
-  br i1 %cmp3.not, label %for.body, label %for.end.critedge, !llvm.loop !124
+  br i1 %cmp3.not, label %for.body, label %return.sink.split, !llvm.loop !124
 
 cleanup49.critedge:                               ; preds = %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEED2Ev.exit
   %37 = load ptr, ptr %_M_before_begin.i.i, align 8, !tbaa !89
@@ -3453,15 +3453,15 @@ if.end.i.i.i.i117:                                ; preds = %_ZNSt10_HashtableIm
 
 cleanup49:                                        ; preds = %if.end.i.i.i.i117, %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i112
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %new_excluded_entries) #20
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %for.inc, %if.end, %cleanup49
+  %retval.5.ph = phi i1 [ true, %cleanup49 ], [ false, %if.end ], [ false, %for.inc ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %e_idx) #20
   br label %return
 
-for.end.critedge:                                 ; preds = %for.inc, %if.end
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %e_idx) #20
-  br label %return
-
-return:                                           ; preds = %for.end.critedge, %cleanup49, %entry
-  %retval.5 = phi i1 [ true, %entry ], [ false, %for.end.critedge ], [ true, %cleanup49 ]
+return:                                           ; preds = %return.sink.split, %entry
+  %retval.5 = phi i1 [ true, %entry ], [ %retval.5.ph, %return.sink.split ]
   ret i1 %retval.5
 }
 

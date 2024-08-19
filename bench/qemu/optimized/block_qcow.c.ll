@@ -2124,14 +2124,14 @@ do.body318:                                       ; preds = %if.end311.thread171
   br i1 %tobool320.not, label %if.end335, label %if.end335.sink.split
 
 do.body327.sink.split:                            ; preds = %if.end237, %land.lhs.true240, %if.end208, %if.end249
-  %cluster_offset.1.ph.sink = phi i64 [ %mul221, %if.end249 ], [ %call203, %if.end208 ], [ %mul221, %if.end237 ], [ %mul221, %land.lhs.true240 ]
-  %72 = call noundef i64 @llvm.bswap.i64(i64 %cluster_offset.1.ph.sink)
+  %mul221.sink = phi i64 [ %mul221, %if.end249 ], [ %call203, %if.end208 ], [ %mul221, %if.end237 ], [ %mul221, %land.lhs.true240 ]
+  %72 = call noundef i64 @llvm.bswap.i64(i64 %mul221.sink)
   store i64 %72, ptr %tmp, align 8
   store i64 %72, ptr %arrayidx128, align 8
   br label %do.body327
 
 do.body327:                                       ; preds = %do.body327.sink.split, %if.end311
-  %cluster_offset.1170 = phi i64 [ %cluster_offset.1, %if.end311 ], [ %cluster_offset.1.ph.sink, %do.body327.sink.split ]
+  %cluster_offset.1170 = phi i64 [ %cluster_offset.1, %if.end311 ], [ %mul221.sink, %do.body327.sink.split ]
   %73 = load ptr, ptr %file140, align 8
   %tobool329.not = icmp eq ptr %73, null
   br i1 %tobool329.not, label %if.end335, label %if.end335.sink.split

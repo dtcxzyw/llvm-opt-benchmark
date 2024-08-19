@@ -54192,12 +54192,7 @@ _ZN4asio6detail10socket_ops6socketEiiiRSt10error_code.exit: ; preds = %if.else.i
   store ptr @_ZZN4asio15system_categoryEvE8instance, ptr %ref.tmp.sroa.22.0.ec.sroa_idx.i.i, align 8
   store i32 %call.i, ptr %sock, align 4
   %cmp = icmp eq i32 %call.i, -1
-  br i1 %cmp, label %cleanup.thread, label %if.end6
-
-cleanup.thread:                                   ; preds = %_ZN4asio6detail10socket_ops6socketEiiiRSt10error_code.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ec.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %state.i)
-  br label %_ZN4asio6detail13socket_holderD2Ev.exit
+  br i1 %cmp, label %_ZN4asio6detail13socket_holderD2Ev.exit.sink.split, label %if.end6
 
 lpad:                                             ; preds = %if.end6
   %8 = landingpad { ptr, i32 }
@@ -54242,9 +54237,7 @@ if.end14:                                         ; preds = %invoke.cont9
   store i32 0, ptr %ec, align 8
   %ref.tmp20.sroa.230.0.ec.sroa_idx = getelementptr inbounds i8, ptr %ec, i64 8
   store ptr %call.i27, ptr %ref.tmp20.sroa.230.0.ec.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ec.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %state.i)
-  br label %_ZN4asio6detail13socket_holderD2Ev.exit
+  br label %_ZN4asio6detail13socket_holderD2Ev.exit.sink.split
 
 cleanup:                                          ; preds = %if.then11, %init.check.i.i, %init.i.i
   store i32 %call10, ptr %ec, align 8
@@ -54272,9 +54265,16 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   call void @__clang_call_terminate(ptr %14) #43
   unreachable
 
-_ZN4asio6detail13socket_holderD2Ev.exit:          ; preds = %if.end14, %cleanup.thread, %cleanup, %if.then.i
-  %retval.sroa.0.138 = phi i32 [ %4, %cleanup.thread ], [ %call10, %cleanup ], [ %call10, %if.then.i ], [ 0, %if.end14 ]
-  %retval.sroa.521.137 = phi ptr [ @_ZZN4asio15system_categoryEvE8instance, %cleanup.thread ], [ @_ZZN4asio15system_categoryEvE8instance, %cleanup ], [ @_ZZN4asio15system_categoryEvE8instance, %if.then.i ], [ %call.i27, %if.end14 ]
+_ZN4asio6detail13socket_holderD2Ev.exit.sink.split: ; preds = %_ZN4asio6detail10socket_ops6socketEiiiRSt10error_code.exit, %if.end14
+  %retval.sroa.0.138.ph = phi i32 [ 0, %if.end14 ], [ %4, %_ZN4asio6detail10socket_ops6socketEiiiRSt10error_code.exit ]
+  %retval.sroa.521.137.ph = phi ptr [ %call.i27, %if.end14 ], [ @_ZZN4asio15system_categoryEvE8instance, %_ZN4asio6detail10socket_ops6socketEiiiRSt10error_code.exit ]
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ec.i)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %state.i)
+  br label %_ZN4asio6detail13socket_holderD2Ev.exit
+
+_ZN4asio6detail13socket_holderD2Ev.exit:          ; preds = %_ZN4asio6detail13socket_holderD2Ev.exit.sink.split, %cleanup, %if.then.i
+  %retval.sroa.0.138 = phi i32 [ %call10, %cleanup ], [ %call10, %if.then.i ], [ %retval.sroa.0.138.ph, %_ZN4asio6detail13socket_holderD2Ev.exit.sink.split ]
+  %retval.sroa.521.137 = phi ptr [ @_ZZN4asio15system_categoryEvE8instance, %cleanup ], [ @_ZZN4asio15system_categoryEvE8instance, %if.then.i ], [ %retval.sroa.521.137.ph, %_ZN4asio6detail13socket_holderD2Ev.exit.sink.split ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ec.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %state.i)
   br label %return
@@ -98724,19 +98724,19 @@ _ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.i.i.i: ; preds = %if.then.i.i.
   store ptr %4, ptr %ref.tmp.i3.i.i.i, align 8
   store ptr %1, ptr %args, align 8
   %tobool.not.i.i4.i.i.i = icmp eq ptr %4, null
-  br i1 %tobool.not.i.i4.i.i.i, label %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit6.thread.i.i.i, label %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit6.i.i.i
-
-_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit6.thread.i.i.i: ; preds = %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i3.i.i.i)
-  br label %_ZNK7coro_io21callback_awaitor_baseIN12async_simple3TryIvEENS_16callback_awaitorIS3_EEE15awaitor_handler9set_valueIJS3_EEEvDpOT_.exit
+  br i1 %tobool.not.i.i4.i.i.i, label %_ZSt4swapINSt15__exception_ptr13exception_ptrEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit.i.i, label %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit6.i.i.i
 
 _ZNSt15__exception_ptr13exception_ptraSEOS0_.exit6.i.i.i: ; preds = %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.i.i.i
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i3.i.i.i) #28
+  br label %_ZSt4swapINSt15__exception_ptr13exception_ptrEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit.i.i
+
+_ZSt4swapINSt15__exception_ptr13exception_ptrEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit.i.i: ; preds = %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit6.i.i.i, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i3.i.i.i)
+  %.pre = load ptr, ptr %this, align 8
   br label %_ZNK7coro_io21callback_awaitor_baseIN12async_simple3TryIvEENS_16callback_awaitorIS3_EEE15awaitor_handler9set_valueIJS3_EEEvDpOT_.exit
 
-_ZNK7coro_io21callback_awaitor_baseIN12async_simple3TryIvEENS_16callback_awaitorIS3_EEE15awaitor_handler9set_valueIJS3_EEEvDpOT_.exit: ; preds = %entry, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit6.thread.i.i.i, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit6.i.i.i
-  %5 = load ptr, ptr %this, align 8
+_ZNK7coro_io21callback_awaitor_baseIN12async_simple3TryIvEENS_16callback_awaitorIS3_EEE15awaitor_handler9set_valueIJS3_EEEvDpOT_.exit: ; preds = %entry, %_ZSt4swapINSt15__exception_ptr13exception_ptrEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit.i.i
+  %5 = phi ptr [ %0, %entry ], [ %.pre, %_ZSt4swapINSt15__exception_ptr13exception_ptrEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit.i.i ]
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
   call fastcc void %7(ptr nonnull %6)
@@ -142193,18 +142193,17 @@ _ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.i.i.i: ; preds = %if.then.i.i.
   store ptr %15, ptr %ref.tmp.i3.i.i.i, align 8
   store ptr %12, ptr %agg.tmp11.reload.addr, align 8
   %tobool.not.i.i4.i.i.i = icmp eq ptr %15, null
-  br i1 %tobool.not.i.i4.i.i.i, label %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit6.thread.i.i.i, label %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit6.i.i.i
-
-_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit6.thread.i.i.i: ; preds = %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i3.i.i.i)
-  br label %_ZN12async_simple3TryIvEaSEOS1_.exit.i
+  br i1 %tobool.not.i.i4.i.i.i, label %_ZSt4swapINSt15__exception_ptr13exception_ptrEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit.i.i, label %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit6.i.i.i
 
 _ZNSt15__exception_ptr13exception_ptraSEOS0_.exit6.i.i.i: ; preds = %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.i.i.i
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i3.i.i.i) #28
+  br label %_ZSt4swapINSt15__exception_ptr13exception_ptrEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit.i.i
+
+_ZSt4swapINSt15__exception_ptr13exception_ptrEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit.i.i: ; preds = %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit6.i.i.i, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i3.i.i.i)
   br label %_ZN12async_simple3TryIvEaSEOS1_.exit.i
 
-_ZN12async_simple3TryIvEaSEOS1_.exit.i:           ; preds = %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit6.i.i.i, %_ZNSt15__exception_ptr13exception_ptraSEOS0_.exit6.thread.i.i.i, %_ZN12async_simple4coro6detail15LazyAwaiterBaseIvE14awaitResumeTryEv.exit
+_ZN12async_simple3TryIvEaSEOS1_.exit.i:           ; preds = %_ZSt4swapINSt15__exception_ptr13exception_ptrEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit.i.i, %_ZN12async_simple4coro6detail15LazyAwaiterBaseIvE14awaitResumeTryEv.exit
   %16 = load ptr, ptr %cb3.reload.addr, align 8
   %17 = atomicrmw add ptr %16, i32 1 release, align 4
   %cmp.i.i.i = icmp sgt i32 %17, 0

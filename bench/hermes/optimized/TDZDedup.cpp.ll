@@ -708,25 +708,10 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %for
 if.then.i10.i.i.i:                                ; preds = %for.body.i.i.i.i
   %call.i.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %spec.select.i.i.i.i19.i, i32 noundef 0) #10
   %54 = load i8, ptr %call.i.i.i.i.i, align 8
-  %sub.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 -16
-  switch i8 %54, label %if.else17.i.i.i.i [
-    i8 49, label %if.then11.i.i.i.i
-    i8 22, label %if.then15.i.i.i.i
+  switch i8 %54, label %if.end55.sink.split.i.i.i.i [
+    i8 49, label %if.end55.sink.split.sink.split.i.i.i.i
+    i8 22, label %if.end55.sink.split.sink.split.i.i.i.i
   ]
-
-if.then11.i.i.i.i:                                ; preds = %if.then.i10.i.i.i
-  %call.i25.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %sub.ptr.i.i.i.i.i.i.i, i32 noundef 0) #10
-  store ptr %call.i25.i.i.i.i, ptr %tdzStorage.i.i.i.i, align 8
-  br label %if.end55.i.i.i.i
-
-if.then15.i.i.i.i:                                ; preds = %if.then.i10.i.i.i
-  %call.i29.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %sub.ptr.i.i.i.i.i.i.i, i32 noundef 0) #10
-  store ptr %call.i29.i.i.i.i, ptr %tdzStorage.i.i.i.i, align 8
-  br label %if.end55.i.i.i.i
-
-if.else17.i.i.i.i:                                ; preds = %if.then.i10.i.i.i
-  store ptr %call.i.i.i.i.i, ptr %tdzStorage.i.i.i.i, align 8
-  br label %if.end55.i.i.i.i
 
 if.else19.i.i.i.i:                                ; preds = %for.body.i.i.i.i
   switch i8 %53, label %for.inc.i.i.i.i [
@@ -843,7 +828,17 @@ if.then48.i.i.i.i:                                ; preds = %if.end43.i.i.i.i
   call void @_ZN6hermes15ScopedHashTableIPNS_5ValueEbE17setInCurrentScopeERKS2_RKb(ptr noundef nonnull align 8 dereferenceable(32) %availableValues_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %tdzStorage.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp50.i.i.i.i)
   br label %for.inc.i.i.i.i
 
-if.end55.i.i.i.i:                                 ; preds = %if.end43.i.i.i.i, %if.end27.i.i.i.i, %if.else17.i.i.i.i, %if.then15.i.i.i.i, %if.then11.i.i.i.i
+if.end55.sink.split.sink.split.i.i.i.i:           ; preds = %if.then.i10.i.i.i, %if.then.i10.i.i.i
+  %sub.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 -16
+  %call.i29.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %sub.ptr.i.i.i.i.i.i.i, i32 noundef 0) #10
+  br label %if.end55.sink.split.i.i.i.i
+
+if.end55.sink.split.i.i.i.i:                      ; preds = %if.end55.sink.split.sink.split.i.i.i.i, %if.then.i10.i.i.i
+  %call.i25.sink.i.i.i.i = phi ptr [ %call.i.i.i.i.i, %if.then.i10.i.i.i ], [ %call.i29.i.i.i.i, %if.end55.sink.split.sink.split.i.i.i.i ]
+  store ptr %call.i25.sink.i.i.i.i, ptr %tdzStorage.i.i.i.i, align 8
+  br label %if.end55.i.i.i.i
+
+if.end55.i.i.i.i:                                 ; preds = %if.end55.sink.split.i.i.i.i, %if.end43.i.i.i.i, %if.end27.i.i.i.i
   %69 = load ptr, ptr %tdzStorage.i.i.i.i, align 8
   %70 = load ptr, ptr %availableValues_.i.i.i.i, align 8
   %71 = load i32, ptr %NumBuckets.i.i.i.i.i71.i.i.i.i, align 8
@@ -1730,18 +1725,18 @@ for.body.i.i.i.i22:                               ; preds = %if.end13.i.i.i.i23,
   %P.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i24, %if.end13.i.i.i.i23 ], [ %.pre1.i.i.i, %for.body.preheader.i.i.i.i ]
   %205 = load ptr, ptr %P.08.i.i.i.i, align 8
   %magicptr.i.i.i.i = ptrtoint ptr %205 to i64
-  switch i64 %magicptr.i.i.i.i, label %if.then11.i.i.i.i29 [
+  switch i64 %magicptr.i.i.i.i, label %if.then11.i.i.i.i [
     i64 -8, label %if.end13.i.i.i.i23
     i64 -16, label %if.end13.i.i.i.i23
   ]
 
-if.then11.i.i.i.i29:                              ; preds = %for.body.i.i.i.i22
-  %second.i.i.i.i.i30 = getelementptr inbounds i8, ptr %P.08.i.i.i.i, i64 8
-  %206 = load ptr, ptr %second.i.i.i.i.i30, align 8
-  %cmp.not.i.i.i.i.i31 = icmp eq ptr %206, null
-  br i1 %cmp.not.i.i.i.i.i31, label %_ZNSt10unique_ptrIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEESt14default_deleteIS4_EED2Ev.exit.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
+if.then11.i.i.i.i:                                ; preds = %for.body.i.i.i.i22
+  %second.i.i.i.i.i29 = getelementptr inbounds i8, ptr %P.08.i.i.i.i, i64 8
+  %206 = load ptr, ptr %second.i.i.i.i.i29, align 8
+  %cmp.not.i.i.i.i.i30 = icmp eq ptr %206, null
+  br i1 %cmp.not.i.i.i.i.i30, label %_ZNSt10unique_ptrIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEESt14default_deleteIS4_EED2Ev.exit.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
-delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then11.i.i.i.i29
+delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then11.i.i.i.i
   %Children.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %206, i64 24
   %207 = load ptr, ptr %Children.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %207, null
@@ -1755,8 +1750,8 @@ _ZNKSt14default_deleteIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEEEclEPS4_.e
   call void @_ZdlPv(ptr noundef nonnull %206) #13
   br label %_ZNSt10unique_ptrIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEESt14default_deleteIS4_EED2Ev.exit.i.i.i.i
 
-_ZNSt10unique_ptrIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEESt14default_deleteIS4_EED2Ev.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEEEclEPS4_.exit.i.i.i.i.i, %if.then11.i.i.i.i29
-  store ptr null, ptr %second.i.i.i.i.i30, align 8
+_ZNSt10unique_ptrIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEESt14default_deleteIS4_EED2Ev.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEEEclEPS4_.exit.i.i.i.i.i, %if.then11.i.i.i.i
+  store ptr null, ptr %second.i.i.i.i.i29, align 8
   br label %if.end13.i.i.i.i23
 
 if.end13.i.i.i.i23:                               ; preds = %_ZNSt10unique_ptrIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEESt14default_deleteIS4_EED2Ev.exit.i.i.i.i, %for.body.i.i.i.i22, %for.body.i.i.i.i22

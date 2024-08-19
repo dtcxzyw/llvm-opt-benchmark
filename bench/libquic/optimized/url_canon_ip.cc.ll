@@ -1182,20 +1182,16 @@ _ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i: ; preds = %sw
   %retval.0.i.i22.i = phi i32 [ 0, %sw.default.i.i.i ], [ 8, %sw.bb2.i.i.i ], [ 10, %sw.bb1.i.i.i ], [ 16, %for.end.i.i ]
   %call.i.i.i = call noundef i64 @strtoull(ptr nocapture noundef nonnull %buf.i.i, ptr noundef null, i32 noundef %retval.0.i.i22.i) #9
   %cmp48.i.i = icmp ugt i64 %call.i.i.i, 4294967295
-  br i1 %cmp48.i.i, label %_ZN3url12_GLOBAL__N_121IPv4ComponentToNumberIcEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPj.exit.thread3.i, label %if.end14.fold.split.i
-
-_ZN3url12_GLOBAL__N_121IPv4ComponentToNumberIcEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPj.exit.thread3.i: ; preds = %_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %buf.i.i)
-  br label %if.end14.i
+  br i1 %cmp48.i.i, label %if.end14.i, label %if.end14.fold.split.i
 
 if.end14.fold.split.i:                            ; preds = %_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i
   %conv51.i.i = trunc nuw i64 %call.i.i.i to i32
   store i32 %conv51.i.i, ptr %arrayidx7.i, align 4
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %buf.i.i)
   br label %if.end14.i
 
-if.end14.i:                                       ; preds = %if.end14.fold.split.i, %_ZN3url12_GLOBAL__N_121IPv4ComponentToNumberIcEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPj.exit.thread3.i
-  %broken.2.i = phi i1 [ %broken.016.i, %if.end14.fold.split.i ], [ true, %_ZN3url12_GLOBAL__N_121IPv4ComponentToNumberIcEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPj.exit.thread3.i ]
+if.end14.i:                                       ; preds = %if.end14.fold.split.i, %_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i
+  %broken.2.i = phi i1 [ %broken.016.i, %if.end14.fold.split.i ], [ true, %_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i ]
+  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %buf.i.i)
   %inc.i = add nsw i32 %existing_components.015.i, 1
   br label %for.inc.i
 
@@ -1536,20 +1532,16 @@ _ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i: ; preds = %sw
   %retval.0.i.i22.i = phi i32 [ 0, %sw.default.i.i.i ], [ 8, %sw.bb2.i.i.i ], [ 10, %sw.bb1.i.i.i ], [ 16, %for.end.i.i ]
   %call.i.i.i = call noundef i64 @strtoull(ptr nocapture noundef nonnull %buf.i.i, ptr noundef null, i32 noundef %retval.0.i.i22.i) #9
   %cmp49.i.i = icmp ugt i64 %call.i.i.i, 4294967295
-  br i1 %cmp49.i.i, label %_ZN3url12_GLOBAL__N_121IPv4ComponentToNumberItEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPj.exit.thread3.i, label %if.end14.fold.split.i
-
-_ZN3url12_GLOBAL__N_121IPv4ComponentToNumberItEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPj.exit.thread3.i: ; preds = %_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %buf.i.i)
-  br label %if.end14.i
+  br i1 %cmp49.i.i, label %if.end14.i, label %if.end14.fold.split.i
 
 if.end14.fold.split.i:                            ; preds = %_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i
   %conv52.i.i = trunc nuw i64 %call.i.i.i to i32
   store i32 %conv52.i.i, ptr %arrayidx7.i, align 4
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %buf.i.i)
   br label %if.end14.i
 
-if.end14.i:                                       ; preds = %if.end14.fold.split.i, %_ZN3url12_GLOBAL__N_121IPv4ComponentToNumberItEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPj.exit.thread3.i
-  %broken.2.i = phi i1 [ %broken.016.i, %if.end14.fold.split.i ], [ true, %_ZN3url12_GLOBAL__N_121IPv4ComponentToNumberItEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPj.exit.thread3.i ]
+if.end14.i:                                       ; preds = %if.end14.fold.split.i, %_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i
+  %broken.2.i = phi i1 [ %broken.016.i, %if.end14.fold.split.i ], [ true, %_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i ]
+  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %buf.i.i)
   %inc.i = add nsw i32 %existing_components.015.i, 1
   br label %for.inc.i
 

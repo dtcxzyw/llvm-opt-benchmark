@@ -477,7 +477,6 @@ _ZN3std2io7BufRead10read_until17hd12b7dbb1a7cefbdE.exit: ; preds = %84
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit": ; preds = %.loopexit95, %112, %116
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !42
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %119
 
 118:                                              ; preds = %120
@@ -485,6 +484,7 @@ _ZN3std2io7BufRead10read_until17hd12b7dbb1a7cefbdE.exit: ; preds = %84
 
 119:                                              ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit78", %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit"
   %.1 = phi ptr [ %.0, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit78" ], [ %.182, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit" ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   ret ptr %.1
 
 120:                                              ; preds = %.loopexit.split-lp
@@ -517,7 +517,6 @@ _ZN3std2io7BufRead10read_until17hd12b7dbb1a7cefbdE.exit: ; preds = %84
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit78": ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h35fd6cb69ab237a5E.exit76", %124, %128
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !50
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %119
 
 130:                                              ; preds = %.loopexit.split-lp, %120
@@ -801,7 +800,6 @@ _ZN3std2io7BufRead10read_until17hc14eea37492bd760E.exit: ; preds = %84
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit": ; preds = %.loopexit95, %112, %116
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !92
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %119
 
 118:                                              ; preds = %120
@@ -809,6 +807,7 @@ _ZN3std2io7BufRead10read_until17hc14eea37492bd760E.exit: ; preds = %84
 
 119:                                              ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit78", %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit"
   %.1 = phi ptr [ %.0, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit78" ], [ %.182, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit" ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   ret ptr %.1
 
 120:                                              ; preds = %.loopexit.split-lp
@@ -841,7 +840,6 @@ _ZN3std2io7BufRead10read_until17hc14eea37492bd760E.exit: ; preds = %84
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit78": ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h35fd6cb69ab237a5E.exit76", %124, %128
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !99
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %119
 
 130:                                              ; preds = %.loopexit.split-lp, %120
@@ -1125,7 +1123,6 @@ _ZN3std2io7BufRead10read_until17hc14eea37492bd760E.exit: ; preds = %84
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit": ; preds = %.loopexit95, %112, %116
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !141
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %119
 
 118:                                              ; preds = %120
@@ -1133,6 +1130,7 @@ _ZN3std2io7BufRead10read_until17hc14eea37492bd760E.exit: ; preds = %84
 
 119:                                              ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit78", %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit"
   %.1 = phi ptr [ %.0, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit78" ], [ %.182, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit" ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   ret ptr %.1
 
 120:                                              ; preds = %.loopexit.split-lp
@@ -1165,7 +1163,6 @@ _ZN3std2io7BufRead10read_until17hc14eea37492bd760E.exit: ; preds = %84
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit78": ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h35fd6cb69ab237a5E.exit76", %124, %128
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !148
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %119
 
 130:                                              ; preds = %.loopexit.split-lp, %120
@@ -1603,7 +1600,6 @@ _ZN3std2io7BufRead10read_until17hd12b7dbb1a7cefbdE.exit: ; preds = %131
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit": ; preds = %.loopexit132, %196, %200
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !212
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   br label %203
 
 202:                                              ; preds = %204
@@ -1611,6 +1607,7 @@ _ZN3std2io7BufRead10read_until17hd12b7dbb1a7cefbdE.exit: ; preds = %131
 
 203:                                              ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit102", %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit"
   %.1 = phi ptr [ %.0, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit102" ], [ %.1114, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit" ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   ret ptr %.1
 
 204:                                              ; preds = %.loopexit.split-lp
@@ -1643,7 +1640,6 @@ _ZN3std2io7BufRead10read_until17hd12b7dbb1a7cefbdE.exit: ; preds = %131
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit102": ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h35fd6cb69ab237a5E.exit100", %208, %212
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !219
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   br label %203
 
 214:                                              ; preds = %.loopexit.split-lp, %204
@@ -1927,7 +1923,6 @@ _ZN3std2io7BufRead10read_until17hd12b7dbb1a7cefbdE.exit: ; preds = %84
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit": ; preds = %.loopexit95, %112, %116
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !261
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %119
 
 118:                                              ; preds = %120
@@ -1935,6 +1930,7 @@ _ZN3std2io7BufRead10read_until17hd12b7dbb1a7cefbdE.exit: ; preds = %84
 
 119:                                              ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit78", %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit"
   %.1 = phi ptr [ %.0, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit78" ], [ %.182, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit" ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   ret ptr %.1
 
 120:                                              ; preds = %.loopexit.split-lp
@@ -1967,7 +1963,6 @@ _ZN3std2io7BufRead10read_until17hd12b7dbb1a7cefbdE.exit: ; preds = %84
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit78": ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h35fd6cb69ab237a5E.exit76", %124, %128
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !268
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %119
 
 130:                                              ; preds = %.loopexit.split-lp, %120
@@ -2251,7 +2246,6 @@ _ZN3std2io7BufRead10read_until17hc14eea37492bd760E.exit: ; preds = %84
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit": ; preds = %.loopexit95, %112, %116
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !310
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %119
 
 118:                                              ; preds = %120
@@ -2259,6 +2253,7 @@ _ZN3std2io7BufRead10read_until17hc14eea37492bd760E.exit: ; preds = %84
 
 119:                                              ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit78", %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit"
   %.1 = phi ptr [ %.0, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit78" ], [ %.182, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit" ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   ret ptr %.1
 
 120:                                              ; preds = %.loopexit.split-lp
@@ -2291,7 +2286,6 @@ _ZN3std2io7BufRead10read_until17hc14eea37492bd760E.exit: ; preds = %84
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit78": ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h35fd6cb69ab237a5E.exit76", %124, %128
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !317
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %119
 
 130:                                              ; preds = %.loopexit.split-lp, %120
@@ -2729,7 +2723,6 @@ _ZN3std2io7BufRead10read_until17hc14eea37492bd760E.exit: ; preds = %131
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit": ; preds = %.loopexit132, %196, %200
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !379
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   br label %203
 
 202:                                              ; preds = %204
@@ -2737,6 +2730,7 @@ _ZN3std2io7BufRead10read_until17hc14eea37492bd760E.exit: ; preds = %131
 
 203:                                              ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit102", %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit"
   %.1 = phi ptr [ %.0, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit102" ], [ %.1114, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit" ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   ret ptr %.1
 
 204:                                              ; preds = %.loopexit.split-lp
@@ -2769,7 +2763,6 @@ _ZN3std2io7BufRead10read_until17hc14eea37492bd760E.exit: ; preds = %131
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit102": ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h35fd6cb69ab237a5E.exit100", %208, %212
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !386
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   br label %203
 
 214:                                              ; preds = %.loopexit.split-lp, %204
@@ -3053,7 +3046,6 @@ _ZN3std2io7BufRead10read_until17hd12b7dbb1a7cefbdE.exit: ; preds = %84
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit": ; preds = %.loopexit95, %112, %116
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !428
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %119
 
 118:                                              ; preds = %120
@@ -3061,6 +3053,7 @@ _ZN3std2io7BufRead10read_until17hd12b7dbb1a7cefbdE.exit: ; preds = %84
 
 119:                                              ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit78", %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit"
   %.1 = phi ptr [ %.0, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit78" ], [ %.182, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit" ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   ret ptr %.1
 
 120:                                              ; preds = %.loopexit.split-lp
@@ -3093,7 +3086,6 @@ _ZN3std2io7BufRead10read_until17hd12b7dbb1a7cefbdE.exit: ; preds = %84
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h813b8b378e549f74E.exit78": ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h35fd6cb69ab237a5E.exit76", %124, %128
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !435
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %119
 
 130:                                              ; preds = %.loopexit.split-lp, %120

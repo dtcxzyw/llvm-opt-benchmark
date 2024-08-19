@@ -2238,7 +2238,7 @@ define internal fastcc range(i32 -1, 2) i32 @valid_authenticator(ptr noundef %0,
   %9 = add i32 %3, 16
   %10 = icmp ult i32 %7, %9
   %or.cond = or i1 %10, %.not
-  br i1 %or.cond, label %44, label %11
+  br i1 %or.cond, label %46, label %11
 
 11:                                               ; preds = %4
   %12 = tail call ptr @wmem_packet_scope() #14
@@ -2264,7 +2264,7 @@ define internal fastcc range(i32 -1, 2) i32 @valid_authenticator(ptr noundef %0,
   %22 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %6, i32 noundef %3, i64 noundef 16) #14
   %23 = call i32 @gcry_md_open(ptr noundef nonnull %5, i32 noundef 1, i32 noundef 2) #14
   %.not33 = icmp eq i32 %23, 0
-  br i1 %.not33, label %24, label %44
+  br i1 %.not33, label %24, label %46
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr %5, align 8
@@ -2291,7 +2291,7 @@ define internal fastcc range(i32 -1, 2) i32 @valid_authenticator(ptr noundef %0,
 35:                                               ; preds = %34, %33
   %36 = call i32 @gcry_md_open(ptr noundef nonnull %5, i32 noundef 1, i32 noundef 0) #14
   %.not30 = icmp eq i32 %36, 0
-  br i1 %.not30, label %37, label %44
+  br i1 %.not30, label %37, label %46
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr %5, align 8
@@ -2304,16 +2304,16 @@ define internal fastcc range(i32 -1, 2) i32 @valid_authenticator(ptr noundef %0,
 
 42:                                               ; preds = %37, %24
   %authenticator.sink = phi ptr [ @authenticator, %37 ], [ %6, %24 ]
-  %.sink38 = load ptr, ptr %5, align 8
-  %43 = call ptr @gcry_md_read(ptr noundef %.sink38, i32 noundef 0) #14
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %43, ptr noundef nonnull dereferenceable(16) %authenticator.sink, i64 16)
-  %.sink = load ptr, ptr %5, align 8
-  call void @gcry_md_close(ptr noundef %.sink) #14
+  %43 = load ptr, ptr %5, align 8
+  %44 = call ptr @gcry_md_read(ptr noundef %43, i32 noundef 0) #14
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %44, ptr noundef nonnull dereferenceable(16) %authenticator.sink, i64 16)
+  %45 = load ptr, ptr %5, align 8
+  call void @gcry_md_close(ptr noundef %45) #14
   %.027.in = icmp eq i32 %bcmp, 0
   %.027 = zext i1 %.027.in to i32
-  br label %44
+  br label %46
 
-44:                                               ; preds = %35, %21, %4, %42
+46:                                               ; preds = %35, %21, %4, %42
   %.0 = phi i32 [ %.027, %42 ], [ -1, %4 ], [ -1, %21 ], [ -1, %35 ]
   ret i32 %.0
 }

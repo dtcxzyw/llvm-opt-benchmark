@@ -4817,19 +4817,24 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit39.i:      ; preds = %_ZNSt6vectorIdSaIdE
 ._crit_edge.i.loopexit:                           ; preds = %_ZNSt6vectorIdSaIdEE9push_backERKd.exit39.i
   store ptr %133, ptr %32, align 8, !alias.scope !12
   store ptr %134, ptr %43, align 8, !alias.scope !12
-  store ptr %132, ptr %7, align 8, !alias.scope !12
-  br label %._crit_edge.i
+  br label %._crit_edge.i.sink.split
 
 ._crit_edge.i.loopexit8:                          ; preds = %_ZNSt6vectorIdSaIdEE9push_backERKd.exit39.us.i
   store ptr %71, ptr %42, align 8, !alias.scope !12
   store ptr %70, ptr %32, align 8, !alias.scope !12
-  store ptr %69, ptr %7, align 8, !alias.scope !12
+  br label %._crit_edge.i.sink.split
+
+._crit_edge.i.sink.split:                         ; preds = %._crit_edge.i.loopexit, %._crit_edge.i.loopexit8
+  %.lcssa94.sink = phi ptr [ %69, %._crit_edge.i.loopexit8 ], [ %132, %._crit_edge.i.loopexit ]
+  %.ph95 = phi ptr [ %71, %._crit_edge.i.loopexit8 ], [ %134, %._crit_edge.i.loopexit ]
+  %.sroa.049.1.lcssa.i.ph = phi ptr [ %.sroa.049.4.us.i, %._crit_edge.i.loopexit8 ], [ null, %._crit_edge.i.loopexit ]
+  store ptr %.lcssa94.sink, ptr %7, align 8, !alias.scope !12
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit8, %._crit_edge.i.loopexit, %_ZNSt6vectorIdSaIdEE7reserveEm.exit24.thread.i, %_ZNSt6vectorIdSaIdEE7reserveEm.exit24.i
-  %136 = phi ptr [ %.promoted39, %_ZNSt6vectorIdSaIdEE7reserveEm.exit24.i ], [ %.promoted39, %_ZNSt6vectorIdSaIdEE7reserveEm.exit24.thread.i ], [ %132, %._crit_edge.i.loopexit ], [ %69, %._crit_edge.i.loopexit8 ]
-  %137 = phi ptr [ %.promoted39, %_ZNSt6vectorIdSaIdEE7reserveEm.exit24.i ], [ %.promoted39, %_ZNSt6vectorIdSaIdEE7reserveEm.exit24.thread.i ], [ %134, %._crit_edge.i.loopexit ], [ %71, %._crit_edge.i.loopexit8 ]
-  %.sroa.049.1.lcssa.i = phi ptr [ null, %_ZNSt6vectorIdSaIdEE7reserveEm.exit24.i ], [ %40, %_ZNSt6vectorIdSaIdEE7reserveEm.exit24.thread.i ], [ null, %._crit_edge.i.loopexit ], [ %.sroa.049.4.us.i, %._crit_edge.i.loopexit8 ]
+._crit_edge.i:                                    ; preds = %._crit_edge.i.sink.split, %_ZNSt6vectorIdSaIdEE7reserveEm.exit24.thread.i, %_ZNSt6vectorIdSaIdEE7reserveEm.exit24.i
+  %136 = phi ptr [ %.promoted39, %_ZNSt6vectorIdSaIdEE7reserveEm.exit24.i ], [ %.promoted39, %_ZNSt6vectorIdSaIdEE7reserveEm.exit24.thread.i ], [ %.lcssa94.sink, %._crit_edge.i.sink.split ]
+  %137 = phi ptr [ %.promoted39, %_ZNSt6vectorIdSaIdEE7reserveEm.exit24.i ], [ %.promoted39, %_ZNSt6vectorIdSaIdEE7reserveEm.exit24.thread.i ], [ %.ph95, %._crit_edge.i.sink.split ]
+  %.sroa.049.1.lcssa.i = phi ptr [ null, %_ZNSt6vectorIdSaIdEE7reserveEm.exit24.i ], [ %40, %_ZNSt6vectorIdSaIdEE7reserveEm.exit24.thread.i ], [ %.sroa.049.1.lcssa.i.ph, %._crit_edge.i.sink.split ]
   invoke void @_ZSt6__sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEEvT_S9_T0_(ptr %136, ptr %137)
           to label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEvT_S7_.exit.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !12
 

@@ -4446,7 +4446,7 @@ if.then25:                                        ; preds = %sw.bb8, %sw.bb14
   %3 = load i32, ptr %x, align 4
   %call26 = call i32 @wmove(ptr noundef %1, i32 noundef %2, i32 noundef %3) #9
   %cmp = icmp eq i32 %call26, -1
-  br i1 %cmp, label %cond.end, label %cond.false
+  br i1 %cmp, label %if.end54, label %cond.false
 
 cond.false:                                       ; preds = %if.then25
   %attr.0 = trunc i64 %attr.0.in to i32
@@ -4456,24 +4456,17 @@ cond.false:                                       ; preds = %if.then25
   %6 = load ptr, ptr %win, align 8
   %7 = load i32, ptr %num, align 4
   %call29 = call i32 @wchgat(ptr noundef %6, i32 noundef %7, i32 noundef %and23, i16 noundef signext %5, ptr noundef null) #9
-  br label %cond.end
-
-cond.end:                                         ; preds = %if.then25, %cond.false
-  %cond = phi i32 [ %call29, %cond.false ], [ -1, %if.then25 ]
-  %8 = load ptr, ptr %win, align 8
-  %9 = load i32, ptr %y, align 4
-  %call31 = call i32 @wtouchln(ptr noundef %8, i32 noundef %9, i32 noundef 1, i32 noundef 1) #9
   br label %if.end54
 
 if.else:                                          ; preds = %sw.bb, %sw.bb2
   %attr.0.in19 = load i64, ptr %lattr, align 8
   %attr.020 = trunc i64 %attr.0.in19 to i32
-  %10 = trunc i64 %attr.0.in19 to i16
-  %11 = lshr i16 %10, 8
+  %8 = trunc i64 %attr.0.in19 to i16
+  %9 = lshr i16 %8, 8
   %and2321 = and i32 %attr.020, -256
   %win32 = getelementptr inbounds i8, ptr %self, i64 16
-  %12 = load ptr, ptr %win32, align 8
-  %cmp33.not = icmp eq ptr %12, null
+  %10 = load ptr, ptr %win32, align 8
+  %cmp33.not = icmp eq ptr %10, null
   br i1 %cmp33.not, label %cond.end39.thread, label %cond.true44
 
 cond.end39.thread:                                ; preds = %if.else
@@ -4481,32 +4474,33 @@ cond.end39.thread:                                ; preds = %if.else
   br label %cond.end48
 
 cond.true44:                                      ; preds = %if.else
-  %13 = load i16, ptr %12, align 8
-  %conv37 = sext i16 %13 to i32
+  %11 = load i16, ptr %10, align 8
+  %conv37 = sext i16 %11 to i32
   store i32 %conv37, ptr %y, align 4
-  %_curx = getelementptr inbounds i8, ptr %12, i64 2
-  %14 = load i16, ptr %_curx, align 2
-  %conv46 = sext i16 %14 to i32
+  %_curx = getelementptr inbounds i8, ptr %10, i64 2
+  %12 = load i16, ptr %_curx, align 2
+  %conv46 = sext i16 %12 to i32
   br label %cond.end48
 
 cond.end48:                                       ; preds = %cond.end39.thread, %cond.true44
   %cond49 = phi i32 [ %conv46, %cond.true44 ], [ -1, %cond.end39.thread ]
   store i32 %cond49, ptr %x, align 4
-  %15 = load i32, ptr %num, align 4
-  %call51 = call i32 @wchgat(ptr noundef %12, i32 noundef %15, i32 noundef %and2321, i16 noundef signext %11, ptr noundef null) #9
-  %16 = load ptr, ptr %win32, align 8
-  %17 = load i32, ptr %y, align 4
-  %call53 = call i32 @wtouchln(ptr noundef %16, i32 noundef %17, i32 noundef 1, i32 noundef 1) #9
+  %13 = load i32, ptr %num, align 4
+  %call51 = call i32 @wchgat(ptr noundef %10, i32 noundef %13, i32 noundef %and2321, i16 noundef signext %9, ptr noundef null) #9
   br label %if.end54
 
-if.end54:                                         ; preds = %cond.end48, %cond.end
-  %rtn.0 = phi i32 [ %cond, %cond.end ], [ %call51, %cond.end48 ]
+if.end54:                                         ; preds = %cond.false, %if.then25, %cond.end48
+  %win32.sink = phi ptr [ %win32, %cond.end48 ], [ %win, %if.then25 ], [ %win, %cond.false ]
+  %rtn.0 = phi i32 [ %call51, %cond.end48 ], [ -1, %if.then25 ], [ %call29, %cond.false ]
+  %14 = load ptr, ptr %win32.sink, align 8
+  %15 = load i32, ptr %y, align 4
+  %call53 = call i32 @wtouchln(ptr noundef %14, i32 noundef %15, i32 noundef 1, i32 noundef 1) #9
   %cmp.not.i = icmp eq i32 %rtn.0, -1
   br i1 %cmp.not.i, label %if.else.i, label %return
 
 if.else.i:                                        ; preds = %if.end54
-  %18 = load ptr, ptr @PyCursesError, align 8
-  %call.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.79) #9
+  %16 = load ptr, ptr @PyCursesError, align 8
+  %call.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %16, ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.79) #9
   br label %return
 
 return:                                           ; preds = %if.else.i, %if.end54, %sw.bb14, %sw.bb8, %sw.bb2, %sw.bb, %sw.default
@@ -5984,18 +5978,18 @@ cond.false.i:                                     ; preds = %if.else.i
   %7 = load ptr, ptr %win.i, align 8
   br label %if.end11.i
 
-if.end11.i:                                       ; preds = %if.end.i, %cond.false.i
+if.end11.i:                                       ; preds = %cond.false.i, %if.end.i
   %.sink.i = phi ptr [ %7, %cond.false.i ], [ %6, %if.end.i ]
-  %.sink7.i = load i32, ptr %ch_.i, align 4
+  %8 = load i32, ptr %ch_.i, align 4
   %conv8.i = trunc i64 %5 to i32
-  %or9.i = or i32 %.sink7.i, %conv8.i
+  %or9.i = or i32 %8, %conv8.i
   %call10.i = call i32 @winsch(ptr noundef %.sink.i, i32 noundef %or9.i) #9
   %cmp.not.i.i = icmp eq i32 %call10.i, -1
   br i1 %cmp.not.i.i, label %if.else.i.i, label %_curses_window_insch_impl.exit
 
 if.else.i.i:                                      ; preds = %if.end11.i, %if.else.i
-  %8 = load ptr, ptr @PyCursesError, align 8
-  %call.i.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.108) #9
+  %9 = load ptr, ptr @PyCursesError, align 8
+  %call.i.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %9, ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.108) #9
   br label %_curses_window_insch_impl.exit
 
 _curses_window_insch_impl.exit:                   ; preds = %sw.epilog, %if.end11.i, %if.else.i.i

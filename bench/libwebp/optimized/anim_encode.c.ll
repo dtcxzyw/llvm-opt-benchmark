@@ -799,7 +799,7 @@ define range(i32 0, 2) i32 @WebPAnimEncoderAdd(ptr noundef %0, ptr noundef %1, i
   %7 = alloca %struct.FrameRectangle, align 4
   %8 = alloca %struct.WebPConfig, align 4
   %9 = icmp eq ptr %0, null
-  br i1 %9, label %197, label %10
+  br i1 %9, label %194, label %10
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %0, i64 1192
@@ -827,12 +827,12 @@ define range(i32 0, 2) i32 @WebPAnimEncoderAdd(ptr noundef %0, ptr noundef %1, i
 
 22:                                               ; preds = %20, %19
   %23 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 100, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str) #14
-  br label %197
+  br label %194
 
 24:                                               ; preds = %14
   %25 = tail call fastcc i32 @IncreasePreviousDuration(ptr noundef nonnull %0, i32 noundef %17)
   %.not50 = icmp eq i32 %25, 0
-  br i1 %.not50, label %197, label %26
+  br i1 %.not50, label %194, label %26
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds i8, ptr %0, i64 1112
@@ -845,7 +845,7 @@ define range(i32 0, 2) i32 @WebPAnimEncoderAdd(ptr noundef %0, ptr noundef %1, i
 32:                                               ; preds = %26
   %33 = tail call fastcc i32 @FlushFrames(ptr noundef nonnull %0)
   %.not51 = icmp eq i32 %33, 0
-  br i1 %.not51, label %197, label %36
+  br i1 %.not51, label %194, label %36
 
 34:                                               ; preds = %10
   %35 = getelementptr inbounds i8, ptr %0, i64 1144
@@ -861,7 +861,7 @@ define range(i32 0, 2) i32 @WebPAnimEncoderAdd(ptr noundef %0, ptr noundef %1, i
   store i32 1, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 1148
   store i32 %2, ptr %40, align 4
-  br label %197
+  br label %194
 
 41:                                               ; preds = %36
   %42 = getelementptr inbounds i8, ptr %1, i64 8
@@ -882,7 +882,7 @@ define range(i32 0, 2) i32 @WebPAnimEncoderAdd(ptr noundef %0, ptr noundef %1, i
   %51 = getelementptr inbounds i8, ptr %1, i64 136
   store i32 4, ptr %51, align 8
   %52 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 100, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1) #14
-  br label %197
+  br label %194
 
 53:                                               ; preds = %45
   %54 = load i32, ptr %1, align 8
@@ -907,7 +907,7 @@ define range(i32 0, 2) i32 @WebPAnimEncoderAdd(ptr noundef %0, ptr noundef %1, i
 
 63:                                               ; preds = %61
   %64 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 100, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.3) #14
-  br label %197
+  br label %194
 
 65:                                               ; preds = %61, %53
   %.not58 = icmp eq ptr %3, null
@@ -920,7 +920,7 @@ define range(i32 0, 2) i32 @WebPAnimEncoderAdd(ptr noundef %0, ptr noundef %1, i
 
 68:                                               ; preds = %66
   %69 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 100, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.4) #14
-  br label %197
+  br label %194
 
 70:                                               ; preds = %66
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(116) %8, ptr noundef nonnull align 4 dereferenceable(116) %3, i64 116, i1 false)
@@ -933,7 +933,7 @@ define range(i32 0, 2) i32 @WebPAnimEncoderAdd(ptr noundef %0, ptr noundef %1, i
 
 73:                                               ; preds = %71
   %74 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 100, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.5) #14
-  br label %197
+  br label %194
 
 75:                                               ; preds = %71
   store i32 1, ptr %8, align 4
@@ -1146,84 +1146,73 @@ CopyCurrentCanvas.exit:                           ; preds = %76, %80
   store i64 %173, ptr %171, align 8
   br i1 %170, label %CacheFrame.exit.thread, label %.thread.i
 
-CacheFrame.exit.thread:                           ; preds = %167
-  %174 = load ptr, ptr %77, align 8
-  %175 = getelementptr inbounds i8, ptr %174, i64 136
-  store i32 0, ptr %175, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  br label %193
-
 .thread.i:                                        ; preds = %167, %.thread114.i, %123, %120, %111, %97
-  %176 = phi i1 [ false, %167 ], [ true, %97 ], [ true, %111 ], [ true, %120 ], [ true, %123 ], [ false, %.thread114.i ]
+  %174 = phi i1 [ false, %167 ], [ true, %97 ], [ true, %111 ], [ true, %120 ], [ true, %123 ], [ false, %.thread114.i ]
   %.076110.i = phi i32 [ 0, %167 ], [ %98, %97 ], [ %110, %111 ], [ %110, %120 ], [ %125, %123 ], [ 0, %.thread114.i ]
   %.not.i.i = icmp eq ptr %94, null
   br i1 %.not.i.i, label %FrameRelease.exit.i, label %WebPDataClear.exit.i.i
 
 WebPDataClear.exit.i.i:                           ; preds = %.thread.i
-  %177 = load ptr, ptr %94, align 8
-  call void @WebPFree(ptr noundef %177) #14
+  %175 = load ptr, ptr %94, align 8
+  call void @WebPFree(ptr noundef %175) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %94, i8 0, i64 16, i1 false)
-  %178 = getelementptr inbounds i8, ptr %94, i64 48
-  %179 = load ptr, ptr %178, align 8
-  call void @WebPFree(ptr noundef %179) #14
+  %176 = getelementptr inbounds i8, ptr %94, i64 48
+  %177 = load ptr, ptr %176, align 8
+  call void @WebPFree(ptr noundef %177) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %94, i8 0, i64 104, i1 false)
   br label %FrameRelease.exit.i
 
 FrameRelease.exit.i:                              ; preds = %WebPDataClear.exit.i.i, %.thread.i
-  %180 = load i64, ptr %89, align 8
-  %181 = add i64 %180, -1
-  store i64 %181, ptr %89, align 8
-  %182 = load i32, ptr %12, align 4
-  %.not99.i = icmp eq i32 %182, 0
-  br i1 %.not99.i, label %183, label %187
+  %178 = load i64, ptr %89, align 8
+  %179 = add i64 %178, -1
+  store i64 %179, ptr %89, align 8
+  %180 = load i32, ptr %12, align 4
+  %.not99.i = icmp eq i32 %180, 0
+  br i1 %.not99.i, label %181, label %185
 
-183:                                              ; preds = %FrameRelease.exit.i
-  %184 = getelementptr inbounds i8, ptr %0, i64 1140
-  %185 = load i32, ptr %184, align 4
-  %186 = add nsw i32 %185, -1
-  store i32 %186, ptr %184, align 4
-  br label %187
+181:                                              ; preds = %FrameRelease.exit.i
+  %182 = getelementptr inbounds i8, ptr %0, i64 1140
+  %183 = load i32, ptr %182, align 4
+  %184 = add nsw i32 %183, -1
+  store i32 %184, ptr %182, align 4
+  br label %185
 
-187:                                              ; preds = %183, %FrameRelease.exit.i
-  br i1 %176, label %CacheFrame.exit, label %.critedge
+185:                                              ; preds = %181, %FrameRelease.exit.i
+  br i1 %174, label %CacheFrame.exit, label %CacheFrame.exit.thread
 
-CacheFrame.exit:                                  ; preds = %187
-  %188 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 100, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.15, i32 noundef %.076110.i) #14
+CacheFrame.exit:                                  ; preds = %185
+  %186 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 100, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.15, i32 noundef %.076110.i) #14
+  %187 = load ptr, ptr %77, align 8
+  %188 = getelementptr inbounds i8, ptr %187, i64 136
+  store i32 %.076110.i, ptr %188, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  store ptr null, ptr %77, align 8
+  store i32 1, ptr %78, align 8
+  br label %194
+
+CacheFrame.exit.thread:                           ; preds = %185, %167
+  %.076110.i.sink = phi i32 [ 0, %167 ], [ %.076110.i, %185 ]
   %189 = load ptr, ptr %77, align 8
   %190 = getelementptr inbounds i8, ptr %189, i64 136
-  store i32 %.076110.i, ptr %190, align 8
+  store i32 %.076110.i.sink, ptr %190, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  %191 = call fastcc i32 @FlushFrames(ptr noundef nonnull %0)
+  %.not66 = icmp eq i32 %191, 0
   store ptr null, ptr %77, align 8
   store i32 1, ptr %78, align 8
-  br label %197
+  br i1 %.not66, label %194, label %192
 
-.critedge:                                        ; preds = %187
-  %191 = load ptr, ptr %77, align 8
-  %192 = getelementptr inbounds i8, ptr %191, i64 136
-  store i32 %.076110.i, ptr %192, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  br label %193
+192:                                              ; preds = %CacheFrame.exit.thread
+  %193 = getelementptr inbounds i8, ptr %0, i64 1148
+  store i32 %2, ptr %193, align 4
+  br label %194
 
-193:                                              ; preds = %.critedge, %CacheFrame.exit.thread
-  %194 = call fastcc i32 @FlushFrames(ptr noundef nonnull %0)
-  %.not66 = icmp eq i32 %194, 0
-  store ptr null, ptr %77, align 8
-  store i32 1, ptr %78, align 8
-  br i1 %.not66, label %197, label %195
-
-195:                                              ; preds = %193
-  %196 = getelementptr inbounds i8, ptr %0, i64 1148
-  store i32 %2, ptr %196, align 4
-  br label %197
-
-197:                                              ; preds = %CacheFrame.exit, %193, %195, %32, %24, %4, %73, %68, %63, %50, %38, %22
-  %.0 = phi i32 [ 1, %38 ], [ 0, %50 ], [ 0, %68 ], [ 0, %73 ], [ 0, %63 ], [ 0, %22 ], [ 0, %4 ], [ 0, %24 ], [ 0, %32 ], [ 1, %195 ], [ 0, %193 ], [ 0, %CacheFrame.exit ]
+194:                                              ; preds = %CacheFrame.exit, %CacheFrame.exit.thread, %192, %32, %24, %4, %73, %68, %63, %50, %38, %22
+  %.0 = phi i32 [ 1, %38 ], [ 0, %50 ], [ 0, %68 ], [ 0, %73 ], [ 0, %63 ], [ 0, %22 ], [ 0, %4 ], [ 0, %24 ], [ 0, %32 ], [ 1, %192 ], [ 0, %CacheFrame.exit.thread ], [ 0, %CacheFrame.exit ]
   ret i32 %.0
 }
 
@@ -1618,7 +1607,7 @@ define internal fastcc i32 @OptimizeSingleFrame(ptr noundef %0, ptr noundef %1) 
   %11 = alloca %struct.WebPData, align 8
   %12 = tail call ptr @WebPMuxCreateInternal(ptr noundef %1, i32 noundef 0, i32 noundef 265) #14
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %111, label %14
+  br i1 %13, label %110, label %14
 
 14:                                               ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
@@ -1630,12 +1619,12 @@ define internal fastcc i32 @OptimizeSingleFrame(ptr noundef %0, ptr noundef %1) 
   %18 = load i32, ptr %17, align 4
   %19 = icmp ne i32 %18, 3
   %or.cond = select i1 %16, i1 true, i1 %19
-  br i1 %or.cond, label %107, label %20
+  br i1 %or.cond, label %106, label %20
 
 20:                                               ; preds = %14
   %21 = call i32 @WebPMuxGetCanvasSize(ptr noundef nonnull %12, ptr noundef nonnull %7, ptr noundef nonnull %8) #14
   %.not = icmp eq i32 %21, 1
-  br i1 %.not, label %22, label %107
+  br i1 %.not, label %22, label %106
 
 22:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
@@ -1759,11 +1748,6 @@ DecodeFrameOntoCanvas.exit.i:                     ; preds = %48
   %.not11.i = icmp eq i32 %85, 0
   br i1 %.not11.i, label %FrameToFullCanvas.exit.thread, label %86
 
-FrameToFullCanvas.exit.thread:                    ; preds = %79
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  br label %96
-
 86:                                               ; preds = %79
   %87 = getelementptr inbounds i8, ptr %0, i64 184
   store i32 1, ptr %23, align 8
@@ -1789,57 +1773,57 @@ FrameToFullCanvas.exit.thread:                    ; preds = %79
 FrameToFullCanvas.exit.thread35:                  ; preds = %94, %89
   %.sink.i.ph = phi ptr [ %6, %89 ], [ %5, %94 ]
   call void @WebPMemoryWriterClear(ptr noundef nonnull %.sink.i.ph) #14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  br label %96
+  br label %FrameToFullCanvas.exit.thread
 
 FrameToFullCanvas.exit:                           ; preds = %DecodeFrameOntoCanvas.exit.thread.i, %DecodeFrameOntoCanvas.exit.i, %74, %86
   call void @WebPMemoryWriterClear(ptr noundef nonnull %5) #14
   call void @WebPMemoryWriterClear(ptr noundef nonnull %6) #14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  br label %107
+  br label %106
 
-96:                                               ; preds = %FrameToFullCanvas.exit.thread35, %FrameToFullCanvas.exit.thread
-  %97 = call i32 @WebPMuxSetImage(ptr noundef nonnull %12, ptr noundef nonnull %10, i32 noundef 1) #14
-  %.not24 = icmp eq i32 %97, 1
-  br i1 %.not24, label %98, label %107
+FrameToFullCanvas.exit.thread:                    ; preds = %79, %FrameToFullCanvas.exit.thread35
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  %96 = call i32 @WebPMuxSetImage(ptr noundef nonnull %12, ptr noundef nonnull %10, i32 noundef 1) #14
+  %.not24 = icmp eq i32 %96, 1
+  br i1 %.not24, label %97, label %106
 
-98:                                               ; preds = %96
-  %99 = call i32 @WebPMuxAssemble(ptr noundef nonnull %12, ptr noundef nonnull %11) #14
-  %.not25 = icmp eq i32 %99, 1
-  br i1 %.not25, label %100, label %107
+97:                                               ; preds = %FrameToFullCanvas.exit.thread
+  %98 = call i32 @WebPMuxAssemble(ptr noundef nonnull %12, ptr noundef nonnull %11) #14
+  %.not25 = icmp eq i32 %98, 1
+  br i1 %.not25, label %99, label %106
 
-100:                                              ; preds = %98
-  %101 = getelementptr inbounds i8, ptr %11, i64 8
-  %102 = load i64, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %1, i64 8
-  %104 = load i64, ptr %103, align 8
-  %105 = icmp ult i64 %102, %104
-  br i1 %105, label %WebPDataClear.exit, label %107
+99:                                               ; preds = %97
+  %100 = getelementptr inbounds i8, ptr %11, i64 8
+  %101 = load i64, ptr %100, align 8
+  %102 = getelementptr inbounds i8, ptr %1, i64 8
+  %103 = load i64, ptr %102, align 8
+  %104 = icmp ult i64 %101, %103
+  br i1 %104, label %WebPDataClear.exit, label %106
 
-WebPDataClear.exit:                               ; preds = %100
-  %106 = load ptr, ptr %1, align 8
-  call void @WebPFree(ptr noundef %106) #14
+WebPDataClear.exit:                               ; preds = %99
+  %105 = load ptr, ptr %1, align 8
+  call void @WebPFree(ptr noundef %105) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  br label %107
+  br label %106
 
-107:                                              ; preds = %FrameToFullCanvas.exit, %100, %WebPDataClear.exit, %98, %96, %20, %14
-  %.018 = phi i32 [ %15, %14 ], [ %21, %20 ], [ %97, %96 ], [ %99, %98 ], [ 1, %WebPDataClear.exit ], [ 1, %100 ], [ -2, %FrameToFullCanvas.exit ]
-  %108 = load ptr, ptr %9, align 8
-  call void @WebPFree(ptr noundef %108) #14
+106:                                              ; preds = %FrameToFullCanvas.exit, %99, %WebPDataClear.exit, %97, %FrameToFullCanvas.exit.thread, %20, %14
+  %.018 = phi i32 [ %15, %14 ], [ %21, %20 ], [ %96, %FrameToFullCanvas.exit.thread ], [ %98, %97 ], [ 1, %WebPDataClear.exit ], [ 1, %99 ], [ -2, %FrameToFullCanvas.exit ]
+  %107 = load ptr, ptr %9, align 8
+  call void @WebPFree(ptr noundef %107) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  %109 = load ptr, ptr %10, align 8
-  call void @WebPFree(ptr noundef %109) #14
+  %108 = load ptr, ptr %10, align 8
+  call void @WebPFree(ptr noundef %108) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   call void @WebPMuxDelete(ptr noundef nonnull %12) #14
-  %110 = load ptr, ptr %11, align 8
-  call void @WebPFree(ptr noundef %110) #14
-  br label %111
+  %109 = load ptr, ptr %11, align 8
+  call void @WebPFree(ptr noundef %109) #14
+  br label %110
 
-111:                                              ; preds = %2, %107
-  %.0 = phi i32 [ %.018, %107 ], [ -2, %2 ]
+110:                                              ; preds = %2, %106
+  %.0 = phi i32 [ %.018, %106 ], [ -2, %2 ]
   ret i32 %.0
 }
 

@@ -3316,9 +3316,7 @@ catch.i:                                          ; preds = %ehcleanup227.i.i
 
 _ZN3ue2L6doHaigINS_12_GLOBAL__N_115Automaton_GraphEEEbRKNS_8NGHolderENS_8som_typeERKSt6vectorIS7_INS_9CharReachESaIS8_EESaISA_EEbPNS_11raw_som_dfaE.exit.thread: ; preds = %catch.i
   call fastcc void @_ZN3ue212_GLOBAL__N_115Automaton_GraphD2Ev(ptr noundef nonnull align 8 dereferenceable(1512) %n.i) #23
-  call void @llvm.lifetime.end.p0(i64 1512, ptr nonnull %n.i)
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %ref.tmp.i)
-  br label %_ZNKSt14default_deleteIN3ue211raw_som_dfaEEclEPS1_.exit.i11
+  br label %_ZNKSt14default_deleteIN3ue211raw_som_dfaEEclEPS1_.exit.i11.sink.split
 
 lpad6.loopexit.i:                                 ; preds = %cond.true.i.i.i.i.i.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
@@ -3521,9 +3519,7 @@ invoke.cont22.i:                                  ; preds = %if.else.i.i.i, %.no
 if.then.i.i.i178.i.thread:                        ; preds = %invoke.cont22.i
   call fastcc void @_ZN3ue212_GLOBAL__N_115Automaton_GraphD2Ev(ptr noundef nonnull align 8 dereferenceable(1512) %n.i) #23
   call void @_ZdlPv(ptr noundef nonnull %nfa_state_map.sroa.0.4.i) #25
-  call void @llvm.lifetime.end.p0(i64 1512, ptr nonnull %n.i)
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %ref.tmp.i)
-  br label %_ZNKSt14default_deleteIN3ue211raw_som_dfaEEclEPS1_.exit.i11
+  br label %_ZNKSt14default_deleteIN3ue211raw_som_dfaEEclEPS1_.exit.i11.sink.split
 
 lpad18.i:                                         ; preds = %if.else.i.i.i, %if.then.i.i132.i
   %341 = landingpad { ptr, i32 }
@@ -3780,18 +3776,11 @@ cleanup.i:                                        ; preds = %for.end.i
 cleanup.i.thread:                                 ; preds = %invoke.cont2.i
   call fastcc void @_ZN3ue212_GLOBAL__N_115Automaton_GraphD2Ev(ptr noundef nonnull align 8 dereferenceable(1512) %n.i) #23
   %tobool.not.i.i.i177.i150 = icmp eq ptr %nfa_state_map.sroa.0.4.i, null
-  br i1 %tobool.not.i.i.i177.i150, label %_ZN3ue2L6doHaigINS_12_GLOBAL__N_115Automaton_GraphEEEbRKNS_8NGHolderENS_8som_typeERKSt6vectorIS7_INS_9CharReachESaIS8_EESaISA_EEbPNS_11raw_som_dfaE.exit.thread151, label %if.then.i.i.i178.i.thread152
+  br i1 %tobool.not.i.i.i177.i150, label %_ZNKSt14default_deleteIN3ue211raw_som_dfaEEclEPS1_.exit.i11.sink.split, label %if.then.i.i.i178.i.thread152
 
 if.then.i.i.i178.i.thread152:                     ; preds = %cleanup.i.thread
   call void @_ZdlPv(ptr noundef nonnull %nfa_state_map.sroa.0.4.i) #25
-  call void @llvm.lifetime.end.p0(i64 1512, ptr nonnull %n.i)
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %ref.tmp.i)
-  br label %_ZNKSt14default_deleteIN3ue211raw_som_dfaEEclEPS1_.exit.i11
-
-_ZN3ue2L6doHaigINS_12_GLOBAL__N_115Automaton_GraphEEEbRKNS_8NGHolderENS_8som_typeERKSt6vectorIS7_INS_9CharReachESaIS8_EESaISA_EEbPNS_11raw_som_dfaE.exit.thread151: ; preds = %cleanup.i.thread
-  call void @llvm.lifetime.end.p0(i64 1512, ptr nonnull %n.i)
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %ref.tmp.i)
-  br label %_ZNKSt14default_deleteIN3ue211raw_som_dfaEEclEPS1_.exit.i11
+  br label %_ZNKSt14default_deleteIN3ue211raw_som_dfaEEclEPS1_.exit.i11.sink.split
 
 if.then.i.i.i178.i:                               ; preds = %cleanup.i
   call void @_ZdlPv(ptr noundef nonnull %nfa_state_map.sroa.0.4.i) #25
@@ -3846,7 +3835,12 @@ cleanup.thread:                                   ; preds = %if.end18, %_ZN3ue2L
   store i64 %371, ptr %agg.result, align 8
   br label %return
 
-_ZNKSt14default_deleteIN3ue211raw_som_dfaEEclEPS1_.exit.i11: ; preds = %if.then.i.i.i178.i.thread152, %_ZN3ue2L6doHaigINS_12_GLOBAL__N_115Automaton_GraphEEEbRKNS_8NGHolderENS_8som_typeERKSt6vectorIS7_INS_9CharReachESaIS8_EESaISA_EEbPNS_11raw_som_dfaE.exit.thread151, %if.then.i.i.i178.i.thread, %if.then.i.i.i178.i, %_ZN3ue2L6doHaigINS_12_GLOBAL__N_115Automaton_GraphEEEbRKNS_8NGHolderENS_8som_typeERKSt6vectorIS7_INS_9CharReachESaIS8_EESaISA_EEbPNS_11raw_som_dfaE.exit.thread, %_ZN3ue2L6doHaigINS_12_GLOBAL__N_115Automaton_GraphEEEbRKNS_8NGHolderENS_8som_typeERKSt6vectorIS7_INS_9CharReachESaIS8_EESaISA_EEbPNS_11raw_som_dfaE.exit, %if.end18
+_ZNKSt14default_deleteIN3ue211raw_som_dfaEEclEPS1_.exit.i11.sink.split: ; preds = %cleanup.i.thread, %_ZN3ue2L6doHaigINS_12_GLOBAL__N_115Automaton_GraphEEEbRKNS_8NGHolderENS_8som_typeERKSt6vectorIS7_INS_9CharReachESaIS8_EESaISA_EEbPNS_11raw_som_dfaE.exit.thread, %if.then.i.i.i178.i.thread, %if.then.i.i.i178.i.thread152
+  call void @llvm.lifetime.end.p0(i64 1512, ptr nonnull %n.i)
+  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %ref.tmp.i)
+  br label %_ZNKSt14default_deleteIN3ue211raw_som_dfaEEclEPS1_.exit.i11
+
+_ZNKSt14default_deleteIN3ue211raw_som_dfaEEclEPS1_.exit.i11: ; preds = %_ZNKSt14default_deleteIN3ue211raw_som_dfaEEclEPS1_.exit.i11.sink.split, %if.then.i.i.i178.i, %_ZN3ue2L6doHaigINS_12_GLOBAL__N_115Automaton_GraphEEEbRKNS_8NGHolderENS_8som_typeERKSt6vectorIS7_INS_9CharReachESaIS8_EESaISA_EEbPNS_11raw_som_dfaE.exit, %if.end18
   store ptr null, ptr %agg.result, align 8
   %vtable.i.i12 = load ptr, ptr %call.i, align 8
   %vfn.i.i13 = getelementptr inbounds i8, ptr %vtable.i.i12, i64 8

@@ -4449,64 +4449,58 @@ default.unreachable:                              ; preds = %"_ZN4moka3cht3map6b
 "_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h9d327d53cb9d2819E.exit.thread.i": ; preds = %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h9d327d53cb9d2819E.exit.i", %"_ZN4moka3cht3map6bucket36InsertOrModifyState$LT$K$C$V$C$F$GT$3key17he466f4b77cd5f45eE.exit.i"
   %81 = and i64 %27, 2
   %82 = icmp eq i64 %81, 0
-  br i1 %82, label %84, label %._crit_edge.i
+  br i1 %82, label %83, label %._crit_edge.i
 
 .thread.i:                                        ; preds = %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h9d327d53cb9d2819E.exit.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !1538
-  br label %83
-
-83:                                               ; preds = %84, %.thread.i
-  %.sroa.0.064.i = phi i64 [ 3, %.thread.i ], [ 0, %84 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !1538
   br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$21insert_if_not_present28_$u7b$$u7b$closure$u7d$$u7d$17hdfc17c486937dc31E.exit"
 
-84:                                               ; preds = %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h9d327d53cb9d2819E.exit.thread.i"
+83:                                               ; preds = %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h9d327d53cb9d2819E.exit.thread.i"
   call void @"_ZN4core3ptr456drop_in_place$LT$moka..cht..map..bucket..InsertOrModifyState$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$C$moka..cht..segment..HashMap$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$..insert_if_not_present..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hd20b6387875b2b00E.llvm.4598255899691141044"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9), !noalias !1538
-  br label %83
+  br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$21insert_if_not_present28_$u7b$$u7b$closure$u7d$$u7d$17hdfc17c486937dc31E.exit"
 
 "_ZN4moka3cht3map6bucket36InsertOrModifyState$LT$K$C$V$C$F$GT$18into_insert_bucket17h207175417fcc49bcE.exit.i": ; preds = %"_ZN4core3ptr120drop_in_place$LT$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$17h8962478a64d5d5a4E.exit.i.i", %"_ZN56_$LT$T$u20$as$u20$crossbeam_epoch..atomic..Pointable$GT$4init17h5b7af144d965d38eE.exit.i.i", %._crit_edge.i
   %.0.i37.i = phi i64 [ %71, %"_ZN4core3ptr120drop_in_place$LT$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$17h8962478a64d5d5a4E.exit.i.i" ], [ %57, %"_ZN56_$LT$T$u20$as$u20$crossbeam_epoch..atomic..Pointable$GT$4init17h5b7af144d965d38eE.exit.i.i" ], [ %.sroa.4.0.copyload.i, %._crit_edge.i ]
-  %85 = call { i64, i64 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17hea9d2275a25bb5e5E.llvm.8540189446595550310(ptr noundef nonnull %24, i64 noundef %27, i64 noundef %.0.i37.i, i8 noundef 3, i8 noundef 0), !noalias !1538
-  %86 = extractvalue { i64, i64 } %85, 0
-  %switch.i2.i.not.i = icmp eq i64 %86, 0
-  br i1 %switch.i2.i.not.i, label %92, label %87
+  %84 = call { i64, i64 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17hea9d2275a25bb5e5E.llvm.8540189446595550310(ptr noundef nonnull %24, i64 noundef %27, i64 noundef %.0.i37.i, i8 noundef 3, i8 noundef 0), !noalias !1538
+  %85 = extractvalue { i64, i64 } %84, 0
+  %switch.i2.i.not.i = icmp eq i64 %85, 0
+  br i1 %switch.i2.i.not.i, label %91, label %86
 
-87:                                               ; preds = %"_ZN4moka3cht3map6bucket36InsertOrModifyState$LT$K$C$V$C$F$GT$18into_insert_bucket17h207175417fcc49bcE.exit.i"
-  %88 = load i64, ptr %3, align 8, !range !392, !alias.scope !1564, !noalias !1538, !noundef !4
-  %89 = icmp eq i64 %88, 4
-  br i1 %89, label %.thread73.i, label %90
+86:                                               ; preds = %"_ZN4moka3cht3map6bucket36InsertOrModifyState$LT$K$C$V$C$F$GT$18into_insert_bucket17h207175417fcc49bcE.exit.i"
+  %87 = load i64, ptr %3, align 8, !range !392, !alias.scope !1564, !noalias !1538, !noundef !4
+  %88 = icmp eq i64 %87, 4
+  br i1 %88, label %.thread73.i, label %89
 
-90:                                               ; preds = %87
+89:                                               ; preds = %86
   invoke void @"_ZN4core3ptr456drop_in_place$LT$moka..cht..map..bucket..InsertOrModifyState$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$C$moka..cht..segment..HashMap$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$..insert_if_not_present..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hd20b6387875b2b00E.llvm.4598255899691141044"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %.thread73.i unwind label %.thread67.i, !noalias !1538
 
-.thread67.i:                                      ; preds = %90
-  %91 = landingpad { ptr, i32 }
+.thread67.i:                                      ; preds = %89
+  %90 = landingpad { ptr, i32 }
           cleanup
   store i64 3, ptr %3, align 8, !noalias !1538
   store i64 %.0.i37.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !1538
   br label %common.resume.i
 
-.thread73.i:                                      ; preds = %90, %87
+.thread73.i:                                      ; preds = %89, %86
   store i64 3, ptr %3, align 8, !noalias !1538
   store i64 %.0.i37.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !1538
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !1538
   br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$21insert_if_not_present28_$u7b$$u7b$closure$u7d$$u7d$17hdfc17c486937dc31E.exit"
 
-92:                                               ; preds = %"_ZN4moka3cht3map6bucket36InsertOrModifyState$LT$K$C$V$C$F$GT$18into_insert_bucket17h207175417fcc49bcE.exit.i"
+91:                                               ; preds = %"_ZN4moka3cht3map6bucket36InsertOrModifyState$LT$K$C$V$C$F$GT$18into_insert_bucket17h207175417fcc49bcE.exit.i"
   %spec.select35.i = select i1 %.not.i, i64 1, i64 2
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !1538
   br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$21insert_if_not_present28_$u7b$$u7b$closure$u7d$$u7d$17hdfc17c486937dc31E.exit"
 
 common.resume.i:                                  ; preds = %.thread67.i, %72, %53, %49
-  %common.resume.op.i = phi { ptr, i32 } [ %91, %.thread67.i ], [ %50, %53 ], [ %50, %49 ], [ %73, %72 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %90, %.thread67.i ], [ %50, %53 ], [ %50, %49 ], [ %73, %72 ]
   resume { ptr, i32 } %common.resume.op.i
 
-"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$21insert_if_not_present28_$u7b$$u7b$closure$u7d$$u7d$17hdfc17c486937dc31E.exit": ; preds = %83, %.thread73.i, %92
-  %.sroa.0.1.i = phi i64 [ %.sroa.0.064.i, %83 ], [ 4, %.thread73.i ], [ %spec.select35.i, %92 ]
-  %93 = add nsw i64 %.sroa.0.1.i, -3
-  %94 = call i64 @llvm.umin.i64(i64 %93, i64 2)
-  switch i64 %94, label %default.unreachable [
+"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$21insert_if_not_present28_$u7b$$u7b$closure$u7d$$u7d$17hdfc17c486937dc31E.exit": ; preds = %.thread.i, %83, %.thread73.i, %91
+  %.sroa.0.1.i = phi i64 [ 4, %.thread73.i ], [ %spec.select35.i, %91 ], [ 3, %.thread.i ], [ 0, %83 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !1538
+  %92 = add nsw i64 %.sroa.0.1.i, -3
+  %93 = call i64 @llvm.umin.i64(i64 %92, i64 2)
+  switch i64 %93, label %default.unreachable [
     i64 0, label %.loopexit23.loopexit
     i64 1, label %26
     i64 2, label %.loopexit
@@ -4838,64 +4832,58 @@ default.unreachable8.i.i:                         ; preds = %37
 77:                                               ; preds = %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17haaf9858684f3adc1E.exit.i"
   %78 = and i64 %28, 2
   %79 = icmp eq i64 %78, 0
-  br i1 %79, label %81, label %37
+  br i1 %79, label %80, label %37
 
 .thread.i:                                        ; preds = %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17haaf9858684f3adc1E.exit.i", %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h9d327d53cb9d2819E.exit.i.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !noalias !1620
-  br label %80
-
-80:                                               ; preds = %81, %.thread.i
-  %.sroa.0.062.i = phi i64 [ 3, %.thread.i ], [ 0, %81 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9), !noalias !1620
   br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$21insert_if_not_present28_$u7b$$u7b$closure$u7d$$u7d$17he13936337e230d63E.exit"
 
-81:                                               ; preds = %77
+80:                                               ; preds = %77
   call void @"_ZN4core3ptr908drop_in_place$LT$moka..cht..map..bucket..InsertOrModifyState$LT$$LP$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$core..any..TypeId$RP$$C$triomphe..arc..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$core..result..Result$LT$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$C$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$$GT$$GT$$C$moka..cht..segment..HashMap$LT$$LP$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$core..any..TypeId$RP$$C$triomphe..arc..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$core..result..Result$LT$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$C$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$$GT$$GT$$GT$..insert_if_not_present..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha158adf98f174457E.llvm.4598255899691141044"(ptr noalias noundef nonnull align 8 dereferenceable(40) %9), !noalias !1620
-  br label %80
+  br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$21insert_if_not_present28_$u7b$$u7b$closure$u7d$$u7d$17he13936337e230d63E.exit"
 
 "_ZN4moka3cht3map6bucket36InsertOrModifyState$LT$K$C$V$C$F$GT$18into_insert_bucket17heed6a63e13bfb1e1E.exit.i": ; preds = %"_ZN4core3ptr318drop_in_place$LT$triomphe..arc..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$core..result..Result$LT$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$C$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$$GT$$GT$$GT$17h7858737532d82e06E.exit.i.i", %"_ZN56_$LT$T$u20$as$u20$crossbeam_epoch..atomic..Pointable$GT$4init17h9493e5886b45d8f5E.exit.i.i", %37
   %.0.i36.i = phi i64 [ %63, %"_ZN4core3ptr318drop_in_place$LT$triomphe..arc..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$core..result..Result$LT$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$C$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$$GT$$GT$$GT$17h7858737532d82e06E.exit.i.i" ], [ %50, %"_ZN56_$LT$T$u20$as$u20$crossbeam_epoch..atomic..Pointable$GT$4init17h9493e5886b45d8f5E.exit.i.i" ], [ %.sroa.4.0.copyload.pre.i, %37 ]
-  %82 = call { i64, i64 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17hea9d2275a25bb5e5E.llvm.8540189446595550310(ptr noundef nonnull %25, i64 noundef %28, i64 noundef %.0.i36.i, i8 noundef 3, i8 noundef 0), !noalias !1620
-  %83 = extractvalue { i64, i64 } %82, 0
-  %switch.i2.i.not.i = icmp eq i64 %83, 0
-  br i1 %switch.i2.i.not.i, label %89, label %84
+  %81 = call { i64, i64 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17hea9d2275a25bb5e5E.llvm.8540189446595550310(ptr noundef nonnull %25, i64 noundef %28, i64 noundef %.0.i36.i, i8 noundef 3, i8 noundef 0), !noalias !1620
+  %82 = extractvalue { i64, i64 } %81, 0
+  %switch.i2.i.not.i = icmp eq i64 %82, 0
+  br i1 %switch.i2.i.not.i, label %88, label %83
 
-84:                                               ; preds = %"_ZN4moka3cht3map6bucket36InsertOrModifyState$LT$K$C$V$C$F$GT$18into_insert_bucket17heed6a63e13bfb1e1E.exit.i"
-  %85 = load i64, ptr %3, align 8, !range !247, !alias.scope !1657, !noalias !1620, !noundef !4
-  %86 = icmp eq i64 %85, 3
-  br i1 %86, label %.thread71.i, label %87
+83:                                               ; preds = %"_ZN4moka3cht3map6bucket36InsertOrModifyState$LT$K$C$V$C$F$GT$18into_insert_bucket17heed6a63e13bfb1e1E.exit.i"
+  %84 = load i64, ptr %3, align 8, !range !247, !alias.scope !1657, !noalias !1620, !noundef !4
+  %85 = icmp eq i64 %84, 3
+  br i1 %85, label %.thread71.i, label %86
 
-87:                                               ; preds = %84
+86:                                               ; preds = %83
   invoke void @"_ZN4core3ptr908drop_in_place$LT$moka..cht..map..bucket..InsertOrModifyState$LT$$LP$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$core..any..TypeId$RP$$C$triomphe..arc..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$core..result..Result$LT$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$C$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$$GT$$GT$$C$moka..cht..segment..HashMap$LT$$LP$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$core..any..TypeId$RP$$C$triomphe..arc..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$core..result..Result$LT$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$C$alloc..sync..Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$$GT$$GT$$GT$..insert_if_not_present..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha158adf98f174457E.llvm.4598255899691141044"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3)
           to label %.thread71.i unwind label %.thread65.i, !noalias !1620
 
-.thread65.i:                                      ; preds = %87
-  %88 = landingpad { ptr, i32 }
+.thread65.i:                                      ; preds = %86
+  %87 = landingpad { ptr, i32 }
           cleanup
   store i64 1, ptr %3, align 8, !noalias !1620
   store i64 %.0.i36.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !1620
   br label %common.resume.i
 
-.thread71.i:                                      ; preds = %87, %84
+.thread71.i:                                      ; preds = %86, %83
   store i64 1, ptr %3, align 8, !noalias !1620
   store i64 %.0.i36.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !1620
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9), !noalias !1620
   br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$21insert_if_not_present28_$u7b$$u7b$closure$u7d$$u7d$17he13936337e230d63E.exit"
 
-89:                                               ; preds = %"_ZN4moka3cht3map6bucket36InsertOrModifyState$LT$K$C$V$C$F$GT$18into_insert_bucket17heed6a63e13bfb1e1E.exit.i"
+88:                                               ; preds = %"_ZN4moka3cht3map6bucket36InsertOrModifyState$LT$K$C$V$C$F$GT$18into_insert_bucket17heed6a63e13bfb1e1E.exit.i"
   %spec.select35.i = select i1 %.not.i, i64 1, i64 2
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9), !noalias !1620
   br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$21insert_if_not_present28_$u7b$$u7b$closure$u7d$$u7d$17he13936337e230d63E.exit"
 
 common.resume.i:                                  ; preds = %.thread65.i, %64, %47, %43
-  %common.resume.op.i = phi { ptr, i32 } [ %88, %.thread65.i ], [ %44, %47 ], [ %44, %43 ], [ %65, %64 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %87, %.thread65.i ], [ %44, %47 ], [ %44, %43 ], [ %65, %64 ]
   resume { ptr, i32 } %common.resume.op.i
 
-"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$21insert_if_not_present28_$u7b$$u7b$closure$u7d$$u7d$17he13936337e230d63E.exit": ; preds = %80, %.thread71.i, %89
-  %.sroa.0.1.i = phi i64 [ %.sroa.0.062.i, %80 ], [ 4, %.thread71.i ], [ %spec.select35.i, %89 ]
-  %90 = add nsw i64 %.sroa.0.1.i, -3
-  %91 = call i64 @llvm.umin.i64(i64 %90, i64 2)
-  switch i64 %91, label %default.unreachable [
+"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$21insert_if_not_present28_$u7b$$u7b$closure$u7d$$u7d$17he13936337e230d63E.exit": ; preds = %.thread.i, %80, %.thread71.i, %88
+  %.sroa.0.1.i = phi i64 [ 4, %.thread71.i ], [ %spec.select35.i, %88 ], [ 3, %.thread.i ], [ 0, %80 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9), !noalias !1620
+  %89 = add nsw i64 %.sroa.0.1.i, -3
+  %90 = call i64 @llvm.umin.i64(i64 %89, i64 2)
+  switch i64 %90, label %default.unreachable [
     i64 0, label %.loopexit22.loopexit
     i64 1, label %27
     i64 2, label %.loopexit

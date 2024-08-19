@@ -2130,7 +2130,12 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder22emit_small_memor
   %21 = icmp eq i64 %5, 0
   br i1 %21, label %22, label %23
 
-22:                                               ; preds = %10, %104, %._crit_edge
+.sink.split:                                      ; preds = %102, %103, %._crit_edge
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
+  br label %22
+
+22:                                               ; preds = %.sink.split, %10
   ret void
 
 23:                                               ; preds = %10
@@ -2335,9 +2340,7 @@ common.resume:                                    ; preds = %76, %64
 ._crit_edge:                                      ; preds = %96, %"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$9from_iter17h761b85e0b2a2fce6E.exit"
   call void @"_ZN4core3ptr120drop_in_place$LT$smallvec..IntoIter$LT$$u5b$$LP$cranelift_codegen..ir..entities..Value$C$i32$RP$$u3b$$u20$4$u5d$$GT$$GT$17h478d9e0488a99308E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %15)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
-  br label %22
+  br label %.sink.split
 
 77:                                               ; preds = %.lr.ph, %96
   %78 = phi i64 [ 0, %.lr.ph ], [ %97, %96 ]
@@ -2403,16 +2406,11 @@ common.resume:                                    ; preds = %76, %64
 
 102:                                              ; preds = %_ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h44ed98c3e7edbb7cE.exit
   tail call void @_ZN18cranelift_frontend8frontend15FunctionBuilder12call_memmove17h8ccf6b80d8976148E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef %1, i8 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %61)
-  br label %104
+  br label %.sink.split
 
 103:                                              ; preds = %_ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h44ed98c3e7edbb7cE.exit
   tail call void @_ZN18cranelift_frontend8frontend15FunctionBuilder11call_memcpy17haf40c1f2e3ace695E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef %1, i8 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %61)
-  br label %104
-
-104:                                              ; preds = %103, %102
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
-  br label %22
+  br label %.sink.split
 }
 
 ; Function Attrs: nonlazybind uwtable

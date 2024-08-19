@@ -166,22 +166,17 @@ define hidden void @_ZN9untrusted5input5Input8read_all17h16da7085d5ce7fc0E(ptr n
 
 29:                                               ; preds = %13, %3, %22, %21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.05.i)
-  store i64 1, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  br label %33
+  br label %32
 
 30:                                               ; preds = %23
   %31 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %31, ptr noundef nonnull align 8 dereferenceable(96) %4, i64 96, i1 false)
   br label %32
 
-32:                                               ; preds = %23, %30
-  %.sink = phi i64 [ 0, %30 ], [ 1, %23 ]
-  store i64 %.sink, ptr %0, align 8
+32:                                               ; preds = %30, %23, %29
+  %.sink.sink = phi i64 [ 1, %29 ], [ 0, %30 ], [ 1, %23 ]
+  store i64 %.sink.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  br label %33
-
-33:                                               ; preds = %32, %29
   ret void
 }
 
@@ -218,22 +213,17 @@ define hidden void @_ZN9untrusted5input5Input8read_all17h25aa886a24fa966cE(ptr n
 
 19:                                               ; preds = %4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  store ptr null, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  br label %22
+  br label %21
 
 20:                                               ; preds = %15
   %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.46.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i64 24, i1 false)
   br label %21
 
-21:                                               ; preds = %15, %20
-  %.sink = phi ptr [ %13, %20 ], [ null, %15 ]
-  store ptr %.sink, ptr %0, align 8
+21:                                               ; preds = %20, %15, %19
+  %storemerge = phi ptr [ null, %19 ], [ %13, %20 ], [ null, %15 ]
+  store ptr %storemerge, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  br label %22
-
-22:                                               ; preds = %21, %19
   ret void
 }
 
@@ -305,31 +295,35 @@ define hidden void @_ZN9untrusted5input5Input8read_all17h3ece5dc86dc8b2a9E(ptr n
   %28 = load i64, ptr %20, align 8, !noalias !39, !noundef !4
   %29 = load i64, ptr %19, align 8, !noalias !39, !noundef !4
   %30 = icmp eq i64 %28, %29
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !39
-  br i1 %30, label %32, label %"_ZN4ring2ec7suite_b19key_pair_from_pkcs828_$u7b$$u7b$closure$u7d$$u7d$17h6af159eba7478115E.exit.thread"
+  br i1 %30, label %32, label %"_ZN4ring2ec7suite_b19key_pair_from_pkcs828_$u7b$$u7b$closure$u7d$$u7d$17h6af159eba7478115E.exit.thread40"
 
 31:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !39
+  br label %"_ZN4ring2ec7suite_b19key_pair_from_pkcs828_$u7b$$u7b$closure$u7d$$u7d$17h6af159eba7478115E.exit.thread40"
+
+"_ZN4ring2ec7suite_b19key_pair_from_pkcs828_$u7b$$u7b$closure$u7d$$u7d$17h6af159eba7478115E.exit.thread40": ; preds = %31, %27
+  %.sroa.11.029.ph = phi i64 [ 15, %27 ], [ %26, %31 ]
+  %.sroa.6.0.ph = phi ptr [ @anon.0ff1dd95649c33f7f644ca666ff5dfd9.11, %27 ], [ %24, %31 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !39
   br label %"_ZN4ring2ec7suite_b19key_pair_from_pkcs828_$u7b$$u7b$closure$u7d$$u7d$17h6af159eba7478115E.exit.thread"
 
 32:                                               ; preds = %27
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !39
   %33 = load i64, ptr %14, align 8, !noundef !4
   %34 = load i64, ptr %13, align 8, !noundef !4
   %35 = icmp eq i64 %33, %34
   br i1 %35, label %39, label %40
 
-"_ZN4ring2ec7suite_b19key_pair_from_pkcs828_$u7b$$u7b$closure$u7d$$u7d$17h6af159eba7478115E.exit.thread": ; preds = %27, %5, %31
-  %.sroa.6.038 = phi ptr [ @anon.0ff1dd95649c33f7f644ca666ff5dfd9.11, %5 ], [ %24, %31 ], [ @anon.0ff1dd95649c33f7f644ca666ff5dfd9.11, %27 ]
-  %.sroa.11.02937 = phi i64 [ 15, %5 ], [ %26, %31 ], [ 15, %27 ]
-  %36 = icmp ne ptr %.sroa.6.038, null
+"_ZN4ring2ec7suite_b19key_pair_from_pkcs828_$u7b$$u7b$closure$u7d$$u7d$17h6af159eba7478115E.exit.thread": ; preds = %5, %"_ZN4ring2ec7suite_b19key_pair_from_pkcs828_$u7b$$u7b$closure$u7d$$u7d$17h6af159eba7478115E.exit.thread40"
+  %.sroa.6.138 = phi ptr [ %.sroa.6.0.ph, %"_ZN4ring2ec7suite_b19key_pair_from_pkcs828_$u7b$$u7b$closure$u7d$$u7d$17h6af159eba7478115E.exit.thread40" ], [ @anon.0ff1dd95649c33f7f644ca666ff5dfd9.11, %5 ]
+  %.sroa.11.137 = phi i64 [ %.sroa.11.029.ph, %"_ZN4ring2ec7suite_b19key_pair_from_pkcs828_$u7b$$u7b$closure$u7d$$u7d$17h6af159eba7478115E.exit.thread40" ], [ 15, %5 ]
+  %36 = icmp ne ptr %.sroa.6.138, null
   call void @llvm.assume(i1 %36)
   %37 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.6.038, ptr %37, align 8
+  store ptr %.sroa.6.138, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.11.02937, ptr %38, align 8
+  store i64 %.sroa.11.137, ptr %38, align 8
   store ptr null, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %43
 
 39:                                               ; preds = %32
@@ -338,18 +332,18 @@ define hidden void @_ZN9untrusted5input5Input8read_all17h3ece5dc86dc8b2a9E(ptr n
   br label %40
 
 40:                                               ; preds = %32, %39
-  %.sink51 = phi ptr [ %21, %39 ], [ null, %32 ]
-  %.sink50 = phi ptr [ %24, %39 ], [ %2, %32 ]
+  %.sink52 = phi ptr [ %21, %39 ], [ null, %32 ]
+  %.sink51 = phi ptr [ %24, %39 ], [ %2, %32 ]
   %.sink = phi i64 [ %26, %39 ], [ %3, %32 ]
-  store ptr %.sink51, ptr %0, align 8
+  store ptr %.sink52, ptr %0, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink50, ptr %41, align 8
+  store ptr %.sink51, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sink, ptr %42, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %43
 
 43:                                               ; preds = %40, %"_ZN4ring2ec7suite_b19key_pair_from_pkcs828_$u7b$$u7b$closure$u7d$$u7d$17h6af159eba7478115E.exit.thread"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   ret void
 }
 
@@ -390,7 +384,7 @@ define hidden void @_ZN9untrusted5input5Input8read_all17h43ed9def5937e2b1E(ptr n
   %17 = call { ptr, i64 } @_ZN4ring2io3der19nonnegative_integer17h72e0271b2fa3d71cE(ptr noalias noundef nonnull align 8 dereferenceable(24) %3), !noalias !58
   %.fca.0.extract3.i.i.i.i.i = extractvalue { ptr, i64 } %17, 0
   %18 = icmp eq ptr %.fca.0.extract3.i.i.i.i.i, null
-  br i1 %18, label %30, label %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i.i.i.i
+  br i1 %18, label %"_ZN4ring3rsa16parse_public_key28_$u7b$$u7b$closure$u7d$$u7d$17h8b9c743844ec4b44E.exit.thread21", label %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i.i.i.i
 
 _ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i.i.i.i: ; preds = %14
   %.fca.1.extract4.i.i.i.i.i = extractvalue { ptr, i64 } %17, 1
@@ -398,44 +392,39 @@ _ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i.i.i.i: ; preds = %1
   %.fca.0.extract.i.i.i.i.i = extractvalue { ptr, i64 } %19, 0
   %.fca.1.extract.i.i.i.i.i = extractvalue { ptr, i64 } %19, 1
   %20 = icmp eq ptr %.fca.0.extract.i.i.i.i.i, null
-  br i1 %20, label %30, label %21
+  br i1 %20, label %"_ZN4ring3rsa16parse_public_key28_$u7b$$u7b$closure$u7d$$u7d$17h8b9c743844ec4b44E.exit.thread21", label %21
 
 21:                                               ; preds = %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i.i.i.i
   %22 = call { ptr, i64 } @_ZN4ring2io3der19nonnegative_integer17h72e0271b2fa3d71cE(ptr noalias noundef nonnull align 8 dereferenceable(24) %3), !noalias !58
   %.fca.0.extract3.i14.i.i.i.i = extractvalue { ptr, i64 } %22, 0
   %23 = icmp eq ptr %.fca.0.extract3.i14.i.i.i.i, null
-  br i1 %23, label %30, label %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit20.i.i.i.i
+  br i1 %23, label %"_ZN4ring3rsa16parse_public_key28_$u7b$$u7b$closure$u7d$$u7d$17h8b9c743844ec4b44E.exit.thread21", label %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit20.i.i.i.i
 
 _ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit20.i.i.i.i: ; preds = %21
   %.fca.1.extract4.i15.i.i.i.i = extractvalue { ptr, i64 } %22, 1
   %24 = call { ptr, i64 } @_ZN4ring2io8positive8Positive13from_be_bytes17h245754108107dbf5E.llvm.6801758991666044160(ptr noalias noundef nonnull readonly align 1 %.fca.0.extract3.i14.i.i.i.i, i64 noundef %.fca.1.extract4.i15.i.i.i.i)
   %.fca.0.extract.i16.i.i.i.i = extractvalue { ptr, i64 } %24, 0
   %25 = icmp eq ptr %.fca.0.extract.i16.i.i.i.i, null
-  br i1 %25, label %30, label %26
+  br i1 %25, label %"_ZN4ring3rsa16parse_public_key28_$u7b$$u7b$closure$u7d$$u7d$17h8b9c743844ec4b44E.exit.thread21", label %26
 
 26:                                               ; preds = %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit20.i.i.i.i
   %27 = load i64, ptr %16, align 8, !noalias !55, !noundef !4
   %28 = load i64, ptr %15, align 8, !noalias !55, !noundef !4
   %29 = icmp eq i64 %27, %28
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !55
-  br i1 %29, label %31, label %"_ZN4ring3rsa16parse_public_key28_$u7b$$u7b$closure$u7d$$u7d$17h8b9c743844ec4b44E.exit.thread"
+  br i1 %29, label %30, label %"_ZN4ring3rsa16parse_public_key28_$u7b$$u7b$closure$u7d$$u7d$17h8b9c743844ec4b44E.exit.thread21"
 
-30:                                               ; preds = %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit20.i.i.i.i, %21, %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i.i.i.i, %14
+"_ZN4ring3rsa16parse_public_key28_$u7b$$u7b$closure$u7d$$u7d$17h8b9c743844ec4b44E.exit.thread21": ; preds = %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i.i.i.i, %14, %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit20.i.i.i.i, %21, %26
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !55
   br label %"_ZN4ring3rsa16parse_public_key28_$u7b$$u7b$closure$u7d$$u7d$17h8b9c743844ec4b44E.exit.thread"
 
-31:                                               ; preds = %26
-  %32 = load i64, ptr %10, align 8, !noundef !4
-  %33 = load i64, ptr %9, align 8, !noundef !4
-  %34 = icmp eq i64 %32, %33
-  br i1 %34, label %35, label %36
+30:                                               ; preds = %26
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !55
+  %31 = load i64, ptr %10, align 8, !noundef !4
+  %32 = load i64, ptr %9, align 8, !noundef !4
+  %33 = icmp eq i64 %31, %32
+  br i1 %33, label %34, label %"_ZN4ring3rsa16parse_public_key28_$u7b$$u7b$closure$u7d$$u7d$17h8b9c743844ec4b44E.exit.thread"
 
-"_ZN4ring3rsa16parse_public_key28_$u7b$$u7b$closure$u7d$$u7d$17h8b9c743844ec4b44E.exit.thread": ; preds = %26, %2, %30
-  store ptr null, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %37
-
-35:                                               ; preds = %31
+34:                                               ; preds = %30
   %.fca.1.extract.i17.i.i.i.i = extractvalue { ptr, i64 } %24, 1
   %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.fca.1.extract.i.i.i.i.i, ptr %.sroa.46.0..sroa_idx, align 8
@@ -443,15 +432,12 @@ _ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit20.i.i.i.i: ; preds = 
   store ptr %.fca.0.extract.i16.i.i.i.i, ptr %.sroa.46.sroa.4.0..sroa.46.0..sroa_idx.sroa_idx, align 8
   %.sroa.46.sroa.5.0..sroa.46.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %.fca.1.extract.i17.i.i.i.i, ptr %.sroa.46.sroa.5.0..sroa.46.0..sroa_idx.sroa_idx, align 8
-  br label %36
+  br label %"_ZN4ring3rsa16parse_public_key28_$u7b$$u7b$closure$u7d$$u7d$17h8b9c743844ec4b44E.exit.thread"
 
-36:                                               ; preds = %31, %35
-  %.sink = phi ptr [ %.fca.0.extract.i.i.i.i.i, %35 ], [ null, %31 ]
-  store ptr %.sink, ptr %0, align 8
+"_ZN4ring3rsa16parse_public_key28_$u7b$$u7b$closure$u7d$$u7d$17h8b9c743844ec4b44E.exit.thread": ; preds = %34, %30, %"_ZN4ring3rsa16parse_public_key28_$u7b$$u7b$closure$u7d$$u7d$17h8b9c743844ec4b44E.exit.thread21", %2
+  %.sink.sink = phi ptr [ null, %2 ], [ null, %"_ZN4ring3rsa16parse_public_key28_$u7b$$u7b$closure$u7d$$u7d$17h8b9c743844ec4b44E.exit.thread21" ], [ %.fca.0.extract.i.i.i.i.i, %34 ], [ null, %30 ]
+  store ptr %.sink.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %37
-
-37:                                               ; preds = %36, %"_ZN4ring3rsa16parse_public_key28_$u7b$$u7b$closure$u7d$$u7d$17h8b9c743844ec4b44E.exit.thread"
   ret void
 }
 
@@ -550,21 +536,11 @@ define hidden noundef zeroext i1 @_ZN9untrusted5input5Input8read_all17h75345cb00
   %13 = load ptr, ptr %12, align 8, !invariant.load !4, !noalias !75, !nonnull !4
   %14 = call noundef zeroext i1 %13(ptr noundef nonnull align 1 %.sroa.0.0.copyload, ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %11), !noalias !82
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3), !noalias !75
-  br i1 %14, label %19, label %15
-
-15:                                               ; preds = %2
-  %16 = load i64, ptr %9, align 8, !noundef !4
-  %17 = load i64, ptr %8, align 8, !noundef !4
-  %18 = icmp ne i64 %16, %17
+  %15 = load i64, ptr %9, align 8
+  %16 = load i64, ptr %8, align 8
+  %17 = icmp ne i64 %15, %16
+  %.0 = select i1 %14, i1 true, i1 %17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  br label %20
-
-19:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  br label %20
-
-20:                                               ; preds = %15, %19
-  %.0 = phi i1 [ true, %19 ], [ %18, %15 ]
   ret i1 %.0
 }
 
@@ -594,25 +570,15 @@ define hidden { ptr, i64 } @_ZN9untrusted5input5Input8read_all17h7e0efe2a6d6e25c
   %.sroa.52.0..i.i = select i1 %.not.i.i, ptr %10, ptr null
   %12 = icmp eq ptr %.sroa.52.0..i.i, null
   %13 = select i1 %11, i1 true, i1 %12
-  br i1 %13, label %18, label %14
-
-14:                                               ; preds = %1
-  %15 = load i64, ptr %8, align 8, !noundef !4
-  %16 = load i64, ptr %7, align 8, !noundef !4
-  %17 = icmp eq i64 %15, %16
-  %.sroa.01.0. = select i1 %17, ptr %.sroa.52.0..i.i, ptr null
+  %14 = load i64, ptr %8, align 8
+  %15 = load i64, ptr %7, align 8
+  %16 = icmp eq i64 %14, %15
+  %.sroa.01.0. = select i1 %16, ptr %.sroa.52.0..i.i, ptr null
+  %.sroa.0.0 = select i1 %13, ptr null, ptr %.sroa.01.0.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %19
-
-18:                                               ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %19
-
-19:                                               ; preds = %14, %18
-  %.sroa.0.0 = phi ptr [ null, %18 ], [ %.sroa.01.0., %14 ]
-  %20 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %21 = insertvalue { ptr, i64 } %20, i64 %.sroa.6.0.copyload.i.i, 1
-  ret { ptr, i64 } %21
+  %17 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %18 = insertvalue { ptr, i64 } %17, i64 %.sroa.6.0.copyload.i.i, 1
+  ret { ptr, i64 } %18
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -630,7 +596,7 @@ define hidden void @_ZN9untrusted5input5Input8read_all17h8ec3260fcf1a50f7E.llvm.
   %9 = call { ptr, i64 } @_ZN4ring2io3der19nonnegative_integer17h72e0271b2fa3d71cE(ptr noalias noundef nonnull align 8 dereferenceable(24) %3), !noalias !88
   %.fca.0.extract3.i.i = extractvalue { ptr, i64 } %9, 0
   %10 = icmp eq ptr %.fca.0.extract3.i.i, null
-  br i1 %10, label %22, label %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i
+  br i1 %10, label %23, label %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i
 
 _ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i: ; preds = %2
   %.fca.1.extract4.i.i = extractvalue { ptr, i64 } %9, 1
@@ -638,33 +604,28 @@ _ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i: ; preds = %2
   %.fca.0.extract.i.i = extractvalue { ptr, i64 } %11, 0
   %.fca.1.extract.i.i = extractvalue { ptr, i64 } %11, 1
   %12 = icmp eq ptr %.fca.0.extract.i.i, null
-  br i1 %12, label %22, label %13
+  br i1 %12, label %23, label %13
 
 13:                                               ; preds = %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i
   %14 = call { ptr, i64 } @_ZN4ring2io3der19nonnegative_integer17h72e0271b2fa3d71cE(ptr noalias noundef nonnull align 8 dereferenceable(24) %3), !noalias !88
   %.fca.0.extract3.i18.i = extractvalue { ptr, i64 } %14, 0
   %15 = icmp eq ptr %.fca.0.extract3.i18.i, null
-  br i1 %15, label %22, label %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit24.i
+  br i1 %15, label %23, label %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit24.i
 
 _ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit24.i: ; preds = %13
   %.fca.1.extract4.i19.i = extractvalue { ptr, i64 } %14, 1
   %16 = call { ptr, i64 } @_ZN4ring2io8positive8Positive13from_be_bytes17h245754108107dbf5E.llvm.6801758991666044160(ptr noalias noundef nonnull readonly align 1 %.fca.0.extract3.i18.i, i64 noundef %.fca.1.extract4.i19.i)
   %.fca.0.extract.i20.i = extractvalue { ptr, i64 } %16, 0
   %17 = icmp eq ptr %.fca.0.extract.i20.i, null
-  br i1 %17, label %22, label %18
+  br i1 %17, label %23, label %18
 
 18:                                               ; preds = %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit24.i
   %19 = load i64, ptr %8, align 8, !noundef !4
   %20 = load i64, ptr %7, align 8, !noundef !4
   %21 = icmp eq i64 %19, %20
-  br i1 %21, label %23, label %24
+  br i1 %21, label %22, label %23
 
-22:                                               ; preds = %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i, %2, %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit24.i, %13
-  store ptr null, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %25
-
-23:                                               ; preds = %18
+22:                                               ; preds = %18
   %.fca.1.extract.i21.i = extractvalue { ptr, i64 } %16, 1
   %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.fca.1.extract.i.i, ptr %.sroa.46.0..sroa_idx, align 8
@@ -672,15 +633,12 @@ _ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit24.i: ; preds = %13
   store ptr %.fca.0.extract.i20.i, ptr %.sroa.46.sroa.4.0..sroa.46.0..sroa_idx.sroa_idx, align 8
   %.sroa.46.sroa.5.0..sroa.46.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %.fca.1.extract.i21.i, ptr %.sroa.46.sroa.5.0..sroa.46.0..sroa_idx.sroa_idx, align 8
-  br label %24
+  br label %23
 
-24:                                               ; preds = %18, %23
-  %.sink = phi ptr [ %.fca.0.extract.i.i, %23 ], [ null, %18 ]
-  store ptr %.sink, ptr %0, align 8
+23:                                               ; preds = %22, %18, %13, %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit24.i, %2, %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i
+  %.sink.sink = phi ptr [ null, %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i ], [ null, %2 ], [ null, %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit24.i ], [ null, %13 ], [ %.fca.0.extract.i.i, %22 ], [ null, %18 ]
+  store ptr %.sink.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %25
-
-25:                                               ; preds = %24, %22
   ret void
 }
 
@@ -744,31 +702,35 @@ define hidden void @_ZN9untrusted5input5Input8read_all17h91e78c218ee6c2d8E(ptr n
   %31 = load i64, ptr %20, align 8, !noalias !103, !noundef !4
   %32 = load i64, ptr %19, align 8, !noalias !103, !noundef !4
   %33 = icmp eq i64 %31, %32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !103
-  br i1 %33, label %35, label %"_ZN4ring5pkcs811unwrap_key_28_$u7b$$u7b$closure$u7d$$u7d$17h022466aab538b8e7E.exit.thread"
+  br i1 %33, label %35, label %"_ZN4ring5pkcs811unwrap_key_28_$u7b$$u7b$closure$u7d$$u7d$17h022466aab538b8e7E.exit.thread42"
 
 34:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !103
+  br label %"_ZN4ring5pkcs811unwrap_key_28_$u7b$$u7b$closure$u7d$$u7d$17h022466aab538b8e7E.exit.thread42"
+
+"_ZN4ring5pkcs811unwrap_key_28_$u7b$$u7b$closure$u7d$$u7d$17h022466aab538b8e7E.exit.thread42": ; preds = %34, %30
+  %.sroa.11.031.ph = phi i64 [ 15, %30 ], [ %29, %34 ]
+  %.sroa.6.0.ph = phi ptr [ @anon.0ff1dd95649c33f7f644ca666ff5dfd9.11, %30 ], [ %27, %34 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !103
   br label %"_ZN4ring5pkcs811unwrap_key_28_$u7b$$u7b$closure$u7d$$u7d$17h022466aab538b8e7E.exit.thread"
 
 35:                                               ; preds = %30
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !103
   %36 = load i64, ptr %14, align 8, !noundef !4
   %37 = load i64, ptr %13, align 8, !noundef !4
   %38 = icmp eq i64 %36, %37
   br i1 %38, label %42, label %43
 
-"_ZN4ring5pkcs811unwrap_key_28_$u7b$$u7b$closure$u7d$$u7d$17h022466aab538b8e7E.exit.thread": ; preds = %30, %5, %34
-  %.sroa.6.040 = phi ptr [ @anon.0ff1dd95649c33f7f644ca666ff5dfd9.11, %5 ], [ %27, %34 ], [ @anon.0ff1dd95649c33f7f644ca666ff5dfd9.11, %30 ]
-  %.sroa.11.03139 = phi i64 [ 15, %5 ], [ %29, %34 ], [ 15, %30 ]
-  %39 = icmp ne ptr %.sroa.6.040, null
+"_ZN4ring5pkcs811unwrap_key_28_$u7b$$u7b$closure$u7d$$u7d$17h022466aab538b8e7E.exit.thread": ; preds = %5, %"_ZN4ring5pkcs811unwrap_key_28_$u7b$$u7b$closure$u7d$$u7d$17h022466aab538b8e7E.exit.thread42"
+  %.sroa.6.140 = phi ptr [ %.sroa.6.0.ph, %"_ZN4ring5pkcs811unwrap_key_28_$u7b$$u7b$closure$u7d$$u7d$17h022466aab538b8e7E.exit.thread42" ], [ @anon.0ff1dd95649c33f7f644ca666ff5dfd9.11, %5 ]
+  %.sroa.11.139 = phi i64 [ %.sroa.11.031.ph, %"_ZN4ring5pkcs811unwrap_key_28_$u7b$$u7b$closure$u7d$$u7d$17h022466aab538b8e7E.exit.thread42" ], [ 15, %5 ]
+  %39 = icmp ne ptr %.sroa.6.140, null
   call void @llvm.assume(i1 %39)
   %40 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.6.040, ptr %40, align 8
+  store ptr %.sroa.6.140, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.11.03139, ptr %41, align 8
+  store i64 %.sroa.11.139, ptr %41, align 8
   store ptr null, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %46
 
 42:                                               ; preds = %35
@@ -777,18 +739,18 @@ define hidden void @_ZN9untrusted5input5Input8read_all17h91e78c218ee6c2d8E(ptr n
   br label %43
 
 43:                                               ; preds = %35, %42
-  %.sink53 = phi ptr [ %24, %42 ], [ null, %35 ]
-  %.sink52 = phi ptr [ %27, %42 ], [ %2, %35 ]
+  %.sink54 = phi ptr [ %24, %42 ], [ null, %35 ]
+  %.sink53 = phi ptr [ %27, %42 ], [ %2, %35 ]
   %.sink = phi i64 [ %29, %42 ], [ %3, %35 ]
-  store ptr %.sink53, ptr %0, align 8
+  store ptr %.sink54, ptr %0, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink52, ptr %44, align 8
+  store ptr %.sink53, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sink, ptr %45, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %46
 
 46:                                               ; preds = %43, %"_ZN4ring5pkcs811unwrap_key_28_$u7b$$u7b$closure$u7d$$u7d$17h022466aab538b8e7E.exit.thread"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   ret void
 }
 
@@ -924,21 +886,24 @@ define hidden void @_ZN9untrusted5input5Input8read_all17hc03e61e8997edcf5E(ptr n
   %29 = load i64, ptr %21, align 8, !noalias !135, !noundef !4
   %30 = load i64, ptr %20, align 8, !noalias !135, !noundef !4
   %.not.i15.i.i = icmp eq i64 %29, %30
-  br i1 %.not.i15.i.i, label %32, label %"_ZN4ring3rsa7keypair7KeyPair8from_der28_$u7b$$u7b$closure$u7d$$u7d$17h94a64a675d389437E.exit.thread27"
+  br i1 %.not.i15.i.i, label %33, label %32
 
 31:                                               ; preds = %19
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %5), !noalias !135
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !135
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !135
-  br label %"_ZN4ring3rsa7keypair7KeyPair8from_der28_$u7b$$u7b$closure$u7d$$u7d$17h94a64a675d389437E.exit.thread"
-
-"_ZN4ring3rsa7keypair7KeyPair8from_der28_$u7b$$u7b$closure$u7d$$u7d$17h94a64a675d389437E.exit.thread27": ; preds = %28
-  call void @"_ZN4core3ptr48drop_in_place$LT$ring..rsa..keypair..KeyPair$GT$17h3abf055b37f67373E"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6), !noalias !140
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !135
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !135
-  br label %"_ZN4ring3rsa7keypair7KeyPair8from_der28_$u7b$$u7b$closure$u7d$$u7d$17h94a64a675d389437E.exit.thread"
+  br label %"_ZN4ring3rsa7keypair7KeyPair8from_der28_$u7b$$u7b$closure$u7d$$u7d$17h94a64a675d389437E.exit.thread27"
 
 32:                                               ; preds = %28
+  call void @"_ZN4core3ptr48drop_in_place$LT$ring..rsa..keypair..KeyPair$GT$17h3abf055b37f67373E"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6), !noalias !140
+  br label %"_ZN4ring3rsa7keypair7KeyPair8from_der28_$u7b$$u7b$closure$u7d$$u7d$17h94a64a675d389437E.exit.thread27"
+
+"_ZN4ring3rsa7keypair7KeyPair8from_der28_$u7b$$u7b$closure$u7d$$u7d$17h94a64a675d389437E.exit.thread27": ; preds = %31, %32
+  %.sroa.12.0.ph = phi i64 [ 15, %32 ], [ %27, %31 ]
+  %.sroa.7.019.ph = phi ptr [ @anon.0ff1dd95649c33f7f644ca666ff5dfd9.11, %32 ], [ %25, %31 ]
+  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !135
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !135
+  br label %"_ZN4ring3rsa7keypair7KeyPair8from_der28_$u7b$$u7b$closure$u7d$$u7d$17h94a64a675d389437E.exit.thread"
+
+33:                                               ; preds = %28
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(216) %.sroa.6.0..sroa_idx.i14.i.i, i64 216, i1 false)
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !135
@@ -948,44 +913,39 @@ define hidden void @_ZN9untrusted5input5Input8read_all17hc03e61e8997edcf5E(ptr n
   store ptr %25, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 16
   store i64 %27, ptr %.sroa.5.0..sroa_idx, align 8
-  %33 = load i64, ptr %15, align 8, !noundef !4
-  %34 = load i64, ptr %14, align 8, !noundef !4
-  %.not = icmp eq i64 %33, %34
+  %34 = load i64, ptr %15, align 8, !noundef !4
+  %35 = load i64, ptr %14, align 8, !noundef !4
+  %.not = icmp eq i64 %34, %35
   br i1 %.not, label %.thread36, label %39
 
-"_ZN4ring3rsa7keypair7KeyPair8from_der28_$u7b$$u7b$closure$u7d$$u7d$17h94a64a675d389437E.exit.thread": ; preds = %4, %31, %"_ZN4ring3rsa7keypair7KeyPair8from_der28_$u7b$$u7b$closure$u7d$$u7d$17h94a64a675d389437E.exit.thread27"
-  %.sroa.7.125 = phi ptr [ @anon.0ff1dd95649c33f7f644ca666ff5dfd9.11, %"_ZN4ring3rsa7keypair7KeyPair8from_der28_$u7b$$u7b$closure$u7d$$u7d$17h94a64a675d389437E.exit.thread27" ], [ @anon.0ff1dd95649c33f7f644ca666ff5dfd9.11, %4 ], [ %25, %31 ]
-  %.sroa.12.124 = phi i64 [ 15, %"_ZN4ring3rsa7keypair7KeyPair8from_der28_$u7b$$u7b$closure$u7d$$u7d$17h94a64a675d389437E.exit.thread27" ], [ 15, %4 ], [ %27, %31 ]
-  %35 = icmp ne ptr %.sroa.7.125, null
-  call void @llvm.assume(i1 %35)
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.7.125, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.12.124, ptr %37, align 8
+"_ZN4ring3rsa7keypair7KeyPair8from_der28_$u7b$$u7b$closure$u7d$$u7d$17h94a64a675d389437E.exit.thread": ; preds = %4, %"_ZN4ring3rsa7keypair7KeyPair8from_der28_$u7b$$u7b$closure$u7d$$u7d$17h94a64a675d389437E.exit.thread27"
+  %.sroa.7.125 = phi ptr [ %.sroa.7.019.ph, %"_ZN4ring3rsa7keypair7KeyPair8from_der28_$u7b$$u7b$closure$u7d$$u7d$17h94a64a675d389437E.exit.thread27" ], [ @anon.0ff1dd95649c33f7f644ca666ff5dfd9.11, %4 ]
+  %.sroa.12.124 = phi i64 [ %.sroa.12.0.ph, %"_ZN4ring3rsa7keypair7KeyPair8from_der28_$u7b$$u7b$closure$u7d$$u7d$17h94a64a675d389437E.exit.thread27" ], [ 15, %4 ]
+  %36 = icmp ne ptr %.sroa.7.125, null
+  call void @llvm.assume(i1 %36)
+  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sroa.7.125, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.12.124, ptr %38, align 8
   store ptr null, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   br label %42
 
-.thread36:                                        ; preds = %32
+.thread36:                                        ; preds = %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(240) %9, i64 240, i1 false)
-  br label %38
-
-38:                                               ; preds = %.thread36, %39
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   br label %42
 
-39:                                               ; preds = %32
+39:                                               ; preds = %33
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %3, ptr %41, align 8
   store ptr null, ptr %0, align 8
   call void @"_ZN4core3ptr48drop_in_place$LT$ring..rsa..keypair..KeyPair$GT$17h3abf055b37f67373E"(ptr noalias noundef nonnull align 8 dereferenceable(240) %9)
-  br label %38
+  br label %42
 
-42:                                               ; preds = %38, %"_ZN4ring3rsa7keypair7KeyPair8from_der28_$u7b$$u7b$closure$u7d$$u7d$17h94a64a675d389437E.exit.thread"
+42:                                               ; preds = %39, %.thread36, %"_ZN4ring3rsa7keypair7KeyPair8from_der28_$u7b$$u7b$closure$u7d$$u7d$17h94a64a675d389437E.exit.thread"
+  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   ret void
 }
 
@@ -1031,19 +991,15 @@ _ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i: ; pr
   %18 = load i64, ptr %7, align 8, !noundef !4
   %19 = icmp eq i64 %17, %18
   %.sroa.01.0. = select i1 %19, ptr %15, ptr null
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %21
+  br label %20
 
-20:                                               ; preds = %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i, %12, %1
+20:                                               ; preds = %1, %12, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i, %14
+  %.sroa.3.0.i.i.i.i9 = phi i64 [ %16, %14 ], [ undef, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i ], [ undef, %12 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.01.0., %14 ], [ null, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i ], [ null, %12 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %21
-
-21:                                               ; preds = %14, %20
-  %.sroa.3.0.i.i.i.i9 = phi i64 [ undef, %20 ], [ %16, %14 ]
-  %.sroa.0.0 = phi ptr [ null, %20 ], [ %.sroa.01.0., %14 ]
-  %22 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %23 = insertvalue { ptr, i64 } %22, i64 %.sroa.3.0.i.i.i.i9, 1
-  ret { ptr, i64 } %23
+  %21 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %22 = insertvalue { ptr, i64 } %21, i64 %.sroa.3.0.i.i.i.i9, 1
+  ret { ptr, i64 } %22
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1195,14 +1151,14 @@ define hidden void @_ZN4ring2io3der6nested17h2b89b9586a9703eaE(ptr noalias nocap
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 16
   %.sroa.6.0.copyload.i = load i64, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !177
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !177
-  br i1 %8, label %31, label %9
+  br i1 %8, label %29, label %9
 
 9:                                                ; preds = %3
   %10 = add i8 %2, -1
   %11 = icmp ult i8 %10, -93
   tail call void @llvm.assume(i1 %11)
   %.not.i = icmp eq i8 %.sroa.04.0.copyload.i, %2
-  br i1 %.not.i, label %12, label %31
+  br i1 %.not.i, label %12, label %29
 
 12:                                               ; preds = %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !180)
@@ -1215,7 +1171,7 @@ define hidden void @_ZN4ring2io3der6nested17h2b89b9586a9703eaE(ptr noalias nocap
   %15 = call { ptr, i64 } @_ZN4ring2io3der19nonnegative_integer17h72e0271b2fa3d71cE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4), !noalias !185
   %.fca.0.extract3.i.i.i = extractvalue { ptr, i64 } %15, 0
   %16 = icmp eq ptr %.fca.0.extract3.i.i.i, null
-  br i1 %16, label %28, label %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i.i
+  br i1 %16, label %_ZN9untrusted5input5Input8read_all17h8ec3260fcf1a50f7E.llvm.4525565709555364834.exit, label %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i.i
 
 _ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i.i: ; preds = %12
   %.fca.1.extract4.i.i.i = extractvalue { ptr, i64 } %15, 1
@@ -1223,33 +1179,28 @@ _ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i.i: ; preds = %12
   %.fca.0.extract.i.i.i = extractvalue { ptr, i64 } %17, 0
   %.fca.1.extract.i.i.i = extractvalue { ptr, i64 } %17, 1
   %18 = icmp eq ptr %.fca.0.extract.i.i.i, null
-  br i1 %18, label %28, label %19
+  br i1 %18, label %_ZN9untrusted5input5Input8read_all17h8ec3260fcf1a50f7E.llvm.4525565709555364834.exit, label %19
 
 19:                                               ; preds = %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i.i
   %20 = call { ptr, i64 } @_ZN4ring2io3der19nonnegative_integer17h72e0271b2fa3d71cE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4), !noalias !185
   %.fca.0.extract3.i18.i.i = extractvalue { ptr, i64 } %20, 0
   %21 = icmp eq ptr %.fca.0.extract3.i18.i.i, null
-  br i1 %21, label %28, label %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit24.i.i
+  br i1 %21, label %_ZN9untrusted5input5Input8read_all17h8ec3260fcf1a50f7E.llvm.4525565709555364834.exit, label %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit24.i.i
 
 _ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit24.i.i: ; preds = %19
   %.fca.1.extract4.i19.i.i = extractvalue { ptr, i64 } %20, 1
   %22 = call { ptr, i64 } @_ZN4ring2io8positive8Positive13from_be_bytes17h245754108107dbf5E.llvm.6801758991666044160(ptr noalias noundef nonnull readonly align 1 %.fca.0.extract3.i18.i.i, i64 noundef %.fca.1.extract4.i19.i.i)
   %.fca.0.extract.i20.i.i = extractvalue { ptr, i64 } %22, 0
   %23 = icmp eq ptr %.fca.0.extract.i20.i.i, null
-  br i1 %23, label %28, label %24
+  br i1 %23, label %_ZN9untrusted5input5Input8read_all17h8ec3260fcf1a50f7E.llvm.4525565709555364834.exit, label %24
 
 24:                                               ; preds = %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit24.i.i
   %25 = load i64, ptr %14, align 8, !noalias !183, !noundef !4
   %26 = load i64, ptr %13, align 8, !noalias !183, !noundef !4
   %27 = icmp eq i64 %25, %26
-  br i1 %27, label %29, label %30
+  br i1 %27, label %28, label %_ZN9untrusted5input5Input8read_all17h8ec3260fcf1a50f7E.llvm.4525565709555364834.exit
 
-28:                                               ; preds = %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit24.i.i, %19, %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i.i, %12
-  store ptr null, ptr %0, align 8, !alias.scope !180, !noalias !188
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !183
-  br label %_ZN9untrusted5input5Input8read_all17h8ec3260fcf1a50f7E.llvm.4525565709555364834.exit
-
-29:                                               ; preds = %24
+28:                                               ; preds = %24
   %.fca.1.extract.i21.i.i = extractvalue { ptr, i64 } %22, 1
   %.sroa.46.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.fca.1.extract.i.i.i, ptr %.sroa.46.0..sroa_idx.i, align 8, !alias.scope !180, !noalias !188
@@ -1257,19 +1208,19 @@ _ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit24.i.i: ; preds = %19
   store ptr %.fca.0.extract.i20.i.i, ptr %.sroa.46.sroa.4.0..sroa.46.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !180, !noalias !188
   %.sroa.46.sroa.5.0..sroa.46.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %.fca.1.extract.i21.i.i, ptr %.sroa.46.sroa.5.0..sroa.46.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !180, !noalias !188
+  br label %_ZN9untrusted5input5Input8read_all17h8ec3260fcf1a50f7E.llvm.4525565709555364834.exit
+
+_ZN9untrusted5input5Input8read_all17h8ec3260fcf1a50f7E.llvm.4525565709555364834.exit: ; preds = %12, %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i.i, %19, %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit24.i.i, %24, %28
+  %.sink.sink.i = phi ptr [ null, %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit.i.i ], [ null, %12 ], [ null, %_ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit24.i.i ], [ null, %19 ], [ %.fca.0.extract.i.i.i, %28 ], [ null, %24 ]
+  store ptr %.sink.sink.i, ptr %0, align 8, !alias.scope !180, !noalias !188
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !183
   br label %30
 
-30:                                               ; preds = %29, %24
-  %.sink.i = phi ptr [ %.fca.0.extract.i.i.i, %29 ], [ null, %24 ]
-  store ptr %.sink.i, ptr %0, align 8, !alias.scope !180, !noalias !188
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !183
-  br label %_ZN9untrusted5input5Input8read_all17h8ec3260fcf1a50f7E.llvm.4525565709555364834.exit
-
-31:                                               ; preds = %9, %3
+29:                                               ; preds = %9, %3
   store ptr null, ptr %0, align 8
-  br label %_ZN9untrusted5input5Input8read_all17h8ec3260fcf1a50f7E.llvm.4525565709555364834.exit
+  br label %30
 
-_ZN9untrusted5input5Input8read_all17h8ec3260fcf1a50f7E.llvm.4525565709555364834.exit: ; preds = %30, %28, %31
+30:                                               ; preds = %_ZN9untrusted5input5Input8read_all17h8ec3260fcf1a50f7E.llvm.4525565709555364834.exit, %29
   ret void
 }
 
@@ -1287,14 +1238,14 @@ define hidden { ptr, i64 } @_ZN4ring2io3der6nested17h871765488c25baf8E(ptr noali
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 16
   %.sroa.6.0.copyload.i = load i64, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !189
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !189
-  br i1 %8, label %_ZN9untrusted5input5Input8read_all17hd716fe74c06ca59cE.llvm.4525565709555364834.exit, label %9
+  br i1 %8, label %26, label %9
 
 9:                                                ; preds = %2
   %10 = add i8 %1, -1
   %11 = icmp ult i8 %10, -93
   tail call void @llvm.assume(i1 %11)
   %.not.i = icmp eq i8 %.sroa.04.0.copyload.i, %1
-  br i1 %.not.i, label %12, label %_ZN9untrusted5input5Input8read_all17hd716fe74c06ca59cE.llvm.4525565709555364834.exit
+  br i1 %.not.i, label %12, label %26
 
 12:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !192
@@ -1312,18 +1263,18 @@ define hidden { ptr, i64 } @_ZN4ring2io3der6nested17h871765488c25baf8E(ptr noali
   %.sroa.6.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %.sroa.6.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.6.0..sroa_idx.i.i.i.i.i.i, align 8, !noalias !195
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !195
-  br i1 %17, label %26, label %18
+  br i1 %17, label %_ZN9untrusted5input5Input8read_all17hd716fe74c06ca59cE.llvm.4525565709555364834.exit, label %18
 
 18:                                               ; preds = %12
   %.not.i.i.i.i.i.i = icmp ne i8 %.sroa.04.0.copyload.i.i.i.i.i.i, 3
   %.not.i.i.i.i.i.i.i = icmp eq i64 %.sroa.6.0.copyload.i.i.i.i.i.i, 0
   %or.cond.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i, i1 true, i1 %.not.i.i.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i.i, label %26, label %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i.i
+  br i1 %or.cond.i.i.i.i.i, label %_ZN9untrusted5input5Input8read_all17hd716fe74c06ca59cE.llvm.4525565709555364834.exit, label %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i.i
 
 _ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i.i: ; preds = %18
   %19 = load i8, ptr %16, align 1, !noalias !206, !noundef !4
   %.not.i8.i.i.i.i.i = icmp eq i8 %19, 0
-  br i1 %.not.i8.i.i.i.i.i, label %20, label %26
+  br i1 %.not.i8.i.i.i.i.i, label %20, label %_ZN9untrusted5input5Input8read_all17hd716fe74c06ca59cE.llvm.4525565709555364834.exit
 
 20:                                               ; preds = %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i.i
   %21 = getelementptr inbounds i8, ptr %16, i64 1
@@ -1332,16 +1283,17 @@ _ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i.i: ; 
   %24 = load i64, ptr %13, align 8, !noalias !192, !noundef !4
   %25 = icmp eq i64 %23, %24
   %.sroa.01.0..i = select i1 %25, ptr %21, ptr null
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !192
   br label %_ZN9untrusted5input5Input8read_all17hd716fe74c06ca59cE.llvm.4525565709555364834.exit
 
-26:                                               ; preds = %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i.i, %18, %12
+_ZN9untrusted5input5Input8read_all17hd716fe74c06ca59cE.llvm.4525565709555364834.exit: ; preds = %12, %18, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i.i, %20
+  %.sroa.3.0.i.i.i.i9.i = phi i64 [ %22, %20 ], [ undef, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i.i ], [ undef, %18 ], [ undef, %12 ]
+  %.sroa.0.0.i8 = phi ptr [ %.sroa.01.0..i, %20 ], [ null, %_ZN9untrusted6reader6Reader9read_byte17hdc612f3c87dc1fb8E.exit.i.i.i.i.i.i.i ], [ null, %18 ], [ null, %12 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !192
-  br label %_ZN9untrusted5input5Input8read_all17hd716fe74c06ca59cE.llvm.4525565709555364834.exit
+  br label %26
 
-_ZN9untrusted5input5Input8read_all17hd716fe74c06ca59cE.llvm.4525565709555364834.exit: ; preds = %2, %9, %26, %20
-  %.sroa.3.0 = phi i64 [ undef, %26 ], [ %22, %20 ], [ undef, %9 ], [ undef, %2 ]
-  %.sroa.0.0 = phi ptr [ null, %26 ], [ %.sroa.01.0..i, %20 ], [ null, %9 ], [ null, %2 ]
+26:                                               ; preds = %2, %9, %_ZN9untrusted5input5Input8read_all17hd716fe74c06ca59cE.llvm.4525565709555364834.exit
+  %.sroa.3.0 = phi i64 [ %.sroa.3.0.i.i.i.i9.i, %_ZN9untrusted5input5Input8read_all17hd716fe74c06ca59cE.llvm.4525565709555364834.exit ], [ undef, %9 ], [ undef, %2 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.0.i8, %_ZN9untrusted5input5Input8read_all17hd716fe74c06ca59cE.llvm.4525565709555364834.exit ], [ null, %9 ], [ null, %2 ]
   %27 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %28 = insertvalue { ptr, i64 } %27, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %28

@@ -1992,9 +1992,9 @@ default.unreachable:                              ; preds = %522, %218, %211, %1
   br label %.body.i130.i.i
 
 540:                                              ; preds = %535
+  %.pre13.i.i.i = load i64, ptr %34, align 8, !range !8, !noalias !254
+  %541 = trunc nuw i64 %.pre13.i.i.i to i1
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %33), !noalias !274
-  %.pre12.i.i.i = load i64, ptr %34, align 8, !range !8, !noalias !254
-  %541 = trunc nuw i64 %.pre12.i.i.i to i1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32), !noalias !273
   br i1 %541, label %544, label %545
 
@@ -8666,6 +8666,11 @@ default.unreachable20:                            ; preds = %2
   %trunc.i.i.i = trunc i24 %13 to i1
   br i1 %trunc.i.i.i, label %common.ret.thread, label %14
 
+common.ret.thread:                                ; preds = %.noexc
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4), !noalias !1269
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1264
+  br label %29
+
 14:                                               ; preds = %.noexc
   %.sroa.52.0.extract.shift.i.i.i = lshr i24 %13, 16
   %.sroa.52.0.extract.trunc.i.i.i = trunc nuw i24 %.sroa.52.0.extract.shift.i.i.i to i8
@@ -8683,11 +8688,6 @@ default.unreachable20:                            ; preds = %2
   %19 = getelementptr inbounds i8, ptr %16, i64 416
   %20 = invoke noundef i8 @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h81f048e8b18d1ef3E.llvm.6972814350136667815"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %19)
           to label %23 unwind label %21, !range !129
-
-common.ret.thread:                                ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4), !noalias !1269
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1264
-  br label %29
 
 21:                                               ; preds = %14
   %22 = landingpad { ptr, i32 }
@@ -8758,7 +8758,6 @@ define hidden void @"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$
 14:                                               ; preds = %3
   %15 = getelementptr inbounds i8, ptr %0, i64 56
   store i8 11, ptr %15, align 8, !alias.scope !1272, !noalias !1281
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5), !noalias !1277
   br label %"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv17h6cf459fdd4a76c9fE.exit"
 
 16:                                               ; preds = %8
@@ -8769,7 +8768,6 @@ define hidden void @"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$
 
 18:                                               ; preds = %8
   call void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha48440384a6888ecE"(ptr noalias noundef nonnull align 1 dereferenceable(2) %5), !noalias !1272
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5), !noalias !1277
   br label %"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv17h6cf459fdd4a76c9fE.exit"
 
 19:                                               ; preds = %16
@@ -8782,6 +8780,7 @@ define hidden void @"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$
   resume { ptr, i32 } %17
 
 "_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv17h6cf459fdd4a76c9fE.exit": ; preds = %14, %18
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5), !noalias !1277
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret void
 }
@@ -8819,7 +8818,6 @@ define hidden void @"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$
 
 14:                                               ; preds = %3
   store i64 1, ptr %0, align 8, !alias.scope !1282, !noalias !1291
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5), !noalias !1287
   br label %"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv17h2055312157a27683E.exit"
 
 15:                                               ; preds = %8
@@ -8830,7 +8828,6 @@ define hidden void @"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$
 
 17:                                               ; preds = %8
   call void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha48440384a6888ecE"(ptr noalias noundef nonnull align 1 dereferenceable(2) %5), !noalias !1282
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5), !noalias !1287
   br label %"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv17h2055312157a27683E.exit"
 
 18:                                               ; preds = %15
@@ -8843,6 +8840,7 @@ define hidden void @"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$
   resume { ptr, i32 } %16
 
 "_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv17h2055312157a27683E.exit": ; preds = %14, %17
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5), !noalias !1287
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret void
 }
@@ -9287,7 +9285,6 @@ define hidden void @"_ZN88_$LT$tokio..future..poll_fn..PollFn$LT$F$GT$$u20$as$u2
 14:                                               ; preds = %3
   %15 = getelementptr inbounds i8, ptr %0, i64 56
   store i8 11, ptr %15, align 8, !alias.scope !1339, !noalias !1340
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5), !noalias !1335
   br label %"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha77a4b555bc97e30E.llvm.3022320907263900876.exit"
 
 16:                                               ; preds = %8
@@ -9298,7 +9295,6 @@ define hidden void @"_ZN88_$LT$tokio..future..poll_fn..PollFn$LT$F$GT$$u20$as$u2
 
 18:                                               ; preds = %8
   call void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha48440384a6888ecE"(ptr noalias noundef nonnull align 1 dereferenceable(2) %5), !noalias !1341
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5), !noalias !1335
   br label %"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha77a4b555bc97e30E.llvm.3022320907263900876.exit"
 
 19:                                               ; preds = %16
@@ -9311,6 +9307,7 @@ define hidden void @"_ZN88_$LT$tokio..future..poll_fn..PollFn$LT$F$GT$$u20$as$u2
   resume { ptr, i32 } %17
 
 "_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha77a4b555bc97e30E.llvm.3022320907263900876.exit": ; preds = %14, %18
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5), !noalias !1335
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1334
   ret void
 }
@@ -9358,7 +9355,6 @@ define hidden void @"_ZN88_$LT$tokio..future..poll_fn..PollFn$LT$F$GT$$u20$as$u2
 
 14:                                               ; preds = %3
   store i64 1, ptr %0, align 8, !alias.scope !1365, !noalias !1366
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5), !noalias !1361
   br label %"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf56dff7a159667c5E.llvm.3022320907263900876.exit"
 
 15:                                               ; preds = %8
@@ -9369,7 +9365,6 @@ define hidden void @"_ZN88_$LT$tokio..future..poll_fn..PollFn$LT$F$GT$$u20$as$u2
 
 17:                                               ; preds = %8
   call void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha48440384a6888ecE"(ptr noalias noundef nonnull align 1 dereferenceable(2) %5), !noalias !1367
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5), !noalias !1361
   br label %"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf56dff7a159667c5E.llvm.3022320907263900876.exit"
 
 18:                                               ; preds = %15
@@ -9382,6 +9377,7 @@ define hidden void @"_ZN88_$LT$tokio..future..poll_fn..PollFn$LT$F$GT$$u20$as$u2
   resume { ptr, i32 } %16
 
 "_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf56dff7a159667c5E.llvm.3022320907263900876.exit": ; preds = %14, %17
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5), !noalias !1361
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1360
   ret void
 }

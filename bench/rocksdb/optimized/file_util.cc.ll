@@ -3306,10 +3306,10 @@ _ZNK7rocksdb21FSRandomAccessFilePtrptEv.exit.i:   ; preds = %if.else.i.i, %if.th
           to label %invoke.cont103 unwind label %ehcleanup199.thread
 
 cleanup.sink.split:                               ; preds = %if.then90, %if.then77
-  %storemerge = phi i8 [ %31, %if.then77 ], [ %47, %if.then90 ]
+  %.sink = phi i8 [ %31, %if.then77 ], [ %47, %if.then90 ]
   %subcode_.i.i.i.i123.sink = phi ptr [ %subcode_.i.i.i.i94, %if.then77 ], [ %subcode_.i.i.i.i123, %if.then90 ]
   %state_.i.i.i.i125.sink = phi ptr [ %state_.i.i.i.i96, %if.then77 ], [ %state_.i.i.i.i125, %if.then90 ]
-  store i8 %storemerge, ptr %agg.result, align 8
+  store i8 %.sink, ptr %agg.result, align 8
   store i8 0, ptr %io_s, align 8
   %71 = load i8, ptr %subcode_.i.i.i, align 1
   store i8 %71, ptr %subcode_.i.i.i.i123.sink, align 1

@@ -488,104 +488,95 @@ define dso_local i32 @find_ancestor(i32 noundef %0, ptr nocapture noundef readon
   store i64 %9, ptr %6, align 8
   store i64 %9, ptr %5, align 8
   %10 = icmp slt i32 %0, 2
-  br i1 %10, label %._crit_edge, label %.lr.ph
+  br i1 %10, label %.loopexit27.sink.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %sext = shl i64 %7, 32
   %11 = ashr exact i64 %sext, 32
   br label %13
 
-thread-pre-split:                                 ; preds = %43, %32, %45
+thread-pre-split:                                 ; preds = %41, %30, %43
   %.pr = load i64, ptr %6, align 8
   %12 = icmp slt i64 %.pr, 2
-  br i1 %12, label %._crit_edge, label %13
-
-._crit_edge:                                      ; preds = %thread-pre-split, %2
-  store i64 0, ptr %5, align 8
-  br label %.loopexit27
+  br i1 %12, label %.loopexit27.sink.split, label %13
 
 13:                                               ; preds = %.lr.ph, %thread-pre-split
-  %14 = phi ptr [ %8, %.lr.ph ], [ %23, %thread-pre-split ]
+  %14 = phi ptr [ %8, %.lr.ph ], [ %22, %thread-pre-split ]
   %15 = phi i64 [ %9, %.lr.ph ], [ %.pr, %thread-pre-split ]
   %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 4096, ptr noundef nonnull @.str.1, i64 noundef %15) #9
   %17 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %3, i32 noundef 0) #9
   %18 = icmp slt i32 %17, 0
-  br i1 %18, label %19, label %20
+  br i1 %18, label %.loopexit27.sink.split, label %19
 
 19:                                               ; preds = %13
-  store i64 0, ptr %5, align 8
-  br label %.loopexit27
+  %20 = call i64 @read(i32 noundef %17, ptr noundef %14, i64 noundef 4096) #9
+  %21 = icmp sgt i64 %20, -1
+  %22 = load ptr, ptr %4, align 8
+  br i1 %21, label %23, label %.thread
 
-20:                                               ; preds = %13
-  %21 = call i64 @read(i32 noundef %17, ptr noundef %14, i64 noundef 4096) #9
-  %22 = icmp sgt i64 %21, -1
-  %23 = load ptr, ptr %4, align 8
-  br i1 %22, label %24, label %.thread
-
-.thread:                                          ; preds = %20
-  store i8 0, ptr %23, align 1
+.thread:                                          ; preds = %19
+  store i8 0, ptr %22, align 1
   br label %.loopexit
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %23, i64 %21
-  store i8 0, ptr %25, align 1
-  %26 = add nsw i64 %21, -4096
-  %or.cond = icmp ult i64 %26, -4095
-  br i1 %or.cond, label %.loopexit, label %28
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds i8, ptr %22, i64 %20
+  store i8 0, ptr %24, align 1
+  %25 = add nsw i64 %20, -4096
+  %or.cond = icmp ult i64 %25, -4095
+  br i1 %or.cond, label %.loopexit, label %27
 
-.loopexit:                                        ; preds = %24, %.thread
-  %27 = call i32 @close(i32 noundef %17) #9
-  store i64 0, ptr %5, align 8
-  br label %.loopexit27
+.loopexit:                                        ; preds = %23, %.thread
+  %26 = call i32 @close(i32 noundef %17) #9
+  br label %.loopexit27.sink.split
 
-28:                                               ; preds = %24
-  %29 = call i32 @close(i32 noundef %17) #9
-  %30 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %23, ptr noundef nonnull @.str.2, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
-  %.not = icmp eq i32 %30, 2
-  br i1 %.not, label %32, label %31
+27:                                               ; preds = %23
+  %28 = call i32 @close(i32 noundef %17) #9
+  %29 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %22, ptr noundef nonnull @.str.2, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
+  %.not = icmp eq i32 %29, 2
+  br i1 %.not, label %30, label %.loopexit27.sink.split
 
-31:                                               ; preds = %28
-  store i64 0, ptr %5, align 8
-  br label %.loopexit27
+30:                                               ; preds = %27
+  %31 = load i64, ptr %5, align 8
+  %32 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 4096, ptr noundef nonnull @.str.3, i64 noundef %31) #9
+  %33 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %3, i32 noundef 0) #9
+  %34 = icmp slt i32 %33, 0
+  br i1 %34, label %thread-pre-split, label %35
 
-32:                                               ; preds = %28
-  %33 = load i64, ptr %5, align 8
-  %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 4096, ptr noundef nonnull @.str.3, i64 noundef %33) #9
-  %35 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %3, i32 noundef 0) #9
-  %36 = icmp slt i32 %35, 0
-  br i1 %36, label %thread-pre-split, label %37
+35:                                               ; preds = %30
+  %36 = call i64 @read(i32 noundef %33, ptr noundef nonnull %22, i64 noundef 4096) #9
+  %37 = icmp sgt i64 %36, -1
+  br i1 %37, label %38, label %.thread25
 
-37:                                               ; preds = %32
-  %38 = call i64 @read(i32 noundef %35, ptr noundef nonnull %23, i64 noundef 4096) #9
-  %39 = icmp sgt i64 %38, -1
-  br i1 %39, label %40, label %.thread25
+.thread25:                                        ; preds = %35
+  store i8 0, ptr %22, align 1
+  br label %41
 
-.thread25:                                        ; preds = %37
-  store i8 0, ptr %23, align 1
-  br label %43
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds i8, ptr %22, i64 %36
+  store i8 0, ptr %39, align 1
+  %40 = add nsw i64 %36, -4096
+  %or.cond3 = icmp ult i64 %40, -4095
+  br i1 %or.cond3, label %41, label %43
 
-40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %23, i64 %38
-  store i8 0, ptr %41, align 1
-  %42 = add nsw i64 %38, -4096
-  %or.cond3 = icmp ult i64 %42, -4095
-  br i1 %or.cond3, label %43, label %45
-
-43:                                               ; preds = %.thread25, %40
-  %44 = call i32 @close(i32 noundef %35) #9
+41:                                               ; preds = %.thread25, %38
+  %42 = call i32 @close(i32 noundef %33) #9
   br label %thread-pre-split
 
-45:                                               ; preds = %40
-  %46 = call i32 @close(i32 noundef %35) #9
-  %47 = call i32 @strncmp(ptr noundef nonnull %23, ptr noundef %1, i64 noundef %11) #11
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %.loopexit27, label %thread-pre-split
+43:                                               ; preds = %38
+  %44 = call i32 @close(i32 noundef %33) #9
+  %45 = call i32 @strncmp(ptr noundef nonnull %22, ptr noundef %1, i64 noundef %11) #11
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %.loopexit27, label %thread-pre-split
 
-.loopexit27:                                      ; preds = %45, %31, %.loopexit, %19, %._crit_edge
+.loopexit27.sink.split:                           ; preds = %27, %13, %thread-pre-split, %2, %.loopexit
+  store i64 0, ptr %5, align 8
+  br label %.loopexit27
+
+.loopexit27:                                      ; preds = %43, %.loopexit27.sink.split
   call void @slurm_xfree(ptr noundef nonnull %4) #9
-  %49 = load i64, ptr %5, align 8
-  %50 = trunc i64 %49 to i32
-  ret i32 %50
+  %47 = load i64, ptr %5, align 8
+  %48 = trunc i64 %47 to i32
+  ret i32 %48
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

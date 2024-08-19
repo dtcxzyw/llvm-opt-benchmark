@@ -620,7 +620,7 @@ define dso_local void @pgstat_report_activity(i32 noundef %0, ptr noundef readon
   %4 = alloca i32, align 4
   %5 = load ptr, ptr @MyBEEntry, align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %85, label %6
+  br i1 %.not, label %88, label %6
 
 6:                                                ; preds = %2
   %7 = load i8, ptr @pgstat_track_activities, align 1
@@ -631,7 +631,7 @@ define dso_local void @pgstat_report_activity(i32 noundef %0, ptr noundef readon
   %10 = getelementptr inbounds i8, ptr %5, i64 232
   %11 = load volatile i32, ptr %10, align 8
   %.not43 = icmp eq i32 %11, 6
-  br i1 %.not43, label %85, label %12
+  br i1 %.not43, label %88, label %12
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr @MyProc, align 8
@@ -657,7 +657,7 @@ define dso_local void @pgstat_report_activity(i32 noundef %0, ptr noundef readon
   %24 = getelementptr inbounds i8, ptr %13, i64 712
   store volatile i32 0, ptr %24, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !16
-  br label %.sink.split51
+  br label %.sink.split52
 
 25:                                               ; preds = %6
   %26 = tail call i64 @GetCurrentStatementStartTimestamp() #11
@@ -696,12 +696,12 @@ define dso_local void @pgstat_report_activity(i32 noundef %0, ptr noundef readon
 47:                                               ; preds = %44
   %48 = load volatile i32, ptr %38, align 8
   %49 = icmp eq i32 %48, 5
-  br i1 %49, label %50, label %64
+  br i1 %49, label %50, label %67
 
 50:                                               ; preds = %47, %44, %41, %36
   %51 = load volatile i32, ptr %38, align 8
   %.not45 = icmp eq i32 %51, %0
-  br i1 %.not45, label %64, label %52
+  br i1 %.not45, label %67, label %52
 
 52:                                               ; preds = %50
   %53 = getelementptr inbounds i8, ptr %5, i64 40
@@ -719,63 +719,63 @@ define dso_local void @pgstat_report_activity(i32 noundef %0, ptr noundef readon
 
 .sink.split:                                      ; preds = %57, %52
   %pgStatTransactionIdleTime.sink48 = phi ptr [ @pgStatActiveTime, %52 ], [ %spec.select, %57 ]
-  %.sink.in = load i64, ptr %3, align 8
-  %.sink = mul i64 %.sink.in, 1000000
-  %.sink50 = load i32, ptr %4, align 4
-  %60 = sext i32 %.sink50 to i64
-  %61 = add i64 %.sink, %60
-  %62 = load i64, ptr %pgStatTransactionIdleTime.sink48, align 8
-  %63 = add i64 %61, %62
-  store i64 %63, ptr %pgStatTransactionIdleTime.sink48, align 8
-  br label %64
+  %60 = load i64, ptr %3, align 8
+  %61 = mul i64 %60, 1000000
+  %62 = load i32, ptr %4, align 4
+  %63 = sext i32 %62 to i64
+  %64 = add i64 %61, %63
+  %65 = load i64, ptr %pgStatTransactionIdleTime.sink48, align 8
+  %66 = add i64 %64, %65
+  store i64 %66, ptr %pgStatTransactionIdleTime.sink48, align 8
+  br label %67
 
-64:                                               ; preds = %.sink.split, %47, %50
-  %65 = load volatile i32, ptr @CritSectionCount, align 4
-  %66 = add i32 %65, 1
-  store volatile i32 %66, ptr @CritSectionCount, align 4
-  %67 = load volatile i32, ptr %5, align 8
-  %68 = add i32 %67, 1
-  store volatile i32 %68, ptr %5, align 8
+67:                                               ; preds = %.sink.split, %47, %50
+  %68 = load volatile i32, ptr @CritSectionCount, align 4
+  %69 = add i32 %68, 1
+  store volatile i32 %69, ptr @CritSectionCount, align 4
+  %70 = load volatile i32, ptr %5, align 8
+  %71 = add i32 %70, 1
+  store volatile i32 %71, ptr %5, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !17
   store volatile i32 %0, ptr %38, align 8
-  %69 = getelementptr inbounds i8, ptr %5, i64 40
-  store volatile i64 %37, ptr %69, align 8
-  %70 = icmp eq i32 %0, 2
-  br i1 %70, label %71, label %73
+  %72 = getelementptr inbounds i8, ptr %5, i64 40
+  store volatile i64 %37, ptr %72, align 8
+  %73 = icmp eq i32 %0, 2
+  br i1 %73, label %74, label %76
 
-71:                                               ; preds = %64
-  %72 = getelementptr inbounds i8, ptr %5, i64 424
-  store volatile i64 0, ptr %72, align 8
-  br label %73
+74:                                               ; preds = %67
+  %75 = getelementptr inbounds i8, ptr %5, i64 424
+  store volatile i64 0, ptr %75, align 8
+  br label %76
 
-73:                                               ; preds = %71, %64
-  br i1 %.not44, label %80, label %74
+76:                                               ; preds = %74, %67
+  br i1 %.not44, label %83, label %77
 
-74:                                               ; preds = %73
-  %75 = getelementptr inbounds i8, ptr %5, i64 248
-  %76 = load volatile ptr, ptr %75, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %76, ptr nonnull align 1 %1, i64 %.0, i1 false)
-  %77 = load volatile ptr, ptr %75, align 8
-  %78 = getelementptr i8, ptr %77, i64 %.0
-  store i8 0, ptr %78, align 1
-  %79 = getelementptr inbounds i8, ptr %5, i64 32
-  store volatile i64 %26, ptr %79, align 8
-  br label %80
+77:                                               ; preds = %76
+  %78 = getelementptr inbounds i8, ptr %5, i64 248
+  %79 = load volatile ptr, ptr %78, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %79, ptr nonnull align 1 %1, i64 %.0, i1 false)
+  %80 = load volatile ptr, ptr %78, align 8
+  %81 = getelementptr i8, ptr %80, i64 %.0
+  store i8 0, ptr %81, align 1
+  %82 = getelementptr inbounds i8, ptr %5, i64 32
+  store volatile i64 %26, ptr %82, align 8
+  br label %83
 
-80:                                               ; preds = %73, %74
+83:                                               ; preds = %76, %77
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !18
-  br label %.sink.split51
+  br label %.sink.split52
 
-.sink.split51:                                    ; preds = %80, %12
-  %81 = load volatile i32, ptr %5, align 8
-  %82 = add i32 %81, 1
-  store volatile i32 %82, ptr %5, align 8
-  %83 = load volatile i32, ptr @CritSectionCount, align 4
-  %84 = add i32 %83, -1
-  store volatile i32 %84, ptr @CritSectionCount, align 4
-  br label %85
+.sink.split52:                                    ; preds = %83, %12
+  %84 = load volatile i32, ptr %5, align 8
+  %85 = add i32 %84, 1
+  store volatile i32 %85, ptr %5, align 8
+  %86 = load volatile i32, ptr @CritSectionCount, align 4
+  %87 = add i32 %86, -1
+  store volatile i32 %87, ptr @CritSectionCount, align 4
+  br label %88
 
-85:                                               ; preds = %.sink.split51, %9, %2
+88:                                               ; preds = %.sink.split52, %9, %2
   ret void
 }
 

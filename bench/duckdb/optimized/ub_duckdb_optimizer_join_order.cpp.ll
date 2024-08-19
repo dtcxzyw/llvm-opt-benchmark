@@ -32333,15 +32333,7 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   %38 = load ptr, ptr %left_bindings, align 8, !tbaa !130
   %cmp.i.i.i.i.i156 = icmp eq ptr %_M_single_bucket.i.i, %38
-  br i1 %cmp.i.i.i.i.i156, label %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEED2Ev.exit158, label %if.end.i.i.i.i157
-
-if.end.i.i.i.i157:                                ; preds = %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i152
-  call void @_ZdlPv(ptr noundef %38) #30
-  br label %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEED2Ev.exit158
-
-_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEED2Ev.exit158: ; preds = %if.end.i.i.i.i157, %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i152
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %left_bindings) #31
-  br label %cleanup100
+  br i1 %cmp.i.i.i.i.i156, label %cleanup100.sink.split, label %cleanup100.sink.split.sink.split
 
 ehcleanup:                                        ; preds = %lpad43, %lpad35, %lpad
   %.pn = phi { ptr, i32 } [ %26, %lpad ], [ %28, %lpad43 ], [ %27, %lpad35 ]
@@ -32398,17 +32390,18 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   %48 = load ptr, ptr %left_bindings, align 8, !tbaa !130
   %cmp.i.i.i.i.i180 = icmp eq ptr %_M_single_bucket.i.i, %48
-  br i1 %cmp.i.i.i.i.i180, label %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEED2Ev.exit182, label %if.end.i.i.i.i181
+  br i1 %cmp.i.i.i.i.i180, label %cleanup100.sink.split, label %cleanup100.sink.split.sink.split
 
-if.end.i.i.i.i181:                                ; preds = %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i176
-  call void @_ZdlPv(ptr noundef %48) #30
-  br label %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEED2Ev.exit182
+cleanup100.sink.split.sink.split:                 ; preds = %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i176, %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i152
+  %.sink = phi ptr [ %38, %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i152 ], [ %48, %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i176 ]
+  call void @_ZdlPv(ptr noundef %.sink) #30
+  br label %cleanup100.sink.split
 
-_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEED2Ev.exit182: ; preds = %if.end.i.i.i.i181, %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i176
+cleanup100.sink.split:                            ; preds = %cleanup100.sink.split.sink.split, %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i176, %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i152
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %left_bindings) #31
   br label %cleanup100
 
-cleanup100:                                       ; preds = %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEED2Ev.exit182, %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEED2Ev.exit158, %for.body
+cleanup100:                                       ; preds = %cleanup100.sink.split, %for.body
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0190, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.cond.cleanup, label %for.body

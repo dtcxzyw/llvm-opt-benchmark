@@ -647,7 +647,7 @@ if.end57:                                         ; preds = %_.exit, %if.end52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.get_merge_heads.sb, i64 24, i1 false)
   %call.i43 = call ptr @branch_get(ptr noundef nonnull @.str.4) #17
   %tobool.not.i44 = icmp eq ptr %call.i43, null
-  br i1 %tobool.not.i44, label %get_rebase_fork_point.exit.thread, label %if.end.i45
+  br i1 %tobool.not.i44, label %if.then60.sink.split, label %if.end.i45
 
 if.end.i45:                                       ; preds = %if.end57
   %tobool1.not.i46 = icmp eq ptr %38, null
@@ -757,12 +757,12 @@ get_tracking_branch.exit.i:                       ; preds = %if.else26.i.i, %if.
 if.else.i:                                        ; preds = %if.end.i45
   %call.i6.i = call ptr @remote_get(ptr noundef %storemerge.i) #17
   %tobool.not.i7.i = icmp eq ptr %call.i6.i, null
-  br i1 %tobool.not.i7.i, label %get_rebase_fork_point.exit.thread, label %if.end.i.i52
+  br i1 %tobool.not.i7.i, label %if.then60.sink.split, label %if.end.i.i52
 
 if.end.i.i52:                                     ; preds = %if.else.i
   %call1.i.i = call ptr @branch_get(ptr noundef nonnull @.str.4) #17
   %tobool2.not.i.i = icmp eq ptr %call1.i.i, null
-  br i1 %tobool2.not.i.i, label %get_rebase_fork_point.exit.thread, label %if.end4.i.i
+  br i1 %tobool2.not.i.i, label %if.then60.sink.split, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.end.i.i52
   %call5.i.i = call ptr @remote_for_branch(ptr noundef nonnull %call1.i.i, ptr noundef null) #17
@@ -770,7 +770,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i52
   %50 = load ptr, ptr %name.i.i, align 8
   %call6.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call5.i.i, ptr noundef nonnull dereferenceable(1) %50) #18
   %tobool7.not.i.i = icmp eq i32 %call6.i.i, 0
-  br i1 %tobool7.not.i.i, label %if.end9.i.i, label %get_rebase_fork_point.exit.thread
+  br i1 %tobool7.not.i.i, label %if.end9.i.i, label %if.then60.sink.split
 
 if.end9.i.i:                                      ; preds = %if.end4.i.i
   %call10.i.i = call ptr @branch_get_upstream(ptr noundef nonnull %call1.i.i, ptr noundef null) #17
@@ -779,7 +779,7 @@ if.end9.i.i:                                      ; preds = %if.end4.i.i
 if.end5.i:                                        ; preds = %if.end9.i.i, %get_tracking_branch.exit.i
   %remote_branch.0.i = phi ptr [ %merge_branch.0.i.i, %get_tracking_branch.exit.i ], [ %call10.i.i, %if.end9.i.i ]
   %tobool6.not.i = icmp eq ptr %remote_branch.0.i, null
-  br i1 %tobool6.not.i, label %get_rebase_fork_point.exit.thread, label %if.end8.i
+  br i1 %tobool6.not.i, label %if.then60.sink.split, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end5.i
   %name.i50 = getelementptr inbounds i8, ptr %call.i43, i64 16
@@ -795,14 +795,7 @@ if.end8.i:                                        ; preds = %if.end5.i
 
 get_rebase_fork_point.exit.thread209:             ; preds = %if.end8.i
   call void @strbuf_release(ptr noundef nonnull %sb.i) #17
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %cp.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sb.i)
-  br label %if.then60
-
-get_rebase_fork_point.exit.thread:                ; preds = %if.end57, %if.end5.i, %if.else.i, %if.end.i.i52, %if.end4.i.i
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %cp.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sb.i)
-  br label %if.then60
+  br label %if.then60.sink.split
 
 get_rebase_fork_point.exit:                       ; preds = %if.end8.i
   %buf.i = getelementptr inbounds i8, ptr %sb.i, i64 16
@@ -814,7 +807,12 @@ get_rebase_fork_point.exit:                       ; preds = %if.end8.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sb.i)
   br i1 %.not, label %if.end62, label %if.then60
 
-if.then60:                                        ; preds = %get_rebase_fork_point.exit.thread209, %get_rebase_fork_point.exit.thread, %get_rebase_fork_point.exit
+if.then60.sink.split:                             ; preds = %if.end4.i.i, %if.end.i.i52, %if.else.i, %if.end5.i, %if.end57, %get_rebase_fork_point.exit.thread209
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %cp.i)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sb.i)
+  br label %if.then60
+
+if.then60:                                        ; preds = %if.then60.sink.split, %get_rebase_fork_point.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %rebase_fork_point, i8 0, i64 32, i1 false)
   %53 = load ptr, ptr @the_repository, align 8
   %hash_algo.i53 = getelementptr inbounds i8, ptr %53, i64 256

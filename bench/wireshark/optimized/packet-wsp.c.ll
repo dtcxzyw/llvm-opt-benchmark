@@ -2174,14 +2174,12 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
   %138 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %137, ptr noundef %3, i32 noundef %111, i32 noundef %135, ptr noundef %136) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.815, ptr noundef %136) #4
   %139 = add i32 %111, %135
-  store i32 %139, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 140:                                              ; preds = %119
   %141 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_wsp_invalid_parameter_value, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @.str.816) #4
   %142 = add i32 %5, %4
-  store i32 %142, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 143:                                              ; preds = %110
   %144 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %111) #4
@@ -2230,14 +2228,12 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
   %166 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %165, ptr noundef %3, i32 noundef %111, i32 noundef %164, i32 noundef %.2457.ph) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.817, i32 noundef %.2457.ph) #4
   %167 = add i32 %111, %164
-  store i32 %167, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 168:                                              ; preds = %148
   %169 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_wsp_invalid_parameter_value, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @.str.818) #4
   %170 = add i32 %5, %4
-  store i32 %170, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 171:                                              ; preds = %110
   %172 = load i32, ptr @hf_wsp_parameter_name, align 4
@@ -2248,8 +2244,7 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
 174:                                              ; preds = %171
   %175 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_wsp_invalid_parameter_value, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @.str.819) #4
   %176 = add i32 %5, %4
-  store i32 %176, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 177:                                              ; preds = %110
   %178 = load i32, ptr @hf_wsp_parameter_name, align 4
@@ -2260,8 +2255,7 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
 180:                                              ; preds = %177
   %181 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_wsp_invalid_parameter_value, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @.str.820) #4
   %182 = add i32 %5, %4
-  store i32 %182, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 183:                                              ; preds = %110
   %184 = load i32, ptr @hf_wsp_parameter_filename, align 4
@@ -2272,8 +2266,7 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
 186:                                              ; preds = %183
   %187 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_wsp_invalid_parameter_value, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @.str.821) #4
   %188 = add i32 %5, %4
-  store i32 %188, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 189:                                              ; preds = %110
   %190 = load i32, ptr @hf_wsp_parameter_filename, align 4
@@ -2284,8 +2277,7 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
 192:                                              ; preds = %189
   %193 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_wsp_invalid_parameter_value, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @.str.822) #4
   %194 = add i32 %5, %4
-  store i32 %194, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 195:                                              ; preds = %110
   %196 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %111) #4
@@ -2311,8 +2303,7 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.823, ptr noundef %206) #4
   %210 = load i32, ptr %8, align 4
   %211 = add i32 %111, %210
-  store i32 %211, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 212:                                              ; preds = %198, %201
   %213 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %111) #4
@@ -2326,14 +2317,12 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
   %218 = tail call ptr @val_to_str_ext(i32 noundef %216, ptr noundef nonnull @vals_content_types_ext, ptr noundef nonnull @.str.824) #4
   %219 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %217, ptr noundef %3, i32 noundef %111, i32 noundef 1, ptr noundef %218) #4
   %220 = add i32 %111, 1
-  store i32 %220, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 221:                                              ; preds = %212
   %222 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_wsp_invalid_parameter_value, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @.str.825) #4
   %223 = add i32 %5, %4
-  store i32 %223, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 224:                                              ; preds = %110
   %225 = load i32, ptr @hf_wsp_parameter_start, align 4
@@ -2344,8 +2333,7 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
 227:                                              ; preds = %224
   %228 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_wsp_invalid_parameter_value, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @.str.826) #4
   %229 = add i32 %5, %4
-  store i32 %229, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 230:                                              ; preds = %110
   %231 = load i32, ptr @hf_wsp_parameter_start, align 4
@@ -2356,8 +2344,7 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
 233:                                              ; preds = %230
   %234 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_wsp_invalid_parameter_value, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @.str.827) #4
   %235 = add i32 %5, %4
-  store i32 %235, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 236:                                              ; preds = %110
   %237 = load i32, ptr @hf_wsp_parameter_start_info, align 4
@@ -2368,8 +2355,7 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
 239:                                              ; preds = %236
   %240 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_wsp_invalid_parameter_value, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @.str.828) #4
   %241 = add i32 %5, %4
-  store i32 %241, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 242:                                              ; preds = %110
   %243 = load i32, ptr @hf_wsp_parameter_start_info, align 4
@@ -2380,8 +2366,7 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
 245:                                              ; preds = %242
   %246 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_wsp_invalid_parameter_value, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @.str.829) #4
   %247 = add i32 %5, %4
-  store i32 %247, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 248:                                              ; preds = %110
   %249 = load i32, ptr @hf_wsp_parameter_comment, align 4
@@ -2392,8 +2377,7 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
 251:                                              ; preds = %248
   %252 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_wsp_invalid_parameter_value, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @.str.830) #4
   %253 = add i32 %5, %4
-  store i32 %253, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 254:                                              ; preds = %110
   %255 = load i32, ptr @hf_wsp_parameter_comment, align 4
@@ -2404,8 +2388,7 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
 257:                                              ; preds = %254
   %258 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_wsp_invalid_parameter_value, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @.str.831) #4
   %259 = add i32 %5, %4
-  store i32 %259, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 260:                                              ; preds = %110
   %261 = load i32, ptr @hf_wsp_parameter_domain, align 4
@@ -2416,8 +2399,7 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
 263:                                              ; preds = %260
   %264 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_wsp_invalid_parameter_value, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @.str.832) #4
   %265 = add i32 %5, %4
-  store i32 %265, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 266:                                              ; preds = %110
   %267 = load i32, ptr @hf_wsp_parameter_domain, align 4
@@ -2428,8 +2410,7 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
 269:                                              ; preds = %266
   %270 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_wsp_invalid_parameter_value, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @.str.833) #4
   %271 = add i32 %5, %4
-  store i32 %271, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 272:                                              ; preds = %110
   %273 = load i32, ptr @hf_wsp_parameter_path, align 4
@@ -2440,8 +2421,7 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
 275:                                              ; preds = %272
   %276 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_wsp_invalid_parameter_value, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @.str.834) #4
   %277 = add i32 %5, %4
-  store i32 %277, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 278:                                              ; preds = %110
   %279 = load i32, ptr @hf_wsp_parameter_path, align 4
@@ -2452,8 +2432,7 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
 281:                                              ; preds = %278
   %282 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_wsp_invalid_parameter_value, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @.str.835) #4
   %283 = add i32 %5, %4
-  store i32 %283, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 284:                                              ; preds = %110
   %285 = add i32 %4, 1
@@ -2469,14 +2448,12 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
   %292 = tail call ptr @val_to_str_ext_const(i32 noundef %290, ptr noundef nonnull @vals_wsp_parameter_sec_ext, ptr noundef nonnull @.str.837) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.836, ptr noundef %292) #4
   %293 = add i32 %111, 1
-  store i32 %293, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 294:                                              ; preds = %284
   %295 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_wsp_invalid_parameter_value, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @.str.838) #4
   %296 = add i32 %5, %4
-  store i32 %296, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 297:                                              ; preds = %110
   %298 = load i32, ptr @hf_wsp_parameter_mac, align 4
@@ -2487,8 +2464,7 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
 300:                                              ; preds = %297
   %301 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_wsp_invalid_parameter_value, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @.str.839) #4
   %302 = add i32 %5, %4
-  store i32 %302, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 303:                                              ; preds = %110
   %304 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %111) #4
@@ -2534,19 +2510,16 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.841, ptr noundef %.1452.ph) #4
   %328 = load i32, ptr %8, align 4
   %329 = add i32 %111, %328
-  store i32 %329, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 330:                                              ; preds = %318, %315
   %331 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_wsp_invalid_parameter_value, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @.str.842) #4
   %332 = add i32 %5, %4
-  store i32 %332, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 333:                                              ; preds = %110
   %334 = tail call fastcc i32 @parameter_value_q(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %111)
-  store i32 %334, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 335:                                              ; preds = %110
   %336 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %111) #4
@@ -2595,64 +2568,59 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
   %358 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %357, ptr noundef %3, i32 noundef %111, i32 noundef %356, i32 noundef %.3458.ph) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.843, i32 noundef %.3458.ph) #4
   %359 = add i32 %111, %356
-  store i32 %359, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 360:                                              ; preds = %340
   %361 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_wsp_invalid_parameter_value, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @.str.844) #4
   %362 = add i32 %5, %4
-  store i32 %362, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 363:                                              ; preds = %110
   %364 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_wsp_undecoded_parameter, ptr noundef %3, i32 noundef %4, i32 noundef %.0453.ph, ptr noundef nonnull @.str.845) #4
   %365 = add i32 %5, %4
-  store i32 %365, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 366:                                              ; preds = %110
   %367 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_wsp_undecoded_parameter, ptr noundef %3, i32 noundef %4, i32 noundef %.0453.ph, ptr noundef nonnull @.str.846) #4
   %368 = add i32 %5, %4
-  store i32 %368, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 369:                                              ; preds = %110
   %370 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_wsp_undecoded_parameter, ptr noundef %3, i32 noundef %4, i32 noundef %.0453.ph, ptr noundef nonnull @.str.847) #4
   %371 = add i32 %5, %4
-  store i32 %371, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 372:                                              ; preds = %110
   %373 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_wsp_undecoded_parameter, ptr noundef %3, i32 noundef %4, i32 noundef %.0453.ph, ptr noundef nonnull @.str.848) #4
   %374 = add i32 %5, %4
-  store i32 %374, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 375:                                              ; preds = %110
   %376 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_wsp_undecoded_parameter, ptr noundef %3, i32 noundef %4, i32 noundef %.0453.ph, ptr noundef nonnull @.str.849) #4
   %377 = add i32 %5, %4
-  store i32 %377, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 378:                                              ; preds = %110
   %379 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_wsp_undecoded_parameter, ptr noundef %3, i32 noundef %4, i32 noundef %.0453.ph, ptr noundef nonnull @.str.850) #4
   %380 = add i32 %5, %4
-  store i32 %380, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 381:                                              ; preds = %110
   %382 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_wsp_undecoded_parameter, ptr noundef %3, i32 noundef %4, i32 noundef %.0453.ph, ptr noundef nonnull @.str.851) #4
   %383 = add i32 %5, %4
-  store i32 %383, ptr %7, align 4
-  br label %.critedge
+  br label %.critedge.sink.split
 
 384:                                              ; preds = %110
   %385 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_wsp_undecoded_parameter, ptr noundef %3, i32 noundef %4, i32 noundef %.0453.ph, ptr noundef nonnull @.str.852, i32 noundef %.0454.ph) #4
   %386 = add i32 %5, %4
-  store i32 %386, ptr %7, align 4
+  br label %.critedge.sink.split
+
+.critedge.sink.split:                             ; preds = %333, %363, %366, %369, %372, %375, %378, %381, %384, %140, %134, %168, %163, %174, %180, %186, %192, %221, %227, %233, %239, %245, %251, %257, %263, %269, %275, %281, %294, %287, %300, %330, %324, %360, %355, %214, %204
+  %.sink = phi i32 [ %211, %204 ], [ %220, %214 ], [ %359, %355 ], [ %362, %360 ], [ %329, %324 ], [ %332, %330 ], [ %302, %300 ], [ %293, %287 ], [ %296, %294 ], [ %283, %281 ], [ %277, %275 ], [ %271, %269 ], [ %265, %263 ], [ %259, %257 ], [ %253, %251 ], [ %247, %245 ], [ %241, %239 ], [ %235, %233 ], [ %229, %227 ], [ %223, %221 ], [ %194, %192 ], [ %188, %186 ], [ %182, %180 ], [ %176, %174 ], [ %167, %163 ], [ %170, %168 ], [ %139, %134 ], [ %142, %140 ], [ %386, %384 ], [ %383, %381 ], [ %380, %378 ], [ %377, %375 ], [ %374, %372 ], [ %371, %369 ], [ %368, %366 ], [ %365, %363 ], [ %334, %333 ]
+  store i32 %.sink, ptr %7, align 4
   br label %.critedge
 
-.critedge:                                        ; preds = %204, %214, %355, %360, %324, %330, %297, %300, %287, %294, %278, %281, %272, %275, %266, %269, %260, %263, %254, %257, %248, %251, %242, %245, %236, %239, %230, %233, %224, %227, %221, %189, %192, %183, %186, %177, %180, %171, %174, %163, %168, %134, %140, %384, %381, %378, %375, %372, %369, %366, %363, %333
+.critedge:                                        ; preds = %.critedge.sink.split, %297, %278, %272, %266, %260, %254, %248, %242, %236, %230, %224, %189, %183, %177, %171
   %387 = load i32, ptr %7, align 4
   br label %.thread
 
@@ -3732,8 +3700,7 @@ define internal fastcc void @add_headers(ptr noundef %0, ptr noundef %1, i32 nou
 105:                                              ; preds = %103
   %narrow = add nuw nsw i8 %51, 1
   %106 = zext nneg i8 %narrow to i32
-  store i32 %106, ptr %6, align 4
-  br label %116
+  br label %.sink.split
 
 107:                                              ; preds = %103
   %108 = icmp eq i8 %51, 31
@@ -3746,10 +3713,14 @@ define internal fastcc void @add_headers(ptr noundef %0, ptr noundef %1, i32 nou
   %113 = add i32 %112, %111
   %114 = load i32, ptr %8, align 4
   %115 = add i32 %114, %113
-  store i32 %115, ptr %6, align 4
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %105, %109
+  %.sink = phi i32 [ %115, %109 ], [ %106, %105 ]
+  store i32 %.sink, ptr %6, align 4
   br label %116
 
-116:                                              ; preds = %107, %109, %105
+116:                                              ; preds = %.sink.split, %107
   %117 = load i32, ptr %5, align 4
   %118 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef %3, ptr noundef nonnull @ei_wsp_text_field_invalid, ptr noundef %1, i32 noundef %.0129149, i32 noundef %117, ptr noundef nonnull @.str.864, ptr noundef %48) #4
   br label %119

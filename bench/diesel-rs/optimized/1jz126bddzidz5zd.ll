@@ -2188,7 +2188,6 @@ define hidden void @"_ZN74_$LT$T$u20$as$u20$diesel..deserialize..FromStaticSqlRo
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.265fff4d30a63943a10c54d985a0e130.52.llvm.14120354283954932956, ptr %11, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %21
 
 12:                                               ; preds = %9
@@ -2221,10 +2220,10 @@ define hidden void @"_ZN74_$LT$T$u20$as$u20$diesel..deserialize..FromStaticSqlRo
   %19 = load i64, ptr %18, align 8, !noalias !228, !noundef !4
   %20 = add i64 %19, -1
   store i64 %20, ptr %18, align 8, !noalias !228
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %21
 
 21:                                               ; preds = %17, %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   ret void
 
 22:                                               ; preds = %9, %16

@@ -8690,11 +8690,7 @@ define internal fastcc ptr @do_split(ptr noundef %0, ptr noundef %1, ptr nocaptu
   %101 = trunc i64 %100 to i32
   %102 = call i32 @__ext4_check_dir_entry(ptr noundef nonnull @__func__.dx_make_map, i32 noundef 1327, ptr noundef %1, ptr noundef null, ptr noundef %96, ptr noundef %60, ptr noundef %62, i32 noundef %87, i32 noundef %101) #13
   %103 = icmp eq i32 %102, 0
-  br i1 %103, label %104, label %.thread38, !prof !14
-
-.thread38:                                        ; preds = %95
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #13
-  br label %432
+  br i1 %103, label %104, label %.sink.split, !prof !14
 
 104:                                              ; preds = %95
   %105 = getelementptr inbounds i8, ptr %96, i64 6
@@ -8727,11 +8723,7 @@ define internal fastcc ptr @do_split(ptr noundef %0, ptr noundef %1, ptr nocaptu
   %123 = zext i8 %106 to i32
   %124 = call i32 @ext4fs_dirhash(ptr noundef %1, ptr noundef %122, i32 noundef %123, ptr noundef nonnull %6) #13
   %125 = icmp sgt i32 %124, -1
-  br i1 %125, label %._crit_edge, label %.thread100
-
-.thread100:                                       ; preds = %121
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #13
-  br label %432
+  br i1 %125, label %._crit_edge, label %.sink.split
 
 ._crit_edge:                                      ; preds = %121
   %.pre88 = load i32, ptr %6, align 8
@@ -9226,9 +9218,14 @@ define internal fastcc ptr @do_split(ptr noundef %0, ptr noundef %1, ptr nocaptu
   call void @__brelse(ptr noundef nonnull %395) #13
   br label %445
 
-432:                                              ; preds = %.thread100, %.thread38, %425, %415, %145, %50, %45
-  %433 = phi ptr [ %38, %45 ], [ %38, %50 ], [ %395, %415 ], [ %395, %425 ], [ %38, %145 ], [ %38, %.thread38 ], [ %38, %.thread100 ]
-  %434 = phi i32 [ %48, %45 ], [ %53, %50 ], [ %423, %415 ], [ %427, %425 ], [ %139, %145 ], [ -117, %.thread38 ], [ %124, %.thread100 ]
+.sink.split:                                      ; preds = %121, %95
+  %.ph = phi i32 [ -117, %95 ], [ %124, %121 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #13
+  br label %432
+
+432:                                              ; preds = %.sink.split, %425, %415, %145, %50, %45
+  %433 = phi ptr [ %38, %45 ], [ %38, %50 ], [ %395, %415 ], [ %395, %425 ], [ %38, %145 ], [ %38, %.sink.split ]
+  %434 = phi i32 [ %48, %45 ], [ %53, %50 ], [ %423, %415 ], [ %427, %425 ], [ %139, %145 ], [ %.ph, %.sink.split ]
   %435 = load ptr, ptr %2, align 8
   %436 = icmp eq ptr %435, null
   br i1 %436, label %438, label %437

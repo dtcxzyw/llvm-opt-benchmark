@@ -239,7 +239,6 @@ define dso_local i64 @insn_get_seg_base(ptr nocapture noundef readonly %0, i32 n
   %88 = add i64 %87, %85
   %89 = inttoptr i64 %88 to ptr
   %90 = load i64, ptr %89, align 1
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %3) #7
   br label %98
 
 .thread8:                                         ; preds = %64, %75
@@ -255,11 +254,11 @@ define dso_local i64 @insn_get_seg_base(ptr nocapture noundef readonly %0, i32 n
   %96 = load i64, ptr %95, align 1
   %97 = getelementptr inbounds i8, ptr %71, i64 1064
   tail call void @mutex_unlock(ptr noundef %97) #7
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %3) #7
   br label %98
 
 98:                                               ; preds = %92, %.thread6
   %.in.in = phi i64 [ %90, %.thread6 ], [ %96, %92 ]
+  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %3) #7
   %.in10 = lshr i64 %.in.in, 32
   %99 = trunc nuw i64 %.in10 to i32
   %100 = trunc i64 %.in.in to i32
@@ -1546,11 +1545,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @get_seg_base_limit(ptr nou
   %155 = load i16, ptr %6, align 2
   %156 = zext i16 %155 to i32
   %157 = icmp ugt i32 %154, %156
-  br i1 %157, label %.thread17, label %.thread16
-
-.thread17:                                        ; preds = %153
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %6) #7
-  br label %.thread20
+  br i1 %157, label %.thread20.sink.split, label %.thread16
 
 .thread16:                                        ; preds = %153
   %158 = zext nneg i32 %154 to i64
@@ -1559,14 +1554,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @get_seg_base_limit(ptr nou
   %161 = add i64 %160, %158
   %162 = inttoptr i64 %161 to ptr
   %163 = load i64, ptr %162, align 1
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %6) #7
   br label %171
 
 .thread18:                                        ; preds = %137, %148
   %164 = getelementptr inbounds i8, ptr %144, i64 1064
   tail call void @mutex_unlock(ptr noundef %164) #7
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %6) #7
-  br label %.thread20
+  br label %.thread20.sink.split
 
 165:                                              ; preds = %148
   %166 = load ptr, ptr %146, align 8
@@ -1575,11 +1568,11 @@ define internal fastcc range(i32 -2147483648, 1) i32 @get_seg_base_limit(ptr nou
   %169 = load i64, ptr %168, align 1
   %170 = getelementptr inbounds i8, ptr %144, i64 1064
   tail call void @mutex_unlock(ptr noundef %170) #7
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %6) #7
   br label %171
 
 171:                                              ; preds = %165, %.thread16
   %.in = phi i64 [ %163, %.thread16 ], [ %169, %165 ]
+  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %6) #7
   %.in26 = lshr i64 %.in, 32
   %172 = and i64 %.in, 65535
   %173 = and i64 %.in26, 983040
@@ -1591,7 +1584,11 @@ define internal fastcc range(i32 -2147483648, 1) i32 @get_seg_base_limit(ptr nou
   %178 = or disjoint i64 %177, 4095
   br i1 %176, label %179, label %.thread24
 
-.thread20:                                        ; preds = %115, %131, %.thread17, %.thread18, %98, %.thread14
+.thread20.sink.split:                             ; preds = %153, %.thread18
+  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %6) #7
+  br label %.thread20
+
+.thread20:                                        ; preds = %.thread20.sink.split, %115, %131, %98, %.thread14
   store i64 0, ptr %4, align 8
   br label %181
 

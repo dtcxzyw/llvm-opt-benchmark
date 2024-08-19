@@ -10439,49 +10439,32 @@ cleanup.cont67:                                   ; preds = %_ZNKSt14default_del
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %57 = load i64, ptr %vert.i, align 8, !tbaa !77, !noalias !32
   %cmp.not8.i.i = icmp eq ptr %56, %55
-  br i1 %cmp.not8.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread, label %land.rhs.i.i
-
-_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread: ; preds = %cleanup.cont67
-  store ptr %55, ptr %ref.tmp70, align 8, !tbaa !33
-  %ref.tmp71.sroa.5.0.ref.tmp70.sroa_idx476 = getelementptr inbounds i8, ptr %ref.tmp70, i64 8
-  store i64 %57, ptr %ref.tmp71.sroa.5.0.ref.tmp70.sroa_idx476, align 8, !tbaa !20
-  %ref.tmp71.sroa.6.0.ref.tmp70.sroa_idx477 = getelementptr inbounds i8, ptr %ref.tmp70, i64 16
-  store i64 0, ptr %ref.tmp71.sroa.6.0.ref.tmp70.sroa_idx477, align 8, !tbaa !20
-  %ref.tmp71.sroa.7.0.ref.tmp70.sroa_idx478 = getelementptr inbounds i8, ptr %ref.tmp70, i64 24
-  store i64 %sub.ptr.div.i.i, ptr %ref.tmp71.sroa.7.0.ref.tmp70.sroa_idx478, align 8, !tbaa !20
-  %ref.tmp71.sroa.8.0.ref.tmp70.sroa_idx479 = getelementptr inbounds i8, ptr %ref.tmp70, i64 32
-  store i64 1, ptr %ref.tmp71.sroa.8.0.ref.tmp70.sroa_idx479, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp72) #24
-  br label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit339
+  br i1 %cmp.not8.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit339, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %cleanup.cont67, %for.inc.i.i
   %agg.tmp.sroa.3.0.i = phi i64 [ %add.i.i, %for.inc.i.i ], [ 0, %cleanup.cont67 ]
   %arrayidx.i.i.i = getelementptr inbounds i64, ptr %55, i64 %agg.tmp.sroa.3.0.i
   %58 = load i64, ptr %arrayidx.i.i.i, align 8, !tbaa !20, !noalias !79
   %tobool.not.i.i = icmp eq i64 %58, 0
-  br i1 %tobool.not.i.i, label %for.inc.i.i, label %land.rhs.i.i322.preheader
+  br i1 %tobool.not.i.i, label %for.inc.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit339
 
 for.inc.i.i:                                      ; preds = %land.rhs.i.i
   %add.i.i = add i64 %agg.tmp.sroa.3.0.i, 1
   %cmp.not.i.i314 = icmp eq i64 %add.i.i, %sub.ptr.div.i.i
-  br i1 %cmp.not.i.i314, label %land.rhs.i.i322.preheader, label %land.rhs.i.i, !llvm.loop !82
+  br i1 %cmp.not.i.i314, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit339, label %land.rhs.i.i, !llvm.loop !82
 
-land.rhs.i.i322.preheader:                        ; preds = %for.inc.i.i, %land.rhs.i.i
-  %agg.tmp.sroa.3.1.i = phi i64 [ %agg.tmp.sroa.3.0.i, %land.rhs.i.i ], [ %sub.ptr.div.i.i, %for.inc.i.i ]
+_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit339: ; preds = %land.rhs.i.i, %for.inc.i.i, %cleanup.cont67
+  %agg.tmp.sroa.3.1.i.sink = phi i64 [ 0, %cleanup.cont67 ], [ %agg.tmp.sroa.3.0.i, %land.rhs.i.i ], [ %sub.ptr.div.i.i, %for.inc.i.i ]
   store ptr %55, ptr %ref.tmp70, align 8, !tbaa !33
   %ref.tmp71.sroa.5.0.ref.tmp70.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp70, i64 8
   store i64 %57, ptr %ref.tmp71.sroa.5.0.ref.tmp70.sroa_idx, align 8, !tbaa !20
   %ref.tmp71.sroa.6.0.ref.tmp70.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp70, i64 16
-  store i64 %agg.tmp.sroa.3.1.i, ptr %ref.tmp71.sroa.6.0.ref.tmp70.sroa_idx, align 8, !tbaa !20
+  store i64 %agg.tmp.sroa.3.1.i.sink, ptr %ref.tmp71.sroa.6.0.ref.tmp70.sroa_idx, align 8, !tbaa !20
   %ref.tmp71.sroa.7.0.ref.tmp70.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp70, i64 24
   store i64 %sub.ptr.div.i.i, ptr %ref.tmp71.sroa.7.0.ref.tmp70.sroa_idx, align 8, !tbaa !20
   %ref.tmp71.sroa.8.0.ref.tmp70.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp70, i64 32
   store i64 1, ptr %ref.tmp71.sroa.8.0.ref.tmp70.sroa_idx, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp72) #24
-  br label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit339
-
-_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit339: ; preds = %land.rhs.i.i322.preheader, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread
-  %agg.tmp.sroa.3.1.i480 = phi i64 [ 0, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread ], [ %agg.tmp.sroa.3.1.i, %land.rhs.i.i322.preheader ]
   store ptr %55, ptr %ref.tmp72, align 8, !tbaa !33
   %ref.tmp73.sroa.10.40.ref.tmp72.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp72, i64 8
   store i64 %57, ptr %ref.tmp73.sroa.10.40.ref.tmp72.sroa_idx, align 8, !tbaa !20
@@ -10491,7 +10474,7 @@ _ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit339: ; preds = 
   store i64 %sub.ptr.div.i.i, ptr %ref.tmp73.sroa.12.40.ref.tmp72.sroa_idx, align 8, !tbaa !20
   %ref.tmp73.sroa.13.40.ref.tmp72.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp72, i64 32
   store i64 1, ptr %ref.tmp73.sroa.13.40.ref.tmp72.sroa_idx, align 8, !tbaa !20
-  %cmp.i.i.not.i = icmp eq i64 %agg.tmp.sroa.3.1.i480, %sub.ptr.div.i.i
+  %cmp.i.i.not.i = icmp eq i64 %agg.tmp.sroa.3.1.i.sink, %sub.ptr.div.i.i
   br i1 %cmp.i.i.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit339
@@ -11893,49 +11876,32 @@ cleanup.cont67:                                   ; preds = %_ZNKSt14default_del
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %57 = load i64, ptr %vert.i, align 8, !tbaa !77, !noalias !32
   %cmp.not8.i.i = icmp eq ptr %56, %55
-  br i1 %cmp.not8.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread, label %land.rhs.i.i
-
-_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread: ; preds = %cleanup.cont67
-  store ptr %55, ptr %ref.tmp70, align 8, !tbaa !33
-  %ref.tmp71.sroa.5.0.ref.tmp70.sroa_idx290 = getelementptr inbounds i8, ptr %ref.tmp70, i64 8
-  store i64 %57, ptr %ref.tmp71.sroa.5.0.ref.tmp70.sroa_idx290, align 8, !tbaa !20
-  %ref.tmp71.sroa.6.0.ref.tmp70.sroa_idx291 = getelementptr inbounds i8, ptr %ref.tmp70, i64 16
-  store i64 0, ptr %ref.tmp71.sroa.6.0.ref.tmp70.sroa_idx291, align 8, !tbaa !20
-  %ref.tmp71.sroa.7.0.ref.tmp70.sroa_idx292 = getelementptr inbounds i8, ptr %ref.tmp70, i64 24
-  store i64 %sub.ptr.div.i.i, ptr %ref.tmp71.sroa.7.0.ref.tmp70.sroa_idx292, align 8, !tbaa !20
-  %ref.tmp71.sroa.8.0.ref.tmp70.sroa_idx293 = getelementptr inbounds i8, ptr %ref.tmp70, i64 32
-  store i64 1, ptr %ref.tmp71.sroa.8.0.ref.tmp70.sroa_idx293, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp72) #24
-  br label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit253
+  br i1 %cmp.not8.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit253, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %cleanup.cont67, %for.inc.i.i
   %agg.tmp.sroa.3.0.i = phi i64 [ %add.i.i, %for.inc.i.i ], [ 0, %cleanup.cont67 ]
   %arrayidx.i.i.i = getelementptr inbounds i64, ptr %55, i64 %agg.tmp.sroa.3.0.i
   %58 = load i64, ptr %arrayidx.i.i.i, align 8, !tbaa !20, !noalias !96
   %tobool.not.i.i = icmp eq i64 %58, 0
-  br i1 %tobool.not.i.i, label %for.inc.i.i, label %land.rhs.i.i236.preheader
+  br i1 %tobool.not.i.i, label %for.inc.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit253
 
 for.inc.i.i:                                      ; preds = %land.rhs.i.i
   %add.i.i = add i64 %agg.tmp.sroa.3.0.i, 1
   %cmp.not.i.i228 = icmp eq i64 %add.i.i, %sub.ptr.div.i.i
-  br i1 %cmp.not.i.i228, label %land.rhs.i.i236.preheader, label %land.rhs.i.i, !llvm.loop !82
+  br i1 %cmp.not.i.i228, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit253, label %land.rhs.i.i, !llvm.loop !82
 
-land.rhs.i.i236.preheader:                        ; preds = %for.inc.i.i, %land.rhs.i.i
-  %agg.tmp.sroa.3.1.i = phi i64 [ %agg.tmp.sroa.3.0.i, %land.rhs.i.i ], [ %sub.ptr.div.i.i, %for.inc.i.i ]
+_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit253: ; preds = %land.rhs.i.i, %for.inc.i.i, %cleanup.cont67
+  %agg.tmp.sroa.3.1.i.sink = phi i64 [ 0, %cleanup.cont67 ], [ %agg.tmp.sroa.3.0.i, %land.rhs.i.i ], [ %sub.ptr.div.i.i, %for.inc.i.i ]
   store ptr %55, ptr %ref.tmp70, align 8, !tbaa !33
   %ref.tmp71.sroa.5.0.ref.tmp70.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp70, i64 8
   store i64 %57, ptr %ref.tmp71.sroa.5.0.ref.tmp70.sroa_idx, align 8, !tbaa !20
   %ref.tmp71.sroa.6.0.ref.tmp70.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp70, i64 16
-  store i64 %agg.tmp.sroa.3.1.i, ptr %ref.tmp71.sroa.6.0.ref.tmp70.sroa_idx, align 8, !tbaa !20
+  store i64 %agg.tmp.sroa.3.1.i.sink, ptr %ref.tmp71.sroa.6.0.ref.tmp70.sroa_idx, align 8, !tbaa !20
   %ref.tmp71.sroa.7.0.ref.tmp70.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp70, i64 24
   store i64 %sub.ptr.div.i.i, ptr %ref.tmp71.sroa.7.0.ref.tmp70.sroa_idx, align 8, !tbaa !20
   %ref.tmp71.sroa.8.0.ref.tmp70.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp70, i64 32
   store i64 1, ptr %ref.tmp71.sroa.8.0.ref.tmp70.sroa_idx, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp72) #24
-  br label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit253
-
-_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit253: ; preds = %land.rhs.i.i236.preheader, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread
-  %agg.tmp.sroa.3.1.i294 = phi i64 [ 0, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread ], [ %agg.tmp.sroa.3.1.i, %land.rhs.i.i236.preheader ]
   store ptr %55, ptr %ref.tmp72, align 8, !tbaa !33
   %ref.tmp73.sroa.10.40.ref.tmp72.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp72, i64 8
   store i64 %57, ptr %ref.tmp73.sroa.10.40.ref.tmp72.sroa_idx, align 8, !tbaa !20
@@ -11945,7 +11911,7 @@ _ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit253: ; preds = 
   store i64 %sub.ptr.div.i.i, ptr %ref.tmp73.sroa.12.40.ref.tmp72.sroa_idx, align 8, !tbaa !20
   %ref.tmp73.sroa.13.40.ref.tmp72.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp72, i64 32
   store i64 1, ptr %ref.tmp73.sroa.13.40.ref.tmp72.sroa_idx, align 8, !tbaa !20
-  %cmp.i.i.i = icmp eq i64 %agg.tmp.sroa.3.1.i294, %sub.ptr.div.i.i
+  %cmp.i.i.i = icmp eq i64 %agg.tmp.sroa.3.1.i.sink, %sub.ptr.div.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i255, label %if.end.i.i254
 
 if.then.i.i255:                                   ; preds = %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit253
@@ -12669,49 +12635,32 @@ cleanup.cont69:                                   ; preds = %_ZNKSt14default_del
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %56 = load i64, ptr %vert.i, align 8, !tbaa !77, !noalias !32
   %cmp.not8.i.i = icmp eq ptr %55, %54
-  br i1 %cmp.not8.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread, label %land.rhs.i.i
-
-_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread: ; preds = %cleanup.cont69
-  store ptr %54, ptr %ref.tmp72, align 8, !tbaa !33
-  %ref.tmp73.sroa.5.0.ref.tmp72.sroa_idx299 = getelementptr inbounds i8, ptr %ref.tmp72, i64 8
-  store i64 %56, ptr %ref.tmp73.sroa.5.0.ref.tmp72.sroa_idx299, align 8, !tbaa !20
-  %ref.tmp73.sroa.6.0.ref.tmp72.sroa_idx300 = getelementptr inbounds i8, ptr %ref.tmp72, i64 16
-  store i64 0, ptr %ref.tmp73.sroa.6.0.ref.tmp72.sroa_idx300, align 8, !tbaa !20
-  %ref.tmp73.sroa.7.0.ref.tmp72.sroa_idx301 = getelementptr inbounds i8, ptr %ref.tmp72, i64 24
-  store i64 %sub.ptr.div.i.i, ptr %ref.tmp73.sroa.7.0.ref.tmp72.sroa_idx301, align 8, !tbaa !20
-  %ref.tmp73.sroa.8.0.ref.tmp72.sroa_idx302 = getelementptr inbounds i8, ptr %ref.tmp72, i64 32
-  store i64 1, ptr %ref.tmp73.sroa.8.0.ref.tmp72.sroa_idx302, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp74) #24
-  br label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit262
+  br i1 %cmp.not8.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit262, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %cleanup.cont69, %for.inc.i.i
   %agg.tmp.sroa.3.0.i = phi i64 [ %add.i.i, %for.inc.i.i ], [ 0, %cleanup.cont69 ]
   %arrayidx.i.i.i = getelementptr inbounds i64, ptr %54, i64 %agg.tmp.sroa.3.0.i
   %57 = load i64, ptr %arrayidx.i.i.i, align 8, !tbaa !20, !noalias !99
   %tobool.not.i.i = icmp eq i64 %57, 0
-  br i1 %tobool.not.i.i, label %for.inc.i.i, label %land.rhs.i.i245.preheader
+  br i1 %tobool.not.i.i, label %for.inc.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit262
 
 for.inc.i.i:                                      ; preds = %land.rhs.i.i
   %add.i.i = add i64 %agg.tmp.sroa.3.0.i, 1
   %cmp.not.i.i237 = icmp eq i64 %add.i.i, %sub.ptr.div.i.i
-  br i1 %cmp.not.i.i237, label %land.rhs.i.i245.preheader, label %land.rhs.i.i, !llvm.loop !82
+  br i1 %cmp.not.i.i237, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit262, label %land.rhs.i.i, !llvm.loop !82
 
-land.rhs.i.i245.preheader:                        ; preds = %for.inc.i.i, %land.rhs.i.i
-  %agg.tmp.sroa.3.1.i = phi i64 [ %agg.tmp.sroa.3.0.i, %land.rhs.i.i ], [ %sub.ptr.div.i.i, %for.inc.i.i ]
+_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit262: ; preds = %land.rhs.i.i, %for.inc.i.i, %cleanup.cont69
+  %agg.tmp.sroa.3.1.i.sink = phi i64 [ 0, %cleanup.cont69 ], [ %agg.tmp.sroa.3.0.i, %land.rhs.i.i ], [ %sub.ptr.div.i.i, %for.inc.i.i ]
   store ptr %54, ptr %ref.tmp72, align 8, !tbaa !33
   %ref.tmp73.sroa.5.0.ref.tmp72.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp72, i64 8
   store i64 %56, ptr %ref.tmp73.sroa.5.0.ref.tmp72.sroa_idx, align 8, !tbaa !20
   %ref.tmp73.sroa.6.0.ref.tmp72.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp72, i64 16
-  store i64 %agg.tmp.sroa.3.1.i, ptr %ref.tmp73.sroa.6.0.ref.tmp72.sroa_idx, align 8, !tbaa !20
+  store i64 %agg.tmp.sroa.3.1.i.sink, ptr %ref.tmp73.sroa.6.0.ref.tmp72.sroa_idx, align 8, !tbaa !20
   %ref.tmp73.sroa.7.0.ref.tmp72.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp72, i64 24
   store i64 %sub.ptr.div.i.i, ptr %ref.tmp73.sroa.7.0.ref.tmp72.sroa_idx, align 8, !tbaa !20
   %ref.tmp73.sroa.8.0.ref.tmp72.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp72, i64 32
   store i64 1, ptr %ref.tmp73.sroa.8.0.ref.tmp72.sroa_idx, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp74) #24
-  br label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit262
-
-_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit262: ; preds = %land.rhs.i.i245.preheader, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread
-  %agg.tmp.sroa.3.1.i303 = phi i64 [ 0, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread ], [ %agg.tmp.sroa.3.1.i, %land.rhs.i.i245.preheader ]
   store ptr %54, ptr %ref.tmp74, align 8, !tbaa !33
   %ref.tmp75.sroa.10.40.ref.tmp74.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp74, i64 8
   store i64 %56, ptr %ref.tmp75.sroa.10.40.ref.tmp74.sroa_idx, align 8, !tbaa !20
@@ -12721,7 +12670,7 @@ _ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit262: ; preds = 
   store i64 %sub.ptr.div.i.i, ptr %ref.tmp75.sroa.12.40.ref.tmp74.sroa_idx, align 8, !tbaa !20
   %ref.tmp75.sroa.13.40.ref.tmp74.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp74, i64 32
   store i64 1, ptr %ref.tmp75.sroa.13.40.ref.tmp74.sroa_idx, align 8, !tbaa !20
-  %cmp.i.i.i = icmp eq i64 %agg.tmp.sroa.3.1.i303, %sub.ptr.div.i.i
+  %cmp.i.i.i = icmp eq i64 %agg.tmp.sroa.3.1.i.sink, %sub.ptr.div.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i264, label %if.end.i.i263
 
 if.then.i.i264:                                   ; preds = %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit262
@@ -13446,49 +13395,32 @@ cleanup.cont67:                                   ; preds = %_ZNKSt14default_del
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %57 = load i64, ptr %vert.i, align 8, !tbaa !77, !noalias !32
   %cmp.not8.i.i = icmp eq ptr %56, %55
-  br i1 %cmp.not8.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread, label %land.rhs.i.i
-
-_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread: ; preds = %cleanup.cont67
-  store ptr %55, ptr %ref.tmp70, align 8, !tbaa !33
-  %ref.tmp71.sroa.5.0.ref.tmp70.sroa_idx476 = getelementptr inbounds i8, ptr %ref.tmp70, i64 8
-  store i64 %57, ptr %ref.tmp71.sroa.5.0.ref.tmp70.sroa_idx476, align 8, !tbaa !20
-  %ref.tmp71.sroa.6.0.ref.tmp70.sroa_idx477 = getelementptr inbounds i8, ptr %ref.tmp70, i64 16
-  store i64 0, ptr %ref.tmp71.sroa.6.0.ref.tmp70.sroa_idx477, align 8, !tbaa !20
-  %ref.tmp71.sroa.7.0.ref.tmp70.sroa_idx478 = getelementptr inbounds i8, ptr %ref.tmp70, i64 24
-  store i64 %sub.ptr.div.i.i, ptr %ref.tmp71.sroa.7.0.ref.tmp70.sroa_idx478, align 8, !tbaa !20
-  %ref.tmp71.sroa.8.0.ref.tmp70.sroa_idx479 = getelementptr inbounds i8, ptr %ref.tmp70, i64 32
-  store i64 1, ptr %ref.tmp71.sroa.8.0.ref.tmp70.sroa_idx479, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp72) #24
-  br label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit339
+  br i1 %cmp.not8.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit339, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %cleanup.cont67, %for.inc.i.i
   %agg.tmp.sroa.3.0.i = phi i64 [ %add.i.i, %for.inc.i.i ], [ 0, %cleanup.cont67 ]
   %arrayidx.i.i.i = getelementptr inbounds i64, ptr %55, i64 %agg.tmp.sroa.3.0.i
   %58 = load i64, ptr %arrayidx.i.i.i, align 8, !tbaa !20, !noalias !102
   %tobool.not.i.i = icmp eq i64 %58, 0
-  br i1 %tobool.not.i.i, label %for.inc.i.i, label %land.rhs.i.i322.preheader
+  br i1 %tobool.not.i.i, label %for.inc.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit339
 
 for.inc.i.i:                                      ; preds = %land.rhs.i.i
   %add.i.i = add i64 %agg.tmp.sroa.3.0.i, 1
   %cmp.not.i.i314 = icmp eq i64 %add.i.i, %sub.ptr.div.i.i
-  br i1 %cmp.not.i.i314, label %land.rhs.i.i322.preheader, label %land.rhs.i.i, !llvm.loop !82
+  br i1 %cmp.not.i.i314, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit339, label %land.rhs.i.i, !llvm.loop !82
 
-land.rhs.i.i322.preheader:                        ; preds = %for.inc.i.i, %land.rhs.i.i
-  %agg.tmp.sroa.3.1.i = phi i64 [ %agg.tmp.sroa.3.0.i, %land.rhs.i.i ], [ %sub.ptr.div.i.i, %for.inc.i.i ]
+_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit339: ; preds = %land.rhs.i.i, %for.inc.i.i, %cleanup.cont67
+  %agg.tmp.sroa.3.1.i.sink = phi i64 [ 0, %cleanup.cont67 ], [ %agg.tmp.sroa.3.0.i, %land.rhs.i.i ], [ %sub.ptr.div.i.i, %for.inc.i.i ]
   store ptr %55, ptr %ref.tmp70, align 8, !tbaa !33
   %ref.tmp71.sroa.5.0.ref.tmp70.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp70, i64 8
   store i64 %57, ptr %ref.tmp71.sroa.5.0.ref.tmp70.sroa_idx, align 8, !tbaa !20
   %ref.tmp71.sroa.6.0.ref.tmp70.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp70, i64 16
-  store i64 %agg.tmp.sroa.3.1.i, ptr %ref.tmp71.sroa.6.0.ref.tmp70.sroa_idx, align 8, !tbaa !20
+  store i64 %agg.tmp.sroa.3.1.i.sink, ptr %ref.tmp71.sroa.6.0.ref.tmp70.sroa_idx, align 8, !tbaa !20
   %ref.tmp71.sroa.7.0.ref.tmp70.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp70, i64 24
   store i64 %sub.ptr.div.i.i, ptr %ref.tmp71.sroa.7.0.ref.tmp70.sroa_idx, align 8, !tbaa !20
   %ref.tmp71.sroa.8.0.ref.tmp70.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp70, i64 32
   store i64 1, ptr %ref.tmp71.sroa.8.0.ref.tmp70.sroa_idx, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp72) #24
-  br label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit339
-
-_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit339: ; preds = %land.rhs.i.i322.preheader, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread
-  %agg.tmp.sroa.3.1.i480 = phi i64 [ 0, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread ], [ %agg.tmp.sroa.3.1.i, %land.rhs.i.i322.preheader ]
   store ptr %55, ptr %ref.tmp72, align 8, !tbaa !33
   %ref.tmp73.sroa.10.40.ref.tmp72.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp72, i64 8
   store i64 %57, ptr %ref.tmp73.sroa.10.40.ref.tmp72.sroa_idx, align 8, !tbaa !20
@@ -13498,7 +13430,7 @@ _ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit339: ; preds = 
   store i64 %sub.ptr.div.i.i, ptr %ref.tmp73.sroa.12.40.ref.tmp72.sroa_idx, align 8, !tbaa !20
   %ref.tmp73.sroa.13.40.ref.tmp72.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp72, i64 32
   store i64 1, ptr %ref.tmp73.sroa.13.40.ref.tmp72.sroa_idx, align 8, !tbaa !20
-  %cmp.i.i.not.i = icmp eq i64 %agg.tmp.sroa.3.1.i480, %sub.ptr.div.i.i
+  %cmp.i.i.not.i = icmp eq i64 %agg.tmp.sroa.3.1.i.sink, %sub.ptr.div.i.i
   br i1 %cmp.i.i.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit339
@@ -14594,49 +14526,32 @@ cleanup.cont69:                                   ; preds = %_ZNKSt14default_del
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %56 = load i64, ptr %vert.i, align 8, !tbaa !77, !noalias !32
   %cmp.not8.i.i = icmp eq ptr %55, %54
-  br i1 %cmp.not8.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread, label %land.rhs.i.i
-
-_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread: ; preds = %cleanup.cont69
-  store ptr %54, ptr %ref.tmp72, align 8, !tbaa !33
-  %ref.tmp73.sroa.5.0.ref.tmp72.sroa_idx485 = getelementptr inbounds i8, ptr %ref.tmp72, i64 8
-  store i64 %56, ptr %ref.tmp73.sroa.5.0.ref.tmp72.sroa_idx485, align 8, !tbaa !20
-  %ref.tmp73.sroa.6.0.ref.tmp72.sroa_idx486 = getelementptr inbounds i8, ptr %ref.tmp72, i64 16
-  store i64 0, ptr %ref.tmp73.sroa.6.0.ref.tmp72.sroa_idx486, align 8, !tbaa !20
-  %ref.tmp73.sroa.7.0.ref.tmp72.sroa_idx487 = getelementptr inbounds i8, ptr %ref.tmp72, i64 24
-  store i64 %sub.ptr.div.i.i, ptr %ref.tmp73.sroa.7.0.ref.tmp72.sroa_idx487, align 8, !tbaa !20
-  %ref.tmp73.sroa.8.0.ref.tmp72.sroa_idx488 = getelementptr inbounds i8, ptr %ref.tmp72, i64 32
-  store i64 1, ptr %ref.tmp73.sroa.8.0.ref.tmp72.sroa_idx488, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp74) #24
-  br label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit348
+  br i1 %cmp.not8.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit348, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %cleanup.cont69, %for.inc.i.i
   %agg.tmp.sroa.3.0.i = phi i64 [ %add.i.i, %for.inc.i.i ], [ 0, %cleanup.cont69 ]
   %arrayidx.i.i.i = getelementptr inbounds i64, ptr %54, i64 %agg.tmp.sroa.3.0.i
   %57 = load i64, ptr %arrayidx.i.i.i, align 8, !tbaa !20, !noalias !105
   %tobool.not.i.i = icmp eq i64 %57, 0
-  br i1 %tobool.not.i.i, label %for.inc.i.i, label %land.rhs.i.i331.preheader
+  br i1 %tobool.not.i.i, label %for.inc.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit348
 
 for.inc.i.i:                                      ; preds = %land.rhs.i.i
   %add.i.i = add i64 %agg.tmp.sroa.3.0.i, 1
   %cmp.not.i.i323 = icmp eq i64 %add.i.i, %sub.ptr.div.i.i
-  br i1 %cmp.not.i.i323, label %land.rhs.i.i331.preheader, label %land.rhs.i.i, !llvm.loop !82
+  br i1 %cmp.not.i.i323, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit348, label %land.rhs.i.i, !llvm.loop !82
 
-land.rhs.i.i331.preheader:                        ; preds = %for.inc.i.i, %land.rhs.i.i
-  %agg.tmp.sroa.3.1.i = phi i64 [ %agg.tmp.sroa.3.0.i, %land.rhs.i.i ], [ %sub.ptr.div.i.i, %for.inc.i.i ]
+_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit348: ; preds = %land.rhs.i.i, %for.inc.i.i, %cleanup.cont69
+  %agg.tmp.sroa.3.1.i.sink = phi i64 [ 0, %cleanup.cont69 ], [ %agg.tmp.sroa.3.0.i, %land.rhs.i.i ], [ %sub.ptr.div.i.i, %for.inc.i.i ]
   store ptr %54, ptr %ref.tmp72, align 8, !tbaa !33
   %ref.tmp73.sroa.5.0.ref.tmp72.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp72, i64 8
   store i64 %56, ptr %ref.tmp73.sroa.5.0.ref.tmp72.sroa_idx, align 8, !tbaa !20
   %ref.tmp73.sroa.6.0.ref.tmp72.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp72, i64 16
-  store i64 %agg.tmp.sroa.3.1.i, ptr %ref.tmp73.sroa.6.0.ref.tmp72.sroa_idx, align 8, !tbaa !20
+  store i64 %agg.tmp.sroa.3.1.i.sink, ptr %ref.tmp73.sroa.6.0.ref.tmp72.sroa_idx, align 8, !tbaa !20
   %ref.tmp73.sroa.7.0.ref.tmp72.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp72, i64 24
   store i64 %sub.ptr.div.i.i, ptr %ref.tmp73.sroa.7.0.ref.tmp72.sroa_idx, align 8, !tbaa !20
   %ref.tmp73.sroa.8.0.ref.tmp72.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp72, i64 32
   store i64 1, ptr %ref.tmp73.sroa.8.0.ref.tmp72.sroa_idx, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp74) #24
-  br label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit348
-
-_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit348: ; preds = %land.rhs.i.i331.preheader, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread
-  %agg.tmp.sroa.3.1.i489 = phi i64 [ 0, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread ], [ %agg.tmp.sroa.3.1.i, %land.rhs.i.i331.preheader ]
   store ptr %54, ptr %ref.tmp74, align 8, !tbaa !33
   %ref.tmp75.sroa.10.40.ref.tmp74.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp74, i64 8
   store i64 %56, ptr %ref.tmp75.sroa.10.40.ref.tmp74.sroa_idx, align 8, !tbaa !20
@@ -14646,7 +14561,7 @@ _ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit348: ; preds = 
   store i64 %sub.ptr.div.i.i, ptr %ref.tmp75.sroa.12.40.ref.tmp74.sroa_idx, align 8, !tbaa !20
   %ref.tmp75.sroa.13.40.ref.tmp74.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp74, i64 32
   store i64 1, ptr %ref.tmp75.sroa.13.40.ref.tmp74.sroa_idx, align 8, !tbaa !20
-  %cmp.i.i.not.i = icmp eq i64 %agg.tmp.sroa.3.1.i489, %sub.ptr.div.i.i
+  %cmp.i.i.not.i = icmp eq i64 %agg.tmp.sroa.3.1.i.sink, %sub.ptr.div.i.i
   br i1 %cmp.i.i.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit348
@@ -16828,53 +16743,32 @@ cleanup.cont322:                                  ; preds = %_ZNKSt14default_del
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %190 = load i64, ptr %vert.i, align 8, !tbaa !77, !noalias !32
   %cmp.not8.i.i = icmp eq ptr %189, %188
-  br i1 %cmp.not8.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread, label %land.rhs.i.i
-
-_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread: ; preds = %cleanup.cont322
-  store ptr %188, ptr %it, align 8, !tbaa !33
-  %ref.tmp324.sroa.4.0.it.sroa_idx1701 = getelementptr inbounds i8, ptr %it, i64 8
-  store i64 %190, ptr %ref.tmp324.sroa.4.0.it.sroa_idx1701, align 8, !tbaa !20
-  %ref.tmp324.sroa.5.0.it.sroa_idx1702 = getelementptr inbounds i8, ptr %it, i64 16
-  store i64 0, ptr %ref.tmp324.sroa.5.0.it.sroa_idx1702, align 8, !tbaa !20
-  %ref.tmp324.sroa.6.0.it.sroa_idx1703 = getelementptr inbounds i8, ptr %it, i64 24
-  store i64 %sub.ptr.div.i.i, ptr %ref.tmp324.sroa.6.0.it.sroa_idx1703, align 8, !tbaa !20
-  %ref.tmp324.sroa.7.0.it.sroa_idx1704 = getelementptr inbounds i8, ptr %it, i64 32
-  store i64 1, ptr %ref.tmp324.sroa.7.0.it.sroa_idx1704, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %last) #24
-  br label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit1337
+  br i1 %cmp.not8.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit1337, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %cleanup.cont322, %for.inc.i.i
   %agg.tmp.sroa.3.0.i = phi i64 [ %add.i.i, %for.inc.i.i ], [ 0, %cleanup.cont322 ]
   %arrayidx.i.i.i1311 = getelementptr inbounds i64, ptr %188, i64 %agg.tmp.sroa.3.0.i
   %191 = load i64, ptr %arrayidx.i.i.i1311, align 8, !tbaa !20, !noalias !123
   %tobool.not.i.i = icmp eq i64 %191, 0
-  br i1 %tobool.not.i.i, label %for.inc.i.i, label %land.rhs.i.i1320.preheader
+  br i1 %tobool.not.i.i, label %for.inc.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit1337
 
 for.inc.i.i:                                      ; preds = %land.rhs.i.i
   %add.i.i = add i64 %agg.tmp.sroa.3.0.i, 1
   %cmp.not.i.i1312 = icmp eq i64 %add.i.i, %sub.ptr.div.i.i
-  br i1 %cmp.not.i.i1312, label %land.rhs.i.i1320.preheader, label %land.rhs.i.i, !llvm.loop !82
+  br i1 %cmp.not.i.i1312, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit1337, label %land.rhs.i.i, !llvm.loop !82
 
-land.rhs.i.i1320.preheader:                       ; preds = %for.inc.i.i, %land.rhs.i.i
-  %agg.tmp.sroa.3.1.i = phi i64 [ %agg.tmp.sroa.3.0.i, %land.rhs.i.i ], [ %sub.ptr.div.i.i, %for.inc.i.i ]
+_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit1337: ; preds = %land.rhs.i.i, %for.inc.i.i, %cleanup.cont322
+  %agg.tmp.sroa.3.1.i.sink = phi i64 [ 0, %cleanup.cont322 ], [ %agg.tmp.sroa.3.0.i, %land.rhs.i.i ], [ %sub.ptr.div.i.i, %for.inc.i.i ]
   store ptr %188, ptr %it, align 8, !tbaa !33
   %ref.tmp324.sroa.4.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 8
   store i64 %190, ptr %ref.tmp324.sroa.4.0.it.sroa_idx, align 8, !tbaa !20
   %ref.tmp324.sroa.5.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 16
-  store i64 %agg.tmp.sroa.3.1.i, ptr %ref.tmp324.sroa.5.0.it.sroa_idx, align 8, !tbaa !20
+  store i64 %agg.tmp.sroa.3.1.i.sink, ptr %ref.tmp324.sroa.5.0.it.sroa_idx, align 8, !tbaa !20
   %ref.tmp324.sroa.6.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 24
   store i64 %sub.ptr.div.i.i, ptr %ref.tmp324.sroa.6.0.it.sroa_idx, align 8, !tbaa !20
   %ref.tmp324.sroa.7.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 32
   store i64 1, ptr %ref.tmp324.sroa.7.0.it.sroa_idx, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %last) #24
-  br label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit1337
-
-_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit1337: ; preds = %land.rhs.i.i1320.preheader, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread
-  %ref.tmp324.sroa.7.0.it.sroa_idx1709 = phi ptr [ %ref.tmp324.sroa.7.0.it.sroa_idx1704, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread ], [ %ref.tmp324.sroa.7.0.it.sroa_idx, %land.rhs.i.i1320.preheader ]
-  %ref.tmp324.sroa.6.0.it.sroa_idx1708 = phi ptr [ %ref.tmp324.sroa.6.0.it.sroa_idx1703, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread ], [ %ref.tmp324.sroa.6.0.it.sroa_idx, %land.rhs.i.i1320.preheader ]
-  %ref.tmp324.sroa.5.0.it.sroa_idx1707 = phi ptr [ %ref.tmp324.sroa.5.0.it.sroa_idx1702, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread ], [ %ref.tmp324.sroa.5.0.it.sroa_idx, %land.rhs.i.i1320.preheader ]
-  %ref.tmp324.sroa.4.0.it.sroa_idx1706 = phi ptr [ %ref.tmp324.sroa.4.0.it.sroa_idx1701, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread ], [ %ref.tmp324.sroa.4.0.it.sroa_idx, %land.rhs.i.i1320.preheader ]
-  %agg.tmp.sroa.3.1.i1705 = phi i64 [ 0, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread ], [ %agg.tmp.sroa.3.1.i, %land.rhs.i.i1320.preheader ]
   store ptr %188, ptr %last, align 8, !tbaa !33
   %ref.tmp325.sroa.9.40.last.sroa_idx = getelementptr inbounds i8, ptr %last, i64 8
   store i64 %190, ptr %ref.tmp325.sroa.9.40.last.sroa_idx, align 8, !tbaa !20
@@ -16885,7 +16779,7 @@ _ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit1337: ; preds =
   %ref.tmp325.sroa.12.40.last.sroa_idx = getelementptr inbounds i8, ptr %last, i64 32
   store i64 1, ptr %ref.tmp325.sroa.12.40.last.sroa_idx, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar326) #24
-  %cmp.i.i.not.i = icmp eq i64 %agg.tmp.sroa.3.1.i1705, %sub.ptr.div.i.i
+  %cmp.i.i.not.i = icmp eq i64 %agg.tmp.sroa.3.1.i.sink, %sub.ptr.div.i.i
   br i1 %cmp.i.i.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit1337
@@ -17048,17 +16942,17 @@ cleanup.cont353:                                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar326) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar355) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp356) #24
-  %orig.i.sroa.4.0.copyload = load i64, ptr %ref.tmp324.sroa.4.0.it.sroa_idx1706, align 8, !tbaa !20, !noalias !126
-  %orig.i.sroa.5.0.copyload = load i64, ptr %ref.tmp324.sroa.5.0.it.sroa_idx1707, align 8, !tbaa !20, !noalias !126
-  %211 = load i64, ptr %ref.tmp324.sroa.7.0.it.sroa_idx1709, align 8, !tbaa !129, !noalias !126
-  %212 = load i64, ptr %ref.tmp324.sroa.6.0.it.sroa_idx1708, align 8, !tbaa !132, !noalias !126
+  %orig.i.sroa.4.0.copyload = load i64, ptr %ref.tmp324.sroa.4.0.it.sroa_idx, align 8, !tbaa !20, !noalias !126
+  %orig.i.sroa.5.0.copyload = load i64, ptr %ref.tmp324.sroa.5.0.it.sroa_idx, align 8, !tbaa !20, !noalias !126
+  %211 = load i64, ptr %ref.tmp324.sroa.7.0.it.sroa_idx, align 8, !tbaa !129, !noalias !126
+  %212 = load i64, ptr %ref.tmp324.sroa.6.0.it.sroa_idx, align 8, !tbaa !132, !noalias !126
   %213 = load ptr, ptr %it, align 8, !noalias !126
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %land.rhs.i.i1378, %cleanup.cont353
   %.pn.i.i = phi i64 [ %orig.i.sroa.5.0.copyload, %cleanup.cont353 ], [ %storemerge.i.i, %land.rhs.i.i1378 ]
   %storemerge.i.i = add i64 %.pn.i.i, %211
-  store i64 %storemerge.i.i, ptr %ref.tmp324.sroa.5.0.it.sroa_idx1707, align 8, !tbaa !133, !noalias !126
+  store i64 %storemerge.i.i, ptr %ref.tmp324.sroa.5.0.it.sroa_idx, align 8, !tbaa !133, !noalias !126
   %cmp.not.i.i1377 = icmp eq i64 %storemerge.i.i, %212
   br i1 %cmp.not.i.i1377, label %invoke.cont363, label %land.rhs.i.i1378
 
@@ -17247,17 +17141,17 @@ cleanup.cont395:                                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar355) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar397) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp398) #24
-  %orig.i1422.sroa.4.0.copyload = load i64, ptr %ref.tmp324.sroa.4.0.it.sroa_idx1706, align 8, !tbaa !20, !noalias !135
-  %orig.i1422.sroa.5.0.copyload = load i64, ptr %ref.tmp324.sroa.5.0.it.sroa_idx1707, align 8, !tbaa !20, !noalias !135
-  %237 = load i64, ptr %ref.tmp324.sroa.7.0.it.sroa_idx1709, align 8, !tbaa !129, !noalias !135
-  %238 = load i64, ptr %ref.tmp324.sroa.6.0.it.sroa_idx1708, align 8, !tbaa !132, !noalias !135
+  %orig.i1422.sroa.4.0.copyload = load i64, ptr %ref.tmp324.sroa.4.0.it.sroa_idx, align 8, !tbaa !20, !noalias !135
+  %orig.i1422.sroa.5.0.copyload = load i64, ptr %ref.tmp324.sroa.5.0.it.sroa_idx, align 8, !tbaa !20, !noalias !135
+  %237 = load i64, ptr %ref.tmp324.sroa.7.0.it.sroa_idx, align 8, !tbaa !129, !noalias !135
+  %238 = load i64, ptr %ref.tmp324.sroa.6.0.it.sroa_idx, align 8, !tbaa !132, !noalias !135
   %239 = load ptr, ptr %it, align 8, !noalias !135
   br label %for.cond.i.i1426
 
 for.cond.i.i1426:                                 ; preds = %land.rhs.i.i1430, %cleanup.cont395
   %.pn.i.i1427 = phi i64 [ %orig.i1422.sroa.5.0.copyload, %cleanup.cont395 ], [ %storemerge.i.i1428, %land.rhs.i.i1430 ]
   %storemerge.i.i1428 = add i64 %.pn.i.i1427, %237
-  store i64 %storemerge.i.i1428, ptr %ref.tmp324.sroa.5.0.it.sroa_idx1707, align 8, !tbaa !133, !noalias !135
+  store i64 %storemerge.i.i1428, ptr %ref.tmp324.sroa.5.0.it.sroa_idx, align 8, !tbaa !133, !noalias !135
   %cmp.not.i.i1429 = icmp eq i64 %storemerge.i.i1428, %238
   br i1 %cmp.not.i.i1429, label %invoke.cont405, label %land.rhs.i.i1430
 
@@ -17446,17 +17340,17 @@ cleanup.cont437:                                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar397) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar439) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp440) #24
-  %orig.i1487.sroa.4.0.copyload = load i64, ptr %ref.tmp324.sroa.4.0.it.sroa_idx1706, align 8, !tbaa !20, !noalias !138
-  %orig.i1487.sroa.5.0.copyload = load i64, ptr %ref.tmp324.sroa.5.0.it.sroa_idx1707, align 8, !tbaa !20, !noalias !138
-  %263 = load i64, ptr %ref.tmp324.sroa.7.0.it.sroa_idx1709, align 8, !tbaa !129, !noalias !138
-  %264 = load i64, ptr %ref.tmp324.sroa.6.0.it.sroa_idx1708, align 8, !tbaa !132, !noalias !138
+  %orig.i1487.sroa.4.0.copyload = load i64, ptr %ref.tmp324.sroa.4.0.it.sroa_idx, align 8, !tbaa !20, !noalias !138
+  %orig.i1487.sroa.5.0.copyload = load i64, ptr %ref.tmp324.sroa.5.0.it.sroa_idx, align 8, !tbaa !20, !noalias !138
+  %263 = load i64, ptr %ref.tmp324.sroa.7.0.it.sroa_idx, align 8, !tbaa !129, !noalias !138
+  %264 = load i64, ptr %ref.tmp324.sroa.6.0.it.sroa_idx, align 8, !tbaa !132, !noalias !138
   %265 = load ptr, ptr %it, align 8, !noalias !138
   br label %for.cond.i.i1491
 
 for.cond.i.i1491:                                 ; preds = %land.rhs.i.i1495, %cleanup.cont437
   %.pn.i.i1492 = phi i64 [ %orig.i1487.sroa.5.0.copyload, %cleanup.cont437 ], [ %storemerge.i.i1493, %land.rhs.i.i1495 ]
   %storemerge.i.i1493 = add i64 %.pn.i.i1492, %263
-  store i64 %storemerge.i.i1493, ptr %ref.tmp324.sroa.5.0.it.sroa_idx1707, align 8, !tbaa !133, !noalias !138
+  store i64 %storemerge.i.i1493, ptr %ref.tmp324.sroa.5.0.it.sroa_idx, align 8, !tbaa !133, !noalias !138
   %cmp.not.i.i1494 = icmp eq i64 %storemerge.i.i1493, %264
   br i1 %cmp.not.i.i1494, label %invoke.cont447, label %land.rhs.i.i1495
 
@@ -17645,17 +17539,17 @@ cleanup.cont479:                                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar439) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar481) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp482) #24
-  %orig.i1552.sroa.4.0.copyload = load i64, ptr %ref.tmp324.sroa.4.0.it.sroa_idx1706, align 8, !tbaa !20, !noalias !141
-  %orig.i1552.sroa.5.0.copyload = load i64, ptr %ref.tmp324.sroa.5.0.it.sroa_idx1707, align 8, !tbaa !20, !noalias !141
-  %289 = load i64, ptr %ref.tmp324.sroa.7.0.it.sroa_idx1709, align 8, !tbaa !129, !noalias !141
-  %290 = load i64, ptr %ref.tmp324.sroa.6.0.it.sroa_idx1708, align 8, !tbaa !132, !noalias !141
+  %orig.i1552.sroa.4.0.copyload = load i64, ptr %ref.tmp324.sroa.4.0.it.sroa_idx, align 8, !tbaa !20, !noalias !141
+  %orig.i1552.sroa.5.0.copyload = load i64, ptr %ref.tmp324.sroa.5.0.it.sroa_idx, align 8, !tbaa !20, !noalias !141
+  %289 = load i64, ptr %ref.tmp324.sroa.7.0.it.sroa_idx, align 8, !tbaa !129, !noalias !141
+  %290 = load i64, ptr %ref.tmp324.sroa.6.0.it.sroa_idx, align 8, !tbaa !132, !noalias !141
   %291 = load ptr, ptr %it, align 8, !noalias !141
   br label %for.cond.i.i1556
 
 for.cond.i.i1556:                                 ; preds = %land.rhs.i.i1560, %cleanup.cont479
   %.pn.i.i1557 = phi i64 [ %orig.i1552.sroa.5.0.copyload, %cleanup.cont479 ], [ %storemerge.i.i1558, %land.rhs.i.i1560 ]
   %storemerge.i.i1558 = add i64 %.pn.i.i1557, %289
-  store i64 %storemerge.i.i1558, ptr %ref.tmp324.sroa.5.0.it.sroa_idx1707, align 8, !tbaa !133, !noalias !141
+  store i64 %storemerge.i.i1558, ptr %ref.tmp324.sroa.5.0.it.sroa_idx, align 8, !tbaa !133, !noalias !141
   %cmp.not.i.i1559 = icmp eq i64 %storemerge.i.i1558, %290
   br i1 %cmp.not.i.i1559, label %invoke.cont489, label %land.rhs.i.i1560
 
@@ -17844,17 +17738,17 @@ cleanup.cont521:                                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar481) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar523) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp524) #24
-  %orig.i1617.sroa.4.0.copyload = load i64, ptr %ref.tmp324.sroa.4.0.it.sroa_idx1706, align 8, !tbaa !20, !noalias !144
-  %orig.i1617.sroa.5.0.copyload = load i64, ptr %ref.tmp324.sroa.5.0.it.sroa_idx1707, align 8, !tbaa !20, !noalias !144
-  %315 = load i64, ptr %ref.tmp324.sroa.7.0.it.sroa_idx1709, align 8, !tbaa !129, !noalias !144
-  %316 = load i64, ptr %ref.tmp324.sroa.6.0.it.sroa_idx1708, align 8, !tbaa !132, !noalias !144
+  %orig.i1617.sroa.4.0.copyload = load i64, ptr %ref.tmp324.sroa.4.0.it.sroa_idx, align 8, !tbaa !20, !noalias !144
+  %orig.i1617.sroa.5.0.copyload = load i64, ptr %ref.tmp324.sroa.5.0.it.sroa_idx, align 8, !tbaa !20, !noalias !144
+  %315 = load i64, ptr %ref.tmp324.sroa.7.0.it.sroa_idx, align 8, !tbaa !129, !noalias !144
+  %316 = load i64, ptr %ref.tmp324.sroa.6.0.it.sroa_idx, align 8, !tbaa !132, !noalias !144
   %317 = load ptr, ptr %it, align 8, !noalias !144
   br label %for.cond.i.i1621
 
 for.cond.i.i1621:                                 ; preds = %land.rhs.i.i1625, %cleanup.cont521
   %.pn.i.i1622 = phi i64 [ %orig.i1617.sroa.5.0.copyload, %cleanup.cont521 ], [ %storemerge.i.i1623, %land.rhs.i.i1625 ]
   %storemerge.i.i1623 = add i64 %.pn.i.i1622, %315
-  store i64 %storemerge.i.i1623, ptr %ref.tmp324.sroa.5.0.it.sroa_idx1707, align 8, !tbaa !133, !noalias !144
+  store i64 %storemerge.i.i1623, ptr %ref.tmp324.sroa.5.0.it.sroa_idx, align 8, !tbaa !133, !noalias !144
   %cmp.not.i.i1624 = icmp eq i64 %storemerge.i.i1623, %316
   br i1 %cmp.not.i.i1624, label %invoke.cont531, label %land.rhs.i.i1625
 
@@ -17991,7 +17885,7 @@ cleanup.cont563:                                  ; preds = %invoke.cont533
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar523) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar523) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar565) #24
-  %333 = load i64, ptr %ref.tmp324.sroa.5.0.it.sroa_idx1707, align 8, !tbaa !133, !noalias !147
+  %333 = load i64, ptr %ref.tmp324.sroa.5.0.it.sroa_idx, align 8, !tbaa !133, !noalias !147
   %334 = load i64, ptr %ref.tmp325.sroa.10.40.last.sroa_idx, align 8, !tbaa !133, !noalias !147
   %cmp.i.i.i1664 = icmp eq i64 %333, %334
   br i1 %cmp.i.i.i1664, label %if.then.i.i1666, label %if.end.i.i1665
@@ -19891,53 +19785,32 @@ cleanup.cont300:                                  ; preds = %_ZNKSt14default_del
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %192 = load i64, ptr %vert.i, align 8, !tbaa !77, !noalias !32
   %cmp.not8.i.i = icmp eq ptr %191, %190
-  br i1 %cmp.not8.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread, label %land.rhs.i.i
-
-_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread: ; preds = %cleanup.cont300
-  store ptr %190, ptr %it, align 8, !tbaa !33
-  %ref.tmp302.sroa.4.0.it.sroa_idx1536 = getelementptr inbounds i8, ptr %it, i64 8
-  store i64 %192, ptr %ref.tmp302.sroa.4.0.it.sroa_idx1536, align 8, !tbaa !20
-  %ref.tmp302.sroa.5.0.it.sroa_idx1537 = getelementptr inbounds i8, ptr %it, i64 16
-  store i64 0, ptr %ref.tmp302.sroa.5.0.it.sroa_idx1537, align 8, !tbaa !20
-  %ref.tmp302.sroa.6.0.it.sroa_idx1538 = getelementptr inbounds i8, ptr %it, i64 24
-  store i64 %sub.ptr.div.i.i, ptr %ref.tmp302.sroa.6.0.it.sroa_idx1538, align 8, !tbaa !20
-  %ref.tmp302.sroa.7.0.it.sroa_idx1539 = getelementptr inbounds i8, ptr %it, i64 32
-  store i64 1, ptr %ref.tmp302.sroa.7.0.it.sroa_idx1539, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %last) #24
-  br label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit1217
+  br i1 %cmp.not8.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit1217, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %cleanup.cont300, %for.inc.i.i
   %agg.tmp.sroa.3.0.i = phi i64 [ %add.i.i, %for.inc.i.i ], [ 0, %cleanup.cont300 ]
   %arrayidx.i.i.i1191 = getelementptr inbounds i64, ptr %190, i64 %agg.tmp.sroa.3.0.i
   %193 = load i64, ptr %arrayidx.i.i.i1191, align 8, !tbaa !20, !noalias !177
   %tobool.not.i.i = icmp eq i64 %193, 0
-  br i1 %tobool.not.i.i, label %for.inc.i.i, label %land.rhs.i.i1200.preheader
+  br i1 %tobool.not.i.i, label %for.inc.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit1217
 
 for.inc.i.i:                                      ; preds = %land.rhs.i.i
   %add.i.i = add i64 %agg.tmp.sroa.3.0.i, 1
   %cmp.not.i.i1192 = icmp eq i64 %add.i.i, %sub.ptr.div.i.i
-  br i1 %cmp.not.i.i1192, label %land.rhs.i.i1200.preheader, label %land.rhs.i.i, !llvm.loop !82
+  br i1 %cmp.not.i.i1192, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit1217, label %land.rhs.i.i, !llvm.loop !82
 
-land.rhs.i.i1200.preheader:                       ; preds = %for.inc.i.i, %land.rhs.i.i
-  %agg.tmp.sroa.3.1.i = phi i64 [ %agg.tmp.sroa.3.0.i, %land.rhs.i.i ], [ %sub.ptr.div.i.i, %for.inc.i.i ]
+_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit1217: ; preds = %land.rhs.i.i, %for.inc.i.i, %cleanup.cont300
+  %agg.tmp.sroa.3.1.i.sink = phi i64 [ 0, %cleanup.cont300 ], [ %agg.tmp.sroa.3.0.i, %land.rhs.i.i ], [ %sub.ptr.div.i.i, %for.inc.i.i ]
   store ptr %190, ptr %it, align 8, !tbaa !33
   %ref.tmp302.sroa.4.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 8
   store i64 %192, ptr %ref.tmp302.sroa.4.0.it.sroa_idx, align 8, !tbaa !20
   %ref.tmp302.sroa.5.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 16
-  store i64 %agg.tmp.sroa.3.1.i, ptr %ref.tmp302.sroa.5.0.it.sroa_idx, align 8, !tbaa !20
+  store i64 %agg.tmp.sroa.3.1.i.sink, ptr %ref.tmp302.sroa.5.0.it.sroa_idx, align 8, !tbaa !20
   %ref.tmp302.sroa.6.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 24
   store i64 %sub.ptr.div.i.i, ptr %ref.tmp302.sroa.6.0.it.sroa_idx, align 8, !tbaa !20
   %ref.tmp302.sroa.7.0.it.sroa_idx = getelementptr inbounds i8, ptr %it, i64 32
   store i64 1, ptr %ref.tmp302.sroa.7.0.it.sroa_idx, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %last) #24
-  br label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit1217
-
-_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit1217: ; preds = %land.rhs.i.i1200.preheader, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread
-  %ref.tmp302.sroa.7.0.it.sroa_idx1544 = phi ptr [ %ref.tmp302.sroa.7.0.it.sroa_idx1539, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread ], [ %ref.tmp302.sroa.7.0.it.sroa_idx, %land.rhs.i.i1200.preheader ]
-  %ref.tmp302.sroa.6.0.it.sroa_idx1543 = phi ptr [ %ref.tmp302.sroa.6.0.it.sroa_idx1538, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread ], [ %ref.tmp302.sroa.6.0.it.sroa_idx, %land.rhs.i.i1200.preheader ]
-  %ref.tmp302.sroa.5.0.it.sroa_idx1542 = phi ptr [ %ref.tmp302.sroa.5.0.it.sroa_idx1537, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread ], [ %ref.tmp302.sroa.5.0.it.sroa_idx, %land.rhs.i.i1200.preheader ]
-  %ref.tmp302.sroa.4.0.it.sroa_idx1541 = phi ptr [ %ref.tmp302.sroa.4.0.it.sroa_idx1536, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread ], [ %ref.tmp302.sroa.4.0.it.sroa_idx, %land.rhs.i.i1200.preheader ]
-  %agg.tmp.sroa.3.1.i1540 = phi i64 [ 0, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread ], [ %agg.tmp.sroa.3.1.i, %land.rhs.i.i1200.preheader ]
   store ptr %190, ptr %last, align 8, !tbaa !33
   %ref.tmp303.sroa.9.40.last.sroa_idx = getelementptr inbounds i8, ptr %last, i64 8
   store i64 %192, ptr %ref.tmp303.sroa.9.40.last.sroa_idx, align 8, !tbaa !20
@@ -19948,7 +19821,7 @@ _ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit1217: ; preds =
   %ref.tmp303.sroa.12.40.last.sroa_idx = getelementptr inbounds i8, ptr %last, i64 32
   store i64 1, ptr %ref.tmp303.sroa.12.40.last.sroa_idx, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar304) #24
-  %cmp.i.i.not.i = icmp eq i64 %agg.tmp.sroa.3.1.i1540, %sub.ptr.div.i.i
+  %cmp.i.i.not.i = icmp eq i64 %agg.tmp.sroa.3.1.i.sink, %sub.ptr.div.i.i
   br i1 %cmp.i.i.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit1217
@@ -20111,17 +19984,17 @@ cleanup.cont331:                                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar304) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar333) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp334) #24
-  %orig.i.sroa.4.0.copyload = load i64, ptr %ref.tmp302.sroa.4.0.it.sroa_idx1541, align 8, !tbaa !20, !noalias !180
-  %orig.i.sroa.5.0.copyload = load i64, ptr %ref.tmp302.sroa.5.0.it.sroa_idx1542, align 8, !tbaa !20, !noalias !180
-  %213 = load i64, ptr %ref.tmp302.sroa.7.0.it.sroa_idx1544, align 8, !tbaa !129, !noalias !180
-  %214 = load i64, ptr %ref.tmp302.sroa.6.0.it.sroa_idx1543, align 8, !tbaa !132, !noalias !180
+  %orig.i.sroa.4.0.copyload = load i64, ptr %ref.tmp302.sroa.4.0.it.sroa_idx, align 8, !tbaa !20, !noalias !180
+  %orig.i.sroa.5.0.copyload = load i64, ptr %ref.tmp302.sroa.5.0.it.sroa_idx, align 8, !tbaa !20, !noalias !180
+  %213 = load i64, ptr %ref.tmp302.sroa.7.0.it.sroa_idx, align 8, !tbaa !129, !noalias !180
+  %214 = load i64, ptr %ref.tmp302.sroa.6.0.it.sroa_idx, align 8, !tbaa !132, !noalias !180
   %215 = load ptr, ptr %it, align 8, !noalias !180
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %land.rhs.i.i1258, %cleanup.cont331
   %.pn.i.i = phi i64 [ %orig.i.sroa.5.0.copyload, %cleanup.cont331 ], [ %storemerge.i.i, %land.rhs.i.i1258 ]
   %storemerge.i.i = add i64 %.pn.i.i, %213
-  store i64 %storemerge.i.i, ptr %ref.tmp302.sroa.5.0.it.sroa_idx1542, align 8, !tbaa !133, !noalias !180
+  store i64 %storemerge.i.i, ptr %ref.tmp302.sroa.5.0.it.sroa_idx, align 8, !tbaa !133, !noalias !180
   %cmp.not.i.i1257 = icmp eq i64 %storemerge.i.i, %214
   br i1 %cmp.not.i.i1257, label %invoke.cont341, label %land.rhs.i.i1258
 
@@ -20310,17 +20183,17 @@ cleanup.cont373:                                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar333) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar375) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp376) #24
-  %orig.i1302.sroa.4.0.copyload = load i64, ptr %ref.tmp302.sroa.4.0.it.sroa_idx1541, align 8, !tbaa !20, !noalias !183
-  %orig.i1302.sroa.5.0.copyload = load i64, ptr %ref.tmp302.sroa.5.0.it.sroa_idx1542, align 8, !tbaa !20, !noalias !183
-  %239 = load i64, ptr %ref.tmp302.sroa.7.0.it.sroa_idx1544, align 8, !tbaa !129, !noalias !183
-  %240 = load i64, ptr %ref.tmp302.sroa.6.0.it.sroa_idx1543, align 8, !tbaa !132, !noalias !183
+  %orig.i1302.sroa.4.0.copyload = load i64, ptr %ref.tmp302.sroa.4.0.it.sroa_idx, align 8, !tbaa !20, !noalias !183
+  %orig.i1302.sroa.5.0.copyload = load i64, ptr %ref.tmp302.sroa.5.0.it.sroa_idx, align 8, !tbaa !20, !noalias !183
+  %239 = load i64, ptr %ref.tmp302.sroa.7.0.it.sroa_idx, align 8, !tbaa !129, !noalias !183
+  %240 = load i64, ptr %ref.tmp302.sroa.6.0.it.sroa_idx, align 8, !tbaa !132, !noalias !183
   %241 = load ptr, ptr %it, align 8, !noalias !183
   br label %for.cond.i.i1306
 
 for.cond.i.i1306:                                 ; preds = %land.rhs.i.i1310, %cleanup.cont373
   %.pn.i.i1307 = phi i64 [ %orig.i1302.sroa.5.0.copyload, %cleanup.cont373 ], [ %storemerge.i.i1308, %land.rhs.i.i1310 ]
   %storemerge.i.i1308 = add i64 %.pn.i.i1307, %239
-  store i64 %storemerge.i.i1308, ptr %ref.tmp302.sroa.5.0.it.sroa_idx1542, align 8, !tbaa !133, !noalias !183
+  store i64 %storemerge.i.i1308, ptr %ref.tmp302.sroa.5.0.it.sroa_idx, align 8, !tbaa !133, !noalias !183
   %cmp.not.i.i1309 = icmp eq i64 %storemerge.i.i1308, %240
   br i1 %cmp.not.i.i1309, label %invoke.cont383, label %land.rhs.i.i1310
 
@@ -20509,17 +20382,17 @@ cleanup.cont415:                                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar375) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar417) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp418) #24
-  %orig.i1367.sroa.4.0.copyload = load i64, ptr %ref.tmp302.sroa.4.0.it.sroa_idx1541, align 8, !tbaa !20, !noalias !186
-  %orig.i1367.sroa.5.0.copyload = load i64, ptr %ref.tmp302.sroa.5.0.it.sroa_idx1542, align 8, !tbaa !20, !noalias !186
-  %265 = load i64, ptr %ref.tmp302.sroa.7.0.it.sroa_idx1544, align 8, !tbaa !129, !noalias !186
-  %266 = load i64, ptr %ref.tmp302.sroa.6.0.it.sroa_idx1543, align 8, !tbaa !132, !noalias !186
+  %orig.i1367.sroa.4.0.copyload = load i64, ptr %ref.tmp302.sroa.4.0.it.sroa_idx, align 8, !tbaa !20, !noalias !186
+  %orig.i1367.sroa.5.0.copyload = load i64, ptr %ref.tmp302.sroa.5.0.it.sroa_idx, align 8, !tbaa !20, !noalias !186
+  %265 = load i64, ptr %ref.tmp302.sroa.7.0.it.sroa_idx, align 8, !tbaa !129, !noalias !186
+  %266 = load i64, ptr %ref.tmp302.sroa.6.0.it.sroa_idx, align 8, !tbaa !132, !noalias !186
   %267 = load ptr, ptr %it, align 8, !noalias !186
   br label %for.cond.i.i1371
 
 for.cond.i.i1371:                                 ; preds = %land.rhs.i.i1375, %cleanup.cont415
   %.pn.i.i1372 = phi i64 [ %orig.i1367.sroa.5.0.copyload, %cleanup.cont415 ], [ %storemerge.i.i1373, %land.rhs.i.i1375 ]
   %storemerge.i.i1373 = add i64 %.pn.i.i1372, %265
-  store i64 %storemerge.i.i1373, ptr %ref.tmp302.sroa.5.0.it.sroa_idx1542, align 8, !tbaa !133, !noalias !186
+  store i64 %storemerge.i.i1373, ptr %ref.tmp302.sroa.5.0.it.sroa_idx, align 8, !tbaa !133, !noalias !186
   %cmp.not.i.i1374 = icmp eq i64 %storemerge.i.i1373, %266
   br i1 %cmp.not.i.i1374, label %invoke.cont425, label %land.rhs.i.i1375
 
@@ -20708,17 +20581,17 @@ cleanup.cont457:                                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar417) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar459) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp460) #24
-  %orig.i1432.sroa.4.0.copyload = load i64, ptr %ref.tmp302.sroa.4.0.it.sroa_idx1541, align 8, !tbaa !20, !noalias !189
-  %orig.i1432.sroa.5.0.copyload = load i64, ptr %ref.tmp302.sroa.5.0.it.sroa_idx1542, align 8, !tbaa !20, !noalias !189
-  %291 = load i64, ptr %ref.tmp302.sroa.7.0.it.sroa_idx1544, align 8, !tbaa !129, !noalias !189
-  %292 = load i64, ptr %ref.tmp302.sroa.6.0.it.sroa_idx1543, align 8, !tbaa !132, !noalias !189
+  %orig.i1432.sroa.4.0.copyload = load i64, ptr %ref.tmp302.sroa.4.0.it.sroa_idx, align 8, !tbaa !20, !noalias !189
+  %orig.i1432.sroa.5.0.copyload = load i64, ptr %ref.tmp302.sroa.5.0.it.sroa_idx, align 8, !tbaa !20, !noalias !189
+  %291 = load i64, ptr %ref.tmp302.sroa.7.0.it.sroa_idx, align 8, !tbaa !129, !noalias !189
+  %292 = load i64, ptr %ref.tmp302.sroa.6.0.it.sroa_idx, align 8, !tbaa !132, !noalias !189
   %293 = load ptr, ptr %it, align 8, !noalias !189
   br label %for.cond.i.i1436
 
 for.cond.i.i1436:                                 ; preds = %land.rhs.i.i1440, %cleanup.cont457
   %.pn.i.i1437 = phi i64 [ %orig.i1432.sroa.5.0.copyload, %cleanup.cont457 ], [ %storemerge.i.i1438, %land.rhs.i.i1440 ]
   %storemerge.i.i1438 = add i64 %.pn.i.i1437, %291
-  store i64 %storemerge.i.i1438, ptr %ref.tmp302.sroa.5.0.it.sroa_idx1542, align 8, !tbaa !133, !noalias !189
+  store i64 %storemerge.i.i1438, ptr %ref.tmp302.sroa.5.0.it.sroa_idx, align 8, !tbaa !133, !noalias !189
   %cmp.not.i.i1439 = icmp eq i64 %storemerge.i.i1438, %292
   br i1 %cmp.not.i.i1439, label %invoke.cont467, label %land.rhs.i.i1440
 
@@ -20906,7 +20779,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 cleanup.cont499:                                  ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1492, %cleanup.cont499.critedge
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar459) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar501) #24
-  %317 = load i64, ptr %ref.tmp302.sroa.5.0.it.sroa_idx1542, align 8, !tbaa !133, !noalias !192
+  %317 = load i64, ptr %ref.tmp302.sroa.5.0.it.sroa_idx, align 8, !tbaa !133, !noalias !192
   %318 = load i64, ptr %ref.tmp303.sroa.10.40.last.sroa_idx, align 8, !tbaa !133, !noalias !192
   %cmp.i.i.i1499 = icmp eq i64 %317, %318
   br i1 %cmp.i.i.i1499, label %if.then.i.i1501, label %if.end.i.i1500
@@ -22923,49 +22796,32 @@ cleanup.cont67:                                   ; preds = %_ZNKSt14default_del
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %57 = load i64, ptr %vert.i, align 8, !tbaa !77, !noalias !32
   %cmp.not8.i.i = icmp eq ptr %56, %55
-  br i1 %cmp.not8.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread, label %land.rhs.i.i
-
-_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread: ; preds = %cleanup.cont67
-  store ptr %55, ptr %ref.tmp70, align 8, !tbaa !33
-  %ref.tmp71.sroa.5.0.ref.tmp70.sroa_idx475 = getelementptr inbounds i8, ptr %ref.tmp70, i64 8
-  store i64 %57, ptr %ref.tmp71.sroa.5.0.ref.tmp70.sroa_idx475, align 8, !tbaa !20
-  %ref.tmp71.sroa.6.0.ref.tmp70.sroa_idx476 = getelementptr inbounds i8, ptr %ref.tmp70, i64 16
-  store i64 0, ptr %ref.tmp71.sroa.6.0.ref.tmp70.sroa_idx476, align 8, !tbaa !20
-  %ref.tmp71.sroa.7.0.ref.tmp70.sroa_idx477 = getelementptr inbounds i8, ptr %ref.tmp70, i64 24
-  store i64 %sub.ptr.div.i.i, ptr %ref.tmp71.sroa.7.0.ref.tmp70.sroa_idx477, align 8, !tbaa !20
-  %ref.tmp71.sroa.8.0.ref.tmp70.sroa_idx478 = getelementptr inbounds i8, ptr %ref.tmp70, i64 32
-  store i64 1, ptr %ref.tmp71.sroa.8.0.ref.tmp70.sroa_idx478, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp72) #24
-  br label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit338
+  br i1 %cmp.not8.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit338, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %cleanup.cont67, %for.inc.i.i
   %agg.tmp.sroa.3.0.i = phi i64 [ %add.i.i, %for.inc.i.i ], [ 0, %cleanup.cont67 ]
   %arrayidx.i.i.i = getelementptr inbounds i64, ptr %55, i64 %agg.tmp.sroa.3.0.i
   %58 = load i64, ptr %arrayidx.i.i.i, align 8, !tbaa !20, !noalias !221
   %tobool.not.i.i = icmp eq i64 %58, 0
-  br i1 %tobool.not.i.i, label %for.inc.i.i, label %land.rhs.i.i321.preheader
+  br i1 %tobool.not.i.i, label %for.inc.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit338
 
 for.inc.i.i:                                      ; preds = %land.rhs.i.i
   %add.i.i = add i64 %agg.tmp.sroa.3.0.i, 1
   %cmp.not.i.i313 = icmp eq i64 %add.i.i, %sub.ptr.div.i.i
-  br i1 %cmp.not.i.i313, label %land.rhs.i.i321.preheader, label %land.rhs.i.i, !llvm.loop !82
+  br i1 %cmp.not.i.i313, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit338, label %land.rhs.i.i, !llvm.loop !82
 
-land.rhs.i.i321.preheader:                        ; preds = %for.inc.i.i, %land.rhs.i.i
-  %agg.tmp.sroa.3.1.i = phi i64 [ %agg.tmp.sroa.3.0.i, %land.rhs.i.i ], [ %sub.ptr.div.i.i, %for.inc.i.i ]
+_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit338: ; preds = %land.rhs.i.i, %for.inc.i.i, %cleanup.cont67
+  %agg.tmp.sroa.3.1.i.sink = phi i64 [ 0, %cleanup.cont67 ], [ %agg.tmp.sroa.3.0.i, %land.rhs.i.i ], [ %sub.ptr.div.i.i, %for.inc.i.i ]
   store ptr %55, ptr %ref.tmp70, align 8, !tbaa !33
   %ref.tmp71.sroa.5.0.ref.tmp70.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp70, i64 8
   store i64 %57, ptr %ref.tmp71.sroa.5.0.ref.tmp70.sroa_idx, align 8, !tbaa !20
   %ref.tmp71.sroa.6.0.ref.tmp70.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp70, i64 16
-  store i64 %agg.tmp.sroa.3.1.i, ptr %ref.tmp71.sroa.6.0.ref.tmp70.sroa_idx, align 8, !tbaa !20
+  store i64 %agg.tmp.sroa.3.1.i.sink, ptr %ref.tmp71.sroa.6.0.ref.tmp70.sroa_idx, align 8, !tbaa !20
   %ref.tmp71.sroa.7.0.ref.tmp70.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp70, i64 24
   store i64 %sub.ptr.div.i.i, ptr %ref.tmp71.sroa.7.0.ref.tmp70.sroa_idx, align 8, !tbaa !20
   %ref.tmp71.sroa.8.0.ref.tmp70.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp70, i64 32
   store i64 1, ptr %ref.tmp71.sroa.8.0.ref.tmp70.sroa_idx, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp72) #24
-  br label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit338
-
-_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit338: ; preds = %land.rhs.i.i321.preheader, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread
-  %agg.tmp.sroa.3.1.i479 = phi i64 [ 0, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread ], [ %agg.tmp.sroa.3.1.i, %land.rhs.i.i321.preheader ]
   store ptr %55, ptr %ref.tmp72, align 8, !tbaa !33
   %ref.tmp73.sroa.10.40.ref.tmp72.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp72, i64 8
   store i64 %57, ptr %ref.tmp73.sroa.10.40.ref.tmp72.sroa_idx, align 8, !tbaa !20
@@ -22975,7 +22831,7 @@ _ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit338: ; preds = 
   store i64 %sub.ptr.div.i.i, ptr %ref.tmp73.sroa.12.40.ref.tmp72.sroa_idx, align 8, !tbaa !20
   %ref.tmp73.sroa.13.40.ref.tmp72.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp72, i64 32
   store i64 1, ptr %ref.tmp73.sroa.13.40.ref.tmp72.sroa_idx, align 8, !tbaa !20
-  %cmp.i.i.not.i = icmp eq i64 %agg.tmp.sroa.3.1.i479, %sub.ptr.div.i.i
+  %cmp.i.i.not.i = icmp eq i64 %agg.tmp.sroa.3.1.i.sink, %sub.ptr.div.i.i
   br i1 %cmp.i.i.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit338
@@ -24087,49 +23943,32 @@ cleanup.cont69:                                   ; preds = %_ZNKSt14default_del
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %62 = load i64, ptr %vert.i, align 8, !tbaa !77, !noalias !32
   %cmp.not8.i.i = icmp eq ptr %61, %60
-  br i1 %cmp.not8.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread, label %land.rhs.i.i
-
-_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread: ; preds = %cleanup.cont69
-  store ptr %60, ptr %ref.tmp72, align 8, !tbaa !33
-  %ref.tmp73.sroa.5.0.ref.tmp72.sroa_idx495 = getelementptr inbounds i8, ptr %ref.tmp72, i64 8
-  store i64 %62, ptr %ref.tmp73.sroa.5.0.ref.tmp72.sroa_idx495, align 8, !tbaa !20
-  %ref.tmp73.sroa.6.0.ref.tmp72.sroa_idx496 = getelementptr inbounds i8, ptr %ref.tmp72, i64 16
-  store i64 0, ptr %ref.tmp73.sroa.6.0.ref.tmp72.sroa_idx496, align 8, !tbaa !20
-  %ref.tmp73.sroa.7.0.ref.tmp72.sroa_idx497 = getelementptr inbounds i8, ptr %ref.tmp72, i64 24
-  store i64 %sub.ptr.div.i.i, ptr %ref.tmp73.sroa.7.0.ref.tmp72.sroa_idx497, align 8, !tbaa !20
-  %ref.tmp73.sroa.8.0.ref.tmp72.sroa_idx498 = getelementptr inbounds i8, ptr %ref.tmp72, i64 32
-  store i64 1, ptr %ref.tmp73.sroa.8.0.ref.tmp72.sroa_idx498, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp74) #24
-  br label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit358
+  br i1 %cmp.not8.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit358, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %cleanup.cont69, %for.inc.i.i
   %agg.tmp.sroa.3.0.i = phi i64 [ %add.i.i, %for.inc.i.i ], [ 0, %cleanup.cont69 ]
   %arrayidx.i.i.i = getelementptr inbounds i64, ptr %60, i64 %agg.tmp.sroa.3.0.i
   %63 = load i64, ptr %arrayidx.i.i.i, align 8, !tbaa !20, !noalias !224
   %tobool.not.i.i = icmp eq i64 %63, 0
-  br i1 %tobool.not.i.i, label %for.inc.i.i, label %land.rhs.i.i341.preheader
+  br i1 %tobool.not.i.i, label %for.inc.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit358
 
 for.inc.i.i:                                      ; preds = %land.rhs.i.i
   %add.i.i = add i64 %agg.tmp.sroa.3.0.i, 1
   %cmp.not.i.i333 = icmp eq i64 %add.i.i, %sub.ptr.div.i.i
-  br i1 %cmp.not.i.i333, label %land.rhs.i.i341.preheader, label %land.rhs.i.i, !llvm.loop !82
+  br i1 %cmp.not.i.i333, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit358, label %land.rhs.i.i, !llvm.loop !82
 
-land.rhs.i.i341.preheader:                        ; preds = %for.inc.i.i, %land.rhs.i.i
-  %agg.tmp.sroa.3.1.i = phi i64 [ %agg.tmp.sroa.3.0.i, %land.rhs.i.i ], [ %sub.ptr.div.i.i, %for.inc.i.i ]
+_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit358: ; preds = %land.rhs.i.i, %for.inc.i.i, %cleanup.cont69
+  %agg.tmp.sroa.3.1.i.sink = phi i64 [ 0, %cleanup.cont69 ], [ %agg.tmp.sroa.3.0.i, %land.rhs.i.i ], [ %sub.ptr.div.i.i, %for.inc.i.i ]
   store ptr %60, ptr %ref.tmp72, align 8, !tbaa !33
   %ref.tmp73.sroa.5.0.ref.tmp72.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp72, i64 8
   store i64 %62, ptr %ref.tmp73.sroa.5.0.ref.tmp72.sroa_idx, align 8, !tbaa !20
   %ref.tmp73.sroa.6.0.ref.tmp72.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp72, i64 16
-  store i64 %agg.tmp.sroa.3.1.i, ptr %ref.tmp73.sroa.6.0.ref.tmp72.sroa_idx, align 8, !tbaa !20
+  store i64 %agg.tmp.sroa.3.1.i.sink, ptr %ref.tmp73.sroa.6.0.ref.tmp72.sroa_idx, align 8, !tbaa !20
   %ref.tmp73.sroa.7.0.ref.tmp72.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp72, i64 24
   store i64 %sub.ptr.div.i.i, ptr %ref.tmp73.sroa.7.0.ref.tmp72.sroa_idx, align 8, !tbaa !20
   %ref.tmp73.sroa.8.0.ref.tmp72.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp72, i64 32
   store i64 1, ptr %ref.tmp73.sroa.8.0.ref.tmp72.sroa_idx, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp74) #24
-  br label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit358
-
-_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit358: ; preds = %land.rhs.i.i341.preheader, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread
-  %agg.tmp.sroa.3.1.i499 = phi i64 [ 0, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread ], [ %agg.tmp.sroa.3.1.i, %land.rhs.i.i341.preheader ]
   store ptr %60, ptr %ref.tmp74, align 8, !tbaa !33
   %ref.tmp75.sroa.10.40.ref.tmp74.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp74, i64 8
   store i64 %62, ptr %ref.tmp75.sroa.10.40.ref.tmp74.sroa_idx, align 8, !tbaa !20
@@ -24139,7 +23978,7 @@ _ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit358: ; preds = 
   store i64 %sub.ptr.div.i.i, ptr %ref.tmp75.sroa.12.40.ref.tmp74.sroa_idx, align 8, !tbaa !20
   %ref.tmp75.sroa.13.40.ref.tmp74.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp74, i64 32
   store i64 1, ptr %ref.tmp75.sroa.13.40.ref.tmp74.sroa_idx, align 8, !tbaa !20
-  %cmp.i.i.not.i = icmp eq i64 %agg.tmp.sroa.3.1.i499, %sub.ptr.div.i.i
+  %cmp.i.i.not.i = icmp eq i64 %agg.tmp.sroa.3.1.i.sink, %sub.ptr.div.i.i
   br i1 %cmp.i.i.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit358
@@ -25252,49 +25091,32 @@ cleanup.cont69:                                   ; preds = %_ZNKSt14default_del
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %62 = load i64, ptr %vert.i, align 8, !tbaa !77, !noalias !32
   %cmp.not8.i.i = icmp eq ptr %61, %60
-  br i1 %cmp.not8.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread, label %land.rhs.i.i
-
-_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread: ; preds = %cleanup.cont69
-  store ptr %60, ptr %ref.tmp72, align 8, !tbaa !33
-  %ref.tmp73.sroa.5.0.ref.tmp72.sroa_idx495 = getelementptr inbounds i8, ptr %ref.tmp72, i64 8
-  store i64 %62, ptr %ref.tmp73.sroa.5.0.ref.tmp72.sroa_idx495, align 8, !tbaa !20
-  %ref.tmp73.sroa.6.0.ref.tmp72.sroa_idx496 = getelementptr inbounds i8, ptr %ref.tmp72, i64 16
-  store i64 0, ptr %ref.tmp73.sroa.6.0.ref.tmp72.sroa_idx496, align 8, !tbaa !20
-  %ref.tmp73.sroa.7.0.ref.tmp72.sroa_idx497 = getelementptr inbounds i8, ptr %ref.tmp72, i64 24
-  store i64 %sub.ptr.div.i.i, ptr %ref.tmp73.sroa.7.0.ref.tmp72.sroa_idx497, align 8, !tbaa !20
-  %ref.tmp73.sroa.8.0.ref.tmp72.sroa_idx498 = getelementptr inbounds i8, ptr %ref.tmp72, i64 32
-  store i64 1, ptr %ref.tmp73.sroa.8.0.ref.tmp72.sroa_idx498, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp74) #24
-  br label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit358
+  br i1 %cmp.not8.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit358, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %cleanup.cont69, %for.inc.i.i
   %agg.tmp.sroa.3.0.i = phi i64 [ %add.i.i, %for.inc.i.i ], [ 0, %cleanup.cont69 ]
   %arrayidx.i.i.i = getelementptr inbounds i64, ptr %60, i64 %agg.tmp.sroa.3.0.i
   %63 = load i64, ptr %arrayidx.i.i.i, align 8, !tbaa !20, !noalias !227
   %tobool.not.i.i = icmp eq i64 %63, 0
-  br i1 %tobool.not.i.i, label %for.inc.i.i, label %land.rhs.i.i341.preheader
+  br i1 %tobool.not.i.i, label %for.inc.i.i, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit358
 
 for.inc.i.i:                                      ; preds = %land.rhs.i.i
   %add.i.i = add i64 %agg.tmp.sroa.3.0.i, 1
   %cmp.not.i.i333 = icmp eq i64 %add.i.i, %sub.ptr.div.i.i
-  br i1 %cmp.not.i.i333, label %land.rhs.i.i341.preheader, label %land.rhs.i.i, !llvm.loop !82
+  br i1 %cmp.not.i.i333, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit358, label %land.rhs.i.i, !llvm.loop !82
 
-land.rhs.i.i341.preheader:                        ; preds = %for.inc.i.i, %land.rhs.i.i
-  %agg.tmp.sroa.3.1.i = phi i64 [ %agg.tmp.sroa.3.0.i, %land.rhs.i.i ], [ %sub.ptr.div.i.i, %for.inc.i.i ]
+_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit358: ; preds = %land.rhs.i.i, %for.inc.i.i, %cleanup.cont69
+  %agg.tmp.sroa.3.1.i.sink = phi i64 [ 0, %cleanup.cont69 ], [ %agg.tmp.sroa.3.0.i, %land.rhs.i.i ], [ %sub.ptr.div.i.i, %for.inc.i.i ]
   store ptr %60, ptr %ref.tmp72, align 8, !tbaa !33
   %ref.tmp73.sroa.5.0.ref.tmp72.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp72, i64 8
   store i64 %62, ptr %ref.tmp73.sroa.5.0.ref.tmp72.sroa_idx, align 8, !tbaa !20
   %ref.tmp73.sroa.6.0.ref.tmp72.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp72, i64 16
-  store i64 %agg.tmp.sroa.3.1.i, ptr %ref.tmp73.sroa.6.0.ref.tmp72.sroa_idx, align 8, !tbaa !20
+  store i64 %agg.tmp.sroa.3.1.i.sink, ptr %ref.tmp73.sroa.6.0.ref.tmp72.sroa_idx, align 8, !tbaa !20
   %ref.tmp73.sroa.7.0.ref.tmp72.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp72, i64 24
   store i64 %sub.ptr.div.i.i, ptr %ref.tmp73.sroa.7.0.ref.tmp72.sroa_idx, align 8, !tbaa !20
   %ref.tmp73.sroa.8.0.ref.tmp72.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp72, i64 32
   store i64 1, ptr %ref.tmp73.sroa.8.0.ref.tmp72.sroa_idx, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp74) #24
-  br label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit358
-
-_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit358: ; preds = %land.rhs.i.i341.preheader, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread
-  %agg.tmp.sroa.3.1.i499 = phi i64 [ 0, %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit.thread ], [ %agg.tmp.sroa.3.1.i, %land.rhs.i.i341.preheader ]
   store ptr %60, ptr %ref.tmp74, align 8, !tbaa !33
   %ref.tmp75.sroa.10.40.ref.tmp74.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp74, i64 8
   store i64 %62, ptr %ref.tmp75.sroa.10.40.ref.tmp74.sroa_idx, align 8, !tbaa !20
@@ -25304,7 +25126,7 @@ _ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit358: ; preds = 
   store i64 %sub.ptr.div.i.i, ptr %ref.tmp75.sroa.12.40.ref.tmp74.sroa_idx, align 8, !tbaa !20
   %ref.tmp75.sroa.13.40.ref.tmp74.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp74, i64 32
   store i64 1, ptr %ref.tmp75.sroa.13.40.ref.tmp74.sroa_idx, align 8, !tbaa !20
-  %cmp.i.i.not.i = icmp eq i64 %agg.tmp.sroa.3.1.i499, %sub.ptr.div.i.i
+  %cmp.i.i.not.i = icmp eq i64 %agg.tmp.sroa.3.1.i.sink, %sub.ptr.div.i.i
   br i1 %cmp.i.i.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit358
@@ -29484,7 +29306,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 ehcleanup.thread:                                 ; preds = %if.then.i.i, %if.then.i
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #24
   br label %cleanup.action
 
 lpad2.body:                                       ; preds = %invoke.cont
@@ -29496,7 +29317,6 @@ lpad2.body:                                       ; preds = %invoke.cont
 
 ehcleanup.thread15:                               ; preds = %lpad2.body
   call void @_ZdlPv(ptr noundef %26) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #24
   br label %cleanup.action
 
 lpad2.body.thread:                                ; preds = %lpad3.i
@@ -29515,7 +29335,6 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %29 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !37
   %cmp3.i.i.i22 = icmp ult i64 %29, 16
   call void @llvm.assume(i1 %cmp3.i.i.i22)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #24
   br label %cleanup.action
 
 ehcleanup:                                        ; preds = %lpad2.body.thread
@@ -29525,6 +29344,7 @@ ehcleanup:                                        ; preds = %lpad2.body.thread
 
 cleanup.action:                                   ; preds = %ehcleanup.thread15, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i20, %ehcleanup.thread
   %.pn27 = phi { ptr, i32 } [ %24, %ehcleanup.thread ], [ %25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i20 ], [ %25, %ehcleanup.thread15 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #24
   call void @_ZdlPv(ptr noundef nonnull %call) #25
   br label %eh.resume
 

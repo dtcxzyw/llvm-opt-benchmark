@@ -6542,15 +6542,10 @@ define internal fastcc i32 @alloc_oa_buffer(ptr nocapture noundef %0) unnamed_ad
 76:                                               ; preds = %72, %60
   %77 = icmp eq i32 %61, -114
   %78 = select i1 %77, i32 0, i32 %61
-  switch i32 %78, label %.thread12.thread [
+  switch i32 %78, label %.sink.split [
     i32 -35, label %79
     i32 0, label %88
   ]
-
-.thread12.thread:                                 ; preds = %76
-  call void @i915_gem_ww_ctx_fini(ptr noundef nonnull %2) #20
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #20
-  br label %95
 
 79:                                               ; preds = %76
   %80 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %51, i32 1, ptr elementtype(i32) %51) #20, !srcloc !49
@@ -6580,12 +6575,7 @@ define internal fastcc i32 @alloc_oa_buffer(ptr nocapture noundef %0) unnamed_ad
 91:                                               ; preds = %.thread, %88
   %92 = call i32 @i915_gem_ww_ctx_backoff(ptr noundef nonnull %2) #20
   %93 = icmp eq i32 %92, 0
-  br i1 %93, label %50, label %.thread13
-
-.thread13:                                        ; preds = %91
-  call void @i915_gem_ww_ctx_fini(ptr noundef nonnull %2) #20
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #20
-  br label %95
+  br i1 %93, label %50, label %.sink.split
 
 .thread12:                                        ; preds = %88
   call void @i915_gem_ww_ctx_fini(ptr noundef nonnull %2) #20
@@ -6593,8 +6583,14 @@ define internal fastcc i32 @alloc_oa_buffer(ptr nocapture noundef %0) unnamed_ad
   %94 = icmp eq i32 %89, 0
   br i1 %94, label %106, label %95
 
-95:                                               ; preds = %.thread12.thread, %.thread13, %.thread12
-  %96 = phi i32 [ %92, %.thread13 ], [ %89, %.thread12 ], [ %61, %.thread12.thread ]
+.sink.split:                                      ; preds = %91, %76
+  %.ph = phi i32 [ %61, %76 ], [ %92, %91 ]
+  call void @i915_gem_ww_ctx_fini(ptr noundef nonnull %2) #20
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #20
+  br label %95
+
+95:                                               ; preds = %.sink.split, %.thread12
+  %96 = phi i32 [ %89, %.thread12 ], [ %.ph, %.sink.split ]
   %97 = load ptr, ptr %8, align 8
   %98 = icmp eq ptr %97, null
   br i1 %98, label %102, label %99

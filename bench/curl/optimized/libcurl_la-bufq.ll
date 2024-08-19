@@ -1079,12 +1079,7 @@ if.then:                                          ; preds = %if.end3.i, %Curl_bu
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %blen.i)
   %call12.i = call zeroext i1 @Curl_bufq_peek(ptr noundef nonnull %q, ptr noundef nonnull %buf.i, ptr noundef nonnull %blen.i)
-  br i1 %call12.i, label %while.body.i, label %Curl_bufq_pass.exit.thread48
-
-Curl_bufq_pass.exit.thread48:                     ; preds = %if.then
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %blen.i)
-  br label %while.body.i23.preheader
+  br i1 %call12.i, label %while.body.i, label %if.end6.sink.split
 
 while.body.i:                                     ; preds = %if.then, %if.end10.i
   %nwritten.013.i = phi i64 [ %add.i, %if.end10.i ], [ 0, %if.then ]
@@ -1101,7 +1096,7 @@ if.then.i:                                        ; preds = %while.body.i
   br i1 %tobool.not.i21, label %Curl_bufq_pass.exit.thread, label %lor.lhs.false.i22
 
 lor.lhs.false.i22:                                ; preds = %if.then.i
-  br i1 %8, label %Curl_bufq_pass.exit, label %Curl_bufq_pass.exit.thread.thread93
+  br i1 %8, label %if.end6.sink.split, label %Curl_bufq_pass.exit.thread.thread93
 
 Curl_bufq_pass.exit.thread.thread93:              ; preds = %lor.lhs.false.i22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i)
@@ -1114,7 +1109,7 @@ if.end4.i:                                        ; preds = %while.body.i
 
 if.then6.i:                                       ; preds = %if.end4.i
   %tobool7.not.i = icmp eq i64 %nwritten.013.i, 0
-  br i1 %tobool7.not.i, label %Curl_bufq_pass.exit.thread.thread, label %Curl_bufq_pass.exit
+  br i1 %tobool7.not.i, label %Curl_bufq_pass.exit.thread.thread, label %if.end6.sink.split
 
 Curl_bufq_pass.exit.thread.thread:                ; preds = %if.then6.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i)
@@ -1125,19 +1120,19 @@ if.end10.i:                                       ; preds = %if.end4.i
   tail call void @Curl_bufq_skip(ptr noundef %q, i64 noundef %call1.i)
   %add.i = add nuw nsw i64 %call1.i, %nwritten.013.i
   %call.i = call zeroext i1 @Curl_bufq_peek(ptr noundef %q, ptr noundef nonnull %buf.i, ptr noundef nonnull %blen.i)
-  br i1 %call.i, label %while.body.i, label %Curl_bufq_pass.exit, !llvm.loop !14
+  br i1 %call.i, label %while.body.i, label %if.end6.sink.split, !llvm.loop !14
 
 Curl_bufq_pass.exit.thread:                       ; preds = %if.then.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %blen.i)
   br i1 %8, label %while.end, label %return
 
-Curl_bufq_pass.exit:                              ; preds = %if.end10.i, %lor.lhs.false.i22, %if.then6.i
+if.end6.sink.split:                               ; preds = %if.end10.i, %if.then6.i, %lor.lhs.false.i22, %if.then
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %blen.i)
   br label %while.body.i23.preheader
 
-while.body.i23.preheader:                         ; preds = %Curl_bufq_pass.exit, %if.end.i, %while.body, %lor.lhs.false.i, %Curl_bufq_pass.exit.thread48, %Curl_bufq_is_full.exit
+while.body.i23.preheader:                         ; preds = %if.end6.sink.split, %if.end.i, %while.body, %lor.lhs.false.i, %Curl_bufq_is_full.exit
   br label %while.body.i23
 
 while.body.i23:                                   ; preds = %while.body.i23.preheader, %chunk_append.exit.i

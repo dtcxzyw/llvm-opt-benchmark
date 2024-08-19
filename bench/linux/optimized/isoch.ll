@@ -47,13 +47,13 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
   %20 = load i32, ptr %10, align 4
   %21 = and i32 %20, 131072
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %336, label %23
+  br i1 %22, label %335, label %23
 
 23:                                               ; preds = %1
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %25 = call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %24, i32 noundef 3264, i64 noundef 32) #8
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %336, label %27
+  br i1 %26, label %335, label %27
 
 27:                                               ; preds = %23
   store volatile ptr %25, ptr %25, align 8
@@ -246,15 +246,6 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
   %128 = call noalias align 8 ptr @__kmalloc(i64 noundef %127, i32 noundef 3264) #10
   %129 = icmp eq ptr %128, null
   br i1 %129, label %.thread29, label %130
-
-.thread29:                                        ; preds = %.loopexit38
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
-  br label %327
 
 130:                                              ; preds = %.loopexit38
   %131 = load ptr, ptr %25, align 8
@@ -533,48 +524,48 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
   %326 = getelementptr inbounds i8, ptr %125, i64 184
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %326, ptr noundef nonnull %325) #9
   call void @kfree(ptr noundef nonnull %128) #7
+  br label %.thread29
+
+.thread29:                                        ; preds = %.loopexit38, %324
+  %327 = phi i32 [ -19, %324 ], [ -12, %.loopexit38 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #7
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
-  br label %327
-
-327:                                              ; preds = %324, %.thread29
-  %328 = phi i32 [ -12, %.thread29 ], [ -19, %324 ]
-  %329 = getelementptr inbounds i8, ptr %15, i64 184
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %329, ptr noundef nonnull @.str.4) #9
+  %328 = getelementptr inbounds i8, ptr %15, i64 184
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %328, ptr noundef nonnull @.str.4) #9
   %.val = load ptr, ptr %14, align 8
   %.val24 = load i32, ptr %16, align 8
   call fastcc void @agp_3_5_nonisochronous_node_enable(ptr %.val, i32 %.val24, ptr noundef nonnull %25, i32 noundef %33)
   br label %.loopexit41
 
-.loopexit41:                                      ; preds = %46, %.thread30, %327, %120, %103, %90
-  %330 = phi i32 [ -19, %90 ], [ -19, %103 ], [ -19, %120 ], [ %328, %327 ], [ 0, %.thread30 ], [ -12, %46 ]
-  %331 = load ptr, ptr %25, align 8
-  %332 = icmp eq ptr %331, %25
-  br i1 %332, label %.loopexit, label %.preheader
+.loopexit41:                                      ; preds = %46, %.thread30, %.thread29, %120, %103, %90
+  %329 = phi i32 [ -19, %90 ], [ -19, %103 ], [ -19, %120 ], [ %327, %.thread29 ], [ 0, %.thread30 ], [ -12, %46 ]
+  %330 = load ptr, ptr %25, align 8
+  %331 = icmp eq ptr %330, %25
+  br i1 %331, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit41, %.preheader
-  %333 = phi ptr [ %334, %.preheader ], [ %331, %.loopexit41 ]
-  %334 = load ptr, ptr %333, align 8
-  call void @kfree(ptr noundef %333) #7
-  %335 = icmp eq ptr %334, %25
-  br i1 %335, label %.loopexit, label %.preheader, !llvm.loop !17
+  %332 = phi ptr [ %333, %.preheader ], [ %330, %.loopexit41 ]
+  %333 = load ptr, ptr %332, align 8
+  call void @kfree(ptr noundef %332) #7
+  %334 = icmp eq ptr %333, %25
+  br i1 %334, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit41
   call void @kfree(ptr noundef nonnull %25) #7
-  br label %336
+  br label %335
 
-336:                                              ; preds = %.loopexit, %23, %1
-  %337 = phi i32 [ -19, %1 ], [ %330, %.loopexit ], [ -12, %23 ]
+335:                                              ; preds = %.loopexit, %23, %1
+  %336 = phi i32 [ -19, %1 ], [ %329, %.loopexit ], [ -12, %23 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %13) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #7
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #7
-  ret i32 %337
+  ret i32 %336
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

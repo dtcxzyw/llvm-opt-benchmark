@@ -5922,9 +5922,9 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %29, %32
   %49 = getelementptr inbounds i8, ptr %7, i64 16
   br label %_ZNSt5arrayImLm3EE4fillERKm.exit.preheader.preheader
 
-_ZNSt5arrayImLm3EE4fillERKm.exit.preheader.preheader: ; preds = %.lr.ph, %84
-  %.02836 = phi i64 [ 0, %.lr.ph ], [ %85, %84 ]
-  %.02935 = phi i64 [ %17, %.lr.ph ], [ %111, %84 ]
+_ZNSt5arrayImLm3EE4fillERKm.exit.preheader.preheader: ; preds = %.lr.ph, %86
+  %.02836 = phi i64 [ 0, %.lr.ph ], [ %87, %86 ]
+  %.02935 = phi i64 [ %17, %.lr.ph ], [ %113, %86 ]
   store ptr null, ptr %6, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 -1, i64 24, i1 false)
   %sext = shl i64 %.02836, 32
@@ -6013,63 +6013,63 @@ _ZNSt5arrayImLm3EE4fillERKm.exit.preheader:       ; preds = %_ZNSt5arrayImLm3EE4
   br label %_ZNSt5arrayImLm3EE4fillERKm.exit.sink.split.sink.split
 
 _ZNSt5arrayImLm3EE4fillERKm.exit.sink.split.sink.split: ; preds = %53, %55, %57, %59, %61, %63, %65, %67, %69, %71, %73, %75
-  %.sink47 = load ptr, ptr %6, align 8
-  %.sink49 = load ptr, ptr %8, align 8
-  %77 = getelementptr inbounds i8, ptr %.sink49, i64 8
-  %78 = load ptr, ptr %77, align 8
-  %79 = ptrtoint ptr %.sink47 to i64
-  %80 = ptrtoint ptr %78 to i64
-  %81 = sub i64 %79, %80
-  %82 = sdiv exact i64 %81, 48
+  %77 = load ptr, ptr %8, align 8
+  %78 = load ptr, ptr %6, align 8
+  %79 = getelementptr inbounds i8, ptr %77, i64 8
+  %80 = load ptr, ptr %79, align 8
+  %81 = ptrtoint ptr %78 to i64
+  %82 = ptrtoint ptr %80 to i64
+  %83 = sub i64 %81, %82
+  %84 = sdiv exact i64 %83, 48
   br label %_ZNSt5arrayImLm3EE4fillERKm.exit.sink.split
 
 _ZNSt5arrayImLm3EE4fillERKm.exit.sink.split:      ; preds = %_ZNSt5arrayImLm3EE4fillERKm.exit.sink.split.sink.split, %_ZNSt5arrayImLm3EE4fillERKm.exit.preheader
-  %.sink = phi i64 [ %.030, %_ZNSt5arrayImLm3EE4fillERKm.exit.preheader ], [ %82, %_ZNSt5arrayImLm3EE4fillERKm.exit.sink.split.sink.split ]
-  %83 = getelementptr inbounds [3 x i64], ptr %7, i64 0, i64 %indvars.iv
-  store i64 %.sink, ptr %83, align 8
+  %.sink = phi i64 [ %.030, %_ZNSt5arrayImLm3EE4fillERKm.exit.preheader ], [ %84, %_ZNSt5arrayImLm3EE4fillERKm.exit.sink.split.sink.split ]
+  %85 = getelementptr inbounds [3 x i64], ptr %7, i64 0, i64 %indvars.iv
+  store i64 %.sink, ptr %85, align 8
   br label %_ZNSt5arrayImLm3EE4fillERKm.exit
 
 _ZNSt5arrayImLm3EE4fillERKm.exit:                 ; preds = %_ZNSt5arrayImLm3EE4fillERKm.exit.sink.split, %_ZNSt5arrayImLm3EE4fillERKm.exit.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %84, label %_ZNSt5arrayImLm3EE4fillERKm.exit.preheader, !llvm.loop !39
+  br i1 %exitcond.not, label %86, label %_ZNSt5arrayImLm3EE4fillERKm.exit.preheader, !llvm.loop !39
 
-84:                                               ; preds = %_ZNSt5arrayImLm3EE4fillERKm.exit
-  %85 = add nsw i64 %50, 3
-  %86 = trunc nsw i64 %85 to i32
-  %87 = load ptr, ptr %8, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 8
-  %89 = load i64, ptr %7, align 8
-  %90 = load ptr, ptr %88, align 8
-  %91 = getelementptr inbounds %class.CVertexO, ptr %90, i64 %89
-  %92 = getelementptr inbounds i8, ptr %87, i64 304
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds %class.CFaceO, ptr %93, i64 %.02935, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  store ptr %91, ptr %94, align 8
-  %95 = load ptr, ptr %8, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 8
-  %97 = load i64, ptr %48, align 8
-  %98 = load ptr, ptr %96, align 8
-  %99 = getelementptr inbounds %class.CVertexO, ptr %98, i64 %97
-  %100 = getelementptr inbounds i8, ptr %95, i64 304
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds %class.CFaceO, ptr %101, i64 %.02935, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 1
-  store ptr %99, ptr %102, align 8
-  %103 = load ptr, ptr %8, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 8
-  %105 = load i64, ptr %49, align 8
-  %106 = load ptr, ptr %104, align 8
-  %107 = getelementptr inbounds %class.CVertexO, ptr %106, i64 %105
-  %108 = getelementptr inbounds i8, ptr %103, i64 304
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds %class.CFaceO, ptr %109, i64 %.02935, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 2
-  store ptr %107, ptr %110, align 8
-  %111 = add nsw i64 %.02935, 1
-  %112 = icmp sgt i32 %38, %86
-  br i1 %112, label %_ZNSt5arrayImLm3EE4fillERKm.exit.preheader.preheader, label %._crit_edge, !llvm.loop !40
+86:                                               ; preds = %_ZNSt5arrayImLm3EE4fillERKm.exit
+  %87 = add nsw i64 %50, 3
+  %88 = trunc nsw i64 %87 to i32
+  %89 = load ptr, ptr %8, align 8
+  %90 = getelementptr inbounds i8, ptr %89, i64 8
+  %91 = load i64, ptr %7, align 8
+  %92 = load ptr, ptr %90, align 8
+  %93 = getelementptr inbounds %class.CVertexO, ptr %92, i64 %91
+  %94 = getelementptr inbounds i8, ptr %89, i64 304
+  %95 = load ptr, ptr %94, align 8
+  %96 = getelementptr inbounds %class.CFaceO, ptr %95, i64 %.02935, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  store ptr %93, ptr %96, align 8
+  %97 = load ptr, ptr %8, align 8
+  %98 = getelementptr inbounds i8, ptr %97, i64 8
+  %99 = load i64, ptr %48, align 8
+  %100 = load ptr, ptr %98, align 8
+  %101 = getelementptr inbounds %class.CVertexO, ptr %100, i64 %99
+  %102 = getelementptr inbounds i8, ptr %97, i64 304
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds %class.CFaceO, ptr %103, i64 %.02935, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 1
+  store ptr %101, ptr %104, align 8
+  %105 = load ptr, ptr %8, align 8
+  %106 = getelementptr inbounds i8, ptr %105, i64 8
+  %107 = load i64, ptr %49, align 8
+  %108 = load ptr, ptr %106, align 8
+  %109 = getelementptr inbounds %class.CVertexO, ptr %108, i64 %107
+  %110 = getelementptr inbounds i8, ptr %105, i64 304
+  %111 = load ptr, ptr %110, align 8
+  %112 = getelementptr inbounds %class.CFaceO, ptr %111, i64 %.02935, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 2
+  store ptr %109, ptr %112, align 8
+  %113 = add nsw i64 %.02935, 1
+  %114 = icmp sgt i32 %38, %88
+  br i1 %114, label %_ZNSt5arrayImLm3EE4fillERKm.exit.preheader.preheader, label %._crit_edge, !llvm.loop !40
 
-._crit_edge:                                      ; preds = %84, %_ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit
+._crit_edge:                                      ; preds = %86, %_ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit
   ret void
 }
 

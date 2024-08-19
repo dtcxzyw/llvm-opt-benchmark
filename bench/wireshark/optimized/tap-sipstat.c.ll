@@ -221,7 +221,7 @@ define internal range(i32 0, 2) i32 @sipstat_packet(ptr noundef %0, ptr nocaptur
   %52 = getelementptr inbounds i8, ptr %3, i64 8
   %53 = load i32, ptr %52, align 8
   %.not70 = icmp eq i32 %53, 0
-  br i1 %.not70, label %85, label %54
+  br i1 %.not70, label %78, label %54
 
 54:                                               ; preds = %51
   store i32 %53, ptr %6, align 4
@@ -229,105 +229,84 @@ define internal range(i32 0, 2) i32 @sipstat_packet(ptr noundef %0, ptr nocaptur
   %56 = load ptr, ptr %55, align 8
   %57 = call ptr @g_hash_table_lookup(ptr noundef %56, ptr noundef nonnull %6) #10
   %58 = icmp eq ptr %57, null
-  br i1 %58, label %59, label %82
+  br i1 %58, label %59, label %75
 
 59:                                               ; preds = %54
   %60 = load i32, ptr %52, align 8
   %61 = add i32 %60, -700
   %or.cond = icmp ult i32 %61, -600
-  br i1 %or.cond, label %104, label %62
+  br i1 %or.cond, label %97, label %62
 
 62:                                               ; preds = %59
   %63 = icmp ult i32 %60, 200
-  br i1 %63, label %64, label %65
+  br i1 %63, label %71, label %64
 
 64:                                               ; preds = %62
-  store i32 199, ptr %6, align 4
-  br label %78
+  %65 = icmp ult i32 %60, 300
+  br i1 %65, label %71, label %66
 
-65:                                               ; preds = %62
-  %66 = icmp ult i32 %60, 300
-  br i1 %66, label %67, label %68
+66:                                               ; preds = %64
+  %67 = icmp ult i32 %60, 400
+  br i1 %67, label %71, label %68
 
-67:                                               ; preds = %65
-  store i32 299, ptr %6, align 4
-  br label %78
-
-68:                                               ; preds = %65
-  %69 = icmp ult i32 %60, 400
-  br i1 %69, label %70, label %71
+68:                                               ; preds = %66
+  %69 = icmp ult i32 %60, 500
+  br i1 %69, label %71, label %70
 
 70:                                               ; preds = %68
-  store i32 399, ptr %6, align 4
-  br label %78
+  %.inv = icmp ugt i32 %60, 599
+  %. = select i1 %.inv, i32 699, i32 599
+  br label %71
 
-71:                                               ; preds = %68
-  %72 = icmp ult i32 %60, 500
-  br i1 %72, label %73, label %74
+71:                                               ; preds = %70, %68, %66, %64, %62
+  %.sink74 = phi i32 [ 199, %62 ], [ 299, %64 ], [ 399, %66 ], [ 499, %68 ], [ %., %70 ]
+  store i32 %.sink74, ptr %6, align 4
+  %72 = load ptr, ptr %55, align 8
+  %73 = call ptr @g_hash_table_lookup(ptr noundef %72, ptr noundef nonnull %6) #10
+  %74 = icmp eq ptr %73, null
+  br i1 %74, label %97, label %75
 
-73:                                               ; preds = %71
-  store i32 499, ptr %6, align 4
-  br label %78
+75:                                               ; preds = %71, %54
+  %.059 = phi ptr [ %73, %71 ], [ %57, %54 ]
+  %76 = load i32, ptr %.059, align 8
+  %77 = add i32 %76, 1
+  store i32 %77, ptr %.059, align 8
+  br label %97
 
-74:                                               ; preds = %71
-  %75 = icmp ult i32 %60, 600
-  br i1 %75, label %76, label %77
+78:                                               ; preds = %51
+  %79 = load ptr, ptr %3, align 8
+  %.not71 = icmp eq ptr %79, null
+  br i1 %.not71, label %97, label %80
 
-76:                                               ; preds = %74
-  store i32 599, ptr %6, align 4
-  br label %78
+80:                                               ; preds = %78
+  %81 = getelementptr inbounds i8, ptr %0, i64 48
+  %82 = load ptr, ptr %81, align 8
+  %83 = tail call ptr @g_hash_table_lookup(ptr noundef %82, ptr noundef nonnull %79) #10
+  %84 = icmp eq ptr %83, null
+  br i1 %84, label %85, label %93
 
-77:                                               ; preds = %74
-  store i32 699, ptr %6, align 4
-  br label %78
+85:                                               ; preds = %80
+  %86 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #12
+  %87 = load ptr, ptr %3, align 8
+  %88 = tail call noalias ptr @g_strdup(ptr noundef %87) #10
+  store ptr %88, ptr %86, align 8
+  %89 = getelementptr inbounds i8, ptr %86, i64 8
+  store i32 1, ptr %89, align 8
+  %90 = getelementptr inbounds i8, ptr %86, i64 16
+  store ptr %0, ptr %90, align 8
+  %91 = load ptr, ptr %81, align 8
+  %92 = tail call i32 @g_hash_table_insert(ptr noundef %91, ptr noundef %88, ptr noundef nonnull %86) #10
+  br label %97
 
-78:                                               ; preds = %64, %70, %76, %77, %73, %67
-  %79 = load ptr, ptr %55, align 8
-  %80 = call ptr @g_hash_table_lookup(ptr noundef %79, ptr noundef nonnull %6) #10
-  %81 = icmp eq ptr %80, null
-  br i1 %81, label %104, label %82
+93:                                               ; preds = %80
+  %94 = getelementptr inbounds i8, ptr %83, i64 8
+  %95 = load i32, ptr %94, align 8
+  %96 = add i32 %95, 1
+  store i32 %96, ptr %94, align 8
+  br label %97
 
-82:                                               ; preds = %78, %54
-  %.059 = phi ptr [ %80, %78 ], [ %57, %54 ]
-  %83 = load i32, ptr %.059, align 8
-  %84 = add i32 %83, 1
-  store i32 %84, ptr %.059, align 8
-  br label %104
-
-85:                                               ; preds = %51
-  %86 = load ptr, ptr %3, align 8
-  %.not71 = icmp eq ptr %86, null
-  br i1 %.not71, label %104, label %87
-
-87:                                               ; preds = %85
-  %88 = getelementptr inbounds i8, ptr %0, i64 48
-  %89 = load ptr, ptr %88, align 8
-  %90 = tail call ptr @g_hash_table_lookup(ptr noundef %89, ptr noundef nonnull %86) #10
-  %91 = icmp eq ptr %90, null
-  br i1 %91, label %92, label %100
-
-92:                                               ; preds = %87
-  %93 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #12
-  %94 = load ptr, ptr %3, align 8
-  %95 = tail call noalias ptr @g_strdup(ptr noundef %94) #10
-  store ptr %95, ptr %93, align 8
-  %96 = getelementptr inbounds i8, ptr %93, i64 8
-  store i32 1, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %93, i64 16
-  store ptr %0, ptr %97, align 8
-  %98 = load ptr, ptr %88, align 8
-  %99 = tail call i32 @g_hash_table_insert(ptr noundef %98, ptr noundef %95, ptr noundef nonnull %93) #10
-  br label %104
-
-100:                                              ; preds = %87
-  %101 = getelementptr inbounds i8, ptr %90, i64 8
-  %102 = load i32, ptr %101, align 8
-  %103 = add i32 %102, 1
-  store i32 %103, ptr %101, align 8
-  br label %104
-
-104:                                              ; preds = %82, %92, %100, %85, %78, %59
-  %.0 = phi i32 [ 0, %59 ], [ 0, %78 ], [ 0, %85 ], [ 1, %100 ], [ 1, %92 ], [ 1, %82 ]
+97:                                               ; preds = %75, %85, %93, %78, %71, %59
+  %.0 = phi i32 [ 0, %59 ], [ 0, %71 ], [ 0, %78 ], [ 1, %93 ], [ 1, %85 ], [ 1, %75 ]
   ret i32 %.0
 }
 

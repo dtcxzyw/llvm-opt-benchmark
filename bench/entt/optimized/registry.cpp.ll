@@ -48242,23 +48242,18 @@ cleanup.cont:                                     ; preds = %_ZNKSt14default_del
   %31 = load ptr, ptr %_M_finish.i.i.i.i546, align 8, !tbaa !190
   %32 = load ptr, ptr %sparse.i.i.i, align 8, !tbaa !88
   %cmp.i.i.i.not = icmp eq ptr %31, %32
-  br i1 %cmp.i.i.i.not, label %cleanup.cont59, label %land.lhs.true.i.i.i
+  br i1 %cmp.i.i.i.not, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit609.thread.sink.split, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %cleanup.cont
   %33 = load ptr, ptr %32, align 8, !tbaa !24
   %tobool.not.i.i.i551 = icmp eq ptr %33, null
-  br i1 %tobool.not.i.i.i551, label %land.lhs.true.i.i.i600.thread96, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
-
-land.lhs.true.i.i.i600.thread96:                  ; preds = %land.lhs.true.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_61) #23
-  br label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit609.thread
+  br i1 %tobool.not.i.i.i551, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit609.thread.sink.split, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
 
 _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i: ; preds = %land.lhs.true.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %33, i64 4
   %34 = load i32, ptr %add.ptr.i.i.i, align 4, !tbaa !182
   %cmp.i.i552 = icmp ult i32 %34, 1048575
-  br i1 %cmp.i.i552, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit, label %land.lhs.true.i.i.i600
+  br i1 %cmp.i.i552, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i602
 
 _ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit: ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
   %head.i.i = getelementptr inbounds i8, ptr %registry, i64 236
@@ -48268,12 +48263,7 @@ _ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit: ; preds = %_ZNK4en
   store i8 %frombool, ptr %gtest_ar_, align 8, !tbaa !32
   %message_.i553 = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   store ptr null, ptr %message_.i553, align 8, !tbaa !41
-  br i1 %cmp.i, label %land.lhs.true.i.i.i600.thread, label %if.else35
-
-land.lhs.true.i.i.i600.thread:                    ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_61) #23
-  br label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i602
+  br i1 %cmp.i, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i602, label %if.else35
 
 ehcleanup24:                                      ; preds = %ehcleanup21, %lpad5
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup21 ], [ %13, %lpad5 ]
@@ -48424,23 +48414,20 @@ ehcleanup53:                                      ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #23
   br label %ehcleanup421
 
-cleanup.cont59:                                   ; preds = %cleanup.cont
+_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i602: ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i, %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_61) #23
-  br label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit609.thread
-
-land.lhs.true.i.i.i600:                           ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_61) #23
-  br label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i602
-
-_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i602: ; preds = %land.lhs.true.i.i.i600, %land.lhs.true.i.i.i600.thread
   %add.ptr.i.i.i603 = getelementptr inbounds i8, ptr %33, i64 8
   %55 = load i32, ptr %add.ptr.i.i.i603, align 4, !tbaa !182
   %cmp.i.i604 = icmp ult i32 %55, 1048575
   br i1 %cmp.i.i604, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit609, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit609.thread
 
-_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit609.thread: ; preds = %land.lhs.true.i.i.i600.thread96, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i602, %cleanup.cont59
+_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit609.thread.sink.split: ; preds = %cleanup.cont, %land.lhs.true.i.i.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #23
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_61) #23
+  br label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit609.thread
+
+_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit609.thread: ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit609.thread.sink.split, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i602
   %message_.i6101109 = getelementptr inbounds i8, ptr %gtest_ar_61, i64 8
   br label %cleanup.cont98
 
@@ -70031,7 +70018,7 @@ cond.false.i.i1082:                               ; preds = %cond.true.i1078
 _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit.i1088: ; preds = %cond.false.i.i1082, %cond.true.i.i1129
   %curr.sroa.2.0.it.sroa_idx.i.promoted.i1089 = phi i64 [ %conv.i.i1131, %cond.true.i.i1129 ], [ %sub.ptr.div.i.i.i.i1087, %cond.false.i.i1082 ]
   %cmp.i.i.not11.i.i1099 = icmp eq i64 %curr.sroa.2.0.it.sroa_idx.i.promoted.i1089, 0
-  br i1 %cmp.i.i.not11.i.i1099, label %invoke.cont306.thread, label %land.rhs.lr.ph.i.i1100
+  br i1 %cmp.i.i.not11.i.i1099, label %if.end.i.i1159.sink.split, label %land.rhs.lr.ph.i.i1100
 
 land.rhs.lr.ph.i.i1100:                           ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit.i1088
   %236 = load ptr, ptr %packed.i.i798, align 8, !tbaa !86
@@ -70074,24 +70061,12 @@ _ZNK4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm1E
 while.body.i.i1117:                               ; preds = %_ZNK4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm1ELm0EE5validES3_.exit.i.i1125, %land.lhs.true.i.i.i.i.i.i1122, %land.rhs.i.i1108
   %dec.i.i.i1118 = add nsw i64 %dec.i.i12.i1109, -1
   %cmp.i.i.not.i.i1119 = icmp eq i64 %dec.i.i.i1118, 0
-  br i1 %cmp.i.i.not.i.i1119, label %invoke.cont306.thread, label %land.rhs.i.i1108, !llvm.loop !552
-
-invoke.cont306.thread:                            ; preds = %while.body.i.i1117, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit.i1088
-  store i64 0, ptr %ref.tmp302, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp308) #23
-  store i32 2, ptr %ref.tmp308, align 4, !tbaa !26
-  br label %if.end.i.i1159
+  br i1 %cmp.i.i.not.i.i1119, label %if.end.i.i1159.sink.split, label %land.rhs.i.i1108, !llvm.loop !552
 
 while.body.lr.ph.i.i:                             ; preds = %_ZNK4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm1ELm0EE5validES3_.exit.i.i1125
   %dec.i8.i.i.i1484 = add nsw i64 %dec.i.i12.i1109, -1
   %cmp.i.i.not9.i.i.i1485 = icmp eq i64 %dec.i8.i.i.i1484, 0
-  br i1 %cmp.i.i.not9.i.i.i1485, label %_ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm1ELm0EEppEv.exit.i.i.thread.thread, label %land.rhs.lr.ph.i.i.i
-
-_ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm1ELm0EEppEv.exit.i.i.thread.thread: ; preds = %while.body.lr.ph.i.i
-  store i64 1, ptr %ref.tmp302, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp308) #23
-  store i32 2, ptr %ref.tmp308, align 4, !tbaa !26
-  br label %if.end.i.i1159
+  br i1 %cmp.i.i.not9.i.i.i1485, label %if.end.i.i1159.sink.split, label %land.rhs.lr.ph.i.i.i
 
 land.rhs.lr.ph.i.i.i:                             ; preds = %while.body.lr.ph.i.i, %_ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm1ELm0EEppEv.exit.i.i
   %dec.i8.i.i.i1487 = phi i64 [ %dec.i8.i.i.i, %_ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm1ELm0EEppEv.exit.i.i ], [ %dec.i8.i.i.i1484, %while.body.lr.ph.i.i ]
@@ -70147,7 +70122,14 @@ if.then.i.i1160:                                  ; preds = %_ZN4entt8internal13
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %gtest_ar301)
           to label %invoke.cont310 unwind label %lpad309
 
-if.end.i.i1159:                                   ; preds = %_ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm1ELm0EEppEv.exit.i.i.thread, %_ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm1ELm0EEppEv.exit.i.i.thread.thread, %invoke.cont306.thread
+if.end.i.i1159.sink.split:                        ; preds = %while.body.i.i1117, %while.body.lr.ph.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit.i1088
+  %.sink = phi i64 [ 0, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit.i1088 ], [ 1, %while.body.lr.ph.i.i ], [ 0, %while.body.i.i1117 ]
+  store i64 %.sink, ptr %ref.tmp302, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp308) #23
+  store i32 2, ptr %ref.tmp308, align 4, !tbaa !26
+  br label %if.end.i.i1159
+
+if.end.i.i1159:                                   ; preds = %if.end.i.i1159.sink.split, %_ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm1ELm0EEppEv.exit.i.i.thread
   invoke void @_ZN7testing8internal18CmpHelperEQFailureIliEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %gtest_ar301, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.115, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp302, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp308)
           to label %invoke.cont310 unwind label %lpad309
 
@@ -70329,7 +70311,7 @@ cond.false.i.i1205:                               ; preds = %cond.true.i1201
 _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit.i1211: ; preds = %cond.false.i.i1205, %cond.true.i.i1254
   %curr.sroa.2.0.it.sroa_idx.i.promoted.i1212 = phi i64 [ %conv.i.i1256, %cond.true.i.i1254 ], [ %sub.ptr.div.i.i.i.i1210, %cond.false.i.i1205 ]
   %cmp.i.i.not11.i.i1222 = icmp eq i64 %curr.sroa.2.0.it.sroa_idx.i.promoted.i1212, 0
-  br i1 %cmp.i.i.not11.i.i1222, label %invoke.cont344.thread, label %land.rhs.lr.ph.i.i1223
+  br i1 %cmp.i.i.not11.i.i1222, label %if.end.i.i1320.sink.split, label %land.rhs.lr.ph.i.i1223
 
 land.rhs.lr.ph.i.i1223:                           ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit.i1211
   %_M_finish.i.i.i.i.i.i.i1221 = getelementptr inbounds i8, ptr %call4.i472, i64 16
@@ -70376,7 +70358,7 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i1250: ;
 while.body.i.i1230:                               ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i1250, %land.rhs.i.i1226
   %dec.i.i.i1231 = add nsw i64 %dec.i.i10.i1227, -1
   %cmp.i.i.not.i.i1232 = icmp eq i64 %dec.i.i.i1231, 0
-  br i1 %cmp.i.i.not.i.i1232, label %invoke.cont344.thread, label %land.rhs.i.i1226, !llvm.loop !648
+  br i1 %cmp.i.i.not.i.i1232, label %if.end.i.i1320.sink.split, label %land.rhs.i.i1226, !llvm.loop !648
 
 while.body.lr.ph.i.i1283:                         ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i1250, %land.lhs.true.i.i.i.i.i.i1247, %land.rhs1.i.i.i.i1241
   %dec.i8.i.i.i12891488 = add nsw i64 %dec.i.i10.i1227, -1
@@ -70444,22 +70426,20 @@ _ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm0EL
 
 _ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm0ELm1EEppEv.exit.i.i.thread.thread1517: ; preds = %_ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm0ELm1EEppEv.exit.i.i
   %inc.i.i130014511519 = add nuw nsw i64 %__n.07.i.i12871490, 2
-  store i64 %inc.i.i130014511519, ptr %ref.tmp340, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp346) #23
-  store i32 1, ptr %ref.tmp346, align 4, !tbaa !26
-  br label %if.end.i.i1320
-
-invoke.cont344.thread:                            ; preds = %while.body.i.i1230, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit.i1211
-  store i64 0, ptr %ref.tmp340, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp346) #23
-  store i32 1, ptr %ref.tmp346, align 4, !tbaa !26
-  br label %if.end.i.i1320
+  br label %if.end.i.i1320.sink.split
 
 if.then.i.i1321:                                  ; preds = %_ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm0ELm1EEppEv.exit.i.i.thread, %_ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm0ELm1EEppEv.exit.i.i.thread.thread
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %gtest_ar339)
           to label %invoke.cont348 unwind label %lpad347
 
-if.end.i.i1320:                                   ; preds = %invoke.cont344.thread, %_ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm0ELm1EEppEv.exit.i.i.thread.thread1517, %_ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm0ELm1EEppEv.exit.i.i.thread
+if.end.i.i1320.sink.split:                        ; preds = %while.body.i.i1230, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit.i1211, %_ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm0ELm1EEppEv.exit.i.i.thread.thread1517
+  %.sink125 = phi i64 [ %inc.i.i130014511519, %_ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm0ELm1EEppEv.exit.i.i.thread.thread1517 ], [ 0, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit.i1211 ], [ 0, %while.body.i.i1230 ]
+  store i64 %.sink125, ptr %ref.tmp340, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp346) #23
+  store i32 1, ptr %ref.tmp346, align 4, !tbaa !26
+  br label %if.end.i.i1320
+
+if.end.i.i1320:                                   ; preds = %if.end.i.i1320.sink.split, %_ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm0ELm1EEppEv.exit.i.i.thread
   invoke void @_ZN7testing8internal18CmpHelperEQFailureIliEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %gtest_ar339, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.120, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp340, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp346)
           to label %invoke.cont348 unwind label %lpad347
 
@@ -71665,7 +71645,7 @@ cond.false.i.i410:                                ; preds = %cond.true.i406
 _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit.i416: ; preds = %cond.false.i.i410, %cond.true.i.i459
   %curr.sroa.2.0.it.sroa_idx.i.promoted.i417 = phi i64 [ %conv.i.i461, %cond.true.i.i459 ], [ %sub.ptr.div.i.i.i.i415, %cond.false.i.i410 ]
   %cmp.i.i.not11.i.i427 = icmp eq i64 %curr.sroa.2.0.it.sroa_idx.i.promoted.i417, 0
-  br i1 %cmp.i.i.not11.i.i427, label %invoke.cont81.thread, label %land.rhs.lr.ph.i.i428
+  br i1 %cmp.i.i.not11.i.i427, label %if.end.i.i488.sink.split, label %land.rhs.lr.ph.i.i428
 
 land.rhs.lr.ph.i.i428:                            ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit.i416
   %_M_finish.i.i.i.i.i.i.i426 = getelementptr inbounds i8, ptr %call4.i245, i64 16
@@ -71712,7 +71692,7 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i455: ; 
 while.body.i.i435:                                ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i455, %land.rhs.i.i431
   %dec.i.i.i436 = add nsw i64 %dec.i.i10.i432, -1
   %cmp.i.i.not.i.i437 = icmp eq i64 %dec.i.i.i436, 0
-  br i1 %cmp.i.i.not.i.i437, label %invoke.cont81.thread, label %land.rhs.i.i431, !llvm.loop !648
+  br i1 %cmp.i.i.not.i.i437, label %if.end.i.i488.sink.split, label %land.rhs.i.i431, !llvm.loop !648
 
 while.body.lr.ph.i.i:                             ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i455, %land.lhs.true.i.i.i.i.i.i452, %land.rhs1.i.i.i.i446
   %dec.i8.i.i.i811 = add nsw i64 %dec.i.i10.i432, -1
@@ -71780,22 +71760,20 @@ _ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm0EL
 
 _ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm0ELm1EEppEv.exit.i.i.thread.thread830: ; preds = %_ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm0ELm1EEppEv.exit.i.i
   %inc.i.i791832 = add nuw nsw i64 %__n.07.i.i813, 2
-  store i64 %inc.i.i791832, ptr %ref.tmp77, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp83) #23
-  store i32 1, ptr %ref.tmp83, align 4, !tbaa !26
-  br label %if.end.i.i488
-
-invoke.cont81.thread:                             ; preds = %while.body.i.i435, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit.i416
-  store i64 0, ptr %ref.tmp77, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp83) #23
-  store i32 1, ptr %ref.tmp83, align 4, !tbaa !26
-  br label %if.end.i.i488
+  br label %if.end.i.i488.sink.split
 
 if.then.i.i489:                                   ; preds = %_ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm0ELm1EEppEv.exit.i.i.thread, %_ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm0ELm1EEppEv.exit.i.i.thread.thread
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %gtest_ar76)
           to label %invoke.cont85 unwind label %lpad84
 
-if.end.i.i488:                                    ; preds = %invoke.cont81.thread, %_ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm0ELm1EEppEv.exit.i.i.thread.thread830, %_ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm0ELm1EEppEv.exit.i.i.thread
+if.end.i.i488.sink.split:                         ; preds = %while.body.i.i435, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit.i416, %_ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm0ELm1EEppEv.exit.i.i.thread.thread830
+  %.sink = phi i64 [ %inc.i.i791832, %_ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm0ELm1EEppEv.exit.i.i.thread.thread830 ], [ 0, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE5beginEi.exit.i416 ], [ 0, %while.body.i.i435 ]
+  store i64 %.sink, ptr %ref.tmp77, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp83) #23
+  store i32 1, ptr %ref.tmp83, align 4, !tbaa !26
+  br label %if.end.i.i488
+
+if.end.i.i488:                                    ; preds = %if.end.i.i488.sink.split, %_ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELm0ELm1EEppEv.exit.i.i.thread
   invoke void @_ZN7testing8internal18CmpHelperEQFailureIliEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %gtest_ar76, ptr noundef nonnull @.str.276, ptr noundef nonnull @.str.120, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp77, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp83)
           to label %invoke.cont85 unwind label %lpad84
 
@@ -132816,13 +132794,7 @@ invoke.cont16:                                    ; preds = %.noexc223, %call.i.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cnt) #23
   store i64 0, ptr %cnt, align 8, !tbaa !25
   %cmp.i.not.i.i = icmp eq ptr %call11, null
-  br i1 %cmp.i.not.i.i, label %invoke.cont21.thread, label %_ZNK4entt11basic_groupINS_7owned_tIJEEENS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS6_SaIS6_EEEEENS4_INS5_IcS6_SaIcEvEESB_EEEEENS_9exclude_tIJEEEE5beginEv.exit.i
-
-invoke.cont21.thread:                             ; preds = %invoke.cont16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar) #23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp) #23
-  store i32 2, ptr %ref.tmp, align 4, !tbaa !26
-  br label %if.end.i.i
+  br i1 %cmp.i.not.i.i, label %if.end.i.i.sink.split, label %_ZNK4entt11basic_groupINS_7owned_tIJEEENS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS6_SaIS6_EEEEENS4_INS5_IcS6_SaIcEvEESB_EEEEENS_9exclude_tIJEEEE5beginEv.exit.i
 
 _ZNK4entt11basic_groupINS_7owned_tIJEEENS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS6_SaIS6_EEEEENS4_INS5_IcS6_SaIcEvEESB_EEEEENS_9exclude_tIJEEEE5beginEv.exit.i: ; preds = %invoke.cont16
   %packed.i.i.i = getelementptr inbounds i8, ptr %call11, i64 64
@@ -132830,13 +132802,7 @@ _ZNK4entt11basic_groupINS_7owned_tIJEEENS_5get_tIJNS_16basic_sigh_mixinINS_13bas
   %54 = load ptr, ptr %_M_finish.i.i.i.i225, align 8, !tbaa !171
   %55 = load ptr, ptr %packed.i.i.i, align 8, !tbaa !86
   %cmp.i.i.not17.i = icmp eq ptr %54, %55
-  br i1 %cmp.i.i.not17.i, label %invoke.cont21.thread256, label %invoke.cont21
-
-invoke.cont21.thread256:                          ; preds = %_ZNK4entt11basic_groupINS_7owned_tIJEEENS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS6_SaIS6_EEEEENS4_INS5_IcS6_SaIcEvEESB_EEEEENS_9exclude_tIJEEEE5beginEv.exit.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar) #23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp) #23
-  store i32 2, ptr %ref.tmp, align 4, !tbaa !26
-  br label %if.end.i.i
+  br i1 %cmp.i.i.not17.i, label %if.end.i.i.sink.split, label %invoke.cont21
 
 invoke.cont21:                                    ; preds = %_ZNK4entt11basic_groupINS_7owned_tIJEEENS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS6_SaIS6_EEEEENS4_INS5_IcS6_SaIcEvEESB_EEEEENS_9exclude_tIJEEEE5beginEv.exit.i
   %sub.ptr.rhs.cast.i.i.i.i226 = ptrtoint ptr %55 to i64
@@ -132854,7 +132820,13 @@ if.then.i.i:                                      ; preds = %invoke.cont21
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
           to label %invoke.cont23 unwind label %lpad22
 
-if.end.i.i:                                       ; preds = %invoke.cont21, %invoke.cont21.thread256, %invoke.cont21.thread
+if.end.i.i.sink.split:                            ; preds = %_ZNK4entt11basic_groupINS_7owned_tIJEEENS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS6_SaIS6_EEEEENS4_INS5_IcS6_SaIcEvEESB_EEEEENS_9exclude_tIJEEEE5beginEv.exit.i, %invoke.cont16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar) #23
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp) #23
+  store i32 2, ptr %ref.tmp, align 4, !tbaa !26
+  br label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %if.end.i.i.sink.split, %invoke.cont21
   invoke void @_ZN7testing8internal18CmpHelperEQFailureImjEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull @.str.283, ptr noundef nonnull @.str.129, ptr noundef nonnull align 8 dereferenceable(8) %cnt, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
           to label %invoke.cont23 unwind label %lpad22
 
@@ -133354,25 +133326,13 @@ invoke.cont17:                                    ; preds = %.noexc224, %call.i.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cnt) #23
   store i64 0, ptr %cnt, align 8, !tbaa !25
   %tobool.not.i.i.i226 = icmp eq ptr %call12, null
-  br i1 %tobool.not.i.i.i226, label %invoke.cont22.thread, label %_ZNK4entt11basic_groupINS_7owned_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS4_SaIS4_EEEEENS2_INS3_IcS4_SaIcEvEES9_EEEEENS_5get_tIJEEENS_9exclude_tIJEEEE4eachEv.exit.i
-
-invoke.cont22.thread:                             ; preds = %invoke.cont17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar) #23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp) #23
-  store i32 2, ptr %ref.tmp, align 4, !tbaa !26
-  br label %if.end.i.i
+  br i1 %tobool.not.i.i.i226, label %if.end.i.i.sink.split, label %_ZNK4entt11basic_groupINS_7owned_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS4_SaIS4_EEEEENS2_INS3_IcS4_SaIcEvEES9_EEEEENS_5get_tIJEEENS_9exclude_tIJEEEE4eachEv.exit.i
 
 _ZNK4entt11basic_groupINS_7owned_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS4_SaIS4_EEEEENS2_INS3_IcS4_SaIcEvEES9_EEEEENS_5get_tIJEEENS_9exclude_tIJEEEE4eachEv.exit.i: ; preds = %invoke.cont17
   %len.i.i.i.i = getelementptr inbounds i8, ptr %call12, i64 32
   %54 = load i64, ptr %len.i.i.i.i, align 8, !tbaa !754, !noalias !1301
   %cmp.i.i.i.not7.i = icmp eq i64 %54, 0
-  br i1 %cmp.i.i.i.not7.i, label %invoke.cont22.thread253, label %invoke.cont22
-
-invoke.cont22.thread253:                          ; preds = %_ZNK4entt11basic_groupINS_7owned_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS4_SaIS4_EEEEENS2_INS3_IcS4_SaIcEvEES9_EEEEENS_5get_tIJEEENS_9exclude_tIJEEEE4eachEv.exit.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar) #23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp) #23
-  store i32 2, ptr %ref.tmp, align 4, !tbaa !26
-  br label %if.end.i.i
+  br i1 %cmp.i.i.i.not7.i, label %if.end.i.i.sink.split, label %invoke.cont22
 
 invoke.cont22:                                    ; preds = %_ZNK4entt11basic_groupINS_7owned_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS4_SaIS4_EEEEENS2_INS3_IcS4_SaIcEvEES9_EEEEENS_5get_tIJEEENS_9exclude_tIJEEEE4eachEv.exit.i
   store i64 %54, ptr %cnt, align 8, !tbaa !25
@@ -133386,7 +133346,13 @@ if.then.i.i:                                      ; preds = %invoke.cont22
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
           to label %invoke.cont24 unwind label %lpad23
 
-if.end.i.i:                                       ; preds = %invoke.cont22, %invoke.cont22.thread253, %invoke.cont22.thread
+if.end.i.i.sink.split:                            ; preds = %_ZNK4entt11basic_groupINS_7owned_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS4_SaIS4_EEEEENS2_INS3_IcS4_SaIcEvEES9_EEEEENS_5get_tIJEEENS_9exclude_tIJEEEE4eachEv.exit.i, %invoke.cont17
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar) #23
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp) #23
+  store i32 2, ptr %ref.tmp, align 4, !tbaa !26
+  br label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %if.end.i.i.sink.split, %invoke.cont22
   invoke void @_ZN7testing8internal18CmpHelperEQFailureImjEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull @.str.283, ptr noundef nonnull @.str.129, ptr noundef nonnull align 8 dereferenceable(8) %cnt, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
           to label %invoke.cont24 unwind label %lpad23
 
@@ -133886,25 +133852,13 @@ invoke.cont16:                                    ; preds = %.noexc223, %call.i.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cnt) #23
   store i64 0, ptr %cnt, align 8, !tbaa !25
   %tobool.not.i.i.i225 = icmp eq ptr %call11, null
-  br i1 %tobool.not.i.i.i225, label %invoke.cont21.thread, label %_ZNK4entt11basic_groupINS_7owned_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS4_SaIS4_EEEEEEEENS_5get_tIJNS2_INS3_IcS4_SaIcEvEES9_EEEEENS_9exclude_tIJEEEE4eachEv.exit.i
-
-invoke.cont21.thread:                             ; preds = %invoke.cont16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar) #23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp) #23
-  store i32 2, ptr %ref.tmp, align 4, !tbaa !26
-  br label %if.end.i.i
+  br i1 %tobool.not.i.i.i225, label %if.end.i.i.sink.split, label %_ZNK4entt11basic_groupINS_7owned_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS4_SaIS4_EEEEEEEENS_5get_tIJNS2_INS3_IcS4_SaIcEvEES9_EEEEENS_9exclude_tIJEEEE4eachEv.exit.i
 
 _ZNK4entt11basic_groupINS_7owned_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS4_SaIS4_EEEEEEEENS_5get_tIJNS2_INS3_IcS4_SaIcEvEES9_EEEEENS_9exclude_tIJEEEE4eachEv.exit.i: ; preds = %invoke.cont16
   %len.i.i.i.i = getelementptr inbounds i8, ptr %call11, i64 32
   %54 = load i64, ptr %len.i.i.i.i, align 8, !tbaa !780, !noalias !1304
   %cmp.i.i.i.not7.i = icmp eq i64 %54, 0
-  br i1 %cmp.i.i.i.not7.i, label %invoke.cont21.thread252, label %invoke.cont21
-
-invoke.cont21.thread252:                          ; preds = %_ZNK4entt11basic_groupINS_7owned_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS4_SaIS4_EEEEEEEENS_5get_tIJNS2_INS3_IcS4_SaIcEvEES9_EEEEENS_9exclude_tIJEEEE4eachEv.exit.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar) #23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp) #23
-  store i32 2, ptr %ref.tmp, align 4, !tbaa !26
-  br label %if.end.i.i
+  br i1 %cmp.i.i.i.not7.i, label %if.end.i.i.sink.split, label %invoke.cont21
 
 invoke.cont21:                                    ; preds = %_ZNK4entt11basic_groupINS_7owned_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS4_SaIS4_EEEEEEEENS_5get_tIJNS2_INS3_IcS4_SaIcEvEES9_EEEEENS_9exclude_tIJEEEE4eachEv.exit.i
   store i64 %54, ptr %cnt, align 8, !tbaa !25
@@ -133918,7 +133872,13 @@ if.then.i.i:                                      ; preds = %invoke.cont21
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
           to label %invoke.cont23 unwind label %lpad22
 
-if.end.i.i:                                       ; preds = %invoke.cont21, %invoke.cont21.thread252, %invoke.cont21.thread
+if.end.i.i.sink.split:                            ; preds = %_ZNK4entt11basic_groupINS_7owned_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS4_SaIS4_EEEEEEEENS_5get_tIJNS2_INS3_IcS4_SaIcEvEES9_EEEEENS_9exclude_tIJEEEE4eachEv.exit.i, %invoke.cont16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar) #23
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp) #23
+  store i32 2, ptr %ref.tmp, align 4, !tbaa !26
+  br label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %if.end.i.i.sink.split, %invoke.cont21
   invoke void @_ZN7testing8internal18CmpHelperEQFailureImjEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull @.str.283, ptr noundef nonnull @.str.129, ptr noundef nonnull align 8 dereferenceable(8) %cnt, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
           to label %invoke.cont23 unwind label %lpad22
 
@@ -173715,7 +173675,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 ehcleanup.thread:                                 ; preds = %if.then.i.i, %if.then.i
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #23
   br label %cleanup.action
 
 lpad2.body:                                       ; preds = %invoke.cont
@@ -173727,7 +173686,6 @@ lpad2.body:                                       ; preds = %invoke.cont
 
 ehcleanup.thread15:                               ; preds = %lpad2.body
   call void @_ZdlPv(ptr noundef %26) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #23
   br label %cleanup.action
 
 lpad2.body.thread:                                ; preds = %lpad3.i
@@ -173746,7 +173704,6 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %29 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !45
   %cmp3.i.i.i22 = icmp ult i64 %29, 16
   call void @llvm.assume(i1 %cmp3.i.i.i22)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #23
   br label %cleanup.action
 
 ehcleanup:                                        ; preds = %lpad2.body.thread
@@ -173756,6 +173713,7 @@ ehcleanup:                                        ; preds = %lpad2.body.thread
 
 cleanup.action:                                   ; preds = %ehcleanup.thread15, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i20, %ehcleanup.thread
   %.pn27 = phi { ptr, i32 } [ %24, %ehcleanup.thread ], [ %25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i20 ], [ %25, %ehcleanup.thread15 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #23
   call void @_ZdlPv(ptr noundef nonnull %call) #24
   br label %eh.resume
 

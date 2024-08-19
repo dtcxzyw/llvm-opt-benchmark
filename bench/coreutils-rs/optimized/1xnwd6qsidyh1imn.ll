@@ -1712,10 +1712,10 @@ _ZN4core3str11validations15next_code_point17h4286ff30c9b917fdE.exit343: ; preds 
 712:                                              ; preds = %707, %.noexc345
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !235
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %36)
   br label %713
 
 713:                                              ; preds = %736, %712
+  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %36)
   ret void
 
 714:                                              ; preds = %599
@@ -1862,7 +1862,6 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit381: ; preds = %726
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !296
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35)
   call void @"_ZN4core3ptr54drop_in_place$LT$uu_numfmt..options..FormatOptions$GT$17h38404e3581b379f1E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %36)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %36)
   br label %713
 
 737:                                              ; preds = %740, %702, %.loopexit.split-lp

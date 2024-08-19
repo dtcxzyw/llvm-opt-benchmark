@@ -903,8 +903,8 @@ gv_calloc.exit:                                   ; preds = %8
 agxbfree.exit.sink.split:                         ; preds = %._crit_edge65, %29
   %.044.lcssa.sink.ph = phi i64 [ 0, %29 ], [ %.044.lcssa, %._crit_edge65 ]
   %.043.ph = phi ptr [ null, %29 ], [ %45, %._crit_edge65 ]
-  %.val48.sink = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %.val48.sink) #16
+  %.val48 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %.val48) #16
   br label %agxbfree.exit
 
 agxbfree.exit:                                    ; preds = %agxbfree.exit.sink.split, %._crit_edge65, %29, %3
@@ -1190,8 +1190,8 @@ unionNodes.exit:                                  ; preds = %.loopexit.i, %83
 agxbfree.exit.sink.split:                         ; preds = %117, %78
   %.057.lcssa.sink.ph = phi i64 [ 0, %78 ], [ %.057.lcssa, %117 ]
   %.0.ph = phi ptr [ null, %78 ], [ %120, %117 ]
-  %.val62.sink = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %.val62.sink) #16
+  %.val62 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %.val62) #16
   br label %agxbfree.exit
 
 agxbfree.exit:                                    ; preds = %agxbfree.exit.sink.split, %117, %78, %3

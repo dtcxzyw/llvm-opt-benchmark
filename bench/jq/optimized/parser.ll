@@ -324,14 +324,14 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %.sroa.6.16..sroa_idx = getelementptr inbounds i8, ptr %6, i64 4
   br label %32
 
-30:                                               ; preds = %2053, %2057, %2120, %108
-  %.11248 = phi ptr [ %.3, %2120 ], [ %.01247, %2053 ], [ %.01247, %2057 ], [ %.01247, %108 ]
-  %.11184 = phi ptr [ %2123, %2120 ], [ %2036, %2053 ], [ %2036, %2057 ], [ %110, %108 ]
-  %.11174 = phi ptr [ %2122, %2120 ], [ %2035, %2053 ], [ %2035, %2057 ], [ %109, %108 ]
-  %.11164 = phi ptr [ %.51168, %2120 ], [ %2033, %2053 ], [ %2033, %2057 ], [ %.21165, %108 ]
-  %.11154 = phi i32 [ 3, %2120 ], [ %.01153, %2053 ], [ %.01153, %2057 ], [ %spec.select, %108 ]
-  %.11151 = phi i32 [ %2121, %2120 ], [ %2056, %2053 ], [ %2060, %2057 ], [ %102, %108 ]
-  %.1 = phi i32 [ %.7, %2120 ], [ %.9, %2053 ], [ %.9, %2057 ], [ -2, %108 ]
+30:                                               ; preds = %2050, %2054, %2117, %108
+  %.11248 = phi ptr [ %.3, %2117 ], [ %.01247, %2050 ], [ %.01247, %2054 ], [ %.01247, %108 ]
+  %.11184 = phi ptr [ %2120, %2117 ], [ %2033, %2050 ], [ %2033, %2054 ], [ %110, %108 ]
+  %.11174 = phi ptr [ %2119, %2117 ], [ %2032, %2050 ], [ %2032, %2054 ], [ %109, %108 ]
+  %.11164 = phi ptr [ %.51168, %2117 ], [ %2030, %2050 ], [ %2030, %2054 ], [ %.21165, %108 ]
+  %.11154 = phi i32 [ 3, %2117 ], [ %.01153, %2050 ], [ %.01153, %2054 ], [ %spec.select, %108 ]
+  %.11151 = phi i32 [ %2118, %2117 ], [ %2053, %2050 ], [ %2057, %2054 ], [ %102, %108 ]
+  %.1 = phi i32 [ %.7, %2117 ], [ %.9, %2050 ], [ %.9, %2054 ], [ -2, %108 ]
   %31 = getelementptr inbounds i8, ptr %.11164, i64 2
   br label %32
 
@@ -361,7 +361,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %40 = ashr exact i64 %39, 1
   %41 = add nsw i64 %40, 1
   %42 = icmp sgt i64 %.01156, 9999
-  br i1 %42, label %2125, label %43
+  br i1 %42, label %2122, label %43
 
 43:                                               ; preds = %36
   %44 = shl nsw i64 %.01156, 1
@@ -370,7 +370,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %46 = add nsw i64 %45, 30
   %47 = call ptr @jv_mem_alloc(i64 noundef %46) #9
   %.not1215 = icmp eq ptr %47, null
-  br i1 %.not1215, label %2125, label %48
+  br i1 %.not1215, label %2122, label %48
 
 48:                                               ; preds = %43
   %49 = shl i64 %41, 1
@@ -442,7 +442,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 
 84:                                               ; preds = %82
   %.sroa.0606.8.copyload = load i32, ptr %6, align 8
-  br label %2094
+  br label %2091
 
 85:                                               ; preds = %82
   %86 = icmp ult i32 %.5, 304
@@ -500,7 +500,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %114 = load i8, ptr %113, align 1
   %115 = zext i8 %114 to i32
   %116 = icmp eq i8 %114, 0
-  br i1 %116, label %2061, label %117
+  br i1 %116, label %2058, label %117
 
 117:                                              ; preds = %112, %106
   %.01191 = phi i32 [ %115, %112 ], [ %107, %106 ]
@@ -537,7 +537,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 135:                                              ; preds = %125, %132
   %storemerge = phi i32 [ %131, %125 ], [ %134, %132 ]
   store i32 %storemerge, ptr %28, align 4
-  switch i32 %.01191, label %2030 [
+  switch i32 %.01191, label %2027 [
     i32 2, label %136
     i32 3, label %160
     i32 4, label %178
@@ -647,65 +647,65 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
     i32 108, label %1421
     i32 109, label %1435
     i32 110, label %1439
-    i32 111, label %1483
-    i32 112, label %1503
-    i32 113, label %1507
-    i32 114, label %1511
-    i32 115, label %1514
-    i32 116, label %1518
-    i32 117, label %1520
-    i32 118, label %1531
-    i32 119, label %1538
-    i32 120, label %1552
-    i32 121, label %1559
-    i32 122, label %1570
-    i32 123, label %1572
-    i32 124, label %1582
-    i32 125, label %1593
-    i32 126, label %1604
-    i32 127, label %1614
-    i32 128, label %1625
-    i32 129, label %1627
-    i32 130, label %1638
-    i32 131, label %1654
-    i32 132, label %1683
-    i32 133, label %1697
-    i32 134, label %1711
-    i32 135, label %1722
-    i32 136, label %1743
-    i32 137, label %1746
-    i32 138, label %1750
-    i32 139, label %1754
-    i32 140, label %1758
-    i32 141, label %1762
-    i32 142, label %1766
-    i32 143, label %1770
-    i32 144, label %1774
-    i32 145, label %1778
-    i32 146, label %1782
-    i32 147, label %1786
-    i32 148, label %1790
-    i32 149, label %1794
-    i32 150, label %1798
-    i32 151, label %1802
-    i32 152, label %1806
-    i32 153, label %1810
-    i32 154, label %1814
-    i32 155, label %1818
-    i32 156, label %1822
-    i32 157, label %1824
-    i32 158, label %1835
-    i32 159, label %1837
-    i32 160, label %1851
-    i32 161, label %1865
-    i32 162, label %1876
-    i32 163, label %1904
-    i32 164, label %1925
-    i32 165, label %1945
-    i32 166, label %1969
-    i32 167, label %1982
-    i32 168, label %2006
-    i32 169, label %2027
+    i32 111, label %1480
+    i32 112, label %1500
+    i32 113, label %1504
+    i32 114, label %1508
+    i32 115, label %1511
+    i32 116, label %1515
+    i32 117, label %1517
+    i32 118, label %1528
+    i32 119, label %1535
+    i32 120, label %1549
+    i32 121, label %1556
+    i32 122, label %1567
+    i32 123, label %1569
+    i32 124, label %1579
+    i32 125, label %1590
+    i32 126, label %1601
+    i32 127, label %1611
+    i32 128, label %1622
+    i32 129, label %1624
+    i32 130, label %1635
+    i32 131, label %1651
+    i32 132, label %1680
+    i32 133, label %1694
+    i32 134, label %1708
+    i32 135, label %1719
+    i32 136, label %1740
+    i32 137, label %1743
+    i32 138, label %1747
+    i32 139, label %1751
+    i32 140, label %1755
+    i32 141, label %1759
+    i32 142, label %1763
+    i32 143, label %1767
+    i32 144, label %1771
+    i32 145, label %1775
+    i32 146, label %1779
+    i32 147, label %1783
+    i32 148, label %1787
+    i32 149, label %1791
+    i32 150, label %1795
+    i32 151, label %1799
+    i32 152, label %1803
+    i32 153, label %1807
+    i32 154, label %1811
+    i32 155, label %1815
+    i32 156, label %1819
+    i32 157, label %1821
+    i32 158, label %1832
+    i32 159, label %1834
+    i32 160, label %1848
+    i32 161, label %1862
+    i32 162, label %1873
+    i32 163, label %1901
+    i32 164, label %1922
+    i32 165, label %1942
+    i32 166, label %1966
+    i32 167, label %1979
+    i32 168, label %2003
+    i32 169, label %2024
   ]
 
 136:                                              ; preds = %135
@@ -734,7 +734,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %159 = extractvalue { ptr, ptr } %157, 1
   store ptr %158, ptr %0, align 8
   store ptr %159, ptr %.sroa.2563.0..sroa_idx, align 8
-  br label %2030
+  br label %2027
 
 160:                                              ; preds = %135
   %161 = getelementptr inbounds i8, ptr %.21175, i64 -32
@@ -756,14 +756,14 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %177 = extractvalue { ptr, ptr } %175, 1
   store ptr %176, ptr %0, align 8
   store ptr %177, ptr %.sroa.2563.0..sroa_idx, align 8
-  br label %2030
+  br label %2027
 
 178:                                              ; preds = %135
   %179 = call { ptr, ptr } (...) @gen_noop() #9
   %180 = extractvalue { ptr, ptr } %179, 0
   %181 = extractvalue { ptr, ptr } %179, 1
   store ptr %180, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 182:                                              ; preds = %135
   %183 = getelementptr inbounds i8, ptr %.21175, i64 -16
@@ -785,7 +785,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %193 = load ptr, ptr %183, align 8
   %194 = load ptr, ptr %185, align 8
   call void @block_free(ptr %193, ptr %194) #9
-  br label %2030
+  br label %2027
 
 195:                                              ; preds = %182
   %196 = load ptr, ptr %183, align 8
@@ -805,7 +805,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %204 = load ptr, ptr %183, align 8
   %205 = load ptr, ptr %185, align 8
   call void @block_free(ptr %204, ptr %205) #9
-  br label %2030
+  br label %2027
 
 206:                                              ; preds = %195
   %207 = load ptr, ptr %183, align 8
@@ -814,14 +814,14 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %210 = extractvalue { ptr, ptr } %209, 0
   %211 = extractvalue { ptr, ptr } %209, 1
   store ptr %210, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 212:                                              ; preds = %135
   %213 = call { ptr, ptr } (...) @gen_noop() #9
   %214 = extractvalue { ptr, ptr } %213, 0
   %215 = extractvalue { ptr, ptr } %213, 1
   store ptr %214, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 216:                                              ; preds = %135
   %217 = getelementptr inbounds i8, ptr %.21175, i64 -16
@@ -835,14 +835,14 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %225 = extractvalue { ptr, ptr } %224, 0
   %226 = extractvalue { ptr, ptr } %224, 1
   store ptr %225, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 227:                                              ; preds = %135
   %228 = call { ptr, ptr } (...) @gen_noop() #9
   %229 = extractvalue { ptr, ptr } %228, 0
   %230 = extractvalue { ptr, ptr } %228, 1
   store ptr %229, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 231:                                              ; preds = %135
   %232 = getelementptr inbounds i8, ptr %.21175, i64 -16
@@ -856,7 +856,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %240 = extractvalue { ptr, ptr } %239, 0
   %241 = extractvalue { ptr, ptr } %239, 1
   store ptr %240, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 242:                                              ; preds = %135
   %243 = getelementptr inbounds i8, ptr %.21175, i64 -16
@@ -870,7 +870,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %251 = extractvalue { ptr, ptr } %250, 0
   %252 = extractvalue { ptr, ptr } %250, 1
   store ptr %251, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 253:                                              ; preds = %135
   %254 = getelementptr inbounds i8, ptr %.21175, i64 -64
@@ -888,7 +888,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %266 = extractvalue { ptr, ptr } %265, 0
   %267 = extractvalue { ptr, ptr } %265, 1
   store ptr %266, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 268:                                              ; preds = %135
   %269 = getelementptr inbounds i8, ptr %.21175, i64 -112
@@ -908,7 +908,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %283 = extractvalue { ptr, ptr } %282, 0
   %284 = extractvalue { ptr, ptr } %282, 1
   store ptr %283, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 285:                                              ; preds = %135
   %286 = getelementptr inbounds i8, ptr %.21175, i64 -144
@@ -929,7 +929,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %301 = extractvalue { ptr, ptr } %300, 0
   %302 = extractvalue { ptr, ptr } %300, 1
   store ptr %301, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 303:                                              ; preds = %135
   %304 = getelementptr inbounds i8, ptr %.21175, i64 -112
@@ -954,7 +954,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %321 = extractvalue { ptr, ptr } %320, 0
   %322 = extractvalue { ptr, ptr } %320, 1
   store ptr %321, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 323:                                              ; preds = %135
   %324 = getelementptr inbounds i8, ptr %.21175, i64 -48
@@ -972,7 +972,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %336 = extractvalue { ptr, ptr } %335, 0
   %337 = extractvalue { ptr, ptr } %335, 1
   store ptr %336, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 338:                                              ; preds = %135
   %339 = load i64, ptr %10, align 8
@@ -983,7 +983,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   store i64 %341, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx617 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %.sroa.179.0.copyload618 = load ptr, ptr %.sroa.179.0..sroa_idx617, align 8
-  br label %2030
+  br label %2027
 
 342:                                              ; preds = %135
   %343 = getelementptr inbounds i8, ptr %.21175, i64 -32
@@ -997,7 +997,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %351 = extractvalue { ptr, ptr } %350, 0
   %352 = extractvalue { ptr, ptr } %350, 1
   store ptr %351, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 353:                                              ; preds = %135
   %354 = call { ptr, ptr } @gen_op_simple(i32 noundef 19) #9
@@ -1010,7 +1010,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %361 = extractvalue { ptr, ptr } %360, 0
   %362 = extractvalue { ptr, ptr } %360, 1
   store ptr %361, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 363:                                              ; preds = %135
   %364 = load i64, ptr %10, align 8
@@ -1021,7 +1021,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   store i64 %366, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx619 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %.sroa.179.0.copyload620 = load ptr, ptr %.sroa.179.0..sroa_idx619, align 8
-  br label %2030
+  br label %2027
 
 367:                                              ; preds = %135
   %368 = getelementptr inbounds i8, ptr %.21175, i64 -32
@@ -1048,7 +1048,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %388 = load ptr, ptr %370, align 8
   call void @jv_free(i64 %387, ptr %388) #9
   call void @jv_free(i64 %374, ptr %375) #9
-  br label %2030
+  br label %2027
 
 389:                                              ; preds = %135
   %390 = getelementptr inbounds i8, ptr %.21175, i64 -16
@@ -1062,7 +1062,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %398 = extractvalue { ptr, ptr } %397, 0
   %399 = extractvalue { ptr, ptr } %397, 1
   store ptr %398, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 400:                                              ; preds = %135
   %401 = getelementptr inbounds i8, ptr %.21175, i64 -32
@@ -1085,7 +1085,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %418 = extractvalue { ptr, ptr } %417, 0
   %419 = extractvalue { ptr, ptr } %417, 1
   store ptr %418, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 420:                                              ; preds = %135
   %421 = getelementptr inbounds i8, ptr %.21175, i64 -32
@@ -1099,7 +1099,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %429 = extractvalue { ptr, ptr } %428, 0
   %430 = extractvalue { ptr, ptr } %428, 1
   store ptr %429, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 431:                                              ; preds = %135
   %432 = getelementptr inbounds i8, ptr %.21175, i64 -32
@@ -1113,7 +1113,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %440 = extractvalue { ptr, ptr } %439, 0
   %441 = extractvalue { ptr, ptr } %439, 1
   store ptr %440, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 442:                                              ; preds = %135
   %443 = getelementptr inbounds i8, ptr %.21175, i64 -32
@@ -1127,7 +1127,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %451 = extractvalue { ptr, ptr } %450, 0
   %452 = extractvalue { ptr, ptr } %450, 1
   store ptr %451, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 453:                                              ; preds = %135
   %454 = getelementptr inbounds i8, ptr %.21175, i64 -32
@@ -1141,7 +1141,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %462 = extractvalue { ptr, ptr } %461, 0
   %463 = extractvalue { ptr, ptr } %461, 1
   store ptr %462, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 464:                                              ; preds = %135
   %465 = getelementptr inbounds i8, ptr %.21175, i64 -32
@@ -1164,7 +1164,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %482 = extractvalue { ptr, ptr } %481, 0
   %483 = extractvalue { ptr, ptr } %481, 1
   store ptr %482, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 484:                                              ; preds = %135
   %485 = getelementptr inbounds i8, ptr %.21175, i64 -32
@@ -1178,7 +1178,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %493 = extractvalue { ptr, ptr } %492, 0
   %494 = extractvalue { ptr, ptr } %492, 1
   store ptr %493, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 495:                                              ; preds = %135
   %496 = getelementptr inbounds i8, ptr %.21175, i64 -32
@@ -1192,7 +1192,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %504 = extractvalue { ptr, ptr } %503, 0
   %505 = extractvalue { ptr, ptr } %503, 1
   store ptr %504, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 506:                                              ; preds = %135
   %507 = getelementptr inbounds i8, ptr %.21175, i64 -32
@@ -1206,7 +1206,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %515 = extractvalue { ptr, ptr } %514, 0
   %516 = extractvalue { ptr, ptr } %514, 1
   store ptr %515, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 517:                                              ; preds = %135
   %518 = getelementptr inbounds i8, ptr %.21175, i64 -32
@@ -1220,7 +1220,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %526 = extractvalue { ptr, ptr } %525, 0
   %527 = extractvalue { ptr, ptr } %525, 1
   store ptr %526, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 528:                                              ; preds = %135
   %529 = call { ptr, ptr } (...) @gen_noop() #9
@@ -1236,7 +1236,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %539 = extractvalue { ptr, ptr } %538, 0
   %540 = extractvalue { ptr, ptr } %538, 1
   store ptr %539, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 541:                                              ; preds = %135
   %542 = getelementptr inbounds i8, ptr %.21175, i64 -32
@@ -1250,7 +1250,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %550 = extractvalue { ptr, ptr } %549, 0
   %551 = extractvalue { ptr, ptr } %549, 1
   store ptr %550, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 552:                                              ; preds = %135
   %553 = getelementptr inbounds i8, ptr %.21175, i64 -32
@@ -1264,7 +1264,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %561 = extractvalue { ptr, ptr } %560, 0
   %562 = extractvalue { ptr, ptr } %560, 1
   store ptr %561, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 563:                                              ; preds = %135
   %564 = getelementptr inbounds i8, ptr %.21175, i64 -32
@@ -1278,7 +1278,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %572 = extractvalue { ptr, ptr } %571, 0
   %573 = extractvalue { ptr, ptr } %571, 1
   store ptr %572, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 574:                                              ; preds = %135
   %575 = getelementptr inbounds i8, ptr %.21175, i64 -32
@@ -1292,7 +1292,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %583 = extractvalue { ptr, ptr } %582, 0
   %584 = extractvalue { ptr, ptr } %582, 1
   store ptr %583, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 585:                                              ; preds = %135
   %586 = getelementptr inbounds i8, ptr %.21175, i64 -32
@@ -1306,7 +1306,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %594 = extractvalue { ptr, ptr } %593, 0
   %595 = extractvalue { ptr, ptr } %593, 1
   store ptr %594, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 596:                                              ; preds = %135
   %597 = getelementptr inbounds i8, ptr %.21175, i64 -32
@@ -1320,7 +1320,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %605 = extractvalue { ptr, ptr } %604, 0
   %606 = extractvalue { ptr, ptr } %604, 1
   store ptr %605, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 607:                                              ; preds = %135
   %608 = getelementptr inbounds i8, ptr %.21175, i64 -32
@@ -1334,7 +1334,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %616 = extractvalue { ptr, ptr } %615, 0
   %617 = extractvalue { ptr, ptr } %615, 1
   store ptr %616, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 618:                                              ; preds = %135
   %619 = getelementptr inbounds i8, ptr %.21175, i64 -32
@@ -1348,7 +1348,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %627 = extractvalue { ptr, ptr } %626, 0
   %628 = extractvalue { ptr, ptr } %626, 1
   store ptr %627, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 629:                                              ; preds = %135
   %630 = getelementptr inbounds i8, ptr %.21175, i64 -32
@@ -1362,7 +1362,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %638 = extractvalue { ptr, ptr } %637, 0
   %639 = extractvalue { ptr, ptr } %637, 1
   store ptr %638, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 640:                                              ; preds = %135
   %641 = getelementptr inbounds i8, ptr %.21175, i64 -32
@@ -1376,7 +1376,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %649 = extractvalue { ptr, ptr } %648, 0
   %650 = extractvalue { ptr, ptr } %648, 1
   store ptr %649, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 651:                                              ; preds = %135
   %652 = getelementptr inbounds i8, ptr %.21175, i64 -32
@@ -1390,7 +1390,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %660 = extractvalue { ptr, ptr } %659, 0
   %661 = extractvalue { ptr, ptr } %659, 1
   store ptr %660, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 662:                                              ; preds = %135
   %663 = getelementptr inbounds i8, ptr %.21175, i64 -32
@@ -1404,7 +1404,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %671 = extractvalue { ptr, ptr } %670, 0
   %672 = extractvalue { ptr, ptr } %670, 1
   store ptr %671, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 673:                                              ; preds = %135
   %674 = getelementptr inbounds i8, ptr %.21175, i64 -32
@@ -1418,7 +1418,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %682 = extractvalue { ptr, ptr } %681, 0
   %683 = extractvalue { ptr, ptr } %681, 1
   store ptr %682, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 684:                                              ; preds = %135
   %685 = getelementptr inbounds i8, ptr %.21175, i64 -32
@@ -1432,14 +1432,14 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %693 = extractvalue { ptr, ptr } %692, 0
   %694 = extractvalue { ptr, ptr } %692, 1
   store ptr %693, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 695:                                              ; preds = %135
   %696 = load i64, ptr %.21175, align 8
   store i64 %696, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx621 = getelementptr inbounds i8, ptr %.21175, i64 8
   %.sroa.179.0.copyload622 = load ptr, ptr %.sroa.179.0..sroa_idx621, align 8
-  br label %2030
+  br label %2027
 
 697:                                              ; preds = %135
   %698 = getelementptr inbounds i8, ptr %.21175, i64 -16
@@ -1447,7 +1447,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   store i64 %699, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx623 = getelementptr inbounds i8, ptr %.21175, i64 -8
   %.sroa.179.0.copyload624 = load ptr, ptr %.sroa.179.0..sroa_idx623, align 8
-  br label %2030
+  br label %2027
 
 700:                                              ; preds = %135
   %701 = getelementptr inbounds i8, ptr %.21175, i64 -16
@@ -1474,7 +1474,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %715 = load ptr, ptr %701, align 8
   %716 = load ptr, ptr %703, align 8
   call void @block_free(ptr %715, ptr %716) #9
-  br label %2030
+  br label %2027
 
 717:                                              ; preds = %700
   %718 = load ptr, ptr %701, align 8
@@ -1499,7 +1499,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %730 = load ptr, ptr %701, align 8
   %731 = load ptr, ptr %703, align 8
   call void @block_free(ptr %730, ptr %731) #9
-  br label %2030
+  br label %2027
 
 732:                                              ; preds = %717
   %733 = getelementptr inbounds i8, ptr %.21175, i64 -32
@@ -1512,7 +1512,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %740 = extractvalue { ptr, ptr } %739, 0
   %741 = extractvalue { ptr, ptr } %739, 1
   store ptr %740, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 742:                                              ; preds = %135
   %743 = getelementptr inbounds i8, ptr %.21175, i64 -32
@@ -1538,7 +1538,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %761 = load ptr, ptr %752, align 8
   call void @jv_free(i64 %760, ptr %761) #9
   call void @jv_free(i64 %748, ptr %749) #9
-  br label %2030
+  br label %2027
 
 762:                                              ; preds = %135
   %763 = getelementptr inbounds i8, ptr %.21175, i64 -32
@@ -1564,7 +1564,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %781 = load ptr, ptr %772, align 8
   call void @jv_free(i64 %780, ptr %781) #9
   call void @jv_free(i64 %768, ptr %769) #9
-  br label %2030
+  br label %2027
 
 782:                                              ; preds = %135
   %783 = load ptr, ptr %.21175, align 8
@@ -1582,7 +1582,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %794 = load ptr, ptr %784, align 8
   call void @block_free(ptr %793, ptr %794) #9
   call void @jv_free(i64 %787, ptr %788) #9
-  br label %2030
+  br label %2027
 
 795:                                              ; preds = %135
   %796 = load ptr, ptr %.21175, align 8
@@ -1606,13 +1606,13 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %808 = load ptr, ptr %.21175, align 8
   %809 = load ptr, ptr %797, align 8
   call void @block_free(ptr %808, ptr %809) #9
-  br label %2030
+  br label %2027
 
 810:                                              ; preds = %795
   %811 = load i64, ptr %.21175, align 8
   store i64 %811, ptr %.sroa.0616, align 8
   %.sroa.179.0.copyload626 = load ptr, ptr %797, align 8
-  br label %2030
+  br label %2027
 
 812:                                              ; preds = %135
   %813 = getelementptr inbounds i8, ptr %.21175, i64 -48
@@ -1634,7 +1634,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %828 = load i64, ptr %813, align 8
   %829 = load ptr, ptr %815, align 8
   call void @jv_free(i64 %828, ptr %829) #9
-  br label %2030
+  br label %2027
 
 830:                                              ; preds = %135
   %831 = getelementptr inbounds i8, ptr %.21175, i64 -96
@@ -1657,14 +1657,14 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %847 = load i64, ptr %831, align 8
   %848 = load ptr, ptr %833, align 8
   call void @jv_free(i64 %847, ptr %848) #9
-  br label %2030
+  br label %2027
 
 849:                                              ; preds = %135
   %850 = load i64, ptr %.21175, align 8
   store i64 %850, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx627 = getelementptr inbounds i8, ptr %.21175, i64 8
   %.sroa.179.0.copyload628 = load ptr, ptr %.sroa.179.0..sroa_idx627, align 8
-  br label %2030
+  br label %2027
 
 851:                                              ; preds = %135
   %852 = getelementptr inbounds i8, ptr %.21175, i64 -32
@@ -1678,7 +1678,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %860 = extractvalue { ptr, ptr } %859, 0
   %861 = extractvalue { ptr, ptr } %859, 1
   store ptr %860, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 862:                                              ; preds = %135
   %863 = load i64, ptr %.21175, align 8
@@ -1692,7 +1692,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %870 = load i64, ptr %.21175, align 8
   %871 = load ptr, ptr %864, align 8
   call void @jv_free(i64 %870, ptr %871) #9
-  br label %2030
+  br label %2027
 
 872:                                              ; preds = %135
   %873 = load i64, ptr %.21175, align 8
@@ -1706,7 +1706,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %880 = load i64, ptr %.21175, align 8
   %881 = load ptr, ptr %874, align 8
   call void @jv_free(i64 %880, ptr %881) #9
-  br label %2030
+  br label %2027
 
 882:                                              ; preds = %135
   %883 = getelementptr inbounds i8, ptr %.21175, i64 -16
@@ -1714,14 +1714,14 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   store i64 %884, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx629 = getelementptr inbounds i8, ptr %.21175, i64 -8
   %.sroa.179.0.copyload630 = load ptr, ptr %.sroa.179.0..sroa_idx629, align 8
-  br label %2030
+  br label %2027
 
 885:                                              ; preds = %135
   %886 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.14) #9
   %887 = extractvalue { i64, ptr } %886, 0
   %888 = extractvalue { i64, ptr } %886, 1
   store i64 %887, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 889:                                              ; preds = %135
   %890 = getelementptr inbounds i8, ptr %.21175, i64 -16
@@ -1734,7 +1734,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %894 = getelementptr inbounds i8, ptr %.21175, i64 -24
   %895 = load ptr, ptr %894, align 8
   call void @jv_free(i64 %893, ptr %895) #9
-  br label %2030
+  br label %2027
 
 896:                                              ; preds = %135
   %897 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.13) #9
@@ -1744,7 +1744,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %901 = extractvalue { ptr, ptr } %900, 0
   %902 = extractvalue { ptr, ptr } %900, 1
   store ptr %901, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 903:                                              ; preds = %135
   %904 = getelementptr inbounds i8, ptr %.21175, i64 -16
@@ -1761,7 +1761,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %915 = extractvalue { ptr, ptr } %914, 0
   %916 = extractvalue { ptr, ptr } %914, 1
   store ptr %915, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 917:                                              ; preds = %135
   %918 = getelementptr inbounds i8, ptr %.21175, i64 -48
@@ -1786,7 +1786,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %937 = extractvalue { ptr, ptr } %936, 0
   %938 = extractvalue { ptr, ptr } %936, 1
   store ptr %937, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 939:                                              ; preds = %135
   %940 = getelementptr inbounds i8, ptr %.21175, i64 -48
@@ -1804,7 +1804,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %952 = extractvalue { ptr, ptr } %951, 0
   %953 = extractvalue { ptr, ptr } %951, 1
   store ptr %952, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 954:                                              ; preds = %135
   %955 = getelementptr inbounds i8, ptr %.21175, i64 -16
@@ -1812,14 +1812,14 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   store i64 %956, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx633 = getelementptr inbounds i8, ptr %.21175, i64 -8
   %.sroa.179.0.copyload634 = load ptr, ptr %.sroa.179.0..sroa_idx633, align 8
-  br label %2030
+  br label %2027
 
 957:                                              ; preds = %135
   %958 = call { ptr, ptr } (...) @gen_noop() #9
   %959 = extractvalue { ptr, ptr } %958, 0
   %960 = extractvalue { ptr, ptr } %958, 1
   store ptr %959, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 961:                                              ; preds = %135
   %962 = getelementptr inbounds i8, ptr %.21175, i64 -32
@@ -1833,7 +1833,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %970 = extractvalue { ptr, ptr } %969, 0
   %971 = extractvalue { ptr, ptr } %969, 1
   store ptr %970, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 972:                                              ; preds = %135
   %973 = call { ptr, ptr } (...) @gen_noop() #9
@@ -1849,21 +1849,21 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %983 = extractvalue { ptr, ptr } %982, 0
   %984 = extractvalue { ptr, ptr } %982, 1
   store ptr %983, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 985:                                              ; preds = %135
   %986 = load i64, ptr %.21175, align 8
   store i64 %986, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx635 = getelementptr inbounds i8, ptr %.21175, i64 8
   %.sroa.179.0.copyload636 = load ptr, ptr %.sroa.179.0..sroa_idx635, align 8
-  br label %2030
+  br label %2027
 
 987:                                              ; preds = %135
   %988 = call { ptr, ptr } (...) @gen_noop() #9
   %989 = extractvalue { ptr, ptr } %988, 0
   %990 = extractvalue { ptr, ptr } %988, 1
   store ptr %989, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 991:                                              ; preds = %135
   %992 = call { ptr, ptr } (...) @gen_noop() #9
@@ -1873,7 +1873,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %996 = extractvalue { ptr, ptr } %995, 0
   %997 = extractvalue { ptr, ptr } %995, 1
   store ptr %996, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 998:                                              ; preds = %135
   %999 = load i64, ptr %.21175, align 8
@@ -1905,7 +1905,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1023 = load i64, ptr %.21175, align 8
   %1024 = load ptr, ptr %1000, align 8
   call void @jv_free(i64 %1023, ptr %1024) #9
-  br label %2030
+  br label %2027
 
 1025:                                             ; preds = %135
   %1026 = load i64, ptr %10, align 8
@@ -1915,7 +1915,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1028 = extractvalue { ptr, ptr } %1027, 0
   %1029 = extractvalue { ptr, ptr } %1027, 1
   store ptr %1028, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 1030:                                             ; preds = %135
   %1031 = getelementptr inbounds i8, ptr %.21175, i64 -32
@@ -1933,7 +1933,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1043 = extractvalue { ptr, ptr } %1042, 0
   %1044 = extractvalue { ptr, ptr } %1042, 1
   store ptr %1043, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 1045:                                             ; preds = %135
   %1046 = call { ptr, ptr } (...) @gen_noop() #9
@@ -1950,7 +1950,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1057 = extractvalue { ptr, ptr } %1056, 0
   %1058 = extractvalue { ptr, ptr } %1056, 1
   store ptr %1057, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 1059:                                             ; preds = %135
   %1060 = getelementptr inbounds i8, ptr %.21175, i64 -48
@@ -1965,7 +1965,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1069 = extractvalue { ptr, ptr } %1068, 0
   %1070 = extractvalue { ptr, ptr } %1068, 1
   store ptr %1069, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 1071:                                             ; preds = %135
   %1072 = call { ptr, ptr } (...) @gen_noop() #9
@@ -1979,7 +1979,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1080 = extractvalue { ptr, ptr } %1079, 0
   %1081 = extractvalue { ptr, ptr } %1079, 1
   store ptr %1080, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 1082:                                             ; preds = %135
   %1083 = getelementptr inbounds i8, ptr %.21175, i64 -16
@@ -1996,7 +1996,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1094 = extractvalue { ptr, ptr } %1093, 0
   %1095 = extractvalue { ptr, ptr } %1093, 1
   store ptr %1094, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 1096:                                             ; preds = %135
   %1097 = call { ptr, ptr } (...) @gen_noop() #9
@@ -2012,7 +2012,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1107 = extractvalue { ptr, ptr } %1106, 0
   %1108 = extractvalue { ptr, ptr } %1106, 1
   store ptr %1107, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 1109:                                             ; preds = %135
   %1110 = getelementptr inbounds i8, ptr %.21175, i64 -32
@@ -2026,7 +2026,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1118 = extractvalue { ptr, ptr } %1117, 0
   %1119 = extractvalue { ptr, ptr } %1117, 1
   store ptr %1118, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 1120:                                             ; preds = %135
   %1121 = call { ptr, ptr } (...) @gen_noop() #9
@@ -2039,7 +2039,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1128 = extractvalue { ptr, ptr } %1127, 0
   %1129 = extractvalue { ptr, ptr } %1127, 1
   store ptr %1128, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 1130:                                             ; preds = %135
   %1131 = load i64, ptr %10, align 8
@@ -2049,7 +2049,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1133 = extractvalue { ptr, ptr } %1132, 0
   %1134 = extractvalue { ptr, ptr } %1132, 1
   store ptr %1133, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 1135:                                             ; preds = %135
   %1136 = getelementptr inbounds i8, ptr %.21175, i64 -16
@@ -2064,7 +2064,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1142 = extractvalue { ptr, ptr } %1141, 0
   %1143 = extractvalue { ptr, ptr } %1141, 1
   store ptr %1142, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 1144:                                             ; preds = %135
   %1145 = getelementptr inbounds i8, ptr %.21175, i64 -64
@@ -2079,7 +2079,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1154 = extractvalue { ptr, ptr } %1153, 0
   %1155 = extractvalue { ptr, ptr } %1153, 1
   store ptr %1154, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 1156:                                             ; preds = %135
   %1157 = getelementptr inbounds i8, ptr %.21175, i64 -48
@@ -2094,7 +2094,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1166 = extractvalue { ptr, ptr } %1165, 0
   %1167 = extractvalue { ptr, ptr } %1165, 1
   store ptr %1166, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 1168:                                             ; preds = %135
   %1169 = getelementptr inbounds i8, ptr %.21175, i64 -80
@@ -2109,7 +2109,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1178 = extractvalue { ptr, ptr } %1177, 0
   %1179 = extractvalue { ptr, ptr } %1177, 1
   store ptr %1178, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 1180:                                             ; preds = %135
   %1181 = getelementptr inbounds i8, ptr %.21175, i64 -64
@@ -2124,7 +2124,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1190 = extractvalue { ptr, ptr } %1189, 0
   %1191 = extractvalue { ptr, ptr } %1189, 1
   store ptr %1190, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 1192:                                             ; preds = %135
   %1193 = getelementptr inbounds i8, ptr %.21175, i64 -48
@@ -2138,7 +2138,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1201 = extractvalue { ptr, ptr } %1200, 0
   %1202 = extractvalue { ptr, ptr } %1200, 1
   store ptr %1201, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 1203:                                             ; preds = %135
   %1204 = getelementptr inbounds i8, ptr %.21175, i64 -32
@@ -2152,7 +2152,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1212 = extractvalue { ptr, ptr } %1211, 0
   %1213 = extractvalue { ptr, ptr } %1211, 1
   store ptr %1212, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 1214:                                             ; preds = %135
   %1215 = getelementptr inbounds i8, ptr %.21175, i64 -64
@@ -2166,7 +2166,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1223 = extractvalue { ptr, ptr } %1222, 0
   %1224 = extractvalue { ptr, ptr } %1222, 1
   store ptr %1223, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 1225:                                             ; preds = %135
   %1226 = getelementptr inbounds i8, ptr %.21175, i64 -48
@@ -2180,7 +2180,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1234 = extractvalue { ptr, ptr } %1233, 0
   %1235 = extractvalue { ptr, ptr } %1233, 1
   store ptr %1234, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 1236:                                             ; preds = %135
   %1237 = getelementptr inbounds i8, ptr %.21175, i64 -96
@@ -2199,7 +2199,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1250 = extractvalue { ptr, ptr } %1249, 0
   %1251 = extractvalue { ptr, ptr } %1249, 1
   store ptr %1250, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 1252:                                             ; preds = %135
   %1253 = getelementptr inbounds i8, ptr %.21175, i64 -80
@@ -2220,7 +2220,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1268 = extractvalue { ptr, ptr } %1267, 0
   %1269 = extractvalue { ptr, ptr } %1267, 1
   store ptr %1268, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 1270:                                             ; preds = %135
   %1271 = getelementptr inbounds i8, ptr %.21175, i64 -80
@@ -2241,7 +2241,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1286 = extractvalue { ptr, ptr } %1285, 0
   %1287 = extractvalue { ptr, ptr } %1285, 1
   store ptr %1286, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 1288:                                             ; preds = %135
   %1289 = getelementptr inbounds i8, ptr %.21175, i64 -80
@@ -2260,7 +2260,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1302 = extractvalue { ptr, ptr } %1301, 0
   %1303 = extractvalue { ptr, ptr } %1301, 1
   store ptr %1302, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 1304:                                             ; preds = %135
   %1305 = getelementptr inbounds i8, ptr %.21175, i64 -64
@@ -2281,7 +2281,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1320 = extractvalue { ptr, ptr } %1319, 0
   %1321 = extractvalue { ptr, ptr } %1319, 1
   store ptr %1320, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 1322:                                             ; preds = %135
   %1323 = getelementptr inbounds i8, ptr %.21175, i64 -64
@@ -2302,7 +2302,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1338 = extractvalue { ptr, ptr } %1337, 0
   %1339 = extractvalue { ptr, ptr } %1337, 1
   store ptr %1338, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 1340:                                             ; preds = %135
   %1341 = load i64, ptr %.21175, align 8
@@ -2312,14 +2312,14 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1345 = extractvalue { ptr, ptr } %1344, 0
   %1346 = extractvalue { ptr, ptr } %1344, 1
   store ptr %1345, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 1347:                                             ; preds = %135
   %1348 = load i64, ptr %.21175, align 8
   store i64 %1348, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx637 = getelementptr inbounds i8, ptr %.21175, i64 8
   %.sroa.179.0.copyload638 = load ptr, ptr %.sroa.179.0..sroa_idx637, align 8
-  br label %2030
+  br label %2027
 
 1349:                                             ; preds = %135
   %1350 = call { ptr, ptr } (...) @gen_noop() #9
@@ -2332,7 +2332,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1357 = extractvalue { ptr, ptr } %1356, 0
   %1358 = extractvalue { ptr, ptr } %1356, 1
   store ptr %1357, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 1359:                                             ; preds = %135
   %1360 = getelementptr inbounds i8, ptr %.21175, i64 -16
@@ -2340,7 +2340,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   store i64 %1361, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx639 = getelementptr inbounds i8, ptr %.21175, i64 -8
   %.sroa.179.0.copyload640 = load ptr, ptr %.sroa.179.0..sroa_idx639, align 8
-  br label %2030
+  br label %2027
 
 1362:                                             ; preds = %135
   %1363 = getelementptr inbounds i8, ptr %.21175, i64 -16
@@ -2351,7 +2351,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1368 = extractvalue { ptr, ptr } %1367, 0
   %1369 = extractvalue { ptr, ptr } %1367, 1
   store ptr %1368, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 1370:                                             ; preds = %135
   %1371 = call { i64, ptr } @jv_array() #9
@@ -2361,7 +2361,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1375 = extractvalue { ptr, ptr } %1374, 0
   %1376 = extractvalue { ptr, ptr } %1374, 1
   store ptr %1375, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 1377:                                             ; preds = %135
   %1378 = getelementptr inbounds i8, ptr %.21175, i64 -16
@@ -2376,7 +2376,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 1384:                                             ; preds = %1377
   %1385 = extractvalue { ptr, ptr } %1382, 1
   store ptr %1383, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 1386:                                             ; preds = %1377
   %1387 = call { i64, ptr } @jv_object() #9
@@ -2400,7 +2400,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1405 = extractvalue { ptr, ptr } %1404, 0
   %1406 = extractvalue { ptr, ptr } %1404, 1
   store ptr %1405, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 1407:                                             ; preds = %135
   %1408 = load i64, ptr %.21175, align 8
@@ -2418,7 +2418,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1419 = load i64, ptr %.21175, align 8
   %1420 = load ptr, ptr %1409, align 8
   call void @jv_free(i64 %1419, ptr %1420) #9
-  br label %2030
+  br label %2027
 
 1421:                                             ; preds = %135
   %1422 = load i64, ptr %.21175, align 8
@@ -2436,14 +2436,14 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1433 = load i64, ptr %.21175, align 8
   %1434 = load ptr, ptr %1423, align 8
   call void @jv_free(i64 %1433, ptr %1434) #9
-  br label %2030
+  br label %2027
 
 1435:                                             ; preds = %135
   %1436 = call fastcc { ptr, ptr } @gen_loc_object(ptr noundef nonnull %10, ptr noundef %2)
   %1437 = extractvalue { ptr, ptr } %1436, 0
   %1438 = extractvalue { ptr, ptr } %1436, 1
   store ptr %1437, ptr %.sroa.0616, align 8
-  br label %2030
+  br label %2027
 
 1439:                                             ; preds = %135
   %1440 = load i64, ptr %.21175, align 8
@@ -2452,1118 +2452,1112 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1443 = call ptr @jv_string_value(i64 %1440, ptr %1442) #9
   %1444 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1443, ptr noundef nonnull dereferenceable(6) @.str.19) #8
   %1445 = icmp eq i32 %1444, 0
-  br i1 %1445, label %1446, label %1452
+  br i1 %1445, label %1446, label %1451
 
 1446:                                             ; preds = %1439
   %1447 = call { i64, ptr } @jv_false() #9
   %1448 = extractvalue { i64, ptr } %1447, 0
   %1449 = extractvalue { i64, ptr } %1447, 1
   %1450 = call { ptr, ptr } @gen_const(i64 %1448, ptr %1449) #9
-  %1451 = extractvalue { ptr, ptr } %1450, 0
-  store ptr %1451, ptr %.sroa.0616, align 8
-  br label %1480
+  br label %1476
 
-1452:                                             ; preds = %1439
-  %1453 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1443, ptr noundef nonnull dereferenceable(5) @.str.20) #8
-  %1454 = icmp eq i32 %1453, 0
-  br i1 %1454, label %1455, label %1461
+1451:                                             ; preds = %1439
+  %1452 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1443, ptr noundef nonnull dereferenceable(5) @.str.20) #8
+  %1453 = icmp eq i32 %1452, 0
+  br i1 %1453, label %1454, label %1459
 
-1455:                                             ; preds = %1452
-  %1456 = call { i64, ptr } @jv_true() #9
-  %1457 = extractvalue { i64, ptr } %1456, 0
-  %1458 = extractvalue { i64, ptr } %1456, 1
-  %1459 = call { ptr, ptr } @gen_const(i64 %1457, ptr %1458) #9
-  %1460 = extractvalue { ptr, ptr } %1459, 0
-  store ptr %1460, ptr %.sroa.0616, align 8
-  br label %1480
+1454:                                             ; preds = %1451
+  %1455 = call { i64, ptr } @jv_true() #9
+  %1456 = extractvalue { i64, ptr } %1455, 0
+  %1457 = extractvalue { i64, ptr } %1455, 1
+  %1458 = call { ptr, ptr } @gen_const(i64 %1456, ptr %1457) #9
+  br label %1476
 
-1461:                                             ; preds = %1452
-  %1462 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1443, ptr noundef nonnull dereferenceable(5) @.str.21) #8
-  %1463 = icmp eq i32 %1462, 0
-  br i1 %1463, label %1464, label %1470
+1459:                                             ; preds = %1451
+  %1460 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1443, ptr noundef nonnull dereferenceable(5) @.str.21) #8
+  %1461 = icmp eq i32 %1460, 0
+  br i1 %1461, label %1462, label %1467
 
-1464:                                             ; preds = %1461
-  %1465 = call { i64, ptr } @jv_null() #9
-  %1466 = extractvalue { i64, ptr } %1465, 0
-  %1467 = extractvalue { i64, ptr } %1465, 1
-  %1468 = call { ptr, ptr } @gen_const(i64 %1466, ptr %1467) #9
+1462:                                             ; preds = %1459
+  %1463 = call { i64, ptr } @jv_null() #9
+  %1464 = extractvalue { i64, ptr } %1463, 0
+  %1465 = extractvalue { i64, ptr } %1463, 1
+  %1466 = call { ptr, ptr } @gen_const(i64 %1464, ptr %1465) #9
+  br label %1476
+
+1467:                                             ; preds = %1459
+  %1468 = call { ptr, ptr } (...) @gen_noop() #9
   %1469 = extractvalue { ptr, ptr } %1468, 0
-  store ptr %1469, ptr %.sroa.0616, align 8
-  br label %1480
-
-1470:                                             ; preds = %1461
-  %1471 = call { ptr, ptr } (...) @gen_noop() #9
+  %1470 = extractvalue { ptr, ptr } %1468, 1
+  %1471 = call { ptr, ptr } @gen_call(ptr noundef %1443, ptr %1469, ptr %1470) #9
   %1472 = extractvalue { ptr, ptr } %1471, 0
   %1473 = extractvalue { ptr, ptr } %1471, 1
-  %1474 = call { ptr, ptr } @gen_call(ptr noundef %1443, ptr %1472, ptr %1473) #9
-  %1475 = extractvalue { ptr, ptr } %1474, 0
-  %1476 = extractvalue { ptr, ptr } %1474, 1
-  %1477 = load i64, ptr %10, align 8
-  %1478 = call { ptr, ptr } @gen_location(i64 %1477, ptr noundef %2, ptr %1475, ptr %1476) #9
-  %1479 = extractvalue { ptr, ptr } %1478, 0
-  store ptr %1479, ptr %.sroa.0616, align 8
-  br label %1480
+  %1474 = load i64, ptr %10, align 8
+  %1475 = call { ptr, ptr } @gen_location(i64 %1474, ptr noundef %2, ptr %1472, ptr %1473) #9
+  br label %1476
 
-1480:                                             ; preds = %1455, %1470, %1464, %1446
-  %.pn = phi { ptr, ptr } [ %1450, %1446 ], [ %1459, %1455 ], [ %1468, %1464 ], [ %1478, %1470 ]
-  %.sroa.179.1 = extractvalue { ptr, ptr } %.pn, 1
-  %1481 = load i64, ptr %.21175, align 8
-  %1482 = load ptr, ptr %1441, align 8
-  call void @jv_free(i64 %1481, ptr %1482) #9
-  br label %2030
+1476:                                             ; preds = %1454, %1467, %1462, %1446
+  %.sink1352 = phi { ptr, ptr } [ %1458, %1454 ], [ %1475, %1467 ], [ %1466, %1462 ], [ %1450, %1446 ]
+  %1477 = extractvalue { ptr, ptr } %.sink1352, 0
+  store ptr %1477, ptr %.sroa.0616, align 8
+  %.sroa.179.1 = extractvalue { ptr, ptr } %.sink1352, 1
+  %1478 = load i64, ptr %.21175, align 8
+  %1479 = load ptr, ptr %1441, align 8
+  call void @jv_free(i64 %1478, ptr %1479) #9
+  br label %2027
 
-1483:                                             ; preds = %135
-  %1484 = getelementptr inbounds i8, ptr %.21175, i64 -48
-  %1485 = load i64, ptr %1484, align 8
-  %1486 = getelementptr inbounds i8, ptr %.21175, i64 -40
+1480:                                             ; preds = %135
+  %1481 = getelementptr inbounds i8, ptr %.21175, i64 -48
+  %1482 = load i64, ptr %1481, align 8
+  %1483 = getelementptr inbounds i8, ptr %.21175, i64 -40
+  %1484 = load ptr, ptr %1483, align 8
+  %1485 = call ptr @jv_string_value(i64 %1482, ptr %1484) #9
+  %1486 = getelementptr inbounds i8, ptr %.21175, i64 -16
   %1487 = load ptr, ptr %1486, align 8
-  %1488 = call ptr @jv_string_value(i64 %1485, ptr %1487) #9
-  %1489 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %1490 = load ptr, ptr %1489, align 8
-  %1491 = getelementptr inbounds i8, ptr %.21175, i64 -8
-  %1492 = load ptr, ptr %1491, align 8
-  %1493 = call { ptr, ptr } @gen_call(ptr noundef %1488, ptr %1490, ptr %1492) #9
-  %1494 = extractvalue { ptr, ptr } %1493, 0
-  %1495 = extractvalue { ptr, ptr } %1493, 1
-  store ptr %1494, ptr %.sroa.0616, align 8
-  %1496 = getelementptr inbounds i8, ptr %.21185, i64 -24
-  %1497 = load i64, ptr %1496, align 4
-  %1498 = call { ptr, ptr } @gen_location(i64 %1497, ptr noundef %2, ptr %1494, ptr %1495) #9
-  %1499 = extractvalue { ptr, ptr } %1498, 0
-  %1500 = extractvalue { ptr, ptr } %1498, 1
-  store ptr %1499, ptr %.sroa.0616, align 8
-  %1501 = load i64, ptr %1484, align 8
-  %1502 = load ptr, ptr %1486, align 8
-  call void @jv_free(i64 %1501, ptr %1502) #9
-  br label %2030
+  %1488 = getelementptr inbounds i8, ptr %.21175, i64 -8
+  %1489 = load ptr, ptr %1488, align 8
+  %1490 = call { ptr, ptr } @gen_call(ptr noundef %1485, ptr %1487, ptr %1489) #9
+  %1491 = extractvalue { ptr, ptr } %1490, 0
+  %1492 = extractvalue { ptr, ptr } %1490, 1
+  store ptr %1491, ptr %.sroa.0616, align 8
+  %1493 = getelementptr inbounds i8, ptr %.21185, i64 -24
+  %1494 = load i64, ptr %1493, align 4
+  %1495 = call { ptr, ptr } @gen_location(i64 %1494, ptr noundef %2, ptr %1491, ptr %1492) #9
+  %1496 = extractvalue { ptr, ptr } %1495, 0
+  %1497 = extractvalue { ptr, ptr } %1495, 1
+  store ptr %1496, ptr %.sroa.0616, align 8
+  %1498 = load i64, ptr %1481, align 8
+  %1499 = load ptr, ptr %1483, align 8
+  call void @jv_free(i64 %1498, ptr %1499) #9
+  br label %2027
 
-1503:                                             ; preds = %135
-  %1504 = call { ptr, ptr } (...) @gen_noop() #9
-  %1505 = extractvalue { ptr, ptr } %1504, 0
-  %1506 = extractvalue { ptr, ptr } %1504, 1
-  store ptr %1505, ptr %.sroa.0616, align 8
-  br label %2030
+1500:                                             ; preds = %135
+  %1501 = call { ptr, ptr } (...) @gen_noop() #9
+  %1502 = extractvalue { ptr, ptr } %1501, 0
+  %1503 = extractvalue { ptr, ptr } %1501, 1
+  store ptr %1502, ptr %.sroa.0616, align 8
+  br label %2027
 
-1507:                                             ; preds = %135
-  %1508 = call { ptr, ptr } (...) @gen_noop() #9
-  %1509 = extractvalue { ptr, ptr } %1508, 0
-  %1510 = extractvalue { ptr, ptr } %1508, 1
-  store ptr %1509, ptr %.sroa.0616, align 8
-  br label %2030
+1504:                                             ; preds = %135
+  %1505 = call { ptr, ptr } (...) @gen_noop() #9
+  %1506 = extractvalue { ptr, ptr } %1505, 0
+  %1507 = extractvalue { ptr, ptr } %1505, 1
+  store ptr %1506, ptr %.sroa.0616, align 8
+  br label %2027
 
-1511:                                             ; preds = %135
-  %1512 = getelementptr inbounds i8, ptr %.21175, i64 -48
-  %1513 = load i64, ptr %1512, align 8
-  store i64 %1513, ptr %.sroa.0616, align 8
+1508:                                             ; preds = %135
+  %1509 = getelementptr inbounds i8, ptr %.21175, i64 -48
+  %1510 = load i64, ptr %1509, align 8
+  store i64 %1510, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx641 = getelementptr inbounds i8, ptr %.21175, i64 -40
   %.sroa.179.0.copyload642 = load ptr, ptr %.sroa.179.0..sroa_idx641, align 8
-  br label %2030
+  br label %2027
 
-1514:                                             ; preds = %135
-  %1515 = call { ptr, ptr } (...) @gen_noop() #9
-  %1516 = extractvalue { ptr, ptr } %1515, 0
-  %1517 = extractvalue { ptr, ptr } %1515, 1
-  store ptr %1516, ptr %.sroa.0616, align 8
-  br label %2030
+1511:                                             ; preds = %135
+  %1512 = call { ptr, ptr } (...) @gen_noop() #9
+  %1513 = extractvalue { ptr, ptr } %1512, 0
+  %1514 = extractvalue { ptr, ptr } %1512, 1
+  store ptr %1513, ptr %.sroa.0616, align 8
+  br label %2027
 
-1518:                                             ; preds = %135
-  %1519 = load i64, ptr %.21175, align 8
-  store i64 %1519, ptr %.sroa.0616, align 8
+1515:                                             ; preds = %135
+  %1516 = load i64, ptr %.21175, align 8
+  store i64 %1516, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx643 = getelementptr inbounds i8, ptr %.21175, i64 8
   %.sroa.179.0.copyload644 = load ptr, ptr %.sroa.179.0..sroa_idx643, align 8
-  br label %2030
+  br label %2027
 
-1520:                                             ; preds = %135
-  %1521 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1522 = load ptr, ptr %1521, align 8
-  %1523 = getelementptr inbounds i8, ptr %.21175, i64 -24
+1517:                                             ; preds = %135
+  %1518 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1519 = load ptr, ptr %1518, align 8
+  %1520 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %1521 = load ptr, ptr %1520, align 8
+  %1522 = load ptr, ptr %.21175, align 8
+  %1523 = getelementptr inbounds i8, ptr %.21175, i64 8
   %1524 = load ptr, ptr %1523, align 8
-  %1525 = load ptr, ptr %.21175, align 8
-  %1526 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1527 = load ptr, ptr %1526, align 8
-  %1528 = call { ptr, ptr } @block_join(ptr %1522, ptr %1524, ptr %1525, ptr %1527) #9
-  %1529 = extractvalue { ptr, ptr } %1528, 0
-  %1530 = extractvalue { ptr, ptr } %1528, 1
-  store ptr %1529, ptr %.sroa.0616, align 8
-  br label %2030
+  %1525 = call { ptr, ptr } @block_join(ptr %1519, ptr %1521, ptr %1522, ptr %1524) #9
+  %1526 = extractvalue { ptr, ptr } %1525, 0
+  %1527 = extractvalue { ptr, ptr } %1525, 1
+  store ptr %1526, ptr %.sroa.0616, align 8
+  br label %2027
 
-1531:                                             ; preds = %135
-  %1532 = load ptr, ptr %.21175, align 8
-  %1533 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1534 = load ptr, ptr %1533, align 8
-  %1535 = call { ptr, ptr } @gen_lambda(ptr %1532, ptr %1534) #9
-  %1536 = extractvalue { ptr, ptr } %1535, 0
-  %1537 = extractvalue { ptr, ptr } %1535, 1
-  store ptr %1536, ptr %.sroa.0616, align 8
-  br label %2030
+1528:                                             ; preds = %135
+  %1529 = load ptr, ptr %.21175, align 8
+  %1530 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1531 = load ptr, ptr %1530, align 8
+  %1532 = call { ptr, ptr } @gen_lambda(ptr %1529, ptr %1531) #9
+  %1533 = extractvalue { ptr, ptr } %1532, 0
+  %1534 = extractvalue { ptr, ptr } %1532, 1
+  store ptr %1533, ptr %.sroa.0616, align 8
+  br label %2027
 
-1538:                                             ; preds = %135
-  %1539 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1540 = load ptr, ptr %.21175, align 8
-  %1541 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1542 = load ptr, ptr %1541, align 8
-  %1543 = call { ptr, ptr } @gen_destructure_alt(ptr %1540, ptr %1542) #9
-  %1544 = extractvalue { ptr, ptr } %1543, 0
-  %1545 = extractvalue { ptr, ptr } %1543, 1
-  %1546 = load ptr, ptr %1539, align 8
-  %1547 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %1548 = load ptr, ptr %1547, align 8
-  %1549 = call { ptr, ptr } @block_join(ptr %1546, ptr %1548, ptr %1544, ptr %1545) #9
-  %1550 = extractvalue { ptr, ptr } %1549, 0
-  %1551 = extractvalue { ptr, ptr } %1549, 1
-  store ptr %1550, ptr %.sroa.0616, align 8
-  br label %2030
+1535:                                             ; preds = %135
+  %1536 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1537 = load ptr, ptr %.21175, align 8
+  %1538 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1539 = load ptr, ptr %1538, align 8
+  %1540 = call { ptr, ptr } @gen_destructure_alt(ptr %1537, ptr %1539) #9
+  %1541 = extractvalue { ptr, ptr } %1540, 0
+  %1542 = extractvalue { ptr, ptr } %1540, 1
+  %1543 = load ptr, ptr %1536, align 8
+  %1544 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %1545 = load ptr, ptr %1544, align 8
+  %1546 = call { ptr, ptr } @block_join(ptr %1543, ptr %1545, ptr %1541, ptr %1542) #9
+  %1547 = extractvalue { ptr, ptr } %1546, 0
+  %1548 = extractvalue { ptr, ptr } %1546, 1
+  store ptr %1547, ptr %.sroa.0616, align 8
+  br label %2027
 
-1552:                                             ; preds = %135
-  %1553 = load ptr, ptr %.21175, align 8
-  %1554 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1555 = load ptr, ptr %1554, align 8
-  %1556 = call { ptr, ptr } @gen_destructure_alt(ptr %1553, ptr %1555) #9
-  %1557 = extractvalue { ptr, ptr } %1556, 0
-  %1558 = extractvalue { ptr, ptr } %1556, 1
-  store ptr %1557, ptr %.sroa.0616, align 8
-  br label %2030
+1549:                                             ; preds = %135
+  %1550 = load ptr, ptr %.21175, align 8
+  %1551 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1552 = load ptr, ptr %1551, align 8
+  %1553 = call { ptr, ptr } @gen_destructure_alt(ptr %1550, ptr %1552) #9
+  %1554 = extractvalue { ptr, ptr } %1553, 0
+  %1555 = extractvalue { ptr, ptr } %1553, 1
+  store ptr %1554, ptr %.sroa.0616, align 8
+  br label %2027
 
-1559:                                             ; preds = %135
-  %1560 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1561 = load ptr, ptr %1560, align 8
-  %1562 = getelementptr inbounds i8, ptr %.21175, i64 -24
+1556:                                             ; preds = %135
+  %1557 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1558 = load ptr, ptr %1557, align 8
+  %1559 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %1560 = load ptr, ptr %1559, align 8
+  %1561 = load ptr, ptr %.21175, align 8
+  %1562 = getelementptr inbounds i8, ptr %.21175, i64 8
   %1563 = load ptr, ptr %1562, align 8
-  %1564 = load ptr, ptr %.21175, align 8
-  %1565 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1566 = load ptr, ptr %1565, align 8
-  %1567 = call { ptr, ptr } @block_join(ptr %1561, ptr %1563, ptr %1564, ptr %1566) #9
-  %1568 = extractvalue { ptr, ptr } %1567, 0
-  %1569 = extractvalue { ptr, ptr } %1567, 1
-  store ptr %1568, ptr %.sroa.0616, align 8
-  br label %2030
+  %1564 = call { ptr, ptr } @block_join(ptr %1558, ptr %1560, ptr %1561, ptr %1563) #9
+  %1565 = extractvalue { ptr, ptr } %1564, 0
+  %1566 = extractvalue { ptr, ptr } %1564, 1
+  store ptr %1565, ptr %.sroa.0616, align 8
+  br label %2027
 
-1570:                                             ; preds = %135
-  %1571 = load i64, ptr %.21175, align 8
-  store i64 %1571, ptr %.sroa.0616, align 8
+1567:                                             ; preds = %135
+  %1568 = load i64, ptr %.21175, align 8
+  store i64 %1568, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx645 = getelementptr inbounds i8, ptr %.21175, i64 8
   %.sroa.179.0.copyload646 = load ptr, ptr %.sroa.179.0..sroa_idx645, align 8
-  br label %2030
+  br label %2027
 
-1572:                                             ; preds = %135
-  %1573 = load i64, ptr %.21175, align 8
-  %1574 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1575 = load ptr, ptr %1574, align 8
-  %1576 = call ptr @jv_string_value(i64 %1573, ptr %1575) #9
-  %1577 = call { ptr, ptr } @gen_op_unbound(i32 noundef 8, ptr noundef %1576) #9
-  %1578 = extractvalue { ptr, ptr } %1577, 0
-  %1579 = extractvalue { ptr, ptr } %1577, 1
-  store ptr %1578, ptr %.sroa.0616, align 8
-  %1580 = load i64, ptr %.21175, align 8
-  %1581 = load ptr, ptr %1574, align 8
-  call void @jv_free(i64 %1580, ptr %1581) #9
-  br label %2030
+1569:                                             ; preds = %135
+  %1570 = load i64, ptr %.21175, align 8
+  %1571 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1572 = load ptr, ptr %1571, align 8
+  %1573 = call ptr @jv_string_value(i64 %1570, ptr %1572) #9
+  %1574 = call { ptr, ptr } @gen_op_unbound(i32 noundef 8, ptr noundef %1573) #9
+  %1575 = extractvalue { ptr, ptr } %1574, 0
+  %1576 = extractvalue { ptr, ptr } %1574, 1
+  store ptr %1575, ptr %.sroa.0616, align 8
+  %1577 = load i64, ptr %.21175, align 8
+  %1578 = load ptr, ptr %1571, align 8
+  call void @jv_free(i64 %1577, ptr %1578) #9
+  br label %2027
 
-1582:                                             ; preds = %135
-  %1583 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %1584 = call { ptr, ptr } @gen_op_simple(i32 noundef 5) #9
-  %1585 = extractvalue { ptr, ptr } %1584, 0
-  %1586 = extractvalue { ptr, ptr } %1584, 1
-  %1587 = load ptr, ptr %1583, align 8
-  %1588 = getelementptr inbounds i8, ptr %.21175, i64 -8
-  %1589 = load ptr, ptr %1588, align 8
-  %1590 = call { ptr, ptr } @block_join(ptr %1587, ptr %1589, ptr %1585, ptr %1586) #9
-  %1591 = extractvalue { ptr, ptr } %1590, 0
-  %1592 = extractvalue { ptr, ptr } %1590, 1
-  store ptr %1591, ptr %.sroa.0616, align 8
-  br label %2030
+1579:                                             ; preds = %135
+  %1580 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %1581 = call { ptr, ptr } @gen_op_simple(i32 noundef 5) #9
+  %1582 = extractvalue { ptr, ptr } %1581, 0
+  %1583 = extractvalue { ptr, ptr } %1581, 1
+  %1584 = load ptr, ptr %1580, align 8
+  %1585 = getelementptr inbounds i8, ptr %.21175, i64 -8
+  %1586 = load ptr, ptr %1585, align 8
+  %1587 = call { ptr, ptr } @block_join(ptr %1584, ptr %1586, ptr %1582, ptr %1583) #9
+  %1588 = extractvalue { ptr, ptr } %1587, 0
+  %1589 = extractvalue { ptr, ptr } %1587, 1
+  store ptr %1588, ptr %.sroa.0616, align 8
+  br label %2027
 
-1593:                                             ; preds = %135
-  %1594 = getelementptr inbounds i8, ptr %.21175, i64 -16
-  %1595 = call { ptr, ptr } @gen_op_simple(i32 noundef 5) #9
-  %1596 = extractvalue { ptr, ptr } %1595, 0
-  %1597 = extractvalue { ptr, ptr } %1595, 1
-  %1598 = load ptr, ptr %1594, align 8
-  %1599 = getelementptr inbounds i8, ptr %.21175, i64 -8
-  %1600 = load ptr, ptr %1599, align 8
-  %1601 = call { ptr, ptr } @block_join(ptr %1598, ptr %1600, ptr %1596, ptr %1597) #9
-  %1602 = extractvalue { ptr, ptr } %1601, 0
-  %1603 = extractvalue { ptr, ptr } %1601, 1
-  store ptr %1602, ptr %.sroa.0616, align 8
-  br label %2030
+1590:                                             ; preds = %135
+  %1591 = getelementptr inbounds i8, ptr %.21175, i64 -16
+  %1592 = call { ptr, ptr } @gen_op_simple(i32 noundef 5) #9
+  %1593 = extractvalue { ptr, ptr } %1592, 0
+  %1594 = extractvalue { ptr, ptr } %1592, 1
+  %1595 = load ptr, ptr %1591, align 8
+  %1596 = getelementptr inbounds i8, ptr %.21175, i64 -8
+  %1597 = load ptr, ptr %1596, align 8
+  %1598 = call { ptr, ptr } @block_join(ptr %1595, ptr %1597, ptr %1593, ptr %1594) #9
+  %1599 = extractvalue { ptr, ptr } %1598, 0
+  %1600 = extractvalue { ptr, ptr } %1598, 1
+  store ptr %1599, ptr %.sroa.0616, align 8
+  br label %2027
 
-1604:                                             ; preds = %135
-  %1605 = call { ptr, ptr } (...) @gen_noop() #9
-  %1606 = extractvalue { ptr, ptr } %1605, 0
-  %1607 = extractvalue { ptr, ptr } %1605, 1
-  %1608 = load ptr, ptr %.21175, align 8
-  %1609 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1610 = load ptr, ptr %1609, align 8
-  %1611 = call { ptr, ptr } @gen_array_matcher(ptr %1606, ptr %1607, ptr %1608, ptr %1610) #9
-  %1612 = extractvalue { ptr, ptr } %1611, 0
-  %1613 = extractvalue { ptr, ptr } %1611, 1
-  store ptr %1612, ptr %.sroa.0616, align 8
-  br label %2030
+1601:                                             ; preds = %135
+  %1602 = call { ptr, ptr } (...) @gen_noop() #9
+  %1603 = extractvalue { ptr, ptr } %1602, 0
+  %1604 = extractvalue { ptr, ptr } %1602, 1
+  %1605 = load ptr, ptr %.21175, align 8
+  %1606 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1607 = load ptr, ptr %1606, align 8
+  %1608 = call { ptr, ptr } @gen_array_matcher(ptr %1603, ptr %1604, ptr %1605, ptr %1607) #9
+  %1609 = extractvalue { ptr, ptr } %1608, 0
+  %1610 = extractvalue { ptr, ptr } %1608, 1
+  store ptr %1609, ptr %.sroa.0616, align 8
+  br label %2027
 
-1614:                                             ; preds = %135
-  %1615 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1616 = load ptr, ptr %1615, align 8
-  %1617 = getelementptr inbounds i8, ptr %.21175, i64 -24
+1611:                                             ; preds = %135
+  %1612 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1613 = load ptr, ptr %1612, align 8
+  %1614 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %1615 = load ptr, ptr %1614, align 8
+  %1616 = load ptr, ptr %.21175, align 8
+  %1617 = getelementptr inbounds i8, ptr %.21175, i64 8
   %1618 = load ptr, ptr %1617, align 8
-  %1619 = load ptr, ptr %.21175, align 8
-  %1620 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1621 = load ptr, ptr %1620, align 8
-  %1622 = call { ptr, ptr } @gen_array_matcher(ptr %1616, ptr %1618, ptr %1619, ptr %1621) #9
-  %1623 = extractvalue { ptr, ptr } %1622, 0
-  %1624 = extractvalue { ptr, ptr } %1622, 1
-  store ptr %1623, ptr %.sroa.0616, align 8
-  br label %2030
+  %1619 = call { ptr, ptr } @gen_array_matcher(ptr %1613, ptr %1615, ptr %1616, ptr %1618) #9
+  %1620 = extractvalue { ptr, ptr } %1619, 0
+  %1621 = extractvalue { ptr, ptr } %1619, 1
+  store ptr %1620, ptr %.sroa.0616, align 8
+  br label %2027
 
-1625:                                             ; preds = %135
-  %1626 = load i64, ptr %.21175, align 8
-  store i64 %1626, ptr %.sroa.0616, align 8
+1622:                                             ; preds = %135
+  %1623 = load i64, ptr %.21175, align 8
+  store i64 %1623, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx647 = getelementptr inbounds i8, ptr %.21175, i64 8
   %.sroa.179.0.copyload648 = load ptr, ptr %.sroa.179.0..sroa_idx647, align 8
-  br label %2030
+  br label %2027
 
-1627:                                             ; preds = %135
-  %1628 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1629 = load ptr, ptr %1628, align 8
-  %1630 = getelementptr inbounds i8, ptr %.21175, i64 -24
+1624:                                             ; preds = %135
+  %1625 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1626 = load ptr, ptr %1625, align 8
+  %1627 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %1628 = load ptr, ptr %1627, align 8
+  %1629 = load ptr, ptr %.21175, align 8
+  %1630 = getelementptr inbounds i8, ptr %.21175, i64 8
   %1631 = load ptr, ptr %1630, align 8
-  %1632 = load ptr, ptr %.21175, align 8
-  %1633 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1634 = load ptr, ptr %1633, align 8
-  %1635 = call { ptr, ptr } @block_join(ptr %1629, ptr %1631, ptr %1632, ptr %1634) #9
-  %1636 = extractvalue { ptr, ptr } %1635, 0
-  %1637 = extractvalue { ptr, ptr } %1635, 1
-  store ptr %1636, ptr %.sroa.0616, align 8
-  br label %2030
+  %1632 = call { ptr, ptr } @block_join(ptr %1626, ptr %1628, ptr %1629, ptr %1631) #9
+  %1633 = extractvalue { ptr, ptr } %1632, 0
+  %1634 = extractvalue { ptr, ptr } %1632, 1
+  store ptr %1633, ptr %.sroa.0616, align 8
+  br label %2027
 
-1638:                                             ; preds = %135
-  %1639 = load i64, ptr %.21175, align 8
-  %1640 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1641 = load ptr, ptr %1640, align 8
-  %1642 = call { ptr, ptr } @gen_const(i64 %1639, ptr %1641) #9
-  %1643 = extractvalue { ptr, ptr } %1642, 0
-  %1644 = extractvalue { ptr, ptr } %1642, 1
-  %1645 = load i64, ptr %.21175, align 8
-  %1646 = load ptr, ptr %1640, align 8
-  %1647 = call ptr @jv_string_value(i64 %1645, ptr %1646) #9
-  %1648 = call { ptr, ptr } @gen_op_unbound(i32 noundef 8, ptr noundef %1647) #9
+1635:                                             ; preds = %135
+  %1636 = load i64, ptr %.21175, align 8
+  %1637 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1638 = load ptr, ptr %1637, align 8
+  %1639 = call { ptr, ptr } @gen_const(i64 %1636, ptr %1638) #9
+  %1640 = extractvalue { ptr, ptr } %1639, 0
+  %1641 = extractvalue { ptr, ptr } %1639, 1
+  %1642 = load i64, ptr %.21175, align 8
+  %1643 = load ptr, ptr %1637, align 8
+  %1644 = call ptr @jv_string_value(i64 %1642, ptr %1643) #9
+  %1645 = call { ptr, ptr } @gen_op_unbound(i32 noundef 8, ptr noundef %1644) #9
+  %1646 = extractvalue { ptr, ptr } %1645, 0
+  %1647 = extractvalue { ptr, ptr } %1645, 1
+  %1648 = call { ptr, ptr } @gen_object_matcher(ptr %1640, ptr %1641, ptr %1646, ptr %1647) #9
   %1649 = extractvalue { ptr, ptr } %1648, 0
   %1650 = extractvalue { ptr, ptr } %1648, 1
-  %1651 = call { ptr, ptr } @gen_object_matcher(ptr %1643, ptr %1644, ptr %1649, ptr %1650) #9
-  %1652 = extractvalue { ptr, ptr } %1651, 0
-  %1653 = extractvalue { ptr, ptr } %1651, 1
-  store ptr %1652, ptr %.sroa.0616, align 8
-  br label %2030
+  store ptr %1649, ptr %.sroa.0616, align 8
+  br label %2027
 
-1654:                                             ; preds = %135
-  %1655 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1656 = load i64, ptr %1655, align 8
-  %1657 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %1658 = load ptr, ptr %1657, align 8
-  %1659 = call { ptr, ptr } @gen_const(i64 %1656, ptr %1658) #9
+1651:                                             ; preds = %135
+  %1652 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1653 = load i64, ptr %1652, align 8
+  %1654 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %1655 = load ptr, ptr %1654, align 8
+  %1656 = call { ptr, ptr } @gen_const(i64 %1653, ptr %1655) #9
+  %1657 = extractvalue { ptr, ptr } %1656, 0
+  %1658 = extractvalue { ptr, ptr } %1656, 1
+  %1659 = call { ptr, ptr } @gen_op_simple(i32 noundef 1) #9
   %1660 = extractvalue { ptr, ptr } %1659, 0
   %1661 = extractvalue { ptr, ptr } %1659, 1
-  %1662 = call { ptr, ptr } @gen_op_simple(i32 noundef 1) #9
-  %1663 = extractvalue { ptr, ptr } %1662, 0
-  %1664 = extractvalue { ptr, ptr } %1662, 1
-  %1665 = load i64, ptr %1655, align 8
-  %1666 = load ptr, ptr %1657, align 8
-  %1667 = call ptr @jv_string_value(i64 %1665, ptr %1666) #9
-  %1668 = call { ptr, ptr } @gen_op_unbound(i32 noundef 8, ptr noundef %1667) #9
+  %1662 = load i64, ptr %1652, align 8
+  %1663 = load ptr, ptr %1654, align 8
+  %1664 = call ptr @jv_string_value(i64 %1662, ptr %1663) #9
+  %1665 = call { ptr, ptr } @gen_op_unbound(i32 noundef 8, ptr noundef %1664) #9
+  %1666 = extractvalue { ptr, ptr } %1665, 0
+  %1667 = extractvalue { ptr, ptr } %1665, 1
+  %1668 = call { ptr, ptr } @block_join(ptr %1660, ptr %1661, ptr %1666, ptr %1667) #9
   %1669 = extractvalue { ptr, ptr } %1668, 0
   %1670 = extractvalue { ptr, ptr } %1668, 1
-  %1671 = call { ptr, ptr } @block_join(ptr %1663, ptr %1664, ptr %1669, ptr %1670) #9
-  %1672 = extractvalue { ptr, ptr } %1671, 0
-  %1673 = extractvalue { ptr, ptr } %1671, 1
-  %1674 = load ptr, ptr %.21175, align 8
-  %1675 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1676 = load ptr, ptr %1675, align 8
-  %1677 = call { ptr, ptr } @block_join(ptr %1672, ptr %1673, ptr %1674, ptr %1676) #9
+  %1671 = load ptr, ptr %.21175, align 8
+  %1672 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1673 = load ptr, ptr %1672, align 8
+  %1674 = call { ptr, ptr } @block_join(ptr %1669, ptr %1670, ptr %1671, ptr %1673) #9
+  %1675 = extractvalue { ptr, ptr } %1674, 0
+  %1676 = extractvalue { ptr, ptr } %1674, 1
+  %1677 = call { ptr, ptr } @gen_object_matcher(ptr %1657, ptr %1658, ptr %1675, ptr %1676) #9
   %1678 = extractvalue { ptr, ptr } %1677, 0
   %1679 = extractvalue { ptr, ptr } %1677, 1
-  %1680 = call { ptr, ptr } @gen_object_matcher(ptr %1660, ptr %1661, ptr %1678, ptr %1679) #9
-  %1681 = extractvalue { ptr, ptr } %1680, 0
-  %1682 = extractvalue { ptr, ptr } %1680, 1
-  store ptr %1681, ptr %.sroa.0616, align 8
-  br label %2030
+  store ptr %1678, ptr %.sroa.0616, align 8
+  br label %2027
 
-1683:                                             ; preds = %135
-  %1684 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1685 = load i64, ptr %1684, align 8
-  %1686 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %1687 = load ptr, ptr %1686, align 8
-  %1688 = call { ptr, ptr } @gen_const(i64 %1685, ptr %1687) #9
-  %1689 = extractvalue { ptr, ptr } %1688, 0
-  %1690 = extractvalue { ptr, ptr } %1688, 1
-  %1691 = load ptr, ptr %.21175, align 8
-  %1692 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1693 = load ptr, ptr %1692, align 8
-  %1694 = call { ptr, ptr } @gen_object_matcher(ptr %1689, ptr %1690, ptr %1691, ptr %1693) #9
-  %1695 = extractvalue { ptr, ptr } %1694, 0
-  %1696 = extractvalue { ptr, ptr } %1694, 1
-  store ptr %1695, ptr %.sroa.0616, align 8
-  br label %2030
+1680:                                             ; preds = %135
+  %1681 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1682 = load i64, ptr %1681, align 8
+  %1683 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %1684 = load ptr, ptr %1683, align 8
+  %1685 = call { ptr, ptr } @gen_const(i64 %1682, ptr %1684) #9
+  %1686 = extractvalue { ptr, ptr } %1685, 0
+  %1687 = extractvalue { ptr, ptr } %1685, 1
+  %1688 = load ptr, ptr %.21175, align 8
+  %1689 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1690 = load ptr, ptr %1689, align 8
+  %1691 = call { ptr, ptr } @gen_object_matcher(ptr %1686, ptr %1687, ptr %1688, ptr %1690) #9
+  %1692 = extractvalue { ptr, ptr } %1691, 0
+  %1693 = extractvalue { ptr, ptr } %1691, 1
+  store ptr %1692, ptr %.sroa.0616, align 8
+  br label %2027
 
-1697:                                             ; preds = %135
-  %1698 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1699 = load i64, ptr %1698, align 8
-  %1700 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %1701 = load ptr, ptr %1700, align 8
-  %1702 = call { ptr, ptr } @gen_const(i64 %1699, ptr %1701) #9
-  %1703 = extractvalue { ptr, ptr } %1702, 0
-  %1704 = extractvalue { ptr, ptr } %1702, 1
-  %1705 = load ptr, ptr %.21175, align 8
-  %1706 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1707 = load ptr, ptr %1706, align 8
-  %1708 = call { ptr, ptr } @gen_object_matcher(ptr %1703, ptr %1704, ptr %1705, ptr %1707) #9
-  %1709 = extractvalue { ptr, ptr } %1708, 0
-  %1710 = extractvalue { ptr, ptr } %1708, 1
-  store ptr %1709, ptr %.sroa.0616, align 8
-  br label %2030
+1694:                                             ; preds = %135
+  %1695 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1696 = load i64, ptr %1695, align 8
+  %1697 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %1698 = load ptr, ptr %1697, align 8
+  %1699 = call { ptr, ptr } @gen_const(i64 %1696, ptr %1698) #9
+  %1700 = extractvalue { ptr, ptr } %1699, 0
+  %1701 = extractvalue { ptr, ptr } %1699, 1
+  %1702 = load ptr, ptr %.21175, align 8
+  %1703 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1704 = load ptr, ptr %1703, align 8
+  %1705 = call { ptr, ptr } @gen_object_matcher(ptr %1700, ptr %1701, ptr %1702, ptr %1704) #9
+  %1706 = extractvalue { ptr, ptr } %1705, 0
+  %1707 = extractvalue { ptr, ptr } %1705, 1
+  store ptr %1706, ptr %.sroa.0616, align 8
+  br label %2027
 
-1711:                                             ; preds = %135
-  %1712 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1713 = load ptr, ptr %1712, align 8
-  %1714 = getelementptr inbounds i8, ptr %.21175, i64 -24
+1708:                                             ; preds = %135
+  %1709 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1710 = load ptr, ptr %1709, align 8
+  %1711 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %1712 = load ptr, ptr %1711, align 8
+  %1713 = load ptr, ptr %.21175, align 8
+  %1714 = getelementptr inbounds i8, ptr %.21175, i64 8
   %1715 = load ptr, ptr %1714, align 8
-  %1716 = load ptr, ptr %.21175, align 8
-  %1717 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1718 = load ptr, ptr %1717, align 8
-  %1719 = call { ptr, ptr } @gen_object_matcher(ptr %1713, ptr %1715, ptr %1716, ptr %1718) #9
-  %1720 = extractvalue { ptr, ptr } %1719, 0
-  %1721 = extractvalue { ptr, ptr } %1719, 1
-  store ptr %1720, ptr %.sroa.0616, align 8
-  br label %2030
+  %1716 = call { ptr, ptr } @gen_object_matcher(ptr %1710, ptr %1712, ptr %1713, ptr %1715) #9
+  %1717 = extractvalue { ptr, ptr } %1716, 0
+  %1718 = extractvalue { ptr, ptr } %1716, 1
+  store ptr %1717, ptr %.sroa.0616, align 8
+  br label %2027
 
-1722:                                             ; preds = %135
-  %1723 = getelementptr inbounds i8, ptr %.21175, i64 -48
-  %1724 = load ptr, ptr %1723, align 8
-  %1725 = getelementptr inbounds i8, ptr %.21175, i64 -40
-  %1726 = load ptr, ptr %1725, align 8
-  %1727 = call fastcc { i64, ptr } @check_object_key(ptr %1724, ptr %1726)
-  %1728 = extractvalue { i64, ptr } %1727, 0
-  %1729 = extractvalue { i64, ptr } %1727, 1
-  %1730 = call i32 @jv_get_kind(i64 %1728, ptr %1729) #9
-  %.not1305 = icmp eq i32 %1730, 0
-  br i1 %.not1305, label %1734, label %1731
+1719:                                             ; preds = %135
+  %1720 = getelementptr inbounds i8, ptr %.21175, i64 -48
+  %1721 = load ptr, ptr %1720, align 8
+  %1722 = getelementptr inbounds i8, ptr %.21175, i64 -40
+  %1723 = load ptr, ptr %1722, align 8
+  %1724 = call fastcc { i64, ptr } @check_object_key(ptr %1721, ptr %1723)
+  %1725 = extractvalue { i64, ptr } %1724, 0
+  %1726 = extractvalue { i64, ptr } %1724, 1
+  %1727 = call i32 @jv_get_kind(i64 %1725, ptr %1726) #9
+  %.not1305 = icmp eq i32 %1727, 0
+  br i1 %.not1305, label %1731, label %1728
 
-1731:                                             ; preds = %1722
-  %1732 = load i64, ptr %10, align 8
-  store i64 %1732, ptr %24, align 8
-  %1733 = call ptr @jv_string_value(i64 %1728, ptr %1729) #9
-  call void @yyerror(ptr noundef nonnull %24, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef %1733)
-  br label %1734
+1728:                                             ; preds = %1719
+  %1729 = load i64, ptr %10, align 8
+  store i64 %1729, ptr %24, align 8
+  %1730 = call ptr @jv_string_value(i64 %1725, ptr %1726) #9
+  call void @yyerror(ptr noundef nonnull %24, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef %1730)
+  br label %1731
 
-1734:                                             ; preds = %1731, %1722
-  call void @jv_free(i64 %1728, ptr %1729) #9
-  %1735 = load ptr, ptr %1723, align 8
-  %1736 = load ptr, ptr %1725, align 8
-  %1737 = load ptr, ptr %.21175, align 8
-  %1738 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1739 = load ptr, ptr %1738, align 8
-  %1740 = call { ptr, ptr } @gen_object_matcher(ptr %1735, ptr %1736, ptr %1737, ptr %1739) #9
-  %1741 = extractvalue { ptr, ptr } %1740, 0
-  %1742 = extractvalue { ptr, ptr } %1740, 1
-  store ptr %1741, ptr %.sroa.0616, align 8
-  br label %2030
+1731:                                             ; preds = %1728, %1719
+  call void @jv_free(i64 %1725, ptr %1726) #9
+  %1732 = load ptr, ptr %1720, align 8
+  %1733 = load ptr, ptr %1722, align 8
+  %1734 = load ptr, ptr %.21175, align 8
+  %1735 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1736 = load ptr, ptr %1735, align 8
+  %1737 = call { ptr, ptr } @gen_object_matcher(ptr %1732, ptr %1733, ptr %1734, ptr %1736) #9
+  %1738 = extractvalue { ptr, ptr } %1737, 0
+  %1739 = extractvalue { ptr, ptr } %1737, 1
+  store ptr %1738, ptr %.sroa.0616, align 8
+  br label %2027
 
-1743:                                             ; preds = %135
-  %1744 = load i64, ptr %10, align 8
-  store i64 %1744, ptr %25, align 8
+1740:                                             ; preds = %135
+  %1741 = load i64, ptr %10, align 8
+  store i64 %1741, ptr %25, align 8
   call void @yyerror(ptr noundef nonnull %25, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.22)
-  %1745 = load i64, ptr %.21175, align 8
-  store i64 %1745, ptr %.sroa.0616, align 8
+  %1742 = load i64, ptr %.21175, align 8
+  store i64 %1742, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx649 = getelementptr inbounds i8, ptr %.21175, i64 8
   %.sroa.179.0.copyload650 = load ptr, ptr %.sroa.179.0..sroa_idx649, align 8
-  br label %2030
+  br label %2027
 
-1746:                                             ; preds = %135
-  %1747 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.23) #9
-  %1748 = extractvalue { i64, ptr } %1747, 0
-  %1749 = extractvalue { i64, ptr } %1747, 1
-  store i64 %1748, ptr %.sroa.0616, align 8
-  br label %2030
+1743:                                             ; preds = %135
+  %1744 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.23) #9
+  %1745 = extractvalue { i64, ptr } %1744, 0
+  %1746 = extractvalue { i64, ptr } %1744, 1
+  store i64 %1745, ptr %.sroa.0616, align 8
+  br label %2027
 
-1750:                                             ; preds = %135
-  %1751 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.24) #9
-  %1752 = extractvalue { i64, ptr } %1751, 0
-  %1753 = extractvalue { i64, ptr } %1751, 1
-  store i64 %1752, ptr %.sroa.0616, align 8
-  br label %2030
+1747:                                             ; preds = %135
+  %1748 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.24) #9
+  %1749 = extractvalue { i64, ptr } %1748, 0
+  %1750 = extractvalue { i64, ptr } %1748, 1
+  store i64 %1749, ptr %.sroa.0616, align 8
+  br label %2027
 
-1754:                                             ; preds = %135
-  %1755 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.25) #9
-  %1756 = extractvalue { i64, ptr } %1755, 0
-  %1757 = extractvalue { i64, ptr } %1755, 1
-  store i64 %1756, ptr %.sroa.0616, align 8
-  br label %2030
+1751:                                             ; preds = %135
+  %1752 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.25) #9
+  %1753 = extractvalue { i64, ptr } %1752, 0
+  %1754 = extractvalue { i64, ptr } %1752, 1
+  store i64 %1753, ptr %.sroa.0616, align 8
+  br label %2027
 
-1758:                                             ; preds = %135
-  %1759 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.26) #9
-  %1760 = extractvalue { i64, ptr } %1759, 0
-  %1761 = extractvalue { i64, ptr } %1759, 1
-  store i64 %1760, ptr %.sroa.0616, align 8
-  br label %2030
+1755:                                             ; preds = %135
+  %1756 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.26) #9
+  %1757 = extractvalue { i64, ptr } %1756, 0
+  %1758 = extractvalue { i64, ptr } %1756, 1
+  store i64 %1757, ptr %.sroa.0616, align 8
+  br label %2027
 
-1762:                                             ; preds = %135
-  %1763 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.27) #9
-  %1764 = extractvalue { i64, ptr } %1763, 0
-  %1765 = extractvalue { i64, ptr } %1763, 1
-  store i64 %1764, ptr %.sroa.0616, align 8
-  br label %2030
+1759:                                             ; preds = %135
+  %1760 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.27) #9
+  %1761 = extractvalue { i64, ptr } %1760, 0
+  %1762 = extractvalue { i64, ptr } %1760, 1
+  store i64 %1761, ptr %.sroa.0616, align 8
+  br label %2027
 
-1766:                                             ; preds = %135
-  %1767 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.28) #9
-  %1768 = extractvalue { i64, ptr } %1767, 0
-  %1769 = extractvalue { i64, ptr } %1767, 1
-  store i64 %1768, ptr %.sroa.0616, align 8
-  br label %2030
+1763:                                             ; preds = %135
+  %1764 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.28) #9
+  %1765 = extractvalue { i64, ptr } %1764, 0
+  %1766 = extractvalue { i64, ptr } %1764, 1
+  store i64 %1765, ptr %.sroa.0616, align 8
+  br label %2027
 
-1770:                                             ; preds = %135
-  %1771 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.29) #9
-  %1772 = extractvalue { i64, ptr } %1771, 0
-  %1773 = extractvalue { i64, ptr } %1771, 1
-  store i64 %1772, ptr %.sroa.0616, align 8
-  br label %2030
+1767:                                             ; preds = %135
+  %1768 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.29) #9
+  %1769 = extractvalue { i64, ptr } %1768, 0
+  %1770 = extractvalue { i64, ptr } %1768, 1
+  store i64 %1769, ptr %.sroa.0616, align 8
+  br label %2027
 
-1774:                                             ; preds = %135
-  %1775 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.30) #9
-  %1776 = extractvalue { i64, ptr } %1775, 0
-  %1777 = extractvalue { i64, ptr } %1775, 1
-  store i64 %1776, ptr %.sroa.0616, align 8
-  br label %2030
+1771:                                             ; preds = %135
+  %1772 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.30) #9
+  %1773 = extractvalue { i64, ptr } %1772, 0
+  %1774 = extractvalue { i64, ptr } %1772, 1
+  store i64 %1773, ptr %.sroa.0616, align 8
+  br label %2027
 
-1778:                                             ; preds = %135
-  %1779 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.31) #9
-  %1780 = extractvalue { i64, ptr } %1779, 0
-  %1781 = extractvalue { i64, ptr } %1779, 1
-  store i64 %1780, ptr %.sroa.0616, align 8
-  br label %2030
+1775:                                             ; preds = %135
+  %1776 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.31) #9
+  %1777 = extractvalue { i64, ptr } %1776, 0
+  %1778 = extractvalue { i64, ptr } %1776, 1
+  store i64 %1777, ptr %.sroa.0616, align 8
+  br label %2027
 
-1782:                                             ; preds = %135
-  %1783 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.32) #9
-  %1784 = extractvalue { i64, ptr } %1783, 0
-  %1785 = extractvalue { i64, ptr } %1783, 1
-  store i64 %1784, ptr %.sroa.0616, align 8
-  br label %2030
+1779:                                             ; preds = %135
+  %1780 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.32) #9
+  %1781 = extractvalue { i64, ptr } %1780, 0
+  %1782 = extractvalue { i64, ptr } %1780, 1
+  store i64 %1781, ptr %.sroa.0616, align 8
+  br label %2027
 
-1786:                                             ; preds = %135
-  %1787 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.33) #9
-  %1788 = extractvalue { i64, ptr } %1787, 0
-  %1789 = extractvalue { i64, ptr } %1787, 1
-  store i64 %1788, ptr %.sroa.0616, align 8
-  br label %2030
+1783:                                             ; preds = %135
+  %1784 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.33) #9
+  %1785 = extractvalue { i64, ptr } %1784, 0
+  %1786 = extractvalue { i64, ptr } %1784, 1
+  store i64 %1785, ptr %.sroa.0616, align 8
+  br label %2027
 
-1790:                                             ; preds = %135
-  %1791 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.34) #9
-  %1792 = extractvalue { i64, ptr } %1791, 0
-  %1793 = extractvalue { i64, ptr } %1791, 1
-  store i64 %1792, ptr %.sroa.0616, align 8
-  br label %2030
+1787:                                             ; preds = %135
+  %1788 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.34) #9
+  %1789 = extractvalue { i64, ptr } %1788, 0
+  %1790 = extractvalue { i64, ptr } %1788, 1
+  store i64 %1789, ptr %.sroa.0616, align 8
+  br label %2027
 
-1794:                                             ; preds = %135
-  %1795 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.35) #9
-  %1796 = extractvalue { i64, ptr } %1795, 0
-  %1797 = extractvalue { i64, ptr } %1795, 1
-  store i64 %1796, ptr %.sroa.0616, align 8
-  br label %2030
+1791:                                             ; preds = %135
+  %1792 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.35) #9
+  %1793 = extractvalue { i64, ptr } %1792, 0
+  %1794 = extractvalue { i64, ptr } %1792, 1
+  store i64 %1793, ptr %.sroa.0616, align 8
+  br label %2027
 
-1798:                                             ; preds = %135
-  %1799 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.36) #9
-  %1800 = extractvalue { i64, ptr } %1799, 0
-  %1801 = extractvalue { i64, ptr } %1799, 1
-  store i64 %1800, ptr %.sroa.0616, align 8
-  br label %2030
+1795:                                             ; preds = %135
+  %1796 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.36) #9
+  %1797 = extractvalue { i64, ptr } %1796, 0
+  %1798 = extractvalue { i64, ptr } %1796, 1
+  store i64 %1797, ptr %.sroa.0616, align 8
+  br label %2027
 
-1802:                                             ; preds = %135
-  %1803 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.37) #9
-  %1804 = extractvalue { i64, ptr } %1803, 0
-  %1805 = extractvalue { i64, ptr } %1803, 1
-  store i64 %1804, ptr %.sroa.0616, align 8
-  br label %2030
+1799:                                             ; preds = %135
+  %1800 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.37) #9
+  %1801 = extractvalue { i64, ptr } %1800, 0
+  %1802 = extractvalue { i64, ptr } %1800, 1
+  store i64 %1801, ptr %.sroa.0616, align 8
+  br label %2027
 
-1806:                                             ; preds = %135
-  %1807 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.38) #9
-  %1808 = extractvalue { i64, ptr } %1807, 0
-  %1809 = extractvalue { i64, ptr } %1807, 1
-  store i64 %1808, ptr %.sroa.0616, align 8
-  br label %2030
+1803:                                             ; preds = %135
+  %1804 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.38) #9
+  %1805 = extractvalue { i64, ptr } %1804, 0
+  %1806 = extractvalue { i64, ptr } %1804, 1
+  store i64 %1805, ptr %.sroa.0616, align 8
+  br label %2027
 
-1810:                                             ; preds = %135
-  %1811 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.39) #9
-  %1812 = extractvalue { i64, ptr } %1811, 0
-  %1813 = extractvalue { i64, ptr } %1811, 1
-  store i64 %1812, ptr %.sroa.0616, align 8
-  br label %2030
+1807:                                             ; preds = %135
+  %1808 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.39) #9
+  %1809 = extractvalue { i64, ptr } %1808, 0
+  %1810 = extractvalue { i64, ptr } %1808, 1
+  store i64 %1809, ptr %.sroa.0616, align 8
+  br label %2027
 
-1814:                                             ; preds = %135
-  %1815 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.40) #9
-  %1816 = extractvalue { i64, ptr } %1815, 0
-  %1817 = extractvalue { i64, ptr } %1815, 1
-  store i64 %1816, ptr %.sroa.0616, align 8
-  br label %2030
+1811:                                             ; preds = %135
+  %1812 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.40) #9
+  %1813 = extractvalue { i64, ptr } %1812, 0
+  %1814 = extractvalue { i64, ptr } %1812, 1
+  store i64 %1813, ptr %.sroa.0616, align 8
+  br label %2027
 
-1818:                                             ; preds = %135
-  %1819 = call { ptr, ptr } (...) @gen_noop() #9
-  %1820 = extractvalue { ptr, ptr } %1819, 0
-  %1821 = extractvalue { ptr, ptr } %1819, 1
-  store ptr %1820, ptr %.sroa.0616, align 8
-  br label %2030
+1815:                                             ; preds = %135
+  %1816 = call { ptr, ptr } (...) @gen_noop() #9
+  %1817 = extractvalue { ptr, ptr } %1816, 0
+  %1818 = extractvalue { ptr, ptr } %1816, 1
+  store ptr %1817, ptr %.sroa.0616, align 8
+  br label %2027
 
-1822:                                             ; preds = %135
-  %1823 = load i64, ptr %.21175, align 8
-  store i64 %1823, ptr %.sroa.0616, align 8
+1819:                                             ; preds = %135
+  %1820 = load i64, ptr %.21175, align 8
+  store i64 %1820, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx651 = getelementptr inbounds i8, ptr %.21175, i64 8
   %.sroa.179.0.copyload652 = load ptr, ptr %.sroa.179.0..sroa_idx651, align 8
-  br label %2030
+  br label %2027
 
-1824:                                             ; preds = %135
-  %1825 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1826 = load ptr, ptr %1825, align 8
-  %1827 = getelementptr inbounds i8, ptr %.21175, i64 -24
+1821:                                             ; preds = %135
+  %1822 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1823 = load ptr, ptr %1822, align 8
+  %1824 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %1825 = load ptr, ptr %1824, align 8
+  %1826 = load ptr, ptr %.21175, align 8
+  %1827 = getelementptr inbounds i8, ptr %.21175, i64 8
   %1828 = load ptr, ptr %1827, align 8
-  %1829 = load ptr, ptr %.21175, align 8
-  %1830 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1831 = load ptr, ptr %1830, align 8
-  %1832 = call { ptr, ptr } @block_join(ptr %1826, ptr %1828, ptr %1829, ptr %1831) #9
-  %1833 = extractvalue { ptr, ptr } %1832, 0
-  %1834 = extractvalue { ptr, ptr } %1832, 1
-  store ptr %1833, ptr %.sroa.0616, align 8
-  br label %2030
+  %1829 = call { ptr, ptr } @block_join(ptr %1823, ptr %1825, ptr %1826, ptr %1828) #9
+  %1830 = extractvalue { ptr, ptr } %1829, 0
+  %1831 = extractvalue { ptr, ptr } %1829, 1
+  store ptr %1830, ptr %.sroa.0616, align 8
+  br label %2027
 
-1835:                                             ; preds = %135
-  %1836 = load i64, ptr %.21175, align 8
-  store i64 %1836, ptr %.sroa.0616, align 8
+1832:                                             ; preds = %135
+  %1833 = load i64, ptr %.21175, align 8
+  store i64 %1833, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx653 = getelementptr inbounds i8, ptr %.21175, i64 8
   %.sroa.179.0.copyload654 = load ptr, ptr %.sroa.179.0..sroa_idx653, align 8
-  br label %2030
+  br label %2027
 
-1837:                                             ; preds = %135
-  %1838 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1839 = load i64, ptr %1838, align 8
-  %1840 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %1841 = load ptr, ptr %1840, align 8
-  %1842 = call { ptr, ptr } @gen_const(i64 %1839, ptr %1841) #9
-  %1843 = extractvalue { ptr, ptr } %1842, 0
-  %1844 = extractvalue { ptr, ptr } %1842, 1
-  %1845 = load ptr, ptr %.21175, align 8
-  %1846 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1847 = load ptr, ptr %1846, align 8
-  %1848 = call { ptr, ptr } @gen_dictpair(ptr %1843, ptr %1844, ptr %1845, ptr %1847) #9
-  %1849 = extractvalue { ptr, ptr } %1848, 0
-  %1850 = extractvalue { ptr, ptr } %1848, 1
-  store ptr %1849, ptr %.sroa.0616, align 8
-  br label %2030
+1834:                                             ; preds = %135
+  %1835 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1836 = load i64, ptr %1835, align 8
+  %1837 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %1838 = load ptr, ptr %1837, align 8
+  %1839 = call { ptr, ptr } @gen_const(i64 %1836, ptr %1838) #9
+  %1840 = extractvalue { ptr, ptr } %1839, 0
+  %1841 = extractvalue { ptr, ptr } %1839, 1
+  %1842 = load ptr, ptr %.21175, align 8
+  %1843 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1844 = load ptr, ptr %1843, align 8
+  %1845 = call { ptr, ptr } @gen_dictpair(ptr %1840, ptr %1841, ptr %1842, ptr %1844) #9
+  %1846 = extractvalue { ptr, ptr } %1845, 0
+  %1847 = extractvalue { ptr, ptr } %1845, 1
+  store ptr %1846, ptr %.sroa.0616, align 8
+  br label %2027
 
-1851:                                             ; preds = %135
-  %1852 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1853 = load i64, ptr %1852, align 8
-  %1854 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %1855 = load ptr, ptr %1854, align 8
-  %1856 = call { ptr, ptr } @gen_const(i64 %1853, ptr %1855) #9
-  %1857 = extractvalue { ptr, ptr } %1856, 0
-  %1858 = extractvalue { ptr, ptr } %1856, 1
-  %1859 = load ptr, ptr %.21175, align 8
-  %1860 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1861 = load ptr, ptr %1860, align 8
-  %1862 = call { ptr, ptr } @gen_dictpair(ptr %1857, ptr %1858, ptr %1859, ptr %1861) #9
-  %1863 = extractvalue { ptr, ptr } %1862, 0
-  %1864 = extractvalue { ptr, ptr } %1862, 1
-  store ptr %1863, ptr %.sroa.0616, align 8
-  br label %2030
+1848:                                             ; preds = %135
+  %1849 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1850 = load i64, ptr %1849, align 8
+  %1851 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %1852 = load ptr, ptr %1851, align 8
+  %1853 = call { ptr, ptr } @gen_const(i64 %1850, ptr %1852) #9
+  %1854 = extractvalue { ptr, ptr } %1853, 0
+  %1855 = extractvalue { ptr, ptr } %1853, 1
+  %1856 = load ptr, ptr %.21175, align 8
+  %1857 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1858 = load ptr, ptr %1857, align 8
+  %1859 = call { ptr, ptr } @gen_dictpair(ptr %1854, ptr %1855, ptr %1856, ptr %1858) #9
+  %1860 = extractvalue { ptr, ptr } %1859, 0
+  %1861 = extractvalue { ptr, ptr } %1859, 1
+  store ptr %1860, ptr %.sroa.0616, align 8
+  br label %2027
 
-1865:                                             ; preds = %135
-  %1866 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1867 = load ptr, ptr %1866, align 8
-  %1868 = getelementptr inbounds i8, ptr %.21175, i64 -24
+1862:                                             ; preds = %135
+  %1863 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1864 = load ptr, ptr %1863, align 8
+  %1865 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %1866 = load ptr, ptr %1865, align 8
+  %1867 = load ptr, ptr %.21175, align 8
+  %1868 = getelementptr inbounds i8, ptr %.21175, i64 8
   %1869 = load ptr, ptr %1868, align 8
-  %1870 = load ptr, ptr %.21175, align 8
-  %1871 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1872 = load ptr, ptr %1871, align 8
-  %1873 = call { ptr, ptr } @gen_dictpair(ptr %1867, ptr %1869, ptr %1870, ptr %1872) #9
-  %1874 = extractvalue { ptr, ptr } %1873, 0
-  %1875 = extractvalue { ptr, ptr } %1873, 1
-  store ptr %1874, ptr %.sroa.0616, align 8
-  br label %2030
+  %1870 = call { ptr, ptr } @gen_dictpair(ptr %1864, ptr %1866, ptr %1867, ptr %1869) #9
+  %1871 = extractvalue { ptr, ptr } %1870, 0
+  %1872 = extractvalue { ptr, ptr } %1870, 1
+  store ptr %1871, ptr %.sroa.0616, align 8
+  br label %2027
 
-1876:                                             ; preds = %135
-  %1877 = call { ptr, ptr } @gen_op_simple(i32 noundef 5) #9
+1873:                                             ; preds = %135
+  %1874 = call { ptr, ptr } @gen_op_simple(i32 noundef 5) #9
+  %1875 = extractvalue { ptr, ptr } %1874, 0
+  %1876 = extractvalue { ptr, ptr } %1874, 1
+  %1877 = call { ptr, ptr } @gen_op_simple(i32 noundef 3) #9
   %1878 = extractvalue { ptr, ptr } %1877, 0
   %1879 = extractvalue { ptr, ptr } %1877, 1
-  %1880 = call { ptr, ptr } @gen_op_simple(i32 noundef 3) #9
+  %1880 = call { ptr, ptr } @block_join(ptr %1875, ptr %1876, ptr %1878, ptr %1879) #9
   %1881 = extractvalue { ptr, ptr } %1880, 0
   %1882 = extractvalue { ptr, ptr } %1880, 1
-  %1883 = call { ptr, ptr } @block_join(ptr %1878, ptr %1879, ptr %1881, ptr %1882) #9
+  %1883 = call { ptr, ptr } @gen_op_simple(i32 noundef 3) #9
   %1884 = extractvalue { ptr, ptr } %1883, 0
   %1885 = extractvalue { ptr, ptr } %1883, 1
-  %1886 = call { ptr, ptr } @gen_op_simple(i32 noundef 3) #9
+  %1886 = call { ptr, ptr } @block_join(ptr %1881, ptr %1882, ptr %1884, ptr %1885) #9
   %1887 = extractvalue { ptr, ptr } %1886, 0
   %1888 = extractvalue { ptr, ptr } %1886, 1
-  %1889 = call { ptr, ptr } @block_join(ptr %1884, ptr %1885, ptr %1887, ptr %1888) #9
+  %1889 = call { ptr, ptr } @gen_op_simple(i32 noundef 10) #9
   %1890 = extractvalue { ptr, ptr } %1889, 0
   %1891 = extractvalue { ptr, ptr } %1889, 1
-  %1892 = call { ptr, ptr } @gen_op_simple(i32 noundef 10) #9
+  %1892 = call { ptr, ptr } @block_join(ptr %1887, ptr %1888, ptr %1890, ptr %1891) #9
   %1893 = extractvalue { ptr, ptr } %1892, 0
   %1894 = extractvalue { ptr, ptr } %1892, 1
-  %1895 = call { ptr, ptr } @block_join(ptr %1890, ptr %1891, ptr %1893, ptr %1894) #9
-  %1896 = extractvalue { ptr, ptr } %1895, 0
-  %1897 = extractvalue { ptr, ptr } %1895, 1
-  %1898 = load ptr, ptr %.21175, align 8
-  %1899 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1900 = load ptr, ptr %1899, align 8
-  %1901 = call { ptr, ptr } @gen_dictpair(ptr %1898, ptr %1900, ptr %1896, ptr %1897) #9
-  %1902 = extractvalue { ptr, ptr } %1901, 0
-  %1903 = extractvalue { ptr, ptr } %1901, 1
-  store ptr %1902, ptr %.sroa.0616, align 8
-  br label %2030
+  %1895 = load ptr, ptr %.21175, align 8
+  %1896 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1897 = load ptr, ptr %1896, align 8
+  %1898 = call { ptr, ptr } @gen_dictpair(ptr %1895, ptr %1897, ptr %1893, ptr %1894) #9
+  %1899 = extractvalue { ptr, ptr } %1898, 0
+  %1900 = extractvalue { ptr, ptr } %1898, 1
+  store ptr %1899, ptr %.sroa.0616, align 8
+  br label %2027
 
-1904:                                             ; preds = %135
-  %1905 = getelementptr inbounds i8, ptr %.21175, i64 -32
-  %1906 = load i64, ptr %1905, align 8
-  %1907 = getelementptr inbounds i8, ptr %.21175, i64 -24
-  %1908 = load ptr, ptr %1907, align 8
-  %1909 = call ptr @jv_string_value(i64 %1906, ptr %1908) #9
-  %1910 = call { ptr, ptr } @gen_op_unbound(i32 noundef 6, ptr noundef %1909) #9
-  %1911 = extractvalue { ptr, ptr } %1910, 0
-  %1912 = extractvalue { ptr, ptr } %1910, 1
-  %1913 = load i64, ptr %10, align 8
-  %1914 = call { ptr, ptr } @gen_location(i64 %1913, ptr noundef %2, ptr %1911, ptr %1912) #9
-  %1915 = extractvalue { ptr, ptr } %1914, 0
-  %1916 = extractvalue { ptr, ptr } %1914, 1
-  %1917 = load ptr, ptr %.21175, align 8
-  %1918 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1919 = load ptr, ptr %1918, align 8
-  %1920 = call { ptr, ptr } @gen_dictpair(ptr %1915, ptr %1916, ptr %1917, ptr %1919) #9
-  %1921 = extractvalue { ptr, ptr } %1920, 0
-  %1922 = extractvalue { ptr, ptr } %1920, 1
-  store ptr %1921, ptr %.sroa.0616, align 8
-  %1923 = load i64, ptr %1905, align 8
-  %1924 = load ptr, ptr %1907, align 8
-  call void @jv_free(i64 %1923, ptr %1924) #9
-  br label %2030
+1901:                                             ; preds = %135
+  %1902 = getelementptr inbounds i8, ptr %.21175, i64 -32
+  %1903 = load i64, ptr %1902, align 8
+  %1904 = getelementptr inbounds i8, ptr %.21175, i64 -24
+  %1905 = load ptr, ptr %1904, align 8
+  %1906 = call ptr @jv_string_value(i64 %1903, ptr %1905) #9
+  %1907 = call { ptr, ptr } @gen_op_unbound(i32 noundef 6, ptr noundef %1906) #9
+  %1908 = extractvalue { ptr, ptr } %1907, 0
+  %1909 = extractvalue { ptr, ptr } %1907, 1
+  %1910 = load i64, ptr %10, align 8
+  %1911 = call { ptr, ptr } @gen_location(i64 %1910, ptr noundef %2, ptr %1908, ptr %1909) #9
+  %1912 = extractvalue { ptr, ptr } %1911, 0
+  %1913 = extractvalue { ptr, ptr } %1911, 1
+  %1914 = load ptr, ptr %.21175, align 8
+  %1915 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1916 = load ptr, ptr %1915, align 8
+  %1917 = call { ptr, ptr } @gen_dictpair(ptr %1912, ptr %1913, ptr %1914, ptr %1916) #9
+  %1918 = extractvalue { ptr, ptr } %1917, 0
+  %1919 = extractvalue { ptr, ptr } %1917, 1
+  store ptr %1918, ptr %.sroa.0616, align 8
+  %1920 = load i64, ptr %1902, align 8
+  %1921 = load ptr, ptr %1904, align 8
+  call void @jv_free(i64 %1920, ptr %1921) #9
+  br label %2027
 
-1925:                                             ; preds = %135
-  %1926 = load i64, ptr %.21175, align 8
-  %1927 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1928 = load ptr, ptr %1927, align 8
-  %1929 = call { ptr, ptr } @gen_const(i64 %1926, ptr %1928) #9
-  %1930 = extractvalue { ptr, ptr } %1929, 0
-  %1931 = extractvalue { ptr, ptr } %1929, 1
-  %1932 = load i64, ptr %.21175, align 8
-  %1933 = load ptr, ptr %1927, align 8
-  %1934 = call ptr @jv_string_value(i64 %1932, ptr %1933) #9
-  %1935 = call { ptr, ptr } @gen_op_unbound(i32 noundef 6, ptr noundef %1934) #9
-  %1936 = extractvalue { ptr, ptr } %1935, 0
-  %1937 = extractvalue { ptr, ptr } %1935, 1
-  %1938 = load i64, ptr %10, align 8
-  %1939 = call { ptr, ptr } @gen_location(i64 %1938, ptr noundef %2, ptr %1936, ptr %1937) #9
+1922:                                             ; preds = %135
+  %1923 = load i64, ptr %.21175, align 8
+  %1924 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1925 = load ptr, ptr %1924, align 8
+  %1926 = call { ptr, ptr } @gen_const(i64 %1923, ptr %1925) #9
+  %1927 = extractvalue { ptr, ptr } %1926, 0
+  %1928 = extractvalue { ptr, ptr } %1926, 1
+  %1929 = load i64, ptr %.21175, align 8
+  %1930 = load ptr, ptr %1924, align 8
+  %1931 = call ptr @jv_string_value(i64 %1929, ptr %1930) #9
+  %1932 = call { ptr, ptr } @gen_op_unbound(i32 noundef 6, ptr noundef %1931) #9
+  %1933 = extractvalue { ptr, ptr } %1932, 0
+  %1934 = extractvalue { ptr, ptr } %1932, 1
+  %1935 = load i64, ptr %10, align 8
+  %1936 = call { ptr, ptr } @gen_location(i64 %1935, ptr noundef %2, ptr %1933, ptr %1934) #9
+  %1937 = extractvalue { ptr, ptr } %1936, 0
+  %1938 = extractvalue { ptr, ptr } %1936, 1
+  %1939 = call { ptr, ptr } @gen_dictpair(ptr %1927, ptr %1928, ptr %1937, ptr %1938) #9
   %1940 = extractvalue { ptr, ptr } %1939, 0
   %1941 = extractvalue { ptr, ptr } %1939, 1
-  %1942 = call { ptr, ptr } @gen_dictpair(ptr %1930, ptr %1931, ptr %1940, ptr %1941) #9
-  %1943 = extractvalue { ptr, ptr } %1942, 0
-  %1944 = extractvalue { ptr, ptr } %1942, 1
-  store ptr %1943, ptr %.sroa.0616, align 8
-  br label %2030
+  store ptr %1940, ptr %.sroa.0616, align 8
+  br label %2027
 
-1945:                                             ; preds = %135
-  %1946 = load i64, ptr %.21175, align 8
-  %1947 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1948 = load ptr, ptr %1947, align 8
-  %1949 = call { i64, ptr } @jv_copy(i64 %1946, ptr %1948) #9
-  %1950 = extractvalue { i64, ptr } %1949, 0
-  %1951 = extractvalue { i64, ptr } %1949, 1
-  %1952 = call { ptr, ptr } @gen_const(i64 %1950, ptr %1951) #9
+1942:                                             ; preds = %135
+  %1943 = load i64, ptr %.21175, align 8
+  %1944 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1945 = load ptr, ptr %1944, align 8
+  %1946 = call { i64, ptr } @jv_copy(i64 %1943, ptr %1945) #9
+  %1947 = extractvalue { i64, ptr } %1946, 0
+  %1948 = extractvalue { i64, ptr } %1946, 1
+  %1949 = call { ptr, ptr } @gen_const(i64 %1947, ptr %1948) #9
+  %1950 = extractvalue { ptr, ptr } %1949, 0
+  %1951 = extractvalue { ptr, ptr } %1949, 1
+  %1952 = call { ptr, ptr } (...) @gen_noop() #9
   %1953 = extractvalue { ptr, ptr } %1952, 0
   %1954 = extractvalue { ptr, ptr } %1952, 1
-  %1955 = call { ptr, ptr } (...) @gen_noop() #9
-  %1956 = extractvalue { ptr, ptr } %1955, 0
-  %1957 = extractvalue { ptr, ptr } %1955, 1
-  %1958 = load i64, ptr %.21175, align 8
-  %1959 = load ptr, ptr %1947, align 8
-  %1960 = call { ptr, ptr } @gen_const(i64 %1958, ptr %1959) #9
+  %1955 = load i64, ptr %.21175, align 8
+  %1956 = load ptr, ptr %1944, align 8
+  %1957 = call { ptr, ptr } @gen_const(i64 %1955, ptr %1956) #9
+  %1958 = extractvalue { ptr, ptr } %1957, 0
+  %1959 = extractvalue { ptr, ptr } %1957, 1
+  %1960 = call fastcc { ptr, ptr } @gen_index(ptr %1953, ptr %1954, ptr %1958, ptr %1959)
   %1961 = extractvalue { ptr, ptr } %1960, 0
   %1962 = extractvalue { ptr, ptr } %1960, 1
-  %1963 = call fastcc { ptr, ptr } @gen_index(ptr %1956, ptr %1957, ptr %1961, ptr %1962)
+  %1963 = call { ptr, ptr } @gen_dictpair(ptr %1950, ptr %1951, ptr %1961, ptr %1962) #9
   %1964 = extractvalue { ptr, ptr } %1963, 0
   %1965 = extractvalue { ptr, ptr } %1963, 1
-  %1966 = call { ptr, ptr } @gen_dictpair(ptr %1953, ptr %1954, ptr %1964, ptr %1965) #9
-  %1967 = extractvalue { ptr, ptr } %1966, 0
-  %1968 = extractvalue { ptr, ptr } %1966, 1
-  store ptr %1967, ptr %.sroa.0616, align 8
-  br label %2030
+  store ptr %1964, ptr %.sroa.0616, align 8
+  br label %2027
 
-1969:                                             ; preds = %135
-  %1970 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.41) #9
-  %1971 = extractvalue { i64, ptr } %1970, 0
-  %1972 = extractvalue { i64, ptr } %1970, 1
-  %1973 = call { ptr, ptr } @gen_const(i64 %1971, ptr %1972) #9
+1966:                                             ; preds = %135
+  %1967 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.41) #9
+  %1968 = extractvalue { i64, ptr } %1967, 0
+  %1969 = extractvalue { i64, ptr } %1967, 1
+  %1970 = call { ptr, ptr } @gen_const(i64 %1968, ptr %1969) #9
+  %1971 = extractvalue { ptr, ptr } %1970, 0
+  %1972 = extractvalue { ptr, ptr } %1970, 1
+  %1973 = call fastcc { ptr, ptr } @gen_loc_object(ptr noundef nonnull %10, ptr noundef %2)
   %1974 = extractvalue { ptr, ptr } %1973, 0
   %1975 = extractvalue { ptr, ptr } %1973, 1
-  %1976 = call fastcc { ptr, ptr } @gen_loc_object(ptr noundef nonnull %10, ptr noundef %2)
+  %1976 = call { ptr, ptr } @gen_dictpair(ptr %1971, ptr %1972, ptr %1974, ptr %1975) #9
   %1977 = extractvalue { ptr, ptr } %1976, 0
   %1978 = extractvalue { ptr, ptr } %1976, 1
-  %1979 = call { ptr, ptr } @gen_dictpair(ptr %1974, ptr %1975, ptr %1977, ptr %1978) #9
-  %1980 = extractvalue { ptr, ptr } %1979, 0
-  %1981 = extractvalue { ptr, ptr } %1979, 1
-  store ptr %1980, ptr %.sroa.0616, align 8
-  br label %2030
+  store ptr %1977, ptr %.sroa.0616, align 8
+  br label %2027
 
-1982:                                             ; preds = %135
-  %1983 = load i64, ptr %.21175, align 8
-  %1984 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %1985 = load ptr, ptr %1984, align 8
-  %1986 = call { i64, ptr } @jv_copy(i64 %1983, ptr %1985) #9
-  %1987 = extractvalue { i64, ptr } %1986, 0
-  %1988 = extractvalue { i64, ptr } %1986, 1
-  %1989 = call { ptr, ptr } @gen_const(i64 %1987, ptr %1988) #9
+1979:                                             ; preds = %135
+  %1980 = load i64, ptr %.21175, align 8
+  %1981 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %1982 = load ptr, ptr %1981, align 8
+  %1983 = call { i64, ptr } @jv_copy(i64 %1980, ptr %1982) #9
+  %1984 = extractvalue { i64, ptr } %1983, 0
+  %1985 = extractvalue { i64, ptr } %1983, 1
+  %1986 = call { ptr, ptr } @gen_const(i64 %1984, ptr %1985) #9
+  %1987 = extractvalue { ptr, ptr } %1986, 0
+  %1988 = extractvalue { ptr, ptr } %1986, 1
+  %1989 = call { ptr, ptr } (...) @gen_noop() #9
   %1990 = extractvalue { ptr, ptr } %1989, 0
   %1991 = extractvalue { ptr, ptr } %1989, 1
-  %1992 = call { ptr, ptr } (...) @gen_noop() #9
-  %1993 = extractvalue { ptr, ptr } %1992, 0
-  %1994 = extractvalue { ptr, ptr } %1992, 1
-  %1995 = load i64, ptr %.21175, align 8
-  %1996 = load ptr, ptr %1984, align 8
-  %1997 = call { ptr, ptr } @gen_const(i64 %1995, ptr %1996) #9
+  %1992 = load i64, ptr %.21175, align 8
+  %1993 = load ptr, ptr %1981, align 8
+  %1994 = call { ptr, ptr } @gen_const(i64 %1992, ptr %1993) #9
+  %1995 = extractvalue { ptr, ptr } %1994, 0
+  %1996 = extractvalue { ptr, ptr } %1994, 1
+  %1997 = call fastcc { ptr, ptr } @gen_index(ptr %1990, ptr %1991, ptr %1995, ptr %1996)
   %1998 = extractvalue { ptr, ptr } %1997, 0
   %1999 = extractvalue { ptr, ptr } %1997, 1
-  %2000 = call fastcc { ptr, ptr } @gen_index(ptr %1993, ptr %1994, ptr %1998, ptr %1999)
+  %2000 = call { ptr, ptr } @gen_dictpair(ptr %1987, ptr %1988, ptr %1998, ptr %1999) #9
   %2001 = extractvalue { ptr, ptr } %2000, 0
   %2002 = extractvalue { ptr, ptr } %2000, 1
-  %2003 = call { ptr, ptr } @gen_dictpair(ptr %1990, ptr %1991, ptr %2001, ptr %2002) #9
-  %2004 = extractvalue { ptr, ptr } %2003, 0
-  %2005 = extractvalue { ptr, ptr } %2003, 1
-  store ptr %2004, ptr %.sroa.0616, align 8
-  br label %2030
+  store ptr %2001, ptr %.sroa.0616, align 8
+  br label %2027
 
-2006:                                             ; preds = %135
-  %2007 = getelementptr inbounds i8, ptr %.21175, i64 -48
-  %2008 = load ptr, ptr %2007, align 8
-  %2009 = getelementptr inbounds i8, ptr %.21175, i64 -40
-  %2010 = load ptr, ptr %2009, align 8
-  %2011 = call fastcc { i64, ptr } @check_object_key(ptr %2008, ptr %2010)
-  %2012 = extractvalue { i64, ptr } %2011, 0
-  %2013 = extractvalue { i64, ptr } %2011, 1
-  %2014 = call i32 @jv_get_kind(i64 %2012, ptr %2013) #9
-  %.not1304 = icmp eq i32 %2014, 0
-  br i1 %.not1304, label %2018, label %2015
+2003:                                             ; preds = %135
+  %2004 = getelementptr inbounds i8, ptr %.21175, i64 -48
+  %2005 = load ptr, ptr %2004, align 8
+  %2006 = getelementptr inbounds i8, ptr %.21175, i64 -40
+  %2007 = load ptr, ptr %2006, align 8
+  %2008 = call fastcc { i64, ptr } @check_object_key(ptr %2005, ptr %2007)
+  %2009 = extractvalue { i64, ptr } %2008, 0
+  %2010 = extractvalue { i64, ptr } %2008, 1
+  %2011 = call i32 @jv_get_kind(i64 %2009, ptr %2010) #9
+  %.not1304 = icmp eq i32 %2011, 0
+  br i1 %.not1304, label %2015, label %2012
 
-2015:                                             ; preds = %2006
-  %2016 = load i64, ptr %10, align 8
-  store i64 %2016, ptr %26, align 8
-  %2017 = call ptr @jv_string_value(i64 %2012, ptr %2013) #9
-  call void @yyerror(ptr noundef nonnull %26, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef %2017)
-  br label %2018
+2012:                                             ; preds = %2003
+  %2013 = load i64, ptr %10, align 8
+  store i64 %2013, ptr %26, align 8
+  %2014 = call ptr @jv_string_value(i64 %2009, ptr %2010) #9
+  call void @yyerror(ptr noundef nonnull %26, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef %2014)
+  br label %2015
 
-2018:                                             ; preds = %2015, %2006
-  call void @jv_free(i64 %2012, ptr %2013) #9
-  %2019 = load ptr, ptr %2007, align 8
-  %2020 = load ptr, ptr %2009, align 8
-  %2021 = load ptr, ptr %.21175, align 8
-  %2022 = getelementptr inbounds i8, ptr %.21175, i64 8
-  %2023 = load ptr, ptr %2022, align 8
-  %2024 = call { ptr, ptr } @gen_dictpair(ptr %2019, ptr %2020, ptr %2021, ptr %2023) #9
-  %2025 = extractvalue { ptr, ptr } %2024, 0
-  %2026 = extractvalue { ptr, ptr } %2024, 1
-  store ptr %2025, ptr %.sroa.0616, align 8
-  br label %2030
+2015:                                             ; preds = %2012, %2003
+  call void @jv_free(i64 %2009, ptr %2010) #9
+  %2016 = load ptr, ptr %2004, align 8
+  %2017 = load ptr, ptr %2006, align 8
+  %2018 = load ptr, ptr %.21175, align 8
+  %2019 = getelementptr inbounds i8, ptr %.21175, i64 8
+  %2020 = load ptr, ptr %2019, align 8
+  %2021 = call { ptr, ptr } @gen_dictpair(ptr %2016, ptr %2017, ptr %2018, ptr %2020) #9
+  %2022 = extractvalue { ptr, ptr } %2021, 0
+  %2023 = extractvalue { ptr, ptr } %2021, 1
+  store ptr %2022, ptr %.sroa.0616, align 8
+  br label %2027
 
-2027:                                             ; preds = %135
-  %2028 = load i64, ptr %10, align 8
-  store i64 %2028, ptr %27, align 8
+2024:                                             ; preds = %135
+  %2025 = load i64, ptr %10, align 8
+  store i64 %2025, ptr %27, align 8
   call void @yyerror(ptr noundef nonnull %27, ptr poison, ptr noundef %1, ptr noundef %2, ptr poison, ptr noundef nonnull @.str.22)
-  %2029 = load i64, ptr %.21175, align 8
-  store i64 %2029, ptr %.sroa.0616, align 8
+  %2026 = load i64, ptr %.21175, align 8
+  store i64 %2026, ptr %.sroa.0616, align 8
   %.sroa.179.0..sroa_idx655 = getelementptr inbounds i8, ptr %.21175, i64 8
   %.sroa.179.0.copyload656 = load ptr, ptr %.sroa.179.0..sroa_idx655, align 8
-  br label %2030
+  br label %2027
 
-2030:                                             ; preds = %135, %1384, %1386, %800, %810, %706, %732, %721, %188, %206, %199, %2027, %2018, %1982, %1969, %1945, %1925, %1904, %1876, %1865, %1851, %1837, %1835, %1824, %1822, %1818, %1814, %1810, %1806, %1802, %1798, %1794, %1790, %1786, %1782, %1778, %1774, %1770, %1766, %1762, %1758, %1754, %1750, %1746, %1743, %1734, %1711, %1697, %1683, %1654, %1638, %1627, %1625, %1614, %1604, %1593, %1582, %1572, %1570, %1559, %1552, %1538, %1531, %1520, %1518, %1514, %1511, %1507, %1503, %1483, %1480, %1435, %1421, %1407, %1370, %1362, %1359, %1349, %1347, %1340, %1322, %1304, %1288, %1270, %1252, %1236, %1225, %1214, %1203, %1192, %1180, %1168, %1156, %1144, %1135, %1130, %1120, %1109, %1096, %1082, %1071, %1059, %1045, %1030, %1025, %998, %991, %987, %985, %972, %961, %957, %954, %939, %917, %903, %896, %889, %885, %882, %872, %862, %851, %849, %830, %812, %782, %762, %742, %697, %695, %684, %673, %662, %651, %640, %629, %618, %607, %596, %585, %574, %563, %552, %541, %528, %517, %506, %495, %484, %464, %453, %442, %431, %420, %400, %389, %367, %363, %353, %342, %338, %323, %303, %285, %268, %253, %242, %231, %227, %216, %212, %178, %160, %136
-  %.sroa.179.0 = phi ptr [ %.sroa.179.0.copyload, %135 ], [ %.sroa.179.0.copyload656, %2027 ], [ %2026, %2018 ], [ %2005, %1982 ], [ %1981, %1969 ], [ %1968, %1945 ], [ %1944, %1925 ], [ %1922, %1904 ], [ %1903, %1876 ], [ %1875, %1865 ], [ %1864, %1851 ], [ %1850, %1837 ], [ %.sroa.179.0.copyload654, %1835 ], [ %1834, %1824 ], [ %.sroa.179.0.copyload652, %1822 ], [ %1821, %1818 ], [ %1817, %1814 ], [ %1813, %1810 ], [ %1809, %1806 ], [ %1805, %1802 ], [ %1801, %1798 ], [ %1797, %1794 ], [ %1793, %1790 ], [ %1789, %1786 ], [ %1785, %1782 ], [ %1781, %1778 ], [ %1777, %1774 ], [ %1773, %1770 ], [ %1769, %1766 ], [ %1765, %1762 ], [ %1761, %1758 ], [ %1757, %1754 ], [ %1753, %1750 ], [ %1749, %1746 ], [ %.sroa.179.0.copyload650, %1743 ], [ %1742, %1734 ], [ %1721, %1711 ], [ %1710, %1697 ], [ %1696, %1683 ], [ %1682, %1654 ], [ %1653, %1638 ], [ %1637, %1627 ], [ %.sroa.179.0.copyload648, %1625 ], [ %1624, %1614 ], [ %1613, %1604 ], [ %1603, %1593 ], [ %1592, %1582 ], [ %1579, %1572 ], [ %.sroa.179.0.copyload646, %1570 ], [ %1569, %1559 ], [ %1558, %1552 ], [ %1551, %1538 ], [ %1537, %1531 ], [ %1530, %1520 ], [ %.sroa.179.0.copyload644, %1518 ], [ %1517, %1514 ], [ %.sroa.179.0.copyload642, %1511 ], [ %1510, %1507 ], [ %1506, %1503 ], [ %1500, %1483 ], [ %.sroa.179.1, %1480 ], [ %1438, %1435 ], [ %1432, %1421 ], [ %1418, %1407 ], [ %1385, %1384 ], [ %1406, %1386 ], [ %1376, %1370 ], [ %1369, %1362 ], [ %.sroa.179.0.copyload640, %1359 ], [ %1358, %1349 ], [ %.sroa.179.0.copyload638, %1347 ], [ %1346, %1340 ], [ %1339, %1322 ], [ %1321, %1304 ], [ %1303, %1288 ], [ %1287, %1270 ], [ %1269, %1252 ], [ %1251, %1236 ], [ %1235, %1225 ], [ %1224, %1214 ], [ %1213, %1203 ], [ %1202, %1192 ], [ %1191, %1180 ], [ %1179, %1168 ], [ %1167, %1156 ], [ %1155, %1144 ], [ %1143, %1135 ], [ %1134, %1130 ], [ %1129, %1120 ], [ %1119, %1109 ], [ %1108, %1096 ], [ %1095, %1082 ], [ %1081, %1071 ], [ %1070, %1059 ], [ %1058, %1045 ], [ %1044, %1030 ], [ %1029, %1025 ], [ %1022, %998 ], [ %997, %991 ], [ %990, %987 ], [ %.sroa.179.0.copyload636, %985 ], [ %984, %972 ], [ %971, %961 ], [ %960, %957 ], [ %.sroa.179.0.copyload634, %954 ], [ %953, %939 ], [ %938, %917 ], [ %916, %903 ], [ %902, %896 ], [ %.sroa.179.0.copyload632, %889 ], [ %888, %885 ], [ %.sroa.179.0.copyload630, %882 ], [ %879, %872 ], [ %869, %862 ], [ %861, %851 ], [ %.sroa.179.0.copyload628, %849 ], [ %846, %830 ], [ %827, %812 ], [ %.sroa.179.0.copyload626, %810 ], [ %807, %800 ], [ %792, %782 ], [ %777, %762 ], [ %757, %742 ], [ %725, %721 ], [ %741, %732 ], [ %710, %706 ], [ %.sroa.179.0.copyload624, %697 ], [ %.sroa.179.0.copyload622, %695 ], [ %694, %684 ], [ %683, %673 ], [ %672, %662 ], [ %661, %651 ], [ %650, %640 ], [ %639, %629 ], [ %628, %618 ], [ %617, %607 ], [ %606, %596 ], [ %595, %585 ], [ %584, %574 ], [ %573, %563 ], [ %562, %552 ], [ %551, %541 ], [ %540, %528 ], [ %527, %517 ], [ %516, %506 ], [ %505, %495 ], [ %494, %484 ], [ %483, %464 ], [ %463, %453 ], [ %452, %442 ], [ %441, %431 ], [ %430, %420 ], [ %419, %400 ], [ %399, %389 ], [ %386, %367 ], [ %.sroa.179.0.copyload620, %363 ], [ %362, %353 ], [ %352, %342 ], [ %.sroa.179.0.copyload618, %338 ], [ %337, %323 ], [ %322, %303 ], [ %302, %285 ], [ %284, %268 ], [ %267, %253 ], [ %252, %242 ], [ %241, %231 ], [ %230, %227 ], [ %226, %216 ], [ %215, %212 ], [ %203, %199 ], [ %211, %206 ], [ %192, %188 ], [ %181, %178 ], [ %.sroa.179.0.copyload, %160 ], [ %.sroa.179.0.copyload, %136 ]
-  %2031 = sub nsw i64 0, %121
-  %2032 = getelementptr inbounds %union.YYSTYPE, ptr %.21175, i64 %2031
-  %2033 = getelementptr inbounds i16, ptr %.21165, i64 %2031
-  %2034 = getelementptr inbounds %struct.location, ptr %.21185, i64 %2031
-  %2035 = getelementptr inbounds i8, ptr %2032, i64 16
+2027:                                             ; preds = %135, %1384, %1386, %800, %810, %706, %732, %721, %188, %206, %199, %2024, %2015, %1979, %1966, %1942, %1922, %1901, %1873, %1862, %1848, %1834, %1832, %1821, %1819, %1815, %1811, %1807, %1803, %1799, %1795, %1791, %1787, %1783, %1779, %1775, %1771, %1767, %1763, %1759, %1755, %1751, %1747, %1743, %1740, %1731, %1708, %1694, %1680, %1651, %1635, %1624, %1622, %1611, %1601, %1590, %1579, %1569, %1567, %1556, %1549, %1535, %1528, %1517, %1515, %1511, %1508, %1504, %1500, %1480, %1476, %1435, %1421, %1407, %1370, %1362, %1359, %1349, %1347, %1340, %1322, %1304, %1288, %1270, %1252, %1236, %1225, %1214, %1203, %1192, %1180, %1168, %1156, %1144, %1135, %1130, %1120, %1109, %1096, %1082, %1071, %1059, %1045, %1030, %1025, %998, %991, %987, %985, %972, %961, %957, %954, %939, %917, %903, %896, %889, %885, %882, %872, %862, %851, %849, %830, %812, %782, %762, %742, %697, %695, %684, %673, %662, %651, %640, %629, %618, %607, %596, %585, %574, %563, %552, %541, %528, %517, %506, %495, %484, %464, %453, %442, %431, %420, %400, %389, %367, %363, %353, %342, %338, %323, %303, %285, %268, %253, %242, %231, %227, %216, %212, %178, %160, %136
+  %.sroa.179.0 = phi ptr [ %.sroa.179.0.copyload, %135 ], [ %.sroa.179.0.copyload656, %2024 ], [ %2023, %2015 ], [ %2002, %1979 ], [ %1978, %1966 ], [ %1965, %1942 ], [ %1941, %1922 ], [ %1919, %1901 ], [ %1900, %1873 ], [ %1872, %1862 ], [ %1861, %1848 ], [ %1847, %1834 ], [ %.sroa.179.0.copyload654, %1832 ], [ %1831, %1821 ], [ %.sroa.179.0.copyload652, %1819 ], [ %1818, %1815 ], [ %1814, %1811 ], [ %1810, %1807 ], [ %1806, %1803 ], [ %1802, %1799 ], [ %1798, %1795 ], [ %1794, %1791 ], [ %1790, %1787 ], [ %1786, %1783 ], [ %1782, %1779 ], [ %1778, %1775 ], [ %1774, %1771 ], [ %1770, %1767 ], [ %1766, %1763 ], [ %1762, %1759 ], [ %1758, %1755 ], [ %1754, %1751 ], [ %1750, %1747 ], [ %1746, %1743 ], [ %.sroa.179.0.copyload650, %1740 ], [ %1739, %1731 ], [ %1718, %1708 ], [ %1707, %1694 ], [ %1693, %1680 ], [ %1679, %1651 ], [ %1650, %1635 ], [ %1634, %1624 ], [ %.sroa.179.0.copyload648, %1622 ], [ %1621, %1611 ], [ %1610, %1601 ], [ %1600, %1590 ], [ %1589, %1579 ], [ %1576, %1569 ], [ %.sroa.179.0.copyload646, %1567 ], [ %1566, %1556 ], [ %1555, %1549 ], [ %1548, %1535 ], [ %1534, %1528 ], [ %1527, %1517 ], [ %.sroa.179.0.copyload644, %1515 ], [ %1514, %1511 ], [ %.sroa.179.0.copyload642, %1508 ], [ %1507, %1504 ], [ %1503, %1500 ], [ %1497, %1480 ], [ %.sroa.179.1, %1476 ], [ %1438, %1435 ], [ %1432, %1421 ], [ %1418, %1407 ], [ %1385, %1384 ], [ %1406, %1386 ], [ %1376, %1370 ], [ %1369, %1362 ], [ %.sroa.179.0.copyload640, %1359 ], [ %1358, %1349 ], [ %.sroa.179.0.copyload638, %1347 ], [ %1346, %1340 ], [ %1339, %1322 ], [ %1321, %1304 ], [ %1303, %1288 ], [ %1287, %1270 ], [ %1269, %1252 ], [ %1251, %1236 ], [ %1235, %1225 ], [ %1224, %1214 ], [ %1213, %1203 ], [ %1202, %1192 ], [ %1191, %1180 ], [ %1179, %1168 ], [ %1167, %1156 ], [ %1155, %1144 ], [ %1143, %1135 ], [ %1134, %1130 ], [ %1129, %1120 ], [ %1119, %1109 ], [ %1108, %1096 ], [ %1095, %1082 ], [ %1081, %1071 ], [ %1070, %1059 ], [ %1058, %1045 ], [ %1044, %1030 ], [ %1029, %1025 ], [ %1022, %998 ], [ %997, %991 ], [ %990, %987 ], [ %.sroa.179.0.copyload636, %985 ], [ %984, %972 ], [ %971, %961 ], [ %960, %957 ], [ %.sroa.179.0.copyload634, %954 ], [ %953, %939 ], [ %938, %917 ], [ %916, %903 ], [ %902, %896 ], [ %.sroa.179.0.copyload632, %889 ], [ %888, %885 ], [ %.sroa.179.0.copyload630, %882 ], [ %879, %872 ], [ %869, %862 ], [ %861, %851 ], [ %.sroa.179.0.copyload628, %849 ], [ %846, %830 ], [ %827, %812 ], [ %.sroa.179.0.copyload626, %810 ], [ %807, %800 ], [ %792, %782 ], [ %777, %762 ], [ %757, %742 ], [ %725, %721 ], [ %741, %732 ], [ %710, %706 ], [ %.sroa.179.0.copyload624, %697 ], [ %.sroa.179.0.copyload622, %695 ], [ %694, %684 ], [ %683, %673 ], [ %672, %662 ], [ %661, %651 ], [ %650, %640 ], [ %639, %629 ], [ %628, %618 ], [ %617, %607 ], [ %606, %596 ], [ %595, %585 ], [ %584, %574 ], [ %573, %563 ], [ %562, %552 ], [ %551, %541 ], [ %540, %528 ], [ %527, %517 ], [ %516, %506 ], [ %505, %495 ], [ %494, %484 ], [ %483, %464 ], [ %463, %453 ], [ %452, %442 ], [ %441, %431 ], [ %430, %420 ], [ %419, %400 ], [ %399, %389 ], [ %386, %367 ], [ %.sroa.179.0.copyload620, %363 ], [ %362, %353 ], [ %352, %342 ], [ %.sroa.179.0.copyload618, %338 ], [ %337, %323 ], [ %322, %303 ], [ %302, %285 ], [ %284, %268 ], [ %267, %253 ], [ %252, %242 ], [ %241, %231 ], [ %230, %227 ], [ %226, %216 ], [ %215, %212 ], [ %203, %199 ], [ %211, %206 ], [ %192, %188 ], [ %181, %178 ], [ %.sroa.179.0.copyload, %160 ], [ %.sroa.179.0.copyload, %136 ]
+  %2028 = sub nsw i64 0, %121
+  %2029 = getelementptr inbounds %union.YYSTYPE, ptr %.21175, i64 %2028
+  %2030 = getelementptr inbounds i16, ptr %.21165, i64 %2028
+  %2031 = getelementptr inbounds %struct.location, ptr %.21185, i64 %2028
+  %2032 = getelementptr inbounds i8, ptr %2029, i64 16
   %.sroa.0616.0..sroa.0616.0..sroa.0616.0. = load i64, ptr %.sroa.0616, align 8
-  store i64 %.sroa.0616.0..sroa.0616.0..sroa.0616.0., ptr %2035, align 8
-  %.sroa.179.0..sroa_idx657 = getelementptr inbounds i8, ptr %2032, i64 24
+  store i64 %.sroa.0616.0..sroa.0616.0..sroa.0616.0., ptr %2032, align 8
+  %.sroa.179.0..sroa_idx657 = getelementptr inbounds i8, ptr %2029, i64 24
   store ptr %.sroa.179.0, ptr %.sroa.179.0..sroa_idx657, align 8
-  %2036 = getelementptr inbounds i8, ptr %2034, i64 8
-  %2037 = load i64, ptr %10, align 8
-  store i64 %2037, ptr %2036, align 4
-  %2038 = getelementptr inbounds [170 x i8], ptr @yyr1, i64 0, i64 %118
-  %2039 = load i8, ptr %2038, align 1
-  %2040 = sext i8 %2039 to i64
-  %2041 = add nsw i64 %2040, -70
-  %2042 = getelementptr inbounds [29 x i16], ptr @yypgoto, i64 0, i64 %2041
-  %2043 = load i16, ptr %2042, align 2
-  %2044 = sext i16 %2043 to i32
-  %2045 = load i16, ptr %2033, align 2
-  %2046 = sext i16 %2045 to i32
-  %2047 = add nsw i32 %2046, %2044
-  %or.cond5 = icmp ult i32 %2047, 2052
-  br i1 %or.cond5, label %2048, label %2057
+  %2033 = getelementptr inbounds i8, ptr %2031, i64 8
+  %2034 = load i64, ptr %10, align 8
+  store i64 %2034, ptr %2033, align 4
+  %2035 = getelementptr inbounds [170 x i8], ptr @yyr1, i64 0, i64 %118
+  %2036 = load i8, ptr %2035, align 1
+  %2037 = sext i8 %2036 to i64
+  %2038 = add nsw i64 %2037, -70
+  %2039 = getelementptr inbounds [29 x i16], ptr @yypgoto, i64 0, i64 %2038
+  %2040 = load i16, ptr %2039, align 2
+  %2041 = sext i16 %2040 to i32
+  %2042 = load i16, ptr %2030, align 2
+  %2043 = sext i16 %2042 to i32
+  %2044 = add nsw i32 %2043, %2041
+  %or.cond5 = icmp ult i32 %2044, 2052
+  br i1 %or.cond5, label %2045, label %2054
 
-2048:                                             ; preds = %2030
-  %2049 = zext nneg i32 %2047 to i64
-  %2050 = getelementptr inbounds [2052 x i16], ptr @yycheck, i64 0, i64 %2049
-  %2051 = load i16, ptr %2050, align 2
-  %2052 = icmp eq i16 %2051, %2045
-  br i1 %2052, label %2053, label %2057
+2045:                                             ; preds = %2027
+  %2046 = zext nneg i32 %2044 to i64
+  %2047 = getelementptr inbounds [2052 x i16], ptr @yycheck, i64 0, i64 %2046
+  %2048 = load i16, ptr %2047, align 2
+  %2049 = icmp eq i16 %2048, %2042
+  br i1 %2049, label %2050, label %2054
 
-2053:                                             ; preds = %2048
-  %2054 = getelementptr inbounds [2052 x i16], ptr @yytable, i64 0, i64 %2049
-  %2055 = load i16, ptr %2054, align 2
-  %2056 = sext i16 %2055 to i32
+2050:                                             ; preds = %2045
+  %2051 = getelementptr inbounds [2052 x i16], ptr @yytable, i64 0, i64 %2046
+  %2052 = load i16, ptr %2051, align 2
+  %2053 = sext i16 %2052 to i32
   br label %30
 
-2057:                                             ; preds = %2048, %2030
-  %2058 = getelementptr inbounds [29 x i8], ptr @yydefgoto, i64 0, i64 %2041
-  %2059 = load i8, ptr %2058, align 1
-  %2060 = zext i8 %2059 to i32
+2054:                                             ; preds = %2045, %2027
+  %2055 = getelementptr inbounds [29 x i8], ptr @yydefgoto, i64 0, i64 %2038
+  %2056 = load i8, ptr %2055, align 1
+  %2057 = zext i8 %2056 to i32
   br label %30
 
-2061:                                             ; preds = %112
-  %2062 = icmp eq i32 %.4, -2
-  br i1 %2062, label %2068, label %.thread
+2058:                                             ; preds = %112
+  %2059 = icmp eq i32 %.4, -2
+  br i1 %2059, label %2065, label %.thread
 
-.thread:                                          ; preds = %104, %2061
-  %.81254 = phi i32 [ %.4, %2061 ], [ %.6, %104 ]
+.thread:                                          ; preds = %104, %2058
+  %.81254 = phi i32 [ %.4, %2058 ], [ %.6, %104 ]
   %or.cond7 = icmp ult i32 %.81254, 304
-  br i1 %or.cond7, label %2063, label %2068
+  br i1 %or.cond7, label %2060, label %2065
 
-2063:                                             ; preds = %.thread
-  %2064 = zext nneg i32 %.81254 to i64
-  %2065 = getelementptr inbounds [304 x i8], ptr @yytranslate, i64 0, i64 %2064
-  %2066 = load i8, ptr %2065, align 1
-  %2067 = sext i8 %2066 to i32
-  br label %2068
+2060:                                             ; preds = %.thread
+  %2061 = zext nneg i32 %.81254 to i64
+  %2062 = getelementptr inbounds [304 x i8], ptr @yytranslate, i64 0, i64 %2061
+  %2063 = load i8, ptr %2062, align 1
+  %2064 = sext i8 %2063 to i32
+  br label %2065
 
-2068:                                             ; preds = %2063, %.thread, %2061
-  %.81255 = phi i32 [ -2, %2061 ], [ %.81254, %2063 ], [ %.81254, %.thread ]
-  %2069 = phi i32 [ -2, %2061 ], [ %2067, %2063 ], [ 2, %.thread ]
+2065:                                             ; preds = %2060, %.thread, %2058
+  %.81255 = phi i32 [ -2, %2058 ], [ %.81254, %2060 ], [ %.81254, %.thread ]
+  %2066 = phi i32 [ -2, %2058 ], [ %2064, %2060 ], [ 2, %.thread ]
   %.not1229 = icmp eq i32 %.01153, 0
-  br i1 %.not1229, label %2070, label %2087
+  br i1 %.not1229, label %2067, label %2084
 
-2070:                                             ; preds = %2068
-  %2071 = call fastcc i32 @yysyntax_error(ptr noundef nonnull %12, ptr %.01247, ptr nonnull %.21165, i32 %2069)
-  switch i32 %2071, label %2081 [
-    i32 0, label %2072
-    i32 -1, label %2073
+2067:                                             ; preds = %2065
+  %2068 = call fastcc i32 @yysyntax_error(ptr noundef nonnull %12, ptr %.01247, ptr nonnull %.21165, i32 %2066)
+  switch i32 %2068, label %2078 [
+    i32 0, label %2069
+    i32 -1, label %2070
   ]
 
-2072:                                             ; preds = %2070
-  br label %2081
+2069:                                             ; preds = %2067
+  br label %2078
 
-2073:                                             ; preds = %2070
+2070:                                             ; preds = %2067
   %.not1230 = icmp eq ptr %.01247, %11
-  br i1 %.not1230, label %2075, label %2074
+  br i1 %.not1230, label %2072, label %2071
 
-2074:                                             ; preds = %2073
+2071:                                             ; preds = %2070
   call void @jv_mem_free(ptr noundef %.01247) #9
-  br label %2075
+  br label %2072
 
-2075:                                             ; preds = %2074, %2073
-  %2076 = load i64, ptr %12, align 8
-  %2077 = call ptr @jv_mem_alloc(i64 noundef %2076) #9
-  %.not1231 = icmp eq ptr %2077, null
-  br i1 %.not1231, label %2080, label %2078
+2072:                                             ; preds = %2071, %2070
+  %2073 = load i64, ptr %12, align 8
+  %2074 = call ptr @jv_mem_alloc(i64 noundef %2073) #9
+  %.not1231 = icmp eq ptr %2074, null
+  br i1 %.not1231, label %2077, label %2075
 
-2078:                                             ; preds = %2075
-  %2079 = call fastcc i32 @yysyntax_error(ptr noundef nonnull %12, ptr nonnull %2077, ptr nonnull %.21165, i32 %2069)
-  br label %2081
+2075:                                             ; preds = %2072
+  %2076 = call fastcc i32 @yysyntax_error(ptr noundef nonnull %12, ptr nonnull %2074, ptr nonnull %.21165, i32 %2066)
+  br label %2078
 
-2080:                                             ; preds = %2075
+2077:                                             ; preds = %2072
   store i64 128, ptr %12, align 8
-  br label %2081
+  br label %2078
 
-2081:                                             ; preds = %2070, %2080, %2078, %2072
-  %.51251 = phi ptr [ %.01247, %2070 ], [ %11, %2080 ], [ %2077, %2078 ], [ %.01247, %2072 ]
-  %.01144 = phi ptr [ @.str.42, %2070 ], [ @.str.42, %2080 ], [ %2077, %2078 ], [ %.01247, %2072 ]
-  %.0 = phi i32 [ -2, %2070 ], [ -2, %2080 ], [ %2079, %2078 ], [ 0, %2072 ]
-  %2082 = load i32, ptr %1, align 4
-  %2083 = add nsw i32 %2082, 1
-  store i32 %2083, ptr %1, align 4
-  %2084 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.01144, ptr noundef nonnull dereferenceable(1) @.str) #8
-  %.not.i = icmp eq ptr %2084, null
-  %2085 = load i64, ptr %6, align 8
+2078:                                             ; preds = %2067, %2077, %2075, %2069
+  %.51251 = phi ptr [ %.01247, %2067 ], [ %11, %2077 ], [ %2074, %2075 ], [ %.01247, %2069 ]
+  %.01144 = phi ptr [ @.str.42, %2067 ], [ @.str.42, %2077 ], [ %2074, %2075 ], [ %.01247, %2069 ]
+  %.0 = phi i32 [ -2, %2067 ], [ -2, %2077 ], [ %2076, %2075 ], [ 0, %2069 ]
+  %2079 = load i32, ptr %1, align 4
+  %2080 = add nsw i32 %2079, 1
+  store i32 %2080, ptr %1, align 4
+  %2081 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.01144, ptr noundef nonnull dereferenceable(1) @.str) #8
+  %.not.i = icmp eq ptr %2081, null
+  %2082 = load i64, ptr %6, align 8
   %.str.2..str.1.i = select i1 %.not.i, ptr @.str.2, ptr @.str.1
-  call void (ptr, i64, ptr, ...) @locfile_locate(ptr noundef %2, i64 %2085, ptr noundef nonnull %.str.2..str.1.i, ptr noundef %.01144) #9
-  %2086 = icmp eq i32 %.0, -2
-  br i1 %2086, label %2125, label %.thread1256
+  call void (ptr, i64, ptr, ...) @locfile_locate(ptr noundef %2, i64 %2082, ptr noundef nonnull %.str.2..str.1.i, ptr noundef %.01144) #9
+  %2083 = icmp eq i32 %.0, -2
+  br i1 %2083, label %2122, label %.thread1256
 
-.thread1256:                                      ; preds = %2081
+.thread1256:                                      ; preds = %2078
   %.sroa.0606.8.copyload6081259 = load i32, ptr %6, align 8
-  br label %2094
+  br label %2091
 
-2087:                                             ; preds = %2068
+2084:                                             ; preds = %2065
   %.sroa.0606.8.copyload608 = load i32, ptr %6, align 8
-  %2088 = icmp eq i32 %.01153, 3
-  br i1 %2088, label %2089, label %2094
+  %2085 = icmp eq i32 %.01153, 3
+  br i1 %2085, label %2086, label %2091
 
-2089:                                             ; preds = %2087
-  %2090 = icmp slt i32 %.81255, 1
-  br i1 %2090, label %2091, label %2093
+2086:                                             ; preds = %2084
+  %2087 = icmp slt i32 %.81255, 1
+  br i1 %2087, label %2088, label %2090
 
-2091:                                             ; preds = %2089
-  %2092 = icmp eq i32 %.81255, 0
-  br i1 %2092, label %.thread1282, label %2094
+2088:                                             ; preds = %2086
+  %2089 = icmp eq i32 %.81255, 0
+  br i1 %2089, label %.thread1282, label %2091
 
-2093:                                             ; preds = %2089
-  call fastcc void @yydestruct(i32 noundef %2069, ptr noundef nonnull %5)
-  br label %2094
+2090:                                             ; preds = %2086
+  call fastcc void @yydestruct(i32 noundef %2066, ptr noundef nonnull %5)
+  br label %2091
 
-2094:                                             ; preds = %.thread1256, %2087, %2091, %2093, %84
-  %.3 = phi ptr [ %.01247, %2091 ], [ %.01247, %2093 ], [ %.01247, %2087 ], [ %.01247, %84 ], [ %.51251, %.thread1256 ]
-  %.sroa.0606.0 = phi i32 [ %.sroa.0606.8.copyload608, %2091 ], [ %.sroa.0606.8.copyload608, %2093 ], [ %.sroa.0606.8.copyload608, %2087 ], [ %.sroa.0606.8.copyload, %84 ], [ %.sroa.0606.8.copyload6081259, %.thread1256 ]
-  %.7 = phi i32 [ %.81255, %2091 ], [ -2, %2093 ], [ %.81255, %2087 ], [ 257, %84 ], [ %.81255, %.thread1256 ]
-  br label %2095
+2091:                                             ; preds = %.thread1256, %2084, %2088, %2090, %84
+  %.3 = phi ptr [ %.01247, %2088 ], [ %.01247, %2090 ], [ %.01247, %2084 ], [ %.01247, %84 ], [ %.51251, %.thread1256 ]
+  %.sroa.0606.0 = phi i32 [ %.sroa.0606.8.copyload608, %2088 ], [ %.sroa.0606.8.copyload608, %2090 ], [ %.sroa.0606.8.copyload608, %2084 ], [ %.sroa.0606.8.copyload, %84 ], [ %.sroa.0606.8.copyload6081259, %.thread1256 ]
+  %.7 = phi i32 [ %.81255, %2088 ], [ -2, %2090 ], [ %.81255, %2084 ], [ 257, %84 ], [ %.81255, %.thread1256 ]
+  br label %2092
 
-2095:                                             ; preds = %2111, %2094
-  %2096 = phi i16 [ %73, %2094 ], [ %.pre, %2111 ]
-  %.sroa.0606.1 = phi i32 [ %.sroa.0606.0, %2094 ], [ %.sroa.0606.8.copyload609, %2111 ]
-  %.51188 = phi ptr [ %.21185, %2094 ], [ %2117, %2111 ]
-  %.51178 = phi ptr [ %.21175, %2094 ], [ %2115, %2111 ]
-  %.51168 = phi ptr [ %.21165, %2094 ], [ %2116, %2111 ]
-  %.21152 = phi i32 [ %.01150, %2094 ], [ %2119, %2111 ]
-  %2097 = sext i32 %.21152 to i64
-  %2098 = icmp sgt i16 %2096, -2
-  br i1 %2098, label %2099, label %2109
+2092:                                             ; preds = %2108, %2091
+  %2093 = phi i16 [ %73, %2091 ], [ %.pre, %2108 ]
+  %.sroa.0606.1 = phi i32 [ %.sroa.0606.0, %2091 ], [ %.sroa.0606.8.copyload609, %2108 ]
+  %.51188 = phi ptr [ %.21185, %2091 ], [ %2114, %2108 ]
+  %.51178 = phi ptr [ %.21175, %2091 ], [ %2112, %2108 ]
+  %.51168 = phi ptr [ %.21165, %2091 ], [ %2113, %2108 ]
+  %.21152 = phi i32 [ %.01150, %2091 ], [ %2116, %2108 ]
+  %2094 = sext i32 %.21152 to i64
+  %2095 = icmp sgt i16 %2093, -2
+  br i1 %2095, label %2096, label %2106
 
-2099:                                             ; preds = %2095
-  %2100 = sext i16 %2096 to i64
-  %2101 = add nsw i64 %2100, 1
-  %2102 = getelementptr inbounds [2052 x i16], ptr @yycheck, i64 0, i64 %2101
-  %2103 = load i16, ptr %2102, align 2
-  %2104 = icmp eq i16 %2103, 1
-  br i1 %2104, label %2105, label %2109
+2096:                                             ; preds = %2092
+  %2097 = sext i16 %2093 to i64
+  %2098 = add nsw i64 %2097, 1
+  %2099 = getelementptr inbounds [2052 x i16], ptr @yycheck, i64 0, i64 %2098
+  %2100 = load i16, ptr %2099, align 2
+  %2101 = icmp eq i16 %2100, 1
+  br i1 %2101, label %2102, label %2106
 
-2105:                                             ; preds = %2099
-  %2106 = getelementptr inbounds [2052 x i16], ptr @yytable, i64 0, i64 %2101
-  %2107 = load i16, ptr %2106, align 2
-  %2108 = icmp sgt i16 %2107, 0
-  br i1 %2108, label %2120, label %2109
+2102:                                             ; preds = %2096
+  %2103 = getelementptr inbounds [2052 x i16], ptr @yytable, i64 0, i64 %2098
+  %2104 = load i16, ptr %2103, align 2
+  %2105 = icmp sgt i16 %2104, 0
+  br i1 %2105, label %2117, label %2106
 
-2109:                                             ; preds = %2099, %2105, %2095
-  %2110 = icmp eq ptr %.51168, %.11159
-  br i1 %2110, label %.loopexit, label %2111
+2106:                                             ; preds = %2096, %2102, %2092
+  %2107 = icmp eq ptr %.51168, %.11159
+  br i1 %2107, label %.loopexit, label %2108
 
-2111:                                             ; preds = %2109
+2108:                                             ; preds = %2106
   %.sroa.0606.8.copyload609 = load i32, ptr %.51188, align 4
-  %2112 = getelementptr inbounds [315 x i8], ptr @yystos, i64 0, i64 %2097
-  %2113 = load i8, ptr %2112, align 1
-  %2114 = sext i8 %2113 to i32
-  call fastcc void @yydestruct(i32 noundef %2114, ptr noundef nonnull %.51178)
-  %2115 = getelementptr inbounds i8, ptr %.51178, i64 -16
-  %2116 = getelementptr inbounds i8, ptr %.51168, i64 -2
-  %2117 = getelementptr inbounds i8, ptr %.51188, i64 -8
-  %2118 = load i16, ptr %2116, align 2
-  %2119 = sext i16 %2118 to i32
-  %.phi.trans.insert = sext i16 %2118 to i64
+  %2109 = getelementptr inbounds [315 x i8], ptr @yystos, i64 0, i64 %2094
+  %2110 = load i8, ptr %2109, align 1
+  %2111 = sext i8 %2110 to i32
+  call fastcc void @yydestruct(i32 noundef %2111, ptr noundef nonnull %.51178)
+  %2112 = getelementptr inbounds i8, ptr %.51178, i64 -16
+  %2113 = getelementptr inbounds i8, ptr %.51168, i64 -2
+  %2114 = getelementptr inbounds i8, ptr %.51188, i64 -8
+  %2115 = load i16, ptr %2113, align 2
+  %2116 = sext i16 %2115 to i32
+  %.phi.trans.insert = sext i16 %2115 to i64
   %.phi.trans.insert1337 = getelementptr inbounds [315 x i16], ptr @yypact, i64 0, i64 %.phi.trans.insert
   %.pre = load i16, ptr %.phi.trans.insert1337, align 2
-  br label %2095
+  br label %2092
 
-2120:                                             ; preds = %2105
-  %2121 = zext nneg i16 %2107 to i32
-  %2122 = getelementptr inbounds i8, ptr %.51178, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2122, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
+2117:                                             ; preds = %2102
+  %2118 = zext nneg i16 %2104 to i32
+  %2119 = getelementptr inbounds i8, ptr %.51178, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2119, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %.sroa.6.16.copyload = load i32, ptr %.sroa.6.16..sroa_idx, align 4
-  %2123 = getelementptr inbounds i8, ptr %.51188, i64 8
-  store i32 %.sroa.0606.1, ptr %2123, align 4
-  %2124 = getelementptr inbounds i8, ptr %.51188, i64 12
-  store i32 %.sroa.6.16.copyload, ptr %2124, align 4
+  %2120 = getelementptr inbounds i8, ptr %.51188, i64 8
+  store i32 %.sroa.0606.1, ptr %2120, align 4
+  %2121 = getelementptr inbounds i8, ptr %.51188, i64 12
+  store i32 %.sroa.6.16.copyload, ptr %2121, align 4
   br label %30
 
-2125:                                             ; preds = %2081, %43, %36
-  %.21249 = phi ptr [ %.51251, %2081 ], [ %.01247, %36 ], [ %.01247, %43 ]
-  %.31176 = phi ptr [ %.21175, %2081 ], [ %.01173, %36 ], [ %.01173, %43 ]
-  %.31166 = phi ptr [ %.21165, %2081 ], [ %.01163, %36 ], [ %.01163, %43 ]
-  %.21160 = phi ptr [ %.11159, %2081 ], [ %.01158, %36 ], [ %.01158, %43 ]
-  %.2 = phi i32 [ %.81255, %2081 ], [ %.01145, %36 ], [ %.01145, %43 ]
-  %2126 = load i32, ptr %1, align 4
-  %2127 = add nsw i32 %2126, 1
-  store i32 %2127, ptr %1, align 4
-  %2128 = load i64, ptr %6, align 8
-  call void (ptr, i64, ptr, ...) @locfile_locate(ptr noundef %2, i64 %2128, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.45) #9
+2122:                                             ; preds = %2078, %43, %36
+  %.21249 = phi ptr [ %.51251, %2078 ], [ %.01247, %36 ], [ %.01247, %43 ]
+  %.31176 = phi ptr [ %.21175, %2078 ], [ %.01173, %36 ], [ %.01173, %43 ]
+  %.31166 = phi ptr [ %.21165, %2078 ], [ %.01163, %36 ], [ %.01163, %43 ]
+  %.21160 = phi ptr [ %.11159, %2078 ], [ %.01158, %36 ], [ %.01158, %43 ]
+  %.2 = phi i32 [ %.81255, %2078 ], [ %.01145, %36 ], [ %.01145, %43 ]
+  %2123 = load i32, ptr %1, align 4
+  %2124 = add nsw i32 %2123, 1
+  store i32 %2124, ptr %1, align 4
+  %2125 = load i64, ptr %6, align 8
+  call void (ptr, i64, ptr, ...) @locfile_locate(ptr noundef %2, i64 %2125, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.45) #9
   br label %.loopexit
 
-.loopexit:                                        ; preds = %61, %68, %2109, %2125
-  %.61252 = phi ptr [ %.21249, %2125 ], [ %.3, %2109 ], [ %.01247, %68 ], [ %.01247, %61 ]
-  %.01192 = phi i32 [ 2, %2125 ], [ 1, %2109 ], [ 1, %61 ], [ 0, %68 ]
-  %.61179 = phi ptr [ %.31176, %2125 ], [ %.51178, %2109 ], [ %65, %61 ], [ %.21175, %68 ]
-  %.61169 = phi ptr [ %.31166, %2125 ], [ %.51168, %2109 ], [ %63, %61 ], [ %.21165, %68 ]
-  %.41162 = phi ptr [ %.21160, %2125 ], [ %.11159, %2109 ], [ %47, %61 ], [ %.11159, %68 ]
-  %.10 = phi i32 [ %.2, %2125 ], [ %.7, %2109 ], [ %.01145, %68 ], [ %.01145, %61 ]
+.loopexit:                                        ; preds = %61, %68, %2106, %2122
+  %.61252 = phi ptr [ %.21249, %2122 ], [ %.3, %2106 ], [ %.01247, %68 ], [ %.01247, %61 ]
+  %.01192 = phi i32 [ 2, %2122 ], [ 1, %2106 ], [ 1, %61 ], [ 0, %68 ]
+  %.61179 = phi ptr [ %.31176, %2122 ], [ %.51178, %2106 ], [ %65, %61 ], [ %.21175, %68 ]
+  %.61169 = phi ptr [ %.31166, %2122 ], [ %.51168, %2106 ], [ %63, %61 ], [ %.21165, %68 ]
+  %.41162 = phi ptr [ %.21160, %2122 ], [ %.11159, %2106 ], [ %47, %61 ], [ %.11159, %68 ]
+  %.10 = phi i32 [ %.2, %2122 ], [ %.7, %2106 ], [ %.01145, %68 ], [ %.01145, %61 ]
   %.not1232 = icmp eq i32 %.10, -2
-  br i1 %.not1232, label %2136, label %2129
+  br i1 %.not1232, label %2133, label %2126
 
-2129:                                             ; preds = %.loopexit
+2126:                                             ; preds = %.loopexit
   %or.cond11 = icmp ult i32 %.10, 304
-  br i1 %or.cond11, label %.thread1282, label %2134
+  br i1 %or.cond11, label %.thread1282, label %2131
 
-.thread1282:                                      ; preds = %2091, %2129
-  %.6125212691303 = phi ptr [ %.61252, %2129 ], [ %.01247, %2091 ]
-  %.0119212711301 = phi i32 [ %.01192, %2129 ], [ 1, %2091 ]
-  %.6117912751297 = phi ptr [ %.61179, %2129 ], [ %.21175, %2091 ]
-  %.6116912771295 = phi ptr [ %.61169, %2129 ], [ %.21165, %2091 ]
-  %.4116212791293 = phi ptr [ %.41162, %2129 ], [ %.11159, %2091 ]
-  %.1012811291 = phi i32 [ %.10, %2129 ], [ 0, %2091 ]
-  %2130 = zext nneg i32 %.1012811291 to i64
-  %2131 = getelementptr inbounds [304 x i8], ptr @yytranslate, i64 0, i64 %2130
-  %2132 = load i8, ptr %2131, align 1
-  %2133 = sext i8 %2132 to i32
-  br label %2134
+.thread1282:                                      ; preds = %2088, %2126
+  %.6125212691303 = phi ptr [ %.61252, %2126 ], [ %.01247, %2088 ]
+  %.0119212711301 = phi i32 [ %.01192, %2126 ], [ 1, %2088 ]
+  %.6117912751297 = phi ptr [ %.61179, %2126 ], [ %.21175, %2088 ]
+  %.6116912771295 = phi ptr [ %.61169, %2126 ], [ %.21165, %2088 ]
+  %.4116212791293 = phi ptr [ %.41162, %2126 ], [ %.11159, %2088 ]
+  %.1012811291 = phi i32 [ %.10, %2126 ], [ 0, %2088 ]
+  %2127 = zext nneg i32 %.1012811291 to i64
+  %2128 = getelementptr inbounds [304 x i8], ptr @yytranslate, i64 0, i64 %2127
+  %2129 = load i8, ptr %2128, align 1
+  %2130 = sext i8 %2129 to i32
+  br label %2131
 
-2134:                                             ; preds = %2129, %.thread1282
-  %.6125212691302 = phi ptr [ %.6125212691303, %.thread1282 ], [ %.61252, %2129 ]
-  %.0119212711300 = phi i32 [ %.0119212711301, %.thread1282 ], [ %.01192, %2129 ]
-  %.6117912751296 = phi ptr [ %.6117912751297, %.thread1282 ], [ %.61179, %2129 ]
-  %.6116912771294 = phi ptr [ %.6116912771295, %.thread1282 ], [ %.61169, %2129 ]
-  %.4116212791292 = phi ptr [ %.4116212791293, %.thread1282 ], [ %.41162, %2129 ]
-  %2135 = phi i32 [ %2133, %.thread1282 ], [ 2, %2129 ]
-  call fastcc void @yydestruct(i32 noundef %2135, ptr noundef nonnull %5)
-  br label %2136
+2131:                                             ; preds = %2126, %.thread1282
+  %.6125212691302 = phi ptr [ %.6125212691303, %.thread1282 ], [ %.61252, %2126 ]
+  %.0119212711300 = phi i32 [ %.0119212711301, %.thread1282 ], [ %.01192, %2126 ]
+  %.6117912751296 = phi ptr [ %.6117912751297, %.thread1282 ], [ %.61179, %2126 ]
+  %.6116912771294 = phi ptr [ %.6116912771295, %.thread1282 ], [ %.61169, %2126 ]
+  %.4116212791292 = phi ptr [ %.4116212791293, %.thread1282 ], [ %.41162, %2126 ]
+  %2132 = phi i32 [ %2130, %.thread1282 ], [ 2, %2126 ]
+  call fastcc void @yydestruct(i32 noundef %2132, ptr noundef nonnull %5)
+  br label %2133
 
-2136:                                             ; preds = %2134, %.loopexit
-  %.411621280 = phi ptr [ %.4116212791292, %2134 ], [ %.41162, %.loopexit ]
-  %.611691278 = phi ptr [ %.6116912771294, %2134 ], [ %.61169, %.loopexit ]
-  %.611791276 = phi ptr [ %.6117912751296, %2134 ], [ %.61179, %.loopexit ]
-  %.011921272 = phi i32 [ %.0119212711300, %2134 ], [ %.01192, %.loopexit ]
-  %.612521270 = phi ptr [ %.6125212691302, %2134 ], [ %.61252, %.loopexit ]
+2133:                                             ; preds = %2131, %.loopexit
+  %.411621280 = phi ptr [ %.4116212791292, %2131 ], [ %.41162, %.loopexit ]
+  %.611691278 = phi ptr [ %.6116912771294, %2131 ], [ %.61169, %.loopexit ]
+  %.611791276 = phi ptr [ %.6117912751296, %2131 ], [ %.61179, %.loopexit ]
+  %.011921272 = phi i32 [ %.0119212711300, %2131 ], [ %.01192, %.loopexit ]
+  %.612521270 = phi ptr [ %.6125212691302, %2131 ], [ %.61252, %.loopexit ]
   %.not12331320 = icmp eq ptr %.611691278, %.411621280
   br i1 %.not12331320, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2136, %.lr.ph
-  %.711701322 = phi ptr [ %2143, %.lr.ph ], [ %.611691278, %2136 ]
-  %.711801321 = phi ptr [ %2142, %.lr.ph ], [ %.611791276, %2136 ]
-  %2137 = load i16, ptr %.711701322, align 2
-  %2138 = sext i16 %2137 to i64
-  %2139 = getelementptr inbounds [315 x i8], ptr @yystos, i64 0, i64 %2138
-  %2140 = load i8, ptr %2139, align 1
-  %2141 = sext i8 %2140 to i32
-  call fastcc void @yydestruct(i32 noundef %2141, ptr noundef nonnull %.711801321)
-  %2142 = getelementptr inbounds i8, ptr %.711801321, i64 -16
-  %2143 = getelementptr inbounds i8, ptr %.711701322, i64 -2
-  %.not1233 = icmp eq ptr %2143, %.411621280
+.lr.ph:                                           ; preds = %2133, %.lr.ph
+  %.711701322 = phi ptr [ %2140, %.lr.ph ], [ %.611691278, %2133 ]
+  %.711801321 = phi ptr [ %2139, %.lr.ph ], [ %.611791276, %2133 ]
+  %2134 = load i16, ptr %.711701322, align 2
+  %2135 = sext i16 %2134 to i64
+  %2136 = getelementptr inbounds [315 x i8], ptr @yystos, i64 0, i64 %2135
+  %2137 = load i8, ptr %2136, align 1
+  %2138 = sext i8 %2137 to i32
+  call fastcc void @yydestruct(i32 noundef %2138, ptr noundef nonnull %.711801321)
+  %2139 = getelementptr inbounds i8, ptr %.711801321, i64 -16
+  %2140 = getelementptr inbounds i8, ptr %.711701322, i64 -2
+  %.not1233 = icmp eq ptr %2140, %.411621280
   br i1 %.not1233, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %.lr.ph, %2136
+._crit_edge:                                      ; preds = %.lr.ph, %2133
   %.not1234 = icmp eq ptr %.411621280, %7
-  br i1 %.not1234, label %2145, label %2144
+  br i1 %.not1234, label %2142, label %2141
 
-2144:                                             ; preds = %._crit_edge
+2141:                                             ; preds = %._crit_edge
   call void @jv_mem_free(ptr noundef %.411621280) #9
-  br label %2145
+  br label %2142
 
-2145:                                             ; preds = %2144, %._crit_edge
+2142:                                             ; preds = %2141, %._crit_edge
   %.not1235 = icmp eq ptr %.612521270, %11
-  br i1 %.not1235, label %2147, label %2146
+  br i1 %.not1235, label %2144, label %2143
 
-2146:                                             ; preds = %2145
+2143:                                             ; preds = %2142
   call void @jv_mem_free(ptr noundef %.612521270) #9
-  br label %2147
+  br label %2144
 
-2147:                                             ; preds = %2146, %2145
+2144:                                             ; preds = %2143, %2142
   ret i32 %.011921272
 }
 

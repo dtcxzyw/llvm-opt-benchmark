@@ -493,34 +493,29 @@ define internal i32 @dissect_credssp_T_credentials(i1 noundef zeroext %0, ptr no
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #5
   %9 = load i32, ptr @creds_type, align 4
-  switch i32 %9, label %25 [
-    i32 1, label %10
-    i32 2, label %15
-    i32 6, label %20
+  switch i32 %9, label %16 [
+    i32 1, label %.sink.split
+    i32 2, label %10
+    i32 6, label %11
   ]
 
 10:                                               ; preds = %6
-  %11 = load ptr, ptr %7, align 8
-  %12 = load i32, ptr @hf_credssp_TSPasswordCreds, align 4
-  %13 = load i32, ptr @ett_credssp_TSPasswordCreds, align 4
-  %14 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef %3, ptr noundef %4, ptr noundef %11, i32 noundef 0, ptr noundef nonnull @TSPasswordCreds_sequence, i32 noundef %12, i32 noundef %13) #5
-  br label %25
+  br label %.sink.split
 
-15:                                               ; preds = %6
-  %16 = load ptr, ptr %7, align 8
-  %17 = load i32, ptr @hf_credssp_TSSmartCardCreds, align 4
-  %18 = load i32, ptr @ett_credssp_TSSmartCardCreds, align 4
-  %19 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef %3, ptr noundef %4, ptr noundef %16, i32 noundef 0, ptr noundef nonnull @TSSmartCardCreds_sequence, i32 noundef %17, i32 noundef %18) #5
-  br label %25
+11:                                               ; preds = %6
+  br label %.sink.split
 
-20:                                               ; preds = %6
-  %21 = load ptr, ptr %7, align 8
-  %22 = load i32, ptr @hf_credssp_TSRemoteGuardCreds, align 4
-  %23 = load i32, ptr @ett_credssp_TSRemoteGuardCreds, align 4
-  %24 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef %3, ptr noundef %4, ptr noundef %21, i32 noundef 0, ptr noundef nonnull @TSRemoteGuardCreds_sequence, i32 noundef %22, i32 noundef %23) #5
-  br label %25
+.sink.split:                                      ; preds = %6, %10, %11
+  %hf_credssp_TSRemoteGuardCreds.sink = phi ptr [ @hf_credssp_TSRemoteGuardCreds, %11 ], [ @hf_credssp_TSSmartCardCreds, %10 ], [ @hf_credssp_TSPasswordCreds, %6 ]
+  %ett_credssp_TSRemoteGuardCreds.sink = phi ptr [ @ett_credssp_TSRemoteGuardCreds, %11 ], [ @ett_credssp_TSSmartCardCreds, %10 ], [ @ett_credssp_TSPasswordCreds, %6 ]
+  %TSRemoteGuardCreds_sequence.sink = phi ptr [ @TSRemoteGuardCreds_sequence, %11 ], [ @TSSmartCardCreds_sequence, %10 ], [ @TSPasswordCreds_sequence, %6 ]
+  %12 = load ptr, ptr %7, align 8
+  %13 = load i32, ptr %hf_credssp_TSRemoteGuardCreds.sink, align 4
+  %14 = load i32, ptr %ett_credssp_TSRemoteGuardCreds.sink, align 4
+  %15 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef %3, ptr noundef %4, ptr noundef %12, i32 noundef 0, ptr noundef nonnull %TSRemoteGuardCreds_sequence.sink, i32 noundef %13, i32 noundef %14) #5
+  br label %16
 
-25:                                               ; preds = %20, %15, %10, %6
+16:                                               ; preds = %.sink.split, %6
   ret i32 %8
 }
 

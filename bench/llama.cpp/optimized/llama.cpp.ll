@@ -16050,11 +16050,7 @@ _ZNSt12_Vector_baseIP11ggml_tensorSaIS1_EE13_M_deallocateEPS1_m.exit.i75.i: ; pr
 
 _ZNSt6vectorIP11ggml_tensorSaIS1_EE7reserveEm.exit80.i: ; preds = %_ZNSt12_Vector_baseIP11ggml_tensorSaIS1_EE13_M_deallocateEPS1_m.exit.i75.i, %_ZNSt6vectorIP11ggml_tensorSaIS1_EE7reserveEm.exit.i
   %cmp121.i = icmp sgt i32 %45, 0
-  br i1 %cmp121.i, label %for.body.lr.ph.i, label %_ZL19llama_kv_cache_initRK13llama_hparamsR14llama_kv_cache9ggml_typeS4_jib.exit.thread
-
-_ZL19llama_kv_cache_initRK13llama_hparamsR14llama_kv_cache9ggml_typeS4_jib.exit.thread: ; preds = %_ZNSt6vectorIP11ggml_tensorSaIS1_EE7reserveEm.exit80.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i)
-  br label %if.end106
+  br i1 %cmp121.i, label %for.body.lr.ph.i, label %if.end106
 
 for.body.lr.ph.i:                                 ; preds = %_ZNSt6vectorIP11ggml_tensorSaIS1_EE7reserveEm.exit80.i
   %mul25.i = mul i32 %div.i.i, %41
@@ -16209,13 +16205,10 @@ _ZNSt6vectorIP11ggml_tensorSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__
 _ZNSt6vectorIP11ggml_tensorSaIS1_EE9push_backERKS1_.exit116.i: ; preds = %_ZNSt6vectorIP11ggml_tensorSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i112.i, %if.then.i86.i
   %inc.i = add nuw nsw i32 %i.0122.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %45
-  br i1 %exitcond.not.i, label %_ZL19llama_kv_cache_initRK13llama_hparamsR14llama_kv_cache9ggml_typeS4_jib.exit, label %for.body.i, !llvm.loop !123
+  br i1 %exitcond.not.i, label %if.end106, label %for.body.i, !llvm.loop !123
 
-_ZL19llama_kv_cache_initRK13llama_hparamsR14llama_kv_cache9ggml_typeS4_jib.exit: ; preds = %_ZNSt6vectorIP11ggml_tensorSaIS1_EE9push_backERKS1_.exit116.i
+if.end106:                                        ; preds = %_ZNSt6vectorIP11ggml_tensorSaIS1_EE9push_backERKS1_.exit116.i, %_ZNSt6vectorIP11ggml_tensorSaIS1_EE7reserveEm.exit80.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i)
-  br label %if.end106
-
-if.end106:                                        ; preds = %_ZL19llama_kv_cache_initRK13llama_hparamsR14llama_kv_cache9ggml_typeS4_jib.exit, %_ZL19llama_kv_cache_initRK13llama_hparamsR14llama_kv_cache9ggml_typeS4_jib.exit.thread
   %77 = load ptr, ptr %k_l.i, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %call, i64 112
   %78 = load ptr, ptr %_M_finish.i, align 8

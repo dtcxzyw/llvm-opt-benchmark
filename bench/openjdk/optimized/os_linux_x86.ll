@@ -900,8 +900,7 @@ define hidden noundef zeroext i1 @_ZN12PosixSignals25pd_hotspot_signal_handlerEi
 
 51:                                               ; preds = %44
   %52 = call noundef ptr @_ZN13SharedRuntime13get_poll_stubEPh(ptr noundef %12) #12
-  store ptr %52, ptr %5, align 8
-  br label %.thread93
+  br label %.thread93.sink.split
 
 .thread:                                          ; preds = %.critedge85.thread
   switch i32 %0, label %thread-pre-split [
@@ -970,8 +969,7 @@ define hidden noundef zeroext i1 @_ZN12PosixSignals25pd_hotspot_signal_handlerEi
 80:                                               ; preds = %78, %76
   %.072 = phi ptr [ %79, %78 ], [ %77, %76 ]
   %81 = tail call noundef ptr @_ZN13SharedRuntime20handle_unsafe_accessEP10JavaThreadPh(ptr noundef nonnull %3, ptr noundef %.072) #12
-  store ptr %81, ptr %5, align 8
-  br label %.thread93
+  br label %.thread93.sink.split
 
 82:                                               ; preds = %.thread
   %83 = getelementptr inbounds i8, ptr %1, i64 8
@@ -991,8 +989,7 @@ define hidden noundef zeroext i1 @_ZN12PosixSignals25pd_hotspot_signal_handlerEi
 
 88:                                               ; preds = %86
   %89 = call noundef ptr @_ZN13SharedRuntime35continuation_for_implicit_exceptionEP10JavaThreadPhNS_21ImplicitExceptionKindE(ptr noundef nonnull %3, ptr noundef %12, i32 noundef 0) #12
-  store ptr %89, ptr %5, align 8
-  br label %.thread93
+  br label %.thread93.sink.split
 
 90:                                               ; preds = %.critedge85.thread, %.critedge85
   %91 = phi ptr [ %41, %.critedge85.thread ], [ %38, %.critedge85 ]
@@ -1031,8 +1028,7 @@ define hidden noundef zeroext i1 @_ZN12PosixSignals25pd_hotspot_signal_handlerEi
 108:                                              ; preds = %106, %103
   %.071 = phi ptr [ %107, %106 ], [ %104, %103 ]
   %109 = call noundef ptr @_ZN13SharedRuntime20handle_unsafe_accessEP10JavaThreadPh(ptr noundef nonnull %3, ptr noundef %.071) #12
-  store ptr %109, ptr %5, align 8
-  br label %.thread93
+  br label %.thread93.sink.split
 
 .thread91:                                        ; preds = %94
   switch i32 %0, label %thread-pre-split [
@@ -1040,7 +1036,12 @@ define hidden noundef zeroext i1 @_ZN12PosixSignals25pd_hotspot_signal_handlerEi
     i32 7, label %.thread93
   ]
 
-.thread93:                                        ; preds = %.thread95, %.thread96, %.thread87, %80, %74, %86, %88, %51, %108, %99, %68, %98, %.thread91, %.thread91
+.thread93.sink.split:                             ; preds = %108, %51, %88, %80
+  %.sink = phi ptr [ %81, %80 ], [ %89, %88 ], [ %52, %51 ], [ %109, %108 ]
+  store ptr %.sink, ptr %5, align 8
+  br label %.thread93
+
+.thread93:                                        ; preds = %.thread93.sink.split, %.thread95, %.thread96, %.thread87, %74, %86, %99, %68, %98, %.thread91, %.thread91
   %110 = call noundef ptr @_ZN16JNI_FastGetField16find_slowcase_pcEPh(ptr noundef %12) #12
   %.not83 = icmp eq ptr %110, inttoptr (i64 -1 to ptr)
   br i1 %.not83, label %thread-pre-split, label %111

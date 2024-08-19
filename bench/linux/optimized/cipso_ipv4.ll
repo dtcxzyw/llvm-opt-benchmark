@@ -1648,8 +1648,8 @@ define internal fastcc i32 @cipso_v4_genopt(ptr noundef %0, ptr nocapture nounde
   %15 = getelementptr i8, ptr %0, i64 9
   br label %16
 
-16:                                               ; preds = %231, %3
-  %17 = phi i64 [ %232, %231 ], [ 0, %3 ]
+16:                                               ; preds = %229, %3
+  %17 = phi i64 [ %230, %229 ], [ 0, %3 ]
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %18 = getelementptr [5 x i8], ptr %5, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
@@ -1657,7 +1657,7 @@ define internal fastcc i32 @cipso_v4_genopt(ptr noundef %0, ptr nocapture nounde
     i8 1, label %20
     i8 2, label %95
     i8 5, label %139
-    i8 -128, label %224
+    i8 -128, label %222
   ]
 
 20:                                               ; preds = %16
@@ -1974,78 +1974,70 @@ define internal fastcc i32 @cipso_v4_genopt(ptr noundef %0, ptr nocapture nounde
 214:                                              ; preds = %209, %.preheader
   %215 = phi i32 [ %213, %209 ], [ %203, %.preheader ]
   %216 = icmp eq i32 %204, 0
-  br i1 %216, label %217, label %.preheader, !llvm.loop !33
+  br i1 %216, label %.thread52, label %.preheader, !llvm.loop !33
 
 .thread49:                                        ; preds = %.preheader59, %174, %182
   %.ph48 = phi i32 [ -28, %182 ], [ -14, %174 ], [ -28, %.preheader59 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
   br label %.thread
 
-.thread52:                                        ; preds = %161, %165
-  %.ph51 = phi i32 [ %185, %165 ], [ 0, %161 ]
+.thread52:                                        ; preds = %161, %214, %165
+  %217 = phi i32 [ %185, %165 ], [ %185, %214 ], [ 0, %161 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
-  br label %218
-
-217:                                              ; preds = %214
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
-  br label %218
-
-218:                                              ; preds = %217, %.thread52
-  %219 = phi i32 [ %.ph51, %.thread52 ], [ %185, %217 ]
-  %220 = add nuw nsw i32 %219, 4
+  %218 = add nuw nsw i32 %217, 4
   br label %.loopexit61
 
-.loopexit61:                                      ; preds = %.thread45, %218
-  %221 = phi i32 [ %220, %218 ], [ 4, %.thread45 ]
+.loopexit61:                                      ; preds = %.thread45, %.thread52
+  %219 = phi i32 [ %218, %.thread52 ], [ 4, %.thread45 ]
   store i8 5, ptr %6, align 1
-  %222 = trunc i32 %221 to i8
-  store i8 %222, ptr %7, align 1
-  %223 = trunc i32 %158 to i8
-  store i8 %223, ptr %15, align 1
+  %220 = trunc i32 %219 to i8
+  store i8 %220, ptr %7, align 1
+  %221 = trunc i32 %158 to i8
+  store i8 %221, ptr %15, align 1
   br label %.thread55
 
-224:                                              ; preds = %16
-  %225 = load i32, ptr %2, align 8
-  %226 = and i32 %225, 16
-  %227 = icmp eq i32 %226, 0
-  br i1 %227, label %.thread, label %228
+222:                                              ; preds = %16
+  %223 = load i32, ptr %2, align 8
+  %224 = and i32 %223, 16
+  %225 = icmp eq i32 %224, 0
+  br i1 %225, label %.thread, label %226
 
-228:                                              ; preds = %224
+226:                                              ; preds = %222
   store i8 -128, ptr %6, align 1
   store i8 6, ptr %7, align 1
-  %229 = load i32, ptr %8, align 8
-  store i32 %229, ptr %9, align 4
+  %227 = load i32, ptr %8, align 8
+  store i32 %227, ptr %9, align 4
   br label %.thread55
 
-.thread:                                          ; preds = %.preheader57, %68, %63, %61, %146, %143, %102, %99, %27, %24, %.thread49, %224, %151, %139, %107, %95, %32, %20
-  %230 = phi i32 [ -1, %20 ], [ -1, %32 ], [ -1, %95 ], [ -1, %107 ], [ -1, %139 ], [ -1, %151 ], [ -1, %224 ], [ %.ph48, %.thread49 ], [ -1, %27 ], [ -22, %24 ], [ -1, %102 ], [ -22, %99 ], [ -1, %146 ], [ -22, %143 ], [ -1, %61 ], [ -1, %63 ], [ -28, %68 ], [ -28, %.preheader57 ]
+.thread:                                          ; preds = %.preheader57, %68, %63, %61, %146, %143, %102, %99, %27, %24, %.thread49, %222, %151, %139, %107, %95, %32, %20
+  %228 = phi i32 [ -1, %20 ], [ -1, %32 ], [ -1, %95 ], [ -1, %107 ], [ -1, %139 ], [ -1, %151 ], [ -1, %222 ], [ %.ph48, %.thread49 ], [ -1, %27 ], [ -22, %24 ], [ -1, %102 ], [ -22, %99 ], [ -1, %146 ], [ -22, %143 ], [ -1, %61 ], [ -1, %63 ], [ -28, %68 ], [ -28, %.preheader57 ]
   %exitcond.not = icmp eq i64 %17, 4
-  br i1 %exitcond.not, label %.loopexit, label %231
+  br i1 %exitcond.not, label %.loopexit, label %229
 
-231:                                              ; preds = %.thread
-  %232 = add nuw nsw i64 %17, 1
-  %233 = getelementptr [5 x i8], ptr %5, i64 0, i64 %232
-  %234 = load i8, ptr %233, align 1
-  %235 = icmp eq i8 %234, 0
-  br i1 %235, label %.loopexit, label %16, !llvm.loop !34
+229:                                              ; preds = %.thread
+  %230 = add nuw nsw i64 %17, 1
+  %231 = getelementptr [5 x i8], ptr %5, i64 0, i64 %230
+  %232 = load i8, ptr %231, align 1
+  %233 = icmp eq i8 %232, 0
+  br i1 %233, label %.loopexit, label %16, !llvm.loop !34
 
-.thread55:                                        ; preds = %228, %.loopexit61, %.loopexit62, %.loopexit63
-  %236 = phi i32 [ 6, %228 ], [ %221, %.loopexit61 ], [ %136, %.loopexit62 ], [ %92, %.loopexit63 ]
+.thread55:                                        ; preds = %226, %.loopexit61, %.loopexit62, %.loopexit63
+  %234 = phi i32 [ 6, %226 ], [ %219, %.loopexit61 ], [ %136, %.loopexit62 ], [ %92, %.loopexit63 ]
   store i8 -122, ptr %0, align 1
-  %237 = trunc i32 %236 to i8
-  %238 = add i8 %237, 6
-  %239 = getelementptr i8, ptr %0, i64 1
-  store i8 %238, ptr %239, align 1
-  %240 = load i32, ptr %1, align 8
-  %241 = getelementptr i8, ptr %0, i64 2
-  %242 = tail call i32 @llvm.bswap.i32(i32 %240)
-  store i32 %242, ptr %241, align 1
-  %243 = add nuw i32 %236, 6
+  %235 = trunc i32 %234 to i8
+  %236 = add i8 %235, 6
+  %237 = getelementptr i8, ptr %0, i64 1
+  store i8 %236, ptr %237, align 1
+  %238 = load i32, ptr %1, align 8
+  %239 = getelementptr i8, ptr %0, i64 2
+  %240 = tail call i32 @llvm.bswap.i32(i32 %238)
+  store i32 %240, ptr %239, align 1
+  %241 = add nuw i32 %234, 6
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread, %231, %16, %.thread55
-  %244 = phi i32 [ %243, %.thread55 ], [ %230, %.thread ], [ %230, %231 ], [ -1, %16 ]
-  ret i32 %244
+.loopexit:                                        ; preds = %.thread, %229, %16, %.thread55
+  %242 = phi i32 [ %241, %.thread55 ], [ %228, %.thread ], [ %228, %229 ], [ -1, %16 ]
+  ret i32 %242
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

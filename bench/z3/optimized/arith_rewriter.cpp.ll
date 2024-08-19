@@ -25919,10 +25919,10 @@ sw.bb570:                                         ; preds = %invoke.cont558
 
 sw.bb570.invoke:                                  ; preds = %invoke.cont558, %sw.bb570
   %189 = phi i32 [ 2, %sw.bb570 ], [ 3, %invoke.cont558 ]
-  %190 = load ptr, ptr %new_arg2, align 8
-  %191 = load ptr, ptr %new_arg1, align 8
+  %190 = load ptr, ptr %new_arg1, align 8
+  %191 = load ptr, ptr %new_arg2, align 8
   %192 = load ptr, ptr %m_util.i.i.i, align 8
-  %193 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %192, i32 noundef 5, i32 noundef %189, ptr noundef %191, ptr noundef %190)
+  %193 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %192, i32 noundef 5, i32 noundef %189, ptr noundef %190, ptr noundef %191)
           to label %invoke.cont614.invoke unwind label %lpad47
 
 sw.bb580:                                         ; preds = %invoke.cont558

@@ -836,211 +836,208 @@ pg_detoast_datum.exit:                            ; preds = %54, %63
 
 92:                                               ; preds = %89
   %93 = call i32 @NewGUCNestLevel() #13
-  store volatile i32 %93, ptr %5, align 4
-  br label %95
+  br label %94
 
-94:                                               ; preds = %89
-  store volatile i32 0, ptr %5, align 4
-  br label %95
-
-95:                                               ; preds = %94, %92
+94:                                               ; preds = %89, %92
+  %.sink = phi i32 [ %93, %92 ], [ 0, %89 ]
+  store volatile i32 %.sink, ptr %5, align 4
   %.0..0..0..0.63 = load volatile ptr, ptr %2, align 8
-  %96 = getelementptr inbounds i8, ptr %.0..0..0..0.63, i64 48
-  %97 = load i32, ptr %96, align 8
-  %.not115 = icmp eq i32 %97, 0
-  br i1 %.not115, label %103, label %98
+  %95 = getelementptr inbounds i8, ptr %.0..0..0..0.63, i64 48
+  %96 = load i32, ptr %95, align 8
+  %.not115 = icmp eq i32 %96, 0
+  br i1 %.not115, label %102, label %97
 
-98:                                               ; preds = %95
+97:                                               ; preds = %94
   %.0..0..0..0.64 = load volatile ptr, ptr %2, align 8
-  %99 = getelementptr inbounds i8, ptr %.0..0..0..0.64, i64 48
-  %100 = load i32, ptr %99, align 8
-  %101 = load i32, ptr %4, align 4
-  %102 = or i32 %101, 1
-  call void @SetUserIdAndSecContext(i32 noundef %100, i32 noundef %102) #13
-  br label %103
+  %98 = getelementptr inbounds i8, ptr %.0..0..0..0.64, i64 48
+  %99 = load i32, ptr %98, align 8
+  %100 = load i32, ptr %4, align 4
+  %101 = or i32 %100, 1
+  call void @SetUserIdAndSecContext(i32 noundef %99, i32 noundef %101) #13
+  br label %102
 
-103:                                              ; preds = %98, %95
+102:                                              ; preds = %97, %94
   %.0..0..0..0.65 = load volatile ptr, ptr %2, align 8
-  %104 = getelementptr inbounds i8, ptr %.0..0..0..0.65, i64 56
-  %105 = load ptr, ptr %104, align 8
+  %103 = getelementptr inbounds i8, ptr %.0..0..0..0.65, i64 56
+  %104 = load ptr, ptr %103, align 8
   %.0..0..0..0.66 = load volatile ptr, ptr %2, align 8
-  %106 = getelementptr inbounds i8, ptr %.0..0..0..0.66, i64 64
-  %107 = load ptr, ptr %106, align 8
+  %105 = getelementptr inbounds i8, ptr %.0..0..0..0.66, i64 64
+  %106 = load ptr, ptr %105, align 8
   %.0..0..0..0.67 = load volatile ptr, ptr %2, align 8
-  %108 = getelementptr inbounds i8, ptr %.0..0..0..0.67, i64 72
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 4
-  %.not116 = icmp eq ptr %105, null
-  %.not117 = icmp eq ptr %107, null
-  %.not118 = icmp eq ptr %109, null
-  %111 = getelementptr inbounds i8, ptr %105, i64 4
-  %112 = getelementptr inbounds i8, ptr %105, i64 16
-  %113 = getelementptr inbounds i8, ptr %107, i64 4
-  %114 = getelementptr inbounds i8, ptr %107, i64 16
-  %115 = getelementptr inbounds i8, ptr %109, i64 16
-  %116 = select i1 %.not118, i1 true, i1 %.not116
-  %or.cond142 = select i1 %116, i1 true, i1 %.not117
+  %107 = getelementptr inbounds i8, ptr %.0..0..0..0.67, i64 72
+  %108 = load ptr, ptr %107, align 8
+  %109 = getelementptr inbounds i8, ptr %108, i64 4
+  %.not116 = icmp eq ptr %104, null
+  %.not117 = icmp eq ptr %106, null
+  %.not118 = icmp eq ptr %108, null
+  %110 = getelementptr inbounds i8, ptr %104, i64 4
+  %111 = getelementptr inbounds i8, ptr %104, i64 16
+  %112 = getelementptr inbounds i8, ptr %106, i64 4
+  %113 = getelementptr inbounds i8, ptr %106, i64 16
+  %114 = getelementptr inbounds i8, ptr %108, i64 16
+  %115 = select i1 %.not118, i1 true, i1 %.not116
+  %or.cond142 = select i1 %115, i1 true, i1 %.not117
   br i1 %or.cond142, label %.critedge, label %.split.split.split
 
-.split.split.split:                               ; preds = %103, %142
-  %indvars.iv139 = phi i64 [ %indvars.iv.next140, %142 ], [ 0, %103 ]
-  %117 = load i32, ptr %111, align 4
-  %118 = sext i32 %117 to i64
-  %119 = icmp slt i64 %indvars.iv139, %118
-  br i1 %119, label %120, label %123
+.split.split.split:                               ; preds = %102, %141
+  %indvars.iv139 = phi i64 [ %indvars.iv.next140, %141 ], [ 0, %102 ]
+  %116 = load i32, ptr %110, align 4
+  %117 = sext i32 %116 to i64
+  %118 = icmp slt i64 %indvars.iv139, %117
+  br i1 %118, label %119, label %122
 
-120:                                              ; preds = %.split.split.split
-  %121 = load ptr, ptr %112, align 8
-  %122 = getelementptr %union.ListCell, ptr %121, i64 %indvars.iv139
-  br label %123
+119:                                              ; preds = %.split.split.split
+  %120 = load ptr, ptr %111, align 8
+  %121 = getelementptr %union.ListCell, ptr %120, i64 %indvars.iv139
+  br label %122
 
-123:                                              ; preds = %.split.split.split, %120
-  %124 = phi ptr [ %122, %120 ], [ null, %.split.split.split ]
-  %125 = load i32, ptr %113, align 4
-  %126 = sext i32 %125 to i64
-  %127 = icmp slt i64 %indvars.iv139, %126
-  br i1 %127, label %128, label %131
+122:                                              ; preds = %.split.split.split, %119
+  %123 = phi ptr [ %121, %119 ], [ null, %.split.split.split ]
+  %124 = load i32, ptr %112, align 4
+  %125 = sext i32 %124 to i64
+  %126 = icmp slt i64 %indvars.iv139, %125
+  br i1 %126, label %127, label %130
 
-128:                                              ; preds = %123
-  %129 = load ptr, ptr %114, align 8
-  %130 = getelementptr %union.ListCell, ptr %129, i64 %indvars.iv139
-  br label %131
+127:                                              ; preds = %122
+  %128 = load ptr, ptr %113, align 8
+  %129 = getelementptr %union.ListCell, ptr %128, i64 %indvars.iv139
+  br label %130
 
-131:                                              ; preds = %123, %128
-  %132 = phi ptr [ %130, %128 ], [ null, %123 ]
-  %133 = load i32, ptr %110, align 4
-  %134 = sext i32 %133 to i64
-  %135 = icmp slt i64 %indvars.iv139, %134
-  br i1 %135, label %136, label %.critedge
+130:                                              ; preds = %122, %127
+  %131 = phi ptr [ %129, %127 ], [ null, %122 ]
+  %132 = load i32, ptr %109, align 4
+  %133 = sext i32 %132 to i64
+  %134 = icmp slt i64 %indvars.iv139, %133
+  br i1 %134, label %135, label %.critedge
 
-136:                                              ; preds = %131
-  %137 = load ptr, ptr %115, align 8
-  %138 = getelementptr %union.ListCell, ptr %137, i64 %indvars.iv139
-  %139 = icmp ne ptr %124, null
-  %140 = icmp ne ptr %132, null
-  %or.cond = select i1 %139, i1 %140, i1 false
-  %141 = icmp ne ptr %138, null
-  %or.cond3 = select i1 %or.cond, i1 %141, i1 false
-  br i1 %or.cond3, label %142, label %.critedge
+135:                                              ; preds = %130
+  %136 = load ptr, ptr %114, align 8
+  %137 = getelementptr %union.ListCell, ptr %136, i64 %indvars.iv139
+  %138 = icmp ne ptr %123, null
+  %139 = icmp ne ptr %131, null
+  %or.cond = select i1 %138, i1 %139, i1 false
+  %140 = icmp ne ptr %137, null
+  %or.cond3 = select i1 %or.cond, i1 %140, i1 false
+  br i1 %or.cond3, label %141, label %.critedge
 
-142:                                              ; preds = %136
-  %143 = call zeroext i1 @superuser() #13
-  %144 = select i1 %143, i32 5, i32 6
-  %145 = load ptr, ptr %124, align 8
-  %146 = load ptr, ptr %132, align 8
-  %147 = load ptr, ptr %138, align 8
-  %148 = call i32 @GetUserId() #13
-  %149 = call i32 @set_config_with_handle(ptr noundef %145, ptr noundef %146, ptr noundef %147, i32 noundef %144, i32 noundef 13, i32 noundef %148, i32 noundef 2, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false) #13
+141:                                              ; preds = %135
+  %142 = call zeroext i1 @superuser() #13
+  %143 = select i1 %142, i32 5, i32 6
+  %144 = load ptr, ptr %123, align 8
+  %145 = load ptr, ptr %131, align 8
+  %146 = load ptr, ptr %137, align 8
+  %147 = call i32 @GetUserId() #13
+  %148 = call i32 @set_config_with_handle(ptr noundef %144, ptr noundef %145, ptr noundef %146, i32 noundef %143, i32 noundef 13, i32 noundef %147, i32 noundef 2, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false) #13
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   br label %.split.split.split, !llvm.loop !7
 
-.critedge:                                        ; preds = %136, %131, %103
-  %150 = load ptr, ptr @fmgr_hook, align 8
-  %.not119 = icmp eq ptr %150, null
-  br i1 %.not119, label %153, label %151
+.critedge:                                        ; preds = %135, %130, %102
+  %149 = load ptr, ptr @fmgr_hook, align 8
+  %.not119 = icmp eq ptr %149, null
+  br i1 %.not119, label %152, label %150
 
-151:                                              ; preds = %.critedge
+150:                                              ; preds = %.critedge
   %.0..0..0..0.68 = load volatile ptr, ptr %2, align 8
   %.0..0..0..0.69 = load volatile ptr, ptr %2, align 8
-  %152 = getelementptr inbounds i8, ptr %.0..0..0..0.69, i64 80
-  call void %150(i32 noundef 0, ptr noundef %.0..0..0..0.68, ptr noundef nonnull %152) #13
-  br label %153
+  %151 = getelementptr inbounds i8, ptr %.0..0..0..0.69, i64 80
+  call void %149(i32 noundef 0, ptr noundef %.0..0..0..0.68, ptr noundef nonnull %151) #13
+  br label %152
 
-153:                                              ; preds = %151, %.critedge
-  %154 = load ptr, ptr %0, align 8
-  %155 = load ptr, ptr @PG_exception_stack, align 8
-  %156 = load ptr, ptr @error_context_stack, align 8
-  %157 = call i32 @__sigsetjmp(ptr noundef nonnull %8, i32 noundef 0) #16
-  %158 = icmp eq i32 %157, 0
-  br i1 %158, label %159, label %177
+152:                                              ; preds = %150, %.critedge
+  %153 = load ptr, ptr %0, align 8
+  %154 = load ptr, ptr @PG_exception_stack, align 8
+  %155 = load ptr, ptr @error_context_stack, align 8
+  %156 = call i32 @__sigsetjmp(ptr noundef nonnull %8, i32 noundef 0) #16
+  %157 = icmp eq i32 %156, 0
+  br i1 %157, label %158, label %176
 
-159:                                              ; preds = %153
+158:                                              ; preds = %152
   store ptr %8, ptr @PG_exception_stack, align 8
   %.0..0..0..0.70 = load volatile ptr, ptr %2, align 8
   store ptr %.0..0..0..0.70, ptr %0, align 8
   call void @pgstat_init_function_usage(ptr noundef nonnull %0, ptr noundef nonnull %6) #13
-  %160 = load ptr, ptr %0, align 8
-  %161 = load ptr, ptr %160, align 8
-  %162 = call i64 %161(ptr noundef nonnull %0) #13
-  %163 = getelementptr inbounds i8, ptr %0, i64 16
-  %164 = load ptr, ptr %163, align 8
-  %165 = icmp eq ptr %164, null
-  br i1 %165, label %173, label %166
+  %159 = load ptr, ptr %0, align 8
+  %160 = load ptr, ptr %159, align 8
+  %161 = call i64 %160(ptr noundef nonnull %0) #13
+  %162 = getelementptr inbounds i8, ptr %0, i64 16
+  %163 = load ptr, ptr %162, align 8
+  %164 = icmp eq ptr %163, null
+  br i1 %164, label %172, label %165
 
-166:                                              ; preds = %159
-  %167 = load i32, ptr %164, align 4
-  %168 = icmp eq i32 %167, 367
-  br i1 %168, label %169, label %173
+165:                                              ; preds = %158
+  %166 = load i32, ptr %163, align 4
+  %167 = icmp eq i32 %166, 367
+  br i1 %167, label %168, label %172
 
-169:                                              ; preds = %166
-  %170 = getelementptr inbounds i8, ptr %164, i64 32
-  %171 = load i32, ptr %170, align 8
-  %172 = icmp ne i32 %171, 1
-  br label %173
+168:                                              ; preds = %165
+  %169 = getelementptr inbounds i8, ptr %163, i64 32
+  %170 = load i32, ptr %169, align 8
+  %171 = icmp ne i32 %170, 1
+  br label %172
 
-173:                                              ; preds = %169, %166, %159
-  %174 = phi i1 [ true, %166 ], [ true, %159 ], [ %172, %169 ]
-  call void @pgstat_end_function_usage(ptr noundef nonnull %6, i1 noundef zeroext %174) #13
-  store ptr %155, ptr @PG_exception_stack, align 8
-  store ptr %156, ptr @error_context_stack, align 8
-  store ptr %154, ptr %0, align 8
+172:                                              ; preds = %168, %165, %158
+  %173 = phi i1 [ true, %165 ], [ true, %158 ], [ %171, %168 ]
+  call void @pgstat_end_function_usage(ptr noundef nonnull %6, i1 noundef zeroext %173) #13
+  store ptr %154, ptr @PG_exception_stack, align 8
+  store ptr %155, ptr @error_context_stack, align 8
+  store ptr %153, ptr %0, align 8
   %.0..0..0..0.73 = load volatile ptr, ptr %2, align 8
-  %175 = getelementptr inbounds i8, ptr %.0..0..0..0.73, i64 56
-  %176 = load ptr, ptr %175, align 8
-  %.not121 = icmp eq ptr %176, null
-  br i1 %.not121, label %183, label %182
+  %174 = getelementptr inbounds i8, ptr %.0..0..0..0.73, i64 56
+  %175 = load ptr, ptr %174, align 8
+  %.not121 = icmp eq ptr %175, null
+  br i1 %.not121, label %182, label %181
 
-177:                                              ; preds = %153
-  store ptr %155, ptr @PG_exception_stack, align 8
-  store ptr %156, ptr @error_context_stack, align 8
-  store ptr %154, ptr %0, align 8
-  %178 = load ptr, ptr @fmgr_hook, align 8
-  %.not120 = icmp eq ptr %178, null
-  br i1 %.not120, label %181, label %179
+176:                                              ; preds = %152
+  store ptr %154, ptr @PG_exception_stack, align 8
+  store ptr %155, ptr @error_context_stack, align 8
+  store ptr %153, ptr %0, align 8
+  %177 = load ptr, ptr @fmgr_hook, align 8
+  %.not120 = icmp eq ptr %177, null
+  br i1 %.not120, label %180, label %178
 
-179:                                              ; preds = %177
+178:                                              ; preds = %176
   %.0..0..0..0.71 = load volatile ptr, ptr %2, align 8
   %.0..0..0..0.72 = load volatile ptr, ptr %2, align 8
-  %180 = getelementptr inbounds i8, ptr %.0..0..0..0.72, i64 80
-  call void %178(i32 noundef 2, ptr noundef %.0..0..0..0.71, ptr noundef nonnull %180) #13
-  br label %181
+  %179 = getelementptr inbounds i8, ptr %.0..0..0..0.72, i64 80
+  call void %177(i32 noundef 2, ptr noundef %.0..0..0..0.71, ptr noundef nonnull %179) #13
+  br label %180
 
-181:                                              ; preds = %179, %177
+180:                                              ; preds = %178, %176
   call void @pg_re_throw() #17
   unreachable
 
-182:                                              ; preds = %173
+181:                                              ; preds = %172
   %.0..0..0..0.43 = load volatile i32, ptr %5, align 4
   call void @AtEOXact_GUC(i1 noundef zeroext true, i32 noundef %.0..0..0..0.43) #13
-  br label %183
+  br label %182
 
-183:                                              ; preds = %182, %173
+182:                                              ; preds = %181, %172
   %.0..0..0..0.74 = load volatile ptr, ptr %2, align 8
-  %184 = getelementptr inbounds i8, ptr %.0..0..0..0.74, i64 48
-  %185 = load i32, ptr %184, align 8
-  %.not122 = icmp eq i32 %185, 0
-  br i1 %.not122, label %189, label %186
+  %183 = getelementptr inbounds i8, ptr %.0..0..0..0.74, i64 48
+  %184 = load i32, ptr %183, align 8
+  %.not122 = icmp eq i32 %184, 0
+  br i1 %.not122, label %188, label %185
 
-186:                                              ; preds = %183
-  %187 = load i32, ptr %3, align 4
-  %188 = load i32, ptr %4, align 4
-  call void @SetUserIdAndSecContext(i32 noundef %187, i32 noundef %188) #13
-  br label %189
+185:                                              ; preds = %182
+  %186 = load i32, ptr %3, align 4
+  %187 = load i32, ptr %4, align 4
+  call void @SetUserIdAndSecContext(i32 noundef %186, i32 noundef %187) #13
+  br label %188
 
-189:                                              ; preds = %186, %183
-  %190 = load ptr, ptr @fmgr_hook, align 8
-  %.not123 = icmp eq ptr %190, null
-  br i1 %.not123, label %193, label %191
+188:                                              ; preds = %185, %182
+  %189 = load ptr, ptr @fmgr_hook, align 8
+  %.not123 = icmp eq ptr %189, null
+  br i1 %.not123, label %192, label %190
 
-191:                                              ; preds = %189
+190:                                              ; preds = %188
   %.0..0..0..0.75 = load volatile ptr, ptr %2, align 8
   %.0..0..0..0.76 = load volatile ptr, ptr %2, align 8
-  %192 = getelementptr inbounds i8, ptr %.0..0..0..0.76, i64 80
-  call void %190(i32 noundef 1, ptr noundef %.0..0..0..0.75, ptr noundef nonnull %192) #13
-  br label %193
+  %191 = getelementptr inbounds i8, ptr %.0..0..0..0.76, i64 80
+  call void %189(i32 noundef 1, ptr noundef %.0..0..0..0.75, ptr noundef nonnull %191) #13
+  br label %192
 
-193:                                              ; preds = %191, %189
-  ret i64 %162
+192:                                              ; preds = %190, %188
+  ret i64 %161
 }
 
 declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr #1

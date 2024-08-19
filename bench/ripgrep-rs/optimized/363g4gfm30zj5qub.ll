@@ -365,12 +365,12 @@ select.unfold:                                    ; preds = %58
 
 95:                                               ; preds = %91, %87, %.noexc43
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !29
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
-  call void @"_ZN4core3ptr86drop_in_place$LT$alloc..vec..Vec$LT$grep_cli..decompress..DecompressionCommand$GT$$GT$17h96f975b7185d405aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   br label %96
 
 96:                                               ; preds = %162, %95
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
+  call void @"_ZN4core3ptr86drop_in_place$LT$alloc..vec..Vec$LT$grep_cli..decompress..DecompressionCommand$GT$$GT$17h96f975b7185d405aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   ret void
 
 97:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h3583c65132e8ccceE.exit.thread", %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h3583c65132e8ccceE.exit", %106
@@ -572,9 +572,6 @@ select.unfold:                                    ; preds = %58
 
 162:                                              ; preds = %158, %154, %.noexc53
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !73
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
-  call void @"_ZN4core3ptr86drop_in_place$LT$alloc..vec..Vec$LT$grep_cli..decompress..DecompressionCommand$GT$$GT$17h96f975b7185d405aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   br label %96
 
 163:                                              ; preds = %142, %.body47, %.body

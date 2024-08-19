@@ -209,510 +209,494 @@ define ptr @slurm_sprint_partition_info(ptr nocapture noundef readonly %0, i32 n
   %25 = getelementptr inbounds i8, ptr %0, i64 80
   %26 = load ptr, ptr %25, align 8
   %.not141 = icmp eq ptr %26, null
-  br i1 %.not141, label %.thread, label %31
+  %spec.select163 = select i1 %.not141, ptr @.str.8, ptr %26
+  %spec.select164 = select i1 %.not141, ptr @.str.7, ptr @.str.9
+  br label %.thread
 
 27:                                               ; preds = %21
   %28 = load i8, ptr %23, align 1
   %29 = icmp eq i8 %28, 0
-  br i1 %29, label %.thread, label %30
+  %spec.select165 = select i1 %29, ptr @.str.8, ptr %23
+  br label %.thread
 
-.thread:                                          ; preds = %24, %27
-  store ptr @.str.8, ptr %4, align 8
-  br label %32
+.thread:                                          ; preds = %27, %24
+  %.str.8.sink = phi ptr [ %spec.select165, %27 ], [ %spec.select163, %24 ]
+  %.0111 = phi ptr [ @.str.7, %27 ], [ %spec.select164, %24 ]
+  store ptr %.str.8.sink, ptr %4, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.10, ptr noundef nonnull %.0111, ptr noundef nonnull %.str.8.sink) #11
+  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = load ptr, ptr %30, align 8
+  %.not142 = icmp eq ptr %31, null
+  br i1 %.not142, label %32, label %35
 
-30:                                               ; preds = %27
-  store ptr %23, ptr %4, align 8
-  br label %32
+32:                                               ; preds = %.thread
+  %33 = getelementptr inbounds i8, ptr %0, i64 88
+  %34 = load ptr, ptr %33, align 8
+  %.not143 = icmp eq ptr %34, null
+  %spec.select166 = select i1 %.not143, ptr @.str.8, ptr %34
+  %spec.select167 = select i1 %.not143, ptr @.str.7, ptr @.str.9
+  br label %.thread161
 
-31:                                               ; preds = %24
-  store ptr %26, ptr %4, align 8
-  br label %32
+35:                                               ; preds = %.thread
+  %36 = load i8, ptr %31, align 1
+  %37 = icmp eq i8 %36, 0
+  %spec.select168 = select i1 %37, ptr @.str.8, ptr %31
+  br label %.thread161
 
-32:                                               ; preds = %.thread, %30, %31
-  %33 = phi ptr [ @.str.8, %.thread ], [ %23, %30 ], [ %26, %31 ]
-  %.0111 = phi ptr [ @.str.7, %.thread ], [ @.str.7, %30 ], [ @.str.9, %31 ]
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.10, ptr noundef nonnull %.0111, ptr noundef nonnull %33) #11
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
-  %35 = load ptr, ptr %34, align 8
-  %.not142 = icmp eq ptr %35, null
-  br i1 %.not142, label %36, label %39
-
-36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %0, i64 88
-  %38 = load ptr, ptr %37, align 8
-  %.not143 = icmp eq ptr %38, null
-  br i1 %.not143, label %.thread161, label %43
-
-39:                                               ; preds = %32
-  %40 = load i8, ptr %35, align 1
-  %41 = icmp eq i8 %40, 0
-  br i1 %41, label %.thread161, label %42
-
-.thread161:                                       ; preds = %36, %39
-  store ptr @.str.8, ptr %4, align 8
-  br label %44
-
-42:                                               ; preds = %39
-  store ptr %35, ptr %4, align 8
-  br label %44
-
-43:                                               ; preds = %36
-  store ptr %38, ptr %4, align 8
-  br label %44
-
-44:                                               ; preds = %.thread161, %42, %43
-  %45 = phi ptr [ @.str.8, %.thread161 ], [ %35, %42 ], [ %38, %43 ]
-  %.1 = phi ptr [ @.str.7, %.thread161 ], [ @.str.7, %42 ], [ @.str.9, %43 ]
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.11, ptr noundef nonnull %.1, ptr noundef nonnull %45) #11
+.thread161:                                       ; preds = %35, %32
+  %.str.8.sink162 = phi ptr [ %spec.select168, %35 ], [ %spec.select166, %32 ]
+  %.1 = phi ptr [ @.str.7, %35 ], [ %spec.select167, %32 ]
+  store ptr %.str.8.sink162, ptr %4, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.11, ptr noundef nonnull %.1, ptr noundef nonnull %.str.8.sink162) #11
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull %8) #11
-  %46 = load ptr, ptr %0, align 8
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %48, label %49
+  %38 = load ptr, ptr %0, align 8
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %40, label %41
 
-48:                                               ; preds = %44
+40:                                               ; preds = %.thread161
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.12) #11
-  br label %50
+  br label %42
 
-49:                                               ; preds = %44
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.13, ptr noundef nonnull %46) #11
-  br label %50
+41:                                               ; preds = %.thread161
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.13, ptr noundef nonnull %38) #11
+  br label %42
 
-50:                                               ; preds = %49, %48
-  %51 = getelementptr inbounds i8, ptr %0, i64 32
-  %52 = load ptr, ptr %51, align 8
-  %.not144 = icmp eq ptr %52, null
-  br i1 %.not144, label %54, label %53
+42:                                               ; preds = %41, %40
+  %43 = getelementptr inbounds i8, ptr %0, i64 32
+  %44 = load ptr, ptr %43, align 8
+  %.not144 = icmp eq ptr %44, null
+  br i1 %.not144, label %46, label %45
 
-53:                                               ; preds = %50
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.14, ptr noundef nonnull %52) #11
-  br label %54
+45:                                               ; preds = %42
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.14, ptr noundef nonnull %44) #11
+  br label %46
 
-54:                                               ; preds = %53, %50
-  %55 = getelementptr inbounds i8, ptr %0, i64 96
-  %56 = load i16, ptr %55, align 8
-  %57 = and i16 %56, 1
-  %.not145 = icmp eq i16 %57, 0
+46:                                               ; preds = %45, %42
+  %47 = getelementptr inbounds i8, ptr %0, i64 96
+  %48 = load i16, ptr %47, align 8
+  %49 = and i16 %48, 1
+  %.not145 = icmp eq i16 %49, 0
   %.str.16..str.15 = select i1 %.not145, ptr @.str.16, ptr @.str.15
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull %.str.16..str.15) #11
-  %58 = getelementptr inbounds i8, ptr %0, i64 60
-  %59 = load i32, ptr %58, align 4
-  %.not146 = icmp eq i32 %59, 0
-  br i1 %.not146, label %61, label %60
+  %50 = getelementptr inbounds i8, ptr %0, i64 60
+  %51 = load i32, ptr %50, align 4
+  %.not146 = icmp eq i32 %51, 0
+  br i1 %.not146, label %53, label %52
 
-60:                                               ; preds = %54
-  call void @slurm_sprint_cpu_bind_type(ptr noundef nonnull %5, i32 noundef %59) #11
+52:                                               ; preds = %46
+  call void @slurm_sprint_cpu_bind_type(ptr noundef nonnull %5, i32 noundef %51) #11
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.17, ptr noundef nonnull %5) #11
-  br label %61
+  br label %53
 
-61:                                               ; preds = %60, %54
-  %62 = getelementptr inbounds i8, ptr %0, i64 192
-  %63 = load ptr, ptr %62, align 8
-  %.not147 = icmp eq ptr %63, null
-  br i1 %.not147, label %65, label %64
+53:                                               ; preds = %52, %46
+  %54 = getelementptr inbounds i8, ptr %0, i64 192
+  %55 = load ptr, ptr %54, align 8
+  %.not147 = icmp eq ptr %55, null
+  br i1 %.not147, label %57, label %56
 
-64:                                               ; preds = %61
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.18, ptr noundef nonnull %63) #11
-  br label %66
+56:                                               ; preds = %53
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.18, ptr noundef nonnull %55) #11
+  br label %58
 
-65:                                               ; preds = %61
+57:                                               ; preds = %53
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.19) #11
-  br label %66
+  br label %58
 
-66:                                               ; preds = %65, %64
+58:                                               ; preds = %57, %56
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull %8) #11
-  %67 = getelementptr inbounds i8, ptr %0, i64 72
-  %68 = load i32, ptr %67, align 8
-  switch i32 %68, label %71 [
-    i32 -1, label %69
-    i32 -2, label %70
+  %59 = getelementptr inbounds i8, ptr %0, i64 72
+  %60 = load i32, ptr %59, align 8
+  switch i32 %60, label %63 [
+    i32 -1, label %61
+    i32 -2, label %62
   ]
 
-69:                                               ; preds = %66
+61:                                               ; preds = %58
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.20) #11
-  br label %74
+  br label %66
 
-70:                                               ; preds = %66
+62:                                               ; preds = %58
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.21) #11
-  br label %74
+  br label %66
 
-71:                                               ; preds = %66
-  %72 = mul i32 %68, 60
-  %73 = zext i32 %72 to i64
-  call void @secs2time_str(i64 noundef %73, ptr noundef nonnull %6, i32 noundef 32) #11
+63:                                               ; preds = %58
+  %64 = mul i32 %60, 60
+  %65 = zext i32 %64 to i64
+  call void @secs2time_str(i64 noundef %65, ptr noundef nonnull %6, i32 noundef 32) #11
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.22, ptr noundef nonnull %6) #11
-  br label %74
+  br label %66
 
-74:                                               ; preds = %70, %71, %69
-  %75 = load i16, ptr %55, align 8
-  %76 = and i16 %75, 4
-  %.not148 = icmp eq i16 %76, 0
+66:                                               ; preds = %62, %63, %61
+  %67 = load i16, ptr %47, align 8
+  %68 = and i16 %67, 4
+  %.not148 = icmp eq i16 %68, 0
   %.str.24..str.23 = select i1 %.not148, ptr @.str.24, ptr @.str.23
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull %.str.24..str.23) #11
-  %77 = load i16, ptr %55, align 8
-  %78 = and i16 %77, 64
-  %.not149 = icmp eq i16 %78, 0
+  %69 = load i16, ptr %47, align 8
+  %70 = and i16 %69, 64
+  %.not149 = icmp eq i16 %70, 0
   %.str.26.sink = select i1 %.not149, ptr @.str.26, ptr @.str.25
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull %.str.26.sink) #11
-  %79 = getelementptr inbounds i8, ptr %0, i64 100
-  %80 = load i32, ptr %79, align 4
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.27, i32 noundef %80) #11
-  %81 = load i16, ptr %55, align 8
-  %82 = and i16 %81, 2
-  %.not150 = icmp eq i16 %82, 0
+  %71 = getelementptr inbounds i8, ptr %0, i64 100
+  %72 = load i32, ptr %71, align 4
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.27, i32 noundef %72) #11
+  %73 = load i16, ptr %47, align 8
+  %74 = and i16 %73, 2
+  %.not150 = icmp eq i16 %74, 0
   %.str.29.sink = select i1 %.not150, ptr @.str.29, ptr @.str.28
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull %.str.29.sink) #11
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull %8) #11
-  %83 = getelementptr inbounds i8, ptr %0, i64 136
-  %84 = load i32, ptr %83, align 8
-  %85 = icmp eq i32 %84, -1
-  br i1 %85, label %86, label %87
+  %75 = getelementptr inbounds i8, ptr %0, i64 136
+  %76 = load i32, ptr %75, align 8
+  %77 = icmp eq i32 %76, -1
+  br i1 %77, label %78, label %79
 
-86:                                               ; preds = %74
+78:                                               ; preds = %66
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.30) #11
-  br label %88
+  br label %80
 
-87:                                               ; preds = %74
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.31, i32 noundef %84) #11
-  br label %88
+79:                                               ; preds = %66
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.31, i32 noundef %76) #11
+  br label %80
 
-88:                                               ; preds = %87, %86
-  %89 = getelementptr inbounds i8, ptr %0, i64 144
-  %90 = load i32, ptr %89, align 8
-  %91 = icmp eq i32 %90, -1
-  br i1 %91, label %92, label %93
+80:                                               ; preds = %79, %78
+  %81 = getelementptr inbounds i8, ptr %0, i64 144
+  %82 = load i32, ptr %81, align 8
+  %83 = icmp eq i32 %82, -1
+  br i1 %83, label %84, label %85
 
-92:                                               ; preds = %88
+84:                                               ; preds = %80
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.32) #11
-  br label %96
+  br label %88
 
-93:                                               ; preds = %88
-  %94 = mul i32 %90, 60
-  %95 = zext i32 %94 to i64
-  call void @secs2time_str(i64 noundef %95, ptr noundef nonnull %7, i32 noundef 32) #11
+85:                                               ; preds = %80
+  %86 = mul i32 %82, 60
+  %87 = zext i32 %86 to i64
+  call void @secs2time_str(i64 noundef %87, ptr noundef nonnull %7, i32 noundef 32) #11
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.33, ptr noundef nonnull %7) #11
-  br label %96
+  br label %88
 
-96:                                               ; preds = %93, %92
-  %97 = getelementptr inbounds i8, ptr %0, i64 148
-  %98 = load i32, ptr %97, align 4
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.34, i32 noundef %98) #11
-  %99 = load i16, ptr %55, align 8
-  %100 = and i16 %99, 32
-  %.not151 = icmp eq i16 %100, 0
+88:                                               ; preds = %85, %84
+  %89 = getelementptr inbounds i8, ptr %0, i64 148
+  %90 = load i32, ptr %89, align 4
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.34, i32 noundef %90) #11
+  %91 = load i16, ptr %47, align 8
+  %92 = and i16 %91, 32
+  %.not151 = icmp eq i16 %92, 0
   %.str.36..str.35 = select i1 %.not151, ptr @.str.36, ptr @.str.35
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull %.str.36..str.35) #11
-  %101 = getelementptr inbounds i8, ptr %0, i64 120
-  %102 = load i32, ptr %101, align 8
-  %103 = icmp eq i32 %102, -1
-  br i1 %103, label %104, label %105
+  %93 = getelementptr inbounds i8, ptr %0, i64 120
+  %94 = load i32, ptr %93, align 8
+  %95 = icmp eq i32 %94, -1
+  br i1 %95, label %96, label %97
 
-104:                                              ; preds = %96
+96:                                               ; preds = %88
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.37) #11
-  br label %106
+  br label %98
 
-105:                                              ; preds = %96
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.38, i32 noundef %102) #11
-  br label %106
+97:                                               ; preds = %88
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.38, i32 noundef %94) #11
+  br label %98
 
-106:                                              ; preds = %105, %104
-  %107 = getelementptr inbounds i8, ptr %0, i64 124
-  %108 = load i32, ptr %107, align 4
-  %109 = icmp eq i32 %108, -1
-  br i1 %109, label %110, label %111
+98:                                               ; preds = %97, %96
+  %99 = getelementptr inbounds i8, ptr %0, i64 124
+  %100 = load i32, ptr %99, align 4
+  %101 = icmp eq i32 %100, -1
+  br i1 %101, label %102, label %103
 
-110:                                              ; preds = %106
+102:                                              ; preds = %98
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.39) #11
-  br label %112
+  br label %104
 
-111:                                              ; preds = %106
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.40, i32 noundef %108) #11
-  br label %112
+103:                                              ; preds = %98
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.40, i32 noundef %100) #11
+  br label %104
 
-112:                                              ; preds = %111, %110
+104:                                              ; preds = %103, %102
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull %8) #11
-  %113 = getelementptr inbounds i8, ptr %0, i64 176
-  %114 = load ptr, ptr %113, align 8
-  %.not152 = icmp eq ptr %114, null
-  br i1 %.not152, label %116, label %115
+  %105 = getelementptr inbounds i8, ptr %0, i64 176
+  %106 = load ptr, ptr %105, align 8
+  %.not152 = icmp eq ptr %106, null
+  br i1 %.not152, label %108, label %107
 
-115:                                              ; preds = %112
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.41, ptr noundef nonnull %114) #11
+107:                                              ; preds = %104
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.41, ptr noundef nonnull %106) #11
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull %8) #11
-  br label %116
+  br label %108
 
-116:                                              ; preds = %115, %112
-  %117 = getelementptr inbounds i8, ptr %0, i64 168
-  %118 = load ptr, ptr %117, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.42, ptr noundef %118) #11
+108:                                              ; preds = %107, %104
+  %109 = getelementptr inbounds i8, ptr %0, i64 168
+  %110 = load ptr, ptr %109, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.42, ptr noundef %110) #11
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull %8) #11
-  %119 = getelementptr inbounds i8, ptr %0, i64 188
-  %120 = load i16, ptr %119, align 4
-  %121 = zext i16 %120 to i32
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.43, i32 noundef %121) #11
-  %122 = getelementptr inbounds i8, ptr %0, i64 190
-  %123 = load i16, ptr %122, align 2
-  %124 = zext i16 %123 to i32
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.44, i32 noundef %124) #11
-  %125 = load i16, ptr %55, align 8
-  %126 = and i16 %125, 8
-  %.not153 = icmp eq i16 %126, 0
+  %111 = getelementptr inbounds i8, ptr %0, i64 188
+  %112 = load i16, ptr %111, align 4
+  %113 = zext i16 %112 to i32
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.43, i32 noundef %113) #11
+  %114 = getelementptr inbounds i8, ptr %0, i64 190
+  %115 = load i16, ptr %114, align 2
+  %116 = zext i16 %115 to i32
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.44, i32 noundef %116) #11
+  %117 = load i16, ptr %47, align 8
+  %118 = and i16 %117, 8
+  %.not153 = icmp eq i16 %118, 0
   %.str.46..str.45 = select i1 %.not153, ptr @.str.46, ptr @.str.45
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull %.str.46..str.45) #11
-  %127 = load i16, ptr %55, align 8
-  %128 = and i16 %127, 16
-  %.not154 = icmp eq i16 %128, 0
+  %119 = load i16, ptr %47, align 8
+  %120 = and i16 %119, 16
+  %.not154 = icmp eq i16 %120, 0
   %.str.48.sink = select i1 %.not154, ptr @.str.48, ptr @.str.47
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull %.str.48.sink) #11
-  %129 = getelementptr inbounds i8, ptr %0, i64 140
-  %130 = load i16, ptr %129, align 4
-  %131 = and i16 %130, 32767
-  %132 = zext nneg i16 %131 to i32
-  %133 = icmp eq i16 %131, 0
-  br i1 %133, label %134, label %135
+  %121 = getelementptr inbounds i8, ptr %0, i64 140
+  %122 = load i16, ptr %121, align 4
+  %123 = and i16 %122, 32767
+  %124 = zext nneg i16 %123 to i32
+  %125 = icmp eq i16 %123, 0
+  br i1 %125, label %126, label %127
 
-134:                                              ; preds = %116
+126:                                              ; preds = %108
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.49) #11
-  br label %141
+  br label %133
 
-135:                                              ; preds = %116
-  %.not155 = icmp sgt i16 %130, -1
-  br i1 %.not155, label %137, label %136
+127:                                              ; preds = %108
+  %.not155 = icmp sgt i16 %122, -1
+  br i1 %.not155, label %129, label %128
 
-136:                                              ; preds = %135
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.50, i32 noundef %132) #11
-  br label %141
+128:                                              ; preds = %127
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.50, i32 noundef %124) #11
+  br label %133
 
-137:                                              ; preds = %135
-  %138 = icmp eq i16 %131, 1
-  br i1 %138, label %139, label %140
+129:                                              ; preds = %127
+  %130 = icmp eq i16 %123, 1
+  br i1 %130, label %131, label %132
 
-139:                                              ; preds = %137
+131:                                              ; preds = %129
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.51) #11
-  br label %141
+  br label %133
 
-140:                                              ; preds = %137
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.52, i32 noundef %132) #11
-  br label %141
+132:                                              ; preds = %129
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.52, i32 noundef %124) #11
+  br label %133
 
-141:                                              ; preds = %136, %140, %139, %134
+133:                                              ; preds = %128, %132, %131, %126
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull %8) #11
-  %142 = getelementptr inbounds i8, ptr %0, i64 184
-  %143 = load i16, ptr %142, align 8
-  switch i16 %143, label %146 [
-    i16 -2, label %144
-    i16 -1, label %145
+  %134 = getelementptr inbounds i8, ptr %0, i64 184
+  %135 = load i16, ptr %134, align 8
+  switch i16 %135, label %138 [
+    i16 -2, label %136
+    i16 -1, label %137
   ]
 
-144:                                              ; preds = %141
+136:                                              ; preds = %133
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.53) #11
-  br label %148
+  br label %140
 
-145:                                              ; preds = %141
+137:                                              ; preds = %133
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.54) #11
-  br label %148
+  br label %140
 
-146:                                              ; preds = %141
-  %147 = zext i16 %143 to i32
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.55, i32 noundef %147) #11
-  br label %148
+138:                                              ; preds = %133
+  %139 = zext i16 %135 to i32
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.55, i32 noundef %139) #11
+  br label %140
 
-148:                                              ; preds = %145, %146, %144
-  %149 = getelementptr inbounds i8, ptr %0, i64 186
-  %150 = load i16, ptr %149, align 2
-  %151 = icmp eq i16 %150, -2
-  %152 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 796), align 4
-  %spec.select = select i1 %151, i16 %152, i16 %150
-  %153 = call ptr @preempt_mode_string(i16 noundef zeroext %spec.select) #11
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.56, ptr noundef %153) #11
+140:                                              ; preds = %137, %138, %136
+  %141 = getelementptr inbounds i8, ptr %0, i64 186
+  %142 = load i16, ptr %141, align 2
+  %143 = icmp eq i16 %142, -2
+  %144 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 796), align 4
+  %spec.select = select i1 %143, i16 %144, i16 %142
+  %145 = call ptr @preempt_mode_string(i16 noundef zeroext %spec.select) #11
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.56, ptr noundef %145) #11
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull %8) #11
-  %154 = getelementptr inbounds i8, ptr %0, i64 202
-  %155 = load i16, ptr %154, align 2
-  %156 = icmp ult i16 %155, 4
-  br i1 %156, label %switch.lookup, label %158
+  %146 = getelementptr inbounds i8, ptr %0, i64 202
+  %147 = load i16, ptr %146, align 2
+  %148 = icmp ult i16 %147, 4
+  br i1 %148, label %switch.lookup, label %150
 
-switch.lookup:                                    ; preds = %148
-  %157 = zext nneg i16 %155 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.slurm_sprint_partition_info, i64 0, i64 %157
+switch.lookup:                                    ; preds = %140
+  %149 = zext nneg i16 %147 to i64
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.slurm_sprint_partition_info, i64 0, i64 %149
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %158
+  br label %150
 
-158:                                              ; preds = %148, %switch.lookup
-  %.str.58.sink = phi ptr [ %switch.load, %switch.lookup ], [ @.str.61, %148 ]
+150:                                              ; preds = %140, %switch.lookup
+  %.str.58.sink = phi ptr [ %switch.load, %switch.lookup ], [ @.str.61, %140 ]
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull %.str.58.sink) #11
-  %159 = getelementptr inbounds i8, ptr %0, i64 212
-  %160 = load i32, ptr %159, align 4
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.62, i32 noundef %160) #11
-  %161 = getelementptr inbounds i8, ptr %0, i64 216
-  %162 = load i32, ptr %161, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.63, i32 noundef %162) #11
-  %163 = getelementptr inbounds i8, ptr %0, i64 56
-  %164 = load i16, ptr %163, align 8
-  %165 = call ptr @select_type_param_string(i16 noundef zeroext %164) #11
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.64, ptr noundef %165) #11
+  %151 = getelementptr inbounds i8, ptr %0, i64 212
+  %152 = load i32, ptr %151, align 4
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.62, i32 noundef %152) #11
+  %153 = getelementptr inbounds i8, ptr %0, i64 216
+  %154 = load i32, ptr %153, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.63, i32 noundef %154) #11
+  %155 = getelementptr inbounds i8, ptr %0, i64 56
+  %156 = load i16, ptr %155, align 8
+  %157 = call ptr @select_type_param_string(i16 noundef zeroext %156) #11
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.64, ptr noundef %157) #11
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull %8) #11
-  %166 = getelementptr inbounds i8, ptr %0, i64 104
-  %167 = load ptr, ptr %166, align 8
-  %168 = call ptr @job_defaults_str(ptr noundef %167) #11
-  store ptr %168, ptr %4, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.65, ptr noundef %168) #11
+  %158 = getelementptr inbounds i8, ptr %0, i64 104
+  %159 = load ptr, ptr %158, align 8
+  %160 = call ptr @job_defaults_str(ptr noundef %159) #11
+  store ptr %160, ptr %4, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.65, ptr noundef %160) #11
   call void @slurm_xfree(ptr noundef nonnull %4) #11
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull %8) #11
-  %169 = getelementptr inbounds i8, ptr %0, i64 64
-  %170 = load i64, ptr %169, align 8
-  %.not156 = icmp sgt i64 %170, -1
-  br i1 %.not156, label %176, label %171
+  %161 = getelementptr inbounds i8, ptr %0, i64 64
+  %162 = load i64, ptr %161, align 8
+  %.not156 = icmp sgt i64 %162, -1
+  br i1 %.not156, label %168, label %163
 
-171:                                              ; preds = %158
-  %172 = icmp eq i64 %170, -9223372036854775808
-  br i1 %172, label %173, label %174
+163:                                              ; preds = %150
+  %164 = icmp eq i64 %162, -9223372036854775808
+  br i1 %164, label %165, label %166
 
-173:                                              ; preds = %171
+165:                                              ; preds = %163
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.66) #11
-  br label %180
+  br label %172
 
-174:                                              ; preds = %171
-  %175 = and i64 %170, 9223372036854775807
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.67, i64 noundef %175) #11
-  br label %180
+166:                                              ; preds = %163
+  %167 = and i64 %162, 9223372036854775807
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.67, i64 noundef %167) #11
+  br label %172
 
-176:                                              ; preds = %158
-  %177 = icmp eq i64 %170, 0
-  br i1 %177, label %178, label %179
+168:                                              ; preds = %150
+  %169 = icmp eq i64 %162, 0
+  br i1 %169, label %170, label %171
 
-178:                                              ; preds = %176
+170:                                              ; preds = %168
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.68) #11
-  br label %180
+  br label %172
 
-179:                                              ; preds = %176
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.69, i64 noundef %170) #11
-  br label %180
+171:                                              ; preds = %168
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.69, i64 noundef %162) #11
+  br label %172
 
-180:                                              ; preds = %178, %179, %173, %174
-  %181 = getelementptr inbounds i8, ptr %0, i64 128
-  %182 = load i64, ptr %181, align 8
-  %.not157 = icmp sgt i64 %182, -1
-  br i1 %.not157, label %188, label %183
+172:                                              ; preds = %170, %171, %165, %166
+  %173 = getelementptr inbounds i8, ptr %0, i64 128
+  %174 = load i64, ptr %173, align 8
+  %.not157 = icmp sgt i64 %174, -1
+  br i1 %.not157, label %180, label %175
+
+175:                                              ; preds = %172
+  %176 = icmp eq i64 %174, -9223372036854775808
+  br i1 %176, label %177, label %178
+
+177:                                              ; preds = %175
+  call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.70) #11
+  br label %184
+
+178:                                              ; preds = %175
+  %179 = and i64 %174, 9223372036854775807
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.71, i64 noundef %179) #11
+  br label %184
+
+180:                                              ; preds = %172
+  %181 = icmp eq i64 %174, 0
+  br i1 %181, label %182, label %183
+
+182:                                              ; preds = %180
+  call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.72) #11
+  br label %184
 
 183:                                              ; preds = %180
-  %184 = icmp eq i64 %182, -9223372036854775808
-  br i1 %184, label %185, label %186
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.73, i64 noundef %174) #11
+  br label %184
 
-185:                                              ; preds = %183
-  call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.70) #11
-  br label %192
-
-186:                                              ; preds = %183
-  %187 = and i64 %182, 9223372036854775807
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.71, i64 noundef %187) #11
-  br label %192
-
-188:                                              ; preds = %180
-  %189 = icmp eq i64 %182, 0
-  br i1 %189, label %190, label %191
-
-190:                                              ; preds = %188
-  call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.72) #11
-  br label %192
-
-191:                                              ; preds = %188
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.73, i64 noundef %182) #11
-  br label %192
-
-192:                                              ; preds = %190, %191, %185, %186
+184:                                              ; preds = %182, %183, %177, %178
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull %8) #11
-  %193 = getelementptr inbounds i8, ptr %0, i64 224
-  %194 = load ptr, ptr %193, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.74, ptr noundef %194) #11
-  %195 = getelementptr inbounds i8, ptr %0, i64 40
-  %196 = load ptr, ptr %195, align 8
-  %.not158 = icmp eq ptr %196, null
-  br i1 %.not158, label %199, label %197
+  %185 = getelementptr inbounds i8, ptr %0, i64 224
+  %186 = load ptr, ptr %185, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.74, ptr noundef %186) #11
+  %187 = getelementptr inbounds i8, ptr %0, i64 40
+  %188 = load ptr, ptr %187, align 8
+  %.not158 = icmp eq ptr %188, null
+  br i1 %.not158, label %191, label %189
 
-197:                                              ; preds = %192
+189:                                              ; preds = %184
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull %8) #11
-  %198 = load ptr, ptr %195, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.75, ptr noundef %198) #11
+  %190 = load ptr, ptr %187, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.75, ptr noundef %190) #11
+  br label %191
+
+191:                                              ; preds = %189, %184
+  br i1 %or.cond.not, label %192, label %214
+
+192:                                              ; preds = %191
+  call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull %8) #11
+  %193 = getelementptr inbounds i8, ptr %0, i64 200
+  %194 = load i16, ptr %193, align 8
+  switch i16 %194, label %197 [
+    i16 -2, label %195
+    i16 -1, label %196
+  ]
+
+195:                                              ; preds = %192
+  call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.76) #11
   br label %199
 
-199:                                              ; preds = %197, %192
-  br i1 %or.cond.not, label %200, label %222
-
-200:                                              ; preds = %199
-  call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull %8) #11
-  %201 = getelementptr inbounds i8, ptr %0, i64 200
-  %202 = load i16, ptr %201, align 8
-  switch i16 %202, label %205 [
-    i16 -2, label %203
-    i16 -1, label %204
-  ]
-
-203:                                              ; preds = %200
-  call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.76) #11
-  br label %207
-
-204:                                              ; preds = %200
+196:                                              ; preds = %192
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.77) #11
-  br label %207
+  br label %199
 
-205:                                              ; preds = %200
-  %206 = zext i16 %202 to i32
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.78, i32 noundef %206) #11
-  br label %207
+197:                                              ; preds = %192
+  %198 = zext i16 %194 to i32
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.78, i32 noundef %198) #11
+  br label %199
 
-207:                                              ; preds = %204, %205, %203
-  %208 = getelementptr inbounds i8, ptr %0, i64 208
-  %209 = load i16, ptr %208, align 8
-  switch i16 %209, label %212 [
-    i16 -2, label %210
-    i16 -1, label %211
+199:                                              ; preds = %196, %197, %195
+  %200 = getelementptr inbounds i8, ptr %0, i64 208
+  %201 = load i16, ptr %200, align 8
+  switch i16 %201, label %204 [
+    i16 -2, label %202
+    i16 -1, label %203
   ]
 
-210:                                              ; preds = %207
+202:                                              ; preds = %199
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.79) #11
-  br label %214
+  br label %206
 
-211:                                              ; preds = %207
+203:                                              ; preds = %199
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.80) #11
-  br label %214
+  br label %206
 
-212:                                              ; preds = %207
-  %213 = zext i16 %209 to i32
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.81, i32 noundef %213) #11
-  br label %214
+204:                                              ; preds = %199
+  %205 = zext i16 %201 to i32
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.81, i32 noundef %205) #11
+  br label %206
 
-214:                                              ; preds = %211, %212, %210
-  %215 = getelementptr inbounds i8, ptr %0, i64 204
-  %216 = load i32, ptr %215, align 4
-  switch i32 %216, label %219 [
-    i32 -2, label %217
-    i32 -1, label %218
+206:                                              ; preds = %203, %204, %202
+  %207 = getelementptr inbounds i8, ptr %0, i64 204
+  %208 = load i32, ptr %207, align 4
+  switch i32 %208, label %211 [
+    i32 -2, label %209
+    i32 -1, label %210
   ]
 
-217:                                              ; preds = %214
+209:                                              ; preds = %206
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.82) #11
   br label %.sink.split
 
-218:                                              ; preds = %214
+210:                                              ; preds = %206
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.83) #11
   br label %.sink.split
 
-219:                                              ; preds = %214
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.84, i32 noundef %216) #11
+211:                                              ; preds = %206
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.84, i32 noundef %208) #11
   br label %.sink.split
 
-.sink.split:                                      ; preds = %218, %219, %217
-  %220 = load i16, ptr %55, align 8
-  %221 = and i16 %220, 128
-  %.not159 = icmp eq i16 %221, 0
+.sink.split:                                      ; preds = %210, %211, %209
+  %212 = load i16, ptr %47, align 8
+  %213 = and i16 %212, 128
+  %.not159 = icmp eq i16 %213, 0
   %.str.86..str.85 = select i1 %.not159, ptr @.str.86, ptr @.str.85
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull %.str.86..str.85) #11
-  br label %222
+  br label %214
 
-222:                                              ; preds = %.sink.split, %199
+214:                                              ; preds = %.sink.split, %191
   %.str.88..str.87 = select i1 %.not, ptr @.str.88, ptr @.str.87
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull %.str.88..str.87) #11
-  %223 = load ptr, ptr %3, align 8
-  ret ptr %223
+  %215 = load ptr, ptr %3, align 8
+  ret ptr %215
 }
 
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1

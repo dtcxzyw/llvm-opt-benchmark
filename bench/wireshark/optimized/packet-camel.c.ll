@@ -7078,7 +7078,7 @@ define internal i32 @dissect_camel_T_pDPTypeNumber(i1 noundef zeroext %0, ptr no
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #8
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %25, label %10
+  br i1 %.not, label %21, label %10
 
 10:                                               ; preds = %6
   %11 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %9, i32 noundef 0) #8
@@ -7088,24 +7088,22 @@ define internal i32 @dissect_camel_T_pDPTypeNumber(i1 noundef zeroext %0, ptr no
   %14 = load i32, ptr @ett_camel_pdptypenumber, align 4
   %15 = call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14) #8
   %16 = load i8, ptr @PDPTypeOrganization, align 1
-  switch i8 %16, label %25 [
-    i8 0, label %17
-    i8 1, label %21
+  switch i8 %16, label %21 [
+    i8 0, label %.sink.split
+    i8 1, label %17
   ]
 
 17:                                               ; preds = %10
-  %18 = load i32, ptr @hf_camel_PDPTypeNumber_etsi, align 4
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %10, %17
+  %hf_camel_PDPTypeNumber_etsi.sink = phi ptr [ @hf_camel_PDPTypeNumber_ietf, %17 ], [ @hf_camel_PDPTypeNumber_etsi, %10 ]
+  %18 = load i32, ptr %hf_camel_PDPTypeNumber_etsi.sink, align 4
   %19 = load ptr, ptr %7, align 8
   %20 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %18, ptr noundef %19, i32 noundef 0, i32 noundef 1, i32 noundef 0) #8
-  br label %25
+  br label %21
 
-21:                                               ; preds = %10
-  %22 = load i32, ptr @hf_camel_PDPTypeNumber_ietf, align 4
-  %23 = load ptr, ptr %7, align 8
-  %24 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %22, ptr noundef %23, i32 noundef 0, i32 noundef 1, i32 noundef 0) #8
-  br label %25
-
-25:                                               ; preds = %17, %21, %10, %6
+21:                                               ; preds = %.sink.split, %10, %6
   ret i32 %8
 }
 
@@ -7115,7 +7113,7 @@ define internal i32 @dissect_camel_T_pDPAddress(i1 noundef zeroext %0, ptr nound
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #8
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %28, label %10
+  br i1 %.not, label %23, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %3, i64 24
@@ -7124,30 +7122,27 @@ define internal i32 @dissect_camel_T_pDPAddress(i1 noundef zeroext %0, ptr nound
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #8
   %15 = load i8, ptr @PDPTypeOrganization, align 1
   %cond = icmp eq i8 %15, 1
-  br i1 %cond, label %16, label %28
+  br i1 %cond, label %16, label %23
 
 16:                                               ; preds = %10
   %17 = load i8, ptr @PDPTypeNumber, align 1
-  switch i8 %17, label %28 [
-    i8 33, label %18
-    i8 87, label %23
+  switch i8 %17, label %23 [
+    i8 33, label %.sink.split
+    i8 87, label %18
   ]
 
 18:                                               ; preds = %16
-  %19 = load i32, ptr @hf_camel_PDPAddress_IPv4, align 4
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %16, %18
+  %hf_camel_PDPAddress_IPv4.sink = phi ptr [ @hf_camel_PDPAddress_IPv6, %18 ], [ @hf_camel_PDPAddress_IPv4, %16 ]
+  %19 = load i32, ptr %hf_camel_PDPAddress_IPv4.sink, align 4
   %20 = load ptr, ptr %7, align 8
   %21 = call i32 @tvb_reported_length(ptr noundef %20) #8
   %22 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %19, ptr noundef %20, i32 noundef 0, i32 noundef %21, i32 noundef 0) #8
-  br label %28
+  br label %23
 
-23:                                               ; preds = %16
-  %24 = load i32, ptr @hf_camel_PDPAddress_IPv6, align 4
-  %25 = load ptr, ptr %7, align 8
-  %26 = call i32 @tvb_reported_length(ptr noundef %25) #8
-  %27 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %24, ptr noundef %25, i32 noundef 0, i32 noundef %26, i32 noundef 0) #8
-  br label %28
-
-28:                                               ; preds = %18, %23, %16, %10, %6
+23:                                               ; preds = %.sink.split, %16, %10, %6
   ret i32 %8
 }
 

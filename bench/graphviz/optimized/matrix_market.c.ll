@@ -206,7 +206,7 @@ mm_get_type.exit.preheader:                       ; preds = %23
   store double %111, ptr %112, align 8
   %indvars.iv.next369 = add nuw nsw i64 %indvars.iv368, 1
   %exitcond376.not = icmp eq i64 %indvars.iv.next369, %wide.trip.count375
-  br i1 %exitcond376.not, label %..loopexit277_crit_edge, label %.lr.ph307
+  br i1 %exitcond376.not, label %.loopexit.sink.split, label %.lr.ph307
 
 113:                                              ; preds = %23
   %114 = load i32, ptr %5, align 4
@@ -340,7 +340,7 @@ mm_get_type.exit.preheader:                       ; preds = %23
   store i32 %191, ptr %192, align 4
   %indvars.iv.next352 = add nuw nsw i64 %indvars.iv351, 1
   %exitcond359.not = icmp eq i64 %indvars.iv.next352, %wide.trip.count358
-  br i1 %exitcond359.not, label %..loopexit279_crit_edge, label %.lr.ph293
+  br i1 %exitcond359.not, label %.loopexit.sink.split, label %.lr.ph293
 
 mm_get_type.exit:                                 ; preds = %mm_get_type.exit.preheader, %mm_get_type.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %mm_get_type.exit ], [ 0, %mm_get_type.exit.preheader ]
@@ -570,7 +570,7 @@ mm_get_type.exit._crit_edge:                      ; preds = %mm_get_type.exit, %
   %indvars.iv.next393 = add nuw nsw i64 %indvars.iv392, 1
   %indvars.iv.next391 = add nuw nsw i64 %indvars.iv390, 1
   %exitcond398.not = icmp eq i64 %indvars.iv.next391, %wide.trip.count397
-  br i1 %exitcond398.not, label %..loopexit274_crit_edge, label %.lr.ph326
+  br i1 %exitcond398.not, label %.loopexit.sink.split, label %.lr.ph326
 
 331:                                              ; preds = %._crit_edge317
   %332 = sext i32 %.lcssa to i64
@@ -638,48 +638,44 @@ mm_get_type.exit._crit_edge:                      ; preds = %mm_get_type.exit, %
   %exitcond389.not = icmp eq i64 %indvars.iv.next386, %wide.trip.count388
   br i1 %exitcond389.not, label %.loopexit, label %.lr.ph322
 
-..loopexit274_crit_edge:                          ; preds = %.lr.ph326
-  %375 = trunc nsw i64 %indvars.iv.next393 to i32
+.loopexit.sink.split:                             ; preds = %.lr.ph293, %.lr.ph307, %.lr.ph326
+  %indvars.iv.next354.lcssa.sink = phi i64 [ %indvars.iv.next393, %.lr.ph326 ], [ %indvars.iv.next371, %.lr.ph307 ], [ %indvars.iv.next354, %.lr.ph293 ]
+  %.0.i266.ph = phi i32 [ 2, %.lr.ph326 ], [ 1, %.lr.ph307 ], [ 4, %.lr.ph293 ]
+  %.1239.ph = phi ptr [ %298, %.lr.ph326 ], [ %89, %.lr.ph307 ], [ %169, %.lr.ph293 ]
+  %.1235.ph = phi ptr [ %303, %.lr.ph326 ], [ %94, %.lr.ph307 ], [ %174, %.lr.ph293 ]
+  %.0233.ph = phi ptr [ %309, %.lr.ph326 ], [ %99, %.lr.ph307 ], [ %179, %.lr.ph293 ]
+  %.1.ph = phi ptr [ %309, %.lr.ph326 ], [ %99, %.lr.ph307 ], [ null, %.lr.ph293 ]
+  %375 = trunc nsw i64 %indvars.iv.next354.lcssa.sink to i32
   store i32 %375, ptr %5, align 4
   br label %.loopexit
 
-..loopexit277_crit_edge:                          ; preds = %.lr.ph307
-  %376 = trunc nsw i64 %indvars.iv.next371 to i32
-  store i32 %376, ptr %5, align 4
-  br label %.loopexit
-
-..loopexit279_crit_edge:                          ; preds = %.lr.ph293
-  %377 = trunc nsw i64 %indvars.iv.next354 to i32
-  store i32 %377, ptr %5, align 4
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %228, %163, %83, %373, %292, %205, %165, %..loopexit279_crit_edge, %132, %85, %..loopexit277_crit_edge, %52, %331, %294, %..loopexit274_crit_edge, %251, %._crit_edge317, %mm_get_type.exit._crit_edge, %._crit_edge, %._crit_edge302
-  %378 = phi i32 [ %.lcssa283, %mm_get_type.exit._crit_edge ], [ %.lcssa281, %._crit_edge302 ], [ %.lcssa282, %._crit_edge ], [ %.lcssa, %._crit_edge317 ], [ %267, %251 ], [ %375, %..loopexit274_crit_edge ], [ %310, %294 ], [ %347, %331 ], [ %67, %52 ], [ %376, %..loopexit277_crit_edge ], [ %100, %85 ], [ %147, %132 ], [ %377, %..loopexit279_crit_edge ], [ %180, %165 ], [ %215, %205 ], [ %293, %292 ], [ %374, %373 ], [ %84, %83 ], [ %164, %163 ], [ %229, %228 ]
-  %.0.i266 = phi i32 [ 8, %mm_get_type.exit._crit_edge ], [ 1, %._crit_edge302 ], [ 4, %._crit_edge ], [ 2, %._crit_edge317 ], [ 2, %251 ], [ 2, %..loopexit274_crit_edge ], [ 2, %294 ], [ 2, %331 ], [ 1, %52 ], [ 1, %..loopexit277_crit_edge ], [ 1, %85 ], [ 4, %132 ], [ 4, %..loopexit279_crit_edge ], [ 4, %165 ], [ 8, %205 ], [ 2, %292 ], [ 2, %373 ], [ 1, %83 ], [ 4, %163 ], [ 8, %228 ]
-  %.1239 = phi ptr [ %26, %mm_get_type.exit._crit_edge ], [ %26, %._crit_edge302 ], [ %26, %._crit_edge ], [ %26, %._crit_edge317 ], [ %255, %251 ], [ %298, %..loopexit274_crit_edge ], [ %298, %294 ], [ %335, %331 ], [ %56, %52 ], [ %89, %..loopexit277_crit_edge ], [ %89, %85 ], [ %136, %132 ], [ %169, %..loopexit279_crit_edge ], [ %169, %165 ], [ %209, %205 ], [ %255, %292 ], [ %335, %373 ], [ %56, %83 ], [ %136, %163 ], [ %209, %228 ]
-  %.1235 = phi ptr [ %29, %mm_get_type.exit._crit_edge ], [ %29, %._crit_edge302 ], [ %29, %._crit_edge ], [ %29, %._crit_edge317 ], [ %260, %251 ], [ %303, %..loopexit274_crit_edge ], [ %303, %294 ], [ %340, %331 ], [ %61, %52 ], [ %94, %..loopexit277_crit_edge ], [ %94, %85 ], [ %141, %132 ], [ %174, %..loopexit279_crit_edge ], [ %174, %165 ], [ %214, %205 ], [ %260, %292 ], [ %340, %373 ], [ %61, %83 ], [ %141, %163 ], [ %214, %228 ]
-  %.0233 = phi ptr [ null, %mm_get_type.exit._crit_edge ], [ %36, %._crit_edge302 ], [ %116, %._crit_edge ], [ %234, %._crit_edge317 ], [ %266, %251 ], [ %309, %..loopexit274_crit_edge ], [ %309, %294 ], [ %346, %331 ], [ %66, %52 ], [ %99, %..loopexit277_crit_edge ], [ %99, %85 ], [ %146, %132 ], [ %179, %..loopexit279_crit_edge ], [ %179, %165 ], [ null, %205 ], [ %266, %292 ], [ %346, %373 ], [ %66, %83 ], [ %146, %163 ], [ null, %228 ]
-  %.1 = phi ptr [ null, %mm_get_type.exit._crit_edge ], [ %36, %._crit_edge302 ], [ null, %._crit_edge ], [ %234, %._crit_edge317 ], [ %266, %251 ], [ %309, %..loopexit274_crit_edge ], [ %309, %294 ], [ %346, %331 ], [ %66, %52 ], [ %99, %..loopexit277_crit_edge ], [ %99, %85 ], [ null, %132 ], [ null, %..loopexit279_crit_edge ], [ null, %165 ], [ null, %205 ], [ %266, %292 ], [ %346, %373 ], [ %66, %83 ], [ null, %163 ], [ null, %228 ]
-  %379 = load i32, ptr %3, align 4
-  %380 = load i32, ptr %4, align 4
-  %381 = call ptr @SparseMatrix_from_coordinate_arrays(i32 noundef %378, i32 noundef %379, i32 noundef %380, ptr noundef %.1239, ptr noundef %.1235, ptr noundef %.0233, i32 noundef %.0.i266, i64 noundef 8) #12
+.loopexit:                                        ; preds = %228, %163, %83, %373, %292, %.loopexit.sink.split, %205, %165, %132, %85, %52, %331, %294, %251, %._crit_edge317, %mm_get_type.exit._crit_edge, %._crit_edge, %._crit_edge302
+  %376 = phi i32 [ %.lcssa283, %mm_get_type.exit._crit_edge ], [ %.lcssa281, %._crit_edge302 ], [ %.lcssa282, %._crit_edge ], [ %.lcssa, %._crit_edge317 ], [ %267, %251 ], [ %310, %294 ], [ %347, %331 ], [ %67, %52 ], [ %100, %85 ], [ %147, %132 ], [ %180, %165 ], [ %215, %205 ], [ %375, %.loopexit.sink.split ], [ %293, %292 ], [ %374, %373 ], [ %84, %83 ], [ %164, %163 ], [ %229, %228 ]
+  %.0.i266 = phi i32 [ 8, %mm_get_type.exit._crit_edge ], [ 1, %._crit_edge302 ], [ 4, %._crit_edge ], [ 2, %._crit_edge317 ], [ 2, %251 ], [ 2, %294 ], [ 2, %331 ], [ 1, %52 ], [ 1, %85 ], [ 4, %132 ], [ 4, %165 ], [ 8, %205 ], [ %.0.i266.ph, %.loopexit.sink.split ], [ 2, %292 ], [ 2, %373 ], [ 1, %83 ], [ 4, %163 ], [ 8, %228 ]
+  %.1239 = phi ptr [ %26, %mm_get_type.exit._crit_edge ], [ %26, %._crit_edge302 ], [ %26, %._crit_edge ], [ %26, %._crit_edge317 ], [ %255, %251 ], [ %298, %294 ], [ %335, %331 ], [ %56, %52 ], [ %89, %85 ], [ %136, %132 ], [ %169, %165 ], [ %209, %205 ], [ %.1239.ph, %.loopexit.sink.split ], [ %255, %292 ], [ %335, %373 ], [ %56, %83 ], [ %136, %163 ], [ %209, %228 ]
+  %.1235 = phi ptr [ %29, %mm_get_type.exit._crit_edge ], [ %29, %._crit_edge302 ], [ %29, %._crit_edge ], [ %29, %._crit_edge317 ], [ %260, %251 ], [ %303, %294 ], [ %340, %331 ], [ %61, %52 ], [ %94, %85 ], [ %141, %132 ], [ %174, %165 ], [ %214, %205 ], [ %.1235.ph, %.loopexit.sink.split ], [ %260, %292 ], [ %340, %373 ], [ %61, %83 ], [ %141, %163 ], [ %214, %228 ]
+  %.0233 = phi ptr [ null, %mm_get_type.exit._crit_edge ], [ %36, %._crit_edge302 ], [ %116, %._crit_edge ], [ %234, %._crit_edge317 ], [ %266, %251 ], [ %309, %294 ], [ %346, %331 ], [ %66, %52 ], [ %99, %85 ], [ %146, %132 ], [ %179, %165 ], [ null, %205 ], [ %.0233.ph, %.loopexit.sink.split ], [ %266, %292 ], [ %346, %373 ], [ %66, %83 ], [ %146, %163 ], [ null, %228 ]
+  %.1 = phi ptr [ null, %mm_get_type.exit._crit_edge ], [ %36, %._crit_edge302 ], [ null, %._crit_edge ], [ %234, %._crit_edge317 ], [ %266, %251 ], [ %309, %294 ], [ %346, %331 ], [ %66, %52 ], [ %99, %85 ], [ null, %132 ], [ null, %165 ], [ null, %205 ], [ %.1.ph, %.loopexit.sink.split ], [ %266, %292 ], [ %346, %373 ], [ %66, %83 ], [ null, %163 ], [ null, %228 ]
+  %377 = load i32, ptr %3, align 4
+  %378 = load i32, ptr %4, align 4
+  %379 = call ptr @SparseMatrix_from_coordinate_arrays(i32 noundef %376, i32 noundef %377, i32 noundef %378, ptr noundef %.1239, ptr noundef %.1235, ptr noundef %.0233, i32 noundef %.0.i266, i64 noundef 8) #12
   call void @free(ptr noundef %.1239) #12
   call void @free(ptr noundef %.1235) #12
   call void @free(ptr noundef %.1) #12
-  %382 = getelementptr inbounds i8, ptr %2, i64 3
-  %383 = load i8, ptr %382, align 1
-  %384 = icmp eq i8 %383, 83
-  br i1 %384, label %385, label %mm_get_type.exit.thread
+  %380 = getelementptr inbounds i8, ptr %2, i64 3
+  %381 = load i8, ptr %380, align 1
+  %382 = icmp eq i8 %381, 83
+  br i1 %382, label %383, label %mm_get_type.exit.thread
 
-385:                                              ; preds = %.loopexit
-  %386 = getelementptr inbounds i8, ptr %381, i64 52
-  %387 = load i32, ptr %386, align 4
-  %388 = or i32 %387, 3
-  store i32 %388, ptr %386, align 4
+383:                                              ; preds = %.loopexit
+  %384 = getelementptr inbounds i8, ptr %379, i64 52
+  %385 = load i32, ptr %384, align 4
+  %386 = or i32 %385, 3
+  store i32 %386, ptr %384, align 4
   br label %mm_get_type.exit.thread
 
-mm_get_type.exit.thread:                          ; preds = %23, %.loopexit, %385, %21, %9, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %9 ], [ null, %21 ], [ %381, %385 ], [ %381, %.loopexit ], [ null, %23 ]
+mm_get_type.exit.thread:                          ; preds = %23, %.loopexit, %383, %21, %9, %7
+  %.0 = phi ptr [ null, %7 ], [ null, %9 ], [ null, %21 ], [ %379, %383 ], [ %379, %.loopexit ], [ null, %23 ]
   ret ptr %.0
 }
 

@@ -2862,8 +2862,8 @@ common.resume.i:                                  ; preds = %.body.i, %74
   store ptr %92, ptr %21, align 8
   store i64 %80, ptr %83, align 8
   %96 = and i64 %80, 2305843009213693950
-  %.not449.i = icmp eq i64 %80, 1
-  br i1 %.not449.i, label %._crit_edge.i.i.i.i.i.i.i57.i, label %.lr.ph.i.i.i.i.i.i.i61.i
+  %.not443.i = icmp eq i64 %80, 1
+  br i1 %.not443.i, label %._crit_edge.i.i.i.i.i.i.i57.i, label %.lr.ph.i.i.i.i.i.i.i61.i
 
 .lr.ph.i.i.i.i.i.i.i61.i:                         ; preds = %95, %.lr.ph.i.i.i.i.i.i.i61.i
   %.011.i.i.i.i.i.i.i62.i = phi i64 [ %100, %.lr.ph.i.i.i.i.i.i.i61.i ], [ 0, %95 ]
@@ -3656,7 +3656,7 @@ _ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit.i.i.i77.thread
 536:                                              ; preds = %.loopexit356.i
   %537 = landingpad { ptr, i32 }
           cleanup
-  br label %894
+  br label %895
 
 538:                                              ; preds = %187
   %539 = landingpad { ptr, i32 }
@@ -4294,47 +4294,47 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   call void @free(ptr noundef %892) #26
   br label %.body71.i
 
-.body71.i:                                        ; preds = %538, %540, %891, %164
+.body71.i:                                        ; preds = %891, %540, %538, %164
   %.pn43.pn.pn.pn.pn.i = phi { ptr, i32 } [ %165, %164 ], [ %.pn43.pn.pn.i, %891 ], [ %539, %538 ], [ %541, %540 ]
-  %.sink.i = load ptr, ptr %25, align 8
-  call void @free(ptr noundef %.sink.i) #26
-  %893 = load ptr, ptr %24, align 8
+  %893 = load ptr, ptr %25, align 8
   call void @free(ptr noundef %893) #26
-  br label %894
+  %894 = load ptr, ptr %24, align 8
+  call void @free(ptr noundef %894) #26
+  br label %895
 
-894:                                              ; preds = %.body71.i, %536
+895:                                              ; preds = %.body71.i, %536
   %.pn43.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn43.pn.pn.pn.pn.i, %.body71.i ], [ %537, %536 ]
-  %895 = load ptr, ptr %22, align 8
-  call void @free(ptr noundef %895) #26
+  %896 = load ptr, ptr %22, align 8
+  call void @free(ptr noundef %896) #26
   br label %.body69.i
 
-.body69.i:                                        ; preds = %894, %135
-  %.pn43.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn43.pn.pn.pn.pn.pn.i, %894 ], [ %136, %135 ]
-  %896 = load ptr, ptr %21, align 8
-  call void @free(ptr noundef %896) #26
+.body69.i:                                        ; preds = %895, %135
+  %.pn43.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn43.pn.pn.pn.pn.pn.i, %895 ], [ %136, %135 ]
+  %897 = load ptr, ptr %21, align 8
+  call void @free(ptr noundef %897) #26
   br label %.body.i
 
 .body.i:                                          ; preds = %.body69.i, %109
   %.pn43.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn43.pn.pn.pn.pn.pn.pn.i, %.body69.i ], [ %110, %109 ]
-  %897 = load ptr, ptr %20, align 8
-  call void @free(ptr noundef %897) #26
+  %898 = load ptr, ptr %20, align 8
+  call void @free(ptr noundef %898) #26
   br label %common.resume.i
 
 "_ZZ16fit_rotations_l1RKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERS1_S4_R15cube_style_dataRNS0_IdLin1ELi1ELi0ELin1ELi1EEEENK3$_0clEi.exit": ; preds = %883, %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_7ProductINS3_INS0_IdLin1ELin1ELi0ELin1ELin1EEENS_15DiagonalWrapperIKNS0_IdLin1ELi1ELi0ELin1ELi1EEEEELi1EEENS_9TransposeIS4_EELi0EEEEERKNS_9EigenBaseIT_EE.exit.i, %832
-  %898 = load ptr, ptr %32, align 8
-  call void @free(ptr noundef %898) #26
-  %899 = load ptr, ptr %31, align 8
+  %899 = load ptr, ptr %32, align 8
   call void @free(ptr noundef %899) #26
-  %900 = load ptr, ptr %25, align 8
+  %900 = load ptr, ptr %31, align 8
   call void @free(ptr noundef %900) #26
-  %901 = load ptr, ptr %24, align 8
+  %901 = load ptr, ptr %25, align 8
   call void @free(ptr noundef %901) #26
-  %902 = load ptr, ptr %22, align 8
+  %902 = load ptr, ptr %24, align 8
   call void @free(ptr noundef %902) #26
-  %903 = load ptr, ptr %21, align 8
+  %903 = load ptr, ptr %22, align 8
   call void @free(ptr noundef %903) #26
-  %904 = load ptr, ptr %20, align 8
+  %904 = load ptr, ptr %21, align 8
   call void @free(ptr noundef %904) #26
+  %905 = load ptr, ptr %20, align 8
+  call void @free(ptr noundef %905) #26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
@@ -5477,64 +5477,64 @@ define linkonce_odr void @_ZN5Eigen8internal20generic_product_implINS_7ProductIN
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   invoke void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS_7ProductIS3_NS_15DiagonalWrapperIKNS2_IdLin1ELi1ELi0ELin1ELi1EEEEELi1EEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 1 dereferenceable(1) %6)
-          to label %14 unwind label %.body.i.i.i
+          to label %15 unwind label %.body.i.i.i
 
-common.resume.i:                                  ; preds = %36, %.body.i.i.i
-  %common.resume.op.i = phi { ptr, i32 } [ %13, %.body.i.i.i ], [ %37, %36 ]
-  %.sink.i = load ptr, ptr %7, align 8
-  call void @free(ptr noundef %.sink.i) #26
+common.resume.i:                                  ; preds = %37, %.body.i.i.i
+  %common.resume.op.i = phi { ptr, i32 } [ %14, %.body.i.i.i ], [ %38, %37 ]
+  %13 = load ptr, ptr %7, align 8
+  call void @free(ptr noundef %13) #26
   resume { ptr, i32 } %common.resume.op.i
 
 .body.i.i.i:                                      ; preds = %5
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i
 
-14:                                               ; preds = %5
+15:                                               ; preds = %5
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  %15 = getelementptr inbounds i8, ptr %7, i64 24
-  %16 = load i64, ptr %11, align 8
-  store i64 %16, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 32
-  %18 = load ptr, ptr %7, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 8
-  %20 = load i64, ptr %19, align 8
-  store ptr %18, ptr %17, align 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 40
-  store i64 %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 48
-  %23 = inttoptr i64 %16 to ptr
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %23, i64 8
-  %26 = load i64, ptr %25, align 8
-  store ptr %24, ptr %22, align 8
-  %27 = getelementptr inbounds i8, ptr %7, i64 56
-  store i64 %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %7, i64 64
-  %29 = getelementptr inbounds i8, ptr %10, i64 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
-  %32 = load i64, ptr %31, align 8
-  store i64 %32, ptr %28, align 8
+  %16 = getelementptr inbounds i8, ptr %7, i64 24
+  %17 = load i64, ptr %11, align 8
+  store i64 %17, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %7, i64 32
+  %19 = load ptr, ptr %7, align 8
+  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %21 = load i64, ptr %20, align 8
+  store ptr %19, ptr %18, align 8
+  %22 = getelementptr inbounds i8, ptr %7, i64 40
+  store i64 %21, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %7, i64 48
+  %24 = inttoptr i64 %17 to ptr
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %24, i64 8
+  %27 = load i64, ptr %26, align 8
+  store ptr %25, ptr %23, align 8
+  %28 = getelementptr inbounds i8, ptr %7, i64 56
+  store i64 %27, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %7, i64 64
+  %30 = getelementptr inbounds i8, ptr %10, i64 8
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %33 = load i64, ptr %32, align 8
+  store i64 %33, ptr %29, align 8
   store ptr %0, ptr %8, align 8
   store ptr %8, ptr %9, align 8
-  %33 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %7, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr %3, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %9, i64 24
-  store ptr %0, ptr %35, align 8
+  %34 = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %7, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %9, i64 16
+  store ptr %3, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %9, i64 24
+  store ptr %0, ptr %36, align 8
   invoke void @_ZN5Eigen8internal21dense_assignment_loopINS0_41restricted_packet_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEENS3_INS_7ProductINS7_INS4_IdLin1ELin1ELi0ELin1ELin1EEENS_15DiagonalWrapperIKNS4_IdLin1ELi1ELi0ELin1ELi1EEEEELi1EEENS_9TransposeIKS8_EELi1EEEEENS0_9assign_opIddEEEELi4ELi0EE3runERSL_(ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %_ZN5Eigen8internal42call_restricted_packet_assignment_no_aliasINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEENS_7ProductINS4_INS2_IdLin1ELin1ELi0ELin1ELin1EEENS_15DiagonalWrapperIKNS2_IdLin1ELi1ELi0ELin1ELi1EEEEELi1EEENS_9TransposeIKS5_EELi1EEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_.exit unwind label %36
+          to label %_ZN5Eigen8internal42call_restricted_packet_assignment_no_aliasINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEENS_7ProductINS4_INS2_IdLin1ELin1ELi0ELin1ELin1EEENS_15DiagonalWrapperIKNS2_IdLin1ELi1ELi0ELin1ELi1EEEEELi1EEENS_9TransposeIKS5_EELi1EEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_.exit unwind label %37
 
-36:                                               ; preds = %14
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %15
+  %38 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i
 
-_ZN5Eigen8internal42call_restricted_packet_assignment_no_aliasINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEENS_7ProductINS4_INS2_IdLin1ELin1ELi0ELin1ELin1EEENS_15DiagonalWrapperIKNS2_IdLin1ELi1ELi0ELin1ELi1EEEEELi1EEENS_9TransposeIKS5_EELi1EEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_.exit: ; preds = %14
-  %38 = load ptr, ptr %7, align 8
-  call void @free(ptr noundef %38) #26
+_ZN5Eigen8internal42call_restricted_packet_assignment_no_aliasINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEENS_7ProductINS4_INS2_IdLin1ELin1ELi0ELin1ELin1EEENS_15DiagonalWrapperIKNS2_IdLin1ELi1ELi0ELin1ELi1EEEEELi1EEENS_9TransposeIKS5_EELi1EEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_.exit: ; preds = %15
+  %39 = load ptr, ptr %7, align 8
+  call void @free(ptr noundef %39) #26
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)

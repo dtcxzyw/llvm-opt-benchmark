@@ -8338,32 +8338,27 @@ entry:
 
 if.then:                                          ; preds = %entry
   %bf.clear9 = or disjoint i8 %bf.shl, 1
-  store i8 %bf.clear9, ptr %ll_opts, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %recursive_variant = getelementptr inbounds i8, ptr %opt, i64 64
   %3 = load i32, ptr %recursive_variant, align 8
-  switch i32 %3, label %sw.default [
+  switch i32 %3, label %if.end [
     i32 1, label %sw.bb
     i32 2, label %sw.bb14
   ]
 
 sw.bb:                                            ; preds = %if.else
   %bf.set13 = or disjoint i8 %bf.shl, 2
-  store i8 %bf.set13, ptr %ll_opts, align 8
   br label %if.end
 
 sw.bb14:                                          ; preds = %if.else
   %bf.set17 = or disjoint i8 %bf.shl, 4
-  store i8 %bf.set17, ptr %ll_opts, align 8
   br label %if.end
 
-sw.default:                                       ; preds = %if.else
-  store i8 %bf.shl, ptr %ll_opts, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %sw.bb, %sw.bb14, %sw.default, %if.then
+if.end:                                           ; preds = %if.else, %sw.bb, %sw.bb14, %if.then
+  %bf.set13.sink = phi i8 [ %bf.set13, %sw.bb ], [ %bf.set17, %sw.bb14 ], [ %bf.clear9, %if.then ], [ %bf.shl, %if.else ]
+  store i8 %bf.set13.sink, ptr %ll_opts, align 8
   %path = getelementptr inbounds i8, ptr %a, i64 40
   %4 = load ptr, ptr %path, align 8
   %path21 = getelementptr inbounds i8, ptr %b, i64 40

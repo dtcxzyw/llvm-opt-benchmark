@@ -103,8 +103,6 @@ if.end5.lr.ph.i:                                  ; preds = %for.cond.preheader.
 
 parse_keyboard_layout.exit.thread:                ; preds = %cond.end.thread.i, %cond.end.i
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 101, ptr noundef nonnull @__func__.parse_keyboard_layout, ptr noundef nonnull @.str.3, ptr noundef %language) #10
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %line.i)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %keyname.i)
   br label %if.then
 
 if.end5.i:                                        ; preds = %for.cond.backedge.i, %if.end5.lr.ph.i
@@ -334,11 +332,11 @@ parse_keyboard_layout.exit.thread7:               ; preds = %for.cond.backedge.i
 parse_keyboard_layout.exit:                       ; preds = %if.end28.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 120, ptr noundef nonnull @__func__.parse_keyboard_layout, ptr noundef nonnull @.str.6) #10
   %call103.i = call i32 @fclose(ptr noundef nonnull %call1.i)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %line.i)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %keyname.i)
   br label %if.then
 
 if.then:                                          ; preds = %parse_keyboard_layout.exit, %parse_keyboard_layout.exit.thread
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %line.i)
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %keyname.i)
   call void @g_hash_table_unref(ptr noundef %call1) #10
   call void @g_free(ptr noundef nonnull %call) #10
   br label %return

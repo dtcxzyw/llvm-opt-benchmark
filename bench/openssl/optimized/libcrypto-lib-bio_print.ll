@@ -1045,13 +1045,13 @@ if.end31.us.i:                                    ; preds = %return.sink.split.i
   %inc62.i444505 = phi i64 [ %inc62.i444, %return.sink.split.i442 ], [ %inc62.i444506, %if.end53.i438 ]
   %inc.us.i = add nuw nsw i32 %cnt.046.us.i, 1
   %exitcond75.not.i = icmp eq i32 %inc.us.i, %spec.select.i
-  br i1 %exitcond75.not.i, label %while.end.i.loopexit, label %land.rhs.us.i, !llvm.loop !4
+  br i1 %exitcond75.not.i, label %while.end.i.sink.split, label %land.rhs.us.i, !llvm.loop !4
 
 land.rhs.i:                                       ; preds = %if.end31.i, %land.rhs.preheader.i
   %inc62.i408502 = phi i64 [ %inc62.i408501, %if.end31.i ], [ %currlen.promoted, %land.rhs.preheader.i ]
   %cnt.046.i = phi i32 [ %inc.i, %if.end31.i ], [ 0, %land.rhs.preheader.i ]
   %exitcond.not.i = icmp eq i32 %cnt.046.i, %spec.select
-  br i1 %exitcond.not.i, label %while.end.i.loopexit498, label %while.body.i
+  br i1 %exitcond.not.i, label %while.end.i.sink.split, label %while.body.i
 
 while.body.i:                                     ; preds = %land.rhs.i
   %110 = load ptr, ptr %sbuffer, align 8
@@ -1137,22 +1137,18 @@ if.end31.i:                                       ; preds = %return.sink.split.i
   %inc62.i408501 = phi i64 [ %inc62.i408, %return.sink.split.i406 ], [ %inc62.i408502, %if.end53.i402 ]
   %inc.i = add nuw nsw i32 %cnt.046.i, 1
   %exitcond74.not.i = icmp eq i32 %inc.i, %spec.select.i
-  br i1 %exitcond74.not.i, label %while.end.i.loopexit498, label %land.rhs.i, !llvm.loop !4
+  br i1 %exitcond74.not.i, label %while.end.i.sink.split, label %land.rhs.i, !llvm.loop !4
 
-while.end.i.loopexit:                             ; preds = %if.end31.us.i
-  store i64 %inc62.i444505, ptr %currlen, align 8
+while.end.i.sink.split:                           ; preds = %if.end31.i, %land.rhs.i, %if.end31.us.i
+  %inc62.i408503.sink = phi i64 [ %inc62.i444505, %if.end31.us.i ], [ %inc62.i408502, %land.rhs.i ], [ %inc62.i408501, %if.end31.i ]
+  %padlen.1.lcssa.i.ph550 = phi i32 [ 0, %if.end31.us.i ], [ %101, %land.rhs.i ], [ 0, %if.end31.i ]
+  %cnt.0.lcssa.i.ph551 = phi i32 [ %spec.select.i, %if.end31.us.i ], [ %spec.select, %land.rhs.i ], [ %spec.select.i, %if.end31.i ]
+  store i64 %inc62.i408503.sink, ptr %currlen, align 8
   br label %while.end.i
 
-while.end.i.loopexit498:                          ; preds = %land.rhs.i, %if.end31.i
-  %inc62.i408503 = phi i64 [ %inc62.i408502, %land.rhs.i ], [ %inc62.i408501, %if.end31.i ]
-  %padlen.1.lcssa.i.ph = phi i32 [ %101, %land.rhs.i ], [ 0, %if.end31.i ]
-  %cnt.0.lcssa.i.ph = phi i32 [ %spec.select, %land.rhs.i ], [ %spec.select.i, %if.end31.i ]
-  store i64 %inc62.i408503, ptr %currlen, align 8
-  br label %while.end.i
-
-while.end.i:                                      ; preds = %while.end.i.loopexit498, %while.end.i.loopexit, %if.end394
-  %padlen.1.lcssa.i = phi i32 [ %spec.select.i, %if.end394 ], [ 0, %while.end.i.loopexit ], [ %padlen.1.lcssa.i.ph, %while.end.i.loopexit498 ]
-  %cnt.0.lcssa.i = phi i32 [ 0, %if.end394 ], [ %spec.select.i, %while.end.i.loopexit ], [ %cnt.0.lcssa.i.ph, %while.end.i.loopexit498 ]
+while.end.i:                                      ; preds = %while.end.i.sink.split, %if.end394
+  %padlen.1.lcssa.i = phi i32 [ %spec.select.i, %if.end394 ], [ %padlen.1.lcssa.i.ph550, %while.end.i.sink.split ]
+  %cnt.0.lcssa.i = phi i32 [ 0, %if.end394 ], [ %cnt.0.lcssa.i.ph551, %while.end.i.sink.split ]
   %cmp33.not51.i = icmp eq i64 %call.i172, 0
   br i1 %cmp33.not51.i, label %while.end51.i, label %land.rhs35.lr.ph.i
 
@@ -1260,7 +1256,7 @@ if.end48.us.i:                                    ; preds = %return.sink.split.i
   %incdec.ptr.us.i = getelementptr inbounds i8, ptr %value.addr.052.us.i, i64 1
   %dec49.us.i = add i64 %strln.053.us.i, -1
   %cmp33.not.us.i = icmp eq i64 %dec49.us.i, 0
-  br i1 %cmp33.not.us.i, label %while.end51.i.loopexit, label %land.rhs35.us.i, !llvm.loop !6
+  br i1 %cmp33.not.us.i, label %while.end51.i.sink.split, label %land.rhs35.us.i, !llvm.loop !6
 
 land.rhs35.i:                                     ; preds = %if.end48.i, %land.rhs35.preheader.i
   %inc62.i335509 = phi i64 [ %inc62.i335508, %if.end48.i ], [ %currlen.promoted507, %land.rhs35.preheader.i ]
@@ -1268,7 +1264,7 @@ land.rhs35.i:                                     ; preds = %if.end48.i, %land.r
   %strln.053.i = phi i64 [ %dec49.i, %if.end48.i ], [ %call.i172, %land.rhs35.preheader.i ]
   %value.addr.052.i = phi ptr [ %incdec.ptr.i, %if.end48.i ], [ %spec.store.select.i, %land.rhs35.preheader.i ]
   %exitcond76.not.i = icmp eq i32 %cnt.154.i, %smax.i
-  br i1 %exitcond76.not.i, label %while.end51.i.loopexit495, label %while.body43.i
+  br i1 %exitcond76.not.i, label %while.end51.i.sink.split, label %while.body43.i
 
 while.body43.i:                                   ; preds = %land.rhs35.i
   %129 = load i8, ptr %value.addr.052.i, align 1
@@ -1357,20 +1353,16 @@ if.end48.i:                                       ; preds = %return.sink.split.i
   %dec49.i = add i64 %strln.053.i, -1
   %inc50.i = add i32 %cnt.154.i, 1
   %cmp33.not.i = icmp eq i64 %dec49.i, 0
-  br i1 %cmp33.not.i, label %while.end51.i.loopexit495, label %land.rhs35.i, !llvm.loop !6
+  br i1 %cmp33.not.i, label %while.end51.i.sink.split, label %land.rhs35.i, !llvm.loop !6
 
-while.end51.i.loopexit:                           ; preds = %if.end48.us.i
-  store i64 %inc62.i372512, ptr %currlen, align 8
+while.end51.i.sink.split:                         ; preds = %if.end48.i, %land.rhs35.i, %if.end48.us.i
+  %inc62.i335510.sink = phi i64 [ %inc62.i372512, %if.end48.us.i ], [ %inc62.i335509, %land.rhs35.i ], [ %inc62.i335508, %if.end48.i ]
+  %cnt.1.lcssa.i.ph552 = phi i32 [ %119, %if.end48.us.i ], [ %smax.i, %land.rhs35.i ], [ %118, %if.end48.i ]
+  store i64 %inc62.i335510.sink, ptr %currlen, align 8
   br label %while.end51.i
 
-while.end51.i.loopexit495:                        ; preds = %land.rhs35.i, %if.end48.i
-  %inc62.i335510 = phi i64 [ %inc62.i335509, %land.rhs35.i ], [ %inc62.i335508, %if.end48.i ]
-  %cnt.1.lcssa.i.ph = phi i32 [ %smax.i, %land.rhs35.i ], [ %118, %if.end48.i ]
-  store i64 %inc62.i335510, ptr %currlen, align 8
-  br label %while.end51.i
-
-while.end51.i:                                    ; preds = %while.end51.i.loopexit495, %while.end51.i.loopexit, %while.end.i
-  %cnt.1.lcssa.i = phi i32 [ %cnt.0.lcssa.i, %while.end.i ], [ %119, %while.end51.i.loopexit ], [ %cnt.1.lcssa.i.ph, %while.end51.i.loopexit495 ]
+while.end51.i:                                    ; preds = %while.end51.i.sink.split, %while.end.i
+  %cnt.1.lcssa.i = phi i32 [ %cnt.0.lcssa.i, %while.end.i ], [ %cnt.1.lcssa.i.ph552, %while.end51.i.sink.split ]
   %cmp5358.i = icmp slt i32 %padlen.1.lcssa.i, 0
   br i1 %cmp5358.i, label %land.rhs55.lr.ph.i, label %sw.epilog442.sink.split
 
@@ -1720,14 +1712,14 @@ sw.epilog438.loopexit492:                         ; preds = %land.rhs55.i, %if.e
   br label %sw.epilog442.sink.split
 
 sw.epilog442.sink.split:                          ; preds = %vaarg.end426, %sw.bb435, %sw.epilog177, %sw.epilog249, %if.end285, %if.end319, %if.end353, %vaarg.end409, %sw.bb111, %if.end53.i143, %return.sink.split.i147, %while.end51.i, %if.end53.i184, %return.sink.split.i188, %sw.epilog438.loopexit, %sw.epilog438.loopexit492, %sw.bb90, %sw.bb48, %sw.bb, %if.end53.i, %return.sink.split.i, %sw.bb29, %sw.bb26, %sw.bb23, %sw.bb20, %sw.bb18, %vaarg.end, %if.then36, %vaarg.end84, %if.then60, %sw.bb107, %sw.bb105, %sw.bb103, %sw.bb94
-  %format.addr.0522.sink550 = phi ptr [ %format.addr.3, %sw.bb94 ], [ %format.addr.0522, %sw.bb103 ], [ %format.addr.0522, %sw.bb105 ], [ %format.addr.0522, %sw.bb107 ], [ %format.addr.0522, %if.then60 ], [ %format.addr.0522, %vaarg.end84 ], [ %format.addr.0522, %if.then36 ], [ %format.addr.0522, %vaarg.end ], [ %format.addr.0522, %sw.bb18 ], [ %format.addr.0522, %sw.bb20 ], [ %format.addr.0522, %sw.bb23 ], [ %format.addr.0522, %sw.bb26 ], [ %format.addr.0522, %sw.bb29 ], [ %format.addr.0522, %return.sink.split.i ], [ %format.addr.0522, %if.end53.i ], [ %format.addr.0522, %sw.bb ], [ %format.addr.0522, %sw.bb48 ], [ %format.addr.0522, %sw.bb90 ], [ %format.addr.0522, %sw.bb111 ], [ %incdec.ptr436, %sw.bb435 ], [ %format.addr.0522, %vaarg.end426 ], [ %format.addr.0522, %vaarg.end409 ], [ %format.addr.0522, %if.end353 ], [ %format.addr.0522, %if.end319 ], [ %format.addr.0522, %if.end285 ], [ %format.addr.0522, %sw.epilog249 ], [ %format.addr.0522, %sw.epilog177 ], [ %format.addr.0522, %if.end53.i143 ], [ %format.addr.0522, %return.sink.split.i147 ], [ %format.addr.0522, %while.end51.i ], [ %format.addr.0522, %if.end53.i184 ], [ %format.addr.0522, %return.sink.split.i188 ], [ %format.addr.0522, %sw.epilog438.loopexit ], [ %format.addr.0522, %sw.epilog438.loopexit492 ]
+  %format.addr.0522.sink553 = phi ptr [ %format.addr.3, %sw.bb94 ], [ %format.addr.0522, %sw.bb103 ], [ %format.addr.0522, %sw.bb105 ], [ %format.addr.0522, %sw.bb107 ], [ %format.addr.0522, %if.then60 ], [ %format.addr.0522, %vaarg.end84 ], [ %format.addr.0522, %if.then36 ], [ %format.addr.0522, %vaarg.end ], [ %format.addr.0522, %sw.bb18 ], [ %format.addr.0522, %sw.bb20 ], [ %format.addr.0522, %sw.bb23 ], [ %format.addr.0522, %sw.bb26 ], [ %format.addr.0522, %sw.bb29 ], [ %format.addr.0522, %return.sink.split.i ], [ %format.addr.0522, %if.end53.i ], [ %format.addr.0522, %sw.bb ], [ %format.addr.0522, %sw.bb48 ], [ %format.addr.0522, %sw.bb90 ], [ %format.addr.0522, %sw.bb111 ], [ %incdec.ptr436, %sw.bb435 ], [ %format.addr.0522, %vaarg.end426 ], [ %format.addr.0522, %vaarg.end409 ], [ %format.addr.0522, %if.end353 ], [ %format.addr.0522, %if.end319 ], [ %format.addr.0522, %if.end285 ], [ %format.addr.0522, %sw.epilog249 ], [ %format.addr.0522, %sw.epilog177 ], [ %format.addr.0522, %if.end53.i143 ], [ %format.addr.0522, %return.sink.split.i147 ], [ %format.addr.0522, %while.end51.i ], [ %format.addr.0522, %if.end53.i184 ], [ %format.addr.0522, %return.sink.split.i188 ], [ %format.addr.0522, %sw.epilog438.loopexit ], [ %format.addr.0522, %sw.epilog438.loopexit492 ]
   %min.1.ph = phi i32 [ %min.0523, %sw.bb94 ], [ %min.0523, %sw.bb103 ], [ %min.0523, %sw.bb105 ], [ %min.0523, %sw.bb107 ], [ %min.0523, %if.then60 ], [ %min.0523, %vaarg.end84 ], [ %add, %if.then36 ], [ %16, %vaarg.end ], [ %min.0523, %sw.bb18 ], [ %min.0523, %sw.bb20 ], [ %min.0523, %sw.bb23 ], [ %min.0523, %sw.bb26 ], [ %min.0523, %sw.bb29 ], [ %min.0523, %return.sink.split.i ], [ %min.0523, %if.end53.i ], [ %min.0523, %sw.bb ], [ %min.0523, %sw.bb48 ], [ %min.0523, %sw.bb90 ], [ 0, %sw.bb111 ], [ 0, %sw.bb435 ], [ 0, %vaarg.end426 ], [ 0, %vaarg.end409 ], [ 0, %if.end353 ], [ 0, %if.end319 ], [ 0, %if.end285 ], [ 0, %sw.epilog249 ], [ 0, %sw.epilog177 ], [ 0, %if.end53.i143 ], [ 0, %return.sink.split.i147 ], [ 0, %while.end51.i ], [ 0, %if.end53.i184 ], [ 0, %return.sink.split.i188 ], [ 0, %sw.epilog438.loopexit ], [ 0, %sw.epilog438.loopexit492 ]
   %max.1.ph = phi i32 [ %max.0524, %sw.bb94 ], [ %max.0524, %sw.bb103 ], [ %max.0524, %sw.bb105 ], [ %max.0524, %sw.bb107 ], [ %add68, %if.then60 ], [ %20, %vaarg.end84 ], [ %max.0524, %if.then36 ], [ %max.0524, %vaarg.end ], [ %max.0524, %sw.bb18 ], [ %max.0524, %sw.bb20 ], [ %max.0524, %sw.bb23 ], [ %max.0524, %sw.bb26 ], [ %max.0524, %sw.bb29 ], [ %max.0524, %return.sink.split.i ], [ %max.0524, %if.end53.i ], [ %max.0524, %sw.bb ], [ %max.0524, %sw.bb48 ], [ %max.0524, %sw.bb90 ], [ -1, %sw.bb111 ], [ -1, %sw.bb435 ], [ -1, %vaarg.end426 ], [ -1, %vaarg.end409 ], [ -1, %if.end353 ], [ -1, %if.end319 ], [ -1, %if.end285 ], [ -1, %sw.epilog249 ], [ -1, %sw.epilog177 ], [ -1, %if.end53.i143 ], [ -1, %return.sink.split.i147 ], [ -1, %while.end51.i ], [ -1, %if.end53.i184 ], [ -1, %return.sink.split.i188 ], [ -1, %sw.epilog438.loopexit ], [ -1, %sw.epilog438.loopexit492 ]
   %state.3.ph = phi i32 [ 6, %sw.bb94 ], [ 6, %sw.bb103 ], [ 6, %sw.bb105 ], [ 6, %sw.bb107 ], [ 4, %if.then60 ], [ 5, %vaarg.end84 ], [ 2, %if.then36 ], [ 3, %vaarg.end ], [ 1, %sw.bb18 ], [ 1, %sw.bb20 ], [ 1, %sw.bb23 ], [ 1, %sw.bb26 ], [ 1, %sw.bb29 ], [ 0, %return.sink.split.i ], [ 0, %if.end53.i ], [ 1, %sw.bb ], [ 4, %sw.bb48 ], [ 6, %sw.bb90 ], [ 0, %sw.bb111 ], [ 0, %sw.bb435 ], [ 0, %vaarg.end426 ], [ 0, %vaarg.end409 ], [ 0, %if.end353 ], [ 0, %if.end319 ], [ 0, %if.end285 ], [ 0, %sw.epilog249 ], [ 0, %sw.epilog177 ], [ 0, %if.end53.i143 ], [ 0, %return.sink.split.i147 ], [ 0, %while.end51.i ], [ 0, %if.end53.i184 ], [ 0, %return.sink.split.i188 ], [ 0, %sw.epilog438.loopexit ], [ 0, %sw.epilog438.loopexit492 ]
   %flags.1.ph = phi i32 [ %flags.0526, %sw.bb94 ], [ %flags.0526, %sw.bb103 ], [ %flags.0526, %sw.bb105 ], [ %flags.0526, %sw.bb107 ], [ %flags.0526, %if.then60 ], [ %flags.0526, %vaarg.end84 ], [ %flags.0526, %if.then36 ], [ %flags.0526, %vaarg.end ], [ %or, %sw.bb18 ], [ %or21, %sw.bb20 ], [ %or24, %sw.bb23 ], [ %or27, %sw.bb26 ], [ %or30, %sw.bb29 ], [ %flags.0526, %return.sink.split.i ], [ %flags.0526, %if.end53.i ], [ %flags.0526, %sw.bb ], [ %flags.0526, %sw.bb48 ], [ %flags.0526, %sw.bb90 ], [ 0, %sw.bb111 ], [ 0, %sw.bb435 ], [ 0, %vaarg.end426 ], [ 0, %vaarg.end409 ], [ 0, %if.end353 ], [ 0, %if.end319 ], [ 0, %if.end285 ], [ 0, %sw.epilog249 ], [ 0, %sw.epilog177 ], [ 0, %if.end53.i143 ], [ 0, %return.sink.split.i147 ], [ 0, %while.end51.i ], [ 0, %if.end53.i184 ], [ 0, %return.sink.split.i188 ], [ 0, %sw.epilog438.loopexit ], [ 0, %sw.epilog438.loopexit492 ]
   %cflags.1.ph = phi i32 [ %cflags.3, %sw.bb94 ], [ 4, %sw.bb103 ], [ 3, %sw.bb105 ], [ 5, %sw.bb107 ], [ %cflags.0527, %if.then60 ], [ %cflags.0527, %vaarg.end84 ], [ %cflags.0527, %if.then36 ], [ %cflags.0527, %vaarg.end ], [ %cflags.0527, %sw.bb18 ], [ %cflags.0527, %sw.bb20 ], [ %cflags.0527, %sw.bb23 ], [ %cflags.0527, %sw.bb26 ], [ %cflags.0527, %sw.bb29 ], [ %cflags.0527, %return.sink.split.i ], [ %cflags.0527, %if.end53.i ], [ %cflags.0527, %sw.bb ], [ %cflags.0527, %sw.bb48 ], [ 1, %sw.bb90 ], [ 0, %sw.bb111 ], [ 0, %sw.bb435 ], [ 0, %vaarg.end426 ], [ 0, %vaarg.end409 ], [ 0, %if.end353 ], [ 0, %if.end319 ], [ 0, %if.end285 ], [ 0, %sw.epilog249 ], [ 0, %sw.epilog177 ], [ 0, %if.end53.i143 ], [ 0, %return.sink.split.i147 ], [ 0, %while.end51.i ], [ 0, %if.end53.i184 ], [ 0, %return.sink.split.i188 ], [ 0, %sw.epilog438.loopexit ], [ 0, %sw.epilog438.loopexit492 ]
-  %incdec.ptr93 = getelementptr inbounds i8, ptr %format.addr.0522.sink550, i64 1
-  %173 = load i8, ptr %format.addr.0522.sink550, align 1
+  %incdec.ptr93 = getelementptr inbounds i8, ptr %format.addr.0522.sink553, i64 1
+  %173 = load i8, ptr %format.addr.0522.sink553, align 1
   br label %sw.epilog442
 
 sw.epilog442:                                     ; preds = %sw.epilog442.sink.split, %sw.bb90, %if.else70, %sw.bb48, %if.else39, %sw.bb16, %if.end

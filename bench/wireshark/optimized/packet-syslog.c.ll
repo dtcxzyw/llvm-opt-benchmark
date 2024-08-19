@@ -230,12 +230,12 @@ define internal i32 @dissect_syslog(ptr noundef %0, ptr noundef %1, ptr noundef 
   %42 = icmp eq i32 %.089, 16
   %43 = icmp eq i32 %.088, 7
   %or.cond.i = and i1 %42, %43
-  br i1 %or.cond.i, label %44, label %mtp3_msu_present.exit.thread
+  br i1 %or.cond.i, label %44, label %.sink.split
 
 44:                                               ; preds = %35
   %45 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(1) @.str.72) #5
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %mtp3_msu_present.exit.thread, label %47
+  br i1 %46, label %.sink.split, label %47
 
 47:                                               ; preds = %44
   %48 = tail call ptr @g_strsplit(ptr noundef %39, ptr noundef nonnull @.str.72, i32 noundef 2) #4
@@ -265,14 +265,9 @@ define internal i32 @dissect_syslog(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.not27.i = icmp eq ptr %59, null
   br i1 %.not27.i, label %mtp3_msu_present.exit.thread103, label %mtp3_msu_present.exit
 
-mtp3_msu_present.exit.thread:                     ; preds = %35, %44
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %66
-
 mtp3_msu_present.exit.thread103:                  ; preds = %58, %51, %47
   call void @g_strfreev(ptr noundef nonnull %48) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %66
+  br label %.sink.split
 
 mtp3_msu_present.exit:                            ; preds = %58
   %60 = load i64, ptr %5, align 8
@@ -287,7 +282,11 @@ mtp3_msu_present.exit:                            ; preds = %58
   %65 = icmp eq ptr %64, null
   br i1 %65, label %66, label %73
 
-66:                                               ; preds = %mtp3_msu_present.exit.thread103, %mtp3_msu_present.exit.thread, %mtp3_msu_present.exit
+.sink.split:                                      ; preds = %44, %35, %mtp3_msu_present.exit.thread103
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  br label %66
+
+66:                                               ; preds = %.sink.split, %mtp3_msu_present.exit
   %67 = icmp sgt i32 %.0, -1
   %68 = load ptr, ptr %6, align 8
   br i1 %67, label %69, label %72

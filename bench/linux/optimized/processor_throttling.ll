@@ -1230,29 +1230,29 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
   %187 = call i32 @acpi_evaluate_object(ptr noundef %186, ptr noundef nonnull @.str.21, ptr noundef null, ptr noundef nonnull %2) #9
   switch i32 %187, label %188 [
     i32 0, label %190
-    i32 5, label %229
+    i32 5, label %233
   ]
 
 188:                                              ; preds = %.loopexit
   %189 = load ptr, ptr %0, align 8
   call void @acpi_evaluation_failure_warn(ptr noundef %189, ptr noundef nonnull @.str.21, i32 noundef %187) #9
-  br label %229
+  br label %233
 
 190:                                              ; preds = %.loopexit
   %191 = load ptr, ptr %183, align 8
   %192 = icmp eq ptr %191, null
-  br i1 %192, label %230, label %193
+  br i1 %192, label %229, label %193
 
 193:                                              ; preds = %190
   %194 = load i32, ptr %191, align 8
   %195 = icmp eq i32 %194, 4
-  br i1 %195, label %196, label %230
+  br i1 %195, label %196, label %229
 
 196:                                              ; preds = %193
   %197 = getelementptr inbounds i8, ptr %191, i64 4
   %198 = load i32, ptr %197, align 4
   %199 = icmp eq i32 %198, 1
-  br i1 %199, label %200, label %230
+  br i1 %199, label %200, label %229
 
 200:                                              ; preds = %196
   %201 = getelementptr inbounds i8, ptr %0, i64 696
@@ -1263,18 +1263,18 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
   %204 = load ptr, ptr %203, align 8
   %205 = call i32 @acpi_extract_package(ptr noundef %204, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
   %206 = icmp eq i32 %205, 0
-  br i1 %206, label %207, label %230
+  br i1 %206, label %207, label %229
 
 207:                                              ; preds = %200
   %208 = load i64, ptr %201, align 1
   %209 = icmp eq i64 %208, 5
-  br i1 %209, label %210, label %230
+  br i1 %209, label %210, label %229
 
 210:                                              ; preds = %207
   %211 = getelementptr inbounds i8, ptr %0, i64 704
   %212 = load i64, ptr %211, align 1
   %213 = icmp eq i64 %212, 0
-  br i1 %213, label %214, label %230
+  br i1 %213, label %214, label %229
 
 214:                                              ; preds = %210
   store i8 1, ptr %185, align 2
@@ -1304,117 +1304,111 @@ define dso_local i32 @acpi_processor_get_throttling_info(ptr noundef %0) local_u
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #9
-  br label %240
+  br label %239
 
-229:                                              ; preds = %188, %.loopexit
+229:                                              ; preds = %210, %207, %200, %196, %193, %190
+  %230 = phi ptr [ @.str.22, %193 ], [ @.str.22, %190 ], [ @.str.22, %196 ], [ @.str.22, %200 ], [ @.str.23, %207 ], [ @.str.24, %210 ]
+  %231 = call i32 (ptr, ...) @_printk(ptr noundef nonnull %230) #12
+  %232 = load ptr, ptr %183, align 8
+  call void @kfree(ptr noundef %232) #9
+  br label %233
+
+233:                                              ; preds = %.loopexit, %188, %229
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #9
-  br label %234
-
-230:                                              ; preds = %210, %207, %200, %196, %193, %190
-  %231 = phi ptr [ @.str.22, %193 ], [ @.str.22, %190 ], [ @.str.22, %196 ], [ @.str.22, %200 ], [ @.str.23, %207 ], [ @.str.24, %210 ]
-  %232 = call i32 (ptr, ...) @_printk(ptr noundef nonnull %231) #12
-  %233 = load ptr, ptr %183, align 8
-  call void @kfree(ptr noundef %233) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #9
-  br label %234
-
-234:                                              ; preds = %230, %229
   store i8 0, ptr %185, align 2
-  %235 = getelementptr inbounds i8, ptr %0, i64 16
-  %236 = load i32, ptr %235, align 8
-  %237 = zext i32 %236 to i64
-  %238 = getelementptr inbounds i8, ptr %0, i64 736
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %238, i64 %237) #9, !srcloc !11
-  %239 = getelementptr inbounds i8, ptr %0, i64 768
-  store i32 252, ptr %239, align 8
-  br label %240
+  %234 = getelementptr inbounds i8, ptr %0, i64 16
+  %235 = load i32, ptr %234, align 8
+  %236 = zext i32 %235 to i64
+  %237 = getelementptr inbounds i8, ptr %0, i64 736
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %237, i64 %236) #9, !srcloc !11
+  %238 = getelementptr inbounds i8, ptr %0, i64 768
+  store i32 252, ptr %238, align 8
+  br label %239
 
-240:                                              ; preds = %234, %227
-  %241 = load i8, ptr getelementptr inbounds (i8, ptr @errata, i64 4), align 4
-  %242 = and i8 %241, 1
-  %243 = icmp eq i8 %242, 0
-  br i1 %243, label %244, label %.thread23
+239:                                              ; preds = %233, %227
+  %240 = load i8, ptr getelementptr inbounds (i8, ptr @errata, i64 4), align 4
+  %241 = and i8 %240, 1
+  %242 = icmp eq i8 %241, 0
+  br i1 %242, label %243, label %.thread23
 
-244:                                              ; preds = %240
-  %245 = getelementptr inbounds i8, ptr %0, i64 32
-  %246 = load i16, ptr %245, align 8
-  %247 = or i16 %246, 4
-  store i16 %247, ptr %245, align 8
-  %248 = icmp eq ptr %0, null
-  br i1 %248, label %.thread22, label %249
+243:                                              ; preds = %239
+  %244 = getelementptr inbounds i8, ptr %0, i64 32
+  %245 = load i16, ptr %244, align 8
+  %246 = or i16 %245, 4
+  store i16 %246, ptr %244, align 8
+  %247 = icmp eq ptr %0, null
+  br i1 %247, label %.thread22, label %248
 
-249:                                              ; preds = %244
-  %250 = getelementptr inbounds i8, ptr %0, i64 16
-  %251 = load i32, ptr %250, align 8
-  %252 = zext i32 %251 to i64
-  %253 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %252) #9, !srcloc !10
-  %254 = icmp ult i8 %253, 2
-  call void @llvm.assume(i1 %254)
-  %255 = icmp eq i8 %253, 0
-  br i1 %255, label %.thread22, label %256
+248:                                              ; preds = %243
+  %249 = getelementptr inbounds i8, ptr %0, i64 16
+  %250 = load i32, ptr %249, align 8
+  %251 = zext i32 %250 to i64
+  %252 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %251) #9, !srcloc !10
+  %253 = icmp ult i8 %252, 2
+  call void @llvm.assume(i1 %253)
+  %254 = icmp eq i8 %252, 0
+  br i1 %254, label %.thread22, label %255
 
-256:                                              ; preds = %249
-  %257 = load i32, ptr %250, align 8
-  %258 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !16
-  %259 = inttoptr i64 %258 to ptr
-  %260 = getelementptr inbounds i8, ptr %259, i64 44
-  %261 = load i32, ptr %260, align 4
-  %262 = and i32 %261, 67108864
-  %263 = icmp eq i32 %262, 0
-  br i1 %263, label %275, label %264
+255:                                              ; preds = %248
+  %256 = load i32, ptr %249, align 8
+  %257 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !16
+  %258 = inttoptr i64 %257 to ptr
+  %259 = getelementptr inbounds i8, ptr %258, i64 44
+  %260 = load i32, ptr %259, align 4
+  %261 = and i32 %260, 67108864
+  %262 = icmp eq i32 %261, 0
+  br i1 %262, label %274, label %263
 
-264:                                              ; preds = %256
-  %265 = getelementptr inbounds i8, ptr %259, i64 968
-  %266 = load i32, ptr %265, align 8
-  %267 = icmp eq i32 %266, 1
-  br i1 %267, label %268, label %275
+263:                                              ; preds = %255
+  %264 = getelementptr inbounds i8, ptr %258, i64 968
+  %265 = load i32, ptr %264, align 8
+  %266 = icmp eq i32 %265, 1
+  br i1 %266, label %267, label %274
 
-268:                                              ; preds = %264
-  %269 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #10, !srcloc !17
-  %270 = icmp eq i32 %269, %257
-  br i1 %270, label %271, label %275
+267:                                              ; preds = %263
+  %268 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #10, !srcloc !17
+  %269 = icmp eq i32 %268, %256
+  br i1 %269, label %270, label %274
 
-271:                                              ; preds = %268
-  %272 = getelementptr inbounds i8, ptr %0, i64 744
-  %273 = load ptr, ptr %272, align 8
-  %274 = call i32 %273(ptr noundef nonnull %0) #9
-  br label %278
+270:                                              ; preds = %267
+  %271 = getelementptr inbounds i8, ptr %0, i64 744
+  %272 = load ptr, ptr %271, align 8
+  %273 = call i32 %272(ptr noundef nonnull %0) #9
+  br label %277
 
-275:                                              ; preds = %268, %264, %256
-  %276 = call i64 @work_on_cpu_key(i32 noundef %257, ptr noundef nonnull @__acpi_processor_get_throttling, ptr noundef nonnull %0, ptr noundef nonnull @call_on_cpu.__key) #9
-  %277 = trunc i64 %276 to i32
-  br label %278
+274:                                              ; preds = %267, %263, %255
+  %275 = call i64 @work_on_cpu_key(i32 noundef %256, ptr noundef nonnull @__acpi_processor_get_throttling, ptr noundef nonnull %0, ptr noundef nonnull @call_on_cpu.__key) #9
+  %276 = trunc i64 %275 to i32
+  br label %277
 
-278:                                              ; preds = %275, %271
-  %279 = phi i32 [ %274, %271 ], [ %277, %275 ]
-  %280 = icmp eq i32 %279, 0
-  br i1 %280, label %281, label %.thread22
+277:                                              ; preds = %274, %270
+  %278 = phi i32 [ %273, %270 ], [ %276, %274 ]
+  %279 = icmp eq i32 %278, 0
+  br i1 %279, label %280, label %.thread22
 
-281:                                              ; preds = %278
-  %282 = getelementptr inbounds i8, ptr %0, i64 640
-  %283 = load i32, ptr %282, align 8
-  %284 = icmp eq i32 %283, 0
-  br i1 %284, label %.thread23, label %285
+280:                                              ; preds = %277
+  %281 = getelementptr inbounds i8, ptr %0, i64 640
+  %282 = load i32, ptr %281, align 8
+  %283 = icmp eq i32 %282, 0
+  br i1 %283, label %.thread23, label %284
 
-285:                                              ; preds = %281
-  %286 = call fastcc i32 @__acpi_processor_set_throttling(ptr noundef nonnull %0, i32 noundef 0, i1 noundef zeroext false, i1 noundef zeroext false)
-  %287 = icmp eq i32 %286, 0
-  br i1 %287, label %.thread23, label %.thread22
+284:                                              ; preds = %280
+  %285 = call fastcc i32 @__acpi_processor_set_throttling(ptr noundef nonnull %0, i32 noundef 0, i1 noundef zeroext false, i1 noundef zeroext false)
+  %286 = icmp eq i32 %285, 0
+  br i1 %286, label %.thread23, label %.thread22
 
-.thread22:                                        ; preds = %249, %244, %278, %285
-  %288 = phi i32 [ %286, %285 ], [ %279, %278 ], [ -19, %249 ], [ -22, %244 ]
-  %289 = load i16, ptr %245, align 8
-  %290 = and i16 %289, -5
-  store i16 %290, ptr %245, align 8
+.thread22:                                        ; preds = %248, %243, %277, %284
+  %287 = phi i32 [ %285, %284 ], [ %278, %277 ], [ -19, %248 ], [ -22, %243 ]
+  %288 = load i16, ptr %244, align 8
+  %289 = and i16 %288, -5
+  store i16 %289, ptr %244, align 8
   br label %.thread23
 
-.thread23:                                        ; preds = %281, %.thread22, %285, %240, %163, %152, %146
-  %291 = phi i32 [ 0, %240 ], [ %288, %.thread22 ], [ 0, %285 ], [ 0, %152 ], [ 0, %146 ], [ 0, %163 ], [ 0, %281 ]
-  ret i32 %291
+.thread23:                                        ; preds = %280, %.thread22, %284, %239, %163, %152, %146
+  %290 = phi i32 [ 0, %239 ], [ %287, %.thread22 ], [ 0, %284 ], [ 0, %152 ], [ 0, %146 ], [ 0, %163 ], [ 0, %280 ]
+  ret i32 %290
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -1912,19 +1912,11 @@ entry:
   %http_req = getelementptr inbounds i8, ptr %status, i64 8
   store ptr %0, ptr %http_req, align 8
   %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  store i32 1, ptr %status, align 8
-  br label %if.then13.critedge
+  br i1 %cmp, label %if.then13.critedge, label %if.else
 
 if.else:                                          ; preds = %entry
   %cmp3 = icmp eq i32 %hook_res, -1
-  br i1 %cmp3, label %if.then4, label %if.else6
-
-if.then4:                                         ; preds = %if.else
-  store i32 4, ptr %status, align 8
-  br label %if.then13.critedge
+  br i1 %cmp3, label %if.then13.critedge, label %if.else6
 
 if.else6:                                         ; preds = %if.else
   %reply_unmarshal = getelementptr inbounds i8, ptr %arg, i64 224
@@ -1935,13 +1927,11 @@ if.else6:                                         ; preds = %if.else
   %4 = load ptr, ptr %input_buffer, align 8
   %call = tail call i32 %2(ptr noundef %3, ptr noundef %4) #11
   %cmp7 = icmp eq i32 %call, -1
-  br i1 %cmp7, label %if.then8, label %if.end15
+  br i1 %cmp7, label %if.then13.critedge, label %if.end15
 
-if.then8:                                         ; preds = %if.else6
-  store i32 2, ptr %status, align 8
-  br label %if.then13.critedge
-
-if.then13.critedge:                               ; preds = %if.then8, %if.then4, %if.then
+if.then13.critedge:                               ; preds = %if.else6, %if.else, %entry
+  %.sink = phi i32 [ 1, %entry ], [ 4, %if.else ], [ 2, %if.else6 ]
+  store i32 %.sink, ptr %status, align 8
   %reply_clear = getelementptr inbounds i8, ptr %arg, i64 216
   %5 = load ptr, ptr %reply_clear, align 8
   %reply14 = getelementptr inbounds i8, ptr %arg, i64 200

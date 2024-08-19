@@ -3641,7 +3641,7 @@ validate_single_byte_ascii_encoding.exit:         ; preds = %6
 28:                                               ; preds = %25
   %29 = tail call ptr @iso8601_to_nstime(ptr noundef nonnull %4, ptr noundef nonnull %.081, i32 noundef 0) #17
   %.not113 = icmp eq ptr %29, null
-  br i1 %.not113, label %parse_month_name.exit.thread, label %199
+  br i1 %.not113, label %parse_month_name.exit.thread, label %188
 
 30:                                               ; preds = %25
   %31 = and i32 %3, 1048576
@@ -3651,7 +3651,7 @@ validate_single_byte_ascii_encoding.exit:         ; preds = %6
 32:                                               ; preds = %30
   %33 = tail call ptr @iso8601_to_nstime(ptr noundef nonnull %4, ptr noundef nonnull %.081, i32 noundef 1) #17
   %.not112 = icmp eq ptr %33, null
-  br i1 %.not112, label %parse_month_name.exit.thread, label %199
+  br i1 %.not112, label %parse_month_name.exit.thread, label %188
 
 34:                                               ; preds = %30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 56, i1 false)
@@ -3681,12 +3681,12 @@ validate_single_byte_ascii_encoding.exit:         ; preds = %6
   store i32 %49, ptr %40, align 8
   %50 = load i32, ptr %39, align 4
   %51 = icmp sgt i32 %50, 1900
-  br i1 %51, label %52, label %191
+  br i1 %51, label %52, label %180
 
 52:                                               ; preds = %44
   %53 = add nsw i32 %50, -1900
   store i32 %53, ptr %39, align 4
-  br label %191
+  br label %180
 
 54:                                               ; preds = %34
   %55 = and i32 %3, 131072
@@ -3734,12 +3734,12 @@ validate_single_byte_ascii_encoding.exit:         ; preds = %6
   %78 = load i32, ptr %7, align 4
   %79 = sext i32 %78 to i64
   %80 = getelementptr i8, ptr %.081, i64 %79
-  br label %191
+  br label %180
 
 81:                                               ; preds = %54
   %82 = and i32 %3, 262144
   %.not103 = icmp eq i32 %82, 0
-  br i1 %.not103, label %191, label %83
+  br i1 %.not103, label %180, label %83
 
 83:                                               ; preds = %81
   %84 = load ptr, ptr @g_ascii_table, align 8
@@ -3796,8 +3796,8 @@ validate_single_byte_ascii_encoding.exit:         ; preds = %6
   %indvars.iv.i = phi i64 [ 0, %112 ], [ %indvars.iv.next.i, %116 ]
   %115 = getelementptr [12 x [4 x i8]], ptr @parse_month_name.months, i64 0, i64 %indvars.iv.i
   %lhsv = load i32, ptr %115, align 4
-  %.not129 = icmp eq i32 %lhsv, %rhsv
-  br i1 %.not129, label %117, label %116
+  %.not135 = icmp eq i32 %lhsv, %rhsv
+  br i1 %.not135, label %117, label %116
 
 116:                                              ; preds = %114
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3847,161 +3847,146 @@ validate_single_byte_ascii_encoding.exit:         ; preds = %6
   %.pre = load i32, ptr %11, align 4
   switch i64 %133, label %._crit_edge [
     i64 2, label %136
-    i64 3, label %142
+    i64 3, label %._crit_edge.sink.split
   ]
 
 136:                                              ; preds = %135
   %137 = icmp ult i32 %.pre, 50
-  br i1 %137, label %138, label %140
+  %. = select i1 %137, i32 2000, i32 1900
+  br label %._crit_edge.sink.split
 
-138:                                              ; preds = %136
-  %139 = add nuw nsw i32 %.pre, 2000
-  store i32 %139, ptr %11, align 4
+._crit_edge.sink.split:                           ; preds = %135, %136
+  %.sink127 = phi i32 [ %., %136 ], [ 1900, %135 ]
+  %138 = add i32 %.pre, %.sink127
+  store i32 %138, ptr %11, align 4
   br label %._crit_edge
 
-140:                                              ; preds = %136
-  %141 = add i32 %.pre, 1900
-  store i32 %141, ptr %11, align 4
-  br label %._crit_edge
+._crit_edge:                                      ; preds = %._crit_edge.sink.split, %135
+  %139 = phi i32 [ %.pre, %135 ], [ %138, %._crit_edge.sink.split ]
+  %140 = add i32 %139, -1900
+  %141 = getelementptr inbounds i8, ptr %8, i64 20
+  store i32 %140, ptr %141, align 4
+  br label %142
 
-142:                                              ; preds = %135
-  %143 = add i32 %.pre, 1900
-  store i32 %143, ptr %11, align 4
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %135, %142, %138, %140
-  %144 = phi i32 [ %143, %142 ], [ %139, %138 ], [ %141, %140 ], [ %.pre, %135 ]
-  %145 = add i32 %144, -1900
-  %146 = getelementptr inbounds i8, ptr %8, i64 20
-  store i32 %145, ptr %146, align 4
-  br label %147
-
-147:                                              ; preds = %.critedge4, %._crit_edge
-  %.3 = phi ptr [ %128, %._crit_edge ], [ %149, %.critedge4 ]
-  %148 = load i8, ptr %.3, align 1
-  switch i8 %148, label %150 [
+142:                                              ; preds = %.critedge4, %._crit_edge
+  %.3 = phi ptr [ %128, %._crit_edge ], [ %144, %.critedge4 ]
+  %143 = load i8, ptr %.3, align 1
+  switch i8 %143, label %145 [
     i8 32, label %.critedge4
     i8 9, label %.critedge4
   ]
 
-.critedge4:                                       ; preds = %147, %147
-  %149 = getelementptr i8, ptr %.3, i64 1
-  br label %147, !llvm.loop !14
+.critedge4:                                       ; preds = %142, %142
+  %144 = getelementptr i8, ptr %.3, i64 1
+  br label %142, !llvm.loop !14
 
-150:                                              ; preds = %147
-  %151 = getelementptr inbounds i8, ptr %8, i64 8
-  %152 = getelementptr inbounds i8, ptr %8, i64 4
-  %153 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.3, ptr noundef nonnull @.str.15, ptr noundef nonnull %151, ptr noundef nonnull %152, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %7) #17
-  %154 = icmp slt i32 %153, 2
-  br i1 %154, label %parse_month_name.exit.thread, label %155
+145:                                              ; preds = %142
+  %146 = getelementptr inbounds i8, ptr %8, i64 8
+  %147 = getelementptr inbounds i8, ptr %8, i64 4
+  %148 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.3, ptr noundef nonnull @.str.15, ptr noundef nonnull %146, ptr noundef nonnull %147, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %7) #17
+  %149 = icmp slt i32 %148, 2
+  br i1 %149, label %parse_month_name.exit.thread, label %150
 
-155:                                              ; preds = %150
-  %156 = load i32, ptr %7, align 4
-  %157 = sext i32 %156 to i64
-  %158 = getelementptr i8, ptr %.3, i64 %157
-  br label %159
+150:                                              ; preds = %145
+  %151 = load i32, ptr %7, align 4
+  %152 = sext i32 %151 to i64
+  %153 = getelementptr i8, ptr %.3, i64 %152
+  br label %154
 
-159:                                              ; preds = %.critedge6, %155
-  %.4 = phi ptr [ %158, %155 ], [ %161, %.critedge6 ]
-  %160 = load i8, ptr %.4, align 1
-  switch i8 %160, label %162 [
+154:                                              ; preds = %.critedge6, %150
+  %.4 = phi ptr [ %153, %150 ], [ %156, %.critedge6 ]
+  %155 = load i8, ptr %.4, align 1
+  switch i8 %155, label %157 [
     i8 32, label %.critedge6
     i8 9, label %.critedge6
   ]
 
-.critedge6:                                       ; preds = %159, %159
-  %161 = getelementptr i8, ptr %.4, i64 1
-  br label %159, !llvm.loop !15
+.critedge6:                                       ; preds = %154, %154
+  %156 = getelementptr i8, ptr %.4, i64 1
+  br label %154, !llvm.loop !15
 
-162:                                              ; preds = %159
-  %163 = call i32 @g_ascii_strncasecmp(ptr noundef nonnull %.4, ptr noundef nonnull @.str.16, i64 noundef 2) #17
+157:                                              ; preds = %154
+  %158 = call i32 @g_ascii_strncasecmp(ptr noundef nonnull %.4, ptr noundef nonnull @.str.16, i64 noundef 2) #17
+  %159 = icmp eq i32 %158, 0
+  br i1 %159, label %160, label %162
+
+160:                                              ; preds = %157
+  %161 = getelementptr i8, ptr %.4, i64 2
+  br label %180
+
+162:                                              ; preds = %157
+  %163 = call i32 @g_ascii_strncasecmp(ptr noundef nonnull %.4, ptr noundef nonnull @.str.17, i64 noundef 3) #17
   %164 = icmp eq i32 %163, 0
   br i1 %164, label %165, label %167
 
 165:                                              ; preds = %162
-  %166 = getelementptr i8, ptr %.4, i64 2
-  br label %191
+  %166 = getelementptr i8, ptr %.4, i64 3
+  br label %180
 
 167:                                              ; preds = %162
-  %168 = call i32 @g_ascii_strncasecmp(ptr noundef nonnull %.4, ptr noundef nonnull @.str.17, i64 noundef 3) #17
-  %169 = icmp eq i32 %168, 0
-  br i1 %169, label %170, label %172
+  %168 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.4, ptr noundef nonnull @.str.18, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %7) #17
+  %169 = icmp slt i32 %168, 3
+  br i1 %169, label %parse_month_name.exit.thread, label %170
 
 170:                                              ; preds = %167
-  %171 = getelementptr i8, ptr %.4, i64 3
-  br label %191
-
-172:                                              ; preds = %167
-  %173 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.4, ptr noundef nonnull @.str.18, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %7) #17
-  %174 = icmp slt i32 %173, 3
-  br i1 %174, label %parse_month_name.exit.thread, label %175
-
-175:                                              ; preds = %172
-  %176 = load i8, ptr %13, align 1
-  switch i8 %176, label %parse_month_name.exit.thread [
-    i8 43, label %177
-    i8 45, label %183
+  %171 = load i8, ptr %13, align 1
+  switch i8 %171, label %parse_month_name.exit.thread [
+    i8 43, label %173
+    i8 45, label %172
   ]
 
-177:                                              ; preds = %175
-  %178 = load i32, ptr %14, align 4
-  %179 = mul i32 %178, 3600
-  %180 = load i32, ptr %15, align 4
-  %181 = mul i32 %180, 60
-  %182 = add i32 %181, %179
-  br label %186
+172:                                              ; preds = %170
+  br label %173
 
-183:                                              ; preds = %175
-  %184 = load i32, ptr %14, align 4
-  %.neg = mul i32 %184, -3600
-  %185 = load i32, ptr %15, align 4
-  %.neg108 = mul i32 %185, -60
+173:                                              ; preds = %170, %172
+  %.sink131 = phi i32 [ -3600, %172 ], [ 3600, %170 ]
+  %.sink129 = phi i32 [ -60, %172 ], [ 60, %170 ]
+  %174 = load i32, ptr %14, align 4
+  %.neg = mul i32 %174, %.sink131
+  %175 = load i32, ptr %15, align 4
+  %.neg108 = mul i32 %175, %.sink129
   %.neg109 = add i32 %.neg108, %.neg
-  br label %186
+  %176 = load i32, ptr %7, align 4
+  %177 = sext i32 %176 to i64
+  %178 = getelementptr i8, ptr %.4, i64 %177
+  %179 = sext i32 %.neg109 to i64
+  br label %180
 
-186:                                              ; preds = %183, %177
-  %.2 = phi i32 [ %182, %177 ], [ %.neg109, %183 ]
-  %187 = load i32, ptr %7, align 4
-  %188 = sext i32 %187 to i64
-  %189 = getelementptr i8, ptr %.4, i64 %188
-  %190 = sext i32 %.2 to i64
-  br label %191
+180:                                              ; preds = %160, %173, %165, %76, %81, %52, %44
+  %.079 = phi ptr [ %47, %52 ], [ %47, %44 ], [ %80, %76 ], [ null, %81 ], [ %161, %160 ], [ %166, %165 ], [ %178, %173 ]
+  %.078 = phi i64 [ 0, %52 ], [ 0, %44 ], [ 0, %76 ], [ 0, %81 ], [ 0, %160 ], [ 0, %165 ], [ %179, %173 ]
+  %181 = call i64 @mktime_utc(ptr noundef nonnull %8) #17
+  store i64 %181, ptr %4, align 8
+  %182 = icmp eq i64 %181, -1
+  br i1 %182, label %183, label %186
 
-191:                                              ; preds = %165, %186, %170, %76, %81, %52, %44
-  %.079 = phi ptr [ %47, %52 ], [ %47, %44 ], [ %80, %76 ], [ null, %81 ], [ %166, %165 ], [ %171, %170 ], [ %189, %186 ]
-  %.078 = phi i64 [ 0, %52 ], [ 0, %44 ], [ 0, %76 ], [ 0, %81 ], [ 0, %165 ], [ 0, %170 ], [ %190, %186 ]
-  %192 = call i64 @mktime_utc(ptr noundef nonnull %8) #17
-  store i64 %192, ptr %4, align 8
-  %193 = icmp eq i64 %192, -1
-  br i1 %193, label %194, label %197
+183:                                              ; preds = %180
+  %184 = tail call ptr @__errno_location() #18
+  %185 = load i32, ptr %184, align 4
+  %.not111 = icmp eq i32 %185, 0
+  br i1 %.not111, label %186, label %parse_month_name.exit.thread
 
-194:                                              ; preds = %191
-  %195 = tail call ptr @__errno_location() #18
-  %196 = load i32, ptr %195, align 4
-  %.not111 = icmp eq i32 %196, 0
-  br i1 %.not111, label %197, label %parse_month_name.exit.thread
+186:                                              ; preds = %183, %180
+  %187 = add i64 %181, %.078
+  store i64 %187, ptr %4, align 8
+  br label %188
 
-197:                                              ; preds = %194, %191
-  %198 = add i64 %192, %.078
-  store i64 %198, ptr %4, align 8
-  br label %199
-
-199:                                              ; preds = %28, %32, %197
-  %.180 = phi ptr [ %29, %28 ], [ %33, %32 ], [ %.079, %197 ]
+188:                                              ; preds = %28, %32, %186
+  %.180 = phi ptr [ %29, %28 ], [ %33, %32 ], [ %.079, %186 ]
   %.not114 = icmp eq ptr %5, null
-  br i1 %.not114, label %parse_month_name.exit.thread, label %200
+  br i1 %.not114, label %parse_month_name.exit.thread, label %189
 
-200:                                              ; preds = %199
-  %201 = ptrtoint ptr %.180 to i64
-  %202 = ptrtoint ptr %21 to i64
-  %203 = sub i64 %201, %202
-  %204 = trunc i64 %203 to i32
-  %205 = add i32 %204, %1
-  store i32 %205, ptr %5, align 4
+189:                                              ; preds = %188
+  %190 = ptrtoint ptr %.180 to i64
+  %191 = ptrtoint ptr %21 to i64
+  %192 = sub i64 %190, %191
+  %193 = trunc i64 %192 to i32
+  %194 = add i32 %193, %1
+  store i32 %194, ptr %5, align 4
   br label %parse_month_name.exit.thread
 
-parse_month_name.exit.thread:                     ; preds = %22, %116, %28, %32, %38, %56, %108, %125, %130, %150, %172, %194, %127, %175, %199, %200
-  %.0 = phi ptr [ %4, %200 ], [ %4, %199 ], [ null, %175 ], [ null, %127 ], [ null, %194 ], [ null, %172 ], [ null, %150 ], [ null, %130 ], [ null, %125 ], [ null, %108 ], [ null, %56 ], [ null, %38 ], [ null, %32 ], [ null, %28 ], [ null, %116 ], [ null, %22 ]
+parse_month_name.exit.thread:                     ; preds = %22, %116, %28, %32, %38, %56, %108, %125, %130, %145, %167, %183, %127, %170, %188, %189
+  %.0 = phi ptr [ %4, %189 ], [ %4, %188 ], [ null, %170 ], [ null, %127 ], [ null, %183 ], [ null, %167 ], [ null, %145 ], [ null, %130 ], [ null, %125 ], [ null, %108 ], [ null, %56 ], [ null, %38 ], [ null, %32 ], [ null, %28 ], [ null, %116 ], [ null, %22 ]
   call void @wmem_free(ptr noundef null, ptr noundef %21) #17
   ret ptr %.0
 }

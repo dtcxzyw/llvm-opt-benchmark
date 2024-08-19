@@ -261,8 +261,6 @@ define dso_local ptr @intel_memory_region_create(ptr noundef %0, i64 noundef %1,
   %75 = getelementptr inbounds i8, ptr %74, i64 8
   %76 = load ptr, ptr %75, align 8
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %76, ptr noundef nonnull @.str.11, ptr noundef %23, ptr noundef nonnull %10, ptr noundef %49) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br label %89
 
 77:                                               ; preds = %85
@@ -287,12 +285,12 @@ define dso_local ptr @intel_memory_region_create(ptr noundef %0, i64 noundef %1,
 .thread11:                                        ; preds = %.preheader, %85
   %.ph = phi i32 [ %87, %85 ], [ %83, %.preheader ]
   tail call void @iounmap(ptr noundef nonnull %72) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br label %89
 
 89:                                               ; preds = %.thread, %.thread11
   %90 = phi i32 [ -14, %.thread ], [ %.ph, %.thread11 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %91 = load ptr, ptr %26, align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 16
   %93 = load ptr, ptr %92, align 8

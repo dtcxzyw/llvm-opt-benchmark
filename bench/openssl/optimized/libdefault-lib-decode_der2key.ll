@@ -268,33 +268,25 @@ if.then42:                                        ; preds = %if.end37
   %d2i_PUBKEY = getelementptr inbounds i8, ptr %12, i64 64
   %13 = load ptr, ptr %d2i_PUBKEY, align 8
   %cmp44.not = icmp eq ptr %13, null
-  br i1 %cmp44.not, label %if.else49, label %if.then45
-
-if.then45:                                        ; preds = %if.then42
-  %14 = load i64, ptr %der_len, align 8
-  %call48 = call ptr %13(ptr noundef null, ptr noundef nonnull %derp, i64 noundef %14) #6
-  br label %if.end57
+  br i1 %cmp44.not, label %if.else49, label %if.end57
 
 if.else49:                                        ; preds = %if.then42
   %d2i_public_key = getelementptr inbounds i8, ptr %12, i64 40
-  %15 = load ptr, ptr %d2i_public_key, align 8
-  %cmp51.not = icmp eq ptr %15, null
-  br i1 %cmp51.not, label %land.lhs.true59, label %if.then52
+  %14 = load ptr, ptr %d2i_public_key, align 8
+  %cmp51.not = icmp eq ptr %14, null
+  br i1 %cmp51.not, label %land.lhs.true59, label %if.end57
 
-if.then52:                                        ; preds = %if.else49
-  %16 = load i64, ptr %der_len, align 8
-  %call55 = call ptr %15(ptr noundef null, ptr noundef nonnull %derp, i64 noundef %16) #6
-  br label %if.end57
-
-if.end57:                                         ; preds = %if.then52, %if.then45
-  %storemerge = phi ptr [ %call48, %if.then45 ], [ %call55, %if.then52 ]
-  store ptr %storemerge, ptr %key, align 8
-  %cmp58 = icmp eq ptr %storemerge, null
+if.end57:                                         ; preds = %if.else49, %if.then42
+  %.sink78 = phi ptr [ %13, %if.then42 ], [ %14, %if.else49 ]
+  %15 = load i64, ptr %der_len, align 8
+  %call55 = call ptr %.sink78(ptr noundef null, ptr noundef nonnull %derp, i64 noundef %15) #6
+  store ptr %call55, ptr %key, align 8
+  %cmp58 = icmp eq ptr %call55, null
   br i1 %cmp58, label %land.lhs.true59, label %land.lhs.true93
 
 land.lhs.true59:                                  ; preds = %if.else49, %if.end57
-  %17 = load i32, ptr %selection1, align 8
-  %cmp61.not = icmp eq i32 %17, 0
+  %16 = load i32, ptr %selection1, align 8
+  %cmp61.not = icmp eq i32 %16, 0
   br i1 %cmp61.not, label %if.end65, label %if.then62
 
 if.then62:                                        ; preds = %land.lhs.true59
@@ -307,24 +299,24 @@ if.end65:                                         ; preds = %land.lhs.true59, %i
   br i1 %cmp69.not, label %if.end91, label %if.then70
 
 if.then70:                                        ; preds = %if.end65
-  %18 = load ptr, ptr %der, align 8
-  store ptr %18, ptr %derp, align 8
-  %19 = load ptr, ptr %desc2, align 8
-  %d2i_key_params = getelementptr inbounds i8, ptr %19, i64 48
-  %20 = load ptr, ptr %d2i_key_params, align 8
-  %cmp72.not = icmp eq ptr %20, null
+  %17 = load ptr, ptr %der, align 8
+  store ptr %17, ptr %derp, align 8
+  %18 = load ptr, ptr %desc2, align 8
+  %d2i_key_params = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = load ptr, ptr %d2i_key_params, align 8
+  %cmp72.not = icmp eq ptr %19, null
   br i1 %cmp72.not, label %land.lhs.true79, label %if.end77
 
 if.end77:                                         ; preds = %if.then70
-  %21 = load i64, ptr %der_len, align 8
-  %call76 = call ptr %20(ptr noundef null, ptr noundef nonnull %derp, i64 noundef %21) #6
+  %20 = load i64, ptr %der_len, align 8
+  %call76 = call ptr %19(ptr noundef null, ptr noundef nonnull %derp, i64 noundef %20) #6
   store ptr %call76, ptr %key, align 8
   %cmp78 = icmp eq ptr %call76, null
   br i1 %cmp78, label %land.lhs.true79, label %land.lhs.true93
 
 land.lhs.true79:                                  ; preds = %if.then70, %if.end77
-  %22 = load i32, ptr %selection1, align 8
-  %cmp81.not = icmp eq i32 %22, 0
+  %21 = load i32, ptr %selection1, align 8
+  %cmp81.not = icmp eq i32 %21, 0
   br i1 %cmp81.not, label %if.end91, label %if.then82
 
 if.then82:                                        ; preds = %land.lhs.true79
@@ -336,25 +328,25 @@ if.end91:                                         ; preds = %land.lhs.true79, %i
   br label %next.thread
 
 land.lhs.true93:                                  ; preds = %if.end30, %if.end57, %if.end77
-  %23 = phi ptr [ %call76, %if.end77 ], [ %storemerge, %if.end57 ], [ %9, %if.end30 ]
+  %22 = phi ptr [ %call76, %if.end77 ], [ %call55, %if.end57 ], [ %9, %if.end30 ]
   %call90 = call i32 @ERR_pop_to_mark() #6
-  %24 = load ptr, ptr %desc2, align 8
-  %check_key = getelementptr inbounds i8, ptr %24, i64 72
-  %25 = load ptr, ptr %check_key, align 8
-  %cmp95.not = icmp eq ptr %25, null
+  %23 = load ptr, ptr %desc2, align 8
+  %check_key = getelementptr inbounds i8, ptr %23, i64 72
+  %24 = load ptr, ptr %check_key, align 8
+  %cmp95.not = icmp eq ptr %24, null
   br i1 %cmp95.not, label %land.lhs.true105, label %land.lhs.true96
 
 land.lhs.true96:                                  ; preds = %land.lhs.true93
-  %call99 = call i32 %25(ptr noundef nonnull %23, ptr noundef nonnull %vctx) #6
+  %call99 = call i32 %24(ptr noundef nonnull %22, ptr noundef nonnull %vctx) #6
   %tobool100.not = icmp eq i32 %call99, 0
   %.pr46.pre = load ptr, ptr %key, align 8
   br i1 %tobool100.not, label %if.then101, label %if.end103
 
 if.then101:                                       ; preds = %land.lhs.true96
-  %26 = load ptr, ptr %desc2, align 8
-  %free_key = getelementptr inbounds i8, ptr %26, i64 88
-  %27 = load ptr, ptr %free_key, align 8
-  call void %27(ptr noundef %.pr46.pre) #6
+  %25 = load ptr, ptr %desc2, align 8
+  %free_key = getelementptr inbounds i8, ptr %25, i64 88
+  %26 = load ptr, ptr %free_key, align 8
+  call void %26(ptr noundef %.pr46.pre) #6
   store ptr null, ptr %key, align 8
   br label %next.thread
 
@@ -363,42 +355,42 @@ if.end103:                                        ; preds = %land.lhs.true96
   br i1 %cmp104.not, label %next.thread, label %land.lhs.true105
 
 land.lhs.true105:                                 ; preds = %land.lhs.true93, %if.end103
-  %.pr4674 = phi ptr [ %.pr46.pre, %if.end103 ], [ %23, %land.lhs.true93 ]
-  %28 = load ptr, ptr %desc2, align 8
-  %adjust_key = getelementptr inbounds i8, ptr %28, i64 80
-  %29 = load ptr, ptr %adjust_key, align 8
-  %cmp107.not = icmp eq ptr %29, null
+  %.pr4674 = phi ptr [ %.pr46.pre, %if.end103 ], [ %22, %land.lhs.true93 ]
+  %27 = load ptr, ptr %desc2, align 8
+  %adjust_key = getelementptr inbounds i8, ptr %27, i64 80
+  %28 = load ptr, ptr %adjust_key, align 8
+  %cmp107.not = icmp eq ptr %28, null
   br i1 %cmp107.not, label %next.thread76, label %next
 
 next.thread76:                                    ; preds = %land.lhs.true105
-  %30 = load ptr, ptr %der, align 8
-  call void @CRYPTO_free(ptr noundef %30, ptr noundef nonnull @.str, i32 noundef 306) #6
+  %29 = load ptr, ptr %der, align 8
+  call void @CRYPTO_free(ptr noundef %29, ptr noundef nonnull @.str, i32 noundef 306) #6
   store ptr null, ptr %der, align 8
   br label %if.then113
 
 next.thread:                                      ; preds = %if.end91, %if.then101, %if.end103, %if.end6, %if.then82, %if.then62, %if.then34
-  %31 = load ptr, ptr %der, align 8
-  call void @CRYPTO_free(ptr noundef %31, ptr noundef nonnull @.str, i32 noundef 306) #6
+  %30 = load ptr, ptr %der, align 8
+  call void @CRYPTO_free(ptr noundef %30, ptr noundef nonnull @.str, i32 noundef 306) #6
   store ptr null, ptr %der, align 8
   br label %end
 
 next:                                             ; preds = %land.lhs.true105
-  call void %29(ptr noundef nonnull %.pr4674, ptr noundef nonnull %vctx) #6
+  call void %28(ptr noundef nonnull %.pr4674, ptr noundef nonnull %vctx) #6
   %.pre50 = load ptr, ptr %key, align 8
-  %32 = icmp eq ptr %.pre50, null
-  %33 = load ptr, ptr %der, align 8
-  call void @CRYPTO_free(ptr noundef %33, ptr noundef nonnull @.str, i32 noundef 306) #6
+  %31 = icmp eq ptr %.pre50, null
+  %32 = load ptr, ptr %der, align 8
+  call void @CRYPTO_free(ptr noundef %32, ptr noundef nonnull @.str, i32 noundef 306) #6
   store ptr null, ptr %der, align 8
-  br i1 %32, label %end, label %if.then113
+  br i1 %31, label %end, label %if.then113
 
 if.then113:                                       ; preds = %next.thread76, %next
   store i32 2, ptr %object_type, align 4
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.3, ptr noundef nonnull %object_type) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   %arrayidx114 = getelementptr inbounds i8, ptr %params, i64 40
-  %34 = load ptr, ptr %desc2, align 8
-  %35 = load ptr, ptr %34, align 8
-  call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp115, ptr noundef nonnull @.str.4, ptr noundef %35, i64 noundef 0) #6
+  %33 = load ptr, ptr %desc2, align 8
+  %34 = load ptr, ptr %33, align 8
+  call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp115, ptr noundef nonnull @.str.4, ptr noundef %34, i64 noundef 0) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx114, ptr noundef nonnull align 8 dereferenceable(40) %tmp115, i64 40, i1 false)
   %arrayidx117 = getelementptr inbounds i8, ptr %params, i64 80
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp118, ptr noundef nonnull @.str.5, ptr noundef nonnull %key, i64 noundef 8) #6
@@ -411,14 +403,14 @@ if.then113:                                       ; preds = %next.thread76, %nex
   br label %end
 
 end:                                              ; preds = %next.thread, %next, %if.then113, %if.then20
-  %36 = phi ptr [ %call18, %if.then20 ], [ %.pre51, %if.then113 ], [ null, %next ], [ null, %next.thread ]
+  %35 = phi ptr [ %call18, %if.then20 ], [ %.pre51, %if.then113 ], [ null, %next ], [ null, %next.thread ]
   %ok.0 = phi i32 [ 0, %if.then20 ], [ %call121, %if.then113 ], [ 1, %next ], [ 1, %next.thread ]
-  %37 = load ptr, ptr %desc2, align 8
-  %free_key124 = getelementptr inbounds i8, ptr %37, i64 88
-  %38 = load ptr, ptr %free_key124, align 8
-  call void %38(ptr noundef %36) #6
-  %39 = load ptr, ptr %der, align 8
-  call void @CRYPTO_free(ptr noundef %39, ptr noundef nonnull @.str, i32 noundef 330) #6
+  %36 = load ptr, ptr %desc2, align 8
+  %free_key124 = getelementptr inbounds i8, ptr %36, i64 88
+  %37 = load ptr, ptr %free_key124, align 8
+  call void %37(ptr noundef %35) #6
+  %38 = load ptr, ptr %der, align 8
+  call void @CRYPTO_free(ptr noundef %38, ptr noundef nonnull @.str, i32 noundef 330) #6
   br label %return
 
 return:                                           ; preds = %end, %if.then5

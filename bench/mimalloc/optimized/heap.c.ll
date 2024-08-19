@@ -1095,14 +1095,10 @@ mi_heap_visit_areas_page.exit.i:                  ; preds = %if.else.i.i.i.i, %m
   store i64 %retval.0.i.i.i.i, ptr %block_size.i.i, align 8
   store i64 %retval.0.i12.i.i, ptr %full_block_size.i.i, align 8
   %call.i = call zeroext i1 %visitor(ptr noundef nonnull %heap, ptr noundef nonnull %xarea.i.i, ptr noundef null, i64 noundef %retval.0.i.i.i.i, ptr noundef %arg) #9
-  br i1 %call.i, label %if.end.i, label %mi_heap_area_visitor.exit.thread
-
-mi_heap_area_visitor.exit.thread:                 ; preds = %mi_heap_visit_areas_page.exit.i
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %xarea.i.i)
-  br label %mi_heap_visit_areas.exit
+  br i1 %call.i, label %if.end.i, label %mi_heap_visit_areas.exit.sink.split
 
 if.end.i:                                         ; preds = %mi_heap_visit_areas_page.exit.i
-  br i1 %visit_blocks, label %if.end.i.i, label %mi_heap_area_visitor.exit
+  br i1 %visit_blocks, label %if.end.i.i, label %while.cond.i.i.backedge.sink.split
 
 if.end.i.i:                                       ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %psize.i.i)
@@ -1247,8 +1243,7 @@ if.then42.i.i:                                    ; preds = %if.else.i.i
 mi_heap_area_visit_blocks.exit.i.thread:          ; preds = %if.then42.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %psize.i.i)
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %free_map.i.i)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %xarea.i.i)
-  br label %mi_heap_visit_areas.exit
+  br label %mi_heap_visit_areas.exit.sink.split
 
 if.then42.for.inc51_crit_edge.i.i:                ; preds = %if.then42.i.i
   %.pre.i.i22 = load i16, ptr %capacity.i.i17, align 2
@@ -1265,14 +1260,13 @@ for.inc51.i.i:                                    ; preds = %if.then42.for.inc51
 mi_heap_area_visit_blocks.exit.i:                 ; preds = %for.inc51.i.i, %for.cond22.preheader.i.i, %if.end5.i.i, %if.end.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %psize.i.i)
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %free_map.i.i)
+  br label %while.cond.i.i.backedge.sink.split
+
+while.cond.i.i.backedge.sink.split:               ; preds = %if.end.i, %mi_heap_area_visit_blocks.exit.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %xarea.i.i)
   br label %while.cond.i.i.backedge
 
-mi_heap_area_visitor.exit:                        ; preds = %if.end.i
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %xarea.i.i)
-  br label %while.cond.i.i.backedge
-
-while.cond.i.i.backedge:                          ; preds = %mi_heap_area_visitor.exit, %if.then14.i.i, %mi_heap_area_visit_blocks.exit.i
+while.cond.i.i.backedge:                          ; preds = %while.cond.i.i.backedge.sink.split, %if.then14.i.i
   %cmp3.not.i.i = icmp eq ptr %2, null
   br i1 %cmp3.not.i.i, label %for.inc.i.i, label %while.body.i.i, !llvm.loop !4
 
@@ -1281,8 +1275,12 @@ for.inc.i.i:                                      ; preds = %while.cond.i.i.back
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 75
   br i1 %exitcond.not.i.i, label %mi_heap_visit_areas.exit, label %for.body.i.i, !llvm.loop !6
 
-mi_heap_visit_areas.exit:                         ; preds = %for.inc.i.i, %if.then14.i.i, %mi_heap_area_visit_blocks.exit.i.thread, %mi_heap_area_visitor.exit.thread, %entry, %lor.lhs.false.i.i
-  %retval.0.i.i = phi i1 [ false, %lor.lhs.false.i.i ], [ false, %entry ], [ false, %mi_heap_area_visitor.exit.thread ], [ false, %mi_heap_area_visit_blocks.exit.i.thread ], [ false, %if.then14.i.i ], [ true, %for.inc.i.i ]
+mi_heap_visit_areas.exit.sink.split:              ; preds = %mi_heap_visit_areas_page.exit.i, %mi_heap_area_visit_blocks.exit.i.thread
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %xarea.i.i)
+  br label %mi_heap_visit_areas.exit
+
+mi_heap_visit_areas.exit:                         ; preds = %for.inc.i.i, %if.then14.i.i, %mi_heap_visit_areas.exit.sink.split, %entry, %lor.lhs.false.i.i
+  %retval.0.i.i = phi i1 [ false, %lor.lhs.false.i.i ], [ false, %entry ], [ false, %mi_heap_visit_areas.exit.sink.split ], [ false, %if.then14.i.i ], [ true, %for.inc.i.i ]
   ret i1 %retval.0.i.i
 }
 

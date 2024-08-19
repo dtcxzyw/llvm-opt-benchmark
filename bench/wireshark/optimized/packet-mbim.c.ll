@@ -3904,6 +3904,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2654 = private unnamed_addr constant [17 x i8] c"MBIM NDP Control\00", align 1
 @.str.2655 = private unnamed_addr constant [26 x i8] c"Not reported (0xffffffff)\00", align 1
 @.str.2656 = private unnamed_addr constant [17 x i8] c"%u payload bytes\00", align 1
+@switch.table.mbim_dissect_ussd_info = private unnamed_addr constant [5 x i32] [i32 44, i32 0, i32 6, i32 44, i32 6], align 4
 
 ; Function Attrs: nounwind uwtable
 define void @mbim_register_uuid_ext(ptr noundef %0) local_unnamed_addr #0 {
@@ -11845,7 +11846,7 @@ define internal fastcc void @mbim_dissect_set_ussd(ptr noundef %0, ptr noundef %
   %24 = load i32, ptr %6, align 4
   %25 = icmp ne i32 %24, 0
   %or.cond = select i1 %23, i1 %25, i1 false
-  br i1 %or.cond, label %26, label %53
+  br i1 %or.cond, label %26, label %46
 
 26:                                               ; preds = %4
   %27 = load i32, ptr @hf_mbim_set_ussd_ussd_payload, align 4
@@ -11866,33 +11867,20 @@ define internal fastcc void @mbim_dissect_set_ussd(ptr noundef %0, ptr noundef %
   %38 = add i32 %37, %3
   %39 = load i32, ptr %6, align 4
   %40 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %38, i32 noundef %39) #10
-  switch i8 %15, label %53 [
-    i8 1, label %41
-    i8 4, label %41
-    i8 2, label %45
-    i8 3, label %49
-    i8 5, label %49
-  ]
+  %switch.tableidx = add i8 %15, -1
+  %41 = icmp ult i8 %switch.tableidx, 5
+  br i1 %41, label %switch.lookup, label %46
 
-41:                                               ; preds = %34, %34
-  %42 = load i32, ptr @hf_mbim_set_ussd_ussd_payload_text, align 4
-  %43 = load i32, ptr %6, align 4
-  %44 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %42, ptr noundef %40, i32 noundef 0, i32 noundef %43, i32 noundef 44) #10
-  br label %53
+switch.lookup:                                    ; preds = %34
+  %42 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.mbim_dissect_ussd_info, i64 0, i64 %42
+  %switch.load = load i32, ptr %switch.gep, align 4
+  %43 = load i32, ptr @hf_mbim_set_ussd_ussd_payload_text, align 4
+  %44 = load i32, ptr %6, align 4
+  %45 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %43, ptr noundef %40, i32 noundef 0, i32 noundef %44, i32 noundef %switch.load) #10
+  br label %46
 
-45:                                               ; preds = %34
-  %46 = load i32, ptr @hf_mbim_set_ussd_ussd_payload_text, align 4
-  %47 = load i32, ptr %6, align 4
-  %48 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %46, ptr noundef %40, i32 noundef 0, i32 noundef %47, i32 noundef 0) #10
-  br label %53
-
-49:                                               ; preds = %34, %34
-  %50 = load i32, ptr @hf_mbim_set_ussd_ussd_payload_text, align 4
-  %51 = load i32, ptr %6, align 4
-  %52 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %50, ptr noundef %40, i32 noundef 0, i32 noundef %51, i32 noundef 6) #10
-  br label %53
-
-53:                                               ; preds = %41, %45, %49, %34, %4
+46:                                               ; preds = %34, %switch.lookup, %4
   ret void
 }
 
@@ -15352,7 +15340,7 @@ define internal fastcc void @mbim_dissect_ussd_info(ptr noundef %0, ptr noundef 
   %27 = load i32, ptr %6, align 4
   %28 = icmp ne i32 %27, 0
   %or.cond = select i1 %26, i1 %28, i1 false
-  br i1 %or.cond, label %29, label %56
+  br i1 %or.cond, label %29, label %49
 
 29:                                               ; preds = %4
   %30 = load i32, ptr @hf_mbim_ussd_info_ussd_payload, align 4
@@ -15373,33 +15361,20 @@ define internal fastcc void @mbim_dissect_ussd_info(ptr noundef %0, ptr noundef 
   %41 = add i32 %40, %3
   %42 = load i32, ptr %6, align 4
   %43 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %41, i32 noundef %42) #10
-  switch i8 %18, label %56 [
-    i8 1, label %44
-    i8 4, label %44
-    i8 2, label %48
-    i8 3, label %52
-    i8 5, label %52
-  ]
+  %switch.tableidx = add i8 %18, -1
+  %44 = icmp ult i8 %switch.tableidx, 5
+  br i1 %44, label %switch.lookup, label %49
 
-44:                                               ; preds = %37, %37
-  %45 = load i32, ptr @hf_mbim_ussd_info_ussd_payload_text, align 4
-  %46 = load i32, ptr %6, align 4
-  %47 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %45, ptr noundef %43, i32 noundef 0, i32 noundef %46, i32 noundef 44) #10
-  br label %56
+switch.lookup:                                    ; preds = %37
+  %45 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.mbim_dissect_ussd_info, i64 0, i64 %45
+  %switch.load = load i32, ptr %switch.gep, align 4
+  %46 = load i32, ptr @hf_mbim_ussd_info_ussd_payload_text, align 4
+  %47 = load i32, ptr %6, align 4
+  %48 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %46, ptr noundef %43, i32 noundef 0, i32 noundef %47, i32 noundef %switch.load) #10
+  br label %49
 
-48:                                               ; preds = %37
-  %49 = load i32, ptr @hf_mbim_ussd_info_ussd_payload_text, align 4
-  %50 = load i32, ptr %6, align 4
-  %51 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %49, ptr noundef %43, i32 noundef 0, i32 noundef %50, i32 noundef 0) #10
-  br label %56
-
-52:                                               ; preds = %37, %37
-  %53 = load i32, ptr @hf_mbim_ussd_info_ussd_payload_text, align 4
-  %54 = load i32, ptr %6, align 4
-  %55 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %53, ptr noundef %43, i32 noundef 0, i32 noundef %54, i32 noundef 6) #10
-  br label %56
-
-56:                                               ; preds = %44, %48, %52, %37, %4
+49:                                               ; preds = %37, %switch.lookup, %4
   ret void
 }
 

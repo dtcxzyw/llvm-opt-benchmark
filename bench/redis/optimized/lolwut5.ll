@@ -198,58 +198,49 @@ land.lhs.true13:                                  ; preds = %if.end10
 if.end19:                                         ; preds = %entry, %if.end, %land.lhs.true13, %if.end10
   %7 = load i64, ptr %cols, align 8
   %cmp20 = icmp slt i64 %7, 1
-  br i1 %cmp20, label %if.end22.thread, label %if.end22
-
-if.end22.thread:                                  ; preds = %if.end19
-  store i64 1, ptr %cols, align 8
-  br label %if.end25
+  br i1 %cmp20, label %if.end25.sink.split, label %if.end22
 
 if.end22:                                         ; preds = %if.end19
   %cmp23 = icmp ugt i64 %7, 1000
-  br i1 %cmp23, label %if.then24, label %if.end25
+  br i1 %cmp23, label %if.end25.sink.split, label %if.end25
 
-if.then24:                                        ; preds = %if.end22
-  store i64 1000, ptr %cols, align 8
+if.end25.sink.split:                              ; preds = %if.end22, %if.end19
+  %.sink = phi i64 [ 1, %if.end19 ], [ 1000, %if.end22 ]
+  store i64 %.sink, ptr %cols, align 8
   br label %if.end25
 
-if.end25:                                         ; preds = %if.end22.thread, %if.then24, %if.end22
-  %8 = phi i64 [ 1, %if.end22.thread ], [ 1000, %if.then24 ], [ %7, %if.end22 ]
+if.end25:                                         ; preds = %if.end25.sink.split, %if.end22
+  %8 = phi i64 [ %7, %if.end22 ], [ %.sink, %if.end25.sink.split ]
   %9 = load i64, ptr %squares_per_row, align 8
   %cmp26 = icmp slt i64 %9, 1
-  br i1 %cmp26, label %if.end28.thread, label %if.end28
-
-if.end28.thread:                                  ; preds = %if.end25
-  store i64 1, ptr %squares_per_row, align 8
-  br label %if.end31
+  br i1 %cmp26, label %if.end31.sink.split, label %if.end28
 
 if.end28:                                         ; preds = %if.end25
   %cmp29 = icmp ugt i64 %9, 200
-  br i1 %cmp29, label %if.then30, label %if.end31
+  br i1 %cmp29, label %if.end31.sink.split, label %if.end31
 
-if.then30:                                        ; preds = %if.end28
-  store i64 200, ptr %squares_per_row, align 8
+if.end31.sink.split:                              ; preds = %if.end28, %if.end25
+  %.sink23 = phi i64 [ 1, %if.end25 ], [ 200, %if.end28 ]
+  store i64 %.sink23, ptr %squares_per_row, align 8
   br label %if.end31
 
-if.end31:                                         ; preds = %if.end28.thread, %if.then30, %if.end28
-  %10 = phi i64 [ 1, %if.end28.thread ], [ 200, %if.then30 ], [ %9, %if.end28 ]
+if.end31:                                         ; preds = %if.end31.sink.split, %if.end28
+  %10 = phi i64 [ %9, %if.end28 ], [ %.sink23, %if.end31.sink.split ]
   %11 = load i64, ptr %squares_per_col, align 8
   %cmp32 = icmp slt i64 %11, 1
-  br i1 %cmp32, label %if.end34.thread, label %if.end34
-
-if.end34.thread:                                  ; preds = %if.end31
-  store i64 1, ptr %squares_per_col, align 8
-  br label %if.end37
+  br i1 %cmp32, label %if.end37.sink.split, label %if.end34
 
 if.end34:                                         ; preds = %if.end31
   %cmp35 = icmp ugt i64 %11, 200
-  br i1 %cmp35, label %if.then36, label %if.end37
+  br i1 %cmp35, label %if.end37.sink.split, label %if.end37
 
-if.then36:                                        ; preds = %if.end34
-  store i64 200, ptr %squares_per_col, align 8
+if.end37.sink.split:                              ; preds = %if.end34, %if.end31
+  %.sink25 = phi i64 [ 1, %if.end31 ], [ 200, %if.end34 ]
+  store i64 %.sink25, ptr %squares_per_col, align 8
   br label %if.end37
 
-if.end37:                                         ; preds = %if.end34.thread, %if.then36, %if.end34
-  %12 = phi i64 [ 1, %if.end34.thread ], [ 200, %if.then36 ], [ %11, %if.end34 ]
+if.end37:                                         ; preds = %if.end37.sink.split, %if.end34
+  %12 = phi i64 [ %11, %if.end34 ], [ %.sink25, %if.end37.sink.split ]
   %conv = trunc nuw i64 %8 to i32
   %conv38 = trunc nuw i64 %10 to i32
   %conv39 = trunc nuw i64 %12 to i32

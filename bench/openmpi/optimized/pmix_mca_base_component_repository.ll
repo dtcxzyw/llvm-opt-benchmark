@@ -1011,8 +1011,7 @@ pmix_obj_new_tma.exit.thread138:                  ; preds = %.lr.ph.i.i, %46
 
 79:                                               ; preds = %76
   %80 = call noalias dereferenceable_or_null(39) ptr @strdup(ptr noundef nonnull @.str.9) #15
-  store ptr %80, ptr %6, align 8
-  br label %103
+  br label %.sink.split
 
 81:                                               ; preds = %76
   %82 = load ptr, ptr %73, align 8
@@ -1059,10 +1058,14 @@ file_exists.exit:                                 ; preds = %81
   %100 = load ptr, ptr %0, align 8
   %101 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.14, ptr noundef %99, ptr noundef %100) #15
   %102 = load ptr, ptr %7, align 8
-  store ptr %102, ptr %6, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %79, %98
+  %.sink = phi ptr [ %102, %98 ], [ %80, %79 ]
+  store ptr %.sink, ptr %6, align 8
   br label %103
 
-103:                                              ; preds = %95, %98, %79
+103:                                              ; preds = %.sink.split, %95
   %104 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_output_info, i64 4), align 4
   %.not114 = icmp slt i32 %104, %19
   br i1 %.not114, label %108, label %105

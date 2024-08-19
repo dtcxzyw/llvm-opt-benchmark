@@ -9620,7 +9620,6 @@ rb_reg_fixed_encoding_p.exit.thread:              ; preds = %72, %67, %rb_reg_fi
   %.1 = phi ptr [ %.060131, %78 ], [ %.060131, %62 ], [ %59, %rb_enc_asciicompat.exit.thread ], [ %.060131, %rb_reg_fixed_encoding_p.exit ], [ %.060131, %67 ], [ %.060131, %72 ]
   %.0..0..0..0.17 = load volatile i64, ptr %5, align 8
   %83 = call fastcc i64 @rb_reg_str_with_term(i64 noundef %.0..0..0..0.17, i32 noundef -1)
-  store volatile i64 %83, ptr %5, align 8
   br label %119
 
 84:                                               ; preds = %54
@@ -9713,13 +9712,14 @@ RB_SYMBOL_P.exit.thread.i.i106:                   ; preds = %RB_SYMBOL_P.exit.i.
 rb_reg_s_quote.exit108:                           ; preds = %RB_SYMBOL_P.exit.i.i104, %RB_SYMBOL_P.exit.thread.i.i106, %.critedge.i.i107
   %.025.i.i105 = phi i64 [ %116, %RB_SYMBOL_P.exit.thread.i.i106 ], [ %117, %.critedge.i.i107 ], [ %105, %RB_SYMBOL_P.exit.i.i104 ]
   %118 = call i64 @rb_reg_quote(i64 noundef %.025.i.i105)
-  store volatile i64 %118, ptr %5, align 8
   br label %119
 
 119:                                              ; preds = %rb_reg_s_quote.exit108, %rb_reg_fixed_encoding_p.exit.thread
+  %.sink = phi i64 [ %118, %rb_reg_s_quote.exit108 ], [ %83, %rb_reg_fixed_encoding_p.exit.thread ]
   %.267 = phi i32 [ %.368, %rb_reg_s_quote.exit108 ], [ %.166, %rb_reg_fixed_encoding_p.exit.thread ]
   %.263 = phi ptr [ %.364, %rb_reg_s_quote.exit108 ], [ %.162, %rb_reg_fixed_encoding_p.exit.thread ]
   %.2 = phi ptr [ %.3, %rb_reg_s_quote.exit108 ], [ %.1, %rb_reg_fixed_encoding_p.exit.thread ]
+  store volatile i64 %.sink, ptr %5, align 8
   %.not87 = icmp eq ptr %.2, null
   br i1 %.not87, label %129, label %120
 

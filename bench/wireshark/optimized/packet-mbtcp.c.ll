@@ -2263,144 +2263,137 @@ define internal fastcc i32 @dissect_mbtcp_pdu_common(ptr noundef %0, ptr noundef
   %21 = load i32, ptr %13, align 4
   %22 = tail call i32 @value_is_in_range(ptr noundef %4, i32 noundef %21) #5
   %.not9.i = icmp eq i32 %22, 0
-  br i1 %.not9.i, label %23, label %29
+  br i1 %.not9.i, label %23, label %27
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds i8, ptr %1, i64 288
   %25 = load i32, ptr %24, align 8
   %26 = tail call i32 @value_is_in_range(ptr noundef %4, i32 noundef %25) #5
   %.not10.i = icmp eq i32 %26, 0
-  br i1 %.not10.i, label %29, label %27
+  br i1 %.not10.i, label %27, label %28
 
-27:                                               ; preds = %23
-  store i32 0, ptr %6, align 4
-  br label %30
+27:                                               ; preds = %23, %20
+  br label %28
 
-28:                                               ; preds = %16
-  store i32 1, ptr %6, align 4
-  br label %30
+28:                                               ; preds = %16, %23, %27
+  %.sink = phi i32 [ 2, %27 ], [ 0, %23 ], [ 1, %16 ]
+  %29 = phi i1 [ true, %27 ], [ false, %23 ], [ false, %16 ]
+  %.093 = phi ptr [ @.str.271, %27 ], [ @.str.268, %23 ], [ @.str.268, %16 ]
+  %.092 = phi ptr [ @.str.272, %27 ], [ @.str.269, %23 ], [ @.str.270, %16 ]
+  store i32 %.sink, ptr %6, align 4
+  %30 = getelementptr inbounds i8, ptr %6, i64 4
+  store i16 %7, ptr %30, align 4
+  %31 = getelementptr inbounds i8, ptr %6, i64 6
+  store i8 %10, ptr %31, align 2
+  %32 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 7) #5
+  %.not = icmp sgt i8 %32, -1
+  br i1 %.not, label %36, label %33
 
-29:                                               ; preds = %23, %20
-  store i32 2, ptr %6, align 4
-  br label %30
+33:                                               ; preds = %28
+  %34 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #5
+  %35 = icmp eq i8 %34, 0
+  br label %36
 
-30:                                               ; preds = %29, %28, %27
-  %31 = phi i1 [ true, %29 ], [ false, %28 ], [ false, %27 ]
-  %.093 = phi ptr [ @.str.271, %29 ], [ @.str.268, %28 ], [ @.str.268, %27 ]
-  %.092 = phi ptr [ @.str.272, %29 ], [ @.str.270, %28 ], [ @.str.269, %27 ]
-  %32 = getelementptr inbounds i8, ptr %6, i64 4
-  store i16 %7, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %6, i64 6
-  store i8 %10, ptr %33, align 2
-  %34 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 7) #5
-  %.not = icmp sgt i8 %34, -1
-  br i1 %.not, label %38, label %35
+36:                                               ; preds = %28, %33
+  %.090 = phi i1 [ %35, %33 ], [ true, %28 ]
+  %37 = zext nneg i8 %12 to i32
+  %38 = icmp eq i8 %12, 43
+  %or.cond = select i1 %38, i1 %.090, i1 false
+  br i1 %or.cond, label %39, label %43
 
-35:                                               ; preds = %30
-  %36 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #5
-  %37 = icmp eq i8 %36, 0
-  br label %38
+39:                                               ; preds = %36
+  %40 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #5
+  %41 = zext i8 %40 to i32
+  %42 = tail call ptr @val_to_str_const(i32 noundef %41, ptr noundef nonnull @encap_interface_code_vals, ptr noundef nonnull @.str.200) #5
+  br label %57
 
-38:                                               ; preds = %30, %35
-  %.090 = phi i1 [ %37, %35 ], [ true, %30 ]
-  %39 = zext nneg i8 %12 to i32
-  %40 = icmp eq i8 %12, 43
-  %or.cond = select i1 %40, i1 %.090, i1 false
-  br i1 %or.cond, label %41, label %45
+43:                                               ; preds = %36
+  %44 = icmp eq i8 %12, 8
+  %or.cond5 = select i1 %44, i1 %.090, i1 false
+  br i1 %or.cond5, label %45, label %49
 
-41:                                               ; preds = %38
-  %42 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #5
-  %43 = zext i8 %42 to i32
-  %44 = tail call ptr @val_to_str_const(i32 noundef %43, ptr noundef nonnull @encap_interface_code_vals, ptr noundef nonnull @.str.200) #5
-  br label %59
+45:                                               ; preds = %43
+  %46 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 8) #5
+  %47 = zext i16 %46 to i32
+  %48 = tail call ptr @val_to_str_const(i32 noundef %47, ptr noundef nonnull @diagnostic_code_vals, ptr noundef nonnull @.str.189) #5
+  br label %57
 
-45:                                               ; preds = %38
-  %46 = icmp eq i8 %12, 8
-  %or.cond5 = select i1 %46, i1 %.090, i1 false
-  br i1 %or.cond5, label %47, label %51
-
-47:                                               ; preds = %45
-  %48 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 8) #5
-  %49 = zext i16 %48 to i32
-  %50 = tail call ptr @val_to_str_const(i32 noundef %49, ptr noundef nonnull @diagnostic_code_vals, ptr noundef nonnull @.str.189) #5
-  br label %59
-
-51:                                               ; preds = %45
-  %52 = tail call ptr @val_to_str(i32 noundef %39, ptr noundef nonnull @function_code_vals, ptr noundef nonnull @.str.273) #5
+49:                                               ; preds = %43
+  %50 = tail call ptr @val_to_str(i32 noundef %37, ptr noundef nonnull @function_code_vals, ptr noundef nonnull @.str.273) #5
   %spec.select = select i1 %.090, ptr %.093, ptr @.str.274
   %char097 = load i8, ptr %spec.select, align 1
   %.not98 = icmp eq i8 %char097, 0
-  %53 = getelementptr inbounds i8, ptr %1, i64 8
-  %54 = load ptr, ptr %53, align 8
-  %55 = zext i16 %7 to i32
-  %56 = zext i8 %10 to i32
-  br i1 %.not98, label %58, label %57
+  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = zext i16 %7 to i32
+  %54 = zext i8 %10 to i32
+  br i1 %.not98, label %56, label %55
 
-57:                                               ; preds = %51
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %54, i32 noundef 25, ptr noundef nonnull @.str.275, ptr noundef nonnull %.092, i32 noundef %55, i32 noundef %56, i32 noundef %39, ptr noundef %52, ptr noundef nonnull %spec.select) #5
-  br label %66
+55:                                               ; preds = %49
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %52, i32 noundef 25, ptr noundef nonnull @.str.275, ptr noundef nonnull %.092, i32 noundef %53, i32 noundef %54, i32 noundef %37, ptr noundef %50, ptr noundef nonnull %spec.select) #5
+  br label %64
 
-58:                                               ; preds = %51
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %54, i32 noundef 25, ptr noundef nonnull @.str.276, ptr noundef nonnull %.092, i32 noundef %55, i32 noundef %56, i32 noundef %39, ptr noundef %52) #5
-  br label %66
+56:                                               ; preds = %49
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %52, i32 noundef 25, ptr noundef nonnull @.str.276, ptr noundef nonnull %.092, i32 noundef %53, i32 noundef %54, i32 noundef %37, ptr noundef %50) #5
+  br label %64
 
-59:                                               ; preds = %41, %47
-  %.091.ph = phi ptr [ %50, %47 ], [ %44, %41 ]
+57:                                               ; preds = %39, %45
+  %.091.ph = phi ptr [ %48, %45 ], [ %42, %39 ]
   %spec.select103 = select i1 %.090, ptr %.093, ptr @.str.274
   %char0 = load i8, ptr %spec.select103, align 1
   %.not96 = icmp eq i8 %char0, 0
-  %60 = getelementptr inbounds i8, ptr %1, i64 8
-  %61 = load ptr, ptr %60, align 8
-  %62 = zext i16 %7 to i32
-  %63 = zext i8 %10 to i32
-  br i1 %.not96, label %65, label %64
+  %58 = getelementptr inbounds i8, ptr %1, i64 8
+  %59 = load ptr, ptr %58, align 8
+  %60 = zext i16 %7 to i32
+  %61 = zext i8 %10 to i32
+  br i1 %.not96, label %63, label %62
 
-64:                                               ; preds = %59
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %61, i32 noundef 25, ptr noundef nonnull @.str.277, ptr noundef nonnull %.092, i32 noundef %62, i32 noundef %63, i32 noundef %39, i32 noundef 1, ptr noundef %.091.ph, ptr noundef nonnull %spec.select103) #5
-  br label %66
+62:                                               ; preds = %57
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %59, i32 noundef 25, ptr noundef nonnull @.str.277, ptr noundef nonnull %.092, i32 noundef %60, i32 noundef %61, i32 noundef %37, i32 noundef 1, ptr noundef %.091.ph, ptr noundef nonnull %spec.select103) #5
+  br label %64
 
-65:                                               ; preds = %59
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %61, i32 noundef 25, ptr noundef nonnull @.str.278, ptr noundef nonnull %.092, i32 noundef %62, i32 noundef %63, i32 noundef %39, i32 noundef 1, ptr noundef %.091.ph) #5
-  br label %66
+63:                                               ; preds = %57
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %59, i32 noundef 25, ptr noundef nonnull @.str.278, ptr noundef nonnull %.092, i32 noundef %60, i32 noundef %61, i32 noundef %37, i32 noundef 1, ptr noundef %.091.ph) #5
+  br label %64
 
-66:                                               ; preds = %64, %65, %57, %58
-  %67 = zext i16 %9 to i32
-  %68 = add nuw nsw i32 %67, 6
-  %69 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef 0, i32 noundef %68, i32 noundef 0) #5
-  %70 = load i32, ptr @ett_mbtcp, align 4
-  %71 = tail call ptr @proto_item_add_subtree(ptr noundef %69, i32 noundef %70) #5
-  br i1 %31, label %72, label %74
+64:                                               ; preds = %62, %63, %55, %56
+  %65 = zext i16 %9 to i32
+  %66 = add nuw nsw i32 %65, 6
+  %67 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef 0, i32 noundef %66, i32 noundef 0) #5
+  %68 = load i32, ptr @ett_mbtcp, align 4
+  %69 = tail call ptr @proto_item_add_subtree(ptr noundef %67, i32 noundef %68) #5
+  br i1 %29, label %70, label %72
 
-72:                                               ; preds = %66
-  %73 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %69, ptr noundef nonnull @ei_mbtcp_cannot_classify) #5
-  br label %74
+70:                                               ; preds = %64
+  %71 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %67, ptr noundef nonnull @ei_mbtcp_cannot_classify) #5
+  br label %72
 
-74:                                               ; preds = %72, %66
-  %75 = load i32, ptr @hf_mbtcp_transid, align 4
-  %76 = zext i16 %7 to i32
-  %77 = tail call ptr @proto_tree_add_uint(ptr noundef %71, i32 noundef %75, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef %76) #5
-  %78 = load i32, ptr @hf_mbtcp_protid, align 4
-  %79 = zext i16 %8 to i32
-  %80 = tail call ptr @proto_tree_add_uint(ptr noundef %71, i32 noundef %78, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef %79) #5
-  %81 = load i32, ptr @hf_mbtcp_len, align 4
-  %82 = tail call ptr @proto_tree_add_uint(ptr noundef %71, i32 noundef %81, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef %67) #5
-  %83 = load i32, ptr @hf_mbtcp_unitid, align 4
-  %84 = zext i8 %10 to i32
-  %85 = tail call ptr @proto_tree_add_uint(ptr noundef %71, i32 noundef %83, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef %84) #5
-  %86 = add nsw i32 %67, -1
-  %87 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 7, i32 noundef %86) #5
-  %88 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #5
-  %89 = icmp sgt i32 %88, 0
-  br i1 %89, label %90, label %93
+72:                                               ; preds = %70, %64
+  %73 = load i32, ptr @hf_mbtcp_transid, align 4
+  %74 = zext i16 %7 to i32
+  %75 = tail call ptr @proto_tree_add_uint(ptr noundef %69, i32 noundef %73, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef %74) #5
+  %76 = load i32, ptr @hf_mbtcp_protid, align 4
+  %77 = zext i16 %8 to i32
+  %78 = tail call ptr @proto_tree_add_uint(ptr noundef %69, i32 noundef %76, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef %77) #5
+  %79 = load i32, ptr @hf_mbtcp_len, align 4
+  %80 = tail call ptr @proto_tree_add_uint(ptr noundef %69, i32 noundef %79, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef %65) #5
+  %81 = load i32, ptr @hf_mbtcp_unitid, align 4
+  %82 = zext i8 %10 to i32
+  %83 = tail call ptr @proto_tree_add_uint(ptr noundef %69, i32 noundef %81, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef %82) #5
+  %84 = add nsw i32 %65, -1
+  %85 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 7, i32 noundef %84) #5
+  %86 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #5
+  %87 = icmp sgt i32 %86, 0
+  br i1 %87, label %88, label %91
 
-90:                                               ; preds = %74
-  %91 = load ptr, ptr @modbus_handle, align 8
-  %92 = call i32 @call_dissector_with_data(ptr noundef %91, ptr noundef %87, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %6) #5
-  br label %93
+88:                                               ; preds = %72
+  %89 = load ptr, ptr @modbus_handle, align 8
+  %90 = call i32 @call_dissector_with_data(ptr noundef %89, ptr noundef %85, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %6) #5
+  br label %91
 
-93:                                               ; preds = %90, %74
-  %94 = call i32 @tvb_captured_length(ptr noundef %0) #5
-  ret i32 %94
+91:                                               ; preds = %88, %72
+  %92 = call i32 @tvb_captured_length(ptr noundef %0) #5
+  ret i32 %92
 }
 
 declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1

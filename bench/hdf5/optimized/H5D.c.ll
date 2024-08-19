@@ -1208,7 +1208,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Dget_space(i64 noundef %0) loc
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %24 = tail call ptr @H5I_object_verify(i64 noundef %0, i32 noundef 5) #6
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %26, label %30
+  br i1 %25, label %26, label %.cont8.i
 
 26:                                               ; preds = %22
   %27 = load i64, ptr @H5E_ARGS_g, align 8
@@ -1216,48 +1216,48 @@ define range(i64 -1, -9223372036854775808) i64 @H5Dget_space(i64 noundef %0) loc
   %29 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__get_space_api_common, i32 noundef 563, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.37) #6
   br label %H5D__get_space_api_common.exit.thread
 
-30:                                               ; preds = %22
+.cont8.i:                                         ; preds = %22
   store i32 2, ptr %2, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 -1, ptr %31, align 8
-  %32 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
-  %33 = call i32 @H5VL_dataset_get(ptr noundef nonnull %24, ptr noundef nonnull %2, i64 noundef %32, ptr noundef null) #6
-  %34 = icmp slt i32 %33, 0
-  br i1 %34, label %35, label %H5D__get_space_api_common.exit
+  %30 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 -1, ptr %30, align 8
+  %31 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
+  %32 = call i32 @H5VL_dataset_get(ptr noundef nonnull %24, ptr noundef nonnull %2, i64 noundef %31, ptr noundef null) #6
+  %33 = icmp slt i32 %32, 0
+  br i1 %33, label %34, label %H5D__get_space_api_common.exit
 
-35:                                               ; preds = %30
-  %36 = load i64, ptr @H5E_DATASET_g, align 8
-  %37 = load i64, ptr @H5E_CANTGET_g, align 8
-  %38 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__get_space_api_common, i32 noundef 571, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.127) #6
+34:                                               ; preds = %.cont8.i
+  %35 = load i64, ptr @H5E_DATASET_g, align 8
+  %36 = load i64, ptr @H5E_CANTGET_g, align 8
+  %37 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__get_space_api_common, i32 noundef 571, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.127) #6
   br label %H5D__get_space_api_common.exit.thread
 
-H5D__get_space_api_common.exit.thread:            ; preds = %26, %35
+H5D__get_space_api_common.exit.thread:            ; preds = %26, %34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %.thread24
 
-H5D__get_space_api_common.exit:                   ; preds = %30
-  %39 = load i64, ptr %31, align 8
+H5D__get_space_api_common.exit:                   ; preds = %.cont8.i
+  %38 = load i64, ptr %30, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %40 = icmp slt i64 %39, 0
-  br i1 %40, label %.thread24, label %45
+  %39 = icmp slt i64 %38, 0
+  br i1 %39, label %.thread24, label %44
 
 .thread24:                                        ; preds = %H5D__get_space_api_common.exit, %H5D__get_space_api_common.exit.thread
-  %41 = load i64, ptr @H5E_DATASET_g, align 8
-  %42 = load i64, ptr @H5E_CANTGET_g, align 8
-  %43 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Dget_space, i32 noundef 602, i64 noundef %41, i64 noundef %42, ptr noundef nonnull @.str.34) #6
-  %44 = call i32 @H5CX_pop(i1 noundef zeroext true) #6
+  %40 = load i64, ptr @H5E_DATASET_g, align 8
+  %41 = load i64, ptr @H5E_CANTGET_g, align 8
+  %42 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Dget_space, i32 noundef 602, i64 noundef %40, i64 noundef %41, ptr noundef nonnull @.str.34) #6
+  %43 = call i32 @H5CX_pop(i1 noundef zeroext true) #6
   br label %.thread19
 
-45:                                               ; preds = %H5D__get_space_api_common.exit
-  %46 = call i32 @H5CX_pop(i1 noundef zeroext true) #6
-  br label %48
+44:                                               ; preds = %H5D__get_space_api_common.exit
+  %45 = call i32 @H5CX_pop(i1 noundef zeroext true) #6
+  br label %47
 
 .thread19:                                        ; preds = %18, %11, %.thread24
-  %47 = call i32 @H5E_dump_api_stack() #6
-  br label %48
+  %46 = call i32 @H5E_dump_api_stack() #6
+  br label %47
 
-48:                                               ; preds = %45, %.thread19
-  %.081422 = phi i64 [ -1, %.thread19 ], [ %39, %45 ]
+47:                                               ; preds = %44, %.thread19
+  %.081422 = phi i64 [ -1, %.thread19 ], [ %38, %44 ]
   ret i64 %.081422
 }
 
@@ -1300,7 +1300,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Dget_space_async(ptr noundef %
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %29 = tail call ptr @H5I_object_verify(i64 noundef %3, i32 noundef 5) #6
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %31, label %.else9.i
+  br i1 %30, label %31, label %.cont8.i
 
 31:                                               ; preds = %27
   %32 = load i64, ptr @H5E_ARGS_g, align 8
@@ -1308,7 +1308,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Dget_space_async(ptr noundef %
   %34 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__get_space_api_common, i32 noundef 563, i64 noundef %32, i64 noundef %33, ptr noundef nonnull @.str.37) #6
   br label %H5D__get_space_api_common.exit.thread
 
-.else9.i:                                         ; preds = %27
+.cont8.i:                                         ; preds = %27
   %.not = icmp eq i64 %4, 0
   %spec.select = select i1 %.not, ptr null, ptr %7
   store i32 2, ptr %6, align 8
@@ -1319,7 +1319,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Dget_space_async(ptr noundef %
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %39, label %H5D__get_space_api_common.exit
 
-39:                                               ; preds = %.else9.i
+39:                                               ; preds = %.cont8.i
   %40 = load i64, ptr @H5E_DATASET_g, align 8
   %41 = load i64, ptr @H5E_CANTGET_g, align 8
   %42 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__get_space_api_common, i32 noundef 571, i64 noundef %40, i64 noundef %41, ptr noundef nonnull @.str.127) #6
@@ -1329,7 +1329,7 @@ H5D__get_space_api_common.exit.thread:            ; preds = %31, %39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %45
 
-H5D__get_space_api_common.exit:                   ; preds = %.else9.i
+H5D__get_space_api_common.exit:                   ; preds = %.cont8.i
   %43 = load i64, ptr %35, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %44 = icmp slt i64 %43, 0

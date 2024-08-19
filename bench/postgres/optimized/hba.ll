@@ -4650,12 +4650,7 @@ hostname_match.exit.i.i:                          ; preds = %62, %54
 67:                                               ; preds = %hostname_match.exit.i.i
   %68 = load i32, ptr %15, align 8
   %69 = icmp eq i32 %68, 1
-  br i1 %69, label %check_hostname.exit.thread49.i, label %70
-
-check_hostname.exit.thread49.i:                   ; preds = %67
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %4)
-  br label %check_ip.exit.thread.i
+  br i1 %69, label %check_ip.exit.thread.sink.split.i, label %70
 
 70:                                               ; preds = %67
   %71 = load ptr, ptr %16, align 8
@@ -4769,9 +4764,7 @@ check_hostname.exit.thread52.i:                   ; preds = %98, %.thread.i.i
 check_hostname.exit.i:                            ; preds = %ipv6eq.exit.i.us.i, %78, %.lr.ph.i.us.i
   call void @freeaddrinfo(ptr noundef nonnull %.03248.i.i) #13
   store i32 1, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %4)
-  br label %check_ip.exit.thread.i
+  br label %check_ip.exit.thread.sink.split.i
 
 100:                                              ; preds = %41
   %101 = getelementptr inbounds i8, ptr %26, i64 48
@@ -4815,7 +4808,12 @@ check_same_host_or_net.exit.i:                    ; preds = %107
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   br i1 %116, label %check_ip.exit.thread.i, label %check_ip.exit.i
 
-check_ip.exit.thread.i:                           ; preds = %check_same_host_or_net.exit.i, %104, %check_hostname.exit.i, %check_hostname.exit.thread49.i, %38, %31
+check_ip.exit.thread.sink.split.i:                ; preds = %check_hostname.exit.i, %67
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %4)
+  br label %check_ip.exit.thread.i
+
+check_ip.exit.thread.i:                           ; preds = %check_ip.exit.thread.sink.split.i, %check_same_host_or_net.exit.i, %104, %38, %31
   %117 = load ptr, ptr %21, align 8
   %118 = load ptr, ptr %5, align 8
   %119 = getelementptr inbounds i8, ptr %26, i64 32

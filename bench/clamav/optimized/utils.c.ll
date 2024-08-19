@@ -322,10 +322,10 @@ define dso_local ptr @onas_get_opt_list(ptr noundef %0, ptr nocapture noundef %1
   %44 = load i32, ptr %10, align 4
   %45 = call ptr @strerror(i32 noundef %44) #8
   %46 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.15, ptr noundef %43, ptr noundef %45) #8
-  store i64 0, ptr %5, align 8
   br label %.backedge
 
 .backedge:                                        ; preds = %39, %67, %77
+  store i64 0, ptr %5, align 8
   %47 = load i32, ptr %1, align 4
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds ptr, ptr %.0.ph68, i64 %48
@@ -355,7 +355,6 @@ define dso_local ptr @onas_get_opt_list(ptr noundef %0, ptr nocapture noundef %1
 
 67:                                               ; preds = %59
   %68 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.16, ptr noundef %66) #8
-  store i64 0, ptr %5, align 8
   br label %.backedge
 
 sub_0:                                            ; preds = %59
@@ -383,7 +382,6 @@ sub_1:                                            ; preds = %sub_0
   %81 = getelementptr inbounds ptr, ptr %.0.ph68, i64 %80
   %82 = load ptr, ptr %81, align 8
   %83 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.19, ptr noundef %82) #8
-  store i64 0, ptr %5, align 8
   br label %.backedge
 
 84:                                               ; preds = %.tail

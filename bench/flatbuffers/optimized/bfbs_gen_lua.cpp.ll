@@ -16763,7 +16763,7 @@ tailrecurse.us.us:                                ; preds = %entry.split.us, %co
 cond.false.us.us:                                 ; preds = %tailrecurse.us.us
   %2 = load i16, ptr %add.ptr.i.i.i14, align 2
   %tobool.not.i.i15.us.us = icmp eq i16 %2, 0
-  br i1 %tobool.not.i.i15.us.us, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i66.thread, label %cond.end.us.us
+  br i1 %tobool.not.i.i15.us.us, label %sw.default.i.sink.split, label %cond.end.us.us
 
 cond.true.us.us:                                  ; preds = %tailrecurse.us.us
   %3 = load i16, ptr %add.ptr.i.i.i, align 2
@@ -16787,7 +16787,7 @@ tailrecurse.us:                                   ; preds = %entry.split.us
 cond.false.us:                                    ; preds = %tailrecurse.us
   %4 = load i16, ptr %add.ptr.i.i.i14, align 2
   %tobool.not.i.i15.us = icmp eq i16 %4, 0
-  br i1 %tobool.not.i.i15.us, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i66.thread, label %cond.end.us
+  br i1 %tobool.not.i.i15.us, label %sw.default.i.sink.split, label %cond.end.us
 
 cond.end.us:                                      ; preds = %cond.false.us
   %idx.ext.i.i.pn.us = zext i16 %4 to i64
@@ -16807,14 +16807,7 @@ sw.default.thread216:                             ; preds = %cond.end.us
   br label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i66
 
 tailrecurse:                                      ; preds = %entry
-  br i1 %element_type, label %sw.default.thread, label %cond.false.i
-
-_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i66.thread: ; preds = %cond.false.us.us, %cond.false.us
-  %namer_97126 = getelementptr inbounds i8, ptr %this, i64 232
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp6.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp11.i)
-  br label %sw.default.i
+  br i1 %element_type, label %sw.default.thread, label %sw.default.i.sink.split
 
 sw.bb:                                            ; preds = %cond.end.us.us, %cond.end.us
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #22
@@ -16905,13 +16898,6 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i78: ; preds = %cond.tr
   %9 = load i16, ptr %add.ptr.i.i.i, align 2, !noalias !149
   %tobool.not.i.i80 = icmp eq i16 %9, 0
   br i1 %tobool.not.i.i80, label %sw.default.i, label %cond.end.i
-
-cond.false.i:                                     ; preds = %tailrecurse
-  %namer_97 = getelementptr inbounds i8, ptr %this, i64 232
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp6.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp11.i)
-  br label %sw.default.i
 
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i66: ; preds = %sw.default, %sw.default.thread216
   %namer_219 = phi ptr [ %namer_218, %sw.default.thread216 ], [ %namer_, %sw.default ]
@@ -17091,8 +17077,15 @@ lpad9.i:                                          ; preds = %_ZNK11flatbuffers17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6.i) #22
   br label %common.resume
 
-sw.default.i:                                     ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i66.thread, %cond.false.i, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i78, %cond.true.i, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i66, %if.end.i
-  %namer_91 = phi ptr [ %namer_93, %if.end.i ], [ %namer_97, %cond.false.i ], [ %namer_219, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i66 ], [ %namer_94, %cond.true.i ], [ %namer_94, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i78 ], [ %namer_97126, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i66.thread ]
+sw.default.i.sink.split:                          ; preds = %cond.false.us.us, %tailrecurse, %cond.false.us
+  %namer_97126 = getelementptr inbounds i8, ptr %this, i64 232
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp6.i)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp11.i)
+  br label %sw.default.i
+
+sw.default.i:                                     ; preds = %sw.default.i.sink.split, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i78, %cond.true.i, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i66, %if.end.i
+  %namer_91 = phi ptr [ %namer_93, %if.end.i ], [ %namer_219, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i66 ], [ %namer_94, %cond.true.i ], [ %namer_94, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i78 ], [ %namer_97126, %sw.default.i.sink.split ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11.i) #22, !noalias !149
   %call.i3439 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10)
           to label %call.i34.noexc unwind label %lpad12.i

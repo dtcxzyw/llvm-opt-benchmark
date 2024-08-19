@@ -2079,10 +2079,10 @@ define dso_local range(i32 -2147483648, 1) i32 @iomap_file_unshare(ptr noundef %
     i16 3, label %.loopexit
   ]
 
-.preheader:                                       ; preds = %41, %98
-  %43 = phi i64 [ %101, %98 ], [ 0, %41 ]
-  %44 = phi i64 [ %102, %98 ], [ %37, %41 ]
-  %45 = phi i64 [ %100, %98 ], [ %24, %41 ]
+.preheader:                                       ; preds = %41, %97
+  %43 = phi i64 [ %100, %97 ], [ 0, %41 ]
+  %44 = phi i64 [ %101, %97 ], [ %37, %41 ]
+  %45 = phi i64 [ %99, %97 ], [ %24, %41 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
   store ptr null, ptr %5, align 8, !annotation !28
   %46 = call fastcc i32 @iomap_write_begin(ptr noundef nonnull %6, i64 noundef %45, i64 noundef %44, ptr noundef nonnull %5)
@@ -2091,13 +2091,13 @@ define dso_local range(i32 -2147483648, 1) i32 @iomap_file_unshare(ptr noundef %
 
 48:                                               ; preds = %.preheader
   %49 = sext i32 %46 to i64
-  br label %.thread
+  br label %.loopexit.sink.split
 
 50:                                               ; preds = %.preheader
   %51 = load i16, ptr %19, align 2
   %52 = and i16 %51, 512
   %53 = icmp eq i16 %52, 0
-  br i1 %53, label %54, label %97
+  br i1 %53, label %54, label %.loopexit.sink.split
 
 54:                                               ; preds = %50
   %55 = load ptr, ptr %5, align 8
@@ -2157,47 +2157,43 @@ define dso_local range(i32 -2147483648, 1) i32 @iomap_file_unshare(ptr noundef %
   %93 = phi i64 [ %91, %88 ], [ %44, %75 ]
   %94 = call fastcc i64 @iomap_write_end(ptr noundef nonnull %6, i64 noundef %45, i64 noundef %93, i64 noundef %93, ptr noundef %55)
   %95 = icmp eq i64 %94, 0
-  br i1 %95, label %96, label %98, !prof !21
+  br i1 %95, label %96, label %97, !prof !21
 
 96:                                               ; preds = %92
   call void asm sideeffect "684: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 684b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 684) #15, !srcloc !83
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1299, i32 2307, i64 12) #15, !srcloc !84
   call void asm sideeffect "685: nop\0A\09.pushsection .discard.instr_end\0A\09.long 685b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 685) #15, !srcloc !85
-  br label %.thread
+  br label %.loopexit.sink.split
 
-.thread:                                          ; preds = %48, %96
-  %.ph = phi i64 [ -5, %96 ], [ %49, %48 ]
+97:                                               ; preds = %92
+  %98 = call i32 @__SCT__cond_resched() #15
+  %99 = add i64 %94, %45
+  %100 = add i64 %94, %43
+  %101 = sub i64 %44, %94
+  %102 = load ptr, ptr %6, align 8
+  %103 = getelementptr inbounds i8, ptr %102, i64 48
+  %104 = load ptr, ptr %103, align 8
+  call void @balance_dirty_pages_ratelimited(ptr noundef %104) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  %105 = icmp sgt i64 %101, 0
+  br i1 %105, label %.preheader, label %.loopexit, !llvm.loop !86
+
+.loopexit.sink.split:                             ; preds = %50, %96, %48
+  %.ph36 = phi i64 [ -5, %96 ], [ %49, %48 ], [ %43, %50 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
   br label %.loopexit
 
-97:                                               ; preds = %50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
-  br label %.loopexit
-
-98:                                               ; preds = %92
-  %99 = call i32 @__SCT__cond_resched() #15
-  %100 = add i64 %94, %45
-  %101 = add i64 %94, %43
-  %102 = sub i64 %44, %94
-  %103 = load ptr, ptr %6, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 48
-  %105 = load ptr, ptr %104, align 8
-  call void @balance_dirty_pages_ratelimited(ptr noundef %105) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
-  %106 = icmp sgt i64 %102, 0
-  br i1 %106, label %.preheader, label %.loopexit, !llvm.loop !86
-
-.loopexit:                                        ; preds = %98, %97, %.thread, %41, %41, %33
-  %107 = phi i64 [ %37, %33 ], [ %37, %41 ], [ %37, %41 ], [ %.ph, %.thread ], [ %43, %97 ], [ %101, %98 ]
-  store i64 %107, ptr %20, align 8
-  %108 = call i32 @iomap_iter(ptr noundef nonnull %6, ptr noundef %3) #15
-  %109 = icmp sgt i32 %108, 0
-  br i1 %109, label %21, label %.loopexit8, !llvm.loop !87
+.loopexit:                                        ; preds = %97, %.loopexit.sink.split, %41, %41, %33
+  %106 = phi i64 [ %37, %33 ], [ %37, %41 ], [ %37, %41 ], [ %.ph36, %.loopexit.sink.split ], [ %100, %97 ]
+  store i64 %106, ptr %20, align 8
+  %107 = call i32 @iomap_iter(ptr noundef nonnull %6, ptr noundef %3) #15
+  %108 = icmp sgt i32 %107, 0
+  br i1 %108, label %21, label %.loopexit8, !llvm.loop !87
 
 .loopexit8:                                       ; preds = %.loopexit, %4
-  %110 = phi i32 [ %11, %4 ], [ %108, %.loopexit ]
+  %109 = phi i32 [ %11, %4 ], [ %107, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #15
-  ret i32 %110
+  ret i32 %109
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

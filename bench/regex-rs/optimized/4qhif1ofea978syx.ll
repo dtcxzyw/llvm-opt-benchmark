@@ -4513,7 +4513,7 @@ _ZN12regex_syntax3ast7visitor5visit17he8dbd1221b831b56E.exit.i: ; preds = %26
   %.sroa.641.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.641.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.641, i64 104, i1 false)
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %.sroa.641)
-  br label %44
+  br label %42
 
 34:                                               ; preds = %_ZN12regex_syntax3ast7visitor5visit17he8dbd1221b831b56E.exit.i
   %35 = landingpad { ptr, i32 }
@@ -4523,7 +4523,7 @@ _ZN12regex_syntax3ast7visitor5visit17he8dbd1221b831b56E.exit.i: ; preds = %26
 .body:                                            ; preds = %29, %34
   %eh.lpad-body = phi { ptr, i32 } [ %35, %34 ], [ %30, %29 ]
   invoke void @"_ZN4core3ptr43drop_in_place$LT$regex_syntax..ast..Ast$GT$17haa176ebff3a660b6E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11) #19
-          to label %common.resume unwind label %45
+          to label %common.resume unwind label %44
 
 36:                                               ; preds = %_ZN12regex_syntax3ast7visitor5visit17he8dbd1221b831b56E.exit.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !733
@@ -4539,10 +4539,10 @@ _ZN12regex_syntax3ast7visitor5visit17he8dbd1221b831b56E.exit.i: ; preds = %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.710, i64 48, i1 false)
   store i64 -9223372036854775807, ptr %0, align 8
   call void @"_ZN4core3ptr43drop_in_place$LT$regex_syntax..ast..Ast$GT$17haa176ebff3a660b6E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   br label %42
 
-42:                                               ; preds = %44, %40
+42:                                               ; preds = %33, %43, %40
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   ret void
 
 43:                                               ; preds = %36
@@ -4559,14 +4559,10 @@ _ZN12regex_syntax3ast7visitor5visit17he8dbd1221b831b56E.exit.i: ; preds = %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.648.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.648, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.648)
   call void @"_ZN4core3ptr43drop_in_place$LT$regex_syntax..ast..Ast$GT$17haa176ebff3a660b6E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11)
-  br label %44
-
-44:                                               ; preds = %43, %33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   br label %42
 
-45:                                               ; preds = %.body
-  %46 = landingpad { ptr, i32 }
+44:                                               ; preds = %.body
+  %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #20
   unreachable

@@ -2079,18 +2079,21 @@ define internal noundef range(i32 0, 2) i32 @_click_on_view_attached(ptr noundef
 107:                                              ; preds = %106, %23
   %108 = load ptr, ptr %8, align 8, !tbaa !18
   call void @gtk_tree_path_free(ptr noundef %108) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
-  br label %111
+  br label %.sink.split
 
 109:                                              ; preds = %104, %86, %50, %36
   %110 = load ptr, ptr %8, align 8, !tbaa !18
   call void @gtk_tree_path_free(ptr noundef %110) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #16
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %107, %109
+  %.ph = phi i32 [ 0, %107 ], [ 1, %109 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
   br label %111
 
-111:                                              ; preds = %109, %107, %19, %16, %3
-  %112 = phi i32 [ 1, %109 ], [ 0, %107 ], [ 0, %19 ], [ 0, %3 ], [ 0, %16 ]
+111:                                              ; preds = %.sink.split, %19, %16, %3
+  %112 = phi i32 [ 0, %19 ], [ 0, %3 ], [ 0, %16 ], [ %.ph, %.sink.split ]
   ret i32 %112
 }
 
@@ -2639,13 +2642,13 @@ define internal noundef range(i32 0, 2) i32 @_click_on_view_dictionary(ptr nound
 38:                                               ; preds = %32
   %39 = load i32, ptr %1, align 8, !tbaa !72
   %40 = icmp eq i32 %39, 5
-  br i1 %40, label %41, label %256
+  br i1 %40, label %41, label %254
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds i8, ptr %1, i64 52
   %43 = load i32, ptr %42, align 4, !tbaa !74
   %44 = icmp eq i32 %43, 1
-  br i1 %44, label %45, label %256
+  br i1 %44, label %45, label %254
 
 45:                                               ; preds = %41, %32, %22
   %46 = tail call i64 @gtk_tree_view_get_type() #17
@@ -2662,7 +2665,7 @@ define internal noundef range(i32 0, 2) i32 @_click_on_view_dictionary(ptr nound
   %55 = fptosi double %54 to i32
   %56 = call i32 @gtk_tree_view_get_path_at_pos(ptr noundef %49, i32 noundef %52, i32 noundef %55, ptr noundef nonnull %9, ptr noundef null, ptr noundef null, ptr noundef null) #16
   %57 = icmp eq i32 %56, 0
-  br i1 %57, label %254, label %58
+  br i1 %57, label %252, label %58
 
 58:                                               ; preds = %45
   %59 = getelementptr inbounds i8, ptr %13, i64 1192
@@ -2720,7 +2723,7 @@ define internal noundef range(i32 0, 2) i32 @_click_on_view_dictionary(ptr nound
   store ptr null, ptr %84, align 8, !tbaa !90
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #16
-  br label %252
+  br label %.sink.split
 
 89:                                               ; preds = %58
   %90 = load ptr, ptr %9, align 8, !tbaa !18
@@ -2952,7 +2955,7 @@ define internal noundef range(i32 0, 2) i32 @_click_on_view_dictionary(ptr nound
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #16
   %232 = load ptr, ptr %9, align 8, !tbaa !18
   call void @gtk_tree_path_free(ptr noundef %232) #16
-  br label %252
+  br label %.sink.split
 
 233:                                              ; preds = %89
   %234 = load i32, ptr %59, align 8, !tbaa !22
@@ -2967,39 +2970,38 @@ define internal noundef range(i32 0, 2) i32 @_click_on_view_dictionary(ptr nound
   %241 = call i32 @gtk_tree_view_expand_row(ptr noundef %239, ptr noundef %240, i32 noundef 1) #16
   %242 = load ptr, ptr %9, align 8, !tbaa !18
   call void @gtk_tree_path_free(ptr noundef %242) #16
-  br label %252
+  br label %.sink.split
 
 243:                                              ; preds = %233
   %244 = load i32, ptr %1, align 8, !tbaa !72
   %245 = icmp eq i32 %244, 5
-  br i1 %245, label %246, label %254
+  br i1 %245, label %246, label %252
 
 246:                                              ; preds = %243
   %247 = getelementptr inbounds i8, ptr %1, i64 52
   %248 = load i32, ptr %247, align 4, !tbaa !74
   %249 = icmp eq i32 %248, 1
-  br i1 %249, label %250, label %254
+  br i1 %249, label %250, label %252
 
 250:                                              ; preds = %246
   call fastcc void @_attach_selected_tag(ptr noundef nonnull %2, ptr noundef nonnull %13)
   %251 = load ptr, ptr %9, align 8, !tbaa !18
   call void @gtk_tree_path_free(ptr noundef %251) #16
-  br label %252
+  br label %.sink.split
 
-252:                                              ; preds = %250, %238, %231, %88
-  %253 = phi i32 [ 0, %88 ], [ 1, %250 ], [ 1, %238 ], [ 1, %231 ]
+252:                                              ; preds = %246, %243, %45
+  %253 = load ptr, ptr %9, align 8, !tbaa !18
+  call void @gtk_tree_path_free(ptr noundef %253) #16
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %88, %231, %238, %250, %252
+  %.ph = phi i32 [ 0, %252 ], [ 0, %88 ], [ 1, %250 ], [ 1, %238 ], [ 1, %231 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
-  br label %256
+  br label %254
 
-254:                                              ; preds = %246, %243, %45
-  %255 = load ptr, ptr %9, align 8, !tbaa !18
-  call void @gtk_tree_path_free(ptr noundef %255) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
-  br label %256
-
-256:                                              ; preds = %254, %252, %41, %38
-  %257 = phi i32 [ %253, %252 ], [ 0, %254 ], [ 0, %41 ], [ 0, %38 ]
-  ret i32 %257
+254:                                              ; preds = %.sink.split, %41, %38
+  %255 = phi i32 [ 0, %41 ], [ 0, %38 ], [ %.ph, %.sink.split ]
+  ret i32 %255
 }
 
 ; Function Attrs: nounwind uwtable

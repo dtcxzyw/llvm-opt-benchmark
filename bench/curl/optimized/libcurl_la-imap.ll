@@ -311,7 +311,6 @@ if.then62.i:                                      ; preds = %land.lhs.true57.i
 if.end65.i:                                       ; preds = %if.then62.i, %land.lhs.true57.i, %if.then54.i
   %22 = phi ptr [ %.pre.i, %if.then62.i ], [ %.pre75.i, %land.lhs.true57.i ], [ %.pre75.i, %if.then54.i ]
   store ptr %22, ptr %uidvalidity.i, align 8
-  store ptr null, ptr %value.i, align 8
   br label %if.end148.i
 
 if.else67.i:                                      ; preds = %land.lhs.true52.i, %do.end.i
@@ -346,7 +345,6 @@ if.then81.i:                                      ; preds = %land.lhs.true75.i
 if.end84.i:                                       ; preds = %if.then81.i, %land.lhs.true75.i, %if.then72.i
   %28 = phi ptr [ %.pre76.i, %if.then81.i ], [ %.pre77.i, %land.lhs.true75.i ], [ %.pre77.i, %if.then72.i ]
   store ptr %28, ptr %uid.i, align 8
-  store ptr null, ptr %value.i, align 8
   br label %if.end148.i
 
 if.else86.i:                                      ; preds = %land.lhs.true70.i, %if.else67.i
@@ -381,7 +379,6 @@ if.then100.i:                                     ; preds = %land.lhs.true94.i
 if.end103.i:                                      ; preds = %if.then100.i, %land.lhs.true94.i, %if.then91.i
   %34 = phi ptr [ %.pre78.i, %if.then100.i ], [ %.pre79.i, %land.lhs.true94.i ], [ %.pre79.i, %if.then91.i ]
   store ptr %34, ptr %mindex.i, align 8
-  store ptr null, ptr %value.i, align 8
   br label %if.end148.i
 
 if.else105.i:                                     ; preds = %land.lhs.true89.i, %if.else86.i
@@ -416,7 +413,6 @@ if.then119.i:                                     ; preds = %land.lhs.true113.i
 if.end122.i:                                      ; preds = %if.then119.i, %land.lhs.true113.i, %if.then110.i
   %40 = phi ptr [ %.pre80.i, %if.then119.i ], [ %.pre81.i, %land.lhs.true113.i ], [ %.pre81.i, %if.then110.i ]
   store ptr %40, ptr %section.i, align 8
-  store ptr null, ptr %value.i, align 8
   br label %if.end148.i
 
 if.else124.i:                                     ; preds = %land.lhs.true108.i, %if.else105.i
@@ -451,7 +447,6 @@ if.then138.i:                                     ; preds = %land.lhs.true132.i
 if.end141.i:                                      ; preds = %if.then138.i, %land.lhs.true132.i, %if.then129.i
   %46 = phi ptr [ %.pre82.i, %if.then138.i ], [ %.pre83.i, %land.lhs.true132.i ], [ %.pre83.i, %if.then129.i ]
   store ptr %46, ptr %partial.i, align 8
-  store ptr null, ptr %value.i, align 8
   br label %if.end148.i
 
 if.else143.i:                                     ; preds = %land.lhs.true127.i, %if.else124.i
@@ -464,6 +459,7 @@ if.else143.i:                                     ; preds = %land.lhs.true127.i,
   br label %imap_parse_url_path.exit.thread
 
 if.end148.i:                                      ; preds = %if.end141.i, %if.end122.i, %if.end103.i, %if.end84.i, %if.end65.i
+  store ptr null, ptr %value.i, align 8
   %51 = load ptr, ptr @Curl_cfree, align 8
   %52 = load ptr, ptr %name.i, align 8
   call void %51(ptr noundef %52) #9

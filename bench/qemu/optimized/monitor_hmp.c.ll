@@ -1121,43 +1121,35 @@ land.lhs.true296.i:                               ; preds = %if.end292.i
   %arrayidx297.i = getelementptr i8, ptr %67, i64 1
   %69 = load i8, ptr %arrayidx297.i, align 1
   %cmp299.i = icmp eq i8 %69, 115
-  br i1 %cmp299.i, label %if.then301.i, label %if.end311.i
+  br i1 %cmp299.i, label %if.then301.i, label %land.lhs.true314.i
 
 if.then301.i:                                     ; preds = %land.lhs.true296.i
-  switch i8 %68, label %if.end311.i [
-    i8 109, label %sw.bb303.i
+  switch i8 %68, label %land.lhs.true314.i [
+    i8 109, label %if.end311.i
     i8 117, label %sw.bb304.i
     i8 110, label %sw.bb307.i
   ]
 
-sw.bb303.i:                                       ; preds = %if.then301.i
-  %div.i = fdiv double %call.i100.i, 1.000000e+03
-  %add.ptr.i = getelementptr i8, ptr %67, i64 2
-  store ptr %add.ptr.i, ptr %p.i, align 8
-  br label %if.end311.i
-
 sw.bb304.i:                                       ; preds = %if.then301.i
-  %div305.i = fdiv double %call.i100.i, 1.000000e+06
-  %add.ptr306.i = getelementptr i8, ptr %67, i64 2
-  store ptr %add.ptr306.i, ptr %p.i, align 8
   br label %if.end311.i
 
 sw.bb307.i:                                       ; preds = %if.then301.i
-  %div308.i = fdiv double %call.i100.i, 1.000000e+09
-  %add.ptr309.i = getelementptr i8, ptr %67, i64 2
-  store ptr %add.ptr309.i, ptr %p.i, align 8
   br label %if.end311.i
 
-if.end311.i:                                      ; preds = %sw.bb307.i, %sw.bb304.i, %sw.bb303.i, %if.then301.i, %land.lhs.true296.i
-  %.ph.i = phi ptr [ %67, %land.lhs.true296.i ], [ %add.ptr.i, %sw.bb303.i ], [ %add.ptr306.i, %sw.bb304.i ], [ %add.ptr309.i, %sw.bb307.i ], [ %67, %if.then301.i ]
-  %val265.2.ph.i = phi double [ %call.i100.i, %land.lhs.true296.i ], [ %div.i, %sw.bb303.i ], [ %div305.i, %sw.bb304.i ], [ %div308.i, %sw.bb307.i ], [ %call.i100.i, %if.then301.i ]
-  %.pr.i = load i8, ptr %.ph.i, align 1
-  %tobool313.not.i = icmp eq i8 %.pr.i, 0
+if.end311.i:                                      ; preds = %if.then301.i, %sw.bb304.i, %sw.bb307.i
+  %.sink.i = phi double [ 1.000000e+06, %sw.bb304.i ], [ 1.000000e+09, %sw.bb307.i ], [ 1.000000e+03, %if.then301.i ]
+  %div.i = fdiv double %call.i100.i, %.sink.i
+  %add.ptr.i = getelementptr i8, ptr %67, i64 2
+  store ptr %add.ptr.i, ptr %p.i, align 8
+  %.pr.i.pre = load i8, ptr %add.ptr.i, align 1
+  %tobool313.not.i = icmp eq i8 %.pr.i.pre, 0
   br i1 %tobool313.not.i, label %if.end324.i, label %land.lhs.true314.i
 
-land.lhs.true314.i:                               ; preds = %if.end311.i
+land.lhs.true314.i:                               ; preds = %if.then301.i, %land.lhs.true296.i, %if.end311.i
+  %val265.2.ph.i159 = phi double [ %div.i, %if.end311.i ], [ %call.i100.i, %land.lhs.true296.i ], [ %call.i100.i, %if.then301.i ]
+  %.pr.i158 = phi i8 [ %.pr.i.pre, %if.end311.i ], [ %68, %land.lhs.true296.i ], [ %68, %if.then301.i ]
   %70 = load ptr, ptr %call267.i, align 8
-  %idxprom317.i = zext i8 %.pr.i to i64
+  %idxprom317.i = zext i8 %.pr.i158 to i64
   %arrayidx318.i = getelementptr i16, ptr %70, i64 %idxprom317.i
   %71 = load i16, ptr %arrayidx318.i, align 2
   %72 = and i16 %71, 8192
@@ -1169,7 +1161,7 @@ if.then322.i:                                     ; preds = %land.lhs.true314.i
   br label %fail.i
 
 if.end324.i:                                      ; preds = %land.lhs.true314.i, %if.end311.i, %if.end292.i
-  %val265.2182.i = phi double [ %val265.2.ph.i, %land.lhs.true314.i ], [ %val265.2.ph.i, %if.end311.i ], [ %call.i100.i, %if.end292.i ]
+  %val265.2182.i = phi double [ %val265.2.ph.i159, %land.lhs.true314.i ], [ %div.i, %if.end311.i ], [ %call.i100.i, %if.end292.i ]
   %call325.i = call ptr @qnum_from_double(double noundef %val265.2182.i) #19
   call void @qdict_put_obj(ptr noundef %call.i, ptr noundef %call4.i.i, ptr noundef %call325.i) #19
   br label %sw.epilog495.i

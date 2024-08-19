@@ -88,8 +88,8 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i": ; preds = %21
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(48) %9), !noalias !24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !16
   %.pr.i.i = load i8, ptr %7, align 8, !noalias !14
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !16
   %24 = icmp eq i8 %.pr.i.i, 2
   br i1 %24, label %41, label %25
 
@@ -191,8 +191,8 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$12parse_n
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i": ; preds = %12
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(48) %9), !noalias !67
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !59
   %.pr.i.i.i = load i8, ptr %6, align 8, !noalias !57
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !59
   %15 = icmp eq i8 %.pr.i.i.i, 2
   br i1 %15, label %.thread, label %16
 
@@ -369,8 +369,8 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i": ; preds = %22
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %15, ptr noalias noundef nonnull align 8 dereferenceable(48) %16), !noalias !95
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14), !noalias !87
   %.pr.i.i.i = load i8, ptr %15, align 8, !noalias !83
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14), !noalias !87
   %25 = icmp eq i8 %.pr.i.i.i, 2
   br i1 %25, label %.thread, label %26
 
@@ -459,8 +459,8 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i": ; preds = %49
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %13, ptr noalias noundef nonnull align 8 dereferenceable(48) %16), !noalias !117
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12), !noalias !109
   %.pr.i.i = load i8, ptr %13, align 8, !noalias !107
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12), !noalias !109
   %52 = icmp eq i8 %.pr.i.i, 2
   br i1 %52, label %91, label %53
 
@@ -520,8 +520,8 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i34": ; preds = %68
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(48) %16), !noalias !142
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10), !noalias !134
   %.pr.i.i.i35 = load i8, ptr %11, align 8, !noalias !132
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10), !noalias !134
   %71 = icmp eq i8 %.pr.i.i.i35, 2
   br i1 %71, label %.thread81, label %72
 
@@ -758,8 +758,8 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_i
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i": ; preds = %19
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %12, ptr noalias noundef nonnull align 8 dereferenceable(48) %14), !noalias !184
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11), !noalias !176
   %.pr.i.i = load i8, ptr %12, align 8, !noalias !174
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11), !noalias !176
   %22 = icmp eq i8 %.pr.i.i, 2
   br i1 %22, label %42, label %23
 
@@ -851,8 +851,8 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_i
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i": ; preds = %54
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(48) %14), !noalias !218
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8), !noalias !210
   %.pr.i.i.i = load i8, ptr %9, align 8, !noalias !208
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8), !noalias !210
   %57 = icmp eq i8 %.pr.i.i.i, 2
   br i1 %57, label %.thread73, label %58
 
@@ -989,8 +989,8 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_i
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i30": ; preds = %105
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %14), !noalias !255
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !247
   %.pr.i.i.i31 = load i8, ptr %5, align 8, !noalias !245
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !247
   %108 = icmp eq i8 %.pr.i.i.i31, 2
   br i1 %108, label %.thread83, label %109
 
@@ -1140,10 +1140,10 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i": ; preds = %22
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %16, ptr noalias noundef nonnull align 8 dereferenceable(48) %17), !noalias !283
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15), !noalias !275
   %.pr.i.i.i = load i8, ptr %16, align 8, !noalias !273
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15), !noalias !275
   %25 = icmp eq i8 %.pr.i.i.i, 2
-  br i1 %25, label %.thread77, label %26
+  br i1 %25, label %.sink.split.i, label %26
 
 26:                                               ; preds = %"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i"
   %trunc.i.i.i = trunc i8 %.pr.i.i.i to i1
@@ -1173,18 +1173,18 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   store i64 %39, ptr %37, align 8, !alias.scope !284, !noalias !283
   br label %40
 
-.thread77:                                        ; preds = %"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16), !noalias !273
-  br label %107
-
 40:                                               ; preds = %33, %27
   %storemerge.i.i = phi i64 [ 0, %33 ], [ %32, %27 ]
   store i64 %storemerge.i.i, ptr %30, align 8, !alias.scope !284, !noalias !283
+  br label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %40, %"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i"
+  %switch2.ph.i = phi i8 [ %28, %40 ], [ 0, %"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16), !noalias !273
   br label %41
 
-41:                                               ; preds = %40, %1
-  %.sroa.5.0.ph = phi i8 [ %28, %40 ], [ %21, %1 ]
+41:                                               ; preds = %.sink.split.i, %1
+  %.sroa.5.0.ph = phi i8 [ %switch2.ph.i, %.sink.split.i ], [ %21, %1 ]
   %42 = icmp eq i8 %.sroa.5.0.ph, 48
   br i1 %42, label %47, label %70
 
@@ -1217,10 +1217,10 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i15": ; preds = %49
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %14, ptr noalias noundef nonnull align 8 dereferenceable(48) %17), !noalias !308
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13), !noalias !300
   %.pr.i.i.i16 = load i8, ptr %14, align 8, !noalias !298
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13), !noalias !300
   %52 = icmp eq i8 %.pr.i.i.i16, 2
-  br i1 %52, label %.thread80, label %53
+  br i1 %52, label %.thread, label %53
 
 53:                                               ; preds = %"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i15"
   %trunc.i.i.i17 = trunc i8 %.pr.i.i.i16 to i1
@@ -1254,7 +1254,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   %68 = load i8, ptr %20, align 1, !alias.scope !291, !noalias !292, !noundef !10
   br label %75
 
-.thread80:                                        ; preds = %"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i15"
+.thread:                                          ; preds = %"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i15"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !298
   br label %.loopexit
 
@@ -1303,7 +1303,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !318
   br label %"_ZN10serde_json2de21Deserializer$LT$R$GT$14ignore_decimal17h4d5b33a28771a706E.exit"
 
-.loopexit:                                        ; preds = %133, %.thread96, %75, %.thread80
+.loopexit:                                        ; preds = %133, %.thread90, %75, %.thread
   call void @llvm.experimental.noalias.scope.decl(metadata !321)
   call void @llvm.experimental.noalias.scope.decl(metadata !324)
   %85 = load i8, ptr %18, align 8, !range !7, !alias.scope !327, !noalias !328, !noundef !10
@@ -1325,10 +1325,10 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i26": ; preds = %86
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(48) %17), !noalias !344
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10), !noalias !336
   %.pr.i.i.i27 = load i8, ptr %11, align 8, !noalias !334
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10), !noalias !336
   %89 = icmp eq i8 %.pr.i.i.i27, 2
-  br i1 %89, label %.thread99, label %90
+  br i1 %89, label %.thread93, label %90
 
 90:                                               ; preds = %"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i26"
   %trunc.i.i.i28 = trunc i8 %.pr.i.i.i27 to i1
@@ -1362,7 +1362,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   %105 = load i8, ptr %20, align 1, !alias.scope !327, !noalias !328, !noundef !10
   br label %140
 
-.thread99:                                        ; preds = %"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i26"
+.thread93:                                        ; preds = %"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i26"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !334
   br label %"_ZN10serde_json2de21Deserializer$LT$R$GT$14ignore_decimal17h4d5b33a28771a706E.exit"
 
@@ -1374,7 +1374,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   store i8 %92, ptr %20, align 1, !alias.scope !327, !noalias !328
   br label %140
 
-107:                                              ; preds = %.thread77, %70
+107:                                              ; preds = %70
   call void @llvm.experimental.noalias.scope.decl(metadata !346)
   %108 = getelementptr inbounds i8, ptr %0, i64 72
   %109 = load i64, ptr %108, align 8, !alias.scope !349, !noalias !352, !noundef !10
@@ -1408,10 +1408,10 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i38": ; preds = %115
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(48) %17), !noalias !370
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7), !noalias !362
   %.pr.i.i.i39 = load i8, ptr %8, align 8, !noalias !360
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7), !noalias !362
   %118 = icmp eq i8 %.pr.i.i.i39, 2
-  br i1 %118, label %.thread96, label %119
+  br i1 %118, label %.thread90, label %119
 
 119:                                              ; preds = %"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i38"
   %trunc.i.i.i40 = trunc i8 %.pr.i.i.i39 to i1
@@ -1441,7 +1441,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   %131 = load i8, ptr %20, align 1, !alias.scope !310, !noalias !315, !noundef !10
   br label %133
 
-.thread96:                                        ; preds = %"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i38"
+.thread90:                                        ; preds = %"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i38"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !360
   br label %.loopexit
 
@@ -1512,8 +1512,8 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i.i": ; preds = %149
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(48) %17), !noalias !399
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !391
   %.pr.i.i.i.i = load i8, ptr %6, align 8, !noalias !387
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !391
   %152 = icmp eq i8 %.pr.i.i.i.i, 2
   br i1 %152, label %.thread.i, label %153
 
@@ -1599,8 +1599,8 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i7.i": ; preds = %173
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(48) %17), !noalias !430
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2), !noalias !422
   %.pr.i.i.i8.i = load i8, ptr %3, align 8, !noalias !420
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2), !noalias !422
   %176 = icmp eq i8 %.pr.i.i.i8.i, 2
   br i1 %176, label %.thread37.i, label %177
 
@@ -1667,8 +1667,8 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   %199 = call fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$15ignore_exponent17hec9b762ebca6cb8aE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %0)
   br label %"_ZN10serde_json2de21Deserializer$LT$R$GT$14ignore_decimal17h4d5b33a28771a706E.exit"
 
-"_ZN10serde_json2de21Deserializer$LT$R$GT$14ignore_decimal17h4d5b33a28771a706E.exit": ; preds = %198, %140, %.thread99, %165, %169, %.thread37.i, %191, %192, %196, %43, %107, %135, %81, %77, %141
-  %.2 = phi ptr [ %144, %141 ], [ %46, %43 ], [ %138, %135 ], [ %112, %107 ], [ %80, %77 ], [ %84, %81 ], [ %199, %198 ], [ null, %140 ], [ null, %.thread99 ], [ %168, %165 ], [ %195, %192 ], [ %170, %169 ], [ %197, %196 ], [ null, %191 ], [ null, %.thread37.i ]
+"_ZN10serde_json2de21Deserializer$LT$R$GT$14ignore_decimal17h4d5b33a28771a706E.exit": ; preds = %198, %140, %.thread93, %165, %169, %.thread37.i, %191, %192, %196, %43, %107, %135, %81, %77, %141
+  %.2 = phi ptr [ %144, %141 ], [ %46, %43 ], [ %138, %135 ], [ %112, %107 ], [ %80, %77 ], [ %84, %81 ], [ %199, %198 ], [ null, %140 ], [ null, %.thread93 ], [ %168, %165 ], [ %195, %192 ], [ %170, %169 ], [ %197, %196 ], [ null, %191 ], [ null, %.thread37.i ]
   ret ptr %.2
 }
 
@@ -1703,8 +1703,8 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i": ; preds = %5
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %15, ptr noalias noundef nonnull align 8 dereferenceable(48) %16), !noalias !456
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14), !noalias !448
   %.pr.i.i.i = load i8, ptr %15, align 8, !noalias !444
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14), !noalias !448
   %20 = icmp eq i8 %.pr.i.i.i, 2
   br i1 %20, label %45, label %21
 
@@ -1803,8 +1803,8 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i": ; preds = %47
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %13, ptr noalias noundef nonnull align 8 dereferenceable(48) %16), !noalias !482
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12), !noalias !474
   %.pr.i.i = load i8, ptr %13, align 8, !noalias !472
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12), !noalias !474
   %51 = icmp eq i8 %.pr.i.i, 2
   br i1 %51, label %71, label %52
 
@@ -1927,8 +1927,8 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i31": ; preds = %97
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(48) %16), !noalias !525
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8), !noalias !517
   %.pr.i.i.i32 = load i8, ptr %9, align 8, !noalias !515
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8), !noalias !517
   %100 = icmp eq i8 %.pr.i.i.i32, 2
   br i1 %100, label %.thread80, label %101
 
@@ -2128,8 +2128,8 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i": ; preds = %1
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(48) %9), !noalias !567
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7), !noalias !559
   %.pr.i.i.i = load i8, ptr %8, align 8, !noalias !555
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7), !noalias !559
   %13 = icmp eq i8 %.pr.i.i.i, 2
   br i1 %13, label %35, label %14
 
@@ -2148,9 +2148,9 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   %18 = getelementptr inbounds i8, ptr %0, i64 80
   %19 = load i64, ptr %18, align 8, !alias.scope !568, !noalias !567, !noundef !10
   %20 = add i64 %19, 1
-  br i1 %17, label %.thread67, label %28
+  br i1 %17, label %.thread64, label %28
 
-.thread67:                                        ; preds = %15
+.thread64:                                        ; preds = %15
   %21 = getelementptr inbounds i8, ptr %0, i64 88
   %22 = load i64, ptr %21, align 8, !alias.scope !568, !noalias !567, !noundef !10
   %23 = add i64 %22, %20
@@ -2163,16 +2163,16 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !555
   %27 = getelementptr inbounds i8, ptr %0, i64 97
   store i8 %16, ptr %27, align 1, !alias.scope !569, !noalias !570
-  br label %.thread69
+  br label %.thread66
 
 28:                                               ; preds = %15
   store i64 %20, ptr %18, align 8, !alias.scope !568, !noalias !567
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !555
   %29 = getelementptr inbounds i8, ptr %0, i64 97
   store i8 %16, ptr %29, align 1, !alias.scope !569, !noalias !570
-  switch i8 %16, label %.thread69 [
-    i8 43, label %.thread71
-    i8 45, label %.thread71
+  switch i8 %16, label %.thread66 [
+    i8 43, label %.thread68
+    i8 45, label %.thread68
   ]
 
 30:                                               ; preds = %14
@@ -2182,7 +2182,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   %33 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17hfebb91be721cbb84E(ptr noundef nonnull %32), !noalias !570
   br label %.loopexit
 
-.thread69:                                        ; preds = %28, %.thread67
+.thread66:                                        ; preds = %28, %.thread64
   %34 = getelementptr inbounds i8, ptr %0, i64 97
   store i8 0, ptr %10, align 8, !alias.scope !571, !noalias !576
   br label %59
@@ -2191,7 +2191,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !555
   %.pre = load i8, ptr %10, align 8, !range !7, !alias.scope !579, !noalias !576
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 97
-  %.pre65 = load i8, ptr %.phi.trans.insert, align 1, !alias.scope !579, !noalias !576
+  %.pre62 = load i8, ptr %.phi.trans.insert, align 1, !alias.scope !579, !noalias !576
   %36 = trunc nuw i8 %.pre to i1
   call void @llvm.experimental.noalias.scope.decl(metadata !582)
   call void @llvm.experimental.noalias.scope.decl(metadata !583)
@@ -2199,8 +2199,8 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   store i8 0, ptr %10, align 8, !alias.scope !579, !noalias !576
   br i1 %36, label %59, label %38
 
-38:                                               ; preds = %.thread71, %35
-  %39 = phi ptr [ %58, %.thread71 ], [ %37, %35 ]
+38:                                               ; preds = %.thread68, %35
+  %39 = phi ptr [ %58, %.thread68 ], [ %37, %35 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !584)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !587
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5), !noalias !589
@@ -2215,10 +2215,10 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i9": ; preds = %38
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(48) %9), !noalias !597
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !589
   %.pr.i.i.i10 = load i8, ptr %6, align 8, !noalias !587
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !589
   %42 = icmp eq i8 %.pr.i.i.i10, 2
-  br i1 %42, label %.thread52, label %43
+  br i1 %42, label %.sink.split.i, label %43
 
 43:                                               ; preds = %"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i9"
   %trunc.i.i.i11 = trunc i8 %.pr.i.i.i10 to i1
@@ -2248,24 +2248,24 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   store i64 %56, ptr %54, align 8, !alias.scope !598, !noalias !597
   br label %57
 
-.thread52:                                        ; preds = %"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i9"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !587
-  br label %70
-
 57:                                               ; preds = %50, %44
   %storemerge.i.i15 = phi i64 [ 0, %50 ], [ %49, %44 ]
   store i64 %storemerge.i.i15, ptr %47, align 8, !alias.scope !598, !noalias !597
+  br label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %57, %"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i9"
+  %switch2.ph.i = phi i8 [ %45, %57 ], [ 0, %"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i9" ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !587
   br label %59
 
-.thread71:                                        ; preds = %28, %28
+.thread68:                                        ; preds = %28, %28
   %58 = getelementptr inbounds i8, ptr %0, i64 97
   store i8 0, ptr %10, align 8, !alias.scope !599, !noalias !576
   br label %38
 
-59:                                               ; preds = %.thread69, %57, %35
-  %60 = phi ptr [ %39, %57 ], [ %37, %35 ], [ %34, %.thread69 ]
-  %.sroa.533.0.ph = phi i8 [ %45, %57 ], [ %.pre65, %35 ], [ %16, %.thread69 ]
+59:                                               ; preds = %.thread66, %.sink.split.i, %35
+  %60 = phi ptr [ %39, %.sink.split.i ], [ %37, %35 ], [ %34, %.thread66 ]
+  %.sroa.533.0.ph = phi i8 [ %switch2.ph.i, %.sink.split.i ], [ %.pre62, %35 ], [ %16, %.thread66 ]
   %61 = add i8 %.sroa.533.0.ph, -48
   %or.cond = icmp ult i8 %61, 10
   br i1 %or.cond, label %.preheader, label %70
@@ -2275,8 +2275,8 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   %62 = getelementptr inbounds i8, ptr %0, i64 80
   %63 = getelementptr inbounds i8, ptr %0, i64 88
   %64 = getelementptr inbounds i8, ptr %0, i64 72
-  %.pre66 = load i8, ptr %10, align 8, !range !7, !alias.scope !602, !noalias !607
-  %65 = trunc nuw i8 %.pre66 to i1
+  %.pre63 = load i8, ptr %10, align 8, !range !7, !alias.scope !602, !noalias !607
+  %65 = trunc nuw i8 %.pre63 to i1
   call void @llvm.experimental.noalias.scope.decl(metadata !610)
   call void @llvm.experimental.noalias.scope.decl(metadata !611)
   br i1 %65, label %91, label %76
@@ -2288,7 +2288,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   %69 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17hfebb91be721cbb84E(ptr noundef nonnull %68), !noalias !576
   br label %.loopexit
 
-70:                                               ; preds = %.thread52, %59
+70:                                               ; preds = %59
   call void @llvm.experimental.noalias.scope.decl(metadata !612)
   %71 = getelementptr inbounds i8, ptr %0, i64 72
   %72 = load i64, ptr %71, align 8, !alias.scope !615, !noalias !618, !noundef !10
@@ -2315,10 +2315,10 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i20": ; preds = %76
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(48) %9), !noalias !634
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2), !noalias !626
   %.pr.i.i.i21 = load i8, ptr %3, align 8, !noalias !624
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2), !noalias !626
   %79 = icmp eq i8 %.pr.i.i.i21, 2
-  br i1 %79, label %.thread62, label %80
+  br i1 %79, label %.thread59, label %80
 
 80:                                               ; preds = %"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i20"
   %trunc.i.i.i22 = trunc i8 %.pr.i.i.i21 to i1
@@ -2348,7 +2348,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   %92 = load i8, ptr %60, align 1, !alias.scope !602, !noalias !607, !noundef !10
   br label %94
 
-.thread62:                                        ; preds = %"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i20"
+.thread59:                                        ; preds = %"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i20"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !624
   br label %.loopexit
 
@@ -2379,8 +2379,8 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   call void @llvm.experimental.noalias.scope.decl(metadata !611)
   br label %76
 
-.loopexit:                                        ; preds = %94, %.thread62, %66, %70, %96, %30
-  %.0 = phi ptr [ %33, %30 ], [ %99, %96 ], [ %69, %66 ], [ %75, %70 ], [ null, %.thread62 ], [ null, %94 ]
+.loopexit:                                        ; preds = %94, %.thread59, %66, %70, %96, %30
+  %.0 = phi ptr [ %33, %30 ], [ %99, %96 ], [ %69, %66 ], [ %75, %70 ], [ null, %.thread59 ], [ null, %94 ]
   ret ptr %.0
 }
 
@@ -2424,8 +2424,8 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deseria
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i": ; preds = %22
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(48) %19), !noalias !662
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7), !noalias !654
   %.pr.i.i.i = load i8, ptr %8, align 8, !noalias !652
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7), !noalias !654
   %25 = icmp eq i8 %.pr.i.i.i, 2
   br i1 %25, label %.thread41, label %26
 
@@ -2732,8 +2732,8 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_l
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i": ; preds = %17
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(48) %9), !noalias !751
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7), !noalias !743
   %.pr.i.i.i = load i8, ptr %8, align 8, !noalias !741
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7), !noalias !743
   %20 = icmp eq i8 %.pr.i.i.i, 2
   br i1 %20, label %.thread17, label %21
 
@@ -2928,8 +2928,8 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i": ; preds = %13
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %6), !noalias !792
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !784
   %.pr.i.i.i = load i8, ptr %5, align 8, !noalias !782
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !784
   %16 = icmp eq i8 %.pr.i.i.i, 2
   br i1 %16, label %36, label %17
 
@@ -3059,8 +3059,8 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_d
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i": ; preds = %20
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(48) %12), !noalias !828
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10), !noalias !820
   %.pr.i.i.i = load i8, ptr %11, align 8, !noalias !816
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10), !noalias !820
   %23 = icmp eq i8 %.pr.i.i.i, 2
   br i1 %23, label %.thread, label %24
 
@@ -3144,8 +3144,8 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_d
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i6": ; preds = %47
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(48) %12), !noalias !855
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8), !noalias !847
   %.pr.i.i.i7 = load i8, ptr %9, align 8, !noalias !845
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8), !noalias !847
   %50 = icmp eq i8 %.pr.i.i.i7, 2
   br i1 %50, label %.thread36, label %51
 
@@ -3334,8 +3334,8 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$23parse_e
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i": ; preds = %16
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(48) %10), !noalias !896
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7), !noalias !888
   %.pr.i.i.i = load i8, ptr %8, align 8, !noalias !886
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7), !noalias !888
   %19 = icmp eq i8 %.pr.i.i.i, 2
   br i1 %19, label %.thread, label %20
 
@@ -3519,8 +3519,6 @@ _ZN12atomicwrites10AtomicFile3new17h5263b10b77bdfdd2E.exit: ; preds = %4
 
 27:                                               ; preds = %23
   store i64 4, ptr %0, align 8
-  call void @"_ZN4core3ptr45drop_in_place$LT$atomicwrites..AtomicFile$GT$17h3f29ab09ee35b707E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %9)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9)
   br label %32
 
 28:                                               ; preds = %23
@@ -3539,13 +3537,13 @@ _ZN12atomicwrites10AtomicFile3new17h5263b10b77bdfdd2E.exit: ; preds = %4
           to label %"_ZN102_$LT$io..file_operations..Error$u20$as$u20$core..convert..From$LT$atomicwrites..Error$LT$E$GT$$GT$$GT$4from17h99484027b38b74b2E.llvm.7162577612800786575.exit" unwind label %21
 
 32:                                               ; preds = %"_ZN102_$LT$io..file_operations..Error$u20$as$u20$core..convert..From$LT$atomicwrites..Error$LT$E$GT$$GT$$GT$4from17h99484027b38b74b2E.llvm.7162577612800786575.exit", %27
+  call void @"_ZN4core3ptr45drop_in_place$LT$atomicwrites..AtomicFile$GT$17h3f29ab09ee35b707E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %9)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9)
   ret void
 
 "_ZN102_$LT$io..file_operations..Error$u20$as$u20$core..convert..From$LT$atomicwrites..Error$LT$E$GT$$GT$$GT$4from17h99484027b38b74b2E.llvm.7162577612800786575.exit": ; preds = %30, %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  call void @"_ZN4core3ptr45drop_in_place$LT$atomicwrites..AtomicFile$GT$17h3f29ab09ee35b707E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %9)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9)
   br label %32
 
 33:                                               ; preds = %21
@@ -3688,8 +3686,8 @@ common.resume:                                    ; preds = %31, %71, %84, %22
           to label %.noexc4.i.i unwind label %68, !noalias !939
 
 .noexc4.i.i:                                      ; preds = %"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7), !noalias !967
   %.pr.i.i.i.i.i.i = load i8, ptr %8, align 8, !noalias !965
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7), !noalias !967
   %44 = icmp eq i8 %.pr.i.i.i.i.i.i, 2
   br i1 %44, label %70, label %45
 
@@ -4384,8 +4382,8 @@ define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17h7c1aec4e71a5
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i.i": ; preds = %20
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %10, ptr noalias noundef nonnull align 8 dereferenceable(48) %13), !noalias !1213
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9), !noalias !1205
   %.pr.i.i.i.i = load i8, ptr %10, align 8, !noalias !1203
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9), !noalias !1205
   %23 = icmp eq i8 %.pr.i.i.i.i, 2
   br i1 %23, label %44, label %24
 
@@ -4506,8 +4504,8 @@ define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17h7c1aec4e71a5
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i28.i": ; preds = %56
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(48) %13), !noalias !1247
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !1239
   %.pr.i.i.i29.i = load i8, ptr %7, align 8, !noalias !1235
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !1239
   %59 = icmp eq i8 %.pr.i.i.i29.i, 2
   br i1 %59, label %80, label %60
 
@@ -4726,8 +4724,8 @@ define internal fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$a
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i.i.i.i": ; preds = %20
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %10, ptr noalias noundef nonnull align 8 dereferenceable(48) %13), !noalias !1302
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9), !noalias !1294
   %.pr.i.i.i.i.i.i = load i8, ptr %10, align 8, !noalias !1292
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9), !noalias !1294
   %23 = icmp eq i8 %.pr.i.i.i.i.i.i, 2
   br i1 %23, label %43, label %24
 
@@ -5053,8 +5051,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i": ; preds = %71
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %61, ptr noalias noundef nonnull align 8 dereferenceable(48) %64), !noalias !1365
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %60), !noalias !1357
   %.pr.i.i.i = load i8, ptr %61, align 8, !noalias !1355
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %60), !noalias !1357
   %74 = icmp eq i8 %.pr.i.i.i, 2
   br i1 %74, label %94, label %75
 
@@ -5249,8 +5247,8 @@ default.unreachable:                              ; preds = %119, %112
           to label %.noexc54 unwind label %.loopexit.split-lp
 
 .noexc54:                                         ; preds = %"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %53), !noalias !1403
   %.pr.i.i.i.i = load i8, ptr %54, align 8, !noalias !1401
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %53), !noalias !1403
   %133 = icmp eq i8 %.pr.i.i.i.i, 2
   br i1 %133, label %153, label %134
 
@@ -5366,8 +5364,8 @@ default.unreachable:                              ; preds = %119, %112
           to label %.noexc59 unwind label %.loopexit
 
 .noexc59:                                         ; preds = %"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i23.i"
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %49), !noalias !1438
   %.pr.i.i.i24.i = load i8, ptr %50, align 8, !noalias !1434
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %49), !noalias !1438
   %161 = icmp eq i8 %.pr.i.i.i24.i, 2
   br i1 %161, label %.thread75.i, label %162
 
@@ -5767,8 +5765,8 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i.i.i.i": ; preds = %248
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %40, ptr noalias noundef nonnull align 8 dereferenceable(48) %64), !noalias !1592
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %39), !noalias !1584
   %.pr.i.i.i.i.i.i = load i8, ptr %40, align 8, !noalias !1573
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %39), !noalias !1584
   %251 = icmp eq i8 %.pr.i.i.i.i.i.i, 2
   br i1 %251, label %271, label %252
 
@@ -5870,8 +5868,8 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i24.i.i.i": ; preds = %276
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %37, ptr noalias noundef nonnull align 8 dereferenceable(48) %64), !noalias !1630
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %36), !noalias !1622
   %.pr.i.i.i25.i.i.i = load i8, ptr %37, align 8, !noalias !1618
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %36), !noalias !1622
   %279 = icmp eq i8 %.pr.i.i.i25.i.i.i, 2
   br i1 %279, label %297, label %280
 
@@ -6052,8 +6050,8 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i.i.i.i.i.i.i.i": ; preds = %320
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %30, ptr noalias noundef nonnull align 8 dereferenceable(48) %64), !noalias !1734
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %29), !noalias !1726
   %.pr.i.i.i.i.i.i.i.i.i.i = load i8, ptr %30, align 8, !noalias !1724
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %29), !noalias !1726
   %323 = icmp eq i8 %.pr.i.i.i.i.i.i.i.i.i.i, 2
   br i1 %323, label %343, label %324
 
@@ -6235,8 +6233,8 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i100.i.i.i.i.i.i.i": ; preds = %380
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %26, ptr noalias noundef nonnull align 8 dereferenceable(48) %64), !noalias !1793
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %25), !noalias !1785
   %.pr.i.i.i101.i.i.i.i.i.i.i = load i8, ptr %26, align 8, !noalias !1781
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %25), !noalias !1785
   %383 = icmp eq i8 %.pr.i.i.i101.i.i.i.i.i.i.i, 2
   br i1 %383, label %404, label %384
 
@@ -6393,8 +6391,8 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i119.i.i.i.i.i.i.i": ; preds = %429
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %23, ptr noalias noundef nonnull align 8 dereferenceable(48) %64), !noalias !1837
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %22), !noalias !1829
   %.pr.i.i.i120.i.i.i.i.i.i.i = load i8, ptr %23, align 8, !noalias !1825
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %22), !noalias !1829
   %432 = icmp eq i8 %.pr.i.i.i120.i.i.i.i.i.i.i, 2
   br i1 %432, label %450, label %433
 
@@ -6499,8 +6497,8 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 "_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i136.i.i.i.i.i.i.i": ; preds = %459
   call void @_ZN3std2io24uninlined_slow_read_byte17h871a47338fc50010E.llvm.13024266015450051711(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %19, ptr noalias noundef nonnull align 8 dereferenceable(48) %64), !noalias !1879
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18), !noalias !1871
   %.pr.i.i.i137.i.i.i.i.i.i.i = load i8, ptr %19, align 8, !noalias !1869
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18), !noalias !1871
   %462 = icmp eq i8 %.pr.i.i.i137.i.i.i.i.i.i.i, 2
   br i1 %462, label %482, label %463
 
@@ -6728,8 +6726,8 @@ _ZN5serde2de9MapAccess10next_value17h59673e244d35211fE.exit79.i: ; preds = %504
           to label %.noexc88 unwind label %548
 
 .noexc88:                                         ; preds = %"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2a47d32bc23d703E.llvm.13024266015450051711.exit.i.i.i.i76"
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13), !noalias !1935
   %.pr.i.i.i.i77 = load i8, ptr %14, align 8, !noalias !1933
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13), !noalias !1935
   %522 = icmp eq i8 %.pr.i.i.i.i77, 2
   br i1 %522, label %542, label %523
 

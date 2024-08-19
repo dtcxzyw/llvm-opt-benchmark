@@ -4585,8 +4585,8 @@ _set_job_time_limit.exit810:                      ; preds = %1461
 1507:                                             ; preds = %1495
   %.not702 = icmp eq i64 %.112930, 0
   %1508 = add nsw i64 %1332, 500
-  %1509 = load ptr, ptr %9, align 8
   %.sink3858 = select i1 %.not702, i64 %1508, i64 %.112930
+  %1509 = load ptr, ptr %9, align 8
   %1510 = getelementptr inbounds i8, ptr %1509, i64 888
   store i64 %.sink3858, ptr %1510, align 8
   %1511 = getelementptr inbounds i8, ptr %1509, i64 768

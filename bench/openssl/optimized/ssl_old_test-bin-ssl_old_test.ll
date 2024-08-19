@@ -5603,8 +5603,8 @@ if.end8:                                          ; preds = %if.end
 
 return:                                           ; preds = %if.end8, %if.then3, %if.then
   %retval.0 = phi i32 [ 0, %if.then3 ], [ %call9, %if.end8 ], [ 0, %if.then ]
-  %.sink = load ptr, ptr %bn, align 8
-  call void @BN_free(ptr noundef %.sink) #22
+  %5 = load ptr, ptr %bn, align 8
+  call void @BN_free(ptr noundef %5) #22
   ret i32 %retval.0
 }
 

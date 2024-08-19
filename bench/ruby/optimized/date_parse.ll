@@ -10288,7 +10288,7 @@ rb_long2num_inline.exit:                          ; preds = %755, %758
 763:                                              ; preds = %rb_long2num_inline.exit, %744
   %764 = load i64, ptr %5, align 8
   %765 = icmp eq i64 %764, 4
-  br i1 %765, label %818, label %766
+  br i1 %765, label %816, label %766
 
 766:                                              ; preds = %763
   %767 = inttoptr i64 %764 to ptr
@@ -10322,7 +10322,7 @@ rbimpl_intern_const.exit763:                      ; preds = %.lr.ph.i761, %RSTRI
   %776 = call i64 @rb_hash_aset(i64 noundef %1, i64 noundef %775, i64 noundef %764) #13
   %777 = load i8, ptr %.sroa.2.0.i756, align 1
   %778 = icmp eq i8 %777, 91
-  br i1 %778, label %779, label %815
+  br i1 %778, label %779, label %813
 
 779:                                              ; preds = %rbimpl_intern_const.exit763
   %780 = add nsw i64 %773, -2
@@ -10341,8 +10341,7 @@ rbimpl_intern_const.exit763:                      ; preds = %.lr.ph.i761, %RSTRI
   %790 = sub nsw i64 %780, %789
   %791 = call i64 @rb_str_subseq(i64 noundef %764, i64 noundef %787, i64 noundef %790) #13
   %792 = call i64 @rb_str_subseq(i64 noundef %764, i64 noundef 1, i64 noundef %789) #13
-  store i64 %792, ptr %5, align 8
-  br label %806
+  br label %805
 
 793:                                              ; preds = %779
   %794 = call i64 @rb_str_subseq(i64 noundef %764, i64 noundef 1, i64 noundef %780) #13
@@ -10359,55 +10358,51 @@ rbimpl_intern_const.exit763:                      ; preds = %.lr.ph.i761, %RSTRI
 802:                                              ; preds = %793
   %803 = call i64 @rb_str_new_static(ptr noundef nonnull @.str.126, i64 noundef 1) #13
   %804 = call i64 @rb_str_append(i64 noundef %803, i64 noundef %794) #13
-  store i64 %804, ptr %5, align 8
-  br label %806
+  br label %805
 
-805:                                              ; preds = %793
-  store i64 %794, ptr %5, align 8
-  br label %806
-
-806:                                              ; preds = %802, %805, %783
-  %807 = phi i64 [ %792, %783 ], [ %804, %802 ], [ %794, %805 ]
-  %.0249 = phi i64 [ %791, %783 ], [ %794, %802 ], [ %794, %805 ]
+805:                                              ; preds = %793, %802, %783
+  %.sink1091 = phi i64 [ %804, %802 ], [ %792, %783 ], [ %794, %793 ]
+  %.0249 = phi i64 [ %794, %802 ], [ %791, %783 ], [ %794, %793 ]
+  store i64 %.sink1091, ptr %5, align 8
   %.pr.i764 = load i64, ptr @parse_ddd_cb.rbimpl_id.127, align 8
   %.not4.i765 = icmp eq i64 %.pr.i764, 0
   br i1 %.not4.i765, label %.lr.ph.i767, label %rbimpl_intern_const.exit769
 
-.lr.ph.i767:                                      ; preds = %806, %.lr.ph.i767
-  %808 = call i64 @rb_intern2(ptr noundef nonnull @.str.37, i64 noundef 4) #13
-  store i64 %808, ptr @parse_ddd_cb.rbimpl_id.127, align 8
-  %.not.i768 = icmp eq i64 %808, 0
+.lr.ph.i767:                                      ; preds = %805, %.lr.ph.i767
+  %806 = call i64 @rb_intern2(ptr noundef nonnull @.str.37, i64 noundef 4) #13
+  store i64 %806, ptr @parse_ddd_cb.rbimpl_id.127, align 8
+  %.not.i768 = icmp eq i64 %806, 0
   br i1 %.not.i768, label %.lr.ph.i767, label %rbimpl_intern_const.exit769, !llvm.loop !15
 
-rbimpl_intern_const.exit769:                      ; preds = %.lr.ph.i767, %806
-  %.lcssa.i766 = phi i64 [ %.pr.i764, %806 ], [ %808, %.lr.ph.i767 ]
-  %809 = call i64 @rb_id2sym(i64 noundef %.lcssa.i766) #13
-  %810 = call i64 @rb_hash_aset(i64 noundef %1, i64 noundef %809, i64 noundef %.0249) #13
+rbimpl_intern_const.exit769:                      ; preds = %.lr.ph.i767, %805
+  %.lcssa.i766 = phi i64 [ %.pr.i764, %805 ], [ %806, %.lr.ph.i767 ]
+  %807 = call i64 @rb_id2sym(i64 noundef %.lcssa.i766) #13
+  %808 = call i64 @rb_hash_aset(i64 noundef %1, i64 noundef %807, i64 noundef %.0249) #13
   %.pr.i770 = load i64, ptr @parse_ddd_cb.rbimpl_id.128, align 8
   %.not4.i771 = icmp eq i64 %.pr.i770, 0
   br i1 %.not4.i771, label %.lr.ph.i773, label %rbimpl_intern_const.exit775
 
 .lr.ph.i773:                                      ; preds = %rbimpl_intern_const.exit769, %.lr.ph.i773
-  %811 = call i64 @rb_intern2(ptr noundef nonnull @.str.39, i64 noundef 6) #13
-  store i64 %811, ptr @parse_ddd_cb.rbimpl_id.128, align 8
-  %.not.i774 = icmp eq i64 %811, 0
+  %809 = call i64 @rb_intern2(ptr noundef nonnull @.str.39, i64 noundef 6) #13
+  store i64 %809, ptr @parse_ddd_cb.rbimpl_id.128, align 8
+  %.not.i774 = icmp eq i64 %809, 0
   br i1 %.not.i774, label %.lr.ph.i773, label %rbimpl_intern_const.exit775, !llvm.loop !15
 
 rbimpl_intern_const.exit775:                      ; preds = %.lr.ph.i773, %rbimpl_intern_const.exit769
-  %.lcssa.i772 = phi i64 [ %.pr.i770, %rbimpl_intern_const.exit769 ], [ %811, %.lr.ph.i773 ]
-  %812 = call i64 @rb_id2sym(i64 noundef %.lcssa.i772) #13
-  %813 = call i64 @date_zone_to_diff(i64 noundef %807)
-  %814 = call i64 @rb_hash_aset(i64 noundef %1, i64 noundef %812, i64 noundef %813) #13
-  br label %815
+  %.lcssa.i772 = phi i64 [ %.pr.i770, %rbimpl_intern_const.exit769 ], [ %809, %.lr.ph.i773 ]
+  %810 = call i64 @rb_id2sym(i64 noundef %.lcssa.i772) #13
+  %811 = call i64 @date_zone_to_diff(i64 noundef %.sink1091)
+  %812 = call i64 @rb_hash_aset(i64 noundef %1, i64 noundef %810, i64 noundef %811) #13
+  br label %813
 
-815:                                              ; preds = %rbimpl_intern_const.exit775, %rbimpl_intern_const.exit763
+813:                                              ; preds = %rbimpl_intern_const.exit775, %rbimpl_intern_const.exit763
   store ptr %5, ptr %8, align 8
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %8) #13, !srcloc !135
-  %816 = load ptr, ptr %8, align 8
-  %817 = load volatile i64, ptr %816, align 8
-  br label %818
+  %814 = load ptr, ptr %8, align 8
+  %815 = load volatile i64, ptr %814, align 8
+  br label %816
 
-818:                                              ; preds = %815, %763
+816:                                              ; preds = %813, %763
   ret i32 1
 }
 

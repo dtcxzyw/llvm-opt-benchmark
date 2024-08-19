@@ -564,8 +564,7 @@ define noundef i32 @ompi_mpiinfo_init_env(i32 noundef %0, ptr noundef %1, ptr no
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %.052, i64 8
   %18 = tail call noalias ptr @opal_argv_join(ptr noundef nonnull %17, i32 noundef 32) #8
-  store ptr %18, ptr %4, align 8
-  br label %23
+  br label %.sink.split
 
 19:                                               ; preds = %13
   %20 = load ptr, ptr %.052, align 8
@@ -574,11 +573,15 @@ define noundef i32 @ompi_mpiinfo_init_env(i32 noundef %0, ptr noundef %1, ptr no
 
 21:                                               ; preds = %19
   %22 = tail call noalias ptr @strdup(ptr noundef nonnull %20) #8
-  store ptr %22, ptr %4, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %16, %21
+  %.sink = phi ptr [ %22, %21 ], [ %18, %16 ]
+  store ptr %.sink, ptr %4, align 8
   br label %23
 
-23:                                               ; preds = %19, %21, %16
-  %24 = phi ptr [ null, %19 ], [ %22, %21 ], [ %18, %16 ]
+23:                                               ; preds = %.sink.split, %19
+  %24 = phi ptr [ null, %19 ], [ %.sink, %.sink.split ]
   br i1 %.not, label %25, label %26
 
 25:                                               ; preds = %23

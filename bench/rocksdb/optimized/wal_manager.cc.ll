@@ -5043,16 +5043,7 @@ if.end82:                                         ; preds = %land.lhs.true77, %i
   call void @_ZN7rocksdb3log6Reader8ReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %reporter) #18
   %126 = load ptr, ptr %file_reader, align 8
   %cmp.not.i136 = icmp eq ptr %126, null
-  br i1 %cmp.not.i136, label %_ZNSt10unique_ptrIN7rocksdb20SequentialFileReaderESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb20SequentialFileReaderEEclEPS1_.exit.i
-
-_ZNKSt14default_deleteIN7rocksdb20SequentialFileReaderEEclEPS1_.exit.i: ; preds = %if.end82
-  call void @_ZN7rocksdb20SequentialFileReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %126) #18
-  call void @_ZdlPv(ptr noundef nonnull %126) #17
-  br label %_ZNSt10unique_ptrIN7rocksdb20SequentialFileReaderESt14default_deleteIS1_EED2Ev.exit
-
-_ZNSt10unique_ptrIN7rocksdb20SequentialFileReaderESt14default_deleteIS1_EED2Ev.exit: ; preds = %if.end82, %_ZNKSt14default_deleteIN7rocksdb20SequentialFileReaderEEclEPS1_.exit.i
-  store ptr null, ptr %file_reader, align 8
-  br label %nrvo.skipdtor
+  br i1 %cmp.not.i136, label %nrvo.skipdtor, label %nrvo.skipdtor.sink.split
 
 ehcleanup84:                                      ; preds = %lpad63, %_ZN7rocksdb6StatusD2Ev.exit127, %lpad37
   %.pn7 = phi { ptr, i32 } [ %108, %lpad37 ], [ %109, %_ZN7rocksdb6StatusD2Ev.exit127 ], [ %121, %lpad63 ]
@@ -5069,16 +5060,7 @@ ehcleanup88:                                      ; preds = %ehcleanup84, %lpad3
 nrvo.skipdtor.critedge:                           ; preds = %invoke.cont25
   %127 = load ptr, ptr %file_reader, align 8
   %cmp.not.i137 = icmp eq ptr %127, null
-  br i1 %cmp.not.i137, label %_ZNSt10unique_ptrIN7rocksdb20SequentialFileReaderESt14default_deleteIS1_EED2Ev.exit139, label %_ZNKSt14default_deleteIN7rocksdb20SequentialFileReaderEEclEPS1_.exit.i138
-
-_ZNKSt14default_deleteIN7rocksdb20SequentialFileReaderEEclEPS1_.exit.i138: ; preds = %nrvo.skipdtor.critedge
-  call void @_ZN7rocksdb20SequentialFileReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %127) #18
-  call void @_ZdlPv(ptr noundef nonnull %127) #17
-  br label %_ZNSt10unique_ptrIN7rocksdb20SequentialFileReaderESt14default_deleteIS1_EED2Ev.exit139
-
-_ZNSt10unique_ptrIN7rocksdb20SequentialFileReaderESt14default_deleteIS1_EED2Ev.exit139: ; preds = %nrvo.skipdtor.critedge, %_ZNKSt14default_deleteIN7rocksdb20SequentialFileReaderEEclEPS1_.exit.i138
-  store ptr null, ptr %file_reader, align 8
-  br label %nrvo.skipdtor
+  br i1 %cmp.not.i137, label %nrvo.skipdtor, label %nrvo.skipdtor.sink.split
 
 nrvo.skipdtor.critedge14:                         ; preds = %if.then68
   store i64 %call70, ptr %sequence, align 8
@@ -5088,18 +5070,16 @@ nrvo.skipdtor.critedge14:                         ; preds = %if.then68
   call void @_ZN7rocksdb3log6Reader8ReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %reporter) #18
   %128 = load ptr, ptr %file_reader, align 8
   %cmp.not.i140 = icmp eq ptr %128, null
-  br i1 %cmp.not.i140, label %_ZNSt10unique_ptrIN7rocksdb20SequentialFileReaderESt14default_deleteIS1_EED2Ev.exit142, label %_ZNKSt14default_deleteIN7rocksdb20SequentialFileReaderEEclEPS1_.exit.i141
+  br i1 %cmp.not.i140, label %nrvo.skipdtor, label %nrvo.skipdtor.sink.split
 
-_ZNKSt14default_deleteIN7rocksdb20SequentialFileReaderEEclEPS1_.exit.i141: ; preds = %nrvo.skipdtor.critedge14
-  call void @_ZN7rocksdb20SequentialFileReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %128) #18
-  call void @_ZdlPv(ptr noundef nonnull %128) #17
-  br label %_ZNSt10unique_ptrIN7rocksdb20SequentialFileReaderESt14default_deleteIS1_EED2Ev.exit142
-
-_ZNSt10unique_ptrIN7rocksdb20SequentialFileReaderESt14default_deleteIS1_EED2Ev.exit142: ; preds = %nrvo.skipdtor.critedge14, %_ZNKSt14default_deleteIN7rocksdb20SequentialFileReaderEEclEPS1_.exit.i141
-  store ptr null, ptr %file_reader, align 8
+nrvo.skipdtor.sink.split:                         ; preds = %nrvo.skipdtor.critedge14, %nrvo.skipdtor.critedge, %if.end82
+  %.sink156 = phi ptr [ %126, %if.end82 ], [ %127, %nrvo.skipdtor.critedge ], [ %128, %nrvo.skipdtor.critedge14 ]
+  call void @_ZN7rocksdb20SequentialFileReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %.sink156) #18
+  call void @_ZdlPv(ptr noundef nonnull %.sink156) #17
   br label %nrvo.skipdtor
 
-nrvo.skipdtor:                                    ; preds = %_ZNSt10unique_ptrIN7rocksdb20SequentialFileReaderESt14default_deleteIS1_EED2Ev.exit142, %_ZNSt10unique_ptrIN7rocksdb20SequentialFileReaderESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN7rocksdb20SequentialFileReaderESt14default_deleteIS1_EED2Ev.exit139
+nrvo.skipdtor:                                    ; preds = %nrvo.skipdtor.sink.split, %nrvo.skipdtor.critedge14, %nrvo.skipdtor.critedge, %if.end82
+  store ptr null, ptr %file_reader, align 8
   %129 = load ptr, ptr %file, align 8
   %cmp.not.i143 = icmp eq ptr %129, null
   br i1 %cmp.not.i143, label %_ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb16FSSequentialFileEEclEPS1_.exit.i

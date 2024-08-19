@@ -752,10 +752,10 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit.backedge: ; preds = %235, 
   %285 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %285, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false)
   store i64 0, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
   br label %286
 
 286:                                              ; preds = %"_ZN4core3ptr89drop_in_place$LT$alloc..vec..Vec$LT$uu_od..parse_formats..ParsedFormatterItemInfo$GT$$GT$17hb69068be1deb223cE.exit", %284
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
   ret void
 
 287:                                              ; preds = %272
@@ -794,7 +794,6 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit.backedge: ; preds = %235, 
 
 "_ZN4core3ptr89drop_in_place$LT$alloc..vec..Vec$LT$uu_od..parse_formats..ParsedFormatterItemInfo$GT$$GT$17hb69068be1deb223cE.exit": ; preds = %292, %295, %299
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !84
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
   br label %286
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h57e879f43ee09a0aE.exit138": ; preds = %268
@@ -1168,7 +1167,6 @@ define internal fastcc void @_ZN5uu_od13parse_formats17parse_type_string17h154da
   %84 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %84, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false)
   store i64 0, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
   br label %353
 
 _ZN5uu_od13parse_formats11format_type17h5604a84489e7d84aE.exit: ; preds = %77
@@ -1942,10 +1940,10 @@ _ZN5uu_od13parse_formats19is_format_dump_char17hb4ed5adaf8b1ce81E.exit.thread: ;
 
 "_ZN4core3ptr89drop_in_place$LT$alloc..vec..Vec$LT$uu_od..parse_formats..ParsedFormatterItemInfo$GT$$GT$17hb69068be1deb223cE.exit": ; preds = %344, %347, %351
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !243
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
   br label %353
 
 353:                                              ; preds = %"_ZN4core3ptr89drop_in_place$LT$alloc..vec..Vec$LT$uu_od..parse_formats..ParsedFormatterItemInfo$GT$$GT$17hb69068be1deb223cE.exit", %._crit_edge
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
   ret void
 
 354:                                              ; preds = %54

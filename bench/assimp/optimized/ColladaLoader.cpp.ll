@@ -452,6 +452,7 @@ $_ZSt19piecewise_construct = comdat any
 @.str.92 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
 @.str.93 = private unnamed_addr constant [23 x i8] c"vector::_M_fill_insert\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_ColladaLoader.cpp, ptr null }]
+@switch.table._ZN6Assimp13ColladaLoader13FillMaterialsERKNS_13ColladaParserEP7aiScene = private unnamed_addr constant [4 x i32] [i32 9, i32 2, i32 3, i32 4], align 4
 
 @_ZN6Assimp13ColladaLoaderC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6Assimp13ColladaLoaderC2Ev
 
@@ -2151,55 +2152,39 @@ for.body:                                         ; preds = %entry, %for.inc
   %mFaceted = getelementptr inbounds i8, ptr %4, i64 962
   %5 = load i8, ptr %mFaceted, align 2
   %tobool = trunc i8 %5 to i1
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %for.body
-  store i32 1, ptr %shadeMode, align 4
-  br label %if.end
+  br i1 %tobool, label %if.end, label %if.else
 
 if.else:                                          ; preds = %for.body
   %6 = load i32, ptr %4, align 8
-  switch i32 %6, label %sw.default [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb6
-    i32 4, label %sw.bb7
-    i32 3, label %sw.bb8
-  ]
-
-sw.bb:                                            ; preds = %if.else
-  store i32 9, ptr %shadeMode, align 4
-  br label %if.end
-
-sw.bb6:                                           ; preds = %if.else
-  store i32 2, ptr %shadeMode, align 4
-  br label %if.end
-
-sw.bb7:                                           ; preds = %if.else
-  store i32 4, ptr %shadeMode, align 4
-  br label %if.end
-
-sw.bb8:                                           ; preds = %if.else
-  store i32 3, ptr %shadeMode, align 4
-  br label %if.end
+  %switch.tableidx = add i32 %6, -1
+  %7 = icmp ult i32 %switch.tableidx, 4
+  br i1 %7, label %switch.lookup, label %sw.default
 
 sw.default:                                       ; preds = %if.else
   %call9 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   call void @_ZN6Assimp6Logger4warnEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call9, ptr noundef nonnull @.str.63)
-  store i32 2, ptr %shadeMode, align 4
   br label %if.end
 
-if.end:                                           ; preds = %sw.bb, %sw.bb6, %sw.bb7, %sw.bb8, %sw.default, %if.then
+switch.lookup:                                    ; preds = %if.else
+  %8 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN6Assimp13ColladaLoader13FillMaterialsERKNS_13ColladaParserEP7aiScene, i64 0, i64 %8
+  %switch.load = load i32, ptr %switch.gep, align 4
+  br label %if.end
+
+if.end:                                           ; preds = %switch.lookup, %for.body, %sw.default
+  %.sink = phi i32 [ 2, %sw.default ], [ 1, %for.body ], [ %switch.load, %switch.lookup ]
+  store i32 %.sink, ptr %shadeMode, align 4
   %call.i = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %shadeMode, i32 noundef 4, ptr noundef nonnull @.str.64, i32 noundef 0, i32 noundef 0, i32 noundef 4)
   %mDoubleSided = getelementptr inbounds i8, ptr %4, i64 960
-  %7 = load i8, ptr %mDoubleSided, align 8
-  %8 = and i8 %7, 1
-  %conv = zext nneg i8 %8 to i32
+  %9 = load i8, ptr %mDoubleSided, align 8
+  %10 = and i8 %9, 1
+  %conv = zext nneg i8 %10 to i32
   store i32 %conv, ptr %shadeMode, align 4
   %call.i77 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %shadeMode, i32 noundef 4, ptr noundef nonnull @.str.65, i32 noundef 0, i32 noundef 0, i32 noundef 4)
   %mWireframe = getelementptr inbounds i8, ptr %4, i64 961
-  %9 = load i8, ptr %mWireframe, align 1
-  %10 = and i8 %9, 1
-  %conv14 = zext nneg i8 %10 to i32
+  %11 = load i8, ptr %mWireframe, align 1
+  %12 = and i8 %11, 1
+  %conv14 = zext nneg i8 %12 to i32
   store i32 %conv14, ptr %shadeMode, align 4
   %call.i78 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %shadeMode, i32 noundef 4, ptr noundef nonnull @.str.66, i32 noundef 0, i32 noundef 0, i32 noundef 4)
   %mAmbient = getelementptr inbounds i8, ptr %4, i64 20
@@ -2219,29 +2204,29 @@ if.end:                                           ; preds = %sw.bb, %sw.bb6, %sw
   %mRefractIndex = getelementptr inbounds i8, ptr %4, i64 892
   %call.i85 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %mRefractIndex, i32 noundef 4, ptr noundef nonnull @.str.74, i32 noundef 0, i32 noundef 0, i32 noundef 1)
   %mTransparency = getelementptr inbounds i8, ptr %4, i64 900
-  %11 = load float, ptr %mTransparency, align 4
-  %cmp = fcmp ult float %11, 0.000000e+00
-  %cmp25 = fcmp ugt float %11, 1.000000e+00
+  %13 = load float, ptr %mTransparency, align 4
+  %cmp = fcmp ult float %13, 0.000000e+00
+  %cmp25 = fcmp ugt float %13, 1.000000e+00
   %or.cond = or i1 %cmp, %cmp25
   br i1 %or.cond, label %if.end54, label %if.then26
 
 if.then26:                                        ; preds = %if.end
   %mRGBTransparency = getelementptr inbounds i8, ptr %4, i64 905
-  %12 = load i8, ptr %mRGBTransparency, align 1
-  %tobool27 = trunc i8 %12 to i1
+  %14 = load i8, ptr %mRGBTransparency, align 1
+  %tobool27 = trunc i8 %14 to i1
   br i1 %tobool27, label %if.then28, label %if.else36
 
 if.then28:                                        ; preds = %if.then26
   %mTransparent = getelementptr inbounds i8, ptr %4, i64 68
-  %13 = load float, ptr %mTransparent, align 4
+  %15 = load float, ptr %mTransparent, align 4
   %g = getelementptr inbounds i8, ptr %4, i64 72
-  %14 = load float, ptr %g, align 4
-  %mul30 = fmul float %14, 0x3FE6E29740000000
-  %15 = call float @llvm.fmuladd.f32(float %13, float 0x3FCB38CDA0000000, float %mul30)
+  %16 = load float, ptr %g, align 4
+  %mul30 = fmul float %16, 0x3FE6E29740000000
+  %17 = call float @llvm.fmuladd.f32(float %15, float 0x3FCB38CDA0000000, float %mul30)
   %b = getelementptr inbounds i8, ptr %4, i64 76
-  %16 = load float, ptr %b, align 4
-  %17 = call float @llvm.fmuladd.f32(float %16, float 0x3FB279AAE0000000, float %15)
-  %mul = fmul float %11, %17
+  %18 = load float, ptr %b, align 4
+  %19 = call float @llvm.fmuladd.f32(float %18, float 0x3FB279AAE0000000, float %17)
+  %mul = fmul float %13, %19
   store float %mul, ptr %mTransparency, align 4
   %a = getelementptr inbounds i8, ptr %4, i64 80
   store float 1.000000e+00, ptr %a, align 4
@@ -2250,32 +2235,32 @@ if.then28:                                        ; preds = %if.then26
 
 if.else36:                                        ; preds = %if.then26
   %a38 = getelementptr inbounds i8, ptr %4, i64 80
-  %18 = load float, ptr %a38, align 4
-  %mul40 = fmul float %11, %18
+  %20 = load float, ptr %a38, align 4
+  %mul40 = fmul float %13, %20
   store float %mul40, ptr %mTransparency, align 4
   br label %if.end41
 
 if.end41:                                         ; preds = %if.else36, %if.then28
   %mInvertTransparency = getelementptr inbounds i8, ptr %4, i64 906
-  %19 = load i8, ptr %mInvertTransparency, align 2
-  %tobool42 = trunc i8 %19 to i1
+  %21 = load i8, ptr %mInvertTransparency, align 2
+  %tobool42 = trunc i8 %21 to i1
   br i1 %tobool42, label %if.then43, label %if.end46
 
 if.then43:                                        ; preds = %if.end41
-  %20 = load float, ptr %mTransparency, align 4
-  %sub = fsub float 1.000000e+00, %20
+  %22 = load float, ptr %mTransparency, align 4
+  %sub = fsub float 1.000000e+00, %22
   store float %sub, ptr %mTransparency, align 4
   br label %if.end46
 
 if.end46:                                         ; preds = %if.then43, %if.end41
   %mHasTransparency = getelementptr inbounds i8, ptr %4, i64 904
-  %21 = load i8, ptr %mHasTransparency, align 8
-  %tobool47 = trunc i8 %21 to i1
+  %23 = load i8, ptr %mHasTransparency, align 8
+  %tobool47 = trunc i8 %23 to i1
   br i1 %tobool47, label %if.then50, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end46
-  %22 = load float, ptr %mTransparency, align 4
-  %cmp49 = fcmp olt float %22, 1.000000e+00
+  %24 = load float, ptr %mTransparency, align 4
+  %cmp49 = fcmp olt float %24, 1.000000e+00
   br i1 %cmp49, label %if.then50, label %if.end54
 
 if.then50:                                        ; preds = %lor.lhs.false, %if.end46
@@ -13331,11 +13316,7 @@ if.end16:                                         ; preds = %if.then15, %land.lh
   %mUVId = getelementptr inbounds i8, ptr %sampler, i64 96
   %8 = load i32, ptr %mUVId, align 8
   %cmp.not = icmp eq i32 %8, -1
-  br i1 %cmp.not, label %if.else, label %if.then21
-
-if.then21:                                        ; preds = %if.end16
-  store i32 %8, ptr %map, align 4
-  br label %if.end39
+  br i1 %cmp.not, label %if.else, label %if.end39.sink.split
 
 if.else:                                          ; preds = %if.end16
   store i32 -1, ptr %map, align 4
@@ -13396,10 +13377,14 @@ for.end:                                          ; preds = %for.endthread-pre-s
 if.then36:                                        ; preds = %for.end
   %call37 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   call void @_ZN6Assimp6Logger4warnEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call37, ptr noundef nonnull @.str.61)
-  store i32 0, ptr %map, align 4
+  br label %if.end39.sink.split
+
+if.end39.sink.split:                              ; preds = %if.end16, %if.then36
+  %.sink = phi i32 [ 0, %if.then36 ], [ %8, %if.end16 ]
+  store i32 %.sink, ptr %map, align 4
   br label %if.end39
 
-if.end39:                                         ; preds = %for.end, %if.then36, %if.then21
+if.end39:                                         ; preds = %if.end39.sink.split, %for.end
   %call.i38 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %mat, ptr noundef nonnull %map, i32 noundef 4, ptr noundef nonnull @.str.62, i32 noundef %type, i32 noundef %idx, i32 noundef 4)
   ret void
 }

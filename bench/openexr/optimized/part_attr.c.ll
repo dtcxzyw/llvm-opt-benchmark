@@ -1655,9 +1655,7 @@ sw.bb.i:                                          ; preds = %if.then32
 
 if.then.i:                                        ; preds = %sw.bb.i
   %call3.i = call i32 @exr_attr_list_add_static_name(ptr noundef %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.3, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %channels.i) #6
-  %16 = load ptr, ptr %channels.i, align 8
-  store ptr %16, ptr %attr.i, align 8
-  br label %sw.epilog.i
+  br label %sw.epilog.i.sink.split
 
 if.else.i:                                        ; preds = %sw.bb.i
   %call5.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(12) @.str.6) #7
@@ -1666,15 +1664,15 @@ if.else.i:                                        ; preds = %sw.bb.i
 
 if.then8.i:                                       ; preds = %if.else.i
   %call10.i = call i32 @exr_attr_list_add_static_name(ptr noundef %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.6, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %compression.i) #6
-  %17 = load ptr, ptr %compression.i, align 8
-  store ptr %17, ptr %attr.i, align 8
+  %16 = load ptr, ptr %compression.i, align 8
+  store ptr %16, ptr %attr.i, align 8
   %cmp12.i = icmp eq i32 %call10.i, 0
   br i1 %cmp12.i, label %if.then14.i, label %sw.epilog.i
 
 if.then14.i:                                      ; preds = %if.then8.i
-  %18 = getelementptr inbounds i8, ptr %11, i64 24
-  %19 = load i8, ptr %18, align 8
-  %conv15.i = zext i8 %19 to i32
+  %17 = getelementptr inbounds i8, ptr %11, i64 24
+  %18 = load i8, ptr %17, align 8
+  %conv15.i = zext i8 %18 to i32
   store i32 %conv15.i, ptr %comp_type.i, align 8
   br label %if.end141.i
 
@@ -1685,9 +1683,7 @@ if.else16.i:                                      ; preds = %if.else.i
 
 if.then20.i:                                      ; preds = %if.else16.i
   %call22.i = call i32 @exr_attr_list_add_static_name(ptr noundef %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.25, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %chunkCount.i) #6
-  %20 = load ptr, ptr %chunkCount.i, align 8
-  store ptr %20, ptr %attr.i, align 8
-  br label %sw.epilog.i
+  br label %sw.epilog.i.sink.split
 
 sw.bb27.i:                                        ; preds = %if.then32
   %call28.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(11) @.str.7) #7
@@ -1696,15 +1692,15 @@ sw.bb27.i:                                        ; preds = %if.then32
 
 if.then31.i:                                      ; preds = %sw.bb27.i
   %call33.i = call i32 @exr_attr_list_add_static_name(ptr noundef %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.7, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %dataWindow.i) #6
-  %21 = load ptr, ptr %dataWindow.i, align 8
-  store ptr %21, ptr %attr.i, align 8
+  %19 = load ptr, ptr %dataWindow.i, align 8
+  store ptr %19, ptr %attr.i, align 8
   %cmp35.i = icmp eq i32 %call33.i, 0
   br i1 %cmp35.i, label %if.end137.i.thread, label %sw.epilog.i
 
 if.end137.i.thread:                               ; preds = %if.then31.i
-  %22 = getelementptr inbounds i8, ptr %11, i64 24
-  %23 = load ptr, ptr %22, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_window.i, ptr noundef nonnull align 1 dereferenceable(16) %23, i64 16, i1 false)
+  %20 = getelementptr inbounds i8, ptr %11, i64 24
+  %21 = load ptr, ptr %20, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_window.i, ptr noundef nonnull align 1 dereferenceable(16) %21, i64 16, i1 false)
   br label %if.end141.i
 
 if.else39.i:                                      ; preds = %sw.bb27.i
@@ -1714,15 +1710,15 @@ if.else39.i:                                      ; preds = %sw.bb27.i
 
 if.then43.i:                                      ; preds = %if.else39.i
   %call45.i = call i32 @exr_attr_list_add_static_name(ptr noundef %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.9, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %displayWindow.i) #6
-  %24 = load ptr, ptr %displayWindow.i, align 8
-  store ptr %24, ptr %attr.i, align 8
+  %22 = load ptr, ptr %displayWindow.i, align 8
+  store ptr %22, ptr %attr.i, align 8
   %cmp47.i = icmp eq i32 %call45.i, 0
   br i1 %cmp47.i, label %if.then49.i, label %sw.epilog.i
 
 if.then49.i:                                      ; preds = %if.then43.i
-  %25 = getelementptr inbounds i8, ptr %11, i64 24
-  %26 = load ptr, ptr %25, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %display_window.i, ptr noundef nonnull align 1 dereferenceable(16) %26, i64 16, i1 false)
+  %23 = getelementptr inbounds i8, ptr %11, i64 24
+  %24 = load ptr, ptr %23, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %display_window.i, ptr noundef nonnull align 1 dereferenceable(16) %24, i64 16, i1 false)
   br label %if.end141.i
 
 sw.bb53.i:                                        ; preds = %if.then32
@@ -1732,15 +1728,15 @@ sw.bb53.i:                                        ; preds = %if.then32
 
 if.then57.i:                                      ; preds = %sw.bb53.i
   %call59.i = call i32 @exr_attr_list_add_static_name(ptr noundef %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.10, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %lineOrder.i) #6
-  %27 = load ptr, ptr %lineOrder.i, align 8
-  store ptr %27, ptr %attr.i, align 8
+  %25 = load ptr, ptr %lineOrder.i, align 8
+  store ptr %25, ptr %attr.i, align 8
   %cmp61.i = icmp eq i32 %call59.i, 0
   br i1 %cmp61.i, label %if.then63.i, label %sw.epilog.i
 
 if.then63.i:                                      ; preds = %if.then57.i
-  %28 = getelementptr inbounds i8, ptr %11, i64 24
-  %29 = load i8, ptr %28, align 8
-  %conv64.i = zext i8 %29 to i32
+  %26 = getelementptr inbounds i8, ptr %11, i64 24
+  %27 = load i8, ptr %26, align 8
+  %conv64.i = zext i8 %27 to i32
   store i32 %conv64.i, ptr %lineorder.i, align 4
   br label %if.end141.i
 
@@ -1751,9 +1747,7 @@ sw.bb67.i:                                        ; preds = %if.then32
 
 if.then71.i:                                      ; preds = %sw.bb67.i
   %call74.i = call i32 @exr_attr_list_add_static_name(ptr noundef %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.20, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %name73.i) #6
-  %30 = load ptr, ptr %name73.i, align 8
-  store ptr %30, ptr %attr.i, align 8
-  br label %sw.epilog.i
+  br label %sw.epilog.i.sink.split
 
 sw.bb77.i:                                        ; preds = %if.then32
   %call78.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(17) @.str.12) #7
@@ -1762,9 +1756,7 @@ sw.bb77.i:                                        ; preds = %if.then32
 
 if.then81.i:                                      ; preds = %sw.bb77.i
   %call83.i = call i32 @exr_attr_list_add_static_name(ptr noundef %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.12, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %pixelAspectRatio.i) #6
-  %31 = load ptr, ptr %pixelAspectRatio.i, align 8
-  store ptr %31, ptr %attr.i, align 8
-  br label %sw.epilog.i
+  br label %sw.epilog.i.sink.split
 
 sw.bb86.i:                                        ; preds = %if.then32
   %call87.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(19) @.str.13) #7
@@ -1773,9 +1765,7 @@ sw.bb86.i:                                        ; preds = %if.then32
 
 if.then90.i:                                      ; preds = %sw.bb86.i
   %call92.i = call i32 @exr_attr_list_add_static_name(ptr noundef %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.13, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %screenWindowCenter.i) #6
-  %32 = load ptr, ptr %screenWindowCenter.i, align 8
-  store ptr %32, ptr %attr.i, align 8
-  br label %sw.epilog.i
+  br label %sw.epilog.i.sink.split
 
 if.else94.i:                                      ; preds = %sw.bb86.i
   %call95.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(18) @.str.14) #7
@@ -1784,9 +1774,7 @@ if.else94.i:                                      ; preds = %sw.bb86.i
 
 if.then98.i:                                      ; preds = %if.else94.i
   %call100.i = call i32 @exr_attr_list_add_static_name(ptr noundef %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.14, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %screenWindowWidth.i) #6
-  %33 = load ptr, ptr %screenWindowWidth.i, align 8
-  store ptr %33, ptr %attr.i, align 8
-  br label %sw.epilog.i
+  br label %sw.epilog.i.sink.split
 
 sw.bb104.i:                                       ; preds = %if.then32
   %call105.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(6) @.str.17) #7
@@ -1795,9 +1783,7 @@ sw.bb104.i:                                       ; preds = %if.then32
 
 if.then108.i:                                     ; preds = %sw.bb104.i
   %call110.i = call i32 @exr_attr_list_add_static_name(ptr noundef %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.17, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %tiles.i) #6
-  %34 = load ptr, ptr %tiles.i, align 8
-  store ptr %34, ptr %attr.i, align 8
-  br label %sw.epilog.i
+  br label %sw.epilog.i.sink.split
 
 if.else112.i:                                     ; preds = %sw.bb104.i
   %call113.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(5) @.str.81) #7
@@ -1806,9 +1792,7 @@ if.else112.i:                                     ; preds = %sw.bb104.i
 
 if.then116.i:                                     ; preds = %if.else112.i
   %call119.i = call i32 @exr_attr_list_add_static_name(ptr noundef %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.81, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %type118.i) #6
-  %35 = load ptr, ptr %type118.i, align 8
-  store ptr %35, ptr %attr.i, align 8
-  br label %sw.epilog.i
+  br label %sw.epilog.i.sink.split
 
 sw.bb123.i:                                       ; preds = %if.then32
   %call124.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(8) @.str.24) #7
@@ -1817,16 +1801,22 @@ sw.bb123.i:                                       ; preds = %if.then32
 
 if.then127.i:                                     ; preds = %sw.bb123.i
   %call129.i = call i32 @exr_attr_list_add_static_name(ptr noundef %ctxt, ptr noundef nonnull %attributes29, ptr noundef nonnull @.str.24, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef nonnull %version.i) #6
-  %36 = load ptr, ptr %version.i, align 8
-  store ptr %36, ptr %attr.i, align 8
+  br label %sw.epilog.i.sink.split
+
+sw.epilog.i.sink.split:                           ; preds = %if.then.i, %if.then20.i, %if.then71.i, %if.then81.i, %if.then90.i, %if.then98.i, %if.then108.i, %if.then116.i, %if.then127.i
+  %version.i.sink = phi ptr [ %version.i, %if.then127.i ], [ %type118.i, %if.then116.i ], [ %tiles.i, %if.then108.i ], [ %screenWindowWidth.i, %if.then98.i ], [ %screenWindowCenter.i, %if.then90.i ], [ %pixelAspectRatio.i, %if.then81.i ], [ %name73.i, %if.then71.i ], [ %chunkCount.i, %if.then20.i ], [ %channels.i, %if.then.i ]
+  %update_tiles.2.ph = phi i32 [ %update_tiles.065, %if.then127.i ], [ %update_tiles.065, %if.then116.i ], [ 1, %if.then108.i ], [ %update_tiles.065, %if.then98.i ], [ %update_tiles.065, %if.then90.i ], [ %update_tiles.065, %if.then81.i ], [ %update_tiles.065, %if.then71.i ], [ %update_tiles.065, %if.then20.i ], [ %update_tiles.065, %if.then.i ]
+  %rv.0.i.ph = phi i32 [ %call129.i, %if.then127.i ], [ %call119.i, %if.then116.i ], [ %call110.i, %if.then108.i ], [ %call100.i, %if.then98.i ], [ %call92.i, %if.then90.i ], [ %call83.i, %if.then81.i ], [ %call74.i, %if.then71.i ], [ %call22.i, %if.then20.i ], [ %call3.i, %if.then.i ]
+  %28 = load ptr, ptr %version.i.sink, align 8
+  store ptr %28, ptr %attr.i, align 8
   br label %sw.epilog.i
 
-sw.epilog.i:                                      ; preds = %if.then31.i, %if.then127.i, %sw.bb123.i, %if.then116.i, %if.else112.i, %if.then108.i, %if.then98.i, %if.else94.i, %if.then90.i, %if.then81.i, %sw.bb77.i, %if.then71.i, %sw.bb67.i, %if.then57.i, %sw.bb53.i, %if.then43.i, %if.else39.i, %if.then20.i, %if.else16.i, %if.then8.i, %if.then.i, %if.then32
-  %update_tiles.2 = phi i32 [ %update_tiles.065, %if.then32 ], [ %update_tiles.065, %if.then127.i ], [ %update_tiles.065, %sw.bb123.i ], [ 1, %if.then108.i ], [ %update_tiles.065, %if.then116.i ], [ %update_tiles.065, %if.else112.i ], [ %update_tiles.065, %if.then90.i ], [ %update_tiles.065, %if.then98.i ], [ %update_tiles.065, %if.else94.i ], [ %update_tiles.065, %if.then81.i ], [ %update_tiles.065, %sw.bb77.i ], [ %update_tiles.065, %if.then71.i ], [ %update_tiles.065, %sw.bb67.i ], [ %update_tiles.065, %if.then57.i ], [ %update_tiles.065, %sw.bb53.i ], [ %update_tiles.065, %if.then43.i ], [ %update_tiles.065, %if.else39.i ], [ %update_tiles.065, %if.then.i ], [ %update_tiles.065, %if.then8.i ], [ %update_tiles.065, %if.then20.i ], [ %update_tiles.065, %if.else16.i ], [ 1, %if.then31.i ]
-  %37 = phi ptr [ null, %if.then32 ], [ %36, %if.then127.i ], [ null, %sw.bb123.i ], [ %34, %if.then108.i ], [ %35, %if.then116.i ], [ null, %if.else112.i ], [ %32, %if.then90.i ], [ %33, %if.then98.i ], [ null, %if.else94.i ], [ %31, %if.then81.i ], [ null, %sw.bb77.i ], [ %30, %if.then71.i ], [ null, %sw.bb67.i ], [ %27, %if.then57.i ], [ null, %sw.bb53.i ], [ %24, %if.then43.i ], [ null, %if.else39.i ], [ %16, %if.then.i ], [ %17, %if.then8.i ], [ %20, %if.then20.i ], [ null, %if.else16.i ], [ %21, %if.then31.i ]
-  %rv.0.i = phi i32 [ 32, %if.then32 ], [ %call129.i, %if.then127.i ], [ 32, %sw.bb123.i ], [ %call110.i, %if.then108.i ], [ %call119.i, %if.then116.i ], [ 32, %if.else112.i ], [ %call92.i, %if.then90.i ], [ %call100.i, %if.then98.i ], [ 32, %if.else94.i ], [ %call83.i, %if.then81.i ], [ 32, %sw.bb77.i ], [ %call74.i, %if.then71.i ], [ 32, %sw.bb67.i ], [ %call59.i, %if.then57.i ], [ 32, %sw.bb53.i ], [ %call45.i, %if.then43.i ], [ 32, %if.else39.i ], [ %call3.i, %if.then.i ], [ %call10.i, %if.then8.i ], [ %call22.i, %if.then20.i ], [ 32, %if.else16.i ], [ %call33.i, %if.then31.i ]
+sw.epilog.i:                                      ; preds = %sw.epilog.i.sink.split, %if.then31.i, %sw.bb123.i, %if.else112.i, %if.else94.i, %sw.bb77.i, %sw.bb67.i, %if.then57.i, %sw.bb53.i, %if.then43.i, %if.else39.i, %if.else16.i, %if.then8.i, %if.then32
+  %update_tiles.2 = phi i32 [ %update_tiles.065, %if.then32 ], [ %update_tiles.065, %sw.bb123.i ], [ %update_tiles.065, %if.else112.i ], [ %update_tiles.065, %if.else94.i ], [ %update_tiles.065, %sw.bb77.i ], [ %update_tiles.065, %sw.bb67.i ], [ %update_tiles.065, %if.then57.i ], [ %update_tiles.065, %sw.bb53.i ], [ %update_tiles.065, %if.then43.i ], [ %update_tiles.065, %if.else39.i ], [ %update_tiles.065, %if.then8.i ], [ %update_tiles.065, %if.else16.i ], [ 1, %if.then31.i ], [ %update_tiles.2.ph, %sw.epilog.i.sink.split ]
+  %29 = phi ptr [ null, %if.then32 ], [ null, %sw.bb123.i ], [ null, %if.else112.i ], [ null, %if.else94.i ], [ null, %sw.bb77.i ], [ null, %sw.bb67.i ], [ %25, %if.then57.i ], [ null, %sw.bb53.i ], [ %22, %if.then43.i ], [ null, %if.else39.i ], [ %16, %if.then8.i ], [ null, %if.else16.i ], [ %19, %if.then31.i ], [ %28, %sw.epilog.i.sink.split ]
+  %rv.0.i = phi i32 [ 32, %if.then32 ], [ 32, %sw.bb123.i ], [ 32, %if.else112.i ], [ 32, %if.else94.i ], [ 32, %sw.bb77.i ], [ 32, %sw.bb67.i ], [ %call59.i, %if.then57.i ], [ 32, %sw.bb53.i ], [ %call45.i, %if.then43.i ], [ 32, %if.else39.i ], [ %call10.i, %if.then8.i ], [ 32, %if.else16.i ], [ %call33.i, %if.then31.i ], [ %rv.0.i.ph, %sw.epilog.i.sink.split ]
   %cmp132.i = icmp ne i32 %rv.0.i, 32
-  %tobool.i = icmp ne ptr %37, null
+  %tobool.i = icmp ne ptr %29, null
   %or.cond.i = select i1 %cmp132.i, i1 true, i1 %tobool.i
   br i1 %or.cond.i, label %if.end137.i, label %if.then134.i
 
@@ -1874,42 +1864,58 @@ if.end141.i:                                      ; preds = %if.end137.i.thread,
   ]
 
 sw.bb142.i:                                       ; preds = %if.end141.i
-  %38 = load ptr, ptr %attr.i, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 24
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %11, i64 24
-  %42 = load ptr, ptr %41, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %40, ptr noundef nonnull align 1 dereferenceable(16) %42, i64 16, i1 false)
+  %30 = load ptr, ptr %attr.i, align 8
+  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %11, i64 24
+  %34 = load ptr, ptr %33, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %32, ptr noundef nonnull align 1 dereferenceable(16) %34, i64 16, i1 false)
   br label %copy_attr.exit
 
 sw.bb143.i:                                       ; preds = %if.end141.i
-  %43 = load ptr, ptr %attr.i, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %11, i64 24
-  %47 = load ptr, ptr %46, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %45, ptr noundef nonnull align 1 dereferenceable(16) %47, i64 16, i1 false)
+  %35 = load ptr, ptr %attr.i, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %11, i64 24
+  %39 = load ptr, ptr %38, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %37, ptr noundef nonnull align 1 dereferenceable(16) %39, i64 16, i1 false)
   br label %copy_attr.exit
 
 sw.bb144.i:                                       ; preds = %if.end141.i
-  %48 = load ptr, ptr %attr.i, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 24
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %11, i64 24
-  %52 = load ptr, ptr %51, align 8
-  %call145.i = call i32 @exr_attr_chlist_duplicate(ptr noundef %ctxt, ptr noundef %50, ptr noundef %52) #6
+  %40 = load ptr, ptr %attr.i, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 24
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %11, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %call145.i = call i32 @exr_attr_chlist_duplicate(ptr noundef %ctxt, ptr noundef %42, ptr noundef %44) #6
   br label %sw.epilog181.i
 
 sw.bb146.i:                                       ; preds = %if.end141.i
-  %53 = load ptr, ptr %attr.i, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 24
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %11, i64 24
-  %57 = load ptr, ptr %56, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %55, ptr noundef nonnull align 1 dereferenceable(32) %57, i64 32, i1 false)
+  %45 = load ptr, ptr %attr.i, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 24
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %11, i64 24
+  %49 = load ptr, ptr %48, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %47, ptr noundef nonnull align 1 dereferenceable(32) %49, i64 32, i1 false)
   br label %copy_attr.exit
 
 sw.bb147.i:                                       ; preds = %if.end141.i
+  %50 = getelementptr inbounds i8, ptr %11, i64 24
+  %51 = load i8, ptr %50, align 8
+  %52 = load ptr, ptr %attr.i, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 24
+  store i8 %51, ptr %53, align 8
+  br label %copy_attr.exit
+
+sw.bb148.i:                                       ; preds = %if.end141.i
+  %54 = getelementptr inbounds i8, ptr %11, i64 24
+  %55 = load double, ptr %54, align 8
+  %56 = load ptr, ptr %attr.i, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 24
+  store double %55, ptr %57, align 8
+  br label %copy_attr.exit
+
+sw.bb149.i:                                       ; preds = %if.end141.i
   %58 = getelementptr inbounds i8, ptr %11, i64 24
   %59 = load i8, ptr %58, align 8
   %60 = load ptr, ptr %attr.i, align 8
@@ -1917,235 +1923,219 @@ sw.bb147.i:                                       ; preds = %if.end141.i
   store i8 %59, ptr %61, align 8
   br label %copy_attr.exit
 
-sw.bb148.i:                                       ; preds = %if.end141.i
+sw.bb150.i:                                       ; preds = %if.end141.i
   %62 = getelementptr inbounds i8, ptr %11, i64 24
-  %63 = load double, ptr %62, align 8
+  %63 = load float, ptr %62, align 8
   %64 = load ptr, ptr %attr.i, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 24
-  store double %63, ptr %65, align 8
-  br label %copy_attr.exit
-
-sw.bb149.i:                                       ; preds = %if.end141.i
-  %66 = getelementptr inbounds i8, ptr %11, i64 24
-  %67 = load i8, ptr %66, align 8
-  %68 = load ptr, ptr %attr.i, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 24
-  store i8 %67, ptr %69, align 8
-  br label %copy_attr.exit
-
-sw.bb150.i:                                       ; preds = %if.end141.i
-  %70 = getelementptr inbounds i8, ptr %11, i64 24
-  %71 = load float, ptr %70, align 8
-  %72 = load ptr, ptr %attr.i, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 24
-  store float %71, ptr %73, align 8
+  store float %63, ptr %65, align 8
   br label %copy_attr.exit
 
 sw.bb151.i:                                       ; preds = %if.end141.i
-  %74 = load ptr, ptr %attr.i, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 24
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %11, i64 24
-  %78 = load ptr, ptr %77, align 8
-  %arr.i = getelementptr inbounds i8, ptr %78, i64 8
-  %79 = load ptr, ptr %arr.i, align 8
-  %80 = load i32, ptr %78, align 8
-  %call152.i = call i32 @exr_attr_float_vector_create(ptr noundef %ctxt, ptr noundef %76, ptr noundef %79, i32 noundef %80) #6
+  %66 = load ptr, ptr %attr.i, align 8
+  %67 = getelementptr inbounds i8, ptr %66, i64 24
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds i8, ptr %11, i64 24
+  %70 = load ptr, ptr %69, align 8
+  %arr.i = getelementptr inbounds i8, ptr %70, i64 8
+  %71 = load ptr, ptr %arr.i, align 8
+  %72 = load i32, ptr %70, align 8
+  %call152.i = call i32 @exr_attr_float_vector_create(ptr noundef %ctxt, ptr noundef %68, ptr noundef %71, i32 noundef %72) #6
   br label %sw.epilog181.i
 
 sw.bb153.i:                                       ; preds = %if.end141.i
-  %81 = getelementptr inbounds i8, ptr %11, i64 24
-  %82 = load i32, ptr %81, align 8
-  %83 = load ptr, ptr %attr.i, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 24
-  store i32 %82, ptr %84, align 8
+  %73 = getelementptr inbounds i8, ptr %11, i64 24
+  %74 = load i32, ptr %73, align 8
+  %75 = load ptr, ptr %attr.i, align 8
+  %76 = getelementptr inbounds i8, ptr %75, i64 24
+  store i32 %74, ptr %76, align 8
   br label %copy_attr.exit
 
 sw.bb154.i:                                       ; preds = %if.end141.i
-  %85 = load ptr, ptr %attr.i, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 24
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %11, i64 24
-  %89 = load ptr, ptr %88, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %87, ptr noundef nonnull align 1 dereferenceable(28) %89, i64 28, i1 false)
+  %77 = load ptr, ptr %attr.i, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 24
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds i8, ptr %11, i64 24
+  %81 = load ptr, ptr %80, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %79, ptr noundef nonnull align 1 dereferenceable(28) %81, i64 28, i1 false)
   br label %copy_attr.exit
 
 sw.bb155.i:                                       ; preds = %if.end141.i
-  %90 = getelementptr inbounds i8, ptr %11, i64 24
-  %91 = load i8, ptr %90, align 8
-  %92 = load ptr, ptr %attr.i, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 24
-  store i8 %91, ptr %93, align 8
+  %82 = getelementptr inbounds i8, ptr %11, i64 24
+  %83 = load i8, ptr %82, align 8
+  %84 = load ptr, ptr %attr.i, align 8
+  %85 = getelementptr inbounds i8, ptr %84, i64 24
+  store i8 %83, ptr %85, align 8
   br label %copy_attr.exit
 
 sw.bb156.i:                                       ; preds = %if.end141.i
-  %94 = load ptr, ptr %attr.i, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 24
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %11, i64 24
-  %98 = load ptr, ptr %97, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %96, ptr noundef nonnull align 1 dereferenceable(36) %98, i64 36, i1 false)
+  %86 = load ptr, ptr %attr.i, align 8
+  %87 = getelementptr inbounds i8, ptr %86, i64 24
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds i8, ptr %11, i64 24
+  %90 = load ptr, ptr %89, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %88, ptr noundef nonnull align 1 dereferenceable(36) %90, i64 36, i1 false)
   br label %copy_attr.exit
 
 sw.bb157.i:                                       ; preds = %if.end141.i
-  %99 = load ptr, ptr %attr.i, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 24
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %11, i64 24
-  %103 = load ptr, ptr %102, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %101, ptr noundef nonnull align 1 dereferenceable(72) %103, i64 72, i1 false)
+  %91 = load ptr, ptr %attr.i, align 8
+  %92 = getelementptr inbounds i8, ptr %91, i64 24
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds i8, ptr %11, i64 24
+  %95 = load ptr, ptr %94, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %93, ptr noundef nonnull align 1 dereferenceable(72) %95, i64 72, i1 false)
   br label %copy_attr.exit
 
 sw.bb158.i:                                       ; preds = %if.end141.i
-  %104 = load ptr, ptr %attr.i, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 24
-  %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %11, i64 24
-  %108 = load ptr, ptr %107, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %106, ptr noundef nonnull align 1 dereferenceable(64) %108, i64 64, i1 false)
+  %96 = load ptr, ptr %attr.i, align 8
+  %97 = getelementptr inbounds i8, ptr %96, i64 24
+  %98 = load ptr, ptr %97, align 8
+  %99 = getelementptr inbounds i8, ptr %11, i64 24
+  %100 = load ptr, ptr %99, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %98, ptr noundef nonnull align 1 dereferenceable(64) %100, i64 64, i1 false)
   br label %copy_attr.exit
 
 sw.bb159.i:                                       ; preds = %if.end141.i
-  %109 = load ptr, ptr %attr.i, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 24
-  %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %11, i64 24
-  %113 = load ptr, ptr %112, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %111, ptr noundef nonnull align 1 dereferenceable(128) %113, i64 128, i1 false)
+  %101 = load ptr, ptr %attr.i, align 8
+  %102 = getelementptr inbounds i8, ptr %101, i64 24
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds i8, ptr %11, i64 24
+  %105 = load ptr, ptr %104, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %103, ptr noundef nonnull align 1 dereferenceable(128) %105, i64 128, i1 false)
   br label %copy_attr.exit
 
 sw.bb160.i:                                       ; preds = %if.end141.i
+  %106 = load ptr, ptr %attr.i, align 8
+  %107 = getelementptr inbounds i8, ptr %106, i64 24
+  %108 = load ptr, ptr %107, align 8
+  %109 = getelementptr inbounds i8, ptr %11, i64 24
+  %110 = load ptr, ptr %109, align 8
+  %111 = load i32, ptr %110, align 8
+  %height.i = getelementptr inbounds i8, ptr %110, i64 4
+  %112 = load i32, ptr %height.i, align 4
+  %rgba.i = getelementptr inbounds i8, ptr %110, i64 16
+  %113 = load ptr, ptr %rgba.i, align 8
+  %call161.i = call i32 @exr_attr_preview_create(ptr noundef %ctxt, ptr noundef %108, i32 noundef %111, i32 noundef %112, ptr noundef %113) #6
+  br label %sw.epilog181.i
+
+sw.bb162.i:                                       ; preds = %if.end141.i
   %114 = load ptr, ptr %attr.i, align 8
   %115 = getelementptr inbounds i8, ptr %114, i64 24
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds i8, ptr %11, i64 24
   %118 = load ptr, ptr %117, align 8
-  %119 = load i32, ptr %118, align 8
-  %height.i = getelementptr inbounds i8, ptr %118, i64 4
-  %120 = load i32, ptr %height.i, align 4
-  %rgba.i = getelementptr inbounds i8, ptr %118, i64 16
-  %121 = load ptr, ptr %rgba.i, align 8
-  %call161.i = call i32 @exr_attr_preview_create(ptr noundef %ctxt, ptr noundef %116, i32 noundef %119, i32 noundef %120, ptr noundef %121) #6
-  br label %sw.epilog181.i
-
-sw.bb162.i:                                       ; preds = %if.end141.i
-  %122 = load ptr, ptr %attr.i, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 24
-  %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %11, i64 24
-  %126 = load ptr, ptr %125, align 8
-  %127 = load i64, ptr %126, align 1
-  store i64 %127, ptr %124, align 1
+  %119 = load i64, ptr %118, align 1
+  store i64 %119, ptr %116, align 1
   br label %copy_attr.exit
 
 sw.bb163.i:                                       ; preds = %if.end141.i
-  %128 = load ptr, ptr %attr.i, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 24
-  %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds i8, ptr %11, i64 24
-  %132 = load ptr, ptr %131, align 8
-  %str.i = getelementptr inbounds i8, ptr %132, i64 8
-  %133 = load ptr, ptr %str.i, align 8
-  %134 = load i32, ptr %132, align 8
-  %call165.i = call i32 @exr_attr_string_create_with_length(ptr noundef %ctxt, ptr noundef %130, ptr noundef %133, i32 noundef %134) #6
+  %120 = load ptr, ptr %attr.i, align 8
+  %121 = getelementptr inbounds i8, ptr %120, i64 24
+  %122 = load ptr, ptr %121, align 8
+  %123 = getelementptr inbounds i8, ptr %11, i64 24
+  %124 = load ptr, ptr %123, align 8
+  %str.i = getelementptr inbounds i8, ptr %124, i64 8
+  %125 = load ptr, ptr %str.i, align 8
+  %126 = load i32, ptr %124, align 8
+  %call165.i = call i32 @exr_attr_string_create_with_length(ptr noundef %ctxt, ptr noundef %122, ptr noundef %125, i32 noundef %126) #6
   br label %sw.epilog181.i
 
 sw.bb166.i:                                       ; preds = %if.end141.i
-  %135 = load ptr, ptr %attr.i, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 24
-  %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %11, i64 24
-  %139 = load ptr, ptr %138, align 8
-  %call167.i = call i32 @exr_attr_string_vector_copy(ptr noundef %ctxt, ptr noundef %137, ptr noundef %139) #6
+  %127 = load ptr, ptr %attr.i, align 8
+  %128 = getelementptr inbounds i8, ptr %127, i64 24
+  %129 = load ptr, ptr %128, align 8
+  %130 = getelementptr inbounds i8, ptr %11, i64 24
+  %131 = load ptr, ptr %130, align 8
+  %call167.i = call i32 @exr_attr_string_vector_copy(ptr noundef %ctxt, ptr noundef %129, ptr noundef %131) #6
   br label %sw.epilog181.i
 
 sw.bb168.i:                                       ; preds = %if.end141.i
-  %140 = load ptr, ptr %attr.i, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 24
-  %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %11, i64 24
-  %144 = load ptr, ptr %143, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %142, ptr noundef nonnull align 1 dereferenceable(9) %144, i64 9, i1 false)
+  %132 = load ptr, ptr %attr.i, align 8
+  %133 = getelementptr inbounds i8, ptr %132, i64 24
+  %134 = load ptr, ptr %133, align 8
+  %135 = getelementptr inbounds i8, ptr %11, i64 24
+  %136 = load ptr, ptr %135, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %134, ptr noundef nonnull align 1 dereferenceable(9) %136, i64 9, i1 false)
   br label %copy_attr.exit
 
 sw.bb169.i:                                       ; preds = %if.end141.i
-  %145 = load ptr, ptr %attr.i, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 24
-  %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds i8, ptr %11, i64 24
-  %149 = load ptr, ptr %148, align 8
-  %150 = load i64, ptr %149, align 1
-  store i64 %150, ptr %147, align 1
+  %137 = load ptr, ptr %attr.i, align 8
+  %138 = getelementptr inbounds i8, ptr %137, i64 24
+  %139 = load ptr, ptr %138, align 8
+  %140 = getelementptr inbounds i8, ptr %11, i64 24
+  %141 = load ptr, ptr %140, align 8
+  %142 = load i64, ptr %141, align 1
+  store i64 %142, ptr %139, align 1
   br label %copy_attr.exit
 
 sw.bb170.i:                                       ; preds = %if.end141.i
-  %151 = load ptr, ptr %attr.i, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 24
-  %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds i8, ptr %11, i64 24
-  %155 = load ptr, ptr %154, align 8
-  %156 = load i64, ptr %155, align 1
-  store i64 %156, ptr %153, align 1
+  %143 = load ptr, ptr %attr.i, align 8
+  %144 = getelementptr inbounds i8, ptr %143, i64 24
+  %145 = load ptr, ptr %144, align 8
+  %146 = getelementptr inbounds i8, ptr %11, i64 24
+  %147 = load ptr, ptr %146, align 8
+  %148 = load i64, ptr %147, align 1
+  store i64 %148, ptr %145, align 1
   br label %copy_attr.exit
 
 sw.bb171.i:                                       ; preds = %if.end141.i
-  %157 = load ptr, ptr %attr.i, align 8
-  %158 = getelementptr inbounds i8, ptr %157, i64 24
-  %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr inbounds i8, ptr %11, i64 24
-  %161 = load ptr, ptr %160, align 8
-  %162 = load i64, ptr %161, align 1
-  store i64 %162, ptr %159, align 1
+  %149 = load ptr, ptr %attr.i, align 8
+  %150 = getelementptr inbounds i8, ptr %149, i64 24
+  %151 = load ptr, ptr %150, align 8
+  %152 = getelementptr inbounds i8, ptr %11, i64 24
+  %153 = load ptr, ptr %152, align 8
+  %154 = load i64, ptr %153, align 1
+  store i64 %154, ptr %151, align 1
   br label %copy_attr.exit
 
 sw.bb172.i:                                       ; preds = %if.end141.i
-  %163 = load ptr, ptr %attr.i, align 8
-  %164 = getelementptr inbounds i8, ptr %163, i64 24
-  %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds i8, ptr %11, i64 24
-  %167 = load ptr, ptr %166, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %165, ptr noundef nonnull align 1 dereferenceable(16) %167, i64 16, i1 false)
+  %155 = load ptr, ptr %attr.i, align 8
+  %156 = getelementptr inbounds i8, ptr %155, i64 24
+  %157 = load ptr, ptr %156, align 8
+  %158 = getelementptr inbounds i8, ptr %11, i64 24
+  %159 = load ptr, ptr %158, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %157, ptr noundef nonnull align 1 dereferenceable(16) %159, i64 16, i1 false)
   br label %copy_attr.exit
 
 sw.bb173.i:                                       ; preds = %if.end141.i
-  %168 = load ptr, ptr %attr.i, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 24
-  %170 = load ptr, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %11, i64 24
-  %172 = load ptr, ptr %171, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %170, ptr noundef nonnull align 1 dereferenceable(12) %172, i64 12, i1 false)
+  %160 = load ptr, ptr %attr.i, align 8
+  %161 = getelementptr inbounds i8, ptr %160, i64 24
+  %162 = load ptr, ptr %161, align 8
+  %163 = getelementptr inbounds i8, ptr %11, i64 24
+  %164 = load ptr, ptr %163, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %162, ptr noundef nonnull align 1 dereferenceable(12) %164, i64 12, i1 false)
   br label %copy_attr.exit
 
 sw.bb174.i:                                       ; preds = %if.end141.i
-  %173 = load ptr, ptr %attr.i, align 8
-  %174 = getelementptr inbounds i8, ptr %173, i64 24
-  %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr inbounds i8, ptr %11, i64 24
-  %177 = load ptr, ptr %176, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %175, ptr noundef nonnull align 1 dereferenceable(12) %177, i64 12, i1 false)
+  %165 = load ptr, ptr %attr.i, align 8
+  %166 = getelementptr inbounds i8, ptr %165, i64 24
+  %167 = load ptr, ptr %166, align 8
+  %168 = getelementptr inbounds i8, ptr %11, i64 24
+  %169 = load ptr, ptr %168, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %167, ptr noundef nonnull align 1 dereferenceable(12) %169, i64 12, i1 false)
   br label %copy_attr.exit
 
 sw.bb175.i:                                       ; preds = %if.end141.i
-  %178 = load ptr, ptr %attr.i, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 24
-  %180 = load ptr, ptr %179, align 8
-  %181 = getelementptr inbounds i8, ptr %11, i64 24
-  %182 = load ptr, ptr %181, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %180, ptr noundef nonnull align 1 dereferenceable(24) %182, i64 24, i1 false)
+  %170 = load ptr, ptr %attr.i, align 8
+  %171 = getelementptr inbounds i8, ptr %170, i64 24
+  %172 = load ptr, ptr %171, align 8
+  %173 = getelementptr inbounds i8, ptr %11, i64 24
+  %174 = load ptr, ptr %173, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %172, ptr noundef nonnull align 1 dereferenceable(24) %174, i64 24, i1 false)
   br label %copy_attr.exit
 
 sw.bb176.i:                                       ; preds = %if.end141.i
-  %183 = load ptr, ptr %attr.i, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 24
-  %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds i8, ptr %11, i64 24
-  %187 = load ptr, ptr %186, align 8
-  %call177.i = call i32 @exr_attr_opaquedata_copy(ptr noundef %ctxt, ptr noundef %185, ptr noundef %187) #6
+  %175 = load ptr, ptr %attr.i, align 8
+  %176 = getelementptr inbounds i8, ptr %175, i64 24
+  %177 = load ptr, ptr %176, align 8
+  %178 = getelementptr inbounds i8, ptr %11, i64 24
+  %179 = load ptr, ptr %178, align 8
+  %call177.i = call i32 @exr_attr_opaquedata_copy(ptr noundef %ctxt, ptr noundef %177, ptr noundef %179) #6
   br label %sw.epilog181.i
 
 sw.default179.i:                                  ; preds = %if.end141.i
-  %188 = load ptr, ptr %standard_error.i, align 8
-  %call180.i = call i32 %188(ptr noundef %ctxt, i32 noundef 14) #6
+  %180 = load ptr, ptr %standard_error.i, align 8
+  %call180.i = call i32 %180(ptr noundef %ctxt, i32 noundef 14) #6
   br label %sw.epilog181.i
 
 sw.epilog181.i:                                   ; preds = %sw.default179.i, %sw.bb176.i, %sw.bb166.i, %sw.bb163.i, %sw.bb160.i, %sw.bb151.i, %sw.bb144.i
@@ -2154,8 +2144,8 @@ sw.epilog181.i:                                   ; preds = %sw.default179.i, %s
   br i1 %cmp182.not.i, label %copy_attr.exit, label %if.then184.i
 
 if.then184.i:                                     ; preds = %sw.epilog181.i
-  %189 = load ptr, ptr %attr.i, align 8
-  %call186.i = call i32 @exr_attr_list_remove(ptr noundef %ctxt, ptr noundef nonnull %attributes29, ptr noundef %189) #6
+  %181 = load ptr, ptr %attr.i, align 8
+  %call186.i = call i32 @exr_attr_list_remove(ptr noundef %ctxt, ptr noundef nonnull %attributes29, ptr noundef %181) #6
   br label %copy_attr.exit
 
 copy_attr.exit:                                   ; preds = %if.end137.i, %sw.bb142.i, %sw.bb143.i, %sw.bb146.i, %sw.bb147.i, %sw.bb148.i, %sw.bb149.i, %sw.bb150.i, %sw.bb153.i, %sw.bb154.i, %sw.bb155.i, %sw.bb156.i, %sw.bb157.i, %sw.bb158.i, %sw.bb159.i, %sw.bb162.i, %sw.bb168.i, %sw.bb169.i, %sw.bb170.i, %sw.bb171.i, %sw.bb172.i, %sw.bb173.i, %sw.bb174.i, %sw.bb175.i, %sw.epilog181.i, %if.then184.i

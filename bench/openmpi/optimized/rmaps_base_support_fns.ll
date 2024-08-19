@@ -118,7 +118,7 @@ define noundef i32 @prte_rmaps_base_filter_nodes(ptr noundef %0, ptr noundef %1,
   %26 = load ptr, ptr %4, align 8
   %27 = icmp ne ptr %26, null
   %or.cond3 = select i1 %25, i1 %27, i1 false
-  br i1 %or.cond3, label %28, label %41
+  br i1 %or.cond3, label %28, label %42
 
 28:                                               ; preds = %24
   %29 = call i32 @prte_util_filter_dash_host_nodes(ptr noundef %1, ptr noundef nonnull %26, i1 noundef zeroext %2) #10
@@ -147,11 +147,11 @@ define noundef i32 @prte_rmaps_base_filter_nodes(ptr noundef %0, ptr noundef %1,
 
 .sink.split:                                      ; preds = %32, %30, %28, %11, %9, %17, %36
   %.020.ph = phi i32 [ -43, %36 ], [ -43, %17 ], [ %10, %9 ], [ %10, %11 ], [ %29, %28 ], [ %29, %30 ], [ 0, %32 ]
-  %.sink = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %.sink) #10
-  br label %41
+  %41 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %41) #10
+  br label %42
 
-41:                                               ; preds = %.sink.split, %24
+42:                                               ; preds = %.sink.split, %24
   %.020 = phi i32 [ %.0, %24 ], [ %.020.ph, %.sink.split ]
   ret i32 %.020
 }

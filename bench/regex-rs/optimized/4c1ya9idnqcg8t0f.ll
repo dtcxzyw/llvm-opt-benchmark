@@ -2063,7 +2063,7 @@ define hidden void @_ZN12regex_syntax3hir7literal9Extractor5union17h280375568fab
 .thread:                                          ; preds = %4
   %13 = getelementptr inbounds i8, ptr %1, i64 24
   %.val50 = load i64, ptr %13, align 8
-  br label %.thread60
+  br label %.thread59
 
 .loopexit:                                        ; preds = %112, %.noexc33
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -2071,24 +2071,24 @@ define hidden void @_ZN12regex_syntax3hir7literal9Extractor5union17h280375568fab
   br label %.body
 
 .loopexit.split-lp.loopexit:                      ; preds = %.noexc19, %76
-  %lpad.loopexit73 = landingpad { ptr, i32 }
+  %lpad.loopexit80 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %56, %54, %53, %36, %146, %128, %124
-  %lpad.loopexit.split-lp74 = landingpad { ptr, i32 }
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %56, %54, %53, %36, %145, %128, %124
+  %lpad.loopexit.split-lp81 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %139
-  %eh.lpad-body.ph = phi { ptr, i32 } [ %140, %139 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit73, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp74, %.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body.ph = phi { ptr, i32 } [ %140, %139 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit80, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp81, %.loopexit.split-lp.loopexit.split-lp ]
   %.pr = load i64, ptr %2, align 8, !alias.scope !442
   %14 = icmp eq i64 %.pr, -9223372036854775808
   br i1 %14, label %"_ZN4core3ptr52drop_in_place$LT$regex_syntax..hir..literal..Seq$GT$17h4931f889ab02a353E.exit", label %15
 
 15:                                               ; preds = %.body
   invoke void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$regex_syntax..hir..literal..Literal$GT$$GT$17h2bdd4734cd954b50E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-          to label %"_ZN4core3ptr52drop_in_place$LT$regex_syntax..hir..literal..Seq$GT$17h4931f889ab02a353E.exit" unwind label %148
+          to label %"_ZN4core3ptr52drop_in_place$LT$regex_syntax..hir..literal..Seq$GT$17h4931f889ab02a353E.exit" unwind label %147
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds i8, ptr %2, i64 16
@@ -2099,7 +2099,7 @@ define hidden void @_ZN12regex_syntax3hir7literal9Extractor5union17h280375568fab
   %22 = getelementptr inbounds i8, ptr %1, i64 24
   %.val = load i64, ptr %22, align 8
   %23 = icmp ult i64 %.val, %21
-  br i1 %23, label %24, label %.thread60.thread
+  br i1 %23, label %24, label %.thread59.thread
 
 24:                                               ; preds = %16
   %25 = getelementptr inbounds i8, ptr %1, i64 32
@@ -2109,14 +2109,14 @@ define hidden void @_ZN12regex_syntax3hir7literal9Extractor5union17h280375568fab
   %28 = icmp eq i64 %18, 0
   br i1 %trunc, label %65, label %57
 
-.thread60.thread:                                 ; preds = %133, %16
+.thread59.thread:                                 ; preds = %133, %16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8), !noalias !452
   br label %36
 
-.thread60:                                        ; preds = %.thread, %129
+.thread59:                                        ; preds = %.thread, %129
   %29 = phi i64 [ %130, %129 ], [ %9, %.thread ]
-  %.pr54 = phi i64 [ %.pre79, %129 ], [ %11, %.thread ]
+  %.pr54 = phi i64 [ %.pre86, %129 ], [ %11, %.thread ]
   %.val53.ph = phi i64 [ %.val, %129 ], [ %.val50, %.thread ]
   call void @llvm.experimental.noalias.scope.decl(metadata !456)
   call void @llvm.experimental.noalias.scope.decl(metadata !458)
@@ -2125,9 +2125,8 @@ define hidden void @_ZN12regex_syntax3hir7literal9Extractor5union17h280375568fab
   %30 = icmp eq i64 %.pr54, -9223372036854775808
   br i1 %30, label %31, label %36
 
-31:                                               ; preds = %.thread60.thread89, %.thread55, %.thread60
-  %32 = phi i64 [ %.pre81, %.thread55 ], [ %29, %.thread60 ], [ %127, %.thread60.thread89 ]
-  %.val5359 = phi i64 [ %.val, %.thread55 ], [ %.val53.ph, %.thread60 ], [ %.val, %.thread60.thread89 ]
+31:                                               ; preds = %.thread59.thread96, %.thread55, %.thread59
+  %32 = phi i64 [ %.pre88, %.thread55 ], [ %29, %.thread59 ], [ %127, %.thread59.thread96 ]
   %33 = icmp eq i64 %32, -9223372036854775808
   br i1 %33, label %_ZN12regex_syntax3hir7literal3Seq13make_infinite17h7a2ed4b13adeb66dE.llvm.12578941820218715555.exit.i, label %34
 
@@ -2143,10 +2142,10 @@ define hidden void @_ZN12regex_syntax3hir7literal9Extractor5union17h280375568fab
 
 _ZN12regex_syntax3hir7literal3Seq13make_infinite17h7a2ed4b13adeb66dE.llvm.12578941820218715555.exit.i: ; preds = %34, %31
   store i64 -9223372036854775808, ptr %2, align 8, !alias.scope !461, !noalias !458
-  br label %.noexc11
+  br label %.thread66
 
-36:                                               ; preds = %.thread60.thread, %.thread60
-  %.val53.ph84 = phi i64 [ %.val, %.thread60.thread ], [ %.val53.ph, %.thread60 ]
+36:                                               ; preds = %.thread59.thread, %.thread59
+  %.val53.ph91 = phi i64 [ %.val, %.thread59.thread ], [ %.val53.ph, %.thread59 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !464)
   call void @llvm.experimental.noalias.scope.decl(metadata !467)
   %37 = getelementptr inbounds i8, ptr %3, i64 16
@@ -2176,14 +2175,9 @@ _ZN12regex_syntax3hir7literal3Seq13make_infinite17h7a2ed4b13adeb66dE.llvm.125789
   %52 = icmp eq i64 %51, -9223372036854775808
   br i1 %52, label %53, label %54
 
-.noexc11:                                         ; preds = %53, %_ZN12regex_syntax3hir7literal3Seq13make_infinite17h7a2ed4b13adeb66dE.llvm.12578941820218715555.exit.i
-  %.val5358 = phi i64 [ %.val5359, %_ZN12regex_syntax3hir7literal3Seq13make_infinite17h7a2ed4b13adeb66dE.llvm.12578941820218715555.exit.i ], [ %.val53.ph84, %53 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8), !noalias !460
-  br label %141
-
 53:                                               ; preds = %.noexc10
   invoke void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h56e50057d51ffb8bE.llvm.15241997999693184539"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
-          to label %.noexc11 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %141 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 54:                                               ; preds = %.noexc10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !noalias !460
@@ -2191,17 +2185,13 @@ _ZN12regex_syntax3hir7literal3Seq13make_infinite17h7a2ed4b13adeb66dE.llvm.125789
           to label %.noexc12 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc12:                                         ; preds = %54
-  %55 = load i64, ptr %2, align 8, !range !4, !alias.scope !456, !noalias !458, !noundef !5
+  %55 = load i64, ptr %2, align 8, !range !4, !noundef !5
   %.not.i = icmp eq i64 %55, -9223372036854775808
-  br i1 %.not.i, label %.noexc13, label %56
+  br i1 %.not.i, label %.thread66, label %56
 
 56:                                               ; preds = %.noexc12
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8dedup_by17hf52fca98c0e8c61aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-          to label %.noexc13 unwind label %.loopexit.split-lp.loopexit.split-lp
-
-.noexc13:                                         ; preds = %56, %.noexc12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8), !noalias !460
-  br label %141
+          to label %141 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 57:                                               ; preds = %24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !472)
@@ -2322,9 +2312,9 @@ _ZN12regex_syntax3hir7literal3Seq16keep_first_bytes17ha1d3f8fe8f429435E.llvm.125
   br i1 %.not, label %125, label %124
 
 _ZN12regex_syntax3hir7literal3Seq15keep_last_bytes17h374fb9b452d60b0eE.llvm.12578941820218715555.exit: ; preds = %_ZN12regex_syntax3hir7literal7Literal15keep_last_bytes17h47d45f27dd822776E.exit.i
-  %.pre78 = load i64, ptr %3, align 8, !range !4, !alias.scope !505
+  %.pre85 = load i64, ptr %3, align 8, !range !4, !alias.scope !505
   call void @llvm.experimental.noalias.scope.decl(metadata !505)
-  %.not.i28 = icmp eq i64 %.pre78, -9223372036854775808
+  %.not.i28 = icmp eq i64 %.pre85, -9223372036854775808
   br i1 %.not.i28, label %_ZN12regex_syntax3hir7literal3Seq16keep_first_bytes17ha1d3f8fe8f429435E.llvm.12578941820218715555.exit27, label %_ZN12regex_syntax3hir7literal3Seq15keep_last_bytes17h374fb9b452d60b0eE.llvm.12578941820218715555.exit.thread
 
 _ZN12regex_syntax3hir7literal3Seq15keep_last_bytes17h374fb9b452d60b0eE.llvm.12578941820218715555.exit.thread: ; preds = %65, %_ZN12regex_syntax3hir7literal3Seq15keep_last_bytes17h374fb9b452d60b0eE.llvm.12578941820218715555.exit
@@ -2393,9 +2383,9 @@ _ZN12regex_syntax3hir7literal7Literal15keep_last_bytes17h47d45f27dd822776E.exit.
 125:                                              ; preds = %124, %_ZN12regex_syntax3hir7literal3Seq16keep_first_bytes17ha1d3f8fe8f429435E.llvm.12578941820218715555.exit27
   %126 = load i64, ptr %3, align 8, !range !4, !noundef !5
   %.not7 = icmp eq i64 %126, -9223372036854775808
-  br i1 %.not7, label %.thread60.thread89, label %128
+  br i1 %.not7, label %.thread59.thread96, label %128
 
-.thread60.thread89:                               ; preds = %125
+.thread59.thread96:                               ; preds = %125
   %127 = load i64, ptr %2, align 8, !range !4, !noalias !5, !noundef !5
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8), !noalias !520
@@ -2406,21 +2396,21 @@ _ZN12regex_syntax3hir7literal7Literal15keep_last_bytes17h47d45f27dd822776E.exit.
           to label %129 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 129:                                              ; preds = %128
-  %.pre79 = load i64, ptr %3, align 8
+  %.pre86 = load i64, ptr %3, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !523)
   call void @llvm.experimental.noalias.scope.decl(metadata !526)
   %130 = load i64, ptr %2, align 8, !range !4, !noalias !5, !noundef !5
   %131 = icmp eq i64 %130, -9223372036854775808
-  %132 = icmp eq i64 %.pre79, -9223372036854775808
+  %132 = icmp eq i64 %.pre86, -9223372036854775808
   %or.cond.i36 = select i1 %131, i1 true, i1 %132
-  br i1 %or.cond.i36, label %.thread60, label %133
+  br i1 %or.cond.i36, label %.thread59, label %133
 
 133:                                              ; preds = %129
   %134 = load i64, ptr %17, align 8, !alias.scope !523, !noalias !526, !noundef !5
   %135 = load i64, ptr %19, align 8, !alias.scope !526, !noalias !523, !noundef !5
   %136 = call i64 @llvm.uadd.sat.i64(i64 %134, i64 %135)
   %137 = icmp ult i64 %.val, %136
-  br i1 %137, label %138, label %.thread60.thread
+  br i1 %137, label %138, label %.thread59.thread
 
 138:                                              ; preds = %133
   invoke void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$regex_syntax..hir..literal..Literal$GT$$GT$17h2bdd4734cd954b50E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
@@ -2436,33 +2426,38 @@ _ZN12regex_syntax3hir7literal7Literal15keep_last_bytes17h47d45f27dd822776E.exit.
   store i64 -9223372036854775808, ptr %3, align 8, !alias.scope !528
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8), !noalias !531
-  %.pre81 = load i64, ptr %2, align 8, !range !4, !alias.scope !534, !noalias !458
+  %.pre88 = load i64, ptr %2, align 8, !range !4, !alias.scope !534, !noalias !458
   br label %31
 
-141:                                              ; preds = %.noexc13, %.noexc11
-  %.val5357 = phi i64 [ %.val5358, %.noexc11 ], [ %.val53.ph84, %.noexc13 ]
+.thread66:                                        ; preds = %.noexc12, %_ZN12regex_syntax3hir7literal3Seq13make_infinite17h7a2ed4b13adeb66dE.llvm.12578941820218715555.exit.i
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8), !noalias !460
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
-  %142 = load i64, ptr %2, align 8, !range !4, !noundef !5
-  %143 = icmp ne i64 %142, -9223372036854775808
-  %144 = getelementptr inbounds i8, ptr %2, i64 16
-  %145 = load i64, ptr %144, align 8
-  %.not71 = icmp ult i64 %.val5357, %145
-  %or.cond = select i1 %143, i1 %.not71, i1 false
-  br i1 %or.cond, label %146, label %.thread65
+  br label %.thread71
 
-146:                                              ; preds = %141
+141:                                              ; preds = %53, %56
+  %.pr65 = load i64, ptr %2, align 8
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8), !noalias !460
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
+  %142 = icmp ne i64 %.pr65, -9223372036854775808
+  %143 = getelementptr inbounds i8, ptr %2, i64 16
+  %144 = load i64, ptr %143, align 8
+  %.not78 = icmp ult i64 %.val53.ph91, %144
+  %or.cond = select i1 %142, i1 %.not78, i1 false
+  br i1 %or.cond, label %145, label %.thread71
+
+145:                                              ; preds = %141
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.af71731a07818c7d8d295102c5fb6fdb.29.llvm.12578941820218715555, i64 noundef 68, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.af71731a07818c7d8d295102c5fb6fdb.31) #21
-          to label %147 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %146 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.thread65:                                        ; preds = %141
+.thread71:                                        ; preds = %.thread66, %141
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   ret void
 
-147:                                              ; preds = %146
+146:                                              ; preds = %145
   unreachable
 
-148:                                              ; preds = %15
-  %149 = landingpad { ptr, i32 }
+147:                                              ; preds = %15
+  %148 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #23
   unreachable
@@ -2812,11 +2807,11 @@ define hidden void @_ZN12regex_syntax3hir7literal3Seq13cross_forward17h37f4e3726
   %77 = add i64 %76, 1
   store i64 %77, ptr %14, align 8, !alias.scope !579, !noalias !582
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.8)
   br label %.backedge
 
 .backedge:                                        ; preds = %72, %91
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.8)
   %78 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !584, !noalias !571, !noundef !5
   %79 = load ptr, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !584, !noalias !571, !noundef !5
@@ -2852,8 +2847,6 @@ define hidden void @_ZN12regex_syntax3hir7literal3Seq13cross_forward17h37f4e3726
 
 91:                                               ; preds = %.noexc, %82
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !586
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.8)
   br label %.backedge
 
 92:                                               ; preds = %.lr.ph

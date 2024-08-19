@@ -6195,8 +6195,8 @@ _ZL13gmx_snew_implIP7t_atomsEvPKcS3_iRPT_m.exit833.preheader: ; preds = %_ZL13gm
           cleanup
   br label %.body856
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke5525, %.invoke5523, %.invoke, %4857, %.loopexit1721, %4932, %_ZL13gmx_snew_implI7t_atomsEvPKcS2_iRPT_m.exit1185, %5094, %5112, %5115, %_ZNSt10filesystem7__cxx114pathD2Ev.exit1206, %5126, %5127, %_ZNSt10filesystem7__cxx114pathD2Ev.exit830, %_ZL13gmx_snew_implIP7t_atomsEvPKcS3_iRPT_m.exit, %1794, %1896, %1998, %2100, %2203, %2307, %3480, %3667, %4871, %._crit_edge2956, %._crit_edge2961, %5040, %._crit_edge2983, %_ZL14gmx_sfree_implIP7t_atomsEvPKcS3_iPT_.exit, %_ZL14gmx_sfree_implIP7t_atomsEvPKcS3_iPT_.exit1212, %_ZL14gmx_sfree_implI7t_atomsEvPKcS2_iPT_.exit1214, %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit, %5176
-  %.sroa.01524.0.ph.ph.ph.ph.ph.ph1747.ph.ph.ph.ph.ph.ph.ph.ph.ph = phi ptr [ null, %_ZNSt10filesystem7__cxx114pathD2Ev.exit830 ], [ null, %_ZL13gmx_snew_implIP7t_atomsEvPKcS3_iRPT_m.exit ], [ %.sroa.01524.1.lcssa3932, %4871 ], [ %.sroa.01524.1.lcssa3931, %.loopexit1721 ], [ %.sroa.01524.1.lcssa3931, %4932 ], [ %.sroa.01524.1.lcssa3931, %._crit_edge2956 ], [ %.sroa.01524.1.lcssa3931, %_ZL13gmx_snew_implI7t_atomsEvPKcS2_iRPT_m.exit1185 ], [ %.sroa.01524.1.lcssa3931, %._crit_edge2961 ], [ %.sroa.01524.1.lcssa3931, %5094 ], [ %.sroa.01524.1.lcssa3931, %5112 ], [ %.sroa.01524.1.lcssa3931, %5115 ], [ %.sroa.01524.1.lcssa3931, %_ZNSt10filesystem7__cxx114pathD2Ev.exit1206 ], [ %.sroa.01524.1.lcssa3931, %5126 ], [ %.sroa.01524.1.lcssa3931, %5127 ], [ %.sroa.01524.1.lcssa3931, %._crit_edge2983 ], [ %.sroa.01524.1.lcssa3931, %_ZL14gmx_sfree_implIP7t_atomsEvPKcS3_iPT_.exit ], [ %.sroa.01524.1.lcssa3931, %_ZL14gmx_sfree_implIP7t_atomsEvPKcS3_iPT_.exit1212 ], [ %.sroa.01524.1.lcssa3931, %_ZL14gmx_sfree_implI7t_atomsEvPKcS2_iPT_.exit1214 ], [ %.sroa.01524.1.lcssa3931, %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit ], [ %.sroa.01524.1.lcssa3931, %5176 ], [ %.sroa.01524.1.lcssa3931, %5040 ], [ %.sroa.01524.4.lcssa, %4857 ], [ %.sroa.01524.12945, %1794 ], [ %.sroa.01524.12945, %1896 ], [ %.sroa.01524.12945, %1998 ], [ %.sroa.01524.12945, %2100 ], [ %.sroa.01524.12945, %2203 ], [ %.sroa.01524.12945, %2307 ], [ %.sroa.01524.42933, %3480 ], [ %.sroa.01524.5, %3667 ], [ %.sroa.01524.12945, %.invoke ], [ %3328, %.invoke5523 ], [ %3515, %.invoke5525 ]
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke5526, %.invoke5524, %.invoke, %4857, %.loopexit1721, %4932, %_ZL13gmx_snew_implI7t_atomsEvPKcS2_iRPT_m.exit1185, %5094, %5112, %5115, %_ZNSt10filesystem7__cxx114pathD2Ev.exit1206, %5126, %5127, %_ZNSt10filesystem7__cxx114pathD2Ev.exit830, %_ZL13gmx_snew_implIP7t_atomsEvPKcS3_iRPT_m.exit, %1794, %1896, %1998, %2100, %2203, %2307, %3480, %3667, %4871, %._crit_edge2956, %._crit_edge2961, %5040, %._crit_edge2983, %_ZL14gmx_sfree_implIP7t_atomsEvPKcS3_iPT_.exit, %_ZL14gmx_sfree_implIP7t_atomsEvPKcS3_iPT_.exit1212, %_ZL14gmx_sfree_implI7t_atomsEvPKcS2_iPT_.exit1214, %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit, %5176
+  %.sroa.01524.0.ph.ph.ph.ph.ph.ph1747.ph.ph.ph.ph.ph.ph.ph.ph.ph = phi ptr [ null, %_ZNSt10filesystem7__cxx114pathD2Ev.exit830 ], [ null, %_ZL13gmx_snew_implIP7t_atomsEvPKcS3_iRPT_m.exit ], [ %.sroa.01524.1.lcssa3932, %4871 ], [ %.sroa.01524.1.lcssa3931, %.loopexit1721 ], [ %.sroa.01524.1.lcssa3931, %4932 ], [ %.sroa.01524.1.lcssa3931, %._crit_edge2956 ], [ %.sroa.01524.1.lcssa3931, %_ZL13gmx_snew_implI7t_atomsEvPKcS2_iRPT_m.exit1185 ], [ %.sroa.01524.1.lcssa3931, %._crit_edge2961 ], [ %.sroa.01524.1.lcssa3931, %5094 ], [ %.sroa.01524.1.lcssa3931, %5112 ], [ %.sroa.01524.1.lcssa3931, %5115 ], [ %.sroa.01524.1.lcssa3931, %_ZNSt10filesystem7__cxx114pathD2Ev.exit1206 ], [ %.sroa.01524.1.lcssa3931, %5126 ], [ %.sroa.01524.1.lcssa3931, %5127 ], [ %.sroa.01524.1.lcssa3931, %._crit_edge2983 ], [ %.sroa.01524.1.lcssa3931, %_ZL14gmx_sfree_implIP7t_atomsEvPKcS3_iPT_.exit ], [ %.sroa.01524.1.lcssa3931, %_ZL14gmx_sfree_implIP7t_atomsEvPKcS3_iPT_.exit1212 ], [ %.sroa.01524.1.lcssa3931, %_ZL14gmx_sfree_implI7t_atomsEvPKcS2_iPT_.exit1214 ], [ %.sroa.01524.1.lcssa3931, %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit ], [ %.sroa.01524.1.lcssa3931, %5176 ], [ %.sroa.01524.1.lcssa3931, %5040 ], [ %.sroa.01524.4.lcssa, %4857 ], [ %.sroa.01524.12945, %1794 ], [ %.sroa.01524.12945, %1896 ], [ %.sroa.01524.12945, %1998 ], [ %.sroa.01524.12945, %2100 ], [ %.sroa.01524.12945, %2203 ], [ %.sroa.01524.12945, %2307 ], [ %.sroa.01524.42933, %3480 ], [ %.sroa.01524.5, %3667 ], [ %.sroa.01524.12945, %.invoke ], [ %3328, %.invoke5524 ], [ %3515, %.invoke5526 ]
   %lpad.loopexit.split-lp1784 = landingpad { ptr, i32 }
           cleanup
   br label %.body856
@@ -10250,12 +10250,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit222.i: ; preds = %2950
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %34)
   %2990 = icmp eq i32 %2966, %2971
-  br i1 %2990, label %.thread1660, label %2991
-
-.thread1660:                                      ; preds = %2973
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %33)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34)
-  br label %3166
+  br i1 %2990, label %.sink.split4747, label %2991
 
 2991:                                             ; preds = %2973
   %2992 = getelementptr inbounds i8, ptr %2974, i64 48
@@ -10470,9 +10465,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit222.i: ; preds = %2950
 
 .thread1663:                                      ; preds = %3071, %.loopexit.i914
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #28
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %33)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34)
-  br label %3166
+  br label %.sink.split4747
 
 3096:                                             ; preds = %3071
   %3097 = fmul float %2989, %2989
@@ -10635,7 +10628,12 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit935:       ; preds = %_ZNSt6vectorIiSaIiE
   store i32 -1, ptr %3165, align 4
   br label %3168
 
-3166:                                             ; preds = %.thread1663, %.thread1660, %3096
+.sink.split4747:                                  ; preds = %2973, %.thread1663
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34)
+  br label %3166
+
+3166:                                             ; preds = %.sink.split4747, %3096
   %3167 = add nsw i32 %.55122928, 1
   br label %3168
 
@@ -11050,13 +11048,13 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit960: ; preds = %3337
   %3352 = ptrtoint ptr %3350 to i64
   %3353 = sub i64 %3351, %3352
   %3354 = icmp eq i64 %3353, 9223372036854775800
-  br i1 %3354, label %.invoke5523, label %_ZNKSt6vectorIP21MoleculePatchDatabaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+  br i1 %3354, label %.invoke5524, label %_ZNKSt6vectorIP21MoleculePatchDatabaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
 
-.invoke5523:                                      ; preds = %3428, %3399, %3349
+.invoke5524:                                      ; preds = %3428, %3399, %3349
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.185) #31
-          to label %.cont5524 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.cont5525 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.cont5524:                                        ; preds = %.invoke5523
+.cont5525:                                        ; preds = %.invoke5524
   unreachable
 
 _ZNKSt6vectorIP21MoleculePatchDatabaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %3349
@@ -11147,7 +11145,7 @@ _ZNSt6vectorIP21MoleculePatchDatabaseSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu
   %3402 = ptrtoint ptr %3400 to i64
   %3403 = sub i64 %3401, %3402
   %3404 = icmp eq i64 %3403, 9223372036854775800
-  br i1 %3404, label %.invoke5523, label %_ZNKSt6vectorIP21MoleculePatchDatabaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i966
+  br i1 %3404, label %.invoke5524, label %_ZNKSt6vectorIP21MoleculePatchDatabaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i966
 
 _ZNKSt6vectorIP21MoleculePatchDatabaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i966: ; preds = %3399
   %3405 = ashr exact i64 %3403, 3
@@ -11212,7 +11210,7 @@ _ZNSt6vectorIP21MoleculePatchDatabaseSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu
   %3431 = ptrtoint ptr %3429 to i64
   %3432 = sub i64 %3430, %3431
   %3433 = icmp eq i64 %3432, 9223372036854775800
-  br i1 %3433, label %.invoke5523, label %_ZNKSt6vectorIP21MoleculePatchDatabaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i
+  br i1 %3433, label %.invoke5524, label %_ZNKSt6vectorIP21MoleculePatchDatabaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
 _ZNKSt6vectorIP21MoleculePatchDatabaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %3428
   %3434 = ashr exact i64 %3432, 3
@@ -11442,13 +11440,13 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit1000: ; preds = %3524
   %3539 = ptrtoint ptr %3537 to i64
   %3540 = sub i64 %3538, %3539
   %3541 = icmp eq i64 %3540, 9223372036854775800
-  br i1 %3541, label %.invoke5525, label %_ZNKSt6vectorIP21MoleculePatchDatabaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i1002
+  br i1 %3541, label %.invoke5526, label %_ZNKSt6vectorIP21MoleculePatchDatabaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i1002
 
-.invoke5525:                                      ; preds = %3615, %3586, %3536
+.invoke5526:                                      ; preds = %3615, %3586, %3536
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.185) #31
-          to label %.cont5526 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.cont5527 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.cont5526:                                        ; preds = %.invoke5525
+.cont5527:                                        ; preds = %.invoke5526
   unreachable
 
 _ZNKSt6vectorIP21MoleculePatchDatabaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i1002: ; preds = %3536
@@ -11539,7 +11537,7 @@ _ZNSt6vectorIP21MoleculePatchDatabaseSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu
   %3589 = ptrtoint ptr %3587 to i64
   %3590 = sub i64 %3588, %3589
   %3591 = icmp eq i64 %3590, 9223372036854775800
-  br i1 %3591, label %.invoke5525, label %_ZNKSt6vectorIP21MoleculePatchDatabaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i1013
+  br i1 %3591, label %.invoke5526, label %_ZNKSt6vectorIP21MoleculePatchDatabaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i1013
 
 _ZNKSt6vectorIP21MoleculePatchDatabaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i1013: ; preds = %3586
   %3592 = ashr exact i64 %3590, 3
@@ -11604,7 +11602,7 @@ _ZNSt6vectorIP21MoleculePatchDatabaseSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu
   %3618 = ptrtoint ptr %3616 to i64
   %3619 = sub i64 %3617, %3618
   %3620 = icmp eq i64 %3619, 9223372036854775800
-  br i1 %3620, label %.invoke5525, label %_ZNKSt6vectorIP21MoleculePatchDatabaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i1024
+  br i1 %3620, label %.invoke5526, label %_ZNKSt6vectorIP21MoleculePatchDatabaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i1024
 
 _ZNKSt6vectorIP21MoleculePatchDatabaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i1024: ; preds = %3615
   %3621 = ashr exact i64 %3619, 3
@@ -13732,8 +13730,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1112: 
   br i1 %exitcond3823.not, label %._crit_edge2943, label %4543, !llvm.loop !97
 
 ._crit_edge2943:                                  ; preds = %4543
-  %.not4750 = icmp eq i32 %spec.select605, 0
-  br i1 %.not4750, label %._crit_edge2943.thread, label %4548
+  %.not4751 = icmp eq i32 %spec.select605, 0
+  br i1 %.not4751, label %._crit_edge2943.thread, label %4548
 
 4548:                                             ; preds = %._crit_edge2943
   %4549 = add nuw nsw i32 %spec.select605, 1
@@ -14066,10 +14064,10 @@ _ZNSt6vectorI6t_molsSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit: ; preds = %4644, 
           to label %4657 unwind label %.loopexit.split-lp1743
 
 4657:                                             ; preds = %4655, %4651
-  %.sink4747 = phi i32 [ %4654, %4651 ], [ 1, %4655 ]
+  %.sink4748 = phi i32 [ %4654, %4651 ], [ 1, %4655 ]
   %4658 = load ptr, ptr %1616, align 8
   %4659 = getelementptr inbounds i8, ptr %4658, i64 -8
-  store i32 %.sink4747, ptr %4659, align 8
+  store i32 %.sink4748, ptr %4659, align 8
   %4660 = load i8, ptr %1608, align 2
   %4661 = trunc i8 %4660 to i1
   br i1 %4661, label %4662, label %4671

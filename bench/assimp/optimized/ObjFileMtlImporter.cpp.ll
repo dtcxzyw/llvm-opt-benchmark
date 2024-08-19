@@ -2849,134 +2849,62 @@ if.end:                                           ; preds = %invoke.cont13, %ent
   %9 = load ptr, ptr %m_DataIt, align 8
   %call.i23 = call i32 @strncasecmp(ptr noundef %9, ptr noundef nonnull @_ZN6AssimpL14DiffuseTextureE, i64 noundef 6) #23
   %tobool.not = icmp eq i32 %call.i23, 0
-  br i1 %tobool.not, label %if.then17, label %if.else
-
-if.then17:                                        ; preds = %if.end
-  %10 = load ptr, ptr %m_pModel, align 8
-  %mCurrentMaterial19 = getelementptr inbounds i8, ptr %10, i64 64
-  %11 = load ptr, ptr %mCurrentMaterial19, align 8
-  %texture = getelementptr inbounds i8, ptr %11, i64 1028
-  store ptr %texture, ptr %out, align 8
-  store i32 0, ptr %clampIndex, align 4
-  br label %if.end121
+  br i1 %tobool.not, label %if.end121, label %if.else
 
 if.else:                                          ; preds = %if.end
   %call.i24 = call i32 @strncasecmp(ptr noundef %9, ptr noundef nonnull @_ZN6AssimpL14AmbientTextureE, i64 noundef 6) #23
   %tobool21.not = icmp eq i32 %call.i24, 0
-  br i1 %tobool21.not, label %if.then22, label %if.else25
-
-if.then22:                                        ; preds = %if.else
-  %12 = load ptr, ptr %m_pModel, align 8
-  %mCurrentMaterial24 = getelementptr inbounds i8, ptr %12, i64 64
-  %13 = load ptr, ptr %mCurrentMaterial24, align 8
-  %textureAmbient = getelementptr inbounds i8, ptr %13, i64 3084
-  store ptr %textureAmbient, ptr %out, align 8
-  store i32 2, ptr %clampIndex, align 4
-  br label %if.end121
+  br i1 %tobool21.not, label %if.end121, label %if.else25
 
 if.else25:                                        ; preds = %if.else
   %call.i25 = call i32 @strncasecmp(ptr noundef %9, ptr noundef nonnull @_ZN6AssimpL15SpecularTextureE, i64 noundef 6) #23
   %tobool27.not = icmp eq i32 %call.i25, 0
-  br i1 %tobool27.not, label %if.then28, label %if.else31
-
-if.then28:                                        ; preds = %if.else25
-  %14 = load ptr, ptr %m_pModel, align 8
-  %mCurrentMaterial30 = getelementptr inbounds i8, ptr %14, i64 64
-  %15 = load ptr, ptr %mCurrentMaterial30, align 8
-  %textureSpecular = getelementptr inbounds i8, ptr %15, i64 2056
-  store ptr %textureSpecular, ptr %out, align 8
-  store i32 1, ptr %clampIndex, align 4
-  br label %if.end121
+  br i1 %tobool27.not, label %if.end121, label %if.else31
 
 if.else31:                                        ; preds = %if.else25
   %call.i26 = call i32 @strncasecmp(ptr noundef %9, ptr noundef nonnull @_ZN6AssimpL20DisplacementTexture1E, i64 noundef 8) #23
   %tobool33.not = icmp eq i32 %call.i26, 0
-  br i1 %tobool33.not, label %if.then36, label %lor.lhs.false
+  br i1 %tobool33.not, label %if.end121, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.else31
   %call.i27 = call i32 @strncasecmp(ptr noundef %9, ptr noundef nonnull @_ZN6AssimpL20DisplacementTexture2E, i64 noundef 4) #23
   %tobool35.not = icmp eq i32 %call.i27, 0
-  br i1 %tobool35.not, label %if.then36, label %if.else39
-
-if.then36:                                        ; preds = %lor.lhs.false, %if.else31
-  %16 = load ptr, ptr %m_pModel, align 8
-  %mCurrentMaterial38 = getelementptr inbounds i8, ptr %16, i64 64
-  %17 = load ptr, ptr %mCurrentMaterial38, align 8
-  %textureDisp = getelementptr inbounds i8, ptr %17, i64 15420
-  store ptr %textureDisp, ptr %out, align 8
-  store i32 15, ptr %clampIndex, align 4
-  br label %if.end121
+  br i1 %tobool35.not, label %if.end121, label %if.else39
 
 if.else39:                                        ; preds = %lor.lhs.false
   %call.i28 = call i32 @strncasecmp(ptr noundef %9, ptr noundef nonnull @_ZN6AssimpL14OpacityTextureE, i64 noundef 5) #23
   %tobool41.not = icmp eq i32 %call.i28, 0
-  br i1 %tobool41.not, label %if.then42, label %if.else45
-
-if.then42:                                        ; preds = %if.else39
-  %18 = load ptr, ptr %m_pModel, align 8
-  %mCurrentMaterial44 = getelementptr inbounds i8, ptr %18, i64 64
-  %19 = load ptr, ptr %mCurrentMaterial44, align 8
-  %textureOpacity = getelementptr inbounds i8, ptr %19, i64 14392
-  store ptr %textureOpacity, ptr %out, align 8
-  store i32 14, ptr %clampIndex, align 4
-  br label %if.end121
+  br i1 %tobool41.not, label %if.end121, label %if.else45
 
 if.else45:                                        ; preds = %if.else39
   %call.i29 = call i32 @strncasecmp(ptr noundef %9, ptr noundef nonnull @_ZN6AssimpL16EmissiveTexture1E, i64 noundef 12) #23
   %tobool47.not = icmp eq i32 %call.i29, 0
-  br i1 %tobool47.not, label %if.then51, label %lor.lhs.false48
+  br i1 %tobool47.not, label %if.end121, label %lor.lhs.false48
 
 lor.lhs.false48:                                  ; preds = %if.else45
   %call.i30 = call i32 @strncasecmp(ptr noundef %9, ptr noundef nonnull @_ZN6AssimpL16EmissiveTexture2E, i64 noundef 6) #23
   %tobool50.not = icmp eq i32 %call.i30, 0
-  br i1 %tobool50.not, label %if.then51, label %if.else54
-
-if.then51:                                        ; preds = %lor.lhs.false48, %if.else45
-  %20 = load ptr, ptr %m_pModel, align 8
-  %mCurrentMaterial53 = getelementptr inbounds i8, ptr %20, i64 64
-  %21 = load ptr, ptr %mCurrentMaterial53, align 8
-  %textureEmissive = getelementptr inbounds i8, ptr %21, i64 4112
-  store ptr %textureEmissive, ptr %out, align 8
-  store i32 3, ptr %clampIndex, align 4
-  br label %if.end121
+  br i1 %tobool50.not, label %if.end121, label %if.else54
 
 if.else54:                                        ; preds = %lor.lhs.false48
   %call.i31 = call i32 @strncasecmp(ptr noundef %9, ptr noundef nonnull @_ZN6AssimpL12BumpTexture1E, i64 noundef 8) #23
   %tobool56.not = icmp eq i32 %call.i31, 0
-  br i1 %tobool56.not, label %if.then60, label %lor.lhs.false57
+  br i1 %tobool56.not, label %if.end121, label %lor.lhs.false57
 
 lor.lhs.false57:                                  ; preds = %if.else54
   %call.i32 = call i32 @strncasecmp(ptr noundef %9, ptr noundef nonnull @_ZN6AssimpL12BumpTexture2E, i64 noundef 4) #23
   %tobool59.not = icmp eq i32 %call.i32, 0
-  br i1 %tobool59.not, label %if.then60, label %if.else63
-
-if.then60:                                        ; preds = %lor.lhs.false57, %if.else54
-  %22 = load ptr, ptr %m_pModel, align 8
-  %mCurrentMaterial62 = getelementptr inbounds i8, ptr %22, i64 64
-  %23 = load ptr, ptr %mCurrentMaterial62, align 8
-  %textureBump = getelementptr inbounds i8, ptr %23, i64 5140
-  store ptr %textureBump, ptr %out, align 8
-  store i32 4, ptr %clampIndex, align 4
-  br label %if.end121
+  br i1 %tobool59.not, label %if.end121, label %if.else63
 
 if.else63:                                        ; preds = %lor.lhs.false57
   %call.i33 = call i32 @strncasecmp(ptr noundef %9, ptr noundef nonnull @_ZN6AssimpL15NormalTextureV1E, i64 noundef 6) #23
   %tobool65.not = icmp eq i32 %call.i33, 0
-  br i1 %tobool65.not, label %if.then69, label %lor.lhs.false66
+  br i1 %tobool65.not, label %if.end121, label %lor.lhs.false66
 
 lor.lhs.false66:                                  ; preds = %if.else63
   %call.i34 = call i32 @strncasecmp(ptr noundef %9, ptr noundef nonnull @_ZN6AssimpL15NormalTextureV2E, i64 noundef 4) #23
   %tobool68.not = icmp eq i32 %call.i34, 0
-  br i1 %tobool68.not, label %if.then69, label %if.else72
-
-if.then69:                                        ; preds = %lor.lhs.false66, %if.else63
-  %24 = load ptr, ptr %m_pModel, align 8
-  %mCurrentMaterial71 = getelementptr inbounds i8, ptr %24, i64 64
-  %25 = load ptr, ptr %mCurrentMaterial71, align 8
-  %textureNormal = getelementptr inbounds i8, ptr %25, i64 6168
-  store ptr %textureNormal, ptr %out, align 8
-  store i32 5, ptr %clampIndex, align 4
-  br label %if.end121
+  br i1 %tobool68.not, label %if.end121, label %if.else72
 
 if.else72:                                        ; preds = %lor.lhs.false66
   %call.i35 = call i32 @strncasecmp(ptr noundef %9, ptr noundef nonnull @_ZN6AssimpL17ReflectionTextureE, i64 noundef 4) #23
@@ -2986,90 +2914,53 @@ if.else72:                                        ; preds = %lor.lhs.false66
 if.else76:                                        ; preds = %if.else72
   %call.i36 = call i32 @strncasecmp(ptr noundef %9, ptr noundef nonnull @_ZN6AssimpL18SpecularityTextureE, i64 noundef 6) #23
   %tobool78.not = icmp eq i32 %call.i36, 0
-  br i1 %tobool78.not, label %if.then79, label %if.else82
-
-if.then79:                                        ; preds = %if.else76
-  %26 = load ptr, ptr %m_pModel, align 8
-  %mCurrentMaterial81 = getelementptr inbounds i8, ptr %26, i64 64
-  %27 = load ptr, ptr %mCurrentMaterial81, align 8
-  %textureSpecularity = getelementptr inbounds i8, ptr %27, i64 13364
-  store ptr %textureSpecularity, ptr %out, align 8
-  store i32 13, ptr %clampIndex, align 4
-  br label %if.end121
+  br i1 %tobool78.not, label %if.end121, label %if.else82
 
 if.else82:                                        ; preds = %if.else76
   %call.i37 = call i32 @strncasecmp(ptr noundef %9, ptr noundef nonnull @_ZN6AssimpL16RoughnessTextureE, i64 noundef 6) #23
   %tobool84.not = icmp eq i32 %call.i37, 0
-  br i1 %tobool84.not, label %if.then85, label %if.else88
-
-if.then85:                                        ; preds = %if.else82
-  %28 = load ptr, ptr %m_pModel, align 8
-  %mCurrentMaterial87 = getelementptr inbounds i8, ptr %28, i64 64
-  %29 = load ptr, ptr %mCurrentMaterial87, align 8
-  %textureRoughness = getelementptr inbounds i8, ptr %29, i64 16448
-  store ptr %textureRoughness, ptr %out, align 8
-  store i32 16, ptr %clampIndex, align 4
-  br label %if.end121
+  br i1 %tobool84.not, label %if.end121, label %if.else88
 
 if.else88:                                        ; preds = %if.else82
   %call.i38 = call i32 @strncasecmp(ptr noundef %9, ptr noundef nonnull @_ZN6AssimpL15MetallicTextureE, i64 noundef 6) #23
   %tobool90.not = icmp eq i32 %call.i38, 0
-  br i1 %tobool90.not, label %if.then91, label %if.else94
-
-if.then91:                                        ; preds = %if.else88
-  %30 = load ptr, ptr %m_pModel, align 8
-  %mCurrentMaterial93 = getelementptr inbounds i8, ptr %30, i64 64
-  %31 = load ptr, ptr %mCurrentMaterial93, align 8
-  %textureMetallic = getelementptr inbounds i8, ptr %31, i64 17476
-  store ptr %textureMetallic, ptr %out, align 8
-  store i32 17, ptr %clampIndex, align 4
-  br label %if.end121
+  br i1 %tobool90.not, label %if.end121, label %if.else94
 
 if.else94:                                        ; preds = %if.else88
   %call.i39 = call i32 @strncasecmp(ptr noundef %9, ptr noundef nonnull @_ZN6AssimpL12SheenTextureE, i64 noundef 6) #23
   %tobool96.not = icmp eq i32 %call.i39, 0
-  br i1 %tobool96.not, label %if.then97, label %if.else100
-
-if.then97:                                        ; preds = %if.else94
-  %32 = load ptr, ptr %m_pModel, align 8
-  %mCurrentMaterial99 = getelementptr inbounds i8, ptr %32, i64 64
-  %33 = load ptr, ptr %mCurrentMaterial99, align 8
-  %textureSheen = getelementptr inbounds i8, ptr %33, i64 18504
-  store ptr %textureSheen, ptr %out, align 8
-  store i32 18, ptr %clampIndex, align 4
-  br label %if.end121
+  br i1 %tobool96.not, label %if.end121, label %if.else100
 
 if.else100:                                       ; preds = %if.else94
   %call.i40 = call i32 @strncasecmp(ptr noundef %9, ptr noundef nonnull @_ZN6AssimpL10RMATextureE, i64 noundef 6) #23
   %tobool102.not = icmp eq i32 %call.i40, 0
-  br i1 %tobool102.not, label %if.then103, label %if.else106
-
-if.then103:                                       ; preds = %if.else100
-  %34 = load ptr, ptr %m_pModel, align 8
-  %mCurrentMaterial105 = getelementptr inbounds i8, ptr %34, i64 64
-  %35 = load ptr, ptr %mCurrentMaterial105, align 8
-  %textureRMA = getelementptr inbounds i8, ptr %35, i64 19532
-  store ptr %textureRMA, ptr %out, align 8
-  store i32 19, ptr %clampIndex, align 4
-  br label %if.end121
+  br i1 %tobool102.not, label %if.end121, label %if.else106
 
 if.else106:                                       ; preds = %if.else100
   %call107 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   call void @_ZN6Assimp6Logger5errorEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call107, ptr noundef nonnull @.str.4)
   br label %return
 
-if.end121:                                        ; preds = %if.then22, %if.then36, %if.then51, %if.then69, %if.then79, %if.then91, %if.then103, %if.then97, %if.then85, %if.then60, %if.then42, %if.then28, %if.then17
+if.end121:                                        ; preds = %if.else100, %if.else94, %if.else88, %if.else82, %if.else76, %if.else63, %lor.lhs.false66, %if.else54, %lor.lhs.false57, %if.else45, %lor.lhs.false48, %if.else39, %if.else31, %lor.lhs.false, %if.else25, %if.else, %if.end
+  %.sink46 = phi i64 [ 1028, %if.end ], [ 3084, %if.else ], [ 2056, %if.else25 ], [ 15420, %lor.lhs.false ], [ 15420, %if.else31 ], [ 14392, %if.else39 ], [ 4112, %lor.lhs.false48 ], [ 4112, %if.else45 ], [ 5140, %lor.lhs.false57 ], [ 5140, %if.else54 ], [ 6168, %lor.lhs.false66 ], [ 6168, %if.else63 ], [ 13364, %if.else76 ], [ 16448, %if.else82 ], [ 17476, %if.else88 ], [ 18504, %if.else94 ], [ 19532, %if.else100 ]
+  %.sink = phi i32 [ 0, %if.end ], [ 2, %if.else ], [ 1, %if.else25 ], [ 15, %lor.lhs.false ], [ 15, %if.else31 ], [ 14, %if.else39 ], [ 3, %lor.lhs.false48 ], [ 3, %if.else45 ], [ 4, %lor.lhs.false57 ], [ 4, %if.else54 ], [ 5, %lor.lhs.false66 ], [ 5, %if.else63 ], [ 13, %if.else76 ], [ 16, %if.else82 ], [ 17, %if.else88 ], [ 18, %if.else94 ], [ 19, %if.else100 ]
+  %10 = load ptr, ptr %m_pModel, align 8
+  %mCurrentMaterial24 = getelementptr inbounds i8, ptr %10, i64 64
+  %11 = load ptr, ptr %mCurrentMaterial24, align 8
+  %textureAmbient = getelementptr inbounds i8, ptr %11, i64 %.sink46
+  store ptr %textureAmbient, ptr %out, align 8
+  store i32 %.sink, ptr %clampIndex, align 4
   store i8 0, ptr %clamp, align 1
   call void @_ZN6Assimp18ObjFileMtlImporter16getTextureOptionERbRiRP8aiString(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 1 dereferenceable(1) %clamp, ptr noundef nonnull align 4 dereferenceable(4) %clampIndex, ptr noundef nonnull align 8 dereferenceable(8) %out)
-  %36 = load i8, ptr %clamp, align 1
-  %37 = load ptr, ptr %m_pModel, align 8
-  %mCurrentMaterial124 = getelementptr inbounds i8, ptr %37, i64 64
-  %38 = load ptr, ptr %mCurrentMaterial124, align 8
-  %clamp125 = getelementptr inbounds i8, ptr %38, i64 20560
-  %39 = load i32, ptr %clampIndex, align 4
-  %idxprom = sext i32 %39 to i64
+  %12 = load i8, ptr %clamp, align 1
+  %13 = load ptr, ptr %m_pModel, align 8
+  %mCurrentMaterial124 = getelementptr inbounds i8, ptr %13, i64 64
+  %14 = load ptr, ptr %mCurrentMaterial124, align 8
+  %clamp125 = getelementptr inbounds i8, ptr %14, i64 20560
+  %15 = load i32, ptr %clampIndex, align 4
+  %idxprom = sext i32 %15 to i64
   %arrayidx = getelementptr inbounds [20 x i8], ptr %clamp125, i64 0, i64 %idxprom
-  %frombool = and i8 %36, 1
+  %frombool = and i8 %12, 1
   store i8 %frombool, ptr %arrayidx, align 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %texture126) #19
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %m_DataIt, align 8
@@ -3080,8 +2971,8 @@ if.end121:                                        ; preds = %if.then22, %if.then
 
 invoke.cont132:                                   ; preds = %if.end121
   store ptr %call133, ptr %m_DataIt, align 8
-  %40 = load ptr, ptr %out, align 8
-  %cmp136.not = icmp eq ptr %40, null
+  %16 = load ptr, ptr %out, align 8
+  %cmp136.not = icmp eq ptr %16, null
   br i1 %cmp136.not, label %if.end139, label %if.then137
 
 if.then137:                                       ; preds = %invoke.cont132
@@ -3092,18 +2983,18 @@ if.then137:                                       ; preds = %invoke.cont132
 if.end.i:                                         ; preds = %if.then137
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %texture126) #19
   %conv.i42 = trunc i64 %call2.i to i32
-  store i32 %conv.i42, ptr %40, align 4
-  %data.i43 = getelementptr inbounds i8, ptr %40, i64 4
+  store i32 %conv.i42, ptr %16, align 4
+  %data.i43 = getelementptr inbounds i8, ptr %16, i64 4
   %call3.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %texture126) #19
-  %41 = load i32, ptr %40, align 4
-  %conv5.i = zext i32 %41 to i64
+  %17 = load i32, ptr %16, align 4
+  %conv5.i = zext i32 %17 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i43, ptr align 1 %call3.i, i64 %conv5.i, i1 false)
   %arrayidx.i44 = getelementptr inbounds [1024 x i8], ptr %data.i43, i64 0, i64 %conv5.i
   store i8 0, ptr %arrayidx.i44, align 1
   br label %if.end139
 
 lpad131:                                          ; preds = %if.end121
-  %42 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %texture126) #19
   br label %eh.resume
@@ -3116,7 +3007,7 @@ return:                                           ; preds = %if.else72, %if.end1
   ret void
 
 eh.resume:                                        ; preds = %lpad131, %ehcleanup
-  %.pn19 = phi { ptr, i32 } [ %42, %lpad131 ], [ %.pn, %ehcleanup ]
+  %.pn19 = phi { ptr, i32 } [ %18, %lpad131 ], [ %.pn, %ehcleanup ]
   resume { ptr, i32 } %.pn19
 }
 
@@ -5175,24 +5066,24 @@ if.end12.lr.ph:                                   ; preds = %entry
   br i1 %tobool.not, label %if.end12.us.preheader, label %if.end12.lr.ph.split
 
 if.end12.us.preheader:                            ; preds = %if.end12.lr.ph
-  %narrow.us77 = add nsw i8 %0, -48
-  %sub.us78 = zext nneg i8 %narrow.us77 to i64
+  %narrow.us78 = add nsw i8 %0, -48
+  %sub.us79 = zext nneg i8 %narrow.us78 to i64
   br label %if.end18.us
 
 if.end12.us:                                      ; preds = %if.end18.us
-  %mul.us = mul i64 %add.us81, 10
+  %mul.us = mul i64 %add.us82, 10
   %narrow.us = add nsw i8 %2, -48
   %sub.us = zext nneg i8 %narrow.us to i64
   %add.us = add i64 %mul.us, %sub.us
-  %cmp15.us = icmp ult i64 %add.us, %add.us81
+  %cmp15.us = icmp ult i64 %add.us, %add.us82
   br i1 %cmp15.us, label %if.then16, label %if.end18.us, !llvm.loop !25
 
 if.end18.us:                                      ; preds = %if.end12.us.preheader, %if.end12.us
-  %add.us81 = phi i64 [ %sub.us78, %if.end12.us.preheader ], [ %add.us, %if.end12.us ]
-  %incdec.ptr3032.us80 = phi ptr [ %in, %if.end12.us.preheader ], [ %incdec.ptr.us, %if.end12.us ]
-  %cur.033.us79 = phi i32 [ 0, %if.end12.us.preheader ], [ %inc.us, %if.end12.us ]
-  %incdec.ptr.us = getelementptr inbounds i8, ptr %incdec.ptr3032.us80, i64 1
-  %inc.us = add i32 %cur.033.us79, 1
+  %add.us82 = phi i64 [ %sub.us79, %if.end12.us.preheader ], [ %add.us, %if.end12.us ]
+  %incdec.ptr3032.us81 = phi ptr [ %in, %if.end12.us.preheader ], [ %incdec.ptr.us, %if.end12.us ]
+  %cur.033.us80 = phi i32 [ 0, %if.end12.us.preheader ], [ %inc.us, %if.end12.us ]
+  %incdec.ptr.us = getelementptr inbounds i8, ptr %incdec.ptr3032.us81, i64 1
+  %inc.us = add i32 %cur.033.us80, 1
   %2 = load i8, ptr %incdec.ptr.us, align 1
   %3 = add i8 %2, -58
   %or.cond14.us = icmp ult i8 %3, -10
@@ -5200,8 +5091,8 @@ if.end18.us:                                      ; preds = %if.end12.us.prehead
 
 if.end12.lr.ph.split:                             ; preds = %if.end12.lr.ph
   %4 = load i32, ptr %max_inout, align 4
-  %narrow72 = add nsw i8 %0, -48
-  %sub73 = zext nneg i8 %narrow72 to i64
+  %narrow73 = add nsw i8 %0, -48
+  %sub74 = zext nneg i8 %narrow73 to i64
   br label %if.end18
 
 if.then:                                          ; preds = %entry
@@ -5242,26 +5133,26 @@ cleanup.action:                                   ; preds = %ehcleanup.thread20,
   br label %eh.resume
 
 if.end12:                                         ; preds = %if.end29
-  %mul = mul i64 %add76, 10
+  %mul = mul i64 %add77, 10
   %narrow = add nsw i8 %12, -48
   %sub = zext nneg i8 %narrow to i64
   %add = add i64 %mul, %sub
-  %cmp15 = icmp ult i64 %add, %add76
+  %cmp15 = icmp ult i64 %add, %add77
   br i1 %cmp15, label %if.then16, label %if.end18, !llvm.loop !25
 
 if.then16:                                        ; preds = %if.end12, %if.end12.us
-  %storemerge63 = phi ptr [ %incdec.ptr.us, %if.end12.us ], [ %incdec.ptr, %if.end12 ]
-  store ptr %storemerge63, ptr %in.addr, align 8
+  %incdec.ptr58.lcssa.sink = phi ptr [ %incdec.ptr.us, %if.end12.us ], [ %incdec.ptr, %if.end12 ]
+  store ptr %incdec.ptr58.lcssa.sink, ptr %in.addr, align 8
   %call17 = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   call void @_ZN6Assimp6Logger4warnIJRA24_KcRPS2_RA37_S2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %call17, ptr noundef nonnull align 1 dereferenceable(24) @.str.21, ptr noundef nonnull align 8 dereferenceable(8) %in.addr, ptr noundef nonnull align 1 dereferenceable(37) @.str.22)
   br label %return
 
 if.end18:                                         ; preds = %if.end12.lr.ph.split, %if.end12
-  %add76 = phi i64 [ %sub73, %if.end12.lr.ph.split ], [ %add, %if.end12 ]
-  %incdec.ptr303275 = phi ptr [ %in, %if.end12.lr.ph.split ], [ %incdec.ptr, %if.end12 ]
-  %cur.03374 = phi i32 [ 0, %if.end12.lr.ph.split ], [ %inc, %if.end12 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %incdec.ptr303275, i64 1
-  %inc = add i32 %cur.03374, 1
+  %add77 = phi i64 [ %sub74, %if.end12.lr.ph.split ], [ %add, %if.end12 ]
+  %incdec.ptr303276 = phi ptr [ %in, %if.end12.lr.ph.split ], [ %incdec.ptr, %if.end12 ]
+  %cur.03375 = phi i32 [ 0, %if.end12.lr.ph.split ], [ %inc, %if.end12 ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %incdec.ptr303276, i64 1
+  %inc = add i32 %cur.03375, 1
   %cmp19 = icmp eq i32 %4, %inc
   br i1 %cmp19, label %if.then20, label %if.end29
 
@@ -5297,15 +5188,15 @@ if.end29:                                         ; preds = %if.end18
   br i1 %or.cond14, label %for.end, label %if.end12, !llvm.loop !25
 
 for.end:                                          ; preds = %if.end29, %if.end18.us
-  %storemerge = phi ptr [ %incdec.ptr.us, %if.end18.us ], [ %incdec.ptr, %if.end29 ]
+  %incdec.ptr.lcssa60.sink = phi ptr [ %incdec.ptr.us, %if.end18.us ], [ %incdec.ptr, %if.end29 ]
   %cur.0.lcssa = phi i32 [ %inc.us, %if.end18.us ], [ %inc, %if.end29 ]
-  %value.0.lcssa = phi i64 [ %add.us81, %if.end18.us ], [ %add76, %if.end29 ]
-  store ptr %storemerge, ptr %in.addr, align 8
+  %value.0.lcssa = phi i64 [ %add.us82, %if.end18.us ], [ %add77, %if.end29 ]
+  store ptr %incdec.ptr.lcssa60.sink, ptr %in.addr, align 8
   %tobool30.not = icmp eq ptr %out, null
   br i1 %tobool30.not, label %if.end32, label %if.then31
 
 if.then31:                                        ; preds = %for.end
-  store ptr %storemerge, ptr %out, align 8
+  store ptr %incdec.ptr.lcssa60.sink, ptr %out, align 8
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then31, %for.end
@@ -5317,7 +5208,7 @@ if.then34:                                        ; preds = %if.end32
   br label %return
 
 return:                                           ; preds = %if.end32, %if.then34, %if.then20, %while.end, %if.then16
-  %retval.0 = phi i64 [ 0, %if.then16 ], [ %add76, %while.end ], [ %add76, %if.then20 ], [ %value.0.lcssa, %if.then34 ], [ %value.0.lcssa, %if.end32 ]
+  %retval.0 = phi i64 [ 0, %if.then16 ], [ %add77, %while.end ], [ %add77, %if.then20 ], [ %value.0.lcssa, %if.then34 ], [ %value.0.lcssa, %if.end32 ]
   ret i64 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup, %cleanup.action

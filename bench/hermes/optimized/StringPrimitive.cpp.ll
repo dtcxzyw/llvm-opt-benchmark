@@ -5388,9 +5388,9 @@ cleanup:                                          ; preds = %if.else13.i33, %if.
   br label %_ZN6hermes2vm10CallResultINS0_13StringBuilderELNS0_6detail20CallResultSpecializeE0EED2Ev.exit.sink.split
 
 _ZN6hermes2vm10CallResultINS0_13StringBuilderELNS0_6detail20CallResultSpecializeE0EED2Ev.exit.sink.split: ; preds = %for.body.i.i.i.i.i.i, %_ZN6hermes2vm15StringPrimitive26castToASCIIPointerForWriteEv.exit.i, %if.then.i.i.i.i.i.i, %_ZN6hermes2vm15StringPrimitive26castToUTF16PointerForWriteEv.exit.i, %cleanup
-  %.sink62 = load i64, ptr %builder, align 8
-  %18 = inttoptr i64 %.sink62 to ptr
-  %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %18, align 8
+  %18 = load i64, ptr %builder, align 8
+  %19 = inttoptr i64 %18 to ptr
+  %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %19, align 8
   %and.i.i.i.i.i41 = and i64 %retval.sroa.0.0.copyload.i.i.i, 281474976710655
   %or.i.i.i = or disjoint i64 %and.i.i.i.i.i41, -844424930131968
   br label %_ZN6hermes2vm10CallResultINS0_13StringBuilderELNS0_6detail20CallResultSpecializeE0EED2Ev.exit

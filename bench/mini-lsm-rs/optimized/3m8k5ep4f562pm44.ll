@@ -8562,7 +8562,6 @@ common.resume:                                    ; preds = %26, %15
 "_ZN5alloc4sync12Arc$LT$T$GT$3new17h84141a65744ae7a2E.exit": ; preds = %"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$13with_capacity17h5e52141ccf0162c5E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !noalias !1111
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !1111
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %36
 
 30:                                               ; preds = %2
@@ -8577,12 +8576,12 @@ common.resume:                                    ; preds = %26, %15
   %35 = call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$9construct17hb0c7643b6dba479eE.llvm.6717981035442482804"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) @anon.4dd66198b1e00463ac4f9539cc1b7f60.108.llvm.6717981035442482804), !noalias !1123
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1117
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %36
 
 36:                                               ; preds = %30, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h84141a65744ae7a2E.exit"
   %.sroa.3.0 = phi ptr [ %35, %30 ], [ %23, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h84141a65744ae7a2E.exit" ]
   %.sroa.0.0 = phi i64 [ 1, %30 ], [ 0, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h84141a65744ae7a2E.exit" ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %37 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %38 = insertvalue { i64, ptr } %37, ptr %.sroa.3.0, 1
   ret { i64, ptr } %38

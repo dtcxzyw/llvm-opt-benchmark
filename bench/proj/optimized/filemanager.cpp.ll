@@ -3610,7 +3610,7 @@ _ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_trait
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #24
   br label %.invoke
 
-.invoke:                                          ; preds = %177, %.critedge, %.critedge24
+.invoke:                                          ; preds = %.critedge, %.critedge24, %177
   %80 = load ptr, ptr %10, align 8
   %81 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef %80)
           to label %.thread17 unwind label %.loopexit.split-lp

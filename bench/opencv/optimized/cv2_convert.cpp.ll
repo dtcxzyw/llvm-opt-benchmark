@@ -3631,7 +3631,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv11RotatedRectEEbP7_objectR
   %14 = icmp eq ptr %0, null
   %15 = icmp eq ptr %0, @_Py_NoneStruct
   %or.cond = or i1 %14, %15
-  br i1 %or.cond, label %95, label %16
+  br i1 %or.cond, label %94, label %16
 
 16:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
@@ -3670,16 +3670,16 @@ _ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread63: ; preds = %
   call void @_Py_Dealloc(ptr noundef nonnull %17)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  br label %95
+  br label %94
 
 _ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread: ; preds = %24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  br label %95
+  br label %94
 
-common.resume:                                    ; preds = %90, %92, %71, %73, %50, %52, %28
-  %.sink = phi ptr [ %6, %28 ], [ %8, %52 ], [ %8, %50 ], [ %10, %73 ], [ %10, %71 ], [ %12, %92 ], [ %12, %90 ]
-  %common.resume.op = phi { ptr, i32 } [ %29, %28 ], [ %53, %52 ], [ %51, %50 ], [ %74, %73 ], [ %72, %71 ], [ %93, %92 ], [ %91, %90 ]
+common.resume:                                    ; preds = %89, %91, %70, %72, %49, %51, %28
+  %.sink = phi ptr [ %6, %28 ], [ %8, %51 ], [ %8, %49 ], [ %10, %72 ], [ %10, %70 ], [ %12, %91 ], [ %12, %89 ]
+  %common.resume.op = phi { ptr, i32 } [ %29, %28 ], [ %52, %51 ], [ %50, %49 ], [ %73, %72 ], [ %71, %70 ], [ %92, %91 ], [ %90, %89 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #13
   resume { ptr, i32 } %common.resume.op
 
@@ -3695,184 +3695,179 @@ common.resume:                                    ; preds = %90, %92, %71, %73, 
   %.not.i11.i = icmp eq i64 %32, 0
   br i1 %.not.i11.i, label %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit, label %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread62
 
-_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread62: ; preds = %30
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  br label %33
-
 _ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit: ; preds = %30
   call void @_Py_Dealloc(ptr noundef nonnull %17)
+  br label %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread62
+
+_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread62: ; preds = %30, %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  br label %33
+  %33 = call i32 @PySequence_Check(ptr noundef nonnull %0)
+  %.not = icmp eq i32 %33, 0
+  br i1 %.not, label %34, label %37
 
-33:                                               ; preds = %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit, %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread62
-  %34 = call i32 @PySequence_Check(ptr noundef nonnull %0)
-  %.not = icmp eq i32 %34, 0
-  br i1 %.not, label %35, label %38
+34:                                               ; preds = %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread62
+  %35 = load ptr, ptr %2, align 8
+  %36 = call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.33, ptr noundef %35)
+  br label %94
 
-35:                                               ; preds = %33
-  %36 = load ptr, ptr %2, align 8
-  %37 = call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.33, ptr noundef %36)
-  br label %95
+37:                                               ; preds = %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread62
+  %38 = call i64 @PySequence_Size(ptr noundef nonnull %0)
+  %.not38 = icmp eq i64 %38, 3
+  %39 = load ptr, ptr %2, align 8
+  br i1 %.not38, label %42, label %40
 
-38:                                               ; preds = %33
-  %39 = call i64 @PySequence_Size(ptr noundef nonnull %0)
-  %.not38 = icmp eq i64 %39, 3
-  %40 = load ptr, ptr %2, align 8
-  br i1 %.not38, label %43, label %41
+40:                                               ; preds = %37
+  %41 = call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.34, ptr noundef %39, i64 noundef %38)
+  br label %94
 
-41:                                               ; preds = %38
-  %42 = call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.34, ptr noundef %40, i64 noundef %39)
-  br label %95
+42:                                               ; preds = %37
+  call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.35, ptr noundef %39)
+  %43 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #13
+  store ptr %43, ptr %9, align 8
+  %44 = getelementptr inbounds i8, ptr %9, i64 8
+  store i32 0, ptr %44, align 8
+  %45 = invoke ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef 0)
+          to label %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit unwind label %49
 
-43:                                               ; preds = %38
-  call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.35, ptr noundef %40)
-  %44 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #13
-  store ptr %44, ptr %9, align 8
-  %45 = getelementptr inbounds i8, ptr %9, i64 8
-  store i32 0, ptr %45, align 8
-  %46 = invoke ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef 0)
-          to label %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit unwind label %50
-
-_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit: ; preds = %43
+_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit: ; preds = %42
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr %1, ptr %5, align 16
-  %47 = getelementptr inbounds i8, ptr %5, i64 8
-  %48 = getelementptr inbounds i8, ptr %1, i64 4
-  store ptr %48, ptr %47, align 8
-  %49 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm2EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %46, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull readonly align 8 dereferenceable(12) %9)
-          to label %54 unwind label %52
+  %46 = getelementptr inbounds i8, ptr %5, i64 8
+  %47 = getelementptr inbounds i8, ptr %1, i64 4
+  store ptr %47, ptr %46, align 8
+  %48 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm2EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %45, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull readonly align 8 dereferenceable(12) %9)
+          to label %53 unwind label %51
 
-50:                                               ; preds = %43
-  %51 = landingpad { ptr, i32 }
+49:                                               ; preds = %42
+  %50 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-52:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit
-  %53 = landingpad { ptr, i32 }
+51:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit
+  %52 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev(ptr %46) #13
+  call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev(ptr %45) #13
   br label %common.resume
 
-54:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit
+53:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %.not.i.i54 = icmp eq ptr %46, null
-  br i1 %.not.i.i54, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %55
+  %.not.i.i54 = icmp eq ptr %45, null
+  br i1 %.not.i.i54, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, label %54
 
-55:                                               ; preds = %54
-  %56 = load i64, ptr %46, align 8
-  %57 = add nsw i64 %56, -1
-  store i64 %57, ptr %46, align 8
-  %.not.i.i.i = icmp eq i64 %57, 0
-  br i1 %.not.i.i.i, label %58, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
+54:                                               ; preds = %53
+  %55 = load i64, ptr %45, align 8
+  %56 = add nsw i64 %55, -1
+  store i64 %56, ptr %45, align 8
+  %.not.i.i.i = icmp eq i64 %56, 0
+  br i1 %.not.i.i.i, label %57, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
 
-58:                                               ; preds = %55
-  invoke void @_Py_Dealloc(ptr noundef nonnull %46)
-          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit unwind label %59
+57:                                               ; preds = %54
+  invoke void @_Py_Dealloc(ptr noundef nonnull %45)
+          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit unwind label %58
 
-59:                                               ; preds = %58
-  %60 = landingpad { ptr, i32 }
+58:                                               ; preds = %57
+  %59 = landingpad { ptr, i32 }
           catch ptr null
-  %61 = extractvalue { ptr, i32 } %60, 0
-  call void @__clang_call_terminate(ptr %61) #14
+  %60 = extractvalue { ptr, i32 } %59, 0
+  call void @__clang_call_terminate(ptr %60) #14
   unreachable
 
-_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %54, %55, %58
+_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %53, %54, %57
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #13
-  br i1 %49, label %62, label %95
+  br i1 %48, label %61, label %94
 
-62:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
-  %63 = load ptr, ptr %2, align 8
-  call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull @.str.36, ptr noundef %63)
-  %64 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #13
-  store ptr %64, ptr %11, align 8
-  %65 = getelementptr inbounds i8, ptr %11, i64 8
-  store i32 0, ptr %65, align 8
-  %66 = invoke ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef 1)
-          to label %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit55 unwind label %71
+61:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
+  %62 = load ptr, ptr %2, align 8
+  call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull @.str.36, ptr noundef %62)
+  %63 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #13
+  store ptr %63, ptr %11, align 8
+  %64 = getelementptr inbounds i8, ptr %11, i64 8
+  store i32 0, ptr %64, align 8
+  %65 = invoke ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef 1)
+          to label %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit55 unwind label %70
 
-_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit55: ; preds = %62
-  %67 = getelementptr inbounds i8, ptr %1, i64 8
+_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit55: ; preds = %61
+  %66 = getelementptr inbounds i8, ptr %1, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  store ptr %67, ptr %4, align 16
-  %68 = getelementptr inbounds i8, ptr %4, i64 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 12
-  store ptr %69, ptr %68, align 8
-  %70 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm2EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %66, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 8 dereferenceable(12) %11)
-          to label %75 unwind label %73
+  store ptr %66, ptr %4, align 16
+  %67 = getelementptr inbounds i8, ptr %4, i64 8
+  %68 = getelementptr inbounds i8, ptr %1, i64 12
+  store ptr %68, ptr %67, align 8
+  %69 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm2EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %65, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 8 dereferenceable(12) %11)
+          to label %74 unwind label %72
 
-71:                                               ; preds = %62
-  %72 = landingpad { ptr, i32 }
+70:                                               ; preds = %61
+  %71 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-73:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit55
-  %74 = landingpad { ptr, i32 }
+72:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit55
+  %73 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev(ptr %66) #13
+  call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev(ptr %65) #13
   br label %common.resume
 
-75:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit55
+74:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit55
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %.not.i.i56 = icmp eq ptr %66, null
-  br i1 %.not.i.i56, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit58, label %76
+  %.not.i.i56 = icmp eq ptr %65, null
+  br i1 %.not.i.i56, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit58, label %75
 
-76:                                               ; preds = %75
-  %77 = load i64, ptr %66, align 8
-  %78 = add nsw i64 %77, -1
-  store i64 %78, ptr %66, align 8
-  %.not.i.i.i57 = icmp eq i64 %78, 0
-  br i1 %.not.i.i.i57, label %79, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit58
+75:                                               ; preds = %74
+  %76 = load i64, ptr %65, align 8
+  %77 = add nsw i64 %76, -1
+  store i64 %77, ptr %65, align 8
+  %.not.i.i.i57 = icmp eq i64 %77, 0
+  br i1 %.not.i.i.i57, label %78, label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit58
 
-79:                                               ; preds = %76
-  invoke void @_Py_Dealloc(ptr noundef nonnull %66)
-          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit58 unwind label %80
+78:                                               ; preds = %75
+  invoke void @_Py_Dealloc(ptr noundef nonnull %65)
+          to label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit58 unwind label %79
 
-80:                                               ; preds = %79
-  %81 = landingpad { ptr, i32 }
+79:                                               ; preds = %78
+  %80 = landingpad { ptr, i32 }
           catch ptr null
-  %82 = extractvalue { ptr, i32 } %81, 0
-  call void @__clang_call_terminate(ptr %82) #14
+  %81 = extractvalue { ptr, i32 } %80, 0
+  call void @__clang_call_terminate(ptr %81) #14
   unreachable
 
-_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit58:        ; preds = %75, %76, %79
+_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit58:        ; preds = %74, %75, %78
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #13
-  br i1 %70, label %83, label %95
+  br i1 %69, label %82, label %94
 
-83:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit58
-  %84 = load ptr, ptr %2, align 8
-  call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull @.str.37, ptr noundef %84)
-  %85 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #13
-  store ptr %85, ptr %13, align 8
-  %86 = getelementptr inbounds i8, ptr %13, i64 8
-  store i32 0, ptr %86, align 8
-  %87 = invoke ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef 2)
-          to label %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit59 unwind label %90
+82:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit58
+  %83 = load ptr, ptr %2, align 8
+  call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull @.str.37, ptr noundef %83)
+  %84 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #13
+  store ptr %84, ptr %13, align 8
+  %85 = getelementptr inbounds i8, ptr %13, i64 8
+  store i32 0, ptr %85, align 8
+  %86 = invoke ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef 2)
+          to label %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit59 unwind label %89
 
-_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit59: ; preds = %83
-  %88 = getelementptr inbounds i8, ptr %1, i64 16
-  %89 = invoke noundef zeroext i1 @_Z11pyopencv_toIfEbP7_objectRT_RK7ArgInfo(ptr noundef %87, ptr noundef nonnull align 4 dereferenceable(4) %88, ptr noundef nonnull align 8 dereferenceable(12) %13)
-          to label %94 unwind label %92
+_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit59: ; preds = %82
+  %87 = getelementptr inbounds i8, ptr %1, i64 16
+  %88 = invoke noundef zeroext i1 @_Z11pyopencv_toIfEbP7_objectRT_RK7ArgInfo(ptr noundef %86, ptr noundef nonnull align 4 dereferenceable(4) %87, ptr noundef nonnull align 8 dereferenceable(12) %13)
+          to label %93 unwind label %91
 
-90:                                               ; preds = %83
-  %91 = landingpad { ptr, i32 }
+89:                                               ; preds = %82
+  %90 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-92:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit59
-  %93 = landingpad { ptr, i32 }
+91:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit59
+  %92 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev(ptr %87) #13
+  call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev(ptr %86) #13
   br label %common.resume
 
-94:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit59
-  call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev(ptr %87) #13
+93:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit59
+  call fastcc void @_ZN12_GLOBAL__N_111SafeSeqItemD2Ev(ptr %86) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #13
-  br label %95
+  br label %94
 
-95:                                               ; preds = %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread63, %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread, %94, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit58, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, %3, %41, %35
-  %.032 = phi i1 [ false, %41 ], [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit58 ], [ false, %35 ], [ true, %3 ], [ %89, %94 ], [ true, %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread ], [ true, %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread63 ]
+94:                                               ; preds = %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread63, %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread, %93, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit58, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, %3, %40, %34
+  %.032 = phi i1 [ false, %40 ], [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit58 ], [ false, %34 ], [ true, %3 ], [ %88, %93 ], [ true, %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread ], [ true, %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread63 ]
   ret i1 %.032
 }
 

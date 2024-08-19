@@ -3242,8 +3242,7 @@ define void @_ZN6uucore8features4mode13parse_numeric17h4fcdc9cffb0cd06cE(ptr noa
   store i32 %.sroa.0.i.sroa.4.0.copyload, ptr %.sroa.230.0..sroa_idx, align 8
   %.sroa.331.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.331.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.331, i64 12, i1 false)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
-  br label %87
+  br label %86
 
 .thread:                                          ; preds = %42, %68
   %71 = phi i32 [ %.sroa.5.051.ph, %68 ], [ 0, %42 ]
@@ -3305,11 +3304,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %68
   %85 = and i32 %84, %1
   br label %78
 
-86:                                               ; preds = %78, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
+86:                                               ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit, %78, %70
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
-  br label %87
-
-87:                                               ; preds = %86, %70
   ret void
 }
 
@@ -3952,8 +3948,7 @@ define internal fastcc void @_ZN6uucore8features4mode8parse_op17h9053c48dd3b952a
   store i32 %.sroa.426.4.extract.trunc, ptr %.sroa.3.0..sroa_idx36, align 4
   %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 22, ptr %.sroa.437.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  br label %58
+  br label %57
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %.thread45
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -3984,11 +3979,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %.thread45
   store i64 -9223372036854775808, ptr %0, align 8
   br label %57
 
-57:                                               ; preds = %54, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
+57:                                               ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit, %54, %52
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  br label %58
-
-58:                                               ; preds = %57, %52
   ret void
 }
 
@@ -4668,7 +4660,6 @@ common.resume:                                    ; preds = %53, %19
   %33 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %17, ptr %33, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   br label %88
 
 .lr.ph.i:                                         ; preds = %21
@@ -4739,7 +4730,6 @@ common.resume:                                    ; preds = %53, %19
 "_ZN4core3ptr100drop_in_place$LT$alloc..vec..Vec$LT$$RF$clap_builder..builder..possible_value..PossibleValue$GT$$GT$17h8cd75928c89b2165E.exit": ; preds = %57, %60, %64
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !670
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   br label %88
 
 66:                                               ; preds = %21
@@ -4794,6 +4784,7 @@ common.resume:                                    ; preds = %53, %19
   br label %57
 
 88:                                               ; preds = %"_ZN4core3ptr100drop_in_place$LT$alloc..vec..Vec$LT$$RF$clap_builder..builder..possible_value..PossibleValue$GT$$GT$17h8cd75928c89b2165E.exit", %32
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   ret void
 
 89:                                               ; preds = %53

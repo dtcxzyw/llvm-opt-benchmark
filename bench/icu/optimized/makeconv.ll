@@ -907,11 +907,7 @@ if.then9.i:                                       ; preds = %if.end5.i
 call11.i.noexc:                                   ; preds = %if.then9.i
   store ptr %call11.i60, ptr %cnvData.i, align 8
   %cmp.i57 = icmp eq ptr %call11.i60, null
-  br i1 %cmp.i57, label %if.then13.i, label %if.else.i
-
-if.then13.i:                                      ; preds = %call11.i.noexc
-  store i32 7, ptr %localError, align 4
-  br label %invoke.cont125.thread
+  br i1 %cmp.i57, label %invoke.cont125.thread.sink.split, label %if.else.i
 
 if.else.i:                                        ; preds = %call11.i.noexc
   %isValid.i = getelementptr inbounds i8, ptr %call11.i60, i64 8
@@ -928,8 +924,7 @@ call16.i.noexc:                                   ; preds = %if.else.i
 if.then18.i:                                      ; preds = %call16.i.noexc
   %64 = load ptr, ptr @stderr, align 8
   %65 = call i64 @fwrite(ptr nonnull @.str.27, i64 87, i64 1, ptr %64) #21
-  store i32 13, ptr %localError, align 4
-  br label %invoke.cont125.thread
+  br label %invoke.cont125.thread.sink.split
 
 if.else20.i:                                      ; preds = %call16.i.noexc
   %66 = load i8, ptr %subChar1.i, align 8
@@ -950,8 +945,7 @@ call27.i.noexc:                                   ; preds = %land.lhs.true.i
 if.then29.i:                                      ; preds = %call27.i.noexc
   %69 = load ptr, ptr @stderr, align 8
   %70 = call i64 @fwrite(ptr nonnull @.str.28, i64 64, i64 1, ptr %69) #21
-  store i32 13, ptr %localError, align 4
-  br label %invoke.cont125.thread
+  br label %invoke.cont125.thread.sink.split
 
 if.else31.i:                                      ; preds = %call27.i.noexc, %if.else20.i
   %71 = load ptr, ptr %data, align 8
@@ -969,15 +963,11 @@ land.lhs.true34.i:                                ; preds = %if.else31.i
 
 call40.i.noexc:                                   ; preds = %land.lhs.true34.i
   %tobool41.not.i = icmp eq i8 %call40.i63, 0
-  br i1 %tobool41.not.i, label %if.then42.i, label %land.lhs.true34.if.else43_crit_edge.i
+  br i1 %tobool41.not.i, label %invoke.cont125.thread.sink.split, label %land.lhs.true34.if.else43_crit_edge.i
 
 land.lhs.true34.if.else43_crit_edge.i:            ; preds = %call40.i.noexc
   %.pre.i = load ptr, ptr %data, align 8
   br label %if.else43.i
-
-if.then42.i:                                      ; preds = %call40.i.noexc
-  store i32 13, ptr %localError, align 4
-  br label %invoke.cont125.thread
 
 if.else43.i:                                      ; preds = %land.lhs.true34.if.else43_crit_edge.i, %if.else31.i
   %75 = phi ptr [ %.pre.i, %land.lhs.true34.if.else43_crit_edge.i ], [ %71, %if.else31.i ]
@@ -1008,11 +998,7 @@ if.then58.i:                                      ; preds = %if.end55.i
 
 call64.i.noexc:                                   ; preds = %if.then58.i
   %tobool65.not.i = icmp eq i8 %call64.i64, 0
-  br i1 %tobool65.not.i, label %if.then66.i, label %if.else67.i
-
-if.then66.i:                                      ; preds = %call64.i.noexc
-  store i32 13, ptr %localError, align 4
-  br label %invoke.cont125.thread
+  br i1 %tobool65.not.i, label %invoke.cont125.thread.sink.split, label %if.else67.i
 
 if.else67.i:                                      ; preds = %call64.i.noexc
   %83 = load ptr, ptr %data, align 8
@@ -1045,11 +1031,7 @@ if.then78.i:                                      ; preds = %.noexc66
 call80.i.noexc:                                   ; preds = %if.then78.i
   store ptr %call80.i67, ptr %extData.i, align 8
   %cmp82.i = icmp eq ptr %call80.i67, null
-  br i1 %cmp82.i, label %if.then83.i, label %if.else84.i
-
-if.then83.i:                                      ; preds = %call80.i.noexc
-  store i32 7, ptr %localError, align 4
-  br label %invoke.cont125.thread
+  br i1 %cmp82.i, label %invoke.cont125.thread.sink.split, label %if.else84.i
 
 if.else84.i:                                      ; preds = %call80.i.noexc
   %addTable86.i = getelementptr inbounds i8, ptr %call80.i67, i64 16
@@ -1062,11 +1044,7 @@ if.else84.i:                                      ; preds = %call80.i.noexc
 
 call91.i.noexc:                                   ; preds = %if.else84.i
   %tobool92.not.i = icmp eq i8 %call91.i68, 0
-  br i1 %tobool92.not.i, label %if.then93.i, label %invoke.cont125
-
-if.then93.i:                                      ; preds = %call91.i.noexc
-  store i32 13, ptr %localError, align 4
-  br label %invoke.cont125.thread
+  br i1 %tobool92.not.i, label %invoke.cont125.thread.sink.split, label %invoke.cont125
 
 if.else99.i:                                      ; preds = %if.end5.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %baseData.i, i8 0, i64 424, i1 false)
@@ -1405,8 +1383,13 @@ if.end12.i119:                                    ; preds = %.noexc122, %if.end.
   invoke void @ucm_close(ptr noundef %152)
           to label %invoke.cont125 unwind label %lpad47.loopexit.split-lp
 
-invoke.cont125.thread:                            ; preds = %call109.i.noexc, %if.then93.i, %if.then83.i, %if.then66.i, %if.end55.i, %if.then42.i, %if.then29.i, %if.then18.i, %if.then13.i, %call1.i.noexc
-  %.ph = phi i32 [ %60, %call1.i.noexc ], [ 7, %if.then13.i ], [ 13, %if.then18.i ], [ 13, %if.then29.i ], [ 13, %if.then42.i ], [ %.pr.i, %if.end55.i ], [ 13, %if.then66.i ], [ 7, %if.then83.i ], [ 13, %if.then93.i ], [ %95, %call109.i.noexc ]
+invoke.cont125.thread.sink.split:                 ; preds = %call91.i.noexc, %call80.i.noexc, %call64.i.noexc, %call40.i.noexc, %call11.i.noexc, %if.then18.i, %if.then29.i
+  %.sink131 = phi i32 [ 13, %if.then29.i ], [ 13, %if.then18.i ], [ 7, %call11.i.noexc ], [ 13, %call40.i.noexc ], [ 13, %call64.i.noexc ], [ 7, %call80.i.noexc ], [ 13, %call91.i.noexc ]
+  store i32 %.sink131, ptr %localError, align 4
+  br label %invoke.cont125.thread
+
+invoke.cont125.thread:                            ; preds = %invoke.cont125.thread.sink.split, %call109.i.noexc, %if.end55.i, %call1.i.noexc
+  %.ph = phi i32 [ %60, %call1.i.noexc ], [ %.pr.i, %if.end55.i ], [ %95, %call109.i.noexc ], [ %.sink131, %invoke.cont125.thread.sink.split ]
   call void @llvm.lifetime.end.p0(i64 424, ptr nonnull %baseData.i)
   call void @llvm.lifetime.end.p0(i64 500, ptr nonnull %baseFilename.i)
   br label %if.then129

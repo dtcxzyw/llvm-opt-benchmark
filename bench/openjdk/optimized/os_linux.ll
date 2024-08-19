@@ -2937,11 +2937,6 @@ define hidden void @_ZN2os5Linux21capture_initial_stackEm(i64 noundef %0) local_
   %.not.i = icmp eq ptr %61, null
   br i1 %.not.i, label %_ZL8find_vmaPhPS_S0_.exit.thread, label %.preheader.i
 
-_ZL8find_vmaPhPS_S0_.exit.thread:                 ; preds = %58
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %77
-
 .preheader.i:                                     ; preds = %58
   %62 = call i32 @feof(ptr noundef nonnull %61) #26
   %.not1926.i = icmp eq i32 %62, 0
@@ -2977,9 +2972,7 @@ _ZL8find_vmaPhPS_S0_.exit.thread:                 ; preds = %58
 
 _ZL8find_vmaPhPS_S0_.exit.thread48:               ; preds = %71, %.preheader.i
   %73 = call i32 @fclose(ptr noundef nonnull %61)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %77
+  br label %_ZL8find_vmaPhPS_S0_.exit.thread
 
 74:                                               ; preds = %65
   %75 = call i32 @fclose(ptr noundef nonnull %61)
@@ -2987,65 +2980,67 @@ _ZL8find_vmaPhPS_S0_.exit.thread48:               ; preds = %71, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %76 = ptrtoint ptr %67 to i64
   %.pre55 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
-  br label %82
+  br label %81
 
-77:                                               ; preds = %_ZL8find_vmaPhPS_S0_.exit.thread48, %_ZL8find_vmaPhPS_S0_.exit.thread
+_ZL8find_vmaPhPS_S0_.exit.thread:                 ; preds = %58, %_ZL8find_vmaPhPS_S0_.exit.thread48
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.40) #26
-  %78 = load i64, ptr %5, align 8
-  %79 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
-  %80 = shl i64 %79, 4
-  %81 = sub i64 %.0, %80
-  br label %82
+  %77 = load i64, ptr %5, align 8
+  %78 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
+  %79 = shl i64 %78, 4
+  %80 = sub i64 %.0, %79
+  br label %81
 
-82:                                               ; preds = %77, %74
-  %83 = phi i64 [ %.pre55, %74 ], [ %79, %77 ]
-  %.025 = phi i64 [ %76, %74 ], [ %78, %77 ]
-  %.1 = phi i64 [ %.0, %74 ], [ %81, %77 ]
-  %84 = add i64 %.025, -1
-  %85 = add i64 %84, %83
-  %86 = sub i64 0, %83
-  %87 = and i64 %85, %86
+81:                                               ; preds = %_ZL8find_vmaPhPS_S0_.exit.thread, %74
+  %82 = phi i64 [ %.pre55, %74 ], [ %78, %_ZL8find_vmaPhPS_S0_.exit.thread ]
+  %.025 = phi i64 [ %76, %74 ], [ %77, %_ZL8find_vmaPhPS_S0_.exit.thread ]
+  %.1 = phi i64 [ %.0, %74 ], [ %80, %_ZL8find_vmaPhPS_S0_.exit.thread ]
+  %83 = add i64 %.025, -1
+  %84 = add i64 %83, %82
+  %85 = sub i64 0, %82
+  %86 = and i64 %84, %85
   %.not41 = icmp eq i64 %0, 0
-  br i1 %.not41, label %90, label %88
+  br i1 %.not41, label %89, label %87
 
-88:                                               ; preds = %82
-  %89 = call noundef i64 @llvm.umin.i64(i64 %0, i64 %.1)
-  br label %92
+87:                                               ; preds = %81
+  %88 = call noundef i64 @llvm.umin.i64(i64 %0, i64 %.1)
+  br label %91
 
-90:                                               ; preds = %82
-  %91 = call noundef i64 @llvm.umin.i64(i64 %.1, i64 8388608)
-  br label %92
+89:                                               ; preds = %81
+  %90 = call noundef i64 @llvm.umin.i64(i64 %.1, i64 8388608)
+  br label %91
 
-92:                                               ; preds = %90, %88
-  %storemerge = phi i64 [ %91, %90 ], [ %89, %88 ]
-  %93 = and i64 %storemerge, %86
-  store i64 %93, ptr @_ZN2os5Linux26_initial_thread_stack_sizeE, align 8
-  %94 = inttoptr i64 %87 to ptr
-  %95 = sub i64 0, %93
-  %96 = getelementptr inbounds i8, ptr %94, i64 %95
-  store ptr %96, ptr @_ZN2os5Linux28_initial_thread_stack_bottomE, align 8
-  %97 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_159ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not51 = icmp eq ptr %97, null
-  br i1 %.not51, label %109, label %98
+91:                                               ; preds = %89, %87
+  %storemerge = phi i64 [ %90, %89 ], [ %88, %87 ]
+  %92 = and i64 %storemerge, %85
+  store i64 %92, ptr @_ZN2os5Linux26_initial_thread_stack_sizeE, align 8
+  %93 = inttoptr i64 %86 to ptr
+  %94 = sub i64 0, %92
+  %95 = getelementptr inbounds i8, ptr %93, i64 %94
+  store ptr %95, ptr @_ZN2os5Linux28_initial_thread_stack_bottomE, align 8
+  %96 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_159ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not51 = icmp eq ptr %96, null
+  br i1 %.not51, label %108, label %97
 
-98:                                               ; preds = %92
-  %99 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_159ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not52 = icmp eq ptr %99, null
-  br i1 %.not52, label %109, label %100
+97:                                               ; preds = %91
+  %98 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_159ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not52 = icmp eq ptr %98, null
+  br i1 %.not52, label %108, label %99
 
-100:                                              ; preds = %98
-  %101 = icmp ugt ptr %4, %96
-  %102 = ptrtoint ptr %4 to i64
-  %103 = icmp ugt i64 %87, %102
-  %104 = and i1 %103, %101
-  %105 = select i1 %104, ptr @.str.42, ptr @.str.43
-  %106 = lshr i64 %0, 10
-  %107 = lshr i64 %93, 10
-  %108 = ptrtoint ptr %96 to i64
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE105ELS1_159ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.41, ptr noundef nonnull %105, i64 noundef %106, i64 noundef %107, i64 noundef %87, i64 noundef %108)
-  br label %109
+99:                                               ; preds = %97
+  %100 = icmp ugt ptr %4, %95
+  %101 = ptrtoint ptr %4 to i64
+  %102 = icmp ugt i64 %86, %101
+  %103 = and i1 %102, %100
+  %104 = select i1 %103, ptr @.str.42, ptr @.str.43
+  %105 = lshr i64 %0, 10
+  %106 = lshr i64 %92, 10
+  %107 = ptrtoint ptr %95 to i64
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE105ELS1_159ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.41, ptr noundef nonnull %104, i64 noundef %105, i64 noundef %106, i64 noundef %86, i64 noundef %107)
+  br label %108
 
-109:                                              ; preds = %100, %98, %92
+108:                                              ; preds = %99, %97, %91
   ret void
 }
 

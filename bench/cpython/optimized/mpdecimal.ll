@@ -7339,7 +7339,7 @@ if.end26:                                         ; preds = %lor.lhs.false22
   %18 = load i32, ptr %workstatus.i, align 4
   %and.i = and i32 %18, 256
   %tobool.not.i = icmp eq i32 %and.i, 0
-  br i1 %tobool.not.i, label %if.end.i56, label %mpd_qget_ssize.exit
+  br i1 %tobool.not.i, label %if.end.i56, label %if.then29
 
 if.end.i56:                                       ; preds = %if.end26
   %19 = load i8, ptr %b, align 8
@@ -7357,11 +7357,7 @@ if.else.i:                                        ; preds = %if.end.i56
   %tobool4.not.i = icmp ne i8 %20, 0
   %cmp5.i = icmp eq i64 %call.i.i, -9223372036854775808
   %or.cond.i = select i1 %tobool4.not.i, i1 %cmp5.i, i1 false
-  br i1 %or.cond.i, label %mpd_qget_ssize.exit.thread, label %mpd_qget_ssize.exit.thread90
-
-mpd_qget_ssize.exit.thread90:                     ; preds = %if.else.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %workstatus.i)
-  br label %if.then29
+  br i1 %or.cond.i, label %mpd_qget_ssize.exit.thread, label %if.then29
 
 mpd_qget_ssize.exit.thread:                       ; preds = %if.then2.i, %if.else.i
   %retval.0.i.ph = phi i64 [ -9223372036854775808, %if.else.i ], [ %cond.i, %if.then2.i ]
@@ -7373,11 +7369,8 @@ mpd_qget_ssize.exit.thread:                       ; preds = %if.then2.i, %if.els
   %or.cond = or i1 %cmp31, %cmp34
   br i1 %or.cond, label %if.then35, label %if.end36
 
-mpd_qget_ssize.exit:                              ; preds = %if.end26
+if.then29:                                        ; preds = %if.end26, %if.else.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %workstatus.i)
-  br label %if.then29
-
-if.then29:                                        ; preds = %mpd_qget_ssize.exit, %mpd_qget_ssize.exit.thread90
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %err.i.i57)
   %22 = load i8, ptr %result, align 8
   %23 = and i8 %22, 32
@@ -8063,7 +8056,7 @@ if.end11:                                         ; preds = %lor.lhs.false7
   %18 = load i32, ptr %workstatus.i, align 4
   %and.i = and i32 %18, 256
   %tobool.not.i = icmp eq i32 %and.i, 0
-  br i1 %tobool.not.i, label %if.end.i, label %mpd_qget_ssize.exit
+  br i1 %tobool.not.i, label %if.end.i, label %if.then14
 
 if.end.i:                                         ; preds = %if.end11
   %19 = load i8, ptr %b, align 8
@@ -8081,11 +8074,7 @@ if.else.i:                                        ; preds = %if.end.i
   %tobool4.not.i = icmp ne i8 %20, 0
   %cmp5.i = icmp eq i64 %call.i.i, -9223372036854775808
   %or.cond.i = select i1 %tobool4.not.i, i1 %cmp5.i, i1 false
-  br i1 %or.cond.i, label %mpd_qget_ssize.exit.thread, label %mpd_qget_ssize.exit.thread67
-
-mpd_qget_ssize.exit.thread67:                     ; preds = %if.else.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %workstatus.i)
-  br label %if.then14
+  br i1 %or.cond.i, label %mpd_qget_ssize.exit.thread, label %if.then14
 
 mpd_qget_ssize.exit.thread:                       ; preds = %if.then2.i, %if.else.i
   %retval.0.i.ph = phi i64 [ -9223372036854775808, %if.else.i ], [ %cond.i, %if.then2.i ]
@@ -8097,11 +8086,8 @@ mpd_qget_ssize.exit.thread:                       ; preds = %if.then2.i, %if.els
   %or.cond = or i1 %cmp16, %cmp19
   br i1 %or.cond, label %if.then20, label %if.end21
 
-mpd_qget_ssize.exit:                              ; preds = %if.end11
+if.then14:                                        ; preds = %if.end11, %if.else.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %workstatus.i)
-  br label %if.then14
-
-if.then14:                                        ; preds = %mpd_qget_ssize.exit, %mpd_qget_ssize.exit.thread67
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %err.i.i34)
   %22 = load i8, ptr %result, align 8
   %23 = and i8 %22, 32

@@ -25747,43 +25747,34 @@ entry:
   %inf.i = getelementptr inbounds i8, ptr %left, i64 1
   %1 = load i8, ptr %inf.i, align 1
   %tobool4 = trunc i8 %1 to i1
-  br i1 %tobool, label %lor.end, label %lor.end.thread
+  %brmerge = select i1 %tobool, i1 true, i1 %tobool4
+  br i1 %brmerge, label %lor.rhs21.sink.split, label %land.lhs.true
 
-lor.end:                                          ; preds = %entry
-  br i1 %tobool4, label %lor.end8.thread, label %2
-
-lor.end.thread:                                   ; preds = %entry
-  br i1 %tobool4, label %lor.end8.thread, label %land.lhs.true
-
-lor.end8.thread:                                  ; preds = %lor.end.thread, %lor.end
-  store i8 1, ptr %isNan, align 1
-  br label %lor.rhs21
-
-2:                                                ; preds = %lor.end
-  store i8 1, ptr %isNan, align 1
-  br label %lor.rhs21
-
-land.lhs.true:                                    ; preds = %lor.end.thread
-  %3 = load i8, ptr %right, align 8
-  %tobool2 = trunc i8 %3 to i1
+land.lhs.true:                                    ; preds = %entry
+  %2 = load i8, ptr %right, align 8
+  %tobool2 = trunc i8 %2 to i1
   %zero.i22 = getelementptr inbounds i8, ptr %right, i64 2
-  %4 = load i8, ptr %zero.i22, align 2
-  %5 = and i8 %4, 1
-  %frombool1423 = select i1 %tobool2, i8 1, i8 %5
+  %3 = load i8, ptr %zero.i22, align 2
+  %4 = and i8 %3, 1
+  %frombool1423 = select i1 %tobool2, i8 1, i8 %4
   store i8 %frombool1423, ptr %isNan, align 1
   %inf.i10 = getelementptr inbounds i8, ptr %right, i64 1
-  %6 = load i8, ptr %inf.i10, align 1
-  %tobool20 = trunc i8 %6 to i1
+  %5 = load i8, ptr %inf.i10, align 1
+  %tobool20 = trunc i8 %5 to i1
   br i1 %tobool20, label %lor.end24, label %lor.rhs21
 
-lor.rhs21:                                        ; preds = %2, %lor.end8.thread, %land.lhs.true
+lor.rhs21.sink.split:                             ; preds = %entry
+  store i8 1, ptr %isNan, align 1
+  br label %lor.rhs21
+
+lor.rhs21:                                        ; preds = %lor.rhs21.sink.split, %land.lhs.true
   %zero.i11 = getelementptr inbounds i8, ptr %left, i64 2
-  %7 = load i8, ptr %zero.i11, align 2
-  %8 = and i8 %7, 1
+  %6 = load i8, ptr %zero.i11, align 2
+  %7 = and i8 %6, 1
   br label %lor.end24
 
 lor.end24:                                        ; preds = %lor.rhs21, %land.lhs.true
-  %frombool25 = phi i8 [ 1, %land.lhs.true ], [ %8, %lor.rhs21 ]
+  %frombool25 = phi i8 [ 1, %land.lhs.true ], [ %7, %lor.rhs21 ]
   store i8 %frombool25, ptr %passThrough, align 1
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEE7makeNaNERKNS2_17FloatingPointSizeE(ptr nonnull sret(%"class.symfpu::unpackedFloat") align 8 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(8) %format)
   invoke void @_ZN6symfpu3iteIbNS_13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEEEE5iteOpERKbRKS6_SB_(ptr nonnull sret(%"class.symfpu::unpackedFloat") align 8 %ref.tmp26, ptr noundef nonnull align 1 dereferenceable(1) %passThrough, ptr noundef nonnull align 8 dereferenceable(56) %left, ptr noundef nonnull align 8 dereferenceable(56) %remainderResult)
@@ -25799,10 +25790,10 @@ invoke.cont28:                                    ; preds = %invoke.cont
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont28
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #15
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #15
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i: ; preds = %invoke.cont28
@@ -25811,10 +25802,10 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i: ; preds = %
           to label %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit unwind label %terminate.lpad.i.i.i.i2.i
 
 terminate.lpad.i.i.i.i2.i:                        ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #15
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #15
   unreachable
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i
@@ -25823,10 +25814,10 @@ _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit: ; pr
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i15 unwind label %terminate.lpad.i.i.i.i.i14
 
 terminate.lpad.i.i.i.i.i14:                       ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #15
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #15
   unreachable
 
 _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i15: ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit
@@ -25835,28 +25826,28 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i15: ; preds =
           to label %_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit18 unwind label %terminate.lpad.i.i.i.i2.i17
 
 terminate.lpad.i.i.i.i2.i17:                      ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i15
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #15
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #15
   unreachable
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev.exit18: ; preds = %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit.i15
   ret void
 
 lpad:                                             ; preds = %lor.end24
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad27:                                           ; preds = %invoke.cont
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp26) #16
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad27, %lpad
-  %.pn = phi { ptr, i32 } [ %18, %lpad27 ], [ %17, %lpad ]
+  %.pn = phi { ptr, i32 } [ %17, %lpad27 ], [ %16, %lpad ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal13symfpuLiteral6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp) #16
   resume { ptr, i32 } %.pn
 }

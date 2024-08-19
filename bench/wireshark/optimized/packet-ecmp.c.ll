@@ -2617,15 +2617,15 @@ define internal fastcc void @modbus_pdu(i32 noundef %0, i32 noundef %1, ptr noun
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %0) #4
   %8 = load i32, ptr @hf_ecmp_modbus_pdu_size, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %8, ptr noundef %2, i32 noundef %0, i32 noundef 2, i32 noundef 0) #4
+  %10 = add i32 %0, 2
+  %11 = getelementptr inbounds i8, ptr %6, i64 4
+  %12 = getelementptr inbounds i8, ptr %6, i64 6
+  %13 = zext i16 %7 to i32
   %. = zext i1 %.not to i32
   store i32 %., ptr %6, align 4
-  %10 = zext i16 %7 to i32
-  %11 = getelementptr inbounds i8, ptr %6, i64 6
-  %12 = getelementptr inbounds i8, ptr %6, i64 4
-  %13 = add i32 %0, 2
-  store i16 0, ptr %12, align 4
-  store i8 0, ptr %11, align 2
-  %14 = tail call ptr @tvb_new_subset_length(ptr noundef %2, i32 noundef %13, i32 noundef %10) #4
+  store i16 0, ptr %11, align 4
+  store i8 0, ptr %12, align 2
+  %14 = tail call ptr @tvb_new_subset_length(ptr noundef %2, i32 noundef %10, i32 noundef %13) #4
   %15 = load ptr, ptr @modbus_handle, align 8
   %16 = call i32 @call_dissector_with_data(ptr noundef %15, ptr noundef %14, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %6) #4
   ret void

@@ -12427,7 +12427,7 @@ _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp10) #26
   %5 = load ptr, ptr %message_.i.i, align 8, !tbaa !8
   %cmp.not.i.i91 = icmp eq ptr %5, null
-  br i1 %cmp.not.i.i91, label %_ZN7testing15AssertionResultD2Ev.exit, label %delete.notnull.i.i.i
+  br i1 %cmp.not.i.i91, label %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit140, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %_ZN7testing7MessageD2Ev.exit
   %6 = load ptr, ptr %5, align 8, !tbaa !31
@@ -12440,19 +12440,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %8 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !34
   %cmp3.i.i.i.i.i.i = icmp ult i64 %8, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i)
-  br label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
+  br label %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit140.sink.split
 
 if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i.i.i
   call void @_ZdlPv(ptr noundef %6) #27
-  br label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
-
-_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %5) #27
-  br label %_ZN7testing15AssertionResultD2Ev.exit
-
-_ZN7testing15AssertionResultD2Ev.exit:            ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i, %_ZN7testing7MessageD2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar) #26
-  br label %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit140
+  br label %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit140.sink.split
 
 lpad11:                                           ; preds = %if.else
   %9 = landingpad { ptr, i32 }
@@ -12495,7 +12487,7 @@ cleanup.cont.critedge:                            ; preds = %if.then.i.i
   %message_.i97 = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %14 = load ptr, ptr %message_.i97, align 8, !tbaa !8
   %cmp.not.i.i98 = icmp eq ptr %14, null
-  br i1 %cmp.not.i.i98, label %cleanup56, label %delete.notnull.i.i.i99
+  br i1 %cmp.not.i.i98, label %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit140, label %delete.notnull.i.i.i99
 
 delete.notnull.i.i.i99:                           ; preds = %cleanup.cont.critedge
   %15 = load ptr, ptr %14, align 8, !tbaa !31
@@ -12508,21 +12500,19 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %17 = load i64, ptr %_M_string_length.i.i.i.i.i.i104, align 8, !tbaa !34
   %cmp3.i.i.i.i.i.i105 = icmp ult i64 %17, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i105)
-  br label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i102
+  br label %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit140.sink.split
 
 if.then.i.i.i.i.i101:                             ; preds = %delete.notnull.i.i.i99
   call void @_ZdlPv(ptr noundef %15) #27
-  br label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i102
+  br label %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit140.sink.split
 
-_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i102: ; preds = %if.then.i.i.i.i.i101, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i103
-  call void @_ZdlPv(ptr noundef nonnull %14) #27
-  br label %cleanup56
-
-cleanup56:                                        ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i102, %cleanup.cont.critedge
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar) #26
+_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit140.sink.split: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i103, %if.then.i.i.i.i.i101, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, %if.then.i.i.i.i.i
+  %.sink = phi ptr [ %5, %if.then.i.i.i.i.i ], [ %5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i ], [ %14, %if.then.i.i.i.i.i101 ], [ %14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i103 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sink) #27
   br label %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit140
 
-_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit140: ; preds = %cleanup56, %_ZN7testing15AssertionResultD2Ev.exit
+_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit140: ; preds = %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit140.sink.split, %cleanup.cont.critedge, %_ZN7testing7MessageD2Ev.exit
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar) #26
   ret void
 }
 
@@ -15216,7 +15206,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 ehcleanup.thread:                                 ; preds = %if.then.i.i, %if.then.i
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #26
   br label %cleanup.action
 
 lpad2.body:                                       ; preds = %invoke.cont
@@ -15228,7 +15217,6 @@ lpad2.body:                                       ; preds = %invoke.cont
 
 ehcleanup.thread15:                               ; preds = %lpad2.body
   call void @_ZdlPv(ptr noundef %26) #27
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #26
   br label %cleanup.action
 
 lpad2.body.thread:                                ; preds = %lpad3.i
@@ -15247,7 +15235,6 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %29 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !34
   %cmp3.i.i.i22 = icmp ult i64 %29, 16
   call void @llvm.assume(i1 %cmp3.i.i.i22)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #26
   br label %cleanup.action
 
 ehcleanup:                                        ; preds = %lpad2.body.thread
@@ -15257,6 +15244,7 @@ ehcleanup:                                        ; preds = %lpad2.body.thread
 
 cleanup.action:                                   ; preds = %ehcleanup.thread15, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i20, %ehcleanup.thread
   %.pn27 = phi { ptr, i32 } [ %24, %ehcleanup.thread ], [ %25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i20 ], [ %25, %ehcleanup.thread15 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #26
   call void @_ZdlPv(ptr noundef nonnull %call) #27
   br label %eh.resume
 

@@ -2952,19 +2952,19 @@ define internal fastcc ptr @find_fetch_type(ptr noundef %0, i64 noundef %1) unna
   store i64 0, ptr %3, align 8, !annotation !19
   %22 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %15, i32 noundef 47) #16
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %.thread, label %24
+  br i1 %23, label %.loopexit.sink.split, label %24
 
 24:                                               ; preds = %21
   %25 = getelementptr i8, ptr %22, i64 1
   %26 = call i32 @kstrtoull(ptr noundef %25, i32 noundef 0, ptr noundef nonnull %3) #16
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %.thread
+  br i1 %27, label %28, label %.loopexit.sink.split
 
 28:                                               ; preds = %24
   %29 = load i64, ptr %3, align 8
   %30 = add i64 %29, -8
   %31 = call i64 @llvm.fshl.i64(i64 %30, i64 %30, i64 61)
-  switch i64 %31, label %.thread [
+  switch i64 %31, label %.loopexit.sink.split [
     i64 0, label %35
     i64 1, label %32
     i64 3, label %33
@@ -2980,15 +2980,10 @@ define internal fastcc ptr @find_fetch_type(ptr noundef %0, i64 noundef %1) unna
 34:                                               ; preds = %28
   br label %35
 
-.thread:                                          ; preds = %21, %24, %28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
-  br label %.loopexit
-
 35:                                               ; preds = %28, %32, %33, %34
   %36 = phi ptr [ @.str.113, %34 ], [ @.str.112, %33 ], [ @.str.111, %32 ], [ @.str.110, %28 ]
   %37 = call fastcc ptr @find_fetch_type(ptr noundef nonnull %36, i64 noundef %1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
-  br label %.loopexit
+  br label %.loopexit.sink.split
 
 .preheader:                                       ; preds = %18, %41
   %38 = phi i64 [ %39, %41 ], [ 0, %18 ]
@@ -3003,8 +2998,13 @@ define internal fastcc ptr @find_fetch_type(ptr noundef %0, i64 noundef %1) unna
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %.loopexit, label %.preheader, !llvm.loop !38
 
-.loopexit:                                        ; preds = %.preheader, %41, %.thread, %35, %18, %11, %8
-  %46 = phi ptr [ %37, %35 ], [ null, %11 ], [ null, %8 ], [ @probe_fetch_types, %18 ], [ null, %.thread ], [ null, %.preheader ], [ %42, %41 ]
+.loopexit.sink.split:                             ; preds = %28, %24, %21, %35
+  %.ph = phi ptr [ %37, %35 ], [ null, %21 ], [ null, %24 ], [ null, %28 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.preheader, %41, %.loopexit.sink.split, %18, %11, %8
+  %46 = phi ptr [ null, %11 ], [ null, %8 ], [ @probe_fetch_types, %18 ], [ %.ph, %.loopexit.sink.split ], [ null, %.preheader ], [ %42, %41 ]
   ret ptr %46
 }
 

@@ -12261,7 +12261,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIfSaI
 54:                                               ; preds = %36, %7
   %55 = landingpad { ptr, i32 }
           cleanup
-  br label %317
+  br label %318
 
 56:                                               ; preds = %37
   %57 = landingpad { ptr, i32 }
@@ -12276,7 +12276,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIfSaI
 60:                                               ; preds = %53
   %61 = landingpad { ptr, i32 }
           cleanup
-  br label %314
+  br label %315
 
 62:                                               ; preds = %._crit_edge124, %.loopexit113
   %63 = phi i32 [ %.pre, %._crit_edge124 ], [ %40, %.loopexit113 ]
@@ -12628,7 +12628,7 @@ _ZN11GLLogStream4logfIJfffEEEviPKcDpOT_.exit.i:   ; preds = %208, %.noexc73
   %229 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #30
-  br label %314
+  br label %315
 
 .loopexit:                                        ; preds = %187
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -12889,27 +12889,27 @@ _ZN3vcg9HistogramIfED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
 
 .body:                                            ; preds = %.body67, %143, %135
   %.pn54.pn.pn.pn = phi { ptr, i32 } [ %136, %135 ], [ %.pn54.pn, %.body67 ], [ %144, %143 ]
-  %.sink = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %.sink) #30
+  %314 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %314) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #30
-  br label %314
+  br label %315
 
-314:                                              ; preds = %.body, %228, %60
+315:                                              ; preds = %.body, %228, %60
   %.pn59 = phi { ptr, i32 } [ %61, %60 ], [ %.pn54.pn.pn.pn, %.body ], [ %229, %228 ]
-  %315 = load ptr, ptr %12, align 8
-  %.not.i.i.i83 = icmp eq ptr %315, null
-  br i1 %.not.i.i.i83, label %_ZNSt6vectorIfSaIfEED2Ev.exit84, label %316
+  %316 = load ptr, ptr %12, align 8
+  %.not.i.i.i83 = icmp eq ptr %316, null
+  br i1 %.not.i.i.i83, label %_ZNSt6vectorIfSaIfEED2Ev.exit84, label %317
 
-316:                                              ; preds = %314
-  call void @_ZdlPv(ptr noundef nonnull %315) #29
+317:                                              ; preds = %315
+  call void @_ZdlPv(ptr noundef nonnull %316) #29
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit84
 
-_ZNSt6vectorIfSaIfEED2Ev.exit84:                  ; preds = %316, %314, %58, %56
-  %.pn59.pn = phi { ptr, i32 } [ %59, %58 ], [ %57, %56 ], [ %.pn59, %314 ], [ %.pn59, %316 ]
+_ZNSt6vectorIfSaIfEED2Ev.exit84:                  ; preds = %317, %315, %58, %56
+  %.pn59.pn = phi { ptr, i32 } [ %59, %58 ], [ %57, %56 ], [ %.pn59, %315 ], [ %.pn59, %317 ]
   call void @_ZN3vcg9HistogramIfED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %11) #30
-  br label %317
+  br label %318
 
-317:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit84, %54
+318:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit84, %54
   %.pn59.pn.pn = phi { ptr, i32 } [ %.pn59.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit84 ], [ %55, %54 ]
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8QVariantSt4lessIS5_ESaISt4pairIKS5_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #30
   resume { ptr, i32 } %.pn59.pn.pn
@@ -13028,7 +13028,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIfSaI
 54:                                               ; preds = %36, %7
   %55 = landingpad { ptr, i32 }
           cleanup
-  br label %326
+  br label %327
 
 56:                                               ; preds = %37
   %57 = landingpad { ptr, i32 }
@@ -13043,7 +13043,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIfSaI
 60:                                               ; preds = %53
   %61 = landingpad { ptr, i32 }
           cleanup
-  br label %323
+  br label %324
 
 62:                                               ; preds = %._crit_edge124, %.loopexit113
   %63 = phi i32 [ %.pre, %._crit_edge124 ], [ %40, %.loopexit113 ]
@@ -13404,7 +13404,7 @@ _ZN11GLLogStream4logfIJfffEEEviPKcDpOT_.exit.i:   ; preds = %217, %.noexc73
   %238 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #30
-  br label %323
+  br label %324
 
 .loopexit:                                        ; preds = %196
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -13665,27 +13665,27 @@ _ZN3vcg9HistogramIfED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
 
 .body:                                            ; preds = %.body67, %152, %144
   %.pn54.pn.pn.pn = phi { ptr, i32 } [ %145, %144 ], [ %.pn54.pn, %.body67 ], [ %153, %152 ]
-  %.sink = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %.sink) #30
+  %323 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %323) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #30
-  br label %323
+  br label %324
 
-323:                                              ; preds = %.body, %237, %60
+324:                                              ; preds = %.body, %237, %60
   %.pn59 = phi { ptr, i32 } [ %61, %60 ], [ %.pn54.pn.pn.pn, %.body ], [ %238, %237 ]
-  %324 = load ptr, ptr %12, align 8
-  %.not.i.i.i83 = icmp eq ptr %324, null
-  br i1 %.not.i.i.i83, label %_ZNSt6vectorIfSaIfEED2Ev.exit84, label %325
+  %325 = load ptr, ptr %12, align 8
+  %.not.i.i.i83 = icmp eq ptr %325, null
+  br i1 %.not.i.i.i83, label %_ZNSt6vectorIfSaIfEED2Ev.exit84, label %326
 
-325:                                              ; preds = %323
-  call void @_ZdlPv(ptr noundef nonnull %324) #29
+326:                                              ; preds = %324
+  call void @_ZdlPv(ptr noundef nonnull %325) #29
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit84
 
-_ZNSt6vectorIfSaIfEED2Ev.exit84:                  ; preds = %325, %323, %58, %56
-  %.pn59.pn = phi { ptr, i32 } [ %59, %58 ], [ %57, %56 ], [ %.pn59, %323 ], [ %.pn59, %325 ]
+_ZNSt6vectorIfSaIfEED2Ev.exit84:                  ; preds = %326, %324, %58, %56
+  %.pn59.pn = phi { ptr, i32 } [ %59, %58 ], [ %57, %56 ], [ %.pn59, %324 ], [ %.pn59, %326 ]
   call void @_ZN3vcg9HistogramIfED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %11) #30
-  br label %326
+  br label %327
 
-326:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit84, %54
+327:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit84, %54
   %.pn59.pn.pn = phi { ptr, i32 } [ %.pn59.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit84 ], [ %55, %54 ]
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8QVariantSt4lessIS5_ESaISt4pairIKS5_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #30
   resume { ptr, i32 } %.pn59.pn.pn

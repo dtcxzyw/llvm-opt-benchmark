@@ -171,14 +171,13 @@ _ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h66fb8b33739fe3
 
 26:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !28
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  br label %45
+  br label %"_ZN4core3ptr103drop_in_place$LT$sharded_slab..pool..RefMut$LT$tracing_subscriber..registry..sharded..DataInner$GT$$GT$17h42bd1819366578d6E.exit"
 
 27:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h74748eeaf40f77a0E.llvm.10805634051311926935.exit.i", %24, %_ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h66fb8b33739fe356E.llvm.10805634051311926935.exit.i, %12
   %28 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr103drop_in_place$LT$sharded_slab..pool..RefMut$LT$tracing_subscriber..registry..sharded..DataInner$GT$$GT$17h42bd1819366578d6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %6) #29
-          to label %50 unwind label %48
+          to label %49 unwind label %47
 
 29:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h74748eeaf40f77a0E.llvm.10805634051311926935.exit.i"
   %30 = getelementptr inbounds i8, ptr %17, i64 8
@@ -212,24 +211,21 @@ _ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h66fb8b33739fe3
   %44 = call noundef zeroext i1 @"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$11clear_local17ha1fe6fe3506c1da6E.llvm.12485624242127034822"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %35, i64 noundef %36)
   br label %"_ZN4core3ptr103drop_in_place$LT$sharded_slab..pool..RefMut$LT$tracing_subscriber..registry..sharded..DataInner$GT$$GT$17h42bd1819366578d6E.exit"
 
-"_ZN4core3ptr103drop_in_place$LT$sharded_slab..pool..RefMut$LT$tracing_subscriber..registry..sharded..DataInner$GT$$GT$17h42bd1819366578d6E.exit": ; preds = %29, %41, %43
+"_ZN4core3ptr103drop_in_place$LT$sharded_slab..pool..RefMut$LT$tracing_subscriber..registry..sharded..DataInner$GT$$GT$17h42bd1819366578d6E.exit": ; preds = %43, %41, %29, %26
+  %.sroa.3.0 = phi i64 [ undef, %26 ], [ %32, %29 ], [ %32, %41 ], [ %32, %43 ]
+  %.sroa.0.0 = phi i64 [ 0, %26 ], [ 1, %29 ], [ 1, %41 ], [ 1, %43 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  br label %45
+  %45 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %46 = insertvalue { i64, i64 } %45, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %46
 
-45:                                               ; preds = %"_ZN4core3ptr103drop_in_place$LT$sharded_slab..pool..RefMut$LT$tracing_subscriber..registry..sharded..DataInner$GT$$GT$17h42bd1819366578d6E.exit", %26
-  %.sroa.3.0 = phi i64 [ undef, %26 ], [ %32, %"_ZN4core3ptr103drop_in_place$LT$sharded_slab..pool..RefMut$LT$tracing_subscriber..registry..sharded..DataInner$GT$$GT$17h42bd1819366578d6E.exit" ]
-  %.sroa.0.0 = phi i64 [ 0, %26 ], [ 1, %"_ZN4core3ptr103drop_in_place$LT$sharded_slab..pool..RefMut$LT$tracing_subscriber..registry..sharded..DataInner$GT$$GT$17h42bd1819366578d6E.exit" ]
-  %46 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %47 = insertvalue { i64, i64 } %46, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %47
-
-48:                                               ; preds = %27
-  %49 = landingpad { ptr, i32 }
+47:                                               ; preds = %27
+  %48 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #30
   unreachable
 
-50:                                               ; preds = %27
+49:                                               ; preds = %27
   resume { ptr, i32 } %28
 }
 

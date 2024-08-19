@@ -2151,11 +2151,7 @@ if.then.i89.thread102.i:                          ; preds = %invoke.cont94.i
 lor.lhs.false.i.i:                                ; preds = %invoke.cont94.i
   %36 = load i8, ptr %ops_needed.i, align 1
   %tobool1.i.i = trunc i8 %36 to i1
-  br i1 %tobool1.i.i, label %if.then.i89.thread.i, label %invoke.cont96.thread.i
-
-invoke.cont96.thread.i:                           ; preds = %lor.lhs.false.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i)
-  br label %if.end97.i
+  br i1 %tobool1.i.i, label %if.then.i89.thread.i, label %if.end97.i.sink.split
 
 if.then.i89.thread.i:                             ; preds = %lor.lhs.false.i.i
   store i8 0, ptr %ops_needed.i, align 1
@@ -2177,11 +2173,7 @@ _ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i:   ; preds = %if.then.i.i.i.i, %i
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i
-  br i1 %cmp.i.i.i84.i, label %invoke.cont96.i.thread, label %if.then.i.i6.i.i
-
-invoke.cont96.i.thread:                           ; preds = %invoke.cont.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i)
-  br label %if.end97.i
+  br i1 %cmp.i.i.i84.i, label %if.end97.i.sink.split, label %if.then.i.i6.i.i
 
 if.then.i.i6.i.i:                                 ; preds = %invoke.cont.i.i
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %.pre99.i)
@@ -2219,7 +2211,11 @@ lpad90.i:                                         ; preds = %if.then.i.i78.i
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i) #24
   br label %ehcleanup.i
 
-if.end97.i:                                       ; preds = %invoke.cont96.i.thread, %if.then.i.i92.i, %invoke.cont96.thread.i, %if.end79.i
+if.end97.i.sink.split:                            ; preds = %invoke.cont.i.i, %lor.lhs.false.i.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i)
+  br label %if.end97.i
+
+if.end97.i:                                       ; preds = %if.end97.i.sink.split, %if.then.i.i92.i, %if.end79.i
   %46 = load ptr, ptr %mu.i, align 8
   invoke void @gpr_mu_unlock(ptr noundef %46)
           to label %_ZN12_GLOBAL__N_113inproc_streamC2EPNS_16inproc_transportEP20grpc_stream_refcountPKvPN9grpc_core5ArenaE.exit unwind label %lpad19.i
@@ -3890,11 +3886,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i.thr
   %ops_needed.i = getelementptr inbounds i8, ptr %s, i64 1169
   %10 = load i8, ptr %ops_needed.i, align 1
   %tobool1.i = trunc i8 %10 to i1
-  br i1 %tobool1.i, label %if.then.i41.thread, label %invoke.cont8.thread
-
-invoke.cont8.thread:                              ; preds = %lor.lhs.false.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
-  br label %_ZN4absl12lts_202308026StatusD2Ev.exit
+  br i1 %tobool1.i, label %if.then.i41.thread, label %_ZN4absl12lts_202308026StatusD2Ev.exit.sink.split
 
 if.then.i41.thread:                               ; preds = %lor.lhs.false.i
   store i8 0, ptr %ops_needed.i, align 1
@@ -3922,7 +3914,7 @@ _ZN4absl12lts_202308026StatusC2ERKS1_.exit.i:     ; preds = %if.then.i41.thread1
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i
-  br i1 %cmp.i.i.i37146150, label %_ZN4absl12lts_202308026StatusD2Ev.exit.critedge, label %if.then.i.i6.i
+  br i1 %cmp.i.i.i37146150, label %_ZN4absl12lts_202308026StatusD2Ev.exit.sink.split, label %if.then.i.i6.i
 
 if.then.i.i6.i:                                   ; preds = %invoke.cont.i
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %15)
@@ -3957,12 +3949,13 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i44
   call void @__clang_call_terminate(ptr %21) #25
   unreachable
 
-_ZN4absl12lts_202308026StatusD2Ev.exit.critedge:  ; preds = %invoke.cont.i
+_ZN4absl12lts_202308026StatusD2Ev.exit.sink.split: ; preds = %invoke.cont.i, %lor.lhs.false.i
+  %.ph = phi ptr [ %9, %lor.lhs.false.i ], [ %16, %invoke.cont.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
   br label %_ZN4absl12lts_202308026StatusD2Ev.exit
 
-_ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit.critedge, %invoke.cont8.thread, %invoke.cont8, %if.then.i.i44
-  %22 = phi ptr [ %9, %invoke.cont8.thread ], [ %16, %invoke.cont8 ], [ %16, %if.then.i.i44 ], [ %16, %_ZN4absl12lts_202308026StatusD2Ev.exit.critedge ]
+_ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit.sink.split, %invoke.cont8, %if.then.i.i44
+  %22 = phi ptr [ %16, %invoke.cont8 ], [ %16, %if.then.i.i44 ], [ %.ph, %_ZN4absl12lts_202308026StatusD2Ev.exit.sink.split ]
   %trailing_md_sent = getelementptr inbounds i8, ptr %s, i64 2401
   store i8 1, ptr %trailing_md_sent, align 1
   %arena = getelementptr inbounds i8, ptr %s, i64 16

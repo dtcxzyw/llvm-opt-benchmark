@@ -121,7 +121,6 @@ define hidden void @_ZN10serde_json2de10from_trait17hf6e93d0bb648c94cE(ptr noali
 
 "_ZN4core3ptr82drop_in_place$LT$serde_json..de..Deserializer$LT$serde_json..read..StrRead$GT$$GT$17hcc7cf26982cc5be2E.exit": ; preds = %.loopexit, %38
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !31
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
   br label %44
 
 42:                                               ; preds = %28
@@ -133,6 +132,7 @@ define hidden void @_ZN10serde_json2de10from_trait17hf6e93d0bb648c94cE(ptr noali
           to label %45 unwind label %12
 
 44:                                               ; preds = %"_ZN4core3ptr82drop_in_place$LT$serde_json..de..Deserializer$LT$serde_json..read..StrRead$GT$$GT$17hcc7cf26982cc5be2E.exit5", %"_ZN4core3ptr82drop_in_place$LT$serde_json..de..Deserializer$LT$serde_json..read..StrRead$GT$$GT$17hcc7cf26982cc5be2E.exit"
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
   ret void
 
 45:                                               ; preds = %42, %30
@@ -153,7 +153,6 @@ define hidden void @_ZN10serde_json2de10from_trait17hf6e93d0bb648c94cE(ptr noali
 
 "_ZN4core3ptr82drop_in_place$LT$serde_json..de..Deserializer$LT$serde_json..read..StrRead$GT$$GT$17hcc7cf26982cc5be2E.exit5": ; preds = %45, %48
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !41
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
   br label %44
 
 52:                                               ; preds = %34, %11
@@ -2519,7 +2518,6 @@ common.resume:                                    ; preds = %303, %.body, %.body
 
 "_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17h83364d179d9adf8eE.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7d422a78da4d842eE.llvm.6128319392937003570.exit.i", %193
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !522
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !470
   br label %"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h0dd64d479b313984E.exit"
 
 199:                                              ; preds = %.noexc108
@@ -2571,7 +2569,6 @@ common.resume:                                    ; preds = %303, %.body, %.body
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.24)
   %.sroa.0213.0.copyload = load ptr, ptr %19, align 8, !noalias !470
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7179, ptr noundef nonnull align 8 dereferenceable(16) %154, i64 16, i1 false), !noalias !533
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !470
   br label %"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h0dd64d479b313984E.exit"
 
 216:                                              ; preds = %.body101
@@ -2583,6 +2580,7 @@ common.resume:                                    ; preds = %303, %.body, %.body
 "_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h0dd64d479b313984E.exit": ; preds = %"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17h83364d179d9adf8eE.exit", %215
   %.sroa.0177.0 = phi i64 [ -9223372036854775803, %"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17h83364d179d9adf8eE.exit" ], [ -9223372036854775804, %215 ]
   %.sroa.5178.0 = phi ptr [ %.sroa.15206.1.ph, %"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17h83364d179d9adf8eE.exit" ], [ %.sroa.0213.0.copyload, %215 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !470
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %18)
   %218 = load i8, ptr %115, align 8, !noundef !5
   %219 = add i8 %218, 1

@@ -2563,9 +2563,9 @@ define hidden void @_ZN5ceres8internal19TripletSparseMatrix18CreateFromTextFileE
   %43 = icmp eq i64 %42, 9223372036854775804
   br i1 %43, label %.invoke, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
 
-.invoke:                                          ; preds = %67, %39
-  %storemerge = phi ptr [ %27, %39 ], [ %61, %67 ]
-  store ptr %storemerge, ptr %4, align 8
+.invoke:                                          ; preds = %39, %67
+  %.sink = phi ptr [ %61, %67 ], [ %27, %39 ]
+  store ptr %.sink, ptr %4, align 8
   store ptr %26, ptr %5, align 8
   store ptr %25, ptr %6, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.26) #30
@@ -3321,11 +3321,11 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %195 = icmp eq i64 %194, 9223372036854775804
   br i1 %195, label %.invoke, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
 
-.invoke:                                          ; preds = %215, %191
-  %storemerge286 = phi ptr [ %100, %191 ], [ %212, %215 ]
-  %storemerge = phi ptr [ %101, %191 ], [ %211, %215 ]
-  store ptr %storemerge286, ptr %72, align 8
-  store ptr %storemerge, ptr %16, align 8
+.invoke:                                          ; preds = %191, %215
+  %.sink286 = phi ptr [ %212, %215 ], [ %100, %191 ]
+  %.sink = phi ptr [ %211, %215 ], [ %101, %191 ]
+  store ptr %.sink286, ptr %72, align 8
+  store ptr %.sink, ptr %16, align 8
   store ptr %102, ptr %73, align 8
   store ptr %103, ptr %17, align 8
   store ptr %104, ptr %74, align 8

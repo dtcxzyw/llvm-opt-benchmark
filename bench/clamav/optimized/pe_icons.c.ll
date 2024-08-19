@@ -395,19 +395,19 @@ define internal range(i32 0, 2) i32 @icon_scan_cb(ptr nocapture noundef %0, i32 
   %12 = getelementptr inbounds i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %.loopexit, label %14
+  br i1 %.not.i, label %parseicon.exit, label %14
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds i8, ptr %11, i64 48
   %16 = load ptr, ptr %15, align 8
   %.not575.i = icmp eq ptr %16, null
-  br i1 %.not575.i, label %.loopexit, label %17
+  br i1 %.not575.i, label %parseicon.exit, label %17
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %16, i64 224
   %19 = load ptr, ptr %18, align 8
   %.not576.i = icmp eq ptr %19, null
-  br i1 %.not576.i, label %.loopexit, label %20
+  br i1 %.not576.i, label %parseicon.exit, label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds i8, ptr %11, i64 96
@@ -459,7 +459,7 @@ define internal range(i32 0, 2) i32 @icon_scan_cb(ptr nocapture noundef %0, i32 
   %50 = load i32, ptr %49, align 8
   %51 = add i32 %50, 1
   store i32 %51, ptr %49, align 8
-  br label %.loopexit
+  br label %parseicon.exit
 
 52:                                               ; preds = %43
   %53 = load i32, ptr %47, align 1
@@ -496,7 +496,7 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
   %68 = load i32, ptr %67, align 4
   %69 = add i32 %68, 1
   store i32 %69, ptr %67, align 4
-  br label %.loopexit
+  br label %parseicon.exit
 
 70:                                               ; preds = %fmap_readn.exit.i
   %.0..0..0..0..0..i = load i32, ptr %6, align 4
@@ -508,7 +508,7 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
   %74 = load i32, ptr %73, align 8
   %75 = add i32 %74, 1
   store i32 %75, ptr %73, align 8
-  br label %.loopexit
+  br label %parseicon.exit
 
 76:                                               ; preds = %70
   %77 = add i32 %.0..0..0..0..0..i, %58
@@ -532,7 +532,7 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
   %86 = load i32, ptr %85, align 4
   %87 = add i32 %86, 1
   store i32 %87, ptr %85, align 4
-  br label %.loopexit
+  br label %parseicon.exit
 
 88:                                               ; preds = %76
   %89 = mul nuw nsw i32 %78, 3
@@ -551,7 +551,7 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
   %98 = load i32, ptr %97, align 8
   %99 = add i32 %98, 1
   store i32 %99, ptr %97, align 8
-  br label %.loopexit
+  br label %parseicon.exit
 
 100:                                              ; preds = %92
   %101 = icmp eq i32 %.4..4..4..4..4..i, %78
@@ -588,7 +588,7 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
 
 109:                                              ; preds = %108
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.17) #13
-  br label %.loopexit
+  br label %parseicon.exit
 
 110:                                              ; preds = %108, %108, %108
   %111 = zext i32 %77 to i64
@@ -598,7 +598,7 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
   %115 = load ptr, ptr %45, align 8
   %116 = call ptr %115(ptr noundef nonnull %22, i64 noundef %111, i64 noundef %114, i32 noundef 1) #13
   %.not586.i = icmp eq ptr %116, null
-  br i1 %.not586.i, label %.loopexit, label %117
+  br i1 %.not586.i, label %parseicon.exit, label %117
 
 117:                                              ; preds = %110
   %118 = trunc i64 %114 to i32
@@ -635,7 +635,7 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
 
 140:                                              ; preds = %120
   %.not591.i = icmp eq ptr %.0521.i, null
-  br i1 %.not591.i, label %.loopexit, label %141
+  br i1 %.not591.i, label %parseicon.exit, label %141
 
 141:                                              ; preds = %140
   %142 = shl nuw i32 1, %79
@@ -652,7 +652,7 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
   %151 = getelementptr inbounds i8, ptr %22, i64 128
   %152 = load ptr, ptr %151, align 8
   call void %152(ptr noundef nonnull %22, i64 noundef %150, i64 noundef %144) #13
-  br label %.loopexit
+  br label %parseicon.exit
 
 153:                                              ; preds = %120
   %narrow.i = shl nuw nsw i32 %.4..4..4..4..4..i, 2
@@ -676,7 +676,7 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
 
 160:                                              ; preds = %153
   %.not593.i = icmp eq ptr %.0521.i, null
-  br i1 %.not593.i, label %.loopexit, label %161
+  br i1 %.not593.i, label %parseicon.exit, label %161
 
 161:                                              ; preds = %160
   %162 = shl nuw i32 1, %79
@@ -693,7 +693,7 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
   %171 = getelementptr inbounds i8, ptr %22, i64 128
   %172 = load ptr, ptr %171, align 8
   call void %172(ptr noundef nonnull %22, i64 noundef %170, i64 noundef %164) #13
-  br label %.loopexit
+  br label %parseicon.exit
 
 173:                                              ; preds = %.loopexit638.i, %.lr.ph663.i
   %indvars.iv737.i = phi i64 [ 0, %.lr.ph663.i ], [ %indvars.iv.next738.i, %.loopexit638.i ]
@@ -1283,7 +1283,7 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
   %480 = getelementptr inbounds [3 x i32], ptr %478, i64 0, i64 %479
   %481 = load i32, ptr %480, align 4
   %.not713.i = icmp eq i32 %481, 0
-  br i1 %.not713.i, label %.loopexit, label %.lr.ph695.i
+  br i1 %.not713.i, label %parseicon.exit, label %.lr.ph695.i
 
 .lr.ph695.i:                                      ; preds = %.loopexit632.i
   %482 = shl nuw nsw i32 %476, 2
@@ -1489,31 +1489,21 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
 633:                                              ; preds = %631, %525, %514
   %indvars.iv.next788.i = add nuw nsw i64 %indvars.iv787.i, 1
   %exitcond791.not.i = icmp eq i64 %indvars.iv.next788.i, %wide.trip.count790.i
-  br i1 %exitcond791.not.i, label %.loopexit, label %514
+  br i1 %exitcond791.not.i, label %parseicon.exit, label %514
 
-parseicon.exit:                                   ; preds = %455, %632
-  %.0519.i = phi i32 [ 1, %632 ], [ 20, %455 ]
+parseicon.exit:                                   ; preds = %633, %.loopexit632.i, %160, %161, %140, %141, %110, %5, %14, %17, %109, %96, %84, %72, %fmap_readn.exit.thread.i, %48, %632, %455
+  %.0519.i.sink = phi i32 [ 1, %632 ], [ 20, %455 ], [ 0, %48 ], [ 0, %fmap_readn.exit.thread.i ], [ 0, %72 ], [ 0, %84 ], [ 0, %96 ], [ 0, %109 ], [ 0, %17 ], [ 0, %14 ], [ 0, %5 ], [ 0, %110 ], [ 0, %141 ], [ 0, %140 ], [ 0, %161 ], [ 0, %160 ], [ 0, %.loopexit632.i ], [ 0, %633 ]
+  %634 = phi i32 [ 1, %632 ], [ 1, %455 ], [ 0, %48 ], [ 0, %fmap_readn.exit.thread.i ], [ 0, %72 ], [ 0, %84 ], [ 0, %96 ], [ 0, %109 ], [ 0, %17 ], [ 0, %14 ], [ 0, %5 ], [ 0, %110 ], [ 0, %141 ], [ 0, %140 ], [ 0, %161 ], [ 0, %160 ], [ 0, %.loopexit632.i ], [ 0, %633 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  br label %634
-
-.loopexit:                                        ; preds = %633, %48, %fmap_readn.exit.thread.i, %72, %84, %96, %109, %17, %14, %5, %110, %141, %140, %161, %160, %.loopexit632.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  br label %634
-
-634:                                              ; preds = %parseicon.exit, %.loopexit
-  %.0519.i.sink = phi i32 [ %.0519.i, %parseicon.exit ], [ 0, %.loopexit ]
-  %635 = phi i32 [ 1, %parseicon.exit ], [ 0, %.loopexit ]
-  %636 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %.0519.i.sink, ptr %636, align 4
-  %637 = getelementptr inbounds i8, ptr %0, i64 12
-  %638 = load i32, ptr %637, align 4
-  %639 = add i32 %638, 1
-  store i32 %639, ptr %637, align 4
-  ret i32 %635
+  %635 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %.0519.i.sink, ptr %635, align 4
+  %636 = getelementptr inbounds i8, ptr %0, i64 12
+  %637 = load i32, ptr %636, align 4
+  %638 = add i32 %637, 1
+  store i32 %638, ptr %636, align 4
+  ret i32 %634
 }
 
 ; Function Attrs: nounwind uwtable

@@ -449,7 +449,6 @@ _ZN5alloc3fmt6format17hce246aee5769fae0E.exit:    ; preds = %2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   br label %128
 
 65:                                               ; preds = %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h08853c6336a81a70E.exit", %58, %53, %48, %43, %38, %33, %28, %23, %18
@@ -658,10 +657,10 @@ _ZN5alloc3fmt6format17hce246aee5769fae0E.exit51:  ; preds = %98
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   br label %128
 
 128:                                              ; preds = %127, %_ZN5alloc3fmt6format17hce246aee5769fae0E.exit
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   ret void
 }
 

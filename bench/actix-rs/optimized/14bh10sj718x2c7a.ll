@@ -4025,8 +4025,6 @@ define hidden void @"_ZN70_$LT$T$u20$as$u20$actix_http..header..into_pair..TryIn
   store i8 %67, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.76.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.76.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.76, i64 7, i1 false)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.05)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.76)
   br label %82
 
 70:                                               ; preds = %65
@@ -4055,12 +4053,12 @@ define hidden void @"_ZN70_$LT$T$u20$as$u20$actix_http..header..into_pair..TryIn
   br label %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17he39000efe30c6906E.exit14"
 
 82:                                               ; preds = %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17he39000efe30c6906E.exit14", %69
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.05)
+  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.76)
   ret void
 
 "_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17he39000efe30c6906E.exit14": ; preds = %74, %70
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.05)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.76)
   br label %82
 
 83:                                               ; preds = %57
@@ -6857,7 +6855,6 @@ define hidden void @"_ZN9actix_web4info14ConnectionInfo3new28_$u7b$$u7b$closure$
 
 58:                                               ; preds = %"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h939430c478dd9443E.exit.thread", %"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h939430c478dd9443E.exit"
   store ptr null, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7)
   br label %60
 
 59:                                               ; preds = %"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h939430c478dd9443E.exit47", %"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h939430c478dd9443E.exit47.thread57"
@@ -6870,15 +6867,14 @@ define hidden void @"_ZN9actix_web4info14ConnectionInfo3new28_$u7b$$u7b$closure$
   store ptr %.sroa.0.0.i3261, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %.sroa.4.0.i3160, ptr %.sroa.8.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7)
   br label %60
 
 "_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h939430c478dd9443E.exit47.thread": ; preds = %53, %50, %30, %28, %"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h939430c478dd9443E.exit47.thread63"
   store ptr null, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7)
   br label %60
 
 60:                                               ; preds = %58, %"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h939430c478dd9443E.exit47.thread", %59
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7)
   ret void
 }
 
@@ -8309,7 +8305,7 @@ _ZN10actix_http12http_message11HttpMessage9mime_type17h77ffdcb9e4867e2aE.exit._c
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h9d508db087cbd6dfE.exit": ; preds = %25
   store i8 %26, ptr %28, align 1
-  br label %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$mime..Mime$GT$$C$actix_http..error..ContentTypeError$GT$$GT$17he345f2bc5a9002aaE.exit27"
+  br label %.sink.split
 
 31:                                               ; preds = %_ZN10actix_http12http_message11HttpMessage9mime_type17h77ffdcb9e4867e2aE.exit.thread31, %_ZN10actix_http12http_message11HttpMessage9mime_type17h77ffdcb9e4867e2aE.exit
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5)
@@ -8396,14 +8392,14 @@ _ZN10actix_http12http_message11HttpMessage9mime_type17h77ffdcb9e4867e2aE.exit._c
 65:                                               ; preds = %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %35, ptr noundef nonnull align 8 dereferenceable(136) %5, i64 136, i1 false)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %5)
-  br label %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$mime..Mime$GT$$C$actix_http..error..ContentTypeError$GT$$GT$17he345f2bc5a9002aaE.exit27"
+  br label %.sink.split
 
 66:                                               ; preds = %70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %74, ptr noundef nonnull align 8 dereferenceable(136) %6, i64 136, i1 false)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %6)
   %.pre35 = load i64, ptr %7, align 8, !range !320
   %67 = icmp ult i64 %.pre35, 2
-  br i1 %67, label %82, label %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$mime..Mime$GT$$C$actix_http..error..ContentTypeError$GT$$GT$17he345f2bc5a9002aaE.exit27"
+  br i1 %67, label %82, label %.sink.split
 
 "_ZN51_$LT$mime..Mime$u20$as$u20$core..cmp..PartialEq$GT$2eq17h39d62ede41d7dbb2E.exit": ; preds = %55
   br i1 %59, label %"_ZN51_$LT$mime..Mime$u20$as$u20$core..cmp..PartialEq$GT$2eq17h39d62ede41d7dbb2E.exit._crit_edge", label %70
@@ -8415,7 +8411,7 @@ _ZN10actix_http12http_message11HttpMessage9mime_type17h77ffdcb9e4867e2aE.exit._c
 68:                                               ; preds = %"_ZN51_$LT$mime..Mime$u20$as$u20$core..cmp..PartialEq$GT$2eq17h39d62ede41d7dbb2E.exit._crit_edge", %60
   %69 = phi i64 [ %.pre, %"_ZN51_$LT$mime..Mime$u20$as$u20$core..cmp..PartialEq$GT$2eq17h39d62ede41d7dbb2E.exit._crit_edge" ], [ %.pr, %60 ]
   %switch.not.i = icmp ult i64 %69, 2
-  br i1 %switch.not.i, label %81, label %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$mime..Mime$GT$$C$actix_http..error..ContentTypeError$GT$$GT$17he345f2bc5a9002aaE.exit"
+  br i1 %switch.not.i, label %81, label %.sink.split
 
 70:                                               ; preds = %60, %"_ZN51_$LT$mime..Mime$u20$as$u20$core..cmp..PartialEq$GT$2eq17h39d62ede41d7dbb2E.exit"
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %6)
@@ -8450,27 +8446,23 @@ _ZN10actix_http12http_message11HttpMessage9mime_type17h77ffdcb9e4867e2aE.exit._c
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #35
   unreachable
 
-"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$mime..Mime$GT$$C$actix_http..error..ContentTypeError$GT$$GT$17he345f2bc5a9002aaE.exit": ; preds = %81, %68
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7)
-  br label %83
-
 81:                                               ; preds = %68
   call void @"_ZN4core3ptr31drop_in_place$LT$mime..Mime$GT$17hdda841d0bd38a0adE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %7)
-  br label %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$mime..Mime$GT$$C$actix_http..error..ContentTypeError$GT$$GT$17he345f2bc5a9002aaE.exit"
-
-"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$mime..Mime$GT$$C$actix_http..error..ContentTypeError$GT$$GT$17he345f2bc5a9002aaE.exit27": ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9d508db087cbd6dfE.exit", %65, %82, %66
-  %.sroa.0.140 = phi ptr [ %74, %82 ], [ %74, %66 ], [ %28, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9d508db087cbd6dfE.exit" ], [ %35, %65 ]
-  %.sroa.5.139 = phi ptr [ @anon.5ecb3d2e9f1ae0be30078354766074af.159, %82 ], [ @anon.5ecb3d2e9f1ae0be30078354766074af.159, %66 ], [ @anon.5ecb3d2e9f1ae0be30078354766074af.163, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9d508db087cbd6dfE.exit" ], [ @anon.5ecb3d2e9f1ae0be30078354766074af.159, %65 ]
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7)
-  br label %83
+  br label %.sink.split
 
 82:                                               ; preds = %66
   call void @"_ZN4core3ptr31drop_in_place$LT$mime..Mime$GT$17hdda841d0bd38a0adE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %7)
-  br label %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$mime..Mime$GT$$C$actix_http..error..ContentTypeError$GT$$GT$17he345f2bc5a9002aaE.exit27"
+  br label %.sink.split
 
-83:                                               ; preds = %2, %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$mime..Mime$GT$$C$actix_http..error..ContentTypeError$GT$$GT$17he345f2bc5a9002aaE.exit", %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$mime..Mime$GT$$C$actix_http..error..ContentTypeError$GT$$GT$17he345f2bc5a9002aaE.exit27"
-  %.sroa.5.0 = phi ptr [ %.sroa.5.139, %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$mime..Mime$GT$$C$actix_http..error..ContentTypeError$GT$$GT$17he345f2bc5a9002aaE.exit27" ], [ undef, %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$mime..Mime$GT$$C$actix_http..error..ContentTypeError$GT$$GT$17he345f2bc5a9002aaE.exit" ], [ undef, %2 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.140, %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$mime..Mime$GT$$C$actix_http..error..ContentTypeError$GT$$GT$17he345f2bc5a9002aaE.exit27" ], [ null, %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$mime..Mime$GT$$C$actix_http..error..ContentTypeError$GT$$GT$17he345f2bc5a9002aaE.exit" ], [ null, %2 ]
+.sink.split:                                      ; preds = %66, %82, %65, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9d508db087cbd6dfE.exit", %68, %81
+  %.sroa.5.0.ph = phi ptr [ undef, %81 ], [ undef, %68 ], [ @anon.5ecb3d2e9f1ae0be30078354766074af.159, %82 ], [ @anon.5ecb3d2e9f1ae0be30078354766074af.159, %66 ], [ @anon.5ecb3d2e9f1ae0be30078354766074af.163, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9d508db087cbd6dfE.exit" ], [ @anon.5ecb3d2e9f1ae0be30078354766074af.159, %65 ]
+  %.sroa.0.0.ph = phi ptr [ null, %81 ], [ null, %68 ], [ %74, %82 ], [ %74, %66 ], [ %28, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h9d508db087cbd6dfE.exit" ], [ %35, %65 ]
+  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7)
+  br label %83
+
+83:                                               ; preds = %.sink.split, %2
+  %.sroa.5.0 = phi ptr [ undef, %2 ], [ %.sroa.5.0.ph, %.sink.split ]
+  %.sroa.0.0 = phi ptr [ null, %2 ], [ %.sroa.0.0.ph, %.sink.split ]
   %84 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %85 = insertvalue { ptr, ptr } %84, ptr %.sroa.5.0, 1
   ret { ptr, ptr } %85
@@ -8566,8 +8558,14 @@ define void @_ZN9actix_web5types7payload15HttpMessageBody3new17h7159f4c77ec1bb7e
   %34 = icmp eq i8 %.pr, 11
   br i1 %34, label %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$actix_http..error..PayloadError$GT$$GT$17h647f76e4df4df114E.exit", label %.thread
 
-.thread:                                          ; preds = %186, %189, %191, %.body
-  %.pn42 = phi { ptr, i32 } [ %.pn.ph, %.body ], [ %187, %186 ], [ %190, %189 ], [ %192, %191 ]
+.thread.sink.split:                               ; preds = %191, %189, %186
+  %.sink = phi i8 [ 7, %186 ], [ 8, %189 ], [ 8, %191 ]
+  %.pn42.ph = phi { ptr, i32 } [ %187, %186 ], [ %190, %189 ], [ %192, %191 ]
+  store i8 %.sink, ptr %25, align 8
+  br label %.thread
+
+.thread:                                          ; preds = %.thread.sink.split, %.body
+  %.pn42 = phi { ptr, i32 } [ %.pn.ph, %.body ], [ %.pn42.ph, %.thread.sink.split ]
   invoke void @"_ZN4core3ptr52drop_in_place$LT$actix_http..error..PayloadError$GT$17he7ec2cea20bfc6eeE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %25)
           to label %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$actix_http..error..PayloadError$GT$$GT$17h647f76e4df4df114E.exit" unwind label %212
 
@@ -9048,52 +9046,48 @@ _ZN10actix_http6header3map9HeaderMap3get17h6e5c2eb97cd33725E.exit.i: ; preds = %
 178:                                              ; preds = %172
   %179 = load i8, ptr %25, align 8, !range !1504, !alias.scope !1508, !noundef !7
   %180 = icmp eq i8 %179, 11
-  br i1 %180, label %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$actix_http..error..PayloadError$GT$$GT$17h647f76e4df4df114E.exit29", label %181
+  br i1 %180, label %.sink.split, label %181
 
 181:                                              ; preds = %178
   invoke void @"_ZN4core3ptr52drop_in_place$LT$actix_http..error..PayloadError$GT$17he7ec2cea20bfc6eeE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %25)
-          to label %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$actix_http..error..PayloadError$GT$$GT$17h647f76e4df4df114E.exit29" unwind label %189
+          to label %.sink.split unwind label %189
 
 182:                                              ; preds = %174
   %183 = load i8, ptr %25, align 8, !range !1504, !alias.scope !1511, !noundef !7
   %184 = icmp eq i8 %183, 11
-  br i1 %184, label %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$actix_http..error..PayloadError$GT$$GT$17h647f76e4df4df114E.exit31", label %185
+  br i1 %184, label %.sink.split, label %185
 
 185:                                              ; preds = %182
   invoke void @"_ZN4core3ptr52drop_in_place$LT$actix_http..error..PayloadError$GT$17he7ec2cea20bfc6eeE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %25)
-          to label %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$actix_http..error..PayloadError$GT$$GT$17h647f76e4df4df114E.exit31" unwind label %186
+          to label %.sink.split unwind label %186
 
 186:                                              ; preds = %185
   %187 = landingpad { ptr, i32 }
           cleanup
-  store i8 7, ptr %25, align 8
-  br label %.thread
+  br label %.thread.sink.split
 
-"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$actix_http..error..PayloadError$GT$$GT$17h647f76e4df4df114E.exit31": ; preds = %182, %185
-  store i8 7, ptr %25, align 8
+.sink.split:                                      ; preds = %185, %182, %181, %178
+  %.sink46 = phi i8 [ 8, %178 ], [ 8, %181 ], [ 7, %182 ], [ 7, %185 ]
+  %.sroa.020.1.ph = phi i64 [ 0, %178 ], [ 0, %181 ], [ 1, %182 ], [ 1, %185 ]
+  %.sroa.3.1.ph = phi i64 [ undef, %178 ], [ undef, %181 ], [ %176, %182 ], [ %176, %185 ]
+  store i8 %.sink46, ptr %25, align 8
   br label %188
 
-188:                                              ; preds = %174, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$actix_http..error..PayloadError$GT$$GT$17h647f76e4df4df114E.exit31", %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$actix_http..error..PayloadError$GT$$GT$17h647f76e4df4df114E.exit29"
-  %.sroa.020.1 = phi i64 [ 0, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$actix_http..error..PayloadError$GT$$GT$17h647f76e4df4df114E.exit29" ], [ 1, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$actix_http..error..PayloadError$GT$$GT$17h647f76e4df4df114E.exit31" ], [ 1, %174 ]
-  %.sroa.3.1 = phi i64 [ undef, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$actix_http..error..PayloadError$GT$$GT$17h647f76e4df4df114E.exit29" ], [ %176, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$actix_http..error..PayloadError$GT$$GT$17h647f76e4df4df114E.exit31" ], [ %176, %174 ]
+188:                                              ; preds = %.sink.split, %174
+  %.sroa.020.1 = phi i64 [ 1, %174 ], [ %.sroa.020.1.ph, %.sink.split ]
+  %.sroa.3.1 = phi i64 [ %176, %174 ], [ %.sroa.3.1.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
   br label %_ZN10actix_http6header3map9HeaderMap3get17h6e5c2eb97cd33725E.exit.thread
 
 189:                                              ; preds = %181
   %190 = landingpad { ptr, i32 }
           cleanup
-  store i8 8, ptr %25, align 8
-  br label %.thread
-
-"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$actix_http..error..PayloadError$GT$$GT$17h647f76e4df4df114E.exit29": ; preds = %178, %181
-  store i8 8, ptr %25, align 8
-  br label %188
+  br label %.thread.sink.split
 
 191:                                              ; preds = %171
   %192 = landingpad { ptr, i32 }
           cleanup
-  store i8 8, ptr %25, align 8
-  br label %.thread
+  br label %.thread.sink.split
 
 "_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$actix_http..error..PayloadError$GT$$GT$17h647f76e4df4df114E.exit27": ; preds = %168, %171
   store i8 8, ptr %25, align 8

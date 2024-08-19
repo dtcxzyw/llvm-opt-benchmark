@@ -800,7 +800,7 @@ define noundef ptr @"_ZN88_$LT$rayon_core..registry..DefaultSpawn$u20$as$u20$ray
 17:                                               ; preds = %19
   %18 = landingpad { ptr, i32 }
           cleanup
-  br label %38
+  br label %37
 
 19:                                               ; preds = %15
   %20 = extractvalue { i64, ptr } %16, 0
@@ -833,9 +833,9 @@ define noundef ptr @"_ZN88_$LT$rayon_core..registry..DefaultSpawn$u20$as$u20$ray
   %25 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr41drop_in_place$LT$std..thread..Builder$GT$17h26123f1ad7496bacE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8) #22
-          to label %38 unwind label %26
+          to label %37 unwind label %26
 
-26:                                               ; preds = %38, %24
+26:                                               ; preds = %37, %24
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #23
@@ -882,24 +882,20 @@ define noundef ptr @"_ZN88_$LT$rayon_core..registry..DefaultSpawn$u20$as$u20$ray
   %.sroa.520.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
   store i64 %.sroa.5.0.copyload.i, ptr %.sroa.520.0..sroa_idx, align 8
   call void @"_ZN4core3ptr59drop_in_place$LT$std..thread..JoinInner$LT$$LP$$RP$$GT$$GT$17hfb78b7a96a52b824E.llvm.4661854399685404667"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  br label %36
+  br label %35
 
-35:                                               ; preds = %.noexc
+35:                                               ; preds = %.noexc, %"_ZN4core3ptr60drop_in_place$LT$std..thread..JoinHandle$LT$$LP$$RP$$GT$$GT$17h3ad32e10a64c1744E.exit"
+  %.0 = phi ptr [ null, %"_ZN4core3ptr60drop_in_place$LT$std..thread..JoinHandle$LT$$LP$$RP$$GT$$GT$17h3ad32e10a64c1744E.exit" ], [ %34, %.noexc ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  br label %36
-
-36:                                               ; preds = %"_ZN4core3ptr60drop_in_place$LT$std..thread..JoinHandle$LT$$LP$$RP$$GT$$GT$17h3ad32e10a64c1744E.exit", %35
-  %.0 = phi ptr [ %34, %35 ], [ null, %"_ZN4core3ptr60drop_in_place$LT$std..thread..JoinHandle$LT$$LP$$RP$$GT$$GT$17h3ad32e10a64c1744E.exit" ]
   ret ptr %.0
 
-37:                                               ; preds = %38
+36:                                               ; preds = %37
   resume { ptr, i32 } %.pn.ph
 
-38:                                               ; preds = %24, %17
+37:                                               ; preds = %24, %17
   %.pn.ph = phi { ptr, i32 } [ %18, %17 ], [ %25, %24 ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$rayon_core..registry..ThreadBuilder$GT$17h2133eca97e52be5cE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %1) #22
-          to label %37 unwind label %26
+          to label %36 unwind label %26
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1134,7 +1130,7 @@ default.unreachable:                              ; preds = %.noexc
   %34 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr138drop_in_place$LT$core..result..Result$LT$alloc..sync..Arc$LT$rayon_core..registry..Registry$GT$$C$rayon_core..ThreadPoolBuildError$GT$$GT$17h04ab37607748b2ddE.llvm.14976363794789945401"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8) #22
-          to label %67 unwind label %65
+          to label %66 unwind label %64
 
 _ZN10rayon_core20ThreadPoolBuildError14is_unsupported17h22c53c7a1076cf24E.exit: ; preds = %20, %23, %28, %16
   %.0.i.i = phi i8 [ %32, %28 ], [ %27, %23 ], [ %22, %20 ], [ %19, %16 ]
@@ -1147,8 +1143,7 @@ _ZN10rayon_core20ThreadPoolBuildError14is_unsupported17h22c53c7a1076cf24E.exit: 
 
 .critedge:                                        ; preds = %10, %1, %"_ZN4core3ptr138drop_in_place$LT$core..result..Result$LT$alloc..sync..Arc$LT$rayon_core..registry..Registry$GT$$C$rayon_core..ThreadPoolBuildError$GT$$GT$17h04ab37607748b2ddE.llvm.14976363794789945401.exit10", %_ZN10rayon_core20ThreadPoolBuildError14is_unsupported17h22c53c7a1076cf24E.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br label %64
+  br label %"_ZN4core3ptr138drop_in_place$LT$core..result..Result$LT$alloc..sync..Arc$LT$rayon_core..registry..Registry$GT$$C$rayon_core..ThreadPoolBuildError$GT$$GT$17h04ab37607748b2ddE.llvm.14976363794789945401.exit"
 
 37:                                               ; preds = %_ZN10rayon_core20ThreadPoolBuildError14is_unsupported17h22c53c7a1076cf24E.exit
   invoke void @"_ZN72_$LT$rayon_core..ThreadPoolBuilder$u20$as$u20$core..default..Default$GT$7default17h981617e4cf037b06E"(ptr noalias nocapture noundef nonnull sret({ { i64, i64 }, i64, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, i8, i8, {}, [6 x i8] }) align 8 dereferenceable(96) %6)
@@ -1215,10 +1210,6 @@ _ZN10rayon_core17ThreadPoolBuilder3new17h53d32402ed6f1c1dE.exit: ; preds = %37
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !156
   br label %"_ZN4core3ptr138drop_in_place$LT$core..result..Result$LT$alloc..sync..Arc$LT$rayon_core..registry..Registry$GT$$C$rayon_core..ThreadPoolBuildError$GT$$GT$17h04ab37607748b2ddE.llvm.14976363794789945401.exit"
 
-"_ZN4core3ptr138drop_in_place$LT$core..result..Result$LT$alloc..sync..Arc$LT$rayon_core..registry..Registry$GT$$C$rayon_core..ThreadPoolBuildError$GT$$GT$17h04ab37607748b2ddE.llvm.14976363794789945401.exit": ; preds = %46, %50, %51, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h9e11ae7b94f75448E.exit.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br label %64
-
 57:                                               ; preds = %40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !160)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !163)
@@ -1250,20 +1241,21 @@ _ZN10rayon_core17ThreadPoolBuilder3new17h53d32402ed6f1c1dE.exit: ; preds = %37
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !178
   br label %"_ZN4core3ptr138drop_in_place$LT$core..result..Result$LT$alloc..sync..Arc$LT$rayon_core..registry..Registry$GT$$C$rayon_core..ThreadPoolBuildError$GT$$GT$17h04ab37607748b2ddE.llvm.14976363794789945401.exit10"
 
-64:                                               ; preds = %"_ZN4core3ptr138drop_in_place$LT$core..result..Result$LT$alloc..sync..Arc$LT$rayon_core..registry..Registry$GT$$C$rayon_core..ThreadPoolBuildError$GT$$GT$17h04ab37607748b2ddE.llvm.14976363794789945401.exit", %.critedge
+"_ZN4core3ptr138drop_in_place$LT$core..result..Result$LT$alloc..sync..Arc$LT$rayon_core..registry..Registry$GT$$C$rayon_core..ThreadPoolBuildError$GT$$GT$17h04ab37607748b2ddE.llvm.14976363794789945401.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h9e11ae7b94f75448E.exit.i.i.i", %51, %50, %46, %.critedge
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   ret void
 
 "_ZN4core3ptr138drop_in_place$LT$core..result..Result$LT$alloc..sync..Arc$LT$rayon_core..registry..Registry$GT$$C$rayon_core..ThreadPoolBuildError$GT$$GT$17h04ab37607748b2ddE.llvm.14976363794789945401.exit10": ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h9e11ae7b94f75448E.exit.i.i.i6", %57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %.critedge
 
-65:                                               ; preds = %33
-  %66 = landingpad { ptr, i32 }
+64:                                               ; preds = %33
+  %65 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #23
   unreachable
 
-67:                                               ; preds = %33
+66:                                               ; preds = %33
   resume { ptr, i32 } %34
 }
 

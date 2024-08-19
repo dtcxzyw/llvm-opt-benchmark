@@ -585,7 +585,6 @@ _ZN5uu_od12parse_inputs24parse_inputs_traditional17hf9a58d7aeb7b7d78E.exit: ; pr
 
 "_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17h0dc7d4f8894e9224E.exit": ; preds = %177, %180, %184
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !61
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26)
   br label %212
 
 thread-pre-split:                                 ; preds = %.thread, %138, %35
@@ -656,10 +655,10 @@ thread-pre-split:                                 ; preds = %.thread, %138, %35
 
 "_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17h0dc7d4f8894e9224E.exit77": ; preds = %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h737b52f6348ea942E.exit", %206, %210
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !72
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26)
   br label %212
 
 212:                                              ; preds = %"_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17h0dc7d4f8894e9224E.exit77", %"_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17h0dc7d4f8894e9224E.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26)
   ret void
 
 213:                                              ; preds = %.body

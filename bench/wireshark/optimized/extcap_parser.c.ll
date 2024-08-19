@@ -945,10 +945,10 @@ define internal fastcc ptr @extcap_tokenize_sentences(ptr noundef %0) unnamed_ad
   %.not19 = icmp eq ptr %5, null
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %115
-  %6 = phi ptr [ %117, %115 ], [ %5, %1 ]
-  %.021 = phi ptr [ %116, %115 ], [ %4, %1 ]
-  %.0920 = phi ptr [ %.1, %115 ], [ null, %1 ]
+.lr.ph:                                           ; preds = %1, %114
+  %6 = phi ptr [ %116, %114 ], [ %5, %1 ]
+  %.021 = phi ptr [ %115, %114 ], [ %4, %1 ]
+  %.0920 = phi ptr [ %.1, %114 ], [ null, %1 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr null, ptr %2, align 8
@@ -997,11 +997,6 @@ define internal fastcc ptr @extcap_tokenize_sentences(ptr noundef %0) unnamed_ad
   %23 = call ptr @g_regex_new(ptr noundef nonnull @.str.8, i32 noundef 1, i32 noundef 0, ptr noundef null) #9
   %.not49.i = icmp eq ptr %23, null
   br i1 %.not49.i, label %extcap_tokenize_sentence.exit.thread15, label %24
-
-extcap_tokenize_sentence.exit.thread15:           ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %113
 
 24:                                               ; preds = %20
   %25 = call i32 @g_regex_match_full(ptr noundef nonnull %23, ptr noundef nonnull %6, i64 noundef -1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
@@ -1154,29 +1149,29 @@ extcap_tokenize_sentence.exit.thread15:           ; preds = %20
 extcap_tokenize_sentence.exit.thread:             ; preds = %.thread.i, %.lr.ph
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %115
+  br label %114
 
 extcap_tokenize_sentence.exit:                    ; preds = %.lr.ph.i, %105, %24
   %112 = load ptr, ptr %2, align 8
   call void @g_match_info_free(ptr noundef %112) #9
   call void @g_regex_unref(ptr noundef nonnull %23) #9
+  br label %extcap_tokenize_sentence.exit.thread15
+
+extcap_tokenize_sentence.exit.thread15:           ; preds = %20, %extcap_tokenize_sentence.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %113
+  %113 = call ptr @g_list_append(ptr noundef %.0920, ptr noundef nonnull %9) #9
+  br label %114
 
-113:                                              ; preds = %extcap_tokenize_sentence.exit, %extcap_tokenize_sentence.exit.thread15
-  %114 = call ptr @g_list_append(ptr noundef %.0920, ptr noundef nonnull %9) #9
-  br label %115
-
-115:                                              ; preds = %extcap_tokenize_sentence.exit.thread, %113
-  %.1 = phi ptr [ %114, %113 ], [ %.0920, %extcap_tokenize_sentence.exit.thread ]
-  %116 = getelementptr i8, ptr %.021, i64 8
-  %117 = load ptr, ptr %116, align 8
-  %.not = icmp eq ptr %117, null
+114:                                              ; preds = %extcap_tokenize_sentence.exit.thread, %extcap_tokenize_sentence.exit.thread15
+  %.1 = phi ptr [ %113, %extcap_tokenize_sentence.exit.thread15 ], [ %.0920, %extcap_tokenize_sentence.exit.thread ]
+  %115 = getelementptr i8, ptr %.021, i64 8
+  %116 = load ptr, ptr %115, align 8
+  %.not = icmp eq ptr %116, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %115, %1
-  %.09.lcssa = phi ptr [ null, %1 ], [ %.1, %115 ]
+._crit_edge:                                      ; preds = %114, %1
+  %.09.lcssa = phi ptr [ null, %1 ], [ %.1, %114 ]
   call void @g_strfreev(ptr noundef nonnull %4) #9
   ret ptr %.09.lcssa
 }

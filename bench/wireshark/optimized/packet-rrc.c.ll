@@ -97931,38 +97931,32 @@ define internal i32 @dissect_rrc_GERAN_SystemInfoBlock(ptr noundef %0, i32 nound
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 1, i32 noundef 23, i32 noundef 0, ptr noundef nonnull %6) #5
   %8 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %26, label %9
+  br i1 %.not, label %20, label %9
 
 9:                                                ; preds = %5
   %10 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %8, i32 noundef 0) #5
   %11 = icmp eq i8 %10, 6
-  br i1 %11, label %12, label %19
+  br i1 %11, label %12, label %14
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr @gsm_a_dtap_handle, align 8
   %.not13 = icmp eq ptr %13, null
-  br i1 %.not13, label %26, label %14
+  br i1 %.not13, label %20, label %.sink.split
 
-14:                                               ; preds = %12
-  %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 16
-  %17 = load ptr, ptr %16, align 8
-  %18 = call i32 @call_dissector(ptr noundef nonnull %13, ptr noundef %15, ptr noundef %17, ptr noundef %3) #5
-  br label %26
+14:                                               ; preds = %9
+  %15 = load ptr, ptr @gsm_rlcmac_dl_handle, align 8
+  %.not12 = icmp eq ptr %15, null
+  br i1 %.not12, label %20, label %.sink.split
 
-19:                                               ; preds = %9
-  %20 = load ptr, ptr @gsm_rlcmac_dl_handle, align 8
-  %.not12 = icmp eq ptr %20, null
-  br i1 %.not12, label %26, label %21
+.sink.split:                                      ; preds = %14, %12
+  %.sink = phi ptr [ %13, %12 ], [ %15, %14 ]
+  %16 = load ptr, ptr %6, align 8
+  %17 = getelementptr inbounds i8, ptr %2, i64 16
+  %18 = load ptr, ptr %17, align 8
+  %19 = call i32 @call_dissector(ptr noundef nonnull %.sink, ptr noundef %16, ptr noundef %18, ptr noundef %3) #5
+  br label %20
 
-21:                                               ; preds = %19
-  %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 16
-  %24 = load ptr, ptr %23, align 8
-  %25 = call i32 @call_dissector(ptr noundef nonnull %20, ptr noundef %22, ptr noundef %24, ptr noundef %3) #5
-  br label %26
-
-26:                                               ; preds = %14, %12, %21, %19, %5
+20:                                               ; preds = %.sink.split, %12, %14, %5
   ret i32 %7
 }
 
@@ -102895,7 +102889,7 @@ define internal i32 @dissect_rrc_T_ims_Information(ptr noundef %0, i32 noundef %
   %8 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 1, i32 noundef 32, i32 noundef 0, ptr noundef nonnull %6) #5
   %9 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %33, label %10
+  br i1 %.not, label %26, label %10
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i8, ptr %2, i64 24
@@ -102906,30 +102900,26 @@ define internal i32 @dissect_rrc_T_ims_Information(ptr noundef %0, i32 noundef %
   %16 = load ptr, ptr %6, align 8
   %17 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %14, i32 noundef %15, ptr noundef %16, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %7) #5
   %18 = load i32, ptr %7, align 4
-  switch i32 %18, label %33 [
-    i32 0, label %19
-    i32 1, label %26
+  switch i32 %18, label %26 [
+    i32 0, label %.sink.split
+    i32 1, label %19
   ]
 
 19:                                               ; preds = %10
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %10, %19
+  %hf_rrc_ims_info_atgw_ipv4.sink = phi ptr [ @hf_rrc_ims_info_atgw_ipv6, %19 ], [ @hf_rrc_ims_info_atgw_ipv4, %10 ]
+  %.sink20 = phi i32 [ 16, %19 ], [ 4, %10 ]
   %20 = load i32, ptr @hf_rrc_ims_info_atgw_udp_port, align 4
   %21 = load ptr, ptr %6, align 8
   %22 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %20, ptr noundef %21, i32 noundef 1, i32 noundef 2, i32 noundef 0) #5
-  %23 = load i32, ptr @hf_rrc_ims_info_atgw_ipv4, align 4
+  %23 = load i32, ptr %hf_rrc_ims_info_atgw_ipv4.sink, align 4
   %24 = load ptr, ptr %6, align 8
-  %25 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %23, ptr noundef %24, i32 noundef 3, i32 noundef 4, i32 noundef 0) #5
-  br label %33
+  %25 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %23, ptr noundef %24, i32 noundef 3, i32 noundef %.sink20, i32 noundef 0) #5
+  br label %26
 
-26:                                               ; preds = %10
-  %27 = load i32, ptr @hf_rrc_ims_info_atgw_udp_port, align 4
-  %28 = load ptr, ptr %6, align 8
-  %29 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %27, ptr noundef %28, i32 noundef 1, i32 noundef 2, i32 noundef 0) #5
-  %30 = load i32, ptr @hf_rrc_ims_info_atgw_ipv6, align 4
-  %31 = load ptr, ptr %6, align 8
-  %32 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %30, ptr noundef %31, i32 noundef 3, i32 noundef 16, i32 noundef 0) #5
-  br label %33
-
-33:                                               ; preds = %19, %26, %10, %5
+26:                                               ; preds = %.sink.split, %10, %5
   ret i32 %8
 }
 

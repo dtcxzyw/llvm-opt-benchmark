@@ -1147,12 +1147,7 @@ emap_alloc_ctx_lookup.exit456.i:                  ; preds = %arena_ichoose.exit.
   %40 = load i64, ptr %count, align 8
   store i64 0, ptr %count, align 8
   %cmp14.not.i.i = icmp eq i64 %40, 0
-  br i1 %cmp14.not.i.i, label %if.then16.thread.i, label %for.body.i.i22
-
-if.then16.thread.i:                               ; preds = %emap_alloc_ctx_lookup.exit456.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i.i)
-  br label %if.end.i.i.split.i
+  br i1 %cmp14.not.i.i, label %if.end.i.i.split.i, label %for.body.i.i22
 
 for.body.i.i22:                                   ; preds = %emap_alloc_ctx_lookup.exit456.i, %for.inc.i.i26
   %nins.016.i.i = phi i64 [ %nins.1.i.i, %for.inc.i.i26 ], [ 0, %emap_alloc_ctx_lookup.exit456.i ]
@@ -1178,14 +1173,11 @@ for.inc.i.i26:                                    ; preds = %if.end.i.i, %for.bo
   %nins.1.i.i = phi i64 [ %inc.i.i, %if.end.i.i ], [ %nins.016.i.i, %for.body.i.i22 ]
   %inc12.i.i = add i64 %i.015.i.i, 1
   %cmp.i267.i = icmp ult i64 %nins.1.i.i, %40
-  br i1 %cmp.i267.i, label %for.body.i.i22, label %if.then16.i, !llvm.loop !8
+  br i1 %cmp.i267.i, label %for.body.i.i22, label %if.end.i.i.split.i, !llvm.loop !8
 
-if.then16.i:                                      ; preds = %for.inc.i.i26
+if.end.i.i.split.i:                               ; preds = %for.inc.i.i26, %emap_alloc_ctx_lookup.exit456.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i.i)
-  br label %if.end.i.i.split.i
-
-if.end.i.i.split.i:                               ; preds = %if.then16.i, %if.then16.thread.i
   %43 = ptrtoint ptr %39 to i64
   call fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable align 8 %tmp.i.i, ptr noundef nonnull %tsd, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i370.i, i64 noundef %43)
   %44 = load ptr, ptr %tmp.i.i, align 8

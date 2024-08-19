@@ -5982,8 +5982,8 @@ define void @env_merge_filter(ptr nocapture noundef readonly %0, ptr noundef %1)
   br i1 %.not27, label %.backedge, label %24, !llvm.loop !32
 
 .loopexit.sink.split:                             ; preds = %27, %17
-  %storemerge = phi ptr [ %.033, %17 ], [ %29, %27 ]
-  store ptr %storemerge, ptr %3, align 16
+  %.lcssa.sink = phi ptr [ %.033, %17 ], [ %29, %27 ]
+  store ptr %.lcssa.sink, ptr %3, align 16
   call void @env_array_merge(ptr noundef nonnull %10, ptr noundef nonnull %3)
   br label %.backedge
 

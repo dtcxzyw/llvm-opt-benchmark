@@ -5160,8 +5160,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .preheader69.i.i198.i.i:                          ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i197.i.i, %1127, %.noexc18.i188.i.i, %_ZNK7xgboost4data20ColumnarAdapterBatch4SizeEv.exit.i.i.i
   store ptr null, ptr %107, align 8
   %.not88.i.i199.i.i = icmp eq i64 %1102, 0
-  %brmerge = or i1 %.not88.i.i199.i.i, %1099
-  br i1 %brmerge, label %.split.us.thread.i.i, label %.lr.ph77.i.i200.i.i
+  %brmerge = or i1 %1099, %.not88.i.i199.i.i
+  br i1 %brmerge, label %.split.us.i.i, label %.lr.ph77.i.i200.i.i
 
 .lr.ph77.i.i200.i.i:                              ; preds = %.preheader69.i.i198.i.i, %.loopexit107.i.i
   %.03276.i.i201.i.i = phi i64 [ %1241, %.loopexit107.i.i ], [ 0, %.preheader69.i.i198.i.i ]
@@ -5334,7 +5334,7 @@ _ZNK7xgboost4data20ColumnarAdapterBatch4Line10GetElementEm.exit.i.i.i.i: ; preds
 .loopexit107.i.i:                                 ; preds = %1239
   %1241 = add nuw i64 %.03276.i.i201.i.i, 1
   %exitcond97.not.i.i207.i.i = icmp eq i64 %1241, %1102
-  br i1 %exitcond97.not.i.i207.i.i, label %.split.us.thread.i.i, label %.lr.ph77.i.i200.i.i, !llvm.loop !97
+  br i1 %exitcond97.not.i.i207.i.i, label %.split.us.i.i, label %.lr.ph77.i.i200.i.i, !llvm.loop !97
 
 1242:                                             ; preds = %1125
   %1243 = landingpad { ptr, i32 }
@@ -5343,7 +5343,7 @@ _ZNK7xgboost4data20ColumnarAdapterBatch4Line10GetElementEm.exit.i.i.i.i: ; preds
   call void @__clang_call_terminate(ptr %1244) #29
   unreachable
 
-.split.us.thread.i.i:                             ; preds = %.loopexit107.i.i, %.preheader69.i.i198.i.i
+.split.us.i.i:                                    ; preds = %.loopexit107.i.i, %.preheader69.i.i198.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %105)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %106)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %107)
@@ -5351,7 +5351,7 @@ _ZNK7xgboost4data20ColumnarAdapterBatch4Line10GetElementEm.exit.i.i.i.i: ; preds
   %1245 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN7xgboost16HostDeviceVectorImE10HostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %109)
           to label %1246 unwind label %1267
 
-1246:                                             ; preds = %.split.us.thread.i.i
+1246:                                             ; preds = %.split.us.i.i
   %1247 = load ptr, ptr %1245, align 8
   %1248 = invoke noundef i64 @_ZNK7xgboost16HostDeviceVectorImE4SizeEv(ptr noundef nonnull align 8 dereferenceable(8) %109)
           to label %_ZNK7xgboost6linalg6TensorImLi2EE4SizeEv.exit.i212.i.i unwind label %1267
@@ -5411,7 +5411,7 @@ _ZSt10accumulateIPmmET0_T_S2_S1_.exit.i218.i.i:   ; preds = %.lr.ph.i21.i214.i.i
           cleanup
   br label %common.resume.i172.i.i
 
-1267:                                             ; preds = %1246, %.split.us.thread.i.i, %1104
+1267:                                             ; preds = %1246, %.split.us.i.i, %1104
   %1268 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i172.i.i

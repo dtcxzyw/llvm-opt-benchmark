@@ -59,7 +59,7 @@ define internal i32 @segment_create(ptr noundef %0, ptr noundef readonly %1, i64
   store ptr inttoptr (i64 -1 to ptr), ptr %12, align 8
   %13 = load i32, ptr @opal_shmem_mmap_relocate_backing_file, align 4
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %50, label %14
+  br i1 %.not, label %48, label %14
 
 14:                                               ; preds = %3
   %15 = load ptr, ptr @opal_shmem_mmap_backing_file_base_dir, align 8
@@ -69,7 +69,7 @@ define internal i32 @segment_create(ptr noundef %0, ptr noundef readonly %1, i64
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %16, 0
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6)
-  br i1 %19, label %20, label %43
+  br i1 %19, label %20, label %41
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr @opal_shmem_mmap_backing_file_base_dir, align 8
@@ -92,274 +92,270 @@ define internal i32 @segment_create(ptr noundef %0, ptr noundef readonly %1, i64
   %33 = and i32 %32, 1023
   %34 = load i8, ptr %1, align 1
   %.not7.i.i = icmp eq i8 %34, 0
-  br i1 %.not7.i.i, label %get_uniq_file_name.exit.thread82, label %.lr.ph.i.i
-
-get_uniq_file_name.exit.thread82:                 ; preds = %26
-  %35 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %24, i64 noundef 4097, ptr noundef nonnull @.str.12, ptr noundef %21, i32 noundef %27, i64 noundef 0, i32 noundef %33) #15
-  call void @llvm.lifetime.end.p0(i64 516, ptr nonnull %5)
-  br label %53
+  br i1 %.not7.i.i, label %.sink.split, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %26, %.lr.ph.i.i
-  %36 = phi i8 [ %41, %.lr.ph.i.i ], [ %34, %26 ]
-  %.09.i.i = phi ptr [ %37, %.lr.ph.i.i ], [ %1, %26 ]
-  %.058.i.i = phi i64 [ %40, %.lr.ph.i.i ], [ 0, %26 ]
-  %37 = getelementptr inbounds i8, ptr %.09.i.i, i64 1
-  %38 = zext i8 %36 to i64
-  %39 = mul i64 %.058.i.i, 65599
-  %40 = add i64 %39, %38
-  %41 = load i8, ptr %37, align 1
-  %.not.i.i = icmp eq i8 %41, 0
-  br i1 %.not.i.i, label %get_uniq_file_name.exit, label %.lr.ph.i.i, !llvm.loop !4
+  %35 = phi i8 [ %40, %.lr.ph.i.i ], [ %34, %26 ]
+  %.09.i.i = phi ptr [ %36, %.lr.ph.i.i ], [ %1, %26 ]
+  %.058.i.i = phi i64 [ %39, %.lr.ph.i.i ], [ 0, %26 ]
+  %36 = getelementptr inbounds i8, ptr %.09.i.i, i64 1
+  %37 = zext i8 %35 to i64
+  %38 = mul i64 %.058.i.i, 65599
+  %39 = add i64 %38, %37
+  %40 = load i8, ptr %36, align 1
+  %.not.i.i = icmp eq i8 %40, 0
+  br i1 %.not.i.i, label %.sink.split, label %.lr.ph.i.i, !llvm.loop !4
 
 get_uniq_file_name.exit.thread:                   ; preds = %20, %23
   call void @llvm.lifetime.end.p0(i64 516, ptr nonnull %5)
-  br label %152
+  br label %151
 
-get_uniq_file_name.exit:                          ; preds = %.lr.ph.i.i
-  %42 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %24, i64 noundef 4097, ptr noundef nonnull @.str.12, ptr noundef %21, i32 noundef %27, i64 noundef %40, i32 noundef %33) #15
+41:                                               ; preds = %14
+  %42 = load i32, ptr @opal_shmem_mmap_relocate_backing_file, align 4
+  %43 = icmp slt i32 %42, 0
+  %44 = load ptr, ptr @opal_shmem_mmap_backing_file_base_dir, align 8
+  %45 = tail call ptr @strerror(i32 noundef %18) #15
+  br i1 %43, label %46, label %47
+
+46:                                               ; preds = %41
+  tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %44, ptr noundef %45) #15
+  br label %48
+
+47:                                               ; preds = %41
+  tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %44, ptr noundef %45) #15
+  br label %151
+
+48:                                               ; preds = %46, %3
+  %49 = tail call noalias ptr @strdup(ptr noundef %1) #15
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %151, label %52
+
+.sink.split:                                      ; preds = %.lr.ph.i.i, %26
+  %.lcssa.sink = phi i64 [ 0, %26 ], [ %39, %.lr.ph.i.i ]
+  %51 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %24, i64 noundef 4097, ptr noundef nonnull @.str.12, ptr noundef %21, i32 noundef %27, i64 noundef %.lcssa.sink, i32 noundef %33) #15
   call void @llvm.lifetime.end.p0(i64 516, ptr nonnull %5)
-  br label %53
+  br label %52
 
-43:                                               ; preds = %14
-  %44 = load i32, ptr @opal_shmem_mmap_relocate_backing_file, align 4
-  %45 = icmp slt i32 %44, 0
-  %46 = load ptr, ptr @opal_shmem_mmap_backing_file_base_dir, align 8
-  %47 = tail call ptr @strerror(i32 noundef %18) #15
-  br i1 %45, label %48, label %49
+52:                                               ; preds = %.sink.split, %48
+  %.152 = phi ptr [ %49, %48 ], [ %24, %.sink.split ]
+  %53 = load i8, ptr @opal_shmem_mmap_nfs_warning, align 1
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %55, label %65
 
-48:                                               ; preds = %43
-  tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %46, ptr noundef %47) #15
-  br label %50
+55:                                               ; preds = %52
+  %56 = call zeroext i1 @opal_path_nfs(ptr noundef nonnull %.152, ptr noundef null) #15
+  br i1 %56, label %57, label %65
 
-49:                                               ; preds = %43
-  tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %46, ptr noundef %47) #15
-  br label %152
+57:                                               ; preds = %55
+  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %60, label %opal_gethostname.exit
 
-50:                                               ; preds = %48, %3
-  %51 = tail call noalias ptr @strdup(ptr noundef %1) #15
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %152, label %53
-
-53:                                               ; preds = %get_uniq_file_name.exit, %get_uniq_file_name.exit.thread82, %50
-  %.152 = phi ptr [ %51, %50 ], [ %24, %get_uniq_file_name.exit ], [ %24, %get_uniq_file_name.exit.thread82 ]
-  %54 = load i8, ptr @opal_shmem_mmap_nfs_warning, align 1
-  %55 = trunc i8 %54 to i1
-  br i1 %55, label %56, label %66
-
-56:                                               ; preds = %53
-  %57 = call zeroext i1 @opal_path_nfs(ptr noundef nonnull %.152, ptr noundef null) #15
-  br i1 %57, label %58, label %66
-
-58:                                               ; preds = %56
-  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %61, label %opal_gethostname.exit
-
-61:                                               ; preds = %58
-  %62 = call i32 @opal_init_gethostname() #15
+60:                                               ; preds = %57
+  %61 = call i32 @opal_init_gethostname() #15
   %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
   br label %opal_gethostname.exit
 
-opal_gethostname.exit:                            ; preds = %58, %61
-  %63 = phi ptr [ %.pre.i, %61 ], [ %59, %58 ]
-  %64 = load ptr, ptr @opal_show_help, align 8
-  %65 = call i32 (ptr, ptr, i32, ...) %64(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 1, ptr noundef %63, ptr noundef nonnull %.152) #15
-  br label %66
+opal_gethostname.exit:                            ; preds = %57, %60
+  %62 = phi ptr [ %.pre.i, %60 ], [ %58, %57 ]
+  %63 = load ptr, ptr @opal_show_help, align 8
+  %64 = call i32 (ptr, ptr, i32, ...) %63(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 1, ptr noundef %62, ptr noundef nonnull %.152) #15
+  br label %65
 
-66:                                               ; preds = %opal_gethostname.exit, %56, %53
+65:                                               ; preds = %opal_gethostname.exit, %55, %52
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 0, ptr %4, align 8
-  %67 = call noalias ptr @strdup(ptr noundef nonnull readonly %.152) #15
-  %68 = icmp eq ptr %67, null
-  br i1 %68, label %enough_space.exit.thread, label %enough_space.exit
+  %66 = call noalias ptr @strdup(ptr noundef nonnull readonly %.152) #15
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %enough_space.exit.thread, label %enough_space.exit
 
-enough_space.exit.thread:                         ; preds = %66
+enough_space.exit.thread:                         ; preds = %65
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %72
+  br label %71
 
-enough_space.exit:                                ; preds = %66
-  %69 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %67, i32 noundef 47) #18
-  store i8 0, ptr %69, align 1
-  %70 = call i32 @opal_path_df(ptr noundef nonnull %67, ptr noundef nonnull %4) #15
-  %71 = load i64, ptr %4, align 8
-  call void @free(ptr noundef nonnull %67) #15
+enough_space.exit:                                ; preds = %65
+  %68 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %66, i32 noundef 47) #18
+  store i8 0, ptr %68, align 1
+  %69 = call i32 @opal_path_df(ptr noundef nonnull %66, ptr noundef nonnull %4) #15
+  %70 = load i64, ptr %4, align 8
+  call void @free(ptr noundef nonnull %66) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %.not62 = icmp eq i32 %70, 0
-  br i1 %.not62, label %73, label %72
+  %.not62 = icmp eq i32 %69, 0
+  br i1 %.not62, label %72, label %71
 
-72:                                               ; preds = %enough_space.exit.thread, %enough_space.exit
-  %.024.i88 = phi i32 [ -2, %enough_space.exit.thread ], [ %70, %enough_space.exit ]
+71:                                               ; preds = %enough_space.exit.thread, %enough_space.exit
+  %.024.i88 = phi i32 [ -2, %enough_space.exit.thread ], [ %69, %enough_space.exit ]
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %.152) #15
-  br label %131
+  br label %130
 
-73:                                               ; preds = %enough_space.exit
-  %74 = uitofp i64 %2 to double
-  %75 = fmul double %74, 5.000000e-02
-  %76 = fptoui double %75 to i64
-  %77 = add i64 %76, %2
-  %.not17.i.not = icmp ult i64 %71, %77
-  br i1 %.not17.i.not, label %78, label %86
+72:                                               ; preds = %enough_space.exit
+  %73 = uitofp i64 %2 to double
+  %74 = fmul double %73, 5.000000e-02
+  %75 = fptoui double %74 to i64
+  %76 = add i64 %75, %2
+  %.not17.i.not = icmp ult i64 %70, %76
+  br i1 %.not17.i.not, label %77, label %85
 
-78:                                               ; preds = %73
-  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
-  %80 = icmp eq ptr %79, null
-  br i1 %80, label %81, label %opal_gethostname.exit69
+77:                                               ; preds = %72
+  %78 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
+  %79 = icmp eq ptr %78, null
+  br i1 %79, label %80, label %opal_gethostname.exit69
 
-81:                                               ; preds = %78
-  %82 = call i32 @opal_init_gethostname() #15
+80:                                               ; preds = %77
+  %81 = call i32 @opal_init_gethostname() #15
   %.pre.i68 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
   br label %opal_gethostname.exit69
 
-opal_gethostname.exit69:                          ; preds = %78, %81
-  %83 = phi ptr [ %.pre.i68, %81 ], [ %79, %78 ]
-  %84 = load ptr, ptr @opal_show_help, align 8
-  %85 = call i32 (ptr, ptr, i32, ...) %84(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef nonnull %.152, ptr noundef %83, i64 noundef %2, i64 noundef %71) #15
-  br label %131
+opal_gethostname.exit69:                          ; preds = %77, %80
+  %82 = phi ptr [ %.pre.i68, %80 ], [ %78, %77 ]
+  %83 = load ptr, ptr @opal_show_help, align 8
+  %84 = call i32 (ptr, ptr, i32, ...) %83(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef nonnull %.152, ptr noundef %82, i64 noundef %2, i64 noundef %70) #15
+  br label %130
 
-86:                                               ; preds = %73
-  %87 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %.152, i32 noundef 66, i32 noundef 384) #15
-  store i32 %87, ptr %9, align 8
-  %88 = icmp eq i32 %87, -1
-  br i1 %88, label %89, label %100
+85:                                               ; preds = %72
+  %86 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %.152, i32 noundef 66, i32 noundef 384) #15
+  store i32 %86, ptr %9, align 8
+  %87 = icmp eq i32 %86, -1
+  br i1 %87, label %88, label %99
 
-89:                                               ; preds = %86
-  %90 = tail call ptr @__errno_location() #16
-  %91 = load i32, ptr %90, align 4
-  %92 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
-  %93 = icmp eq ptr %92, null
-  br i1 %93, label %94, label %opal_gethostname.exit71
+88:                                               ; preds = %85
+  %89 = tail call ptr @__errno_location() #16
+  %90 = load i32, ptr %89, align 4
+  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
+  %92 = icmp eq ptr %91, null
+  br i1 %92, label %93, label %opal_gethostname.exit71
 
-94:                                               ; preds = %89
-  %95 = call i32 @opal_init_gethostname() #15
+93:                                               ; preds = %88
+  %94 = call i32 @opal_init_gethostname() #15
   %.pre.i70 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
   br label %opal_gethostname.exit71
 
-opal_gethostname.exit71:                          ; preds = %89, %94
-  %96 = phi ptr [ %.pre.i70, %94 ], [ %92, %89 ]
-  %97 = load ptr, ptr @opal_show_help, align 8
-  %98 = call ptr @strerror(i32 noundef %91) #15
-  %99 = call i32 (ptr, ptr, i32, ...) %97(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.6, i32 noundef 1, ptr noundef %96, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef %98, i32 noundef %91) #15
-  br label %131
+opal_gethostname.exit71:                          ; preds = %88, %93
+  %95 = phi ptr [ %.pre.i70, %93 ], [ %91, %88 ]
+  %96 = load ptr, ptr @opal_show_help, align 8
+  %97 = call ptr @strerror(i32 noundef %90) #15
+  %98 = call i32 (ptr, ptr, i32, ...) %96(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.6, i32 noundef 1, ptr noundef %95, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef %97, i32 noundef %90) #15
+  br label %130
 
-100:                                              ; preds = %86
-  %101 = call i32 @ftruncate(i32 noundef %87, i64 noundef %2) #15
-  %.not63 = icmp eq i32 %101, 0
-  br i1 %.not63, label %113, label %102
+99:                                               ; preds = %85
+  %100 = call i32 @ftruncate(i32 noundef %86, i64 noundef %2) #15
+  %.not63 = icmp eq i32 %100, 0
+  br i1 %.not63, label %112, label %101
 
-102:                                              ; preds = %100
-  %103 = tail call ptr @__errno_location() #16
-  %104 = load i32, ptr %103, align 4
-  %105 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
-  %106 = icmp eq ptr %105, null
-  br i1 %106, label %107, label %opal_gethostname.exit73
+101:                                              ; preds = %99
+  %102 = tail call ptr @__errno_location() #16
+  %103 = load i32, ptr %102, align 4
+  %104 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
+  %105 = icmp eq ptr %104, null
+  br i1 %105, label %106, label %opal_gethostname.exit73
 
-107:                                              ; preds = %102
-  %108 = call i32 @opal_init_gethostname() #15
+106:                                              ; preds = %101
+  %107 = call i32 @opal_init_gethostname() #15
   %.pre.i72 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
   br label %opal_gethostname.exit73
 
-opal_gethostname.exit73:                          ; preds = %102, %107
-  %109 = phi ptr [ %.pre.i72, %107 ], [ %105, %102 ]
-  %110 = load ptr, ptr @opal_show_help, align 8
-  %111 = call ptr @strerror(i32 noundef %104) #15
-  %112 = call i32 (ptr, ptr, i32, ...) %110(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.6, i32 noundef 1, ptr noundef %109, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, ptr noundef %111, i32 noundef %104) #15
-  br label %131
+opal_gethostname.exit73:                          ; preds = %101, %106
+  %108 = phi ptr [ %.pre.i72, %106 ], [ %104, %101 ]
+  %109 = load ptr, ptr @opal_show_help, align 8
+  %110 = call ptr @strerror(i32 noundef %103) #15
+  %111 = call i32 (ptr, ptr, i32, ...) %109(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.6, i32 noundef 1, ptr noundef %108, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, ptr noundef %110, i32 noundef %103) #15
+  br label %130
 
-113:                                              ; preds = %100
-  %114 = load i32, ptr %9, align 8
-  %115 = call ptr @mmap(ptr noundef null, i64 noundef %2, i32 noundef 3, i32 noundef 1, i32 noundef %114, i64 noundef 0) #15
-  %116 = icmp eq ptr %115, inttoptr (i64 -1 to ptr)
-  br i1 %116, label %117, label %128
+112:                                              ; preds = %99
+  %113 = load i32, ptr %9, align 8
+  %114 = call ptr @mmap(ptr noundef null, i64 noundef %2, i32 noundef 3, i32 noundef 1, i32 noundef %113, i64 noundef 0) #15
+  %115 = icmp eq ptr %114, inttoptr (i64 -1 to ptr)
+  br i1 %115, label %116, label %127
 
-117:                                              ; preds = %113
-  %118 = tail call ptr @__errno_location() #16
-  %119 = load i32, ptr %118, align 4
-  %120 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
-  %121 = icmp eq ptr %120, null
-  br i1 %121, label %122, label %opal_gethostname.exit75
+116:                                              ; preds = %112
+  %117 = tail call ptr @__errno_location() #16
+  %118 = load i32, ptr %117, align 4
+  %119 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
+  %120 = icmp eq ptr %119, null
+  br i1 %120, label %121, label %opal_gethostname.exit75
 
-122:                                              ; preds = %117
-  %123 = call i32 @opal_init_gethostname() #15
+121:                                              ; preds = %116
+  %122 = call i32 @opal_init_gethostname() #15
   %.pre.i74 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
   br label %opal_gethostname.exit75
 
-opal_gethostname.exit75:                          ; preds = %117, %122
-  %124 = phi ptr [ %.pre.i74, %122 ], [ %120, %117 ]
-  %125 = load ptr, ptr @opal_show_help, align 8
-  %126 = call ptr @strerror(i32 noundef %119) #15
-  %127 = call i32 (ptr, ptr, i32, ...) %125(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.6, i32 noundef 1, ptr noundef %124, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.8, ptr noundef %126, i32 noundef %119) #15
-  br label %131
+opal_gethostname.exit75:                          ; preds = %116, %121
+  %123 = phi ptr [ %.pre.i74, %121 ], [ %119, %116 ]
+  %124 = load ptr, ptr @opal_show_help, align 8
+  %125 = call ptr @strerror(i32 noundef %118) #15
+  %126 = call i32 (ptr, ptr, i32, ...) %124(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.6, i32 noundef 1, ptr noundef %123, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.8, ptr noundef %125, i32 noundef %118) #15
+  br label %130
 
-128:                                              ; preds = %113
+127:                                              ; preds = %112
   store i32 %7, ptr %0, align 8
   store i64 %2, ptr %10, align 8
-  store ptr %115, ptr %12, align 8
+  store ptr %114, ptr %12, align 8
   call void @opal_string_copy(ptr noundef nonnull %11, ptr noundef nonnull %.152, i64 noundef 4097) #15
-  %129 = load i8, ptr %8, align 4
-  %130 = or i8 %129, 1
-  store i8 %130, ptr %8, align 4
-  br label %131
+  %128 = load i8, ptr %8, align 4
+  %129 = or i8 %128, 1
+  store i8 %129, ptr %8, align 4
+  br label %130
 
-131:                                              ; preds = %128, %opal_gethostname.exit75, %opal_gethostname.exit73, %opal_gethostname.exit71, %opal_gethostname.exit69, %72
-  %.053 = phi ptr [ inttoptr (i64 -1 to ptr), %72 ], [ inttoptr (i64 -1 to ptr), %opal_gethostname.exit71 ], [ inttoptr (i64 -1 to ptr), %opal_gethostname.exit73 ], [ inttoptr (i64 -1 to ptr), %opal_gethostname.exit75 ], [ %115, %128 ], [ inttoptr (i64 -1 to ptr), %opal_gethostname.exit69 ]
-  %.050 = phi i32 [ %.024.i88, %72 ], [ -1, %opal_gethostname.exit71 ], [ -1, %opal_gethostname.exit73 ], [ -1, %opal_gethostname.exit75 ], [ 0, %128 ], [ -2, %opal_gethostname.exit69 ]
-  %132 = load i32, ptr %9, align 8
-  %.not64 = icmp eq i32 %132, -1
-  br i1 %.not64, label %146, label %133
+130:                                              ; preds = %127, %opal_gethostname.exit75, %opal_gethostname.exit73, %opal_gethostname.exit71, %opal_gethostname.exit69, %71
+  %.053 = phi ptr [ inttoptr (i64 -1 to ptr), %71 ], [ inttoptr (i64 -1 to ptr), %opal_gethostname.exit71 ], [ inttoptr (i64 -1 to ptr), %opal_gethostname.exit73 ], [ inttoptr (i64 -1 to ptr), %opal_gethostname.exit75 ], [ %114, %127 ], [ inttoptr (i64 -1 to ptr), %opal_gethostname.exit69 ]
+  %.050 = phi i32 [ %.024.i88, %71 ], [ -1, %opal_gethostname.exit71 ], [ -1, %opal_gethostname.exit73 ], [ -1, %opal_gethostname.exit75 ], [ 0, %127 ], [ -2, %opal_gethostname.exit69 ]
+  %131 = load i32, ptr %9, align 8
+  %.not64 = icmp eq i32 %131, -1
+  br i1 %.not64, label %145, label %132
 
-133:                                              ; preds = %131
-  %134 = call i32 @close(i32 noundef %132) #15
-  %.not65 = icmp eq i32 %134, 0
-  br i1 %.not65, label %146, label %135
+132:                                              ; preds = %130
+  %133 = call i32 @close(i32 noundef %131) #15
+  %.not65 = icmp eq i32 %133, 0
+  br i1 %.not65, label %145, label %134
 
-135:                                              ; preds = %133
-  %136 = tail call ptr @__errno_location() #16
-  %137 = load i32, ptr %136, align 4
-  %138 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
-  %139 = icmp eq ptr %138, null
-  br i1 %139, label %140, label %.thread89
+134:                                              ; preds = %132
+  %135 = tail call ptr @__errno_location() #16
+  %136 = load i32, ptr %135, align 4
+  %137 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
+  %138 = icmp eq ptr %137, null
+  br i1 %138, label %139, label %.thread89
 
-140:                                              ; preds = %135
-  %141 = call i32 @opal_init_gethostname() #15
+139:                                              ; preds = %134
+  %140 = call i32 @opal_init_gethostname() #15
   %.pre.i76 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
   br label %.thread89
 
-.thread89:                                        ; preds = %140, %135
-  %142 = phi ptr [ %.pre.i76, %140 ], [ %138, %135 ]
-  %143 = load ptr, ptr @opal_show_help, align 8
-  %144 = call ptr @strerror(i32 noundef %137) #15
-  %145 = call i32 (ptr, ptr, i32, ...) %143(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.6, i32 noundef 1, ptr noundef %142, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.8, ptr noundef %144, i32 noundef %137) #15
-  br label %147
+.thread89:                                        ; preds = %139, %134
+  %141 = phi ptr [ %.pre.i76, %139 ], [ %137, %134 ]
+  %142 = load ptr, ptr @opal_show_help, align 8
+  %143 = call ptr @strerror(i32 noundef %136) #15
+  %144 = call i32 (ptr, ptr, i32, ...) %142(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.6, i32 noundef 1, ptr noundef %141, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.8, ptr noundef %143, i32 noundef %136) #15
+  br label %146
 
-146:                                              ; preds = %133, %131
+145:                                              ; preds = %132, %130
   %.not66 = icmp eq i32 %.050, 0
-  br i1 %.not66, label %151, label %147
+  br i1 %.not66, label %150, label %146
 
-147:                                              ; preds = %.thread89, %146
-  %.192 = phi i32 [ -1, %.thread89 ], [ %.050, %146 ]
+146:                                              ; preds = %.thread89, %145
+  %.192 = phi i32 [ -1, %.thread89 ], [ %.050, %145 ]
   %.not67 = icmp eq ptr %.053, inttoptr (i64 -1 to ptr)
-  br i1 %.not67, label %150, label %148
+  br i1 %.not67, label %149, label %147
 
-148:                                              ; preds = %147
-  %149 = call i32 @munmap(ptr noundef %.053, i64 noundef %2) #15
-  br label %150
+147:                                              ; preds = %146
+  %148 = call i32 @munmap(ptr noundef %.053, i64 noundef %2) #15
+  br label %149
 
-150:                                              ; preds = %148, %147
+149:                                              ; preds = %147, %146
   store i32 0, ptr %0, align 8
   store i8 0, ptr %8, align 4
   store i32 -1, ptr %9, align 8
   store i64 0, ptr %10, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4097) %11, i8 0, i64 4097, i1 false)
   store ptr inttoptr (i64 -1 to ptr), ptr %12, align 8
+  br label %150
+
+150:                                              ; preds = %145, %149
+  %.193 = phi i32 [ 0, %145 ], [ %.192, %149 ]
+  call void @free(ptr noundef nonnull %.152) #15
   br label %151
 
-151:                                              ; preds = %146, %150
-  %.193 = phi i32 [ 0, %146 ], [ %.192, %150 ]
-  call void @free(ptr noundef nonnull %.152) #15
-  br label %152
-
-152:                                              ; preds = %get_uniq_file_name.exit.thread, %50, %151, %49
-  %.0 = phi i32 [ %.193, %151 ], [ -1, %49 ], [ -1, %50 ], [ -1, %get_uniq_file_name.exit.thread ]
+151:                                              ; preds = %get_uniq_file_name.exit.thread, %48, %150, %47
+  %.0 = phi i32 [ %.193, %150 ], [ -1, %47 ], [ -1, %48 ], [ -1, %get_uniq_file_name.exit.thread ]
   ret i32 %.0
 }
 

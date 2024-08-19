@@ -1999,17 +1999,16 @@ define hidden void @"_ZN74_$LT$T$u20$as$u20$diesel..deserialize..FromStaticSqlRo
 _ZN6diesel11deserialize7FromSql17from_nullable_sql17ha85ccd90c469368eE.llvm.9214435125305147345.exit: ; preds = %21, %23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %26
 
 24:                                               ; preds = %12, %"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hdfe8d6e0a47d7ec2E.llvm.13218109653646882024.exit.thread.i", %"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hdfe8d6e0a47d7ec2E.llvm.13218109653646882024.exit.i"
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.32e934fa05e4456648abfe262fc31d88.20.llvm.9214435125305147345, ptr %25, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %26
 
 26:                                               ; preds = %_ZN6diesel11deserialize7FromSql17from_nullable_sql17ha85ccd90c469368eE.llvm.9214435125305147345.exit, %24
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   ret void
 }
 

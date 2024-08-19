@@ -17740,11 +17740,7 @@ if.end.i.i.i:                                     ; preds = %if.then
   store i64 %agg.tmp.sroa.4.0.copyload.fr.i55, ptr %agg.tmp.sroa.3.0.agg.tmp.i.sroa_idx.i.i, align 8
   call fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorIPKNS0_16IngestedFileInfoELm8EE13iterator_implIS5_S4_EElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_27ExternalSstFileIngestionJob7PrepareERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EESM_SM_RKNS0_11TemperatureEmPNS0_12SuperVersionEE3$_0EEEvT_T0_SV_T1_T2_"(ptr noundef nonnull %agg.tmp.i.i.i, i64 noundef %div12.i.i.i, i64 noundef %sub.i.i.i.i, ptr noundef %20, ptr readonly %__comp.coerce)
   %cmp7.i40.i.i = icmp ult i64 %sub.i.i.i, 2
-  br i1 %cmp7.i40.i.i, label %invoke.cont.i.i.thread, label %if.end9.split.i.i.i
-
-invoke.cont.i.i.thread:                           ; preds = %if.end.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i)
-  br label %while.body.lr.ph.i.i
+  br i1 %cmp7.i40.i.i, label %while.body.lr.ph.i.i, label %if.end9.split.i.i.i
 
 if.end9.split.i.i.i:                              ; preds = %if.end.i.i.i, %if.end9.split.i.i.i
   %__parent.0.i41.i.i = phi i64 [ %dec.i.i.i, %if.end9.split.i.i.i ], [ %div12.i.i.i, %if.end.i.i.i ]
@@ -17762,13 +17758,10 @@ if.end9.split.i.i.i:                              ; preds = %if.end.i.i.i, %if.e
   store i64 %agg.tmp.sroa.4.0.copyload.fr.i55, ptr %agg.tmp.sroa.3.0.agg.tmp.i.sroa_idx.i.i, align 8
   call fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorIPKNS0_16IngestedFileInfoELm8EE13iterator_implIS5_S4_EElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_27ExternalSstFileIngestionJob7PrepareERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EESM_SM_RKNS0_11TemperatureEmPNS0_12SuperVersionEE3$_0EEEvT_T0_SV_T1_T2_"(ptr noundef nonnull %agg.tmp.i.i.i, i64 noundef %dec.i.i.i, i64 noundef %sub.i.i.i.i, ptr noundef %24, ptr readonly %__comp.coerce)
   %cmp7.i.i.i = icmp eq i64 %dec.i.i.i, 0
-  br i1 %cmp7.i.i.i, label %invoke.cont.i.i, label %if.end9.split.i.i.i, !llvm.loop !128
+  br i1 %cmp7.i.i.i, label %while.body.lr.ph.i.i, label %if.end9.split.i.i.i, !llvm.loop !128
 
-invoke.cont.i.i:                                  ; preds = %if.end9.split.i.i.i
+while.body.lr.ph.i.i:                             ; preds = %if.end9.split.i.i.i, %if.end.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i)
-  br label %while.body.lr.ph.i.i
-
-while.body.lr.ph.i.i:                             ; preds = %invoke.cont.i.i, %invoke.cont.i.i.thread
   %agg.tmp.sroa.3.0.agg.tmp.i.sroa_idx.i7.i = getelementptr inbounds i8, ptr %agg.tmp.i.i5.i, i64 8
   %25 = getelementptr i8, ptr %agg.tmp3.sroa.0.0.copyload, i64 72
   %26 = getelementptr i8, ptr %agg.tmp3.sroa.0.0.copyload, i64 80

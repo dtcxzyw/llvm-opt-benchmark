@@ -10238,7 +10238,7 @@ land.rhs.lr.ph:                                   ; preds = %if.end
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end54
   %prot_info_idx.0120 = phi i64 [ 0, %land.rhs.lr.ph ], [ %prot_info_idx.1, %if.end54 ]
-  %1 = phi ptr [ null, %land.rhs.lr.ph ], [ %34, %if.end54 ]
+  %1 = phi ptr [ null, %land.rhs.lr.ph ], [ %33, %if.end54 ]
   %2 = load ptr, ptr %prot_info_, align 8
   %3 = load i64, ptr %2, align 8
   %vect_.i = getelementptr inbounds i8, ptr %2, i64 80
@@ -10327,8 +10327,8 @@ lpad.loopexit.split-lp:                           ; preds = %if.then59
 if.end17:                                         ; preds = %invoke.cont14
   %14 = load i8, ptr %tag, align 1
   switch i8 %14, label %sw.default [
-    i8 5, label %sw.bb
-    i8 1, label %sw.bb
+    i8 5, label %if.then33.critedge
+    i8 1, label %if.then33.critedge
     i8 4, label %sw.bb18
     i8 0, label %sw.bb18
     i8 8, label %sw.bb19
@@ -10353,32 +10353,22 @@ if.end17:                                         ; preds = %invoke.cont14
     i8 22, label %sw.bb24
   ]
 
-sw.bb:                                            ; preds = %if.end17, %if.end17
-  store i8 1, ptr %tag, align 1
-  br label %if.then33.critedge
-
 sw.bb18:                                          ; preds = %if.end17, %if.end17
-  store i8 0, ptr %tag, align 1
   br label %if.then33.critedge
 
 sw.bb19:                                          ; preds = %if.end17, %if.end17
-  store i8 7, ptr %tag, align 1
   br label %if.then33.critedge
 
 sw.bb20:                                          ; preds = %if.end17, %if.end17
-  store i8 15, ptr %tag, align 1
   br label %if.then33.critedge
 
 sw.bb21:                                          ; preds = %if.end17, %if.end17
-  store i8 2, ptr %tag, align 1
   br label %if.then33.critedge
 
 sw.bb22:                                          ; preds = %if.end17, %if.end17
-  store i8 17, ptr %tag, align 1
   br label %if.then33.critedge
 
 sw.bb24:                                          ; preds = %if.end17, %if.end17
-  store i8 22, ptr %tag, align 1
   br label %if.then33.critedge
 
 sw.default:                                       ; preds = %if.end17
@@ -10405,39 +10395,40 @@ lpad30:                                           ; preds = %sw.default
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28) #26
   br label %ehcleanup
 
-if.then33.critedge:                               ; preds = %sw.bb, %sw.bb18, %sw.bb19, %sw.bb20, %sw.bb21, %sw.bb22, %sw.bb24
-  %16 = phi i8 [ 1, %sw.bb ], [ 0, %sw.bb18 ], [ 7, %sw.bb19 ], [ 15, %sw.bb20 ], [ 2, %sw.bb21 ], [ 17, %sw.bb22 ], [ 22, %sw.bb24 ]
-  %17 = load ptr, ptr %prot_info_, align 8
+if.then33.critedge:                               ; preds = %if.end17, %if.end17, %sw.bb18, %sw.bb19, %sw.bb20, %sw.bb21, %sw.bb22, %sw.bb24
+  %.sink = phi i8 [ 0, %sw.bb18 ], [ 7, %sw.bb19 ], [ 15, %sw.bb20 ], [ 2, %sw.bb21 ], [ 17, %sw.bb22 ], [ 22, %sw.bb24 ], [ 1, %if.end17 ], [ 1, %if.end17 ]
+  store i8 %.sink, ptr %tag, align 1
+  %16 = load ptr, ptr %prot_info_, align 8
   %inc = add nuw i64 %prot_info_idx.0120, 1
   %cmp.i19 = icmp ult i64 %prot_info_idx.0120, 8
-  %values_.i = getelementptr inbounds i8, ptr %17, i64 72
-  %18 = load ptr, ptr %values_.i, align 8
-  %arrayidx.i = getelementptr inbounds %"class.rocksdb::ProtectionInfoKVOC", ptr %18, i64 %prot_info_idx.0120
-  %vect_.i20 = getelementptr inbounds i8, ptr %17, i64 80
-  %19 = load ptr, ptr %vect_.i20, align 8
-  %20 = getelementptr %"class.rocksdb::ProtectionInfoKVOC", ptr %19, i64 %prot_info_idx.0120
-  %add.ptr.i.i = getelementptr i8, ptr %20, i64 -64
+  %values_.i = getelementptr inbounds i8, ptr %16, i64 72
+  %17 = load ptr, ptr %values_.i, align 8
+  %arrayidx.i = getelementptr inbounds %"class.rocksdb::ProtectionInfoKVOC", ptr %17, i64 %prot_info_idx.0120
+  %vect_.i20 = getelementptr inbounds i8, ptr %16, i64 80
+  %18 = load ptr, ptr %vect_.i20, align 8
+  %19 = getelementptr %"class.rocksdb::ProtectionInfoKVOC", ptr %18, i64 %prot_info_idx.0120
+  %add.ptr.i.i = getelementptr i8, ptr %19, i64 -64
   %retval.0.i = select i1 %cmp.i19, ptr %arrayidx.i, ptr %add.ptr.i.i
-  %21 = load i32, ptr %column_family, align 4
+  %20 = load i32, ptr %column_family, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %column_family_id.addr.i)
-  store i32 %21, ptr %column_family_id.addr.i, align 4
-  %22 = load i64, ptr %retval.0.i, align 8
+  store i32 %20, ptr %column_family_id.addr.i, align 4
+  %21 = load i64, ptr %retval.0.i, align 8
   %call.i.i21 = invoke noundef i64 @_ZN7rocksdb6Hash64EPKcmm(ptr noundef nonnull %column_family_id.addr.i, i64 noundef 4, i64 noundef 5344283794842014764)
           to label %invoke.cont42 unwind label %lpad.loopexit
 
 invoke.cont42:                                    ; preds = %if.then33.critedge
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %column_family_id.addr.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %op_type.addr.i)
-  store i8 %16, ptr %op_type.addr.i, align 1
-  %23 = load ptr, ptr %key, align 8
-  %24 = load i64, ptr %size_.i4, align 8
-  %call.i.i.i23 = invoke noundef i64 @_ZN7rocksdb6Hash64EPKcmm(ptr noundef %23, i64 noundef %24, i64 noundef 0)
+  store i8 %.sink, ptr %op_type.addr.i, align 1
+  %22 = load ptr, ptr %key, align 8
+  %23 = load i64, ptr %size_.i4, align 8
+  %call.i.i.i23 = invoke noundef i64 @_ZN7rocksdb6Hash64EPKcmm(ptr noundef %22, i64 noundef %23, i64 noundef 0)
           to label %call.i.i.i.noexc unwind label %lpad.loopexit
 
 call.i.i.i.noexc:                                 ; preds = %invoke.cont42
-  %25 = load ptr, ptr %value, align 8
-  %26 = load i64, ptr %size_.i5, align 8
-  %call.i.i5.i24 = invoke noundef i64 @_ZN7rocksdb6Hash64EPKcmm(ptr noundef %25, i64 noundef %26, i64 noundef -3275615069716884213)
+  %24 = load ptr, ptr %value, align 8
+  %25 = load i64, ptr %size_.i5, align 8
+  %call.i.i5.i24 = invoke noundef i64 @_ZN7rocksdb6Hash64EPKcmm(ptr noundef %24, i64 noundef %25, i64 noundef -3275615069716884213)
           to label %call.i.i5.i.noexc unwind label %lpad.loopexit
 
 call.i.i5.i.noexc:                                ; preds = %call.i.i.i.noexc
@@ -10445,7 +10436,7 @@ call.i.i5.i.noexc:                                ; preds = %call.i.i.i.noexc
           to label %invoke.cont45 unwind label %lpad.loopexit
 
 invoke.cont45:                                    ; preds = %call.i.i5.i.noexc
-  %xor.i = xor i64 %call.i.i21, %22
+  %xor.i = xor i64 %call.i.i21, %21
   %xor.i22 = xor i64 %xor.i, %call.i.i.i23
   %xor4.i = xor i64 %xor.i22, %call.i.i5.i24
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %op_type.addr.i)
@@ -10473,13 +10464,13 @@ if.then.i.invoke.cont48_crit_edge:                ; preds = %if.then.i
   br label %invoke.cont48
 
 invoke.cont48:                                    ; preds = %invoke.cont45, %if.then.i.invoke.cont48_crit_edge
-  %27 = phi ptr [ %.pre151, %if.then.i.invoke.cont48_crit_edge ], [ null, %invoke.cont45 ]
-  %28 = phi i8 [ %.pre150, %if.then.i.invoke.cont48_crit_edge ], [ 0, %invoke.cont45 ]
-  %29 = phi i8 [ %.pre149, %if.then.i.invoke.cont48_crit_edge ], [ 0, %invoke.cont45 ]
-  %30 = phi i8 [ %.pre148, %if.then.i.invoke.cont48_crit_edge ], [ 0, %invoke.cont45 ]
-  %31 = phi i8 [ %.pre147, %if.then.i.invoke.cont48_crit_edge ], [ 0, %invoke.cont45 ]
-  %32 = phi i8 [ %.pre146, %if.then.i.invoke.cont48_crit_edge ], [ 0, %invoke.cont45 ]
-  %33 = phi i8 [ %.pre, %if.then.i.invoke.cont48_crit_edge ], [ 0, %invoke.cont45 ]
+  %26 = phi ptr [ %.pre151, %if.then.i.invoke.cont48_crit_edge ], [ null, %invoke.cont45 ]
+  %27 = phi i8 [ %.pre150, %if.then.i.invoke.cont48_crit_edge ], [ 0, %invoke.cont45 ]
+  %28 = phi i8 [ %.pre149, %if.then.i.invoke.cont48_crit_edge ], [ 0, %invoke.cont45 ]
+  %29 = phi i8 [ %.pre148, %if.then.i.invoke.cont48_crit_edge ], [ 0, %invoke.cont45 ]
+  %30 = phi i8 [ %.pre147, %if.then.i.invoke.cont48_crit_edge ], [ 0, %invoke.cont45 ]
+  %31 = phi i8 [ %.pre146, %if.then.i.invoke.cont48_crit_edge ], [ 0, %invoke.cont45 ]
+  %32 = phi i8 [ %.pre, %if.then.i.invoke.cont48_crit_edge ], [ 0, %invoke.cont45 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
   store ptr null, ptr %state_.i.i.i, align 8
@@ -10499,36 +10490,36 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 
 invoke.cont50:                                    ; preds = %invoke.cont48, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i48, %_ZN7rocksdb6StatusaSEOS0_.exit45
   store ptr null, ptr %state_.i.i.i, align 8
-  %cmp.i50 = icmp eq i8 %33, 0
+  %cmp.i50 = icmp eq i8 %32, 0
   br i1 %cmp.i50, label %if.end54, label %if.then52
 
 if.then52:                                        ; preds = %invoke.cont50
-  %frombool.i34.le = and i8 %30, 1
-  %frombool12.i37.le = and i8 %29, 1
+  %frombool.i34.le = and i8 %29, 1
+  %frombool12.i37.le = and i8 %28, 1
   %state_.i.i51 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i8 %33, ptr %agg.result, align 8
+  store i8 %32, ptr %agg.result, align 8
   %subcode_4.i.i55 = getelementptr inbounds i8, ptr %agg.result, i64 1
-  store i8 %32, ptr %subcode_4.i.i55, align 1
+  store i8 %31, ptr %subcode_4.i.i55, align 1
   %sev_6.i.i57 = getelementptr inbounds i8, ptr %agg.result, i64 2
-  store i8 %31, ptr %sev_6.i.i57, align 2
+  store i8 %30, ptr %sev_6.i.i57, align 2
   %retryable_8.i.i59 = getelementptr inbounds i8, ptr %agg.result, i64 3
   store i8 %frombool.i34.le, ptr %retryable_8.i.i59, align 1
   %data_loss_11.i.i62 = getelementptr inbounds i8, ptr %agg.result, i64 4
   store i8 %frombool12.i37.le, ptr %data_loss_11.i.i62, align 4
   %scope_14.i.i65 = getelementptr inbounds i8, ptr %agg.result, i64 5
-  store i8 %28, ptr %scope_14.i.i65, align 1
-  store ptr %27, ptr %state_.i.i51, align 8
+  store i8 %27, ptr %scope_14.i.i65, align 1
+  store ptr %26, ptr %state_.i.i51, align 8
   br label %return
 
 if.end54:                                         ; preds = %if.end17, %if.end17, %if.end17, %if.end17, %if.end17, %if.end17, %if.end17, %if.end17, %if.end17, %if.end17, %invoke.cont50
-  %34 = phi ptr [ %27, %invoke.cont50 ], [ %12, %if.end17 ], [ %12, %if.end17 ], [ %12, %if.end17 ], [ %12, %if.end17 ], [ %12, %if.end17 ], [ %12, %if.end17 ], [ %12, %if.end17 ], [ %12, %if.end17 ], [ %12, %if.end17 ], [ %12, %if.end17 ]
+  %33 = phi ptr [ %26, %invoke.cont50 ], [ %12, %if.end17 ], [ %12, %if.end17 ], [ %12, %if.end17 ], [ %12, %if.end17 ], [ %12, %if.end17 ], [ %12, %if.end17 ], [ %12, %if.end17 ], [ %12, %if.end17 ], [ %12, %if.end17 ], [ %12, %if.end17 ]
   %prot_info_idx.1 = phi i64 [ %inc, %invoke.cont50 ], [ %prot_info_idx.0120, %if.end17 ], [ %prot_info_idx.0120, %if.end17 ], [ %prot_info_idx.0120, %if.end17 ], [ %prot_info_idx.0120, %if.end17 ], [ %prot_info_idx.0120, %if.end17 ], [ %prot_info_idx.0120, %if.end17 ], [ %prot_info_idx.0120, %if.end17 ], [ %prot_info_idx.0120, %if.end17 ], [ %prot_info_idx.0120, %if.end17 ], [ %prot_info_idx.0120, %if.end17 ]
-  %35 = load i64, ptr %size_.i, align 8
-  %cmp.i = icmp eq i64 %35, 0
+  %34 = load i64, ptr %size_.i, align 8
+  %cmp.i = icmp eq i64 %34, 0
   br i1 %cmp.i, label %invoke.cont55, label %land.rhs, !llvm.loop !81
 
 invoke.cont55:                                    ; preds = %if.end54, %land.rhs, %if.end
-  %.lcssa115 = phi ptr [ null, %if.end ], [ %1, %land.rhs ], [ %34, %if.end54 ]
+  %.lcssa115 = phi ptr [ null, %if.end ], [ %1, %land.rhs ], [ %33, %if.end54 ]
   %prot_info_idx.0.lcssa = phi i64 [ 0, %if.end ], [ %prot_info_idx.0120, %land.rhs ], [ %prot_info_idx.1, %if.end54 ]
   %call.i70 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %rep_) #26
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i70, i64 8

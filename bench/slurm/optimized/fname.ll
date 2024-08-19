@@ -56,7 +56,7 @@ define dso_local noundef ptr @fname_create(ptr nocapture noundef readonly %0, pt
 23:                                               ; preds = %20
   store i32 2, ptr %11, align 8
   %24 = tail call ptr @xstrdup(ptr noundef nonnull @.str.4) #8
-  br label %.sink.split
+  br label %.sink.split152
 
 25:                                               ; preds = %20
   %26 = call i64 @strtoul(ptr noundef nonnull %1, ptr noundef nonnull %5, i32 noundef 10) #8
@@ -74,7 +74,7 @@ define dso_local noundef ptr @fname_create(ptr nocapture noundef readonly %0, pt
   store i32 1, ptr %11, align 8
   store i32 %31, ptr %12, align 4
   %34 = tail call ptr @xstrdup(ptr noundef nonnull %1) #8
-  br label %.sink.split
+  br label %.sink.split152
 
 35:                                               ; preds = %30, %25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -123,21 +123,27 @@ _remove_path_slashes.exit.thread:                 ; preds = %48
 _remove_path_slashes.exit:                        ; preds = %48
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %.not = icmp eq ptr %38, null
-  br i1 %.not, label %49, label %.sink.split
+  br i1 %.not, label %49, label %.sink.split152
 
 49:                                               ; preds = %_remove_path_slashes.exit.thread, %_remove_path_slashes.exit
   store ptr null, ptr %7, align 8
   store ptr null, ptr %6, align 8
   store ptr %1, ptr %5, align 8
   %50 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %.outer.outer
+
+.outer.outer:                                     ; preds = %.sink.split, %49
+  %.ph = phi ptr [ %.sink, %.sink.split ], [ %1, %49 ]
+  %.069.ph.ph = phi ptr [ %.4.ph, %.sink.split ], [ %1, %49 ]
+  %.065.ph.ph = phi i32 [ %.368.ph, %.sink.split ], [ %9, %49 ]
+  %.063.ph.ph = phi i32 [ %.3.ph, %.sink.split ], [ -2, %49 ]
+  %.0.ph.ph = phi i8 [ %.1.ph, %.sink.split ], [ 0, %49 ]
   br label %.outer
 
-.outer:                                           ; preds = %.outer.backedge, %49
-  %51 = phi ptr [ %1, %49 ], [ %.be, %.outer.backedge ]
-  %.069.ph = phi ptr [ %1, %49 ], [ %.069.ph.be, %.outer.backedge ]
-  %.065.ph = phi i32 [ %9, %49 ], [ %.065.ph.be, %.outer.backedge ]
-  %.063.ph = phi i32 [ -2, %49 ], [ %.063.ph.be, %.outer.backedge ]
-  %.0.ph = phi i8 [ 0, %49 ], [ %.0.ph.be, %.outer.backedge ]
+.outer:                                           ; preds = %.outer.backedge, %.outer.outer
+  %51 = phi ptr [ %.ph, %.outer.outer ], [ %.be, %.outer.backedge ]
+  %.069.ph = phi ptr [ %.069.ph.ph, %.outer.outer ], [ %.069.ph.be, %.outer.backedge ]
+  %.0.ph = phi i8 [ %.0.ph.ph, %.outer.outer ], [ 0, %.outer.backedge ]
   br label %52
 
 52:                                               ; preds = %.outer, %59
@@ -210,6 +216,11 @@ _remove_path_slashes.exit:                        ; preds = %48
     i8 120, label %124
   ]
 
+.outer.backedge:                                  ; preds = %76, %141
+  %.be = phi ptr [ %143, %141 ], [ %78, %76 ]
+  %.069.ph.be = phi ptr [ %.069, %141 ], [ %.271, %76 ]
+  br label %.outer, !llvm.loop !9
+
 79:                                               ; preds = %76
   %80 = call ptr @getenv(ptr noundef nonnull @.str.6) #8
   %.not93 = icmp eq ptr %80, null
@@ -221,7 +232,7 @@ _remove_path_slashes.exit:                        ; preds = %48
   br label %84
 
 84:                                               ; preds = %81, %79
-  %.164 = phi i32 [ %83, %81 ], [ %.063.ph, %79 ]
+  %.164 = phi i32 [ %83, %81 ], [ %.063.ph.ph, %79 ]
   %85 = getelementptr inbounds i8, ptr %78, i64 -1
   call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.271, ptr noundef nonnull %85) #8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %.174, i32 noundef %.164) #8
@@ -229,16 +240,7 @@ _remove_path_slashes.exit:                        ; preds = %48
   store ptr null, ptr %7, align 8
   %86 = load ptr, ptr %5, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 1
-  store ptr %87, ptr %5, align 8
-  br label %.outer.backedge
-
-.outer.backedge:                                  ; preds = %84, %93, %106, %108, %121, %124, %76, %150, %141, %148
-  %.be = phi ptr [ %143, %141 ], [ %149, %148 ], [ %151, %150 ], [ %78, %76 ], [ %128, %124 ], [ %123, %121 ], [ %112, %108 ], [ %107, %106 ], [ %96, %93 ], [ %87, %84 ]
-  %.069.ph.be = phi ptr [ %.069, %141 ], [ %.5, %148 ], [ %.069, %150 ], [ %.271, %76 ], [ %128, %124 ], [ %122, %121 ], [ %112, %108 ], [ %107, %106 ], [ %96, %93 ], [ %87, %84 ]
-  %.065.ph.be = phi i32 [ %.065.ph, %141 ], [ %.065.ph, %148 ], [ %.065.ph, %150 ], [ %.065.ph, %76 ], [ %.065.ph, %124 ], [ %.065.ph, %121 ], [ %.065.ph, %108 ], [ %.065.ph, %106 ], [ %.267, %93 ], [ %.065.ph, %84 ]
-  %.063.ph.be = phi i32 [ %.063.ph, %141 ], [ %.063.ph, %148 ], [ %.063.ph, %150 ], [ %.063.ph, %76 ], [ %.063.ph, %124 ], [ %.063.ph, %121 ], [ %.063.ph, %108 ], [ %.063.ph, %106 ], [ %.063.ph, %93 ], [ %.164, %84 ]
-  %.0.ph.be = phi i8 [ 0, %141 ], [ 0, %148 ], [ %.0, %150 ], [ 0, %76 ], [ 0, %124 ], [ 0, %121 ], [ 0, %108 ], [ 0, %106 ], [ 0, %93 ], [ 0, %84 ]
-  br label %.outer, !llvm.loop !9
+  br label %.sink.split
 
 88:                                               ; preds = %76
   %89 = call ptr @getenv(ptr noundef nonnull @.str.8) #8
@@ -251,7 +253,7 @@ _remove_path_slashes.exit:                        ; preds = %48
   br label %93
 
 93:                                               ; preds = %90, %88
-  %.267 = phi i32 [ %92, %90 ], [ %.065.ph, %88 ]
+  %.267 = phi i32 [ %92, %90 ], [ %.065.ph.ph, %88 ]
   %94 = getelementptr inbounds i8, ptr %78, i64 -1
   call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.271, ptr noundef nonnull %94) #8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %.174, i32 noundef %.267) #8
@@ -259,8 +261,7 @@ _remove_path_slashes.exit:                        ; preds = %48
   store ptr null, ptr %7, align 8
   %95 = load ptr, ptr %5, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 1
-  store ptr %96, ptr %5, align 8
-  br label %.outer.backedge
+  br label %.sink.split
 
 97:                                               ; preds = %76, %76
   %98 = getelementptr inbounds i8, ptr %78, i64 -1
@@ -285,8 +286,7 @@ _remove_path_slashes.exit:                        ; preds = %48
   call void @slurm_xfree(ptr noundef nonnull %7) #8
   store ptr null, ptr %7, align 8
   %107 = getelementptr inbounds i8, ptr %100, i64 1
-  store ptr %107, ptr %5, align 8
-  br label %.outer.backedge
+  br label %.sink.split
 
 108:                                              ; preds = %76
   %109 = getelementptr inbounds i8, ptr %78, i64 -1
@@ -297,8 +297,7 @@ _remove_path_slashes.exit:                        ; preds = %48
   store ptr null, ptr %7, align 8
   %111 = load ptr, ptr %5, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 1
-  store ptr %112, ptr %5, align 8
-  br label %.outer.backedge
+  br label %.sink.split
 
 113:                                              ; preds = %76, %76, %76, %76
   store i32 2, ptr %11, align 8
@@ -329,8 +328,7 @@ _remove_path_slashes.exit:                        ; preds = %48
   call void @slurm_xfree(ptr noundef nonnull %7) #8
   store ptr null, ptr %7, align 8
   %123 = getelementptr inbounds i8, ptr %122, i64 1
-  store ptr %123, ptr %5, align 8
-  br label %.outer.backedge
+  br label %.sink.split
 
 124:                                              ; preds = %76
   %125 = getelementptr inbounds i8, ptr %78, i64 -1
@@ -339,8 +337,7 @@ _remove_path_slashes.exit:                        ; preds = %48
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.12, ptr noundef %126) #8
   %127 = load ptr, ptr %5, align 8
   %128 = getelementptr inbounds i8, ptr %127, i64 1
-  store ptr %128, ptr %5, align 8
-  br label %.outer.backedge
+  br label %.sink.split
 
 129:                                              ; preds = %52
   %130 = trunc nuw i8 %.0 to i1
@@ -391,13 +388,20 @@ _remove_path_slashes.exit:                        ; preds = %48
   call void @slurm_xfree(ptr noundef nonnull %7) #8
   store ptr null, ptr %7, align 8
   %149 = getelementptr inbounds i8, ptr %143, i64 1
-  store ptr %149, ptr %5, align 8
-  br label %.outer.backedge
+  br label %.sink.split
 
 150:                                              ; preds = %129
   %151 = getelementptr inbounds i8, ptr %53, i64 1
-  store ptr %151, ptr %5, align 8
-  br label %.outer.backedge
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %148, %150, %124, %121, %108, %106, %93, %84
+  %.sink = phi ptr [ %87, %84 ], [ %96, %93 ], [ %107, %106 ], [ %112, %108 ], [ %123, %121 ], [ %128, %124 ], [ %151, %150 ], [ %149, %148 ]
+  %.4.ph = phi ptr [ %87, %84 ], [ %96, %93 ], [ %107, %106 ], [ %112, %108 ], [ %122, %121 ], [ %128, %124 ], [ %.069, %150 ], [ %.5, %148 ]
+  %.368.ph = phi i32 [ %.065.ph.ph, %84 ], [ %.267, %93 ], [ %.065.ph.ph, %106 ], [ %.065.ph.ph, %108 ], [ %.065.ph.ph, %121 ], [ %.065.ph.ph, %124 ], [ %.065.ph.ph, %150 ], [ %.065.ph.ph, %148 ]
+  %.3.ph = phi i32 [ %.164, %84 ], [ %.063.ph.ph, %93 ], [ %.063.ph.ph, %106 ], [ %.063.ph.ph, %108 ], [ %.063.ph.ph, %121 ], [ %.063.ph.ph, %124 ], [ %.063.ph.ph, %150 ], [ %.063.ph.ph, %148 ]
+  %.1.ph = phi i8 [ 0, %84 ], [ 0, %93 ], [ 0, %106 ], [ 0, %108 ], [ 0, %121 ], [ 0, %124 ], [ %.0, %150 ], [ 0, %148 ]
+  store ptr %.sink, ptr %5, align 8
+  br label %.outer.outer, !llvm.loop !9
 
 .loopexit:                                        ; preds = %52
   %.not94 = icmp eq ptr %.069, %53
@@ -412,14 +416,14 @@ _remove_path_slashes.exit:                        ; preds = %48
 153:                                              ; preds = %.loopexit.thread, %.loopexit
   call void @slurm_xfree(ptr noundef nonnull %7) #8
   %154 = load ptr, ptr %6, align 8
-  br label %.sink.split
+  br label %.sink.split152
 
-.sink.split:                                      ; preds = %_remove_path_slashes.exit, %23, %33, %153
-  %.sink = phi ptr [ %154, %153 ], [ %34, %33 ], [ %24, %23 ], [ %38, %_remove_path_slashes.exit ]
-  store ptr %.sink, ptr %10, align 8
+.sink.split152:                                   ; preds = %_remove_path_slashes.exit, %23, %33, %153
+  %.sink153 = phi ptr [ %154, %153 ], [ %34, %33 ], [ %24, %23 ], [ %38, %_remove_path_slashes.exit ]
+  store ptr %.sink153, ptr %10, align 8
   br label %155
 
-155:                                              ; preds = %.sink.split, %3, %14, %17
+155:                                              ; preds = %.sink.split152, %3, %14, %17
   ret ptr %10
 }
 

@@ -300,7 +300,6 @@ _ZN3std3env6var_os17h7b3e5846479e59fdE.exit:      ; preds = %_ZN6uu_env14native_
   store ptr %.sroa.727.0.copyload, ptr %.sroa.533.0..sroa_idx, align 8
   %.sroa.634.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %.sroa.828.0.copyload, ptr %.sroa.634.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %53
 
 21:                                               ; preds = %_ZN3std3env6var_os17h7b3e5846479e59fdE.exit
@@ -347,7 +346,6 @@ _ZN3std3env6var_os17h7b3e5846479e59fdE.exit:      ; preds = %_ZN6uu_env14native_
 
 "_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$std..ffi..os_str..OsString$GT$$GT$17h4219fb7f4027fd68E.exit": ; preds = %.thread52, %24, %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h1bbaee4ec3db0cddE.exit.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %53
 
 35:                                               ; preds = %21
@@ -390,6 +388,7 @@ _ZN6uu_env15string_expander14StringExpander17put_native_string17h6d02a56aaa7dc00
           to label %common.resume unwind label %54
 
 53:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$std..ffi..os_str..OsString$GT$$GT$17h4219fb7f4027fd68E.exit", %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret void
 
 54:                                               ; preds = %51
@@ -1082,7 +1081,7 @@ _ZN6uu_env14split_iterator13SplitIterator25state_delimiter_backslash17hf69e1ae80
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %31)
   br label %.backedge
 
-.loopexit214:                                     ; preds = %_ZN6uu_env14split_iterator13SplitIterator25state_delimiter_backslash17hf69e1ae800e6eb42E.exit, %156, %187, %186, %161, %193, %192
+.loopexit214:                                     ; preds = %_ZN6uu_env14split_iterator13SplitIterator25state_delimiter_backslash17hf69e1ae800e6eb42E.exit, %156, %192, %193, %161, %186, %187
   %197 = phi i32 [ 3, %193 ], [ %167, %192 ], [ 5, %187 ], [ 5, %186 ], [ 1, %161 ], [ %.pr.pr, %_ZN6uu_env14split_iterator13SplitIterator25state_delimiter_backslash17hf69e1ae800e6eb42E.exit ], [ 6, %156 ]
   %.sroa.454.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.sroa.256, ptr noundef nonnull align 4 dereferenceable(36) %.sroa.454.0..sroa_idx, i64 36, i1 false)

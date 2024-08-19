@@ -235,7 +235,7 @@ define hidden void @"_ZN3fst9inner_map36Map$LT$alloc..vec..Vec$LT$u8$GT$$GT$9fro
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %30, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !58, !noalias !53
   invoke void @"_ZN3fst3raw5build16Builder$LT$W$GT$11extend_iter17hdd6d6b24aa59c6b0E"(ptr noalias nocapture noundef nonnull sret({ i32, [13 x i32] }) align 8 dereferenceable(56) %11, ptr noalias noundef nonnull align 8 dereferenceable(144) %12, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %4)
-          to label %31 unwind label %95
+          to label %31 unwind label %94
 
 31:                                               ; preds = %29
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !53
@@ -264,8 +264,7 @@ define hidden void @"_ZN3fst9inner_map36Map$LT$alloc..vec..Vec$LT$u8$GT$$GT$9fro
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.sroa.218.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(52) %.sroa.218, i64 52, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
   call void @"_ZN4core3ptr78drop_in_place$LT$fst..raw..build..Builder$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h643e9130c825d389E.llvm.2289853374155540651"(ptr noalias noundef nonnull align 8 dereferenceable(144) %12)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %12)
-  br label %94
+  br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hb9de5c22d5ea9fcbE.exit"
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds i8, ptr %10, i64 8
@@ -411,8 +410,7 @@ define hidden void @"_ZN3fst9inner_map36Map$LT$alloc..vec..Vec$LT$u8$GT$$GT$9fro
   %.sroa.326.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.326.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.326, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %12)
-  br label %94
+  br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hb9de5c22d5ea9fcbE.exit"
 
 "_ZN3fst3raw12Fst$LT$D$GT$3new17h1722140ffd8cdc6cE.exit": ; preds = %74
   %89 = getelementptr inbounds i8, ptr %.val.i, i64 %66
@@ -478,33 +476,30 @@ define hidden void @"_ZN3fst9inner_map36Map$LT$alloc..vec..Vec$LT$u8$GT$$GT$9fro
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !115, !noalias !110
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hb9de5c22d5ea9fcbE.exit"
 
-"_ZN4core6result19Result$LT$T$C$E$GT$3map17hb9de5c22d5ea9fcbE.exit": ; preds = %92, %91
+"_ZN4core6result19Result$LT$T$C$E$GT$3map17hb9de5c22d5ea9fcbE.exit": ; preds = %91, %92, %"_ZN4core3ptr80drop_in_place$LT$fst..inner_map..MapBuilder$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h9431999da7c9b098E.exit", %87
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %12)
-  br label %94
-
-94:                                               ; preds = %"_ZN4core3ptr80drop_in_place$LT$fst..inner_map..MapBuilder$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h9431999da7c9b098E.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hb9de5c22d5ea9fcbE.exit", %87
   ret void
 
-95:                                               ; preds = %29
-  %96 = landingpad { ptr, i32 }
+94:                                               ; preds = %29
+  %95 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr78drop_in_place$LT$fst..raw..build..Builder$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h643e9130c825d389E.llvm.2289853374155540651"(ptr noalias noundef nonnull align 8 dereferenceable(144) %12)
-          to label %.thread63 unwind label %97
+          to label %.thread63 unwind label %96
 
-97:                                               ; preds = %95, %.thread59
-  %98 = landingpad { ptr, i32 }
+96:                                               ; preds = %94, %.thread59
+  %97 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #15
   unreachable
 
-.thread63:                                        ; preds = %95, %47, %.thread59
-  %.pn58 = phi { ptr, i32 } [ %eh.lpad-body62, %.thread59 ], [ %48, %47 ], [ %96, %95 ]
+.thread63:                                        ; preds = %94, %47, %.thread59
+  %.pn58 = phi { ptr, i32 } [ %eh.lpad-body62, %.thread59 ], [ %48, %47 ], [ %95, %94 ]
   resume { ptr, i32 } %.pn58
 
 .thread59:                                        ; preds = %24, %.thread67
   %eh.lpad-body62 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread67 ], [ %25, %24 ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$$LP$alloc..vec..Vec$LT$u8$GT$$C$u64$RP$$GT$$GT$17h884f10788d6d6b30E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #14
-          to label %.thread63 unwind label %97
+          to label %.thread63 unwind label %96
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
@@ -699,7 +694,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$18trim_start_mat
   %8 = load i64, ptr %5, align 8, !range !174, !noalias !169, !noundef !4
   switch i64 %8, label %9 [
     i64 1, label %_ZN4core3str7pattern8Searcher11next_reject17h438369d022a3c600E.llvm.7578818989620227732.exit
-    i64 2, label %12
+    i64 2, label %.loopexit
   ]
 
 9:                                                ; preds = %7
@@ -709,21 +704,17 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$18trim_start_mat
 _ZN4core3str7pattern8Searcher11next_reject17h438369d022a3c600E.llvm.7578818989620227732.exit: ; preds = %7
   %10 = getelementptr inbounds i8, ptr %5, i64 8
   %11 = load i64, ptr %10, align 8, !noalias !169, !noundef !4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !169
-  br label %13
+  br label %.loopexit
 
-12:                                               ; preds = %7
+.loopexit:                                        ; preds = %7, %_ZN4core3str7pattern8Searcher11next_reject17h438369d022a3c600E.llvm.7578818989620227732.exit
+  %12 = phi i64 [ %11, %_ZN4core3str7pattern8Searcher11next_reject17h438369d022a3c600E.llvm.7578818989620227732.exit ], [ %1, %7 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !169
-  br label %13
-
-13:                                               ; preds = %_ZN4core3str7pattern8Searcher11next_reject17h438369d022a3c600E.llvm.7578818989620227732.exit, %12
-  %14 = phi i64 [ %1, %12 ], [ %11, %_ZN4core3str7pattern8Searcher11next_reject17h438369d022a3c600E.llvm.7578818989620227732.exit ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 %14
-  %16 = sub i64 %1, %14
+  %13 = getelementptr inbounds i8, ptr %0, i64 %12
+  %14 = sub i64 %1, %12
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6)
-  %17 = insertvalue { ptr, i64 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i64 } %17, i64 %16, 1
-  ret { ptr, i64 } %18
+  %15 = insertvalue { ptr, i64 } poison, ptr %13, 0
+  %16 = insertvalue { ptr, i64 } %15, i64 %14, 1
+  ret { ptr, i64 } %16
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

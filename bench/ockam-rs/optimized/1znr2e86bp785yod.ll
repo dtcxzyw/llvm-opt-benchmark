@@ -737,9 +737,9 @@ define void @"_ZN73_$LT$ockam_multiaddr..proto..Ip4$u20$as$u20$ockam_multiaddr..
   store i64 2, ptr %12, align 8, !alias.scope !83, !noalias !86
   %13 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17hfe4d1b05e81a862eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  %spec.select = select i1 %13, i8 5, i8 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %. = select i1 %13, i8 5, i8 8
-  store i8 %., ptr %0, align 8
+  store i8 %spec.select, ptr %0, align 8
   ret void
 }
 
@@ -885,9 +885,9 @@ define void @"_ZN73_$LT$ockam_multiaddr..proto..Ip6$u20$as$u20$ockam_multiaddr..
   store i64 2, ptr %12, align 8, !alias.scope !121, !noalias !124
   %13 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17hfe4d1b05e81a862eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  %spec.select = select i1 %13, i8 5, i8 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %. = select i1 %13, i8 5, i8 8
-  store i8 %., ptr %0, align 8
+  store i8 %spec.select, ptr %0, align 8
   ret void
 }
 
@@ -1051,9 +1051,9 @@ define void @"_ZN73_$LT$ockam_multiaddr..proto..Tcp$u20$as$u20$ockam_multiaddr..
   store i64 2, ptr %12, align 8, !alias.scope !150, !noalias !153
   %13 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17hfe4d1b05e81a862eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  %spec.select = select i1 %13, i8 5, i8 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %. = select i1 %13, i8 5, i8 8
-  store i8 %., ptr %0, align 8
+  store i8 %spec.select, ptr %0, align 8
   ret void
 }
 
@@ -1268,9 +1268,9 @@ define void @"_ZN76_$LT$ockam_multiaddr..proto..Worker$u20$as$u20$ockam_multiadd
   store i64 2, ptr %12, align 8, !alias.scope !180, !noalias !183
   %13 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17hfe4d1b05e81a862eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  %spec.select = select i1 %13, i8 5, i8 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %. = select i1 %13, i8 5, i8 8
-  store i8 %., ptr %0, align 8
+  store i8 %spec.select, ptr %0, align 8
   ret void
 }
 
@@ -1502,9 +1502,9 @@ define void @"_ZN77_$LT$ockam_multiaddr..proto..DnsAddr$u20$as$u20$ockam_multiad
   store i64 2, ptr %12, align 8, !alias.scope !219, !noalias !222
   %13 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17hfe4d1b05e81a862eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  %spec.select = select i1 %13, i8 5, i8 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %. = select i1 %13, i8 5, i8 8
-  store i8 %., ptr %0, align 8
+  store i8 %spec.select, ptr %0, align 8
   ret void
 }
 
@@ -1721,9 +1721,9 @@ define void @"_ZN77_$LT$ockam_multiaddr..proto..Service$u20$as$u20$ockam_multiad
   store i64 2, ptr %12, align 8, !alias.scope !258, !noalias !261
   %13 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17hfe4d1b05e81a862eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  %spec.select = select i1 %13, i8 5, i8 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %. = select i1 %13, i8 5, i8 8
-  store i8 %., ptr %0, align 8
+  store i8 %spec.select, ptr %0, align 8
   ret void
 }
 
@@ -1955,9 +1955,9 @@ define void @"_ZN74_$LT$ockam_multiaddr..proto..Node$u20$as$u20$ockam_multiaddr.
   store i64 2, ptr %12, align 8, !alias.scope !297, !noalias !300
   %13 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17hfe4d1b05e81a862eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  %spec.select = select i1 %13, i8 5, i8 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %. = select i1 %13, i8 5, i8 8
-  store i8 %., ptr %0, align 8
+  store i8 %spec.select, ptr %0, align 8
   ret void
 }
 
@@ -2189,9 +2189,9 @@ define void @"_ZN77_$LT$ockam_multiaddr..proto..Project$u20$as$u20$ockam_multiad
   store i64 2, ptr %12, align 8, !alias.scope !336, !noalias !339
   %13 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17hfe4d1b05e81a862eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  %spec.select = select i1 %13, i8 5, i8 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %. = select i1 %13, i8 5, i8 8
-  store i8 %., ptr %0, align 8
+  store i8 %spec.select, ptr %0, align 8
   ret void
 }
 
@@ -2423,9 +2423,9 @@ define void @"_ZN75_$LT$ockam_multiaddr..proto..Space$u20$as$u20$ockam_multiaddr
   store i64 2, ptr %12, align 8, !alias.scope !375, !noalias !378
   %13 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17hfe4d1b05e81a862eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  %spec.select = select i1 %13, i8 5, i8 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %. = select i1 %13, i8 5, i8 8
-  store i8 %., ptr %0, align 8
+  store i8 %spec.select, ptr %0, align 8
   ret void
 }
 
@@ -2657,9 +2657,9 @@ define void @"_ZN76_$LT$ockam_multiaddr..proto..Secure$u20$as$u20$ockam_multiadd
   store i64 2, ptr %12, align 8, !alias.scope !414, !noalias !417
   %13 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17hfe4d1b05e81a862eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  %spec.select = select i1 %13, i8 5, i8 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %. = select i1 %13, i8 5, i8 8
-  store i8 %., ptr %0, align 8
+  store i8 %spec.select, ptr %0, align 8
   ret void
 }
 

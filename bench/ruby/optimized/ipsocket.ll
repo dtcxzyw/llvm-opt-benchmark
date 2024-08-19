@@ -134,12 +134,12 @@ define internal i64 @init_inetsock_internal(i64 noundef %0) #0 {
   %37 = zext i1 %36 to i32
   br label %38
 
-38:                                               ; preds = %.lr.ph108, %90
-  %.073107 = phi ptr [ %.073101, %.lr.ph108 ], [ %.073, %90 ]
-  %.072106 = phi i32 [ 0, %.lr.ph108 ], [ %.1, %90 ]
-  %.076105 = phi i32 [ -1, %.lr.ph108 ], [ %.2, %90 ]
-  %.079104 = phi i32 [ 0, %.lr.ph108 ], [ %.281, %90 ]
-  %.082103 = phi ptr [ null, %.lr.ph108 ], [ %.284, %90 ]
+38:                                               ; preds = %.lr.ph108, %89
+  %.073107 = phi ptr [ %.073101, %.lr.ph108 ], [ %.073, %89 ]
+  %.072106 = phi i32 [ 0, %.lr.ph108 ], [ %.1, %89 ]
+  %.076105 = phi i32 [ -1, %.lr.ph108 ], [ %.2, %89 ]
+  %.079104 = phi i32 [ 0, %.lr.ph108 ], [ %.281, %89 ]
+  %.082103 = phi ptr [ null, %.lr.ph108 ], [ %.284, %89 ]
   %39 = load ptr, ptr %35, align 8
   %.not92 = icmp eq ptr %39, null
   br i1 %.not92, label %.loopexit, label %.preheader
@@ -174,7 +174,7 @@ define internal i64 @init_inetsock_internal(i64 noundef %0) #0 {
   %51 = load i32, ptr %2, align 4
   %52 = icmp slt i32 %51, 0
   %or.cond = select i1 %50, i1 true, i1 %52
-  br i1 %or.cond, label %90, label %.loopexit
+  br i1 %or.cond, label %89, label %.loopexit
 
 .loopexit:                                        ; preds = %42, %.critedge, %38
   %.074 = phi ptr [ null, %38 ], [ %.17598, %.critedge ], [ %.175100, %42 ]
@@ -192,7 +192,7 @@ define internal i64 @init_inetsock_internal(i64 noundef %0) #0 {
 61:                                               ; preds = %.loopexit
   %62 = call ptr @rb_errno_ptr() #6
   %63 = load i32, ptr %62, align 4
-  br label %90
+  br label %89
 
 64:                                               ; preds = %.loopexit
   store i32 %59, ptr %34, align 4
@@ -234,43 +234,43 @@ thread-pre-split.thread:                          ; preds = %72, %thread-pre-spl
   br label %thread-pre-split95
 
 thread-pre-split95:                               ; preds = %thread-pre-split.thread, %65
-  %85 = phi i32 [ %84, %thread-pre-split.thread ], [ %71, %65 ]
+  %.sink = phi i32 [ %84, %thread-pre-split.thread ], [ %71, %65 ]
   %.385 = phi ptr [ @.str.12, %thread-pre-split.thread ], [ @.str.11, %65 ]
   %.3 = phi i32 [ %.4125, %thread-pre-split.thread ], [ %.079104, %65 ]
-  store i32 %85, ptr %2, align 4
-  %86 = icmp slt i32 %85, 0
-  br i1 %86, label %thread-pre-split95.thread, label %._crit_edge.thread
+  store i32 %.sink, ptr %2, align 4
+  %85 = icmp slt i32 %.sink, 0
+  br i1 %85, label %thread-pre-split95.thread, label %._crit_edge.thread
 
 thread-pre-split95.thread:                        ; preds = %thread-pre-split, %thread-pre-split95
   %.3129 = phi i32 [ %.3, %thread-pre-split95 ], [ %78, %thread-pre-split ]
   %.385128 = phi ptr [ %.385, %thread-pre-split95 ], [ @.str.11, %thread-pre-split ]
-  %87 = call ptr @rb_errno_ptr() #6
-  %88 = load i32, ptr %87, align 4
-  %89 = call i32 @close(i32 noundef %59) #6
+  %86 = call ptr @rb_errno_ptr() #6
+  %87 = load i32, ptr %86, align 4
+  %88 = call i32 @close(i32 noundef %59) #6
   store i32 -1, ptr %34, align 4
-  br label %90
+  br label %89
 
-90:                                               ; preds = %.critedge, %thread-pre-split95.thread, %61
+89:                                               ; preds = %.critedge, %thread-pre-split95.thread, %61
   %.284 = phi ptr [ @.str.10, %61 ], [ %.385128, %thread-pre-split95.thread ], [ %.082103, %.critedge ]
   %.281 = phi i32 [ %.079104, %61 ], [ %.3129, %thread-pre-split95.thread ], [ %.079104, %.critedge ]
   %.2 = phi i32 [ %59, %61 ], [ -1, %thread-pre-split95.thread ], [ %.076105, %.critedge ]
-  %.1 = phi i32 [ %63, %61 ], [ %88, %thread-pre-split95.thread ], [ %.072106, %.critedge ]
-  %91 = getelementptr inbounds i8, ptr %.073107, i64 40
-  %.073 = load ptr, ptr %91, align 8
+  %.1 = phi i32 [ %63, %61 ], [ %87, %thread-pre-split95.thread ], [ %.072106, %.critedge ]
+  %90 = getelementptr inbounds i8, ptr %.073107, i64 40
+  %.073 = load ptr, ptr %90, align 8
   %.not91 = icmp eq ptr %.073, null
   br i1 %.not91, label %._crit_edge, label %38, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %90
+._crit_edge:                                      ; preds = %89
   %.pre120.pre = load i32, ptr %2, align 4
-  %92 = icmp slt i32 %.pre120.pre, 0
-  br i1 %92, label %93, label %._crit_edge.thread
+  %91 = icmp slt i32 %.pre120.pre, 0
+  br i1 %91, label %92, label %._crit_edge.thread
 
-93:                                               ; preds = %._crit_edge
-  %94 = icmp slt i32 %.281, 0
-  %95 = getelementptr inbounds i8, ptr %4, i64 32
-  %96 = getelementptr inbounds i8, ptr %4, i64 40
-  %.071.in = select i1 %94, ptr %95, ptr %15
-  %.0.in = select i1 %94, ptr %96, ptr %17
+92:                                               ; preds = %._crit_edge
+  %93 = icmp slt i32 %.281, 0
+  %94 = getelementptr inbounds i8, ptr %4, i64 32
+  %95 = getelementptr inbounds i8, ptr %4, i64 40
+  %.071.in = select i1 %93, ptr %94, ptr %15
+  %.0.in = select i1 %93, ptr %95, ptr %17
   %.0 = load i64, ptr %.0.in, align 8
   %.071 = load i64, ptr %.071.in, align 8
   call void @rsock_syserr_fail_host_port(i32 noundef %.1, ptr noundef %.284, i64 noundef %.071, i64 noundef %.0) #7
@@ -279,25 +279,25 @@ thread-pre-split95.thread:                        ; preds = %thread-pre-split, %
 ._crit_edge.thread:                               ; preds = %thread-pre-split95, %32, %._crit_edge
   %.177134 = phi i32 [ %.2, %._crit_edge ], [ -1, %32 ], [ %59, %thread-pre-split95 ]
   store i32 -1, ptr %34, align 4
-  br i1 %19, label %97, label %104
+  br i1 %19, label %96, label %103
 
-97:                                               ; preds = %._crit_edge.thread
-  %98 = call i32 @listen(i32 noundef %.177134, i32 noundef 4096) #6
-  store i32 %98, ptr %2, align 4
-  %99 = icmp slt i32 %98, 0
-  br i1 %99, label %100, label %104
+96:                                               ; preds = %._crit_edge.thread
+  %97 = call i32 @listen(i32 noundef %.177134, i32 noundef 4096) #6
+  store i32 %97, ptr %2, align 4
+  %98 = icmp slt i32 %97, 0
+  br i1 %98, label %99, label %103
 
-100:                                              ; preds = %97
-  %101 = call ptr @rb_errno_ptr() #6
-  %102 = load i32, ptr %101, align 4
-  %103 = call i32 @close(i32 noundef %.177134) #6
-  call void @rb_syserr_fail(i32 noundef %102, ptr noundef nonnull @.str.13) #7
+99:                                               ; preds = %96
+  %100 = call ptr @rb_errno_ptr() #6
+  %101 = load i32, ptr %100, align 4
+  %102 = call i32 @close(i32 noundef %.177134) #6
+  call void @rb_syserr_fail(i32 noundef %101, ptr noundef nonnull @.str.13) #7
   unreachable
 
-104:                                              ; preds = %97, %._crit_edge.thread
-  %105 = load i64, ptr %4, align 8
-  %106 = call i64 @rsock_init_sock(i64 noundef %105, i32 noundef %.177134) #6
-  ret i64 %106
+103:                                              ; preds = %96, %._crit_edge.thread
+  %104 = load i64, ptr %4, align 8
+  %105 = call i64 @rsock_init_sock(i64 noundef %104, i32 noundef %.177134) #6
+  ret i64 %105
 }
 
 ; Function Attrs: nounwind uwtable

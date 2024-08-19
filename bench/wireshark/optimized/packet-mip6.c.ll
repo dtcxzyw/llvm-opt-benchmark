@@ -3204,7 +3204,7 @@ define internal i32 @dissect_pmip6_opt_lmaa(ptr noundef %0, ptr noundef %1, ptr 
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %12, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
   %14 = load i32, ptr @hf_mip6_lmaa_reserved, align 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %14, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
-  switch i8 %11, label %22 [
+  switch i8 %11, label %23 [
     i8 1, label %.sink.split
     i8 2, label %16
   ]
@@ -3213,21 +3213,21 @@ define internal i32 @dissect_pmip6_opt_lmaa(ptr noundef %0, ptr noundef %1, ptr 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %4, %16
-  %hf_mip6_lmaa_ipv6.sink = phi ptr [ @hf_mip6_lmaa_ipv4, %16 ], [ @hf_mip6_lmaa_ipv6, %4 ]
-  %.sink34 = phi i32 [ 4, %16 ], [ 16, %4 ]
+  %hf_mip6_lmaa_ipv4.sink = phi ptr [ @hf_mip6_lmaa_ipv4, %16 ], [ @hf_mip6_lmaa_ipv6, %4 ]
+  %.sink33 = phi i32 [ 4, %16 ], [ 16, %4 ]
   %.sink31 = phi i32 [ 2, %16 ], [ 3, %4 ]
-  %17 = load i32, ptr %hf_mip6_lmaa_ipv6.sink, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %17, ptr noundef %0, i32 noundef 4, i32 noundef %.sink34, i32 noundef 0) #5
-  %.sink = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 408
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call ptr @tvb_address_to_str(ptr noundef %20, ptr noundef %0, i32 noundef %.sink31, i32 noundef 4) #5
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.sink, ptr noundef nonnull @.str.737, ptr noundef %21) #5
-  br label %22
+  %17 = load i32, ptr %hf_mip6_lmaa_ipv4.sink, align 4
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %17, ptr noundef %0, i32 noundef 4, i32 noundef %.sink33, i32 noundef 0) #5
+  %19 = load ptr, ptr %5, align 8
+  %20 = getelementptr inbounds i8, ptr %1, i64 408
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call ptr @tvb_address_to_str(ptr noundef %21, ptr noundef %0, i32 noundef %.sink31, i32 noundef 4) #5
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %19, ptr noundef nonnull @.str.737, ptr noundef %22) #5
+  br label %23
 
-22:                                               ; preds = %.sink.split, %4
-  %23 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
-  ret i32 %23
+23:                                               ; preds = %.sink.split, %4
+  %24 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
+  ret i32 %24
 }
 
 ; Function Attrs: nounwind uwtable

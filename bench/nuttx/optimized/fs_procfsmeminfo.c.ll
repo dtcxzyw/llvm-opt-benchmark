@@ -179,35 +179,35 @@ define internal noundef i64 @memdump_write(ptr nocapture readnone %0, ptr nocapt
   %4 = alloca %struct.malltask, align 4
   store i32 -3, ptr %4, align 4
   %5 = load i8, ptr %1, align 1
-  switch i8 %5, label %8 [
-    i8 108, label %7
-    i8 102, label %6
+  switch i8 %5, label %7 [
+    i8 108, label %6
+    i8 102, label %.sink.split
   ]
 
 6:                                                ; preds = %3
-  store i32 -4, ptr %4, align 4
-  br label %8
+  br label %.sink.split
 
-7:                                                ; preds = %3
-  store i32 -2, ptr %4, align 4
-  br label %8
+.sink.split:                                      ; preds = %3, %6
+  %.sink = phi i32 [ -2, %6 ], [ -4, %3 ]
+  store i32 %.sink, ptr %4, align 4
+  br label %7
 
-8:                                                ; preds = %7, %6, %3
+7:                                                ; preds = %.sink.split, %3
   %.05 = load ptr, ptr @g_procfs_meminfo, align 8
   %.not6 = icmp eq ptr %.05, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %8, %.lr.ph
-  %.07 = phi ptr [ %.0, %.lr.ph ], [ %.05, %8 ]
-  %9 = getelementptr inbounds i8, ptr %.07, i64 8
-  %10 = load ptr, ptr %9, align 8
-  call void @mm_memdump(ptr noundef %10, ptr noundef nonnull %4) #13
-  %11 = getelementptr inbounds i8, ptr %.07, i64 16
-  %.0 = load ptr, ptr %11, align 8
+.lr.ph:                                           ; preds = %7, %.lr.ph
+  %.07 = phi ptr [ %.0, %.lr.ph ], [ %.05, %7 ]
+  %8 = getelementptr inbounds i8, ptr %.07, i64 8
+  %9 = load ptr, ptr %8, align 8
+  call void @mm_memdump(ptr noundef %9, ptr noundef nonnull %4) #13
+  %10 = getelementptr inbounds i8, ptr %.07, i64 16
+  %.0 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %.lr.ph, %8
+._crit_edge:                                      ; preds = %.lr.ph, %7
   ret i64 %2
 }
 

@@ -472,7 +472,7 @@ declare void @_Z11duAppendBoxP11duDebugDrawffffffPKj(ptr noundef, float noundef,
 define void @_Z30duDebugDrawHeightfieldWalkableP11duDebugDrawRK13rcHeightfield(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) local_unnamed_addr #0 {
   %3 = alloca [6 x i32], align 16
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %79, label %4
+  br i1 %.not, label %77, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -525,12 +525,12 @@ define void @_Z30duDebugDrawHeightfieldWalkableP11duDebugDrawRK13rcHeightfield(p
   %.not4749.us = icmp eq ptr %.048.us, null
   br i1 %.not4749.us, label %._crit_edge.us, label %.lr.ph.us
 
-35:                                               ; preds = %.lr.ph.us, %63
-  %.050.us = phi ptr [ %.048.us, %.lr.ph.us ], [ %.0.us, %63 ]
+35:                                               ; preds = %.lr.ph.us, %61
+  %.050.us = phi ptr [ %.048.us, %.lr.ph.us ], [ %.0.us, %61 ]
   %36 = load i32, ptr %.050.us, align 8
   %37 = lshr i32 %36, 26
   %38 = icmp eq i32 %37, 63
-  br i1 %38, label %62, label %39
+  br i1 %38, label %61, label %39
 
 39:                                               ; preds = %35
   %40 = icmp ult i32 %36, 67108864
@@ -556,41 +556,34 @@ define void @_Z30duDebugDrawHeightfieldWalkableP11duDebugDrawRK13rcHeightfield(p
   %58 = or disjoint i32 %53, %51
   %59 = or disjoint i32 %58, %55
   %60 = or disjoint i32 %59, %57
-  store i32 %60, ptr %3, align 16
-  br label %63
+  br label %61
 
-61:                                               ; preds = %39
-  store i32 -12566464, ptr %3, align 16
-  br label %63
-
-62:                                               ; preds = %35
-  store i32 -6258624, ptr %3, align 16
-  br label %63
-
-63:                                               ; preds = %62, %61, %41
-  %64 = load float, ptr %20, align 4
-  %65 = load i32, ptr %.050.us, align 8
-  %66 = and i32 %65, 8191
-  %67 = uitofp nneg i32 %66 to float
-  %68 = call float @llvm.fmuladd.f32(float %67, float %9, float %64)
-  %69 = lshr i32 %65, 13
-  %70 = and i32 %69, 8191
-  %71 = uitofp nneg i32 %70 to float
-  %72 = call float @llvm.fmuladd.f32(float %71, float %9, float %64)
-  call void @_Z11duAppendBoxP11duDebugDrawffffffPKj(ptr noundef nonnull %0, float noundef %29, float noundef %68, float noundef %31, float noundef %74, float noundef %72, float noundef %75, ptr noundef nonnull %3)
-  %73 = getelementptr inbounds i8, ptr %.050.us, i64 8
-  %.0.us = load ptr, ptr %73, align 8
+61:                                               ; preds = %35, %39, %41
+  %.sink = phi i32 [ %60, %41 ], [ -12566464, %39 ], [ -6258624, %35 ]
+  store i32 %.sink, ptr %3, align 16
+  %62 = load float, ptr %20, align 4
+  %63 = load i32, ptr %.050.us, align 8
+  %64 = and i32 %63, 8191
+  %65 = uitofp nneg i32 %64 to float
+  %66 = call float @llvm.fmuladd.f32(float %65, float %9, float %62)
+  %67 = lshr i32 %63, 13
+  %68 = and i32 %67, 8191
+  %69 = uitofp nneg i32 %68 to float
+  %70 = call float @llvm.fmuladd.f32(float %69, float %9, float %62)
+  call void @_Z11duAppendBoxP11duDebugDrawffffffPKj(ptr noundef nonnull %0, float noundef %29, float noundef %66, float noundef %31, float noundef %72, float noundef %70, float noundef %73, ptr noundef nonnull %3)
+  %71 = getelementptr inbounds i8, ptr %.050.us, i64 8
+  %.0.us = load ptr, ptr %71, align 8
   %.not47.us = icmp eq ptr %.0.us, null
   br i1 %.not47.us, label %._crit_edge.us, label %35, !llvm.loop !10
 
-._crit_edge.us:                                   ; preds = %63, %25
+._crit_edge.us:                                   ; preds = %61, %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %21
   br i1 %exitcond.not, label %._crit_edge53.us, label %25, !llvm.loop !11
 
 .lr.ph.us:                                        ; preds = %25
-  %74 = fadd float %7, %29
-  %75 = fadd float %7, %31
+  %72 = fadd float %7, %29
+  %73 = fadd float %7, %31
   br label %35
 
 ._crit_edge53.us:                                 ; preds = %._crit_edge.us
@@ -599,13 +592,13 @@ define void @_Z30duDebugDrawHeightfieldWalkableP11duDebugDrawRK13rcHeightfield(p
   br i1 %exitcond62.not, label %._crit_edge55, label %.preheader.us, !llvm.loop !12
 
 ._crit_edge55:                                    ; preds = %._crit_edge53.us, %.preheader.lr.ph, %4
-  %76 = load ptr, ptr %0, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 72
-  %78 = load ptr, ptr %77, align 8
-  call void %78(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br label %79
+  %74 = load ptr, ptr %0, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 72
+  %76 = load ptr, ptr %75, align 8
+  call void %76(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  br label %77
 
-79:                                               ; preds = %2, %._crit_edge55
+77:                                               ; preds = %2, %._crit_edge55
   ret void
 }
 

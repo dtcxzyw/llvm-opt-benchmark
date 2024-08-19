@@ -1122,11 +1122,7 @@ if.end:                                           ; preds = %while.end
 
 if.end18:                                         ; preds = %if.end
   %cmp19 = icmp eq i64 %and8, 3
-  br i1 %cmp19, label %if.then21, label %if.end22
-
-if.then21:                                        ; preds = %if.end18
-  store i32 -1, ptr %outl, align 4
-  br label %err
+  br i1 %cmp19, label %err.sink.split, label %if.end22
 
 if.end22:                                         ; preds = %if.end18
   tail call void @EVP_DecodeInit(ptr noundef nonnull %call14) #7
@@ -1138,21 +1134,13 @@ land.lhs.true:                                    ; preds = %if.end22
   %conv25 = trunc nuw nsw i64 %and8 to i32
   %call26 = call i32 @EVP_DecodeUpdate(ptr noundef nonnull %call14, ptr noundef %a, ptr noundef nonnull %outl, ptr noundef nonnull @.str.3, i32 noundef %conv25) #7
   %cmp27 = icmp slt i32 %call26, 0
-  br i1 %cmp27, label %if.then29, label %if.end30
-
-if.then29:                                        ; preds = %land.lhs.true
-  store i32 -1, ptr %outl, align 4
-  br label %err
+  br i1 %cmp27, label %err.sink.split, label %if.end30
 
 if.end30:                                         ; preds = %land.lhs.true, %if.end22
   %conv31 = trunc nuw nsw i64 %call to i32
   %call32 = call i32 @EVP_DecodeUpdate(ptr noundef nonnull %call14, ptr noundef %a, ptr noundef nonnull %outl2, ptr noundef nonnull %src.addr.0, i32 noundef %conv31) #7
   %cmp33 = icmp slt i32 %call32, 0
-  br i1 %cmp33, label %if.then35, label %if.end36
-
-if.then35:                                        ; preds = %if.end30
-  store i32 -1, ptr %outl, align 4
-  br label %err
+  br i1 %cmp33, label %err.sink.split, label %if.end36
 
 if.end36:                                         ; preds = %if.end30
   %1 = load i32, ptr %outl2, align 4
@@ -1171,11 +1159,7 @@ if.end36:                                         ; preds = %if.end30
 if.then42:                                        ; preds = %if.end36
   %conv43 = trunc nuw nsw i64 %and8 to i32
   %cmp44.not = icmp sgt i32 %add39, %conv43
-  br i1 %cmp44.not, label %if.end47, label %if.then46
-
-if.then46:                                        ; preds = %if.then42
-  store i32 -1, ptr %outl, align 4
-  br label %err
+  br i1 %cmp44.not, label %if.end47, label %err.sink.split
 
 if.end47:                                         ; preds = %if.then42
   %add.ptr48 = getelementptr inbounds i8, ptr %a, i64 %and8
@@ -1183,10 +1167,14 @@ if.end47:                                         ; preds = %if.then42
   %sub50 = sub nuw nsw i64 %conv49, %and8
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %a, ptr nonnull align 1 %add.ptr48, i64 %sub50, i1 false)
   %conv53 = sub nuw nsw i32 %add39, %conv43
-  store i32 %conv53, ptr %outl, align 4
+  br label %err.sink.split
+
+err.sink.split:                                   ; preds = %if.then42, %if.end30, %land.lhs.true, %if.end18, %if.end47
+  %conv53.sink = phi i32 [ %conv53, %if.end47 ], [ -1, %if.end18 ], [ -1, %land.lhs.true ], [ -1, %if.end30 ], [ -1, %if.then42 ]
+  store i32 %conv53.sink, ptr %outl, align 4
   br label %err
 
-err:                                              ; preds = %if.end36, %if.end47, %if.then46, %if.then35, %if.then29, %if.then21
+err:                                              ; preds = %err.sink.split, %if.end36
   call void @EVP_ENCODE_CTX_free(ptr noundef nonnull %call14) #7
   %5 = load i32, ptr %outl, align 4
   br label %return

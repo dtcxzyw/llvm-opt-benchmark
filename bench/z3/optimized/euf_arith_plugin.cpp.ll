@@ -137,15 +137,11 @@ if.then.i.i.i:                                    ; preds = %invoke.cont11
   store ptr %6, ptr %_M_invoker.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN3euf12arith_pluginC1ERNS1_6egraphEE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker4.i2.i.i, align 8
   %tobool.not.i.i4.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i4.i.i, label %invoke.cont18.thread, label %if.then.i.i5.i.i
-
-invoke.cont18.thread:                             ; preds = %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
-  br label %if.then.i.i14
+  br i1 %tobool.not.i.i4.i.i, label %if.then.i.i14, label %if.then.i.i5.i.i
 
 if.then.i.i5.i.i:                                 ; preds = %if.then.i.i.i
   %call.i.i6.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
-          to label %invoke.cont18 unwind label %terminate.lpad.i.i7.i.i
+          to label %if.then.i.i14 unwind label %terminate.lpad.i.i7.i.i
 
 terminate.lpad.i.i7.i.i:                          ; preds = %if.then.i.i5.i.i
   %7 = landingpad { ptr, i32 }
@@ -154,11 +150,8 @@ terminate.lpad.i.i7.i.i:                          ; preds = %if.then.i.i5.i.i
   call void @__clang_call_terminate(ptr %8) #18
   unreachable
 
-invoke.cont18:                                    ; preds = %if.then.i.i5.i.i
+if.then.i.i14:                                    ; preds = %if.then.i.i5.i.i, %if.then.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
-  br label %if.then.i.i14
-
-if.then.i.i14:                                    ; preds = %invoke.cont18, %invoke.cont18.thread
   %m_undo_notify.i39 = getelementptr inbounds i8, ptr %this, i64 720
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i38)
   %_M_manager.i.i.i.i40 = getelementptr inbounds i8, ptr %ref.tmp.i.i38, i64 16
@@ -180,15 +173,11 @@ if.then.i.i14:                                    ; preds = %invoke.cont18, %inv
   store ptr %11, ptr %_M_invoker.i.i.i41, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN3euf12arith_pluginC1ERNS1_6egraphEE3$_1E9_M_invokeERKSt9_Any_data", ptr %_M_invoker4.i2.i.i56, align 8
   %tobool.not.i.i4.i.i57 = icmp eq ptr %10, null
-  br i1 %tobool.not.i.i4.i.i57, label %invoke.cont25.thread, label %if.then.i.i5.i.i58
-
-invoke.cont25.thread:                             ; preds = %if.then.i.i14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i38)
-  br label %if.then.i.i65
+  br i1 %tobool.not.i.i4.i.i57, label %if.then.i.i65, label %if.then.i.i5.i.i58
 
 if.then.i.i5.i.i58:                               ; preds = %if.then.i.i14
   %call.i.i6.i.i59 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i38, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i38, i32 noundef 3)
-          to label %invoke.cont25 unwind label %terminate.lpad.i.i7.i.i60
+          to label %if.then.i.i65 unwind label %terminate.lpad.i.i7.i.i60
 
 terminate.lpad.i.i7.i.i60:                        ; preds = %if.then.i.i5.i.i58
   %12 = landingpad { ptr, i32 }
@@ -197,11 +186,8 @@ terminate.lpad.i.i7.i.i60:                        ; preds = %if.then.i.i5.i.i58
   call void @__clang_call_terminate(ptr %13) #18
   unreachable
 
-invoke.cont25:                                    ; preds = %if.then.i.i5.i.i58
+if.then.i.i65:                                    ; preds = %if.then.i.i5.i.i58, %if.then.i.i14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i38)
-  br label %if.then.i.i65
-
-if.then.i.i65:                                    ; preds = %invoke.cont25, %invoke.cont25.thread
   ret void
 
 lpad4:                                            ; preds = %invoke.cont5, %entry

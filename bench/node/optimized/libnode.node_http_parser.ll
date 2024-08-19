@@ -7484,12 +7484,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %handle_scope.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buffer.i)
   %cmp.i = icmp eq i64 %args1, 0
-  br i1 %cmp.i, label %_ZN4node12_GLOBAL__N_16Parser7on_bodyEPKcm.exit.thread, label %if.end.i
-
-_ZN4node12_GLOBAL__N_16Parser7on_bodyEPKcm.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffer.i)
-  br label %if.then
+  br i1 %cmp.i, label %if.then, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %realm_.i.i = getelementptr inbounds i8, ptr %1, i64 16
@@ -7558,8 +7553,6 @@ _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit.i: ; preds = %if.then.i73
 
 _ZN4node12_GLOBAL__N_16Parser7on_bodyEPKcm.exit.thread8: ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit.i, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit.i
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i) #20
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffer.i)
   br label %if.then
 
 _ZN4node12_GLOBAL__N_16Parser7on_bodyEPKcm.exit:  ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit.i
@@ -7572,7 +7565,9 @@ _ZN4node12_GLOBAL__N_16Parser7on_bodyEPKcm.exit:  ; preds = %_ZN2v810MaybeLocalI
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffer.i)
   br label %if.end
 
-if.then:                                          ; preds = %_ZN4node12_GLOBAL__N_16Parser7on_bodyEPKcm.exit.thread8, %_ZN4node12_GLOBAL__N_16Parser7on_bodyEPKcm.exit.thread
+if.then:                                          ; preds = %entry, %_ZN4node12_GLOBAL__N_16Parser7on_bodyEPKcm.exit.thread8
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffer.i)
   %pending_pause_.i = getelementptr inbounds i8, ptr %1, i64 1801
   %14 = load i8, ptr %pending_pause_.i, align 1
   %tobool.i = trunc i8 %14 to i1

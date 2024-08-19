@@ -1310,11 +1310,7 @@ define internal i32 @intel_dp_mst_atomic_check(ptr noundef %0, ptr noundef %1) #
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !17
   %9 = tail call zeroext i1 @intel_connector_needs_modeset(ptr noundef %1, ptr noundef %0) #12
-  br i1 %9, label %10, label %.thread8
-
-.thread8:                                         ; preds = %6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
-  br label %44
+  br i1 %9, label %10, label %.sink.split
 
 10:                                               ; preds = %6
   call void @drm_connector_list_iter_begin(ptr noundef %8, ptr noundef nonnull %3) #12
@@ -1373,8 +1369,7 @@ define internal i32 @intel_dp_mst_atomic_check(ptr noundef %0, ptr noundef %1) #
 
 .thread.thread19:                                 ; preds = %38, %10
   call void @drm_connector_list_iter_end(ptr noundef nonnull %3) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
-  br label %44
+  br label %.sink.split
 
 .thread:                                          ; preds = %28, %21
   %.lcssa22.sink = phi ptr [ %22, %21 ], [ %29, %28 ]
@@ -1385,7 +1380,11 @@ define internal i32 @intel_dp_mst_atomic_check(ptr noundef %0, ptr noundef %1) #
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %51
 
-44:                                               ; preds = %.thread.thread19, %.thread8, %.thread
+.sink.split:                                      ; preds = %6, %.thread.thread19
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
+  br label %44
+
+44:                                               ; preds = %.sink.split, %.thread
   %45 = getelementptr inbounds i8, ptr %0, i64 2424
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 1760

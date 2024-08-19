@@ -9336,7 +9336,7 @@ define internal range(i32 0, 20) i32 @populate_array_element_end(ptr nocapture n
   %51 = getelementptr inbounds i8, ptr %46, i64 4
   %52 = load i8, ptr %51, align 4
   %53 = trunc i8 %52 to i1
-  br i1 %53, label %populate_array_element.exit, label %populate_array_element.exit.thread
+  br i1 %53, label %.sink.split, label %populate_array_element.exit.thread
 
 populate_array_element.exit.thread:               ; preds = %32, %47, %50
   %54 = load ptr, ptr %6, align 8
@@ -9356,15 +9356,15 @@ populate_array_element.exit.thread:               ; preds = %32, %47, %50
   %68 = load i32, ptr %67, align 4
   %69 = add i32 %68, 1
   store i32 %69, ptr %67, align 4
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %50, %populate_array_element.exit.thread
+  %.0.ph = phi i32 [ 0, %populate_array_element.exit.thread ], [ 19, %50 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   br label %70
 
-populate_array_element.exit:                      ; preds = %50
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  br label %70
-
-70:                                               ; preds = %2, %populate_array_element.exit.thread, %populate_array_element.exit
-  %.0 = phi i32 [ 19, %populate_array_element.exit ], [ 0, %populate_array_element.exit.thread ], [ 0, %2 ]
+70:                                               ; preds = %.sink.split, %2
+  %.0 = phi i32 [ 0, %2 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 

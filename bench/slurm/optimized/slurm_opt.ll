@@ -2643,7 +2643,7 @@ define void @slurm_option_update_tres_per_task_cpu(i32 noundef %0, ptr nocapture
   store ptr %5, ptr %4, align 8
   %6 = tail call ptr @xstrcasestr(ptr noundef %5, ptr noundef nonnull @.str.27) #23
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %7, label %13
+  br i1 %.not, label %7, label %11
 
 7:                                                ; preds = %2
   %.not70 = icmp eq i32 %0, 0
@@ -2655,134 +2655,129 @@ define void @slurm_option_update_tres_per_task_cpu(i32 noundef %0, ptr nocapture
 
 9:                                                ; preds = %8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.28, i32 noundef %0, ptr noundef nonnull %5) #23
-  br label %11
+  br label %.sink.split.sink.split
 
 10:                                               ; preds = %8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.29, i32 noundef %0) #23
-  br label %11
+  br label %.sink.split.sink.split
 
-11:                                               ; preds = %10, %9
-  call void @slurm_xfree(ptr noundef nonnull %4) #23
-  %12 = load ptr, ptr %3, align 8
-  br label %.sink.split
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds i8, ptr %6, i64 4
+  %13 = tail call i32 @atoi(ptr nocapture noundef nonnull %12) #26
+  %14 = icmp eq i32 %13, %0
+  br i1 %14, label %45, label %15
 
-13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %6, i64 4
-  %15 = tail call i32 @atoi(ptr nocapture noundef nonnull %14) #26
-  %16 = icmp eq i32 %15, %0
-  br i1 %16, label %47, label %17
-
-17:                                               ; preds = %13
-  %18 = tail call ptr @xstrstr(ptr noundef nonnull %6, ptr noundef nonnull @.str.30) #23
-  %.not72 = icmp eq ptr %18, null
-  %19 = getelementptr inbounds i8, ptr %18, i64 1
+15:                                               ; preds = %11
+  %16 = tail call ptr @xstrstr(ptr noundef nonnull %6, ptr noundef nonnull @.str.30) #23
+  %.not72 = icmp eq ptr %16, null
+  %17 = getelementptr inbounds i8, ptr %16, i64 1
   store i8 0, ptr %6, align 1
   %.not73 = icmp eq ptr %5, null
-  br i1 %.not73, label %.critedge, label %20
+  br i1 %.not73, label %.critedge, label %18
 
-20:                                               ; preds = %17
-  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #26
-  %22 = getelementptr inbounds i8, ptr %5, i64 %21
-  %23 = getelementptr inbounds i8, ptr %22, i64 -1
-  %24 = load i8, ptr %23, align 1
-  %25 = icmp eq i8 %24, 44
-  br i1 %25, label %26, label %27
+18:                                               ; preds = %15
+  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #26
+  %20 = getelementptr inbounds i8, ptr %5, i64 %19
+  %21 = getelementptr inbounds i8, ptr %20, i64 -1
+  %22 = load i8, ptr %21, align 1
+  %23 = icmp eq i8 %22, 44
+  br i1 %23, label %24, label %25
 
-26:                                               ; preds = %20
-  store i8 0, ptr %23, align 1
-  br label %27
+24:                                               ; preds = %18
+  store i8 0, ptr %21, align 1
+  br label %25
 
-27:                                               ; preds = %26, %20
-  %28 = load i8, ptr %5, align 1
-  %.not74 = icmp eq i8 %28, 0
+25:                                               ; preds = %24, %18
+  %26 = load i8, ptr %5, align 1
+  %.not74 = icmp eq i8 %26, 0
   %spec.store.select = select i1 %.not74, ptr null, ptr %5
   br label %.critedge
 
-.critedge:                                        ; preds = %17, %27
-  %.0 = phi ptr [ %spec.store.select, %27 ], [ null, %17 ]
-  br i1 %.not72, label %31, label %29
+.critedge:                                        ; preds = %15, %25
+  %.0 = phi ptr [ %spec.store.select, %25 ], [ null, %15 ]
+  br i1 %.not72, label %29, label %27
 
-29:                                               ; preds = %.critedge
-  %30 = load i8, ptr %19, align 1
-  %.not76 = icmp eq i8 %30, 0
-  %spec.store.select1 = select i1 %.not76, ptr null, ptr %19
-  br label %31
+27:                                               ; preds = %.critedge
+  %28 = load i8, ptr %17, align 1
+  %.not76 = icmp eq i8 %28, 0
+  %spec.store.select1 = select i1 %.not76, ptr null, ptr %17
+  br label %29
 
-31:                                               ; preds = %29, %.critedge
-  %.1 = phi ptr [ %spec.store.select1, %29 ], [ null, %.critedge ]
+29:                                               ; preds = %27, %.critedge
+  %.1 = phi ptr [ %spec.store.select1, %27 ], [ null, %.critedge ]
   %.not77 = icmp eq i32 %0, 0
-  %32 = icmp ne ptr %.0, null
-  %33 = icmp ne ptr %.1, null
-  %or.cond = select i1 %32, i1 %33, i1 false
-  br i1 %.not77, label %34, label %39
+  %30 = icmp ne ptr %.0, null
+  %31 = icmp ne ptr %.1, null
+  %or.cond = select i1 %30, i1 %31, i1 false
+  br i1 %.not77, label %32, label %37
 
-34:                                               ; preds = %31
-  br i1 %or.cond, label %.thread87, label %35
+32:                                               ; preds = %29
+  br i1 %or.cond, label %.thread87, label %33
 
-.thread87:                                        ; preds = %34
+.thread87:                                        ; preds = %32
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.31, ptr noundef nonnull %.0, ptr noundef nonnull %.1) #23
-  br label %.thread85
+  br label %.sink.split.sink.split
 
-35:                                               ; preds = %34
-  %36 = icmp eq ptr %.0, null
-  %or.cond4 = select i1 %36, i1 true, i1 %33
-  br i1 %or.cond4, label %37, label %.thread79
+33:                                               ; preds = %32
+  %34 = icmp eq ptr %.0, null
+  %or.cond4 = select i1 %34, i1 true, i1 %31
+  br i1 %or.cond4, label %35, label %.thread79
 
-.thread79:                                        ; preds = %35
+.thread79:                                        ; preds = %33
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.32, ptr noundef nonnull %.0) #23
-  br label %.thread85
+  br label %.sink.split.sink.split
 
-37:                                               ; preds = %35
-  %or.cond6 = select i1 %36, i1 %33, i1 false
-  br i1 %or.cond6, label %38, label %.thread85
+35:                                               ; preds = %33
+  %or.cond6 = select i1 %34, i1 %31, i1 false
+  br i1 %or.cond6, label %36, label %.sink.split.sink.split
+
+36:                                               ; preds = %35
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.32, ptr noundef nonnull %.1) #23
+  br label %.sink.split.sink.split
+
+37:                                               ; preds = %29
+  br i1 %or.cond, label %.thread91, label %38
+
+.thread91:                                        ; preds = %37
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.33, ptr noundef nonnull %.0, i32 noundef %0, ptr noundef nonnull %.1) #23
+  br label %.sink.split.sink.split
 
 38:                                               ; preds = %37
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.32, ptr noundef nonnull %.1) #23
-  br label %.thread85
+  %39 = icmp eq ptr %.0, null
+  %or.cond10 = select i1 %39, i1 true, i1 %31
+  br i1 %or.cond10, label %40, label %.thread83
 
-39:                                               ; preds = %31
-  br i1 %or.cond, label %.thread91, label %40
-
-.thread91:                                        ; preds = %39
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.33, ptr noundef nonnull %.0, i32 noundef %0, ptr noundef nonnull %.1) #23
-  br label %.thread85
-
-40:                                               ; preds = %39
-  %41 = icmp eq ptr %.0, null
-  %or.cond10 = select i1 %41, i1 true, i1 %33
-  br i1 %or.cond10, label %42, label %.thread83
-
-.thread83:                                        ; preds = %40
+.thread83:                                        ; preds = %38
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.34, ptr noundef nonnull %.0, i32 noundef %0) #23
-  br label %.thread85
+  br label %.sink.split.sink.split
+
+40:                                               ; preds = %38
+  %or.cond12 = select i1 %39, i1 %31, i1 false
+  br i1 %or.cond12, label %41, label %42
+
+41:                                               ; preds = %40
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.28, i32 noundef %0, ptr noundef nonnull %.1) #23
+  br label %.sink.split.sink.split
 
 42:                                               ; preds = %40
-  %or.cond12 = select i1 %41, i1 %33, i1 false
-  br i1 %or.cond12, label %43, label %44
+  %or.cond14 = select i1 %30, i1 true, i1 %31
+  br i1 %or.cond14, label %.sink.split.sink.split, label %43
 
 43:                                               ; preds = %42
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.28, i32 noundef %0, ptr noundef nonnull %.1) #23
-  br label %.thread85
-
-44:                                               ; preds = %42
-  %or.cond14 = select i1 %32, i1 true, i1 %33
-  br i1 %or.cond14, label %.thread85, label %45
-
-45:                                               ; preds = %44
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.29, i32 noundef %0) #23
-  br label %.thread85
+  br label %.sink.split.sink.split
 
-.thread85:                                        ; preds = %.thread91, %.thread87, %43, %.thread83, %.thread79, %44, %45, %37, %38
+.sink.split.sink.split:                           ; preds = %36, %35, %43, %42, %.thread79, %.thread83, %41, %.thread87, %.thread91, %9, %10
   call void @slurm_xfree(ptr noundef nonnull %4) #23
-  %46 = load ptr, ptr %3, align 8
+  %44 = load ptr, ptr %3, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %7, %11, %.thread85
-  %.sink = phi ptr [ %46, %.thread85 ], [ %12, %11 ], [ %5, %7 ]
+.sink.split:                                      ; preds = %.sink.split.sink.split, %7
+  %.sink = phi ptr [ %5, %7 ], [ %44, %.sink.split.sink.split ]
   store ptr %.sink, ptr %1, align 8
-  br label %47
+  br label %45
 
-47:                                               ; preds = %.sink.split, %13
+45:                                               ; preds = %.sink.split, %11
   ret void
 }
 

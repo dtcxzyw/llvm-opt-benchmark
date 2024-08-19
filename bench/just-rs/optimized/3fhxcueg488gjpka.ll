@@ -8349,7 +8349,6 @@ _ZN7similar10algorithms5utils17common_suffix_len17h697b7af777eba1b5E.exit: ; pre
   %144 = getelementptr inbounds i8, ptr %39, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %144, ptr noundef nonnull align 8 dereferenceable(24) %30, i64 24, i1 false), !noalias !1145
   store i64 1, ptr %39, align 8, !alias.scope !1130, !noalias !1145
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30), !noalias !1137
   br label %248
 
 .lr.ph118.split.i:                                ; preds = %.lr.ph118.i, %..loopexit_crit_edge.i
@@ -8388,7 +8387,6 @@ _ZN7similar10algorithms5utils17common_suffix_len17h697b7af777eba1b5E.exit: ; pre
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23), !noalias !1147
   call void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd0f243f052cca584E.llvm.1798434116971987782"(ptr noalias noundef nonnull align 8 dereferenceable(72) %24), !noalias !1147
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %24), !noalias !1147
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30), !noalias !1137
   br label %248
 
 .lr.ph.split.i:                                   ; preds = %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread.i", %212
@@ -8692,6 +8690,7 @@ common.resume:                                    ; preds = %468, %246, %304, %2
 248:                                              ; preds = %._crit_edge.i122, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread91.i"
   %.not54 = phi i1 [ false, %._crit_edge.i122 ], [ true, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread91.i" ]
   %.not59 = phi i1 [ true, %._crit_edge.i122 ], [ false, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread91.i" ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30), !noalias !1137
   %249 = add i64 %.0.i, %72
   %250 = sub i64 %spec.select.i.i119, %249
   %251 = sub i64 %spec.select.i.i103, %249
@@ -9783,7 +9782,6 @@ _ZN7similar10algorithms5utils17common_suffix_len17h0b45f9cfd8f02b67E.exit: ; pre
   %167 = getelementptr inbounds i8, ptr %35, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %167, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false), !noalias !1340
   store i64 1, ptr %35, align 8, !alias.scope !1299, !noalias !1340
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28), !noalias !1306
   br label %196
 
 .lr.ph116.split.i:                                ; preds = %.lr.ph116.split.preheader.i
@@ -9814,7 +9812,6 @@ _ZN7similar10algorithms5utils17common_suffix_len17h0b45f9cfd8f02b67E.exit: ; pre
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23), !noalias !1341
   call void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd0f243f052cca584E.llvm.1798434116971987782"(ptr noalias noundef nonnull align 8 dereferenceable(72) %24), !noalias !1341
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %24), !noalias !1341
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28), !noalias !1306
   br label %196
 
 .invoke.i:                                        ; preds = %.lr.ph116.split.i, %170, %173, %.lr.ph116.split.i.us, %153, %156
@@ -9876,6 +9873,7 @@ common.resume:                                    ; preds = %384, %194, %242, %.
 196:                                              ; preds = %._crit_edge.i, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread91.i"
   %.not54 = phi i1 [ false, %._crit_edge.i ], [ true, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread91.i" ]
   %.not59 = phi i1 [ true, %._crit_edge.i ], [ false, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread91.i" ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28), !noalias !1306
   %197 = add i64 %.0.i, %51
   %198 = sub i64 %spec.select.i.i99, %197
   %199 = sub i64 %spec.select.i.i94, %197

@@ -683,15 +683,13 @@ define internal fastcc i32 @rpm_suspend(ptr noundef %0, i32 noundef %1) unnamed_
 
 .thread34:                                        ; preds = %132
   call void @finish_wait(ptr noundef %45, ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #8
-  br label %358
+  br label %.sink.split
 
 .thread32:                                        ; preds = %128
   call void @_raw_spin_unlock(ptr noundef %52) #8
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !24
   call void @_raw_spin_lock(ptr noundef %52) #8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #8
-  br label %358
+  br label %.sink.split
 
 .preheader46:                                     ; preds = %132, %.preheader46
   call void @_raw_spin_unlock_irq(ptr noundef %52) #8
@@ -704,8 +702,7 @@ define internal fastcc i32 @rpm_suspend(ptr noundef %0, i32 noundef %1) unnamed_
 
 137:                                              ; preds = %.preheader46
   call void @finish_wait(ptr noundef %45, ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #8
-  br label %358
+  br label %.sink.split
 
 138:                                              ; preds = %122
   %139 = load i16, ptr %26, align 8
@@ -1088,7 +1085,11 @@ define internal fastcc i32 @rpm_suspend(ptr noundef %0, i32 noundef %1) unnamed_
   %357 = icmp ugt i64 %355, %356
   br i1 %357, label %358, label %.thread
 
-358:                                              ; preds = %137, %351, %.thread34, %.thread32
+.sink.split:                                      ; preds = %.thread32, %.thread34, %137
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #8
+  br label %358
+
+358:                                              ; preds = %.sink.split, %351
   %359 = load i32, ptr %25, align 4
   %360 = icmp eq i32 %359, 0
   br i1 %360, label %.lr.ph, label %.thread

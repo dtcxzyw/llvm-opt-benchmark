@@ -693,7 +693,7 @@ define hidden void @"_ZN6diesel10type_impls6tuples137_$LT$impl$u20$diesel..deser
   %33 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %23, ptr %33, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %93
+  br label %75
 
 34:                                               ; preds = %24
   store i64 %25, ptr %15, align 8
@@ -812,7 +812,6 @@ define hidden void @"_ZN6diesel10type_impls6tuples137_$LT$impl$u20$diesel..deser
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   br label %75
 
 65:                                               ; preds = %.noexc
@@ -839,7 +838,8 @@ define hidden void @"_ZN6diesel10type_impls6tuples137_$LT$impl$u20$diesel..deser
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.12685190674109232616"(ptr noalias noundef nonnull readonly align 1 %74, ptr noundef nonnull %71, i64 noundef %69, i64 noundef %73)
           to label %78 unwind label %76
 
-75:                                               ; preds = %93, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2d0f9b0b4d346967E.exit91", %64
+75:                                               ; preds = %31, %92, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2d0f9b0b4d346967E.exit91", %64
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   ret void
 
 76:                                               ; preds = %70, %65
@@ -875,7 +875,6 @@ define hidden void @"_ZN6diesel10type_impls6tuples137_$LT$impl$u20$diesel..deser
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   br label %75
 
 86:                                               ; preds = %.thread126, %90, %89, %76, %62
@@ -901,16 +900,12 @@ define hidden void @"_ZN6diesel10type_impls6tuples137_$LT$impl$u20$diesel..deser
 92:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2d0f9b0b4d346967E.exit", %35
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
-  br label %93
+  br label %75
 
 .thread126:                                       ; preds = %90, %.thread
   %.pn.pn113 = phi { ptr, i32 } [ %38, %.thread ], [ %91, %90 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2d0f9b0b4d346967E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #23
           to label %88 unwind label %86
-
-93:                                               ; preds = %92, %31
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
-  br label %75
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1267,7 +1262,6 @@ _ZN6diesel11deserialize7FromSql17from_nullable_sql17h8277cc9cde8da77aE.exit: ; p
   store i64 %storemerge, ptr %0, align 8, !noalias !237
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %42
 
 39:                                               ; preds = %13, %"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hd3a390ed58beaa9bE.llvm.768955472827859366.exit.thread.i", %"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hd3a390ed58beaa9bE.llvm.768955472827859366.exit.i"
@@ -1276,10 +1270,10 @@ _ZN6diesel11deserialize7FromSql17from_nullable_sql17h8277cc9cde8da77aE.exit: ; p
   %41 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr @anon.f2b0736b5e0c916a2cbec32f1def498a.15, ptr %41, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %42
 
 42:                                               ; preds = %_ZN6diesel11deserialize7FromSql17from_nullable_sql17h8277cc9cde8da77aE.exit, %39
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   ret void
 }
 

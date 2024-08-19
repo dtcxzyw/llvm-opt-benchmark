@@ -276,16 +276,12 @@ default.unreachable25.i.i.i.i.i.i:                ; preds = %25
 62:                                               ; preds = %10, %23, %26, %27, %31, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdaef701dec81f19dE.exit6.i.i.i.i.i.i", %35, %37, %38, %42, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdaef701dec81f19dE.exit14.i.i.i.i.i.i", %46, %48, %52, %56, %"_ZN4core4iter6traits8iterator8Iterator2eq28_$u7b$$u7b$closure$u7d$$u7d$17h5796fb1f0093adfcE.exit.i.i.i", %6
   %.0.i.i = phi i8 [ 1, %6 ], [ 2, %"_ZN4core4iter6traits8iterator8Iterator2eq28_$u7b$$u7b$closure$u7d$$u7d$17h5796fb1f0093adfcE.exit.i.i.i" ], [ 2, %56 ], [ 2, %52 ], [ 2, %48 ], [ 2, %46 ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdaef701dec81f19dE.exit14.i.i.i.i.i.i" ], [ 2, %42 ], [ 2, %38 ], [ 2, %37 ], [ 2, %35 ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hdaef701dec81f19dE.exit6.i.i.i.i.i.i" ], [ 2, %31 ], [ 2, %27 ], [ 2, %26 ], [ 2, %23 ], [ 2, %10 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !13
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
-  br label %63
+  br label %._crit_edge
 
-63:                                               ; preds = %._crit_edge, %62
-  %.0 = phi i8 [ %.0.i.i, %62 ], [ 3, %._crit_edge ]
+._crit_edge:                                      ; preds = %60, %2, %62
+  %.0 = phi i8 [ %.0.i.i, %62 ], [ 3, %2 ], [ 3, %60 ]
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   ret i8 %.0
-
-._crit_edge:                                      ; preds = %60, %2
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
-  br label %63
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

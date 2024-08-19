@@ -6871,21 +6871,18 @@ define internal fastcc i32 @cp_index_to_class_fullinfo(ptr noundef %0, i32 nound
   %8 = getelementptr inbounds i8, ptr %0, i64 424
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @JVM_GetCPClassNameUTF(ptr noundef %6, ptr noundef %9, i32 noundef %1) #20
-  store ptr %10, ptr %5, align 8
   br label %19
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds i8, ptr %0, i64 424
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @JVM_GetCPMethodClassNameUTF(ptr noundef %6, ptr noundef %13, i32 noundef %1) #20
-  store ptr %14, ptr %5, align 8
   br label %19
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds i8, ptr %0, i64 424
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @JVM_GetCPFieldClassNameUTF(ptr noundef %6, ptr noundef %17, i32 noundef %1) #20
-  store ptr %18, ptr %5, align 8
   br label %19
 
 .thread:                                          ; preds = %3
@@ -6893,106 +6890,107 @@ define internal fastcc i32 @cp_index_to_class_fullinfo(ptr noundef %0, i32 nound
   unreachable
 
 19:                                               ; preds = %15, %11, %7
-  %20 = phi ptr [ %18, %15 ], [ %14, %11 ], [ %10, %7 ]
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %22, label %26
+  %.sink = phi ptr [ %18, %15 ], [ %14, %11 ], [ %10, %7 ]
+  store ptr %.sink, ptr %5, align 8
+  %20 = icmp eq ptr %.sink, null
+  br i1 %20, label %21, label %25
 
-22:                                               ; preds = %19
-  %23 = tail call fastcc i32 @print_CCerror_info(ptr noundef nonnull %0)
-  %24 = getelementptr inbounds i8, ptr %0, i64 20
-  store i8 2, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 624
-  tail call void @longjmp(ptr noundef nonnull %25, i32 noundef 1) #17
+21:                                               ; preds = %19
+  %22 = tail call fastcc i32 @print_CCerror_info(ptr noundef nonnull %0)
+  %23 = getelementptr inbounds i8, ptr %0, i64 20
+  store i8 2, ptr %23, align 4
+  %24 = getelementptr inbounds i8, ptr %0, i64 624
+  tail call void @longjmp(ptr noundef nonnull %24, i32 noundef 1) #17
   unreachable
 
-26:                                               ; preds = %19
-  %27 = getelementptr inbounds i8, ptr %0, i64 416
-  %28 = load i32, ptr %27, align 8
-  %29 = icmp slt i32 %28, 16
-  br i1 %29, label %30, label %35
+25:                                               ; preds = %19
+  %26 = getelementptr inbounds i8, ptr %0, i64 416
+  %27 = load i32, ptr %26, align 8
+  %28 = icmp slt i32 %27, 16
+  br i1 %28, label %29, label %34
 
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %0, i64 32
-  %32 = add nsw i32 %28, 1
-  store i32 %32, ptr %27, align 8
-  %33 = sext i32 %28 to i64
-  %34 = getelementptr inbounds [16 x %struct.alloc_stack_type], ptr %31, i64 0, i64 %33
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %31 = add nsw i32 %27, 1
+  store i32 %31, ptr %26, align 8
+  %32 = sext i32 %27 to i64
+  %33 = getelementptr inbounds [16 x %struct.alloc_stack_type], ptr %30, i64 0, i64 %32
   br label %check_and_push_string_utf.exit
 
-35:                                               ; preds = %26
-  %36 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #19
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %38, label %check_and_push_string_utf.exit
+34:                                               ; preds = %25
+  %35 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #19
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %37, label %check_and_push_string_utf.exit
 
-38:                                               ; preds = %35
-  tail call void @JVM_ReleaseUTF(ptr noundef nonnull %20) #20
+37:                                               ; preds = %34
+  tail call void @JVM_ReleaseUTF(ptr noundef nonnull %.sink) #20
   tail call fastcc void @CCout_of_memory(ptr noundef nonnull %0)
   unreachable
 
-check_and_push_string_utf.exit:                   ; preds = %30, %35
-  %.0.i.i = phi ptr [ %34, %30 ], [ %36, %35 ]
-  %39 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
-  store i32 0, ptr %39, align 8
-  store ptr %20, ptr %.0.i.i, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 24
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
-  store ptr %41, ptr %42, align 8
-  store ptr %.0.i.i, ptr %40, align 8
-  %43 = load i8, ptr %20, align 1
-  %44 = icmp eq i8 %43, 91
-  br i1 %44, label %45, label %47
+check_and_push_string_utf.exit:                   ; preds = %29, %34
+  %.0.i.i = phi ptr [ %33, %29 ], [ %35, %34 ]
+  %38 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  store i32 0, ptr %38, align 8
+  store ptr %.sink, ptr %.0.i.i, align 8
+  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  store ptr %40, ptr %41, align 8
+  store ptr %.0.i.i, ptr %39, align 8
+  %42 = load i8, ptr %.sink, align 1
+  %43 = icmp eq i8 %42, 91
+  br i1 %43, label %44, label %46
 
-45:                                               ; preds = %check_and_push_string_utf.exit
-  %46 = call fastcc signext i8 @signature_to_fieldtype(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %4)
-  br label %49
+44:                                               ; preds = %check_and_push_string_utf.exit
+  %45 = call fastcc signext i8 @signature_to_fieldtype(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %4)
+  br label %48
 
-47:                                               ; preds = %check_and_push_string_utf.exit
-  %48 = tail call fastcc i32 @make_class_info_from_name(ptr noundef nonnull %0, ptr noundef nonnull %20)
-  store i32 %48, ptr %4, align 4
-  br label %49
+46:                                               ; preds = %check_and_push_string_utf.exit
+  %47 = tail call fastcc i32 @make_class_info_from_name(ptr noundef nonnull %0, ptr noundef nonnull %.sink)
+  store i32 %47, ptr %4, align 4
+  br label %48
 
-49:                                               ; preds = %47, %45
-  %50 = load ptr, ptr %40, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 16
-  %52 = load ptr, ptr %51, align 8
-  store ptr %52, ptr %40, align 8
-  %53 = load ptr, ptr %50, align 8
-  %54 = getelementptr inbounds i8, ptr %50, i64 8
-  %55 = load i32, ptr %54, align 8
-  switch i32 %55, label %free_block.exit.i [
-    i32 0, label %56
-    i32 1, label %57
+48:                                               ; preds = %46, %44
+  %49 = load ptr, ptr %39, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 16
+  %51 = load ptr, ptr %50, align 8
+  store ptr %51, ptr %39, align 8
+  %52 = load ptr, ptr %49, align 8
+  %53 = getelementptr inbounds i8, ptr %49, i64 8
+  %54 = load i32, ptr %53, align 8
+  switch i32 %54, label %free_block.exit.i [
+    i32 0, label %55
+    i32 1, label %56
   ]
 
-56:                                               ; preds = %49
-  tail call void @JVM_ReleaseUTF(ptr noundef %53) #20
+55:                                               ; preds = %48
+  tail call void @JVM_ReleaseUTF(ptr noundef %52) #20
   br label %free_block.exit.i
 
-57:                                               ; preds = %49
-  tail call void @free(ptr noundef %53) #20
+56:                                               ; preds = %48
+  tail call void @free(ptr noundef %52) #20
   br label %free_block.exit.i
 
-free_block.exit.i:                                ; preds = %57, %56, %49
-  %58 = icmp uge ptr %50, %27
-  %59 = getelementptr inbounds i8, ptr %0, i64 32
-  %.not.i = icmp ult ptr %50, %59
-  %or.cond.i = select i1 %58, i1 true, i1 %.not.i
-  br i1 %or.cond.i, label %63, label %60
+free_block.exit.i:                                ; preds = %56, %55, %48
+  %57 = icmp uge ptr %49, %26
+  %58 = getelementptr inbounds i8, ptr %0, i64 32
+  %.not.i = icmp ult ptr %49, %58
+  %or.cond.i = select i1 %57, i1 true, i1 %.not.i
+  br i1 %or.cond.i, label %62, label %59
 
-60:                                               ; preds = %free_block.exit.i
-  %61 = load i32, ptr %27, align 8
-  %62 = add nsw i32 %61, -1
-  store i32 %62, ptr %27, align 8
+59:                                               ; preds = %free_block.exit.i
+  %60 = load i32, ptr %26, align 8
+  %61 = add nsw i32 %60, -1
+  store i32 %61, ptr %26, align 8
   br label %pop_and_free.exit
 
-63:                                               ; preds = %free_block.exit.i
-  tail call void @free(ptr noundef nonnull %50) #20
+62:                                               ; preds = %free_block.exit.i
+  tail call void @free(ptr noundef nonnull %49) #20
   br label %pop_and_free.exit
 
-pop_and_free.exit:                                ; preds = %60, %63
-  %64 = load i32, ptr %4, align 4
-  ret i32 %64
+pop_and_free.exit:                                ; preds = %59, %62
+  %63 = load i32, ptr %4, align 4
+  ret i32 %63
 }
 
 declare ptr @JVM_GetCPMethodSignatureUTF(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5

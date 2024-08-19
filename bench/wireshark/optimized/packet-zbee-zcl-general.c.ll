@@ -7385,8 +7385,7 @@ define internal i32 @dissect_zbee_zcl_gp(ptr noundef %0, ptr noundef %1, ptr nou
   %289 = load i32, ptr @hf_zbee_gp_sink_nwk, align 4
   %290 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %289, ptr noundef %0, i32 noundef %288, i32 noundef 2, i32 noundef -2147483648) #8
   %291 = add nuw nsw i32 %283, 10
-  store i32 %291, ptr %5, align 4
-  br label %300
+  br label %.sink.split
 
 292:                                              ; preds = %282
   %293 = and i32 %268, 16
@@ -7403,11 +7402,15 @@ define internal i32 @dissect_zbee_zcl_gp(ptr noundef %0, ptr noundef %1, ptr nou
   %297 = load i32, ptr @hf_zbee_gp_sink_group_id, align 4
   %298 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %297, ptr noundef %0, i32 noundef %283, i32 noundef 2, i32 noundef -2147483648) #8
   %299 = or disjoint i32 %283, 2
-  store i32 %299, ptr %5, align 4
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %296, %.thread298
+  %.sink = phi i32 [ %291, %.thread298 ], [ %299, %296 ]
+  store i32 %.sink, ptr %5, align 4
   br label %300
 
-300:                                              ; preds = %.thread298, %295, %295, %296, %292
-  %301 = phi i32 [ %291, %.thread298 ], [ %283, %295 ], [ %283, %295 ], [ %299, %296 ], [ %283, %292 ]
+300:                                              ; preds = %.sink.split, %295, %295, %292
+  %301 = phi i32 [ %283, %295 ], [ %283, %295 ], [ %283, %292 ], [ %.sink, %.sink.split ]
   %302 = and i32 %268, 8
   %.not273 = icmp eq i32 %302, 0
   br i1 %.not273, label %307, label %303

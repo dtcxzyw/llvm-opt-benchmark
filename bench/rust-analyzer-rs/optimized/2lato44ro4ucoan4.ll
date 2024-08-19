@@ -312,7 +312,6 @@ define hidden void @_ZN10serde_json2de10from_trait17hd7e83fb3f2294a10E(ptr noali
 
 "_ZN4core3ptr82drop_in_place$LT$serde_json..de..Deserializer$LT$serde_json..read..StrRead$GT$$GT$17h67ec411a507618f6E.exit": ; preds = %.loopexit, %39, %43
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !31
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
   br label %47
 
 45:                                               ; preds = %29
@@ -324,6 +323,7 @@ define hidden void @_ZN10serde_json2de10from_trait17hd7e83fb3f2294a10E(ptr noali
           to label %48 unwind label %13
 
 47:                                               ; preds = %"_ZN4core3ptr82drop_in_place$LT$serde_json..de..Deserializer$LT$serde_json..read..StrRead$GT$$GT$17h67ec411a507618f6E.exit5", %"_ZN4core3ptr82drop_in_place$LT$serde_json..de..Deserializer$LT$serde_json..read..StrRead$GT$$GT$17h67ec411a507618f6E.exit"
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
   ret void
 
 48:                                               ; preds = %45, %31
@@ -348,7 +348,6 @@ define hidden void @_ZN10serde_json2de10from_trait17hd7e83fb3f2294a10E(ptr noali
 
 "_ZN4core3ptr82drop_in_place$LT$serde_json..de..Deserializer$LT$serde_json..read..StrRead$GT$$GT$17h67ec411a507618f6E.exit5": ; preds = %48, %51, %55
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !41
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
   br label %47
 
 57:                                               ; preds = %35, %12
@@ -20492,7 +20491,6 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 "_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17h8a8dded0ceb14c53E.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5f9ed97c8105e227E.llvm.12053455592450410520.exit.i", %195, %199
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !1859
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20), !noalias !1807
   br label %"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h99895fa65cd562a0E.exit"
 
 203:                                              ; preds = %.noexc101
@@ -20544,7 +20542,6 @@ common.resume:                                    ; preds = %common.resume.sink.
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.24)
   %.sroa.0206.0.copyload = load ptr, ptr %20, align 8, !noalias !1807
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7172, ptr noundef nonnull align 8 dereferenceable(16) %156, i64 16, i1 false), !noalias !1870
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20), !noalias !1807
   br label %"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h99895fa65cd562a0E.exit"
 
 220:                                              ; preds = %.body94
@@ -20556,6 +20553,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 "_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$..deserialize..ValueVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h99895fa65cd562a0E.exit": ; preds = %"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17h8a8dded0ceb14c53E.exit", %219
   %.sroa.0170.0 = phi i64 [ -9223372036854775803, %"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17h8a8dded0ceb14c53E.exit" ], [ -9223372036854775804, %219 ]
   %.sroa.5171.0 = phi ptr [ %.sroa.15199.1.ph, %"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17h8a8dded0ceb14c53E.exit" ], [ %.sroa.0206.0.copyload, %219 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20), !noalias !1807
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %19)
   %222 = load i8, ptr %117, align 8, !range !1623, !noundef !5
   %223 = trunc nuw i8 %222 to i1

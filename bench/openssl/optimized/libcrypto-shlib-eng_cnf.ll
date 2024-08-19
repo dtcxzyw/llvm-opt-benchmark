@@ -143,7 +143,6 @@ if.then37.i:                                      ; preds = %if.else35.i
 
 int_engine_configure.exit.thread9:                ; preds = %if.then37.i
   call void @ERR_clear_error() #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %do_init.i)
   br label %for.inc
 
 if.end42.i:                                       ; preds = %if.then37.i
@@ -280,7 +279,6 @@ if.else99.i:                                      ; preds = %if.then18.i, %if.en
 int_engine_configure.exit.thread12:               ; preds = %lor.lhs.false.i46.i, %for.end.i, %for.cond.preheader.i
   %e.168.i.ph = phi ptr [ null, %for.cond.preheader.i ], [ %e.3.i, %for.end.i ], [ %e.3.i, %lor.lhs.false.i46.i ]
   %call104.i15 = call i32 @ENGINE_free(ptr noundef %e.168.i.ph) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %do_init.i)
   br label %for.inc
 
 int_engine_configure.exit:                        ; preds = %if.then98.i, %if.else99.i
@@ -290,6 +288,7 @@ int_engine_configure.exit:                        ; preds = %if.then98.i, %if.el
   br label %return
 
 for.inc:                                          ; preds = %int_engine_configure.exit.thread12, %int_engine_configure.exit.thread9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %do_init.i)
   %inc = add nuw nsw i32 %i.046, 1
   %call3 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %call1) #4
   %cmp = icmp slt i32 %inc, %call3

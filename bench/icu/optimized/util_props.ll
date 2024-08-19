@@ -697,8 +697,7 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit28:       ; preds = %if.end, %if.then.i.
 
 sw.bb8:                                           ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit28, %for.body
   %call9 = call noundef i32 @_ZN6icu_7511ICU_Utility14skipWhitespaceERKNS_13UnicodeStringERia(ptr noundef nonnull align 8 dereferenceable(64) %rule, ptr noundef nonnull align 4 dereferenceable(4) %pos.addr, i8 noundef signext 0)
-  store i32 %call9, ptr %pos.addr, align 4
-  br label %for.inc
+  br label %for.inc.sink.split
 
 sw.bb10:                                          ; preds = %for.body
   %14 = load i32, ptr %pos.addr, align 4
@@ -714,8 +713,7 @@ sw.bb10:                                          ; preds = %for.body
 
 if.end15:                                         ; preds = %sw.bb10
   %inc12 = add nsw i32 %intCount.050, 1
-  store i32 %15, ptr %pos.addr, align 4
-  br label %for.inc
+  br label %for.inc.sink.split
 
 sw.default:                                       ; preds = %for.body
   %17 = load i32, ptr %pos.addr, align 4
@@ -752,8 +750,14 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit43:       ; preds = %if.end18, %if.then.
   %cmp26.not = icmp eq i16 %6, %24
   br i1 %cmp26.not, label %for.inc, label %return
 
-for.inc:                                          ; preds = %sw.bb8, %if.end15, %_ZNK6icu_7513UnicodeString6charAtEi.exit43
-  %intCount.1 = phi i32 [ %intCount.050, %_ZNK6icu_7513UnicodeString6charAtEi.exit43 ], [ %inc12, %if.end15 ], [ %intCount.050, %sw.bb8 ]
+for.inc.sink.split:                               ; preds = %if.end15, %sw.bb8
+  %call9.sink = phi i32 [ %call9, %sw.bb8 ], [ %15, %if.end15 ]
+  %intCount.1.ph = phi i32 [ %intCount.050, %sw.bb8 ], [ %inc12, %if.end15 ]
+  store i32 %call9.sink, ptr %pos.addr, align 4
+  br label %for.inc
+
+for.inc:                                          ; preds = %for.inc.sink.split, %_ZNK6icu_7513UnicodeString6charAtEi.exit43
+  %intCount.1 = phi i32 [ %intCount.050, %_ZNK6icu_7513UnicodeString6charAtEi.exit43 ], [ %intCount.1.ph, %for.inc.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %25, 0

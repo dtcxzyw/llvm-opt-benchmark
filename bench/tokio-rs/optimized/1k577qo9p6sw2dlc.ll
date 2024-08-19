@@ -3739,7 +3739,7 @@ define void @_ZN5tokio3net4unix4pipe11OpenOptions4open17h584ec72f2db2f771E(ptr n
   %27 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %18, ptr %27, align 8
   store i32 1, ptr %0, align 8
-  br label %58
+  br label %60
 
 28:                                               ; preds = %22
   %29 = invoke noundef i32 @"_ZN73_$LT$std..sys..unix..fd..FileDesc$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17h29bb2154cc02aa16E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8)
@@ -3750,16 +3750,14 @@ define void @_ZN5tokio3net4unix4pipe11OpenOptions4open17h584ec72f2db2f771E(ptr n
   %32 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %31, ptr %32, align 4
   store i32 0, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  br label %61
+  br label %60
 
 33:                                               ; preds = %40, %52, %28
   %34 = landingpad { ptr, i32 }
           cleanup
   %35 = load i32, ptr %8, align 4, !alias.scope !854, !noundef !12
   %36 = invoke noundef i32 @close(i32 noundef %35)
-          to label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h3b2d5d0f2c8d88b0E.exit" unwind label %59
+          to label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h3b2d5d0f2c8d88b0E.exit" unwind label %58
 
 37:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6), !noalias !865
@@ -3808,15 +3806,10 @@ define void @_ZN5tokio3net4unix4pipe11OpenOptions4open17h584ec72f2db2f771E(ptr n
   call void @llvm.experimental.noalias.scope.decl(metadata !880)
   %56 = load i32, ptr %8, align 4, !alias.scope !883, !noundef !12
   %57 = call noundef i32 @close(i32 noundef %56), !noalias !883
-  br label %58
+  br label %60
 
-58:                                               ; preds = %54, %26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  br label %61
-
-59:                                               ; preds = %33
-  %60 = landingpad { ptr, i32 }
+58:                                               ; preds = %33
+  %59 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #23
   unreachable
@@ -3824,7 +3817,9 @@ define void @_ZN5tokio3net4unix4pipe11OpenOptions4open17h584ec72f2db2f771E(ptr n
 "_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h3b2d5d0f2c8d88b0E.exit": ; preds = %33
   resume { ptr, i32 } %34
 
-61:                                               ; preds = %58, %30
+60:                                               ; preds = %26, %54, %30
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   ret void
 }
 

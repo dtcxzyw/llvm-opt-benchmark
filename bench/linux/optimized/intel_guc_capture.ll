@@ -1835,11 +1835,7 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
   %62 = select i1 %59, i32 %61, i32 0
   %63 = add i32 %62, %60
   %64 = icmp eq i32 %63, 0
-  br i1 %64, label %.thread41, label %65
-
-.thread41:                                        ; preds = %56
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
-  br label %.loopexit58
+  br i1 %64, label %.loopexit58.sink.split, label %65
 
 65:                                               ; preds = %56
   %66 = and i32 %63, 3
@@ -1860,11 +1856,11 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
   %75 = phi ptr [ %73, %71 ], [ null, %68 ]
   %76 = load i32, ptr %55, align 8
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %75, ptr noundef nonnull @.str.43, i32 noundef %76) #12
-  br label %.thread39.thread
+  br label %.loopexit58.sink.split
 
 77:                                               ; preds = %65
   %78 = icmp slt i32 %63, 8
-  br i1 %78, label %.thread39.thread, label %79
+  br i1 %78, label %.loopexit58.sink.split, label %79
 
 79:                                               ; preds = %77
   %80 = select i1 %59, i32 %61, i32 %57
@@ -1986,7 +1982,7 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
   %146 = phi i32 [ 0, %.loopexit56 ], [ %.ph168, %.sink.split ]
   %147 = add nuw nsw i32 %146, %112
   %148 = icmp eq i32 %147, 8
-  br i1 %148, label %149, label %.thread39.thread
+  br i1 %148, label %149, label %.loopexit58.sink.split
 
 149:                                              ; preds = %.thread, %144
   %150 = phi i32 [ %88, %.thread ], [ %145, %144 ]
@@ -2462,7 +2458,7 @@ default.unreachable:                              ; preds = %388
 
 428:                                              ; preds = %423
   %429 = icmp eq ptr %425, null
-  br i1 %429, label %.thread39.thread, label %.thread36
+  br i1 %429, label %.loopexit58.sink.split, label %.thread36
 
 .thread36:                                        ; preds = %428
   %430 = getelementptr inbounds i8, ptr %425, i64 8
@@ -2485,7 +2481,7 @@ default.unreachable:                              ; preds = %388
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %419, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %435, align 8
   %439 = icmp eq ptr %419, null
-  br i1 %439, label %.thread39.thread, label %440
+  br i1 %439, label %.loopexit58.sink.split, label %440
 
 440:                                              ; preds = %.thread36, %434
   %441 = phi ptr [ %425, %.thread36 ], [ %419, %434 ]
@@ -2680,10 +2676,6 @@ default.unreachable:                              ; preds = %388
   %556 = icmp eq ptr %555, null
   br i1 %556, label %549, label %.thread39.sink.split
 
-.thread39.thread:                                 ; preds = %144, %77, %434, %428, %74
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
-  br label %.loopexit58
-
 .thread39.sink.split:                             ; preds = %549, %552
   %.sink203 = phi i64 [ 3120, %552 ], [ 3096, %549 ]
   %.sink201 = phi i64 [ 3128, %552 ], [ 3104, %549 ]
@@ -2704,7 +2696,11 @@ default.unreachable:                              ; preds = %388
   %563 = icmp sgt i32 %562, -1
   br i1 %563, label %56, label %.loopexit58, !llvm.loop !37
 
-.loopexit58:                                      ; preds = %.thread39, %.thread39.thread, %.thread41, %44
+.loopexit58.sink.split:                           ; preds = %77, %144, %56, %428, %434, %74
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
+  br label %.loopexit58
+
+.loopexit58:                                      ; preds = %.thread39, %.loopexit58.sink.split, %44
   store i32 %45, ptr %15, align 1
   %564 = load i32, ptr %19, align 1
   %565 = and i32 %564, -2

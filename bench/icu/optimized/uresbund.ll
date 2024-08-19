@@ -3720,12 +3720,12 @@ if.else:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 157, ptr nonnull %name.i42)
   %36 = load atomic i32, ptr @_ZL14gCacheInitOnce acquire, align 4
   %cmp.not.i.i.i46 = icmp eq i32 %36, 2
-  br i1 %cmp.not.i.i.i46, label %if.else.i.i.i69, label %land.lhs.true.i.i.i47
+  br i1 %cmp.not.i.i.i46, label %if.else.i.i.i68, label %land.lhs.true.i.i.i47
 
 land.lhs.true.i.i.i47:                            ; preds = %if.else
   %call2.i.i.i = tail call noundef signext i8 @_ZN6icu_7520umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZL14gCacheInitOnce)
   %tobool3.not.i.i.i48 = icmp eq i8 %call2.i.i.i, 0
-  br i1 %tobool3.not.i.i.i48, label %if.else.i.i.i69, label %if.then4.i.i.i49
+  br i1 %tobool3.not.i.i.i48, label %if.else.i.i.i68, label %if.then4.i.i.i49
 
 if.then4.i.i.i49:                                 ; preds = %land.lhs.true.i.i.i47
   %call.i.i.i = tail call ptr @uhash_open_75(ptr noundef nonnull @_ZL9hashEntry8UElement, ptr noundef nonnull @_ZL14compareEntries8UElementS_, ptr noundef null, ptr noundef nonnull %status)
@@ -3736,16 +3736,16 @@ if.then4.i.i.i49:                                 ; preds = %land.lhs.true.i.i.i
   tail call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZL14gCacheInitOnce)
   br label %_ZL9initCacheP10UErrorCode.exit.i50
 
-if.else.i.i.i69:                                  ; preds = %land.lhs.true.i.i.i47, %if.else
+if.else.i.i.i68:                                  ; preds = %land.lhs.true.i.i.i47, %if.else
   %38 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL14gCacheInitOnce, i64 4), align 4
-  %cmp.i9.i.i.i70 = icmp slt i32 %38, 1
-  br i1 %cmp.i9.i.i.i70, label %_ZL9initCacheP10UErrorCode.exit.i50, label %if.then8.i.i.i71
+  %cmp.i9.i.i.i69 = icmp slt i32 %38, 1
+  br i1 %cmp.i9.i.i.i69, label %_ZL9initCacheP10UErrorCode.exit.i50, label %if.then8.i.i.i70
 
-if.then8.i.i.i71:                                 ; preds = %if.else.i.i.i69
+if.then8.i.i.i70:                                 ; preds = %if.else.i.i.i68
   store i32 %38, ptr %status, align 4
   br label %_ZL15entryOpenDirectPKcS0_P10UErrorCode.exit
 
-_ZL9initCacheP10UErrorCode.exit.i50:              ; preds = %if.else.i.i.i69, %if.then4.i.i.i49
+_ZL9initCacheP10UErrorCode.exit.i50:              ; preds = %if.else.i.i.i68, %if.then4.i.i.i49
   %.pr.i51 = load i32, ptr %status, align 4
   %cmp.i.i52 = icmp slt i32 %.pr.i51, 1
   br i1 %cmp.i.i52, label %if.end.i53, label %_ZL15entryOpenDirectPKcS0_P10UErrorCode.exit
@@ -3773,7 +3773,7 @@ if.end6.i:                                        ; preds = %if.else.i, %if.then
 invoke.cont.i58:                                  ; preds = %if.end6.i
   %40 = load i32, ptr %status, align 4
   %cmp.i19.i = icmp sgt i32 %40, 0
-  br i1 %cmp.i19.i, label %if.end15.thread.i, label %if.then10.i
+  br i1 %cmp.i19.i, label %if.end62.sink.split.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %invoke.cont.i58
   %fBogus.i = getelementptr inbounds i8, ptr %call7.i, i64 112
@@ -3786,9 +3786,9 @@ if.then12.i:                                      ; preds = %if.then10.i
   %42 = load i32, ptr %fCountExisting.i, align 4
   %dec.i = add i32 %42, -1
   store i32 %dec.i, ptr %fCountExisting.i, align 4
-  br label %if.end15.thread.i
+  br label %if.end62.sink.split.i
 
-lpad.i55:                                         ; preds = %lor.lhs.false34.i, %if.then45.i68, %if.end6.i
+lpad.i55:                                         ; preds = %lor.lhs.false34.i, %if.then45.i67, %if.end6.i
   %43 = landingpad { ptr, i32 }
           cleanup
   invoke void @umtx_unlock_75(ptr noundef nonnull @_ZL9resbMutex)
@@ -3800,10 +3800,6 @@ terminate.lpad.i.i56:                             ; preds = %lpad.i55
   %45 = extractvalue { ptr, i32 } %44, 0
   call void @__clang_call_terminate(ptr %45) #23
   unreachable
-
-if.end15.thread.i:                                ; preds = %if.then12.i, %invoke.cont.i58
-  store ptr null, ptr %t1.i41, align 8
-  br label %if.end62.i
 
 land.lhs.true.i59:                                ; preds = %if.then10.i
   store ptr %call7.i, ptr %t1.i41, align 8
@@ -3818,8 +3814,8 @@ land.lhs.true19.i:                                ; preds = %land.lhs.true.i59
   br i1 %cmp20.i, label %land.lhs.true21.i, label %if.end54.i61
 
 land.lhs.true21.i:                                ; preds = %land.lhs.true19.i
-  %noFallback.i63 = getelementptr inbounds i8, ptr %call7.i, i64 96
-  %47 = load i8, ptr %noFallback.i63, align 8
+  %noFallback.i62 = getelementptr inbounds i8, ptr %call7.i, i64 96
+  %47 = load i8, ptr %noFallback.i62, align 8
   %tobool22.not.i = icmp eq i8 %47, 0
   br i1 %tobool22.not.i, label %land.lhs.true23.i, label %if.end54.i61
 
@@ -3830,17 +3826,17 @@ land.lhs.true23.i:                                ; preds = %land.lhs.true21.i
 
 if.then26.i:                                      ; preds = %land.lhs.true23.i
   %call27.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %name.i42, ptr noundef nonnull dereferenceable(1) %localeID.addr.0.i) #21
-  %call.i.i64 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %name.i42, i32 noundef 95) #25
-  %cmp.not.i.i65 = icmp eq ptr %call.i.i64, null
-  br i1 %cmp.not.i.i65, label %if.then39.i, label %lor.lhs.false.i66
+  %call.i.i63 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %name.i42, i32 noundef 95) #25
+  %cmp.not.i.i64 = icmp eq ptr %call.i.i63, null
+  br i1 %cmp.not.i.i64, label %if.then39.i, label %lor.lhs.false.i65
 
-lor.lhs.false.i66:                                ; preds = %if.then26.i
-  store i8 0, ptr %call.i.i64, align 1
+lor.lhs.false.i65:                                ; preds = %if.then26.i
+  store i8 0, ptr %call.i.i63, align 1
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %name.i42, ptr noundef nonnull dereferenceable(5) @.str, i64 5)
   %cmp33.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp33.i, label %if.then39.i, label %lor.lhs.false34.i
 
-lor.lhs.false34.i:                                ; preds = %lor.lhs.false.i66
+lor.lhs.false34.i:                                ; preds = %lor.lhs.false.i65
   %call37.i = invoke fastcc noundef signext i8 @_ZL21loadParentsExceptRootRP18UResourceDataEntryPciaS2_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %t1.i41, ptr noundef nonnull %name.i42, ptr noundef nonnull %status)
           to label %invoke.cont36.i unwind label %lpad.i55
 
@@ -3849,11 +3845,11 @@ invoke.cont36.i:                                  ; preds = %lor.lhs.false34.i
   br i1 %tobool38.not.i, label %if.end49.i, label %invoke.cont36.if.then39_crit_edge.i
 
 invoke.cont36.if.then39_crit_edge.i:              ; preds = %invoke.cont36.i
-  %.pre.i67 = load ptr, ptr %t1.i41, align 8
+  %.pre.i66 = load ptr, ptr %t1.i41, align 8
   br label %if.then39.i
 
-if.then39.i:                                      ; preds = %invoke.cont36.if.then39_crit_edge.i, %lor.lhs.false.i66, %if.then26.i
-  %48 = phi ptr [ %.pre.i67, %invoke.cont36.if.then39_crit_edge.i ], [ %call7.i, %if.then26.i ], [ %call7.i, %lor.lhs.false.i66 ]
+if.then39.i:                                      ; preds = %invoke.cont36.if.then39_crit_edge.i, %lor.lhs.false.i65, %if.then26.i
+  %48 = phi ptr [ %.pre.i66, %invoke.cont36.if.then39_crit_edge.i ], [ %call7.i, %if.then26.i ], [ %call7.i, %lor.lhs.false.i65 ]
   %49 = load ptr, ptr %48, align 8
   %call40.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(5) @.str) #25
   %cmp41.not.i = icmp eq i32 %call40.i, 0
@@ -3863,13 +3859,13 @@ land.lhs.true42.i:                                ; preds = %if.then39.i
   %fParent43.i = getelementptr inbounds i8, ptr %48, i64 16
   %50 = load ptr, ptr %fParent43.i, align 8
   %cmp44.i = icmp eq ptr %50, null
-  br i1 %cmp44.i, label %if.then45.i68, label %if.end49.i
+  br i1 %cmp44.i, label %if.then45.i67, label %if.end49.i
 
-if.then45.i68:                                    ; preds = %land.lhs.true42.i
+if.then45.i67:                                    ; preds = %land.lhs.true42.i
   %call47.i = invoke fastcc noundef signext i8 @_ZL16insertRootBundleRP18UResourceDataEntryP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %t1.i41, ptr noundef nonnull %status)
           to label %if.end49.i unwind label %lpad.i55
 
-if.end49.i:                                       ; preds = %if.then45.i68, %land.lhs.true42.i, %if.then39.i, %invoke.cont36.i
+if.end49.i:                                       ; preds = %if.then45.i67, %land.lhs.true42.i, %if.then39.i, %invoke.cont36.i
   %51 = load i32, ptr %status, align 4
   %cmp.i21.i = icmp slt i32 %51, 1
   br i1 %cmp.i21.i, label %if.end49.if.end54_crit_edge.i, label %if.end62.i
@@ -3883,7 +3879,7 @@ if.end54.i61:                                     ; preds = %if.end49.if.end54_c
   %fParent5733.i = getelementptr inbounds i8, ptr %t1.promoted.i, i64 16
   %52 = load ptr, ptr %fParent5733.i, align 8
   %cmp58.not34.i = icmp eq ptr %52, null
-  br i1 %cmp58.not34.i, label %if.end62.loopexit.i, label %while.body.i
+  br i1 %cmp58.not34.i, label %if.end62.sink.split.i, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end54.i61, %while.body.i
   %53 = phi ptr [ %56, %while.body.i ], [ %52, %if.end54.i61 ]
@@ -3896,15 +3892,16 @@ while.body.i:                                     ; preds = %if.end54.i61, %whil
   %fParent57.i = getelementptr inbounds i8, ptr %55, i64 16
   %56 = load ptr, ptr %fParent57.i, align 8
   %cmp58.not.i = icmp eq ptr %56, null
-  br i1 %cmp58.not.i, label %if.end62.loopexit.i, label %while.body.i, !llvm.loop !18
+  br i1 %cmp58.not.i, label %if.end62.sink.split.i, label %while.body.i, !llvm.loop !18
 
-if.end62.loopexit.i:                              ; preds = %while.body.i, %if.end54.i61
-  %.lcssa.i62 = phi ptr [ %t1.promoted.i, %if.end54.i61 ], [ %55, %while.body.i ]
-  store ptr %.lcssa.i62, ptr %t1.i41, align 8
+if.end62.sink.split.i:                            ; preds = %while.body.i, %if.end54.i61, %if.then12.i, %invoke.cont.i58
+  %.lcssa.sink.i = phi ptr [ null, %if.then12.i ], [ null, %invoke.cont.i58 ], [ %t1.promoted.i, %if.end54.i61 ], [ %55, %while.body.i ]
+  %r.132.ph.i = phi ptr [ null, %if.then12.i ], [ null, %invoke.cont.i58 ], [ %call7.i, %if.end54.i61 ], [ %call7.i, %while.body.i ]
+  store ptr %.lcssa.sink.i, ptr %t1.i41, align 8
   br label %if.end62.i
 
-if.end62.i:                                       ; preds = %if.end62.loopexit.i, %if.end49.i, %if.end15.thread.i
-  %r.132.i = phi ptr [ null, %if.end49.i ], [ null, %if.end15.thread.i ], [ %call7.i, %if.end62.loopexit.i ]
+if.end62.i:                                       ; preds = %if.end62.sink.split.i, %if.end49.i
+  %r.132.i = phi ptr [ null, %if.end49.i ], [ %r.132.ph.i, %if.end62.sink.split.i ]
   invoke void @umtx_unlock_75(ptr noundef nonnull @_ZL9resbMutex)
           to label %_ZL15entryOpenDirectPKcS0_P10UErrorCode.exit unwind label %terminate.lpad.i23.i
 
@@ -3915,8 +3912,8 @@ terminate.lpad.i23.i:                             ; preds = %if.end62.i
   call void @__clang_call_terminate(ptr %58) #23
   unreachable
 
-_ZL15entryOpenDirectPKcS0_P10UErrorCode.exit:     ; preds = %if.then8.i.i.i71, %_ZL9initCacheP10UErrorCode.exit.i50, %if.end62.i
-  %retval.0.i44 = phi ptr [ null, %_ZL9initCacheP10UErrorCode.exit.i50 ], [ %r.132.i, %if.end62.i ], [ null, %if.then8.i.i.i71 ]
+_ZL15entryOpenDirectPKcS0_P10UErrorCode.exit:     ; preds = %if.then8.i.i.i70, %_ZL9initCacheP10UErrorCode.exit.i50, %if.end62.i
+  %retval.0.i44 = phi ptr [ null, %_ZL9initCacheP10UErrorCode.exit.i50 ], [ %r.132.i, %if.end62.i ], [ null, %if.then8.i.i.i70 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %t1.i41)
   call void @llvm.lifetime.end.p0(i64 157, ptr nonnull %name.i42)
   br label %if.end13
@@ -3924,8 +3921,8 @@ _ZL15entryOpenDirectPKcS0_P10UErrorCode.exit:     ; preds = %if.then8.i.i.i71, %
 if.end13:                                         ; preds = %cleanup, %_ZL15entryOpenDirectPKcS0_P10UErrorCode.exit
   %entry1.1 = phi ptr [ %retval.1.i, %cleanup ], [ %retval.0.i44, %_ZL15entryOpenDirectPKcS0_P10UErrorCode.exit ]
   %59 = load i32, ptr %status, align 4
-  %cmp.i72 = icmp slt i32 %59, 1
-  br i1 %cmp.i72, label %if.end17, label %return
+  %cmp.i71 = icmp slt i32 %59, 1
+  br i1 %cmp.i71, label %if.end17, label %return
 
 if.end13.thread:                                  ; preds = %if.then8.i.i.i, %_ZL9initCacheP10UErrorCode.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %intStatus.i)
@@ -3936,8 +3933,8 @@ if.end13.thread:                                  ; preds = %if.then8.i.i.i, %_Z
   call void @llvm.lifetime.end.p0(i64 157, ptr nonnull %name.i)
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %canonLocaleID) #21
   %60 = load i32, ptr %status, align 4
-  %cmp.i7285 = icmp slt i32 %60, 1
-  br i1 %cmp.i7285, label %if.then19, label %return
+  %cmp.i7184 = icmp slt i32 %60, 1
+  br i1 %cmp.i7184, label %if.then19, label %return
 
 if.end17:                                         ; preds = %if.end13
   %cmp18 = icmp eq ptr %entry1.1, null
@@ -3964,10 +3961,10 @@ if.then25:                                        ; preds = %if.then22
 if.else27:                                        ; preds = %if.end20
   %fMagic1.i = getelementptr inbounds i8, ptr %r, i64 116
   %61 = load i32, ptr %fMagic1.i, align 4
-  %cmp.i74 = icmp eq i32 %61, 19700503
-  br i1 %cmp.i74, label %if.end29, label %.thread110
+  %cmp.i73 = icmp eq i32 %61, 19700503
+  br i1 %cmp.i73, label %if.end29, label %.thread109
 
-.thread110:                                       ; preds = %if.else27
+.thread109:                                       ; preds = %if.else27
   call fastcc void @_ZL16ures_closeBundleP15UResourceBundlea(ptr noundef nonnull %r, i8 noundef signext 0)
   br label %.sink.split
 
@@ -3979,27 +3976,27 @@ if.end29:                                         ; preds = %if.else27
   call fastcc void @_ZL16ures_closeBundleP15UResourceBundlea(ptr noundef nonnull %r, i8 noundef signext 0)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %r, i8 0, i64 136, i1 false)
   %spec.select = select i1 %cmp1.i.not, i32 19700503, i32 0
-  %spec.select118 = select i1 %cmp1.i.not, i32 19641227, i32 0
+  %spec.select117 = select i1 %cmp1.i.not, i32 19641227, i32 0
   br label %63
 
-.sink.split:                                      ; preds = %if.then22, %.thread110
-  %call23.sink = phi ptr [ %r, %.thread110 ], [ %call23, %if.then22 ]
-  %.ph = phi i32 [ 0, %.thread110 ], [ 19700503, %if.then22 ]
-  %.ph116 = phi i32 [ 0, %.thread110 ], [ 19641227, %if.then22 ]
+.sink.split:                                      ; preds = %if.then22, %.thread109
+  %call23.sink = phi ptr [ %r, %.thread109 ], [ %call23, %if.then22 ]
+  %.ph = phi i32 [ 0, %.thread109 ], [ 19700503, %if.then22 ]
+  %.ph115 = phi i32 [ 0, %.thread109 ], [ 19641227, %if.then22 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %call23.sink, i8 0, i64 136, i1 false)
   br label %63
 
 63:                                               ; preds = %if.end29, %.sink.split
   %64 = phi i32 [ %.ph, %.sink.split ], [ %spec.select, %if.end29 ]
-  %r.addr.097108 = phi ptr [ %call23.sink, %.sink.split ], [ %r, %if.end29 ]
-  %65 = phi i32 [ %.ph116, %.sink.split ], [ %spec.select118, %if.end29 ]
-  %66 = getelementptr inbounds i8, ptr %r.addr.097108, i64 116
+  %r.addr.096107 = phi ptr [ %call23.sink, %.sink.split ], [ %r, %if.end29 ]
+  %65 = phi i32 [ %.ph115, %.sink.split ], [ %spec.select117, %if.end29 ]
+  %66 = getelementptr inbounds i8, ptr %r.addr.096107, i64 116
   store i32 %64, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %r.addr.097108, i64 120
+  %67 = getelementptr inbounds i8, ptr %r.addr.096107, i64 120
   store i32 %65, ptr %67, align 8
-  %fData = getelementptr inbounds i8, ptr %r.addr.097108, i64 8
+  %fData = getelementptr inbounds i8, ptr %r.addr.096107, i64 8
   store ptr %entry1.1, ptr %fData, align 8
-  %fValidLocaleDataEntry = getelementptr inbounds i8, ptr %r.addr.097108, i64 24
+  %fValidLocaleDataEntry = getelementptr inbounds i8, ptr %r.addr.096107, i64 24
   store ptr %entry1.1, ptr %fValidLocaleDataEntry, align 8
   br i1 %cmp.not, label %land.end, label %land.rhs
 
@@ -4012,24 +4009,24 @@ land.rhs:                                         ; preds = %63
 
 land.end:                                         ; preds = %land.rhs, %63
   %conv = phi i8 [ 0, %63 ], [ %69, %land.rhs ]
-  %fHasFallback = getelementptr inbounds i8, ptr %r.addr.097108, i64 112
+  %fHasFallback = getelementptr inbounds i8, ptr %r.addr.096107, i64 112
   store i8 %conv, ptr %fHasFallback, align 8
-  %fIsTopLevel = getelementptr inbounds i8, ptr %r.addr.097108, i64 113
+  %fIsTopLevel = getelementptr inbounds i8, ptr %r.addr.096107, i64 113
   store i8 1, ptr %fIsTopLevel, align 1
-  %fData2.i76 = getelementptr inbounds i8, ptr %entry1.1, i64 40
+  %fData2.i75 = getelementptr inbounds i8, ptr %entry1.1, i64 40
   %rootRes = getelementptr inbounds i8, ptr %entry1.1, i64 72
   %70 = load i32, ptr %rootRes, align 8
-  %fRes = getelementptr inbounds i8, ptr %r.addr.097108, i64 108
+  %fRes = getelementptr inbounds i8, ptr %r.addr.096107, i64 108
   store i32 %70, ptr %fRes, align 4
-  %call36 = call i32 @res_countArrayItems_75(ptr noundef nonnull %fData2.i76, i32 noundef %70)
-  %fSize = getelementptr inbounds i8, ptr %r.addr.097108, i64 128
+  %call36 = call i32 @res_countArrayItems_75(ptr noundef nonnull %fData2.i75, i32 noundef %70)
+  %fSize = getelementptr inbounds i8, ptr %r.addr.096107, i64 128
   store i32 %call36, ptr %fSize, align 8
-  %fIndex = getelementptr inbounds i8, ptr %r.addr.097108, i64 124
+  %fIndex = getelementptr inbounds i8, ptr %r.addr.096107, i64 124
   store i32 -1, ptr %fIndex, align 4
   br label %return
 
 return:                                           ; preds = %if.end13.thread, %cleanup.thread, %if.end13, %entry, %land.end, %if.then25, %if.then19
-  %retval.0 = phi ptr [ null, %if.then19 ], [ null, %if.then25 ], [ %r.addr.097108, %land.end ], [ null, %entry ], [ null, %if.end13 ], [ null, %cleanup.thread ], [ null, %if.end13.thread ]
+  %retval.0 = phi ptr [ null, %if.then19 ], [ null, %if.then25 ], [ %r.addr.096107, %land.end ], [ null, %entry ], [ null, %if.end13 ], [ null, %cleanup.thread ], [ null, %if.end13.thread ]
   ret ptr %retval.0
 }
 

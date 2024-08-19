@@ -1698,8 +1698,8 @@ define noundef i32 @virtual_chown(ptr nocapture noundef readonly %0, i32 noundef
 
 20:                                               ; preds = %16, %18, %4
   %.07 = phi i32 [ -1, %4 ], [ %17, %16 ], [ %19, %18 ]
-  %.sink = load ptr, ptr %5, align 8
-  call void @_efree(ptr noundef %.sink) #21
+  %21 = load ptr, ptr %5, align 8
+  call void @_efree(ptr noundef %21) #21
   ret i32 %.07
 }
 
@@ -1769,8 +1769,8 @@ define noundef i32 @virtual_open(ptr nocapture noundef readonly %0, i32 noundef 
 
 36:                                               ; preds = %28, %33, %2
   %.0 = phi i32 [ -1, %2 ], [ %32, %28 ], [ %35, %33 ]
-  %.sink = load ptr, ptr %3, align 8
-  call void @_efree(ptr noundef %.sink) #21
+  %37 = load ptr, ptr %3, align 8
+  call void @_efree(ptr noundef %37) #21
   ret i32 %.0
 }
 
@@ -1826,7 +1826,7 @@ define noundef i32 @virtual_rename(ptr nocapture noundef readonly %0, ptr nocapt
   %12 = call i32 @virtual_file_ex(ptr noundef nonnull %3, ptr noundef %0, ptr noundef null, i32 noundef 0)
   %.not = icmp eq i32 %12, 0
   %13 = load ptr, ptr %3, align 8
-  br i1 %.not, label %14, label %31
+  br i1 %.not, label %14, label %28
 
 14:                                               ; preds = %2
   %15 = load i64, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 8), align 8
@@ -1841,27 +1841,24 @@ define noundef i32 @virtual_rename(ptr nocapture noundef readonly %0, ptr nocapt
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr align 1 %19, i64 %21, i1 false)
   %22 = call i32 @virtual_file_ex(ptr noundef nonnull %4, ptr noundef %1, ptr noundef null, i32 noundef 0)
   %.not7 = icmp eq i32 %22, 0
-  br i1 %.not7, label %26, label %23
+  br i1 %.not7, label %23, label %.sink.split
 
 23:                                               ; preds = %14
-  %24 = load ptr, ptr %3, align 8
-  call void @_efree(ptr noundef %24) #21
-  store i64 0, ptr %6, align 8
-  %25 = load ptr, ptr %4, align 8
-  br label %31
+  %24 = load ptr, ptr %4, align 8
+  %25 = call i32 @rename(ptr noundef %13, ptr noundef %24) #21
+  br label %.sink.split
 
-26:                                               ; preds = %14
+.sink.split:                                      ; preds = %14, %23
+  %.0.ph = phi i32 [ %25, %23 ], [ -1, %14 ]
+  %26 = load ptr, ptr %3, align 8
+  call void @_efree(ptr noundef %26) #21
+  store i64 0, ptr %6, align 8
   %27 = load ptr, ptr %4, align 8
-  %28 = call i32 @rename(ptr noundef %13, ptr noundef %27) #21
-  %29 = load ptr, ptr %3, align 8
-  call void @_efree(ptr noundef %29) #21
-  store i64 0, ptr %6, align 8
-  %30 = load ptr, ptr %4, align 8
-  br label %31
+  br label %28
 
-31:                                               ; preds = %2, %26, %23
-  %.sink = phi ptr [ %30, %26 ], [ %25, %23 ], [ %13, %2 ]
-  %.0 = phi i32 [ %28, %26 ], [ -1, %23 ], [ -1, %2 ]
+28:                                               ; preds = %.sink.split, %2
+  %.sink = phi ptr [ %13, %2 ], [ %27, %.sink.split ]
+  %.0 = phi i32 [ -1, %2 ], [ %.0.ph, %.sink.split ]
   call void @_efree(ptr noundef %.sink) #21
   ret i32 %.0
 }

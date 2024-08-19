@@ -918,136 +918,136 @@ default.unreachable:                              ; preds = %96
   br i1 %389, label %382, label %.loopexit, !llvm.loop !15
 
 .loopexit.sink.split:                             ; preds = %267, %143
-  %.sink251 = load ptr, ptr %3, align 8
-  %390 = getelementptr inbounds i8, ptr %.sink251, i64 40
-  store i32 47, ptr %390, align 8
-  %391 = load ptr, ptr %.sink251, align 8
-  call void %391(ptr noundef nonnull %3) #11
+  %390 = load ptr, ptr %3, align 8
+  %391 = getelementptr inbounds i8, ptr %390, i64 40
+  store i32 47, ptr %391, align 8
+  %392 = load ptr, ptr %390, align 8
+  call void %392(ptr noundef nonnull %3) #11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %374, %366, %382, %189, %222, %.loopexit.sink.split, %.preheader185, %.preheader183, %.preheader181, %.preheader176, %.preheader, %._crit_edge, %._crit_edge206
   %.b146 = load i1, ptr @report, align 4
-  %392 = load i32, ptr @max_scans, align 4
-  %393 = icmp ne i32 %392, 0
-  %or.cond3 = select i1 %.b146, i1 true, i1 %393
-  br i1 %or.cond3, label %394, label %398
+  %393 = load i32, ptr @max_scans, align 4
+  %394 = icmp ne i32 %393, 0
+  %or.cond3 = select i1 %.b146, i1 true, i1 %394
+  br i1 %or.cond3, label %395, label %399
 
-394:                                              ; preds = %.loopexit
-  %395 = getelementptr inbounds i8, ptr %5, i64 28
-  %396 = load i32, ptr %395, align 4
-  %397 = getelementptr inbounds i8, ptr %5, i64 24
-  store i32 %396, ptr %397, align 8
-  br label %398
+395:                                              ; preds = %.loopexit
+  %396 = getelementptr inbounds i8, ptr %5, i64 28
+  %397 = load i32, ptr %396, align 4
+  %398 = getelementptr inbounds i8, ptr %5, i64 24
+  store i32 %397, ptr %398, align 8
+  br label %399
 
-398:                                              ; preds = %.loopexit, %394
-  %399 = load ptr, ptr @icc_filename, align 8
-  %.not161 = icmp eq ptr %399, null
-  br i1 %.not161, label %434, label %400
+399:                                              ; preds = %.loopexit, %395
+  %400 = load ptr, ptr @icc_filename, align 8
+  %.not161 = icmp eq ptr %400, null
+  br i1 %.not161, label %435, label %401
 
-400:                                              ; preds = %398
-  %401 = call noalias ptr @fopen(ptr noundef nonnull %399, ptr noundef nonnull @.str.4)
-  %402 = icmp eq ptr %401, null
-  br i1 %402, label %403, label %408
+401:                                              ; preds = %399
+  %402 = call noalias ptr @fopen(ptr noundef nonnull %400, ptr noundef nonnull @.str.4)
+  %403 = icmp eq ptr %402, null
+  br i1 %403, label %404, label %409
 
-403:                                              ; preds = %400
-  %404 = load ptr, ptr @stderr, align 8
-  %405 = load ptr, ptr @progname, align 8
-  %406 = load ptr, ptr @icc_filename, align 8
-  %407 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %404, ptr noundef nonnull @.str.3, ptr noundef %405, ptr noundef %406) #12
+404:                                              ; preds = %401
+  %405 = load ptr, ptr @stderr, align 8
+  %406 = load ptr, ptr @progname, align 8
+  %407 = load ptr, ptr @icc_filename, align 8
+  %408 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %405, ptr noundef nonnull @.str.3, ptr noundef %406, ptr noundef %407) #12
   call void @exit(i32 noundef 1) #13
   unreachable
 
-408:                                              ; preds = %400
-  %409 = call i32 @jpeg_read_icc_profile(ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
-  %.not162 = icmp eq i32 %409, 0
-  br i1 %.not162, label %426, label %410
+409:                                              ; preds = %401
+  %410 = call i32 @jpeg_read_icc_profile(ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
+  %.not162 = icmp eq i32 %410, 0
+  br i1 %.not162, label %427, label %411
 
-410:                                              ; preds = %408
-  %411 = load ptr, ptr %6, align 8
-  %412 = load i32, ptr %7, align 4
-  %413 = zext i32 %412 to i64
-  %414 = call i64 @fwrite(ptr noundef %411, i64 noundef %413, i64 noundef 1, ptr noundef nonnull %401)
-  %415 = icmp eq i64 %414, 0
-  br i1 %415, label %416, label %423
+411:                                              ; preds = %409
+  %412 = load ptr, ptr %6, align 8
+  %413 = load i32, ptr %7, align 4
+  %414 = zext i32 %413 to i64
+  %415 = call i64 @fwrite(ptr noundef %412, i64 noundef %414, i64 noundef 1, ptr noundef nonnull %402)
+  %416 = icmp eq i64 %415, 0
+  br i1 %416, label %417, label %424
 
-416:                                              ; preds = %410
-  %417 = load ptr, ptr @stderr, align 8
-  %418 = load ptr, ptr @progname, align 8
-  %419 = load ptr, ptr @icc_filename, align 8
-  %420 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %417, ptr noundef nonnull @.str.13, ptr noundef %418, ptr noundef %419) #12
-  %421 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %421) #11
-  %422 = call i32 @fclose(ptr noundef nonnull %401)
+417:                                              ; preds = %411
+  %418 = load ptr, ptr @stderr, align 8
+  %419 = load ptr, ptr @progname, align 8
+  %420 = load ptr, ptr @icc_filename, align 8
+  %421 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %418, ptr noundef nonnull @.str.13, ptr noundef %419, ptr noundef %420) #12
+  %422 = load ptr, ptr %6, align 8
+  call void @free(ptr noundef %422) #11
+  %423 = call i32 @fclose(ptr noundef nonnull %402)
   call void @exit(i32 noundef 1) #13
   unreachable
 
-423:                                              ; preds = %410
-  %424 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %424) #11
-  %425 = call i32 @fclose(ptr noundef nonnull %401)
-  br label %434
+424:                                              ; preds = %411
+  %425 = load ptr, ptr %6, align 8
+  call void @free(ptr noundef %425) #11
+  %426 = call i32 @fclose(ptr noundef nonnull %402)
+  br label %435
 
-426:                                              ; preds = %408
-  %427 = load ptr, ptr %3, align 8
-  %428 = getelementptr inbounds i8, ptr %427, i64 40
-  %429 = load i32, ptr %428, align 8
-  %.not163 = icmp eq i32 %429, 127
-  br i1 %.not163, label %434, label %430
+427:                                              ; preds = %409
+  %428 = load ptr, ptr %3, align 8
+  %429 = getelementptr inbounds i8, ptr %428, i64 40
+  %430 = load i32, ptr %429, align 8
+  %.not163 = icmp eq i32 %430, 127
+  br i1 %.not163, label %435, label %431
 
-430:                                              ; preds = %426
-  %431 = load ptr, ptr @stderr, align 8
-  %432 = load ptr, ptr @progname, align 8
-  %433 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %431, ptr noundef nonnull @.str.14, ptr noundef %432) #12
-  br label %434
+431:                                              ; preds = %427
+  %432 = load ptr, ptr @stderr, align 8
+  %433 = load ptr, ptr @progname, align 8
+  %434 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %432, ptr noundef nonnull @.str.14, ptr noundef %433) #12
+  br label %435
 
-434:                                              ; preds = %423, %430, %426, %398
-  %435 = getelementptr inbounds i8, ptr %.0, i64 16
-  %436 = load ptr, ptr %435, align 8
-  call void %436(ptr noundef nonnull %3, ptr noundef nonnull %.0) #11
-  %437 = call i32 @jpeg_finish_decompress(ptr noundef nonnull %3) #11
+435:                                              ; preds = %424, %431, %427, %399
+  %436 = getelementptr inbounds i8, ptr %.0, i64 16
+  %437 = load ptr, ptr %436, align 8
+  call void %437(ptr noundef nonnull %3, ptr noundef nonnull %.0) #11
+  %438 = call i32 @jpeg_finish_decompress(ptr noundef nonnull %3) #11
   call void @jpeg_destroy_decompress(ptr noundef nonnull %3) #11
-  %438 = load ptr, ptr @stdin, align 8
-  %.not164 = icmp eq ptr %.0113, %438
-  br i1 %.not164, label %441, label %439
+  %439 = load ptr, ptr @stdin, align 8
+  %.not164 = icmp eq ptr %.0113, %439
+  br i1 %.not164, label %442, label %440
 
-439:                                              ; preds = %434
-  %440 = call i32 @fclose(ptr noundef %.0113)
-  br label %441
+440:                                              ; preds = %435
+  %441 = call i32 @fclose(ptr noundef %.0113)
+  br label %442
 
-441:                                              ; preds = %439, %434
-  %442 = load ptr, ptr @stdout, align 8
-  %.not165 = icmp eq ptr %.0112, %442
-  br i1 %.not165, label %445, label %443
+442:                                              ; preds = %440, %435
+  %443 = load ptr, ptr @stdout, align 8
+  %.not165 = icmp eq ptr %.0112, %443
+  br i1 %.not165, label %446, label %444
 
-443:                                              ; preds = %441
-  %444 = call i32 @fclose(ptr noundef %.0112)
-  br label %445
+444:                                              ; preds = %442
+  %445 = call i32 @fclose(ptr noundef %.0112)
+  br label %446
 
-445:                                              ; preds = %443, %441
+446:                                              ; preds = %444, %442
   %.b145 = load i1, ptr @report, align 4
-  %446 = load i32, ptr @max_scans, align 4
-  %447 = icmp ne i32 %446, 0
-  %or.cond5 = select i1 %.b145, i1 true, i1 %447
-  br i1 %or.cond5, label %448, label %449
+  %447 = load i32, ptr @max_scans, align 4
+  %448 = icmp ne i32 %447, 0
+  %or.cond5 = select i1 %.b145, i1 true, i1 %448
+  br i1 %or.cond5, label %449, label %450
 
-448:                                              ; preds = %445
+449:                                              ; preds = %446
   call void @end_progress_monitor(ptr noundef nonnull %3) #11
-  br label %449
+  br label %450
 
-449:                                              ; preds = %445, %448
+450:                                              ; preds = %446, %449
   %.b149 = load i1, ptr @memsrc, align 4
-  br i1 %.b149, label %450, label %451
+  br i1 %.b149, label %451, label %452
 
-450:                                              ; preds = %449
+451:                                              ; preds = %450
   call void @free(ptr noundef %.1) #11
-  br label %451
+  br label %452
 
-451:                                              ; preds = %450, %449
-  %452 = getelementptr inbounds i8, ptr %4, i64 128
-  %453 = load i64, ptr %452, align 8
-  %.not166 = icmp eq i64 %453, 0
-  %454 = select i1 %.not166, i32 0, i32 2
-  call void @exit(i32 noundef %454) #15
+452:                                              ; preds = %451, %450
+  %453 = getelementptr inbounds i8, ptr %4, i64 128
+  %454 = load i64, ptr %453, align 8
+  %.not166 = icmp eq i64 %454, 0
+  %455 = select i1 %.not166, i32 0, i32 2
+  call void @exit(i32 noundef %455) #15
   unreachable
 }
 

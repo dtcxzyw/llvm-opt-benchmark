@@ -290,8 +290,7 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
   %81 = or disjoint i64 %80, %76
   store i64 %81, ptr %66, align 8
   %82 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %82, ptr %5, align 8
-  br label %107
+  br label %.sink.split
 
 83:                                               ; preds = %37
   %84 = getelementptr inbounds i8, ptr %7, i64 296
@@ -315,8 +314,7 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
 
 95:                                               ; preds = %86
   %96 = getelementptr inbounds i8, ptr %88, i64 7
-  store ptr %96, ptr %5, align 8
-  br label %107
+  br label %.sink.split
 
 97:                                               ; preds = %37
   %98 = load i8, ptr %57, align 1
@@ -330,11 +328,15 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
   %105 = or disjoint i64 %104, %99
   store i64 %105, ptr %100, align 8
   %106 = getelementptr inbounds i8, ptr %0, i64 14
-  store ptr %106, ptr %5, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %63, %95, %97
+  %.sink160 = phi ptr [ %106, %97 ], [ %96, %95 ], [ %82, %63 ]
+  store ptr %.sink160, ptr %5, align 8
   br label %107
 
-107:                                              ; preds = %37, %97, %95, %63
-  %108 = phi ptr [ %57, %37 ], [ %106, %97 ], [ %96, %95 ], [ %82, %63 ]
+107:                                              ; preds = %.sink.split, %37
+  %108 = phi ptr [ %57, %37 ], [ %.sink160, %.sink.split ]
   %109 = load ptr, ptr %2, align 8
   %110 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %109) #6
   switch i8 %110, label %155 [
@@ -370,8 +372,7 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
   %129 = or disjoint i64 %128, %124
   store i64 %129, ptr %114, align 8
   %130 = getelementptr inbounds i8, ptr %108, i64 4
-  store ptr %130, ptr %5, align 8
-  br label %155
+  br label %.sink.split161
 
 131:                                              ; preds = %107
   %132 = getelementptr inbounds i8, ptr %7, i64 304
@@ -396,8 +397,7 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
 
 143:                                              ; preds = %134
   %144 = getelementptr inbounds i8, ptr %136, i64 7
-  store ptr %144, ptr %5, align 8
-  br label %155
+  br label %.sink.split161
 
 145:                                              ; preds = %107
   %146 = load i8, ptr %108, align 1
@@ -412,11 +412,15 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
   %153 = or disjoint i64 %152, %147
   store i64 %153, ptr %148, align 8
   %154 = getelementptr inbounds i8, ptr %108, i64 2
-  store ptr %154, ptr %5, align 8
+  br label %.sink.split161
+
+.sink.split161:                                   ; preds = %111, %143, %145
+  %.sink163 = phi ptr [ %154, %145 ], [ %144, %143 ], [ %130, %111 ]
+  store ptr %.sink163, ptr %5, align 8
   br label %155
 
-155:                                              ; preds = %107, %145, %143, %111
-  %156 = phi ptr [ %108, %107 ], [ %154, %145 ], [ %144, %143 ], [ %130, %111 ]
+155:                                              ; preds = %.sink.split161, %107
+  %156 = phi ptr [ %108, %107 ], [ %.sink163, %.sink.split161 ]
   %157 = load ptr, ptr %2, align 8
   %158 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %157) #6
   switch i8 %158, label %203 [
@@ -452,8 +456,7 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
   %177 = or disjoint i64 %176, %172
   store i64 %177, ptr %162, align 8
   %178 = getelementptr inbounds i8, ptr %156, i64 4
-  store ptr %178, ptr %5, align 8
-  br label %203
+  br label %.sink.split164
 
 179:                                              ; preds = %155
   %180 = getelementptr inbounds i8, ptr %7, i64 312
@@ -478,8 +481,7 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
 
 191:                                              ; preds = %182
   %192 = getelementptr inbounds i8, ptr %184, i64 7
-  store ptr %192, ptr %5, align 8
-  br label %203
+  br label %.sink.split164
 
 193:                                              ; preds = %155
   %194 = load i8, ptr %156, align 1
@@ -494,11 +496,15 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
   %201 = or disjoint i64 %200, %195
   store i64 %201, ptr %196, align 8
   %202 = getelementptr inbounds i8, ptr %156, i64 2
-  store ptr %202, ptr %5, align 8
+  br label %.sink.split164
+
+.sink.split164:                                   ; preds = %159, %191, %193
+  %.sink166 = phi ptr [ %202, %193 ], [ %192, %191 ], [ %178, %159 ]
+  store ptr %.sink166, ptr %5, align 8
   br label %203
 
-203:                                              ; preds = %155, %193, %191, %159
-  %204 = phi ptr [ %156, %155 ], [ %202, %193 ], [ %192, %191 ], [ %178, %159 ]
+203:                                              ; preds = %.sink.split164, %155
+  %204 = phi ptr [ %156, %155 ], [ %.sink166, %.sink.split164 ]
   %205 = load ptr, ptr %2, align 8
   %206 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %205) #6
   switch i8 %206, label %251 [
@@ -534,8 +540,7 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
   %225 = or disjoint i64 %224, %220
   store i64 %225, ptr %210, align 8
   %226 = getelementptr inbounds i8, ptr %204, i64 4
-  store ptr %226, ptr %5, align 8
-  br label %251
+  br label %.sink.split167
 
 227:                                              ; preds = %203
   %228 = getelementptr inbounds i8, ptr %7, i64 320
@@ -560,8 +565,7 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
 
 239:                                              ; preds = %230
   %240 = getelementptr inbounds i8, ptr %232, i64 7
-  store ptr %240, ptr %5, align 8
-  br label %251
+  br label %.sink.split167
 
 241:                                              ; preds = %203
   %242 = load i8, ptr %204, align 1
@@ -576,11 +580,15 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
   %249 = or disjoint i64 %248, %243
   store i64 %249, ptr %244, align 8
   %250 = getelementptr inbounds i8, ptr %204, i64 2
-  store ptr %250, ptr %5, align 8
+  br label %.sink.split167
+
+.sink.split167:                                   ; preds = %207, %239, %241
+  %.sink169 = phi ptr [ %250, %241 ], [ %240, %239 ], [ %226, %207 ]
+  store ptr %.sink169, ptr %5, align 8
   br label %251
 
-251:                                              ; preds = %203, %241, %239, %207
-  %252 = phi ptr [ %204, %203 ], [ %250, %241 ], [ %240, %239 ], [ %226, %207 ]
+251:                                              ; preds = %.sink.split167, %203
+  %252 = phi ptr [ %204, %203 ], [ %.sink169, %.sink.split167 ]
   %253 = load ptr, ptr %2, align 8
   %254 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %253) #6
   switch i8 %254, label %299 [
@@ -616,8 +624,7 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
   %273 = or disjoint i64 %272, %268
   store i64 %273, ptr %258, align 8
   %274 = getelementptr inbounds i8, ptr %252, i64 4
-  store ptr %274, ptr %5, align 8
-  br label %299
+  br label %.sink.split170
 
 275:                                              ; preds = %251
   %276 = getelementptr inbounds i8, ptr %7, i64 328
@@ -642,8 +649,7 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
 
 287:                                              ; preds = %278
   %288 = getelementptr inbounds i8, ptr %280, i64 7
-  store ptr %288, ptr %5, align 8
-  br label %299
+  br label %.sink.split170
 
 289:                                              ; preds = %251
   %290 = load i8, ptr %252, align 1
@@ -658,11 +664,15 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
   %297 = or disjoint i64 %296, %291
   store i64 %297, ptr %292, align 8
   %298 = getelementptr inbounds i8, ptr %252, i64 2
-  store ptr %298, ptr %5, align 8
+  br label %.sink.split170
+
+.sink.split170:                                   ; preds = %255, %287, %289
+  %.sink172 = phi ptr [ %298, %289 ], [ %288, %287 ], [ %274, %255 ]
+  store ptr %.sink172, ptr %5, align 8
   br label %299
 
-299:                                              ; preds = %251, %289, %287, %255
-  %300 = phi ptr [ %252, %251 ], [ %298, %289 ], [ %288, %287 ], [ %274, %255 ]
+299:                                              ; preds = %.sink.split170, %251
+  %300 = phi ptr [ %252, %251 ], [ %.sink172, %.sink.split170 ]
   %301 = load ptr, ptr %2, align 8
   %302 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %301) #6
   switch i8 %302, label %347 [
@@ -698,8 +708,7 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
   %321 = or disjoint i64 %320, %316
   store i64 %321, ptr %306, align 8
   %322 = getelementptr inbounds i8, ptr %300, i64 4
-  store ptr %322, ptr %5, align 8
-  br label %347
+  br label %.sink.split173
 
 323:                                              ; preds = %299
   %324 = getelementptr inbounds i8, ptr %7, i64 336
@@ -724,8 +733,7 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
 
 335:                                              ; preds = %326
   %336 = getelementptr inbounds i8, ptr %328, i64 7
-  store ptr %336, ptr %5, align 8
-  br label %347
+  br label %.sink.split173
 
 337:                                              ; preds = %299
   %338 = load i8, ptr %300, align 1
@@ -740,10 +748,14 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
   %345 = or disjoint i64 %344, %339
   store i64 %345, ptr %340, align 8
   %346 = getelementptr inbounds i8, ptr %300, i64 2
-  store ptr %346, ptr %5, align 8
+  br label %.sink.split173
+
+.sink.split173:                                   ; preds = %337, %335, %303
+  %.sink174 = phi ptr [ %322, %303 ], [ %336, %335 ], [ %346, %337 ]
+  store ptr %.sink174, ptr %5, align 8
   br label %347
 
-347:                                              ; preds = %303, %335, %337, %299
+347:                                              ; preds = %.sink.split173, %299
   %348 = load ptr, ptr %2, align 8
   %349 = getelementptr inbounds i8, ptr %7, i64 264
   call void @H5F_addr_decode(ptr noundef %348, ptr noundef nonnull %5, ptr noundef nonnull %349) #6
@@ -865,10 +877,10 @@ define internal noundef i32 @H5EA__cache_hdr_serialize(ptr noundef %0, ptr nound
   store ptr %30, ptr %5, align 8
   store i8 %29, ptr %27, align 1
   %31 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #6
-  switch i8 %31, label %68 [
+  switch i8 %31, label %60 [
     i8 4, label %32
-    i8 8, label %49
-    i8 2, label %59
+    i8 8, label %43
+    i8 2, label %51
   ]
 
 32:                                               ; preds = %4
@@ -884,471 +896,441 @@ define internal noundef i32 @H5EA__cache_hdr_serialize(ptr noundef %0, ptr nound
   %40 = getelementptr inbounds i8, ptr %1, i64 14
   %41 = load i64, ptr %33, align 8
   %42 = lshr i64 %41, 16
-  %43 = trunc i64 %42 to i8
-  store i8 %43, ptr %40, align 1
-  %44 = getelementptr inbounds i8, ptr %1, i64 15
-  %45 = load i64, ptr %33, align 8
-  %46 = lshr i64 %45, 24
-  %47 = trunc i64 %46 to i8
-  store i8 %47, ptr %44, align 1
-  %48 = getelementptr inbounds i8, ptr %1, i64 16
-  store ptr %48, ptr %5, align 8
-  br label %68
+  br label %.sink.split.sink.split
 
-49:                                               ; preds = %4
-  %50 = getelementptr inbounds i8, ptr %3, i64 296
-  %51 = load i64, ptr %50, align 8
-  br label %52
+43:                                               ; preds = %4
+  %44 = getelementptr inbounds i8, ptr %3, i64 296
+  %45 = load i64, ptr %44, align 8
+  br label %46
 
-52:                                               ; preds = %49, %52
-  %.0135142 = phi ptr [ %30, %49 ], [ %54, %52 ]
-  %.0137141 = phi i64 [ 0, %49 ], [ %55, %52 ]
-  %.0139140 = phi i64 [ %51, %49 ], [ %56, %52 ]
-  %53 = trunc i64 %.0139140 to i8
-  %54 = getelementptr inbounds i8, ptr %.0135142, i64 1
-  store i8 %53, ptr %.0135142, align 1
-  %55 = add nuw nsw i64 %.0137141, 1
-  %56 = lshr i64 %.0139140, 8
-  %exitcond.not = icmp eq i64 %55, 8
-  br i1 %exitcond.not, label %57, label %52
+46:                                               ; preds = %43, %46
+  %.0135142 = phi ptr [ %30, %43 ], [ %48, %46 ]
+  %.0137141 = phi i64 [ 0, %43 ], [ %49, %46 ]
+  %.0139140 = phi i64 [ %45, %43 ], [ %50, %46 ]
+  %47 = trunc i64 %.0139140 to i8
+  %48 = getelementptr inbounds i8, ptr %.0135142, i64 1
+  store i8 %47, ptr %.0135142, align 1
+  %49 = add nuw nsw i64 %.0137141, 1
+  %50 = lshr i64 %.0139140, 8
+  %exitcond.not = icmp eq i64 %49, 8
+  br i1 %exitcond.not, label %.sink.split, label %46
 
-57:                                               ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %1, i64 20
-  store ptr %58, ptr %5, align 8
-  br label %68
+51:                                               ; preds = %4
+  %52 = getelementptr inbounds i8, ptr %3, i64 296
+  %53 = load i64, ptr %52, align 8
+  br label %.sink.split.sink.split
 
-59:                                               ; preds = %4
-  %60 = getelementptr inbounds i8, ptr %3, i64 296
-  %61 = load i64, ptr %60, align 8
-  %62 = trunc i64 %61 to i8
-  store i8 %62, ptr %30, align 1
-  %63 = getelementptr inbounds i8, ptr %1, i64 13
-  %64 = load i64, ptr %60, align 8
-  %65 = lshr i64 %64, 8
-  %66 = trunc i64 %65 to i8
-  store i8 %66, ptr %63, align 1
-  %67 = getelementptr inbounds i8, ptr %1, i64 14
-  store ptr %67, ptr %5, align 8
-  br label %68
+.sink.split.sink.split:                           ; preds = %51, %32
+  %.sink184 = phi i64 [ %42, %32 ], [ %53, %51 ]
+  %.sink183 = phi ptr [ %40, %32 ], [ %30, %51 ]
+  %.sink = phi i64 [ 15, %32 ], [ 13, %51 ]
+  %.sink181 = phi ptr [ %33, %32 ], [ %52, %51 ]
+  %.sink180 = phi i64 [ 24, %32 ], [ 8, %51 ]
+  %.sink163.ph = phi i64 [ 16, %32 ], [ 14, %51 ]
+  %54 = trunc i64 %.sink184 to i8
+  store i8 %54, ptr %.sink183, align 1
+  %55 = getelementptr inbounds i8, ptr %1, i64 %.sink
+  %56 = load i64, ptr %.sink181, align 8
+  %57 = lshr i64 %56, %.sink180
+  %58 = trunc i64 %57 to i8
+  store i8 %58, ptr %55, align 1
+  br label %.sink.split
 
-68:                                               ; preds = %4, %59, %57, %32
-  %69 = phi ptr [ %30, %4 ], [ %67, %59 ], [ %58, %57 ], [ %48, %32 ]
-  %70 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #6
-  switch i8 %70, label %107 [
-    i8 4, label %71
-    i8 8, label %88
-    i8 2, label %98
+.sink.split:                                      ; preds = %46, %.sink.split.sink.split
+  %.sink163 = phi i64 [ %.sink163.ph, %.sink.split.sink.split ], [ 20, %46 ]
+  %59 = getelementptr inbounds i8, ptr %1, i64 %.sink163
+  store ptr %59, ptr %5, align 8
+  br label %60
+
+60:                                               ; preds = %.sink.split, %4
+  %61 = phi ptr [ %30, %4 ], [ %59, %.sink.split ]
+  %62 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #6
+  switch i8 %62, label %91 [
+    i8 4, label %63
+    i8 8, label %74
+    i8 2, label %82
   ]
 
-71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %3, i64 304
-  %73 = load i64, ptr %72, align 8
-  %74 = trunc i64 %73 to i8
-  store i8 %74, ptr %69, align 1
-  %75 = getelementptr inbounds i8, ptr %69, i64 1
-  %76 = load i64, ptr %72, align 8
-  %77 = lshr i64 %76, 8
-  %78 = trunc i64 %77 to i8
-  store i8 %78, ptr %75, align 1
-  %79 = getelementptr inbounds i8, ptr %69, i64 2
-  %80 = load i64, ptr %72, align 8
-  %81 = lshr i64 %80, 16
-  %82 = trunc i64 %81 to i8
-  store i8 %82, ptr %79, align 1
-  %83 = getelementptr inbounds i8, ptr %69, i64 3
-  %84 = load i64, ptr %72, align 8
-  %85 = lshr i64 %84, 24
-  %86 = trunc i64 %85 to i8
-  store i8 %86, ptr %83, align 1
-  %87 = getelementptr inbounds i8, ptr %69, i64 4
-  store ptr %87, ptr %5, align 8
-  br label %107
+63:                                               ; preds = %60
+  %64 = getelementptr inbounds i8, ptr %3, i64 304
+  %65 = load i64, ptr %64, align 8
+  %66 = trunc i64 %65 to i8
+  store i8 %66, ptr %61, align 1
+  %67 = getelementptr inbounds i8, ptr %61, i64 1
+  %68 = load i64, ptr %64, align 8
+  %69 = lshr i64 %68, 8
+  %70 = trunc i64 %69 to i8
+  store i8 %70, ptr %67, align 1
+  %71 = getelementptr inbounds i8, ptr %61, i64 2
+  %72 = load i64, ptr %64, align 8
+  %73 = lshr i64 %72, 16
+  br label %.sink.split164.sink.split
 
-88:                                               ; preds = %68
-  %89 = getelementptr inbounds i8, ptr %3, i64 304
-  %90 = load i64, ptr %89, align 8
+74:                                               ; preds = %60
+  %75 = getelementptr inbounds i8, ptr %3, i64 304
+  %76 = load i64, ptr %75, align 8
+  br label %77
+
+77:                                               ; preds = %74, %77
+  %.0130145 = phi ptr [ %61, %74 ], [ %79, %77 ]
+  %.0132144 = phi i64 [ 0, %74 ], [ %80, %77 ]
+  %.0134143 = phi i64 [ %76, %74 ], [ %81, %77 ]
+  %78 = trunc i64 %.0134143 to i8
+  %79 = getelementptr inbounds i8, ptr %.0130145, i64 1
+  store i8 %78, ptr %.0130145, align 1
+  %80 = add nuw nsw i64 %.0132144, 1
+  %81 = lshr i64 %.0134143, 8
+  %exitcond158.not = icmp eq i64 %80, 8
+  br i1 %exitcond158.not, label %.sink.split164, label %77
+
+82:                                               ; preds = %60
+  %83 = getelementptr inbounds i8, ptr %3, i64 304
+  %84 = load i64, ptr %83, align 8
+  br label %.sink.split164.sink.split
+
+.sink.split164.sink.split:                        ; preds = %82, %63
+  %.sink194 = phi i64 [ %73, %63 ], [ %84, %82 ]
+  %.sink193 = phi ptr [ %71, %63 ], [ %61, %82 ]
+  %.sink191 = phi i64 [ 3, %63 ], [ 1, %82 ]
+  %.sink190 = phi ptr [ %64, %63 ], [ %83, %82 ]
+  %.sink189 = phi i64 [ 24, %63 ], [ 8, %82 ]
+  %.sink165.ph = phi i64 [ 4, %63 ], [ 2, %82 ]
+  %85 = trunc i64 %.sink194 to i8
+  store i8 %85, ptr %.sink193, align 1
+  %86 = getelementptr inbounds i8, ptr %61, i64 %.sink191
+  %87 = load i64, ptr %.sink190, align 8
+  %88 = lshr i64 %87, %.sink189
+  %89 = trunc i64 %88 to i8
+  store i8 %89, ptr %86, align 1
+  br label %.sink.split164
+
+.sink.split164:                                   ; preds = %77, %.sink.split164.sink.split
+  %.sink165 = phi i64 [ %.sink165.ph, %.sink.split164.sink.split ], [ 8, %77 ]
+  %90 = getelementptr inbounds i8, ptr %61, i64 %.sink165
+  store ptr %90, ptr %5, align 8
   br label %91
 
-91:                                               ; preds = %88, %91
-  %.0130145 = phi ptr [ %69, %88 ], [ %93, %91 ]
-  %.0132144 = phi i64 [ 0, %88 ], [ %94, %91 ]
-  %.0134143 = phi i64 [ %90, %88 ], [ %95, %91 ]
-  %92 = trunc i64 %.0134143 to i8
-  %93 = getelementptr inbounds i8, ptr %.0130145, i64 1
-  store i8 %92, ptr %.0130145, align 1
-  %94 = add nuw nsw i64 %.0132144, 1
-  %95 = lshr i64 %.0134143, 8
-  %exitcond158.not = icmp eq i64 %94, 8
-  br i1 %exitcond158.not, label %96, label %91
-
-96:                                               ; preds = %91
-  %97 = getelementptr inbounds i8, ptr %69, i64 8
-  store ptr %97, ptr %5, align 8
-  br label %107
-
-98:                                               ; preds = %68
-  %99 = getelementptr inbounds i8, ptr %3, i64 304
-  %100 = load i64, ptr %99, align 8
-  %101 = trunc i64 %100 to i8
-  store i8 %101, ptr %69, align 1
-  %102 = getelementptr inbounds i8, ptr %69, i64 1
-  %103 = load i64, ptr %99, align 8
-  %104 = lshr i64 %103, 8
-  %105 = trunc i64 %104 to i8
-  store i8 %105, ptr %102, align 1
-  %106 = getelementptr inbounds i8, ptr %69, i64 2
-  store ptr %106, ptr %5, align 8
-  br label %107
-
-107:                                              ; preds = %68, %98, %96, %71
-  %108 = phi ptr [ %69, %68 ], [ %106, %98 ], [ %97, %96 ], [ %87, %71 ]
-  %109 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #6
-  switch i8 %109, label %153 [
-    i8 4, label %110
-    i8 8, label %131
-    i8 2, label %142
+91:                                               ; preds = %.sink.split164, %60
+  %92 = phi ptr [ %61, %60 ], [ %90, %.sink.split164 ]
+  %93 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #6
+  switch i8 %93, label %126 [
+    i8 4, label %94
+    i8 8, label %107
+    i8 2, label %115
   ]
 
-110:                                              ; preds = %107
-  %111 = getelementptr inbounds i8, ptr %3, i64 312
-  %112 = load i64, ptr %111, align 8
-  %113 = trunc i64 %112 to i8
-  store i8 %113, ptr %108, align 1
-  %114 = load ptr, ptr %5, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 1
-  store ptr %115, ptr %5, align 8
-  %116 = load i64, ptr %111, align 8
-  %117 = lshr i64 %116, 8
-  %118 = trunc i64 %117 to i8
-  store i8 %118, ptr %115, align 1
+94:                                               ; preds = %91
+  %95 = getelementptr inbounds i8, ptr %3, i64 312
+  %96 = load i64, ptr %95, align 8
+  %97 = trunc i64 %96 to i8
+  store i8 %97, ptr %92, align 1
+  %98 = load ptr, ptr %5, align 8
+  %99 = getelementptr inbounds i8, ptr %98, i64 1
+  store ptr %99, ptr %5, align 8
+  %100 = load i64, ptr %95, align 8
+  %101 = lshr i64 %100, 8
+  %102 = trunc i64 %101 to i8
+  store i8 %102, ptr %99, align 1
+  %103 = load ptr, ptr %5, align 8
+  %104 = getelementptr inbounds i8, ptr %103, i64 1
+  store ptr %104, ptr %5, align 8
+  %105 = load i64, ptr %95, align 8
+  %106 = lshr i64 %105, 16
+  br label %.sink.split166.sink.split
+
+107:                                              ; preds = %91
+  %108 = getelementptr inbounds i8, ptr %3, i64 312
+  %109 = load i64, ptr %108, align 8
+  br label %110
+
+110:                                              ; preds = %107, %110
+  %.0125148 = phi ptr [ %92, %107 ], [ %112, %110 ]
+  %.0127147 = phi i64 [ 0, %107 ], [ %113, %110 ]
+  %.0129146 = phi i64 [ %109, %107 ], [ %114, %110 ]
+  %111 = trunc i64 %.0129146 to i8
+  %112 = getelementptr inbounds i8, ptr %.0125148, i64 1
+  store i8 %111, ptr %.0125148, align 1
+  %113 = add nuw nsw i64 %.0127147, 1
+  %114 = lshr i64 %.0129146, 8
+  %exitcond159.not = icmp eq i64 %113, 8
+  br i1 %exitcond159.not, label %.sink.split166, label %110
+
+115:                                              ; preds = %91
+  %116 = getelementptr inbounds i8, ptr %3, i64 312
+  %117 = load i64, ptr %116, align 8
+  br label %.sink.split166.sink.split
+
+.sink.split166.sink.split:                        ; preds = %115, %94
+  %.sink205 = phi i64 [ %106, %94 ], [ %117, %115 ]
+  %.sink204 = phi ptr [ %104, %94 ], [ %92, %115 ]
+  %.sink200 = phi ptr [ %95, %94 ], [ %116, %115 ]
+  %.sink199 = phi i64 [ 24, %94 ], [ 8, %115 ]
+  %118 = trunc i64 %.sink205 to i8
+  store i8 %118, ptr %.sink204, align 1
   %119 = load ptr, ptr %5, align 8
   %120 = getelementptr inbounds i8, ptr %119, i64 1
   store ptr %120, ptr %5, align 8
-  %121 = load i64, ptr %111, align 8
-  %122 = lshr i64 %121, 16
+  %121 = load i64, ptr %.sink200, align 8
+  %122 = lshr i64 %121, %.sink199
   %123 = trunc i64 %122 to i8
   store i8 %123, ptr %120, align 1
+  br label %.sink.split166
+
+.sink.split166:                                   ; preds = %110, %.sink.split166.sink.split
+  %.sink168 = phi i64 [ 1, %.sink.split166.sink.split ], [ 8, %110 ]
   %124 = load ptr, ptr %5, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 1
+  %125 = getelementptr inbounds i8, ptr %124, i64 %.sink168
   store ptr %125, ptr %5, align 8
-  %126 = load i64, ptr %111, align 8
-  %127 = lshr i64 %126, 24
-  %128 = trunc i64 %127 to i8
-  store i8 %128, ptr %125, align 1
-  %129 = load ptr, ptr %5, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 1
-  store ptr %130, ptr %5, align 8
-  br label %153
+  br label %126
 
-131:                                              ; preds = %107
-  %132 = getelementptr inbounds i8, ptr %3, i64 312
-  %133 = load i64, ptr %132, align 8
-  br label %134
-
-134:                                              ; preds = %131, %134
-  %.0125148 = phi ptr [ %108, %131 ], [ %136, %134 ]
-  %.0127147 = phi i64 [ 0, %131 ], [ %137, %134 ]
-  %.0129146 = phi i64 [ %133, %131 ], [ %138, %134 ]
-  %135 = trunc i64 %.0129146 to i8
-  %136 = getelementptr inbounds i8, ptr %.0125148, i64 1
-  store i8 %135, ptr %.0125148, align 1
-  %137 = add nuw nsw i64 %.0127147, 1
-  %138 = lshr i64 %.0129146, 8
-  %exitcond159.not = icmp eq i64 %137, 8
-  br i1 %exitcond159.not, label %139, label %134
-
-139:                                              ; preds = %134
-  %140 = load ptr, ptr %5, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 8
-  store ptr %141, ptr %5, align 8
-  br label %153
-
-142:                                              ; preds = %107
-  %143 = getelementptr inbounds i8, ptr %3, i64 312
-  %144 = load i64, ptr %143, align 8
-  %145 = trunc i64 %144 to i8
-  store i8 %145, ptr %108, align 1
-  %146 = load ptr, ptr %5, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 1
-  store ptr %147, ptr %5, align 8
-  %148 = load i64, ptr %143, align 8
-  %149 = lshr i64 %148, 8
-  %150 = trunc i64 %149 to i8
-  store i8 %150, ptr %147, align 1
-  %151 = load ptr, ptr %5, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 1
-  store ptr %152, ptr %5, align 8
-  br label %153
-
-153:                                              ; preds = %107, %142, %139, %110
-  %154 = phi ptr [ %108, %107 ], [ %152, %142 ], [ %141, %139 ], [ %130, %110 ]
-  %155 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #6
-  switch i8 %155, label %199 [
-    i8 4, label %156
-    i8 8, label %177
-    i8 2, label %188
+126:                                              ; preds = %.sink.split166, %91
+  %127 = phi ptr [ %92, %91 ], [ %125, %.sink.split166 ]
+  %128 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #6
+  switch i8 %128, label %161 [
+    i8 4, label %129
+    i8 8, label %142
+    i8 2, label %150
   ]
 
-156:                                              ; preds = %153
-  %157 = getelementptr inbounds i8, ptr %3, i64 320
-  %158 = load i64, ptr %157, align 8
-  %159 = trunc i64 %158 to i8
-  store i8 %159, ptr %154, align 1
-  %160 = load ptr, ptr %5, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 1
-  store ptr %161, ptr %5, align 8
-  %162 = load i64, ptr %157, align 8
-  %163 = lshr i64 %162, 8
-  %164 = trunc i64 %163 to i8
-  store i8 %164, ptr %161, align 1
-  %165 = load ptr, ptr %5, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 1
-  store ptr %166, ptr %5, align 8
-  %167 = load i64, ptr %157, align 8
-  %168 = lshr i64 %167, 16
-  %169 = trunc i64 %168 to i8
-  store i8 %169, ptr %166, align 1
-  %170 = load ptr, ptr %5, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 1
-  store ptr %171, ptr %5, align 8
-  %172 = load i64, ptr %157, align 8
-  %173 = lshr i64 %172, 24
-  %174 = trunc i64 %173 to i8
-  store i8 %174, ptr %171, align 1
-  %175 = load ptr, ptr %5, align 8
-  %176 = getelementptr inbounds i8, ptr %175, i64 1
-  store ptr %176, ptr %5, align 8
-  br label %199
+129:                                              ; preds = %126
+  %130 = getelementptr inbounds i8, ptr %3, i64 320
+  %131 = load i64, ptr %130, align 8
+  %132 = trunc i64 %131 to i8
+  store i8 %132, ptr %127, align 1
+  %133 = load ptr, ptr %5, align 8
+  %134 = getelementptr inbounds i8, ptr %133, i64 1
+  store ptr %134, ptr %5, align 8
+  %135 = load i64, ptr %130, align 8
+  %136 = lshr i64 %135, 8
+  %137 = trunc i64 %136 to i8
+  store i8 %137, ptr %134, align 1
+  %138 = load ptr, ptr %5, align 8
+  %139 = getelementptr inbounds i8, ptr %138, i64 1
+  store ptr %139, ptr %5, align 8
+  %140 = load i64, ptr %130, align 8
+  %141 = lshr i64 %140, 16
+  br label %.sink.split169.sink.split
 
-177:                                              ; preds = %153
-  %178 = getelementptr inbounds i8, ptr %3, i64 320
+142:                                              ; preds = %126
+  %143 = getelementptr inbounds i8, ptr %3, i64 320
+  %144 = load i64, ptr %143, align 8
+  br label %145
+
+145:                                              ; preds = %142, %145
+  %.0120151 = phi ptr [ %127, %142 ], [ %147, %145 ]
+  %.0122150 = phi i64 [ 0, %142 ], [ %148, %145 ]
+  %.0124149 = phi i64 [ %144, %142 ], [ %149, %145 ]
+  %146 = trunc i64 %.0124149 to i8
+  %147 = getelementptr inbounds i8, ptr %.0120151, i64 1
+  store i8 %146, ptr %.0120151, align 1
+  %148 = add nuw nsw i64 %.0122150, 1
+  %149 = lshr i64 %.0124149, 8
+  %exitcond160.not = icmp eq i64 %148, 8
+  br i1 %exitcond160.not, label %.sink.split169, label %145
+
+150:                                              ; preds = %126
+  %151 = getelementptr inbounds i8, ptr %3, i64 320
+  %152 = load i64, ptr %151, align 8
+  br label %.sink.split169.sink.split
+
+.sink.split169.sink.split:                        ; preds = %150, %129
+  %.sink216 = phi i64 [ %141, %129 ], [ %152, %150 ]
+  %.sink215 = phi ptr [ %139, %129 ], [ %127, %150 ]
+  %.sink211 = phi ptr [ %130, %129 ], [ %151, %150 ]
+  %.sink210 = phi i64 [ 24, %129 ], [ 8, %150 ]
+  %153 = trunc i64 %.sink216 to i8
+  store i8 %153, ptr %.sink215, align 1
+  %154 = load ptr, ptr %5, align 8
+  %155 = getelementptr inbounds i8, ptr %154, i64 1
+  store ptr %155, ptr %5, align 8
+  %156 = load i64, ptr %.sink211, align 8
+  %157 = lshr i64 %156, %.sink210
+  %158 = trunc i64 %157 to i8
+  store i8 %158, ptr %155, align 1
+  br label %.sink.split169
+
+.sink.split169:                                   ; preds = %145, %.sink.split169.sink.split
+  %.sink171 = phi i64 [ 1, %.sink.split169.sink.split ], [ 8, %145 ]
+  %159 = load ptr, ptr %5, align 8
+  %160 = getelementptr inbounds i8, ptr %159, i64 %.sink171
+  store ptr %160, ptr %5, align 8
+  br label %161
+
+161:                                              ; preds = %.sink.split169, %126
+  %162 = phi ptr [ %127, %126 ], [ %160, %.sink.split169 ]
+  %163 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #6
+  switch i8 %163, label %196 [
+    i8 4, label %164
+    i8 8, label %177
+    i8 2, label %185
+  ]
+
+164:                                              ; preds = %161
+  %165 = getelementptr inbounds i8, ptr %3, i64 328
+  %166 = load i64, ptr %165, align 8
+  %167 = trunc i64 %166 to i8
+  store i8 %167, ptr %162, align 1
+  %168 = load ptr, ptr %5, align 8
+  %169 = getelementptr inbounds i8, ptr %168, i64 1
+  store ptr %169, ptr %5, align 8
+  %170 = load i64, ptr %165, align 8
+  %171 = lshr i64 %170, 8
+  %172 = trunc i64 %171 to i8
+  store i8 %172, ptr %169, align 1
+  %173 = load ptr, ptr %5, align 8
+  %174 = getelementptr inbounds i8, ptr %173, i64 1
+  store ptr %174, ptr %5, align 8
+  %175 = load i64, ptr %165, align 8
+  %176 = lshr i64 %175, 16
+  br label %.sink.split172.sink.split
+
+177:                                              ; preds = %161
+  %178 = getelementptr inbounds i8, ptr %3, i64 328
   %179 = load i64, ptr %178, align 8
   br label %180
 
 180:                                              ; preds = %177, %180
-  %.0120151 = phi ptr [ %154, %177 ], [ %182, %180 ]
-  %.0122150 = phi i64 [ 0, %177 ], [ %183, %180 ]
-  %.0124149 = phi i64 [ %179, %177 ], [ %184, %180 ]
-  %181 = trunc i64 %.0124149 to i8
-  %182 = getelementptr inbounds i8, ptr %.0120151, i64 1
-  store i8 %181, ptr %.0120151, align 1
-  %183 = add nuw nsw i64 %.0122150, 1
-  %184 = lshr i64 %.0124149, 8
-  %exitcond160.not = icmp eq i64 %183, 8
-  br i1 %exitcond160.not, label %185, label %180
+  %.0115154 = phi ptr [ %162, %177 ], [ %182, %180 ]
+  %.0117153 = phi i64 [ 0, %177 ], [ %183, %180 ]
+  %.0119152 = phi i64 [ %179, %177 ], [ %184, %180 ]
+  %181 = trunc i64 %.0119152 to i8
+  %182 = getelementptr inbounds i8, ptr %.0115154, i64 1
+  store i8 %181, ptr %.0115154, align 1
+  %183 = add nuw nsw i64 %.0117153, 1
+  %184 = lshr i64 %.0119152, 8
+  %exitcond161.not = icmp eq i64 %183, 8
+  br i1 %exitcond161.not, label %.sink.split172, label %180
 
-185:                                              ; preds = %180
-  %186 = load ptr, ptr %5, align 8
-  %187 = getelementptr inbounds i8, ptr %186, i64 8
-  store ptr %187, ptr %5, align 8
-  br label %199
+185:                                              ; preds = %161
+  %186 = getelementptr inbounds i8, ptr %3, i64 328
+  %187 = load i64, ptr %186, align 8
+  br label %.sink.split172.sink.split
 
-188:                                              ; preds = %153
-  %189 = getelementptr inbounds i8, ptr %3, i64 320
-  %190 = load i64, ptr %189, align 8
-  %191 = trunc i64 %190 to i8
-  store i8 %191, ptr %154, align 1
-  %192 = load ptr, ptr %5, align 8
-  %193 = getelementptr inbounds i8, ptr %192, i64 1
-  store ptr %193, ptr %5, align 8
-  %194 = load i64, ptr %189, align 8
-  %195 = lshr i64 %194, 8
-  %196 = trunc i64 %195 to i8
-  store i8 %196, ptr %193, align 1
-  %197 = load ptr, ptr %5, align 8
-  %198 = getelementptr inbounds i8, ptr %197, i64 1
-  store ptr %198, ptr %5, align 8
-  br label %199
+.sink.split172.sink.split:                        ; preds = %185, %164
+  %.sink227 = phi i64 [ %176, %164 ], [ %187, %185 ]
+  %.sink226 = phi ptr [ %174, %164 ], [ %162, %185 ]
+  %.sink222 = phi ptr [ %165, %164 ], [ %186, %185 ]
+  %.sink221 = phi i64 [ 24, %164 ], [ 8, %185 ]
+  %188 = trunc i64 %.sink227 to i8
+  store i8 %188, ptr %.sink226, align 1
+  %189 = load ptr, ptr %5, align 8
+  %190 = getelementptr inbounds i8, ptr %189, i64 1
+  store ptr %190, ptr %5, align 8
+  %191 = load i64, ptr %.sink222, align 8
+  %192 = lshr i64 %191, %.sink221
+  %193 = trunc i64 %192 to i8
+  store i8 %193, ptr %190, align 1
+  br label %.sink.split172
 
-199:                                              ; preds = %153, %188, %185, %156
-  %200 = phi ptr [ %154, %153 ], [ %198, %188 ], [ %187, %185 ], [ %176, %156 ]
-  %201 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #6
-  switch i8 %201, label %245 [
-    i8 4, label %202
-    i8 8, label %223
-    i8 2, label %234
+.sink.split172:                                   ; preds = %180, %.sink.split172.sink.split
+  %.sink174 = phi i64 [ 1, %.sink.split172.sink.split ], [ 8, %180 ]
+  %194 = load ptr, ptr %5, align 8
+  %195 = getelementptr inbounds i8, ptr %194, i64 %.sink174
+  store ptr %195, ptr %5, align 8
+  br label %196
+
+196:                                              ; preds = %.sink.split172, %161
+  %197 = phi ptr [ %162, %161 ], [ %195, %.sink.split172 ]
+  %198 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #6
+  switch i8 %198, label %231 [
+    i8 4, label %199
+    i8 8, label %212
+    i8 2, label %220
   ]
 
-202:                                              ; preds = %199
-  %203 = getelementptr inbounds i8, ptr %3, i64 328
-  %204 = load i64, ptr %203, align 8
-  %205 = trunc i64 %204 to i8
-  store i8 %205, ptr %200, align 1
-  %206 = load ptr, ptr %5, align 8
-  %207 = getelementptr inbounds i8, ptr %206, i64 1
-  store ptr %207, ptr %5, align 8
-  %208 = load i64, ptr %203, align 8
-  %209 = lshr i64 %208, 8
-  %210 = trunc i64 %209 to i8
-  store i8 %210, ptr %207, align 1
-  %211 = load ptr, ptr %5, align 8
-  %212 = getelementptr inbounds i8, ptr %211, i64 1
-  store ptr %212, ptr %5, align 8
-  %213 = load i64, ptr %203, align 8
-  %214 = lshr i64 %213, 16
-  %215 = trunc i64 %214 to i8
-  store i8 %215, ptr %212, align 1
-  %216 = load ptr, ptr %5, align 8
-  %217 = getelementptr inbounds i8, ptr %216, i64 1
-  store ptr %217, ptr %5, align 8
-  %218 = load i64, ptr %203, align 8
-  %219 = lshr i64 %218, 24
-  %220 = trunc i64 %219 to i8
-  store i8 %220, ptr %217, align 1
-  %221 = load ptr, ptr %5, align 8
-  %222 = getelementptr inbounds i8, ptr %221, i64 1
-  store ptr %222, ptr %5, align 8
-  br label %245
+199:                                              ; preds = %196
+  %200 = getelementptr inbounds i8, ptr %3, i64 336
+  %201 = load i64, ptr %200, align 8
+  %202 = trunc i64 %201 to i8
+  store i8 %202, ptr %197, align 1
+  %203 = load ptr, ptr %5, align 8
+  %204 = getelementptr inbounds i8, ptr %203, i64 1
+  store ptr %204, ptr %5, align 8
+  %205 = load i64, ptr %200, align 8
+  %206 = lshr i64 %205, 8
+  %207 = trunc i64 %206 to i8
+  store i8 %207, ptr %204, align 1
+  %208 = load ptr, ptr %5, align 8
+  %209 = getelementptr inbounds i8, ptr %208, i64 1
+  store ptr %209, ptr %5, align 8
+  %210 = load i64, ptr %200, align 8
+  %211 = lshr i64 %210, 16
+  br label %.sink.split175.sink.split
 
-223:                                              ; preds = %199
-  %224 = getelementptr inbounds i8, ptr %3, i64 328
-  %225 = load i64, ptr %224, align 8
-  br label %226
+212:                                              ; preds = %196
+  %213 = getelementptr inbounds i8, ptr %3, i64 336
+  %214 = load i64, ptr %213, align 8
+  br label %215
 
-226:                                              ; preds = %223, %226
-  %.0115154 = phi ptr [ %200, %223 ], [ %228, %226 ]
-  %.0117153 = phi i64 [ 0, %223 ], [ %229, %226 ]
-  %.0119152 = phi i64 [ %225, %223 ], [ %230, %226 ]
-  %227 = trunc i64 %.0119152 to i8
-  %228 = getelementptr inbounds i8, ptr %.0115154, i64 1
-  store i8 %227, ptr %.0115154, align 1
-  %229 = add nuw nsw i64 %.0117153, 1
-  %230 = lshr i64 %.0119152, 8
-  %exitcond161.not = icmp eq i64 %229, 8
-  br i1 %exitcond161.not, label %231, label %226
+215:                                              ; preds = %212, %215
+  %.0157 = phi ptr [ %197, %212 ], [ %217, %215 ]
+  %.0112156 = phi i64 [ 0, %212 ], [ %218, %215 ]
+  %.0114155 = phi i64 [ %214, %212 ], [ %219, %215 ]
+  %216 = trunc i64 %.0114155 to i8
+  %217 = getelementptr inbounds i8, ptr %.0157, i64 1
+  store i8 %216, ptr %.0157, align 1
+  %218 = add nuw nsw i64 %.0112156, 1
+  %219 = lshr i64 %.0114155, 8
+  %exitcond162.not = icmp eq i64 %218, 8
+  br i1 %exitcond162.not, label %.sink.split175, label %215
 
-231:                                              ; preds = %226
-  %232 = load ptr, ptr %5, align 8
-  %233 = getelementptr inbounds i8, ptr %232, i64 8
-  store ptr %233, ptr %5, align 8
-  br label %245
+220:                                              ; preds = %196
+  %221 = getelementptr inbounds i8, ptr %3, i64 336
+  %222 = load i64, ptr %221, align 8
+  br label %.sink.split175.sink.split
 
-234:                                              ; preds = %199
-  %235 = getelementptr inbounds i8, ptr %3, i64 328
-  %236 = load i64, ptr %235, align 8
-  %237 = trunc i64 %236 to i8
-  store i8 %237, ptr %200, align 1
-  %238 = load ptr, ptr %5, align 8
-  %239 = getelementptr inbounds i8, ptr %238, i64 1
-  store ptr %239, ptr %5, align 8
-  %240 = load i64, ptr %235, align 8
-  %241 = lshr i64 %240, 8
-  %242 = trunc i64 %241 to i8
-  store i8 %242, ptr %239, align 1
-  %243 = load ptr, ptr %5, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 1
-  store ptr %244, ptr %5, align 8
-  br label %245
+.sink.split175.sink.split:                        ; preds = %199, %220
+  %.sink238 = phi i64 [ %222, %220 ], [ %211, %199 ]
+  %.sink237 = phi ptr [ %197, %220 ], [ %209, %199 ]
+  %.sink233 = phi ptr [ %221, %220 ], [ %200, %199 ]
+  %.sink232 = phi i64 [ 8, %220 ], [ 24, %199 ]
+  %223 = trunc i64 %.sink238 to i8
+  store i8 %223, ptr %.sink237, align 1
+  %224 = load ptr, ptr %5, align 8
+  %225 = getelementptr inbounds i8, ptr %224, i64 1
+  store ptr %225, ptr %5, align 8
+  %226 = load i64, ptr %.sink233, align 8
+  %227 = lshr i64 %226, %.sink232
+  %228 = trunc i64 %227 to i8
+  store i8 %228, ptr %225, align 1
+  br label %.sink.split175
 
-245:                                              ; preds = %199, %234, %231, %202
-  %246 = phi ptr [ %200, %199 ], [ %244, %234 ], [ %233, %231 ], [ %222, %202 ]
-  %247 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #6
-  switch i8 %247, label %291 [
-    i8 4, label %248
-    i8 8, label %269
-    i8 2, label %280
-  ]
+.sink.split175:                                   ; preds = %215, %.sink.split175.sink.split
+  %.sink177 = phi i64 [ 1, %.sink.split175.sink.split ], [ 8, %215 ]
+  %229 = load ptr, ptr %5, align 8
+  %230 = getelementptr inbounds i8, ptr %229, i64 %.sink177
+  store ptr %230, ptr %5, align 8
+  br label %231
 
-248:                                              ; preds = %245
-  %249 = getelementptr inbounds i8, ptr %3, i64 336
-  %250 = load i64, ptr %249, align 8
-  %251 = trunc i64 %250 to i8
-  store i8 %251, ptr %246, align 1
-  %252 = load ptr, ptr %5, align 8
-  %253 = getelementptr inbounds i8, ptr %252, i64 1
-  store ptr %253, ptr %5, align 8
-  %254 = load i64, ptr %249, align 8
-  %255 = lshr i64 %254, 8
-  %256 = trunc i64 %255 to i8
-  store i8 %256, ptr %253, align 1
-  %257 = load ptr, ptr %5, align 8
-  %258 = getelementptr inbounds i8, ptr %257, i64 1
-  store ptr %258, ptr %5, align 8
-  %259 = load i64, ptr %249, align 8
-  %260 = lshr i64 %259, 16
-  %261 = trunc i64 %260 to i8
-  store i8 %261, ptr %258, align 1
-  %262 = load ptr, ptr %5, align 8
-  %263 = getelementptr inbounds i8, ptr %262, i64 1
-  store ptr %263, ptr %5, align 8
-  %264 = load i64, ptr %249, align 8
-  %265 = lshr i64 %264, 24
-  %266 = trunc i64 %265 to i8
-  store i8 %266, ptr %263, align 1
-  %267 = load ptr, ptr %5, align 8
-  %268 = getelementptr inbounds i8, ptr %267, i64 1
-  store ptr %268, ptr %5, align 8
-  br label %291
-
-269:                                              ; preds = %245
-  %270 = getelementptr inbounds i8, ptr %3, i64 336
-  %271 = load i64, ptr %270, align 8
-  br label %272
-
-272:                                              ; preds = %269, %272
-  %.0157 = phi ptr [ %246, %269 ], [ %274, %272 ]
-  %.0112156 = phi i64 [ 0, %269 ], [ %275, %272 ]
-  %.0114155 = phi i64 [ %271, %269 ], [ %276, %272 ]
-  %273 = trunc i64 %.0114155 to i8
-  %274 = getelementptr inbounds i8, ptr %.0157, i64 1
-  store i8 %273, ptr %.0157, align 1
-  %275 = add nuw nsw i64 %.0112156, 1
-  %276 = lshr i64 %.0114155, 8
-  %exitcond162.not = icmp eq i64 %275, 8
-  br i1 %exitcond162.not, label %277, label %272
-
-277:                                              ; preds = %272
-  %278 = load ptr, ptr %5, align 8
-  %279 = getelementptr inbounds i8, ptr %278, i64 8
-  store ptr %279, ptr %5, align 8
-  br label %291
-
-280:                                              ; preds = %245
-  %281 = getelementptr inbounds i8, ptr %3, i64 336
-  %282 = load i64, ptr %281, align 8
-  %283 = trunc i64 %282 to i8
-  store i8 %283, ptr %246, align 1
-  %284 = load ptr, ptr %5, align 8
-  %285 = getelementptr inbounds i8, ptr %284, i64 1
-  store ptr %285, ptr %5, align 8
-  %286 = load i64, ptr %281, align 8
-  %287 = lshr i64 %286, 8
-  %288 = trunc i64 %287 to i8
-  store i8 %288, ptr %285, align 1
-  %289 = load ptr, ptr %5, align 8
-  %290 = getelementptr inbounds i8, ptr %289, i64 1
-  store ptr %290, ptr %5, align 8
-  br label %291
-
-291:                                              ; preds = %248, %277, %280, %245
-  %292 = getelementptr inbounds i8, ptr %3, i64 264
-  %293 = load i64, ptr %292, align 8
-  call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %293) #6
-  %294 = load ptr, ptr %5, align 8
-  %295 = ptrtoint ptr %294 to i64
-  %296 = ptrtoint ptr %1 to i64
-  %297 = sub i64 %295, %296
-  %298 = call i32 @H5_checksum_metadata(ptr noundef nonnull %1, i64 noundef %297, i32 noundef 0) #6
-  %299 = trunc i32 %298 to i8
-  %300 = load ptr, ptr %5, align 8
-  store i8 %299, ptr %300, align 1
-  %301 = load ptr, ptr %5, align 8
-  %302 = getelementptr inbounds i8, ptr %301, i64 1
-  store ptr %302, ptr %5, align 8
-  %303 = lshr i32 %298, 8
-  %304 = trunc i32 %303 to i8
-  store i8 %304, ptr %302, align 1
-  %305 = load ptr, ptr %5, align 8
-  %306 = getelementptr inbounds i8, ptr %305, i64 1
-  store ptr %306, ptr %5, align 8
-  %307 = lshr i32 %298, 16
-  %308 = trunc i32 %307 to i8
-  store i8 %308, ptr %306, align 1
-  %309 = load ptr, ptr %5, align 8
-  %310 = getelementptr inbounds i8, ptr %309, i64 1
-  %311 = lshr i32 %298, 24
-  %312 = trunc nuw i32 %311 to i8
-  store i8 %312, ptr %310, align 1
+231:                                              ; preds = %.sink.split175, %196
+  %232 = getelementptr inbounds i8, ptr %3, i64 264
+  %233 = load i64, ptr %232, align 8
+  call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %233) #6
+  %234 = load ptr, ptr %5, align 8
+  %235 = ptrtoint ptr %234 to i64
+  %236 = ptrtoint ptr %1 to i64
+  %237 = sub i64 %235, %236
+  %238 = call i32 @H5_checksum_metadata(ptr noundef nonnull %1, i64 noundef %237, i32 noundef 0) #6
+  %239 = trunc i32 %238 to i8
+  %240 = load ptr, ptr %5, align 8
+  store i8 %239, ptr %240, align 1
+  %241 = load ptr, ptr %5, align 8
+  %242 = getelementptr inbounds i8, ptr %241, i64 1
+  store ptr %242, ptr %5, align 8
+  %243 = lshr i32 %238, 8
+  %244 = trunc i32 %243 to i8
+  store i8 %244, ptr %242, align 1
+  %245 = load ptr, ptr %5, align 8
+  %246 = getelementptr inbounds i8, ptr %245, i64 1
+  store ptr %246, ptr %5, align 8
+  %247 = lshr i32 %238, 16
+  %248 = trunc i32 %247 to i8
+  store i8 %248, ptr %246, align 1
+  %249 = load ptr, ptr %5, align 8
+  %250 = getelementptr inbounds i8, ptr %249, i64 1
+  %251 = lshr i32 %238, 24
+  %252 = trunc nuw i32 %251 to i8
+  store i8 %252, ptr %250, align 1
   ret i32 0
 }
 

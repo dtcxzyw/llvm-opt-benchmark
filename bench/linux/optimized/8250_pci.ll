@@ -3539,26 +3539,24 @@ define internal noundef i32 @pci_fintek_rs485_config(ptr nocapture noundef reado
 22:                                               ; preds = %19
   %23 = and i8 %18, -49
   %24 = or disjoint i8 %23, 16
-  store i8 %24, ptr %4, align 1
   br label %29
 
 25:                                               ; preds = %19
   %26 = or i8 %18, 48
-  store i8 %26, ptr %4, align 1
   br label %29
 
 27:                                               ; preds = %3
   %28 = and i8 %18, -49
-  store i8 %28, ptr %4, align 1
   br label %29
 
 29:                                               ; preds = %27, %25, %22
-  %30 = phi i8 [ %28, %27 ], [ %26, %25 ], [ %24, %22 ]
-  %31 = load i8, ptr %9, align 1
-  %32 = zext i8 %31 to i32
-  %33 = shl nuw nsw i32 %32, 3
-  %34 = add nuw nsw i32 %33, 71
-  %35 = call i32 @pci_write_config_byte(ptr noundef %7, i32 noundef %34, i8 noundef zeroext %30) #14
+  %.sink = phi i8 [ %28, %27 ], [ %26, %25 ], [ %24, %22 ]
+  store i8 %.sink, ptr %4, align 1
+  %30 = load i8, ptr %9, align 1
+  %31 = zext i8 %30 to i32
+  %32 = shl nuw nsw i32 %31, 3
+  %33 = add nuw nsw i32 %32, 71
+  %34 = call i32 @pci_write_config_byte(ptr noundef %7, i32 noundef %33, i8 noundef zeroext %.sink) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
   ret i32 0
 }

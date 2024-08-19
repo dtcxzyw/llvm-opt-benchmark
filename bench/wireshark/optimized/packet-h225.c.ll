@@ -7146,10 +7146,10 @@ define internal i32 @dissect_h225_H245TransportAddress(ptr noundef %0, i32 nound
   br i1 %.not22, label %49, label %35
 
 35:                                               ; preds = %34, %32
-  %storemerge = phi i32 [ 2, %32 ], [ 3, %34 ]
+  %.sink25 = phi i32 [ 2, %32 ], [ 3, %34 ]
   %.sink = phi i32 [ 4, %32 ], [ 16, %34 ]
   %ipv6_address.sink = phi ptr [ @ipv4_address, %32 ], [ @ipv6_address, %34 ]
-  store i32 %storemerge, ptr %6, align 8
+  store i32 %.sink25, ptr %6, align 8
   %36 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 %.sink, ptr %36, align 4
   %37 = getelementptr inbounds i8, ptr %6, i64 8

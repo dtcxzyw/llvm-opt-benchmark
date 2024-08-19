@@ -25983,7 +25983,7 @@ define internal void @_ZNK8LightGBM16MulticlassMetricINS_16MultiErrorMetricEE4Ev
   %13 = getelementptr inbounds i8, ptr %2, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %16, label %81
+  br i1 %15, label %16, label %80
 
 16:                                               ; preds = %6
   %17 = add nsw i32 %14, -1
@@ -26008,8 +26008,8 @@ define internal void @_ZNK8LightGBM16MulticlassMetricINS_16MultiErrorMetricEE4Ev
   br label %25
 
 25:                                               ; preds = %.lr.ph35, %_ZNSt6vectorIdSaIdEED2Ev.exit
-  %26 = phi i32 [ %20, %.lr.ph35 ], [ %70, %_ZNSt6vectorIdSaIdEED2Ev.exit ]
-  %27 = phi double [ 0.000000e+00, %.lr.ph35 ], [ %71, %_ZNSt6vectorIdSaIdEED2Ev.exit ]
+  %26 = phi i32 [ %20, %.lr.ph35 ], [ %69, %_ZNSt6vectorIdSaIdEED2Ev.exit ]
+  %27 = phi double [ 0.000000e+00, %.lr.ph35 ], [ %70, %_ZNSt6vectorIdSaIdEED2Ev.exit ]
   %indvars.iv39 = phi i64 [ %24, %.lr.ph35 ], [ %indvars.iv.next40, %_ZNSt6vectorIdSaIdEED2Ev.exit ]
   %28 = load i32, ptr %3, align 4
   %29 = sext i32 %28 to i64
@@ -26114,59 +26114,59 @@ _ZN8LightGBM16MultiErrorMetric11LossOnPointEfPSt6vectorIdSaIdEERKNS_6ConfigE.exi
   br label %68
 
 68:                                               ; preds = %_ZN8LightGBM16MultiErrorMetric11LossOnPointEfPSt6vectorIdSaIdEERKNS_6ConfigE.exit, %_ZN8LightGBM16MultiErrorMetric11LossOnPointEfPSt6vectorIdSaIdEERKNS_6ConfigE.exit.thread
-  %69 = phi double [ %66, %_ZN8LightGBM16MultiErrorMetric11LossOnPointEfPSt6vectorIdSaIdEERKNS_6ConfigE.exit.thread ], [ %67, %_ZN8LightGBM16MultiErrorMetric11LossOnPointEfPSt6vectorIdSaIdEERKNS_6ConfigE.exit ]
-  store double %69, ptr %11, align 8
+  %.sink = phi double [ %67, %_ZN8LightGBM16MultiErrorMetric11LossOnPointEfPSt6vectorIdSaIdEERKNS_6ConfigE.exit ], [ %66, %_ZN8LightGBM16MultiErrorMetric11LossOnPointEfPSt6vectorIdSaIdEERKNS_6ConfigE.exit.thread ]
+  store double %.sink, ptr %11, align 8
   call void @_ZdlPv(ptr noundef nonnull %35) #30
   %.pre = load i32, ptr %8, align 4
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZN8LightGBM16MultiErrorMetric11LossOnPointEfPSt6vectorIdSaIdEERKNS_6ConfigE.exit.thread53, %68
-  %70 = phi i32 [ %.pre, %68 ], [ %26, %_ZN8LightGBM16MultiErrorMetric11LossOnPointEfPSt6vectorIdSaIdEERKNS_6ConfigE.exit.thread53 ]
-  %71 = phi double [ %69, %68 ], [ %32, %_ZN8LightGBM16MultiErrorMetric11LossOnPointEfPSt6vectorIdSaIdEERKNS_6ConfigE.exit.thread53 ]
+  %69 = phi i32 [ %.pre, %68 ], [ %26, %_ZN8LightGBM16MultiErrorMetric11LossOnPointEfPSt6vectorIdSaIdEERKNS_6ConfigE.exit.thread53 ]
+  %70 = phi double [ %.sink, %68 ], [ %32, %_ZN8LightGBM16MultiErrorMetric11LossOnPointEfPSt6vectorIdSaIdEERKNS_6ConfigE.exit.thread53 ]
   %indvars.iv.next40 = add nsw i64 %indvars.iv39, 1
-  %72 = sext i32 %70 to i64
-  %.not.not = icmp slt i64 %indvars.iv39, %72
+  %71 = sext i32 %69 to i64
+  %.not.not = icmp slt i64 %indvars.iv39, %71
   br i1 %.not.not, label %25, label %._crit_edge36
 
 ._crit_edge36:                                    ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit, %16
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %18)
   store ptr %11, ptr %12, align 8
-  %73 = call i32 @__kmpc_reduce_nowait(ptr nonnull @2, i32 %18, i32 1, i64 8, ptr nonnull %12, ptr nonnull @_ZNK8LightGBM16MulticlassMetricINS_16MultiErrorMetricEE4EvalEPKdPKNS_17ObjectiveFunctionE.omp_outlined.75.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
-  switch i32 %73, label %81 [
-    i32 1, label %74
-    i32 2, label %78
+  %72 = call i32 @__kmpc_reduce_nowait(ptr nonnull @2, i32 %18, i32 1, i64 8, ptr nonnull %12, ptr nonnull @_ZNK8LightGBM16MulticlassMetricINS_16MultiErrorMetricEE4EvalEPKdPKNS_17ObjectiveFunctionE.omp_outlined.75.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
+  switch i32 %72, label %80 [
+    i32 1, label %73
+    i32 2, label %77
   ]
 
-74:                                               ; preds = %._crit_edge36
-  %75 = load double, ptr %5, align 8
-  %76 = load double, ptr %11, align 8
-  %77 = fadd double %75, %76
-  store double %77, ptr %5, align 8
+73:                                               ; preds = %._crit_edge36
+  %74 = load double, ptr %5, align 8
+  %75 = load double, ptr %11, align 8
+  %76 = fadd double %74, %75
+  store double %76, ptr %5, align 8
   call void @__kmpc_end_reduce_nowait(ptr nonnull @2, i32 %18, ptr nonnull @.gomp_critical_user_.reduction.var)
-  br label %81
+  br label %80
 
-78:                                               ; preds = %._crit_edge36
-  %79 = load double, ptr %11, align 8
-  %80 = atomicrmw fadd ptr %5, double %79 monotonic, align 8
-  br label %81
+77:                                               ; preds = %._crit_edge36
+  %78 = load double, ptr %11, align 8
+  %79 = atomicrmw fadd ptr %5, double %78 monotonic, align 8
+  br label %80
 
-81:                                               ; preds = %._crit_edge36, %74, %78, %6
+80:                                               ; preds = %._crit_edge36, %73, %77, %6
   ret void
 
 .loopexit:                                        ; preds = %33
   %lpad.loopexit = landingpad { ptr, i32 }
           catch ptr null
-  br label %82
+  br label %81
 
 .loopexit.split-lp:                               ; preds = %31
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           catch ptr null
-  br label %82
+  br label %81
 
-82:                                               ; preds = %.loopexit.split-lp, %.loopexit
+81:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %83 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %83) #32
+  %82 = extractvalue { ptr, i32 } %lpad.phi, 0
+  call void @__clang_call_terminate(ptr %82) #32
   unreachable
 }
 

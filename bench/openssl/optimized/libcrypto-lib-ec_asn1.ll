@@ -243,14 +243,7 @@ if.end3:                                          ; preds = %entry, %if.then
   %cmp.i = icmp eq ptr %group, null
   %cmp1.i = icmp eq ptr %0, null
   %or.cond.i = or i1 %cmp.i, %cmp1.i
-  br i1 %or.cond.i, label %ec_asn1_group2fieldid.exit.thread, label %if.end.i
-
-ec_asn1_group2fieldid.exit.thread:                ; preds = %if.end3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k2.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k3.i)
-  br label %err
+  br i1 %or.cond.i, label %if.then5, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end3
   %1 = load ptr, ptr %0, align 8
@@ -438,6 +431,9 @@ if.else99.i:                                      ; preds = %if.end6.i
 ec_asn1_group2fieldid.exit.thread41:              ; preds = %if.then5.i, %if.then11.i, %if.then20.i, %if.then14.i, %if.then28.i, %if.then35.i, %if.then40.i, %if.then54.i, %if.then60.i, %if.then44.i, %if.then75.i, %if.then65.i, %if.then95.i, %if.else99.i
   %tmp.0.i.ph = phi ptr [ null, %if.else99.i ], [ null, %if.then95.i ], [ null, %if.then65.i ], [ null, %if.then75.i ], [ null, %if.then44.i ], [ null, %if.then60.i ], [ null, %if.then54.i ], [ null, %if.then40.i ], [ null, %if.then35.i ], [ null, %if.then28.i ], [ %call9.i, %if.then14.i ], [ %call9.i, %if.then20.i ], [ null, %if.then11.i ], [ null, %if.then5.i ]
   call void @BN_free(ptr noundef %tmp.0.i.ph) #8
+  br label %if.then5
+
+if.then5:                                         ; preds = %if.end3, %ec_asn1_group2fieldid.exit.thread41
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k1.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %k2.i)
@@ -645,9 +641,9 @@ if.then49:                                        ; preds = %if.then43
   store ptr %25, ptr %cofactor, align 8
   br label %err
 
-err:                                              ; preds = %if.end25, %if.end14, %ec_asn1_group2curve.exit, %lor.lhs.false4.i, %lor.lhs.false2.i, %if.end6, %if.then9.critedge, %ec_asn1_group2fieldid.exit.thread, %ec_asn1_group2fieldid.exit.thread41, %if.then49, %if.then37, %if.then24
-  %.sink51 = phi i32 [ 454, %if.then49 ], [ 444, %if.then37 ], [ 430, %if.then24 ], [ 405, %ec_asn1_group2fieldid.exit.thread41 ], [ 405, %ec_asn1_group2fieldid.exit.thread ], [ 411, %if.then9.critedge ], [ 411, %if.end6 ], [ 411, %lor.lhs.false2.i ], [ 411, %lor.lhs.false4.i ], [ 417, %ec_asn1_group2curve.exit ], [ 425, %if.end14 ], [ 438, %if.end25 ]
-  %.sink50 = phi i32 [ 524301, %if.then49 ], [ 524301, %if.then37 ], [ 524301, %if.then24 ], [ 524304, %ec_asn1_group2fieldid.exit.thread41 ], [ 524304, %ec_asn1_group2fieldid.exit.thread ], [ 524304, %if.then9.critedge ], [ 524304, %if.end6 ], [ 524304, %lor.lhs.false2.i ], [ 524304, %lor.lhs.false4.i ], [ 113, %ec_asn1_group2curve.exit ], [ 524304, %if.end14 ], [ 524304, %if.end25 ]
+err:                                              ; preds = %if.end25, %if.end14, %ec_asn1_group2curve.exit, %lor.lhs.false4.i, %lor.lhs.false2.i, %if.end6, %if.then9.critedge, %if.then49, %if.then37, %if.then24, %if.then5
+  %.sink51 = phi i32 [ 454, %if.then49 ], [ 444, %if.then37 ], [ 430, %if.then24 ], [ 405, %if.then5 ], [ 411, %if.then9.critedge ], [ 411, %if.end6 ], [ 411, %lor.lhs.false2.i ], [ 411, %lor.lhs.false4.i ], [ 417, %ec_asn1_group2curve.exit ], [ 425, %if.end14 ], [ 438, %if.end25 ]
+  %.sink50 = phi i32 [ 524301, %if.then49 ], [ 524301, %if.then37 ], [ 524301, %if.then24 ], [ 524304, %if.then5 ], [ 524304, %if.then9.critedge ], [ 524304, %if.end6 ], [ 524304, %lor.lhs.false2.i ], [ 524304, %lor.lhs.false4.i ], [ 113, %ec_asn1_group2curve.exit ], [ 524304, %if.end14 ], [ 524304, %if.end25 ]
   call void @ERR_new() #8
   call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef %.sink51, ptr noundef nonnull @__func__.EC_GROUP_get_ecparameters) #8
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink50, ptr noundef null) #8

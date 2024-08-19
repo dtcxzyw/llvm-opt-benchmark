@@ -8872,7 +8872,7 @@ for.body:                                         ; preds = %_ZNSt14_Function_ba
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %func, i8 0, i64 32, i1 false)
   %4 = load i8, ptr %__begin1.sroa.0.0203, align 8, !tbaa !43
   switch i8 %4, label %sw.default [
-    i8 22, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit
+    i8 22, label %sw.epilog.sink.split
     i8 23, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit102
     i8 21, label %sw.epilog
     i8 11, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit113
@@ -8886,16 +8886,10 @@ for.body:                                         ; preds = %_ZNSt14_Function_ba
     i8 31, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit113
   ]
 
-_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit: ; preds = %for.body
-  store ptr @_ZN6duckdb14ScalarFunction13UnaryFunctionIffNS_13TruncOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, ptr %func, align 8
-  br label %sw.epilog.sink.split
-
 _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit102: ; preds = %for.body
-  store ptr @_ZN6duckdb14ScalarFunction13UnaryFunctionIddNS_13TruncOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, ptr %func, align 8
   br label %sw.epilog.sink.split
 
 _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit113: ; preds = %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body
-  store ptr @_ZN6duckdb14ScalarFunction11NopFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, ptr %func, align 8
   br label %sw.epilog.sink.split
 
 sw.default:                                       ; preds = %for.body
@@ -8949,7 +8943,9 @@ cleanup.action:                                   ; preds = %ehcleanup, %_ZNKSt7
   call void @__cxa_free_exception(ptr %exception) #21
   br label %ehcleanup66
 
-sw.epilog.sink.split:                             ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit102, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit113
+sw.epilog.sink.split:                             ; preds = %for.body, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit102, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit113
+  %_ZN6duckdb14ScalarFunction11NopFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE.sink = phi ptr [ @_ZN6duckdb14ScalarFunction11NopFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit113 ], [ @_ZN6duckdb14ScalarFunction13UnaryFunctionIddNS_13TruncOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit102 ], [ @_ZN6duckdb14ScalarFunction13UnaryFunctionIffNS_13TruncOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, %for.body ]
+  store ptr %_ZN6duckdb14ScalarFunction11NopFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE.sink, ptr %func, align 8
   store i64 0, ptr %ref.tmp.i104.sroa.4.0.func.sroa_idx, align 8
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i107, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i108, align 8, !tbaa !10

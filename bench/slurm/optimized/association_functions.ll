@@ -1189,16 +1189,19 @@ define dso_local void @sacctmgr_print_assoc_rec(ptr noundef %0, ptr noundef %1, 
 62:                                               ; preds = %60
   %63 = load i32, ptr %58, align 8
   %64 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.52, i32 noundef %63) #9
-  store ptr %64, ptr %5, align 8
-  br label %67
+  br label %.sink.split
 
 65:                                               ; preds = %56
   %66 = tail call ptr @xstrdup(ptr noundef nonnull @.str.53) #9
-  store ptr %66, ptr %5, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %65, %62
+  %.sink186 = phi ptr [ %64, %62 ], [ %66, %65 ]
+  store ptr %.sink186, ptr %5, align 8
   br label %67
 
-67:                                               ; preds = %60, %62, %65
-  %68 = phi ptr [ %61, %60 ], [ %64, %62 ], [ %66, %65 ]
+67:                                               ; preds = %.sink.split, %60
+  %68 = phi ptr [ %61, %60 ], [ %.sink186, %.sink.split ]
   %69 = getelementptr inbounds i8, ptr %1, i64 16
   %70 = load ptr, ptr %69, align 8
   %71 = zext i1 %3 to i32

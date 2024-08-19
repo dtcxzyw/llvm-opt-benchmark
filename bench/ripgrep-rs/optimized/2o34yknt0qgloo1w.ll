@@ -774,7 +774,7 @@ define hidden void @_ZN10grep_regex7matcher19RegexMatcherBuilder10build_many17he
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, i64 32, i1 false)
   %85 = getelementptr inbounds i8, ptr %0, i64 99
   store i8 2, ptr %85, align 1
-  br label %208
+  br label %196
 
 .thread124:                                       ; preds = %"_ZN4core3ptr55drop_in_place$LT$grep_regex..literal..InnerLiterals$GT$17he7edc06b90f2f7f1E.exit102", %96
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -1203,10 +1203,10 @@ common.resume:                                    ; preds = %.thread119, %203, %
 
 "_ZN4core3ptr54drop_in_place$LT$grep_regex..config..ConfiguredHIR$GT$17h935cd84be05b45f6E.exit": ; preds = %190
   call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h10a304c6f30c65e5E.llvm.8519985026491776260"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.5.0..sroa_idx)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %24)
   br label %196
 
-196:                                              ; preds = %208, %"_ZN4core3ptr54drop_in_place$LT$grep_regex..config..ConfiguredHIR$GT$17h935cd84be05b45f6E.exit"
+196:                                              ; preds = %84, %"_ZN4core3ptr54drop_in_place$LT$grep_regex..config..ConfiguredHIR$GT$17h935cd84be05b45f6E.exit109", %"_ZN4core3ptr54drop_in_place$LT$grep_regex..config..ConfiguredHIR$GT$17h935cd84be05b45f6E.exit"
+  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %24)
   ret void
 
 197:                                              ; preds = %176, %.thread119, %146, %127, %.body
@@ -1254,10 +1254,6 @@ common.resume:                                    ; preds = %.thread119, %203, %
 
 "_ZN4core3ptr54drop_in_place$LT$grep_regex..config..ConfiguredHIR$GT$17h935cd84be05b45f6E.exit109": ; preds = %202
   call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h10a304c6f30c65e5E.llvm.8519985026491776260"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.5.0..sroa_idx)
-  br label %208
-
-208:                                              ; preds = %"_ZN4core3ptr54drop_in_place$LT$grep_regex..config..ConfiguredHIR$GT$17h935cd84be05b45f6E.exit109", %84
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %24)
   br label %196
 
 .thread119:                                       ; preds = %.body, %.thread124

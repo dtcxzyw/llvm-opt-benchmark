@@ -134,142 +134,135 @@ define internal fastcc noundef zeroext i1 @path_decode(ptr noundef %0, i1 nounde
   %20 = icmp eq i8 %13, 91
   %21 = zext i1 %20 to i8
   store i8 %21, ptr %4, align 1
-  br i1 %20, label %22, label %24
+  br i1 %20, label %22, label %23
 
 22:                                               ; preds = %19
-  br i1 %1, label %23, label %.loopexit43
+  br i1 %1, label %.sink.split, label %.loopexit43
 
-23:                                               ; preds = %22
-  store ptr %18, ptr %10, align 8
-  br label %41
+23:                                               ; preds = %19
+  %24 = load i8, ptr %storemerge, align 1
+  %25 = icmp eq i8 %24, 40
+  br i1 %25, label %.preheader45, label %38
 
-24:                                               ; preds = %19
-  %25 = load i8, ptr %storemerge, align 1
-  %26 = icmp eq i8 %25, 40
-  br i1 %26, label %.preheader45, label %41
+.preheader45:                                     ; preds = %23
+  %26 = load ptr, ptr %11, align 8
+  br label %27
 
-.preheader45:                                     ; preds = %24
-  %27 = load ptr, ptr %11, align 8
-  br label %28
-
-28:                                               ; preds = %.preheader45, %28
-  %.pn = phi ptr [ %.032, %28 ], [ %storemerge, %.preheader45 ]
+27:                                               ; preds = %.preheader45, %27
+  %.pn = phi ptr [ %.032, %27 ], [ %storemerge, %.preheader45 ]
   %.032 = getelementptr i8, ptr %.pn, i64 1
-  %29 = load i8, ptr %.032, align 1
-  %30 = zext i8 %29 to i64
-  %31 = getelementptr i16, ptr %27, i64 %30
-  %32 = load i16, ptr %31, align 2
-  %33 = and i16 %32, 8192
-  %.not37 = icmp eq i16 %33, 0
-  br i1 %.not37, label %34, label %28, !llvm.loop !7
+  %28 = load i8, ptr %.032, align 1
+  %29 = zext i8 %28 to i64
+  %30 = getelementptr i16, ptr %26, i64 %29
+  %31 = load i16, ptr %30, align 2
+  %32 = and i16 %31, 8192
+  %.not37 = icmp eq i16 %32, 0
+  br i1 %.not37, label %33, label %27, !llvm.loop !7
 
-34:                                               ; preds = %28
-  %35 = icmp eq i8 %29, 40
-  br i1 %35, label %36, label %37
+33:                                               ; preds = %27
+  %34 = icmp eq i8 %28, 40
+  br i1 %34, label %.sink.split, label %35
 
-36:                                               ; preds = %34
-  store ptr %.032, ptr %10, align 8
-  br label %41
+35:                                               ; preds = %33
+  %36 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %storemerge, i32 noundef 40) #17
+  %37 = icmp eq ptr %36, %storemerge
+  br i1 %37, label %.sink.split, label %38
 
-37:                                               ; preds = %34
-  %38 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %storemerge, i32 noundef 40) #17
-  %39 = icmp eq ptr %38, %storemerge
-  br i1 %39, label %40, label %41
+.sink.split:                                      ; preds = %35, %33, %22
+  %.032.lcssa.sink = phi ptr [ %18, %22 ], [ %.032, %33 ], [ %.032, %35 ]
+  store ptr %.032.lcssa.sink, ptr %10, align 8
+  br label %38
 
-40:                                               ; preds = %37
-  store ptr %.032, ptr %10, align 8
-  br label %41
+38:                                               ; preds = %.sink.split, %23, %35
+  %39 = phi ptr [ %storemerge, %35 ], [ %storemerge, %23 ], [ %.032.lcssa.sink, %.sink.split ]
+  %40 = phi i1 [ false, %35 ], [ false, %23 ], [ true, %.sink.split ]
+  %41 = icmp sgt i32 %2, 0
+  br i1 %41, label %.lr.ph, label %.preheader
 
-41:                                               ; preds = %24, %37, %40, %36, %23
-  %42 = phi ptr [ %18, %23 ], [ %.032, %36 ], [ %.032, %40 ], [ %storemerge, %37 ], [ %storemerge, %24 ]
-  %43 = phi i1 [ true, %23 ], [ true, %36 ], [ true, %40 ], [ false, %37 ], [ false, %24 ]
-  %44 = icmp sgt i32 %2, 0
-  br i1 %44, label %.lr.ph, label %.preheader
+.preheader:                                       ; preds = %52, %38
+  %42 = phi ptr [ %39, %38 ], [ %53, %52 ]
+  br i1 %40, label %.lr.ph50.split, label %._crit_edge
 
-.preheader:                                       ; preds = %55, %41
-  %45 = phi ptr [ %42, %41 ], [ %56, %55 ]
-  br i1 %43, label %.lr.ph50.split, label %._crit_edge
+.lr.ph:                                           ; preds = %38, %52
+  %43 = phi ptr [ %53, %52 ], [ %39, %38 ]
+  %.03149 = phi i32 [ %55, %52 ], [ 0, %38 ]
+  %.03448 = phi ptr [ %54, %52 ], [ %3, %38 ]
+  %44 = getelementptr inbounds i8, ptr %.03448, i64 8
+  %45 = call fastcc zeroext i1 @pair_decode(ptr noundef %43, ptr noundef %.03448, ptr noundef nonnull %44, ptr noundef nonnull %10, ptr noundef %6, ptr noundef %7, ptr noundef %8)
+  br i1 %45, label %46, label %.loopexit44
 
-.lr.ph:                                           ; preds = %41, %55
-  %46 = phi ptr [ %56, %55 ], [ %42, %41 ]
-  %.03149 = phi i32 [ %58, %55 ], [ 0, %41 ]
-  %.03448 = phi ptr [ %57, %55 ], [ %3, %41 ]
-  %47 = getelementptr inbounds i8, ptr %.03448, i64 8
-  %48 = call fastcc zeroext i1 @pair_decode(ptr noundef %46, ptr noundef %.03448, ptr noundef nonnull %47, ptr noundef nonnull %10, ptr noundef %6, ptr noundef %7, ptr noundef %8)
-  br i1 %48, label %49, label %.loopexit44
+46:                                               ; preds = %.lr.ph
+  %47 = load ptr, ptr %10, align 8
+  %48 = load i8, ptr %47, align 1
+  %49 = icmp eq i8 %48, 44
+  br i1 %49, label %50, label %52
 
-49:                                               ; preds = %.lr.ph
-  %50 = load ptr, ptr %10, align 8
-  %51 = load i8, ptr %50, align 1
-  %52 = icmp eq i8 %51, 44
-  br i1 %52, label %53, label %55
+50:                                               ; preds = %46
+  %51 = getelementptr i8, ptr %47, i64 1
+  store ptr %51, ptr %10, align 8
+  br label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr i8, ptr %50, i64 1
-  store ptr %54, ptr %10, align 8
-  br label %55
-
-55:                                               ; preds = %53, %49
-  %56 = phi ptr [ %54, %53 ], [ %50, %49 ]
-  %57 = getelementptr i8, ptr %.03448, i64 16
-  %58 = add nuw nsw i32 %.03149, 1
-  %exitcond.not = icmp eq i32 %58, %2
+52:                                               ; preds = %50, %46
+  %53 = phi ptr [ %51, %50 ], [ %47, %46 ]
+  %54 = getelementptr i8, ptr %.03448, i64 16
+  %55 = add nuw nsw i32 %.03149, 1
+  %exitcond.not = icmp eq i32 %55, %2
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !8
 
 .lr.ph50.split:                                   ; preds = %.preheader
-  %59 = load i8, ptr %45, align 1
-  switch i8 %59, label %.loopexit43 [
-    i8 41, label %63
-    i8 93, label %60
+  %56 = load i8, ptr %42, align 1
+  switch i8 %56, label %.loopexit43 [
+    i8 41, label %60
+    i8 93, label %57
   ]
 
-60:                                               ; preds = %.lr.ph50.split
-  %61 = load i8, ptr %4, align 1
-  %62 = trunc i8 %61 to i1
-  br i1 %62, label %63, label %.loopexit43
+57:                                               ; preds = %.lr.ph50.split
+  %58 = load i8, ptr %4, align 1
+  %59 = trunc i8 %58 to i1
+  br i1 %59, label %60, label %.loopexit43
 
-63:                                               ; preds = %.lr.ph50.split, %60
+60:                                               ; preds = %.lr.ph50.split, %57
   %.pre52 = load ptr, ptr %11, align 8
-  br label %64
+  br label %61
 
-64:                                               ; preds = %64, %63
-  %.pn42 = phi ptr [ %45, %63 ], [ %storemerge40, %64 ]
+61:                                               ; preds = %61, %60
+  %.pn42 = phi ptr [ %42, %60 ], [ %storemerge40, %61 ]
   %storemerge40 = getelementptr i8, ptr %.pn42, i64 1
   store ptr %storemerge40, ptr %10, align 8
-  %65 = load i8, ptr %storemerge40, align 1
-  %66 = zext i8 %65 to i64
-  %67 = getelementptr i16, ptr %.pre52, i64 %66
-  %68 = load i16, ptr %67, align 2
-  %69 = and i16 %68, 8192
-  %.not41 = icmp eq i16 %69, 0
-  br i1 %.not41, label %._crit_edge, label %64, !llvm.loop !9
+  %62 = load i8, ptr %storemerge40, align 1
+  %63 = zext i8 %62 to i64
+  %64 = getelementptr i16, ptr %.pre52, i64 %63
+  %65 = load i16, ptr %64, align 2
+  %66 = and i16 %65, 8192
+  %.not41 = icmp eq i16 %66, 0
+  br i1 %.not41, label %._crit_edge, label %61, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %64, %.preheader
-  %70 = phi ptr [ %45, %.preheader ], [ %storemerge40, %64 ]
+._crit_edge:                                      ; preds = %61, %.preheader
+  %67 = phi ptr [ %42, %.preheader ], [ %storemerge40, %61 ]
   %.not38 = icmp eq ptr %5, null
-  br i1 %.not38, label %72, label %71
+  br i1 %.not38, label %69, label %68
 
-71:                                               ; preds = %._crit_edge
-  store ptr %70, ptr %5, align 8
+68:                                               ; preds = %._crit_edge
+  store ptr %67, ptr %5, align 8
   br label %.loopexit44
 
-72:                                               ; preds = %._crit_edge
-  %73 = load i8, ptr %70, align 1
-  %.not39 = icmp eq i8 %73, 0
+69:                                               ; preds = %._crit_edge
+  %70 = load i8, ptr %67, align 1
+  %.not39 = icmp eq i8 %70, 0
   br i1 %.not39, label %.loopexit44, label %.loopexit43
 
-.loopexit43:                                      ; preds = %60, %.lr.ph50.split, %72, %22
-  %74 = call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #15
-  br i1 %74, label %75, label %.loopexit44
+.loopexit43:                                      ; preds = %57, %.lr.ph50.split, %69, %22
+  %71 = call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #15
+  br i1 %71, label %72, label %.loopexit44
 
-75:                                               ; preds = %.loopexit43
-  %76 = call i32 @errcode(i32 noundef 33685634) #15
-  %77 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %6, ptr noundef %7) #15
+72:                                               ; preds = %.loopexit43
+  %73 = call i32 @errcode(i32 noundef 33685634) #15
+  %74 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %6, ptr noundef %7) #15
   call void @errsave_finish(ptr noundef %8, ptr noundef nonnull @.str.2, i32 noundef 336, ptr noundef nonnull @__func__.path_decode) #15
   br label %.loopexit44
 
-.loopexit44:                                      ; preds = %.lr.ph, %75, %.loopexit43, %71, %72
-  %.0 = phi i1 [ true, %72 ], [ true, %71 ], [ false, %.loopexit43 ], [ false, %75 ], [ false, %.lr.ph ]
+.loopexit44:                                      ; preds = %.lr.ph, %72, %.loopexit43, %68, %69
+  %.0 = phi i1 [ true, %69 ], [ true, %68 ], [ false, %.loopexit43 ], [ false, %72 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -4868,10 +4861,10 @@ float8_mi.exit.i.i75:                             ; preds = %float8_mul.exit.i.i
   br i1 %183, label %line_construct.exit.i76.sink.split, label %line_construct.exit.i76
 
 line_construct.exit.i76.sink.split.sink.split:    ; preds = %163, %128, %point_sl.exit, %109
-  %storemerge = phi double [ -1.000000e+00, %109 ], [ -1.000000e+00, %point_sl.exit ], [ 0.000000e+00, %128 ], [ 0.000000e+00, %163 ]
+  %.sink1089 = phi double [ -1.000000e+00, %109 ], [ -1.000000e+00, %point_sl.exit ], [ 0.000000e+00, %128 ], [ 0.000000e+00, %163 ]
   %.sink1088 = phi double [ 0.000000e+00, %109 ], [ 0.000000e+00, %point_sl.exit ], [ -1.000000e+00, %128 ], [ -1.000000e+00, %163 ]
   %.sink.ph = phi double [ %117, %109 ], [ %117, %point_sl.exit ], [ %119, %128 ], [ %119, %163 ]
-  store double %storemerge, ptr %19, align 8
+  store double %.sink1089, ptr %19, align 8
   store double %.sink1088, ptr %52, align 8
   br label %line_construct.exit.i76
 
@@ -4879,8 +4872,8 @@ line_construct.exit.i76.sink.split:               ; preds = %float8_mi.exit.i.i7
   br label %line_construct.exit.i76
 
 line_construct.exit.i76:                          ; preds = %line_construct.exit.i76.sink.split.sink.split, %line_construct.exit.i76.sink.split, %float8_mi.exit.i.i75
-  %storemerge1099 = phi double [ %176, %float8_mi.exit.i.i75 ], [ %.sink.ph, %line_construct.exit.i76.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i76.sink.split ]
-  store double %storemerge1099, ptr %53, align 8
+  %storemerge = phi double [ %176, %float8_mi.exit.i.i75 ], [ %.sink.ph, %line_construct.exit.i76.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i76.sink.split ]
+  store double %storemerge, ptr %53, align 8
   %184 = call fastcc zeroext i1 @lseg_interpt_line(ptr noundef nonnull %18, ptr noundef nonnull readonly %28, ptr noundef nonnull %19)
   br i1 %184, label %185, label %276
 
@@ -5232,21 +5225,21 @@ float8_mi.exit.i.i66:                             ; preds = %float8_mul.exit.i.i
   br i1 %339, label %line_construct.exit.i67.sink.split, label %line_construct.exit.i67
 
 line_construct.exit.i67.sink.split.sink.split:    ; preds = %319, %276, %point_invsl.exit262, %282
-  %storemerge1100 = phi double [ -1.000000e+00, %282 ], [ -1.000000e+00, %point_invsl.exit262 ], [ 0.000000e+00, %276 ], [ 0.000000e+00, %319 ]
-  %.sink1089 = phi double [ 0.000000e+00, %282 ], [ 0.000000e+00, %point_invsl.exit262 ], [ -1.000000e+00, %276 ], [ -1.000000e+00, %319 ]
+  %.sink1091 = phi double [ -1.000000e+00, %282 ], [ -1.000000e+00, %point_invsl.exit262 ], [ 0.000000e+00, %276 ], [ 0.000000e+00, %319 ]
+  %.sink1090 = phi double [ 0.000000e+00, %282 ], [ 0.000000e+00, %point_invsl.exit262 ], [ -1.000000e+00, %276 ], [ -1.000000e+00, %319 ]
   %.sink1070.ph = phi double [ %117, %282 ], [ %117, %point_invsl.exit262 ], [ %119, %276 ], [ %119, %319 ]
-  store double %storemerge1100, ptr %21, align 8
-  store double %.sink1089, ptr %55, align 8
+  store double %.sink1091, ptr %21, align 8
+  store double %.sink1090, ptr %55, align 8
   br label %line_construct.exit.i67
 
 line_construct.exit.i67.sink.split:               ; preds = %float8_mi.exit.i.i66
   br label %line_construct.exit.i67
 
 line_construct.exit.i67:                          ; preds = %line_construct.exit.i67.sink.split.sink.split, %line_construct.exit.i67.sink.split, %float8_mi.exit.i.i66
-  %storemerge1101 = phi double [ %332, %float8_mi.exit.i.i66 ], [ %.sink1070.ph, %line_construct.exit.i67.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i67.sink.split ]
-  %340 = phi double [ -1.000000e+00, %float8_mi.exit.i.i66 ], [ %.sink1089, %line_construct.exit.i67.sink.split.sink.split ], [ -1.000000e+00, %line_construct.exit.i67.sink.split ]
-  %341 = phi double [ %307, %float8_mi.exit.i.i66 ], [ %storemerge1100, %line_construct.exit.i67.sink.split.sink.split ], [ %307, %line_construct.exit.i67.sink.split ]
-  store double %storemerge1101, ptr %56, align 8
+  %storemerge1109 = phi double [ %332, %float8_mi.exit.i.i66 ], [ %.sink1070.ph, %line_construct.exit.i67.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i67.sink.split ]
+  %340 = phi double [ -1.000000e+00, %float8_mi.exit.i.i66 ], [ %.sink1090, %line_construct.exit.i67.sink.split.sink.split ], [ -1.000000e+00, %line_construct.exit.i67.sink.split ]
+  %341 = phi double [ %307, %float8_mi.exit.i.i66 ], [ %.sink1091, %line_construct.exit.i67.sink.split.sink.split ], [ %307, %line_construct.exit.i67.sink.split ]
+  store double %storemerge1109, ptr %56, align 8
   %342 = call fastcc zeroext i1 @lseg_interpt_line(ptr noundef nonnull %20, ptr noundef nonnull readonly %28, ptr noundef nonnull readonly %21)
   br i1 %342, label %lseg_closept_point.exit69, label %343
 
@@ -5325,19 +5318,19 @@ float8_mi.exit.i.i249:                            ; preds = %float8_mul.exit.i.i
   br i1 %374, label %line_construct.exit.i238.sink.split, label %line_construct.exit.i238
 
 line_construct.exit.i238.sink.split.sink.split:   ; preds = %346, %343
-  %storemerge1102 = phi double [ -1.000000e+00, %343 ], [ 0.000000e+00, %346 ]
-  %.sink1090 = phi double [ 0.000000e+00, %343 ], [ -1.000000e+00, %346 ]
+  %.sink1093 = phi double [ -1.000000e+00, %343 ], [ 0.000000e+00, %346 ]
+  %.sink1092 = phi double [ 0.000000e+00, %343 ], [ -1.000000e+00, %346 ]
   %.sink1071.ph = phi double [ %110, %343 ], [ %111, %346 ]
-  store double %storemerge1102, ptr %3, align 8
-  store double %.sink1090, ptr %57, align 8
+  store double %.sink1093, ptr %3, align 8
+  store double %.sink1092, ptr %57, align 8
   br label %line_construct.exit.i238
 
 line_construct.exit.i238.sink.split:              ; preds = %float8_mi.exit.i.i249
   br label %line_construct.exit.i238
 
 line_construct.exit.i238:                         ; preds = %line_construct.exit.i238.sink.split.sink.split, %line_construct.exit.i238.sink.split, %float8_mi.exit.i.i249
-  %storemerge1103 = phi double [ %367, %float8_mi.exit.i.i249 ], [ %.sink1071.ph, %line_construct.exit.i238.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i238.sink.split ]
-  store double %storemerge1103, ptr %58, align 8
+  %storemerge1110 = phi double [ %367, %float8_mi.exit.i.i249 ], [ %.sink1071.ph, %line_construct.exit.i238.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i238.sink.split ]
+  store double %storemerge1110, ptr %58, align 8
   %375 = call fastcc zeroext i1 @line_interpt_line(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull readonly %21)
   br i1 %375, label %376, label %line_closept_point.exit250
 
@@ -5489,19 +5482,19 @@ float8_mi.exit.i.i235:                            ; preds = %float8_mul.exit.i.i
   br i1 %439, label %line_construct.exit.i224.sink.split, label %line_construct.exit.i224
 
 line_construct.exit.i224.sink.split.sink.split:   ; preds = %411, %line_closept_point.exit250
-  %storemerge1104 = phi double [ -1.000000e+00, %line_closept_point.exit250 ], [ 0.000000e+00, %411 ]
-  %.sink1091 = phi double [ 0.000000e+00, %line_closept_point.exit250 ], [ -1.000000e+00, %411 ]
+  %.sink1095 = phi double [ -1.000000e+00, %line_closept_point.exit250 ], [ 0.000000e+00, %411 ]
+  %.sink1094 = phi double [ 0.000000e+00, %line_closept_point.exit250 ], [ -1.000000e+00, %411 ]
   %.sink1072.ph = phi double [ %112, %line_closept_point.exit250 ], [ %113, %411 ]
-  store double %storemerge1104, ptr %5, align 8
-  store double %.sink1091, ptr %60, align 8
+  store double %.sink1095, ptr %5, align 8
+  store double %.sink1094, ptr %60, align 8
   br label %line_construct.exit.i224
 
 line_construct.exit.i224.sink.split:              ; preds = %float8_mi.exit.i.i235
   br label %line_construct.exit.i224
 
 line_construct.exit.i224:                         ; preds = %line_construct.exit.i224.sink.split.sink.split, %line_construct.exit.i224.sink.split, %float8_mi.exit.i.i235
-  %storemerge1105 = phi double [ %432, %float8_mi.exit.i.i235 ], [ %.sink1072.ph, %line_construct.exit.i224.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i224.sink.split ]
-  store double %storemerge1105, ptr %61, align 8
+  %storemerge1111 = phi double [ %432, %float8_mi.exit.i.i235 ], [ %.sink1072.ph, %line_construct.exit.i224.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i224.sink.split ]
+  store double %storemerge1111, ptr %61, align 8
   %440 = call fastcc zeroext i1 @line_interpt_line(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull readonly %21)
   br i1 %440, label %441, label %line_closept_point.exit236
 
@@ -5792,21 +5785,21 @@ float8_mi.exit.i.i57:                             ; preds = %float8_mul.exit.i.i
   br i1 %568, label %line_construct.exit.i58.sink.split, label %line_construct.exit.i58
 
 line_construct.exit.i58.sink.split.sink.split:    ; preds = %548, %point_dt.exit222, %point_invsl.exit209, %511
-  %storemerge1106 = phi double [ -1.000000e+00, %511 ], [ -1.000000e+00, %point_invsl.exit209 ], [ 0.000000e+00, %point_dt.exit222 ], [ 0.000000e+00, %548 ]
-  %.sink1092 = phi double [ 0.000000e+00, %511 ], [ 0.000000e+00, %point_invsl.exit209 ], [ -1.000000e+00, %point_dt.exit222 ], [ -1.000000e+00, %548 ]
+  %.sink1097 = phi double [ -1.000000e+00, %511 ], [ -1.000000e+00, %point_invsl.exit209 ], [ 0.000000e+00, %point_dt.exit222 ], [ 0.000000e+00, %548 ]
+  %.sink1096 = phi double [ 0.000000e+00, %511 ], [ 0.000000e+00, %point_invsl.exit209 ], [ -1.000000e+00, %point_dt.exit222 ], [ -1.000000e+00, %548 ]
   %.sink1075.ph = phi double [ %120, %511 ], [ %120, %point_invsl.exit209 ], [ %122, %point_dt.exit222 ], [ %122, %548 ]
-  store double %storemerge1106, ptr %23, align 8
-  store double %.sink1092, ptr %64, align 8
+  store double %.sink1097, ptr %23, align 8
+  store double %.sink1096, ptr %64, align 8
   br label %line_construct.exit.i58
 
 line_construct.exit.i58.sink.split:               ; preds = %float8_mi.exit.i.i57
   br label %line_construct.exit.i58
 
 line_construct.exit.i58:                          ; preds = %line_construct.exit.i58.sink.split.sink.split, %line_construct.exit.i58.sink.split, %float8_mi.exit.i.i57
-  %storemerge1107 = phi double [ %561, %float8_mi.exit.i.i57 ], [ %.sink1075.ph, %line_construct.exit.i58.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i58.sink.split ]
-  %569 = phi double [ -1.000000e+00, %float8_mi.exit.i.i57 ], [ %.sink1092, %line_construct.exit.i58.sink.split.sink.split ], [ -1.000000e+00, %line_construct.exit.i58.sink.split ]
-  %570 = phi double [ %536, %float8_mi.exit.i.i57 ], [ %storemerge1106, %line_construct.exit.i58.sink.split.sink.split ], [ %536, %line_construct.exit.i58.sink.split ]
-  store double %storemerge1107, ptr %65, align 8
+  %storemerge1112 = phi double [ %561, %float8_mi.exit.i.i57 ], [ %.sink1075.ph, %line_construct.exit.i58.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i58.sink.split ]
+  %569 = phi double [ -1.000000e+00, %float8_mi.exit.i.i57 ], [ %.sink1096, %line_construct.exit.i58.sink.split.sink.split ], [ -1.000000e+00, %line_construct.exit.i58.sink.split ]
+  %570 = phi double [ %536, %float8_mi.exit.i.i57 ], [ %.sink1097, %line_construct.exit.i58.sink.split.sink.split ], [ %536, %line_construct.exit.i58.sink.split ]
+  store double %storemerge1112, ptr %65, align 8
   %571 = call fastcc zeroext i1 @lseg_interpt_line(ptr noundef nonnull %22, ptr noundef nonnull readonly %28, ptr noundef nonnull readonly %23)
   br i1 %571, label %lseg_closept_point.exit60, label %572
 
@@ -5885,19 +5878,19 @@ float8_mi.exit.i.i196:                            ; preds = %float8_mul.exit.i.i
   br i1 %603, label %line_construct.exit.i185.sink.split, label %line_construct.exit.i185
 
 line_construct.exit.i185.sink.split.sink.split:   ; preds = %575, %572
-  %storemerge1108 = phi double [ -1.000000e+00, %572 ], [ 0.000000e+00, %575 ]
-  %.sink1093 = phi double [ 0.000000e+00, %572 ], [ -1.000000e+00, %575 ]
+  %.sink1099 = phi double [ -1.000000e+00, %572 ], [ 0.000000e+00, %575 ]
+  %.sink1098 = phi double [ 0.000000e+00, %572 ], [ -1.000000e+00, %575 ]
   %.sink1076.ph = phi double [ %110, %572 ], [ %111, %575 ]
-  store double %storemerge1108, ptr %7, align 8
-  store double %.sink1093, ptr %66, align 8
+  store double %.sink1099, ptr %7, align 8
+  store double %.sink1098, ptr %66, align 8
   br label %line_construct.exit.i185
 
 line_construct.exit.i185.sink.split:              ; preds = %float8_mi.exit.i.i196
   br label %line_construct.exit.i185
 
 line_construct.exit.i185:                         ; preds = %line_construct.exit.i185.sink.split.sink.split, %line_construct.exit.i185.sink.split, %float8_mi.exit.i.i196
-  %storemerge1109 = phi double [ %596, %float8_mi.exit.i.i196 ], [ %.sink1076.ph, %line_construct.exit.i185.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i185.sink.split ]
-  store double %storemerge1109, ptr %67, align 8
+  %storemerge1113 = phi double [ %596, %float8_mi.exit.i.i196 ], [ %.sink1076.ph, %line_construct.exit.i185.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i185.sink.split ]
+  store double %storemerge1113, ptr %67, align 8
   %604 = call fastcc zeroext i1 @line_interpt_line(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull readonly %23)
   br i1 %604, label %605, label %line_closept_point.exit197
 
@@ -6049,19 +6042,19 @@ float8_mi.exit.i.i182:                            ; preds = %float8_mul.exit.i.i
   br i1 %668, label %line_construct.exit.i171.sink.split, label %line_construct.exit.i171
 
 line_construct.exit.i171.sink.split.sink.split:   ; preds = %640, %line_closept_point.exit197
-  %storemerge1110 = phi double [ -1.000000e+00, %line_closept_point.exit197 ], [ 0.000000e+00, %640 ]
-  %.sink1094 = phi double [ 0.000000e+00, %line_closept_point.exit197 ], [ -1.000000e+00, %640 ]
+  %.sink1101 = phi double [ -1.000000e+00, %line_closept_point.exit197 ], [ 0.000000e+00, %640 ]
+  %.sink1100 = phi double [ 0.000000e+00, %line_closept_point.exit197 ], [ -1.000000e+00, %640 ]
   %.sink1077.ph = phi double [ %112, %line_closept_point.exit197 ], [ %113, %640 ]
-  store double %storemerge1110, ptr %9, align 8
-  store double %.sink1094, ptr %69, align 8
+  store double %.sink1101, ptr %9, align 8
+  store double %.sink1100, ptr %69, align 8
   br label %line_construct.exit.i171
 
 line_construct.exit.i171.sink.split:              ; preds = %float8_mi.exit.i.i182
   br label %line_construct.exit.i171
 
 line_construct.exit.i171:                         ; preds = %line_construct.exit.i171.sink.split.sink.split, %line_construct.exit.i171.sink.split, %float8_mi.exit.i.i182
-  %storemerge1111 = phi double [ %661, %float8_mi.exit.i.i182 ], [ %.sink1077.ph, %line_construct.exit.i171.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i171.sink.split ]
-  store double %storemerge1111, ptr %70, align 8
+  %storemerge1114 = phi double [ %661, %float8_mi.exit.i.i182 ], [ %.sink1077.ph, %line_construct.exit.i171.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i171.sink.split ]
+  store double %storemerge1114, ptr %70, align 8
   %669 = call fastcc zeroext i1 @line_interpt_line(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull readonly %23)
   br i1 %669, label %670, label %line_closept_point.exit183
 
@@ -6369,21 +6362,21 @@ float8_mi.exit.i.i48:                             ; preds = %float8_mul.exit.i.i
   br i1 %794, label %line_construct.exit.i49.sink.split, label %line_construct.exit.i49
 
 line_construct.exit.i49.sink.split.sink.split:    ; preds = %774, %float8_lt.exit.thread.i, %point_invsl.exit156, %745
-  %storemerge1112 = phi double [ -1.000000e+00, %745 ], [ -1.000000e+00, %point_invsl.exit156 ], [ 0.000000e+00, %float8_lt.exit.thread.i ], [ 0.000000e+00, %774 ]
-  %.sink1095 = phi double [ 0.000000e+00, %745 ], [ 0.000000e+00, %point_invsl.exit156 ], [ -1.000000e+00, %float8_lt.exit.thread.i ], [ -1.000000e+00, %774 ]
+  %.sink1103 = phi double [ -1.000000e+00, %745 ], [ -1.000000e+00, %point_invsl.exit156 ], [ 0.000000e+00, %float8_lt.exit.thread.i ], [ 0.000000e+00, %774 ]
+  %.sink1102 = phi double [ 0.000000e+00, %745 ], [ 0.000000e+00, %point_invsl.exit156 ], [ -1.000000e+00, %float8_lt.exit.thread.i ], [ -1.000000e+00, %774 ]
   %.sink1080.ph = phi double [ %110, %745 ], [ %110, %point_invsl.exit156 ], [ %111, %float8_lt.exit.thread.i ], [ %111, %774 ]
-  store double %storemerge1112, ptr %25, align 8
-  store double %.sink1095, ptr %73, align 8
+  store double %.sink1103, ptr %25, align 8
+  store double %.sink1102, ptr %73, align 8
   br label %line_construct.exit.i49
 
 line_construct.exit.i49.sink.split:               ; preds = %float8_mi.exit.i.i48
   br label %line_construct.exit.i49
 
 line_construct.exit.i49:                          ; preds = %line_construct.exit.i49.sink.split.sink.split, %line_construct.exit.i49.sink.split, %float8_mi.exit.i.i48
-  %storemerge1113 = phi double [ %787, %float8_mi.exit.i.i48 ], [ %.sink1080.ph, %line_construct.exit.i49.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i49.sink.split ]
-  %795 = phi double [ -1.000000e+00, %float8_mi.exit.i.i48 ], [ %.sink1095, %line_construct.exit.i49.sink.split.sink.split ], [ -1.000000e+00, %line_construct.exit.i49.sink.split ]
-  %796 = phi double [ %762, %float8_mi.exit.i.i48 ], [ %storemerge1112, %line_construct.exit.i49.sink.split.sink.split ], [ %762, %line_construct.exit.i49.sink.split ]
-  store double %storemerge1113, ptr %74, align 8
+  %storemerge1115 = phi double [ %787, %float8_mi.exit.i.i48 ], [ %.sink1080.ph, %line_construct.exit.i49.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i49.sink.split ]
+  %795 = phi double [ -1.000000e+00, %float8_mi.exit.i.i48 ], [ %.sink1102, %line_construct.exit.i49.sink.split.sink.split ], [ -1.000000e+00, %line_construct.exit.i49.sink.split ]
+  %796 = phi double [ %762, %float8_mi.exit.i.i48 ], [ %.sink1103, %line_construct.exit.i49.sink.split.sink.split ], [ %762, %line_construct.exit.i49.sink.split ]
+  store double %storemerge1115, ptr %74, align 8
   %797 = call fastcc zeroext i1 @lseg_interpt_line(ptr noundef nonnull %24, ptr noundef nonnull readonly %29, ptr noundef nonnull readonly %25)
   br i1 %797, label %lseg_closept_point.exit51, label %798
 
@@ -6475,8 +6468,8 @@ line_construct.exit.i132.sink.split:              ; preds = %float8_mi.exit.i.i1
   br label %line_construct.exit.i132
 
 line_construct.exit.i132:                         ; preds = %.thread.i134, %line_invsl.exit.thread.i131, %line_construct.exit.i132.sink.split, %float8_mi.exit.i.i143
-  %storemerge1114 = phi double [ %823, %float8_mi.exit.i.i143 ], [ %119, %.thread.i134 ], [ %117, %line_invsl.exit.thread.i131 ], [ 0.000000e+00, %line_construct.exit.i132.sink.split ]
-  store double %storemerge1114, ptr %76, align 8
+  %storemerge1116 = phi double [ %823, %float8_mi.exit.i.i143 ], [ %119, %.thread.i134 ], [ %117, %line_invsl.exit.thread.i131 ], [ 0.000000e+00, %line_construct.exit.i132.sink.split ]
+  store double %storemerge1116, ptr %76, align 8
   %831 = call fastcc zeroext i1 @line_interpt_line(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull readonly %25)
   br i1 %831, label %832, label %line_closept_point.exit144
 
@@ -6637,8 +6630,8 @@ line_construct.exit.i118.sink.split:              ; preds = %float8_mi.exit.i.i1
   br label %line_construct.exit.i118
 
 line_construct.exit.i118:                         ; preds = %.thread.i120, %line_invsl.exit.thread.i117, %line_construct.exit.i118.sink.split, %float8_mi.exit.i.i129
-  %storemerge1115 = phi double [ %886, %float8_mi.exit.i.i129 ], [ %122, %.thread.i120 ], [ %120, %line_invsl.exit.thread.i117 ], [ 0.000000e+00, %line_construct.exit.i118.sink.split ]
-  store double %storemerge1115, ptr %79, align 8
+  %storemerge1117 = phi double [ %886, %float8_mi.exit.i.i129 ], [ %122, %.thread.i120 ], [ %120, %line_invsl.exit.thread.i117 ], [ 0.000000e+00, %line_construct.exit.i118.sink.split ]
+  store double %storemerge1117, ptr %79, align 8
   %893 = call fastcc zeroext i1 @line_interpt_line(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull readonly %25)
   br i1 %893, label %894, label %line_closept_point.exit130
 
@@ -6951,22 +6944,22 @@ float8_mi.exit.i.i:                               ; preds = %float8_mul.exit.i.i
   br i1 %1024, label %line_construct.exit.i.sink.split, label %line_construct.exit.i
 
 line_construct.exit.i.sink.split.sink.split:      ; preds = %1004, %float8_lt.exit37.thread.i, %point_invsl.exit, %970
-  %storemerge1116 = phi double [ -1.000000e+00, %970 ], [ -1.000000e+00, %point_invsl.exit ], [ 0.000000e+00, %float8_lt.exit37.thread.i ], [ 0.000000e+00, %1004 ]
-  %.sink1097 = phi double [ 0.000000e+00, %970 ], [ 0.000000e+00, %point_invsl.exit ], [ -1.000000e+00, %float8_lt.exit37.thread.i ], [ -1.000000e+00, %1004 ]
-  %.sink1096 = phi ptr [ %46, %970 ], [ %46, %point_invsl.exit ], [ %47, %float8_lt.exit37.thread.i ], [ %47, %1004 ]
-  store double %storemerge1116, ptr %27, align 8
-  store double %.sink1097, ptr %82, align 8
-  %1025 = load double, ptr %.sink1096, align 8
+  %.sink1106 = phi double [ -1.000000e+00, %970 ], [ -1.000000e+00, %point_invsl.exit ], [ 0.000000e+00, %float8_lt.exit37.thread.i ], [ 0.000000e+00, %1004 ]
+  %.sink1105 = phi double [ 0.000000e+00, %970 ], [ 0.000000e+00, %point_invsl.exit ], [ -1.000000e+00, %float8_lt.exit37.thread.i ], [ -1.000000e+00, %1004 ]
+  %.sink1104 = phi ptr [ %46, %970 ], [ %46, %point_invsl.exit ], [ %47, %float8_lt.exit37.thread.i ], [ %47, %1004 ]
+  store double %.sink1106, ptr %27, align 8
+  store double %.sink1105, ptr %82, align 8
+  %1025 = load double, ptr %.sink1104, align 8
   br label %line_construct.exit.i
 
 line_construct.exit.i.sink.split:                 ; preds = %float8_mi.exit.i.i
   br label %line_construct.exit.i
 
 line_construct.exit.i:                            ; preds = %line_construct.exit.i.sink.split.sink.split, %line_construct.exit.i.sink.split, %float8_mi.exit.i.i
-  %storemerge1117 = phi double [ %1017, %float8_mi.exit.i.i ], [ %1025, %line_construct.exit.i.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i.sink.split ]
-  %1026 = phi double [ -1.000000e+00, %float8_mi.exit.i.i ], [ %.sink1097, %line_construct.exit.i.sink.split.sink.split ], [ -1.000000e+00, %line_construct.exit.i.sink.split ]
-  %1027 = phi double [ %992, %float8_mi.exit.i.i ], [ %storemerge1116, %line_construct.exit.i.sink.split.sink.split ], [ %992, %line_construct.exit.i.sink.split ]
-  store double %storemerge1117, ptr %83, align 8
+  %storemerge1118 = phi double [ %1017, %float8_mi.exit.i.i ], [ %1025, %line_construct.exit.i.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i.sink.split ]
+  %1026 = phi double [ -1.000000e+00, %float8_mi.exit.i.i ], [ %.sink1105, %line_construct.exit.i.sink.split.sink.split ], [ -1.000000e+00, %line_construct.exit.i.sink.split ]
+  %1027 = phi double [ %992, %float8_mi.exit.i.i ], [ %.sink1106, %line_construct.exit.i.sink.split.sink.split ], [ %992, %line_construct.exit.i.sink.split ]
+  store double %storemerge1118, ptr %83, align 8
   %1028 = call fastcc zeroext i1 @lseg_interpt_line(ptr noundef nonnull %26, ptr noundef nonnull readonly %29, ptr noundef nonnull readonly %27)
   br i1 %1028, label %lseg_closept_point.exit, label %1029
 
@@ -7045,11 +7038,11 @@ float8_mi.exit.i.i98:                             ; preds = %float8_mul.exit.i.i
   br i1 %1061, label %line_construct.exit.i87.sink.split, label %line_construct.exit.i87
 
 line_construct.exit.i87.sink.split.sink.split:    ; preds = %1032, %1029
-  %storemerge1118 = phi double [ -1.000000e+00, %1029 ], [ 0.000000e+00, %1032 ]
-  %.sink1098 = phi double [ 0.000000e+00, %1029 ], [ -1.000000e+00, %1032 ]
+  %.sink1108 = phi double [ -1.000000e+00, %1029 ], [ 0.000000e+00, %1032 ]
+  %.sink1107 = phi double [ 0.000000e+00, %1029 ], [ -1.000000e+00, %1032 ]
   %.sink1086.ph = phi double [ %117, %1029 ], [ %119, %1032 ]
-  store double %storemerge1118, ptr %15, align 8
-  store double %.sink1098, ptr %84, align 8
+  store double %.sink1108, ptr %15, align 8
+  store double %.sink1107, ptr %84, align 8
   br label %line_construct.exit.i87
 
 line_construct.exit.i87.sink.split:               ; preds = %float8_mi.exit.i.i98
@@ -12239,10 +12232,10 @@ float8_mi.exit.i.i:                               ; preds = %float8_mul.exit.i.i
   br i1 %116, label %line_construct.exit.i.sink.split, label %line_construct.exit.i
 
 line_construct.exit.i.sink.split.sink.split:      ; preds = %96, %61, %point_sl.exit, %.lr.ph
-  %storemerge = phi double [ -1.000000e+00, %.lr.ph ], [ -1.000000e+00, %point_sl.exit ], [ 0.000000e+00, %61 ], [ 0.000000e+00, %96 ]
+  %.sink172 = phi double [ -1.000000e+00, %.lr.ph ], [ -1.000000e+00, %point_sl.exit ], [ 0.000000e+00, %61 ], [ 0.000000e+00, %96 ]
   %.sink171 = phi double [ 0.000000e+00, %.lr.ph ], [ 0.000000e+00, %point_sl.exit ], [ -1.000000e+00, %61 ], [ -1.000000e+00, %96 ]
   %.sink.ph = phi double [ %.sroa.0.sroa.0.0146, %.lr.ph ], [ %.sroa.0.sroa.0.0146, %point_sl.exit ], [ %.sroa.0.sroa.7.0148, %61 ], [ %.sroa.0.sroa.7.0148, %96 ]
-  store double %storemerge, ptr %4, align 8
+  store double %.sink172, ptr %4, align 8
   store double %.sink171, ptr %43, align 8
   br label %line_construct.exit.i
 
@@ -12250,8 +12243,8 @@ line_construct.exit.i.sink.split:                 ; preds = %float8_mi.exit.i.i
   br label %line_construct.exit.i
 
 line_construct.exit.i:                            ; preds = %line_construct.exit.i.sink.split.sink.split, %line_construct.exit.i.sink.split, %float8_mi.exit.i.i
-  %storemerge172 = phi double [ %109, %float8_mi.exit.i.i ], [ %.sink.ph, %line_construct.exit.i.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i.sink.split ]
-  store double %storemerge172, ptr %44, align 8
+  %storemerge = phi double [ %109, %float8_mi.exit.i.i ], [ %.sink.ph, %line_construct.exit.i.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i.sink.split ]
+  store double %storemerge, ptr %44, align 8
   %117 = call fastcc zeroext i1 @lseg_interpt_line(ptr noundef nonnull %3, ptr noundef nonnull readonly %5, ptr noundef nonnull %4)
   br i1 %117, label %118, label %lseg_interpt_lseg.exit
 
@@ -13043,10 +13036,10 @@ float8_mi.exit.i.i73:                             ; preds = %float8_mul.exit.i.i
   br i1 %177, label %line_construct.exit.i74.sink.split, label %line_construct.exit.i74
 
 line_construct.exit.i74.sink.split.sink.split:    ; preds = %157, %122, %point_sl.exit, %101
-  %storemerge = phi double [ -1.000000e+00, %101 ], [ -1.000000e+00, %point_sl.exit ], [ 0.000000e+00, %122 ], [ 0.000000e+00, %157 ]
+  %.sink1088 = phi double [ -1.000000e+00, %101 ], [ -1.000000e+00, %point_sl.exit ], [ 0.000000e+00, %122 ], [ 0.000000e+00, %157 ]
   %.sink1087 = phi double [ 0.000000e+00, %101 ], [ 0.000000e+00, %point_sl.exit ], [ -1.000000e+00, %122 ], [ -1.000000e+00, %157 ]
   %.sink.ph = phi double [ %111, %101 ], [ %111, %point_sl.exit ], [ %113, %122 ], [ %113, %157 ]
-  store double %storemerge, ptr %19, align 8
+  store double %.sink1088, ptr %19, align 8
   store double %.sink1087, ptr %51, align 8
   br label %line_construct.exit.i74
 
@@ -13054,8 +13047,8 @@ line_construct.exit.i74.sink.split:               ; preds = %float8_mi.exit.i.i7
   br label %line_construct.exit.i74
 
 line_construct.exit.i74:                          ; preds = %line_construct.exit.i74.sink.split.sink.split, %line_construct.exit.i74.sink.split, %float8_mi.exit.i.i73
-  %storemerge1098 = phi double [ %170, %float8_mi.exit.i.i73 ], [ %.sink.ph, %line_construct.exit.i74.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i74.sink.split ]
-  store double %storemerge1098, ptr %52, align 8
+  %storemerge = phi double [ %170, %float8_mi.exit.i.i73 ], [ %.sink.ph, %line_construct.exit.i74.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i74.sink.split ]
+  store double %storemerge, ptr %52, align 8
   %178 = call fastcc zeroext i1 @lseg_interpt_line(ptr noundef nonnull %18, ptr noundef nonnull readonly %28, ptr noundef nonnull %19)
   br i1 %178, label %179, label %270
 
@@ -13407,21 +13400,21 @@ float8_mi.exit.i.i64:                             ; preds = %float8_mul.exit.i.i
   br i1 %333, label %line_construct.exit.i65.sink.split, label %line_construct.exit.i65
 
 line_construct.exit.i65.sink.split.sink.split:    ; preds = %313, %270, %point_invsl.exit260, %276
-  %storemerge1099 = phi double [ -1.000000e+00, %276 ], [ -1.000000e+00, %point_invsl.exit260 ], [ 0.000000e+00, %270 ], [ 0.000000e+00, %313 ]
-  %.sink1088 = phi double [ 0.000000e+00, %276 ], [ 0.000000e+00, %point_invsl.exit260 ], [ -1.000000e+00, %270 ], [ -1.000000e+00, %313 ]
+  %.sink1090 = phi double [ -1.000000e+00, %276 ], [ -1.000000e+00, %point_invsl.exit260 ], [ 0.000000e+00, %270 ], [ 0.000000e+00, %313 ]
+  %.sink1089 = phi double [ 0.000000e+00, %276 ], [ 0.000000e+00, %point_invsl.exit260 ], [ -1.000000e+00, %270 ], [ -1.000000e+00, %313 ]
   %.sink1069.ph = phi double [ %111, %276 ], [ %111, %point_invsl.exit260 ], [ %113, %270 ], [ %113, %313 ]
-  store double %storemerge1099, ptr %21, align 8
-  store double %.sink1088, ptr %54, align 8
+  store double %.sink1090, ptr %21, align 8
+  store double %.sink1089, ptr %54, align 8
   br label %line_construct.exit.i65
 
 line_construct.exit.i65.sink.split:               ; preds = %float8_mi.exit.i.i64
   br label %line_construct.exit.i65
 
 line_construct.exit.i65:                          ; preds = %line_construct.exit.i65.sink.split.sink.split, %line_construct.exit.i65.sink.split, %float8_mi.exit.i.i64
-  %storemerge1100 = phi double [ %326, %float8_mi.exit.i.i64 ], [ %.sink1069.ph, %line_construct.exit.i65.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i65.sink.split ]
-  %334 = phi double [ -1.000000e+00, %float8_mi.exit.i.i64 ], [ %.sink1088, %line_construct.exit.i65.sink.split.sink.split ], [ -1.000000e+00, %line_construct.exit.i65.sink.split ]
-  %335 = phi double [ %301, %float8_mi.exit.i.i64 ], [ %storemerge1099, %line_construct.exit.i65.sink.split.sink.split ], [ %301, %line_construct.exit.i65.sink.split ]
-  store double %storemerge1100, ptr %55, align 8
+  %storemerge1108 = phi double [ %326, %float8_mi.exit.i.i64 ], [ %.sink1069.ph, %line_construct.exit.i65.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i65.sink.split ]
+  %334 = phi double [ -1.000000e+00, %float8_mi.exit.i.i64 ], [ %.sink1089, %line_construct.exit.i65.sink.split.sink.split ], [ -1.000000e+00, %line_construct.exit.i65.sink.split ]
+  %335 = phi double [ %301, %float8_mi.exit.i.i64 ], [ %.sink1090, %line_construct.exit.i65.sink.split.sink.split ], [ %301, %line_construct.exit.i65.sink.split ]
+  store double %storemerge1108, ptr %55, align 8
   %336 = call fastcc zeroext i1 @lseg_interpt_line(ptr noundef nonnull %20, ptr noundef nonnull readonly %28, ptr noundef nonnull readonly %21)
   br i1 %336, label %lseg_closept_point.exit67, label %337
 
@@ -13500,19 +13493,19 @@ float8_mi.exit.i.i247:                            ; preds = %float8_mul.exit.i.i
   br i1 %368, label %line_construct.exit.i236.sink.split, label %line_construct.exit.i236
 
 line_construct.exit.i236.sink.split.sink.split:   ; preds = %340, %337
-  %storemerge1101 = phi double [ -1.000000e+00, %337 ], [ 0.000000e+00, %340 ]
-  %.sink1089 = phi double [ 0.000000e+00, %337 ], [ -1.000000e+00, %340 ]
+  %.sink1092 = phi double [ -1.000000e+00, %337 ], [ 0.000000e+00, %340 ]
+  %.sink1091 = phi double [ 0.000000e+00, %337 ], [ -1.000000e+00, %340 ]
   %.sink1070.ph = phi double [ %104, %337 ], [ %105, %340 ]
-  store double %storemerge1101, ptr %3, align 8
-  store double %.sink1089, ptr %56, align 8
+  store double %.sink1092, ptr %3, align 8
+  store double %.sink1091, ptr %56, align 8
   br label %line_construct.exit.i236
 
 line_construct.exit.i236.sink.split:              ; preds = %float8_mi.exit.i.i247
   br label %line_construct.exit.i236
 
 line_construct.exit.i236:                         ; preds = %line_construct.exit.i236.sink.split.sink.split, %line_construct.exit.i236.sink.split, %float8_mi.exit.i.i247
-  %storemerge1102 = phi double [ %361, %float8_mi.exit.i.i247 ], [ %.sink1070.ph, %line_construct.exit.i236.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i236.sink.split ]
-  store double %storemerge1102, ptr %57, align 8
+  %storemerge1109 = phi double [ %361, %float8_mi.exit.i.i247 ], [ %.sink1070.ph, %line_construct.exit.i236.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i236.sink.split ]
+  store double %storemerge1109, ptr %57, align 8
   %369 = call fastcc zeroext i1 @line_interpt_line(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull readonly %21)
   br i1 %369, label %370, label %line_closept_point.exit248
 
@@ -13664,19 +13657,19 @@ float8_mi.exit.i.i233:                            ; preds = %float8_mul.exit.i.i
   br i1 %433, label %line_construct.exit.i222.sink.split, label %line_construct.exit.i222
 
 line_construct.exit.i222.sink.split.sink.split:   ; preds = %405, %line_closept_point.exit248
-  %storemerge1103 = phi double [ -1.000000e+00, %line_closept_point.exit248 ], [ 0.000000e+00, %405 ]
-  %.sink1090 = phi double [ 0.000000e+00, %line_closept_point.exit248 ], [ -1.000000e+00, %405 ]
+  %.sink1094 = phi double [ -1.000000e+00, %line_closept_point.exit248 ], [ 0.000000e+00, %405 ]
+  %.sink1093 = phi double [ 0.000000e+00, %line_closept_point.exit248 ], [ -1.000000e+00, %405 ]
   %.sink1071.ph = phi double [ %106, %line_closept_point.exit248 ], [ %107, %405 ]
-  store double %storemerge1103, ptr %5, align 8
-  store double %.sink1090, ptr %59, align 8
+  store double %.sink1094, ptr %5, align 8
+  store double %.sink1093, ptr %59, align 8
   br label %line_construct.exit.i222
 
 line_construct.exit.i222.sink.split:              ; preds = %float8_mi.exit.i.i233
   br label %line_construct.exit.i222
 
 line_construct.exit.i222:                         ; preds = %line_construct.exit.i222.sink.split.sink.split, %line_construct.exit.i222.sink.split, %float8_mi.exit.i.i233
-  %storemerge1104 = phi double [ %426, %float8_mi.exit.i.i233 ], [ %.sink1071.ph, %line_construct.exit.i222.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i222.sink.split ]
-  store double %storemerge1104, ptr %60, align 8
+  %storemerge1110 = phi double [ %426, %float8_mi.exit.i.i233 ], [ %.sink1071.ph, %line_construct.exit.i222.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i222.sink.split ]
+  store double %storemerge1110, ptr %60, align 8
   %434 = call fastcc zeroext i1 @line_interpt_line(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull readonly %21)
   br i1 %434, label %435, label %line_closept_point.exit234
 
@@ -13967,21 +13960,21 @@ float8_mi.exit.i.i55:                             ; preds = %float8_mul.exit.i.i
   br i1 %562, label %line_construct.exit.i56.sink.split, label %line_construct.exit.i56
 
 line_construct.exit.i56.sink.split.sink.split:    ; preds = %542, %point_dt.exit220, %point_invsl.exit207, %505
-  %storemerge1105 = phi double [ -1.000000e+00, %505 ], [ -1.000000e+00, %point_invsl.exit207 ], [ 0.000000e+00, %point_dt.exit220 ], [ 0.000000e+00, %542 ]
-  %.sink1091 = phi double [ 0.000000e+00, %505 ], [ 0.000000e+00, %point_invsl.exit207 ], [ -1.000000e+00, %point_dt.exit220 ], [ -1.000000e+00, %542 ]
+  %.sink1096 = phi double [ -1.000000e+00, %505 ], [ -1.000000e+00, %point_invsl.exit207 ], [ 0.000000e+00, %point_dt.exit220 ], [ 0.000000e+00, %542 ]
+  %.sink1095 = phi double [ 0.000000e+00, %505 ], [ 0.000000e+00, %point_invsl.exit207 ], [ -1.000000e+00, %point_dt.exit220 ], [ -1.000000e+00, %542 ]
   %.sink1074.ph = phi double [ %114, %505 ], [ %114, %point_invsl.exit207 ], [ %116, %point_dt.exit220 ], [ %116, %542 ]
-  store double %storemerge1105, ptr %23, align 8
-  store double %.sink1091, ptr %63, align 8
+  store double %.sink1096, ptr %23, align 8
+  store double %.sink1095, ptr %63, align 8
   br label %line_construct.exit.i56
 
 line_construct.exit.i56.sink.split:               ; preds = %float8_mi.exit.i.i55
   br label %line_construct.exit.i56
 
 line_construct.exit.i56:                          ; preds = %line_construct.exit.i56.sink.split.sink.split, %line_construct.exit.i56.sink.split, %float8_mi.exit.i.i55
-  %storemerge1106 = phi double [ %555, %float8_mi.exit.i.i55 ], [ %.sink1074.ph, %line_construct.exit.i56.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i56.sink.split ]
-  %563 = phi double [ -1.000000e+00, %float8_mi.exit.i.i55 ], [ %.sink1091, %line_construct.exit.i56.sink.split.sink.split ], [ -1.000000e+00, %line_construct.exit.i56.sink.split ]
-  %564 = phi double [ %530, %float8_mi.exit.i.i55 ], [ %storemerge1105, %line_construct.exit.i56.sink.split.sink.split ], [ %530, %line_construct.exit.i56.sink.split ]
-  store double %storemerge1106, ptr %64, align 8
+  %storemerge1111 = phi double [ %555, %float8_mi.exit.i.i55 ], [ %.sink1074.ph, %line_construct.exit.i56.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i56.sink.split ]
+  %563 = phi double [ -1.000000e+00, %float8_mi.exit.i.i55 ], [ %.sink1095, %line_construct.exit.i56.sink.split.sink.split ], [ -1.000000e+00, %line_construct.exit.i56.sink.split ]
+  %564 = phi double [ %530, %float8_mi.exit.i.i55 ], [ %.sink1096, %line_construct.exit.i56.sink.split.sink.split ], [ %530, %line_construct.exit.i56.sink.split ]
+  store double %storemerge1111, ptr %64, align 8
   %565 = call fastcc zeroext i1 @lseg_interpt_line(ptr noundef nonnull %22, ptr noundef nonnull readonly %28, ptr noundef nonnull readonly %23)
   br i1 %565, label %lseg_closept_point.exit58, label %566
 
@@ -14060,19 +14053,19 @@ float8_mi.exit.i.i194:                            ; preds = %float8_mul.exit.i.i
   br i1 %597, label %line_construct.exit.i183.sink.split, label %line_construct.exit.i183
 
 line_construct.exit.i183.sink.split.sink.split:   ; preds = %569, %566
-  %storemerge1107 = phi double [ -1.000000e+00, %566 ], [ 0.000000e+00, %569 ]
-  %.sink1092 = phi double [ 0.000000e+00, %566 ], [ -1.000000e+00, %569 ]
+  %.sink1098 = phi double [ -1.000000e+00, %566 ], [ 0.000000e+00, %569 ]
+  %.sink1097 = phi double [ 0.000000e+00, %566 ], [ -1.000000e+00, %569 ]
   %.sink1075.ph = phi double [ %104, %566 ], [ %105, %569 ]
-  store double %storemerge1107, ptr %7, align 8
-  store double %.sink1092, ptr %65, align 8
+  store double %.sink1098, ptr %7, align 8
+  store double %.sink1097, ptr %65, align 8
   br label %line_construct.exit.i183
 
 line_construct.exit.i183.sink.split:              ; preds = %float8_mi.exit.i.i194
   br label %line_construct.exit.i183
 
 line_construct.exit.i183:                         ; preds = %line_construct.exit.i183.sink.split.sink.split, %line_construct.exit.i183.sink.split, %float8_mi.exit.i.i194
-  %storemerge1108 = phi double [ %590, %float8_mi.exit.i.i194 ], [ %.sink1075.ph, %line_construct.exit.i183.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i183.sink.split ]
-  store double %storemerge1108, ptr %66, align 8
+  %storemerge1112 = phi double [ %590, %float8_mi.exit.i.i194 ], [ %.sink1075.ph, %line_construct.exit.i183.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i183.sink.split ]
+  store double %storemerge1112, ptr %66, align 8
   %598 = call fastcc zeroext i1 @line_interpt_line(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull readonly %23)
   br i1 %598, label %599, label %line_closept_point.exit195
 
@@ -14224,19 +14217,19 @@ float8_mi.exit.i.i180:                            ; preds = %float8_mul.exit.i.i
   br i1 %662, label %line_construct.exit.i169.sink.split, label %line_construct.exit.i169
 
 line_construct.exit.i169.sink.split.sink.split:   ; preds = %634, %line_closept_point.exit195
-  %storemerge1109 = phi double [ -1.000000e+00, %line_closept_point.exit195 ], [ 0.000000e+00, %634 ]
-  %.sink1093 = phi double [ 0.000000e+00, %line_closept_point.exit195 ], [ -1.000000e+00, %634 ]
+  %.sink1100 = phi double [ -1.000000e+00, %line_closept_point.exit195 ], [ 0.000000e+00, %634 ]
+  %.sink1099 = phi double [ 0.000000e+00, %line_closept_point.exit195 ], [ -1.000000e+00, %634 ]
   %.sink1076.ph = phi double [ %106, %line_closept_point.exit195 ], [ %107, %634 ]
-  store double %storemerge1109, ptr %9, align 8
-  store double %.sink1093, ptr %68, align 8
+  store double %.sink1100, ptr %9, align 8
+  store double %.sink1099, ptr %68, align 8
   br label %line_construct.exit.i169
 
 line_construct.exit.i169.sink.split:              ; preds = %float8_mi.exit.i.i180
   br label %line_construct.exit.i169
 
 line_construct.exit.i169:                         ; preds = %line_construct.exit.i169.sink.split.sink.split, %line_construct.exit.i169.sink.split, %float8_mi.exit.i.i180
-  %storemerge1110 = phi double [ %655, %float8_mi.exit.i.i180 ], [ %.sink1076.ph, %line_construct.exit.i169.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i169.sink.split ]
-  store double %storemerge1110, ptr %69, align 8
+  %storemerge1113 = phi double [ %655, %float8_mi.exit.i.i180 ], [ %.sink1076.ph, %line_construct.exit.i169.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i169.sink.split ]
+  store double %storemerge1113, ptr %69, align 8
   %663 = call fastcc zeroext i1 @line_interpt_line(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull readonly %23)
   br i1 %663, label %664, label %line_closept_point.exit181
 
@@ -14544,21 +14537,21 @@ float8_mi.exit.i.i46:                             ; preds = %float8_mul.exit.i.i
   br i1 %788, label %line_construct.exit.i47.sink.split, label %line_construct.exit.i47
 
 line_construct.exit.i47.sink.split.sink.split:    ; preds = %768, %float8_lt.exit.thread.i, %point_invsl.exit154, %739
-  %storemerge1111 = phi double [ -1.000000e+00, %739 ], [ -1.000000e+00, %point_invsl.exit154 ], [ 0.000000e+00, %float8_lt.exit.thread.i ], [ 0.000000e+00, %768 ]
-  %.sink1094 = phi double [ 0.000000e+00, %739 ], [ 0.000000e+00, %point_invsl.exit154 ], [ -1.000000e+00, %float8_lt.exit.thread.i ], [ -1.000000e+00, %768 ]
+  %.sink1102 = phi double [ -1.000000e+00, %739 ], [ -1.000000e+00, %point_invsl.exit154 ], [ 0.000000e+00, %float8_lt.exit.thread.i ], [ 0.000000e+00, %768 ]
+  %.sink1101 = phi double [ 0.000000e+00, %739 ], [ 0.000000e+00, %point_invsl.exit154 ], [ -1.000000e+00, %float8_lt.exit.thread.i ], [ -1.000000e+00, %768 ]
   %.sink1079.ph = phi double [ %104, %739 ], [ %104, %point_invsl.exit154 ], [ %105, %float8_lt.exit.thread.i ], [ %105, %768 ]
-  store double %storemerge1111, ptr %25, align 8
-  store double %.sink1094, ptr %72, align 8
+  store double %.sink1102, ptr %25, align 8
+  store double %.sink1101, ptr %72, align 8
   br label %line_construct.exit.i47
 
 line_construct.exit.i47.sink.split:               ; preds = %float8_mi.exit.i.i46
   br label %line_construct.exit.i47
 
 line_construct.exit.i47:                          ; preds = %line_construct.exit.i47.sink.split.sink.split, %line_construct.exit.i47.sink.split, %float8_mi.exit.i.i46
-  %storemerge1112 = phi double [ %781, %float8_mi.exit.i.i46 ], [ %.sink1079.ph, %line_construct.exit.i47.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i47.sink.split ]
-  %789 = phi double [ -1.000000e+00, %float8_mi.exit.i.i46 ], [ %.sink1094, %line_construct.exit.i47.sink.split.sink.split ], [ -1.000000e+00, %line_construct.exit.i47.sink.split ]
-  %790 = phi double [ %756, %float8_mi.exit.i.i46 ], [ %storemerge1111, %line_construct.exit.i47.sink.split.sink.split ], [ %756, %line_construct.exit.i47.sink.split ]
-  store double %storemerge1112, ptr %73, align 8
+  %storemerge1114 = phi double [ %781, %float8_mi.exit.i.i46 ], [ %.sink1079.ph, %line_construct.exit.i47.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i47.sink.split ]
+  %789 = phi double [ -1.000000e+00, %float8_mi.exit.i.i46 ], [ %.sink1101, %line_construct.exit.i47.sink.split.sink.split ], [ -1.000000e+00, %line_construct.exit.i47.sink.split ]
+  %790 = phi double [ %756, %float8_mi.exit.i.i46 ], [ %.sink1102, %line_construct.exit.i47.sink.split.sink.split ], [ %756, %line_construct.exit.i47.sink.split ]
+  store double %storemerge1114, ptr %73, align 8
   %791 = call fastcc zeroext i1 @lseg_interpt_line(ptr noundef nonnull %24, ptr noundef nonnull readonly %29, ptr noundef nonnull readonly %25)
   br i1 %791, label %lseg_closept_point.exit49, label %792
 
@@ -14650,8 +14643,8 @@ line_construct.exit.i130.sink.split:              ; preds = %float8_mi.exit.i.i1
   br label %line_construct.exit.i130
 
 line_construct.exit.i130:                         ; preds = %.thread.i132, %line_invsl.exit.thread.i129, %line_construct.exit.i130.sink.split, %float8_mi.exit.i.i141
-  %storemerge1113 = phi double [ %817, %float8_mi.exit.i.i141 ], [ %113, %.thread.i132 ], [ %111, %line_invsl.exit.thread.i129 ], [ 0.000000e+00, %line_construct.exit.i130.sink.split ]
-  store double %storemerge1113, ptr %75, align 8
+  %storemerge1115 = phi double [ %817, %float8_mi.exit.i.i141 ], [ %113, %.thread.i132 ], [ %111, %line_invsl.exit.thread.i129 ], [ 0.000000e+00, %line_construct.exit.i130.sink.split ]
+  store double %storemerge1115, ptr %75, align 8
   %825 = call fastcc zeroext i1 @line_interpt_line(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull readonly %25)
   br i1 %825, label %826, label %line_closept_point.exit142
 
@@ -14812,8 +14805,8 @@ line_construct.exit.i116.sink.split:              ; preds = %float8_mi.exit.i.i1
   br label %line_construct.exit.i116
 
 line_construct.exit.i116:                         ; preds = %.thread.i118, %line_invsl.exit.thread.i115, %line_construct.exit.i116.sink.split, %float8_mi.exit.i.i127
-  %storemerge1114 = phi double [ %880, %float8_mi.exit.i.i127 ], [ %116, %.thread.i118 ], [ %114, %line_invsl.exit.thread.i115 ], [ 0.000000e+00, %line_construct.exit.i116.sink.split ]
-  store double %storemerge1114, ptr %78, align 8
+  %storemerge1116 = phi double [ %880, %float8_mi.exit.i.i127 ], [ %116, %.thread.i118 ], [ %114, %line_invsl.exit.thread.i115 ], [ 0.000000e+00, %line_construct.exit.i116.sink.split ]
+  store double %storemerge1116, ptr %78, align 8
   %887 = call fastcc zeroext i1 @line_interpt_line(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull readonly %25)
   br i1 %887, label %888, label %line_closept_point.exit128
 
@@ -15126,22 +15119,22 @@ float8_mi.exit.i.i:                               ; preds = %float8_mul.exit.i.i
   br i1 %1018, label %line_construct.exit.i.sink.split, label %line_construct.exit.i
 
 line_construct.exit.i.sink.split.sink.split:      ; preds = %998, %float8_lt.exit37.thread.i, %point_invsl.exit, %964
-  %storemerge1115 = phi double [ -1.000000e+00, %964 ], [ -1.000000e+00, %point_invsl.exit ], [ 0.000000e+00, %float8_lt.exit37.thread.i ], [ 0.000000e+00, %998 ]
-  %.sink1096 = phi double [ 0.000000e+00, %964 ], [ 0.000000e+00, %point_invsl.exit ], [ -1.000000e+00, %float8_lt.exit37.thread.i ], [ -1.000000e+00, %998 ]
-  %.sink1095 = phi ptr [ %45, %964 ], [ %45, %point_invsl.exit ], [ %46, %float8_lt.exit37.thread.i ], [ %46, %998 ]
-  store double %storemerge1115, ptr %27, align 8
-  store double %.sink1096, ptr %81, align 8
-  %1019 = load double, ptr %.sink1095, align 8
+  %.sink1105 = phi double [ -1.000000e+00, %964 ], [ -1.000000e+00, %point_invsl.exit ], [ 0.000000e+00, %float8_lt.exit37.thread.i ], [ 0.000000e+00, %998 ]
+  %.sink1104 = phi double [ 0.000000e+00, %964 ], [ 0.000000e+00, %point_invsl.exit ], [ -1.000000e+00, %float8_lt.exit37.thread.i ], [ -1.000000e+00, %998 ]
+  %.sink1103 = phi ptr [ %45, %964 ], [ %45, %point_invsl.exit ], [ %46, %float8_lt.exit37.thread.i ], [ %46, %998 ]
+  store double %.sink1105, ptr %27, align 8
+  store double %.sink1104, ptr %81, align 8
+  %1019 = load double, ptr %.sink1103, align 8
   br label %line_construct.exit.i
 
 line_construct.exit.i.sink.split:                 ; preds = %float8_mi.exit.i.i
   br label %line_construct.exit.i
 
 line_construct.exit.i:                            ; preds = %line_construct.exit.i.sink.split.sink.split, %line_construct.exit.i.sink.split, %float8_mi.exit.i.i
-  %storemerge1116 = phi double [ %1011, %float8_mi.exit.i.i ], [ %1019, %line_construct.exit.i.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i.sink.split ]
-  %1020 = phi double [ -1.000000e+00, %float8_mi.exit.i.i ], [ %.sink1096, %line_construct.exit.i.sink.split.sink.split ], [ -1.000000e+00, %line_construct.exit.i.sink.split ]
-  %1021 = phi double [ %986, %float8_mi.exit.i.i ], [ %storemerge1115, %line_construct.exit.i.sink.split.sink.split ], [ %986, %line_construct.exit.i.sink.split ]
-  store double %storemerge1116, ptr %82, align 8
+  %storemerge1117 = phi double [ %1011, %float8_mi.exit.i.i ], [ %1019, %line_construct.exit.i.sink.split.sink.split ], [ 0.000000e+00, %line_construct.exit.i.sink.split ]
+  %1020 = phi double [ -1.000000e+00, %float8_mi.exit.i.i ], [ %.sink1104, %line_construct.exit.i.sink.split.sink.split ], [ -1.000000e+00, %line_construct.exit.i.sink.split ]
+  %1021 = phi double [ %986, %float8_mi.exit.i.i ], [ %.sink1105, %line_construct.exit.i.sink.split.sink.split ], [ %986, %line_construct.exit.i.sink.split ]
+  store double %storemerge1117, ptr %82, align 8
   %1022 = call fastcc zeroext i1 @lseg_interpt_line(ptr noundef nonnull %26, ptr noundef nonnull readonly %29, ptr noundef nonnull readonly %27)
   br i1 %1022, label %lseg_closept_point.exit, label %1023
 
@@ -15220,11 +15213,11 @@ float8_mi.exit.i.i96:                             ; preds = %float8_mul.exit.i.i
   br i1 %1055, label %line_construct.exit.i85.sink.split, label %line_construct.exit.i85
 
 line_construct.exit.i85.sink.split.sink.split:    ; preds = %1026, %1023
-  %storemerge1117 = phi double [ -1.000000e+00, %1023 ], [ 0.000000e+00, %1026 ]
-  %.sink1097 = phi double [ 0.000000e+00, %1023 ], [ -1.000000e+00, %1026 ]
+  %.sink1107 = phi double [ -1.000000e+00, %1023 ], [ 0.000000e+00, %1026 ]
+  %.sink1106 = phi double [ 0.000000e+00, %1023 ], [ -1.000000e+00, %1026 ]
   %.sink1085.ph = phi double [ %111, %1023 ], [ %113, %1026 ]
-  store double %storemerge1117, ptr %15, align 8
-  store double %.sink1097, ptr %83, align 8
+  store double %.sink1107, ptr %15, align 8
+  store double %.sink1106, ptr %83, align 8
   br label %line_construct.exit.i85
 
 line_construct.exit.i85.sink.split:               ; preds = %float8_mi.exit.i.i96
@@ -17582,84 +17575,81 @@ define dso_local i64 @circle_in(ptr nocapture noundef %0) local_unnamed_addr #0 
   br i1 %.not, label %17, label %10, !llvm.loop !63
 
 17:                                               ; preds = %10
-  switch i8 %11, label %27 [
-    i8 60, label %18
+  switch i8 %11, label %25 [
+    i8 60, label %.sink.split
     i8 40, label %.preheader45
   ]
-
-18:                                               ; preds = %17
-  store ptr %16, ptr %2, align 8
-  br label %27
 
 .preheader45:                                     ; preds = %17, %.preheader45
   %storemerge.pn = phi ptr [ %.036, %.preheader45 ], [ %storemerge, %17 ]
   %.036 = getelementptr i8, ptr %storemerge.pn, i64 1
-  %19 = load i8, ptr %.036, align 1
-  %20 = zext i8 %19 to i64
-  %21 = getelementptr i16, ptr %.pre, i64 %20
-  %22 = load i16, ptr %21, align 2
-  %23 = and i16 %22, 8192
-  %.not40 = icmp eq i16 %23, 0
-  br i1 %.not40, label %24, label %.preheader45, !llvm.loop !64
+  %18 = load i8, ptr %.036, align 1
+  %19 = zext i8 %18 to i64
+  %20 = getelementptr i16, ptr %.pre, i64 %19
+  %21 = load i16, ptr %20, align 2
+  %22 = and i16 %21, 8192
+  %.not40 = icmp eq i16 %22, 0
+  br i1 %.not40, label %23, label %.preheader45, !llvm.loop !64
 
-24:                                               ; preds = %.preheader45
-  %25 = icmp eq i8 %19, 40
-  br i1 %25, label %26, label %27
+23:                                               ; preds = %.preheader45
+  %24 = icmp eq i8 %18, 40
+  br i1 %24, label %.sink.split, label %25
 
-26:                                               ; preds = %24
-  store ptr %.036, ptr %2, align 8
-  br label %27
+.sink.split:                                      ; preds = %23, %17
+  %.036.lcssa.sink = phi ptr [ %16, %17 ], [ %.036, %23 ]
+  store ptr %.036.lcssa.sink, ptr %2, align 8
+  br label %25
 
-27:                                               ; preds = %17, %26, %24, %18
-  %28 = phi ptr [ %16, %18 ], [ %.036, %26 ], [ %storemerge, %24 ], [ %storemerge, %17 ]
-  %.not4449 = phi i1 [ false, %18 ], [ false, %26 ], [ true, %24 ], [ true, %17 ]
-  %29 = getelementptr inbounds i8, ptr %8, i64 8
-  %30 = call fastcc zeroext i1 @pair_decode(ptr noundef %28, ptr noundef %8, ptr noundef nonnull %29, ptr noundef nonnull %2, ptr noundef nonnull @.str.15, ptr noundef %5, ptr noundef %7)
-  br i1 %30, label %33, label %31
+25:                                               ; preds = %.sink.split, %17, %23
+  %26 = phi ptr [ %storemerge, %23 ], [ %storemerge, %17 ], [ %.036.lcssa.sink, %.sink.split ]
+  %.not4449 = phi i1 [ true, %23 ], [ true, %17 ], [ false, %.sink.split ]
+  %27 = getelementptr inbounds i8, ptr %8, i64 8
+  %28 = call fastcc zeroext i1 @pair_decode(ptr noundef %26, ptr noundef %8, ptr noundef nonnull %27, ptr noundef nonnull %2, ptr noundef nonnull @.str.15, ptr noundef %5, ptr noundef %7)
+  br i1 %28, label %31, label %29
 
-31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 1, ptr %32, align 4
-  br label %76
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 1, ptr %30, align 4
+  br label %74
 
-33:                                               ; preds = %27
-  %34 = load ptr, ptr %2, align 8
-  %35 = load i8, ptr %34, align 1
-  %36 = icmp eq i8 %35, 44
-  br i1 %36, label %37, label %39
+31:                                               ; preds = %25
+  %32 = load ptr, ptr %2, align 8
+  %33 = load i8, ptr %32, align 1
+  %34 = icmp eq i8 %33, 44
+  br i1 %34, label %35, label %37
 
-37:                                               ; preds = %33
-  %38 = getelementptr i8, ptr %34, i64 1
-  store ptr %38, ptr %2, align 8
-  br label %39
+35:                                               ; preds = %31
+  %36 = getelementptr i8, ptr %32, i64 1
+  store ptr %36, ptr %2, align 8
+  br label %37
 
-39:                                               ; preds = %37, %33
-  %40 = phi ptr [ %38, %37 ], [ %34, %33 ]
-  %41 = getelementptr inbounds i8, ptr %8, i64 16
-  %42 = call double @float8in_internal(ptr noundef %40, ptr noundef nonnull %2, ptr noundef nonnull @.str.15, ptr noundef %5, ptr noundef %7) #15
-  store double %42, ptr %41, align 8
+37:                                               ; preds = %35, %31
+  %38 = phi ptr [ %36, %35 ], [ %32, %31 ]
+  %39 = getelementptr inbounds i8, ptr %8, i64 16
+  %40 = call double @float8in_internal(ptr noundef %38, ptr noundef nonnull %2, ptr noundef nonnull @.str.15, ptr noundef %5, ptr noundef %7) #15
+  store double %40, ptr %39, align 8
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %single_decode.exit.thread, label %43
+  br i1 %.not.i, label %single_decode.exit.thread, label %41
 
-43:                                               ; preds = %39
-  %44 = load i32, ptr %7, align 4
-  %45 = icmp eq i32 %44, 431
-  br i1 %45, label %single_decode.exit, label %single_decode.exit.thread
+41:                                               ; preds = %37
+  %42 = load i32, ptr %7, align 4
+  %43 = icmp eq i32 %42, 431
+  br i1 %43, label %single_decode.exit, label %single_decode.exit.thread
 
-single_decode.exit:                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %7, i64 4
-  %47 = load i8, ptr %46, align 4
-  %48 = trunc i8 %47 to i1
-  br i1 %48, label %49, label %single_decode.exit.thread
+single_decode.exit:                               ; preds = %41
+  %44 = getelementptr inbounds i8, ptr %7, i64 4
+  %45 = load i8, ptr %44, align 4
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %47, label %single_decode.exit.thread
 
-49:                                               ; preds = %single_decode.exit
-  %50 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 1, ptr %50, align 4
-  br label %76
+47:                                               ; preds = %single_decode.exit
+  %48 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 1, ptr %48, align 4
+  br label %74
 
-single_decode.exit.thread:                        ; preds = %39, %43, %single_decode.exit
-  %51 = fcmp olt double %42, 0.000000e+00
-  br i1 %51, label %59, label %.preheader
+single_decode.exit.thread:                        ; preds = %37, %41, %single_decode.exit
+  %49 = fcmp olt double %40, 0.000000e+00
+  br i1 %49, label %57, label %.preheader
 
 .preheader:                                       ; preds = %single_decode.exit.thread
   %.pre53 = load ptr, ptr %2, align 8
@@ -17668,67 +17658,67 @@ single_decode.exit.thread:                        ; preds = %39, %43, %single_de
 
 .lr.ph.split.us:                                  ; preds = %.preheader
   switch i8 %.pre54, label %.split.us [
-    i8 41, label %52
-    i8 62, label %52
+    i8 41, label %50
+    i8 62, label %50
   ]
 
-52:                                               ; preds = %.lr.ph.split.us, %.lr.ph.split.us
+50:                                               ; preds = %.lr.ph.split.us, %.lr.ph.split.us
   %.pre52 = load ptr, ptr %9, align 8
-  br label %53
+  br label %51
 
-53:                                               ; preds = %53, %52
-  %.pn.us = phi ptr [ %.pre53, %52 ], [ %storemerge42.us, %53 ]
+51:                                               ; preds = %51, %50
+  %.pn.us = phi ptr [ %.pre53, %50 ], [ %storemerge42.us, %51 ]
   %storemerge42.us = getelementptr i8, ptr %.pn.us, i64 1
   store ptr %storemerge42.us, ptr %2, align 8
-  %54 = load i8, ptr %storemerge42.us, align 1
-  %55 = zext i8 %54 to i64
-  %56 = getelementptr i16, ptr %.pre52, i64 %55
-  %57 = load i16, ptr %56, align 2
-  %58 = and i16 %57, 8192
-  %.not43.us = icmp eq i16 %58, 0
-  br i1 %.not43.us, label %._crit_edge, label %53, !llvm.loop !65
+  %52 = load i8, ptr %storemerge42.us, align 1
+  %53 = zext i8 %52 to i64
+  %54 = getelementptr i16, ptr %.pre52, i64 %53
+  %55 = load i16, ptr %54, align 2
+  %56 = and i16 %55, 8192
+  %.not43.us = icmp eq i16 %56, 0
+  br i1 %.not43.us, label %._crit_edge, label %51, !llvm.loop !65
 
-59:                                               ; preds = %single_decode.exit.thread
-  %60 = call zeroext i1 @errsave_start(ptr noundef %7, ptr noundef null) #15
-  br i1 %60, label %61, label %76
+57:                                               ; preds = %single_decode.exit.thread
+  %58 = call zeroext i1 @errsave_start(ptr noundef %7, ptr noundef null) #15
+  br i1 %58, label %59, label %74
 
-61:                                               ; preds = %59
-  %62 = call i32 @errcode(i32 noundef 33685634) #15
-  %63 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.15, ptr noundef %5) #15
+59:                                               ; preds = %57
+  %60 = call i32 @errcode(i32 noundef 33685634) #15
+  %61 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.15, ptr noundef %5) #15
   call void @errsave_finish(ptr noundef %7, ptr noundef nonnull @.str.2, i32 noundef 4651, ptr noundef nonnull @__func__.circle_in) #15
-  br label %76
+  br label %74
 
 .split.us:                                        ; preds = %.lr.ph.split.us
-  %64 = call zeroext i1 @errsave_start(ptr noundef %7, ptr noundef null) #15
-  br i1 %64, label %65, label %76
+  %62 = call zeroext i1 @errsave_start(ptr noundef %7, ptr noundef null) #15
+  br i1 %62, label %63, label %74
 
-65:                                               ; preds = %.split.us
-  %66 = call i32 @errcode(i32 noundef 33685634) #15
-  %67 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.15, ptr noundef %5) #15
+63:                                               ; preds = %.split.us
+  %64 = call i32 @errcode(i32 noundef 33685634) #15
+  %65 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.15, ptr noundef %5) #15
   call void @errsave_finish(ptr noundef %7, ptr noundef nonnull @.str.2, i32 noundef 4666, ptr noundef nonnull @__func__.circle_in) #15
-  br label %76
+  br label %74
 
-._crit_edge:                                      ; preds = %53, %.preheader
-  %68 = phi i8 [ %.pre54, %.preheader ], [ %54, %53 ]
-  %.not41 = icmp eq i8 %68, 0
-  br i1 %.not41, label %74, label %69
+._crit_edge:                                      ; preds = %51, %.preheader
+  %66 = phi i8 [ %.pre54, %.preheader ], [ %52, %51 ]
+  %.not41 = icmp eq i8 %66, 0
+  br i1 %.not41, label %72, label %67
 
-69:                                               ; preds = %._crit_edge
-  %70 = call zeroext i1 @errsave_start(ptr noundef %7, ptr noundef null) #15
-  br i1 %70, label %71, label %76
+67:                                               ; preds = %._crit_edge
+  %68 = call zeroext i1 @errsave_start(ptr noundef %7, ptr noundef null) #15
+  br i1 %68, label %69, label %74
 
-71:                                               ; preds = %69
-  %72 = call i32 @errcode(i32 noundef 33685634) #15
-  %73 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.15, ptr noundef %5) #15
+69:                                               ; preds = %67
+  %70 = call i32 @errcode(i32 noundef 33685634) #15
+  %71 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.15, ptr noundef %5) #15
   call void @errsave_finish(ptr noundef %7, ptr noundef nonnull @.str.2, i32 noundef 4673, ptr noundef nonnull @__func__.circle_in) #15
-  br label %76
+  br label %74
 
-74:                                               ; preds = %._crit_edge
-  %75 = ptrtoint ptr %8 to i64
-  br label %76
+72:                                               ; preds = %._crit_edge
+  %73 = ptrtoint ptr %8 to i64
+  br label %74
 
-76:                                               ; preds = %71, %69, %65, %.split.us, %61, %59, %74, %49, %31
-  %.0 = phi i64 [ %75, %74 ], [ 0, %49 ], [ 0, %31 ], [ 0, %59 ], [ 0, %61 ], [ 0, %.split.us ], [ 0, %65 ], [ 0, %69 ], [ 0, %71 ]
+74:                                               ; preds = %69, %67, %63, %.split.us, %59, %57, %72, %47, %29
+  %.0 = phi i64 [ %73, %72 ], [ 0, %47 ], [ 0, %29 ], [ 0, %57 ], [ 0, %59 ], [ 0, %.split.us ], [ 0, %63 ], [ 0, %67 ], [ 0, %69 ]
   ret i64 %.0
 }
 

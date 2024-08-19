@@ -222,19 +222,16 @@ define dso_local i32 @acpi_ex_write_with_update_rule(ptr noundef %0, i64 noundef
   %27 = load i64, ptr %6, align 8
   %28 = and i64 %27, %14
   %29 = or i64 %28, %2
-  store i64 %29, ptr %5, align 8
-  br label %37
+  br label %.sink.split
 
 30:                                               ; preds = %8
   %31 = xor i64 %1, -1
   %32 = or i64 %31, %2
-  store i64 %32, ptr %5, align 8
-  br label %37
+  br label %.sink.split
 
 33:                                               ; preds = %8
   %34 = and i64 %2, %1
-  store i64 %34, ptr %5, align 8
-  br label %37
+  br label %.sink.split
 
 default.unreachable:                              ; preds = %8
   unreachable
@@ -244,7 +241,12 @@ default.unreachable:                              ; preds = %8
   tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 607, ptr noundef nonnull @.str.2, i32 noundef %36) #7
   br label %39
 
-37:                                               ; preds = %33, %30, %26, %13, %4
+.sink.split:                                      ; preds = %26, %30, %33
+  %.sink = phi i64 [ %34, %33 ], [ %32, %30 ], [ %29, %26 ]
+  store i64 %.sink, ptr %5, align 8
+  br label %37
+
+37:                                               ; preds = %.sink.split, %13, %4
   %38 = call fastcc i32 @acpi_ex_field_datum_io(ptr noundef %0, i32 noundef %3, ptr noundef nonnull %5, i32 noundef 1)
   br label %39
 

@@ -30404,11 +30404,11 @@ _ZN5boost6detail9lc_iequalIcEEbPKT_S4_S4_j.exit61.i: ; preds = %59, %56
 _ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit.thread: ; preds = %61, %39
   %storemerge.sink.i = phi double [ %storemerge.i, %61 ], [ %storemerge45.i, %39 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %74
+  br label %73
 
 62:                                               ; preds = %1, %10, %30, %36, %34, %40, %_ZN5boost6detail9lc_iequalIcEEbPKT_S4_S4_j.exit61.i, %_ZN5boost6detail9lc_iequalIcEEbPKT_S4_S4_j.exit53.i
   %63 = call noundef zeroext i1 @_ZN5boost6detail27lexical_ostream_limited_srcIcSt11char_traitsIcEE20shr_using_base_classIdEEbRT_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  br i1 %63, label %64, label %_ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit
+  br i1 %63, label %64, label %_ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit.thread3
 
 64:                                               ; preds = %62
   %65 = load ptr, ptr %8, align 8
@@ -30424,38 +30424,31 @@ _ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbR
 _ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit.thread5: ; preds = %64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %.pre = load double, ptr %4, align 8
-  br label %74
+  br label %73
 
-_ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit.thread3: ; preds = %64, %64, %64, %64
+_ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit.thread3: ; preds = %62, %64, %64, %64, %64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %68
-
-_ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit: ; preds = %62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %68
-
-68:                                               ; preds = %_ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit, %_ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit.thread3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5boost16bad_lexical_castE, i64 16), ptr %2, align 8
-  %69 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr @_ZTIN5boost14iterator_rangeIPKcEE, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %2, i64 16
-  store ptr @_ZTId, ptr %70, align 8
+  %68 = getelementptr inbounds i8, ptr %2, i64 8
+  store ptr @_ZTIN5boost14iterator_rangeIPKcEE, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %2, i64 16
+  store ptr @_ZTId, ptr %69, align 8
   invoke void @_ZN5boost15throw_exceptionINS_16bad_lexical_castEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(24) %2) #31
-          to label %71 unwind label %72
+          to label %70 unwind label %71
 
-71:                                               ; preds = %68
+70:                                               ; preds = %_ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit.thread3
   unreachable
 
-72:                                               ; preds = %68
-  %73 = landingpad { ptr, i32 }
+71:                                               ; preds = %_ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit.thread3
+  %72 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt8bad_castD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #30
-  resume { ptr, i32 } %73
+  resume { ptr, i32 } %72
 
-74:                                               ; preds = %_ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit.thread5, %_ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit.thread
-  %75 = phi double [ %.pre, %_ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit.thread5 ], [ %storemerge.sink.i, %_ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit.thread ]
-  ret double %75
+73:                                               ; preds = %_ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit.thread5, %_ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit.thread
+  %74 = phi double [ %.pre, %_ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit.thread5 ], [ %storemerge.sink.i, %_ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit.thread ]
+  ret double %74
 }
 
 ; Function Attrs: mustprogress uwtable

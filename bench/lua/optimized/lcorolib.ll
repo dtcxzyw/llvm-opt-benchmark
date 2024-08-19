@@ -201,16 +201,12 @@ getco.exit:                                       ; preds = %entry, %lor.rhs.i
 if.else.i:                                        ; preds = %getco.exit
   %call.i11 = tail call i32 @lua_status(ptr noundef %call.i) #3
   %cond = icmp eq i32 %call.i11, 0
-  br i1 %cond, label %sw.bb1.i, label %auxstatus.exit.thread
+  br i1 %cond, label %sw.bb1.i, label %sw.bb
 
 sw.bb1.i:                                         ; preds = %if.else.i
   %call2.i12 = call i32 @lua_getstack(ptr noundef %call.i, i32 noundef 0, ptr noundef nonnull %ar.i) #3
   %tobool.not.i = icmp eq i32 %call2.i12, 0
   br i1 %tobool.not.i, label %auxstatus.exit, label %auxstatus.exit.thread17
-
-auxstatus.exit.thread:                            ; preds = %if.else.i
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %ar.i)
-  br label %sw.bb
 
 auxstatus.exit.thread17:                          ; preds = %getco.exit, %sw.bb1.i
   %retval.0.i.ph = phi i64 [ 3, %sw.bb1.i ], [ 0, %getco.exit ]
@@ -222,10 +218,10 @@ auxstatus.exit.thread17:                          ; preds = %getco.exit, %sw.bb1
 
 auxstatus.exit:                                   ; preds = %sw.bb1.i
   %call5.i = call i32 @lua_gettop(ptr noundef %call.i) #3
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %ar.i)
   br label %sw.bb
 
-sw.bb:                                            ; preds = %auxstatus.exit, %auxstatus.exit.thread
+sw.bb:                                            ; preds = %if.else.i, %auxstatus.exit
+  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %ar.i)
   %call2 = call i32 @lua_closethread(ptr noundef %call.i, ptr noundef %L) #3
   %cmp = icmp eq i32 %call2, 0
   br i1 %cmp, label %if.then, label %if.else

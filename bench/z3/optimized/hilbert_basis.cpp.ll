@@ -7001,8 +7001,6 @@ _ZNK13hilbert_basis3vecENS_8offset_tE.exit.thread: ; preds = %entry
   %1 = load ptr, ptr %m_store.i12, align 8
   %idx.ext.i13 = zext i32 %idx.coerce to i64
   %add.ptr.i14 = getelementptr inbounds %class.checked_int64, ptr %1, i64 %idx.ext.i13
-  store ptr %add.ptr.i14, ptr %v, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   br label %_ZNK13hilbert_basis3vecENS_8offset_tE.exit.i
 
 if.end.i.i.i:                                     ; preds = %entry
@@ -7014,13 +7012,14 @@ if.end.i.i.i:                                     ; preds = %entry
   %idx.ext.i = zext i32 %idx.coerce to i64
   %add.ptr.i = getelementptr inbounds %class.checked_int64, ptr %4, i64 %idx.ext.i
   %add.ptr.i.i = getelementptr inbounds %class.checked_int64, ptr %add.ptr.i, i64 %3
-  store ptr %add.ptr.i.i, ptr %v, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   br label %_ZNK13hilbert_basis3vecENS_8offset_tE.exit.i
 
 _ZNK13hilbert_basis3vecENS_8offset_tE.exit.i:     ; preds = %_ZNK13hilbert_basis3vecENS_8offset_tE.exit.thread, %if.end.i.i.i
-  %add.ptr.i17 = phi ptr [ %add.ptr.i, %if.end.i.i.i ], [ %add.ptr.i14, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit.thread ]
-  %retval.0.i.i.i = phi i64 [ %3, %if.end.i.i.i ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit.thread ]
+  %add.ptr.i14.sink = phi ptr [ %add.ptr.i14, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit.thread ], [ %add.ptr.i.i, %if.end.i.i.i ]
+  %add.ptr.i17 = phi ptr [ %add.ptr.i14, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit.thread ], [ %add.ptr.i, %if.end.i.i.i ]
+  %retval.0.i.i.i = phi i64 [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit.thread ], [ %3, %if.end.i.i.i ]
+  store ptr %add.ptr.i14.sink, ptr %v, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   %m_index.i18 = getelementptr inbounds i8, ptr %this, i64 104
   %5 = load ptr, ptr %m_index.i18, align 8
   %add.ptr.i.i.i = getelementptr inbounds %class.checked_int64, ptr %add.ptr.i17, i64 %retval.0.i.i.i

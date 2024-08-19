@@ -503,10 +503,6 @@ _ZN6uucore4mods5error12USimpleError3new17h16165e3877efb120E.exit: ; preds = %.no
   call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %74)
   br label %131
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9787ebe628474bd2E.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he566656142731a6fE.exit.i", %166, %105
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)
-  br label %184
-
 131:                                              ; preds = %130, %116
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %28)
   br label %47
@@ -519,7 +515,7 @@ _ZN6uucore4mods5error12USimpleError3new17h16165e3877efb120E.exit: ; preds = %.no
 .body:                                            ; preds = %159, %132
   %eh.lpad-body = phi { ptr, i32 } [ %133, %132 ], [ %160, %159 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9787ebe628474bd2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %29) #13
-          to label %common.resume unwind label %185
+          to label %common.resume unwind label %184
 
 134:                                              ; preds = %.noexc69
   %.sroa.8.sroa.0.0.extract.trunc.i = trunc i128 %51 to i64
@@ -702,14 +698,14 @@ select.unfold:                                    ; preds = %148
   store i8 %182, ptr %.sroa.621.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 41
   store i8 %183, ptr %.sroa.7.0..sroa_idx, align 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)
-  br label %184
+  br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9787ebe628474bd2E.exit"
 
-184:                                              ; preds = %181, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9787ebe628474bd2E.exit"
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9787ebe628474bd2E.exit": ; preds = %105, %166, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he566656142731a6fE.exit.i", %181
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)
   ret void
 
-185:                                              ; preds = %.body
-  %186 = landingpad { ptr, i32 }
+184:                                              ; preds = %.body
+  %185 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #14
   unreachable

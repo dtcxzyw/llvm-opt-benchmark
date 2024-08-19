@@ -7247,12 +7247,10 @@ define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generate
   %.sroa.7.0 = phi i16 [ undef, %16 ], [ %.sroa.7.0.copyload, %19 ]
   %.sroa.6.0 = phi i8 [ undef, %16 ], [ %.sroa.6.0.copyload, %19 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !1039
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !1039
   br label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$18put_in_reg_mem_imm17hb7b62fa7838d92cbE.exit"
 
 20:                                               ; preds = %8
   %21 = trunc nsw i64 %10 to i32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !1039
   br label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$18put_in_reg_mem_imm17hb7b62fa7838d92cbE.exit"
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$18put_in_reg_mem_imm17hb7b62fa7838d92cbE.exit": ; preds = %"_ZN145_$LT$cranelift_codegen..isa..x64..inst..args..RegMemImm$u20$as$u20$core..convert..From$LT$cranelift_codegen..isa..x64..inst..args..RegMem$GT$$GT$4from17h52f15ccc93698273E.exit.i", %20
@@ -7262,6 +7260,7 @@ define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generate
   %.sroa.7.1 = phi i16 [ %.sroa.7.0, %"_ZN145_$LT$cranelift_codegen..isa..x64..inst..args..RegMemImm$u20$as$u20$core..convert..From$LT$cranelift_codegen..isa..x64..inst..args..RegMem$GT$$GT$4from17h52f15ccc93698273E.exit.i" ], [ undef, %20 ]
   %.sroa.6.1 = phi i8 [ %.sroa.6.0, %"_ZN145_$LT$cranelift_codegen..isa..x64..inst..args..RegMemImm$u20$as$u20$core..convert..From$LT$cranelift_codegen..isa..x64..inst..args..RegMem$GT$$GT$4from17h52f15ccc93698273E.exit.i" ], [ undef, %20 ]
   %.sroa.0.1 = phi i8 [ %14, %"_ZN145_$LT$cranelift_codegen..isa..x64..inst..args..RegMemImm$u20$as$u20$core..convert..From$LT$cranelift_codegen..isa..x64..inst..args..RegMem$GT$$GT$4from17h52f15ccc93698273E.exit.i" ], [ 8, %20 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !1039
   %22 = add nsw i8 %.sroa.0.1, -6
   %23 = icmp ult i8 %22, 3
   %narrow.i.i = select i1 %23, i8 %22, i8 1

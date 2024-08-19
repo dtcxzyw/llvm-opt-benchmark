@@ -3161,7 +3161,7 @@ sw.epilog:                                        ; preds = %if.end10, %if.end10
   %call20 = call i32 @do_add_delta(ptr noundef %8, ptr noundef %4, i64 noundef %5, i1 noundef zeroext %incr.0, i64 noundef %9, ptr noundef nonnull %tmpbuf, ptr noundef nonnull %req_cas_id, i32 noundef %call16, ptr noundef nonnull %it) #12
   switch i32 %call20, label %sw.epilog108 [
     i32 0, label %sw.bb21
-    i32 1, label %sw.bb26
+    i32 1, label %error
     i32 2, label %sw.bb27
     i32 3, label %sw.bb28
     i32 4, label %sw.bb106
@@ -3177,12 +3177,7 @@ if.then24:                                        ; preds = %sw.bb21
   store i8 1, ptr %skip, align 2
   br label %sw.epilog108
 
-sw.bb26:                                          ; preds = %sw.epilog
-  store ptr @.str.69, ptr %errstr, align 8
-  br label %error
-
 sw.bb27:                                          ; preds = %sw.epilog
-  store ptr @.str.70, ptr %errstr, align 8
   br label %error
 
 sw.bb28:                                          ; preds = %sw.epilog
@@ -3403,11 +3398,7 @@ sw.bb165:                                         ; preds = %for.body
   %length168 = getelementptr inbounds i8, ptr %arrayidx129, i64 8
   %43 = load i64, ptr %length168, align 8
   %cmp169 = icmp ugt i64 %43, 32
-  br i1 %cmp169, label %if.then171, label %if.end172
-
-if.then171:                                       ; preds = %sw.bb165
-  store ptr @.str.54, ptr %errstr, align 8
-  br label %error
+  br i1 %cmp169, label %error, label %if.end172
 
 if.end172:                                        ; preds = %sw.bb165
   store i8 32, ptr %p.2156, align 1
@@ -3486,11 +3477,7 @@ sw.bb224:                                         ; preds = %for.body218
   %length227 = getelementptr inbounds i8, ptr %arrayidx220, i64 8
   %52 = load i64, ptr %length227, align 8
   %cmp228 = icmp ugt i64 %52, 32
-  br i1 %cmp228, label %if.then230, label %if.end231
-
-if.then230:                                       ; preds = %sw.bb224
-  store ptr @.str.54, ptr %errstr, align 8
-  br label %error
+  br i1 %cmp228, label %error, label %if.end231
 
 if.end231:                                        ; preds = %sw.bb224
   store i8 32, ptr %p.6160, align 1
@@ -3552,8 +3539,9 @@ if.end263:                                        ; preds = %for.inc260, %for.co
   call void @conn_set_state(ptr noundef %c, i32 noundef 1) #12
   br label %return
 
-error:                                            ; preds = %if.then230, %if.then171, %sw.bb27, %sw.bb26
-  %58 = phi ptr [ @.str.54, %if.then230 ], [ @.str.54, %if.then171 ], [ @.str.70, %sw.bb27 ], [ @.str.69, %sw.bb26 ]
+error:                                            ; preds = %sw.bb165, %sw.bb224, %sw.epilog, %sw.bb27
+  %.str.54.sink = phi ptr [ @.str.70, %sw.bb27 ], [ @.str.69, %sw.epilog ], [ @.str.54, %sw.bb224 ], [ @.str.54, %sw.bb165 ]
+  store ptr %.str.54.sink, ptr %errstr, align 8
   %.pr = load ptr, ptr %it, align 8
   %cmp277.not = icmp eq ptr %.pr, null
   br i1 %cmp277.not, label %if.then282, label %if.then279
@@ -3573,13 +3561,13 @@ if.then279:                                       ; preds = %error
   br label %if.then282
 
 if.then282:                                       ; preds = %error, %if.then279, %if.end280.thread
-  %59 = phi ptr [ %58, %error ], [ %58, %if.then279 ], [ @.str.71, %if.end280.thread ]
+  %58 = phi ptr [ %.str.54.sink, %error ], [ %.str.54.sink, %if.then279 ], [ @.str.71, %if.end280.thread ]
   call void @item_unlock(i32 noundef %call16) #12
   br label %if.end283
 
 if.end283:                                        ; preds = %error.thread139, %if.then279.thread, %if.then282
-  %60 = phi ptr [ @.str.68, %error.thread139 ], [ @.str.68, %if.then279.thread ], [ %59, %if.then282 ]
-  call void @out_errstring(ptr noundef %c, ptr noundef %60) #12
+  %59 = phi ptr [ @.str.68, %error.thread139 ], [ @.str.68, %if.then279.thread ], [ %58, %if.then282 ]
+  call void @out_errstring(ptr noundef %c, ptr noundef %59) #12
   br label %return
 
 return:                                           ; preds = %if.end283, %if.end263, %if.then9, %if.then6, %if.then3, %if.then

@@ -5642,22 +5642,17 @@ ehcleanup386:                                     ; preds = %if.then.i.i1079, %_
 ehcleanup439.thread:                              ; preds = %init392
   %337 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp397) #31
-  br label %cleanup.done449
+  br label %cleanup.done449.sink.split
 
 ehcleanup439.thread1195:                          ; preds = %invoke.cont399
   %338 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp401) #31
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp397) #31
   br label %arraydestroy.body444.preheader
 
 ehcleanup439.thread1201:                          ; preds = %invoke.cont403
   %339 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp405) #31
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp401) #31
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp397) #31
   br label %arraydestroy.body444.preheader
 
 lpad418:                                          ; preds = %invoke.cont411
@@ -5740,21 +5735,20 @@ ehcleanup439.thread1205:                          ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp409) #31
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp405) #31
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp401) #31
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp397) #31
-  br label %cleanup.done449
+  br label %cleanup.done449.sink.split
 
 ehcleanup439:                                     ; preds = %invoke.cont407
   %353 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp409) #31
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp405) #31
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp401) #31
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp397) #31
   br label %arraydestroy.body444.preheader
 
 arraydestroy.body444.preheader:                   ; preds = %ehcleanup439, %ehcleanup439.thread1201, %ehcleanup439.thread1195
   %.pn531.pn.pn1200 = phi { ptr, i32 } [ %338, %ehcleanup439.thread1195 ], [ %353, %ehcleanup439 ], [ %339, %ehcleanup439.thread1201 ]
   %arrayinit.endOfInit396.11199 = phi ptr [ %arrayinit.element400, %ehcleanup439.thread1195 ], [ %arrayinit.element408, %ehcleanup439 ], [ %arrayinit.element404, %ehcleanup439.thread1201 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp401) #31
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp397) #31
   br label %arraydestroy.body444
 
 arraydestroy.body444:                             ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1099, %arraydestroy.body444.preheader
@@ -5781,8 +5775,13 @@ _ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %arraydestroy.done447 = icmp eq ptr %arraydestroy.element446, %ref.tmp394
   br i1 %arraydestroy.done447, label %cleanup.done449, label %arraydestroy.body444
 
-cleanup.done449:                                  ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1099, %ehcleanup439.thread1205, %ehcleanup439.thread
-  %.pn531.pn.pn.pn1175 = phi { ptr, i32 } [ %337, %ehcleanup439.thread ], [ %340, %ehcleanup439.thread1205 ], [ %.pn531.pn.pn1200, %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1099 ]
+cleanup.done449.sink.split:                       ; preds = %ehcleanup439.thread, %ehcleanup439.thread1205
+  %.pn531.pn.pn.pn1175.ph = phi { ptr, i32 } [ %340, %ehcleanup439.thread1205 ], [ %337, %ehcleanup439.thread ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp397) #31
+  br label %cleanup.done449
+
+cleanup.done449:                                  ; preds = %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1099, %cleanup.done449.sink.split
+  %.pn531.pn.pn.pn1175 = phi { ptr, i32 } [ %.pn531.pn.pn.pn1175.ph, %cleanup.done449.sink.split ], [ %.pn531.pn.pn1200, %_ZNSt4pairIK19touch_gui_button_idNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1099 ]
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %ref.tmp394) #31
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN14TouchScreenGUI4initEP20ISimpleTextureSourceE25rare_controls_bar_buttonsB5cxx11) #31
   br label %eh.resume

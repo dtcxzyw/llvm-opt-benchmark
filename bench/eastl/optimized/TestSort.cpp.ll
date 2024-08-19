@@ -6434,7 +6434,6 @@ for.end.i.i2226:                                  ; preds = %for.body5.i.i2229, 
 
 _ZN5eastl8Internal30insertion_sort_already_startedIPZ8TestSortvE17StableSortTestObjZ8TestSortvE17StableSortCompareEEvT_S5_S5_T0_.exit.i: ; preds = %for.end.i.i2226, %if.then2.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %temp.sroa.3.i.i)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %run_stack.i)
   br label %for.cond.i2232.preheader
 
 if.then.i.i5364:                                  ; preds = %if.else.i2208
@@ -6556,7 +6555,7 @@ if.end12.i5323:                                   ; preds = %_ZN5eastl8Internal3
   store i64 0, ptr %run_stack.i, align 16
   store i64 %len.i.3, ptr %length.i5325, align 8
   %cmp14.i5328 = icmp eq i64 %len.i.3, %sub.ptr.div.i2206
-  br i1 %cmp14.i5328, label %invoke.cont695, label %if.end.i
+  br i1 %cmp14.i5328, label %for.cond.i2232.preheader, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end12.i5323
   %sub.i.i5219 = sub nsw i64 %sub.ptr.div.i2206, %len.i.3
@@ -6711,7 +6710,7 @@ _ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit.i6042: ; pr
   %add.i6043 = add i64 %533, %532
   %add9.i6044 = add i64 %add.i6043, %531
   %cmp1096.i6045 = icmp slt i64 %533, %add9.i6044
-  br i1 %cmp1096.i6045, label %for.body.i6047, label %invoke.cont695
+  br i1 %cmp1096.i6045, label %for.body.i6047, label %for.cond.i2232.preheader
 
 for.body.i6047:                                   ; preds = %_ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit.i6042, %for.inc.i6059
   %k.099.i6048 = phi i64 [ %inc37.i6062, %for.inc.i6059 ], [ %533, %_ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit.i6042 ]
@@ -6779,7 +6778,7 @@ _ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit88.i5999: ; 
   %add48.i6000 = add nsw i64 %533, %532
   %add52.i6001 = add nsw i64 %add48.i6000, %531
   %cmp55.not.not92.i6002 = icmp sgt i64 %add52.i6001, %533
-  br i1 %cmp55.not.not92.i6002, label %for.body56.preheader.i6003, label %invoke.cont695
+  br i1 %cmp55.not.not92.i6002, label %for.body56.preheader.i6003, label %for.cond.i2232.preheader
 
 for.body56.preheader.i6003:                       ; preds = %_ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit88.i5999
   %sub49.i6004 = add nsw i64 %add48.i6000, -1
@@ -6842,7 +6841,7 @@ _ZN5eastl8Internal16tim_sort_add_runIPZ8TestSortvE17StableSortTestObjS2_Z8TestSo
   %535 = load i64, ptr %length.i5990, align 8
   %add24.i5238 = add nsw i64 %535, %534
   store i64 %add24.i5238, ptr %length.i5990, align 8
-  br i1 %cmp14.i5231, label %invoke.cont695, label %if.end12.i
+  br i1 %cmp14.i5231, label %for.cond.i2232.preheader, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end12.i5226, %_ZN5eastl8Internal16tim_sort_add_runIPZ8TestSortvE17StableSortTestObjS2_Z8TestSortvE17StableSortCompareEEbPNS0_12tim_sort_runET_PT0_llRlSA_SA_SA_T1_.exit5313
   %stack_curr.i.77220 = phi i64 [ 2, %_ZN5eastl8Internal16tim_sort_add_runIPZ8TestSortvE17StableSortTestObjS2_Z8TestSortvE17StableSortCompareEEbPNS0_12tim_sort_runET_PT0_llRlSA_SA_SA_T1_.exit5313 ], [ 3, %if.end12.i5226 ]
@@ -7142,7 +7141,7 @@ _ZN5eastl8Internal14tim_sort_mergeIPZ8TestSortvE17StableSortTestObjS2_Z8TestSort
   br i1 %cmp16.i5143, label %while.body.i5138, label %_ZN5eastl8Internal16tim_sort_add_runIPZ8TestSortvE17StableSortTestObjS2_Z8TestSortvE17StableSortCompareEEbPNS0_12tim_sort_runET_PT0_llRlSA_SA_SA_T1_.exit5216, !llvm.loop !87
 
 _ZN5eastl8Internal16tim_sort_add_runIPZ8TestSortvE17StableSortTestObjS2_Z8TestSortvE17StableSortCompareEEbPNS0_12tim_sort_runET_PT0_llRlSA_SA_SA_T1_.exit5216: ; preds = %_ZN5eastl8Internal14tim_sort_mergeIPZ8TestSortvE17StableSortTestObjS2_Z8TestSortvE17StableSortCompareEEvT_PKNS0_12tim_sort_runElPT0_T1_.exit5988
-  br i1 %cmp14.i5134, label %invoke.cont695, label %for.cond.i2214.preheader
+  br i1 %cmp14.i5134, label %for.cond.i2232.preheader, label %for.cond.i2214.preheader
 
 for.cond.i2214.preheader:                         ; preds = %if.end12.i5129, %_ZN5eastl8Internal16tim_sort_add_runIPZ8TestSortvE17StableSortTestObjS2_Z8TestSortvE17StableSortCompareEEbPNS0_12tim_sort_runET_PT0_llRlSA_SA_SA_T1_.exit5216
   %stack_curr.i.0.ph = phi i64 [ 1, %_ZN5eastl8Internal16tim_sort_add_runIPZ8TestSortvE17StableSortTestObjS2_Z8TestSortvE17StableSortCompareEEbPNS0_12tim_sort_runET_PT0_llRlSA_SA_SA_T1_.exit5216 ], [ %stack_curr.i.77220, %if.end12.i5129 ]
@@ -8129,7 +8128,7 @@ _ZN5eastl8Internal14tim_sort_mergeIPZ8TestSortvE17StableSortTestObjS2_Z8TestSort
 
 _ZN5eastl8Internal16tim_sort_add_runIPZ8TestSortvE17StableSortTestObjS2_Z8TestSortvE17StableSortCompareEEbPNS0_12tim_sort_runET_PT0_llRlSA_SA_SA_T1_.exit: ; preds = %_ZN5eastl8Internal14tim_sort_mergeIPZ8TestSortvE17StableSortTestObjS2_Z8TestSortvE17StableSortCompareEEvT_PKNS0_12tim_sort_runElPT0_T1_.exit5898, %if.end12.i4787
   %stack_curr.i.3 = phi i64 [ %inc.i4788, %if.end12.i4787 ], [ %dec.i4793, %_ZN5eastl8Internal14tim_sort_mergeIPZ8TestSortvE17StableSortTestObjS2_Z8TestSortvE17StableSortCompareEEvT_PKNS0_12tim_sort_runElPT0_T1_.exit5898 ]
-  br i1 %cmp14.i, label %invoke.cont695, label %for.cond.i2214.outer, !llvm.loop !88
+  br i1 %cmp14.i, label %for.cond.i2232.preheader, label %for.cond.i2214.outer, !llvm.loop !88
 
 invoke.cont695.thread:                            ; preds = %invoke.cont689.thread, %invoke.cont689
   %sub.ptr.sub.i22056731.ph = phi i64 [ %sub.ptr.sub.i2205, %invoke.cont689 ], [ 0, %invoke.cont689.thread ]
@@ -8140,11 +8139,8 @@ invoke.cont695.thread:                            ; preds = %invoke.cont689.thre
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %run_stack.i)
   br label %invoke.cont699
 
-invoke.cont695:                                   ; preds = %_ZN5eastl8Internal16tim_sort_add_runIPZ8TestSortvE17StableSortTestObjS2_Z8TestSortvE17StableSortCompareEEbPNS0_12tim_sort_runET_PT0_llRlSA_SA_SA_T1_.exit, %_ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit.i6042, %_ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit88.i5999, %_ZN5eastl8Internal16tim_sort_add_runIPZ8TestSortvE17StableSortTestObjS2_Z8TestSortvE17StableSortCompareEEbPNS0_12tim_sort_runET_PT0_llRlSA_SA_SA_T1_.exit5216, %_ZN5eastl8Internal16tim_sort_add_runIPZ8TestSortvE17StableSortTestObjS2_Z8TestSortvE17StableSortCompareEEbPNS0_12tim_sort_runET_PT0_llRlSA_SA_SA_T1_.exit5313, %if.end12.i5323
+for.cond.i2232.preheader:                         ; preds = %_ZN5eastl8Internal16tim_sort_add_runIPZ8TestSortvE17StableSortTestObjS2_Z8TestSortvE17StableSortCompareEEbPNS0_12tim_sort_runET_PT0_llRlSA_SA_SA_T1_.exit, %if.end12.i5323, %_ZN5eastl8Internal16tim_sort_add_runIPZ8TestSortvE17StableSortTestObjS2_Z8TestSortvE17StableSortCompareEEbPNS0_12tim_sort_runET_PT0_llRlSA_SA_SA_T1_.exit5313, %_ZN5eastl8Internal16tim_sort_add_runIPZ8TestSortvE17StableSortTestObjS2_Z8TestSortvE17StableSortCompareEEbPNS0_12tim_sort_runET_PT0_llRlSA_SA_SA_T1_.exit5216, %_ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit88.i5999, %_ZN5eastl4copyIPZ8TestSortvE17StableSortTestObjS2_EET0_T_S4_S3_.exit.i6042, %_ZN5eastl8Internal30insertion_sort_already_startedIPZ8TestSortvE17StableSortTestObjZ8TestSortvE17StableSortCompareEEvT_S5_S5_T0_.exit.i
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %run_stack.i)
-  br label %for.cond.i2232.preheader
-
-for.cond.i2232.preheader:                         ; preds = %invoke.cont695, %_ZN5eastl8Internal30insertion_sort_already_startedIPZ8TestSortvE17StableSortTestObjZ8TestSortvE17StableSortCompareEEvT_S5_S5_T0_.exit.i
   br label %for.cond.i2232
 
 for.cond.i2232:                                   ; preds = %for.cond.i2232.preheader, %for.body.i2236
@@ -25051,18 +25047,18 @@ if.else.i.i42:                                    ; preds = %if.then2
   br label %_ZNK5eastl13DequeIteratorIiPiRiLj64EEplEl.exit61
 
 _ZNK5eastl13DequeIteratorIiPiRiLj64EEplEl.exit61: ; preds = %if.then.i.i58, %if.else.i.i42
-  %storemerge = phi ptr [ %add.ptr7.i.i, %if.else.i.i42 ], [ %add.ptr.i.i, %if.then.i.i58 ]
-  %.sink441 = phi ptr [ %7, %if.else.i.i42 ], [ %6, %if.then.i.i58 ]
-  %.sink440 = phi ptr [ %add.ptr.i.i.i, %if.else.i.i42 ], [ %4, %if.then.i.i58 ]
-  %.sink439 = phi ptr [ %add.ptr4.i.i, %if.else.i.i42 ], [ %1, %if.then.i.i58 ]
-  store ptr %storemerge, ptr %agg.tmp3, align 8, !alias.scope !686
+  %add.ptr.i.i.sink = phi ptr [ %add.ptr.i.i, %if.then.i.i58 ], [ %add.ptr7.i.i, %if.else.i.i42 ]
+  %.sink441 = phi ptr [ %6, %if.then.i.i58 ], [ %7, %if.else.i.i42 ]
+  %.sink440 = phi ptr [ %4, %if.then.i.i58 ], [ %add.ptr.i.i.i, %if.else.i.i42 ]
+  %.sink439 = phi ptr [ %1, %if.then.i.i58 ], [ %add.ptr4.i.i, %if.else.i.i42 ]
+  store ptr %add.ptr.i.i.sink, ptr %agg.tmp3, align 8, !alias.scope !686
   %mpBegin.i3.i407 = getelementptr inbounds i8, ptr %agg.tmp3, i64 8
   store ptr %.sink441, ptr %mpBegin.i3.i407, align 8, !alias.scope !686
   %mpEnd.i5.i408 = getelementptr inbounds i8, ptr %agg.tmp3, i64 16
   store ptr %.sink440, ptr %mpEnd.i5.i408, align 8, !alias.scope !686
   %mpCurrentArrayPtr.i7.i409 = getelementptr inbounds i8, ptr %agg.tmp3, i64 24
   store ptr %.sink439, ptr %mpCurrentArrayPtr.i7.i409, align 8, !alias.scope !686
-  store ptr %storemerge, ptr %agg.tmp4, align 8, !alias.scope !689
+  store ptr %add.ptr.i.i.sink, ptr %agg.tmp4, align 8, !alias.scope !689
   %mpBegin.i3.i55 = getelementptr inbounds i8, ptr %agg.tmp4, i64 8
   store ptr %.sink441, ptr %mpBegin.i3.i55, align 8, !alias.scope !689
   %mpEnd.i5.i56 = getelementptr inbounds i8, ptr %agg.tmp4, i64 16
@@ -28577,18 +28573,18 @@ if.else.i.i39:                                    ; preds = %if.then2
   br label %_ZNK5eastl13DequeIteratorIiPiRiLj64EEplEl.exit58
 
 _ZNK5eastl13DequeIteratorIiPiRiLj64EEplEl.exit58: ; preds = %if.then.i.i55, %if.else.i.i39
-  %storemerge = phi ptr [ %add.ptr7.i.i, %if.else.i.i39 ], [ %add.ptr.i.i, %if.then.i.i55 ]
-  %.sink438 = phi ptr [ %7, %if.else.i.i39 ], [ %6, %if.then.i.i55 ]
-  %.sink437 = phi ptr [ %add.ptr.i.i.i, %if.else.i.i39 ], [ %4, %if.then.i.i55 ]
-  %.sink436 = phi ptr [ %add.ptr4.i.i, %if.else.i.i39 ], [ %1, %if.then.i.i55 ]
-  store ptr %storemerge, ptr %agg.tmp3, align 8, !alias.scope !902
+  %add.ptr.i.i.sink = phi ptr [ %add.ptr.i.i, %if.then.i.i55 ], [ %add.ptr7.i.i, %if.else.i.i39 ]
+  %.sink438 = phi ptr [ %6, %if.then.i.i55 ], [ %7, %if.else.i.i39 ]
+  %.sink437 = phi ptr [ %4, %if.then.i.i55 ], [ %add.ptr.i.i.i, %if.else.i.i39 ]
+  %.sink436 = phi ptr [ %1, %if.then.i.i55 ], [ %add.ptr4.i.i, %if.else.i.i39 ]
+  store ptr %add.ptr.i.i.sink, ptr %agg.tmp3, align 8, !alias.scope !902
   %mpBegin.i3.i404 = getelementptr inbounds i8, ptr %agg.tmp3, i64 8
   store ptr %.sink438, ptr %mpBegin.i3.i404, align 8, !alias.scope !902
   %mpEnd.i5.i405 = getelementptr inbounds i8, ptr %agg.tmp3, i64 16
   store ptr %.sink437, ptr %mpEnd.i5.i405, align 8, !alias.scope !902
   %mpCurrentArrayPtr.i7.i406 = getelementptr inbounds i8, ptr %agg.tmp3, i64 24
   store ptr %.sink436, ptr %mpCurrentArrayPtr.i7.i406, align 8, !alias.scope !902
-  store ptr %storemerge, ptr %agg.tmp4, align 8, !alias.scope !905
+  store ptr %add.ptr.i.i.sink, ptr %agg.tmp4, align 8, !alias.scope !905
   %mpBegin.i3.i52 = getelementptr inbounds i8, ptr %agg.tmp4, i64 8
   store ptr %.sink438, ptr %mpBegin.i3.i52, align 8, !alias.scope !905
   %mpEnd.i5.i53 = getelementptr inbounds i8, ptr %agg.tmp4, i64 16

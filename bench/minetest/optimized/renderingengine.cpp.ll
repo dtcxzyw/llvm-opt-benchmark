@@ -3297,16 +3297,14 @@ _ZNKSt13unordered_mapIi15VideoDriverInfoSt4hashIiESt8equal_toIiESaISt4pairIKiS0_
 lpad:                                             ; preds = %init
   %12 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup124.thread
+  br label %cleanup.done136.sink.split
 
 ehcleanup124.thread230:                           ; preds = %invoke.cont6
   %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN15VideoDriverInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp2) #27
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp4) #27
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp3) #27
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp2) #27
-  br label %cleanup.done136
+  br label %cleanup.done136.sink.split
 
 lpad13:                                           ; preds = %invoke.cont8
   %14 = landingpad { ptr, i32 }
@@ -3509,17 +3507,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %42 = load i64, ptr %_M_string_length.i.i.i187, align 8, !tbaa !14
   %cmp3.i.i.i188 = icmp ult i64 %42, 16
   call void @llvm.assume(i1 %cmp3.i.i.i188)
-  br label %ehcleanup124.thread
+  br label %cleanup.done136.sink.split
 
 if.then.i.i185:                                   ; preds = %cleanup.action122
   call void @_ZdlPv(ptr noundef %40) #28
-  br label %ehcleanup124.thread
-
-ehcleanup124.thread:                              ; preds = %if.then.i.i185, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i186, %lpad
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %39, %if.then.i.i185 ], [ %39, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i186 ], [ %12, %lpad ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp3) #27
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp2) #27
-  br label %cleanup.done136
+  br label %cleanup.done136.sink.split
 
 ehcleanup124:                                     ; preds = %if.then.i.i179, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i180, %ehcleanup107, %lpad13
   %arrayinit.endOfInit.8 = phi ptr [ %arrayinit.endOfInit.6, %ehcleanup107 ], [ %arrayinit.element, %lpad13 ], [ %arrayinit.element, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i180 ], [ %arrayinit.element, %if.then.i.i179 ]
@@ -3542,8 +3534,14 @@ arraydestroy.body131:                             ; preds = %ehcleanup124, %arra
   %arraydestroy.done134 = icmp eq ptr %arraydestroy.element133, %ref.tmp
   br i1 %arraydestroy.done134, label %cleanup.done136, label %arraydestroy.body131
 
-cleanup.done136:                                  ; preds = %arraydestroy.body131, %ehcleanup124, %ehcleanup124.thread, %ehcleanup124.thread230
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn229 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %ehcleanup124.thread ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup124 ], [ %13, %ehcleanup124.thread230 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %arraydestroy.body131 ]
+cleanup.done136.sink.split:                       ; preds = %lpad, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i186, %if.then.i.i185, %ehcleanup124.thread230
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn229.ph = phi { ptr, i32 } [ %13, %ehcleanup124.thread230 ], [ %39, %if.then.i.i185 ], [ %39, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i186 ], [ %12, %lpad ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp3) #27
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp2) #27
+  br label %cleanup.done136
+
+cleanup.done136:                                  ; preds = %arraydestroy.body131, %cleanup.done136.sink.split, %ehcleanup124
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn229 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup124 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn229.ph, %cleanup.done136.sink.split ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %arraydestroy.body131 ]
   call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %ref.tmp) #27
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN15RenderingEngine18getVideoDriverInfoEN3irr5video13E_DRIVER_TYPEEE15driver_info_map) #27
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn229

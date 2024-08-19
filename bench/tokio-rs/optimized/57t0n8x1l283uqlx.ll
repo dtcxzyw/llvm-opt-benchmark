@@ -132,7 +132,6 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv17h7a69b3466c
 
 13:                                               ; preds = %3
   store i64 6, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
   br label %17
 
 14:                                               ; preds = %7
@@ -143,10 +142,10 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv17h7a69b3466c
 
 16:                                               ; preds = %7
   call void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17hce3c5f0167db633bE"(ptr noalias noundef nonnull align 1 dereferenceable(2) %5)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
   br label %17
 
 17:                                               ; preds = %16, %13
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
   ret void
 
 18:                                               ; preds = %14

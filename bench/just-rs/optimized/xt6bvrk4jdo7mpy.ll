@@ -1741,7 +1741,6 @@ common.resume:                                    ; preds = %33, %16
 
 "_ZN4core3ptr100drop_in_place$LT$alloc..vec..Vec$LT$$LP$alloc..string..String$C$just..justfile..Justfile$RP$$GT$$GT$17h9a50ea7daea07163E.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6f35ffc2e84e9070E.llvm.1798434116971987782.exit.i", %20, %24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !177
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %31
 
 28:                                               ; preds = %2
@@ -1754,6 +1753,7 @@ common.resume:                                    ; preds = %33, %16
           to label %32 unwind label %33
 
 31:                                               ; preds = %32, %"_ZN4core3ptr100drop_in_place$LT$alloc..vec..Vec$LT$$LP$alloc..string..String$C$just..justfile..Justfile$RP$$GT$$GT$17h9a50ea7daea07163E.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   ret void
 
 32:                                               ; preds = %28
@@ -1763,7 +1763,6 @@ common.resume:                                    ; preds = %33, %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$27bulk_build_from_sorted_iter17h4ab811f49d3e10aeE.llvm.9118937971122011336"(ptr noalias nocapture noundef nonnull sret({ { ptr, [1 x i64] }, i64, { {} }, {} }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %31
 
 33:                                               ; preds = %28
@@ -1844,7 +1843,6 @@ common.resume:                                    ; preds = %33, %16
 
 "_ZN4core3ptr101drop_in_place$LT$alloc..vec..Vec$LT$$LP$alloc..string..String$C$just..summary..Assignment$RP$$GT$$GT$17h61c772f9c46649b9E.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h23eab6873add01f1E.llvm.1798434116971987782.exit.i", %20, %24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !209
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %31
 
 28:                                               ; preds = %2
@@ -1857,6 +1855,7 @@ common.resume:                                    ; preds = %33, %16
           to label %32 unwind label %33
 
 31:                                               ; preds = %32, %"_ZN4core3ptr101drop_in_place$LT$alloc..vec..Vec$LT$$LP$alloc..string..String$C$just..summary..Assignment$RP$$GT$$GT$17h61c772f9c46649b9E.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   ret void
 
 32:                                               ; preds = %28
@@ -1866,7 +1865,6 @@ common.resume:                                    ; preds = %33, %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$27bulk_build_from_sorted_iter17hdf93ce03a51bca83E.llvm.9118937971122011336"(ptr noalias nocapture noundef nonnull sret({ { ptr, [1 x i64] }, i64, { {} }, {} }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %31
 
 33:                                               ; preds = %28
@@ -1947,7 +1945,6 @@ common.resume:                                    ; preds = %33, %16
 
 "_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$$LP$alloc..string..String$C$just..summary..Recipe$RP$$GT$$GT$17hca5dfd810152f326E.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h49fd934074dd472dE.llvm.1798434116971987782.exit.i", %20, %24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !240
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %31
 
 28:                                               ; preds = %2
@@ -1960,6 +1957,7 @@ common.resume:                                    ; preds = %33, %16
           to label %32 unwind label %33
 
 31:                                               ; preds = %32, %"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$$LP$alloc..string..String$C$just..summary..Recipe$RP$$GT$$GT$17hca5dfd810152f326E.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   ret void
 
 32:                                               ; preds = %28
@@ -1969,7 +1967,6 @@ common.resume:                                    ; preds = %33, %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$27bulk_build_from_sorted_iter17h0d588f9ec074cfa4E.llvm.9118937971122011336"(ptr noalias nocapture noundef nonnull sret({ { ptr, [1 x i64] }, i64, { {} }, {} }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %31
 
 33:                                               ; preds = %28
@@ -25877,7 +25874,7 @@ _ZN4just5color5Color6active17hcd18acd676d3d894E.llvm.11107275065492906757.exit.t
 232:                                              ; preds = %.loopexit, %.loopexit.split-lp, %1153, %799, %783, %658, %642, %581, %565, %549, %527
   %.pn = phi { ptr, i32 } [ %1154, %1153 ], [ %800, %799 ], [ %784, %783 ], [ %659, %658 ], [ %643, %642 ], [ %582, %581 ], [ %566, %565 ], [ %550, %549 ], [ %528, %527 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ansi_term..display..ANSIGenericString$LT$str$GT$$GT$17h0a82c94ea620b5dbE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %226) #24
-          to label %1219 unwind label %547
+          to label %1218 unwind label %547
 
 .loopexit:                                        ; preds = %1180
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -26409,10 +26406,6 @@ _ZN4just5color5Color6active17hcd18acd676d3d894E.llvm.11107275065492906757.exit.t
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2f4461582ec6620eE.exit.i.i": ; preds = %414, %410, %407
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !3587
   br label %"_ZN4core3ptr69drop_in_place$LT$ansi_term..display..ANSIGenericString$LT$str$GT$$GT$17h0a82c94ea620b5dbE.exit"
-
-"_ZN4core3ptr69drop_in_place$LT$ansi_term..display..ANSIGenericString$LT$str$GT$$GT$17h0a82c94ea620b5dbE.exit": ; preds = %404, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2f4461582ec6620eE.exit.i.i"
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %226)
-  br label %1218
 
 416:                                              ; preds = %248
   %417 = icmp ult i64 %253, %256
@@ -28758,7 +28751,7 @@ _ZN4just5error5Error7context17hbad5eb4341891789E.exit.thread: ; preds = %1148, %
   call void @llvm.experimental.noalias.scope.decl(metadata !3962)
   %1193 = load i64, ptr %226, align 8, !range !182, !alias.scope !3965, !noundef !4
   %1194 = icmp eq i64 %1193, -9223372036854775808
-  br i1 %1194, label %"_ZN4core3ptr69drop_in_place$LT$ansi_term..display..ANSIGenericString$LT$str$GT$$GT$17h0a82c94ea620b5dbE.exit819", label %1195
+  br i1 %1194, label %"_ZN4core3ptr69drop_in_place$LT$ansi_term..display..ANSIGenericString$LT$str$GT$$GT$17h0a82c94ea620b5dbE.exit", label %1195
 
 1195:                                             ; preds = %_ZN4just5error5Error7context17hbad5eb4341891789E.exit.thread
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !3966
@@ -28781,11 +28774,7 @@ _ZN4just5error5Error7context17hbad5eb4341891789E.exit.thread: ; preds = %1148, %
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2f4461582ec6620eE.exit.i.i818": ; preds = %1202, %1198, %1195
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !3966
-  br label %"_ZN4core3ptr69drop_in_place$LT$ansi_term..display..ANSIGenericString$LT$str$GT$$GT$17h0a82c94ea620b5dbE.exit819"
-
-"_ZN4core3ptr69drop_in_place$LT$ansi_term..display..ANSIGenericString$LT$str$GT$$GT$17h0a82c94ea620b5dbE.exit819": ; preds = %_ZN4just5error5Error7context17hbad5eb4341891789E.exit.thread, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2f4461582ec6620eE.exit.i.i818"
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %226)
-  br label %1218
+  br label %"_ZN4core3ptr69drop_in_place$LT$ansi_term..display..ANSIGenericString$LT$str$GT$$GT$17h0a82c94ea620b5dbE.exit"
 
 1204:                                             ; preds = %1187
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
@@ -28837,11 +28826,12 @@ _ZN4just5error5Error7context17hbad5eb4341891789E.exit.thread: ; preds = %1148, %
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.11842)
   br label %404
 
-1218:                                             ; preds = %"_ZN4core3ptr69drop_in_place$LT$ansi_term..display..ANSIGenericString$LT$str$GT$$GT$17h0a82c94ea620b5dbE.exit819", %"_ZN4core3ptr69drop_in_place$LT$ansi_term..display..ANSIGenericString$LT$str$GT$$GT$17h0a82c94ea620b5dbE.exit"
-  %.1 = phi i1 [ true, %"_ZN4core3ptr69drop_in_place$LT$ansi_term..display..ANSIGenericString$LT$str$GT$$GT$17h0a82c94ea620b5dbE.exit" ], [ false, %"_ZN4core3ptr69drop_in_place$LT$ansi_term..display..ANSIGenericString$LT$str$GT$$GT$17h0a82c94ea620b5dbE.exit819" ]
+"_ZN4core3ptr69drop_in_place$LT$ansi_term..display..ANSIGenericString$LT$str$GT$$GT$17h0a82c94ea620b5dbE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2f4461582ec6620eE.exit.i.i818", %_ZN4just5error5Error7context17hbad5eb4341891789E.exit.thread, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2f4461582ec6620eE.exit.i.i", %404
+  %.1 = phi i1 [ true, %404 ], [ true, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2f4461582ec6620eE.exit.i.i" ], [ false, %_ZN4just5error5Error7context17hbad5eb4341891789E.exit.thread ], [ false, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2f4461582ec6620eE.exit.i.i818" ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %226)
   ret i1 %.1
 
-1219:                                             ; preds = %232
+1218:                                             ; preds = %232
   resume { ptr, i32 } %.pn
 }
 

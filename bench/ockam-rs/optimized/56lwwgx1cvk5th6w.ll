@@ -3213,12 +3213,10 @@ define hidden void @"_ZN201_$LT$elliptic_curve..public_key..PublicKey$LT$C$GT$$u
 
 "_ZN14elliptic_curve10public_key18PublicKey$LT$C$GT$15from_sec1_bytes17h1bf97a7b1aac4a75E.exit.thread72": ; preds = %"_ZN6subtle17CtOption$LT$T$GT$8and_then17h3823605dd6d79942E.exit.i"
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.013.i)
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %10), !noalias !450
   br label %61
 
 "_ZN14elliptic_curve10public_key18PublicKey$LT$C$GT$15from_sec1_bytes17h1bf97a7b1aac4a75E.exit.thread": ; preds = %27
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9), !noalias !450
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %10), !noalias !450
   br label %61
 
 55:                                               ; preds = %"_ZN6subtle17CtOption$LT$T$GT$8and_then17h3823605dd6d79942E.exit.i"
@@ -3238,6 +3236,7 @@ define hidden void @"_ZN201_$LT$elliptic_curve..public_key..PublicKey$LT$C$GT$$u
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h944904dda22797eeE.exit"
 
 61:                                               ; preds = %"_ZN14elliptic_curve10public_key18PublicKey$LT$C$GT$15from_sec1_bytes17h1bf97a7b1aac4a75E.exit.thread72", %"_ZN14elliptic_curve10public_key18PublicKey$LT$C$GT$15from_sec1_bytes17h1bf97a7b1aac4a75E.exit.thread"
+  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %10), !noalias !450
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !502
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3), !noalias !503
   call void @_ZN3der3tag3Tag11value_error17ha60f5ad96cdb1a68E(ptr noalias nocapture noundef nonnull sret({ { i32, i32 }, { i8, [47 x i8] } }) align 8 dereferenceable(56) %3, i24 2), !noalias !503
@@ -6494,10 +6493,9 @@ define hidden void @"_ZN69_$LT$der..bytes_ref..BytesRef$u20$as$u20$der..decode..
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5), !noalias !1039
   %10 = load ptr, ptr %1, align 8, !alias.scope !1037, !noalias !1034, !nonnull !4, !align !77, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1040)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1043)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !1045
-  call void @"_ZN3der6reader6nested21NestedReader$LT$R$GT$16advance_position17hf2e9184335a7120dE.llvm.11161914831801431366"(ptr noalias nocapture noundef nonnull sret({ i32, [13 x i32] }) align 8 dereferenceable(56) %4, ptr noalias noundef nonnull align 8 dereferenceable(16) %10, i32 noundef %.sroa.01.0.extract.trunc), !noalias !1046
-  %11 = load i32, ptr %4, align 8, !range !1033, !noalias !1045, !noundef !4
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !1043
+  call void @"_ZN3der6reader6nested21NestedReader$LT$R$GT$16advance_position17hf2e9184335a7120dE.llvm.11161914831801431366"(ptr noalias nocapture noundef nonnull sret({ i32, [13 x i32] }) align 8 dereferenceable(56) %4, ptr noalias noundef nonnull align 8 dereferenceable(16) %10, i32 noundef %.sroa.01.0.extract.trunc), !noalias !1045
+  %11 = load i32, ptr %4, align 8, !range !1033, !noalias !1043, !noundef !4
   %12 = icmp eq i32 %11, 2
   br i1 %12, label %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$10read_slice17hfe64e455f336f560E.exit", label %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$10read_slice17hfe64e455f336f560E.exit.thread4"
 
@@ -6505,21 +6503,19 @@ define hidden void @"_ZN69_$LT$der..bytes_ref..BytesRef$u20$as$u20$der..decode..
   %.sroa.46.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 4
   %.sroa.28.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %6, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.sroa.28.0..sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(52) %.sroa.46.0..sroa_idx.i.i, i64 52, i1 false)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !1045
-  store i32 %11, ptr %6, align 8, !alias.scope !1046
-  br label %20
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !1043
+  br label %.sink.split
 
 "_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$10read_slice17hfe64e455f336f560E.exit.thread": ; preds = %3
   %.sroa.46.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   %.sroa.28.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.sroa.28.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(52) %.sroa.46.0..sroa_idx.i, i64 52, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5), !noalias !1039
-  store i32 %7, ptr %6, align 8, !alias.scope !1034
-  br label %20
+  br label %.sink.split
 
 "_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$10read_slice17hfe64e455f336f560E.exit": ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !1045
-  %13 = load ptr, ptr %10, align 8, !alias.scope !1043, !noalias !1046, !nonnull !4, !align !77, !noundef !4
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !1043
+  %13 = load ptr, ptr %10, align 8, !alias.scope !1040, !noalias !1045, !nonnull !4, !align !77, !noundef !4
   call void @"_ZN71_$LT$der..reader..slice..SliceReader$u20$as$u20$der..reader..Reader$GT$10read_slice17h3acf38a90b699d47E"(ptr noalias nocapture noundef nonnull sret({ i32, [13 x i32] }) align 8 dereferenceable(56) %6, ptr noalias noundef nonnull align 8 dereferenceable(32) %13, i32 noundef %.sroa.01.0.extract.trunc)
   %.pr.pr = load i32, ptr %6, align 8
   %14 = icmp eq i32 %.pr.pr, 2
@@ -6533,7 +6529,12 @@ define hidden void @"_ZN69_$LT$der..bytes_ref..BytesRef$u20$as$u20$der..decode..
   tail call void @_ZN3der9bytes_ref8BytesRef3new17h1bd9e6085ef718b7E(ptr noalias nocapture noundef nonnull sret({ i32, [13 x i32] }) align 8 dereferenceable(56) %0, ptr noalias noundef nonnull readonly align 1 %17, i64 noundef %19)
   br label %21
 
-20:                                               ; preds = %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$10read_slice17hfe64e455f336f560E.exit.thread4", %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$10read_slice17hfe64e455f336f560E.exit.thread", %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$10read_slice17hfe64e455f336f560E.exit"
+.sink.split:                                      ; preds = %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$10read_slice17hfe64e455f336f560E.exit.thread", %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$10read_slice17hfe64e455f336f560E.exit.thread4"
+  %storemerge = phi i32 [ %7, %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$10read_slice17hfe64e455f336f560E.exit.thread" ], [ %11, %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$10read_slice17hfe64e455f336f560E.exit.thread4" ]
+  store i32 %storemerge, ptr %6, align 8, !alias.scope !1034
+  br label %20
+
+20:                                               ; preds = %.sink.split, %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$10read_slice17hfe64e455f336f560E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false)
   br label %21
 
@@ -7962,9 +7963,8 @@ attributes #27 = { nounwind }
 !1038 = distinct !{!1038, !1036, !"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$10read_slice17hfe64e455f336f560E: argument 1"}
 !1039 = !{!1035, !1038}
 !1040 = !{!1041}
-!1041 = distinct !{!1041, !1042, !"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$10read_slice17h05ed08f87f98f2a7E: argument 0"}
+!1041 = distinct !{!1041, !1042, !"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$10read_slice17h05ed08f87f98f2a7E: argument 1"}
 !1042 = distinct !{!1042, !"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$10read_slice17h05ed08f87f98f2a7E"}
-!1043 = !{!1044}
-!1044 = distinct !{!1044, !1042, !"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$10read_slice17h05ed08f87f98f2a7E: argument 1"}
-!1045 = !{!1041, !1044, !1035, !1038}
-!1046 = !{!1041, !1035}
+!1043 = !{!1044, !1041, !1035, !1038}
+!1044 = distinct !{!1044, !1042, !"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$10read_slice17h05ed08f87f98f2a7E: argument 0"}
+!1045 = !{!1044, !1035}

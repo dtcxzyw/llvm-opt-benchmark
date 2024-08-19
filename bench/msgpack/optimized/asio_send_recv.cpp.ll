@@ -11579,13 +11579,7 @@ _ZN5boost4asio6detail10socket_ops6socketEiiiRNS_6system10error_codeE.exit: ; pre
   store ptr @_ZN5boost6system6detail10cat_holderIvE24system_category_instanceE, ptr %.sroa.34.0..sroa_idx.i.i, align 8
   store i32 %19, ptr %9, align 4
   %37 = icmp eq i32 %19, -1
-  br i1 %37, label %.thread, label %40
-
-.thread:                                          ; preds = %_ZN5boost4asio6detail10socket_ops6socketEiiiRNS_6system10error_codeE.exit
-  %.sroa.0.138 = load i64, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
-  br label %_ZN5boost4asio6detail13socket_holderD2Ev.exit
+  br i1 %37, label %_ZN5boost4asio6detail13socket_holderD2Ev.exit.sink.split, label %40
 
 38:                                               ; preds = %40
   %39 = landingpad { ptr, i32 }
@@ -11616,10 +11610,7 @@ _ZN5boost4asio6detail10socket_ops6socketEiiiRNS_6system10error_codeE.exit: ; pre
   store i8 0, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.330.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @_ZN5boost6system6detail10cat_holderIvE24system_category_instanceE, ptr %.sroa.330.0..sroa_idx, align 8
-  %.sroa.0.146 = load i64, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
-  br label %_ZN5boost4asio6detail13socket_holderD2Ev.exit
+  br label %_ZN5boost4asio6detail13socket_holderD2Ev.exit.sink.split
 
 46:                                               ; preds = %44
   store i32 %43, ptr %5, align 8
@@ -11646,8 +11637,14 @@ _ZN5boost4asio6detail10socket_ops6socketEiiiRNS_6system10error_codeE.exit: ; pre
   call void @__clang_call_terminate(ptr %52) #32
   unreachable
 
-_ZN5boost4asio6detail13socket_holderD2Ev.exit:    ; preds = %.thread44, %.thread, %46
-  %.sroa.0.141 = phi i64 [ %.sroa.0.138, %.thread ], [ %.sroa.0.1, %46 ], [ %.sroa.0.146, %.thread44 ]
+_ZN5boost4asio6detail13socket_holderD2Ev.exit.sink.split: ; preds = %_ZN5boost4asio6detail10socket_ops6socketEiiiRNS_6system10error_codeE.exit, %.thread44
+  %.sroa.0.146 = load i64, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  br label %_ZN5boost4asio6detail13socket_holderD2Ev.exit
+
+_ZN5boost4asio6detail13socket_holderD2Ev.exit:    ; preds = %_ZN5boost4asio6detail13socket_holderD2Ev.exit.sink.split, %46
+  %.sroa.0.141 = phi i64 [ %.sroa.0.1, %46 ], [ %.sroa.0.146, %_ZN5boost4asio6detail13socket_holderD2Ev.exit.sink.split ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   br label %53

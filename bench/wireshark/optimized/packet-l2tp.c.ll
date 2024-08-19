@@ -3663,7 +3663,7 @@ store_ccid.exit:                                  ; preds = %.lr.ph, %switch.hol
 
 ._crit_edge:                                      ; preds = %.backedge
   %.not = icmp eq i16 %.0548.be, 0
-  br i1 %.not, label %1088, label %927
+  br i1 %.not, label %1082, label %927
 
 927:                                              ; preds = %._crit_edge
   %928 = zext i16 %.0548.be to i64
@@ -3719,7 +3719,7 @@ update_shared_key.exit.i:                         ; preds = %947, %943, %941
   %950 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0550.be) #8
   switch i8 %950, label %check_control_digest.exit.thread643 [
     i8 0, label %951
-    i8 1, label %1016
+    i8 1, label %1013
   ]
 
 951:                                              ; preds = %update_shared_key.exit.i
@@ -3745,22 +3745,22 @@ update_shared_key.exit.i:                         ; preds = %947, %943, %941
   %960 = getelementptr inbounds i8, ptr %6, i64 112
   %961 = call i32 @gcry_md_setkey(ptr noundef %959, ptr noundef nonnull %960, i64 noundef 16) #8
   %.not30.i.i = icmp eq i32 %961, 0
-  br i1 %.not30.i.i, label %962, label %.sink.split44.i.i
+  br i1 %.not30.i.i, label %962, label %.sink.split49.i.i
 
 962:                                              ; preds = %958
   %.not31.i.i = icmp eq i32 %.0557.be, 1
-  br i1 %.not31.i.i, label %1002, label %963
+  br i1 %.not31.i.i, label %998, label %963
 
 963:                                              ; preds = %962
   %964 = load ptr, ptr %930, align 8
   %.not32.i.i = icmp eq ptr %964, null
-  br i1 %.not32.i.i, label %1002, label %965
+  br i1 %.not32.i.i, label %998, label %965
 
 965:                                              ; preds = %963
   %966 = getelementptr inbounds i8, ptr %6, i64 88
   %967 = load ptr, ptr %966, align 8
   %.not33.i.i = icmp eq ptr %967, null
-  br i1 %.not33.i.i, label %1002, label %968
+  br i1 %.not33.i.i, label %998, label %968
 
 968:                                              ; preds = %965
   %969 = getelementptr inbounds i8, ptr %6, i64 8
@@ -3780,7 +3780,7 @@ update_shared_key.exit.i:                         ; preds = %947, %943, %941
 
 980:                                              ; preds = %974
   %981 = icmp eq i32 %976, 0
-  br i1 %981, label %989, label %982
+  br i1 %981, label %.sink.split.i.i621, label %982
 
 982:                                              ; preds = %980
   %983 = getelementptr inbounds i8, ptr %6, i64 16
@@ -3790,363 +3790,351 @@ update_shared_key.exit.i:                         ; preds = %947, %943, %941
   %987 = sext i32 %976 to i64
   %bcmp.i.i.i = call i32 @bcmp(ptr %984, ptr %986, i64 %987)
   %988 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %988, label %989, label %addresses_equal.exit.i.i
-
-989:                                              ; preds = %982, %980
-  %990 = load ptr, ptr %11, align 8
-  %991 = getelementptr inbounds i8, ptr %6, i64 48
-  %992 = load i32, ptr %991, align 8
-  %993 = sext i32 %992 to i64
-  call void @gcry_md_write(ptr noundef %990, ptr noundef nonnull %964, i64 noundef %993) #8
-  br label %.sink.split.i.i621
+  br i1 %988, label %.sink.split.i.i621, label %addresses_equal.exit.i.i
 
 addresses_equal.exit.i.i:                         ; preds = %982, %974, %968
-  %994 = load ptr, ptr %11, align 8
-  %995 = getelementptr inbounds i8, ptr %6, i64 96
-  %996 = load i32, ptr %995, align 8
-  %997 = sext i32 %996 to i64
-  call void @gcry_md_write(ptr noundef %994, ptr noundef nonnull %967, i64 noundef %997) #8
   br label %.sink.split.i.i621
 
-.sink.split.i.i621:                               ; preds = %addresses_equal.exit.i.i, %989
-  %.sink43.i.i = phi ptr [ %930, %addresses_equal.exit.i.i ], [ %966, %989 ]
-  %.sink42.i.i = phi i64 [ 48, %addresses_equal.exit.i.i ], [ 96, %989 ]
-  %.sink.i.i = load ptr, ptr %11, align 8
-  %998 = load ptr, ptr %.sink43.i.i, align 8
-  %999 = getelementptr inbounds i8, ptr %6, i64 %.sink42.i.i
-  %1000 = load i32, ptr %999, align 8
-  %1001 = sext i32 %1000 to i64
-  call void @gcry_md_write(ptr noundef %.sink.i.i, ptr noundef %998, i64 noundef %1001) #8
-  br label %1002
+.sink.split.i.i621:                               ; preds = %addresses_equal.exit.i.i, %982, %980
+  %.sink48.i.i = phi i64 [ 96, %addresses_equal.exit.i.i ], [ 48, %982 ], [ 48, %980 ]
+  %.sink44.i.i = phi ptr [ %967, %addresses_equal.exit.i.i ], [ %964, %982 ], [ %964, %980 ]
+  %.sink43.i.i = phi ptr [ %930, %addresses_equal.exit.i.i ], [ %966, %982 ], [ %966, %980 ]
+  %.sink42.i.i = phi i64 [ 48, %addresses_equal.exit.i.i ], [ 96, %982 ], [ 96, %980 ]
+  %989 = load ptr, ptr %11, align 8
+  %990 = getelementptr inbounds i8, ptr %6, i64 %.sink48.i.i
+  %991 = load i32, ptr %990, align 8
+  %992 = sext i32 %991 to i64
+  call void @gcry_md_write(ptr noundef %989, ptr noundef nonnull %.sink44.i.i, i64 noundef %992) #8
+  %993 = load ptr, ptr %11, align 8
+  %994 = load ptr, ptr %.sink43.i.i, align 8
+  %995 = getelementptr inbounds i8, ptr %6, i64 %.sink42.i.i
+  %996 = load i32, ptr %995, align 8
+  %997 = sext i32 %996 to i64
+  call void @gcry_md_write(ptr noundef %993, ptr noundef %994, i64 noundef %997) #8
+  br label %998
 
-1002:                                             ; preds = %.sink.split.i.i621, %965, %963, %962
-  %1003 = load ptr, ptr %11, align 8
-  %1004 = add i32 %.0550.be, 1
-  %1005 = add i32 %1004, %spec.store.select.neg37.i.i
-  %1006 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %spec.store.select.i.i, i32 noundef %1005) #8
-  %1007 = sext i32 %1005 to i64
-  call void @gcry_md_write(ptr noundef %1003, ptr noundef %1006, i64 noundef %1007) #8
-  %1008 = load ptr, ptr %11, align 8
-  call void @gcry_md_write(ptr noundef %1008, ptr noundef nonnull %10, i64 noundef 16) #8
-  %1009 = add i32 %.0550.be, 17
-  %1010 = sub i32 %4, %1009
-  %1011 = load ptr, ptr %11, align 8
-  %1012 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %1009, i32 noundef %1010) #8
-  %1013 = sext i32 %1010 to i64
-  call void @gcry_md_write(ptr noundef %1011, ptr noundef %1012, i64 noundef %1013) #8
-  %1014 = load ptr, ptr %11, align 8
-  %1015 = call ptr @gcry_md_read(ptr noundef %1014, i32 noundef 0) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, ptr noundef nonnull align 1 dereferenceable(16) %1015, i64 16, i1 false)
-  br label %.sink.split44.i.i
+998:                                              ; preds = %.sink.split.i.i621, %965, %963, %962
+  %999 = load ptr, ptr %11, align 8
+  %1000 = add i32 %.0550.be, 1
+  %1001 = add i32 %1000, %spec.store.select.neg37.i.i
+  %1002 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %spec.store.select.i.i, i32 noundef %1001) #8
+  %1003 = sext i32 %1001 to i64
+  call void @gcry_md_write(ptr noundef %999, ptr noundef %1002, i64 noundef %1003) #8
+  %1004 = load ptr, ptr %11, align 8
+  call void @gcry_md_write(ptr noundef %1004, ptr noundef nonnull %10, i64 noundef 16) #8
+  %1005 = add i32 %.0550.be, 17
+  %1006 = sub i32 %4, %1005
+  %1007 = load ptr, ptr %11, align 8
+  %1008 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %1005, i32 noundef %1006) #8
+  %1009 = sext i32 %1006 to i64
+  call void @gcry_md_write(ptr noundef %1007, ptr noundef %1008, i64 noundef %1009) #8
+  %1010 = load ptr, ptr %11, align 8
+  %1011 = call ptr @gcry_md_read(ptr noundef %1010, i32 noundef 0) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, ptr noundef nonnull align 1 dereferenceable(16) %1011, i64 16, i1 false)
+  br label %.sink.split49.i.i
 
-.sink.split44.i.i:                                ; preds = %1002, %958
-  %.sink45.i.i = load ptr, ptr %11, align 8
-  call void @gcry_md_close(ptr noundef %.sink45.i.i) #8
+.sink.split49.i.i:                                ; preds = %998, %958
+  %1012 = load ptr, ptr %11, align 8
+  call void @gcry_md_close(ptr noundef %1012) #8
   br label %md5_hmac_digest.exit.i
 
-md5_hmac_digest.exit.i:                           ; preds = %.sink.split44.i.i, %952
+md5_hmac_digest.exit.i:                           ; preds = %.sink.split49.i.i, %952
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   br label %check_control_digest.exit
 
-1016:                                             ; preds = %update_shared_key.exit.i
+1013:                                             ; preds = %update_shared_key.exit.i
   %.not24.i = icmp eq i16 %.0548.be, 21
-  br i1 %.not24.i, label %1017, label %check_control_digest.exit.thread
+  br i1 %.not24.i, label %1014, label %check_control_digest.exit.thread
 
-1017:                                             ; preds = %1016
+1014:                                             ; preds = %1013
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %8, i8 0, i64 20, i1 false)
-  %1018 = load ptr, ptr %6, align 8
-  %1019 = getelementptr inbounds i8, ptr %1018, i64 60
-  %1020 = load i32, ptr %1019, align 4
-  %1021 = icmp eq i32 %1020, 0
-  %spec.store.select.neg37.i27.i = select i1 %1021, i32 -4, i32 0
-  %spec.store.select.i28.i = select i1 %1021, i32 4, i32 0
-  %1022 = call i32 @gcry_md_open(ptr noundef nonnull %9, i32 noundef 2, i32 noundef 2) #8
-  %.not.i29.i = icmp eq i32 %1022, 0
-  br i1 %.not.i29.i, label %1023, label %sha1_hmac_digest.exit.i
+  %1015 = load ptr, ptr %6, align 8
+  %1016 = getelementptr inbounds i8, ptr %1015, i64 60
+  %1017 = load i32, ptr %1016, align 4
+  %1018 = icmp eq i32 %1017, 0
+  %spec.store.select.neg37.i27.i = select i1 %1018, i32 -4, i32 0
+  %spec.store.select.i28.i = select i1 %1018, i32 4, i32 0
+  %1019 = call i32 @gcry_md_open(ptr noundef nonnull %9, i32 noundef 2, i32 noundef 2) #8
+  %.not.i29.i = icmp eq i32 %1019, 0
+  br i1 %.not.i29.i, label %1020, label %sha1_hmac_digest.exit.i
 
-1023:                                             ; preds = %1017
-  %1024 = load ptr, ptr %9, align 8
-  %1025 = getelementptr inbounds i8, ptr %6, i64 112
-  %1026 = call i32 @gcry_md_setkey(ptr noundef %1024, ptr noundef nonnull %1025, i64 noundef 16) #8
-  %.not30.i30.i = icmp eq i32 %1026, 0
-  br i1 %.not30.i30.i, label %1027, label %.sink.split44.i31.i
+1020:                                             ; preds = %1014
+  %1021 = load ptr, ptr %9, align 8
+  %1022 = getelementptr inbounds i8, ptr %6, i64 112
+  %1023 = call i32 @gcry_md_setkey(ptr noundef %1021, ptr noundef nonnull %1022, i64 noundef 16) #8
+  %.not30.i30.i = icmp eq i32 %1023, 0
+  br i1 %.not30.i30.i, label %1024, label %.sink.split49.i31.i
 
-1027:                                             ; preds = %1023
-  %.not31.i33.i = icmp eq i32 %.0557.be, 1
-  br i1 %.not31.i33.i, label %1067, label %1028
+1024:                                             ; preds = %1020
+  %.not31.i32.i = icmp eq i32 %.0557.be, 1
+  br i1 %.not31.i32.i, label %1060, label %1025
 
-1028:                                             ; preds = %1027
-  %1029 = load ptr, ptr %930, align 8
-  %.not32.i34.i = icmp eq ptr %1029, null
-  br i1 %.not32.i34.i, label %1067, label %1030
+1025:                                             ; preds = %1024
+  %1026 = load ptr, ptr %930, align 8
+  %.not32.i33.i = icmp eq ptr %1026, null
+  br i1 %.not32.i33.i, label %1060, label %1027
 
-1030:                                             ; preds = %1028
-  %1031 = getelementptr inbounds i8, ptr %6, i64 88
-  %1032 = load ptr, ptr %1031, align 8
-  %.not33.i35.i = icmp eq ptr %1032, null
-  br i1 %.not33.i35.i, label %1067, label %1033
+1027:                                             ; preds = %1025
+  %1028 = getelementptr inbounds i8, ptr %6, i64 88
+  %1029 = load ptr, ptr %1028, align 8
+  %.not33.i34.i = icmp eq ptr %1029, null
+  br i1 %.not33.i34.i, label %1060, label %1030
 
-1033:                                             ; preds = %1030
-  %1034 = getelementptr inbounds i8, ptr %6, i64 8
-  %1035 = getelementptr inbounds i8, ptr %1, i64 208
-  %1036 = load i32, ptr %1034, align 8
-  %1037 = load i32, ptr %1035, align 8
-  %1038 = icmp eq i32 %1036, %1037
-  br i1 %1038, label %1039, label %addresses_equal.exit.i36.i
+1030:                                             ; preds = %1027
+  %1031 = getelementptr inbounds i8, ptr %6, i64 8
+  %1032 = getelementptr inbounds i8, ptr %1, i64 208
+  %1033 = load i32, ptr %1031, align 8
+  %1034 = load i32, ptr %1032, align 8
+  %1035 = icmp eq i32 %1033, %1034
+  br i1 %1035, label %1036, label %addresses_equal.exit.i35.i
 
-1039:                                             ; preds = %1033
-  %1040 = getelementptr inbounds i8, ptr %6, i64 12
-  %1041 = load i32, ptr %1040, align 4
-  %1042 = getelementptr inbounds i8, ptr %1, i64 212
-  %1043 = load i32, ptr %1042, align 4
-  %1044 = icmp eq i32 %1041, %1043
-  br i1 %1044, label %1045, label %addresses_equal.exit.i36.i
+1036:                                             ; preds = %1030
+  %1037 = getelementptr inbounds i8, ptr %6, i64 12
+  %1038 = load i32, ptr %1037, align 4
+  %1039 = getelementptr inbounds i8, ptr %1, i64 212
+  %1040 = load i32, ptr %1039, align 4
+  %1041 = icmp eq i32 %1038, %1040
+  br i1 %1041, label %1042, label %addresses_equal.exit.i35.i
 
-1045:                                             ; preds = %1039
-  %1046 = icmp eq i32 %1041, 0
-  br i1 %1046, label %1054, label %1047
+1042:                                             ; preds = %1036
+  %1043 = icmp eq i32 %1038, 0
+  br i1 %1043, label %.sink.split.i36.i, label %1044
 
-1047:                                             ; preds = %1045
-  %1048 = getelementptr inbounds i8, ptr %6, i64 16
-  %1049 = load ptr, ptr %1048, align 8
-  %1050 = getelementptr inbounds i8, ptr %1, i64 216
-  %1051 = load ptr, ptr %1050, align 8
-  %1052 = sext i32 %1041 to i64
-  %bcmp.i.i41.i = call i32 @bcmp(ptr %1049, ptr %1051, i64 %1052)
-  %1053 = icmp eq i32 %bcmp.i.i41.i, 0
-  br i1 %1053, label %1054, label %addresses_equal.exit.i36.i
+1044:                                             ; preds = %1042
+  %1045 = getelementptr inbounds i8, ptr %6, i64 16
+  %1046 = load ptr, ptr %1045, align 8
+  %1047 = getelementptr inbounds i8, ptr %1, i64 216
+  %1048 = load ptr, ptr %1047, align 8
+  %1049 = sext i32 %1038 to i64
+  %bcmp.i.i41.i = call i32 @bcmp(ptr %1046, ptr %1048, i64 %1049)
+  %1050 = icmp eq i32 %bcmp.i.i41.i, 0
+  br i1 %1050, label %.sink.split.i36.i, label %addresses_equal.exit.i35.i
 
-1054:                                             ; preds = %1047, %1045
+addresses_equal.exit.i35.i:                       ; preds = %1044, %1036, %1030
+  br label %.sink.split.i36.i
+
+.sink.split.i36.i:                                ; preds = %addresses_equal.exit.i35.i, %1044, %1042
+  %.sink48.i37.i = phi i64 [ 96, %addresses_equal.exit.i35.i ], [ 48, %1044 ], [ 48, %1042 ]
+  %.sink44.i38.i = phi ptr [ %1029, %addresses_equal.exit.i35.i ], [ %1026, %1044 ], [ %1026, %1042 ]
+  %.sink43.i39.i = phi ptr [ %930, %addresses_equal.exit.i35.i ], [ %1028, %1044 ], [ %1028, %1042 ]
+  %.sink42.i40.i = phi i64 [ 48, %addresses_equal.exit.i35.i ], [ 96, %1044 ], [ 96, %1042 ]
+  %1051 = load ptr, ptr %9, align 8
+  %1052 = getelementptr inbounds i8, ptr %6, i64 %.sink48.i37.i
+  %1053 = load i32, ptr %1052, align 8
+  %1054 = sext i32 %1053 to i64
+  call void @gcry_md_write(ptr noundef %1051, ptr noundef nonnull %.sink44.i38.i, i64 noundef %1054) #8
   %1055 = load ptr, ptr %9, align 8
-  %1056 = getelementptr inbounds i8, ptr %6, i64 48
-  %1057 = load i32, ptr %1056, align 8
-  %1058 = sext i32 %1057 to i64
-  call void @gcry_md_write(ptr noundef %1055, ptr noundef nonnull %1029, i64 noundef %1058) #8
-  br label %.sink.split.i37.i
+  %1056 = load ptr, ptr %.sink43.i39.i, align 8
+  %1057 = getelementptr inbounds i8, ptr %6, i64 %.sink42.i40.i
+  %1058 = load i32, ptr %1057, align 8
+  %1059 = sext i32 %1058 to i64
+  call void @gcry_md_write(ptr noundef %1055, ptr noundef %1056, i64 noundef %1059) #8
+  br label %1060
 
-addresses_equal.exit.i36.i:                       ; preds = %1047, %1039, %1033
-  %1059 = load ptr, ptr %9, align 8
-  %1060 = getelementptr inbounds i8, ptr %6, i64 96
-  %1061 = load i32, ptr %1060, align 8
-  %1062 = sext i32 %1061 to i64
-  call void @gcry_md_write(ptr noundef %1059, ptr noundef nonnull %1032, i64 noundef %1062) #8
-  br label %.sink.split.i37.i
+1060:                                             ; preds = %.sink.split.i36.i, %1027, %1025, %1024
+  %1061 = load ptr, ptr %9, align 8
+  %1062 = add i32 %.0550.be, 1
+  %1063 = add i32 %1062, %spec.store.select.neg37.i27.i
+  %1064 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %spec.store.select.i28.i, i32 noundef %1063) #8
+  %1065 = sext i32 %1063 to i64
+  call void @gcry_md_write(ptr noundef %1061, ptr noundef %1064, i64 noundef %1065) #8
+  %1066 = load ptr, ptr %9, align 8
+  call void @gcry_md_write(ptr noundef %1066, ptr noundef nonnull %8, i64 noundef 20) #8
+  %1067 = add i32 %.0550.be, 21
+  %1068 = sub i32 %4, %1067
+  %1069 = load ptr, ptr %9, align 8
+  %1070 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %1067, i32 noundef %1068) #8
+  %1071 = sext i32 %1068 to i64
+  call void @gcry_md_write(ptr noundef %1069, ptr noundef %1070, i64 noundef %1071) #8
+  %1072 = load ptr, ptr %9, align 8
+  %1073 = call ptr @gcry_md_read(ptr noundef %1072, i32 noundef 0) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %13, ptr noundef nonnull align 1 dereferenceable(20) %1073, i64 20, i1 false)
+  br label %.sink.split49.i31.i
 
-.sink.split.i37.i:                                ; preds = %addresses_equal.exit.i36.i, %1054
-  %.sink43.i38.i = phi ptr [ %930, %addresses_equal.exit.i36.i ], [ %1031, %1054 ]
-  %.sink42.i39.i = phi i64 [ 48, %addresses_equal.exit.i36.i ], [ 96, %1054 ]
-  %.sink.i40.i = load ptr, ptr %9, align 8
-  %1063 = load ptr, ptr %.sink43.i38.i, align 8
-  %1064 = getelementptr inbounds i8, ptr %6, i64 %.sink42.i39.i
-  %1065 = load i32, ptr %1064, align 8
-  %1066 = sext i32 %1065 to i64
-  call void @gcry_md_write(ptr noundef %.sink.i40.i, ptr noundef %1063, i64 noundef %1066) #8
-  br label %1067
-
-1067:                                             ; preds = %.sink.split.i37.i, %1030, %1028, %1027
-  %1068 = load ptr, ptr %9, align 8
-  %1069 = add i32 %.0550.be, 1
-  %1070 = add i32 %1069, %spec.store.select.neg37.i27.i
-  %1071 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %spec.store.select.i28.i, i32 noundef %1070) #8
-  %1072 = sext i32 %1070 to i64
-  call void @gcry_md_write(ptr noundef %1068, ptr noundef %1071, i64 noundef %1072) #8
-  %1073 = load ptr, ptr %9, align 8
-  call void @gcry_md_write(ptr noundef %1073, ptr noundef nonnull %8, i64 noundef 20) #8
-  %1074 = add i32 %.0550.be, 21
-  %1075 = sub i32 %4, %1074
-  %1076 = load ptr, ptr %9, align 8
-  %1077 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %1074, i32 noundef %1075) #8
-  %1078 = sext i32 %1075 to i64
-  call void @gcry_md_write(ptr noundef %1076, ptr noundef %1077, i64 noundef %1078) #8
-  %1079 = load ptr, ptr %9, align 8
-  %1080 = call ptr @gcry_md_read(ptr noundef %1079, i32 noundef 0) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %13, ptr noundef nonnull align 1 dereferenceable(20) %1080, i64 20, i1 false)
-  br label %.sink.split44.i31.i
-
-.sink.split44.i31.i:                              ; preds = %1067, %1023
-  %.sink45.i32.i = load ptr, ptr %9, align 8
-  call void @gcry_md_close(ptr noundef %.sink45.i32.i) #8
+.sink.split49.i31.i:                              ; preds = %1060, %1020
+  %1074 = load ptr, ptr %9, align 8
+  call void @gcry_md_close(ptr noundef %1074) #8
   br label %sha1_hmac_digest.exit.i
 
-sha1_hmac_digest.exit.i:                          ; preds = %.sink.split44.i31.i, %1017
+sha1_hmac_digest.exit.i:                          ; preds = %.sink.split49.i31.i, %1014
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %check_control_digest.exit
 
-check_control_digest.exit.thread:                 ; preds = %951, %1016
+check_control_digest.exit.thread:                 ; preds = %951, %1013
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %13)
-  br label %1086
+  br label %1080
 
 check_control_digest.exit.thread643:              ; preds = %927, %update_shared_key.exit.i
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %13)
-  br label %1088
+  br label %1082
 
 check_control_digest.exit:                        ; preds = %md5_hmac_digest.exit.i, %sha1_hmac_digest.exit.i
-  %1081 = add i32 %.0550.be, 1
-  %1082 = add nuw nsw i64 %928, 4294967295
-  %1083 = and i64 %1082, 4294967295
-  %1084 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef %1081, ptr noundef nonnull %13, i64 noundef %1083) #8
+  %1075 = add i32 %.0550.be, 1
+  %1076 = add nuw nsw i64 %928, 4294967295
+  %1077 = and i64 %1076, 4294967295
+  %1078 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef %1075, ptr noundef nonnull %13, i64 noundef %1077) #8
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %13)
-  %1085 = icmp slt i32 %1084, 0
-  br i1 %1085, label %1086, label %1088
+  %1079 = icmp slt i32 %1078, 0
+  br i1 %1079, label %1080, label %1082
 
-1086:                                             ; preds = %check_control_digest.exit.thread, %check_control_digest.exit
-  %1087 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %.0546.be, ptr noundef nonnull @ei_l2tp_incorrect_digest) #8
-  br label %1088
+1080:                                             ; preds = %check_control_digest.exit.thread, %check_control_digest.exit
+  %1081 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %.0546.be, ptr noundef nonnull @ei_l2tp_incorrect_digest) #8
+  br label %1082
 
-1088:                                             ; preds = %check_control_digest.exit.thread643, %check_control_digest.exit, %1086, %._crit_edge
-  %1089 = icmp eq ptr %6, null
-  %1090 = icmp eq ptr %.0637.be, null
-  %or.cond.i = or i1 %1089, %1090
-  br i1 %or.cond.i, label %update_session.exit, label %1091
+1082:                                             ; preds = %check_control_digest.exit.thread643, %check_control_digest.exit, %1080, %._crit_edge
+  %1083 = icmp eq ptr %6, null
+  %1084 = icmp eq ptr %.0637.be, null
+  %or.cond.i = or i1 %1083, %1084
+  br i1 %or.cond.i, label %update_session.exit, label %1085
 
-1091:                                             ; preds = %1088
-  %1092 = load i32, ptr %.0637.be, align 4
-  %1093 = icmp eq i32 %1092, 0
-  %1094 = getelementptr inbounds i8, ptr %.0637.be, i64 12
-  %1095 = load i32, ptr %1094, align 4
-  %1096 = icmp eq i32 %1095, 0
-  %or.cond63.i = select i1 %1093, i1 %1096, i1 false
+1085:                                             ; preds = %1082
+  %1086 = load i32, ptr %.0637.be, align 4
+  %1087 = icmp eq i32 %1086, 0
+  %1088 = getelementptr inbounds i8, ptr %.0637.be, i64 12
+  %1089 = load i32, ptr %1088, align 4
+  %1090 = icmp eq i32 %1089, 0
+  %or.cond63.i = select i1 %1087, i1 %1090, i1 false
   br i1 %or.cond63.i, label %update_session.exit, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %1091
-  %1097 = getelementptr inbounds i8, ptr %6, i64 128
-  %.011.i.i = load ptr, ptr %1097, align 8
+._crit_edge.i:                                    ; preds = %1085
+  %1091 = getelementptr inbounds i8, ptr %6, i64 128
+  %.011.i.i = load ptr, ptr %1091, align 8
   %.not12.i.i622 = icmp eq ptr %.011.i.i, null
   br i1 %.not12.i.i622, label %.loopexit.i626, label %.lr.ph.i.i623
 
-1098:                                             ; preds = %1103
-  %1099 = getelementptr inbounds i8, ptr %.013.i.i, i64 8
-  %.0.i.i624 = load ptr, ptr %1099, align 8
+1092:                                             ; preds = %1097
+  %1093 = getelementptr inbounds i8, ptr %.013.i.i, i64 8
+  %.0.i.i624 = load ptr, ptr %1093, align 8
   %.not.i.i625 = icmp eq ptr %.0.i.i624, null
   br i1 %.not.i.i625, label %.loopexit.i626, label %.lr.ph.i.i623, !llvm.loop !13
 
-.lr.ph.i.i623:                                    ; preds = %._crit_edge.i, %1098
-  %.013.i.i = phi ptr [ %.0.i.i624, %1098 ], [ %.011.i.i, %._crit_edge.i ]
-  %1100 = load ptr, ptr %.013.i.i, align 8
-  %1101 = load i32, ptr %1100, align 4
-  %1102 = icmp eq i32 %1101, %1092
-  br i1 %1102, label %find_session.exit.i, label %1103
+.lr.ph.i.i623:                                    ; preds = %._crit_edge.i, %1092
+  %.013.i.i = phi ptr [ %.0.i.i624, %1092 ], [ %.011.i.i, %._crit_edge.i ]
+  %1094 = load ptr, ptr %.013.i.i, align 8
+  %1095 = load i32, ptr %1094, align 4
+  %1096 = icmp eq i32 %1095, %1086
+  br i1 %1096, label %find_session.exit.i, label %1097
 
-1103:                                             ; preds = %.lr.ph.i.i623
-  %1104 = getelementptr inbounds i8, ptr %1100, i64 12
-  %1105 = load i32, ptr %1104, align 4
-  %1106 = icmp eq i32 %1105, %1095
-  br i1 %1106, label %find_session.exit.i, label %1098
+1097:                                             ; preds = %.lr.ph.i.i623
+  %1098 = getelementptr inbounds i8, ptr %1094, i64 12
+  %1099 = load i32, ptr %1098, align 4
+  %1100 = icmp eq i32 %1099, %1089
+  br i1 %1100, label %find_session.exit.i, label %1092
 
-.loopexit.i626:                                   ; preds = %1098, %._crit_edge.i
-  %1107 = call ptr @wmem_file_scope() #8
-  %1108 = call noalias ptr @wmem_alloc0(ptr noundef %1107, i64 noundef 28) #8
-  %1109 = getelementptr inbounds i8, ptr %1108, i64 16
-  store i32 -1, ptr %1109, align 4
-  %1110 = getelementptr inbounds i8, ptr %1108, i64 4
-  store i32 -1, ptr %1110, align 4
-  %1111 = getelementptr inbounds i8, ptr %1108, i64 20
-  store i32 -1, ptr %1111, align 4
-  %1112 = getelementptr inbounds i8, ptr %1108, i64 8
-  store i32 -1, ptr %1112, align 4
-  %1113 = getelementptr inbounds i8, ptr %1108, i64 24
-  store i32 0, ptr %1113, align 4
+.loopexit.i626:                                   ; preds = %1092, %._crit_edge.i
+  %1101 = call ptr @wmem_file_scope() #8
+  %1102 = call noalias ptr @wmem_alloc0(ptr noundef %1101, i64 noundef 28) #8
+  %1103 = getelementptr inbounds i8, ptr %1102, i64 16
+  store i32 -1, ptr %1103, align 4
+  %1104 = getelementptr inbounds i8, ptr %1102, i64 4
+  store i32 -1, ptr %1104, align 4
+  %1105 = getelementptr inbounds i8, ptr %1102, i64 20
+  store i32 -1, ptr %1105, align 4
+  %1106 = getelementptr inbounds i8, ptr %1102, i64 8
+  store i32 -1, ptr %1106, align 4
+  %1107 = getelementptr inbounds i8, ptr %1102, i64 24
+  store i32 0, ptr %1107, align 4
   %.pre61.i = load i32, ptr %.0637.be, align 4
   br label %find_session.exit.i
 
-find_session.exit.i:                              ; preds = %1103, %.lr.ph.i.i623, %.loopexit.i626
-  %1114 = phi i32 [ %.pre61.i, %.loopexit.i626 ], [ %1092, %.lr.ph.i.i623 ], [ %1092, %1103 ]
-  %.0.i627 = phi ptr [ %1108, %.loopexit.i626 ], [ %1100, %.lr.ph.i.i623 ], [ %1100, %1103 ]
-  %.not50.i = icmp eq i32 %1114, 0
-  br i1 %.not50.i, label %1116, label %1115
+find_session.exit.i:                              ; preds = %1097, %.lr.ph.i.i623, %.loopexit.i626
+  %1108 = phi i32 [ %.pre61.i, %.loopexit.i626 ], [ %1086, %.lr.ph.i.i623 ], [ %1086, %1097 ]
+  %.0.i627 = phi ptr [ %1102, %.loopexit.i626 ], [ %1094, %.lr.ph.i.i623 ], [ %1094, %1097 ]
+  %.not50.i = icmp eq i32 %1108, 0
+  br i1 %.not50.i, label %1110, label %1109
 
-1115:                                             ; preds = %find_session.exit.i
-  store i32 %1114, ptr %.0.i627, align 4
-  br label %1116
+1109:                                             ; preds = %find_session.exit.i
+  store i32 %1108, ptr %.0.i627, align 4
+  br label %1110
 
-1116:                                             ; preds = %1115, %find_session.exit.i
-  %1117 = load i32, ptr %1094, align 4
-  %.not51.i = icmp eq i32 %1117, 0
-  br i1 %.not51.i, label %1120, label %1118
+1110:                                             ; preds = %1109, %find_session.exit.i
+  %1111 = load i32, ptr %1088, align 4
+  %.not51.i = icmp eq i32 %1111, 0
+  br i1 %.not51.i, label %1114, label %1112
 
-1118:                                             ; preds = %1116
-  %1119 = getelementptr inbounds i8, ptr %.0.i627, i64 12
-  store i32 %1117, ptr %1119, align 4
-  br label %1120
+1112:                                             ; preds = %1110
+  %1113 = getelementptr inbounds i8, ptr %.0.i627, i64 12
+  store i32 %1111, ptr %1113, align 4
+  br label %1114
 
-1120:                                             ; preds = %1118, %1116
-  %1121 = getelementptr inbounds i8, ptr %.0637.be, i64 4
-  %1122 = load i32, ptr %1121, align 4
-  %.not52.i = icmp eq i32 %1122, -1
-  br i1 %.not52.i, label %1125, label %1123
+1114:                                             ; preds = %1112, %1110
+  %1115 = getelementptr inbounds i8, ptr %.0637.be, i64 4
+  %1116 = load i32, ptr %1115, align 4
+  %.not52.i = icmp eq i32 %1116, -1
+  br i1 %.not52.i, label %1119, label %1117
 
-1123:                                             ; preds = %1120
-  %1124 = getelementptr inbounds i8, ptr %.0.i627, i64 4
-  store i32 %1122, ptr %1124, align 4
-  br label %1125
+1117:                                             ; preds = %1114
+  %1118 = getelementptr inbounds i8, ptr %.0.i627, i64 4
+  store i32 %1116, ptr %1118, align 4
+  br label %1119
 
-1125:                                             ; preds = %1123, %1120
-  %1126 = getelementptr inbounds i8, ptr %.0637.be, i64 16
-  %1127 = load i32, ptr %1126, align 4
-  %.not53.i = icmp eq i32 %1127, -1
-  br i1 %.not53.i, label %1130, label %1128
+1119:                                             ; preds = %1117, %1114
+  %1120 = getelementptr inbounds i8, ptr %.0637.be, i64 16
+  %1121 = load i32, ptr %1120, align 4
+  %.not53.i = icmp eq i32 %1121, -1
+  br i1 %.not53.i, label %1124, label %1122
 
-1128:                                             ; preds = %1125
-  %1129 = getelementptr inbounds i8, ptr %.0.i627, i64 16
-  store i32 %1127, ptr %1129, align 4
-  br label %1130
+1122:                                             ; preds = %1119
+  %1123 = getelementptr inbounds i8, ptr %.0.i627, i64 16
+  store i32 %1121, ptr %1123, align 4
+  br label %1124
 
-1130:                                             ; preds = %1128, %1125
-  %1131 = getelementptr inbounds i8, ptr %.0637.be, i64 8
-  %1132 = load i32, ptr %1131, align 4
-  %.not54.i = icmp eq i32 %1132, -1
-  br i1 %.not54.i, label %1135, label %1133
+1124:                                             ; preds = %1122, %1119
+  %1125 = getelementptr inbounds i8, ptr %.0637.be, i64 8
+  %1126 = load i32, ptr %1125, align 4
+  %.not54.i = icmp eq i32 %1126, -1
+  br i1 %.not54.i, label %1129, label %1127
 
-1133:                                             ; preds = %1130
-  %1134 = getelementptr inbounds i8, ptr %.0.i627, i64 8
-  store i32 %1132, ptr %1134, align 4
-  br label %1135
+1127:                                             ; preds = %1124
+  %1128 = getelementptr inbounds i8, ptr %.0.i627, i64 8
+  store i32 %1126, ptr %1128, align 4
+  br label %1129
 
-1135:                                             ; preds = %1133, %1130
-  %1136 = getelementptr inbounds i8, ptr %.0637.be, i64 20
-  %1137 = load i32, ptr %1136, align 4
-  %.not55.i = icmp eq i32 %1137, -1
-  br i1 %.not55.i, label %1140, label %1138
+1129:                                             ; preds = %1127, %1124
+  %1130 = getelementptr inbounds i8, ptr %.0637.be, i64 20
+  %1131 = load i32, ptr %1130, align 4
+  %.not55.i = icmp eq i32 %1131, -1
+  br i1 %.not55.i, label %1134, label %1132
 
-1138:                                             ; preds = %1135
-  %1139 = getelementptr inbounds i8, ptr %.0.i627, i64 20
-  store i32 %1137, ptr %1139, align 4
-  br label %1140
+1132:                                             ; preds = %1129
+  %1133 = getelementptr inbounds i8, ptr %.0.i627, i64 20
+  store i32 %1131, ptr %1133, align 4
+  br label %1134
 
-1140:                                             ; preds = %1138, %1135
-  %1141 = getelementptr inbounds i8, ptr %.0637.be, i64 24
-  %1142 = load i32, ptr %1141, align 4
-  %.not56.i = icmp eq i32 %1142, 0
-  br i1 %.not56.i, label %1145, label %1143
+1134:                                             ; preds = %1132, %1129
+  %1135 = getelementptr inbounds i8, ptr %.0637.be, i64 24
+  %1136 = load i32, ptr %1135, align 4
+  %.not56.i = icmp eq i32 %1136, 0
+  br i1 %.not56.i, label %1139, label %1137
 
-1143:                                             ; preds = %1140
-  %1144 = getelementptr inbounds i8, ptr %.0.i627, i64 24
-  store i32 %1142, ptr %1144, align 4
-  br label %1145
+1137:                                             ; preds = %1134
+  %1138 = getelementptr inbounds i8, ptr %.0.i627, i64 24
+  store i32 %1136, ptr %1138, align 4
+  br label %1139
 
-1145:                                             ; preds = %1143, %1140
-  %1146 = load ptr, ptr %1097, align 8
-  %1147 = icmp eq ptr %1146, null
-  br i1 %1147, label %1148, label %1152
+1139:                                             ; preds = %1137, %1134
+  %1140 = load ptr, ptr %1091, align 8
+  %1141 = icmp eq ptr %1140, null
+  br i1 %1141, label %1142, label %1146
 
-1148:                                             ; preds = %1145
-  %1149 = call ptr @g_slist_append(ptr noundef null, ptr noundef nonnull %.0.i627) #8
-  store ptr %1149, ptr %1097, align 8
-  %1150 = load ptr, ptr @list_heads, align 8
-  %1151 = call ptr @g_slist_append(ptr noundef %1150, ptr noundef %1149) #8
-  store ptr %1151, ptr @list_heads, align 8
+1142:                                             ; preds = %1139
+  %1143 = call ptr @g_slist_append(ptr noundef null, ptr noundef nonnull %.0.i627) #8
+  store ptr %1143, ptr %1091, align 8
+  %1144 = load ptr, ptr @list_heads, align 8
+  %1145 = call ptr @g_slist_append(ptr noundef %1144, ptr noundef %1143) #8
+  store ptr %1145, ptr @list_heads, align 8
   br label %update_session.exit
 
-1152:                                             ; preds = %1145
-  %1153 = call ptr @g_slist_append(ptr noundef nonnull %1146, ptr noundef nonnull %.0.i627) #8
-  store ptr %1153, ptr %1097, align 8
+1146:                                             ; preds = %1139
+  %1147 = call ptr @g_slist_append(ptr noundef nonnull %1140, ptr noundef nonnull %.0.i627) #8
+  store ptr %1147, ptr %1091, align 8
   br label %update_session.exit
 
-update_session.exit:                              ; preds = %7, %1152, %1148, %1091, %1088, %36
+update_session.exit:                              ; preds = %7, %1146, %1142, %1085, %1082, %36
   ret void
 }
 

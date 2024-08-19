@@ -14856,12 +14856,12 @@ if.else118:                                       ; preds = %lor.lhs.false109
 
 if.end121:                                        ; preds = %if.then82, %lor.lhs.false109, %if.else118
   %m_mul_bc.sink = phi ptr [ %m_mul_bc, %if.else118 ], [ %m_mul_ad, %lor.lhs.false109 ], [ %m_mul_ad, %if.then82 ]
-  %storemerge.in = phi ptr [ %bc_k, %if.else118 ], [ %ad_k, %lor.lhs.false109 ], [ %ad_k, %if.then82 ]
+  %.sink1044.in = phi ptr [ %bc_k, %if.else118 ], [ %ad_k, %lor.lhs.false109 ], [ %ad_k, %if.then82 ]
   %.sink = phi i1 [ %218, %if.else118 ], [ %217, %lor.lhs.false109 ], [ %217, %if.then82 ]
   %233 = load ptr, ptr %m_c.i717, align 8
   call void @_ZN11mpq_managerILb0EE4swapER3mpqS2_(ptr noundef nonnull align 8 dereferenceable(728) %233, ptr noundef nonnull align 8 dereferenceable(32) %m_result_lower, ptr noundef nonnull align 8 dereferenceable(32) %m_mul_bc.sink) #22
-  %storemerge = load i32, ptr %storemerge.in, align 4
-  store i32 %storemerge, ptr %new_l_kind, align 4
+  %.sink1044 = load i32, ptr %.sink1044.in, align 4
+  store i32 %.sink1044, ptr %new_l_kind, align 4
   %frombool.i.i727 = zext i1 %.sink to i8
   %m_l_open.i.i728 = getelementptr inbounds i8, ptr %r, i64 57
   store i8 %frombool.i.i727, ptr %m_l_open.i.i728, align 1

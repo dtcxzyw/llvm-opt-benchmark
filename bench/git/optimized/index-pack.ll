@@ -4556,34 +4556,28 @@ if.then18.i:                                      ; preds = %lor.lhs.false13.i, 
   call void (ptr, ...) @die(ptr noundef %call19.i, ptr noundef %call22.i) #22
   unreachable
 
-check_collison.exit.thread:                       ; preds = %lor.lhs.false.i, %lock_mutex.exit53, %if.end.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %data.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %type.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %size.i)
-  br label %15
-
 12:                                               ; preds = %lor.lhs.false13.i
   %call24.i = call fastcc ptr @unpack_data(ptr noundef nonnull %obj_entry, ptr noundef nonnull @compare_objects, ptr noundef nonnull %data.i)
   %13 = load ptr, ptr %st.i, align 8
   %call26.i = call i32 @close_istream(ptr noundef %13) #23
   %14 = load ptr, ptr %6, align 8
   call void @free(ptr noundef %14) #23
+  br label %check_collison.exit.thread
+
+check_collison.exit.thread:                       ; preds = %if.end.i, %lock_mutex.exit53, %lor.lhs.false.i, %12
+  %15 = phi i32 [ 0, %12 ], [ %call, %lor.lhs.false.i ], [ %call, %lock_mutex.exit53 ], [ %call, %if.end.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %data.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %type.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %size.i)
-  br label %15
-
-15:                                               ; preds = %check_collison.exit.thread, %12
-  %16 = phi i32 [ 0, %12 ], [ %call, %check_collison.exit.thread ]
   %.b.i55 = load i1, ptr @threads_active, align 4
   br i1 %.b.i55, label %if.then.i57, label %if.end8
 
-if.then.i57:                                      ; preds = %15
+if.then.i57:                                      ; preds = %check_collison.exit.thread
   %call.i58 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @read_mutex) #23
   br label %if.end8
 
-if.end8:                                          ; preds = %if.then.i57, %15, %if.end
-  %collision_test_needed.1 = phi i32 [ %call, %if.end ], [ %16, %15 ], [ %16, %if.then.i57 ]
+if.end8:                                          ; preds = %if.then.i57, %check_collison.exit.thread, %if.end
+  %collision_test_needed.1 = phi i32 [ %call, %if.end ], [ %15, %check_collison.exit.thread ], [ %15, %if.then.i57 ]
   %tobool9.not = icmp eq i32 %collision_test_needed.1, 0
   br i1 %tobool9.not, label %if.end42, label %if.then10
 
@@ -4596,8 +4590,8 @@ if.then.i62:                                      ; preds = %if.then10
   br label %lock_mutex.exit64
 
 lock_mutex.exit64:                                ; preds = %if.then10, %if.then.i62
-  %17 = load ptr, ptr @the_repository, align 8
-  %call11 = call i32 @oid_object_info(ptr noundef %17, ptr noundef %oid, ptr noundef nonnull %has_size) #23
+  %16 = load ptr, ptr @the_repository, align 8
+  %call11 = call i32 @oid_object_info(ptr noundef %16, ptr noundef %oid, ptr noundef nonnull %has_size) #23
   store i32 %call11, ptr %has_type, align 4
   %cmp = icmp slt i32 %call11, 0
   br i1 %cmp, label %if.then12, label %if.end15
@@ -4610,8 +4604,8 @@ if.then12:                                        ; preds = %lock_mutex.exit64
 
 if.end15:                                         ; preds = %lock_mutex.exit64
   %cmp16.not = icmp eq i32 %call11, %type
-  %18 = load i64, ptr %has_size, align 8
-  %cmp17.not = icmp eq i64 %18, %size
+  %17 = load i64, ptr %has_size, align 8
+  %cmp17.not = icmp eq i64 %17, %size
   %or.cond45 = select i1 %cmp16.not, i1 %cmp17.not, i1 false
   br i1 %or.cond45, label %if.end21, label %if.then18
 
@@ -4622,8 +4616,8 @@ if.then18:                                        ; preds = %if.end15
   unreachable
 
 if.end21:                                         ; preds = %if.end15
-  %19 = load ptr, ptr @the_repository, align 8
-  %call22 = call ptr @repo_read_object_file(ptr noundef %19, ptr noundef %oid, ptr noundef nonnull %has_type, ptr noundef nonnull %has_size) #23
+  %18 = load ptr, ptr @the_repository, align 8
+  %call22 = call ptr @repo_read_object_file(ptr noundef %18, ptr noundef %oid, ptr noundef nonnull %has_type, ptr noundef nonnull %has_size) #23
   %.b.i65 = load i1, ptr @threads_active, align 4
   br i1 %.b.i65, label %if.then.i67, label %unlock_mutex.exit69
 
@@ -4651,10 +4645,10 @@ if.then28:                                        ; preds = %if.end26
   unreachable
 
 if.end31:                                         ; preds = %if.end26
-  %20 = load i64, ptr %has_size, align 8
-  %cmp32.not = icmp eq i64 %20, %size
-  %21 = load i32, ptr %has_type, align 4
-  %cmp34.not = icmp eq i32 %21, %type
+  %19 = load i64, ptr %has_size, align 8
+  %cmp32.not = icmp eq i64 %19, %size
+  %20 = load i32, ptr %has_type, align 4
+  %cmp34.not = icmp eq i32 %20, %type
   %or.cond46 = select i1 %cmp32.not, i1 %cmp34.not, i1 false
   br i1 %or.cond46, label %lor.lhs.false35, label %if.then38
 
@@ -4691,11 +4685,11 @@ if.then.i73:                                      ; preds = %if.then46
 
 lock_mutex.exit75:                                ; preds = %if.then46, %if.then.i73
   %cmp47 = icmp eq i32 %type, 3
-  %22 = load ptr, ptr @the_repository, align 8
+  %21 = load ptr, ptr @the_repository, align 8
   br i1 %cmp47, label %if.then48, label %if.else64
 
 if.then48:                                        ; preds = %lock_mutex.exit75
-  %call49 = call ptr @lookup_blob(ptr noundef %22, ptr noundef %oid) #23
+  %call49 = call ptr @lookup_blob(ptr noundef %21, ptr noundef %oid) #23
   %tobool50.not = icmp eq ptr %call49, null
   br i1 %tobool50.not, label %if.else, label %if.then51
 
@@ -4723,7 +4717,7 @@ if.then61:                                        ; preds = %land.lhs.true57
   unreachable
 
 if.else64:                                        ; preds = %lock_mutex.exit75
-  %call65 = call ptr @parse_object_buffer(ptr noundef %22, ptr noundef %oid, i32 noundef %type, i64 noundef %size, ptr noundef %data.addr.0, ptr noundef nonnull %eaten) #23
+  %call65 = call ptr @parse_object_buffer(ptr noundef %21, ptr noundef %oid, i32 noundef %type, i64 noundef %size, ptr noundef %data.addr.0, ptr noundef nonnull %eaten) #23
   %tobool66.not = icmp eq ptr %call65, null
   br i1 %tobool66.not, label %if.then67, label %if.end70
 
@@ -4765,8 +4759,8 @@ if.then82:                                        ; preds = %land.lhs.true79
 
 if.end86:                                         ; preds = %land.lhs.true79, %if.end77
   %bf.load87 = load i32, ptr %call65, align 4
-  %23 = and i32 %bf.load87, 14
-  %cmp90 = icmp eq i32 %23, 4
+  %22 = and i32 %bf.load87, 14
+  %cmp90 = icmp eq i32 %22, 4
   br i1 %cmp90, label %if.then91, label %if.end95
 
 if.then91:                                        ; preds = %if.end86
@@ -4778,8 +4772,8 @@ if.then91:                                        ; preds = %if.end86
 
 if.end95:                                         ; preds = %if.then91, %if.end86
   %bf.load96 = phi i32 [ %bf.clear93, %if.then91 ], [ %bf.load87, %if.end86 ]
-  %24 = and i32 %bf.load96, 14
-  %cmp99 = icmp eq i32 %24, 2
+  %23 = and i32 %bf.load96, 14
+  %cmp99 = icmp eq i32 %23, 2
   br i1 %cmp99, label %if.then100, label %if.end105
 
 if.then100:                                       ; preds = %if.end95

@@ -2190,58 +2190,58 @@ lpad.i16:                                         ; preds = %invoke.cont13
 if.end:                                           ; preds = %invoke.cont13, %invoke.cont4
   %pn.i15.sink = phi ptr [ %pn.i, %invoke.cont4 ], [ %pn.i15, %invoke.cont13 ]
   %ref.tmp7.sink = phi ptr [ %ref.tmp, %invoke.cont4 ], [ %ref.tmp7, %invoke.cont13 ]
-  %10 = load ptr, ptr %ref.tmp7.sink, align 8
-  %11 = load ptr, ptr %pn.i15.sink, align 8
+  %.sink70 = load ptr, ptr %ref.tmp7.sink, align 8
+  %10 = load ptr, ptr %pn.i15.sink, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7.sink, i8 0, i64 16, i1 false)
-  store ptr %10, ptr %temp, align 8
+  store ptr %.sink70, ptr %temp, align 8
   %pn3.i.i21 = getelementptr inbounds i8, ptr %temp, i64 8
-  store ptr %11, ptr %pn3.i.i21, align 8
-  invoke void @_ZN5boost16re_detail_10740026basic_regex_implementationIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE6assignEPKcS8_j(ptr noundef nonnull align 8 dereferenceable(402) %10, ptr noundef %p1, ptr noundef %p2, i32 noundef %f)
+  store ptr %10, ptr %pn3.i.i21, align 8
+  invoke void @_ZN5boost16re_detail_10740026basic_regex_implementationIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE6assignEPKcS8_j(ptr noundef nonnull align 8 dereferenceable(402) %.sink70, ptr noundef %p1, ptr noundef %p2, i32 noundef %f)
           to label %invoke.cont17 unwind label %lpad
 
 invoke.cont17:                                    ; preds = %if.end
-  %12 = load ptr, ptr %this, align 8
-  store ptr %12, ptr %temp, align 8
-  store ptr %10, ptr %this, align 8
+  %11 = load ptr, ptr %this, align 8
+  store ptr %11, ptr %temp, align 8
+  store ptr %.sink70, ptr %this, align 8
   %pn.i53 = getelementptr inbounds i8, ptr %temp, i64 8
   %pn3.i = getelementptr inbounds i8, ptr %this, i64 8
-  %13 = load ptr, ptr %pn3.i, align 8
-  store ptr %11, ptr %pn3.i, align 8
-  store ptr %13, ptr %pn.i53, align 8
-  %cmp.not.i.i55 = icmp eq ptr %13, null
+  %12 = load ptr, ptr %pn3.i, align 8
+  store ptr %10, ptr %pn3.i, align 8
+  store ptr %12, ptr %pn.i53, align 8
+  %cmp.not.i.i55 = icmp eq ptr %12, null
   br i1 %cmp.not.i.i55, label %_ZN5boost10shared_ptrINS_16re_detail_10740026basic_regex_implementationIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEEED2Ev.exit69, label %if.then.i.i56
 
 if.then.i.i56:                                    ; preds = %invoke.cont17
-  %use_count_.i.i.i57 = getelementptr inbounds i8, ptr %13, i64 8
-  %14 = atomicrmw sub ptr %use_count_.i.i.i57, i32 1 acq_rel, align 4
-  %cmp.i.i.i58 = icmp eq i32 %14, 1
+  %use_count_.i.i.i57 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = atomicrmw sub ptr %use_count_.i.i.i57, i32 1 acq_rel, align 4
+  %cmp.i.i.i58 = icmp eq i32 %13, 1
   br i1 %cmp.i.i.i58, label %if.then.i.i.i59, label %_ZN5boost10shared_ptrINS_16re_detail_10740026basic_regex_implementationIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEEED2Ev.exit69
 
 if.then.i.i.i59:                                  ; preds = %if.then.i.i56
-  %vtable.i.i.i60 = load ptr, ptr %13, align 8
+  %vtable.i.i.i60 = load ptr, ptr %12, align 8
   %vfn.i.i.i61 = getelementptr inbounds i8, ptr %vtable.i.i.i60, i64 16
-  %15 = load ptr, ptr %vfn.i.i.i61, align 8
-  invoke void %15(ptr noundef nonnull align 8 dereferenceable(16) %13)
+  %14 = load ptr, ptr %vfn.i.i.i61, align 8
+  invoke void %14(ptr noundef nonnull align 8 dereferenceable(16) %12)
           to label %.noexc.i.i63 unwind label %terminate.lpad.i.i62
 
 .noexc.i.i63:                                     ; preds = %if.then.i.i.i59
-  %weak_count_.i.i.i.i64 = getelementptr inbounds i8, ptr %13, i64 12
-  %16 = atomicrmw sub ptr %weak_count_.i.i.i.i64, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i65 = icmp eq i32 %16, 1
+  %weak_count_.i.i.i.i64 = getelementptr inbounds i8, ptr %12, i64 12
+  %15 = atomicrmw sub ptr %weak_count_.i.i.i.i64, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i65 = icmp eq i32 %15, 1
   br i1 %cmp.i.i.i.i65, label %if.then.i.i.i.i66, label %_ZN5boost10shared_ptrINS_16re_detail_10740026basic_regex_implementationIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEEED2Ev.exit69
 
 if.then.i.i.i.i66:                                ; preds = %.noexc.i.i63
-  %vtable.i.i.i.i67 = load ptr, ptr %13, align 8
+  %vtable.i.i.i.i67 = load ptr, ptr %12, align 8
   %vfn.i.i.i.i68 = getelementptr inbounds i8, ptr %vtable.i.i.i.i67, i64 24
-  %17 = load ptr, ptr %vfn.i.i.i.i68, align 8
-  invoke void %17(ptr noundef nonnull align 8 dereferenceable(16) %13)
+  %16 = load ptr, ptr %vfn.i.i.i.i68, align 8
+  invoke void %16(ptr noundef nonnull align 8 dereferenceable(16) %12)
           to label %_ZN5boost10shared_ptrINS_16re_detail_10740026basic_regex_implementationIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEEED2Ev.exit69 unwind label %terminate.lpad.i.i62
 
 terminate.lpad.i.i62:                             ; preds = %if.then.i.i.i.i66, %if.then.i.i.i59
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #25
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #25
   unreachable
 
 _ZN5boost10shared_ptrINS_16re_detail_10740026basic_regex_implementationIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEEED2Ev.exit69: ; preds = %invoke.cont17, %if.then.i.i56, %.noexc.i.i63, %if.then.i.i.i.i66

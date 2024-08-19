@@ -6262,7 +6262,7 @@ define internal fastcc void @dissect_isup_circuit_state_ind_parameter(ptr nounde
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %18
-  %.031 = phi i32 [ %23, %18 ], [ 0, %3 ]
+  %.031 = phi i32 [ %24, %18 ], [ 0, %3 ]
   %7 = load i32, ptr @ett_isup_circuit_state_ind, align 4
   %8 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.031, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %4, ptr noundef nonnull @.str.1748, i32 noundef %.031) #5
   %9 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.031) #5
@@ -6283,14 +6283,14 @@ define internal fastcc void @dissect_isup_circuit_state_ind_parameter(ptr nounde
   %isup_mtc_blocking_state_DCnot00_value.sink = phi ptr [ @isup_mtc_blocking_state_DCnot00_value, %13 ], [ @isup_mtc_blocking_state_DC00_value, %.lr.ph ]
   %19 = load i32, ptr %hf_isup_hw_blocking_state.sink, align 4
   %20 = call ptr @proto_tree_add_uint(ptr noundef %8, i32 noundef %19, ptr noundef %0, i32 noundef %.031, i32 noundef 1, i32 noundef %10) #5
-  %.sink = load ptr, ptr %4, align 8
-  %21 = and i32 %10, 3
-  %22 = call ptr @val_to_str_const(i32 noundef %21, ptr noundef nonnull %isup_mtc_blocking_state_DCnot00_value.sink, ptr noundef nonnull @.str.1745) #5
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.sink, ptr noundef nonnull @.str.897, ptr noundef %22) #5
-  %23 = add i32 %.031, 1
-  %24 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %23) #5
-  %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  %21 = load ptr, ptr %4, align 8
+  %22 = and i32 %10, 3
+  %23 = call ptr @val_to_str_const(i32 noundef %22, ptr noundef nonnull %isup_mtc_blocking_state_DCnot00_value.sink, ptr noundef nonnull @.str.1745) #5
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %21, ptr noundef nonnull @.str.897, ptr noundef %23) #5
+  %24 = add i32 %.031, 1
+  %25 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %24) #5
+  %26 = icmp sgt i32 %25, 0
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %18, %3
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.1749) #5
@@ -8647,14 +8647,14 @@ define internal fastcc void @dissect_japan_isup_network_poi_cad(ptr noundef %0, 
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !22
 
 .loopexit.sink.split:                             ; preds = %53, %.lr.ph.split, %27, %.lr.ph.split.us
-  %.sink = load ptr, ptr %4, align 8
-  %62 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %.sink, ptr noundef nonnull @ei_isup_too_many_digits) #5
+  %62 = load ptr, ptr %4, align 8
+  %63 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %62, ptr noundef nonnull @ei_isup_too_many_digits) #5
   br label %.loopexit
 
 .loopexit:                                        ; preds = %61, %36, %.loopexit.sink.split, %3
-  %63 = load ptr, ptr %4, align 8
-  %64 = call ptr @wmem_strbuf_get_str(ptr noundef %7) #5
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %63, ptr noundef nonnull @.str.897, ptr noundef %64) #5
+  %64 = load ptr, ptr %4, align 8
+  %65 = call ptr @wmem_strbuf_get_str(ptr noundef %7) #5
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %64, ptr noundef nonnull @.str.897, ptr noundef %65) #5
   ret void
 }
 
@@ -9025,7 +9025,7 @@ define internal fastcc void @dissect_japan_isup_charge_area_info(ptr noundef %0,
   %16 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %9) #5
   %17 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #5
   %18 = icmp eq i32 %10, 1
-  br i1 %18, label %19, label %67
+  br i1 %18, label %19, label %68
 
 19:                                               ; preds = %3
   %20 = load i32, ptr @ett_isup_address_digits, align 4
@@ -9117,95 +9117,95 @@ define internal fastcc void @dissect_japan_isup_charge_area_info(ptr noundef %0,
 
 .loopexit1.sink.split:                            ; preds = %53, %.lr.ph.split, %26, %.lr.ph.split.us
   %.1855.ph = phi i32 [ %.1857.us, %.lr.ph.split.us ], [ %.1857.us, %26 ], [ %.1857, %.lr.ph.split ], [ %.1857, %53 ]
-  %.sink = load ptr, ptr %4, align 8
-  %64 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %.sink, ptr noundef nonnull @ei_isup_too_many_digits) #5
+  %64 = load ptr, ptr %4, align 8
+  %65 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %64, ptr noundef nonnull @ei_isup_too_many_digits) #5
   br label %.loopexit1
 
 .loopexit1:                                       ; preds = %61, %36, %.loopexit1.sink.split, %19
   %.1855 = phi i32 [ 1, %19 ], [ %.1855.ph, %.loopexit1.sink.split ], [ %24, %36 ], [ %24, %61 ]
-  %65 = load ptr, ptr %4, align 8
-  %66 = call ptr @wmem_strbuf_get_str(ptr noundef %7) #5
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %65, ptr noundef nonnull @.str.897, ptr noundef %66) #5
-  br label %67
+  %66 = load ptr, ptr %4, align 8
+  %67 = call ptr @wmem_strbuf_get_str(ptr noundef %7) #5
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %66, ptr noundef nonnull @.str.897, ptr noundef %67) #5
+  br label %68
 
-67:                                               ; preds = %.loopexit1, %3
+68:                                               ; preds = %.loopexit1, %3
   %.084 = phi i32 [ %.1855, %.loopexit1 ], [ 1, %3 ]
-  %68 = icmp eq i32 %10, 0
-  br i1 %68, label %69, label %.loopexit
+  %69 = icmp eq i32 %10, 0
+  br i1 %69, label %70, label %.loopexit
 
-69:                                               ; preds = %67
-  %70 = load i32, ptr @ett_isup_address_digits, align 4
-  %71 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.084, i32 noundef -1, i32 noundef %70, ptr noundef nonnull %4, ptr noundef nonnull @.str.1860) #5
-  %72 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.084) #5
-  %73 = load i32, ptr @hf_japan_isup_charging_info_nc_odd_digits, align 4
-  %74 = zext i8 %72 to i32
-  %75 = call ptr @proto_tree_add_uint(ptr noundef %71, i32 noundef %73, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %74) #5
-  %76 = load i32, ptr @hf_japan_isup_charging_info_nc_even_digits, align 4
-  %77 = call ptr @proto_tree_add_uint(ptr noundef %71, i32 noundef %76, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %74) #5
-  %78 = add i32 %.084, 1
-  %79 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %78) #5
-  %80 = load i32, ptr @hf_japan_isup_charging_info_nc_odd_digits, align 4
-  %81 = zext i8 %79 to i32
-  %82 = call ptr @proto_tree_add_uint(ptr noundef %71, i32 noundef %80, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %81) #5
-  %83 = load i32, ptr @hf_japan_isup_charging_info_nc_even_digits, align 4
-  %84 = call ptr @proto_tree_add_uint(ptr noundef %71, i32 noundef %83, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %81) #5
-  %85 = add i32 %.084, 2
-  %86 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %85) #5
-  %87 = icmp sgt i32 %86, 0
-  br i1 %87, label %.lr.ph18, label %.loopexit
+70:                                               ; preds = %68
+  %71 = load i32, ptr @ett_isup_address_digits, align 4
+  %72 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.084, i32 noundef -1, i32 noundef %71, ptr noundef nonnull %4, ptr noundef nonnull @.str.1860) #5
+  %73 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.084) #5
+  %74 = load i32, ptr @hf_japan_isup_charging_info_nc_odd_digits, align 4
+  %75 = zext i8 %73 to i32
+  %76 = call ptr @proto_tree_add_uint(ptr noundef %72, i32 noundef %74, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %75) #5
+  %77 = load i32, ptr @hf_japan_isup_charging_info_nc_even_digits, align 4
+  %78 = call ptr @proto_tree_add_uint(ptr noundef %72, i32 noundef %77, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %75) #5
+  %79 = add i32 %.084, 1
+  %80 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %79) #5
+  %81 = load i32, ptr @hf_japan_isup_charging_info_nc_odd_digits, align 4
+  %82 = zext i8 %80 to i32
+  %83 = call ptr @proto_tree_add_uint(ptr noundef %72, i32 noundef %81, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %82) #5
+  %84 = load i32, ptr @hf_japan_isup_charging_info_nc_even_digits, align 4
+  %85 = call ptr @proto_tree_add_uint(ptr noundef %72, i32 noundef %84, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %82) #5
+  %86 = add i32 %.084, 2
+  %87 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %86) #5
+  %88 = icmp sgt i32 %87, 0
+  br i1 %88, label %.lr.ph18, label %.loopexit
 
-.lr.ph18:                                         ; preds = %69
-  %88 = icmp eq i32 %11, 0
-  %89 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %85) #5
-  %90 = load i32, ptr @hf_isup_charging_info_maca_odd_digits, align 4
-  %91 = zext i8 %89 to i32
-  %92 = call ptr @proto_tree_add_uint(ptr noundef %71, i32 noundef %90, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %91) #5
-  %93 = icmp eq i32 %86, 1
-  br i1 %88, label %.lr.ph18.split.us.preheader, label %.lr.ph18.split.preheader
+.lr.ph18:                                         ; preds = %70
+  %89 = icmp eq i32 %11, 0
+  %90 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %86) #5
+  %91 = load i32, ptr @hf_isup_charging_info_maca_odd_digits, align 4
+  %92 = zext i8 %90 to i32
+  %93 = call ptr @proto_tree_add_uint(ptr noundef %72, i32 noundef %91, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %92) #5
+  %94 = icmp eq i32 %87, 1
+  br i1 %89, label %.lr.ph18.split.us.preheader, label %.lr.ph18.split.preheader
 
 .lr.ph18.split.preheader:                         ; preds = %.lr.ph18
-  br i1 %93, label %.loopexit, label %.lr.ph18.split
+  br i1 %94, label %.loopexit, label %.lr.ph18.split
 
 .lr.ph18.split.us.preheader:                      ; preds = %.lr.ph18
-  br i1 %93, label %.loopexit.loopexit, label %.lr.ph18.split.us
+  br i1 %94, label %.loopexit.loopexit, label %.lr.ph18.split.us
 
 .lr.ph18.split.us:                                ; preds = %.lr.ph18.split.us.preheader, %.lr.ph18.split.us
-  %94 = phi i32 [ %101, %.lr.ph18.split.us ], [ %91, %.lr.ph18.split.us.preheader ]
-  %.18716.us57 = phi i32 [ %98, %.lr.ph18.split.us ], [ %86, %.lr.ph18.split.us.preheader ]
-  %.217.us56 = phi i32 [ %97, %.lr.ph18.split.us ], [ %85, %.lr.ph18.split.us.preheader ]
-  %95 = load i32, ptr @hf_isup_charging_info_maca_even_digits, align 4
-  %96 = call ptr @proto_tree_add_uint(ptr noundef %71, i32 noundef %95, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %94) #5
-  %97 = add i32 %.217.us56, 1
-  %98 = add nsw i32 %.18716.us57, -1
-  %99 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %97) #5
-  %100 = load i32, ptr @hf_isup_charging_info_maca_odd_digits, align 4
-  %101 = zext i8 %99 to i32
-  %102 = call ptr @proto_tree_add_uint(ptr noundef %71, i32 noundef %100, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %101) #5
-  %103 = icmp eq i32 %98, 1
-  br i1 %103, label %.loopexit.loopexit, label %.lr.ph18.split.us, !llvm.loop !29
+  %95 = phi i32 [ %102, %.lr.ph18.split.us ], [ %92, %.lr.ph18.split.us.preheader ]
+  %.18716.us53 = phi i32 [ %99, %.lr.ph18.split.us ], [ %87, %.lr.ph18.split.us.preheader ]
+  %.217.us52 = phi i32 [ %98, %.lr.ph18.split.us ], [ %86, %.lr.ph18.split.us.preheader ]
+  %96 = load i32, ptr @hf_isup_charging_info_maca_even_digits, align 4
+  %97 = call ptr @proto_tree_add_uint(ptr noundef %72, i32 noundef %96, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %95) #5
+  %98 = add i32 %.217.us52, 1
+  %99 = add nsw i32 %.18716.us53, -1
+  %100 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %98) #5
+  %101 = load i32, ptr @hf_isup_charging_info_maca_odd_digits, align 4
+  %102 = zext i8 %100 to i32
+  %103 = call ptr @proto_tree_add_uint(ptr noundef %72, i32 noundef %101, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %102) #5
+  %104 = icmp eq i32 %99, 1
+  br i1 %104, label %.loopexit.loopexit, label %.lr.ph18.split.us, !llvm.loop !29
 
 .lr.ph18.split:                                   ; preds = %.lr.ph18.split.preheader, %.lr.ph18.split
-  %104 = phi i32 [ %111, %.lr.ph18.split ], [ %91, %.lr.ph18.split.preheader ]
-  %.1871654 = phi i32 [ %108, %.lr.ph18.split ], [ %86, %.lr.ph18.split.preheader ]
-  %.21753 = phi i32 [ %107, %.lr.ph18.split ], [ %85, %.lr.ph18.split.preheader ]
-  %105 = load i32, ptr @hf_isup_charging_info_maca_even_digits, align 4
-  %106 = call ptr @proto_tree_add_uint(ptr noundef %71, i32 noundef %105, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %104) #5
-  %107 = add i32 %.21753, 1
-  %108 = add nsw i32 %.1871654, -1
-  %109 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %107) #5
-  %110 = load i32, ptr @hf_isup_charging_info_maca_odd_digits, align 4
-  %111 = zext i8 %109 to i32
-  %112 = call ptr @proto_tree_add_uint(ptr noundef %71, i32 noundef %110, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %111) #5
-  %113 = icmp eq i32 %108, 1
-  br i1 %113, label %.loopexit, label %.lr.ph18.split, !llvm.loop !29
+  %105 = phi i32 [ %112, %.lr.ph18.split ], [ %92, %.lr.ph18.split.preheader ]
+  %.1871650 = phi i32 [ %109, %.lr.ph18.split ], [ %87, %.lr.ph18.split.preheader ]
+  %.21749 = phi i32 [ %108, %.lr.ph18.split ], [ %86, %.lr.ph18.split.preheader ]
+  %106 = load i32, ptr @hf_isup_charging_info_maca_even_digits, align 4
+  %107 = call ptr @proto_tree_add_uint(ptr noundef %72, i32 noundef %106, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %105) #5
+  %108 = add i32 %.21749, 1
+  %109 = add nsw i32 %.1871650, -1
+  %110 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %108) #5
+  %111 = load i32, ptr @hf_isup_charging_info_maca_odd_digits, align 4
+  %112 = zext i8 %110 to i32
+  %113 = call ptr @proto_tree_add_uint(ptr noundef %72, i32 noundef %111, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %112) #5
+  %114 = icmp eq i32 %109, 1
+  br i1 %114, label %.loopexit, label %.lr.ph18.split, !llvm.loop !29
 
 .loopexit.loopexit:                               ; preds = %.lr.ph18.split.us, %.lr.ph18.split.us.preheader
-  %.lcssa = phi i32 [ %91, %.lr.ph18.split.us.preheader ], [ %101, %.lr.ph18.split.us ]
-  %114 = load i32, ptr @hf_isup_charging_info_maca_even_digits, align 4
-  %115 = call ptr @proto_tree_add_uint(ptr noundef %71, i32 noundef %114, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %.lcssa) #5
+  %.lcssa = phi i32 [ %92, %.lr.ph18.split.us.preheader ], [ %102, %.lr.ph18.split.us ]
+  %115 = load i32, ptr @hf_isup_charging_info_maca_even_digits, align 4
+  %116 = call ptr @proto_tree_add_uint(ptr noundef %72, i32 noundef %115, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %.lcssa) #5
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph18.split, %.lr.ph18.split.preheader, %.loopexit.loopexit, %69, %67
+.loopexit:                                        ; preds = %.lr.ph18.split, %.lr.ph18.split.preheader, %.loopexit.loopexit, %70, %68
   ret void
 }
 

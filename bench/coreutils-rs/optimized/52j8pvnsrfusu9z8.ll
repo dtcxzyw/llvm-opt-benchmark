@@ -132,8 +132,6 @@ define hidden void @_ZN3nix3sys4stat4stat17hefa52d4a9de306e5E(ptr noalias nocapt
 23:                                               ; preds = %21
   %24 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %24, ptr noundef nonnull align 8 dereferenceable(144) %6, i64 144, i1 false)
-  store i32 0, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6)
   br label %27
 
 25:                                               ; preds = %21
@@ -141,14 +139,15 @@ define hidden void @_ZN3nix3sys4stat4stat17hefa52d4a9de306e5E(ptr noalias nocapt
   br label %28
 
 27:                                               ; preds = %28, %23
+  %.sink = phi i32 [ 1, %28 ], [ 0, %23 ]
+  store i32 %.sink, ptr %0, align 8
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6)
   ret void
 
 28:                                               ; preds = %"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$GT$13with_nix_path17h3043ad106a42efa9E.exit", %25
-  %.sink = phi i32 [ %26, %25 ], [ %.sroa.4.1.i.i, %"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$GT$13with_nix_path17h3043ad106a42efa9E.exit" ]
+  %.sink18 = phi i32 [ %26, %25 ], [ %.sroa.4.1.i.i, %"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$GT$13with_nix_path17h3043ad106a42efa9E.exit" ]
   %29 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sink, ptr %29, align 4
-  store i32 1, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6)
+  store i32 %.sink18, ptr %29, align 4
   br label %27
 }
 
@@ -205,8 +204,6 @@ define hidden void @_ZN3nix3sys4stat5lstat17h6e61b7544b748b45E(ptr noalias nocap
 23:                                               ; preds = %21
   %24 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %24, ptr noundef nonnull align 8 dereferenceable(144) %6, i64 144, i1 false)
-  store i32 0, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6)
   br label %27
 
 25:                                               ; preds = %21
@@ -214,14 +211,15 @@ define hidden void @_ZN3nix3sys4stat5lstat17h6e61b7544b748b45E(ptr noalias nocap
   br label %28
 
 27:                                               ; preds = %28, %23
+  %.sink = phi i32 [ 1, %28 ], [ 0, %23 ]
+  store i32 %.sink, ptr %0, align 8
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6)
   ret void
 
 28:                                               ; preds = %"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$GT$13with_nix_path17h5af663b1320cb1b3E.exit", %25
-  %.sink = phi i32 [ %26, %25 ], [ %.sroa.4.1.i.i, %"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$GT$13with_nix_path17h5af663b1320cb1b3E.exit" ]
+  %.sink18 = phi i32 [ %26, %25 ], [ %.sroa.4.1.i.i, %"_ZN48_$LT$std..path..Path$u20$as$u20$nix..NixPath$GT$13with_nix_path17h5af663b1320cb1b3E.exit" ]
   %29 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sink, ptr %29, align 4
-  store i32 1, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6)
+  store i32 %.sink18, ptr %29, align 4
   br label %27
 }
 

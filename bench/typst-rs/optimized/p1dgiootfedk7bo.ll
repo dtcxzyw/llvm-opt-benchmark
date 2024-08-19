@@ -61,8 +61,8 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h0cdbf60c6bc4
   %20 = add i32 %18, 2
   call void @_ZN9tiny_skia6pixmap6Pixmap3new17hcd265c6525366ef5E(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %10, i32 noundef %19, i32 noundef %20)
   %21 = load i64, ptr %10, align 8, !range !8, !noundef !7
-  %22 = icmp eq i64 %21, -9223372036854775808
-  br i1 %22, label %99, label %47
+  %22 = icmp ne i64 %21, -9223372036854775808
+  br i1 %22, label %47, label %99
 
 23:                                               ; preds = %4
   %24 = getelementptr inbounds i8, ptr %0, i64 24
@@ -201,8 +201,7 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h0cdbf60c6bc4
 
 99:                                               ; preds = %14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  br label %.thread126
+  br label %.thread126.sink.split
 
 .loopexit.split-lp:                               ; preds = %.split.us.invoke, %._crit_edge
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
@@ -292,8 +291,7 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h0cdbf60c6bc4
 
 "_ZN4core3ptr46drop_in_place$LT$tiny_skia..pixmap..Pixmap$GT$17h14d66a72b70b43edE.exit95": ; preds = %131, %134
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  br label %.thread126
+  br label %.thread126.sink.split
 
 .split.us.invoke:                                 ; preds = %89, %58
   %138 = phi i64 [ %62, %58 ], [ %94, %89 ]
@@ -315,8 +313,12 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h0cdbf60c6bc4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !11
   resume { ptr, i32 } %lpad.phi
 
-.thread126:                                       ; preds = %..loopexit_crit_edge.split.us.us, %..loopexit_crit_edge.split.us170.us, %.lr.ph166.split, %_ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit100, %"_ZN4core3ptr46drop_in_place$LT$tiny_skia..pixmap..Pixmap$GT$17h14d66a72b70b43edE.exit95", %99
-  %.0 = phi i1 [ false, %99 ], [ true, %"_ZN4core3ptr46drop_in_place$LT$tiny_skia..pixmap..Pixmap$GT$17h14d66a72b70b43edE.exit95" ], [ true, %_ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit100 ], [ true, %.lr.ph166.split ], [ true, %..loopexit_crit_edge.split.us170.us ], [ true, %..loopexit_crit_edge.split.us.us ]
+.thread126.sink.split:                            ; preds = %99, %"_ZN4core3ptr46drop_in_place$LT$tiny_skia..pixmap..Pixmap$GT$17h14d66a72b70b43edE.exit95"
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
+  br label %.thread126
+
+.thread126:                                       ; preds = %..loopexit_crit_edge.split.us.us, %..loopexit_crit_edge.split.us170.us, %.thread126.sink.split, %.lr.ph166.split, %_ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit100
+  %.0 = phi i1 [ true, %_ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit100 ], [ true, %.lr.ph166.split ], [ %22, %.thread126.sink.split ], [ true, %..loopexit_crit_edge.split.us170.us ], [ true, %..loopexit_crit_edge.split.us.us ]
   ret i1 %.0
 
 144:                                              ; preds = %44
@@ -565,8 +567,8 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h3c7c22b86ba8
   %30 = add i32 %28, 2
   call void @_ZN9tiny_skia6pixmap6Pixmap3new17hcd265c6525366ef5E(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %20, i32 noundef %29, i32 noundef %30)
   %31 = load i64, ptr %20, align 8, !range !8, !noundef !7
-  %32 = icmp eq i64 %31, -9223372036854775808
-  br i1 %32, label %128, label %57
+  %32 = icmp ne i64 %31, -9223372036854775808
+  br i1 %32, label %57, label %128
 
 33:                                               ; preds = %4
   %34 = getelementptr inbounds i8, ptr %0, i64 24
@@ -775,8 +777,7 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h3c7c22b86ba8
 
 128:                                              ; preds = %24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
-  br label %.thread138
+  br label %.thread138.sink.split
 
 .loopexit.split-lp:                               ; preds = %.split.us.invoke, %._crit_edge
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
@@ -866,8 +867,7 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h3c7c22b86ba8
 
 "_ZN4core3ptr46drop_in_place$LT$tiny_skia..pixmap..Pixmap$GT$17h14d66a72b70b43edE.exit89": ; preds = %160, %163
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13), !noalias !45
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
-  br label %.thread138
+  br label %.thread138.sink.split
 
 .split.us.invoke:                                 ; preds = %118, %68
   %167 = phi i64 [ %72, %68 ], [ %123, %118 ]
@@ -889,8 +889,12 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h3c7c22b86ba8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14), !noalias !36
   resume { ptr, i32 } %lpad.phi
 
-.thread138:                                       ; preds = %..loopexit_crit_edge.us, %.lr.ph173.split, %_ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit101, %"_ZN4core3ptr46drop_in_place$LT$tiny_skia..pixmap..Pixmap$GT$17h14d66a72b70b43edE.exit89", %128
-  %.0 = phi i1 [ false, %128 ], [ true, %"_ZN4core3ptr46drop_in_place$LT$tiny_skia..pixmap..Pixmap$GT$17h14d66a72b70b43edE.exit89" ], [ true, %_ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit101 ], [ true, %.lr.ph173.split ], [ true, %..loopexit_crit_edge.us ]
+.thread138.sink.split:                            ; preds = %128, %"_ZN4core3ptr46drop_in_place$LT$tiny_skia..pixmap..Pixmap$GT$17h14d66a72b70b43edE.exit89"
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
+  br label %.thread138
+
+.thread138:                                       ; preds = %..loopexit_crit_edge.us, %.thread138.sink.split, %.lr.ph173.split, %_ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit101
+  %.0 = phi i1 [ true, %_ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit101 ], [ true, %.lr.ph173.split ], [ %32, %.thread138.sink.split ], [ true, %..loopexit_crit_edge.us ]
   ret i1 %.0
 
 173:                                              ; preds = %54
@@ -1114,8 +1118,8 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h709fa1febefc
   %24 = add i32 %22, 2
   call void @_ZN9tiny_skia6pixmap6Pixmap3new17hcd265c6525366ef5E(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %14, i32 noundef %23, i32 noundef %24)
   %25 = load i64, ptr %14, align 8, !range !8, !noundef !7
-  %26 = icmp eq i64 %25, -9223372036854775808
-  br i1 %26, label %138, label %51
+  %26 = icmp ne i64 %25, -9223372036854775808
+  br i1 %26, label %51, label %138
 
 27:                                               ; preds = %4
   %28 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1319,8 +1323,7 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h709fa1febefc
 
 138:                                              ; preds = %18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
-  br label %.thread131
+  br label %.thread131.sink.split
 
 .loopexit.split-lp:                               ; preds = %.split.us.invoke, %._crit_edge, %.split165.us
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
@@ -1410,8 +1413,7 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h709fa1febefc
 
 "_ZN4core3ptr46drop_in_place$LT$tiny_skia..pixmap..Pixmap$GT$17h14d66a72b70b43edE.exit89": ; preds = %170, %173
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !73
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
-  br label %.thread131
+  br label %.thread131.sink.split
 
 .split165.us:                                     ; preds = %.noexc93.us
   invoke void @_ZN4core6option13unwrap_failed17hac39b9b7507453f8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d826bc7b5104a02f59040d00c4e2e6a7.38.llvm.16692754411296152993) #9
@@ -1440,8 +1442,12 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h709fa1febefc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !64
   resume { ptr, i32 } %lpad.phi
 
-.thread131:                                       ; preds = %..loopexit_crit_edge.us, %.lr.ph172.split, %_ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit99, %"_ZN4core3ptr46drop_in_place$LT$tiny_skia..pixmap..Pixmap$GT$17h14d66a72b70b43edE.exit89", %138
-  %.0 = phi i1 [ false, %138 ], [ true, %"_ZN4core3ptr46drop_in_place$LT$tiny_skia..pixmap..Pixmap$GT$17h14d66a72b70b43edE.exit89" ], [ true, %_ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit99 ], [ true, %.lr.ph172.split ], [ true, %..loopexit_crit_edge.us ]
+.thread131.sink.split:                            ; preds = %138, %"_ZN4core3ptr46drop_in_place$LT$tiny_skia..pixmap..Pixmap$GT$17h14d66a72b70b43edE.exit89"
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
+  br label %.thread131
+
+.thread131:                                       ; preds = %..loopexit_crit_edge.us, %.thread131.sink.split, %.lr.ph172.split, %_ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit99
+  %.0 = phi i1 [ true, %_ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit99 ], [ true, %.lr.ph172.split ], [ %26, %.thread131.sink.split ], [ true, %..loopexit_crit_edge.us ]
   ret i1 %.0
 
 183:                                              ; preds = %48

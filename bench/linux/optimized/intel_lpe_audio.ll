@@ -94,12 +94,12 @@ define dso_local i32 @intel_lpe_audio_init(ptr noundef %0) local_unnamed_addr #0
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 18874368
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %134, label %7
+  br i1 %6, label %133, label %7
 
 7:                                                ; preds = %1
   %8 = tail call i32 @pci_dev_present(ptr noundef nonnull @lpe_audio_detect.atom_hdaudio_ids) #8
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %134
+  br i1 %9, label %10, label %133
 
 10:                                               ; preds = %7
   %11 = icmp eq ptr %0, null
@@ -132,7 +132,7 @@ define dso_local i32 @intel_lpe_audio_init(ptr noundef %0) local_unnamed_addr #0
   %26 = phi ptr [ %24, %22 ], [ null, %21 ]
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %26, ptr noundef nonnull @.str.3, i32 noundef %17) #9
   %27 = load i32, ptr %19, align 8
-  br label %125
+  br label %124
 
 28:                                               ; preds = %15
   br i1 %11, label %32, label %29
@@ -190,7 +190,7 @@ define dso_local i32 @intel_lpe_audio_init(ptr noundef %0) local_unnamed_addr #0
 55:                                               ; preds = %52, %51
   %56 = phi ptr [ %54, %52 ], [ null, %51 ]
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %56, ptr noundef nonnull @.str.5, i32 noundef %49) #9
-  br label %122
+  br label %121
 
 57:                                               ; preds = %48
   %58 = getelementptr inbounds i8, ptr %0, i64 8
@@ -287,69 +287,65 @@ define dso_local i32 @intel_lpe_audio_init(ptr noundef %0) local_unnamed_addr #0
 .thread13:                                        ; preds = %107, %108
   %110 = phi ptr [ %109, %108 ], [ null, %107 ]
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %110, ptr noundef nonnull @.str.15) #9
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %2) #8
-  br label %111
+  br label %.thread
 
-.thread:                                          ; preds = %68, %57
+.thread:                                          ; preds = %57, %68, %.thread13
+  %.sink = phi ptr [ %105, %.thread13 ], [ inttoptr (i64 -12 to ptr), %68 ], [ inttoptr (i64 -12 to ptr), %57 ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %2) #8
-  br label %111
-
-111:                                              ; preds = %.thread13, %.thread
-  %.sink = phi ptr [ %105, %.thread13 ], [ inttoptr (i64 -12 to ptr), %.thread ]
   store ptr %.sink, ptr %18, align 8
-  %112 = ptrtoint ptr %.sink to i64
-  %113 = trunc i64 %112 to i32
-  br i1 %11, label %116, label %114
+  %111 = ptrtoint ptr %.sink to i64
+  %112 = trunc i64 %111 to i32
+  br i1 %11, label %115, label %113
 
-114:                                              ; preds = %111
-  %115 = load ptr, ptr %58, align 8
-  br label %116
+113:                                              ; preds = %.thread
+  %114 = load ptr, ptr %58, align 8
+  br label %115
 
-116:                                              ; preds = %114, %111
-  %117 = phi ptr [ %115, %114 ], [ null, %111 ]
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %117, ptr noundef nonnull @.str.6, i32 noundef %113) #9
-  br label %122
+115:                                              ; preds = %113, %.thread
+  %116 = phi ptr [ %114, %113 ], [ null, %.thread ]
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %116, ptr noundef nonnull @.str.6, i32 noundef %112) #9
+  br label %121
 
 .thread12:                                        ; preds = %69
-  %118 = getelementptr inbounds i8, ptr %105, i64 16
-  call void @pm_runtime_no_callbacks(ptr noundef %118) #8
+  %117 = getelementptr inbounds i8, ptr %105, i64 16
+  call void @pm_runtime_no_callbacks(ptr noundef %117) #8
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %2) #8
   store ptr %105, ptr %18, align 8
-  %119 = getelementptr inbounds i8, ptr %0, i64 7368
-  %120 = getelementptr inbounds i8, ptr %0, i64 7544
-  %121 = load ptr, ptr %120, align 8
-  call void %121(ptr noundef %119, i32 1978168, i32 noundef 1, i1 noundef zeroext true) #8
-  br label %134
+  %118 = getelementptr inbounds i8, ptr %0, i64 7368
+  %119 = getelementptr inbounds i8, ptr %0, i64 7544
+  %120 = load ptr, ptr %119, align 8
+  call void %120(ptr noundef %118, i32 1978168, i32 noundef 1, i1 noundef zeroext true) #8
+  br label %133
 
-122:                                              ; preds = %116, %55
-  %123 = phi i32 [ %49, %55 ], [ %113, %116 ]
-  %124 = load i32, ptr %19, align 8
-  call void @irq_free_descs(i32 noundef %124, i32 noundef 1) #8
-  br label %125
+121:                                              ; preds = %115, %55
+  %122 = phi i32 [ %49, %55 ], [ %112, %115 ]
+  %123 = load i32, ptr %19, align 8
+  call void @irq_free_descs(i32 noundef %123, i32 noundef 1) #8
+  br label %124
 
-125:                                              ; preds = %25, %122
-  %126 = phi i32 [ %27, %25 ], [ %123, %122 ]
+124:                                              ; preds = %25, %121
+  %125 = phi i32 [ %27, %25 ], [ %122, %121 ]
   store i32 -1, ptr %19, align 8
   store ptr null, ptr %18, align 8
-  %127 = icmp slt i32 %126, 0
-  br i1 %127, label %128, label %134
+  %126 = icmp slt i32 %125, 0
+  br i1 %126, label %127, label %133
 
-128:                                              ; preds = %125
-  br i1 %11, label %132, label %129
+127:                                              ; preds = %124
+  br i1 %11, label %131, label %128
 
-129:                                              ; preds = %128
-  %130 = getelementptr inbounds i8, ptr %0, i64 8
-  %131 = load ptr, ptr %130, align 8
-  br label %132
+128:                                              ; preds = %127
+  %129 = getelementptr inbounds i8, ptr %0, i64 8
+  %130 = load ptr, ptr %129, align 8
+  br label %131
 
-132:                                              ; preds = %129, %128
-  %133 = phi ptr [ %131, %129 ], [ null, %128 ]
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %133, ptr noundef nonnull @.str.1) #9
-  br label %134
+131:                                              ; preds = %128, %127
+  %132 = phi ptr [ %130, %128 ], [ null, %127 ]
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %132, ptr noundef nonnull @.str.1) #9
+  br label %133
 
-134:                                              ; preds = %.thread12, %132, %125, %7, %1
-  %135 = phi i32 [ %126, %132 ], [ %126, %125 ], [ -19, %1 ], [ -19, %7 ], [ 0, %.thread12 ]
-  ret i32 %135
+133:                                              ; preds = %.thread12, %131, %124, %7, %1
+  %134 = phi i32 [ %125, %131 ], [ %125, %124 ], [ -19, %1 ], [ -19, %7 ], [ 0, %.thread12 ]
+  ret i32 %134
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

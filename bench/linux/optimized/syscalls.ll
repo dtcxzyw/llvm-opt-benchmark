@@ -342,7 +342,7 @@ define internal fastcc i64 @__se_sys_futex(i64 noundef %0, i64 noundef %1, i64 n
 18:                                               ; preds = %17, %17, %17, %17, %17
   %19 = call i32 @get_timespec64(ptr noundef nonnull %8, ptr noundef nonnull %12) #10
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %55
+  br i1 %20, label %21, label %53
 
 21:                                               ; preds = %18
   %22 = load i64, ptr %8, align 8
@@ -351,7 +351,7 @@ define internal fastcc i64 @__se_sys_futex(i64 noundef %0, i64 noundef %1, i64 n
   %25 = load i64, ptr %24, align 8
   %26 = icmp ult i64 %25, 1000000000
   %27 = select i1 %23, i1 %26, i1 false
-  br i1 %27, label %28, label %55
+  br i1 %27, label %28, label %53
 
 28:                                               ; preds = %21
   %29 = icmp ugt i64 %22, 9223372035
@@ -367,8 +367,7 @@ define internal fastcc i64 @__se_sys_futex(i64 noundef %0, i64 noundef %1, i64 n
 33:                                               ; preds = %28
   %34 = call i64 @ktime_get() #10
   %35 = call i64 @ktime_add_safe(i64 noundef %34, i64 noundef %32) #10
-  store i64 %35, ptr %7, align 8
-  br label %.thread
+  br label %.thread.sink.split
 
 36:                                               ; preds = %28
   %37 = and i32 %10, 256
@@ -383,29 +382,29 @@ define internal fastcc i64 @__se_sys_futex(i64 noundef %0, i64 noundef %1, i64 n
   %44 = getelementptr inbounds i8, ptr %43, i64 48
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, @init_time_ns
-  br i1 %46, label %50, label %47, !prof !6
+  br i1 %46, label %.thread.sink.split, label %47, !prof !6
 
 47:                                               ; preds = %39
   %48 = getelementptr inbounds i8, ptr %45, i64 40
   %49 = call i64 @do_timens_ktime_to_host(i32 noundef 1, i64 noundef %32, ptr noundef %48) #10
-  br label %50
+  br label %.thread.sink.split
 
-50:                                               ; preds = %47, %39
-  %51 = phi i64 [ %49, %47 ], [ %32, %39 ]
-  store i64 %51, ptr %7, align 8
+.thread.sink.split:                               ; preds = %39, %47, %33
+  %.sink = phi i64 [ %35, %33 ], [ %49, %47 ], [ %32, %39 ]
+  store i64 %.sink, ptr %7, align 8
   br label %.thread
 
-.thread:                                          ; preds = %28, %33, %36, %50, %17, %6
-  %52 = phi ptr [ null, %6 ], [ null, %17 ], [ %7, %50 ], [ %7, %36 ], [ %7, %33 ], [ %7, %28 ]
-  %53 = trunc i64 %3 to i32
-  %54 = call i64 @do_futex(ptr noundef %9, i32 noundef %10, i32 noundef %11, ptr noundef %52, ptr noundef %13, i32 noundef %53, i32 noundef %14), !range !8
-  br label %55
+.thread:                                          ; preds = %.thread.sink.split, %28, %36, %17, %6
+  %50 = phi ptr [ null, %6 ], [ null, %17 ], [ %7, %36 ], [ %7, %28 ], [ %7, %.thread.sink.split ]
+  %51 = trunc i64 %3 to i32
+  %52 = call i64 @do_futex(ptr noundef %9, i32 noundef %10, i32 noundef %11, ptr noundef %50, ptr noundef %13, i32 noundef %51, i32 noundef %14), !range !8
+  br label %53
 
-55:                                               ; preds = %21, %.thread, %18
-  %56 = phi i64 [ %54, %.thread ], [ -14, %18 ], [ -22, %21 ]
+53:                                               ; preds = %21, %.thread, %18
+  %54 = phi i64 [ %52, %.thread ], [ -14, %18 ], [ -22, %21 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
-  ret i64 %56
+  ret i64 %54
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1331,7 +1330,7 @@ define internal fastcc i64 @__se_sys_futex_time32(i64 noundef %0, i64 noundef %1
 18:                                               ; preds = %17, %17, %17, %17, %17
   %19 = call i32 @get_old_timespec32(ptr noundef nonnull %8, ptr noundef nonnull %12) #10
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %55
+  br i1 %20, label %21, label %53
 
 21:                                               ; preds = %18
   %22 = load i64, ptr %8, align 8
@@ -1340,7 +1339,7 @@ define internal fastcc i64 @__se_sys_futex_time32(i64 noundef %0, i64 noundef %1
   %25 = load i64, ptr %24, align 8
   %26 = icmp ult i64 %25, 1000000000
   %27 = select i1 %23, i1 %26, i1 false
-  br i1 %27, label %28, label %55
+  br i1 %27, label %28, label %53
 
 28:                                               ; preds = %21
   %29 = icmp ugt i64 %22, 9223372035
@@ -1356,8 +1355,7 @@ define internal fastcc i64 @__se_sys_futex_time32(i64 noundef %0, i64 noundef %1
 33:                                               ; preds = %28
   %34 = call i64 @ktime_get() #10
   %35 = call i64 @ktime_add_safe(i64 noundef %34, i64 noundef %32) #10
-  store i64 %35, ptr %7, align 8
-  br label %.thread
+  br label %.thread.sink.split
 
 36:                                               ; preds = %28
   %37 = and i32 %10, 256
@@ -1372,29 +1370,29 @@ define internal fastcc i64 @__se_sys_futex_time32(i64 noundef %0, i64 noundef %1
   %44 = getelementptr inbounds i8, ptr %43, i64 48
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, @init_time_ns
-  br i1 %46, label %50, label %47, !prof !6
+  br i1 %46, label %.thread.sink.split, label %47, !prof !6
 
 47:                                               ; preds = %39
   %48 = getelementptr inbounds i8, ptr %45, i64 40
   %49 = call i64 @do_timens_ktime_to_host(i32 noundef 1, i64 noundef %32, ptr noundef %48) #10
-  br label %50
+  br label %.thread.sink.split
 
-50:                                               ; preds = %47, %39
-  %51 = phi i64 [ %49, %47 ], [ %32, %39 ]
-  store i64 %51, ptr %7, align 8
+.thread.sink.split:                               ; preds = %39, %47, %33
+  %.sink = phi i64 [ %35, %33 ], [ %49, %47 ], [ %32, %39 ]
+  store i64 %.sink, ptr %7, align 8
   br label %.thread
 
-.thread:                                          ; preds = %28, %33, %36, %50, %17, %6
-  %52 = phi ptr [ null, %6 ], [ null, %17 ], [ %7, %50 ], [ %7, %36 ], [ %7, %33 ], [ %7, %28 ]
-  %53 = trunc i64 %3 to i32
-  %54 = call i64 @do_futex(ptr noundef %9, i32 noundef %10, i32 noundef %11, ptr noundef %52, ptr noundef %13, i32 noundef %53, i32 noundef %14), !range !8
-  br label %55
+.thread:                                          ; preds = %.thread.sink.split, %28, %36, %17, %6
+  %50 = phi ptr [ null, %6 ], [ null, %17 ], [ %7, %36 ], [ %7, %28 ], [ %7, %.thread.sink.split ]
+  %51 = trunc i64 %3 to i32
+  %52 = call i64 @do_futex(ptr noundef %9, i32 noundef %10, i32 noundef %11, ptr noundef %50, ptr noundef %13, i32 noundef %51, i32 noundef %14), !range !8
+  br label %53
 
-55:                                               ; preds = %21, %.thread, %18
-  %56 = phi i64 [ %54, %.thread ], [ -14, %18 ], [ -22, %21 ]
+53:                                               ; preds = %21, %.thread, %18
+  %54 = phi i64 [ %52, %.thread ], [ -14, %18 ], [ -22, %21 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
-  ret i64 %56
+  ret i64 %54
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

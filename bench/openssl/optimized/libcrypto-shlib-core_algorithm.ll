@@ -76,7 +76,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end6
-  %ok.018 = phi i32 [ 1, %for.body.lr.ph ], [ %spec.select12, %if.end6 ]
+  %ok.019 = phi i32 [ 1, %for.body.lr.ph ], [ %spec.select12, %if.end6 ]
   %cur_operation.017 = phi i32 [ %spec.select, %for.body.lr.ph ], [ %inc, %if.end6 ]
   store i32 0, ptr %no_store, align 4
   %call = call ptr @ossl_provider_query_operation(ptr noundef %provider, i32 noundef %cur_operation.017, ptr noundef nonnull %no_store) #5
@@ -107,20 +107,12 @@ if.else.i:                                        ; preds = %if.end.i
   %5 = load ptr, ptr %data1.i, align 8
   %call5.i = call i32 %4(ptr noundef %provider, i32 noundef %cur_operation.017, i32 noundef %1, ptr noundef %5, ptr noundef nonnull %ret.i) #5
   %tobool6.not.i = icmp eq i32 %call5.i, 0
-  br i1 %tobool6.not.i, label %if.then7.i, label %if.end9.i
-
-if.then7.i:                                       ; preds = %if.else.i
-  store i32 -1, ptr %ret.i, align 4
-  br label %algorithm_do_map.exit
+  br i1 %tobool6.not.i, label %end.sink.split.i, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.else.i
   %.pr.i = load i32, ptr %ret.i, align 4
   %cmp10.i = icmp eq i32 %.pr.i, 0
-  br i1 %cmp10.i, label %if.then11.i, label %if.end12.i
-
-if.then11.i:                                      ; preds = %if.end9.i
-  store i32 1, ptr %ret.i, align 4
-  br label %algorithm_do_map.exit
+  br i1 %cmp10.i, label %end.sink.split.i, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end9.i, %if.end9.thread.i
   %cmp13.not.i = icmp eq ptr %call, null
@@ -144,23 +136,20 @@ for.body.i:                                       ; preds = %for.cond.preheader.
 if.end17.i:                                       ; preds = %for.body.i, %for.cond.preheader.i, %if.end12.i
   %10 = load ptr, ptr %post.i, align 8
   %cmp18.i = icmp eq ptr %10, null
-  br i1 %cmp18.i, label %if.then19.i, label %if.else20.i
-
-if.then19.i:                                      ; preds = %if.end17.i
-  store i32 1, ptr %ret.i, align 4
-  br label %algorithm_do_map.exit
+  br i1 %cmp18.i, label %end.sink.split.i, label %if.else20.i
 
 if.else20.i:                                      ; preds = %if.end17.i
   %11 = load ptr, ptr %data1.i, align 8
   %call23.i = call i32 %10(ptr noundef %provider, i32 noundef %cur_operation.017, i32 noundef %1, ptr noundef %11, ptr noundef nonnull %ret.i) #5
   %tobool24.not.i = icmp eq i32 %call23.i, 0
-  br i1 %tobool24.not.i, label %if.then25.i, label %algorithm_do_map.exit
+  br i1 %tobool24.not.i, label %end.sink.split.i, label %algorithm_do_map.exit
 
-if.then25.i:                                      ; preds = %if.else20.i
-  store i32 -1, ptr %ret.i, align 4
+end.sink.split.i:                                 ; preds = %if.else20.i, %if.end17.i, %if.end9.i, %if.else.i
+  %.sink.i = phi i32 [ -1, %if.else.i ], [ 1, %if.end9.i ], [ 1, %if.end17.i ], [ -1, %if.else20.i ]
+  store i32 %.sink.i, ptr %ret.i, align 4
   br label %algorithm_do_map.exit
 
-algorithm_do_map.exit:                            ; preds = %if.then7.i, %if.then11.i, %if.then19.i, %if.else20.i, %if.then25.i
+algorithm_do_map.exit:                            ; preds = %if.else20.i, %end.sink.split.i
   %12 = load ptr, ptr %unreserve_store.i, align 8
   %13 = load ptr, ptr %data1.i, align 8
   %call29.i = call i32 %12(ptr noundef %13) #5
@@ -172,7 +161,7 @@ algorithm_do_map.exit:                            ; preds = %if.then7.i, %if.the
 
 if.end6:                                          ; preds = %algorithm_do_map.exit
   %tobool.not = icmp eq i32 %14, 0
-  %spec.select12 = select i1 %tobool.not, i32 0, i32 %ok.018
+  %spec.select12 = select i1 %tobool.not, i32 0, i32 %ok.019
   %inc = add i32 %cur_operation.017, 1
   %exitcond.not = icmp eq i32 %cur_operation.017, %spec.select11
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !6

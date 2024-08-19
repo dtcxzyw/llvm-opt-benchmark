@@ -19,9 +19,8 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.17 = private unnamed_addr constant [7 x i8] c"\\x%02x\00", align 1
 @switch.table._sdsnewlen.2 = private unnamed_addr constant [4 x i64] [i64 31, i64 255, i64 65535, i64 4294967295], align 8
 @switch.table._sdsMakeRoomFor.3 = private unnamed_addr constant [4 x i64] [i64 3, i64 5, i64 9, i64 17], align 8
-@switch.table._sdsMakeRoomFor.4 = private unnamed_addr constant [3 x i64] [i64 255, i64 65535, i64 4294967295], align 8
 @switch.table.sdsAllocSize = private unnamed_addr constant [5 x i64] [i64 1, i64 3, i64 5, i64 9, i64 17], align 8
-@switch.table.sdstemplate.8 = private unnamed_addr constant [5 x i64] [i64 -1, i64 -3, i64 -5, i64 -9, i64 -17], align 8
+@switch.table.sdstemplate.7 = private unnamed_addr constant [5 x i64] [i64 -1, i64 -3, i64 -5, i64 -9, i64 -17], align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @_sdsnewlen(ptr noundef readonly %init, i64 noundef %initlen, i32 noundef %trymalloc) local_unnamed_addr #0 {
@@ -373,7 +372,7 @@ if.end:                                           ; preds = %entry
 
 switch.lookup:                                    ; preds = %if.end
   %3 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table.sdstemplate.8, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table.sdstemplate.7, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %sdsHdrSize.exit
 
@@ -582,7 +581,7 @@ sdslen.exit:                                      ; preds = %if.end, %sw.bb.i, %
 
 switch.lookup:                                    ; preds = %sdslen.exit
   %15 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table.sdstemplate.8, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table.sdstemplate.7, i64 0, i64 %15
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %sdsHdrSize.exit
 
@@ -716,8 +715,7 @@ if.end69.thread:                                  ; preds = %if.end62
   %23 = load i64, ptr %usable, align 8
   %24 = xor i64 %switch.load104, -1
   %sub7185 = add i64 %23, %24
-  store i64 %sub7185, ptr %usable, align 8
-  br label %if.end77
+  br label %if.end77.sink.split
 
 if.end69:                                         ; preds = %if.then43
   %add.ptr53 = getelementptr inbounds i8, ptr %call47, i64 %switch.load104
@@ -745,20 +743,34 @@ sdsTypeMaxSize.exit:                              ; preds = %if.end69.thread87, 
   br i1 %cmp73, label %if.then75, label %if.end77
 
 if.then75:                                        ; preds = %sdsTypeMaxSize.exit
-  %switch.tableidx106 = add nsw i8 %spec.store.select, -1
-  %27 = sext i8 %switch.tableidx106 to i64
-  %switch.gep107 = getelementptr inbounds [3 x i64], ptr @switch.table._sdsMakeRoomFor.4, i64 0, i64 %27
-  %switch.load108 = load i64, ptr %switch.gep107, align 8
-  store i64 %switch.load108, ptr %usable, align 8
+  switch i8 %spec.store.select, label %default.unreachable81 [
+    i8 3, label %if.then15.i65
+    i8 1, label %if.end77.sink.split
+    i8 2, label %if.then10.i67
+  ]
+
+if.then10.i67:                                    ; preds = %if.then75
+  br label %if.end77.sink.split
+
+if.then15.i65:                                    ; preds = %if.then75
+  br label %if.end77.sink.split
+
+default.unreachable81:                            ; preds = %if.then75
+  unreachable
+
+if.end77.sink.split:                              ; preds = %if.then15.i65, %if.then10.i67, %if.then75, %if.end69.thread
+  %sub7185.sink = phi i64 [ %sub7185, %if.end69.thread ], [ 65535, %if.then10.i67 ], [ 4294967295, %if.then15.i65 ], [ 255, %if.then75 ]
+  %s.addr.086.ph = phi ptr [ %add.ptr64, %if.end69.thread ], [ %s.addr.090, %if.then10.i67 ], [ %s.addr.090, %if.then15.i65 ], [ %s.addr.090, %if.then75 ]
+  store i64 %sub7185.sink, ptr %usable, align 8
   br label %if.end77
 
-if.end77:                                         ; preds = %if.end69.thread, %if.end69, %if.then75, %sdsTypeMaxSize.exit
-  %s.addr.086 = phi ptr [ %add.ptr53, %if.end69 ], [ %s.addr.090, %if.then75 ], [ %s.addr.090, %sdsTypeMaxSize.exit ], [ %add.ptr64, %if.end69.thread ]
-  %28 = phi i64 [ %sub71, %if.end69 ], [ %switch.load108, %if.then75 ], [ %sub7192, %sdsTypeMaxSize.exit ], [ %sub7185, %if.end69.thread ]
+if.end77:                                         ; preds = %if.end77.sink.split, %if.end69, %sdsTypeMaxSize.exit
+  %s.addr.086 = phi ptr [ %add.ptr53, %if.end69 ], [ %s.addr.090, %sdsTypeMaxSize.exit ], [ %s.addr.086.ph, %if.end77.sink.split ]
+  %27 = phi i64 [ %sub71, %if.end69 ], [ %sub7192, %sdsTypeMaxSize.exit ], [ %sub7185.sink, %if.end77.sink.split ]
   %arrayidx.i71 = getelementptr inbounds i8, ptr %s.addr.086, i64 -1
-  %29 = load i8, ptr %arrayidx.i71, align 1
-  %30 = and i8 %29, 7
-  switch i8 %30, label %return [
+  %28 = load i8, ptr %arrayidx.i71, align 1
+  %29 = and i8 %28, 7
+  switch i8 %29, label %return [
     i8 4, label %sw.bb11.i
     i8 1, label %sw.bb1.i76
     i8 2, label %sw.bb3.i74
@@ -766,26 +778,26 @@ if.end77:                                         ; preds = %if.end69.thread, %i
   ]
 
 sw.bb1.i76:                                       ; preds = %if.end77
-  %conv2.i77 = trunc i64 %28 to i8
+  %conv2.i77 = trunc i64 %27 to i8
   %alloc.i78 = getelementptr inbounds i8, ptr %s.addr.086, i64 -2
   store i8 %conv2.i77, ptr %alloc.i78, align 1
   br label %return
 
 sw.bb3.i74:                                       ; preds = %if.end77
-  %conv4.i75 = trunc i64 %28 to i16
+  %conv4.i75 = trunc i64 %27 to i16
   %alloc6.i = getelementptr inbounds i8, ptr %s.addr.086, i64 -3
   store i16 %conv4.i75, ptr %alloc6.i, align 1
   br label %return
 
 sw.bb7.i:                                         ; preds = %if.end77
-  %conv8.i72 = trunc i64 %28 to i32
+  %conv8.i72 = trunc i64 %27 to i32
   %alloc10.i = getelementptr inbounds i8, ptr %s.addr.086, i64 -5
   store i32 %conv8.i72, ptr %alloc10.i, align 1
   br label %return
 
 sw.bb11.i:                                        ; preds = %if.end77
   %alloc13.i = getelementptr inbounds i8, ptr %s.addr.086, i64 -9
-  store i64 %28, ptr %alloc13.i, align 1
+  store i64 %27, ptr %alloc13.i, align 1
   br label %return
 
 return:                                           ; preds = %sw.bb11.i, %sw.bb7.i, %sw.bb3.i74, %sw.bb1.i76, %if.end77, %if.else54, %if.then43, %sdsavail.exit
@@ -1178,7 +1190,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %3 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table.sdstemplate.8, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table.sdstemplate.7, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %sdsHdrSize.exit
 
@@ -3725,7 +3737,7 @@ if.end.i:                                         ; preds = %for.body67
 
 switch.lookup:                                    ; preds = %if.end.i
   %6 = zext nneg i8 %4 to i64
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table.sdstemplate.8, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table.sdstemplate.7, i64 0, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %sdsHdrSize.exit.i
 
@@ -3786,7 +3798,7 @@ if.end.i:                                         ; preds = %while.body
 
 switch.lookup:                                    ; preds = %if.end.i
   %5 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table.sdstemplate.8, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table.sdstemplate.7, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %sdsHdrSize.exit.i
 
@@ -5648,7 +5660,7 @@ if.end.i269:                                      ; preds = %while.body150
 
 switch.lookup:                                    ; preds = %if.end.i269
   %87 = zext nneg i8 %85 to i64
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table.sdstemplate.8, i64 0, i64 %87
+  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table.sdstemplate.7, i64 0, i64 %87
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %sdsHdrSize.exit.i
 
@@ -5680,7 +5692,7 @@ if.end.i275:                                      ; preds = %while.end153
 
 switch.lookup356:                                 ; preds = %if.end.i275
   %92 = zext nneg i8 %90 to i64
-  %switch.gep357 = getelementptr inbounds [5 x i64], ptr @switch.table.sdstemplate.8, i64 0, i64 %92
+  %switch.gep357 = getelementptr inbounds [5 x i64], ptr @switch.table.sdstemplate.7, i64 0, i64 %92
   %switch.load358 = load i64, ptr %switch.gep357, align 8
   br label %sdsfree.exit285
 
@@ -6581,7 +6593,7 @@ if.end.i74:                                       ; preds = %if.end18
 
 switch.lookup:                                    ; preds = %if.end.i74
   %29 = zext nneg i8 %27 to i64
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table.sdstemplate.8, i64 0, i64 %29
+  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table.sdstemplate.7, i64 0, i64 %29
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %sdsHdrSize.exit.i
 
@@ -6701,7 +6713,7 @@ if.end.i123:                                      ; preds = %sdssetlen.exit.i.i9
 
 switch.lookup168:                                 ; preds = %if.end.i123
   %40 = zext nneg i8 %38 to i64
-  %switch.gep169 = getelementptr inbounds [5 x i64], ptr @switch.table.sdstemplate.8, i64 0, i64 %40
+  %switch.gep169 = getelementptr inbounds [5 x i64], ptr @switch.table.sdstemplate.7, i64 0, i64 %40
   %switch.load170 = load i64, ptr %switch.gep169, align 8
   br label %sdsfree.exit133
 
@@ -6725,7 +6737,7 @@ if.end.i135:                                      ; preds = %error
 
 switch.lookup171:                                 ; preds = %if.end.i135
   %44 = zext nneg i8 %42 to i64
-  %switch.gep172 = getelementptr inbounds [5 x i64], ptr @switch.table.sdstemplate.8, i64 0, i64 %44
+  %switch.gep172 = getelementptr inbounds [5 x i64], ptr @switch.table.sdstemplate.7, i64 0, i64 %44
   %switch.load173 = load i64, ptr %switch.gep172, align 8
   br label %sdsHdrSize.exit.i138
 

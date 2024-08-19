@@ -2829,10 +2829,10 @@ define i32 @_ZNK8WasmEdge4Host4WASI5INode12sockRecvFromEN5cxx204spanINS4_IhLm184
   br label %31
 
 31:                                               ; preds = %25, %.thread, %30
-  %storemerge = phi ptr [ null, %30 ], [ %11, %.thread ], [ %11, %25 ]
+  %.sink72 = phi ptr [ null, %30 ], [ %11, %.thread ], [ %11, %25 ]
   %.sink = phi i32 [ 0, %30 ], [ 128, %.thread ], [ 128, %25 ]
   %32 = phi i1 [ false, %30 ], [ true, %.thread ], [ true, %25 ]
-  store ptr %storemerge, ptr %12, align 8
+  store ptr %.sink72, ptr %12, align 8
   %33 = getelementptr inbounds i8, ptr %12, i64 8
   store i32 %.sink, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %12, i64 16

@@ -15695,8 +15695,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt
 73:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEED2Ev.exit
   %74 = load i32, ptr %9, align 4
   %75 = call fastcc noundef i32 @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_16toNCHWEi(i32 noundef %74)
-  store i32 %75, ptr %9, align 4
-  br label %103
+  br label %.sink.split
 
 76:                                               ; preds = %61, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEEC2ERKSC_.exit
   %77 = landingpad { ptr, i32 }
@@ -15772,10 +15771,14 @@ _ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_17toNCDHWEi.exit: ; preds = %92, %96, %99
   %.010.i = phi i32 [ %98, %96 ], [ %102, %99 ], [ 0, %92 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  store i32 %.010.i, ptr %9, align 4
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %73, %_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_17toNCDHWEi.exit
+  %.010.i.sink = phi i32 [ %.010.i, %_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_17toNCDHWEi.exit ], [ %75, %73 ]
+  store i32 %.010.i.sink, ptr %9, align 4
   br label %103
 
-103:                                              ; preds = %78, %_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_17toNCDHWEi.exit, %73
+103:                                              ; preds = %.sink.split, %78
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #26
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.219, ptr noundef nonnull align 1 dereferenceable(1) %12)
           to label %104 unwind label %190

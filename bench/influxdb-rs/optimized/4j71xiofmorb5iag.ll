@@ -1742,21 +1742,16 @@ define hidden noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$9fl
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   br label %8
 
-8:                                                ; preds = %.lr.ph, %31
+8:                                                ; preds = %.lr.ph, %29
   store i8 1, ptr %6, align 8
   %9 = invoke { ptr, i64 } @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$9flush_buf8BufGuard9remaining17h71103e7d0f3a02bdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
           to label %12 unwind label %10
-
-._crit_edge:                                      ; preds = %31, %1
-  call void @"_ZN111_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$..flush_buf..BufGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6a8210f00766ed33E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  br label %30
 
 10:                                               ; preds = %21, %8
   %11 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN111_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$..flush_buf..BufGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6a8210f00766ed33E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
-          to label %"_ZN4core3ptr90drop_in_place$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$..flush_buf..BufGuard$GT$17h3758e4f4c624965eE.exit" unwind label %37
+          to label %"_ZN4core3ptr90drop_in_place$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$..flush_buf..BufGuard$GT$17h3758e4f4c624965eE.exit" unwind label %35
 
 12:                                               ; preds = %8
   %13 = extractvalue { ptr, i64 } %9, 0
@@ -1788,29 +1783,26 @@ define hidden noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$9fl
   store i64 %27, ptr %15, align 8, !alias.scope !439, !noalias !446
   store i8 0, ptr %6, align 8
   %28 = icmp eq i64 %14, 0
-  br i1 %28, label %29, label %31
+  br i1 %28, label %._crit_edge, label %29
 
-29:                                               ; preds = %22
+._crit_edge:                                      ; preds = %22, %29, %1
+  %.0 = phi ptr [ null, %1 ], [ null, %29 ], [ @anon.60dc0379046a18711abc9b890678a8dd.24, %22 ]
   call void @"_ZN111_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$..flush_buf..BufGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6a8210f00766ed33E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  br label %30
-
-30:                                               ; preds = %29, %._crit_edge
-  %.0 = phi ptr [ null, %._crit_edge ], [ @anon.60dc0379046a18711abc9b890678a8dd.24, %29 ]
   ret ptr %.0
 
-31:                                               ; preds = %22
-  %32 = load i64, ptr %3, align 8, !noundef !15
-  %33 = add i64 %32, %14
-  store i64 %33, ptr %3, align 8
-  %34 = load ptr, ptr %2, align 8, !nonnull !15, !align !54, !noundef !15
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
-  %36 = load i64, ptr %35, align 8, !noundef !15
-  %.not = icmp ult i64 %33, %36
+29:                                               ; preds = %22
+  %30 = load i64, ptr %3, align 8, !noundef !15
+  %31 = add i64 %30, %14
+  store i64 %31, ptr %3, align 8
+  %32 = load ptr, ptr %2, align 8, !nonnull !15, !align !54, !noundef !15
+  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %34 = load i64, ptr %33, align 8, !noundef !15
+  %.not = icmp ult i64 %31, %34
   br i1 %.not, label %8, label %._crit_edge
 
-37:                                               ; preds = %10
-  %38 = landingpad { ptr, i32 }
+35:                                               ; preds = %10
+  %36 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #18
   unreachable

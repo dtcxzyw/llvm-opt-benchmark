@@ -3707,7 +3707,6 @@ define hidden void @_ZN10wasmparser9validator9operators17OperatorValidator8new_f
 
 .noexc25:                                         ; preds = %46
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br label %68
 
 52:                                               ; preds = %42
@@ -3735,7 +3734,6 @@ define hidden void @_ZN10wasmparser9validator9operators17OperatorValidator8new_f
 .noexc26:                                         ; preds = %52
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br label %68
 
 61:                                               ; preds = %42
@@ -3757,12 +3755,12 @@ define hidden void @_ZN10wasmparser9validator9operators17OperatorValidator8new_f
 
 68:                                               ; preds = %.noexc25, %.noexc26
   %.sroa.4.0.i.ph = phi ptr [ %60, %.noexc26 ], [ %51, %.noexc25 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %69 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.4.0.i.ph, ptr %69, align 8
   store i64 2, ptr %0, align 8
   call void @"_ZN4core3ptr72drop_in_place$LT$wasmparser..validator..operators..OperatorValidator$GT$17h0a246f736ff88d4bE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %12)
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %12)
   br label %80
 
 70:                                               ; preds = %61
@@ -3779,7 +3777,6 @@ define hidden void @_ZN10wasmparser9validator9operators17OperatorValidator8new_f
 
 ._crit_edge:                                      ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h853e4a90b66fddffE.exit", %70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(200) %12, i64 200, i1 false)
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %12)
   br label %80
 
 77:                                               ; preds = %.lr.ph, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h853e4a90b66fddffE.exit"
@@ -3790,6 +3787,7 @@ define hidden void @_ZN10wasmparser9validator9operators17OperatorValidator8new_f
           to label %81 unwind label %.loopexit
 
 80:                                               ; preds = %._crit_edge, %68
+  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %12)
   ret void
 
 81:                                               ; preds = %77
@@ -5233,7 +5231,6 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
   store i64 0, ptr %20, align 8
   %21 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, i64 noundef %.16.val)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %35
 
 22:                                               ; preds = %12
@@ -5258,7 +5255,6 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
   %30 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %.16.val)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %35
 
 31:                                               ; preds = %12
@@ -5271,6 +5267,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
 
 35:                                               ; preds = %16, %22
   %.sroa.4.0.i.ph = phi ptr [ %30, %22 ], [ %21, %16 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %36 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.4.0.i.ph, ptr %36, align 8
@@ -5416,7 +5413,6 @@ _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h50109c2ad9221
   store i64 0, ptr %56, align 8
   %57 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, i64 noundef %.val8)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %67
 
 58:                                               ; preds = %48
@@ -5441,11 +5437,11 @@ _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h50109c2ad9221
   %66 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %.val8)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %67
 
 67:                                               ; preds = %58, %52
   %.sroa.4.0.i.ph = phi ptr [ %66, %58 ], [ %57, %52 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br label %_ZN10wasmparser9resources19WasmModuleResources16check_value_type17h50109c2ad92212f1E.exit
 
@@ -5570,7 +5566,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
   %9 = load i64, ptr %8, align 8, !noundef !5
   %10 = call noundef align 8 ptr @"_ZN110_$LT$wasmparser..validator..core..ValidatorResources$u20$as$u20$wasmparser..resources..WasmModuleResources$GT$15check_heap_type17hdac3a97db5483d68E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7, ptr noalias noundef nonnull align 4 dereferenceable(8) %5, i64 noundef %9)
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %49
+  br i1 %11, label %12, label %48
 
 12:                                               ; preds = %3
   %.sroa.011.0.copyload = load i64, ptr %5, align 8
@@ -5641,10 +5637,6 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
   store i8 0, ptr %0, align 8, !alias.scope !206, !noalias !209
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit"
 
-"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit": ; preds = %.critedge45.i, %40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %48
-
 42:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   store ptr @anon.42d715dd7730a3603781b29caeb54517.52, ptr %4, align 8
@@ -5658,18 +5650,18 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
   store i64 0, ptr %46, align 8
   %47 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, i64 noundef %9)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  br label %49
+  br label %48
 
-48:                                               ; preds = %49, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit"
+"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit": ; preds = %40, %.critedge45.i, %48
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   ret void
 
-49:                                               ; preds = %3, %42
+48:                                               ; preds = %3, %42
   %.sink = phi ptr [ %47, %42 ], [ %10, %3 ]
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink, ptr %50, align 8
+  %49 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sink, ptr %49, align 8
   store i8 1, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %48
+  br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit"
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5851,7 +5843,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   %8 = load i64, ptr %7, align 8, !noundef !5
   %9 = call noundef align 8 ptr @"_ZN110_$LT$wasmparser..validator..core..ValidatorResources$u20$as$u20$wasmparser..resources..WasmModuleResources$GT$15check_heap_type17hdac3a97db5483d68E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6, ptr noalias noundef nonnull align 4 dereferenceable(8) %4, i64 noundef %8)
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %33
+  br i1 %10, label %11, label %32
 
 11:                                               ; preds = %2
   %.sroa.012.0.copyload = load i64, ptr %4, align 8
@@ -5873,7 +5865,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   store i64 0, ptr %17, align 8
   %18 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, i64 noundef %8)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
-  br label %33
+  br label %32
 
 19:                                               ; preds = %11
   %.val = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
@@ -5899,17 +5891,12 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   %30 = load i64, ptr %21, align 8, !alias.scope !242, !noundef !5
   %31 = add i64 %30, 1
   store i64 %31, ptr %21, align 8, !alias.scope !242
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %32
 
-32:                                               ; preds = %33, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17h37793e21ee0c10edE.exit"
-  %.1 = phi ptr [ %.0, %33 ], [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17h37793e21ee0c10edE.exit" ]
+32:                                               ; preds = %2, %13, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17h37793e21ee0c10edE.exit"
+  %.1 = phi ptr [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17h37793e21ee0c10edE.exit" ], [ %9, %2 ], [ %18, %13 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret ptr %.1
-
-33:                                               ; preds = %13, %2
-  %.0 = phi ptr [ %9, %2 ], [ %18, %13 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %32
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6343,7 +6330,6 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   store i64 0, ptr %51, align 8
   %52 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %.val75)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %62
 
 53:                                               ; preds = %43
@@ -6368,7 +6354,6 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   %61 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %.val75)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %62
 
 "_ZN4core3ptr63drop_in_place$LT$wasmparser..readers..core..types..FuncType$GT$17hc964c2dbf16f906fE.exit97": ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17h020425280953e81eE.exit", %153, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3191862155771161713.exit.i.i.i96", %172, %62, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit", %30
@@ -6377,6 +6362,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 62:                                               ; preds = %53, %47
   %.sroa.4.0.i.ph = phi ptr [ %61, %53 ], [ %52, %47 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   br label %"_ZN4core3ptr63drop_in_place$LT$wasmparser..readers..core..types..FuncType$GT$17hc964c2dbf16f906fE.exit97"
 
@@ -8395,7 +8381,6 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
   store i64 0, ptr %21, align 8
   %22 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, i64 noundef %.16.val)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %44
 
 23:                                               ; preds = %13
@@ -8420,7 +8405,6 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
   %31 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %.16.val)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %44
 
 32:                                               ; preds = %2, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3b738689b5727d91E.exit"
@@ -8452,6 +8436,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
 
 44:                                               ; preds = %17, %23
   %.sroa.4.0.i.ph = phi ptr [ %31, %23 ], [ %22, %17 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br label %45
 
@@ -8637,7 +8622,6 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
   store i64 0, ptr %24, align 8
   %25 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, i64 noundef %.16.val)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %43
 
 26:                                               ; preds = %16
@@ -8662,7 +8646,6 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
   %34 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %.16.val)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %43
 
 35:                                               ; preds = %2, %44, %9
@@ -8684,6 +8667,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
 
 43:                                               ; preds = %20, %26
   %.sroa.4.0.i.ph = phi ptr [ %34, %26 ], [ %25, %20 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br label %50
 
@@ -9231,7 +9215,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %14 = load i64, ptr %13, align 8, !noundef !5
   %15 = call noundef align 8 ptr @"_ZN110_$LT$wasmparser..validator..core..ValidatorResources$u20$as$u20$wasmparser..resources..WasmModuleResources$GT$15check_heap_type17hdac3a97db5483d68E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 4 dereferenceable(8) %10, i64 noundef %14)
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %17, label %62
+  br i1 %16, label %17, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_call_type_index17h8144825884a97dcdE.exit"
 
 17:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
@@ -9243,7 +9227,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %21 = getelementptr inbounds i8, ptr %9, i64 1
   %.sroa.020.0.copyload = load i32, ptr %21, align 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  br i1 %trunc, label %62, label %22
+  br i1 %trunc, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_call_type_index17h8144825884a97dcdE.exit", label %22
 
 22:                                               ; preds = %17
   %.sroa.211.0.extract.shift = and i32 %.sroa.020.0.copyload, -256
@@ -9284,7 +9268,6 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   store i64 0, ptr %37, align 8, !noalias !645
   %38 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, i64 noundef %14), !noalias !645
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !645
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !645
   br label %48
 
 39:                                               ; preds = %29
@@ -9309,11 +9292,11 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %47 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %14), !noalias !645
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !645
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !645
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !645
   br label %48
 
 48:                                               ; preds = %39, %33
   %.sroa.4.0.i.ph.i = phi ptr [ %47, %39 ], [ %38, %33 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !645
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !645
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_call_type_index17h8144825884a97dcdE.exit"
 
@@ -9323,11 +9306,6 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !645
   %51 = call fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$13check_call_ty17h9b920461fcad7b87E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %50)
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_call_type_index17h8144825884a97dcdE.exit"
-
-"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_call_type_index17h8144825884a97dcdE.exit": ; preds = %48, %49
-  %.0.i = phi ptr [ %51, %49 ], [ %.sroa.4.0.i.ph.i, %48 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  br label %61
 
 52:                                               ; preds = %24
   call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.42d715dd7730a3603781b29caeb54517.100, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.42d715dd7730a3603781b29caeb54517.101) #13
@@ -9353,16 +9331,12 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   store i64 0, ptr %59, align 8
   %60 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, i64 noundef %14)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
-  br label %62
+  br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_call_type_index17h8144825884a97dcdE.exit"
 
-61:                                               ; preds = %62, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_call_type_index17h8144825884a97dcdE.exit"
-  %.2 = phi ptr [ %.0, %62 ], [ %.0.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_call_type_index17h8144825884a97dcdE.exit" ]
-  ret ptr %.2
-
-62:                                               ; preds = %17, %55, %2
-  %.0 = phi ptr [ %15, %2 ], [ %60, %55 ], [ %20, %17 ]
+"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_call_type_index17h8144825884a97dcdE.exit": ; preds = %49, %48, %2, %55, %17
+  %.2 = phi ptr [ %15, %2 ], [ %60, %55 ], [ %20, %17 ], [ %51, %49 ], [ %.sroa.4.0.i.ph.i, %48 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  br label %61
+  ret ptr %.2
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -16950,7 +16924,6 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   store i64 0, ptr %38, align 8, !noalias !1604
   %39 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, i64 noundef %.val), !noalias !1604
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !1604
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !1604
   br label %49
 
 40:                                               ; preds = %30
@@ -16975,11 +16948,11 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %48 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %.val), !noalias !1604
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !1604
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !1604
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !1604
   br label %49
 
 49:                                               ; preds = %40, %34
   %.sroa.4.0.i.ph.i = phi ptr [ %48, %40 ], [ %39, %34 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !1604
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !1604
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_array_get17h7bf1a6971f1137fdE.exit"
 
@@ -17320,7 +17293,6 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   store i64 0, ptr %37, align 8, !noalias !1656
   %38 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, i64 noundef %.val), !noalias !1656
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !1656
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !1656
   br label %48
 
 39:                                               ; preds = %29
@@ -17345,11 +17317,11 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %47 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %.val), !noalias !1656
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !1656
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !1656
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !1656
   br label %48
 
 48:                                               ; preds = %39, %33
   %.sroa.4.0.i.ph.i = phi ptr [ %47, %39 ], [ %38, %33 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !1656
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !1656
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_array_new17h3767f50772ad38f8E.exit"
 
@@ -17587,7 +17559,6 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   store i64 0, ptr %39, align 8, !noalias !1691
   %40 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, i64 noundef %.val), !noalias !1691
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !1691
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !1691
   br label %50
 
 41:                                               ; preds = %31
@@ -17612,11 +17583,11 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %.val), !noalias !1691
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !1691
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !1691
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !1691
   br label %50
 
 50:                                               ; preds = %41, %35
   %.sroa.4.0.i.ph.i = phi ptr [ %49, %41 ], [ %40, %35 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !1691
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !1691
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$15visit_array_set17had460a106cbe0181E.exit"
 
@@ -25060,7 +25031,6 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   store i64 0, ptr %61, align 8, !noalias !2842
   %62 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %9, i64 noundef %.val), !noalias !2842
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9), !noalias !2842
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12), !noalias !2842
   br label %72
 
 63:                                               ; preds = %53
@@ -25085,7 +25055,6 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %71 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %11, i64 noundef %.val), !noalias !2842
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11), !noalias !2842
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10), !noalias !2842
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12), !noalias !2842
   br label %72
 
 default.unreachable:                              ; preds = %106
@@ -25093,6 +25062,7 @@ default.unreachable:                              ; preds = %106
 
 72:                                               ; preds = %63, %57
   %.sroa.4.0.i.ph.i = phi ptr [ %71, %63 ], [ %62, %57 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12), !noalias !2842
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13), !noalias !2842
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_array_copy17hfd9ee6894c2108c7E.exit"
 
@@ -25147,7 +25117,6 @@ default.unreachable:                              ; preds = %106
   store i64 0, ptr %94, align 8, !noalias !2842
   %95 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, i64 noundef %.val), !noalias !2842
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !2842
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !2842
   br label %105
 
 96:                                               ; preds = %86
@@ -25172,11 +25141,11 @@ default.unreachable:                              ; preds = %106
   %104 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %.val), !noalias !2842
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !2842
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !2842
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !2842
   br label %105
 
 105:                                              ; preds = %96, %90
   %.sroa.4.0.i136.ph.i = phi ptr [ %104, %96 ], [ %95, %90 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !2842
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8), !noalias !2842
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_array_copy17hfd9ee6894c2108c7E.exit"
 
@@ -25619,7 +25588,6 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   store i64 0, ptr %40, align 8, !noalias !2914
   %41 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, i64 noundef %.val), !noalias !2914
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !2914
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !2914
   br label %51
 
 42:                                               ; preds = %32
@@ -25644,11 +25612,11 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %50 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %.val), !noalias !2914
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !2914
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !2914
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !2914
   br label %51
 
 51:                                               ; preds = %42, %36
   %.sroa.4.0.i.ph.i = phi ptr [ %50, %42 ], [ %41, %36 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !2914
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !2914
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_array_fill17he89f134123d94f49E.exit"
 
@@ -28910,7 +28878,6 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   store i64 0, ptr %36, align 8, !noalias !3428
   %37 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, i64 noundef %.val), !noalias !3428
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !3428
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !3428
   br label %47
 
 38:                                               ; preds = %28
@@ -28935,11 +28902,11 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %46 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %.val), !noalias !3428
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !3428
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !3428
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !3428
   br label %47
 
 47:                                               ; preds = %38, %32
   %.sroa.4.0.i.ph.i = phi ptr [ %46, %38 ], [ %37, %32 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !3428
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !3428
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$16visit_struct_new17h72ee893e7a2bd527E.exit"
 
@@ -30782,7 +30749,6 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   store i64 0, ptr %38, align 8, !noalias !3686
   %39 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, i64 noundef %.val), !noalias !3686
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !3686
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !3686
   br label %49
 
 40:                                               ; preds = %30
@@ -30807,11 +30773,11 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %48 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %.val), !noalias !3686
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !3686
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !3686
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !3686
   br label %49
 
 49:                                               ; preds = %40, %34
   %.sroa.4.0.i.ph.i = phi ptr [ %48, %40 ], [ %39, %34 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !3686
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !3686
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_array_get_s17hb68270de82a7c25dE.exit"
 
@@ -31017,7 +30983,6 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   store i64 0, ptr %38, align 8, !noalias !3715
   %39 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, i64 noundef %.val), !noalias !3715
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !3715
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !3715
   br label %49
 
 40:                                               ; preds = %30
@@ -31042,11 +31007,11 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %48 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %.val), !noalias !3715
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !3715
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !3715
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !3715
   br label %49
 
 49:                                               ; preds = %40, %34
   %.sroa.4.0.i.ph.i = phi ptr [ %48, %40 ], [ %39, %34 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !3715
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !3715
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$17visit_array_get_u17hecf08597dd4217c5E.exit"
 
@@ -37021,7 +36986,6 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   store i64 0, ptr %43, align 8, !noalias !4685
   %44 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, i64 noundef %.val), !noalias !4685
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !4685
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !4685
   br label %54
 
 45:                                               ; preds = %35
@@ -37046,11 +37010,11 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %53 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %.val), !noalias !4685
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !4685
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !4685
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !4685
   br label %54
 
 54:                                               ; preds = %45, %39
   %.sroa.4.0.i.ph.i = phi ptr [ %53, %45 ], [ %44, %39 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !4685
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8), !noalias !4685
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_array_new_data17h4949ea19c677f87eE.exit"
 
@@ -37348,7 +37312,6 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   store i64 0, ptr %47, align 8, !noalias !4725
   %48 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %.val), !noalias !4725
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !4725
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !4725
   br label %58
 
 49:                                               ; preds = %39
@@ -37373,11 +37336,11 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %57 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %9, i64 noundef %.val), !noalias !4725
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9), !noalias !4725
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !4725
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !4725
   br label %58
 
 58:                                               ; preds = %49, %43
   %.sroa.4.0.i.ph.i = phi ptr [ %57, %49 ], [ %48, %43 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !4725
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11), !noalias !4725
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$20visit_array_new_elem17h1a14d8f4e5943c23E.exit"
 
@@ -39306,7 +39269,6 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   store i64 0, ptr %46, align 8, !noalias !5026
   %47 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, i64 noundef %.val), !noalias !5026
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !5026
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !5026
   br label %57
 
 48:                                               ; preds = %38
@@ -39331,11 +39293,11 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %56 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %.val), !noalias !5026
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !5026
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !5026
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !5026
   br label %57
 
 57:                                               ; preds = %48, %42
   %.sroa.4.0.i.ph.i = phi ptr [ %56, %48 ], [ %47, %42 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !5026
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8), !noalias !5026
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_array_init_data17h717c82828a991210E.exit"
 
@@ -39724,7 +39686,6 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   store i64 0, ptr %50, align 8, !noalias !5074
   %51 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %.val), !noalias !5074
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !5074
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !5074
   br label %61
 
 52:                                               ; preds = %42
@@ -39749,11 +39710,11 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %60 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %9, i64 noundef %.val), !noalias !5074
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9), !noalias !5074
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !5074
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !5074
   br label %61
 
 61:                                               ; preds = %52, %46
   %.sroa.4.0.i.ph.i = phi ptr [ %60, %52 ], [ %51, %46 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !5074
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11), !noalias !5074
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_array_init_elem17hfc7c48b5290b190aE.exit"
 
@@ -40167,7 +40128,6 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   store i64 0, ptr %37, align 8, !noalias !5131
   %38 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, i64 noundef %.val), !noalias !5131
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !5131
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !5131
   br label %48
 
 39:                                               ; preds = %29
@@ -40192,11 +40152,11 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %47 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %.val), !noalias !5131
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !5131
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !5131
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !5131
   br label %48
 
 48:                                               ; preds = %39, %33
   %.sroa.4.0.i.ph.i = phi ptr [ %47, %39 ], [ %38, %33 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !5131
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8), !noalias !5131
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$21visit_array_new_fixed17hc00dfa59a62f2113E.exit"
 
@@ -43195,7 +43155,6 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   store i64 0, ptr %39, align 8, !noalias !5589
   %40 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, i64 noundef %.val), !noalias !5589
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !5589
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !5589
   br label %50
 
 41:                                               ; preds = %31
@@ -43220,11 +43179,11 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %.val), !noalias !5589
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !5589
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !5589
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !5589
   br label %50
 
 50:                                               ; preds = %41, %35
   %.sroa.4.0.i.ph.i = phi ptr [ %49, %41 ], [ %40, %35 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !5589
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !5589
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$23visit_array_new_default17h6a309e49481f130bE.exit"
 
@@ -48639,7 +48598,6 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   store i64 0, ptr %38, align 8, !noalias !6416
   %39 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, i64 noundef %.val), !noalias !6416
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !6416
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !6416
   br label %49
 
 40:                                               ; preds = %30
@@ -48664,11 +48622,11 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %48 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3fmt17hb7642dc4210d4f55E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %.val), !noalias !6416
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !6416
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !6416
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !6416
   br label %49
 
 49:                                               ; preds = %40, %34
   %.sroa.4.0.i.ph.i = phi ptr [ %48, %40 ], [ %39, %34 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !6416
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !6416
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$24visit_struct_new_default17ha518ea06751519c8E.exit"
 

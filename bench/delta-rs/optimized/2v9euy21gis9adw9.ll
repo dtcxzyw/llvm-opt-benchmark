@@ -285,7 +285,6 @@ define hidden void @_ZN3url3Url19from_directory_path17hc636764c52e35f0eE(ptr noa
 7:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3)
   store i64 -9223372036854775808, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
   br label %25
 
 8:                                                ; preds = %18
@@ -338,10 +337,10 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.17705710776033075264.exit:
 
 24:                                               ; preds = %_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.17705710776033075264.exit, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h4d92b4461be01059E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %4, i64 88, i1 false)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
   br label %25
 
 25:                                               ; preds = %24, %7
+  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
   ret void
 
 26:                                               ; preds = %8

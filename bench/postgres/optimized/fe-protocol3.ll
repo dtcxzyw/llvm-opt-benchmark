@@ -1399,124 +1399,109 @@ define internal fastcc void @getAnotherTuple(ptr noundef %0, i32 noundef %1) unn
   %9 = load i32, ptr %8, align 4
   %10 = call i32 @pqGetInt(ptr noundef nonnull %4, i64 noundef 2, ptr noundef %0) #16
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %12, label %11
+  br i1 %.not, label %11, label %.sink.split
 
 11:                                               ; preds = %2
-  store ptr @.str.38, ptr %3, align 8
-  br label %49
+  %12 = load i32, ptr %4, align 4
+  %.not37 = icmp eq i32 %12, %9
+  br i1 %.not37, label %13, label %.sink.split
 
-12:                                               ; preds = %2
-  %13 = load i32, ptr %4, align 4
-  %.not37 = icmp eq i32 %13, %9
-  br i1 %.not37, label %15, label %14
+13:                                               ; preds = %11
+  %14 = getelementptr inbounds i8, ptr %0, i64 936
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 944
+  %17 = load i32, ptr %16, align 8
+  %18 = icmp sgt i32 %9, %17
+  br i1 %18, label %19, label %24
 
-14:                                               ; preds = %12
-  store ptr @.str.39, ptr %3, align 8
-  br label %49
+19:                                               ; preds = %13
+  %20 = sext i32 %9 to i64
+  %21 = shl nsw i64 %20, 4
+  %22 = call ptr @realloc(ptr noundef %15, i64 noundef %21) #19
+  %.not38 = icmp eq ptr %22, null
+  br i1 %.not38, label %.sink.split, label %23
 
-15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 936
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 944
-  %19 = load i32, ptr %18, align 8
-  %20 = icmp sgt i32 %9, %19
-  br i1 %20, label %21, label %27
+23:                                               ; preds = %19
+  store ptr %22, ptr %14, align 8
+  store i32 %9, ptr %16, align 8
+  br label %24
 
-21:                                               ; preds = %15
-  %22 = sext i32 %9 to i64
-  %23 = shl nsw i64 %22, 4
-  %24 = call ptr @realloc(ptr noundef %17, i64 noundef %23) #19
-  %.not38 = icmp eq ptr %24, null
-  br i1 %.not38, label %25, label %26
+24:                                               ; preds = %23, %13
+  %.032 = phi ptr [ %22, %23 ], [ %15, %13 ]
+  %25 = icmp sgt i32 %9, 0
+  br i1 %25, label %.lr.ph, label %._crit_edge
 
-25:                                               ; preds = %21
-  store ptr null, ptr %3, align 8
-  br label %49
-
-26:                                               ; preds = %21
-  store ptr %24, ptr %16, align 8
-  store i32 %9, ptr %18, align 8
-  br label %27
-
-27:                                               ; preds = %26, %15
-  %.032 = phi ptr [ %24, %26 ], [ %17, %15 ]
-  %28 = icmp sgt i32 %9, 0
-  br i1 %28, label %.lr.ph, label %._crit_edge
-
-.lr.ph:                                           ; preds = %27
-  %29 = getelementptr inbounds i8, ptr %0, i64 888
-  %30 = getelementptr inbounds i8, ptr %0, i64 904
+.lr.ph:                                           ; preds = %24
+  %26 = getelementptr inbounds i8, ptr %0, i64 888
+  %27 = getelementptr inbounds i8, ptr %0, i64 904
   %wide.trip.count = zext nneg i32 %9 to i64
-  br label %31
+  br label %28
 
-31:                                               ; preds = %.lr.ph, %47
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
-  %32 = call i32 @pqGetInt(ptr noundef nonnull %5, i64 noundef 4, ptr noundef nonnull %0) #16
-  %.not40 = icmp eq i32 %32, 0
-  br i1 %.not40, label %34, label %33
+28:                                               ; preds = %.lr.ph, %42
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
+  %29 = call i32 @pqGetInt(ptr noundef nonnull %5, i64 noundef 4, ptr noundef nonnull %0) #16
+  %.not40 = icmp eq i32 %29, 0
+  br i1 %.not40, label %30, label %.sink.split
 
-33:                                               ; preds = %31
-  store ptr @.str.38, ptr %3, align 8
-  br label %49
+30:                                               ; preds = %28
+  %31 = load i32, ptr %5, align 4
+  %32 = getelementptr %struct.pgDataValue, ptr %.032, i64 %indvars.iv
+  store i32 %31, ptr %32, align 8
+  %33 = load ptr, ptr %26, align 8
+  %34 = load i32, ptr %27, align 8
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr i8, ptr %33, i64 %35
+  %37 = getelementptr inbounds i8, ptr %32, i64 8
+  store ptr %36, ptr %37, align 8
+  %38 = icmp sgt i32 %31, 0
+  br i1 %38, label %39, label %42
 
-34:                                               ; preds = %31
-  %35 = load i32, ptr %5, align 4
-  %36 = getelementptr %struct.pgDataValue, ptr %.032, i64 %indvars.iv
-  store i32 %35, ptr %36, align 8
-  %37 = load ptr, ptr %29, align 8
-  %38 = load i32, ptr %30, align 8
-  %39 = sext i32 %38 to i64
-  %40 = getelementptr i8, ptr %37, i64 %39
-  %41 = getelementptr inbounds i8, ptr %36, i64 8
-  store ptr %40, ptr %41, align 8
-  %42 = icmp sgt i32 %35, 0
-  br i1 %42, label %43, label %47
+39:                                               ; preds = %30
+  %40 = zext nneg i32 %31 to i64
+  %41 = call i32 @pqSkipnchar(i64 noundef %40, ptr noundef nonnull %0) #16
+  %.not41 = icmp eq i32 %41, 0
+  br i1 %.not41, label %42, label %.sink.split
 
-43:                                               ; preds = %34
-  %44 = zext nneg i32 %35 to i64
-  %45 = call i32 @pqSkipnchar(i64 noundef %44, ptr noundef nonnull %0) #16
-  %.not41 = icmp eq i32 %45, 0
-  br i1 %.not41, label %47, label %46
-
-46:                                               ; preds = %43
-  store ptr @.str.38, ptr %3, align 8
-  br label %49
-
-47:                                               ; preds = %34, %43
+42:                                               ; preds = %30, %39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %47, %27
+._crit_edge:                                      ; preds = %42, %24
   store ptr null, ptr %3, align 8
-  %48 = call i32 @pqRowProcessor(ptr noundef nonnull %0, ptr noundef nonnull %3) #16
-  %.not39 = icmp eq i32 %48, 0
-  br i1 %.not39, label %49, label %60
+  %43 = call i32 @pqRowProcessor(ptr noundef nonnull %0, ptr noundef nonnull %3) #16
+  %.not39 = icmp eq i32 %43, 0
+  br i1 %.not39, label %44, label %55
 
-49:                                               ; preds = %._crit_edge, %46, %33, %25, %14, %11
+.sink.split:                                      ; preds = %39, %28, %19, %11, %2
+  %.str.38.sink = phi ptr [ @.str.38, %2 ], [ @.str.39, %11 ], [ null, %19 ], [ @.str.38, %28 ], [ @.str.38, %39 ]
+  store ptr %.str.38.sink, ptr %3, align 8
+  br label %44
+
+44:                                               ; preds = %.sink.split, %._crit_edge
   call void @pqClearAsyncResult(ptr noundef %0) #16
-  %50 = load ptr, ptr %3, align 8
-  %.not42 = icmp eq ptr %50, null
-  br i1 %.not42, label %51, label %52
+  %45 = load ptr, ptr %3, align 8
+  %.not42 = icmp eq ptr %45, null
+  br i1 %.not42, label %46, label %47
 
-51:                                               ; preds = %49
+46:                                               ; preds = %44
   store ptr @.str.36, ptr %3, align 8
-  br label %52
+  br label %47
 
-52:                                               ; preds = %51, %49
-  %53 = phi ptr [ @.str.36, %51 ], [ %50, %49 ]
-  %54 = getelementptr inbounds i8, ptr %0, i64 1000
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %54, ptr noundef nonnull @.str.8, ptr noundef nonnull %53) #16
+47:                                               ; preds = %46, %44
+  %48 = phi ptr [ @.str.36, %46 ], [ %45, %44 ]
+  %49 = getelementptr inbounds i8, ptr %0, i64 1000
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %49, ptr noundef nonnull @.str.8, ptr noundef nonnull %48) #16
   call void @pqSaveErrorResult(ptr noundef %0) #16
-  %55 = getelementptr inbounds i8, ptr %0, i64 900
-  %56 = load i32, ptr %55, align 4
-  %57 = add i32 %1, 5
-  %58 = add i32 %57, %56
-  %59 = getelementptr inbounds i8, ptr %0, i64 904
-  store i32 %58, ptr %59, align 8
-  br label %60
+  %50 = getelementptr inbounds i8, ptr %0, i64 900
+  %51 = load i32, ptr %50, align 4
+  %52 = add i32 %1, 5
+  %53 = add i32 %52, %51
+  %54 = getelementptr inbounds i8, ptr %0, i64 904
+  store i32 %53, ptr %54, align 8
+  br label %55
 
-60:                                               ; preds = %._crit_edge, %52
+55:                                               ; preds = %._crit_edge, %47
   ret void
 }
 

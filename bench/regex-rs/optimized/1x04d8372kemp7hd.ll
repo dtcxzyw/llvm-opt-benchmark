@@ -8193,7 +8193,7 @@ default.unreachable:                              ; preds = %330, %439, %394, %3
   store i8 1, ptr %90, align 8, !noalias !2205
   %.sroa.41.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %90, i64 8
   store i64 %25, ptr %.sroa.41.0..sroa_idx.i.i.i, align 8, !noalias !2205
-  br label %_ZN14regex_automata6hybrid6search24find_overlapping_fwd_imp17ha1c3533d5ea98bf6E.exit
+  br label %.sink.split
 
 91:                                               ; preds = %87
   br i1 %.not.i175, label %94, label %95
@@ -8206,7 +8206,7 @@ default.unreachable:                              ; preds = %330, %439, %394, %3
   store i32 %.sroa.04.0.extract.trunc.i.i, ptr %.sroa.41.0..sroa_idx.i7.i.i, align 4, !noalias !2205
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %93, i64 8
   store i32 %.sroa.4.0.extract.trunc.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !noalias !2205
-  br label %_ZN14regex_automata6hybrid6search24find_overlapping_fwd_imp17ha1c3533d5ea98bf6E.exit
+  br label %.sink.split
 
 94:                                               ; preds = %91
   call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.09ebd1a1fbc06cbf73656c4d6a94c431.20, i64 noundef 36, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.21) #44, !noalias !2205
@@ -8221,7 +8221,7 @@ default.unreachable:                              ; preds = %330, %439, %394, %3
   store i8 %.sroa.3.4.extract.trunc.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i, align 1, !noalias !2205
   %.sroa.51.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %97, i64 8
   store i64 %96, ptr %.sroa.51.0..sroa_idx.i.i.i, align 8, !noalias !2205
-  br label %_ZN14regex_automata6hybrid6search24find_overlapping_fwd_imp17ha1c3533d5ea98bf6E.exit
+  br label %.sink.split
 
 _ZN14regex_automata6hybrid6search8init_fwd17h27c50c577b94c7c4E.exit88: ; preds = %_ZN14regex_automata6hybrid3dfa7LazyRef19get_cached_start_id17h75ba8958808ab7c2E.exit.i58, %_ZN14regex_automata6hybrid3dfa3DFA11start_state17h2564ea2672b0fa76E.exit.i67
   %.sroa.5.1.in.in.i.i68748 = phi i64 [ %85, %_ZN14regex_automata6hybrid3dfa3DFA11start_state17h2564ea2672b0fa76E.exit.i67 ], [ %.sroa.4.0.insert.shift.i.i62, %_ZN14regex_automata6hybrid3dfa7LazyRef19get_cached_start_id17h75ba8958808ab7c2E.exit.i58 ]
@@ -8264,7 +8264,7 @@ _ZN14regex_automata6hybrid6search8init_fwd17h27c50c577b94c7c4E.exit88: ; preds =
   %115 = add i64 %114, 1
   store i64 %115, ptr %113, align 8, !alias.scope !2160, !noalias !2166
   %116 = icmp ugt i64 %115, %27
-  br i1 %116, label %_ZN14regex_automata6hybrid6search24find_overlapping_fwd_imp17ha1c3533d5ea98bf6E.exit, label %103
+  br i1 %116, label %.sink.split, label %103
 
 117:                                              ; preds = %107
   %118 = add nuw i64 %109, 1
@@ -8341,7 +8341,7 @@ _ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit: ; pr
   store i64 %154, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !2160, !noalias !2166
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 16
   store i32 %.0.i183, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !2160, !noalias !2166
-  br label %_ZN14regex_automata6hybrid6search24find_overlapping_fwd_imp17ha1c3533d5ea98bf6E.exit
+  br label %.sink.split
 
 155:                                              ; preds = %103
   %.not.i184 = icmp ugt i64 %.sroa.440.0.copyload.i, %.sroa.541.0.copyload.i
@@ -8580,7 +8580,7 @@ _ZN14regex_automata6hybrid6search7eoi_fwd17h44851bdaa872c461E.exit159: ; preds =
   %245 = add i64 %244, %.0.i.i199
   store i64 %245, ptr %243, align 8, !alias.scope !2299, !noalias !2162
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21), !noalias !2253
-  br label %_ZN14regex_automata6hybrid6search24find_overlapping_fwd_imp17ha1c3533d5ea98bf6E.exit
+  br label %.sink.split
 
 246:                                              ; preds = %238
   %247 = landingpad { ptr, i32 }
@@ -8639,7 +8639,7 @@ _ZN14regex_automata6hybrid3dfa3DFA10next_state17hdf7fbf07a67bbb18E.exit212: ; pr
   %.sroa.41.0..sroa_idx.i.i.i214 = getelementptr inbounds i8, ptr %263, i64 8
   store i64 %.val173, ptr %.sroa.41.0..sroa_idx.i.i.i214, align 8, !noalias !2320
   %trunc67.i = trunc nuw i32 %.fca.0.extract.i208 to i1
-  br i1 %trunc67.i, label %_ZN14regex_automata6hybrid6search24find_overlapping_fwd_imp17ha1c3533d5ea98bf6E.exit, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h39b1498b2333fb33E.exit.thread"
+  br i1 %trunc67.i, label %.sink.split, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h39b1498b2333fb33E.exit.thread"
 
 264:                                              ; preds = %.lr.ph
   call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %227, i64 noundef %164, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.42) #44, !noalias !2162
@@ -8707,7 +8707,7 @@ _ZN14regex_automata6hybrid3dfa5Cache13search_update17h09cc923c444f4c7fE.exit: ; 
   %.sroa.527.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 16
   store i32 %282, ptr %.sroa.527.0..sroa_idx.i, align 8, !alias.scope !2160, !noalias !2166
   call fastcc void @_ZN14regex_automata6hybrid3dfa5Cache13search_finish17h4048cce97b222203E(ptr noalias noundef nonnull align 8 dereferenceable(352) %1, i64 noundef %283), !noalias !2162
-  br label %_ZN14regex_automata6hybrid6search24find_overlapping_fwd_imp17ha1c3533d5ea98bf6E.exit
+  br label %.sink.split
 
 284:                                              ; preds = %277
   %285 = and i64 %267, 536870912
@@ -8717,7 +8717,7 @@ _ZN14regex_automata6hybrid3dfa5Cache13search_update17h09cc923c444f4c7fE.exit: ; 
 286:                                              ; preds = %277
   %287 = load i64, ptr %105, align 8, !alias.scope !2160, !noalias !2166, !noundef !9
   call fastcc void @_ZN14regex_automata6hybrid3dfa5Cache13search_finish17h4048cce97b222203E(ptr noalias noundef nonnull align 8 dereferenceable(352) %1, i64 noundef %287), !noalias !2162
-  br label %_ZN14regex_automata6hybrid6search24find_overlapping_fwd_imp17ha1c3533d5ea98bf6E.exit
+  br label %.sink.split
 
 288:                                              ; preds = %284
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %22), !noalias !2253
@@ -8749,7 +8749,7 @@ _ZN14regex_automata6hybrid3dfa5Cache13search_update17h09cc923c444f4c7fE.exit: ; 
   store i8 %299, ptr %.sroa.4.0..sroa_idx.i216, align 1, !noalias !2162
   %.sroa.51.0..sroa_idx.i217 = getelementptr inbounds i8, ptr %300, i64 8
   store i64 %295, ptr %.sroa.51.0..sroa_idx.i217, align 8, !noalias !2162
-  br label %_ZN14regex_automata6hybrid6search24find_overlapping_fwd_imp17ha1c3533d5ea98bf6E.exit
+  br label %.sink.split
 
 301:                                              ; preds = %293
   call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %295, i64 noundef %164, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.44) #44, !noalias !2162
@@ -8777,7 +8777,7 @@ _ZN14regex_automata6hybrid3dfa5Cache13search_update17h09cc923c444f4c7fE.exit: ; 
 _ZN14regex_automata6hybrid6search8init_fwd17h27c50c577b94c7c4E.exit130.thread: ; preds = %302, %365, %367, %369
   %.2.i = phi ptr [ %368, %367 ], [ %370, %369 ], [ %366, %365 ], [ null, %302 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23), !noalias !2253
-  br label %_ZN14regex_automata6hybrid6search24find_overlapping_fwd_imp17ha1c3533d5ea98bf6E.exit
+  br label %.sink.split
 
 313:                                              ; preds = %309
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23), !noalias !2253
@@ -8992,11 +8992,6 @@ _ZN14regex_automata6hybrid3dfa3DFA11start_state17h2564ea2672b0fa76E.exit.i109: ;
   %.pre733 = load i64, ptr %105, align 8, !alias.scope !2160, !noalias !2166
   br label %.outer
 
-_ZN14regex_automata6hybrid6search24find_overlapping_fwd_imp17ha1c3533d5ea98bf6E.exit: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h39b1498b2333fb33E.exit", %89, %92, %95, %112, %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit, %279, %286, %297, %_ZN14regex_automata6hybrid6search8init_fwd17h27c50c577b94c7c4E.exit130.thread, %240
-  %.1.i = phi ptr [ %233, %240 ], [ null, %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit ], [ %.2.i, %_ZN14regex_automata6hybrid6search8init_fwd17h27c50c577b94c7c4E.exit130.thread ], [ null, %279 ], [ null, %286 ], [ %300, %297 ], [ null, %112 ], [ %93, %92 ], [ %97, %95 ], [ %90, %89 ], [ %263, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h39b1498b2333fb33E.exit" ]
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %5)
-  br label %627
-
 select.unfold:                                    ; preds = %31, %29
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2396)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2399)
@@ -9182,7 +9177,7 @@ _ZN14regex_automata6hybrid3dfa3DFA11start_state17h2564ea2672b0fa76E.exit.i: ; pr
   store i8 1, ptr %442, align 8, !noalias !2451
   %.sroa.41.0..sroa_idx.i.i.i287 = getelementptr inbounds i8, ptr %442, i64 8
   store i64 %25, ptr %.sroa.41.0..sroa_idx.i.i.i287, align 8, !noalias !2451
-  br label %_ZN14regex_automata6hybrid6search24find_overlapping_fwd_imp17ha1c3533d5ea98bf6E.exit41
+  br label %.sink.split
 
 443:                                              ; preds = %439
   br i1 %.not.i256, label %446, label %447
@@ -9195,7 +9190,7 @@ _ZN14regex_automata6hybrid3dfa3DFA11start_state17h2564ea2672b0fa76E.exit.i: ; pr
   store i32 %.sroa.04.0.extract.trunc.i.i274, ptr %.sroa.41.0..sroa_idx.i7.i.i278, align 4, !noalias !2451
   %.sroa.5.0..sroa_idx.i.i.i279 = getelementptr inbounds i8, ptr %445, i64 8
   store i32 %.sroa.4.0.extract.trunc.i.i277, ptr %.sroa.5.0..sroa_idx.i.i.i279, align 8, !noalias !2451
-  br label %_ZN14regex_automata6hybrid6search24find_overlapping_fwd_imp17ha1c3533d5ea98bf6E.exit41
+  br label %.sink.split
 
 446:                                              ; preds = %443
   call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.09ebd1a1fbc06cbf73656c4d6a94c431.20, i64 noundef 36, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.21) #44, !noalias !2451
@@ -9210,7 +9205,7 @@ _ZN14regex_automata6hybrid3dfa3DFA11start_state17h2564ea2672b0fa76E.exit.i: ; pr
   store i8 %.sroa.3.4.extract.trunc.i.i284, ptr %.sroa.4.0..sroa_idx.i.i.i285, align 1, !noalias !2451
   %.sroa.51.0..sroa_idx.i.i.i286 = getelementptr inbounds i8, ptr %449, i64 8
   store i64 %448, ptr %.sroa.51.0..sroa_idx.i.i.i286, align 8, !noalias !2451
-  br label %_ZN14regex_automata6hybrid6search24find_overlapping_fwd_imp17ha1c3533d5ea98bf6E.exit41
+  br label %.sink.split
 
 _ZN14regex_automata6hybrid6search8init_fwd17h27c50c577b94c7c4E.exit: ; preds = %_ZN14regex_automata6hybrid3dfa3DFA11start_state17h2564ea2672b0fa76E.exit.i
   %.sroa.4.0.extract.shift.i289 = lshr i64 %.sroa.5.1.in.in.i.i, 32
@@ -9252,7 +9247,7 @@ _ZN14regex_automata6hybrid6search8init_fwd17h27c50c577b94c7c4E.exit: ; preds = %
   %466 = add i64 %465, 1
   store i64 %466, ptr %464, align 8, !alias.scope !2399, !noalias !2403
   %467 = icmp ugt i64 %466, %27
-  br i1 %467, label %_ZN14regex_automata6hybrid6search24find_overlapping_fwd_imp17ha1c3533d5ea98bf6E.exit41, label %455
+  br i1 %467, label %.sink.split, label %455
 
 468:                                              ; preds = %458
   %469 = add nuw i64 %460, 1
@@ -9329,7 +9324,7 @@ _ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit297: ;
   store i64 %505, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !2399, !noalias !2403
   %.sroa.5.0..sroa_idx.i35 = getelementptr inbounds i8, ptr %3, i64 16
   store i32 %.0.i296, ptr %.sroa.5.0..sroa_idx.i35, align 8, !alias.scope !2399, !noalias !2403
-  br label %_ZN14regex_automata6hybrid6search24find_overlapping_fwd_imp17ha1c3533d5ea98bf6E.exit41
+  br label %.sink.split
 
 506:                                              ; preds = %455
   %.not.i298 = icmp ugt i64 %.sroa.440.0.copyload.i13, %.sroa.541.0.copyload.i15
@@ -9531,7 +9526,7 @@ _ZN14regex_automata6hybrid6search7eoi_fwd17h44851bdaa872c461E.exit: ; preds = %"
   %571 = add i64 %570, %.0.i.i325
   store i64 %571, ptr %569, align 8, !alias.scope !2543, !noalias !2401
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19), !noalias !2499
-  br label %_ZN14regex_automata6hybrid6search24find_overlapping_fwd_imp17ha1c3533d5ea98bf6E.exit41
+  br label %.sink.split
 
 572:                                              ; preds = %564
   %573 = landingpad { ptr, i32 }
@@ -9586,7 +9581,7 @@ _ZN14regex_automata6hybrid3dfa3DFA10next_state17hdf7fbf07a67bbb18E.exit341: ; pr
   %.sroa.41.0..sroa_idx.i.i.i343 = getelementptr inbounds i8, ptr %589, i64 8
   store i64 %.val172, ptr %.sroa.41.0..sroa_idx.i.i.i343, align 8, !noalias !2564
   %trunc67.i22 = trunc nuw i32 %.fca.0.extract.i337 to i1
-  br i1 %trunc67.i22, label %_ZN14regex_automata6hybrid6search24find_overlapping_fwd_imp17ha1c3533d5ea98bf6E.exit41, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h39b1498b2333fb33E.exit344.thread"
+  br i1 %trunc67.i22, label %.sink.split, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h39b1498b2333fb33E.exit344.thread"
 
 590:                                              ; preds = %553
   call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %521, i64 noundef %514, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.42) #44, !noalias !2401
@@ -9640,7 +9635,7 @@ _ZN14regex_automata6hybrid3dfa3DFA10next_state17hdf7fbf07a67bbb18E.exit341: ; pr
   %.sroa.527.0..sroa_idx.i31 = getelementptr inbounds i8, ptr %3, i64 16
   store i32 %607, ptr %.sroa.527.0..sroa_idx.i31, align 8, !alias.scope !2399, !noalias !2403
   call fastcc void @_ZN14regex_automata6hybrid3dfa5Cache13search_finish17h4048cce97b222203E(ptr noalias noundef nonnull align 8 dereferenceable(352) %1, i64 noundef %608), !noalias !2401
-  br label %_ZN14regex_automata6hybrid6search24find_overlapping_fwd_imp17ha1c3533d5ea98bf6E.exit41
+  br label %.sink.split
 
 609:                                              ; preds = %602
   %610 = and i64 %593, 536870912
@@ -9650,7 +9645,7 @@ _ZN14regex_automata6hybrid3dfa3DFA10next_state17hdf7fbf07a67bbb18E.exit341: ; pr
 611:                                              ; preds = %602
   %612 = load i64, ptr %456, align 8, !alias.scope !2399, !noalias !2403, !noundef !9
   call fastcc void @_ZN14regex_automata6hybrid3dfa5Cache13search_finish17h4048cce97b222203E(ptr noalias noundef nonnull align 8 dereferenceable(352) %1, i64 noundef %612), !noalias !2401
-  br label %_ZN14regex_automata6hybrid6search24find_overlapping_fwd_imp17ha1c3533d5ea98bf6E.exit41
+  br label %.sink.split
 
 613:                                              ; preds = %609
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %20), !noalias !2499
@@ -9682,19 +9677,19 @@ _ZN14regex_automata6hybrid3dfa3DFA10next_state17hdf7fbf07a67bbb18E.exit341: ; pr
   store i8 %624, ptr %.sroa.4.0..sroa_idx.i347, align 1, !noalias !2401
   %.sroa.51.0..sroa_idx.i348 = getelementptr inbounds i8, ptr %625, i64 8
   store i64 %620, ptr %.sroa.51.0..sroa_idx.i348, align 8, !noalias !2401
-  br label %_ZN14regex_automata6hybrid6search24find_overlapping_fwd_imp17ha1c3533d5ea98bf6E.exit41
+  br label %.sink.split
 
 626:                                              ; preds = %618
   call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %620, i64 noundef %514, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09ebd1a1fbc06cbf73656c4d6a94c431.44) #44, !noalias !2401
   unreachable
 
-_ZN14regex_automata6hybrid6search24find_overlapping_fwd_imp17ha1c3533d5ea98bf6E.exit41: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h39b1498b2333fb33E.exit344", %441, %444, %447, %463, %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit297, %604, %611, %622, %566
-  %.1.i21 = phi ptr [ %559, %566 ], [ null, %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit297 ], [ null, %604 ], [ null, %611 ], [ %625, %622 ], [ null, %463 ], [ %445, %444 ], [ %449, %447 ], [ %442, %441 ], [ %589, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h39b1498b2333fb33E.exit344" ]
+.sink.split:                                      ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h39b1498b2333fb33E.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h39b1498b2333fb33E.exit344", %566, %622, %611, %604, %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit297, %463, %447, %444, %441, %240, %_ZN14regex_automata6hybrid6search8init_fwd17h27c50c577b94c7c4E.exit130.thread, %297, %286, %279, %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit, %112, %95, %92, %89
+  %.0.ph = phi ptr [ %233, %240 ], [ null, %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit ], [ %.2.i, %_ZN14regex_automata6hybrid6search8init_fwd17h27c50c577b94c7c4E.exit130.thread ], [ null, %279 ], [ null, %286 ], [ %300, %297 ], [ null, %112 ], [ %93, %92 ], [ %97, %95 ], [ %90, %89 ], [ %559, %566 ], [ null, %_ZN14regex_automata6hybrid3dfa3DFA13match_pattern17h40e1573012cd1570E.exit297 ], [ null, %604 ], [ null, %611 ], [ %625, %622 ], [ null, %463 ], [ %445, %444 ], [ %449, %447 ], [ %442, %441 ], [ %589, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h39b1498b2333fb33E.exit344" ], [ %263, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h39b1498b2333fb33E.exit" ]
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %5)
   br label %627
 
-627:                                              ; preds = %_ZN14regex_automata6hybrid6search24find_overlapping_fwd_imp17ha1c3533d5ea98bf6E.exit, %_ZN14regex_automata6hybrid6search24find_overlapping_fwd_imp17ha1c3533d5ea98bf6E.exit41, %4
-  %.0 = phi ptr [ null, %4 ], [ %.1.i, %_ZN14regex_automata6hybrid6search24find_overlapping_fwd_imp17ha1c3533d5ea98bf6E.exit ], [ %.1.i21, %_ZN14regex_automata6hybrid6search24find_overlapping_fwd_imp17ha1c3533d5ea98bf6E.exit41 ]
+627:                                              ; preds = %.sink.split, %4
+  %.0 = phi ptr [ null, %4 ], [ %.0.ph, %.sink.split ]
   ret ptr %.0
 }
 

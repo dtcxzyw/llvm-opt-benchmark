@@ -548,7 +548,7 @@ _ZN2h25proto7streams12flow_control11FlowControl18unclaimed_capacity17h90c864e56e
   %52 = tail call { i64, ptr } @"_ZN2h25codec12framed_write24FramedWrite$LT$T$C$B$GT$10poll_ready17h9a4695c8ca88b7dbE"(ptr noalias noundef nonnull align 8 dereferenceable(320) %51, ptr noalias noundef nonnull align 8 dereferenceable(8) %1), !noalias !71
   %53 = extractvalue { i64, ptr } %52, 0
   %switch12.i = icmp eq i64 %53, 0
-  br i1 %switch12.i, label %.lr.ph.i, label %_ZN2h25proto7streams4recv4Recv26send_stream_window_updates17hdedacff5c3441162E.exit
+  br i1 %switch12.i, label %.lr.ph.i, label %_ZN2h25proto7streams4recv4Recv29send_connection_window_update17h4e1ca61c44d33c73E.exit.sink.split
 
 .lr.ph.i:                                         ; preds = %50
   %54 = getelementptr inbounds i8, ptr %0, i64 80
@@ -590,7 +590,7 @@ _ZN2h25proto7streams12flow_control11FlowControl18unclaimed_capacity17h90c864e56e
   %74 = phi { i64, ptr } [ %52, %.lr.ph.i ], [ %184, %_ZN2h25proto7streams6counts6Counts10transition17h7fffe002cb8e8c2fE.exit.i ]
   %75 = extractvalue { i64, ptr } %74, 1
   %76 = icmp eq ptr %75, null
-  br i1 %76, label %77, label %.loopexit
+  br i1 %76, label %77, label %_ZN2h25proto7streams4recv4Recv29send_connection_window_update17h4e1ca61c44d33c73E.exit.sink.split
 
 77:                                               ; preds = %73
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25), !noalias !76
@@ -601,7 +601,7 @@ _ZN2h25proto7streams12flow_control11FlowControl18unclaimed_capacity17h90c864e56e
 
 80:                                               ; preds = %77
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25), !noalias !76
-  br label %.loopexit
+  br label %_ZN2h25proto7streams4recv4Recv29send_connection_window_update17h4e1ca61c44d33c73E.exit.sink.split
 
 81:                                               ; preds = %77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %25, i64 16, i1 false), !noalias !76
@@ -892,20 +892,17 @@ _ZN2h25proto7streams6counts6Counts10transition17h7fffe002cb8e8c2fE.exit.i: ; pre
   %184 = call { i64, ptr } @"_ZN2h25codec12framed_write24FramedWrite$LT$T$C$B$GT$10poll_ready17h9a4695c8ca88b7dbE"(ptr noalias noundef nonnull align 8 dereferenceable(320) %51, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
   %185 = extractvalue { i64, ptr } %184, 0
   %switch.i22 = icmp eq i64 %185, 0
-  br i1 %switch.i22, label %73, label %_ZN2h25proto7streams4recv4Recv26send_stream_window_updates17hdedacff5c3441162E.exit
+  br i1 %switch.i22, label %73, label %_ZN2h25proto7streams4recv4Recv29send_connection_window_update17h4e1ca61c44d33c73E.exit.sink.split
 
-_ZN2h25proto7streams4recv4Recv26send_stream_window_updates17hdedacff5c3441162E.exit: ; preds = %_ZN2h25proto7streams6counts6Counts10transition17h7fffe002cb8e8c2fE.exit.i, %50
-  %.sroa.0.1.i = phi i64 [ %53, %50 ], [ %185, %_ZN2h25proto7streams6counts6Counts10transition17h7fffe002cb8e8c2fE.exit.i ]
+_ZN2h25proto7streams4recv4Recv29send_connection_window_update17h4e1ca61c44d33c73E.exit.sink.split: ; preds = %73, %_ZN2h25proto7streams6counts6Counts10transition17h7fffe002cb8e8c2fE.exit.i, %80, %50
+  %.sroa.6.2.ph = phi ptr [ undef, %50 ], [ %75, %80 ], [ %75, %_ZN2h25proto7streams6counts6Counts10transition17h7fffe002cb8e8c2fE.exit.i ], [ %75, %73 ]
+  %.sroa.0.2.ph = phi i64 [ %53, %50 ], [ 0, %80 ], [ 0, %73 ], [ %185, %_ZN2h25proto7streams6counts6Counts10transition17h7fffe002cb8e8c2fE.exit.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
   br label %_ZN2h25proto7streams4recv4Recv29send_connection_window_update17h4e1ca61c44d33c73E.exit
 
-.loopexit:                                        ; preds = %73, %80
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
-  br label %_ZN2h25proto7streams4recv4Recv29send_connection_window_update17h4e1ca61c44d33c73E.exit
-
-_ZN2h25proto7streams4recv4Recv29send_connection_window_update17h4e1ca61c44d33c73E.exit: ; preds = %33, %_ZN2h25proto7streams4recv4Recv26send_stream_window_updates17hdedacff5c3441162E.exit, %37, %.loopexit
-  %.sroa.6.2 = phi ptr [ undef, %_ZN2h25proto7streams4recv4Recv26send_stream_window_updates17hdedacff5c3441162E.exit ], [ %75, %.loopexit ], [ %38, %37 ], [ undef, %33 ]
-  %.sroa.0.2 = phi i64 [ %.sroa.0.1.i, %_ZN2h25proto7streams4recv4Recv26send_stream_window_updates17hdedacff5c3441162E.exit ], [ 0, %.loopexit ], [ 0, %37 ], [ %36, %33 ]
+_ZN2h25proto7streams4recv4Recv29send_connection_window_update17h4e1ca61c44d33c73E.exit: ; preds = %_ZN2h25proto7streams4recv4Recv29send_connection_window_update17h4e1ca61c44d33c73E.exit.sink.split, %33, %37
+  %.sroa.6.2 = phi ptr [ %38, %37 ], [ undef, %33 ], [ %.sroa.6.2.ph, %_ZN2h25proto7streams4recv4Recv29send_connection_window_update17h4e1ca61c44d33c73E.exit.sink.split ]
+  %.sroa.0.2 = phi i64 [ 0, %37 ], [ %36, %33 ], [ %.sroa.0.2.ph, %_ZN2h25proto7streams4recv4Recv29send_connection_window_update17h4e1ca61c44d33c73E.exit.sink.split ]
   %186 = insertvalue { i64, ptr } poison, i64 %.sroa.0.2, 0
   %187 = insertvalue { i64, ptr } %186, ptr %.sroa.6.2, 1
   ret { i64, ptr } %187
@@ -999,7 +996,7 @@ _ZN2h25proto7streams12flow_control11FlowControl18unclaimed_capacity17h90c864e56e
   %52 = tail call { i64, ptr } @"_ZN2h25codec12framed_write24FramedWrite$LT$T$C$B$GT$10poll_ready17hcb7af75add869c8eE"(ptr noalias noundef nonnull align 8 dereferenceable(328) %51, ptr noalias noundef nonnull align 8 dereferenceable(8) %1), !noalias !133
   %53 = extractvalue { i64, ptr } %52, 0
   %switch12.i = icmp eq i64 %53, 0
-  br i1 %switch12.i, label %.lr.ph.i, label %_ZN2h25proto7streams4recv4Recv26send_stream_window_updates17h6b9acb7bee065c35E.exit
+  br i1 %switch12.i, label %.lr.ph.i, label %_ZN2h25proto7streams4recv4Recv29send_connection_window_update17h992ace00f3e08416E.exit.sink.split
 
 .lr.ph.i:                                         ; preds = %50
   %54 = getelementptr inbounds i8, ptr %0, i64 80
@@ -1041,7 +1038,7 @@ _ZN2h25proto7streams12flow_control11FlowControl18unclaimed_capacity17h90c864e56e
   %74 = phi { i64, ptr } [ %52, %.lr.ph.i ], [ %184, %_ZN2h25proto7streams6counts6Counts10transition17h11bc18d89a555085E.exit.i ]
   %75 = extractvalue { i64, ptr } %74, 1
   %76 = icmp eq ptr %75, null
-  br i1 %76, label %77, label %.loopexit
+  br i1 %76, label %77, label %_ZN2h25proto7streams4recv4Recv29send_connection_window_update17h992ace00f3e08416E.exit.sink.split
 
 77:                                               ; preds = %73
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25), !noalias !138
@@ -1052,7 +1049,7 @@ _ZN2h25proto7streams12flow_control11FlowControl18unclaimed_capacity17h90c864e56e
 
 80:                                               ; preds = %77
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25), !noalias !138
-  br label %.loopexit
+  br label %_ZN2h25proto7streams4recv4Recv29send_connection_window_update17h992ace00f3e08416E.exit.sink.split
 
 81:                                               ; preds = %77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %25, i64 16, i1 false), !noalias !138
@@ -1343,20 +1340,17 @@ _ZN2h25proto7streams6counts6Counts10transition17h11bc18d89a555085E.exit.i: ; pre
   %184 = call { i64, ptr } @"_ZN2h25codec12framed_write24FramedWrite$LT$T$C$B$GT$10poll_ready17hcb7af75add869c8eE"(ptr noalias noundef nonnull align 8 dereferenceable(328) %51, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
   %185 = extractvalue { i64, ptr } %184, 0
   %switch.i22 = icmp eq i64 %185, 0
-  br i1 %switch.i22, label %73, label %_ZN2h25proto7streams4recv4Recv26send_stream_window_updates17h6b9acb7bee065c35E.exit
+  br i1 %switch.i22, label %73, label %_ZN2h25proto7streams4recv4Recv29send_connection_window_update17h992ace00f3e08416E.exit.sink.split
 
-_ZN2h25proto7streams4recv4Recv26send_stream_window_updates17h6b9acb7bee065c35E.exit: ; preds = %_ZN2h25proto7streams6counts6Counts10transition17h11bc18d89a555085E.exit.i, %50
-  %.sroa.0.1.i = phi i64 [ %53, %50 ], [ %185, %_ZN2h25proto7streams6counts6Counts10transition17h11bc18d89a555085E.exit.i ]
+_ZN2h25proto7streams4recv4Recv29send_connection_window_update17h992ace00f3e08416E.exit.sink.split: ; preds = %73, %_ZN2h25proto7streams6counts6Counts10transition17h11bc18d89a555085E.exit.i, %80, %50
+  %.sroa.6.2.ph = phi ptr [ undef, %50 ], [ %75, %80 ], [ %75, %_ZN2h25proto7streams6counts6Counts10transition17h11bc18d89a555085E.exit.i ], [ %75, %73 ]
+  %.sroa.0.2.ph = phi i64 [ %53, %50 ], [ 0, %80 ], [ 0, %73 ], [ %185, %_ZN2h25proto7streams6counts6Counts10transition17h11bc18d89a555085E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
   br label %_ZN2h25proto7streams4recv4Recv29send_connection_window_update17h992ace00f3e08416E.exit
 
-.loopexit:                                        ; preds = %73, %80
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
-  br label %_ZN2h25proto7streams4recv4Recv29send_connection_window_update17h992ace00f3e08416E.exit
-
-_ZN2h25proto7streams4recv4Recv29send_connection_window_update17h992ace00f3e08416E.exit: ; preds = %33, %_ZN2h25proto7streams4recv4Recv26send_stream_window_updates17h6b9acb7bee065c35E.exit, %37, %.loopexit
-  %.sroa.6.2 = phi ptr [ undef, %_ZN2h25proto7streams4recv4Recv26send_stream_window_updates17h6b9acb7bee065c35E.exit ], [ %75, %.loopexit ], [ %38, %37 ], [ undef, %33 ]
-  %.sroa.0.2 = phi i64 [ %.sroa.0.1.i, %_ZN2h25proto7streams4recv4Recv26send_stream_window_updates17h6b9acb7bee065c35E.exit ], [ 0, %.loopexit ], [ 0, %37 ], [ %36, %33 ]
+_ZN2h25proto7streams4recv4Recv29send_connection_window_update17h992ace00f3e08416E.exit: ; preds = %_ZN2h25proto7streams4recv4Recv29send_connection_window_update17h992ace00f3e08416E.exit.sink.split, %33, %37
+  %.sroa.6.2 = phi ptr [ %38, %37 ], [ undef, %33 ], [ %.sroa.6.2.ph, %_ZN2h25proto7streams4recv4Recv29send_connection_window_update17h992ace00f3e08416E.exit.sink.split ]
+  %.sroa.0.2 = phi i64 [ 0, %37 ], [ %36, %33 ], [ %.sroa.0.2.ph, %_ZN2h25proto7streams4recv4Recv29send_connection_window_update17h992ace00f3e08416E.exit.sink.split ]
   %186 = insertvalue { i64, ptr } poison, i64 %.sroa.0.2, 0
   %187 = insertvalue { i64, ptr } %186, ptr %.sroa.6.2, 1
   ret { i64, ptr } %187
@@ -1865,8 +1859,8 @@ define hidden void @_ZN2h25proto7streams6counts6Counts10transition17hf26aa3d1484
   unreachable
 
 "_ZN2h25proto7streams7streams5Inner10recv_reset28_$u7b$$u7b$closure$u7d$$u7d$17h7c9764de34bf5016E.llvm.14108317313071697234.exit": ; preds = %18, %27
-  %storemerge = phi i8 [ %16, %27 ], [ 3, %18 ]
-  store i8 %storemerge, ptr %7, align 8, !alias.scope !253, !noalias !266
+  %.sink = phi i8 [ %16, %27 ], [ 3, %18 ]
+  store i8 %.sink, ptr %7, align 8, !alias.scope !253, !noalias !266
   %29 = icmp ne i32 %10, 1000000000
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)

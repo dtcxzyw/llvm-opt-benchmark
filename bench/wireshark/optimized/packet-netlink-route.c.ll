@@ -1195,30 +1195,30 @@ define internal range(i32 0, 2) i32 @dissect_netlink_route_ifa_attrs(ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @dissect_netlink_route_route_attrs(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
   %8 = alloca i32, align 4
-  switch i32 %4, label %17 [
+  switch i32 %4, label %18 [
     i32 3, label %9
     i32 4, label %11
   ]
 
 9:                                                ; preds = %7
   %10 = icmp eq i32 %6, 4
-  br i1 %10, label %.sink.split, label %17
+  br i1 %10, label %.sink.split, label %18
 
 11:                                               ; preds = %7
   %12 = icmp eq i32 %6, 4
-  br i1 %12, label %.sink.split, label %17
+  br i1 %12, label %.sink.split, label %18
 
 .sink.split:                                      ; preds = %11, %9
-  %hf_netlink_route_rta_iif.sink = phi ptr [ @hf_netlink_route_rta_iif, %9 ], [ @hf_netlink_route_rta_oif, %11 ]
-  %13 = load i32, ptr %hf_netlink_route_rta_iif.sink, align 4
+  %hf_netlink_route_rta_oif.sink = phi ptr [ @hf_netlink_route_rta_iif, %9 ], [ @hf_netlink_route_rta_oif, %11 ]
+  %13 = load i32, ptr %hf_netlink_route_rta_oif.sink, align 4
   %14 = getelementptr inbounds i8, ptr %2, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %13, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef %15, ptr noundef nonnull %8) #4
-  %.sink = load i32, ptr %8, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.409, i32 noundef %.sink) #4
-  br label %17
+  %17 = load i32, ptr %8, align 4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.409, i32 noundef %17) #4
+  br label %18
 
-17:                                               ; preds = %.sink.split, %7, %11, %9
+18:                                               ; preds = %.sink.split, %7, %11, %9
   %.0 = phi i32 [ 0, %9 ], [ 0, %11 ], [ 0, %7 ], [ 1, %.sink.split ]
   ret i32 %.0
 }

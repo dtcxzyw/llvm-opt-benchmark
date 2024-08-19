@@ -686,7 +686,7 @@ if.then20.i.i:                                    ; preds = %if.end16.i.i
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.27) #14
   br label %if.then5
 
-if.then5:                                         ; preds = %if.end, %if.end5.i.i, %if.then13.i.i, %if.then20.i.i
+if.then5:                                         ; preds = %if.then13.i.i, %if.then20.i.i, %if.end, %if.end5.i.i
   call void @llvm.lifetime.end.p0(i64 1084, ptr nonnull %msg.i.i)
   call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 2139, ptr noundef nonnull @__func__.vhost_user_backend_init, i32 noundef 71, ptr noundef nonnull @.str.18) #14
   br label %return
@@ -2124,16 +2124,12 @@ vhost_user_get_u64.exit:                          ; preds = %if.end16.i
   %payload.i = getelementptr inbounds i8, ptr %msg.i, i64 12
   %5 = load i64, ptr %payload.i, align 4
   store i64 %5, ptr %features, align 8
-  call void @llvm.lifetime.end.p0(i64 1084, ptr nonnull %msg.i)
-  br label %7
+  br label %6
 
-6:                                                ; preds = %if.then13.i, %if.then20.i, %entry, %if.end5.i
+6:                                                ; preds = %if.end5.i, %entry, %if.then20.i, %if.then13.i, %vhost_user_get_u64.exit
+  %7 = phi i32 [ 0, %vhost_user_get_u64.exit ], [ -71, %if.then13.i ], [ -71, %if.then20.i ], [ -71, %entry ], [ -71, %if.end5.i ]
   call void @llvm.lifetime.end.p0(i64 1084, ptr nonnull %msg.i)
-  br label %7
-
-7:                                                ; preds = %vhost_user_get_u64.exit, %6
-  %8 = phi i32 [ -71, %6 ], [ 0, %vhost_user_get_u64.exit ]
-  ret i32 %8
+  ret i32 %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -3753,7 +3749,7 @@ if.end15:                                         ; preds = %if.then9
   store i32 1, ptr %flags.i.i, align 4
   %call2.i.i = call fastcc i32 @vhost_user_write(ptr noundef readonly %dev, ptr noundef nonnull %msg.i.i, ptr noundef null, i32 noundef 0)
   %cmp3.i.i = icmp slt i32 %call2.i.i, 0
-  br i1 %cmp3.i.i, label %13, label %if.end5.i.i
+  br i1 %cmp3.i.i, label %vhost_user_get_features.exit, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %if.end15
   %9 = getelementptr i8, ptr %dev, i64 536
@@ -3763,7 +3759,7 @@ if.end5.i.i:                                      ; preds = %if.end15
   %dev.val.val.val.i.i = load ptr, ptr %dev.val.val.i.i, align 8
   %call6.i.i = call fastcc i32 @vhost_user_read(ptr %dev.val.val.val.i.i, ptr noundef nonnull %msg.i.i)
   %cmp7.i.i = icmp slt i32 %call6.i.i, 0
-  br i1 %cmp7.i.i, label %13, label %if.end9.i.i
+  br i1 %cmp7.i.i, label %vhost_user_get_features.exit, label %if.end9.i.i
 
 if.end9.i.i:                                      ; preds = %if.end5.i.i
   %11 = load i32, ptr %msg.i.i, align 4
@@ -3772,27 +3768,24 @@ if.end9.i.i:                                      ; preds = %if.end5.i.i
 
 if.then13.i.i:                                    ; preds = %if.end9.i.i
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str, i32 noundef 1, i32 noundef %11) #14
-  br label %13
+  br label %vhost_user_get_features.exit
 
 if.end16.i.i:                                     ; preds = %if.end9.i.i
   %12 = load i32, ptr %8, align 4
   %cmp18.not.i.i = icmp eq i32 %12, 8
-  br i1 %cmp18.not.i.i, label %vhost_user_get_u64.exit.i, label %if.then20.i.i
+  br i1 %cmp18.not.i.i, label %vhost_user_get_features.exit, label %if.then20.i.i
 
 if.then20.i.i:                                    ; preds = %if.end16.i.i
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.27) #14
-  br label %13
+  br label %vhost_user_get_features.exit
 
-vhost_user_get_u64.exit.i:                        ; preds = %if.end16.i.i
+vhost_user_get_features.exit:                     ; preds = %if.end16.i.i, %if.end15, %if.end5.i.i, %if.then13.i.i, %if.then20.i.i
+  %13 = phi i32 [ -71, %if.then13.i.i ], [ -71, %if.then20.i.i ], [ -71, %if.end15 ], [ -71, %if.end5.i.i ], [ 0, %if.end16.i.i ]
   call void @llvm.lifetime.end.p0(i64 1084, ptr nonnull %msg.i.i)
   br label %return
 
-13:                                               ; preds = %if.then20.i.i, %if.then13.i.i, %if.end5.i.i, %if.end15
-  call void @llvm.lifetime.end.p0(i64 1084, ptr nonnull %msg.i.i)
-  br label %return
-
-return:                                           ; preds = %13, %vhost_user_get_u64.exit.i, %if.end4, %process_message_reply.exit
-  %retval.0 = phi i32 [ %retval.0.i, %process_message_reply.exit ], [ %call5.mux, %if.end4 ], [ -71, %13 ], [ 0, %vhost_user_get_u64.exit.i ]
+return:                                           ; preds = %if.end4, %vhost_user_get_features.exit, %process_message_reply.exit
+  %retval.0 = phi i32 [ %retval.0.i, %process_message_reply.exit ], [ %13, %vhost_user_get_features.exit ], [ %call5.mux, %if.end4 ]
   ret i32 %retval.0
 }
 

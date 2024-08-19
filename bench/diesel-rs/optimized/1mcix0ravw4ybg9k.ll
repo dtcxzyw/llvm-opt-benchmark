@@ -3868,35 +3868,35 @@ default.unreachable:                              ; preds = %44
   %52 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %50, ptr %52, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %377
+  br label %376
 
 53:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %40)
   call void @"_ZN10bigdecimal12impl_convert82_$LT$impl$u20$core..convert..From$LT$i8$GT$$u20$for$u20$bigdecimal..BigDecimal$GT$4from17hbdc157c6c4ae2ce5E"(ptr noalias nocapture noundef nonnull sret({ { { { { i64, ptr }, i64 } }, i8, [7 x i8] }, i64 }) align 8 dereferenceable(40) %40, i8 noundef %.sroa.416.0.copyload)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %40, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %40)
-  br label %377
+  br label %376
 
 54:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %39)
   call void @"_ZN10bigdecimal12impl_convert83_$LT$impl$u20$core..convert..From$LT$i16$GT$$u20$for$u20$bigdecimal..BigDecimal$GT$4from17hfe766c1185bfc450E"(ptr noalias nocapture noundef nonnull sret({ { { { { i64, ptr }, i64 } }, i8, [7 x i8] }, i64 }) align 8 dereferenceable(40) %39, i16 noundef %.sroa.517.0.copyload)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %39, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %39)
-  br label %377
+  br label %376
 
 55:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %38)
   call void @"_ZN10bigdecimal12impl_convert83_$LT$impl$u20$core..convert..From$LT$i32$GT$$u20$for$u20$bigdecimal..BigDecimal$GT$4from17h24bbbd0d1bc53edcE"(ptr noalias nocapture noundef nonnull sret({ { { { { i64, ptr }, i64 } }, i8, [7 x i8] }, i64 }) align 8 dereferenceable(40) %38, i32 noundef %.sroa.6.0.copyload)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %38, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %38)
-  br label %377
+  br label %376
 
 56:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %37)
   call void @"_ZN10bigdecimal12impl_convert83_$LT$impl$u20$core..convert..From$LT$i64$GT$$u20$for$u20$bigdecimal..BigDecimal$GT$4from17h26959c1b278250f2E"(ptr noalias nocapture noundef nonnull sret({ { { { { i64, ptr }, i64 } }, i8, [7 x i8] }, i64 }) align 8 dereferenceable(40) %37, i64 noundef %45)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %37, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %37)
-  br label %377
+  br label %376
 
 57:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %36)
@@ -3992,10 +3992,6 @@ default.unreachable:                              ; preds = %44
   %.sroa.0.0.i = select i1 %trunc.i, ptr null, ptr %90
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29), !noalias !811
   br i1 %trunc.i, label %_ZN10bigdecimal10BigDecimal11parse_bytes17h901a6e73335f46c6E.exit.thread, label %93
-
-_ZN10bigdecimal10BigDecimal11parse_bytes17h901a6e73335f46c6E.exit.thread: ; preds = %85
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.451)
-  br label %363
 
 93:                                               ; preds = %85
   tail call void @llvm.experimental.noalias.scope.decl(metadata !816)
@@ -4581,14 +4577,14 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i.i.i: ; preds = %303
   %315 = getelementptr inbounds i8, ptr %13, i64 8
   %316 = load i64, ptr %315, align 8, !range !80, !noalias !930, !noundef !11
   %.not.i.i.i.i160.i.i.i = icmp eq i64 %316, 0
-  br i1 %.not.i.i.i.i160.i.i.i, label %375, label %317
+  br i1 %.not.i.i.i.i160.i.i.i, label %374, label %317
 
 317:                                              ; preds = %314
   %318 = load ptr, ptr %13, align 8, !noalias !930, !nonnull !11, !noundef !11
   %319 = getelementptr inbounds i8, ptr %13, i64 16
   %320 = load i64, ptr %319, align 8, !noalias !930, !noundef !11
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.2909037117879540835"(ptr noalias noundef nonnull readonly align 1 %.sroa.0112.sroa.4.0..sroa_idx.i.i.i, ptr noundef nonnull %318, i64 noundef %316, i64 noundef %320), !noalias !852
-  br label %375
+  br label %374
 
 321:                                              ; preds = %"_ZN10num_bigint6bigint7convert72_$LT$impl$u20$num_traits..Num$u20$for$u20$num_bigint..bigint..BigInt$GT$14from_str_radix17hd15c119b546e5cdaE.exit.i.i.i", %"_ZN10num_bigint6bigint7convert72_$LT$impl$u20$num_traits..Num$u20$for$u20$num_bigint..bigint..BigInt$GT$14from_str_radix17hd15c119b546e5cdaE.exit.thread.i.i.i"
   %.sroa.5166.0198.ph.i.i.i = phi i8 [ %.sroa.5166.0.copyload.i.i.i, %"_ZN10num_bigint6bigint7convert72_$LT$impl$u20$num_traits..Num$u20$for$u20$num_bigint..bigint..BigInt$GT$14from_str_radix17hd15c119b546e5cdaE.exit.i.i.i" ], [ %296, %"_ZN10num_bigint6bigint7convert72_$LT$impl$u20$num_traits..Num$u20$for$u20$num_bigint..bigint..BigInt$GT$14from_str_radix17hd15c119b546e5cdaE.exit.thread.i.i.i" ]
@@ -4606,8 +4602,8 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i.i.i: ; preds = %303
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #27, !noalias !852
   unreachable
 
-common.resume:                                    ; preds = %369, %355, %341, %273, %301
-  %common.resume.op = phi { ptr, i32 } [ %302, %301 ], [ %lpad.phi.i.i.i, %273 ], [ %342, %341 ], [ %356, %355 ], [ %370, %369 ]
+common.resume:                                    ; preds = %368, %355, %341, %273, %301
+  %common.resume.op = phi { ptr, i32 } [ %302, %301 ], [ %lpad.phi.i.i.i, %273 ], [ %342, %341 ], [ %356, %355 ], [ %369, %368 ]
   resume { ptr, i32 } %common.resume.op
 
 .thread.i:                                        ; preds = %.thread193.i.i.i, %.loopexit206.i.i.i, %93
@@ -4649,8 +4645,7 @@ common.resume:                                    ; preds = %369, %355, %341, %2
 
 _ZN10bigdecimal10BigDecimal11parse_bytes17h901a6e73335f46c6E.exit.thread64: ; preds = %.thread.i, %326, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb50398bb251d6c3eE.exit.i.i.i.i"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %28), !noalias !819
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.451)
-  br label %363
+  br label %_ZN10bigdecimal10BigDecimal11parse_bytes17h901a6e73335f46c6E.exit.thread
 
 335:                                              ; preds = %60, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb50398bb251d6c3eE.exit.i.i.i"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %33), !noalias !772
@@ -4720,7 +4715,7 @@ _ZN10bigdecimal10BigDecimal11parse_bytes17h901a6e73335f46c6E.exit.thread64: ; pr
 348:                                              ; preds = %347, %"_ZN6diesel5mysql5types7numeric10bigdecimal147_$LT$impl$u20$diesel..deserialize..FromSql$LT$diesel..sql_types..Numeric$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$bigdecimal..BigDecimal$GT$8from_sql28_$u7b$$u7b$closure$u7d$$u7d$17h4c9353ea7e12c5e9E.exit"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36)
-  br label %377
+  br label %376
 
 349:                                              ; preds = %74, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb50398bb251d6c3eE.exit.i.i.i24"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %31), !noalias !792
@@ -4790,13 +4785,14 @@ _ZN10bigdecimal10BigDecimal11parse_bytes17h901a6e73335f46c6E.exit.thread64: ; pr
 362:                                              ; preds = %361, %"_ZN6diesel5mysql5types7numeric10bigdecimal147_$LT$impl$u20$diesel..deserialize..FromSql$LT$diesel..sql_types..Numeric$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$bigdecimal..BigDecimal$GT$8from_sql28_$u7b$$u7b$closure$u7d$$u7d$17h6dfdaa6f04785975E.exit"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.449)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35)
-  br label %377
+  br label %376
 
-363:                                              ; preds = %_ZN10bigdecimal10BigDecimal11parse_bytes17h901a6e73335f46c6E.exit.thread64, %_ZN10bigdecimal10BigDecimal11parse_bytes17h901a6e73335f46c6E.exit.thread
+_ZN10bigdecimal10BigDecimal11parse_bytes17h901a6e73335f46c6E.exit.thread: ; preds = %85, %_ZN10bigdecimal10BigDecimal11parse_bytes17h901a6e73335f46c6E.exit.thread64
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.451)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !994
   store ptr %34, ptr %5, align 8, !noalias !994
-  %364 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h7f4af417c10dd49aE", ptr %364, align 8, !noalias !994
+  %363 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h7f4af417c10dd49aE", ptr %363, align 8, !noalias !994
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !997
   store ptr @anon.33cac3b1fca7ecc48f70bbdadbd2e063.73, ptr %3, align 8, !noalias !1008
   %.sroa.5.0..sroa_idx.i31 = getelementptr inbounds i8, ptr %3, i64 8
@@ -4811,41 +4807,41 @@ _ZN10bigdecimal10BigDecimal11parse_bytes17h901a6e73335f46c6E.exit.thread64: ; pr
   call void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !997
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !994
-  %365 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !1009
-  %366 = call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #28, !noalias !1012
-  %367 = icmp eq ptr %366, null
-  br i1 %367, label %368, label %"_ZN6diesel5mysql5types7numeric10bigdecimal147_$LT$impl$u20$diesel..deserialize..FromSql$LT$diesel..sql_types..Numeric$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$bigdecimal..BigDecimal$GT$8from_sql28_$u7b$$u7b$closure$u7d$$u7d$17h8c010ec5963e3ad9E.exit"
+  %364 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !1009
+  %365 = call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #28, !noalias !1012
+  %366 = icmp eq ptr %365, null
+  br i1 %366, label %367, label %"_ZN6diesel5mysql5types7numeric10bigdecimal147_$LT$impl$u20$diesel..deserialize..FromSql$LT$diesel..sql_types..Numeric$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$bigdecimal..BigDecimal$GT$8from_sql28_$u7b$$u7b$closure$u7d$$u7d$17h8c010ec5963e3ad9E.exit"
 
-368:                                              ; preds = %363
+367:                                              ; preds = %_ZN10bigdecimal10BigDecimal11parse_bytes17h901a6e73335f46c6E.exit.thread
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef 8, i64 noundef 24) #25
-          to label %.noexc.i35 unwind label %369
+          to label %.noexc.i35 unwind label %368
 
-.noexc.i35:                                       ; preds = %368
+.noexc.i35:                                       ; preds = %367
   unreachable
 
-369:                                              ; preds = %368
-  %370 = landingpad { ptr, i32 }
+368:                                              ; preds = %367
+  %369 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr205drop_in_place$LT$$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$..from..StringError$GT$17hfbe952fa3d1979e5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #26
-          to label %common.resume unwind label %371
+          to label %common.resume unwind label %370
 
-371:                                              ; preds = %369
-  %372 = landingpad { ptr, i32 }
+370:                                              ; preds = %368
+  %371 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #27
   unreachable
 
-"_ZN6diesel5mysql5types7numeric10bigdecimal147_$LT$impl$u20$diesel..deserialize..FromSql$LT$diesel..sql_types..Numeric$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$bigdecimal..BigDecimal$GT$8from_sql28_$u7b$$u7b$closure$u7d$$u7d$17h8c010ec5963e3ad9E.exit": ; preds = %363
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %366, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+"_ZN6diesel5mysql5types7numeric10bigdecimal147_$LT$impl$u20$diesel..deserialize..FromSql$LT$diesel..sql_types..Numeric$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$bigdecimal..BigDecimal$GT$8from_sql28_$u7b$$u7b$closure$u7d$$u7d$17h8c010ec5963e3ad9E.exit": ; preds = %_ZN10bigdecimal10BigDecimal11parse_bytes17h901a6e73335f46c6E.exit.thread
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %365, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !994
-  %373 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %366, ptr %373, align 8
-  %374 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr @anon.33cac3b1fca7ecc48f70bbdadbd2e063.75, ptr %374, align 8
+  %372 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %365, ptr %372, align 8
+  %373 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr @anon.33cac3b1fca7ecc48f70bbdadbd2e063.75, ptr %373, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %376
+  br label %375
 
-375:                                              ; preds = %317, %314
+374:                                              ; preds = %317, %314
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13), !noalias !930
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25), !noalias !826
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23), !noalias !819
@@ -4856,14 +4852,14 @@ _ZN10bigdecimal10BigDecimal11parse_bytes17h901a6e73335f46c6E.exit.thread64: ; pr
   store i64 %.sroa.0165.0.copyload.i.i.i, ptr %0, align 8
   %.sroa.451.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.451.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.451, i64 32, i1 false)
-  br label %376
+  br label %375
 
-376:                                              ; preds = %375, %"_ZN6diesel5mysql5types7numeric10bigdecimal147_$LT$impl$u20$diesel..deserialize..FromSql$LT$diesel..sql_types..Numeric$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$bigdecimal..BigDecimal$GT$8from_sql28_$u7b$$u7b$closure$u7d$$u7d$17h8c010ec5963e3ad9E.exit"
+375:                                              ; preds = %374, %"_ZN6diesel5mysql5types7numeric10bigdecimal147_$LT$impl$u20$diesel..deserialize..FromSql$LT$diesel..sql_types..Numeric$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$bigdecimal..BigDecimal$GT$8from_sql28_$u7b$$u7b$closure$u7d$$u7d$17h8c010ec5963e3ad9E.exit"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.451)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34)
-  br label %377
+  br label %376
 
-377:                                              ; preds = %53, %54, %55, %56, %348, %362, %376, %46
+376:                                              ; preds = %53, %54, %55, %56, %348, %362, %375, %46
   ret void
 }
 
@@ -4965,7 +4961,6 @@ define void @"_ZN6diesel2pg5types13date_and_time6chrono196_$LT$impl$u20$diesel..
   %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %12, ptr %.sroa.47.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.06)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
   br label %17
 
 14:                                               ; preds = %2
@@ -4973,11 +4968,11 @@ define void @"_ZN6diesel2pg5types13date_and_time6chrono196_$LT$impl$u20$diesel..
   store ptr %7, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %9, ptr %16, align 8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
   br label %17
 
 17:                                               ; preds = %14, %11
   %.sink = phi i32 [ 1, %14 ], [ 0, %11 ]
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
   store i32 %.sink, ptr %0, align 8
   ret void
 }

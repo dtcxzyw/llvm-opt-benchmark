@@ -1753,142 +1753,135 @@ dissect_extended_format_time_coordination_message.exit.i: ; preds = %113, %110, 
   %or.cond7.i = select i1 %50, i1 %54, i1 false
   %or.cond9.i = select i1 %53, i1 %51, i1 false
   %or.cond159.i = select i1 %or.cond7.i, i1 true, i1 %or.cond9.i
-  br i1 %or.cond159.i, label %139, label %190
+  br i1 %or.cond159.i, label %139, label %185
 
 139:                                              ; preds = %138
-  br i1 %30, label %140, label %148
+  br i1 %30, label %.sink.split171.i, label %143
 
-140:                                              ; preds = %139
-  %141 = getelementptr inbounds i8, ptr %3, i64 8
-  %142 = load ptr, ptr %141, align 8
-  br i1 %or.cond7.i, label %143, label %145
+.sink.split171.i:                                 ; preds = %139
+  %140 = getelementptr inbounds i8, ptr %3, i64 8
+  %141 = load ptr, ptr %140, align 8
+  %.sink172.idx.i = select i1 %or.cond7.i, i64 0, i64 40
+  %.sink172.i = getelementptr inbounds i8, ptr %141, i64 %.sink172.idx.i
+  %142 = load i64, ptr %.sink172.i, align 8
+  store i64 %142, ptr %14, align 8
+  br label %143
 
-143:                                              ; preds = %140
-  %144 = load i64, ptr %142, align 8
-  store i64 %144, ptr %14, align 8
-  br label %148
-
-145:                                              ; preds = %140
-  %146 = getelementptr inbounds i8, ptr %142, i64 40
-  %147 = load i64, ptr %146, align 8
-  store i64 %147, ptr %14, align 8
-  br label %148
-
-148:                                              ; preds = %145, %143, %139
-  %149 = sub nsw i32 %19, %45
-  %150 = icmp sgt i32 %149, 2
+143:                                              ; preds = %.sink.split171.i, %139
+  %144 = sub nsw i32 %19, %45
+  %145 = icmp sgt i32 %144, 2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.517) #6
-  %151 = load ptr, ptr %32, align 8
-  tail call void @col_append_str(ptr noundef %151, i32 noundef 25, ptr noundef nonnull @.str.11) #6
+  %146 = load ptr, ptr %32, align 8
+  tail call void @col_append_str(ptr noundef %146, i32 noundef 25, ptr noundef nonnull @.str.11) #6
   switch i32 %.0145.i, label %dissect_cip_safety_data.exit [
-    i32 0, label %152
-    i32 1, label %167
+    i32 0, label %147
+    i32 1, label %162
   ]
 
-152:                                              ; preds = %148
-  br i1 %150, label %158, label %153
+147:                                              ; preds = %143
+  br i1 %145, label %153, label %148
 
-153:                                              ; preds = %152
-  %154 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %149) #6
-  call fastcc void @dissect_base_format_1_or_2_byte_data(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %149, i32 noundef %31, ptr noundef nonnull %14)
-  %155 = add nsw i32 %149, 3
-  call fastcc void @dissect_base_format_time_stamp_section(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %155, i32 noundef %31, i8 noundef zeroext %154, ptr noundef nonnull %14)
-  br i1 %24, label %156, label %dissect_cip_safety_data.exit
+148:                                              ; preds = %147
+  %149 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %144) #6
+  call fastcc void @dissect_base_format_1_or_2_byte_data(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %144, i32 noundef %31, ptr noundef nonnull %14)
+  %150 = add nsw i32 %144, 3
+  call fastcc void @dissect_base_format_time_stamp_section(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %150, i32 noundef %31, i8 noundef zeroext %149, ptr noundef nonnull %14)
+  br i1 %24, label %151, label %dissect_cip_safety_data.exit
 
-156:                                              ; preds = %153
-  %157 = add nsw i32 %19, -6
-  tail call fastcc void @dissect_base_format_time_correction_message(ptr noundef %18, ptr noundef %0, i32 noundef %157)
+151:                                              ; preds = %148
+  %152 = add nsw i32 %19, -6
+  tail call fastcc void @dissect_base_format_time_correction_message(ptr noundef %18, ptr noundef %0, i32 noundef %152)
   br label %dissect_cip_safety_data.exit
 
-158:                                              ; preds = %152
-  %159 = and i32 %19, 1
-  %.not157.i = icmp eq i32 %159, 0
-  br i1 %.not157.i, label %162, label %160
+153:                                              ; preds = %147
+  %154 = and i32 %19, 1
+  %.not157.i = icmp eq i32 %154, 0
+  br i1 %.not157.i, label %157, label %155
 
-160:                                              ; preds = %158
-  %161 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %16, ptr noundef nonnull @ei_mal_io) #6
+155:                                              ; preds = %153
+  %156 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %16, ptr noundef nonnull @ei_mal_io) #6
   br label %dissect_cip_safety_data.exit
 
-162:                                              ; preds = %158
+157:                                              ; preds = %153
   %.in158.v.i = select i1 %24, i32 -14, i32 -8
   %.in158.i = add nsw i32 %.in158.v.i, %19
-  %163 = ashr exact i32 %.in158.i, 1
-  %164 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %163) #6
-  call fastcc void @dissect_base_format_3_to_250_byte_data(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %163, i32 noundef %31, ptr noundef nonnull %14)
-  %165 = add nsw i32 %.in158.i, 5
-  call fastcc void @dissect_base_format_time_stamp_section(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %165, i32 noundef %31, i8 noundef zeroext %164, ptr noundef nonnull %14)
-  br i1 %24, label %166, label %dissect_cip_safety_data.exit
+  %158 = ashr exact i32 %.in158.i, 1
+  %159 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %158) #6
+  call fastcc void @dissect_base_format_3_to_250_byte_data(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %158, i32 noundef %31, ptr noundef nonnull %14)
+  %160 = add nsw i32 %.in158.i, 5
+  call fastcc void @dissect_base_format_time_stamp_section(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %160, i32 noundef %31, i8 noundef zeroext %159, ptr noundef nonnull %14)
+  br i1 %24, label %161, label %dissect_cip_safety_data.exit
 
-166:                                              ; preds = %162
-  tail call fastcc void @dissect_base_format_time_correction_message(ptr noundef %18, ptr noundef %0, i32 noundef %165)
+161:                                              ; preds = %157
+  tail call fastcc void @dissect_base_format_time_correction_message(ptr noundef %18, ptr noundef %0, i32 noundef %160)
   br label %dissect_cip_safety_data.exit
 
-167:                                              ; preds = %148
-  br i1 %150, label %170, label %168
+162:                                              ; preds = %143
+  br i1 %145, label %165, label %163
 
-168:                                              ; preds = %167
-  %169 = add nsw i32 %149, 3
-  br label %174
+163:                                              ; preds = %162
+  %164 = add nsw i32 %144, 3
+  br label %169
 
-170:                                              ; preds = %167
+165:                                              ; preds = %162
   %.in.v.i = select i1 %24, i32 -14, i32 -8
   %.in.i = add nsw i32 %.in.v.i, %19
-  %171 = sdiv i32 %.in.i, 2
-  %172 = shl nsw i32 %171, 1
-  %173 = add nsw i32 %172, 5
-  br label %174
+  %166 = sdiv i32 %.in.i, 2
+  %167 = shl nsw i32 %166, 1
+  %168 = add nsw i32 %167, 5
+  br label %169
 
-174:                                              ; preds = %170, %168
-  %.sink.i = phi i32 [ %173, %170 ], [ %169, %168 ]
-  %.0142.i = phi i32 [ %171, %170 ], [ %149, %168 ]
-  %175 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.sink.i) #6
-  br i1 %30, label %176, label %178
+169:                                              ; preds = %165, %163
+  %.sink.i = phi i32 [ %168, %165 ], [ %164, %163 ]
+  %.0142.i = phi i32 [ %166, %165 ], [ %144, %163 ]
+  %170 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.sink.i) #6
+  br i1 %30, label %171, label %173
 
-176:                                              ; preds = %174
-  %177 = tail call fastcc ptr @get_timestamp_packet_data(ptr noundef nonnull %1, ptr noundef readonly %3, i16 noundef zeroext %175)
-  br label %178
+171:                                              ; preds = %169
+  %172 = tail call fastcc ptr @get_timestamp_packet_data(ptr noundef nonnull %1, ptr noundef readonly %3, i16 noundef zeroext %170)
+  br label %173
 
-178:                                              ; preds = %176, %174
-  %.0.i = phi ptr [ %177, %176 ], [ null, %174 ]
-  br i1 %150, label %182, label %179
+173:                                              ; preds = %171, %169
+  %.0.i = phi ptr [ %172, %171 ], [ null, %169 ]
+  br i1 %145, label %177, label %174
 
-179:                                              ; preds = %178
+174:                                              ; preds = %173
   call fastcc void @dissect_extended_format_1_or_2_byte_data(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %.0142.i, i32 noundef %31, ptr noundef nonnull %14, ptr noundef %.0.i)
-  br i1 %24, label %180, label %dissect_cip_safety_data.exit
+  br i1 %24, label %175, label %dissect_cip_safety_data.exit
 
-180:                                              ; preds = %179
-  %181 = add nsw i32 %19, -6
-  tail call fastcc void @dissect_extended_format_time_correction_message(ptr noundef %18, ptr noundef %0, i32 noundef %181)
+175:                                              ; preds = %174
+  %176 = add nsw i32 %19, -6
+  tail call fastcc void @dissect_extended_format_time_correction_message(ptr noundef %18, ptr noundef %0, i32 noundef %176)
   br label %dissect_cip_safety_data.exit
 
-182:                                              ; preds = %178
-  %183 = and i32 %19, 1
-  %.not155.i = icmp eq i32 %183, 0
-  br i1 %.not155.i, label %186, label %184
+177:                                              ; preds = %173
+  %178 = and i32 %19, 1
+  %.not155.i = icmp eq i32 %178, 0
+  br i1 %.not155.i, label %181, label %179
 
-184:                                              ; preds = %182
-  %185 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %16, ptr noundef nonnull @ei_mal_io) #6
+179:                                              ; preds = %177
+  %180 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %16, ptr noundef nonnull @ei_mal_io) #6
   br label %dissect_cip_safety_data.exit
 
-186:                                              ; preds = %182
+181:                                              ; preds = %177
   call fastcc void @dissect_extended_format_3_to_250_byte_data(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %.0142.i, i32 noundef %31, ptr noundef nonnull %14, ptr noundef %.0.i)
-  br i1 %24, label %187, label %dissect_cip_safety_data.exit
+  br i1 %24, label %182, label %dissect_cip_safety_data.exit
 
-187:                                              ; preds = %186
-  %188 = shl nsw i32 %.0142.i, 1
-  %189 = add nsw i32 %188, 8
-  tail call fastcc void @dissect_extended_format_time_correction_message(ptr noundef %18, ptr noundef %0, i32 noundef %189)
+182:                                              ; preds = %181
+  %183 = shl nsw i32 %.0142.i, 1
+  %184 = add nsw i32 %183, 8
+  tail call fastcc void @dissect_extended_format_time_correction_message(ptr noundef %18, ptr noundef %0, i32 noundef %184)
   br label %dissect_cip_safety_data.exit
 
-190:                                              ; preds = %138
-  %191 = load i32, ptr @hf_cipsafety_data, align 4
-  %192 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %191, ptr noundef %0, i32 noundef 0, i32 noundef %19, i32 noundef 0) #6
+185:                                              ; preds = %138
+  %186 = load i32, ptr @hf_cipsafety_data, align 4
+  %187 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %186, ptr noundef %0, i32 noundef 0, i32 noundef %19, i32 noundef 0) #6
   br label %dissect_cip_safety_data.exit
 
-dissect_cip_safety_data.exit:                     ; preds = %47, %69, %93, %103, %dissect_extended_format_time_coordination_message.exit.i, %148, %153, %156, %160, %162, %166, %179, %180, %184, %186, %187, %190
+dissect_cip_safety_data.exit:                     ; preds = %47, %69, %93, %103, %dissect_extended_format_time_coordination_message.exit.i, %143, %148, %151, %155, %157, %161, %174, %175, %179, %181, %182, %185
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  %193 = call i32 @tvb_captured_length(ptr noundef %0) #6
-  ret i32 %193
+  %188 = call i32 @tvb_captured_length(ptr noundef %0) #6
+  ret i32 %188
 }
 
 declare i32 @proto_register_protocol_in_name_only(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3

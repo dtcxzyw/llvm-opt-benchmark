@@ -2646,8 +2646,8 @@ errout.sink.split.sink.split:                     ; preds = %if.end6.i, %wc_ecc_
 
 errout.sink.split:                                ; preds = %errout.sink.split.sink.split, %if.end3.i
   %err.1.ph = phi i32 [ -125, %if.end3.i ], [ %err.1.ph.ph, %errout.sink.split.sink.split ]
-  %.sink = load ptr, ptr %curve, align 8
-  call fastcc void @wc_ecc_curve_free(ptr noundef %.sink)
+  %14 = load ptr, ptr %curve, align 8
+  call fastcc void @wc_ecc_curve_free(ptr noundef %14)
   br label %errout
 
 errout:                                           ; preds = %errout.sink.split, %entry

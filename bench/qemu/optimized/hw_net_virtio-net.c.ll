@@ -366,11 +366,7 @@ iov_to_buf.exit:                                  ; preds = %if.end, %land.lhs.t
   %call.i12 = call i64 @iov_to_buf_full(ptr noundef %call.i11, i32 noundef %out_num, i64 noundef 0, ptr noundef nonnull %ctrl, i64 noundef 2) #19
   %call6 = call i64 @iov_discard_front(ptr noundef nonnull %iov, ptr noundef nonnull %out_num.addr, i64 noundef 2) #19
   %cmp7.not = icmp eq i64 %call.i12, 2
-  br i1 %cmp7.not, label %if.else, label %if.then9
-
-if.then9:                                         ; preds = %iov_to_buf.exit
-  store i8 1, ptr %status, align 1
-  br label %if.end67
+  br i1 %cmp7.not, label %if.else, label %if.end67.sink.split
 
 if.else:                                          ; preds = %iov_to_buf.exit.thread, %iov_to_buf.exit
   %3 = load i8, ptr %ctrl, align 2
@@ -482,8 +478,7 @@ if.then.i13.i:                                    ; preds = %if.end35.i
 virtio_net_handle_rx_mode.exit:                   ; preds = %iov_to_buf.exit.i, %if.end.i, %if.end35.i, %if.then.i13.i
   %retval.0.i14 = phi i8 [ 1, %iov_to_buf.exit.i ], [ 1, %if.end.i ], [ 0, %if.end35.i ], [ 0, %if.then.i13.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %on.i)
-  store i8 %retval.0.i14, ptr %status, align 1
-  br label %if.end67
+  br label %if.end67.sink.split
 
 if.then21:                                        ; preds = %if.else
   %cmd22 = getelementptr inbounds i8, ptr %ctrl, i64 1
@@ -698,8 +693,7 @@ virtio_net_handle_mac.exit:                       ; preds = %if.then21, %if.then
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %iov.addr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %iov_cnt.addr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %mac_data.i)
-  store i8 %retval.0.i17, ptr %status, align 1
-  br label %if.end67
+  br label %if.end67.sink.split
 
 if.then30:                                        ; preds = %if.else
   %cmd31 = getelementptr inbounds i8, ptr %ctrl, i64 1
@@ -797,8 +791,7 @@ if.then.i7.i:                                     ; preds = %if.end31.i
 virtio_net_handle_vlan_table.exit:                ; preds = %iov_to_buf.exit.i43, %if.end9.i, %if.end31.i, %if.then.i7.i
   %retval.0.i53 = phi i8 [ 1, %iov_to_buf.exit.i43 ], [ 1, %if.end9.i ], [ 0, %if.end31.i ], [ 0, %if.then.i7.i ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %vid.i)
-  store i8 %retval.0.i53, ptr %status, align 1
-  br label %if.end67
+  br label %if.end67.sink.split
 
 if.then39:                                        ; preds = %if.else
   %cmd40 = getelementptr inbounds i8, ptr %ctrl, i64 1
@@ -841,30 +834,25 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 trace_virtio_net_handle_announce.exit.i:          ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.then39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   %cmp.i = icmp eq i8 %63, 0
-  br i1 %cmp.i, label %land.lhs.true.i, label %virtio_net_handle_announce.exit
+  br i1 %cmp.i, label %land.lhs.true.i, label %if.end67.sink.split
 
 land.lhs.true.i:                                  ; preds = %trace_virtio_net_handle_announce.exit.i
   %status.i = getelementptr inbounds i8, ptr %call.i, i64 526
   %71 = load i16, ptr %status.i, align 2
   %72 = and i16 %71, 2
   %tobool.not.i = icmp eq i16 %72, 0
-  br i1 %tobool.not.i, label %virtio_net_handle_announce.exit, label %if.then.i58
+  br i1 %tobool.not.i, label %if.end67.sink.split, label %if.then.i58
 
 if.then.i58:                                      ; preds = %land.lhs.true.i
   %and5.i = and i16 %71, -3
   store i16 %and5.i, ptr %status.i, align 2
   %73 = load i32, ptr %round.i, align 4
   %tobool9.not.i = icmp eq i32 %73, 0
-  br i1 %tobool9.not.i, label %virtio_net_handle_announce.exit, label %if.then10.i
+  br i1 %tobool9.not.i, label %if.end67.sink.split, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.then.i58
   %call.i59 = call i64 @qemu_announce_timer_step(ptr noundef nonnull %announce_timer.i) #19
-  br label %virtio_net_handle_announce.exit
-
-virtio_net_handle_announce.exit:                  ; preds = %trace_virtio_net_handle_announce.exit.i, %land.lhs.true.i, %if.then.i58, %if.then10.i
-  %retval.0.i57 = phi i8 [ 0, %if.then10.i ], [ 0, %if.then.i58 ], [ 1, %land.lhs.true.i ], [ 1, %trace_virtio_net_handle_announce.exit.i ]
-  store i8 %retval.0.i57, ptr %status, align 1
-  br label %if.end67
+  br label %if.end67.sink.split
 
 if.then48:                                        ; preds = %if.else
   %cmd49 = getelementptr inbounds i8, ptr %ctrl, i64 1
@@ -967,8 +955,7 @@ if.end47.i:                                       ; preds = %land.lhs.true.i70, 
 virtio_net_handle_mq.exit:                        ; preds = %if.then48, %if.then.i75, %if.then13.i63, %iov_to_buf.exit.i73, %if.end26.i, %lor.lhs.false33.i, %lor.lhs.false38.i, %land.lhs.true.i70, %if.end47.i
   %retval.0.i72 = phi i8 [ %78, %if.then.i75 ], [ 0, %if.end47.i ], [ 1, %if.then13.i63 ], [ 1, %iov_to_buf.exit.i73 ], [ 1, %if.then48 ], [ 1, %lor.lhs.false38.i ], [ 1, %lor.lhs.false33.i ], [ 1, %if.end26.i ], [ 0, %land.lhs.true.i70 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %mq.i)
-  store i8 %retval.0.i72, ptr %status, align 1
-  br label %if.end67
+  br label %if.end67.sink.split
 
 if.then57:                                        ; preds = %if.else
   %cmd58 = getelementptr inbounds i8, ptr %ctrl, i64 1
@@ -1082,11 +1069,15 @@ if.end27.i:                                       ; preds = %land.end21.i
 virtio_net_handle_offloads.exit:                  ; preds = %if.then57, %iov_to_buf.exit.i88, %if.then7.i, %land.end21.i, %if.end27.i
   %retval.0.i91 = phi i8 [ 0, %if.end27.i ], [ 1, %if.then57 ], [ 1, %iov_to_buf.exit.i88 ], [ 1, %if.then7.i ], [ 1, %land.end21.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offloads.i)
-  store i8 %retval.0.i91, ptr %status, align 1
+  br label %if.end67.sink.split
+
+if.end67.sink.split:                              ; preds = %if.then10.i, %if.then.i58, %land.lhs.true.i, %trace_virtio_net_handle_announce.exit.i, %iov_to_buf.exit, %virtio_net_handle_mac.exit, %virtio_net_handle_offloads.exit, %virtio_net_handle_mq.exit, %virtio_net_handle_vlan_table.exit, %virtio_net_handle_rx_mode.exit
+  %retval.0.i14.sink = phi i8 [ %retval.0.i14, %virtio_net_handle_rx_mode.exit ], [ %retval.0.i53, %virtio_net_handle_vlan_table.exit ], [ %retval.0.i72, %virtio_net_handle_mq.exit ], [ %retval.0.i91, %virtio_net_handle_offloads.exit ], [ %retval.0.i17, %virtio_net_handle_mac.exit ], [ 1, %iov_to_buf.exit ], [ 0, %if.then10.i ], [ 0, %if.then.i58 ], [ 1, %land.lhs.true.i ], [ 1, %trace_virtio_net_handle_announce.exit.i ]
+  store i8 %retval.0.i14.sink, ptr %status, align 1
   br label %if.end67
 
-if.end67:                                         ; preds = %if.else, %virtio_net_handle_rx_mode.exit, %virtio_net_handle_vlan_table.exit, %virtio_net_handle_mq.exit, %virtio_net_handle_offloads.exit, %virtio_net_handle_announce.exit, %virtio_net_handle_mac.exit, %if.then9
-  %116 = phi i8 [ 1, %if.else ], [ %retval.0.i14, %virtio_net_handle_rx_mode.exit ], [ %retval.0.i53, %virtio_net_handle_vlan_table.exit ], [ %retval.0.i72, %virtio_net_handle_mq.exit ], [ %retval.0.i91, %virtio_net_handle_offloads.exit ], [ %retval.0.i57, %virtio_net_handle_announce.exit ], [ %retval.0.i17, %virtio_net_handle_mac.exit ], [ 1, %if.then9 ]
+if.end67:                                         ; preds = %if.end67.sink.split, %if.else
+  %116 = phi i8 [ 1, %if.else ], [ %retval.0.i14.sink, %if.end67.sink.split ]
   %tobool.i96.not = icmp eq i32 %in_num, 0
   br i1 %tobool.i96.not, label %iov_from_buf.exit, label %land.lhs.true1.i101
 
@@ -7164,10 +7155,6 @@ virtio_net_process_rss.exit.thread173:            ; preds = %if.end.i103
   %default_queue.i = getelementptr inbounds i8, ptr %call.i100, i64 9224
   %20 = load i16, ptr %default_queue.i, align 8
   %conv11.i = zext i16 %20 to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %hasip4.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %hasip6.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %l4hdr_proto.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %iov.i)
   br label %if.then10
 
 if.end12.i:                                       ; preds = %if.end38.i.i, %sw.epilog34.i.i, %if.end28.i.i, %sw.bb24.i.i, %if.end19.i.i, %sw.bb15.i.i, %sw.epilog.i.i, %sw.bb4.i.i, %sw.bb.i.i
@@ -7210,7 +7197,7 @@ if.end31.i:                                       ; preds = %if.end20.i
   %26 = load i16, ptr %arrayidx29.i, align 2
   %conv30.i = zext i16 %26 to i32
   %cmp32.i = icmp eq i32 %11, %conv30.i
-  br i1 %cmp32.i, label %virtio_net_process_rss.exit.thread, label %virtio_net_process_rss.exit
+  br i1 %cmp32.i, label %virtio_net_process_rss.exit.thread, label %if.then10
 
 virtio_net_process_rss.exit.thread:               ; preds = %if.end20.i, %if.end.i103, %if.end31.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %hasip4.i)
@@ -7219,15 +7206,12 @@ virtio_net_process_rss.exit.thread:               ; preds = %if.end20.i, %if.end
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %iov.i)
   br label %if.end14
 
-virtio_net_process_rss.exit:                      ; preds = %if.end31.i
+if.then10:                                        ; preds = %if.end31.i, %virtio_net_process_rss.exit.thread173
+  %retval.0.i104176 = phi i32 [ %conv11.i, %virtio_net_process_rss.exit.thread173 ], [ %conv30.i, %if.end31.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %hasip4.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %hasip6.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %l4hdr_proto.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %iov.i)
-  br label %if.then10
-
-if.then10:                                        ; preds = %virtio_net_process_rss.exit, %virtio_net_process_rss.exit.thread173
-  %retval.0.i104176 = phi i32 [ %conv11.i, %virtio_net_process_rss.exit.thread173 ], [ %conv30.i, %virtio_net_process_rss.exit ]
   %nic = getelementptr inbounds i8, ptr %call, i64 544
   %27 = load ptr, ptr %nic, align 8
   %call11 = call ptr @qemu_get_subqueue(ptr noundef %27, i32 noundef %retval.0.i104176) #19

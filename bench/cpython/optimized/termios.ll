@@ -654,29 +654,23 @@ if.end5:                                          ; preds = %if.end
   %1 = load ptr, ptr %arrayidx6, align 8
   %call7 = call i32 @PyLong_AsInt(ptr noundef %1) #4
   %cmp8 = icmp eq i32 %call7, -1
-  br i1 %cmp8, label %land.lhs.true9, label %if.end5.split
-
-if.end5.split:                                    ; preds = %if.end5
-  %arrayidx146 = getelementptr i8, ptr %args, i64 16
-  %2 = load ptr, ptr %arrayidx146, align 8
-  %3 = load i32, ptr %fd, align 4
-  %call157 = call fastcc ptr @termios_tcsetattr_impl(ptr noundef %module, i32 noundef %3, i32 noundef %call7, ptr noundef %2)
-  br label %exit
+  br i1 %cmp8, label %land.lhs.true9, label %exit.sink.split
 
 land.lhs.true9:                                   ; preds = %if.end5
   %call10 = call ptr @PyErr_Occurred() #4
   %tobool11.not = icmp eq ptr %call10, null
-  br i1 %tobool11.not, label %land.lhs.true9.split, label %exit
+  br i1 %tobool11.not, label %exit.sink.split, label %exit
 
-land.lhs.true9.split:                             ; preds = %land.lhs.true9
-  %arrayidx148 = getelementptr i8, ptr %args, i64 16
-  %4 = load ptr, ptr %arrayidx148, align 8
-  %5 = load i32, ptr %fd, align 4
-  %call159 = call fastcc ptr @termios_tcsetattr_impl(ptr noundef %module, i32 noundef %5, i32 noundef -1, ptr noundef %4)
+exit.sink.split:                                  ; preds = %land.lhs.true9, %if.end5
+  %call7.sink = phi i32 [ %call7, %if.end5 ], [ -1, %land.lhs.true9 ]
+  %arrayidx146 = getelementptr i8, ptr %args, i64 16
+  %2 = load ptr, ptr %arrayidx146, align 8
+  %3 = load i32, ptr %fd, align 4
+  %call157 = call fastcc ptr @termios_tcsetattr_impl(ptr noundef %module, i32 noundef %3, i32 noundef %call7.sink, ptr noundef %2)
   br label %exit
 
-exit:                                             ; preds = %if.end5.split, %land.lhs.true9.split, %land.lhs.true9, %if.end, %lor.lhs.false
-  %return_value.0 = phi ptr [ null, %land.lhs.true9 ], [ null, %if.end ], [ null, %lor.lhs.false ], [ %call157, %if.end5.split ], [ %call159, %land.lhs.true9.split ]
+exit:                                             ; preds = %exit.sink.split, %land.lhs.true9, %if.end, %lor.lhs.false
+  %return_value.0 = phi ptr [ null, %land.lhs.true9 ], [ null, %if.end ], [ null, %lor.lhs.false ], [ %call157, %exit.sink.split ]
   ret ptr %return_value.0
 }
 

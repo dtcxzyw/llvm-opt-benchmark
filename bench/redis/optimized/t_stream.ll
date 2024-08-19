@@ -9342,23 +9342,19 @@ if.end140:                                        ; preds = %if.else6.i, %if.els
   %propagate_last_id.0 = phi i32 [ 1, %if.then138 ], [ 0, %if.else.i ], [ 0, %if.else6.i ]
   %47 = load i64, ptr %deliverytime, align 8
   %cmp141.not = icmp eq i64 %47, -1
-  br i1 %cmp141.not, label %if.else151, label %if.then143
+  br i1 %cmp141.not, label %if.end.i139.sink.split, label %if.then143
 
 if.then143:                                       ; preds = %if.end140
   %cmp144 = icmp slt i64 %47, 0
   %cmp147 = icmp sgt i64 %47, %call45
   %or.cond133 = select i1 %cmp144, i1 true, i1 %cmp147
-  br i1 %or.cond133, label %if.then149, label %if.end.i139
+  br i1 %or.cond133, label %if.end.i139.sink.split, label %if.end.i139
 
-if.then149:                                       ; preds = %if.then143
+if.end.i139.sink.split:                           ; preds = %if.end140, %if.then143
   store i64 %call45, ptr %deliverytime, align 8
   br label %if.end.i139
 
-if.else151:                                       ; preds = %if.end140
-  store i64 %call45, ptr %deliverytime, align 8
-  br label %if.end.i139
-
-if.end.i139:                                      ; preds = %if.else151, %if.then149, %if.then143
+if.end.i139:                                      ; preds = %if.end.i139.sink.split, %if.then143
   %48 = load ptr, ptr %argv, align 8
   %arrayidx154 = getelementptr inbounds i8, ptr %48, i64 24
   %49 = load ptr, ptr %arrayidx154, align 8

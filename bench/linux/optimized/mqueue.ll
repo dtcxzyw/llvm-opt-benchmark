@@ -3137,7 +3137,7 @@ define internal fastcc i32 @do_mq_notify(i32 noundef %0, ptr noundef %1) unnamed
   %30 = load ptr, ptr %1, align 8
   %31 = tail call i64 @_copy_from_user(ptr noundef %29, ptr noundef %30, i64 noundef 32) #15
   %32 = icmp eq i64 %31, 0
-  br i1 %32, label %33, label %.thread15
+  br i1 %32, label %33, label %.sink.split
 
 33:                                               ; preds = %27
   %34 = tail call ptr @skb_put(ptr noundef nonnull %25, i32 noundef 32) #15
@@ -3150,7 +3150,7 @@ define internal fastcc i32 @do_mq_notify(i32 noundef %0, ptr noundef %1) unnamed
   %39 = and i64 %38, -4
   %40 = inttoptr i64 %39 to ptr
   %41 = icmp eq i64 %39, 0
-  br i1 %41, label %.thread17, label %42
+  br i1 %41, label %.sink.split, label %42
 
 42:                                               ; preds = %36
   %43 = call ptr @netlink_getsockbyfilp(ptr noundef nonnull %40) #15
@@ -3169,7 +3169,7 @@ define internal fastcc i32 @do_mq_notify(i32 noundef %0, ptr noundef %1) unnamed
 49:                                               ; preds = %47
   %50 = ptrtoint ptr %43 to i64
   %51 = trunc i64 %50 to i32
-  br label %.thread15
+  br label %.sink.split
 
 52:                                               ; preds = %47
   store i64 9223372036854775807, ptr %3, align 8
@@ -3187,15 +3187,6 @@ define internal fastcc i32 @do_mq_notify(i32 noundef %0, ptr noundef %1) unnamed
   %.ph12 = phi i32 [ -12, %24 ], [ %53, %52 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
   br label %165
-
-.thread15:                                        ; preds = %49, %27
-  %.ph14 = phi i32 [ -14, %27 ], [ %51, %49 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
-  br label %162
-
-.thread17:                                        ; preds = %36
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
-  br label %162
 
 54:                                               ; preds = %.thread16, %20, %19, %13
   %55 = phi ptr [ null, %13 ], [ null, %19 ], [ null, %20 ], [ %25, %.thread16 ]
@@ -3379,9 +3370,14 @@ define internal fastcc i32 @do_mq_notify(i32 noundef %0, ptr noundef %1) unnamed
   call void @netlink_detachskb(ptr noundef nonnull %158, ptr noundef %157) #15
   br label %165
 
-162:                                              ; preds = %.thread17, %.thread15, %156
-  %163 = phi ptr [ %157, %156 ], [ %25, %.thread15 ], [ %25, %.thread17 ]
-  %164 = phi i32 [ %159, %156 ], [ %.ph14, %.thread15 ], [ -9, %.thread17 ]
+.sink.split:                                      ; preds = %36, %27, %49
+  %.ph = phi i32 [ -14, %27 ], [ %51, %49 ], [ -9, %36 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  br label %162
+
+162:                                              ; preds = %.sink.split, %156
+  %163 = phi ptr [ %157, %156 ], [ %25, %.sink.split ]
+  %164 = phi i32 [ %159, %156 ], [ %.ph, %.sink.split ]
   call void @consume_skb(ptr noundef %163) #15
   br label %165
 

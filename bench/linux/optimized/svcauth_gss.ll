@@ -1526,13 +1526,6 @@ gss_svc_searchbyctx.exit.thread:                  ; preds = %596, %.thread.i29, 
   %624 = icmp eq ptr %623, null
   br i1 %624, label %625, label %.thread37
 
-.thread37:                                        ; preds = %621
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #24
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %14) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #24
-  br label %750
-
 625:                                              ; preds = %621
   %626 = call i32 @gss_verify_mic(ptr noundef %610, ptr noundef nonnull %14, ptr noundef nonnull %15) #24
   %627 = icmp eq i32 %626, 0
@@ -1777,15 +1770,11 @@ gss_svc_searchbyctx.exit.thread:                  ; preds = %596, %.thread.i29, 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #24
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %14) #24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #24
-  br label %805
+  br label %804
 
 744:                                              ; preds = %.loopexit, %694
   call void @_raw_spin_unlock(ptr noundef %675) #24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #24
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %14) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #24
-  br label %750
+  br label %.thread37
 
 745:                                              ; preds = %97
   %746 = getelementptr inbounds i8, ptr %0, i64 11268
@@ -1797,156 +1786,160 @@ gss_svc_searchbyctx.exit.thread:                  ; preds = %596, %.thread.i29, 
   store i32 33554432, ptr %32, align 8
   br label %.thread34
 
-750:                                              ; preds = %744, %.thread37
-  %751 = load i32, ptr %58, align 4
-  switch i32 %751, label %801 [
-    i32 3, label %752
-    i32 0, label %763
+.thread37:                                        ; preds = %621, %744
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #24
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #24
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %14) #24
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #24
+  %750 = load i32, ptr %58, align 4
+  switch i32 %750, label %800 [
+    i32 3, label %751
+    i32 0, label %762
   ]
 
-752:                                              ; preds = %750
-  %753 = load ptr, ptr %609, align 8
-  %754 = load i32, ptr %64, align 8
-  %755 = call fastcc zeroext i1 @svcauth_gss_encode_verf(ptr noundef %0, ptr noundef %753, i32 noundef %754)
-  br i1 %755, label %756, label %.thread34
+751:                                              ; preds = %.thread37
+  %752 = load ptr, ptr %609, align 8
+  %753 = load i32, ptr %64, align 8
+  %754 = call fastcc zeroext i1 @svcauth_gss_encode_verf(ptr noundef %0, ptr noundef %752, i32 noundef %753)
+  br i1 %754, label %755, label %.thread34
 
-756:                                              ; preds = %752
-  %757 = getelementptr inbounds i8, ptr %0, i64 576
-  %758 = call ptr @xdr_reserve_space(ptr noundef %757, i64 noundef 4) #24
-  %759 = getelementptr inbounds i8, ptr %0, i64 11312
-  store ptr %758, ptr %759, align 8
-  %760 = icmp eq ptr %758, null
-  br i1 %760, label %.thread34, label %761, !prof !6
+755:                                              ; preds = %751
+  %756 = getelementptr inbounds i8, ptr %0, i64 576
+  %757 = call ptr @xdr_reserve_space(ptr noundef %756, i64 noundef 4) #24
+  %758 = getelementptr inbounds i8, ptr %0, i64 11312
+  store ptr %757, ptr %758, align 8
+  %759 = icmp eq ptr %757, null
+  br i1 %759, label %.thread34, label %760, !prof !6
 
-761:                                              ; preds = %756
-  store i32 0, ptr %758, align 4
-  %762 = load ptr, ptr %592, align 8
-  call void @sunrpc_cache_unhash(ptr noundef %762, ptr noundef nonnull %603) #24
-  br label %801
+760:                                              ; preds = %755
+  store i32 0, ptr %757, align 4
+  %761 = load ptr, ptr %592, align 8
+  call void @sunrpc_cache_unhash(ptr noundef %761, ptr noundef nonnull %603) #24
+  br label %800
 
-763:                                              ; preds = %750
+762:                                              ; preds = %.thread37
   store i32 234881024, ptr %32, align 8
-  %764 = load ptr, ptr %609, align 8
-  %765 = load i32, ptr %64, align 8
-  %766 = call fastcc zeroext i1 @svcauth_gss_encode_verf(ptr noundef %0, ptr noundef %764, i32 noundef %765)
-  br i1 %766, label %767, label %.thread34
+  %763 = load ptr, ptr %609, align 8
+  %764 = load i32, ptr %64, align 8
+  %765 = call fastcc zeroext i1 @svcauth_gss_encode_verf(ptr noundef %0, ptr noundef %763, i32 noundef %764)
+  br i1 %765, label %766, label %.thread34
 
-767:                                              ; preds = %763
-  %768 = getelementptr inbounds i8, ptr %0, i64 576
-  %769 = call ptr @xdr_reserve_space(ptr noundef %768, i64 noundef 4) #24
-  %770 = getelementptr inbounds i8, ptr %0, i64 11312
-  store ptr %769, ptr %770, align 8
-  %771 = icmp eq ptr %769, null
-  br i1 %771, label %.thread34, label %772, !prof !6
+766:                                              ; preds = %762
+  %767 = getelementptr inbounds i8, ptr %0, i64 576
+  %768 = call ptr @xdr_reserve_space(ptr noundef %767, i64 noundef 4) #24
+  %769 = getelementptr inbounds i8, ptr %0, i64 11312
+  store ptr %768, ptr %769, align 8
+  %770 = icmp eq ptr %768, null
+  br i1 %770, label %.thread34, label %771, !prof !6
 
-772:                                              ; preds = %767
-  store i32 0, ptr %769, align 4
-  %773 = call i32 @xdr_stream_pos(ptr noundef %768) #24
-  store i32 %773, ptr %39, align 8
-  %774 = getelementptr inbounds i8, ptr %0, i64 352
-  %775 = getelementptr inbounds i8, ptr %603, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(56) %774, ptr noundef align 8 dereferenceable(56) %775, i64 56, i1 false)
-  %776 = getelementptr inbounds i8, ptr %603, i64 72
-  %777 = load ptr, ptr %776, align 8
-  %778 = call fastcc ptr @get_group_info(ptr noundef %777)
+771:                                              ; preds = %766
+  store i32 0, ptr %768, align 4
+  %772 = call i32 @xdr_stream_pos(ptr noundef %767) #24
+  store i32 %772, ptr %39, align 8
+  %773 = getelementptr inbounds i8, ptr %0, i64 352
+  %774 = getelementptr inbounds i8, ptr %603, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(56) %773, ptr noundef align 8 dereferenceable(56) %774, i64 56, i1 false)
+  %775 = getelementptr inbounds i8, ptr %603, i64 72
+  %776 = load ptr, ptr %775, align 8
+  %777 = call fastcc ptr @get_group_info(ptr noundef %776)
   store i32 16777216, ptr %32, align 8
-  %779 = load i32, ptr %70, align 4
-  switch i32 %779, label %.thread34 [
-    i32 1, label %792
-    i32 2, label %780
-    i32 3, label %786
+  %778 = load i32, ptr %70, align 4
+  switch i32 %778, label %.thread34 [
+    i32 1, label %791
+    i32 2, label %779
+    i32 3, label %785
   ]
 
-780:                                              ; preds = %772
-  %781 = call ptr @xdr_reserve_space(ptr noundef %768, i64 noundef 8) #24
-  %782 = load i32, ptr %64, align 8
-  %783 = load ptr, ptr %609, align 8
-  %784 = call fastcc i32 @svcauth_gss_unwrap_integ(ptr noundef %0, i32 noundef %782, ptr noundef %783), !range !50
-  %785 = icmp eq i32 %784, 0
-  br i1 %785, label %.sink.split, label %801
+779:                                              ; preds = %771
+  %780 = call ptr @xdr_reserve_space(ptr noundef %767, i64 noundef 8) #24
+  %781 = load i32, ptr %64, align 8
+  %782 = load ptr, ptr %609, align 8
+  %783 = call fastcc i32 @svcauth_gss_unwrap_integ(ptr noundef %0, i32 noundef %781, ptr noundef %782), !range !50
+  %784 = icmp eq i32 %783, 0
+  br i1 %784, label %.sink.split, label %800
 
-786:                                              ; preds = %772
-  %787 = call ptr @xdr_reserve_space(ptr noundef %768, i64 noundef 8) #24
-  %788 = load i32, ptr %64, align 8
-  %789 = load ptr, ptr %609, align 8
-  %790 = call fastcc i32 @svcauth_gss_unwrap_priv(ptr noundef %0, i32 noundef %788, ptr noundef %789), !range !50
-  %791 = icmp eq i32 %790, 0
-  br i1 %791, label %.sink.split, label %801
+785:                                              ; preds = %771
+  %786 = call ptr @xdr_reserve_space(ptr noundef %767, i64 noundef 8) #24
+  %787 = load i32, ptr %64, align 8
+  %788 = load ptr, ptr %609, align 8
+  %789 = call fastcc i32 @svcauth_gss_unwrap_priv(ptr noundef %0, i32 noundef %787, ptr noundef %788), !range !50
+  %790 = icmp eq i32 %789, 0
+  br i1 %790, label %.sink.split, label %800
 
-.sink.split:                                      ; preds = %786, %780
-  %.sink47 = phi i32 [ 400, %780 ], [ 800, %786 ]
+.sink.split:                                      ; preds = %785, %779
+  %.sink47 = phi i32 [ 400, %779 ], [ 800, %785 ]
   call fastcc void @svcxdr_set_auth_slack(ptr noundef %0, i32 noundef %.sink47)
-  br label %792
+  br label %791
 
-792:                                              ; preds = %.sink.split, %772
+791:                                              ; preds = %.sink.split, %771
   store ptr %603, ptr %40, align 8
-  %793 = call fastcc ptr @cache_get(ptr noundef nonnull %603)
-  %794 = load ptr, ptr %609, align 8
-  %795 = load ptr, ptr %794, align 8
-  %796 = load i32, ptr %70, align 4
-  %797 = call i32 @gss_svc_to_pseudoflavor(ptr noundef %795, i32 noundef 0, i32 noundef %796) #24
-  %798 = getelementptr inbounds i8, ptr %0, i64 368
-  store i32 %797, ptr %798, align 8
+  %792 = call fastcc ptr @cache_get(ptr noundef nonnull %603)
+  %793 = load ptr, ptr %609, align 8
+  %794 = load ptr, ptr %793, align 8
+  %795 = load i32, ptr %70, align 4
+  %796 = call i32 @gss_svc_to_pseudoflavor(ptr noundef %794, i32 noundef 0, i32 noundef %795) #24
+  %797 = getelementptr inbounds i8, ptr %0, i64 368
+  store i32 %796, ptr %797, align 8
   call fastcc void @trace_rpcgss_svc_authenticate(ptr noundef %0, ptr noundef nonnull %38)
-  br label %801
+  br label %800
 
-.thread34:                                        ; preds = %69, %81, %.thread32, %63, %57, %52, %49, %44, %.thread, %.thread36, %gss_svc_searchbyctx.exit.thread, %772, %767, %763, %756, %752, %749, %745, %587, %99, %93, %34
-  %799 = phi ptr [ null, %93 ], [ null, %745 ], [ null, %749 ], [ %603, %772 ], [ %603, %763 ], [ %603, %752 ], [ null, %587 ], [ null, %99 ], [ null, %34 ], [ %603, %756 ], [ %603, %767 ], [ null, %gss_svc_searchbyctx.exit.thread ], [ %603, %.thread36 ], [ null, %.thread ], [ null, %44 ], [ null, %49 ], [ null, %52 ], [ null, %57 ], [ null, %63 ], [ null, %.thread32 ], [ null, %81 ], [ null, %69 ]
-  %800 = getelementptr inbounds i8, ptr %0, i64 576
-  call void @xdr_truncate_encode(ptr noundef %800, i64 noundef 8) #24
-  br label %801
+.thread34:                                        ; preds = %69, %81, %.thread32, %63, %57, %52, %49, %44, %.thread, %.thread36, %gss_svc_searchbyctx.exit.thread, %771, %766, %762, %755, %751, %749, %745, %587, %99, %93, %34
+  %798 = phi ptr [ null, %93 ], [ null, %745 ], [ null, %749 ], [ %603, %771 ], [ %603, %762 ], [ %603, %751 ], [ null, %587 ], [ null, %99 ], [ null, %34 ], [ %603, %755 ], [ %603, %766 ], [ null, %gss_svc_searchbyctx.exit.thread ], [ %603, %.thread36 ], [ null, %.thread ], [ null, %44 ], [ null, %49 ], [ null, %52 ], [ null, %57 ], [ null, %63 ], [ null, %.thread32 ], [ null, %81 ], [ null, %69 ]
+  %799 = getelementptr inbounds i8, ptr %0, i64 576
+  call void @xdr_truncate_encode(ptr noundef %799, i64 noundef 8) #24
+  br label %800
 
-801:                                              ; preds = %.thread34, %792, %786, %780, %761, %750
-  %802 = phi ptr [ %799, %.thread34 ], [ %603, %792 ], [ %603, %761 ], [ %603, %750 ], [ %603, %786 ], [ %603, %780 ]
-  %803 = phi i32 [ 8, %.thread34 ], [ 5, %792 ], [ 10, %761 ], [ 1, %750 ], [ 1, %786 ], [ 1, %780 ]
-  %804 = icmp eq ptr %802, null
-  br i1 %804, label %.thread42, label %805
+800:                                              ; preds = %.thread34, %791, %785, %779, %760, %.thread37
+  %801 = phi ptr [ %798, %.thread34 ], [ %603, %791 ], [ %603, %760 ], [ %603, %.thread37 ], [ %603, %785 ], [ %603, %779 ]
+  %802 = phi i32 [ 8, %.thread34 ], [ 5, %791 ], [ 10, %760 ], [ 1, %.thread37 ], [ 1, %785 ], [ 1, %779 ]
+  %803 = icmp eq ptr %801, null
+  br i1 %803, label %.thread42, label %804
 
-805:                                              ; preds = %.thread40, %801
-  %806 = phi i32 [ 7, %.thread40 ], [ %803, %801 ]
-  %807 = phi ptr [ %603, %.thread40 ], [ %802, %801 ]
-  %808 = getelementptr inbounds i8, ptr %31, i64 24
-  %809 = load ptr, ptr %808, align 8
-  %810 = getelementptr inbounds i8, ptr %807, i64 32
-  %811 = load volatile i32, ptr %810, align 4
-  %812 = icmp ult i32 %811, 3
-  br i1 %812, label %813, label %820
+804:                                              ; preds = %.thread40, %800
+  %805 = phi i32 [ 7, %.thread40 ], [ %802, %800 ]
+  %806 = phi ptr [ %603, %.thread40 ], [ %801, %800 ]
+  %807 = getelementptr inbounds i8, ptr %31, i64 24
+  %808 = load ptr, ptr %807, align 8
+  %809 = getelementptr inbounds i8, ptr %806, i64 32
+  %810 = load volatile i32, ptr %809, align 4
+  %811 = icmp ult i32 %810, 3
+  br i1 %811, label %812, label %819
 
-813:                                              ; preds = %805
-  %814 = getelementptr inbounds i8, ptr %807, i64 16
-  %815 = load i64, ptr %814, align 8
-  %816 = getelementptr inbounds i8, ptr %809, i64 152
-  %817 = load i64, ptr %816, align 8
-  %818 = icmp slt i64 %815, %817
-  br i1 %818, label %819, label %820
+812:                                              ; preds = %804
+  %813 = getelementptr inbounds i8, ptr %806, i64 16
+  %814 = load i64, ptr %813, align 8
+  %815 = getelementptr inbounds i8, ptr %808, i64 152
+  %816 = load i64, ptr %815, align 8
+  %817 = icmp slt i64 %814, %816
+  br i1 %817, label %818, label %819
 
-819:                                              ; preds = %813
-  store i64 %815, ptr %816, align 8
-  br label %820
+818:                                              ; preds = %812
+  store i64 %814, ptr %815, align 8
+  br label %819
 
-820:                                              ; preds = %819, %813, %805
-  %821 = getelementptr inbounds i8, ptr %809, i64 40
-  %822 = load ptr, ptr %821, align 8
-  %823 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %810, i32 -1, ptr elementtype(i32) %810) #24, !srcloc !10
-  %824 = icmp eq i32 %823, 1
-  br i1 %824, label %828, label %825
+819:                                              ; preds = %818, %812, %804
+  %820 = getelementptr inbounds i8, ptr %808, i64 40
+  %821 = load ptr, ptr %820, align 8
+  %822 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %809, i32 -1, ptr elementtype(i32) %809) #24, !srcloc !10
+  %823 = icmp eq i32 %822, 1
+  br i1 %823, label %827, label %824
 
-825:                                              ; preds = %820
-  %826 = icmp sgt i32 %823, 0
-  br i1 %826, label %.thread42, label %827, !prof !11
+824:                                              ; preds = %819
+  %825 = icmp sgt i32 %822, 0
+  br i1 %825, label %.thread42, label %826, !prof !11
 
-827:                                              ; preds = %825
-  call void @refcount_warn_saturate(ptr noundef %810, i32 noundef 3) #24
+826:                                              ; preds = %824
+  call void @refcount_warn_saturate(ptr noundef %809, i32 noundef 3) #24
   br label %.thread42
 
-828:                                              ; preds = %820
+827:                                              ; preds = %819
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !12
-  call void %822(ptr noundef %810) #24
+  call void %821(ptr noundef %809) #24
   br label %.thread42
 
-.thread42:                                        ; preds = %825, %827, %828, %801, %svcauth_gss_proc_init.exit
-  %829 = phi i32 [ %586, %svcauth_gss_proc_init.exit ], [ %803, %801 ], [ %806, %828 ], [ %806, %827 ], [ %806, %825 ]
-  ret i32 %829
+.thread42:                                        ; preds = %824, %826, %827, %800, %svcauth_gss_proc_init.exit
+  %828 = phi i32 [ %586, %svcauth_gss_proc_init.exit ], [ %802, %800 ], [ %805, %827 ], [ %805, %826 ], [ %805, %824 ]
+  ret i32 %828
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

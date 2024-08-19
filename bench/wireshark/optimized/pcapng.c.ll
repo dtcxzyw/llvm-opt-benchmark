@@ -7060,13 +7060,13 @@ define internal range(i32 0, 2) i32 @write_wtap_shb_option(ptr noundef %0, ptr n
   store i16 %15, ptr %16, align 2
   %17 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 4, ptr noundef %5) #16
   %.not.i = icmp eq i32 %17, 0
-  br i1 %.not.i, label %pcapng_write_string_option.exit.thread, label %18
+  br i1 %.not.i, label %.sink.split, label %18
 
 18:                                               ; preds = %13
   %19 = load ptr, ptr %4, align 8
   %20 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef %19, i64 noundef %11, ptr noundef %5) #16
   %.not20.i = icmp eq i32 %20, 0
-  br i1 %.not20.i, label %pcapng_write_string_option.exit.thread, label %21
+  br i1 %.not20.i, label %.sink.split, label %21
 
 21:                                               ; preds = %18
   %22 = and i64 %11, 3
@@ -7077,20 +7077,19 @@ define internal range(i32 0, 2) i32 @write_wtap_shb_option(ptr noundef %0, ptr n
   %24 = sub nuw nsw i64 4, %22
   %25 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %8, i64 noundef %24, ptr noundef %5) #16
   %.not23.i = icmp eq i32 %25, 0
-  br i1 %.not23.i, label %pcapng_write_string_option.exit.thread, label %pcapng_write_string_option.exit
-
-pcapng_write_string_option.exit.thread:           ; preds = %13, %18, %23
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  br label %26
+  br i1 %.not23.i, label %.sink.split, label %pcapng_write_string_option.exit
 
 pcapng_write_string_option.exit:                  ; preds = %21, %23, %9
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %23, %18, %13, %pcapng_write_string_option.exit
+  %.0.ph = phi i32 [ 1, %pcapng_write_string_option.exit ], [ 0, %13 ], [ 0, %18 ], [ 0, %23 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   br label %26
 
-26:                                               ; preds = %6, %pcapng_write_string_option.exit, %pcapng_write_string_option.exit.thread
-  %.0 = phi i32 [ 0, %pcapng_write_string_option.exit.thread ], [ 1, %pcapng_write_string_option.exit ], [ 1, %6 ]
+26:                                               ; preds = %.sink.split, %6
+  %.0 = phi i32 [ 1, %6 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 

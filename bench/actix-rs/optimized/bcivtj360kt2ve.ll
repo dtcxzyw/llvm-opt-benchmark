@@ -21,15 +21,11 @@ define void @"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$
   %10 = getelementptr inbounds i8, ptr %7, i64 32
   br label %11
 
-11:                                               ; preds = %30, %2
+11:                                               ; preds = %29, %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %12 = load i8, ptr %9, align 8, !range !3, !noundef !4
   %13 = icmp eq i8 %12, 2
   br i1 %13, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit.thread.i, label %14
-
-_ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit.thread.i: ; preds = %11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  br label %17
 
 14:                                               ; preds = %11
   call void @_ZN4core3ops8function6FnOnce9call_once17ha26f66aea1278776E(ptr nonnull sret({ ptr, [3 x i64] }) align 8 %4, ptr nonnull align 8 %8)
@@ -40,8 +36,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit.threa
 _ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit.thread8.i: ; preds = %14
   store i8 2, ptr %9, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx49.i, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  br label %17
+  br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit.thread.i
 
 16:                                               ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx49.i, i64 24, i1 false)
@@ -51,43 +46,44 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit.threa
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.i, i64 24, i1 false)
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hae65ad28ecd54f3bE.exit"
 
-17:                                               ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit.thread8.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit.thread.i
+_ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit.thread.i: ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit.thread8.i, %11
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h66eb319f956957e5E"(ptr nonnull sret({ [32 x i8], i8, [7 x i8] }) align 8 %7, ptr nonnull align 8 %1)
-  %18 = load i8, ptr %10, align 8, !range !3, !noundef !4
-  %19 = icmp eq i8 %18, 2
-  br i1 %19, label %20, label %30
+  %17 = load i8, ptr %10, align 8, !range !3, !noundef !4
+  %18 = icmp eq i8 %17, 2
+  br i1 %18, label %19, label %29
 
-20:                                               ; preds = %17
+19:                                               ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit.thread.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  %21 = getelementptr inbounds i8, ptr %1, i64 104
-  %22 = load i8, ptr %21, align 8, !range !3, !noundef !4
-  %23 = icmp eq i8 %22, 2
-  br i1 %23, label %27, label %24
+  %20 = getelementptr inbounds i8, ptr %1, i64 104
+  %21 = load i8, ptr %20, align 8, !range !3, !noundef !4
+  %22 = icmp eq i8 %21, 2
+  br i1 %22, label %26, label %23
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %1, i64 72
-  call void @_ZN4core3ops8function6FnOnce9call_once17ha26f66aea1278776E(ptr nonnull sret({ ptr, [3 x i64] }) align 8 %3, ptr nonnull align 8 %25)
-  %26 = load ptr, ptr %3, align 8, !noundef !4
-  %.not6.i1.i = icmp eq ptr %26, null
-  br i1 %.not6.i1.i, label %28, label %29
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds i8, ptr %1, i64 72
+  call void @_ZN4core3ops8function6FnOnce9call_once17ha26f66aea1278776E(ptr nonnull sret({ ptr, [3 x i64] }) align 8 %3, ptr nonnull align 8 %24)
+  %25 = load ptr, ptr %3, align 8, !noundef !4
+  %.not6.i1.i = icmp eq ptr %25, null
+  br i1 %.not6.i1.i, label %27, label %28
 
-27:                                               ; preds = %20
+26:                                               ; preds = %19
   store ptr null, ptr %0, align 8
   br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit2.i
 
-28:                                               ; preds = %24
-  store i8 2, ptr %21, align 8
-  br label %29
+27:                                               ; preds = %23
+  store i8 2, ptr %20, align 8
+  br label %28
 
-29:                                               ; preds = %28, %24
+28:                                               ; preds = %27, %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit2.i
 
-_ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit2.i: ; preds = %29, %27
+_ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit2.i: ; preds = %28, %26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hae65ad28ecd54f3bE.exit"
 
-30:                                               ; preds = %17
+29:                                               ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit.thread.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
   call void @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hbf586a25010380e4E"(ptr nonnull sret({ { { ptr, i64 } }, { ptr, i64, i8, [7 x i8] } }) align 8 %5, ptr nonnull align 8 %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
@@ -121,15 +117,11 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %10 = getelementptr inbounds i8, ptr %7, i64 32
   br label %11
 
-11:                                               ; preds = %31, %2
+11:                                               ; preds = %30, %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %12 = load i8, ptr %9, align 8, !range !3, !noundef !4
   %13 = icmp eq i8 %12, 2
   br i1 %13, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit.thread, label %14
-
-_ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit.thread: ; preds = %11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  br label %17
 
 14:                                               ; preds = %11
   call void @_ZN4core3ops8function6FnOnce9call_once17ha26f66aea1278776E(ptr nonnull sret({ ptr, [3 x i64] }) align 8 %4, ptr nonnull align 8 %8)
@@ -140,8 +132,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit.threa
 _ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit.thread8: ; preds = %14
   store i8 2, ptr %9, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx49, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  br label %17
+  br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit.thread
 
 16:                                               ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx49, i64 24, i1 false)
@@ -149,48 +140,49 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit.threa
   store ptr %15, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4, i64 24, i1 false)
-  br label %20
+  br label %19
 
-17:                                               ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit.thread8, %_ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit.thread
+_ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit.thread: ; preds = %11, %_ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit.thread8
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h66eb319f956957e5E"(ptr nonnull sret({ [32 x i8], i8, [7 x i8] }) align 8 %7, ptr nonnull align 8 %1)
-  %18 = load i8, ptr %10, align 8, !range !3, !noundef !4
-  %19 = icmp eq i8 %18, 2
-  br i1 %19, label %21, label %31
+  %17 = load i8, ptr %10, align 8, !range !3, !noundef !4
+  %18 = icmp eq i8 %17, 2
+  br i1 %18, label %20, label %30
 
-20:                                               ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit2, %16
+19:                                               ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit2, %16
   ret void
 
-21:                                               ; preds = %17
+20:                                               ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit.thread
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  %22 = getelementptr inbounds i8, ptr %1, i64 104
-  %23 = load i8, ptr %22, align 8, !range !3, !noundef !4
-  %24 = icmp eq i8 %23, 2
-  br i1 %24, label %28, label %25
+  %21 = getelementptr inbounds i8, ptr %1, i64 104
+  %22 = load i8, ptr %21, align 8, !range !3, !noundef !4
+  %23 = icmp eq i8 %22, 2
+  br i1 %23, label %27, label %24
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %1, i64 72
-  call void @_ZN4core3ops8function6FnOnce9call_once17ha26f66aea1278776E(ptr nonnull sret({ ptr, [3 x i64] }) align 8 %3, ptr nonnull align 8 %26)
-  %27 = load ptr, ptr %3, align 8, !noundef !4
-  %.not6.i1 = icmp eq ptr %27, null
-  br i1 %.not6.i1, label %29, label %30
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds i8, ptr %1, i64 72
+  call void @_ZN4core3ops8function6FnOnce9call_once17ha26f66aea1278776E(ptr nonnull sret({ ptr, [3 x i64] }) align 8 %3, ptr nonnull align 8 %25)
+  %26 = load ptr, ptr %3, align 8, !noundef !4
+  %.not6.i1 = icmp eq ptr %26, null
+  br i1 %.not6.i1, label %28, label %29
 
-28:                                               ; preds = %21
+27:                                               ; preds = %20
   store ptr null, ptr %0, align 8
   br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit2
 
-29:                                               ; preds = %25
-  store i8 2, ptr %22, align 8
-  br label %30
+28:                                               ; preds = %24
+  store i8 2, ptr %21, align 8
+  br label %29
 
-30:                                               ; preds = %29, %25
+29:                                               ; preds = %28, %24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit2
 
-_ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit2: ; preds = %28, %30
+_ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit2: ; preds = %27, %29
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  br label %20
+  br label %19
 
-31:                                               ; preds = %17
+30:                                               ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17he789af97ec446bf5E.exit.thread
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
   call void @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hbf586a25010380e4E"(ptr nonnull sret({ { { ptr, i64 } }, { ptr, i64, i8, [7 x i8] } }) align 8 %5, ptr nonnull align 8 %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)

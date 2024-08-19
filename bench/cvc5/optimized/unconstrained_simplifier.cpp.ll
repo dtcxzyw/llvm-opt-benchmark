@@ -2341,11 +2341,7 @@ if.end236:                                        ; preds = %if.end236.sink.spli
   %139 = load ptr, ptr %current, align 8
   %140 = load ptr, ptr %parent, align 8
   %cmp.not.i494 = icmp eq ptr %139, %140
-  br i1 %cmp.not.i494, label %if.end1651, label %if.then.i495
-
-if.then.i495:                                     ; preds = %if.end236
-  store ptr %140, ptr %current, align 8
-  br label %if.end1651
+  br i1 %cmp.not.i494, label %if.end1651, label %if.end1651.sink.split
 
 if.else239:                                       ; preds = %for.cond.i.i.i.i320, %for.body.i.i330, %if.end.i.i.i.i307, %cleanup.done145
   %141 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
@@ -3240,11 +3236,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit768:           ; preds = %_ZN4cvc58internal12
   %253 = load ptr, ptr %current, align 8
   %254 = load ptr, ptr %parent, align 8
   %cmp.not.i769 = icmp eq ptr %253, %254
-  br i1 %cmp.not.i769, label %if.end1651, label %if.then.i770
-
-if.then.i770:                                     ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit768
-  store ptr %254, ptr %current, align 8
-  br label %if.end1651
+  br i1 %cmp.not.i769, label %if.end1651, label %if.end1651.sink.split
 
 lpad424:                                          ; preds = %invoke.cont420
   %255 = landingpad { ptr, i32 }
@@ -3474,11 +3466,7 @@ if.end451:                                        ; preds = %if.else.i.i852, %if
   %278 = load ptr, ptr %current, align 8
   %279 = load ptr, ptr %parent, align 8
   %cmp.not.i865 = icmp eq ptr %278, %279
-  br i1 %cmp.not.i865, label %if.end1651, label %if.then.i866
-
-if.then.i866:                                     ; preds = %if.end451
-  store ptr %279, ptr %current, align 8
-  br label %if.end1651
+  br i1 %cmp.not.i865, label %if.end1651, label %if.end1651.sink.split
 
 sw.bb454:                                         ; preds = %invoke.cont27
   %call457 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal7IntStatppEv(ptr noundef nonnull align 8 dereferenceable(8) %d_numUnconstrainedElim1428)
@@ -3694,11 +3682,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit960:           ; preds = %_ZN4cvc58internal12
   %304 = load ptr, ptr %current, align 8
   %305 = load ptr, ptr %parent, align 8
   %cmp.not.i961 = icmp eq ptr %304, %305
-  br i1 %cmp.not.i961, label %if.end1651, label %if.then.i962
-
-if.then.i962:                                     ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit960
-  store ptr %305, ptr %current, align 8
-  br label %if.end1651
+  br i1 %cmp.not.i961, label %if.end1651, label %if.end1651.sink.split
 
 lpad470:                                          ; preds = %invoke.cont466
   %306 = landingpad { ptr, i32 }
@@ -4359,11 +4343,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit1279:          ; preds = %_ZN4cvc58internal12
   %405 = load ptr, ptr %current, align 8
   %406 = load ptr, ptr %parent, align 8
   %cmp.not.i1280 = icmp eq ptr %405, %406
-  br i1 %cmp.not.i1280, label %if.end1651, label %if.then.i1281
-
-if.then.i1281:                                    ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit1279
-  store ptr %406, ptr %current, align 8
-  br label %if.end1651
+  br i1 %cmp.not.i1280, label %if.end1651, label %if.end1651.sink.split
 
 lpad693:                                          ; preds = %invoke.cont689
   %407 = landingpad { ptr, i32 }
@@ -4662,11 +4642,7 @@ invoke.cont749:                                   ; preds = %if.then747
   %439 = load ptr, ptr %arrayidx.i.i1398, align 8, !noalias !109
   %440 = load ptr, ptr %other, align 8
   %cmp.not.i1402 = icmp eq ptr %440, %439
-  br i1 %cmp.not.i1402, label %if.end761, label %if.then.i1403
-
-if.then.i1403:                                    ; preds = %invoke.cont749
-  store ptr %439, ptr %other, align 8
-  br label %if.end761
+  br i1 %cmp.not.i1402, label %if.end761, label %if.end761.sink.split
 
 lpad741:                                          ; preds = %if.then13.i4.i1763, %if.then13.i.i1770, %land.rhs856, %if.then13.i4.i1554, %if.then13.i.i1561, %if.end15.i.i1462, %if.end15.i.i1425, %if.else754, %if.then747, %invoke.cont739, %if.end930, %if.else893, %if.then879, %if.end872, %if.end832, %if.then804
   %441 = landingpad { ptr, i32 }
@@ -4685,14 +4661,15 @@ invoke.cont756:                                   ; preds = %if.else754
   %442 = load ptr, ptr %arrayidx.i.i1416, align 8, !noalias !112
   %443 = load ptr, ptr %other, align 8
   %cmp.not.i1420 = icmp eq ptr %443, %442
-  br i1 %cmp.not.i1420, label %if.end761, label %if.then.i1421
+  br i1 %cmp.not.i1420, label %if.end761, label %if.end761.sink.split
 
-if.then.i1421:                                    ; preds = %invoke.cont756
-  store ptr %442, ptr %other, align 8
+if.end761.sink.split:                             ; preds = %invoke.cont756, %invoke.cont749
+  %.sink = phi ptr [ %439, %invoke.cont749 ], [ %442, %invoke.cont756 ]
+  store ptr %.sink, ptr %other, align 8
   br label %if.end761
 
-if.end761:                                        ; preds = %if.then.i1421, %invoke.cont756, %if.then.i1403, %invoke.cont749
-  %444 = phi ptr [ %442, %if.then.i1421 ], [ %442, %invoke.cont756 ], [ %439, %if.then.i1403 ], [ %439, %invoke.cont749 ]
+if.end761:                                        ; preds = %if.end761.sink.split, %invoke.cont756, %invoke.cont749
+  %444 = phi ptr [ %442, %invoke.cont756 ], [ %439, %invoke.cont749 ], [ %.sink, %if.end761.sink.split ]
   %445 = load i64, ptr %_M_element_count.i.i.i2791, align 8
   %cmp.not.not.i.i1424 = icmp eq i64 %445, 0
   br i1 %cmp.not.not.i.i1424, label %for.cond.i.i1449, label %if.end15.i.i1425
@@ -5034,11 +5011,7 @@ if.end841:                                        ; preds = %if.else.i.i1552, %i
   %497 = load ptr, ptr %current, align 8
   %498 = load ptr, ptr %parent, align 8
   %cmp.not.i1565 = icmp eq ptr %497, %498
-  br i1 %cmp.not.i1565, label %if.end1651, label %if.then.i1566
-
-if.then.i1566:                                    ; preds = %if.end841
-  store ptr %498, ptr %current, align 8
-  br label %if.end1651
+  br i1 %cmp.not.i1565, label %if.end1651, label %if.end1651.sink.split
 
 if.else844:                                       ; preds = %for.cond.i.i.i.i1480, %for.body.i.i1490, %if.end.i.i.i.i1467, %cleanup.done799
   %499 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
@@ -5609,11 +5582,7 @@ if.end939:                                        ; preds = %if.else.i.i1761, %i
   %569 = load ptr, ptr %current, align 8
   %570 = load ptr, ptr %parent, align 8
   %cmp.not.i1774 = icmp eq ptr %569, %570
-  br i1 %cmp.not.i1774, label %if.end1651, label %if.then.i1775
-
-if.then.i1775:                                    ; preds = %if.end939
-  store ptr %570, ptr %current, align 8
-  br label %if.end1651
+  br i1 %cmp.not.i1774, label %if.end1651, label %if.end1651.sink.split
 
 sw.bb945:                                         ; preds = %invoke.cont27
   %call2.i.i.i1787 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %bf.cast.i)
@@ -6624,11 +6593,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit2132:          ; preds = %_ZN4cvc58internal12
   %706 = load ptr, ptr %current, align 8
   %707 = load ptr, ptr %parent, align 8
   %cmp.not.i2133 = icmp eq ptr %706, %707
-  br i1 %cmp.not.i2133, label %if.end1651, label %if.then.i2134
-
-if.then.i2134:                                    ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit2132
-  store ptr %707, ptr %current, align 8
-  br label %if.end1651
+  br i1 %cmp.not.i2133, label %if.end1651, label %if.end1651.sink.split
 
 lpad1129:                                         ; preds = %invoke.cont1125
   %708 = landingpad { ptr, i32 }
@@ -7061,11 +7026,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit2314:          ; preds = %_ZN4cvc58internal8T
   %754 = load ptr, ptr %current, align 8
   %755 = load ptr, ptr %parent, align 8
   %cmp.not.i2315 = icmp eq ptr %754, %755
-  br i1 %cmp.not.i2315, label %if.end1651, label %if.then.i2316
-
-if.then.i2316:                                    ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit2314
-  store ptr %755, ptr %current, align 8
-  br label %if.end1651
+  br i1 %cmp.not.i2315, label %if.end1651, label %if.end1651.sink.split
 
 lpad1168:                                         ; preds = %if.then13.i.i.i.i, %invoke.cont1167
   %756 = landingpad { ptr, i32 }
@@ -7713,24 +7674,20 @@ if.then13.i4.i2657:                               ; preds = %if.else.i.i2655
           to label %if.end1330 unwind label %lpad20
 
 if.end1330.sink.split:                            ; preds = %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i2650, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i2554
-  %bf.load.i2.i2651.sink5165 = phi i64 [ %bf.load.i2.i2555, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i2554 ], [ %bf.load.i2.i2651, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i2650 ]
-  %.sink = phi ptr [ %818, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i2554 ], [ %850, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i2650 ]
-  %bf.value.i6.i2660 = add i64 %bf.load.i2.i2651.sink5165, 1099511627776
+  %bf.load.i2.i2651.sink5166 = phi i64 [ %bf.load.i2.i2555, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i2554 ], [ %bf.load.i2.i2651, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i2650 ]
+  %.sink5165 = phi ptr [ %818, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i2554 ], [ %850, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i2650 ]
+  %bf.value.i6.i2660 = add i64 %bf.load.i2.i2651.sink5166, 1099511627776
   %bf.shl.i7.i2661 = and i64 %bf.value.i6.i2660, 1152920405095219200
-  %bf.clear7.i8.i2662 = and i64 %bf.load.i2.i2651.sink5165, -1152920405095219201
+  %bf.clear7.i8.i2662 = and i64 %bf.load.i2.i2651.sink5166, -1152920405095219201
   %bf.set.i9.i2663 = or disjoint i64 %bf.shl.i7.i2661, %bf.clear7.i8.i2662
-  store i64 %bf.set.i9.i2663, ptr %.sink, align 8
+  store i64 %bf.set.i9.i2663, ptr %.sink5165, align 8
   br label %if.end1330
 
 if.end1330:                                       ; preds = %if.end1330.sink.split, %if.else.i.i2655, %if.then1326, %if.then13.i4.i2657, %if.then13.i.i2624, %if.then.i.i2617, %invoke.cont1318, %if.then13.i4.i2561, %invoke.cont1305, %if.else.i.i2559, %invoke.cont1324
   %852 = load ptr, ptr %current, align 8
   %853 = load ptr, ptr %parent, align 8
   %cmp.not.i2668 = icmp eq ptr %852, %853
-  br i1 %cmp.not.i2668, label %if.end1651, label %if.then.i2669
-
-if.then.i2669:                                    ; preds = %if.end1330
-  store ptr %853, ptr %current, align 8
-  br label %if.end1651
+  br i1 %cmp.not.i2668, label %if.end1651, label %if.end1651.sink.split
 
 if.else1333:                                      ; preds = %for.cond.i.i.i.i2474, %for.body.i.i2484, %if.end.i.i.i.i2461, %cleanup.done1281
   %854 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
@@ -7943,11 +7900,7 @@ invoke.cont1372:                                  ; preds = %if.then1370
   %873 = load ptr, ptr %arrayidx.i.i2766, align 8, !noalias !159
   %874 = load ptr, ptr %other1361, align 8
   %cmp.not.i2770 = icmp eq ptr %874, %873
-  br i1 %cmp.not.i2770, label %if.end1384, label %if.then.i2771
-
-if.then.i2771:                                    ; preds = %invoke.cont1372
-  store ptr %873, ptr %other1361, align 8
-  br label %if.end1384
+  br i1 %cmp.not.i2770, label %if.end1384, label %if.end1384.sink.split
 
 lpad1364:                                         ; preds = %cond.true, %if.then13.i4.i2894, %if.then13.i.i2901, %if.end15.i.i2830, %if.end15.i.i2793, %if.else1377, %if.then1370, %invoke.cont1362, %if.else1461, %if.end1436, %if.then1427
   %875 = landingpad { ptr, i32 }
@@ -7966,14 +7919,15 @@ invoke.cont1379:                                  ; preds = %if.else1377
   %876 = load ptr, ptr %arrayidx.i.i2784, align 8, !noalias !162
   %877 = load ptr, ptr %other1361, align 8
   %cmp.not.i2788 = icmp eq ptr %877, %876
-  br i1 %cmp.not.i2788, label %if.end1384, label %if.then.i2789
+  br i1 %cmp.not.i2788, label %if.end1384, label %if.end1384.sink.split
 
-if.then.i2789:                                    ; preds = %invoke.cont1379
-  store ptr %876, ptr %other1361, align 8
+if.end1384.sink.split:                            ; preds = %invoke.cont1379, %invoke.cont1372
+  %.sink5168 = phi ptr [ %873, %invoke.cont1372 ], [ %876, %invoke.cont1379 ]
+  store ptr %.sink5168, ptr %other1361, align 8
   br label %if.end1384
 
-if.end1384:                                       ; preds = %if.then.i2789, %invoke.cont1379, %if.then.i2771, %invoke.cont1372
-  %878 = phi ptr [ %876, %if.then.i2789 ], [ %876, %invoke.cont1379 ], [ %873, %if.then.i2771 ], [ %873, %invoke.cont1372 ]
+if.end1384:                                       ; preds = %if.end1384.sink.split, %invoke.cont1379, %invoke.cont1372
+  %878 = phi ptr [ %876, %invoke.cont1379 ], [ %873, %invoke.cont1372 ], [ %.sink5168, %if.end1384.sink.split ]
   %879 = load i64, ptr %_M_element_count.i.i.i2791, align 8
   %cmp.not.not.i.i2792 = icmp eq i64 %879, 0
   br i1 %cmp.not.not.i.i2792, label %for.cond.i.i2817, label %if.end15.i.i2793
@@ -8331,11 +8285,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit2956:          ; preds = %_ZN4cvc58internal12
   %933 = load ptr, ptr %current, align 8
   %934 = load ptr, ptr %parent, align 8
   %cmp.not.i2957 = icmp eq ptr %933, %934
-  br i1 %cmp.not.i2957, label %if.end1651, label %if.then.i2958
-
-if.then.i2958:                                    ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit2956
-  store ptr %934, ptr %current, align 8
-  br label %if.end1651
+  br i1 %cmp.not.i2957, label %if.end1651, label %if.end1651.sink.split
 
 lpad1443:                                         ; preds = %invoke.cont1439
   %935 = landingpad { ptr, i32 }
@@ -9722,11 +9672,7 @@ if.end1640:                                       ; preds = %if.else.i.i3429, %i
   %1098 = load ptr, ptr %current, align 8
   %1099 = load ptr, ptr %parent, align 8
   %cmp.not.i3442 = icmp eq ptr %1098, %1099
-  br i1 %cmp.not.i3442, label %if.end1651, label %if.then.i3443
-
-if.then.i3443:                                    ; preds = %if.end1640
-  store ptr %1099, ptr %current, align 8
-  br label %if.end1651
+  br i1 %cmp.not.i3442, label %if.end1651, label %if.end1651.sink.split
 
 if.else1643:                                      ; preds = %for.cond.i.i.i.i3384, %for.body.i.i3394, %if.end.i.i.i.i3371, %cleanup.done1626
   %1100 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
@@ -9843,10 +9789,15 @@ lpad1646:                                         ; preds = %if.then13.i4.i3474,
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1644) #18
   br label %ehcleanup1759
 
-if.end1651:                                       ; preds = %if.end3.i.i.i.i2429, %lor.lhs.false.i.i.i.i2432, %for.cond.i.i2443, %if.then964, %call2.i.i.i.noexc1135, %call2.i.i.i.noexc1069, %call2.i.i.i.noexc1012, %if.end3.i.i.i.i1114, %lor.lhs.false.i.i.i.i1117, %for.cond.i.i1128, %if.end3.i.i.i.i1048, %lor.lhs.false.i.i.i.i1051, %for.cond.i.i1062, %if.end3.i.i.i.i991, %lor.lhs.false.i.i.i.i994, %for.cond.i.i1005, %call2.i.i.i.noexc2450, %for.inc640.thread, %for.inc570.thread, %invoke.cont27, %invoke.cont1210, %invoke.cont1053, %if.then13.i.i3494, %if.then.i.i3487, %invoke.cont1647, %if.then.i3443, %if.end1640, %land.lhs.true575, %_ZN4cvc58internal8TypeNodeD2Ev.exit2956, %if.then.i2958, %invoke.cont1457, %if.then.i.i3002, %if.then13.i.i3009, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3342, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3360, %if.then13.i.i2720, %if.then.i.i2713, %invoke.cont1337, %if.then.i2669, %if.end1330, %if.then.i2316, %_ZN4cvc58internal8TypeNodeD2Ev.exit2314, %if.then13.i.i2185, %if.then.i.i2178, %invoke.cont1143, %if.then.i2134, %_ZN4cvc58internal8TypeNodeD2Ev.exit2132, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1730, %invoke.cont827, %cleanup.done866, %_ZN4cvc58internal8RationalD2Ev.exit, %if.end841, %if.then.i1566, %invoke.cont848, %if.then.i.i1610, %if.then13.i.i1617, %if.end939, %if.then.i1775, %if.then13.i.i1332, %if.then.i.i1325, %invoke.cont707, %if.then.i1281, %_ZN4cvc58internal8TypeNodeD2Ev.exit1279, %if.then.i962, %_ZN4cvc58internal8TypeNodeD2Ev.exit960, %if.then.i866, %if.end451, %if.then13.i.i821, %if.then.i.i814, %invoke.cont438, %if.then.i770, %_ZN4cvc58internal8TypeNodeD2Ev.exit768, %if.end341, %if.then13.i.i522, %if.then.i.i516, %invoke.cont243, %if.then.i495, %if.end236, %invoke.cont1149, %cleanup.done1077, %_ZN4cvc58internal8TypeNodeD2Ev.exit1358, %land.lhs.true645, %_ZN4cvc58internal8TypeNodeD2Ev.exit608, %invoke.cont360, %if.else247, %sw.epilog1599
-  %delayQueueLeft.sroa.15.3 = phi ptr [ %delayQueueLeft.sroa.15.0, %invoke.cont27 ], [ %delayQueueLeft.sroa.15.0, %invoke.cont1149 ], [ %delayQueueLeft.sroa.15.0, %cleanup.done1077 ], [ %delayQueueLeft.sroa.15.0, %sw.epilog1599 ], [ %delayQueueLeft.sroa.15.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit1358 ], [ %delayQueueLeft.sroa.15.0, %land.lhs.true645 ], [ %delayQueueLeft.sroa.15.0, %invoke.cont360 ], [ %delayQueueLeft.sroa.15.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit608 ], [ %delayQueueLeft.sroa.15.0, %if.else247 ], [ %delayQueueLeft.sroa.15.0, %if.end236 ], [ %delayQueueLeft.sroa.15.0, %if.then.i495 ], [ %delayQueueLeft.sroa.15.0, %invoke.cont243 ], [ %delayQueueLeft.sroa.15.0, %if.then.i.i516 ], [ %delayQueueLeft.sroa.15.0, %if.then13.i.i522 ], [ %delayQueueLeft.sroa.15.0, %if.end341 ], [ %delayQueueLeft.sroa.15.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit768 ], [ %delayQueueLeft.sroa.15.0, %if.then.i770 ], [ %delayQueueLeft.sroa.15.0, %invoke.cont438 ], [ %delayQueueLeft.sroa.15.0, %if.then.i.i814 ], [ %delayQueueLeft.sroa.15.0, %if.then13.i.i821 ], [ %delayQueueLeft.sroa.15.0, %if.end451 ], [ %delayQueueLeft.sroa.15.0, %if.then.i866 ], [ %delayQueueLeft.sroa.15.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit960 ], [ %delayQueueLeft.sroa.15.0, %if.then.i962 ], [ %delayQueueLeft.sroa.15.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit1279 ], [ %delayQueueLeft.sroa.15.0, %if.then.i1281 ], [ %delayQueueLeft.sroa.15.0, %invoke.cont707 ], [ %delayQueueLeft.sroa.15.0, %if.then.i.i1325 ], [ %delayQueueLeft.sroa.15.0, %if.then13.i.i1332 ], [ %delayQueueLeft.sroa.15.0, %if.then.i1775 ], [ %delayQueueLeft.sroa.15.0, %if.end939 ], [ %delayQueueLeft.sroa.15.0, %if.then13.i.i1617 ], [ %delayQueueLeft.sroa.15.0, %if.then.i.i1610 ], [ %delayQueueLeft.sroa.15.0, %invoke.cont848 ], [ %delayQueueLeft.sroa.15.0, %if.then.i1566 ], [ %delayQueueLeft.sroa.15.0, %if.end841 ], [ %delayQueueLeft.sroa.15.0, %_ZN4cvc58internal8RationalD2Ev.exit ], [ %delayQueueLeft.sroa.15.0, %cleanup.done866 ], [ %delayQueueLeft.sroa.15.0, %invoke.cont827 ], [ %delayQueueLeft.sroa.15.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1730 ], [ %delayQueueLeft.sroa.15.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit2132 ], [ %delayQueueLeft.sroa.15.0, %if.then.i2134 ], [ %delayQueueLeft.sroa.15.0, %invoke.cont1143 ], [ %delayQueueLeft.sroa.15.0, %if.then.i.i2178 ], [ %delayQueueLeft.sroa.15.0, %if.then13.i.i2185 ], [ %delayQueueLeft.sroa.15.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit2314 ], [ %delayQueueLeft.sroa.15.0, %if.then.i2316 ], [ %delayQueueLeft.sroa.15.0, %if.end1330 ], [ %delayQueueLeft.sroa.15.0, %if.then.i2669 ], [ %delayQueueLeft.sroa.15.0, %invoke.cont1337 ], [ %delayQueueLeft.sroa.15.0, %if.then.i.i2713 ], [ %delayQueueLeft.sroa.15.0, %if.then13.i.i2720 ], [ %delayQueueLeft.sroa.15.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit2956 ], [ %delayQueueLeft.sroa.15.0, %if.then.i2958 ], [ %delayQueueLeft.sroa.15.0, %invoke.cont1457 ], [ %delayQueueLeft.sroa.15.0, %if.then.i.i3002 ], [ %delayQueueLeft.sroa.15.0, %if.then13.i.i3009 ], [ %delayQueueLeft.sroa.15.4, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3342 ], [ %delayQueueLeft.sroa.15.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3360 ], [ %delayQueueLeft.sroa.15.0, %land.lhs.true575 ], [ %delayQueueLeft.sroa.15.0, %if.end1640 ], [ %delayQueueLeft.sroa.15.0, %if.then.i3443 ], [ %delayQueueLeft.sroa.15.0, %invoke.cont1647 ], [ %delayQueueLeft.sroa.15.0, %if.then.i.i3487 ], [ %delayQueueLeft.sroa.15.0, %if.then13.i.i3494 ], [ %delayQueueLeft.sroa.15.0, %invoke.cont1053 ], [ %delayQueueLeft.sroa.15.0, %invoke.cont1210 ], [ %delayQueueLeft.sroa.15.0, %for.inc570.thread ], [ %delayQueueLeft.sroa.15.0, %for.inc640.thread ], [ %delayQueueLeft.sroa.15.0, %call2.i.i.i.noexc2450 ], [ %delayQueueLeft.sroa.15.0, %for.cond.i.i1005 ], [ %delayQueueLeft.sroa.15.0, %lor.lhs.false.i.i.i.i994 ], [ %delayQueueLeft.sroa.15.0, %if.end3.i.i.i.i991 ], [ %delayQueueLeft.sroa.15.0, %for.cond.i.i1062 ], [ %delayQueueLeft.sroa.15.0, %lor.lhs.false.i.i.i.i1051 ], [ %delayQueueLeft.sroa.15.0, %if.end3.i.i.i.i1048 ], [ %delayQueueLeft.sroa.15.0, %for.cond.i.i1128 ], [ %delayQueueLeft.sroa.15.0, %lor.lhs.false.i.i.i.i1117 ], [ %delayQueueLeft.sroa.15.0, %if.end3.i.i.i.i1114 ], [ %delayQueueLeft.sroa.15.0, %call2.i.i.i.noexc1012 ], [ %delayQueueLeft.sroa.15.0, %call2.i.i.i.noexc1069 ], [ %delayQueueLeft.sroa.15.0, %call2.i.i.i.noexc1135 ], [ %delayQueueLeft.sroa.15.0, %if.then964 ], [ %delayQueueLeft.sroa.15.0, %for.cond.i.i2443 ], [ %delayQueueLeft.sroa.15.0, %lor.lhs.false.i.i.i.i2432 ], [ %delayQueueLeft.sroa.15.0, %if.end3.i.i.i.i2429 ]
-  %delayQueueLeft.sroa.6.3 = phi ptr [ %delayQueueLeft.sroa.6.0, %invoke.cont27 ], [ %delayQueueLeft.sroa.6.0, %invoke.cont1149 ], [ %delayQueueLeft.sroa.6.0, %cleanup.done1077 ], [ %delayQueueLeft.sroa.6.0, %sw.epilog1599 ], [ %delayQueueLeft.sroa.6.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit1358 ], [ %delayQueueLeft.sroa.6.0, %land.lhs.true645 ], [ %delayQueueLeft.sroa.6.0, %invoke.cont360 ], [ %delayQueueLeft.sroa.6.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit608 ], [ %delayQueueLeft.sroa.6.0, %if.else247 ], [ %delayQueueLeft.sroa.6.0, %if.end236 ], [ %delayQueueLeft.sroa.6.0, %if.then.i495 ], [ %delayQueueLeft.sroa.6.0, %invoke.cont243 ], [ %delayQueueLeft.sroa.6.0, %if.then.i.i516 ], [ %delayQueueLeft.sroa.6.0, %if.then13.i.i522 ], [ %delayQueueLeft.sroa.6.0, %if.end341 ], [ %delayQueueLeft.sroa.6.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit768 ], [ %delayQueueLeft.sroa.6.0, %if.then.i770 ], [ %delayQueueLeft.sroa.6.0, %invoke.cont438 ], [ %delayQueueLeft.sroa.6.0, %if.then.i.i814 ], [ %delayQueueLeft.sroa.6.0, %if.then13.i.i821 ], [ %delayQueueLeft.sroa.6.0, %if.end451 ], [ %delayQueueLeft.sroa.6.0, %if.then.i866 ], [ %delayQueueLeft.sroa.6.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit960 ], [ %delayQueueLeft.sroa.6.0, %if.then.i962 ], [ %delayQueueLeft.sroa.6.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit1279 ], [ %delayQueueLeft.sroa.6.0, %if.then.i1281 ], [ %delayQueueLeft.sroa.6.0, %invoke.cont707 ], [ %delayQueueLeft.sroa.6.0, %if.then.i.i1325 ], [ %delayQueueLeft.sroa.6.0, %if.then13.i.i1332 ], [ %delayQueueLeft.sroa.6.0, %if.then.i1775 ], [ %delayQueueLeft.sroa.6.0, %if.end939 ], [ %delayQueueLeft.sroa.6.0, %if.then13.i.i1617 ], [ %delayQueueLeft.sroa.6.0, %if.then.i.i1610 ], [ %delayQueueLeft.sroa.6.0, %invoke.cont848 ], [ %delayQueueLeft.sroa.6.0, %if.then.i1566 ], [ %delayQueueLeft.sroa.6.0, %if.end841 ], [ %delayQueueLeft.sroa.6.0, %_ZN4cvc58internal8RationalD2Ev.exit ], [ %delayQueueLeft.sroa.6.0, %cleanup.done866 ], [ %delayQueueLeft.sroa.6.0, %invoke.cont827 ], [ %delayQueueLeft.sroa.6.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1730 ], [ %delayQueueLeft.sroa.6.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit2132 ], [ %delayQueueLeft.sroa.6.0, %if.then.i2134 ], [ %delayQueueLeft.sroa.6.0, %invoke.cont1143 ], [ %delayQueueLeft.sroa.6.0, %if.then.i.i2178 ], [ %delayQueueLeft.sroa.6.0, %if.then13.i.i2185 ], [ %delayQueueLeft.sroa.6.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit2314 ], [ %delayQueueLeft.sroa.6.0, %if.then.i2316 ], [ %delayQueueLeft.sroa.6.0, %if.end1330 ], [ %delayQueueLeft.sroa.6.0, %if.then.i2669 ], [ %delayQueueLeft.sroa.6.0, %invoke.cont1337 ], [ %delayQueueLeft.sroa.6.0, %if.then.i.i2713 ], [ %delayQueueLeft.sroa.6.0, %if.then13.i.i2720 ], [ %delayQueueLeft.sroa.6.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit2956 ], [ %delayQueueLeft.sroa.6.0, %if.then.i2958 ], [ %delayQueueLeft.sroa.6.0, %invoke.cont1457 ], [ %delayQueueLeft.sroa.6.0, %if.then.i.i3002 ], [ %delayQueueLeft.sroa.6.0, %if.then13.i.i3009 ], [ %delayQueueLeft.sroa.6.5, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3342 ], [ %delayQueueLeft.sroa.6.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3360 ], [ %delayQueueLeft.sroa.6.0, %land.lhs.true575 ], [ %delayQueueLeft.sroa.6.0, %if.end1640 ], [ %delayQueueLeft.sroa.6.0, %if.then.i3443 ], [ %delayQueueLeft.sroa.6.0, %invoke.cont1647 ], [ %delayQueueLeft.sroa.6.0, %if.then.i.i3487 ], [ %delayQueueLeft.sroa.6.0, %if.then13.i.i3494 ], [ %delayQueueLeft.sroa.6.0, %invoke.cont1053 ], [ %delayQueueLeft.sroa.6.0, %invoke.cont1210 ], [ %delayQueueLeft.sroa.6.0, %for.inc570.thread ], [ %delayQueueLeft.sroa.6.0, %for.inc640.thread ], [ %delayQueueLeft.sroa.6.0, %call2.i.i.i.noexc2450 ], [ %delayQueueLeft.sroa.6.0, %for.cond.i.i1005 ], [ %delayQueueLeft.sroa.6.0, %lor.lhs.false.i.i.i.i994 ], [ %delayQueueLeft.sroa.6.0, %if.end3.i.i.i.i991 ], [ %delayQueueLeft.sroa.6.0, %for.cond.i.i1062 ], [ %delayQueueLeft.sroa.6.0, %lor.lhs.false.i.i.i.i1051 ], [ %delayQueueLeft.sroa.6.0, %if.end3.i.i.i.i1048 ], [ %delayQueueLeft.sroa.6.0, %for.cond.i.i1128 ], [ %delayQueueLeft.sroa.6.0, %lor.lhs.false.i.i.i.i1117 ], [ %delayQueueLeft.sroa.6.0, %if.end3.i.i.i.i1114 ], [ %delayQueueLeft.sroa.6.0, %call2.i.i.i.noexc1012 ], [ %delayQueueLeft.sroa.6.0, %call2.i.i.i.noexc1069 ], [ %delayQueueLeft.sroa.6.0, %call2.i.i.i.noexc1135 ], [ %delayQueueLeft.sroa.6.0, %if.then964 ], [ %delayQueueLeft.sroa.6.0, %for.cond.i.i2443 ], [ %delayQueueLeft.sroa.6.0, %lor.lhs.false.i.i.i.i2432 ], [ %delayQueueLeft.sroa.6.0, %if.end3.i.i.i.i2429 ]
-  %delayQueueLeft.sroa.0.9 = phi ptr [ %delayQueueLeft.sroa.0.0, %invoke.cont27 ], [ %delayQueueLeft.sroa.0.0, %invoke.cont1149 ], [ %delayQueueLeft.sroa.0.0, %cleanup.done1077 ], [ %delayQueueLeft.sroa.0.0, %sw.epilog1599 ], [ %delayQueueLeft.sroa.0.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit1358 ], [ %delayQueueLeft.sroa.0.0, %land.lhs.true645 ], [ %delayQueueLeft.sroa.0.0, %invoke.cont360 ], [ %delayQueueLeft.sroa.0.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit608 ], [ %delayQueueLeft.sroa.0.0, %if.else247 ], [ %delayQueueLeft.sroa.0.0, %if.end236 ], [ %delayQueueLeft.sroa.0.0, %if.then.i495 ], [ %delayQueueLeft.sroa.0.0, %invoke.cont243 ], [ %delayQueueLeft.sroa.0.0, %if.then.i.i516 ], [ %delayQueueLeft.sroa.0.0, %if.then13.i.i522 ], [ %delayQueueLeft.sroa.0.0, %if.end341 ], [ %delayQueueLeft.sroa.0.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit768 ], [ %delayQueueLeft.sroa.0.0, %if.then.i770 ], [ %delayQueueLeft.sroa.0.0, %invoke.cont438 ], [ %delayQueueLeft.sroa.0.0, %if.then.i.i814 ], [ %delayQueueLeft.sroa.0.0, %if.then13.i.i821 ], [ %delayQueueLeft.sroa.0.0, %if.end451 ], [ %delayQueueLeft.sroa.0.0, %if.then.i866 ], [ %delayQueueLeft.sroa.0.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit960 ], [ %delayQueueLeft.sroa.0.0, %if.then.i962 ], [ %delayQueueLeft.sroa.0.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit1279 ], [ %delayQueueLeft.sroa.0.0, %if.then.i1281 ], [ %delayQueueLeft.sroa.0.0, %invoke.cont707 ], [ %delayQueueLeft.sroa.0.0, %if.then.i.i1325 ], [ %delayQueueLeft.sroa.0.0, %if.then13.i.i1332 ], [ %delayQueueLeft.sroa.0.0, %if.then.i1775 ], [ %delayQueueLeft.sroa.0.0, %if.end939 ], [ %delayQueueLeft.sroa.0.0, %if.then13.i.i1617 ], [ %delayQueueLeft.sroa.0.0, %if.then.i.i1610 ], [ %delayQueueLeft.sroa.0.0, %invoke.cont848 ], [ %delayQueueLeft.sroa.0.0, %if.then.i1566 ], [ %delayQueueLeft.sroa.0.0, %if.end841 ], [ %delayQueueLeft.sroa.0.0, %_ZN4cvc58internal8RationalD2Ev.exit ], [ %delayQueueLeft.sroa.0.0, %cleanup.done866 ], [ %delayQueueLeft.sroa.0.0, %invoke.cont827 ], [ %delayQueueLeft.sroa.0.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1730 ], [ %delayQueueLeft.sroa.0.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit2132 ], [ %delayQueueLeft.sroa.0.0, %if.then.i2134 ], [ %delayQueueLeft.sroa.0.0, %invoke.cont1143 ], [ %delayQueueLeft.sroa.0.0, %if.then.i.i2178 ], [ %delayQueueLeft.sroa.0.0, %if.then13.i.i2185 ], [ %delayQueueLeft.sroa.0.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit2314 ], [ %delayQueueLeft.sroa.0.0, %if.then.i2316 ], [ %delayQueueLeft.sroa.0.0, %if.end1330 ], [ %delayQueueLeft.sroa.0.0, %if.then.i2669 ], [ %delayQueueLeft.sroa.0.0, %invoke.cont1337 ], [ %delayQueueLeft.sroa.0.0, %if.then.i.i2713 ], [ %delayQueueLeft.sroa.0.0, %if.then13.i.i2720 ], [ %delayQueueLeft.sroa.0.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit2956 ], [ %delayQueueLeft.sroa.0.0, %if.then.i2958 ], [ %delayQueueLeft.sroa.0.0, %invoke.cont1457 ], [ %delayQueueLeft.sroa.0.0, %if.then.i.i3002 ], [ %delayQueueLeft.sroa.0.0, %if.then13.i.i3009 ], [ %delayQueueLeft.sroa.0.28, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3342 ], [ %delayQueueLeft.sroa.0.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3360 ], [ %delayQueueLeft.sroa.0.0, %land.lhs.true575 ], [ %delayQueueLeft.sroa.0.0, %if.end1640 ], [ %delayQueueLeft.sroa.0.0, %if.then.i3443 ], [ %delayQueueLeft.sroa.0.0, %invoke.cont1647 ], [ %delayQueueLeft.sroa.0.0, %if.then.i.i3487 ], [ %delayQueueLeft.sroa.0.0, %if.then13.i.i3494 ], [ %delayQueueLeft.sroa.0.0, %invoke.cont1053 ], [ %delayQueueLeft.sroa.0.0, %invoke.cont1210 ], [ %delayQueueLeft.sroa.0.0, %for.inc570.thread ], [ %delayQueueLeft.sroa.0.0, %for.inc640.thread ], [ %delayQueueLeft.sroa.0.0, %call2.i.i.i.noexc2450 ], [ %delayQueueLeft.sroa.0.0, %for.cond.i.i1005 ], [ %delayQueueLeft.sroa.0.0, %lor.lhs.false.i.i.i.i994 ], [ %delayQueueLeft.sroa.0.0, %if.end3.i.i.i.i991 ], [ %delayQueueLeft.sroa.0.0, %for.cond.i.i1062 ], [ %delayQueueLeft.sroa.0.0, %lor.lhs.false.i.i.i.i1051 ], [ %delayQueueLeft.sroa.0.0, %if.end3.i.i.i.i1048 ], [ %delayQueueLeft.sroa.0.0, %for.cond.i.i1128 ], [ %delayQueueLeft.sroa.0.0, %lor.lhs.false.i.i.i.i1117 ], [ %delayQueueLeft.sroa.0.0, %if.end3.i.i.i.i1114 ], [ %delayQueueLeft.sroa.0.0, %call2.i.i.i.noexc1012 ], [ %delayQueueLeft.sroa.0.0, %call2.i.i.i.noexc1069 ], [ %delayQueueLeft.sroa.0.0, %call2.i.i.i.noexc1135 ], [ %delayQueueLeft.sroa.0.0, %if.then964 ], [ %delayQueueLeft.sroa.0.0, %for.cond.i.i2443 ], [ %delayQueueLeft.sroa.0.0, %lor.lhs.false.i.i.i.i2432 ], [ %delayQueueLeft.sroa.0.0, %if.end3.i.i.i.i2429 ]
+if.end1651.sink.split:                            ; preds = %if.end1640, %_ZN4cvc58internal8TypeNodeD2Ev.exit2956, %if.end1330, %_ZN4cvc58internal8TypeNodeD2Ev.exit2314, %_ZN4cvc58internal8TypeNodeD2Ev.exit2132, %if.end939, %if.end841, %_ZN4cvc58internal8TypeNodeD2Ev.exit1279, %_ZN4cvc58internal8TypeNodeD2Ev.exit960, %if.end451, %_ZN4cvc58internal8TypeNodeD2Ev.exit768, %if.end236
+  %.sink5169 = phi ptr [ %140, %if.end236 ], [ %254, %_ZN4cvc58internal8TypeNodeD2Ev.exit768 ], [ %279, %if.end451 ], [ %305, %_ZN4cvc58internal8TypeNodeD2Ev.exit960 ], [ %406, %_ZN4cvc58internal8TypeNodeD2Ev.exit1279 ], [ %498, %if.end841 ], [ %570, %if.end939 ], [ %707, %_ZN4cvc58internal8TypeNodeD2Ev.exit2132 ], [ %755, %_ZN4cvc58internal8TypeNodeD2Ev.exit2314 ], [ %853, %if.end1330 ], [ %934, %_ZN4cvc58internal8TypeNodeD2Ev.exit2956 ], [ %1099, %if.end1640 ]
+  store ptr %.sink5169, ptr %current, align 8
+  br label %if.end1651
+
+if.end1651:                                       ; preds = %if.end3.i.i.i.i2429, %lor.lhs.false.i.i.i.i2432, %for.cond.i.i2443, %if.then964, %call2.i.i.i.noexc1135, %call2.i.i.i.noexc1069, %call2.i.i.i.noexc1012, %if.end3.i.i.i.i1114, %lor.lhs.false.i.i.i.i1117, %for.cond.i.i1128, %if.end3.i.i.i.i1048, %lor.lhs.false.i.i.i.i1051, %for.cond.i.i1062, %if.end3.i.i.i.i991, %lor.lhs.false.i.i.i.i994, %for.cond.i.i1005, %if.end1651.sink.split, %call2.i.i.i.noexc2450, %for.inc640.thread, %for.inc570.thread, %invoke.cont27, %invoke.cont1210, %invoke.cont1053, %if.then13.i.i3494, %if.then.i.i3487, %invoke.cont1647, %if.end1640, %land.lhs.true575, %_ZN4cvc58internal8TypeNodeD2Ev.exit2956, %invoke.cont1457, %if.then.i.i3002, %if.then13.i.i3009, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3342, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3360, %if.then13.i.i2720, %if.then.i.i2713, %invoke.cont1337, %if.end1330, %_ZN4cvc58internal8TypeNodeD2Ev.exit2314, %if.then13.i.i2185, %if.then.i.i2178, %invoke.cont1143, %_ZN4cvc58internal8TypeNodeD2Ev.exit2132, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1730, %invoke.cont827, %cleanup.done866, %_ZN4cvc58internal8RationalD2Ev.exit, %if.end841, %invoke.cont848, %if.then.i.i1610, %if.then13.i.i1617, %if.end939, %if.then13.i.i1332, %if.then.i.i1325, %invoke.cont707, %_ZN4cvc58internal8TypeNodeD2Ev.exit1279, %_ZN4cvc58internal8TypeNodeD2Ev.exit960, %if.end451, %if.then13.i.i821, %if.then.i.i814, %invoke.cont438, %_ZN4cvc58internal8TypeNodeD2Ev.exit768, %if.end341, %if.then13.i.i522, %if.then.i.i516, %invoke.cont243, %if.end236, %invoke.cont1149, %cleanup.done1077, %_ZN4cvc58internal8TypeNodeD2Ev.exit1358, %land.lhs.true645, %_ZN4cvc58internal8TypeNodeD2Ev.exit608, %invoke.cont360, %if.else247, %sw.epilog1599
+  %delayQueueLeft.sroa.15.3 = phi ptr [ %delayQueueLeft.sroa.15.0, %invoke.cont27 ], [ %delayQueueLeft.sroa.15.0, %invoke.cont1149 ], [ %delayQueueLeft.sroa.15.0, %cleanup.done1077 ], [ %delayQueueLeft.sroa.15.0, %sw.epilog1599 ], [ %delayQueueLeft.sroa.15.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit1358 ], [ %delayQueueLeft.sroa.15.0, %land.lhs.true645 ], [ %delayQueueLeft.sroa.15.0, %invoke.cont360 ], [ %delayQueueLeft.sroa.15.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit608 ], [ %delayQueueLeft.sroa.15.0, %if.else247 ], [ %delayQueueLeft.sroa.15.0, %if.end236 ], [ %delayQueueLeft.sroa.15.0, %invoke.cont243 ], [ %delayQueueLeft.sroa.15.0, %if.then.i.i516 ], [ %delayQueueLeft.sroa.15.0, %if.then13.i.i522 ], [ %delayQueueLeft.sroa.15.0, %if.end341 ], [ %delayQueueLeft.sroa.15.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit768 ], [ %delayQueueLeft.sroa.15.0, %invoke.cont438 ], [ %delayQueueLeft.sroa.15.0, %if.then.i.i814 ], [ %delayQueueLeft.sroa.15.0, %if.then13.i.i821 ], [ %delayQueueLeft.sroa.15.0, %if.end451 ], [ %delayQueueLeft.sroa.15.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit960 ], [ %delayQueueLeft.sroa.15.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit1279 ], [ %delayQueueLeft.sroa.15.0, %invoke.cont707 ], [ %delayQueueLeft.sroa.15.0, %if.then.i.i1325 ], [ %delayQueueLeft.sroa.15.0, %if.then13.i.i1332 ], [ %delayQueueLeft.sroa.15.0, %if.end939 ], [ %delayQueueLeft.sroa.15.0, %if.then13.i.i1617 ], [ %delayQueueLeft.sroa.15.0, %if.then.i.i1610 ], [ %delayQueueLeft.sroa.15.0, %invoke.cont848 ], [ %delayQueueLeft.sroa.15.0, %if.end841 ], [ %delayQueueLeft.sroa.15.0, %_ZN4cvc58internal8RationalD2Ev.exit ], [ %delayQueueLeft.sroa.15.0, %cleanup.done866 ], [ %delayQueueLeft.sroa.15.0, %invoke.cont827 ], [ %delayQueueLeft.sroa.15.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1730 ], [ %delayQueueLeft.sroa.15.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit2132 ], [ %delayQueueLeft.sroa.15.0, %invoke.cont1143 ], [ %delayQueueLeft.sroa.15.0, %if.then.i.i2178 ], [ %delayQueueLeft.sroa.15.0, %if.then13.i.i2185 ], [ %delayQueueLeft.sroa.15.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit2314 ], [ %delayQueueLeft.sroa.15.0, %if.end1330 ], [ %delayQueueLeft.sroa.15.0, %invoke.cont1337 ], [ %delayQueueLeft.sroa.15.0, %if.then.i.i2713 ], [ %delayQueueLeft.sroa.15.0, %if.then13.i.i2720 ], [ %delayQueueLeft.sroa.15.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit2956 ], [ %delayQueueLeft.sroa.15.0, %invoke.cont1457 ], [ %delayQueueLeft.sroa.15.0, %if.then.i.i3002 ], [ %delayQueueLeft.sroa.15.0, %if.then13.i.i3009 ], [ %delayQueueLeft.sroa.15.4, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3342 ], [ %delayQueueLeft.sroa.15.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3360 ], [ %delayQueueLeft.sroa.15.0, %land.lhs.true575 ], [ %delayQueueLeft.sroa.15.0, %if.end1640 ], [ %delayQueueLeft.sroa.15.0, %invoke.cont1647 ], [ %delayQueueLeft.sroa.15.0, %if.then.i.i3487 ], [ %delayQueueLeft.sroa.15.0, %if.then13.i.i3494 ], [ %delayQueueLeft.sroa.15.0, %invoke.cont1053 ], [ %delayQueueLeft.sroa.15.0, %invoke.cont1210 ], [ %delayQueueLeft.sroa.15.0, %for.inc570.thread ], [ %delayQueueLeft.sroa.15.0, %for.inc640.thread ], [ %delayQueueLeft.sroa.15.0, %call2.i.i.i.noexc2450 ], [ %delayQueueLeft.sroa.15.0, %if.end1651.sink.split ], [ %delayQueueLeft.sroa.15.0, %for.cond.i.i1005 ], [ %delayQueueLeft.sroa.15.0, %lor.lhs.false.i.i.i.i994 ], [ %delayQueueLeft.sroa.15.0, %if.end3.i.i.i.i991 ], [ %delayQueueLeft.sroa.15.0, %for.cond.i.i1062 ], [ %delayQueueLeft.sroa.15.0, %lor.lhs.false.i.i.i.i1051 ], [ %delayQueueLeft.sroa.15.0, %if.end3.i.i.i.i1048 ], [ %delayQueueLeft.sroa.15.0, %for.cond.i.i1128 ], [ %delayQueueLeft.sroa.15.0, %lor.lhs.false.i.i.i.i1117 ], [ %delayQueueLeft.sroa.15.0, %if.end3.i.i.i.i1114 ], [ %delayQueueLeft.sroa.15.0, %call2.i.i.i.noexc1012 ], [ %delayQueueLeft.sroa.15.0, %call2.i.i.i.noexc1069 ], [ %delayQueueLeft.sroa.15.0, %call2.i.i.i.noexc1135 ], [ %delayQueueLeft.sroa.15.0, %if.then964 ], [ %delayQueueLeft.sroa.15.0, %for.cond.i.i2443 ], [ %delayQueueLeft.sroa.15.0, %lor.lhs.false.i.i.i.i2432 ], [ %delayQueueLeft.sroa.15.0, %if.end3.i.i.i.i2429 ]
+  %delayQueueLeft.sroa.6.3 = phi ptr [ %delayQueueLeft.sroa.6.0, %invoke.cont27 ], [ %delayQueueLeft.sroa.6.0, %invoke.cont1149 ], [ %delayQueueLeft.sroa.6.0, %cleanup.done1077 ], [ %delayQueueLeft.sroa.6.0, %sw.epilog1599 ], [ %delayQueueLeft.sroa.6.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit1358 ], [ %delayQueueLeft.sroa.6.0, %land.lhs.true645 ], [ %delayQueueLeft.sroa.6.0, %invoke.cont360 ], [ %delayQueueLeft.sroa.6.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit608 ], [ %delayQueueLeft.sroa.6.0, %if.else247 ], [ %delayQueueLeft.sroa.6.0, %if.end236 ], [ %delayQueueLeft.sroa.6.0, %invoke.cont243 ], [ %delayQueueLeft.sroa.6.0, %if.then.i.i516 ], [ %delayQueueLeft.sroa.6.0, %if.then13.i.i522 ], [ %delayQueueLeft.sroa.6.0, %if.end341 ], [ %delayQueueLeft.sroa.6.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit768 ], [ %delayQueueLeft.sroa.6.0, %invoke.cont438 ], [ %delayQueueLeft.sroa.6.0, %if.then.i.i814 ], [ %delayQueueLeft.sroa.6.0, %if.then13.i.i821 ], [ %delayQueueLeft.sroa.6.0, %if.end451 ], [ %delayQueueLeft.sroa.6.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit960 ], [ %delayQueueLeft.sroa.6.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit1279 ], [ %delayQueueLeft.sroa.6.0, %invoke.cont707 ], [ %delayQueueLeft.sroa.6.0, %if.then.i.i1325 ], [ %delayQueueLeft.sroa.6.0, %if.then13.i.i1332 ], [ %delayQueueLeft.sroa.6.0, %if.end939 ], [ %delayQueueLeft.sroa.6.0, %if.then13.i.i1617 ], [ %delayQueueLeft.sroa.6.0, %if.then.i.i1610 ], [ %delayQueueLeft.sroa.6.0, %invoke.cont848 ], [ %delayQueueLeft.sroa.6.0, %if.end841 ], [ %delayQueueLeft.sroa.6.0, %_ZN4cvc58internal8RationalD2Ev.exit ], [ %delayQueueLeft.sroa.6.0, %cleanup.done866 ], [ %delayQueueLeft.sroa.6.0, %invoke.cont827 ], [ %delayQueueLeft.sroa.6.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1730 ], [ %delayQueueLeft.sroa.6.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit2132 ], [ %delayQueueLeft.sroa.6.0, %invoke.cont1143 ], [ %delayQueueLeft.sroa.6.0, %if.then.i.i2178 ], [ %delayQueueLeft.sroa.6.0, %if.then13.i.i2185 ], [ %delayQueueLeft.sroa.6.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit2314 ], [ %delayQueueLeft.sroa.6.0, %if.end1330 ], [ %delayQueueLeft.sroa.6.0, %invoke.cont1337 ], [ %delayQueueLeft.sroa.6.0, %if.then.i.i2713 ], [ %delayQueueLeft.sroa.6.0, %if.then13.i.i2720 ], [ %delayQueueLeft.sroa.6.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit2956 ], [ %delayQueueLeft.sroa.6.0, %invoke.cont1457 ], [ %delayQueueLeft.sroa.6.0, %if.then.i.i3002 ], [ %delayQueueLeft.sroa.6.0, %if.then13.i.i3009 ], [ %delayQueueLeft.sroa.6.5, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3342 ], [ %delayQueueLeft.sroa.6.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3360 ], [ %delayQueueLeft.sroa.6.0, %land.lhs.true575 ], [ %delayQueueLeft.sroa.6.0, %if.end1640 ], [ %delayQueueLeft.sroa.6.0, %invoke.cont1647 ], [ %delayQueueLeft.sroa.6.0, %if.then.i.i3487 ], [ %delayQueueLeft.sroa.6.0, %if.then13.i.i3494 ], [ %delayQueueLeft.sroa.6.0, %invoke.cont1053 ], [ %delayQueueLeft.sroa.6.0, %invoke.cont1210 ], [ %delayQueueLeft.sroa.6.0, %for.inc570.thread ], [ %delayQueueLeft.sroa.6.0, %for.inc640.thread ], [ %delayQueueLeft.sroa.6.0, %call2.i.i.i.noexc2450 ], [ %delayQueueLeft.sroa.6.0, %if.end1651.sink.split ], [ %delayQueueLeft.sroa.6.0, %for.cond.i.i1005 ], [ %delayQueueLeft.sroa.6.0, %lor.lhs.false.i.i.i.i994 ], [ %delayQueueLeft.sroa.6.0, %if.end3.i.i.i.i991 ], [ %delayQueueLeft.sroa.6.0, %for.cond.i.i1062 ], [ %delayQueueLeft.sroa.6.0, %lor.lhs.false.i.i.i.i1051 ], [ %delayQueueLeft.sroa.6.0, %if.end3.i.i.i.i1048 ], [ %delayQueueLeft.sroa.6.0, %for.cond.i.i1128 ], [ %delayQueueLeft.sroa.6.0, %lor.lhs.false.i.i.i.i1117 ], [ %delayQueueLeft.sroa.6.0, %if.end3.i.i.i.i1114 ], [ %delayQueueLeft.sroa.6.0, %call2.i.i.i.noexc1012 ], [ %delayQueueLeft.sroa.6.0, %call2.i.i.i.noexc1069 ], [ %delayQueueLeft.sroa.6.0, %call2.i.i.i.noexc1135 ], [ %delayQueueLeft.sroa.6.0, %if.then964 ], [ %delayQueueLeft.sroa.6.0, %for.cond.i.i2443 ], [ %delayQueueLeft.sroa.6.0, %lor.lhs.false.i.i.i.i2432 ], [ %delayQueueLeft.sroa.6.0, %if.end3.i.i.i.i2429 ]
+  %delayQueueLeft.sroa.0.9 = phi ptr [ %delayQueueLeft.sroa.0.0, %invoke.cont27 ], [ %delayQueueLeft.sroa.0.0, %invoke.cont1149 ], [ %delayQueueLeft.sroa.0.0, %cleanup.done1077 ], [ %delayQueueLeft.sroa.0.0, %sw.epilog1599 ], [ %delayQueueLeft.sroa.0.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit1358 ], [ %delayQueueLeft.sroa.0.0, %land.lhs.true645 ], [ %delayQueueLeft.sroa.0.0, %invoke.cont360 ], [ %delayQueueLeft.sroa.0.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit608 ], [ %delayQueueLeft.sroa.0.0, %if.else247 ], [ %delayQueueLeft.sroa.0.0, %if.end236 ], [ %delayQueueLeft.sroa.0.0, %invoke.cont243 ], [ %delayQueueLeft.sroa.0.0, %if.then.i.i516 ], [ %delayQueueLeft.sroa.0.0, %if.then13.i.i522 ], [ %delayQueueLeft.sroa.0.0, %if.end341 ], [ %delayQueueLeft.sroa.0.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit768 ], [ %delayQueueLeft.sroa.0.0, %invoke.cont438 ], [ %delayQueueLeft.sroa.0.0, %if.then.i.i814 ], [ %delayQueueLeft.sroa.0.0, %if.then13.i.i821 ], [ %delayQueueLeft.sroa.0.0, %if.end451 ], [ %delayQueueLeft.sroa.0.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit960 ], [ %delayQueueLeft.sroa.0.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit1279 ], [ %delayQueueLeft.sroa.0.0, %invoke.cont707 ], [ %delayQueueLeft.sroa.0.0, %if.then.i.i1325 ], [ %delayQueueLeft.sroa.0.0, %if.then13.i.i1332 ], [ %delayQueueLeft.sroa.0.0, %if.end939 ], [ %delayQueueLeft.sroa.0.0, %if.then13.i.i1617 ], [ %delayQueueLeft.sroa.0.0, %if.then.i.i1610 ], [ %delayQueueLeft.sroa.0.0, %invoke.cont848 ], [ %delayQueueLeft.sroa.0.0, %if.end841 ], [ %delayQueueLeft.sroa.0.0, %_ZN4cvc58internal8RationalD2Ev.exit ], [ %delayQueueLeft.sroa.0.0, %cleanup.done866 ], [ %delayQueueLeft.sroa.0.0, %invoke.cont827 ], [ %delayQueueLeft.sroa.0.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1730 ], [ %delayQueueLeft.sroa.0.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit2132 ], [ %delayQueueLeft.sroa.0.0, %invoke.cont1143 ], [ %delayQueueLeft.sroa.0.0, %if.then.i.i2178 ], [ %delayQueueLeft.sroa.0.0, %if.then13.i.i2185 ], [ %delayQueueLeft.sroa.0.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit2314 ], [ %delayQueueLeft.sroa.0.0, %if.end1330 ], [ %delayQueueLeft.sroa.0.0, %invoke.cont1337 ], [ %delayQueueLeft.sroa.0.0, %if.then.i.i2713 ], [ %delayQueueLeft.sroa.0.0, %if.then13.i.i2720 ], [ %delayQueueLeft.sroa.0.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit2956 ], [ %delayQueueLeft.sroa.0.0, %invoke.cont1457 ], [ %delayQueueLeft.sroa.0.0, %if.then.i.i3002 ], [ %delayQueueLeft.sroa.0.0, %if.then13.i.i3009 ], [ %delayQueueLeft.sroa.0.28, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3342 ], [ %delayQueueLeft.sroa.0.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3360 ], [ %delayQueueLeft.sroa.0.0, %land.lhs.true575 ], [ %delayQueueLeft.sroa.0.0, %if.end1640 ], [ %delayQueueLeft.sroa.0.0, %invoke.cont1647 ], [ %delayQueueLeft.sroa.0.0, %if.then.i.i3487 ], [ %delayQueueLeft.sroa.0.0, %if.then13.i.i3494 ], [ %delayQueueLeft.sroa.0.0, %invoke.cont1053 ], [ %delayQueueLeft.sroa.0.0, %invoke.cont1210 ], [ %delayQueueLeft.sroa.0.0, %for.inc570.thread ], [ %delayQueueLeft.sroa.0.0, %for.inc640.thread ], [ %delayQueueLeft.sroa.0.0, %call2.i.i.i.noexc2450 ], [ %delayQueueLeft.sroa.0.0, %if.end1651.sink.split ], [ %delayQueueLeft.sroa.0.0, %for.cond.i.i1005 ], [ %delayQueueLeft.sroa.0.0, %lor.lhs.false.i.i.i.i994 ], [ %delayQueueLeft.sroa.0.0, %if.end3.i.i.i.i991 ], [ %delayQueueLeft.sroa.0.0, %for.cond.i.i1062 ], [ %delayQueueLeft.sroa.0.0, %lor.lhs.false.i.i.i.i1051 ], [ %delayQueueLeft.sroa.0.0, %if.end3.i.i.i.i1048 ], [ %delayQueueLeft.sroa.0.0, %for.cond.i.i1128 ], [ %delayQueueLeft.sroa.0.0, %lor.lhs.false.i.i.i.i1117 ], [ %delayQueueLeft.sroa.0.0, %if.end3.i.i.i.i1114 ], [ %delayQueueLeft.sroa.0.0, %call2.i.i.i.noexc1012 ], [ %delayQueueLeft.sroa.0.0, %call2.i.i.i.noexc1069 ], [ %delayQueueLeft.sroa.0.0, %call2.i.i.i.noexc1135 ], [ %delayQueueLeft.sroa.0.0, %if.then964 ], [ %delayQueueLeft.sroa.0.0, %for.cond.i.i2443 ], [ %delayQueueLeft.sroa.0.0, %lor.lhs.false.i.i.i.i2432 ], [ %delayQueueLeft.sroa.0.0, %if.end3.i.i.i.i2429 ]
   %1111 = load ptr, ptr %current, align 8
   %1112 = load ptr, ptr %parent, align 8
   %cmp.i3497 = icmp eq ptr %1111, %1112

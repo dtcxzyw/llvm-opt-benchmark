@@ -4283,13 +4283,7 @@ define internal fastcc i32 @ompi_osc_rdma_gacc_contig(ptr noundef %0, ptr nounde
 62:                                               ; preds = %.critedge
   %63 = tail call noalias ptr @malloc(i64 noundef %46) #15
   %64 = icmp eq ptr %63, null
-  br i1 %64, label %ompi_osc_rdma_gacc_amo.exit.thread, label %65
-
-ompi_osc_rdma_gacc_amo.exit.thread:               ; preds = %62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34)
-  br label %295
+  br i1 %64, label %.sink.split, label %65
 
 65:                                               ; preds = %62, %.critedge
   %.064.i = phi ptr [ %63, %62 ], [ %4, %.critedge ]
@@ -4836,10 +4830,7 @@ ompi_osc_rdma_fetch_and_op_cas.exit.i:            ; preds = %245, %osc_rdma_acce
 
 ompi_osc_rdma_gacc_amo.exit.thread112:            ; preds = %ompi_osc_rdma_fetch_and_op_cas.exit.i, %174, %.lr.ph26.split.i
   call void @free(ptr noundef %.063.i) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34)
-  br label %295
+  br label %.sink.split
 
 ompi_osc_rdma_gacc_amo.exit:                      ; preds = %293, %294
   call void @free(ptr noundef %.063.i) #13
@@ -4848,7 +4839,13 @@ ompi_osc_rdma_gacc_amo.exit:                      ; preds = %293, %294
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34)
   br label %345
 
-295:                                              ; preds = %ompi_osc_rdma_gacc_amo.exit.thread112, %ompi_osc_rdma_gacc_amo.exit.thread, %54, %49, %15
+.sink.split:                                      ; preds = %62, %ompi_osc_rdma_gacc_amo.exit.thread112
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34)
+  br label %295
+
+295:                                              ; preds = %.sink.split, %54, %49, %15
   %.not108 = icmp eq ptr %13, @ompi_mpi_op_replace
   br i1 %.not108, label %296, label %300
 

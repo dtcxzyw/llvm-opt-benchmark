@@ -34313,11 +34313,11 @@ if.else118:                                       ; preds = %lor.lhs.false109
 
 if.end121:                                        ; preds = %if.then82, %lor.lhs.false109, %if.else118
   %m_mul_bc.sink = phi ptr [ %m_mul_bc, %if.else118 ], [ %m_mul_ad, %lor.lhs.false109 ], [ %m_mul_ad, %if.then82 ]
-  %storemerge.in = phi ptr [ %bc_k, %if.else118 ], [ %ad_k, %lor.lhs.false109 ], [ %ad_k, %if.then82 ]
+  %.sink663.in = phi ptr [ %bc_k, %if.else118 ], [ %ad_k, %lor.lhs.false109 ], [ %ad_k, %if.then82 ]
   %.sink = phi i1 [ %123, %if.else118 ], [ %121, %lor.lhs.false109 ], [ %121, %if.then82 ]
   call void @_ZN12mpbq_manager4swapER4mpbqS1_(ptr noundef nonnull align 8 dereferenceable(20) %m_result_lower, ptr noundef nonnull align 8 dereferenceable(20) %m_mul_bc.sink) #21
-  %storemerge = load i32, ptr %storemerge.in, align 4
-  store i32 %storemerge, ptr %new_l_kind, align 4
+  %.sink663 = load i32, ptr %.sink663.in, align 4
+  store i32 %.sink663, ptr %new_l_kind, align 4
   %frombool.i.i476 = zext i1 %.sink to i8
   %m_lower_open.i.i477 = getelementptr inbounds i8, ptr %r, i64 50
   store i8 %frombool.i.i476, ptr %m_lower_open.i.i477, align 2

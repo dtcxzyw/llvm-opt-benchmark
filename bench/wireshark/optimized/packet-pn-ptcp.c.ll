@@ -608,7 +608,7 @@ define internal fastcc i32 @dissect_PNPTCP_blocks(ptr noundef %0, i32 noundef %1
   br label %59
 
 59:                                               ; preds = %dissect_PNPTCP_block.exit, %5
-  %.02 = phi i32 [ %1, %5 ], [ %311, %dissect_PNPTCP_block.exit ]
+  %.02 = phi i32 [ %1, %5 ], [ %296, %dissect_PNPTCP_block.exit ]
   %60 = load i32, ptr @hf_pn_ptcp_block, align 4
   %61 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %60, ptr noundef %0, i32 noundef %.02, i32 noundef 0, i32 noundef 0) #3
   %62 = load i32, ptr @ett_pn_ptcp_block, align 4
@@ -635,16 +635,16 @@ define internal fastcc i32 @dissect_PNPTCP_blocks(ptr noundef %0, i32 noundef %1
   %78 = call ptr @val_to_str_const(i32 noundef %76, ptr noundef nonnull @pn_ptcp_block_type, ptr noundef nonnull @.str.101) #3
   %79 = zext nneg i16 %75 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %65, ptr noundef nonnull @.str.132, ptr noundef %78, i32 noundef %76, i32 noundef %79) #3
-  switch i16 %71, label %309 [
-    i16 0, label %313
+  switch i16 %71, label %294 [
+    i16 0, label %298
     i16 1, label %80
     i16 2, label %132
     i16 3, label %149
     i16 4, label %159
-    i16 5, label %216
-    i16 6, label %228
-    i16 7, label %257
-    i16 127, label %264
+    i16 5, label %201
+    i16 6, label %213
+    i16 7, label %242
+    i16 127, label %249
   ]
 
 80:                                               ; preds = %59
@@ -788,48 +788,32 @@ dissect_PNPTCP_Subdomain.exit.i:                  ; preds = %85, %80
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %177, i32 noundef 25, ptr noundef nonnull @.str.148, ptr noundef %181) #3
   %182 = load i8, ptr %13, align 1
   %183 = icmp sgt i8 %182, -1
-  br i1 %183, label %184, label %199
+  br i1 %183, label %dissect_PNPTCP_Master.exit.i, label %184
 
 184:                                              ; preds = %159
-  %185 = and i8 %182, 7
-  %186 = zext nneg i8 %185 to i32
-  %187 = call ptr @val_to_str(i32 noundef %186, ptr noundef nonnull @pn_ptcp_master_prio1_vals, ptr noundef nonnull @.str.149) #3
-  %188 = load i8, ptr %14, align 1
-  %189 = zext i8 %188 to i32
-  %190 = call ptr @val_to_str(i32 noundef %189, ptr noundef nonnull @pn_ptcp_master_prio2_vals, ptr noundef nonnull @.str.149) #3
-  %191 = load i8, ptr %15, align 1
-  %192 = zext i8 %191 to i32
-  %193 = call ptr @val_to_str(i32 noundef %192, ptr noundef nonnull @pn_ptcp_clock_class_vals, ptr noundef nonnull @.str.149) #3
-  %194 = load i8, ptr %16, align 1
-  %195 = zext i8 %194 to i32
-  %196 = call ptr @val_to_str(i32 noundef %195, ptr noundef nonnull @pn_ptcp_clock_accuracy_vals, ptr noundef nonnull @.str.149) #3
-  %197 = load i16, ptr %17, align 2
-  %198 = sext i16 %197 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.150, ptr noundef %187, ptr noundef %190, ptr noundef %193, ptr noundef %196, i32 noundef %198) #3
+  %185 = load ptr, ptr %37, align 8
+  call void @col_append_str(ptr noundef %185, i32 noundef 25, ptr noundef nonnull @.str.151) #3
+  %186 = load i8, ptr %13, align 1
   br label %dissect_PNPTCP_Master.exit.i
 
-199:                                              ; preds = %159
-  %200 = load ptr, ptr %37, align 8
-  call void @col_append_str(ptr noundef %200, i32 noundef 25, ptr noundef nonnull @.str.151) #3
-  %201 = load i8, ptr %13, align 1
-  %202 = and i8 %201, 7
-  %203 = zext nneg i8 %202 to i32
-  %204 = call ptr @val_to_str(i32 noundef %203, ptr noundef nonnull @pn_ptcp_master_prio1_vals, ptr noundef nonnull @.str.149) #3
-  %205 = load i8, ptr %14, align 1
-  %206 = zext i8 %205 to i32
-  %207 = call ptr @val_to_str(i32 noundef %206, ptr noundef nonnull @pn_ptcp_master_prio2_vals, ptr noundef nonnull @.str.149) #3
-  %208 = load i8, ptr %15, align 1
-  %209 = zext i8 %208 to i32
-  %210 = call ptr @val_to_str(i32 noundef %209, ptr noundef nonnull @pn_ptcp_clock_class_vals, ptr noundef nonnull @.str.149) #3
-  %211 = load i8, ptr %16, align 1
-  %212 = zext i8 %211 to i32
-  %213 = call ptr @val_to_str(i32 noundef %212, ptr noundef nonnull @pn_ptcp_clock_accuracy_vals, ptr noundef nonnull @.str.149) #3
-  %214 = load i16, ptr %17, align 2
-  %215 = sext i16 %214 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.152, ptr noundef %204, ptr noundef %207, ptr noundef %210, ptr noundef %213, i32 noundef %215) #3
-  br label %dissect_PNPTCP_Master.exit.i
-
-dissect_PNPTCP_Master.exit.i:                     ; preds = %199, %184
+dissect_PNPTCP_Master.exit.i:                     ; preds = %184, %159
+  %.sink52.i.i = phi i8 [ %186, %184 ], [ %182, %159 ]
+  %.str.152.sink.i.i = phi ptr [ @.str.152, %184 ], [ @.str.150, %159 ]
+  %187 = and i8 %.sink52.i.i, 7
+  %188 = zext nneg i8 %187 to i32
+  %189 = call ptr @val_to_str(i32 noundef %188, ptr noundef nonnull @pn_ptcp_master_prio1_vals, ptr noundef nonnull @.str.149) #3
+  %190 = load i8, ptr %14, align 1
+  %191 = zext i8 %190 to i32
+  %192 = call ptr @val_to_str(i32 noundef %191, ptr noundef nonnull @pn_ptcp_master_prio2_vals, ptr noundef nonnull @.str.149) #3
+  %193 = load i8, ptr %15, align 1
+  %194 = zext i8 %193 to i32
+  %195 = call ptr @val_to_str(i32 noundef %194, ptr noundef nonnull @pn_ptcp_clock_class_vals, ptr noundef nonnull @.str.149) #3
+  %196 = load i8, ptr %16, align 1
+  %197 = zext i8 %196 to i32
+  %198 = call ptr @val_to_str(i32 noundef %197, ptr noundef nonnull @pn_ptcp_clock_accuracy_vals, ptr noundef nonnull @.str.149) #3
+  %199 = load i16, ptr %17, align 2
+  %200 = sext i16 %199 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull %.str.152.sink.i.i, ptr noundef %189, ptr noundef %192, ptr noundef %195, ptr noundef %198, i32 noundef %200) #3
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
@@ -837,167 +821,167 @@ dissect_PNPTCP_Master.exit.i:                     ; preds = %199, %184
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %17)
   br label %dissect_PNPTCP_block.exit
 
-216:                                              ; preds = %59
+201:                                              ; preds = %59
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
-  %217 = call i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63) #3
-  %218 = load i32, ptr @hf_pn_ptcp_t2portrxdelay, align 4
-  %219 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %63, i32 noundef %218, ptr noundef %0, i32 noundef %217, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %11) #3
-  %220 = add i32 %217, 4
-  %221 = load i32, ptr @hf_pn_ptcp_t3porttxdelay, align 4
-  %222 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %63, i32 noundef %221, ptr noundef %0, i32 noundef %220, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %12) #3
-  %223 = load i32, ptr %11, align 4
-  %224 = load i32, ptr %12, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.153, i32 noundef %223, i32 noundef %224) #3
-  %225 = load ptr, ptr %37, align 8
-  %226 = load i32, ptr %11, align 4
-  %227 = load i32, ptr %12, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %225, i32 noundef 25, ptr noundef nonnull @.str.154, i32 noundef %226, i32 noundef %227) #3
+  %202 = call i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63) #3
+  %203 = load i32, ptr @hf_pn_ptcp_t2portrxdelay, align 4
+  %204 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %63, i32 noundef %203, ptr noundef %0, i32 noundef %202, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %11) #3
+  %205 = add i32 %202, 4
+  %206 = load i32, ptr @hf_pn_ptcp_t3porttxdelay, align 4
+  %207 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %63, i32 noundef %206, ptr noundef %0, i32 noundef %205, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %12) #3
+  %208 = load i32, ptr %11, align 4
+  %209 = load i32, ptr %12, align 4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.153, i32 noundef %208, i32 noundef %209) #3
+  %210 = load ptr, ptr %37, align 8
+  %211 = load i32, ptr %11, align 4
+  %212 = load i32, ptr %12, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %210, i32 noundef 25, ptr noundef nonnull @.str.154, i32 noundef %211, i32 noundef %212) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   br label %dissect_PNPTCP_block.exit
 
-228:                                              ; preds = %59
+213:                                              ; preds = %59
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %10)
-  %229 = load i32, ptr @hf_pn_ptcp_port_mac_address, align 4
-  %230 = call i32 @dissect_pn_mac(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63, i32 noundef %229, ptr noundef nonnull %10) #3
-  %231 = call i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %230, ptr noundef %2, ptr noundef %63) #3
-  %232 = load i8, ptr %10, align 1
+  %214 = load i32, ptr @hf_pn_ptcp_port_mac_address, align 4
+  %215 = call i32 @dissect_pn_mac(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63, i32 noundef %214, ptr noundef nonnull %10) #3
+  %216 = call i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %215, ptr noundef %2, ptr noundef %63) #3
+  %217 = load i8, ptr %10, align 1
+  %218 = zext i8 %217 to i32
+  %219 = load i8, ptr %38, align 1
+  %220 = zext i8 %219 to i32
+  %221 = load i8, ptr %39, align 1
+  %222 = zext i8 %221 to i32
+  %223 = load i8, ptr %40, align 1
+  %224 = zext i8 %223 to i32
+  %225 = load i8, ptr %41, align 1
+  %226 = zext i8 %225 to i32
+  %227 = load i8, ptr %42, align 1
+  %228 = zext i8 %227 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.155, i32 noundef %218, i32 noundef %220, i32 noundef %222, i32 noundef %224, i32 noundef %226, i32 noundef %228) #3
+  %229 = load ptr, ptr %37, align 8
+  %230 = load i8, ptr %10, align 1
+  %231 = zext i8 %230 to i32
+  %232 = load i8, ptr %38, align 1
   %233 = zext i8 %232 to i32
-  %234 = load i8, ptr %38, align 1
+  %234 = load i8, ptr %39, align 1
   %235 = zext i8 %234 to i32
-  %236 = load i8, ptr %39, align 1
+  %236 = load i8, ptr %40, align 1
   %237 = zext i8 %236 to i32
-  %238 = load i8, ptr %40, align 1
+  %238 = load i8, ptr %41, align 1
   %239 = zext i8 %238 to i32
-  %240 = load i8, ptr %41, align 1
+  %240 = load i8, ptr %42, align 1
   %241 = zext i8 %240 to i32
-  %242 = load i8, ptr %42, align 1
-  %243 = zext i8 %242 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.155, i32 noundef %233, i32 noundef %235, i32 noundef %237, i32 noundef %239, i32 noundef %241, i32 noundef %243) #3
-  %244 = load ptr, ptr %37, align 8
-  %245 = load i8, ptr %10, align 1
-  %246 = zext i8 %245 to i32
-  %247 = load i8, ptr %38, align 1
-  %248 = zext i8 %247 to i32
-  %249 = load i8, ptr %39, align 1
-  %250 = zext i8 %249 to i32
-  %251 = load i8, ptr %40, align 1
-  %252 = zext i8 %251 to i32
-  %253 = load i8, ptr %41, align 1
-  %254 = zext i8 %253 to i32
-  %255 = load i8, ptr %42, align 1
-  %256 = zext i8 %255 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %244, i32 noundef 25, ptr noundef nonnull @.str.156, i32 noundef %246, i32 noundef %248, i32 noundef %250, i32 noundef %252, i32 noundef %254, i32 noundef %256) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %229, i32 noundef 25, ptr noundef nonnull @.str.156, i32 noundef %231, i32 noundef %233, i32 noundef %235, i32 noundef %237, i32 noundef %239, i32 noundef %241) #3
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %10)
   br label %dissect_PNPTCP_block.exit
 
-257:                                              ; preds = %59
+242:                                              ; preds = %59
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  %258 = call i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63) #3
-  %259 = load i32, ptr @hf_pn_ptcp_t2timestamp, align 4
-  %260 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %63, i32 noundef %259, ptr noundef %0, i32 noundef %258, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %9) #3
-  %261 = load i32, ptr %9, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.157, i32 noundef %261) #3
-  %262 = load ptr, ptr %37, align 8
-  %263 = load i32, ptr %9, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %262, i32 noundef 25, ptr noundef nonnull @.str.158, i32 noundef %263) #3
+  %243 = call i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63) #3
+  %244 = load i32, ptr @hf_pn_ptcp_t2timestamp, align 4
+  %245 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %63, i32 noundef %244, ptr noundef %0, i32 noundef %243, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %9) #3
+  %246 = load i32, ptr %9, align 4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.157, i32 noundef %246) #3
+  %247 = load ptr, ptr %37, align 8
+  %248 = load i32, ptr %9, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %247, i32 noundef 25, ptr noundef nonnull @.str.158, i32 noundef %248) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   br label %dissect_PNPTCP_block.exit
 
-264:                                              ; preds = %59
+249:                                              ; preds = %59
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  %265 = icmp ult i16 %75, 4
-  br i1 %265, label %266, label %268
+  %250 = icmp ult i16 %75, 4
+  br i1 %250, label %251, label %253
 
-266:                                              ; preds = %264
-  %267 = call i32 @dissect_pn_undecoded(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63, i32 noundef %79) #3
+251:                                              ; preds = %249
+  %252 = call i32 @dissect_pn_undecoded(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63, i32 noundef %79) #3
   br label %dissect_PNPTCP_Option.exit.i
 
-268:                                              ; preds = %264
-  %269 = load i32, ptr @hf_pn_ptcp_oui, align 4
-  %270 = call i32 @dissect_pn_oid(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63, i32 noundef %269, ptr noundef nonnull %8) #3
-  %271 = load i32, ptr %8, align 4
-  switch i32 %271, label %305 [
-    i32 3791, label %272
-    i32 69327, label %272
+253:                                              ; preds = %249
+  %254 = load i32, ptr @hf_pn_ptcp_oui, align 4
+  %255 = call i32 @dissect_pn_oid(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63, i32 noundef %254, ptr noundef nonnull %8) #3
+  %256 = load i32, ptr %8, align 4
+  switch i32 %256, label %290 [
+    i32 3791, label %257
+    i32 69327, label %257
   ]
 
-272:                                              ; preds = %268, %268
+257:                                              ; preds = %253, %253
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.159) #3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  %273 = load i32, ptr @hf_pn_ptcp_profinet_subtype, align 4
-  %274 = call i32 @dissect_pn_uint8(ptr noundef %0, i32 noundef %270, ptr noundef %2, ptr noundef %63, i32 noundef %273, ptr noundef nonnull %6) #3
-  %275 = load i8, ptr %6, align 1
-  %cond.i.i.i = icmp eq i8 %275, 1
-  br i1 %cond.i.i.i, label %276, label %301
+  %258 = load i32, ptr @hf_pn_ptcp_profinet_subtype, align 4
+  %259 = call i32 @dissect_pn_uint8(ptr noundef %0, i32 noundef %255, ptr noundef %2, ptr noundef %63, i32 noundef %258, ptr noundef nonnull %6) #3
+  %260 = load i8, ptr %6, align 1
+  %cond.i.i.i = icmp eq i8 %260, 1
+  br i1 %cond.i.i.i, label %261, label %286
 
-276:                                              ; preds = %272
-  %277 = call i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %274, ptr noundef %2, ptr noundef %63) #3
-  %278 = load i32, ptr @hf_pn_ptcp_irdata_uuid, align 4
-  %279 = call i32 @dissect_pn_uuid(ptr noundef %0, i32 noundef %277, ptr noundef %2, ptr noundef %63, i32 noundef %278, ptr noundef nonnull %7) #3
-  %280 = load i32, ptr %7, align 4
-  %281 = load i16, ptr %27, align 4
-  %282 = zext i16 %281 to i32
-  %283 = load i16, ptr %28, align 2
-  %284 = zext i16 %283 to i32
-  %285 = load i8, ptr %29, align 4
-  %286 = zext i8 %285 to i32
-  %287 = load i8, ptr %30, align 1
-  %288 = zext i8 %287 to i32
-  %289 = load i8, ptr %31, align 2
-  %290 = zext i8 %289 to i32
-  %291 = load i8, ptr %32, align 1
-  %292 = zext i8 %291 to i32
-  %293 = load i8, ptr %33, align 4
-  %294 = zext i8 %293 to i32
-  %295 = load i8, ptr %34, align 1
-  %296 = zext i8 %295 to i32
-  %297 = load i8, ptr %35, align 2
-  %298 = zext i8 %297 to i32
-  %299 = load i8, ptr %36, align 1
-  %300 = zext i8 %299 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.160, i32 noundef %280, i32 noundef %282, i32 noundef %284, i32 noundef %286, i32 noundef %288, i32 noundef %290, i32 noundef %292, i32 noundef %294, i32 noundef %296, i32 noundef %298, i32 noundef %300) #3
+261:                                              ; preds = %257
+  %262 = call i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %259, ptr noundef %2, ptr noundef %63) #3
+  %263 = load i32, ptr @hf_pn_ptcp_irdata_uuid, align 4
+  %264 = call i32 @dissect_pn_uuid(ptr noundef %0, i32 noundef %262, ptr noundef %2, ptr noundef %63, i32 noundef %263, ptr noundef nonnull %7) #3
+  %265 = load i32, ptr %7, align 4
+  %266 = load i16, ptr %27, align 4
+  %267 = zext i16 %266 to i32
+  %268 = load i16, ptr %28, align 2
+  %269 = zext i16 %268 to i32
+  %270 = load i8, ptr %29, align 4
+  %271 = zext i8 %270 to i32
+  %272 = load i8, ptr %30, align 1
+  %273 = zext i8 %272 to i32
+  %274 = load i8, ptr %31, align 2
+  %275 = zext i8 %274 to i32
+  %276 = load i8, ptr %32, align 1
+  %277 = zext i8 %276 to i32
+  %278 = load i8, ptr %33, align 4
+  %279 = zext i8 %278 to i32
+  %280 = load i8, ptr %34, align 1
+  %281 = zext i8 %280 to i32
+  %282 = load i8, ptr %35, align 2
+  %283 = zext i8 %282 to i32
+  %284 = load i8, ptr %36, align 1
+  %285 = zext i8 %284 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.160, i32 noundef %265, i32 noundef %267, i32 noundef %269, i32 noundef %271, i32 noundef %273, i32 noundef %275, i32 noundef %277, i32 noundef %279, i32 noundef %281, i32 noundef %283, i32 noundef %285) #3
   br label %dissect_PNPTCP_Option_PROFINET.exit.i.i
 
-301:                                              ; preds = %272
-  %302 = add nsw i16 %75, -4
-  %303 = zext nneg i16 %302 to i32
-  %304 = call i32 @dissect_pn_undecoded(ptr noundef %0, i32 noundef %274, ptr noundef %2, ptr noundef %63, i32 noundef %303) #3
+286:                                              ; preds = %257
+  %287 = add nsw i16 %75, -4
+  %288 = zext nneg i16 %287 to i32
+  %289 = call i32 @dissect_pn_undecoded(ptr noundef %0, i32 noundef %259, ptr noundef %2, ptr noundef %63, i32 noundef %288) #3
   br label %dissect_PNPTCP_Option_PROFINET.exit.i.i
 
-dissect_PNPTCP_Option_PROFINET.exit.i.i:          ; preds = %301, %276
+dissect_PNPTCP_Option_PROFINET.exit.i.i:          ; preds = %286, %261
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %dissect_PNPTCP_Option.exit.i
 
-305:                                              ; preds = %268
-  %306 = add nsw i16 %75, -3
-  %307 = zext nneg i16 %306 to i32
-  %308 = call i32 @dissect_pn_undecoded(ptr noundef %0, i32 noundef %270, ptr noundef %2, ptr noundef %63, i32 noundef %307) #3
+290:                                              ; preds = %253
+  %291 = add nsw i16 %75, -3
+  %292 = zext nneg i16 %291 to i32
+  %293 = call i32 @dissect_pn_undecoded(ptr noundef %0, i32 noundef %255, ptr noundef %2, ptr noundef %63, i32 noundef %292) #3
   br label %dissect_PNPTCP_Option.exit.i
 
-dissect_PNPTCP_Option.exit.i:                     ; preds = %305, %dissect_PNPTCP_Option_PROFINET.exit.i.i, %266
+dissect_PNPTCP_Option.exit.i:                     ; preds = %290, %dissect_PNPTCP_Option_PROFINET.exit.i.i, %251
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   br label %dissect_PNPTCP_block.exit
 
-309:                                              ; preds = %59
-  %310 = call i32 @dissect_pn_undecoded(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %3, i32 noundef %79) #3
+294:                                              ; preds = %59
+  %295 = call i32 @dissect_pn_undecoded(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %3, i32 noundef %79) #3
   br label %dissect_PNPTCP_block.exit
 
-dissect_PNPTCP_block.exit:                        ; preds = %dissect_PNPTCP_Subdomain.exit.i, %132, %149, %dissect_PNPTCP_Master.exit.i, %216, %228, %257, %dissect_PNPTCP_Option.exit.i, %309
-  %.0.i = phi i32 [ %310, %309 ], [ %73, %dissect_PNPTCP_Option.exit.i ], [ %73, %257 ], [ %73, %228 ], [ %73, %216 ], [ %73, %dissect_PNPTCP_Master.exit.i ], [ %73, %149 ], [ %73, %132 ], [ %73, %dissect_PNPTCP_Subdomain.exit.i ]
-  %311 = add i32 %.0.i, %79
-  %312 = sub i32 %311, %.02
-  call void @proto_item_set_len(ptr noundef %61, i32 noundef %312) #3
+dissect_PNPTCP_block.exit:                        ; preds = %dissect_PNPTCP_Subdomain.exit.i, %132, %149, %dissect_PNPTCP_Master.exit.i, %201, %213, %242, %dissect_PNPTCP_Option.exit.i, %294
+  %.0.i = phi i32 [ %295, %294 ], [ %73, %dissect_PNPTCP_Option.exit.i ], [ %73, %242 ], [ %73, %213 ], [ %73, %201 ], [ %73, %dissect_PNPTCP_Master.exit.i ], [ %73, %149 ], [ %73, %132 ], [ %73, %dissect_PNPTCP_Subdomain.exit.i ]
+  %296 = add i32 %.0.i, %79
+  %297 = sub i32 %296, %.02
+  call void @proto_item_set_len(ptr noundef %61, i32 noundef %297) #3
   br label %59, !llvm.loop !4
 
-313:                                              ; preds = %59
-  %314 = add i32 %73, %79
-  %315 = sub i32 %314, %.02
-  call void @proto_item_set_len(ptr noundef %61, i32 noundef %315) #3
-  ret i32 %314
+298:                                              ; preds = %59
+  %299 = add i32 %73, %79
+  %300 = sub i32 %299, %.02
+  call void @proto_item_set_len(ptr noundef %61, i32 noundef %300) #3
+  ret i32 %299
 }
 
 declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1

@@ -1657,38 +1657,22 @@ sw.bb73:                                          ; preds = %if.end66
   %11 = load ptr, ptr %data74, align 8
   %call75 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(7) @.str.21) #12
   %cmp76 = icmp eq i32 %call75, 0
-  br i1 %cmp76, label %if.then77, label %if.else78
-
-if.then77:                                        ; preds = %sw.bb73
-  store i32 -1, ptr %saltlen, align 4
-  br label %if.end104
+  br i1 %cmp76, label %if.end104.sink.split, label %if.else78
 
 if.else78:                                        ; preds = %sw.bb73
   %call80 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(4) @.str.24) #12
   %cmp81 = icmp eq i32 %call80, 0
-  br i1 %cmp81, label %if.then82, label %if.else83
-
-if.then82:                                        ; preds = %if.else78
-  store i32 -3, ptr %saltlen, align 4
-  br label %if.end104
+  br i1 %cmp81, label %if.end104.sink.split, label %if.else83
 
 if.else83:                                        ; preds = %if.else78
   %call85 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(5) @.str.25) #12
   %cmp86 = icmp eq i32 %call85, 0
-  br i1 %cmp86, label %if.then87, label %if.else88
-
-if.then87:                                        ; preds = %if.else83
-  store i32 -2, ptr %saltlen, align 4
-  br label %if.end104
+  br i1 %cmp86, label %if.end104.sink.split, label %if.else88
 
 if.else88:                                        ; preds = %if.else83
   %call90 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(15) @.str.26) #12
   %cmp91 = icmp eq i32 %call90, 0
-  br i1 %cmp91, label %if.then92, label %if.else93
-
-if.then92:                                        ; preds = %if.else88
-  store i32 -4, ptr %saltlen, align 4
-  br label %if.end104
+  br i1 %cmp91, label %if.end104.sink.split, label %if.else93
 
 if.else93:                                        ; preds = %if.else88
   %call95 = call i32 @atoi(ptr nocapture noundef %11) #12
@@ -1710,8 +1694,13 @@ if.then103:                                       ; preds = %sw.epilog101
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 112, ptr noundef null) #11
   br label %return
 
-if.end104:                                        ; preds = %if.then82, %if.then92, %if.then87, %if.then77, %sw.epilog101
-  %13 = phi i32 [ %12, %sw.epilog101 ], [ -3, %if.then82 ], [ -4, %if.then92 ], [ -2, %if.then87 ], [ -1, %if.then77 ]
+if.end104.sink.split:                             ; preds = %if.else88, %if.else83, %if.else78, %sw.bb73
+  %.sink = phi i32 [ -1, %sw.bb73 ], [ -3, %if.else78 ], [ -2, %if.else83 ], [ -4, %if.else88 ]
+  store i32 %.sink, ptr %saltlen, align 4
+  br label %if.end104
+
+if.end104:                                        ; preds = %if.end104.sink.split, %sw.epilog101
+  %13 = phi i32 [ %12, %sw.epilog101 ], [ %.sink, %if.end104.sink.split ]
   %min_saltlen = getelementptr inbounds i8, ptr %vprsactx, i64 180
   %14 = load i32, ptr %min_saltlen, align 4
   %cmp105.not = icmp eq i32 %14, -1

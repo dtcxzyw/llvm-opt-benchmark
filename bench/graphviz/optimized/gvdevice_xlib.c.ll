@@ -652,11 +652,7 @@ init_window.exit:                                 ; preds = %127, %update_displa
 269:                                              ; preds = %263
   %270 = load i32, ptr %4, align 4
   %.not.i = icmp eq i32 %270, 0
-  br i1 %.not.i, label %handle_file_events.exit.thread116, label %271
-
-handle_file_events.exit.thread116:                ; preds = %269
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br label %314
+  br i1 %.not.i, label %.sink.split, label %271
 
 271:                                              ; preds = %269
   %272 = sext i32 %270 to i64
@@ -735,11 +731,7 @@ handle_file_events.exit.thread116:                ; preds = %269
 ._crit_edge.i.thread:                             ; preds = %.preheader.i
   call void @free(ptr noundef nonnull %273) #19
   %.not44.i169 = icmp eq i32 %279, 0
-  br i1 %.not44.i169, label %handle_file_events.exit.thread172, label %310
-
-handle_file_events.exit.thread172:                ; preds = %._crit_edge.i.thread
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br label %314
+  br i1 %.not44.i169, label %.sink.split, label %310
 
 310:                                              ; preds = %._crit_edge.i.thread, %._crit_edge.i
   %.032.lcssa.i171 = phi i32 [ %279, %._crit_edge.i.thread ], [ %308, %._crit_edge.i ]
@@ -756,8 +748,12 @@ handle_file_events.exit:                          ; preds = %._crit_edge.i
   %313 = icmp slt i32 %.2.i, 0
   br i1 %313, label %.loopexit, label %314
 
-314:                                              ; preds = %handle_file_events.exit.thread172, %handle_file_events.exit.thread116, %handle_file_events.exit, %260
-  %.185 = phi i32 [ 0, %260 ], [ %.2.i, %handle_file_events.exit ], [ 0, %handle_file_events.exit.thread116 ], [ 0, %handle_file_events.exit.thread172 ]
+.sink.split:                                      ; preds = %._crit_edge.i.thread, %269
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  br label %314
+
+314:                                              ; preds = %.sink.split, %handle_file_events.exit, %260
+  %.185 = phi i32 [ 0, %260 ], [ %.2.i, %handle_file_events.exit ], [ 0, %.sink.split ]
   %315 = load i64, ptr %92, align 8
   %316 = or i64 %315, %95
   store i64 %316, ptr %92, align 8

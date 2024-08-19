@@ -7849,10 +7849,10 @@ default.unreachable609:                           ; preds = %182
 232:                                              ; preds = %228, %.noexc194
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !1564
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %41)
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %42)
   br label %233
 
 233:                                              ; preds = %631, %232
+  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %42)
   ret void
 
 234:                                              ; preds = %199
@@ -8741,7 +8741,6 @@ _ZN14regex_automata4util8captures14GroupInfoInner9group_len17h54f6f08f5d394483E.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1710
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %41)
   call void @"_ZN4core3ptr62drop_in_place$LT$regex_automata..nfa..thompson..nfa..Inner$GT$17hcd60b5af61e67621E"(ptr noalias noundef nonnull align 8 dereferenceable(376) %42)
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %42)
   br label %233
 
 632:                                              ; preds = %.thread, %79
@@ -10179,7 +10178,6 @@ define hidden void @_ZN14regex_automata4util8captures9GroupInfo3new17h16e0ea42d0
   %.sroa.263.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.263.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.263, i64 24, i1 false)
   call void @"_ZN4core3ptr67drop_in_place$LT$regex_automata..util..captures..GroupInfoInner$GT$17h83d490ccd3ad31b5E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %4)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
   br label %22
 
 20:                                               ; preds = %8
@@ -10188,10 +10186,10 @@ define hidden void @_ZN14regex_automata4util8captures9GroupInfo3new17h16e0ea42d0
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %12, ptr %21, align 8
   store i64 -9223372036854775804, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
   br label %22
 
 22:                                               ; preds = %19, %20
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
   ret void
 
 23:                                               ; preds = %26
@@ -10338,15 +10336,14 @@ define hidden void @_ZN14regex_automata4util8captures9GroupInfo3new17h8f7e76da28
   %49 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %40, ptr %49, align 8
   store i64 -9223372036854775804, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18)
   br label %50
 
 50:                                               ; preds = %51, %48
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18)
   ret void
 
 51:                                               ; preds = %52, %199, %61, %.loopexit343, %195, %47
   call void @"_ZN4core3ptr67drop_in_place$LT$regex_automata..util..captures..GroupInfoInner$GT$17h83d490ccd3ad31b5E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %18)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18)
   br label %50
 
 52:                                               ; preds = %25
@@ -10987,15 +10984,14 @@ define hidden void @_ZN14regex_automata4util8captures9GroupInfo3new17he66c1f43ce
   %52 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %43, ptr %52, align 8
   store i64 -9223372036854775804, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %19)
   br label %53
 
 53:                                               ; preds = %54, %51
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %19)
   ret void
 
 54:                                               ; preds = %"_ZN4core3ptr172drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$core..array..iter..IntoIter$LT$$u5b$core..option..Option$LT$$RF$str$GT$$u3b$$u20$1$u5d$$C$1_usize$GT$$GT$$GT$17he9c956ce15e5b21dE.exit125", %50
   call void @"_ZN4core3ptr67drop_in_place$LT$regex_automata..util..captures..GroupInfoInner$GT$17h83d490ccd3ad31b5E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %19)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %19)
   br label %53
 
 55:                                               ; preds = %210

@@ -1710,7 +1710,6 @@ default.unreachable:                              ; preds = %51
 
 "_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17h0696ea43f44781ccE.exit": ; preds = %82, %85, %89
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !225
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   br label %147
 
 91:                                               ; preds = %140, %139, %120, %119, %100, %81, %52
@@ -1734,7 +1733,6 @@ default.unreachable:                              ; preds = %51
 
 "_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17h0696ea43f44781ccE.exit218": ; preds = %91, %94, %98
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !232
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   br label %147
 
 100:                                              ; preds = %64
@@ -1890,6 +1888,7 @@ default.unreachable:                              ; preds = %51
   resume { ptr, i32 } %.pn
 
 147:                                              ; preds = %"_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17h0696ea43f44781ccE.exit220", %"_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17h0696ea43f44781ccE.exit218", %"_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17h0696ea43f44781ccE.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   ret void
 
 148:                                              ; preds = %157, %38
@@ -1913,7 +1912,6 @@ default.unreachable:                              ; preds = %51
 
 "_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17h0696ea43f44781ccE.exit220": ; preds = %148, %151, %155
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !239
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   br label %147
 
 157:                                              ; preds = %19

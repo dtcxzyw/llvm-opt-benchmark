@@ -38241,7 +38241,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   store ptr null, ptr %arrayidx.i, align 8
   %11 = load i64, ptr %sorted_keys, align 8
   %cmp2.i = icmp ult i64 %11, 32
-  br i1 %cmp2.i, label %while.body.i, label %_ZN7rocksdb10autovectorIPNS_10KeyContextELm32EE6resizeEm.exit, !llvm.loop !239
+  br i1 %cmp2.i, label %while.body.i, label %for.body.lr.ph.sink.split, !llvm.loop !239
 
 _ZNSt6vectorIPN7rocksdb10KeyContextESaIS2_EE5clearEv.exit.i: ; preds = %if.end9
   %cmp89.i.not = icmp eq i64 %num_keys, 0
@@ -38249,11 +38249,7 @@ _ZNSt6vectorIPN7rocksdb10KeyContextESaIS2_EE5clearEv.exit.i: ; preds = %if.end9
 
 while.cond15.preheader.i:                         ; preds = %while.body9.i
   %cmp1711.i = icmp ugt i64 %14, %num_keys
-  br i1 %cmp1711.i, label %_ZN7rocksdb10autovectorIPNS_10KeyContextELm32EE6resizeEm.exit.thread96, label %for.body.lr.ph
-
-_ZN7rocksdb10autovectorIPNS_10KeyContextELm32EE6resizeEm.exit.thread96: ; preds = %while.cond15.preheader.i
-  store i64 %num_keys, ptr %sorted_keys, align 8
-  br label %for.body.lr.ph
+  br i1 %cmp1711.i, label %for.body.lr.ph.sink.split, label %for.body.lr.ph
 
 while.body9.i:                                    ; preds = %_ZNSt6vectorIPN7rocksdb10KeyContextESaIS2_EE5clearEv.exit.i, %while.body9.i
   %12 = phi i64 [ %14, %while.body9.i ], [ 0, %_ZNSt6vectorIPN7rocksdb10KeyContextESaIS2_EE5clearEv.exit.i ]
@@ -38266,11 +38262,12 @@ while.body9.i:                                    ; preds = %_ZNSt6vectorIPN7roc
   %cmp8.i = icmp ult i64 %14, %num_keys
   br i1 %cmp8.i, label %while.body9.i, label %while.cond15.preheader.i, !llvm.loop !240
 
-_ZN7rocksdb10autovectorIPNS_10KeyContextELm32EE6resizeEm.exit: ; preds = %while.body.i
-  store i64 32, ptr %sorted_keys, align 8
+for.body.lr.ph.sink.split:                        ; preds = %while.body.i, %while.cond15.preheader.i
+  %.sink = phi i64 [ %num_keys, %while.cond15.preheader.i ], [ 32, %while.body.i ]
+  store i64 %.sink, ptr %sorted_keys, align 8
   br label %for.body.lr.ph
 
-for.body.lr.ph:                                   ; preds = %_ZN7rocksdb10autovectorIPNS_10KeyContextELm32EE6resizeEm.exit, %while.cond15.preheader.i, %_ZN7rocksdb10autovectorIPNS_10KeyContextELm32EE6resizeEm.exit.thread96
+for.body.lr.ph:                                   ; preds = %for.body.lr.ph.sink.split, %while.cond15.preheader.i
   %tobool.not = icmp eq ptr %values, null
   %tobool21.not = icmp eq ptr %timestamps, null
   br label %for.body
@@ -42571,7 +42568,7 @@ if.else.i:                                        ; preds = %if.end
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i, label %if.then.i.i.i29.invoke, label %_ZNKSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
-if.then.i.i.i29.invoke:                           ; preds = %if.else.i.i, %if.else.i
+if.then.i.i.i29.invoke:                           ; preds = %if.else.i, %if.else.i.i
   store ptr %5, ptr %_M_end_of_storage.i.i, align 8
   store ptr %cond.i10.i.i.i6267, ptr %cf_opts, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.191) #39

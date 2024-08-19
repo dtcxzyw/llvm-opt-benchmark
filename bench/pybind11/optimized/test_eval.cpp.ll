@@ -26858,31 +26858,24 @@ _ZN8pybind116objectD2Ev.exit12.i.i.i:             ; preds = %32, %29, %_ZN8pybin
 51:                                               ; preds = %48
   resume { ptr, i32 } %.pn.i.i.i
 
-"_ZNO8pybind116detail15argument_loaderIJEE4callIbNS0_9void_typeERZ20test_submodule_eval_RNS_7module_EE3$_4EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESA_E4typeEOT1_.exit.thread": ; preds = %_ZN8pybind116objectD2Ev.exit12.i.i.i, %37, %40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %54
-
 52:                                               ; preds = %48
   %.05.i.i.i = extractvalue { ptr, i32 } %.pn.i.i.i, 0
   %53 = call ptr @__cxa_begin_catch(ptr %.05.i.i.i) #25
   call void @__cxa_end_catch()
+  br label %"_ZNO8pybind116detail15argument_loaderIJEE4callIbNS0_9void_typeERZ20test_submodule_eval_RNS_7module_EE3$_4EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESA_E4typeEOT1_.exit.thread"
+
+"_ZNO8pybind116detail15argument_loaderIJEE4callIbNS0_9void_typeERZ20test_submodule_eval_RNS_7module_EE3$_4EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESA_E4typeEOT1_.exit.thread": ; preds = %40, %37, %_ZN8pybind116objectD2Ev.exit12.i.i.i, %52
+  %54 = phi ptr [ @_Py_TrueStruct, %52 ], [ @_Py_FalseStruct, %_ZN8pybind116objectD2Ev.exit12.i.i.i ], [ @_Py_FalseStruct, %37 ], [ @_Py_FalseStruct, %40 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %54
-
-54:                                               ; preds = %"_ZNO8pybind116detail15argument_loaderIJEE4callIbNS0_9void_typeERZ20test_submodule_eval_RNS_7module_EE3$_4EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESA_E4typeEOT1_.exit.thread", %52
-  %55 = phi ptr [ @_Py_TrueStruct, %52 ], [ @_Py_FalseStruct, %"_ZNO8pybind116detail15argument_loaderIJEE4callIbNS0_9void_typeERZ20test_submodule_eval_RNS_7module_EE3$_4EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESA_E4typeEOT1_.exit.thread" ]
-  %56 = and i16 %8, 32
-  %.not.i = icmp eq i16 %56, 0
-  %_Py_NoneStruct.sink2.i = select i1 %.not.i, ptr %55, ptr @_Py_NoneStruct
-  %57 = load i64, ptr %_Py_NoneStruct.sink2.i, align 8
-  %58 = add nsw i64 %57, 1
-  store i64 %58, ptr %_Py_NoneStruct.sink2.i, align 8
+  %55 = and i16 %8, 32
+  %.not.i = icmp eq i16 %55, 0
+  %_Py_NoneStruct.sink2.i = select i1 %.not.i, ptr %54, ptr @_Py_NoneStruct
+  %56 = load i64, ptr %_Py_NoneStruct.sink2.i, align 8
+  %57 = add nsw i64 %56, 1
+  store i64 %57, ptr %_Py_NoneStruct.sink2.i, align 8
   ret ptr %_Py_NoneStruct.sink2.i
 }
 
@@ -27572,33 +27565,25 @@ _ZN8pybind114dictD2Ev.exit.i.i.i:                 ; preds = %42, %39, %_ZN8pybin
 64:                                               ; preds = %61
   resume { ptr, i32 } %.pn.pn.i.i.i
 
-"_ZNO8pybind116detail15argument_loaderIJEE4callIbNS0_9void_typeERZ20test_submodule_eval_RNS_7module_EE3$_5EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESA_E4typeEOT1_.exit.thread": ; preds = %_ZN8pybind114dictD2Ev.exit.i.i.i, %47, %50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %67
-
 65:                                               ; preds = %61
   %.05.i.i.i = extractvalue { ptr, i32 } %.pn.pn.i.i.i, 0
   %66 = call ptr @__cxa_begin_catch(ptr %.05.i.i.i) #25
   call void @__cxa_end_catch()
+  br label %"_ZNO8pybind116detail15argument_loaderIJEE4callIbNS0_9void_typeERZ20test_submodule_eval_RNS_7module_EE3$_5EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESA_E4typeEOT1_.exit.thread"
+
+"_ZNO8pybind116detail15argument_loaderIJEE4callIbNS0_9void_typeERZ20test_submodule_eval_RNS_7module_EE3$_5EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESA_E4typeEOT1_.exit.thread": ; preds = %50, %47, %_ZN8pybind114dictD2Ev.exit.i.i.i, %65
+  %67 = phi ptr [ @_Py_TrueStruct, %65 ], [ @_Py_FalseStruct, %_ZN8pybind114dictD2Ev.exit.i.i.i ], [ @_Py_FalseStruct, %47 ], [ @_Py_FalseStruct, %50 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %67
-
-67:                                               ; preds = %"_ZNO8pybind116detail15argument_loaderIJEE4callIbNS0_9void_typeERZ20test_submodule_eval_RNS_7module_EE3$_5EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESA_E4typeEOT1_.exit.thread", %65
-  %68 = phi ptr [ @_Py_TrueStruct, %65 ], [ @_Py_FalseStruct, %"_ZNO8pybind116detail15argument_loaderIJEE4callIbNS0_9void_typeERZ20test_submodule_eval_RNS_7module_EE3$_5EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESA_E4typeEOT1_.exit.thread" ]
-  %69 = and i16 %9, 32
-  %.not.i = icmp eq i16 %69, 0
-  %_Py_NoneStruct.sink2.i = select i1 %.not.i, ptr %68, ptr @_Py_NoneStruct
-  %70 = load i64, ptr %_Py_NoneStruct.sink2.i, align 8
-  %71 = add nsw i64 %70, 1
-  store i64 %71, ptr %_Py_NoneStruct.sink2.i, align 8
+  %68 = and i16 %9, 32
+  %.not.i = icmp eq i16 %68, 0
+  %_Py_NoneStruct.sink2.i = select i1 %.not.i, ptr %67, ptr @_Py_NoneStruct
+  %69 = load i64, ptr %_Py_NoneStruct.sink2.i, align 8
+  %70 = add nsw i64 %69, 1
+  store i64 %70, ptr %_Py_NoneStruct.sink2.i, align 8
   ret ptr %_Py_NoneStruct.sink2.i
 }
 
@@ -27747,7 +27732,7 @@ define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJNS_6objectE
 
 11:                                               ; preds = %2
   %12 = invoke ptr @PyDict_New()
-          to label %.noexc.i unwind label %58, !noalias !628
+          to label %.noexc.i unwind label %57, !noalias !628
 
 .noexc.i:                                         ; preds = %11
   store ptr %12, ptr %3, align 8, !noalias !634
@@ -27862,25 +27847,18 @@ _ZN8pybind116objectD2Ev.exit8.i.i:                ; preds = %43, %40, %_ZN8pybin
   store ptr null, ptr %7, align 8, !noalias !634
   %47 = load ptr, ptr %4, align 8, !noalias !634
   %.not.i.i.i9.i.i = icmp eq ptr %47, null
-  br i1 %.not.i.i.i9.i.i, label %.thread.i, label %48
-
-.thread.i:                                        ; preds = %_ZN8pybind116objectD2Ev.exit8.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !628
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !628
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !628
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !628
-  br label %"_ZNO8pybind116detail15argument_loaderIJNS_6objectEEE9call_implIS2_RZ20test_submodule_eval_RNS_7module_EE3$_6JLm0EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOT2_.exit"
+  br i1 %.not.i.i.i9.i.i, label %"_ZNO8pybind116detail15argument_loaderIJNS_6objectEEE9call_implIS2_RZ20test_submodule_eval_RNS_7module_EE3$_6JLm0EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOT2_.exit", label %48
 
 48:                                               ; preds = %_ZN8pybind116objectD2Ev.exit8.i.i
   %49 = load i64, ptr %47, align 8, !noalias !634
   %50 = add nsw i64 %49, -1
   store i64 %50, ptr %47, align 8, !noalias !634
   %.not.i.i.i.i10.i.i = icmp eq i64 %50, 0
-  br i1 %.not.i.i.i.i10.i.i, label %51, label %57
+  br i1 %.not.i.i.i.i10.i.i, label %51, label %"_ZNO8pybind116detail15argument_loaderIJNS_6objectEEE9call_implIS2_RZ20test_submodule_eval_RNS_7module_EE3$_6JLm0EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOT2_.exit"
 
 51:                                               ; preds = %48
   invoke void @_Py_Dealloc(ptr noundef nonnull %47)
-          to label %57 unwind label %52, !noalias !634
+          to label %"_ZNO8pybind116detail15argument_loaderIJNS_6objectEEE9call_implIS2_RZ20test_submodule_eval_RNS_7module_EE3$_6JLm0EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOT2_.exit" unwind label %52, !noalias !634
 
 52:                                               ; preds = %51
   %53 = landingpad { ptr, i32 }
@@ -27895,24 +27873,21 @@ _ZN8pybind116objectD2Ev.exit8.i.i:                ; preds = %43, %40, %_ZN8pybin
   call void @_ZN8pybind116objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #25, !noalias !634
   br label %common.resume.i.i
 
-57:                                               ; preds = %51, %48
+57:                                               ; preds = %11
+  %58 = landingpad { ptr, i32 }
+          cleanup
+  br label %.body.i
+
+.body.i:                                          ; preds = %57, %common.resume.i.i
+  %eh.lpad-body.i = phi { ptr, i32 } [ %58, %57 ], [ %common.resume.op.i.i, %common.resume.i.i ]
+  call void @_ZN8pybind116objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #25, !noalias !628
+  resume { ptr, i32 } %eh.lpad-body.i
+
+"_ZNO8pybind116detail15argument_loaderIJNS_6objectEEE9call_implIS2_RZ20test_submodule_eval_RNS_7module_EE3$_6JLm0EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOT2_.exit": ; preds = %_ZN8pybind116objectD2Ev.exit8.i.i, %48, %51
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !628
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !628
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !628
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !628
-  br label %"_ZNO8pybind116detail15argument_loaderIJNS_6objectEEE9call_implIS2_RZ20test_submodule_eval_RNS_7module_EE3$_6JLm0EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOT2_.exit"
-
-58:                                               ; preds = %11
-  %59 = landingpad { ptr, i32 }
-          cleanup
-  br label %.body.i
-
-.body.i:                                          ; preds = %58, %common.resume.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %59, %58 ], [ %common.resume.op.i.i, %common.resume.i.i ]
-  call void @_ZN8pybind116objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #25, !noalias !628
-  resume { ptr, i32 } %eh.lpad-body.i
-
-"_ZNO8pybind116detail15argument_loaderIJNS_6objectEEE9call_implIS2_RZ20test_submodule_eval_RNS_7module_EE3$_6JLm0EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOT2_.exit": ; preds = %.thread.i, %57
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret void
 }

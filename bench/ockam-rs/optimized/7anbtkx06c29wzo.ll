@@ -3095,7 +3095,6 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv17h40bb855f7c
 13:                                               ; preds = %3
   %14 = getelementptr inbounds i8, ptr %0, i64 56
   store i8 11, ptr %14, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
   br label %18
 
 15:                                               ; preds = %7
@@ -3106,10 +3105,10 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv17h40bb855f7c
 
 17:                                               ; preds = %7
   call void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha48440384a6888ecE"(ptr noalias noundef nonnull align 1 dereferenceable(2) %5)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
   br label %18
 
 18:                                               ; preds = %17, %13
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
   ret void
 
 19:                                               ; preds = %15
@@ -3129,7 +3128,7 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
   %5 = tail call i24 @_ZN5tokio7runtime4coop12poll_proceed17ha85b55a62d82082bE.llvm.9892252416494735498(ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
   %trunc = trunc i24 %5 to i1
-  br i1 %trunc, label %13, label %6
+  br i1 %trunc, label %16, label %6
 
 6:                                                ; preds = %2
   %.sroa.52.0.extract.shift = lshr i24 %5, 16
@@ -3147,35 +3146,31 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$
   store ptr %1, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 416
   %12 = invoke noundef i8 @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17hea6a7fb67d255be4E.llvm.9892252416494735498"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %11)
-          to label %16 unwind label %14, !range !520
+          to label %15 unwind label %13, !range !520
 
-13:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
-  br label %17
-
-14:                                               ; preds = %6
-  %15 = landingpad { ptr, i32 }
+13:                                               ; preds = %6
+  %14 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr59drop_in_place$LT$tokio..runtime..coop..RestoreOnPending$GT$17h91403cd343275b34E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %4) #18
-          to label %20 unwind label %18
+          to label %19 unwind label %17
 
-16:                                               ; preds = %6
+15:                                               ; preds = %6
   call void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha48440384a6888ecE"(ptr noalias noundef nonnull align 1 dereferenceable(2) %4)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
-  br label %17
+  br label %16
 
-17:                                               ; preds = %16, %13
-  %.0 = phi i8 [ 3, %13 ], [ %12, %16 ]
+16:                                               ; preds = %2, %15
+  %.0 = phi i8 [ %12, %15 ], [ 3, %2 ]
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
   ret i8 %.0
 
-18:                                               ; preds = %14
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %13
+  %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #20
   unreachable
 
-20:                                               ; preds = %14
-  resume { ptr, i32 } %15
+19:                                               ; preds = %13
+  resume { ptr, i32 } %14
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

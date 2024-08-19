@@ -13965,9 +13965,9 @@ _ZN2cv7details10Chessboard5Board14flipHorizontalEv.exit: ; preds = %.lr.ph.i, %4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #34
   br label %common.resume
 
-common.resume:                                    ; preds = %424, %426, %404, %406, %384, %386, %79, %81
-  %.sink = phi ptr [ %10, %81 ], [ %10, %79 ], [ %8, %386 ], [ %8, %384 ], [ %6, %406 ], [ %6, %404 ], [ %4, %426 ], [ %4, %424 ]
-  %common.resume.op = phi { ptr, i32 } [ %82, %81 ], [ %80, %79 ], [ %387, %386 ], [ %385, %384 ], [ %407, %406 ], [ %405, %404 ], [ %427, %426 ], [ %425, %424 ]
+common.resume:                                    ; preds = %422, %424, %403, %405, %384, %386, %79, %81
+  %.sink = phi ptr [ %10, %81 ], [ %10, %79 ], [ %8, %386 ], [ %8, %384 ], [ %6, %405 ], [ %6, %403 ], [ %4, %424 ], [ %4, %422 ]
+  %common.resume.op = phi { ptr, i32 } [ %82, %81 ], [ %80, %79 ], [ %387, %386 ], [ %385, %384 ], [ %406, %405 ], [ %404, %403 ], [ %425, %424 ], [ %423, %422 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #34
   resume { ptr, i32 } %common.resume.op
 
@@ -14459,10 +14459,10 @@ _ZNK2cv7details10Chessboard5Board4Cell5emptyEv.exit62: ; preds = %375
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   switch i32 %229, label %381 [
-    i32 0, label %388
-    i32 1, label %389
-    i32 2, label %390
-    i32 3, label %391
+    i32 0, label %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit67
+    i32 1, label %388
+    i32 2, label %389
+    i32 3, label %390
   ]
 
 381:                                              ; preds = %_ZNK2cv7details10Chessboard5Board4Cell5emptyEv.exit62
@@ -14489,204 +14489,177 @@ _ZNK2cv7details10Chessboard5Board4Cell5emptyEv.exit62: ; preds = %375
   br label %common.resume
 
 388:                                              ; preds = %_ZNK2cv7details10Chessboard5Board4Cell5emptyEv.exit62
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   br label %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit67
 
 389:                                              ; preds = %_ZNK2cv7details10Chessboard5Board4Cell5emptyEv.exit62
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   br label %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit67
 
 390:                                              ; preds = %_ZNK2cv7details10Chessboard5Board4Cell5emptyEv.exit62
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   br label %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit67
 
-391:                                              ; preds = %_ZNK2cv7details10Chessboard5Board4Cell5emptyEv.exit62
+_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit67: ; preds = %_ZNK2cv7details10Chessboard5Board4Cell5emptyEv.exit62, %388, %389, %390
+  %.04.i95 = phi ptr [ %302, %390 ], [ %293, %389 ], [ %284, %388 ], [ %275, %_ZNK2cv7details10Chessboard5Board4Cell5emptyEv.exit62 ]
+  %.04.in.i64 = phi ptr [ %301, %390 ], [ %292, %389 ], [ %283, %388 ], [ %230, %_ZNK2cv7details10Chessboard5Board4Cell5emptyEv.exit62 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
-  br label %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit67
-
-_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit67: ; preds = %388, %389, %390, %391
-  %.04.i95 = phi ptr [ %302, %391 ], [ %293, %390 ], [ %284, %389 ], [ %275, %388 ]
-  %.04.in.i64 = phi ptr [ %301, %391 ], [ %292, %390 ], [ %283, %389 ], [ %230, %388 ]
   %.04.i65 = load ptr, ptr %.04.in.i64, align 8
-  %392 = load float, ptr %.04.i95, align 4
-  %393 = load float, ptr %.04.i65, align 4
-  %394 = getelementptr inbounds i8, ptr %.04.i95, i64 4
-  %395 = load float, ptr %394, align 4
-  %396 = getelementptr inbounds i8, ptr %.04.i65, i64 4
-  %397 = load float, ptr %396, align 4
-  %398 = fmul float %395, %397
-  %399 = tail call noundef float @llvm.fmuladd.f32(float %392, float %393, float %398)
+  %391 = load float, ptr %.04.i95, align 4
+  %392 = load float, ptr %.04.i65, align 4
+  %393 = getelementptr inbounds i8, ptr %.04.i95, i64 4
+  %394 = load float, ptr %393, align 4
+  %395 = getelementptr inbounds i8, ptr %.04.i65, i64 4
+  %396 = load float, ptr %395, align 4
+  %397 = fmul float %394, %396
+  %398 = tail call noundef float @llvm.fmuladd.f32(float %391, float %392, float %397)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  %400 = load i32, ptr %17, align 8
-  switch i32 %400, label %401 [
-    i32 0, label %408
-    i32 1, label %409
-    i32 2, label %410
-    i32 3, label %411
+  %399 = load i32, ptr %17, align 8
+  switch i32 %399, label %400 [
+    i32 0, label %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit75
+    i32 1, label %407
+    i32 2, label %408
+    i32 3, label %409
   ]
 
-401:                                              ; preds = %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit67
+400:                                              ; preds = %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit67
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #34
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.31, ptr noundef nonnull align 1 dereferenceable(1) %6)
-          to label %402 unwind label %404
+          to label %401 unwind label %403
+
+401:                                              ; preds = %400
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @__func__._ZNK2cv7details10Chessboard5Board9PointIterdeEv, ptr noundef nonnull @.str.2, i32 noundef 1198) #33
+          to label %402 unwind label %405
 
 402:                                              ; preds = %401
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @__func__._ZNK2cv7details10Chessboard5Board9PointIterdeEv, ptr noundef nonnull @.str.2, i32 noundef 1198) #33
-          to label %403 unwind label %406
-
-403:                                              ; preds = %402
   unreachable
 
-404:                                              ; preds = %401
-  %405 = landingpad { ptr, i32 }
+403:                                              ; preds = %400
+  %404 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-406:                                              ; preds = %402
-  %407 = landingpad { ptr, i32 }
+405:                                              ; preds = %401
+  %406 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #34
   br label %common.resume
 
+407:                                              ; preds = %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit67
+  br label %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit75
+
 408:                                              ; preds = %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit67
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   br label %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit75
 
 409:                                              ; preds = %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit67
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   br label %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit75
 
-410:                                              ; preds = %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit67
+_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit75: ; preds = %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit67, %407, %408, %409
+  %.04.i69107 = phi ptr [ %337, %409 ], [ %328, %408 ], [ %319, %407 ], [ %310, %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit67 ]
+  %.04.in.i72 = phi ptr [ %336, %409 ], [ %327, %408 ], [ %318, %407 ], [ %309, %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit67 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  br label %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit75
-
-411:                                              ; preds = %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit67
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  br label %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit75
-
-_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit75: ; preds = %408, %409, %410, %411
-  %.04.i69107 = phi ptr [ %337, %411 ], [ %328, %410 ], [ %319, %409 ], [ %310, %408 ]
-  %.04.in.i72 = phi ptr [ %336, %411 ], [ %327, %410 ], [ %318, %409 ], [ %309, %408 ]
   %.04.i73 = load ptr, ptr %.04.in.i72, align 8
-  %412 = load float, ptr %.04.i69107, align 4
-  %413 = load float, ptr %.04.i73, align 4
-  %414 = getelementptr inbounds i8, ptr %.04.i69107, i64 4
+  %410 = load float, ptr %.04.i69107, align 4
+  %411 = load float, ptr %.04.i73, align 4
+  %412 = getelementptr inbounds i8, ptr %.04.i69107, i64 4
+  %413 = load float, ptr %412, align 4
+  %414 = getelementptr inbounds i8, ptr %.04.i73, i64 4
   %415 = load float, ptr %414, align 4
-  %416 = getelementptr inbounds i8, ptr %.04.i73, i64 4
-  %417 = load float, ptr %416, align 4
-  %418 = fmul float %415, %417
-  %419 = tail call noundef float @llvm.fmuladd.f32(float %412, float %413, float %418)
+  %416 = fmul float %413, %415
+  %417 = tail call noundef float @llvm.fmuladd.f32(float %410, float %411, float %416)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  %420 = load i32, ptr %16, align 8
-  switch i32 %420, label %421 [
-    i32 0, label %428
-    i32 1, label %429
-    i32 2, label %430
-    i32 3, label %431
+  %418 = load i32, ptr %16, align 8
+  switch i32 %418, label %419 [
+    i32 0, label %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit83
+    i32 1, label %426
+    i32 2, label %427
+    i32 3, label %428
   ]
 
-421:                                              ; preds = %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit75
+419:                                              ; preds = %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit75
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #34
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.31, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %422 unwind label %424
+          to label %420 unwind label %422
 
-422:                                              ; preds = %421
+420:                                              ; preds = %419
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @__func__._ZNK2cv7details10Chessboard5Board9PointIterdeEv, ptr noundef nonnull @.str.2, i32 noundef 1198) #33
-          to label %423 unwind label %426
+          to label %421 unwind label %424
 
-423:                                              ; preds = %422
+421:                                              ; preds = %420
   unreachable
 
-424:                                              ; preds = %421
-  %425 = landingpad { ptr, i32 }
+422:                                              ; preds = %419
+  %423 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-426:                                              ; preds = %422
-  %427 = landingpad { ptr, i32 }
+424:                                              ; preds = %420
+  %425 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #34
   br label %common.resume
 
+426:                                              ; preds = %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit75
+  br label %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit83
+
+427:                                              ; preds = %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit75
+  br label %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit83
+
 428:                                              ; preds = %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit75
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   br label %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit83
 
-429:                                              ; preds = %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit75
+_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit83: ; preds = %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit75, %426, %427, %428
+  %.04.i77119 = phi ptr [ %372, %428 ], [ %363, %427 ], [ %354, %426 ], [ %345, %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit75 ]
+  %.04.in.i80 = phi ptr [ %371, %428 ], [ %362, %427 ], [ %353, %426 ], [ %344, %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit75 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  br label %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit83
-
-430:                                              ; preds = %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit75
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  br label %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit83
-
-431:                                              ; preds = %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit75
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  br label %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit83
-
-_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit83: ; preds = %428, %429, %430, %431
-  %.04.i77119 = phi ptr [ %372, %431 ], [ %363, %430 ], [ %354, %429 ], [ %345, %428 ]
-  %.04.in.i80 = phi ptr [ %371, %431 ], [ %362, %430 ], [ %353, %429 ], [ %344, %428 ]
   %.04.i81 = load ptr, ptr %.04.in.i80, align 8
-  %432 = load float, ptr %.04.i77119, align 4
-  %433 = load float, ptr %.04.i81, align 4
-  %434 = getelementptr inbounds i8, ptr %.04.i77119, i64 4
-  %435 = load float, ptr %434, align 4
-  %436 = getelementptr inbounds i8, ptr %.04.i81, i64 4
-  %437 = load float, ptr %436, align 4
-  %438 = fmul float %435, %437
-  %439 = tail call noundef float @llvm.fmuladd.f32(float %432, float %433, float %438)
-  %440 = fcmp ugt float %399, %380
-  %441 = fcmp ugt float %399, %419
-  %or.cond = or i1 %440, %441
-  %442 = fcmp ugt float %399, %439
-  %or.cond29 = or i1 %or.cond, %442
-  br i1 %or.cond29, label %444, label %443
+  %429 = load float, ptr %.04.i77119, align 4
+  %430 = load float, ptr %.04.i81, align 4
+  %431 = getelementptr inbounds i8, ptr %.04.i77119, i64 4
+  %432 = load float, ptr %431, align 4
+  %433 = getelementptr inbounds i8, ptr %.04.i81, i64 4
+  %434 = load float, ptr %433, align 4
+  %435 = fmul float %432, %434
+  %436 = tail call noundef float @llvm.fmuladd.f32(float %429, float %430, float %435)
+  %437 = fcmp ugt float %398, %380
+  %438 = fcmp ugt float %398, %417
+  %or.cond = or i1 %437, %438
+  %439 = fcmp ugt float %398, %436
+  %or.cond29 = or i1 %or.cond, %439
+  br i1 %or.cond29, label %441, label %440
 
-443:                                              ; preds = %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit83
+440:                                              ; preds = %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit83
   tail call void @_ZN2cv7details10Chessboard5Board10rotateLeftEv(ptr noundef nonnull align 8 dereferenceable(80) %0)
   br label %_ZNK2cv7details10Chessboard5Board4Cell5emptyEv.exit.thread
 
-444:                                              ; preds = %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit83
-  %445 = fcmp ugt float %419, %380
-  %446 = fcmp ugt float %419, %399
-  %or.cond30 = or i1 %445, %446
-  %447 = fcmp ugt float %419, %439
-  %or.cond31 = or i1 %or.cond30, %447
-  br i1 %or.cond31, label %449, label %448
+441:                                              ; preds = %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit83
+  %442 = fcmp ugt float %417, %380
+  %443 = fcmp ugt float %417, %398
+  %or.cond30 = or i1 %442, %443
+  %444 = fcmp ugt float %417, %436
+  %or.cond31 = or i1 %or.cond30, %444
+  br i1 %or.cond31, label %446, label %445
 
-448:                                              ; preds = %444
+445:                                              ; preds = %441
   tail call void @_ZN2cv7details10Chessboard5Board11rotateRightEv(ptr noundef nonnull align 8 dereferenceable(80) %0)
   br label %_ZNK2cv7details10Chessboard5Board4Cell5emptyEv.exit.thread
 
-449:                                              ; preds = %444
-  %450 = fcmp ugt float %439, %380
-  %451 = fcmp ugt float %439, %399
-  %or.cond32 = or i1 %450, %451
-  %452 = fcmp ugt float %439, %419
-  %or.cond33 = or i1 %452, %or.cond32
-  br i1 %or.cond33, label %_ZNK2cv7details10Chessboard5Board4Cell5emptyEv.exit.thread, label %453
+446:                                              ; preds = %441
+  %447 = fcmp ugt float %436, %380
+  %448 = fcmp ugt float %436, %398
+  %or.cond32 = or i1 %447, %448
+  %449 = fcmp ugt float %436, %417
+  %or.cond33 = or i1 %449, %or.cond32
+  br i1 %or.cond33, label %_ZNK2cv7details10Chessboard5Board4Cell5emptyEv.exit.thread, label %450
 
-453:                                              ; preds = %449
+450:                                              ; preds = %446
   tail call void @_ZN2cv7details10Chessboard5Board10rotateLeftEv(ptr noundef nonnull align 8 dereferenceable(80) %0)
   tail call void @_ZN2cv7details10Chessboard5Board10rotateLeftEv(ptr noundef nonnull align 8 dereferenceable(80) %0)
   br label %_ZNK2cv7details10Chessboard5Board4Cell5emptyEv.exit.thread
 
-_ZNK2cv7details10Chessboard5Board4Cell5emptyEv.exit.thread: ; preds = %370, %375, %361, %366, %352, %357, %_ZNK2cv7details10Chessboard5Board4Cell5emptyEv.exit60, %348, %335, %340, %326, %331, %317, %322, %_ZNK2cv7details10Chessboard5Board4Cell5emptyEv.exit58, %313, %300, %305, %291, %296, %282, %287, %_ZNK2cv7details10Chessboard5Board4Cell5emptyEv.exit, %278, %266, %271, %257, %262, %248, %253, %239, %244, %443, %449, %453, %448, %219
+_ZNK2cv7details10Chessboard5Board4Cell5emptyEv.exit.thread: ; preds = %370, %375, %361, %366, %352, %357, %_ZNK2cv7details10Chessboard5Board4Cell5emptyEv.exit60, %348, %335, %340, %326, %331, %317, %322, %_ZNK2cv7details10Chessboard5Board4Cell5emptyEv.exit58, %313, %300, %305, %291, %296, %282, %287, %_ZNK2cv7details10Chessboard5Board4Cell5emptyEv.exit, %278, %266, %271, %257, %262, %248, %253, %239, %244, %440, %446, %450, %445, %219
   ret void
 }
 
@@ -18028,12 +18001,12 @@ define hidden noundef zeroext i1 @_ZN2cv7details10Chessboard5Board18estimateSear
 
 13:                                               ; preds = %11, %9
   %.sink = phi ptr [ %5, %9 ], [ %0, %11 ]
-  %.val28.sink = load float, ptr %7, align 8
+  %.val28 = load float, ptr %7, align 8
   %.val29 = load float, ptr %8, align 4
   %.val30 = load float, ptr %.sink, align 4
   %14 = getelementptr i8, ptr %.sink, i64 4
   %.val31 = load float, ptr %14, align 4
-  %15 = fsub float %.val28.sink, %.val30
+  %15 = fsub float %.val28, %.val30
   %16 = fsub float %.val29, %.val31
   %17 = fpext float %15 to double
   %18 = fpext float %16 to double
@@ -18052,7 +18025,7 @@ define hidden noundef zeroext i1 @_ZN2cv7details10Chessboard5Board18estimateSear
   %.val26 = load float, ptr %2, align 4
   %29 = getelementptr inbounds i8, ptr %2, i64 4
   %.val27 = load float, ptr %29, align 4
-  %30 = fsub float %.val28.sink, %.val26
+  %30 = fsub float %.val28, %.val26
   %31 = fsub float %.val29, %.val27
   %32 = fpext float %30 to double
   %33 = fpext float %31 to double
@@ -25830,39 +25803,30 @@ common.resume:                                    ; preds = %71, %93, %38
 
 39:                                               ; preds = %29
   %40 = load ptr, ptr %25, align 8
-  %.04.i88 = load ptr, ptr %40, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   br label %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit44
 
 41:                                               ; preds = %29
   %42 = load ptr, ptr %25, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 8
-  %.04.i91 = load ptr, ptr %43, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   br label %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit44
 
 44:                                               ; preds = %29
   %45 = load ptr, ptr %25, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 16
-  %.04.i94 = load ptr, ptr %46, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   br label %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit44
 
 47:                                               ; preds = %29
   %48 = load ptr, ptr %25, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 24
-  %.04.i = load ptr, ptr %49, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   br label %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit44
 
 _ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit44: ; preds = %39, %41, %44, %47
-  %50 = phi ptr [ %48, %47 ], [ %45, %44 ], [ %42, %41 ], [ %40, %39 ]
-  %.04.i42 = phi ptr [ %.04.i, %47 ], [ %.04.i94, %44 ], [ %.04.i91, %41 ], [ %.04.i88, %39 ]
-  %51 = load float, ptr %.04.i42, align 4
+  %.sink = phi ptr [ %40, %39 ], [ %43, %41 ], [ %46, %44 ], [ %49, %47 ]
+  %50 = phi ptr [ %40, %39 ], [ %42, %41 ], [ %45, %44 ], [ %48, %47 ]
+  %.04.i88 = load ptr, ptr %.sink, align 8
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
+  %51 = load float, ptr %.04.i88, align 4
   %52 = fcmp ord float %51, 0.000000e+00
   br i1 %52, label %53, label %55
 
@@ -25939,7 +25903,7 @@ _ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit48: ; preds = %62, %64, %66,
 
 _ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit56.outer: ; preds = %97, %78
   %switch.ph = phi i64 [ 16, %97 ], [ 24, %78 ]
-  %switch129.ph = phi i1 [ false, %97 ], [ true, %78 ]
+  %switch130.ph = phi i1 [ false, %97 ], [ true, %78 ]
   %.sroa.7.0.ph = phi ptr [ %99, %97 ], [ %.0, %78 ]
   %.3.ph = phi i32 [ %.4, %97 ], [ %.2, %78 ]
   %.132.ph = phi i32 [ %96, %97 ], [ 0, %78 ]
@@ -25947,7 +25911,7 @@ _ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit56.outer: ; preds = %97, %78
 
 _ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit56: ; preds = %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit56.outer, %95
   %switch = phi i64 [ 16, %95 ], [ %switch.ph, %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit56.outer ]
-  %switch129 = phi i1 [ false, %95 ], [ %switch129.ph, %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit56.outer ]
+  %switch130 = phi i1 [ false, %95 ], [ %switch130.ph, %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit56.outer ]
   %.3 = phi i32 [ %.4, %95 ], [ %.3.ph, %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit56.outer ]
   %.132 = phi i32 [ %96, %95 ], [ %.132.ph, %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit56.outer ]
   %79 = getelementptr inbounds i8, ptr %.sroa.7.0.ph, i64 %switch
@@ -25990,7 +25954,7 @@ _ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit60: ; preds = %85
 95:                                               ; preds = %85, %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit60, %82
   %.4 = phi i32 [ %83, %82 ], [ %90, %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit60 ], [ %.3, %85 ]
   %96 = add nuw nsw i32 %.132, 1
-  br i1 %switch129, label %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit56, label %97, !llvm.loop !366
+  br i1 %switch130, label %_ZNK2cv7details10Chessboard5Board9PointIterdeEv.exit56, label %97, !llvm.loop !366
 
 97:                                               ; preds = %95
   %98 = getelementptr inbounds i8, ptr %.sroa.7.0.ph, i64 48

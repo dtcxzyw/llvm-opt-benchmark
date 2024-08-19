@@ -5805,20 +5805,16 @@ define hidden noundef range(i8 0, 35) i8 @"_ZN86_$LT$enum_iterator..All$LT$T$GT$
   %3 = load i8, ptr %0, align 1, !range !2299, !noundef !4
   store i8 34, ptr %0, align 1
   %4 = icmp eq i8 %3, 34
-  br i1 %4, label %5, label %6
+  br i1 %4, label %7, label %5
 
 5:                                                ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  br label %8
-
-6:                                                ; preds = %1
   store i8 %3, ptr %2, align 1
-  %7 = call noundef i8 @"_ZN17meilisearch_types4keys1_85_$LT$impl$u20$enum_iterator..Sequence$u20$for$u20$meilisearch_types..keys..Action$GT$4next17h7285e971fb0d73ffE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %2), !range !2299
-  store i8 %7, ptr %0, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  br label %8
+  %6 = call noundef i8 @"_ZN17meilisearch_types4keys1_85_$LT$impl$u20$enum_iterator..Sequence$u20$for$u20$meilisearch_types..keys..Action$GT$4next17h7285e971fb0d73ffE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %2), !range !2299
+  store i8 %6, ptr %0, align 1
+  br label %7
 
-8:                                                ; preds = %6, %5
+7:                                                ; preds = %1, %5
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   ret i8 %3
 }
 

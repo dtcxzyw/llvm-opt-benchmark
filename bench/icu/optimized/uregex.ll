@@ -2684,8 +2684,7 @@ land.lhs.true6.i.i.i:                             ; preds = %if.end3.i.i.i
 
 uregex_reset_75.exit.thread:                      ; preds = %land.lhs.true6.i.i.i
   store i32 66306, ptr %status, align 4
-  store i32 66306, ptr %findStatus, align 4
-  br label %while.end
+  br label %while.end.sink.split
 
 uregex_reset_75.exit:                             ; preds = %if.end3.i.i.i, %land.lhs.true6.i.i.i
   %fMatcher.i.i = getelementptr inbounds i8, ptr %regexp2, i64 40
@@ -2705,7 +2704,7 @@ lor.lhs.false.i.i:                                ; preds = %lor.lhs.false.i.i.l
   %len.031 = phi i32 [ 0, %lor.lhs.false.i.i.lr.ph ], [ %add, %while.body ]
   %6 = load i32, ptr %regexp2, align 8
   %cmp1.not.i.i = icmp eq i32 %6, 1919252592
-  br i1 %cmp1.not.i.i, label %if.end3.i.i, label %return.sink.split.i.i
+  br i1 %cmp1.not.i.i, label %if.end3.i.i, label %while.end.sink.split
 
 if.end3.i.i:                                      ; preds = %lor.lhs.false.i.i
   %7 = load ptr, ptr %fText.i, align 8
@@ -2715,12 +2714,7 @@ if.end3.i.i:                                      ; preds = %lor.lhs.false.i.i
 land.lhs.true6.i.i:                               ; preds = %if.end3.i.i
   %8 = load i8, ptr %fOwnsText.i.i, align 4
   %tobool7.not.i.i = icmp eq i8 %8, 0
-  br i1 %tobool7.not.i.i, label %return.sink.split.i.i, label %uregex_findNext_75.exit
-
-return.sink.split.i.i:                            ; preds = %land.lhs.true6.i.i, %lor.lhs.false.i.i
-  %.sink.i.i = phi i32 [ 1, %lor.lhs.false.i.i ], [ 66306, %land.lhs.true6.i.i ]
-  store i32 %.sink.i.i, ptr %findStatus, align 4
-  br label %while.end
+  br i1 %tobool7.not.i.i, label %while.end.sink.split, label %uregex_findNext_75.exit
 
 uregex_findNext_75.exit:                          ; preds = %if.end3.i.i, %land.lhs.true6.i.i
   %9 = load ptr, ptr %fMatcher.i, align 8
@@ -2735,8 +2729,14 @@ while.body:                                       ; preds = %uregex_findNext_75.
   %cmp.i.i.i17 = icmp slt i32 %.pr, 1
   br i1 %cmp.i.i.i17, label %lor.lhs.false.i.i, label %while.end, !llvm.loop !4
 
-while.end:                                        ; preds = %uregex_findNext_75.exit, %while.body, %uregex_reset_75.exit.thread, %uregex_reset_75.exit, %return.sink.split.i.i
-  %len.029 = phi i32 [ %len.031, %return.sink.split.i.i ], [ 0, %uregex_reset_75.exit ], [ 0, %uregex_reset_75.exit.thread ], [ %len.031, %uregex_findNext_75.exit ], [ %add, %while.body ]
+while.end.sink.split:                             ; preds = %lor.lhs.false.i.i, %land.lhs.true6.i.i, %uregex_reset_75.exit.thread
+  %.sink = phi i32 [ 66306, %uregex_reset_75.exit.thread ], [ 1, %lor.lhs.false.i.i ], [ 66306, %land.lhs.true6.i.i ]
+  %len.029.ph = phi i32 [ 0, %uregex_reset_75.exit.thread ], [ %len.031, %land.lhs.true6.i.i ], [ %len.031, %lor.lhs.false.i.i ]
+  store i32 %.sink, ptr %findStatus, align 4
+  br label %while.end
+
+while.end:                                        ; preds = %uregex_findNext_75.exit, %while.body, %while.end.sink.split, %uregex_reset_75.exit
+  %len.029 = phi i32 [ 0, %uregex_reset_75.exit ], [ %len.029.ph, %while.end.sink.split ], [ %len.031, %uregex_findNext_75.exit ], [ %add, %while.body ]
   %call.i22 = call noundef i32 @_ZN6icu_7510RegexCImpl10appendTailEPNS_17RegularExpressionEPPDsPiP10UErrorCode(ptr noundef nonnull %regexp2, ptr noundef nonnull %destBuf.addr, ptr noundef nonnull %destCapacity.addr, ptr noundef nonnull %status)
   %add13 = add nsw i32 %call.i22, %len.029
   %10 = load i32, ptr %findStatus, align 4

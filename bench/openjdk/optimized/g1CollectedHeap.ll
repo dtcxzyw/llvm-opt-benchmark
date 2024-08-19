@@ -9655,7 +9655,7 @@ define hidden noundef ptr @_ZN15G1CollectedHeap19new_gc_alloc_regionEm16G1HeapRe
 
 .thread:                                          ; preds = %4
   store volatile i32 0, ptr %.sroa.0, align 4
-  br label %16
+  br label %15
 
 _ZN15G1CollectedHeap16has_more_regionsE16G1HeapRegionAttr.exit: ; preds = %4
   %6 = getelementptr inbounds i8, ptr %0, i64 1016
@@ -9670,93 +9670,88 @@ _ZN15G1CollectedHeap16has_more_regionsE16G1HeapRegionAttr.exit: ; preds = %4
 13:                                               ; preds = %_ZN15G1CollectedHeap16has_more_regionsE16G1HeapRegionAttr.exit
   store volatile i32 0, ptr %.sroa.0, align 4
   %14 = icmp eq i8 %.sroa.1.0.extract.trunc, 0
-  br i1 %14, label %15, label %16
+  br i1 %14, label %16, label %15
 
-15:                                               ; preds = %13
-  %.sroa.0.0.copyload15 = load volatile i32, ptr @_ZN16G1HeapRegionType8SurvivorE, align 4
-  store volatile i32 %.sroa.0.0.copyload15, ptr %.sroa.0, align 4
-  br label %17
+15:                                               ; preds = %.thread, %13
+  br label %16
 
-16:                                               ; preds = %.thread, %13
-  %.sroa.0.0.copyload16 = load volatile i32, ptr @_ZN16G1HeapRegionType3OldE, align 4
+16:                                               ; preds = %13, %15
+  %_ZN16G1HeapRegionType3OldE.sink = phi ptr [ @_ZN16G1HeapRegionType3OldE, %15 ], [ @_ZN16G1HeapRegionType8SurvivorE, %13 ]
+  %.sroa.0.0.copyload16 = load volatile i32, ptr %_ZN16G1HeapRegionType3OldE.sink, align 4
   store volatile i32 %.sroa.0.0.copyload16, ptr %.sroa.0, align 4
-  br label %17
+  %17 = tail call noundef ptr @_ZN15G1CollectedHeap10new_regionEm16G1HeapRegionTypebj(ptr noundef nonnull align 8 dereferenceable(1488) %0, i64 noundef %1, i32 %.sroa.0.0.copyload16, i1 noundef zeroext true, i32 noundef %3)
+  %.not = icmp eq ptr %17, null
+  br i1 %.not, label %_ZN19G1HeapRegionPrinter5allocEP12G1HeapRegion.exit, label %18
 
-17:                                               ; preds = %16, %15
-  %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload = phi i32 [ %.sroa.0.0.copyload16, %16 ], [ %.sroa.0.0.copyload15, %15 ]
-  %18 = tail call noundef ptr @_ZN15G1CollectedHeap10new_regionEm16G1HeapRegionTypebj(ptr noundef nonnull align 8 dereferenceable(1488) %0, i64 noundef %1, i32 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload, i1 noundef zeroext true, i32 noundef %3)
-  %.not = icmp eq ptr %18, null
-  br i1 %.not, label %_ZN19G1HeapRegionPrinter5allocEP12G1HeapRegion.exit, label %19
-
-19:                                               ; preds = %17
+18:                                               ; preds = %16
   %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0. = load volatile i32, ptr %.sroa.0, align 4
-  %20 = icmp eq i32 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., 3
-  br i1 %20, label %21, label %30
+  %19 = icmp eq i32 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., 3
+  br i1 %19, label %20, label %29
 
-21:                                               ; preds = %19
-  tail call void @_ZN12G1HeapRegion12set_survivorEv(ptr noundef nonnull align 8 dereferenceable(136) %18) #23
-  %22 = getelementptr inbounds i8, ptr %0, i64 1016
-  %23 = tail call noundef i32 @_ZN17G1SurvivorRegions3addEP12G1HeapRegion(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull %18) #23
-  %24 = getelementptr inbounds i8, ptr %18, i64 48
-  %25 = load i32, ptr %24, align 8
-  %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds i8, ptr %0, i64 1448
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds %struct.G1HeapRegionAttr, ptr %28, i64 %26, i32 1
-  store i8 -2, ptr %29, align 1
-  br label %31
+20:                                               ; preds = %18
+  tail call void @_ZN12G1HeapRegion12set_survivorEv(ptr noundef nonnull align 8 dereferenceable(136) %17) #23
+  %21 = getelementptr inbounds i8, ptr %0, i64 1016
+  %22 = tail call noundef i32 @_ZN17G1SurvivorRegions3addEP12G1HeapRegion(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull %17) #23
+  %23 = getelementptr inbounds i8, ptr %17, i64 48
+  %24 = load i32, ptr %23, align 8
+  %25 = zext i32 %24 to i64
+  %26 = getelementptr inbounds i8, ptr %0, i64 1448
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds %struct.G1HeapRegionAttr, ptr %27, i64 %25, i32 1
+  store i8 -2, ptr %28, align 1
+  br label %30
 
-30:                                               ; preds = %19
-  tail call void @_ZN12G1HeapRegion7set_oldEv(ptr noundef nonnull align 8 dereferenceable(136) %18) #23
-  br label %31
+29:                                               ; preds = %18
+  tail call void @_ZN12G1HeapRegion7set_oldEv(ptr noundef nonnull align 8 dereferenceable(136) %17) #23
+  br label %30
 
-31:                                               ; preds = %30, %21
-  %32 = getelementptr inbounds i8, ptr %0, i64 1064
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 24
-  tail call void @_ZN22G1RemSetTrackingPolicy18update_at_allocateEP12G1HeapRegion(ptr noundef nonnull align 1 dereferenceable(1) %34, ptr noundef nonnull %18) #23
-  %35 = getelementptr inbounds i8, ptr %18, i64 48
-  %36 = load i32, ptr %35, align 8
-  %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds i8, ptr %18, i64 40
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 80
-  %41 = load i32, ptr %40, align 8
-  %42 = icmp ne i32 %41, 0
-  %43 = getelementptr inbounds i8, ptr %0, i64 1448
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds %struct.G1HeapRegionAttr, ptr %44, i64 %37
-  %46 = zext i1 %42 to i8
-  store i8 %46, ptr %45, align 1
-  %47 = load i32, ptr %35, align 8
-  %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds i8, ptr %18, i64 128
-  %50 = load volatile i64, ptr %49, align 8
-  %51 = icmp ne i64 %50, 0
-  %52 = load ptr, ptr %43, align 8
-  %53 = zext i1 %51 to i8
-  %54 = getelementptr inbounds %struct.G1HeapRegionAttr, ptr %52, i64 %48, i32 2
-  store i8 %53, ptr %54, align 1
-  %55 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_128ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not.i.i = icmp eq ptr %55, null
-  br i1 %.not.i.i, label %_ZN19G1HeapRegionPrinter5allocEP12G1HeapRegion.exit, label %56
+30:                                               ; preds = %29, %20
+  %31 = getelementptr inbounds i8, ptr %0, i64 1064
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 24
+  tail call void @_ZN22G1RemSetTrackingPolicy18update_at_allocateEP12G1HeapRegion(ptr noundef nonnull align 1 dereferenceable(1) %33, ptr noundef nonnull %17) #23
+  %34 = getelementptr inbounds i8, ptr %17, i64 48
+  %35 = load i32, ptr %34, align 8
+  %36 = zext i32 %35 to i64
+  %37 = getelementptr inbounds i8, ptr %17, i64 40
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 80
+  %40 = load i32, ptr %39, align 8
+  %41 = icmp ne i32 %40, 0
+  %42 = getelementptr inbounds i8, ptr %0, i64 1448
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds %struct.G1HeapRegionAttr, ptr %43, i64 %36
+  %45 = zext i1 %41 to i8
+  store i8 %45, ptr %44, align 1
+  %46 = load i32, ptr %34, align 8
+  %47 = zext i32 %46 to i64
+  %48 = getelementptr inbounds i8, ptr %17, i64 128
+  %49 = load volatile i64, ptr %48, align 8
+  %50 = icmp ne i64 %49, 0
+  %51 = load ptr, ptr %42, align 8
+  %52 = zext i1 %50 to i8
+  %53 = getelementptr inbounds %struct.G1HeapRegionAttr, ptr %51, i64 %47, i32 2
+  store i8 %52, ptr %53, align 1
+  %54 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_128ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not.i.i = icmp eq ptr %54, null
+  br i1 %.not.i.i, label %_ZN19G1HeapRegionPrinter5allocEP12G1HeapRegion.exit, label %55
 
-56:                                               ; preds = %31
-  %57 = getelementptr inbounds i8, ptr %18, i64 52
-  %58 = tail call noundef ptr @_ZNK16G1HeapRegionType7get_strEv(ptr noundef nonnull align 4 dereferenceable(4) %57) #23
-  %59 = load ptr, ptr %18, align 8
-  %60 = ptrtoint ptr %59 to i64
-  %61 = getelementptr inbounds i8, ptr %18, i64 16
-  %62 = load volatile ptr, ptr %61, align 8
-  %63 = ptrtoint ptr %62 to i64
-  %64 = getelementptr inbounds i8, ptr %18, i64 8
-  %65 = load ptr, ptr %64, align 8
-  %66 = ptrtoint ptr %65 to i64
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_128ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.109, ptr noundef %58, i64 noundef %60, i64 noundef %63, i64 noundef %66)
+55:                                               ; preds = %30
+  %56 = getelementptr inbounds i8, ptr %17, i64 52
+  %57 = tail call noundef ptr @_ZNK16G1HeapRegionType7get_strEv(ptr noundef nonnull align 4 dereferenceable(4) %56) #23
+  %58 = load ptr, ptr %17, align 8
+  %59 = ptrtoint ptr %58 to i64
+  %60 = getelementptr inbounds i8, ptr %17, i64 16
+  %61 = load volatile ptr, ptr %60, align 8
+  %62 = ptrtoint ptr %61 to i64
+  %63 = getelementptr inbounds i8, ptr %17, i64 8
+  %64 = load ptr, ptr %63, align 8
+  %65 = ptrtoint ptr %64 to i64
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_128ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.109, ptr noundef %57, i64 noundef %59, i64 noundef %62, i64 noundef %65)
   br label %_ZN19G1HeapRegionPrinter5allocEP12G1HeapRegion.exit
 
-_ZN19G1HeapRegionPrinter5allocEP12G1HeapRegion.exit: ; preds = %56, %31, %17, %_ZN15G1CollectedHeap16has_more_regionsE16G1HeapRegionAttr.exit
-  %.0 = phi ptr [ null, %_ZN15G1CollectedHeap16has_more_regionsE16G1HeapRegionAttr.exit ], [ null, %17 ], [ %18, %31 ], [ %18, %56 ]
+_ZN19G1HeapRegionPrinter5allocEP12G1HeapRegion.exit: ; preds = %55, %30, %16, %_ZN15G1CollectedHeap16has_more_regionsE16G1HeapRegionAttr.exit
+  %.0 = phi ptr [ null, %_ZN15G1CollectedHeap16has_more_regionsE16G1HeapRegionAttr.exit ], [ null, %16 ], [ %17, %30 ], [ %17, %55 ]
   ret ptr %.0
 }
 

@@ -4277,7 +4277,7 @@ define hidden void @"_ZN133_$LT$ockam_abac..policy..storage..resource_type_polic
 15:                                               ; preds = %25, %16
   %.pn = phi { ptr, i32 } [ %17, %16 ], [ %26, %25 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h1a8dc4668ceb4783E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #28
-          to label %47 unwind label %45
+          to label %46 unwind label %44
 
 16:                                               ; preds = %12
   %17 = landingpad { ptr, i32 }
@@ -4315,7 +4315,7 @@ define hidden void @"_ZN133_$LT$ockam_abac..policy..storage..resource_type_polic
   %26 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h1a8dc4668ceb4783E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #28
-          to label %15 unwind label %45
+          to label %15 unwind label %44
 
 27:                                               ; preds = %22
   %28 = load i64, ptr %4, align 8, !range !543, !noundef !4
@@ -4335,8 +4335,7 @@ define hidden void @"_ZN133_$LT$ockam_abac..policy..storage..resource_type_polic
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  br label %40
+  br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h1a8dc4668ceb4783E.exit62"
 
 34:                                               ; preds = %27
   %.sroa.552.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 32
@@ -4363,7 +4362,8 @@ define hidden void @"_ZN133_$LT$ockam_abac..policy..storage..resource_type_polic
   tail call void @__rust_dealloc(ptr noundef nonnull %39, i64 noundef %37, i64 noundef 1) #26, !noalias !561
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h1a8dc4668ceb4783E.exit"
 
-40:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h1a8dc4668ceb4783E.exit62", %31
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h1a8dc4668ceb4783E.exit62": ; preds = %13, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h1a8dc4668ceb4783E.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.6910714394678848989.exit.i.i.i.i61", %31
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   ret void
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h1a8dc4668ceb4783E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.6910714394678848989.exit.i.i.i.i", %34, %23
@@ -4372,27 +4372,23 @@ define hidden void @"_ZN133_$LT$ockam_abac..policy..storage..resource_type_polic
   tail call void @llvm.experimental.noalias.scope.decl(metadata !565)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !568)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !571)
-  %41 = getelementptr inbounds i8, ptr %8, i64 8
-  %42 = load i64, ptr %41, align 8, !alias.scope !574, !noalias !577, !noundef !4
-  %43 = icmp eq i64 %42, 0
-  br i1 %43, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h1a8dc4668ceb4783E.exit62", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.6910714394678848989.exit.i.i.i.i61"
+  %40 = getelementptr inbounds i8, ptr %8, i64 8
+  %41 = load i64, ptr %40, align 8, !alias.scope !574, !noalias !577, !noundef !4
+  %42 = icmp eq i64 %41, 0
+  br i1 %42, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h1a8dc4668ceb4783E.exit62", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.6910714394678848989.exit.i.i.i.i61"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.6910714394678848989.exit.i.i.i.i61": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h1a8dc4668ceb4783E.exit"
-  %44 = load ptr, ptr %8, align 8, !alias.scope !574, !noalias !577, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %44, i64 noundef %42, i64 noundef 1) #26, !noalias !579
+  %43 = load ptr, ptr %8, align 8, !alias.scope !574, !noalias !577, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %43, i64 noundef %41, i64 noundef 1) #26, !noalias !579
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h1a8dc4668ceb4783E.exit62"
 
-45:                                               ; preds = %25, %15
-  %46 = landingpad { ptr, i32 }
+44:                                               ; preds = %25, %15
+  %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #29
   unreachable
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h1a8dc4668ceb4783E.exit62": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.6910714394678848989.exit.i.i.i.i61", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h1a8dc4668ceb4783E.exit", %13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  br label %40
-
-47:                                               ; preds = %15
+46:                                               ; preds = %15
   resume { ptr, i32 } %.pn
 }
 

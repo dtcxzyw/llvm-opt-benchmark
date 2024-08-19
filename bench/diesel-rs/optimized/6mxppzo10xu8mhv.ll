@@ -311,8 +311,8 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
   br label %96
 
 95:                                               ; preds = %87, %92
-  %storemerge = phi i64 [ %90, %92 ], [ -9223372036854775808, %87 ]
-  store i64 %storemerge, ptr %10, align 8
+  %.sink = phi i64 [ %90, %92 ], [ -9223372036854775808, %87 ]
+  store i64 %.sink, ptr %10, align 8
   invoke void @_ZN3syn5group12parse_braces17ha3700d757ef4a2b4E(ptr nonnull sret({ i64, [6 x i64] }) align 8 %6, ptr align 8 %1)
           to label %98 unwind label %97
 

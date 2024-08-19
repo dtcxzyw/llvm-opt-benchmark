@@ -898,7 +898,7 @@ define internal fastcc void @_setup_print_fields_list(ptr noundef %0) unnamed_ad
   store i32 1, ptr @exit_code, align 4
   %6 = load ptr, ptr @stderr, align 8
   %7 = tail call i64 @fwrite(ptr nonnull @.str.31, i64 44, i64 1, ptr %6) #13
-  br label %189
+  br label %190
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr @print_fields_list, align 8
@@ -1263,35 +1263,35 @@ define internal fastcc void @_setup_print_fields_list(ptr noundef %0) unnamed_ad
   call void @slurm_xfree(ptr noundef nonnull %2) #10
   br label %.backedge
 
-.backedge:                                        ; preds = %179, %186
+.backedge:                                        ; preds = %179, %187
   %182 = call ptr @list_next(ptr noundef %13) #10
   %.not110 = icmp eq ptr %182, null
   br i1 %.not110, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 183:                                              ; preds = %36, %55, %73, %90, %109, %137, %153, %172, %162, %145, %122, %99, %81, %64, %45, %26
   %print_fields_str.sink = phi ptr [ @print_fields_str, %36 ], [ @print_fields_str, %55 ], [ @print_fields_str, %73 ], [ @print_fields_str, %90 ], [ @print_fields_str, %109 ], [ @print_fields_uint32, %137 ], [ @print_fields_str, %153 ], [ @print_fields_str, %172 ], [ @print_fields_str, %162 ], [ @print_fields_str, %145 ], [ @print_fields_str, %122 ], [ @print_fields_str, %99 ], [ @print_fields_str, %81 ], [ @print_fields_str, %64 ], [ @print_fields_str, %45 ], [ @print_fields_str, %26 ]
-  %.sink169 = load ptr, ptr %2, align 8
-  %184 = getelementptr inbounds i8, ptr %.sink169, i64 16
-  store ptr %print_fields_str.sink, ptr %184, align 8
+  %184 = load ptr, ptr %2, align 8
+  %185 = getelementptr inbounds i8, ptr %184, i64 16
+  store ptr %print_fields_str.sink, ptr %185, align 8
   %.not131 = icmp eq i32 %.0, 0
-  br i1 %.not131, label %186, label %185
+  br i1 %.not131, label %187, label %186
 
-185:                                              ; preds = %183
-  store i32 %.0, ptr %.sink169, align 8
+186:                                              ; preds = %183
+  store i32 %.0, ptr %184, align 8
   %.pre = load ptr, ptr %2, align 8
-  br label %186
+  br label %187
 
-186:                                              ; preds = %185, %183
-  %187 = phi ptr [ %.pre, %185 ], [ %.sink169, %183 ]
-  %188 = load ptr, ptr @print_fields_list, align 8
-  call void @list_append(ptr noundef %188, ptr noundef %187) #10
+187:                                              ; preds = %186, %183
+  %188 = phi ptr [ %.pre, %186 ], [ %184, %183 ]
+  %189 = load ptr, ptr @print_fields_list, align 8
+  call void @list_append(ptr noundef %189, ptr noundef %188) #10
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %12
   call void @list_iterator_destroy(ptr noundef %13) #10
-  br label %189
+  br label %190
 
-189:                                              ; preds = %._crit_edge, %5
+190:                                              ; preds = %._crit_edge, %5
   ret void
 }
 

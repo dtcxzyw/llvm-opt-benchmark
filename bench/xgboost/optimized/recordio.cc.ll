@@ -508,7 +508,7 @@ define noundef zeroext i1 @_ZN4dmlc14RecordIOReader10NextRecordEPNSt7__cxx1112ba
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i8, ptr %7, align 8, !tbaa !23, !range !26, !noundef !27
   %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %114, label %10
+  br i1 %9, label %113, label %10
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %1, i64 8
@@ -533,8 +533,7 @@ define noundef zeroext i1 @_ZN4dmlc14RecordIOReader10NextRecordEPNSt7__cxx1112ba
 
 21:                                               ; preds = %15
   store i8 1, ptr %7, align 8, !tbaa !23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
-  br label %114
+  br label %.sink.split
 
 22:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #10
@@ -584,7 +583,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit1:       ; preds = %.noexc, %_ZN4dmlc15
   %38 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %39 unwind label %116
+          to label %39 unwind label %115
 
 39:                                               ; preds = %37
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #10
@@ -643,7 +642,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit4:       ; preds = %.noexc3, %_ZN4dmlc1
   %59 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %60 unwind label %116
+          to label %60 unwind label %115
 
 60:                                               ; preds = %58
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #10
@@ -726,7 +725,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit7:       ; preds = %.noexc6, %_ZN4dmlc1
   %99 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6)
-          to label %100 unwind label %116
+          to label %100 unwind label %115
 
 100:                                              ; preds = %98
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #10
@@ -737,8 +736,8 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit7:       ; preds = %.noexc6, %_ZN4dmlc1
   %103 = add i64 %16, %102
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %103, i8 noundef signext 0)
   switch i32 %63, label %104 [
-    i32 3, label %113
-    i32 0, label %113
+    i32 3, label %.sink.split
+    i32 0, label %.sink.split
   ]
 
 104:                                              ; preds = %101
@@ -758,19 +757,20 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit7:       ; preds = %.noexc6, %_ZN4dmlc1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
   resume { ptr, i32 } %112
 
-113:                                              ; preds = %101, %101
+.sink.split:                                      ; preds = %101, %101, %21
+  %.ph = phi i1 [ false, %21 ], [ true, %101 ], [ true, %101 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
-  br label %114
+  br label %113
 
-114:                                              ; preds = %113, %21, %2
-  %115 = phi i1 [ false, %2 ], [ true, %113 ], [ false, %21 ]
-  ret i1 %115
+113:                                              ; preds = %.sink.split, %2
+  %114 = phi i1 [ false, %2 ], [ %.ph, %.sink.split ]
+  ret i1 %114
 
-116:                                              ; preds = %98, %58, %37
-  %117 = landingpad { ptr, i32 }
+115:                                              ; preds = %98, %58, %37
+  %116 = landingpad { ptr, i32 }
           catch ptr null
-  %118 = extractvalue { ptr, i32 } %117, 0
-  call void @__clang_call_terminate(ptr %118) #25
+  %117 = extractvalue { ptr, i32 } %116, 0
+  call void @__clang_call_terminate(ptr %117) #25
   unreachable
 }
 

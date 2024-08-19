@@ -1415,11 +1415,6 @@ define internal fastcc range(i32 -1, 1) i32 @add_post_vars(ptr noundef %0, ptr n
   %.not.i = icmp ult ptr %24, %23
   br i1 %.not.i, label %25, label %add_post_var.exit.thread
 
-add_post_var.exit.thread:                         ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %94
-
 25:                                               ; preds = %22
   %26 = load i64, ptr %19, align 8
   %27 = getelementptr inbounds i8, ptr %24, i64 %26
@@ -1531,9 +1526,7 @@ add_post_var.exit:                                ; preds = %25
   %82 = ptrtoint ptr %24 to i64
   %83 = sub i64 %28, %82
   store i64 %83, ptr %19, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %94
+  br label %add_post_var.exit.thread
 
 84:                                               ; preds = %51, %php_register_variable_safe.exit.i
   %85 = load ptr, ptr %5, align 8
@@ -1554,28 +1547,30 @@ add_post_var.exit:                                ; preds = %25
 
 93:                                               ; preds = %84
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.14, i64 noundef %11) #17
-  br label %103
+  br label %102
 
-94:                                               ; preds = %add_post_var.exit, %add_post_var.exit.thread
-  br i1 %2, label %103, label %95
+add_post_var.exit.thread:                         ; preds = %22, %add_post_var.exit
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  br i1 %2, label %102, label %94
 
-95:                                               ; preds = %94
-  %96 = load ptr, ptr %1, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 24
-  %.not = icmp eq ptr %97, %24
-  br i1 %.not, label %103, label %98
+94:                                               ; preds = %add_post_var.exit.thread
+  %95 = load ptr, ptr %1, align 8
+  %96 = getelementptr inbounds i8, ptr %95, i64 24
+  %.not = icmp eq ptr %96, %24
+  br i1 %.not, label %102, label %97
 
-98:                                               ; preds = %95
-  %99 = ptrtoint ptr %23 to i64
-  %100 = ptrtoint ptr %24 to i64
-  %101 = sub i64 %99, %100
-  %102 = getelementptr inbounds i8, ptr %96, i64 16
-  store i64 %101, ptr %102, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %97, ptr align 1 %24, i64 %101, i1 false)
-  br label %103
+97:                                               ; preds = %94
+  %98 = ptrtoint ptr %23 to i64
+  %99 = ptrtoint ptr %24 to i64
+  %100 = sub i64 %98, %99
+  %101 = getelementptr inbounds i8, ptr %95, i64 16
+  store i64 %100, ptr %101, align 8
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %96, ptr align 1 %24, i64 %100, i1 false)
+  br label %102
 
-103:                                              ; preds = %94, %95, %98, %93
-  %.0 = phi i32 [ -1, %93 ], [ 0, %98 ], [ 0, %95 ], [ 0, %94 ]
+102:                                              ; preds = %add_post_var.exit.thread, %94, %97, %93
+  %.0 = phi i32 [ -1, %93 ], [ 0, %97 ], [ 0, %94 ], [ 0, %add_post_var.exit.thread ]
   ret i32 %.0
 }
 

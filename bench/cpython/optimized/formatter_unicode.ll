@@ -417,9 +417,7 @@ PyUnicode_READ.exit102:                           ; preds = %if.then
 PyUnicode_READ.exit112:                           ; preds = %PyUnicode_READ.exit102.thread, %PyUnicode_READ.exit102.thread243, %PyUnicode_READ.exit102
   %retval.0.i106 = phi i32 [ %conv.i109, %PyUnicode_READ.exit102.thread ], [ %conv5.i105, %PyUnicode_READ.exit102.thread243 ], [ %11, %PyUnicode_READ.exit102 ]
   store i32 %retval.0.i106, ptr %format, align 8
-  %add10 = add i64 %start, 2
-  store i64 %add10, ptr %pos, align 8
-  br label %if.end21
+  br label %if.end21.sink.split
 
 if.else:                                          ; preds = %PyUnicode_DATA.exit
   %cmp12 = icmp eq i64 %sub, 1
@@ -483,14 +481,19 @@ if.end6.i133:                                     ; preds = %if.then18
 PyUnicode_READ.exit135:                           ; preds = %if.then.i130, %if.then3.i126, %if.end6.i133
   %retval.0.i129 = phi i32 [ %conv.i132, %if.then.i130 ], [ %conv5.i128, %if.then3.i126 ], [ %17, %if.end6.i133 ]
   store i32 %retval.0.i129, ptr %align, align 4
-  %inc = add i64 %start, 1
+  br label %if.end21.sink.split
+
+if.end21.sink.split:                              ; preds = %PyUnicode_READ.exit112, %PyUnicode_READ.exit135
+  %.sink = phi i64 [ 1, %PyUnicode_READ.exit135 ], [ 2, %PyUnicode_READ.exit112 ]
+  %tobool56.not.ph = phi i1 [ true, %PyUnicode_READ.exit135 ], [ false, %PyUnicode_READ.exit112 ]
+  %inc = add i64 %.sink, %start
   store i64 %inc, ptr %pos, align 8
   br label %if.end21
 
-if.end21:                                         ; preds = %PyUnicode_READ.exit122, %if.else, %PyUnicode_READ.exit135, %PyUnicode_READ.exit112
-  %18 = phi i64 [ %add10, %PyUnicode_READ.exit112 ], [ %inc, %PyUnicode_READ.exit135 ], [ %start, %if.else ], [ %start, %PyUnicode_READ.exit122 ]
-  %tobool67 = phi i1 [ false, %PyUnicode_READ.exit112 ], [ false, %PyUnicode_READ.exit135 ], [ true, %if.else ], [ true, %PyUnicode_READ.exit122 ]
-  %tobool56.not = phi i1 [ false, %PyUnicode_READ.exit112 ], [ true, %PyUnicode_READ.exit135 ], [ true, %if.else ], [ true, %PyUnicode_READ.exit122 ]
+if.end21:                                         ; preds = %if.end21.sink.split, %PyUnicode_READ.exit122, %if.else
+  %18 = phi i64 [ %start, %if.else ], [ %start, %PyUnicode_READ.exit122 ], [ %inc, %if.end21.sink.split ]
+  %tobool67 = phi i1 [ true, %if.else ], [ true, %PyUnicode_READ.exit122 ], [ false, %if.end21.sink.split ]
+  %tobool56.not = phi i1 [ true, %if.else ], [ true, %PyUnicode_READ.exit122 ], [ %tobool56.not.ph, %if.end21.sink.split ]
   %sub22 = sub i64 %end, %18
   %cmp23 = icmp sgt i64 %sub22, 0
   br i1 %cmp23, label %land.lhs.true25, label %if.end55

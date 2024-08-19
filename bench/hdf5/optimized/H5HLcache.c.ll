@@ -308,10 +308,10 @@ define internal noundef i32 @H5HL__cache_prefix_serialize(ptr nocapture readnone
   store i8 0, ptr %18, align 1
   %20 = getelementptr inbounds i8, ptr %7, i64 16
   %21 = load i64, ptr %20, align 8
-  switch i64 %21, label %59 [
+  switch i64 %21, label %50 [
     i64 4, label %22
-    i64 8, label %39
-    i64 2, label %49
+    i64 8, label %33
+    i64 2, label %41
   ]
 
 22:                                               ; preds = %12
@@ -327,173 +327,170 @@ define internal noundef i32 @H5HL__cache_prefix_serialize(ptr nocapture readnone
   %30 = getelementptr inbounds i8, ptr %1, i64 10
   %31 = load i64, ptr %23, align 8
   %32 = lshr i64 %31, 16
-  %33 = trunc i64 %32 to i8
-  store i8 %33, ptr %30, align 1
-  %34 = getelementptr inbounds i8, ptr %1, i64 11
-  %35 = load i64, ptr %23, align 8
-  %36 = lshr i64 %35, 24
-  %37 = trunc i64 %36 to i8
-  store i8 %37, ptr %34, align 1
-  %38 = getelementptr inbounds i8, ptr %1, i64 12
-  store ptr %38, ptr %5, align 8
+  br label %thread-pre-split.sink.split
+
+33:                                               ; preds = %12
+  %34 = getelementptr inbounds i8, ptr %7, i64 96
+  %35 = load i64, ptr %34, align 8
+  br label %36
+
+36:                                               ; preds = %33, %36
+  %.065 = phi i64 [ %35, %33 ], [ %40, %36 ]
+  %.05564 = phi ptr [ %19, %33 ], [ %38, %36 ]
+  %.05763 = phi i64 [ 0, %33 ], [ %39, %36 ]
+  %37 = trunc i64 %.065 to i8
+  %38 = getelementptr inbounds i8, ptr %.05564, i64 1
+  store i8 %37, ptr %.05564, align 1
+  %39 = add nuw nsw i64 %.05763, 1
+  %40 = lshr i64 %.065, 8
+  %exitcond.not = icmp eq i64 %39, 8
+  br i1 %exitcond.not, label %thread-pre-split, label %36
+
+41:                                               ; preds = %12
+  %42 = getelementptr inbounds i8, ptr %7, i64 96
+  %43 = load i64, ptr %42, align 8
+  br label %thread-pre-split.sink.split
+
+thread-pre-split.sink.split:                      ; preds = %41, %22
+  %.sink80 = phi i64 [ %32, %22 ], [ %43, %41 ]
+  %.sink79 = phi ptr [ %30, %22 ], [ %19, %41 ]
+  %.sink77 = phi i64 [ 11, %22 ], [ 9, %41 ]
+  %.sink76 = phi ptr [ %23, %22 ], [ %42, %41 ]
+  %.sink75 = phi i64 [ 24, %22 ], [ 8, %41 ]
+  %.sink70.ph = phi i64 [ 12, %22 ], [ 10, %41 ]
+  %44 = trunc i64 %.sink80 to i8
+  store i8 %44, ptr %.sink79, align 1
+  %45 = getelementptr inbounds i8, ptr %1, i64 %.sink77
+  %46 = load i64, ptr %.sink76, align 8
+  %47 = lshr i64 %46, %.sink75
+  %48 = trunc i64 %47 to i8
+  store i8 %48, ptr %45, align 1
   br label %thread-pre-split
 
-39:                                               ; preds = %12
-  %40 = getelementptr inbounds i8, ptr %7, i64 96
-  %41 = load i64, ptr %40, align 8
-  br label %42
-
-42:                                               ; preds = %39, %42
-  %.065 = phi i64 [ %41, %39 ], [ %46, %42 ]
-  %.05564 = phi ptr [ %19, %39 ], [ %44, %42 ]
-  %.05763 = phi i64 [ 0, %39 ], [ %45, %42 ]
-  %43 = trunc i64 %.065 to i8
-  %44 = getelementptr inbounds i8, ptr %.05564, i64 1
-  store i8 %43, ptr %.05564, align 1
-  %45 = add nuw nsw i64 %.05763, 1
-  %46 = lshr i64 %.065, 8
-  %exitcond.not = icmp eq i64 %45, 8
-  br i1 %exitcond.not, label %47, label %42
-
-47:                                               ; preds = %42
-  %48 = getelementptr inbounds i8, ptr %1, i64 16
-  store ptr %48, ptr %5, align 8
-  br label %thread-pre-split
-
-49:                                               ; preds = %12
-  %50 = getelementptr inbounds i8, ptr %7, i64 96
-  %51 = load i64, ptr %50, align 8
-  %52 = trunc i64 %51 to i8
-  store i8 %52, ptr %19, align 1
-  %53 = getelementptr inbounds i8, ptr %1, i64 9
-  %54 = load i64, ptr %50, align 8
-  %55 = lshr i64 %54, 8
-  %56 = trunc i64 %55 to i8
-  store i8 %56, ptr %53, align 1
-  %57 = getelementptr inbounds i8, ptr %1, i64 10
-  store ptr %57, ptr %5, align 8
-  br label %thread-pre-split
-
-thread-pre-split:                                 ; preds = %22, %47, %49
-  %58 = phi ptr [ %38, %22 ], [ %48, %47 ], [ %57, %49 ]
+thread-pre-split:                                 ; preds = %36, %thread-pre-split.sink.split
+  %.sink70 = phi i64 [ %.sink70.ph, %thread-pre-split.sink.split ], [ 16, %36 ]
+  %49 = getelementptr inbounds i8, ptr %1, i64 %.sink70
+  store ptr %49, ptr %5, align 8
   %.pr = load i64, ptr %20, align 8
-  br label %59
+  br label %50
 
-59:                                               ; preds = %thread-pre-split, %12
-  %60 = phi ptr [ %58, %thread-pre-split ], [ %19, %12 ]
-  %61 = phi i64 [ %.pr, %thread-pre-split ], [ %21, %12 ]
-  switch i64 %61, label %98 [
-    i64 4, label %62
-    i64 8, label %79
-    i64 2, label %89
+50:                                               ; preds = %thread-pre-split, %12
+  %51 = phi ptr [ %49, %thread-pre-split ], [ %19, %12 ]
+  %52 = phi i64 [ %.pr, %thread-pre-split ], [ %21, %12 ]
+  switch i64 %52, label %89 [
+    i64 4, label %53
+    i64 8, label %70
+    i64 2, label %80
   ]
 
-62:                                               ; preds = %59
-  %63 = load i64, ptr %14, align 8
+53:                                               ; preds = %50
+  %54 = load i64, ptr %14, align 8
+  %55 = trunc i64 %54 to i8
+  store i8 %55, ptr %51, align 1
+  %56 = load ptr, ptr %5, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 1
+  %58 = load i64, ptr %14, align 8
+  %59 = lshr i64 %58, 8
+  %60 = trunc i64 %59 to i8
+  store i8 %60, ptr %57, align 1
+  %61 = getelementptr inbounds i8, ptr %56, i64 2
+  %62 = load i64, ptr %14, align 8
+  %63 = lshr i64 %62, 16
   %64 = trunc i64 %63 to i8
-  store i8 %64, ptr %60, align 1
-  %65 = load ptr, ptr %5, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 1
-  %67 = load i64, ptr %14, align 8
-  %68 = lshr i64 %67, 8
-  %69 = trunc i64 %68 to i8
-  store i8 %69, ptr %66, align 1
-  %70 = getelementptr inbounds i8, ptr %65, i64 2
+  store i8 %64, ptr %61, align 1
+  %65 = getelementptr inbounds i8, ptr %56, i64 3
+  %66 = load i64, ptr %14, align 8
+  %67 = lshr i64 %66, 24
+  %68 = trunc i64 %67 to i8
+  store i8 %68, ptr %65, align 1
+  %69 = getelementptr inbounds i8, ptr %56, i64 4
+  br label %.sink.split
+
+70:                                               ; preds = %50
   %71 = load i64, ptr %14, align 8
-  %72 = lshr i64 %71, 16
-  %73 = trunc i64 %72 to i8
-  store i8 %73, ptr %70, align 1
-  %74 = getelementptr inbounds i8, ptr %65, i64 3
-  %75 = load i64, ptr %14, align 8
-  %76 = lshr i64 %75, 24
-  %77 = trunc i64 %76 to i8
-  store i8 %77, ptr %74, align 1
-  %78 = getelementptr inbounds i8, ptr %65, i64 4
-  store ptr %78, ptr %5, align 8
-  br label %98
+  br label %72
 
-79:                                               ; preds = %59
-  %80 = load i64, ptr %14, align 8
-  br label %81
+72:                                               ; preds = %70, %72
+  %.05168 = phi ptr [ %51, %70 ], [ %74, %72 ]
+  %.05267 = phi i64 [ 0, %70 ], [ %75, %72 ]
+  %.05466 = phi i64 [ %71, %70 ], [ %76, %72 ]
+  %73 = trunc i64 %.05466 to i8
+  %74 = getelementptr inbounds i8, ptr %.05168, i64 1
+  store i8 %73, ptr %.05168, align 1
+  %75 = add nuw nsw i64 %.05267, 1
+  %76 = lshr i64 %.05466, 8
+  %exitcond69.not = icmp eq i64 %75, 8
+  br i1 %exitcond69.not, label %77, label %72
 
-81:                                               ; preds = %79, %81
-  %.05168 = phi ptr [ %60, %79 ], [ %83, %81 ]
-  %.05267 = phi i64 [ 0, %79 ], [ %84, %81 ]
-  %.05466 = phi i64 [ %80, %79 ], [ %85, %81 ]
-  %82 = trunc i64 %.05466 to i8
-  %83 = getelementptr inbounds i8, ptr %.05168, i64 1
-  store i8 %82, ptr %.05168, align 1
-  %84 = add nuw nsw i64 %.05267, 1
-  %85 = lshr i64 %.05466, 8
-  %exitcond69.not = icmp eq i64 %84, 8
-  br i1 %exitcond69.not, label %86, label %81
+77:                                               ; preds = %72
+  %78 = load ptr, ptr %5, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 8
+  br label %.sink.split
 
-86:                                               ; preds = %81
-  %87 = load ptr, ptr %5, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 8
-  store ptr %88, ptr %5, align 8
-  br label %98
+80:                                               ; preds = %50
+  %81 = load i64, ptr %14, align 8
+  %82 = trunc i64 %81 to i8
+  store i8 %82, ptr %51, align 1
+  %83 = load ptr, ptr %5, align 8
+  %84 = getelementptr inbounds i8, ptr %83, i64 1
+  %85 = load i64, ptr %14, align 8
+  %86 = lshr i64 %85, 8
+  %87 = trunc i64 %86 to i8
+  store i8 %87, ptr %84, align 1
+  %88 = getelementptr inbounds i8, ptr %83, i64 2
+  br label %.sink.split
 
-89:                                               ; preds = %59
-  %90 = load i64, ptr %14, align 8
-  %91 = trunc i64 %90 to i8
-  store i8 %91, ptr %60, align 1
-  %92 = load ptr, ptr %5, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 1
-  %94 = load i64, ptr %14, align 8
-  %95 = lshr i64 %94, 8
-  %96 = trunc i64 %95 to i8
-  store i8 %96, ptr %93, align 1
-  %97 = getelementptr inbounds i8, ptr %92, i64 2
-  store ptr %97, ptr %5, align 8
-  br label %98
+.sink.split:                                      ; preds = %80, %77, %53
+  %.sink = phi ptr [ %69, %53 ], [ %79, %77 ], [ %88, %80 ]
+  store ptr %.sink, ptr %5, align 8
+  br label %89
 
-98:                                               ; preds = %62, %86, %89, %59
-  %99 = getelementptr inbounds i8, ptr %7, i64 24
-  %100 = load i64, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %7, i64 88
-  %102 = load i64, ptr %101, align 8
-  call void @H5F_addr_encode_len(i64 noundef %100, ptr noundef nonnull %5, i64 noundef %102) #9
-  %103 = getelementptr inbounds i8, ptr %7, i64 32
-  %104 = load i8, ptr %103, align 8
-  %105 = trunc i8 %104 to i1
-  %106 = load ptr, ptr %5, align 8
-  %107 = ptrtoint ptr %106 to i64
-  %108 = ptrtoint ptr %1 to i64
-  br i1 %105, label %109, label %124
+89:                                               ; preds = %.sink.split, %50
+  %90 = getelementptr inbounds i8, ptr %7, i64 24
+  %91 = load i64, ptr %90, align 8
+  %92 = getelementptr inbounds i8, ptr %7, i64 88
+  %93 = load i64, ptr %92, align 8
+  call void @H5F_addr_encode_len(i64 noundef %91, ptr noundef nonnull %5, i64 noundef %93) #9
+  %94 = getelementptr inbounds i8, ptr %7, i64 32
+  %95 = load i8, ptr %94, align 8
+  %96 = trunc i8 %95 to i1
+  %97 = load ptr, ptr %5, align 8
+  %98 = ptrtoint ptr %97 to i64
+  %99 = ptrtoint ptr %1 to i64
+  br i1 %96, label %100, label %115
 
-109:                                              ; preds = %98
-  %110 = sub i64 %107, %108
-  %111 = getelementptr inbounds i8, ptr %7, i64 64
-  %112 = load i64, ptr %111, align 8
-  %113 = icmp ult i64 %110, %112
-  br i1 %113, label %114, label %118
+100:                                              ; preds = %89
+  %101 = sub i64 %98, %99
+  %102 = getelementptr inbounds i8, ptr %7, i64 64
+  %103 = load i64, ptr %102, align 8
+  %104 = icmp ult i64 %101, %103
+  br i1 %104, label %105, label %109
 
-114:                                              ; preds = %109
-  %115 = sub nuw i64 %112, %110
-  call void @llvm.memset.p0.i64(ptr align 1 %106, i8 0, i64 %115, i1 false)
-  %116 = load ptr, ptr %5, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 %115
-  store ptr %117, ptr %5, align 8
-  br label %118
+105:                                              ; preds = %100
+  %106 = sub nuw i64 %103, %101
+  call void @llvm.memset.p0.i64(ptr align 1 %97, i8 0, i64 %106, i1 false)
+  %107 = load ptr, ptr %5, align 8
+  %108 = getelementptr inbounds i8, ptr %107, i64 %106
+  store ptr %108, ptr %5, align 8
+  br label %109
 
-118:                                              ; preds = %114, %109
+109:                                              ; preds = %105, %100
   call fastcc void @H5HL__fl_serialize(ptr noundef nonnull %7)
-  %119 = load ptr, ptr %5, align 8
-  %120 = getelementptr inbounds i8, ptr %7, i64 104
-  %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %7, i64 96
-  %123 = load i64, ptr %122, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %119, ptr align 1 %121, i64 %123, i1 false)
-  br label %126
+  %110 = load ptr, ptr %5, align 8
+  %111 = getelementptr inbounds i8, ptr %7, i64 104
+  %112 = load ptr, ptr %111, align 8
+  %113 = getelementptr inbounds i8, ptr %7, i64 96
+  %114 = load i64, ptr %113, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %110, ptr align 1 %112, i64 %114, i1 false)
+  br label %117
 
-124:                                              ; preds = %98
-  %.neg = add i64 %108, %2
-  %125 = sub i64 %.neg, %107
-  call void @llvm.memset.p0.i64(ptr align 1 %106, i8 0, i64 %125, i1 false)
-  br label %126
+115:                                              ; preds = %89
+  %.neg = add i64 %99, %2
+  %116 = sub i64 %.neg, %98
+  call void @llvm.memset.p0.i64(ptr align 1 %97, i8 0, i64 %116, i1 false)
+  br label %117
 
-126:                                              ; preds = %124, %118
+117:                                              ; preds = %115, %109
   ret i32 0
 }
 
@@ -834,8 +831,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__hdr_deserialize(ptr noundef %
   %87 = or disjoint i64 %86, %82
   store i64 %87, ptr %72, align 8
   %88 = getelementptr inbounds i8, ptr %1, i64 12
-  store ptr %88, ptr %5, align 8
-  br label %113
+  br label %.sink.split
 
 89:                                               ; preds = %68
   %90 = getelementptr inbounds i8, ptr %0, i64 96
@@ -859,8 +855,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__hdr_deserialize(ptr noundef %
 
 101:                                              ; preds = %92
   %102 = getelementptr inbounds i8, ptr %94, i64 7
-  store ptr %102, ptr %5, align 8
-  br label %113
+  br label %.sink.split
 
 103:                                              ; preds = %68
   %104 = load i8, ptr %50, align 1
@@ -874,11 +869,15 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__hdr_deserialize(ptr noundef %
   %111 = or disjoint i64 %110, %105
   store i64 %111, ptr %106, align 8
   %112 = getelementptr inbounds i8, ptr %1, i64 10
-  store ptr %112, ptr %5, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %103, %101, %69
+  %.sink = phi ptr [ %88, %69 ], [ %102, %101 ], [ %112, %103 ]
+  store ptr %.sink, ptr %5, align 8
   br label %113
 
-113:                                              ; preds = %69, %101, %103, %68
-  %114 = phi ptr [ %88, %69 ], [ %102, %101 ], [ %112, %103 ], [ %50, %68 ]
+113:                                              ; preds = %.sink.split, %68
+  %114 = phi ptr [ %50, %68 ], [ %.sink, %.sink.split ]
   %.pr = load i64, ptr %3, align 8
   %.not82 = icmp eq i64 %.pr, 0
   br i1 %.not82, label %.thread91, label %115
@@ -934,8 +933,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__hdr_deserialize(ptr noundef %
   %145 = or disjoint i64 %144, %140
   store i64 %145, ptr %130, align 8
   %146 = getelementptr inbounds i8, ptr %114, i64 4
-  store ptr %146, ptr %5, align 8
-  br label %.thread91
+  br label %.thread91.sink.split
 
 147:                                              ; preds = %126
   %148 = getelementptr inbounds i8, ptr %0, i64 72
@@ -960,8 +958,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__hdr_deserialize(ptr noundef %
 
 159:                                              ; preds = %150
   %160 = getelementptr inbounds i8, ptr %152, i64 7
-  store ptr %160, ptr %5, align 8
-  br label %.thread91
+  br label %.thread91.sink.split
 
 161:                                              ; preds = %126
   %162 = load i8, ptr %114, align 1
@@ -976,11 +973,15 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__hdr_deserialize(ptr noundef %
   %169 = or disjoint i64 %168, %163
   store i64 %169, ptr %164, align 8
   %170 = getelementptr inbounds i8, ptr %114, i64 2
-  store ptr %170, ptr %5, align 8
+  br label %.thread91.sink.split
+
+.thread91.sink.split:                             ; preds = %161, %159, %127
+  %.sink106 = phi ptr [ %146, %127 ], [ %160, %159 ], [ %170, %161 ]
+  store ptr %.sink106, ptr %5, align 8
   br label %.thread91
 
-.thread91:                                        ; preds = %49, %113, %127, %159, %161, %126
-  %171 = phi ptr [ %50, %49 ], [ %114, %113 ], [ %146, %127 ], [ %160, %159 ], [ %170, %161 ], [ %114, %126 ]
+.thread91:                                        ; preds = %.thread91.sink.split, %49, %113, %126
+  %171 = phi ptr [ %50, %49 ], [ %114, %113 ], [ %114, %126 ], [ %.sink106, %.thread91.sink.split ]
   %172 = getelementptr inbounds i8, ptr %0, i64 72
   %173 = load i64, ptr %172, align 8
   %.not83 = icmp eq i64 %173, 1

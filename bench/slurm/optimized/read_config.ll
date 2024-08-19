@@ -3954,16 +3954,19 @@ _get_hash_idx.exit:                               ; preds = %slurm_conf_lock.exi
 
 33:                                               ; preds = %29
   %34 = call ptr @xstrdup(ptr noundef %32) #18
-  store ptr %34, ptr %2, align 8
-  br label %37
+  br label %.sink.split
 
 35:                                               ; preds = %29
   %36 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.232, ptr noundef nonnull %30, ptr noundef %32) #18
   call void @slurm_xfree(ptr noundef nonnull %2) #18
-  store ptr %36, ptr %2, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %35, %33
+  %.sink = phi ptr [ %34, %33 ], [ %36, %35 ]
+  store ptr %.sink, ptr %2, align 8
   br label %37
 
-37:                                               ; preds = %33, %35, %.lr.ph
+37:                                               ; preds = %.sink.split, %.lr.ph
   %38 = getelementptr inbounds i8, ptr %.013, i64 312
   %.0 = load ptr, ptr %38, align 8
   %.not = icmp eq ptr %.0, null

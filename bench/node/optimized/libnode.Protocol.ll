@@ -5042,11 +5042,7 @@ if.end:                                           ; preds = %if.then, %entry
   %call.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %method, ptr noundef nonnull @.str.16, i64 noundef 0) #27
   %0 = load i64, ptr @_ZN4node9inspector8protocol10StringUtil9kNotFoundE, align 8
   %cmp.i3 = icmp eq i64 %call.i.i, %0
-  br i1 %cmp.i3, label %_ZN4node9inspector8protocol14UberDispatcher14findDispatcherERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %if.end.i
-
-_ZN4node9inspector8protocol14UberDispatcher14findDispatcherERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %if.end
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %domain.i)
-  br label %if.then11
+  br i1 %cmp.i3, label %if.then11.sink.split, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %domain.i, ptr noundef nonnull align 8 dereferenceable(32) %method, i64 noundef 0, i64 noundef %call.i.i) #27
@@ -5066,8 +5062,7 @@ if.end10.i:                                       ; preds = %if.end.i
 
 _ZN4node9inspector8protocol14UberDispatcher14findDispatcherERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread26: ; preds = %if.end.i, %if.end10.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %domain.i) #27
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %domain.i)
-  br label %if.then11
+  br label %if.then11.sink.split
 
 _ZN4node9inspector8protocol14UberDispatcher14findDispatcherERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %if.end10.i
   %3 = load ptr, ptr %second.i, align 8
@@ -5076,7 +5071,11 @@ _ZN4node9inspector8protocol14UberDispatcher14findDispatcherERKNSt7__cxx1112basic
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.then11, label %if.end14
 
-if.then11:                                        ; preds = %_ZN4node9inspector8protocol14UberDispatcher14findDispatcherERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread26, %_ZN4node9inspector8protocol14UberDispatcher14findDispatcherERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %_ZN4node9inspector8protocol14UberDispatcher14findDispatcherERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+if.then11.sink.split:                             ; preds = %if.end, %_ZN4node9inspector8protocol14UberDispatcher14findDispatcherERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread26
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %domain.i)
+  br label %if.then11
+
+if.then11:                                        ; preds = %if.then11.sink.split, %_ZN4node9inspector8protocol14UberDispatcher14findDispatcherERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %m_frontendChannel = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %m_frontendChannel, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)

@@ -107,7 +107,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %26 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !13
-  br i1 %26, label %54, label %27
+  br i1 %26, label %"_ZN75_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h66f7459f4ac9173eE.exit", label %27
 
 27:                                               ; preds = %18
   %28 = load i64, ptr %8, align 8, !range !16, !noalias !13, !noundef !4
@@ -148,7 +148,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %.sroa.4.0.i.i = phi i64 [ %28, %45 ], [ %43, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h9721345a9b4c1050E.exit.i.i" ], [ 0, %27 ]
   %.sroa.0.0.i.i = phi ptr [ %46, %45 ], [ %44, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h9721345a9b4c1050E.exit.i.i" ], [ @anon.1e6156e500ea60b7c308473f256067e9.2, %27 ]
   %47 = call noundef zeroext i1 @"_ZN40_$LT$str$u20$as$u20$core..fmt..Debug$GT$3fmt17he47ad4e4aac91ec0E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.4.0.i.i, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
-  br i1 %47, label %54, label %48
+  br i1 %47, label %"_ZN75_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h66f7459f4ac9173eE.exit", label %48
 
 48:                                               ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hd6f071674dc38beeE.exit.i"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !13
@@ -163,15 +163,11 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   store i64 0, ptr %52, align 8, !noalias !13
   %53 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !13
   br label %"_ZN75_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h66f7459f4ac9173eE.exit"
 
-54:                                               ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hd6f071674dc38beeE.exit.i", %18
+"_ZN75_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h66f7459f4ac9173eE.exit": ; preds = %18, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hd6f071674dc38beeE.exit.i", %48
+  %.1.i = phi i1 [ %53, %48 ], [ true, %18 ], [ true, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hd6f071674dc38beeE.exit.i" ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !13
-  br label %"_ZN75_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h66f7459f4ac9173eE.exit"
-
-"_ZN75_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h66f7459f4ac9173eE.exit": ; preds = %48, %54
-  %.1.i = phi i1 [ true, %54 ], [ %53, %48 ]
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
   ret i1 %.1.i
 }

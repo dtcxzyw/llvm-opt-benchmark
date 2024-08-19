@@ -375,7 +375,7 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end81
-  %4 = phi ptr [ %2, %while.body.lr.ph ], [ %24, %if.end81 ]
+  %4 = phi ptr [ %2, %while.body.lr.ph ], [ %.sink173, %if.end81 ]
   %5 = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph ], [ %.sink, %if.end81 ]
   %agg.tmp2.sroa.0.0.copyload = load i64, ptr %4, align 8
   %agg.tmp2.sroa.2.0.call3.sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
@@ -436,7 +436,6 @@ _ZN4mold3elfL18read_output_formatINS0_6RV64LEEEESt4spanISt17basic_string_viewIcS
   %sub.i12.i = add i64 %storemerge27.i, -1
   %add.ptr.i13.i = getelementptr inbounds i8, ptr %.fca.1.insert.i.pn.i, i64 16
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %ref.tmp10.i)
-  store ptr %add.ptr.i13.i, ptr %tok, align 8
   br label %if.end81
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i25: ; preds = %while.body
@@ -455,7 +454,6 @@ if.then17:                                        ; preds = %_ZNSt11char_traitsI
   %call21 = call fastcc { ptr, i64 } @_ZN4mold3elfL10read_groupINS0_6RV64LEEEESt4spanISt17basic_string_viewIcSt11char_traitsIcEELm18446744073709551615EERNS0_7ContextIT_EES8_(ptr noundef nonnull align 8 dereferenceable(4576) %ctx, ptr nonnull %add.ptr.i43, i64 %sub.i42)
   %8 = extractvalue { ptr, i64 } %call21, 0
   %9 = extractvalue { ptr, i64 } %call21, 1
-  store ptr %8, ptr %tok, align 8
   br label %if.end81
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i52: ; preds = %while.body
@@ -479,7 +477,6 @@ if.then27:                                        ; preds = %_ZNSt11char_traitsI
   %call37 = call fastcc { ptr, i64 } @_ZN4mold3elfL4skipINS0_6RV64LEEEESt4spanISt17basic_string_viewIcSt11char_traitsIcEELm18446744073709551615EERNS0_7ContextIT_EES8_S7_(ptr noundef nonnull align 8 dereferenceable(4576) %ctx, ptr %agg.tmp35.sroa.0.0.copyload, i64 %agg.tmp35.sroa.2.0.copyload, i64 1, ptr nonnull @.str.8)
   %12 = extractvalue { ptr, i64 } %call37, 0
   %13 = extractvalue { ptr, i64 } %call37, 1
-  store ptr %12, ptr %tok, align 8
   br label %if.end81
 
 if.else38:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i36, %while.body, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i52
@@ -641,7 +638,6 @@ _ZNSt6vectorISt4pairIPN4mold3elf6SymbolINS2_6RV64LEEEESt7variantIJS6_mEEESaIS9_E
   %sub.i113 = add i64 %22, -4
   %23 = load ptr, ptr %tok, align 8
   %add.ptr.i114 = getelementptr inbounds i8, ptr %23, i64 64
-  store ptr %add.ptr.i114, ptr %tok, align 8
   br label %if.end81
 
 if.else65:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i83, %land.lhs.true44, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i72, %land.lhs.true, %if.else38
@@ -656,7 +652,6 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i123: ; preds = %if.else65
 if.then70:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i123
   %sub.i129 = add i64 %5, -1
   %add.ptr.i130 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %add.ptr.i130, ptr %tok, align 8
   br label %if.end81
 
 if.else73:                                        ; preds = %if.else65, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i123
@@ -666,8 +661,9 @@ if.else73:                                        ; preds = %if.else65, %_ZNSt11
   unreachable
 
 if.end81:                                         ; preds = %if.then17, %_ZNSt6vectorISt4pairIPN4mold3elf6SymbolINS2_6RV64LEEEESt7variantIJS6_mEEESaIS9_EE12emplace_backIJS6_S6_EEERS9_DpOT_.exit, %if.then70, %if.then27, %_ZN4mold3elfL18read_output_formatINS0_6RV64LEEEESt4spanISt17basic_string_viewIcSt11char_traitsIcEELm18446744073709551615EERNS0_7ContextIT_EES8_.exit
+  %.sink173 = phi ptr [ %8, %if.then17 ], [ %add.ptr.i114, %_ZNSt6vectorISt4pairIPN4mold3elf6SymbolINS2_6RV64LEEEESt7variantIJS6_mEEESaIS9_EE12emplace_backIJS6_S6_EEERS9_DpOT_.exit ], [ %add.ptr.i130, %if.then70 ], [ %12, %if.then27 ], [ %add.ptr.i13.i, %_ZN4mold3elfL18read_output_formatINS0_6RV64LEEEESt4spanISt17basic_string_viewIcSt11char_traitsIcEELm18446744073709551615EERNS0_7ContextIT_EES8_.exit ]
   %.sink = phi i64 [ %9, %if.then17 ], [ %sub.i113, %_ZNSt6vectorISt4pairIPN4mold3elf6SymbolINS2_6RV64LEEEESt7variantIJS6_mEEESaIS9_EE12emplace_backIJS6_S6_EEERS9_DpOT_.exit ], [ %sub.i129, %if.then70 ], [ %13, %if.then27 ], [ %sub.i12.i, %_ZN4mold3elfL18read_output_formatINS0_6RV64LEEEESt4spanISt17basic_string_viewIcSt11char_traitsIcEELm18446744073709551615EERNS0_7ContextIT_EES8_.exit ]
-  %24 = phi ptr [ %8, %if.then17 ], [ %add.ptr.i114, %_ZNSt6vectorISt4pairIPN4mold3elf6SymbolINS2_6RV64LEEEESt7variantIJS6_mEEESaIS9_EE12emplace_backIJS6_S6_EEERS9_DpOT_.exit ], [ %add.ptr.i130, %if.then70 ], [ %12, %if.then27 ], [ %add.ptr.i13.i, %_ZN4mold3elfL18read_output_formatINS0_6RV64LEEEESt4spanISt17basic_string_viewIcSt11char_traitsIcEELm18446744073709551615EERNS0_7ContextIT_EES8_.exit ]
+  store ptr %.sink173, ptr %tok, align 8
   store i64 %.sink, ptr %_M_extent.i.i, align 8
   %cmp.i = icmp eq i64 %.sink, 0
   br i1 %cmp.i, label %while.end.loopexit, label %while.body, !llvm.loop !11
@@ -677,12 +673,12 @@ while.end.loopexit:                               ; preds = %if.end81
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %entry
-  %25 = phi ptr [ %.pre, %while.end.loopexit ], [ %2, %entry ]
-  %tobool.not.i.i.i134 = icmp eq ptr %25, null
+  %24 = phi ptr [ %.pre, %while.end.loopexit ], [ %2, %entry ]
+  %tobool.not.i.i.i134 = icmp eq ptr %24, null
   br i1 %tobool.not.i.i.i134, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit, label %if.then.i.i.i135
 
 if.then.i.i.i135:                                 ; preds = %while.end
-  call void @_ZdlPv(ptr noundef nonnull %25) #24
+  call void @_ZdlPv(ptr noundef nonnull %24) #24
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit: ; preds = %while.end, %if.then.i.i.i135

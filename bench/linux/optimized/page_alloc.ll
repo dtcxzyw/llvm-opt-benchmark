@@ -6903,11 +6903,11 @@ wake_all_kswapds.exit:                            ; preds = %164, %137, %.thread
   %217 = phi i32 [ %575, %616 ], [ %90, %170 ], [ %90, %172 ], [ %90, %173 ], [ %90, %208 ], [ %90, %177 ], [ %90, %182 ], [ %90, %192 ], [ %90, %199 ], [ %90, %209 ]
   br label %218
 
-218:                                              ; preds = %.backedge204, %213
-  %219 = phi i32 [ %214, %213 ], [ %.be, %.backedge204 ]
-  %220 = phi i32 [ %215, %213 ], [ %.be205, %.backedge204 ]
-  %221 = phi i32 [ %216, %213 ], [ %.be206, %.backedge204 ]
-  %222 = phi i32 [ %217, %213 ], [ %314, %.backedge204 ]
+218:                                              ; preds = %.backedge205, %213
+  %219 = phi i32 [ %214, %213 ], [ %.be, %.backedge205 ]
+  %220 = phi i32 [ %215, %213 ], [ %.be206, %.backedge205 ]
+  %221 = phi i32 [ %216, %213 ], [ %.be207, %.backedge205 ]
+  %222 = phi i32 [ %217, %213 ], [ %314, %.backedge205 ]
   br label %223
 
 223:                                              ; preds = %.backedge, %218
@@ -7383,16 +7383,16 @@ wake_all_kswapds.exit29:                          ; preds = %266, %239, %223
   %505 = call i64 @llvm.read_register.i64(metadata !0)
   %506 = call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %505) #22, !srcloc !160
   call void @llvm.write_register.i64(metadata !0, i64 %506)
-  br i1 %486, label %.backedge204, label %.thread42
+  br i1 %486, label %.backedge205, label %.thread42
 
-.backedge204:                                     ; preds = %504, %570, %564, %507
+.backedge205:                                     ; preds = %504, %570, %564, %507
   %.be = phi i32 [ %508, %570 ], [ %508, %564 ], [ %483, %507 ], [ %483, %504 ]
-  %.be205 = phi i32 [ %509, %570 ], [ %509, %564 ], [ %484, %507 ], [ %484, %504 ]
-  %.be206 = phi i32 [ 0, %570 ], [ 0, %564 ], [ %356, %507 ], [ %356, %504 ]
+  %.be206 = phi i32 [ %509, %570 ], [ %509, %564 ], [ %484, %507 ], [ %484, %504 ]
+  %.be207 = phi i32 [ 0, %570 ], [ 0, %564 ], [ %356, %507 ], [ %356, %504 ]
   br label %218
 
 507:                                              ; preds = %500, %487, %482
-  br i1 %486, label %.backedge204, label %.thread42
+  br i1 %486, label %.backedge205, label %.thread42
 
 .thread42:                                        ; preds = %465, %459, %504, %507, %458
   %508 = phi i32 [ %219, %458 ], [ %483, %507 ], [ %483, %504 ], [ %219, %459 ], [ %219, %465 ]
@@ -7438,8 +7438,7 @@ wake_all_kswapds.exit29:                          ; preds = %266, %239, %223
 
 .thread43:                                        ; preds = %521
   %526 = call i64 @schedule_timeout_uninterruptible(i64 noundef 1) #22
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #22
-  br label %557
+  br label %.sink.split
 
 527:                                              ; preds = %521
   %528 = call fastcc ptr @get_page_from_freelist(i32 noundef %53, i32 noundef %1, i32 noundef 66, ptr noundef %2)
@@ -7495,8 +7494,7 @@ wake_all_kswapds.exit29:                          ; preds = %266, %239, %223
 .thread46:                                        ; preds = %536, %550, %549, %539, %530
   %.ph45 = phi i64 [ 0, %530 ], [ 0, %539 ], [ %63, %549 ], [ 1, %550 ], [ 0, %536 ]
   call void @mutex_unlock(ptr noundef nonnull @oom_lock) #22
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #22
-  br label %557
+  br label %.sink.split
 
 .thread50:                                        ; preds = %527, %551
   %.ph49 = phi ptr [ %552, %551 ], [ %528, %527 ]
@@ -7511,8 +7509,13 @@ wake_all_kswapds.exit29:                          ; preds = %266, %239, %223
   %556 = icmp eq ptr %555, null
   br i1 %556, label %557, label %.thread37
 
-557:                                              ; preds = %.thread46, %.thread43, %554
-  %558 = phi i64 [ 1, %.thread43 ], [ 1, %554 ], [ %.ph45, %.thread46 ]
+.sink.split:                                      ; preds = %.thread43, %.thread46
+  %.ph163 = phi i64 [ %.ph45, %.thread46 ], [ 1, %.thread43 ]
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #22
+  br label %557
+
+557:                                              ; preds = %.sink.split, %554
+  %558 = phi i64 [ 1, %554 ], [ %.ph163, %.sink.split ]
   %559 = getelementptr inbounds i8, ptr %320, i64 1880
   %560 = load ptr, ptr %559, align 8
   %561 = getelementptr inbounds i8, ptr %560, i64 1016
@@ -7526,26 +7529,26 @@ wake_all_kswapds.exit29:                          ; preds = %266, %239, %223
   %567 = or disjoint i32 %565, %12
   %568 = icmp eq i32 %567, 0
   %569 = and i1 %568, %566
-  br i1 %569, label %.backedge204, label %.loopexit54.loopexit203
+  br i1 %569, label %.backedge205, label %.loopexit54.loopexit204
 
 570:                                              ; preds = %557
   %571 = icmp eq i64 %558, 0
-  br i1 %571, label %.loopexit54.loopexit203, label %.backedge204
+  br i1 %571, label %.loopexit54.loopexit204, label %.backedge205
 
 .loopexit54.loopexit:                             ; preds = %351, %318, %317
-  %.ph199 = phi i32 [ %214, %317 ], [ %214, %351 ], [ %219, %318 ]
-  %.ph200 = phi i32 [ %215, %317 ], [ %215, %351 ], [ %220, %318 ]
-  %.ph201 = phi i32 [ %216, %317 ], [ %216, %351 ], [ %224, %318 ]
+  %.ph200 = phi i32 [ %214, %317 ], [ %214, %351 ], [ %219, %318 ]
+  %.ph201 = phi i32 [ %215, %317 ], [ %215, %351 ], [ %220, %318 ]
+  %.ph202 = phi i32 [ %216, %317 ], [ %216, %351 ], [ %224, %318 ]
   br label %.loopexit54
 
-.loopexit54.loopexit203:                          ; preds = %570, %564
+.loopexit54.loopexit204:                          ; preds = %570, %564
   br label %.loopexit54
 
-.loopexit54:                                      ; preds = %.loopexit54.loopexit203, %.loopexit54.loopexit, %209, %120, %101
-  %572 = phi i32 [ 1, %101 ], [ 1, %209 ], [ 1, %120 ], [ %.ph199, %.loopexit54.loopexit ], [ %508, %.loopexit54.loopexit203 ]
-  %573 = phi i32 [ 0, %101 ], [ 0, %209 ], [ 0, %120 ], [ %.ph200, %.loopexit54.loopexit ], [ %509, %.loopexit54.loopexit203 ]
-  %574 = phi i32 [ 0, %101 ], [ 0, %209 ], [ 0, %120 ], [ %.ph201, %.loopexit54.loopexit ], [ %356, %.loopexit54.loopexit203 ]
-  %575 = phi i32 [ %90, %101 ], [ %90, %209 ], [ %90, %120 ], [ %314, %.loopexit54.loopexit ], [ %314, %.loopexit54.loopexit203 ]
+.loopexit54:                                      ; preds = %.loopexit54.loopexit204, %.loopexit54.loopexit, %209, %120, %101
+  %572 = phi i32 [ 1, %101 ], [ 1, %209 ], [ 1, %120 ], [ %.ph200, %.loopexit54.loopexit ], [ %508, %.loopexit54.loopexit204 ]
+  %573 = phi i32 [ 0, %101 ], [ 0, %209 ], [ 0, %120 ], [ %.ph201, %.loopexit54.loopexit ], [ %509, %.loopexit54.loopexit204 ]
+  %574 = phi i32 [ 0, %101 ], [ 0, %209 ], [ 0, %120 ], [ %.ph202, %.loopexit54.loopexit ], [ %356, %.loopexit54.loopexit204 ]
+  %575 = phi i32 [ %90, %101 ], [ %90, %209 ], [ %90, %120 ], [ %314, %.loopexit54.loopexit ], [ %314, %.loopexit54.loopexit204 ]
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @cpusets_enabled_key, i32 2) #22
           to label %582 [label %576], !srcloc !29
 

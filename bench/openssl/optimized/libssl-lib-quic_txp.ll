@@ -812,13 +812,13 @@ if.then18.i:                                      ; preds = %if.end8.i
 land.lhs.true22.i:                                ; preds = %if.then18.i
   %17 = load i32, ptr %call20.i, align 4
   %cmp23.not.i = icmp eq i32 %17, 0
-  br i1 %cmp23.not.i, label %lor.lhs.false27.i, label %if.end.thread
+  br i1 %cmp23.not.i, label %lor.lhs.false27.i, label %if.end.i.i
 
 land.lhs.true25.i:                                ; preds = %if.then18.i
   %anti_deadlock_handshake.i74 = getelementptr inbounds i8, ptr %call20.i, i64 4
   %18 = load i32, ptr %anti_deadlock_handshake.i74, align 4
   %cmp26.not.i = icmp eq i32 %18, 0
-  br i1 %cmp26.not.i, label %lor.lhs.false27.i, label %if.end.thread
+  br i1 %cmp26.not.i, label %lor.lhs.false27.i, label %if.end.i.i
 
 lor.lhs.false27.i:                                ; preds = %land.lhs.true25.i, %land.lhs.true22.i, %if.then18.i
   %pto.i76 = getelementptr inbounds i8, ptr %call20.i, i64 8
@@ -826,7 +826,7 @@ lor.lhs.false27.i:                                ; preds = %land.lhs.true25.i, 
   %arrayidx.i77 = getelementptr inbounds [3 x i32], ptr %pto.i76, i64 0, i64 %idxprom.i
   %19 = load i32, ptr %arrayidx.i77, align 4
   %cmp28.not.i = icmp eq i32 %19, 0
-  br i1 %cmp28.not.i, label %if.end31.i, label %if.end.thread
+  br i1 %cmp28.not.i, label %if.end31.i, label %if.end.i.i
 
 if.end31.i:                                       ; preds = %lor.lhs.false27.i, %if.end8.i
   %20 = and i32 %.fr108.i, 4
@@ -846,7 +846,7 @@ land.lhs.true36.i:                                ; preds = %if.end31.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %iov.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %num_iov.i.i)
   %tobool41.not.i = icmp eq i32 %call.i.i, 0
-  br i1 %tobool41.not.i, label %if.end43.i, label %if.end.thread
+  br i1 %tobool41.not.i, label %if.end43.i, label %if.end.i.i
 
 if.end43.i:                                       ; preds = %land.lhs.true36.i, %if.end31.i
   %bf.clear45.i = and i32 %.fr108.i, 1
@@ -857,7 +857,7 @@ land.lhs.true47.i:                                ; preds = %if.end43.i
   %22 = load ptr, ptr %4, align 8
   %call50.i = call i32 @ossl_ackm_is_ack_desired(ptr noundef %22, i32 noundef %retval.0.i.i) #10
   %tobool51.not.i = icmp eq i32 %call50.i, 0
-  br i1 %tobool51.not.i, label %lor.lhs.false52.i, label %if.end.thread
+  br i1 %tobool51.not.i, label %lor.lhs.false52.i, label %if.end.i.i
 
 lor.lhs.false52.i:                                ; preds = %land.lhs.true47.i
   %bf.load53.i = load i16, ptr %want_ack.i, align 8
@@ -868,7 +868,7 @@ lor.lhs.false52.i:                                ; preds = %land.lhs.true47.i
   %shl.i = shl nuw nsw i64 1, %sh_prom.i
   %and.i = and i64 %shl.i, %conv.i
   %cmp56.not.i = icmp eq i64 %and.i, 0
-  br i1 %cmp56.not.i, label %if.end59.i, label %if.end.thread
+  br i1 %cmp56.not.i, label %if.end59.i, label %if.end.i.i
 
 if.end59.i:                                       ; preds = %lor.lhs.false52.i, %if.end43.i
   br i1 %tobool17.not.i, label %if.end76.i, label %land.lhs.true64.i
@@ -882,7 +882,7 @@ land.lhs.true64.i:                                ; preds = %if.end59.i
   %shl71.i = shl nuw nsw i64 1, %sh_prom70.i
   %and72.i = and i64 %shl71.i, %conv69.i
   %cmp73.not.i = icmp eq i64 %and72.i, 0
-  br i1 %cmp73.not.i, label %if.end76.i, label %if.end.thread
+  br i1 %cmp73.not.i, label %if.end76.i, label %if.end.i.i
 
 if.end76.i:                                       ; preds = %land.lhs.true64.i, %if.end59.i
   %23 = and i32 %.fr108.i, 512
@@ -893,37 +893,37 @@ land.lhs.true81.i:                                ; preds = %if.end76.i
   %bf.load82.i = load i16, ptr %want_ack.i, align 8
   %24 = and i16 %bf.load82.i, 2
   %tobool86.not.i = icmp eq i16 %24, 0
-  br i1 %tobool86.not.i, label %lor.lhs.false87.i, label %if.end.thread
+  br i1 %tobool86.not.i, label %lor.lhs.false87.i, label %if.end.i.i
 
 lor.lhs.false87.i:                                ; preds = %land.lhs.true81.i
   %25 = load ptr, ptr %conn_rxfc.i, align 8
   %call89.i = call i32 @ossl_quic_rxfc_has_cwm_changed(ptr noundef %25, i32 noundef 0) #10
   %tobool90.not.i = icmp eq i32 %call89.i, 0
-  br i1 %tobool90.not.i, label %land.lhs.true97.i, label %if.end.thread
+  br i1 %tobool90.not.i, label %land.lhs.true97.i, label %if.end.i.i
 
 land.lhs.true97.i:                                ; preds = %lor.lhs.false87.i
   %bf.load98.i = load i16, ptr %want_ack.i, align 8
   %26 = and i16 %bf.load98.i, 4
   %tobool102.not.i = icmp eq i16 %26, 0
-  br i1 %tobool102.not.i, label %lor.lhs.false103.i, label %if.end.thread
+  br i1 %tobool102.not.i, label %lor.lhs.false103.i, label %if.end.i.i
 
 lor.lhs.false103.i:                               ; preds = %land.lhs.true97.i
   %27 = load ptr, ptr %max_streams_bidi_rxfc.i, align 8
   %call105.i = call i32 @ossl_quic_rxfc_has_cwm_changed(ptr noundef %27, i32 noundef 0) #10
   %tobool106.not.i = icmp eq i32 %call105.i, 0
-  br i1 %tobool106.not.i, label %lor.lhs.false107.i, label %if.end.thread
+  br i1 %tobool106.not.i, label %lor.lhs.false107.i, label %if.end.i.i
 
 lor.lhs.false107.i:                               ; preds = %lor.lhs.false103.i
   %bf.load108.i = load i16, ptr %want_ack.i, align 8
   %28 = and i16 %bf.load108.i, 8
   %tobool112.not.i = icmp eq i16 %28, 0
-  br i1 %tobool112.not.i, label %lor.lhs.false113.i, label %if.end.thread
+  br i1 %tobool112.not.i, label %lor.lhs.false113.i, label %if.end.i.i
 
 lor.lhs.false113.i:                               ; preds = %lor.lhs.false107.i
   %29 = load ptr, ptr %max_streams_uni_rxfc.i, align 8
   %call115.i = call i32 @ossl_quic_rxfc_has_cwm_changed(ptr noundef %29, i32 noundef 0) #10
   %tobool116.not.i = icmp eq i32 %call115.i, 0
-  br i1 %tobool116.not.i, label %if.end118.i, label %if.end.thread
+  br i1 %tobool116.not.i, label %if.end118.i, label %if.end.i.i
 
 if.end118.i:                                      ; preds = %lor.lhs.false113.i, %if.end76.i
   %30 = and i32 %.fr108.i, 8
@@ -934,7 +934,7 @@ land.lhs.true123.i:                               ; preds = %if.end118.i
   %bf.load124.i = load i16, ptr %want_ack.i, align 8
   %bf.clear125.i = and i16 %bf.load124.i, 1
   %tobool127.not.i = icmp eq i16 %bf.clear125.i, 0
-  br i1 %tobool127.not.i, label %if.end129.i, label %if.end.thread
+  br i1 %tobool127.not.i, label %if.end129.i, label %if.end.i.i
 
 if.end129.i:                                      ; preds = %land.lhs.true123.i, %if.end118.i
   %31 = and i32 %.fr108.i, 1024
@@ -948,7 +948,7 @@ land.lhs.true134.i:                               ; preds = %if.end129.i
   %33 = zext nneg i32 %spec.select407 to i64
   %cmp141.i = icmp eq i64 %indvars.iv677, %33
   %or.cond408 = select i1 %tobool139.not.i, i1 %cmp141.i, i1 false
-  br i1 %or.cond408, label %if.end.thread, label %if.end144.i
+  br i1 %or.cond408, label %if.end.i.i, label %if.end144.i
 
 if.end144.i:                                      ; preds = %land.lhs.true134.i, %if.end129.i
   %cmp145.not.i = icmp eq i64 %indvars.iv677, 2
@@ -984,16 +984,16 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
   ]
 
 sw.bb166.us.i:                                    ; preds = %for.body.us.i
-  br i1 %tobool170.not.i, label %for.inc.us.i, label %if.end
+  br i1 %tobool170.not.i, label %for.inc.us.i, label %if.end.i.i
 
 sw.bb159.us.i:                                    ; preds = %for.body.us.i
-  br i1 %tobool163.not.i, label %for.inc.us.i, label %if.end
+  br i1 %tobool163.not.i, label %for.inc.us.i, label %if.end.i.i
 
 sw.bb.us.i:                                       ; preds = %for.body.us.i
-  br i1 %tobool156.not.i, label %for.inc.us.i, label %if.end
+  br i1 %tobool156.not.i, label %for.inc.us.i, label %if.end.i.i
 
 sw.default.us.i:                                  ; preds = %for.body.us.i
-  br i1 %tobool183.not.i, label %for.inc.us.i, label %if.end
+  br i1 %tobool183.not.i, label %for.inc.us.i, label %if.end.i.i
 
 for.inc.us.i:                                     ; preds = %sw.default.us.i, %sw.bb.us.i, %sw.bb159.us.i, %sw.bb166.us.i, %for.body.us.i
   %call186.us.i = call ptr @ossl_quic_cfq_item_get_priority_next(ptr noundef nonnull %cfq_item.059.us.i, i32 noundef %retval.0.i.i) #10
@@ -1013,14 +1013,14 @@ for.body.us60.us.i:                               ; preds = %for.body.lr.ph.spli
     i64 24, label %sw.bb.us65.us.i
     i64 25, label %for.inc.us67.us.i
     i64 7, label %for.inc.us67.us.i
-    i64 27, label %if.end
+    i64 27, label %if.end.i.i
   ]
 
 sw.bb.us65.us.i:                                  ; preds = %for.body.us60.us.i
-  br i1 %tobool156.not.i, label %for.inc.us67.us.i, label %if.end
+  br i1 %tobool156.not.i, label %for.inc.us67.us.i, label %if.end.i.i
 
 sw.default.us66.us.i:                             ; preds = %for.body.us60.us.i
-  br i1 %tobool183.not.i, label %for.inc.us67.us.i, label %if.end
+  br i1 %tobool183.not.i, label %for.inc.us67.us.i, label %if.end.i.i
 
 for.inc.us67.us.i:                                ; preds = %sw.default.us66.us.i, %sw.bb.us65.us.i, %for.body.us60.us.i, %for.body.us60.us.i
   %call186.us68.us.i = call ptr @ossl_quic_cfq_item_get_priority_next(ptr noundef nonnull %cfq_item.059.us61.us.i, i32 noundef %retval.0.i.i) #10
@@ -1032,16 +1032,16 @@ for.body.us60.i:                                  ; preds = %for.body.lr.ph.spli
   %call152.us62.i = call i64 @ossl_quic_cfq_item_get_frame_type(ptr noundef nonnull %cfq_item.059.us61.i) #10
   switch i64 %call152.us62.i, label %sw.default.us66.i [
     i64 24, label %sw.bb.us65.i
-    i64 25, label %if.end
+    i64 25, label %if.end.i.i
     i64 7, label %for.inc.us67.i
-    i64 27, label %if.end
+    i64 27, label %if.end.i.i
   ]
 
 sw.bb.us65.i:                                     ; preds = %for.body.us60.i
-  br i1 %tobool156.not.i, label %for.inc.us67.i, label %if.end
+  br i1 %tobool156.not.i, label %for.inc.us67.i, label %if.end.i.i
 
 sw.default.us66.i:                                ; preds = %for.body.us60.i
-  br i1 %tobool183.not.i, label %for.inc.us67.i, label %if.end
+  br i1 %tobool183.not.i, label %for.inc.us67.i, label %if.end.i.i
 
 for.inc.us67.i:                                   ; preds = %sw.default.us66.i, %sw.bb.us65.i, %for.body.us60.i
   %call186.us68.i = call ptr @ossl_quic_cfq_item_get_priority_next(ptr noundef nonnull %cfq_item.059.us61.i, i32 noundef %retval.0.i.i) #10
@@ -1061,8 +1061,8 @@ for.body.us70.us.us.i:                            ; preds = %for.body.lr.ph.spli
   %cfq_item.059.us71.us.us.i = phi ptr [ %call186.us77.us.us.i, %for.inc.us76.us.us.i ], [ %call149.i, %for.body.lr.ph.split.split.split.us.split.us.i ]
   %call152.us72.us.us.i = call i64 @ossl_quic_cfq_item_get_frame_type(ptr noundef nonnull %cfq_item.059.us71.us.us.i) #10
   switch i64 %call152.us72.us.us.i, label %for.inc.us76.us.us.i [
-    i64 27, label %if.end
-    i64 7, label %if.end
+    i64 27, label %if.end.i.i
+    i64 7, label %if.end.i.i
   ]
 
 for.inc.us76.us.us.i:                             ; preds = %for.body.us70.us.us.i
@@ -1075,7 +1075,7 @@ for.body.us70.us.i:                               ; preds = %for.body.lr.ph.spli
   %call152.us72.us.i = call i64 @ossl_quic_cfq_item_get_frame_type(ptr noundef nonnull %cfq_item.059.us71.us.i) #10
   %40 = and i64 %call152.us72.us.i, -2
   %switch.i = icmp eq i64 %40, 24
-  br i1 %switch.i, label %for.inc.us76.us.i, label %if.end
+  br i1 %switch.i, label %for.inc.us76.us.i, label %if.end.i.i
 
 for.inc.us76.us.i:                                ; preds = %for.body.us70.us.i
   %call186.us77.us.i = call ptr @ossl_quic_cfq_item_get_priority_next(ptr noundef nonnull %cfq_item.059.us71.us.i, i32 noundef %retval.0.i.i) #10
@@ -1089,9 +1089,9 @@ for.body.us70.us96.i:                             ; preds = %for.body.lr.ph.spli
   %cfq_item.059.us71.us97.i = phi ptr [ %call186.us77.us102.i, %for.inc.us76.us101.i ], [ %call149.i, %for.body.lr.ph.split.split.split.us.split.i ]
   %call152.us72.us98.i = call i64 @ossl_quic_cfq_item_get_frame_type(ptr noundef nonnull %cfq_item.059.us71.us97.i) #10
   switch i64 %call152.us72.us98.i, label %for.inc.us76.us101.i [
-    i64 24, label %if.end
-    i64 27, label %if.end
-    i64 7, label %if.end
+    i64 24, label %if.end.i.i
+    i64 27, label %if.end.i.i
+    i64 7, label %if.end.i.i
   ]
 
 for.inc.us76.us101.i:                             ; preds = %for.body.us70.us96.i
@@ -1103,7 +1103,7 @@ for.body.us70.i:                                  ; preds = %for.body.lr.ph.spli
   %cfq_item.059.us71.i = phi ptr [ %call186.us77.i, %sw.bb159.us73.i ], [ %call149.i, %for.body.lr.ph.split.split.split.us.split.i ]
   %call152.us72.i = call i64 @ossl_quic_cfq_item_get_frame_type(ptr noundef nonnull %cfq_item.059.us71.i) #10
   %cond.i = icmp eq i64 %call152.us72.i, 25
-  br i1 %cond.i, label %sw.bb159.us73.i, label %if.end
+  br i1 %cond.i, label %sw.bb159.us73.i, label %if.end.i.i
 
 sw.bb159.us73.i:                                  ; preds = %for.body.us70.i
   %call186.us77.i = call ptr @ossl_quic_cfq_item_get_priority_next(ptr noundef nonnull %cfq_item.059.us71.i, i32 noundef %retval.0.i.i) #10
@@ -1120,9 +1120,9 @@ for.body.us79.us.i:                               ; preds = %for.body.lr.ph.spli
   %cfq_item.059.us80.us.i = phi ptr [ %call186.us85.us.i, %for.inc.us84.us.i ], [ %call149.i, %for.body.lr.ph.split.split.split.split.us.i ]
   %call152.us81.us.i = call i64 @ossl_quic_cfq_item_get_frame_type(ptr noundef nonnull %cfq_item.059.us80.us.i) #10
   switch i64 %call152.us81.us.i, label %for.inc.us84.us.i [
-    i64 27, label %if.end
-    i64 25, label %if.end
-    i64 7, label %if.end
+    i64 27, label %if.end.i.i
+    i64 25, label %if.end.i.i
+    i64 7, label %if.end.i.i
   ]
 
 for.inc.us84.us.i:                                ; preds = %for.body.us79.us.i
@@ -1134,7 +1134,7 @@ for.body.us79.i:                                  ; preds = %for.body.lr.ph.spli
   %cfq_item.059.us80.i = phi ptr [ %call186.us85.i, %sw.bb.us82.i ], [ %call149.i, %for.body.lr.ph.split.split.split.split.us.i ]
   %call152.us81.i = call i64 @ossl_quic_cfq_item_get_frame_type(ptr noundef nonnull %cfq_item.059.us80.i) #10
   %cond107.i = icmp eq i64 %call152.us81.i, 24
-  br i1 %cond107.i, label %sw.bb.us82.i, label %if.end
+  br i1 %cond107.i, label %sw.bb.us82.i, label %if.end.i.i
 
 sw.bb.us82.i:                                     ; preds = %for.body.us79.i
   %call186.us85.i = call ptr @ossl_quic_cfq_item_get_priority_next(ptr noundef nonnull %cfq_item.059.us80.i, i32 noundef %retval.0.i.i) #10
@@ -1148,10 +1148,10 @@ for.body.us87.i:                                  ; preds = %for.body.lr.ph.spli
   %cfq_item.059.us88.i = phi ptr [ %call186.us92.i, %sw.default.us90.i ], [ %call149.i, %for.body.lr.ph.split.split.split.split.i ]
   %call152.us89.i = call i64 @ossl_quic_cfq_item_get_frame_type(ptr noundef nonnull %cfq_item.059.us88.i) #10
   switch i64 %call152.us89.i, label %sw.default.us90.i [
-    i64 24, label %if.end
-    i64 25, label %if.end
-    i64 7, label %if.end
-    i64 27, label %if.end
+    i64 24, label %if.end.i.i
+    i64 25, label %if.end.i.i
+    i64 7, label %if.end.i.i
+    i64 27, label %if.end.i.i
   ]
 
 sw.default.us90.i:                                ; preds = %for.body.us87.i
@@ -1161,7 +1161,7 @@ sw.default.us90.i:                                ; preds = %for.body.us87.i
 
 for.body.i78:                                     ; preds = %for.body.lr.ph.split.split.split.split.i
   %call152.i = call i64 @ossl_quic_cfq_item_get_frame_type(ptr noundef nonnull %call149.i) #10
-  br label %if.end.thread
+  br label %if.end.i.i
 
 if.end187.i:                                      ; preds = %sw.default.us90.i, %sw.bb.us82.i, %for.inc.us84.us.i, %sw.bb159.us73.i, %for.inc.us76.us101.i, %for.inc.us76.us.i, %for.inc.us76.us.us.i, %for.inc.us67.i, %for.inc.us67.us.i, %for.inc.us.i, %if.then147.i, %if.end144.i
   %41 = and i32 %.fr108.i, 256
@@ -1179,22 +1179,15 @@ if.then198.i:                                     ; preds = %land.lhs.true192.i
   call void @ossl_quic_stream_iter_init(ptr noundef nonnull %it.i, ptr noundef %43, i32 noundef 0) #10
   %44 = load ptr, ptr %stream.i, align 8
   %cmp200.not.i = icmp eq ptr %44, null
-  br i1 %cmp200.not.i, label %txp_should_try_staging.exit, label %if.end
+  br i1 %cmp200.not.i, label %txp_should_try_staging.exit, label %if.end.i.i
 
 txp_should_try_staging.exit:                      ; preds = %if.end187.i, %land.lhs.true192.i, %if.then198.i, %ossl_quic_enc_level_to_pn_space.exit.i, %if.end5.i
   %conn_close_enc_level.2 = phi i32 [ %conn_close_enc_level.0550, %ossl_quic_enc_level_to_pn_space.exit.i ], [ %conn_close_enc_level.0550, %if.end5.i ], [ %spec.select407, %if.then198.i ], [ %spec.select407, %land.lhs.true192.i ], [ %spec.select407, %if.end187.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %it.i)
   br label %for.inc44
 
-if.end.thread:                                    ; preds = %land.lhs.true134.i, %lor.lhs.false27.i, %land.lhs.true25.i, %land.lhs.true22.i, %land.lhs.true36.i, %lor.lhs.false52.i, %land.lhs.true47.i, %land.lhs.true64.i, %lor.lhs.false87.i, %land.lhs.true81.i, %lor.lhs.false113.i, %lor.lhs.false107.i, %lor.lhs.false103.i, %land.lhs.true97.i, %land.lhs.true123.i, %for.body.i78
+if.end.i.i:                                       ; preds = %for.body.us87.i, %for.body.us87.i, %for.body.us87.i, %for.body.us87.i, %for.body.us79.i, %for.body.us79.us.i, %for.body.us79.us.i, %for.body.us79.us.i, %for.body.us70.i, %for.body.us70.us96.i, %for.body.us70.us96.i, %for.body.us70.us96.i, %for.body.us70.us.i, %for.body.us70.us.us.i, %for.body.us70.us.us.i, %for.body.us60.i, %for.body.us60.i, %sw.bb.us65.i, %sw.default.us66.i, %sw.bb.us65.us.i, %sw.default.us66.us.i, %for.body.us60.us.i, %sw.default.us.i, %sw.bb.us.i, %sw.bb159.us.i, %sw.bb166.us.i, %if.then198.i, %for.body.i78, %land.lhs.true123.i, %land.lhs.true97.i, %lor.lhs.false103.i, %lor.lhs.false107.i, %lor.lhs.false113.i, %land.lhs.true81.i, %lor.lhs.false87.i, %land.lhs.true64.i, %land.lhs.true47.i, %lor.lhs.false52.i, %land.lhs.true36.i, %land.lhs.true22.i, %land.lhs.true25.i, %lor.lhs.false27.i, %land.lhs.true134.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %it.i)
-  br label %if.end.i.i
-
-if.end:                                           ; preds = %for.body.us87.i, %for.body.us87.i, %for.body.us87.i, %for.body.us87.i, %for.body.us79.i, %for.body.us79.us.i, %for.body.us79.us.i, %for.body.us79.us.i, %for.body.us70.i, %for.body.us70.us96.i, %for.body.us70.us96.i, %for.body.us70.us96.i, %for.body.us70.us.i, %for.body.us70.us.us.i, %for.body.us70.us.us.i, %sw.default.us66.i, %sw.bb.us65.i, %for.body.us60.i, %for.body.us60.i, %for.body.us60.us.i, %sw.default.us66.us.i, %sw.bb.us65.us.i, %sw.bb166.us.i, %sw.bb159.us.i, %sw.bb.us.i, %sw.default.us.i, %if.then198.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %it.i)
-  br label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %if.end, %if.end.thread
   %phdr.i363 = getelementptr inbounds i8, ptr %arrayidx11354, i64 152
   %geom.i364 = getelementptr inbounds i8, ptr %arrayidx11354, i64 240
   %adata.i.i = getelementptr inbounds i8, ptr %arrayidx11354, i64 276
@@ -2107,7 +2100,7 @@ if.then255.i:                                     ; preds = %land.lhs.true249.i
   call void @ossl_quic_stream_iter_init(ptr noundef nonnull %it.i222, ptr noundef %153, i32 noundef 1) #10
   %154 = load ptr, ptr %stream2.i, align 8
   %cmp.not161.i = icmp eq ptr %154, null
-  br i1 %cmp.not161.i, label %txp_generate_stream_related.exit.thread371, label %for.body.i234
+  br i1 %cmp.not161.i, label %if.end260.i.sink.split, label %for.body.i234
 
 for.body.i234:                                    ; preds = %if.then255.i, %if.end163.i255
   %have_ack_eliciting.i.5 = phi i32 [ %have_ack_eliciting.i.9, %if.end163.i255 ], [ %have_ack_eliciting.i.2, %if.then255.i ]
@@ -2891,7 +2884,7 @@ if.end163.i255:                                   ; preds = %if.end158.i, %if.en
   store ptr %155, ptr %stream_head.i, align 8
   %237 = load ptr, ptr %stream2.i, align 8
   %cmp.not.i256 = icmp eq ptr %237, null
-  br i1 %cmp.not.i256, label %txp_generate_stream_related.exit.thread371, label %for.body.i234, !llvm.loop !13
+  br i1 %cmp.not.i256, label %if.end260.i.sink.split, label %for.body.i234, !llvm.loop !13
 
 txp_generate_stream_related.exit.thread:          ; preds = %if.then.i, %if.end21.i, %if.then36.i, %if.end49.i, %ossl_quic_stream_send_get_final_size.exit.i, %if.end65.i, %if.end69.i, %if.then106.i, %if.end118.i330, %if.then133.i257, %if.end54.i249
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %it.i222)
@@ -2899,23 +2892,13 @@ txp_generate_stream_related.exit.thread:          ; preds = %if.then.i, %if.end2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %f37.i)
   br label %if.then337.i
 
-txp_generate_stream_related.exit.thread371:       ; preds = %if.end163.i255, %if.then255.i
-  %have_ack_eliciting.i.14.ph = phi i32 [ %have_ack_eliciting.i.2, %if.then255.i ], [ %have_ack_eliciting.i.9, %if.end163.i255 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %it.i222)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %f.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %f37.i)
-  br label %if.end260.i
-
 txp_generate_stream_related.exit.thread376:       ; preds = %if.end158.i, %if.then20.i, %if.end.i.i340, %if.then64.i, %if.end.i76.i, %if.then117.i, %if.end.i90.i, %if.end158.thread.i
   %have_ack_eliciting.i.12.ph = phi i32 [ %have_ack_eliciting.i.5, %if.end.i.i340 ], [ %have_ack_eliciting.i.5, %if.then20.i ], [ %have_ack_eliciting.i.6, %if.end.i76.i ], [ %have_ack_eliciting.i.6, %if.then64.i ], [ %have_ack_eliciting.i.7, %if.end.i90.i ], [ %have_ack_eliciting.i.7, %if.then117.i ], [ %have_ack_eliciting.i.10, %if.end158.thread.i ], [ %have_ack_eliciting.i.13, %if.end158.i ]
   %238 = load ptr, ptr %stream_head.i, align 8
   %txp_next.i.i379 = getelementptr inbounds i8, ptr %155, i64 48
   store ptr %238, ptr %txp_next.i.i379, align 8
   store ptr %155, ptr %stream_head.i, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %it.i222)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %f.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %f37.i)
-  br label %if.end260.i
+  br label %if.end260.i.sink.split
 
 txp_generate_stream_related.exit:                 ; preds = %lor.rhs.i.i.i, %if.end20.i.i, %lor.rhs.i111.i.i, %if.end.i134.i.i, %if.end116.i.i, %if.end132.i.i, %if.end166.i.i
   %fc_new_hwm.0.i.i = phi i64 [ %fc_new_hwm.1.i.i, %if.end116.i.i ], [ %fc_new_hwm.2.i.i, %if.end166.i.i ], [ %fc_new_hwm.1.i.i, %if.end132.i.i ], [ %fc_new_hwm.1.i.i, %if.end20.i.i ], [ %fc_new_hwm.1.i.i, %lor.rhs.i111.i.i ], [ %fc_new_hwm.1.i.i, %if.end.i134.i.i ], [ %call.i101.i, %lor.rhs.i.i.i ]
@@ -2936,8 +2919,15 @@ txp_generate_stream_related.exit:                 ; preds = %lor.rhs.i.i.i, %if.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %f37.i)
   br label %if.then337.i
 
-if.end260.i:                                      ; preds = %txp_generate_stream_related.exit.thread376, %txp_generate_stream_related.exit.thread371, %land.lhs.true249.i, %if.end244.i
-  %have_ack_eliciting.i.3 = phi i32 [ %have_ack_eliciting.i.2, %if.end244.i ], [ %have_ack_eliciting.i.2, %land.lhs.true249.i ], [ %have_ack_eliciting.i.14.ph, %txp_generate_stream_related.exit.thread371 ], [ %have_ack_eliciting.i.12.ph, %txp_generate_stream_related.exit.thread376 ]
+if.end260.i.sink.split:                           ; preds = %if.end163.i255, %if.then255.i, %txp_generate_stream_related.exit.thread376
+  %have_ack_eliciting.i.3.ph = phi i32 [ %have_ack_eliciting.i.12.ph, %txp_generate_stream_related.exit.thread376 ], [ %have_ack_eliciting.i.2, %if.then255.i ], [ %have_ack_eliciting.i.9, %if.end163.i255 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %it.i222)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %f.i)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %f37.i)
+  br label %if.end260.i
+
+if.end260.i:                                      ; preds = %if.end260.i.sink.split, %land.lhs.true249.i, %if.end244.i
+  %have_ack_eliciting.i.3 = phi i32 [ %have_ack_eliciting.i.2, %if.end244.i ], [ %have_ack_eliciting.i.2, %land.lhs.true249.i ], [ %have_ack_eliciting.i.3.ph, %if.end260.i.sink.split ]
   %bf.load.i229.i = load i8, ptr %reserve_allowed.i.i, align 4
   %bf.set.i230.i = or i8 %bf.load.i229.i, 1
   store i8 %bf.set.i230.i, ptr %reserve_allowed.i.i, align 4

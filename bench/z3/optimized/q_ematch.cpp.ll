@@ -6576,7 +6576,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i108:         ; preds = %if.then68
 
 if.end.i111:                                      ; preds = %_ZN11ast_manager7inc_refEP3ast.exit.i108, %if.then68
   %tobool.not.i3.i112 = icmp eq ptr %36, null
-  br i1 %tobool.not.i3.i112, label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit120, label %if.then.i.i.i113
+  br i1 %tobool.not.i3.i112, label %if.end89.sink.split, label %if.then.i.i.i113
 
 if.then.i.i.i113:                                 ; preds = %if.end.i111
   %m_ref_count.i.i.i.i115 = getelementptr inbounds i8, ptr %36, i64 8
@@ -6584,15 +6584,11 @@ if.then.i.i.i113:                                 ; preds = %if.end.i111
   %dec.i.i.i.i116 = add i32 %39, -1
   store i32 %dec.i.i.i.i116, ptr %m_ref_count.i.i.i.i115, align 4
   %cmp.i.i.i117 = icmp eq i32 %dec.i.i.i.i116, 0
-  br i1 %cmp.i.i.i117, label %if.then2.i.i.i118, label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit120
+  br i1 %cmp.i.i.i117, label %if.then2.i.i.i118, label %if.end89.sink.split
 
 if.then2.i.i.i118:                                ; preds = %if.then.i.i.i113
   invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %7, ptr noundef nonnull %36)
-          to label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit120 unwind label %lpad5
-
-_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit120:   ; preds = %if.then2.i.i.i118, %if.end.i111, %if.then.i.i.i113
-  store ptr %34, ptr %r, align 8
-  br label %if.end89
+          to label %if.end89.sink.split unwind label %lpad5
 
 land.lhs.true76:                                  ; preds = %land.lhs.true62
   %cmp.i122 = icmp eq ptr %34, %36
@@ -6611,7 +6607,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i125:         ; preds = %if.then82
 
 if.end.i128:                                      ; preds = %_ZN11ast_manager7inc_refEP3ast.exit.i125, %if.then82
   %tobool.not.i3.i129 = icmp eq ptr %34, null
-  br i1 %tobool.not.i3.i129, label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit137, label %if.then.i.i.i130
+  br i1 %tobool.not.i3.i129, label %if.end89.sink.split, label %if.then.i.i.i130
 
 if.then.i.i.i130:                                 ; preds = %if.end.i128
   %m_ref_count.i.i.i.i132 = getelementptr inbounds i8, ptr %36, i64 8
@@ -6619,19 +6615,20 @@ if.then.i.i.i130:                                 ; preds = %if.end.i128
   %dec.i.i.i.i133 = add i32 %41, -1
   store i32 %dec.i.i.i.i133, ptr %m_ref_count.i.i.i.i132, align 4
   %cmp.i.i.i134 = icmp eq i32 %dec.i.i.i.i133, 0
-  br i1 %cmp.i.i.i134, label %if.then2.i.i.i135, label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit137
+  br i1 %cmp.i.i.i134, label %if.then2.i.i.i135, label %if.end89.sink.split
 
 if.then2.i.i.i135:                                ; preds = %if.then.i.i.i130
   invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %7, ptr noundef nonnull %36)
-          to label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit137 unwind label %lpad5
+          to label %if.end89.sink.split unwind label %lpad5
 
-_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit137:   ; preds = %if.then2.i.i.i135, %if.end.i128, %if.then.i.i.i130
-  store ptr %37, ptr %r, align 8
+if.end89.sink.split:                              ; preds = %if.then.i.i.i130, %if.end.i128, %if.then2.i.i.i135, %if.then.i.i.i113, %if.end.i111, %if.then2.i.i.i118
+  %.sink = phi ptr [ %34, %if.then2.i.i.i118 ], [ %34, %if.end.i111 ], [ %34, %if.then.i.i.i113 ], [ %37, %if.then2.i.i.i135 ], [ %37, %if.end.i128 ], [ %37, %if.then.i.i.i130 ]
+  store ptr %.sink, ptr %r, align 8
   br label %if.end89
 
-if.end89:                                         ; preds = %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit137, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit120, %if.end60, %land.lhs.true76
-  %42 = phi ptr [ %36, %land.lhs.true76 ], [ %34, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit120 ], [ %37, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit137 ], [ %36, %if.end60 ]
-  %sign.1.shrunk = phi i8 [ 1, %land.lhs.true76 ], [ 0, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit120 ], [ 0, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit137 ], [ 0, %if.end60 ]
+if.end89:                                         ; preds = %if.end89.sink.split, %if.end60, %land.lhs.true76
+  %42 = phi ptr [ %36, %land.lhs.true76 ], [ %36, %if.end60 ], [ %.sink, %if.end89.sink.split ]
+  %sign.1.shrunk = phi i8 [ 1, %land.lhs.true76 ], [ 0, %if.end60 ], [ 0, %if.end89.sink.split ]
   %43 = load ptr, ptr %l, align 8
   store ptr %43, ptr %agg.result, align 8
   %m_manager.i.i138 = getelementptr inbounds i8, ptr %agg.result, i64 8

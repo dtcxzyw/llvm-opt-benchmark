@@ -7165,8 +7165,6 @@ define void @_ZN13deltalake_sql6parser11DeltaParser16new_with_dialect17h858b9f12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
   br label %24
 
 23:                                               ; preds = %20
@@ -7181,11 +7179,11 @@ define void @_ZN13deltalake_sql6parser11DeltaParser16new_with_dialect17h858b9f12
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 72
   store i64 %2, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.06)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
   br label %24
 
 24:                                               ; preds = %23, %21
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
   ret void
 
 25:                                               ; preds = %26
@@ -7251,7 +7249,7 @@ define void @_ZN13deltalake_sql6parser11DeltaParser22parse_sql_with_dialect17h8f
   %22 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, i64 32, i1 false)
   store i64 1, ptr %0, align 8
-  br label %77
+  br label %78
 
 23:                                               ; preds = %.backedge, %17
   %.0 = phi i1 [ false, %17 ], [ %.0.be, %.backedge ]
@@ -7261,7 +7259,7 @@ define void @_ZN13deltalake_sql6parser11DeltaParser22parse_sql_with_dialect17h8f
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %44, %29
   %.pn = phi { ptr, i32 } [ %30, %29 ], [ %45, %44 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr100drop_in_place$LT$alloc..collections..vec_deque..VecDeque$LT$deltalake_sql..parser..Statement$GT$$GT$17h3a5d1721ef34dc2aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11) #16
-          to label %.body28 unwind label %80
+          to label %.body28 unwind label %79
 
 .loopexit:                                        ; preds = %23, %26, %34, %32
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -7293,7 +7291,7 @@ define void @_ZN13deltalake_sql6parser11DeltaParser22parse_sql_with_dialect17h8f
   %30 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr48drop_in_place$LT$sqlparser..tokenizer..Token$GT$17h9854790fde37f459E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(56) %10)
-          to label %.body unwind label %80
+          to label %.body unwind label %79
 
 31:                                               ; preds = %27
   br i1 %28, label %33, label %32
@@ -7428,7 +7426,7 @@ define void @_ZN13deltalake_sql6parser11DeltaParser22parse_sql_with_dialect17h8f
 .body28:                                          ; preds = %74, %59, %.body
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %75, %74 ], [ %60, %59 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$sqlparser..parser..Parser$GT$17h670d8b9ab4ad4952E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(64) %13)
-          to label %"_ZN4core3ptr55drop_in_place$LT$deltalake_sql..parser..DeltaParser$GT$17hcb8aebf5bec10e6eE.exit" unwind label %80
+          to label %"_ZN4core3ptr55drop_in_place$LT$deltalake_sql..parser..DeltaParser$GT$17hcb8aebf5bec10e6eE.exit" unwind label %79
 
 74:                                               ; preds = %61
   %75 = landingpad { ptr, i32 }
@@ -7439,27 +7437,23 @@ define void @_ZN13deltalake_sql6parser11DeltaParser22parse_sql_with_dialect17h8f
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !999
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @"_ZN4core3ptr46drop_in_place$LT$sqlparser..parser..Parser$GT$17h670d8b9ab4ad4952E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(64) %13)
-  br label %77
-
-77:                                               ; preds = %76, %21
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13)
-  br label %79
+  br label %78
 
 "_ZN4core3ptr60drop_in_place$LT$sqlparser..tokenizer..TokenWithLocation$GT$17h362ac4a329d9c66bE.exit27": ; preds = %33
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10)
-  %78 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %78, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
+  %77 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   store i64 0, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @"_ZN4core3ptr46drop_in_place$LT$sqlparser..parser..Parser$GT$17h670d8b9ab4ad4952E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(64) %13)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13)
-  br label %79
+  br label %78
 
-79:                                               ; preds = %"_ZN4core3ptr60drop_in_place$LT$sqlparser..tokenizer..TokenWithLocation$GT$17h362ac4a329d9c66bE.exit27", %77
+78:                                               ; preds = %21, %76, %"_ZN4core3ptr60drop_in_place$LT$sqlparser..tokenizer..TokenWithLocation$GT$17h362ac4a329d9c66bE.exit27"
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13)
   ret void
 
-80:                                               ; preds = %.body28, %29, %.body
-  %81 = landingpad { ptr, i32 }
+79:                                               ; preds = %.body28, %29, %.body
+  %80 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #17
   unreachable
@@ -7684,22 +7678,22 @@ define void @_ZN13deltalake_sql6parser11DeltaParser15parse_statement17h4f665ceaf
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %18)
   br label %42
 
-"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105": ; preds = %28, %42, %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit100", %132, %145
+"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105": ; preds = %28, %42, %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit100", %132, %144
   %78 = landingpad { ptr, i32 }
           cleanup
   %79 = load i8, ptr %21, align 8, !range !339, !noundef !5
   %80 = icmp eq i8 %79, 1
-  br i1 %80, label %157, label %158
+  br i1 %80, label %156, label %157
 
 "_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105.thread138": ; preds = %113
   %81 = load i8, ptr %21, align 8, !range !339, !noundef !5
   %82 = icmp eq i8 %81, 1
-  br i1 %82, label %.thread, label %158
+  br i1 %82, label %.thread, label %157
 
 "_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105.thread": ; preds = %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit"
   %83 = load i8, ptr %21, align 8, !range !339, !noundef !5
   %84 = icmp eq i8 %83, 1
-  br i1 %84, label %.thread135, label %158
+  br i1 %84, label %.thread135, label %157
 
 85:                                               ; preds = %132
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
@@ -7712,14 +7706,14 @@ define void @_ZN13deltalake_sql6parser11DeltaParser15parse_statement17h4f665ceaf
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
   %88 = load i8, ptr %21, align 8, !range !339, !noundef !5
   %89 = icmp eq i8 %88, 1
-  br i1 %89, label %.thread126, label %133
+  br i1 %89, label %.thread128, label %133
 
 90:                                               ; preds = %75, %66
   call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %16)
   invoke void @"_ZN4core3ptr46drop_in_place$LT$sqlparser..parser..Parser$GT$17h670d8b9ab4ad4952E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(64) %18)
           to label %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit100" unwind label %39
 
-91:                                               ; preds = %113, %58, %.thread, %158, %123, %68, %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit"
+91:                                               ; preds = %113, %58, %.thread, %157, %123, %68, %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit"
   %92 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #17
@@ -7748,18 +7742,18 @@ define void @_ZN13deltalake_sql6parser11DeltaParser15parse_statement17h4f665ceaf
   call void @__rust_dealloc(ptr noundef nonnull %100, i64 noundef %97, i64 noundef %94) #15
   br label %.thread127
 
-101:                                              ; preds = %111, %145
+101:                                              ; preds = %111, %144
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   %102 = load i8, ptr %21, align 8, !range !339, !noundef !5
   %103 = icmp eq i8 %102, 1
-  br i1 %103, label %147, label %146
+  br i1 %103, label %146, label %145
 
 .thread127:                                       ; preds = %.noexc102, %95, %99
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1021
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
   %104 = load i8, ptr %21, align 8, !range !339, !noundef !5
   %105 = icmp eq i8 %104, 1
-  br i1 %105, label %.thread128, label %146
+  br i1 %105, label %.thread128, label %145
 
 106:                                              ; preds = %28
   %107 = load i64, ptr %11, align 8, !range !4, !noundef !5
@@ -7823,7 +7817,7 @@ define void @_ZN13deltalake_sql6parser11DeltaParser15parse_statement17h4f665ceaf
   %122 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %122, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.738, i64 32, i1 false)
   store i64 14, ptr %0, align 8
-  br label %145
+  br label %144
 
 123:                                              ; preds = %129, %120
   %124 = landingpad { ptr, i32 }
@@ -7856,7 +7850,7 @@ define void @_ZN13deltalake_sql6parser11DeltaParser15parse_statement17h4f665ceaf
   store i64 14, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 928, ptr nonnull %8)
   invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$datafusion_sql..parser..Statement$GT$17hcd7fae1c073e4812E"(ptr noalias noundef nonnull align 8 dereferenceable(768) %10)
-          to label %145 unwind label %114
+          to label %144 unwind label %114
 
 132:                                              ; preds = %129
   call void @llvm.lifetime.end.p0(i64 928, ptr nonnull %8)
@@ -7867,11 +7861,7 @@ define void @_ZN13deltalake_sql6parser11DeltaParser15parse_statement17h4f665ceaf
 
 133:                                              ; preds = %.thread125, %85
   call fastcc void @"_ZN4core3ptr48drop_in_place$LT$sqlparser..tokenizer..Token$GT$17h9854790fde37f459E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %21)
-  br label %.thread126
-
-.thread126:                                       ; preds = %.thread125, %"_ZN4core3ptr47drop_in_place$LT$sqlparser..tokenizer..Word$GT$17h0140193e9fc2225fE.exit109", %133
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %21)
-  br label %144
+  br label %.thread128
 
 134:                                              ; preds = %85
   %135 = getelementptr inbounds i8, ptr %21, i64 8
@@ -7895,64 +7885,61 @@ define void @_ZN13deltalake_sql6parser11DeltaParser15parse_statement17h4f665ceaf
 
 "_ZN4core3ptr47drop_in_place$LT$sqlparser..tokenizer..Word$GT$17h0140193e9fc2225fE.exit109": ; preds = %134, %138, %142
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1032
-  br label %.thread126
+  br label %.thread128
 
-144:                                              ; preds = %.thread128, %.thread126
+.thread128:                                       ; preds = %133, %"_ZN4core3ptr47drop_in_place$LT$sqlparser..tokenizer..Word$GT$17h0140193e9fc2225fE.exit109", %.thread125, %145, %"_ZN4core3ptr47drop_in_place$LT$sqlparser..tokenizer..Word$GT$17h0140193e9fc2225fE.exit113", %.thread127
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %21)
   ret void
 
-145:                                              ; preds = %130, %121
+144:                                              ; preds = %130, %121
   call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %10)
   invoke void @"_ZN4core3ptr46drop_in_place$LT$sqlparser..parser..Parser$GT$17h670d8b9ab4ad4952E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(64) %12)
           to label %101 unwind label %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105"
 
-146:                                              ; preds = %.thread127, %101
+145:                                              ; preds = %.thread127, %101
   call fastcc void @"_ZN4core3ptr48drop_in_place$LT$sqlparser..tokenizer..Token$GT$17h9854790fde37f459E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %21)
   br label %.thread128
 
-.thread128:                                       ; preds = %.thread127, %"_ZN4core3ptr47drop_in_place$LT$sqlparser..tokenizer..Word$GT$17h0140193e9fc2225fE.exit113", %146
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %21)
-  br label %144
-
-147:                                              ; preds = %101
-  %148 = getelementptr inbounds i8, ptr %21, i64 8
+146:                                              ; preds = %101
+  %147 = getelementptr inbounds i8, ptr %21, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !1043
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h00acfb570783c145E.llvm.11705908289436625823"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %148)
-  %149 = getelementptr inbounds i8, ptr %3, i64 8
-  %150 = load i64, ptr %149, align 8, !range !4, !noalias !1043, !noundef !5
-  %.not.i.i.i.i.i112 = icmp eq i64 %150, 0
-  br i1 %.not.i.i.i.i.i112, label %"_ZN4core3ptr47drop_in_place$LT$sqlparser..tokenizer..Word$GT$17h0140193e9fc2225fE.exit113", label %151
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h00acfb570783c145E.llvm.11705908289436625823"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %147)
+  %148 = getelementptr inbounds i8, ptr %3, i64 8
+  %149 = load i64, ptr %148, align 8, !range !4, !noalias !1043, !noundef !5
+  %.not.i.i.i.i.i112 = icmp eq i64 %149, 0
+  br i1 %.not.i.i.i.i.i112, label %"_ZN4core3ptr47drop_in_place$LT$sqlparser..tokenizer..Word$GT$17h0140193e9fc2225fE.exit113", label %150
 
-151:                                              ; preds = %147
-  %152 = getelementptr inbounds i8, ptr %3, i64 16
-  %153 = load i64, ptr %152, align 8, !noalias !1043, !noundef !5
-  %154 = icmp eq i64 %153, 0
-  br i1 %154, label %"_ZN4core3ptr47drop_in_place$LT$sqlparser..tokenizer..Word$GT$17h0140193e9fc2225fE.exit113", label %155
+150:                                              ; preds = %146
+  %151 = getelementptr inbounds i8, ptr %3, i64 16
+  %152 = load i64, ptr %151, align 8, !noalias !1043, !noundef !5
+  %153 = icmp eq i64 %152, 0
+  br i1 %153, label %"_ZN4core3ptr47drop_in_place$LT$sqlparser..tokenizer..Word$GT$17h0140193e9fc2225fE.exit113", label %154
 
-155:                                              ; preds = %151
-  %156 = load ptr, ptr %3, align 8, !noalias !1043, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %156, i64 noundef %153, i64 noundef %150) #15
+154:                                              ; preds = %150
+  %155 = load ptr, ptr %3, align 8, !noalias !1043, !nonnull !5, !noundef !5
+  call void @__rust_dealloc(ptr noundef nonnull %155, i64 noundef %152, i64 noundef %149) #15
   br label %"_ZN4core3ptr47drop_in_place$LT$sqlparser..tokenizer..Word$GT$17h0140193e9fc2225fE.exit113"
 
-"_ZN4core3ptr47drop_in_place$LT$sqlparser..tokenizer..Word$GT$17h0140193e9fc2225fE.exit113": ; preds = %147, %151, %155
+"_ZN4core3ptr47drop_in_place$LT$sqlparser..tokenizer..Word$GT$17h0140193e9fc2225fE.exit113": ; preds = %146, %150, %154
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1043
   br label %.thread128
 
-157:                                              ; preds = %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105"
+156:                                              ; preds = %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105"
   br i1 %.not.not, label %.thread135, label %.thread
 
-158:                                              ; preds = %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105.thread138", %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105.thread", %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105"
+157:                                              ; preds = %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105.thread138", %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105.thread", %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105"
   %.pn94133 = phi { ptr, i32 } [ %.pn92, %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105.thread" ], [ %78, %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105" ], [ %.pn, %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105.thread138" ]
   invoke fastcc void @"_ZN4core3ptr48drop_in_place$LT$sqlparser..tokenizer..Token$GT$17h9854790fde37f459E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %21) #16
           to label %.thread135 unwind label %91
 
-.thread135:                                       ; preds = %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105.thread", %.thread, %158, %157
-  %.pn94132 = phi { ptr, i32 } [ %.pn94140142, %.thread ], [ %.pn94133, %158 ], [ %78, %157 ], [ %.pn92, %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105.thread" ]
+.thread135:                                       ; preds = %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105.thread", %.thread, %157, %156
+  %.pn94132 = phi { ptr, i32 } [ %.pn94140142, %.thread ], [ %.pn94133, %157 ], [ %78, %156 ], [ %.pn92, %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105.thread" ]
   resume { ptr, i32 } %.pn94132
 
-.thread:                                          ; preds = %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105.thread138", %157
-  %.pn94140142 = phi { ptr, i32 } [ %78, %157 ], [ %.pn, %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105.thread138" ]
-  %159 = getelementptr inbounds i8, ptr %21, i64 8
-  invoke void @"_ZN4core3ptr47drop_in_place$LT$sqlparser..tokenizer..Word$GT$17h0140193e9fc2225fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %159) #16
+.thread:                                          ; preds = %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105.thread138", %156
+  %.pn94140142 = phi { ptr, i32 } [ %78, %156 ], [ %.pn, %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105.thread138" ]
+  %158 = getelementptr inbounds i8, ptr %21, i64 8
+  invoke void @"_ZN4core3ptr47drop_in_place$LT$sqlparser..tokenizer..Word$GT$17h0140193e9fc2225fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %158) #16
           to label %.thread135 unwind label %91
 }
 

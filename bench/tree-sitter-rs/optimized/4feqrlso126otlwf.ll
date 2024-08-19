@@ -757,7 +757,7 @@ _ZN16tree_sitter_tags5c_lib6unwrap17h79dd25a08baf6d3bE.exit: ; preds = %_ZN16tre
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22)
   %48 = tail call fastcc noundef align 8 dereferenceable_or_null(280) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h4708ad68a9be0398E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 %45, i64 noundef %47)
   %.not = icmp eq ptr %48, null
-  br i1 %.not, label %202, label %49
+  br i1 %.not, label %.sink.split, label %49
 
 49:                                               ; preds = %_ZN16tree_sitter_tags5c_lib6unwrap17h79dd25a08baf6d3bE.exit
   %50 = getelementptr inbounds i8, ptr %4, i64 16
@@ -879,7 +879,7 @@ _ZN16tree_sitter_tags5c_lib16shrink_and_clear17h20d42158ef479d01E.exit: ; preds 
   call fastcc void @"_ZN4core3ptr44drop_in_place$LT$tree_sitter_tags..Error$GT$17h0dc2e6c208c38f2dE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %20)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %21)
-  br label %202
+  br label %.sink.split
 
 111:                                              ; preds = %"_ZN4core3ptr96drop_in_place$LT$core..result..Result$LT$tree_sitter_tags..Tag$C$tree_sitter_tags..Error$GT$$GT$17h27a982683186a28dE.exit60", %79
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %18)
@@ -910,7 +910,7 @@ _ZN16tree_sitter_tags5c_lib16shrink_and_clear17h20d42158ef479d01E.exit: ; preds 
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %18)
   call void @"_ZN4core3ptr123drop_in_place$LT$tree_sitter_tags..TagsIter$LT$tree_sitter..QueryMatches$LT$$RF$$u5b$u8$u5d$$C$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h707b86613712968cE"(ptr noalias noundef nonnull align 8 dereferenceable(232) %19)
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %19)
-  br label %202
+  br label %.sink.split
 
 117:                                              ; preds = %113
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %17)
@@ -1151,13 +1151,13 @@ _ZN16tree_sitter_tags5c_lib16shrink_and_clear17h20d42158ef479d01E.exit: ; preds 
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %18)
   call void @"_ZN4core3ptr123drop_in_place$LT$tree_sitter_tags..TagsIter$LT$tree_sitter..QueryMatches$LT$$RF$$u5b$u8$u5d$$C$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h707b86613712968cE"(ptr noalias noundef nonnull align 8 dereferenceable(232) %19)
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %19)
-  br label %202
+  br label %.sink.split
 
 201:                                              ; preds = %112
   resume { ptr, i32 } %.pn40
 
-202:                                              ; preds = %"_ZN4core3ptr96drop_in_place$LT$core..result..Result$LT$tree_sitter_tags..Tag$C$tree_sitter_tags..Error$GT$$GT$17h27a982683186a28dE.exit", %107, %116, %_ZN16tree_sitter_tags5c_lib6unwrap17h79dd25a08baf6d3bE.exit
-  %.1 = phi i32 [ 0, %116 ], [ 1, %_ZN16tree_sitter_tags5c_lib6unwrap17h79dd25a08baf6d3bE.exit ], [ %.42, %107 ], [ 2, %"_ZN4core3ptr96drop_in_place$LT$core..result..Result$LT$tree_sitter_tags..Tag$C$tree_sitter_tags..Error$GT$$GT$17h27a982683186a28dE.exit" ]
+.sink.split:                                      ; preds = %116, %107, %"_ZN4core3ptr96drop_in_place$LT$core..result..Result$LT$tree_sitter_tags..Tag$C$tree_sitter_tags..Error$GT$$GT$17h27a982683186a28dE.exit", %_ZN16tree_sitter_tags5c_lib6unwrap17h79dd25a08baf6d3bE.exit
+  %.1 = phi i32 [ 1, %_ZN16tree_sitter_tags5c_lib6unwrap17h79dd25a08baf6d3bE.exit ], [ 0, %116 ], [ %.42, %107 ], [ 2, %"_ZN4core3ptr96drop_in_place$LT$core..result..Result$LT$tree_sitter_tags..Tag$C$tree_sitter_tags..Error$GT$$GT$17h27a982683186a28dE.exit" ]
   ret i32 %.1
 }
 

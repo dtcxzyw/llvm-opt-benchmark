@@ -2135,15 +2135,14 @@ opal_atomic_compare_exchange_strong_32.exit.i22.i: ; preds = %.preheader.i20.i
 am_rdma_atomic_32.exit:                           ; preds = %.preheader.i20.i, %opal_atomic_compare_exchange_strong_32.exit.i22.i, %.preheader.i.i, %opal_atomic_compare_exchange_strong_32.exit.i.i, %47, %49, %51, %53, %55, %57, %62, %41
   %.060 = phi i32 [ %42, %41 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %58, %57 ], [ %63, %62 ], [ %.1.i.i, %.preheader.i.i ], [ %61, %opal_atomic_compare_exchange_strong_32.exit.i.i ], [ %.1.i21.i, %.preheader.i20.i ], [ %66, %opal_atomic_compare_exchange_strong_32.exit.i22.i ]
   %67 = sext i32 %.060 to i64
-  store i64 %67, ptr %3, align 8
-  br label %121
+  br label %.sink.split
 
 68:                                               ; preds = %40
   %69 = getelementptr inbounds i8, ptr %20, i64 32
   %70 = load i64, ptr %69, align 8
   %71 = inttoptr i64 %70 to ptr
   %72 = load i8, ptr %21, align 8
-  switch i8 %72, label %am_rdma_atomic_64.exit [
+  switch i8 %72, label %.sink.split [
     i8 1, label %73
     i8 17, label %75
     i8 18, label %77
@@ -2155,60 +2154,55 @@ am_rdma_atomic_32.exit:                           ; preds = %.preheader.i20.i, %
 
 73:                                               ; preds = %68
   %74 = atomicrmw volatile add ptr %71, i64 %23 monotonic, align 8
-  br label %am_rdma_atomic_64.exit
+  br label %.sink.split
 
 75:                                               ; preds = %68
   %76 = atomicrmw volatile and ptr %71, i64 %23 monotonic, align 8
-  br label %am_rdma_atomic_64.exit
+  br label %.sink.split
 
 77:                                               ; preds = %68
   %78 = atomicrmw volatile or ptr %71, i64 %23 monotonic, align 8
-  br label %am_rdma_atomic_64.exit
+  br label %.sink.split
 
 79:                                               ; preds = %68
   %80 = atomicrmw volatile xor ptr %71, i64 %23 monotonic, align 8
-  br label %am_rdma_atomic_64.exit
+  br label %.sink.split
 
 81:                                               ; preds = %68
   %82 = atomicrmw volatile xchg ptr %71, i64 %23 monotonic, align 8
-  br label %am_rdma_atomic_64.exit
+  br label %.sink.split
 
 83:                                               ; preds = %68
   %84 = load volatile i64, ptr %71, align 8
   %.not.old.i.i35 = icmp sgt i64 %84, %23
-  br i1 %.not.old.i.i35, label %.preheader.i.i36, label %am_rdma_atomic_64.exit
+  br i1 %.not.old.i.i35, label %.preheader.i.i36, label %.sink.split
 
 .preheader.i.i36:                                 ; preds = %83, %opal_atomic_compare_exchange_strong_64.exit.i.i
   %.1.i.i37 = phi i64 [ %87, %opal_atomic_compare_exchange_strong_64.exit.i.i ], [ %84, %83 ]
   %85 = cmpxchg volatile ptr %71, i64 %.1.i.i37, i64 %23 acquire monotonic, align 8
   %86 = extractvalue { i64, i1 } %85, 1
-  br i1 %86, label %am_rdma_atomic_64.exit, label %opal_atomic_compare_exchange_strong_64.exit.i.i
+  br i1 %86, label %.sink.split, label %opal_atomic_compare_exchange_strong_64.exit.i.i
 
 opal_atomic_compare_exchange_strong_64.exit.i.i:  ; preds = %.preheader.i.i36
   %87 = extractvalue { i64, i1 } %85, 0
   %.not.i.i38 = icmp sgt i64 %87, %23
-  br i1 %.not.i.i38, label %.preheader.i.i36, label %am_rdma_atomic_64.exit, !llvm.loop !15
+  br i1 %.not.i.i38, label %.preheader.i.i36, label %.sink.split, !llvm.loop !15
 
 88:                                               ; preds = %68
   %89 = load volatile i64, ptr %71, align 8
   %.not.old.i18.i29 = icmp slt i64 %89, %23
-  br i1 %.not.old.i18.i29, label %.preheader.i20.i32, label %am_rdma_atomic_64.exit
+  br i1 %.not.old.i18.i29, label %.preheader.i20.i32, label %.sink.split
 
 .preheader.i20.i32:                               ; preds = %88, %opal_atomic_compare_exchange_strong_64.exit.i22.i
   %.1.i21.i33 = phi i64 [ %92, %opal_atomic_compare_exchange_strong_64.exit.i22.i ], [ %89, %88 ]
   %90 = cmpxchg volatile ptr %71, i64 %.1.i21.i33, i64 %23 acquire monotonic, align 8
   %91 = extractvalue { i64, i1 } %90, 1
-  br i1 %91, label %am_rdma_atomic_64.exit, label %opal_atomic_compare_exchange_strong_64.exit.i22.i
+  br i1 %91, label %.sink.split, label %opal_atomic_compare_exchange_strong_64.exit.i22.i
 
 opal_atomic_compare_exchange_strong_64.exit.i22.i: ; preds = %.preheader.i20.i32
   %92 = extractvalue { i64, i1 } %90, 0
   %.not.i23.i34 = icmp slt i64 %92, %23
-  br i1 %.not.i23.i34, label %.preheader.i20.i32, label %am_rdma_atomic_64.exit, !llvm.loop !16
-
-am_rdma_atomic_64.exit:                           ; preds = %.preheader.i20.i32, %opal_atomic_compare_exchange_strong_64.exit.i22.i, %.preheader.i.i36, %opal_atomic_compare_exchange_strong_64.exit.i.i, %73, %75, %77, %79, %81, %83, %88, %68
-  %.059 = phi i64 [ %23, %68 ], [ %82, %81 ], [ %80, %79 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %84, %83 ], [ %89, %88 ], [ %.1.i.i37, %.preheader.i.i36 ], [ %87, %opal_atomic_compare_exchange_strong_64.exit.i.i ], [ %.1.i21.i33, %.preheader.i20.i32 ], [ %92, %opal_atomic_compare_exchange_strong_64.exit.i22.i ]
-  store i64 %.059, ptr %3, align 8
-  br label %121
+  br i1 %.not.i23.i34, label %.preheader.i20.i32, label %.sink.split, !llvm.loop !16
 
 93:                                               ; preds = %38
   switch i8 %25, label %121 [
@@ -2227,8 +2221,7 @@ opal_atomic_compare_exchange_strong_32.exit:      ; preds = %93
   %101 = cmpxchg volatile ptr %97, i32 %94, i32 %100 acquire monotonic, align 4
   %102 = extractvalue { i32, i1 } %101, 0
   %103 = sext i32 %102 to i64
-  store i64 %103, ptr %3, align 8
-  br label %121
+  br label %.sink.split
 
 opal_atomic_compare_exchange_strong_64.exit:      ; preds = %93
   %104 = getelementptr inbounds i8, ptr %20, i64 32
@@ -2238,8 +2231,7 @@ opal_atomic_compare_exchange_strong_64.exit:      ; preds = %93
   %108 = load i64, ptr %107, align 8
   %109 = cmpxchg volatile ptr %106, i64 %23, i64 %108 acquire monotonic, align 8
   %110 = extractvalue { i64, i1 } %109, 0
-  store i64 %110, ptr %3, align 8
-  br label %121
+  br label %.sink.split
 
 111:                                              ; preds = %38
   %112 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
@@ -2254,7 +2246,12 @@ opal_atomic_compare_exchange_strong_64.exit:      ; preds = %93
   tail call void @abort() #11
   unreachable
 
-121:                                              ; preds = %93, %40, %opal_atomic_compare_exchange_strong_32.exit, %opal_atomic_compare_exchange_strong_64.exit, %am_rdma_atomic_32.exit, %am_rdma_atomic_64.exit
+.sink.split:                                      ; preds = %opal_atomic_compare_exchange_strong_64.exit.i22.i, %.preheader.i20.i32, %opal_atomic_compare_exchange_strong_64.exit.i.i, %.preheader.i.i36, %68, %88, %83, %81, %79, %77, %75, %73, %am_rdma_atomic_32.exit, %opal_atomic_compare_exchange_strong_64.exit, %opal_atomic_compare_exchange_strong_32.exit
+  %.sink = phi i64 [ %103, %opal_atomic_compare_exchange_strong_32.exit ], [ %110, %opal_atomic_compare_exchange_strong_64.exit ], [ %67, %am_rdma_atomic_32.exit ], [ %23, %68 ], [ %82, %81 ], [ %80, %79 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %84, %83 ], [ %89, %88 ], [ %.1.i.i37, %.preheader.i.i36 ], [ %87, %opal_atomic_compare_exchange_strong_64.exit.i.i ], [ %.1.i21.i33, %.preheader.i20.i32 ], [ %92, %opal_atomic_compare_exchange_strong_64.exit.i22.i ]
+  store i64 %.sink, ptr %3, align 8
+  br label %121
+
+121:                                              ; preds = %.sink.split, %93, %40
   store ptr null, ptr %4, align 8
   %122 = load ptr, ptr %1, align 8
   %123 = call fastcc i32 @am_rdma_respond(ptr noundef %0, ptr noundef %122, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull %20)

@@ -105,14 +105,14 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
 28:                                               ; preds = %25
   %29 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rtc_base_framework, i64 76), align 4
   %or.cond90 = icmp ult i32 %29, 64
-  br i1 %or.cond90, label %30, label %197
+  br i1 %or.cond90, label %30, label %192
 
 30:                                               ; preds = %28
   %31 = zext nneg i32 %29 to i64
   %32 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %31, i32 2
   %33 = load i32, ptr %32, align 4
   %34 = icmp sgt i32 %33, 1
-  br i1 %34, label %35, label %197
+  br i1 %34, label %35, label %192
 
 35:                                               ; preds = %30
   %36 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #6
@@ -135,7 +135,7 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
 45:                                               ; preds = %40, %42
   %46 = phi ptr [ %44, %42 ], [ @.str.1, %40 ]
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %29, ptr noundef nonnull @.str.2, ptr noundef %36, ptr noundef %41, ptr noundef %46) #6
-  br label %197
+  br label %192
 
 47:                                               ; preds = %25
   %48 = getelementptr inbounds i8, ptr %8, i64 456
@@ -229,12 +229,12 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
 
 96:                                               ; preds = %88
   %97 = call i32 (i32, ptr, ptr, ...) @prte_rtc_base_send_warn_show_help(i32 noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.10, ptr noundef %91, ptr noundef %93, ptr noundef %94, ptr noundef nonnull @.str.5, i32 noundef 150) #6
-  br label %197
+  br label %192
 
 98:                                               ; preds = %95, %71, %66
   %99 = getelementptr inbounds i8, ptr %6, i64 784
   %100 = call zeroext i1 @prte_get_attribute(ptr noundef nonnull %99, i16 noundef zeroext 236, ptr noundef null, i16 noundef zeroext 1) #6
-  br i1 %100, label %101, label %197
+  br i1 %100, label %101, label %192
 
 101:                                              ; preds = %98
   %102 = icmp eq i32 %69, 0
@@ -244,22 +244,22 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
 
 105:                                              ; preds = %101
   call fastcc void @report_binding(ptr noundef nonnull %6, i32 noundef %104)
-  br label %197
+  br label %192
 
 106:                                              ; preds = %101
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.11, i32 noundef %104) #6
-  br label %197
+  br label %192
 
 107:                                              ; preds = %53
   %108 = getelementptr inbounds i8, ptr %6, i64 784
   %109 = tail call zeroext i1 @prte_get_attribute(ptr noundef nonnull %108, i16 noundef zeroext 236, ptr noundef null, i16 noundef zeroext 1) #6
-  br i1 %109, label %110, label %197
+  br i1 %109, label %110, label %192
 
 110:                                              ; preds = %107
   %111 = getelementptr inbounds i8, ptr %8, i64 400
   %112 = load i32, ptr %111, align 8
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.11, i32 noundef %112) #6
-  br label %197
+  br label %192
 
 113:                                              ; preds = %51
   %114 = tail call noalias ptr @hwloc_bitmap_alloc() #6
@@ -300,7 +300,7 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
 135:                                              ; preds = %124
   %136 = call i32 (i32, ptr, ptr, ...) @prte_rtc_base_send_warn_show_help(i32 noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.10, ptr noundef %131, ptr noundef %133, ptr noundef nonnull %125, ptr noundef nonnull @.str.5, i32 noundef 192) #6
   call void @hwloc_bitmap_free(ptr noundef %114) #6
-  br label %197
+  br label %192
 
 137:                                              ; preds = %134, %113
   %138 = load ptr, ptr @prte_hwloc_topology, align 8
@@ -359,7 +359,7 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
 
 164:                                              ; preds = %156
   %165 = call i32 (i32, ptr, ptr, ...) @prte_rtc_base_send_warn_show_help(i32 noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.10, ptr noundef %159, ptr noundef %161, ptr noundef %162, ptr noundef nonnull @.str.5, i32 noundef 221) #6
-  br label %197
+  br label %192
 
 166:                                              ; preds = %137
   %167 = icmp eq i32 %139, 0
@@ -379,7 +379,7 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
 .thread:                                          ; preds = %141, %163, %171, %168, %166
   %174 = call i32 @prte_hwloc_base_set_process_membind_policy() #6
   %.not84 = icmp eq i32 %174, 0
-  br i1 %.not84, label %197, label %175
+  br i1 %.not84, label %192, label %175
 
 175:                                              ; preds = %.thread
   %176 = getelementptr inbounds i8, ptr %6, i64 472
@@ -388,46 +388,32 @@ define internal void @set(ptr nocapture noundef readonly %0, i32 noundef %1) #1 
   %179 = load i16, ptr %178, align 4
   %180 = and i16 %179, 16384
   %.not85 = icmp eq i16 %180, 0
-  br i1 %.not85, label %197, label %181
+  br i1 %.not85, label %192, label %181
 
 181:                                              ; preds = %175
   %182 = tail call ptr @__errno_location() #8
   %183 = load i32, ptr %182, align 4
-  switch i32 %183, label %186 [
-    i32 38, label %184
-    i32 18, label %185
-  ]
+  %switch.selectcmp = icmp eq i32 %183, 18
+  %switch.select = select i1 %switch.selectcmp, ptr @.str.15, ptr @.str.16
+  %switch.selectcmp97 = icmp eq i32 %183, 38
+  %switch.select98 = select i1 %switch.selectcmp97, ptr @.str.14, ptr %switch.select
+  store ptr %switch.select98, ptr %3, align 8
+  %184 = load i32, ptr @prte_hwloc_base_mbfa, align 4
+  %185 = icmp eq i32 %184, 2
+  %186 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
+  %187 = getelementptr inbounds i8, ptr %10, i64 136
+  %188 = load ptr, ptr %187, align 8
+  br i1 %185, label %189, label %190
 
-184:                                              ; preds = %181
-  store ptr @.str.14, ptr %3, align 8
-  br label %187
+189:                                              ; preds = %181
+  call void (i32, i32, ptr, ptr, ...) @prte_rtc_base_send_error_show_help(i32 noundef %1, i32 noundef 1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.17, ptr noundef %186, ptr noundef %188, ptr noundef nonnull %switch.select98, ptr noundef nonnull @.str.5, i32 noundef 257) #6
+  br label %192
 
-185:                                              ; preds = %181
-  store ptr @.str.15, ptr %3, align 8
-  br label %187
+190:                                              ; preds = %181
+  %191 = call i32 (i32, ptr, ptr, ...) @prte_rtc_base_send_warn_show_help(i32 noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.18, ptr noundef %186, ptr noundef %188, ptr noundef nonnull %switch.select98, ptr noundef nonnull @.str.5, i32 noundef 261) #6
+  br label %192
 
-186:                                              ; preds = %181
-  store ptr @.str.16, ptr %3, align 8
-  br label %187
-
-187:                                              ; preds = %185, %186, %184
-  %188 = phi ptr [ @.str.15, %185 ], [ @.str.16, %186 ], [ @.str.14, %184 ]
-  %189 = load i32, ptr @prte_hwloc_base_mbfa, align 4
-  %190 = icmp eq i32 %189, 2
-  %191 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 800), align 8
-  %192 = getelementptr inbounds i8, ptr %10, i64 136
-  %193 = load ptr, ptr %192, align 8
-  br i1 %190, label %194, label %195
-
-194:                                              ; preds = %187
-  call void (i32, i32, ptr, ptr, ...) @prte_rtc_base_send_error_show_help(i32 noundef %1, i32 noundef 1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.17, ptr noundef %191, ptr noundef %193, ptr noundef nonnull %188, ptr noundef nonnull @.str.5, i32 noundef 257) #6
-  br label %197
-
-195:                                              ; preds = %187
-  %196 = call i32 (i32, ptr, ptr, ...) @prte_rtc_base_send_warn_show_help(i32 noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.18, ptr noundef %191, ptr noundef %193, ptr noundef nonnull %188, ptr noundef nonnull @.str.5, i32 noundef 261) #6
-  br label %197
-
-197:                                              ; preds = %164, %.thread, %175, %194, %105, %106, %98, %110, %107, %28, %30, %45, %195, %135, %96
+192:                                              ; preds = %164, %.thread, %175, %189, %105, %106, %98, %110, %107, %28, %30, %45, %190, %135, %96
   ret void
 }
 

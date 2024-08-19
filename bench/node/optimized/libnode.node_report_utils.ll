@@ -2287,8 +2287,8 @@ if.end18:                                         ; preds = %if.else
   br label %if.end21
 
 if.then20:                                        ; preds = %if.else, %if.then5
-  %storemerge = phi ptr [ %host6, %if.then5 ], [ %hostbuf, %if.else ]
-  store ptr %storemerge, ptr %host, align 8
+  %hostbuf.sink = phi ptr [ %host6, %if.then5 ], [ %hostbuf, %if.else ]
+  store ptr %hostbuf.sink, ptr %host, align 8
   call void @_ZN4node10JSONWriter16json_objectstartIPKcEEvT_(ptr noundef nonnull align 8 dereferenceable(20) %writer, ptr noundef %name)
   call void @_ZN4node10JSONWriter13json_keyvalueIA5_cPcEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %writer, ptr noundef nonnull align 1 dereferenceable(5) @.str.39, ptr noundef nonnull align 8 dereferenceable(8) %host)
   br label %if.end21

@@ -156,8 +156,7 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr nocapture readnone %
   %70 = shl nuw nsw i64 %69, 24
   %71 = or disjoint i64 %66, %70
   %72 = getelementptr inbounds i8, ptr %5, i64 6
-  store ptr %72, ptr %7, align 8
-  br label %94
+  br label %.sink.split
 
 73:                                               ; preds = %50
   %74 = getelementptr inbounds i8, ptr %5, i64 10
@@ -178,8 +177,7 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr nocapture readnone %
 
 83:                                               ; preds = %75
   %84 = getelementptr inbounds i8, ptr %76, i64 7
-  store ptr %84, ptr %7, align 8
-  br label %94
+  br label %.sink.split
 
 85:                                               ; preds = %50
   %86 = load i8, ptr %51, align 1
@@ -190,11 +188,16 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr nocapture readnone %
   %91 = shl nuw nsw i64 %90, 8
   %92 = or disjoint i64 %91, %87
   %93 = getelementptr inbounds i8, ptr %5, i64 4
-  store ptr %93, ptr %7, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %85, %83, %54
+  %.sink = phi ptr [ %72, %54 ], [ %84, %83 ], [ %93, %85 ]
+  %.1.ph = phi i64 [ %71, %54 ], [ %81, %83 ], [ %92, %85 ]
+  store ptr %.sink, ptr %7, align 8
   br label %94
 
-94:                                               ; preds = %54, %83, %85, %50
-  %.1 = phi i64 [ 0, %50 ], [ %92, %85 ], [ %81, %83 ], [ %71, %54 ]
+94:                                               ; preds = %.sink.split, %50
+  %.1 = phi i64 [ 0, %50 ], [ %.1.ph, %.sink.split ]
   switch i8 %52, label %129 [
     i8 1, label %95
     i8 2, label %123
@@ -367,8 +370,7 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr nocapture readnone %
   %191 = or disjoint i64 %190, %186
   store i64 %191, ptr %176, align 8
   %192 = getelementptr inbounds i8, ptr %5, i64 7
-  store ptr %192, ptr %7, align 8
-  br label %217
+  br label %.sink.split196
 
 193:                                              ; preds = %171
   %194 = getelementptr inbounds i8, ptr %9, i64 16
@@ -391,8 +393,7 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr nocapture readnone %
 205:                                              ; preds = %196
   store i64 %203, ptr %194, align 8
   %206 = getelementptr inbounds i8, ptr %198, i64 7
-  store ptr %206, ptr %7, align 8
-  br label %217
+  br label %.sink.split196
 
 207:                                              ; preds = %171
   %208 = load i8, ptr %151, align 1
@@ -405,11 +406,15 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr nocapture readnone %
   %215 = or disjoint i64 %214, %209
   store i64 %215, ptr %210, align 8
   %216 = getelementptr inbounds i8, ptr %5, i64 5
-  store ptr %216, ptr %7, align 8
+  br label %.sink.split196
+
+.sink.split196:                                   ; preds = %207, %205, %173
+  %.sink197 = phi ptr [ %192, %173 ], [ %206, %205 ], [ %216, %207 ]
+  store ptr %.sink197, ptr %7, align 8
   br label %217
 
-217:                                              ; preds = %173, %205, %207, %171
-  %218 = phi ptr [ %192, %173 ], [ %206, %205 ], [ %216, %207 ], [ %151, %171 ]
+217:                                              ; preds = %.sink.split196, %171
+  %218 = phi ptr [ %151, %171 ], [ %.sink197, %.sink.split196 ]
   %219 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #6
   %.not152 = icmp eq i8 %219, 0
   br i1 %.not152, label %234, label %220
@@ -469,8 +474,7 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr nocapture readnone %
   %254 = or disjoint i64 %253, %249
   store i64 %254, ptr %239, align 8
   %255 = getelementptr inbounds i8, ptr %218, i64 4
-  store ptr %255, ptr %7, align 8
-  br label %280
+  br label %.sink.split198
 
 256:                                              ; preds = %234
   %257 = getelementptr inbounds i8, ptr %9, i64 24
@@ -495,8 +499,7 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr nocapture readnone %
 
 268:                                              ; preds = %259
   %269 = getelementptr inbounds i8, ptr %261, i64 7
-  store ptr %269, ptr %7, align 8
-  br label %280
+  br label %.sink.split198
 
 270:                                              ; preds = %234
   %271 = load i8, ptr %218, align 1
@@ -511,11 +514,15 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr nocapture readnone %
   %278 = or disjoint i64 %277, %272
   store i64 %278, ptr %273, align 8
   %279 = getelementptr inbounds i8, ptr %218, i64 2
-  store ptr %279, ptr %7, align 8
+  br label %.sink.split198
+
+.sink.split198:                                   ; preds = %270, %268, %236
+  %.sink200 = phi ptr [ %255, %236 ], [ %269, %268 ], [ %279, %270 ]
+  store ptr %.sink200, ptr %7, align 8
   br label %280
 
-280:                                              ; preds = %236, %268, %270, %234
-  %281 = phi ptr [ %255, %236 ], [ %269, %268 ], [ %279, %270 ], [ %218, %234 ]
+280:                                              ; preds = %.sink.split198, %234
+  %281 = phi ptr [ %218, %234 ], [ %.sink200, %.sink.split198 ]
   %282 = icmp ugt ptr %281, %.ptr191
   %283 = ptrtoint ptr %281 to i64
   %284 = sub i64 %139, %283
@@ -643,10 +650,10 @@ define internal noundef i32 @H5O__fsinfo_encode(ptr noundef %0, i1 zeroext %1, i
   store ptr %17, ptr %6, align 8
   store i8 %16, ptr %13, align 1
   %18 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #6
-  switch i8 %18, label %55 [
+  switch i8 %18, label %47 [
     i8 4, label %19
-    i8 8, label %36
-    i8 2, label %46
+    i8 8, label %30
+    i8 2, label %38
   ]
 
 19:                                               ; preds = %5
@@ -662,158 +669,156 @@ define internal noundef i32 @H5O__fsinfo_encode(ptr noundef %0, i1 zeroext %1, i
   %27 = getelementptr inbounds i8, ptr %3, i64 5
   %28 = load i64, ptr %20, align 8
   %29 = lshr i64 %28, 16
-  %30 = trunc i64 %29 to i8
-  store i8 %30, ptr %27, align 1
-  %31 = getelementptr inbounds i8, ptr %3, i64 6
-  %32 = load i64, ptr %20, align 8
-  %33 = lshr i64 %32, 24
-  %34 = trunc i64 %33 to i8
-  store i8 %34, ptr %31, align 1
-  %35 = getelementptr inbounds i8, ptr %3, i64 7
-  store ptr %35, ptr %6, align 8
-  br label %55
+  br label %.sink.split.sink.split
 
-36:                                               ; preds = %5
-  %37 = getelementptr inbounds i8, ptr %4, i64 16
-  %38 = load i64, ptr %37, align 8
-  br label %39
+30:                                               ; preds = %5
+  %31 = getelementptr inbounds i8, ptr %4, i64 16
+  %32 = load i64, ptr %31, align 8
+  br label %33
 
-39:                                               ; preds = %36, %39
-  %.04856 = phi ptr [ %17, %36 ], [ %41, %39 ]
-  %.05055 = phi i64 [ 0, %36 ], [ %42, %39 ]
-  %.05254 = phi i64 [ %38, %36 ], [ %43, %39 ]
-  %40 = trunc i64 %.05254 to i8
-  %41 = getelementptr inbounds i8, ptr %.04856, i64 1
-  store i8 %40, ptr %.04856, align 1
-  %42 = add nuw nsw i64 %.05055, 1
-  %43 = lshr i64 %.05254, 8
-  %exitcond.not = icmp eq i64 %42, 8
-  br i1 %exitcond.not, label %44, label %39
+33:                                               ; preds = %30, %33
+  %.04856 = phi ptr [ %17, %30 ], [ %35, %33 ]
+  %.05055 = phi i64 [ 0, %30 ], [ %36, %33 ]
+  %.05254 = phi i64 [ %32, %30 ], [ %37, %33 ]
+  %34 = trunc i64 %.05254 to i8
+  %35 = getelementptr inbounds i8, ptr %.04856, i64 1
+  store i8 %34, ptr %.04856, align 1
+  %36 = add nuw nsw i64 %.05055, 1
+  %37 = lshr i64 %.05254, 8
+  %exitcond.not = icmp eq i64 %36, 8
+  br i1 %exitcond.not, label %.sink.split, label %33
 
-44:                                               ; preds = %39
-  %45 = getelementptr inbounds i8, ptr %3, i64 11
-  store ptr %45, ptr %6, align 8
-  br label %55
+38:                                               ; preds = %5
+  %39 = getelementptr inbounds i8, ptr %4, i64 16
+  %40 = load i64, ptr %39, align 8
+  br label %.sink.split.sink.split
 
-46:                                               ; preds = %5
-  %47 = getelementptr inbounds i8, ptr %4, i64 16
-  %48 = load i64, ptr %47, align 8
-  %49 = trunc i64 %48 to i8
-  store i8 %49, ptr %17, align 1
-  %50 = getelementptr inbounds i8, ptr %3, i64 4
-  %51 = load i64, ptr %47, align 8
-  %52 = lshr i64 %51, 8
-  %53 = trunc i64 %52 to i8
-  store i8 %53, ptr %50, align 1
-  %54 = getelementptr inbounds i8, ptr %3, i64 5
-  store ptr %54, ptr %6, align 8
-  br label %55
+.sink.split.sink.split:                           ; preds = %38, %19
+  %.sink73 = phi i64 [ %29, %19 ], [ %40, %38 ]
+  %.sink72 = phi ptr [ %27, %19 ], [ %17, %38 ]
+  %.sink = phi i64 [ 6, %19 ], [ 4, %38 ]
+  %.sink70 = phi ptr [ %20, %19 ], [ %39, %38 ]
+  %.sink69 = phi i64 [ 24, %19 ], [ 8, %38 ]
+  %.sink64.ph = phi i64 [ 7, %19 ], [ 5, %38 ]
+  %41 = trunc i64 %.sink73 to i8
+  store i8 %41, ptr %.sink72, align 1
+  %42 = getelementptr inbounds i8, ptr %3, i64 %.sink
+  %43 = load i64, ptr %.sink70, align 8
+  %44 = lshr i64 %43, %.sink69
+  %45 = trunc i64 %44 to i8
+  store i8 %45, ptr %42, align 1
+  br label %.sink.split
 
-55:                                               ; preds = %5, %46, %44, %19
-  %56 = phi ptr [ %17, %5 ], [ %54, %46 ], [ %45, %44 ], [ %35, %19 ]
-  %57 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #6
-  switch i8 %57, label %94 [
-    i8 4, label %58
-    i8 8, label %75
-    i8 2, label %85
+.sink.split:                                      ; preds = %33, %.sink.split.sink.split
+  %.sink64 = phi i64 [ %.sink64.ph, %.sink.split.sink.split ], [ 11, %33 ]
+  %46 = getelementptr inbounds i8, ptr %3, i64 %.sink64
+  store ptr %46, ptr %6, align 8
+  br label %47
+
+47:                                               ; preds = %.sink.split, %5
+  %48 = phi ptr [ %17, %5 ], [ %46, %.sink.split ]
+  %49 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #6
+  switch i8 %49, label %78 [
+    i8 4, label %50
+    i8 8, label %61
+    i8 2, label %69
   ]
 
-58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %4, i64 24
-  %60 = load i64, ptr %59, align 8
-  %61 = trunc i64 %60 to i8
-  store i8 %61, ptr %56, align 1
-  %62 = getelementptr inbounds i8, ptr %56, i64 1
-  %63 = load i64, ptr %59, align 8
-  %64 = lshr i64 %63, 8
-  %65 = trunc i64 %64 to i8
-  store i8 %65, ptr %62, align 1
-  %66 = getelementptr inbounds i8, ptr %56, i64 2
-  %67 = load i64, ptr %59, align 8
-  %68 = lshr i64 %67, 16
-  %69 = trunc i64 %68 to i8
-  store i8 %69, ptr %66, align 1
-  %70 = getelementptr inbounds i8, ptr %56, i64 3
-  %71 = load i64, ptr %59, align 8
-  %72 = lshr i64 %71, 24
-  %73 = trunc i64 %72 to i8
-  store i8 %73, ptr %70, align 1
-  %74 = getelementptr inbounds i8, ptr %56, i64 4
-  store ptr %74, ptr %6, align 8
-  br label %94
+50:                                               ; preds = %47
+  %51 = getelementptr inbounds i8, ptr %4, i64 24
+  %52 = load i64, ptr %51, align 8
+  %53 = trunc i64 %52 to i8
+  store i8 %53, ptr %48, align 1
+  %54 = getelementptr inbounds i8, ptr %48, i64 1
+  %55 = load i64, ptr %51, align 8
+  %56 = lshr i64 %55, 8
+  %57 = trunc i64 %56 to i8
+  store i8 %57, ptr %54, align 1
+  %58 = getelementptr inbounds i8, ptr %48, i64 2
+  %59 = load i64, ptr %51, align 8
+  %60 = lshr i64 %59, 16
+  br label %.sink.split65.sink.split
 
-75:                                               ; preds = %55
-  %76 = getelementptr inbounds i8, ptr %4, i64 24
-  %77 = load i64, ptr %76, align 8
+61:                                               ; preds = %47
+  %62 = getelementptr inbounds i8, ptr %4, i64 24
+  %63 = load i64, ptr %62, align 8
+  br label %64
+
+64:                                               ; preds = %61, %64
+  %.059 = phi ptr [ %48, %61 ], [ %66, %64 ]
+  %.04558 = phi i64 [ 0, %61 ], [ %67, %64 ]
+  %.04757 = phi i64 [ %63, %61 ], [ %68, %64 ]
+  %65 = trunc i64 %.04757 to i8
+  %66 = getelementptr inbounds i8, ptr %.059, i64 1
+  store i8 %65, ptr %.059, align 1
+  %67 = add nuw nsw i64 %.04558, 1
+  %68 = lshr i64 %.04757, 8
+  %exitcond61.not = icmp eq i64 %67, 8
+  br i1 %exitcond61.not, label %.sink.split65, label %64
+
+69:                                               ; preds = %47
+  %70 = getelementptr inbounds i8, ptr %4, i64 24
+  %71 = load i64, ptr %70, align 8
+  br label %.sink.split65.sink.split
+
+.sink.split65.sink.split:                         ; preds = %69, %50
+  %.sink83 = phi i64 [ %60, %50 ], [ %71, %69 ]
+  %.sink82 = phi ptr [ %58, %50 ], [ %48, %69 ]
+  %.sink80 = phi i64 [ 3, %50 ], [ 1, %69 ]
+  %.sink79 = phi ptr [ %51, %50 ], [ %70, %69 ]
+  %.sink78 = phi i64 [ 24, %50 ], [ 8, %69 ]
+  %.sink66.ph = phi i64 [ 4, %50 ], [ 2, %69 ]
+  %72 = trunc i64 %.sink83 to i8
+  store i8 %72, ptr %.sink82, align 1
+  %73 = getelementptr inbounds i8, ptr %48, i64 %.sink80
+  %74 = load i64, ptr %.sink79, align 8
+  %75 = lshr i64 %74, %.sink78
+  %76 = trunc i64 %75 to i8
+  store i8 %76, ptr %73, align 1
+  br label %.sink.split65
+
+.sink.split65:                                    ; preds = %64, %.sink.split65.sink.split
+  %.sink66 = phi i64 [ %.sink66.ph, %.sink.split65.sink.split ], [ 8, %64 ]
+  %77 = getelementptr inbounds i8, ptr %48, i64 %.sink66
+  store ptr %77, ptr %6, align 8
   br label %78
 
-78:                                               ; preds = %75, %78
-  %.059 = phi ptr [ %56, %75 ], [ %80, %78 ]
-  %.04558 = phi i64 [ 0, %75 ], [ %81, %78 ]
-  %.04757 = phi i64 [ %77, %75 ], [ %82, %78 ]
-  %79 = trunc i64 %.04757 to i8
-  %80 = getelementptr inbounds i8, ptr %.059, i64 1
-  store i8 %79, ptr %.059, align 1
-  %81 = add nuw nsw i64 %.04558, 1
-  %82 = lshr i64 %.04757, 8
-  %exitcond61.not = icmp eq i64 %81, 8
-  br i1 %exitcond61.not, label %83, label %78
+78:                                               ; preds = %.sink.split65, %47
+  %79 = phi ptr [ %48, %47 ], [ %77, %.sink.split65 ]
+  %80 = getelementptr inbounds i8, ptr %4, i64 32
+  %81 = load i64, ptr %80, align 8
+  %82 = trunc i64 %81 to i8
+  store i8 %82, ptr %79, align 1
+  %83 = load ptr, ptr %6, align 8
+  %84 = getelementptr inbounds i8, ptr %83, i64 1
+  %85 = load i64, ptr %80, align 8
+  %86 = lshr i64 %85, 8
+  %87 = trunc i64 %86 to i8
+  store i8 %87, ptr %84, align 1
+  %88 = getelementptr inbounds i8, ptr %83, i64 2
+  store ptr %88, ptr %6, align 8
+  %89 = getelementptr inbounds i8, ptr %4, i64 40
+  %90 = load i64, ptr %89, align 8
+  call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %90) #6
+  %91 = load i8, ptr %14, align 8
+  %92 = trunc i8 %91 to i1
+  br i1 %92, label %.preheader, label %.loopexit
 
-83:                                               ; preds = %78
-  %84 = getelementptr inbounds i8, ptr %56, i64 8
-  store ptr %84, ptr %6, align 8
+.preheader:                                       ; preds = %78
+  %93 = getelementptr inbounds i8, ptr %4, i64 48
   br label %94
 
-85:                                               ; preds = %55
-  %86 = getelementptr inbounds i8, ptr %4, i64 24
-  %87 = load i64, ptr %86, align 8
-  %88 = trunc i64 %87 to i8
-  store i8 %88, ptr %56, align 1
-  %89 = getelementptr inbounds i8, ptr %56, i64 1
-  %90 = load i64, ptr %86, align 8
-  %91 = lshr i64 %90, 8
-  %92 = trunc i64 %91 to i8
-  store i8 %92, ptr %89, align 1
-  %93 = getelementptr inbounds i8, ptr %56, i64 2
-  store ptr %93, ptr %6, align 8
-  br label %94
-
-94:                                               ; preds = %55, %85, %83, %58
-  %95 = phi ptr [ %56, %55 ], [ %93, %85 ], [ %84, %83 ], [ %74, %58 ]
-  %96 = getelementptr inbounds i8, ptr %4, i64 32
+94:                                               ; preds = %.preheader, %94
+  %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %94 ]
+  %95 = add nsw i64 %indvars.iv, -1
+  %96 = getelementptr inbounds [12 x i64], ptr %93, i64 0, i64 %95
   %97 = load i64, ptr %96, align 8
-  %98 = trunc i64 %97 to i8
-  store i8 %98, ptr %95, align 1
-  %99 = load ptr, ptr %6, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 1
-  %101 = load i64, ptr %96, align 8
-  %102 = lshr i64 %101, 8
-  %103 = trunc i64 %102 to i8
-  store i8 %103, ptr %100, align 1
-  %104 = getelementptr inbounds i8, ptr %99, i64 2
-  store ptr %104, ptr %6, align 8
-  %105 = getelementptr inbounds i8, ptr %4, i64 40
-  %106 = load i64, ptr %105, align 8
-  call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %106) #6
-  %107 = load i8, ptr %14, align 8
-  %108 = trunc i8 %107 to i1
-  br i1 %108, label %.preheader, label %.loopexit
-
-.preheader:                                       ; preds = %94
-  %109 = getelementptr inbounds i8, ptr %4, i64 48
-  br label %110
-
-110:                                              ; preds = %.preheader, %110
-  %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %110 ]
-  %111 = add nsw i64 %indvars.iv, -1
-  %112 = getelementptr inbounds [12 x i64], ptr %109, i64 0, i64 %111
-  %113 = load i64, ptr %112, align 8
-  call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %113) #6
+  call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %97) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next, 13
-  br i1 %exitcond63.not, label %.loopexit, label %110
+  br i1 %exitcond63.not, label %.loopexit, label %94
 
-.loopexit:                                        ; preds = %110, %94
+.loopexit:                                        ; preds = %94, %78
   ret i32 0
 }
 

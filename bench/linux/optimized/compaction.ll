@@ -5017,11 +5017,7 @@ define internal noundef i32 @kcompactd(ptr noundef %0) #1 align 16 {
 
 94:                                               ; preds = %86
   %95 = icmp eq i64 %83, 0
-  br i1 %95, label %96, label %.thread29
-
-.thread29:                                        ; preds = %94
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #16
-  br label %.thread28
+  br i1 %95, label %96, label %.thread28.sink.split
 
 96:                                               ; preds = %94
   %97 = call i64 @schedule_timeout(i64 noundef %91) #16
@@ -5032,15 +5028,18 @@ define internal noundef i32 @kcompactd(ptr noundef %0) #1 align 16 {
 
 .thread31:                                        ; preds = %.lr.ph, %96, %79
   call void @finish_wait(ptr noundef %25, ptr noundef nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #16
-  br label %.thread28
+  br label %.thread28.sink.split
 
 101:                                              ; preds = %86
   call void @finish_wait(ptr noundef %25, ptr noundef nonnull %4) #16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #16
   br i1 %92, label %.thread28.thread, label %.thread28
 
-.thread28:                                        ; preds = %74, %70, %.thread31, %.thread29, %101
+.thread28.sink.split:                             ; preds = %94, %.thread31
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #16
+  br label %.thread28
+
+.thread28:                                        ; preds = %.thread28.sink.split, %74, %70, %101
   %.pr = load i8, ptr %24, align 8
   %102 = icmp eq i8 %.pr, 0
   br i1 %102, label %103, label %.thread28.thread

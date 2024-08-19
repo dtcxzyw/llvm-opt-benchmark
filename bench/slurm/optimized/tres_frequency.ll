@@ -54,12 +54,7 @@ define range(i32 -1, 1) i32 @tres_freq_verify_cmdline(ptr noundef %0) local_unna
   store ptr null, ptr %2, align 8
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %_valid_gpu_freq.exit.thread, label %20
-
-_valid_gpu_freq.exit.thread:                      ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %.loopexit23
+  br i1 %19, label %.loopexit23.sink.split, label %20
 
 20:                                               ; preds = %16
   %21 = call ptr @xstrdup(ptr noundef nonnull %17) #6
@@ -103,9 +98,7 @@ _valid_gpu_freq.exit.thread:                      ; preds = %16
 
 _valid_gpu_freq.exit.thread20:                    ; preds = %28, %26, %30
   call void @slurm_xfree(ptr noundef nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %.loopexit23
+  br label %.loopexit23.sink.split
 
 .loopexit:                                        ; preds = %.thread.i, %20
   call void @slurm_xfree(ptr noundef nonnull %3) #6
@@ -115,8 +108,13 @@ _valid_gpu_freq.exit.thread20:                    ; preds = %28, %26, %30
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %.loopexit23, label %.lr.ph, !llvm.loop !8
 
-.loopexit23:                                      ; preds = %.loopexit, %.lr.ph, %14, %10, %_valid_gpu_freq.exit.thread20, %_valid_gpu_freq.exit.thread
-  %.0 = phi i32 [ -1, %_valid_gpu_freq.exit.thread ], [ -1, %_valid_gpu_freq.exit.thread20 ], [ 0, %10 ], [ 0, %.loopexit ], [ -1, %.lr.ph ], [ -1, %14 ]
+.loopexit23.sink.split:                           ; preds = %16, %_valid_gpu_freq.exit.thread20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  br label %.loopexit23
+
+.loopexit23:                                      ; preds = %.loopexit, %.lr.ph, %14, %.loopexit23.sink.split, %10
+  %.0 = phi i32 [ 0, %10 ], [ -1, %.loopexit23.sink.split ], [ 0, %.loopexit ], [ -1, %.lr.ph ], [ -1, %14 ]
   call void @slurm_xfree(ptr noundef nonnull %5) #6
   br label %35
 

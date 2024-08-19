@@ -2266,9 +2266,9 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
   br label %346
 
 346:                                              ; preds = %314, %344
-  %storemerge = phi i32 [ %345, %344 ], [ -1, %314 ]
+  %.sink149 = phi i32 [ %345, %344 ], [ -1, %314 ]
   %.sink = phi ptr [ %306, %344 ], [ %227, %314 ]
-  store i32 %storemerge, ptr %10, align 4
+  store i32 %.sink149, ptr %10, align 4
   %347 = load i32, ptr %.sink, align 4
   store i32 %347, ptr %307, align 4
   %348 = load i32, ptr %308, align 4

@@ -4505,11 +4505,11 @@ do.end12.i:                                       ; preds = %for.body.i675
   %.lobit.i.i.i.i.i = ashr i32 %318, 31
   %retval.0.i.i.i.i.i = xor i32 %.lobit.i.i.i.i.i, %318
   switch i32 %retval.0.i.i.i.i.i, label %sw.epilog.i.i.i.i.i [
-    i32 0, label %cleanup44.thread.i
+    i32 0, label %if.then36
     i32 1, label %sw.bb3.i.i.i.i.i
     i32 2, label %sw.bb5.i.i.i.i.i
     i32 3, label %sw.bb7.i.i.i.i.i
-    i32 4, label %cleanup44.thread.i
+    i32 4, label %if.then36
   ]
 
 sw.bb3.i.i.i.i.i:                                 ; preds = %do.end12.i
@@ -4805,11 +4805,7 @@ sw.epilog.i.i.i.i.i:                              ; preds = %do.end12.i
 _ZN5boost13apply_visitorIN3ue212_GLOBAL__N_113OutfixBuilderERNS_7variantINS_5blankEJSt10unique_ptrINS1_8NGHolderESt14default_deleteIS7_EES6_INS1_7raw_dfaES8_ISB_EES6_INS1_11raw_som_dfaES8_ISE_EENS1_8MpvProtoEEEEEENT_11result_typeERKSK_OT0_.exit.i.i: ; preds = %sw.bb7.i.i.i.i.i, %sw.bb5.i.i.i.i.i, %_ZN5boost6detail7variant22visitation_impl_invokeINS1_14invoke_visitorIKN3ue212_GLOBAL__N_113OutfixBuilderELb0EEEPvSt10unique_ptrINS4_8NGHolderESt14default_deleteISB_EENS_7variantINS_5blankEJSE_SA_INS4_7raw_dfaESC_ISH_EESA_INS4_11raw_som_dfaESC_ISK_EENS4_8MpvProtoEEE18has_fallback_type_EEENT_11result_typeEiRSQ_T0_PT1_T2_i.exit.i.i.i.i
   %.pr.i.i = load ptr, ptr %n.i, align 8
   %cmp.i.i.i.not.i.i = icmp eq ptr %.pr.i.i, null
-  br i1 %cmp.i.i.i.not.i.i, label %cleanup44.thread90.i, label %land.lhs.true.i.i
-
-cleanup44.thread90.i:                             ; preds = %_ZN5boost13apply_visitorIN3ue212_GLOBAL__N_113OutfixBuilderERNS_7variantINS_5blankEJSt10unique_ptrINS1_8NGHolderESt14default_deleteIS7_EES6_INS1_7raw_dfaES8_ISB_EES6_INS1_11raw_som_dfaES8_ISE_EENS1_8MpvProtoEEEEEENT_11result_typeERKSK_OT0_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %n.i) #26
-  br label %if.then36
+  br i1 %cmp.i.i.i.not.i.i, label %if.then36, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %_ZN5boost13apply_visitorIN3ue212_GLOBAL__N_113OutfixBuilderERNS_7variantINS_5blankEJSt10unique_ptrINS1_8NGHolderESt14default_deleteIS7_EES6_INS1_7raw_dfaES8_ISB_EES6_INS1_11raw_som_dfaES8_ISE_EENS1_8MpvProtoEEEEEENT_11result_typeERKSK_OT0_.exit.i.i
   %366 = load ptr, ptr %cc, align 8, !noalias !67
@@ -4855,7 +4851,7 @@ lpad.i.i687:                                      ; preds = %lpad.i.loopexit.spl
 _ZN3ue2L11buildOutfixERKNS_13RoseBuildImplERNS_10OutfixInfoE.exit.i: ; preds = %invoke.cont.i.i690
   %.pr.pre.i = load ptr, ptr %n.i, align 8
   %cmp.i.i.i74.not.not.i = icmp eq ptr %.pr.pre.i, null
-  br i1 %cmp.i.i.i74.not.not.i, label %cleanup44.thread.i, label %if.end15.i
+  br i1 %cmp.i.i.i74.not.not.i, label %if.then36, label %if.end15.i
 
 if.end15.i:                                       ; preds = %_ZN3ue2L11buildOutfixERKNS_13RoseBuildImplERNS_10OutfixInfoE.exit.i, %land.lhs.true.i.i
   %369 = phi ptr [ %.pr.pre.i, %_ZN3ue2L11buildOutfixERKNS_13RoseBuildImplERNS_10OutfixInfoE.exit.i ], [ %.pr.i.i, %land.lhs.true.i.i ]
@@ -4960,10 +4956,6 @@ call.i.i.noexc.i702:                              ; preds = %if.end39.i
   %call.i.i.i80.i = invoke { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJRjSH_EEES0_INS4_14_Node_iteratorIS2_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %engineOffsets.i, ptr noundef nonnull align 4 dereferenceable(4) %qi.i.i657, ptr noundef nonnull align 4 dereferenceable(4) %nfa_offset.i.i658)
           to label %cleanup.i703 unwind label %lpad17.i
 
-cleanup44.thread.i:                               ; preds = %_ZN3ue2L11buildOutfixERKNS_13RoseBuildImplERNS_10OutfixInfoE.exit.i, %do.end12.i, %do.end12.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %n.i) #26
-  br label %if.then36
-
 cleanup.i703:                                     ; preds = %call.i.i.noexc.i702
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nfa_offset.i.i658) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %qi.i.i657) #26
@@ -4997,7 +4989,8 @@ ehcleanup.i694:                                   ; preds = %lpad29.i698, %lpad1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %n.i) #26
   br label %ehcleanup445
 
-if.then36:                                        ; preds = %cleanup44.thread.i, %cleanup44.thread90.i
+if.then36:                                        ; preds = %do.end12.i, %do.end12.i, %_ZN3ue2L11buildOutfixERKNS_13RoseBuildImplERNS_10OutfixInfoE.exit.i, %_ZN5boost13apply_visitorIN3ue212_GLOBAL__N_113OutfixBuilderERNS_7variantINS_5blankEJSt10unique_ptrINS1_8NGHolderESt14default_deleteIS7_EES6_INS1_7raw_dfaES8_ISB_EES6_INS1_11raw_som_dfaES8_ISE_EENS1_8MpvProtoEEEEEENT_11result_typeERKSK_OT0_.exit.i.i
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %n.i) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   br label %cleanup442
 
@@ -12461,12 +12454,7 @@ if.end22.i.i.i.i:                                 ; preds = %if.else.i.i.i.i1536
   %1183 = load i64, ptr %_M_len.i27.i.i.i.i, align 8
   %add.ptr.i.i.i101.i.i = getelementptr inbounds %"struct.ue2::LitFragment", ptr %1182, i64 %1183
   %cmp.not3.i.i.i.i.i.i.i1537 = icmp eq i64 %1183, 0
-  br i1 %cmp.not3.i.i.i.i.i.i.i1537, label %invoke.cont8.thread137.i.i, label %for.body.i.i.i.i.i.i.i1538
-
-invoke.cont8.thread137.i.i:                       ; preds = %if.end22.i.i.i.i
-  call void @_ZdlPv(ptr noundef %1182) #26
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %__buf.i.i.i.i) #26
-  br label %for.body.lr.ph.i.i1544
+  br i1 %cmp.not3.i.i.i.i.i.i.i1537, label %for.body.lr.ph.i.i1544, label %for.body.i.i.i.i.i.i.i1538
 
 for.body.i.i.i.i.i.i.i1538:                       ; preds = %if.end22.i.i.i.i, %_ZSt8_DestroyIN3ue211LitFragmentEEvPT_.exit.i.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i1539 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i1541, %_ZSt8_DestroyIN3ue211LitFragmentEEvPT_.exit.i.i.i.i.i.i.i ], [ %1182, %if.end22.i.i.i.i ]
@@ -12514,11 +12502,12 @@ _ZSt8_DestroyIN3ue211LitFragmentEEvPT_.exit.i.i.i.i.i.i.i: ; preds = %if.then.i.
 
 invoke.cont8.i.i1542:                             ; preds = %_ZSt8_DestroyIN3ue211LitFragmentEEvPT_.exit.i.i.i.i.i.i.i
   %.pre.i.i.i.i.i1543 = load ptr, ptr %_M_buffer.i.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %.pre.i.i.i.i.i1543) #26
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %__buf.i.i.i.i) #26
   br label %for.body.lr.ph.i.i1544
 
-for.body.lr.ph.i.i1544:                           ; preds = %invoke.cont8.i.i1542, %invoke.cont8.thread137.i.i
+for.body.lr.ph.i.i1544:                           ; preds = %if.end22.i.i.i.i, %invoke.cont8.i.i1542
+  %.pre.i.i.i.i.i1543.sink = phi ptr [ %.pre.i.i.i.i.i1543, %invoke.cont8.i.i1542 ], [ %1182, %if.end22.i.i.i.i ]
+  call void @_ZdlPv(ptr noundef %.pre.i.i.i.i.i1543.sink) #26
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %__buf.i.i.i.i) #26
   %_M_finish.i.i.i.i.i.i.i1545 = getelementptr inbounds i8, ptr %lit_edge_map.i1486, i64 8
   %engine_info_by_queue.i.i.i.i = getelementptr inbounds i8, ptr %bc, i64 96
   %_M_finish.i.i.i108.i.i = getelementptr inbounds i8, ptr %blocks.i.i.i, i64 8
@@ -14589,13 +14578,7 @@ if.end.i.i.i2049:                                 ; preds = %invoke.cont138
 call.i.i.i.i.noexc:                               ; preds = %if.end.i.i.i2049
   %b.sroa.0.018.i.i.i2050 = getelementptr inbounds i8, ptr %leftInfoTable.sroa.0.0, i64 32
   %cmp.i10.not19.i.i.i2051 = icmp eq ptr %b.sroa.0.018.i.i.i2050, %leftInfoTable.sroa.13.0
-  br i1 %cmp.i10.not19.i.i.i2051, label %_ZN3ue214RoseEngineBlob9add_rangeISt6vectorI11LeftNfaInfoSaIS3_EEEEjRKT_.exit.i.thread1279, label %for.body.i.i.i2052
-
-_ZN3ue214RoseEngineBlob9add_rangeISt6vectorI11LeftNfaInfoSaIS3_EEEEjRKT_.exit.i.thread1279: ; preds = %call.i.i.i.i.noexc
-  %leftOffset.i1281 = getelementptr inbounds i8, ptr %proto, i64 176
-  store i32 %call.i.i.i.i2134, ptr %leftOffset.i1281, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %keys.i.i) #26
-  br label %for.body.lr.ph.i.i2057
+  br i1 %cmp.i10.not19.i.i.i2051, label %for.body.lr.ph.i.i2057, label %for.body.i.i.i2052
 
 for.body.i.i.i2052:                               ; preds = %call.i.i.i.i.noexc, %call.i11.i.i.i.noexc
   %b.sroa.0.020.i.i.i2053 = phi ptr [ %b.sroa.0.0.i.i.i2054, %call.i11.i.i.i.noexc ], [ %b.sroa.0.018.i.i.i2050, %call.i.i.i.i.noexc ]
@@ -14605,15 +14588,12 @@ for.body.i.i.i2052:                               ; preds = %call.i.i.i.i.noexc,
 call.i11.i.i.i.noexc:                             ; preds = %for.body.i.i.i2052
   %b.sroa.0.0.i.i.i2054 = getelementptr inbounds i8, ptr %b.sroa.0.020.i.i.i2053, i64 32
   %cmp.i10.not.i.i.i2055 = icmp eq ptr %b.sroa.0.0.i.i.i2054, %leftInfoTable.sroa.13.0
-  br i1 %cmp.i10.not.i.i.i2055, label %_ZN3ue214RoseEngineBlob9add_rangeISt6vectorI11LeftNfaInfoSaIS3_EEEEjRKT_.exit.i, label %for.body.i.i.i2052, !llvm.loop !238
+  br i1 %cmp.i10.not.i.i.i2055, label %for.body.lr.ph.i.i2057, label %for.body.i.i.i2052, !llvm.loop !238
 
-_ZN3ue214RoseEngineBlob9add_rangeISt6vectorI11LeftNfaInfoSaIS3_EEEEjRKT_.exit.i: ; preds = %call.i11.i.i.i.noexc
+for.body.lr.ph.i.i2057:                           ; preds = %call.i11.i.i.i.noexc, %call.i.i.i.i.noexc
   %leftOffset.i = getelementptr inbounds i8, ptr %proto, i64 176
   store i32 %call.i.i.i.i2134, ptr %leftOffset.i, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %keys.i.i) #26
-  br label %for.body.lr.ph.i.i2057
-
-for.body.lr.ph.i.i2057:                           ; preds = %_ZN3ue214RoseEngineBlob9add_rangeISt6vectorI11LeftNfaInfoSaIS3_EEEEjRKT_.exit.i, %_ZN3ue214RoseEngineBlob9add_rangeISt6vectorI11LeftNfaInfoSaIS3_EEEEjRKT_.exit.i.thread1279
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %keys.i.i, i8 0, i64 24, i1 false)
   %_M_finish.i58.i.i = getelementptr inbounds i8, ptr %keys.i.i, i64 8
   %_M_end_of_storage.i.i.i2058 = getelementptr inbounds i8, ptr %keys.i.i, i64 16

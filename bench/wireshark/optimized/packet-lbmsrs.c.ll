@@ -1392,11 +1392,11 @@ define internal fastcc noundef i32 @dissect_lbmsrs_data(ptr noundef %0, ptr noun
   %20 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   %21 = sub i32 %20, %3
   %22 = icmp ult i32 %21, 2
-  br i1 %22, label %848, label %23
+  br i1 %22, label %849, label %23
 
 23:                                               ; preds = %5
   %24 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %3, i32 noundef 0) #6
-  switch i16 %24, label %845 [
+  switch i16 %24, label %846 [
     i16 1, label %25
     i16 2, label %57
     i16 3, label %74
@@ -1453,7 +1453,7 @@ define internal fastcc noundef i32 @dissect_lbmsrs_data(ptr noundef %0, ptr noun
 dissect_lbmsrs_registration_request.exit:         ; preds = %25, %28
   %.0.i = phi i32 [ 23, %28 ], [ 2, %25 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
-  br label %848
+  br label %849
 
 57:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
@@ -1482,7 +1482,7 @@ dissect_lbmsrs_registration_request.exit:         ; preds = %25, %28
 dissect_lbmsrs_registration_response.exit:        ; preds = %57, %60
   %.0.i32 = phi i32 [ 15, %60 ], [ 2, %57 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
-  br label %848
+  br label %849
 
 74:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
@@ -1505,7 +1505,7 @@ dissect_lbmsrs_registration_response.exit:        ; preds = %57, %60
 dissect_lbmsrs_stream_request.exit:               ; preds = %74, %77
   %.0.i34 = phi i32 [ 3, %77 ], [ 2, %74 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
-  br label %848
+  br label %849
 
 85:                                               ; preds = %23, %23, %23, %23, %23, %23, %23, %23, %23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
@@ -2760,19 +2760,19 @@ dissect_lbmsrs_sli.exit.i:                        ; preds = %832, %830, %822, %8
 
 dissect_lbmsrs_batch.exit:                        ; preds = %97, %.thread.i, %._crit_edge.i
   %.061.lcssa.sink.i = phi i32 [ %.061.lcssa.i, %._crit_edge.i ], [ %.061236.i, %.thread.i ], [ %.061236.i, %97 ]
-  %.sink.i = load ptr, ptr %16, align 8
-  %844 = sub i32 %.061.lcssa.sink.i, %3
-  call void @proto_item_set_len(ptr noundef %.sink.i, i32 noundef %844) #6
+  %844 = load ptr, ptr %16, align 8
+  %845 = sub i32 %.061.lcssa.sink.i, %3
+  call void @proto_item_set_len(ptr noundef %844, i32 noundef %845) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  br label %848
+  br label %849
 
-845:                                              ; preds = %23
-  %846 = zext i16 %24 to i32
-  %847 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_lbmsrs_analysis_invalid_msg_id, ptr noundef nonnull @.str.272, i32 noundef %846) #6
-  br label %848
+846:                                              ; preds = %23
+  %847 = zext i16 %24 to i32
+  %848 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_lbmsrs_analysis_invalid_msg_id, ptr noundef nonnull @.str.272, i32 noundef %847) #6
+  br label %849
 
-848:                                              ; preds = %dissect_lbmsrs_registration_request.exit, %dissect_lbmsrs_registration_response.exit, %dissect_lbmsrs_stream_request.exit, %dissect_lbmsrs_batch.exit, %845, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %845 ], [ %844, %dissect_lbmsrs_batch.exit ], [ %.0.i34, %dissect_lbmsrs_stream_request.exit ], [ %.0.i32, %dissect_lbmsrs_registration_response.exit ], [ %.0.i, %dissect_lbmsrs_registration_request.exit ]
+849:                                              ; preds = %dissect_lbmsrs_registration_request.exit, %dissect_lbmsrs_registration_response.exit, %dissect_lbmsrs_stream_request.exit, %dissect_lbmsrs_batch.exit, %846, %5
+  %.0 = phi i32 [ 0, %5 ], [ 0, %846 ], [ %845, %dissect_lbmsrs_batch.exit ], [ %.0.i34, %dissect_lbmsrs_stream_request.exit ], [ %.0.i32, %dissect_lbmsrs_registration_response.exit ], [ %.0.i, %dissect_lbmsrs_registration_request.exit ]
   ret i32 %.0
 }
 

@@ -9373,7 +9373,7 @@ _ZNSt6vectorIN4ofbx4Vec2ESaIS1_EE9push_backERKS1_.exit.i.i.i: ; preds = %_ZNSt6v
 
 _ZN4ofbxL14parseTextArrayINS_4Vec2EEEvRKNS_8PropertyEPSt6vectorIT_SaIS6_EE.exit.i.i: ; preds = %_ZNSt6vectorIN4ofbx4Vec2ESaIS1_EE9push_backERKS1_.exit.i.i.i, %664
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread398.i
+  br label %.sink.split.i
 
 715:                                              ; preds = %.thread31.i.i
   %716 = getelementptr inbounds i8, ptr %660, i64 12
@@ -9390,7 +9390,7 @@ _ZN4ofbxL14parseTextArrayINS_4Vec2EEEvRKNS_8PropertyEPSt6vectorIT_SaIS6_EE.exit.
 
 .noexc240.i:                                      ; preds = %719
   %724 = load i8, ptr %716, align 4
-  switch i8 %724, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread395.i [
+  switch i8 %724, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.sink.split.i [
     i8 100, label %727
     i8 102, label %725
     i8 105, label %726
@@ -9437,7 +9437,7 @@ _ZN4ofbxL14parseTextArrayINS_4Vec2EEEvRKNS_8PropertyEPSt6vectorIT_SaIS6_EE.exit.
 
 _ZNSt6vectorIN4ofbx4Vec2ESaIS1_EE6resizeEm.exit.i.i.i.i: ; preds = %744, %742, %740, %738
   %745 = icmp eq i32 %723, 0
-  br i1 %745, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread398.i, label %746
+  br i1 %745, label %.sink.split.i, label %746
 
 746:                                              ; preds = %_ZNSt6vectorIN4ofbx4Vec2ESaIS1_EE6resizeEm.exit.i.i.i.i
   %747 = load ptr, ptr %14, align 8
@@ -9456,13 +9456,13 @@ _ZNSt6vectorIN4ofbx4Vec2ESaIS1_EE6resizeEm.exit.i.i.i.i: ; preds = %744, %742, %
   %758 = load i8, ptr %716, align 4
   %switch.tableidx = add i8 %758, -100
   %759 = icmp ult i8 %switch.tableidx, 9
-  br i1 %759, label %switch.hole_check, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread395.i
+  br i1 %759, label %switch.hole_check, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.sink.split.i
 
 switch.hole_check:                                ; preds = %757
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
   %switch.shifted = lshr i16 293, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread395.i
+  br i1 %switch.lobit, label %switch.lookup, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.sink.split.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %760 = zext nneg i8 %switch.tableidx to i64
@@ -9473,7 +9473,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %763 = getelementptr inbounds i8, ptr %660, i64 24
   %764 = load ptr, ptr %763, align 8
   %765 = icmp ugt ptr %762, %764
-  br i1 %765, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread395.i, label %766
+  br i1 %765, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.sink.split.i, label %766
 
 766:                                              ; preds = %switch.lookup
   %767 = load ptr, ptr %660, align 8
@@ -9488,30 +9488,30 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %773 = load i32, ptr %772, align 4
   %774 = getelementptr inbounds i8, ptr %771, i64 8
   %775 = load i32, ptr %774, align 4
-  switch i32 %773, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread395.i [
+  switch i32 %773, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.sink.split.i [
     i32 0, label %776
     i32 1, label %784
   ]
 
 776:                                              ; preds = %.noexc242.i
   %777 = icmp sgt i32 %775, %753
-  br i1 %777, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread395.i, label %778
+  br i1 %777, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.sink.split.i, label %778
 
 778:                                              ; preds = %776
   %779 = zext i32 %775 to i64
   %780 = getelementptr inbounds i8, ptr %762, i64 %779
   %781 = load ptr, ptr %763, align 8
   %782 = icmp ugt ptr %780, %781
-  br i1 %782, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread395.i, label %783
+  br i1 %782, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.sink.split.i, label %783
 
 783:                                              ; preds = %778
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %747, ptr nonnull align 1 %762, i64 %779, i1 false)
-  br label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread398.i
+  br label %.sink.split.i
 
 784:                                              ; preds = %.noexc242.i
   %785 = mul i32 %770, %switch.load
   %786 = icmp sgt i32 %785, %753
-  br i1 %786, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread395.i, label %787
+  br i1 %786, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.sink.split.i, label %787
 
 787:                                              ; preds = %784
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %7)
@@ -9533,8 +9533,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 _ZN4ofbxL10decompressEPKhmPhm.exit.i.i.i.i.thread.i: ; preds = %.noexc244.i
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  br label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.i
+  br label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.sink.split.i
 
 790:                                              ; preds = %.noexc244.i
   %791 = invoke i32 @mz_inflateEnd(ptr noundef nonnull %7)
@@ -9617,7 +9616,7 @@ _ZN4ofbx10fromStringINS_4Vec2EEEPKcS3_S3_PT_.exit.i.i.i.i.i.i: ; preds = %.crite
   %815 = sub i64 %814, %750
   %816 = ashr exact i64 %815, 4
   %817 = icmp eq i64 %816, %797
-  br i1 %817, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread398.i, label %798, !llvm.loop !188
+  br i1 %817, label %.sink.split.i, label %798, !llvm.loop !188
 
 818:                                              ; preds = %798
   %819 = ptrtoint ptr %.0.i34.i.i.i.i.i to i64
@@ -9718,53 +9717,34 @@ _ZNSt6vectorIN4ofbx4Vec2ESaIS1_EE6resizeEm.exit.i.i.i: ; preds = %850, %848, %84
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i157.i.i
   %.pre28.i.i.i = load ptr, ptr %8, align 8
   %.not.i.i.i20.i.i.i = icmp eq ptr %.pre28.i.i.i, null
-  br i1 %.not.i.i.i20.i.i.i, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.i, label %861
+  br i1 %.not.i.i.i20.i.i.i, label %.sink.split.i, label %861
 
 .loopexit.i.i.thread403.i:                        ; preds = %_ZNSt6vectorIN4ofbx4Vec2ESaIS1_EE6resizeEm.exit.i.i.i
   %.not.i.i.i20.i.i404.i = icmp eq ptr %851, null
-  br i1 %.not.i.i.i20.i.i404.i, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread406.i, label %.thread405.i
-
-_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread406.i: ; preds = %.loopexit.i.i.thread403.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  br label %866
+  br i1 %.not.i.i.i20.i.i404.i, label %.sink.split.i, label %.thread405.i
 
 .thread405.i:                                     ; preds = %.loopexit.i.i.thread403.i
   call void @_ZdlPv(ptr noundef nonnull %851) #33
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  br label %866
+  br label %.sink.split.i
 
 .loopexit.i.i.thread.i:                           ; preds = %825
   %.not.i.i.i20.i.i402.i = icmp eq ptr %.pre29.i.i.i, null
-  br i1 %.not.i.i.i20.i.i402.i, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread408.i, label %.thread.i
-
-_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread408.i: ; preds = %.loopexit.i.i.thread.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  br label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.i
+  br i1 %.not.i.i.i20.i.i402.i, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.sink.split.i, label %.thread.i
 
 .thread.i:                                        ; preds = %.loopexit.i.i.thread.i
   call void @_ZdlPv(ptr noundef nonnull %.pre29.i.i.i) #33
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  br label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.i
+  br label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.sink.split.i
 
 861:                                              ; preds = %.loopexit.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %.pre28.i.i.i) #33
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  br label %866
+  br label %.sink.split.i
 
-_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread395.i: ; preds = %switch.hole_check, %757, %784, %778, %776, %.noexc242.i, %switch.lookup, %.noexc240.i
+_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.sink.split.i: ; preds = %switch.hole_check, %757, %.thread.i, %.loopexit.i.i.thread.i, %_ZN4ofbxL10decompressEPKhmPhm.exit.i.i.i.i.thread.i, %784, %778, %776, %.noexc242.i, %switch.lookup, %.noexc240.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.i
 
-_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread398.i: ; preds = %_ZN4ofbx10fromStringINS_4Vec2EEEPKcS3_S3_PT_.exit.i.i.i.i.i.i, %783, %_ZNSt6vectorIN4ofbx4Vec2ESaIS1_EE6resizeEm.exit.i.i.i.i, %_ZN4ofbxL14parseTextArrayINS_4Vec2EEEvRKNS_8PropertyEPSt6vectorIT_SaIS6_EE.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  br label %866
-
-_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.i: ; preds = %.loopexit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  br label %866
-
-_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.i: ; preds = %_ZNK4ofbx8DataVieweqEPKc.exit.thread.i.i.i, %.lr.ph.i105.i.i, %.lr.ph.i.i149.i.i, %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread395.i, %.thread.i, %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread408.i, %818, %_ZN4ofbxL10decompressEPKhmPhm.exit.i.i.i.i.i, %_ZN4ofbxL10decompressEPKhmPhm.exit.i.i.i.i.thread.i, %_ZNK4ofbx8DataViewneEPKc.exit.i.i, %.noexc237.i, %625, %_ZNK4ofbx8DataVieweqEPKc.exit117.i.i, %593, %_ZN4ofbxL9findChildERKNS_7ElementEPKc.exit.i.i, %_ZNK4ofbx8DataView5toIntEv.exit.thread.i
-  %.3391.i = phi i32 [ %.2.i, %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread395.i ], [ %.2.i, %_ZN4ofbxL10decompressEPKhmPhm.exit.i.i.i.i.i ], [ %.2.i, %818 ], [ %.2.i, %_ZN4ofbxL10decompressEPKhmPhm.exit.i.i.i.i.thread.i ], [ %.2.i, %.thread.i ], [ %.0481.i, %_ZNK4ofbx8DataVieweqEPKc.exit117.i.i ], [ %.0481.i, %593 ], [ %.2.i, %_ZNK4ofbx8DataViewneEPKc.exit.i.i ], [ %.2.i, %.noexc237.i ], [ %.2.i, %625 ], [ %.0481.i, %_ZN4ofbxL9findChildERKNS_7ElementEPKc.exit.i.i ], [ %.0481.i, %_ZNK4ofbx8DataView5toIntEv.exit.thread.i ], [ %.2.i, %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread408.i ], [ %.2.i, %.lr.ph.i.i149.i.i ], [ %.0481.i, %.lr.ph.i105.i.i ], [ %.0481.i, %_ZNK4ofbx8DataVieweqEPKc.exit.thread.i.i.i ]
+_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.i: ; preds = %_ZNK4ofbx8DataVieweqEPKc.exit.thread.i.i.i, %.lr.ph.i105.i.i, %.lr.ph.i.i149.i.i, %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.sink.split.i, %818, %_ZN4ofbxL10decompressEPKhmPhm.exit.i.i.i.i.i, %_ZNK4ofbx8DataViewneEPKc.exit.i.i, %.noexc237.i, %625, %_ZNK4ofbx8DataVieweqEPKc.exit117.i.i, %593, %_ZN4ofbxL9findChildERKNS_7ElementEPKc.exit.i.i, %_ZNK4ofbx8DataView5toIntEv.exit.thread.i
+  %.3391.i = phi i32 [ %.2.i, %_ZN4ofbxL10decompressEPKhmPhm.exit.i.i.i.i.i ], [ %.2.i, %818 ], [ %.0481.i, %_ZNK4ofbx8DataVieweqEPKc.exit117.i.i ], [ %.0481.i, %593 ], [ %.2.i, %_ZNK4ofbx8DataViewneEPKc.exit.i.i ], [ %.2.i, %.noexc237.i ], [ %.2.i, %625 ], [ %.0481.i, %_ZN4ofbxL9findChildERKNS_7ElementEPKc.exit.i.i ], [ %.0481.i, %_ZNK4ofbx8DataView5toIntEv.exit.thread.i ], [ %.2.i, %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.sink.split.i ], [ %.2.i, %.lr.ph.i.i149.i.i ], [ %.0481.i, %.lr.ph.i105.i.i ], [ %.0481.i, %_ZNK4ofbx8DataVieweqEPKc.exit.thread.i.i.i ]
   store ptr @.str.78, ptr @_ZN4ofbx5Error9s_messageE, align 8
   br label %_ZN4ofbxL5remapINS_4Vec2EEEvPSt6vectorIT_SaIS3_EERKS2_IiSaIiEE.exit.i
 
@@ -9802,7 +9782,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit247.i:               ; preds = %863, %.body.i
   call void @_ZdlPv(ptr noundef nonnull %864) #33
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit.i
 
-866:                                              ; preds = %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.i, %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread398.i, %861, %.thread405.i, %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread406.i, %818, %_ZN4ofbxL10decompressEPKhmPhm.exit.i.i.i.i.i
+.sink.split.i:                                    ; preds = %_ZN4ofbx10fromStringINS_4Vec2EEEPKcS3_S3_PT_.exit.i.i.i.i.i.i, %861, %.thread405.i, %.loopexit.i.i.thread403.i, %.loopexit.i.i.i, %783, %_ZNSt6vectorIN4ofbx4Vec2ESaIS1_EE6resizeEm.exit.i.i.i.i, %_ZN4ofbxL14parseTextArrayINS_4Vec2EEEvRKNS_8PropertyEPSt6vectorIT_SaIS6_EE.exit.i.i
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  br label %866
+
+866:                                              ; preds = %.sink.split.i, %818, %_ZN4ofbxL10decompressEPKhmPhm.exit.i.i.i.i.i
   %867 = load ptr, ptr %14, align 8
   %868 = load ptr, ptr %163, align 8
   %869 = icmp eq ptr %867, %868

@@ -7315,7 +7315,7 @@ define hidden void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_termina
 .body:                                            ; preds = %.loopexit58, %.loopexit.split-lp, %40, %45, %75
   %eh.lpad-body = phi { ptr, i32 } [ %72, %75 ], [ %46, %45 ], [ %41, %40 ], [ %lpad.loopexit, %.loopexit58 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..data..Variant$C$syn..token..Comma$GT$$GT$17hc2ea940cb4411119E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #30
-          to label %common.resume unwind label %100
+          to label %common.resume unwind label %99
 
 24:                                               ; preds = %.lr.ph, %78
   call void @llvm.lifetime.start.p0(i64 296, ptr nonnull %13)
@@ -7572,20 +7572,16 @@ common.resume:                                    ; preds = %.body, %87, %93
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #29
   unreachable
 
-"_ZN4core3ptr94drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..data..Variant$C$syn..token..Comma$GT$$GT$17hc2ea940cb4411119E.exit": ; preds = %89, %"_ZN4core3ptr64drop_in_place$LT$alloc..boxed..Box$LT$syn..data..Variant$GT$$GT$17hd6f47979fd257d42E.llvm.8351105841907204142.exit.i.i"
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
-  br label %99
-
 .loopexit:                                        ; preds = %78, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
-  br label %99
+  br label %"_ZN4core3ptr94drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..data..Variant$C$syn..token..Comma$GT$$GT$17hc2ea940cb4411119E.exit"
 
-99:                                               ; preds = %.loopexit, %"_ZN4core3ptr94drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..data..Variant$C$syn..token..Comma$GT$$GT$17hc2ea940cb4411119E.exit"
+"_ZN4core3ptr94drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..data..Variant$C$syn..token..Comma$GT$$GT$17hc2ea940cb4411119E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$alloc..boxed..Box$LT$syn..data..Variant$GT$$GT$17hd6f47979fd257d42E.llvm.8351105841907204142.exit.i.i", %89, %.loopexit
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   ret void
 
-100:                                              ; preds = %.body
-  %101 = landingpad { ptr, i32 }
+99:                                               ; preds = %.body
+  %100 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #29
   unreachable
@@ -7856,15 +7852,14 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %55
 86:                                               ; preds = %76, %49
   store i64 -9223372036854775808, ptr %0, align 8
   call void @"_ZN4core3ptr91drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..expr..Expr$C$syn..token..Comma$GT$$GT$17h4da9d666b0fd7f52E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   br label %87
 
 .loopexit:                                        ; preds = %78, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   br label %87
 
 87:                                               ; preds = %.loopexit, %86
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   ret void
 
 88:                                               ; preds = %.body
@@ -7929,7 +7924,7 @@ define hidden void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_termina
 .body:                                            ; preds = %.loopexit58, %.loopexit.split-lp, %40, %45, %75
   %eh.lpad-body = phi { ptr, i32 } [ %72, %75 ], [ %46, %45 ], [ %41, %40 ], [ %lpad.loopexit, %.loopexit58 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr92drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..data..Field$C$syn..token..Comma$GT$$GT$17hb9f35fa70a4a01fdE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #30
-          to label %common.resume unwind label %100
+          to label %common.resume unwind label %99
 
 24:                                               ; preds = %.lr.ph, %78
   call void @llvm.lifetime.start.p0(i64 328, ptr nonnull %13)
@@ -8186,20 +8181,16 @@ common.resume:                                    ; preds = %.body, %87, %93
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #29
   unreachable
 
-"_ZN4core3ptr92drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..data..Field$C$syn..token..Comma$GT$$GT$17hb9f35fa70a4a01fdE.exit": ; preds = %89, %"_ZN4core3ptr62drop_in_place$LT$alloc..boxed..Box$LT$syn..data..Field$GT$$GT$17hf57936b74d44e390E.llvm.8351105841907204142.exit.i.i"
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
-  br label %99
-
 .loopexit:                                        ; preds = %78, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
-  br label %99
+  br label %"_ZN4core3ptr92drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..data..Field$C$syn..token..Comma$GT$$GT$17hb9f35fa70a4a01fdE.exit"
 
-99:                                               ; preds = %.loopexit, %"_ZN4core3ptr92drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..data..Field$C$syn..token..Comma$GT$$GT$17hb9f35fa70a4a01fdE.exit"
+"_ZN4core3ptr92drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..data..Field$C$syn..token..Comma$GT$$GT$17hb9f35fa70a4a01fdE.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$alloc..boxed..Box$LT$syn..data..Field$GT$$GT$17hf57936b74d44e390E.llvm.8351105841907204142.exit.i.i", %89, %.loopexit
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   ret void
 
-100:                                              ; preds = %.body
-  %101 = landingpad { ptr, i32 }
+99:                                               ; preds = %.body
+  %100 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #29
   unreachable
@@ -8333,15 +8324,14 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %31
 42:                                               ; preds = %36, %25
   store i64 -9223372036854775808, ptr %0, align 8
   call void @"_ZN4core3ptr89drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..ty..Type$C$syn..token..Comma$GT$$GT$17h288222ff3b3f23fcE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   br label %43
 
 .loopexit:                                        ; preds = %38, %27, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   br label %43
 
 43:                                               ; preds = %.loopexit, %42
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   ret void
 
 44:                                               ; preds = %18

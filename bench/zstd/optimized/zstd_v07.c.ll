@@ -6742,10 +6742,7 @@ if.then4.i.i:                                     ; preds = %if.end.i161.i
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %82, i64 %idx.neg.i.i
   store ptr %add.ptr7.i.i, ptr %ptr.i.i124.i, align 8
   %and.i166.i = and i32 %81, 7
-  store i32 %and.i166.i, ptr %74, align 8
-  %add.ptr7.val.i.i = load i64, ptr %add.ptr7.i.i, align 1
-  store i64 %add.ptr7.val.i.i, ptr %seqState.i, align 8
-  br label %BITv07_reloadDStream.exit.i
+  br label %BITv07_reloadDStream.exit.sink.split.i
 
 if.end10.i.i:                                     ; preds = %if.end.i161.i
   %cmp13.i.i = icmp eq ptr %82, %83
@@ -6768,14 +6765,19 @@ if.end22.i.i:                                     ; preds = %if.end10.i.i
   store ptr %add.ptr40.i.i, ptr %ptr.i.i124.i, align 8
   %mul.i.i = shl i32 %nbBytes.0.i.i, 3
   %sub.i171.i = sub i32 %81, %mul.i.i
-  store i32 %sub.i171.i, ptr %74, align 8
-  %add.ptr40.val.i.i = load i64, ptr %add.ptr40.i.i, align 1
-  store i64 %add.ptr40.val.i.i, ptr %seqState.i, align 8
+  br label %BITv07_reloadDStream.exit.sink.split.i
+
+BITv07_reloadDStream.exit.sink.split.i:           ; preds = %if.end22.i.i, %if.then4.i.i
+  %and.i166.sink.i = phi i32 [ %and.i166.i, %if.then4.i.i ], [ %sub.i171.i, %if.end22.i.i ]
+  %add.ptr7.i.sink.i = phi ptr [ %add.ptr7.i.i, %if.then4.i.i ], [ %add.ptr40.i.i, %if.end22.i.i ]
+  store i32 %and.i166.sink.i, ptr %74, align 8
+  %add.ptr7.val.i.i = load i64, ptr %add.ptr7.i.sink.i, align 1
+  store i64 %add.ptr7.val.i.i, ptr %seqState.i, align 8
   br label %BITv07_reloadDStream.exit.i
 
-BITv07_reloadDStream.exit.i:                      ; preds = %if.end22.i.i, %if.end10.i.i, %if.then4.i.i
-  %84 = phi ptr [ %82, %if.end10.i.i ], [ %add.ptr7.i.i, %if.then4.i.i ], [ %add.ptr40.i.i, %if.end22.i.i ]
-  %bitD.val3.i.i176.i = phi i32 [ %81, %if.end10.i.i ], [ %and.i166.i, %if.then4.i.i ], [ %sub.i171.i, %if.end22.i.i ]
+BITv07_reloadDStream.exit.i:                      ; preds = %BITv07_reloadDStream.exit.sink.split.i, %if.end10.i.i
+  %84 = phi ptr [ %82, %if.end10.i.i ], [ %add.ptr7.i.sink.i, %BITv07_reloadDStream.exit.sink.split.i ]
+  %bitD.val3.i.i176.i = phi i32 [ %81, %if.end10.i.i ], [ %and.i166.sink.i, %BITv07_reloadDStream.exit.sink.split.i ]
   %tobool29.not.i = icmp eq i32 %nbSeq.0305.i, 0
   br i1 %tobool29.not.i, label %for.cond42.preheader.i, label %for.body30.i
 
@@ -6963,6 +6965,7 @@ if.end22.i.i203.i:                                ; preds = %if.end10.i.i201.i
 if.end98.sink.split.i.i:                          ; preds = %if.end22.i.i203.i, %if.then4.i.i194.i
   %sub.i.sink.i.i = phi i32 [ %sub.i.i218.i, %if.end22.i.i203.i ], [ %and.i.i199.i, %if.then4.i.i194.i ]
   %add.ptr40.i.sink.i.i = phi ptr [ %add.ptr40.i.i216.i, %if.end22.i.i203.i ], [ %add.ptr7.i.i198.i, %if.then4.i.i194.i ]
+  store i32 %sub.i.sink.i.i, ptr %74, align 8, !noalias !35
   %add.ptr40.val.i.i.i = load i64, ptr %add.ptr40.i.sink.i.i, align 1, !noalias !35
   store i64 %add.ptr40.val.i.i.i, ptr %seqState.i, align 8, !noalias !35
   br label %ZSTDv07_decodeSequence.exit.i

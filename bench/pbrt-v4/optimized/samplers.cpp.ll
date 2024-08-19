@@ -1394,11 +1394,7 @@ invoke.cont28:                                    ; preds = %invoke.cont26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20) #24
   %call.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull @.str.7) #24
   %cmp.i = icmp eq i32 %call.i, 0
-  br i1 %cmp.i, label %if.then36, label %if.else
-
-if.then36:                                        ; preds = %invoke.cont28
-  store i32 0, ptr %randomizer, align 4
-  br label %if.end53
+  br i1 %cmp.i, label %if.end53, label %if.else
 
 lpad11:                                           ; preds = %call.i.noexc15, %if.end8
   %12 = landingpad { ptr, i32 }
@@ -1452,29 +1448,17 @@ lpad33:                                           ; preds = %call.i.i.i.i.noexc,
 if.else:                                          ; preds = %invoke.cont28
   %call.i36 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull @.str.6) #24
   %cmp.i37 = icmp eq i32 %call.i36, 0
-  br i1 %cmp.i37, label %if.then39, label %if.else40
-
-if.then39:                                        ; preds = %if.else
-  store i32 1, ptr %randomizer, align 4
-  br label %if.end53
+  br i1 %cmp.i37, label %if.end53, label %if.else40
 
 if.else40:                                        ; preds = %if.else
   %call.i38 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull @.str.8) #24
   %cmp.i39 = icmp eq i32 %call.i38, 0
-  br i1 %cmp.i39, label %if.then43, label %if.else44
-
-if.then43:                                        ; preds = %if.else40
-  store i32 2, ptr %randomizer, align 4
-  br label %if.end53
+  br i1 %cmp.i39, label %if.end53, label %if.else44
 
 if.else44:                                        ; preds = %if.else40
   %call.i40 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull @.str.10) #24
   %cmp.i41 = icmp eq i32 %call.i40, 0
-  br i1 %cmp.i41, label %if.then47, label %if.else48
-
-if.then47:                                        ; preds = %if.else44
-  store i32 3, ptr %randomizer, align 4
-  br label %if.end53
+  br i1 %cmp.i41, label %if.end53, label %if.else48
 
 if.else48:                                        ; preds = %if.else44
   invoke void @_ZN4pbrt9ErrorExitIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKNS_7FileLocEPKcDpOT_(ptr noundef %loc, ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(32) %s) #23
@@ -1483,7 +1467,9 @@ if.else48:                                        ; preds = %if.else44
 invoke.cont49:                                    ; preds = %if.else48
   unreachable
 
-if.end53:                                         ; preds = %if.then39, %if.then47, %if.then43, %if.then36
+if.end53:                                         ; preds = %if.else44, %if.else40, %if.else, %invoke.cont28
+  %.sink = phi i32 [ 0, %invoke.cont28 ], [ 1, %if.else ], [ 2, %if.else40 ], [ 3, %if.else44 ]
+  store i32 %.sink, ptr %randomizer, align 4
   %vtable.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %18 = load ptr, ptr %vfn.i.i.i.i, align 8

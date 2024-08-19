@@ -16957,26 +16957,17 @@ invoke.cont:
   %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !114
   %2 = load ptr, ptr %sparse.i.i.i, align 8, !tbaa !32
   %cmp.i.i.i.not = icmp eq ptr %1, %2
-  br i1 %cmp.i.i.i.not, label %cleanup.cont67, label %land.lhs.true.i.i.i
+  br i1 %cmp.i.i.i.not, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit895.thread.sink.split, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %invoke.cont
   %3 = load ptr, ptr %2, align 8, !tbaa !23
   %tobool.not.i.i.i = icmp eq ptr %3, null
-  br i1 %tobool.not.i.i.i, label %land.lhs.true.i.i.i882.thread126, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
-
-land.lhs.true.i.i.i882.thread126:                 ; preds = %land.lhs.true.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_29) #22
-  %arrayidx311726121 = getelementptr inbounds i8, ptr %entity, i64 4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_29) #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_69) #22
-  %arrayidx711739128 = getelementptr inbounds i8, ptr %entity, i64 8
-  br label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit895.thread
+  br i1 %tobool.not.i.i.i, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit895.thread.sink.split, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
 
 _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i: ; preds = %land.lhs.true.i.i.i
   %4 = load i32, ptr %3, align 4, !tbaa !94
   %cmp.i.i = icmp ult i32 %4, 1048575
-  br i1 %cmp.i.i, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit, label %land.lhs.true.i.i.i814
+  br i1 %cmp.i.i, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i817
 
 _ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit: ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
   %head.i.i = getelementptr inbounds i8, ptr %registry, i64 236
@@ -16986,12 +16977,7 @@ _ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit: ; preds = %_ZNK4en
   store i8 %frombool, ptr %gtest_ar_, align 8, !tbaa !66
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   store ptr null, ptr %message_.i, align 8, !tbaa !245
-  br i1 %cmp.i, label %land.lhs.true.i.i.i814.thread, label %if.else
-
-land.lhs.true.i.i.i814.thread:                    ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_29) #22
-  br label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i817
+  br i1 %cmp.i, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i817, label %if.else
 
 if.else:                                          ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp10) #22
@@ -17137,17 +17123,14 @@ ehcleanup25:                                      ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
   br label %ehcleanup655
 
-land.lhs.true.i.i.i814:                           ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
+_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i817: ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i, %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_29) #22
-  br label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i817
-
-_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i817: ; preds = %land.lhs.true.i.i.i814, %land.lhs.true.i.i.i814.thread
   %arrayidx311726 = getelementptr inbounds i8, ptr %entity, i64 4
   %add.ptr.i.i.i819 = getelementptr inbounds i8, ptr %3, i64 8
   %25 = load i32, ptr %add.ptr.i.i.i819, align 4, !tbaa !94
   %cmp.i.i822 = icmp ult i32 %25, 1048575
-  br i1 %cmp.i.i822, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit827, label %land.lhs.true.i.i.i882
+  br i1 %cmp.i.i822, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit827, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i885
 
 _ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit827: ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i817
   %head.i.i825 = getelementptr inbounds i8, ptr %registry, i64 236
@@ -17157,12 +17140,7 @@ _ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit827: ; preds = %_ZNK
   store i8 %frombool36, ptr %gtest_ar_29, align 8, !tbaa !66
   %message_.i828 = getelementptr inbounds i8, ptr %gtest_ar_29, i64 8
   store ptr null, ptr %message_.i828, align 8, !tbaa !245
-  br i1 %cmp.i826, label %land.lhs.true.i.i.i882.thread, label %if.else43
-
-land.lhs.true.i.i.i882.thread:                    ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit827
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_29) #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_69) #22
-  br label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i885
+  br i1 %cmp.i826, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i885, label %if.else43
 
 if.else43:                                        ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit827
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp44) #22
@@ -17308,21 +17286,9 @@ ehcleanup61:                                      ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_29) #22
   br label %ehcleanup655
 
-cleanup.cont67:                                   ; preds = %invoke.cont
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_29) #22
-  %arrayidx31 = getelementptr inbounds i8, ptr %entity, i64 4
+_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i885: ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i817, %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit827
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_29) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_69) #22
-  %arrayidx71 = getelementptr inbounds i8, ptr %entity, i64 8
-  br label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit895.thread
-
-land.lhs.true.i.i.i882:                           ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i817
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_29) #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_69) #22
-  br label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i885
-
-_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i885: ; preds = %land.lhs.true.i.i.i882, %land.lhs.true.i.i.i882.thread
   %arrayidx711739 = getelementptr inbounds i8, ptr %entity, i64 8
   %add.ptr.i.i.i887 = getelementptr inbounds i8, ptr %3, i64 4
   %46 = load i32, ptr %add.ptr.i.i.i887, align 4, !tbaa !94
@@ -17330,9 +17296,18 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i885: ; preds 
   %cmp.i.i890 = icmp ult i32 %xor.i.i889, 1048575
   br i1 %cmp.i.i890, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit895, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit895.thread
 
-_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit895.thread: ; preds = %land.lhs.true.i.i.i882.thread126, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i885, %cleanup.cont67
-  %arrayidx711734 = phi ptr [ %arrayidx711739, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i885 ], [ %arrayidx71, %cleanup.cont67 ], [ %arrayidx711739128, %land.lhs.true.i.i.i882.thread126 ]
-  %arrayidx3117211731 = phi ptr [ %arrayidx311726, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i885 ], [ %arrayidx31, %cleanup.cont67 ], [ %arrayidx311726121, %land.lhs.true.i.i.i882.thread126 ]
+_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit895.thread.sink.split: ; preds = %invoke.cont, %land.lhs.true.i.i.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_29) #22
+  %arrayidx311726121 = getelementptr inbounds i8, ptr %entity, i64 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_29) #22
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_69) #22
+  %arrayidx711739128 = getelementptr inbounds i8, ptr %entity, i64 8
+  br label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit895.thread
+
+_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit895.thread: ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit895.thread.sink.split, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i885
+  %arrayidx711734 = phi ptr [ %arrayidx711739, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i885 ], [ %arrayidx711739128, %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit895.thread.sink.split ]
+  %arrayidx3117211731 = phi ptr [ %arrayidx311726, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i885 ], [ %arrayidx311726121, %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit895.thread.sink.split ]
   %message_.i8961690 = getelementptr inbounds i8, ptr %gtest_ar_69, i64 8
   br label %if.else.i
 
@@ -20565,12 +20540,12 @@ invoke.cont:                                      ; preds = %entry
 land.lhs.true.i.i.i:                              ; preds = %invoke.cont
   %3 = load ptr, ptr %2, align 8, !tbaa !23
   %tobool.not.i.i.i = icmp eq ptr %3, null
-  br i1 %tobool.not.i.i.i, label %cleanup.cont.thread115, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
+  br i1 %tobool.not.i.i.i, label %land.lhs.true.i.i.i648, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
 
 _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i: ; preds = %land.lhs.true.i.i.i
   %4 = load i32, ptr %3, align 4, !tbaa !94
   %cmp.i.i = icmp ult i32 %4, 1048575
-  br i1 %cmp.i.i, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit, label %cleanup.cont.thread115
+  br i1 %cmp.i.i, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit, label %land.lhs.true.i.i.i648
 
 _ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit: ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
   %head.i.i = getelementptr inbounds i8, ptr %registry, i64 236
@@ -20580,12 +20555,7 @@ _ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit: ; preds = %_ZNK4en
   store i8 %frombool, ptr %gtest_ar_, align 8, !tbaa !66
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   store ptr null, ptr %message_.i, align 8, !tbaa !245
-  br i1 %cmp.i, label %cleanup.cont.thread, label %if.else
-
-cleanup.cont.thread:                              ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_29) #22
-  br label %land.lhs.true.i.i.i648
+  br i1 %cmp.i, label %land.lhs.true.i.i.i648, label %if.else
 
 lpad:                                             ; preds = %entry
   %6 = landingpad { ptr, i32 }
@@ -20736,18 +20706,15 @@ ehcleanup25:                                      ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
   br label %ehcleanup512
 
-cleanup.cont.thread115:                           ; preds = %land.lhs.true.i.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_29) #22
-  br label %land.lhs.true.i.i.i648
-
 cleanup.cont:                                     ; preds = %invoke.cont
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_29) #22
   %arrayidx31 = getelementptr inbounds i8, ptr %entity, i64 4
   br label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit656.thread
 
-land.lhs.true.i.i.i648:                           ; preds = %cleanup.cont.thread115, %cleanup.cont.thread
+land.lhs.true.i.i.i648:                           ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i, %land.lhs.true.i.i.i, %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_29) #22
   %arrayidx31117 = getelementptr inbounds i8, ptr %entity, i64 4
   %26 = load ptr, ptr %2, align 8, !tbaa !23
   %tobool.not.i.i.i649 = icmp eq ptr %26, null
@@ -23681,12 +23648,12 @@ invoke.cont:                                      ; preds = %entry
 land.lhs.true.i.i.i:                              ; preds = %invoke.cont
   %3 = load ptr, ptr %2, align 8, !tbaa !23
   %tobool.not.i.i.i = icmp eq ptr %3, null
-  br i1 %tobool.not.i.i.i, label %cleanup.cont.thread96, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
+  br i1 %tobool.not.i.i.i, label %land.lhs.true.i.i.i559, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
 
 _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i: ; preds = %land.lhs.true.i.i.i
   %4 = load i32, ptr %3, align 4, !tbaa !94
   %cmp.i.i = icmp ult i32 %4, 1048575
-  br i1 %cmp.i.i, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit, label %cleanup.cont.thread96
+  br i1 %cmp.i.i, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit, label %land.lhs.true.i.i.i559
 
 _ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit: ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
   %head.i.i = getelementptr inbounds i8, ptr %registry, i64 236
@@ -23696,12 +23663,7 @@ _ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit: ; preds = %_ZNK4en
   store i8 %frombool, ptr %gtest_ar_, align 8, !tbaa !66
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   store ptr null, ptr %message_.i, align 8, !tbaa !245
-  br i1 %cmp.i, label %cleanup.cont.thread, label %if.else
-
-cleanup.cont.thread:                              ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_29) #22
-  br label %land.lhs.true.i.i.i559
+  br i1 %cmp.i, label %land.lhs.true.i.i.i559, label %if.else
 
 lpad:                                             ; preds = %entry
   %6 = landingpad { ptr, i32 }
@@ -23852,18 +23814,15 @@ ehcleanup25:                                      ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
   br label %ehcleanup439
 
-cleanup.cont.thread96:                            ; preds = %land.lhs.true.i.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_29) #22
-  br label %land.lhs.true.i.i.i559
-
 cleanup.cont:                                     ; preds = %invoke.cont
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_29) #22
   %arrayidx31 = getelementptr inbounds i8, ptr %entity, i64 4
   br label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit567.thread
 
-land.lhs.true.i.i.i559:                           ; preds = %cleanup.cont.thread96, %cleanup.cont.thread
+land.lhs.true.i.i.i559:                           ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i, %land.lhs.true.i.i.i, %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_29) #22
   %arrayidx3198 = getelementptr inbounds i8, ptr %entity, i64 4
   %26 = load ptr, ptr %2, align 8, !tbaa !23
   %tobool.not.i.i.i560 = icmp eq ptr %26, null
@@ -26291,12 +26250,12 @@ invoke.cont:                                      ; preds = %entry
 land.lhs.true.i.i.i:                              ; preds = %invoke.cont
   %3 = load ptr, ptr %2, align 8, !tbaa !23
   %tobool.not.i.i.i = icmp eq ptr %3, null
-  br i1 %tobool.not.i.i.i, label %cleanup.cont.thread119, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
+  br i1 %tobool.not.i.i.i, label %land.lhs.true.i.i.i660, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
 
 _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i: ; preds = %land.lhs.true.i.i.i
   %4 = load i32, ptr %3, align 4, !tbaa !94
   %cmp.i.i = icmp ult i32 %4, 1048575
-  br i1 %cmp.i.i, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit, label %cleanup.cont.thread119
+  br i1 %cmp.i.i, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit, label %land.lhs.true.i.i.i660
 
 _ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit: ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
   %head.i.i = getelementptr inbounds i8, ptr %registry, i64 236
@@ -26306,12 +26265,7 @@ _ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit: ; preds = %_ZNK4en
   store i8 %frombool, ptr %gtest_ar_, align 8, !tbaa !66
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   store ptr null, ptr %message_.i, align 8, !tbaa !245
-  br i1 %cmp.i, label %cleanup.cont.thread, label %if.else
-
-cleanup.cont.thread:                              ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_29) #22
-  br label %land.lhs.true.i.i.i660
+  br i1 %cmp.i, label %land.lhs.true.i.i.i660, label %if.else
 
 lpad:                                             ; preds = %entry
   %6 = landingpad { ptr, i32 }
@@ -26462,18 +26416,15 @@ ehcleanup25:                                      ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
   br label %ehcleanup524
 
-cleanup.cont.thread119:                           ; preds = %land.lhs.true.i.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_29) #22
-  br label %land.lhs.true.i.i.i660
-
 cleanup.cont:                                     ; preds = %invoke.cont
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_29) #22
   %arrayidx31 = getelementptr inbounds i8, ptr %entity, i64 4
   br label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit668.thread
 
-land.lhs.true.i.i.i660:                           ; preds = %cleanup.cont.thread119, %cleanup.cont.thread
+land.lhs.true.i.i.i660:                           ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i, %land.lhs.true.i.i.i, %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_29) #22
   %arrayidx31121 = getelementptr inbounds i8, ptr %entity, i64 4
   %26 = load ptr, ptr %2, align 8, !tbaa !23
   %tobool.not.i.i.i661 = icmp eq ptr %26, null
@@ -30778,23 +30729,17 @@ entry:
   %0 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !114
   %1 = load ptr, ptr %sparse.i.i.i, align 8, !tbaa !32
   %cmp.i.i.i.not = icmp eq ptr %0, %1
-  br i1 %cmp.i.i.i.not, label %cleanup.cont, label %land.lhs.true.i.i.i
+  br i1 %cmp.i.i.i.not, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit349.thread.sink.split, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %entry
   %2 = load ptr, ptr %1, align 8, !tbaa !23
   %tobool.not.i.i.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i.i.i, label %land.lhs.true.i.i.i341.thread86, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
-
-land.lhs.true.i.i.i341.thread86:                  ; preds = %land.lhs.true.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_25) #22
-  %arrayidx277788 = getelementptr inbounds i8, ptr %entity, i64 4
-  br label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit349.thread
+  br i1 %tobool.not.i.i.i, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit349.thread.sink.split, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
 
 _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i: ; preds = %land.lhs.true.i.i.i
   %3 = load i32, ptr %2, align 4, !tbaa !94
   %cmp.i.i = icmp ult i32 %3, 1048575
-  br i1 %cmp.i.i, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit, label %land.lhs.true.i.i.i341
+  br i1 %cmp.i.i, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i343
 
 _ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit: ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
   %head.i.i = getelementptr inbounds i8, ptr %registry, i64 236
@@ -30804,12 +30749,7 @@ _ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit: ; preds = %_ZNK4en
   store i8 %frombool, ptr %gtest_ar_, align 8, !tbaa !66
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   store ptr null, ptr %message_.i, align 8, !tbaa !245
-  br i1 %cmp.i, label %land.lhs.true.i.i.i341.thread, label %if.else
-
-land.lhs.true.i.i.i341.thread:                    ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_25) #22
-  br label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i343
+  br i1 %cmp.i, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i343, label %if.else
 
 if.else:                                          ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp6) #22
@@ -30955,26 +30895,23 @@ ehcleanup21:                                      ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
   br label %ehcleanup258
 
-cleanup.cont:                                     ; preds = %entry
+_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i343: ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i, %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_25) #22
-  %arrayidx27 = getelementptr inbounds i8, ptr %entity, i64 4
-  br label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit349.thread
-
-land.lhs.true.i.i.i341:                           ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_25) #22
-  br label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i343
-
-_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i343: ; preds = %land.lhs.true.i.i.i341, %land.lhs.true.i.i.i341.thread
   %arrayidx2777 = getelementptr inbounds i8, ptr %entity, i64 4
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %24 = load i32, ptr %add.ptr.i.i.i, align 4, !tbaa !94
   %cmp.i.i344 = icmp ult i32 %24, 1048575
   br i1 %cmp.i.i344, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit349, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit349.thread
 
-_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit349.thread: ; preds = %land.lhs.true.i.i.i341.thread86, %cleanup.cont, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i343
-  %arrayidx2773 = phi ptr [ %arrayidx2777, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i343 ], [ %arrayidx27, %cleanup.cont ], [ %arrayidx277788, %land.lhs.true.i.i.i341.thread86 ]
+_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit349.thread.sink.split: ; preds = %entry, %land.lhs.true.i.i.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_25) #22
+  %arrayidx277788 = getelementptr inbounds i8, ptr %entity, i64 4
+  br label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit349.thread
+
+_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit349.thread: ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit349.thread.sink.split, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i343
+  %arrayidx2773 = phi ptr [ %arrayidx2777, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i343 ], [ %arrayidx277788, %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit349.thread.sink.split ]
   %message_.i350843 = getelementptr inbounds i8, ptr %gtest_ar_25, i64 8
   br label %if.else.i
 
@@ -33385,13 +33322,13 @@ invoke.cont:                                      ; preds = %entry
 land.lhs.true.i.i.i:                              ; preds = %invoke.cont
   %7 = load ptr, ptr %6, align 8, !tbaa !23
   %tobool.not.i.i.i = icmp eq ptr %7, null
-  br i1 %tobool.not.i.i.i, label %cleanup.cont.thread4787, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
+  br i1 %tobool.not.i.i.i, label %land.lhs.true.i.i.i2671, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
 
 _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i: ; preds = %land.lhs.true.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 4
   %8 = load i32, ptr %add.ptr.i.i.i, align 4, !tbaa !94
   %cmp.i.i = icmp ult i32 %8, 1048575
-  br i1 %cmp.i.i, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit, label %cleanup.cont.thread4787
+  br i1 %cmp.i.i, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit, label %land.lhs.true.i.i.i2671
 
 _ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit: ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
   %head.i.i = getelementptr inbounds i8, ptr %registry, i64 236
@@ -33401,12 +33338,7 @@ _ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit: ; preds = %_ZNK4en
   store i8 %frombool, ptr %gtest_ar_, align 8, !tbaa !66
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   store ptr null, ptr %message_.i, align 8, !tbaa !245
-  br i1 %cmp.i, label %cleanup.cont.thread, label %if.else
-
-cleanup.cont.thread:                              ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_29) #22
-  br label %land.lhs.true.i.i.i2671
+  br i1 %cmp.i, label %land.lhs.true.i.i.i2671, label %if.else
 
 if.else:                                          ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp10) #22
@@ -33552,21 +33484,18 @@ ehcleanup25:                                      ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
   br label %ehcleanup2256
 
-cleanup.cont.thread4787:                          ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i, %land.lhs.true.i.i.i
+land.lhs.true.i.i.i2671:                          ; preds = %land.lhs.true.i.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i, %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_29) #22
-  br label %land.lhs.true.i.i.i2671
-
-land.lhs.true.i.i.i2671:                          ; preds = %cleanup.cont.thread4787, %cleanup.cont.thread
   %arrayidx314789 = getelementptr inbounds i8, ptr %entity, i64 4
   %29 = load ptr, ptr %6, align 8, !tbaa !23
   %tobool.not.i.i.i2673 = icmp eq ptr %29, null
-  br i1 %tobool.not.i.i.i2673, label %cleanup.cont67.thread4799, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i2674
+  br i1 %tobool.not.i.i.i2673, label %land.lhs.true.i.i.i2739, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i2674
 
 _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i2674: ; preds = %land.lhs.true.i.i.i2671
   %30 = load i32, ptr %29, align 4, !tbaa !94
   %cmp.i.i2679 = icmp ult i32 %30, 1048575
-  br i1 %cmp.i.i2679, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit2684, label %cleanup.cont67.thread4799
+  br i1 %cmp.i.i2679, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit2684, label %land.lhs.true.i.i.i2739
 
 _ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit2684: ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i2674
   %head.i.i2682 = getelementptr inbounds i8, ptr %registry, i64 236
@@ -33576,12 +33505,7 @@ _ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit2684: ; preds = %_ZN
   store i8 %frombool36, ptr %gtest_ar_29, align 8, !tbaa !66
   %message_.i2685 = getelementptr inbounds i8, ptr %gtest_ar_29, i64 8
   store ptr null, ptr %message_.i2685, align 8, !tbaa !245
-  br i1 %cmp.i2683, label %cleanup.cont67.thread, label %if.else43
-
-cleanup.cont67.thread:                            ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit2684
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_29) #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_69) #22
-  br label %land.lhs.true.i.i.i2739
+  br i1 %cmp.i2683, label %land.lhs.true.i.i.i2739, label %if.else43
 
 if.else43:                                        ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit2684
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp44) #22
@@ -33727,11 +33651,6 @@ ehcleanup61:                                      ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_29) #22
   br label %ehcleanup2256
 
-cleanup.cont67.thread4799:                        ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i2674, %land.lhs.true.i.i.i2671
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_29) #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_69) #22
-  br label %land.lhs.true.i.i.i2739
-
 cleanup.cont67:                                   ; preds = %invoke.cont
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_29) #22
@@ -33741,7 +33660,9 @@ cleanup.cont67:                                   ; preds = %invoke.cont
   %arrayidx71 = getelementptr inbounds i8, ptr %entity, i64 8
   br label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit2752.thread
 
-land.lhs.true.i.i.i2739:                          ; preds = %cleanup.cont67.thread4799, %cleanup.cont67.thread
+land.lhs.true.i.i.i2739:                          ; preds = %land.lhs.true.i.i.i2671, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i2674, %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit2684
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_29) #22
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_69) #22
   %arrayidx714802 = getelementptr inbounds i8, ptr %entity, i64 8
   %51 = load ptr, ptr %6, align 8, !tbaa !23
   %tobool.not.i.i.i2741 = icmp eq ptr %51, null
@@ -61271,12 +61192,12 @@ _ZN4entt23basic_continuous_loaderINS_14basic_registryINS_6entityESaIS2_EEEEC2ERS
 land.lhs.true.i.i.i:                              ; preds = %_ZN4entt23basic_continuous_loaderINS_14basic_registryINS_6entityESaIS2_EEEEC2ERS4_.exit
   %6 = load ptr, ptr %5, align 8, !tbaa !23
   %tobool.not.i.i.i = icmp eq ptr %6, null
-  br i1 %tobool.not.i.i.i, label %cleanup.cont.thread107, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
+  br i1 %tobool.not.i.i.i, label %land.lhs.true.i.i.i523, label %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
 
 _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i: ; preds = %land.lhs.true.i.i.i
   %7 = load i32, ptr %6, align 4, !tbaa !94
   %cmp.i.i = icmp ult i32 %7, 1048575
-  br i1 %cmp.i.i, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit, label %cleanup.cont.thread107
+  br i1 %cmp.i.i, label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit, label %land.lhs.true.i.i.i523
 
 _ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit: ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
   %head.i.i = getelementptr inbounds i8, ptr %registry, i64 236
@@ -61286,12 +61207,7 @@ _ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit: ; preds = %_ZNK4en
   store i8 %frombool, ptr %gtest_ar_, align 8, !tbaa !66
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   store ptr null, ptr %message_.i, align 8, !tbaa !245
-  br i1 %cmp.i, label %cleanup.cont.thread, label %if.else
-
-cleanup.cont.thread:                              ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_25) #22
-  br label %land.lhs.true.i.i.i523
+  br i1 %cmp.i, label %land.lhs.true.i.i.i523, label %if.else
 
 if.else:                                          ; preds = %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp6) #22
@@ -61437,18 +61353,15 @@ ehcleanup21:                                      ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
   br label %ehcleanup414
 
-cleanup.cont.thread107:                           ; preds = %land.lhs.true.i.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_25) #22
-  br label %land.lhs.true.i.i.i523
-
 cleanup.cont:                                     ; preds = %_ZN4entt23basic_continuous_loaderINS_14basic_registryINS_6entityESaIS2_EEEEC2ERS4_.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_25) #22
   %arrayidx27 = getelementptr inbounds i8, ptr %entity, i64 4
   br label %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit531.thread
 
-land.lhs.true.i.i.i523:                           ; preds = %cleanup.cont.thread107, %cleanup.cont.thread
+land.lhs.true.i.i.i523:                           ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i, %land.lhs.true.i.i.i, %_ZNK4entt14basic_registryINS_6entityESaIS1_EE5validES1_.exit
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_) #22
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_25) #22
   %arrayidx27109 = getelementptr inbounds i8, ptr %entity, i64 4
   %28 = load ptr, ptr %5, align 8, !tbaa !23
   %tobool.not.i.i.i524 = icmp eq ptr %28, null
@@ -70014,7 +69927,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 ehcleanup.thread:                                 ; preds = %if.then.i.i, %if.then.i
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #22
   br label %cleanup.action
 
 lpad2.body:                                       ; preds = %invoke.cont
@@ -70026,7 +69938,6 @@ lpad2.body:                                       ; preds = %invoke.cont
 
 ehcleanup.thread15:                               ; preds = %lpad2.body
   call void @_ZdlPv(ptr noundef %26) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #22
   br label %cleanup.action
 
 lpad2.body.thread:                                ; preds = %lpad3.i
@@ -70045,7 +69956,6 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %29 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !27
   %cmp3.i.i.i22 = icmp ult i64 %29, 16
   call void @llvm.assume(i1 %cmp3.i.i.i22)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #22
   br label %cleanup.action
 
 ehcleanup:                                        ; preds = %lpad2.body.thread
@@ -70055,6 +69965,7 @@ ehcleanup:                                        ; preds = %lpad2.body.thread
 
 cleanup.action:                                   ; preds = %ehcleanup.thread15, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i20, %ehcleanup.thread
   %.pn27 = phi { ptr, i32 } [ %24, %ehcleanup.thread ], [ %25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i20 ], [ %25, %ehcleanup.thread15 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #22
   call void @_ZdlPv(ptr noundef nonnull %call) #23
   br label %eh.resume
 

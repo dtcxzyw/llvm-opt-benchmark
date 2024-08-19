@@ -3962,21 +3962,13 @@ _ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140.us:     ; preds = %_ZN12_GLOBAL__N_110
   %.0107460.us = phi ptr [ %123, %.preheader450.us ], [ %120, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140.lr.ph ]
   %122 = load i8, ptr %.0107460.us, align 1
   switch i8 %122, label %.preheader450.us [
-    i8 44, label %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140._ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140.thread_crit_edge.split.us
-    i8 0, label %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140._ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140.thread_crit_edge462.split.us
+    i8 44, label %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140.thread.sink.split
+    i8 0, label %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140.thread.sink.split
   ]
 
 .preheader450.us:                                 ; preds = %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140.us
   %123 = getelementptr inbounds i8, ptr %.0107460.us, i64 1
   br label %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140.us
-
-_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140._ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140.thread_crit_edge.split.us: ; preds = %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140.us
-  store i32 %spec.select438469, ptr %10, align 4
-  br label %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140.thread
-
-_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140._ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140.thread_crit_edge462.split.us: ; preds = %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140.us
-  store i32 %spec.select438469, ptr %10, align 4
-  br label %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140.thread
 
 _ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140:        ; preds = %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140.lr.ph, %._crit_edge458.split
   %.0..promoted502 = phi i32 [ %628, %._crit_edge458.split ], [ %.0..promoted468, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140.lr.ph ]
@@ -5624,8 +5616,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.bac
   %629 = getelementptr inbounds i8, ptr %.0107460, i64 1
   br label %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140, !llvm.loop !13
 
-_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140.thread: ; preds = %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140._ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140.thread_crit_edge462.split.us, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140._ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140.thread_crit_edge.split.us, %.split2.i
-  %.0..promoted504 = phi i32 [ %spec.select438469, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140._ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140.thread_crit_edge462.split.us ], [ %spec.select438469, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140._ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140.thread_crit_edge.split.us ], [ %.0..promoted468, %.split2.i ], [ %.0..promoted502, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140 ], [ %.0..promoted502, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140 ]
+_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140.thread.sink.split: ; preds = %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140.us, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140.us
+  store i32 %spec.select438469, ptr %10, align 4
+  br label %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140.thread
+
+_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140.thread: ; preds = %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140.thread.sink.split, %.split2.i
+  %.0..promoted504 = phi i32 [ %.0..promoted468, %.split2.i ], [ %spec.select438469, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140.thread.sink.split ], [ %.0..promoted502, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140 ], [ %.0..promoted502, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140 ]
   br i1 %57, label %630, label %635
 
 630:                                              ; preds = %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit140.thread

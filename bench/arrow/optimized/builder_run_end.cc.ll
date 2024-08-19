@@ -2987,11 +2987,7 @@ do.body62:                                        ; preds = %do.end60, %do.end36
   %23 = load ptr, ptr %ref.tmp.i, align 8, !noalias !158
   store ptr null, ptr %ref.tmp.i, align 8, !noalias !158
   %cmp.i.i = icmp eq ptr %23, null
-  br i1 %cmp.i.i, label %do.end83, label %nrvo.skipdtor79
-
-nrvo.skipdtor79:                                  ; preds = %do.body62
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  br label %return.sink.split
+  br i1 %cmp.i.i, label %do.end83, label %return.sink.split
 
 do.end83:                                         ; preds = %do.body62
   %24 = load ptr, ptr %inner_builder_.i, align 8, !noalias !155
@@ -3010,11 +3006,11 @@ do.end83:                                         ; preds = %do.body62
   %28 = load i64, ptr %null_count_.i.i.i, align 8, !noalias !155
   %null_count_.i.i = getelementptr inbounds i8, ptr %19, i64 96
   store i64 %28, ptr %null_count_.i.i, align 8, !noalias !155
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   br label %return.sink.split
 
-return.sink.split:                                ; preds = %do.end83, %nrvo.skipdtor79
-  %.sink = phi ptr [ %23, %nrvo.skipdtor79 ], [ null, %do.end83 ]
+return.sink.split:                                ; preds = %do.body62, %do.end83
+  %.sink = phi ptr [ null, %do.end83 ], [ %23, %do.body62 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   store ptr %.sink, ptr %agg.result, align 8
   br label %return
 
@@ -3193,11 +3189,7 @@ do.body62:                                        ; preds = %do.end60, %do.end36
   %23 = load ptr, ptr %ref.tmp.i, align 8, !noalias !179
   store ptr null, ptr %ref.tmp.i, align 8, !noalias !179
   %cmp.i.i = icmp eq ptr %23, null
-  br i1 %cmp.i.i, label %do.end83, label %nrvo.skipdtor79
-
-nrvo.skipdtor79:                                  ; preds = %do.body62
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  br label %return.sink.split
+  br i1 %cmp.i.i, label %do.end83, label %return.sink.split
 
 do.end83:                                         ; preds = %do.body62
   %24 = load ptr, ptr %inner_builder_.i, align 8, !noalias !176
@@ -3216,11 +3208,11 @@ do.end83:                                         ; preds = %do.body62
   %28 = load i64, ptr %null_count_.i.i.i, align 8, !noalias !176
   %null_count_.i.i = getelementptr inbounds i8, ptr %19, i64 96
   store i64 %28, ptr %null_count_.i.i, align 8, !noalias !176
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   br label %return.sink.split
 
-return.sink.split:                                ; preds = %do.end83, %nrvo.skipdtor79
-  %.sink = phi ptr [ %23, %nrvo.skipdtor79 ], [ null, %do.end83 ]
+return.sink.split:                                ; preds = %do.body62, %do.end83
+  %.sink = phi ptr [ null, %do.end83 ], [ %23, %do.body62 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   store ptr %.sink, ptr %agg.result, align 8
   br label %return
 

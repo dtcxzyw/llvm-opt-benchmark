@@ -2314,7 +2314,7 @@ if.end2.i.i:                                      ; preds = %if.end.i.i
   %16 = load ptr, ptr %content.i.i, align 8
   %.val.i.i = load i16, ptr %16, align 1
   switch i16 %.val.i.i, label %error.i.i [
-    i16 -9985, label %if.end20.i
+    i16 -9985, label %if.end24.i
     i16 19778, label %if.then12.i.i
   ]
 
@@ -2322,7 +2322,7 @@ if.then12.i.i:                                    ; preds = %if.end2.i.i
   %arrayidx.i.i = getelementptr i8, ptr %16, i64 28
   %arrayidx.val.i.i = load i16, ptr %arrayidx.i.i, align 1
   %cmp14.not.i.i = icmp eq i16 %arrayidx.val.i.i, 24
-  br i1 %cmp14.not.i.i, label %if.else.critedge.i, label %error.i.i
+  br i1 %cmp14.not.i.i, label %if.end24.i, label %error.i.i
 
 error.i.i:                                        ; preds = %if.then12.i.i, %if.end2.i.i, %if.end.i.i
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.116, ptr noundef nonnull %call11.i) #20
@@ -2336,27 +2336,15 @@ if.then19.i:                                      ; preds = %error.i.i, %if.then
   call void @g_free(ptr noundef nonnull %call11.i) #20
   br label %fw_cfg_bootsplash.exit
 
-if.end20.i:                                       ; preds = %if.end2.i.i
+if.end24.i:                                       ; preds = %if.then12.i.i, %if.end2.i.i
+  %.str.62.sink.i = phi ptr [ @.str.61, %if.end2.i.i ], [ @.str.62, %if.then12.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %content.i.i)
   %18 = load ptr, ptr @boot_splash_filedata, align 8
   call void @g_free(ptr noundef %18) #20
   store ptr %16, ptr @boot_splash_filedata, align 8
   %19 = load i64, ptr %file_size.i, align 8
-  call void @fw_cfg_add_file_callback(ptr noundef %call.i, ptr noundef nonnull @.str.61, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %16, i64 noundef %19, i1 noundef zeroext true)
-  br label %if.end24.i
-
-if.else.critedge.i:                               ; preds = %if.then12.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %content.i.i)
-  %20 = load ptr, ptr @boot_splash_filedata, align 8
-  call void @g_free(ptr noundef %20) #20
-  store ptr %16, ptr @boot_splash_filedata, align 8
-  %21 = load i64, ptr %file_size.i, align 8
-  call void @fw_cfg_add_file_callback(ptr noundef %call.i, ptr noundef nonnull @.str.62, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %16, i64 noundef %21, i1 noundef zeroext true)
-  br label %if.end24.i
-
-if.end24.i:                                       ; preds = %if.else.critedge.i, %if.end20.i
+  call void @fw_cfg_add_file_callback(ptr noundef %call.i, ptr noundef nonnull %.str.62.sink.i, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %16, i64 noundef %19, i1 noundef zeroext true)
   call void @g_free(ptr noundef nonnull %call11.i) #20
   br label %fw_cfg_bootsplash.exit
 
@@ -2364,17 +2352,17 @@ fw_cfg_bootsplash.exit:                           ; preds = %if.end5.i, %if.then
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %file_size.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %bst_le16.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %rt_le32.i)
-  %22 = load ptr, ptr @current_machine, align 8
-  %has_reboot_timeout.i = getelementptr inbounds i8, ptr %22, i64 216
-  %23 = load i8, ptr %has_reboot_timeout.i, align 8
-  %tobool.i16 = trunc i8 %23 to i1
+  %20 = load ptr, ptr @current_machine, align 8
+  %has_reboot_timeout.i = getelementptr inbounds i8, ptr %20, i64 216
+  %21 = load i8, ptr %has_reboot_timeout.i, align 8
+  %tobool.i16 = trunc i8 %21 to i1
   br i1 %tobool.i16, label %if.then.i18, label %fw_cfg_reboot.exit
 
 if.then.i18:                                      ; preds = %fw_cfg_bootsplash.exit
-  %reboot_timeout.i = getelementptr inbounds i8, ptr %22, i64 224
-  %24 = load i64, ptr %reboot_timeout.i, align 8
-  %25 = add i64 %24, -65536
-  %or.cond.i19 = icmp ult i64 %25, -65537
+  %reboot_timeout.i = getelementptr inbounds i8, ptr %20, i64 224
+  %22 = load i64, ptr %reboot_timeout.i, align 8
+  %23 = add i64 %22, -65536
+  %or.cond.i19 = icmp ult i64 %23, -65537
   br i1 %or.cond.i19, label %if.then3.i20, label %fw_cfg_reboot.exit
 
 if.then3.i20:                                     ; preds = %if.then.i18
@@ -2383,15 +2371,15 @@ if.then3.i20:                                     ; preds = %if.then.i18
   unreachable
 
 fw_cfg_reboot.exit:                               ; preds = %fw_cfg_bootsplash.exit, %if.then.i18
-  %rt_val.0.i = phi i64 [ %24, %if.then.i18 ], [ -1, %fw_cfg_bootsplash.exit ]
+  %rt_val.0.i = phi i64 [ %22, %if.then.i18 ], [ -1, %fw_cfg_bootsplash.exit ]
   %conv.i17 = trunc i64 %rt_val.0.i to i32
   store i32 %conv.i17, ptr %rt_le32.i, align 4
   %call5.i = call dereferenceable_or_null(4) ptr @g_memdup(ptr noundef nonnull %rt_le32.i, i32 noundef 4) #23
   call void @fw_cfg_add_file_callback(ptr noundef %call.i, ptr noundef nonnull @.str.63, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %call5.i, i64 noundef 4, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %rt_le32.i)
   %dma_enabled = getelementptr inbounds i8, ptr %call.i, i64 892
-  %26 = load i8, ptr %dma_enabled, align 4
-  %tobool11 = trunc i8 %26 to i1
+  %24 = load i8, ptr %dma_enabled, align 4
+  %tobool11 = trunc i8 %24 to i1
   %. = select i1 %tobool11, i32 3, i32 1
   call void @fw_cfg_add_i32(ptr noundef nonnull %call.i, i16 noundef zeroext 1, i32 noundef %.)
   %machine_ready = getelementptr inbounds i8, ptr %call.i, i64 864

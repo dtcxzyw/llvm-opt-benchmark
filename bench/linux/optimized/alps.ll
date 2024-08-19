@@ -2086,43 +2086,38 @@ alps_passthrough_mode_v2.exit:                    ; preds = %19
   store i32 0, ptr %3, align 4, !annotation !10
   %24 = call i32 @ps2_command(ptr noundef %23, ptr noundef nonnull %3, i32 noundef 1001) #14
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %47
+  br i1 %25, label %26, label %.sink.split
 
 26:                                               ; preds = %22
   %27 = call i32 @ps2_command(ptr noundef %23, ptr noundef null, i32 noundef 245) #14
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %47
+  br i1 %28, label %29, label %.sink.split
 
 29:                                               ; preds = %26
   %30 = call i32 @ps2_command(ptr noundef %23, ptr noundef null, i32 noundef 245) #14
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %47
+  br i1 %31, label %32, label %.sink.split
 
 32:                                               ; preds = %29
   %33 = call i32 @ps2_command(ptr noundef %23, ptr noundef nonnull %2, i32 noundef 4339) #14
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %47
+  br i1 %34, label %35, label %.sink.split
 
 35:                                               ; preds = %32
   store i8 0, ptr %3, align 4
   %36 = call i32 @ps2_command(ptr noundef %23, ptr noundef null, i32 noundef 245) #14
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %alps_get_status.exit.thread
+  br i1 %37, label %38, label %.sink.split
 
 38:                                               ; preds = %35
   %39 = call i32 @ps2_command(ptr noundef %23, ptr noundef null, i32 noundef 245) #14
   %40 = icmp eq i32 %39, 0
-  br i1 %40, label %41, label %alps_get_status.exit.thread
+  br i1 %40, label %41, label %.sink.split
 
 41:                                               ; preds = %38
   %42 = call i32 @ps2_command(ptr noundef %23, ptr noundef null, i32 noundef 245) #14
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %alps_get_status.exit, label %alps_get_status.exit.thread
-
-alps_get_status.exit.thread:                      ; preds = %41, %38, %35
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
-  br label %48
+  br i1 %43, label %alps_get_status.exit, label %.sink.split
 
 alps_get_status.exit:                             ; preds = %41
   %44 = getelementptr inbounds i8, ptr %3, i64 2
@@ -2134,99 +2129,99 @@ alps_get_status.exit:                             ; preds = %41
   %.not = icmp eq i32 %46, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
-  br i1 %.not, label %51, label %48
+  br i1 %.not, label %50, label %47
 
-47:                                               ; preds = %32, %29, %26, %22
+.sink.split:                                      ; preds = %22, %26, %29, %32, %35, %38, %41
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
-  br label %48
+  br label %47
 
-48:                                               ; preds = %alps_get_status.exit.thread, %47, %alps_get_status.exit
-  %49 = load ptr, ptr %23, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 344
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %50, ptr noundef nonnull @.str.14) #15
+47:                                               ; preds = %.sink.split, %alps_get_status.exit
+  %48 = load ptr, ptr %23, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 344
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %49, ptr noundef nonnull @.str.14) #15
   br label %alps_passthrough_mode_v2.exit.thread
 
-51:                                               ; preds = %alps_get_status.exit
-  %52 = call i32 @ps2_command(ptr noundef %23, ptr noundef null, i32 noundef 245) #14
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %54, label %69
+50:                                               ; preds = %alps_get_status.exit
+  %51 = call i32 @ps2_command(ptr noundef %23, ptr noundef null, i32 noundef 245) #14
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %53, label %68
 
-54:                                               ; preds = %51
-  %55 = call i32 @ps2_command(ptr noundef %23, ptr noundef null, i32 noundef 245) #14
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %57, label %69
+53:                                               ; preds = %50
+  %54 = call i32 @ps2_command(ptr noundef %23, ptr noundef null, i32 noundef 245) #14
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %56, label %68
 
-57:                                               ; preds = %54
-  %58 = call i32 @ps2_command(ptr noundef %23, ptr noundef null, i32 noundef 245) #14
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %60, label %69
+56:                                               ; preds = %53
+  %57 = call i32 @ps2_command(ptr noundef %23, ptr noundef null, i32 noundef 245) #14
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %59, label %68
 
-60:                                               ; preds = %57
-  %61 = call i32 @ps2_command(ptr noundef %23, ptr noundef null, i32 noundef 245) #14
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %63, label %69
+59:                                               ; preds = %56
+  %60 = call i32 @ps2_command(ptr noundef %23, ptr noundef null, i32 noundef 245) #14
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %62, label %68
 
-63:                                               ; preds = %60
-  %64 = call i32 @ps2_command(ptr noundef %23, ptr noundef null, i32 noundef 244) #14
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %66, label %69
+62:                                               ; preds = %59
+  %63 = call i32 @ps2_command(ptr noundef %23, ptr noundef null, i32 noundef 244) #14
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %65, label %68
 
-66:                                               ; preds = %63
-  %67 = call i32 @ps2_command(ptr noundef %23, ptr noundef null, i32 noundef 240) #14
-  %68 = icmp eq i32 %67, 0
-  br i1 %68, label %72, label %69
+65:                                               ; preds = %62
+  %66 = call i32 @ps2_command(ptr noundef %23, ptr noundef null, i32 noundef 240) #14
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %71, label %68
 
-69:                                               ; preds = %66, %63, %60, %57, %54, %51
-  %70 = load ptr, ptr %23, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 344
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %71, ptr noundef nonnull @.str.15) #15
+68:                                               ; preds = %65, %62, %59, %56, %53, %50
+  %69 = load ptr, ptr %23, align 8
+  %70 = getelementptr inbounds i8, ptr %69, i64 344
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %70, ptr noundef nonnull @.str.15) #15
   br label %alps_passthrough_mode_v2.exit.thread
 
-72:                                               ; preds = %66
-  %73 = load i32, ptr %5, align 8
-  %74 = and i32 %73, 4
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %88, label %76
+71:                                               ; preds = %65
+  %72 = load i32, ptr %5, align 8
+  %73 = and i32 %72, 4
+  %74 = icmp eq i32 %73, 0
+  br i1 %74, label %87, label %75
 
-76:                                               ; preds = %72
-  %77 = call i32 @ps2_command(ptr noundef %23, ptr noundef null, i32 noundef 230) #14
-  %78 = icmp eq i32 %77, 0
-  br i1 %78, label %79, label %alps_passthrough_mode_v2.exit.thread
+75:                                               ; preds = %71
+  %76 = call i32 @ps2_command(ptr noundef %23, ptr noundef null, i32 noundef 230) #14
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %78, label %alps_passthrough_mode_v2.exit.thread
 
-79:                                               ; preds = %76
-  %80 = call i32 @ps2_command(ptr noundef %23, ptr noundef null, i32 noundef 230) #14
-  %81 = icmp eq i32 %80, 0
-  br i1 %81, label %82, label %alps_passthrough_mode_v2.exit.thread
+78:                                               ; preds = %75
+  %79 = call i32 @ps2_command(ptr noundef %23, ptr noundef null, i32 noundef 230) #14
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %81, label %alps_passthrough_mode_v2.exit.thread
 
-82:                                               ; preds = %79
-  %83 = call i32 @ps2_command(ptr noundef %23, ptr noundef null, i32 noundef 230) #14
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %85, label %alps_passthrough_mode_v2.exit.thread
+81:                                               ; preds = %78
+  %82 = call i32 @ps2_command(ptr noundef %23, ptr noundef null, i32 noundef 230) #14
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %84, label %alps_passthrough_mode_v2.exit.thread
 
-85:                                               ; preds = %82
-  %86 = call i32 @ps2_command(ptr noundef %23, ptr noundef null, i32 noundef 245) #14
-  %87 = icmp eq i32 %86, 0
-  br i1 %87, label %alps_passthrough_mode_v2.exit1, label %alps_passthrough_mode_v2.exit.thread
+84:                                               ; preds = %81
+  %85 = call i32 @ps2_command(ptr noundef %23, ptr noundef null, i32 noundef 245) #14
+  %86 = icmp eq i32 %85, 0
+  br i1 %86, label %alps_passthrough_mode_v2.exit1, label %alps_passthrough_mode_v2.exit.thread
 
-alps_passthrough_mode_v2.exit1:                   ; preds = %85
+alps_passthrough_mode_v2.exit1:                   ; preds = %84
   call void @ps2_drain(ptr noundef %23, i64 noundef 3, i32 noundef 100) #14
-  br label %88
+  br label %87
 
-88:                                               ; preds = %alps_passthrough_mode_v2.exit1, %72
-  %89 = call i32 @ps2_command(ptr noundef %23, ptr noundef null, i32 noundef 234) #14
-  %90 = icmp eq i32 %89, 0
-  br i1 %90, label %alps_passthrough_mode_v2.exit.thread, label %91
+87:                                               ; preds = %alps_passthrough_mode_v2.exit1, %71
+  %88 = call i32 @ps2_command(ptr noundef %23, ptr noundef null, i32 noundef 234) #14
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %alps_passthrough_mode_v2.exit.thread, label %90
 
-91:                                               ; preds = %88
-  %92 = load ptr, ptr %23, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 344
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %93, ptr noundef nonnull @.str.16) #15
+90:                                               ; preds = %87
+  %91 = load ptr, ptr %23, align 8
+  %92 = getelementptr inbounds i8, ptr %91, i64 344
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %92, ptr noundef nonnull @.str.16) #15
   br label %alps_passthrough_mode_v2.exit.thread
 
-alps_passthrough_mode_v2.exit.thread:             ; preds = %76, %79, %82, %85, %9, %13, %16, %19, %91, %88, %69, %48
-  %94 = phi i32 [ -1, %48 ], [ -1, %69 ], [ -1, %91 ], [ 0, %88 ], [ -1, %19 ], [ -1, %16 ], [ -1, %13 ], [ -1, %9 ], [ -1, %85 ], [ -1, %82 ], [ -1, %79 ], [ -1, %76 ]
-  ret i32 %94
+alps_passthrough_mode_v2.exit.thread:             ; preds = %75, %78, %81, %84, %9, %13, %16, %19, %90, %87, %68, %47
+  %93 = phi i32 [ -1, %47 ], [ -1, %68 ], [ -1, %90 ], [ 0, %87 ], [ -1, %19 ], [ -1, %16 ], [ -1, %13 ], [ -1, %9 ], [ -1, %84 ], [ -1, %81 ], [ -1, %78 ], [ -1, %75 ]
+  ret i32 %93
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

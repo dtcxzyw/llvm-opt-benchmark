@@ -2543,7 +2543,7 @@ define void @_ZN26EnabledProtocolsProxyModel14setItemsEnableENS_10EnableTypeE11Q
   %9 = alloca %class.QVariant, align 8
   %10 = tail call noundef ptr @_ZNK19QAbstractProxyModel11sourceModelEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %89, label %11
+  br i1 %.not, label %88, label %11
 
 11:                                               ; preds = %3
   %12 = load i32, ptr %2, align 8
@@ -2580,7 +2580,7 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %11
   br label %32
 
 32:                                               ; preds = %.lr.ph, %_ZNK11QModelIndex7isValidEv.exit19.thread
-  %.01230 = phi i32 [ 0, %.lr.ph ], [ %82, %_ZNK11QModelIndex7isValidEv.exit19.thread ]
+  %.01230 = phi i32 [ 0, %.lr.ph ], [ %81, %_ZNK11QModelIndex7isValidEv.exit19.thread ]
   %33 = load ptr, ptr %0, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 96
   %35 = load ptr, ptr %34, align 8
@@ -2636,84 +2636,80 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %11
 
 _ZNK11QModelIndex4dataEi.exit:                    ; preds = %57, %61
   %62 = invoke noundef i32 @_Z13qvariant_castIN2Qt10CheckStateEET_RK8QVariant(ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %_ZNK8QVariant5valueIN2Qt10CheckStateEEET_v.exit unwind label %64
+          to label %_ZNK8QVariant5valueIN2Qt10CheckStateEEET_v.exit unwind label %63
 
 _ZNK8QVariant5valueIN2Qt10CheckStateEEET_v.exit:  ; preds = %_ZNK11QModelIndex4dataEi.exit
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
-  switch i32 %1, label %67 [
-    i32 0, label %63
-    i32 1, label %66
+  switch i32 %1, label %66 [
+    i32 0, label %69
+    i32 1, label %65
   ]
 
-63:                                               ; preds = %_ZNK8QVariant5valueIN2Qt10CheckStateEEET_v.exit
-  store i32 2, ptr %6, align 4
-  br label %70
-
-64:                                               ; preds = %_ZNK11QModelIndex4dataEi.exit
-  %65 = landingpad { ptr, i32 }
+63:                                               ; preds = %_ZNK11QModelIndex4dataEi.exit
+  %64 = landingpad { ptr, i32 }
           cleanup
-  br label %90
+  br label %89
+
+65:                                               ; preds = %_ZNK8QVariant5valueIN2Qt10CheckStateEEET_v.exit
+  br label %69
 
 66:                                               ; preds = %_ZNK8QVariant5valueIN2Qt10CheckStateEEET_v.exit
-  store i32 0, ptr %6, align 4
-  br label %70
+  %67 = icmp eq i32 %62, 2
+  %68 = select i1 %67, i32 0, i32 2
+  br label %69
 
-67:                                               ; preds = %_ZNK8QVariant5valueIN2Qt10CheckStateEEET_v.exit
-  %68 = icmp eq i32 %62, 2
-  %69 = select i1 %68, i32 0, i32 2
-  store i32 %69, ptr %6, align 4
-  br label %70
-
-70:                                               ; preds = %66, %67, %63
-  %71 = call noundef ptr @_ZNK19QAbstractProxyModel11sourceModelEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  %72 = load ptr, ptr %0, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 400
-  %74 = load ptr, ptr %73, align 8
-  call void %74(ptr dead_on_unwind nonnull writable sret(%class.QModelIndex) align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+69:                                               ; preds = %_ZNK8QVariant5valueIN2Qt10CheckStateEEET_v.exit, %65, %66
+  %.sink = phi i32 [ 0, %65 ], [ %68, %66 ], [ 2, %_ZNK8QVariant5valueIN2Qt10CheckStateEEET_v.exit ]
+  store i32 %.sink, ptr %6, align 4
+  %70 = call noundef ptr @_ZNK19QAbstractProxyModel11sourceModelEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %71 = load ptr, ptr %0, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 400
+  %73 = load ptr, ptr %72, align 8
+  call void %73(ptr dead_on_unwind nonnull writable sret(%class.QModelIndex) align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
   call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN2Qt10CheckStateEE8metaTypeE, ptr noundef nonnull %6)
-  %75 = load ptr, ptr %71, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 152
-  %77 = load ptr, ptr %76, align 8
-  %78 = invoke noundef zeroext i1 %77(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 10)
-          to label %79 unwind label %80
+  %74 = load ptr, ptr %70, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 152
+  %76 = load ptr, ptr %75, align 8
+  %77 = invoke noundef zeroext i1 %76(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 10)
+          to label %78 unwind label %79
 
-79:                                               ; preds = %70
+78:                                               ; preds = %69
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #22
   br label %_ZNK11QModelIndex7isValidEv.exit19.thread
 
-80:                                               ; preds = %70
-  %81 = landingpad { ptr, i32 }
+79:                                               ; preds = %69
+  %80 = landingpad { ptr, i32 }
           cleanup
-  br label %90
+  br label %89
 
-_ZNK11QModelIndex7isValidEv.exit19.thread:        ; preds = %32, %45, %51, %79
+_ZNK11QModelIndex7isValidEv.exit19.thread:        ; preds = %32, %45, %51, %78
   call void @_ZN26EnabledProtocolsProxyModel14setItemsEnableENS_10EnableTypeE11QModelIndex(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, ptr noundef nonnull byval(%class.QModelIndex) align 8 %4)
-  %82 = add nuw nsw i32 %.01230, 1
-  %exitcond.not = icmp eq i32 %82, %24
+  %81 = add nuw nsw i32 %.01230, 1
+  %exitcond.not = icmp eq i32 %81, %24
   br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %_ZNK11QModelIndex7isValidEv.exit19.thread, %20
-  %83 = load i32, ptr %2, align 8
-  %84 = icmp sgt i32 %83, -1
-  %85 = load i32, ptr %14, align 4
-  %86 = icmp sgt i32 %85, -1
-  %or.cond.i20 = select i1 %84, i1 %86, i1 false
-  %87 = load ptr, ptr %17, align 8
-  %88 = icmp ne ptr %87, null
-  %or.cond29 = select i1 %or.cond.i20, i1 %88, i1 false
-  br i1 %or.cond29, label %89, label %_ZNK11QModelIndex7isValidEv.exit21.thread
+  %82 = load i32, ptr %2, align 8
+  %83 = icmp sgt i32 %82, -1
+  %84 = load i32, ptr %14, align 4
+  %85 = icmp sgt i32 %84, -1
+  %or.cond.i20 = select i1 %83, i1 %85, i1 false
+  %86 = load ptr, ptr %17, align 8
+  %87 = icmp ne ptr %86, null
+  %or.cond29 = select i1 %or.cond.i20, i1 %87, i1 false
+  br i1 %or.cond29, label %88, label %_ZNK11QModelIndex7isValidEv.exit21.thread
 
 _ZNK11QModelIndex7isValidEv.exit21.thread:        ; preds = %._crit_edge
   call void @_ZN18QAbstractItemModel13endResetModelEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  br label %89
+  br label %88
 
-89:                                               ; preds = %._crit_edge, %3, %_ZNK11QModelIndex7isValidEv.exit21.thread
+88:                                               ; preds = %._crit_edge, %3, %_ZNK11QModelIndex7isValidEv.exit21.thread
   ret void
 
-90:                                               ; preds = %80, %64
-  %.sink = phi ptr [ %9, %80 ], [ %7, %64 ]
-  %.pn = phi { ptr, i32 } [ %81, %80 ], [ %65, %64 ]
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #22
+89:                                               ; preds = %79, %63
+  %.sink31 = phi ptr [ %9, %79 ], [ %7, %63 ]
+  %.pn = phi { ptr, i32 } [ %80, %79 ], [ %64, %63 ]
+  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink31) #22
   resume { ptr, i32 } %.pn
 }
 

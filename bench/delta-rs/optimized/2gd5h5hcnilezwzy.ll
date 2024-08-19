@@ -616,7 +616,7 @@ _ZN4core3str11validations15next_code_point17hb2831d44538d063eE.exit.thread.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !57)
   %206 = load i64, ptr %6, align 8, !range !60, !alias.scope !61, !noundef !4
   %207 = icmp eq i64 %206, -9223372036854775808
-  br i1 %207, label %"_ZN4core3ptr56drop_in_place$LT$object_store..path..parts..PathPart$GT$17hcccf037f9cc7207dE.exit", label %208
+  br i1 %207, label %.backedge, label %208
 
 208:                                              ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !62
@@ -633,10 +633,6 @@ _ZN4core3str11validations15next_code_point17hb2831d44538d063eE.exit.thread.i.i.i
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3b9ee244134b8beeE.exit.i.i": ; preds = %210, %208
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !62
-  br label %"_ZN4core3ptr56drop_in_place$LT$object_store..path..parts..PathPart$GT$17hcccf037f9cc7207dE.exit"
-
-"_ZN4core3ptr56drop_in_place$LT$object_store..path..parts..PathPart$GT$17hcccf037f9cc7207dE.exit": ; preds = %.critedge, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3b9ee244134b8beeE.exit.i.i"
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %.backedge
 
 213:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab1451b62b1c9f8aE.exit20.thread"
@@ -676,7 +672,7 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit: ; preds = %213, %.noexc
   call void @llvm.experimental.noalias.scope.decl(metadata !80)
   %227 = load i64, ptr %6, align 8, !range !60, !alias.scope !83, !noundef !4
   %228 = icmp eq i64 %227, -9223372036854775808
-  br i1 %228, label %"_ZN4core3ptr56drop_in_place$LT$object_store..path..parts..PathPart$GT$17hcccf037f9cc7207dE.exit23", label %229
+  br i1 %228, label %.backedge, label %229
 
 229:                                              ; preds = %226
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !84
@@ -693,13 +689,10 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit: ; preds = %213, %.noexc
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3b9ee244134b8beeE.exit.i.i22": ; preds = %231, %229
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !84
-  br label %"_ZN4core3ptr56drop_in_place$LT$object_store..path..parts..PathPart$GT$17hcccf037f9cc7207dE.exit23"
-
-"_ZN4core3ptr56drop_in_place$LT$object_store..path..parts..PathPart$GT$17hcccf037f9cc7207dE.exit23": ; preds = %226, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3b9ee244134b8beeE.exit.i.i22"
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %.backedge
 
-.backedge:                                        ; preds = %"_ZN4core3ptr56drop_in_place$LT$object_store..path..parts..PathPart$GT$17hcccf037f9cc7207dE.exit23", %"_ZN4core3ptr56drop_in_place$LT$object_store..path..parts..PathPart$GT$17hcccf037f9cc7207dE.exit"
+.backedge:                                        ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3b9ee244134b8beeE.exit.i.i22", %226, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3b9ee244134b8beeE.exit.i.i", %.critedge
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %234 = trunc nuw i8 %.sroa.48.4 to i1
   br i1 %234, label %._crit_edge, label %24
 
@@ -942,7 +935,6 @@ define hidden void @_ZN3url3Url14from_file_path17hd01330da8cce7c30E(ptr noalias 
   %.sroa.15.sroa.4.0..sroa.15.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.15.sroa.4.0..sroa.15.0..sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(16) %.sroa.15.sroa.4, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.15.sroa.4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %27
 
 20:                                               ; preds = %15
@@ -965,10 +957,10 @@ define hidden void @_ZN3url3Url14from_file_path17hd01330da8cce7c30E(ptr noalias 
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3b9ee244134b8beeE.exit": ; preds = %20, %23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !129
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %27
 
 27:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3b9ee244134b8beeE.exit", %19
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
 
 28:                                               ; preds = %13

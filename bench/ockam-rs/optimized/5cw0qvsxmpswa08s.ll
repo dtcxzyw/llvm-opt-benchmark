@@ -70,7 +70,7 @@ common.resume:                                    ; preds = %.thread53, %14
   %23 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %22, ptr %23, align 8
   store ptr null, ptr %0, align 8
-  br label %96
+  br label %84
 
 24:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
@@ -218,10 +218,10 @@ common.resume:                                    ; preds = %.thread53, %14
 83:                                               ; preds = %81, %77, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17he5995102f50757f1E.exit39"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !83
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %84
 
-84:                                               ; preds = %96, %83
+84:                                               ; preds = %"_ZN20ockam_transport_core5error125_$LT$impl$u20$core..convert..From$LT$ockam_transport_core..error..TransportError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hfd4ad921d9a0b1d7E.exit", %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h4c1ceea61b2e724fE.exit42", %83
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   ret void
 
 85:                                               ; preds = %.thread53, %47
@@ -254,10 +254,6 @@ common.resume:                                    ; preds = %.thread53, %14
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h4c1ceea61b2e724fE.exit42": ; preds = %"_ZN20ockam_transport_core5error125_$LT$impl$u20$core..convert..From$LT$ockam_transport_core..error..TransportError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hfd4ad921d9a0b1d7E.exit29", %90, %94
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !91
-  br label %96
-
-96:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h4c1ceea61b2e724fE.exit42", %"_ZN20ockam_transport_core5error125_$LT$impl$u20$core..convert..From$LT$ockam_transport_core..error..TransportError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hfd4ad921d9a0b1d7E.exit"
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %84
 
 .thread53:                                        ; preds = %47, %.thread58

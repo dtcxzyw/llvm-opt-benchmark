@@ -927,18 +927,18 @@ _ZN4ring2ec10curve255196x2551911x25519_ecdh11scalar_mult17hbe643e1ad68e8a28E.exi
   %21 = call noundef i32 @ring_core_0_17_8__CRYPTO_memcmp(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %7, i64 noundef 32)
   %.not23 = icmp eq i32 %21, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  br i1 %.not23, label %22, label %_ZN4ring13constant_time23verify_slices_are_equal17ha963d7590b538eceE.exit.thread
-
-_ZN4ring13constant_time23verify_slices_are_equal17ha963d7590b538eceE.exit.thread: ; preds = %_ZN4ring2ec10curve255196x2551911x25519_ecdh11scalar_mult17hbe643e1ad68e8a28E.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  br label %23
+  br i1 %.not23, label %22, label %.sink.split
 
 22:                                               ; preds = %_ZN4ring2ec10curve255196x2551911x25519_ecdh11scalar_mult17hbe643e1ad68e8a28E.exit, %14
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %_ZN4ring2ec10curve255196x2551911x25519_ecdh11scalar_mult17hbe643e1ad68e8a28E.exit, %22
+  %.014.ph = phi i1 [ true, %22 ], [ false, %_ZN4ring2ec10curve255196x2551911x25519_ecdh11scalar_mult17hbe643e1ad68e8a28E.exit ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   br label %23
 
-23:                                               ; preds = %_ZN4ring2ec4keys4Seed15bytes_less_safe17hd49c92e671dab9ceE.exit, %22, %_ZN4ring13constant_time23verify_slices_are_equal17ha963d7590b538eceE.exit.thread
-  %.014 = phi i1 [ true, %22 ], [ false, %_ZN4ring13constant_time23verify_slices_are_equal17ha963d7590b538eceE.exit.thread ], [ true, %_ZN4ring2ec4keys4Seed15bytes_less_safe17hd49c92e671dab9ceE.exit ]
+23:                                               ; preds = %.sink.split, %_ZN4ring2ec4keys4Seed15bytes_less_safe17hd49c92e671dab9ceE.exit
+  %.014 = phi i1 [ true, %_ZN4ring2ec4keys4Seed15bytes_less_safe17hd49c92e671dab9ceE.exit ], [ %.014.ph, %.sink.split ]
   ret i1 %.014
 }
 

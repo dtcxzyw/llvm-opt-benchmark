@@ -321,8 +321,7 @@ do.end:                                           ; preds = %entry
 
 if.then4:                                         ; preds = %do.end
   %2 = load i64, ptr %kernel_load_base, align 8
-  store i64 %2, ptr %kernel_entry, align 8
-  br label %out
+  br label %out.sink.split
 
 if.end5:                                          ; preds = %do.end
   %call6 = call i64 @load_uimage_as(ptr noundef nonnull %0, ptr noundef nonnull %kernel_entry, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #12
@@ -335,18 +334,19 @@ if.end9:                                          ; preds = %if.end5
   %4 = load i64, ptr %ram_size, align 8
   %call10 = call i64 @load_image_targphys_as(ptr noundef nonnull %0, i64 noundef %kernel_start_addr, i64 noundef %4, ptr noundef null) #12
   %cmp11 = icmp sgt i64 %call10, 0
-  br i1 %cmp11, label %if.then12, label %if.end13
-
-if.then12:                                        ; preds = %if.end9
-  store i64 %kernel_start_addr, ptr %kernel_entry, align 8
-  br label %out
+  br i1 %cmp11, label %out.sink.split, label %if.end13
 
 if.end13:                                         ; preds = %if.end9
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.11, ptr noundef nonnull %0) #12
   call void @exit(i32 noundef 1) #14
   unreachable
 
-out:                                              ; preds = %if.end5, %if.then12, %if.then4
+out.sink.split:                                   ; preds = %if.end9, %if.then4
+  %kernel_start_addr.sink = phi i64 [ %2, %if.then4 ], [ %kernel_start_addr, %if.end9 ]
+  store i64 %kernel_start_addr.sink, ptr %kernel_entry, align 8
+  br label %out
+
+out:                                              ; preds = %out.sink.split, %if.end5
   %harts1.i = getelementptr inbounds i8, ptr %harts, i64 840
   %5 = load ptr, ptr %harts1.i, align 8
   %misa_mxl_max.i = getelementptr inbounds i8, ptr %5, i64 15188

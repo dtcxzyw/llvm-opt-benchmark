@@ -1838,7 +1838,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %_ZN3gmx14LogEn
 39:                                               ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit, %32
   %40 = landingpad { ptr, i32 }
           cleanup
-  br label %125
+  br label %123
 
 41:                                               ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit, %29, %25
   %42 = load ptr, ptr %10, align 8
@@ -1860,204 +1860,200 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %_ZN3gmx14LogEn
 45:                                               ; preds = %43
   %46 = load ptr, ptr @debug, align 8
   %.not17.i = icmp eq ptr %46, null
-  br i1 %.not17.i, label %49, label %47
+  br i1 %.not17.i, label %.sink.split.i, label %47
 
 47:                                               ; preds = %45
   %48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %46, ptr noundef nonnull @.str.34, i32 noundef %44) #17
-  br label %49
-
-49:                                               ; preds = %47, %45
-  store i8 0, ptr %6, align 1
-  br label %69
+  br label %.sink.split.i
 
 .preheader.i:                                     ; preds = %43
-  %50 = icmp sgt i32 %2, 0
-  br i1 %50, label %.lr.ph.preheader.i, label %._crit_edge.i
+  %49 = icmp sgt i32 %2, 0
+  br i1 %49, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %51 = add nsw i32 %2, -1
-  %umin.i = call i32 @llvm.umin.i32(i32 %51, i32 1023)
-  %52 = add nuw nsw i32 %umin.i, 1
-  %wide.trip.count.i = zext nneg i32 %52 to i64
+  %50 = add nsw i32 %2, -1
+  %umin.i = call i32 @llvm.umin.i32(i32 %50, i32 1023)
+  %51 = add nuw nsw i32 %umin.i, 1
+  %wide.trip.count.i = zext nneg i32 %51 to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %61, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %61 ]
-  %.021.i = phi i1 [ true, %.lr.ph.preheader.i ], [ %62, %61 ]
-  br i1 %.021.i, label %53, label %61
+.lr.ph.i:                                         ; preds = %60, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %60 ]
+  %.021.i = phi i1 [ true, %.lr.ph.preheader.i ], [ %61, %60 ]
+  br i1 %.021.i, label %52, label %60
 
-53:                                               ; preds = %.lr.ph.i
-  %54 = lshr i64 %indvars.iv.i, 6
-  %55 = getelementptr inbounds i64, ptr %7, i64 %54
-  %56 = load i64, ptr %55, align 8
-  %57 = and i64 %indvars.iv.i, 63
-  %58 = shl nuw i64 1, %57
-  %59 = and i64 %56, %58
-  %60 = icmp ne i64 %59, 0
-  br label %61
+52:                                               ; preds = %.lr.ph.i
+  %53 = lshr i64 %indvars.iv.i, 6
+  %54 = getelementptr inbounds i64, ptr %7, i64 %53
+  %55 = load i64, ptr %54, align 8
+  %56 = and i64 %indvars.iv.i, 63
+  %57 = shl nuw i64 1, %56
+  %58 = and i64 %55, %57
+  %59 = icmp ne i64 %58, 0
+  br label %60
 
-61:                                               ; preds = %53, %.lr.ph.i
-  %62 = phi i1 [ false, %.lr.ph.i ], [ %60, %53 ]
+60:                                               ; preds = %52, %.lr.ph.i
+  %61 = phi i1 [ false, %.lr.ph.i ], [ %59, %52 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
-._crit_edge.i:                                    ; preds = %61, %.preheader.i
-  %.0.lcssa.i = phi i1 [ true, %.preheader.i ], [ %62, %61 ]
-  %63 = load ptr, ptr @debug, align 8
-  %.not18.i = icmp eq ptr %63, null
-  br i1 %.not18.i, label %67, label %64
+._crit_edge.i:                                    ; preds = %60, %.preheader.i
+  %.0.lcssa.i = phi i1 [ true, %.preheader.i ], [ %61, %60 ]
+  %62 = load ptr, ptr @debug, align 8
+  %.not18.i = icmp eq ptr %62, null
+  br i1 %.not18.i, label %66, label %63
 
-64:                                               ; preds = %._crit_edge.i
-  %65 = select i1 %.0.lcssa.i, ptr @.str.36, ptr @.str.37
-  %66 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %63, ptr noundef nonnull @.str.35, ptr noundef nonnull %65) #17
+63:                                               ; preds = %._crit_edge.i
+  %64 = select i1 %.0.lcssa.i, ptr @.str.36, ptr @.str.37
+  %65 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %62, ptr noundef nonnull @.str.35, ptr noundef nonnull %64) #17
+  br label %66
+
+66:                                               ; preds = %63, %._crit_edge.i
+  br i1 %.0.lcssa.i, label %67, label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %66, %47, %45
+  store i8 0, ptr %6, align 1
   br label %67
 
-67:                                               ; preds = %64, %._crit_edge.i
-  br i1 %.0.lcssa.i, label %69, label %68
+67:                                               ; preds = %.sink.split.i, %66
+  %68 = phi i8 [ 1, %66 ], [ 0, %.sink.split.i ]
+  %69 = call noundef i32 @_Z16tMPI_InitializedPi(ptr noundef nonnull %8)
+  %70 = load i32, ptr %8, align 4
+  %.not19.i = icmp eq i32 %70, 0
+  br i1 %.not19.i, label %_ZL25detectDefaultAffinityMaskiP10tmpi_comm_.exit, label %71
 
-68:                                               ; preds = %67
-  store i8 0, ptr %6, align 1
-  br label %69
-
-69:                                               ; preds = %68, %67, %49
-  %70 = phi i8 [ 1, %67 ], [ 0, %68 ], [ 0, %49 ]
-  %71 = call noundef i32 @_Z16tMPI_InitializedPi(ptr noundef nonnull %8)
-  %72 = load i32, ptr %8, align 4
-  %.not19.i = icmp eq i32 %72, 0
-  br i1 %.not19.i, label %_ZL25detectDefaultAffinityMaskiP10tmpi_comm_.exit, label %73
-
-73:                                               ; preds = %69
-  store i8 %70, ptr %9, align 1
-  %74 = load ptr, ptr @TMPI_C_BOOL, align 8
-  %75 = call noundef i32 @_Z14tMPI_AllreducePvS_iP14tmpi_datatype_7tMPI_OpP10tmpi_comm_(ptr noundef nonnull %9, ptr noundef nonnull %6, i32 noundef 1, ptr noundef %74, i32 noundef 4, ptr noundef %4)
+71:                                               ; preds = %67
+  store i8 %68, ptr %9, align 1
+  %72 = load ptr, ptr @TMPI_C_BOOL, align 8
+  %73 = call noundef i32 @_Z14tMPI_AllreducePvS_iP14tmpi_datatype_7tMPI_OpP10tmpi_comm_(ptr noundef nonnull %9, ptr noundef nonnull %6, i32 noundef 1, ptr noundef %72, i32 noundef 4, ptr noundef %4)
   %.pre.i = load i8, ptr %6, align 1
   br label %_ZL25detectDefaultAffinityMaskiP10tmpi_comm_.exit
 
-_ZL25detectDefaultAffinityMaskiP10tmpi_comm_.exit: ; preds = %69, %73
-  %76 = phi i8 [ %.pre.i, %73 ], [ %70, %69 ]
-  %77 = trunc i8 %76 to i1
+_ZL25detectDefaultAffinityMaskiP10tmpi_comm_.exit: ; preds = %67, %71
+  %74 = phi i8 [ %.pre.i, %71 ], [ %68, %67 ]
+  %75 = trunc i8 %74 to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
-  br i1 %77, label %124, label %78
+  br i1 %75, label %122, label %76
 
-78:                                               ; preds = %_ZL25detectDefaultAffinityMaskiP10tmpi_comm_.exit
-  %79 = getelementptr inbounds i8, ptr %1, i64 16
-  %80 = load i32, ptr %79, align 8
-  %81 = icmp eq i32 %80, 1
-  br i1 %81, label %82, label %104
+76:                                               ; preds = %_ZL25detectDefaultAffinityMaskiP10tmpi_comm_.exit
+  %77 = getelementptr inbounds i8, ptr %1, i64 16
+  %78 = load i32, ptr %77, align 8
+  %79 = icmp eq i32 %78, 1
+  br i1 %79, label %80, label %102
 
-82:                                               ; preds = %78
-  %83 = load ptr, ptr %0, align 8
-  %84 = icmp eq ptr %83, null
-  br i1 %3, label %94, label %85
+80:                                               ; preds = %76
+  %81 = load ptr, ptr %0, align 8
+  %82 = icmp eq ptr %81, null
+  br i1 %3, label %92, label %83
 
-85:                                               ; preds = %82
-  br i1 %84, label %103, label %86
+83:                                               ; preds = %80
+  br i1 %82, label %101, label %84
 
-86:                                               ; preds = %85
+84:                                               ; preds = %83
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, i8 0, i64 40, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #17
-  %87 = getelementptr inbounds i8, ptr %12, i64 32
-  store i8 1, ptr %87, align 8
-  %88 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.29)
-          to label %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit20 unwind label %92
+  %85 = getelementptr inbounds i8, ptr %12, i64 32
+  store i8 1, ptr %85, align 8
+  %86 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.29)
+          to label %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit20 unwind label %90
 
-_ZN3gmx14LogEntryWriter10appendTextEPKc.exit20:   ; preds = %86
-  %89 = load ptr, ptr %83, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 16
-  %91 = load ptr, ptr %90, align 8
-  invoke void %91(ptr noundef nonnull align 8 dereferenceable(8) %83, ptr noundef nonnull align 8 dereferenceable(33) %12)
-          to label %.sink.split unwind label %92
+_ZN3gmx14LogEntryWriter10appendTextEPKc.exit20:   ; preds = %84
+  %87 = load ptr, ptr %81, align 8
+  %88 = getelementptr inbounds i8, ptr %87, i64 16
+  %89 = load ptr, ptr %88, align 8
+  invoke void %89(ptr noundef nonnull align 8 dereferenceable(8) %81, ptr noundef nonnull align 8 dereferenceable(33) %12)
+          to label %.sink.split unwind label %90
 
-92:                                               ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit20, %86
-  %93 = landingpad { ptr, i32 }
+90:                                               ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit20, %84
+  %91 = landingpad { ptr, i32 }
           cleanup
-  br label %125
+  br label %123
 
-94:                                               ; preds = %82
-  br i1 %84, label %103, label %95
+92:                                               ; preds = %80
+  br i1 %82, label %101, label %93
 
-95:                                               ; preds = %94
+93:                                               ; preds = %92
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, i8 0, i64 40, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #17
-  %96 = getelementptr inbounds i8, ptr %13, i64 32
-  store i8 1, ptr %96, align 8
-  %97 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.30)
-          to label %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit22 unwind label %101
+  %94 = getelementptr inbounds i8, ptr %13, i64 32
+  store i8 1, ptr %94, align 8
+  %95 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.30)
+          to label %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit22 unwind label %99
 
-_ZN3gmx14LogEntryWriter10appendTextEPKc.exit22:   ; preds = %95
-  %98 = load ptr, ptr %83, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 16
-  %100 = load ptr, ptr %99, align 8
-  invoke void %100(ptr noundef nonnull align 8 dereferenceable(8) %83, ptr noundef nonnull align 8 dereferenceable(33) %13)
-          to label %.sink.split unwind label %101
+_ZN3gmx14LogEntryWriter10appendTextEPKc.exit22:   ; preds = %93
+  %96 = load ptr, ptr %81, align 8
+  %97 = getelementptr inbounds i8, ptr %96, i64 16
+  %98 = load ptr, ptr %97, align 8
+  invoke void %98(ptr noundef nonnull align 8 dereferenceable(8) %81, ptr noundef nonnull align 8 dereferenceable(33) %13)
+          to label %.sink.split unwind label %99
 
-101:                                              ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit22, %95
-  %102 = landingpad { ptr, i32 }
+99:                                               ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit22, %93
+  %100 = landingpad { ptr, i32 }
           cleanup
-  br label %125
+  br label %123
 
 .sink.split:                                      ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit22, %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit20
   %.sink = phi ptr [ %12, %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit20 ], [ %13, %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit22 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #17
-  br label %103
+  br label %101
 
-103:                                              ; preds = %.sink.split, %94, %85
-  store i32 3, ptr %79, align 8
-  br label %124
+101:                                              ; preds = %.sink.split, %92, %83
+  store i32 3, ptr %77, align 8
+  br label %122
 
-104:                                              ; preds = %78
-  br i1 %3, label %105, label %124
+102:                                              ; preds = %76
+  br i1 %3, label %103, label %122
 
-105:                                              ; preds = %104
-  %106 = load ptr, ptr %0, align 8
-  %107 = icmp eq ptr %106, null
-  br i1 %107, label %124, label %108
+103:                                              ; preds = %102
+  %104 = load ptr, ptr %0, align 8
+  %105 = icmp eq ptr %104, null
+  br i1 %105, label %122, label %106
 
-108:                                              ; preds = %105
+106:                                              ; preds = %103
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, i8 0, i64 40, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #17
-  %109 = getelementptr inbounds i8, ptr %14, i64 32
-  store i8 1, ptr %109, align 8
-  %110 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx17getProgramContextEv()
-          to label %111 unwind label %122
+  %107 = getelementptr inbounds i8, ptr %14, i64 32
+  store i8 1, ptr %107, align 8
+  %108 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx17getProgramContextEv()
+          to label %109 unwind label %120
 
-111:                                              ; preds = %108
-  %112 = load ptr, ptr %110, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 8
-  %114 = load ptr, ptr %113, align 8
-  %115 = invoke noundef ptr %114(ptr noundef nonnull align 8 dereferenceable(8) %110)
-          to label %116 unwind label %122
+109:                                              ; preds = %106
+  %110 = load ptr, ptr %108, align 8
+  %111 = getelementptr inbounds i8, ptr %110, i64 8
+  %112 = load ptr, ptr %111, align 8
+  %113 = invoke noundef ptr %112(ptr noundef nonnull align 8 dereferenceable(8) %108)
+          to label %114 unwind label %120
 
-116:                                              ; preds = %111
-  %117 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull @.str.31, ptr noundef %115)
-          to label %118 unwind label %122
+114:                                              ; preds = %109
+  %115 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull @.str.31, ptr noundef %113)
+          to label %116 unwind label %120
 
-118:                                              ; preds = %116
-  %119 = load ptr, ptr %106, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 16
-  %121 = load ptr, ptr %120, align 8
-  invoke void %121(ptr noundef nonnull align 8 dereferenceable(8) %106, ptr noundef nonnull align 8 dereferenceable(33) %117)
-          to label %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit24 unwind label %122
+116:                                              ; preds = %114
+  %117 = load ptr, ptr %104, align 8
+  %118 = getelementptr inbounds i8, ptr %117, i64 16
+  %119 = load ptr, ptr %118, align 8
+  invoke void %119(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull align 8 dereferenceable(33) %115)
+          to label %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit24 unwind label %120
 
-_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit24: ; preds = %118
+_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit24: ; preds = %116
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #17
-  br label %124
+  br label %122
 
-122:                                              ; preds = %118, %116, %111, %108
-  %123 = landingpad { ptr, i32 }
+120:                                              ; preds = %116, %114, %109, %106
+  %121 = landingpad { ptr, i32 }
           cleanup
-  br label %125
+  br label %123
 
-124:                                              ; preds = %103, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit24, %105, %104, %_ZL25detectDefaultAffinityMaskiP10tmpi_comm_.exit
+122:                                              ; preds = %101, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit24, %103, %102, %_ZL25detectDefaultAffinityMaskiP10tmpi_comm_.exit
   ret void
 
-125:                                              ; preds = %122, %101, %92, %39
-  %.sink32 = phi ptr [ %14, %122 ], [ %13, %101 ], [ %12, %92 ], [ %11, %39 ]
-  %.pn = phi { ptr, i32 } [ %123, %122 ], [ %102, %101 ], [ %93, %92 ], [ %40, %39 ]
+123:                                              ; preds = %120, %99, %90, %39
+  %.sink32 = phi ptr [ %14, %120 ], [ %13, %99 ], [ %12, %90 ], [ %11, %39 ]
+  %.pn = phi { ptr, i32 } [ %121, %120 ], [ %100, %99 ], [ %91, %90 ], [ %40, %39 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink32) #17
   resume { ptr, i32 } %.pn
 }

@@ -20694,7 +20694,7 @@ define hidden noundef align 8 ptr @"_ZN15tree_sitter_cli8generate10node_types1_1
   %70 = load i8, ptr %25, align 8, !range !4231, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !4804)
   %71 = icmp eq i8 %70, 0
-  br i1 %71, label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h6ceeb7ac30d2ca81E.exit", label %72
+  br i1 %71, label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h72150fe4cf006bcaE.exit.thread", label %72
 
 72:                                               ; preds = %68
   %73 = getelementptr inbounds i8, ptr %69, i64 8
@@ -20789,20 +20789,12 @@ _ZN10serde_json3ser6indent17ha38b27f6e38965e8E.exit.i.i: ; preds = %"_ZN3std2io5
   %116 = load i64, ptr %81, align 8, !alias.scope !4811, !noalias !4818, !noundef !4
   %117 = add i64 %116, 1
   store i64 %117, ptr %81, align 8, !alias.scope !4811, !noalias !4818
-  br label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h6ceeb7ac30d2ca81E.exit"
+  br label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h72150fe4cf006bcaE.exit.thread"
 
-"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h6ceeb7ac30d2ca81E.exit": ; preds = %68, %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$10end_object17h7b3cd881a44a6141E.exit.i"
+"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h72150fe4cf006bcaE.exit.thread": ; preds = %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$10end_object17h7b3cd881a44a6141E.exit.i", %68, %51, %57, %61, %65, %18, %"_ZN5serde3ser5impls73_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..string..String$GT$9serialize17hd54b38bd5d62bd51E.llvm.13013766950239737229.exit.i.i.i"
+  %.1 = phi ptr [ %54, %51 ], [ %58, %57 ], [ %62, %61 ], [ %66, %65 ], [ %50, %"_ZN5serde3ser5impls73_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..string..String$GT$9serialize17hd54b38bd5d62bd51E.llvm.13013766950239737229.exit.i.i.i" ], [ %28, %18 ], [ null, %68 ], [ null, %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$10end_object17h7b3cd881a44a6141E.exit.i" ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %118
-
-118:                                              ; preds = %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h72150fe4cf006bcaE.exit.thread", %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h6ceeb7ac30d2ca81E.exit"
-  %.1 = phi ptr [ %.0, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h72150fe4cf006bcaE.exit.thread" ], [ null, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h6ceeb7ac30d2ca81E.exit" ]
   ret ptr %.1
-
-"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h72150fe4cf006bcaE.exit.thread": ; preds = %"_ZN5serde3ser5impls73_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..string..String$GT$9serialize17hd54b38bd5d62bd51E.llvm.13013766950239737229.exit.i.i.i", %18, %65, %61, %57, %51
-  %.0 = phi ptr [ %54, %51 ], [ %58, %57 ], [ %62, %61 ], [ %66, %65 ], [ %50, %"_ZN5serde3ser5impls73_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..string..String$GT$9serialize17hd54b38bd5d62bd51E.llvm.13013766950239737229.exit.i.i.i" ], [ %28, %18 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %118
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -20901,7 +20893,7 @@ define hidden noundef align 8 ptr @"_ZN15tree_sitter_cli8generate10node_types1_1
   %53 = load i8, ptr %20, align 8, !range !4231, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !4930)
   %54 = icmp eq i8 %53, 0
-  br i1 %54, label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h6ceeb7ac30d2ca81E.exit", label %55
+  br i1 %54, label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h72150fe4cf006bcaE.exit.thread", label %55
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds i8, ptr %52, i64 8
@@ -20996,20 +20988,12 @@ _ZN10serde_json3ser6indent17ha38b27f6e38965e8E.exit.i.i: ; preds = %"_ZN3std2io5
   %99 = load i64, ptr %64, align 8, !alias.scope !4937, !noalias !4944, !noundef !4
   %100 = add i64 %99, 1
   store i64 %100, ptr %64, align 8, !alias.scope !4937, !noalias !4944
-  br label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h6ceeb7ac30d2ca81E.exit"
+  br label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h72150fe4cf006bcaE.exit.thread"
 
-"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h6ceeb7ac30d2ca81E.exit": ; preds = %51, %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$10end_object17h7b3cd881a44a6141E.exit.i"
+"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h72150fe4cf006bcaE.exit.thread": ; preds = %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$10end_object17h7b3cd881a44a6141E.exit.i", %51, %46, %13, %"_ZN5serde3ser5impls73_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..string..String$GT$9serialize17hd54b38bd5d62bd51E.llvm.13013766950239737229.exit.i.i.i"
+  %.1 = phi ptr [ %49, %46 ], [ %45, %"_ZN5serde3ser5impls73_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..string..String$GT$9serialize17hd54b38bd5d62bd51E.llvm.13013766950239737229.exit.i.i.i" ], [ %23, %13 ], [ null, %51 ], [ null, %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$10end_object17h7b3cd881a44a6141E.exit.i" ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %101
-
-101:                                              ; preds = %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h72150fe4cf006bcaE.exit.thread", %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h6ceeb7ac30d2ca81E.exit"
-  %.1 = phi ptr [ %.0, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h72150fe4cf006bcaE.exit.thread" ], [ null, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h6ceeb7ac30d2ca81E.exit" ]
   ret ptr %.1
-
-"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h72150fe4cf006bcaE.exit.thread": ; preds = %"_ZN5serde3ser5impls73_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..string..String$GT$9serialize17hd54b38bd5d62bd51E.llvm.13013766950239737229.exit.i.i.i", %13, %46
-  %.0 = phi ptr [ %49, %46 ], [ %45, %"_ZN5serde3ser5impls73_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..string..String$GT$9serialize17hd54b38bd5d62bd51E.llvm.13013766950239737229.exit.i.i.i" ], [ %23, %13 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %101
 }
 
 ; Function Attrs: inlinehint mustprogress nofree nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -21164,7 +21148,7 @@ define hidden noundef align 8 ptr @"_ZN15tree_sitter_cli8generate10node_types1_1
   %52 = load i8, ptr %20, align 8, !range !4231, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !5076)
   %53 = icmp eq i8 %52, 0
-  br i1 %53, label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h6ceeb7ac30d2ca81E.exit", label %54
+  br i1 %53, label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h7fdf4d19f5e9161aE.exit.thread", label %54
 
 54:                                               ; preds = %49
   %55 = getelementptr inbounds i8, ptr %51, i64 8
@@ -21259,20 +21243,12 @@ _ZN10serde_json3ser6indent17ha38b27f6e38965e8E.exit.i.i: ; preds = %"_ZN3std2io5
   %98 = load i64, ptr %63, align 8, !alias.scope !5083, !noalias !5090, !noundef !4
   %99 = add i64 %98, 1
   store i64 %99, ptr %63, align 8, !alias.scope !5083, !noalias !5090
-  br label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h6ceeb7ac30d2ca81E.exit"
+  br label %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h7fdf4d19f5e9161aE.exit.thread"
 
-"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h6ceeb7ac30d2ca81E.exit": ; preds = %49, %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$10end_object17h7b3cd881a44a6141E.exit.i"
+"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h7fdf4d19f5e9161aE.exit.thread": ; preds = %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$10end_object17h7b3cd881a44a6141E.exit.i", %49, %13, %24, %28, %40
+  %.1 = phi ptr [ %22, %13 ], [ %26, %24 ], [ %47, %40 ], [ %29, %28 ], [ null, %49 ], [ null, %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$10end_object17h7b3cd881a44a6141E.exit.i" ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %100
-
-100:                                              ; preds = %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h7fdf4d19f5e9161aE.exit.thread", %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h6ceeb7ac30d2ca81E.exit"
-  %.1 = phi ptr [ %.0, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h7fdf4d19f5e9161aE.exit.thread" ], [ null, %"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h6ceeb7ac30d2ca81E.exit" ]
   ret ptr %.1
-
-"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h7fdf4d19f5e9161aE.exit.thread": ; preds = %40, %28, %24, %13
-  %.0 = phi ptr [ %22, %13 ], [ %26, %24 ], [ %47, %40 ], [ %29, %28 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %100
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

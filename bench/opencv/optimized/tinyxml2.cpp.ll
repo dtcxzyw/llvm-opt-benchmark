@@ -4913,19 +4913,15 @@ _ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.i: ; preds = %.critedge.i.thre
   %41 = icmp eq i8 %40, 0
   br i1 %41, label %42, label %_ZN2cv8tinyxml27XMLUtil6ToBoolEPKcPb.exit.thread
 
-_ZN2cv8tinyxml27XMLUtil6ToBoolEPKcPb.exit.thread: ; preds = %.critedge.thread.i14.i, %.critedge.i18.thread.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br label %43
-
 42:                                               ; preds = %.critedge.i18.thread.i, %.critedge.thread.i14.i, %.critedge.i18.i, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.i, %.critedge.i.thread.i, %.critedge.thread.i.i, %.critedge.i.i, %12, %8
   %.sink.i = phi i8 [ %11, %8 ], [ 1, %12 ], [ 1, %.critedge.i.thread.i ], [ 1, %.critedge.i.i ], [ 1, %.critedge.thread.i.i ], [ 0, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.i ], [ 0, %.critedge.i18.thread.i ], [ 0, %.critedge.i18.i ], [ 0, %.critedge.thread.i14.i ]
   store i8 %.sink.i, ptr %1, align 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br label %43
+  br label %_ZN2cv8tinyxml27XMLUtil6ToBoolEPKcPb.exit.thread
 
-43:                                               ; preds = %_ZN2cv8tinyxml27XMLUtil6ToBoolEPKcPb.exit.thread, %42
-  %44 = phi i32 [ 0, %42 ], [ 2, %_ZN2cv8tinyxml27XMLUtil6ToBoolEPKcPb.exit.thread ]
-  ret i32 %44
+_ZN2cv8tinyxml27XMLUtil6ToBoolEPKcPb.exit.thread: ; preds = %.critedge.i18.thread.i, %.critedge.thread.i14.i, %42
+  %43 = phi i32 [ 0, %42 ], [ 2, %.critedge.thread.i14.i ], [ 2, %.critedge.i18.thread.i ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  ret i32 %43
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
@@ -5871,26 +5867,26 @@ _ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.i: ; preds = %.critedge.i.thre
 
 .critedge.thread.i14.i:                           ; preds = %.lr.ph.i9.i
   %52 = icmp eq i32 %.029.i10.i, 2147483647
-  br i1 %52, label %55, label %_ZN2cv8tinyxml27XMLUtil6ToBoolEPKcPb.exit.thread
+  br i1 %52, label %55, label %.sink.split
 
 .critedge.i18.thread.i:                           ; preds = %.critedge.i18.i, %.preheader.i7.i
   %.016.lcssa.i1928.i = phi ptr [ %48, %.critedge.i18.i ], [ @.str.5, %.preheader.i7.i ]
   %53 = load i8, ptr %.016.lcssa.i1928.i, align 1
   %54 = icmp eq i8 %53, 0
-  br i1 %54, label %55, label %_ZN2cv8tinyxml27XMLUtil6ToBoolEPKcPb.exit.thread
-
-_ZN2cv8tinyxml27XMLUtil6ToBoolEPKcPb.exit.thread: ; preds = %.critedge.thread.i14.i, %.critedge.i18.thread.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br label %56
+  br i1 %54, label %55, label %.sink.split
 
 55:                                               ; preds = %.critedge.i18.thread.i, %.critedge.thread.i14.i, %.critedge.i18.i, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.i, %.critedge.i.thread.i, %.critedge.thread.i.i, %.critedge.i.i, %25, %21
   %.sink.i = phi i8 [ %24, %21 ], [ 1, %25 ], [ 1, %.critedge.i.thread.i ], [ 1, %.critedge.i.i ], [ 1, %.critedge.thread.i.i ], [ 0, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.i ], [ 0, %.critedge.i18.thread.i ], [ 0, %.critedge.i18.i ], [ 0, %.critedge.thread.i14.i ]
   store i8 %.sink.i, ptr %1, align 1
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %.critedge.i18.thread.i, %.critedge.thread.i14.i, %55
+  %.0.ph = phi i32 [ 0, %55 ], [ 18, %.critedge.thread.i14.i ], [ 18, %.critedge.i18.thread.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %56
 
-56:                                               ; preds = %55, %_ZN2cv8tinyxml27XMLUtil6ToBoolEPKcPb.exit.thread, %2, %6
-  %.0 = phi i32 [ 19, %6 ], [ 19, %2 ], [ 0, %55 ], [ 18, %_ZN2cv8tinyxml27XMLUtil6ToBoolEPKcPb.exit.thread ]
+56:                                               ; preds = %.sink.split, %2, %6
+  %.0 = phi i32 [ 19, %6 ], [ 19, %2 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 

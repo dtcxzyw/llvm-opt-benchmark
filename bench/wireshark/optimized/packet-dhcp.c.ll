@@ -7572,7 +7572,7 @@ define internal range(i32 0, 2) i32 @dissect_packetcable_mta_vendor_id_heur(ptr 
   %8 = alloca ptr, align 8
   %9 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
   %10 = icmp ult i32 %9, 8
-  br i1 %10, label %183, label %11
+  br i1 %10, label %184, label %11
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds i8, ptr %1, i64 408
@@ -7590,7 +7590,7 @@ define internal range(i32 0, 2) i32 @dissect_packetcable_mta_vendor_id_heur(ptr 
 20:                                               ; preds = %17
   %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(9) @.str.2100) #10
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %183
+  br i1 %22, label %23, label %184
 
 23:                                               ; preds = %20, %17, %11
   %24 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
@@ -7626,7 +7626,7 @@ define internal range(i32 0, 2) i32 @dissect_packetcable_mta_vendor_id_heur(ptr 
 
 41:                                               ; preds = %.loopexit.i, %.lr.ph198.i
   %.0163197.i = phi i32 [ 0, %.lr.ph198.i ], [ %.1164175.i, %.loopexit.i ]
-  %.0165196.i = phi i32 [ 12, %.lr.ph198.i ], [ %181, %.loopexit.i ]
+  %.0165196.i = phi i32 [ 12, %.lr.ph198.i ], [ %182, %.loopexit.i ]
   %42 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0165196.i) #9
   %43 = load ptr, ptr %12, align 8
   %44 = add i32 %.0165196.i, 2
@@ -7828,8 +7828,8 @@ define internal range(i32 0, 2) i32 @dissect_packetcable_mta_vendor_id_heur(ptr 
   %140 = add i32 %.0165196.i, 6
   br label %141
 
-141:                                              ; preds = %176, %.lr.ph195.i
-  %.0167194.i = phi i32 [ %135, %.lr.ph195.i ], [ %177, %176 ]
+141:                                              ; preds = %177, %.lr.ph195.i
+  %.0167194.i = phi i32 [ %135, %.lr.ph195.i ], [ %178, %177 ]
   %142 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0167194.i) #9
   %.not.i = icmp eq i16 %142, 12338
   br i1 %.not.i, label %149, label %143
@@ -7879,39 +7879,39 @@ define internal range(i32 0, 2) i32 @dissect_packetcable_mta_vendor_id_heur(ptr 
 172:                                              ; preds = %162
   %switch.tableidx = add i16 %151, -12336
   %173 = icmp ult i16 %switch.tableidx, 3
-  br i1 %173, label %switch.lookup, label %176
+  br i1 %173, label %switch.lookup, label %177
 
 switch.lookup:                                    ; preds = %172
   %174 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_packetcable_mta_vendor_id_heur, i64 0, i64 %174
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %.sink232.i = load i32, ptr %6, align 4
-  %175 = zext i32 %.sink232.i to i64
-  call void @proto_tree_add_bitmask_list_value(ptr noundef %159, ptr noundef %0, i32 noundef %164, i32 noundef 2, ptr noundef nonnull %switch.load, i64 noundef %175) #9
-  br label %176
+  %175 = load i32, ptr %6, align 4
+  %176 = zext i32 %175 to i64
+  call void @proto_tree_add_bitmask_list_value(ptr noundef %159, ptr noundef %0, i32 noundef %164, i32 noundef 2, ptr noundef nonnull %switch.load, i64 noundef %176) #9
+  br label %177
 
-176:                                              ; preds = %172, %switch.lookup
-  %177 = add i32 %.0167194.i, 6
-  %178 = icmp slt i32 %177, %138
-  br i1 %178, label %141, label %.loopexit.i, !llvm.loop !45
+177:                                              ; preds = %172, %switch.lookup
+  %178 = add i32 %.0167194.i, 6
+  %179 = icmp slt i32 %178, %138
+  br i1 %179, label %141, label %.loopexit.i, !llvm.loop !45
 
-.loopexit.i:                                      ; preds = %176, %133, %130, %.loopexit180..loopexit_crit_edge.i
-  %.pre-phi.i = phi i32 [ %.pre.i, %.loopexit180..loopexit_crit_edge.i ], [ %135, %133 ], [ %.pre-phi216.i, %130 ], [ %135, %176 ]
-  %.1164175.i = phi i32 [ %.0163197.i, %.loopexit180..loopexit_crit_edge.i ], [ %.0163197.i, %133 ], [ %.1164174.i, %130 ], [ %.0163197.i, %176 ]
-  %179 = load i32, ptr %5, align 4
-  %180 = shl i32 %179, 1
-  %181 = add i32 %180, %.pre-phi.i
-  %182 = icmp slt i32 %181, %24
-  br i1 %182, label %41, label %dissect_packetcable_mta_cap.exit, !llvm.loop !46
+.loopexit.i:                                      ; preds = %177, %133, %130, %.loopexit180..loopexit_crit_edge.i
+  %.pre-phi.i = phi i32 [ %.pre.i, %.loopexit180..loopexit_crit_edge.i ], [ %135, %133 ], [ %.pre-phi216.i, %130 ], [ %135, %177 ]
+  %.1164175.i = phi i32 [ %.0163197.i, %.loopexit180..loopexit_crit_edge.i ], [ %.0163197.i, %133 ], [ %.1164174.i, %130 ], [ %.0163197.i, %177 ]
+  %180 = load i32, ptr %5, align 4
+  %181 = shl i32 %180, 1
+  %182 = add i32 %181, %.pre-phi.i
+  %183 = icmp slt i32 %182, %24
+  br i1 %183, label %41, label %dissect_packetcable_mta_cap.exit, !llvm.loop !46
 
 dissect_packetcable_mta_cap.exit:                 ; preds = %.loopexit.i, %31, %36, %51, %143, %168
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  br label %183
+  br label %184
 
-183:                                              ; preds = %20, %4, %dissect_packetcable_mta_cap.exit
+184:                                              ; preds = %20, %4, %dissect_packetcable_mta_cap.exit
   %.0 = phi i32 [ 1, %dissect_packetcable_mta_cap.exit ], [ 0, %4 ], [ 0, %20 ]
   ret i32 %.0
 }

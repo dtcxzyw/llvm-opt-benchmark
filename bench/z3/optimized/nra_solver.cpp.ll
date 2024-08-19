@@ -6507,7 +6507,7 @@ _ZN8rationalD2Ev.exit163:                         ; preds = %.noexc.i161
   switch i32 %5, label %sw.default [
     i32 -2, label %sw.bb
     i32 2, label %sw.bb80
-    i32 -1, label %sw.bb95
+    i32 -1, label %sw.bb115.invoke
     i32 1, label %sw.bb105
     i32 0, label %sw.bb115
   ]
@@ -6518,7 +6518,7 @@ lpad60:                                           ; preds = %if.then.i.i158, %in
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp58) #19
   br label %ehcleanup131
 
-lpad65:                                           ; preds = %sw.epilog, %sw.default, %sw.bb115, %sw.bb105, %sw.bb95, %sw.bb80, %sw.bb
+lpad65:                                           ; preds = %sw.bb115.invoke, %sw.epilog, %sw.default, %sw.bb80, %sw.bb
   %94 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7obj_refIN10polynomial10polynomialENS0_7managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %p) #19
@@ -6531,7 +6531,6 @@ sw.bb:                                            ; preds = %_ZN8rationalD2Ev.ex
 
 invoke.cont74:                                    ; preds = %sw.bb
   %xor.i = xor i32 %call75, 1
-  store i32 %xor.i, ptr %lit, align 4
   br label %sw.epilog
 
 sw.bb80:                                          ; preds = %_ZN8rationalD2Ev.exit163
@@ -6541,35 +6540,19 @@ sw.bb80:                                          ; preds = %_ZN8rationalD2Ev.ex
 
 invoke.cont88:                                    ; preds = %sw.bb80
   %xor.i164 = xor i32 %call89, 1
-  store i32 %xor.i164, ptr %lit, align 4
-  br label %sw.epilog
-
-sw.bb95:                                          ; preds = %_ZN8rationalD2Ev.exit163
-  %97 = load ptr, ptr %m_nlsat, align 8
-  %call103 = invoke i32 @_ZN5nlsat6solver15mk_ineq_literalENS_4atom4kindEjPKPN10polynomial10polynomialEPKb(ptr noundef nonnull align 8 dereferenceable(16) %97, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %ps, ptr noundef nonnull %is_even)
-          to label %invoke.cont102 unwind label %lpad65
-
-invoke.cont102:                                   ; preds = %sw.bb95
-  store i32 %call103, ptr %lit, align 4
   br label %sw.epilog
 
 sw.bb105:                                         ; preds = %_ZN8rationalD2Ev.exit163
-  %98 = load ptr, ptr %m_nlsat, align 8
-  %call113 = invoke i32 @_ZN5nlsat6solver15mk_ineq_literalENS_4atom4kindEjPKPN10polynomial10polynomialEPKb(ptr noundef nonnull align 8 dereferenceable(16) %98, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %ps, ptr noundef nonnull %is_even)
-          to label %invoke.cont112 unwind label %lpad65
-
-invoke.cont112:                                   ; preds = %sw.bb105
-  store i32 %call113, ptr %lit, align 4
-  br label %sw.epilog
+  br label %sw.bb115.invoke
 
 sw.bb115:                                         ; preds = %_ZN8rationalD2Ev.exit163
-  %99 = load ptr, ptr %m_nlsat, align 8
-  %call123 = invoke i32 @_ZN5nlsat6solver15mk_ineq_literalENS_4atom4kindEjPKPN10polynomial10polynomialEPKb(ptr noundef nonnull align 8 dereferenceable(16) %99, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %ps, ptr noundef nonnull %is_even)
-          to label %invoke.cont122 unwind label %lpad65
+  br label %sw.bb115.invoke
 
-invoke.cont122:                                   ; preds = %sw.bb115
-  store i32 %call123, ptr %lit, align 4
-  br label %sw.epilog
+sw.bb115.invoke:                                  ; preds = %_ZN8rationalD2Ev.exit163, %sw.bb105, %sw.bb115
+  %97 = phi i32 [ 0, %sw.bb115 ], [ 2, %sw.bb105 ], [ 1, %_ZN8rationalD2Ev.exit163 ]
+  %98 = load ptr, ptr %m_nlsat, align 8
+  %99 = invoke i32 @_ZN5nlsat6solver15mk_ineq_literalENS_4atom4kindEjPKPN10polynomial10polynomialEPKb(ptr noundef nonnull align 8 dereferenceable(16) %98, i32 noundef %97, i32 noundef 1, ptr noundef nonnull %ps, ptr noundef nonnull %is_even)
+          to label %sw.epilog unwind label %lpad65
 
 sw.default:                                       ; preds = %_ZN8rationalD2Ev.exit163
   invoke void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.5, i32 noundef 294, ptr noundef nonnull @.str.6)
@@ -6579,7 +6562,9 @@ invoke.cont125:                                   ; preds = %sw.default
   call void @exit(i32 noundef 114) #22
   unreachable
 
-sw.epilog:                                        ; preds = %invoke.cont122, %invoke.cont112, %invoke.cont102, %invoke.cont88, %invoke.cont74
+sw.epilog:                                        ; preds = %sw.bb115.invoke, %invoke.cont88, %invoke.cont74
+  %call123.sink = phi i32 [ %xor.i164, %invoke.cont88 ], [ %xor.i, %invoke.cont74 ], [ %99, %sw.bb115.invoke ]
+  store i32 %call123.sink, ptr %lit, align 4
   %100 = load ptr, ptr %m_nlsat, align 8
   invoke void @_ZN5nlsat6solver9mk_clauseEjPN3sat7literalEPv(ptr noundef nonnull align 8 dereferenceable(16) %100, i32 noundef 1, ptr noundef nonnull %lit, ptr noundef nonnull %add.ptr)
           to label %invoke.cont129 unwind label %lpad65

@@ -13,6 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @OnigEncodingEUC_JP = external global %struct.OnigEncodingTypeST, align 8
 @OnigEncodingSJIS = external global %struct.OnigEncodingTypeST, align 8
 @OnigEncodingUTF8 = external global %struct.OnigEncodingTypeST, align 8
+@switch.table.re_mbcinit = private unnamed_addr constant [4 x ptr] [ptr @OnigEncodingASCII, ptr @OnigEncodingEUC_JP, ptr @OnigEncodingSJIS, ptr @OnigEncodingUTF8], align 8
 
 ; Function Attrs: nounwind uwtable
 define void @re_free_registers(ptr noundef %0) local_unnamed_addr #0 {
@@ -160,36 +161,20 @@ declare void @onigenc_set_default_caseconv_table(ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define void @re_mbcinit(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  switch i32 %0, label %11 [
-    i32 0, label %3
-    i32 1, label %4
-    i32 2, label %5
-    i32 3, label %6
-  ]
+  %3 = icmp ult i32 %0, 4
+  br i1 %3, label %switch.lookup, label %8
 
-3:                                                ; preds = %1
-  store ptr @OnigEncodingASCII, ptr %2, align 8
-  br label %7
+switch.lookup:                                    ; preds = %1
+  %4 = zext nneg i32 %0 to i64
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.re_mbcinit, i64 0, i64 %4
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  store ptr %switch.load, ptr %2, align 8
+  %5 = call i32 @onig_initialize(ptr noundef nonnull %2, i32 noundef 1) #3
+  %6 = load ptr, ptr %2, align 8
+  %7 = call i32 @onigenc_set_default_encoding(ptr noundef %6) #3
+  br label %8
 
-4:                                                ; preds = %1
-  store ptr @OnigEncodingEUC_JP, ptr %2, align 8
-  br label %7
-
-5:                                                ; preds = %1
-  store ptr @OnigEncodingSJIS, ptr %2, align 8
-  br label %7
-
-6:                                                ; preds = %1
-  store ptr @OnigEncodingUTF8, ptr %2, align 8
-  br label %7
-
-7:                                                ; preds = %6, %5, %4, %3
-  %8 = call i32 @onig_initialize(ptr noundef nonnull %2, i32 noundef 1) #3
-  %9 = load ptr, ptr %2, align 8
-  %10 = call i32 @onigenc_set_default_encoding(ptr noundef %9) #3
-  br label %11
-
-11:                                               ; preds = %1, %7
+8:                                                ; preds = %1, %switch.lookup
   ret void
 }
 

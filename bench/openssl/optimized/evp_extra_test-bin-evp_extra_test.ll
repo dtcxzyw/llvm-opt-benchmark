@@ -6952,7 +6952,6 @@ sw.bb:                                            ; preds = %if.end, %if.end
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data_len.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pkey.i.i)
-  store ptr %1, ptr %pkey, align 8
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %if.end, %if.end
@@ -6969,7 +6968,6 @@ sw.bb2:                                           ; preds = %if.end, %if.end
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.addr.i.i25)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data_len.addr.i.i26)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pkey.i.i27)
-  store ptr %2, ptr %pkey, align 8
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %if.end, %if.end
@@ -6986,7 +6984,6 @@ sw.bb4:                                           ; preds = %if.end, %if.end
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.addr.i.i30)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data_len.addr.i.i31)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pkey.i.i32)
-  store ptr %3, ptr %pkey, align 8
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %if.end, %if.end
@@ -7003,7 +7000,6 @@ sw.bb6:                                           ; preds = %if.end, %if.end
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.addr.i.i35)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data_len.addr.i.i36)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pkey.i.i37)
-  store ptr %4, ptr %pkey, align 8
   br label %sw.epilog
 
 sw.bb8:                                           ; preds = %if.end, %if.end
@@ -7020,7 +7016,6 @@ sw.bb8:                                           ; preds = %if.end, %if.end
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.addr.i.i40)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data_len.addr.i.i41)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pkey.i.i42)
-  store ptr %5, ptr %pkey, align 8
   br label %sw.epilog
 
 sw.bb10:                                          ; preds = %if.end, %if.end
@@ -7037,7 +7032,6 @@ sw.bb10:                                          ; preds = %if.end, %if.end
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.addr.i.i45)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data_len.addr.i.i46)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pkey.i.i47)
-  store ptr %6, ptr %pkey, align 8
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end
@@ -7045,7 +7039,7 @@ sw.default:                                       ; preds = %if.end
   br label %err
 
 sw.epilog:                                        ; preds = %sw.bb10, %sw.bb8, %sw.bb6, %sw.bb4, %sw.bb2, %sw.bb
-  %7 = phi ptr [ %6, %sw.bb10 ], [ %5, %sw.bb8 ], [ %4, %sw.bb6 ], [ %3, %sw.bb4 ], [ %2, %sw.bb2 ], [ %1, %sw.bb ]
+  %.sink = phi ptr [ %6, %sw.bb10 ], [ %5, %sw.bb8 ], [ %4, %sw.bb6 ], [ %3, %sw.bb4 ], [ %2, %sw.bb2 ], [ %1, %sw.bb ]
   %cmp63 = phi i1 [ false, %sw.bb10 ], [ false, %sw.bb8 ], [ true, %sw.bb6 ], [ false, %sw.bb4 ], [ false, %sw.bb2 ], [ false, %sw.bb ]
   %cmp67 = phi i1 [ false, %sw.bb10 ], [ true, %sw.bb8 ], [ false, %sw.bb6 ], [ false, %sw.bb4 ], [ false, %sw.bb2 ], [ false, %sw.bb ]
   %cmp70 = phi i1 [ true, %sw.bb10 ], [ false, %sw.bb8 ], [ false, %sw.bb6 ], [ false, %sw.bb4 ], [ false, %sw.bb2 ], [ false, %sw.bb ]
@@ -7055,19 +7049,20 @@ sw.epilog:                                        ; preds = %sw.bb10, %sw.bb8, %
   %md.0 = phi ptr [ %call, %sw.bb10 ], [ %call, %sw.bb8 ], [ null, %sw.bb6 ], [ %call, %sw.bb4 ], [ %call, %sw.bb2 ], [ %call, %sw.bb ]
   %tobool88.not = phi i1 [ false, %sw.bb10 ], [ false, %sw.bb8 ], [ true, %sw.bb6 ], [ true, %sw.bb4 ], [ true, %sw.bb2 ], [ true, %sw.bb ]
   %doderive.0 = phi i32 [ 1, %sw.bb10 ], [ 1, %sw.bb8 ], [ 0, %sw.bb6 ], [ 0, %sw.bb4 ], [ 0, %sw.bb2 ], [ 0, %sw.bb ]
-  %call12 = call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 4588, ptr noundef nonnull @.str.131, ptr noundef %7) #8
+  store ptr %.sink, ptr %pkey, align 8
+  %call12 = call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 4588, ptr noundef nonnull @.str.131, ptr noundef %.sink) #8
   %tobool.not = icmp eq i32 %call12, 0
   br i1 %tobool.not, label %err, label %if.end14
 
 if.end14:                                         ; preds = %sw.epilog
   %cmp15 = icmp ult i32 %idx, 6
-  %8 = load ptr, ptr %pkey, align 8
+  %7 = load ptr, ptr %pkey, align 8
   br i1 %cmp15, label %if.then16, label %if.else
 
 if.then16:                                        ; preds = %if.end14
-  %keymgmt = getelementptr inbounds i8, ptr %8, i64 96
-  %9 = load ptr, ptr %keymgmt, align 8
-  %cmp17 = icmp ne ptr %9, null
+  %keymgmt = getelementptr inbounds i8, ptr %7, i64 96
+  %8 = load ptr, ptr %keymgmt, align 8
+  %cmp17 = icmp ne ptr %8, null
   %conv = zext i1 %cmp17 to i32
   %call20 = call i32 @test_true(ptr noundef nonnull @.str.16, i32 noundef 4592, ptr noundef nonnull @.str.661, i32 noundef %conv) #8
   %tobool21.not = icmp eq i32 %call20, 0
@@ -7081,33 +7076,33 @@ if.else:                                          ; preds = %if.end14
   br i1 %tobool26.not, label %if.then27, label %if.end28
 
 if.then27:                                        ; preds = %if.else
-  store ptr %8, ptr %pkey, align 8
+  store ptr %7, ptr %pkey, align 8
   br label %err
 
 if.end28:                                         ; preds = %if.else
-  %call29 = call i32 @evp_pkey_copy_downgraded(ptr noundef nonnull %pkey, ptr noundef %8) #8
+  %call29 = call i32 @evp_pkey_copy_downgraded(ptr noundef nonnull %pkey, ptr noundef %7) #8
   %cmp30 = icmp ne i32 %call29, 0
   %conv31 = zext i1 %cmp30 to i32
   %call32 = call i32 @test_true(ptr noundef nonnull @.str.16, i32 noundef 4603, ptr noundef nonnull @.str.662, i32 noundef %conv31) #8
   %tobool33.not = icmp eq i32 %call32, 0
-  call void @EVP_PKEY_free(ptr noundef %8) #8
+  call void @EVP_PKEY_free(ptr noundef %7) #8
   br i1 %tobool33.not, label %err, label %if.end35
 
 if.end35:                                         ; preds = %if.end28
-  %10 = load ptr, ptr %pkey, align 8
-  %11 = load i32, ptr %10, align 8
-  %cmp36.not = icmp eq i32 %11, 0
+  %9 = load ptr, ptr %pkey, align 8
+  %10 = load i32, ptr %9, align 8
+  %cmp36.not = icmp eq i32 %10, 0
   br i1 %cmp36.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end35
-  %keymgmt38 = getelementptr inbounds i8, ptr %10, i64 96
-  %12 = load ptr, ptr %keymgmt38, align 8
-  %cmp39 = icmp eq ptr %12, null
+  %keymgmt38 = getelementptr inbounds i8, ptr %9, i64 96
+  %11 = load ptr, ptr %keymgmt38, align 8
+  %cmp39 = icmp eq ptr %11, null
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %if.end35
-  %13 = phi i1 [ false, %if.end35 ], [ %cmp39, %land.rhs ]
-  %land.ext = zext i1 %13 to i32
+  %12 = phi i1 [ false, %if.end35 ], [ %cmp39, %land.rhs ]
+  %land.ext = zext i1 %12 to i32
   %call43 = call i32 @test_true(ptr noundef nonnull @.str.16, i32 noundef 4608, ptr noundef nonnull @.str.663, i32 noundef %land.ext) #8
   %tobool44.not = icmp eq i32 %call43, 0
   br i1 %tobool44.not, label %err, label %if.end47
@@ -7120,22 +7115,22 @@ if.end47:                                         ; preds = %land.end, %if.then1
   br i1 %tobool50.not, label %err, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end47
-  %14 = load ptr, ptr %pkey, align 8
-  %call51 = call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 4613, ptr noundef nonnull @.str.131, ptr noundef %14) #8
+  %13 = load ptr, ptr %pkey, align 8
+  %call51 = call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 4613, ptr noundef nonnull @.str.131, ptr noundef %13) #8
   %tobool52.not = icmp eq i32 %call51, 0
   br i1 %tobool52.not, label %err, label %if.end54
 
 if.end54:                                         ; preds = %lor.lhs.false
-  %15 = load ptr, ptr @orig_pmeth, align 8
-  call void @EVP_PKEY_meth_get0_info(ptr noundef nonnull %orig_id, ptr noundef nonnull %orig_flags, ptr noundef %15) #8
-  %16 = load i32, ptr %orig_id, align 4
-  %call55 = call i32 @test_int_eq(ptr noundef nonnull @.str.16, i32 noundef 4617, ptr noundef nonnull @.str.665, ptr noundef nonnull @.str.666, i32 noundef %16, i32 noundef %id.0) #8
+  %14 = load ptr, ptr @orig_pmeth, align 8
+  call void @EVP_PKEY_meth_get0_info(ptr noundef nonnull %orig_id, ptr noundef nonnull %orig_flags, ptr noundef %14) #8
+  %15 = load i32, ptr %orig_id, align 4
+  %call55 = call i32 @test_int_eq(ptr noundef nonnull @.str.16, i32 noundef 4617, ptr noundef nonnull @.str.665, ptr noundef nonnull @.str.666, i32 noundef %15, i32 noundef %id.0) #8
   %tobool56.not = icmp eq i32 %call55, 0
   br i1 %tobool56.not, label %err, label %lor.lhs.false57
 
 lor.lhs.false57:                                  ; preds = %if.end54
-  %17 = load i32, ptr %orig_flags, align 4
-  %call58 = call ptr @EVP_PKEY_meth_new(i32 noundef %id.0, i32 noundef %17) #8
+  %16 = load i32, ptr %orig_flags, align 4
+  %call58 = call ptr @EVP_PKEY_meth_new(i32 noundef %id.0, i32 noundef %16) #8
   store ptr %call58, ptr @custom_pmeth, align 8
   %call59 = call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 4618, ptr noundef nonnull @.str.667, ptr noundef %call58) #8
   %tobool60.not = icmp eq i32 %call59, 0
@@ -7145,21 +7140,21 @@ if.end62:                                         ; preds = %lor.lhs.false57
   br i1 %cmp63, label %if.then65, label %if.end66
 
 if.then65:                                        ; preds = %if.end62
-  %18 = load ptr, ptr @custom_pmeth, align 8
-  call void @EVP_PKEY_meth_set_digestsign(ptr noundef %18, ptr noundef nonnull @custom_pmeth_digestsign) #8
+  %17 = load ptr, ptr @custom_pmeth, align 8
+  call void @EVP_PKEY_meth_set_digestsign(ptr noundef %17, ptr noundef nonnull @custom_pmeth_digestsign) #8
   br label %if.end66
 
 if.end66:                                         ; preds = %if.then65, %if.end62
   %or.cond = or i1 %cmp67, %cmp70
-  %19 = load ptr, ptr @custom_pmeth, align 8
+  %18 = load ptr, ptr @custom_pmeth, align 8
   br i1 %or.cond, label %if.then72, label %if.else73
 
 if.then72:                                        ; preds = %if.end66
-  call void @EVP_PKEY_meth_set_derive(ptr noundef %19, ptr noundef null, ptr noundef nonnull @custom_pmeth_derive) #8
+  call void @EVP_PKEY_meth_set_derive(ptr noundef %18, ptr noundef null, ptr noundef nonnull @custom_pmeth_derive) #8
   br label %if.end74
 
 if.else73:                                        ; preds = %if.end66
-  call void @EVP_PKEY_meth_set_sign(ptr noundef %19, ptr noundef null, ptr noundef nonnull @custom_pmeth_sign) #8
+  call void @EVP_PKEY_meth_set_sign(ptr noundef %18, ptr noundef null, ptr noundef nonnull @custom_pmeth_sign) #8
   br label %if.end74
 
 if.end74:                                         ; preds = %if.else73, %if.then72
@@ -7167,19 +7162,19 @@ if.end74:                                         ; preds = %if.else73, %if.then
   br i1 %or.cond1, label %if.then79, label %if.end80
 
 if.then79:                                        ; preds = %if.end74
+  %19 = load ptr, ptr @custom_pmeth, align 8
+  call void @EVP_PKEY_meth_set_init(ptr noundef %19, ptr noundef nonnull @custom_pmeth_init) #8
   %20 = load ptr, ptr @custom_pmeth, align 8
-  call void @EVP_PKEY_meth_set_init(ptr noundef %20, ptr noundef nonnull @custom_pmeth_init) #8
+  call void @EVP_PKEY_meth_set_cleanup(ptr noundef %20, ptr noundef nonnull @custom_pmeth_cleanup) #8
   %21 = load ptr, ptr @custom_pmeth, align 8
-  call void @EVP_PKEY_meth_set_cleanup(ptr noundef %21, ptr noundef nonnull @custom_pmeth_cleanup) #8
-  %22 = load ptr, ptr @custom_pmeth, align 8
-  call void @EVP_PKEY_meth_set_copy(ptr noundef %22, ptr noundef nonnull @custom_pmeth_copy) #8
+  call void @EVP_PKEY_meth_set_copy(ptr noundef %21, ptr noundef nonnull @custom_pmeth_copy) #8
   br label %if.end80
 
 if.end80:                                         ; preds = %if.then79, %if.end74
+  %22 = load ptr, ptr @custom_pmeth, align 8
+  call void @EVP_PKEY_meth_set_ctrl(ptr noundef %22, ptr noundef nonnull @custom_pmeth_ctrl, ptr noundef null) #8
   %23 = load ptr, ptr @custom_pmeth, align 8
-  call void @EVP_PKEY_meth_set_ctrl(ptr noundef %23, ptr noundef nonnull @custom_pmeth_ctrl, ptr noundef null) #8
-  %24 = load ptr, ptr @custom_pmeth, align 8
-  %call81 = call i32 @EVP_PKEY_meth_add0(ptr noundef %24) #8
+  %call81 = call i32 @EVP_PKEY_meth_add0(ptr noundef %23) #8
   %cmp82 = icmp ne i32 %call81, 0
   %conv83 = zext i1 %cmp82 to i32
   %call84 = call i32 @test_true(ptr noundef nonnull @.str.16, i32 noundef 4634, ptr noundef nonnull @.str.39, i32 noundef %conv83) #8
@@ -7190,8 +7185,8 @@ if.end87:                                         ; preds = %if.end80
   br i1 %tobool88.not, label %if.else122, label %if.then89
 
 if.then89:                                        ; preds = %if.end87
-  %25 = load ptr, ptr %pkey, align 8
-  %call90 = call ptr @EVP_PKEY_CTX_new(ptr noundef %25, ptr noundef null) #8
+  %24 = load ptr, ptr %pkey, align 8
+  %call90 = call ptr @EVP_PKEY_CTX_new(ptr noundef %24, ptr noundef null) #8
   store ptr %call90, ptr %pctx, align 8
   %call91 = call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 4639, ptr noundef nonnull @.str.497, ptr noundef %call90) #8
   %tobool92.not = icmp eq i32 %call91, 0
@@ -7211,14 +7206,14 @@ lor.lhs.false97:                                  ; preds = %lor.lhs.false93
 
 lor.lhs.false101:                                 ; preds = %lor.lhs.false97
   %.b24 = load i1, ptr @ctrl_called, align 4
-  %26 = zext i1 %.b24 to i32
-  %call102 = call i32 @test_int_eq(ptr noundef nonnull @.str.16, i32 noundef 4644, ptr noundef nonnull @.str.669, ptr noundef nonnull @.str.40, i32 noundef %26, i32 noundef 1) #8
+  %25 = zext i1 %.b24 to i32
+  %call102 = call i32 @test_int_eq(ptr noundef nonnull @.str.16, i32 noundef 4644, ptr noundef nonnull @.str.669, ptr noundef nonnull @.str.40, i32 noundef %25, i32 noundef 1) #8
   %tobool103.not = icmp eq i32 %call102, 0
   br i1 %tobool103.not, label %err, label %lor.lhs.false104
 
 lor.lhs.false104:                                 ; preds = %lor.lhs.false101
-  %27 = load ptr, ptr %pkey, align 8
-  %call105 = call i32 @EVP_PKEY_derive_set_peer(ptr noundef %call90, ptr noundef %27) #8
+  %26 = load ptr, ptr %pkey, align 8
+  %call105 = call i32 @EVP_PKEY_derive_set_peer(ptr noundef %call90, ptr noundef %26) #8
   %call106 = call i32 @test_int_ge(ptr noundef nonnull @.str.16, i32 noundef 4645, ptr noundef nonnull @.str.670, ptr noundef nonnull @.str.40, i32 noundef %call105, i32 noundef 1) #8
   %tobool107.not = icmp eq i32 %call106, 0
   br i1 %tobool107.not, label %err, label %lor.lhs.false108
@@ -7230,8 +7225,8 @@ lor.lhs.false108:                                 ; preds = %lor.lhs.false104
   br i1 %tobool111.not, label %err, label %lor.lhs.false112
 
 lor.lhs.false112:                                 ; preds = %lor.lhs.false108
-  %28 = load i64, ptr %reslen, align 8
-  %call113 = call noalias ptr @CRYPTO_malloc(i64 noundef %28, ptr noundef nonnull @.str.16, i32 noundef 4647) #8
+  %27 = load i64, ptr %reslen, align 8
+  %call113 = call noalias ptr @CRYPTO_malloc(i64 noundef %27, ptr noundef nonnull @.str.16, i32 noundef 4647) #8
   %call114 = call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 4647, ptr noundef nonnull @.str.672, ptr noundef %call113) #8
   %tobool115.not = icmp eq i32 %call114, 0
   br i1 %tobool115.not, label %err, label %lor.lhs.false116
@@ -7244,8 +7239,8 @@ lor.lhs.false116:                                 ; preds = %lor.lhs.false112
 
 if.else122:                                       ; preds = %if.end87
   %call123 = call ptr @EVP_MD_CTX_new() #8
-  %29 = load ptr, ptr %pkey, align 8
-  %call124 = call i32 @EVP_PKEY_get_size(ptr noundef %29) #8
+  %28 = load ptr, ptr %pkey, align 8
+  %call124 = call i32 @EVP_PKEY_get_size(ptr noundef %28) #8
   %conv125 = sext i32 %call124 to i64
   store i64 %conv125, ptr %reslen, align 8
   %call126 = call noalias ptr @CRYPTO_malloc(i64 noundef %conv125, ptr noundef nonnull @.str.16, i32 noundef 4653) #8
@@ -7259,8 +7254,8 @@ lor.lhs.false129:                                 ; preds = %if.else122
   br i1 %tobool131.not, label %err, label %lor.lhs.false132
 
 lor.lhs.false132:                                 ; preds = %lor.lhs.false129
-  %30 = load ptr, ptr %pkey, align 8
-  %call133 = call i32 @EVP_DigestSignInit(ptr noundef %call123, ptr noundef nonnull %pctx, ptr noundef %md.0, ptr noundef null, ptr noundef %30) #8
+  %29 = load ptr, ptr %pkey, align 8
+  %call133 = call i32 @EVP_DigestSignInit(ptr noundef %call123, ptr noundef nonnull %pctx, ptr noundef %md.0, ptr noundef null, ptr noundef %29) #8
   %cmp134 = icmp ne i32 %call133, 0
   %conv135 = zext i1 %cmp134 to i32
   %call136 = call i32 @test_true(ptr noundef nonnull @.str.16, i32 noundef 4656, ptr noundef nonnull @.str.675, i32 noundef %conv135) #8
@@ -7268,16 +7263,16 @@ lor.lhs.false132:                                 ; preds = %lor.lhs.false129
   br i1 %tobool137.not, label %err, label %lor.lhs.false138
 
 lor.lhs.false138:                                 ; preds = %lor.lhs.false132
-  %31 = load ptr, ptr %pctx, align 8
-  %call139 = call i32 @EVP_PKEY_CTX_ctrl(ptr noundef %31, i32 noundef -1, i32 noundef -1, i32 noundef 9999, i32 noundef 0, ptr noundef null) #8
+  %30 = load ptr, ptr %pctx, align 8
+  %call139 = call i32 @EVP_PKEY_CTX_ctrl(ptr noundef %30, i32 noundef -1, i32 noundef -1, i32 noundef 9999, i32 noundef 0, ptr noundef null) #8
   %call140 = call i32 @test_int_ge(ptr noundef nonnull @.str.16, i32 noundef 4659, ptr noundef nonnull @.str.668, ptr noundef nonnull @.str.40, i32 noundef %call139, i32 noundef 1) #8
   %tobool141.not = icmp eq i32 %call140, 0
   br i1 %tobool141.not, label %err, label %lor.lhs.false142
 
 lor.lhs.false142:                                 ; preds = %lor.lhs.false138
   %.b = load i1, ptr @ctrl_called, align 4
-  %32 = zext i1 %.b to i32
-  %call143 = call i32 @test_int_eq(ptr noundef nonnull @.str.16, i32 noundef 4660, ptr noundef nonnull @.str.669, ptr noundef nonnull @.str.40, i32 noundef %32, i32 noundef 1) #8
+  %31 = zext i1 %.b to i32
+  %call143 = call i32 @test_int_eq(ptr noundef nonnull @.str.16, i32 noundef 4660, ptr noundef nonnull @.str.669, ptr noundef nonnull @.str.40, i32 noundef %31, i32 noundef 1) #8
   %tobool144.not = icmp eq i32 %call143, 0
   br i1 %tobool144.not, label %err, label %if.end146
 
@@ -7324,17 +7319,17 @@ err:                                              ; preds = %if.end28, %if.else1
   br i1 %tobool174.not, label %if.end176, label %if.then175
 
 if.then175:                                       ; preds = %err
-  %33 = load ptr, ptr %pctx, align 8
-  call void @EVP_PKEY_CTX_free(ptr noundef %33) #8
+  %32 = load ptr, ptr %pctx, align 8
+  call void @EVP_PKEY_CTX_free(ptr noundef %32) #8
   br label %if.end176
 
 if.end176:                                        ; preds = %if.then175, %err
-  %34 = load ptr, ptr %pkey, align 8
-  call void @EVP_PKEY_free(ptr noundef %34) #8
+  %33 = load ptr, ptr %pkey, align 8
+  call void @EVP_PKEY_free(ptr noundef %33) #8
+  %34 = load ptr, ptr @custom_pmeth, align 8
+  %call177 = call i32 @EVP_PKEY_meth_remove(ptr noundef %34) #8
   %35 = load ptr, ptr @custom_pmeth, align 8
-  %call177 = call i32 @EVP_PKEY_meth_remove(ptr noundef %35) #8
-  %36 = load ptr, ptr @custom_pmeth, align 8
-  call void @EVP_PKEY_meth_free(ptr noundef %36) #8
+  call void @EVP_PKEY_meth_free(ptr noundef %35) #8
   store ptr null, ptr @custom_pmeth, align 8
   br label %return
 

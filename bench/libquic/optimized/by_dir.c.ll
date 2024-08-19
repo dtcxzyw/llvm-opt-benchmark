@@ -146,11 +146,11 @@ entry:
   %st = alloca %struct.stat, align 8
   %cmp = icmp eq ptr %name, null
   %.sink.sroa.gep134 = getelementptr inbounds i8, ptr %data, i64 136
-  %.sink125.sroa.gep135 = getelementptr inbounds i8, ptr %data, i64 120
+  %.sink118.sroa.gep135 = getelementptr inbounds i8, ptr %data, i64 120
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %.sink125.sroa.gep = getelementptr inbounds i8, ptr %data, i64 176
+  %.sink118.sroa.gep = getelementptr inbounds i8, ptr %data, i64 176
   %.sink.sroa.gep = getelementptr inbounds i8, ptr %data, i64 216
   store i32 %type, ptr %stmp, align 8
   %cmp2 = icmp eq i32 %type, 1
@@ -165,10 +165,10 @@ if.else12:                                        ; preds = %if.else
   br label %return
 
 if.end14:                                         ; preds = %if.else, %if.end
-  %.sink125.sroa.phi = phi ptr [ %.sink125.sroa.gep, %if.end ], [ %.sink125.sroa.gep135, %if.else ]
+  %.sink118.sroa.phi = phi ptr [ %.sink118.sroa.gep, %if.end ], [ %.sink118.sroa.gep135, %if.else ]
   %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %if.end ], [ %.sink.sroa.gep134, %if.else ]
   %postfix.0 = phi ptr [ @.str.2, %if.end ], [ @.str.3, %if.else ]
-  store ptr %.sink125.sroa.phi, ptr %data, align 8
+  store ptr %.sink118.sroa.phi, ptr %data, align 8
   store ptr %name, ptr %.sink.sroa.phi, align 8
   %data11 = getelementptr inbounds i8, ptr %stmp, i64 8
   store ptr %data, ptr %data11, align 8

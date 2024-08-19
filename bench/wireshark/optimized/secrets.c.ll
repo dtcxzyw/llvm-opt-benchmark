@@ -167,56 +167,44 @@ define ptr @secrets_get_available_keys() local_unnamed_addr #0 {
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %get_pkcs11_token_uris.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %0, %23
-  %.010.i = phi i32 [ %24, %23 ], [ 0, %0 ]
-  %.089.i = phi ptr [ %.1.i, %23 ], [ null, %0 ]
+.lr.ph.i:                                         ; preds = %0, %15
+  %.010.i = phi i32 [ %18, %15 ], [ 0, %0 ]
+  %.089.i = phi ptr [ %.1.i, %15 ], [ null, %0 ]
   %5 = load ptr, ptr %1, align 8
   %6 = call i32 @gnutls_pkcs11_token_get_flags(ptr noundef %5, ptr noundef nonnull %2) #13
   %7 = icmp slt i32 %6, 0
-  br i1 %7, label %8, label %11
+  br i1 %7, label %15, label %8
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = load ptr, ptr @gnutls_free, align 8
-  %10 = load ptr, ptr %1, align 8
-  call void %9(ptr noundef %10) #13
-  br label %23
+  %9 = load i32, ptr %2, align 4
+  %10 = and i32 %9, 2
+  %.not.i = icmp eq i32 %10, 0
+  br i1 %.not.i, label %11, label %15
 
-11:                                               ; preds = %.lr.ph.i
-  %12 = load i32, ptr %2, align 4
-  %13 = and i32 %12, 2
-  %.not.i = icmp eq i32 %13, 0
-  br i1 %.not.i, label %17, label %14
+11:                                               ; preds = %8
+  %12 = load ptr, ptr %1, align 8
+  %13 = call noalias ptr @g_strdup(ptr noundef %12) #13
+  %14 = call ptr @g_slist_prepend(ptr noundef %.089.i, ptr noundef %13) #13
+  br label %15
 
-14:                                               ; preds = %11
-  %15 = load ptr, ptr @gnutls_free, align 8
-  %16 = load ptr, ptr %1, align 8
-  call void %15(ptr noundef %16) #13
-  br label %23
-
-17:                                               ; preds = %11
-  %18 = load ptr, ptr %1, align 8
-  %19 = call noalias ptr @g_strdup(ptr noundef %18) #13
-  %20 = call ptr @g_slist_prepend(ptr noundef %.089.i, ptr noundef %19) #13
-  %21 = load ptr, ptr @gnutls_free, align 8
-  %22 = load ptr, ptr %1, align 8
-  call void %21(ptr noundef %22) #13
-  br label %23
-
-23:                                               ; preds = %17, %14, %8
-  %.1.i = phi ptr [ %.089.i, %8 ], [ %.089.i, %14 ], [ %20, %17 ]
-  %24 = add i32 %.010.i, 1
+15:                                               ; preds = %11, %8, %.lr.ph.i
+  %.1.i = phi ptr [ %14, %11 ], [ %.089.i, %.lr.ph.i ], [ %.089.i, %8 ]
+  %16 = load ptr, ptr @gnutls_free, align 8
+  %17 = load ptr, ptr %1, align 8
+  call void %16(ptr noundef %17) #13
+  %18 = add i32 %.010.i, 1
   store ptr null, ptr %1, align 8
-  %25 = call i32 @gnutls_pkcs11_token_get_url(i32 noundef %24, i32 noundef 0, ptr noundef nonnull %1) #13
-  %26 = icmp slt i32 %25, 0
-  br i1 %26, label %get_pkcs11_token_uris.exit, label %.lr.ph.i
+  %19 = call i32 @gnutls_pkcs11_token_get_url(i32 noundef %18, i32 noundef 0, ptr noundef nonnull %1) #13
+  %20 = icmp slt i32 %19, 0
+  br i1 %20, label %get_pkcs11_token_uris.exit, label %.lr.ph.i
 
-get_pkcs11_token_uris.exit:                       ; preds = %23, %0
-  %.08.lcssa.i = phi ptr [ null, %0 ], [ %.1.i, %23 ]
-  %27 = call ptr @g_slist_reverse(ptr noundef %.08.lcssa.i) #13
+get_pkcs11_token_uris.exit:                       ; preds = %15, %0
+  %.08.lcssa.i = phi ptr [ null, %0 ], [ %.1.i, %15 ]
+  %21 = call ptr @g_slist_reverse(ptr noundef %.08.lcssa.i) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  %28 = call ptr @g_slist_concat(ptr noundef null, ptr noundef %27) #13
-  ret ptr %28
+  %22 = call ptr @g_slist_concat(ptr noundef null, ptr noundef %21) #13
+  ret ptr %22
 }
 
 declare ptr @g_slist_concat(ptr noundef, ptr noundef) local_unnamed_addr #1

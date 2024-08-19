@@ -3492,8 +3492,8 @@ define internal fastcc range(i32 -268435456, 268435456) i32 @dissect_h265_profil
   %147 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %0, i32 noundef %145, ptr noundef %1, i32 noundef %146, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #8
   %148 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %148, 0
-  %149 = load i32, ptr %6, align 4
   %h265_level_main_tier_bitrate_values.sink = select i1 %.not, ptr @h265_level_main_tier_bitrate_values, ptr @h265_level_high_tier_bitrate_values
+  %149 = load i32, ptr %6, align 4
   %150 = uitofp i32 %149 to double
   %151 = fdiv double %150, 3.000000e+01
   %152 = udiv i32 %149, 3

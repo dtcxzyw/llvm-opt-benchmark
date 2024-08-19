@@ -4034,7 +4034,7 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_dp_pcon_frl_configure_1(ptr 
   %6 = call i64 @drm_dp_dpcd_read(ptr noundef %0, i32 noundef 12378, ptr noundef nonnull %5, i64 noundef 1), !range !12
   %7 = trunc nsw i64 %6 to i32
   %8 = icmp slt i64 %6, 0
-  br i1 %8, label %32, label %9
+  br i1 %8, label %26, label %9
 
 9:                                                ; preds = %3
   %10 = icmp eq i8 %2, 16
@@ -4043,60 +4043,51 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_dp_pcon_frl_configure_1(ptr 
   %13 = select i1 %10, i8 16, i8 0
   %14 = or disjoint i8 %12, %13
   store i8 %14, ptr %5, align 1
-  switch i32 %1, label %32 [
-    i32 9, label %15
-    i32 18, label %17
-    i32 24, label %19
-    i32 32, label %21
-    i32 40, label %23
-    i32 48, label %25
-    i32 0, label %27
+  switch i32 %1, label %26 [
+    i32 9, label %.sink.split
+    i32 18, label %15
+    i32 24, label %16
+    i32 32, label %17
+    i32 40, label %18
+    i32 48, label %19
+    i32 0, label %21
   ]
 
 15:                                               ; preds = %9
-  %16 = or i8 %14, 1
-  store i8 %16, ptr %5, align 1
-  br label %27
+  br label %.sink.split
+
+16:                                               ; preds = %9
+  br label %.sink.split
 
 17:                                               ; preds = %9
-  %18 = or i8 %14, 2
-  store i8 %18, ptr %5, align 1
-  br label %27
+  br label %.sink.split
+
+18:                                               ; preds = %9
+  br label %.sink.split
 
 19:                                               ; preds = %9
-  %20 = or i8 %14, 3
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %9, %15, %16, %17, %18, %19
+  %.sink1 = phi i8 [ 6, %19 ], [ 5, %18 ], [ 4, %17 ], [ 3, %16 ], [ 2, %15 ], [ 1, %9 ]
+  %20 = or i8 %14, %.sink1
   store i8 %20, ptr %5, align 1
-  br label %27
+  br label %21
 
-21:                                               ; preds = %9
-  %22 = or i8 %14, 4
-  store i8 %22, ptr %5, align 1
-  br label %27
-
-23:                                               ; preds = %9
-  %24 = or i8 %14, 5
-  store i8 %24, ptr %5, align 1
-  br label %27
-
-25:                                               ; preds = %9
-  %26 = or i8 %14, 6
-  store i8 %26, ptr %5, align 1
-  br label %27
-
-27:                                               ; preds = %25, %23, %21, %19, %17, %15, %9
-  %28 = phi i8 [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %9 ]
+21:                                               ; preds = %.sink.split, %9
+  %22 = phi i8 [ %14, %9 ], [ %20, %.sink.split ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  store i8 %28, ptr %4, align 1
-  %29 = call i64 @drm_dp_dpcd_write(ptr noundef %0, i32 noundef 12378, ptr noundef nonnull %4, i64 noundef 1), !range !12
+  store i8 %22, ptr %4, align 1
+  %23 = call i64 @drm_dp_dpcd_write(ptr noundef %0, i32 noundef 12378, ptr noundef nonnull %4, i64 noundef 1), !range !12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %30 = trunc nsw i64 %29 to i32
-  %31 = call i32 @llvm.smin.i32(i32 %30, i32 0)
-  br label %32
+  %24 = trunc nsw i64 %23 to i32
+  %25 = call i32 @llvm.smin.i32(i32 %24, i32 0)
+  br label %26
 
-32:                                               ; preds = %27, %9, %3
-  %33 = phi i32 [ %7, %3 ], [ -22, %9 ], [ %31, %27 ]
+26:                                               ; preds = %21, %9, %3
+  %27 = phi i32 [ %7, %3 ], [ -22, %9 ], [ %25, %21 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #17
-  ret i32 %33
+  ret i32 %27
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

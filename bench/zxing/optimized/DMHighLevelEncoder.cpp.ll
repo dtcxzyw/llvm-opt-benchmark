@@ -756,9 +756,7 @@ define void @_ZN5ZXing10DataMatrix6EncodeERKNSt7__cxx1112basic_stringIwSt11char_
 346:                                              ; preds = %341
   %347 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #20
-  br label %378
+  br label %.sink.split
 
 348:                                              ; preds = %345, %344
   %349 = phi i1 [ false, %345 ], [ true, %344 ]
@@ -799,15 +797,11 @@ define void @_ZN5ZXing10DataMatrix6EncodeERKNSt7__cxx1112basic_stringIwSt11char_
   %370 = load i64, ptr %369, align 8, !tbaa !10
   %371 = icmp ult i64 %370, 16
   call void @llvm.assume(i1 %371)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #20
-  br label %378
+  br label %.sink.split
 
 372:                                              ; preds = %363
   call void @_ZdlPv(ptr noundef %365) #21
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #20
-  br label %378
+  br label %.sink.split
 
 373:                                              ; preds = %359
   %374 = getelementptr inbounds i8, ptr %18, i64 8
@@ -824,8 +818,14 @@ define void @_ZN5ZXing10DataMatrix6EncodeERKNSt7__cxx1112basic_stringIwSt11char_
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #20
   br i1 %349, label %378, label %449
 
-378:                                              ; preds = %377, %373, %372, %368, %346
-  %379 = phi { ptr, i32 } [ %347, %346 ], [ %350, %377 ], [ %350, %373 ], [ %364, %372 ], [ %364, %368 ]
+.sink.split:                                      ; preds = %346, %368, %372
+  %.ph = phi { ptr, i32 } [ %364, %368 ], [ %364, %372 ], [ %347, %346 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #20
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #20
+  br label %378
+
+378:                                              ; preds = %.sink.split, %377, %373
+  %379 = phi { ptr, i32 } [ %350, %377 ], [ %350, %373 ], [ %.ph, %.sink.split ]
   call void @__cxa_free_exception(ptr %342) #20
   br label %449
 
@@ -1048,9 +1048,7 @@ define void @_ZN5ZXing10DataMatrix6EncodeERKNSt7__cxx1112basic_stringIwSt11char_
 489:                                              ; preds = %484
   %490 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #20
-  br label %521
+  br label %.sink.split391
 
 491:                                              ; preds = %488, %487
   %492 = phi i1 [ false, %488 ], [ true, %487 ]
@@ -1091,15 +1089,11 @@ define void @_ZN5ZXing10DataMatrix6EncodeERKNSt7__cxx1112basic_stringIwSt11char_
   %513 = load i64, ptr %512, align 8, !tbaa !10
   %514 = icmp ult i64 %513, 16
   call void @llvm.assume(i1 %514)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #20
-  br label %521
+  br label %.sink.split391
 
 515:                                              ; preds = %506
   call void @_ZdlPv(ptr noundef %508) #21
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #20
-  br label %521
+  br label %.sink.split391
 
 516:                                              ; preds = %502
   %517 = getelementptr inbounds i8, ptr %14, i64 8
@@ -1116,8 +1110,14 @@ define void @_ZN5ZXing10DataMatrix6EncodeERKNSt7__cxx1112basic_stringIwSt11char_
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #20
   br i1 %492, label %521, label %713
 
-521:                                              ; preds = %520, %516, %515, %511, %489
-  %522 = phi { ptr, i32 } [ %490, %489 ], [ %493, %520 ], [ %493, %516 ], [ %507, %515 ], [ %507, %511 ]
+.sink.split391:                                   ; preds = %489, %511, %515
+  %.ph392 = phi { ptr, i32 } [ %507, %511 ], [ %507, %515 ], [ %490, %489 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #20
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #20
+  br label %521
+
+521:                                              ; preds = %.sink.split391, %520, %516
+  %522 = phi { ptr, i32 } [ %493, %520 ], [ %493, %516 ], [ %.ph392, %.sink.split391 ]
   call void @__cxa_free_exception(ptr %485) #20
   br label %713
 
@@ -1917,16 +1917,16 @@ define void @_ZN5ZXing10DataMatrix6EncodeERKNSt7__cxx1112basic_stringIwSt11char_
   %921 = sub i64 %919, %920
   %922 = trunc i64 %921 to i32
   %923 = icmp sgt i32 %906, %922
-  br i1 %923, label %924, label %.preheader489
+  br i1 %923, label %924, label %.preheader491
 
 924:                                              ; preds = %916
   invoke void @_ZN5ZXing10DataMatrix14EncoderContext11addCodewordEh(ptr noundef nonnull align 8 dereferenceable(100) %26, i8 noundef zeroext -127) #19
-          to label %.preheader489 unwind label %914
+          to label %.preheader491 unwind label %914
 
-.preheader489:                                    ; preds = %924, %916
+.preheader491:                                    ; preds = %924, %916
   br label %925
 
-925:                                              ; preds = %.preheader489, %933
+925:                                              ; preds = %.preheader491, %933
   %926 = load ptr, ptr %896, align 8, !tbaa !40
   %927 = load ptr, ptr %895, align 8, !tbaa !41
   %928 = ptrtoint ptr %926 to i64

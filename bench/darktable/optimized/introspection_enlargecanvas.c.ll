@@ -732,41 +732,35 @@ define void @process(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noun
   store float 1.000000e+00, ptr %43, align 4, !tbaa !29
   %44 = getelementptr inbounds i8, ptr %11, i64 16
   %45 = load i32, ptr %44, align 4, !tbaa !52
-  switch i32 %45, label %54 [
-    i32 3, label %46
-    i32 4, label %47
-    i32 1, label %48
-    i32 0, label %49
-    i32 2, label %50
+  switch i32 %45, label %53 [
+    i32 3, label %50
+    i32 4, label %46
+    i32 1, label %47
+    i32 0, label %48
+    i32 2, label %49
   ]
 
 46:                                               ; preds = %41
-  store float 0.000000e+00, ptr %8, align 16, !tbaa !29
-  br label %51
+  br label %50
 
 47:                                               ; preds = %41
-  store float 1.000000e+00, ptr %8, align 16, !tbaa !29
-  br label %51
+  br label %50
 
 48:                                               ; preds = %41
-  store float 1.000000e+00, ptr %8, align 16, !tbaa !29
-  br label %51
+  br label %50
 
 49:                                               ; preds = %41
-  store float 0.000000e+00, ptr %8, align 16, !tbaa !29
-  br label %51
+  br label %50
 
-50:                                               ; preds = %41
-  store float 0.000000e+00, ptr %8, align 16, !tbaa !29
-  br label %51
+50:                                               ; preds = %41, %49, %48, %47, %46
+  %.sink = phi float [ 0.000000e+00, %49 ], [ 0.000000e+00, %48 ], [ 1.000000e+00, %47 ], [ 1.000000e+00, %46 ], [ 0.000000e+00, %41 ]
+  %51 = phi <2 x float> [ <float 0.000000e+00, float 2.000000e+00>, %49 ], [ <float 1.000000e+00, float 0.000000e+00>, %48 ], [ zeroinitializer, %47 ], [ <float 1.000000e+00, float 1.000000e+00>, %46 ], [ zeroinitializer, %41 ]
+  store float %.sink, ptr %8, align 16, !tbaa !29
+  %52 = getelementptr inbounds i8, ptr %8, i64 4
+  store <2 x float> %51, ptr %52, align 4, !tbaa !29
+  br label %53
 
-51:                                               ; preds = %50, %49, %48, %47, %46
-  %52 = phi <2 x float> [ <float 0.000000e+00, float 2.000000e+00>, %50 ], [ <float 1.000000e+00, float 0.000000e+00>, %49 ], [ zeroinitializer, %48 ], [ <float 1.000000e+00, float 1.000000e+00>, %47 ], [ zeroinitializer, %46 ]
-  %53 = getelementptr inbounds i8, ptr %8, i64 4
-  store <2 x float> %52, ptr %53, align 4, !tbaa !29
-  br label %54
-
-54:                                               ; preds = %51, %41
+53:                                               ; preds = %50, %41
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %9) #17
   call void @dt_iop_setup_binfo(ptr noundef nonnull %1, ptr noundef %4, ptr noundef %5, float noundef %36, float noundef %42, ptr noundef nonnull %8, ptr noundef nonnull %7, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef nonnull %9) #17
   call void @dt_iop_copy_image_with_border(ptr noundef %3, ptr noundef %2, ptr noundef nonnull %9) #17

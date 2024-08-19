@@ -567,7 +567,6 @@ receive_ufd_features.exit.thread:                 ; preds = %if.then4
   %2 = load i32, ptr %call1.i, align 4
   %call2.i = tail call ptr @strerror(i32 noundef %2) #16
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.24, ptr noundef nonnull @__func__.receive_ufd_features, ptr noundef %call2.i) #16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %api_struct.i)
   br label %if.then5
 
 if.end.i:                                         ; preds = %if.then4
@@ -592,10 +591,10 @@ receive_ufd_features.exit:                        ; preds = %if.end.i
   %call7.i = call ptr @strerror(i32 noundef %4) #16
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.25, ptr noundef nonnull @__func__.receive_ufd_features, ptr noundef %call7.i) #16
   %call10.i = call i32 @close(i32 noundef %call.i) #16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %api_struct.i)
   br label %if.then5
 
 if.then5:                                         ; preds = %receive_ufd_features.exit, %receive_ufd_features.exit.thread
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %api_struct.i)
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str, i32 noundef 300, ptr noundef nonnull @__func__.ufd_check_and_apply, ptr noundef nonnull @.str.21) #16
   br label %cleanup
 

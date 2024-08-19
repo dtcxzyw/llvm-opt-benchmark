@@ -7066,7 +7066,7 @@ rb_enum_values_pack.exit:                         ; preds = %RARRAY_PTR.exit, %1
 
 23:                                               ; preds = %rb_enum_values_pack.exit
   store i64 %.0.i, ptr %20, align 8
-  br label %97
+  br label %95
 
 24:                                               ; preds = %rb_enum_values_pack.exit
   store i64 36, ptr %20, align 8
@@ -7184,28 +7184,25 @@ RB_FLOAT_TYPE_P.exit.thread73:                    ; preds = %42, %rb_class_of.ex
 89:                                               ; preds = %33, %66, %RB_FLOAT_TYPE_P.exit.thread73, %84
   %90 = phi i32 [ %36, %33 ], [ %67, %66 ], [ %85, %84 ], [ %88, %RB_FLOAT_TYPE_P.exit.thread73 ]
   %91 = icmp eq i32 %90, 0
-  br i1 %91, label %92, label %93
+  br i1 %91, label %.thread79.sink.split, label %92
 
 92:                                               ; preds = %89
-  store i64 %21, ptr %6, align 8
-  br label %.thread79
-
-93:                                               ; preds = %89
-  %94 = icmp slt i32 %90, 0
+  %93 = icmp slt i32 %90, 0
   %.pre = load i64, ptr %6, align 8
-  br i1 %94, label %95, label %.thread79
+  br i1 %93, label %.thread79.sink.split, label %.thread79
 
-95:                                               ; preds = %93
+.thread79.sink.split:                             ; preds = %92, %89
+  %.060.ph = phi i64 [ %21, %89 ], [ %.pre, %92 ]
   store i64 %21, ptr %6, align 8
   br label %.thread79
 
-.thread79:                                        ; preds = %33, %93, %95, %92
-  %96 = phi i64 [ %21, %92 ], [ %21, %95 ], [ %.pre, %93 ], [ %.0.i, %33 ]
-  %.060 = phi i64 [ %21, %92 ], [ %.pre, %95 ], [ %21, %93 ], [ %21, %33 ]
-  call fastcc void @minmax_i_update(i64 noundef %96, i64 noundef %.060, ptr noundef nonnull %.0.i.i)
-  br label %97
+.thread79:                                        ; preds = %.thread79.sink.split, %33, %92
+  %94 = phi i64 [ %.pre, %92 ], [ %.0.i, %33 ], [ %21, %.thread79.sink.split ]
+  %.060 = phi i64 [ %21, %92 ], [ %21, %33 ], [ %.060.ph, %.thread79.sink.split ]
+  call fastcc void @minmax_i_update(i64 noundef %94, i64 noundef %.060, ptr noundef nonnull %.0.i.i)
+  br label %95
 
-97:                                               ; preds = %.thread79, %23
+95:                                               ; preds = %.thread79, %23
   ret i64 4
 }
 
@@ -7940,7 +7937,7 @@ enum_yield.exit:                                  ; preds = %18, %20, %.thread
   store i64 %.0.i80, ptr %24, align 8
   %28 = getelementptr inbounds i8, ptr %.0.i.i, i64 40
   store i64 %.0.i86, ptr %28, align 8
-  br label %104
+  br label %102
 
 29:                                               ; preds = %enum_yield.exit
   %30 = getelementptr inbounds i8, ptr %.0.i.i, i64 40
@@ -8060,30 +8057,28 @@ RB_FLOAT_TYPE_P.exit.thread96:                    ; preds = %49, %rb_class_of.ex
 96:                                               ; preds = %40, %73, %RB_FLOAT_TYPE_P.exit.thread96, %91
   %97 = phi i32 [ %43, %40 ], [ %74, %73 ], [ %92, %91 ], [ %95, %RB_FLOAT_TYPE_P.exit.thread96 ]
   %98 = icmp eq i32 %97, 0
-  br i1 %98, label %99, label %100
+  br i1 %98, label %.thread102.sink.split, label %99
 
 99:                                               ; preds = %96
-  store i64 %25, ptr %6, align 8
-  br label %.thread102
-
-100:                                              ; preds = %96
-  %101 = icmp slt i32 %97, 0
+  %100 = icmp slt i32 %97, 0
   %.pre = load i64, ptr %6, align 8
-  br i1 %101, label %102, label %.thread102
+  br i1 %100, label %.thread102.sink.split, label %.thread102
 
-102:                                              ; preds = %100
+.thread102.sink.split:                            ; preds = %99, %96
+  %.073.ph = phi i64 [ %25, %96 ], [ %.pre, %99 ]
+  %.072.ph = phi i64 [ %31, %96 ], [ %.0.i86, %99 ]
   store i64 %25, ptr %6, align 8
   br label %.thread102
 
-.thread102:                                       ; preds = %40, %100, %102, %99
-  %103 = phi i64 [ %25, %99 ], [ %25, %102 ], [ %.pre, %100 ], [ %.0.i80, %40 ]
-  %.075 = phi i64 [ %31, %99 ], [ %31, %102 ], [ %.0.i86, %100 ], [ %.0.i86, %40 ]
-  %.073 = phi i64 [ %25, %99 ], [ %.pre, %102 ], [ %25, %100 ], [ %25, %40 ]
-  %.072 = phi i64 [ %31, %99 ], [ %.0.i86, %102 ], [ %31, %100 ], [ %31, %40 ]
-  call fastcc void @minmax_by_i_update(i64 noundef %103, i64 noundef %.073, i64 noundef %.075, i64 noundef %.072, ptr noundef nonnull %.0.i.i)
-  br label %104
+.thread102:                                       ; preds = %.thread102.sink.split, %40, %99
+  %101 = phi i64 [ %.pre, %99 ], [ %.0.i80, %40 ], [ %25, %.thread102.sink.split ]
+  %.075 = phi i64 [ %.0.i86, %99 ], [ %.0.i86, %40 ], [ %31, %.thread102.sink.split ]
+  %.073 = phi i64 [ %25, %99 ], [ %25, %40 ], [ %.073.ph, %.thread102.sink.split ]
+  %.072 = phi i64 [ %31, %99 ], [ %31, %40 ], [ %.072.ph, %.thread102.sink.split ]
+  call fastcc void @minmax_by_i_update(i64 noundef %101, i64 noundef %.073, i64 noundef %.075, i64 noundef %.072, ptr noundef nonnull %.0.i.i)
+  br label %102
 
-104:                                              ; preds = %.thread102, %27
+102:                                              ; preds = %.thread102, %27
   ret i64 4
 }
 

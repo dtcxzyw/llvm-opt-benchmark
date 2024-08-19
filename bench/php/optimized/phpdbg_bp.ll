@@ -1862,160 +1862,156 @@ define void @phpdbg_set_breakpoint_method_opline(ptr noundef %0, ptr noundef %1,
   %24 = getelementptr inbounds i8, ptr %8, i64 64
   store i64 0, ptr %24, align 8
   %25 = call i32 @phpdbg_resolve_opline_break(ptr noundef nonnull %8)
-  switch i32 %25, label %38 [
-    i32 -1, label %26
-    i32 0, label %32
-    i32 2, label %106
+  switch i32 %25, label %32 [
+    i32 -1, label %.sink.split
+    i32 0, label %26
+    i32 2, label %100
   ]
 
 26:                                               ; preds = %3
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %3, %26
+  %.str.36.sink = phi ptr [ @.str.36, %26 ], [ @.str.35, %3 ]
   %27 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
   %28 = load i32, ptr %8, align 8
   %29 = load ptr, ptr %22, align 8
   %30 = load ptr, ptr %18, align 8
-  %31 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 2, i32 noundef %27, ptr noundef nonnull @.str.35, i32 noundef %28, ptr noundef %29, ptr noundef %30, i64 noundef %2) #14
-  br label %38
+  %31 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 2, i32 noundef %27, ptr noundef nonnull %.str.36.sink, i32 noundef %28, ptr noundef %29, ptr noundef %30, i64 noundef %2) #14
+  br label %32
 
-32:                                               ; preds = %3
-  %33 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
-  %34 = load i32, ptr %8, align 8
-  %35 = load ptr, ptr %22, align 8
-  %36 = load ptr, ptr %18, align 8
-  %37 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 2, i32 noundef %33, ptr noundef nonnull @.str.36, i32 noundef %34, ptr noundef %35, ptr noundef %36, i64 noundef %2) #14
-  br label %38
+32:                                               ; preds = %.sink.split, %3
+  %33 = load ptr, ptr %22, align 8
+  %34 = load i64, ptr %20, align 8
+  %35 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 448), ptr noundef %33, i64 noundef %34) #14
+  %.not = icmp eq ptr %35, null
+  br i1 %.not, label %36, label %49
 
-38:                                               ; preds = %32, %26, %3
-  %39 = load ptr, ptr %22, align 8
-  %40 = load i64, ptr %20, align 8
-  %41 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 448), ptr noundef %39, i64 noundef %40) #14
-  %.not = icmp eq ptr %41, null
-  br i1 %.not, label %42, label %55
-
-42:                                               ; preds = %38
+36:                                               ; preds = %32
   call void @_zend_hash_init(ptr noundef nonnull %9, i32 noundef 8, ptr noundef nonnull @phpdbg_opline_class_breaks_dtor, i1 noundef zeroext false) #14
-  %43 = load ptr, ptr %22, align 8
-  %44 = load i64, ptr %20, align 8
-  %45 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 452), align 4
-  %46 = and i32 %45, 128
-  %.not186 = icmp eq i32 %46, 0
-  br i1 %.not186, label %49, label %47
+  %37 = load ptr, ptr %22, align 8
+  %38 = load i64, ptr %20, align 8
+  %39 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 452), align 4
+  %40 = and i32 %39, 128
+  %.not186 = icmp eq i32 %40, 0
+  br i1 %.not186, label %43, label %41
 
-47:                                               ; preds = %42
-  %48 = call noalias dereferenceable_or_null(56) ptr @__zend_malloc(i64 noundef 56) #16
-  br label %51
+41:                                               ; preds = %36
+  %42 = call noalias dereferenceable_or_null(56) ptr @__zend_malloc(i64 noundef 56) #16
+  br label %45
 
-49:                                               ; preds = %42
-  %50 = call noalias ptr @_emalloc_56() #14
-  br label %51
+43:                                               ; preds = %36
+  %44 = call noalias ptr @_emalloc_56() #14
+  br label %45
 
-51:                                               ; preds = %49, %47
-  %52 = phi ptr [ %48, %47 ], [ %50, %49 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %52, ptr noundef nonnull align 8 dereferenceable(56) %9, i64 56, i1 false)
-  store ptr %52, ptr %6, align 8
-  %53 = getelementptr inbounds i8, ptr %6, i64 8
-  store i32 13, ptr %53, align 8
-  %54 = call ptr @zend_hash_str_update(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 448), ptr noundef %43, i64 noundef %44, ptr noundef nonnull %6) #14
-  br label %55
+45:                                               ; preds = %43, %41
+  %46 = phi ptr [ %42, %41 ], [ %44, %43 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %46, ptr noundef nonnull align 8 dereferenceable(56) %9, i64 56, i1 false)
+  store ptr %46, ptr %6, align 8
+  %47 = getelementptr inbounds i8, ptr %6, i64 8
+  store i32 13, ptr %47, align 8
+  %48 = call ptr @zend_hash_str_update(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 448), ptr noundef %37, i64 noundef %38, ptr noundef nonnull %6) #14
+  br label %49
 
-55:                                               ; preds = %38, %51
-  %.0180.in = phi ptr [ %54, %51 ], [ %41, %38 ]
+49:                                               ; preds = %32, %45
+  %.0180.in = phi ptr [ %48, %45 ], [ %35, %32 ]
   %.0180 = load ptr, ptr %.0180.in, align 8, !nonnull !4, !noundef !4
-  %56 = load ptr, ptr %18, align 8
-  %57 = load i64, ptr %16, align 8
-  %58 = call ptr @zend_hash_str_find(ptr noundef nonnull %.0180, ptr noundef %56, i64 noundef %57) #14
-  %.not187 = icmp eq ptr %58, null
-  br i1 %.not187, label %59, label %73
+  %50 = load ptr, ptr %18, align 8
+  %51 = load i64, ptr %16, align 8
+  %52 = call ptr @zend_hash_str_find(ptr noundef nonnull %.0180, ptr noundef %50, i64 noundef %51) #14
+  %.not187 = icmp eq ptr %52, null
+  br i1 %.not187, label %53, label %67
 
-59:                                               ; preds = %55
+53:                                               ; preds = %49
   call void @_zend_hash_init(ptr noundef nonnull %10, i32 noundef 8, ptr noundef nonnull @phpdbg_opline_breaks_dtor, i1 noundef zeroext false) #14
-  %60 = load ptr, ptr %18, align 8
-  %61 = load i64, ptr %16, align 8
-  %62 = getelementptr inbounds i8, ptr %.0180, i64 4
-  %63 = load i32, ptr %62, align 4
-  %64 = and i32 %63, 128
-  %.not189 = icmp eq i32 %64, 0
-  br i1 %.not189, label %67, label %65
+  %54 = load ptr, ptr %18, align 8
+  %55 = load i64, ptr %16, align 8
+  %56 = getelementptr inbounds i8, ptr %.0180, i64 4
+  %57 = load i32, ptr %56, align 4
+  %58 = and i32 %57, 128
+  %.not189 = icmp eq i32 %58, 0
+  br i1 %.not189, label %61, label %59
 
-65:                                               ; preds = %59
-  %66 = call noalias dereferenceable_or_null(56) ptr @__zend_malloc(i64 noundef 56) #16
-  br label %69
+59:                                               ; preds = %53
+  %60 = call noalias dereferenceable_or_null(56) ptr @__zend_malloc(i64 noundef 56) #16
+  br label %63
 
-67:                                               ; preds = %59
-  %68 = call noalias ptr @_emalloc_56() #14
-  br label %69
+61:                                               ; preds = %53
+  %62 = call noalias ptr @_emalloc_56() #14
+  br label %63
 
-69:                                               ; preds = %67, %65
-  %70 = phi ptr [ %66, %65 ], [ %68, %67 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %70, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false)
-  store ptr %70, ptr %5, align 8
-  %71 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 13, ptr %71, align 8
-  %72 = call ptr @zend_hash_str_update(ptr noundef nonnull %.0180, ptr noundef %60, i64 noundef %61, ptr noundef nonnull %5) #14
-  br label %73
+63:                                               ; preds = %61, %59
+  %64 = phi ptr [ %60, %59 ], [ %62, %61 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %64, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false)
+  store ptr %64, ptr %5, align 8
+  %65 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 13, ptr %65, align 8
+  %66 = call ptr @zend_hash_str_update(ptr noundef nonnull %.0180, ptr noundef %54, i64 noundef %55, ptr noundef nonnull %5) #14
+  br label %67
 
-73:                                               ; preds = %55, %69
-  %.0.in = phi ptr [ %72, %69 ], [ %58, %55 ]
+67:                                               ; preds = %49, %63
+  %.0.in = phi ptr [ %66, %63 ], [ %52, %49 ]
   %.0 = load ptr, ptr %.0.in, align 8, !nonnull !4, !noundef !4
-  %74 = call ptr @zend_hash_index_find(ptr noundef nonnull %.0, i64 noundef %2) #14
-  %.not190 = icmp eq ptr %74, null
-  br i1 %.not190, label %84, label %75
+  %68 = call ptr @zend_hash_index_find(ptr noundef nonnull %.0, i64 noundef %2) #14
+  %.not190 = icmp eq ptr %68, null
+  br i1 %.not190, label %78, label %69
 
-75:                                               ; preds = %73
-  %76 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
-  %77 = load ptr, ptr %22, align 8
-  %78 = load ptr, ptr %18, align 8
-  %79 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %76, ptr noundef nonnull @.str.37, ptr noundef %77, ptr noundef %78, i64 noundef %2) #14
-  %80 = load ptr, ptr %18, align 8
-  call void @_efree(ptr noundef %80) #14
-  %81 = load ptr, ptr %22, align 8
-  call void @_efree(ptr noundef %81) #14
-  %82 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1376), align 8
-  %83 = add nsw i32 %82, -1
-  store i32 %83, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1376), align 8
-  br label %106
+69:                                               ; preds = %67
+  %70 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %71 = load ptr, ptr %22, align 8
+  %72 = load ptr, ptr %18, align 8
+  %73 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %70, ptr noundef nonnull @.str.37, ptr noundef %71, ptr noundef %72, i64 noundef %2) #14
+  %74 = load ptr, ptr %18, align 8
+  call void @_efree(ptr noundef %74) #14
+  %75 = load ptr, ptr %22, align 8
+  call void @_efree(ptr noundef %75) #14
+  %76 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1376), align 8
+  %77 = add nsw i32 %76, -1
+  store i32 %77, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1376), align 8
+  br label %100
 
-84:                                               ; preds = %73
-  %85 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
-  %86 = or i64 %85, 512
-  store i64 %86, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
-  %87 = load i32, ptr %8, align 8
+78:                                               ; preds = %67
+  %79 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
+  %80 = or i64 %79, 512
+  store i64 %80, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
+  %81 = load i32, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %88 = sext i32 %87 to i64
+  %82 = sext i32 %81 to i64
   store ptr %.0, ptr %4, align 8
-  %89 = getelementptr inbounds i8, ptr %4, i64 8
-  store i32 13, ptr %89, align 8
-  %90 = call ptr @zend_hash_index_update(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 560), i64 noundef %88, ptr noundef nonnull %4) #14
-  %91 = load ptr, ptr %90, align 8
-  %92 = icmp ne ptr %91, null
-  call void @llvm.assume(i1 %92)
+  %83 = getelementptr inbounds i8, ptr %4, i64 8
+  store i32 13, ptr %83, align 8
+  %84 = call ptr @zend_hash_index_update(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 560), i64 noundef %82, ptr noundef nonnull %4) #14
+  %85 = load ptr, ptr %84, align 8
+  %86 = icmp ne ptr %85, null
+  call void @llvm.assume(i1 %86)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %93 = getelementptr inbounds i8, ptr %.0, i64 4
-  %94 = load i32, ptr %93, align 4
-  %95 = and i32 %94, 128
-  %.not191 = icmp eq i32 %95, 0
-  br i1 %.not191, label %98, label %96
+  %87 = getelementptr inbounds i8, ptr %.0, i64 4
+  %88 = load i32, ptr %87, align 4
+  %89 = and i32 %88, 128
+  %.not191 = icmp eq i32 %89, 0
+  br i1 %.not191, label %92, label %90
 
-96:                                               ; preds = %84
-  %97 = call noalias dereferenceable_or_null(72) ptr @__zend_malloc(i64 noundef 72) #16
+90:                                               ; preds = %78
+  %91 = call noalias dereferenceable_or_null(72) ptr @__zend_malloc(i64 noundef 72) #16
+  br label %94
+
+92:                                               ; preds = %78
+  %93 = call noalias ptr @_emalloc_80() #14
+  br label %94
+
+94:                                               ; preds = %92, %90
+  %95 = phi ptr [ %91, %90 ], [ %93, %92 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %95, ptr noundef nonnull align 8 dereferenceable(72) %8, i64 72, i1 false)
+  store ptr %95, ptr %7, align 8
+  %96 = getelementptr inbounds i8, ptr %7, i64 8
+  store i32 13, ptr %96, align 8
+  %97 = call ptr @zend_hash_index_update(ptr noundef nonnull %.0, i64 noundef %2, ptr noundef nonnull %7) #14
+  %98 = load ptr, ptr %97, align 8
+  %99 = icmp ne ptr %98, null
+  call void @llvm.assume(i1 %99)
   br label %100
 
-98:                                               ; preds = %84
-  %99 = call noalias ptr @_emalloc_80() #14
-  br label %100
-
-100:                                              ; preds = %98, %96
-  %101 = phi ptr [ %97, %96 ], [ %99, %98 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %101, ptr noundef nonnull align 8 dereferenceable(72) %8, i64 72, i1 false)
-  store ptr %101, ptr %7, align 8
-  %102 = getelementptr inbounds i8, ptr %7, i64 8
-  store i32 13, ptr %102, align 8
-  %103 = call ptr @zend_hash_index_update(ptr noundef nonnull %.0, i64 noundef %2, ptr noundef nonnull %7) #14
-  %104 = load ptr, ptr %103, align 8
-  %105 = icmp ne ptr %104, null
-  call void @llvm.assume(i1 %105)
-  br label %106
-
-106:                                              ; preds = %3, %100, %75
+100:                                              ; preds = %3, %94, %69
   ret void
 }
 
@@ -2084,119 +2080,116 @@ define void @phpdbg_set_breakpoint_function_opline(ptr noundef %0, i64 noundef %
   %18 = getelementptr inbounds i8, ptr %6, i64 64
   store i64 0, ptr %18, align 8
   %19 = call i32 @phpdbg_resolve_opline_break(ptr noundef nonnull %6)
-  switch i32 %19, label %30 [
-    i32 -1, label %20
-    i32 0, label %25
-    i32 2, label %78
+  switch i32 %19, label %25 [
+    i32 -1, label %.sink.split
+    i32 0, label %20
+    i32 2, label %73
   ]
 
 20:                                               ; preds = %2
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %2, %20
+  %.str.39.sink = phi ptr [ @.str.39, %20 ], [ @.str.38, %2 ]
   %21 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
   %22 = load i32, ptr %6, align 8
   %23 = load ptr, ptr %15, align 8
-  %24 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 2, i32 noundef %21, ptr noundef nonnull @.str.38, i32 noundef %22, ptr noundef %23, i64 noundef %1) #14
-  br label %30
+  %24 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 2, i32 noundef %21, ptr noundef nonnull %.str.39.sink, i32 noundef %22, ptr noundef %23, i64 noundef %1) #14
+  br label %25
 
-25:                                               ; preds = %2
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
-  %27 = load i32, ptr %6, align 8
-  %28 = load ptr, ptr %15, align 8
-  %29 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 2, i32 noundef %26, ptr noundef nonnull @.str.39, i32 noundef %27, ptr noundef %28, i64 noundef %1) #14
-  br label %30
+25:                                               ; preds = %.sink.split, %2
+  %26 = load ptr, ptr %15, align 8
+  %27 = load i64, ptr %13, align 8
+  %28 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 392), ptr noundef %26, i64 noundef %27) #14
+  %.not = icmp eq ptr %28, null
+  br i1 %.not, label %29, label %42
 
-30:                                               ; preds = %25, %20, %2
-  %31 = load ptr, ptr %15, align 8
-  %32 = load i64, ptr %13, align 8
-  %33 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 392), ptr noundef %31, i64 noundef %32) #14
-  %.not = icmp eq ptr %33, null
-  br i1 %.not, label %34, label %47
-
-34:                                               ; preds = %30
+29:                                               ; preds = %25
   call void @_zend_hash_init(ptr noundef nonnull %7, i32 noundef 8, ptr noundef nonnull @phpdbg_opline_breaks_dtor, i1 noundef zeroext false) #14
-  %35 = load ptr, ptr %15, align 8
-  %36 = load i64, ptr %13, align 8
-  %37 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 396), align 4
-  %38 = and i32 %37, 128
-  %.not121 = icmp eq i32 %38, 0
-  br i1 %.not121, label %41, label %39
+  %30 = load ptr, ptr %15, align 8
+  %31 = load i64, ptr %13, align 8
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 396), align 4
+  %33 = and i32 %32, 128
+  %.not121 = icmp eq i32 %33, 0
+  br i1 %.not121, label %36, label %34
 
-39:                                               ; preds = %34
-  %40 = call noalias dereferenceable_or_null(56) ptr @__zend_malloc(i64 noundef 56) #16
-  br label %43
+34:                                               ; preds = %29
+  %35 = call noalias dereferenceable_or_null(56) ptr @__zend_malloc(i64 noundef 56) #16
+  br label %38
 
-41:                                               ; preds = %34
-  %42 = call noalias ptr @_emalloc_56() #14
-  br label %43
+36:                                               ; preds = %29
+  %37 = call noalias ptr @_emalloc_56() #14
+  br label %38
 
-43:                                               ; preds = %41, %39
-  %44 = phi ptr [ %40, %39 ], [ %42, %41 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %44, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false)
-  store ptr %44, ptr %4, align 8
-  %45 = getelementptr inbounds i8, ptr %4, i64 8
-  store i32 13, ptr %45, align 8
-  %46 = call ptr @zend_hash_str_update(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 392), ptr noundef %35, i64 noundef %36, ptr noundef nonnull %4) #14
-  br label %47
+38:                                               ; preds = %36, %34
+  %39 = phi ptr [ %35, %34 ], [ %37, %36 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %39, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false)
+  store ptr %39, ptr %4, align 8
+  %40 = getelementptr inbounds i8, ptr %4, i64 8
+  store i32 13, ptr %40, align 8
+  %41 = call ptr @zend_hash_str_update(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 392), ptr noundef %30, i64 noundef %31, ptr noundef nonnull %4) #14
+  br label %42
 
-47:                                               ; preds = %30, %43
-  %.0.in = phi ptr [ %46, %43 ], [ %33, %30 ]
+42:                                               ; preds = %25, %38
+  %.0.in = phi ptr [ %41, %38 ], [ %28, %25 ]
   %.0 = load ptr, ptr %.0.in, align 8, !nonnull !4, !noundef !4
-  %48 = call ptr @zend_hash_index_find(ptr noundef nonnull %.0, i64 noundef %1) #14
-  %.not122 = icmp eq ptr %48, null
-  br i1 %.not122, label %56, label %49
+  %43 = call ptr @zend_hash_index_find(ptr noundef nonnull %.0, i64 noundef %1) #14
+  %.not122 = icmp eq ptr %43, null
+  br i1 %.not122, label %51, label %44
 
-49:                                               ; preds = %47
-  %50 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
-  %51 = load ptr, ptr %15, align 8
-  %52 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %50, ptr noundef nonnull @.str.40, ptr noundef %51, i64 noundef %1) #14
-  %53 = load ptr, ptr %15, align 8
-  call void @_efree(ptr noundef %53) #14
-  %54 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1376), align 8
-  %55 = add nsw i32 %54, -1
-  store i32 %55, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1376), align 8
-  br label %78
+44:                                               ; preds = %42
+  %45 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %46 = load ptr, ptr %15, align 8
+  %47 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %45, ptr noundef nonnull @.str.40, ptr noundef %46, i64 noundef %1) #14
+  %48 = load ptr, ptr %15, align 8
+  call void @_efree(ptr noundef %48) #14
+  %49 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1376), align 8
+  %50 = add nsw i32 %49, -1
+  store i32 %50, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1376), align 8
+  br label %73
 
-56:                                               ; preds = %47
-  %57 = load i32, ptr %6, align 8
+51:                                               ; preds = %42
+  %52 = load i32, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %58 = sext i32 %57 to i64
+  %53 = sext i32 %52 to i64
   store ptr %.0, ptr %3, align 8
-  %59 = getelementptr inbounds i8, ptr %3, i64 8
-  store i32 13, ptr %59, align 8
-  %60 = call ptr @zend_hash_index_update(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 560), i64 noundef %58, ptr noundef nonnull %3) #14
-  %61 = load ptr, ptr %60, align 8
-  %62 = icmp ne ptr %61, null
-  call void @llvm.assume(i1 %62)
+  %54 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 13, ptr %54, align 8
+  %55 = call ptr @zend_hash_index_update(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 560), i64 noundef %53, ptr noundef nonnull %3) #14
+  %56 = load ptr, ptr %55, align 8
+  %57 = icmp ne ptr %56, null
+  call void @llvm.assume(i1 %57)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %63 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
-  %64 = or i64 %63, 256
-  store i64 %64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
-  %65 = getelementptr inbounds i8, ptr %.0, i64 4
-  %66 = load i32, ptr %65, align 4
-  %67 = and i32 %66, 128
-  %.not123 = icmp eq i32 %67, 0
-  br i1 %.not123, label %70, label %68
+  %58 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
+  %59 = or i64 %58, 256
+  store i64 %59, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
+  %60 = getelementptr inbounds i8, ptr %.0, i64 4
+  %61 = load i32, ptr %60, align 4
+  %62 = and i32 %61, 128
+  %.not123 = icmp eq i32 %62, 0
+  br i1 %.not123, label %65, label %63
 
-68:                                               ; preds = %56
-  %69 = call noalias dereferenceable_or_null(72) ptr @__zend_malloc(i64 noundef 72) #16
-  br label %72
+63:                                               ; preds = %51
+  %64 = call noalias dereferenceable_or_null(72) ptr @__zend_malloc(i64 noundef 72) #16
+  br label %67
 
-70:                                               ; preds = %56
-  %71 = call noalias ptr @_emalloc_80() #14
-  br label %72
+65:                                               ; preds = %51
+  %66 = call noalias ptr @_emalloc_80() #14
+  br label %67
 
-72:                                               ; preds = %70, %68
-  %73 = phi ptr [ %69, %68 ], [ %71, %70 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %73, ptr noundef nonnull align 8 dereferenceable(72) %6, i64 72, i1 false)
-  store ptr %73, ptr %5, align 8
-  %74 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 13, ptr %74, align 8
-  %75 = call ptr @zend_hash_index_update(ptr noundef nonnull %.0, i64 noundef %1, ptr noundef nonnull %5) #14
-  %76 = load ptr, ptr %75, align 8
-  %77 = icmp ne ptr %76, null
-  call void @llvm.assume(i1 %77)
-  br label %78
+67:                                               ; preds = %65, %63
+  %68 = phi ptr [ %64, %63 ], [ %66, %65 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %68, ptr noundef nonnull align 8 dereferenceable(72) %6, i64 72, i1 false)
+  store ptr %68, ptr %5, align 8
+  %69 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 13, ptr %69, align 8
+  %70 = call ptr @zend_hash_index_update(ptr noundef nonnull %.0, i64 noundef %1, ptr noundef nonnull %5) #14
+  %71 = load ptr, ptr %70, align 8
+  %72 = icmp ne ptr %71, null
+  call void @llvm.assume(i1 %72)
+  br label %73
 
-78:                                               ; preds = %2, %72, %49
+73:                                               ; preds = %2, %67, %44
   ret void
 }
 
@@ -2229,119 +2222,116 @@ define void @phpdbg_set_breakpoint_file_opline(ptr noundef %0, i64 noundef %1) l
   %18 = getelementptr inbounds i8, ptr %6, i64 64
   store i64 0, ptr %18, align 8
   %19 = call i32 @phpdbg_resolve_opline_break(ptr noundef nonnull %6)
-  switch i32 %19, label %30 [
-    i32 -1, label %20
-    i32 0, label %25
-    i32 2, label %78
+  switch i32 %19, label %25 [
+    i32 -1, label %.sink.split
+    i32 0, label %20
+    i32 2, label %73
   ]
 
 20:                                               ; preds = %2
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %2, %20
+  %.str.19.sink = phi ptr [ @.str.19, %20 ], [ @.str.41, %2 ]
   %21 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
   %22 = load i32, ptr %6, align 8
   %23 = load ptr, ptr %16, align 8
-  %24 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 2, i32 noundef %21, ptr noundef nonnull @.str.41, i32 noundef %22, ptr noundef %23, i64 noundef %1) #14
-  br label %30
+  %24 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 2, i32 noundef %21, ptr noundef nonnull %.str.19.sink, i32 noundef %22, ptr noundef %23, i64 noundef %1) #14
+  br label %25
 
-25:                                               ; preds = %2
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
-  %27 = load i32, ptr %6, align 8
-  %28 = load ptr, ptr %16, align 8
-  %29 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 2, i32 noundef %26, ptr noundef nonnull @.str.19, i32 noundef %27, ptr noundef %28, i64 noundef %1) #14
-  br label %30
+25:                                               ; preds = %.sink.split, %2
+  %26 = load ptr, ptr %16, align 8
+  %27 = load i64, ptr %14, align 8
+  %28 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 504), ptr noundef %26, i64 noundef %27) #14
+  %.not = icmp eq ptr %28, null
+  br i1 %.not, label %29, label %42
 
-30:                                               ; preds = %25, %20, %2
-  %31 = load ptr, ptr %16, align 8
-  %32 = load i64, ptr %14, align 8
-  %33 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 504), ptr noundef %31, i64 noundef %32) #14
-  %.not = icmp eq ptr %33, null
-  br i1 %.not, label %34, label %47
-
-34:                                               ; preds = %30
+29:                                               ; preds = %25
   call void @_zend_hash_init(ptr noundef nonnull %7, i32 noundef 8, ptr noundef nonnull @phpdbg_opline_breaks_dtor, i1 noundef zeroext false) #14
-  %35 = load ptr, ptr %16, align 8
-  %36 = load i64, ptr %14, align 8
-  %37 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 508), align 4
-  %38 = and i32 %37, 128
-  %.not121 = icmp eq i32 %38, 0
-  br i1 %.not121, label %41, label %39
+  %30 = load ptr, ptr %16, align 8
+  %31 = load i64, ptr %14, align 8
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 508), align 4
+  %33 = and i32 %32, 128
+  %.not121 = icmp eq i32 %33, 0
+  br i1 %.not121, label %36, label %34
 
-39:                                               ; preds = %34
-  %40 = call noalias dereferenceable_or_null(56) ptr @__zend_malloc(i64 noundef 56) #16
-  br label %43
+34:                                               ; preds = %29
+  %35 = call noalias dereferenceable_or_null(56) ptr @__zend_malloc(i64 noundef 56) #16
+  br label %38
 
-41:                                               ; preds = %34
-  %42 = call noalias ptr @_emalloc_56() #14
-  br label %43
+36:                                               ; preds = %29
+  %37 = call noalias ptr @_emalloc_56() #14
+  br label %38
 
-43:                                               ; preds = %41, %39
-  %44 = phi ptr [ %40, %39 ], [ %42, %41 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %44, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false)
-  store ptr %44, ptr %4, align 8
-  %45 = getelementptr inbounds i8, ptr %4, i64 8
-  store i32 13, ptr %45, align 8
-  %46 = call ptr @zend_hash_str_update(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 504), ptr noundef %35, i64 noundef %36, ptr noundef nonnull %4) #14
-  br label %47
+38:                                               ; preds = %36, %34
+  %39 = phi ptr [ %35, %34 ], [ %37, %36 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %39, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false)
+  store ptr %39, ptr %4, align 8
+  %40 = getelementptr inbounds i8, ptr %4, i64 8
+  store i32 13, ptr %40, align 8
+  %41 = call ptr @zend_hash_str_update(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 504), ptr noundef %30, i64 noundef %31, ptr noundef nonnull %4) #14
+  br label %42
 
-47:                                               ; preds = %30, %43
-  %.0.in = phi ptr [ %46, %43 ], [ %33, %30 ]
+42:                                               ; preds = %25, %38
+  %.0.in = phi ptr [ %41, %38 ], [ %28, %25 ]
   %.0 = load ptr, ptr %.0.in, align 8, !nonnull !4, !noundef !4
-  %48 = call ptr @zend_hash_index_find(ptr noundef nonnull %.0, i64 noundef %1) #14
-  %.not122 = icmp eq ptr %48, null
-  br i1 %.not122, label %56, label %49
+  %43 = call ptr @zend_hash_index_find(ptr noundef nonnull %.0, i64 noundef %1) #14
+  %.not122 = icmp eq ptr %43, null
+  br i1 %.not122, label %51, label %44
 
-49:                                               ; preds = %47
-  %50 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
-  %51 = load ptr, ptr %16, align 8
-  %52 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %50, ptr noundef nonnull @.str.42, ptr noundef %51, i64 noundef %1) #14
-  %53 = load ptr, ptr %16, align 8
-  call void @_efree(ptr noundef %53) #14
-  %54 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1376), align 8
-  %55 = add nsw i32 %54, -1
-  store i32 %55, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1376), align 8
-  br label %78
+44:                                               ; preds = %42
+  %45 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %46 = load ptr, ptr %16, align 8
+  %47 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %45, ptr noundef nonnull @.str.42, ptr noundef %46, i64 noundef %1) #14
+  %48 = load ptr, ptr %16, align 8
+  call void @_efree(ptr noundef %48) #14
+  %49 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1376), align 8
+  %50 = add nsw i32 %49, -1
+  store i32 %50, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1376), align 8
+  br label %73
 
-56:                                               ; preds = %47
-  %57 = load i32, ptr %6, align 8
+51:                                               ; preds = %42
+  %52 = load i32, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %58 = sext i32 %57 to i64
+  %53 = sext i32 %52 to i64
   store ptr %.0, ptr %3, align 8
-  %59 = getelementptr inbounds i8, ptr %3, i64 8
-  store i32 13, ptr %59, align 8
-  %60 = call ptr @zend_hash_index_update(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 560), i64 noundef %58, ptr noundef nonnull %3) #14
-  %61 = load ptr, ptr %60, align 8
-  %62 = icmp ne ptr %61, null
-  call void @llvm.assume(i1 %62)
+  %54 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 13, ptr %54, align 8
+  %55 = call ptr @zend_hash_index_update(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 560), i64 noundef %53, ptr noundef nonnull %3) #14
+  %56 = load ptr, ptr %55, align 8
+  %57 = icmp ne ptr %56, null
+  call void @llvm.assume(i1 %57)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %63 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
-  %64 = or i64 %63, 1024
-  store i64 %64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
-  %65 = getelementptr inbounds i8, ptr %.0, i64 4
-  %66 = load i32, ptr %65, align 4
-  %67 = and i32 %66, 128
-  %.not123 = icmp eq i32 %67, 0
-  br i1 %.not123, label %70, label %68
+  %58 = load i64, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
+  %59 = or i64 %58, 1024
+  store i64 %59, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 2176), align 8
+  %60 = getelementptr inbounds i8, ptr %.0, i64 4
+  %61 = load i32, ptr %60, align 4
+  %62 = and i32 %61, 128
+  %.not123 = icmp eq i32 %62, 0
+  br i1 %.not123, label %65, label %63
 
-68:                                               ; preds = %56
-  %69 = call noalias dereferenceable_or_null(72) ptr @__zend_malloc(i64 noundef 72) #16
-  br label %72
+63:                                               ; preds = %51
+  %64 = call noalias dereferenceable_or_null(72) ptr @__zend_malloc(i64 noundef 72) #16
+  br label %67
 
-70:                                               ; preds = %56
-  %71 = call noalias ptr @_emalloc_80() #14
-  br label %72
+65:                                               ; preds = %51
+  %66 = call noalias ptr @_emalloc_80() #14
+  br label %67
 
-72:                                               ; preds = %70, %68
-  %73 = phi ptr [ %69, %68 ], [ %71, %70 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %73, ptr noundef nonnull align 8 dereferenceable(72) %6, i64 72, i1 false)
-  store ptr %73, ptr %5, align 8
-  %74 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 13, ptr %74, align 8
-  %75 = call ptr @zend_hash_index_update(ptr noundef nonnull %.0, i64 noundef %1, ptr noundef nonnull %5) #14
-  %76 = load ptr, ptr %75, align 8
-  %77 = icmp ne ptr %76, null
-  call void @llvm.assume(i1 %77)
-  br label %78
+67:                                               ; preds = %65, %63
+  %68 = phi ptr [ %64, %63 ], [ %66, %65 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %68, ptr noundef nonnull align 8 dereferenceable(72) %6, i64 72, i1 false)
+  store ptr %68, ptr %5, align 8
+  %69 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 13, ptr %69, align 8
+  %70 = call ptr @zend_hash_index_update(ptr noundef nonnull %.0, i64 noundef %1, ptr noundef nonnull %5) #14
+  %71 = load ptr, ptr %70, align 8
+  %72 = icmp ne ptr %71, null
+  call void @llvm.assume(i1 %72)
+  br label %73
 
-78:                                               ; preds = %2, %72, %49
+73:                                               ; preds = %2, %67, %44
   ret void
 }
 

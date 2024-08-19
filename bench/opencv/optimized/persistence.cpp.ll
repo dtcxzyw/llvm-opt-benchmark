@@ -5286,23 +5286,23 @@ _ZN2cv3PtrINS_18FileStorageEmitterEEaSERKS2_.exit328: ; preds = %800, %_ZNSt16_S
   br i1 %877, label %_ZN2cv3PtrINS_18FileStorageEmitterEED2Ev.exit.sink.split, label %_ZN2cv3PtrINS_18FileStorageEmitterEED2Ev.exit
 
 _ZN2cv3PtrINS_18FileStorageEmitterEED2Ev.exit.sink.split.sink.split: ; preds = %852, %709, %627
-  %.sink541 = phi ptr [ %628, %627 ], [ %710, %709 ], [ %853, %852 ]
-  %.sink540 = phi ptr [ %626, %627 ], [ %708, %709 ], [ %851, %852 ]
-  store i32 0, ptr %.sink541, align 8
-  %878 = getelementptr inbounds i8, ptr %.sink540, i64 12
+  %.sink542 = phi ptr [ %628, %627 ], [ %710, %709 ], [ %853, %852 ]
+  %.sink541 = phi ptr [ %626, %627 ], [ %708, %709 ], [ %851, %852 ]
+  store i32 0, ptr %.sink542, align 8
+  %878 = getelementptr inbounds i8, ptr %.sink541, i64 12
   store i32 0, ptr %878, align 4
-  %879 = load ptr, ptr %.sink540, align 8
+  %879 = load ptr, ptr %.sink541, align 8
   %880 = getelementptr inbounds i8, ptr %879, i64 16
   %881 = load ptr, ptr %880, align 8
-  call void %881(ptr noundef nonnull align 8 dereferenceable(16) %.sink540) #39
+  call void %881(ptr noundef nonnull align 8 dereferenceable(16) %.sink541) #39
   br label %_ZN2cv3PtrINS_18FileStorageEmitterEED2Ev.exit.sink.split
 
 _ZN2cv3PtrINS_18FileStorageEmitterEED2Ev.exit.sink.split: ; preds = %_ZN2cv3PtrINS_18FileStorageEmitterEED2Ev.exit.sink.split.sink.split, %876, %733, %651
-  %.sink533 = phi ptr [ %626, %651 ], [ %708, %733 ], [ %851, %876 ], [ %.sink540, %_ZN2cv3PtrINS_18FileStorageEmitterEED2Ev.exit.sink.split.sink.split ]
-  %882 = load ptr, ptr %.sink533, align 8
+  %.sink534 = phi ptr [ %626, %651 ], [ %708, %733 ], [ %851, %876 ], [ %.sink541, %_ZN2cv3PtrINS_18FileStorageEmitterEED2Ev.exit.sink.split.sink.split ]
+  %882 = load ptr, ptr %.sink534, align 8
   %883 = getelementptr inbounds i8, ptr %882, i64 24
   %884 = load ptr, ptr %883, align 8
-  call void %884(ptr noundef nonnull align 8 dereferenceable(16) %.sink533) #39
+  call void %884(ptr noundef nonnull align 8 dereferenceable(16) %.sink534) #39
   br label %_ZN2cv3PtrINS_18FileStorageEmitterEED2Ev.exit
 
 _ZN2cv3PtrINS_18FileStorageEmitterEED2Ev.exit:    ; preds = %_ZN2cv3PtrINS_18FileStorageEmitterEED2Ev.exit.sink.split, %876, %863, %_ZN2cv3PtrINS_18FileStorageEmitterEEaSERKS2_.exit328, %733, %720, %_ZN2cv3PtrINS_18FileStorageEmitterEEaSERKS2_.exit307, %651, %638, %_ZN2cv3PtrINS_18FileStorageEmitterEEaSERKS2_.exit
@@ -5465,8 +5465,8 @@ _Z11cv_skip_BOMPc.exit:                           ; preds = %906, %909, %913
   br label %1384
 
 947:                                              ; preds = %924, %922, %_Z11cv_skip_BOMPc.exit
-  %.sink534 = phi i32 [ 16, %_Z11cv_skip_BOMPc.exit ], [ 24, %922 ], [ 8, %924 ]
-  store i32 %.sink534, ptr %302, align 4
+  %.sink535 = phi i32 [ 16, %_Z11cv_skip_BOMPc.exit ], [ 24, %922 ], [ 8, %924 ]
+  store i32 %.sink535, ptr %302, align 4
   %948 = load ptr, ptr %0, align 8
   %949 = getelementptr inbounds i8, ptr %948, i64 64
   %950 = load ptr, ptr %949, align 8

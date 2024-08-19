@@ -206,7 +206,7 @@ _ZNK4YAML4Node6ScalarB5cxx11Ev.exit:              ; preds = %cond.true.i, %cond.
   %cond-lvalue.i = phi ptr [ %m_scalar.i.i.i.i, %cond.true.i ], [ %call4.i, %cond.false.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %rest.i)
   %call.i = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %cond-lvalue.i) #9
-  br i1 %call.i, label %_ZN12_GLOBAL__N_114IsFlexibleCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %if.end.i15
+  br i1 %call.i, label %for.cond.preheader.sink.split, label %if.end.i15
 
 if.end.i15:                                       ; preds = %_ZNK4YAML4Node6ScalarB5cxx11Ev.exit
   %call.i.i = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %cond-lvalue.i) #9
@@ -266,7 +266,7 @@ for.end.i.i.i.i.i.i:                              ; preds = %for.end.loopexit.i.
   %sub.ptr.rhs.cast.i25.pre-phi.i.i.i.i.i.i = phi i64 [ %.pre.i.i.i.i.i.i, %for.end.loopexit.i.i.i.i.i.i ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i.i, %if.end.i15 ]
   %__first.sroa.0.0.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i, %for.end.loopexit.i.i.i.i.i.i ], [ %call.i.i, %if.end.i15 ]
   %sub.ptr.sub.i26.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i25.pre-phi.i.i.i.i.i.i
-  switch i64 %sub.ptr.sub.i26.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_114IsFlexibleCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit [
+  switch i64 %sub.ptr.sub.i26.i.i.i.i.i.i, label %for.cond.preheader.sink.split [
     i64 3, label %sw.bb.i.i.i.i.i.i
     i64 2, label %sw.bb32.i.i.i.i.i.i
     i64 1, label %sw.bb39.i.i.i.i.i.i
@@ -316,7 +316,7 @@ _ZN12_GLOBAL__N_110IsEntirelyIPFbcEEEbRKNSt7__cxx1112basic_stringIcSt11char_trai
 _ZN12_GLOBAL__N_110IsEntirelyIPFbcEEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_.exit.i: ; preds = %for.body.i.i.i.i.i.i, %_ZN12_GLOBAL__N_110IsEntirelyIPFbcEEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_.exit.i.loopexit.split.loop.exit, %_ZN12_GLOBAL__N_110IsEntirelyIPFbcEEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_.exit.i.loopexit.split.loop.exit143, %_ZN12_GLOBAL__N_110IsEntirelyIPFbcEEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_.exit.i.loopexit.split.loop.exit145, %sw.bb39.i.i.i.i.i.i, %sw.bb32.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i
   %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i.i, %sw.bb32.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i, %sw.bb39.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i.le, %_ZN12_GLOBAL__N_110IsEntirelyIPFbcEEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_.exit.i.loopexit.split.loop.exit ], [ %incdec.ptr.i17.i.i.i.i.i.i.le, %_ZN12_GLOBAL__N_110IsEntirelyIPFbcEEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_.exit.i.loopexit.split.loop.exit143 ], [ %incdec.ptr.i20.i.i.i.i.i.i.le, %_ZN12_GLOBAL__N_110IsEntirelyIPFbcEEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_.exit.i.loopexit.split.loop.exit145 ], [ %__first.sroa.0.056.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %cmp.i.i.i.i = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i, %call2.i.i
-  br i1 %cmp.i.i.i.i, label %_ZN12_GLOBAL__N_114IsFlexibleCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %if.end3.i
+  br i1 %cmp.i.i.i.i, label %for.cond.preheader.sink.split, label %if.end3.i
 
 if.end3.i:                                        ; preds = %_ZN12_GLOBAL__N_110IsEntirelyIPFbcEEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_.exit.i
   %call4.i16 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %cond-lvalue.i, i64 noundef 0) #9
@@ -389,7 +389,7 @@ for.end.i.i.i.i.i11.i:                            ; preds = %for.end.loopexit.i.
   %sub.ptr.rhs.cast.i25.pre-phi.i.i.i.i.i12.i = phi i64 [ %.pre.i.i.i.i.i54.i, %for.end.loopexit.i.i.i.i.i53.i ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i7.i, %land.rhs.i ]
   %__first.sroa.0.0.lcssa.i.i.i.i.i13.i = phi ptr [ %scevgep148.i, %for.end.loopexit.i.i.i.i.i53.i ], [ %call.i4.i, %land.rhs.i ]
   %sub.ptr.sub.i26.i.i.i.i.i14.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i6.i, %sub.ptr.rhs.cast.i25.pre-phi.i.i.i.i.i12.i
-  switch i64 %sub.ptr.sub.i26.i.i.i.i.i14.i, label %land.end.i [
+  switch i64 %sub.ptr.sub.i26.i.i.i.i.i14.i, label %for.cond.preheader.sink.split.sink.split [
     i64 3, label %sw.bb.i.i.i.i.i26.i
     i64 2, label %sw.bb32.i.i.i.i.i21.i
     i64 1, label %sw.bb39.i.i.i.i.i15.i
@@ -439,7 +439,7 @@ invoke.cont.i17.loopexit.split.loop.exit153:      ; preds = %if.end.i.i.i.i.i34.
 invoke.cont.i17:                                  ; preds = %for.body.i.i.i.i.i30.i, %invoke.cont.i17.loopexit.split.loop.exit, %invoke.cont.i17.loopexit.split.loop.exit151, %invoke.cont.i17.loopexit.split.loop.exit153, %sw.bb39.i.i.i.i.i15.i, %sw.bb32.i.i.i.i.i21.i, %sw.bb.i.i.i.i.i26.i
   %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i19.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i13.i, %sw.bb.i.i.i.i.i26.i ], [ %__first.sroa.0.1.i.i.i.i.i22.i, %sw.bb32.i.i.i.i.i21.i ], [ %spec.select.i.i.i.i.i18.i, %sw.bb39.i.i.i.i.i15.i ], [ %incdec.ptr.i20.i.i.i.i.i45.i.le, %invoke.cont.i17.loopexit.split.loop.exit ], [ %incdec.ptr.i17.i.i.i.i.i40.i.le, %invoke.cont.i17.loopexit.split.loop.exit151 ], [ %incdec.ptr.i.i.i.i.i.i35.i.le, %invoke.cont.i17.loopexit.split.loop.exit153 ], [ %__first.sroa.0.056.i.i.i.i.i32.i, %for.body.i.i.i.i.i30.i ]
   %cmp.i.i.i20.i = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i19.i, %call2.i5.i
-  br i1 %cmp.i.i.i20.i, label %land.end.i, label %lor.rhs.i
+  br i1 %cmp.i.i.i20.i, label %for.cond.preheader.sink.split.sink.split, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %invoke.cont.i17
   %call.i56.i = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %rest.i) #9
@@ -499,16 +499,11 @@ for.end.i.i.i.i.i63.i:                            ; preds = %for.end.loopexit.i.
   %sub.ptr.rhs.cast.i25.pre-phi.i.i.i.i.i64.i = phi i64 [ %.pre.i.i.i.i.i106.i, %for.end.loopexit.i.i.i.i.i105.i ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i59.i, %lor.rhs.i ]
   %__first.sroa.0.0.lcssa.i.i.i.i.i65.i = phi ptr [ %scevgep149.i, %for.end.loopexit.i.i.i.i.i105.i ], [ %call.i56.i, %lor.rhs.i ]
   %sub.ptr.sub.i26.i.i.i.i.i66.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i58.i, %sub.ptr.rhs.cast.i25.pre-phi.i.i.i.i.i64.i
-  switch i64 %sub.ptr.sub.i26.i.i.i.i.i66.i, label %_ZN12_GLOBAL__N_110IsEntirelyIPFbcEEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_.exit107.i.thread [
+  switch i64 %sub.ptr.sub.i26.i.i.i.i.i66.i, label %for.cond.preheader.sink.split.sink.split [
     i64 3, label %sw.bb.i.i.i.i.i78.i
     i64 2, label %sw.bb32.i.i.i.i.i73.i
     i64 1, label %sw.bb39.i.i.i.i.i67.i
   ]
-
-_ZN12_GLOBAL__N_110IsEntirelyIPFbcEEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_.exit107.i.thread: ; preds = %for.end.i.i.i.i.i63.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %rest.i) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %rest.i)
-  br label %for.body.preheader
 
 sw.bb.i.i.i.i.i78.i:                              ; preds = %for.end.i.i.i.i.i63.i
   %77 = load i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i65.i, align 1
@@ -558,15 +553,14 @@ _ZN12_GLOBAL__N_110IsEntirelyIPFbcEEEbRKNSt7__cxx1112basic_stringIcSt11char_trai
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %rest.i)
   br i1 %cmp.i.i.i72.i, label %for.body.preheader, label %return
 
-land.end.i:                                       ; preds = %invoke.cont.i17, %for.end.i.i.i.i.i11.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %rest.i) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %rest.i)
-  br label %for.body.preheader
-
-for.body.preheader:                               ; preds = %_ZN12_GLOBAL__N_110IsEntirelyIPFbcEEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_.exit107.i.thread, %_ZN12_GLOBAL__N_114IsFlexibleCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZN12_GLOBAL__N_110IsEntirelyIPFbcEEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_.exit107.i, %land.end.i
+for.body.preheader:                               ; preds = %for.cond.preheader.sink.split, %_ZN12_GLOBAL__N_110IsEntirelyIPFbcEEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_.exit107.i
   br label %for.body
 
-_ZN12_GLOBAL__N_114IsFlexibleCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %_ZNK4YAML4Node6ScalarB5cxx11Ev.exit, %for.end.i.i.i.i.i.i, %_ZN12_GLOBAL__N_110IsEntirelyIPFbcEEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_.exit.i
+for.cond.preheader.sink.split.sink.split:         ; preds = %for.end.i.i.i.i.i11.i, %invoke.cont.i17, %for.end.i.i.i.i.i63.i
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %rest.i) #9
+  br label %for.cond.preheader.sink.split
+
+for.cond.preheader.sink.split:                    ; preds = %for.cond.preheader.sink.split.sink.split, %_ZN12_GLOBAL__N_110IsEntirelyIPFbcEEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_.exit.i, %for.end.i.i.i.i.i.i, %_ZNK4YAML4Node6ScalarB5cxx11Ev.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %rest.i)
   br label %for.body.preheader
 

@@ -1892,9 +1892,9 @@ if.then.i.i190:                                   ; preds = %if.end94
   br label %cleanup95
 
 cleanup95.critedge.sink.split:                    ; preds = %if.then70, %if.then36
-  %storemerge = phi i8 [ %64, %if.then36 ], [ %79, %if.then70 ]
+  %.sink = phi i8 [ %64, %if.then36 ], [ %79, %if.then70 ]
   %state_.i.i139.sink = phi ptr [ %state_.i.i92, %if.then36 ], [ %state_.i.i139, %if.then70 ]
-  store i8 %storemerge, ptr %agg.result, align 8
+  store i8 %.sink, ptr %agg.result, align 8
   store i8 0, ptr %s, align 8
   %109 = load i8, ptr %subcode_4.i71, align 1
   %subcode_4.i.i143 = getelementptr inbounds i8, ptr %agg.result, i64 1

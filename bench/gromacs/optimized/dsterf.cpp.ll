@@ -133,11 +133,11 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %66, label %.sink.split, label %67
 
 .sink.split:                                      ; preds = %64, %56
-  %.sink532 = phi ptr [ %12, %56 ], [ %11, %64 ]
+  %.sink512 = phi ptr [ %12, %56 ], [ %11, %64 ]
   store i32 %58, ptr %5, align 4
-  call void @dlascl_(ptr noundef nonnull @.str.1, ptr noundef nonnull %13, ptr noundef nonnull %13, ptr noundef nonnull %10, ptr noundef nonnull %.sink532, ptr noundef nonnull %5, ptr noundef nonnull %14, ptr noundef nonnull %59, ptr noundef nonnull %0, ptr noundef nonnull %3)
+  call void @dlascl_(ptr noundef nonnull @.str.1, ptr noundef nonnull %13, ptr noundef nonnull %13, ptr noundef nonnull %10, ptr noundef nonnull %.sink512, ptr noundef nonnull %5, ptr noundef nonnull %14, ptr noundef nonnull %59, ptr noundef nonnull %0, ptr noundef nonnull %3)
   store i32 %57, ptr %5, align 4
-  call void @dlascl_(ptr noundef nonnull @.str.1, ptr noundef nonnull %13, ptr noundef nonnull %13, ptr noundef nonnull %10, ptr noundef nonnull %.sink532, ptr noundef nonnull %5, ptr noundef nonnull %14, ptr noundef nonnull %60, ptr noundef nonnull %0, ptr noundef nonnull %3)
+  call void @dlascl_(ptr noundef nonnull @.str.1, ptr noundef nonnull %13, ptr noundef nonnull %13, ptr noundef nonnull %10, ptr noundef nonnull %.sink512, ptr noundef nonnull %5, ptr noundef nonnull %14, ptr noundef nonnull %60, ptr noundef nonnull %0, ptr noundef nonnull %3)
   br label %67
 
 67:                                               ; preds = %.sink.split, %64

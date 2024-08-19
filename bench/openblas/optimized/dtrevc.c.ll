@@ -1064,9 +1064,9 @@ thread-pre-split67:                               ; preds = %626, %636
   br label %._crit_edge.sink.split
 
 ._crit_edge.sink.split:                           ; preds = %614, %663
-  %.sink221 = phi double [ %625, %614 ], [ %688, %663 ]
-  %.sink = phi ptr [ %623, %614 ], [ %682, %663 ]
-  %689 = fneg double %.sink221
+  %.sink212 = phi double [ %688, %663 ], [ %625, %614 ]
+  %.sink = phi ptr [ %682, %663 ], [ %623, %614 ]
+  %689 = fneg double %.sink212
   store double %689, ptr %18, align 8, !tbaa !7
   call void @daxpy_(ptr noundef nonnull %15, ptr noundef nonnull %18, ptr noundef %.sink, ptr noundef nonnull @c__1, ptr noundef nonnull %198, ptr noundef nonnull @c__1) #6
   br label %._crit_edge

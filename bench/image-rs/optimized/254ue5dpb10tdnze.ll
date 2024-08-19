@@ -24630,7 +24630,6 @@ define hidden void @_ZN5image5image14decoder_to_vec17h0c6f765611dc664eE(ptr noal
   %31 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   store i8 10, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %38
 
 .noexc:                                           ; preds = %27
@@ -24655,11 +24654,11 @@ define hidden void @_ZN5image5image14decoder_to_vec17h0c6f765611dc664eE(ptr noal
   br label %39
 
 38:                                               ; preds = %39, %30
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   ret void
 
 39:                                               ; preds = %34, %.noexc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !2238
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %38
 
 40:                                               ; preds = %26
@@ -26075,7 +26074,6 @@ default.unreachable:                              ; preds = %2
   %36 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   store i8 10, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %43
 
 .noexc27:                                         ; preds = %32
@@ -26100,11 +26098,11 @@ default.unreachable:                              ; preds = %2
   br label %44
 
 43:                                               ; preds = %44, %35
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   ret void
 
 44:                                               ; preds = %39, %.noexc27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !2503
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %43
 
 45:                                               ; preds = %31
@@ -27158,7 +27156,6 @@ default.unreachable:                              ; preds = %2
   %34 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   store i8 10, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %41
 
 .noexc27:                                         ; preds = %30
@@ -27183,11 +27180,11 @@ default.unreachable:                              ; preds = %2
   br label %42
 
 41:                                               ; preds = %42, %33
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   ret void
 
 42:                                               ; preds = %37, %.noexc27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !2707
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %41
 
 43:                                               ; preds = %29
@@ -27446,7 +27443,6 @@ define hidden void @_ZN5image5image14decoder_to_vec17h3e30cdb15c040f56E(ptr noal
   %31 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   store i8 10, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %38
 
 .noexc:                                           ; preds = %27
@@ -27471,11 +27467,11 @@ define hidden void @_ZN5image5image14decoder_to_vec17h3e30cdb15c040f56E(ptr noal
   br label %39
 
 38:                                               ; preds = %39, %30
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   ret void
 
 39:                                               ; preds = %34, %.noexc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !2774
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %38
 
 40:                                               ; preds = %26
@@ -27986,7 +27982,6 @@ default.unreachable:                              ; preds = %2
   %36 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   store i8 10, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %43
 
 .noexc27:                                         ; preds = %32
@@ -28011,11 +28006,11 @@ default.unreachable:                              ; preds = %2
   br label %44
 
 43:                                               ; preds = %44, %35
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   ret void
 
 44:                                               ; preds = %39, %.noexc27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !2890
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %43
 
 45:                                               ; preds = %31
@@ -28261,7 +28256,6 @@ define hidden void @_ZN5image5image14decoder_to_vec17h472ec923ffe23ab8E(ptr noal
   %31 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   store i8 10, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %38
 
 .noexc:                                           ; preds = %27
@@ -28286,11 +28280,11 @@ define hidden void @_ZN5image5image14decoder_to_vec17h472ec923ffe23ab8E(ptr noal
   br label %39
 
 38:                                               ; preds = %39, %30
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   ret void
 
 39:                                               ; preds = %34, %.noexc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !2923
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %38
 
 40:                                               ; preds = %26
@@ -28577,7 +28571,6 @@ default.unreachable:                              ; preds = %2
   %36 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   store i8 10, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %43
 
 .noexc27:                                         ; preds = %32
@@ -28602,11 +28595,11 @@ default.unreachable:                              ; preds = %2
   br label %44
 
 43:                                               ; preds = %44, %35
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   ret void
 
 44:                                               ; preds = %39, %.noexc27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !2993
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %43
 
 45:                                               ; preds = %31
@@ -34157,7 +34150,6 @@ define hidden void @_ZN5image5image14decoder_to_vec17hbfcd17aff1cd2238E(ptr noal
   %30 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   store i8 10, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %37
 
 .noexc:                                           ; preds = %26
@@ -34182,11 +34174,11 @@ define hidden void @_ZN5image5image14decoder_to_vec17hbfcd17aff1cd2238E(ptr noal
   br label %38
 
 37:                                               ; preds = %38, %29
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   ret void
 
 38:                                               ; preds = %33, %.noexc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !3970
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %37
 
 39:                                               ; preds = %25
@@ -34438,7 +34430,6 @@ define hidden void @_ZN5image5image14decoder_to_vec17hc598dc2b5b5d81faE(ptr noal
   %30 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   store i8 10, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %37
 
 .noexc:                                           ; preds = %26
@@ -34463,11 +34454,11 @@ define hidden void @_ZN5image5image14decoder_to_vec17hc598dc2b5b5d81faE(ptr noal
   br label %38
 
 37:                                               ; preds = %38, %29
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   ret void
 
 38:                                               ; preds = %33, %.noexc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !4018
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %37
 
 39:                                               ; preds = %25
@@ -34853,7 +34844,6 @@ define hidden void @_ZN5image5image14decoder_to_vec17hce900191dfb81653E(ptr noal
   %31 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   store i8 10, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %38
 
 .noexc:                                           ; preds = %27
@@ -34878,11 +34868,11 @@ define hidden void @_ZN5image5image14decoder_to_vec17hce900191dfb81653E(ptr noal
   br label %39
 
 38:                                               ; preds = %39, %30
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   ret void
 
 39:                                               ; preds = %34, %.noexc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !4089
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %38
 
 40:                                               ; preds = %26
@@ -35706,7 +35696,6 @@ default.unreachable:                              ; preds = %2
   %34 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   store i8 10, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %41
 
 .noexc27:                                         ; preds = %30
@@ -35731,11 +35720,11 @@ default.unreachable:                              ; preds = %2
   br label %42
 
 41:                                               ; preds = %42, %33
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   ret void
 
 42:                                               ; preds = %37, %.noexc27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !4200
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %41
 
 43:                                               ; preds = %29
@@ -36213,7 +36202,6 @@ default.unreachable:                              ; preds = %2
   %36 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   store i8 10, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %43
 
 .noexc27:                                         ; preds = %32
@@ -36238,11 +36226,11 @@ default.unreachable:                              ; preds = %2
   br label %44
 
 43:                                               ; preds = %44, %35
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   ret void
 
 44:                                               ; preds = %39, %.noexc27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !4299
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %43
 
 45:                                               ; preds = %31

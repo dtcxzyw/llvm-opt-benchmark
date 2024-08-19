@@ -2222,8 +2222,7 @@ define void @_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl13initCellRangeEPK
   %24 = getelementptr inbounds i8, ptr %0, i64 508
   %25 = load float, ptr %24, align 4
   %26 = fadd float %8, %25
-  store float %26, ptr %7, align 8
-  br label %34
+  br label %.sink.split
 
 27:                                               ; preds = %19
   %28 = getelementptr inbounds i8, ptr %0, i64 528
@@ -2235,11 +2234,15 @@ define void @_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl13initCellRangeEPK
   %31 = getelementptr inbounds i8, ptr %0, i64 508
   %32 = load float, ptr %31, align 4
   %33 = fsub float %8, %32
-  store float %33, ptr %7, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %23, %30
+  %.sink = phi float [ %33, %30 ], [ %26, %23 ]
+  store float %.sink, ptr %7, align 8
   br label %34
 
-34:                                               ; preds = %27, %30, %23
-  %35 = phi float [ %8, %27 ], [ %33, %30 ], [ %26, %23 ]
+34:                                               ; preds = %.sink.split, %27
+  %35 = phi float [ %8, %27 ], [ %.sink, %.sink.split ]
   %36 = getelementptr inbounds i8, ptr %2, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = icmp slt i32 %37, 0
@@ -2289,8 +2292,8 @@ define void @_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl13initCellRangeEPK
   br label %.preheader.i.thread.sink.split
 
 .preheader.i.thread.sink.split:                   ; preds = %59, %52
-  %.sink = phi float [ %55, %52 ], [ %62, %59 ]
-  store float %.sink, ptr %9, align 4
+  %.sink46 = phi float [ %55, %52 ], [ %62, %59 ]
+  store float %.sink46, ptr %9, align 4
   br label %.preheader.i.thread
 
 .preheader.i.thread:                              ; preds = %.preheader.i.thread.sink.split, %56
@@ -5306,8 +5309,7 @@ _ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl10isExcludedEi.exit: ; preds
 254:                                              ; preds = %251
   %255 = load float, ptr %216, align 4
   %256 = fadd float %245, %255
-  store float %256, ptr %4, align 8
-  br label %262
+  br label %.sink.split.i
 
 257:                                              ; preds = %251
   %258 = load i32, ptr %215, align 8
@@ -5317,11 +5319,15 @@ _ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl10isExcludedEi.exit: ; preds
 259:                                              ; preds = %257
   %260 = load float, ptr %216, align 4
   %261 = fsub float %245, %260
-  store float %261, ptr %4, align 8
+  br label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %259, %254
+  %.sink.i = phi float [ %261, %259 ], [ %256, %254 ]
+  store float %.sink.i, ptr %4, align 8
   br label %262
 
-262:                                              ; preds = %259, %257, %254
-  %263 = phi float [ %245, %257 ], [ %261, %259 ], [ %256, %254 ]
+262:                                              ; preds = %.sink.split.i, %257
+  %263 = phi float [ %245, %257 ], [ %.sink.i, %.sink.split.i ]
   %264 = load i32, ptr %24, align 4
   %265 = icmp slt i32 %264, 0
   br i1 %265, label %266, label %269
@@ -5364,8 +5370,8 @@ _ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl10isExcludedEi.exit: ; preds
   br label %.preheader.i.thread.sink.split.i
 
 .preheader.i.thread.sink.split.i:                 ; preds = %281, %276
-  %.sink.i = phi float [ %278, %276 ], [ %283, %281 ]
-  store float %.sink.i, ptr %34, align 4
+  %.sink46.i = phi float [ %278, %276 ], [ %283, %281 ]
+  store float %.sink46.i, ptr %34, align 4
   br label %.preheader.i.thread.i
 
 .preheader.i.thread.i:                            ; preds = %.preheader.i.thread.sink.split.i, %279
@@ -6227,8 +6233,7 @@ _ZN3gmx12_GLOBAL__N_113MindistActionclEifPKf.exit: ; preds = %211, %208, %_ZN3gm
 254:                                              ; preds = %251
   %255 = load float, ptr %216, align 4
   %256 = fadd float %245, %255
-  store float %256, ptr %4, align 8
-  br label %262
+  br label %.sink.split.i
 
 257:                                              ; preds = %251
   %258 = load i32, ptr %215, align 8
@@ -6238,11 +6243,15 @@ _ZN3gmx12_GLOBAL__N_113MindistActionclEifPKf.exit: ; preds = %211, %208, %_ZN3gm
 259:                                              ; preds = %257
   %260 = load float, ptr %216, align 4
   %261 = fsub float %245, %260
-  store float %261, ptr %4, align 8
+  br label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %259, %254
+  %.sink.i = phi float [ %261, %259 ], [ %256, %254 ]
+  store float %.sink.i, ptr %4, align 8
   br label %262
 
-262:                                              ; preds = %259, %257, %254
-  %263 = phi float [ %245, %257 ], [ %261, %259 ], [ %256, %254 ]
+262:                                              ; preds = %.sink.split.i, %257
+  %263 = phi float [ %245, %257 ], [ %.sink.i, %.sink.split.i ]
   %264 = load i32, ptr %25, align 4
   %265 = icmp slt i32 %264, 0
   br i1 %265, label %266, label %269
@@ -6285,8 +6294,8 @@ _ZN3gmx12_GLOBAL__N_113MindistActionclEifPKf.exit: ; preds = %211, %208, %_ZN3gm
   br label %.preheader.i.thread.sink.split.i
 
 .preheader.i.thread.sink.split.i:                 ; preds = %281, %276
-  %.sink.i = phi float [ %278, %276 ], [ %283, %281 ]
-  store float %.sink.i, ptr %33, align 4
+  %.sink46.i = phi float [ %278, %276 ], [ %283, %281 ]
+  store float %.sink46.i, ptr %33, align 4
   br label %.preheader.i.thread.i
 
 .preheader.i.thread.i:                            ; preds = %.preheader.i.thread.sink.split.i, %279

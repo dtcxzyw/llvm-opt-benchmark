@@ -2008,117 +2008,108 @@ json_find_attr.exit:                              ; preds = %.lr.ph.i
   %31 = getelementptr inbounds i8, ptr %8, i64 48
   %32 = call i32 @_setjmp(ptr noundef nonnull %31) #22
   %.not18 = icmp eq i32 %32, 0
-  br i1 %.not18, label %35, label %33
-
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %8, i64 16
-  store volatile ptr %34, ptr %5, align 8
-  br label %36
+  %33 = getelementptr inbounds i8, ptr %8, i64 16
+  %.sink = select i1 %.not18, ptr null, ptr %33
+  store volatile ptr %.sink, ptr %5, align 8
+  %.0..0..0..0. = load volatile i32, ptr %6, align 4
+  %34 = and i32 %.0..0..0..0., 1
+  %.not19 = icmp eq i32 %34, 0
+  br i1 %.not19, label %37, label %35
 
 35:                                               ; preds = %30
-  store volatile ptr null, ptr %5, align 8
-  br label %36
-
-36:                                               ; preds = %35, %33
-  %.0..0..0..0. = load volatile i32, ptr %6, align 4
-  %37 = and i32 %.0..0..0..0., 1
-  %.not19 = icmp eq i32 %37, 0
-  br i1 %.not19, label %40, label %38
-
-38:                                               ; preds = %36
   %.0..0..0..0.1 = load volatile i32, ptr %6, align 4
-  %39 = or i32 %.0..0..0..0.1, 2
-  store volatile i32 %39, ptr %6, align 4
-  br label %40
+  %36 = or i32 %.0..0..0..0.1, 2
+  store volatile i32 %36, ptr %6, align 4
+  br label %37
 
-40:                                               ; preds = %38, %36
+37:                                               ; preds = %35, %30
   %.0..0..0..0.2 = load volatile i32, ptr %6, align 4
-  %41 = and i32 %.0..0..0..0.2, -2
-  store volatile i32 %41, ptr %6, align 4
+  %38 = and i32 %.0..0..0..0.2, -2
+  store volatile i32 %38, ptr %6, align 4
   %.0..0..0..0.3 = load volatile i32, ptr %6, align 4
-  %42 = icmp eq i32 %.0..0..0..0.3, 0
-  br i1 %42, label %43, label %47
+  %39 = icmp eq i32 %.0..0..0..0.3, 0
+  br i1 %39, label %40, label %44
 
-43:                                               ; preds = %40
+40:                                               ; preds = %37
   %.0..0..0..0.7 = load volatile ptr, ptr %5, align 8
-  %44 = icmp eq ptr %.0..0..0..0.7, null
-  br i1 %44, label %45, label %47
+  %41 = icmp eq ptr %.0..0..0..0.7, null
+  br i1 %41, label %42, label %44
 
-45:                                               ; preds = %43
-  %46 = call i32 @sharkd_load_cap_file() #17
-  store i32 %46, ptr %4, align 4
-  br label %47
+42:                                               ; preds = %40
+  %43 = call i32 @sharkd_load_cap_file() #17
+  store i32 %43, ptr %4, align 4
+  br label %44
 
-47:                                               ; preds = %45, %43, %40
+44:                                               ; preds = %42, %40, %37
   %.0..0..0..0.4 = load volatile i32, ptr %6, align 4
-  %48 = icmp eq i32 %.0..0..0..0.4, 0
-  br i1 %48, label %49, label %59
+  %45 = icmp eq i32 %.0..0..0..0.4, 0
+  br i1 %45, label %46, label %56
 
-49:                                               ; preds = %47
+46:                                               ; preds = %44
   %.0..0..0..0.8 = load volatile ptr, ptr %5, align 8
   %.not20 = icmp eq ptr %.0..0..0..0.8, null
-  br i1 %.not20, label %59, label %50
+  br i1 %.not20, label %56, label %47
 
-50:                                               ; preds = %49
+47:                                               ; preds = %46
   %.0..0..0..0.9 = load volatile ptr, ptr %5, align 8
-  %51 = getelementptr inbounds i8, ptr %.0..0..0..0.9, i64 8
-  %52 = load volatile i64, ptr %51, align 8
-  %53 = icmp eq i64 %52, 8
-  br i1 %53, label %54, label %59
+  %48 = getelementptr inbounds i8, ptr %.0..0..0..0.9, i64 8
+  %49 = load volatile i64, ptr %48, align 8
+  %50 = icmp eq i64 %49, 8
+  br i1 %50, label %51, label %56
 
-54:                                               ; preds = %50
+51:                                               ; preds = %47
   %.0..0..0..0.5 = load volatile i32, ptr %6, align 4
-  %55 = or i32 %.0..0..0..0.5, 1
-  store volatile i32 %55, ptr %6, align 4
-  %56 = load i32, ptr @rpcid, align 4
-  call void (i32, i32, ptr, ptr, ...) @sharkd_json_error(i32 noundef %56, i32 noundef -32603, ptr poison, ptr noundef nonnull @.str.107)
-  %57 = load ptr, ptr @stderr, align 8
-  %58 = call i64 @fwrite(ptr nonnull @.str.108, i64 23, i64 1, ptr %57) #16
+  %52 = or i32 %.0..0..0..0.5, 1
+  store volatile i32 %52, ptr %6, align 4
+  %53 = load i32, ptr @rpcid, align 4
+  call void (i32, i32, ptr, ptr, ...) @sharkd_json_error(i32 noundef %53, i32 noundef -32603, ptr poison, ptr noundef nonnull @.str.107)
+  %54 = load ptr, ptr @stderr, align 8
+  %55 = call i64 @fwrite(ptr nonnull @.str.108, i64 23, i64 1, ptr %54) #16
   store i32 12, ptr %4, align 4
-  br label %59
+  br label %56
 
-59:                                               ; preds = %54, %50, %49, %47
+56:                                               ; preds = %51, %47, %46, %44
   %.0..0..0..0.6 = load volatile i32, ptr %6, align 4
-  %60 = and i32 %.0..0..0..0.6, 1
-  %.not21 = icmp eq i32 %60, 0
-  br i1 %.not21, label %61, label %63
+  %57 = and i32 %.0..0..0..0.6, 1
+  %.not21 = icmp eq i32 %57, 0
+  br i1 %.not21, label %58, label %60
 
-61:                                               ; preds = %59
+58:                                               ; preds = %56
   %.0..0..0..0.10 = load volatile ptr, ptr %5, align 8
   %.not22 = icmp eq ptr %.0..0..0..0.10, null
-  br i1 %.not22, label %63, label %62
+  br i1 %.not22, label %60, label %59
 
-62:                                               ; preds = %61
+59:                                               ; preds = %58
   %.0..0..0..0.11 = load volatile ptr, ptr %5, align 8
   call void @except_rethrow(ptr noundef %.0..0..0..0.11) #20
   unreachable
 
-63:                                               ; preds = %61, %59
-  %64 = getelementptr inbounds i8, ptr %8, i64 40
-  %65 = load volatile ptr, ptr %64, align 8
-  call void @except_free(ptr noundef %65) #17
-  %66 = call ptr @except_pop() #17
-  %67 = load i32, ptr %4, align 4
-  %68 = icmp eq i32 %67, 0
-  %69 = load i32, ptr @rpcid, align 4
-  br i1 %68, label %70, label %71
+60:                                               ; preds = %58, %56
+  %61 = getelementptr inbounds i8, ptr %8, i64 40
+  %62 = load volatile ptr, ptr %61, align 8
+  call void @except_free(ptr noundef %62) #17
+  %63 = call ptr @except_pop() #17
+  %64 = load i32, ptr %4, align 4
+  %65 = icmp eq i32 %64, 0
+  %66 = load i32, ptr @rpcid, align 4
+  br i1 %65, label %67, label %68
 
-70:                                               ; preds = %63
-  call fastcc void @sharkd_json_simple_ok(i32 noundef %69)
+67:                                               ; preds = %60
+  call fastcc void @sharkd_json_simple_ok(i32 noundef %66)
   br label %json_find_attr.exit.thread
 
-71:                                               ; preds = %63
-  call fastcc void @sharkd_json_result_prologue(i32 noundef %69)
-  %72 = load i32, ptr %4, align 4
-  %73 = call ptr @wtap_strerror(i32 noundef %72) #17
+68:                                               ; preds = %60
+  call fastcc void @sharkd_json_result_prologue(i32 noundef %66)
+  %69 = load i32, ptr %4, align 4
+  %70 = call ptr @wtap_strerror(i32 noundef %69) #17
   call void @json_dumper_set_member_name(ptr noundef nonnull @dumper, ptr noundef nonnull @.str.14) #17
-  call void @json_dumper_value_string(ptr noundef nonnull @dumper, ptr noundef %73) #17
-  %74 = load i32, ptr %4, align 4
-  call void (ptr, ptr, ...) @sharkd_json_value_anyf(ptr noundef nonnull @.str.109, ptr noundef nonnull @.str.5, i32 noundef %74)
+  call void @json_dumper_value_string(ptr noundef nonnull @dumper, ptr noundef %70) #17
+  %71 = load i32, ptr %4, align 4
+  call void (ptr, ptr, ...) @sharkd_json_value_anyf(ptr noundef nonnull @.str.109, ptr noundef nonnull @.str.5, i32 noundef %71)
   call fastcc void @sharkd_json_result_epilogue()
   br label %json_find_attr.exit.thread
 
-json_find_attr.exit.thread:                       ; preds = %15, %3, %json_find_attr.exit, %71, %70, %28
+json_find_attr.exit.thread:                       ; preds = %15, %3, %json_find_attr.exit, %68, %67, %28
   ret void
 }
 
@@ -10841,10 +10832,10 @@ define internal fastcc void @sharkd_rtp_download_decode(ptr nocapture noundef re
   %.140 = phi i64 [ %.241, %77 ], [ %.03960, %25 ]
   %.137 = phi ptr [ %.238, %77 ], [ %.03661, %25 ]
   %.1 = phi i32 [ %.2, %77 ], [ %.062, %25 ]
-  %.sink = load ptr, ptr %5, align 8
-  call void @g_free(ptr noundef %.sink) #17
-  %79 = getelementptr inbounds i8, ptr %.04763, i64 8
-  %.047 = load ptr, ptr %79, align 8
+  %79 = load ptr, ptr %5, align 8
+  call void @g_free(ptr noundef %79) #17
+  %80 = getelementptr inbounds i8, ptr %.04763, i64 8
+  %.047 = load ptr, ptr %80, align 8
   %.not = icmp eq ptr %.047, null
   br i1 %.not, label %._crit_edge, label %25, !llvm.loop !76
 

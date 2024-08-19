@@ -1851,7 +1851,6 @@ default.unreachable172:                           ; preds = %85, %34, %27
   store i64 2, ptr %11, align 8
   store i64 4, ptr %0, align 8
   call fastcc void @"_ZN4core3ptr43drop_in_place$LT$mbe..parser..Separator$GT$17h9d0afa64e6cc5782E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %5)
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5)
   br label %18
 
 12:                                               ; preds = %.lr.ph, %.backedge
@@ -1863,7 +1862,8 @@ default.unreachable172:                           ; preds = %85, %34, %27
   %17 = icmp eq i8 %16, 4
   br i1 %17, label %19, label %.critedge
 
-18:                                               ; preds = %115, %._crit_edge
+18:                                               ; preds = %.critedge, %67, %._crit_edge
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5)
   ret void
 
 19:                                               ; preds = %12
@@ -2029,7 +2029,7 @@ default.unreachable172:                           ; preds = %85, %34, %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.019.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.524, i64 96, i1 false)
   %.sroa.420.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 104
   store i8 %.037, ptr %.sroa.420.0..sroa_idx, align 8
-  br label %115
+  br label %18
 
 68:                                               ; preds = %.loopexit
   call fastcc void @"_ZN4core3ptr43drop_in_place$LT$mbe..parser..Separator$GT$17h9d0afa64e6cc5782E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %3)
@@ -2172,27 +2172,23 @@ default.unreachable172:                           ; preds = %85, %34, %27
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5.sroa.5)
   br label %.backedge
 
-115:                                              ; preds = %67, %.critedge
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5)
-  br label %18
-
 .critedge:                                        ; preds = %65, %69, %29, %33, %12
-  %116 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 2, ptr %116, align 8
+  %115 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 2, ptr %115, align 8
   store i64 4, ptr %0, align 8
   call fastcc void @"_ZN4core3ptr43drop_in_place$LT$mbe..parser..Separator$GT$17h9d0afa64e6cc5782E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %5)
-  br label %115
+  br label %18
 
-117:                                              ; preds = %.thread
+116:                                              ; preds = %.thread
   resume { ptr, i32 } %.pn123
 
 .thread:                                          ; preds = %61, %112, %.thread124
   %.pn123 = phi { ptr, i32 } [ %78, %.thread124 ], [ %62, %61 ], [ %113, %112 ]
   invoke fastcc void @"_ZN4core3ptr43drop_in_place$LT$mbe..parser..Separator$GT$17h9d0afa64e6cc5782E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %5) #34
-          to label %117 unwind label %118
+          to label %116 unwind label %117
 
-118:                                              ; preds = %.thread
-  %119 = landingpad { ptr, i32 }
+117:                                              ; preds = %.thread
+  %118 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #35
   unreachable

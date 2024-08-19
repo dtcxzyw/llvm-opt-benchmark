@@ -1714,12 +1714,12 @@ _ZNK17arith_decl_plugin2amEv.exit:                ; preds = %entry
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry, %_ZNK17arith_decl_plugin2amEv.exit
-  %.pn = phi ptr [ %call.i.i, %_ZNK17arith_decl_plugin2amEv.exit ], [ %0, %entry ]
-  %storemerge = getelementptr inbounds i8, ptr %.pn, i64 728
-  store ptr %storemerge, ptr %r, align 8
+  %call.i.i.sink = phi ptr [ %call.i.i, %_ZNK17arith_decl_plugin2amEv.exit ], [ %0, %entry ]
+  %m_amanager.i = getelementptr inbounds i8, ptr %call.i.i.sink, i64 728
+  store ptr %m_amanager.i, ptr %r, align 8
   %m_num.i = getelementptr inbounds i8, ptr %r, i64 8
   store ptr null, ptr %m_num.i, align 8
-  %m_amanager.i3 = getelementptr inbounds i8, ptr %.pn, i64 728
+  %m_amanager.i3 = getelementptr inbounds i8, ptr %call.i.i.sink, i64 728
   invoke void @_ZN17algebraic_numbers7manager7mk_rootEPK5sexprjRNS_4anumE(ptr noundef nonnull align 8 dereferenceable(17) %m_amanager.i3, ptr noundef %p, i32 noundef %i, ptr noundef nonnull align 8 dereferenceable(8) %m_num.i)
           to label %invoke.cont5 unwind label %lpad
 

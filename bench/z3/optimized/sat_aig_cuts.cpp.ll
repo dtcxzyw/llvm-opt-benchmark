@@ -7923,15 +7923,11 @@ if.then.i.i7:                                     ; preds = %if.then.i.i5.i, %_Z
   store ptr %16, ptr %_M_invoker.i.i4, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjRKN3sat3cutEEZNS0_8aig_cuts17set_on_clause_addERSt8functionIFvRK7svectorINS0_7literalEjEEEE3$_0E9_M_invokeERKSt9_Any_dataOjS3_", ptr %_M_invoker4.i2.i18, align 8
   %tobool.not.i.i4.i19 = icmp eq ptr %15, null
-  br i1 %tobool.not.i.i4.i19, label %invoke.cont.thread, label %if.then.i.i5.i20
-
-invoke.cont.thread:                               ; preds = %if.then.i.i7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i2)
-  br label %if.then.i.i24
+  br i1 %tobool.not.i.i4.i19, label %if.then.i.i24, label %if.then.i.i5.i20
 
 if.then.i.i5.i20:                                 ; preds = %if.then.i.i7
   %call.i.i6.i21 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i2, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i2, i32 noundef 3)
-          to label %invoke.cont unwind label %terminate.lpad.i.i7.i22
+          to label %if.then.i.i24 unwind label %terminate.lpad.i.i7.i22
 
 terminate.lpad.i.i7.i22:                          ; preds = %if.then.i.i5.i20
   %17 = landingpad { ptr, i32 }
@@ -7940,11 +7936,8 @@ terminate.lpad.i.i7.i22:                          ; preds = %if.then.i.i5.i20
   call void @__clang_call_terminate(ptr %18) #21
   unreachable
 
-invoke.cont:                                      ; preds = %if.then.i.i5.i20
+if.then.i.i24:                                    ; preds = %if.then.i.i5.i20, %if.then.i.i7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i2)
-  br label %if.then.i.i24
-
-if.then.i.i24:                                    ; preds = %invoke.cont, %invoke.cont.thread
   ret void
 }
 
@@ -8050,15 +8043,11 @@ if.then.i.i7:                                     ; preds = %if.then.i.i5.i, %_Z
   store ptr %16, ptr %_M_invoker.i.i4, align 8
   store ptr @"_ZNSt17_Function_handlerIFvjRKN3sat3cutEEZNS0_8aig_cuts17set_on_clause_delERSt8functionIFvRK7svectorINS0_7literalEjEEEE3$_0E9_M_invokeERKSt9_Any_dataOjS3_", ptr %_M_invoker4.i2.i18, align 8
   %tobool.not.i.i4.i19 = icmp eq ptr %15, null
-  br i1 %tobool.not.i.i4.i19, label %invoke.cont.thread, label %if.then.i.i5.i20
-
-invoke.cont.thread:                               ; preds = %if.then.i.i7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i2)
-  br label %if.then.i.i24
+  br i1 %tobool.not.i.i4.i19, label %if.then.i.i24, label %if.then.i.i5.i20
 
 if.then.i.i5.i20:                                 ; preds = %if.then.i.i7
   %call.i.i6.i21 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i2, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i2, i32 noundef 3)
-          to label %invoke.cont unwind label %terminate.lpad.i.i7.i22
+          to label %if.then.i.i24 unwind label %terminate.lpad.i.i7.i22
 
 terminate.lpad.i.i7.i22:                          ; preds = %if.then.i.i5.i20
   %17 = landingpad { ptr, i32 }
@@ -8067,11 +8056,8 @@ terminate.lpad.i.i7.i22:                          ; preds = %if.then.i.i5.i20
   call void @__clang_call_terminate(ptr %18) #21
   unreachable
 
-invoke.cont:                                      ; preds = %if.then.i.i5.i20
+if.then.i.i24:                                    ; preds = %if.then.i.i5.i20, %if.then.i.i7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i2)
-  br label %if.then.i.i24
-
-if.then.i.i24:                                    ; preds = %invoke.cont, %invoke.cont.thread
   ret void
 }
 

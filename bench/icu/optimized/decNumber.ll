@@ -1238,7 +1238,7 @@ for.end103:                                       ; preds = %if.end99, %for.cond
 if.end107:                                        ; preds = %for.end103
   %18 = load i32, ptr %set, align 4
   %cmp108.not = icmp slt i32 %d.2.lcssa, %18
-  br i1 %cmp108.not, label %if.end117, label %if.then109
+  br i1 %cmp108.not, label %if.end190.sink.split, label %if.then109
 
 if.then109:                                       ; preds = %if.end107
   %clamp = getelementptr inbounds i8, ptr %set, i64 24
@@ -1246,11 +1246,7 @@ if.then109:                                       ; preds = %if.end107
   %tobool110.not = icmp ne i8 %19, 0
   %cmp114 = icmp sgt i32 %d.2.lcssa, %18
   %or.cond137 = select i1 %tobool110.not, i1 true, i1 %cmp114
-  br i1 %or.cond137, label %if.end275, label %if.end117
-
-if.end117:                                        ; preds = %if.then109, %if.end107
-  store i32 0, ptr %status, align 4
-  br label %if.end190
+  br i1 %or.cond137, label %if.end275, label %if.end190.sink.split
 
 if.else:                                          ; preds = %for.end
   %cmp120.not = icmp eq i8 %0, 0
@@ -1324,15 +1320,23 @@ if.end171:                                        ; preds = %for.end167
   %exponent.1 = select i1 %cmp174.not, i32 %uexponent.0.lcssa, i32 %spec.select177
   %sub187 = sub nsw i32 0, %exponent.1
   %spec.select140 = select i1 %cmp131.not, i32 %sub187, i32 %exponent.1
+  br label %if.end190.sink.split
+
+if.end190.sink.split:                             ; preds = %if.end107, %if.then109, %if.end171
+  %d.3.ph = phi i32 [ %d.0, %if.end171 ], [ %d.2.lcssa, %if.then109 ], [ %d.2.lcssa, %if.end107 ]
+  %cfirst.3.ph = phi ptr [ %cfirst.0, %if.end171 ], [ %cfirst.2, %if.then109 ], [ %cfirst.2, %if.end107 ]
+  %last.3.ph = phi ptr [ %last.0, %if.end171 ], [ %last.2.lcssa, %if.then109 ], [ %last.2.lcssa, %if.end107 ]
+  %bits.2.ph = phi i8 [ %bits.0, %if.end171 ], [ %11, %if.then109 ], [ %11, %if.end107 ]
+  %exponent.0.ph = phi i32 [ %spec.select140, %if.end171 ], [ 0, %if.then109 ], [ 0, %if.end107 ]
   store i32 0, ptr %status, align 4
   br label %if.end190
 
-if.end190:                                        ; preds = %if.else, %if.end171, %if.end117
-  %d.3 = phi i32 [ %d.2.lcssa, %if.end117 ], [ %d.0, %if.end171 ], [ %d.0, %if.else ]
-  %cfirst.3 = phi ptr [ %cfirst.2, %if.end117 ], [ %cfirst.0, %if.end171 ], [ %cfirst.0, %if.else ]
-  %last.3 = phi ptr [ %last.2.lcssa, %if.end117 ], [ %last.0, %if.end171 ], [ %last.0, %if.else ]
-  %bits.2 = phi i8 [ %11, %if.end117 ], [ %bits.0, %if.end171 ], [ %bits.0, %if.else ]
-  %exponent.0 = phi i32 [ 0, %if.end117 ], [ %spec.select140, %if.end171 ], [ 0, %if.else ]
+if.end190:                                        ; preds = %if.end190.sink.split, %if.else
+  %d.3 = phi i32 [ %d.0, %if.else ], [ %d.3.ph, %if.end190.sink.split ]
+  %cfirst.3 = phi ptr [ %cfirst.0, %if.else ], [ %cfirst.3.ph, %if.end190.sink.split ]
+  %last.3 = phi ptr [ %last.0, %if.else ], [ %last.3.ph, %if.end190.sink.split ]
+  %bits.2 = phi i8 [ %bits.0, %if.else ], [ %bits.2.ph, %if.end190.sink.split ]
+  %exponent.0 = phi i32 [ 0, %if.else ], [ %exponent.0.ph, %if.end190.sink.split ]
   %last.3215 = ptrtoint ptr %last.3 to i64
   %30 = load i8, ptr %cfirst.3, align 1
   %cmp192 = icmp eq i8 %30, 48
@@ -7643,8 +7647,8 @@ for.cond49.preheader.i:                           ; preds = %if.end46.i
 
 for.body51.i.preheader:                           ; preds = %for.cond49.preheader.i
   %incdec.ptr45.i = getelementptr inbounds i8, ptr %b.0, i64 10
-  %narrow273 = add nuw i32 %35, 8
-  %39 = zext i32 %narrow273 to i64
+  %narrow274 = add nuw i32 %35, 8
+  %39 = zext i32 %narrow274 to i64
   %wide.trip.count = zext nneg i32 %35 to i64
   br label %for.body51.i
 
@@ -7786,12 +7790,12 @@ uprv_decNumberFromUInt32_75.exit.i224:            ; preds = %if.end.i.i.i220, %f
   br label %for.cond.outer
 
 for.cond.outer:                                   ; preds = %if.end289, %uprv_decNumberFromUInt32_75.exit.i224
-  %pp.0.ph = phi i32 [ 9, %uprv_decNumberFromUInt32_75.exit.i224 ], [ %spec.select141, %if.end289 ]
-  store i32 %pp.0.ph, ptr %aset, align 4
+  %spec.select141.sink271 = phi i32 [ %spec.select141, %if.end289 ], [ 9, %uprv_decNumberFromUInt32_75.exit.i224 ]
+  store i32 %spec.select141.sink271, ptr %aset, align 4
   %52 = load i32, ptr %rhs, align 4
-  %add296 = add nsw i32 %52, %pp.0.ph
+  %add296 = add nsw i32 %52, %spec.select141.sink271
   store i32 %add296, ptr %bset, align 4
-  %cmp287 = icmp eq i32 %pp.0.ph, %add
+  %cmp287 = icmp eq i32 %spec.select141.sink271, %add
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.outer, %if.end285
@@ -7808,8 +7812,8 @@ for.cond:                                         ; preds = %for.cond.outer, %if
   %cmp220 = icmp eq i8 %57, 0
   %.pre259 = load i32, ptr %b.0, align 4
   %cmp223 = icmp eq i32 %.pre259, 1
-  %or.cond271 = select i1 %cmp220, i1 %cmp223, i1 false
-  br i1 %or.cond271, label %land.lhs.true224, label %lor.lhs.false
+  %or.cond272 = select i1 %cmp220, i1 %cmp223, i1 false
+  br i1 %or.cond272, label %land.lhs.true224, label %lor.lhs.false
 
 land.lhs.true224:                                 ; preds = %for.cond
   %58 = load i8, ptr %bits.i.i.i144, align 4
@@ -7908,8 +7912,8 @@ if.else264:                                       ; preds = %if.then184.i, %if.t
 
 if.end267:                                        ; preds = %land.lhs.true251, %if.end243
   %cmp274 = icmp eq i32 %.pre259, 1
-  %or.cond272 = select i1 %cmp220, i1 %cmp274, i1 false
-  br i1 %or.cond272, label %land.lhs.true275, label %if.end285
+  %or.cond273 = select i1 %cmp220, i1 %cmp274, i1 false
+  br i1 %or.cond273, label %land.lhs.true275, label %if.end285
 
 land.lhs.true275:                                 ; preds = %if.end267
   %72 = load i8, ptr %bits.i.i.i144, align 4
@@ -7928,7 +7932,7 @@ if.end285:                                        ; preds = %if.end267, %land.lh
   br i1 %cmp287, label %for.cond, label %if.end289, !llvm.loop !61
 
 if.end289:                                        ; preds = %if.end285
-  %mul290 = shl nsw i32 %pp.0.ph, 1
+  %mul290 = shl nsw i32 %spec.select141.sink271, 1
   %spec.select141 = call i32 @llvm.smin.i32(i32 %mul290, i32 %add)
   br label %for.cond.outer, !llvm.loop !61
 

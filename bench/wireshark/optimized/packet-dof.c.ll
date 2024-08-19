@@ -10201,7 +10201,7 @@ define internal fastcc void @learn_operation_sid(ptr nocapture noundef %0, i8 no
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %9, label %33
+  br i1 %.not, label %9, label %34
 
 9:                                                ; preds = %3
   store i8 %1, ptr %4, align 16
@@ -10242,11 +10242,11 @@ define internal fastcc void @learn_operation_sid(ptr nocapture noundef %0, i8 no
   br label %.sink.split
 
 .sink.split:                                      ; preds = %14, %18
-  %.sink = load ptr, ptr %5, align 8
-  store ptr %.sink, ptr %7, align 8
-  br label %33
+  %33 = load ptr, ptr %5, align 8
+  store ptr %33, ptr %7, align 8
+  br label %34
 
-33:                                               ; preds = %.sink.split, %3
+34:                                               ; preds = %.sink.split, %3
   ret void
 }
 

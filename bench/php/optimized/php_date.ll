@@ -4903,7 +4903,7 @@ define void @php_mktime(ptr noundef %0, ptr nocapture noundef writeonly %1, i1 n
   %.0277401 = phi ptr [ %58, %63 ], [ %48, %53 ], [ %38, %43 ], [ %28, %33 ], [ %18, %23 ], [ null, %16 ], [ %67, %72 ]
   %.0278400 = phi i32 [ 5, %63 ], [ 4, %53 ], [ 3, %43 ], [ 2, %33 ], [ 1, %23 ], [ 0, %16 ], [ 6, %72 ]
   call void @zend_wrong_parameter_error(i32 noundef %.0274403, i32 noundef %.0278400, ptr noundef null, i32 noundef %.0276402, ptr noundef %.0277401) #25
-  br label %126
+  br label %123
 
 .thread367:                                       ; preds = %72, %.thread360, %65, %55, %45, %35, %25
   %.0301.ph = phi i1 [ %.2303, %.thread360 ], [ true, %65 ], [ true, %55 ], [ true, %45 ], [ true, %35 ], [ true, %25 ], [ false, %72 ]
@@ -4937,7 +4937,7 @@ php_time.exit:                                    ; preds = %77, %79
 81:                                               ; preds = %.thread367
   %82 = call ptr @get_timezone_info()
   %.not320 = icmp eq ptr %82, null
-  br i1 %.not320, label %126, label %83
+  br i1 %.not320, label %123, label %83
 
 83:                                               ; preds = %81
   %84 = getelementptr inbounds i8, ptr %74, i64 72
@@ -5004,53 +5004,49 @@ php_time.exit327:                                 ; preds = %87, %89
   br label %109
 
 109:                                              ; preds = %106, %105
-  br i1 %.0301.ph, label %120, label %110
+  br i1 %.0301.ph, label %117, label %110
 
 110:                                              ; preds = %109
   %111 = load i64, ptr %11, align 8
   %or.cond = icmp ult i64 %111, 70
-  br i1 %or.cond, label %112, label %114
+  br i1 %or.cond, label %.sink.split, label %112
 
 112:                                              ; preds = %110
-  %113 = add nuw nsw i64 %111, 2000
-  store i64 %113, ptr %11, align 8
-  br label %118
+  %113 = add i64 %111, -70
+  %or.cond3 = icmp ult i64 %113, 31
+  br i1 %or.cond3, label %.sink.split, label %115
 
-114:                                              ; preds = %110
-  %115 = add i64 %111, -70
-  %or.cond3 = icmp ult i64 %115, 31
-  br i1 %or.cond3, label %116, label %118
+.sink.split:                                      ; preds = %112, %110
+  %.sink406 = phi i64 [ 2000, %110 ], [ 1900, %112 ]
+  %114 = add nuw nsw i64 %111, %.sink406
+  store i64 %114, ptr %11, align 8
+  br label %115
 
-116:                                              ; preds = %114
-  %117 = add nuw nsw i64 %111, 1900
-  store i64 %117, ptr %11, align 8
-  br label %118
+115:                                              ; preds = %.sink.split, %112
+  %116 = phi i64 [ %111, %112 ], [ %114, %.sink.split ]
+  store i64 %116, ptr %74, align 8
+  br label %117
 
-118:                                              ; preds = %114, %116, %112
-  %119 = phi i64 [ %111, %114 ], [ %117, %116 ], [ %113, %112 ]
-  store i64 %119, ptr %74, align 8
-  br label %120
-
-120:                                              ; preds = %118, %109
+117:                                              ; preds = %115, %109
   call void @timelib_update_ts(ptr noundef nonnull %74, ptr noundef %..0283) #25
-  %121 = call i64 @timelib_date_to_int(ptr noundef nonnull %74, ptr noundef nonnull %12) #25
-  %122 = load i32, ptr %12, align 4
-  %.not321 = icmp eq i32 %122, 0
+  %118 = call i64 @timelib_date_to_int(ptr noundef nonnull %74, ptr noundef nonnull %12) #25
+  %119 = load i32, ptr %12, align 4
+  %.not321 = icmp eq i32 %119, 0
   call void @timelib_time_dtor(ptr noundef nonnull %74) #25
-  %123 = getelementptr inbounds i8, ptr %1, i64 8
-  br i1 %.not321, label %125, label %124
+  %120 = getelementptr inbounds i8, ptr %1, i64 8
+  br i1 %.not321, label %122, label %121
 
-124:                                              ; preds = %120
+121:                                              ; preds = %117
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.16) #25
-  store i32 2, ptr %123, align 8
-  br label %126
+  store i32 2, ptr %120, align 8
+  br label %123
 
-125:                                              ; preds = %120
-  store i64 %121, ptr %1, align 8
-  store i32 4, ptr %123, align 8
-  br label %126
+122:                                              ; preds = %117
+  store i64 %118, ptr %1, align 8
+  store i32 4, ptr %120, align 8
+  br label %123
 
-126:                                              ; preds = %81, %125, %124, %.thread389
+123:                                              ; preds = %81, %122, %121, %.thread389
   ret void
 }
 
@@ -5853,8 +5849,7 @@ define hidden void @zif_getdate(ptr noundef %0, ptr noundef %1) #0 {
 
 17:                                               ; preds = %11
   %18 = load i64, ptr %12, align 8
-  store i64 %18, ptr %4, align 8
-  br label %.thread193
+  br label %.thread193.sink.split
 
 .thread191:                                       ; preds = %11, %9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -5873,10 +5868,14 @@ define hidden void @zif_getdate(ptr noundef %0, ptr noundef %1) #0 {
 php_time.exit:                                    ; preds = %20, %22
   %.0.i = phi i64 [ %21, %20 ], [ %23, %22 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  store i64 %.0.i, ptr %4, align 8
+  br label %.thread193.sink.split
+
+.thread193.sink.split:                            ; preds = %php_time.exit, %17
+  %.sink = phi i64 [ %18, %17 ], [ %.0.i, %php_time.exit ]
+  store i64 %.sink, ptr %4, align 8
   br label %.thread193
 
-.thread193:                                       ; preds = %15, %17, %php_time.exit
+.thread193:                                       ; preds = %.thread193.sink.split, %15
   %24 = call ptr @get_timezone_info()
   %.not139 = icmp eq ptr %24, null
   br i1 %.not139, label %25, label %28
@@ -8257,7 +8256,6 @@ define internal fastcc void @date_object_to_hash(ptr nocapture noundef readonly 
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %34, ptr align 1 %26, i64 %27, i1 false)
   %35 = getelementptr inbounds [1 x i8], ptr %34, i64 0, i64 %27
   store i8 0, ptr %35, align 1
-  store ptr %30, ptr %3, align 8
   br label %.sink.split
 
 36:                                               ; preds = %15
@@ -8285,7 +8283,6 @@ define internal fastcc void @date_object_to_hash(ptr nocapture noundef readonly 
   %53 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %44, i64 noundef 7, ptr noundef nonnull @.str.232, i32 noundef %46, i32 noundef %48, i32 noundef %52) #25
   %54 = sext i32 %53 to i64
   store i64 %54, ptr %40, align 8
-  store ptr %37, ptr %3, align 8
   br label %.sink.split
 
 55:                                               ; preds = %15
@@ -8306,10 +8303,11 @@ define internal fastcc void @date_object_to_hash(ptr nocapture noundef readonly 
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %65, ptr align 1 %57, i64 %58, i1 false)
   %66 = getelementptr inbounds [1 x i8], ptr %65, i64 0, i64 %58
   store i8 0, ptr %66, align 1
-  store ptr %61, ptr %3, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %23, %36, %55
+  %.sink = phi ptr [ %61, %55 ], [ %37, %36 ], [ %30, %23 ]
+  store ptr %.sink, ptr %3, align 8
   store i32 262, ptr %10, align 8
   br label %67
 
@@ -15698,7 +15696,7 @@ define hidden void @zif_date_interval_format(ptr noundef %0, ptr nocapture nound
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %20 = icmp ne ptr %19, null
   call void @llvm.assume(i1 %20)
-  br label %195
+  br label %196
 
 21:                                               ; preds = %2
   %22 = load ptr, ptr %5, align 8
@@ -15760,7 +15758,7 @@ date_throw_uninitialized_error.exit:              ; preds = %32, %45
   %53 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %54 = icmp ne ptr %53, null
   call void @llvm.assume(i1 %54)
-  br label %195
+  br label %196
 
 55:                                               ; preds = %21
   %56 = getelementptr inbounds i8, ptr %23, i64 -32
@@ -15791,10 +15789,10 @@ date_throw_uninitialized_error.exit:              ; preds = %32, %45
   %72 = load ptr, ptr @zend_empty_string, align 8
   br label %date_interval_format.exit
 
-73:                                               ; preds = %177, %.preheader.i12
-  %74 = phi ptr [ null, %.preheader.i12 ], [ %178, %177 ]
-  %.0103.i = phi i32 [ 0, %.preheader.i12 ], [ %.1.i, %177 ]
-  %.079102.i = phi i64 [ 0, %.preheader.i12 ], [ %179, %177 ]
+73:                                               ; preds = %178, %.preheader.i12
+  %74 = phi ptr [ null, %.preheader.i12 ], [ %179, %178 ]
+  %.0103.i = phi i32 [ 0, %.preheader.i12 ], [ %.1.i, %178 ]
+  %.079102.i = phi i64 [ 0, %.preheader.i12 ], [ %180, %178 ]
   %.not94.i = icmp eq i32 %.0103.i, 0
   %75 = getelementptr inbounds i8, ptr %57, i64 %.079102.i
   %76 = load i8, ptr %75, align 1
@@ -15974,7 +15972,7 @@ date_throw_uninitialized_error.exit:              ; preds = %32, %45
 
 162:                                              ; preds = %73
   %163 = icmp eq i8 %76, 37
-  br i1 %163, label %177, label %164
+  br i1 %163, label %178, label %164
 
 164:                                              ; preds = %162
   %.not95.i = icmp eq ptr %74, null
@@ -16005,53 +16003,53 @@ date_throw_uninitialized_error.exit:              ; preds = %32, %45
 
 .sink.split.i:                                    ; preds = %171, %157
   %.183.sink.i = phi i64 [ %.183.i, %157 ], [ %.181.i, %171 ]
-  %.sink107.i = load ptr, ptr %3, align 8
-  %176 = getelementptr inbounds i8, ptr %.sink107.i, i64 16
-  store i64 %.183.sink.i, ptr %176, align 8
-  br label %177
+  %176 = load ptr, ptr %3, align 8
+  %177 = getelementptr inbounds i8, ptr %176, i64 16
+  store i64 %.183.sink.i, ptr %177, align 8
+  br label %178
 
-177:                                              ; preds = %.sink.split.i, %162
-  %178 = phi ptr [ %74, %162 ], [ %.sink107.i, %.sink.split.i ]
+178:                                              ; preds = %.sink.split.i, %162
+  %179 = phi ptr [ %74, %162 ], [ %176, %.sink.split.i ]
   %.1.i = phi i32 [ 1, %162 ], [ 0, %.sink.split.i ]
-  %179 = add nuw i64 %.079102.i, 1
-  %exitcond.not.i = icmp eq i64 %179, %58
-  br i1 %exitcond.not.i, label %180, label %73
+  %180 = add nuw i64 %.079102.i, 1
+  %exitcond.not.i = icmp eq i64 %180, %58
+  br i1 %exitcond.not.i, label %181, label %73
 
-180:                                              ; preds = %177
-  %.not93.i = icmp eq ptr %178, null
-  br i1 %.not93.i, label %186, label %181
+181:                                              ; preds = %178
+  %.not93.i = icmp eq ptr %179, null
+  br i1 %.not93.i, label %187, label %182
 
-181:                                              ; preds = %180
-  %182 = getelementptr inbounds i8, ptr %178, i64 24
-  %183 = getelementptr inbounds i8, ptr %178, i64 16
-  %184 = load i64, ptr %183, align 8
-  %185 = getelementptr inbounds [1 x i8], ptr %182, i64 0, i64 %184
-  store i8 0, ptr %185, align 1
+182:                                              ; preds = %181
+  %183 = getelementptr inbounds i8, ptr %179, i64 24
+  %184 = getelementptr inbounds i8, ptr %179, i64 16
+  %185 = load i64, ptr %184, align 8
+  %186 = getelementptr inbounds [1 x i8], ptr %183, i64 0, i64 %185
+  store i8 0, ptr %186, align 1
   %.pre106.i = load ptr, ptr %3, align 8
-  br label %186
+  br label %187
 
-186:                                              ; preds = %181, %180
-  %187 = phi ptr [ %.pre106.i, %181 ], [ null, %180 ]
-  %188 = icmp eq ptr %187, null
-  %189 = load ptr, ptr @zend_empty_string, align 8
-  %spec.select.i = select i1 %188, ptr %189, ptr %187
+187:                                              ; preds = %182, %181
+  %188 = phi ptr [ %.pre106.i, %182 ], [ null, %181 ]
+  %189 = icmp eq ptr %188, null
+  %190 = load ptr, ptr @zend_empty_string, align 8
+  %spec.select.i = select i1 %189, ptr %190, ptr %188
   br label %date_interval_format.exit
 
-date_interval_format.exit:                        ; preds = %71, %186
-  %.084.i = phi ptr [ %72, %71 ], [ %spec.select.i, %186 ]
+date_interval_format.exit:                        ; preds = %71, %187
+  %.084.i = phi ptr [ %72, %71 ], [ %spec.select.i, %187 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %4)
   store ptr %.084.i, ptr %1, align 8
-  %190 = getelementptr inbounds i8, ptr %.084.i, i64 4
-  %191 = load i32, ptr %190, align 4
-  %192 = and i32 %191, 64
-  %.not = icmp eq i32 %192, 0
-  %193 = select i1 %.not, i32 262, i32 6
-  %194 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %193, ptr %194, align 8
-  br label %195
+  %191 = getelementptr inbounds i8, ptr %.084.i, i64 4
+  %192 = load i32, ptr %191, align 4
+  %193 = and i32 %192, 64
+  %.not = icmp eq i32 %193, 0
+  %194 = select i1 %.not, i32 262, i32 6
+  %195 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %194, ptr %195, align 8
+  br label %196
 
-195:                                              ; preds = %date_interval_format.exit, %date_throw_uninitialized_error.exit, %18
+196:                                              ; preds = %date_interval_format.exit, %date_throw_uninitialized_error.exit, %18
   ret void
 }
 
@@ -17754,16 +17752,19 @@ define internal fastcc void @php_do_date_sunrise_sunset(ptr noundef %0, ptr noca
 
 84:                                               ; preds = %83
   %85 = call double @zend_ini_double(ptr noundef nonnull @.str.187, i64 noundef 18, i32 noundef 0) #25
-  store double %85, ptr %6, align 8
-  br label %88
+  br label %.sink.split
 
 86:                                               ; preds = %83
   %87 = call double @zend_ini_double(ptr noundef nonnull @.str.189, i64 noundef 19, i32 noundef 0) #25
-  store double %87, ptr %6, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %86, %84
+  %.sink = phi double [ %85, %84 ], [ %87, %86 ]
+  store double %.sink, ptr %6, align 8
   br label %88
 
-88:                                               ; preds = %80, %84, %86, %82
-  %.0268.ph365373375 = phi i1 [ %.0268.ph, %80 ], [ %.0268.ph365373376, %84 ], [ %.0268.ph365373376, %86 ], [ %.0268.ph, %82 ]
+88:                                               ; preds = %.sink.split, %80, %82
+  %.0268.ph365373375 = phi i1 [ %.0268.ph, %80 ], [ %.0268.ph, %82 ], [ %.0268.ph365373376, %.sink.split ]
   %89 = load i64, ptr %14, align 8
   %or.cond3 = icmp ugt i64 %89, 2
   br i1 %or.cond3, label %90, label %93

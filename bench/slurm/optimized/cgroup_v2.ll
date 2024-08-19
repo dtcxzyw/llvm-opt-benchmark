@@ -1582,7 +1582,7 @@ define i32 @cgroup_p_step_destroy(i32 noundef %0) local_unnamed_addr #0 {
 
 9:                                                ; preds = %1
   %10 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.27) #15
-  br label %149
+  br label %145
 
 11:                                               ; preds = %1
   %12 = add i16 %8, -1
@@ -1590,12 +1590,12 @@ define i32 @cgroup_p_step_destroy(i32 noundef %0) local_unnamed_addr #0 {
   %13 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %14 = and i64 %13, 36028797018963968
   %.not17 = icmp eq i64 %14, 0
-  br i1 %.not17, label %149, label %15
+  br i1 %.not17, label %145, label %15
 
 15:                                               ; preds = %11
   %16 = tail call i32 @get_log_level() #15
   %17 = icmp sgt i32 %16, 3
-  br i1 %17, label %18, label %149
+  br i1 %17, label %18, label %145
 
 18:                                               ; preds = %15
   %19 = zext i32 %0 to i64
@@ -1604,7 +1604,7 @@ define i32 @cgroup_p_step_destroy(i32 noundef %0) local_unnamed_addr #0 {
   %22 = load i16, ptr @step_active_cnt, align 2
   %23 = zext i16 %22 to i32
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.28, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.cgroup_p_step_destroy, ptr noundef %21, i32 noundef %23) #15
-  br label %149
+  br label %145
 
 24:                                               ; preds = %1
   %25 = tail call i32 @common_cgroup_lock(ptr noundef nonnull @int_cg) #15
@@ -1616,7 +1616,7 @@ define i32 @cgroup_p_step_destroy(i32 noundef %0) local_unnamed_addr #0 {
   %28 = getelementptr inbounds [5 x ptr], ptr @ctl_names, i64 0, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.10, ptr noundef %29) #15
-  br label %149
+  br label %145
 
 31:                                               ; preds = %24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
@@ -1633,7 +1633,7 @@ define i32 @cgroup_p_step_destroy(i32 noundef %0) local_unnamed_addr #0 {
   %38 = call i32 @getpid() #15
   %39 = load ptr, ptr %34, align 8
   %40 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.29, i32 noundef %38, ptr noundef %39) #15
-  br label %147
+  br label %143
 
 41:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
@@ -1707,7 +1707,7 @@ define i32 @cgroup_p_step_destroy(i32 noundef %0) local_unnamed_addr #0 {
 70:                                               ; preds = %66
   %71 = load ptr, ptr %2, align 8
   %72 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.142, ptr noundef %71) #15
-  br label %115
+  br label %111
 
 73:                                               ; preds = %66
   store i32 %62, ptr %6, align 4
@@ -1715,173 +1715,169 @@ define i32 @cgroup_p_step_destroy(i32 noundef %0) local_unnamed_addr #0 {
   store i16 1, ptr %74, align 4
   %75 = call i32 @poll(ptr noundef nonnull %6, i64 noundef 1, i32 noundef 1000) #15
   %76 = icmp slt i32 %75, 0
-  br i1 %76, label %77, label %80
+  br i1 %76, label %.sink.split.i, label %77
 
 77:                                               ; preds = %73
-  %78 = load ptr, ptr %2, align 8
-  %79 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.143, ptr noundef %78) #15
-  br label %85
+  %78 = icmp eq i32 %75, 0
+  br i1 %78, label %.sink.split.i, label %81
 
-80:                                               ; preds = %73
-  %81 = icmp eq i32 %75, 0
-  br i1 %81, label %82, label %85
+.sink.split.i:                                    ; preds = %77, %73
+  %.str.144.sink.i = phi ptr [ @.str.143, %73 ], [ @.str.144, %77 ]
+  %79 = load ptr, ptr %2, align 8
+  %80 = call i32 (ptr, ...) @error(ptr noundef nonnull %.str.144.sink.i, ptr noundef %79) #15
+  br label %81
 
-82:                                               ; preds = %80
-  %83 = load ptr, ptr %2, align 8
-  %84 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.144, ptr noundef %83) #15
-  br label %85
+81:                                               ; preds = %.sink.split.i, %77
+  %82 = call i32 @common_cgroup_get_param(ptr noundef nonnull getelementptr inbounds (i8, ptr @int_cg, i64 200), ptr noundef nonnull @.str.134, ptr noundef nonnull %3, ptr noundef nonnull %5) #15
+  %.not27.i = icmp eq i32 %82, 0
+  br i1 %.not27.i, label %86, label %83
 
-85:                                               ; preds = %82, %80, %77
-  %86 = call i32 @common_cgroup_get_param(ptr noundef nonnull getelementptr inbounds (i8, ptr @int_cg, i64 200), ptr noundef nonnull @.str.134, ptr noundef nonnull %3, ptr noundef nonnull %5) #15
-  %.not27.i = icmp eq i32 %86, 0
-  br i1 %.not27.i, label %90, label %87
+83:                                               ; preds = %81
+  %84 = load ptr, ptr getelementptr inbounds (i8, ptr @int_cg, i64 216), align 8
+  %85 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.135, ptr noundef %84) #15
+  br label %86
 
-87:                                               ; preds = %85
-  %88 = load ptr, ptr getelementptr inbounds (i8, ptr @int_cg, i64 216), align 8
-  %89 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.135, ptr noundef %88) #15
-  br label %90
+86:                                               ; preds = %83, %81
+  %87 = load ptr, ptr %3, align 8
+  %.not28.i = icmp eq ptr %87, null
+  br i1 %.not28.i, label %95, label %88
 
-90:                                               ; preds = %87, %85
-  %91 = load ptr, ptr %3, align 8
-  %.not28.i = icmp eq ptr %91, null
-  br i1 %.not28.i, label %99, label %92
+88:                                               ; preds = %86
+  %89 = call ptr @xstrstr(ptr noundef nonnull %87, ptr noundef nonnull @.str.136) #15
+  %.not29.i = icmp eq ptr %89, null
+  br i1 %.not29.i, label %94, label %90
+
+90:                                               ; preds = %88
+  %91 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %89, ptr noundef nonnull @.str.137, ptr noundef nonnull %4) #15
+  %.not30.i = icmp eq i32 %91, 1
+  br i1 %.not30.i, label %94, label %92
 
 92:                                               ; preds = %90
-  %93 = call ptr @xstrstr(ptr noundef nonnull %91, ptr noundef nonnull @.str.136) #15
-  %.not29.i = icmp eq ptr %93, null
-  br i1 %.not29.i, label %98, label %94
+  %93 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.138) #15
+  br label %94
 
-94:                                               ; preds = %92
-  %95 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %93, ptr noundef nonnull @.str.137, ptr noundef nonnull %4) #15
-  %.not30.i = icmp eq i32 %95, 1
-  br i1 %.not30.i, label %98, label %96
-
-96:                                               ; preds = %94
-  %97 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.138) #15
-  br label %98
-
-98:                                               ; preds = %96, %94, %92
+94:                                               ; preds = %92, %90, %88
   call void @slurm_xfree(ptr noundef nonnull %3) #15
-  br label %99
+  br label %95
 
-99:                                               ; preds = %98, %90
-  %100 = load i32, ptr %4, align 4
-  %101 = icmp slt i32 %100, 0
-  br i1 %101, label %102, label %105
+95:                                               ; preds = %94, %86
+  %96 = load i32, ptr %4, align 4
+  %97 = icmp slt i32 %96, 0
+  br i1 %97, label %98, label %101
 
-102:                                              ; preds = %99
-  %103 = load ptr, ptr getelementptr inbounds (i8, ptr @int_cg, i64 216), align 8
-  %104 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.139, ptr noundef %103) #15
-  br label %115
+98:                                               ; preds = %95
+  %99 = load ptr, ptr getelementptr inbounds (i8, ptr @int_cg, i64 216), align 8
+  %100 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.139, ptr noundef %99) #15
+  br label %111
 
-105:                                              ; preds = %99
-  %106 = icmp eq i32 %100, 1
-  br i1 %106, label %107, label %115
+101:                                              ; preds = %95
+  %102 = icmp eq i32 %96, 1
+  br i1 %102, label %103, label %111
 
-107:                                              ; preds = %105
-  %108 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %109 = and i64 %108, 36028797018963968
-  %.not31.i = icmp eq i64 %109, 0
-  br i1 %.not31.i, label %115, label %110
+103:                                              ; preds = %101
+  %104 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %105 = and i64 %104, 36028797018963968
+  %.not31.i = icmp eq i64 %105, 0
+  br i1 %.not31.i, label %111, label %106
 
-110:                                              ; preds = %107
-  %111 = call i32 @get_log_level() #15
-  %112 = icmp sgt i32 %111, 3
-  br i1 %112, label %113, label %115
+106:                                              ; preds = %103
+  %107 = call i32 @get_log_level() #15
+  %108 = icmp sgt i32 %107, 3
+  br i1 %108, label %109, label %111
 
-113:                                              ; preds = %110
-  %114 = load ptr, ptr getelementptr inbounds (i8, ptr @int_cg, i64 216), align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.145, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._wait_cgroup_empty, ptr noundef %114) #15
-  br label %115
+109:                                              ; preds = %106
+  %110 = load ptr, ptr getelementptr inbounds (i8, ptr @int_cg, i64 216), align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.145, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._wait_cgroup_empty, ptr noundef %110) #15
+  br label %111
 
-115:                                              ; preds = %113, %110, %107, %105, %102, %70
-  %116 = call i32 @close(i32 noundef %62) #15
+111:                                              ; preds = %109, %106, %103, %101, %98, %70
+  %112 = call i32 @close(i32 noundef %62) #15
   call void @slurm_xfree(ptr noundef nonnull %2) #15
   br label %_wait_cgroup_empty.exit
 
-_wait_cgroup_empty.exit:                          ; preds = %.thread.i, %58, %64, %115
+_wait_cgroup_empty.exit:                          ; preds = %.thread.i, %58, %64, %111
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %117 = load ptr, ptr @task_list, align 8
-  %118 = call i32 @list_delete_all(ptr noundef %117, ptr noundef nonnull @_rmdir_task, ptr noundef null) #15
-  %119 = call i32 @common_cgroup_delete(ptr noundef nonnull getelementptr inbounds (i8, ptr @int_cg, i64 200)) #15
-  %.not13 = icmp eq i32 %119, 0
-  br i1 %.not13, label %125, label %120
+  %113 = load ptr, ptr @task_list, align 8
+  %114 = call i32 @list_delete_all(ptr noundef %113, ptr noundef nonnull @_rmdir_task, ptr noundef null) #15
+  %115 = call i32 @common_cgroup_delete(ptr noundef nonnull getelementptr inbounds (i8, ptr @int_cg, i64 200)) #15
+  %.not13 = icmp eq i32 %115, 0
+  br i1 %.not13, label %121, label %116
 
-120:                                              ; preds = %_wait_cgroup_empty.exit
-  %121 = call i32 @get_log_level() #15
-  %122 = icmp sgt i32 %121, 5
-  br i1 %122, label %123, label %147
+116:                                              ; preds = %_wait_cgroup_empty.exit
+  %117 = call i32 @get_log_level() #15
+  %118 = icmp sgt i32 %117, 5
+  br i1 %118, label %119, label %143
 
-123:                                              ; preds = %120
-  %124 = load ptr, ptr getelementptr inbounds (i8, ptr @int_cg, i64 216), align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.30, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.cgroup_p_step_destroy, ptr noundef %124) #15
-  br label %147
+119:                                              ; preds = %116
+  %120 = load ptr, ptr getelementptr inbounds (i8, ptr @int_cg, i64 216), align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.30, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.cgroup_p_step_destroy, ptr noundef %120) #15
+  br label %143
 
-125:                                              ; preds = %_wait_cgroup_empty.exit
+121:                                              ; preds = %_wait_cgroup_empty.exit
   call void @common_cgroup_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @int_cg, i64 200)) #15
-  %126 = call i32 @common_cgroup_delete(ptr noundef nonnull getelementptr inbounds (i8, ptr @int_cg, i64 240)) #15
-  %.not14 = icmp eq i32 %126, 0
-  br i1 %.not14, label %132, label %127
+  %122 = call i32 @common_cgroup_delete(ptr noundef nonnull getelementptr inbounds (i8, ptr @int_cg, i64 240)) #15
+  %.not14 = icmp eq i32 %122, 0
+  br i1 %.not14, label %128, label %123
 
-127:                                              ; preds = %125
-  %128 = call i32 @get_log_level() #15
-  %129 = icmp sgt i32 %128, 5
-  br i1 %129, label %130, label %147
+123:                                              ; preds = %121
+  %124 = call i32 @get_log_level() #15
+  %125 = icmp sgt i32 %124, 5
+  br i1 %125, label %126, label %143
 
-130:                                              ; preds = %127
-  %131 = load ptr, ptr getelementptr inbounds (i8, ptr @int_cg, i64 256), align 16
-  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.31, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.cgroup_p_step_destroy, ptr noundef %131) #15
-  br label %147
+126:                                              ; preds = %123
+  %127 = load ptr, ptr getelementptr inbounds (i8, ptr @int_cg, i64 256), align 16
+  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.31, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.cgroup_p_step_destroy, ptr noundef %127) #15
+  br label %143
 
-132:                                              ; preds = %125
+128:                                              ; preds = %121
   call void @common_cgroup_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @int_cg, i64 240)) #15
-  %133 = call i32 @common_cgroup_delete(ptr noundef nonnull getelementptr inbounds (i8, ptr @int_cg, i64 160)) #15
-  %.not15 = icmp eq i32 %133, 0
-  br i1 %.not15, label %139, label %134
+  %129 = call i32 @common_cgroup_delete(ptr noundef nonnull getelementptr inbounds (i8, ptr @int_cg, i64 160)) #15
+  %.not15 = icmp eq i32 %129, 0
+  br i1 %.not15, label %135, label %130
 
-134:                                              ; preds = %132
-  %135 = call i32 @get_log_level() #15
-  %136 = icmp sgt i32 %135, 5
-  br i1 %136, label %137, label %147
+130:                                              ; preds = %128
+  %131 = call i32 @get_log_level() #15
+  %132 = icmp sgt i32 %131, 5
+  br i1 %132, label %133, label %143
 
-137:                                              ; preds = %134
-  %138 = load ptr, ptr getelementptr inbounds (i8, ptr @int_cg, i64 176), align 16
-  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.32, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.cgroup_p_step_destroy, ptr noundef %138) #15
-  br label %147
+133:                                              ; preds = %130
+  %134 = load ptr, ptr getelementptr inbounds (i8, ptr @int_cg, i64 176), align 16
+  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.32, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.cgroup_p_step_destroy, ptr noundef %134) #15
+  br label %143
 
-139:                                              ; preds = %132
+135:                                              ; preds = %128
   call void @common_cgroup_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @int_cg, i64 160)) #15
-  %140 = call i32 @common_cgroup_delete(ptr noundef nonnull getelementptr inbounds (i8, ptr @int_cg, i64 120)) #15
-  %.not16 = icmp eq i32 %140, 0
-  br i1 %.not16, label %146, label %141
+  %136 = call i32 @common_cgroup_delete(ptr noundef nonnull getelementptr inbounds (i8, ptr @int_cg, i64 120)) #15
+  %.not16 = icmp eq i32 %136, 0
+  br i1 %.not16, label %142, label %137
 
-141:                                              ; preds = %139
-  %142 = call i32 @get_log_level() #15
-  %143 = icmp sgt i32 %142, 5
-  br i1 %143, label %144, label %147
+137:                                              ; preds = %135
+  %138 = call i32 @get_log_level() #15
+  %139 = icmp sgt i32 %138, 5
+  br i1 %139, label %140, label %143
 
-144:                                              ; preds = %141
-  %145 = load ptr, ptr getelementptr inbounds (i8, ptr @int_cg, i64 136), align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.33, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.cgroup_p_step_destroy, ptr noundef %145) #15
-  br label %147
+140:                                              ; preds = %137
+  %141 = load ptr, ptr getelementptr inbounds (i8, ptr @int_cg, i64 136), align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.33, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.cgroup_p_step_destroy, ptr noundef %141) #15
+  br label %143
 
-146:                                              ; preds = %139
+142:                                              ; preds = %135
   call void @common_cgroup_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @int_cg, i64 120)) #15
   store i16 0, ptr @step_active_cnt, align 2
-  br label %147
+  br label %143
 
-147:                                              ; preds = %141, %144, %134, %137, %127, %130, %120, %123, %146, %37
-  %.0 = phi i32 [ %36, %37 ], [ %119, %123 ], [ %119, %120 ], [ %126, %130 ], [ %126, %127 ], [ %133, %137 ], [ %133, %134 ], [ 0, %144 ], [ 0, %141 ], [ 0, %146 ]
-  %148 = call i32 @common_cgroup_unlock(ptr noundef nonnull @int_cg) #15
+143:                                              ; preds = %137, %140, %130, %133, %123, %126, %116, %119, %142, %37
+  %.0 = phi i32 [ %36, %37 ], [ %115, %119 ], [ %115, %116 ], [ %122, %126 ], [ %122, %123 ], [ %129, %133 ], [ %129, %130 ], [ 0, %140 ], [ 0, %137 ], [ 0, %142 ]
+  %144 = call i32 @common_cgroup_unlock(ptr noundef nonnull @int_cg) #15
   call void @common_cgroup_destroy(ptr noundef nonnull %7) #15
-  br label %149
+  br label %145
 
-149:                                              ; preds = %18, %15, %11, %147, %26, %9
-  %.05 = phi i32 [ 0, %9 ], [ -1, %26 ], [ %.0, %147 ], [ 0, %11 ], [ 0, %15 ], [ 0, %18 ]
+145:                                              ; preds = %18, %15, %11, %143, %26, %9
+  %.05 = phi i32 [ 0, %9 ], [ -1, %26 ], [ %.0, %143 ], [ 0, %11 ], [ 0, %15 ], [ 0, %18 ]
   ret i32 %.05
 }
 

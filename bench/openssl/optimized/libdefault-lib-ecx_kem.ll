@@ -901,12 +901,7 @@ if.end35:                                         ; preds = %if.end30
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %suiteid.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %prk.i)
   %cmp.i31 = icmp ugt i64 %10, 64
-  br i1 %cmp.i31, label %dhkem_extract_and_expand.exit.thread, label %if.end.i32
-
-dhkem_extract_and_expand.exit.thread:             ; preds = %if.end35
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %suiteid.i)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %prk.i)
-  br label %12
+  br i1 %cmp.i31, label %.sink.split, label %if.end.i32
 
 if.end.i32:                                       ; preds = %if.end35
   %shr.i = lshr i16 %11, 8
@@ -921,9 +916,7 @@ if.end.i32:                                       ; preds = %if.end35
 
 dhkem_extract_and_expand.exit.thread57:           ; preds = %if.end.i32
   call void @OPENSSL_cleanse(ptr noundef nonnull %prk.i, i64 noundef %10) #5
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %suiteid.i)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %prk.i)
-  br label %12
+  br label %.sink.split
 
 dhkem_extract_and_expand.exit:                    ; preds = %if.end.i32
   %call9.i = call i32 @ossl_hpke_labeled_expand(ptr noundef nonnull %call31, ptr noundef %secret, i64 noundef %10, ptr noundef nonnull %prk.i, i64 noundef %10, ptr noundef nonnull @LABEL_KEM, ptr noundef nonnull %suiteid.i, i64 noundef 2, ptr noundef nonnull @.str.10, ptr noundef nonnull %kemctx, i64 noundef %add184450) #5
@@ -934,7 +927,12 @@ dhkem_extract_and_expand.exit:                    ; preds = %if.end.i32
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %prk.i)
   br i1 %tobool10.i.not, label %12, label %err
 
-12:                                               ; preds = %dhkem_extract_and_expand.exit.thread57, %dhkem_extract_and_expand.exit.thread, %dhkem_extract_and_expand.exit
+.sink.split:                                      ; preds = %if.end35, %dhkem_extract_and_expand.exit.thread57
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %suiteid.i)
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %prk.i)
+  br label %12
+
+12:                                               ; preds = %.sink.split, %dhkem_extract_and_expand.exit
   br label %err
 
 err:                                              ; preds = %12, %dhkem_extract_and_expand.exit, %if.end17.thread, %ecx_pubkey.exit.thread, %if.end30, %if.end17, %if.then4, %entry

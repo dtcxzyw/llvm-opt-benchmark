@@ -5178,7 +5178,7 @@ evaluate_function.exit:                           ; preds = %37, %42, %65, %67, 
   %.0 = phi ptr [ %.0.i, %evaluate_function.exit ], [ %111, %91 ], [ null, %88 ]
   %.not52 = icmp eq ptr %.0, null
   %brmerge55.not = and i1 %.not52, %8
-  br i1 %brmerge55.not, label %113, label %373
+  br i1 %brmerge55.not, label %113, label %374
 
 113:                                              ; preds = %112
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13)
@@ -5695,8 +5695,8 @@ list_length.exit63.thread:                        ; preds = %334, %contain_subpl
 
 inline_function.exit.sink.split:                  ; preds = %list_length.exit63.thread, %367
   %.0.i57.ph = phi ptr [ %370, %367 ], [ null, %list_length.exit63.thread ]
-  %.sink = load ptr, ptr %15, align 8
-  store ptr %.sink, ptr @error_context_stack, align 8
+  %373 = load ptr, ptr %15, align 8
+  store ptr %373, ptr @error_context_stack, align 8
   br label %inline_function.exit
 
 inline_function.exit:                             ; preds = %inline_function.exit.sink.split, %113, %121, %124, %128, %132, %136, %list_length.exit65, %146, %150, %155
@@ -5706,9 +5706,9 @@ inline_function.exit:                             ; preds = %inline_function.exi
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
-  br label %373
+  br label %374
 
-373:                                              ; preds = %112, %inline_function.exit
+374:                                              ; preds = %112, %inline_function.exit
   %.1 = phi ptr [ %.0, %112 ], [ %.0.i57, %inline_function.exit ]
   call void @ReleaseSysCache(ptr noundef nonnull %23) #9
   ret ptr %.1

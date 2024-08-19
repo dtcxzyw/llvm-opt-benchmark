@@ -9903,7 +9903,7 @@ nghttp2_session_get_stream.exit100.split.us.i:    ; preds = %nghttp2_session_get
   %660 = call i64 @nghttp2_hd_inflate_hd_nv(ptr noundef nonnull %67, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef %.075.us.i, i64 noundef %.076.us.i, i32 noundef %616) #20
   %661 = trunc i64 %660 to i32
   %662 = icmp sgt i32 %661, -901
-  br i1 %662, label %663, label %inflate_header_block.exit.thread
+  br i1 %662, label %663, label %.loopexit.sink.split
 
 663:                                              ; preds = %nghttp2_session_get_stream.exit100.split.us.i
   %664 = icmp slt i64 %660, 0
@@ -9923,7 +9923,7 @@ session_call_on_header.exit.us.i:                 ; preds = %663
   %672 = icmp eq i32 %671, 0
   %673 = icmp eq i64 %669, 0
   %or.cond.us.i = and i1 %673, %672
-  br i1 %or.cond.us.i, label %inflate_header_block.exit.thread1041, label %nghttp2_session_get_stream.exit100.split.us.i
+  br i1 %or.cond.us.i, label %.sink.split, label %nghttp2_session_get_stream.exit100.split.us.i
 
 nghttp2_session_get_stream.exit100.split.i:       ; preds = %nghttp2_session_get_stream.exit100.i
   %.not84.i = icmp eq ptr %.072.fr.i, null
@@ -9937,7 +9937,7 @@ nghttp2_session_get_stream.exit100.split.split.us.i: ; preds = %nghttp2_session_
   %674 = call i64 @nghttp2_hd_inflate_hd_nv(ptr noundef nonnull %67, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef %.075.us133.i, i64 noundef %.076.us132.i, i32 noundef %616) #20
   %675 = trunc i64 %674 to i32
   %676 = icmp sgt i32 %675, -901
-  br i1 %676, label %677, label %inflate_header_block.exit.thread
+  br i1 %676, label %677, label %.loopexit.sink.split
 
 677:                                              ; preds = %nghttp2_session_get_stream.exit100.split.split.us.i
   %678 = icmp slt i64 %674, 0
@@ -9957,7 +9957,7 @@ session_call_on_header.exit.us134.i:              ; preds = %677
   %686 = icmp eq i32 %685, 0
   %687 = icmp eq i64 %683, 0
   %or.cond.us136.i = and i1 %687, %686
-  br i1 %or.cond.us136.i, label %inflate_header_block.exit.thread1041, label %nghttp2_session_get_stream.exit100.split.split.us.i
+  br i1 %or.cond.us136.i, label %.sink.split, label %nghttp2_session_get_stream.exit100.split.split.us.i
 
 nghttp2_session_get_stream.exit100.split.split.i: ; preds = %nghttp2_session_get_stream.exit100.split.i, %810
   %.0989 = phi i64 [ %717, %810 ], [ 0, %nghttp2_session_get_stream.exit100.split.i ]
@@ -9967,7 +9967,7 @@ nghttp2_session_get_stream.exit100.split.split.i: ; preds = %nghttp2_session_get
   %688 = call i64 @nghttp2_hd_inflate_hd_nv(ptr noundef nonnull %67, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef %.075.i, i64 noundef %.076.i, i32 noundef %616) #20
   %689 = trunc i64 %688 to i32
   %690 = icmp sgt i32 %689, -901
-  br i1 %690, label %691, label %inflate_header_block.exit.thread1091
+  br i1 %690, label %691, label %.loopexit.sink.split
 
 691:                                              ; preds = %nghttp2_session_get_stream.exit100.split.split.i
   %692 = icmp slt i64 %688, 0
@@ -9992,13 +9992,13 @@ nghttp2_session_get_stream.exit100.split.split.i: ; preds = %nghttp2_session_get
   %701 = load i32, ptr %700, align 8
   %702 = call i32 @nghttp2_session_add_rst_stream(ptr noundef nonnull %0, i32 noundef %701, i32 noundef 9)
   %703 = icmp sgt i32 %702, -901
-  br i1 %703, label %704, label %inflate_header_block.exit.thread
+  br i1 %703, label %704, label %.loopexit.sink.split
 
 704:                                              ; preds = %699, %696, %.split.us.i
   %705 = load i8, ptr %18, align 1
   %706 = and i8 %705, 1
   %.not.i.i.i934 = icmp eq i8 %706, 0
-  br i1 %.not.i.i.i934, label %707, label %inflate_header_block.exit.thread1041
+  br i1 %.not.i.i.i934, label %707, label %.sink.split
 
 707:                                              ; preds = %704
   %708 = load i32, ptr %74, align 4
@@ -10012,11 +10012,11 @@ nghttp2_session_get_stream.exit100.split.split.i: ; preds = %nghttp2_session_get
   %711 = load i8, ptr %18, align 1
   %712 = or i8 %711, 1
   store i8 %712, ptr %18, align 1
-  br label %inflate_header_block.exit.thread1041
+  br label %.sink.split
 
 nghttp2_session_terminate_session.exit.i:         ; preds = %707
   %713 = icmp sgt i32 %.fr.i935, -901
-  br i1 %713, label %inflate_header_block.exit.thread1041, label %inflate_header_block.exit.thread
+  br i1 %713, label %.sink.split, label %.loopexit.sink.split
 
 714:                                              ; preds = %691
   %715 = getelementptr inbounds i8, ptr %.075.i, i64 %688
@@ -10077,10 +10077,10 @@ nghttp2_session_terminate_session.exit.i:         ; preds = %707
 
 748:                                              ; preds = %734, %726
   %.0.i105.i = phi i32 [ %731, %726 ], [ %747, %734 ]
-  switch i32 %.0.i105.i, label %inflate_header_block.exit.thread1091 [
+  switch i32 %.0.i105.i, label %.loopexit.sink.split [
     i32 0, label %session_call_on_invalid_header.exit.thread113.i
     i32 -521, label %.thread.i
-    i32 -526, label %inflate_header_block.exit.thread1041
+    i32 -526, label %.sink.split
   ]
 
 session_call_on_invalid_header.exit.thread113.i:  ; preds = %748
@@ -10101,7 +10101,7 @@ session_call_on_invalid_header.exit.thread113.i:  ; preds = %748
   %763 = load ptr, ptr %762, align 8
   %764 = call i32 (ptr, i32, ptr, ...) @session_call_error_callback(ptr noundef nonnull %0, i32 noundef -531, ptr noundef nonnull @.str.63, i32 noundef %750, i32 noundef %751, i32 noundef %755, ptr noundef %757, i32 noundef %761, ptr noundef %763)
   %765 = icmp sgt i32 %764, -901
-  br i1 %765, label %session_call_on_header.exit.i, label %inflate_header_block.exit.thread1091
+  br i1 %765, label %session_call_on_header.exit.i, label %.loopexit.sink.split
 
 .thread.i:                                        ; preds = %748, %732, %722
   %766 = load i8, ptr %62, align 4
@@ -10121,7 +10121,7 @@ session_call_on_invalid_header.exit.thread113.i:  ; preds = %748
   %780 = load ptr, ptr %779, align 8
   %781 = call i32 (ptr, i32, ptr, ...) @session_call_error_callback(ptr noundef nonnull %0, i32 noundef -531, ptr noundef nonnull @.str.64, i32 noundef %767, i32 noundef %768, i32 noundef %772, ptr noundef %774, i32 noundef %778, ptr noundef %780)
   %782 = icmp sgt i32 %781, -901
-  br i1 %782, label %inflate_header_block.exit, label %inflate_header_block.exit.thread
+  br i1 %782, label %inflate_header_block.exit, label %.loopexit.sink.split
 
 .thread118.i:                                     ; preds = %722, %720
   %783 = load ptr, ptr %68, align 8
@@ -10159,9 +10159,9 @@ session_call_on_invalid_header.exit.thread113.i:  ; preds = %748
 
 806:                                              ; preds = %792, %784
   %.0.i107.i = phi i32 [ %789, %784 ], [ %805, %792 ]
-  switch i32 %.0.i107.i, label %inflate_header_block.exit.thread [
-    i32 -521, label %inflate_header_block.exit.thread1097
-    i32 -526, label %inflate_header_block.exit.thread1097
+  switch i32 %.0.i107.i, label %.loopexit.sink.split [
+    i32 -521, label %.sink.split
+    i32 -526, label %.sink.split
     i32 0, label %session_call_on_header.exit.i
   ]
 
@@ -10174,39 +10174,14 @@ session_call_on_header.exit.i:                    ; preds = %806, %790, %session
 .split130.us.i:                                   ; preds = %session_call_on_header.exit.us.i, %session_call_on_header.exit.i, %session_call_on_header.exit.us134.i
   %.2991 = phi i64 [ %679, %session_call_on_header.exit.us134.i ], [ %717, %session_call_on_header.exit.i ], [ %665, %session_call_on_header.exit.us.i ]
   %809 = call i32 @nghttp2_hd_inflate_end_headers(ptr noundef nonnull %67) #20
-  br label %inflate_header_block.exit.thread1041
+  br label %.sink.split
 
 810:                                              ; preds = %session_call_on_header.exit.i
   %811 = and i32 %807, 2
   %812 = icmp eq i32 %811, 0
   %813 = icmp eq i64 %716, 0
   %or.cond.i = and i1 %813, %812
-  br i1 %or.cond.i, label %inflate_header_block.exit.thread1097, label %nghttp2_session_get_stream.exit100.split.split.i
-
-inflate_header_block.exit.thread:                 ; preds = %699, %.thread.i, %nghttp2_session_terminate_session.exit.i, %nghttp2_session_get_stream.exit100.split.us.i, %806, %nghttp2_session_get_stream.exit100.split.split.us.i
-  %.073.i.ph = phi i32 [ %675, %nghttp2_session_get_stream.exit100.split.split.us.i ], [ -902, %806 ], [ %661, %nghttp2_session_get_stream.exit100.split.us.i ], [ %702, %699 ], [ %781, %.thread.i ], [ %.fr.i935, %nghttp2_session_terminate_session.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  br label %.loopexit
-
-inflate_header_block.exit.thread1041:             ; preds = %668, %748, %682, %.split130.us.i, %nghttp2_session_terminate_session.exit.i, %710, %704
-  %.6995.ph = phi i64 [ %.2991, %.split130.us.i ], [ %.3992, %nghttp2_session_terminate_session.exit.i ], [ %.3992, %710 ], [ %.3992, %704 ], [ %679, %682 ], [ %717, %748 ], [ %665, %668 ]
-  %.073.i.ph1040 = phi i32 [ 0, %.split130.us.i ], [ -523, %nghttp2_session_terminate_session.exit.i ], [ -523, %710 ], [ -523, %704 ], [ 0, %682 ], [ %.0.i105.i, %748 ], [ 0, %668 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  br label %819
-
-inflate_header_block.exit.thread1091:             ; preds = %748, %session_call_on_invalid_header.exit.thread113.i, %nghttp2_session_get_stream.exit100.split.split.i
-  %.073.i.ph1090 = phi i32 [ %689, %nghttp2_session_get_stream.exit100.split.split.i ], [ %764, %session_call_on_invalid_header.exit.thread113.i ], [ -902, %748 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  br label %.loopexit
-
-inflate_header_block.exit.thread1097:             ; preds = %806, %806, %810
-  %.073.i.ph1096 = phi i32 [ 0, %810 ], [ %.0.i107.i, %806 ], [ %.0.i107.i, %806 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  br label %819
+  br i1 %or.cond.i, label %.sink.split, label %nghttp2_session_get_stream.exit100.split.split.i
 
 inflate_header_block.exit:                        ; preds = %.thread.i
   %814 = getelementptr inbounds i8, ptr %.072.fr.i, i64 168
@@ -10217,14 +10192,27 @@ inflate_header_block.exit:                        ; preds = %.thread.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br i1 %817, label %819, label %.loopexit
 
-.loopexit:                                        ; preds = %inflate_header_block.exit, %inflate_header_block.exit.thread1091, %inflate_header_block.exit.thread
-  %.073.i1038 = phi i32 [ %.073.i.ph, %inflate_header_block.exit.thread ], [ %.073.i.ph1090, %inflate_header_block.exit.thread1091 ], [ %816, %inflate_header_block.exit ]
+.loopexit.sink.split:                             ; preds = %nghttp2_session_terminate_session.exit.i, %.thread.i, %699, %nghttp2_session_get_stream.exit100.split.us.i, %nghttp2_session_get_stream.exit100.split.split.i, %session_call_on_invalid_header.exit.thread113.i, %748, %806, %nghttp2_session_get_stream.exit100.split.split.us.i
+  %.073.i1038.ph = phi i32 [ %675, %nghttp2_session_get_stream.exit100.split.split.us.i ], [ -902, %806 ], [ %689, %nghttp2_session_get_stream.exit100.split.split.i ], [ %764, %session_call_on_invalid_header.exit.thread113.i ], [ -902, %748 ], [ %661, %nghttp2_session_get_stream.exit100.split.us.i ], [ %702, %699 ], [ %781, %.thread.i ], [ %.fr.i935, %nghttp2_session_terminate_session.exit.i ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %inflate_header_block.exit, %.loopexit.sink.split
+  %.073.i1038 = phi i32 [ %.073.i1038.ph, %.loopexit.sink.split ], [ %816, %inflate_header_block.exit ]
   %818 = sext i32 %.073.i1038 to i64
   br label %nghttp2_session_want_read.exit.thread
 
-819:                                              ; preds = %inflate_header_block.exit.thread1097, %inflate_header_block.exit.thread1041, %inflate_header_block.exit
-  %.073.i1046 = phi i32 [ %.073.i.ph1040, %inflate_header_block.exit.thread1041 ], [ -521, %inflate_header_block.exit ], [ %.073.i.ph1096, %inflate_header_block.exit.thread1097 ]
-  %.69951045 = phi i64 [ %.6995.ph, %inflate_header_block.exit.thread1041 ], [ %717, %inflate_header_block.exit ], [ %717, %inflate_header_block.exit.thread1097 ]
+.sink.split:                                      ; preds = %668, %810, %806, %806, %748, %682, %704, %710, %nghttp2_session_terminate_session.exit.i, %.split130.us.i
+  %.073.i1046.ph = phi i32 [ 0, %.split130.us.i ], [ -523, %nghttp2_session_terminate_session.exit.i ], [ -523, %710 ], [ -523, %704 ], [ 0, %682 ], [ %.0.i105.i, %748 ], [ 0, %810 ], [ %.0.i107.i, %806 ], [ %.0.i107.i, %806 ], [ 0, %668 ]
+  %.69951045.ph = phi i64 [ %.2991, %.split130.us.i ], [ %.3992, %nghttp2_session_terminate_session.exit.i ], [ %.3992, %710 ], [ %.3992, %704 ], [ %679, %682 ], [ %717, %748 ], [ %717, %806 ], [ %717, %806 ], [ %717, %810 ], [ %665, %668 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  br label %819
+
+819:                                              ; preds = %.sink.split, %inflate_header_block.exit
+  %.073.i1046 = phi i32 [ -521, %inflate_header_block.exit ], [ %.073.i1046.ph, %.sink.split ]
+  %.69951045 = phi i64 [ %717, %inflate_header_block.exit ], [ %.69951045.ph, %.sink.split ]
   %820 = load i32, ptr %30, align 8
   %821 = icmp eq i32 %820, 15
   br i1 %821, label %nghttp2_session_want_read.exit.thread, label %822

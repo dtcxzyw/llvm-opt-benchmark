@@ -1100,7 +1100,6 @@ define internal fastcc noundef zeroext i1 @"_ZN7uu_uniq4Uniq8cmp_keys28_$u7b$$u7
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h83d727bd8f7a4f82E.exit.i": ; preds = %50, %46, %43
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !202
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !196
   br label %_ZN7uu_uniq4Uniq7cmp_key17h60e8381c1164e379E.exit
 
 52:                                               ; preds = %33
@@ -1142,7 +1141,6 @@ define internal fastcc noundef zeroext i1 @"_ZN7uu_uniq4Uniq8cmp_keys28_$u7b$$u7
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h83d727bd8f7a4f82E.exit88.i": ; preds = %66, %62, %59
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !210
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !196
   br label %_ZN7uu_uniq4Uniq7cmp_key17h60e8381c1164e379E.exit
 
 .critedge.i:                                      ; preds = %33
@@ -1206,6 +1204,7 @@ define internal fastcc noundef zeroext i1 @"_ZN7uu_uniq4Uniq8cmp_keys28_$u7b$$u7
 
 _ZN7uu_uniq4Uniq7cmp_key17h60e8381c1164e379E.exit: ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h83d727bd8f7a4f82E.exit.i", %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h83d727bd8f7a4f82E.exit88.i"
   %.2.in.in.i = phi i8 [ %.1.in.in.i, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h83d727bd8f7a4f82E.exit88.i" ], [ %.0.in.in.i, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h83d727bd8f7a4f82E.exit.i" ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !196
   %.2.in.i = icmp ne i8 %.2.in.in.i, 0
   ret i1 %.2.in.i
 }
@@ -1294,7 +1293,6 @@ define hidden noundef zeroext i1 @_ZN7uu_uniq4Uniq7cmp_key17h3f0ce449dc4b1e42E(p
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h83d727bd8f7a4f82E.exit": ; preds = %39, %42, %46
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !217
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   br label %78
 
 48:                                               ; preds = %29
@@ -1336,7 +1334,6 @@ define hidden noundef zeroext i1 @_ZN7uu_uniq4Uniq7cmp_key17h3f0ce449dc4b1e42E(p
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h83d727bd8f7a4f82E.exit78": ; preds = %55, %58, %62
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !224
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   br label %78
 
 .critedge:                                        ; preds = %29
@@ -1390,6 +1387,7 @@ define hidden noundef zeroext i1 @_ZN7uu_uniq4Uniq7cmp_key17h3f0ce449dc4b1e42E(p
 
 78:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h83d727bd8f7a4f82E.exit", %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h83d727bd8f7a4f82E.exit78"
   %.2.in = phi i1 [ %.1.in, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h83d727bd8f7a4f82E.exit78" ], [ %.0.in, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h83d727bd8f7a4f82E.exit" ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   ret i1 %.2.in
 
 79:                                               ; preds = %73

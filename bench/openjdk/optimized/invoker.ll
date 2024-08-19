@@ -247,14 +247,14 @@ check_methodClass.exit.thread:                    ; preds = %23, %36, %54
 
 check_methodClass.exit:                           ; preds = %48, %54
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  br label %191
+  br label %189
 
 57:                                               ; preds = %check_methodClass.exit.thread, %9
   %58 = load ptr, ptr @invokerLock, align 8
   call void @debugMonitorEnter(ptr noundef %58) #5
   %59 = call ptr @threadControl_getInvokeRequest(ptr noundef %3) #5
   %.not27 = icmp eq ptr %59, null
-  br i1 %.not27, label %184, label %60
+  br i1 %.not27, label %182, label %60
 
 60:                                               ; preds = %57
   %61 = getelementptr inbounds i8, ptr %59, i64 2
@@ -462,13 +462,6 @@ isReferenceTag.exit.i.i:                          ; preds = %126, %122, %119
   store ptr %140, ptr %72, align 8
   br i1 %112, label %141, label %createGlobalRefs.exit.thread.i
 
-createGlobalRefs.exit.thread.i:                   ; preds = %139
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  br label %182
-
 141:                                              ; preds = %139, %.thread95.i.i
   %142 = load ptr, ptr %86, align 8
   call void @methodSignature_init(ptr noundef %142, ptr noundef nonnull %10) #5
@@ -566,13 +559,6 @@ isReferenceTag.exit79.i.i:                        ; preds = %155, %151, %148
 169:                                              ; preds = %168, %165
   br i1 %166, label %.preheader.i.i, label %createGlobalRefs.exit.thread3.i
 
-createGlobalRefs.exit.thread3.i:                  ; preds = %169
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  br label %180
-
 .preheader.i.i:                                   ; preds = %169
   %170 = load i32, ptr %74, align 8
   %171 = icmp sgt i32 %170, 0
@@ -600,53 +586,53 @@ createGlobalRefs.exit.thread3.i:                  ; preds = %169
 
 createGlobalRefs.exit.thread7.i:                  ; preds = %159, %.lr.ph119.i.i, %141
   call void @jvmtiDeallocate(ptr noundef nonnull %.0.ph.i.i) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  br label %182
+  br label %createGlobalRefs.exit.thread.i
 
 createGlobalRefs.exit.i:                          ; preds = %176, %.preheader.i.i
   call void @jvmtiDeallocate(ptr noundef nonnull %.0828893103136.i.i) #5
+  br label %createGlobalRefs.exit.thread3.i
+
+createGlobalRefs.exit.thread3.i:                  ; preds = %createGlobalRefs.exit.i, %169
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  br label %180
-
-180:                                              ; preds = %createGlobalRefs.exit.i, %createGlobalRefs.exit.thread3.i
-  %181 = load ptr, ptr %86, align 8
-  call void @jvmtiDeallocate(ptr noundef %181) #5
+  %180 = load ptr, ptr %86, align 8
+  call void @jvmtiDeallocate(ptr noundef %180) #5
   br label %fillInvokeRequest.exit.thread
 
-182:                                              ; preds = %createGlobalRefs.exit.thread7.i, %createGlobalRefs.exit.thread.i
+createGlobalRefs.exit.thread.i:                   ; preds = %createGlobalRefs.exit.thread7.i, %139
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   store i8 1, ptr %59, align 8
   store i8 0, ptr %61, align 2
-  br label %184
+  br label %182
 
-fillInvokeRequest.exit.thread:                    ; preds = %180, %60, %63, %85
-  %.1.ph = phi i32 [ %87, %85 ], [ 190, %63 ], [ 203, %60 ], [ %.3104135.i.i, %180 ]
+fillInvokeRequest.exit.thread:                    ; preds = %createGlobalRefs.exit.thread3.i, %60, %63, %85
+  %.1.ph = phi i32 [ %87, %85 ], [ 190, %63 ], [ 203, %60 ], [ %.3104135.i.i, %createGlobalRefs.exit.thread3.i ]
+  %181 = load ptr, ptr @invokerLock, align 8
+  call void @debugMonitorExit(ptr noundef %181) #5
+  br label %189
+
+182:                                              ; preds = %57, %createGlobalRefs.exit.thread.i
   %183 = load ptr, ptr @invokerLock, align 8
   call void @debugMonitorExit(ptr noundef %183) #5
-  br label %191
+  %184 = and i8 %1, 1
+  %.not28 = icmp eq i8 %184, 0
+  br i1 %.not28, label %187, label %185
 
-184:                                              ; preds = %57, %182
-  %185 = load ptr, ptr @invokerLock, align 8
-  call void @debugMonitorExit(ptr noundef %185) #5
-  %186 = and i8 %1, 1
-  %.not28 = icmp eq i8 %186, 0
-  br i1 %.not28, label %189, label %187
+185:                                              ; preds = %182
+  %186 = call i32 @threadControl_resumeThread(ptr noundef %3, i8 noundef zeroext 1) #5
+  br label %189
 
-187:                                              ; preds = %184
-  %188 = call i32 @threadControl_resumeThread(ptr noundef %3, i8 noundef zeroext 1) #5
-  br label %191
+187:                                              ; preds = %182
+  %188 = call i32 @threadControl_resumeAll() #5
+  br label %189
 
-189:                                              ; preds = %184
-  %190 = call i32 @threadControl_resumeAll() #5
-  br label %191
-
-191:                                              ; preds = %fillInvokeRequest.exit.thread, %check_methodClass.exit, %189, %187
-  %.023 = phi i32 [ 23, %check_methodClass.exit ], [ 0, %187 ], [ 0, %189 ], [ %.1.ph, %fillInvokeRequest.exit.thread ]
+189:                                              ; preds = %fillInvokeRequest.exit.thread, %check_methodClass.exit, %187, %185
+  %.023 = phi i32 [ 23, %check_methodClass.exit ], [ 0, %185 ], [ 0, %187 ], [ %.1.ph, %fillInvokeRequest.exit.thread ]
   ret i32 %.023
 }
 

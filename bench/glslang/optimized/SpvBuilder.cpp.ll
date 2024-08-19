@@ -27232,7 +27232,7 @@ _ZNK3spv7Builder15getScalarTypeIdEj.exit:         ; preds = %tailrecurse.i, %93
   %110 = getelementptr inbounds i8, ptr %6, i64 16
   br label %121
 
-111:                                              ; preds = %181
+111:                                              ; preds = %178
   %112 = add i32 %.065, 1
   %113 = zext i32 %112 to i64
   %114 = load ptr, ptr %45, align 8
@@ -27245,8 +27245,8 @@ _ZNK3spv7Builder15getScalarTypeIdEj.exit:         ; preds = %tailrecurse.i, %93
   br i1 %120, label %121, label %._crit_edge, !llvm.loop !116
 
 121:                                              ; preds = %.lr.ph, %111
-  %122 = phi i32 [ %.0.i.i, %.lr.ph ], [ %183, %111 ]
-  %123 = phi i32 [ 0, %.lr.ph ], [ %182, %111 ]
+  %122 = phi i32 [ %.0.i.i, %.lr.ph ], [ %180, %111 ]
+  %123 = phi i32 [ 0, %.lr.ph ], [ %179, %111 ]
   %124 = phi ptr [ %47, %.lr.ph ], [ %115, %111 ]
   %125 = phi i64 [ 0, %.lr.ph ], [ %113, %111 ]
   %.065 = phi i32 [ 0, %.lr.ph ], [ %112, %111 ]
@@ -27263,13 +27263,13 @@ _ZNK3spv7Builder8isScalarEj.exit36:               ; preds = %121
   %133 = load ptr, ptr %129, align 8
   %134 = getelementptr inbounds i8, ptr %133, i64 16
   %135 = load i32, ptr %134, align 8
-  switch i32 %135, label %181 [
+  switch i32 %135, label %178 [
     i32 32, label %143
     i32 22, label %143
     i32 21, label %143
     i32 20, label %143
-    i32 23, label %144
-    i32 24, label %158
+    i32 23, label %_ZNK3spv7Builder16getNumComponentsEj.exit.i
+    i32 24, label %_ZNK3spv7Builder13getNumColumnsEj.exit.i
   ]
 
 _ZNK3spv7Builder8isScalarEj.exit36.thread:        ; preds = %121
@@ -27280,159 +27280,145 @@ _ZNK3spv7Builder8isScalarEj.exit36.thread:        ; preds = %121
   %140 = load ptr, ptr %139, align 8
   %141 = getelementptr inbounds i8, ptr %140, i64 16
   %142 = load i32, ptr %141, align 8
-  switch i32 %142, label %181 [
+  switch i32 %142, label %178 [
     i32 32, label %143
     i32 22, label %143
     i32 21, label %143
     i32 20, label %143
-    i32 23, label %.thread61
-    i32 24, label %159
+    i32 23, label %_ZNK3spv7Builder16getNumComponentsEj.exit.i
+    i32 24, label %_ZNK3spv7Builder13getNumColumnsEj.exit.i
   ]
 
 143:                                              ; preds = %_ZNK3spv7Builder8isScalarEj.exit36.thread, %_ZNK3spv7Builder8isScalarEj.exit36.thread, %_ZNK3spv7Builder8isScalarEj.exit36.thread, %_ZNK3spv7Builder8isScalarEj.exit36.thread, %_ZNK3spv7Builder8isScalarEj.exit36, %_ZNK3spv7Builder8isScalarEj.exit36, %_ZNK3spv7Builder8isScalarEj.exit36, %_ZNK3spv7Builder8isScalarEj.exit36
   call fastcc void @"_ZZN3spv7Builder17createConstructorENS_10DecorationERKSt6vectorIjSaIjEEjENK3$_0clEj"(ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef %127)
-  br label %181
+  br label %178
 
-.thread61:                                        ; preds = %_ZNK3spv7Builder8isScalarEj.exit36.thread
+_ZNK3spv7Builder16getNumComponentsEj.exit.i:      ; preds = %_ZNK3spv7Builder8isScalarEj.exit36, %_ZNK3spv7Builder8isScalarEj.exit36.thread
+  %144 = phi ptr [ %140, %_ZNK3spv7Builder8isScalarEj.exit36.thread ], [ %133, %_ZNK3spv7Builder8isScalarEj.exit36 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  br label %_ZNK3spv7Builder16getNumComponentsEj.exit.i
-
-144:                                              ; preds = %_ZNK3spv7Builder8isScalarEj.exit36
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  br label %_ZNK3spv7Builder16getNumComponentsEj.exit.i
-
-_ZNK3spv7Builder16getNumComponentsEj.exit.i:      ; preds = %144, %.thread61
-  %145 = phi ptr [ %140, %.thread61 ], [ %133, %144 ]
-  %146 = getelementptr inbounds i8, ptr %145, i64 24
-  %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 4
-  %149 = load i32, ptr %148, align 4
-  %150 = add i32 %123, %149
-  %151 = icmp ugt i32 %150, %122
-  %152 = sub i32 %122, %123
-  %spec.select.i = select i1 %151, i32 %152, i32 %149
+  %145 = getelementptr inbounds i8, ptr %144, i64 24
+  %146 = load ptr, ptr %145, align 8
+  %147 = getelementptr inbounds i8, ptr %146, i64 4
+  %148 = load i32, ptr %147, align 4
+  %149 = add i32 %123, %148
+  %150 = icmp ugt i32 %149, %122
+  %151 = sub i32 %122, %123
+  %spec.select.i = select i1 %150, i32 %151, i32 %148
   %.not.i = icmp eq i32 %spec.select.i, 0
   br i1 %.not.i, label %"_ZZN3spv7Builder17createConstructorENS_10DecorationERKSt6vectorIjSaIjEEjENK3$_1clEj.exit", label %_ZNSt6vectorIjSaIjEED2Ev.exit.i
 
 _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %_ZNK3spv7Builder16getNumComponentsEj.exit.i, %_ZNSt6vectorIjSaIjEED2Ev.exit.i
-  %storemerge9.i = phi i32 [ %156, %_ZNSt6vectorIjSaIjEED2Ev.exit.i ], [ 0, %_ZNK3spv7Builder16getNumComponentsEj.exit.i ]
-  %153 = call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #23
-  store i32 %storemerge9.i, ptr %153, align 4
-  %154 = getelementptr inbounds i8, ptr %153, i64 4
-  store ptr %153, ptr %6, align 8
-  store ptr %154, ptr %109, align 8
-  store ptr %154, ptr %110, align 8
-  %155 = call noundef i32 @_ZN3spv7Builder19createRvalueSwizzleENS_10DecorationEjjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %.0.i, i32 noundef %127, ptr noundef nonnull align 8 dereferenceable(24) %6)
-  call fastcc void @"_ZZN3spv7Builder17createConstructorENS_10DecorationERKSt6vectorIjSaIjEEjENK3$_0clEj"(ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef %155)
-  call void @_ZdlPvm(ptr noundef nonnull %153, i64 noundef 4) #24
-  %156 = add nuw i32 %storemerge9.i, 1
-  %157 = icmp ult i32 %156, %spec.select.i
-  br i1 %157, label %_ZNSt6vectorIjSaIjEED2Ev.exit.i, label %"_ZZN3spv7Builder17createConstructorENS_10DecorationERKSt6vectorIjSaIjEEjENK3$_1clEj.exit", !llvm.loop !117
+  %storemerge9.i = phi i32 [ %155, %_ZNSt6vectorIjSaIjEED2Ev.exit.i ], [ 0, %_ZNK3spv7Builder16getNumComponentsEj.exit.i ]
+  %152 = call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #23
+  store i32 %storemerge9.i, ptr %152, align 4
+  %153 = getelementptr inbounds i8, ptr %152, i64 4
+  store ptr %152, ptr %6, align 8
+  store ptr %153, ptr %109, align 8
+  store ptr %153, ptr %110, align 8
+  %154 = call noundef i32 @_ZN3spv7Builder19createRvalueSwizzleENS_10DecorationEjjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i32 noundef %.0.i, i32 noundef %127, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  call fastcc void @"_ZZN3spv7Builder17createConstructorENS_10DecorationERKSt6vectorIjSaIjEEjENK3$_0clEj"(ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef %154)
+  call void @_ZdlPvm(ptr noundef nonnull %152, i64 noundef 4) #24
+  %155 = add nuw i32 %storemerge9.i, 1
+  %156 = icmp ult i32 %155, %spec.select.i
+  br i1 %156, label %_ZNSt6vectorIjSaIjEED2Ev.exit.i, label %"_ZZN3spv7Builder17createConstructorENS_10DecorationERKSt6vectorIjSaIjEEjENK3$_1clEj.exit", !llvm.loop !117
 
 "_ZZN3spv7Builder17createConstructorENS_10DecorationERKSt6vectorIjSaIjEEjENK3$_1clEj.exit": ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit.i, %_ZNK3spv7Builder16getNumComponentsEj.exit.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  br label %181
+  br label %178
 
-158:                                              ; preds = %_ZNK3spv7Builder8isScalarEj.exit36
+_ZNK3spv7Builder13getNumColumnsEj.exit.i:         ; preds = %_ZNK3spv7Builder8isScalarEj.exit36.thread, %_ZNK3spv7Builder8isScalarEj.exit36
+  %157 = phi ptr [ %133, %_ZNK3spv7Builder8isScalarEj.exit36 ], [ %140, %_ZNK3spv7Builder8isScalarEj.exit36.thread ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  br label %_ZNK3spv7Builder13getNumColumnsEj.exit.i
-
-159:                                              ; preds = %_ZNK3spv7Builder8isScalarEj.exit36.thread
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  br label %_ZNK3spv7Builder13getNumColumnsEj.exit.i
-
-_ZNK3spv7Builder13getNumColumnsEj.exit.i:         ; preds = %158, %159
-  %160 = phi ptr [ %140, %159 ], [ %133, %158 ]
-  %161 = getelementptr inbounds i8, ptr %160, i64 24
-  %162 = load ptr, ptr %161, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 4
-  %164 = load i32, ptr %163, align 4
-  %165 = call noundef i32 @_ZNK3spv7Builder10getNumRowsEj(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %127)
-  %166 = mul i32 %165, %164
-  %167 = load i32, ptr %9, align 4
-  %168 = add i32 %167, %166
-  %169 = load i32, ptr %8, align 4
-  %170 = icmp ugt i32 %168, %169
-  %171 = sub i32 %169, %167
-  %spec.select.i43 = select i1 %170, i32 %171, i32 %166
+  %158 = getelementptr inbounds i8, ptr %157, i64 24
+  %159 = load ptr, ptr %158, align 8
+  %160 = getelementptr inbounds i8, ptr %159, i64 4
+  %161 = load i32, ptr %160, align 4
+  %162 = call noundef i32 @_ZNK3spv7Builder10getNumRowsEj(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %127)
+  %163 = mul i32 %162, %161
+  %164 = load i32, ptr %9, align 4
+  %165 = add i32 %164, %163
+  %166 = load i32, ptr %8, align 4
+  %167 = icmp ugt i32 %165, %166
+  %168 = sub i32 %166, %164
+  %spec.select.i43 = select i1 %167, i32 %168, i32 %163
   %.not35.i = icmp eq i32 %spec.select.i43, 0
   br i1 %.not35.i, label %"_ZZN3spv7Builder17createConstructorENS_10DecorationERKSt6vectorIjSaIjEEjENK3$_2clEj.exit", label %_ZNSt6vectorIjSaIjEED2Ev.exit.i45
 
 _ZNSt6vectorIjSaIjEED2Ev.exit.i45:                ; preds = %_ZNK3spv7Builder13getNumColumnsEj.exit.i, %_ZNSt6vectorIjSaIjEED2Ev.exit.i45
-  %.034.i = phi i32 [ %179, %_ZNSt6vectorIjSaIjEED2Ev.exit.i45 ], [ 0, %_ZNK3spv7Builder13getNumColumnsEj.exit.i ]
-  %.02733.i = phi i32 [ %178, %_ZNSt6vectorIjSaIjEED2Ev.exit.i45 ], [ 0, %_ZNK3spv7Builder13getNumColumnsEj.exit.i ]
+  %.034.i = phi i32 [ %176, %_ZNSt6vectorIjSaIjEED2Ev.exit.i45 ], [ 0, %_ZNK3spv7Builder13getNumColumnsEj.exit.i ]
+  %.02733.i = phi i32 [ %175, %_ZNSt6vectorIjSaIjEED2Ev.exit.i45 ], [ 0, %_ZNK3spv7Builder13getNumColumnsEj.exit.i ]
   %.02832.i = phi i32 [ %spec.select30.i, %_ZNSt6vectorIjSaIjEED2Ev.exit.i45 ], [ 0, %_ZNK3spv7Builder13getNumColumnsEj.exit.i ]
-  %172 = call noundef i32 @_ZNK3spv7Builder10getNumRowsEj(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %127)
-  %.not.i46 = icmp uge i32 %.02733.i, %172
-  %173 = zext i1 %.not.i46 to i32
-  %spec.select30.i = add i32 %.02832.i, %173
+  %169 = call noundef i32 @_ZNK3spv7Builder10getNumRowsEj(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %127)
+  %.not.i46 = icmp uge i32 %.02733.i, %169
+  %170 = zext i1 %.not.i46 to i32
+  %spec.select30.i = add i32 %.02832.i, %170
   %spec.select31.i = select i1 %.not.i46, i32 0, i32 %.02733.i
-  %174 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
-  %175 = getelementptr inbounds i8, ptr %174, i64 4
-  store i32 %spec.select31.i, ptr %175, align 4
-  store i32 %spec.select30.i, ptr %174, align 4
-  %176 = getelementptr inbounds i8, ptr %174, i64 8
-  store ptr %174, ptr %5, align 8
-  store ptr %176, ptr %107, align 8
-  store ptr %176, ptr %108, align 8
-  %177 = call noundef i32 @_ZN3spv7Builder22createCompositeExtractEjjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %127, i32 noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(24) %5)
-  call fastcc void @"_ZZN3spv7Builder17createConstructorENS_10DecorationERKSt6vectorIjSaIjEEjENK3$_0clEj"(ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef %177)
-  %178 = add nuw i32 %spec.select31.i, 1
-  call void @_ZdlPvm(ptr noundef nonnull %174, i64 noundef 8) #24
-  %179 = add nuw i32 %.034.i, 1
-  %180 = icmp ult i32 %179, %spec.select.i43
-  br i1 %180, label %_ZNSt6vectorIjSaIjEED2Ev.exit.i45, label %"_ZZN3spv7Builder17createConstructorENS_10DecorationERKSt6vectorIjSaIjEEjENK3$_2clEj.exit", !llvm.loop !118
+  %171 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
+  %172 = getelementptr inbounds i8, ptr %171, i64 4
+  store i32 %spec.select31.i, ptr %172, align 4
+  store i32 %spec.select30.i, ptr %171, align 4
+  %173 = getelementptr inbounds i8, ptr %171, i64 8
+  store ptr %171, ptr %5, align 8
+  store ptr %173, ptr %107, align 8
+  store ptr %173, ptr %108, align 8
+  %174 = call noundef i32 @_ZN3spv7Builder22createCompositeExtractEjjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %127, i32 noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  call fastcc void @"_ZZN3spv7Builder17createConstructorENS_10DecorationERKSt6vectorIjSaIjEEjENK3$_0clEj"(ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef %174)
+  %175 = add nuw i32 %spec.select31.i, 1
+  call void @_ZdlPvm(ptr noundef nonnull %171, i64 noundef 8) #24
+  %176 = add nuw i32 %.034.i, 1
+  %177 = icmp ult i32 %176, %spec.select.i43
+  br i1 %177, label %_ZNSt6vectorIjSaIjEED2Ev.exit.i45, label %"_ZZN3spv7Builder17createConstructorENS_10DecorationERKSt6vectorIjSaIjEEjENK3$_2clEj.exit", !llvm.loop !118
 
 "_ZZN3spv7Builder17createConstructorENS_10DecorationERKSt6vectorIjSaIjEEjENK3$_2clEj.exit": ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit.i45, %_ZNK3spv7Builder13getNumColumnsEj.exit.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %181
+  br label %178
 
-181:                                              ; preds = %_ZNK3spv7Builder8isScalarEj.exit36.thread, %_ZNK3spv7Builder8isScalarEj.exit36, %"_ZZN3spv7Builder17createConstructorENS_10DecorationERKSt6vectorIjSaIjEEjENK3$_1clEj.exit", %"_ZZN3spv7Builder17createConstructorENS_10DecorationERKSt6vectorIjSaIjEEjENK3$_2clEj.exit", %143
-  %182 = load i32, ptr %9, align 4
-  %183 = load i32, ptr %8, align 4
-  %.not = icmp ult i32 %182, %183
+178:                                              ; preds = %_ZNK3spv7Builder8isScalarEj.exit36.thread, %_ZNK3spv7Builder8isScalarEj.exit36, %"_ZZN3spv7Builder17createConstructorENS_10DecorationERKSt6vectorIjSaIjEEjENK3$_1clEj.exit", %"_ZZN3spv7Builder17createConstructorENS_10DecorationERKSt6vectorIjSaIjEEjENK3$_2clEj.exit", %143
+  %179 = load i32, ptr %9, align 4
+  %180 = load i32, ptr %8, align 4
+  %.not = icmp ult i32 %179, %180
   br i1 %.not, label %111, label %._crit_edge
 
-._crit_edge:                                      ; preds = %111, %181
+._crit_edge:                                      ; preds = %111, %178
   %.phi.trans.insert72 = getelementptr inbounds i8, ptr %10, i64 8
   %.pre73 = load ptr, ptr %.phi.trans.insert72, align 8
   %.pre74 = load ptr, ptr %10, align 8
   %.not32 = icmp eq ptr %.pre73, %.pre74
-  br i1 %.not32, label %._crit_edge.thread, label %184
+  br i1 %.not32, label %._crit_edge.thread, label %181
 
-184:                                              ; preds = %._crit_edge
-  %185 = call noundef i32 @_ZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %10)
-  store i32 %185, ptr %7, align 4
-  %186 = icmp ne i32 %1, 2147483647
-  %187 = icmp ne i32 %185, 0
-  %or.cond.i = and i1 %186, %187
-  br i1 %or.cond.i, label %188, label %_ZN3spv7Builder12setPrecisionEjNS_10DecorationE.exit
+181:                                              ; preds = %._crit_edge
+  %182 = call noundef i32 @_ZN3spv7Builder24createCompositeConstructEjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %10)
+  store i32 %182, ptr %7, align 4
+  %183 = icmp ne i32 %1, 2147483647
+  %184 = icmp ne i32 %182, 0
+  %or.cond.i = and i1 %183, %184
+  br i1 %or.cond.i, label %185, label %_ZN3spv7Builder12setPrecisionEjNS_10DecorationE.exit
 
-188:                                              ; preds = %184
-  call void @_ZN3spv7Builder13addDecorationEjNS_10DecorationEi(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %185, i32 noundef %1, i32 noundef -1)
+185:                                              ; preds = %181
+  call void @_ZN3spv7Builder13addDecorationEjNS_10DecorationEi(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %182, i32 noundef %1, i32 noundef -1)
   br label %_ZN3spv7Builder12setPrecisionEjNS_10DecorationE.exit
 
 ._crit_edge.thread:                               ; preds = %_ZNK3spv7Builder15getScalarTypeIdEj.exit, %._crit_edge
-  %189 = load i32, ptr %7, align 4
+  %186 = load i32, ptr %7, align 4
   br label %_ZN3spv7Builder12setPrecisionEjNS_10DecorationE.exit
 
-_ZN3spv7Builder12setPrecisionEjNS_10DecorationE.exit: ; preds = %188, %184, %._crit_edge.thread
-  %.1 = phi i32 [ %189, %._crit_edge.thread ], [ %185, %184 ], [ %185, %188 ]
-  %190 = load ptr, ptr %10, align 8
-  %.not.i.i.i = icmp eq ptr %190, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %191
+_ZN3spv7Builder12setPrecisionEjNS_10DecorationE.exit: ; preds = %185, %181, %._crit_edge.thread
+  %.1 = phi i32 [ %186, %._crit_edge.thread ], [ %182, %181 ], [ %182, %185 ]
+  %187 = load ptr, ptr %10, align 8
+  %.not.i.i.i = icmp eq ptr %187, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %188
 
-191:                                              ; preds = %_ZN3spv7Builder12setPrecisionEjNS_10DecorationE.exit
-  %192 = getelementptr inbounds i8, ptr %10, i64 16
-  %193 = load ptr, ptr %192, align 8
-  %194 = ptrtoint ptr %193 to i64
-  %195 = ptrtoint ptr %190 to i64
-  %196 = sub i64 %194, %195
-  call void @_ZdlPvm(ptr noundef nonnull %190, i64 noundef %196) #24
+188:                                              ; preds = %_ZN3spv7Builder12setPrecisionEjNS_10DecorationE.exit
+  %189 = getelementptr inbounds i8, ptr %10, i64 16
+  %190 = load ptr, ptr %189, align 8
+  %191 = ptrtoint ptr %190 to i64
+  %192 = ptrtoint ptr %187 to i64
+  %193 = sub i64 %191, %192
+  call void @_ZdlPvm(ptr noundef nonnull %187, i64 noundef %193) #24
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
-_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %191, %_ZN3spv7Builder12setPrecisionEjNS_10DecorationE.exit, %_ZNK3spv7Builder16getNumComponentsEj.exit, %70
-  %.030 = phi i32 [ %71, %70 ], [ %53, %_ZNK3spv7Builder16getNumComponentsEj.exit ], [ %.1, %_ZN3spv7Builder12setPrecisionEjNS_10DecorationE.exit ], [ %.1, %191 ]
+_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %188, %_ZN3spv7Builder12setPrecisionEjNS_10DecorationE.exit, %_ZNK3spv7Builder16getNumComponentsEj.exit, %70
+  %.030 = phi i32 [ %71, %70 ], [ %53, %_ZNK3spv7Builder16getNumComponentsEj.exit ], [ %.1, %_ZN3spv7Builder12setPrecisionEjNS_10DecorationE.exit ], [ %.1, %188 ]
   ret i32 %.030
 }
 

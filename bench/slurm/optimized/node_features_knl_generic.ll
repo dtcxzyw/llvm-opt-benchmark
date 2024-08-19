@@ -1625,14 +1625,14 @@ define void @node_features_p_node_state(ptr noundef %0, ptr noundef %1) local_un
   %11 = icmp ne ptr %1, null
   %or.cond4 = and i1 %11, %or.cond
   %.sink124.sroa.gep = getelementptr inbounds i8, ptr %6, i64 16
-  %.sink124.sroa.gep129 = getelementptr inbounds i8, ptr %6, i64 32
+  %.sink124.sroa.gep130 = getelementptr inbounds i8, ptr %6, i64 32
   %.sink125.sroa.gep = getelementptr inbounds i8, ptr %6, i64 8
-  %.sink125.sroa.gep130 = getelementptr inbounds i8, ptr %6, i64 24
-  %.sink126.sroa.gep = getelementptr inbounds i8, ptr %6, i64 16
-  %.sink126.sroa.gep131 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sink127.sroa.gep = getelementptr inbounds i8, ptr %6, i64 8
-  %.sink127.sroa.gep132 = getelementptr inbounds i8, ptr %6, i64 24
-  br i1 %or.cond4, label %12, label %213
+  %.sink125.sroa.gep131 = getelementptr inbounds i8, ptr %6, i64 24
+  %.sink127.sroa.gep = getelementptr inbounds i8, ptr %6, i64 16
+  %.sink127.sroa.gep132 = getelementptr inbounds i8, ptr %6, i64 32
+  %.sink128.sroa.gep = getelementptr inbounds i8, ptr %6, i64 8
+  %.sink128.sroa.gep133 = getelementptr inbounds i8, ptr %6, i64 24
+  br i1 %or.cond4, label %12, label %198
 
 12:                                               ; preds = %2
   %13 = load i32, ptr @syscfg_found, align 4
@@ -1667,7 +1667,7 @@ define void @node_features_p_node_state(ptr noundef %0, ptr noundef %1) local_un
 26:                                               ; preds = %25, %20
   store ptr null, ptr %0, align 8
   store ptr null, ptr %1, align 8
-  br label %213
+  br label %198
 
 27:                                               ; preds = %15
   %28 = load i32, ptr @knl_system_type, align 4
@@ -1692,12 +1692,12 @@ define void @node_features_p_node_state(ptr noundef %0, ptr noundef %1) local_un
   %34 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.56, ptr noundef nonnull @__func__.node_features_p_node_state, i32 noundef %28) #15
   store ptr null, ptr %0, align 8
   store ptr null, ptr %1, align 8
-  br label %213
+  br label %198
 
 35:                                               ; preds = %32, %29
-  %.sink125.sroa.phi = phi ptr [ %.sink125.sroa.gep, %32 ], [ %.sink125.sroa.gep130, %29 ]
+  %.sink125.sroa.phi = phi ptr [ %.sink125.sroa.gep, %32 ], [ %.sink125.sroa.gep131, %29 ]
   %.str.55.sink = phi ptr [ @.str.55, %32 ], [ @.str.54, %29 ]
-  %.sink124.sroa.phi = phi ptr [ %.sink124.sroa.gep, %32 ], [ %.sink124.sroa.gep129, %29 ]
+  %.sink124.sroa.phi = phi ptr [ %.sink124.sroa.gep, %32 ], [ %.sink124.sroa.gep130, %29 ]
   store ptr %.str.55.sink, ptr %.sink125.sroa.phi, align 8
   store ptr null, ptr %.sink124.sroa.phi, align 16
   %36 = call fastcc ptr @_run_script(ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef nonnull %7)
@@ -1720,450 +1720,421 @@ define void @node_features_p_node_state(ptr noundef %0, ptr noundef %1) local_un
 44:                                               ; preds = %41
   %45 = call i32 @get_log_level() #15
   %46 = icmp sgt i32 %45, 2
-  br i1 %46, label %47, label %116
+  br i1 %46, label %47, label %104
 
 47:                                               ; preds = %44
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.58, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.node_features_p_node_state, ptr noundef nonnull @__func__.node_features_p_node_state) #15
-  br label %116
+  br label %104
 
 48:                                               ; preds = %41
   call fastcc void @_log_script_argv(ptr noundef nonnull %6, ptr noundef nonnull %42)
   %49 = load i32, ptr @knl_system_type, align 4
   switch i32 %49, label %.thread107 [
-    i32 1, label %50
-    i32 2, label %53
+    i32 1, label %51
+    i32 2, label %50
   ]
 
 50:                                               ; preds = %48
-  %51 = load ptr, ptr %5, align 8
-  %52 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) @.str.59) #17
-  br label %56
+  br label %51
 
-53:                                               ; preds = %48
-  %54 = load ptr, ptr %5, align 8
-  %55 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull dereferenceable(1) @.str.60) #17
-  br label %56
+51:                                               ; preds = %48, %50
+  %.str.60.sink = phi ptr [ @.str.60, %50 ], [ @.str.59, %48 ]
+  %.1 = phi i64 [ 18, %50 ], [ 16, %48 ]
+  %52 = load ptr, ptr %5, align 8
+  %53 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) %.str.60.sink) #17
+  %.not67 = icmp eq ptr %53, null
+  br i1 %.not67, label %66, label %54
 
-56:                                               ; preds = %53, %50
-  %.053 = phi ptr [ %55, %53 ], [ %52, %50 ]
-  %.1 = phi i64 [ 18, %53 ], [ 16, %50 ]
-  %.not67 = icmp eq ptr %.053, null
-  br i1 %.not67, label %78, label %57
+54:                                               ; preds = %51
+  %55 = getelementptr inbounds i8, ptr %53, i64 %.1
+  %56 = call i32 @xstrncasecmp(ptr noundef nonnull %55, ptr noundef nonnull @.str.61, i64 noundef 3) #15
+  %.not68 = icmp eq i32 %56, 0
+  br i1 %.not68, label %.sink.split, label %57
 
-57:                                               ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %.053, i64 %.1
-  %59 = call i32 @xstrncasecmp(ptr noundef nonnull %58, ptr noundef nonnull @.str.61, i64 noundef 3) #15
-  %.not68 = icmp eq i32 %59, 0
-  br i1 %.not68, label %60, label %62
+57:                                               ; preds = %54
+  %58 = call i32 @xstrncasecmp(ptr noundef nonnull %55, ptr noundef nonnull @.str.63, i64 noundef 3) #15
+  %.not69 = icmp eq i32 %58, 0
+  br i1 %.not69, label %.sink.split, label %59
 
-60:                                               ; preds = %57
-  %61 = call ptr @xstrdup(ptr noundef nonnull @.str.62) #15
-  store ptr %61, ptr %4, align 8
-  br label %78
+59:                                               ; preds = %57
+  %60 = call i32 @xstrncasecmp(ptr noundef nonnull %55, ptr noundef nonnull @.str.65, i64 noundef 3) #15
+  %.not70 = icmp eq i32 %60, 0
+  br i1 %.not70, label %.sink.split, label %61
 
-62:                                               ; preds = %57
-  %63 = call i32 @xstrncasecmp(ptr noundef nonnull %58, ptr noundef nonnull @.str.63, i64 noundef 3) #15
-  %.not69 = icmp eq i32 %63, 0
-  br i1 %.not69, label %64, label %66
+61:                                               ; preds = %59
+  %62 = call i32 @xstrncasecmp(ptr noundef nonnull %55, ptr noundef nonnull @.str.67, i64 noundef 5) #15
+  %.not71 = icmp eq i32 %62, 0
+  br i1 %.not71, label %.sink.split, label %63
 
-64:                                               ; preds = %62
-  %65 = call ptr @xstrdup(ptr noundef nonnull @.str.64) #15
+63:                                               ; preds = %61
+  %64 = call i32 @xstrncasecmp(ptr noundef nonnull %55, ptr noundef nonnull @.str.69, i64 noundef 5) #15
+  %.not72 = icmp eq i32 %64, 0
+  br i1 %.not72, label %.sink.split, label %66
+
+.sink.split:                                      ; preds = %63, %61, %59, %57, %54
+  %.str.62.sink = phi ptr [ @.str.62, %54 ], [ @.str.64, %57 ], [ @.str.66, %59 ], [ @.str.68, %61 ], [ @.str.70, %63 ]
+  %65 = call ptr @xstrdup(ptr noundef nonnull %.str.62.sink) #15
   store ptr %65, ptr %4, align 8
-  br label %78
+  br label %66
 
-66:                                               ; preds = %62
-  %67 = call i32 @xstrncasecmp(ptr noundef nonnull %58, ptr noundef nonnull @.str.65, i64 noundef 3) #15
-  %.not70 = icmp eq i32 %67, 0
-  br i1 %.not70, label %68, label %70
-
-68:                                               ; preds = %66
-  %69 = call ptr @xstrdup(ptr noundef nonnull @.str.66) #15
-  store ptr %69, ptr %4, align 8
-  br label %78
-
-70:                                               ; preds = %66
-  %71 = call i32 @xstrncasecmp(ptr noundef nonnull %58, ptr noundef nonnull @.str.67, i64 noundef 5) #15
-  %.not71 = icmp eq i32 %71, 0
-  br i1 %.not71, label %72, label %74
-
-72:                                               ; preds = %70
-  %73 = call ptr @xstrdup(ptr noundef nonnull @.str.68) #15
-  store ptr %73, ptr %4, align 8
-  br label %78
-
-74:                                               ; preds = %70
-  %75 = call i32 @xstrncasecmp(ptr noundef nonnull %58, ptr noundef nonnull @.str.69, i64 noundef 5) #15
-  %.not72 = icmp eq i32 %75, 0
-  br i1 %.not72, label %76, label %78
-
-76:                                               ; preds = %74
-  %77 = call ptr @xstrdup(ptr noundef nonnull @.str.70) #15
-  store ptr %77, ptr %4, align 8
-  br label %78
-
-78:                                               ; preds = %60, %68, %74, %76, %72, %64, %56
-  %.156.ph = phi ptr [ @.str.49, %56 ], [ @.str.3, %60 ], [ @.str.3, %64 ], [ @.str.3, %68 ], [ @.str.3, %72 ], [ @.str.3, %76 ], [ @.str.49, %74 ]
+66:                                               ; preds = %.sink.split, %63, %51
+  %.156.ph = phi ptr [ @.str.49, %51 ], [ @.str.49, %63 ], [ @.str.3, %.sink.split ]
   %.pr = load i32, ptr @knl_system_type, align 4
   %cond = icmp eq i32 %.pr, 2
-  br i1 %cond, label %79, label %.thread107
+  br i1 %cond, label %67, label %.thread107
 
-79:                                               ; preds = %78
+67:                                               ; preds = %66
   store ptr @.str.51, ptr %6, align 16
-  %80 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr @.str.71, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr @.str.55, ptr %81, align 16
-  %82 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr null, ptr %82, align 8
+  %68 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr @.str.71, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr @.str.55, ptr %69, align 16
+  %70 = getelementptr inbounds i8, ptr %6, i64 24
+  store ptr null, ptr %70, align 8
   call void @slurm_xfree(ptr noundef nonnull %5) #15
-  %83 = load ptr, ptr @syscfg_path, align 8
-  %84 = call fastcc ptr @_run_script(ptr noundef %83, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  store ptr %84, ptr %5, align 8
-  %85 = load i32, ptr %7, align 4
-  %86 = and i32 %85, 65407
-  %or.cond99 = icmp eq i32 %86, 0
-  br i1 %or.cond99, label %89, label %87
+  %71 = load ptr, ptr @syscfg_path, align 8
+  %72 = call fastcc ptr @_run_script(ptr noundef %71, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  store ptr %72, ptr %5, align 8
+  %73 = load i32, ptr %7, align 4
+  %74 = and i32 %73, 65407
+  %or.cond99 = icmp eq i32 %74, 0
+  br i1 %or.cond99, label %77, label %75
 
-87:                                               ; preds = %79
-  %88 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.57, ptr noundef nonnull @__func__.node_features_p_node_state, i32 noundef %85, ptr noundef %84) #15
+75:                                               ; preds = %67
+  %76 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.57, ptr noundef nonnull @__func__.node_features_p_node_state, i32 noundef %73, ptr noundef %72) #15
   %.pre121 = load ptr, ptr %5, align 8
-  br label %89
+  br label %77
 
-89:                                               ; preds = %79, %87
-  %90 = phi ptr [ %84, %79 ], [ %.pre121, %87 ]
-  %91 = icmp eq ptr %90, null
-  br i1 %91, label %92, label %.thread107
+77:                                               ; preds = %67, %75
+  %78 = phi ptr [ %72, %67 ], [ %.pre121, %75 ]
+  %79 = icmp eq ptr %78, null
+  br i1 %79, label %80, label %.thread107
 
-92:                                               ; preds = %89
-  %93 = call i32 @get_log_level() #15
-  %94 = icmp sgt i32 %93, 2
-  br i1 %94, label %95, label %.thread107
+80:                                               ; preds = %77
+  %81 = call i32 @get_log_level() #15
+  %82 = icmp sgt i32 %81, 2
+  br i1 %82, label %83, label %.thread107
 
-95:                                               ; preds = %92
+83:                                               ; preds = %80
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.72, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.node_features_p_node_state, ptr noundef nonnull @__func__.node_features_p_node_state) #15
   br label %.thread107
 
-.thread107:                                       ; preds = %48, %78, %89, %95, %92
-  %.156112 = phi ptr [ %.156.ph, %78 ], [ %.156.ph, %89 ], [ %.156.ph, %95 ], [ %.156.ph, %92 ], [ @.str.49, %48 ]
-  %96 = load ptr, ptr %5, align 8
-  %97 = call ptr @xstrcasestr(ptr noundef %96, ptr noundef nonnull @.str.61) #15
-  %.not74 = icmp eq ptr %97, null
-  br i1 %.not74, label %99, label %98
+.thread107:                                       ; preds = %48, %66, %77, %83, %80
+  %.156112 = phi ptr [ %.156.ph, %66 ], [ %.156.ph, %77 ], [ %.156.ph, %83 ], [ %.156.ph, %80 ], [ @.str.49, %48 ]
+  %84 = load ptr, ptr %5, align 8
+  %85 = call ptr @xstrcasestr(ptr noundef %84, ptr noundef nonnull @.str.61) #15
+  %.not74 = icmp eq ptr %85, null
+  br i1 %.not74, label %87, label %86
 
-98:                                               ; preds = %.thread107
+86:                                               ; preds = %.thread107
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.62) #15
+  br label %87
+
+87:                                               ; preds = %86, %.thread107
+  %.159 = phi ptr [ @.str.3, %86 ], [ @.str.49, %.thread107 ]
+  %88 = load ptr, ptr %5, align 8
+  %89 = call ptr @xstrcasestr(ptr noundef %88, ptr noundef nonnull @.str.63) #15
+  %.not75 = icmp eq ptr %89, null
+  br i1 %.not75, label %91, label %90
+
+90:                                               ; preds = %87
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.73, ptr noundef nonnull %.159, ptr noundef nonnull @.str.64) #15
+  br label %91
+
+91:                                               ; preds = %90, %87
+  %.260 = phi ptr [ @.str.3, %90 ], [ %.159, %87 ]
+  %92 = load ptr, ptr %5, align 8
+  %93 = call ptr @xstrcasestr(ptr noundef %92, ptr noundef nonnull @.str.65) #15
+  %.not76 = icmp eq ptr %93, null
+  br i1 %.not76, label %95, label %94
+
+94:                                               ; preds = %91
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.73, ptr noundef nonnull %.260, ptr noundef nonnull @.str.66) #15
+  br label %95
+
+95:                                               ; preds = %94, %91
+  %.3 = phi ptr [ @.str.3, %94 ], [ %.260, %91 ]
+  %96 = load ptr, ptr %5, align 8
+  %97 = call ptr @xstrcasestr(ptr noundef %96, ptr noundef nonnull @.str.67) #15
+  %.not77 = icmp eq ptr %97, null
+  br i1 %.not77, label %99, label %98
+
+98:                                               ; preds = %95
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.73, ptr noundef %.3, ptr noundef nonnull @.str.68) #15
   br label %99
 
-99:                                               ; preds = %98, %.thread107
-  %.159 = phi ptr [ @.str.3, %98 ], [ @.str.49, %.thread107 ]
+99:                                               ; preds = %98, %95
+  %.4 = phi ptr [ @.str.3, %98 ], [ %.3, %95 ]
   %100 = load ptr, ptr %5, align 8
-  %101 = call ptr @xstrcasestr(ptr noundef %100, ptr noundef nonnull @.str.63) #15
-  %.not75 = icmp eq ptr %101, null
-  br i1 %.not75, label %103, label %102
+  %101 = call ptr @xstrcasestr(ptr noundef %100, ptr noundef nonnull @.str.69) #15
+  %.not78 = icmp eq ptr %101, null
+  br i1 %.not78, label %103, label %102
 
 102:                                              ; preds = %99
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.73, ptr noundef nonnull %.159, ptr noundef nonnull @.str.64) #15
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.73, ptr noundef %.4, ptr noundef nonnull @.str.70) #15
   br label %103
 
 103:                                              ; preds = %102, %99
-  %.260 = phi ptr [ @.str.3, %102 ], [ %.159, %99 ]
-  %104 = load ptr, ptr %5, align 8
-  %105 = call ptr @xstrcasestr(ptr noundef %104, ptr noundef nonnull @.str.65) #15
-  %.not76 = icmp eq ptr %105, null
-  br i1 %.not76, label %107, label %106
-
-106:                                              ; preds = %103
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.73, ptr noundef nonnull %.260, ptr noundef nonnull @.str.66) #15
-  br label %107
-
-107:                                              ; preds = %106, %103
-  %.3 = phi ptr [ @.str.3, %106 ], [ %.260, %103 ]
-  %108 = load ptr, ptr %5, align 8
-  %109 = call ptr @xstrcasestr(ptr noundef %108, ptr noundef nonnull @.str.67) #15
-  %.not77 = icmp eq ptr %109, null
-  br i1 %.not77, label %111, label %110
-
-110:                                              ; preds = %107
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.73, ptr noundef %.3, ptr noundef nonnull @.str.68) #15
-  br label %111
-
-111:                                              ; preds = %110, %107
-  %.4 = phi ptr [ @.str.3, %110 ], [ %.3, %107 ]
-  %112 = load ptr, ptr %5, align 8
-  %113 = call ptr @xstrcasestr(ptr noundef %112, ptr noundef nonnull @.str.69) #15
-  %.not78 = icmp eq ptr %113, null
-  br i1 %.not78, label %115, label %114
-
-114:                                              ; preds = %111
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.73, ptr noundef %.4, ptr noundef nonnull @.str.70) #15
-  br label %115
-
-115:                                              ; preds = %114, %111
-  %.5 = phi ptr [ @.str.3, %114 ], [ %.4, %111 ]
+  %.5 = phi ptr [ @.str.3, %102 ], [ %.4, %99 ]
   call void @slurm_xfree(ptr noundef nonnull %5) #15
-  br label %116
+  br label %104
 
-116:                                              ; preds = %44, %47, %115
-  %.058 = phi ptr [ @.str.49, %47 ], [ @.str.49, %44 ], [ %.5, %115 ]
-  %.055 = phi ptr [ @.str.49, %47 ], [ @.str.49, %44 ], [ %.156112, %115 ]
-  %117 = load i32, ptr @knl_system_type, align 4
-  switch i32 %117, label %122 [
-    i32 1, label %118
-    i32 2, label %121
+104:                                              ; preds = %44, %47, %103
+  %.058 = phi ptr [ @.str.49, %47 ], [ @.str.49, %44 ], [ %.5, %103 ]
+  %.055 = phi ptr [ @.str.49, %47 ], [ @.str.49, %44 ], [ %.156112, %103 ]
+  %105 = load i32, ptr @knl_system_type, align 4
+  switch i32 %105, label %110 [
+    i32 1, label %106
+    i32 2, label %109
   ]
 
-118:                                              ; preds = %116
+106:                                              ; preds = %104
   store ptr @.str.51, ptr %6, align 16
-  %119 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr @.str.52, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr @.str.53, ptr %120, align 16
-  br label %.sink.split
+  %107 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr @.str.52, ptr %107, align 8
+  %108 = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr @.str.53, ptr %108, align 16
+  br label %.sink.split126
 
-121:                                              ; preds = %116
+109:                                              ; preds = %104
   store ptr @.str.51, ptr %6, align 16
-  br label %.sink.split
+  br label %.sink.split126
 
-.sink.split:                                      ; preds = %118, %121
-  %.sink127.sroa.phi = phi ptr [ %.sink127.sroa.gep, %121 ], [ %.sink127.sroa.gep132, %118 ]
-  %.str.75.sink = phi ptr [ @.str.75, %121 ], [ @.str.74, %118 ]
-  %.sink126.sroa.phi = phi ptr [ %.sink126.sroa.gep, %121 ], [ %.sink126.sroa.gep131, %118 ]
-  store ptr %.str.75.sink, ptr %.sink127.sroa.phi, align 8
-  store ptr null, ptr %.sink126.sroa.phi, align 16
-  br label %122
+.sink.split126:                                   ; preds = %106, %109
+  %.sink128.sroa.phi = phi ptr [ %.sink128.sroa.gep, %109 ], [ %.sink128.sroa.gep133, %106 ]
+  %.str.75.sink = phi ptr [ @.str.75, %109 ], [ @.str.74, %106 ]
+  %.sink127.sroa.phi = phi ptr [ %.sink127.sroa.gep, %109 ], [ %.sink127.sroa.gep132, %106 ]
+  store ptr %.str.75.sink, ptr %.sink128.sroa.phi, align 8
+  store ptr null, ptr %.sink127.sroa.phi, align 16
+  br label %110
 
-122:                                              ; preds = %.sink.split, %116
-  %123 = load ptr, ptr @syscfg_path, align 8
-  %124 = call fastcc ptr @_run_script(ptr noundef %123, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  store ptr %124, ptr %5, align 8
-  %125 = load i32, ptr %7, align 4
-  %126 = and i32 %125, 65407
-  %or.cond100 = icmp eq i32 %126, 0
-  br i1 %or.cond100, label %129, label %127
+110:                                              ; preds = %.sink.split126, %104
+  %111 = load ptr, ptr @syscfg_path, align 8
+  %112 = call fastcc ptr @_run_script(ptr noundef %111, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  store ptr %112, ptr %5, align 8
+  %113 = load i32, ptr %7, align 4
+  %114 = and i32 %113, 65407
+  %or.cond100 = icmp eq i32 %114, 0
+  br i1 %or.cond100, label %117, label %115
 
-127:                                              ; preds = %122
-  %128 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.76, ptr noundef nonnull @__func__.node_features_p_node_state, i32 noundef %125, ptr noundef %124) #15
+115:                                              ; preds = %110
+  %116 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.76, ptr noundef nonnull @__func__.node_features_p_node_state, i32 noundef %113, ptr noundef %112) #15
   %.pre122 = load ptr, ptr %5, align 8
-  br label %129
+  br label %117
 
-129:                                              ; preds = %122, %127
-  %130 = phi ptr [ %124, %122 ], [ %.pre122, %127 ]
-  %131 = icmp eq ptr %130, null
-  br i1 %131, label %132, label %136
+117:                                              ; preds = %110, %115
+  %118 = phi ptr [ %112, %110 ], [ %.pre122, %115 ]
+  %119 = icmp eq ptr %118, null
+  br i1 %119, label %120, label %124
 
-132:                                              ; preds = %129
-  %133 = call i32 @get_log_level() #15
-  %134 = icmp sgt i32 %133, 2
-  br i1 %134, label %135, label %199
+120:                                              ; preds = %117
+  %121 = call i32 @get_log_level() #15
+  %122 = icmp sgt i32 %121, 2
+  br i1 %122, label %123, label %184
 
-135:                                              ; preds = %132
+123:                                              ; preds = %120
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.58, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.node_features_p_node_state, ptr noundef nonnull @__func__.node_features_p_node_state) #15
-  br label %199
+  br label %184
 
-136:                                              ; preds = %129
-  call fastcc void @_log_script_argv(ptr noundef nonnull %6, ptr noundef nonnull %130)
-  %137 = load i32, ptr @knl_system_type, align 4
-  switch i32 %137, label %.thread119 [
-    i32 1, label %138
-    i32 2, label %141
+124:                                              ; preds = %117
+  call fastcc void @_log_script_argv(ptr noundef nonnull %6, ptr noundef nonnull %118)
+  %125 = load i32, ptr @knl_system_type, align 4
+  switch i32 %125, label %.thread119 [
+    i32 1, label %127
+    i32 2, label %126
   ]
 
-138:                                              ; preds = %136
-  %139 = load ptr, ptr %5, align 8
-  %140 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %139, ptr noundef nonnull dereferenceable(1) @.str.59) #17
-  br label %144
+126:                                              ; preds = %124
+  br label %127
 
-141:                                              ; preds = %136
-  %142 = load ptr, ptr %5, align 8
-  %143 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %142, ptr noundef nonnull dereferenceable(1) @.str.77) #17
-  br label %144
+127:                                              ; preds = %124, %126
+  %.str.77.sink = phi ptr [ @.str.77, %126 ], [ @.str.59, %124 ]
+  %.2 = phi i64 [ 15, %126 ], [ 16, %124 ]
+  %128 = load ptr, ptr %5, align 8
+  %129 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %128, ptr noundef nonnull dereferenceable(1) %.str.77.sink) #17
+  %.not80 = icmp eq ptr %129, null
+  br i1 %.not80, label %143, label %130
 
-144:                                              ; preds = %141, %138
-  %.154 = phi ptr [ %143, %141 ], [ %140, %138 ]
-  %.2 = phi i64 [ 15, %141 ], [ 16, %138 ]
-  %.not80 = icmp eq ptr %.154, null
-  br i1 %.not80, label %158, label %145
+130:                                              ; preds = %127
+  %131 = getelementptr inbounds i8, ptr %129, i64 %.2
+  %132 = call i32 @xstrncasecmp(ptr noundef nonnull %131, ptr noundef nonnull @.str.78, i64 noundef 3) #15
+  %.not81 = icmp eq i32 %132, 0
+  br i1 %.not81, label %.sink.split129, label %133
 
-145:                                              ; preds = %144
-  %146 = getelementptr inbounds i8, ptr %.154, i64 %.2
-  %147 = call i32 @xstrncasecmp(ptr noundef nonnull %146, ptr noundef nonnull @.str.78, i64 noundef 3) #15
-  %.not81 = icmp eq i32 %147, 0
-  br i1 %.not81, label %.sink.split128, label %148
+133:                                              ; preds = %130
+  %134 = call i32 @xstrncasecmp(ptr noundef nonnull %131, ptr noundef nonnull @.str.80, i64 noundef 3) #15
+  %.not82 = icmp eq i32 %134, 0
+  br i1 %.not82, label %.sink.split129, label %135
 
-148:                                              ; preds = %145
-  %149 = call i32 @xstrncasecmp(ptr noundef nonnull %146, ptr noundef nonnull @.str.80, i64 noundef 3) #15
-  %.not82 = icmp eq i32 %149, 0
-  br i1 %.not82, label %.sink.split128, label %150
+135:                                              ; preds = %133
+  %136 = call i32 @xstrncasecmp(ptr noundef nonnull %131, ptr noundef nonnull @.str.81, i64 noundef 3) #15
+  %.not83 = icmp eq i32 %136, 0
+  br i1 %.not83, label %.sink.split129, label %137
 
-150:                                              ; preds = %148
-  %151 = call i32 @xstrncasecmp(ptr noundef nonnull %146, ptr noundef nonnull @.str.81, i64 noundef 3) #15
-  %.not83 = icmp eq i32 %151, 0
-  br i1 %.not83, label %.sink.split128, label %152
+137:                                              ; preds = %135
+  %138 = call i32 @xstrncasecmp(ptr noundef nonnull %131, ptr noundef nonnull @.str.83, i64 noundef 3) #15
+  %.not84 = icmp eq i32 %138, 0
+  br i1 %.not84, label %.sink.split129, label %139
 
-152:                                              ; preds = %150
-  %153 = call i32 @xstrncasecmp(ptr noundef nonnull %146, ptr noundef nonnull @.str.83, i64 noundef 3) #15
-  %.not84 = icmp eq i32 %153, 0
-  br i1 %.not84, label %.sink.split128, label %154
+139:                                              ; preds = %137
+  %140 = call i32 @xstrncasecmp(ptr noundef nonnull %131, ptr noundef nonnull @.str.85, i64 noundef 3) #15
+  %.not85 = icmp eq i32 %140, 0
+  br i1 %.not85, label %.sink.split129, label %141
 
-154:                                              ; preds = %152
-  %155 = call i32 @xstrncasecmp(ptr noundef nonnull %146, ptr noundef nonnull @.str.85, i64 noundef 3) #15
-  %.not85 = icmp eq i32 %155, 0
-  br i1 %.not85, label %.sink.split128, label %156
+141:                                              ; preds = %139
+  %142 = call i32 @xstrncasecmp(ptr noundef nonnull %131, ptr noundef nonnull @.str.87, i64 noundef 3) #15
+  %.not86 = icmp eq i32 %142, 0
+  br i1 %.not86, label %.sink.split129, label %143
 
-156:                                              ; preds = %154
-  %157 = call i32 @xstrncasecmp(ptr noundef nonnull %146, ptr noundef nonnull @.str.87, i64 noundef 3) #15
-  %.not86 = icmp eq i32 %157, 0
-  br i1 %.not86, label %.sink.split128, label %158
-
-.sink.split128:                                   ; preds = %156, %154, %152, %148, %150, %145
-  %.str.79.sink = phi ptr [ @.str.79, %145 ], [ @.str.82, %150 ], [ @.str.82, %148 ], [ @.str.84, %152 ], [ @.str.86, %154 ], [ @.str.88, %156 ]
+.sink.split129:                                   ; preds = %141, %139, %137, %133, %135, %130
+  %.str.79.sink = phi ptr [ @.str.79, %130 ], [ @.str.82, %135 ], [ @.str.82, %133 ], [ @.str.84, %137 ], [ @.str.86, %139 ], [ @.str.88, %141 ]
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.73, ptr noundef nonnull %.055, ptr noundef nonnull %.str.79.sink) #15
-  br label %158
+  br label %143
 
-158:                                              ; preds = %.sink.split128, %156, %144
+143:                                              ; preds = %.sink.split129, %141, %127
   %.pr118 = load i32, ptr @knl_system_type, align 4
   %cond1 = icmp eq i32 %.pr118, 2
-  br i1 %cond1, label %159, label %.thread119
+  br i1 %cond1, label %144, label %.thread119
 
-159:                                              ; preds = %158
+144:                                              ; preds = %143
   store ptr @.str.51, ptr %6, align 16
-  %160 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr @.str.71, ptr %160, align 8
-  %161 = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr @.str.75, ptr %161, align 16
-  %162 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr null, ptr %162, align 8
+  %145 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr @.str.71, ptr %145, align 8
+  %146 = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr @.str.75, ptr %146, align 16
+  %147 = getelementptr inbounds i8, ptr %6, i64 24
+  store ptr null, ptr %147, align 8
   call void @slurm_xfree(ptr noundef nonnull %5) #15
-  %163 = load ptr, ptr @syscfg_path, align 8
-  %164 = call fastcc ptr @_run_script(ptr noundef %163, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  store ptr %164, ptr %5, align 8
-  %165 = load i32, ptr %7, align 4
-  %166 = and i32 %165, 65407
-  %or.cond101 = icmp eq i32 %166, 0
-  br i1 %or.cond101, label %169, label %167
+  %148 = load ptr, ptr @syscfg_path, align 8
+  %149 = call fastcc ptr @_run_script(ptr noundef %148, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  store ptr %149, ptr %5, align 8
+  %150 = load i32, ptr %7, align 4
+  %151 = and i32 %150, 65407
+  %or.cond101 = icmp eq i32 %151, 0
+  br i1 %or.cond101, label %154, label %152
 
-167:                                              ; preds = %159
-  %168 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.89, ptr noundef nonnull @__func__.node_features_p_node_state, i32 noundef %165, ptr noundef %164) #15
+152:                                              ; preds = %144
+  %153 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.89, ptr noundef nonnull @__func__.node_features_p_node_state, i32 noundef %150, ptr noundef %149) #15
   %.pre123 = load ptr, ptr %5, align 8
-  br label %169
+  br label %154
 
-169:                                              ; preds = %159, %167
-  %170 = phi ptr [ %164, %159 ], [ %.pre123, %167 ]
-  %171 = icmp eq ptr %170, null
-  br i1 %171, label %172, label %.thread119
+154:                                              ; preds = %144, %152
+  %155 = phi ptr [ %149, %144 ], [ %.pre123, %152 ]
+  %156 = icmp eq ptr %155, null
+  br i1 %156, label %157, label %.thread119
 
-172:                                              ; preds = %169
-  %173 = call i32 @get_log_level() #15
-  %174 = icmp sgt i32 %173, 2
-  br i1 %174, label %175, label %.thread119
+157:                                              ; preds = %154
+  %158 = call i32 @get_log_level() #15
+  %159 = icmp sgt i32 %158, 2
+  br i1 %159, label %160, label %.thread119
 
-175:                                              ; preds = %172
+160:                                              ; preds = %157
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.90, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.node_features_p_node_state, ptr noundef nonnull @__func__.node_features_p_node_state) #15
   br label %.thread119
 
-.thread119:                                       ; preds = %136, %158, %169, %175, %172
-  %176 = load ptr, ptr %5, align 8
-  %177 = call ptr @xstrcasestr(ptr noundef %176, ptr noundef nonnull @.str.78) #15
-  %.not88 = icmp eq ptr %177, null
-  br i1 %.not88, label %179, label %178
+.thread119:                                       ; preds = %124, %143, %154, %160, %157
+  %161 = load ptr, ptr %5, align 8
+  %162 = call ptr @xstrcasestr(ptr noundef %161, ptr noundef nonnull @.str.78) #15
+  %.not88 = icmp eq ptr %162, null
+  br i1 %.not88, label %164, label %163
 
-178:                                              ; preds = %.thread119
+163:                                              ; preds = %.thread119
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.73, ptr noundef %.058, ptr noundef nonnull @.str.79) #15
+  br label %164
+
+164:                                              ; preds = %163, %.thread119
+  %.6 = phi ptr [ @.str.3, %163 ], [ %.058, %.thread119 ]
+  %165 = load ptr, ptr %5, align 8
+  %166 = call ptr @xstrcasestr(ptr noundef %165, ptr noundef nonnull @.str.80) #15
+  %.not89 = icmp eq ptr %166, null
+  br i1 %.not89, label %167, label %170
+
+167:                                              ; preds = %164
+  %168 = load ptr, ptr %5, align 8
+  %169 = call ptr @xstrcasestr(ptr noundef %168, ptr noundef nonnull @.str.81) #15
+  %.not90 = icmp eq ptr %169, null
+  br i1 %.not90, label %171, label %170
+
+170:                                              ; preds = %167, %164
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.73, ptr noundef %.6, ptr noundef nonnull @.str.82) #15
+  br label %171
+
+171:                                              ; preds = %170, %167
+  %.7 = phi ptr [ @.str.3, %170 ], [ %.6, %167 ]
+  %172 = load ptr, ptr %5, align 8
+  %173 = call ptr @xstrcasestr(ptr noundef %172, ptr noundef nonnull @.str.83) #15
+  %.not91 = icmp eq ptr %173, null
+  br i1 %.not91, label %175, label %174
+
+174:                                              ; preds = %171
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.73, ptr noundef %.7, ptr noundef nonnull @.str.84) #15
+  br label %175
+
+175:                                              ; preds = %174, %171
+  %.8 = phi ptr [ @.str.3, %174 ], [ %.7, %171 ]
+  %176 = load ptr, ptr %5, align 8
+  %177 = call ptr @xstrcasestr(ptr noundef %176, ptr noundef nonnull @.str.85) #15
+  %.not92 = icmp eq ptr %177, null
+  br i1 %.not92, label %179, label %178
+
+178:                                              ; preds = %175
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.73, ptr noundef %.8, ptr noundef nonnull @.str.86) #15
   br label %179
 
-179:                                              ; preds = %178, %.thread119
-  %.6 = phi ptr [ @.str.3, %178 ], [ %.058, %.thread119 ]
+179:                                              ; preds = %178, %175
+  %.9 = phi ptr [ @.str.3, %178 ], [ %.8, %175 ]
   %180 = load ptr, ptr %5, align 8
-  %181 = call ptr @xstrcasestr(ptr noundef %180, ptr noundef nonnull @.str.80) #15
-  %.not89 = icmp eq ptr %181, null
-  br i1 %.not89, label %182, label %185
+  %181 = call ptr @xstrcasestr(ptr noundef %180, ptr noundef nonnull @.str.87) #15
+  %.not93 = icmp eq ptr %181, null
+  br i1 %.not93, label %183, label %182
 
 182:                                              ; preds = %179
-  %183 = load ptr, ptr %5, align 8
-  %184 = call ptr @xstrcasestr(ptr noundef %183, ptr noundef nonnull @.str.81) #15
-  %.not90 = icmp eq ptr %184, null
-  br i1 %.not90, label %186, label %185
-
-185:                                              ; preds = %182, %179
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.73, ptr noundef %.6, ptr noundef nonnull @.str.82) #15
-  br label %186
-
-186:                                              ; preds = %185, %182
-  %.7 = phi ptr [ @.str.3, %185 ], [ %.6, %182 ]
-  %187 = load ptr, ptr %5, align 8
-  %188 = call ptr @xstrcasestr(ptr noundef %187, ptr noundef nonnull @.str.83) #15
-  %.not91 = icmp eq ptr %188, null
-  br i1 %.not91, label %190, label %189
-
-189:                                              ; preds = %186
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.73, ptr noundef %.7, ptr noundef nonnull @.str.84) #15
-  br label %190
-
-190:                                              ; preds = %189, %186
-  %.8 = phi ptr [ @.str.3, %189 ], [ %.7, %186 ]
-  %191 = load ptr, ptr %5, align 8
-  %192 = call ptr @xstrcasestr(ptr noundef %191, ptr noundef nonnull @.str.85) #15
-  %.not92 = icmp eq ptr %192, null
-  br i1 %.not92, label %194, label %193
-
-193:                                              ; preds = %190
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.73, ptr noundef %.8, ptr noundef nonnull @.str.86) #15
-  br label %194
-
-194:                                              ; preds = %193, %190
-  %.9 = phi ptr [ @.str.3, %193 ], [ %.8, %190 ]
-  %195 = load ptr, ptr %5, align 8
-  %196 = call ptr @xstrcasestr(ptr noundef %195, ptr noundef nonnull @.str.87) #15
-  %.not93 = icmp eq ptr %196, null
-  br i1 %.not93, label %198, label %197
-
-197:                                              ; preds = %194
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.73, ptr noundef %.9, ptr noundef nonnull @.str.88) #15
+  br label %183
+
+183:                                              ; preds = %182, %179
+  call void @slurm_xfree(ptr noundef nonnull %5) #15
+  br label %184
+
+184:                                              ; preds = %120, %123, %183
+  %185 = load ptr, ptr %0, align 8
+  %.not94 = icmp eq ptr %185, null
+  br i1 %.not94, label %189, label %186
+
+186:                                              ; preds = %184
+  %187 = load i8, ptr %185, align 1
+  %.not95 = icmp eq i8 %187, 0
+  %.str.49..str.3 = select i1 %.not95, ptr @.str.49, ptr @.str.3
+  %188 = load ptr, ptr %3, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %0, ptr noundef nonnull @.str.73, ptr noundef nonnull %.str.49..str.3, ptr noundef %188) #15
+  call void @slurm_xfree(ptr noundef nonnull %3) #15
+  br label %191
+
+189:                                              ; preds = %184
+  %190 = load ptr, ptr %3, align 8
+  store ptr %190, ptr %0, align 8
+  br label %191
+
+191:                                              ; preds = %189, %186
+  %192 = load ptr, ptr %1, align 8
+  %.not96 = icmp eq ptr %192, null
+  br i1 %.not96, label %196, label %193
+
+193:                                              ; preds = %191
+  %194 = load i8, ptr %192, align 1
+  %.not97 = icmp eq i8 %194, 0
+  %.str.49..str.3102 = select i1 %.not97, ptr @.str.49, ptr @.str.3
+  %195 = load ptr, ptr %4, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %1, ptr noundef nonnull @.str.73, ptr noundef nonnull %.str.49..str.3102, ptr noundef %195) #15
+  call void @slurm_xfree(ptr noundef nonnull %4) #15
   br label %198
 
-198:                                              ; preds = %197, %194
-  call void @slurm_xfree(ptr noundef nonnull %5) #15
-  br label %199
+196:                                              ; preds = %191
+  %197 = load ptr, ptr %4, align 8
+  store ptr %197, ptr %1, align 8
+  br label %198
 
-199:                                              ; preds = %132, %135, %198
-  %200 = load ptr, ptr %0, align 8
-  %.not94 = icmp eq ptr %200, null
-  br i1 %.not94, label %204, label %201
-
-201:                                              ; preds = %199
-  %202 = load i8, ptr %200, align 1
-  %.not95 = icmp eq i8 %202, 0
-  %.str.49..str.3 = select i1 %.not95, ptr @.str.49, ptr @.str.3
-  %203 = load ptr, ptr %3, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %0, ptr noundef nonnull @.str.73, ptr noundef nonnull %.str.49..str.3, ptr noundef %203) #15
-  call void @slurm_xfree(ptr noundef nonnull %3) #15
-  br label %206
-
-204:                                              ; preds = %199
-  %205 = load ptr, ptr %3, align 8
-  store ptr %205, ptr %0, align 8
-  br label %206
-
-206:                                              ; preds = %204, %201
-  %207 = load ptr, ptr %1, align 8
-  %.not96 = icmp eq ptr %207, null
-  br i1 %.not96, label %211, label %208
-
-208:                                              ; preds = %206
-  %209 = load i8, ptr %207, align 1
-  %.not97 = icmp eq i8 %209, 0
-  %.str.49..str.3102 = select i1 %.not97, ptr @.str.49, ptr @.str.3
-  %210 = load ptr, ptr %4, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %1, ptr noundef nonnull @.str.73, ptr noundef nonnull %.str.49..str.3102, ptr noundef %210) #15
-  call void @slurm_xfree(ptr noundef nonnull %4) #15
-  br label %213
-
-211:                                              ; preds = %206
-  %212 = load ptr, ptr %4, align 8
-  store ptr %212, ptr %1, align 8
-  br label %213
-
-213:                                              ; preds = %2, %211, %208, %33, %26
+198:                                              ; preds = %2, %196, %193, %33, %26
   ret void
 }
 
@@ -2755,27 +2726,27 @@ define range(i32 -1, 1) i32 @node_features_p_node_set(ptr noundef %0) local_unna
   store ptr null, ptr %7, align 8
   %8 = icmp eq ptr %0, null
   %.sink53.sroa.gep = getelementptr inbounds i8, ptr %3, i64 16
-  %.sink53.sroa.gep69 = getelementptr inbounds i8, ptr %3, i64 32
+  %.sink53.sroa.gep73 = getelementptr inbounds i8, ptr %3, i64 32
   %.sink54.sroa.gep = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink54.sroa.gep70 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink55.sroa.gep = getelementptr inbounds i8, ptr %3, i64 16
-  %.sink55.sroa.gep71 = getelementptr inbounds i8, ptr %3, i64 48
-  %.sink57.sroa.gep = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink57.sroa.gep72 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink60.sroa.gep = getelementptr inbounds i8, ptr %3, i64 16
-  %.sink60.sroa.gep73 = getelementptr inbounds i8, ptr %3, i64 32
-  %.sink62.sroa.gep = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink62.sroa.gep74 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink65.sroa.gep = getelementptr inbounds i8, ptr %3, i64 16
-  %.sink65.sroa.gep75 = getelementptr inbounds i8, ptr %3, i64 48
-  %.sink68.sroa.gep = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink68.sroa.gep76 = getelementptr inbounds i8, ptr %3, i64 40
-  br i1 %8, label %145, label %9
+  %.sink54.sroa.gep74 = getelementptr inbounds i8, ptr %3, i64 24
+  %.sink56.sroa.gep = getelementptr inbounds i8, ptr %3, i64 16
+  %.sink56.sroa.gep75 = getelementptr inbounds i8, ptr %3, i64 48
+  %.sink59.sroa.gep = getelementptr inbounds i8, ptr %3, i64 8
+  %.sink59.sroa.gep76 = getelementptr inbounds i8, ptr %3, i64 40
+  %.sink62.sroa.gep = getelementptr inbounds i8, ptr %3, i64 16
+  %.sink62.sroa.gep77 = getelementptr inbounds i8, ptr %3, i64 32
+  %.sink64.sroa.gep = getelementptr inbounds i8, ptr %3, i64 8
+  %.sink64.sroa.gep78 = getelementptr inbounds i8, ptr %3, i64 24
+  %.sink69.sroa.gep = getelementptr inbounds i8, ptr %3, i64 16
+  %.sink69.sroa.gep79 = getelementptr inbounds i8, ptr %3, i64 48
+  %.sink72.sroa.gep = getelementptr inbounds i8, ptr %3, i64 8
+  %.sink72.sroa.gep80 = getelementptr inbounds i8, ptr %3, i64 40
+  br i1 %8, label %144, label %9
 
 9:                                                ; preds = %1
   %10 = load i8, ptr %0, align 1
   %11 = icmp eq i8 %10, 0
-  br i1 %11, label %145, label %12
+  br i1 %11, label %144, label %12
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr @syscfg_path, align 8
@@ -2784,7 +2755,7 @@ define range(i32 -1, 1) i32 @node_features_p_node_set(ptr noundef %0) local_unna
 
 14:                                               ; preds = %12
   %15 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.94, ptr noundef nonnull @__func__.node_features_p_node_set) #15
-  br label %145
+  br label %144
 
 16:                                               ; preds = %12
   %17 = load i32, ptr @syscfg_found, align 4
@@ -2801,12 +2772,12 @@ define range(i32 -1, 1) i32 @node_features_p_node_set(ptr noundef %0) local_unna
 
 24:                                               ; preds = %19, %16
   %.b = load i1, ptr @node_features_p_node_set.log_event, align 1
-  br i1 %.b, label %145, label %25
+  br i1 %.b, label %144, label %25
 
 25:                                               ; preds = %24
   %26 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.95, ptr noundef nonnull @__func__.node_features_p_node_set) #15
   store i1 true, ptr @node_features_p_node_set.log_event, align 1
-  br label %145
+  br label %144
 
 27:                                               ; preds = %19
   %28 = load i32, ptr @knl_system_type, align 4
@@ -2829,12 +2800,12 @@ define range(i32 -1, 1) i32 @node_features_p_node_set(ptr noundef %0) local_unna
 
 33:                                               ; preds = %27
   %34 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.56, ptr noundef nonnull @__func__.node_features_p_node_set, i32 noundef %28) #15
-  br label %145
+  br label %144
 
 35:                                               ; preds = %32, %29
-  %.sink54.sroa.phi = phi ptr [ %.sink54.sroa.gep, %32 ], [ %.sink54.sroa.gep70, %29 ]
+  %.sink54.sroa.phi = phi ptr [ %.sink54.sroa.gep, %32 ], [ %.sink54.sroa.gep74, %29 ]
   %.str.55.sink = phi ptr [ @.str.55, %32 ], [ @.str.54, %29 ]
-  %.sink53.sroa.phi = phi ptr [ %.sink53.sroa.gep, %32 ], [ %.sink53.sroa.gep69, %29 ]
+  %.sink53.sroa.phi = phi ptr [ %.sink53.sroa.gep, %32 ], [ %.sink53.sroa.gep73, %29 ]
   store ptr %.str.55.sink, ptr %.sink54.sroa.phi, align 8
   store ptr null, ptr %.sink53.sroa.phi, align 16
   %36 = call fastcc ptr @_run_script(ptr noundef nonnull %13, ptr noundef nonnull %3, ptr noundef nonnull %5)
@@ -2913,254 +2884,257 @@ define range(i32 -1, 1) i32 @node_features_p_node_set(ptr noundef %0) local_unna
   br label %65
 
 65:                                               ; preds = %60, %63
-  %66 = phi ptr [ %64, %63 ], [ %62, %60 ]
-  store ptr %66, ptr %7, align 8
+  %.sink = phi ptr [ %62, %60 ], [ %64, %63 ]
+  store ptr %.sink, ptr %7, align 8
   call void @slurm_xfree(ptr noundef nonnull %2) #15
-  %.not33 = icmp eq ptr %66, null
-  br i1 %.not33, label %.thread, label %67
+  %.not33 = icmp eq ptr %.sink, null
+  br i1 %.not33, label %.thread, label %66
 
-67:                                               ; preds = %65
-  %68 = load i32, ptr @knl_system_type, align 4
-  switch i32 %68, label %76 [
-    i32 1, label %69
-    i32 2, label %74
+66:                                               ; preds = %65
+  %67 = load i32, ptr @knl_system_type, align 4
+  switch i32 %67, label %75 [
+    i32 1, label %68
+    i32 2, label %73
   ]
 
-69:                                               ; preds = %67
+68:                                               ; preds = %66
   store ptr @.str.51, ptr %3, align 16
-  %70 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @.str.96, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr @.str.49, ptr %71, align 16
-  %72 = getelementptr inbounds i8, ptr %3, i64 24
-  store ptr @.str.53, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr @.str.54, ptr %73, align 16
+  %69 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @.str.96, ptr %69, align 8
+  %70 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr @.str.49, ptr %70, align 16
+  %71 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr @.str.53, ptr %71, align 8
+  %72 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr @.str.54, ptr %72, align 16
   br label %.sink.split
 
-74:                                               ; preds = %67
-  %75 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 100, ptr noundef nonnull @.str.97, ptr noundef nonnull %66) #15
+73:                                               ; preds = %66
+  %74 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 100, ptr noundef nonnull @.str.97, ptr noundef nonnull %.sink) #15
   store ptr @.str.51, ptr %3, align 16
   br label %.sink.split
 
-.sink.split:                                      ; preds = %69, %74
-  %.sink57.sroa.phi = phi ptr [ %.sink57.sroa.gep, %74 ], [ %.sink57.sroa.gep72, %69 ]
-  %.sink = phi ptr [ %4, %74 ], [ %66, %69 ]
-  %.sink55.sroa.phi = phi ptr [ %.sink55.sroa.gep, %74 ], [ %.sink55.sroa.gep71, %69 ]
-  store ptr %.sink, ptr %.sink57.sroa.phi, align 8
-  store ptr null, ptr %.sink55.sroa.phi, align 16
-  br label %76
+.sink.split:                                      ; preds = %68, %73
+  %.sink59.sroa.phi = phi ptr [ %.sink59.sroa.gep, %73 ], [ %.sink59.sroa.gep76, %68 ]
+  %.sink57 = phi ptr [ %4, %73 ], [ %.sink, %68 ]
+  %.sink56.sroa.phi = phi ptr [ %.sink56.sroa.gep, %73 ], [ %.sink56.sroa.gep75, %68 ]
+  store ptr %.sink57, ptr %.sink59.sroa.phi, align 8
+  store ptr null, ptr %.sink56.sroa.phi, align 16
+  br label %75
 
-76:                                               ; preds = %.sink.split, %67
-  %77 = load ptr, ptr @syscfg_path, align 8
-  %78 = call fastcc ptr @_run_script(ptr noundef %77, ptr noundef nonnull %3, ptr noundef nonnull %5)
-  store ptr %78, ptr %2, align 8
-  %79 = load i32, ptr %5, align 4
-  %80 = and i32 %79, 65407
-  %or.cond44 = icmp eq i32 %80, 0
-  br i1 %or.cond44, label %83, label %81
+75:                                               ; preds = %.sink.split, %66
+  %76 = load ptr, ptr @syscfg_path, align 8
+  %77 = call fastcc ptr @_run_script(ptr noundef %76, ptr noundef nonnull %3, ptr noundef nonnull %5)
+  store ptr %77, ptr %2, align 8
+  %78 = load i32, ptr %5, align 4
+  %79 = and i32 %78, 65407
+  %or.cond44 = icmp eq i32 %79, 0
+  br i1 %or.cond44, label %82, label %80
 
-81:                                               ; preds = %76
-  %82 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.98, ptr noundef nonnull @__func__.node_features_p_node_set, i32 noundef %79, ptr noundef %78) #15
-  br label %84
+80:                                               ; preds = %75
+  %81 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.98, ptr noundef nonnull @__func__.node_features_p_node_set, i32 noundef %78, ptr noundef %77) #15
+  br label %83
 
-83:                                               ; preds = %76
-  call fastcc void @_log_script_argv(ptr noundef nonnull %3, ptr noundef %78)
-  br label %84
+82:                                               ; preds = %75
+  call fastcc void @_log_script_argv(ptr noundef nonnull %3, ptr noundef %77)
+  br label %83
 
-84:                                               ; preds = %83, %81
-  %.2 = phi i32 [ -1, %81 ], [ %.0, %83 ]
+83:                                               ; preds = %82, %80
+  %.2 = phi i32 [ -1, %80 ], [ %.0, %82 ]
   call void @slurm_xfree(ptr noundef nonnull %2) #15
   call void @slurm_xfree(ptr noundef nonnull %7) #15
   br label %.thread
 
-.thread:                                          ; preds = %47, %44, %.thread51, %84, %65
-  %.1 = phi i32 [ %.2, %84 ], [ %.0, %65 ], [ %.0, %.thread51 ], [ %.0, %44 ], [ %.0, %47 ]
-  %85 = load i32, ptr @knl_system_type, align 4
-  switch i32 %85, label %90 [
-    i32 1, label %86
-    i32 2, label %89
+.thread:                                          ; preds = %47, %44, %.thread51, %83, %65
+  %.1 = phi i32 [ %.2, %83 ], [ %.0, %65 ], [ %.0, %.thread51 ], [ %.0, %44 ], [ %.0, %47 ]
+  %84 = load i32, ptr @knl_system_type, align 4
+  switch i32 %84, label %89 [
+    i32 1, label %85
+    i32 2, label %88
   ]
 
-86:                                               ; preds = %.thread
+85:                                               ; preds = %.thread
   store ptr @.str.51, ptr %3, align 16
-  %87 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @.str.52, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr @.str.53, ptr %88, align 16
-  br label %.sink.split58
+  %86 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @.str.52, ptr %86, align 8
+  %87 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr @.str.53, ptr %87, align 16
+  br label %.sink.split60
 
-89:                                               ; preds = %.thread
+88:                                               ; preds = %.thread
   store ptr @.str.51, ptr %3, align 16
-  br label %.sink.split58
+  br label %.sink.split60
 
-.sink.split58:                                    ; preds = %86, %89
-  %.sink62.sroa.phi = phi ptr [ %.sink62.sroa.gep, %89 ], [ %.sink62.sroa.gep74, %86 ]
-  %.str.75.sink = phi ptr [ @.str.75, %89 ], [ @.str.74, %86 ]
-  %.sink60.sroa.phi = phi ptr [ %.sink60.sroa.gep, %89 ], [ %.sink60.sroa.gep73, %86 ]
-  store ptr %.str.75.sink, ptr %.sink62.sroa.phi, align 8
-  store ptr null, ptr %.sink60.sroa.phi, align 16
-  br label %90
+.sink.split60:                                    ; preds = %85, %88
+  %.sink64.sroa.phi = phi ptr [ %.sink64.sroa.gep, %88 ], [ %.sink64.sroa.gep78, %85 ]
+  %.str.75.sink = phi ptr [ @.str.75, %88 ], [ @.str.74, %85 ]
+  %.sink62.sroa.phi = phi ptr [ %.sink62.sroa.gep, %88 ], [ %.sink62.sroa.gep77, %85 ]
+  store ptr %.str.75.sink, ptr %.sink64.sroa.phi, align 8
+  store ptr null, ptr %.sink62.sroa.phi, align 16
+  br label %89
 
-90:                                               ; preds = %.sink.split58, %.thread
-  %91 = load ptr, ptr @syscfg_path, align 8
-  %92 = call fastcc ptr @_run_script(ptr noundef %91, ptr noundef nonnull %3, ptr noundef nonnull %5)
-  store ptr %92, ptr %2, align 8
-  %93 = load i32, ptr %5, align 4
-  %94 = and i32 %93, 65407
-  %or.cond45 = icmp eq i32 %94, 0
-  br i1 %or.cond45, label %97, label %95
+89:                                               ; preds = %.sink.split60, %.thread
+  %90 = load ptr, ptr @syscfg_path, align 8
+  %91 = call fastcc ptr @_run_script(ptr noundef %90, ptr noundef nonnull %3, ptr noundef nonnull %5)
+  store ptr %91, ptr %2, align 8
+  %92 = load i32, ptr %5, align 4
+  %93 = and i32 %92, 65407
+  %or.cond45 = icmp eq i32 %93, 0
+  br i1 %or.cond45, label %96, label %94
 
-95:                                               ; preds = %90
-  %96 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.76, ptr noundef nonnull @__func__.node_features_p_node_set, i32 noundef %93, ptr noundef %92) #15
+94:                                               ; preds = %89
+  %95 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.76, ptr noundef nonnull @__func__.node_features_p_node_set, i32 noundef %92, ptr noundef %91) #15
   %.pre49 = load ptr, ptr %2, align 8
-  br label %97
+  br label %96
 
-97:                                               ; preds = %90, %95
-  %98 = phi ptr [ %.pre49, %95 ], [ %92, %90 ]
-  %.3 = phi i32 [ -1, %95 ], [ %.1, %90 ]
-  %99 = icmp eq ptr %98, null
-  br i1 %99, label %100, label %104
+96:                                               ; preds = %89, %94
+  %97 = phi ptr [ %.pre49, %94 ], [ %91, %89 ]
+  %.3 = phi i32 [ -1, %94 ], [ %.1, %89 ]
+  %98 = icmp eq ptr %97, null
+  br i1 %98, label %99, label %103
 
-100:                                              ; preds = %97
-  %101 = call i32 @get_log_level() #15
-  %102 = icmp sgt i32 %101, 2
-  br i1 %102, label %103, label %124
+99:                                               ; preds = %96
+  %100 = call i32 @get_log_level() #15
+  %101 = icmp sgt i32 %100, 2
+  br i1 %101, label %102, label %123
 
-103:                                              ; preds = %100
+102:                                              ; preds = %99
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.58, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.node_features_p_node_set, ptr noundef nonnull @__func__.node_features_p_node_set) #15
-  br label %124
+  br label %123
 
-104:                                              ; preds = %97
-  call fastcc void @_log_script_argv(ptr noundef nonnull %3, ptr noundef nonnull %98)
-  %105 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) @.str.79) #17
-  %.not36 = icmp eq ptr %105, null
-  br i1 %.not36, label %106, label %thread-pre-split
+103:                                              ; preds = %96
+  call fastcc void @_log_script_argv(ptr noundef nonnull %3, ptr noundef nonnull %97)
+  %104 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) @.str.79) #17
+  %.not36 = icmp eq ptr %104, null
+  br i1 %.not36, label %105, label %thread-pre-split
 
-106:                                              ; preds = %104
-  %107 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) @.str.82) #17
-  %.not37 = icmp eq ptr %107, null
-  br i1 %.not37, label %110, label %108
+105:                                              ; preds = %103
+  %106 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) @.str.82) #17
+  %.not37 = icmp eq ptr %106, null
+  br i1 %.not37, label %109, label %107
 
-108:                                              ; preds = %106
-  %109 = load i32, ptr @knl_system_type, align 4
-  %switch.selectcmp = icmp eq i32 %109, 2
+107:                                              ; preds = %105
+  %108 = load i32, ptr @knl_system_type, align 4
+  %switch.selectcmp = icmp eq i32 %108, 2
   %switch.select = select i1 %switch.selectcmp, ptr @.str.81, ptr null
-  %switch.selectcmp46 = icmp eq i32 %109, 1
+  %switch.selectcmp46 = icmp eq i32 %108, 1
   %switch.select47 = select i1 %switch.selectcmp46, ptr @.str.80, ptr %switch.select
-  br label %116
+  br label %115
 
-110:                                              ; preds = %106
-  %111 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) @.str.84) #17
-  %.not38 = icmp eq ptr %111, null
-  br i1 %.not38, label %112, label %thread-pre-split
+109:                                              ; preds = %105
+  %110 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) @.str.84) #17
+  %.not38 = icmp eq ptr %110, null
+  br i1 %.not38, label %111, label %thread-pre-split
 
-112:                                              ; preds = %110
-  %113 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) @.str.86) #17
-  %.not39 = icmp eq ptr %113, null
-  br i1 %.not39, label %114, label %thread-pre-split
+111:                                              ; preds = %109
+  %112 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) @.str.86) #17
+  %.not39 = icmp eq ptr %112, null
+  br i1 %.not39, label %113, label %thread-pre-split
 
-114:                                              ; preds = %112
-  %115 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) @.str.88) #17
-  %.not40 = icmp eq ptr %115, null
+113:                                              ; preds = %111
+  %114 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) @.str.88) #17
+  %.not40 = icmp eq ptr %114, null
   %..str.87 = select i1 %.not40, ptr null, ptr @.str.87
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %104, %110, %112, %114
-  %.120.ph = phi ptr [ %..str.87, %114 ], [ @.str.85, %112 ], [ @.str.83, %110 ], [ @.str.78, %104 ]
+thread-pre-split:                                 ; preds = %103, %109, %111, %113
+  %.120.ph = phi ptr [ %..str.87, %113 ], [ @.str.85, %111 ], [ @.str.83, %109 ], [ @.str.78, %103 ]
   %.pr = load i32, ptr @knl_system_type, align 4
-  br label %116
+  br label %115
 
-116:                                              ; preds = %thread-pre-split, %108
-  %117 = phi i32 [ %.pr, %thread-pre-split ], [ %109, %108 ]
-  %.120 = phi ptr [ %.120.ph, %thread-pre-split ], [ %switch.select47, %108 ]
-  switch i32 %117, label %123 [
-    i32 1, label %118
-    i32 2, label %121
+115:                                              ; preds = %thread-pre-split, %107
+  %116 = phi i32 [ %.pr, %thread-pre-split ], [ %108, %107 ]
+  %.120 = phi ptr [ %.120.ph, %thread-pre-split ], [ %switch.select47, %107 ]
+  switch i32 %116, label %122 [
+    i32 1, label %117
+    i32 2, label %120
   ]
 
-118:                                              ; preds = %116
-  %119 = load ptr, ptr %2, align 8
-  %120 = call fastcc ptr @_find_key_val(ptr noundef %.120, ptr noundef %119)
-  store ptr %120, ptr %6, align 8
-  br label %123
+117:                                              ; preds = %115
+  %118 = load ptr, ptr %2, align 8
+  %119 = call fastcc ptr @_find_key_val(ptr noundef %.120, ptr noundef %118)
+  br label %.sink.split65
 
-121:                                              ; preds = %116
-  %122 = call ptr @xstrdup(ptr noundef %.120) #15
-  store ptr %122, ptr %6, align 8
-  br label %123
+120:                                              ; preds = %115
+  %121 = call ptr @xstrdup(ptr noundef %.120) #15
+  br label %.sink.split65
 
-123:                                              ; preds = %116, %121, %118
+.sink.split65:                                    ; preds = %117, %120
+  %.sink66 = phi ptr [ %121, %120 ], [ %119, %117 ]
+  store ptr %.sink66, ptr %6, align 8
+  br label %122
+
+122:                                              ; preds = %.sink.split65, %115
   call void @slurm_xfree(ptr noundef nonnull %2) #15
-  br label %124
+  br label %123
 
-124:                                              ; preds = %100, %103, %123
-  %125 = load ptr, ptr %6, align 8
-  %.not41 = icmp eq ptr %125, null
-  br i1 %.not41, label %144, label %126
+123:                                              ; preds = %99, %102, %122
+  %124 = load ptr, ptr %6, align 8
+  %.not41 = icmp eq ptr %124, null
+  br i1 %.not41, label %143, label %125
 
-126:                                              ; preds = %124
-  %127 = load i32, ptr @knl_system_type, align 4
-  switch i32 %127, label %135 [
-    i32 1, label %128
-    i32 2, label %133
+125:                                              ; preds = %123
+  %126 = load i32, ptr @knl_system_type, align 4
+  switch i32 %126, label %134 [
+    i32 1, label %127
+    i32 2, label %132
   ]
 
-128:                                              ; preds = %126
+127:                                              ; preds = %125
   store ptr @.str.51, ptr %3, align 16
-  %129 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @.str.96, ptr %129, align 8
-  %130 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr @.str.49, ptr %130, align 16
-  %131 = getelementptr inbounds i8, ptr %3, i64 24
-  store ptr @.str.53, ptr %131, align 8
-  %132 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr @.str.74, ptr %132, align 16
-  br label %.sink.split63
+  %128 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @.str.96, ptr %128, align 8
+  %129 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr @.str.49, ptr %129, align 16
+  %130 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr @.str.53, ptr %130, align 8
+  %131 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr @.str.74, ptr %131, align 16
+  br label %.sink.split67
 
-133:                                              ; preds = %126
-  %134 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 100, ptr noundef nonnull @.str.99, ptr noundef nonnull %125) #15
+132:                                              ; preds = %125
+  %133 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 100, ptr noundef nonnull @.str.99, ptr noundef nonnull %124) #15
   store ptr @.str.51, ptr %3, align 16
-  br label %.sink.split63
+  br label %.sink.split67
 
-.sink.split63:                                    ; preds = %128, %133
-  %.sink68.sroa.phi = phi ptr [ %.sink68.sroa.gep, %133 ], [ %.sink68.sroa.gep76, %128 ]
-  %.sink66 = phi ptr [ %4, %133 ], [ %125, %128 ]
-  %.sink65.sroa.phi = phi ptr [ %.sink65.sroa.gep, %133 ], [ %.sink65.sroa.gep75, %128 ]
-  store ptr %.sink66, ptr %.sink68.sroa.phi, align 8
-  store ptr null, ptr %.sink65.sroa.phi, align 16
-  br label %135
+.sink.split67:                                    ; preds = %127, %132
+  %.sink72.sroa.phi = phi ptr [ %.sink72.sroa.gep, %132 ], [ %.sink72.sroa.gep80, %127 ]
+  %.sink70 = phi ptr [ %4, %132 ], [ %124, %127 ]
+  %.sink69.sroa.phi = phi ptr [ %.sink69.sroa.gep, %132 ], [ %.sink69.sroa.gep79, %127 ]
+  store ptr %.sink70, ptr %.sink72.sroa.phi, align 8
+  store ptr null, ptr %.sink69.sroa.phi, align 16
+  br label %134
 
-135:                                              ; preds = %.sink.split63, %126
-  %136 = load ptr, ptr @syscfg_path, align 8
-  %137 = call fastcc ptr @_run_script(ptr noundef %136, ptr noundef nonnull %3, ptr noundef nonnull %5)
-  store ptr %137, ptr %2, align 8
-  %138 = load i32, ptr %5, align 4
-  %139 = and i32 %138, 65407
-  %or.cond48 = icmp eq i32 %139, 0
-  br i1 %or.cond48, label %142, label %140
+134:                                              ; preds = %.sink.split67, %125
+  %135 = load ptr, ptr @syscfg_path, align 8
+  %136 = call fastcc ptr @_run_script(ptr noundef %135, ptr noundef nonnull %3, ptr noundef nonnull %5)
+  store ptr %136, ptr %2, align 8
+  %137 = load i32, ptr %5, align 4
+  %138 = and i32 %137, 65407
+  %or.cond48 = icmp eq i32 %138, 0
+  br i1 %or.cond48, label %141, label %139
 
-140:                                              ; preds = %135
-  %141 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.100, ptr noundef nonnull @__func__.node_features_p_node_set, i32 noundef %138, ptr noundef %137) #15
-  br label %143
+139:                                              ; preds = %134
+  %140 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.100, ptr noundef nonnull @__func__.node_features_p_node_set, i32 noundef %137, ptr noundef %136) #15
+  br label %142
 
-142:                                              ; preds = %135
-  call fastcc void @_log_script_argv(ptr noundef nonnull %3, ptr noundef %137)
-  br label %143
+141:                                              ; preds = %134
+  call fastcc void @_log_script_argv(ptr noundef nonnull %3, ptr noundef %136)
+  br label %142
 
-143:                                              ; preds = %142, %140
-  %.5 = phi i32 [ -1, %140 ], [ %.3, %142 ]
+142:                                              ; preds = %141, %139
+  %.5 = phi i32 [ -1, %139 ], [ %.3, %141 ]
   call void @slurm_xfree(ptr noundef nonnull %2) #15
   call void @slurm_xfree(ptr noundef nonnull %6) #15
+  br label %143
+
+143:                                              ; preds = %142, %123
+  %.4 = phi i32 [ %.5, %142 ], [ %.3, %123 ]
+  store i8 0, ptr %0, align 1
   br label %144
 
-144:                                              ; preds = %143, %124
-  %.4 = phi i32 [ %.5, %143 ], [ %.3, %124 ]
-  store i8 0, ptr %0, align 1
-  br label %145
-
-145:                                              ; preds = %24, %25, %1, %9, %144, %33, %14
-  %.021 = phi i32 [ -1, %33 ], [ %.4, %144 ], [ -1, %14 ], [ 0, %9 ], [ 0, %1 ], [ -1, %25 ], [ -1, %24 ]
+144:                                              ; preds = %24, %25, %1, %9, %143, %33, %14
+  %.021 = phi i32 [ -1, %33 ], [ %.4, %143 ], [ -1, %14 ], [ 0, %9 ], [ 0, %1 ], [ -1, %25 ], [ -1, %24 ]
   ret i32 %.021
 }
 

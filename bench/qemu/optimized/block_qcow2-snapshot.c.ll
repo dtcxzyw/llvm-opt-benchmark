@@ -1605,8 +1605,8 @@ if.end87:                                         ; preds = %for.end
 
 fail.sink.split:                                  ; preds = %if.end14, %if.then11, %if.end3
   %ret.0.ph = phi i32 [ %call4, %if.end3 ], [ -95, %if.then11 ], [ %call16, %if.end14 ]
-  %.sink = load ptr, ptr %local_err, align 8
-  call void @error_report_err(ptr noundef %.sink) #16
+  %32 = load ptr, ptr %local_err, align 8
+  call void @error_report_err(ptr noundef %32) #16
   br label %fail
 
 fail:                                             ; preds = %fail.sink.split, %if.end28, %if.end87, %for.end, %if.end64, %if.end57, %if.end50, %if.end43, %if.end21

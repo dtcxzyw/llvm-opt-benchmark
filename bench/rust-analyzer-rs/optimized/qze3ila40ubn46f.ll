@@ -361,17 +361,21 @@ define void @_ZN7profile10stop_watch9StopWatch7elapsed17h5a540926d845e304E(ptr n
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4a8d927f50dff6c4E.exit": ; preds = %25, %28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !82
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !63
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  br label %35
+  br label %.sink.split
 
 33:                                               ; preds = %13
   %34 = load i64, ptr %15, align 8, !alias.scope !63, !noundef !5
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4a8d927f50dff6c4E.exit", %33
+  %.sroa.4.0.ph = phi i64 [ undef, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4a8d927f50dff6c4E.exit" ], [ %34, %33 ]
+  %.sroa.0.0.ph = phi i64 [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4a8d927f50dff6c4E.exit" ], [ 1, %33 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %35
 
-35:                                               ; preds = %33, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4a8d927f50dff6c4E.exit", %2
-  %.sroa.4.0 = phi i64 [ undef, %2 ], [ %34, %33 ], [ undef, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4a8d927f50dff6c4E.exit" ]
-  %.sroa.0.0 = phi i64 [ 0, %2 ], [ 1, %33 ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h4a8d927f50dff6c4E.exit" ]
+35:                                               ; preds = %.sink.split, %2
+  %.sroa.4.0 = phi i64 [ undef, %2 ], [ %.sroa.4.0.ph, %.sink.split ]
+  %.sroa.0.0 = phi i64 [ 0, %2 ], [ %.sroa.0.0.ph, %.sink.split ]
   %36 = extractvalue { i64, i32 } %9, 1
   %37 = extractvalue { i64, i32 } %9, 0
   %38 = call noundef i64 @_ZN7profile12memory_usage14memusage_linux17hb988fa8853ae31cfE.llvm.17321645092143521038()

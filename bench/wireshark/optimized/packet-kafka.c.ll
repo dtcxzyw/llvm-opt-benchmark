@@ -2873,7 +2873,7 @@ define internal fastcc i32 @dissect_kafka_stop_replica_request(ptr noundef %0, p
   %24 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef 0) #6
   %25 = add i32 %.0, 1
   %26 = icmp eq i16 %4, 0
-  br i1 %26, label %27, label %55
+  br i1 %26, label %27, label %54
 
 27:                                               ; preds = %22
   %28 = load i32, ptr @ett_kafka_partitions, align 4
@@ -2925,36 +2925,30 @@ define internal fastcc i32 @dissect_kafka_stop_replica_request(ptr noundef %0, p
   %exitcond.not.i.i22.i = icmp eq i32 %53, %30
   br i1 %exitcond.not.i.i22.i, label %dissect_kafka_array.exit, label %.lr.ph.i.i19.i, !llvm.loop !6
 
-dissect_kafka_array.exit:                         ; preds = %.lr.ph.i.i19.i, %36, %33
-  %.0.i = phi i32 [ %31, %33 ], [ %31, %36 ], [ %46, %.lr.ph.i.i19.i ]
-  %54 = load ptr, ptr %9, align 8
-  call void @proto_item_set_end(ptr noundef %54, ptr noundef %0, i32 noundef %.0.i) #6
-  br label %62
+54:                                               ; preds = %22
+  %55 = load i32, ptr @ett_kafka_topics, align 4
+  %56 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %25, i32 noundef -1, i32 noundef %55, ptr noundef nonnull %9, ptr noundef nonnull @.str.590) #6
+  %57 = icmp sgt i16 %4, 1
+  %58 = zext i1 %57 to i32
+  %59 = call fastcc i32 @dissect_kafka_array(ptr noundef %56, ptr noundef %0, ptr noundef %1, i32 noundef %25, i32 noundef %58, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_stop_replica_request_topic, ptr noundef null)
+  br label %dissect_kafka_array.exit
 
-55:                                               ; preds = %22
-  %56 = load i32, ptr @ett_kafka_topics, align 4
-  %57 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %25, i32 noundef -1, i32 noundef %56, ptr noundef nonnull %9, ptr noundef nonnull @.str.590) #6
-  %58 = icmp sgt i16 %4, 1
-  %59 = zext i1 %58 to i32
-  %60 = call fastcc i32 @dissect_kafka_array(ptr noundef %57, ptr noundef %0, ptr noundef %1, i32 noundef %25, i32 noundef %59, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_stop_replica_request_topic, ptr noundef null)
-  %61 = load ptr, ptr %9, align 8
-  call void @proto_item_set_end(ptr noundef %61, ptr noundef %0, i32 noundef %60) #6
-  br label %62
+dissect_kafka_array.exit:                         ; preds = %.lr.ph.i.i19.i, %33, %36, %54
+  %.sink49 = phi i32 [ %59, %54 ], [ %31, %33 ], [ %31, %36 ], [ %46, %.lr.ph.i.i19.i ]
+  %60 = load ptr, ptr %9, align 8
+  call void @proto_item_set_end(ptr noundef %60, ptr noundef %0, i32 noundef %.sink49) #6
+  %61 = icmp sgt i16 %4, 1
+  br i1 %61, label %62, label %64
 
-62:                                               ; preds = %55, %dissect_kafka_array.exit
-  %.1 = phi i32 [ %.0.i, %dissect_kafka_array.exit ], [ %60, %55 ]
-  %63 = icmp sgt i16 %4, 1
-  br i1 %63, label %64, label %66
+62:                                               ; preds = %dissect_kafka_array.exit
+  %63 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.sink49)
+  br label %64
 
-64:                                               ; preds = %62
-  %65 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.1)
-  br label %66
-
-66:                                               ; preds = %64, %62
-  %.2 = phi i32 [ %65, %64 ], [ %.1, %62 ]
-  %67 = getelementptr inbounds i8, ptr %1, i64 8
-  %68 = load ptr, ptr %67, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %68, i32 noundef 25, ptr noundef nonnull @.str.580, i32 noundef %10) #6
+64:                                               ; preds = %62, %dissect_kafka_array.exit
+  %.2 = phi i32 [ %63, %62 ], [ %.sink49, %dissect_kafka_array.exit ]
+  %65 = getelementptr inbounds i8, ptr %1, i64 8
+  %66 = load ptr, ptr %65, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %66, i32 noundef 25, ptr noundef nonnull @.str.580, i32 noundef %10) #6
   ret i32 %.2
 }
 
@@ -5388,7 +5382,7 @@ define internal fastcc noundef i32 @dissect_kafka_produce_response(ptr noundef %
   br label %.lr.ph.i.i19.i
 
 .lr.ph.i.i19.i:                                   ; preds = %.lr.ph.i.i19.i.preheader, %dissect_kafka_produce_response_topic.exit
-  %.011.i.i20.i = phi i32 [ %92, %dissect_kafka_produce_response_topic.exit ], [ 0, %.lr.ph.i.i19.i.preheader ]
+  %.011.i.i20.i = phi i32 [ %90, %dissect_kafka_produce_response_topic.exit ], [ 0, %.lr.ph.i.i19.i.preheader ]
   %.0910.i.i21.i = phi i32 [ %.0.i.i, %dissect_kafka_produce_response_topic.exit ], [ %11, %.lr.ph.i.i19.i.preheader ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   %22 = load i32, ptr @ett_kafka_topic, align 4
@@ -5410,7 +5404,7 @@ define internal fastcc noundef i32 @dissect_kafka_produce_response(ptr noundef %
   br i1 %33, label %.lr.ph.i.i19.i.i, label %dissect_kafka_produce_response_topic.exit
 
 .lr.ph.i.i19.i.i:                                 ; preds = %32, %dissect_kafka_produce_response_partition.exit.i
-  %.011.i.i20.i.i = phi i32 [ %90, %dissect_kafka_produce_response_partition.exit.i ], [ 0, %32 ]
+  %.011.i.i20.i.i = phi i32 [ %88, %dissect_kafka_produce_response_partition.exit.i ], [ 0, %32 ]
   %.0910.i.i21.i.i = phi i32 [ %.3.i.i, %dissect_kafka_produce_response_partition.exit.i ], [ %27, %32 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
@@ -5501,58 +5495,50 @@ dissect_kafka_error.exit.i.i:                     ; preds = %43, %.lr.ph.i.i19.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %82 = add nuw nsw i32 %.011.i.i20.i.i.i, 1
   %exitcond.not.i.i22.i.i.i = icmp eq i32 %82, %66
-  br i1 %exitcond.not.i.i22.i.i.i, label %dissect_kafka_array.exit.i.i, label %.lr.ph.i.i19.i.i.i, !llvm.loop !6
+  br i1 %exitcond.not.i.i22.i.i.i, label %dissect_kafka_array.exit.thread.i.i, label %.lr.ph.i.i19.i.i.i, !llvm.loop !6
 
-dissect_kafka_array.exit.thread.i.i:              ; preds = %72, %69
+dissect_kafka_array.exit.thread.i.i:              ; preds = %.lr.ph.i.i19.i.i.i, %72, %69
+  %.lcssa.sink.i.i = phi i32 [ %67, %72 ], [ %67, %69 ], [ %80, %.lr.ph.i.i19.i.i.i ]
   %83 = load ptr, ptr %8, align 8
-  call void @proto_item_set_end(ptr noundef %83, ptr noundef %0, i32 noundef %67) #6
-  br label %85
-
-dissect_kafka_array.exit.i.i:                     ; preds = %.lr.ph.i.i19.i.i.i
-  %84 = load ptr, ptr %8, align 8
-  call void @proto_item_set_end(ptr noundef %84, ptr noundef %0, i32 noundef %80) #6
-  br label %85
-
-85:                                               ; preds = %dissect_kafka_array.exit.i.i, %dissect_kafka_array.exit.thread.i.i
-  %.0.i52.i.i = phi i32 [ %67, %dissect_kafka_array.exit.thread.i.i ], [ %80, %dissect_kafka_array.exit.i.i ]
-  %86 = load i32, ptr @hf_kafka_error_message, align 4
-  %87 = call fastcc i32 @dissect_kafka_string(ptr noundef %35, i32 noundef %86, ptr noundef %0, ptr noundef %1, i32 noundef %.0.i52.i.i, i32 noundef 0, ptr noundef null, ptr noundef null)
+  call void @proto_item_set_end(ptr noundef %83, ptr noundef %0, i32 noundef %.lcssa.sink.i.i) #6
+  %84 = load i32, ptr @hf_kafka_error_message, align 4
+  %85 = call fastcc i32 @dissect_kafka_string(ptr noundef %35, i32 noundef %84, ptr noundef %0, ptr noundef %1, i32 noundef %.lcssa.sink.i.i, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %dissect_kafka_produce_response_partition.exit.i
 
-dissect_kafka_produce_response_partition.exit.i:  ; preds = %85, %59, %57, %dissect_kafka_error.exit.i.i
-  %.3.i.i = phi i32 [ %87, %85 ], [ %58, %57 ], [ %51, %dissect_kafka_error.exit.i.i ], [ %62, %59 ]
-  %88 = load ptr, ptr %7, align 8
-  call void @proto_item_set_end(ptr noundef %88, ptr noundef %0, i32 noundef %.3.i.i) #6
-  %89 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %89, ptr noundef nonnull @.str.576, i32 noundef %38, i64 noundef %50) #6
+dissect_kafka_produce_response_partition.exit.i:  ; preds = %dissect_kafka_array.exit.thread.i.i, %59, %57, %dissect_kafka_error.exit.i.i
+  %.3.i.i = phi i32 [ %85, %dissect_kafka_array.exit.thread.i.i ], [ %58, %57 ], [ %51, %dissect_kafka_error.exit.i.i ], [ %62, %59 ]
+  %86 = load ptr, ptr %7, align 8
+  call void @proto_item_set_end(ptr noundef %86, ptr noundef %0, i32 noundef %.3.i.i) #6
+  %87 = load ptr, ptr %7, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %87, ptr noundef nonnull @.str.576, i32 noundef %38, i64 noundef %50) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %90 = add nuw nsw i32 %.011.i.i20.i.i, 1
-  %exitcond.not.i.i22.i.i = icmp eq i32 %90, %26
+  %88 = add nuw nsw i32 %.011.i.i20.i.i, 1
+  %exitcond.not.i.i22.i.i = icmp eq i32 %88, %26
   br i1 %exitcond.not.i.i22.i.i, label %dissect_kafka_produce_response_topic.exit, label %.lr.ph.i.i19.i.i, !llvm.loop !6
 
 dissect_kafka_produce_response_topic.exit:        ; preds = %dissect_kafka_produce_response_partition.exit.i, %29, %32
   %.0.i.i = phi i32 [ %27, %29 ], [ %27, %32 ], [ %.3.i.i, %dissect_kafka_produce_response_partition.exit.i ]
-  %91 = load ptr, ptr %9, align 8
-  call void @proto_item_set_end(ptr noundef %91, ptr noundef %0, i32 noundef %.0.i.i) #6
+  %89 = load ptr, ptr %9, align 8
+  call void @proto_item_set_end(ptr noundef %89, ptr noundef %0, i32 noundef %.0.i.i) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %92 = add nuw nsw i32 %.011.i.i20.i, 1
-  %exitcond.not.i.i22.i = icmp eq i32 %92, %10
+  %90 = add nuw nsw i32 %.011.i.i20.i, 1
+  %exitcond.not.i.i22.i = icmp eq i32 %90, %10
   br i1 %exitcond.not.i.i22.i, label %dissect_kafka_array.exit, label %.lr.ph.i.i19.i, !llvm.loop !6
 
 dissect_kafka_array.exit:                         ; preds = %dissect_kafka_produce_response_topic.exit, %16, %13
   %.0.i = phi i32 [ %11, %13 ], [ %11, %16 ], [ %.0.i.i, %dissect_kafka_produce_response_topic.exit ]
-  %93 = icmp sgt i16 %4, 0
-  br i1 %93, label %94, label %98
+  %91 = icmp sgt i16 %4, 0
+  br i1 %91, label %92, label %96
 
-94:                                               ; preds = %dissect_kafka_array.exit
-  %95 = load i32, ptr @hf_kafka_throttle_time, align 4
-  %96 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %95, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #6
-  %97 = add i32 %.0.i, 4
-  br label %98
+92:                                               ; preds = %dissect_kafka_array.exit
+  %93 = load i32, ptr @hf_kafka_throttle_time, align 4
+  %94 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %93, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #6
+  %95 = add i32 %.0.i, 4
+  br label %96
 
-98:                                               ; preds = %94, %dissect_kafka_array.exit
-  %.0 = phi i32 [ %97, %94 ], [ %.0.i, %dissect_kafka_array.exit ]
+96:                                               ; preds = %92, %dissect_kafka_array.exit
+  %.0 = phi i32 [ %95, %92 ], [ %.0.i, %dissect_kafka_array.exit ]
   ret i32 %.0
 }
 
@@ -9833,12 +9819,12 @@ define internal fastcc range(i32 0, 2) i32 @decompress(ptr noundef %0, ptr nound
   br label %decompress_zstd.exit
 
 22:                                               ; preds = %18
-  switch i32 %4, label %207 [
+  switch i32 %4, label %208 [
     i32 2, label %23
     i32 3, label %92
-    i32 4, label %194
-    i32 1, label %200
-    i32 0, label %206
+    i32 4, label %195
+    i32 1, label %201
+    i32 0, label %207
   ]
 
 23:                                               ; preds = %22
@@ -10202,7 +10188,7 @@ switch.lookup:                                    ; preds = %142
   call void @tvb_composite_finalize(ptr noundef nonnull %.044.i48) #6
   %187 = load ptr, ptr %8, align 8
   %188 = call i64 @LZ4F_freeDecompressionContext(ptr noundef %187) #6
-  br i1 %186, label %189, label %191
+  br i1 %186, label %189, label %192
 
 189:                                              ; preds = %.thread, %185
   %.043.i53 = phi i32 [ %.043.i52, %185 ], [ 1, %.thread ]
@@ -10211,20 +10197,20 @@ switch.lookup:                                    ; preds = %142
   store i32 0, ptr %6, align 4
   br label %decompress_lz4.exit
 
-.sink.split:                                      ; preds = %switch.lookup, %138, %135, %142, %.critedge.i
-  %.sink = load ptr, ptr %8, align 8
-  %190 = call i64 @LZ4F_freeDecompressionContext(ptr noundef %.sink) #6
-  br label %191
+.sink.split:                                      ; preds = %142, %135, %138, %switch.lookup, %.critedge.i
+  %190 = load ptr, ptr %8, align 8
+  %191 = call i64 @LZ4F_freeDecompressionContext(ptr noundef %190) #6
+  br label %192
 
-191:                                              ; preds = %.sink.split, %185
+192:                                              ; preds = %.sink.split, %185
   %.0436367.i = phi i32 [ %.043.i52, %185 ], [ 0, %.sink.split ]
-  %192 = getelementptr inbounds i8, ptr %1, i64 8
-  %193 = load ptr, ptr %192, align 8
-  call void @col_append_str(ptr noundef %193, i32 noundef 25, ptr noundef nonnull @.str.561) #6
+  %193 = getelementptr inbounds i8, ptr %1, i64 8
+  %194 = load ptr, ptr %193, align 8
+  call void @col_append_str(ptr noundef %194, i32 noundef 25, ptr noundef nonnull @.str.561) #6
   br label %decompress_lz4.exit
 
-decompress_lz4.exit:                              ; preds = %189, %191
-  %.0436366.i = phi i32 [ %.0436367.i, %191 ], [ %.043.i53, %189 ]
+decompress_lz4.exit:                              ; preds = %189, %192
+  %.0436366.i = phi i32 [ %.0436367.i, %192 ], [ %.043.i53, %189 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
@@ -10232,47 +10218,47 @@ decompress_lz4.exit:                              ; preds = %189, %191
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   br label %decompress_zstd.exit
 
-194:                                              ; preds = %22
-  %195 = tail call ptr @tvb_child_uncompress_zstd(ptr noundef %0, ptr noundef %0, i32 noundef %2, i32 noundef %3) #6
-  store ptr %195, ptr %5, align 8
+195:                                              ; preds = %22
+  %196 = tail call ptr @tvb_child_uncompress_zstd(ptr noundef %0, ptr noundef %0, i32 noundef %2, i32 noundef %3) #6
+  store ptr %196, ptr %5, align 8
   store i32 0, ptr %6, align 4
-  %196 = load ptr, ptr %5, align 8
-  %.not.i41 = icmp eq ptr %196, null
-  br i1 %.not.i41, label %197, label %decompress_zstd.exit
+  %197 = load ptr, ptr %5, align 8
+  %.not.i41 = icmp eq ptr %197, null
+  br i1 %.not.i41, label %198, label %decompress_zstd.exit
 
-197:                                              ; preds = %194
-  %198 = getelementptr inbounds i8, ptr %1, i64 8
-  %199 = load ptr, ptr %198, align 8
-  tail call void @col_append_str(ptr noundef %199, i32 noundef 25, ptr noundef nonnull @.str.562) #6
+198:                                              ; preds = %195
+  %199 = getelementptr inbounds i8, ptr %1, i64 8
+  %200 = load ptr, ptr %199, align 8
+  tail call void @col_append_str(ptr noundef %200, i32 noundef 25, ptr noundef nonnull @.str.562) #6
   br label %decompress_zstd.exit
 
-200:                                              ; preds = %22
-  %201 = tail call ptr @tvb_child_uncompress(ptr noundef %0, ptr noundef %0, i32 noundef %2, i32 noundef %3) #6
-  store ptr %201, ptr %5, align 8
+201:                                              ; preds = %22
+  %202 = tail call ptr @tvb_child_uncompress(ptr noundef %0, ptr noundef %0, i32 noundef %2, i32 noundef %3) #6
+  store ptr %202, ptr %5, align 8
   store i32 0, ptr %6, align 4
-  %202 = load ptr, ptr %5, align 8
-  %.not.i43 = icmp eq ptr %202, null
-  br i1 %.not.i43, label %203, label %decompress_zstd.exit
+  %203 = load ptr, ptr %5, align 8
+  %.not.i43 = icmp eq ptr %203, null
+  br i1 %.not.i43, label %204, label %decompress_zstd.exit
 
-203:                                              ; preds = %200
-  %204 = getelementptr inbounds i8, ptr %1, i64 8
-  %205 = load ptr, ptr %204, align 8
-  tail call void @col_append_str(ptr noundef %205, i32 noundef 25, ptr noundef nonnull @.str.563) #6
+204:                                              ; preds = %201
+  %205 = getelementptr inbounds i8, ptr %1, i64 8
+  %206 = load ptr, ptr %205, align 8
+  tail call void @col_append_str(ptr noundef %206, i32 noundef 25, ptr noundef nonnull @.str.563) #6
   br label %decompress_zstd.exit
 
-206:                                              ; preds = %22
+207:                                              ; preds = %22
   store ptr %0, ptr %5, align 8
   store i32 %2, ptr %6, align 4
   br label %decompress_zstd.exit
 
-207:                                              ; preds = %22
-  %208 = getelementptr inbounds i8, ptr %1, i64 8
-  %209 = load ptr, ptr %208, align 8
-  tail call void @col_append_str(ptr noundef %209, i32 noundef 25, ptr noundef nonnull @.str.556) #6
+208:                                              ; preds = %22
+  %209 = getelementptr inbounds i8, ptr %1, i64 8
+  %210 = load ptr, ptr %209, align 8
+  tail call void @col_append_str(ptr noundef %210, i32 noundef 25, ptr noundef nonnull @.str.556) #6
   br label %decompress_zstd.exit
 
-decompress_zstd.exit:                             ; preds = %203, %200, %197, %194, %207, %206, %decompress_lz4.exit, %decompress_snappy.exit, %20, %16
-  %.0 = phi i32 [ 0, %16 ], [ 0, %20 ], [ 0, %207 ], [ 1, %206 ], [ %.0436366.i, %decompress_lz4.exit ], [ %.0658598.i, %decompress_snappy.exit ], [ 0, %197 ], [ 1, %194 ], [ 0, %203 ], [ 1, %200 ]
+decompress_zstd.exit:                             ; preds = %204, %201, %198, %195, %208, %207, %decompress_lz4.exit, %decompress_snappy.exit, %20, %16
+  %.0 = phi i32 [ 0, %16 ], [ 0, %20 ], [ 0, %208 ], [ 1, %207 ], [ %.0436366.i, %decompress_lz4.exit ], [ %.0658598.i, %decompress_snappy.exit ], [ 0, %198 ], [ 1, %195 ], [ 0, %204 ], [ 1, %201 ]
   ret i32 %.0
 }
 

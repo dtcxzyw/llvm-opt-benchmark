@@ -11677,20 +11677,20 @@ sw.epilog21:                                      ; preds = %sw.epilog, %sw.epil
 
 if.then23:                                        ; preds = %sw.epilog21
   switch i64 %8, label %sw.epilog27 [
-    i64 -2, label %sw.bb24
+    i64 -2, label %sw.epilog27.sink.split
     i64 -1, label %sw.bb25
   ]
 
-sw.bb24:                                          ; preds = %if.then23
-  store i64 0, ptr %v, align 8
-  br label %sw.epilog27
-
 sw.bb25:                                          ; preds = %if.then23
-  store i64 772, ptr %v, align 8
+  br label %sw.epilog27.sink.split
+
+sw.epilog27.sink.split:                           ; preds = %if.then23, %sw.bb25
+  %.sink = phi i64 [ 772, %sw.bb25 ], [ 0, %if.then23 ]
+  store i64 %.sink, ptr %v, align 8
   br label %sw.epilog27
 
-sw.epilog27:                                      ; preds = %if.then23, %sw.bb25, %sw.bb24
-  %9 = phi i64 [ %8, %if.then23 ], [ 772, %sw.bb25 ], [ 0, %sw.bb24 ]
+sw.epilog27:                                      ; preds = %sw.epilog27.sink.split, %if.then23
+  %9 = phi i64 [ %8, %if.then23 ], [ %.sink, %sw.epilog27.sink.split ]
   %ctx = getelementptr inbounds i8, ptr %self, i64 16
   %10 = load ptr, ptr %ctx, align 8
   %call28 = call i64 @SSL_CTX_ctrl(ptr noundef %10, i32 noundef 123, i64 noundef %9, ptr noundef null) #11
@@ -11698,20 +11698,20 @@ sw.epilog27:                                      ; preds = %if.then23, %sw.bb25
 
 if.else:                                          ; preds = %sw.epilog21
   switch i64 %8, label %sw.epilog32 [
-    i64 -1, label %sw.bb29
+    i64 -1, label %sw.epilog32.sink.split
     i64 -2, label %sw.bb30
   ]
 
-sw.bb29:                                          ; preds = %if.else
-  store i64 0, ptr %v, align 8
-  br label %sw.epilog32
-
 sw.bb30:                                          ; preds = %if.else
-  store i64 769, ptr %v, align 8
+  br label %sw.epilog32.sink.split
+
+sw.epilog32.sink.split:                           ; preds = %if.else, %sw.bb30
+  %.sink6 = phi i64 [ 769, %sw.bb30 ], [ 0, %if.else ]
+  store i64 %.sink6, ptr %v, align 8
   br label %sw.epilog32
 
-sw.epilog32:                                      ; preds = %if.else, %sw.bb30, %sw.bb29
-  %11 = phi i64 [ %8, %if.else ], [ 769, %sw.bb30 ], [ 0, %sw.bb29 ]
+sw.epilog32:                                      ; preds = %sw.epilog32.sink.split, %if.else
+  %11 = phi i64 [ %8, %if.else ], [ %.sink6, %sw.epilog32.sink.split ]
   %ctx33 = getelementptr inbounds i8, ptr %self, i64 16
   %12 = load ptr, ptr %ctx33, align 8
   %call34 = call i64 @SSL_CTX_ctrl(ptr noundef %12, i32 noundef 124, i64 noundef %11, ptr noundef null) #11
@@ -13042,7 +13042,7 @@ if.end:                                           ; preds = %entry
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val.i = load ptr, ptr %0, align 8
   %tobool.not.i.i = icmp eq ptr %self.val.i, null
-  br i1 %tobool.not.i.i, label %if.end24.thread.i, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %PySSL_select.exit.i.sink.split, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
   %1 = getelementptr i8, ptr %self.val.i, i64 16
@@ -13107,10 +13107,6 @@ if.end.i.i:                                       ; preds = %if.end.i
   store i32 %add.i.i, ptr %.val.i.i, align 8
   br label %cond.end.i
 
-if.end24.thread.i:                                ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pollfd.i.i)
-  br label %PySSL_select.exit.i
-
 cond.end.i:                                       ; preds = %if.end.i.i, %if.end.i
   %sock_timeout.i = getelementptr inbounds i8, ptr %.val.i.i, i64 40
   %12 = load i64, ptr %sock_timeout.i, align 8
@@ -13125,11 +13121,7 @@ cond.end.i:                                       ; preds = %if.end.i.i, %if.end
   %call15.i = call i64 @BIO_ctrl(ptr noundef %call13.i, i32 noundef 102, i64 noundef %conv10.i, ptr noundef null) #11
   %15 = load i64, ptr %sock_timeout.i, align 8
   %cmp20.i = icmp sgt i64 %15, 0
-  br i1 %cmp20.i, label %if.end7.i.i, label %if.end24.i
-
-if.end24.i:                                       ; preds = %cond.end.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pollfd.i.i)
-  br label %PySSL_select.exit.i
+  br i1 %cmp20.i, label %if.end7.i.i, label %PySSL_select.exit.i.sink.split
 
 if.end7.i.i:                                      ; preds = %cond.end.i
   %call23.i = call i64 @_PyDeadline_Init(i64 noundef %15) #11
@@ -13151,11 +13143,17 @@ if.end10.i.i:                                     ; preds = %if.end7.i.i
   %cmp19.i.i = icmp eq i32 %call16.i.i, 0
   br i1 %cmp19.i.i, label %if.then28.i, label %PySSL_select.exit.i
 
-PySSL_select.exit.i:                              ; preds = %if.end24.i, %if.end10.i.i, %if.end24.thread.i
-  %deadline.0151.i = phi i64 [ %call23.i, %if.end10.i.i ], [ 0, %if.end24.thread.i ], [ 0, %if.end24.i ]
-  %retval.0.i123137149.i = phi ptr [ %.val.i.i, %if.end10.i.i ], [ null, %if.end24.thread.i ], [ %.val.i.i, %if.end24.i ]
-  %cond138148.i = phi i64 [ %15, %if.end10.i.i ], [ 0, %if.end24.thread.i ], [ %15, %if.end24.i ]
-  %cmp20139147.i = phi i1 [ true, %if.end10.i.i ], [ false, %if.end24.thread.i ], [ false, %if.end24.i ]
+PySSL_select.exit.i.sink.split:                   ; preds = %cond.end.i, %if.end
+  %retval.0.i123137149.i.ph = phi ptr [ null, %if.end ], [ %.val.i.i, %cond.end.i ]
+  %cond138148.i.ph = phi i64 [ 0, %if.end ], [ %15, %cond.end.i ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pollfd.i.i)
+  br label %PySSL_select.exit.i
+
+PySSL_select.exit.i:                              ; preds = %PySSL_select.exit.i.sink.split, %if.end10.i.i
+  %deadline.0151.i = phi i64 [ %call23.i, %if.end10.i.i ], [ 0, %PySSL_select.exit.i.sink.split ]
+  %retval.0.i123137149.i = phi ptr [ %.val.i.i, %if.end10.i.i ], [ %retval.0.i123137149.i.ph, %PySSL_select.exit.i.sink.split ]
+  %cond138148.i = phi i64 [ %15, %if.end10.i.i ], [ %cond138148.i.ph, %PySSL_select.exit.i.sink.split ]
+  %cmp20139147.i = phi i1 [ true, %if.end10.i.i ], [ false, %PySSL_select.exit.i.sink.split ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pollfd.i.i)
   %ssl46.i = getelementptr inbounds i8, ptr %self, i64 24
   %len.i = getelementptr inbounds i8, ptr %b, i64 16

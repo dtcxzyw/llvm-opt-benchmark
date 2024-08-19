@@ -2325,382 +2325,382 @@ define internal i32 @dissect_NOTIFY_INFO_DATA(ptr noundef %0, i32 noundef %1, pt
 24:                                               ; preds = %6
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %6, %24
+.sink.split.i:                                    ; preds = %24, %6
   %job_notify_option_data_vals_ext.sink.i = phi ptr [ @job_notify_option_data_vals_ext, %24 ], [ @printer_notify_option_data_vals_ext, %6 ]
-  %.sink13.i = load i16, ptr %13, align 2
-  %25 = zext i16 %.sink13.i to i32
-  %26 = call ptr @val_to_str_ext_const(i32 noundef %25, ptr noundef nonnull %job_notify_option_data_vals_ext.sink.i, ptr noundef nonnull @.str.390) #5
+  %25 = load i16, ptr %13, align 2
+  %26 = zext i16 %25 to i32
+  %27 = call ptr @val_to_str_ext_const(i32 noundef %26, ptr noundef nonnull %job_notify_option_data_vals_ext.sink.i, ptr noundef nonnull @.str.390) #5
   br label %dissect_notify_field.exit
 
 dissect_notify_field.exit:                        ; preds = %6, %.sink.split.i
-  %.0.i = phi ptr [ @.str.746, %6 ], [ %26, %.sink.split.i ]
-  %27 = load i32, ptr @hf_notify_field, align 4
-  %28 = add i32 %23, -2
-  %29 = load i16, ptr %13, align 2
-  %30 = zext i16 %29 to i32
-  %31 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %18, i32 noundef %27, ptr noundef %0, i32 noundef %28, i32 noundef 2, i32 noundef %30, ptr noundef nonnull @.str.760, ptr noundef %.0.i, i32 noundef %30) #5
-  %32 = load i16, ptr %13, align 2
+  %.0.i = phi ptr [ @.str.746, %6 ], [ %27, %.sink.split.i ]
+  %28 = load i32, ptr @hf_notify_field, align 4
+  %29 = add i32 %23, -2
+  %30 = load i16, ptr %13, align 2
+  %31 = zext i16 %30 to i32
+  %32 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %18, i32 noundef %28, ptr noundef %0, i32 noundef %29, i32 noundef 2, i32 noundef %31, ptr noundef nonnull @.str.760, ptr noundef %.0.i, i32 noundef %31) #5
+  %33 = load i16, ptr %13, align 2
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %13)
-  %33 = load i16, ptr %16, align 2
-  switch i16 %33, label %37 [
+  %34 = load i16, ptr %16, align 2
+  switch i16 %34, label %38 [
     i16 0, label %.sink.split
-    i16 1, label %34
+    i16 1, label %35
   ]
 
-34:                                               ; preds = %dissect_notify_field.exit
+35:                                               ; preds = %dissect_notify_field.exit
   br label %.sink.split
 
-.sink.split:                                      ; preds = %dissect_notify_field.exit, %34
-  %job_notify_option_data_vals_ext.sink = phi ptr [ @job_notify_option_data_vals_ext, %34 ], [ @printer_notify_option_data_vals_ext, %dissect_notify_field.exit ]
-  %35 = zext i16 %32 to i32
-  %36 = call ptr @val_to_str_ext(i32 noundef %35, ptr noundef nonnull %job_notify_option_data_vals_ext.sink, ptr noundef nonnull @.str.758) #5
-  br label %37
+.sink.split:                                      ; preds = %dissect_notify_field.exit, %35
+  %job_notify_option_data_vals_ext.sink = phi ptr [ @job_notify_option_data_vals_ext, %35 ], [ @printer_notify_option_data_vals_ext, %dissect_notify_field.exit ]
+  %36 = zext i16 %33 to i32
+  %37 = call ptr @val_to_str_ext(i32 noundef %36, ptr noundef nonnull %job_notify_option_data_vals_ext.sink, ptr noundef nonnull @.str.758) #5
+  br label %38
 
-37:                                               ; preds = %.sink.split, %dissect_notify_field.exit
-  %.0 = phi ptr [ @.str.784, %dissect_notify_field.exit ], [ %36, %.sink.split ]
-  %38 = load ptr, ptr %14, align 8
-  %39 = load i16, ptr %16, align 2
-  %40 = zext i16 %39 to i32
-  %41 = call ptr @val_to_str(i32 noundef %40, ptr noundef nonnull @printer_notify_types, ptr noundef nonnull @.str.758) #5
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %38, ptr noundef nonnull @.str.785, ptr noundef %41, ptr noundef %.0) #5
-  %42 = load i32, ptr @hf_notify_info_data_count, align 4
-  %43 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, i32 noundef %42, ptr noundef nonnull %15) #5
-  %44 = load i32, ptr @hf_notify_info_data_id, align 4
-  %45 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, i32 noundef %44, ptr noundef null) #5
-  %46 = load i32, ptr @hf_notify_info_data_count, align 4
-  %47 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, i32 noundef %46, ptr noundef null) #5
-  %48 = load i16, ptr %16, align 2
-  %49 = load ptr, ptr %14, align 8
-  switch i16 %48, label %184 [
-    i16 0, label %50
-    i16 1, label %107
+38:                                               ; preds = %.sink.split, %dissect_notify_field.exit
+  %.0 = phi ptr [ @.str.784, %dissect_notify_field.exit ], [ %37, %.sink.split ]
+  %39 = load ptr, ptr %14, align 8
+  %40 = load i16, ptr %16, align 2
+  %41 = zext i16 %40 to i32
+  %42 = call ptr @val_to_str(i32 noundef %41, ptr noundef nonnull @printer_notify_types, ptr noundef nonnull @.str.758) #5
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef nonnull @.str.785, ptr noundef %42, ptr noundef %.0) #5
+  %43 = load i32, ptr @hf_notify_info_data_count, align 4
+  %44 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, i32 noundef %43, ptr noundef nonnull %15) #5
+  %45 = load i32, ptr @hf_notify_info_data_id, align 4
+  %46 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, i32 noundef %45, ptr noundef null) #5
+  %47 = load i32, ptr @hf_notify_info_data_count, align 4
+  %48 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %46, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, i32 noundef %47, ptr noundef null) #5
+  %49 = load i16, ptr %16, align 2
+  %50 = load ptr, ptr %14, align 8
+  switch i16 %49, label %185 [
+    i16 0, label %51
+    i16 1, label %108
   ]
 
-50:                                               ; preds = %37
+51:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
-  switch i16 %32, label %102 [
-    i16 0, label %51
-    i16 1, label %51
-    i16 2, label %51
-    i16 4, label %51
-    i16 5, label %51
-    i16 6, label %51
-    i16 8, label %51
-    i16 9, label %51
-    i16 10, label %51
-    i16 11, label %51
-    i16 3, label %51
-    i16 13, label %80
-    i16 18, label %90
-    i16 12, label %97
-    i16 7, label %97
+  switch i16 %33, label %103 [
+    i16 0, label %52
+    i16 1, label %52
+    i16 2, label %52
+    i16 4, label %52
+    i16 5, label %52
+    i16 6, label %52
+    i16 8, label %52
+    i16 9, label %52
+    i16 10, label %52
+    i16 11, label %52
+    i16 3, label %52
+    i16 13, label %81
+    i16 18, label %91
+    i16 12, label %98
+    i16 7, label %98
   ]
 
-51:                                               ; preds = %50, %50, %50, %50, %50, %50, %50, %50, %50, %50, %50
-  %52 = load i32, ptr @hf_notify_info_data_bufsize, align 4
-  %53 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, i32 noundef %52, ptr noundef nonnull %11) #5
-  %54 = load i32, ptr @hf_notify_info_data_buffer, align 4
-  switch i16 %32, label %printer_notify_hf_index.exit.i [
-    i16 0, label %55
-    i16 1, label %57
-    i16 2, label %59
-    i16 3, label %61
-    i16 4, label %63
-    i16 5, label %65
-    i16 6, label %67
-    i16 8, label %69
-    i16 9, label %71
-    i16 10, label %73
-    i16 11, label %75
+52:                                               ; preds = %51, %51, %51, %51, %51, %51, %51, %51, %51, %51, %51
+  %53 = load i32, ptr @hf_notify_info_data_bufsize, align 4
+  %54 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %48, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, i32 noundef %53, ptr noundef nonnull %11) #5
+  %55 = load i32, ptr @hf_notify_info_data_buffer, align 4
+  switch i16 %33, label %printer_notify_hf_index.exit.i [
+    i16 0, label %56
+    i16 1, label %58
+    i16 2, label %60
+    i16 3, label %62
+    i16 4, label %64
+    i16 5, label %66
+    i16 6, label %68
+    i16 8, label %70
+    i16 9, label %72
+    i16 10, label %74
+    i16 11, label %76
   ]
 
-55:                                               ; preds = %51
-  %56 = load i32, ptr @hf_servername, align 4
+56:                                               ; preds = %52
+  %57 = load i32, ptr @hf_servername, align 4
   br label %printer_notify_hf_index.exit.i
 
-57:                                               ; preds = %51
-  %58 = load i32, ptr @hf_printername, align 4
+58:                                               ; preds = %52
+  %59 = load i32, ptr @hf_printername, align 4
   br label %printer_notify_hf_index.exit.i
 
-59:                                               ; preds = %51
-  %60 = load i32, ptr @hf_sharename, align 4
+60:                                               ; preds = %52
+  %61 = load i32, ptr @hf_sharename, align 4
   br label %printer_notify_hf_index.exit.i
 
-61:                                               ; preds = %51
-  %62 = load i32, ptr @hf_portname, align 4
+62:                                               ; preds = %52
+  %63 = load i32, ptr @hf_portname, align 4
   br label %printer_notify_hf_index.exit.i
 
-63:                                               ; preds = %51
-  %64 = load i32, ptr @hf_drivername, align 4
+64:                                               ; preds = %52
+  %65 = load i32, ptr @hf_drivername, align 4
   br label %printer_notify_hf_index.exit.i
 
-65:                                               ; preds = %51
-  %66 = load i32, ptr @hf_printercomment, align 4
+66:                                               ; preds = %52
+  %67 = load i32, ptr @hf_printercomment, align 4
   br label %printer_notify_hf_index.exit.i
 
-67:                                               ; preds = %51
-  %68 = load i32, ptr @hf_printerlocation, align 4
+68:                                               ; preds = %52
+  %69 = load i32, ptr @hf_printerlocation, align 4
   br label %printer_notify_hf_index.exit.i
 
-69:                                               ; preds = %51
-  %70 = load i32, ptr @hf_sepfile, align 4
+70:                                               ; preds = %52
+  %71 = load i32, ptr @hf_sepfile, align 4
   br label %printer_notify_hf_index.exit.i
 
-71:                                               ; preds = %51
-  %72 = load i32, ptr @hf_printprocessor, align 4
+72:                                               ; preds = %52
+  %73 = load i32, ptr @hf_printprocessor, align 4
   br label %printer_notify_hf_index.exit.i
 
-73:                                               ; preds = %51
-  %74 = load i32, ptr @hf_parameters, align 4
+74:                                               ; preds = %52
+  %75 = load i32, ptr @hf_parameters, align 4
   br label %printer_notify_hf_index.exit.i
 
-75:                                               ; preds = %51
-  %76 = load i32, ptr @hf_parameters, align 4
+76:                                               ; preds = %52
+  %77 = load i32, ptr @hf_parameters, align 4
   br label %printer_notify_hf_index.exit.i
 
-printer_notify_hf_index.exit.i:                   ; preds = %75, %73, %71, %69, %67, %65, %63, %61, %59, %57, %55, %51
-  %.0.i.i = phi i32 [ -1, %51 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ %56, %55 ]
-  %77 = sext i32 %.0.i.i to i64
-  %78 = inttoptr i64 %77 to ptr
-  %79 = call i32 @dissect_ndr_pointer_cb(ptr noundef %0, i32 noundef %53, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @dissect_notify_info_data_buffer, i32 noundef 2, ptr noundef nonnull @.str.501, i32 noundef %54, ptr noundef nonnull @cb_notify_str_postprocess, ptr noundef %78) #5
+printer_notify_hf_index.exit.i:                   ; preds = %76, %74, %72, %70, %68, %66, %64, %62, %60, %58, %56, %52
+  %.0.i.i = phi i32 [ -1, %52 ], [ %77, %76 ], [ %75, %74 ], [ %73, %72 ], [ %71, %70 ], [ %69, %68 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ]
+  %78 = sext i32 %.0.i.i to i64
+  %79 = inttoptr i64 %78 to ptr
+  %80 = call i32 @dissect_ndr_pointer_cb(ptr noundef %0, i32 noundef %54, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @dissect_notify_info_data_buffer, i32 noundef 2, ptr noundef nonnull @.str.501, i32 noundef %55, ptr noundef nonnull @cb_notify_str_postprocess, ptr noundef %79) #5
   br label %dissect_NOTIFY_INFO_DATA_printer.exit
 
-80:                                               ; preds = %50
+81:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  %81 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef null, ptr noundef %4, ptr noundef %5, i32 noundef -1, ptr noundef nonnull %10) #5
-  %82 = add i32 %81, -4
-  %83 = load i32, ptr @hf_printer_attributes, align 4
-  %84 = load i32, ptr @ett_printer_attributes, align 4
-  %85 = load i32, ptr %10, align 4
-  %86 = zext i32 %85 to i64
-  %87 = call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %18, ptr noundef %0, i32 noundef %82, i32 noundef %83, i32 noundef %84, ptr noundef nonnull @dissect_printer_attributes.hf_attributes, i64 noundef %86, i32 noundef 1) #5
+  %82 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %48, ptr noundef %2, ptr noundef null, ptr noundef %4, ptr noundef %5, i32 noundef -1, ptr noundef nonnull %10) #5
+  %83 = add i32 %82, -4
+  %84 = load i32, ptr @hf_printer_attributes, align 4
+  %85 = load i32, ptr @ett_printer_attributes, align 4
+  %86 = load i32, ptr %10, align 4
+  %87 = zext i32 %86 to i64
+  %88 = call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %18, ptr noundef %0, i32 noundef %83, i32 noundef %84, i32 noundef %85, ptr noundef nonnull @dissect_printer_attributes.hf_attributes, i64 noundef %87, i32 noundef 1) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %88 = load i32, ptr @hf_notify_info_data_value2, align 4
-  %89 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %81, ptr noundef %2, ptr noundef null, ptr noundef %4, ptr noundef %5, i32 noundef %88, ptr noundef null) #5
+  %89 = load i32, ptr @hf_notify_info_data_value2, align 4
+  %90 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %82, ptr noundef %2, ptr noundef null, ptr noundef %4, ptr noundef %5, i32 noundef %89, ptr noundef null) #5
   br label %dissect_NOTIFY_INFO_DATA_printer.exit
 
-90:                                               ; preds = %50
-  %91 = load i32, ptr @hf_printer_status, align 4
-  %92 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, i32 noundef %91, ptr noundef nonnull %12) #5
-  %93 = load i32, ptr @hf_notify_info_data_value2, align 4
-  %94 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %92, ptr noundef %2, ptr noundef null, ptr noundef %4, ptr noundef %5, i32 noundef %93, ptr noundef null) #5
-  %95 = load i32, ptr %12, align 4
-  %96 = call ptr @val_to_str_ext_const(i32 noundef %95, ptr noundef nonnull @printer_status_vals_ext, ptr noundef nonnull @.str.390) #5
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %49, ptr noundef nonnull @.str.757, ptr noundef %96) #5
+91:                                               ; preds = %51
+  %92 = load i32, ptr @hf_printer_status, align 4
+  %93 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %48, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, i32 noundef %92, ptr noundef nonnull %12) #5
+  %94 = load i32, ptr @hf_notify_info_data_value2, align 4
+  %95 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %93, ptr noundef %2, ptr noundef null, ptr noundef %4, ptr noundef %5, i32 noundef %94, ptr noundef null) #5
+  %96 = load i32, ptr %12, align 4
+  %97 = call ptr @val_to_str_ext_const(i32 noundef %96, ptr noundef nonnull @printer_status_vals_ext, ptr noundef nonnull @.str.390) #5
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %50, ptr noundef nonnull @.str.757, ptr noundef %97) #5
   br label %dissect_NOTIFY_INFO_DATA_printer.exit
 
-97:                                               ; preds = %50, %50
-  %98 = load i32, ptr @hf_notify_info_data_bufsize, align 4
-  %99 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, i32 noundef %98, ptr noundef nonnull %11) #5
-  %100 = load i32, ptr @hf_notify_info_data_buffer, align 4
-  %101 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %99, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @dissect_notify_info_data_buffer, i32 noundef 2, ptr noundef nonnull @.str.435, i32 noundef %100) #5
+98:                                               ; preds = %51, %51
+  %99 = load i32, ptr @hf_notify_info_data_bufsize, align 4
+  %100 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %48, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, i32 noundef %99, ptr noundef nonnull %11) #5
+  %101 = load i32, ptr @hf_notify_info_data_buffer, align 4
+  %102 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %100, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @dissect_notify_info_data_buffer, i32 noundef 2, ptr noundef nonnull @.str.435, i32 noundef %101) #5
   br label %dissect_NOTIFY_INFO_DATA_printer.exit
 
-102:                                              ; preds = %50
-  %103 = load i32, ptr @hf_notify_info_data_value1, align 4
-  %104 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, i32 noundef %103, ptr noundef null) #5
-  %105 = load i32, ptr @hf_notify_info_data_value2, align 4
-  %106 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %104, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, i32 noundef %105, ptr noundef null) #5
+103:                                              ; preds = %51
+  %104 = load i32, ptr @hf_notify_info_data_value1, align 4
+  %105 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %48, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, i32 noundef %104, ptr noundef null) #5
+  %106 = load i32, ptr @hf_notify_info_data_value2, align 4
+  %107 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %105, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, i32 noundef %106, ptr noundef null) #5
   br label %dissect_NOTIFY_INFO_DATA_printer.exit
 
-dissect_NOTIFY_INFO_DATA_printer.exit:            ; preds = %printer_notify_hf_index.exit.i, %80, %90, %97, %102
-  %.0.i48 = phi i32 [ %106, %102 ], [ %101, %97 ], [ %94, %90 ], [ %89, %80 ], [ %79, %printer_notify_hf_index.exit.i ]
+dissect_NOTIFY_INFO_DATA_printer.exit:            ; preds = %printer_notify_hf_index.exit.i, %81, %91, %98, %103
+  %.0.i48 = phi i32 [ %107, %103 ], [ %102, %98 ], [ %95, %91 ], [ %90, %81 ], [ %80, %printer_notify_hf_index.exit.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
-  br label %186
+  br label %187
 
-107:                                              ; preds = %37
+108:                                              ; preds = %38
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  switch i16 %32, label %179 [
-    i16 0, label %108
-    i16 1, label %108
-    i16 2, label %108
-    i16 3, label %108
-    i16 4, label %108
-    i16 5, label %108
-    i16 6, label %108
-    i16 7, label %108
-    i16 8, label %108
-    i16 11, label %108
-    i16 13, label %108
-    i16 10, label %133
-    i16 16, label %143
-    i16 14, label %147
-    i16 15, label %147
-    i16 20, label %147
-    i16 21, label %147
-    i16 22, label %147
-    i16 23, label %147
-    i16 9, label %174
+  switch i16 %33, label %180 [
+    i16 0, label %109
+    i16 1, label %109
+    i16 2, label %109
+    i16 3, label %109
+    i16 4, label %109
+    i16 5, label %109
+    i16 6, label %109
+    i16 7, label %109
+    i16 8, label %109
+    i16 11, label %109
+    i16 13, label %109
+    i16 10, label %134
+    i16 16, label %144
+    i16 14, label %148
+    i16 15, label %148
+    i16 20, label %148
+    i16 21, label %148
+    i16 22, label %148
+    i16 23, label %148
+    i16 9, label %175
   ]
 
-108:                                              ; preds = %107, %107, %107, %107, %107, %107, %107, %107, %107, %107, %107
-  %109 = load i32, ptr @hf_notify_info_data_bufsize, align 4
-  %110 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, i32 noundef %109, ptr noundef nonnull %8) #5
-  %111 = load i32, ptr @hf_notify_info_data_buffer, align 4
-  switch i16 %32, label %job_notify_hf_index.exit.i [
-    i16 0, label %112
-    i16 1, label %114
-    i16 2, label %116
-    i16 3, label %118
-    i16 4, label %120
-    i16 5, label %122
-    i16 6, label %124
-    i16 8, label %126
-    i16 13, label %128
+109:                                              ; preds = %108, %108, %108, %108, %108, %108, %108, %108, %108, %108, %108
+  %110 = load i32, ptr @hf_notify_info_data_bufsize, align 4
+  %111 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %48, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, i32 noundef %110, ptr noundef nonnull %8) #5
+  %112 = load i32, ptr @hf_notify_info_data_buffer, align 4
+  switch i16 %33, label %job_notify_hf_index.exit.i [
+    i16 0, label %113
+    i16 1, label %115
+    i16 2, label %117
+    i16 3, label %119
+    i16 4, label %121
+    i16 5, label %123
+    i16 6, label %125
+    i16 8, label %127
+    i16 13, label %129
   ]
 
-112:                                              ; preds = %108
-  %113 = load i32, ptr @hf_printername, align 4
+113:                                              ; preds = %109
+  %114 = load i32, ptr @hf_printername, align 4
   br label %job_notify_hf_index.exit.i
 
-114:                                              ; preds = %108
-  %115 = load i32, ptr @hf_machinename, align 4
+115:                                              ; preds = %109
+  %116 = load i32, ptr @hf_machinename, align 4
   br label %job_notify_hf_index.exit.i
 
-116:                                              ; preds = %108
-  %117 = load i32, ptr @hf_portname, align 4
+117:                                              ; preds = %109
+  %118 = load i32, ptr @hf_portname, align 4
   br label %job_notify_hf_index.exit.i
 
-118:                                              ; preds = %108
-  %119 = load i32, ptr @hf_username, align 4
+119:                                              ; preds = %109
+  %120 = load i32, ptr @hf_username, align 4
   br label %job_notify_hf_index.exit.i
 
-120:                                              ; preds = %108
-  %121 = load i32, ptr @hf_notifyname, align 4
+121:                                              ; preds = %109
+  %122 = load i32, ptr @hf_notifyname, align 4
   br label %job_notify_hf_index.exit.i
 
-122:                                              ; preds = %108
-  %123 = load i32, ptr @hf_datatype, align 4
+123:                                              ; preds = %109
+  %124 = load i32, ptr @hf_datatype, align 4
   br label %job_notify_hf_index.exit.i
 
-124:                                              ; preds = %108
-  %125 = load i32, ptr @hf_printprocessor, align 4
+125:                                              ; preds = %109
+  %126 = load i32, ptr @hf_printprocessor, align 4
   br label %job_notify_hf_index.exit.i
 
-126:                                              ; preds = %108
-  %127 = load i32, ptr @hf_drivername, align 4
+127:                                              ; preds = %109
+  %128 = load i32, ptr @hf_drivername, align 4
   br label %job_notify_hf_index.exit.i
 
-128:                                              ; preds = %108
-  %129 = load i32, ptr @hf_documentname, align 4
+129:                                              ; preds = %109
+  %130 = load i32, ptr @hf_documentname, align 4
   br label %job_notify_hf_index.exit.i
 
-job_notify_hf_index.exit.i:                       ; preds = %128, %126, %124, %122, %120, %118, %116, %114, %112, %108
-  %.0.i.i50 = phi i32 [ -1, %108 ], [ %129, %128 ], [ %127, %126 ], [ %125, %124 ], [ %123, %122 ], [ %121, %120 ], [ %119, %118 ], [ %117, %116 ], [ %115, %114 ], [ %113, %112 ]
-  %130 = sext i32 %.0.i.i50 to i64
-  %131 = inttoptr i64 %130 to ptr
-  %132 = call i32 @dissect_ndr_pointer_cb(ptr noundef %0, i32 noundef %110, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @dissect_notify_info_data_buffer, i32 noundef 2, ptr noundef nonnull @.str.501, i32 noundef %111, ptr noundef nonnull @cb_notify_str_postprocess, ptr noundef %131) #5
+job_notify_hf_index.exit.i:                       ; preds = %129, %127, %125, %123, %121, %119, %117, %115, %113, %109
+  %.0.i.i50 = phi i32 [ -1, %109 ], [ %130, %129 ], [ %128, %127 ], [ %126, %125 ], [ %124, %123 ], [ %122, %121 ], [ %120, %119 ], [ %118, %117 ], [ %116, %115 ], [ %114, %113 ]
+  %131 = sext i32 %.0.i.i50 to i64
+  %132 = inttoptr i64 %131 to ptr
+  %133 = call i32 @dissect_ndr_pointer_cb(ptr noundef %0, i32 noundef %111, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @dissect_notify_info_data_buffer, i32 noundef 2, ptr noundef nonnull @.str.501, i32 noundef %112, ptr noundef nonnull @cb_notify_str_postprocess, ptr noundef %132) #5
   br label %dissect_NOTIFY_INFO_DATA_job.exit
 
-133:                                              ; preds = %107
+134:                                              ; preds = %108
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %134 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef null, ptr noundef %4, ptr noundef %5, i32 noundef -1, ptr noundef nonnull %7) #5
-  %135 = add i32 %134, -4
-  %136 = load i32, ptr @hf_job_status, align 4
-  %137 = load i32, ptr @ett_job_status, align 4
-  %138 = load i32, ptr %7, align 4
-  %139 = zext i32 %138 to i64
-  %140 = call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %18, ptr noundef %0, i32 noundef %135, i32 noundef %136, i32 noundef %137, ptr noundef nonnull @dissect_job_status.hf_status, i64 noundef %139, i32 noundef 1) #5
+  %135 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %48, ptr noundef %2, ptr noundef null, ptr noundef %4, ptr noundef %5, i32 noundef -1, ptr noundef nonnull %7) #5
+  %136 = add i32 %135, -4
+  %137 = load i32, ptr @hf_job_status, align 4
+  %138 = load i32, ptr @ett_job_status, align 4
+  %139 = load i32, ptr %7, align 4
+  %140 = zext i32 %139 to i64
+  %141 = call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %18, ptr noundef %0, i32 noundef %136, i32 noundef %137, i32 noundef %138, ptr noundef nonnull @dissect_job_status.hf_status, i64 noundef %140, i32 noundef 1) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  %141 = load i32, ptr @hf_notify_info_data_value2, align 4
-  %142 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %134, ptr noundef %2, ptr noundef null, ptr noundef %4, ptr noundef %5, i32 noundef %141, ptr noundef null) #5
+  %142 = load i32, ptr @hf_notify_info_data_value2, align 4
+  %143 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %135, ptr noundef %2, ptr noundef null, ptr noundef %4, ptr noundef %5, i32 noundef %142, ptr noundef null) #5
   br label %dissect_NOTIFY_INFO_DATA_job.exit
 
-143:                                              ; preds = %107
-  %144 = load i32, ptr @hf_notify_info_data_buffer_len, align 4
-  %145 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, i32 noundef %144, ptr noundef null) #5
-  %146 = call i32 @dissect_ndr_pointer_cb(ptr noundef %0, i32 noundef %145, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @dissect_SYSTEM_TIME_ptr, i32 noundef 2, ptr noundef nonnull @.str.787, i32 noundef -1, ptr noundef nonnull @notify_job_time_cb, ptr noundef null) #5
+144:                                              ; preds = %108
+  %145 = load i32, ptr @hf_notify_info_data_buffer_len, align 4
+  %146 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %48, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, i32 noundef %145, ptr noundef null) #5
+  %147 = call i32 @dissect_ndr_pointer_cb(ptr noundef %0, i32 noundef %146, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @dissect_SYSTEM_TIME_ptr, i32 noundef 2, ptr noundef nonnull @.str.787, i32 noundef -1, ptr noundef nonnull @notify_job_time_cb, ptr noundef null) #5
   br label %dissect_NOTIFY_INFO_DATA_job.exit
 
-147:                                              ; preds = %107, %107, %107, %107, %107, %107
-  %148 = load i32, ptr @hf_notify_info_data_value1, align 4
-  %149 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, i32 noundef %148, ptr noundef nonnull %9) #5
-  %150 = load i32, ptr @hf_notify_info_data_value2, align 4
-  %151 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %149, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, i32 noundef %150, ptr noundef null) #5
-  %152 = load i32, ptr %9, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %49, ptr noundef nonnull @.str.788, i32 noundef %152) #5
-  switch i16 %32, label %job_notify_hf_index.exit80.i [
-    i16 23, label %163
-    i16 22, label %161
-    i16 21, label %159
-    i16 20, label %157
-    i16 15, label %155
-    i16 14, label %153
+148:                                              ; preds = %108, %108, %108, %108, %108, %108
+  %149 = load i32, ptr @hf_notify_info_data_value1, align 4
+  %150 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %48, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, i32 noundef %149, ptr noundef nonnull %9) #5
+  %151 = load i32, ptr @hf_notify_info_data_value2, align 4
+  %152 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %150, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, i32 noundef %151, ptr noundef null) #5
+  %153 = load i32, ptr %9, align 4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %50, ptr noundef nonnull @.str.788, i32 noundef %153) #5
+  switch i16 %33, label %job_notify_hf_index.exit80.i [
+    i16 23, label %164
+    i16 22, label %162
+    i16 21, label %160
+    i16 20, label %158
+    i16 15, label %156
+    i16 14, label %154
   ]
 
-153:                                              ; preds = %147
-  %154 = load i32, ptr @hf_job_priority, align 4
+154:                                              ; preds = %148
+  %155 = load i32, ptr @hf_job_priority, align 4
   br label %job_notify_hf_index.exit80.i
 
-155:                                              ; preds = %147
-  %156 = load i32, ptr @hf_job_position, align 4
+156:                                              ; preds = %148
+  %157 = load i32, ptr @hf_job_position, align 4
   br label %job_notify_hf_index.exit80.i
 
-157:                                              ; preds = %147
-  %158 = load i32, ptr @hf_job_totalpages, align 4
+158:                                              ; preds = %148
+  %159 = load i32, ptr @hf_job_totalpages, align 4
   br label %job_notify_hf_index.exit80.i
 
-159:                                              ; preds = %147
-  %160 = load i32, ptr @hf_job_pagesprinted, align 4
+160:                                              ; preds = %148
+  %161 = load i32, ptr @hf_job_pagesprinted, align 4
   br label %job_notify_hf_index.exit80.i
 
-161:                                              ; preds = %147
-  %162 = load i32, ptr @hf_job_totalbytes, align 4
+162:                                              ; preds = %148
+  %163 = load i32, ptr @hf_job_totalbytes, align 4
   br label %job_notify_hf_index.exit80.i
 
-163:                                              ; preds = %147
-  %164 = load i32, ptr @hf_job_bytesprinted, align 4
+164:                                              ; preds = %148
+  %165 = load i32, ptr @hf_job_bytesprinted, align 4
   br label %job_notify_hf_index.exit80.i
 
-job_notify_hf_index.exit80.i:                     ; preds = %163, %161, %159, %157, %155, %153, %147
-  %.0.i79.i = phi i32 [ -1, %147 ], [ %164, %163 ], [ %162, %161 ], [ %160, %159 ], [ %158, %157 ], [ %156, %155 ], [ %154, %153 ]
-  %165 = load i32, ptr %9, align 4
-  %166 = call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %.0.i79.i, ptr noundef %0, i32 noundef %151, i32 noundef 4, i32 noundef %165) #5
-  %.not.i.i = icmp eq ptr %166, null
-  br i1 %.not.i.i, label %dissect_NOTIFY_INFO_DATA_job.exit, label %167
+job_notify_hf_index.exit80.i:                     ; preds = %164, %162, %160, %158, %156, %154, %148
+  %.0.i79.i = phi i32 [ -1, %148 ], [ %165, %164 ], [ %163, %162 ], [ %161, %160 ], [ %159, %158 ], [ %157, %156 ], [ %155, %154 ]
+  %166 = load i32, ptr %9, align 4
+  %167 = call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %.0.i79.i, ptr noundef %0, i32 noundef %152, i32 noundef 4, i32 noundef %166) #5
+  %.not.i.i = icmp eq ptr %167, null
+  br i1 %.not.i.i, label %dissect_NOTIFY_INFO_DATA_job.exit, label %168
 
-167:                                              ; preds = %job_notify_hf_index.exit80.i
-  %168 = getelementptr inbounds i8, ptr %166, i64 32
-  %169 = load ptr, ptr %168, align 8
-  %.not5.i.i = icmp eq ptr %169, null
-  br i1 %.not5.i.i, label %dissect_NOTIFY_INFO_DATA_job.exit, label %170
+168:                                              ; preds = %job_notify_hf_index.exit80.i
+  %169 = getelementptr inbounds i8, ptr %167, i64 32
+  %170 = load ptr, ptr %169, align 8
+  %.not5.i.i = icmp eq ptr %170, null
+  br i1 %.not5.i.i, label %dissect_NOTIFY_INFO_DATA_job.exit, label %171
 
-170:                                              ; preds = %167
-  %171 = getelementptr inbounds i8, ptr %169, i64 28
-  %172 = load i32, ptr %171, align 4
-  %173 = or i32 %172, 1
-  store i32 %173, ptr %171, align 4
+171:                                              ; preds = %168
+  %172 = getelementptr inbounds i8, ptr %170, i64 28
+  %173 = load i32, ptr %172, align 4
+  %174 = or i32 %173, 1
+  store i32 %174, ptr %172, align 4
   br label %dissect_NOTIFY_INFO_DATA_job.exit
 
-174:                                              ; preds = %107
-  %175 = load i32, ptr @hf_notify_info_data_bufsize, align 4
-  %176 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, i32 noundef %175, ptr noundef nonnull %8) #5
-  %177 = load i32, ptr @hf_notify_info_data_buffer, align 4
-  %178 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %176, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @dissect_notify_info_data_buffer, i32 noundef 2, ptr noundef nonnull @.str.435, i32 noundef %177) #5
+175:                                              ; preds = %108
+  %176 = load i32, ptr @hf_notify_info_data_bufsize, align 4
+  %177 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %48, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, i32 noundef %176, ptr noundef nonnull %8) #5
+  %178 = load i32, ptr @hf_notify_info_data_buffer, align 4
+  %179 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %177, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @dissect_notify_info_data_buffer, i32 noundef 2, ptr noundef nonnull @.str.435, i32 noundef %178) #5
   br label %dissect_NOTIFY_INFO_DATA_job.exit
 
-179:                                              ; preds = %107
-  %180 = load i32, ptr @hf_notify_info_data_value1, align 4
-  %181 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, i32 noundef %180, ptr noundef null) #5
-  %182 = load i32, ptr @hf_notify_info_data_value2, align 4
-  %183 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %181, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, i32 noundef %182, ptr noundef null) #5
+180:                                              ; preds = %108
+  %181 = load i32, ptr @hf_notify_info_data_value1, align 4
+  %182 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %48, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, i32 noundef %181, ptr noundef null) #5
+  %183 = load i32, ptr @hf_notify_info_data_value2, align 4
+  %184 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %182, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, i32 noundef %183, ptr noundef null) #5
   br label %dissect_NOTIFY_INFO_DATA_job.exit
 
-dissect_NOTIFY_INFO_DATA_job.exit:                ; preds = %job_notify_hf_index.exit.i, %133, %143, %job_notify_hf_index.exit80.i, %167, %170, %174, %179
-  %.0.i49 = phi i32 [ %183, %179 ], [ %178, %174 ], [ %146, %143 ], [ %142, %133 ], [ %132, %job_notify_hf_index.exit.i ], [ %151, %job_notify_hf_index.exit80.i ], [ %151, %167 ], [ %151, %170 ]
+dissect_NOTIFY_INFO_DATA_job.exit:                ; preds = %job_notify_hf_index.exit.i, %134, %144, %job_notify_hf_index.exit80.i, %168, %171, %175, %180
+  %.0.i49 = phi i32 [ %184, %180 ], [ %179, %175 ], [ %147, %144 ], [ %143, %134 ], [ %133, %job_notify_hf_index.exit.i ], [ %152, %job_notify_hf_index.exit80.i ], [ %152, %168 ], [ %152, %171 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  br label %186
+  br label %187
 
-184:                                              ; preds = %37
-  %185 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %49, ptr noundef nonnull @ei_notify_info_data_type) #5
-  br label %186
+185:                                              ; preds = %38
+  %186 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %50, ptr noundef nonnull @ei_notify_info_data_type) #5
+  br label %187
 
-186:                                              ; preds = %184, %dissect_NOTIFY_INFO_DATA_job.exit, %dissect_NOTIFY_INFO_DATA_printer.exit
-  %.047 = phi i32 [ %47, %184 ], [ %.0.i49, %dissect_NOTIFY_INFO_DATA_job.exit ], [ %.0.i48, %dissect_NOTIFY_INFO_DATA_printer.exit ]
+187:                                              ; preds = %185, %dissect_NOTIFY_INFO_DATA_job.exit, %dissect_NOTIFY_INFO_DATA_printer.exit
+  %.047 = phi i32 [ %48, %185 ], [ %.0.i49, %dissect_NOTIFY_INFO_DATA_job.exit ], [ %.0.i48, %dissect_NOTIFY_INFO_DATA_printer.exit ]
   ret i32 %.047
 }
 
@@ -2831,7 +2831,7 @@ define internal i32 @dissect_NOTIFY_OPTION_DATA(ptr noundef %0, i32 noundef %1, 
   br i1 %.not24, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %dissect_notify_field.exit
-  %.02023 = phi i32 [ %31, %dissect_notify_field.exit ], [ 0, %11 ]
+  %.02023 = phi i32 [ %32, %dissect_notify_field.exit ], [ 0, %11 ]
   %.02122 = phi i32 [ %22, %dissect_notify_field.exit ], [ %15, %11 ]
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7)
   %21 = load i32, ptr @hf_notify_field, align 4
@@ -2844,25 +2844,25 @@ define internal i32 @dissect_NOTIFY_OPTION_DATA(ptr noundef %0, i32 noundef %1, 
 23:                                               ; preds = %.lr.ph
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %.lr.ph, %23
+.sink.split.i:                                    ; preds = %23, %.lr.ph
   %job_notify_option_data_vals_ext.sink.i = phi ptr [ @job_notify_option_data_vals_ext, %23 ], [ @printer_notify_option_data_vals_ext, %.lr.ph ]
-  %.sink13.i = load i16, ptr %7, align 2
-  %24 = zext i16 %.sink13.i to i32
-  %25 = call ptr @val_to_str_ext_const(i32 noundef %24, ptr noundef nonnull %job_notify_option_data_vals_ext.sink.i, ptr noundef nonnull @.str.390) #5
+  %24 = load i16, ptr %7, align 2
+  %25 = zext i16 %24 to i32
+  %26 = call ptr @val_to_str_ext_const(i32 noundef %25, ptr noundef nonnull %job_notify_option_data_vals_ext.sink.i, ptr noundef nonnull @.str.390) #5
   br label %dissect_notify_field.exit
 
 dissect_notify_field.exit:                        ; preds = %.lr.ph, %.sink.split.i
-  %.0.i = phi ptr [ @.str.746, %.lr.ph ], [ %25, %.sink.split.i ]
-  %26 = load i32, ptr @hf_notify_field, align 4
-  %27 = add i32 %22, -2
-  %28 = load i16, ptr %7, align 2
-  %29 = zext i16 %28 to i32
-  %30 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %26, ptr noundef %0, i32 noundef %27, i32 noundef 2, i32 noundef %29, ptr noundef nonnull @.str.760, ptr noundef %.0.i, i32 noundef %29) #5
+  %.0.i = phi ptr [ @.str.746, %.lr.ph ], [ %26, %.sink.split.i ]
+  %27 = load i32, ptr @hf_notify_field, align 4
+  %28 = add i32 %22, -2
+  %29 = load i16, ptr %7, align 2
+  %30 = zext i16 %29 to i32
+  %31 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %27, ptr noundef %0, i32 noundef %28, i32 noundef 2, i32 noundef %30, ptr noundef nonnull @.str.760, ptr noundef %.0.i, i32 noundef %30) #5
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7)
-  %31 = add nuw i32 %.02023, 1
-  %32 = load i32, ptr %8, align 4
-  %33 = icmp ult i32 %31, %32
-  br i1 %33, label %.lr.ph, label %.loopexit, !llvm.loop !4
+  %32 = add nuw i32 %.02023, 1
+  %33 = load i32, ptr %8, align 4
+  %34 = icmp ult i32 %32, %33
+  br i1 %34, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %dissect_notify_field.exit, %11, %6
   %.0 = phi i32 [ %1, %6 ], [ %15, %11 ], [ %22, %dissect_notify_field.exit ]

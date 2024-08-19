@@ -3350,39 +3350,39 @@ land.lhs.true2.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i
   %workdir_dirty.i.i.i.i = getelementptr inbounds i8, ptr %s, i64 1056
   %204 = load i32, ptr %workdir_dirty.i.i.i.i, align 8
   %tobool3.not.i.i.i.i = icmp eq i32 %204, 0
-  br i1 %tobool3.not.i.i.i.i, label %split_commit_in_progress.exit.thread.i.i.i, label %lor.lhs.false.i.i.i.i
+  br i1 %tobool3.not.i.i.i.i, label %if.else35.sink.split.i.i.i, label %lor.lhs.false.i.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %land.lhs.true2.i.i.i.i, %land.lhs.true.i.i.i.i, %if.else16.i.i.i
   %205 = load ptr, ptr %branch.i, align 8
   %tobool4.not.i.i.i.i = icmp eq ptr %205, null
-  br i1 %tobool4.not.i.i.i.i, label %split_commit_in_progress.exit.thread.i.i.i, label %lor.lhs.false5.i.i.i.i
+  br i1 %tobool4.not.i.i.i.i, label %if.else35.sink.split.i.i.i, label %lor.lhs.false5.i.i.i.i
 
 lor.lhs.false5.i.i.i.i:                           ; preds = %lor.lhs.false.i.i.i.i
   %call.i78.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %205, ptr noundef nonnull dereferenceable(5) @.str.1) #20
   %tobool7.not.i.i.i.i = icmp eq i32 %call.i78.i.i.i, 0
-  br i1 %tobool7.not.i.i.i.i, label %if.end.i.i.i.i, label %split_commit_in_progress.exit.thread.i.i.i
+  br i1 %tobool7.not.i.i.i.i, label %if.end.i.i.i.i, label %if.else35.sink.split.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %lor.lhs.false5.i.i.i.i
   %call8.i.i.i.i = call i32 @read_ref_full(ptr noundef nonnull @.str.1, i32 noundef 3, ptr noundef nonnull %head_oid.i.i.i.i, ptr noundef nonnull %head_flags.i.i.i.i) #19
   %tobool9.not.i.i.i.i = icmp eq i32 %call8.i.i.i.i, 0
-  br i1 %tobool9.not.i.i.i.i, label %lor.lhs.false10.i.i.i.i, label %split_commit_in_progress.exit.thread.i.i.i
+  br i1 %tobool9.not.i.i.i.i, label %lor.lhs.false10.i.i.i.i, label %if.else35.sink.split.i.i.i
 
 lor.lhs.false10.i.i.i.i:                          ; preds = %if.end.i.i.i.i
   %call11.i.i.i.i = call i32 @read_ref_full(ptr noundef nonnull @.str.164, i32 noundef 3, ptr noundef nonnull %orig_head_oid.i.i.i.i, ptr noundef nonnull %orig_head_flags.i.i.i.i) #19
   %tobool12.not.i.i.i.i = icmp eq i32 %call11.i.i.i.i, 0
-  br i1 %tobool12.not.i.i.i.i, label %if.end14.i.i.i.i, label %split_commit_in_progress.exit.thread.i.i.i
+  br i1 %tobool12.not.i.i.i.i, label %if.end14.i.i.i.i, label %if.else35.sink.split.i.i.i
 
 if.end14.i.i.i.i:                                 ; preds = %lor.lhs.false10.i.i.i.i
   %206 = load i32, ptr %head_flags.i.i.i.i, align 4
   %and.i.i.i.i = and i32 %206, 1
   %tobool15.not.i.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %tobool15.not.i.i.i.i, label %lor.lhs.false16.i.i.i.i, label %split_commit_in_progress.exit.thread.i.i.i
+  br i1 %tobool15.not.i.i.i.i, label %lor.lhs.false16.i.i.i.i, label %if.else35.sink.split.i.i.i
 
 lor.lhs.false16.i.i.i.i:                          ; preds = %if.end14.i.i.i.i
   %207 = load i32, ptr %orig_head_flags.i.i.i.i, align 4
   %and17.i.i.i.i = and i32 %207, 1
   %tobool18.not.i.i.i.i = icmp eq i32 %and17.i.i.i.i, 0
-  br i1 %tobool18.not.i.i.i.i, label %if.end20.i.i.i.i, label %split_commit_in_progress.exit.thread.i.i.i
+  br i1 %tobool18.not.i.i.i.i, label %if.end20.i.i.i.i, label %if.else35.sink.split.i.i.i
 
 if.end20.i.i.i.i:                                 ; preds = %lor.lhs.false16.i.i.i.i
   %call21.i.i.i.i = call fastcc ptr @read_line_from_git_path(ptr noundef nonnull @.str.165)
@@ -3407,13 +3407,6 @@ if.else.i80.i.i.i:                                ; preds = %if.end20.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %head_flags.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %orig_head_flags.i.i.i.i)
   br i1 %tobool37.not.i.not.i.i.i, label %if.else35.i.i.i, label %if.then19.i.i.i
-
-split_commit_in_progress.exit.thread.i.i.i:       ; preds = %lor.lhs.false16.i.i.i.i, %if.end14.i.i.i.i, %lor.lhs.false10.i.i.i.i, %if.end.i.i.i.i, %lor.lhs.false5.i.i.i.i, %lor.lhs.false.i.i.i.i, %land.lhs.true2.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %head_oid.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %orig_head_oid.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %head_flags.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %orig_head_flags.i.i.i.i)
-  br label %if.else35.i.i.i
 
 if.then19.i.i.i:                                  ; preds = %if.else.i80.i.i.i
   %branch.i.i.i = getelementptr inbounds i8, ptr %s, i64 872
@@ -3465,13 +3458,16 @@ if.then32.i.i.i:                                  ; preds = %if.end29.i.i.i
 if.else35.critedge.i.i.i:                         ; preds = %if.end20.i.i.i.i
   call void @free(ptr noundef %call21.i.i.i.i) #19
   call void @free(ptr noundef %call22.i.i.i.i) #19
+  br label %if.else35.sink.split.i.i.i
+
+if.else35.sink.split.i.i.i:                       ; preds = %if.else35.critedge.i.i.i, %lor.lhs.false16.i.i.i.i, %if.end14.i.i.i.i, %lor.lhs.false10.i.i.i.i, %if.end.i.i.i.i, %lor.lhs.false5.i.i.i.i, %lor.lhs.false.i.i.i.i, %land.lhs.true2.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %head_oid.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %orig_head_oid.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %head_flags.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %orig_head_flags.i.i.i.i)
   br label %if.else35.i.i.i
 
-if.else35.i.i.i:                                  ; preds = %if.else35.critedge.i.i.i, %split_commit_in_progress.exit.thread.i.i.i, %if.else.i80.i.i.i
+if.else35.i.i.i:                                  ; preds = %if.else35.sink.split.i.i.i, %if.else.i80.i.i.i
   %branch37.i.i.i = getelementptr inbounds i8, ptr %s, i64 872
   %214 = load ptr, ptr %branch37.i.i.i, align 8
   %tobool38.not.i.i.i = icmp eq ptr %214, null

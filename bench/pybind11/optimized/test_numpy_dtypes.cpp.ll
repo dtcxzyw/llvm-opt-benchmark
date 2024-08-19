@@ -59364,7 +59364,7 @@ _ZN8pybind116detail15argument_loaderIJR12SimpleStructRKbEEC2Ev.exit: ; preds = %
   store ptr null, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %15 = call noundef zeroext i1 @_ZN8pybind116detail15argument_loaderIJR12SimpleStructRKbEE18load_impl_sequenceIJLm0ELm1EEEEbRNS0_13function_callESt16integer_sequenceImJXspT_EEE(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(104) %1)
-  br i1 %15, label %16, label %40
+  br i1 %15, label %16, label %41
 
 16:                                               ; preds = %_ZN8pybind116detail15argument_loaderIJR12SimpleStructRKbEEC2Ev.exit
   %17 = load ptr, ptr %1, align 8
@@ -59418,17 +59418,17 @@ common.resume:                                    ; preds = %33, %27
   br label %common.resume
 
 .sink.split:                                      ; preds = %29, %23
-  %.sink22 = load i8, ptr %4, align 8
-  %35 = load i64, ptr %18, align 8
-  %36 = getelementptr inbounds i8, ptr %22, i64 %35
-  %37 = and i8 %.sink22, 1
-  store i8 %37, ptr %36, align 1
-  %38 = load i64, ptr @_Py_NoneStruct, align 8
-  %39 = add nsw i64 %38, 1
-  store i64 %39, ptr @_Py_NoneStruct, align 8
-  br label %40
+  %35 = load i8, ptr %4, align 8
+  %36 = load i64, ptr %18, align 8
+  %37 = getelementptr inbounds i8, ptr %22, i64 %36
+  %38 = and i8 %35, 1
+  store i8 %38, ptr %37, align 1
+  %39 = load i64, ptr @_Py_NoneStruct, align 8
+  %40 = add nsw i64 %39, 1
+  store i64 %40, ptr @_Py_NoneStruct, align 8
+  br label %41
 
-40:                                               ; preds = %.sink.split, %_ZN8pybind116detail15argument_loaderIJR12SimpleStructRKbEEC2Ev.exit
+41:                                               ; preds = %.sink.split, %_ZN8pybind116detail15argument_loaderIJR12SimpleStructRKbEEC2Ev.exit
   %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJR12SimpleStructRKbEEC2Ev.exit ], [ @_Py_NoneStruct, %.sink.split ]
   ret ptr %.sroa.0.0
 }
@@ -60647,13 +60647,13 @@ common.resume:                                    ; preds = %47, %41
   br label %common.resume
 
 _ZN8pybind116detail15argument_loaderIJR12SimpleStructRKjEE9load_argsERNS0_13function_callE.exit.thread.sink.split: ; preds = %43, %37
-  %.sink21 = load i32, ptr %4, align 8
-  %49 = load i64, ptr %32, align 8
-  %50 = getelementptr inbounds i8, ptr %36, i64 %49
-  store i32 %.sink21, ptr %50, align 4
-  %51 = load i64, ptr @_Py_NoneStruct, align 8
-  %52 = add nsw i64 %51, 1
-  store i64 %52, ptr @_Py_NoneStruct, align 8
+  %49 = load i32, ptr %4, align 8
+  %50 = load i64, ptr %32, align 8
+  %51 = getelementptr inbounds i8, ptr %36, i64 %50
+  store i32 %49, ptr %51, align 4
+  %52 = load i64, ptr @_Py_NoneStruct, align 8
+  %53 = add nsw i64 %52, 1
+  store i64 %53, ptr @_Py_NoneStruct, align 8
   br label %_ZN8pybind116detail15argument_loaderIJR12SimpleStructRKjEE9load_argsERNS0_13function_callE.exit.thread
 
 _ZN8pybind116detail15argument_loaderIJR12SimpleStructRKjEE9load_argsERNS0_13function_callE.exit.thread: ; preds = %_ZN8pybind116detail15argument_loaderIJR12SimpleStructRKjEE9load_argsERNS0_13function_callE.exit.thread.sink.split, %_ZN8pybind116detail15argument_loaderIJR12SimpleStructRKjEEC2Ev.exit, %_ZN8pybind116detail15argument_loaderIJR12SimpleStructRKjEE9load_argsERNS0_13function_callE.exit
@@ -61137,13 +61137,13 @@ common.resume:                                    ; preds = %47, %41
   br label %common.resume
 
 _ZN8pybind116detail15argument_loaderIJR12SimpleStructRKfEE9load_argsERNS0_13function_callE.exit.thread.sink.split: ; preds = %43, %37
-  %.sink21 = load float, ptr %4, align 8
-  %49 = load i64, ptr %32, align 8
-  %50 = getelementptr inbounds i8, ptr %36, i64 %49
-  store float %.sink21, ptr %50, align 4
-  %51 = load i64, ptr @_Py_NoneStruct, align 8
-  %52 = add nsw i64 %51, 1
-  store i64 %52, ptr @_Py_NoneStruct, align 8
+  %49 = load float, ptr %4, align 8
+  %50 = load i64, ptr %32, align 8
+  %51 = getelementptr inbounds i8, ptr %36, i64 %50
+  store float %49, ptr %51, align 4
+  %52 = load i64, ptr @_Py_NoneStruct, align 8
+  %53 = add nsw i64 %52, 1
+  store i64 %53, ptr @_Py_NoneStruct, align 8
   br label %_ZN8pybind116detail15argument_loaderIJR12SimpleStructRKfEE9load_argsERNS0_13function_callE.exit.thread
 
 _ZN8pybind116detail15argument_loaderIJR12SimpleStructRKfEE9load_argsERNS0_13function_callE.exit.thread: ; preds = %_ZN8pybind116detail15argument_loaderIJR12SimpleStructRKfEE9load_argsERNS0_13function_callE.exit.thread.sink.split, %_ZN8pybind116detail15argument_loaderIJR12SimpleStructRKfEEC2Ev.exit, %_ZN8pybind116detail15argument_loaderIJR12SimpleStructRKfEE9load_argsERNS0_13function_callE.exit
@@ -61643,13 +61643,13 @@ common.resume:                                    ; preds = %47, %41
   br label %common.resume
 
 _ZN8pybind116detail15argument_loaderIJR12SimpleStructRKeEE9load_argsERNS0_13function_callE.exit.thread.sink.split: ; preds = %43, %37
-  %.sink21 = load x86_fp80, ptr %4, align 16
-  %49 = load i64, ptr %32, align 8
-  %50 = getelementptr inbounds i8, ptr %36, i64 %49
-  store x86_fp80 %.sink21, ptr %50, align 16
-  %51 = load i64, ptr @_Py_NoneStruct, align 8
-  %52 = add nsw i64 %51, 1
-  store i64 %52, ptr @_Py_NoneStruct, align 8
+  %49 = load x86_fp80, ptr %4, align 16
+  %50 = load i64, ptr %32, align 8
+  %51 = getelementptr inbounds i8, ptr %36, i64 %50
+  store x86_fp80 %49, ptr %51, align 16
+  %52 = load i64, ptr @_Py_NoneStruct, align 8
+  %53 = add nsw i64 %52, 1
+  store i64 %53, ptr @_Py_NoneStruct, align 8
   br label %_ZN8pybind116detail15argument_loaderIJR12SimpleStructRKeEE9load_argsERNS0_13function_callE.exit.thread
 
 _ZN8pybind116detail15argument_loaderIJR12SimpleStructRKeEE9load_argsERNS0_13function_callE.exit.thread: ; preds = %_ZN8pybind116detail15argument_loaderIJR12SimpleStructRKeEE9load_argsERNS0_13function_callE.exit.thread.sink.split, %_ZN8pybind116detail15argument_loaderIJR12SimpleStructRKeEEC2Ev.exit, %_ZN8pybind116detail15argument_loaderIJR12SimpleStructRKeEE9load_argsERNS0_13function_callE.exit

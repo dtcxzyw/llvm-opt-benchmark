@@ -3547,8 +3547,7 @@ for.body.preheader:                               ; preds = %entry
 
 if.end35.thread:                                  ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %baseimg) #15
-  store ptr null, ptr %baseimg, align 8, !tbaa !28
-  br label %if.end41
+  br label %if.end41.sink.split
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv52 = phi i64 [ %2, %for.body.preheader ], [ %indvars.iv.next53, %for.inc ]
@@ -3685,8 +3684,7 @@ for.end:                                          ; preds = %for.inc
 
 if.end35.thread54:                                ; preds = %for.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %baseimg) #15
-  store ptr null, ptr %baseimg, align 8, !tbaa !28
-  br label %if.end41
+  br label %if.end41.sink.split
 
 if.then29:                                        ; preds = %for.end
   %.not13 = icmp eq ptr @_ZTH11errorstream, null
@@ -3781,12 +3779,17 @@ if.then37:                                        ; preds = %if.end35
   %conv38 = and i64 %indvars.iv, 4294967295
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %name.coerce0, i64 %conv38)
   %call40 = tail call noundef ptr @_ZN13TextureSource13generateImageESt17basic_string_viewIcSt11char_traitsIcEERSt3setINSt7__cxx1112basic_stringIcS2_SaIcEEESt4lessIS8_ESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(500) %this, i64 %.sroa.speculated.i, ptr nonnull %name.coerce1, ptr noundef nonnull align 8 dereferenceable(48) %source_image_names)
-  store ptr %call40, ptr %baseimg, align 8, !tbaa !28
+  br label %if.end41.sink.split
+
+if.end41.sink.split:                              ; preds = %if.end35.thread, %if.then37, %if.end35.thread54
+  %.sink = phi ptr [ null, %if.end35.thread54 ], [ %call40, %if.then37 ], [ null, %if.end35.thread ]
+  %last_separator_pos.0.lcssa455458.ph = phi i64 [ 4294967295, %if.end35.thread54 ], [ %indvars.iv, %if.then37 ], [ 4294967295, %if.end35.thread ]
+  store ptr %.sink, ptr %baseimg, align 8, !tbaa !28
   br label %if.end41
 
-if.end41:                                         ; preds = %if.end35.thread54, %if.then37, %if.end35, %if.end35.thread
-  %last_separator_pos.0.lcssa455458 = phi i64 [ %indvars.iv, %if.then37 ], [ 4294967295, %if.end35 ], [ 4294967295, %if.end35.thread ], [ 4294967295, %if.end35.thread54 ]
-  %23 = phi ptr [ %call40, %if.then37 ], [ null, %if.end35 ], [ null, %if.end35.thread ], [ null, %if.end35.thread54 ]
+if.end41:                                         ; preds = %if.end41.sink.split, %if.end35
+  %last_separator_pos.0.lcssa455458 = phi i64 [ 4294967295, %if.end35 ], [ %last_separator_pos.0.lcssa455458.ph, %if.end41.sink.split ]
+  %23 = phi ptr [ null, %if.end35 ], [ %.sink, %if.end41.sink.split ]
   %add = add i64 %last_separator_pos.0.lcssa455458, 1
   %conv42 = and i64 %add, 4294967295
   %cmp.i.i = icmp ugt i64 %conv42, %name.coerce0

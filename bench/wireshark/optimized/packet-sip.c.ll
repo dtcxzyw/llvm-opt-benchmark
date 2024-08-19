@@ -7602,13 +7602,13 @@ define internal fastcc void @dissect_sip_reason_header(ptr noundef %0, ptr nound
   %8 = sub i32 %4, %3
   %9 = tail call i32 @tvb_skip_wsp(ptr noundef %0, i32 noundef %3, i32 noundef %8) #15
   %.not = icmp slt i32 %9, %4
-  br i1 %.not, label %10, label %66
+  br i1 %.not, label %10, label %59
 
 10:                                               ; preds = %5
   %11 = sub i32 %4, %9
   %12 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %9, i32 noundef %11, i8 noundef zeroext 59) #15
   %13 = icmp eq i32 %12, -1
-  br i1 %13, label %66, label %14
+  br i1 %13, label %59, label %14
 
 14:                                               ; preds = %10
   %15 = sub i32 %12, %9
@@ -7630,65 +7630,54 @@ define internal fastcc void @dissect_sip_reason_header(ptr noundef %0, ptr nound
   %30 = load ptr, ptr %6, align 8
   %31 = call i32 @g_ascii_strcasecmp(ptr noundef %30, ptr noundef nonnull @.str.1081) #15
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %36
+  br i1 %32, label %37, label %33
 
 33:                                               ; preds = %14
-  %34 = load i32, ptr @hf_sip_reason_cause_q850, align 4
-  %35 = call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %34, ptr noundef %0, i32 noundef %21, i32 noundef %.0, i32 noundef %29) #15
-  store i32 2, ptr %7, align 4
-  br label %46
+  %34 = load ptr, ptr %6, align 8
+  %35 = call i32 @g_ascii_strcasecmp(ptr noundef %34, ptr noundef nonnull @.str.873) #15
+  %36 = icmp eq i32 %35, 0
+  %hf_sip_reason_cause_sip.hf_sip_reason_cause_other = select i1 %36, ptr @hf_sip_reason_cause_sip, ptr @hf_sip_reason_cause_other
+  %. = zext i1 %36 to i32
+  br label %37
 
-36:                                               ; preds = %14
-  %37 = load ptr, ptr %6, align 8
-  %38 = call i32 @g_ascii_strcasecmp(ptr noundef %37, ptr noundef nonnull @.str.873) #15
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %40, label %43
+37:                                               ; preds = %33, %14
+  %hf_sip_reason_cause_sip.sink = phi ptr [ @hf_sip_reason_cause_q850, %14 ], [ %hf_sip_reason_cause_sip.hf_sip_reason_cause_other, %33 ]
+  %.sink = phi i32 [ 2, %14 ], [ %., %33 ]
+  %38 = load i32, ptr %hf_sip_reason_cause_sip.sink, align 4
+  %39 = call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %38, ptr noundef %0, i32 noundef %21, i32 noundef %.0, i32 noundef %29) #15
+  store i32 %.sink, ptr %7, align 4
+  br i1 %24, label %59, label %40
 
-40:                                               ; preds = %36
-  %41 = load i32, ptr @hf_sip_reason_cause_sip, align 4
-  %42 = call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %41, ptr noundef %0, i32 noundef %21, i32 noundef %.0, i32 noundef %29) #15
-  store i32 1, ptr %7, align 4
-  br label %46
+40:                                               ; preds = %37
+  %41 = sub i32 %4, %23
+  %42 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %23, i32 noundef %41, i8 noundef zeroext 34) #15
+  %43 = add i32 %42, 1
+  %44 = icmp eq i32 %43, -1
+  br i1 %44, label %59, label %45
 
-43:                                               ; preds = %36
-  %44 = load i32, ptr @hf_sip_reason_cause_other, align 4
-  %45 = call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %44, ptr noundef %0, i32 noundef %21, i32 noundef %.0, i32 noundef %29) #15
-  store i32 0, ptr %7, align 4
-  br label %46
+45:                                               ; preds = %40
+  %46 = sub i32 %4, %43
+  %47 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %43, i32 noundef %46, i8 noundef zeroext 34) #15
+  %48 = icmp eq i32 %47, -1
+  br i1 %48, label %59, label %49
 
-46:                                               ; preds = %40, %43, %33
-  br i1 %24, label %66, label %47
+49:                                               ; preds = %45
+  %50 = sub i32 %47, %43
+  %51 = load i32, ptr @hf_sip_reason_text, align 4
+  %52 = call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %51, ptr noundef %0, i32 noundef %43, i32 noundef %50, i32 noundef 2) #15
+  %53 = load ptr, ptr @sip_reason_code_handle, align 8
+  %.not78 = icmp eq ptr %53, null
+  br i1 %.not78, label %59, label %54
 
-47:                                               ; preds = %46
-  %48 = sub i32 %4, %23
-  %49 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %23, i32 noundef %48, i8 noundef zeroext 34) #15
-  %50 = add i32 %49, 1
-  %51 = icmp eq i32 %50, -1
-  br i1 %51, label %66, label %52
+54:                                               ; preds = %49
+  %55 = getelementptr inbounds i8, ptr %7, i64 4
+  store i32 %29, ptr %55, align 4
+  %56 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %43, i32 noundef %50) #15
+  %57 = load ptr, ptr @sip_reason_code_handle, align 8
+  %58 = call i32 @call_dissector_with_data(ptr noundef %57, ptr noundef %56, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %7) #15
+  br label %59
 
-52:                                               ; preds = %47
-  %53 = sub i32 %4, %50
-  %54 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %50, i32 noundef %53, i8 noundef zeroext 34) #15
-  %55 = icmp eq i32 %54, -1
-  br i1 %55, label %66, label %56
-
-56:                                               ; preds = %52
-  %57 = sub i32 %54, %50
-  %58 = load i32, ptr @hf_sip_reason_text, align 4
-  %59 = call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %58, ptr noundef %0, i32 noundef %50, i32 noundef %57, i32 noundef 2) #15
-  %60 = load ptr, ptr @sip_reason_code_handle, align 8
-  %.not78 = icmp eq ptr %60, null
-  br i1 %.not78, label %66, label %61
-
-61:                                               ; preds = %56
-  %62 = getelementptr inbounds i8, ptr %7, i64 4
-  store i32 %29, ptr %62, align 4
-  %63 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %50, i32 noundef %57) #15
-  %64 = load ptr, ptr @sip_reason_code_handle, align 8
-  %65 = call i32 @call_dissector_with_data(ptr noundef %64, ptr noundef %63, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %7) #15
-  br label %66
-
-66:                                               ; preds = %52, %47, %46, %10, %5, %61, %56
+59:                                               ; preds = %45, %40, %37, %10, %5, %54, %49
   ret void
 }
 

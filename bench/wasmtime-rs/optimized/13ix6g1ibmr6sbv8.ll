@@ -200,12 +200,10 @@ define void @_ZN16cranelift_native7builder17h135abacd076bc7b8E(ptr noalias nocap
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %..i.i.i, ptr %18, align 8, !alias.scope !25
   store i64 16, ptr %0, align 8, !alias.scope !25
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !25
   br label %_ZN16cranelift_native20builder_with_options17h35b8bb42182626bcE.exit
 
 19:                                               ; preds = %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !25
   br label %_ZN16cranelift_native20builder_with_options17h35b8bb42182626bcE.exit
 
 20:                                               ; preds = %12
@@ -224,6 +222,7 @@ define void @_ZN16cranelift_native7builder17h135abacd076bc7b8E(ptr noalias nocap
   resume { ptr, i32 } %21
 
 _ZN16cranelift_native20builder_with_options17h35b8bb42182626bcE.exit: ; preds = %14, %19
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !25
   ret void
 }
 
@@ -278,12 +277,10 @@ define void @_ZN16cranelift_native20builder_with_options17h35b8bb42182626bcE(ptr
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %..i.i, ptr %18, align 8
   store i64 16, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
   br label %24
 
 19:                                               ; preds = %20, %13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
   br label %24
 
 20:                                               ; preds = %13
@@ -297,6 +294,7 @@ define void @_ZN16cranelift_native20builder_with_options17h35b8bb42182626bcE(ptr
           to label %27 unwind label %25
 
 24:                                               ; preds = %14, %19
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
   ret void
 
 25:                                               ; preds = %22

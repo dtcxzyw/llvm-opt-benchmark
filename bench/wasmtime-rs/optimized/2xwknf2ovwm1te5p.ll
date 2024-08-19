@@ -416,24 +416,12 @@ define void @"_ZN4core4iter6traits8iterator8Iterator9partition6extend28_$u7b$$u7
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = call zeroext i1 @"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$17h3a350f8d1ca0b04dE"(ptr nonnull align 1 %6, ptr nonnull align 8 %4)
-  br i1 %7, label %13, label %8
-
-8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !nonnull !3, !align !5, !noundef !3
-  %11 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
-  %12 = load ptr, ptr %5, align 8, !nonnull !3, !align !5, !noundef !3
-  call void @"_ZN134_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LP$K$C$V$RP$$GT$$GT$10extend_one17hfbc78031dee81eb8E"(ptr nonnull align 8 %10, ptr nonnull align 8 %11, ptr nonnull align 8 %12)
-  br label %17
-
-13:                                               ; preds = %3
-  %14 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
-  %15 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
-  %16 = load ptr, ptr %5, align 8, !nonnull !3, !align !5, !noundef !3
-  call void @"_ZN134_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LP$K$C$V$RP$$GT$$GT$10extend_one17hfbc78031dee81eb8E"(ptr nonnull align 8 %14, ptr nonnull align 8 %15, ptr nonnull align 8 %16)
-  br label %17
-
-17:                                               ; preds = %8, %13
+  %.sink3.idx = select i1 %7, i64 0, i64 8
+  %.sink3 = getelementptr inbounds i8, ptr %0, i64 %.sink3.idx
+  %8 = load ptr, ptr %.sink3, align 8, !nonnull !3, !align !5, !noundef !3
+  %9 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
+  %10 = load ptr, ptr %5, align 8, !nonnull !3, !align !5, !noundef !3
+  call void @"_ZN134_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LP$K$C$V$RP$$GT$$GT$10extend_one17hfbc78031dee81eb8E"(ptr nonnull align 8 %8, ptr nonnull align 8 %9, ptr nonnull align 8 %10)
   ret void
 }
 

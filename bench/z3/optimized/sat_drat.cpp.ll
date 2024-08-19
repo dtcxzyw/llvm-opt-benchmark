@@ -809,16 +809,11 @@ if.end5:                                          ; preds = %_ZN3sat4drat13dump_
   %13 = phi i32 [ %.pre, %_ZN3sat4drat13dump_activityEv.exit ], [ %0, %land.lhs.true3 ], [ %0, %if.end ]
   %add.ptr = getelementptr inbounds i8, ptr %digits, i64 20
   switch i32 %13, label %if.else19 [
-    i32 3, label %if.then7
+    i32 3, label %if.end43.sink.split
     i32 0, label %if.then12
   ]
 
-if.then7:                                         ; preds = %if.end5
-  store i8 100, ptr %buffer, align 16
-  br label %if.end43.sink.split
-
 if.then12:                                        ; preds = %if.end5
-  store i8 105, ptr %buffer, align 16
   br label %if.end43.sink.split
 
 if.else19:                                        ; preds = %if.end5
@@ -829,19 +824,16 @@ if.else19:                                        ; preds = %if.end5
 
 if.then21:                                        ; preds = %if.else19
   switch i32 %13, label %if.end43 [
-    i32 2, label %if.then23
+    i32 2, label %if.end43.sink.split
     i32 1, label %if.then32
   ]
 
-if.then23:                                        ; preds = %if.then21
-  store i8 114, ptr %buffer, align 16
-  br label %if.end43.sink.split
-
 if.then32:                                        ; preds = %if.then21
-  store i8 97, ptr %buffer, align 16
   br label %if.end43.sink.split
 
-if.end43.sink.split:                              ; preds = %if.then7, %if.then32, %if.then23, %if.then12
+if.end43.sink.split:                              ; preds = %if.then21, %if.end5, %if.then32, %if.then12
+  %.sink = phi i8 [ 105, %if.then12 ], [ 97, %if.then32 ], [ 100, %if.end5 ], [ 114, %if.then21 ]
+  store i8 %.sink, ptr %buffer, align 16
   %arrayidx18 = getelementptr inbounds i8, ptr %buffer, i64 1
   store i8 32, ptr %arrayidx18, align 1
   br label %if.end43

@@ -2623,9 +2623,9 @@ apply_infos.exit:                                 ; preds = %28, %26, %24, %19, 
   br i1 %.not29, label %63, label %.sink.split35
 
 .sink.split35:                                    ; preds = %60, %58
-  %storemerge = phi i32 [ 0, %58 ], [ 1, %60 ]
+  %.sink38 = phi i32 [ 0, %58 ], [ 1, %60 ]
   %.sink36 = phi ptr [ %59, %58 ], [ %61, %60 ]
-  store i32 %storemerge, ptr %3, align 8
+  store i32 %.sink38, ptr %3, align 8
   %62 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %.sink36, ptr %62, align 8
   br label %63

@@ -10707,23 +10707,18 @@ while.cond3:                                      ; preds = %while.body7, %while
   %24 = load i32, ptr %id.i.i.i, align 4
   %25 = load i32, ptr %id2.i.i.i, align 4
   %cmp.i.i.i.i.i = icmp ult i32 %24, %25
-  br i1 %cmp.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN3ue211hwlmLiteralEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread, label %lor.rhs.i.i.i.i.i
-
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN3ue211hwlmLiteralEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread: ; preds = %while.cond3
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp1.i.i.i) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp.i.i.i) #25
-  br label %while.body7
+  br i1 %cmp.i.i.i.i.i, label %while.body7.sink.split, label %lor.rhs.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i:                                ; preds = %while.cond3
   %cmp4.i.i.i.i.i = icmp ult i32 %25, %24
-  br i1 %cmp4.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN3ue211hwlmLiteralEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread53, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN3ue211hwlmLiteralEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit
+  br i1 %cmp4.i.i.i.i.i, label %while.cond10.preheader.sink.split, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN3ue211hwlmLiteralEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN3ue211hwlmLiteralEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread53: ; preds = %lor.rhs.i.i.i.i.i
+while.cond10.preheader.sink.split:                ; preds = %lor.rhs.i.i.i.i.i, %lor.rhs.i.i.i.i, %lor.rhs.i.i.i, %lor.rhs.i.i, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit28.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp1.i.i.i) #25
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp.i.i.i) #25
   br label %while.cond10.preheader
 
-while.cond10.preheader:                           ; preds = %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit, %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit.thread59, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN3ue211hwlmLiteralEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread53
+while.cond10.preheader:                           ; preds = %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit, %while.cond10.preheader.sink.split
   br label %while.cond10
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN3ue211hwlmLiteralEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit: ; preds = %lor.rhs.i.i.i.i.i
@@ -10747,7 +10742,7 @@ _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   %retval.07.i.i.i.i = call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i, i64 2147483647)
   %30 = and i64 %retval.07.i.i.i.i, 2147483648
   %cmp.i.not.i = icmp eq i64 %30, 0
-  br i1 %cmp.i.not.i, label %if.then.i.i23.i, label %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit.thread
+  br i1 %cmp.i.not.i, label %if.then.i.i23.i, label %while.body7.sink.split
 
 _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread32.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
   %sub.i.i.i33.i = sub i64 %26, %27
@@ -10755,11 +10750,11 @@ _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   %retval.07.i.i.i35.i = call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i34.i, i64 2147483647)
   %31 = and i64 %retval.07.i.i.i35.i, 2147483648
   %cmp.i37.not.i = icmp eq i64 %31, 0
-  br i1 %cmp.i37.not.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i18.i, label %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit.thread
+  br i1 %cmp.i37.not.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i18.i, label %while.body7.sink.split
 
 _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
   %cmp.i31.i = icmp slt i32 %call.i.i.i.i, 0
-  br i1 %cmp.i31.i, label %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i18.i
+  br i1 %cmp.i31.i, label %while.body7.sink.split, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i18.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i18.i: ; preds = %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread.i, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread32.i
   %call.i.i.i19.i = call i32 @memcmp(ptr noundef %28, ptr noundef %29, i64 noundef %.sroa.speculated.i.i.i) #25
@@ -10776,47 +10771,37 @@ if.then.i.i23.i:                                  ; preds = %_ZNSt11char_traitsI
 _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit28.i: ; preds = %if.then.i.i23.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i18.i
   %__r.0.i.i21.i = phi i32 [ %call.i.i.i19.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i18.i ], [ %retval.0.i12.i.i27.i, %if.then.i.i23.i ]
   %cmp.i22.i = icmp slt i32 %__r.0.i.i21.i, 0
-  br i1 %cmp.i22.i, label %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit.thread59, label %land.rhs.i
+  br i1 %cmp.i22.i, label %while.cond10.preheader.sink.split, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit28.i
   %32 = load i8, ptr %nocase.i.i.i, align 1, !range !5, !noundef !6
   %33 = load i8, ptr %nocase4.i.i.i, align 1, !range !5, !noundef !6
   %cmp.i29.i = icmp ult i8 %32, %33
-  br i1 %cmp.i29.i, label %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit.thread, label %lor.rhs.i.i
+  br i1 %cmp.i29.i, label %while.body7.sink.split, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %land.rhs.i
   %cmp10.i.i = icmp ult i8 %33, %32
-  br i1 %cmp10.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit.thread59, label %land.rhs.i.i
+  br i1 %cmp10.i.i, label %while.cond10.preheader.sink.split, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %lor.rhs.i.i
   %34 = load i8, ptr %noruns.i.i.i, align 1, !range !5, !noundef !6
   %35 = load i8, ptr %noruns5.i.i.i, align 1, !range !5, !noundef !6
   %cmp.i.i.i4 = icmp ult i8 %34, %35
-  br i1 %cmp.i.i.i4, label %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit.thread, label %lor.rhs.i.i.i
+  br i1 %cmp.i.i.i4, label %while.body7.sink.split, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.rhs.i.i
   %cmp10.i.i.i = icmp ult i8 %35, %34
-  br i1 %cmp10.i.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit.thread59, label %land.rhs.i.i.i
+  br i1 %cmp10.i.i.i, label %while.cond10.preheader.sink.split, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %lor.rhs.i.i.i
   %36 = load i64, ptr %groups.i.i.i, align 8
   %37 = load i64, ptr %groups6.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %36, %37
-  br i1 %cmp.i.i.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit.thread, label %lor.rhs.i.i.i.i
+  br i1 %cmp.i.i.i.i, label %while.body7.sink.split, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.rhs.i.i.i
   %cmp4.i.i.i.i = icmp ult i64 %37, %36
-  br i1 %cmp4.i.i.i.i, label %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit.thread59, label %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit
-
-_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit.thread: ; preds = %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread.i, %land.rhs.i, %land.rhs.i.i, %land.rhs.i.i.i, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread32.i
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp1.i.i.i) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp.i.i.i) #25
-  br label %while.body7
-
-_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit.thread59: ; preds = %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit28.i, %lor.rhs.i.i, %lor.rhs.i.i.i, %lor.rhs.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp1.i.i.i) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp.i.i.i) #25
-  br label %while.cond10.preheader
+  br i1 %cmp4.i.i.i.i, label %while.cond10.preheader.sink.split, label %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit
 
 _ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit: ; preds = %lor.rhs.i.i.i.i
   %call5.i.i.i.i = call noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm5ELm7EE6__lessERKSK_SN_(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp1.i.i.i)
@@ -10824,7 +10809,12 @@ _ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traits
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp.i.i.i) #25
   br i1 %call5.i.i.i.i, label %while.body7, label %while.cond10.preheader
 
-while.body7:                                      ; preds = %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit.thread, %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN3ue211hwlmLiteralEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread
+while.body7.sink.split:                           ; preds = %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread32.i, %land.rhs.i.i.i, %land.rhs.i.i, %land.rhs.i, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread.i, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i, %while.cond3
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp1.i.i.i) #25
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp.i.i.i) #25
+  br label %while.body7
+
+while.body7:                                      ; preds = %while.body7.sink.split, %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__first.sroa.0.1, i64 104
   br label %while.cond3, !llvm.loop !334
 
@@ -10856,21 +10846,19 @@ while.cond10:                                     ; preds = %while.cond10.backed
   %38 = load i32, ptr %id2.i.i.i, align 4
   %39 = load i32, ptr %id2.i.i.i35, align 4
   %cmp.i.i.i.i.i41 = icmp ult i32 %38, %39
-  br i1 %cmp.i.i.i.i.i41, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN3ue211hwlmLiteralEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit46.thread, label %lor.rhs.i.i.i.i.i42
+  br i1 %cmp.i.i.i.i.i41, label %while.cond10.backedge.sink.split, label %lor.rhs.i.i.i.i.i42
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN3ue211hwlmLiteralEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit46.thread: ; preds = %while.cond10
+while.cond10.backedge.sink.split:                 ; preds = %while.cond10, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread32.i47, %land.rhs.i.i.i34, %land.rhs.i.i28, %land.rhs.i22, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread.i14, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i52
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp1.i.i.i28) #25
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp.i.i.i27) #25
   br label %while.cond10.backedge
 
+while.cond10.backedge:                            ; preds = %while.cond10.backedge.sink.split, %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit57
+  br label %while.cond10, !llvm.loop !341
+
 lor.rhs.i.i.i.i.i42:                              ; preds = %while.cond10
   %cmp4.i.i.i.i.i43 = icmp ult i32 %39, %38
-  br i1 %cmp4.i.i.i.i.i43, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN3ue211hwlmLiteralEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit46.thread54, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN3ue211hwlmLiteralEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit46
-
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN3ue211hwlmLiteralEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit46.thread54: ; preds = %lor.rhs.i.i.i.i.i42
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp1.i.i.i28) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp.i.i.i27) #25
-  br label %while.end18
+  br i1 %cmp4.i.i.i.i.i43, label %while.end18.sink.split, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN3ue211hwlmLiteralEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit46
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN3ue211hwlmLiteralEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit46: ; preds = %lor.rhs.i.i.i.i.i42
   %40 = load i64, ptr %_M_string_length.i10.i.i.i, align 8
@@ -10893,7 +10881,7 @@ _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   %retval.07.i.i.i.i55 = call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i54, i64 2147483647)
   %44 = and i64 %retval.07.i.i.i.i55, 2147483648
   %cmp.i.not.i56 = icmp eq i64 %44, 0
-  br i1 %cmp.i.not.i56, label %if.then.i.i23.i42, label %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit57.thread
+  br i1 %cmp.i.not.i56, label %if.then.i.i23.i42, label %while.cond10.backedge.sink.split
 
 _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread32.i47: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i11
   %sub.i.i.i33.i48 = sub i64 %40, %41
@@ -10901,11 +10889,11 @@ _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   %retval.07.i.i.i35.i50 = call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i34.i49, i64 2147483647)
   %45 = and i64 %retval.07.i.i.i35.i50, 2147483648
   %cmp.i37.not.i51 = icmp eq i64 %45, 0
-  br i1 %cmp.i37.not.i51, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i18.i16, label %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit57.thread
+  br i1 %cmp.i37.not.i51, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i18.i16, label %while.cond10.backedge.sink.split
 
 _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread.i14: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i11
   %cmp.i31.i15 = icmp slt i32 %call.i.i.i.i12, 0
-  br i1 %cmp.i31.i15, label %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit57.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i18.i16
+  br i1 %cmp.i31.i15, label %while.cond10.backedge.sink.split, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i18.i16
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i18.i16: ; preds = %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread.i14, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread32.i47
   %call.i.i.i19.i17 = call i32 @memcmp(ptr noundef %42, ptr noundef %43, i64 noundef %.sroa.speculated.i.i.i9) #25
@@ -10922,50 +10910,37 @@ if.then.i.i23.i42:                                ; preds = %_ZNSt11char_traitsI
 _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit28.i19: ; preds = %if.then.i.i23.i42, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i18.i16
   %__r.0.i.i21.i20 = phi i32 [ %call.i.i.i19.i17, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i18.i16 ], [ %retval.0.i12.i.i27.i46, %if.then.i.i23.i42 ]
   %cmp.i22.i21 = icmp slt i32 %__r.0.i.i21.i20, 0
-  br i1 %cmp.i22.i21, label %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit57.thread61, label %land.rhs.i22
+  br i1 %cmp.i22.i21, label %while.end18.sink.split, label %land.rhs.i22
 
 land.rhs.i22:                                     ; preds = %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit28.i19
   %46 = load i8, ptr %nocase4.i.i.i, align 1, !range !5, !noundef !6
   %47 = load i8, ptr %nocase4.i.i.i36, align 1, !range !5, !noundef !6
   %cmp.i29.i25 = icmp ult i8 %46, %47
-  br i1 %cmp.i29.i25, label %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit57.thread, label %lor.rhs.i.i26
+  br i1 %cmp.i29.i25, label %while.cond10.backedge.sink.split, label %lor.rhs.i.i26
 
 lor.rhs.i.i26:                                    ; preds = %land.rhs.i22
   %cmp10.i.i27 = icmp ult i8 %47, %46
-  br i1 %cmp10.i.i27, label %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit57.thread61, label %land.rhs.i.i28
+  br i1 %cmp10.i.i27, label %while.end18.sink.split, label %land.rhs.i.i28
 
 land.rhs.i.i28:                                   ; preds = %lor.rhs.i.i26
   %48 = load i8, ptr %noruns5.i.i.i, align 1, !range !5, !noundef !6
   %49 = load i8, ptr %noruns5.i.i.i37, align 1, !range !5, !noundef !6
   %cmp.i.i.i31 = icmp ult i8 %48, %49
-  br i1 %cmp.i.i.i31, label %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit57.thread, label %lor.rhs.i.i.i32
+  br i1 %cmp.i.i.i31, label %while.cond10.backedge.sink.split, label %lor.rhs.i.i.i32
 
 lor.rhs.i.i.i32:                                  ; preds = %land.rhs.i.i28
   %cmp10.i.i.i33 = icmp ult i8 %49, %48
-  br i1 %cmp10.i.i.i33, label %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit57.thread61, label %land.rhs.i.i.i34
+  br i1 %cmp10.i.i.i33, label %while.end18.sink.split, label %land.rhs.i.i.i34
 
 land.rhs.i.i.i34:                                 ; preds = %lor.rhs.i.i.i32
   %50 = load i64, ptr %groups6.i.i.i, align 8
   %51 = load i64, ptr %groups6.i.i.i38, align 8
   %cmp.i.i.i.i37 = icmp ult i64 %50, %51
-  br i1 %cmp.i.i.i.i37, label %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit57.thread, label %lor.rhs.i.i.i.i38
+  br i1 %cmp.i.i.i.i37, label %while.cond10.backedge.sink.split, label %lor.rhs.i.i.i.i38
 
 lor.rhs.i.i.i.i38:                                ; preds = %land.rhs.i.i.i34
   %cmp4.i.i.i.i39 = icmp ult i64 %51, %50
-  br i1 %cmp4.i.i.i.i39, label %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit57.thread61, label %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit57
-
-_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit57.thread: ; preds = %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i52, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread.i14, %land.rhs.i22, %land.rhs.i.i28, %land.rhs.i.i.i34, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread32.i47
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp1.i.i.i28) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp.i.i.i27) #25
-  br label %while.cond10.backedge
-
-while.cond10.backedge:                            ; preds = %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit57.thread, %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit57, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN3ue211hwlmLiteralEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit46.thread
-  br label %while.cond10, !llvm.loop !341
-
-_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit57.thread61: ; preds = %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit28.i19, %lor.rhs.i.i26, %lor.rhs.i.i.i32, %lor.rhs.i.i.i.i38
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp1.i.i.i28) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp.i.i.i27) #25
-  br label %while.end18
+  br i1 %cmp4.i.i.i.i39, label %while.end18.sink.split, label %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit57
 
 _ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit57: ; preds = %lor.rhs.i.i.i.i38
   %call5.i.i.i.i41 = call noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm5ELm7EE6__lessERKSK_SN_(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp.i.i.i27, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp1.i.i.i28)
@@ -10973,7 +10948,12 @@ _ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traits
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp.i.i.i27) #25
   br i1 %call5.i.i.i.i41, label %while.cond10.backedge, label %while.end18
 
-while.end18:                                      ; preds = %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit57, %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit57.thread61, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN3ue211hwlmLiteralEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit46.thread54
+while.end18.sink.split:                           ; preds = %lor.rhs.i.i.i.i38, %lor.rhs.i.i.i32, %lor.rhs.i.i26, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit28.i19, %lor.rhs.i.i.i.i.i42
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp1.i.i.i28) #25
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp.i.i.i27) #25
+  br label %while.end18
+
+while.end18:                                      ; preds = %_ZNSt15__tuple_compareISt5tupleIJRKjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKbSC_RKyRKSt6vectorIhSaIhEESJ_EESK_Lm1ELm7EE6__lessERKSK_SN_.exit57, %while.end18.sink.split
   %cmp.i = icmp ult ptr %__first.sroa.0.1, %__last.sroa.0.1
   br i1 %cmp.i, label %if.end, label %if.then
 

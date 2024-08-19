@@ -1017,38 +1017,38 @@ for.body24:                                       ; preds = %for.cond21.preheade
   br i1 %cmp23.not, label %if.end31, label %for.body24, !llvm.loop !10
 
 if.end31:                                         ; preds = %for.body24, %for.body14
-  %storemerge615 = phi i64 [ %113, %for.body14 ], [ %142, %for.body24 ]
-  %storemerge614 = phi i64 [ %114, %for.body14 ], [ %143, %for.body24 ]
-  %storemerge613 = phi i64 [ %115, %for.body14 ], [ %144, %for.body24 ]
-  %storemerge612 = phi i64 [ %116, %for.body14 ], [ %145, %for.body24 ]
-  %storemerge611 = phi i64 [ %117, %for.body14 ], [ %146, %for.body24 ]
-  %storemerge610 = phi i64 [ %118, %for.body14 ], [ %147, %for.body24 ]
-  %storemerge609 = phi i64 [ %xor1.i28.i228, %for.body14 ], [ %xor1.i28.i250, %for.body24 ]
-  %storemerge608 = phi i64 [ %xor84.i29.i229, %for.body14 ], [ %xor84.i29.i251, %for.body24 ]
-  %storemerge607 = phi i64 [ %121, %for.body14 ], [ %150, %for.body24 ]
-  %storemerge606 = phi i64 [ %122, %for.body14 ], [ %151, %for.body24 ]
-  %storemerge605 = phi i64 [ %123, %for.body14 ], [ %152, %for.body24 ]
-  %storemerge604 = phi i64 [ %124, %for.body14 ], [ %153, %for.body24 ]
-  %storemerge603 = phi i64 [ %125, %for.body14 ], [ %154, %for.body24 ]
-  %storemerge602 = phi i64 [ %126, %for.body14 ], [ %155, %for.body24 ]
-  %storemerge = phi i64 [ %xor1.i.i226, %for.body14 ], [ %xor1.i.i248, %for.body24 ]
+  %.lcssa577.sink = phi i64 [ %113, %for.body14 ], [ %142, %for.body24 ]
+  %.lcssa576.sink = phi i64 [ %114, %for.body14 ], [ %143, %for.body24 ]
+  %.lcssa575.sink = phi i64 [ %115, %for.body14 ], [ %144, %for.body24 ]
+  %.lcssa574.sink = phi i64 [ %116, %for.body14 ], [ %145, %for.body24 ]
+  %.lcssa573.sink = phi i64 [ %117, %for.body14 ], [ %146, %for.body24 ]
+  %.lcssa572.sink = phi i64 [ %118, %for.body14 ], [ %147, %for.body24 ]
+  %xor1.i28.i250.lcssa.sink = phi i64 [ %xor1.i28.i228, %for.body14 ], [ %xor1.i28.i250, %for.body24 ]
+  %xor84.i29.i251.lcssa.sink = phi i64 [ %xor84.i29.i229, %for.body14 ], [ %xor84.i29.i251, %for.body24 ]
+  %.lcssa571.sink = phi i64 [ %121, %for.body14 ], [ %150, %for.body24 ]
+  %.lcssa570.sink = phi i64 [ %122, %for.body14 ], [ %151, %for.body24 ]
+  %.lcssa569.sink = phi i64 [ %123, %for.body14 ], [ %152, %for.body24 ]
+  %.lcssa568.sink = phi i64 [ %124, %for.body14 ], [ %153, %for.body24 ]
+  %.lcssa567.sink = phi i64 [ %125, %for.body14 ], [ %154, %for.body24 ]
+  %.lcssa566.sink = phi i64 [ %126, %for.body14 ], [ %155, %for.body24 ]
+  %xor1.i.i248.lcssa.sink = phi i64 [ %xor1.i.i226, %for.body14 ], [ %xor1.i.i248, %for.body24 ]
   %xor84.i.i249.lcssa.sink = phi i64 [ %xor84.i.i227, %for.body14 ], [ %xor84.i.i249, %for.body24 ]
   %i.2 = phi i64 [ %add12442, %for.body14 ], [ %add22388, %for.body24 ]
-  store i64 %storemerge615, ptr %arrayidx19.i, align 16
-  store i64 %storemerge614, ptr %tmp20.sroa.2.0.arrayidx19.sroa_idx.i, align 8
-  store i64 %storemerge613, ptr %arrayidx16.i, align 16
-  store i64 %storemerge612, ptr %tmp17.sroa.2.0.arrayidx16.sroa_idx.i, align 8
-  store i64 %storemerge611, ptr %arrayidx13.i, align 16
-  store i64 %storemerge610, ptr %tmp14.sroa.2.0.arrayidx13.sroa_idx.i, align 8
-  store i64 %storemerge609, ptr %arrayidx10.i, align 16
-  store i64 %storemerge608, ptr %tmp11.sroa.2.0.arrayidx10.sroa_idx.i, align 8
-  store i64 %storemerge607, ptr %arrayidx9.i, align 16
-  store i64 %storemerge606, ptr %c1.sroa.4.0.arrayidx9.sroa_idx.i, align 8
-  store i64 %storemerge605, ptr %arrayidx8.i, align 16
-  store i64 %storemerge604, ptr %c0.sroa.4.0.arrayidx8.sroa_idx.i, align 8
-  store i64 %storemerge603, ptr %arrayidx7.i, align 16
-  store i64 %storemerge602, ptr %c1.sroa.4.0.arrayidx7.sroa_idx.i, align 8
-  store i64 %storemerge, ptr %state, align 16
+  store i64 %.lcssa577.sink, ptr %arrayidx19.i, align 16
+  store i64 %.lcssa576.sink, ptr %tmp20.sroa.2.0.arrayidx19.sroa_idx.i, align 8
+  store i64 %.lcssa575.sink, ptr %arrayidx16.i, align 16
+  store i64 %.lcssa574.sink, ptr %tmp17.sroa.2.0.arrayidx16.sroa_idx.i, align 8
+  store i64 %.lcssa573.sink, ptr %arrayidx13.i, align 16
+  store i64 %.lcssa572.sink, ptr %tmp14.sroa.2.0.arrayidx13.sroa_idx.i, align 8
+  store i64 %xor1.i28.i250.lcssa.sink, ptr %arrayidx10.i, align 16
+  store i64 %xor84.i29.i251.lcssa.sink, ptr %tmp11.sroa.2.0.arrayidx10.sroa_idx.i, align 8
+  store i64 %.lcssa571.sink, ptr %arrayidx9.i, align 16
+  store i64 %.lcssa570.sink, ptr %c1.sroa.4.0.arrayidx9.sroa_idx.i, align 8
+  store i64 %.lcssa569.sink, ptr %arrayidx8.i, align 16
+  store i64 %.lcssa568.sink, ptr %c0.sroa.4.0.arrayidx8.sroa_idx.i, align 8
+  store i64 %.lcssa567.sink, ptr %arrayidx7.i, align 16
+  store i64 %.lcssa566.sink, ptr %c1.sroa.4.0.arrayidx7.sroa_idx.i, align 8
+  store i64 %xor1.i.i248.lcssa.sink, ptr %state, align 16
   store i64 %xor84.i.i249.lcssa.sink, ptr %tmp5.sroa.2.0.arrayidx.sroa_idx.i, align 8
   %rem32 = and i64 %clen, 31
   %tobool33.not = icmp eq i64 %rem32, 0
@@ -1067,21 +1067,21 @@ if.then34:                                        ; preds = %if.end31
 
 if.then36:                                        ; preds = %if.end31.thread546, %if.then34
   %170 = phi i64 [ %xor84.i.i249.lcssa.sink, %if.then34 ], [ %tmp5.sroa.2.0.arrayidx.sroa_idx.i.promoted436, %if.end31.thread546 ]
-  %171 = phi i64 [ %storemerge, %if.then34 ], [ %state.promoted434, %if.end31.thread546 ]
-  %172 = phi i64 [ %storemerge608, %if.then34 ], [ %tmp11.sroa.2.0.arrayidx10.sroa_idx.i.promoted432, %if.end31.thread546 ]
-  %173 = phi i64 [ %storemerge609, %if.then34 ], [ %arrayidx10.i.promoted430, %if.end31.thread546 ]
-  %174 = phi i64 [ %storemerge614, %if.then34 ], [ %tmp20.sroa.2.0.arrayidx19.sroa_idx.i.promoted429, %if.end31.thread546 ]
-  %175 = phi i64 [ %storemerge615, %if.then34 ], [ %arrayidx19.i.promoted428, %if.end31.thread546 ]
-  %176 = phi i64 [ %storemerge606, %if.then34 ], [ %c1.sroa.4.0.arrayidx9.sroa_idx.i.promoted427, %if.end31.thread546 ]
-  %177 = phi i64 [ %storemerge607, %if.then34 ], [ %arrayidx9.i.promoted426, %if.end31.thread546 ]
-  %178 = phi i64 [ %storemerge604, %if.then34 ], [ %c0.sroa.4.0.arrayidx8.sroa_idx.i.promoted425, %if.end31.thread546 ]
-  %179 = phi i64 [ %storemerge605, %if.then34 ], [ %arrayidx8.i.promoted424, %if.end31.thread546 ]
-  %180 = phi i64 [ %storemerge610, %if.then34 ], [ %tmp14.sroa.2.0.arrayidx13.sroa_idx.i.promoted423, %if.end31.thread546 ]
-  %181 = phi i64 [ %storemerge611, %if.then34 ], [ %arrayidx13.i.promoted422, %if.end31.thread546 ]
-  %182 = phi i64 [ %storemerge602, %if.then34 ], [ %c1.sroa.4.0.arrayidx7.sroa_idx.i.promoted421, %if.end31.thread546 ]
-  %183 = phi i64 [ %storemerge603, %if.then34 ], [ %arrayidx7.i.promoted420, %if.end31.thread546 ]
-  %184 = phi i64 [ %storemerge612, %if.then34 ], [ %tmp17.sroa.2.0.arrayidx16.sroa_idx.i.promoted419, %if.end31.thread546 ]
-  %185 = phi i64 [ %storemerge613, %if.then34 ], [ %arrayidx16.i.promoted418, %if.end31.thread546 ]
+  %171 = phi i64 [ %xor1.i.i248.lcssa.sink, %if.then34 ], [ %state.promoted434, %if.end31.thread546 ]
+  %172 = phi i64 [ %xor84.i29.i251.lcssa.sink, %if.then34 ], [ %tmp11.sroa.2.0.arrayidx10.sroa_idx.i.promoted432, %if.end31.thread546 ]
+  %173 = phi i64 [ %xor1.i28.i250.lcssa.sink, %if.then34 ], [ %arrayidx10.i.promoted430, %if.end31.thread546 ]
+  %174 = phi i64 [ %.lcssa576.sink, %if.then34 ], [ %tmp20.sroa.2.0.arrayidx19.sroa_idx.i.promoted429, %if.end31.thread546 ]
+  %175 = phi i64 [ %.lcssa577.sink, %if.then34 ], [ %arrayidx19.i.promoted428, %if.end31.thread546 ]
+  %176 = phi i64 [ %.lcssa570.sink, %if.then34 ], [ %c1.sroa.4.0.arrayidx9.sroa_idx.i.promoted427, %if.end31.thread546 ]
+  %177 = phi i64 [ %.lcssa571.sink, %if.then34 ], [ %arrayidx9.i.promoted426, %if.end31.thread546 ]
+  %178 = phi i64 [ %.lcssa568.sink, %if.then34 ], [ %c0.sroa.4.0.arrayidx8.sroa_idx.i.promoted425, %if.end31.thread546 ]
+  %179 = phi i64 [ %.lcssa569.sink, %if.then34 ], [ %arrayidx8.i.promoted424, %if.end31.thread546 ]
+  %180 = phi i64 [ %.lcssa572.sink, %if.then34 ], [ %tmp14.sroa.2.0.arrayidx13.sroa_idx.i.promoted423, %if.end31.thread546 ]
+  %181 = phi i64 [ %.lcssa573.sink, %if.then34 ], [ %arrayidx13.i.promoted422, %if.end31.thread546 ]
+  %182 = phi i64 [ %.lcssa566.sink, %if.then34 ], [ %c1.sroa.4.0.arrayidx7.sroa_idx.i.promoted421, %if.end31.thread546 ]
+  %183 = phi i64 [ %.lcssa567.sink, %if.then34 ], [ %arrayidx7.i.promoted420, %if.end31.thread546 ]
+  %184 = phi i64 [ %.lcssa574.sink, %if.then34 ], [ %tmp17.sroa.2.0.arrayidx16.sroa_idx.i.promoted419, %if.end31.thread546 ]
+  %185 = phi i64 [ %.lcssa575.sink, %if.then34 ], [ %arrayidx16.i.promoted418, %if.end31.thread546 ]
   %i.2540554 = phi i64 [ %i.2, %if.then34 ], [ 0, %if.end31.thread546 ]
   %rem32541553 = phi i64 [ %rem32, %if.then34 ], [ %clen, %if.end31.thread546 ]
   %add.ptr37 = getelementptr i8, ptr %m, i64 %i.2540554
@@ -1195,21 +1195,21 @@ if.then36:                                        ; preds = %if.end31.thread546,
 
 if.else41:                                        ; preds = %if.end31.thread, %if.then34
   %212 = phi i64 [ %xor84.i.i249.lcssa.sink, %if.then34 ], [ %tmp5.sroa.2.0.arrayidx.sroa_idx.i.promoted436, %if.end31.thread ]
-  %213 = phi i64 [ %storemerge, %if.then34 ], [ %state.promoted434, %if.end31.thread ]
-  %214 = phi i64 [ %storemerge608, %if.then34 ], [ %tmp11.sroa.2.0.arrayidx10.sroa_idx.i.promoted432, %if.end31.thread ]
-  %215 = phi i64 [ %storemerge609, %if.then34 ], [ %arrayidx10.i.promoted430, %if.end31.thread ]
-  %216 = phi i64 [ %storemerge614, %if.then34 ], [ %tmp20.sroa.2.0.arrayidx19.sroa_idx.i.promoted429, %if.end31.thread ]
-  %217 = phi i64 [ %storemerge615, %if.then34 ], [ %arrayidx19.i.promoted428, %if.end31.thread ]
-  %218 = phi i64 [ %storemerge606, %if.then34 ], [ %c1.sroa.4.0.arrayidx9.sroa_idx.i.promoted427, %if.end31.thread ]
-  %219 = phi i64 [ %storemerge607, %if.then34 ], [ %arrayidx9.i.promoted426, %if.end31.thread ]
-  %220 = phi i64 [ %storemerge604, %if.then34 ], [ %c0.sroa.4.0.arrayidx8.sroa_idx.i.promoted425, %if.end31.thread ]
-  %221 = phi i64 [ %storemerge605, %if.then34 ], [ %arrayidx8.i.promoted424, %if.end31.thread ]
-  %222 = phi i64 [ %storemerge610, %if.then34 ], [ %tmp14.sroa.2.0.arrayidx13.sroa_idx.i.promoted423, %if.end31.thread ]
-  %223 = phi i64 [ %storemerge611, %if.then34 ], [ %arrayidx13.i.promoted422, %if.end31.thread ]
-  %224 = phi i64 [ %storemerge602, %if.then34 ], [ %c1.sroa.4.0.arrayidx7.sroa_idx.i.promoted421, %if.end31.thread ]
-  %225 = phi i64 [ %storemerge603, %if.then34 ], [ %arrayidx7.i.promoted420, %if.end31.thread ]
-  %226 = phi i64 [ %storemerge612, %if.then34 ], [ %tmp17.sroa.2.0.arrayidx16.sroa_idx.i.promoted419, %if.end31.thread ]
-  %227 = phi i64 [ %storemerge613, %if.then34 ], [ %arrayidx16.i.promoted418, %if.end31.thread ]
+  %213 = phi i64 [ %xor1.i.i248.lcssa.sink, %if.then34 ], [ %state.promoted434, %if.end31.thread ]
+  %214 = phi i64 [ %xor84.i29.i251.lcssa.sink, %if.then34 ], [ %tmp11.sroa.2.0.arrayidx10.sroa_idx.i.promoted432, %if.end31.thread ]
+  %215 = phi i64 [ %xor1.i28.i250.lcssa.sink, %if.then34 ], [ %arrayidx10.i.promoted430, %if.end31.thread ]
+  %216 = phi i64 [ %.lcssa576.sink, %if.then34 ], [ %tmp20.sroa.2.0.arrayidx19.sroa_idx.i.promoted429, %if.end31.thread ]
+  %217 = phi i64 [ %.lcssa577.sink, %if.then34 ], [ %arrayidx19.i.promoted428, %if.end31.thread ]
+  %218 = phi i64 [ %.lcssa570.sink, %if.then34 ], [ %c1.sroa.4.0.arrayidx9.sroa_idx.i.promoted427, %if.end31.thread ]
+  %219 = phi i64 [ %.lcssa571.sink, %if.then34 ], [ %arrayidx9.i.promoted426, %if.end31.thread ]
+  %220 = phi i64 [ %.lcssa568.sink, %if.then34 ], [ %c0.sroa.4.0.arrayidx8.sroa_idx.i.promoted425, %if.end31.thread ]
+  %221 = phi i64 [ %.lcssa569.sink, %if.then34 ], [ %arrayidx8.i.promoted424, %if.end31.thread ]
+  %222 = phi i64 [ %.lcssa572.sink, %if.then34 ], [ %tmp14.sroa.2.0.arrayidx13.sroa_idx.i.promoted423, %if.end31.thread ]
+  %223 = phi i64 [ %.lcssa573.sink, %if.then34 ], [ %arrayidx13.i.promoted422, %if.end31.thread ]
+  %224 = phi i64 [ %.lcssa566.sink, %if.then34 ], [ %c1.sroa.4.0.arrayidx7.sroa_idx.i.promoted421, %if.end31.thread ]
+  %225 = phi i64 [ %.lcssa567.sink, %if.then34 ], [ %arrayidx7.i.promoted420, %if.end31.thread ]
+  %226 = phi i64 [ %.lcssa574.sink, %if.then34 ], [ %tmp17.sroa.2.0.arrayidx16.sroa_idx.i.promoted419, %if.end31.thread ]
+  %227 = phi i64 [ %.lcssa575.sink, %if.then34 ], [ %arrayidx16.i.promoted418, %if.end31.thread ]
   %i.2540545 = phi i64 [ %i.2, %if.then34 ], [ 0, %if.end31.thread ]
   %rem32541544 = phi i64 [ %rem32, %if.then34 ], [ %clen, %if.end31.thread ]
   %add.ptr43 = getelementptr i8, ptr %c, i64 %i.2540545

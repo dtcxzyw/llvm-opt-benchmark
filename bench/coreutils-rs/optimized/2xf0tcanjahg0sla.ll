@@ -1089,11 +1089,6 @@ define hidden void @_ZN6uucore8features5fsext9MountInfo3new17h822916f7b7997f76E(
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit136.thread": ; preds = %5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit136"
   store i64 -9223372036854775808, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
   br label %26
 
 25:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit136"
@@ -1101,6 +1096,11 @@ define hidden void @_ZN6uucore8features5fsext9MountInfo3new17h822916f7b7997f76E(
   br i1 %.not, label %36, label %27, !prof !200
 
 26:                                               ; preds = %_ZN6uucore8features5fsext20is_remote_filesystem17hd001f8ce1e32b992E.exit, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4e512201672a880E.exit136.thread"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
   ret void
 
 27:                                               ; preds = %25
@@ -1197,17 +1197,17 @@ define hidden void @_ZN6uucore8features5fsext9MountInfo3new17h822916f7b7997f76E(
   br label %68
 
 68:                                               ; preds = %161, %65
-  %.pn = phi { i64, ptr } [ %63, %65 ], [ %160, %161 ]
-  %.sink259 = phi ptr [ %66, %65 ], [ %162, %161 ]
-  %.sink = phi i64 [ %62, %65 ], [ %159, %161 ]
-  %69 = phi i64 [ %30, %65 ], [ %124, %161 ]
-  %70 = phi ptr [ %33, %65 ], [ %127, %161 ]
-  %71 = phi i64 [ %42, %65 ], [ %132, %161 ]
-  %72 = phi ptr [ %47, %65 ], [ %136, %161 ]
-  %73 = phi i64 [ %52, %65 ], [ %150, %161 ]
-  %74 = phi ptr [ %56, %65 ], [ %154, %161 ]
-  %storemerge = extractvalue { i64, ptr } %.pn, 0
-  store i64 %storemerge, ptr %15, align 8
+  %.pn = phi { i64, ptr } [ %160, %161 ], [ %63, %65 ]
+  %.sink259 = phi ptr [ %162, %161 ], [ %66, %65 ]
+  %.sink = phi i64 [ %159, %161 ], [ %62, %65 ]
+  %69 = phi i64 [ %124, %161 ], [ %30, %65 ]
+  %70 = phi ptr [ %127, %161 ], [ %33, %65 ]
+  %71 = phi i64 [ %132, %161 ], [ %42, %65 ]
+  %72 = phi ptr [ %136, %161 ], [ %47, %65 ]
+  %73 = phi i64 [ %150, %161 ], [ %52, %65 ]
+  %74 = phi ptr [ %154, %161 ], [ %56, %65 ]
+  %.sink260 = extractvalue { i64, ptr } %.pn, 0
+  store i64 %.sink260, ptr %15, align 8
   %.sroa.05.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %.sink259, ptr %.sroa.05.sroa.4.0..sroa_idx, align 8
   %.sroa.05.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 16
@@ -1839,11 +1839,6 @@ _ZN6uucore8features5fsext20is_remote_filesystem17hd001f8ce1e32b992E.exit: ; pred
   store i8 %283, ptr %.sroa.10.0..sroa_idx, align 1
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %.sroa.011)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
   br label %26
 
 284:                                              ; preds = %.thread245, %.thread229, %.thread210, %.thread186, %.thread163, %252
@@ -3237,7 +3232,7 @@ define { i64, i64 } @_ZN6uucore8features7signals23signal_by_name_or_value17h5e0b
   %14 = load i64, ptr %3, align 8, !range !209, !noalias !398, !noundef !4
   switch i64 %14, label %15 [
     i64 1, label %_ZN4core3str7pattern8Searcher11next_reject17h5dbf523f653d174dE.llvm.6156886373160849111.exit.i
-    i64 2, label %18
+    i64 2, label %.lr.ph.i
   ]
 
 15:                                               ; preds = %13
@@ -3247,52 +3242,48 @@ define { i64, i64 } @_ZN6uucore8features7signals23signal_by_name_or_value17h5e0b
 _ZN4core3str7pattern8Searcher11next_reject17h5dbf523f653d174dE.llvm.6156886373160849111.exit.i: ; preds = %13
   %16 = getelementptr inbounds i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8, !noalias !398, !noundef !4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !398
   br label %.lr.ph.i
 
-18:                                               ; preds = %13
+.lr.ph.i:                                         ; preds = %13, %_ZN4core3str7pattern8Searcher11next_reject17h5dbf523f653d174dE.llvm.6156886373160849111.exit.i
+  %18 = phi i64 [ %17, %_ZN4core3str7pattern8Searcher11next_reject17h5dbf523f653d174dE.llvm.6156886373160849111.exit.i ], [ %1, %13 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !398
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %18, %_ZN4core3str7pattern8Searcher11next_reject17h5dbf523f653d174dE.llvm.6156886373160849111.exit.i
-  %19 = phi i64 [ %1, %18 ], [ %17, %_ZN4core3str7pattern8Searcher11next_reject17h5dbf523f653d174dE.llvm.6156886373160849111.exit.i ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 %19
-  %21 = sub i64 %1, %19
+  %19 = getelementptr inbounds i8, ptr %0, i64 %18
+  %20 = sub i64 %1, %18
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4), !noalias !394
-  br label %22
+  br label %21
 
-22:                                               ; preds = %"_ZN6uucore8features7signals23signal_by_name_or_value28_$u7b$$u7b$closure$u7d$$u7d$17hee5df1f24173eb61E.exit.thread.i", %.lr.ph.i
-  %.014.i = phi i64 [ 0, %.lr.ph.i ], [ %25, %"_ZN6uucore8features7signals23signal_by_name_or_value28_$u7b$$u7b$closure$u7d$$u7d$17hee5df1f24173eb61E.exit.thread.i" ]
+21:                                               ; preds = %"_ZN6uucore8features7signals23signal_by_name_or_value28_$u7b$$u7b$closure$u7d$$u7d$17hee5df1f24173eb61E.exit.thread.i", %.lr.ph.i
+  %.014.i = phi i64 [ 0, %.lr.ph.i ], [ %24, %"_ZN6uucore8features7signals23signal_by_name_or_value28_$u7b$$u7b$closure$u7d$$u7d$17hee5df1f24173eb61E.exit.thread.i" ]
   %.idx = phi i64 [ 0, %.lr.ph.i ], [ %.add, %"_ZN6uucore8features7signals23signal_by_name_or_value28_$u7b$$u7b$closure$u7d$$u7d$17hee5df1f24173eb61E.exit.thread.i" ]
   %.ptr = getelementptr inbounds i8, ptr @_ZN6uucore8features7signals11ALL_SIGNALS17h386f5463fc531dd2E, i64 %.idx
   %.add = add nuw nsw i64 %.idx, 16
-  %23 = getelementptr i8, ptr %.ptr, i64 8
-  %.val8.i = load i64, ptr %23, align 8, !noalias !403, !noundef !4
-  %.not.i.i.i = icmp eq i64 %21, %.val8.i
+  %22 = getelementptr i8, ptr %.ptr, i64 8
+  %.val8.i = load i64, ptr %22, align 8, !noalias !403, !noundef !4
+  %.not.i.i.i = icmp eq i64 %20, %.val8.i
   br i1 %.not.i.i.i, label %"_ZN6uucore8features7signals23signal_by_name_or_value28_$u7b$$u7b$closure$u7d$$u7d$17hee5df1f24173eb61E.exit.i", label %"_ZN6uucore8features7signals23signal_by_name_or_value28_$u7b$$u7b$closure$u7d$$u7d$17hee5df1f24173eb61E.exit.thread.i"
 
-"_ZN6uucore8features7signals23signal_by_name_or_value28_$u7b$$u7b$closure$u7d$$u7d$17hee5df1f24173eb61E.exit.i": ; preds = %22
+"_ZN6uucore8features7signals23signal_by_name_or_value28_$u7b$$u7b$closure$u7d$$u7d$17hee5df1f24173eb61E.exit.i": ; preds = %21
   %.val7.i = load ptr, ptr %.ptr, align 8, !noalias !403, !nonnull !4, !align !6, !noundef !4
-  %bcmp.i.i.i = call i32 @bcmp(ptr nonnull readonly %.val7.i, ptr nonnull readonly %20, i64 %21), !alias.scope !407, !noalias !403
-  %24 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %24, label %27, label %"_ZN6uucore8features7signals23signal_by_name_or_value28_$u7b$$u7b$closure$u7d$$u7d$17hee5df1f24173eb61E.exit.thread.i"
+  %bcmp.i.i.i = call i32 @bcmp(ptr nonnull readonly %.val7.i, ptr nonnull readonly %19, i64 %20), !alias.scope !407, !noalias !403
+  %23 = icmp eq i32 %bcmp.i.i.i, 0
+  br i1 %23, label %26, label %"_ZN6uucore8features7signals23signal_by_name_or_value28_$u7b$$u7b$closure$u7d$$u7d$17hee5df1f24173eb61E.exit.thread.i"
 
-"_ZN6uucore8features7signals23signal_by_name_or_value28_$u7b$$u7b$closure$u7d$$u7d$17hee5df1f24173eb61E.exit.thread.i": ; preds = %"_ZN6uucore8features7signals23signal_by_name_or_value28_$u7b$$u7b$closure$u7d$$u7d$17hee5df1f24173eb61E.exit.i", %22
-  %25 = add nuw nsw i64 %.014.i, 1
-  %26 = icmp eq i64 %.add, 512
-  br i1 %26, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h3e8f9fe345f69151E.exit", label %22
+"_ZN6uucore8features7signals23signal_by_name_or_value28_$u7b$$u7b$closure$u7d$$u7d$17hee5df1f24173eb61E.exit.thread.i": ; preds = %"_ZN6uucore8features7signals23signal_by_name_or_value28_$u7b$$u7b$closure$u7d$$u7d$17hee5df1f24173eb61E.exit.i", %21
+  %24 = add nuw nsw i64 %.014.i, 1
+  %25 = icmp eq i64 %.add, 512
+  br i1 %25, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h3e8f9fe345f69151E.exit", label %21
 
-27:                                               ; preds = %"_ZN6uucore8features7signals23signal_by_name_or_value28_$u7b$$u7b$closure$u7d$$u7d$17hee5df1f24173eb61E.exit.i"
-  %28 = icmp ult i64 %.014.i, 32
-  call void @llvm.assume(i1 %28)
+26:                                               ; preds = %"_ZN6uucore8features7signals23signal_by_name_or_value28_$u7b$$u7b$closure$u7d$$u7d$17hee5df1f24173eb61E.exit.i"
+  %27 = icmp ult i64 %.014.i, 32
+  call void @llvm.assume(i1 %27)
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h3e8f9fe345f69151E.exit"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h3e8f9fe345f69151E.exit": ; preds = %"_ZN6uucore8features7signals23signal_by_name_or_value28_$u7b$$u7b$closure$u7d$$u7d$17hee5df1f24173eb61E.exit.thread.i", %27, %8
-  %.sroa.4.0 = phi i64 [ %10, %8 ], [ %.014.i, %27 ], [ 32, %"_ZN6uucore8features7signals23signal_by_name_or_value28_$u7b$$u7b$closure$u7d$$u7d$17hee5df1f24173eb61E.exit.thread.i" ]
-  %.sroa.0.0 = phi i64 [ %., %8 ], [ 1, %27 ], [ 0, %"_ZN6uucore8features7signals23signal_by_name_or_value28_$u7b$$u7b$closure$u7d$$u7d$17hee5df1f24173eb61E.exit.thread.i" ]
-  %29 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %30 = insertvalue { i64, i64 } %29, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %30
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h3e8f9fe345f69151E.exit": ; preds = %"_ZN6uucore8features7signals23signal_by_name_or_value28_$u7b$$u7b$closure$u7d$$u7d$17hee5df1f24173eb61E.exit.thread.i", %26, %8
+  %.sroa.4.0 = phi i64 [ %10, %8 ], [ %.014.i, %26 ], [ 32, %"_ZN6uucore8features7signals23signal_by_name_or_value28_$u7b$$u7b$closure$u7d$$u7d$17hee5df1f24173eb61E.exit.thread.i" ]
+  %.sroa.0.0 = phi i64 [ %., %8 ], [ 1, %26 ], [ 0, %"_ZN6uucore8features7signals23signal_by_name_or_value28_$u7b$$u7b$closure$u7d$$u7d$17hee5df1f24173eb61E.exit.thread.i" ]
+  %28 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %29 = insertvalue { i64, i64 } %28, i64 %.sroa.4.0, 1
+  ret { i64, i64 } %29
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

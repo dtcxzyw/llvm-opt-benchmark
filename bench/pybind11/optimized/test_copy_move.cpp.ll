@@ -51414,10 +51414,10 @@ common.resume.i:                                  ; preds = %45, %39
   br label %common.resume.i
 
 _ZN8pybind116detail15argument_loaderIJRZ33test_submodule_copy_move_policiesRNS_7module_EE10MoveIssue1RKiEE9load_argsERNS0_13function_callE.exit.thread.sink.split.i: ; preds = %41, %35
-  %.val.sink.i = load i32, ptr %3, align 8
-  %.val16.sink.i = load i64, ptr %31, align 8
-  %47 = getelementptr inbounds i8, ptr %.val18.i, i64 %.val16.sink.i
-  store i32 %.val.sink.i, ptr %47, align 4
+  %.val16.i = load i64, ptr %31, align 8
+  %.val.i = load i32, ptr %3, align 8
+  %47 = getelementptr inbounds i8, ptr %.val18.i, i64 %.val16.i
+  store i32 %.val.i, ptr %47, align 4
   %48 = load i64, ptr @_Py_NoneStruct, align 8
   %49 = add nsw i64 %48, 1
   store i64 %49, ptr @_Py_NoneStruct, align 8
@@ -52141,10 +52141,10 @@ common.resume.i:                                  ; preds = %45, %39
   br label %common.resume.i
 
 _ZN8pybind116detail15argument_loaderIJRZ33test_submodule_copy_move_policiesRNS_7module_EE10MoveIssue2RKiEE9load_argsERNS0_13function_callE.exit.thread.sink.split.i: ; preds = %41, %35
-  %.val.sink.i = load i32, ptr %3, align 8
-  %.val16.sink.i = load i64, ptr %31, align 8
-  %47 = getelementptr inbounds i8, ptr %.val18.i, i64 %.val16.sink.i
-  store i32 %.val.sink.i, ptr %47, align 4
+  %.val16.i = load i64, ptr %31, align 8
+  %.val.i = load i32, ptr %3, align 8
+  %47 = getelementptr inbounds i8, ptr %.val18.i, i64 %.val16.i
+  store i32 %.val.i, ptr %47, align 4
   %48 = load i64, ptr @_Py_NoneStruct, align 8
   %49 = add nsw i64 %48, 1
   store i64 %49, ptr @_Py_NoneStruct, align 8

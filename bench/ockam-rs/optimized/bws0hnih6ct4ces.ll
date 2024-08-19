@@ -2622,7 +2622,6 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$ockam_core..message..Encodable$GT$6e
 14:                                               ; preds = %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %17
 
 15:                                               ; preds = %12
@@ -2630,6 +2629,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$ockam_core..message..Encodable$GT$6e
           to label %18 unwind label %8
 
 17:                                               ; preds = %31, %14
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @"_ZN4core3ptr78drop_in_place$LT$ockam_core..routing..message..local_message..LocalMessage$GT$17h4804cd7db2c8aed5E"(ptr noalias noundef nonnull align 8 dereferenceable(168) %1)
   ret void
 
@@ -2671,7 +2671,6 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$ockam_core..message..Encodable$GT$6e
 
 31:                                               ; preds = %26, %22, %.noexc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !317
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %17
 
 32:                                               ; preds = %28, %8
@@ -3020,7 +3019,6 @@ define hidden { i64, ptr } @"_ZN5serde2de5impls86_$LT$impl$u20$serde..de..Deseri
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8, !noalias !426, !nonnull !44, !align !53, !noundef !44
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !426
   br label %"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17h0e7127dc28766311E.exit"
 
 9:                                                ; preds = %5
@@ -3036,12 +3034,12 @@ define hidden { i64, ptr } @"_ZN5serde2de5impls86_$LT$impl$u20$serde..de..Deseri
   %.pn.i.i = phi { i64, ptr } [ %12, %9 ], [ zeroinitializer, %5 ]
   %.sroa.0.1.i.i = extractvalue { i64, ptr } %.pn.i.i, 0
   %.sroa.4.1.i.i = extractvalue { i64, ptr } %.pn.i.i, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !426
   br label %"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17h0e7127dc28766311E.exit"
 
 "_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17h0e7127dc28766311E.exit": ; preds = %6, %._crit_edge.i.i
   %.sroa.4.0.i.i = phi ptr [ %8, %6 ], [ %.sroa.4.1.i.i, %._crit_edge.i.i ]
   %.sroa.0.0.i.i = phi i64 [ 1, %6 ], [ %.sroa.0.1.i.i, %._crit_edge.i.i ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !426
   %15 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i.i, 0
   %16 = insertvalue { i64, ptr } %15, ptr %.sroa.4.0.i.i, 1
   ret { i64, ptr } %16
@@ -3069,7 +3067,6 @@ define hidden void @"_ZN5serde2de5impls86_$LT$impl$u20$serde..de..Deserialize$u2
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %11, align 8, !alias.scope !441, !noalias !442
   store i64 1, ptr %0, align 8, !alias.scope !441, !noalias !442
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !438
   br label %"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17hd82301cd3547a881E.exit"
 
 12:                                               ; preds = %9
@@ -3097,7 +3094,7 @@ define hidden void @"_ZN5serde2de5impls86_$LT$impl$u20$serde..de..Deserialize$u2
   %.sink.i.i.i = phi i64 [ 1, %17 ], [ 0, %15 ]
   store i64 %.sink.i.i.i, ptr %0, align 8, !alias.scope !450, !noalias !451
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !438
-  br label %28
+  br label %"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17hd82301cd3547a881E.exit"
 
 21:                                               ; preds = %9
   %22 = tail call { i64, ptr } @"_ZN161_$LT$ockam_core..error.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_core..error..Error$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$20visit_newtype_struct17h1679b2549342868bE.llvm.15328536302644105373"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8), !noalias !441
@@ -3119,13 +3116,10 @@ define hidden void @"_ZN5serde2de5impls86_$LT$impl$u20$serde..de..Deserialize$u2
   %27 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sink2.i.i.i, ptr %27, align 8, !alias.scope !452, !noalias !442
   store i64 %.sink.i1.i.i, ptr %0, align 8, !alias.scope !452, !noalias !442
-  br label %28
-
-28:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5c61a6c19d58b127E.llvm.15328536302644105373.exit.i.i", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h84f0f6767076d535E.llvm.15328536302644105373.exit.i.i"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !438
   br label %"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17hd82301cd3547a881E.exit"
 
-"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17hd82301cd3547a881E.exit": ; preds = %10, %28
+"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17hd82301cd3547a881E.exit": ; preds = %10, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h84f0f6767076d535E.llvm.15328536302644105373.exit.i.i", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5c61a6c19d58b127E.llvm.15328536302644105373.exit.i.i"
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !438
   ret void
 }
 

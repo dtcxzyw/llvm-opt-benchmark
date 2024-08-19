@@ -1666,12 +1666,12 @@ define dso_local i64 @prb_next_seq(ptr noundef %0) local_unnamed_addr #0 align 1
   %28 = icmp eq i64 %27, %4
   %29 = icmp slt i64 %26, 0
   %30 = and i1 %28, %29
-  br i1 %30, label %33, label %37
+  br i1 %30, label %33, label %.thread1.sink.split
 
 .thread:                                          ; preds = %1
   %31 = and i32 %20, -2
   %32 = icmp eq i32 %31, 2
-  br i1 %32, label %.thread1, label %37
+  br i1 %32, label %.thread1, label %.thread1.sink.split
 
 33:                                               ; preds = %23
   %34 = icmp eq i64 %25, 0
@@ -1679,28 +1679,28 @@ define dso_local i64 @prb_next_seq(ptr noundef %0) local_unnamed_addr #0 align 1
 
 35:                                               ; preds = %33
   %36 = add i64 %25, 1
-  store i64 %36, ptr %2, align 8
+  br label %.thread1.sink.split
+
+.thread1.sink.split:                              ; preds = %23, %.thread, %35
+  %.sink = phi i64 [ %36, %35 ], [ 0, %.thread ], [ 0, %23 ]
+  store i64 %.sink, ptr %2, align 8
   br label %.thread1
 
-37:                                               ; preds = %.thread, %23
-  store i64 0, ptr %2, align 8
-  br label %.thread1
-
-.thread1:                                         ; preds = %.thread, %37, %35, %33
-  %38 = call fastcc zeroext i1 @_prb_read_valid(ptr noundef %0, ptr noundef nonnull %2, ptr noundef null, ptr noundef null)
-  br i1 %38, label %.preheader, label %.loopexit
+.thread1:                                         ; preds = %.thread1.sink.split, %.thread, %33
+  %37 = call fastcc zeroext i1 @_prb_read_valid(ptr noundef %0, ptr noundef nonnull %2, ptr noundef null, ptr noundef null)
+  br i1 %37, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %.thread1, %.preheader
-  %39 = load i64, ptr %2, align 8
-  %40 = add i64 %39, 1
-  store i64 %40, ptr %2, align 8
-  %41 = call fastcc zeroext i1 @_prb_read_valid(ptr noundef %0, ptr noundef nonnull %2, ptr noundef null, ptr noundef null)
-  br i1 %41, label %.preheader, label %.loopexit, !llvm.loop !53
+  %38 = load i64, ptr %2, align 8
+  %39 = add i64 %38, 1
+  store i64 %39, ptr %2, align 8
+  %40 = call fastcc zeroext i1 @_prb_read_valid(ptr noundef %0, ptr noundef nonnull %2, ptr noundef null, ptr noundef null)
+  br i1 %40, label %.preheader, label %.loopexit, !llvm.loop !53
 
 .loopexit:                                        ; preds = %.preheader, %.thread1
-  %42 = load i64, ptr %2, align 8
+  %41 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
-  ret i64 %42
+  ret i64 %41
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)

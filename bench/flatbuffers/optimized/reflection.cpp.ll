@@ -1774,18 +1774,12 @@ sw.default:                                       ; preds = %entry
 if.end17.i:                                       ; preds = %sw.default
   %7 = load i32, ptr %call11.i, align 4
   %tobool21.not.i = icmp eq i32 %7, 0
-  br i1 %tobool21.not.i, label %8, label %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread
+  %spec.select = select i1 %tobool21.not.i, i64 %call1.i.i, i64 0
+  br label %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread
 
 _ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread: ; preds = %if.end17.i, %sw.default
+  %8 = phi i64 [ 0, %sw.default ], [ %spec.select, %if.end17.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endptr.i)
-  br label %9
-
-8:                                                ; preds = %if.end17.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endptr.i)
-  br label %9
-
-9:                                                ; preds = %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread, %8
-  %10 = phi i64 [ %call1.i.i, %8 ], [ 0, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread ]
   switch i32 %type, label %sw.epilog [
     i32 1, label %sw.bb.i7
     i32 2, label %sw.bb.i7
@@ -1799,45 +1793,45 @@ _ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread: ; preds = %if.en
     i32 10, label %sw.bb12.i
   ]
 
-sw.bb.i7:                                         ; preds = %9, %9, %9
-  %conv.i8 = trunc i64 %10 to i8
+sw.bb.i7:                                         ; preds = %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread
+  %conv.i8 = trunc i64 %8 to i8
   store i8 %conv.i8, ptr %data, align 1
   br label %sw.epilog
 
-sw.bb1.i5:                                        ; preds = %9
-  %conv2.i6 = trunc i64 %10 to i8
+sw.bb1.i5:                                        ; preds = %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread
+  %conv2.i6 = trunc i64 %8 to i8
   store i8 %conv2.i6, ptr %data, align 1
   br label %sw.epilog
 
-sw.bb3.i:                                         ; preds = %9
-  %conv4.i = trunc i64 %10 to i16
+sw.bb3.i:                                         ; preds = %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread
+  %conv4.i = trunc i64 %8 to i16
   store i16 %conv4.i, ptr %data, align 2
   br label %sw.epilog
 
-sw.bb5.i:                                         ; preds = %9
-  %conv6.i = trunc i64 %10 to i16
+sw.bb5.i:                                         ; preds = %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread
+  %conv6.i = trunc i64 %8 to i16
   store i16 %conv6.i, ptr %data, align 2
   br label %sw.epilog
 
-sw.bb7.i:                                         ; preds = %9
-  %conv8.i = trunc i64 %10 to i32
+sw.bb7.i:                                         ; preds = %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread
+  %conv8.i = trunc i64 %8 to i32
   store i32 %conv8.i, ptr %data, align 4
   br label %sw.epilog
 
-sw.bb9.i:                                         ; preds = %9
-  %conv10.i = trunc i64 %10 to i32
+sw.bb9.i:                                         ; preds = %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread
+  %conv10.i = trunc i64 %8 to i32
   store i32 %conv10.i, ptr %data, align 4
   br label %sw.epilog
 
-sw.bb11.i:                                        ; preds = %9
-  store i64 %10, ptr %data, align 8
+sw.bb11.i:                                        ; preds = %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread
+  store i64 %8, ptr %data, align 8
   br label %sw.epilog
 
-sw.bb12.i:                                        ; preds = %9
-  store i64 %10, ptr %data, align 8
+sw.bb12.i:                                        ; preds = %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread
+  store i64 %8, ptr %data, align 8
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb12.i, %sw.bb11.i, %sw.bb9.i, %sw.bb7.i, %sw.bb5.i, %sw.bb3.i, %sw.bb1.i5, %sw.bb.i7, %9, %sw.bb1.i, %sw.bb.i
+sw.epilog:                                        ; preds = %sw.bb12.i, %sw.bb11.i, %sw.bb9.i, %sw.bb7.i, %sw.bb5.i, %sw.bb3.i, %sw.bb1.i5, %sw.bb.i7, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.thread, %sw.bb1.i, %sw.bb.i
   ret void
 }
 

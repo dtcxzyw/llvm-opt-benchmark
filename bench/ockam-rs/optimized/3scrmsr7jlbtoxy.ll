@@ -3039,8 +3039,8 @@ common.ret:                                       ; preds = %"_ZN95_$LT$futures_
   br label %87
 
 69:                                               ; preds = %"_ZN4core3pin12Pin$LT$P$GT$3set17h8c802ad37e76509eE.llvm.10658646520225780758.exit.i.i.i", %51
-  %.pre-phi.i.i = phi i64 [ %.pre25.i.i, %"_ZN4core3pin12Pin$LT$P$GT$3set17h8c802ad37e76509eE.llvm.10658646520225780758.exit.i.i.i" ], [ %53, %51 ]
-  %70 = phi i64 [ %.pr.i.i, %"_ZN4core3pin12Pin$LT$P$GT$3set17h8c802ad37e76509eE.llvm.10658646520225780758.exit.i.i.i" ], [ %52, %51 ]
+  %.pre-phi.i.i = phi i64 [ %53, %51 ], [ %.pre25.i.i, %"_ZN4core3pin12Pin$LT$P$GT$3set17h8c802ad37e76509eE.llvm.10658646520225780758.exit.i.i.i" ]
+  %70 = phi i64 [ %52, %51 ], [ %.pr.i.i, %"_ZN4core3pin12Pin$LT$P$GT$3set17h8c802ad37e76509eE.llvm.10658646520225780758.exit.i.i.i" ]
   %71 = icmp ult i64 %.pre-phi.i.i, 3
   %72 = icmp ne i64 %.pre-phi.i.i, 1
   %.not24.i.i = and i1 %71, %72

@@ -387,15 +387,11 @@ if.then.i.i.i13:                                  ; preds = %lor.lhs.false.i.i, 
   store ptr %25, ptr %_M_invoker.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN3euf14specrel_plugin13register_nodeEPNS1_5enodeEE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker4.i2.i.i, align 8
   %tobool.not.i.i4.i.i = icmp eq ptr %24, null
-  br i1 %tobool.not.i.i4.i.i, label %invoke.cont10.thread, label %if.then.i.i5.i.i
-
-invoke.cont10.thread:                             ; preds = %if.then.i.i.i13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
-  br label %if.end11
+  br i1 %tobool.not.i.i4.i.i, label %if.then.i.i18, label %if.then.i.i5.i.i
 
 if.then.i.i5.i.i:                                 ; preds = %if.then.i.i.i13
   %call.i.i6.i.i = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
-          to label %invoke.cont10 unwind label %terminate.lpad.i.i7.i.i
+          to label %if.then.i.i18 unwind label %terminate.lpad.i.i7.i.i
 
 terminate.lpad.i.i7.i.i:                          ; preds = %if.then.i.i5.i.i
   %26 = landingpad { ptr, i32 }
@@ -404,11 +400,11 @@ terminate.lpad.i.i7.i.i:                          ; preds = %if.then.i.i5.i.i
   call void @__clang_call_terminate(ptr %27) #18
   unreachable
 
-invoke.cont10:                                    ; preds = %if.then.i.i5.i.i
+if.then.i.i18:                                    ; preds = %if.then.i.i5.i.i, %if.then.i.i.i13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   br label %if.end11
 
-if.end11:                                         ; preds = %if.then.i.i.i, %if.then22.i.i.i, %invoke.cont10.thread, %invoke.cont10, %_ZNK22special_relations_util3fidEv.exit.i, %_ZNK4decl13get_family_idEv.exit.thread.i.i, %entry, %_ZNK22special_relations_util5is_acEPK9func_decl.exit, %_ZNK3euf5enode8get_declEv.exit
+if.end11:                                         ; preds = %if.then.i.i.i, %if.then22.i.i.i, %if.then.i.i18, %_ZNK22special_relations_util3fidEv.exit.i, %_ZNK4decl13get_family_idEv.exit.thread.i.i, %entry, %_ZNK22special_relations_util5is_acEPK9func_decl.exit, %_ZNK3euf5enode8get_declEv.exit
   ret void
 }
 

@@ -3133,7 +3133,6 @@ common.resume:                                    ; preds = %.body, %26
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbf78acb5066d0702E.exit": ; preds = %104, %108, %112
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !440
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   br label %159
 
 114:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i.i", %97, %.thread42
@@ -3284,10 +3283,10 @@ common.resume:                                    ; preds = %.body, %26
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbf78acb5066d0702E.exit39": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5a8db7a599168d2eE.exit", %153, %157
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !481
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   br label %159
 
 159:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbf78acb5066d0702E.exit39", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbf78acb5066d0702E.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   ret void
 
 160:                                              ; preds = %.body

@@ -441,7 +441,7 @@ define internal noundef i64 @ossl_ec_key_initialize(i32 noundef %0, ptr noundef 
 13:                                               ; preds = %9
   %14 = call ptr @EC_KEY_new() #6
   %.not29 = icmp eq ptr %14, null
-  br i1 %.not29, label %15, label %36
+  br i1 %.not29, label %15, label %37
 
 15:                                               ; preds = %13
   %16 = load i64, ptr @eECError, align 8
@@ -475,7 +475,7 @@ define internal noundef i64 @ossl_ec_key_initialize(i32 noundef %0, ptr noundef 
 30:                                               ; preds = %20
   %31 = call i32 @EVP_PKEY_get_base_id(ptr noundef nonnull %27) #6
   %.not28 = icmp eq i32 %31, 408
-  br i1 %.not28, label %42, label %32
+  br i1 %.not28, label %43, label %32
 
 32:                                               ; preds = %30
   call void @EVP_PKEY_free(ptr noundef nonnull %27) #6
@@ -485,33 +485,33 @@ define internal noundef i64 @ossl_ec_key_initialize(i32 noundef %0, ptr noundef 
   unreachable
 
 .sink.split:                                      ; preds = %17, %29
-  %.sink = load i64, ptr %4, align 8
-  %35 = call fastcc ptr @ec_key_new_from_group(i64 noundef %.sink)
-  br label %36
+  %35 = load i64, ptr %4, align 8
+  %36 = call fastcc ptr @ec_key_new_from_group(i64 noundef %35)
+  br label %37
 
-36:                                               ; preds = %.sink.split, %13
-  %.022 = phi ptr [ %14, %13 ], [ %35, %.sink.split ]
-  %37 = call ptr @EVP_PKEY_new() #6
-  %.not30 = icmp eq ptr %37, null
-  br i1 %.not30, label %40, label %38
+37:                                               ; preds = %.sink.split, %13
+  %.022 = phi ptr [ %14, %13 ], [ %36, %.sink.split ]
+  %38 = call ptr @EVP_PKEY_new() #6
+  %.not30 = icmp eq ptr %38, null
+  br i1 %.not30, label %41, label %39
 
-38:                                               ; preds = %36
-  %39 = call i32 @EVP_PKEY_assign(ptr noundef nonnull %37, i32 noundef 408, ptr noundef %.022) #6
-  %.not31 = icmp eq i32 %39, 1
-  br i1 %.not31, label %42, label %40
+39:                                               ; preds = %37
+  %40 = call i32 @EVP_PKEY_assign(ptr noundef nonnull %38, i32 noundef 408, ptr noundef %.022) #6
+  %.not31 = icmp eq i32 %40, 1
+  br i1 %.not31, label %43, label %41
 
-40:                                               ; preds = %38, %36
-  call void @EVP_PKEY_free(ptr noundef %37) #6
+41:                                               ; preds = %39, %37
+  call void @EVP_PKEY_free(ptr noundef %38) #6
   call void @EC_KEY_free(ptr noundef %.022) #6
-  %41 = load i64, ptr @eECError, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %41, ptr noundef nonnull @.str.57) #8
+  %42 = load i64, ptr @eECError, align 8
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %42, ptr noundef nonnull @.str.57) #8
   unreachable
 
-42:                                               ; preds = %38, %30
-  %.sink32 = phi ptr [ %27, %30 ], [ %37, %38 ]
-  %43 = inttoptr i64 %2 to ptr
-  %44 = getelementptr inbounds i8, ptr %43, i64 32
-  store ptr %.sink32, ptr %44, align 8
+43:                                               ; preds = %39, %30
+  %.sink = phi ptr [ %27, %30 ], [ %38, %39 ]
+  %44 = inttoptr i64 %2 to ptr
+  %45 = getelementptr inbounds i8, ptr %44, i64 32
+  store ptr %.sink, ptr %45, align 8
   ret i64 %2
 }
 

@@ -2420,8 +2420,7 @@ define dso_local i32 @do_ipv6_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2,
   %47 = getelementptr inbounds i8, ptr %0, i64 16
   %48 = load i16, ptr %47, align 8
   %49 = zext i16 %48 to i32
-  store i32 %49, ptr %8, align 4
-  br label %.thread11
+  br label %.thread11.sink.split
 
 50:                                               ; preds = %39
   %51 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !22
@@ -2657,8 +2656,7 @@ define dso_local i32 @do_ipv6_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2,
   %173 = lshr i8 %172, 5
   %174 = and i8 %173, 1
   %175 = zext nneg i8 %174 to i32
-  store i32 %175, ptr %8, align 4
-  br label %.thread11
+  br label %.thread11.sink.split
 
 176:                                              ; preds = %39
   %177 = getelementptr inbounds i8, ptr %28, i64 68
@@ -2666,8 +2664,7 @@ define dso_local i32 @do_ipv6_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2,
   %179 = lshr i16 %178, 2
   %180 = and i16 %179, 1
   %181 = zext nneg i16 %180 to i32
-  store i32 %181, ptr %8, align 4
-  br label %.thread11
+  br label %.thread11.sink.split
 
 182:                                              ; preds = %39
   %183 = getelementptr inbounds i8, ptr %28, i64 68
@@ -2675,8 +2672,7 @@ define dso_local i32 @do_ipv6_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2,
   %185 = lshr i16 %184, 3
   %186 = and i16 %185, 1
   %187 = zext nneg i16 %186 to i32
-  store i32 %187, ptr %8, align 4
-  br label %.thread11
+  br label %.thread11.sink.split
 
 188:                                              ; preds = %39
   %189 = getelementptr inbounds i8, ptr %28, i64 68
@@ -2684,8 +2680,7 @@ define dso_local i32 @do_ipv6_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2,
   %191 = lshr i16 %190, 4
   %192 = and i16 %191, 1
   %193 = zext nneg i16 %192 to i32
-  store i32 %193, ptr %8, align 4
-  br label %.thread11
+  br label %.thread11.sink.split
 
 194:                                              ; preds = %39
   %195 = getelementptr inbounds i8, ptr %28, i64 68
@@ -2693,16 +2688,14 @@ define dso_local i32 @do_ipv6_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2,
   %197 = lshr i16 %196, 5
   %198 = and i16 %197, 1
   %199 = zext nneg i16 %198 to i32
-  store i32 %199, ptr %8, align 4
-  br label %.thread11
+  br label %.thread11.sink.split
 
 200:                                              ; preds = %39
   %201 = getelementptr inbounds i8, ptr %28, i64 68
   %202 = load i16, ptr %201, align 4
   %203 = and i16 %202, 1
   %204 = zext nneg i16 %203 to i32
-  store i32 %204, ptr %8, align 4
-  br label %.thread11
+  br label %.thread11.sink.split
 
 205:                                              ; preds = %39
   %206 = getelementptr inbounds i8, ptr %28, i64 68
@@ -2710,8 +2703,7 @@ define dso_local i32 @do_ipv6_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2,
   %208 = lshr i16 %207, 1
   %209 = and i16 %208, 1
   %210 = zext nneg i16 %209 to i32
-  store i32 %210, ptr %8, align 4
-  br label %.thread11
+  br label %.thread11.sink.split
 
 211:                                              ; preds = %39, %39, %39, %39
   call void @sockopt_lock_sock(ptr noundef %0) #13
@@ -2794,8 +2786,7 @@ define dso_local i32 @do_ipv6_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2,
   %253 = lshr i16 %252, 6
   %254 = and i16 %253, 1
   %255 = zext nneg i16 %254 to i32
-  store i32 %255, ptr %8, align 4
-  br label %.thread11
+  br label %.thread11.sink.split
 
 256:                                              ; preds = %39
   %257 = getelementptr inbounds i8, ptr %28, i64 68
@@ -2803,8 +2794,7 @@ define dso_local i32 @do_ipv6_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2,
   %259 = lshr i16 %258, 7
   %260 = and i16 %259, 1
   %261 = zext nneg i16 %260 to i32
-  store i32 %261, ptr %8, align 4
-  br label %.thread11
+  br label %.thread11.sink.split
 
 262:                                              ; preds = %39
   %263 = getelementptr inbounds i8, ptr %28, i64 68
@@ -2812,8 +2802,7 @@ define dso_local i32 @do_ipv6_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2,
   %265 = lshr i16 %264, 8
   %266 = and i16 %265, 1
   %267 = zext nneg i16 %266 to i32
-  store i32 %267, ptr %8, align 4
-  br label %.thread11
+  br label %.thread11.sink.split
 
 268:                                              ; preds = %39
   %269 = getelementptr inbounds i8, ptr %28, i64 68
@@ -2821,15 +2810,13 @@ define dso_local i32 @do_ipv6_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2,
   %271 = lshr i16 %270, 9
   %272 = and i16 %271, 1
   %273 = zext nneg i16 %272 to i32
-  store i32 %273, ptr %8, align 4
-  br label %.thread11
+  br label %.thread11.sink.split
 
 274:                                              ; preds = %39
   %275 = getelementptr inbounds i8, ptr %28, i64 73
   %276 = load i8, ptr %275, align 1
   %277 = zext i8 %276 to i32
-  store i32 %277, ptr %8, align 4
-  br label %.thread11
+  br label %.thread11.sink.split
 
 278:                                              ; preds = %39
   %279 = getelementptr inbounds i8, ptr %28, i64 68
@@ -2837,8 +2824,7 @@ define dso_local i32 @do_ipv6_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2,
   %281 = lshr i16 %280, 11
   %282 = and i16 %281, 1
   %283 = zext nneg i16 %282 to i32
-  store i32 %283, ptr %8, align 4
-  br label %.thread11
+  br label %.thread11.sink.split
 
 284:                                              ; preds = %39
   %285 = getelementptr inbounds i8, ptr %28, i64 68
@@ -2846,8 +2832,7 @@ define dso_local i32 @do_ipv6_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2,
   %287 = lshr i16 %286, 10
   %288 = and i16 %287, 1
   %289 = zext nneg i16 %288 to i32
-  store i32 %289, ptr %8, align 4
-  br label %.thread11
+  br label %.thread11.sink.split
 
 290:                                              ; preds = %39
   %291 = getelementptr inbounds i8, ptr %28, i64 68
@@ -2855,8 +2840,7 @@ define dso_local i32 @do_ipv6_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2,
   %293 = lshr i16 %292, 12
   %294 = and i16 %293, 1
   %295 = zext nneg i16 %294 to i32
-  store i32 %295, ptr %8, align 4
-  br label %.thread11
+  br label %.thread11.sink.split
 
 296:                                              ; preds = %39
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #13
@@ -2918,8 +2902,7 @@ define dso_local i32 @do_ipv6_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2,
   %325 = trunc i64 %324 to i32
   %326 = lshr i32 %325, 15
   %327 = and i32 %326, 1
-  store i32 %327, ptr %8, align 4
-  br label %.thread11
+  br label %.thread11.sink.split
 
 328:                                              ; preds = %39
   %329 = getelementptr inbounds i8, ptr %0, i64 752
@@ -2927,8 +2910,7 @@ define dso_local i32 @do_ipv6_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2,
   %331 = trunc i64 %330 to i32
   %332 = lshr i32 %331, 11
   %333 = and i32 %332, 1
-  store i32 %333, ptr %8, align 4
-  br label %.thread11
+  br label %.thread11.sink.split
 
 334:                                              ; preds = %39
   %335 = getelementptr inbounds i8, ptr %28, i64 68
@@ -2936,15 +2918,13 @@ define dso_local i32 @do_ipv6_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2,
   %337 = lshr i16 %336, 13
   %338 = and i16 %337, 1
   %339 = zext nneg i16 %338 to i32
-  store i32 %339, ptr %8, align 4
-  br label %.thread11
+  br label %.thread11.sink.split
 
 .thread10:                                        ; preds = %39
   %340 = getelementptr inbounds i8, ptr %28, i64 58
   %341 = load volatile i8, ptr %340, align 2
   %342 = zext i8 %341 to i32
-  store i32 %342, ptr %8, align 4
-  br label %.thread11
+  br label %.thread11.sink.split
 
 343:                                              ; preds = %39
   %344 = getelementptr inbounds i8, ptr %28, i64 56
@@ -2979,8 +2959,7 @@ define dso_local i32 @do_ipv6_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2,
   %359 = load ptr, ptr %358, align 8
   %360 = getelementptr inbounds i8, ptr %359, i64 4
   %361 = load i32, ptr %360, align 4
-  store i32 %361, ptr %8, align 4
-  br label %.thread11
+  br label %.thread11.sink.split
 
 362:                                              ; preds = %39
   %363 = getelementptr inbounds i8, ptr %0, i64 752
@@ -2988,14 +2967,12 @@ define dso_local i32 @do_ipv6_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2,
   %365 = trunc i64 %364 to i32
   %366 = lshr i32 %365, 20
   %367 = and i32 %366, 1
-  store i32 %367, ptr %8, align 4
-  br label %.thread11
+  br label %.thread11.sink.split
 
 368:                                              ; preds = %39
   %369 = getelementptr inbounds i8, ptr %28, i64 64
   %370 = load volatile i32, ptr %369, align 8
-  store i32 %370, ptr %8, align 4
-  br label %.thread11
+  br label %.thread11.sink.split
 
 371:                                              ; preds = %39
   %372 = getelementptr inbounds i8, ptr %0, i64 752
@@ -3003,22 +2980,19 @@ define dso_local i32 @do_ipv6_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2,
   %374 = trunc i64 %373 to i32
   %375 = lshr i32 %374, 22
   %376 = and i32 %375, 1
-  store i32 %376, ptr %8, align 4
-  br label %.thread11
+  br label %.thread11.sink.split
 
 377:                                              ; preds = %39
   %378 = getelementptr inbounds i8, ptr %28, i64 60
   %379 = load volatile i32, ptr %378, align 4
   %380 = call i32 @llvm.bswap.i32(i32 %379)
-  store i32 %380, ptr %8, align 4
-  br label %.thread11
+  br label %.thread11.sink.split
 
 381:                                              ; preds = %39
   %382 = getelementptr inbounds i8, ptr %28, i64 71
   %383 = load volatile i8, ptr %382, align 1
   %384 = zext i8 %383 to i32
-  store i32 %384, ptr %8, align 4
-  br label %.thread11
+  br label %.thread11.sink.split
 
 385:                                              ; preds = %39
   %386 = getelementptr inbounds i8, ptr %0, i64 752
@@ -3026,8 +3000,7 @@ define dso_local i32 @do_ipv6_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2,
   %388 = trunc i64 %387 to i32
   %389 = lshr i32 %388, 26
   %390 = and i32 %389, 1
-  store i32 %390, ptr %8, align 4
-  br label %.thread11
+  br label %.thread11.sink.split
 
 391:                                              ; preds = %39
   %392 = getelementptr inbounds i8, ptr %0, i64 752
@@ -3035,8 +3008,7 @@ define dso_local i32 @do_ipv6_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2,
   %394 = trunc i64 %393 to i32
   %395 = lshr i32 %394, 29
   %396 = and i32 %395, 1
-  store i32 %396, ptr %8, align 4
-  br label %.thread11
+  br label %.thread11.sink.split
 
 397:                                              ; preds = %39
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #13
@@ -3117,15 +3089,13 @@ define dso_local i32 @do_ipv6_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2,
   %443 = icmp eq i32 %442, 0
   %444 = select i1 %443, i32 1024, i32 4
   %445 = or disjoint i32 %441, %444
-  store i32 %445, ptr %8, align 4
-  br label %.thread11
+  br label %.thread11.sink.split
 
 446:                                              ; preds = %39
   %447 = getelementptr inbounds i8, ptr %28, i64 72
   %448 = load volatile i8, ptr %447, align 8
   %449 = zext i8 %448 to i32
-  store i32 %449, ptr %8, align 4
-  br label %.thread11
+  br label %.thread11.sink.split
 
 450:                                              ; preds = %39
   %451 = getelementptr inbounds i8, ptr %0, i64 752
@@ -3133,16 +3103,14 @@ define dso_local i32 @do_ipv6_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2,
   %453 = trunc i64 %452 to i32
   %454 = lshr i32 %453, 25
   %455 = and i32 %454, 1
-  store i32 %455, ptr %8, align 4
-  br label %.thread11
+  br label %.thread11.sink.split
 
 456:                                              ; preds = %39
   %457 = getelementptr inbounds i8, ptr %0, i64 48
   %458 = load ptr, ptr %457, align 8
   %459 = call zeroext i1 @ip6_autoflowlabel(ptr noundef %458, ptr noundef %0) #13
   %460 = zext i1 %459 to i32
-  store i32 %460, ptr %8, align 4
-  br label %.thread11
+  br label %.thread11.sink.split
 
 461:                                              ; preds = %39
   %462 = getelementptr inbounds i8, ptr %28, i64 68
@@ -3150,8 +3118,7 @@ define dso_local i32 @do_ipv6_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2,
   %464 = lshr i16 %463, 14
   %465 = and i16 %464, 1
   %466 = zext nneg i16 %465 to i32
-  store i32 %466, ptr %8, align 4
-  br label %.thread11
+  br label %.thread11.sink.split
 
 467:                                              ; preds = %39
   %468 = getelementptr inbounds i8, ptr %0, i64 752
@@ -3159,8 +3126,7 @@ define dso_local i32 @do_ipv6_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2,
   %470 = trunc i64 %469 to i32
   %471 = lshr i32 %470, 28
   %472 = and i32 %471, 1
-  store i32 %472, ptr %8, align 4
-  br label %.thread11
+  br label %.thread11.sink.split
 
 473:                                              ; preds = %39
   %474 = getelementptr inbounds i8, ptr %0, i64 752
@@ -3168,10 +3134,14 @@ define dso_local i32 @do_ipv6_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2,
   %476 = trunc i64 %475 to i32
   %477 = lshr i32 %476, 21
   %478 = and i32 %477, 1
-  store i32 %478, ptr %8, align 4
+  br label %.thread11.sink.split
+
+.thread11.sink.split:                             ; preds = %46, %170, %176, %182, %188, %194, %200, %205, %250, %256, %262, %268, %274, %278, %284, %290, %322, %328, %334, %355, %362, %368, %371, %377, %381, %385, %391, %433, %446, %450, %456, %461, %467, %473, %.thread10
+  %.sink22 = phi i32 [ %342, %.thread10 ], [ %478, %473 ], [ %472, %467 ], [ %466, %461 ], [ %460, %456 ], [ %455, %450 ], [ %449, %446 ], [ %445, %433 ], [ %396, %391 ], [ %390, %385 ], [ %384, %381 ], [ %380, %377 ], [ %376, %371 ], [ %370, %368 ], [ %367, %362 ], [ %361, %355 ], [ %339, %334 ], [ %333, %328 ], [ %327, %322 ], [ %295, %290 ], [ %289, %284 ], [ %283, %278 ], [ %277, %274 ], [ %273, %268 ], [ %267, %262 ], [ %261, %256 ], [ %255, %250 ], [ %210, %205 ], [ %204, %200 ], [ %199, %194 ], [ %193, %188 ], [ %187, %182 ], [ %181, %176 ], [ %175, %170 ], [ %49, %46 ]
+  store i32 %.sink22, ptr %8, align 4
   br label %.thread11
 
-.thread11:                                        ; preds = %343, %.thread10, %473, %467, %461, %456, %450, %446, %433, %391, %385, %381, %377, %371, %368, %362, %355, %352, %334, %328, %322, %290, %284, %278, %274, %268, %262, %256, %250, %205, %200, %194, %188, %182, %176, %170, %167, %46
+.thread11:                                        ; preds = %.thread11.sink.split, %343, %352, %167
   %479 = load i32, ptr %7, align 4
   %480 = call i32 @llvm.umin.i32(i32 %479, i32 4)
   store i32 %480, ptr %7, align 4

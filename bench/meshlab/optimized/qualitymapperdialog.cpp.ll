@@ -13340,9 +13340,9 @@ _ZN3vcg9HistogramIfE8BinCountEff.exit:            ; preds = %104, %_ZN3vcg9Histo
   br label %.invoke
 
 .invoke:                                          ; preds = %146, %156
-  %storemerge = phi ptr [ %155, %156 ], [ %145, %146 ]
-  %157 = phi ptr [ %43, %156 ], [ %47, %146 ]
-  store ptr %storemerge, ptr %11, align 8
+  %.sink = phi ptr [ %145, %146 ], [ %155, %156 ]
+  %157 = phi ptr [ %47, %146 ], [ %43, %156 ]
+  store ptr %.sink, ptr %11, align 8
   invoke void @_ZN5QListIP13QGraphicsItemE6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %157, ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %_ZN5QListIP13QGraphicsItemElsERKS1_.exit unwind label %149
 

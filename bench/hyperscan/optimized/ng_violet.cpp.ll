@@ -7429,12 +7429,12 @@ _ZN3ue214renumber_edgesINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valu
   %_M_finish.i.i.i140.i = getelementptr i8, ptr %__begin241.sroa.0.0369.i, i64 16
   %257 = load ptr, ptr %_M_finish.i.i.i140.i, align 8
   %cmp.i.not732.i.i.i = icmp eq ptr %256, %257
-  br i1 %cmp.i.not732.i.i.i, label %invoke.cont.thread.i.i, label %for.body.i.i.i131
+  br i1 %cmp.i.not732.i.i.i, label %if.end.i.i.sink.split, label %for.body.i.i.i131
 
 for.cond.cleanup.i.i.i:                           ; preds = %for.body.i.i.i131
   %258 = add i64 %spec.select.i.i.i, -4294967295
   %or.cond.i.i.i = icmp ult i64 %258, -4294967278
-  br i1 %or.cond.i.i.i, label %invoke.cont.thread.i.i, label %if.end.i.i.i134
+  br i1 %or.cond.i.i.i, label %if.end.i.i.sink.split, label %if.end.i.i.i134
 
 for.body.i.i.i131:                                ; preds = %.noexc151.i, %for.body.i.i.i131
   %min_lit.0734.i.i.i = phi i64 [ %spec.select.i.i.i, %for.body.i.i.i131 ], [ -1, %.noexc151.i ]
@@ -7514,9 +7514,7 @@ _ZN3ue2L19willBeAnchoredTableERKNS_5depthERKNS_4GreyE.exit.i.i.i: ; preds = %cal
 
 invoke.cont.thread368.i.i:                        ; preds = %_ZN3ue2L19willBeAnchoredTableERKNS_5depthERKNS_4GreyE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %max_width.i.i.i) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp181.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp196.i.i.i)
-  br label %if.end.i.i
+  br label %if.end.i.i.sink.split
 
 if.end28.critedge.i.i.i:                          ; preds = %_ZN3ue2L15willBeTransientERKNS_5depthERKNS_14CompileContextE.exit.i.i.i, %_ZN3ue25depthC2Ej.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp23.i.i.i) #22
@@ -8999,11 +8997,6 @@ ehcleanup235.i.i.i:                               ; preds = %ehcleanup217.i.i.i,
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %max_width.i.i.i) #22
   br label %ehcleanup195.i.i
 
-invoke.cont.thread.i.i:                           ; preds = %for.cond.cleanup.i.i.i, %.noexc151.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp181.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp196.i.i.i)
-  br label %if.end.i.i
-
 invoke.cont.i.i138:                               ; preds = %cleanup234.i.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %graphs.i.i.i) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %max_width.i.i.i) #22
@@ -9021,7 +9014,12 @@ lpad.i.loopexit.split-lp.i:                       ; preds = %do.end.i.i316.i.inv
           cleanup
   br label %ehcleanup195.i.i
 
-if.end.i.i:                                       ; preds = %invoke.cont.i.i138, %invoke.cont.thread.i.i, %invoke.cont.thread368.i.i
+if.end.i.i.sink.split:                            ; preds = %.noexc151.i, %for.cond.cleanup.i.i.i, %invoke.cont.thread368.i.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp181.i.i.i)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp196.i.i.i)
+  br label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %if.end.i.i.sink.split, %invoke.cont.i.i138
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %split.i.i) #22
   %second.i.val = load ptr, ptr %second.i, align 8
   %second.i.val324 = load ptr, ptr %_M_finish.i.i.i140.i, align 8

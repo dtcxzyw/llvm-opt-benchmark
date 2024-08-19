@@ -458,7 +458,7 @@ calculatePrimaryColorsApproximation.exit.i:       ; preds = %.split50.us.i.i, %1
   %139 = load ptr, ptr %46, align 8
   tail call void %138(ptr noundef nonnull %0, ptr noundef %139, ptr noundef nonnull %48, i32 noundef 2) #6
   tail call void @initDitherTables(ptr noundef nonnull %35) #6
-  br i1 %25, label %140, label %BufImg_SetupICM.exit.thread25
+  br i1 %25, label %140, label %.sink.split
 
 140:                                              ; preds = %135
   %141 = ptrtoint ptr %35 to i64
@@ -489,7 +489,7 @@ calculatePrimaryColorsApproximation.exit.i:       ; preds = %.split50.us.i.i, %1
   call void %156(ptr noundef nonnull %0, ptr noundef %157, ptr noundef %158, ptr noundef %147) #6
   %159 = load i64, ptr %5, align 8
   call void @Disposer_AddRecord(ptr noundef nonnull %0, ptr noundef %147, ptr noundef nonnull @BufImg_Dispose_ICMColorData, i64 noundef %159) #6
-  br label %BufImg_SetupICM.exit.thread25
+  br label %.sink.split
 
 BufImg_SetupICM.exit.thread:                      ; preds = %50, %57, %152, %15, %26, %.thread.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -502,17 +502,17 @@ BufImg_SetupICM.exit.thread:                      ; preds = %50, %57, %152, %15,
   call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #6
   br label %169
 
-BufImg_SetupICM.exit.thread25:                    ; preds = %135, %153
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %165
-
 BufImg_SetupICM.exit:                             ; preds = %29
   %164 = inttoptr i64 %34 to ptr
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %153, %135, %BufImg_SetupICM.exit
+  %.sink.ph = phi ptr [ %164, %BufImg_SetupICM.exit ], [ %35, %135 ], [ %35, %153 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %165
 
-165:                                              ; preds = %13, %BufImg_SetupICM.exit, %BufImg_SetupICM.exit.thread25
-  %.sink = phi ptr [ %164, %BufImg_SetupICM.exit ], [ %35, %BufImg_SetupICM.exit.thread25 ], [ null, %13 ]
+165:                                              ; preds = %.sink.split, %13
+  %.sink = phi ptr [ null, %13 ], [ %.sink.ph, %.sink.split ]
   %166 = getelementptr inbounds i8, ptr %2, i64 120
   store ptr %.sink, ptr %166, align 8
   store i32 %3, ptr %6, align 8

@@ -2324,12 +2324,12 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit272: ; preds = %487
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %96), !noalias !153
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %162)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %163)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %164)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %165)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %166)
   br label %523
 
 523:                                              ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hf1774806994cc6a4E.llvm.16254343709696783296.exit", %522
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %164)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %165)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %166)
   ret void
 
 524:                                              ; preds = %210
@@ -3857,9 +3857,6 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit437: ; preds = %897
   %928 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %928, ptr noundef nonnull align 8 dereferenceable(24) %164, i64 24, i1 false)
   store i64 0, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %164)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %165)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %166)
   br label %523
 
 .thread:                                          ; preds = %.body189, %174, %187, %190, %206, %205

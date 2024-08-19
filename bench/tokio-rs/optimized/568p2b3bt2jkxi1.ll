@@ -32307,10 +32307,10 @@ define hidden void @"_ZN101_$LT$tokio..process..imp..pidfd_reaper..PidfdReaper$L
 44:                                               ; preds = %"_ZN5tokio7process3imp83_$LT$impl$u20$tokio..process..imp..orphan..Wait$u20$for$u20$std..process..Child$GT$8try_wait17hbf1231ecf2a565dbE.exit"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @"_ZN4core3ptr40drop_in_place$LT$std..process..Child$GT$17h1b4efbb3bd140d7bE"(ptr noalias noundef nonnull align 4 dereferenceable(28) %5)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %5)
   br label %45
 
 45:                                               ; preds = %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$std..process..ExitStatus$GT$$C$std..io..error..Error$GT$$GT$17hc66d469582d47036E.exit", %44
+  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %5)
   ret void
 
 "_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$std..process..ExitStatus$GT$$C$std..io..error..Error$GT$$GT$17hc66d469582d47036E.exit": ; preds = %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h07ef12dd56401839E.llvm.700930863383756518.exit.i.i.i.i.i", %18, %16
@@ -32319,7 +32319,6 @@ define hidden void @"_ZN101_$LT$tokio..process..imp..pidfd_reaper..PidfdReaper$L
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %2, ptr noundef nonnull align 4 dereferenceable(28) %5, i64 28, i1 false)
   call void @"_ZN5tokio7process3imp6orphan24OrphanQueueImpl$LT$T$GT$11push_orphan17hf661daa98a42eeacE"(ptr noundef nonnull align 8 @_ZN5tokio7process3imp16get_orphan_queue12ORPHAN_QUEUE17h8ad6366a95111b48E.llvm.6895680396811105915, ptr noalias nocapture noundef nonnull align 4 dereferenceable(28) %2)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %2), !noalias !11970
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %5)
   br label %45
 
 46:                                               ; preds = %47

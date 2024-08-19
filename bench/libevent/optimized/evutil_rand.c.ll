@@ -170,21 +170,17 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %exitcond.not.i.i.i = icmp eq i32 %inc.i.i.i, 256
   br i1 %exitcond.not.i.i.i, label %4, label %for.body.i.i.i, !llvm.loop !8
 
-arc4_seed_getrandom.exit.i:                       ; preds = %for.body.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %buf.i.i)
-  br label %5
-
 4:                                                ; preds = %for.body.i.i.i
   store i8 %add.i.i.i, ptr @rs, align 1
   store i8 %add.i.i.i, ptr getelementptr inbounds (i8, ptr @rs, i64 1), align 1
   call void @evutil_memclear_(ptr noundef nonnull %buf.i.i, i64 noundef 32) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %buf.i.i)
-  br label %5
+  br label %arc4_seed_getrandom.exit.i
 
-5:                                                ; preds = %4, %arc4_seed_getrandom.exit.i
-  %6 = phi i32 [ 1, %4 ], [ 0, %arc4_seed_getrandom.exit.i ]
-  %7 = load ptr, ptr @arc4random_urandom_filename, align 8
-  %tobool.not.i.i = icmp eq ptr %7, null
+arc4_seed_getrandom.exit.i:                       ; preds = %for.body.i.i, %4
+  %5 = phi i32 [ 1, %4 ], [ 0, %for.body.i.i ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %buf.i.i)
+  %6 = load ptr, ptr @arc4random_urandom_filename, align 8
+  %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %for.body.i4.i, label %arc4_seed_urandom.exit.i
 
 for.cond.i7.i:                                    ; preds = %for.body.i4.i
@@ -192,16 +188,16 @@ for.cond.i7.i:                                    ; preds = %for.body.i4.i
   %tobool1.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
   br i1 %tobool1.not.i.i, label %arc4_seed_urandom.exit.thread44.i, label %for.body.i4.i, !llvm.loop !9
 
-for.body.i4.i:                                    ; preds = %5, %for.cond.i7.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.cond.i7.i ], [ 0, %5 ]
+for.body.i4.i:                                    ; preds = %arc4_seed_getrandom.exit.i, %for.cond.i7.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.cond.i7.i ], [ 0, %arc4_seed_getrandom.exit.i ]
   %arrayidx.i5.i = getelementptr inbounds [4 x ptr], ptr @arc4_seed_urandom.filenames, i64 0, i64 %indvars.iv.i.i
-  %8 = load ptr, ptr %arrayidx.i5.i, align 8
-  %call4.i.i = call fastcc i32 @arc4_seed_urandom_helper_(ptr noundef %8)
+  %7 = load ptr, ptr %arrayidx.i5.i, align 8
+  %call4.i.i = call fastcc i32 @arc4_seed_urandom_helper_(ptr noundef %7)
   %cmp.i6.i = icmp eq i32 %call4.i.i, 0
   br i1 %cmp.i6.i, label %arc4_seed_urandom.exit.thread.i, label %for.cond.i7.i
 
-arc4_seed_urandom.exit.i:                         ; preds = %5
-  %call.i2.i = call fastcc i32 @arc4_seed_urandom_helper_(ptr noundef nonnull %7)
+arc4_seed_urandom.exit.i:                         ; preds = %arc4_seed_getrandom.exit.i
+  %call.i2.i = call fastcc i32 @arc4_seed_urandom_helper_(ptr noundef nonnull %6)
   %call.i2.fr.i = freeze i32 %call.i2.i
   %cmp2.i = icmp eq i32 %call.i2.fr.i, 0
   br i1 %cmp2.i, label %arc4_seed_urandom.exit.thread.i, label %arc4_seed_urandom.exit.thread44.i
@@ -210,9 +206,9 @@ arc4_seed_urandom.exit.thread.i:                  ; preds = %for.body.i4.i, %arc
   br label %arc4_seed_urandom.exit.thread44.i
 
 arc4_seed_urandom.exit.thread44.i:                ; preds = %for.cond.i7.i, %arc4_seed_urandom.exit.thread.i, %arc4_seed_urandom.exit.i
-  %9 = phi i32 [ 1, %arc4_seed_urandom.exit.thread.i ], [ %6, %arc4_seed_urandom.exit.i ], [ %6, %for.cond.i7.i ]
-  %10 = load ptr, ptr @arc4random_urandom_filename, align 8
-  %cmp5.i = icmp eq ptr %10, null
+  %8 = phi i32 [ 1, %arc4_seed_urandom.exit.thread.i ], [ %5, %arc4_seed_urandom.exit.i ], [ %5, %for.cond.i7.i ]
+  %9 = load ptr, ptr @arc4random_urandom_filename, align 8
+  %cmp5.i = icmp eq ptr %9, null
   br i1 %cmp5.i, label %land.lhs.true.i, label %arc4_seed.exit
 
 land.lhs.true.i:                                  ; preds = %arc4_seed_urandom.exit.thread44.i
@@ -224,14 +220,14 @@ for.body.i9.i:                                    ; preds = %arc4_addrandom.exit
   %bytes.018.i.i = phi i32 [ 0, %land.lhs.true.i ], [ %add.i36.i, %arc4_addrandom.exit.i35.i ]
   %call.i10.i = call i32 @evutil_open_closeonexec_(ptr noundef nonnull @.str.5, i32 noundef 0, i32 noundef 0) #7
   %cmp1.i11.i = icmp slt i32 %call.i10.i, 0
-  br i1 %cmp1.i11.i, label %arc4_seed_proc_sys_kernel_random_uuid.exit.thread.i, label %if.end.i.i
+  br i1 %cmp1.i11.i, label %if.end9.sink.split.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i9.i
   %call2.i.i = call i64 @read(i32 noundef %call.i10.i, ptr noundef nonnull %buf.i8.i, i64 noundef 128) #7
   %conv.i.i = trunc i64 %call2.i.i to i32
   %call3.i.i = call i32 @close(i32 noundef %call.i10.i) #7
   %cmp4.i.i = icmp slt i32 %conv.i.i, 1
-  br i1 %cmp4.i.i, label %arc4_seed_proc_sys_kernel_random_uuid.exit.thread.i, label %if.end7.i.i
+  br i1 %cmp4.i.i, label %if.end9.sink.split.i, label %if.end7.i.i
 
 if.end7.i.i:                                      ; preds = %if.end.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %entropy.i.i, i8 0, i64 64, i1 false)
@@ -242,13 +238,13 @@ for.body12.i.i:                                   ; preds = %for.inc.i.i, %if.en
   %indvars.iv.i12.i = phi i64 [ 0, %if.end7.i.i ], [ %indvars.iv.next.i15.i, %for.inc.i.i ]
   %nybbles.017.i.i = phi i32 [ 0, %if.end7.i.i ], [ %nybbles.1.i.i, %for.inc.i.i ]
   %arrayidx.i13.i = getelementptr inbounds [128 x i8], ptr %buf.i8.i, i64 0, i64 %indvars.iv.i12.i
-  %11 = load i8, ptr %arrayidx.i13.i, align 1
-  %call13.i.i = call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %11) #7
+  %10 = load i8, ptr %arrayidx.i13.i, align 1
+  %call13.i.i = call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %10) #7
   %tobool.not.i14.i = icmp eq i32 %call13.i.i, 0
   br i1 %tobool.not.i14.i, label %for.inc.i.i, label %if.then14.i.i
 
 if.then14.i.i:                                    ; preds = %for.body12.i.i
-  %call17.i.i = call i32 @evutil_hex_char_to_int_(i8 noundef signext %11) #7
+  %call17.i.i = call i32 @evutil_hex_char_to_int_(i8 noundef signext %10) #7
   %and.i.i = and i32 %nybbles.017.i.i, 1
   %tobool18.not.i.i = icmp eq i32 %and.i.i, 0
   %call17.tr.i.i = trunc i32 %call17.i.i to i8
@@ -258,8 +254,8 @@ if.then19.i.i:                                    ; preds = %if.then14.i.i
   %div.i.i = sdiv i32 %nybbles.017.i.i, 2
   %idxprom20.i.i = sext i32 %div.i.i to i64
   %arrayidx21.i.i = getelementptr inbounds [64 x i8], ptr %entropy.i.i, i64 0, i64 %idxprom20.i.i
-  %12 = load i8, ptr %arrayidx21.i.i, align 1
-  %conv23.i.i = or i8 %12, %call17.tr.i.i
+  %11 = load i8, ptr %arrayidx21.i.i, align 1
+  %conv23.i.i = or i8 %11, %call17.tr.i.i
   store i8 %conv23.i.i, ptr %arrayidx21.i.i, align 1
   br label %if.end30.i.i
 
@@ -267,9 +263,9 @@ if.else.i.i:                                      ; preds = %if.then14.i.i
   %div24.i.i = ashr exact i32 %nybbles.017.i.i, 1
   %idxprom25.i.i = sext i32 %div24.i.i to i64
   %arrayidx26.i.i = getelementptr inbounds [64 x i8], ptr %entropy.i.i, i64 0, i64 %idxprom25.i.i
-  %13 = load i8, ptr %arrayidx26.i.i, align 1
-  %14 = shl i8 %call17.tr.i.i, 4
-  %conv29.i.i = or i8 %13, %14
+  %12 = load i8, ptr %arrayidx26.i.i, align 1
+  %13 = shl i8 %call17.tr.i.i, 4
+  %conv29.i.i = or i8 %12, %13
   store i8 %conv29.i.i, ptr %arrayidx26.i.i, align 1
   br label %if.end30.i.i
 
@@ -285,12 +281,12 @@ for.inc.i.i:                                      ; preds = %if.end30.i.i, %for.
 
 for.end.i16.i:                                    ; preds = %for.inc.i.i
   %cmp33.i.i = icmp slt i32 %nybbles.1.i.i, 2
-  br i1 %cmp33.i.i, label %arc4_seed_proc_sys_kernel_random_uuid.exit.thread.i, label %if.end36.i.i
+  br i1 %cmp33.i.i, label %if.end9.sink.split.i, label %if.end36.i.i
 
 if.end36.i.i:                                     ; preds = %for.end.i16.i
   %div3815.i.i = lshr i32 %nybbles.1.i.i, 1
-  %15 = load i8, ptr @rs, align 1
-  %dec.i.i17.i = add i8 %15, -1
+  %14 = load i8, ptr @rs, align 1
+  %dec.i.i17.i = add i8 %14, -1
   %.promoted.i.i18.i = load i8, ptr getelementptr inbounds (i8, ptr @rs, i64 1), align 1
   br label %for.body.i.i19.i
 
@@ -301,18 +297,18 @@ for.body.i.i19.i:                                 ; preds = %for.body.i.i19.i, %
   %add.i.i23.i = add i8 %add58.i.i21.i, 1
   %idxprom.i.i24.i = zext i8 %add.i.i23.i to i64
   %arrayidx.i.i25.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom.i.i24.i
-  %16 = load i8, ptr %arrayidx.i.i25.i, align 1
-  %add4.i.i26.i = add i8 %16, %add867.i.i22.i
+  %15 = load i8, ptr %arrayidx.i.i25.i, align 1
+  %add4.i.i26.i = add i8 %15, %add867.i.i22.i
   %rem.i.i27.i = urem i32 %n.09.i.i20.i, %div3815.i.i
   %idxprom5.i.i28.i = zext nneg i32 %rem.i.i27.i to i64
   %arrayidx6.i.i29.i = getelementptr inbounds i8, ptr %entropy.i.i, i64 %idxprom5.i.i28.i
-  %17 = load i8, ptr %arrayidx6.i.i29.i, align 1
-  %add8.i.i30.i = add i8 %add4.i.i26.i, %17
+  %16 = load i8, ptr %arrayidx6.i.i29.i, align 1
+  %add8.i.i30.i = add i8 %add4.i.i26.i, %16
   %idxprom10.i.i31.i = zext i8 %add8.i.i30.i to i64
   %arrayidx11.i.i32.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom10.i.i31.i
-  %18 = load i8, ptr %arrayidx11.i.i32.i, align 1
-  store i8 %18, ptr %arrayidx.i.i25.i, align 1
-  store i8 %16, ptr %arrayidx11.i.i32.i, align 1
+  %17 = load i8, ptr %arrayidx11.i.i32.i, align 1
+  store i8 %17, ptr %arrayidx.i.i25.i, align 1
+  store i8 %15, ptr %arrayidx11.i.i32.i, align 1
   %inc.i.i33.i = add nuw nsw i32 %n.09.i.i20.i, 1
   %exitcond.not.i.i34.i = icmp eq i32 %inc.i.i33.i, 256
   br i1 %exitcond.not.i.i34.i, label %arc4_addrandom.exit.i35.i, label %for.body.i.i19.i, !llvm.loop !8
@@ -322,25 +318,25 @@ arc4_addrandom.exit.i35.i:                        ; preds = %for.body.i.i19.i
   store i8 %add.i.i23.i, ptr getelementptr inbounds (i8, ptr @rs, i64 1), align 1
   %add.i36.i = add nuw nsw i32 %div3815.i.i, %bytes.018.i.i
   %cmp.i37.i = icmp ult i32 %add.i36.i, 32
-  br i1 %cmp.i37.i, label %for.body.i9.i, label %arc4_seed.exit.thread, !llvm.loop !11
+  br i1 %cmp.i37.i, label %for.body.i9.i, label %18, !llvm.loop !11
 
-arc4_seed_proc_sys_kernel_random_uuid.exit.thread.i: ; preds = %for.end.i16.i, %if.end.i.i, %for.body.i9.i
+18:                                               ; preds = %arc4_addrandom.exit.i35.i
+  call void @evutil_memclear_(ptr noundef nonnull %entropy.i.i, i64 noundef 64) #7
+  call void @evutil_memclear_(ptr noundef nonnull %buf.i8.i, i64 noundef 128) #7
+  br label %if.end9.sink.split.i
+
+if.end9.sink.split.i:                             ; preds = %for.end.i16.i, %if.end.i.i, %for.body.i9.i, %18
+  %ok.2.ph.i = phi i32 [ 1, %18 ], [ %8, %for.body.i9.i ], [ %8, %if.end.i.i ], [ %8, %for.end.i16.i ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %buf.i8.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %entropy.i.i)
   br label %arc4_seed.exit
 
-arc4_seed.exit.thread:                            ; preds = %arc4_addrandom.exit.i35.i
-  call void @evutil_memclear_(ptr noundef nonnull %entropy.i.i, i64 noundef 64) #7
-  call void @evutil_memclear_(ptr noundef nonnull %buf.i8.i, i64 noundef 128) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %buf.i8.i)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %entropy.i.i)
-  br label %for.cond.preheader
-
-arc4_seed.exit:                                   ; preds = %arc4_seed_urandom.exit.thread44.i, %arc4_seed_proc_sys_kernel_random_uuid.exit.thread.i
-  %tobool.not.i.not = icmp eq i32 %9, 0
+arc4_seed.exit:                                   ; preds = %arc4_seed_urandom.exit.thread44.i, %if.end9.sink.split.i
+  %ok.2.i = phi i32 [ %8, %arc4_seed_urandom.exit.thread44.i ], [ %ok.2.ph.i, %if.end9.sink.split.i ]
+  %tobool.not.i.not = icmp eq i32 %ok.2.i, 0
   br i1 %tobool.not.i.not, label %return, label %for.cond.preheader
 
-for.cond.preheader:                               ; preds = %arc4_seed.exit.thread, %arc4_seed.exit
+for.cond.preheader:                               ; preds = %arc4_seed.exit
   %rs.promoted = load i8, ptr @rs, align 1
   %.promoted = load i8, ptr getelementptr inbounds (i8, ptr @rs, i64 1), align 1
   br label %for.body

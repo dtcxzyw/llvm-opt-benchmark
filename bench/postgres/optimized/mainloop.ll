@@ -912,17 +912,17 @@ select.unfold:                                    ; preds = %.tail260, %164, %15
   %379 = getelementptr inbounds i8, ptr %.0..0..0..0.142, i64 8
   %380 = load i64, ptr %379, align 8
   %.not217 = icmp eq i64 %380, 0
-  br i1 %.not217, label %401, label %381
+  br i1 %.not217, label %399, label %381
 
 381:                                              ; preds = %.loopexit
   %382 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 312), align 8
   %383 = trunc i8 %382 to i1
-  br i1 %383, label %401, label %384
+  br i1 %383, label %399, label %384
 
 384:                                              ; preds = %381
   %.0..0..0..0.56 = load volatile i32, ptr %4, align 4
   %385 = icmp eq i32 %.0..0..0..0.56, 0
-  br i1 %385, label %386, label %401
+  br i1 %385, label %386, label %399
 
 386:                                              ; preds = %384
   %387 = call zeroext i1 @conditional_active(ptr noundef %21) #10
@@ -946,52 +946,49 @@ select.unfold:                                    ; preds = %.tail260, %164, %15
 395:                                              ; preds = %388
   %.0..0..0..0.36 = load volatile i8, ptr %9, align 1
   %396 = trunc i8 %.0..0..0..0.36 to i1
-  br i1 %396, label %397, label %.critedge227
-
-397:                                              ; preds = %395
-  store volatile i32 3, ptr %4, align 4
-  br label %401
+  br i1 %396, label %.sink.split, label %.critedge227
 
 .critedge227:                                     ; preds = %394, %391, %395, %388
-  %398 = load ptr, ptr @pset, align 8
-  %399 = icmp eq ptr %398, null
-  br i1 %399, label %400, label %401
+  %397 = load ptr, ptr @pset, align 8
+  %398 = icmp eq ptr %397, null
+  br i1 %398, label %.sink.split, label %399
 
-400:                                              ; preds = %.critedge227
-  store volatile i32 2, ptr %4, align 4
-  br label %401
+.sink.split:                                      ; preds = %.critedge227, %395
+  %.sink = phi i32 [ 3, %395 ], [ 2, %.critedge227 ]
+  store volatile i32 %.sink, ptr %4, align 4
+  br label %399
 
-401:                                              ; preds = %397, %400, %.critedge227, %384, %381, %.loopexit
+399:                                              ; preds = %.sink.split, %.critedge227, %384, %381, %.loopexit
   %.0..0..0..0.54 = load volatile i32, ptr %5, align 4
   %.not218 = icmp eq i32 %.0..0..0..0.54, 3
-  br i1 %.not218, label %411, label %402
+  br i1 %.not218, label %409, label %400
 
-402:                                              ; preds = %401
+400:                                              ; preds = %399
   %.0..0..0..0.57 = load volatile i32, ptr %4, align 4
   %.not219 = icmp eq i32 %.0..0..0..0.57, 3
-  br i1 %.not219, label %411, label %403
+  br i1 %.not219, label %409, label %401
 
-403:                                              ; preds = %402
-  %404 = call zeroext i1 @conditional_stack_empty(ptr noundef %21) #10
-  br i1 %404, label %411, label %405
+401:                                              ; preds = %400
+  %402 = call zeroext i1 @conditional_stack_empty(ptr noundef %21) #10
+  br i1 %402, label %409, label %403
 
-405:                                              ; preds = %403
+403:                                              ; preds = %401
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.17) #10
   %.0..0..0..0.37 = load volatile i8, ptr %9, align 1
-  %406 = trunc i8 %.0..0..0..0.37 to i1
-  br i1 %406, label %407, label %411
+  %404 = trunc i8 %.0..0..0..0.37 to i1
+  br i1 %404, label %405, label %409
 
-407:                                              ; preds = %405
-  %408 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 312), align 8
-  %409 = trunc i8 %408 to i1
-  br i1 %409, label %411, label %410
+405:                                              ; preds = %403
+  %406 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 312), align 8
+  %407 = trunc i8 %406 to i1
+  br i1 %407, label %409, label %408
 
-410:                                              ; preds = %407
+408:                                              ; preds = %405
   store volatile i32 3, ptr %4, align 4
-  br label %411
+  br label %409
 
-411:                                              ; preds = %405, %407, %410, %403, %402, %401
-  %412 = and i8 %12, 1
+409:                                              ; preds = %403, %405, %408, %401, %400, %399
+  %410 = and i8 %12, 1
   store volatile i32 0, ptr @sigint_interrupt_enabled, align 4
   %.0..0..0..0.144 = load volatile ptr, ptr %2, align 8
   call void @destroyPQExpBuffer(ptr noundef %.0..0..0..0.144) #10
@@ -1001,7 +998,7 @@ select.unfold:                                    ; preds = %.tail260, %164, %15
   call void @psql_scan_destroy(ptr noundef %20) #10
   call void @conditional_stack_destroy(ptr noundef %21) #10
   store ptr %11, ptr getelementptr inbounds (i8, ptr @pset, i64 304), align 8
-  store i8 %412, ptr getelementptr inbounds (i8, ptr @pset, i64 312), align 8
+  store i8 %410, ptr getelementptr inbounds (i8, ptr @pset, i64 312), align 8
   store i64 %13, ptr getelementptr inbounds (i8, ptr @pset, i64 336), align 8
   %.0..0..0..0.58 = load volatile i32, ptr %4, align 4
   ret i32 %.0..0..0..0.58

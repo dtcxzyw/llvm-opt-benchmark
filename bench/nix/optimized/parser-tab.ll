@@ -25744,19 +25744,22 @@ _ZL15yyresolveActionP16yySemanticOptionP10yyGLRStackP7YYSTYPEPN3nix14ParserLocat
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   store i8 1, ptr %16, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  br label %117
+  br label %.sink.split
 
 _ZL15yyresolveActionP16yySemanticOptionP10yyGLRStackP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE.exit: ; preds = %._crit_edge
   call void @llvm.lifetime.end.p0(i64 704, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   store ptr null, ptr %20, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %_ZL15yyresolveActionP16yySemanticOptionP10yyGLRStackP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE.exit, %_ZL15yyresolveActionP16yySemanticOptionP10yyGLRStackP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE.exit.thread
+  %.0.ph = phi i32 [ 0, %_ZL15yyresolveActionP16yySemanticOptionP10yyGLRStackP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE.exit.thread ], [ %99, %_ZL15yyresolveActionP16yySemanticOptionP10yyGLRStackP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE.exit ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %117
 
-117:                                              ; preds = %5, %15, %_ZL15yyresolveActionP16yySemanticOptionP10yyGLRStackP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE.exit.thread, %_ZL15yyresolveActionP16yySemanticOptionP10yyGLRStackP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE.exit, %10
-  %.0 = phi i32 [ %14, %10 ], [ %99, %_ZL15yyresolveActionP16yySemanticOptionP10yyGLRStackP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE.exit ], [ 0, %_ZL15yyresolveActionP16yySemanticOptionP10yyGLRStackP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE.exit.thread ], [ 0, %15 ], [ 0, %5 ]
+117:                                              ; preds = %.sink.split, %5, %15, %10
+  %.0 = phi i32 [ %14, %10 ], [ 0, %15 ], [ 0, %5 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 

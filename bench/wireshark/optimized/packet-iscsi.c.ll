@@ -4695,11 +4695,11 @@ define internal fastcc i32 @handleDataSegmentAsTextKeys(ptr nocapture noundef re
   br i1 %66, label %.sink.split.i.i, label %67
 
 .sink.split.i.i:                                  ; preds = %60, %53
+  %.sink64.i.i = phi i32 [ 3, %53 ], [ 2, %60 ]
   %.sink62.i.i = phi i32 [ 16, %53 ], [ 4, %60 ]
   %.sink.i.i = phi ptr [ %55, %53 ], [ %65, %60 ]
-  %.ph60.i.i = phi i32 [ 3, %53 ], [ 2, %60 ]
   %.051.ph.i.i = phi i32 [ %51, %53 ], [ %41, %60 ]
-  store i32 %.ph60.i.i, ptr %9, align 8
+  store i32 %.sink64.i.i, ptr %9, align 8
   store i32 %.sink62.i.i, ptr %23, align 4
   store ptr %.sink.i.i, ptr %24, align 8
   store ptr null, ptr %25, align 8
@@ -4709,7 +4709,7 @@ define internal fastcc i32 @handleDataSegmentAsTextKeys(ptr nocapture noundef re
   %68 = phi ptr [ null, %53 ], [ null, %60 ], [ %.sink.i.i, %.sink.split.i.i ]
   %69 = phi i1 [ true, %53 ], [ true, %60 ], [ false, %.sink.split.i.i ]
   %70 = phi i32 [ 0, %53 ], [ 0, %60 ], [ %.sink62.i.i, %.sink.split.i.i ]
-  %71 = phi i32 [ 0, %53 ], [ 0, %60 ], [ %.ph60.i.i, %.sink.split.i.i ]
+  %71 = phi i32 [ 0, %53 ], [ 0, %60 ], [ %.sink64.i.i, %.sink.split.i.i ]
   %.051.i.i = phi i32 [ %51, %53 ], [ %41, %60 ], [ %.051.ph.i.i, %.sink.split.i.i ]
   %72 = call i32 @tvb_find_guint8(ptr noundef %32, i32 noundef %.051.i.i, i32 noundef -1, i8 noundef zeroext 44) #9
   %73 = icmp eq i32 %72, -1

@@ -329,9 +329,9 @@ entry:
   %0 = getelementptr i8, ptr %pt, i64 96
   %1 = load i64, ptr %0, align 8
   %2 = icmp eq i64 %1, 0
-  br i1 %2, label %entry.split.us, label %restart
+  br i1 %2, label %while.cond.preheader.us.preheader, label %restart
 
-entry.split.us:                                   ; preds = %entry
+while.cond.preheader.us.preheader:                ; preds = %entry
   %incdec.ptr64.us188 = getelementptr inbounds i8, ptr %ip, i64 -4
   %cmp365.us189 = icmp ugt ptr %incdec.ptr64.us188, %add.ptr
   br i1 %cmp365.us189, label %while.body.us.preheader, label %return
@@ -394,10 +394,10 @@ while.body.us.backedge:                           ; preds = %if.end77.us, %land.
   %incdec.ptr67.us.be = phi ptr [ %incdec.ptr.us.old, %if.end77.us ], [ %incdec.ptr.us, %land.lhs.true.us ]
   br label %while.body.us, !llvm.loop !6
 
-while.body.us.preheader:                          ; preds = %entry.split.us, %if.then33.us
-  %incdec.ptr64.us192 = phi ptr [ %incdec.ptr64.us, %if.then33.us ], [ %incdec.ptr64.us188, %entry.split.us ]
-  %slot.addr.0.us73191 = phi i32 [ %shr34.us, %if.then33.us ], [ %slot, %entry.split.us ]
-  %ip.addr.0.us74190 = phi ptr [ %incdec.ptr67.us, %if.then33.us ], [ %ip, %entry.split.us ]
+while.body.us.preheader:                          ; preds = %while.cond.preheader.us.preheader, %if.then33.us
+  %incdec.ptr64.us192 = phi ptr [ %incdec.ptr64.us, %if.then33.us ], [ %incdec.ptr64.us188, %while.cond.preheader.us.preheader ]
+  %slot.addr.0.us73191 = phi i32 [ %shr34.us, %if.then33.us ], [ %slot, %while.cond.preheader.us.preheader ]
+  %ip.addr.0.us74190 = phi ptr [ %incdec.ptr67.us, %if.then33.us ], [ %ip, %while.cond.preheader.us.preheader ]
   br label %while.body.us
 
 restart:                                          ; preds = %entry, %if.then33
@@ -455,13 +455,13 @@ land.lhs.true.i:                                  ; preds = %if.end12.i
   br i1 %cmp17.i, label %if.then19.i, label %if.end33.i
 
 if.then19.i:                                      ; preds = %land.lhs.true.i
-  br i1 %cmp.i, label %if.then22.i, label %debug_varname.exit
+  br i1 %cmp.i, label %if.then22.i, label %if.then
 
 if.then22.i:                                      ; preds = %if.then19.i
   %conv.le.i = zext nneg i8 %7 to i32
   %dec23.i = add nsw i32 %conv.le.i, -1
   %tobool24.not.i = icmp eq i32 %dec23.i, 0
-  br i1 %tobool24.not.i, label %debug_varname.exit.thread, label %while.cond.i.outer
+  br i1 %tobool24.not.i, label %if.then, label %while.cond.i.outer
 
 while.cond.i.outer:                               ; preds = %if.then22.i, %lor.rhs.i
   %name.1.i.ph = phi ptr [ %incdec.ptr26.i, %lor.rhs.i ], [ @.str.34, %if.then22.i ]
@@ -478,17 +478,12 @@ while.cond.i:                                     ; preds = %while.cond.i.outer,
 lor.rhs.i:                                        ; preds = %while.cond.i
   %dec29.i = add i32 %vn.0.i.ph, -1
   %tobool30.not.i = icmp eq i32 %dec29.i, 0
-  br i1 %tobool30.not.i, label %debug_varname.exit.thread, label %while.cond.i.outer, !llvm.loop !8
+  br i1 %tobool30.not.i, label %if.then, label %while.cond.i.outer, !llvm.loop !8
 
 if.end33.i:                                       ; preds = %land.lhs.true.i, %if.end12.i
   %slot.addr.1.i = phi i32 [ %dec.i, %land.lhs.true.i ], [ %slot.addr.0.i, %if.end12.i ]
   %.pre.i = load ptr, ptr %p.i, align 8
   br label %for.cond.i
-
-debug_varname.exit.thread:                        ; preds = %lor.rhs.i, %if.then22.i
-  %retval.0.i.ph = phi ptr [ @.str.34, %if.then22.i ], [ %incdec.ptr26.i, %lor.rhs.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
-  br label %if.then
 
 debug_varname.exit.thread114:                     ; preds = %if.end7.i, %if.then2.i, %restart
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
@@ -496,12 +491,9 @@ debug_varname.exit.thread114:                     ; preds = %if.end7.i, %if.then
   %cmp365 = icmp ugt ptr %incdec.ptr64, %add.ptr
   br i1 %cmp365, label %while.body, label %return
 
-debug_varname.exit:                               ; preds = %if.then19.i
+if.then:                                          ; preds = %lor.rhs.i, %if.then19.i, %if.then22.i
+  %retval.0.i43 = phi ptr [ @.str.34, %if.then22.i ], [ %p.promoted.i, %if.then19.i ], [ %incdec.ptr26.i, %lor.rhs.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
-  br label %if.then
-
-if.then:                                          ; preds = %debug_varname.exit, %debug_varname.exit.thread
-  %retval.0.i43 = phi ptr [ %retval.0.i.ph, %debug_varname.exit.thread ], [ %p.promoted.i, %debug_varname.exit ]
   store ptr %retval.0.i43, ptr %name, align 8
   br label %return
 
@@ -653,8 +645,8 @@ while.body.backedge:                              ; preds = %if.end77, %land.lhs
   %incdec.ptr67.be = phi ptr [ %incdec.ptr.old, %if.end77 ], [ %incdec.ptr, %land.lhs.true ]
   br label %while.body, !llvm.loop !6
 
-return:                                           ; preds = %if.then29, %debug_varname.exit.thread114, %land.lhs.true, %if.end77, %if.then33.us, %if.then29.us, %land.lhs.true.us, %if.end77.us, %entry.split.us, %land.lhs.true65, %lj_debug_uvname.exit, %if.end72, %sw.bb36, %if.then
-  %retval.0 = phi ptr [ @.str.1, %if.then ], [ @.str.5, %lj_debug_uvname.exit ], [ @.str.4, %if.end72 ], [ @.str.2, %sw.bb36 ], [ @.str.3, %land.lhs.true65 ], [ null, %entry.split.us ], [ null, %if.end77.us ], [ null, %land.lhs.true.us ], [ null, %if.then29.us ], [ null, %if.then33.us ], [ null, %if.end77 ], [ null, %land.lhs.true ], [ null, %debug_varname.exit.thread114 ], [ null, %if.then29 ]
+return:                                           ; preds = %if.then29, %debug_varname.exit.thread114, %land.lhs.true, %if.end77, %if.then33.us, %if.then29.us, %land.lhs.true.us, %if.end77.us, %while.cond.preheader.us.preheader, %land.lhs.true65, %lj_debug_uvname.exit, %if.end72, %sw.bb36, %if.then
+  %retval.0 = phi ptr [ @.str.1, %if.then ], [ @.str.5, %lj_debug_uvname.exit ], [ @.str.4, %if.end72 ], [ @.str.2, %sw.bb36 ], [ @.str.3, %land.lhs.true65 ], [ null, %while.cond.preheader.us.preheader ], [ null, %if.end77.us ], [ null, %land.lhs.true.us ], [ null, %if.then29.us ], [ null, %if.then33.us ], [ null, %if.end77 ], [ null, %land.lhs.true ], [ null, %debug_varname.exit.thread114 ], [ null, %if.then29 ]
   ret ptr %retval.0
 }
 

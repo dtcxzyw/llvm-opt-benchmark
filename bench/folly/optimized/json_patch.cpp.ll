@@ -437,11 +437,7 @@ invoke.cont84:                                    ; preds = %_ZNSt7__cxx1112basi
 cleanup:                                          ; preds = %invoke.cont84
   %.pre = load i8, ptr %which_.i, align 8, !tbaa !39
   %cond.i.i = icmp eq i8 %.pre, 1
-  br i1 %cond.i.i, label %sw.bb.i.i, label %_ZN5folly15expected_detail15ExpectedStorageINS_12json_pointerENS2_11parse_errorELNS0_11StorageTypeE2EED2Ev.exit.thread
-
-_ZN5folly15expected_detail15ExpectedStorageINS_12json_pointerENS2_11parse_errorELNS0_11StorageTypeE2EED2Ev.exit.thread: ; preds = %cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %json_ptr) #24
-  br label %if.end89
+  br i1 %cond.i.i, label %sw.bb.i.i, label %if.end89.sink.split
 
 sw.bb.i.i:                                        ; preds = %cleanup
   %14 = load ptr, ptr %json_ptr, align 8, !tbaa !41
@@ -479,17 +475,17 @@ invoke.contthread-pre-split.i.i.i.i:              ; preds = %_ZSt8_DestroyINSt7_
 invoke.cont.i.i.i.i:                              ; preds = %invoke.contthread-pre-split.i.i.i.i, %sw.bb.i.i
   %19 = phi ptr [ %.pr.i.i.i.i, %invoke.contthread-pre-split.i.i.i.i ], [ %14, %sw.bb.i.i ]
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %19, null
-  br i1 %tobool.not.i.i.i.i.i.i, label %_ZN5folly15expected_detail15ExpectedStorageINS_12json_pointerENS2_11parse_errorELNS0_11StorageTypeE2EED2Ev.exit, label %if.then.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i, label %if.end89.sink.split, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %19) #25
-  br label %_ZN5folly15expected_detail15ExpectedStorageINS_12json_pointerENS2_11parse_errorELNS0_11StorageTypeE2EED2Ev.exit
+  br label %if.end89.sink.split
 
-_ZN5folly15expected_detail15ExpectedStorageINS_12json_pointerENS2_11parse_errorELNS0_11StorageTypeE2EED2Ev.exit: ; preds = %if.then.i.i.i.i.i.i, %invoke.cont.i.i.i.i
+if.end89.sink.split:                              ; preds = %invoke.cont.i.i.i.i, %if.then.i.i.i.i.i.i, %cleanup
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %json_ptr) #24
   br label %if.end89
 
-if.end89:                                         ; preds = %_ZN5folly15expected_detail15ExpectedStorageINS_12json_pointerENS2_11parse_errorELNS0_11StorageTypeE2EED2Ev.exit, %_ZN5folly15expected_detail15ExpectedStorageINS_12json_pointerENS2_11parse_errorELNS0_11StorageTypeE2EED2Ev.exit.thread, %invoke.cont52
+if.end89:                                         ; preds = %if.end89.sink.split, %invoke.cont52
   %call95 = invoke noundef ptr @_ZNKR5folly7dynamic7get_ptrENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %__begin1.sroa.0.0629, ptr nonnull @.str.8, ptr nonnull getelementptr inbounds (i8, ptr @.str.8, i64 4))
           to label %invoke.cont94 unwind label %terminate.lpad.loopexit
 
@@ -562,11 +558,7 @@ invoke.cont136:                                   ; preds = %_ZNSt7__cxx1112basi
 cleanup140:                                       ; preds = %invoke.cont136
   %.pre637 = load i8, ptr %which_.i400, align 8, !tbaa !39
   %cond.i.i415 = icmp eq i8 %.pre637, 1
-  br i1 %cond.i.i415, label %sw.bb.i.i416, label %cleanup142.thread
-
-cleanup142.thread:                                ; preds = %cleanup140
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %json_ptr119) #24
-  br label %cleanup.cont144
+  br i1 %cond.i.i415, label %sw.bb.i.i416, label %cleanup.cont144
 
 sw.bb.i.i416:                                     ; preds = %cleanup140
   %26 = load ptr, ptr %json_ptr119, align 8, !tbaa !41
@@ -604,17 +596,14 @@ invoke.contthread-pre-split.i.i.i.i426:           ; preds = %_ZSt8_DestroyINSt7_
 invoke.cont.i.i.i.i428:                           ; preds = %invoke.contthread-pre-split.i.i.i.i426, %sw.bb.i.i416
   %31 = phi ptr [ %.pr.i.i.i.i427, %invoke.contthread-pre-split.i.i.i.i426 ], [ %26, %sw.bb.i.i416 ]
   %tobool.not.i.i.i.i.i.i429 = icmp eq ptr %31, null
-  br i1 %tobool.not.i.i.i.i.i.i429, label %cleanup142, label %if.then.i.i.i.i.i.i430
+  br i1 %tobool.not.i.i.i.i.i.i429, label %cleanup.cont144, label %if.then.i.i.i.i.i.i430
 
 if.then.i.i.i.i.i.i430:                           ; preds = %invoke.cont.i.i.i.i428
   call void @_ZdlPv(ptr noundef nonnull %31) #25
-  br label %cleanup142
-
-cleanup142:                                       ; preds = %if.then.i.i.i.i.i.i430, %invoke.cont.i.i.i.i428
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %json_ptr119) #24
   br label %cleanup.cont144
 
-cleanup.cont144:                                  ; preds = %cleanup142, %cleanup142.thread
+cleanup.cont144:                                  ; preds = %invoke.cont.i.i.i.i428, %if.then.i.i.i.i.i.i430, %cleanup140
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %json_ptr119) #24
   %call147 = invoke noundef ptr @_ZNKR5folly7dynamic7get_ptrENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %__begin1.sroa.0.0629, ptr nonnull @.str.9, ptr nonnull getelementptr inbounds (i8, ptr @.str.9, i64 5))
           to label %invoke.cont146 unwind label %terminate.lpad.loopexit
 
@@ -670,7 +659,7 @@ for.cond.i.i.2:                                   ; preds = %for.cond.i.i.1
 for.cond.i.i.3:                                   ; preds = %for.cond.i.i.2
   %38 = load i8, ptr %hasValue.i.i2.i, align 8, !tbaa !46, !range !47, !noundef !48
   %tobool.i.i.not = icmp eq i8 %38, 0
-  br i1 %tobool.i.i.not, label %invoke.cont166, label %if.end167
+  br i1 %tobool.i.i.not, label %invoke.cont166, label %if.then262.sink.split
 
 for.body.i.i:                                     ; preds = %if.end152
   %39 = load i8, ptr %33, align 1, !tbaa !49
@@ -685,10 +674,6 @@ invoke.cont166:                                   ; preds = %for.cond.i.i.3
   store ptr %__begin1.sroa.0.0629, ptr %ref.tmp59.sroa.4601.0.agg.result.sroa_idx, align 8, !tbaa !14
   store i8 2, ptr %which_.i.i.i362, align 8, !tbaa !16
   br label %cleanup275
-
-if.end167:                                        ; preds = %for.cond.i.i.3
-  store i8 1, ptr %op, align 8, !tbaa !19
-  br label %if.then262
 
 for.cond.i.i456:                                  ; preds = %for.body.i.i451
   %arrayidx.i.i.i453.1 = getelementptr inbounds i8, ptr %33, i64 1
@@ -718,11 +703,7 @@ for.cond.i.i456.4:                                ; preds = %for.cond.i.i456.3
   %arrayidx.i.i.i453.5 = getelementptr inbounds i8, ptr %33, i64 5
   %44 = load i8, ptr %arrayidx.i.i.i453.5, align 1, !tbaa !49
   %cmp.i.i.i455.5 = icmp eq i8 %44, 101
-  br i1 %cmp.i.i.i455.5, label %for.cond.i.i456.5, label %if.end260
-
-for.cond.i.i456.5:                                ; preds = %for.cond.i.i456.4
-  store i8 2, ptr %op, align 8, !tbaa !19
-  br label %if.then262
+  br i1 %cmp.i.i.i455.5, label %if.then262.sink.split, label %if.end260
 
 for.body.i.i451:                                  ; preds = %if.end152
   %45 = load i8, ptr %33, align 1, !tbaa !49
@@ -746,17 +727,13 @@ for.body.i.i465:                                  ; preds = %if.end152, %for.con
 if.then175:                                       ; preds = %for.cond.i.i470
   %48 = load i8, ptr %hasValue.i.i2.i, align 8, !tbaa !46, !range !47, !noundef !48
   %tobool.i.i475.not = icmp eq i8 %48, 0
-  br i1 %tobool.i.i475.not, label %invoke.cont186, label %if.end187
+  br i1 %tobool.i.i475.not, label %invoke.cont186, label %if.then262.sink.split
 
 invoke.cont186:                                   ; preds = %if.then175
   store i8 9, ptr %agg.result, align 8, !tbaa !12
   store ptr %__begin1.sroa.0.0629, ptr %ref.tmp59.sroa.4601.0.agg.result.sroa_idx, align 8, !tbaa !14
   store i8 2, ptr %which_.i.i.i362, align 8, !tbaa !16
   br label %cleanup275
-
-if.end187:                                        ; preds = %if.then175
-  store i8 3, ptr %op, align 8, !tbaa !19
-  br label %if.then262
 
 for.cond.i.i492:                                  ; preds = %for.body.i.i487
   %inc.i.i493 = add nuw i64 %i.025.i.i488, 1
@@ -775,17 +752,13 @@ for.body.i.i487:                                  ; preds = %if.end152, %for.con
 if.then192:                                       ; preds = %for.cond.i.i492
   %51 = load i8, ptr %hasValue.i.i2.i, align 8, !tbaa !46, !range !47, !noundef !48
   %tobool.i.i497.not = icmp eq i8 %51, 0
-  br i1 %tobool.i.i497.not, label %invoke.cont203, label %if.end204
+  br i1 %tobool.i.i497.not, label %invoke.cont203, label %if.then262.sink.split
 
 invoke.cont203:                                   ; preds = %if.then192
   store i8 9, ptr %agg.result, align 8, !tbaa !12
   store ptr %__begin1.sroa.0.0629, ptr %ref.tmp59.sroa.4601.0.agg.result.sroa_idx, align 8, !tbaa !14
   store i8 2, ptr %which_.i.i.i362, align 8, !tbaa !16
   br label %cleanup275
-
-if.end204:                                        ; preds = %if.then192
-  store i8 4, ptr %op, align 8, !tbaa !19
-  br label %if.then262
 
 for.cond.i.i514:                                  ; preds = %for.body.i.i
   %arrayidx.i.i.i511.1 = getelementptr inbounds i8, ptr %33, i64 1
@@ -818,17 +791,13 @@ invoke.cont220:                                   ; preds = %for.cond.i.i514.3
 
 invoke.cont223:                                   ; preds = %for.cond.i.i514.3
   %call226 = call noundef zeroext i1 @_ZNK5folly12json_pointer12is_prefix_ofERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %from, ptr noundef nonnull align 8 dereferenceable(24) %path.i) #24
-  br i1 %call226, label %invoke.cont235, label %if.end236
+  br i1 %call226, label %invoke.cont235, label %if.then262.sink.split
 
 invoke.cont235:                                   ; preds = %invoke.cont223
   store i8 10, ptr %agg.result, align 8, !tbaa !12
   store ptr %__begin1.sroa.0.0629, ptr %ref.tmp59.sroa.4601.0.agg.result.sroa_idx, align 8, !tbaa !14
   store i8 2, ptr %which_.i.i.i362, align 8, !tbaa !16
   br label %cleanup275
-
-if.end236:                                        ; preds = %invoke.cont223
-  store i8 5, ptr %op, align 8, !tbaa !19
-  br label %if.then262
 
 for.cond.i.i544:                                  ; preds = %for.body.i.i
   %arrayidx.i.i.i541.1 = getelementptr inbounds i8, ptr %33, i64 1
@@ -851,7 +820,7 @@ for.cond.i.i544.2:                                ; preds = %for.cond.i.i544.1
 for.cond.i.i544.3:                                ; preds = %for.cond.i.i544.2
   %59 = load i8, ptr %hasValue.i.i.i, align 8, !tbaa !52, !range !47, !noundef !48
   %tobool.i.i549.not = icmp eq i8 %59, 0
-  br i1 %tobool.i.i549.not, label %invoke.cont252, label %if.end253
+  br i1 %tobool.i.i549.not, label %invoke.cont252, label %if.then262.sink.split
 
 invoke.cont252:                                   ; preds = %for.cond.i.i544.3
   store i8 7, ptr %agg.result, align 8, !tbaa !12
@@ -859,16 +828,17 @@ invoke.cont252:                                   ; preds = %for.cond.i.i544.3
   store i8 2, ptr %which_.i.i.i362, align 8, !tbaa !16
   br label %cleanup275
 
-if.end253:                                        ; preds = %for.cond.i.i544.3
-  store i8 6, ptr %op, align 8, !tbaa !19
-  br label %if.then262
-
 if.end260:                                        ; preds = %for.body.i.i487, %for.body.i.i465, %for.body.i.i, %if.end152, %for.cond.i.i.2, %for.cond.i.i.1, %for.cond.i.i, %for.cond.i.i514, %for.cond.i.i514.1, %for.cond.i.i514.2, %for.cond.i.i456, %for.cond.i.i456.1, %for.cond.i.i456.2, %for.cond.i.i456.3, %for.cond.i.i456.4, %for.body.i.i451, %for.cond.i.i544.2, %for.cond.i.i544.1, %for.cond.i.i544
   %.pr = load i8, ptr %op, align 8, !tbaa !19
   %cmp.not = icmp eq i8 %.pr, 0
   br i1 %cmp.not, label %invoke.cont273, label %if.then262
 
-if.then262:                                       ; preds = %if.end260, %if.end253, %if.end236, %if.end204, %if.end187, %for.cond.i.i456.5, %if.end167
+if.then262.sink.split:                            ; preds = %for.cond.i.i544.3, %invoke.cont223, %if.then192, %if.then175, %for.cond.i.i456.4, %for.cond.i.i.3
+  %.sink = phi i8 [ 1, %for.cond.i.i.3 ], [ 2, %for.cond.i.i456.4 ], [ 3, %if.then175 ], [ 4, %if.then192 ], [ 5, %invoke.cont223 ], [ 6, %for.cond.i.i544.3 ]
+  store i8 %.sink, ptr %op, align 8, !tbaa !19
+  br label %if.then262
+
+if.then262:                                       ; preds = %if.then262.sink.split, %if.end260
   %60 = load ptr, ptr %_M_finish.i, align 8, !tbaa !14
   %61 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !53
   %cmp.not.i = icmp eq ptr %60, %61

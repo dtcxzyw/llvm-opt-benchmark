@@ -819,11 +819,6 @@ define internal fastcc i32 @_svc_xprt_create(ptr noundef %0, ptr nocapture nound
     i32 10, label %35
   ]
 
-.thread:                                          ; preds = %33
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %9) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #18
-  br label %72
-
 35:                                               ; preds = %33
   br label %36
 
@@ -836,7 +831,7 @@ define internal fastcc i32 @_svc_xprt_create(ptr noundef %0, ptr nocapture nound
   %42 = trunc nuw nsw i64 %38 to i32
   %43 = call ptr %41(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %37, i32 noundef %42, i32 noundef %5) #18
   %44 = icmp ugt ptr %43, inttoptr (i64 -4096 to ptr)
-  br i1 %44, label %45, label %75
+  br i1 %44, label %45, label %74
 
 45:                                               ; preds = %36
   %46 = load ptr, ptr %0, align 8
@@ -844,7 +839,7 @@ define internal fastcc i32 @_svc_xprt_create(ptr noundef %0, ptr nocapture nound
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr %29, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_svc_xprt_create_err, i64 8), i32 2) #18
-          to label %.thread13 [label %50], !srcloc !13
+          to label %.thread [label %50], !srcloc !13
 
 50:                                               ; preds = %45
   %51 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #18, !srcloc !43
@@ -853,7 +848,7 @@ define internal fastcc i32 @_svc_xprt_create(ptr noundef %0, ptr nocapture nound
   %54 = icmp ult i8 %53, 2
   call void @llvm.assume(i1 %54)
   %55 = icmp eq i8 %53, 0
-  br i1 %55, label %.thread13, label %56
+  br i1 %55, label %.thread, label %56
 
 56:                                               ; preds = %50
   call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #18, !srcloc !16
@@ -874,74 +869,71 @@ define internal fastcc i32 @_svc_xprt_create(ptr noundef %0, ptr nocapture nound
   %65 = icmp ult i8 %64, 2
   call void @llvm.assume(i1 %65)
   %66 = icmp eq i8 %64, 0
-  br i1 %66, label %.thread13, label %67, !prof !20
+  br i1 %66, label %.thread, label %67, !prof !20
 
 67:                                               ; preds = %63
   %68 = call i64 @llvm.read_register.i64(metadata !0)
   %69 = call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %68) #18, !srcloc !46
   call void @llvm.write_register.i64(metadata !0, i64 %69)
-  br label %.thread13
+  br label %.thread
 
-.thread13:                                        ; preds = %67, %63, %50, %45
+.thread:                                          ; preds = %45, %50, %63, %67, %33
+  %70 = phi ptr [ inttoptr (i64 -97 to ptr), %33 ], [ %43, %67 ], [ %43, %63 ], [ %43, %50 ], [ %43, %45 ]
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %9) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #18
-  %70 = ptrtoint ptr %43 to i64
-  %71 = trunc i64 %70 to i32
-  br label %72
-
-72:                                               ; preds = %.thread13, %.thread
-  %73 = phi i32 [ -97, %.thread ], [ %71, %.thread13 ]
-  %74 = load ptr, ptr %30, align 8
-  call void @module_put(ptr noundef %74) #18
+  %71 = load ptr, ptr %30, align 8
+  call void @module_put(ptr noundef %71) #18
+  %72 = ptrtoint ptr %70 to i64
+  %73 = trunc i64 %72 to i32
   br label %.thread6
 
-75:                                               ; preds = %36
+74:                                               ; preds = %36
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %9) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #18
-  br i1 %15, label %77, label %76
+  br i1 %15, label %76, label %75
 
-76:                                               ; preds = %75
+75:                                               ; preds = %74
   store i32 0, ptr %16, align 8
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 1, ptr nonnull elementtype(i64) %6) #18, !srcloc !47
-  br label %77
+  br label %76
 
-77:                                               ; preds = %76, %75
-  %78 = getelementptr inbounds i8, ptr %43, i64 496
-  store ptr %6, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %43, i64 48
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %79, i32 -17, ptr elementtype(i8) %79) #18, !srcloc !42
+76:                                               ; preds = %75, %74
+  %77 = getelementptr inbounds i8, ptr %43, i64 496
+  store ptr %6, ptr %77, align 8
+  %78 = getelementptr inbounds i8, ptr %43, i64 48
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %78, i32 -17, ptr elementtype(i8) %78) #18, !srcloc !42
   call void @_raw_spin_lock_bh(ptr noundef %17) #18
-  %80 = getelementptr inbounds i8, ptr %43, i64 24
-  %81 = load ptr, ptr %18, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 8
-  store ptr %80, ptr %82, align 8
-  store ptr %81, ptr %80, align 8
-  %83 = getelementptr inbounds i8, ptr %43, i64 32
-  store ptr %18, ptr %83, align 8
-  store volatile ptr %80, ptr %18, align 8
+  %79 = getelementptr inbounds i8, ptr %43, i64 24
+  %80 = load ptr, ptr %18, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 8
+  store ptr %79, ptr %81, align 8
+  store ptr %80, ptr %79, align 8
+  %82 = getelementptr inbounds i8, ptr %43, i64 32
+  store ptr %18, ptr %82, align 8
+  store volatile ptr %79, ptr %18, align 8
   call void @_raw_spin_unlock_bh(ptr noundef %17) #18
   call void @svc_xprt_received(ptr noundef %43)
-  %84 = getelementptr inbounds i8, ptr %43, i64 136
-  %85 = load i16, ptr %84, align 2
-  switch i16 %85, label %.thread6 [
-    i16 2, label %86
-    i16 10, label %86
+  %83 = getelementptr inbounds i8, ptr %43, i64 136
+  %84 = load i16, ptr %83, align 2
+  switch i16 %84, label %.thread6 [
+    i16 2, label %85
+    i16 10, label %85
   ]
 
-86:                                               ; preds = %77, %77
-  %87 = getelementptr inbounds i8, ptr %43, i64 138
-  %88 = load i16, ptr %87, align 2
-  %89 = call i16 @llvm.bswap.i16(i16 %88)
-  %90 = zext i16 %89 to i32
+85:                                               ; preds = %76, %76
+  %86 = getelementptr inbounds i8, ptr %43, i64 138
+  %87 = load i16, ptr %86, align 2
+  %88 = call i16 @llvm.bswap.i16(i16 %87)
+  %89 = zext i16 %88 to i32
   br label %.thread6
 
 .thread7:                                         ; preds = %19, %28
   tail call void @_raw_spin_unlock(ptr noundef nonnull @svc_xprt_class_lock) #18
   br label %.thread6
 
-.thread6:                                         ; preds = %77, %86, %72, %.thread7
-  %91 = phi i32 [ -93, %.thread7 ], [ %73, %72 ], [ 0, %77 ], [ %90, %86 ]
-  ret i32 %91
+.thread6:                                         ; preds = %76, %85, %.thread, %.thread7
+  %90 = phi i32 [ -93, %.thread7 ], [ %73, %.thread ], [ 0, %76 ], [ %89, %85 ]
+  ret i32 %90
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -4680,9 +4680,9 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
   %14 = add i64 %13, -1
   %15 = icmp eq i64 %14, %5
   %.sink75.sroa.gep = getelementptr inbounds i8, ptr %9, i64 80
-  %.sink75.sroa.gep77 = getelementptr inbounds i8, ptr %9, i64 64
+  %.sink75.sroa.gep78 = getelementptr inbounds i8, ptr %9, i64 64
   %.sink76.sroa.gep = getelementptr inbounds i8, ptr %9, i64 72
-  %.sink76.sroa.gep78 = getelementptr inbounds i8, ptr %9, i64 56
+  %.sink76.sroa.gep79 = getelementptr inbounds i8, ptr %9, i64 56
   br i1 %15, label %17, label %16
 
 16:                                               ; preds = %6
@@ -4723,8 +4723,8 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
   ]
 
 .invoke:                                          ; preds = %23, %31
-  %.sink72 = phi i64 [ %25, %31 ], [ 4, %23 ]
-  store i64 %.sink72, ptr %28, align 8
+  %.sink77 = phi i64 [ %25, %31 ], [ 4, %23 ]
+  store i64 %.sink77, ptr %28, align 8
   invoke void @"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hd2dfe89d9e4a2c45E"(ptr nonnull sret([88 x i8]) align 8 %9, ptr nonnull align 8 %10)
           to label %47 unwind label %55
 
@@ -4770,8 +4770,8 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
   br label %47
 
 47:                                               ; preds = %.invoke, %45
-  %.sink76.sroa.phi = phi ptr [ %.sink76.sroa.gep, %45 ], [ %.sink76.sroa.gep78, %.invoke ]
-  %.sink75.sroa.phi = phi ptr [ %.sink75.sroa.gep, %45 ], [ %.sink75.sroa.gep77, %.invoke ]
+  %.sink76.sroa.phi = phi ptr [ %.sink76.sroa.gep, %45 ], [ %.sink76.sroa.gep79, %.invoke ]
+  %.sink75.sroa.phi = phi ptr [ %.sink75.sroa.gep, %45 ], [ %.sink75.sroa.gep78, %.invoke ]
   %.sink = phi i64 [ %46, %45 ], [ %25, %.invoke ]
   %48 = load i64, ptr %.sink75.sroa.phi, align 8
   %49 = load ptr, ptr %.sink76.sroa.phi, align 8
@@ -4875,8 +4875,8 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
   br label %46
 
 42:                                               ; preds = %28, %21
-  %.sink69 = phi i64 [ 4, %21 ], [ %23, %28 ]
-  store i64 %.sink69, ptr %26, align 8
+  %.sink70 = phi i64 [ 4, %21 ], [ %23, %28 ]
+  store i64 %.sink70, ptr %26, align 8
   call void @"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hbbaf5f4c07a0df9fE"(ptr nonnull sret([48 x i8]) align 8 %9, ptr nonnull align 8 %10)
   %43 = getelementptr inbounds i8, ptr %9, i64 8
   %44 = load i64, ptr %43, align 8
@@ -4887,10 +4887,10 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
   ret void
 
 47:                                               ; preds = %29, %42
-  %storemerge = phi ptr [ %34, %29 ], [ %45, %42 ]
+  %.sink69 = phi ptr [ %34, %29 ], [ %45, %42 ]
   %.sink67 = phi i64 [ %33, %29 ], [ %44, %42 ]
   %.sink = phi i64 [ %30, %29 ], [ %23, %42 ]
-  store ptr %storemerge, ptr %8, align 8
+  store ptr %.sink69, ptr %8, align 8
   %48 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %.sink67, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %8, i64 16
@@ -4970,8 +4970,8 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
   br label %45
 
 41:                                               ; preds = %27, %20
-  %.sink67 = phi i64 [ 4, %20 ], [ %22, %27 ]
-  store i64 %.sink67, ptr %25, align 8
+  %.sink68 = phi i64 [ 4, %20 ], [ %22, %27 ]
+  store i64 %.sink68, ptr %25, align 8
   call void @"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h794d02de56c36000E"(ptr nonnull sret([48 x i8]) align 8 %8, ptr nonnull align 8 %9)
   %42 = getelementptr inbounds i8, ptr %8, i64 8
   %43 = load i64, ptr %42, align 8
@@ -4982,10 +4982,10 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
   ret void
 
 46:                                               ; preds = %28, %41
-  %storemerge = phi ptr [ %33, %28 ], [ %44, %41 ]
+  %.sink67 = phi ptr [ %33, %28 ], [ %44, %41 ]
   %.sink65 = phi i64 [ %32, %28 ], [ %43, %41 ]
   %.sink = phi i64 [ %29, %28 ], [ %22, %41 ]
-  store ptr %storemerge, ptr %7, align 8
+  store ptr %.sink67, ptr %7, align 8
   %47 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %.sink65, ptr %47, align 8
   %48 = getelementptr inbounds i8, ptr %7, i64 16
@@ -5594,27 +5594,27 @@ define void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collect
   br label %.loopexit56
 
 .loopexit:                                        ; preds = %12, %20
-  %.sroa.4.0.i.ph.i = phi i64 [ %21, %20 ], [ %10, %12 ]
+  %.sroa.4.0.i.ph.sink.i.ph = phi i64 [ %21, %20 ], [ %10, %12 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %24 = icmp eq i64 %.sroa.3.0, 0
   br i1 %24, label %.loopexit56, label %26
 
 .loopexit56:                                      ; preds = %.loopexit, %22
   %.sink = phi i64 [ %.sroa.3.0, %22 ], [ 0, %.loopexit ]
-  %.sroa.4.0.i.ph.i.lcssa.sink = phi i64 [ %23, %22 ], [ %.sroa.4.0.i.ph.i, %.loopexit ]
+  %.sroa.4.0.i.ph.sink.i.ph.lcssa.sink = phi i64 [ %23, %22 ], [ %.sroa.4.0.i.ph.sink.i.ph, %.loopexit ]
   %storemerge = phi i64 [ 0, %22 ], [ 1, %.loopexit ]
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.0.0, ptr %25, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sink, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.320.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.4.0.i.ph.i.lcssa.sink, ptr %.sroa.320.0..sroa_idx, align 8
+  store i64 %.sroa.4.0.i.ph.sink.i.ph.lcssa.sink, ptr %.sroa.320.0..sroa_idx, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 
 26:                                               ; preds = %.loopexit
   %27 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 144
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %.sroa.4.0.i.ph.i
+  %28 = getelementptr inbounds ptr, ptr %27, i64 %.sroa.4.0.i.ph.sink.i.ph
   %29 = load ptr, ptr %28, align 8
   %30 = add i64 %.sroa.3.0, -1
   br label %6
@@ -5669,27 +5669,27 @@ define void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collect
   br label %.loopexit56
 
 .loopexit:                                        ; preds = %12, %20
-  %.sroa.4.0.i.ph.i = phi i64 [ %21, %20 ], [ %10, %12 ]
+  %.sroa.4.0.i.ph.sink.i.ph = phi i64 [ %21, %20 ], [ %10, %12 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %24 = icmp eq i64 %.sroa.3.0, 0
   br i1 %24, label %.loopexit56, label %26
 
 .loopexit56:                                      ; preds = %.loopexit, %22
   %.sink = phi i64 [ %.sroa.3.0, %22 ], [ 0, %.loopexit ]
-  %.sroa.4.0.i.ph.i.lcssa.sink = phi i64 [ %23, %22 ], [ %.sroa.4.0.i.ph.i, %.loopexit ]
+  %.sroa.4.0.i.ph.sink.i.ph.lcssa.sink = phi i64 [ %23, %22 ], [ %.sroa.4.0.i.ph.sink.i.ph, %.loopexit ]
   %storemerge = phi i64 [ 0, %22 ], [ 1, %.loopexit ]
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.0.0, ptr %25, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sink, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.320.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.4.0.i.ph.i.lcssa.sink, ptr %.sroa.320.0..sroa_idx, align 8
+  store i64 %.sroa.4.0.i.ph.sink.i.ph.lcssa.sink, ptr %.sroa.320.0..sroa_idx, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 
 26:                                               ; preds = %.loopexit
   %27 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 144
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %.sroa.4.0.i.ph.i
+  %28 = getelementptr inbounds ptr, ptr %27, i64 %.sroa.4.0.i.ph.sink.i.ph
   %29 = load ptr, ptr %28, align 8
   %30 = add i64 %.sroa.3.0, -1
   br label %6
@@ -5744,27 +5744,27 @@ define void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collect
   br label %.loopexit56
 
 .loopexit:                                        ; preds = %12, %20
-  %.sroa.4.0.i.ph.i = phi i64 [ %21, %20 ], [ %10, %12 ]
+  %.sroa.4.0.i.ph.sink.i.ph = phi i64 [ %21, %20 ], [ %10, %12 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %24 = icmp eq i64 %.sroa.3.0, 0
   br i1 %24, label %.loopexit56, label %26
 
 .loopexit56:                                      ; preds = %.loopexit, %22
   %.sink = phi i64 [ %.sroa.3.0, %22 ], [ 0, %.loopexit ]
-  %.sroa.4.0.i.ph.i.lcssa.sink = phi i64 [ %23, %22 ], [ %.sroa.4.0.i.ph.i, %.loopexit ]
+  %.sroa.4.0.i.ph.sink.i.ph.lcssa.sink = phi i64 [ %23, %22 ], [ %.sroa.4.0.i.ph.sink.i.ph, %.loopexit ]
   %storemerge = phi i64 [ 0, %22 ], [ 1, %.loopexit ]
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.0.0, ptr %25, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sink, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.320.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.4.0.i.ph.i.lcssa.sink, ptr %.sroa.320.0..sroa_idx, align 8
+  store i64 %.sroa.4.0.i.ph.sink.i.ph.lcssa.sink, ptr %.sroa.320.0..sroa_idx, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 
 26:                                               ; preds = %.loopexit
   %27 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 144
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %.sroa.4.0.i.ph.i
+  %28 = getelementptr inbounds ptr, ptr %27, i64 %.sroa.4.0.i.ph.sink.i.ph
   %29 = load ptr, ptr %28, align 8
   %30 = add i64 %.sroa.3.0, -1
   br label %6
@@ -5819,27 +5819,27 @@ define void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collect
   br label %.loopexit56
 
 .loopexit:                                        ; preds = %12, %20
-  %.sroa.4.0.i.ph.i = phi i64 [ %21, %20 ], [ %10, %12 ]
+  %.sroa.4.0.i.ph.sink.i.ph = phi i64 [ %21, %20 ], [ %10, %12 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %24 = icmp eq i64 %.sroa.3.0, 0
   br i1 %24, label %.loopexit56, label %26
 
 .loopexit56:                                      ; preds = %.loopexit, %22
   %.sink = phi i64 [ %.sroa.3.0, %22 ], [ 0, %.loopexit ]
-  %.sroa.4.0.i.ph.i.lcssa.sink = phi i64 [ %23, %22 ], [ %.sroa.4.0.i.ph.i, %.loopexit ]
+  %.sroa.4.0.i.ph.sink.i.ph.lcssa.sink = phi i64 [ %23, %22 ], [ %.sroa.4.0.i.ph.sink.i.ph, %.loopexit ]
   %storemerge = phi i64 [ 0, %22 ], [ 1, %.loopexit ]
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.0.0, ptr %25, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sink, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.320.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.4.0.i.ph.i.lcssa.sink, ptr %.sroa.320.0..sroa_idx, align 8
+  store i64 %.sroa.4.0.i.ph.sink.i.ph.lcssa.sink, ptr %.sroa.320.0..sroa_idx, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 
 26:                                               ; preds = %.loopexit
   %27 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 584
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %.sroa.4.0.i.ph.i
+  %28 = getelementptr inbounds ptr, ptr %27, i64 %.sroa.4.0.i.ph.sink.i.ph
   %29 = load ptr, ptr %28, align 8
   %30 = add i64 %.sroa.3.0, -1
   br label %6
@@ -5894,27 +5894,27 @@ define void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collect
   br label %.loopexit56
 
 .loopexit:                                        ; preds = %12, %20
-  %.sroa.4.0.i.ph.i = phi i64 [ %21, %20 ], [ %10, %12 ]
+  %.sroa.4.0.i.ph.sink.i.ph = phi i64 [ %21, %20 ], [ %10, %12 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %24 = icmp eq i64 %.sroa.3.0, 0
   br i1 %24, label %.loopexit56, label %26
 
 .loopexit56:                                      ; preds = %.loopexit, %22
   %.sink = phi i64 [ %.sroa.3.0, %22 ], [ 0, %.loopexit ]
-  %.sroa.4.0.i.ph.i.lcssa.sink = phi i64 [ %23, %22 ], [ %.sroa.4.0.i.ph.i, %.loopexit ]
+  %.sroa.4.0.i.ph.sink.i.ph.lcssa.sink = phi i64 [ %23, %22 ], [ %.sroa.4.0.i.ph.sink.i.ph, %.loopexit ]
   %storemerge = phi i64 [ 0, %22 ], [ 1, %.loopexit ]
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.0.0, ptr %25, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sink, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.320.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.4.0.i.ph.i.lcssa.sink, ptr %.sroa.320.0..sroa_idx, align 8
+  store i64 %.sroa.4.0.i.ph.sink.i.ph.lcssa.sink, ptr %.sroa.320.0..sroa_idx, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 
 26:                                               ; preds = %.loopexit
   %27 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 584
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %.sroa.4.0.i.ph.i
+  %28 = getelementptr inbounds ptr, ptr %27, i64 %.sroa.4.0.i.ph.sink.i.ph
   %29 = load ptr, ptr %28, align 8
   %30 = add i64 %.sroa.3.0, -1
   br label %6
@@ -5960,19 +5960,14 @@ define void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collecti
 
 21:                                               ; preds = %15
   %22 = extractvalue { i64, ptr } %12, 0
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %23
+  br label %.loopexit
 
-.loopexit:                                        ; preds = %11, %19
-  %.sroa.4.0.i.ph = phi i64 [ %20, %19 ], [ %9, %11 ]
+.loopexit:                                        ; preds = %11, %19, %21
+  %.sroa.4.0.i.ph.sink = phi i64 [ %22, %21 ], [ %20, %19 ], [ %9, %11 ]
+  %storemerge = phi i64 [ 0, %21 ], [ 1, %19 ], [ 1, %11 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %23
-
-23:                                               ; preds = %.loopexit, %21
-  %.sroa.4.0.i.ph.sink = phi i64 [ %.sroa.4.0.i.ph, %.loopexit ], [ %22, %21 ]
-  %storemerge = phi i64 [ 1, %.loopexit ], [ 0, %21 ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %1, ptr %24, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %1, ptr %23, align 8
   %.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %2, ptr %.sroa.25.0..sroa_idx, align 8
   %.sroa.36.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
@@ -6021,19 +6016,14 @@ define void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collecti
 
 21:                                               ; preds = %15
   %22 = extractvalue { i64, ptr } %12, 0
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %23
+  br label %.loopexit
 
-.loopexit:                                        ; preds = %11, %19
-  %.sroa.4.0.i.ph = phi i64 [ %20, %19 ], [ %9, %11 ]
+.loopexit:                                        ; preds = %11, %19, %21
+  %.sroa.4.0.i.ph.sink = phi i64 [ %22, %21 ], [ %20, %19 ], [ %9, %11 ]
+  %storemerge = phi i64 [ 0, %21 ], [ 1, %19 ], [ 1, %11 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %23
-
-23:                                               ; preds = %.loopexit, %21
-  %.sroa.4.0.i.ph.sink = phi i64 [ %.sroa.4.0.i.ph, %.loopexit ], [ %22, %21 ]
-  %storemerge = phi i64 [ 1, %.loopexit ], [ 0, %21 ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %1, ptr %24, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %1, ptr %23, align 8
   %.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %2, ptr %.sroa.25.0..sroa_idx, align 8
   %.sroa.36.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
@@ -6082,19 +6072,14 @@ define void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collecti
 
 21:                                               ; preds = %15
   %22 = extractvalue { i64, ptr } %12, 0
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %23
+  br label %.loopexit
 
-.loopexit:                                        ; preds = %11, %19
-  %.sroa.4.0.i.ph = phi i64 [ %20, %19 ], [ %9, %11 ]
+.loopexit:                                        ; preds = %11, %19, %21
+  %.sroa.4.0.i.ph.sink = phi i64 [ %22, %21 ], [ %20, %19 ], [ %9, %11 ]
+  %storemerge = phi i64 [ 0, %21 ], [ 1, %19 ], [ 1, %11 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %23
-
-23:                                               ; preds = %.loopexit, %21
-  %.sroa.4.0.i.ph.sink = phi i64 [ %.sroa.4.0.i.ph, %.loopexit ], [ %22, %21 ]
-  %storemerge = phi i64 [ 1, %.loopexit ], [ 0, %21 ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %1, ptr %24, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %1, ptr %23, align 8
   %.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %2, ptr %.sroa.25.0..sroa_idx, align 8
   %.sroa.36.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
@@ -6143,19 +6128,14 @@ define void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collecti
 
 21:                                               ; preds = %15
   %22 = extractvalue { i64, ptr } %12, 0
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %23
+  br label %.loopexit
 
-.loopexit:                                        ; preds = %11, %19
-  %.sroa.4.0.i.ph = phi i64 [ %20, %19 ], [ %9, %11 ]
+.loopexit:                                        ; preds = %11, %19, %21
+  %.sroa.4.0.i.ph.sink = phi i64 [ %22, %21 ], [ %20, %19 ], [ %9, %11 ]
+  %storemerge = phi i64 [ 0, %21 ], [ 1, %19 ], [ 1, %11 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %23
-
-23:                                               ; preds = %.loopexit, %21
-  %.sroa.4.0.i.ph.sink = phi i64 [ %.sroa.4.0.i.ph, %.loopexit ], [ %22, %21 ]
-  %storemerge = phi i64 [ 1, %.loopexit ], [ 0, %21 ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %1, ptr %24, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %1, ptr %23, align 8
   %.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %2, ptr %.sroa.25.0..sroa_idx, align 8
   %.sroa.36.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
@@ -6204,19 +6184,14 @@ define void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collecti
 
 21:                                               ; preds = %15
   %22 = extractvalue { i64, ptr } %12, 0
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %23
+  br label %.loopexit
 
-.loopexit:                                        ; preds = %11, %19
-  %.sroa.4.0.i.ph = phi i64 [ %20, %19 ], [ %9, %11 ]
+.loopexit:                                        ; preds = %11, %19, %21
+  %.sroa.4.0.i.ph.sink = phi i64 [ %22, %21 ], [ %20, %19 ], [ %9, %11 ]
+  %storemerge = phi i64 [ 0, %21 ], [ 1, %19 ], [ 1, %11 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %23
-
-23:                                               ; preds = %.loopexit, %21
-  %.sroa.4.0.i.ph.sink = phi i64 [ %.sroa.4.0.i.ph, %.loopexit ], [ %22, %21 ]
-  %storemerge = phi i64 [ 1, %.loopexit ], [ 0, %21 ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %1, ptr %24, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %1, ptr %23, align 8
   %.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %2, ptr %.sroa.25.0..sroa_idx, align 8
   %.sroa.36.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24

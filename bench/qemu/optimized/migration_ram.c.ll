@@ -5670,7 +5670,7 @@ if.end.i:                                         ; preds = %if.then2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %local_err.i.i)
   store ptr null, ptr %local_err.i.i, align 8
   %call.i.i = tail call zeroext i1 @migrate_xbzrle() #18
-  br i1 %call.i.i, label %if.end.i.i, label %xbzrle_init.exit.thread.i
+  br i1 %call.i.i, label %if.end.i.i, label %if.end4.i
 
 if.end.i.i:                                       ; preds = %if.end.i
   %call.i.i.i = tail call zeroext i1 @migrate_xbzrle() #18
@@ -5729,11 +5729,10 @@ if.then15.i.i:                                    ; preds = %if.end12.i.i
 
 if.end16.i.i:                                     ; preds = %if.end12.i.i
   %call.i1.i.i = call zeroext i1 @migrate_xbzrle() #18
-  br i1 %call.i1.i.i, label %xbzrle_init.exit.thread11.i, label %xbzrle_init.exit.thread.i
+  br i1 %call.i1.i.i, label %xbzrle_init.exit.thread11.i, label %if.end4.i
 
 xbzrle_init.exit.thread11.i:                      ; preds = %if.end16.i.i
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 145) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local_err.i.i)
   br label %if.end4.i
 
 free_cache.i.i:                                   ; preds = %if.then15.i.i, %if.then11.i.i
@@ -5750,26 +5749,19 @@ free_zero_page.i.i:                               ; preds = %free_cache.i.i, %if
 
 err_out.i.i:                                      ; preds = %free_zero_page.i.i, %if.then2.i.i
   %call.i2.i.i = call zeroext i1 @migrate_xbzrle() #18
-  br i1 %call.i2.i.i, label %xbzrle_init.exit.i, label %xbzrle_init.exit.thread8.i
-
-xbzrle_init.exit.thread8.i:                       ; preds = %err_out.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local_err.i.i)
-  br label %if.then3.i
-
-xbzrle_init.exit.thread.i:                        ; preds = %if.end16.i.i, %if.end.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local_err.i.i)
-  br label %if.end4.i
+  br i1 %call.i2.i.i, label %xbzrle_init.exit.i, label %if.then3.i
 
 xbzrle_init.exit.i:                               ; preds = %err_out.i.i
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 145) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local_err.i.i)
   br label %if.then3.i
 
-if.then3.i:                                       ; preds = %xbzrle_init.exit.i, %xbzrle_init.exit.thread8.i
+if.then3.i:                                       ; preds = %xbzrle_init.exit.i, %err_out.i.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local_err.i.i)
   call fastcc void @ram_state_cleanup(ptr noundef %opaque)
   br label %if.then4
 
-if.end4.i:                                        ; preds = %xbzrle_init.exit.thread.i, %xbzrle_init.exit.thread11.i
+if.end4.i:                                        ; preds = %xbzrle_init.exit.thread11.i, %if.end16.i.i, %if.end.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local_err.i.i)
   %6 = load ptr, ptr %opaque, align 8
   call void @qemu_mutex_lock_ramlist() #18
   %call.i.i.i.i = call ptr @get_ptr_rcu_reader() #18

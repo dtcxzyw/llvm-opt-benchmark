@@ -390,7 +390,7 @@ define internal fastcc void @timing_setup(ptr nocapture noundef readonly %0, ptr
 
 26:                                               ; preds = %5
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %12, ptr noundef nonnull @.str.3, i32 noundef %3) #9
-  br label %159
+  br label %150
 
 27:                                               ; preds = %5
   %28 = icmp eq ptr %14, null
@@ -509,99 +509,80 @@ define internal fastcc void @timing_setup(ptr nocapture noundef readonly %0, ptr
   %112 = icmp eq i16 %111, 0
   switch i32 %4, label %default.unreachable [
     i32 1, label %113
-    i32 2, label %123
-    i32 3, label %136
-    i32 4, label %145
+    i32 2, label %121
+    i32 3, label %132
+    i32 4, label %139
   ]
 
 113:                                              ; preds = %106
-  br i1 %112, label %121, label %114
+  br i1 %112, label %146, label %114
 
 114:                                              ; preds = %113
   %115 = icmp ugt i16 %111, 4
-  br i1 %115, label %121, label %116
+  br i1 %115, label %146, label %116
 
 116:                                              ; preds = %114
   %117 = call i16 @llvm.umax.i16(i16 %111, i16 2)
   %118 = trunc nuw nsw i16 %117 to i8
   %119 = add nuw nsw i8 %118, 62
   %120 = or i8 %119, -64
-  br label %121
+  br label %146
 
-121:                                              ; preds = %116, %114, %113
-  %122 = phi i8 [ 3, %113 ], [ %120, %116 ], [ -61, %114 ]
-  store i8 %122, ptr %8, align 1
-  br label %154
+121:                                              ; preds = %106
+  br i1 %112, label %146, label %122
 
-123:                                              ; preds = %106
-  br i1 %112, label %134, label %124
+122:                                              ; preds = %121
+  %123 = icmp ugt i16 %111, 9
+  br i1 %123, label %127, label %124
 
-124:                                              ; preds = %123
-  %125 = icmp ugt i16 %111, 9
-  br i1 %125, label %129, label %126
+124:                                              ; preds = %122
+  %125 = call i16 @llvm.umax.i16(i16 %111, i16 2)
+  %126 = zext nneg i16 %125 to i64
+  br label %127
 
-126:                                              ; preds = %124
-  %127 = call i16 @llvm.umax.i16(i16 %111, i16 2)
-  %128 = zext nneg i16 %127 to i64
-  br label %129
+127:                                              ; preds = %124, %122
+  %128 = phi i64 [ %126, %124 ], [ 10, %122 ]
+  %129 = getelementptr [16 x i8], ptr @timing_setup.amd_cyc2udma, i64 0, i64 %128
+  %130 = load i8, ptr %129, align 1
+  %131 = or i8 %130, -64
+  br label %146
 
-129:                                              ; preds = %126, %124
-  %130 = phi i64 [ %128, %126 ], [ 10, %124 ]
-  %131 = getelementptr [16 x i8], ptr @timing_setup.amd_cyc2udma, i64 0, i64 %130
-  %132 = load i8, ptr %131, align 1
-  %133 = or i8 %132, -64
-  br label %134
+132:                                              ; preds = %106
+  br i1 %112, label %146, label %133
 
-134:                                              ; preds = %129, %123
-  %135 = phi i8 [ %133, %129 ], [ 3, %123 ]
-  store i8 %135, ptr %8, align 1
-  br label %154
+133:                                              ; preds = %132
+  %134 = call i16 @llvm.umin.i16(i16 %111, i16 10)
+  %135 = zext nneg i16 %134 to i64
+  %136 = getelementptr [16 x i8], ptr @timing_setup.amd_cyc2udma, i64 0, i64 %135
+  %137 = load i8, ptr %136, align 1
+  %138 = or i8 %137, -64
+  br label %146
 
-136:                                              ; preds = %106
-  br i1 %112, label %143, label %137
+139:                                              ; preds = %106
+  br i1 %112, label %146, label %140
 
-137:                                              ; preds = %136
-  %138 = call i16 @llvm.umin.i16(i16 %111, i16 10)
-  %139 = zext nneg i16 %138 to i64
-  %140 = getelementptr [16 x i8], ptr @timing_setup.amd_cyc2udma, i64 0, i64 %139
-  %141 = load i8, ptr %140, align 1
-  %142 = or i8 %141, -64
-  br label %143
-
-143:                                              ; preds = %137, %136
-  %144 = phi i8 [ %142, %137 ], [ 3, %136 ]
-  store i8 %144, ptr %8, align 1
-  br label %154
-
-145:                                              ; preds = %106
-  br i1 %112, label %152, label %146
-
-146:                                              ; preds = %145
-  %147 = call i16 @llvm.umin.i16(i16 %111, i16 15)
-  %148 = zext nneg i16 %147 to i64
-  %149 = getelementptr [16 x i8], ptr @timing_setup.amd_cyc2udma, i64 0, i64 %148
-  %150 = load i8, ptr %149, align 1
-  %151 = or i8 %150, -64
-  br label %152
-
-152:                                              ; preds = %146, %145
-  %153 = phi i8 [ %151, %146 ], [ 3, %145 ]
-  store i8 %153, ptr %8, align 1
-  br label %154
+140:                                              ; preds = %139
+  %141 = call i16 @llvm.umin.i16(i16 %111, i16 15)
+  %142 = zext nneg i16 %141 to i64
+  %143 = getelementptr [16 x i8], ptr @timing_setup.amd_cyc2udma, i64 0, i64 %142
+  %144 = load i8, ptr %143, align 1
+  %145 = or i8 %144, -64
+  br label %146
 
 default.unreachable:                              ; preds = %106
   unreachable
 
-154:                                              ; preds = %152, %143, %134, %121
-  %155 = phi i8 [ %153, %152 ], [ %144, %143 ], [ %135, %134 ], [ %122, %121 ]
-  br i1 %112, label %159, label %156
+146:                                              ; preds = %139, %140, %132, %133, %121, %127, %113, %114, %116
+  %.sink = phi i8 [ 3, %113 ], [ %120, %116 ], [ -61, %114 ], [ %131, %127 ], [ 3, %121 ], [ %138, %133 ], [ 3, %132 ], [ %145, %140 ], [ 3, %139 ]
+  store i8 %.sink, ptr %8, align 1
+  br i1 %112, label %150, label %147
 
-156:                                              ; preds = %154
-  %157 = add i32 %89, 19
-  %158 = call i32 @pci_write_config_byte(ptr noundef %13, i32 noundef %157, i8 noundef zeroext %155) #8
-  br label %159
+147:                                              ; preds = %146
+  %148 = add i32 %89, 19
+  %149 = call i32 @pci_write_config_byte(ptr noundef %13, i32 noundef %148, i8 noundef zeroext %.sink) #8
+  br label %150
 
-159:                                              ; preds = %156, %154, %26
+150:                                              ; preds = %147, %146, %26
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #8

@@ -30498,10 +30498,10 @@ _ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time
   %.not = icmp eq i16 %35, 0
   %36 = load ptr, ptr %14, align 8
   %.not.i.i.i.i16 = icmp eq ptr %36, null
-  br i1 %.not, label %46, label %37
+  br i1 %.not, label %43, label %37
 
 37:                                               ; preds = %30
-  br i1 %.not.i.i.i.i16, label %38, label %_ZN8pybind114noneD2Ev.exit
+  br i1 %.not.i.i.i.i16, label %38, label %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl3600ELl1EEEEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split
 
 38:                                               ; preds = %37
   %39 = call ptr @__cxa_allocate_exception(i64 16) #26
@@ -30512,9 +30512,9 @@ _ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time
   call void @__cxa_throw(ptr nonnull %39, ptr nonnull @_ZTIN8pybind1120reference_cast_errorE, ptr nonnull @_ZN8pybind1120reference_cast_errorD2Ev) #30
   unreachable
 
-common.resume:                                    ; preds = %50, %41
-  %.sink = phi ptr [ %48, %50 ], [ %39, %41 ]
-  %common.resume.op = phi { ptr, i32 } [ %51, %50 ], [ %42, %41 ]
+common.resume:                                    ; preds = %47, %41
+  %.sink = phi ptr [ %45, %47 ], [ %39, %41 ]
+  %common.resume.op = phi { ptr, i32 } [ %48, %47 ], [ %42, %41 ]
   call void @__cxa_free_exception(ptr %.sink) #26
   resume { ptr, i32 } %common.resume.op
 
@@ -30523,41 +30523,31 @@ common.resume:                                    ; preds = %50, %41
           cleanup
   br label %common.resume
 
-_ZN8pybind114noneD2Ev.exit:                       ; preds = %37
-  %43 = load i64, ptr %32, align 8
-  %44 = getelementptr inbounds i8, ptr %36, i64 %43
-  %45 = load i64, ptr %4, align 8
-  store i64 %45, ptr %44, align 8
-  br label %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl3600ELl1EEEEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split
+43:                                               ; preds = %30
+  br i1 %.not.i.i.i.i16, label %44, label %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl3600ELl1EEEEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split
 
-46:                                               ; preds = %30
-  br i1 %.not.i.i.i.i16, label %47, label %_ZNO8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl3600ELl1EEEEEEEE4callIvNS0_9void_typeERZNS_6class_IS2_JEE13def_readwriteIS2_SC_JEEERSJ_PKcMT_T0_DpRKT1_EUlS3_SE_E_EENSt9enable_ifIXsr3std7is_voidISO_EE5valueESH_E4typeEOT1_.exit17
+44:                                               ; preds = %43
+  %45 = call ptr @__cxa_allocate_exception(i64 16) #26
+  invoke void @_ZN8pybind1120reference_cast_errorC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %45)
+          to label %46 unwind label %47
 
-47:                                               ; preds = %46
-  %48 = call ptr @__cxa_allocate_exception(i64 16) #26
-  invoke void @_ZN8pybind1120reference_cast_errorC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %48)
-          to label %49 unwind label %50
-
-49:                                               ; preds = %47
-  call void @__cxa_throw(ptr nonnull %48, ptr nonnull @_ZTIN8pybind1120reference_cast_errorE, ptr nonnull @_ZN8pybind1120reference_cast_errorD2Ev) #30
+46:                                               ; preds = %44
+  call void @__cxa_throw(ptr nonnull %45, ptr nonnull @_ZTIN8pybind1120reference_cast_errorE, ptr nonnull @_ZN8pybind1120reference_cast_errorD2Ev) #30
   unreachable
 
-50:                                               ; preds = %47
-  %51 = landingpad { ptr, i32 }
+47:                                               ; preds = %44
+  %48 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZNO8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl3600ELl1EEEEEEEE4callIvNS0_9void_typeERZNS_6class_IS2_JEE13def_readwriteIS2_SC_JEEERSJ_PKcMT_T0_DpRKT1_EUlS3_SE_E_EENSt9enable_ifIXsr3std7is_voidISO_EE5valueESH_E4typeEOT1_.exit17: ; preds = %46
-  %52 = load i64, ptr %32, align 8
-  %53 = getelementptr inbounds i8, ptr %36, i64 %52
-  %54 = load i64, ptr %4, align 8
-  store i64 %54, ptr %53, align 8
-  br label %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl3600ELl1EEEEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split
-
-_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl3600ELl1EEEEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split: ; preds = %_ZNO8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl3600ELl1EEEEEEEE4callIvNS0_9void_typeERZNS_6class_IS2_JEE13def_readwriteIS2_SC_JEEERSJ_PKcMT_T0_DpRKT1_EUlS3_SE_E_EENSt9enable_ifIXsr3std7is_voidISO_EE5valueESH_E4typeEOT1_.exit17, %_ZN8pybind114noneD2Ev.exit
-  %55 = load i64, ptr @_Py_NoneStruct, align 8
-  %56 = add nsw i64 %55, 1
-  store i64 %56, ptr @_Py_NoneStruct, align 8
+_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl3600ELl1EEEEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split: ; preds = %43, %37
+  %49 = load i64, ptr %32, align 8
+  %50 = getelementptr inbounds i8, ptr %36, i64 %49
+  %51 = load i64, ptr %4, align 8
+  store i64 %51, ptr %50, align 8
+  %52 = load i64, ptr @_Py_NoneStruct, align 8
+  %53 = add nsw i64 %52, 1
+  store i64 %53, ptr @_Py_NoneStruct, align 8
   br label %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl3600ELl1EEEEEEEE9load_argsERNS0_13function_callE.exit.thread
 
 _ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl3600ELl1EEEEEEEE9load_argsERNS0_13function_callE.exit.thread: ; preds = %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl3600ELl1EEEEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split, %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl3600ELl1EEEEEEEEC2Ev.exit, %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl3600ELl1EEEEEEEE9load_argsERNS0_13function_callE.exit
@@ -31909,10 +31899,10 @@ _ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time
   %.not = icmp eq i16 %35, 0
   %36 = load ptr, ptr %14, align 8
   %.not.i.i.i.i16 = icmp eq ptr %36, null
-  br i1 %.not, label %46, label %37
+  br i1 %.not, label %43, label %37
 
 37:                                               ; preds = %30
-  br i1 %.not.i.i.i.i16, label %38, label %_ZN8pybind114noneD2Ev.exit
+  br i1 %.not.i.i.i.i16, label %38, label %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl60ELl1EEEEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split
 
 38:                                               ; preds = %37
   %39 = call ptr @__cxa_allocate_exception(i64 16) #26
@@ -31923,9 +31913,9 @@ _ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time
   call void @__cxa_throw(ptr nonnull %39, ptr nonnull @_ZTIN8pybind1120reference_cast_errorE, ptr nonnull @_ZN8pybind1120reference_cast_errorD2Ev) #30
   unreachable
 
-common.resume:                                    ; preds = %50, %41
-  %.sink = phi ptr [ %48, %50 ], [ %39, %41 ]
-  %common.resume.op = phi { ptr, i32 } [ %51, %50 ], [ %42, %41 ]
+common.resume:                                    ; preds = %47, %41
+  %.sink = phi ptr [ %45, %47 ], [ %39, %41 ]
+  %common.resume.op = phi { ptr, i32 } [ %48, %47 ], [ %42, %41 ]
   call void @__cxa_free_exception(ptr %.sink) #26
   resume { ptr, i32 } %common.resume.op
 
@@ -31934,41 +31924,31 @@ common.resume:                                    ; preds = %50, %41
           cleanup
   br label %common.resume
 
-_ZN8pybind114noneD2Ev.exit:                       ; preds = %37
-  %43 = load i64, ptr %32, align 8
-  %44 = getelementptr inbounds i8, ptr %36, i64 %43
-  %45 = load i64, ptr %4, align 8
-  store i64 %45, ptr %44, align 8
-  br label %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl60ELl1EEEEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split
+43:                                               ; preds = %30
+  br i1 %.not.i.i.i.i16, label %44, label %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl60ELl1EEEEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split
 
-46:                                               ; preds = %30
-  br i1 %.not.i.i.i.i16, label %47, label %_ZNO8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl60ELl1EEEEEEEE4callIvNS0_9void_typeERZNS_6class_IS2_JEE13def_readwriteIS2_SC_JEEERSJ_PKcMT_T0_DpRKT1_EUlS3_SE_E_EENSt9enable_ifIXsr3std7is_voidISO_EE5valueESH_E4typeEOT1_.exit17
+44:                                               ; preds = %43
+  %45 = call ptr @__cxa_allocate_exception(i64 16) #26
+  invoke void @_ZN8pybind1120reference_cast_errorC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %45)
+          to label %46 unwind label %47
 
-47:                                               ; preds = %46
-  %48 = call ptr @__cxa_allocate_exception(i64 16) #26
-  invoke void @_ZN8pybind1120reference_cast_errorC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %48)
-          to label %49 unwind label %50
-
-49:                                               ; preds = %47
-  call void @__cxa_throw(ptr nonnull %48, ptr nonnull @_ZTIN8pybind1120reference_cast_errorE, ptr nonnull @_ZN8pybind1120reference_cast_errorD2Ev) #30
+46:                                               ; preds = %44
+  call void @__cxa_throw(ptr nonnull %45, ptr nonnull @_ZTIN8pybind1120reference_cast_errorE, ptr nonnull @_ZN8pybind1120reference_cast_errorD2Ev) #30
   unreachable
 
-50:                                               ; preds = %47
-  %51 = landingpad { ptr, i32 }
+47:                                               ; preds = %44
+  %48 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZNO8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl60ELl1EEEEEEEE4callIvNS0_9void_typeERZNS_6class_IS2_JEE13def_readwriteIS2_SC_JEEERSJ_PKcMT_T0_DpRKT1_EUlS3_SE_E_EENSt9enable_ifIXsr3std7is_voidISO_EE5valueESH_E4typeEOT1_.exit17: ; preds = %46
-  %52 = load i64, ptr %32, align 8
-  %53 = getelementptr inbounds i8, ptr %36, i64 %52
-  %54 = load i64, ptr %4, align 8
-  store i64 %54, ptr %53, align 8
-  br label %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl60ELl1EEEEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split
-
-_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl60ELl1EEEEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split: ; preds = %_ZNO8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl60ELl1EEEEEEEE4callIvNS0_9void_typeERZNS_6class_IS2_JEE13def_readwriteIS2_SC_JEEERSJ_PKcMT_T0_DpRKT1_EUlS3_SE_E_EENSt9enable_ifIXsr3std7is_voidISO_EE5valueESH_E4typeEOT1_.exit17, %_ZN8pybind114noneD2Ev.exit
-  %55 = load i64, ptr @_Py_NoneStruct, align 8
-  %56 = add nsw i64 %55, 1
-  store i64 %56, ptr @_Py_NoneStruct, align 8
+_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl60ELl1EEEEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split: ; preds = %43, %37
+  %49 = load i64, ptr %32, align 8
+  %50 = getelementptr inbounds i8, ptr %36, i64 %49
+  %51 = load i64, ptr %4, align 8
+  store i64 %51, ptr %50, align 8
+  %52 = load i64, ptr @_Py_NoneStruct, align 8
+  %53 = add nsw i64 %52, 1
+  store i64 %53, ptr @_Py_NoneStruct, align 8
   br label %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl60ELl1EEEEEEEE9load_argsERNS0_13function_callE.exit.thread
 
 _ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl60ELl1EEEEEEEE9load_argsERNS0_13function_callE.exit.thread: ; preds = %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl60ELl1EEEEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split, %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl60ELl1EEEEEEEEC2Ev.exit, %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl60ELl1EEEEEEEE9load_argsERNS0_13function_callE.exit
@@ -32564,10 +32544,10 @@ _ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time
   %.not = icmp eq i16 %35, 0
   %36 = load ptr, ptr %14, align 8
   %.not.i.i.i.i16 = icmp eq ptr %36, null
-  br i1 %.not, label %46, label %37
+  br i1 %.not, label %43, label %37
 
 37:                                               ; preds = %30
-  br i1 %.not.i.i.i.i16, label %38, label %_ZN8pybind114noneD2Ev.exit
+  br i1 %.not.i.i.i.i16, label %38, label %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1EEEEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split
 
 38:                                               ; preds = %37
   %39 = call ptr @__cxa_allocate_exception(i64 16) #26
@@ -32578,9 +32558,9 @@ _ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time
   call void @__cxa_throw(ptr nonnull %39, ptr nonnull @_ZTIN8pybind1120reference_cast_errorE, ptr nonnull @_ZN8pybind1120reference_cast_errorD2Ev) #30
   unreachable
 
-common.resume:                                    ; preds = %50, %41
-  %.sink = phi ptr [ %48, %50 ], [ %39, %41 ]
-  %common.resume.op = phi { ptr, i32 } [ %51, %50 ], [ %42, %41 ]
+common.resume:                                    ; preds = %47, %41
+  %.sink = phi ptr [ %45, %47 ], [ %39, %41 ]
+  %common.resume.op = phi { ptr, i32 } [ %48, %47 ], [ %42, %41 ]
   call void @__cxa_free_exception(ptr %.sink) #26
   resume { ptr, i32 } %common.resume.op
 
@@ -32589,41 +32569,31 @@ common.resume:                                    ; preds = %50, %41
           cleanup
   br label %common.resume
 
-_ZN8pybind114noneD2Ev.exit:                       ; preds = %37
-  %43 = load i64, ptr %32, align 8
-  %44 = getelementptr inbounds i8, ptr %36, i64 %43
-  %45 = load i64, ptr %4, align 8
-  store i64 %45, ptr %44, align 8
-  br label %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1EEEEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split
+43:                                               ; preds = %30
+  br i1 %.not.i.i.i.i16, label %44, label %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1EEEEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split
 
-46:                                               ; preds = %30
-  br i1 %.not.i.i.i.i16, label %47, label %_ZNO8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1EEEEEEEE4callIvNS0_9void_typeERZNS_6class_IS2_JEE13def_readwriteIS2_SC_JEEERSJ_PKcMT_T0_DpRKT1_EUlS3_SE_E_EENSt9enable_ifIXsr3std7is_voidISO_EE5valueESH_E4typeEOT1_.exit17
+44:                                               ; preds = %43
+  %45 = call ptr @__cxa_allocate_exception(i64 16) #26
+  invoke void @_ZN8pybind1120reference_cast_errorC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %45)
+          to label %46 unwind label %47
 
-47:                                               ; preds = %46
-  %48 = call ptr @__cxa_allocate_exception(i64 16) #26
-  invoke void @_ZN8pybind1120reference_cast_errorC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %48)
-          to label %49 unwind label %50
-
-49:                                               ; preds = %47
-  call void @__cxa_throw(ptr nonnull %48, ptr nonnull @_ZTIN8pybind1120reference_cast_errorE, ptr nonnull @_ZN8pybind1120reference_cast_errorD2Ev) #30
+46:                                               ; preds = %44
+  call void @__cxa_throw(ptr nonnull %45, ptr nonnull @_ZTIN8pybind1120reference_cast_errorE, ptr nonnull @_ZN8pybind1120reference_cast_errorD2Ev) #30
   unreachable
 
-50:                                               ; preds = %47
-  %51 = landingpad { ptr, i32 }
+47:                                               ; preds = %44
+  %48 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZNO8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1EEEEEEEE4callIvNS0_9void_typeERZNS_6class_IS2_JEE13def_readwriteIS2_SC_JEEERSJ_PKcMT_T0_DpRKT1_EUlS3_SE_E_EENSt9enable_ifIXsr3std7is_voidISO_EE5valueESH_E4typeEOT1_.exit17: ; preds = %46
-  %52 = load i64, ptr %32, align 8
-  %53 = getelementptr inbounds i8, ptr %36, i64 %52
-  %54 = load i64, ptr %4, align 8
-  store i64 %54, ptr %53, align 8
-  br label %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1EEEEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split
-
-_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1EEEEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split: ; preds = %_ZNO8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1EEEEEEEE4callIvNS0_9void_typeERZNS_6class_IS2_JEE13def_readwriteIS2_SC_JEEERSJ_PKcMT_T0_DpRKT1_EUlS3_SE_E_EENSt9enable_ifIXsr3std7is_voidISO_EE5valueESH_E4typeEOT1_.exit17, %_ZN8pybind114noneD2Ev.exit
-  %55 = load i64, ptr @_Py_NoneStruct, align 8
-  %56 = add nsw i64 %55, 1
-  store i64 %56, ptr @_Py_NoneStruct, align 8
+_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1EEEEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split: ; preds = %43, %37
+  %49 = load i64, ptr %32, align 8
+  %50 = getelementptr inbounds i8, ptr %36, i64 %49
+  %51 = load i64, ptr %4, align 8
+  store i64 %51, ptr %50, align 8
+  %52 = load i64, ptr @_Py_NoneStruct, align 8
+  %53 = add nsw i64 %52, 1
+  store i64 %53, ptr @_Py_NoneStruct, align 8
   br label %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1EEEEEEEE9load_argsERNS0_13function_callE.exit.thread
 
 _ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1EEEEEEEE9load_argsERNS0_13function_callE.exit.thread: ; preds = %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1EEEEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split, %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1EEEEEEEEC2Ev.exit, %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1EEEEEEEE9load_argsERNS0_13function_callE.exit
@@ -33227,10 +33197,10 @@ _ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time
   %.not = icmp eq i16 %35, 0
   %36 = load ptr, ptr %14, align 8
   %.not.i.i.i.i16 = icmp eq ptr %36, null
-  br i1 %.not, label %46, label %37
+  br i1 %.not, label %43, label %37
 
 37:                                               ; preds = %30
-  br i1 %.not.i.i.i.i16, label %38, label %_ZN8pybind114noneD2Ev.exit
+  br i1 %.not.i.i.i.i16, label %38, label %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1000EEEEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split
 
 38:                                               ; preds = %37
   %39 = call ptr @__cxa_allocate_exception(i64 16) #26
@@ -33241,9 +33211,9 @@ _ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time
   call void @__cxa_throw(ptr nonnull %39, ptr nonnull @_ZTIN8pybind1120reference_cast_errorE, ptr nonnull @_ZN8pybind1120reference_cast_errorD2Ev) #30
   unreachable
 
-common.resume:                                    ; preds = %50, %41
-  %.sink = phi ptr [ %48, %50 ], [ %39, %41 ]
-  %common.resume.op = phi { ptr, i32 } [ %51, %50 ], [ %42, %41 ]
+common.resume:                                    ; preds = %47, %41
+  %.sink = phi ptr [ %45, %47 ], [ %39, %41 ]
+  %common.resume.op = phi { ptr, i32 } [ %48, %47 ], [ %42, %41 ]
   call void @__cxa_free_exception(ptr %.sink) #26
   resume { ptr, i32 } %common.resume.op
 
@@ -33252,41 +33222,31 @@ common.resume:                                    ; preds = %50, %41
           cleanup
   br label %common.resume
 
-_ZN8pybind114noneD2Ev.exit:                       ; preds = %37
-  %43 = load i64, ptr %32, align 8
-  %44 = getelementptr inbounds i8, ptr %36, i64 %43
-  %45 = load i64, ptr %4, align 8
-  store i64 %45, ptr %44, align 8
-  br label %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1000EEEEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split
+43:                                               ; preds = %30
+  br i1 %.not.i.i.i.i16, label %44, label %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1000EEEEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split
 
-46:                                               ; preds = %30
-  br i1 %.not.i.i.i.i16, label %47, label %_ZNO8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1000EEEEEEEE4callIvNS0_9void_typeERZNS_6class_IS2_JEE13def_readwriteIS2_SC_JEEERSJ_PKcMT_T0_DpRKT1_EUlS3_SE_E_EENSt9enable_ifIXsr3std7is_voidISO_EE5valueESH_E4typeEOT1_.exit17
+44:                                               ; preds = %43
+  %45 = call ptr @__cxa_allocate_exception(i64 16) #26
+  invoke void @_ZN8pybind1120reference_cast_errorC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %45)
+          to label %46 unwind label %47
 
-47:                                               ; preds = %46
-  %48 = call ptr @__cxa_allocate_exception(i64 16) #26
-  invoke void @_ZN8pybind1120reference_cast_errorC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %48)
-          to label %49 unwind label %50
-
-49:                                               ; preds = %47
-  call void @__cxa_throw(ptr nonnull %48, ptr nonnull @_ZTIN8pybind1120reference_cast_errorE, ptr nonnull @_ZN8pybind1120reference_cast_errorD2Ev) #30
+46:                                               ; preds = %44
+  call void @__cxa_throw(ptr nonnull %45, ptr nonnull @_ZTIN8pybind1120reference_cast_errorE, ptr nonnull @_ZN8pybind1120reference_cast_errorD2Ev) #30
   unreachable
 
-50:                                               ; preds = %47
-  %51 = landingpad { ptr, i32 }
+47:                                               ; preds = %44
+  %48 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZNO8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1000EEEEEEEE4callIvNS0_9void_typeERZNS_6class_IS2_JEE13def_readwriteIS2_SC_JEEERSJ_PKcMT_T0_DpRKT1_EUlS3_SE_E_EENSt9enable_ifIXsr3std7is_voidISO_EE5valueESH_E4typeEOT1_.exit17: ; preds = %46
-  %52 = load i64, ptr %32, align 8
-  %53 = getelementptr inbounds i8, ptr %36, i64 %52
-  %54 = load i64, ptr %4, align 8
-  store i64 %54, ptr %53, align 8
-  br label %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1000EEEEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split
-
-_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1000EEEEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split: ; preds = %_ZNO8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1000EEEEEEEE4callIvNS0_9void_typeERZNS_6class_IS2_JEE13def_readwriteIS2_SC_JEEERSJ_PKcMT_T0_DpRKT1_EUlS3_SE_E_EENSt9enable_ifIXsr3std7is_voidISO_EE5valueESH_E4typeEOT1_.exit17, %_ZN8pybind114noneD2Ev.exit
-  %55 = load i64, ptr @_Py_NoneStruct, align 8
-  %56 = add nsw i64 %55, 1
-  store i64 %56, ptr @_Py_NoneStruct, align 8
+_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1000EEEEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split: ; preds = %43, %37
+  %49 = load i64, ptr %32, align 8
+  %50 = getelementptr inbounds i8, ptr %36, i64 %49
+  %51 = load i64, ptr %4, align 8
+  store i64 %51, ptr %50, align 8
+  %52 = load i64, ptr @_Py_NoneStruct, align 8
+  %53 = add nsw i64 %52, 1
+  store i64 %53, ptr @_Py_NoneStruct, align 8
   br label %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1000EEEEEEEE9load_argsERNS0_13function_callE.exit.thread
 
 _ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1000EEEEEEEE9load_argsERNS0_13function_callE.exit.thread: ; preds = %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1000EEEEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split, %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1000EEEEEEEEC2Ev.exit, %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1000EEEEEEEE9load_argsERNS0_13function_callE.exit
@@ -33888,10 +33848,10 @@ _ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time
   %.not = icmp eq i16 %35, 0
   %36 = load ptr, ptr %14, align 8
   %.not.i.i.i.i16 = icmp eq ptr %36, null
-  br i1 %.not, label %46, label %37
+  br i1 %.not, label %43, label %37
 
 37:                                               ; preds = %30
-  br i1 %.not.i.i.i.i16, label %38, label %_ZN8pybind114noneD2Ev.exit
+  br i1 %.not.i.i.i.i16, label %38, label %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1000000EEEEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split
 
 38:                                               ; preds = %37
   %39 = call ptr @__cxa_allocate_exception(i64 16) #26
@@ -33902,9 +33862,9 @@ _ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time
   call void @__cxa_throw(ptr nonnull %39, ptr nonnull @_ZTIN8pybind1120reference_cast_errorE, ptr nonnull @_ZN8pybind1120reference_cast_errorD2Ev) #30
   unreachable
 
-common.resume:                                    ; preds = %50, %41
-  %.sink = phi ptr [ %48, %50 ], [ %39, %41 ]
-  %common.resume.op = phi { ptr, i32 } [ %51, %50 ], [ %42, %41 ]
+common.resume:                                    ; preds = %47, %41
+  %.sink = phi ptr [ %45, %47 ], [ %39, %41 ]
+  %common.resume.op = phi { ptr, i32 } [ %48, %47 ], [ %42, %41 ]
   call void @__cxa_free_exception(ptr %.sink) #26
   resume { ptr, i32 } %common.resume.op
 
@@ -33913,41 +33873,31 @@ common.resume:                                    ; preds = %50, %41
           cleanup
   br label %common.resume
 
-_ZN8pybind114noneD2Ev.exit:                       ; preds = %37
-  %43 = load i64, ptr %32, align 8
-  %44 = getelementptr inbounds i8, ptr %36, i64 %43
-  %45 = load i64, ptr %4, align 8
-  store i64 %45, ptr %44, align 8
-  br label %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1000000EEEEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split
+43:                                               ; preds = %30
+  br i1 %.not.i.i.i.i16, label %44, label %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1000000EEEEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split
 
-46:                                               ; preds = %30
-  br i1 %.not.i.i.i.i16, label %47, label %_ZNO8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1000000EEEEEEEE4callIvNS0_9void_typeERZNS_6class_IS2_JEE13def_readwriteIS2_SC_JEEERSJ_PKcMT_T0_DpRKT1_EUlS3_SE_E_EENSt9enable_ifIXsr3std7is_voidISO_EE5valueESH_E4typeEOT1_.exit17
+44:                                               ; preds = %43
+  %45 = call ptr @__cxa_allocate_exception(i64 16) #26
+  invoke void @_ZN8pybind1120reference_cast_errorC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %45)
+          to label %46 unwind label %47
 
-47:                                               ; preds = %46
-  %48 = call ptr @__cxa_allocate_exception(i64 16) #26
-  invoke void @_ZN8pybind1120reference_cast_errorC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %48)
-          to label %49 unwind label %50
-
-49:                                               ; preds = %47
-  call void @__cxa_throw(ptr nonnull %48, ptr nonnull @_ZTIN8pybind1120reference_cast_errorE, ptr nonnull @_ZN8pybind1120reference_cast_errorD2Ev) #30
+46:                                               ; preds = %44
+  call void @__cxa_throw(ptr nonnull %45, ptr nonnull @_ZTIN8pybind1120reference_cast_errorE, ptr nonnull @_ZN8pybind1120reference_cast_errorD2Ev) #30
   unreachable
 
-50:                                               ; preds = %47
-  %51 = landingpad { ptr, i32 }
+47:                                               ; preds = %44
+  %48 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZNO8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1000000EEEEEEEE4callIvNS0_9void_typeERZNS_6class_IS2_JEE13def_readwriteIS2_SC_JEEERSJ_PKcMT_T0_DpRKT1_EUlS3_SE_E_EENSt9enable_ifIXsr3std7is_voidISO_EE5valueESH_E4typeEOT1_.exit17: ; preds = %46
-  %52 = load i64, ptr %32, align 8
-  %53 = getelementptr inbounds i8, ptr %36, i64 %52
-  %54 = load i64, ptr %4, align 8
-  store i64 %54, ptr %53, align 8
-  br label %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1000000EEEEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split
-
-_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1000000EEEEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split: ; preds = %_ZNO8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1000000EEEEEEEE4callIvNS0_9void_typeERZNS_6class_IS2_JEE13def_readwriteIS2_SC_JEEERSJ_PKcMT_T0_DpRKT1_EUlS3_SE_E_EENSt9enable_ifIXsr3std7is_voidISO_EE5valueESH_E4typeEOT1_.exit17, %_ZN8pybind114noneD2Ev.exit
-  %55 = load i64, ptr @_Py_NoneStruct, align 8
-  %56 = add nsw i64 %55, 1
-  store i64 %56, ptr @_Py_NoneStruct, align 8
+_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1000000EEEEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split: ; preds = %43, %37
+  %49 = load i64, ptr %32, align 8
+  %50 = getelementptr inbounds i8, ptr %36, i64 %49
+  %51 = load i64, ptr %4, align 8
+  store i64 %51, ptr %50, align 8
+  %52 = load i64, ptr @_Py_NoneStruct, align 8
+  %53 = add nsw i64 %52, 1
+  store i64 %53, ptr @_Py_NoneStruct, align 8
   br label %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1000000EEEEEEEE9load_argsERNS0_13function_callE.exit.thread
 
 _ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1000000EEEEEEEE9load_argsERNS0_13function_callE.exit.thread: ; preds = %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1000000EEEEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split, %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1000000EEEEEEEEC2Ev.exit, %_ZN8pybind116detail15argument_loaderIJR21different_resolutionsRKNSt6chrono10time_pointINS4_3_V212system_clockENS4_8durationIlSt5ratioILl1ELl1000000EEEEEEEE9load_argsERNS0_13function_callE.exit

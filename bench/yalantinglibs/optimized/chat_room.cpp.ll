@@ -49342,12 +49342,7 @@ _ZN4asio6detail10socket_ops6socketEiiiRSt10error_code.exit: ; preds = %if.else.i
   store ptr @_ZZN4asio15system_categoryEvE8instance, ptr %ref.tmp.sroa.22.0.ec.sroa_idx.i.i, align 8
   store i32 %call.i, ptr %sock, align 4
   %cmp = icmp eq i32 %call.i, -1
-  br i1 %cmp, label %cleanup.thread, label %if.end6
-
-cleanup.thread:                                   ; preds = %_ZN4asio6detail10socket_ops6socketEiiiRSt10error_code.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ec.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %state.i)
-  br label %_ZN4asio6detail13socket_holderD2Ev.exit
+  br i1 %cmp, label %_ZN4asio6detail13socket_holderD2Ev.exit.sink.split, label %if.end6
 
 lpad:                                             ; preds = %if.end6
   %8 = landingpad { ptr, i32 }
@@ -49392,9 +49387,7 @@ if.end14:                                         ; preds = %invoke.cont9
   store i32 0, ptr %ec, align 8
   %ref.tmp20.sroa.230.0.ec.sroa_idx = getelementptr inbounds i8, ptr %ec, i64 8
   store ptr %call.i27, ptr %ref.tmp20.sroa.230.0.ec.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ec.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %state.i)
-  br label %_ZN4asio6detail13socket_holderD2Ev.exit
+  br label %_ZN4asio6detail13socket_holderD2Ev.exit.sink.split
 
 cleanup:                                          ; preds = %if.then11, %init.check.i.i, %init.i.i
   store i32 %call10, ptr %ec, align 8
@@ -49422,9 +49415,16 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   call void @__clang_call_terminate(ptr %14) #41
   unreachable
 
-_ZN4asio6detail13socket_holderD2Ev.exit:          ; preds = %if.end14, %cleanup.thread, %cleanup, %if.then.i
-  %retval.sroa.0.138 = phi i32 [ %4, %cleanup.thread ], [ %call10, %cleanup ], [ %call10, %if.then.i ], [ 0, %if.end14 ]
-  %retval.sroa.521.137 = phi ptr [ @_ZZN4asio15system_categoryEvE8instance, %cleanup.thread ], [ @_ZZN4asio15system_categoryEvE8instance, %cleanup ], [ @_ZZN4asio15system_categoryEvE8instance, %if.then.i ], [ %call.i27, %if.end14 ]
+_ZN4asio6detail13socket_holderD2Ev.exit.sink.split: ; preds = %_ZN4asio6detail10socket_ops6socketEiiiRSt10error_code.exit, %if.end14
+  %retval.sroa.0.138.ph = phi i32 [ 0, %if.end14 ], [ %4, %_ZN4asio6detail10socket_ops6socketEiiiRSt10error_code.exit ]
+  %retval.sroa.521.137.ph = phi ptr [ %call.i27, %if.end14 ], [ @_ZZN4asio15system_categoryEvE8instance, %_ZN4asio6detail10socket_ops6socketEiiiRSt10error_code.exit ]
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ec.i)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %state.i)
+  br label %_ZN4asio6detail13socket_holderD2Ev.exit
+
+_ZN4asio6detail13socket_holderD2Ev.exit:          ; preds = %_ZN4asio6detail13socket_holderD2Ev.exit.sink.split, %cleanup, %if.then.i
+  %retval.sroa.0.138 = phi i32 [ %call10, %cleanup ], [ %call10, %if.then.i ], [ %retval.sroa.0.138.ph, %_ZN4asio6detail13socket_holderD2Ev.exit.sink.split ]
+  %retval.sroa.521.137 = phi ptr [ @_ZZN4asio15system_categoryEvE8instance, %cleanup ], [ @_ZZN4asio15system_categoryEvE8instance, %if.then.i ], [ %retval.sroa.521.137.ph, %_ZN4asio6detail13socket_holderD2Ev.exit.sink.split ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ec.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %state.i)
   br label %return

@@ -1157,7 +1157,7 @@ safe_php_register_variable.exit:                  ; preds = %420, %.loopexit663,
   %.2418 = phi i32 [ %.0416.ph, %460 ], [ %463, %461 ]
   %.2405 = phi ptr [ %.0403.lcssa928, %460 ], [ %462, %461 ]
   %.not483 = icmp eq i32 %.2413601, 0
-  br i1 %.not483, label %.preheader650, label %.thread620
+  br i1 %.not483, label %.preheader650, label %.outer653.backedge.sink.split
 
 .preheader650:                                    ; preds = %465, %.thread608
   %.0402 = phi ptr [ %475, %.thread608 ], [ %.2405, %465 ]
@@ -1184,7 +1184,7 @@ safe_php_register_variable.exit:                  ; preds = %420, %.loopexit663,
 
 473:                                              ; preds = %469, %469
   %474 = icmp slt i64 %.0393, 1
-  br i1 %474, label %.thread620, label %.thread608
+  br i1 %474, label %.outer653.backedge.sink.split, label %.thread608
 
 .thread608:                                       ; preds = %.preheader650, %467, %473
   %.2395610 = phi i64 [ %470, %473 ], [ %.0393, %.preheader650 ], [ %468, %467 ]
@@ -1196,11 +1196,7 @@ safe_php_register_variable.exit:                  ; preds = %420, %.loopexit663,
   %.1394 = phi i64 [ %.0393, %.preheader650 ], [ %470, %469 ]
   %.1394.fr = freeze i64 %.1394
   %.not487 = icmp eq i64 %.1394.fr, 0
-  br i1 %.not487, label %478, label %.thread620
-
-.thread620:                                       ; preds = %473, %476, %465
-  store ptr null, ptr %9, align 8
-  br label %.outer653.backedge
+  br i1 %.not487, label %478, label %.outer653.backedge.sink.split
 
 478:                                              ; preds = %476
   store ptr null, ptr %9, align 8
@@ -1216,17 +1212,18 @@ safe_php_register_variable.exit:                  ; preds = %420, %.loopexit663,
   store ptr %15, ptr %174, align 8
   %483 = call i32 %479(i32 noundef 2, ptr noundef nonnull %30, ptr noundef nonnull %11) #21
   %484 = icmp eq i32 %483, -1
-  br i1 %484, label %485, label %486
+  br i1 %484, label %.outer653.backedge.sink.split, label %486
 
-485:                                              ; preds = %481
+.outer653.backedge.sink.split:                    ; preds = %473, %481, %465, %476
+  %.0411.ph.be.ph = phi i32 [ 1, %476 ], [ 1, %465 ], [ 0, %481 ], [ 1, %473 ]
   store ptr null, ptr %9, align 8
   br label %.outer653.backedge
 
-.outer653.backedge:                               ; preds = %486, %.thread620, %485
-  %.0411.ph.be = phi i32 [ 0, %485 ], [ 1, %.thread620 ], [ 1, %486 ]
+.outer653.backedge:                               ; preds = %.outer653.backedge.sink.split, %486
+  %.0411.ph.be = phi i32 [ 1, %486 ], [ %.0411.ph.be.ph, %.outer653.backedge.sink.split ]
   call void @_efree(ptr noundef %.2405) #21
-  %.sink = load ptr, ptr %15, align 8
-  call void @_efree(ptr noundef %.sink) #21
+  %485 = load ptr, ptr %15, align 8
+  call void @_efree(ptr noundef %485) #21
   br label %.outer653
 
 486:                                              ; preds = %481, %478
@@ -1310,8 +1307,8 @@ safe_php_register_variable.exit:                  ; preds = %420, %.loopexit663,
   %.pr = load i64, ptr %16, align 8
   %518 = add i64 %.pr, %.0406.ph
   %519 = icmp sgt i64 %518, %.0409.ph658
-  %or.cond1072 = select i1 %.not511, i1 %519, i1 false
-  br i1 %or.cond1072, label %527, label %thread-pre-split
+  %or.cond1071 = select i1 %.not511, i1 %519, i1 false
+  br i1 %or.cond1071, label %527, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %517
   %.not512 = icmp eq i64 %.pr, 0
@@ -1689,8 +1686,8 @@ register_http_post_files_variable.exit557:        ; preds = %651, %656
   br label %679
 
 679:                                              ; preds = %670, %674, %677
-  %.sink1070 = phi i32 [ 262, %674 ], [ 6, %677 ], [ 6, %670 ]
-  store i32 %.sink1070, ptr %183, align 8
+  %.sink = phi i32 [ 262, %674 ], [ 6, %677 ], [ 6, %670 ]
+  store i32 %.sink, ptr %183, align 8
   call void @php_register_variable_ex(ptr noundef %.3382, ptr noundef nonnull %33, ptr noundef nonnull getelementptr inbounds (i8, ptr @core_globals, i64 424)) #21
   %680 = zext nneg i32 %.5625 to i64
   store i64 %680, ptr %35, align 8

@@ -540,7 +540,6 @@ _ZN9toolchain14get_cargo_home17h7286c59bf5a819d8E.exit: ; preds = %22, %36
 53:                                               ; preds = %_ZN9toolchain14get_cargo_home17h7286c59bf5a819d8E.exit, %_ZN9toolchain14get_cargo_home17h7286c59bf5a819d8E.exit.thread
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.8)
   store i64 -9223372036854775808, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   br label %57
 
 _ZN6camino11Utf8PathBuf4push17h55bc27f7e4e76addE.exit: ; preds = %.noexc
@@ -558,10 +557,10 @@ _ZN6camino11Utf8PathBuf4push17h55bc27f7e4e76addE.exit12: ; preds = %.noexc10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   call void @_ZN9toolchain16probe_for_binary17hc98d17f9f9714b64E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   br label %57
 
 57:                                               ; preds = %_ZN6camino11Utf8PathBuf4push17h55bc27f7e4e76addE.exit12, %53
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   ret void
 
 58:                                               ; preds = %49, %.noexc, %_ZN6camino11Utf8PathBuf4push17h55bc27f7e4e76addE.exit, %.noexc10

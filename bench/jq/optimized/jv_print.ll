@@ -682,11 +682,11 @@ put_char.exit394:                                 ; preds = %234, %241
   %249 = and i32 %3, 2
   br label %250
 
-250:                                              ; preds = %390, %put_char.exit394
-  %.sroa.025.0 = phi i64 [ %243, %put_char.exit394 ], [ %.sroa.025.2, %390 ]
-  %.sroa.528.0 = phi ptr [ %244, %put_char.exit394 ], [ %.sroa.528.2, %390 ]
-  %.0320 = phi i32 [ 0, %put_char.exit394 ], [ %.2, %390 ]
-  %.not339 = phi i1 [ false, %put_char.exit394 ], [ true, %390 ]
+250:                                              ; preds = %387, %put_char.exit394
+  %.sroa.025.0 = phi i64 [ %243, %put_char.exit394 ], [ %.sroa.025.2, %387 ]
+  %.sroa.528.0 = phi ptr [ %244, %put_char.exit394 ], [ %.sroa.528.2, %387 ]
+  %.0320 = phi i32 [ 0, %put_char.exit394 ], [ %.2, %387 ]
+  %.not339 = phi i1 [ false, %put_char.exit394 ], [ true, %387 ]
   br i1 %.not338, label %281, label %251
 
 251:                                              ; preds = %250
@@ -972,11 +972,7 @@ put_str.exit409:                                  ; preds = %341, %350
   %371 = extractvalue { i64, ptr } %369, 1
   store i64 %370, ptr %6, align 8
   store ptr %371, ptr %246, align 8
-  br i1 %.not347460473485, label %390, label %.thread481
-
-.thread481:                                       ; preds = %355
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
-  br label %383
+  br i1 %.not347460473485, label %387, label %.thread481
 
 .critedge354:                                     ; preds = %put_str.exit403, %336
   %.not347460476 = phi i1 [ false, %336 ], [ true, %put_str.exit403 ]
@@ -989,7 +985,7 @@ put_str.exit409:                                  ; preds = %341, %350
 put_char.exit424:                                 ; preds = %.critedge354
   %fputc.i423 = call i32 @fputc(i32 58, ptr %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
-  br i1 %.not347460476, label %390, label %382
+  br i1 %.not347460476, label %387, label %.thread480
 
 put_char.exit424.thread:                          ; preds = %.critedge354
   %372 = load i64, ptr %6, align 8
@@ -1000,11 +996,7 @@ put_char.exit424.thread:                          ; preds = %.critedge354
   store i64 %375, ptr %6, align 8
   store ptr %376, ptr %246, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
-  br i1 %.not347460476, label %390, label %.thread482
-
-.thread482:                                       ; preds = %put_char.exit424.thread
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
-  br label %383
+  br i1 %.not347460476, label %387, label %.thread481
 
 put_str.exit421:                                  ; preds = %put_str.exit409
   %377 = call i64 @fwrite(ptr noundef nonnull @.str.17, i64 noundef 1, i64 noundef 4, ptr noundef %5)
@@ -1017,133 +1009,127 @@ put_str.exit421:                                  ; preds = %put_str.exit409
   %fputc.i417 = call i32 @fputc(i32 58, ptr %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
   %381 = call i64 @fwrite(ptr noundef nonnull @.str.17, i64 noundef 1, i64 noundef 4, ptr noundef %5)
-  br i1 %.not347460473485, label %390, label %.thread480
+  br i1 %.not347460473485, label %387, label %.thread480
 
-.thread480:                                       ; preds = %put_str.exit421
+.thread481:                                       ; preds = %put_char.exit424.thread, %355
+  %382 = phi ptr [ %371, %355 ], [ %376, %put_char.exit424.thread ]
+  %383 = phi i64 [ %370, %355 ], [ %375, %put_char.exit424.thread ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
-  br label %389
-
-382:                                              ; preds = %put_char.exit424
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
-  br label %389
-
-383:                                              ; preds = %.thread482, %.thread481
-  %384 = phi ptr [ %376, %.thread482 ], [ %371, %.thread481 ]
-  %385 = phi i64 [ %375, %.thread482 ], [ %370, %.thread481 ]
   store i8 32, ptr %9, align 1
-  %386 = call { i64, ptr } @jv_string_append_buf(i64 %385, ptr %384, ptr noundef nonnull %9, i32 noundef 1) #11
-  %387 = extractvalue { i64, ptr } %386, 0
-  %388 = extractvalue { i64, ptr } %386, 1
-  store i64 %387, ptr %6, align 8
-  store ptr %388, ptr %246, align 8
+  %384 = call { i64, ptr } @jv_string_append_buf(i64 %383, ptr %382, ptr noundef nonnull %9, i32 noundef 1) #11
+  %385 = extractvalue { i64, ptr } %384, 0
+  %386 = extractvalue { i64, ptr } %384, 1
+  store i64 %385, ptr %6, align 8
+  store ptr %386, ptr %246, align 8
   br label %put_char.exit427
 
-389:                                              ; preds = %382, %.thread480
+.thread480:                                       ; preds = %put_char.exit424, %put_str.exit421
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
   store i8 32, ptr %9, align 1
   %fputc.i426 = call i32 @fputc(i32 32, ptr %5)
   br label %put_char.exit427
 
-put_char.exit427:                                 ; preds = %383, %389
+put_char.exit427:                                 ; preds = %.thread481, %.thread480
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
-  br label %390
+  br label %387
 
-390:                                              ; preds = %put_char.exit424.thread, %355, %put_char.exit424, %put_char.exit427, %put_str.exit421
+387:                                              ; preds = %put_char.exit424.thread, %355, %put_char.exit424, %put_char.exit427, %put_str.exit421
   call fastcc void @jv_dump_term(ptr noundef %0, i64 %.sroa.019.0, ptr %.sroa.3.0, i32 noundef %3, i32 noundef %248, ptr noundef %5, ptr noundef %6)
   br label %250
 
 .loopexit:                                        ; preds = %286, %266
-  br i1 %.not347458, label %392, label %391
+  br i1 %.not347458, label %389, label %388
 
-391:                                              ; preds = %.loopexit
+388:                                              ; preds = %.loopexit
   call fastcc void @put_char(i8 noundef signext 10, ptr noundef %5, ptr noundef %6)
   call fastcc void @put_indent(i32 noundef %4, i32 noundef %3, ptr noundef %5, ptr noundef %6)
-  br label %392
+  br label %389
 
-392:                                              ; preds = %391, %.loopexit
-  br i1 %.not345, label %put_str.exit430, label %393
+389:                                              ; preds = %388, %.loopexit
+  br i1 %.not345, label %put_str.exit430, label %390
 
-393:                                              ; preds = %392
-  %394 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0439) #10
+390:                                              ; preds = %389
+  %391 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0439) #10
   br i1 %.not.i.i392, label %put_str.exit430.thread, label %put_str.exit430.thread483
 
-put_str.exit430.thread483:                        ; preds = %393
-  %395 = trunc i64 %394 to i32
-  %396 = load i64, ptr %6, align 8
-  %397 = load ptr, ptr %246, align 8
-  %398 = call { i64, ptr } @jv_string_append_buf(i64 %396, ptr %397, ptr noundef nonnull %.0439, i32 noundef %395) #11
-  %399 = extractvalue { i64, ptr } %398, 0
-  %400 = extractvalue { i64, ptr } %398, 1
-  store i64 %399, ptr %6, align 8
-  store ptr %400, ptr %246, align 8
+put_str.exit430.thread483:                        ; preds = %390
+  %392 = trunc i64 %391 to i32
+  %393 = load i64, ptr %6, align 8
+  %394 = load ptr, ptr %246, align 8
+  %395 = call { i64, ptr } @jv_string_append_buf(i64 %393, ptr %394, ptr noundef nonnull %.0439, i32 noundef %392) #11
+  %396 = extractvalue { i64, ptr } %395, 0
+  %397 = extractvalue { i64, ptr } %395, 1
+  store i64 %396, ptr %6, align 8
+  store ptr %397, ptr %246, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   store i8 125, ptr %8, align 1
-  br label %403
+  br label %400
 
-put_str.exit430.thread:                           ; preds = %393
-  %sext.i429 = shl i64 %394, 32
-  %401 = ashr exact i64 %sext.i429, 32
-  %402 = call i64 @fwrite(ptr noundef nonnull %.0439, i64 noundef 1, i64 noundef %401, ptr noundef %5)
+put_str.exit430.thread:                           ; preds = %390
+  %sext.i429 = shl i64 %391, 32
+  %398 = ashr exact i64 %sext.i429, 32
+  %399 = call i64 @fwrite(ptr noundef nonnull %.0439, i64 noundef 1, i64 noundef %398, ptr noundef %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
-  br label %409
+  br label %406
 
-put_str.exit430:                                  ; preds = %392
+put_str.exit430:                                  ; preds = %389
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   store i8 125, ptr %8, align 1
-  br i1 %.not.i.i392, label %409, label %put_str.exit430._crit_edge
+  br i1 %.not.i.i392, label %406, label %put_str.exit430._crit_edge
 
 put_str.exit430._crit_edge:                       ; preds = %put_str.exit430
   %.pre506 = load i64, ptr %6, align 8
   %.pre507 = load ptr, ptr %246, align 8
-  br label %403
+  br label %400
 
-403:                                              ; preds = %put_str.exit430._crit_edge, %put_str.exit430.thread483
-  %404 = phi ptr [ %.pre507, %put_str.exit430._crit_edge ], [ %400, %put_str.exit430.thread483 ]
-  %405 = phi i64 [ %.pre506, %put_str.exit430._crit_edge ], [ %399, %put_str.exit430.thread483 ]
-  %406 = call { i64, ptr } @jv_string_append_buf(i64 %405, ptr %404, ptr noundef nonnull %8, i32 noundef 1) #11
-  %407 = extractvalue { i64, ptr } %406, 0
-  %408 = extractvalue { i64, ptr } %406, 1
-  store i64 %407, ptr %6, align 8
-  store ptr %408, ptr %246, align 8
+400:                                              ; preds = %put_str.exit430._crit_edge, %put_str.exit430.thread483
+  %401 = phi ptr [ %.pre507, %put_str.exit430._crit_edge ], [ %397, %put_str.exit430.thread483 ]
+  %402 = phi i64 [ %.pre506, %put_str.exit430._crit_edge ], [ %396, %put_str.exit430.thread483 ]
+  %403 = call { i64, ptr } @jv_string_append_buf(i64 %402, ptr %401, ptr noundef nonnull %8, i32 noundef 1) #11
+  %404 = extractvalue { i64, ptr } %403, 0
+  %405 = extractvalue { i64, ptr } %403, 1
+  store i64 %404, ptr %6, align 8
+  store ptr %405, ptr %246, align 8
   br label %put_char.exit433
 
-409:                                              ; preds = %put_str.exit430.thread, %put_str.exit430
+406:                                              ; preds = %put_str.exit430.thread, %put_str.exit430
   %fputc.i432 = call i32 @fputc(i32 125, ptr %5)
   br label %put_char.exit433
 
-put_char.exit433:                                 ; preds = %403, %409
+put_char.exit433:                                 ; preds = %400, %406
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
-  br i1 %.not, label %put_str.exit357, label %410
+  br i1 %.not, label %put_str.exit357, label %407
 
-410:                                              ; preds = %put_char.exit433
+407:                                              ; preds = %put_char.exit433
   call fastcc void @put_refcnt(ptr noundef %0, i32 noundef %24, ptr noundef %5, ptr noundef %6)
   br label %put_str.exit357
 
-put_str.exit357:                                  ; preds = %231, %224, %137, %130, %101, %94, %91, %84, %81, %74, %.thread, %49, %59, %70, %72, %111, %116, %115, %105, %122, %120, %216, %put_char.exit388, %410, %put_char.exit433
-  %.0438 = phi ptr [ %.0439, %59 ], [ %.0439, %70 ], [ %.0439, %72 ], [ %.0439, %111 ], [ %.0439, %116 ], [ %.0439, %115 ], [ %.0439, %105 ], [ %.0439, %122 ], [ %.0439, %120 ], [ %.0439, %216 ], [ %.0439, %put_char.exit388 ], [ %.0439, %410 ], [ %.0439, %put_char.exit433 ], [ %.0, %49 ], [ %.0440444, %.thread ], [ %.0439, %74 ], [ %.0439, %81 ], [ %.0439, %84 ], [ %.0439, %91 ], [ %.0439, %94 ], [ %.0439, %101 ], [ %.0439, %130 ], [ %.0439, %137 ], [ %.0439, %224 ], [ %.0439, %231 ]
+put_str.exit357:                                  ; preds = %231, %224, %137, %130, %101, %94, %91, %84, %81, %74, %.thread, %49, %59, %70, %72, %111, %116, %115, %105, %122, %120, %216, %put_char.exit388, %407, %put_char.exit433
+  %.0438 = phi ptr [ %.0439, %59 ], [ %.0439, %70 ], [ %.0439, %72 ], [ %.0439, %111 ], [ %.0439, %116 ], [ %.0439, %115 ], [ %.0439, %105 ], [ %.0439, %122 ], [ %.0439, %120 ], [ %.0439, %216 ], [ %.0439, %put_char.exit388 ], [ %.0439, %407 ], [ %.0439, %put_char.exit433 ], [ %.0, %49 ], [ %.0440444, %.thread ], [ %.0439, %74 ], [ %.0439, %81 ], [ %.0439, %84 ], [ %.0439, %91 ], [ %.0439, %94 ], [ %.0439, %101 ], [ %.0439, %130 ], [ %.0439, %137 ], [ %.0439, %224 ], [ %.0439, %231 ]
   call void @jv_free(i64 %1, ptr %2) #11
   %.not351 = icmp eq ptr %.0438, null
-  br i1 %.not351, label %put_str.exit436, label %411
+  br i1 %.not351, label %put_str.exit436, label %408
 
-411:                                              ; preds = %put_str.exit357
+408:                                              ; preds = %put_str.exit357
   %.not.i.i434 = icmp eq ptr %6, null
-  br i1 %.not.i.i434, label %419, label %412
+  br i1 %.not.i.i434, label %416, label %409
 
-412:                                              ; preds = %411
-  %413 = load i64, ptr %6, align 8
-  %414 = getelementptr inbounds i8, ptr %6, i64 8
-  %415 = load ptr, ptr %414, align 8
-  %416 = call { i64, ptr } @jv_string_append_buf(i64 %413, ptr %415, ptr noundef nonnull @.str.17, i32 noundef 4) #11
-  %417 = extractvalue { i64, ptr } %416, 0
-  %418 = extractvalue { i64, ptr } %416, 1
-  store i64 %417, ptr %6, align 8
-  store ptr %418, ptr %414, align 8
+409:                                              ; preds = %408
+  %410 = load i64, ptr %6, align 8
+  %411 = getelementptr inbounds i8, ptr %6, i64 8
+  %412 = load ptr, ptr %411, align 8
+  %413 = call { i64, ptr } @jv_string_append_buf(i64 %410, ptr %412, ptr noundef nonnull @.str.17, i32 noundef 4) #11
+  %414 = extractvalue { i64, ptr } %413, 0
+  %415 = extractvalue { i64, ptr } %413, 1
+  store i64 %414, ptr %6, align 8
+  store ptr %415, ptr %411, align 8
   br label %put_str.exit436
 
-419:                                              ; preds = %411
-  %420 = call i64 @fwrite(ptr noundef nonnull @.str.17, i64 noundef 1, i64 noundef 4, ptr noundef %5)
+416:                                              ; preds = %408
+  %417 = call i64 @fwrite(ptr noundef nonnull @.str.17, i64 noundef 1, i64 noundef 4, ptr noundef %5)
   br label %put_str.exit436
 
-put_str.exit436:                                  ; preds = %419, %412, %put_str.exit357
+put_str.exit436:                                  ; preds = %416, %409, %put_str.exit357
   ret void
 }
 

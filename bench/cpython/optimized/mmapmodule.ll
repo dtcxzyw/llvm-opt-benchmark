@@ -2375,23 +2375,20 @@ if.end6:                                          ; preds = %if.else
   %add = add i64 %.pre, %4
   store i64 %add, ptr %start, align 8
   %cmp7 = icmp slt i64 %add, 0
-  br i1 %cmp7, label %if.then8, label %if.else9
-
-if.then8:                                         ; preds = %if.end6
-  store i64 0, ptr %start, align 8
-  br label %if.end15
+  br i1 %cmp7, label %if.end15.sink.split, label %if.else9
 
 if.else9:                                         ; preds = %if.else, %if.end6
   %5 = phi i64 [ %add, %if.end6 ], [ %4, %if.else ]
   %cmp11 = icmp sgt i64 %5, %.pre
-  br i1 %cmp11, label %if.then12, label %if.end15
+  br i1 %cmp11, label %if.end15.sink.split, label %if.end15
 
-if.then12:                                        ; preds = %if.else9
-  store i64 %.pre, ptr %start, align 8
+if.end15.sink.split:                              ; preds = %if.else9, %if.end6
+  %.pre.sink = phi i64 [ 0, %if.end6 ], [ %.pre, %if.else9 ]
+  store i64 %.pre.sink, ptr %start, align 8
   br label %if.end15
 
-if.end15:                                         ; preds = %if.else9, %if.then12, %if.then8
-  %6 = phi i64 [ %5, %if.else9 ], [ %.pre, %if.then12 ], [ 0, %if.then8 ]
+if.end15:                                         ; preds = %if.end15.sink.split, %if.else9
+  %6 = phi i64 [ %5, %if.else9 ], [ %.pre.sink, %if.end15.sink.split ]
   %7 = load i64, ptr %end, align 8
   %cmp16 = icmp slt i64 %7, 0
   br i1 %cmp16, label %if.end20, label %if.else23
@@ -2400,23 +2397,20 @@ if.end20:                                         ; preds = %if.end15
   %add19 = add i64 %.pre, %7
   store i64 %add19, ptr %end, align 8
   %cmp21 = icmp slt i64 %add19, 0
-  br i1 %cmp21, label %if.then22, label %if.else23
-
-if.then22:                                        ; preds = %if.end20
-  store i64 0, ptr %end, align 8
-  br label %do.body30
+  br i1 %cmp21, label %do.body30.sink.split, label %if.else23
 
 if.else23:                                        ; preds = %if.end15, %if.end20
   %8 = phi i64 [ %add19, %if.end20 ], [ %7, %if.end15 ]
   %cmp25 = icmp sgt i64 %8, %.pre
-  br i1 %cmp25, label %if.then26, label %do.body30
+  br i1 %cmp25, label %do.body30.sink.split, label %do.body30
 
-if.then26:                                        ; preds = %if.else23
-  store i64 %.pre, ptr %end, align 8
+do.body30.sink.split:                             ; preds = %if.else23, %if.end20
+  %.sink = phi i64 [ 0, %if.end20 ], [ %.pre, %if.else23 ]
+  store i64 %.sink, ptr %end, align 8
   br label %do.body30
 
-do.body30:                                        ; preds = %if.then22, %if.then26, %if.else23
-  %9 = phi i64 [ 0, %if.then22 ], [ %.pre, %if.then26 ], [ %8, %if.else23 ]
+do.body30:                                        ; preds = %do.body30.sink.split, %if.else23
+  %9 = phi i64 [ %8, %if.else23 ], [ %.sink, %do.body30.sink.split ]
   %10 = load ptr, ptr %data, align 8
   %cmp32 = icmp eq ptr %10, null
   br i1 %cmp32, label %if.then33, label %do.end35

@@ -954,19 +954,21 @@ if.then8:                                         ; preds = %if.end3
   %or.cond.not.not = and i1 %cmp9, %cmp10
   %cmp13.not = icmp eq i32 %lookup_type, 1
   %9 = or i1 %or.cond.not.not, %cmp13.not
-  br i1 %9, label %10, label %retry.preheader
+  br i1 %9, label %10, label %retry
 
 10:                                               ; preds = %if.then8
   %or16 = select i1 %or.cond.not.not, i32 33, i32 1
   %simplifycfg.merge = select i1 %cmp13.not, i32 %or16, i32 32
-  store i32 %simplifycfg.merge, ptr %hints, align 8
-  br label %retry.preheader
+  br label %retry.sink.split
 
-retry.preheader:                                  ; preds = %if.then8, %10
+retry.sink.split:                                 ; preds = %if.then28, %10
+  %simplifycfg.merge.sink = phi i32 [ %simplifycfg.merge, %10 ], [ %or32, %if.then28 ]
+  %old_ret.0.ph = phi i32 [ 0, %10 ], [ %call18, %if.then28 ]
+  store i32 %simplifycfg.merge.sink, ptr %hints, align 8
   br label %retry
 
-retry:                                            ; preds = %retry.preheader, %if.then28
-  %old_ret.0 = phi i32 [ %call18, %if.then28 ], [ 0, %retry.preheader ]
+retry:                                            ; preds = %retry.sink.split, %if.then8
+  %old_ret.0 = phi i32 [ 0, %if.then8 ], [ %old_ret.0.ph, %retry.sink.split ]
   %call18 = call i32 @getaddrinfo(ptr noundef %host, ptr noundef %service, ptr noundef nonnull %hints, ptr noundef %res) #13
   switch i32 %call18, label %sw.default25 [
     i32 -11, label %sw.bb19
@@ -1003,8 +1005,7 @@ sw.default25:                                     ; preds = %retry
 if.then28:                                        ; preds = %sw.default25
   %and30 = and i32 %12, -37
   %or32 = or disjoint i32 %and30, 4
-  store i32 %or32, ptr %hints, align 8
-  br label %retry
+  br label %retry.sink.split
 
 if.end33:                                         ; preds = %sw.default25
   call void @ERR_new() #13

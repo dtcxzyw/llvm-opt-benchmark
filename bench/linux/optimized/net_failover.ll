@@ -930,7 +930,7 @@ define internal i32 @net_failover_slave_register(ptr noundef %0, ptr noundef %1)
   %11 = getelementptr inbounds i8, ptr %0, i64 296
   %12 = load i32, ptr %6, align 8
   tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %1, ptr noundef nonnull @.str.9, ptr noundef %11, i32 noundef %12) #12
-  br label %94
+  br label %83
 
 13:                                               ; preds = %2
   %14 = icmp eq ptr %0, null
@@ -969,7 +969,7 @@ define internal i32 @net_failover_slave_register(ptr noundef %0, ptr noundef %1)
 
 30:                                               ; preds = %27, %25
   %31 = tail call i32 @dev_set_mtu(ptr noundef %0, i32 noundef %5) #11
-  br label %94
+  br label %83
 
 32:                                               ; preds = %23, %23, %18
   %33 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
@@ -1024,63 +1024,43 @@ define internal i32 @net_failover_slave_register(ptr noundef %0, ptr noundef %1)
   %65 = icmp eq i64 %64, 0
   %66 = zext i1 %65 to i8
   %67 = icmp eq ptr %60, %0
-  br i1 %67, label %68, label %76
+  br i1 %67, label %.sink.split, label %68
 
 68:                                               ; preds = %58
-  %69 = getelementptr inbounds i8, ptr %60, i64 352
-  %70 = load volatile i64, ptr %69, align 8
-  %71 = and i64 %70, 1
-  %72 = icmp eq i64 %71, 0
-  br i1 %72, label %75, label %73
+  %69 = icmp eq ptr %60, null
+  br i1 %69, label %.sink.split, label %70
 
-73:                                               ; preds = %68
-  %74 = or disjoint i8 %66, 2
-  store i8 %74, ptr %3, align 1
-  br label %91
+70:                                               ; preds = %68
+  %71 = getelementptr inbounds i8, ptr %60, i64 352
+  %72 = load volatile i64, ptr %71, align 8
+  %73 = and i64 %72, 1
+  %74 = icmp eq i64 %73, 0
+  br i1 %74, label %.sink.split, label %80
 
-75:                                               ; preds = %68
-  store i8 %66, ptr %3, align 1
-  br label %91
+.sink.split:                                      ; preds = %68, %70, %58
+  %.sink10 = phi ptr [ %60, %58 ], [ %61, %70 ], [ %61, %68 ]
+  %75 = getelementptr inbounds i8, ptr %.sink10, i64 352
+  %76 = load volatile i64, ptr %75, align 8
+  %77 = trunc i64 %76 to i8
+  %78 = shl i8 %77, 1
+  %79 = and i8 %78, 2
+  %spec.select4 = or disjoint i8 %79, %66
+  br label %80
 
-76:                                               ; preds = %58
-  %77 = icmp eq ptr %60, null
-  br i1 %77, label %83, label %78
-
-78:                                               ; preds = %76
-  %79 = getelementptr inbounds i8, ptr %60, i64 352
-  %80 = load volatile i64, ptr %79, align 8
-  %81 = and i64 %80, 1
-  %82 = icmp eq i64 %81, 0
-  br i1 %82, label %83, label %88
-
-83:                                               ; preds = %78, %76
-  %84 = getelementptr inbounds i8, ptr %61, i64 352
-  %85 = load volatile i64, ptr %84, align 8
-  %86 = and i64 %85, 1
-  %87 = icmp eq i64 %86, 0
-  br i1 %87, label %88, label %89
-
-88:                                               ; preds = %83, %78
-  store i8 %66, ptr %3, align 1
-  br label %91
-
-89:                                               ; preds = %83
-  %90 = or disjoint i8 %66, 2
-  store i8 %90, ptr %3, align 1
-  br label %91
-
-91:                                               ; preds = %89, %88, %75, %73
+80:                                               ; preds = %.sink.split, %70
+  %.sink = phi i8 [ %66, %70 ], [ %spec.select4, %.sink.split ]
+  store i8 %.sink, ptr %3, align 1
   call void @netdev_lower_state_changed(ptr noundef %0, ptr noundef nonnull %3) #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #11
   call fastcc void @net_failover_compute_features(ptr noundef %1)
-  %92 = call i32 @call_netdevice_notifiers(i64 noundef 21, ptr noundef %0) #11
-  %93 = getelementptr inbounds i8, ptr %0, i64 296
-  call void (ptr, ptr, ...) @netdev_info(ptr noundef %1, ptr noundef nonnull @.str.12, ptr noundef nonnull %59, ptr noundef %93) #12
-  br label %94
+  %81 = call i32 @call_netdevice_notifiers(i64 noundef 21, ptr noundef %0) #11
+  %82 = getelementptr inbounds i8, ptr %0, i64 296
+  call void (ptr, ptr, ...) @netdev_info(ptr noundef %1, ptr noundef nonnull @.str.12, ptr noundef nonnull %59, ptr noundef %82) #12
+  br label %83
 
-94:                                               ; preds = %91, %30, %10
-  %95 = phi i32 [ 0, %91 ], [ %8, %10 ], [ %24, %30 ]
-  ret i32 %95
+83:                                               ; preds = %80, %30, %10
+  %84 = phi i32 [ 0, %80 ], [ %8, %10 ], [ %24, %30 ]
+  ret i32 %84
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
@@ -1186,7 +1166,7 @@ define internal noundef range(i32 -19, 1) i32 @net_failover_slave_link_change(pt
   %8 = icmp eq ptr %5, %0
   %9 = icmp eq ptr %7, %0
   %10 = select i1 %8, i1 true, i1 %9
-  br i1 %10, label %11, label %78
+  br i1 %10, label %11, label %66
 
 11:                                               ; preds = %2
   %12 = icmp eq ptr %5, null
@@ -1258,58 +1238,37 @@ define internal noundef range(i32 -19, 1) i32 @net_failover_slave_link_change(pt
   %52 = and i64 %51, 4
   %53 = icmp eq i64 %52, 0
   %54 = zext i1 %53 to i8
-  br i1 %8, label %55, label %63
+  %brmerge = or i1 %8, %12
+  %.mux = select i1 %8, ptr %5, ptr %7
+  br i1 %brmerge, label %.sink.split, label %55
 
 55:                                               ; preds = %.loopexit
   %56 = getelementptr inbounds i8, ptr %5, i64 352
   %57 = load volatile i64, ptr %56, align 8
   %58 = and i64 %57, 1
   %59 = icmp eq i64 %58, 0
-  br i1 %59, label %62, label %60
+  br i1 %59, label %.sink.split, label %65
 
-60:                                               ; preds = %55
-  %61 = or disjoint i8 %54, 2
-  store i8 %61, ptr %3, align 1
-  br label %77
+.sink.split:                                      ; preds = %.loopexit, %55
+  %.sink8 = phi ptr [ %.mux, %.loopexit ], [ %7, %55 ]
+  %60 = getelementptr inbounds i8, ptr %.sink8, i64 352
+  %61 = load volatile i64, ptr %60, align 8
+  %62 = trunc i64 %61 to i8
+  %63 = shl i8 %62, 1
+  %64 = and i8 %63, 2
+  %spec.select2 = or disjoint i8 %64, %54
+  br label %65
 
-62:                                               ; preds = %55
-  store i8 %54, ptr %3, align 1
-  br label %77
-
-63:                                               ; preds = %.loopexit
-  br i1 %12, label %69, label %64
-
-64:                                               ; preds = %63
-  %65 = getelementptr inbounds i8, ptr %5, i64 352
-  %66 = load volatile i64, ptr %65, align 8
-  %67 = and i64 %66, 1
-  %68 = icmp eq i64 %67, 0
-  br i1 %68, label %69, label %74
-
-69:                                               ; preds = %64, %63
-  %70 = getelementptr inbounds i8, ptr %7, i64 352
-  %71 = load volatile i64, ptr %70, align 8
-  %72 = and i64 %71, 1
-  %73 = icmp eq i64 %72, 0
-  br i1 %73, label %74, label %75
-
-74:                                               ; preds = %69, %64
-  store i8 %54, ptr %3, align 1
-  br label %77
-
-75:                                               ; preds = %69
-  %76 = or disjoint i8 %54, 2
-  store i8 %76, ptr %3, align 1
-  br label %77
-
-77:                                               ; preds = %75, %74, %62, %60
+65:                                               ; preds = %.sink.split, %55
+  %.sink = phi i8 [ %54, %55 ], [ %spec.select2, %.sink.split ]
+  store i8 %.sink, ptr %3, align 1
   call void @netdev_lower_state_changed(ptr noundef %0, ptr noundef nonnull %3) #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #11
-  br label %78
+  br label %66
 
-78:                                               ; preds = %77, %2
-  %79 = phi i32 [ 0, %77 ], [ -19, %2 ]
-  ret i32 %79
+66:                                               ; preds = %65, %2
+  %67 = phi i32 [ 0, %65 ], [ -19, %2 ]
+  ret i32 %67
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

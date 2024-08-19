@@ -43623,7 +43623,7 @@ land.lhs.true:                                    ; preds = %entry
   store i8 0, ptr %arrayidx.i.i, align 1
   %1 = load i32, ptr %0, align 8
   %cmp4.not.i.i = icmp eq i32 %1, 0
-  br i1 %cmp4.not.i.i, label %_ZNK10aiMetadata3GetIiEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread, label %for.body.lr.ph.i.i
+  br i1 %cmp4.not.i.i, label %if.end.sink.split, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %land.lhs.true
   %mKeys.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -43650,26 +43650,26 @@ if.end.i.i.i:                                     ; preds = %_ZNK8aiStringeqERKS
   %arrayidx.i.i.i = getelementptr inbounds %struct.aiMetadataEntry, ptr %4, i64 %indvars.iv.i.i
   %5 = load i32, ptr %arrayidx.i.i.i, align 8
   %cmp2.not.i.i.i = icmp eq i32 %5, 1
-  br i1 %cmp2.not.i.i.i, label %if.then, label %_ZNK10aiMetadata3GetIiEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread
+  br i1 %cmp2.not.i.i.i, label %if.then, label %if.end.sink.split
 
 for.inc.i.i:                                      ; preds = %_ZNK8aiStringeqERKS_.exit.i.i, %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZNK10aiMetadata3GetIiEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread, label %for.body.i.i, !llvm.loop !93
-
-_ZNK10aiMetadata3GetIiEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread: ; preds = %for.inc.i.i, %if.end.i.i.i, %land.lhs.true
-  call void @llvm.lifetime.end.p0(i64 1028, ptr nonnull %ref.tmp.i)
-  br label %if.end
+  br i1 %exitcond.not.i.i, label %if.end.sink.split, label %for.body.i.i, !llvm.loop !93
 
 if.then:                                          ; preds = %if.end.i.i.i
   %mData.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 8
   %6 = load ptr, ptr %mData.i.i.i, align 8
   %7 = load i32, ptr %6, align 4
+  br label %if.end.sink.split
+
+if.end.sink.split:                                ; preds = %for.inc.i.i, %land.lhs.true, %if.end.i.i.i, %if.then
+  %defaultValue.sink.ph = phi i32 [ %7, %if.then ], [ %defaultValue, %if.end.i.i.i ], [ %defaultValue, %land.lhs.true ], [ %defaultValue, %for.inc.i.i ]
   call void @llvm.lifetime.end.p0(i64 1028, ptr nonnull %ref.tmp.i)
   br label %if.end
 
-if.end:                                           ; preds = %entry, %_ZNK10aiMetadata3GetIiEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread, %if.then
-  %defaultValue.sink = phi i32 [ %7, %if.then ], [ %defaultValue, %_ZNK10aiMetadata3GetIiEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread ], [ %defaultValue, %entry ]
+if.end:                                           ; preds = %if.end.sink.split, %entry
+  %defaultValue.sink = phi i32 [ %defaultValue, %entry ], [ %defaultValue.sink.ph, %if.end.sink.split ]
   tail call void @_ZN6Assimp3FBX4Node9AddP70intERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(112) %p, ptr noundef nonnull align 8 dereferenceable(32) %key, i32 noundef %defaultValue.sink)
   ret void
 }
@@ -43841,7 +43841,7 @@ land.lhs.true:                                    ; preds = %entry
   store i8 0, ptr %arrayidx.i.i, align 1
   %1 = load i32, ptr %0, align 8
   %cmp4.not.i.i = icmp eq i32 %1, 0
-  br i1 %cmp4.not.i.i, label %_ZNK10aiMetadata3GetIiEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread, label %for.body.lr.ph.i.i
+  br i1 %cmp4.not.i.i, label %if.end.sink.split, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %land.lhs.true
   %mKeys.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -43868,26 +43868,26 @@ if.end.i.i.i:                                     ; preds = %_ZNK8aiStringeqERKS
   %arrayidx.i.i.i = getelementptr inbounds %struct.aiMetadataEntry, ptr %4, i64 %indvars.iv.i.i
   %5 = load i32, ptr %arrayidx.i.i.i, align 8
   %cmp2.not.i.i.i = icmp eq i32 %5, 1
-  br i1 %cmp2.not.i.i.i, label %if.then, label %_ZNK10aiMetadata3GetIiEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread
+  br i1 %cmp2.not.i.i.i, label %if.then, label %if.end.sink.split
 
 for.inc.i.i:                                      ; preds = %_ZNK8aiStringeqERKS_.exit.i.i, %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZNK10aiMetadata3GetIiEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread, label %for.body.i.i, !llvm.loop !93
-
-_ZNK10aiMetadata3GetIiEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread: ; preds = %for.inc.i.i, %if.end.i.i.i, %land.lhs.true
-  call void @llvm.lifetime.end.p0(i64 1028, ptr nonnull %ref.tmp.i)
-  br label %if.end
+  br i1 %exitcond.not.i.i, label %if.end.sink.split, label %for.body.i.i, !llvm.loop !93
 
 if.then:                                          ; preds = %if.end.i.i.i
   %mData.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 8
   %6 = load ptr, ptr %mData.i.i.i, align 8
   %7 = load i32, ptr %6, align 4
+  br label %if.end.sink.split
+
+if.end.sink.split:                                ; preds = %for.inc.i.i, %land.lhs.true, %if.end.i.i.i, %if.then
+  %defaultValue.sink.ph = phi i32 [ %7, %if.then ], [ %defaultValue, %if.end.i.i.i ], [ %defaultValue, %land.lhs.true ], [ %defaultValue, %for.inc.i.i ]
   call void @llvm.lifetime.end.p0(i64 1028, ptr nonnull %ref.tmp.i)
   br label %if.end
 
-if.end:                                           ; preds = %entry, %_ZNK10aiMetadata3GetIiEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread, %if.then
-  %defaultValue.sink = phi i32 [ %7, %if.then ], [ %defaultValue, %_ZNK10aiMetadata3GetIiEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_.exit.thread ], [ %defaultValue, %entry ]
+if.end:                                           ; preds = %if.end.sink.split, %entry
+  %defaultValue.sink = phi i32 [ %defaultValue, %entry ], [ %defaultValue.sink.ph, %if.end.sink.split ]
   tail call void @_ZN6Assimp3FBX4Node10AddP70enumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(112) %p, ptr noundef nonnull align 8 dereferenceable(32) %key, i32 noundef %defaultValue.sink)
   ret void
 }

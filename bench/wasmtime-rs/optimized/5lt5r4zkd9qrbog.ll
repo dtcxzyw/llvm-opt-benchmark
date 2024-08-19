@@ -6728,7 +6728,11 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7
   invoke void @_ZN4core3fmt9Arguments6new_v117h8f7516983d0c178cE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %11, ptr nonnull align 8 @anon.3a4e41e0094de0b8ba6604e391603d5d.306, i64 2, ptr nonnull align 8 %10, i64 1)
           to label %67 unwind label %.loopexit.split-lp.loopexit
 
-61:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha86be6a5bc2165fdE.exit25", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha86be6a5bc2165fdE.exit23", %52
+.sink.split:                                      ; preds = %69, %66
+  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
+  br label %61
+
+61:                                               ; preds = %.sink.split, %52
   %62 = getelementptr inbounds i8, ptr %42, i64 32
   %63 = invoke { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h881025ec9d324540E"(ptr nonnull align 8 %62)
           to label %70 unwind label %.loopexit.split-lp.loopexit
@@ -6744,11 +6748,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7
 
 66:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
-  br i1 %65, label %.invoke31, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha86be6a5bc2165fdE.exit25"
-
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha86be6a5bc2165fdE.exit25": ; preds = %66
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
-  br label %61
+  br i1 %65, label %.invoke31, label %.sink.split
 
 67:                                               ; preds = %60
   %68 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %19, ptr nonnull align 8 @anon.3a4e41e0094de0b8ba6604e391603d5d.299, ptr nonnull align 8 %11)
@@ -6756,11 +6756,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7
 
 69:                                               ; preds = %67
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
-  br i1 %68, label %.invoke31, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha86be6a5bc2165fdE.exit23"
-
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha86be6a5bc2165fdE.exit23": ; preds = %69
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
-  br label %61
+  br i1 %68, label %.invoke31, label %.sink.split
 
 70:                                               ; preds = %61
   %71 = extractvalue { ptr, ptr } %63, 0

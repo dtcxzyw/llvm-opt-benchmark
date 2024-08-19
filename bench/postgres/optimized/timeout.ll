@@ -246,7 +246,7 @@ define internal fastcc void @schedule_alarm(i64 noundef %0) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load volatile i32, ptr @num_active_timeouts, align 4
   %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %7, label %40
+  br i1 %6, label %7, label %39
 
 7:                                                ; preds = %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 16, i1 false)
@@ -274,8 +274,7 @@ define internal fastcc void @schedule_alarm(i64 noundef %0) unnamed_addr #0 {
 19:                                               ; preds = %14
   store volatile i32 0, ptr @signal_pending, align 4
   store i64 0, ptr %3, align 8
-  store i32 1, ptr %4, align 4
-  br label %26
+  br label %.sink.split
 
 20:                                               ; preds = %14
   call void @TimestampDifference(i64 noundef %0, i64 noundef %17, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
@@ -284,46 +283,46 @@ define internal fastcc void @schedule_alarm(i64 noundef %0) unnamed_addr #0 {
   %23 = load i32, ptr %4, align 4
   %24 = icmp eq i32 %23, 0
   %or.cond5 = select i1 %22, i1 %24, i1 false
-  br i1 %or.cond5, label %25, label %26
+  br i1 %or.cond5, label %.sink.split, label %25
 
-25:                                               ; preds = %20
+.sink.split:                                      ; preds = %20, %19
   store i32 1, ptr %4, align 4
-  br label %26
+  br label %25
 
-26:                                               ; preds = %20, %25, %19
-  %27 = phi i32 [ %23, %20 ], [ 1, %25 ], [ 1, %19 ]
-  %28 = phi i64 [ %21, %20 ], [ 0, %25 ], [ 0, %19 ]
-  %29 = getelementptr inbounds i8, ptr %2, i64 16
-  store i64 %28, ptr %29, align 8
-  %30 = sext i32 %27 to i64
-  %31 = getelementptr inbounds i8, ptr %2, i64 24
-  store i64 %30, ptr %31, align 8
+25:                                               ; preds = %.sink.split, %20
+  %26 = phi i32 [ %23, %20 ], [ 1, %.sink.split ]
+  %27 = phi i64 [ %21, %20 ], [ 0, %.sink.split ]
+  %28 = getelementptr inbounds i8, ptr %2, i64 16
+  store i64 %27, ptr %28, align 8
+  %29 = sext i32 %26 to i64
+  %30 = getelementptr inbounds i8, ptr %2, i64 24
+  store i64 %29, ptr %30, align 8
   store volatile i32 1, ptr @alarm_enabled, align 4
-  %32 = load volatile i32, ptr @signal_pending, align 4
-  %.not26 = icmp eq i32 %32, 0
-  br i1 %.not26, label %35, label %33
+  %31 = load volatile i32, ptr @signal_pending, align 4
+  %.not26 = icmp eq i32 %31, 0
+  br i1 %.not26, label %34, label %32
 
-33:                                               ; preds = %26
-  %34 = load volatile i64, ptr @signal_due_at, align 8
-  %.not27 = icmp slt i64 %17, %34
-  br i1 %.not27, label %35, label %40
+32:                                               ; preds = %25
+  %33 = load volatile i64, ptr @signal_due_at, align 8
+  %.not27 = icmp slt i64 %17, %33
+  br i1 %.not27, label %34, label %39
 
-35:                                               ; preds = %33, %26
+34:                                               ; preds = %32, %25
   store volatile i64 %17, ptr @signal_due_at, align 8
   store volatile i32 1, ptr @signal_pending, align 4
-  %36 = call i32 @setitimer(i32 noundef 0, ptr noundef nonnull %2, ptr noundef null) #9
-  %.not28 = icmp eq i32 %36, 0
-  br i1 %.not28, label %40, label %37
+  %35 = call i32 @setitimer(i32 noundef 0, ptr noundef nonnull %2, ptr noundef null) #9
+  %.not28 = icmp eq i32 %35, 0
+  br i1 %.not28, label %39, label %36
 
-37:                                               ; preds = %35
+36:                                               ; preds = %34
   store volatile i32 0, ptr @signal_pending, align 4
-  %38 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #10
-  call void @llvm.assume(i1 %38)
-  %39 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #9
+  %37 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #10
+  call void @llvm.assume(i1 %37)
+  %38 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #9
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 347, ptr noundef nonnull @__func__.schedule_alarm) #9
   unreachable
 
-40:                                               ; preds = %35, %33, %1
+39:                                               ; preds = %34, %32, %1
   ret void
 }
 

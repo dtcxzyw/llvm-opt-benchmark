@@ -253,7 +253,7 @@ define hidden void @zif_finfo_open(ptr nocapture noundef readonly %0, ptr nocapt
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %18 = icmp ne ptr %17, null
   call void @llvm.assume(i1 %18)
-  br label %103
+  br label %101
 
 19:                                               ; preds = %2
   br i1 %11, label %20, label %28
@@ -278,169 +278,166 @@ define hidden void @zif_finfo_open(ptr nocapture noundef readonly %0, ptr nocapt
 28:                                               ; preds = %20, %24, %19
   %29 = load i64, ptr %5, align 8
   %30 = icmp eq i64 %29, 0
-  br i1 %30, label %31, label %32
+  br i1 %30, label %.sink.split, label %31
 
 31:                                               ; preds = %28
-  store ptr null, ptr %4, align 8
-  br label %56
+  %32 = load ptr, ptr %4, align 8
+  %.not38 = icmp eq ptr %32, null
+  br i1 %.not38, label %54, label %33
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %4, align 8
-  %.not38 = icmp eq ptr %33, null
-  br i1 %.not38, label %56, label %34
+33:                                               ; preds = %31
+  %34 = load i8, ptr %32, align 1
+  %.not39 = icmp eq i8 %34, 0
+  br i1 %.not39, label %54, label %35
 
-34:                                               ; preds = %32
-  %35 = load i8, ptr %33, align 1
-  %.not39 = icmp eq i8 %35, 0
-  br i1 %.not39, label %56, label %36
+35:                                               ; preds = %33
+  %36 = call i32 @php_check_open_basedir(ptr noundef nonnull %32) #9
+  %.not40 = icmp eq i32 %36, 0
+  br i1 %.not40, label %44, label %37
 
-36:                                               ; preds = %34
-  %37 = call i32 @php_check_open_basedir(ptr noundef nonnull %33) #9
-  %.not40 = icmp eq i32 %37, 0
-  br i1 %.not40, label %45, label %38
+37:                                               ; preds = %35
+  br i1 %11, label %38, label %42
 
-38:                                               ; preds = %36
-  br i1 %11, label %39, label %43
-
-39:                                               ; preds = %38
+38:                                               ; preds = %37
   call void @zend_restore_error_handling(ptr noundef nonnull %7) #9
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not43 = icmp eq ptr %40, null
-  br i1 %.not43, label %41, label %43
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.not43 = icmp eq ptr %39, null
+  br i1 %.not43, label %40, label %42
 
-41:                                               ; preds = %39
-  %42 = call ptr @zend_throw_exception(ptr noundef null, ptr noundef nonnull @.str.8, i64 noundef 0) #9
-  br label %43
+40:                                               ; preds = %38
+  %41 = call ptr @zend_throw_exception(ptr noundef null, ptr noundef nonnull @.str.8, i64 noundef 0) #9
+  br label %42
 
-43:                                               ; preds = %39, %41, %38
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 2, ptr %44, align 8
-  br label %103
+42:                                               ; preds = %38, %40, %37
+  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 2, ptr %43, align 8
+  br label %101
 
-45:                                               ; preds = %36
-  %46 = load ptr, ptr %4, align 8
-  %47 = call ptr @expand_filepath_with_mode(ptr noundef %46, ptr noundef nonnull %6, ptr noundef null, i64 noundef 0, i32 noundef 0) #9
-  %.not41 = icmp eq ptr %47, null
-  br i1 %.not41, label %48, label %55
+44:                                               ; preds = %35
+  %45 = load ptr, ptr %4, align 8
+  %46 = call ptr @expand_filepath_with_mode(ptr noundef %45, ptr noundef nonnull %6, ptr noundef null, i64 noundef 0, i32 noundef 0) #9
+  %.not41 = icmp eq ptr %46, null
+  br i1 %.not41, label %47, label %.sink.split
 
-48:                                               ; preds = %45
-  br i1 %11, label %49, label %53
+47:                                               ; preds = %44
+  br i1 %11, label %48, label %52
 
-49:                                               ; preds = %48
+48:                                               ; preds = %47
   call void @zend_restore_error_handling(ptr noundef nonnull %7) #9
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not42 = icmp eq ptr %50, null
-  br i1 %.not42, label %51, label %53
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.not42 = icmp eq ptr %49, null
+  br i1 %.not42, label %50, label %52
 
-51:                                               ; preds = %49
-  %52 = call ptr @zend_throw_exception(ptr noundef null, ptr noundef nonnull @.str.8, i64 noundef 0) #9
-  br label %53
+50:                                               ; preds = %48
+  %51 = call ptr @zend_throw_exception(ptr noundef null, ptr noundef nonnull @.str.8, i64 noundef 0) #9
+  br label %52
 
-53:                                               ; preds = %49, %51, %48
-  %54 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 2, ptr %54, align 8
-  br label %103
+52:                                               ; preds = %48, %50, %47
+  %53 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 2, ptr %53, align 8
+  br label %101
 
-55:                                               ; preds = %45
-  store ptr %6, ptr %4, align 8
-  br label %56
+.sink.split:                                      ; preds = %44, %28
+  %.sink = phi ptr [ null, %28 ], [ %6, %44 ]
+  store ptr %.sink, ptr %4, align 8
+  br label %54
 
-56:                                               ; preds = %32, %34, %55, %31
-  %57 = call noalias ptr @_emalloc_16() #9
-  %58 = load i64, ptr %3, align 8
-  store i64 %58, ptr %57, align 8
-  %59 = trunc i64 %58 to i32
-  %60 = call ptr @magic_open(i32 noundef %59) #9
-  %61 = getelementptr inbounds i8, ptr %57, i64 8
-  store ptr %60, ptr %61, align 8
-  %62 = icmp eq ptr %60, null
-  br i1 %62, label %63, label %71
+54:                                               ; preds = %.sink.split, %31, %33
+  %55 = call noalias ptr @_emalloc_16() #9
+  %56 = load i64, ptr %3, align 8
+  store i64 %56, ptr %55, align 8
+  %57 = trunc i64 %56 to i32
+  %58 = call ptr @magic_open(i32 noundef %57) #9
+  %59 = getelementptr inbounds i8, ptr %55, i64 8
+  store ptr %58, ptr %59, align 8
+  %60 = icmp eq ptr %58, null
+  br i1 %60, label %61, label %69
 
-63:                                               ; preds = %56
-  call void @_efree(ptr noundef nonnull %57) #9
-  %64 = load i64, ptr %3, align 8
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.9, i64 noundef %64) #9
-  br i1 %11, label %65, label %69
+61:                                               ; preds = %54
+  call void @_efree(ptr noundef nonnull %55) #9
+  %62 = load i64, ptr %3, align 8
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.9, i64 noundef %62) #9
+  br i1 %11, label %63, label %67
+
+63:                                               ; preds = %61
+  call void @zend_restore_error_handling(ptr noundef nonnull %7) #9
+  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.not45 = icmp eq ptr %64, null
+  br i1 %.not45, label %65, label %67
 
 65:                                               ; preds = %63
+  %66 = call ptr @zend_throw_exception(ptr noundef null, ptr noundef nonnull @.str.8, i64 noundef 0) #9
+  br label %67
+
+67:                                               ; preds = %63, %65, %61
+  %68 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 2, ptr %68, align 8
+  br label %101
+
+69:                                               ; preds = %54
+  %70 = load ptr, ptr %4, align 8
+  %71 = call i32 @magic_load(ptr noundef nonnull %58, ptr noundef %70) #9
+  %72 = icmp eq i32 %71, -1
+  br i1 %72, label %73, label %82
+
+73:                                               ; preds = %69
+  %74 = load ptr, ptr %4, align 8
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.10, ptr noundef %74) #9
+  %75 = load ptr, ptr %59, align 8
+  call void @magic_close(ptr noundef %75) #9
+  call void @_efree(ptr noundef nonnull %55) #9
+  br i1 %11, label %76, label %80
+
+76:                                               ; preds = %73
   call void @zend_restore_error_handling(ptr noundef nonnull %7) #9
-  %66 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not45 = icmp eq ptr %66, null
-  br i1 %.not45, label %67, label %69
+  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.not44 = icmp eq ptr %77, null
+  br i1 %.not44, label %78, label %80
 
-67:                                               ; preds = %65
-  %68 = call ptr @zend_throw_exception(ptr noundef null, ptr noundef nonnull @.str.8, i64 noundef 0) #9
-  br label %69
+78:                                               ; preds = %76
+  %79 = call ptr @zend_throw_exception(ptr noundef null, ptr noundef nonnull @.str.8, i64 noundef 0) #9
+  br label %80
 
-69:                                               ; preds = %65, %67, %63
-  %70 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 2, ptr %70, align 8
-  br label %103
+80:                                               ; preds = %76, %78, %73
+  %81 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 2, ptr %81, align 8
+  br label %101
 
-71:                                               ; preds = %56
-  %72 = load ptr, ptr %4, align 8
-  %73 = call i32 @magic_load(ptr noundef nonnull %60, ptr noundef %72) #9
-  %74 = icmp eq i32 %73, -1
-  br i1 %74, label %75, label %84
+82:                                               ; preds = %69
+  br i1 %11, label %83, label %86
 
-75:                                               ; preds = %71
-  %76 = load ptr, ptr %4, align 8
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.10, ptr noundef %76) #9
-  %77 = load ptr, ptr %61, align 8
-  call void @magic_close(ptr noundef %77) #9
-  call void @_efree(ptr noundef nonnull %57) #9
-  br i1 %11, label %78, label %82
-
-78:                                               ; preds = %75
+83:                                               ; preds = %82
   call void @zend_restore_error_handling(ptr noundef nonnull %7) #9
-  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not44 = icmp eq ptr %79, null
-  br i1 %.not44, label %80, label %82
+  %84 = load ptr, ptr %8, align 8
+  %85 = getelementptr inbounds i8, ptr %84, i64 -8
+  store ptr %55, ptr %85, align 8
+  br label %101
 
-80:                                               ; preds = %78
-  %81 = call ptr @zend_throw_exception(ptr noundef null, ptr noundef nonnull @.str.8, i64 noundef 0) #9
-  br label %82
+86:                                               ; preds = %82
+  %87 = load ptr, ptr @finfo_class_entry, align 8
+  %88 = getelementptr inbounds i8, ptr %87, i64 32
+  %89 = load i32, ptr %88, align 8
+  %90 = getelementptr inbounds i8, ptr %87, i64 28
+  %91 = load i32, ptr %90, align 4
+  %92 = lshr i32 %91, 11
+  %.lobit.i = and i32 %92, 1
+  %93 = xor i32 %.lobit.i, 1
+  %94 = sub nsw i32 %89, %93
+  %95 = sext i32 %94 to i64
+  %96 = shl nsw i64 %95, 4
+  %97 = add nsw i64 %96, 64
+  %98 = call noalias ptr @_emalloc(i64 noundef %97) #8
+  store i64 0, ptr %98, align 1
+  %99 = getelementptr inbounds i8, ptr %98, i64 8
+  call void @zend_object_std_init(ptr noundef nonnull %99, ptr noundef %87) #9
+  call void @object_properties_init(ptr noundef nonnull %99, ptr noundef %87) #9
+  store ptr %55, ptr %98, align 8
+  store ptr %99, ptr %1, align 8
+  %100 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 776, ptr %100, align 8
+  br label %101
 
-82:                                               ; preds = %78, %80, %75
-  %83 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 2, ptr %83, align 8
-  br label %103
-
-84:                                               ; preds = %71
-  br i1 %11, label %85, label %88
-
-85:                                               ; preds = %84
-  call void @zend_restore_error_handling(ptr noundef nonnull %7) #9
-  %86 = load ptr, ptr %8, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 -8
-  store ptr %57, ptr %87, align 8
-  br label %103
-
-88:                                               ; preds = %84
-  %89 = load ptr, ptr @finfo_class_entry, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 32
-  %91 = load i32, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %89, i64 28
-  %93 = load i32, ptr %92, align 4
-  %94 = lshr i32 %93, 11
-  %.lobit.i = and i32 %94, 1
-  %95 = xor i32 %.lobit.i, 1
-  %96 = sub nsw i32 %91, %95
-  %97 = sext i32 %96 to i64
-  %98 = shl nsw i64 %97, 4
-  %99 = add nsw i64 %98, 64
-  %100 = call noalias ptr @_emalloc(i64 noundef %99) #8
-  store i64 0, ptr %100, align 1
-  %101 = getelementptr inbounds i8, ptr %100, i64 8
-  call void @zend_object_std_init(ptr noundef nonnull %101, ptr noundef %89) #9
-  call void @object_properties_init(ptr noundef nonnull %101, ptr noundef %89) #9
-  store ptr %57, ptr %100, align 8
-  store ptr %101, ptr %1, align 8
-  %102 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 776, ptr %102, align 8
-  br label %103
-
-103:                                              ; preds = %88, %85, %82, %69, %53, %43, %16
+101:                                              ; preds = %86, %83, %80, %67, %52, %42, %16
   ret void
 }
 

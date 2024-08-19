@@ -11570,11 +11570,7 @@ bf_set_ui.exit.i:                                 ; preds = %110, %bf_set_ui.exi
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %116, i8 0, i64 16, i1 false)
   %117 = call fastcc i32 @bf_add_internal(ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %2, i32 noundef %3, i32 noundef 0)
   %118 = icmp eq ptr %5, %0
-  br i1 %118, label %bf_add.exit.thread.i, label %119
-
-bf_add.exit.thread.i:                             ; preds = %bf_set_ui.exit.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
-  br label %125
+  br i1 %118, label %.sink.split.i, label %119
 
 119:                                              ; preds = %bf_set_ui.exit.i
   %120 = getelementptr inbounds i8, ptr %0, i64 32
@@ -11584,8 +11580,7 @@ bf_add.exit.thread.i:                             ; preds = %bf_set_ui.exit.i
 
 bf_add.exit.thread3.i:                            ; preds = %119
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
-  br label %125
+  br label %.sink.split.i
 
 bf_add.exit.i:                                    ; preds = %119
   %122 = load ptr, ptr %0, align 8
@@ -11603,9 +11598,13 @@ bf_add.exit.i._crit_edge:                         ; preds = %bf_add.exit.i
   %.pre = load ptr, ptr %106, align 8
   br label %125
 
-125:                                              ; preds = %bf_add.exit.i._crit_edge, %bf_add.exit.thread3.i, %bf_add.exit.thread.i
-  %126 = phi ptr [ %108, %bf_add.exit.thread.i ], [ %.pre, %bf_add.exit.i._crit_edge ], [ %108, %bf_add.exit.thread3.i ]
-  %127 = phi ptr [ %.val, %bf_add.exit.thread.i ], [ %.pre.pre.i, %bf_add.exit.i._crit_edge ], [ %.val, %bf_add.exit.thread3.i ]
+.sink.split.i:                                    ; preds = %bf_add.exit.thread3.i, %bf_set_ui.exit.i
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  br label %125
+
+125:                                              ; preds = %bf_add.exit.i._crit_edge, %.sink.split.i
+  %126 = phi ptr [ %.pre, %bf_add.exit.i._crit_edge ], [ %108, %.sink.split.i ]
+  %127 = phi ptr [ %.pre.pre.i, %bf_add.exit.i._crit_edge ], [ %.val, %.sink.split.i ]
   %.not6.i.i = icmp eq ptr %126, null
   br i1 %.not6.i.i, label %bf_add_epsilon.exit, label %128
 
@@ -15486,11 +15485,7 @@ bf_set_ui.exit.i:                                 ; preds = %93, %bf_set_ui.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %99, i8 0, i64 16, i1 false)
   %100 = call fastcc i32 @bf_add_internal(ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %2, i32 noundef %3, i32 noundef 0)
   %101 = icmp eq ptr %5, %0
-  br i1 %101, label %bf_add.exit.thread.i, label %102
-
-bf_add.exit.thread.i:                             ; preds = %bf_set_ui.exit.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
-  br label %108
+  br i1 %101, label %.sink.split.i, label %102
 
 102:                                              ; preds = %bf_set_ui.exit.i
   %103 = getelementptr inbounds i8, ptr %0, i64 32
@@ -15500,8 +15495,7 @@ bf_add.exit.thread.i:                             ; preds = %bf_set_ui.exit.i
 
 bf_add.exit.thread3.i:                            ; preds = %102
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
-  br label %108
+  br label %.sink.split.i
 
 bf_add.exit.i:                                    ; preds = %102
   %105 = load ptr, ptr %0, align 8
@@ -15519,9 +15513,13 @@ bf_add.exit.i._crit_edge:                         ; preds = %bf_add.exit.i
   %.pre44 = load ptr, ptr %89, align 8
   br label %108
 
-108:                                              ; preds = %bf_add.exit.i._crit_edge, %bf_add.exit.thread3.i, %bf_add.exit.thread.i
-  %109 = phi ptr [ %91, %bf_add.exit.thread.i ], [ %.pre44, %bf_add.exit.i._crit_edge ], [ %91, %bf_add.exit.thread3.i ]
-  %110 = phi ptr [ %.val, %bf_add.exit.thread.i ], [ %.pre.pre.i, %bf_add.exit.i._crit_edge ], [ %.val, %bf_add.exit.thread3.i ]
+.sink.split.i:                                    ; preds = %bf_add.exit.thread3.i, %bf_set_ui.exit.i
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  br label %108
+
+108:                                              ; preds = %bf_add.exit.i._crit_edge, %.sink.split.i
+  %109 = phi ptr [ %.pre44, %bf_add.exit.i._crit_edge ], [ %91, %.sink.split.i ]
+  %110 = phi ptr [ %.pre.pre.i, %bf_add.exit.i._crit_edge ], [ %.val, %.sink.split.i ]
   %.not6.i.i = icmp eq ptr %109, null
   br i1 %.not6.i.i, label %bf_add_epsilon.exit, label %111
 
@@ -15876,11 +15874,7 @@ bf_set_ui.exit.i:                                 ; preds = %108, %bf_set.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %114, i8 0, i64 16, i1 false)
   %115 = call fastcc i32 @bf_add_internal(ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %2, i32 noundef %3, i32 noundef 0)
   %116 = icmp eq ptr %5, %0
-  br i1 %116, label %bf_add.exit.thread.i, label %117
-
-bf_add.exit.thread.i:                             ; preds = %bf_set_ui.exit.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
-  br label %123
+  br i1 %116, label %.sink.split.i, label %117
 
 117:                                              ; preds = %bf_set_ui.exit.i
   %118 = getelementptr inbounds i8, ptr %0, i64 32
@@ -15890,8 +15884,7 @@ bf_add.exit.thread.i:                             ; preds = %bf_set_ui.exit.i
 
 bf_add.exit.thread3.i:                            ; preds = %117
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
-  br label %123
+  br label %.sink.split.i
 
 bf_add.exit.i:                                    ; preds = %117
   %120 = load ptr, ptr %0, align 8
@@ -15909,9 +15902,13 @@ bf_add.exit.i._crit_edge:                         ; preds = %bf_add.exit.i
   %.pre45 = load ptr, ptr %104, align 8
   br label %123
 
-123:                                              ; preds = %bf_add.exit.i._crit_edge, %bf_add.exit.thread3.i, %bf_add.exit.thread.i
-  %124 = phi ptr [ %106, %bf_add.exit.thread.i ], [ %.pre45, %bf_add.exit.i._crit_edge ], [ %106, %bf_add.exit.thread3.i ]
-  %125 = phi ptr [ %.val, %bf_add.exit.thread.i ], [ %.pre.pre.i, %bf_add.exit.i._crit_edge ], [ %.val, %bf_add.exit.thread3.i ]
+.sink.split.i:                                    ; preds = %bf_add.exit.thread3.i, %bf_set_ui.exit.i
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  br label %123
+
+123:                                              ; preds = %bf_add.exit.i._crit_edge, %.sink.split.i
+  %124 = phi ptr [ %.pre45, %bf_add.exit.i._crit_edge ], [ %106, %.sink.split.i ]
+  %125 = phi ptr [ %.pre.pre.i, %bf_add.exit.i._crit_edge ], [ %.val, %.sink.split.i ]
   %.not6.i.i = icmp eq ptr %124, null
   br i1 %.not6.i.i, label %bf_add_epsilon.exit, label %126
 
@@ -16265,11 +16262,7 @@ bf_set_ui.exit.i:                                 ; preds = %107, %bf_set.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %113, i8 0, i64 16, i1 false)
   %114 = call fastcc i32 @bf_add_internal(ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %2, i32 noundef %3, i32 noundef 0)
   %115 = icmp eq ptr %5, %0
-  br i1 %115, label %bf_add.exit.thread.i, label %116
-
-bf_add.exit.thread.i:                             ; preds = %bf_set_ui.exit.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
-  br label %122
+  br i1 %115, label %.sink.split.i, label %116
 
 116:                                              ; preds = %bf_set_ui.exit.i
   %117 = getelementptr inbounds i8, ptr %0, i64 32
@@ -16279,8 +16272,7 @@ bf_add.exit.thread.i:                             ; preds = %bf_set_ui.exit.i
 
 bf_add.exit.thread3.i:                            ; preds = %116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
-  br label %122
+  br label %.sink.split.i
 
 bf_add.exit.i:                                    ; preds = %116
   %119 = load ptr, ptr %0, align 8
@@ -16298,9 +16290,13 @@ bf_add.exit.i._crit_edge:                         ; preds = %bf_add.exit.i
   %.pre = load ptr, ptr %103, align 8
   br label %122
 
-122:                                              ; preds = %bf_add.exit.i._crit_edge, %bf_add.exit.thread3.i, %bf_add.exit.thread.i
-  %123 = phi ptr [ %105, %bf_add.exit.thread.i ], [ %.pre, %bf_add.exit.i._crit_edge ], [ %105, %bf_add.exit.thread3.i ]
-  %124 = phi ptr [ %.val, %bf_add.exit.thread.i ], [ %.pre.pre.i, %bf_add.exit.i._crit_edge ], [ %.val, %bf_add.exit.thread3.i ]
+.sink.split.i:                                    ; preds = %bf_add.exit.thread3.i, %bf_set_ui.exit.i
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  br label %122
+
+122:                                              ; preds = %bf_add.exit.i._crit_edge, %.sink.split.i
+  %123 = phi ptr [ %.pre, %bf_add.exit.i._crit_edge ], [ %105, %.sink.split.i ]
+  %124 = phi ptr [ %.pre.pre.i, %bf_add.exit.i._crit_edge ], [ %.val, %.sink.split.i ]
   %.not6.i.i = icmp eq ptr %123, null
   br i1 %.not6.i.i, label %bf_add_epsilon.exit, label %125
 
@@ -16706,11 +16702,7 @@ bf_set_ui.exit.i:                                 ; preds = %156, %bf_set.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %162, i8 0, i64 16, i1 false)
   %163 = call fastcc i32 @bf_add_internal(ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %2, i32 noundef %3, i32 noundef 0)
   %164 = icmp eq ptr %5, %0
-  br i1 %164, label %bf_add.exit.thread.i, label %165
-
-bf_add.exit.thread.i:                             ; preds = %bf_set_ui.exit.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
-  br label %171
+  br i1 %164, label %.sink.split.i, label %165
 
 165:                                              ; preds = %bf_set_ui.exit.i
   %166 = getelementptr inbounds i8, ptr %0, i64 32
@@ -16720,8 +16712,7 @@ bf_add.exit.thread.i:                             ; preds = %bf_set_ui.exit.i
 
 bf_add.exit.thread3.i:                            ; preds = %165
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
-  br label %171
+  br label %.sink.split.i
 
 bf_add.exit.i:                                    ; preds = %165
   %168 = load ptr, ptr %0, align 8
@@ -16739,9 +16730,13 @@ bf_add.exit.i._crit_edge:                         ; preds = %bf_add.exit.i
   %.pre = load ptr, ptr %152, align 8
   br label %171
 
-171:                                              ; preds = %bf_add.exit.i._crit_edge, %bf_add.exit.thread3.i, %bf_add.exit.thread.i
-  %172 = phi ptr [ %154, %bf_add.exit.thread.i ], [ %.pre, %bf_add.exit.i._crit_edge ], [ %154, %bf_add.exit.thread3.i ]
-  %173 = phi ptr [ %.val, %bf_add.exit.thread.i ], [ %.pre.pre.i, %bf_add.exit.i._crit_edge ], [ %.val, %bf_add.exit.thread3.i ]
+.sink.split.i:                                    ; preds = %bf_add.exit.thread3.i, %bf_set_ui.exit.i
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  br label %171
+
+171:                                              ; preds = %bf_add.exit.i._crit_edge, %.sink.split.i
+  %172 = phi ptr [ %.pre, %bf_add.exit.i._crit_edge ], [ %154, %.sink.split.i ]
+  %173 = phi ptr [ %.pre.pre.i, %bf_add.exit.i._crit_edge ], [ %.val, %.sink.split.i ]
   %.not6.i.i = icmp eq ptr %172, null
   br i1 %.not6.i.i, label %bf_add_epsilon.exit, label %174
 
@@ -17923,11 +17918,7 @@ bf_set_ui.exit.i:                                 ; preds = %152, %bf_set.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %158, i8 0, i64 16, i1 false)
   %159 = call fastcc i32 @bf_add_internal(ptr noundef nonnull %5, ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %2, i32 noundef %3, i32 noundef 0)
   %160 = icmp eq ptr %5, %0
-  br i1 %160, label %bf_add.exit.thread.i, label %161
-
-bf_add.exit.thread.i:                             ; preds = %bf_set_ui.exit.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
-  br label %167
+  br i1 %160, label %.sink.split.i, label %161
 
 161:                                              ; preds = %bf_set_ui.exit.i
   %162 = getelementptr inbounds i8, ptr %0, i64 32
@@ -17937,8 +17928,7 @@ bf_add.exit.thread.i:                             ; preds = %bf_set_ui.exit.i
 
 bf_add.exit.thread3.i:                            ; preds = %161
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
-  br label %167
+  br label %.sink.split.i
 
 bf_add.exit.i:                                    ; preds = %161
   %164 = load ptr, ptr %0, align 8
@@ -17956,9 +17946,13 @@ bf_add.exit.i._crit_edge:                         ; preds = %bf_add.exit.i
   %.pre = load ptr, ptr %148, align 8
   br label %167
 
-167:                                              ; preds = %bf_add.exit.i._crit_edge, %bf_add.exit.thread3.i, %bf_add.exit.thread.i
-  %168 = phi ptr [ %150, %bf_add.exit.thread.i ], [ %.pre, %bf_add.exit.i._crit_edge ], [ %150, %bf_add.exit.thread3.i ]
-  %169 = phi ptr [ %.val, %bf_add.exit.thread.i ], [ %.pre.pre.i, %bf_add.exit.i._crit_edge ], [ %.val, %bf_add.exit.thread3.i ]
+.sink.split.i:                                    ; preds = %bf_add.exit.thread3.i, %bf_set_ui.exit.i
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  br label %167
+
+167:                                              ; preds = %bf_add.exit.i._crit_edge, %.sink.split.i
+  %168 = phi ptr [ %.pre, %bf_add.exit.i._crit_edge ], [ %150, %.sink.split.i ]
+  %169 = phi ptr [ %.pre.pre.i, %bf_add.exit.i._crit_edge ], [ %.val, %.sink.split.i ]
   %.not6.i.i = icmp eq ptr %168, null
   br i1 %.not6.i.i, label %bf_add_epsilon.exit, label %170
 

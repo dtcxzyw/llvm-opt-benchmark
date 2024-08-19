@@ -28884,7 +28884,7 @@ if.then32:                                        ; preds = %if.then27
   %12 = load i64, ptr %11, align 8, !tbaa !27
   %shr.i.i86.mask = and i64 %12, -72057594037927936
   %cmp36 = icmp eq i64 %shr.i.i86.mask, 72057594037927936
-  br i1 %cmp36, label %cleanup, label %if.end39
+  br i1 %cmp36, label %cleanup63.sink.split, label %if.end39
 
 if.end39:                                         ; preds = %if.then32, %if.then27
   %13 = phi i64 [ %12, %if.then32 ], [ %10, %if.then27 ]
@@ -28898,14 +28898,14 @@ if.end39:                                         ; preds = %if.then32, %if.then
 if.then47:                                        ; preds = %if.end39, %if.end39
   %14 = load i64, ptr %row_id, align 8, !tbaa !35
   %call48 = call noundef zeroext i1 @_ZN6duckdb4Leaf6RemoveERNS_3ARTERSt17reference_wrapperINS_4NodeEEl(ptr noundef nonnull align 8 dereferenceable(401) %this, ptr noundef nonnull align 8 dereferenceable(8) %child_node, i64 noundef %14)
-  br i1 %call48, label %if.then49, label %cleanup
+  br i1 %call48, label %if.then49, label %cleanup63.sink.split
 
 if.then49:                                        ; preds = %if.then47
   %15 = load ptr, ptr %data.i, align 8, !tbaa !11
   %arrayidx.i93 = getelementptr inbounds i8, ptr %15, i64 %6
   %16 = load i8, ptr %arrayidx.i93, align 1, !tbaa !14
   call void @_ZN6duckdb4Node11DeleteChildERNS_3ARTERS0_S3_h(ptr noundef nonnull align 8 dereferenceable(401) %this, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %node, i8 noundef zeroext %16)
-  br label %cleanup
+  br label %cleanup63.sink.split
 
 if.end53:                                         ; preds = %if.end39
   call void @_ZNK6duckdb12optional_ptrINS_4NodeEE10CheckValidEv(ptr noundef nonnull align 8 dereferenceable(8) %child)
@@ -28918,16 +28918,14 @@ if.end53:                                         ; preds = %if.end39
   %20 = load ptr, ptr %child, align 8, !tbaa !81
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %20, align 8
   call void @_ZNK6duckdb4Node12ReplaceChildERKNS_3ARTEhS0_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(401) %this, i8 noundef zeroext %19, i64 %agg.tmp.sroa.0.0.copyload)
+  br label %cleanup63.sink.split
+
+cleanup63.sink.split:                             ; preds = %if.then32, %if.then47, %if.then49, %if.end53
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %child_node) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %temp_depth) #25
   br label %cleanup63
 
-cleanup:                                          ; preds = %if.then49, %if.then47, %if.then32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %child_node) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %temp_depth) #25
-  br label %cleanup63
-
-cleanup63:                                        ; preds = %cleanup, %if.end53, %if.end22
+cleanup63:                                        ; preds = %cleanup63.sink.split, %if.end22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %child) #25
   br label %cleanup64
 
@@ -29725,7 +29723,7 @@ if.then:                                          ; preds = %while.body
   %3 = load i64, ptr %2, align 8, !tbaa !27
   %shr.i.i32.mask = and i64 %3, -72057594037927936
   %cmp9 = icmp eq i64 %shr.i.i32.mask, 72057594037927936
-  br i1 %cmp9, label %cleanup28.thread, label %if.end11
+  br i1 %cmp9, label %cleanup29.sink.split, label %if.end11
 
 if.end11:                                         ; preds = %if.then, %while.body
   %4 = phi i64 [ %3, %if.then ], [ %1, %while.body ]
@@ -29733,8 +29731,8 @@ if.end11:                                         ; preds = %if.then, %while.bod
   %shr.i.i34 = lshr i64 %4, 56
   %conv.i.i35 = trunc nuw i64 %shr.i.i34 to i8
   switch i8 %conv.i.i35, label %if.end20 [
-    i8 2, label %cleanup28.thread
-    i8 7, label %cleanup28.thread
+    i8 2, label %cleanup29.sink.split
+    i8 7, label %cleanup29.sink.split
   ]
 
 if.end20:                                         ; preds = %if.end11
@@ -29750,13 +29748,7 @@ if.end20:                                         ; preds = %if.end11
 
 cleanup28.thread44:                               ; preds = %if.end20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %child) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %next_node) #25
-  br label %cleanup29
-
-cleanup28.thread:                                 ; preds = %if.end11, %if.end11, %if.then
-  %retval.sroa.0.2.ph = phi ptr [ %5, %if.end11 ], [ null, %if.then ], [ %5, %if.end11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %next_node) #25
-  br label %cleanup29
+  br label %cleanup29.sink.split
 
 cleanup28:                                        ; preds = %if.end20
   call void @_ZNK6duckdb12optional_ptrIKNS_4NodeEE10CheckValidEv(ptr noundef nonnull align 8 dereferenceable(8) %child)
@@ -29769,8 +29761,13 @@ cleanup28:                                        ; preds = %if.end20
   %tobool.i = icmp ugt i64 %10, 72057594037927935
   br i1 %tobool.i, label %while.body, label %cleanup29, !llvm.loop !468
 
-cleanup29:                                        ; preds = %cleanup28, %cleanup28.thread, %cleanup28.thread44, %entry
-  %retval.sroa.0.3 = phi ptr [ %retval.sroa.0.2.ph, %cleanup28.thread ], [ null, %cleanup28.thread44 ], [ null, %entry ], [ null, %cleanup28 ]
+cleanup29.sink.split:                             ; preds = %if.then, %if.end11, %if.end11, %cleanup28.thread44
+  %retval.sroa.0.3.ph = phi ptr [ null, %cleanup28.thread44 ], [ %5, %if.end11 ], [ null, %if.then ], [ %5, %if.end11 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %next_node) #25
+  br label %cleanup29
+
+cleanup29:                                        ; preds = %cleanup28, %cleanup29.sink.split, %entry
+  %retval.sroa.0.3 = phi ptr [ null, %entry ], [ %retval.sroa.0.3.ph, %cleanup29.sink.split ], [ null, %cleanup28 ]
   ret ptr %retval.sroa.0.3
 }
 

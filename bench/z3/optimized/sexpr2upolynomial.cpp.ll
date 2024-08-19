@@ -650,7 +650,7 @@ if.else78:                                        ; preds = %if.end11.i110
 if.else112.thread:                                ; preds = %if.else78.thread, %if.else78
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i151)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i201)
-  br label %_ZeqRK6symbolPKc.exit214.thread
+  br label %if.else136.sink.split
 
 if.end6.i154:                                     ; preds = %if.else78.thread300, %if.else78
   %55 = phi ptr [ %.pr298, %if.else78.thread300 ], [ %.pre293, %if.else78 ]
@@ -833,7 +833,7 @@ if.else112:                                       ; preds = %if.end11.i161
   %.pr262.pre = load ptr, ptr %op, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i201)
   %cmp.i202 = icmp eq ptr %.pr262.pre, null
-  br i1 %cmp.i202, label %_ZeqRK6symbolPKc.exit214.thread, label %if.end6.i204
+  br i1 %cmp.i202, label %if.else136.sink.split, label %if.end6.i204
 
 if.end6.i204:                                     ; preds = %if.else112.thread302, %if.else112
   %.pr262305 = phi ptr [ %55, %if.else112.thread302 ], [ %.pr262.pre, %if.else112 ]
@@ -850,18 +850,10 @@ if.end11.i211:                                    ; preds = %if.end6.i204
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i201)
   br i1 %cmp.i9.i213, label %if.then114, label %if.else136
 
-_ZeqRK6symbolPKc.exit214.thread:                  ; preds = %if.else112, %if.else112.thread
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i201)
-  br label %if.else136
-
 sub_0275:                                         ; preds = %if.end6.i204
   %81 = load i8, ptr %.pr262305, align 1
   %.not287 = icmp eq i8 %81, 94
-  br i1 %.not287, label %_ZeqRK6symbolPKc.exit214.tail, label %_ZeqRK6symbolPKc.exit214.tail.thread
-
-_ZeqRK6symbolPKc.exit214.tail.thread:             ; preds = %sub_0275
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i201)
-  br label %if.else136
+  br i1 %.not287, label %_ZeqRK6symbolPKc.exit214.tail, label %if.else136.sink.split
 
 _ZeqRK6symbolPKc.exit214.tail:                    ; preds = %sub_0275
   %82 = getelementptr inbounds i8, ptr %.pr262305, i64 1
@@ -955,7 +947,11 @@ _ZNK6vectorI3mpzLb0EjE4sizeEv.exit222:            ; preds = %if.end131, %if.end.
   call void @_ZN11upolynomial12core_manager2pwEjPK3mpzjR7svectorIS1_jE(ptr noundef nonnull align 8 dereferenceable(272) %m, i32 noundef %retval.0.i221, ptr noundef %93, i32 noundef %conv.i, ptr noundef nonnull align 8 dereferenceable(8) %p)
   br label %if.end195
 
-if.else136:                                       ; preds = %_ZeqRK6symbolPKc.exit214.tail.thread, %if.end11.i211, %_ZeqRK6symbolPKc.exit214.thread, %_ZeqRK6symbolPKc.exit214.tail
+if.else136.sink.split:                            ; preds = %sub_0275, %if.else112.thread, %if.else112
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i201)
+  br label %if.else136
+
+if.else136:                                       ; preds = %if.else136.sink.split, %if.end11.i211, %_ZeqRK6symbolPKc.exit214.tail
   %exception137 = call ptr @__cxa_allocate_exception(i64 48) #13
   invoke void @_ZN27sexpr2upolynomial_exceptionC2EPKcPK5sexpr(ptr noundef nonnull align 8 dereferenceable(48) %exception137, ptr noundef nonnull @.str.11, ptr noundef nonnull %s)
           to label %invoke.cont139 unwind label %lpad138

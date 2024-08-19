@@ -207,14 +207,14 @@ if.end31:                                         ; preds = %if.end23, %for.body
 
 for.inc:                                          ; preds = %if.end23, %if.then17
   %.sink = phi i32 [ %or20, %if.then17 ], [ 0, %if.end23 ]
-  %.sink39 = load i8, ptr %idx, align 1
-  %idxprom28 = zext i8 %.sink39 to i64
+  %12 = load i8, ptr %idx, align 1
+  %idxprom28 = zext i8 %12 to i64
   %arrayidx29 = getelementptr [128 x i32], ptr %ctab, i64 0, i64 %idxprom28
   store i32 %.sink, ptr %arrayidx29, align 4
   %inc35 = add nuw i32 %i.024, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = load i32, ptr %colors, align 4
-  %cmp8 = icmp ult i32 %inc35, %12
+  %13 = load i32, ptr %colors, align 4
+  %cmp8 = icmp ult i32 %inc35, %13
   br i1 %cmp8, label %for.body, label %for.end.loopexit, !llvm.loop !8
 
 for.end.loopexit:                                 ; preds = %for.inc
@@ -223,20 +223,20 @@ for.end.loopexit:                                 ; preds = %for.inc
 
 for.end:                                          ; preds = %for.end.loopexit, %for.cond.preheader
   %line.0.lcssa = phi i32 [ 1, %for.cond.preheader ], [ %indvars, %for.end.loopexit ]
-  %13 = load i32, ptr %width, align 4
-  %conv = trunc i32 %13 to i16
-  %14 = load i32, ptr %height, align 4
-  %conv37 = trunc i32 %14 to i16
+  %14 = load i32, ptr %width, align 4
+  %conv = trunc i32 %14 to i16
+  %15 = load i32, ptr %height, align 4
+  %conv37 = trunc i32 %15 to i16
   %cmp.i = icmp ugt i16 %conv, 512
   %cmp7.i = icmp ugt i16 %conv37, 512
   %or.cond.i = or i1 %cmp.i, %cmp7.i
   br i1 %or.cond.i, label %if.else, label %cursor_alloc.exit
 
 cursor_alloc.exit:                                ; preds = %for.end
-  %conv37.mask = and i32 %14, 1023
+  %conv37.mask = and i32 %15, 1023
   %conv1.i = zext nneg i32 %conv37.mask to i64
-  %15 = shl nuw nsw i16 %conv, 2
-  %mul.i = zext nneg i16 %15 to i64
+  %16 = shl nuw nsw i16 %conv, 2
+  %mul.i = zext nneg i16 %16 to i64
   %mul3.i = mul nuw nsw i64 %mul.i, %conv1.i
   %add.i = add nuw nsw i64 %mul3.i, 16
   %call.i = call noalias ptr @g_malloc0(i64 noundef %add.i) #14
@@ -245,14 +245,14 @@ cursor_alloc.exit:                                ; preds = %for.end
   store i16 %conv37, ptr %height10.i, align 2
   %refcount.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 1, ptr %refcount.i, align 4
-  %16 = load i32, ptr %height, align 4
-  %cmp4427.not = icmp eq i32 %16, 0
+  %17 = load i32, ptr %height, align 4
+  %cmp4427.not = icmp eq i32 %17, 0
   br i1 %cmp4427.not, label %return, label %for.cond47.preheader.lr.ph
 
 for.cond47.preheader.lr.ph:                       ; preds = %cursor_alloc.exit
   %data = getelementptr inbounds i8, ptr %call.i, i64 16
-  %17 = add i32 %line.0.lcssa, %16
-  %wide.trip.count = zext i32 %16 to i64
+  %18 = add i32 %line.0.lcssa, %17
+  %wide.trip.count = zext i32 %17 to i64
   br label %for.cond47.preheader
 
 if.else:                                          ; preds = %for.end
@@ -264,21 +264,21 @@ for.cond47.preheader:                             ; preds = %for.cond47.preheade
   %line.128 = phi i32 [ %line.0.lcssa, %for.cond47.preheader.lr.ph ], [ %inc65, %for.inc63 ]
   %idxprom51 = zext i32 %line.128 to i64
   %arrayidx52 = getelementptr ptr, ptr %xpm, i64 %idxprom51
-  %18 = load ptr, ptr %arrayidx52, align 8
+  %19 = load ptr, ptr %arrayidx52, align 8
   br label %for.body50
 
 for.body50:                                       ; preds = %for.cond47.preheader, %for.body50
   %indvars.iv33 = phi i64 [ 0, %for.cond47.preheader ], [ %indvars.iv.next34, %for.body50 ]
   %pixel.126 = phi i32 [ %pixel.030, %for.cond47.preheader ], [ %inc61, %for.body50 ]
-  %arrayidx54 = getelementptr i8, ptr %18, i64 %indvars.iv33
-  %19 = load i8, ptr %arrayidx54, align 1
-  store i8 %19, ptr %idx, align 1
-  %idxprom55 = zext i8 %19 to i64
+  %arrayidx54 = getelementptr i8, ptr %19, i64 %indvars.iv33
+  %20 = load i8, ptr %arrayidx54, align 1
+  store i8 %20, ptr %idx, align 1
+  %idxprom55 = zext i8 %20 to i64
   %arrayidx56 = getelementptr [128 x i32], ptr %ctab, i64 0, i64 %idxprom55
-  %20 = load i32, ptr %arrayidx56, align 4
+  %21 = load i32, ptr %arrayidx56, align 4
   %idxprom57 = zext i32 %pixel.126 to i64
   %arrayidx58 = getelementptr [0 x i32], ptr %data, i64 0, i64 %idxprom57
-  store i32 %20, ptr %arrayidx58, align 4
+  store i32 %21, ptr %arrayidx58, align 4
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %inc61 = add i32 %pixel.126, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next34, %wide.trip.count
@@ -286,7 +286,7 @@ for.body50:                                       ; preds = %for.cond47.preheade
 
 for.inc63:                                        ; preds = %for.body50
   %inc65 = add i32 %line.128, 1
-  %exitcond37.not = icmp eq i32 %inc65, %17
+  %exitcond37.not = icmp eq i32 %inc65, %18
   br i1 %exitcond37.not, label %return, label %for.cond47.preheader, !llvm.loop !10
 
 return:                                           ; preds = %for.inc63, %cursor_alloc.exit, %if.end31, %if.then5, %if.then

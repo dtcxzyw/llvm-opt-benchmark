@@ -8523,8 +8523,8 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u
   br label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5422aeb96860f374E.exit.thread"
 
 "_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5422aeb96860f374E.exit.thread": ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5422aeb96860f374E.exit", %2, %28
-  %storemerge = phi i64 [ 1, %28 ], [ 0, %2 ], [ 0, %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5422aeb96860f374E.exit" ]
-  store i64 %storemerge, ptr %0, align 8
+  %.sink = phi i64 [ 1, %28 ], [ 0, %2 ], [ 0, %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5422aeb96860f374E.exit" ]
+  store i64 %.sink, ptr %0, align 8
   ret void
 }
 
@@ -8742,8 +8742,8 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u
   br label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha90d5dfa6aa2f1c6E.llvm.11083375685992158394.exit.thread"
 
 "_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha90d5dfa6aa2f1c6E.llvm.11083375685992158394.exit.thread": ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha90d5dfa6aa2f1c6E.llvm.11083375685992158394.exit", %2, %27
-  %storemerge = phi i32 [ 1, %27 ], [ 0, %2 ], [ 0, %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha90d5dfa6aa2f1c6E.llvm.11083375685992158394.exit" ]
-  store i32 %storemerge, ptr %0, align 4
+  %.sink = phi i32 [ 1, %27 ], [ 0, %2 ], [ 0, %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha90d5dfa6aa2f1c6E.llvm.11083375685992158394.exit" ]
+  store i32 %.sink, ptr %0, align 4
   ret void
 }
 
@@ -31156,18 +31156,17 @@ define { ptr, ptr } @"_ZN103_$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper
 
 31:                                               ; preds = %26
   %32 = call { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString9normalize17h6671801282e94163E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !8113
   br label %"_ZN105_$LT$tokenizers..pre_tokenizers..byte_level..ByteLevel$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h4e78d0d077c79be2E.exit"
 
 33:                                               ; preds = %26
   %34 = extractvalue { ptr, ptr } %28, 1
   %35 = icmp ne ptr %34, null
   call void @llvm.assume(i1 %35)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !8113
   br label %"_ZN105_$LT$tokenizers..pre_tokenizers..byte_level..ByteLevel$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h4e78d0d077c79be2E.exit"
 
 "_ZN105_$LT$tokenizers..pre_tokenizers..byte_level..ByteLevel$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h4e78d0d077c79be2E.exit": ; preds = %31, %33
   %.merged.i2 = phi { ptr, ptr } [ %32, %31 ], [ %28, %33 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !8113
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   br label %"_ZN106_$LT$tokenizers..pre_tokenizers..bert..BertPreTokenizer$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h8a3e051e8afb2459E.exit"
 
@@ -31478,13 +31477,13 @@ define hidden void @"_ZN10tokenizers6models1_85_$LT$impl$u20$serde..de..Deserial
   %30 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %29, ptr %30, align 8
   store i64 5, ptr %0, align 8
-  br label %96
+  br label %100
 
-31:                                               ; preds = %86, %82, %80, %68, %64, %62, %50, %46, %44, %23, %19, %17, %97, %92, %74, %56, %39
+31:                                               ; preds = %86, %82, %80, %68, %64, %62, %50, %46, %44, %23, %19, %17, %96, %92, %74, %56, %39
   %32 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h33ae0778311c4cd4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #62
-          to label %104 unwind label %102
+          to label %103 unwind label %101
 
 33:                                               ; preds = %19, %23
   %.pr = load i64, ptr %10, align 8
@@ -31523,7 +31522,7 @@ define hidden void @"_ZN10tokenizers6models1_85_$LT$impl$u20$serde..de..Deserial
 
 41:                                               ; preds = %95, %77, %59, %40
   call fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h33ae0778311c4cd4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13)
-  br label %96
+  br label %100
 
 42:                                               ; preds = %39
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %11)
@@ -31700,7 +31699,7 @@ define hidden void @"_ZN10tokenizers6models1_85_$LT$impl$u20$serde..de..Deserial
   store i64 5, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %4)
   invoke fastcc void @"_ZN4core3ptr108drop_in_place$LT$core..result..Result$LT$tokenizers..models..ModelWrapper$C$serde_json..error..Error$GT$$GT$17h826ec8041e5636eeE"(ptr noalias noundef nonnull align 8 dereferenceable(312) %5)
-          to label %97 unwind label %31
+          to label %96 unwind label %31
 
 95:                                               ; preds = %90
   %.sroa.440.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
@@ -31711,33 +31710,29 @@ define hidden void @"_ZN10tokenizers6models1_85_$LT$impl$u20$serde..de..Deserial
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %5)
   br label %41
 
-96:                                               ; preds = %41, %27
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
-  br label %101
-
-97:                                               ; preds = %92
+96:                                               ; preds = %92
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %5)
-  %98 = invoke noundef nonnull align 8 ptr @"_ZN61_$LT$serde_json..error..Error$u20$as$u20$serde..de..Error$GT$6custom17h2db46ba8566f054fE"(ptr noalias noundef nonnull readonly align 1 @anon.6e35289721a268f20a503841f09911cb.114, i64 noundef 60)
-          to label %99 unwind label %31
+  %97 = invoke noundef nonnull align 8 ptr @"_ZN61_$LT$serde_json..error..Error$u20$as$u20$serde..de..Error$GT$6custom17h2db46ba8566f054fE"(ptr noalias noundef nonnull readonly align 1 @anon.6e35289721a268f20a503841f09911cb.114, i64 noundef 60)
+          to label %98 unwind label %31
 
-99:                                               ; preds = %97
-  %100 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %98, ptr %100, align 8
+98:                                               ; preds = %96
+  %99 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %97, ptr %99, align 8
   store i64 5, ptr %0, align 8
   call fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h33ae0778311c4cd4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
-  br label %101
+  br label %100
 
-101:                                              ; preds = %99, %96
+100:                                              ; preds = %27, %41, %98
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   ret void
 
-102:                                              ; preds = %31
-  %103 = landingpad { ptr, i32 }
+101:                                              ; preds = %31
+  %102 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hc8e2b17e1b6d1381E() #63
   unreachable
 
-104:                                              ; preds = %31
+103:                                              ; preds = %31
   resume { ptr, i32 } %32
 }
 

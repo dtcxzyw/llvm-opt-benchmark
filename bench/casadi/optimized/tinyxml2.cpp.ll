@@ -6058,17 +6058,13 @@ _ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i: ; preds = %10, %_ZN8tinyxml
   %24 = icmp eq i32 %23, 1
   br i1 %24, label %25, label %_ZN8tinyxml27XMLUtil5ToIntEPKcPi.exit
 
-_ZN8tinyxml27XMLUtil5ToIntEPKcPi.exit:            ; preds = %18, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br label %26
-
 25:                                               ; preds = %21, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br label %26
+  br label %_ZN8tinyxml27XMLUtil5ToIntEPKcPi.exit
 
-26:                                               ; preds = %_ZN8tinyxml27XMLUtil5ToIntEPKcPi.exit, %25
-  %27 = phi i32 [ 0, %25 ], [ 2, %_ZN8tinyxml27XMLUtil5ToIntEPKcPi.exit ]
-  ret i32 %27
+_ZN8tinyxml27XMLUtil5ToIntEPKcPi.exit:            ; preds = %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i, %18, %25
+  %26 = phi i32 [ 0, %25 ], [ 2, %18 ], [ 2, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  ret i32 %26
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
@@ -6163,22 +6159,17 @@ _ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i: ; preds = %11, %_ZN8tinyxml
   %23 = icmp eq i32 %22, 1
   br i1 %23, label %24, label %_ZN8tinyxml27XMLUtil7ToInt64EPKcPl.exit.thread
 
-_ZN8tinyxml27XMLUtil7ToInt64EPKcPl.exit.thread:   ; preds = %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i, %19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %25
-
 24:                                               ; preds = %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i, %19
   %.sink.in.i = phi ptr [ %3, %19 ], [ %4, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i ]
   %.sink.i = load i64, ptr %.sink.in.i, align 8
   store i64 %.sink.i, ptr %1, align 8
+  br label %_ZN8tinyxml27XMLUtil7ToInt64EPKcPl.exit.thread
+
+_ZN8tinyxml27XMLUtil7ToInt64EPKcPl.exit.thread:   ; preds = %19, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i, %24
+  %25 = phi i32 [ 0, %24 ], [ 2, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i ], [ 2, %19 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %25
-
-25:                                               ; preds = %_ZN8tinyxml27XMLUtil7ToInt64EPKcPl.exit.thread, %24
-  %26 = phi i32 [ 0, %24 ], [ 2, %_ZN8tinyxml27XMLUtil7ToInt64EPKcPl.exit.thread ]
-  ret i32 %26
+  ret i32 %25
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
@@ -6809,7 +6800,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8tinyxml210XMLElement17QueryIntAttri
   %5 = getelementptr inbounds i8, ptr %0, i64 112
   %.09.i = load ptr, ptr %5, align 8
   %.not10.i = icmp eq ptr %.09.i, null
-  br i1 %.not10.i, label %_ZNK8tinyxml212XMLAttribute13QueryIntValueEPi.exit, label %.lr.ph.i
+  br i1 %.not10.i, label %_ZNK8tinyxml210XMLElement13FindAttributeEPKc.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %11
   %.011.i = phi ptr [ %.0.i, %11 ], [ %.09.i, %3 ]
@@ -6827,7 +6818,7 @@ _ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit.i: ; preds = %.lr.ph.i
   %12 = getelementptr inbounds i8, ptr %.011.i, i64 64
   %.0.i = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %_ZNK8tinyxml212XMLAttribute13QueryIntValueEPi.exit, label %.lr.ph.i, !llvm.loop !24
+  br i1 %.not.i, label %_ZNK8tinyxml210XMLElement13FindAttributeEPKc.exit.thread, label %.lr.ph.i, !llvm.loop !24
 
 _ZNK8tinyxml210XMLElement13FindAttributeEPKc.exit: ; preds = %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit.i, %.lr.ph.i
   %13 = getelementptr inbounds i8, ptr %.011.i, i64 32
@@ -6865,7 +6856,7 @@ _ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i.i:   ; preds = %_ZN8tinyxml27XMLUti
 27:                                               ; preds = %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i.i
   %28 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %14, ptr noundef nonnull @.str.9, ptr noundef nonnull %4) #29
   %29 = icmp eq i32 %28, 1
-  br i1 %29, label %30, label %_ZN8tinyxml27XMLUtil5ToIntEPKcPi.exit.i
+  br i1 %29, label %30, label %_ZNK8tinyxml212XMLAttribute13QueryIntValueEPi.exit
 
 30:                                               ; preds = %27
   %31 = load i32, ptr %4, align 4
@@ -6875,18 +6866,18 @@ _ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i.i:   ; preds = %_ZN8tinyxml27XMLUti
 _ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i.i: ; preds = %19, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i.i, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPKcPi.exit.i.i.i, %_ZNK8tinyxml210XMLElement13FindAttributeEPKc.exit
   %32 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %14, ptr noundef nonnull @.str.2, ptr noundef %2) #29
   %33 = icmp eq i32 %32, 1
-  br i1 %33, label %34, label %_ZN8tinyxml27XMLUtil5ToIntEPKcPi.exit.i
-
-_ZN8tinyxml27XMLUtil5ToIntEPKcPi.exit.i:          ; preds = %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i.i, %27
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br label %_ZNK8tinyxml212XMLAttribute13QueryIntValueEPi.exit
+  br i1 %33, label %34, label %_ZNK8tinyxml212XMLAttribute13QueryIntValueEPi.exit
 
 34:                                               ; preds = %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i.i, %30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %_ZNK8tinyxml212XMLAttribute13QueryIntValueEPi.exit
 
-_ZNK8tinyxml212XMLAttribute13QueryIntValueEPi.exit: ; preds = %11, %3, %34, %_ZN8tinyxml27XMLUtil5ToIntEPKcPi.exit.i
-  %.0 = phi i32 [ 0, %34 ], [ 2, %_ZN8tinyxml27XMLUtil5ToIntEPKcPi.exit.i ], [ 1, %3 ], [ 1, %11 ]
+_ZNK8tinyxml212XMLAttribute13QueryIntValueEPi.exit: ; preds = %27, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i.i, %34
+  %35 = phi i32 [ 0, %34 ], [ 2, %27 ], [ 2, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i.i ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  br label %_ZNK8tinyxml210XMLElement13FindAttributeEPKc.exit.thread
+
+_ZNK8tinyxml210XMLElement13FindAttributeEPKc.exit.thread: ; preds = %11, %3, %_ZNK8tinyxml212XMLAttribute13QueryIntValueEPi.exit
+  %.0 = phi i32 [ %35, %_ZNK8tinyxml212XMLAttribute13QueryIntValueEPi.exit ], [ 1, %3 ], [ 1, %11 ]
   ret i32 %.0
 }
 
@@ -6986,7 +6977,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8tinyxml210XMLElement19QueryInt64Att
   %6 = getelementptr inbounds i8, ptr %0, i64 112
   %.09.i = load ptr, ptr %6, align 8
   %.not10.i = icmp eq ptr %.09.i, null
-  br i1 %.not10.i, label %_ZNK8tinyxml212XMLAttribute15QueryInt64ValueEPl.exit, label %.lr.ph.i
+  br i1 %.not10.i, label %_ZNK8tinyxml210XMLElement13FindAttributeEPKc.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %12
   %.011.i = phi ptr [ %.0.i, %12 ], [ %.09.i, %3 ]
@@ -7004,7 +6995,7 @@ _ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit.i: ; preds = %.lr.ph.i
   %13 = getelementptr inbounds i8, ptr %.011.i, i64 64
   %.0.i = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %_ZNK8tinyxml212XMLAttribute15QueryInt64ValueEPl.exit, label %.lr.ph.i, !llvm.loop !24
+  br i1 %.not.i, label %_ZNK8tinyxml210XMLElement13FindAttributeEPKc.exit.thread, label %.lr.ph.i, !llvm.loop !24
 
 _ZNK8tinyxml210XMLElement13FindAttributeEPKc.exit: ; preds = %_ZN8tinyxml27XMLUtil11StringEqualEPKcS2_i.exit.i, %.lr.ph.i
   %14 = getelementptr inbounds i8, ptr %.011.i, i64 32
@@ -7044,29 +7035,28 @@ _ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i.i:   ; preds = %_ZN8tinyxml27XMLUti
   store i64 0, ptr %4, align 8
   %29 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %15, ptr noundef nonnull @.str.16, ptr noundef nonnull %4) #29
   %30 = icmp eq i32 %29, 1
-  br i1 %30, label %33, label %_ZN8tinyxml27XMLUtil7ToInt64EPKcPl.exit.thread.i
+  br i1 %30, label %33, label %_ZNK8tinyxml212XMLAttribute15QueryInt64ValueEPl.exit
 
 _ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i.i: ; preds = %20, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i.i, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPKcPi.exit.i.i.i, %_ZNK8tinyxml210XMLElement13FindAttributeEPKc.exit
   store i64 0, ptr %5, align 8
   %31 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %15, ptr noundef nonnull @.str.7, ptr noundef nonnull %5) #29
   %32 = icmp eq i32 %31, 1
-  br i1 %32, label %33, label %_ZN8tinyxml27XMLUtil7ToInt64EPKcPl.exit.thread.i
-
-_ZN8tinyxml27XMLUtil7ToInt64EPKcPl.exit.thread.i: ; preds = %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i.i, %28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %_ZNK8tinyxml212XMLAttribute15QueryInt64ValueEPl.exit
+  br i1 %32, label %33, label %_ZNK8tinyxml212XMLAttribute15QueryInt64ValueEPl.exit
 
 33:                                               ; preds = %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i.i, %28
   %.sink.in.i.i = phi ptr [ %4, %28 ], [ %5, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i.i ]
   %.sink.i.i = load i64, ptr %.sink.in.i.i, align 8
   store i64 %.sink.i.i, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %_ZNK8tinyxml212XMLAttribute15QueryInt64ValueEPl.exit
 
-_ZNK8tinyxml212XMLAttribute15QueryInt64ValueEPl.exit: ; preds = %12, %3, %33, %_ZN8tinyxml27XMLUtil7ToInt64EPKcPl.exit.thread.i
-  %.0 = phi i32 [ 0, %33 ], [ 2, %_ZN8tinyxml27XMLUtil7ToInt64EPKcPl.exit.thread.i ], [ 1, %3 ], [ 1, %12 ]
+_ZNK8tinyxml212XMLAttribute15QueryInt64ValueEPl.exit: ; preds = %28, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i.i, %33
+  %34 = phi i32 [ 0, %33 ], [ 2, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i.i ], [ 2, %28 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  br label %_ZNK8tinyxml210XMLElement13FindAttributeEPKc.exit.thread
+
+_ZNK8tinyxml210XMLElement13FindAttributeEPKc.exit.thread: ; preds = %12, %3, %_ZNK8tinyxml212XMLAttribute15QueryInt64ValueEPl.exit
+  %.0 = phi i32 [ %34, %_ZNK8tinyxml212XMLAttribute15QueryInt64ValueEPl.exit ], [ 1, %3 ], [ 1, %12 ]
   ret i32 %.0
 }
 
@@ -7513,7 +7503,7 @@ _ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i:     ; preds = %_ZN8tinyxml27XMLUti
 32:                                               ; preds = %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i
   %33 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %.0.i, ptr noundef nonnull @.str.9, ptr noundef nonnull %3) #29
   %34 = icmp eq i32 %33, 1
-  br i1 %34, label %35, label %_ZN8tinyxml27XMLUtil5ToIntEPKcPi.exit
+  br i1 %34, label %35, label %.sink.split
 
 35:                                               ; preds = %32
   %36 = load i32, ptr %3, align 4
@@ -7523,18 +7513,18 @@ _ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i:     ; preds = %_ZN8tinyxml27XMLUti
 _ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i: ; preds = %24, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPKcPi.exit.i.i, %_ZNK8tinyxml27XMLNode5ValueEv.exit
   %37 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %.0.i, ptr noundef nonnull @.str.2, ptr noundef %1) #29
   %38 = icmp eq i32 %37, 1
-  br i1 %38, label %39, label %_ZN8tinyxml27XMLUtil5ToIntEPKcPi.exit
-
-_ZN8tinyxml27XMLUtil5ToIntEPKcPi.exit:            ; preds = %32, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br label %40
+  br i1 %38, label %39, label %.sink.split
 
 39:                                               ; preds = %35, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i, %32, %39
+  %.0.ph = phi i32 [ 0, %39 ], [ 16, %32 ], [ 16, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %40
 
-40:                                               ; preds = %39, %_ZN8tinyxml27XMLUtil5ToIntEPKcPi.exit, %2, %6
-  %.0 = phi i32 [ 17, %6 ], [ 17, %2 ], [ 0, %39 ], [ 16, %_ZN8tinyxml27XMLUtil5ToIntEPKcPi.exit ]
+40:                                               ; preds = %.sink.split, %2, %6
+  %.0 = phi i32 [ 17, %6 ], [ 17, %2 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 
@@ -7680,29 +7670,28 @@ _ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i:     ; preds = %_ZN8tinyxml27XMLUti
   store i64 0, ptr %3, align 8
   %34 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %.0.i, ptr noundef nonnull @.str.16, ptr noundef nonnull %3) #29
   %35 = icmp eq i32 %34, 1
-  br i1 %35, label %38, label %_ZN8tinyxml27XMLUtil7ToInt64EPKcPl.exit.thread
+  br i1 %35, label %38, label %.sink.split
 
 _ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i: ; preds = %25, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.i, %_ZN8tinyxml27XMLUtil14SkipWhiteSpaceEPKcPi.exit.i.i, %_ZNK8tinyxml27XMLNode5ValueEv.exit
   store i64 0, ptr %4, align 8
   %36 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %.0.i, ptr noundef nonnull @.str.7, ptr noundef nonnull %4) #29
   %37 = icmp eq i32 %36, 1
-  br i1 %37, label %38, label %_ZN8tinyxml27XMLUtil7ToInt64EPKcPl.exit.thread
-
-_ZN8tinyxml27XMLUtil7ToInt64EPKcPl.exit.thread:   ; preds = %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i, %33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %39
+  br i1 %37, label %38, label %.sink.split
 
 38:                                               ; preds = %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i, %33
   %.sink.in.i = phi ptr [ %3, %33 ], [ %4, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i ]
   %.sink.i = load i64, ptr %.sink.in.i, align 8
   store i64 %.sink.i, ptr %1, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %33, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i, %38
+  %.0.ph = phi i32 [ 0, %38 ], [ 16, %_ZN8tinyxml27XMLUtil11IsPrefixHexEPKc.exit.thread.i ], [ 16, %33 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %39
 
-39:                                               ; preds = %38, %_ZN8tinyxml27XMLUtil7ToInt64EPKcPl.exit.thread, %2, %7
-  %.0 = phi i32 [ 17, %7 ], [ 17, %2 ], [ 0, %38 ], [ 16, %_ZN8tinyxml27XMLUtil7ToInt64EPKcPl.exit.thread ]
+39:                                               ; preds = %.sink.split, %2, %7
+  %.0 = phi i32 [ 17, %7 ], [ 17, %2 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 

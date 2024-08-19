@@ -4403,13 +4403,13 @@ define internal fastcc range(i32 -1, 1) i32 @verifydiff(ptr noundef %0, ptr noun
 
 12:                                               ; preds = %10
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.522) #25
-  br label %118
+  br label %117
 
 13:                                               ; preds = %10, %4
   %.0 = phi i16 [ 1, %4 ], [ 0, %10 ]
   %14 = tail call ptr @createTempDir(ptr noundef %0)
   %.not54 = icmp eq ptr %14, null
-  br i1 %.not54, label %118, label %15
+  br i1 %.not54, label %117, label %15
 
 15:                                               ; preds = %13
   %.not55 = icmp eq ptr %2, null
@@ -4418,7 +4418,7 @@ define internal fastcc range(i32 -1, 1) i32 @verifydiff(ptr noundef %0, ptr noun
 16:                                               ; preds = %15
   %17 = tail call i32 @cl_cvdunpack(ptr noundef nonnull %2, ptr noundef nonnull %14, i1 noundef zeroext true) #25
   %.not56 = icmp eq i32 %17, 0
-  br i1 %.not56, label %62, label %18
+  br i1 %.not56, label %61, label %18
 
 18:                                               ; preds = %16
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.523, ptr noundef nonnull %2) #25
@@ -4434,7 +4434,7 @@ define internal fastcc range(i32 -1, 1) i32 @verifydiff(ptr noundef %0, ptr noun
 
 removeTempDir.exit:                               ; preds = %18, %22
   tail call void @free(ptr noundef nonnull %14) #25
-  br label %118
+  br label %117
 
 24:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
@@ -4508,178 +4508,172 @@ sub_2.i:                                          ; preds = %sub_121.i
   %52 = icmp eq i32 %51, -1
   br i1 %52, label %dircopy.exit, label %.backedge.i
 
-dircopy.exit.thread:                              ; preds = %27, %29
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7)
-  br label %56
-
 dircopy.exit.thread74:                            ; preds = %.backedge.i, %.preheader.i
   %53 = call i32 @closedir(ptr noundef nonnull %30)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7)
-  br label %62
+  br label %61
 
 dircopy.exit:                                     ; preds = %48
   %54 = call i32 @cli_rmdirs(ptr noundef %14) #25
   %55 = call i32 @closedir(ptr noundef nonnull %30)
+  br label %dircopy.exit.thread
+
+dircopy.exit.thread:                              ; preds = %29, %27, %dircopy.exit
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7)
-  br label %56
-
-56:                                               ; preds = %dircopy.exit, %dircopy.exit.thread
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.524, ptr noundef %3, ptr noundef nonnull %14) #25
-  %57 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str) #25
-  %58 = getelementptr inbounds i8, ptr %57, i64 32
-  %59 = load i32, ptr %58, align 8
-  %.not.i60 = icmp eq i32 %59, 0
-  br i1 %.not.i60, label %60, label %removeTempDir.exit61
+  %56 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str) #25
+  %57 = getelementptr inbounds i8, ptr %56, i64 32
+  %58 = load i32, ptr %57, align 8
+  %.not.i60 = icmp eq i32 %58, 0
+  br i1 %.not.i60, label %59, label %removeTempDir.exit61
 
-60:                                               ; preds = %56
-  %61 = call i32 @cli_rmdirs(ptr noundef %14) #25
+59:                                               ; preds = %dircopy.exit.thread
+  %60 = call i32 @cli_rmdirs(ptr noundef %14) #25
   br label %removeTempDir.exit61
 
-removeTempDir.exit61:                             ; preds = %56, %60
+removeTempDir.exit61:                             ; preds = %dircopy.exit.thread, %59
   call void @free(ptr noundef %14) #25
-  br label %118
+  br label %117
 
-62:                                               ; preds = %dircopy.exit.thread74, %16
-  %63 = call ptr @getcwd(ptr noundef nonnull %8, i64 noundef 512) #25
-  %.not57 = icmp eq ptr %63, null
-  br i1 %.not57, label %64, label %70
+61:                                               ; preds = %dircopy.exit.thread74, %16
+  %62 = call ptr @getcwd(ptr noundef nonnull %8, i64 noundef 512) #25
+  %.not57 = icmp eq ptr %62, null
+  br i1 %.not57, label %63, label %69
 
-64:                                               ; preds = %62
+63:                                               ; preds = %61
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.525) #25
-  %65 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str) #25
-  %66 = getelementptr inbounds i8, ptr %65, i64 32
-  %67 = load i32, ptr %66, align 8
-  %.not.i62 = icmp eq i32 %67, 0
-  br i1 %.not.i62, label %68, label %removeTempDir.exit63
+  %64 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str) #25
+  %65 = getelementptr inbounds i8, ptr %64, i64 32
+  %66 = load i32, ptr %65, align 8
+  %.not.i62 = icmp eq i32 %66, 0
+  br i1 %.not.i62, label %67, label %removeTempDir.exit63
 
-68:                                               ; preds = %64
-  %69 = call i32 @cli_rmdirs(ptr noundef %14) #25
+67:                                               ; preds = %63
+  %68 = call i32 @cli_rmdirs(ptr noundef %14) #25
   br label %removeTempDir.exit63
 
-removeTempDir.exit63:                             ; preds = %64, %68
+removeTempDir.exit63:                             ; preds = %63, %67
   call void @free(ptr noundef %14) #25
-  br label %118
+  br label %117
 
-70:                                               ; preds = %62
-  %71 = call i32 (ptr, i32, ...) @open(ptr noundef %1, i32 noundef 0) #25
-  %72 = icmp eq i32 %71, -1
-  br i1 %72, label %73, label %79
+69:                                               ; preds = %61
+  %70 = call i32 (ptr, i32, ...) @open(ptr noundef %1, i32 noundef 0) #25
+  %71 = icmp eq i32 %70, -1
+  br i1 %71, label %72, label %78
 
-73:                                               ; preds = %70
+72:                                               ; preds = %69
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.526, ptr noundef %1) #25
-  %74 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str) #25
-  %75 = getelementptr inbounds i8, ptr %74, i64 32
-  %76 = load i32, ptr %75, align 8
-  %.not.i64 = icmp eq i32 %76, 0
-  br i1 %.not.i64, label %77, label %removeTempDir.exit65
+  %73 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str) #25
+  %74 = getelementptr inbounds i8, ptr %73, i64 32
+  %75 = load i32, ptr %74, align 8
+  %.not.i64 = icmp eq i32 %75, 0
+  br i1 %.not.i64, label %76, label %removeTempDir.exit65
 
-77:                                               ; preds = %73
-  %78 = call i32 @cli_rmdirs(ptr noundef %14) #25
+76:                                               ; preds = %72
+  %77 = call i32 @cli_rmdirs(ptr noundef %14) #25
   br label %removeTempDir.exit65
 
-removeTempDir.exit65:                             ; preds = %73, %77
+removeTempDir.exit65:                             ; preds = %72, %76
   call void @free(ptr noundef %14) #25
-  br label %118
+  br label %117
 
-79:                                               ; preds = %70
-  %80 = call i32 @chdir(ptr noundef nonnull %14) #25
-  %81 = icmp eq i32 %80, -1
-  br i1 %81, label %82, label %89
+78:                                               ; preds = %69
+  %79 = call i32 @chdir(ptr noundef nonnull %14) #25
+  %80 = icmp eq i32 %79, -1
+  br i1 %80, label %81, label %88
 
-82:                                               ; preds = %79
+81:                                               ; preds = %78
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.527, ptr noundef nonnull %14) #25
-  %83 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str) #25
-  %84 = getelementptr inbounds i8, ptr %83, i64 32
-  %85 = load i32, ptr %84, align 8
-  %.not.i66 = icmp eq i32 %85, 0
-  br i1 %.not.i66, label %86, label %removeTempDir.exit67
+  %82 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str) #25
+  %83 = getelementptr inbounds i8, ptr %82, i64 32
+  %84 = load i32, ptr %83, align 8
+  %.not.i66 = icmp eq i32 %84, 0
+  br i1 %.not.i66, label %85, label %removeTempDir.exit67
 
-86:                                               ; preds = %82
-  %87 = call i32 @cli_rmdirs(ptr noundef %14) #25
+85:                                               ; preds = %81
+  %86 = call i32 @cli_rmdirs(ptr noundef %14) #25
   br label %removeTempDir.exit67
 
-removeTempDir.exit67:                             ; preds = %82, %86
+removeTempDir.exit67:                             ; preds = %81, %85
   call void @free(ptr noundef %14) #25
-  %88 = call i32 @close(i32 noundef %71) #25
-  br label %118
+  %87 = call i32 @close(i32 noundef %70) #25
+  br label %117
 
-89:                                               ; preds = %79
-  %90 = call i32 @cdiff_apply(i32 noundef %71, i16 noundef zeroext %.0) #25
-  %91 = icmp eq i32 %90, -1
-  br i1 %91, label %92, label %103
+88:                                               ; preds = %78
+  %89 = call i32 @cdiff_apply(i32 noundef %70, i16 noundef zeroext %.0) #25
+  %90 = icmp eq i32 %89, -1
+  br i1 %90, label %91, label %102
 
-92:                                               ; preds = %89
+91:                                               ; preds = %88
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.528, ptr noundef %1) #25
-  %93 = call i32 @chdir(ptr noundef nonnull %8) #25
-  %94 = icmp eq i32 %93, -1
-  br i1 %94, label %95, label %96
+  %92 = call i32 @chdir(ptr noundef nonnull %8) #25
+  %93 = icmp eq i32 %92, -1
+  br i1 %93, label %94, label %95
 
-95:                                               ; preds = %92
+94:                                               ; preds = %91
   call void (i32, ptr, ...) @mprintf(i32 noundef 4, ptr noundef nonnull @.str.527, ptr noundef nonnull %8) #25
-  br label %96
+  br label %95
 
-96:                                               ; preds = %95, %92
-  %97 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str) #25
-  %98 = getelementptr inbounds i8, ptr %97, i64 32
-  %99 = load i32, ptr %98, align 8
-  %.not.i68 = icmp eq i32 %99, 0
-  br i1 %.not.i68, label %100, label %removeTempDir.exit69
+95:                                               ; preds = %94, %91
+  %96 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str) #25
+  %97 = getelementptr inbounds i8, ptr %96, i64 32
+  %98 = load i32, ptr %97, align 8
+  %.not.i68 = icmp eq i32 %98, 0
+  br i1 %.not.i68, label %99, label %removeTempDir.exit69
 
-100:                                              ; preds = %96
-  %101 = call i32 @cli_rmdirs(ptr noundef %14) #25
+99:                                               ; preds = %95
+  %100 = call i32 @cli_rmdirs(ptr noundef %14) #25
   br label %removeTempDir.exit69
 
-removeTempDir.exit69:                             ; preds = %96, %100
+removeTempDir.exit69:                             ; preds = %95, %99
   call void @free(ptr noundef %14) #25
-  %102 = call i32 @close(i32 noundef %71) #25
-  br label %118
+  %101 = call i32 @close(i32 noundef %70) #25
+  br label %117
 
-103:                                              ; preds = %89
-  %104 = call i32 @close(i32 noundef %71) #25
-  %105 = call fastcc i32 @comparesha(ptr noundef %1)
-  %106 = call i32 @chdir(ptr noundef nonnull %8) #25
-  %107 = icmp eq i32 %106, -1
-  br i1 %107, label %108, label %109
+102:                                              ; preds = %88
+  %103 = call i32 @close(i32 noundef %70) #25
+  %104 = call fastcc i32 @comparesha(ptr noundef %1)
+  %105 = call i32 @chdir(ptr noundef nonnull %8) #25
+  %106 = icmp eq i32 %105, -1
+  br i1 %106, label %107, label %108
 
-108:                                              ; preds = %103
+107:                                              ; preds = %102
   call void (i32, ptr, ...) @mprintf(i32 noundef 4, ptr noundef nonnull @.str.527, ptr noundef nonnull %8) #25
-  br label %109
+  br label %108
 
-109:                                              ; preds = %108, %103
-  %110 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str) #25
-  %111 = getelementptr inbounds i8, ptr %110, i64 32
-  %112 = load i32, ptr %111, align 8
-  %.not.i70 = icmp eq i32 %112, 0
-  br i1 %.not.i70, label %113, label %removeTempDir.exit71
+108:                                              ; preds = %107, %102
+  %109 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str) #25
+  %110 = getelementptr inbounds i8, ptr %109, i64 32
+  %111 = load i32, ptr %110, align 8
+  %.not.i70 = icmp eq i32 %111, 0
+  br i1 %.not.i70, label %112, label %removeTempDir.exit71
 
-113:                                              ; preds = %109
-  %114 = call i32 @cli_rmdirs(ptr noundef %14) #25
+112:                                              ; preds = %108
+  %113 = call i32 @cli_rmdirs(ptr noundef %14) #25
   br label %removeTempDir.exit71
 
-removeTempDir.exit71:                             ; preds = %109, %113
+removeTempDir.exit71:                             ; preds = %108, %112
   call void @free(ptr noundef %14) #25
-  %.not58 = icmp eq i32 %105, 0
-  br i1 %.not58, label %115, label %118
+  %.not58 = icmp eq i32 %104, 0
+  br i1 %.not58, label %114, label %117
 
-115:                                              ; preds = %removeTempDir.exit71
-  br i1 %.not55, label %117, label %116
+114:                                              ; preds = %removeTempDir.exit71
+  br i1 %.not55, label %116, label %115
 
-116:                                              ; preds = %115
+115:                                              ; preds = %114
   call void (i32, ptr, ...) @mprintf(i32 noundef 0, ptr noundef nonnull @.str.529, ptr noundef %1, ptr noundef nonnull %2) #25
-  br label %118
+  br label %117
 
-117:                                              ; preds = %115
+116:                                              ; preds = %114
   call void (i32, ptr, ...) @mprintf(i32 noundef 0, ptr noundef nonnull @.str.530, ptr noundef %1) #25
-  br label %118
+  br label %117
 
-118:                                              ; preds = %removeTempDir.exit71, %117, %116, %13, %removeTempDir.exit69, %removeTempDir.exit67, %removeTempDir.exit65, %removeTempDir.exit63, %removeTempDir.exit61, %removeTempDir.exit, %12
-  %.049 = phi i32 [ -1, %removeTempDir.exit ], [ -1, %removeTempDir.exit65 ], [ -1, %removeTempDir.exit67 ], [ -1, %removeTempDir.exit69 ], [ -1, %removeTempDir.exit63 ], [ -1, %removeTempDir.exit61 ], [ -1, %12 ], [ -1, %13 ], [ 0, %116 ], [ 0, %117 ], [ -1, %removeTempDir.exit71 ]
+117:                                              ; preds = %removeTempDir.exit71, %116, %115, %13, %removeTempDir.exit69, %removeTempDir.exit67, %removeTempDir.exit65, %removeTempDir.exit63, %removeTempDir.exit61, %removeTempDir.exit, %12
+  %.049 = phi i32 [ -1, %removeTempDir.exit ], [ -1, %removeTempDir.exit65 ], [ -1, %removeTempDir.exit67 ], [ -1, %removeTempDir.exit69 ], [ -1, %removeTempDir.exit63 ], [ -1, %removeTempDir.exit61 ], [ -1, %12 ], [ -1, %13 ], [ 0, %115 ], [ 0, %116 ], [ -1, %removeTempDir.exit71 ]
   ret i32 %.049
 }
 

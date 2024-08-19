@@ -2673,7 +2673,7 @@ __rtc_read_time.exit:                             ; preds = %20, %24, %35, %41
   %110 = call fastcc i32 @__rtc_set_alarm(ptr noundef %0, ptr noundef nonnull %4)
   switch i32 %110, label %116 [
     i32 -62, label %111
-    i32 0, label %139
+    i32 0, label %__rtc_read_time.exit.thread.sink.split
   ]
 
 111:                                              ; preds = %106
@@ -2682,7 +2682,7 @@ __rtc_read_time.exit:                             ; preds = %20, %24, %35, %41
   %113 = getelementptr inbounds i8, ptr %0, i64 1168
   %114 = load ptr, ptr @system_wq, align 8
   %115 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %114, ptr noundef %113) #13
-  br label %139
+  br label %__rtc_read_time.exit.thread.sink.split
 
 116:                                              ; preds = %106
   %117 = call zeroext i1 @timerqueue_del(ptr noundef %5, ptr noundef %1) #13
@@ -2727,17 +2727,17 @@ __rtc_read_time.exit:                             ; preds = %20, %24, %35, %41
 
 138:                                              ; preds = %135, %131, %118, %116
   store i32 0, ptr %47, align 8
+  br label %__rtc_read_time.exit.thread.sink.split
+
+__rtc_read_time.exit.thread.sink.split:           ; preds = %106, %111, %138
+  %.ph = phi i32 [ %110, %138 ], [ 0, %111 ], [ %110, %106 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #13
   br label %__rtc_read_time.exit.thread
 
-139:                                              ; preds = %111, %106
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #13
-  br label %__rtc_read_time.exit.thread
-
-__rtc_read_time.exit.thread:                      ; preds = %11, %2, %15, %139, %138, %80, %__rtc_read_time.exit
-  %140 = phi i32 [ %44, %__rtc_read_time.exit ], [ %110, %138 ], [ 0, %139 ], [ 0, %80 ], [ -22, %11 ], [ -19, %2 ], [ %18, %15 ]
+__rtc_read_time.exit.thread:                      ; preds = %__rtc_read_time.exit.thread.sink.split, %11, %2, %15, %80, %__rtc_read_time.exit
+  %139 = phi i32 [ %44, %__rtc_read_time.exit ], [ 0, %80 ], [ -22, %11 ], [ -19, %2 ], [ %18, %15 ], [ %.ph, %__rtc_read_time.exit.thread.sink.split ]
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %3) #13
-  ret i32 %140
+  ret i32 %139
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

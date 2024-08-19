@@ -1154,11 +1154,7 @@ md5str.exit.i:                                    ; preds = %175
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.45) #13
   %328 = add nuw i32 %.0184306.i418, 1
   %exitcond316.not.i296 = icmp eq i32 %328, %146
-  br i1 %exitcond316.not.i296, label %is_parse_hdr.exit.thread298, label %163
-
-is_parse_hdr.exit.thread298:                      ; preds = %.thread
-  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %4)
-  br label %337
+  br i1 %exitcond316.not.i296, label %.sink.split, label %163
 
 is_parse_hdr.exit.thread.sink.split:              ; preds = %300, %287
   %.0182.i.ph.ph = phi i32 [ 25, %287 ], [ %290, %300 ]
@@ -1182,15 +1178,18 @@ is_parse_hdr.exit.thread:                         ; preds = %is_parse_hdr.exit.t
 is_parse_hdr.exit.thread173:                      ; preds = %127, %114, %110, %108
   %.str.34.sink = phi ptr [ @.str.30, %108 ], [ @.str.31, %110 ], [ @.str.32, %114 ], [ @.str.34, %127 ]
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.34.sink) #13
-  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %4)
-  br label %337
+  br label %.sink.split
 
 is_parse_hdr.exit:                                ; preds = %320
   call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %4)
   %336 = icmp eq i32 %.1188.i, 0
   br i1 %336, label %337, label %354
 
-337:                                              ; preds = %is_parse_hdr.exit.thread298, %is_parse_hdr.exit.thread173, %is_parse_hdr.exit
+.sink.split:                                      ; preds = %.thread, %is_parse_hdr.exit.thread173
+  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %4)
+  br label %337
+
+337:                                              ; preds = %.sink.split, %is_parse_hdr.exit
   br i1 %12, label %340, label %338
 
 338:                                              ; preds = %337

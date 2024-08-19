@@ -908,12 +908,7 @@ thread-pre-split.i.i:                             ; preds = %267
   %299 = phi i32 [ %.pr100.i.i, %thread-pre-split.i.i ], [ %.084.lcssa.i.i, %._crit_edge.i.i ], [ %260, %258 ]
   %.087.i.i = phi i32 [ %297, %thread-pre-split.i.i ], [ %285, %._crit_edge.i.i ], [ %.05188.i, %258 ]
   %.not98.i.i = icmp eq i32 %299, 0
-  br i1 %.not98.i.i, label %get_bit.exit.thread61.i, label %._crit_edge118.i.i
-
-get_bit.exit.thread61.i:                          ; preds = %298
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %429
+  br i1 %.not98.i.i, label %.sink.split.i, label %._crit_edge118.i.i
 
 ._crit_edge118.i.i:                               ; preds = %298
   %.pre.i.i = load ptr, ptr @data_array, align 8
@@ -1162,9 +1157,7 @@ get_bit.exit.thread71.i:                          ; preds = %416, %415
   %424 = phi i32 [ %.pre.i, %416 ], [ %.pre99.i, %415 ]
   %.149.ph.i = phi ptr [ %419, %416 ], [ null, %415 ]
   %425 = add i32 %424, %.253.i
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %429
+  br label %.sink.split.i
 
 get_bit.exit.i:                                   ; preds = %420, %.thread104.i.i
   %426 = phi i32 [ %.pre101.i, %.thread104.i.i ], [ %.pre100.i, %420 ]
@@ -1175,11 +1168,20 @@ get_bit.exit.i:                                   ; preds = %420, %.thread104.i.
   %428 = icmp eq ptr %.085.ph.i.i, null
   br i1 %428, label %isstrtype_ok.exit.thread.i, label %429
 
-429:                                              ; preds = %get_bit.exit.i, %get_bit.exit.thread71.i, %get_bit.exit.thread61.i
-  %.0.i69.i = phi ptr [ @.str.148, %get_bit.exit.thread61.i ], [ %.085.ph.i.i, %get_bit.exit.i ], [ %.085.i.i, %get_bit.exit.thread71.i ]
-  %.668.i = phi i32 [ 0, %get_bit.exit.thread61.i ], [ %.5.i, %get_bit.exit.i ], [ %.2.i, %get_bit.exit.thread71.i ]
-  %.25067.i = phi ptr [ null, %get_bit.exit.thread61.i ], [ %.149.i, %get_bit.exit.i ], [ %.149.ph.i, %get_bit.exit.thread71.i ]
-  %.35466.i = phi i32 [ %.087.i.i, %get_bit.exit.thread61.i ], [ %427, %get_bit.exit.i ], [ %425, %get_bit.exit.thread71.i ]
+.sink.split.i:                                    ; preds = %get_bit.exit.thread71.i, %298
+  %.0.i69.ph.i = phi ptr [ %.085.i.i, %get_bit.exit.thread71.i ], [ @.str.148, %298 ]
+  %.668.ph.i = phi i32 [ %.2.i, %get_bit.exit.thread71.i ], [ 0, %298 ]
+  %.25067.ph.i = phi ptr [ %.149.ph.i, %get_bit.exit.thread71.i ], [ null, %298 ]
+  %.35466.ph.i = phi i32 [ %425, %get_bit.exit.thread71.i ], [ %.087.i.i, %298 ]
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  br label %429
+
+429:                                              ; preds = %.sink.split.i, %get_bit.exit.i
+  %.0.i69.i = phi ptr [ %.085.ph.i.i, %get_bit.exit.i ], [ %.0.i69.ph.i, %.sink.split.i ]
+  %.668.i = phi i32 [ %.5.i, %get_bit.exit.i ], [ %.668.ph.i, %.sink.split.i ]
+  %.25067.i = phi ptr [ %.149.i, %get_bit.exit.i ], [ %.25067.ph.i, %.sink.split.i ]
+  %.35466.i = phi i32 [ %427, %get_bit.exit.i ], [ %.35466.ph.i, %.sink.split.i ]
   %430 = load ptr, ptr @data_array, align 8
   %431 = getelementptr %struct.iso_type, ptr %430, i64 %indvars.iv.i153
   %432 = load i32, ptr %431, align 4

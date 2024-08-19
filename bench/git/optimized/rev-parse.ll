@@ -2144,13 +2144,7 @@ if.end531:                                        ; preds = %if.end100
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %exclude.i)
   %call.i341 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %90, ptr noundef nonnull dereferenceable(1) @.str.137) #16
   %tobool.not.i342 = icmp eq ptr %call.i341, null
-  br i1 %tobool.not.i342, label %try_difference.exit.thread, label %if.end.i343
-
-try_difference.exit.thread:                       ; preds = %if.end531
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %start_oid.i)
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %end_oid.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %exclude.i)
-  br label %if.end535
+  br i1 %tobool.not.i342, label %if.end535, label %if.end.i343
 
 if.end.i343:                                      ; preds = %if.end531
   %add.ptr.i344 = getelementptr inbounds i8, ptr %call.i341, i64 2
@@ -2216,9 +2210,6 @@ while.body.i354:                                  ; preds = %if.end32.i, %while.
 
 try_difference.exit.thread493:                    ; preds = %if.end.i343, %if.then26.i352, %land.lhs.true20.i, %if.end17.i
   store i8 46, ptr %call.i341, align 1
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %start_oid.i)
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %end_oid.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %exclude.i)
   br label %if.end535
 
 try_difference.exit:                              ; preds = %while.body.i354, %if.then23.i350, %if.end32.i
@@ -2228,7 +2219,10 @@ try_difference.exit:                              ; preds = %while.body.i354, %i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %exclude.i)
   br label %for.inc566
 
-if.end535:                                        ; preds = %try_difference.exit.thread493, %try_difference.exit.thread
+if.end535:                                        ; preds = %if.end531, %try_difference.exit.thread493
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %start_oid.i)
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %end_oid.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %exclude.i)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %oid.i355)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i)
   %call.i356 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %90, ptr noundef nonnull dereferenceable(1) @.str.138) #16
@@ -2239,7 +2233,7 @@ if.then.i358:                                     ; preds = %if.end535
   %arrayidx.i = getelementptr inbounds i8, ptr %call.i356, i64 2
   %230 = load i8, ptr %arrayidx.i, align 1
   %tobool1.not.i359 = icmp eq i8 %230, 0
-  br i1 %tobool1.not.i359, label %if.end27.i, label %try_parent_shorthands.exit.thread
+  br i1 %tobool1.not.i359, label %if.end27.i, label %if.end539
 
 if.else.i366:                                     ; preds = %if.end535
   %call3.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %90, ptr noundef nonnull dereferenceable(1) @.str.139) #16
@@ -2250,12 +2244,12 @@ if.then5.i:                                       ; preds = %if.else.i366
   %arrayidx6.i = getelementptr inbounds i8, ptr %call3.i, i64 2
   %231 = load i8, ptr %arrayidx6.i, align 1
   %tobool7.not.i = icmp eq i8 %231, 0
-  br i1 %tobool7.not.i, label %if.end27.i, label %try_parent_shorthands.exit.thread
+  br i1 %tobool7.not.i, label %if.end27.i, label %if.end539
 
 if.else10.i:                                      ; preds = %if.else.i366
   %call11.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %90, ptr noundef nonnull dereferenceable(1) @.str.140) #16
   %tobool12.not.i = icmp eq ptr %call11.i, null
-  br i1 %tobool12.not.i, label %try_parent_shorthands.exit.thread, label %if.then13.i
+  br i1 %tobool12.not.i, label %if.end539, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.else10.i
   %arrayidx14.i = getelementptr inbounds i8, ptr %call11.i, i64 2
@@ -2271,7 +2265,7 @@ if.then16.i:                                      ; preds = %if.then13.i
   %cmp.i368 = icmp eq i8 %234, 0
   %tobool20.i = icmp ne i32 %conv.i367, 0
   %or.cond.i = select i1 %cmp.i368, i1 %tobool20.i, i1 false
-  br i1 %or.cond.i, label %if.end27.i, label %try_parent_shorthands.exit.thread
+  br i1 %or.cond.i, label %if.end27.i, label %if.end539
 
 if.end27.i:                                       ; preds = %if.then16.i, %if.then13.i, %if.then5.i, %if.then.i358
   %dotdot.0.i = phi ptr [ %call.i356, %if.then.i358 ], [ %call3.i, %if.then5.i ], [ %call11.i, %if.then16.i ], [ %call11.i, %if.then13.i ]
@@ -2370,15 +2364,8 @@ for.inc.i:                                        ; preds = %if.end56.i, %for.bo
   %tobool46.not.i = icmp eq ptr %parents.0.i, null
   br i1 %tobool46.not.i, label %try_parent_shorthands.exit, label %for.body.i, !llvm.loop !16
 
-try_parent_shorthands.exit.thread:                ; preds = %if.then.i358, %if.then5.i, %if.then16.i, %if.else10.i
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %oid.i355)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
-  br label %if.end539
-
 try_parent_shorthands.exit.thread499:             ; preds = %lor.lhs.false30.i, %if.end27.i, %land.lhs.true.i
   store i8 94, ptr %dotdot.0.i, align 1
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %oid.i355)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
   br label %if.end539
 
 try_parent_shorthands.exit:                       ; preds = %for.inc.i, %if.end56.us.i, %if.end44.i
@@ -2387,7 +2374,9 @@ try_parent_shorthands.exit:                       ; preds = %for.inc.i, %if.end5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
   br label %for.inc566
 
-if.end539:                                        ; preds = %try_parent_shorthands.exit.thread499, %try_parent_shorthands.exit.thread
+if.end539:                                        ; preds = %if.else10.i, %if.then16.i, %if.then5.i, %if.then.i358, %try_parent_shorthands.exit.thread499
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %oid.i355)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
   %242 = load i8, ptr %90, align 1
   %cmp541 = icmp eq i8 %242, 94
   %spec.select.idx = zext i1 %cmp541 to i64

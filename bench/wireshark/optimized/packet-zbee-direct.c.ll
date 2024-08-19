@@ -204,6 +204,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.128 = private unnamed_addr constant [31 x i8] c" (endpoint: %u, initiator: %s)\00", align 1
 @serv_tunnel_uuid = internal constant [16 x i8] c"?1\D5\8B7\B2 \81\F4E\00\00\FDx\D1\8B", align 16
 @char_tunnel_uuid = internal constant [16 x i8] c"?1\D5\8B7\B2 \81\F4E\01\00\FDx\D1\8B", align 16
+@switch.table.dissect_zb_direct_secur_common = private unnamed_addr constant [3 x ptr] [ptr @char_c25519_aesmmo_uuid, ptr @char_c25519_sha256_uuid, ptr @char_p256_uuid], align 8
+@switch.table.dissect_zb_direct_secur_common.4 = private unnamed_addr constant [3 x ptr] [ptr @hf_zb_direct_char_c25519_aesmmo, ptr @hf_zb_direct_char_c25519_sha256, ptr @hf_zb_direct_char_p256], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_zb_direct() local_unnamed_addr #0 {
@@ -1990,19 +1992,19 @@ zb_direct_decryption_needed.exit.i:               ; preds = %41, %39
   %90 = add i32 %.fr, 65532
   %91 = and i32 %90, 65535
   %92 = add nsw i32 %91, -4
-  br i1 %89, label %.thread.i.us, label %.preheader46.i.preheader
+  br i1 %89, label %decrypt_data.exit.thread.i.thread.i.us, label %.preheader46.i.preheader
 
-.thread.i.us:                                     ; preds = %.lr.ph.i, %.thread.i.us
-  %.227.i.us = phi ptr [ %96, %.thread.i.us ], [ %.05655.i, %.lr.ph.i ]
+decrypt_data.exit.thread.i.thread.i.us:           ; preds = %.lr.ph.i, %decrypt_data.exit.thread.i.thread.i.us
+  %.227.i.us = phi ptr [ %96, %decrypt_data.exit.thread.i.thread.i.us ], [ %.05655.i, %.lr.ph.i ]
   %93 = load ptr, ptr %0, align 8
   %94 = call ptr @tvb_get_ptr(ptr noundef %93, i32 noundef 0, i32 noundef %88) #10
   %95 = getelementptr inbounds i8, ptr %.227.i.us, i64 8
   %96 = load ptr, ptr %95, align 8
-  %.not116.i.us = icmp eq ptr %96, null
-  br i1 %.not116.i.us, label %._crit_edge.i, label %.thread.i.us, !llvm.loop !15
+  %.not115.i.us = icmp eq ptr %96, null
+  br i1 %.not115.i.us, label %._crit_edge.i, label %decrypt_data.exit.thread.i.thread.i.us, !llvm.loop !15
 
-.preheader46.i.preheader:                         ; preds = %.lr.ph.i, %131
-  %.227.i = phi ptr [ %133, %131 ], [ %.05655.i, %.lr.ph.i ]
+.preheader46.i.preheader:                         ; preds = %.lr.ph.i, %130
+  %.227.i = phi ptr [ %132, %130 ], [ %.05655.i, %.lr.ph.i ]
   %97 = load ptr, ptr %0, align 8
   %98 = call ptr @tvb_get_ptr(ptr noundef %97, i32 noundef 0, i32 noundef %88) #10
   %99 = load ptr, ptr %.227.i, align 8
@@ -2050,7 +2052,7 @@ create_auth_string.exit.i.i.i:                    ; preds = %107
   store i8 0, ptr %83, align 1
   %114 = call i32 @zbee_sec_ccm_decrypt(ptr noundef nonnull %112, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef %113, ptr noundef nonnull %13, i32 noundef 34, i32 noundef %92, i32 noundef 4) #10
   %.not20.i.i.i = icmp eq i32 %114, 0
-  br i1 %.not20.i.i.i, label %116, label %try_decrypt.exit.thread.i
+  br i1 %.not20.i.i.i, label %decrypt_data.exit.thread.i.i, label %try_decrypt.exit.thread.i
 
 try_decrypt.exit.thread.i:                        ; preds = %create_auth_string.exit.i.i.i
   %.mask.i.i.i = and i32 %92, 65535
@@ -2061,7 +2063,7 @@ try_decrypt.exit.thread.i:                        ; preds = %create_auth_string.
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %14)
   br label %.loopexit.i
 
-116:                                              ; preds = %create_auth_string.exit.i.i.i
+decrypt_data.exit.thread.i.i:                     ; preds = %create_auth_string.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 34, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %14)
@@ -2069,74 +2071,74 @@ try_decrypt.exit.thread.i:                        ; preds = %create_auth_string.
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %11, ptr noundef nonnull align 1 dereferenceable(13) @__const.decrypt_data.nonce, i64 13, i1 false)
-  %117 = load i32, ptr %98, align 1
-  store i32 %117, ptr %84, align 8
-  %118 = load i64, ptr %106, align 1
-  store i64 %118, ptr %11, align 8
-  br label %119
+  %116 = load i32, ptr %98, align 1
+  store i32 %116, ptr %84, align 8
+  %117 = load i64, ptr %106, align 1
+  store i64 %117, ptr %11, align 8
+  br label %118
 
-119:                                              ; preds = %119, %116
-  %.09.i.i.i22.i.i = phi i64 [ 0, %116 ], [ %123, %119 ]
-  %120 = xor i64 %.09.i.i.i22.i.i, -1
-  %gep.i.i.i23.i.i = getelementptr i8, ptr %invariant.gep.i.i.i.i.i, i64 %120
-  %121 = load i8, ptr %gep.i.i.i23.i.i, align 1
-  %122 = getelementptr i8, ptr %9, i64 %.09.i.i.i22.i.i
-  store i8 %121, ptr %122, align 1
-  %123 = add nuw nsw i64 %.09.i.i.i22.i.i, 1
-  %exitcond.not.i.i.i24.i.i = icmp eq i64 %123, 16
-  br i1 %exitcond.not.i.i.i24.i.i, label %memcpy_reverse.exit.i.i25.i.i, label %119, !llvm.loop !11
+118:                                              ; preds = %118, %decrypt_data.exit.thread.i.i
+  %.09.i.i.i22.i.i = phi i64 [ 0, %decrypt_data.exit.thread.i.i ], [ %122, %118 ]
+  %119 = xor i64 %.09.i.i.i22.i.i, -1
+  %gep.i.i.i23.i.i = getelementptr i8, ptr %invariant.gep.i.i.i.i.i, i64 %119
+  %120 = load i8, ptr %gep.i.i.i23.i.i, align 1
+  %121 = getelementptr i8, ptr %9, i64 %.09.i.i.i22.i.i
+  store i8 %120, ptr %121, align 1
+  %122 = add nuw nsw i64 %.09.i.i.i22.i.i, 1
+  %exitcond.not.i.i.i24.i.i = icmp eq i64 %122, 16
+  br i1 %exitcond.not.i.i.i24.i.i, label %memcpy_reverse.exit.i.i25.i.i, label %118, !llvm.loop !11
 
-memcpy_reverse.exit.i.i25.i.i:                    ; preds = %119
+memcpy_reverse.exit.i.i25.i.i:                    ; preds = %118
   store i8 0, ptr %85, align 16
-  br label %124
+  br label %123
 
-124:                                              ; preds = %124, %memcpy_reverse.exit.i.i25.i.i
-  %.09.i7.i.i27.i.i = phi i64 [ 0, %memcpy_reverse.exit.i.i25.i.i ], [ %128, %124 ]
-  %125 = xor i64 %.09.i7.i.i27.i.i, -1
-  %gep.i8.i.i28.i.i = getelementptr i8, ptr %invariant.gep.i6.i.i.i.i, i64 %125
-  %126 = load i8, ptr %gep.i8.i.i28.i.i, align 1
-  %127 = getelementptr i8, ptr %86, i64 %.09.i7.i.i27.i.i
-  store i8 %126, ptr %127, align 1
-  %128 = add nuw nsw i64 %.09.i7.i.i27.i.i, 1
-  %exitcond.not.i9.i.i29.i.i = icmp eq i64 %128, 16
-  br i1 %exitcond.not.i9.i.i29.i.i, label %create_auth_string.exit.i30.i.i, label %124, !llvm.loop !11
+123:                                              ; preds = %123, %memcpy_reverse.exit.i.i25.i.i
+  %.09.i7.i.i27.i.i = phi i64 [ 0, %memcpy_reverse.exit.i.i25.i.i ], [ %127, %123 ]
+  %124 = xor i64 %.09.i7.i.i27.i.i, -1
+  %gep.i8.i.i28.i.i = getelementptr i8, ptr %invariant.gep.i6.i.i.i.i, i64 %124
+  %125 = load i8, ptr %gep.i8.i.i28.i.i, align 1
+  %126 = getelementptr i8, ptr %86, i64 %.09.i7.i.i27.i.i
+  store i8 %125, ptr %126, align 1
+  %127 = add nuw nsw i64 %.09.i7.i.i27.i.i, 1
+  %exitcond.not.i9.i.i29.i.i = icmp eq i64 %127, 16
+  br i1 %exitcond.not.i9.i.i29.i.i, label %create_auth_string.exit.i30.i.i, label %123, !llvm.loop !11
 
-create_auth_string.exit.i30.i.i:                  ; preds = %124
+create_auth_string.exit.i30.i.i:                  ; preds = %123
   store i8 0, ptr %87, align 1
-  %129 = call i32 @zbee_sec_ccm_decrypt(ptr noundef nonnull %112, ptr noundef nonnull %11, ptr noundef nonnull %9, ptr noundef %113, ptr noundef nonnull %10, i32 noundef 34, i32 noundef %92, i32 noundef 4) #10
-  %.not20.i31.i.i = icmp eq i32 %129, 0
-  br i1 %.not20.i31.i.i, label %131, label %try_decrypt.exit.i
+  %128 = call i32 @zbee_sec_ccm_decrypt(ptr noundef nonnull %112, ptr noundef nonnull %11, ptr noundef nonnull %9, ptr noundef %113, ptr noundef nonnull %10, i32 noundef 34, i32 noundef %92, i32 noundef 4) #10
+  %.not20.i31.i.i = icmp eq i32 %128, 0
+  br i1 %.not20.i31.i.i, label %130, label %try_decrypt.exit.i
 
 try_decrypt.exit.i:                               ; preds = %create_auth_string.exit.i30.i.i
   %.mask.i32.i.i = and i32 %92, 65535
-  %130 = zext nneg i32 %.mask.i32.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr nonnull align 16 %10, i64 %130, i1 false)
+  %129 = zext nneg i32 %.mask.i32.i.i to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr nonnull align 16 %10, i64 %129, i1 false)
   call void @llvm.lifetime.end.p0(i64 34, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %11)
   br label %.loopexit.i
 
-131:                                              ; preds = %create_auth_string.exit.i30.i.i
+130:                                              ; preds = %create_auth_string.exit.i30.i.i
   call void @llvm.lifetime.end.p0(i64 34, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %11)
-  %132 = getelementptr inbounds i8, ptr %.227.i, i64 8
-  %133 = load ptr, ptr %132, align 8
+  %131 = getelementptr inbounds i8, ptr %.227.i, i64 8
+  %132 = load ptr, ptr %131, align 8
+  %.not115.i = icmp eq ptr %132, null
+  br i1 %.not115.i, label %._crit_edge.i, label %.preheader46.i.preheader, !llvm.loop !15
+
+._crit_edge.i:                                    ; preds = %77, %130, %decrypt_data.exit.thread.i.thread.i.us, %.critedge.i
+  %133 = load ptr, ptr @zbee_table_nwk_keyring, align 8
   %.not116.i = icmp eq ptr %133, null
-  br i1 %.not116.i, label %._crit_edge.i, label %.preheader46.i.preheader, !llvm.loop !15
+  br i1 %.not116.i, label %.loopexit.thread.i, label %134
 
-._crit_edge.i:                                    ; preds = %77, %131, %.thread.i.us, %.critedge.i
-  %134 = load ptr, ptr @zbee_table_nwk_keyring, align 8
-  %.not117.i = icmp eq ptr %134, null
-  br i1 %.not117.i, label %.loopexit.thread.i, label %135
+134:                                              ; preds = %._crit_edge.i
+  %135 = call ptr @g_hash_table_get_values(ptr noundef nonnull %133) #10
+  %.not45.i = icmp eq ptr %135, null
+  br i1 %.not45.i, label %.loopexit.thread.i, label %136
 
-135:                                              ; preds = %._crit_edge.i
-  %136 = call ptr @g_hash_table_get_values(ptr noundef nonnull %134) #10
-  %.not45.i = icmp eq ptr %136, null
-  br i1 %.not45.i, label %.loopexit.thread.i, label %137
-
-137:                                              ; preds = %135
-  %138 = getelementptr inbounds i8, ptr %8, i64 8
+136:                                              ; preds = %134
+  %137 = getelementptr inbounds i8, ptr %8, i64 8
   %.sroa.6.0.insert.ext.i = zext i8 %64 to i64
   %.sroa.6.0.insert.shift.i = shl nuw nsw i64 %.sroa.6.0.insert.ext.i, 40
   %.sroa.3.0.insert.ext.i = zext i8 %62 to i64
@@ -2150,121 +2152,121 @@ try_decrypt.exit.i:                               ; preds = %create_auth_string.
   %.sroa.0.0.insert.mask.i = or disjoint i64 %.sroa.3.0.insert.insert.i, %68
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.0.0.insert.mask.i, 1095199883264
   %invariant.gep.i.i.i.i = getelementptr i8, ptr %3, i64 16
-  %139 = getelementptr inbounds i8, ptr %6, i64 16
-  %140 = getelementptr inbounds i8, ptr %6, i64 17
+  %138 = getelementptr inbounds i8, ptr %6, i64 16
+  %139 = getelementptr inbounds i8, ptr %6, i64 17
   %invariant.gep.i6.i.i.i = getelementptr i8, ptr %4, i64 16
-  %141 = getelementptr inbounds i8, ptr %6, i64 33
-  %142 = load ptr, ptr %136, align 8
-  %143 = load ptr, ptr %142, align 8
-  %.not49.i = icmp eq ptr %143, null
+  %140 = getelementptr inbounds i8, ptr %6, i64 33
+  %141 = load ptr, ptr %135, align 8
+  %142 = load ptr, ptr %141, align 8
+  %.not49.i = icmp eq ptr %142, null
   br i1 %.not49.i, label %.loopexit.thread.i, label %.lr.ph33.i.preheader
 
-.lr.ph33.i.preheader:                             ; preds = %137
-  %144 = and i32 %.fr, 65535
-  %145 = icmp ult i16 %50, 8
-  %146 = add i32 %.fr, 65532
-  %147 = and i32 %146, 65535
-  %148 = add nsw i32 %147, -4
+.lr.ph33.i.preheader:                             ; preds = %136
+  %143 = and i32 %.fr, 65535
+  %144 = icmp ult i16 %50, 8
+  %145 = add i32 %.fr, 65532
+  %146 = and i32 %145, 65535
+  %147 = add nsw i32 %146, -4
   br label %.lr.ph33.i
 
-.lr.ph33.i:                                       ; preds = %.lr.ph33.i.preheader, %176
-  %.431.i = phi ptr [ %.5.i, %176 ], [ %143, %.lr.ph33.i.preheader ]
-  %149 = load i32, ptr @ignore_late_keys, align 4
-  %.not73.i = icmp eq i32 %149, 0
-  br i1 %.not73.i, label %155, label %150
+.lr.ph33.i:                                       ; preds = %.lr.ph33.i.preheader, %175
+  %.431.i = phi ptr [ %.5.i, %175 ], [ %142, %.lr.ph33.i.preheader ]
+  %148 = load i32, ptr @ignore_late_keys, align 4
+  %.not73.i = icmp eq i32 %148, 0
+  br i1 %.not73.i, label %154, label %149
 
-150:                                              ; preds = %.lr.ph33.i
-  %151 = load ptr, ptr %.431.i, align 8
-  %152 = load i32, ptr %151, align 8
-  %153 = load i32, ptr %31, align 4
-  %154 = icmp ugt i32 %152, %153
-  br i1 %154, label %155, label %176
+149:                                              ; preds = %.lr.ph33.i
+  %150 = load ptr, ptr %.431.i, align 8
+  %151 = load i32, ptr %150, align 8
+  %152 = load i32, ptr %31, align 4
+  %153 = icmp ugt i32 %151, %152
+  br i1 %153, label %154, label %175
 
-155:                                              ; preds = %150, %.lr.ph33.i
-  %156 = load ptr, ptr %0, align 8
-  %157 = call ptr @tvb_get_ptr(ptr noundef %156, i32 noundef 0, i32 noundef %144) #10
-  %158 = load ptr, ptr %.431.i, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 16
+154:                                              ; preds = %149, %.lr.ph33.i
+  %155 = load ptr, ptr %0, align 8
+  %156 = call ptr @tvb_get_ptr(ptr noundef %155, i32 noundef 0, i32 noundef %143) #10
+  %157 = load ptr, ptr %.431.i, align 8
+  %158 = getelementptr inbounds i8, ptr %157, i64 16
   call void @llvm.lifetime.start.p0(i64 34, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %8, ptr noundef nonnull align 1 dereferenceable(13) @__const.decrypt_data.nonce, i64 13, i1 false)
-  %160 = load i32, ptr %157, align 1
-  store i32 %160, ptr %138, align 8
+  %159 = load i32, ptr %156, align 1
+  store i32 %159, ptr %137, align 8
   store i64 %.sroa.0.0.insert.insert.i, ptr %8, align 8
-  br i1 %145, label %173, label %.preheader
+  br i1 %144, label %172, label %.preheader
 
-.preheader:                                       ; preds = %155, %.preheader
-  %.09.i.i.i.i = phi i64 [ %164, %.preheader ], [ 0, %155 ]
-  %161 = xor i64 %.09.i.i.i.i, -1
-  %gep.i.i.i.i = getelementptr i8, ptr %invariant.gep.i.i.i.i, i64 %161
-  %162 = load i8, ptr %gep.i.i.i.i, align 1
-  %163 = getelementptr i8, ptr %6, i64 %.09.i.i.i.i
-  store i8 %162, ptr %163, align 1
-  %164 = add nuw nsw i64 %.09.i.i.i.i, 1
-  %exitcond.not.i.i.i.i = icmp eq i64 %164, 16
+.preheader:                                       ; preds = %154, %.preheader
+  %.09.i.i.i.i = phi i64 [ %163, %.preheader ], [ 0, %154 ]
+  %160 = xor i64 %.09.i.i.i.i, -1
+  %gep.i.i.i.i = getelementptr i8, ptr %invariant.gep.i.i.i.i, i64 %160
+  %161 = load i8, ptr %gep.i.i.i.i, align 1
+  %162 = getelementptr i8, ptr %6, i64 %.09.i.i.i.i
+  store i8 %161, ptr %162, align 1
+  %163 = add nuw nsw i64 %.09.i.i.i.i, 1
+  %exitcond.not.i.i.i.i = icmp eq i64 %163, 16
   br i1 %exitcond.not.i.i.i.i, label %memcpy_reverse.exit.i.i.i, label %.preheader, !llvm.loop !11
 
 memcpy_reverse.exit.i.i.i:                        ; preds = %.preheader
-  store i8 0, ptr %139, align 16
-  br label %165
+  store i8 0, ptr %138, align 16
+  br label %164
 
-165:                                              ; preds = %165, %memcpy_reverse.exit.i.i.i
-  %.09.i7.i.i.i = phi i64 [ 0, %memcpy_reverse.exit.i.i.i ], [ %169, %165 ]
-  %166 = xor i64 %.09.i7.i.i.i, -1
-  %gep.i8.i.i.i = getelementptr i8, ptr %invariant.gep.i6.i.i.i, i64 %166
-  %167 = load i8, ptr %gep.i8.i.i.i, align 1
-  %168 = getelementptr i8, ptr %140, i64 %.09.i7.i.i.i
-  store i8 %167, ptr %168, align 1
-  %169 = add nuw nsw i64 %.09.i7.i.i.i, 1
-  %exitcond.not.i9.i.i.i = icmp eq i64 %169, 16
-  br i1 %exitcond.not.i9.i.i.i, label %create_auth_string.exit.i.i, label %165, !llvm.loop !11
+164:                                              ; preds = %164, %memcpy_reverse.exit.i.i.i
+  %.09.i7.i.i.i = phi i64 [ 0, %memcpy_reverse.exit.i.i.i ], [ %168, %164 ]
+  %165 = xor i64 %.09.i7.i.i.i, -1
+  %gep.i8.i.i.i = getelementptr i8, ptr %invariant.gep.i6.i.i.i, i64 %165
+  %166 = load i8, ptr %gep.i8.i.i.i, align 1
+  %167 = getelementptr i8, ptr %139, i64 %.09.i7.i.i.i
+  store i8 %166, ptr %167, align 1
+  %168 = add nuw nsw i64 %.09.i7.i.i.i, 1
+  %exitcond.not.i9.i.i.i = icmp eq i64 %168, 16
+  br i1 %exitcond.not.i9.i.i.i, label %create_auth_string.exit.i.i, label %164, !llvm.loop !11
 
-create_auth_string.exit.i.i:                      ; preds = %165
-  %170 = getelementptr i8, ptr %157, i64 4
-  store i8 0, ptr %141, align 1
-  %171 = call i32 @zbee_sec_ccm_decrypt(ptr noundef nonnull %159, ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef %170, ptr noundef nonnull %7, i32 noundef 34, i32 noundef %148, i32 noundef 4) #10
-  %.not20.i.i = icmp eq i32 %171, 0
-  br i1 %.not20.i.i, label %173, label %.thread68.i
+create_auth_string.exit.i.i:                      ; preds = %164
+  %169 = getelementptr i8, ptr %156, i64 4
+  store i8 0, ptr %140, align 1
+  %170 = call i32 @zbee_sec_ccm_decrypt(ptr noundef nonnull %158, ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef %169, ptr noundef nonnull %7, i32 noundef 34, i32 noundef %147, i32 noundef 4) #10
+  %.not20.i.i = icmp eq i32 %170, 0
+  br i1 %.not20.i.i, label %172, label %.thread67.i
 
-.thread68.i:                                      ; preds = %create_auth_string.exit.i.i
-  %.mask.i.i = and i32 %148, 65535
-  %172 = zext nneg i32 %.mask.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr nonnull align 16 %7, i64 %172, i1 false)
+.thread67.i:                                      ; preds = %create_auth_string.exit.i.i
+  %.mask.i.i = and i32 %147, 65535
+  %171 = zext nneg i32 %.mask.i.i to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr nonnull align 16 %7, i64 %171, i1 false)
   call void @llvm.lifetime.end.p0(i64 34, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %8)
   br label %.loopexit.i
 
-173:                                              ; preds = %create_auth_string.exit.i.i, %155
+172:                                              ; preds = %create_auth_string.exit.i.i, %154
   call void @llvm.lifetime.end.p0(i64 34, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %8)
-  %174 = getelementptr inbounds i8, ptr %.431.i, i64 8
-  %175 = load ptr, ptr %174, align 8
-  br label %176
+  %173 = getelementptr inbounds i8, ptr %.431.i, i64 8
+  %174 = load ptr, ptr %173, align 8
+  br label %175
 
-176:                                              ; preds = %173, %150
-  %.5.i = phi ptr [ %175, %173 ], [ %.431.i, %150 ]
-  %.not118.i = icmp eq ptr %.5.i, null
-  br i1 %.not118.i, label %.loopexit.thread.i, label %.lr.ph33.i, !llvm.loop !16
+175:                                              ; preds = %172, %149
+  %.5.i = phi ptr [ %174, %172 ], [ %.431.i, %149 ]
+  %.not117.i = icmp eq ptr %.5.i, null
+  br i1 %.not117.i, label %.loopexit.thread.i, label %.lr.ph33.i, !llvm.loop !16
 
-.loopexit.i:                                      ; preds = %.thread68.i, %try_decrypt.exit.i, %try_decrypt.exit.thread.i
-  %.pre-phi = phi i32 [ %.mask.i.i, %.thread68.i ], [ %.mask.i32.i.i, %try_decrypt.exit.i ], [ %.mask.i.i.i, %try_decrypt.exit.thread.i ]
-  %177 = load ptr, ptr %0, align 8
-  %178 = call ptr @tvb_new_child_real_data(ptr noundef %177, ptr noundef %53, i32 noundef %.pre-phi, i32 noundef %.pre-phi) #10
-  store ptr %178, ptr %0, align 8
-  call void @add_new_data_source(ptr noundef %1, ptr noundef %178, ptr noundef nonnull @.str.107) #10
+.loopexit.i:                                      ; preds = %.thread67.i, %try_decrypt.exit.i, %try_decrypt.exit.thread.i
+  %.pre-phi = phi i32 [ %.mask.i.i, %.thread67.i ], [ %.mask.i32.i.i, %try_decrypt.exit.i ], [ %.mask.i.i.i, %try_decrypt.exit.thread.i ]
+  %176 = load ptr, ptr %0, align 8
+  %177 = call ptr @tvb_new_child_real_data(ptr noundef %176, ptr noundef %53, i32 noundef %.pre-phi, i32 noundef %.pre-phi) #10
+  store ptr %177, ptr %0, align 8
+  call void @add_new_data_source(ptr noundef %1, ptr noundef %177, ptr noundef nonnull @.str.107) #10
   br label %zb_direct_decrypt.exit
 
-.loopexit.thread.i:                               ; preds = %176, %137, %135, %._crit_edge.i
-  %179 = load ptr, ptr %0, align 8
-  %180 = call i32 @tvb_reported_length(ptr noundef %179) #10
-  %181 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %28, ptr noundef nonnull @ei_zb_direct_crypt_error) #10
+.loopexit.thread.i:                               ; preds = %175, %136, %134, %._crit_edge.i
+  %178 = load ptr, ptr %0, align 8
+  %179 = call i32 @tvb_reported_length(ptr noundef %178) #10
+  %180 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %28, ptr noundef nonnull @ei_zb_direct_crypt_error) #10
   br label %zb_direct_decrypt.exit
 
 zb_direct_decrypt.exit:                           ; preds = %46, %.loopexit.thread.i, %.loopexit.i, %27, %26, %5
-  %.0 = phi i32 [ 0, %26 ], [ 0, %5 ], [ 0, %.loopexit.i ], [ %180, %.loopexit.thread.i ], [ 0, %27 ], [ 0, %46 ]
+  %.0 = phi i32 [ 0, %26 ], [ 0, %5 ], [ 0, %.loopexit.i ], [ %179, %.loopexit.thread.i ], [ 0, %27 ], [ 0, %46 ]
   ret i32 %.0
 }
 
@@ -2308,157 +2310,132 @@ declare i32 @zbee_sec_ccm_decrypt(ptr noundef, ptr noundef, ptr noundef, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_zb_direct_secur_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+switch.lookup:
+  %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %8 = tail call i32 @tvb_captured_length(ptr noundef %0) #10
-  switch i32 %4, label %default.unreachable [
-    i32 9, label %9
-    i32 10, label %15
-    i32 11, label %21
-  ]
-
-default.unreachable:                              ; preds = %5
-  unreachable
-
-9:                                                ; preds = %5
-  %10 = call fastcc i32 @dissect_zb_direct_common(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull @serv_secur_uuid, ptr noundef nonnull @char_c25519_aesmmo_uuid)
-  %11 = load ptr, ptr %7, align 8
-  %12 = load i32, ptr @hf_zb_direct_char_c25519_aesmmo, align 4
-  %13 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #10
+  %switch.tableidx = add nsw i32 %4, -9
+  %8 = sext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_zb_direct_secur_common, i64 0, i64 %8
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %9 = sext i32 %switch.tableidx to i64
+  %switch.gep1 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_zb_direct_secur_common.4, i64 0, i64 %9
+  %switch.load2 = load ptr, ptr %switch.gep1, align 8
+  %10 = call fastcc i32 @dissect_zb_direct_common(ptr noundef nonnull %5, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull @serv_secur_uuid, ptr noundef nonnull %switch.load)
+  %11 = load ptr, ptr %6, align 8
+  %12 = load i32, ptr %switch.load2, align 4
+  %13 = load ptr, ptr %5, align 8
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %13, i32 noundef %10, i32 noundef 0, i32 noundef 0) #10
-  br label %27
+  %.not.i = icmp eq ptr %14, null
+  br i1 %.not.i, label %proto_item_set_generated.exit, label %15
 
-15:                                               ; preds = %5
-  %16 = call fastcc i32 @dissect_zb_direct_common(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull @serv_secur_uuid, ptr noundef nonnull @char_c25519_sha256_uuid)
-  %17 = load ptr, ptr %7, align 8
-  %18 = load i32, ptr @hf_zb_direct_char_c25519_sha256, align 4
-  %19 = load ptr, ptr %6, align 8
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %18, ptr noundef %19, i32 noundef %16, i32 noundef 0, i32 noundef 0) #10
-  br label %27
+15:                                               ; preds = %switch.lookup
+  %16 = getelementptr inbounds i8, ptr %14, i64 32
+  %17 = load ptr, ptr %16, align 8
+  %.not5.i = icmp eq ptr %17, null
+  br i1 %.not5.i, label %proto_item_set_generated.exit, label %18
 
-21:                                               ; preds = %5
-  %22 = call fastcc i32 @dissect_zb_direct_common(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull @serv_secur_uuid, ptr noundef nonnull @char_p256_uuid)
-  %23 = load ptr, ptr %7, align 8
-  %24 = load i32, ptr @hf_zb_direct_char_p256, align 4
-  %25 = load ptr, ptr %6, align 8
-  %26 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %24, ptr noundef %25, i32 noundef %22, i32 noundef 0, i32 noundef 0) #10
-  br label %27
-
-27:                                               ; preds = %21, %15, %9
-  %28 = phi ptr [ %23, %21 ], [ %17, %15 ], [ %11, %9 ]
-  %29 = phi ptr [ %25, %21 ], [ %19, %15 ], [ %13, %9 ]
-  %30 = phi i32 [ %22, %21 ], [ %16, %15 ], [ %10, %9 ]
-  %.031 = phi ptr [ %26, %21 ], [ %20, %15 ], [ %14, %9 ]
-  %.not.i = icmp eq ptr %.031, null
-  br i1 %.not.i, label %proto_item_set_generated.exit, label %31
-
-31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %.031, i64 32
-  %33 = load ptr, ptr %32, align 8
-  %.not5.i = icmp eq ptr %33, null
-  br i1 %.not5.i, label %proto_item_set_generated.exit, label %34
-
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %33, i64 28
-  %36 = load i32, ptr %35, align 4
-  %37 = or i32 %36, 2
-  store i32 %37, ptr %35, align 4
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds i8, ptr %17, i64 28
+  %20 = load i32, ptr %19, align 4
+  %21 = or i32 %20, 2
+  store i32 %21, ptr %19, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %27, %31, %34
-  %38 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %29, i32 noundef %30) #10
-  %39 = load i32, ptr @hf_zb_direct_msg_type, align 4
-  %40 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %39, ptr noundef %29, i32 noundef %30, i32 noundef 1, i32 noundef -2147483648) #10
-  %41 = add i32 %30, 1
-  %42 = zext i8 %38 to i64
-  switch i8 %38, label %zb_direct_encryption_disable.exit [
-    i8 1, label %43
-    i8 4, label %55
+proto_item_set_generated.exit:                    ; preds = %switch.lookup, %15, %18
+  %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %13, i32 noundef %10) #10
+  %23 = load i32, ptr @hf_zb_direct_msg_type, align 4
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %23, ptr noundef %13, i32 noundef %10, i32 noundef 1, i32 noundef -2147483648) #10
+  %25 = add i32 %10, 1
+  %26 = zext i8 %22 to i64
+  switch i8 %22, label %zb_direct_encryption_disable.exit [
+    i8 1, label %27
+    i8 4, label %39
   ]
 
-43:                                               ; preds = %proto_item_set_generated.exit
-  %44 = load i16, ptr @enc_h, align 16
-  %45 = zext i16 %44 to i32
-  %46 = and i32 %45, 1
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %zb_direct_encryption_disable.exit.thread, label %48
+27:                                               ; preds = %proto_item_set_generated.exit
+  %28 = load i16, ptr @enc_h, align 16
+  %29 = zext i16 %28 to i32
+  %30 = and i32 %29, 1
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %zb_direct_encryption_disable.exit.thread, label %32
 
-48:                                               ; preds = %43
-  %49 = getelementptr inbounds i8, ptr %1, i64 20
-  %50 = load i32, ptr %49, align 4
-  %51 = add nsw i32 %45, -1
-  %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr [4096 x i32], ptr getelementptr inbounds (i8, ptr @enc_h, i64 4), i64 0, i64 %52
-  %54 = load i32, ptr %53, align 4
-  %.not.i34 = icmp ugt i32 %50, %54
+32:                                               ; preds = %27
+  %33 = getelementptr inbounds i8, ptr %1, i64 20
+  %34 = load i32, ptr %33, align 4
+  %35 = add nsw i32 %29, -1
+  %36 = zext nneg i32 %35 to i64
+  %37 = getelementptr [4096 x i32], ptr getelementptr inbounds (i8, ptr @enc_h, i64 4), i64 0, i64 %36
+  %38 = load i32, ptr %37, align 4
+  %.not.i34 = icmp ugt i32 %34, %38
   br i1 %.not.i34, label %zb_direct_encryption_disable.exit.thread.sink.split, label %zb_direct_encryption_disable.exit.thread
 
-55:                                               ; preds = %proto_item_set_generated.exit
-  %56 = load i16, ptr @enc_h, align 16
-  %57 = zext i16 %56 to i32
-  %58 = and i32 %57, 1
-  %.not.i35 = icmp eq i32 %58, 0
-  br i1 %.not.i35, label %59, label %zb_direct_encryption_disable.exit.thread
+39:                                               ; preds = %proto_item_set_generated.exit
+  %40 = load i16, ptr @enc_h, align 16
+  %41 = zext i16 %40 to i32
+  %42 = and i32 %41, 1
+  %.not.i35 = icmp eq i32 %42, 0
+  br i1 %.not.i35, label %43, label %zb_direct_encryption_disable.exit.thread
 
-59:                                               ; preds = %55
-  %.not9.i = icmp eq i16 %56, 0
+43:                                               ; preds = %39
+  %.not9.i = icmp eq i16 %40, 0
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %1, i64 20
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
-  br i1 %.not9.i, label %zb_direct_encryption_disable.exit.thread.sink.split, label %60
+  br i1 %.not9.i, label %zb_direct_encryption_disable.exit.thread.sink.split, label %44
 
-60:                                               ; preds = %59
-  %61 = add nsw i32 %57, -1
-  %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr [4096 x i32], ptr getelementptr inbounds (i8, ptr @enc_h, i64 4), i64 0, i64 %62
-  %64 = load i32, ptr %63, align 4
-  %.not10.i = icmp ule i32 %.pre.i, %64
-  %65 = icmp ugt i16 %56, 4095
-  %or.cond.i = or i1 %65, %.not10.i
+44:                                               ; preds = %43
+  %45 = add nsw i32 %41, -1
+  %46 = zext nneg i32 %45 to i64
+  %47 = getelementptr [4096 x i32], ptr getelementptr inbounds (i8, ptr @enc_h, i64 4), i64 0, i64 %46
+  %48 = load i32, ptr %47, align 4
+  %.not10.i = icmp ule i32 %.pre.i, %48
+  %49 = icmp ugt i16 %40, 4095
+  %or.cond.i = or i1 %49, %.not10.i
   br i1 %or.cond.i, label %zb_direct_encryption_disable.exit.thread, label %zb_direct_encryption_disable.exit.thread.sink.split
 
-zb_direct_encryption_disable.exit.thread.sink.split: ; preds = %59, %60, %48
-  %.sink42 = phi i16 [ %44, %48 ], [ %56, %60 ], [ %56, %59 ]
-  %.pre.i.sink = phi i32 [ %50, %48 ], [ %.pre.i, %60 ], [ %.pre.i, %59 ]
-  %66 = add i16 %.sink42, 1
-  store i16 %66, ptr @enc_h, align 16
-  %67 = zext i16 %.sink42 to i64
-  %68 = getelementptr [4096 x i32], ptr getelementptr inbounds (i8, ptr @enc_h, i64 4), i64 0, i64 %67
-  store i32 %.pre.i.sink, ptr %68, align 4
+zb_direct_encryption_disable.exit.thread.sink.split: ; preds = %43, %44, %32
+  %.sink45 = phi i16 [ %28, %32 ], [ %40, %44 ], [ %40, %43 ]
+  %.pre.i.sink = phi i32 [ %34, %32 ], [ %.pre.i, %44 ], [ %.pre.i, %43 ]
+  %50 = add i16 %.sink45, 1
+  store i16 %50, ptr @enc_h, align 16
+  %51 = zext i16 %.sink45 to i64
+  %52 = getelementptr [4096 x i32], ptr getelementptr inbounds (i8, ptr @enc_h, i64 4), i64 0, i64 %51
+  store i32 %.pre.i.sink, ptr %52, align 4
   br label %zb_direct_encryption_disable.exit.thread
 
-zb_direct_encryption_disable.exit.thread:         ; preds = %zb_direct_encryption_disable.exit.thread.sink.split, %60, %55, %48, %43
-  %69 = tail call i32 @dissect_zbee_tlvs(ptr noundef %29, ptr noundef %1, ptr noundef %28, i32 noundef %41, ptr noundef %3, i8 noundef zeroext 4, i32 noundef %4) #10
-  br label %72
+zb_direct_encryption_disable.exit.thread:         ; preds = %zb_direct_encryption_disable.exit.thread.sink.split, %44, %39, %32, %27
+  %53 = tail call i32 @dissect_zbee_tlvs(ptr noundef %13, ptr noundef %1, ptr noundef %11, i32 noundef %25, ptr noundef %3, i8 noundef zeroext 4, i32 noundef %4) #10
+  br label %56
 
 zb_direct_encryption_disable.exit:                ; preds = %proto_item_set_generated.exit
-  %70 = tail call i32 @dissect_zbee_tlvs(ptr noundef %29, ptr noundef %1, ptr noundef %28, i32 noundef %41, ptr noundef %3, i8 noundef zeroext 4, i32 noundef %4) #10
-  %71 = add i8 %38, -1
-  %or.cond = icmp ult i8 %71, 4
-  br i1 %or.cond, label %72, label %80
+  %54 = tail call i32 @dissect_zbee_tlvs(ptr noundef %13, ptr noundef %1, ptr noundef %11, i32 noundef %25, ptr noundef %3, i8 noundef zeroext 4, i32 noundef %4) #10
+  %55 = add i8 %22, -1
+  %or.cond = icmp ult i8 %55, 4
+  br i1 %or.cond, label %56, label %64
 
-72:                                               ; preds = %zb_direct_encryption_disable.exit.thread, %zb_direct_encryption_disable.exit
-  %73 = phi i32 [ %69, %zb_direct_encryption_disable.exit.thread ], [ %70, %zb_direct_encryption_disable.exit ]
-  %74 = add nuw nsw i64 %42, 4294967295
-  %75 = and i64 %74, 4294967295
-  %76 = getelementptr inbounds i8, ptr %1, i64 8
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr [5 x %struct._value_string], ptr @msg_type_str, i64 0, i64 %75, i32 1
-  %79 = load ptr, ptr %78, align 8
-  tail call void @col_set_str(ptr noundef %77, i32 noundef 25, ptr noundef %79) #10
-  br label %85
+56:                                               ; preds = %zb_direct_encryption_disable.exit.thread, %zb_direct_encryption_disable.exit
+  %57 = phi i32 [ %53, %zb_direct_encryption_disable.exit.thread ], [ %54, %zb_direct_encryption_disable.exit ]
+  %58 = add nuw nsw i64 %26, 4294967295
+  %59 = and i64 %58, 4294967295
+  %60 = getelementptr inbounds i8, ptr %1, i64 8
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr [5 x %struct._value_string], ptr @msg_type_str, i64 0, i64 %59, i32 1
+  %63 = load ptr, ptr %62, align 8
+  tail call void @col_set_str(ptr noundef %61, i32 noundef 25, ptr noundef %63) #10
+  br label %69
 
-80:                                               ; preds = %zb_direct_encryption_disable.exit
-  %81 = load i32, ptr @hf_zb_direct_unrecognized_msg, align 4
-  %82 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %81, ptr noundef %29, i32 noundef 0, i32 noundef %8, i32 noundef 0) #10
-  %83 = getelementptr inbounds i8, ptr %1, i64 8
-  %84 = load ptr, ptr %83, align 8
-  tail call void @col_set_str(ptr noundef %84, i32 noundef 25, ptr noundef nonnull @.str.112) #10
-  br label %85
+64:                                               ; preds = %zb_direct_encryption_disable.exit
+  %65 = load i32, ptr @hf_zb_direct_unrecognized_msg, align 4
+  %66 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %65, ptr noundef %13, i32 noundef 0, i32 noundef %7, i32 noundef 0) #10
+  %67 = getelementptr inbounds i8, ptr %1, i64 8
+  %68 = load ptr, ptr %67, align 8
+  tail call void @col_set_str(ptr noundef %68, i32 noundef 25, ptr noundef nonnull @.str.112) #10
+  br label %69
 
-85:                                               ; preds = %80, %72
-  %.0 = phi i32 [ %73, %72 ], [ %8, %80 ]
+69:                                               ; preds = %64, %56
+  %.0 = phi i32 [ %57, %56 ], [ %7, %64 ]
   ret i32 %.0
 }
 

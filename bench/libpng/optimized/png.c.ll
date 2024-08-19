@@ -4553,16 +4553,16 @@ png_pow10.exit165._crit_edge:                     ; preds = %png_pow10.exit165.t
   %.1129.lcssa = phi double [ %58, %png_pow10.exit165._crit_edge ], [ %61, %.lr.ph196 ]
   %or.cond3 = icmp ugt i32 %.lcssa193, -3
   %64 = sub nsw i32 0, %.lcssa193
-  %spec.select293 = select i1 %or.cond3, i32 0, i32 %.lcssa193
-  %spec.select294 = select i1 %or.cond3, i32 %64, i32 0
-  store i32 %spec.select293, ptr %6, align 4
+  %spec.select296 = select i1 %or.cond3, i32 0, i32 %.lcssa193
+  %spec.select297 = select i1 %or.cond3, i32 %64, i32 0
+  store i32 %spec.select296, ptr %6, align 4
   br label %65
 
 65:                                               ; preds = %144, %._crit_edge197
   %.2130 = phi double [ %.1129.lcssa, %._crit_edge197 ], [ %.3131177, %144 ]
   %.1114 = phi i64 [ %.0113, %._crit_edge197 ], [ %.12125, %144 ]
-  %.1108 = phi i32 [ %spec.select294, %._crit_edge197 ], [ %.5112, %144 ]
-  %.0103 = phi i32 [ %spec.select294, %._crit_edge197 ], [ %.3106, %144 ]
+  %.1108 = phi i32 [ %spec.select297, %._crit_edge197 ], [ %.5112, %144 ]
+  %.0103 = phi i32 [ %spec.select297, %._crit_edge197 ], [ %.3106, %144 ]
   %.096 = phi i32 [ 0, %._crit_edge197 ], [ %.4100, %144 ]
   %.194 = phi ptr [ %.093, %._crit_edge197 ], [ %.12, %144 ]
   %66 = fmul double %.2130, 1.000000e+01
@@ -4614,8 +4614,7 @@ png_pow10.exit165._crit_edge:                     ; preds = %png_pow10.exit165.t
 
 86:                                               ; preds = %.lr.ph204
   %87 = add nuw nsw i32 %83, 1
-  store i32 %87, ptr %6, align 4
-  br label %94
+  br label %.sink.split
 
 88:                                               ; preds = %.lr.ph204
   %89 = icmp eq i8 %85, 46
@@ -4625,15 +4624,22 @@ png_pow10.exit165._crit_edge:                     ; preds = %png_pow10.exit165.t
   %91 = getelementptr inbounds i8, ptr %.4203, i64 -2
   %92 = load i8, ptr %91, align 1
   %93 = add i64 %.4117201, 1
-  store i32 1, ptr %6, align 4
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %86, %90
+  %.sink = phi i32 [ 1, %90 ], [ %87, %86 ]
+  %.5118.ph = phi i64 [ %93, %90 ], [ %.4117201, %86 ]
+  %.095.in.ph = phi i8 [ %92, %90 ], [ %85, %86 ]
+  %.5.ph = phi ptr [ %91, %90 ], [ %84, %86 ]
+  store i32 %.sink, ptr %6, align 4
   br label %94
 
-94:                                               ; preds = %88, %90, %86
-  %95 = phi i32 [ %87, %86 ], [ 1, %90 ], [ %82, %88 ]
-  %96 = phi i32 [ %87, %86 ], [ 1, %90 ], [ -1, %88 ]
-  %.5118 = phi i64 [ %.4117201, %86 ], [ %93, %90 ], [ %.4117201, %88 ]
-  %.095.in = phi i8 [ %85, %86 ], [ %92, %90 ], [ %85, %88 ]
-  %.5 = phi ptr [ %84, %86 ], [ %91, %90 ], [ %84, %88 ]
+94:                                               ; preds = %.sink.split, %88
+  %95 = phi i32 [ %82, %88 ], [ %.sink, %.sink.split ]
+  %96 = phi i32 [ -1, %88 ], [ %.sink, %.sink.split ]
+  %.5118 = phi i64 [ %.4117201, %88 ], [ %.5118.ph, %.sink.split ]
+  %.095.in = phi i8 [ %85, %88 ], [ %.095.in.ph, %.sink.split ]
+  %.5 = phi ptr [ %84, %88 ], [ %.5.ph, %.sink.split ]
   %.095 = sext i8 %.095.in to i32
   %97 = add i32 %.399202, -1
   %98 = add nsw i32 %.095, -47
@@ -4663,17 +4669,22 @@ png_pow10.exit165._crit_edge:                     ; preds = %png_pow10.exit165.t
 
 109:                                              ; preds = %105
   %110 = add i64 %.4117.lcssa255, 1
-  store i32 1, ptr %6, align 4
-  br label %.thread.thread
+  br label %.thread.thread.sink.split
 
 111:                                              ; preds = %._crit_edge205.thread
   %112 = add nuw nsw i32 %103, 1
-  store i32 %112, ptr %6, align 4
+  br label %.thread.thread.sink.split
+
+.thread.thread.sink.split:                        ; preds = %109, %111
+  %.sink283 = phi i32 [ %112, %111 ], [ 1, %109 ]
+  %.6119.ph = phi i64 [ %.4117.lcssa255, %111 ], [ %110, %109 ]
+  %.6.ph = phi ptr [ %.4.lcssa257, %111 ], [ %106, %109 ]
+  store i32 %.sink283, ptr %6, align 4
   br label %.thread.thread
 
-.thread.thread:                                   ; preds = %111, %109, %105
-  %.6119 = phi i64 [ %110, %109 ], [ %.4117.lcssa255, %105 ], [ %.4117.lcssa255, %111 ]
-  %.6 = phi ptr [ %106, %109 ], [ %106, %105 ], [ %.4.lcssa257, %111 ]
+.thread.thread:                                   ; preds = %.thread.thread.sink.split, %105
+  %.6119 = phi i64 [ %.4117.lcssa255, %105 ], [ %.6119.ph, %.thread.thread.sink.split ]
+  %.6 = phi ptr [ %106, %105 ], [ %.6.ph, %.thread.thread.sink.split ]
   store double 1.000000e+00, ptr %8, align 8
   br label %._crit_edge215
 
@@ -4859,8 +4870,8 @@ thread-pre-split:                                 ; preds = %._crit_edge205, %71
   br i1 %179, label %.preheader185, label %190
 
 ._crit_edge223.thread:                            ; preds = %170
-  %.not282 = icmp eq i64 %.13126, 0
-  br i1 %.not282, label %190, label %._crit_edge233
+  %.not285 = icmp eq i64 %.13126, 0
+  br i1 %.not285, label %190, label %._crit_edge233
 
 .preheader185:                                    ; preds = %._crit_edge223
   %.not149225 = icmp eq i32 %174, 0
@@ -4898,8 +4909,8 @@ thread-pre-split:                                 ; preds = %._crit_edge205, %71
   unreachable
 
 ._crit_edge233:                                   ; preds = %.lr.ph228, %.lr.ph232, %.preheader185, %._crit_edge223.thread, %.preheader, %187, %186
-  %.sink = phi ptr [ %189, %187 ], [ %185, %186 ], [ %.12, %.preheader ], [ %.14, %.preheader185 ], [ %.14, %._crit_edge223.thread ], [ %155, %.lr.ph232 ], [ %183, %.lr.ph228 ]
-  store i8 0, ptr %.sink, align 1
+  %.sink284 = phi ptr [ %189, %187 ], [ %185, %186 ], [ %.12, %.preheader ], [ %.14, %.preheader185 ], [ %.14, %._crit_edge223.thread ], [ %155, %.lr.ph232 ], [ %183, %.lr.ph228 ]
+  store i8 0, ptr %.sink284, align 1
   ret void
 }
 

@@ -954,11 +954,7 @@ for.end:                                          ; preds = %for.cond, %for.cond
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.i)
   %call17.i = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call.i) #6
   %cmp8.i = icmp sgt i32 %call17.i, 0
-  br i1 %cmp8.i, label %for.body.i, label %i2d_name_canon.exit.thread57
-
-i2d_name_canon.exit.thread57:                     ; preds = %for.end
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.i)
-  br label %if.end53
+  br i1 %cmp8.i, label %for.body.i, label %if.end53
 
 for.body.i:                                       ; preds = %for.end, %if.end.i
   %i.010.i = phi i32 [ %inc.i31, %if.end.i ], [ 0, %for.end ]
@@ -978,14 +974,11 @@ if.end.i:                                         ; preds = %for.body.i
   %inc.i31 = add nuw nsw i32 %i.010.i, 1
   %call1.i32 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %call.i) #6
   %cmp.i33 = icmp slt i32 %inc.i31, %call1.i32
-  br i1 %cmp.i33, label %for.body.i, label %i2d_name_canon.exit, !llvm.loop !13
+  br i1 %cmp.i33, label %for.body.i, label %if.end53, !llvm.loop !13
 
-i2d_name_canon.exit:                              ; preds = %if.end.i
+if.end53:                                         ; preds = %if.end.i, %for.end
+  %retval.0.i3060 = phi i32 [ 0, %for.end ], [ %add.i, %if.end.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.i)
-  br label %if.end53
-
-if.end53:                                         ; preds = %i2d_name_canon.exit, %i2d_name_canon.exit.thread57
-  %retval.0.i3060 = phi i32 [ 0, %i2d_name_canon.exit.thread57 ], [ %add.i, %i2d_name_canon.exit ]
   %canon_enclen54 = getelementptr inbounds i8, ptr %a, i64 32
   store i32 %retval.0.i3060, ptr %canon_enclen54, align 8
   %conv = zext nneg i32 %retval.0.i3060 to i64

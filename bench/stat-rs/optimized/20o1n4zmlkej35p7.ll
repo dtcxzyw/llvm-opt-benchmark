@@ -1071,9 +1071,9 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   call void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h20486de368571af5E"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %7, ptr noundef nonnull %8, i64 noundef %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2)
   %14 = load i64, ptr %7, align 8, !range !8, !noundef !4
   %trunc = trunc nuw i64 %14 to i1
-  br i1 %trunc, label %30, label %16
+  br i1 %trunc, label %29, label %16
 
-15:                                               ; preds = %30, %10
+15:                                               ; preds = %29, %10
   ret void
 
 16:                                               ; preds = %11
@@ -1095,25 +1095,21 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   store i64 %23, ptr %21, align 8, !noalias !204
   %24 = load i8, ptr %6, align 1, !range !207, !noalias !204, !noundef !4
   %25 = trunc nuw i8 %24 to i1
-  br i1 %25, label %27, label %26
+  br i1 %25, label %26, label %"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$C$V$C$A$GT$9remove_kv17ha29c93801fc9f68cE.exit"
 
 26:                                               ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !204
-  br label %"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$C$V$C$A$GT$9remove_kv17ha29c93801fc9f68cE.exit"
-
-27:                                               ; preds = %16
   call void @"_ZN5alloc11collections5btree4node127NodeRef$LT$alloc..collections..btree..node..marker..Owned$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$18pop_internal_level17h6c0ee2f93a68ecaaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1), !noalias !204
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !204
   br label %"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$C$V$C$A$GT$9remove_kv17ha29c93801fc9f68cE.exit"
 
-"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$C$V$C$A$GT$9remove_kv17ha29c93801fc9f68cE.exit": ; preds = %26, %27
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
-  store double %18, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %20, ptr %29, align 8
-  br label %30
+"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$C$V$C$A$GT$9remove_kv17ha29c93801fc9f68cE.exit": ; preds = %16, %26
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !204
+  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  store double %18, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %20, ptr %28, align 8
+  br label %29
 
-30:                                               ; preds = %11, %"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$C$V$C$A$GT$9remove_kv17ha29c93801fc9f68cE.exit"
+29:                                               ; preds = %11, %"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$C$V$C$A$GT$9remove_kv17ha29c93801fc9f68cE.exit"
   %storemerge = phi i64 [ 1, %"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$C$V$C$A$GT$9remove_kv17ha29c93801fc9f68cE.exit" ], [ 0, %11 ]
   store i64 %storemerge, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
@@ -1313,7 +1309,7 @@ define hidden { i64, i64 } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V
   call void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h20486de368571af5E"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %6, ptr noundef nonnull %7, i64 noundef %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1), !noalias !229
   %12 = load i64, ptr %6, align 8, !range !8, !noalias !228, !noundef !4
   %trunc.i = trunc nuw i64 %12 to i1
-  br i1 %trunc.i, label %"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$C$V$C$A$GT$9remove_kv17ha29c93801fc9f68cE.exit.i", label %13
+  br i1 %trunc.i, label %23, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %6, i64 8
@@ -1333,26 +1329,25 @@ define hidden { i64, i64 } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V
   store i64 %19, ptr %17, align 8, !alias.scope !222, !noalias !234
   %20 = load i8, ptr %5, align 1, !range !207, !noalias !230, !noundef !4
   %21 = trunc nuw i8 %20 to i1
-  br i1 %21, label %23, label %22
+  br i1 %21, label %22, label %"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$C$V$C$A$GT$9remove_kv17ha29c93801fc9f68cE.exit.i"
 
 22:                                               ; preds = %13
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !230
-  br label %"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$C$V$C$A$GT$9remove_kv17ha29c93801fc9f68cE.exit.i"
-
-23:                                               ; preds = %13
   call void @"_ZN5alloc11collections5btree4node127NodeRef$LT$alloc..collections..btree..node..marker..Owned$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$18pop_internal_level17h6c0ee2f93a68ecaaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0), !noalias !235
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !230
   br label %"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$C$V$C$A$GT$9remove_kv17ha29c93801fc9f68cE.exit.i"
 
-"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$C$V$C$A$GT$9remove_kv17ha29c93801fc9f68cE.exit.i": ; preds = %22, %23, %9
-  %.sroa.6.0 = phi i64 [ undef, %9 ], [ %16, %23 ], [ %16, %22 ]
+"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$C$V$C$A$GT$9remove_kv17ha29c93801fc9f68cE.exit.i": ; preds = %22, %13
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !230
+  br label %23
+
+23:                                               ; preds = %"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$C$V$C$A$GT$9remove_kv17ha29c93801fc9f68cE.exit.i", %9
+  %.sroa.6.0 = phi i64 [ undef, %9 ], [ %16, %"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$C$V$C$A$GT$9remove_kv17ha29c93801fc9f68cE.exit.i" ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !228
   %24 = xor i64 %12, 1
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h10b077e809fa5fcfE.llvm.7371537965014501254.exit"
 
-"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h10b077e809fa5fcfE.llvm.7371537965014501254.exit": ; preds = %2, %"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$C$V$C$A$GT$9remove_kv17ha29c93801fc9f68cE.exit.i"
-  %.sroa.6.1 = phi i64 [ %.sroa.6.0, %"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$C$V$C$A$GT$9remove_kv17ha29c93801fc9f68cE.exit.i" ], [ undef, %2 ]
-  %switch = phi i64 [ %24, %"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$C$V$C$A$GT$9remove_kv17ha29c93801fc9f68cE.exit.i" ], [ 0, %2 ]
+"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12remove_entry17h10b077e809fa5fcfE.llvm.7371537965014501254.exit": ; preds = %2, %23
+  %.sroa.6.1 = phi i64 [ %.sroa.6.0, %23 ], [ undef, %2 ]
+  %switch = phi i64 [ %24, %23 ], [ 0, %2 ]
   %25 = insertvalue { i64, i64 } poison, i64 %switch, 0
   %26 = insertvalue { i64, i64 } %25, i64 %.sroa.6.1, 1
   ret { i64, i64 } %26

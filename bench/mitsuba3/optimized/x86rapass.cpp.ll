@@ -2196,21 +2196,21 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder17moveRegToStac
   %37 = trunc i32 %11 to i8
   %38 = getelementptr inbounds i8, ptr %32, i64 13
   %39 = load i8, ptr %38, align 1, !tbaa !152
-  switch i8 %37, label %99 [
+  switch i8 %37, label %90 [
     i8 40, label %40
     i8 41, label %40
     i8 38, label %62
     i8 39, label %62
     i8 36, label %62
     i8 37, label %62
-    i8 34, label %74
-    i8 35, label %74
-    i8 49, label %83
-    i8 50, label %83
-    i8 42, label %93
-    i8 59, label %93
-    i8 43, label %96
-    i8 70, label %96
+    i8 34, label %65
+    i8 35, label %65
+    i8 49, label %74
+    i8 50, label %74
+    i8 42, label %84
+    i8 59, label %84
+    i8 43, label %87
+    i8 70, label %87
   ]
 
 40:                                               ; preds = %4, %4
@@ -2219,7 +2219,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder17moveRegToStac
     i8 34, label %42
     i8 36, label %47
     i8 38, label %52
-    i8 40, label %179
+    i8 40, label %170
   ]
 
 42:                                               ; preds = %40
@@ -2229,7 +2229,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder17moveRegToStac
   %44 = icmp eq i8 %39, 34
   %45 = and i1 %43, %44
   %46 = select i1 %45, i32 453, i32 457
-  br label %143
+  br label %134
 
 47:                                               ; preds = %40
   store i32 33554473, ptr %8, align 16, !tbaa !85
@@ -2238,7 +2238,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder17moveRegToStac
   %49 = icmp eq i8 %39, 36
   %50 = and i1 %48, %49
   %51 = select i1 %50, i32 453, i32 457
-  br label %143
+  br label %134
 
 52:                                               ; preds = %40
   store i32 67108913, ptr %8, align 16, !tbaa !85
@@ -2246,320 +2246,301 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder17moveRegToStac
   %53 = icmp eq i8 %37, 40
   %54 = icmp eq i8 %39, 38
   %55 = and i1 %53, %54
-  br i1 %55, label %143, label %175
+  br i1 %55, label %134, label %166
 
 56:                                               ; preds = %40
   %57 = add i8 %39, -49
   %58 = icmp ult i8 %57, 2
-  br i1 %58, label %187, label %59
+  br i1 %58, label %178, label %59
 
 59:                                               ; preds = %56
   %60 = add i8 %39, -51
   %61 = icmp ult i8 %60, 50
-  br i1 %61, label %199, label %205
+  br i1 %61, label %190, label %196
 
 62:                                               ; preds = %4, %4, %4, %4
   %63 = and i8 %39, -2
-  switch i8 %63, label %74 [
-    i8 36, label %64
-    i8 34, label %69
+  switch i8 %63, label %65 [
+    i8 36, label %122
+    i8 34, label %64
   ]
 
 64:                                               ; preds = %62
-  %65 = and i8 %37, -3
-  %66 = icmp eq i8 %65, 36
-  %67 = icmp eq i8 %39, 36
-  store i32 33554473, ptr %8, align 16, !tbaa !85
-  store i32 %26, ptr %22, align 4, !tbaa !44
-  %68 = and i1 %66, %67
-  br label %134
+  br label %122
 
-69:                                               ; preds = %62
-  %70 = and i8 %37, -3
-  %71 = icmp eq i8 %70, 36
-  %72 = icmp eq i8 %39, 34
-  store i32 16777241, ptr %8, align 16, !tbaa !85
-  store i32 %26, ptr %22, align 4, !tbaa !44
-  %73 = and i1 %71, %72
-  br label %134
+65:                                               ; preds = %62, %4, %4
+  %66 = add i8 %39, -32
+  %67 = icmp ult i8 %66, 10
+  br i1 %67, label %168, label %68
 
-74:                                               ; preds = %62, %4, %4
-  %75 = add i8 %39, -32
-  %76 = icmp ult i8 %75, 10
-  br i1 %76, label %177, label %77
+68:                                               ; preds = %65
+  %69 = add i8 %39, -49
+  %70 = icmp ult i8 %69, 2
+  br i1 %70, label %172, label %71
 
-77:                                               ; preds = %74
-  %78 = add i8 %39, -49
-  %79 = icmp ult i8 %78, 2
-  br i1 %79, label %181, label %80
+71:                                               ; preds = %68
+  %72 = add i8 %39, -51
+  %73 = icmp ult i8 %72, 50
+  br i1 %73, label %184, label %196
 
-80:                                               ; preds = %77
-  %81 = add i8 %39, -51
-  %82 = icmp ult i8 %81, 50
-  br i1 %82, label %193, label %205
-
-83:                                               ; preds = %4, %4
-  %84 = and i8 %39, -2
-  switch i8 %84, label %87 [
-    i8 34, label %85
-    i8 36, label %86
-    i8 38, label %162
-    i8 40, label %179
+74:                                               ; preds = %4, %4
+  %75 = and i8 %39, -2
+  switch i8 %75, label %78 [
+    i8 34, label %76
+    i8 36, label %77
+    i8 38, label %153
+    i8 40, label %170
   ]
 
-85:                                               ; preds = %83
+76:                                               ; preds = %74
   store i32 16777241, ptr %8, align 16, !tbaa !85
   store i32 %26, ptr %22, align 4, !tbaa !44
-  br label %143
+  br label %134
 
-86:                                               ; preds = %83
+77:                                               ; preds = %74
   store i32 33554473, ptr %8, align 16, !tbaa !85
   store i32 %26, ptr %22, align 4, !tbaa !44
-  br label %143
+  br label %134
 
-87:                                               ; preds = %83
-  %88 = add i8 %39, -49
-  %89 = icmp ult i8 %88, 2
-  br i1 %89, label %187, label %90
+78:                                               ; preds = %74
+  %79 = add i8 %39, -49
+  %80 = icmp ult i8 %79, 2
+  br i1 %80, label %178, label %81
 
-90:                                               ; preds = %87
-  %91 = add i8 %39, -51
+81:                                               ; preds = %78
+  %82 = add i8 %39, -51
+  %83 = icmp ult i8 %82, 50
+  br i1 %83, label %190, label %196
+
+84:                                               ; preds = %4, %4
+  %85 = add i8 %39, -51
+  %86 = icmp ult i8 %85, 50
+  br i1 %86, label %184, label %196
+
+87:                                               ; preds = %4, %4
+  %88 = add i8 %39, -51
+  %89 = icmp ult i8 %88, 50
+  br i1 %89, label %190, label %196
+
+90:                                               ; preds = %4
+  %91 = add i8 %37, -51
   %92 = icmp ult i8 %91, 50
-  br i1 %92, label %199, label %205
+  br i1 %92, label %93, label %196
 
-93:                                               ; preds = %4, %4
-  %94 = add i8 %39, -51
-  %95 = icmp ult i8 %94, 50
-  br i1 %95, label %193, label %205
+93:                                               ; preds = %90
+  %94 = load i32, ptr %3, align 4, !tbaa !37
+  %95 = and i32 %94, 3840
+  %96 = icmp eq i32 %95, 256
+  br i1 %96, label %97, label %196
 
-96:                                               ; preds = %4, %4
-  %97 = add i8 %39, -51
-  %98 = icmp ult i8 %97, 50
-  br i1 %98, label %199, label %205
+97:                                               ; preds = %93
+  %98 = and i32 %11, 255
+  %99 = zext nneg i32 %98 to i64
+  %100 = getelementptr inbounds %"struct.asmjit::_abi_1_10::TypeUtils::TypeData", ptr @_ZN6asmjit9_abi_1_109TypeUtils9_typeDataE, i64 0, i32 1, i64 %99
+  %101 = load i8, ptr %100, align 1, !tbaa !11
+  %102 = zext i8 %101 to i32
+  %103 = shl nuw i32 %102, 24
+  %104 = or disjoint i32 %103, %15
+  store i32 %104, ptr %6, align 4, !tbaa !37
+  %105 = getelementptr inbounds i8, ptr %0, i64 658
+  %106 = load i8, ptr %105, align 2, !tbaa !154, !range !42, !noundef !43
+  %107 = icmp eq i8 %106, 0
+  %108 = select i1 %107, i32 421, i32 1154
+  %109 = add nsw i8 %37, -71
+  %110 = icmp ult i8 %109, 10
+  br i1 %110, label %117, label %111
 
-99:                                               ; preds = %4
-  %100 = add i8 %37, -51
-  %101 = icmp ult i8 %100, 50
-  br i1 %101, label %102, label %205
+111:                                              ; preds = %97
+  %112 = add nsw i8 %37, -81
+  %113 = icmp ult i8 %112, 10
+  br i1 %113, label %117, label %114
 
-102:                                              ; preds = %99
-  %103 = load i32, ptr %3, align 4, !tbaa !37
-  %104 = and i32 %103, 3840
-  %105 = icmp eq i32 %104, 256
-  br i1 %105, label %106, label %205
+114:                                              ; preds = %111
+  %115 = add nsw i8 %37, -91
+  %116 = icmp ult i8 %115, 10
+  br i1 %116, label %117, label %196
 
-106:                                              ; preds = %102
-  %107 = and i32 %11, 255
-  %108 = zext nneg i32 %107 to i64
-  %109 = getelementptr inbounds %"struct.asmjit::_abi_1_10::TypeUtils::TypeData", ptr @_ZN6asmjit9_abi_1_109TypeUtils9_typeDataE, i64 0, i32 1, i64 %108
-  %110 = load i8, ptr %109, align 1, !tbaa !11
-  %111 = zext i8 %110 to i32
-  %112 = shl nuw i32 %111, 24
-  %113 = or disjoint i32 %112, %15
-  store i32 %113, ptr %6, align 4, !tbaa !37
-  %114 = getelementptr inbounds i8, ptr %0, i64 658
-  %115 = load i8, ptr %114, align 2, !tbaa !154, !range !42, !noundef !43
-  %116 = icmp eq i8 %115, 0
-  %117 = select i1 %116, i32 421, i32 1154
-  %118 = add nsw i8 %37, -71
-  %119 = icmp ult i8 %118, 10
-  br i1 %119, label %120, label %121
-
-120:                                              ; preds = %106
-  store i32 268435809, ptr %7, align 16, !tbaa !85
-  br label %129
-
-121:                                              ; preds = %106
-  %122 = add nsw i8 %37, -81
-  %123 = icmp ult i8 %122, 10
-  br i1 %123, label %124, label %125
-
-124:                                              ; preds = %121
-  store i32 536871273, ptr %7, align 16, !tbaa !85
-  br label %129
-
-125:                                              ; preds = %121
-  %126 = add nsw i8 %37, -91
-  %127 = icmp ult i8 %126, 10
-  br i1 %127, label %128, label %205
-
-128:                                              ; preds = %125
-  store i32 1073742193, ptr %7, align 16, !tbaa !85
-  br label %129
-
-129:                                              ; preds = %128, %124, %120
+117:                                              ; preds = %114, %111, %97
+  %.sink = phi i32 [ 268435809, %97 ], [ 536871273, %111 ], [ 1073742193, %114 ]
+  store i32 %.sink, ptr %7, align 16, !tbaa !85
   store i32 %26, ptr %21, align 4, !tbaa !44
-  br label %130
+  br label %118
 
-130:                                              ; preds = %199, %193, %187, %181, %179, %177, %141, %129
-  %131 = phi ptr [ %24, %129 ], [ %142, %141 ], [ %24, %177 ], [ %24, %179 ], [ %24, %181 ], [ %24, %187 ], [ %24, %193 ], [ %24, %199 ]
-  %132 = phi i32 [ %117, %129 ], [ 418, %141 ], [ 418, %177 ], [ 418, %179 ], [ %186, %181 ], [ %192, %187 ], [ %198, %193 ], [ %204, %199 ]
-  %133 = invoke noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_(ptr noundef nonnull align 8 dereferenceable(144) %131, i32 noundef %132, ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %7)
-          to label %205 unwind label %207
+118:                                              ; preds = %190, %184, %178, %172, %170, %168, %132, %117
+  %119 = phi ptr [ %24, %117 ], [ %133, %132 ], [ %24, %168 ], [ %24, %170 ], [ %24, %172 ], [ %24, %178 ], [ %24, %184 ], [ %24, %190 ]
+  %120 = phi i32 [ %108, %117 ], [ 418, %132 ], [ 418, %168 ], [ 418, %170 ], [ %177, %172 ], [ %183, %178 ], [ %189, %184 ], [ %195, %190 ]
+  %121 = invoke noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_(ptr noundef nonnull align 8 dereferenceable(144) %119, i32 noundef %120, ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %7)
+          to label %196 unwind label %198
 
-134:                                              ; preds = %69, %64
-  %135 = phi i1 [ %73, %69 ], [ %68, %64 ]
-  %136 = select i1 %135, i32 453, i32 457
-  %137 = or disjoint i32 %14, 67108866
-  store i32 %137, ptr %6, align 4, !tbaa !37
+122:                                              ; preds = %62, %64
+  %.sink8 = phi i32 [ 16777241, %64 ], [ 33554473, %62 ]
+  %123 = and i8 %37, -3
+  %124 = icmp eq i8 %123, 36
+  %125 = icmp eq i8 %39, %63
+  store i32 %.sink8, ptr %8, align 16, !tbaa !85
+  store i32 %26, ptr %22, align 4, !tbaa !44
+  %126 = and i1 %124, %125
+  %127 = select i1 %126, i32 453, i32 457
+  %128 = or disjoint i32 %14, 67108866
+  store i32 %128, ptr %6, align 4, !tbaa !37
   store i32 67108913, ptr %7, align 16, !tbaa !85
   store i32 %26, ptr %21, align 4, !tbaa !44
-  %138 = invoke noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_(ptr noundef nonnull align 8 dereferenceable(144) %24, i32 noundef %136, ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %8)
-          to label %139 unwind label %207
+  %129 = invoke noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_(ptr noundef nonnull align 8 dereferenceable(144) %24, i32 noundef %127, ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %8)
+          to label %130 unwind label %198
 
-139:                                              ; preds = %134
+130:                                              ; preds = %122
+  %131 = icmp eq i32 %129, 0
+  br i1 %131, label %132, label %196
+
+132:                                              ; preds = %130
+  %133 = load ptr, ptr %23, align 8, !tbaa !69
+  br label %118
+
+134:                                              ; preds = %77, %76, %52, %47, %42
+  %135 = phi i32 [ 457, %76 ], [ 457, %77 ], [ %46, %42 ], [ %51, %47 ], [ 454, %52 ]
+  br i1 %36, label %136, label %146
+
+136:                                              ; preds = %134
+  %137 = or disjoint i32 %14, 134217730
+  store i32 %137, ptr %6, align 4, !tbaa !37
+  store i32 134217785, ptr %7, align 16, !tbaa !85
+  store i32 %26, ptr %21, align 4, !tbaa !44
+  %138 = invoke noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_(ptr noundef nonnull align 8 dereferenceable(144) %24, i32 noundef %135, ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %8)
+          to label %139 unwind label %198
+
+139:                                              ; preds = %136
   %140 = icmp eq i32 %138, 0
-  br i1 %140, label %141, label %205
+  br i1 %140, label %141, label %196
 
 141:                                              ; preds = %139
   %142 = load ptr, ptr %23, align 8, !tbaa !69
-  br label %130
+  %143 = invoke noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_(ptr noundef nonnull align 8 dereferenceable(144) %142, i32 noundef 418, ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %7)
+          to label %144 unwind label %198
 
-143:                                              ; preds = %86, %85, %52, %47, %42
-  %144 = phi i32 [ 457, %85 ], [ 457, %86 ], [ %46, %42 ], [ %51, %47 ], [ 454, %52 ]
-  br i1 %36, label %145, label %155
+144:                                              ; preds = %141
+  %145 = icmp eq i32 %143, 0
+  br i1 %145, label %165, label %196
 
-145:                                              ; preds = %143
-  %146 = or disjoint i32 %14, 134217730
-  store i32 %146, ptr %6, align 4, !tbaa !37
-  store i32 134217785, ptr %7, align 16, !tbaa !85
-  store i32 %26, ptr %21, align 4, !tbaa !44
-  %147 = invoke noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_(ptr noundef nonnull align 8 dereferenceable(144) %24, i32 noundef %144, ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %8)
-          to label %148 unwind label %207
-
-148:                                              ; preds = %145
-  %149 = icmp eq i32 %147, 0
-  br i1 %149, label %150, label %205
-
-150:                                              ; preds = %148
-  %151 = load ptr, ptr %23, align 8, !tbaa !69
-  %152 = invoke noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_(ptr noundef nonnull align 8 dereferenceable(144) %151, i32 noundef 418, ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %7)
-          to label %153 unwind label %207
-
-153:                                              ; preds = %150
-  %154 = icmp eq i32 %152, 0
-  br i1 %154, label %174, label %205
-
-155:                                              ; preds = %143
-  %156 = or disjoint i32 %14, 67108866
-  store i32 %156, ptr %6, align 4, !tbaa !37
+146:                                              ; preds = %134
+  %147 = or disjoint i32 %14, 67108866
+  store i32 %147, ptr %6, align 4, !tbaa !37
   store i32 67108913, ptr %7, align 16, !tbaa !85
   store i32 %26, ptr %21, align 4, !tbaa !44
-  %157 = invoke noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_(ptr noundef nonnull align 8 dereferenceable(144) %24, i32 noundef %144, ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %8)
-          to label %158 unwind label %207
+  %148 = invoke noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_(ptr noundef nonnull align 8 dereferenceable(144) %24, i32 noundef %135, ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %8)
+          to label %149 unwind label %198
 
-158:                                              ; preds = %155
-  %159 = icmp eq i32 %157, 0
-  br i1 %159, label %160, label %205
+149:                                              ; preds = %146
+  %150 = icmp eq i32 %148, 0
+  br i1 %150, label %151, label %196
 
-160:                                              ; preds = %158
+151:                                              ; preds = %149
+  %152 = load ptr, ptr %23, align 8, !tbaa !69
+  br label %153
+
+153:                                              ; preds = %166, %151, %74
+  %154 = phi ptr [ %152, %151 ], [ %24, %74 ], [ %24, %166 ]
+  %155 = invoke noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_(ptr noundef nonnull align 8 dereferenceable(144) %154, i32 noundef 418, ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %7)
+          to label %156 unwind label %198
+
+156:                                              ; preds = %153
+  %157 = icmp eq i32 %155, 0
+  br i1 %157, label %158, label %196
+
+158:                                              ; preds = %156
+  %159 = load i32, ptr %20, align 4, !tbaa !85
+  %160 = add i32 %159, 4
+  store i32 %160, ptr %20, align 4, !tbaa !85
   %161 = load ptr, ptr %23, align 8, !tbaa !69
-  br label %162
-
-162:                                              ; preds = %175, %160, %83
-  %163 = phi ptr [ %161, %160 ], [ %24, %83 ], [ %24, %175 ]
-  %164 = invoke noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_(ptr noundef nonnull align 8 dereferenceable(144) %163, i32 noundef 418, ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %7)
-          to label %165 unwind label %207
-
-165:                                              ; preds = %162
-  %166 = icmp eq i32 %164, 0
-  br i1 %166, label %167, label %205
-
-167:                                              ; preds = %165
-  %168 = load i32, ptr %20, align 4, !tbaa !85
-  %169 = add i32 %168, 4
-  store i32 %169, ptr %20, align 4, !tbaa !85
-  %170 = load ptr, ptr %23, align 8, !tbaa !69
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
   store <4 x i32> <i32 3, i32 0, i32 0, i32 0>, ptr %5, align 16, !tbaa !85, !alias.scope !198
-  %171 = invoke noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_(ptr noundef nonnull align 8 dereferenceable(144) %170, i32 noundef 21, ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %5)
-          to label %172 unwind label %207
+  %162 = invoke noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_(ptr noundef nonnull align 8 dereferenceable(144) %161, i32 noundef 21, ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %5)
+          to label %163 unwind label %198
 
-172:                                              ; preds = %167
+163:                                              ; preds = %158
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
-  %173 = icmp eq i32 %171, 0
-  br i1 %173, label %174, label %205
+  %164 = icmp eq i32 %162, 0
+  br i1 %164, label %165, label %196
 
-174:                                              ; preds = %172, %153
-  br label %205
+165:                                              ; preds = %163, %144
+  br label %196
 
-175:                                              ; preds = %52
-  %176 = or disjoint i32 %14, 67108866
-  store i32 %176, ptr %6, align 4, !tbaa !37
+166:                                              ; preds = %52
+  %167 = or disjoint i32 %14, 67108866
+  store i32 %167, ptr %6, align 4, !tbaa !37
   store i32 67108913, ptr %7, align 16, !tbaa !85
   store i32 %26, ptr %21, align 4, !tbaa !44
-  br label %162
+  br label %153
 
-177:                                              ; preds = %74
-  %178 = or disjoint i32 %14, 67108866
-  store i32 %178, ptr %6, align 4, !tbaa !37
+168:                                              ; preds = %65
+  %169 = or disjoint i32 %14, 67108866
+  store i32 %169, ptr %6, align 4, !tbaa !37
   store i32 67108913, ptr %7, align 16, !tbaa !85
   store i32 %26, ptr %21, align 4, !tbaa !44
-  br label %130
+  br label %118
 
-179:                                              ; preds = %83, %40
-  %180 = or disjoint i32 %14, 134217730
-  store i32 %180, ptr %6, align 4, !tbaa !37
+170:                                              ; preds = %74, %40
+  %171 = or disjoint i32 %14, 134217730
+  store i32 %171, ptr %6, align 4, !tbaa !37
   store i32 134217785, ptr %7, align 16, !tbaa !85
   store i32 %26, ptr %21, align 4, !tbaa !44
-  br label %130
+  br label %118
 
-181:                                              ; preds = %77
-  %182 = or disjoint i32 %14, 67108866
-  store i32 %182, ptr %6, align 4, !tbaa !37
+172:                                              ; preds = %68
+  %173 = or disjoint i32 %14, 67108866
+  store i32 %173, ptr %6, align 4, !tbaa !37
   store i32 134218641, ptr %7, align 16, !tbaa !85
   store i32 %26, ptr %21, align 4, !tbaa !44
-  %183 = getelementptr inbounds i8, ptr %0, i64 658
-  %184 = load i8, ptr %183, align 2, !tbaa !154, !range !42, !noundef !43
-  %185 = icmp eq i8 %184, 0
-  %186 = select i1 %185, i32 423, i32 1155
-  br label %130
+  %174 = getelementptr inbounds i8, ptr %0, i64 658
+  %175 = load i8, ptr %174, align 2, !tbaa !154, !range !42, !noundef !43
+  %176 = icmp eq i8 %175, 0
+  %177 = select i1 %176, i32 423, i32 1155
+  br label %118
 
-187:                                              ; preds = %87, %56
-  %188 = or disjoint i32 %14, 134217730
-  store i32 %188, ptr %6, align 4, !tbaa !37
+178:                                              ; preds = %78, %56
+  %179 = or disjoint i32 %14, 134217730
+  store i32 %179, ptr %6, align 4, !tbaa !37
   store i32 134218641, ptr %7, align 16, !tbaa !85
   store i32 %26, ptr %21, align 4, !tbaa !44
-  %189 = getelementptr inbounds i8, ptr %0, i64 658
-  %190 = load i8, ptr %189, align 2, !tbaa !154, !range !42, !noundef !43
-  %191 = icmp eq i8 %190, 0
-  %192 = select i1 %191, i32 446, i32 1177
-  br label %130
+  %180 = getelementptr inbounds i8, ptr %0, i64 658
+  %181 = load i8, ptr %180, align 2, !tbaa !154, !range !42, !noundef !43
+  %182 = icmp eq i8 %181, 0
+  %183 = select i1 %182, i32 446, i32 1177
+  br label %118
 
-193:                                              ; preds = %93, %80
-  %194 = or disjoint i32 %14, 67108866
-  store i32 %194, ptr %6, align 4, !tbaa !37
+184:                                              ; preds = %84, %71
+  %185 = or disjoint i32 %14, 67108866
+  store i32 %185, ptr %6, align 4, !tbaa !37
   store i32 268435809, ptr %7, align 16, !tbaa !85
   store i32 %26, ptr %21, align 4, !tbaa !44
-  %195 = getelementptr inbounds i8, ptr %0, i64 658
-  %196 = load i8, ptr %195, align 2, !tbaa !154, !range !42, !noundef !43
-  %197 = icmp eq i8 %196, 0
-  %198 = select i1 %197, i32 452, i32 1182
-  br label %130
+  %186 = getelementptr inbounds i8, ptr %0, i64 658
+  %187 = load i8, ptr %186, align 2, !tbaa !154, !range !42, !noundef !43
+  %188 = icmp eq i8 %187, 0
+  %189 = select i1 %188, i32 452, i32 1182
+  br label %118
 
-199:                                              ; preds = %96, %90, %59
-  %200 = or disjoint i32 %14, 134217730
-  store i32 %200, ptr %6, align 4, !tbaa !37
+190:                                              ; preds = %87, %81, %59
+  %191 = or disjoint i32 %14, 134217730
+  store i32 %191, ptr %6, align 4, !tbaa !37
   store i32 268435809, ptr %7, align 16, !tbaa !85
   store i32 %26, ptr %21, align 4, !tbaa !44
-  %201 = getelementptr inbounds i8, ptr %0, i64 658
-  %202 = load i8, ptr %201, align 2, !tbaa !154, !range !42, !noundef !43
-  %203 = icmp eq i8 %202, 0
-  %204 = select i1 %203, i32 435, i32 1170
-  br label %130
+  %192 = getelementptr inbounds i8, ptr %0, i64 658
+  %193 = load i8, ptr %192, align 2, !tbaa !154, !range !42, !noundef !43
+  %194 = icmp eq i8 %193, 0
+  %195 = select i1 %194, i32 435, i32 1170
+  br label %118
 
-205:                                              ; preds = %174, %172, %165, %158, %153, %148, %139, %130, %125, %102, %99, %96, %93, %90, %80, %59
-  %206 = phi i32 [ 0, %174 ], [ %152, %153 ], [ %147, %148 ], [ %171, %172 ], [ %164, %165 ], [ %157, %158 ], [ %138, %139 ], [ 25, %99 ], [ 25, %102 ], [ 25, %96 ], [ 25, %93 ], [ 25, %90 ], [ 25, %80 ], [ 25, %59 ], [ 25, %125 ], [ %133, %130 ]
+196:                                              ; preds = %165, %163, %156, %149, %144, %139, %130, %118, %114, %93, %90, %87, %84, %81, %71, %59
+  %197 = phi i32 [ 0, %165 ], [ %143, %144 ], [ %138, %139 ], [ %162, %163 ], [ %155, %156 ], [ %148, %149 ], [ %129, %130 ], [ 25, %90 ], [ 25, %93 ], [ 25, %87 ], [ 25, %84 ], [ 25, %81 ], [ 25, %71 ], [ 25, %59 ], [ 25, %114 ], [ %121, %118 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
-  ret i32 %206
+  ret i32 %197
 
-207:                                              ; preds = %167, %162, %155, %150, %145, %134, %130
-  %208 = landingpad { ptr, i32 }
+198:                                              ; preds = %158, %153, %146, %141, %136, %122, %118
+  %199 = landingpad { ptr, i32 }
           catch ptr null
-  %209 = extractvalue { ptr, i32 } %208, 0
-  call void @__clang_call_terminate(ptr %209) #17
+  %200 = extractvalue { ptr, i32 } %199, 0
+  call void @__clang_call_terminate(ptr %200) #17
   unreachable
 }
 
@@ -3414,27 +3395,27 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder11onBeforeRetEP
   %23 = zext i8 %11 to i64
   br label %24
 
-24:                                               ; preds = %127, %17
-  %25 = phi i64 [ 0, %17 ], [ %128, %127 ]
+24:                                               ; preds = %125, %17
+  %25 = phi i64 [ 0, %17 ], [ %126, %125 ]
   %26 = getelementptr inbounds %"class.asmjit::_abi_1_10::Operand", ptr %9, i64 %25
   %27 = getelementptr inbounds [4 x %"struct.asmjit::_abi_1_10::FuncValue"], ptr %18, i64 0, i64 %25
   %28 = load i32, ptr %26, align 4, !tbaa !37
   %29 = and i32 %28, 7
   %30 = icmp eq i32 %29, 1
-  br i1 %30, label %31, label %127
+  br i1 %30, label %31, label %125
 
 31:                                               ; preds = %24
   %32 = load i32, ptr %27, align 4, !tbaa !137
   %33 = and i32 %32, -16777216
   %34 = icmp eq i32 %33, 369098752
-  br i1 %34, label %35, label %127
+  br i1 %34, label %35, label %125
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds i8, ptr %26, i64 4
   %37 = load i32, ptr %36, align 4, !tbaa !44
   %38 = add i32 %37, -256
   %39 = icmp ult i32 %38, -257
-  br i1 %39, label %40, label %127
+  br i1 %39, label %40, label %125
 
 40:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
@@ -3444,7 +3425,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder11onBeforeRetEP
   %44 = getelementptr inbounds i8, ptr %43, i64 464
   %45 = load i32, ptr %44, align 8, !tbaa !49
   %46 = icmp ugt i32 %45, %38
-  br i1 %46, label %47, label %122, !prof !50
+  br i1 %46, label %47, label %.loopexit.sink.split, !prof !50
 
 47:                                               ; preds = %40
   %48 = getelementptr inbounds i8, ptr %43, i64 456
@@ -3461,7 +3442,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder11onBeforeRetEP
 56:                                               ; preds = %47
   %57 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass10_asWorkRegEPNS0_7VirtRegEPPNS0_9RAWorkRegE(ptr noundef nonnull align 8 dereferenceable(944) %41, ptr noundef nonnull %52, ptr noundef nonnull %3) #16
   %58 = icmp eq i32 %57, 0
-  br i1 %58, label %59, label %122
+  br i1 %58, label %59, label %.loopexit.sink.split
 
 59:                                               ; preds = %56
   %60 = load ptr, ptr %3, align 8, !tbaa !52
@@ -3473,7 +3454,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder11onBeforeRetEP
   %64 = load i32, ptr %63, align 4, !tbaa !85
   %65 = and i32 %64, 3840
   %66 = icmp eq i32 %65, 256
-  br i1 %66, label %67, label %122
+  br i1 %66, label %67, label %.loopexit.sink.split
 
 67:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
@@ -3497,7 +3478,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder11onBeforeRetEP
   %79 = icmp eq i32 %78, 0
   %80 = trunc i32 %77 to i8
   %81 = select i1 %79, i8 %76, i8 %80
-  switch i8 %81, label %124 [
+  switch i8 %81, label %122 [
     i8 42, label %82
     i8 43, label %102
   ]
@@ -3506,7 +3487,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder11onBeforeRetEP
   %83 = load ptr, ptr %0, align 8, !tbaa !46
   %84 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass15useTemporaryMemERNS0_7BaseMemEjj(ptr noundef nonnull align 8 dereferenceable(944) %83, ptr noundef nonnull align 4 dereferenceable(16) %5, i32 noundef 4, i32 noundef 4) #16
   %85 = icmp eq i32 %84, 0
-  br i1 %85, label %86, label %124
+  br i1 %85, label %86, label %122
 
 86:                                               ; preds = %82
   %87 = load i32, ptr %5, align 16, !tbaa !37
@@ -3518,26 +3499,26 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder11onBeforeRetEP
   %92 = icmp eq i8 %91, 0
   %93 = select i1 %92, i32 452, i32 1182
   %94 = invoke noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_(ptr noundef nonnull align 8 dereferenceable(144) %90, i32 noundef %93, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %4)
-          to label %95 unwind label %131
+          to label %95 unwind label %129
 
 95:                                               ; preds = %86
   %96 = icmp eq i32 %94, 0
-  br i1 %96, label %97, label %124
+  br i1 %96, label %97, label %122
 
 97:                                               ; preds = %95
   %98 = load ptr, ptr %12, align 8, !tbaa !69
   %99 = invoke noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_E(ptr noundef nonnull align 8 dereferenceable(144) %98, i32 noundef 206, ptr noundef nonnull align 4 dereferenceable(16) %5)
-          to label %100 unwind label %131
+          to label %100 unwind label %129
 
 100:                                              ; preds = %97
   %101 = icmp eq i32 %99, 0
-  br i1 %101, label %126, label %124
+  br i1 %101, label %124, label %122
 
 102:                                              ; preds = %67
   %103 = load ptr, ptr %0, align 8, !tbaa !46
   %104 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass15useTemporaryMemERNS0_7BaseMemEjj(ptr noundef nonnull align 8 dereferenceable(944) %103, ptr noundef nonnull align 4 dereferenceable(16) %5, i32 noundef 8, i32 noundef 4) #16
   %105 = icmp eq i32 %104, 0
-  br i1 %105, label %106, label %124
+  br i1 %105, label %106, label %122
 
 106:                                              ; preds = %102
   %107 = load i32, ptr %5, align 16, !tbaa !37
@@ -3549,53 +3530,52 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder11onBeforeRetEP
   %112 = icmp eq i8 %111, 0
   %113 = select i1 %112, i32 449, i32 1178
   %114 = invoke noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_(ptr noundef nonnull align 8 dereferenceable(144) %110, i32 noundef %113, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %4)
-          to label %115 unwind label %131
+          to label %115 unwind label %129
 
 115:                                              ; preds = %106
   %116 = icmp eq i32 %114, 0
-  br i1 %116, label %117, label %124
+  br i1 %116, label %117, label %122
 
 117:                                              ; preds = %115
   %118 = load ptr, ptr %12, align 8, !tbaa !69
   %119 = invoke noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_E(ptr noundef nonnull align 8 dereferenceable(144) %118, i32 noundef 206, ptr noundef nonnull align 4 dereferenceable(16) %5)
-          to label %120 unwind label %131
+          to label %120 unwind label %129
 
 120:                                              ; preds = %117
   %121 = icmp eq i32 %119, 0
-  br i1 %121, label %126, label %124
+  br i1 %121, label %124, label %122
 
-122:                                              ; preds = %61, %56, %40
-  %123 = phi i32 [ 25, %61 ], [ %57, %56 ], [ 30, %40 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
-  br label %.loopexit
+122:                                              ; preds = %120, %115, %102, %100, %95, %82, %67
+  %123 = phi i32 [ 25, %67 ], [ %84, %82 ], [ %94, %95 ], [ %99, %100 ], [ %104, %102 ], [ %114, %115 ], [ %119, %120 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
+  br label %.loopexit.sink.split
 
-124:                                              ; preds = %120, %115, %102, %100, %95, %82, %67
-  %125 = phi i32 [ 25, %67 ], [ %84, %82 ], [ %94, %95 ], [ %99, %100 ], [ %104, %102 ], [ %114, %115 ], [ %119, %120 ]
+124:                                              ; preds = %120, %100
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  br label %125
+
+125:                                              ; preds = %124, %35, %31, %24
+  %126 = add nuw nsw i64 %25, 1
+  %127 = icmp eq i64 %126, %23
+  br i1 %127, label %.loopexit, label %24, !llvm.loop !208
+
+.loopexit.sink.split:                             ; preds = %40, %56, %61, %122
+  %.ph = phi i32 [ %123, %122 ], [ 25, %61 ], [ %57, %56 ], [ 30, %40 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
   br label %.loopexit
 
-126:                                              ; preds = %120, %100
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
-  br label %127
+.loopexit:                                        ; preds = %125, %.loopexit.sink.split, %2
+  %128 = phi i32 [ 0, %2 ], [ %.ph, %.loopexit.sink.split ], [ 0, %125 ]
+  ret i32 %128
 
-127:                                              ; preds = %126, %35, %31, %24
-  %128 = add nuw nsw i64 %25, 1
-  %129 = icmp eq i64 %128, %23
-  br i1 %129, label %.loopexit, label %24, !llvm.loop !208
-
-.loopexit:                                        ; preds = %127, %124, %122, %2
-  %130 = phi i32 [ %123, %122 ], [ %125, %124 ], [ 0, %2 ], [ 0, %127 ]
-  ret i32 %130
-
-131:                                              ; preds = %117, %106, %97, %86
-  %132 = landingpad { ptr, i32 }
+129:                                              ; preds = %117, %106, %97, %86
+  %130 = landingpad { ptr, i32 }
           catch ptr null
-  %133 = extractvalue { ptr, i32 } %132, 0
-  call void @__clang_call_terminate(ptr %133) #17
+  %131 = extractvalue { ptr, i32 } %130, 0
+  call void @__clang_call_terminate(ptr %131) #17
   unreachable
 }
 

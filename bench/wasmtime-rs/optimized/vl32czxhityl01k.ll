@@ -4054,7 +4054,6 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
   store i64 %.sroa.12542.56.copyload, ptr %.sroa.21485.8..sroa.271.0..sroa_idx.i.sroa_idx, align 8, !noalias !6
   store i64 %.sroa.13.56.copyload, ptr %.sroa.22490.8..sroa.271.0..sroa_idx.i.sroa_idx, align 16, !noalias !6
   store i64 %.sroa.0535.0.copyload, ptr %174, align 8, !noalias !6
-  store i64 7, ptr %161, align 16, !noalias !6
   br label %728
 
 .loopexit691:                                     ; preds = %726, %.thread
@@ -4070,6 +4069,8 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
   br label %725
 
 728:                                              ; preds = %737, %735, %733, %731, %729, %727
+  %.sink.i = phi i64 [ 2, %737 ], [ 5, %735 ], [ %.sroa.045.0.i, %733 ], [ 4, %731 ], [ 6, %729 ], [ 7, %727 ]
+  store i64 %.sink.i, ptr %161, align 16, !noalias !6
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hda2b5af0a5ba881fE"(ptr nonnull align 8 %160)
           to label %742 unwind label %740, !noalias !6
 
@@ -4128,7 +4129,6 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
   store i64 %.sroa.57.40.copyload, ptr %.sroa.21485.8..sroa.271.0..sroa_idx.i.sroa_idx, align 8, !noalias !6
   store i64 %.sroa.58.40.copyload, ptr %.sroa.22490.8..sroa.271.0..sroa_idx.i.sroa_idx, align 16, !noalias !6
   store i8 %.sroa.0351.0, ptr %174, align 8, !noalias !6
-  store i64 6, ptr %161, align 16, !noalias !6
   br label %728
 
 730:                                              ; preds = %690, %682, %680, %668, %.noexc44, %657, %646, %636, %674, %688, %696
@@ -4185,7 +4185,6 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
   store i64 %.sroa.25337.8.copyload340, ptr %.sroa.22490.8..sroa.271.0..sroa_idx.i.sroa_idx, align 16, !noalias !6
   store i64 %.sroa.26345.8.copyload348, ptr %.sroa.372.0..sroa_idx.i, align 8, !noalias !6
   store i64 %619, ptr %.sroa.271.0..sroa_idx.i, align 16, !noalias !6
-  store i64 4, ptr %161, align 16, !noalias !6
   br label %728
 
 732:                                              ; preds = %602, %600, %623
@@ -4251,7 +4250,6 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
   store i64 %.sroa.337.i.sroa.7.0.copyload546, ptr %.sroa.23.8..sroa.250.0..sroa_idx.i.sroa_idx, align 8, !noalias !6
   store i64 %.sroa.337.i.sroa.8.0.copyload547, ptr %.sroa.20480.8..sroa.271.0..sroa_idx.i.sroa_idx, align 16, !noalias !6
   store i64 %.sroa.337.i.sroa.9.0.copyload548, ptr %.sroa.21485.8..sroa.271.0..sroa_idx.i.sroa_idx, align 8, !noalias !6
-  store i64 %.sroa.045.0.i, ptr %161, align 16, !noalias !6
   br label %728
 
 .thread355.i:                                     ; preds = %489, %462, %460, %456, %451
@@ -4320,7 +4318,6 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
   store i8 %446, ptr %.sroa.331.sroa.2.0..sroa.331.0..sroa_idx.sroa_idx.i, align 16, !noalias !6
   store i8 %450, ptr %.sroa.331.sroa.3.0..sroa.331.0..sroa_idx.sroa_idx.i, align 1, !noalias !6
   store i8 %455, ptr %.sroa.331.sroa.4.0..sroa.331.0..sroa_idx.sroa_idx.i, align 2, !noalias !6
-  store i64 5, ptr %161, align 16, !noalias !6
   br label %728
 
 .loopexit697:                                     ; preds = %734, %.thread355.i
@@ -4421,7 +4418,6 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
   store i64 %.sroa.35.0192.i.i, ptr %.sroa.321.sroa.5.0..sroa.321.0..sroa_idx.sroa_idx.i, align 16, !noalias !6
   store i8 %739, ptr %.sroa.321.sroa.7.0..sroa.321.0..sroa_idx.sroa_idx.i, align 8, !noalias !6
   store i8 %738, ptr %.sroa.321.sroa.8.0..sroa.321.0..sroa_idx.sroa_idx.i, align 1, !noalias !6
-  store i64 2, ptr %161, align 16, !noalias !6
   br label %728
 
 .loopexit705:                                     ; preds = %736, %.thread385.i

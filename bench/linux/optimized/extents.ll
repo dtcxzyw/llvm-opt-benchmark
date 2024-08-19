@@ -2011,8 +2011,7 @@ define dso_local i32 @ext4_ext_insert_extent(ptr noundef %0, ptr noundef %1, ptr
   %425 = zext i16 %422 to i32
   %426 = zext i16 %420 to i32
   call void (ptr, ptr, i32, i64, i32, ptr, ...) @__ext4_error_inode(ptr noundef %1, ptr noundef nonnull @__func__.ext4_ext_split, i32 noundef 1150, i64 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.23, i32 noundef %426, i32 noundef %425) #16
-  store i32 -117, ptr %7, align 4
-  br label %.loopexit93
+  br label %.loopexit93.sink.split
 
 427:                                              ; preds = %405
   %428 = icmp eq i16 %420, 0
@@ -2235,8 +2234,7 @@ define dso_local i32 @ext4_ext_insert_extent(ptr noundef %0, ptr noundef %1, ptr
   %574 = load ptr, ptr %573, align 8
   %575 = load i32, ptr %574, align 4
   call void (ptr, ptr, i32, i64, i32, ptr, ...) @__ext4_error_inode(ptr noundef %1, ptr noundef nonnull @__func__.ext4_ext_split, i32 noundef 1235, i64 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.25, i32 noundef %575) #16
-  store i32 -117, ptr %7, align 4
-  br label %.loopexit93
+  br label %.loopexit93.sink.split
 
 576:                                              ; preds = %533
   %577 = getelementptr inbounds i8, ptr %555, i64 24
@@ -2344,8 +2342,13 @@ define dso_local i32 @ext4_ext_insert_extent(ptr noundef %0, ptr noundef %1, ptr
   store i32 %638, ptr %7, align 4
   br label %.thread75
 
-.loopexit93:                                      ; preds = %529, %608, %401, %424, %464, %572
-  %639 = phi ptr [ %392, %401 ], [ %392, %424 ], [ %392, %464 ], [ %520, %572 ], [ %520, %608 ], [ %520, %529 ]
+.loopexit93.sink.split:                           ; preds = %572, %424
+  %.ph = phi ptr [ %520, %572 ], [ %392, %424 ]
+  store i32 -117, ptr %7, align 4
+  br label %.loopexit93
+
+.loopexit93:                                      ; preds = %529, %608, %.loopexit93.sink.split, %401, %464
+  %639 = phi ptr [ %392, %401 ], [ %392, %464 ], [ %.ph, %.loopexit93.sink.split ], [ %520, %608 ], [ %520, %529 ]
   %640 = load volatile i64, ptr %639, align 8
   %641 = and i64 %640, 4
   %642 = icmp eq i64 %641, 0
@@ -2689,16 +2692,16 @@ define dso_local i32 @ext4_ext_insert_extent(ptr noundef %0, ptr noundef %1, ptr
   br i1 %34, label %.thread90, label %840
 
 .thread90.sink.split:                             ; preds = %197, %129
-  %.sink278 = phi i16 [ %128, %129 ], [ %196, %197 ]
-  %.sink277 = phi ptr [ %68, %129 ], [ %136, %197 ]
-  %.ph = phi ptr [ %67, %129 ], [ %134, %197 ]
-  %836 = or i16 %.sink278, -32768
-  store i16 %836, ptr %.sink277, align 4
+  %.sink279 = phi i16 [ %128, %129 ], [ %196, %197 ]
+  %.sink278 = phi ptr [ %68, %129 ], [ %136, %197 ]
+  %.ph277 = phi ptr [ %67, %129 ], [ %134, %197 ]
+  %836 = or i16 %.sink279, -32768
+  store i16 %836, ptr %.sink278, align 4
   br label %.thread90
 
 .thread90:                                        ; preds = %.thread90.sink.split, %119, %184, %822
   %837 = phi ptr [ %775, %822 ], [ %8, %184 ], [ %8, %119 ], [ %8, %.thread90.sink.split ]
-  %838 = phi ptr [ %823, %822 ], [ %134, %184 ], [ %67, %119 ], [ %.ph, %.thread90.sink.split ]
+  %838 = phi ptr [ %823, %822 ], [ %134, %184 ], [ %67, %119 ], [ %.ph277, %.thread90.sink.split ]
   %839 = phi ptr [ %773, %822 ], [ null, %184 ], [ null, %119 ], [ null, %.thread90.sink.split ]
   call fastcc void @ext4_ext_try_to_merge(ptr noundef %0, ptr noundef %1, ptr noundef %837, ptr noundef %838)
   br label %840

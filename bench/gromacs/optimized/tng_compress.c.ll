@@ -1169,178 +1169,155 @@ bufferfix.exit198:                                ; preds = %56
   br i1 %.not.i203, label %.critedge154, label %61, !llvm.loop !13
 
 .critedge154:                                     ; preds = %61, %14
-  switch i32 %6, label %73 [
-    i32 10, label %65
-    i32 7, label %65
-    i32 5, label %65
-    i32 9, label %69
-    i32 3, label %69
+  switch i32 %6, label %69 [
+    i32 10, label %.sink.split
+    i32 7, label %.sink.split
+    i32 5, label %.sink.split
+    i32 9, label %65
+    i32 3, label %65
   ]
 
-65:                                               ; preds = %.critedge154, %.critedge154, %.critedge154
+65:                                               ; preds = %.critedge154, %.critedge154
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %.critedge154, %.critedge154, %.critedge154, %65
+  %.sink226 = phi ptr [ %2, %65 ], [ %0, %.critedge154 ], [ %0, %.critedge154 ], [ %0, %.critedge154 ]
   %66 = tail call ptr @Ptngc_coder_init() #13
   %67 = mul nsw i32 %3, 3
   store i32 %67, ptr %15, align 4
-  %68 = call ptr @Ptngc_pack_array(ptr noundef %66, ptr noundef %0, ptr noundef nonnull %15, i32 noundef %6, i32 noundef %7, i32 noundef %3, i32 noundef %5) #13
-  br label %.sink.split
+  %68 = call ptr @Ptngc_pack_array(ptr noundef %66, ptr noundef %.sink226, ptr noundef nonnull %15, i32 noundef %6, i32 noundef %7, i32 noundef %3, i32 noundef %5) #13
+  call void @Ptngc_coder_deinit(ptr noundef %66) #13
+  br label %69
 
-69:                                               ; preds = %.critedge154, %.critedge154
-  %70 = tail call ptr @Ptngc_coder_init() #13
-  %71 = mul nsw i32 %3, 3
-  store i32 %71, ptr %15, align 4
-  %72 = call ptr @Ptngc_pack_array(ptr noundef %70, ptr noundef %2, ptr noundef nonnull %15, i32 noundef %6, i32 noundef %7, i32 noundef %3, i32 noundef %5) #13
-  br label %.sink.split
+69:                                               ; preds = %.sink.split, %.critedge154
+  %.0141 = phi ptr [ null, %.critedge154 ], [ %68, %.sink.split ]
+  br i1 %.not, label %.critedge156, label %70
 
-.sink.split:                                      ; preds = %65, %69
-  %.sink = phi ptr [ %70, %69 ], [ %66, %65 ]
-  %.0141.ph = phi ptr [ %72, %69 ], [ %68, %65 ]
-  call void @Ptngc_coder_deinit(ptr noundef %.sink) #13
-  br label %73
+70:                                               ; preds = %69
+  %71 = getelementptr inbounds i8, ptr %13, i64 36
+  %72 = load i32, ptr %15, align 4
+  %73 = sext i32 %72 to i64
+  br label %74
 
-73:                                               ; preds = %.sink.split, %.critedge154
-  %.0141 = phi ptr [ null, %.critedge154 ], [ %.0141.ph, %.sink.split ]
-  br i1 %.not, label %.critedge156, label %74
-
-74:                                               ; preds = %73
-  %75 = getelementptr inbounds i8, ptr %13, i64 36
-  %76 = load i32, ptr %15, align 4
-  %77 = sext i32 %76 to i64
-  br label %78
-
-78:                                               ; preds = %78, %74
-  %.0510.i205 = phi i32 [ 4, %74 ], [ %79, %78 ]
-  %.069.i206 = phi i64 [ %77, %74 ], [ %81, %78 ]
-  %.078.i207 = phi ptr [ %75, %74 ], [ %80, %78 ]
-  %79 = add nsw i32 %.0510.i205, -1
+74:                                               ; preds = %74, %70
+  %.0510.i205 = phi i32 [ 4, %70 ], [ %75, %74 ]
+  %.069.i206 = phi i64 [ %73, %70 ], [ %77, %74 ]
+  %.078.i207 = phi ptr [ %71, %70 ], [ %76, %74 ]
+  %75 = add nsw i32 %.0510.i205, -1
   %.0.i208 = trunc i64 %.069.i206 to i8
-  %80 = getelementptr inbounds i8, ptr %.078.i207, i64 1
+  %76 = getelementptr inbounds i8, ptr %.078.i207, i64 1
   store i8 %.0.i208, ptr %.078.i207, align 1
-  %81 = lshr i64 %.069.i206, 8
-  %.not.i209 = icmp eq i32 %79, 0
-  br i1 %.not.i209, label %bufferfix.exit210, label %78, !llvm.loop !13
+  %77 = lshr i64 %.069.i206, 8
+  %.not.i209 = icmp eq i32 %75, 0
+  br i1 %.not.i209, label %bufferfix.exit210, label %74, !llvm.loop !13
 
-bufferfix.exit210:                                ; preds = %78
-  %82 = getelementptr inbounds i8, ptr %13, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %82, ptr align 1 %.0141, i64 %77, i1 false)
+bufferfix.exit210:                                ; preds = %74
+  %78 = getelementptr inbounds i8, ptr %13, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %78, ptr align 1 %.0141, i64 %73, i1 false)
   br label %.critedge156
 
-.critedge156:                                     ; preds = %73, %bufferfix.exit210
+.critedge156:                                     ; preds = %69, %bufferfix.exit210
   call void @free(ptr noundef %.0141) #13
-  %83 = load i32, ptr %15, align 4
-  %84 = add nsw i32 %83, 40
-  %85 = icmp sgt i32 %4, 1
-  br i1 %85, label %86, label %127
+  %79 = load i32, ptr %15, align 4
+  %80 = add nsw i32 %79, 40
+  %81 = icmp sgt i32 %4, 1
+  br i1 %81, label %82, label %114
 
-86:                                               ; preds = %.critedge156
+82:                                               ; preds = %.critedge156
   switch i32 %8, label %.thread218 [
-    i32 8, label %87
-    i32 2, label %87
-    i32 1, label %87
-    i32 10, label %92
-    i32 7, label %92
-    i32 5, label %92
-    i32 9, label %97
-    i32 3, label %97
+    i32 8, label %85
+    i32 2, label %85
+    i32 1, label %85
+    i32 10, label %83
+    i32 7, label %83
+    i32 5, label %83
+    i32 9, label %84
+    i32 3, label %84
   ]
 
-87:                                               ; preds = %86, %86, %86
-  %88 = call ptr @Ptngc_coder_init() #13
-  %89 = mul nsw i32 %3, 3
-  %90 = add nsw i32 %4, -1
-  %91 = mul nsw i32 %90, %89
-  store i32 %91, ptr %15, align 4
-  br label %102
+83:                                               ; preds = %82, %82, %82
+  br label %85
 
-92:                                               ; preds = %86, %86, %86
-  %93 = call ptr @Ptngc_coder_init() #13
-  %94 = mul nsw i32 %3, 3
-  %95 = add nsw i32 %4, -1
-  %96 = mul nsw i32 %95, %94
-  store i32 %96, ptr %15, align 4
-  br label %102
+84:                                               ; preds = %82, %82
+  br label %85
 
-97:                                               ; preds = %86, %86
-  %98 = call ptr @Ptngc_coder_init() #13
-  %99 = mul nsw i32 %3, 3
-  %100 = add nsw i32 %4, -1
-  %101 = mul nsw i32 %100, %99
-  store i32 %101, ptr %15, align 4
-  br label %102
-
-102:                                              ; preds = %92, %97, %87
-  %.sink230 = phi i32 [ %94, %92 ], [ %99, %97 ], [ %89, %87 ]
-  %.sink228 = phi ptr [ %0, %92 ], [ %2, %97 ], [ %1, %87 ]
-  %.sink226 = phi ptr [ %93, %92 ], [ %98, %97 ], [ %88, %87 ]
-  %103 = sext i32 %.sink230 to i64
-  %104 = getelementptr inbounds i32, ptr %.sink228, i64 %103
-  %105 = call ptr @Ptngc_pack_array(ptr noundef %.sink226, ptr noundef %104, ptr noundef nonnull %15, i32 noundef %8, i32 noundef %9, i32 noundef %3, i32 noundef %5) #13
-  call void @Ptngc_coder_deinit(ptr noundef %.sink226) #13
+85:                                               ; preds = %82, %82, %82, %83, %84
+  %.sink230 = phi ptr [ %0, %83 ], [ %2, %84 ], [ %1, %82 ], [ %1, %82 ], [ %1, %82 ]
+  %86 = call ptr @Ptngc_coder_init() #13
+  %87 = mul nsw i32 %3, 3
+  %88 = add nsw i32 %4, -1
+  %89 = mul nsw i32 %88, %87
+  store i32 %89, ptr %15, align 4
+  %90 = sext i32 %87 to i64
+  %91 = getelementptr inbounds i32, ptr %.sink230, i64 %90
+  %92 = call ptr @Ptngc_pack_array(ptr noundef %86, ptr noundef %91, ptr noundef nonnull %15, i32 noundef %8, i32 noundef %9, i32 noundef %3, i32 noundef %5) #13
+  call void @Ptngc_coder_deinit(ptr noundef %86) #13
   br i1 %.not, label %bufferfix.exit216.thread, label %._crit_edge
 
-._crit_edge:                                      ; preds = %102
+._crit_edge:                                      ; preds = %85
   %.pre = load i32, ptr %15, align 4
-  br label %107
+  br label %94
 
-.thread218:                                       ; preds = %86
-  br i1 %.not, label %bufferfix.exit216.thread.thread, label %107
+.thread218:                                       ; preds = %82
+  br i1 %.not, label %bufferfix.exit216.thread.thread, label %94
 
 bufferfix.exit216.thread.thread:                  ; preds = %.thread218
-  %106 = add nsw i32 %83, 44
-  br label %123
+  %93 = add nsw i32 %79, 44
+  br label %110
 
-107:                                              ; preds = %._crit_edge, %.thread218
-  %108 = phi i32 [ %83, %.thread218 ], [ %.pre, %._crit_edge ]
-  %.1220 = phi ptr [ null, %.thread218 ], [ %105, %._crit_edge ]
-  %109 = sext i32 %84 to i64
-  %110 = getelementptr inbounds i8, ptr %13, i64 %109
-  %111 = sext i32 %108 to i64
-  br label %112
+94:                                               ; preds = %._crit_edge, %.thread218
+  %95 = phi i32 [ %79, %.thread218 ], [ %.pre, %._crit_edge ]
+  %.1220 = phi ptr [ null, %.thread218 ], [ %92, %._crit_edge ]
+  %96 = sext i32 %80 to i64
+  %97 = getelementptr inbounds i8, ptr %13, i64 %96
+  %98 = sext i32 %95 to i64
+  br label %99
 
-112:                                              ; preds = %112, %107
-  %.0510.i211 = phi i32 [ 4, %107 ], [ %113, %112 ]
-  %.069.i212 = phi i64 [ %111, %107 ], [ %115, %112 ]
-  %.078.i213 = phi ptr [ %110, %107 ], [ %114, %112 ]
-  %113 = add nsw i32 %.0510.i211, -1
+99:                                               ; preds = %99, %94
+  %.0510.i211 = phi i32 [ 4, %94 ], [ %100, %99 ]
+  %.069.i212 = phi i64 [ %98, %94 ], [ %102, %99 ]
+  %.078.i213 = phi ptr [ %97, %94 ], [ %101, %99 ]
+  %100 = add nsw i32 %.0510.i211, -1
   %.0.i214 = trunc i64 %.069.i212 to i8
-  %114 = getelementptr inbounds i8, ptr %.078.i213, i64 1
+  %101 = getelementptr inbounds i8, ptr %.078.i213, i64 1
   store i8 %.0.i214, ptr %.078.i213, align 1
-  %115 = lshr i64 %.069.i212, 8
-  %.not.i215 = icmp eq i32 %113, 0
-  br i1 %.not.i215, label %bufferfix.exit216, label %112, !llvm.loop !13
+  %102 = lshr i64 %.069.i212, 8
+  %.not.i215 = icmp eq i32 %100, 0
+  br i1 %.not.i215, label %bufferfix.exit216, label %99, !llvm.loop !13
 
-bufferfix.exit216:                                ; preds = %112
-  %116 = add nsw i32 %83, 44
+bufferfix.exit216:                                ; preds = %99
+  %103 = add nsw i32 %79, 44
   %.not147 = icmp eq ptr %.1220, null
-  br i1 %.not147, label %123, label %118
+  br i1 %.not147, label %110, label %105
 
-bufferfix.exit216.thread:                         ; preds = %102
-  %117 = add nsw i32 %83, 44
-  %.not147217 = icmp eq ptr %105, null
-  br i1 %.not147217, label %123, label %.thread
+bufferfix.exit216.thread:                         ; preds = %85
+  %104 = add nsw i32 %79, 44
+  %.not147217 = icmp eq ptr %92, null
+  br i1 %.not147217, label %110, label %.thread
 
-118:                                              ; preds = %bufferfix.exit216
-  br i1 %.not, label %.thread, label %119
+105:                                              ; preds = %bufferfix.exit216
+  br i1 %.not, label %.thread, label %106
 
-119:                                              ; preds = %118
-  %120 = sext i32 %116 to i64
-  %121 = getelementptr inbounds i8, ptr %13, i64 %120
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %121, ptr nonnull align 1 %.1220, i64 %111, i1 false)
+106:                                              ; preds = %105
+  %107 = sext i32 %103 to i64
+  %108 = getelementptr inbounds i8, ptr %13, i64 %107
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %108, ptr nonnull align 1 %.1220, i64 %98, i1 false)
   br label %.thread
 
-.thread:                                          ; preds = %bufferfix.exit216.thread, %119, %118
-  %.1221 = phi ptr [ %.1220, %119 ], [ %.1220, %118 ], [ %105, %bufferfix.exit216.thread ]
-  %122 = phi i32 [ %116, %119 ], [ %116, %118 ], [ %117, %bufferfix.exit216.thread ]
+.thread:                                          ; preds = %bufferfix.exit216.thread, %106, %105
+  %.1221 = phi ptr [ %.1220, %106 ], [ %.1220, %105 ], [ %92, %bufferfix.exit216.thread ]
+  %109 = phi i32 [ %103, %106 ], [ %103, %105 ], [ %104, %bufferfix.exit216.thread ]
   call void @free(ptr noundef nonnull %.1221) #13
-  br label %123
+  br label %110
 
-123:                                              ; preds = %bufferfix.exit216.thread.thread, %bufferfix.exit216.thread, %.thread, %bufferfix.exit216
-  %124 = phi i32 [ %117, %bufferfix.exit216.thread ], [ %122, %.thread ], [ %116, %bufferfix.exit216 ], [ %106, %bufferfix.exit216.thread.thread ]
-  %125 = load i32, ptr %15, align 4
-  %126 = add nsw i32 %125, %124
-  br label %127
+110:                                              ; preds = %bufferfix.exit216.thread.thread, %bufferfix.exit216.thread, %.thread, %bufferfix.exit216
+  %111 = phi i32 [ %104, %bufferfix.exit216.thread ], [ %109, %.thread ], [ %103, %bufferfix.exit216 ], [ %93, %bufferfix.exit216.thread.thread ]
+  %112 = load i32, ptr %15, align 4
+  %113 = add nsw i32 %112, %111
+  br label %114
 
-127:                                              ; preds = %123, %.critedge156
-  %.0 = phi i32 [ %126, %123 ], [ %84, %.critedge156 ]
+114:                                              ; preds = %110, %.critedge156
+  %.0 = phi i32 [ %113, %110 ], [ %80, %.critedge156 ]
   store i32 %.0, ptr %12, align 4
   ret void
 }
@@ -2666,10 +2643,10 @@ bufferfix.exit183:                                ; preds = %73
 bufferfix.exit183.thread:                         ; preds = %68, %77, %bufferfix.exit183
   %.0 = phi i32 [ %80, %77 ], [ 40, %bufferfix.exit183 ], [ 40, %68 ]
   %81 = icmp sgt i32 %3, 1
-  br i1 %81, label %82, label %106
+  br i1 %81, label %82, label %108
 
 82:                                               ; preds = %bufferfix.exit183.thread
-  switch i32 %7, label %88 [
+  switch i32 %7, label %90 [
     i32 8, label %.sink.split
     i32 6, label %.sink.split
     i32 2, label %.sink.split
@@ -2684,58 +2661,58 @@ bufferfix.exit183.thread:                         ; preds = %68, %77, %bufferfix
 .sink.split:                                      ; preds = %82, %82, %82, %83
   %.sink194 = phi ptr [ %0, %83 ], [ %1, %82 ], [ %1, %82 ], [ %1, %82 ]
   %84 = call ptr @Ptngc_coder_init() #13
-  %.pn = add nsw i32 %3, -1
-  %storemerge = mul nsw i32 %.pn, %64
-  store i32 %storemerge, ptr %14, align 4
-  %85 = sext i32 %64 to i64
-  %86 = getelementptr inbounds i32, ptr %.sink194, i64 %85
-  %87 = call ptr @Ptngc_pack_array(ptr noundef %84, ptr noundef %86, ptr noundef nonnull %14, i32 noundef %7, i32 noundef %8, i32 noundef %2, i32 noundef %4) #13
+  %85 = add nsw i32 %3, -1
+  %86 = mul nsw i32 %85, %64
+  store i32 %86, ptr %14, align 4
+  %87 = sext i32 %64 to i64
+  %88 = getelementptr inbounds i32, ptr %.sink194, i64 %87
+  %89 = call ptr @Ptngc_pack_array(ptr noundef %84, ptr noundef %88, ptr noundef nonnull %14, i32 noundef %7, i32 noundef %8, i32 noundef %2, i32 noundef %4) #13
   call void @Ptngc_coder_deinit(ptr noundef %84) #13
-  br label %88
+  br label %90
 
-88:                                               ; preds = %.sink.split, %82
-  %.1118 = phi ptr [ null, %82 ], [ %87, %.sink.split ]
-  br i1 %.not, label %bufferfix.exit189.thread, label %90
+90:                                               ; preds = %.sink.split, %82
+  %.1118 = phi ptr [ null, %82 ], [ %89, %.sink.split ]
+  br i1 %.not, label %bufferfix.exit189.thread, label %92
 
-bufferfix.exit189.thread:                         ; preds = %88
-  %89 = add nsw i32 %.0, 4
-  br label %102
+bufferfix.exit189.thread:                         ; preds = %90
+  %91 = add nsw i32 %.0, 4
+  br label %104
 
-90:                                               ; preds = %88
-  %91 = sext i32 %.0 to i64
-  %92 = getelementptr inbounds i8, ptr %12, i64 %91
-  %93 = load i32, ptr %14, align 4
-  %94 = sext i32 %93 to i64
-  br label %95
+92:                                               ; preds = %90
+  %93 = sext i32 %.0 to i64
+  %94 = getelementptr inbounds i8, ptr %12, i64 %93
+  %95 = load i32, ptr %14, align 4
+  %96 = sext i32 %95 to i64
+  br label %97
 
-95:                                               ; preds = %95, %90
-  %.0510.i184 = phi i32 [ 4, %90 ], [ %96, %95 ]
-  %.069.i185 = phi i64 [ %94, %90 ], [ %98, %95 ]
-  %.078.i186 = phi ptr [ %92, %90 ], [ %97, %95 ]
-  %96 = add nsw i32 %.0510.i184, -1
+97:                                               ; preds = %97, %92
+  %.0510.i184 = phi i32 [ 4, %92 ], [ %98, %97 ]
+  %.069.i185 = phi i64 [ %96, %92 ], [ %100, %97 ]
+  %.078.i186 = phi ptr [ %94, %92 ], [ %99, %97 ]
+  %98 = add nsw i32 %.0510.i184, -1
   %.0.i187 = trunc i64 %.069.i185 to i8
-  %97 = getelementptr inbounds i8, ptr %.078.i186, i64 1
+  %99 = getelementptr inbounds i8, ptr %.078.i186, i64 1
   store i8 %.0.i187, ptr %.078.i186, align 1
-  %98 = lshr i64 %.069.i185, 8
-  %.not.i188 = icmp eq i32 %96, 0
-  br i1 %.not.i188, label %bufferfix.exit189, label %95, !llvm.loop !13
+  %100 = lshr i64 %.069.i185, 8
+  %.not.i188 = icmp eq i32 %98, 0
+  br i1 %.not.i188, label %bufferfix.exit189, label %97, !llvm.loop !13
 
-bufferfix.exit189:                                ; preds = %95
-  %99 = add nsw i32 %.0, 4
-  %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds i8, ptr %12, i64 %100
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %101, ptr align 1 %.1118, i64 %94, i1 false)
-  br label %102
+bufferfix.exit189:                                ; preds = %97
+  %101 = add nsw i32 %.0, 4
+  %102 = sext i32 %101 to i64
+  %103 = getelementptr inbounds i8, ptr %12, i64 %102
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %103, ptr align 1 %.1118, i64 %96, i1 false)
+  br label %104
 
-102:                                              ; preds = %bufferfix.exit189.thread, %bufferfix.exit189
-  %103 = phi i32 [ %89, %bufferfix.exit189.thread ], [ %99, %bufferfix.exit189 ]
+104:                                              ; preds = %bufferfix.exit189.thread, %bufferfix.exit189
+  %105 = phi i32 [ %91, %bufferfix.exit189.thread ], [ %101, %bufferfix.exit189 ]
   call void @free(ptr noundef %.1118) #13
-  %104 = load i32, ptr %14, align 4
-  %105 = add nsw i32 %104, %103
-  br label %106
+  %106 = load i32, ptr %14, align 4
+  %107 = add nsw i32 %106, %105
+  br label %108
 
-106:                                              ; preds = %102, %bufferfix.exit183.thread
-  %.1 = phi i32 [ %105, %102 ], [ %.0, %bufferfix.exit183.thread ]
+108:                                              ; preds = %104, %bufferfix.exit183.thread
+  %.1 = phi i32 [ %107, %104 ], [ %.0, %bufferfix.exit183.thread ]
   store i32 %.1, ptr %11, align 4
   ret void
 }

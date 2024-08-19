@@ -2614,20 +2614,20 @@ _dump_trigger_state.exit:                         ; preds = %36, %47
   br label %125
 
 125:                                              ; preds = %113, %122, %119, %100
-  %.sink = load ptr, ptr %2, align 8
-  %126 = call i32 @unlink(ptr noundef %.sink) #14
+  %126 = load ptr, ptr %2, align 8
+  %127 = call i32 @unlink(ptr noundef %126) #14
   call void @slurm_xfree(ptr noundef nonnull %1) #14
   call void @slurm_xfree(ptr noundef nonnull %3) #14
   call void @slurm_xfree(ptr noundef nonnull %2) #14
   call void @unlock_state_files() #14
   %.not49 = icmp eq ptr %5, null
-  br i1 %.not49, label %128, label %127
+  br i1 %.not49, label %129, label %128
 
-127:                                              ; preds = %125
+128:                                              ; preds = %125
   call void @free_buf(ptr noundef nonnull %5) #14
-  br label %128
+  br label %129
 
-128:                                              ; preds = %127, %125
+129:                                              ; preds = %128, %125
   ret i32 %.0
 }
 

@@ -1688,108 +1688,94 @@ pmix_obj_run_destructors.exit255:                 ; preds = %.lr.ph.i252, %174
   %203 = getelementptr inbounds i8, ptr %30, i64 528
   %204 = load i64, ptr %203, align 8
   %205 = trunc i64 %204 to i32
-  store i32 %205, ptr %8, align 4
   br label %259
 
 206:                                              ; preds = %199
   %207 = getelementptr inbounds i8, ptr %30, i64 528
   %208 = load i32, ptr %207, align 8
-  store i32 %208, ptr %8, align 4
   br label %259
 
 209:                                              ; preds = %199
   %210 = getelementptr inbounds i8, ptr %30, i64 528
   %211 = load i8, ptr %210, align 8
   %212 = sext i8 %211 to i32
-  store i32 %212, ptr %8, align 4
   br label %259
 
 213:                                              ; preds = %199
   %214 = getelementptr inbounds i8, ptr %30, i64 528
   %215 = load i16, ptr %214, align 8
   %216 = sext i16 %215 to i32
-  store i32 %216, ptr %8, align 4
   br label %259
 
 217:                                              ; preds = %199
   %218 = getelementptr inbounds i8, ptr %30, i64 528
   %219 = load i32, ptr %218, align 8
-  store i32 %219, ptr %8, align 4
   br label %259
 
 220:                                              ; preds = %199
   %221 = getelementptr inbounds i8, ptr %30, i64 528
   %222 = load i64, ptr %221, align 8
   %223 = trunc i64 %222 to i32
-  store i32 %223, ptr %8, align 4
   br label %259
 
 224:                                              ; preds = %199
   %225 = getelementptr inbounds i8, ptr %30, i64 528
   %226 = load i32, ptr %225, align 8
-  store i32 %226, ptr %8, align 4
   br label %259
 
 227:                                              ; preds = %199
   %228 = getelementptr inbounds i8, ptr %30, i64 528
   %229 = load i8, ptr %228, align 8
   %230 = zext i8 %229 to i32
-  store i32 %230, ptr %8, align 4
   br label %259
 
 231:                                              ; preds = %199
   %232 = getelementptr inbounds i8, ptr %30, i64 528
   %233 = load i16, ptr %232, align 8
   %234 = zext i16 %233 to i32
-  store i32 %234, ptr %8, align 4
   br label %259
 
 235:                                              ; preds = %199
   %236 = getelementptr inbounds i8, ptr %30, i64 528
   %237 = load i32, ptr %236, align 8
-  store i32 %237, ptr %8, align 4
   br label %259
 
 238:                                              ; preds = %199
   %239 = getelementptr inbounds i8, ptr %30, i64 528
   %240 = load i64, ptr %239, align 8
   %241 = trunc i64 %240 to i32
-  store i32 %241, ptr %8, align 4
   br label %259
 
 242:                                              ; preds = %199
   %243 = getelementptr inbounds i8, ptr %30, i64 528
   %244 = load float, ptr %243, align 8
   %245 = fptosi float %244 to i32
-  store i32 %245, ptr %8, align 4
   br label %259
 
 246:                                              ; preds = %199
   %247 = getelementptr inbounds i8, ptr %30, i64 528
   %248 = load double, ptr %247, align 8
   %249 = fptosi double %248 to i32
-  store i32 %249, ptr %8, align 4
   br label %259
 
 250:                                              ; preds = %199
   %251 = getelementptr inbounds i8, ptr %30, i64 528
   %252 = load i32, ptr %251, align 8
-  store i32 %252, ptr %8, align 4
   br label %259
 
 253:                                              ; preds = %199
   %254 = getelementptr inbounds i8, ptr %30, i64 528
   %255 = load i32, ptr %254, align 8
-  store i32 %255, ptr %8, align 4
   br label %259
 
 256:                                              ; preds = %199
   %257 = getelementptr inbounds i8, ptr %30, i64 528
   %258 = load i32, ptr %257, align 8
-  store i32 %258, ptr %8, align 4
   br label %259
 
 259:                                              ; preds = %202, %206, %209, %213, %217, %220, %224, %227, %231, %235, %238, %242, %246, %250, %253, %256
+  %.sink = phi i32 [ %205, %202 ], [ %208, %206 ], [ %212, %209 ], [ %216, %213 ], [ %219, %217 ], [ %223, %220 ], [ %226, %224 ], [ %230, %227 ], [ %234, %231 ], [ %237, %235 ], [ %241, %238 ], [ %245, %242 ], [ %249, %246 ], [ %252, %250 ], [ %255, %253 ], [ %258, %256 ]
+  store i32 %.sink, ptr %8, align 4
   %260 = call i32 @PMIx_Data_pack(ptr noundef null, ptr noundef %192, ptr noundef nonnull %8, i32 noundef 1, i16 noundef zeroext 9) #12
   switch i32 %260, label %.loopexit272.sink.split.sink.split [
     i32 0, label %261
@@ -1917,16 +1903,16 @@ pmix_obj_run_destructors.exit243:                 ; preds = %.lr.ph.i240, %._cri
 
 .loopexit272.sink.split.sink.split:               ; preds = %259, %197, %191, %135
   %.lcssa366.sink = phi i32 [ %137, %135 ], [ %193, %191 ], [ %198, %197 ], [ %260, %259 ]
-  %.sink376 = phi i32 [ 290, %135 ], [ 311, %191 ], [ 324, %197 ], [ 336, %259 ]
-  %.sink.ph = phi ptr [ %136, %135 ], [ %192, %191 ], [ %192, %197 ], [ %192, %259 ]
+  %.sink377 = phi i32 [ 290, %135 ], [ 311, %191 ], [ 324, %197 ], [ 336, %259 ]
+  %.sink375.ph = phi ptr [ %136, %135 ], [ %192, %191 ], [ %192, %197 ], [ %192, %259 ]
   %312 = call ptr @PMIx_Error_string(i32 noundef %.lcssa366.sink) #12
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef %312, ptr noundef nonnull @.str.4, i32 noundef %.sink376) #12
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef %312, ptr noundef nonnull @.str.4, i32 noundef %.sink377) #12
   br label %.loopexit272.sink.split
 
 .loopexit272.sink.split:                          ; preds = %259, %199, %197, %191, %135, %.loopexit272.sink.split.sink.split
-  %.sink = phi ptr [ %.sink.ph, %.loopexit272.sink.split.sink.split ], [ %136, %135 ], [ %192, %191 ], [ %192, %197 ], [ %192, %199 ], [ %192, %259 ]
+  %.sink375 = phi ptr [ %.sink375.ph, %.loopexit272.sink.split.sink.split ], [ %136, %135 ], [ %192, %191 ], [ %192, %197 ], [ %192, %199 ], [ %192, %259 ]
   %.0200.ph = phi i32 [ %.lcssa366.sink, %.loopexit272.sink.split.sink.split ], [ %137, %135 ], [ %193, %191 ], [ %198, %197 ], [ -27, %199 ], [ %260, %259 ]
-  call void @PMIx_Data_buffer_release(ptr noundef %.sink) #12
+  call void @PMIx_Data_buffer_release(ptr noundef %.sink375) #12
   br label %.loopexit272
 
 .loopexit272:                                     ; preds = %pmix_obj_run_destructors.exit243, %.loopexit272.sink.split, %22

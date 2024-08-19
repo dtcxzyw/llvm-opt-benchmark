@@ -85,12 +85,6 @@ define range(i32 -1, 1) i32 @xcgroup_ns_create(ptr noundef %0, ptr noundef %1, p
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %xcgroup_ns_is_available.exit.thread, label %16
 
-xcgroup_ns_is_available.exit.thread:              ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  br label %18
-
 16:                                               ; preds = %3
   %17 = call i32 @common_cgroup_get_param(ptr noundef nonnull %6, ptr noundef nonnull @.str.9, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
   %.not.i = icmp eq i32 %17, 0
@@ -98,10 +92,7 @@ xcgroup_ns_is_available.exit.thread:              ; preds = %3
 
 xcgroup_ns_is_available.exit.thread11:            ; preds = %16
   call void @common_cgroup_destroy(ptr noundef nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  br label %18
+  br label %xcgroup_ns_is_available.exit.thread
 
 xcgroup_ns_is_available.exit:                     ; preds = %16
   call void @slurm_xfree(ptr noundef nonnull %4) #6
@@ -109,15 +100,18 @@ xcgroup_ns_is_available.exit:                     ; preds = %16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  br label %20
+  br label %19
 
-18:                                               ; preds = %xcgroup_ns_is_available.exit.thread11, %xcgroup_ns_is_available.exit.thread
-  %19 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1, ptr noundef %2) #6
+xcgroup_ns_is_available.exit.thread:              ; preds = %3, %xcgroup_ns_is_available.exit.thread11
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
+  %18 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1, ptr noundef %2) #6
   call void @common_cgroup_ns_destroy(ptr noundef nonnull %0) #6
-  br label %20
+  br label %19
 
-20:                                               ; preds = %xcgroup_ns_is_available.exit, %18
-  %.0 = phi i32 [ -1, %18 ], [ 0, %xcgroup_ns_is_available.exit ]
+19:                                               ; preds = %xcgroup_ns_is_available.exit, %xcgroup_ns_is_available.exit.thread
+  %.0 = phi i32 [ -1, %xcgroup_ns_is_available.exit.thread ], [ 0, %xcgroup_ns_is_available.exit ]
   ret i32 %.0
 }
 

@@ -5409,8 +5409,6 @@ define void @_ZN14regex_automata4meta5regex7Builder5build17h95d9f52de86b9271E(pt
 
 .noexc77.i:                                       ; preds = %213, %.noexc76.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !896
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20), !noalias !835
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %21), !noalias !835
   br label %235
 
 217:                                              ; preds = %233, %232, %222, %.body51.i.i, %"_ZN4core3ptr59drop_in_place$LT$regex_automata..meta..regex..RegexInfo$GT$17h0eb91d102e12b554E.exit61.i.i"
@@ -5454,8 +5452,6 @@ define void @_ZN14regex_automata4meta5regex7Builder5build17h95d9f52de86b9271E(pt
 
 .noexc79.i:                                       ; preds = %225, %.noexc78.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !911
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20), !noalias !835
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %21), !noalias !835
   br label %235
 
 "_ZN4core3ptr93drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$regex_automata..meta..strategy..Strategy$GT$$GT$17hb8122a2e8b9f3ad5E.exit.thread.i.i": ; preds = %222, %.thread78.i.i, %.thread68.i.i
@@ -5490,6 +5486,8 @@ define void @_ZN14regex_automata4meta5regex7Builder5build17h95d9f52de86b9271E(pt
           to label %253 unwind label %.loopexit.i, !noalias !817
 
 235:                                              ; preds = %.noexc79.i, %.noexc77.i
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20), !noalias !835
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %21), !noalias !835
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %.sroa.433.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !929)
   %236 = load ptr, ptr %.sroa.22.0..sroa_idx.i, align 8, !alias.scope !932, !noalias !824, !nonnull !20, !noundef !20
@@ -5539,9 +5537,6 @@ define void @_ZN14regex_automata4meta5regex7Builder5build17h95d9f52de86b9271E(pt
 
 250:                                              ; preds = %242, %.noexc80.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !936
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29), !noalias !824
-  call void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$regex_syntax..ast..Ast$GT$$GT$17hbdef390ba8beac07E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %30), !noalias !817
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30), !noalias !824
   br label %_ZN14regex_automata4meta5regex7Builder10build_many17h7a8c2e645e11dc2cE.exit
 
 251:                                              ; preds = %259, %253
@@ -5870,15 +5865,15 @@ define void @_ZN14regex_automata4meta5regex7Builder5build17h95d9f52de86b9271E(pt
 
 337:                                              ; preds = %296, %.noexc100.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !964
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29), !noalias !824
-  call void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$regex_syntax..ast..Ast$GT$$GT$17hbdef390ba8beac07E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %30), !noalias !817
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30), !noalias !824
   br label %_ZN14regex_automata4meta5regex7Builder10build_many17h7a8c2e645e11dc2cE.exit
 
 338:                                              ; preds = %.body82.i
   resume { ptr, i32 } %.pn67.i
 
 _ZN14regex_automata4meta5regex7Builder10build_many17h7a8c2e645e11dc2cE.exit: ; preds = %250, %337
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29), !noalias !824
+  call void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$regex_syntax..ast..Ast$GT$$GT$17hbdef390ba8beac07E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %30), !noalias !817
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30), !noalias !824
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %.sroa.361.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %.sroa.445.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.725.i)
@@ -6274,8 +6269,6 @@ define void @_ZN14regex_automata4meta5regex7Builder14build_from_hir17h995c26a5c3
 
 167:                                              ; preds = %163, %.noexc53.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1046
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14), !noalias !987
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %15), !noalias !987
   br label %_ZN14regex_automata4meta5regex7Builder19build_many_from_hir17h83f95c71abe2d960E.exit
 
 168:                                              ; preds = %185, %184, %173, %.body51.i, %"_ZN4core3ptr59drop_in_place$LT$regex_automata..meta..regex..RegexInfo$GT$17h0eb91d102e12b554E.exit61.i"
@@ -6316,8 +6309,6 @@ define void @_ZN14regex_automata4meta5regex7Builder14build_from_hir17h995c26a5c3
 
 180:                                              ; preds = %176, %"_ZN4core3ptr59drop_in_place$LT$regex_automata..meta..regex..RegexInfo$GT$17h0eb91d102e12b554E.exit.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1061
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14), !noalias !987
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %15), !noalias !987
   br label %_ZN14regex_automata4meta5regex7Builder19build_many_from_hir17h83f95c71abe2d960E.exit
 
 "_ZN4core3ptr93drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$regex_automata..meta..strategy..Strategy$GT$$GT$17hb8122a2e8b9f3ad5E.exit.thread.i": ; preds = %173, %.thread78.i, %.thread68.i
@@ -6346,6 +6337,8 @@ define void @_ZN14regex_automata4meta5regex7Builder14build_from_hir17h995c26a5c3
           to label %.thread.i unwind label %168, !noalias !1011
 
 _ZN14regex_automata4meta5regex7Builder19build_many_from_hir17h83f95c71abe2d960E.exit: ; preds = %167, %180
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14), !noalias !987
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %15), !noalias !987
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %.sroa.433.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   ret void

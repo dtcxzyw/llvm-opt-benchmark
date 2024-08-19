@@ -2309,14 +2309,14 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %.sink.i.sroa.gep122 = getelementptr inbounds i8, ptr %6, i64 40
   %.sink.i.sroa.gep124 = getelementptr inbounds i8, ptr %7, i64 16
   %.sink.i.sroa.gep125 = getelementptr inbounds i8, ptr %6, i64 16
-  %.sink209.sroa.gep = getelementptr inbounds i8, ptr %8, i64 8
-  %.sink209.sroa.gep230 = getelementptr inbounds i8, ptr %5, i64 8
-  %.sink209.sroa.gep232 = getelementptr inbounds i8, ptr %8, i64 32
-  %.sink209.sroa.gep233 = getelementptr inbounds i8, ptr %5, i64 32
-  %.sink209.sroa.gep235 = getelementptr inbounds i8, ptr %8, i64 16
-  %.sink209.sroa.gep236 = getelementptr inbounds i8, ptr %5, i64 16
-  %.sink209.sroa.gep238 = getelementptr inbounds i8, ptr %8, i64 24
-  %.sink209.sroa.gep239 = getelementptr inbounds i8, ptr %5, i64 24
+  %.sink210.sroa.gep = getelementptr inbounds i8, ptr %8, i64 8
+  %.sink210.sroa.gep231 = getelementptr inbounds i8, ptr %5, i64 8
+  %.sink210.sroa.gep233 = getelementptr inbounds i8, ptr %8, i64 32
+  %.sink210.sroa.gep234 = getelementptr inbounds i8, ptr %5, i64 32
+  %.sink210.sroa.gep236 = getelementptr inbounds i8, ptr %8, i64 16
+  %.sink210.sroa.gep237 = getelementptr inbounds i8, ptr %5, i64 16
+  %.sink210.sroa.gep239 = getelementptr inbounds i8, ptr %8, i64 24
+  %.sink210.sroa.gep240 = getelementptr inbounds i8, ptr %5, i64 24
   br i1 %36, label %39, label %37
 
 37:                                               ; preds = %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h05edbc300c7eb8fdE.exit.thread", %3
@@ -2525,27 +2525,27 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %100 = getelementptr inbounds i8, ptr %82, i64 274
   %101 = load i16, ptr %100, align 2, !noalias !5, !noundef !5
   %102 = icmp ugt i16 %101, 4
-  br i1 %102, label %"_ZN5alloc11collections5btree3fix176_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$31fix_node_and_affected_ancestors17h01e90dc1c62be684E.exit.thread", label %.lr.ph.preheader
+  br i1 %102, label %.thread147, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %99
   %103 = add i64 %77, 1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.noexc44
-  %.pre178 = phi i16 [ %202, %.noexc44 ], [ %101, %.lr.ph.preheader ]
-  %.sroa.0.0.i162 = phi ptr [ %106, %.noexc44 ], [ %82, %.lr.ph.preheader ]
-  %.sroa.3.0.i161 = phi i64 [ %110, %.noexc44 ], [ %103, %.lr.ph.preheader ]
-  %104 = zext nneg i16 %.pre178 to i64
+  %.pre179 = phi i16 [ %202, %.noexc44 ], [ %101, %.lr.ph.preheader ]
+  %.sroa.0.0.i163 = phi ptr [ %106, %.noexc44 ], [ %82, %.lr.ph.preheader ]
+  %.sroa.3.0.i162 = phi i64 [ %110, %.noexc44 ], [ %103, %.lr.ph.preheader ]
+  %104 = zext nneg i16 %.pre179 to i64
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !409
-  %105 = getelementptr inbounds i8, ptr %.sroa.0.0.i162, i64 176
+  %105 = getelementptr inbounds i8, ptr %.sroa.0.0.i163, i64 176
   %106 = load ptr, ptr %105, align 8, !noalias !412, !noundef !5
   %107 = icmp eq ptr %106, null
   br i1 %107, label %115, label %108
 
 108:                                              ; preds = %.lr.ph
-  %109 = getelementptr i8, ptr %.sroa.0.0.i162, i64 272
+  %109 = getelementptr i8, ptr %.sroa.0.0.i163, i64 272
   %.val7.val.i.i.i.i = load i16, ptr %109, align 8, !noalias !412
-  %110 = add i64 %.sroa.3.0.i161, 1
+  %110 = add i64 %.sroa.3.0.i162, 1
   %.not.i.i.i.i = icmp eq i16 %.val7.val.i.i.i.i, 0
   br i1 %.not.i.i.i.i, label %111, label %116
 
@@ -2561,16 +2561,16 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   br label %.invoke
 
 .invoke:                                          ; preds = %49, %114
-  %.sink209.sroa.phi = phi ptr [ %.sink209.sroa.gep, %49 ], [ %.sink209.sroa.gep230, %114 ]
-  %.sink209.sroa.phi231 = phi ptr [ %.sink209.sroa.gep232, %49 ], [ %.sink209.sroa.gep233, %114 ]
-  %.sink209.sroa.phi234 = phi ptr [ %.sink209.sroa.gep235, %49 ], [ %.sink209.sroa.gep236, %114 ]
-  %.sink209.sroa.phi237 = phi ptr [ %.sink209.sroa.gep238, %49 ], [ %.sink209.sroa.gep239, %114 ]
-  %.sink209 = phi ptr [ %8, %49 ], [ %5, %114 ]
-  store i64 1, ptr %.sink209.sroa.phi, align 8, !noalias !5
-  store ptr null, ptr %.sink209.sroa.phi231, align 8, !noalias !5
-  store ptr %4, ptr %.sink209.sroa.phi234, align 8, !noalias !5
-  store i64 0, ptr %.sink209.sroa.phi237, align 8, !noalias !5
-  invoke void @_ZN4core9panicking9panic_fmt17h452a83e54ecd764eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink209, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.46a9e265401e6cf69d1387f578460db3.16) #23
+  %.sink210.sroa.phi = phi ptr [ %.sink210.sroa.gep, %49 ], [ %.sink210.sroa.gep231, %114 ]
+  %.sink210.sroa.phi232 = phi ptr [ %.sink210.sroa.gep233, %49 ], [ %.sink210.sroa.gep234, %114 ]
+  %.sink210.sroa.phi235 = phi ptr [ %.sink210.sroa.gep236, %49 ], [ %.sink210.sroa.gep237, %114 ]
+  %.sink210.sroa.phi238 = phi ptr [ %.sink210.sroa.gep239, %49 ], [ %.sink210.sroa.gep240, %114 ]
+  %.sink210 = phi ptr [ %8, %49 ], [ %5, %114 ]
+  store i64 1, ptr %.sink210.sroa.phi, align 8, !noalias !5
+  store ptr null, ptr %.sink210.sroa.phi232, align 8, !noalias !5
+  store ptr %4, ptr %.sink210.sroa.phi235, align 8, !noalias !5
+  store i64 0, ptr %.sink210.sroa.phi238, align 8, !noalias !5
+  invoke void @_ZN4core9panicking9panic_fmt17h452a83e54ecd764eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink210, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.46a9e265401e6cf69d1387f578460db3.16) #23
           to label %.cont unwind label %50
 
 .cont:                                            ; preds = %.invoke
@@ -2578,8 +2578,8 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
 
 115:                                              ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !409
-  %.not.i.i40 = icmp eq i16 %.pre178, 0
-  br i1 %.not.i.i40, label %204, label %"_ZN5alloc11collections5btree3fix176_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$31fix_node_and_affected_ancestors17h01e90dc1c62be684E.exit.thread"
+  %.not.i.i40 = icmp eq i16 %.pre179, 0
+  br i1 %.not.i.i40, label %204, label %.thread147
 
 116:                                              ; preds = %108
   %117 = zext i16 %.val7.val.i.i.i.i to i64
@@ -2592,16 +2592,16 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   store i64 %110, ptr %.sink.i.sroa.gep, align 8, !noalias !409
   store i64 %118, ptr %.sink.i.sroa.gep124, align 8, !noalias !409
   store ptr %121, ptr %.sink.i.sroa.gep118, align 8, !noalias !409
-  store i64 %.sroa.3.0.i161, ptr %.sroa.20.8..sroa_idx24.i.i, align 8, !noalias !409
-  store ptr %.sroa.0.0.i162, ptr %.sink.i.sroa.gep121, align 8, !noalias !409
-  store i64 %.sroa.3.0.i161, ptr %.sroa.24.8..sroa_idx28.i.i, align 8, !noalias !409
+  store i64 %.sroa.3.0.i162, ptr %.sroa.20.8..sroa_idx24.i.i, align 8, !noalias !409
+  store ptr %.sroa.0.0.i163, ptr %.sink.i.sroa.gep121, align 8, !noalias !409
+  store i64 %.sroa.3.0.i162, ptr %.sroa.24.8..sroa_idx28.i.i, align 8, !noalias !409
   %122 = getelementptr inbounds i8, ptr %121, i64 274
   %123 = load i16, ptr %122, align 2, !noalias !5, !noundef !5
   %124 = zext i16 %123 to i64
   %125 = add nuw nsw i64 %104, 1
   %126 = add nuw nsw i64 %125, %124
   %127 = icmp ult i64 %126, 12
-  br i1 %127, label %._crit_edge176, label %137
+  br i1 %127, label %._crit_edge177, label %137
 
 128:                                              ; preds = %111
   %129 = getelementptr inbounds i8, ptr %106, i64 288
@@ -2610,54 +2610,54 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   store ptr %106, ptr %6, align 8, !noalias !409
   store i64 %110, ptr %.sink.i.sroa.gep116, align 8, !noalias !409
   store i64 0, ptr %.sink.i.sroa.gep125, align 8, !noalias !409
-  store ptr %.sroa.0.0.i162, ptr %.sink.i.sroa.gep119, align 8, !noalias !409
-  store i64 %.sroa.3.0.i161, ptr %.sroa.20.8..sroa_idx.i.i, align 8, !noalias !409
+  store ptr %.sroa.0.0.i163, ptr %.sink.i.sroa.gep119, align 8, !noalias !409
+  store i64 %.sroa.3.0.i162, ptr %.sroa.20.8..sroa_idx.i.i, align 8, !noalias !409
   store ptr %130, ptr %.sink.i.sroa.gep122, align 8, !noalias !409
-  store i64 %.sroa.3.0.i161, ptr %.sroa.24.8..sroa_idx.i.i, align 8, !noalias !409
+  store i64 %.sroa.3.0.i162, ptr %.sroa.24.8..sroa_idx.i.i, align 8, !noalias !409
   %131 = add nuw nsw i64 %104, 1
   %132 = getelementptr inbounds i8, ptr %130, i64 274
   %133 = load i16, ptr %132, align 2, !noalias !5, !noundef !5
   %134 = zext i16 %133 to i64
   %135 = add nuw nsw i64 %131, %134
   %136 = icmp ult i64 %135, 12
-  br i1 %136, label %._crit_edge176.thread, label %139
+  br i1 %136, label %._crit_edge177.thread, label %139
 
 137:                                              ; preds = %116
   %138 = sub nuw nsw i64 5, %104
   invoke fastcc void @"_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$15bulk_steal_left17h813da1d1fd456224E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %7, i64 noundef %138)
-          to label %"_ZN5alloc11collections5btree3fix176_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$31fix_node_and_affected_ancestors17h01e90dc1c62be684E.exit.thread" unwind label %50
+          to label %.thread147 unwind label %50
 
 139:                                              ; preds = %128
   %140 = sub nuw nsw i64 5, %104
   invoke fastcc void @"_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$16bulk_steal_right17h27d9c76ae90397cbE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6, i64 noundef %140)
-          to label %"_ZN5alloc11collections5btree3fix176_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$31fix_node_and_affected_ancestors17h01e90dc1c62be684E.exit.thread" unwind label %50
+          to label %.thread147 unwind label %50
 
-"_ZN5alloc11collections5btree3fix176_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$31fix_node_and_affected_ancestors17h01e90dc1c62be684E.exit.thread": ; preds = %.noexc44, %99, %115, %137, %139
+.thread147:                                       ; preds = %.noexc44, %99, %115, %137, %139
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
   br label %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h05edbc300c7eb8fdE.exit.thread"
 
-._crit_edge176:                                   ; preds = %116
+._crit_edge177:                                   ; preds = %116
   %.phi.trans.insert = getelementptr inbounds i8, ptr %106, i64 274
   %.pre = load i16, ptr %.phi.trans.insert, align 2, !noalias !429
-  %.pre182 = add nuw nsw i64 %124, 1
-  %.pre184 = add nuw nsw i64 %.pre182, %104
-  %141 = icmp ult i64 %.pre184, 12
-  br i1 %141, label %._crit_edge176.thread, label %.noexc52.i.invoke
+  %.pre183 = add nuw nsw i64 %124, 1
+  %.pre185 = add nuw nsw i64 %.pre183, %104
+  %141 = icmp ult i64 %.pre185, 12
+  br i1 %141, label %._crit_edge177.thread, label %.noexc52.i.invoke
 
-._crit_edge176.thread:                            ; preds = %128, %._crit_edge176
-  %.in = phi i16 [ %.pre, %._crit_edge176 ], [ %113, %128 ]
-  %142 = phi ptr [ %121, %._crit_edge176 ], [ %.sroa.0.0.i162, %128 ]
-  %143 = phi ptr [ %.sroa.0.0.i162, %._crit_edge176 ], [ %130, %128 ]
-  %144 = phi i64 [ %118, %._crit_edge176 ], [ 0, %128 ]
-  %.pre-phi193 = phi i64 [ %124, %._crit_edge176 ], [ %104, %128 ]
-  %.pre-phi181192 = phi i64 [ %104, %._crit_edge176 ], [ %134, %128 ]
-  %.pre-phi183191 = phi i64 [ %.pre182, %._crit_edge176 ], [ %131, %128 ]
-  %.pre-phi185190 = phi i64 [ %.pre184, %._crit_edge176 ], [ %135, %128 ]
+._crit_edge177.thread:                            ; preds = %128, %._crit_edge177
+  %.in = phi i16 [ %.pre, %._crit_edge177 ], [ %113, %128 ]
+  %142 = phi ptr [ %121, %._crit_edge177 ], [ %.sroa.0.0.i163, %128 ]
+  %143 = phi ptr [ %.sroa.0.0.i163, %._crit_edge177 ], [ %130, %128 ]
+  %144 = phi i64 [ %118, %._crit_edge177 ], [ 0, %128 ]
+  %.pre-phi194 = phi i64 [ %124, %._crit_edge177 ], [ %104, %128 ]
+  %.pre-phi182193 = phi i64 [ %104, %._crit_edge177 ], [ %134, %128 ]
+  %.pre-phi184192 = phi i64 [ %.pre183, %._crit_edge177 ], [ %131, %128 ]
+  %.pre-phi186191 = phi i64 [ %.pre185, %._crit_edge177 ], [ %135, %128 ]
   %145 = getelementptr inbounds i8, ptr %106, i64 274
   %146 = zext i16 %.in to i64
   %147 = getelementptr inbounds i8, ptr %142, i64 274
-  %148 = trunc nuw nsw i64 %.pre-phi185190 to i16
+  %148 = trunc nuw nsw i64 %.pre-phi186191 to i16
   store i16 %148, ptr %147, align 2, !noalias !429
   %149 = getelementptr inbounds i8, ptr %106, i64 184
   %150 = getelementptr inbounds i64, ptr %149, i64 %144
@@ -2668,11 +2668,11 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %155 = shl nsw i64 %154, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %150, ptr align 8 %152, i64 %155, i1 false), !alias.scope !432, !noalias !429
   %156 = getelementptr inbounds i8, ptr %142, i64 184
-  %157 = getelementptr inbounds i64, ptr %156, i64 %.pre-phi193
+  %157 = getelementptr inbounds i64, ptr %156, i64 %.pre-phi194
   store i64 %151, ptr %157, align 8, !noalias !429
   %158 = getelementptr inbounds i8, ptr %143, i64 184
-  %159 = getelementptr inbounds i64, ptr %156, i64 %.pre-phi183191
-  %160 = shl nuw nsw i64 %.pre-phi181192, 3
+  %159 = getelementptr inbounds i64, ptr %156, i64 %.pre-phi184192
+  %160 = shl nuw nsw i64 %.pre-phi182193, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %159, ptr nonnull readonly align 8 %158, i64 %160, i1 false), !alias.scope !435, !noalias !429
   %161 = getelementptr inbounds { ptr, ptr }, ptr %106, i64 %144
   %162 = load ptr, ptr %161, align 8, !alias.scope !439, !noalias !429, !nonnull !5, !align !16, !noundef !5
@@ -2681,12 +2681,12 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %165 = getelementptr i8, ptr %161, i64 16
   %166 = shl nsw i64 %154, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %161, ptr align 8 %165, i64 %166, i1 false), !alias.scope !439, !noalias !429
-  %167 = getelementptr inbounds { ptr, ptr }, ptr %142, i64 %.pre-phi193
+  %167 = getelementptr inbounds { ptr, ptr }, ptr %142, i64 %.pre-phi194
   store ptr %162, ptr %167, align 8, !noalias !429
   %168 = getelementptr inbounds i8, ptr %167, i64 8
   store ptr %164, ptr %168, align 8, !noalias !429
-  %169 = getelementptr inbounds { ptr, ptr }, ptr %142, i64 %.pre-phi183191
-  %170 = shl nuw nsw i64 %.pre-phi181192, 4
+  %169 = getelementptr inbounds { ptr, ptr }, ptr %142, i64 %.pre-phi184192
+  %170 = shl nuw nsw i64 %.pre-phi182193, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %169, ptr nonnull readonly align 8 %143, i64 %170, i1 false), !alias.scope !442, !noalias !429
   %171 = getelementptr inbounds i8, ptr %106, i64 280
   %172 = add nuw nsw i64 %144, 1
@@ -2696,8 +2696,8 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %175 = icmp ult i64 %172, %146
   br i1 %175, label %.lr.ph.i.i, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h0b6908af1abe28f9E.exit.i"
 
-.lr.ph.i.i:                                       ; preds = %._crit_edge176.thread, %.lr.ph.i.i
-  %.sroa.0.06.i.i = phi i64 [ %176, %.lr.ph.i.i ], [ %172, %._crit_edge176.thread ]
+.lr.ph.i.i:                                       ; preds = %._crit_edge177.thread, %.lr.ph.i.i
+  %.sroa.0.06.i.i = phi i64 [ %176, %.lr.ph.i.i ], [ %172, %._crit_edge177.thread ]
   %176 = add nuw i64 %.sroa.0.06.i.i, 1
   %177 = getelementptr inbounds ptr, ptr %171, i64 %.sroa.0.06.i.i
   %178 = load ptr, ptr %177, align 8, !noalias !449, !nonnull !5, !noundef !5
@@ -2709,7 +2709,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %exitcond.not.i.i = icmp eq i64 %176, %146
   br i1 %exitcond.not.i.i, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h0b6908af1abe28f9E.exit.i", label %.lr.ph.i.i
 
-"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h0b6908af1abe28f9E.exit.i": ; preds = %.lr.ph.i.i, %._crit_edge176.thread
+"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h0b6908af1abe28f9E.exit.i": ; preds = %.lr.ph.i.i, %._crit_edge177.thread
   %182 = load i16, ptr %145, align 2, !noalias !429, !noundef !5
   %183 = add i16 %182, -1
   store i16 %183, ptr %145, align 2, !noalias !429
@@ -2717,16 +2717,16 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   br i1 %184, label %185, label %.noexc44
 
 185:                                              ; preds = %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h0b6908af1abe28f9E.exit.i"
-  %186 = add nuw nsw i64 %.pre-phi181192, 1
+  %186 = add nuw nsw i64 %.pre-phi182193, 1
   %187 = getelementptr inbounds i8, ptr %142, i64 280
-  %188 = sub nsw i64 %.pre-phi185190, %.pre-phi193
+  %188 = sub nsw i64 %.pre-phi186191, %.pre-phi194
   %189 = icmp eq i64 %186, %188
   br i1 %189, label %.lr.ph.i53.preheader.i, label %.noexc52.i.invoke
 
-.noexc52.i.invoke:                                ; preds = %185, %._crit_edge176
-  %190 = phi ptr [ @anon.46a9e265401e6cf69d1387f578460db3.42, %._crit_edge176 ], [ @anon.46a9e265401e6cf69d1387f578460db3.19, %185 ]
-  %191 = phi i64 [ 42, %._crit_edge176 ], [ 40, %185 ]
-  %192 = phi ptr [ @anon.46a9e265401e6cf69d1387f578460db3.43, %._crit_edge176 ], [ @anon.46a9e265401e6cf69d1387f578460db3.20, %185 ]
+.noexc52.i.invoke:                                ; preds = %185, %._crit_edge177
+  %190 = phi ptr [ @anon.46a9e265401e6cf69d1387f578460db3.42, %._crit_edge177 ], [ @anon.46a9e265401e6cf69d1387f578460db3.19, %185 ]
+  %191 = phi i64 [ 42, %._crit_edge177 ], [ 40, %185 ]
+  %192 = phi ptr [ @anon.46a9e265401e6cf69d1387f578460db3.43, %._crit_edge177 ], [ @anon.46a9e265401e6cf69d1387f578460db3.20, %185 ]
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 %190, i64 noundef %191, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %192) #23
           to label %.noexc52.i.cont unwind label %50
 
@@ -2734,14 +2734,14 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   unreachable
 
 .lr.ph.i53.preheader.i:                           ; preds = %185
-  %193 = getelementptr inbounds ptr, ptr %187, i64 %.pre-phi183191
+  %193 = getelementptr inbounds ptr, ptr %187, i64 %.pre-phi184192
   %194 = getelementptr inbounds i8, ptr %143, i64 280
   %195 = shl nuw nsw i64 %186, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %193, ptr noundef nonnull readonly align 8 dereferenceable(1) %194, i64 %195, i1 false), !alias.scope !455, !noalias !429
   br label %.lr.ph.i53.i
 
 .lr.ph.i53.i:                                     ; preds = %.lr.ph.i53.i, %.lr.ph.i53.preheader.i
-  %.sroa.0.06.i54.i = phi i64 [ %196, %.lr.ph.i53.i ], [ %.pre-phi183191, %.lr.ph.i53.preheader.i ]
+  %.sroa.0.06.i54.i = phi i64 [ %196, %.lr.ph.i53.i ], [ %.pre-phi184192, %.lr.ph.i53.preheader.i ]
   %196 = add nuw nsw i64 %.sroa.0.06.i54.i, 1
   %197 = getelementptr inbounds ptr, ptr %187, i64 %.sroa.0.06.i54.i
   %198 = load ptr, ptr %197, align 8, !noalias !459, !nonnull !5, !noundef !5
@@ -2750,7 +2750,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %200 = trunc i64 %.sroa.0.06.i54.i to i16
   %201 = getelementptr inbounds i8, ptr %198, i64 272
   store i16 %200, ptr %201, align 8, !noalias !464
-  %exitcond.not.i55.i = icmp eq i64 %.sroa.0.06.i54.i, %.pre-phi185190
+  %exitcond.not.i55.i = icmp eq i64 %.sroa.0.06.i54.i, %.pre-phi186191
   br i1 %exitcond.not.i55.i, label %.noexc44, label %.lr.ph.i53.i
 
 .noexc44:                                         ; preds = %.lr.ph.i53.i, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h0b6908af1abe28f9E.exit.i"
@@ -2762,9 +2762,9 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   %202 = load i16, ptr %145, align 2, !noalias !5, !noundef !5
   %203 = icmp ugt i16 %202, 4
-  br i1 %203, label %"_ZN5alloc11collections5btree3fix176_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$31fix_node_and_affected_ancestors17h01e90dc1c62be684E.exit.thread", label %.lr.ph
+  br i1 %203, label %.thread147, label %.lr.ph
 
-"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h05edbc300c7eb8fdE.exit.thread": ; preds = %75, %"_ZN5alloc11collections5btree3fix176_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$31fix_node_and_affected_ancestors17h01e90dc1c62be684E.exit.thread", %204
+"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h05edbc300c7eb8fdE.exit.thread": ; preds = %75, %.thread147, %204
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   br label %37
 
@@ -2831,14 +2831,14 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %.sink.i.sroa.gep122 = getelementptr inbounds i8, ptr %6, i64 40
   %.sink.i.sroa.gep124 = getelementptr inbounds i8, ptr %7, i64 16
   %.sink.i.sroa.gep125 = getelementptr inbounds i8, ptr %6, i64 16
-  %.sink209.sroa.gep = getelementptr inbounds i8, ptr %8, i64 8
-  %.sink209.sroa.gep230 = getelementptr inbounds i8, ptr %5, i64 8
-  %.sink209.sroa.gep232 = getelementptr inbounds i8, ptr %8, i64 32
-  %.sink209.sroa.gep233 = getelementptr inbounds i8, ptr %5, i64 32
-  %.sink209.sroa.gep235 = getelementptr inbounds i8, ptr %8, i64 16
-  %.sink209.sroa.gep236 = getelementptr inbounds i8, ptr %5, i64 16
-  %.sink209.sroa.gep238 = getelementptr inbounds i8, ptr %8, i64 24
-  %.sink209.sroa.gep239 = getelementptr inbounds i8, ptr %5, i64 24
+  %.sink210.sroa.gep = getelementptr inbounds i8, ptr %8, i64 8
+  %.sink210.sroa.gep231 = getelementptr inbounds i8, ptr %5, i64 8
+  %.sink210.sroa.gep233 = getelementptr inbounds i8, ptr %8, i64 32
+  %.sink210.sroa.gep234 = getelementptr inbounds i8, ptr %5, i64 32
+  %.sink210.sroa.gep236 = getelementptr inbounds i8, ptr %8, i64 16
+  %.sink210.sroa.gep237 = getelementptr inbounds i8, ptr %5, i64 16
+  %.sink210.sroa.gep239 = getelementptr inbounds i8, ptr %8, i64 24
+  %.sink210.sroa.gep240 = getelementptr inbounds i8, ptr %5, i64 24
   br i1 %36, label %39, label %37
 
 37:                                               ; preds = %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h2671e485d24ab7a6E.exit.thread", %3
@@ -3047,27 +3047,27 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %100 = getelementptr inbounds i8, ptr %82, i64 274
   %101 = load i16, ptr %100, align 2, !noalias !5, !noundef !5
   %102 = icmp ugt i16 %101, 4
-  br i1 %102, label %"_ZN5alloc11collections5btree3fix176_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$31fix_node_and_affected_ancestors17h2796066ed08bde1fE.exit.thread", label %.lr.ph.preheader
+  br i1 %102, label %.thread147, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %99
   %103 = add i64 %77, 1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.noexc44
-  %.pre178 = phi i16 [ %202, %.noexc44 ], [ %101, %.lr.ph.preheader ]
-  %.sroa.0.0.i162 = phi ptr [ %106, %.noexc44 ], [ %82, %.lr.ph.preheader ]
-  %.sroa.3.0.i161 = phi i64 [ %110, %.noexc44 ], [ %103, %.lr.ph.preheader ]
-  %104 = zext nneg i16 %.pre178 to i64
+  %.pre179 = phi i16 [ %202, %.noexc44 ], [ %101, %.lr.ph.preheader ]
+  %.sroa.0.0.i163 = phi ptr [ %106, %.noexc44 ], [ %82, %.lr.ph.preheader ]
+  %.sroa.3.0.i162 = phi i64 [ %110, %.noexc44 ], [ %103, %.lr.ph.preheader ]
+  %104 = zext nneg i16 %.pre179 to i64
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !504
-  %105 = getelementptr inbounds i8, ptr %.sroa.0.0.i162, i64 176
+  %105 = getelementptr inbounds i8, ptr %.sroa.0.0.i163, i64 176
   %106 = load ptr, ptr %105, align 8, !noalias !507, !noundef !5
   %107 = icmp eq ptr %106, null
   br i1 %107, label %115, label %108
 
 108:                                              ; preds = %.lr.ph
-  %109 = getelementptr i8, ptr %.sroa.0.0.i162, i64 272
+  %109 = getelementptr i8, ptr %.sroa.0.0.i163, i64 272
   %.val7.val.i.i.i.i = load i16, ptr %109, align 8, !noalias !507
-  %110 = add i64 %.sroa.3.0.i161, 1
+  %110 = add i64 %.sroa.3.0.i162, 1
   %.not.i.i.i.i = icmp eq i16 %.val7.val.i.i.i.i, 0
   br i1 %.not.i.i.i.i, label %111, label %116
 
@@ -3083,16 +3083,16 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   br label %.invoke
 
 .invoke:                                          ; preds = %49, %114
-  %.sink209.sroa.phi = phi ptr [ %.sink209.sroa.gep, %49 ], [ %.sink209.sroa.gep230, %114 ]
-  %.sink209.sroa.phi231 = phi ptr [ %.sink209.sroa.gep232, %49 ], [ %.sink209.sroa.gep233, %114 ]
-  %.sink209.sroa.phi234 = phi ptr [ %.sink209.sroa.gep235, %49 ], [ %.sink209.sroa.gep236, %114 ]
-  %.sink209.sroa.phi237 = phi ptr [ %.sink209.sroa.gep238, %49 ], [ %.sink209.sroa.gep239, %114 ]
-  %.sink209 = phi ptr [ %8, %49 ], [ %5, %114 ]
-  store i64 1, ptr %.sink209.sroa.phi, align 8, !noalias !5
-  store ptr null, ptr %.sink209.sroa.phi231, align 8, !noalias !5
-  store ptr %4, ptr %.sink209.sroa.phi234, align 8, !noalias !5
-  store i64 0, ptr %.sink209.sroa.phi237, align 8, !noalias !5
-  invoke void @_ZN4core9panicking9panic_fmt17h452a83e54ecd764eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink209, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.46a9e265401e6cf69d1387f578460db3.16) #23
+  %.sink210.sroa.phi = phi ptr [ %.sink210.sroa.gep, %49 ], [ %.sink210.sroa.gep231, %114 ]
+  %.sink210.sroa.phi232 = phi ptr [ %.sink210.sroa.gep233, %49 ], [ %.sink210.sroa.gep234, %114 ]
+  %.sink210.sroa.phi235 = phi ptr [ %.sink210.sroa.gep236, %49 ], [ %.sink210.sroa.gep237, %114 ]
+  %.sink210.sroa.phi238 = phi ptr [ %.sink210.sroa.gep239, %49 ], [ %.sink210.sroa.gep240, %114 ]
+  %.sink210 = phi ptr [ %8, %49 ], [ %5, %114 ]
+  store i64 1, ptr %.sink210.sroa.phi, align 8, !noalias !5
+  store ptr null, ptr %.sink210.sroa.phi232, align 8, !noalias !5
+  store ptr %4, ptr %.sink210.sroa.phi235, align 8, !noalias !5
+  store i64 0, ptr %.sink210.sroa.phi238, align 8, !noalias !5
+  invoke void @_ZN4core9panicking9panic_fmt17h452a83e54ecd764eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink210, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.46a9e265401e6cf69d1387f578460db3.16) #23
           to label %.cont unwind label %50
 
 .cont:                                            ; preds = %.invoke
@@ -3100,8 +3100,8 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
 
 115:                                              ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !504
-  %.not.i.i40 = icmp eq i16 %.pre178, 0
-  br i1 %.not.i.i40, label %204, label %"_ZN5alloc11collections5btree3fix176_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$31fix_node_and_affected_ancestors17h2796066ed08bde1fE.exit.thread"
+  %.not.i.i40 = icmp eq i16 %.pre179, 0
+  br i1 %.not.i.i40, label %204, label %.thread147
 
 116:                                              ; preds = %108
   %117 = zext i16 %.val7.val.i.i.i.i to i64
@@ -3114,16 +3114,16 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   store i64 %110, ptr %.sink.i.sroa.gep, align 8, !noalias !504
   store i64 %118, ptr %.sink.i.sroa.gep124, align 8, !noalias !504
   store ptr %121, ptr %.sink.i.sroa.gep118, align 8, !noalias !504
-  store i64 %.sroa.3.0.i161, ptr %.sroa.20.8..sroa_idx24.i.i, align 8, !noalias !504
-  store ptr %.sroa.0.0.i162, ptr %.sink.i.sroa.gep121, align 8, !noalias !504
-  store i64 %.sroa.3.0.i161, ptr %.sroa.24.8..sroa_idx28.i.i, align 8, !noalias !504
+  store i64 %.sroa.3.0.i162, ptr %.sroa.20.8..sroa_idx24.i.i, align 8, !noalias !504
+  store ptr %.sroa.0.0.i163, ptr %.sink.i.sroa.gep121, align 8, !noalias !504
+  store i64 %.sroa.3.0.i162, ptr %.sroa.24.8..sroa_idx28.i.i, align 8, !noalias !504
   %122 = getelementptr inbounds i8, ptr %121, i64 274
   %123 = load i16, ptr %122, align 2, !noalias !5, !noundef !5
   %124 = zext i16 %123 to i64
   %125 = add nuw nsw i64 %104, 1
   %126 = add nuw nsw i64 %125, %124
   %127 = icmp ult i64 %126, 12
-  br i1 %127, label %._crit_edge176, label %137
+  br i1 %127, label %._crit_edge177, label %137
 
 128:                                              ; preds = %111
   %129 = getelementptr inbounds i8, ptr %106, i64 288
@@ -3132,54 +3132,54 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   store ptr %106, ptr %6, align 8, !noalias !504
   store i64 %110, ptr %.sink.i.sroa.gep116, align 8, !noalias !504
   store i64 0, ptr %.sink.i.sroa.gep125, align 8, !noalias !504
-  store ptr %.sroa.0.0.i162, ptr %.sink.i.sroa.gep119, align 8, !noalias !504
-  store i64 %.sroa.3.0.i161, ptr %.sroa.20.8..sroa_idx.i.i, align 8, !noalias !504
+  store ptr %.sroa.0.0.i163, ptr %.sink.i.sroa.gep119, align 8, !noalias !504
+  store i64 %.sroa.3.0.i162, ptr %.sroa.20.8..sroa_idx.i.i, align 8, !noalias !504
   store ptr %130, ptr %.sink.i.sroa.gep122, align 8, !noalias !504
-  store i64 %.sroa.3.0.i161, ptr %.sroa.24.8..sroa_idx.i.i, align 8, !noalias !504
+  store i64 %.sroa.3.0.i162, ptr %.sroa.24.8..sroa_idx.i.i, align 8, !noalias !504
   %131 = add nuw nsw i64 %104, 1
   %132 = getelementptr inbounds i8, ptr %130, i64 274
   %133 = load i16, ptr %132, align 2, !noalias !5, !noundef !5
   %134 = zext i16 %133 to i64
   %135 = add nuw nsw i64 %131, %134
   %136 = icmp ult i64 %135, 12
-  br i1 %136, label %._crit_edge176.thread, label %139
+  br i1 %136, label %._crit_edge177.thread, label %139
 
 137:                                              ; preds = %116
   %138 = sub nuw nsw i64 5, %104
   invoke fastcc void @"_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$15bulk_steal_left17h53c2d397c1e9e16fE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %7, i64 noundef %138)
-          to label %"_ZN5alloc11collections5btree3fix176_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$31fix_node_and_affected_ancestors17h2796066ed08bde1fE.exit.thread" unwind label %50
+          to label %.thread147 unwind label %50
 
 139:                                              ; preds = %128
   %140 = sub nuw nsw i64 5, %104
   invoke fastcc void @"_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$16bulk_steal_right17h91337a483cf6eb52E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6, i64 noundef %140)
-          to label %"_ZN5alloc11collections5btree3fix176_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$31fix_node_and_affected_ancestors17h2796066ed08bde1fE.exit.thread" unwind label %50
+          to label %.thread147 unwind label %50
 
-"_ZN5alloc11collections5btree3fix176_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$31fix_node_and_affected_ancestors17h2796066ed08bde1fE.exit.thread": ; preds = %.noexc44, %99, %115, %137, %139
+.thread147:                                       ; preds = %.noexc44, %99, %115, %137, %139
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
   br label %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h2671e485d24ab7a6E.exit.thread"
 
-._crit_edge176:                                   ; preds = %116
+._crit_edge177:                                   ; preds = %116
   %.phi.trans.insert = getelementptr inbounds i8, ptr %106, i64 274
   %.pre = load i16, ptr %.phi.trans.insert, align 2, !noalias !524
-  %.pre182 = add nuw nsw i64 %124, 1
-  %.pre184 = add nuw nsw i64 %.pre182, %104
-  %141 = icmp ult i64 %.pre184, 12
-  br i1 %141, label %._crit_edge176.thread, label %.noexc54.i.invoke
+  %.pre183 = add nuw nsw i64 %124, 1
+  %.pre185 = add nuw nsw i64 %.pre183, %104
+  %141 = icmp ult i64 %.pre185, 12
+  br i1 %141, label %._crit_edge177.thread, label %.noexc54.i.invoke
 
-._crit_edge176.thread:                            ; preds = %128, %._crit_edge176
-  %.in = phi i16 [ %.pre, %._crit_edge176 ], [ %113, %128 ]
-  %142 = phi ptr [ %121, %._crit_edge176 ], [ %.sroa.0.0.i162, %128 ]
-  %143 = phi ptr [ %.sroa.0.0.i162, %._crit_edge176 ], [ %130, %128 ]
-  %144 = phi i64 [ %118, %._crit_edge176 ], [ 0, %128 ]
-  %.pre-phi193 = phi i64 [ %124, %._crit_edge176 ], [ %104, %128 ]
-  %.pre-phi181192 = phi i64 [ %104, %._crit_edge176 ], [ %134, %128 ]
-  %.pre-phi183191 = phi i64 [ %.pre182, %._crit_edge176 ], [ %131, %128 ]
-  %.pre-phi185190 = phi i64 [ %.pre184, %._crit_edge176 ], [ %135, %128 ]
+._crit_edge177.thread:                            ; preds = %128, %._crit_edge177
+  %.in = phi i16 [ %.pre, %._crit_edge177 ], [ %113, %128 ]
+  %142 = phi ptr [ %121, %._crit_edge177 ], [ %.sroa.0.0.i163, %128 ]
+  %143 = phi ptr [ %.sroa.0.0.i163, %._crit_edge177 ], [ %130, %128 ]
+  %144 = phi i64 [ %118, %._crit_edge177 ], [ 0, %128 ]
+  %.pre-phi194 = phi i64 [ %124, %._crit_edge177 ], [ %104, %128 ]
+  %.pre-phi182193 = phi i64 [ %104, %._crit_edge177 ], [ %134, %128 ]
+  %.pre-phi184192 = phi i64 [ %.pre183, %._crit_edge177 ], [ %131, %128 ]
+  %.pre-phi186191 = phi i64 [ %.pre185, %._crit_edge177 ], [ %135, %128 ]
   %145 = getelementptr inbounds i8, ptr %106, i64 274
   %146 = zext i16 %.in to i64
   %147 = getelementptr inbounds i8, ptr %142, i64 274
-  %148 = trunc nuw nsw i64 %.pre-phi185190 to i16
+  %148 = trunc nuw nsw i64 %.pre-phi186191 to i16
   store i16 %148, ptr %147, align 2, !noalias !524
   %149 = getelementptr inbounds i8, ptr %106, i64 184
   %150 = getelementptr inbounds i64, ptr %149, i64 %144
@@ -3190,11 +3190,11 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %155 = shl nsw i64 %154, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %150, ptr align 8 %152, i64 %155, i1 false), !alias.scope !527, !noalias !524
   %156 = getelementptr inbounds i8, ptr %142, i64 184
-  %157 = getelementptr inbounds i64, ptr %156, i64 %.pre-phi193
+  %157 = getelementptr inbounds i64, ptr %156, i64 %.pre-phi194
   store i64 %151, ptr %157, align 8, !noalias !524
   %158 = getelementptr inbounds i8, ptr %143, i64 184
-  %159 = getelementptr inbounds i64, ptr %156, i64 %.pre-phi183191
-  %160 = shl nuw nsw i64 %.pre-phi181192, 3
+  %159 = getelementptr inbounds i64, ptr %156, i64 %.pre-phi184192
+  %160 = shl nuw nsw i64 %.pre-phi182193, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %159, ptr nonnull readonly align 8 %158, i64 %160, i1 false), !alias.scope !530, !noalias !524
   %161 = getelementptr inbounds { ptr, ptr }, ptr %106, i64 %144
   %162 = load ptr, ptr %161, align 8, !alias.scope !534, !noalias !524, !nonnull !5, !align !16, !noundef !5
@@ -3203,12 +3203,12 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %165 = getelementptr i8, ptr %161, i64 16
   %166 = shl nsw i64 %154, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %161, ptr align 8 %165, i64 %166, i1 false), !alias.scope !534, !noalias !524
-  %167 = getelementptr inbounds { ptr, ptr }, ptr %142, i64 %.pre-phi193
+  %167 = getelementptr inbounds { ptr, ptr }, ptr %142, i64 %.pre-phi194
   store ptr %162, ptr %167, align 8, !noalias !524
   %168 = getelementptr inbounds i8, ptr %167, i64 8
   store ptr %164, ptr %168, align 8, !noalias !524
-  %169 = getelementptr inbounds { ptr, ptr }, ptr %142, i64 %.pre-phi183191
-  %170 = shl nuw nsw i64 %.pre-phi181192, 4
+  %169 = getelementptr inbounds { ptr, ptr }, ptr %142, i64 %.pre-phi184192
+  %170 = shl nuw nsw i64 %.pre-phi182193, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %169, ptr nonnull readonly align 8 %143, i64 %170, i1 false), !alias.scope !537, !noalias !524
   %171 = getelementptr inbounds i8, ptr %106, i64 280
   %172 = add nuw nsw i64 %144, 1
@@ -3218,8 +3218,8 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %175 = icmp ult i64 %172, %146
   br i1 %175, label %.lr.ph.i.i, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17ha8c48818a2f58463E.exit.i"
 
-.lr.ph.i.i:                                       ; preds = %._crit_edge176.thread, %.lr.ph.i.i
-  %.sroa.0.06.i.i = phi i64 [ %176, %.lr.ph.i.i ], [ %172, %._crit_edge176.thread ]
+.lr.ph.i.i:                                       ; preds = %._crit_edge177.thread, %.lr.ph.i.i
+  %.sroa.0.06.i.i = phi i64 [ %176, %.lr.ph.i.i ], [ %172, %._crit_edge177.thread ]
   %176 = add nuw i64 %.sroa.0.06.i.i, 1
   %177 = getelementptr inbounds ptr, ptr %171, i64 %.sroa.0.06.i.i
   %178 = load ptr, ptr %177, align 8, !noalias !544, !nonnull !5, !noundef !5
@@ -3231,7 +3231,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %exitcond.not.i.i = icmp eq i64 %176, %146
   br i1 %exitcond.not.i.i, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17ha8c48818a2f58463E.exit.i", label %.lr.ph.i.i
 
-"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17ha8c48818a2f58463E.exit.i": ; preds = %.lr.ph.i.i, %._crit_edge176.thread
+"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17ha8c48818a2f58463E.exit.i": ; preds = %.lr.ph.i.i, %._crit_edge177.thread
   %182 = load i16, ptr %145, align 2, !noalias !524, !noundef !5
   %183 = add i16 %182, -1
   store i16 %183, ptr %145, align 2, !noalias !524
@@ -3239,16 +3239,16 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   br i1 %184, label %185, label %.noexc44
 
 185:                                              ; preds = %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17ha8c48818a2f58463E.exit.i"
-  %186 = add nuw nsw i64 %.pre-phi181192, 1
+  %186 = add nuw nsw i64 %.pre-phi182193, 1
   %187 = getelementptr inbounds i8, ptr %142, i64 280
-  %188 = sub nsw i64 %.pre-phi185190, %.pre-phi193
+  %188 = sub nsw i64 %.pre-phi186191, %.pre-phi194
   %189 = icmp eq i64 %186, %188
   br i1 %189, label %.lr.ph.i55.preheader.i, label %.noexc54.i.invoke
 
-.noexc54.i.invoke:                                ; preds = %185, %._crit_edge176
-  %190 = phi ptr [ @anon.46a9e265401e6cf69d1387f578460db3.42, %._crit_edge176 ], [ @anon.46a9e265401e6cf69d1387f578460db3.19, %185 ]
-  %191 = phi i64 [ 42, %._crit_edge176 ], [ 40, %185 ]
-  %192 = phi ptr [ @anon.46a9e265401e6cf69d1387f578460db3.43, %._crit_edge176 ], [ @anon.46a9e265401e6cf69d1387f578460db3.20, %185 ]
+.noexc54.i.invoke:                                ; preds = %185, %._crit_edge177
+  %190 = phi ptr [ @anon.46a9e265401e6cf69d1387f578460db3.42, %._crit_edge177 ], [ @anon.46a9e265401e6cf69d1387f578460db3.19, %185 ]
+  %191 = phi i64 [ 42, %._crit_edge177 ], [ 40, %185 ]
+  %192 = phi ptr [ @anon.46a9e265401e6cf69d1387f578460db3.43, %._crit_edge177 ], [ @anon.46a9e265401e6cf69d1387f578460db3.20, %185 ]
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 %190, i64 noundef %191, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %192) #23
           to label %.noexc54.i.cont unwind label %50
 
@@ -3256,14 +3256,14 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   unreachable
 
 .lr.ph.i55.preheader.i:                           ; preds = %185
-  %193 = getelementptr inbounds ptr, ptr %187, i64 %.pre-phi183191
+  %193 = getelementptr inbounds ptr, ptr %187, i64 %.pre-phi184192
   %194 = getelementptr inbounds i8, ptr %143, i64 280
   %195 = shl nuw nsw i64 %186, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %193, ptr noundef nonnull readonly align 8 dereferenceable(1) %194, i64 %195, i1 false), !alias.scope !550, !noalias !524
   br label %.lr.ph.i55.i
 
 .lr.ph.i55.i:                                     ; preds = %.lr.ph.i55.i, %.lr.ph.i55.preheader.i
-  %.sroa.0.06.i56.i = phi i64 [ %196, %.lr.ph.i55.i ], [ %.pre-phi183191, %.lr.ph.i55.preheader.i ]
+  %.sroa.0.06.i56.i = phi i64 [ %196, %.lr.ph.i55.i ], [ %.pre-phi184192, %.lr.ph.i55.preheader.i ]
   %196 = add nuw nsw i64 %.sroa.0.06.i56.i, 1
   %197 = getelementptr inbounds ptr, ptr %187, i64 %.sroa.0.06.i56.i
   %198 = load ptr, ptr %197, align 8, !noalias !554, !nonnull !5, !noundef !5
@@ -3272,7 +3272,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %200 = trunc i64 %.sroa.0.06.i56.i to i16
   %201 = getelementptr inbounds i8, ptr %198, i64 272
   store i16 %200, ptr %201, align 8, !noalias !559
-  %exitcond.not.i57.i = icmp eq i64 %.sroa.0.06.i56.i, %.pre-phi185190
+  %exitcond.not.i57.i = icmp eq i64 %.sroa.0.06.i56.i, %.pre-phi186191
   br i1 %exitcond.not.i57.i, label %.noexc44, label %.lr.ph.i55.i
 
 .noexc44:                                         ; preds = %.lr.ph.i55.i, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17ha8c48818a2f58463E.exit.i"
@@ -3284,9 +3284,9 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   %202 = load i16, ptr %145, align 2, !noalias !5, !noundef !5
   %203 = icmp ugt i16 %202, 4
-  br i1 %203, label %"_ZN5alloc11collections5btree3fix176_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$31fix_node_and_affected_ancestors17h2796066ed08bde1fE.exit.thread", label %.lr.ph
+  br i1 %203, label %.thread147, label %.lr.ph
 
-"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h2671e485d24ab7a6E.exit.thread": ; preds = %75, %"_ZN5alloc11collections5btree3fix176_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$31fix_node_and_affected_ancestors17h2796066ed08bde1fE.exit.thread", %204
+"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h2671e485d24ab7a6E.exit.thread": ; preds = %75, %.thread147, %204
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   br label %37
 

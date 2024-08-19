@@ -1045,11 +1045,10 @@ common.resume:                                    ; preds = %49, %39
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit": ; preds = %34
   store ptr %14, ptr %36, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %56
+  br label %53
 
 43:                                               ; preds = %"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17hb759c375dec0a850E.exit"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.933)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   br label %53
 
 44:                                               ; preds = %"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17hb759c375dec0a850E.exit"
@@ -1087,20 +1086,15 @@ common.resume:                                    ; preds = %49, %39
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h28053875d800e2ceE.exit": ; preds = %44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  br label %56
+  br label %53
 
-53:                                               ; preds = %56, %43
-  %.sroa.4.1 = phi ptr [ %.sroa.4.0, %56 ], [ undef, %43 ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %56 ], [ null, %43 ]
+53:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit", %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h28053875d800e2ceE.exit", %43
+  %.sroa.4.1 = phi ptr [ undef, %43 ], [ @anon.1f66f1d9a245ea1638c62bcbf87f7885.46, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit" ], [ @anon.1f66f1d9a245ea1638c62bcbf87f7885.44, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h28053875d800e2ceE.exit" ]
+  %.sroa.0.1 = phi ptr [ null, %43 ], [ %36, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit" ], [ %46, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h28053875d800e2ceE.exit" ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   %54 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
   %55 = insertvalue { ptr, ptr } %54, ptr %.sroa.4.1, 1
   ret { ptr, ptr } %55
-
-56:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h28053875d800e2ceE.exit", %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit"
-  %.sroa.4.0 = phi ptr [ @anon.1f66f1d9a245ea1638c62bcbf87f7885.46, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit" ], [ @anon.1f66f1d9a245ea1638c62bcbf87f7885.44, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h28053875d800e2ceE.exit" ]
-  %.sroa.0.0 = phi ptr [ %36, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit" ], [ %46, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h28053875d800e2ceE.exit" ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  br label %53
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1256,11 +1250,10 @@ common.resume:                                    ; preds = %49, %39
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit": ; preds = %34
   store ptr %14, ptr %36, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %56
+  br label %53
 
 43:                                               ; preds = %"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17hb759c375dec0a850E.exit"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.933)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   br label %53
 
 44:                                               ; preds = %"_ZN78_$LT$T$u20$as$u20$diesel..query_dsl..load_dsl..ExecuteDsl$LT$Conn$C$DB$GT$$GT$7execute17hb759c375dec0a850E.exit"
@@ -1298,20 +1291,15 @@ common.resume:                                    ; preds = %49, %39
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h28053875d800e2ceE.exit": ; preds = %44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  br label %56
+  br label %53
 
-53:                                               ; preds = %56, %43
-  %.sroa.4.1 = phi ptr [ %.sroa.4.0, %56 ], [ undef, %43 ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %56 ], [ null, %43 ]
+53:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit", %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h28053875d800e2ceE.exit", %43
+  %.sroa.4.1 = phi ptr [ undef, %43 ], [ @anon.1f66f1d9a245ea1638c62bcbf87f7885.46, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit" ], [ @anon.1f66f1d9a245ea1638c62bcbf87f7885.44, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h28053875d800e2ceE.exit" ]
+  %.sroa.0.1 = phi ptr [ null, %43 ], [ %36, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit" ], [ %46, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h28053875d800e2ceE.exit" ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   %54 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
   %55 = insertvalue { ptr, ptr } %54, ptr %.sroa.4.1, 1
   ret { ptr, ptr } %55
-
-56:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h28053875d800e2ceE.exit", %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit"
-  %.sroa.4.0 = phi ptr [ @anon.1f66f1d9a245ea1638c62bcbf87f7885.46, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit" ], [ @anon.1f66f1d9a245ea1638c62bcbf87f7885.44, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h28053875d800e2ceE.exit" ]
-  %.sroa.0.0 = phi ptr [ %36, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit" ], [ %46, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h28053875d800e2ceE.exit" ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  br label %53
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1873,7 +1861,7 @@ common.resume:                                    ; preds = %.body, %23
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit": ; preds = %18
   store ptr %15, ptr %20, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %64
+  br label %54
 
 27:                                               ; preds = %30, %16
   %28 = landingpad { ptr, i32 }
@@ -1883,7 +1871,7 @@ common.resume:                                    ; preds = %.body, %23
 .body:                                            ; preds = %50, %31, %27
   %eh.lpad-body = phi { ptr, i32 } [ %28, %27 ], [ %32, %31 ], [ %51, %50 ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$all_about_inserts_sqlite..UserForm$GT$$GT$17h758d948f64078f23E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #18
-          to label %common.resume unwind label %65
+          to label %common.resume unwind label %64
 
 29:                                               ; preds = %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !alias.scope !314, !noalias !318
@@ -1934,7 +1922,6 @@ common.resume:                                    ; preds = %.body, %23
 
 "_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$all_about_inserts_sqlite..UserForm$GT$$GT$17h758d948f64078f23E.exit": ; preds = %38, %41
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !325
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %54
 
 45:                                               ; preds = %35
@@ -1972,9 +1959,10 @@ common.resume:                                    ; preds = %.body, %23
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #19
   unreachable
 
-54:                                               ; preds = %64, %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$all_about_inserts_sqlite..UserForm$GT$$GT$17h758d948f64078f23E.exit"
-  %.sroa.4.1 = phi ptr [ %.sroa.4.0, %64 ], [ undef, %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$all_about_inserts_sqlite..UserForm$GT$$GT$17h758d948f64078f23E.exit" ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %64 ], [ null, %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$all_about_inserts_sqlite..UserForm$GT$$GT$17h758d948f64078f23E.exit" ]
+54:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit", %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$all_about_inserts_sqlite..UserForm$GT$$GT$17h758d948f64078f23E.exit39", %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$all_about_inserts_sqlite..UserForm$GT$$GT$17h758d948f64078f23E.exit"
+  %.sroa.4.1 = phi ptr [ undef, %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$all_about_inserts_sqlite..UserForm$GT$$GT$17h758d948f64078f23E.exit" ], [ @anon.1f66f1d9a245ea1638c62bcbf87f7885.46, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit" ], [ @anon.1f66f1d9a245ea1638c62bcbf87f7885.44, %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$all_about_inserts_sqlite..UserForm$GT$$GT$17h758d948f64078f23E.exit39" ]
+  %.sroa.0.1 = phi ptr [ null, %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$all_about_inserts_sqlite..UserForm$GT$$GT$17h758d948f64078f23E.exit" ], [ %20, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit" ], [ %47, %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$all_about_inserts_sqlite..UserForm$GT$$GT$17h758d948f64078f23E.exit39" ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   %55 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
   %56 = insertvalue { ptr, ptr } %55, ptr %.sroa.4.1, 1
   ret { ptr, ptr } %56
@@ -1998,16 +1986,10 @@ common.resume:                                    ; preds = %.body, %23
 
 "_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$all_about_inserts_sqlite..UserForm$GT$$GT$17h758d948f64078f23E.exit39": ; preds = %57, %60
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !335
-  br label %64
-
-64:                                               ; preds = %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$all_about_inserts_sqlite..UserForm$GT$$GT$17h758d948f64078f23E.exit39", %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit"
-  %.sroa.4.0 = phi ptr [ @anon.1f66f1d9a245ea1638c62bcbf87f7885.46, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit" ], [ @anon.1f66f1d9a245ea1638c62bcbf87f7885.44, %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$all_about_inserts_sqlite..UserForm$GT$$GT$17h758d948f64078f23E.exit39" ]
-  %.sroa.0.0 = phi ptr [ %20, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7e40e9b9f6aa28c6E.exit" ], [ %47, %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$all_about_inserts_sqlite..UserForm$GT$$GT$17h758d948f64078f23E.exit39" ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %54
 
-65:                                               ; preds = %.body
-  %66 = landingpad { ptr, i32 }
+64:                                               ; preds = %.body
+  %65 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #19
   unreachable

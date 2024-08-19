@@ -222,8 +222,7 @@ define ptr @cred_p_unpack(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_
 
 _verify_signature.exit.thread:                    ; preds = %10
   %19 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__._verify_signature) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %27
+  br label %.sink.split
 
 20:                                               ; preds = %10
   %21 = load ptr, ptr %3, align 8
@@ -246,10 +245,13 @@ _verify_signature.exit:                           ; preds = %20
 .critedge:                                        ; preds = %20
   tail call void @free(ptr noundef %25) #7
   call void @slurm_xfree(ptr noundef nonnull %3) #7
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %_verify_signature.exit.thread, %.critedge
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %27
 
-27:                                               ; preds = %.critedge, %_verify_signature.exit.thread, %_verify_signature.exit
+27:                                               ; preds = %.sink.split, %_verify_signature.exit
   call void @slurm_cred_destroy(ptr noundef nonnull %4) #7
   br label %30
 
@@ -550,8 +552,7 @@ define ptr @sbcast_p_unpack(ptr noundef %0, i1 noundef zeroext %1, i16 noundef z
 
 _verify_signature.exit.thread:                    ; preds = %19
   %28 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__._verify_signature) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %36
+  br label %.sink.split
 
 29:                                               ; preds = %19
   %30 = load ptr, ptr %4, align 8
@@ -574,10 +575,13 @@ _verify_signature.exit:                           ; preds = %29
 .critedge:                                        ; preds = %29
   call void @free(ptr noundef %34) #7
   call void @slurm_xfree(ptr noundef nonnull %4) #7
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %_verify_signature.exit.thread, %.critedge
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %36
 
-36:                                               ; preds = %.critedge, %_verify_signature.exit.thread, %_verify_signature.exit
+36:                                               ; preds = %.sink.split, %_verify_signature.exit
   call void @delete_sbcast_cred(ptr noundef nonnull %8) #7
   br label %39
 

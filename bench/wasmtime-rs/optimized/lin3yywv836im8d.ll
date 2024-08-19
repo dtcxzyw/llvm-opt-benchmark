@@ -9496,10 +9496,10 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h031799cd30625d
   %7 = load i8, ptr %0, align 1, !alias.scope !1710, !noalias !1715, !noundef !5
   br label %8
 
-8:                                                ; preds = %42, %2
-  %.sroa.7.0 = phi i64 [ 0, %2 ], [ %12, %42 ]
-  %.sroa.13.0 = phi i8 [ %7, %2 ], [ %24, %42 ]
-  %.015 = phi i1 [ true, %2 ], [ false, %42 ]
+8:                                                ; preds = %41, %2
+  %.sroa.7.0 = phi i64 [ 0, %2 ], [ %12, %41 ]
+  %.sroa.13.0 = phi i8 [ %7, %2 ], [ %24, %41 ]
+  %.015 = phi i1 [ true, %2 ], [ false, %41 ]
   %.not12.i = icmp ult i64 %.sroa.7.0, 2
   br i1 %.not12.i, label %.lr.ph.i, label %.loopexit
 
@@ -9509,7 +9509,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h031799cd30625d
 
 .thread:                                          ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  br label %27
+  br label %.loopexit51.sink.split
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i
   %10 = getelementptr inbounds { { ptr, i64 }, i8, [7 x i8] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.42.llvm.11423182251827145186, i64 %.sroa.7.0
@@ -9544,67 +9544,67 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h031799cd30625d
   %23 = xor i8 %18, -1
   %24 = and i8 %.sroa.13.0, %23
   %25 = load ptr, ptr %.014.i, align 8, !noalias !1718, !nonnull !5, !align !6, !noundef !5
-  br i1 %.015, label %42, label %40
+  br i1 %.015, label %41, label %39
 
 .loopexit:                                        ; preds = %8, %.backedge.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   store i8 %.sroa.13.0, ptr %6, align 1
   %.not = icmp eq i8 %.sroa.13.0, 0
-  br i1 %.not, label %27, label %26
+  br i1 %.not, label %.loopexit51.sink.split, label %26
 
 26:                                               ; preds = %.loopexit
-  br i1 %.015, label %30, label %28
+  br i1 %.015, label %29, label %27
 
-27:                                               ; preds = %.loopexit, %.thread, %33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  br label %.loopexit51
+27:                                               ; preds = %26
+  %28 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !1725
+  br i1 %28, label %31, label %29
 
-28:                                               ; preds = %26
-  %29 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !1725
-  br i1 %29, label %32, label %30
+29:                                               ; preds = %27, %26
+  %30 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !1728
+  br i1 %30, label %31, label %32
 
-30:                                               ; preds = %28, %26
-  %31 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !1728
-  br i1 %31, label %32, label %33
+31:                                               ; preds = %32, %29, %27
+  br label %.loopexit51.sink.split
 
-32:                                               ; preds = %33, %30, %28
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  br label %.loopexit51
-
-33:                                               ; preds = %30
+32:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !noalias !1731
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !1731
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1731
   store ptr %5, ptr %3, align 8, !noalias !1731
-  %34 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h0e366403d2f5f148E.llvm.10561276912860805957", ptr %34, align 8, !noalias !1731
+  %33 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h0e366403d2f5f148E.llvm.10561276912860805957", ptr %33, align 8, !noalias !1731
   store ptr @anon.bfa31fafe4958aae8e9727502c2557cc.91.llvm.10561276912860805957, ptr %4, align 8, !alias.scope !1735, !noalias !1738
-  %35 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %35, align 8, !alias.scope !1735, !noalias !1738
-  %36 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %36, align 8, !alias.scope !1735, !noalias !1738
-  %37 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %3, ptr %37, align 8, !alias.scope !1735, !noalias !1738
-  %38 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %38, align 8, !alias.scope !1735, !noalias !1738
-  %39 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !1741
+  %34 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %34, align 8, !alias.scope !1735, !noalias !1738
+  %35 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr null, ptr %35, align 8, !alias.scope !1735, !noalias !1738
+  %36 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %3, ptr %36, align 8, !alias.scope !1735, !noalias !1738
+  %37 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 1, ptr %37, align 8, !alias.scope !1735, !noalias !1738
+  %38 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !1741
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !1731
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !1731
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %39, label %32, label %27
+  br i1 %38, label %31, label %.loopexit51.sink.split
 
-.loopexit51:                                      ; preds = %42, %40, %32, %27
-  %.1 = phi i1 [ false, %27 ], [ true, %32 ], [ true, %40 ], [ true, %42 ]
+.loopexit51.sink.split:                           ; preds = %32, %.thread, %.loopexit, %31
+  %.1.ph = phi i1 [ true, %31 ], [ false, %.loopexit ], [ false, %.thread ], [ false, %32 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  br label %.loopexit51
+
+.loopexit51:                                      ; preds = %41, %39, %.loopexit51.sink.split
+  %.1 = phi i1 [ %.1.ph, %.loopexit51.sink.split ], [ true, %39 ], [ true, %41 ]
   ret i1 %.1
 
-40:                                               ; preds = %22
-  %41 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !1744
-  br i1 %41, label %.loopexit51, label %42
+39:                                               ; preds = %22
+  %40 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !1744
+  br i1 %40, label %.loopexit51, label %41
 
-42:                                               ; preds = %40, %22
-  %43 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %25, i64 noundef %14), !noalias !1747
-  br i1 %43, label %.loopexit51, label %8
+41:                                               ; preds = %39, %22
+  %42 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %25, i64 noundef %14), !noalias !1747
+  br i1 %42, label %.loopexit51, label %8
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -9616,10 +9616,10 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h0a5aa03a743b2a
   %7 = load i32, ptr %0, align 4, !alias.scope !1750, !noalias !1755, !noundef !5
   br label %8
 
-8:                                                ; preds = %43, %2
-  %.sroa.7.0 = phi i64 [ 0, %2 ], [ %12, %43 ]
-  %.sroa.13.0 = phi i32 [ %7, %2 ], [ %25, %43 ]
-  %.015 = phi i1 [ true, %2 ], [ false, %43 ]
+8:                                                ; preds = %42, %2
+  %.sroa.7.0 = phi i64 [ 0, %2 ], [ %12, %42 ]
+  %.sroa.13.0 = phi i32 [ %7, %2 ], [ %25, %42 ]
+  %.015 = phi i1 [ true, %2 ], [ false, %42 ]
   %.not12.i = icmp ult i64 %.sroa.7.0, 5
   br i1 %.not12.i, label %.lr.ph.i, label %.loopexit
 
@@ -9629,7 +9629,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h0a5aa03a743b2a
 
 .thread:                                          ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  br label %28
+  br label %.loopexit51.sink.split
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i
   %10 = getelementptr inbounds { { ptr, i64 }, i32, [1 x i32] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.28.llvm.11423182251827145186, i64 %.sroa.7.0
@@ -9665,67 +9665,67 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h0a5aa03a743b2a
   %24 = xor i32 %19, -1
   %25 = and i32 %.sroa.13.0, %24
   %26 = load ptr, ptr %.014.i, align 8, !noalias !1758, !nonnull !5, !align !6, !noundef !5
-  br i1 %.015, label %43, label %41
+  br i1 %.015, label %42, label %40
 
 .loopexit:                                        ; preds = %8, %.backedge.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 %.sroa.13.0, ptr %6, align 4
   %.not = icmp eq i32 %.sroa.13.0, 0
-  br i1 %.not, label %28, label %27
+  br i1 %.not, label %.loopexit51.sink.split, label %27
 
 27:                                               ; preds = %.loopexit
-  br i1 %.015, label %31, label %29
+  br i1 %.015, label %30, label %28
 
-28:                                               ; preds = %.loopexit, %.thread, %34
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %.loopexit51
+28:                                               ; preds = %27
+  %29 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !1765
+  br i1 %29, label %32, label %30
 
-29:                                               ; preds = %27
-  %30 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !1765
-  br i1 %30, label %33, label %31
+30:                                               ; preds = %28, %27
+  %31 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !1768
+  br i1 %31, label %32, label %33
 
-31:                                               ; preds = %29, %27
-  %32 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !1768
-  br i1 %32, label %33, label %34
+32:                                               ; preds = %33, %30, %28
+  br label %.loopexit51.sink.split
 
-33:                                               ; preds = %34, %31, %29
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %.loopexit51
-
-34:                                               ; preds = %31
+33:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !noalias !1771
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !1771
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1771
   store ptr %5, ptr %3, align 8, !noalias !1771
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h3e18ff42f0bd0c71E.llvm.10561276912860805957", ptr %35, align 8, !noalias !1771
+  %34 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h3e18ff42f0bd0c71E.llvm.10561276912860805957", ptr %34, align 8, !noalias !1771
   store ptr @anon.bfa31fafe4958aae8e9727502c2557cc.91.llvm.10561276912860805957, ptr %4, align 8, !alias.scope !1775, !noalias !1778
-  %36 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %36, align 8, !alias.scope !1775, !noalias !1778
-  %37 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %37, align 8, !alias.scope !1775, !noalias !1778
-  %38 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %3, ptr %38, align 8, !alias.scope !1775, !noalias !1778
-  %39 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %39, align 8, !alias.scope !1775, !noalias !1778
-  %40 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !1781
+  %35 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %35, align 8, !alias.scope !1775, !noalias !1778
+  %36 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr null, ptr %36, align 8, !alias.scope !1775, !noalias !1778
+  %37 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %3, ptr %37, align 8, !alias.scope !1775, !noalias !1778
+  %38 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 1, ptr %38, align 8, !alias.scope !1775, !noalias !1778
+  %39 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !1781
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !1771
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !1771
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %40, label %33, label %28
+  br i1 %39, label %32, label %.loopexit51.sink.split
 
-.loopexit51:                                      ; preds = %43, %41, %33, %28
-  %.1 = phi i1 [ false, %28 ], [ true, %33 ], [ true, %41 ], [ true, %43 ]
+.loopexit51.sink.split:                           ; preds = %33, %.thread, %.loopexit, %32
+  %.1.ph = phi i1 [ true, %32 ], [ false, %.loopexit ], [ false, %.thread ], [ false, %33 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  br label %.loopexit51
+
+.loopexit51:                                      ; preds = %42, %40, %.loopexit51.sink.split
+  %.1 = phi i1 [ %.1.ph, %.loopexit51.sink.split ], [ true, %40 ], [ true, %42 ]
   ret i1 %.1
 
-41:                                               ; preds = %23
-  %42 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !1784
-  br i1 %42, label %.loopexit51, label %43
+40:                                               ; preds = %23
+  %41 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !1784
+  br i1 %41, label %.loopexit51, label %42
 
-43:                                               ; preds = %41, %23
-  %44 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %14), !noalias !1787
-  br i1 %44, label %.loopexit51, label %8
+42:                                               ; preds = %40, %23
+  %43 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %14), !noalias !1787
+  br i1 %43, label %.loopexit51, label %8
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -9737,10 +9737,10 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h15e64a5a35c8fd
   %7 = load i32, ptr %0, align 4, !alias.scope !1790, !noalias !1795, !noundef !5
   br label %8
 
-8:                                                ; preds = %42, %2
-  %.sroa.7.0 = phi i64 [ 0, %2 ], [ %12, %42 ]
-  %.sroa.13.0 = phi i32 [ %7, %2 ], [ %24, %42 ]
-  %.015 = phi i1 [ true, %2 ], [ false, %42 ]
+8:                                                ; preds = %41, %2
+  %.sroa.7.0 = phi i64 [ 0, %2 ], [ %12, %41 ]
+  %.sroa.13.0 = phi i32 [ %7, %2 ], [ %24, %41 ]
+  %.015 = phi i1 [ true, %2 ], [ false, %41 ]
   %.not12.i = icmp ult i64 %.sroa.7.0, 2
   br i1 %.not12.i, label %.lr.ph.i, label %.loopexit
 
@@ -9750,7 +9750,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h15e64a5a35c8fd
 
 .thread:                                          ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  br label %27
+  br label %.loopexit51.sink.split
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i
   %10 = getelementptr inbounds { { ptr, i64 }, i32, [1 x i32] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.36.llvm.11423182251827145186, i64 %.sroa.7.0
@@ -9785,67 +9785,67 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h15e64a5a35c8fd
   %23 = xor i32 %18, -1
   %24 = and i32 %.sroa.13.0, %23
   %25 = load ptr, ptr %.014.i, align 8, !noalias !1798, !nonnull !5, !align !6, !noundef !5
-  br i1 %.015, label %42, label %40
+  br i1 %.015, label %41, label %39
 
 .loopexit:                                        ; preds = %8, %.backedge.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 %.sroa.13.0, ptr %6, align 4
   %.not = icmp eq i32 %.sroa.13.0, 0
-  br i1 %.not, label %27, label %26
+  br i1 %.not, label %.loopexit51.sink.split, label %26
 
 26:                                               ; preds = %.loopexit
-  br i1 %.015, label %30, label %28
+  br i1 %.015, label %29, label %27
 
-27:                                               ; preds = %.loopexit, %.thread, %33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %.loopexit51
+27:                                               ; preds = %26
+  %28 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !1805
+  br i1 %28, label %31, label %29
 
-28:                                               ; preds = %26
-  %29 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !1805
-  br i1 %29, label %32, label %30
+29:                                               ; preds = %27, %26
+  %30 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !1808
+  br i1 %30, label %31, label %32
 
-30:                                               ; preds = %28, %26
-  %31 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !1808
-  br i1 %31, label %32, label %33
+31:                                               ; preds = %32, %29, %27
+  br label %.loopexit51.sink.split
 
-32:                                               ; preds = %33, %30, %28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %.loopexit51
-
-33:                                               ; preds = %30
+32:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !noalias !1811
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !1811
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1811
   store ptr %5, ptr %3, align 8, !noalias !1811
-  %34 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h3e18ff42f0bd0c71E.llvm.10561276912860805957", ptr %34, align 8, !noalias !1811
+  %33 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h3e18ff42f0bd0c71E.llvm.10561276912860805957", ptr %33, align 8, !noalias !1811
   store ptr @anon.bfa31fafe4958aae8e9727502c2557cc.91.llvm.10561276912860805957, ptr %4, align 8, !alias.scope !1815, !noalias !1818
-  %35 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %35, align 8, !alias.scope !1815, !noalias !1818
-  %36 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %36, align 8, !alias.scope !1815, !noalias !1818
-  %37 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %3, ptr %37, align 8, !alias.scope !1815, !noalias !1818
-  %38 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %38, align 8, !alias.scope !1815, !noalias !1818
-  %39 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !1821
+  %34 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %34, align 8, !alias.scope !1815, !noalias !1818
+  %35 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr null, ptr %35, align 8, !alias.scope !1815, !noalias !1818
+  %36 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %3, ptr %36, align 8, !alias.scope !1815, !noalias !1818
+  %37 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 1, ptr %37, align 8, !alias.scope !1815, !noalias !1818
+  %38 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !1821
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !1811
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !1811
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %39, label %32, label %27
+  br i1 %38, label %31, label %.loopexit51.sink.split
 
-.loopexit51:                                      ; preds = %42, %40, %32, %27
-  %.1 = phi i1 [ false, %27 ], [ true, %32 ], [ true, %40 ], [ true, %42 ]
+.loopexit51.sink.split:                           ; preds = %32, %.thread, %.loopexit, %31
+  %.1.ph = phi i1 [ true, %31 ], [ false, %.loopexit ], [ false, %.thread ], [ false, %32 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  br label %.loopexit51
+
+.loopexit51:                                      ; preds = %41, %39, %.loopexit51.sink.split
+  %.1 = phi i1 [ %.1.ph, %.loopexit51.sink.split ], [ true, %39 ], [ true, %41 ]
   ret i1 %.1
 
-40:                                               ; preds = %22
-  %41 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !1824
-  br i1 %41, label %.loopexit51, label %42
+39:                                               ; preds = %22
+  %40 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !1824
+  br i1 %40, label %.loopexit51, label %41
 
-42:                                               ; preds = %40, %22
-  %43 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %25, i64 noundef %14), !noalias !1827
-  br i1 %43, label %.loopexit51, label %8
+41:                                               ; preds = %39, %22
+  %42 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %25, i64 noundef %14), !noalias !1827
+  br i1 %42, label %.loopexit51, label %8
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -9857,10 +9857,10 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h22d6848ddf7162
   %7 = load i16, ptr %0, align 2, !alias.scope !1830, !noalias !1835, !noundef !5
   br label %8
 
-8:                                                ; preds = %43, %2
-  %.sroa.7.0 = phi i64 [ 0, %2 ], [ %12, %43 ]
-  %.sroa.13.0 = phi i16 [ %7, %2 ], [ %25, %43 ]
-  %.015 = phi i1 [ true, %2 ], [ false, %43 ]
+8:                                                ; preds = %42, %2
+  %.sroa.7.0 = phi i64 [ 0, %2 ], [ %12, %42 ]
+  %.sroa.13.0 = phi i16 [ %7, %2 ], [ %25, %42 ]
+  %.015 = phi i1 [ true, %2 ], [ false, %42 ]
   %.not12.i = icmp ult i64 %.sroa.7.0, 5
   br i1 %.not12.i, label %.lr.ph.i, label %.loopexit
 
@@ -9870,7 +9870,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h22d6848ddf7162
 
 .thread:                                          ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
-  br label %28
+  br label %.loopexit51.sink.split
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i
   %10 = getelementptr inbounds { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.9.llvm.11423182251827145186, i64 %.sroa.7.0
@@ -9906,67 +9906,67 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h22d6848ddf7162
   %24 = xor i16 %19, -1
   %25 = and i16 %.sroa.13.0, %24
   %26 = load ptr, ptr %.014.i, align 8, !noalias !1838, !nonnull !5, !align !6, !noundef !5
-  br i1 %.015, label %43, label %41
+  br i1 %.015, label %42, label %40
 
 .loopexit:                                        ; preds = %8, %.backedge.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
   store i16 %.sroa.13.0, ptr %6, align 2
   %.not = icmp eq i16 %.sroa.13.0, 0
-  br i1 %.not, label %28, label %27
+  br i1 %.not, label %.loopexit51.sink.split, label %27
 
 27:                                               ; preds = %.loopexit
-  br i1 %.015, label %31, label %29
+  br i1 %.015, label %30, label %28
 
-28:                                               ; preds = %.loopexit, %.thread, %34
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
-  br label %.loopexit51
+28:                                               ; preds = %27
+  %29 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !1845
+  br i1 %29, label %32, label %30
 
-29:                                               ; preds = %27
-  %30 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !1845
-  br i1 %30, label %33, label %31
+30:                                               ; preds = %28, %27
+  %31 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !1848
+  br i1 %31, label %32, label %33
 
-31:                                               ; preds = %29, %27
-  %32 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !1848
-  br i1 %32, label %33, label %34
+32:                                               ; preds = %33, %30, %28
+  br label %.loopexit51.sink.split
 
-33:                                               ; preds = %34, %31, %29
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
-  br label %.loopexit51
-
-34:                                               ; preds = %31
+33:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !noalias !1851
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !1851
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1851
   store ptr %5, ptr %3, align 8, !noalias !1851
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h8c0d7f8369efe8c1E.llvm.10561276912860805957", ptr %35, align 8, !noalias !1851
+  %34 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h8c0d7f8369efe8c1E.llvm.10561276912860805957", ptr %34, align 8, !noalias !1851
   store ptr @anon.bfa31fafe4958aae8e9727502c2557cc.91.llvm.10561276912860805957, ptr %4, align 8, !alias.scope !1855, !noalias !1858
-  %36 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %36, align 8, !alias.scope !1855, !noalias !1858
-  %37 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %37, align 8, !alias.scope !1855, !noalias !1858
-  %38 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %3, ptr %38, align 8, !alias.scope !1855, !noalias !1858
-  %39 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %39, align 8, !alias.scope !1855, !noalias !1858
-  %40 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !1861
+  %35 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %35, align 8, !alias.scope !1855, !noalias !1858
+  %36 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr null, ptr %36, align 8, !alias.scope !1855, !noalias !1858
+  %37 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %3, ptr %37, align 8, !alias.scope !1855, !noalias !1858
+  %38 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 1, ptr %38, align 8, !alias.scope !1855, !noalias !1858
+  %39 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !1861
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !1851
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !1851
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %40, label %33, label %28
+  br i1 %39, label %32, label %.loopexit51.sink.split
 
-.loopexit51:                                      ; preds = %43, %41, %33, %28
-  %.1 = phi i1 [ false, %28 ], [ true, %33 ], [ true, %41 ], [ true, %43 ]
+.loopexit51.sink.split:                           ; preds = %33, %.thread, %.loopexit, %32
+  %.1.ph = phi i1 [ true, %32 ], [ false, %.loopexit ], [ false, %.thread ], [ false, %33 ]
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
+  br label %.loopexit51
+
+.loopexit51:                                      ; preds = %42, %40, %.loopexit51.sink.split
+  %.1 = phi i1 [ %.1.ph, %.loopexit51.sink.split ], [ true, %40 ], [ true, %42 ]
   ret i1 %.1
 
-41:                                               ; preds = %23
-  %42 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !1864
-  br i1 %42, label %.loopexit51, label %43
+40:                                               ; preds = %23
+  %41 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !1864
+  br i1 %41, label %.loopexit51, label %42
 
-43:                                               ; preds = %41, %23
-  %44 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %14), !noalias !1867
-  br i1 %44, label %.loopexit51, label %8
+42:                                               ; preds = %40, %23
+  %43 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %14), !noalias !1867
+  br i1 %43, label %.loopexit51, label %8
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -9978,10 +9978,10 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h272c669e3aad15
   %7 = load i64, ptr %0, align 8, !alias.scope !1870, !noalias !1875, !noundef !5
   br label %8
 
-8:                                                ; preds = %43, %2
-  %.sroa.7.0 = phi i64 [ 0, %2 ], [ %12, %43 ]
-  %.sroa.13.0 = phi i64 [ %7, %2 ], [ %25, %43 ]
-  %.015 = phi i1 [ true, %2 ], [ false, %43 ]
+8:                                                ; preds = %42, %2
+  %.sroa.7.0 = phi i64 [ 0, %2 ], [ %12, %42 ]
+  %.sroa.13.0 = phi i64 [ %7, %2 ], [ %25, %42 ]
+  %.015 = phi i1 [ true, %2 ], [ false, %42 ]
   %.not12.i = icmp ult i64 %.sroa.7.0, 29
   br i1 %.not12.i, label %.lr.ph.i, label %.loopexit
 
@@ -9991,7 +9991,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h272c669e3aad15
 
 .thread:                                          ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  br label %28
+  br label %.loopexit50.sink.split
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i
   %10 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.72.llvm.11423182251827145186, i64 %.sroa.7.0
@@ -10027,67 +10027,67 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h272c669e3aad15
   %24 = xor i64 %19, -1
   %25 = and i64 %.sroa.13.0, %24
   %26 = load ptr, ptr %.014.i, align 8, !noalias !1878, !nonnull !5, !align !6, !noundef !5
-  br i1 %.015, label %43, label %41
+  br i1 %.015, label %42, label %40
 
 .loopexit:                                        ; preds = %8, %.backedge.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 %.sroa.13.0, ptr %6, align 8
   %.not = icmp eq i64 %.sroa.13.0, 0
-  br i1 %.not, label %28, label %27
+  br i1 %.not, label %.loopexit50.sink.split, label %27
 
 27:                                               ; preds = %.loopexit
-  br i1 %.015, label %31, label %29
+  br i1 %.015, label %30, label %28
 
-28:                                               ; preds = %.loopexit, %.thread, %34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %.loopexit50
+28:                                               ; preds = %27
+  %29 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !1885
+  br i1 %29, label %32, label %30
 
-29:                                               ; preds = %27
-  %30 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !1885
-  br i1 %30, label %33, label %31
+30:                                               ; preds = %28, %27
+  %31 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !1888
+  br i1 %31, label %32, label %33
 
-31:                                               ; preds = %29, %27
-  %32 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !1888
-  br i1 %32, label %33, label %34
+32:                                               ; preds = %33, %30, %28
+  br label %.loopexit50.sink.split
 
-33:                                               ; preds = %34, %31, %29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %.loopexit50
-
-34:                                               ; preds = %31
+33:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !noalias !1891
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !1891
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1891
   store ptr %5, ptr %3, align 8, !noalias !1891
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17hdc13adb0a63c4b6dE.llvm.10561276912860805957", ptr %35, align 8, !noalias !1891
+  %34 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17hdc13adb0a63c4b6dE.llvm.10561276912860805957", ptr %34, align 8, !noalias !1891
   store ptr @anon.bfa31fafe4958aae8e9727502c2557cc.91.llvm.10561276912860805957, ptr %4, align 8, !alias.scope !1895, !noalias !1898
-  %36 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %36, align 8, !alias.scope !1895, !noalias !1898
-  %37 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %37, align 8, !alias.scope !1895, !noalias !1898
-  %38 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %3, ptr %38, align 8, !alias.scope !1895, !noalias !1898
-  %39 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %39, align 8, !alias.scope !1895, !noalias !1898
-  %40 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !1901
+  %35 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %35, align 8, !alias.scope !1895, !noalias !1898
+  %36 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr null, ptr %36, align 8, !alias.scope !1895, !noalias !1898
+  %37 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %3, ptr %37, align 8, !alias.scope !1895, !noalias !1898
+  %38 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 1, ptr %38, align 8, !alias.scope !1895, !noalias !1898
+  %39 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !1901
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !1891
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !1891
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %40, label %33, label %28
+  br i1 %39, label %32, label %.loopexit50.sink.split
 
-.loopexit50:                                      ; preds = %43, %41, %33, %28
-  %.1 = phi i1 [ false, %28 ], [ true, %33 ], [ true, %41 ], [ true, %43 ]
+.loopexit50.sink.split:                           ; preds = %33, %.thread, %.loopexit, %32
+  %.1.ph = phi i1 [ true, %32 ], [ false, %.loopexit ], [ false, %.thread ], [ false, %33 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  br label %.loopexit50
+
+.loopexit50:                                      ; preds = %42, %40, %.loopexit50.sink.split
+  %.1 = phi i1 [ %.1.ph, %.loopexit50.sink.split ], [ true, %40 ], [ true, %42 ]
   ret i1 %.1
 
-41:                                               ; preds = %23
-  %42 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !1904
-  br i1 %42, label %.loopexit50, label %43
+40:                                               ; preds = %23
+  %41 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !1904
+  br i1 %41, label %.loopexit50, label %42
 
-43:                                               ; preds = %41, %23
-  %44 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %14), !noalias !1907
-  br i1 %44, label %.loopexit50, label %8
+42:                                               ; preds = %40, %23
+  %43 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %14), !noalias !1907
+  br i1 %43, label %.loopexit50, label %8
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -10100,9 +10100,9 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h39e92c4e4eef1a
   %8 = and i16 %7, -2
   br label %9
 
-9:                                                ; preds = %26, %2
-  %.sroa.13.0 = phi i16 [ %7, %2 ], [ %8, %26 ]
-  %.015 = phi i1 [ true, %2 ], [ false, %26 ]
+9:                                                ; preds = %25, %2
+  %.sroa.13.0 = phi i16 [ %7, %2 ], [ %8, %25 ]
+  %.015 = phi i1 [ true, %2 ], [ false, %25 ]
   br i1 %.015, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %9
@@ -10111,71 +10111,71 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h39e92c4e4eef1a
 
 .thread:                                          ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
-  br label %13
+  br label %.loopexit51.sink.split
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i
   %11 = and i16 %.sroa.13.0, %7
   %12 = and i16 %11, 1
   %or.cond.i.not.not = icmp eq i16 %12, 0
-  br i1 %or.cond.i.not.not, label %.thread88, label %26
+  br i1 %or.cond.i.not.not, label %.thread88, label %25
 
 .thread88:                                        ; preds = %.lr.ph.split.preheader.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
   store i16 %.sroa.13.0, ptr %6, align 2
-  br label %16
+  br label %15
 
 .loopexit:                                        ; preds = %9
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
   store i16 %.sroa.13.0, ptr %6, align 2
   %.not = icmp eq i16 %.sroa.13.0, 0
-  br i1 %.not, label %13, label %14
+  br i1 %.not, label %.loopexit51.sink.split, label %13
 
-13:                                               ; preds = %.loopexit, %.thread, %19
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
-  br label %.loopexit51
+13:                                               ; preds = %.loopexit
+  %14 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !1918
+  br i1 %14, label %17, label %15
 
-14:                                               ; preds = %.loopexit
-  %15 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !1918
-  br i1 %15, label %18, label %16
+15:                                               ; preds = %.thread88, %13
+  %16 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !1921
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %.thread88, %14
-  %17 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !1921
-  br i1 %17, label %18, label %19
+17:                                               ; preds = %18, %15, %13
+  br label %.loopexit51.sink.split
 
-18:                                               ; preds = %19, %16, %14
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
-  br label %.loopexit51
-
-19:                                               ; preds = %16
+18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !noalias !1924
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !1924
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1924
   store ptr %5, ptr %3, align 8, !noalias !1924
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h8c0d7f8369efe8c1E.llvm.10561276912860805957", ptr %20, align 8, !noalias !1924
+  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h8c0d7f8369efe8c1E.llvm.10561276912860805957", ptr %19, align 8, !noalias !1924
   store ptr @anon.bfa31fafe4958aae8e9727502c2557cc.91.llvm.10561276912860805957, ptr %4, align 8, !alias.scope !1928, !noalias !1931
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %21, align 8, !alias.scope !1928, !noalias !1931
-  %22 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %22, align 8, !alias.scope !1928, !noalias !1931
-  %23 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %3, ptr %23, align 8, !alias.scope !1928, !noalias !1931
-  %24 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %24, align 8, !alias.scope !1928, !noalias !1931
-  %25 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !1934
+  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %20, align 8, !alias.scope !1928, !noalias !1931
+  %21 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr null, ptr %21, align 8, !alias.scope !1928, !noalias !1931
+  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %3, ptr %22, align 8, !alias.scope !1928, !noalias !1931
+  %23 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 1, ptr %23, align 8, !alias.scope !1928, !noalias !1931
+  %24 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !1934
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !1924
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !1924
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %25, label %18, label %13
+  br i1 %24, label %17, label %.loopexit51.sink.split
 
-.loopexit51:                                      ; preds = %26, %18, %13
-  %.1 = phi i1 [ false, %13 ], [ true, %18 ], [ true, %26 ]
+.loopexit51.sink.split:                           ; preds = %18, %.thread, %.loopexit, %17
+  %.1.ph = phi i1 [ true, %17 ], [ false, %.loopexit ], [ false, %.thread ], [ false, %18 ]
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
+  br label %.loopexit51
+
+.loopexit51:                                      ; preds = %25, %.loopexit51.sink.split
+  %.1 = phi i1 [ %.1.ph, %.loopexit51.sink.split ], [ true, %25 ]
   ret i1 %.1
 
-26:                                               ; preds = %.lr.ph.split.preheader.i
-  %27 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.9acd562e1d0a26e0ca74d3900d524aca.24.llvm.11423182251827145186, i64 noundef 19), !noalias !1937
-  br i1 %27, label %.loopexit51, label %9
+25:                                               ; preds = %.lr.ph.split.preheader.i
+  %26 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.9acd562e1d0a26e0ca74d3900d524aca.24.llvm.11423182251827145186, i64 noundef 19), !noalias !1937
+  br i1 %26, label %.loopexit51, label %9
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -10187,10 +10187,10 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h3c37a078f0f812
   %7 = load i16, ptr %0, align 2, !alias.scope !1940, !noalias !1945, !noundef !5
   br label %8
 
-8:                                                ; preds = %43, %2
-  %.sroa.7.0 = phi i64 [ 0, %2 ], [ %12, %43 ]
-  %.sroa.13.0 = phi i16 [ %7, %2 ], [ %25, %43 ]
-  %.015 = phi i1 [ true, %2 ], [ false, %43 ]
+8:                                                ; preds = %42, %2
+  %.sroa.7.0 = phi i64 [ 0, %2 ], [ %12, %42 ]
+  %.sroa.13.0 = phi i16 [ %7, %2 ], [ %25, %42 ]
+  %.015 = phi i1 [ true, %2 ], [ false, %42 ]
   %.not12.i = icmp ult i64 %.sroa.7.0, 4
   br i1 %.not12.i, label %.lr.ph.i, label %.loopexit
 
@@ -10200,7 +10200,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h3c37a078f0f812
 
 .thread:                                          ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
-  br label %28
+  br label %.loopexit51.sink.split
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i
   %10 = getelementptr inbounds { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.16.llvm.11423182251827145186, i64 %.sroa.7.0
@@ -10236,67 +10236,67 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h3c37a078f0f812
   %24 = xor i16 %19, -1
   %25 = and i16 %.sroa.13.0, %24
   %26 = load ptr, ptr %.014.i, align 8, !noalias !1948, !nonnull !5, !align !6, !noundef !5
-  br i1 %.015, label %43, label %41
+  br i1 %.015, label %42, label %40
 
 .loopexit:                                        ; preds = %8, %.backedge.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
   store i16 %.sroa.13.0, ptr %6, align 2
   %.not = icmp eq i16 %.sroa.13.0, 0
-  br i1 %.not, label %28, label %27
+  br i1 %.not, label %.loopexit51.sink.split, label %27
 
 27:                                               ; preds = %.loopexit
-  br i1 %.015, label %31, label %29
+  br i1 %.015, label %30, label %28
 
-28:                                               ; preds = %.loopexit, %.thread, %34
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
-  br label %.loopexit51
+28:                                               ; preds = %27
+  %29 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !1955
+  br i1 %29, label %32, label %30
 
-29:                                               ; preds = %27
-  %30 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !1955
-  br i1 %30, label %33, label %31
+30:                                               ; preds = %28, %27
+  %31 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !1958
+  br i1 %31, label %32, label %33
 
-31:                                               ; preds = %29, %27
-  %32 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !1958
-  br i1 %32, label %33, label %34
+32:                                               ; preds = %33, %30, %28
+  br label %.loopexit51.sink.split
 
-33:                                               ; preds = %34, %31, %29
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
-  br label %.loopexit51
-
-34:                                               ; preds = %31
+33:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !noalias !1961
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !1961
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1961
   store ptr %5, ptr %3, align 8, !noalias !1961
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h8c0d7f8369efe8c1E.llvm.10561276912860805957", ptr %35, align 8, !noalias !1961
+  %34 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h8c0d7f8369efe8c1E.llvm.10561276912860805957", ptr %34, align 8, !noalias !1961
   store ptr @anon.bfa31fafe4958aae8e9727502c2557cc.91.llvm.10561276912860805957, ptr %4, align 8, !alias.scope !1965, !noalias !1968
-  %36 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %36, align 8, !alias.scope !1965, !noalias !1968
-  %37 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %37, align 8, !alias.scope !1965, !noalias !1968
-  %38 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %3, ptr %38, align 8, !alias.scope !1965, !noalias !1968
-  %39 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %39, align 8, !alias.scope !1965, !noalias !1968
-  %40 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !1971
+  %35 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %35, align 8, !alias.scope !1965, !noalias !1968
+  %36 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr null, ptr %36, align 8, !alias.scope !1965, !noalias !1968
+  %37 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %3, ptr %37, align 8, !alias.scope !1965, !noalias !1968
+  %38 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 1, ptr %38, align 8, !alias.scope !1965, !noalias !1968
+  %39 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !1971
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !1961
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !1961
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %40, label %33, label %28
+  br i1 %39, label %32, label %.loopexit51.sink.split
 
-.loopexit51:                                      ; preds = %43, %41, %33, %28
-  %.1 = phi i1 [ false, %28 ], [ true, %33 ], [ true, %41 ], [ true, %43 ]
+.loopexit51.sink.split:                           ; preds = %33, %.thread, %.loopexit, %32
+  %.1.ph = phi i1 [ true, %32 ], [ false, %.loopexit ], [ false, %.thread ], [ false, %33 ]
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
+  br label %.loopexit51
+
+.loopexit51:                                      ; preds = %42, %40, %.loopexit51.sink.split
+  %.1 = phi i1 [ %.1.ph, %.loopexit51.sink.split ], [ true, %40 ], [ true, %42 ]
   ret i1 %.1
 
-41:                                               ; preds = %23
-  %42 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !1974
-  br i1 %42, label %.loopexit51, label %43
+40:                                               ; preds = %23
+  %41 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !1974
+  br i1 %41, label %.loopexit51, label %42
 
-43:                                               ; preds = %41, %23
-  %44 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %14), !noalias !1977
-  br i1 %44, label %.loopexit51, label %8
+42:                                               ; preds = %40, %23
+  %43 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %14), !noalias !1977
+  br i1 %43, label %.loopexit51, label %8
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -10309,9 +10309,9 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h3c3e9ef4ba688b
   %8 = and i16 %7, -2
   br label %9
 
-9:                                                ; preds = %26, %2
-  %.sroa.13.0 = phi i16 [ %7, %2 ], [ %8, %26 ]
-  %.015 = phi i1 [ true, %2 ], [ false, %26 ]
+9:                                                ; preds = %25, %2
+  %.sroa.13.0 = phi i16 [ %7, %2 ], [ %8, %25 ]
+  %.015 = phi i1 [ true, %2 ], [ false, %25 ]
   br i1 %.015, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %9
@@ -10320,71 +10320,71 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h3c3e9ef4ba688b
 
 .thread:                                          ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
-  br label %13
+  br label %.loopexit51.sink.split
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i
   %11 = and i16 %.sroa.13.0, %7
   %12 = and i16 %11, 1
   %or.cond.i.not.not = icmp eq i16 %12, 0
-  br i1 %or.cond.i.not.not, label %.thread88, label %26
+  br i1 %or.cond.i.not.not, label %.thread88, label %25
 
 .thread88:                                        ; preds = %.lr.ph.split.preheader.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
   store i16 %.sroa.13.0, ptr %6, align 2
-  br label %16
+  br label %15
 
 .loopexit:                                        ; preds = %9
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
   store i16 %.sroa.13.0, ptr %6, align 2
   %.not = icmp eq i16 %.sroa.13.0, 0
-  br i1 %.not, label %13, label %14
+  br i1 %.not, label %.loopexit51.sink.split, label %13
 
-13:                                               ; preds = %.loopexit, %.thread, %19
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
-  br label %.loopexit51
+13:                                               ; preds = %.loopexit
+  %14 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !1988
+  br i1 %14, label %17, label %15
 
-14:                                               ; preds = %.loopexit
-  %15 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !1988
-  br i1 %15, label %18, label %16
+15:                                               ; preds = %.thread88, %13
+  %16 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !1991
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %.thread88, %14
-  %17 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !1991
-  br i1 %17, label %18, label %19
+17:                                               ; preds = %18, %15, %13
+  br label %.loopexit51.sink.split
 
-18:                                               ; preds = %19, %16, %14
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
-  br label %.loopexit51
-
-19:                                               ; preds = %16
+18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !noalias !1994
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !1994
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1994
   store ptr %5, ptr %3, align 8, !noalias !1994
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h8c0d7f8369efe8c1E.llvm.10561276912860805957", ptr %20, align 8, !noalias !1994
+  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h8c0d7f8369efe8c1E.llvm.10561276912860805957", ptr %19, align 8, !noalias !1994
   store ptr @anon.bfa31fafe4958aae8e9727502c2557cc.91.llvm.10561276912860805957, ptr %4, align 8, !alias.scope !1998, !noalias !2001
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %21, align 8, !alias.scope !1998, !noalias !2001
-  %22 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %22, align 8, !alias.scope !1998, !noalias !2001
-  %23 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %3, ptr %23, align 8, !alias.scope !1998, !noalias !2001
-  %24 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %24, align 8, !alias.scope !1998, !noalias !2001
-  %25 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2004
+  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %20, align 8, !alias.scope !1998, !noalias !2001
+  %21 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr null, ptr %21, align 8, !alias.scope !1998, !noalias !2001
+  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %3, ptr %22, align 8, !alias.scope !1998, !noalias !2001
+  %23 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 1, ptr %23, align 8, !alias.scope !1998, !noalias !2001
+  %24 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2004
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !1994
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !1994
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %25, label %18, label %13
+  br i1 %24, label %17, label %.loopexit51.sink.split
 
-.loopexit51:                                      ; preds = %26, %18, %13
-  %.1 = phi i1 [ false, %13 ], [ true, %18 ], [ true, %26 ]
+.loopexit51.sink.split:                           ; preds = %18, %.thread, %.loopexit, %17
+  %.1.ph = phi i1 [ true, %17 ], [ false, %.loopexit ], [ false, %.thread ], [ false, %18 ]
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
+  br label %.loopexit51
+
+.loopexit51:                                      ; preds = %25, %.loopexit51.sink.split
+  %.1 = phi i1 [ %.1.ph, %.loopexit51.sink.split ], [ true, %25 ]
   ret i1 %.1
 
-26:                                               ; preds = %.lr.ph.split.preheader.i
-  %27 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.9acd562e1d0a26e0ca74d3900d524aca.24.llvm.11423182251827145186, i64 noundef 19), !noalias !2007
-  br i1 %27, label %.loopexit51, label %9
+25:                                               ; preds = %.lr.ph.split.preheader.i
+  %26 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.9acd562e1d0a26e0ca74d3900d524aca.24.llvm.11423182251827145186, i64 noundef 19), !noalias !2007
+  br i1 %26, label %.loopexit51, label %9
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -10397,9 +10397,9 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h3cdad43200912d
   %8 = and i32 %7, -2
   br label %9
 
-9:                                                ; preds = %26, %2
-  %.sroa.13.0 = phi i32 [ %7, %2 ], [ %8, %26 ]
-  %.015 = phi i1 [ true, %2 ], [ false, %26 ]
+9:                                                ; preds = %25, %2
+  %.sroa.13.0 = phi i32 [ %7, %2 ], [ %8, %25 ]
+  %.015 = phi i1 [ true, %2 ], [ false, %25 ]
   br i1 %.015, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %9
@@ -10408,71 +10408,71 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h3cdad43200912d
 
 .thread:                                          ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  br label %13
+  br label %.loopexit51.sink.split
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i
   %11 = and i32 %.sroa.13.0, %7
   %12 = and i32 %11, 1
   %or.cond.i.not.not = icmp eq i32 %12, 0
-  br i1 %or.cond.i.not.not, label %.thread88, label %26
+  br i1 %or.cond.i.not.not, label %.thread88, label %25
 
 .thread88:                                        ; preds = %.lr.ph.split.preheader.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 %.sroa.13.0, ptr %6, align 4
-  br label %16
+  br label %15
 
 .loopexit:                                        ; preds = %9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 %.sroa.13.0, ptr %6, align 4
   %.not = icmp eq i32 %.sroa.13.0, 0
-  br i1 %.not, label %13, label %14
+  br i1 %.not, label %.loopexit51.sink.split, label %13
 
-13:                                               ; preds = %.loopexit, %.thread, %19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %.loopexit51
+13:                                               ; preds = %.loopexit
+  %14 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2018
+  br i1 %14, label %17, label %15
 
-14:                                               ; preds = %.loopexit
-  %15 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2018
-  br i1 %15, label %18, label %16
+15:                                               ; preds = %.thread88, %13
+  %16 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2021
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %.thread88, %14
-  %17 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2021
-  br i1 %17, label %18, label %19
+17:                                               ; preds = %18, %15, %13
+  br label %.loopexit51.sink.split
 
-18:                                               ; preds = %19, %16, %14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %.loopexit51
-
-19:                                               ; preds = %16
+18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !noalias !2024
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !2024
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !2024
   store ptr %5, ptr %3, align 8, !noalias !2024
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h3e18ff42f0bd0c71E.llvm.10561276912860805957", ptr %20, align 8, !noalias !2024
+  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h3e18ff42f0bd0c71E.llvm.10561276912860805957", ptr %19, align 8, !noalias !2024
   store ptr @anon.bfa31fafe4958aae8e9727502c2557cc.91.llvm.10561276912860805957, ptr %4, align 8, !alias.scope !2028, !noalias !2031
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %21, align 8, !alias.scope !2028, !noalias !2031
-  %22 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %22, align 8, !alias.scope !2028, !noalias !2031
-  %23 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %3, ptr %23, align 8, !alias.scope !2028, !noalias !2031
-  %24 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %24, align 8, !alias.scope !2028, !noalias !2031
-  %25 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2034
+  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %20, align 8, !alias.scope !2028, !noalias !2031
+  %21 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr null, ptr %21, align 8, !alias.scope !2028, !noalias !2031
+  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %3, ptr %22, align 8, !alias.scope !2028, !noalias !2031
+  %23 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 1, ptr %23, align 8, !alias.scope !2028, !noalias !2031
+  %24 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2034
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !2024
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !2024
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %25, label %18, label %13
+  br i1 %24, label %17, label %.loopexit51.sink.split
 
-.loopexit51:                                      ; preds = %26, %18, %13
-  %.1 = phi i1 [ false, %13 ], [ true, %18 ], [ true, %26 ]
+.loopexit51.sink.split:                           ; preds = %18, %.thread, %.loopexit, %17
+  %.1.ph = phi i1 [ true, %17 ], [ false, %.loopexit ], [ false, %.thread ], [ false, %18 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  br label %.loopexit51
+
+.loopexit51:                                      ; preds = %25, %.loopexit51.sink.split
+  %.1 = phi i1 [ %.1.ph, %.loopexit51.sink.split ], [ true, %25 ]
   ret i1 %.1
 
-26:                                               ; preds = %.lr.ph.split.preheader.i
-  %27 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.9acd562e1d0a26e0ca74d3900d524aca.73.llvm.11423182251827145186, i64 noundef 6), !noalias !2037
-  br i1 %27, label %.loopexit51, label %9
+25:                                               ; preds = %.lr.ph.split.preheader.i
+  %26 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.9acd562e1d0a26e0ca74d3900d524aca.73.llvm.11423182251827145186, i64 noundef 6), !noalias !2037
+  br i1 %26, label %.loopexit51, label %9
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -10484,10 +10484,10 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h40b9a7e0c658a9
   %7 = load i8, ptr %0, align 1, !alias.scope !2040, !noalias !2045, !noundef !5
   br label %8
 
-8:                                                ; preds = %42, %2
-  %.sroa.7.0 = phi i64 [ 0, %2 ], [ %12, %42 ]
-  %.sroa.13.0 = phi i8 [ %7, %2 ], [ %24, %42 ]
-  %.015 = phi i1 [ true, %2 ], [ false, %42 ]
+8:                                                ; preds = %41, %2
+  %.sroa.7.0 = phi i64 [ 0, %2 ], [ %12, %41 ]
+  %.sroa.13.0 = phi i8 [ %7, %2 ], [ %24, %41 ]
+  %.015 = phi i1 [ true, %2 ], [ false, %41 ]
   %.not12.i = icmp ult i64 %.sroa.7.0, 2
   br i1 %.not12.i, label %.lr.ph.i, label %.loopexit
 
@@ -10497,7 +10497,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h40b9a7e0c658a9
 
 .thread:                                          ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  br label %27
+  br label %.loopexit51.sink.split
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i
   %10 = getelementptr inbounds { { ptr, i64 }, i8, [7 x i8] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.42.llvm.11423182251827145186, i64 %.sroa.7.0
@@ -10532,67 +10532,67 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h40b9a7e0c658a9
   %23 = xor i8 %18, -1
   %24 = and i8 %.sroa.13.0, %23
   %25 = load ptr, ptr %.014.i, align 8, !noalias !2048, !nonnull !5, !align !6, !noundef !5
-  br i1 %.015, label %42, label %40
+  br i1 %.015, label %41, label %39
 
 .loopexit:                                        ; preds = %8, %.backedge.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   store i8 %.sroa.13.0, ptr %6, align 1
   %.not = icmp eq i8 %.sroa.13.0, 0
-  br i1 %.not, label %27, label %26
+  br i1 %.not, label %.loopexit51.sink.split, label %26
 
 26:                                               ; preds = %.loopexit
-  br i1 %.015, label %30, label %28
+  br i1 %.015, label %29, label %27
 
-27:                                               ; preds = %.loopexit, %.thread, %33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  br label %.loopexit51
+27:                                               ; preds = %26
+  %28 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2055
+  br i1 %28, label %31, label %29
 
-28:                                               ; preds = %26
-  %29 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2055
-  br i1 %29, label %32, label %30
+29:                                               ; preds = %27, %26
+  %30 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2058
+  br i1 %30, label %31, label %32
 
-30:                                               ; preds = %28, %26
-  %31 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2058
-  br i1 %31, label %32, label %33
+31:                                               ; preds = %32, %29, %27
+  br label %.loopexit51.sink.split
 
-32:                                               ; preds = %33, %30, %28
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  br label %.loopexit51
-
-33:                                               ; preds = %30
+32:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !noalias !2061
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !2061
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !2061
   store ptr %5, ptr %3, align 8, !noalias !2061
-  %34 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h0e366403d2f5f148E.llvm.10561276912860805957", ptr %34, align 8, !noalias !2061
+  %33 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h0e366403d2f5f148E.llvm.10561276912860805957", ptr %33, align 8, !noalias !2061
   store ptr @anon.bfa31fafe4958aae8e9727502c2557cc.91.llvm.10561276912860805957, ptr %4, align 8, !alias.scope !2065, !noalias !2068
-  %35 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %35, align 8, !alias.scope !2065, !noalias !2068
-  %36 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %36, align 8, !alias.scope !2065, !noalias !2068
-  %37 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %3, ptr %37, align 8, !alias.scope !2065, !noalias !2068
-  %38 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %38, align 8, !alias.scope !2065, !noalias !2068
-  %39 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2071
+  %34 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %34, align 8, !alias.scope !2065, !noalias !2068
+  %35 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr null, ptr %35, align 8, !alias.scope !2065, !noalias !2068
+  %36 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %3, ptr %36, align 8, !alias.scope !2065, !noalias !2068
+  %37 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 1, ptr %37, align 8, !alias.scope !2065, !noalias !2068
+  %38 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2071
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !2061
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !2061
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %39, label %32, label %27
+  br i1 %38, label %31, label %.loopexit51.sink.split
 
-.loopexit51:                                      ; preds = %42, %40, %32, %27
-  %.1 = phi i1 [ false, %27 ], [ true, %32 ], [ true, %40 ], [ true, %42 ]
+.loopexit51.sink.split:                           ; preds = %32, %.thread, %.loopexit, %31
+  %.1.ph = phi i1 [ true, %31 ], [ false, %.loopexit ], [ false, %.thread ], [ false, %32 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  br label %.loopexit51
+
+.loopexit51:                                      ; preds = %41, %39, %.loopexit51.sink.split
+  %.1 = phi i1 [ %.1.ph, %.loopexit51.sink.split ], [ true, %39 ], [ true, %41 ]
   ret i1 %.1
 
-40:                                               ; preds = %22
-  %41 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2074
-  br i1 %41, label %.loopexit51, label %42
+39:                                               ; preds = %22
+  %40 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2074
+  br i1 %40, label %.loopexit51, label %41
 
-42:                                               ; preds = %40, %22
-  %43 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %25, i64 noundef %14), !noalias !2077
-  br i1 %43, label %.loopexit51, label %8
+41:                                               ; preds = %39, %22
+  %42 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %25, i64 noundef %14), !noalias !2077
+  br i1 %42, label %.loopexit51, label %8
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -10605,9 +10605,9 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h4bb67eccd8022e
   %8 = and i32 %7, -2
   br label %9
 
-9:                                                ; preds = %26, %2
-  %.sroa.13.0 = phi i32 [ %7, %2 ], [ %8, %26 ]
-  %.015 = phi i1 [ true, %2 ], [ false, %26 ]
+9:                                                ; preds = %25, %2
+  %.sroa.13.0 = phi i32 [ %7, %2 ], [ %8, %25 ]
+  %.015 = phi i1 [ true, %2 ], [ false, %25 ]
   br i1 %.015, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %9
@@ -10616,71 +10616,71 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h4bb67eccd8022e
 
 .thread:                                          ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  br label %13
+  br label %.loopexit51.sink.split
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i
   %11 = and i32 %.sroa.13.0, %7
   %12 = and i32 %11, 1
   %or.cond.i.not.not = icmp eq i32 %12, 0
-  br i1 %or.cond.i.not.not, label %.thread88, label %26
+  br i1 %or.cond.i.not.not, label %.thread88, label %25
 
 .thread88:                                        ; preds = %.lr.ph.split.preheader.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 %.sroa.13.0, ptr %6, align 4
-  br label %16
+  br label %15
 
 .loopexit:                                        ; preds = %9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 %.sroa.13.0, ptr %6, align 4
   %.not = icmp eq i32 %.sroa.13.0, 0
-  br i1 %.not, label %13, label %14
+  br i1 %.not, label %.loopexit51.sink.split, label %13
 
-13:                                               ; preds = %.loopexit, %.thread, %19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %.loopexit51
+13:                                               ; preds = %.loopexit
+  %14 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2088
+  br i1 %14, label %17, label %15
 
-14:                                               ; preds = %.loopexit
-  %15 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2088
-  br i1 %15, label %18, label %16
+15:                                               ; preds = %.thread88, %13
+  %16 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2091
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %.thread88, %14
-  %17 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2091
-  br i1 %17, label %18, label %19
+17:                                               ; preds = %18, %15, %13
+  br label %.loopexit51.sink.split
 
-18:                                               ; preds = %19, %16, %14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %.loopexit51
-
-19:                                               ; preds = %16
+18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !noalias !2094
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !2094
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !2094
   store ptr %5, ptr %3, align 8, !noalias !2094
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h3e18ff42f0bd0c71E.llvm.10561276912860805957", ptr %20, align 8, !noalias !2094
+  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h3e18ff42f0bd0c71E.llvm.10561276912860805957", ptr %19, align 8, !noalias !2094
   store ptr @anon.bfa31fafe4958aae8e9727502c2557cc.91.llvm.10561276912860805957, ptr %4, align 8, !alias.scope !2098, !noalias !2101
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %21, align 8, !alias.scope !2098, !noalias !2101
-  %22 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %22, align 8, !alias.scope !2098, !noalias !2101
-  %23 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %3, ptr %23, align 8, !alias.scope !2098, !noalias !2101
-  %24 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %24, align 8, !alias.scope !2098, !noalias !2101
-  %25 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2104
+  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %20, align 8, !alias.scope !2098, !noalias !2101
+  %21 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr null, ptr %21, align 8, !alias.scope !2098, !noalias !2101
+  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %3, ptr %22, align 8, !alias.scope !2098, !noalias !2101
+  %23 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 1, ptr %23, align 8, !alias.scope !2098, !noalias !2101
+  %24 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2104
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !2094
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !2094
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %25, label %18, label %13
+  br i1 %24, label %17, label %.loopexit51.sink.split
 
-.loopexit51:                                      ; preds = %26, %18, %13
-  %.1 = phi i1 [ false, %13 ], [ true, %18 ], [ true, %26 ]
+.loopexit51.sink.split:                           ; preds = %18, %.thread, %.loopexit, %17
+  %.1.ph = phi i1 [ true, %17 ], [ false, %.loopexit ], [ false, %.thread ], [ false, %18 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  br label %.loopexit51
+
+.loopexit51:                                      ; preds = %25, %.loopexit51.sink.split
+  %.1 = phi i1 [ %.1.ph, %.loopexit51.sink.split ], [ true, %25 ]
   ret i1 %.1
 
-26:                                               ; preds = %.lr.ph.split.preheader.i
-  %27 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.9acd562e1d0a26e0ca74d3900d524aca.26.llvm.11423182251827145186, i64 noundef 14), !noalias !2107
-  br i1 %27, label %.loopexit51, label %9
+25:                                               ; preds = %.lr.ph.split.preheader.i
+  %26 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.9acd562e1d0a26e0ca74d3900d524aca.26.llvm.11423182251827145186, i64 noundef 14), !noalias !2107
+  br i1 %26, label %.loopexit51, label %9
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -10692,10 +10692,10 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h50f3d755f7509d
   %7 = load i64, ptr %0, align 8, !alias.scope !2110, !noalias !2115, !noundef !5
   br label %8
 
-8:                                                ; preds = %43, %2
-  %.sroa.7.0 = phi i64 [ 0, %2 ], [ %12, %43 ]
-  %.sroa.13.0 = phi i64 [ %7, %2 ], [ %25, %43 ]
-  %.015 = phi i1 [ true, %2 ], [ false, %43 ]
+8:                                                ; preds = %42, %2
+  %.sroa.7.0 = phi i64 [ 0, %2 ], [ %12, %42 ]
+  %.sroa.13.0 = phi i64 [ %7, %2 ], [ %25, %42 ]
+  %.015 = phi i1 [ true, %2 ], [ false, %42 ]
   %.not12.i = icmp ult i64 %.sroa.7.0, 30
   br i1 %.not12.i, label %.lr.ph.i, label %.loopexit
 
@@ -10705,7 +10705,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h50f3d755f7509d
 
 .thread:                                          ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  br label %28
+  br label %.loopexit50.sink.split
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i
   %10 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.76.llvm.11423182251827145186, i64 %.sroa.7.0
@@ -10741,67 +10741,67 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h50f3d755f7509d
   %24 = xor i64 %19, -1
   %25 = and i64 %.sroa.13.0, %24
   %26 = load ptr, ptr %.014.i, align 8, !noalias !2118, !nonnull !5, !align !6, !noundef !5
-  br i1 %.015, label %43, label %41
+  br i1 %.015, label %42, label %40
 
 .loopexit:                                        ; preds = %8, %.backedge.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 %.sroa.13.0, ptr %6, align 8
   %.not = icmp eq i64 %.sroa.13.0, 0
-  br i1 %.not, label %28, label %27
+  br i1 %.not, label %.loopexit50.sink.split, label %27
 
 27:                                               ; preds = %.loopexit
-  br i1 %.015, label %31, label %29
+  br i1 %.015, label %30, label %28
 
-28:                                               ; preds = %.loopexit, %.thread, %34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %.loopexit50
+28:                                               ; preds = %27
+  %29 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2125
+  br i1 %29, label %32, label %30
 
-29:                                               ; preds = %27
-  %30 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2125
-  br i1 %30, label %33, label %31
+30:                                               ; preds = %28, %27
+  %31 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2128
+  br i1 %31, label %32, label %33
 
-31:                                               ; preds = %29, %27
-  %32 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2128
-  br i1 %32, label %33, label %34
+32:                                               ; preds = %33, %30, %28
+  br label %.loopexit50.sink.split
 
-33:                                               ; preds = %34, %31, %29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %.loopexit50
-
-34:                                               ; preds = %31
+33:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !noalias !2131
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !2131
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !2131
   store ptr %5, ptr %3, align 8, !noalias !2131
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17hdc13adb0a63c4b6dE.llvm.10561276912860805957", ptr %35, align 8, !noalias !2131
+  %34 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17hdc13adb0a63c4b6dE.llvm.10561276912860805957", ptr %34, align 8, !noalias !2131
   store ptr @anon.bfa31fafe4958aae8e9727502c2557cc.91.llvm.10561276912860805957, ptr %4, align 8, !alias.scope !2135, !noalias !2138
-  %36 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %36, align 8, !alias.scope !2135, !noalias !2138
-  %37 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %37, align 8, !alias.scope !2135, !noalias !2138
-  %38 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %3, ptr %38, align 8, !alias.scope !2135, !noalias !2138
-  %39 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %39, align 8, !alias.scope !2135, !noalias !2138
-  %40 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2141
+  %35 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %35, align 8, !alias.scope !2135, !noalias !2138
+  %36 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr null, ptr %36, align 8, !alias.scope !2135, !noalias !2138
+  %37 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %3, ptr %37, align 8, !alias.scope !2135, !noalias !2138
+  %38 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 1, ptr %38, align 8, !alias.scope !2135, !noalias !2138
+  %39 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2141
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !2131
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !2131
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %40, label %33, label %28
+  br i1 %39, label %32, label %.loopexit50.sink.split
 
-.loopexit50:                                      ; preds = %43, %41, %33, %28
-  %.1 = phi i1 [ false, %28 ], [ true, %33 ], [ true, %41 ], [ true, %43 ]
+.loopexit50.sink.split:                           ; preds = %33, %.thread, %.loopexit, %32
+  %.1.ph = phi i1 [ true, %32 ], [ false, %.loopexit ], [ false, %.thread ], [ false, %33 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  br label %.loopexit50
+
+.loopexit50:                                      ; preds = %42, %40, %.loopexit50.sink.split
+  %.1 = phi i1 [ %.1.ph, %.loopexit50.sink.split ], [ true, %40 ], [ true, %42 ]
   ret i1 %.1
 
-41:                                               ; preds = %23
-  %42 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2144
-  br i1 %42, label %.loopexit50, label %43
+40:                                               ; preds = %23
+  %41 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2144
+  br i1 %41, label %.loopexit50, label %42
 
-43:                                               ; preds = %41, %23
-  %44 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %14), !noalias !2147
-  br i1 %44, label %.loopexit50, label %8
+42:                                               ; preds = %40, %23
+  %43 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %14), !noalias !2147
+  br i1 %43, label %.loopexit50, label %8
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -10813,10 +10813,10 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h552d6650eef8d5
   %7 = load i16, ptr %0, align 2, !alias.scope !2150, !noalias !2155, !noundef !5
   br label %8
 
-8:                                                ; preds = %42, %2
-  %.sroa.7.0 = phi i64 [ 0, %2 ], [ %12, %42 ]
-  %.sroa.13.0 = phi i16 [ %7, %2 ], [ %24, %42 ]
-  %.015 = phi i1 [ true, %2 ], [ false, %42 ]
+8:                                                ; preds = %41, %2
+  %.sroa.7.0 = phi i64 [ 0, %2 ], [ %12, %41 ]
+  %.sroa.13.0 = phi i16 [ %7, %2 ], [ %24, %41 ]
+  %.015 = phi i1 [ true, %2 ], [ false, %41 ]
   %.not12.i = icmp ult i64 %.sroa.7.0, 2
   br i1 %.not12.i, label %.lr.ph.i, label %.loopexit
 
@@ -10826,7 +10826,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h552d6650eef8d5
 
 .thread:                                          ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
-  br label %27
+  br label %.loopexit51.sink.split
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i
   %10 = getelementptr inbounds { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.3.llvm.11423182251827145186, i64 %.sroa.7.0
@@ -10861,67 +10861,67 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h552d6650eef8d5
   %23 = xor i16 %18, -1
   %24 = and i16 %.sroa.13.0, %23
   %25 = load ptr, ptr %.014.i, align 8, !noalias !2158, !nonnull !5, !align !6, !noundef !5
-  br i1 %.015, label %42, label %40
+  br i1 %.015, label %41, label %39
 
 .loopexit:                                        ; preds = %8, %.backedge.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
   store i16 %.sroa.13.0, ptr %6, align 2
   %.not = icmp eq i16 %.sroa.13.0, 0
-  br i1 %.not, label %27, label %26
+  br i1 %.not, label %.loopexit51.sink.split, label %26
 
 26:                                               ; preds = %.loopexit
-  br i1 %.015, label %30, label %28
+  br i1 %.015, label %29, label %27
 
-27:                                               ; preds = %.loopexit, %.thread, %33
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
-  br label %.loopexit51
+27:                                               ; preds = %26
+  %28 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2165
+  br i1 %28, label %31, label %29
 
-28:                                               ; preds = %26
-  %29 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2165
-  br i1 %29, label %32, label %30
+29:                                               ; preds = %27, %26
+  %30 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2168
+  br i1 %30, label %31, label %32
 
-30:                                               ; preds = %28, %26
-  %31 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2168
-  br i1 %31, label %32, label %33
+31:                                               ; preds = %32, %29, %27
+  br label %.loopexit51.sink.split
 
-32:                                               ; preds = %33, %30, %28
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
-  br label %.loopexit51
-
-33:                                               ; preds = %30
+32:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !noalias !2171
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !2171
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !2171
   store ptr %5, ptr %3, align 8, !noalias !2171
-  %34 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h8c0d7f8369efe8c1E.llvm.10561276912860805957", ptr %34, align 8, !noalias !2171
+  %33 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h8c0d7f8369efe8c1E.llvm.10561276912860805957", ptr %33, align 8, !noalias !2171
   store ptr @anon.bfa31fafe4958aae8e9727502c2557cc.91.llvm.10561276912860805957, ptr %4, align 8, !alias.scope !2175, !noalias !2178
-  %35 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %35, align 8, !alias.scope !2175, !noalias !2178
-  %36 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %36, align 8, !alias.scope !2175, !noalias !2178
-  %37 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %3, ptr %37, align 8, !alias.scope !2175, !noalias !2178
-  %38 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %38, align 8, !alias.scope !2175, !noalias !2178
-  %39 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2181
+  %34 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %34, align 8, !alias.scope !2175, !noalias !2178
+  %35 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr null, ptr %35, align 8, !alias.scope !2175, !noalias !2178
+  %36 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %3, ptr %36, align 8, !alias.scope !2175, !noalias !2178
+  %37 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 1, ptr %37, align 8, !alias.scope !2175, !noalias !2178
+  %38 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2181
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !2171
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !2171
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %39, label %32, label %27
+  br i1 %38, label %31, label %.loopexit51.sink.split
 
-.loopexit51:                                      ; preds = %42, %40, %32, %27
-  %.1 = phi i1 [ false, %27 ], [ true, %32 ], [ true, %40 ], [ true, %42 ]
+.loopexit51.sink.split:                           ; preds = %32, %.thread, %.loopexit, %31
+  %.1.ph = phi i1 [ true, %31 ], [ false, %.loopexit ], [ false, %.thread ], [ false, %32 ]
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
+  br label %.loopexit51
+
+.loopexit51:                                      ; preds = %41, %39, %.loopexit51.sink.split
+  %.1 = phi i1 [ %.1.ph, %.loopexit51.sink.split ], [ true, %39 ], [ true, %41 ]
   ret i1 %.1
 
-40:                                               ; preds = %22
-  %41 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2184
-  br i1 %41, label %.loopexit51, label %42
+39:                                               ; preds = %22
+  %40 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2184
+  br i1 %40, label %.loopexit51, label %41
 
-42:                                               ; preds = %40, %22
-  %43 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %25, i64 noundef %14), !noalias !2187
-  br i1 %43, label %.loopexit51, label %8
+41:                                               ; preds = %39, %22
+  %42 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %25, i64 noundef %14), !noalias !2187
+  br i1 %42, label %.loopexit51, label %8
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -10934,45 +10934,41 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h77b676a7fefaff
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 %7, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %8, label %9
+  br i1 %.not, label %18, label %8
 
-8:                                                ; preds = %2, %12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %19
+8:                                                ; preds = %2
+  %9 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2198
+  br i1 %9, label %10, label %11
 
-9:                                                ; preds = %2
-  %10 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2198
-  br i1 %10, label %11, label %12
+10:                                               ; preds = %11, %8
+  br label %18
 
-11:                                               ; preds = %12, %9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %19
-
-12:                                               ; preds = %9
+11:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !noalias !2201
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !2201
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !2201
   store ptr %5, ptr %3, align 8, !noalias !2201
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h3e18ff42f0bd0c71E.llvm.10561276912860805957", ptr %13, align 8, !noalias !2201
+  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h3e18ff42f0bd0c71E.llvm.10561276912860805957", ptr %12, align 8, !noalias !2201
   store ptr @anon.bfa31fafe4958aae8e9727502c2557cc.91.llvm.10561276912860805957, ptr %4, align 8, !alias.scope !2205, !noalias !2208
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %14, align 8, !alias.scope !2205, !noalias !2208
-  %15 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %15, align 8, !alias.scope !2205, !noalias !2208
-  %16 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %3, ptr %16, align 8, !alias.scope !2205, !noalias !2208
-  %17 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %17, align 8, !alias.scope !2205, !noalias !2208
-  %18 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2211
+  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %13, align 8, !alias.scope !2205, !noalias !2208
+  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr null, ptr %14, align 8, !alias.scope !2205, !noalias !2208
+  %15 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %3, ptr %15, align 8, !alias.scope !2205, !noalias !2208
+  %16 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 1, ptr %16, align 8, !alias.scope !2205, !noalias !2208
+  %17 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2211
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !2201
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !2201
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %18, label %11, label %8
+  br i1 %17, label %10, label %18
 
-19:                                               ; preds = %11, %8
-  %.1 = phi i1 [ false, %8 ], [ true, %11 ]
+18:                                               ; preds = %11, %2, %10
+  %.1 = phi i1 [ true, %10 ], [ false, %2 ], [ false, %11 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   ret i1 %.1
 }
 
@@ -10986,9 +10982,9 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h7ff2cf49e24f47
   %8 = and i16 %7, -2
   br label %9
 
-9:                                                ; preds = %26, %2
-  %.sroa.13.0 = phi i16 [ %7, %2 ], [ %8, %26 ]
-  %.015 = phi i1 [ true, %2 ], [ false, %26 ]
+9:                                                ; preds = %25, %2
+  %.sroa.13.0 = phi i16 [ %7, %2 ], [ %8, %25 ]
+  %.015 = phi i1 [ true, %2 ], [ false, %25 ]
   br i1 %.015, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %9
@@ -10997,71 +10993,71 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h7ff2cf49e24f47
 
 .thread:                                          ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
-  br label %13
+  br label %.loopexit51.sink.split
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i
   %11 = and i16 %.sroa.13.0, %7
   %12 = and i16 %11, 1
   %or.cond.i.not.not = icmp eq i16 %12, 0
-  br i1 %or.cond.i.not.not, label %.thread88, label %26
+  br i1 %or.cond.i.not.not, label %.thread88, label %25
 
 .thread88:                                        ; preds = %.lr.ph.split.preheader.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
   store i16 %.sroa.13.0, ptr %6, align 2
-  br label %16
+  br label %15
 
 .loopexit:                                        ; preds = %9
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
   store i16 %.sroa.13.0, ptr %6, align 2
   %.not = icmp eq i16 %.sroa.13.0, 0
-  br i1 %.not, label %13, label %14
+  br i1 %.not, label %.loopexit51.sink.split, label %13
 
-13:                                               ; preds = %.loopexit, %.thread, %19
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
-  br label %.loopexit51
+13:                                               ; preds = %.loopexit
+  %14 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2222
+  br i1 %14, label %17, label %15
 
-14:                                               ; preds = %.loopexit
-  %15 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2222
-  br i1 %15, label %18, label %16
+15:                                               ; preds = %.thread88, %13
+  %16 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2225
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %.thread88, %14
-  %17 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2225
-  br i1 %17, label %18, label %19
+17:                                               ; preds = %18, %15, %13
+  br label %.loopexit51.sink.split
 
-18:                                               ; preds = %19, %16, %14
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
-  br label %.loopexit51
-
-19:                                               ; preds = %16
+18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !noalias !2228
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !2228
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !2228
   store ptr %5, ptr %3, align 8, !noalias !2228
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h8c0d7f8369efe8c1E.llvm.10561276912860805957", ptr %20, align 8, !noalias !2228
+  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h8c0d7f8369efe8c1E.llvm.10561276912860805957", ptr %19, align 8, !noalias !2228
   store ptr @anon.bfa31fafe4958aae8e9727502c2557cc.91.llvm.10561276912860805957, ptr %4, align 8, !alias.scope !2232, !noalias !2235
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %21, align 8, !alias.scope !2232, !noalias !2235
-  %22 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %22, align 8, !alias.scope !2232, !noalias !2235
-  %23 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %3, ptr %23, align 8, !alias.scope !2232, !noalias !2235
-  %24 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %24, align 8, !alias.scope !2232, !noalias !2235
-  %25 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2238
+  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %20, align 8, !alias.scope !2232, !noalias !2235
+  %21 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr null, ptr %21, align 8, !alias.scope !2232, !noalias !2235
+  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %3, ptr %22, align 8, !alias.scope !2232, !noalias !2235
+  %23 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 1, ptr %23, align 8, !alias.scope !2232, !noalias !2235
+  %24 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2238
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !2228
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !2228
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %25, label %18, label %13
+  br i1 %24, label %17, label %.loopexit51.sink.split
 
-.loopexit51:                                      ; preds = %26, %18, %13
-  %.1 = phi i1 [ false, %13 ], [ true, %18 ], [ true, %26 ]
+.loopexit51.sink.split:                           ; preds = %18, %.thread, %.loopexit, %17
+  %.1.ph = phi i1 [ true, %17 ], [ false, %.loopexit ], [ false, %.thread ], [ false, %18 ]
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
+  br label %.loopexit51
+
+.loopexit51:                                      ; preds = %25, %.loopexit51.sink.split
+  %.1 = phi i1 [ %.1.ph, %.loopexit51.sink.split ], [ true, %25 ]
   ret i1 %.1
 
-26:                                               ; preds = %.lr.ph.split.preheader.i
-  %27 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.9acd562e1d0a26e0ca74d3900d524aca.22.llvm.11423182251827145186, i64 noundef 26), !noalias !2241
-  br i1 %27, label %.loopexit51, label %9
+25:                                               ; preds = %.lr.ph.split.preheader.i
+  %26 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.9acd562e1d0a26e0ca74d3900d524aca.22.llvm.11423182251827145186, i64 noundef 26), !noalias !2241
+  br i1 %26, label %.loopexit51, label %9
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -11073,10 +11069,10 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h9a1b1c16ac4546
   %7 = load i16, ptr %0, align 2, !alias.scope !2244, !noalias !2249, !noundef !5
   br label %8
 
-8:                                                ; preds = %42, %2
-  %.sroa.7.0 = phi i64 [ 0, %2 ], [ %12, %42 ]
-  %.sroa.13.0 = phi i16 [ %7, %2 ], [ %24, %42 ]
-  %.015 = phi i1 [ true, %2 ], [ false, %42 ]
+8:                                                ; preds = %41, %2
+  %.sroa.7.0 = phi i64 [ 0, %2 ], [ %12, %41 ]
+  %.sroa.13.0 = phi i16 [ %7, %2 ], [ %24, %41 ]
+  %.015 = phi i1 [ true, %2 ], [ false, %41 ]
   %.not12.i = icmp ult i64 %.sroa.7.0, 2
   br i1 %.not12.i, label %.lr.ph.i, label %.loopexit
 
@@ -11086,7 +11082,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h9a1b1c16ac4546
 
 .thread:                                          ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
-  br label %27
+  br label %.loopexit51.sink.split
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i
   %10 = getelementptr inbounds { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.3.llvm.11423182251827145186, i64 %.sroa.7.0
@@ -11121,67 +11117,67 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h9a1b1c16ac4546
   %23 = xor i16 %18, -1
   %24 = and i16 %.sroa.13.0, %23
   %25 = load ptr, ptr %.014.i, align 8, !noalias !2252, !nonnull !5, !align !6, !noundef !5
-  br i1 %.015, label %42, label %40
+  br i1 %.015, label %41, label %39
 
 .loopexit:                                        ; preds = %8, %.backedge.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
   store i16 %.sroa.13.0, ptr %6, align 2
   %.not = icmp eq i16 %.sroa.13.0, 0
-  br i1 %.not, label %27, label %26
+  br i1 %.not, label %.loopexit51.sink.split, label %26
 
 26:                                               ; preds = %.loopexit
-  br i1 %.015, label %30, label %28
+  br i1 %.015, label %29, label %27
 
-27:                                               ; preds = %.loopexit, %.thread, %33
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
-  br label %.loopexit51
+27:                                               ; preds = %26
+  %28 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2259
+  br i1 %28, label %31, label %29
 
-28:                                               ; preds = %26
-  %29 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2259
-  br i1 %29, label %32, label %30
+29:                                               ; preds = %27, %26
+  %30 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2262
+  br i1 %30, label %31, label %32
 
-30:                                               ; preds = %28, %26
-  %31 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2262
-  br i1 %31, label %32, label %33
+31:                                               ; preds = %32, %29, %27
+  br label %.loopexit51.sink.split
 
-32:                                               ; preds = %33, %30, %28
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
-  br label %.loopexit51
-
-33:                                               ; preds = %30
+32:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !noalias !2265
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !2265
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !2265
   store ptr %5, ptr %3, align 8, !noalias !2265
-  %34 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h8c0d7f8369efe8c1E.llvm.10561276912860805957", ptr %34, align 8, !noalias !2265
+  %33 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h8c0d7f8369efe8c1E.llvm.10561276912860805957", ptr %33, align 8, !noalias !2265
   store ptr @anon.bfa31fafe4958aae8e9727502c2557cc.91.llvm.10561276912860805957, ptr %4, align 8, !alias.scope !2269, !noalias !2272
-  %35 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %35, align 8, !alias.scope !2269, !noalias !2272
-  %36 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %36, align 8, !alias.scope !2269, !noalias !2272
-  %37 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %3, ptr %37, align 8, !alias.scope !2269, !noalias !2272
-  %38 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %38, align 8, !alias.scope !2269, !noalias !2272
-  %39 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2275
+  %34 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %34, align 8, !alias.scope !2269, !noalias !2272
+  %35 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr null, ptr %35, align 8, !alias.scope !2269, !noalias !2272
+  %36 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %3, ptr %36, align 8, !alias.scope !2269, !noalias !2272
+  %37 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 1, ptr %37, align 8, !alias.scope !2269, !noalias !2272
+  %38 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2275
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !2265
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !2265
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %39, label %32, label %27
+  br i1 %38, label %31, label %.loopexit51.sink.split
 
-.loopexit51:                                      ; preds = %42, %40, %32, %27
-  %.1 = phi i1 [ false, %27 ], [ true, %32 ], [ true, %40 ], [ true, %42 ]
+.loopexit51.sink.split:                           ; preds = %32, %.thread, %.loopexit, %31
+  %.1.ph = phi i1 [ true, %31 ], [ false, %.loopexit ], [ false, %.thread ], [ false, %32 ]
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
+  br label %.loopexit51
+
+.loopexit51:                                      ; preds = %41, %39, %.loopexit51.sink.split
+  %.1 = phi i1 [ %.1.ph, %.loopexit51.sink.split ], [ true, %39 ], [ true, %41 ]
   ret i1 %.1
 
-40:                                               ; preds = %22
-  %41 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2278
-  br i1 %41, label %.loopexit51, label %42
+39:                                               ; preds = %22
+  %40 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2278
+  br i1 %40, label %.loopexit51, label %41
 
-42:                                               ; preds = %40, %22
-  %43 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %25, i64 noundef %14), !noalias !2281
-  br i1 %43, label %.loopexit51, label %8
+41:                                               ; preds = %39, %22
+  %42 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %25, i64 noundef %14), !noalias !2281
+  br i1 %42, label %.loopexit51, label %8
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -11193,10 +11189,10 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17ha1e62d4f5f706a
   %7 = load i16, ptr %0, align 2, !alias.scope !2284, !noalias !2289, !noundef !5
   br label %8
 
-8:                                                ; preds = %43, %2
-  %.sroa.7.0 = phi i64 [ 0, %2 ], [ %12, %43 ]
-  %.sroa.13.0 = phi i16 [ %7, %2 ], [ %25, %43 ]
-  %.015 = phi i1 [ true, %2 ], [ false, %43 ]
+8:                                                ; preds = %42, %2
+  %.sroa.7.0 = phi i64 [ 0, %2 ], [ %12, %42 ]
+  %.sroa.13.0 = phi i16 [ %7, %2 ], [ %25, %42 ]
+  %.015 = phi i1 [ true, %2 ], [ false, %42 ]
   %.not12.i = icmp ult i64 %.sroa.7.0, 4
   br i1 %.not12.i, label %.lr.ph.i, label %.loopexit
 
@@ -11206,7 +11202,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17ha1e62d4f5f706a
 
 .thread:                                          ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
-  br label %28
+  br label %.loopexit51.sink.split
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i
   %10 = getelementptr inbounds { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.16.llvm.11423182251827145186, i64 %.sroa.7.0
@@ -11242,67 +11238,67 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17ha1e62d4f5f706a
   %24 = xor i16 %19, -1
   %25 = and i16 %.sroa.13.0, %24
   %26 = load ptr, ptr %.014.i, align 8, !noalias !2292, !nonnull !5, !align !6, !noundef !5
-  br i1 %.015, label %43, label %41
+  br i1 %.015, label %42, label %40
 
 .loopexit:                                        ; preds = %8, %.backedge.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
   store i16 %.sroa.13.0, ptr %6, align 2
   %.not = icmp eq i16 %.sroa.13.0, 0
-  br i1 %.not, label %28, label %27
+  br i1 %.not, label %.loopexit51.sink.split, label %27
 
 27:                                               ; preds = %.loopexit
-  br i1 %.015, label %31, label %29
+  br i1 %.015, label %30, label %28
 
-28:                                               ; preds = %.loopexit, %.thread, %34
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
-  br label %.loopexit51
+28:                                               ; preds = %27
+  %29 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2299
+  br i1 %29, label %32, label %30
 
-29:                                               ; preds = %27
-  %30 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2299
-  br i1 %30, label %33, label %31
+30:                                               ; preds = %28, %27
+  %31 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2302
+  br i1 %31, label %32, label %33
 
-31:                                               ; preds = %29, %27
-  %32 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2302
-  br i1 %32, label %33, label %34
+32:                                               ; preds = %33, %30, %28
+  br label %.loopexit51.sink.split
 
-33:                                               ; preds = %34, %31, %29
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
-  br label %.loopexit51
-
-34:                                               ; preds = %31
+33:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !noalias !2305
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !2305
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !2305
   store ptr %5, ptr %3, align 8, !noalias !2305
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h8c0d7f8369efe8c1E.llvm.10561276912860805957", ptr %35, align 8, !noalias !2305
+  %34 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h8c0d7f8369efe8c1E.llvm.10561276912860805957", ptr %34, align 8, !noalias !2305
   store ptr @anon.bfa31fafe4958aae8e9727502c2557cc.91.llvm.10561276912860805957, ptr %4, align 8, !alias.scope !2309, !noalias !2312
-  %36 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %36, align 8, !alias.scope !2309, !noalias !2312
-  %37 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %37, align 8, !alias.scope !2309, !noalias !2312
-  %38 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %3, ptr %38, align 8, !alias.scope !2309, !noalias !2312
-  %39 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %39, align 8, !alias.scope !2309, !noalias !2312
-  %40 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2315
+  %35 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %35, align 8, !alias.scope !2309, !noalias !2312
+  %36 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr null, ptr %36, align 8, !alias.scope !2309, !noalias !2312
+  %37 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %3, ptr %37, align 8, !alias.scope !2309, !noalias !2312
+  %38 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 1, ptr %38, align 8, !alias.scope !2309, !noalias !2312
+  %39 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2315
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !2305
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !2305
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %40, label %33, label %28
+  br i1 %39, label %32, label %.loopexit51.sink.split
 
-.loopexit51:                                      ; preds = %43, %41, %33, %28
-  %.1 = phi i1 [ false, %28 ], [ true, %33 ], [ true, %41 ], [ true, %43 ]
+.loopexit51.sink.split:                           ; preds = %33, %.thread, %.loopexit, %32
+  %.1.ph = phi i1 [ true, %32 ], [ false, %.loopexit ], [ false, %.thread ], [ false, %33 ]
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
+  br label %.loopexit51
+
+.loopexit51:                                      ; preds = %42, %40, %.loopexit51.sink.split
+  %.1 = phi i1 [ %.1.ph, %.loopexit51.sink.split ], [ true, %40 ], [ true, %42 ]
   ret i1 %.1
 
-41:                                               ; preds = %23
-  %42 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2318
-  br i1 %42, label %.loopexit51, label %43
+40:                                               ; preds = %23
+  %41 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2318
+  br i1 %41, label %.loopexit51, label %42
 
-43:                                               ; preds = %41, %23
-  %44 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %14), !noalias !2321
-  br i1 %44, label %.loopexit51, label %8
+42:                                               ; preds = %40, %23
+  %43 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %14), !noalias !2321
+  br i1 %43, label %.loopexit51, label %8
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -11314,10 +11310,10 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17ha2f56fa2b4f817
   %7 = load i32, ptr %0, align 4, !alias.scope !2324, !noalias !2329, !noundef !5
   br label %8
 
-8:                                                ; preds = %43, %2
-  %.sroa.7.0 = phi i64 [ 0, %2 ], [ %12, %43 ]
-  %.sroa.13.0 = phi i32 [ %7, %2 ], [ %25, %43 ]
-  %.015 = phi i1 [ true, %2 ], [ false, %43 ]
+8:                                                ; preds = %42, %2
+  %.sroa.7.0 = phi i64 [ 0, %2 ], [ %12, %42 ]
+  %.sroa.13.0 = phi i32 [ %7, %2 ], [ %25, %42 ]
+  %.015 = phi i1 [ true, %2 ], [ false, %42 ]
   %.not12.i = icmp ult i64 %.sroa.7.0, 4
   br i1 %.not12.i, label %.lr.ph.i, label %.loopexit
 
@@ -11327,7 +11323,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17ha2f56fa2b4f817
 
 .thread:                                          ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  br label %28
+  br label %.loopexit51.sink.split
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i
   %10 = getelementptr inbounds { { ptr, i64 }, i32, [1 x i32] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.33.llvm.11423182251827145186, i64 %.sroa.7.0
@@ -11363,67 +11359,67 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17ha2f56fa2b4f817
   %24 = xor i32 %19, -1
   %25 = and i32 %.sroa.13.0, %24
   %26 = load ptr, ptr %.014.i, align 8, !noalias !2332, !nonnull !5, !align !6, !noundef !5
-  br i1 %.015, label %43, label %41
+  br i1 %.015, label %42, label %40
 
 .loopexit:                                        ; preds = %8, %.backedge.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 %.sroa.13.0, ptr %6, align 4
   %.not = icmp eq i32 %.sroa.13.0, 0
-  br i1 %.not, label %28, label %27
+  br i1 %.not, label %.loopexit51.sink.split, label %27
 
 27:                                               ; preds = %.loopexit
-  br i1 %.015, label %31, label %29
+  br i1 %.015, label %30, label %28
 
-28:                                               ; preds = %.loopexit, %.thread, %34
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %.loopexit51
+28:                                               ; preds = %27
+  %29 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2339
+  br i1 %29, label %32, label %30
 
-29:                                               ; preds = %27
-  %30 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2339
-  br i1 %30, label %33, label %31
+30:                                               ; preds = %28, %27
+  %31 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2342
+  br i1 %31, label %32, label %33
 
-31:                                               ; preds = %29, %27
-  %32 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2342
-  br i1 %32, label %33, label %34
+32:                                               ; preds = %33, %30, %28
+  br label %.loopexit51.sink.split
 
-33:                                               ; preds = %34, %31, %29
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %.loopexit51
-
-34:                                               ; preds = %31
+33:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !noalias !2345
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !2345
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !2345
   store ptr %5, ptr %3, align 8, !noalias !2345
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h3e18ff42f0bd0c71E.llvm.10561276912860805957", ptr %35, align 8, !noalias !2345
+  %34 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h3e18ff42f0bd0c71E.llvm.10561276912860805957", ptr %34, align 8, !noalias !2345
   store ptr @anon.bfa31fafe4958aae8e9727502c2557cc.91.llvm.10561276912860805957, ptr %4, align 8, !alias.scope !2349, !noalias !2352
-  %36 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %36, align 8, !alias.scope !2349, !noalias !2352
-  %37 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %37, align 8, !alias.scope !2349, !noalias !2352
-  %38 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %3, ptr %38, align 8, !alias.scope !2349, !noalias !2352
-  %39 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %39, align 8, !alias.scope !2349, !noalias !2352
-  %40 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2355
+  %35 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %35, align 8, !alias.scope !2349, !noalias !2352
+  %36 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr null, ptr %36, align 8, !alias.scope !2349, !noalias !2352
+  %37 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %3, ptr %37, align 8, !alias.scope !2349, !noalias !2352
+  %38 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 1, ptr %38, align 8, !alias.scope !2349, !noalias !2352
+  %39 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2355
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !2345
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !2345
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %40, label %33, label %28
+  br i1 %39, label %32, label %.loopexit51.sink.split
 
-.loopexit51:                                      ; preds = %43, %41, %33, %28
-  %.1 = phi i1 [ false, %28 ], [ true, %33 ], [ true, %41 ], [ true, %43 ]
+.loopexit51.sink.split:                           ; preds = %33, %.thread, %.loopexit, %32
+  %.1.ph = phi i1 [ true, %32 ], [ false, %.loopexit ], [ false, %.thread ], [ false, %33 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  br label %.loopexit51
+
+.loopexit51:                                      ; preds = %42, %40, %.loopexit51.sink.split
+  %.1 = phi i1 [ %.1.ph, %.loopexit51.sink.split ], [ true, %40 ], [ true, %42 ]
   ret i1 %.1
 
-41:                                               ; preds = %23
-  %42 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2358
-  br i1 %42, label %.loopexit51, label %43
+40:                                               ; preds = %23
+  %41 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2358
+  br i1 %41, label %.loopexit51, label %42
 
-43:                                               ; preds = %41, %23
-  %44 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %14), !noalias !2361
-  br i1 %44, label %.loopexit51, label %8
+42:                                               ; preds = %40, %23
+  %43 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %14), !noalias !2361
+  br i1 %43, label %.loopexit51, label %8
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -11435,10 +11431,10 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17ha474e3be61ff0a
   %7 = load i32, ptr %0, align 4, !alias.scope !2364, !noalias !2369, !noundef !5
   br label %8
 
-8:                                                ; preds = %42, %2
-  %.sroa.7.0 = phi i64 [ 0, %2 ], [ %12, %42 ]
-  %.sroa.13.0 = phi i32 [ %7, %2 ], [ %24, %42 ]
-  %.015 = phi i1 [ true, %2 ], [ false, %42 ]
+8:                                                ; preds = %41, %2
+  %.sroa.7.0 = phi i64 [ 0, %2 ], [ %12, %41 ]
+  %.sroa.13.0 = phi i32 [ %7, %2 ], [ %24, %41 ]
+  %.015 = phi i1 [ true, %2 ], [ false, %41 ]
   %.not12.i = icmp ult i64 %.sroa.7.0, 2
   br i1 %.not12.i, label %.lr.ph.i, label %.loopexit
 
@@ -11448,7 +11444,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17ha474e3be61ff0a
 
 .thread:                                          ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  br label %27
+  br label %.loopexit51.sink.split
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i
   %10 = getelementptr inbounds { { ptr, i64 }, i32, [1 x i32] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.37.llvm.11423182251827145186, i64 %.sroa.7.0
@@ -11483,67 +11479,67 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17ha474e3be61ff0a
   %23 = xor i32 %18, -1
   %24 = and i32 %.sroa.13.0, %23
   %25 = load ptr, ptr %.014.i, align 8, !noalias !2372, !nonnull !5, !align !6, !noundef !5
-  br i1 %.015, label %42, label %40
+  br i1 %.015, label %41, label %39
 
 .loopexit:                                        ; preds = %8, %.backedge.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 %.sroa.13.0, ptr %6, align 4
   %.not = icmp eq i32 %.sroa.13.0, 0
-  br i1 %.not, label %27, label %26
+  br i1 %.not, label %.loopexit51.sink.split, label %26
 
 26:                                               ; preds = %.loopexit
-  br i1 %.015, label %30, label %28
+  br i1 %.015, label %29, label %27
 
-27:                                               ; preds = %.loopexit, %.thread, %33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %.loopexit51
+27:                                               ; preds = %26
+  %28 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2379
+  br i1 %28, label %31, label %29
 
-28:                                               ; preds = %26
-  %29 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2379
-  br i1 %29, label %32, label %30
+29:                                               ; preds = %27, %26
+  %30 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2382
+  br i1 %30, label %31, label %32
 
-30:                                               ; preds = %28, %26
-  %31 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2382
-  br i1 %31, label %32, label %33
+31:                                               ; preds = %32, %29, %27
+  br label %.loopexit51.sink.split
 
-32:                                               ; preds = %33, %30, %28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %.loopexit51
-
-33:                                               ; preds = %30
+32:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !noalias !2385
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !2385
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !2385
   store ptr %5, ptr %3, align 8, !noalias !2385
-  %34 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h3e18ff42f0bd0c71E.llvm.10561276912860805957", ptr %34, align 8, !noalias !2385
+  %33 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h3e18ff42f0bd0c71E.llvm.10561276912860805957", ptr %33, align 8, !noalias !2385
   store ptr @anon.bfa31fafe4958aae8e9727502c2557cc.91.llvm.10561276912860805957, ptr %4, align 8, !alias.scope !2389, !noalias !2392
-  %35 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %35, align 8, !alias.scope !2389, !noalias !2392
-  %36 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %36, align 8, !alias.scope !2389, !noalias !2392
-  %37 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %3, ptr %37, align 8, !alias.scope !2389, !noalias !2392
-  %38 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %38, align 8, !alias.scope !2389, !noalias !2392
-  %39 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2395
+  %34 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %34, align 8, !alias.scope !2389, !noalias !2392
+  %35 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr null, ptr %35, align 8, !alias.scope !2389, !noalias !2392
+  %36 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %3, ptr %36, align 8, !alias.scope !2389, !noalias !2392
+  %37 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 1, ptr %37, align 8, !alias.scope !2389, !noalias !2392
+  %38 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2395
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !2385
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !2385
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %39, label %32, label %27
+  br i1 %38, label %31, label %.loopexit51.sink.split
 
-.loopexit51:                                      ; preds = %42, %40, %32, %27
-  %.1 = phi i1 [ false, %27 ], [ true, %32 ], [ true, %40 ], [ true, %42 ]
+.loopexit51.sink.split:                           ; preds = %32, %.thread, %.loopexit, %31
+  %.1.ph = phi i1 [ true, %31 ], [ false, %.loopexit ], [ false, %.thread ], [ false, %32 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  br label %.loopexit51
+
+.loopexit51:                                      ; preds = %41, %39, %.loopexit51.sink.split
+  %.1 = phi i1 [ %.1.ph, %.loopexit51.sink.split ], [ true, %39 ], [ true, %41 ]
   ret i1 %.1
 
-40:                                               ; preds = %22
-  %41 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2398
-  br i1 %41, label %.loopexit51, label %42
+39:                                               ; preds = %22
+  %40 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2398
+  br i1 %40, label %.loopexit51, label %41
 
-42:                                               ; preds = %40, %22
-  %43 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %25, i64 noundef %14), !noalias !2401
-  br i1 %43, label %.loopexit51, label %8
+41:                                               ; preds = %39, %22
+  %42 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %25, i64 noundef %14), !noalias !2401
+  br i1 %42, label %.loopexit51, label %8
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -11556,9 +11552,9 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17haba0c94a806d41
   %8 = and i16 %7, -2
   br label %9
 
-9:                                                ; preds = %26, %2
-  %.sroa.13.0 = phi i16 [ %7, %2 ], [ %8, %26 ]
-  %.015 = phi i1 [ true, %2 ], [ false, %26 ]
+9:                                                ; preds = %25, %2
+  %.sroa.13.0 = phi i16 [ %7, %2 ], [ %8, %25 ]
+  %.015 = phi i1 [ true, %2 ], [ false, %25 ]
   br i1 %.015, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %9
@@ -11567,71 +11563,71 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17haba0c94a806d41
 
 .thread:                                          ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
-  br label %13
+  br label %.loopexit51.sink.split
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i
   %11 = and i16 %.sroa.13.0, %7
   %12 = and i16 %11, 1
   %or.cond.i.not.not = icmp eq i16 %12, 0
-  br i1 %or.cond.i.not.not, label %.thread88, label %26
+  br i1 %or.cond.i.not.not, label %.thread88, label %25
 
 .thread88:                                        ; preds = %.lr.ph.split.preheader.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
   store i16 %.sroa.13.0, ptr %6, align 2
-  br label %16
+  br label %15
 
 .loopexit:                                        ; preds = %9
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
   store i16 %.sroa.13.0, ptr %6, align 2
   %.not = icmp eq i16 %.sroa.13.0, 0
-  br i1 %.not, label %13, label %14
+  br i1 %.not, label %.loopexit51.sink.split, label %13
 
-13:                                               ; preds = %.loopexit, %.thread, %19
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
-  br label %.loopexit51
+13:                                               ; preds = %.loopexit
+  %14 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2412
+  br i1 %14, label %17, label %15
 
-14:                                               ; preds = %.loopexit
-  %15 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2412
-  br i1 %15, label %18, label %16
+15:                                               ; preds = %.thread88, %13
+  %16 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2415
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %.thread88, %14
-  %17 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2415
-  br i1 %17, label %18, label %19
+17:                                               ; preds = %18, %15, %13
+  br label %.loopexit51.sink.split
 
-18:                                               ; preds = %19, %16, %14
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
-  br label %.loopexit51
-
-19:                                               ; preds = %16
+18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !noalias !2418
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !2418
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !2418
   store ptr %5, ptr %3, align 8, !noalias !2418
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h8c0d7f8369efe8c1E.llvm.10561276912860805957", ptr %20, align 8, !noalias !2418
+  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h8c0d7f8369efe8c1E.llvm.10561276912860805957", ptr %19, align 8, !noalias !2418
   store ptr @anon.bfa31fafe4958aae8e9727502c2557cc.91.llvm.10561276912860805957, ptr %4, align 8, !alias.scope !2422, !noalias !2425
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %21, align 8, !alias.scope !2422, !noalias !2425
-  %22 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %22, align 8, !alias.scope !2422, !noalias !2425
-  %23 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %3, ptr %23, align 8, !alias.scope !2422, !noalias !2425
-  %24 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %24, align 8, !alias.scope !2422, !noalias !2425
-  %25 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2428
+  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %20, align 8, !alias.scope !2422, !noalias !2425
+  %21 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr null, ptr %21, align 8, !alias.scope !2422, !noalias !2425
+  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %3, ptr %22, align 8, !alias.scope !2422, !noalias !2425
+  %23 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 1, ptr %23, align 8, !alias.scope !2422, !noalias !2425
+  %24 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2428
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !2418
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !2418
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %25, label %18, label %13
+  br i1 %24, label %17, label %.loopexit51.sink.split
 
-.loopexit51:                                      ; preds = %26, %18, %13
-  %.1 = phi i1 [ false, %13 ], [ true, %18 ], [ true, %26 ]
+.loopexit51.sink.split:                           ; preds = %18, %.thread, %.loopexit, %17
+  %.1.ph = phi i1 [ true, %17 ], [ false, %.loopexit ], [ false, %.thread ], [ false, %18 ]
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
+  br label %.loopexit51
+
+.loopexit51:                                      ; preds = %25, %.loopexit51.sink.split
+  %.1 = phi i1 [ %.1.ph, %.loopexit51.sink.split ], [ true, %25 ]
   ret i1 %.1
 
-26:                                               ; preds = %.lr.ph.split.preheader.i
-  %27 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.9acd562e1d0a26e0ca74d3900d524aca.10.llvm.11423182251827145186, i64 noundef 19), !noalias !2431
-  br i1 %27, label %.loopexit51, label %9
+25:                                               ; preds = %.lr.ph.split.preheader.i
+  %26 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.9acd562e1d0a26e0ca74d3900d524aca.10.llvm.11423182251827145186, i64 noundef 19), !noalias !2431
+  br i1 %26, label %.loopexit51, label %9
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -11644,9 +11640,9 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hb10f753dfd03de
   %8 = and i32 %7, -2
   br label %9
 
-9:                                                ; preds = %26, %2
-  %.sroa.13.0 = phi i32 [ %7, %2 ], [ %8, %26 ]
-  %.015 = phi i1 [ true, %2 ], [ false, %26 ]
+9:                                                ; preds = %25, %2
+  %.sroa.13.0 = phi i32 [ %7, %2 ], [ %8, %25 ]
+  %.015 = phi i1 [ true, %2 ], [ false, %25 ]
   br i1 %.015, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %9
@@ -11655,71 +11651,71 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hb10f753dfd03de
 
 .thread:                                          ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  br label %13
+  br label %.loopexit51.sink.split
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i
   %11 = and i32 %.sroa.13.0, %7
   %12 = and i32 %11, 1
   %or.cond.i.not.not = icmp eq i32 %12, 0
-  br i1 %or.cond.i.not.not, label %.thread88, label %26
+  br i1 %or.cond.i.not.not, label %.thread88, label %25
 
 .thread88:                                        ; preds = %.lr.ph.split.preheader.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 %.sroa.13.0, ptr %6, align 4
-  br label %16
+  br label %15
 
 .loopexit:                                        ; preds = %9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 %.sroa.13.0, ptr %6, align 4
   %.not = icmp eq i32 %.sroa.13.0, 0
-  br i1 %.not, label %13, label %14
+  br i1 %.not, label %.loopexit51.sink.split, label %13
 
-13:                                               ; preds = %.loopexit, %.thread, %19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %.loopexit51
+13:                                               ; preds = %.loopexit
+  %14 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2442
+  br i1 %14, label %17, label %15
 
-14:                                               ; preds = %.loopexit
-  %15 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2442
-  br i1 %15, label %18, label %16
+15:                                               ; preds = %.thread88, %13
+  %16 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2445
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %.thread88, %14
-  %17 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2445
-  br i1 %17, label %18, label %19
+17:                                               ; preds = %18, %15, %13
+  br label %.loopexit51.sink.split
 
-18:                                               ; preds = %19, %16, %14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %.loopexit51
-
-19:                                               ; preds = %16
+18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !noalias !2448
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !2448
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !2448
   store ptr %5, ptr %3, align 8, !noalias !2448
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h3e18ff42f0bd0c71E.llvm.10561276912860805957", ptr %20, align 8, !noalias !2448
+  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h3e18ff42f0bd0c71E.llvm.10561276912860805957", ptr %19, align 8, !noalias !2448
   store ptr @anon.bfa31fafe4958aae8e9727502c2557cc.91.llvm.10561276912860805957, ptr %4, align 8, !alias.scope !2452, !noalias !2455
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %21, align 8, !alias.scope !2452, !noalias !2455
-  %22 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %22, align 8, !alias.scope !2452, !noalias !2455
-  %23 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %3, ptr %23, align 8, !alias.scope !2452, !noalias !2455
-  %24 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %24, align 8, !alias.scope !2452, !noalias !2455
-  %25 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2458
+  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %20, align 8, !alias.scope !2452, !noalias !2455
+  %21 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr null, ptr %21, align 8, !alias.scope !2452, !noalias !2455
+  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %3, ptr %22, align 8, !alias.scope !2452, !noalias !2455
+  %23 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 1, ptr %23, align 8, !alias.scope !2452, !noalias !2455
+  %24 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2458
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !2448
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !2448
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %25, label %18, label %13
+  br i1 %24, label %17, label %.loopexit51.sink.split
 
-.loopexit51:                                      ; preds = %26, %18, %13
-  %.1 = phi i1 [ false, %13 ], [ true, %18 ], [ true, %26 ]
+.loopexit51.sink.split:                           ; preds = %18, %.thread, %.loopexit, %17
+  %.1.ph = phi i1 [ true, %17 ], [ false, %.loopexit ], [ false, %.thread ], [ false, %18 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  br label %.loopexit51
+
+.loopexit51:                                      ; preds = %25, %.loopexit51.sink.split
+  %.1 = phi i1 [ %.1.ph, %.loopexit51.sink.split ], [ true, %25 ]
   ret i1 %.1
 
-26:                                               ; preds = %.lr.ph.split.preheader.i
-  %27 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.9acd562e1d0a26e0ca74d3900d524aca.24.llvm.11423182251827145186, i64 noundef 19), !noalias !2461
-  br i1 %27, label %.loopexit51, label %9
+25:                                               ; preds = %.lr.ph.split.preheader.i
+  %26 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.9acd562e1d0a26e0ca74d3900d524aca.24.llvm.11423182251827145186, i64 noundef 19), !noalias !2461
+  br i1 %26, label %.loopexit51, label %9
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -11731,10 +11727,10 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hb945fe5bcd0ff4
   %7 = load i16, ptr %0, align 2, !alias.scope !2464, !noalias !2469, !noundef !5
   br label %8
 
-8:                                                ; preds = %43, %2
-  %.sroa.7.0 = phi i64 [ 0, %2 ], [ %12, %43 ]
-  %.sroa.13.0 = phi i16 [ %7, %2 ], [ %25, %43 ]
-  %.015 = phi i1 [ true, %2 ], [ false, %43 ]
+8:                                                ; preds = %42, %2
+  %.sroa.7.0 = phi i64 [ 0, %2 ], [ %12, %42 ]
+  %.sroa.13.0 = phi i16 [ %7, %2 ], [ %25, %42 ]
+  %.015 = phi i1 [ true, %2 ], [ false, %42 ]
   %.not12.i = icmp ult i64 %.sroa.7.0, 4
   br i1 %.not12.i, label %.lr.ph.i, label %.loopexit
 
@@ -11744,7 +11740,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hb945fe5bcd0ff4
 
 .thread:                                          ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
-  br label %28
+  br label %.loopexit51.sink.split
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i
   %10 = getelementptr inbounds { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.21.llvm.11423182251827145186, i64 %.sroa.7.0
@@ -11780,67 +11776,67 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hb945fe5bcd0ff4
   %24 = xor i16 %19, -1
   %25 = and i16 %.sroa.13.0, %24
   %26 = load ptr, ptr %.014.i, align 8, !noalias !2472, !nonnull !5, !align !6, !noundef !5
-  br i1 %.015, label %43, label %41
+  br i1 %.015, label %42, label %40
 
 .loopexit:                                        ; preds = %8, %.backedge.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
   store i16 %.sroa.13.0, ptr %6, align 2
   %.not = icmp eq i16 %.sroa.13.0, 0
-  br i1 %.not, label %28, label %27
+  br i1 %.not, label %.loopexit51.sink.split, label %27
 
 27:                                               ; preds = %.loopexit
-  br i1 %.015, label %31, label %29
+  br i1 %.015, label %30, label %28
 
-28:                                               ; preds = %.loopexit, %.thread, %34
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
-  br label %.loopexit51
+28:                                               ; preds = %27
+  %29 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2479
+  br i1 %29, label %32, label %30
 
-29:                                               ; preds = %27
-  %30 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2479
-  br i1 %30, label %33, label %31
+30:                                               ; preds = %28, %27
+  %31 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2482
+  br i1 %31, label %32, label %33
 
-31:                                               ; preds = %29, %27
-  %32 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2482
-  br i1 %32, label %33, label %34
+32:                                               ; preds = %33, %30, %28
+  br label %.loopexit51.sink.split
 
-33:                                               ; preds = %34, %31, %29
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
-  br label %.loopexit51
-
-34:                                               ; preds = %31
+33:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !noalias !2485
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !2485
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !2485
   store ptr %5, ptr %3, align 8, !noalias !2485
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h8c0d7f8369efe8c1E.llvm.10561276912860805957", ptr %35, align 8, !noalias !2485
+  %34 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h8c0d7f8369efe8c1E.llvm.10561276912860805957", ptr %34, align 8, !noalias !2485
   store ptr @anon.bfa31fafe4958aae8e9727502c2557cc.91.llvm.10561276912860805957, ptr %4, align 8, !alias.scope !2489, !noalias !2492
-  %36 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %36, align 8, !alias.scope !2489, !noalias !2492
-  %37 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %37, align 8, !alias.scope !2489, !noalias !2492
-  %38 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %3, ptr %38, align 8, !alias.scope !2489, !noalias !2492
-  %39 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %39, align 8, !alias.scope !2489, !noalias !2492
-  %40 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2495
+  %35 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %35, align 8, !alias.scope !2489, !noalias !2492
+  %36 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr null, ptr %36, align 8, !alias.scope !2489, !noalias !2492
+  %37 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %3, ptr %37, align 8, !alias.scope !2489, !noalias !2492
+  %38 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 1, ptr %38, align 8, !alias.scope !2489, !noalias !2492
+  %39 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2495
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !2485
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !2485
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %40, label %33, label %28
+  br i1 %39, label %32, label %.loopexit51.sink.split
 
-.loopexit51:                                      ; preds = %43, %41, %33, %28
-  %.1 = phi i1 [ false, %28 ], [ true, %33 ], [ true, %41 ], [ true, %43 ]
+.loopexit51.sink.split:                           ; preds = %33, %.thread, %.loopexit, %32
+  %.1.ph = phi i1 [ true, %32 ], [ false, %.loopexit ], [ false, %.thread ], [ false, %33 ]
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
+  br label %.loopexit51
+
+.loopexit51:                                      ; preds = %42, %40, %.loopexit51.sink.split
+  %.1 = phi i1 [ %.1.ph, %.loopexit51.sink.split ], [ true, %40 ], [ true, %42 ]
   ret i1 %.1
 
-41:                                               ; preds = %23
-  %42 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2498
-  br i1 %42, label %.loopexit51, label %43
+40:                                               ; preds = %23
+  %41 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2498
+  br i1 %41, label %.loopexit51, label %42
 
-43:                                               ; preds = %41, %23
-  %44 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %14), !noalias !2501
-  br i1 %44, label %.loopexit51, label %8
+42:                                               ; preds = %40, %23
+  %43 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %14), !noalias !2501
+  br i1 %43, label %.loopexit51, label %8
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -11852,10 +11848,10 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hcb514d2090f45a
   %7 = load i32, ptr %0, align 4, !alias.scope !2504, !noalias !2509, !noundef !5
   br label %8
 
-8:                                                ; preds = %42, %2
-  %.sroa.7.0 = phi i64 [ 0, %2 ], [ %12, %42 ]
-  %.sroa.13.0 = phi i32 [ %7, %2 ], [ %24, %42 ]
-  %.015 = phi i1 [ true, %2 ], [ false, %42 ]
+8:                                                ; preds = %41, %2
+  %.sroa.7.0 = phi i64 [ 0, %2 ], [ %12, %41 ]
+  %.sroa.13.0 = phi i32 [ %7, %2 ], [ %24, %41 ]
+  %.015 = phi i1 [ true, %2 ], [ false, %41 ]
   %.not12.i = icmp ult i64 %.sroa.7.0, 2
   br i1 %.not12.i, label %.lr.ph.i, label %.loopexit
 
@@ -11865,7 +11861,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hcb514d2090f45a
 
 .thread:                                          ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  br label %27
+  br label %.loopexit51.sink.split
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i
   %10 = getelementptr inbounds { { ptr, i64 }, i32, [1 x i32] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.40.llvm.11423182251827145186, i64 %.sroa.7.0
@@ -11900,67 +11896,67 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hcb514d2090f45a
   %23 = xor i32 %18, -1
   %24 = and i32 %.sroa.13.0, %23
   %25 = load ptr, ptr %.014.i, align 8, !noalias !2512, !nonnull !5, !align !6, !noundef !5
-  br i1 %.015, label %42, label %40
+  br i1 %.015, label %41, label %39
 
 .loopexit:                                        ; preds = %8, %.backedge.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 %.sroa.13.0, ptr %6, align 4
   %.not = icmp eq i32 %.sroa.13.0, 0
-  br i1 %.not, label %27, label %26
+  br i1 %.not, label %.loopexit51.sink.split, label %26
 
 26:                                               ; preds = %.loopexit
-  br i1 %.015, label %30, label %28
+  br i1 %.015, label %29, label %27
 
-27:                                               ; preds = %.loopexit, %.thread, %33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %.loopexit51
+27:                                               ; preds = %26
+  %28 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2519
+  br i1 %28, label %31, label %29
 
-28:                                               ; preds = %26
-  %29 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2519
-  br i1 %29, label %32, label %30
+29:                                               ; preds = %27, %26
+  %30 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2522
+  br i1 %30, label %31, label %32
 
-30:                                               ; preds = %28, %26
-  %31 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2522
-  br i1 %31, label %32, label %33
+31:                                               ; preds = %32, %29, %27
+  br label %.loopexit51.sink.split
 
-32:                                               ; preds = %33, %30, %28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %.loopexit51
-
-33:                                               ; preds = %30
+32:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !noalias !2525
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !2525
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !2525
   store ptr %5, ptr %3, align 8, !noalias !2525
-  %34 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h3e18ff42f0bd0c71E.llvm.10561276912860805957", ptr %34, align 8, !noalias !2525
+  %33 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h3e18ff42f0bd0c71E.llvm.10561276912860805957", ptr %33, align 8, !noalias !2525
   store ptr @anon.bfa31fafe4958aae8e9727502c2557cc.91.llvm.10561276912860805957, ptr %4, align 8, !alias.scope !2529, !noalias !2532
-  %35 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %35, align 8, !alias.scope !2529, !noalias !2532
-  %36 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %36, align 8, !alias.scope !2529, !noalias !2532
-  %37 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %3, ptr %37, align 8, !alias.scope !2529, !noalias !2532
-  %38 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %38, align 8, !alias.scope !2529, !noalias !2532
-  %39 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2535
+  %34 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %34, align 8, !alias.scope !2529, !noalias !2532
+  %35 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr null, ptr %35, align 8, !alias.scope !2529, !noalias !2532
+  %36 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %3, ptr %36, align 8, !alias.scope !2529, !noalias !2532
+  %37 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 1, ptr %37, align 8, !alias.scope !2529, !noalias !2532
+  %38 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2535
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !2525
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !2525
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %39, label %32, label %27
+  br i1 %38, label %31, label %.loopexit51.sink.split
 
-.loopexit51:                                      ; preds = %42, %40, %32, %27
-  %.1 = phi i1 [ false, %27 ], [ true, %32 ], [ true, %40 ], [ true, %42 ]
+.loopexit51.sink.split:                           ; preds = %32, %.thread, %.loopexit, %31
+  %.1.ph = phi i1 [ true, %31 ], [ false, %.loopexit ], [ false, %.thread ], [ false, %32 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  br label %.loopexit51
+
+.loopexit51:                                      ; preds = %41, %39, %.loopexit51.sink.split
+  %.1 = phi i1 [ %.1.ph, %.loopexit51.sink.split ], [ true, %39 ], [ true, %41 ]
   ret i1 %.1
 
-40:                                               ; preds = %22
-  %41 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2538
-  br i1 %41, label %.loopexit51, label %42
+39:                                               ; preds = %22
+  %40 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2538
+  br i1 %40, label %.loopexit51, label %41
 
-42:                                               ; preds = %40, %22
-  %43 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %25, i64 noundef %14), !noalias !2541
-  br i1 %43, label %.loopexit51, label %8
+41:                                               ; preds = %39, %22
+  %42 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %25, i64 noundef %14), !noalias !2541
+  br i1 %42, label %.loopexit51, label %8
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -11973,9 +11969,9 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hd5192c378664d1
   %8 = and i32 %7, -2
   br label %9
 
-9:                                                ; preds = %26, %2
-  %.sroa.13.0 = phi i32 [ %7, %2 ], [ %8, %26 ]
-  %.015 = phi i1 [ true, %2 ], [ false, %26 ]
+9:                                                ; preds = %25, %2
+  %.sroa.13.0 = phi i32 [ %7, %2 ], [ %8, %25 ]
+  %.015 = phi i1 [ true, %2 ], [ false, %25 ]
   br i1 %.015, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %9
@@ -11984,71 +11980,71 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hd5192c378664d1
 
 .thread:                                          ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  br label %13
+  br label %.loopexit51.sink.split
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i
   %11 = and i32 %.sroa.13.0, %7
   %12 = and i32 %11, 1
   %or.cond.i.not.not = icmp eq i32 %12, 0
-  br i1 %or.cond.i.not.not, label %.thread88, label %26
+  br i1 %or.cond.i.not.not, label %.thread88, label %25
 
 .thread88:                                        ; preds = %.lr.ph.split.preheader.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 %.sroa.13.0, ptr %6, align 4
-  br label %16
+  br label %15
 
 .loopexit:                                        ; preds = %9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 %.sroa.13.0, ptr %6, align 4
   %.not = icmp eq i32 %.sroa.13.0, 0
-  br i1 %.not, label %13, label %14
+  br i1 %.not, label %.loopexit51.sink.split, label %13
 
-13:                                               ; preds = %.loopexit, %.thread, %19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %.loopexit51
+13:                                               ; preds = %.loopexit
+  %14 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2552
+  br i1 %14, label %17, label %15
 
-14:                                               ; preds = %.loopexit
-  %15 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2552
-  br i1 %15, label %18, label %16
+15:                                               ; preds = %.thread88, %13
+  %16 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2555
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %.thread88, %14
-  %17 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2555
-  br i1 %17, label %18, label %19
+17:                                               ; preds = %18, %15, %13
+  br label %.loopexit51.sink.split
 
-18:                                               ; preds = %19, %16, %14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %.loopexit51
-
-19:                                               ; preds = %16
+18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !noalias !2558
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !2558
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !2558
   store ptr %5, ptr %3, align 8, !noalias !2558
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h3e18ff42f0bd0c71E.llvm.10561276912860805957", ptr %20, align 8, !noalias !2558
+  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h3e18ff42f0bd0c71E.llvm.10561276912860805957", ptr %19, align 8, !noalias !2558
   store ptr @anon.bfa31fafe4958aae8e9727502c2557cc.91.llvm.10561276912860805957, ptr %4, align 8, !alias.scope !2562, !noalias !2565
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %21, align 8, !alias.scope !2562, !noalias !2565
-  %22 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %22, align 8, !alias.scope !2562, !noalias !2565
-  %23 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %3, ptr %23, align 8, !alias.scope !2562, !noalias !2565
-  %24 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %24, align 8, !alias.scope !2562, !noalias !2565
-  %25 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2568
+  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %20, align 8, !alias.scope !2562, !noalias !2565
+  %21 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr null, ptr %21, align 8, !alias.scope !2562, !noalias !2565
+  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %3, ptr %22, align 8, !alias.scope !2562, !noalias !2565
+  %23 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 1, ptr %23, align 8, !alias.scope !2562, !noalias !2565
+  %24 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2568
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !2558
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !2558
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %25, label %18, label %13
+  br i1 %24, label %17, label %.loopexit51.sink.split
 
-.loopexit51:                                      ; preds = %26, %18, %13
-  %.1 = phi i1 [ false, %13 ], [ true, %18 ], [ true, %26 ]
+.loopexit51.sink.split:                           ; preds = %18, %.thread, %.loopexit, %17
+  %.1.ph = phi i1 [ true, %17 ], [ false, %.loopexit ], [ false, %.thread ], [ false, %18 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  br label %.loopexit51
+
+.loopexit51:                                      ; preds = %25, %.loopexit51.sink.split
+  %.1 = phi i1 [ %.1.ph, %.loopexit51.sink.split ], [ true, %25 ]
   ret i1 %.1
 
-26:                                               ; preds = %.lr.ph.split.preheader.i
-  %27 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.9acd562e1d0a26e0ca74d3900d524aca.26.llvm.11423182251827145186, i64 noundef 14), !noalias !2571
-  br i1 %27, label %.loopexit51, label %9
+25:                                               ; preds = %.lr.ph.split.preheader.i
+  %26 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.9acd562e1d0a26e0ca74d3900d524aca.26.llvm.11423182251827145186, i64 noundef 14), !noalias !2571
+  br i1 %26, label %.loopexit51, label %9
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -12060,10 +12056,10 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hd8b16bdff1a66a
   %7 = load i16, ptr %0, align 2, !alias.scope !2574, !noalias !2579, !noundef !5
   br label %8
 
-8:                                                ; preds = %43, %2
-  %.sroa.7.0 = phi i64 [ 0, %2 ], [ %12, %43 ]
-  %.sroa.13.0 = phi i16 [ %7, %2 ], [ %25, %43 ]
-  %.015 = phi i1 [ true, %2 ], [ false, %43 ]
+8:                                                ; preds = %42, %2
+  %.sroa.7.0 = phi i64 [ 0, %2 ], [ %12, %42 ]
+  %.sroa.13.0 = phi i16 [ %7, %2 ], [ %25, %42 ]
+  %.015 = phi i1 [ true, %2 ], [ false, %42 ]
   %.not12.i = icmp ult i64 %.sroa.7.0, 5
   br i1 %.not12.i, label %.lr.ph.i, label %.loopexit
 
@@ -12073,7 +12069,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hd8b16bdff1a66a
 
 .thread:                                          ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
-  br label %28
+  br label %.loopexit51.sink.split
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i
   %10 = getelementptr inbounds { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.9.llvm.11423182251827145186, i64 %.sroa.7.0
@@ -12109,67 +12105,67 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hd8b16bdff1a66a
   %24 = xor i16 %19, -1
   %25 = and i16 %.sroa.13.0, %24
   %26 = load ptr, ptr %.014.i, align 8, !noalias !2582, !nonnull !5, !align !6, !noundef !5
-  br i1 %.015, label %43, label %41
+  br i1 %.015, label %42, label %40
 
 .loopexit:                                        ; preds = %8, %.backedge.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
   store i16 %.sroa.13.0, ptr %6, align 2
   %.not = icmp eq i16 %.sroa.13.0, 0
-  br i1 %.not, label %28, label %27
+  br i1 %.not, label %.loopexit51.sink.split, label %27
 
 27:                                               ; preds = %.loopexit
-  br i1 %.015, label %31, label %29
+  br i1 %.015, label %30, label %28
 
-28:                                               ; preds = %.loopexit, %.thread, %34
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
-  br label %.loopexit51
+28:                                               ; preds = %27
+  %29 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2589
+  br i1 %29, label %32, label %30
 
-29:                                               ; preds = %27
-  %30 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2589
-  br i1 %30, label %33, label %31
+30:                                               ; preds = %28, %27
+  %31 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2592
+  br i1 %31, label %32, label %33
 
-31:                                               ; preds = %29, %27
-  %32 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2592
-  br i1 %32, label %33, label %34
+32:                                               ; preds = %33, %30, %28
+  br label %.loopexit51.sink.split
 
-33:                                               ; preds = %34, %31, %29
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
-  br label %.loopexit51
-
-34:                                               ; preds = %31
+33:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !noalias !2595
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !2595
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !2595
   store ptr %5, ptr %3, align 8, !noalias !2595
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h8c0d7f8369efe8c1E.llvm.10561276912860805957", ptr %35, align 8, !noalias !2595
+  %34 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h8c0d7f8369efe8c1E.llvm.10561276912860805957", ptr %34, align 8, !noalias !2595
   store ptr @anon.bfa31fafe4958aae8e9727502c2557cc.91.llvm.10561276912860805957, ptr %4, align 8, !alias.scope !2599, !noalias !2602
-  %36 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %36, align 8, !alias.scope !2599, !noalias !2602
-  %37 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %37, align 8, !alias.scope !2599, !noalias !2602
-  %38 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %3, ptr %38, align 8, !alias.scope !2599, !noalias !2602
-  %39 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %39, align 8, !alias.scope !2599, !noalias !2602
-  %40 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2605
+  %35 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %35, align 8, !alias.scope !2599, !noalias !2602
+  %36 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr null, ptr %36, align 8, !alias.scope !2599, !noalias !2602
+  %37 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %3, ptr %37, align 8, !alias.scope !2599, !noalias !2602
+  %38 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 1, ptr %38, align 8, !alias.scope !2599, !noalias !2602
+  %39 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2605
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !2595
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !2595
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %40, label %33, label %28
+  br i1 %39, label %32, label %.loopexit51.sink.split
 
-.loopexit51:                                      ; preds = %43, %41, %33, %28
-  %.1 = phi i1 [ false, %28 ], [ true, %33 ], [ true, %41 ], [ true, %43 ]
+.loopexit51.sink.split:                           ; preds = %33, %.thread, %.loopexit, %32
+  %.1.ph = phi i1 [ true, %32 ], [ false, %.loopexit ], [ false, %.thread ], [ false, %33 ]
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
+  br label %.loopexit51
+
+.loopexit51:                                      ; preds = %42, %40, %.loopexit51.sink.split
+  %.1 = phi i1 [ %.1.ph, %.loopexit51.sink.split ], [ true, %40 ], [ true, %42 ]
   ret i1 %.1
 
-41:                                               ; preds = %23
-  %42 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2608
-  br i1 %42, label %.loopexit51, label %43
+40:                                               ; preds = %23
+  %41 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2608
+  br i1 %41, label %.loopexit51, label %42
 
-43:                                               ; preds = %41, %23
-  %44 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %14), !noalias !2611
-  br i1 %44, label %.loopexit51, label %8
+42:                                               ; preds = %40, %23
+  %43 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %14), !noalias !2611
+  br i1 %43, label %.loopexit51, label %8
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -12181,10 +12177,10 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hdfc6a1d8f284ee
   %7 = load i16, ptr %0, align 2, !alias.scope !2614, !noalias !2619, !noundef !5
   br label %8
 
-8:                                                ; preds = %43, %2
-  %.sroa.7.0 = phi i64 [ 0, %2 ], [ %12, %43 ]
-  %.sroa.13.0 = phi i16 [ %7, %2 ], [ %25, %43 ]
-  %.015 = phi i1 [ true, %2 ], [ false, %43 ]
+8:                                                ; preds = %42, %2
+  %.sroa.7.0 = phi i64 [ 0, %2 ], [ %12, %42 ]
+  %.sroa.13.0 = phi i16 [ %7, %2 ], [ %25, %42 ]
+  %.015 = phi i1 [ true, %2 ], [ false, %42 ]
   %.not12.i = icmp ult i64 %.sroa.7.0, 4
   br i1 %.not12.i, label %.lr.ph.i, label %.loopexit
 
@@ -12194,7 +12190,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hdfc6a1d8f284ee
 
 .thread:                                          ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
-  br label %28
+  br label %.loopexit51.sink.split
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i
   %10 = getelementptr inbounds { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.9acd562e1d0a26e0ca74d3900d524aca.21.llvm.11423182251827145186, i64 %.sroa.7.0
@@ -12230,67 +12226,67 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hdfc6a1d8f284ee
   %24 = xor i16 %19, -1
   %25 = and i16 %.sroa.13.0, %24
   %26 = load ptr, ptr %.014.i, align 8, !noalias !2622, !nonnull !5, !align !6, !noundef !5
-  br i1 %.015, label %43, label %41
+  br i1 %.015, label %42, label %40
 
 .loopexit:                                        ; preds = %8, %.backedge.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
   store i16 %.sroa.13.0, ptr %6, align 2
   %.not = icmp eq i16 %.sroa.13.0, 0
-  br i1 %.not, label %28, label %27
+  br i1 %.not, label %.loopexit51.sink.split, label %27
 
 27:                                               ; preds = %.loopexit
-  br i1 %.015, label %31, label %29
+  br i1 %.015, label %30, label %28
 
-28:                                               ; preds = %.loopexit, %.thread, %34
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
-  br label %.loopexit51
+28:                                               ; preds = %27
+  %29 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2629
+  br i1 %29, label %32, label %30
 
-29:                                               ; preds = %27
-  %30 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2629
-  br i1 %30, label %33, label %31
+30:                                               ; preds = %28, %27
+  %31 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2632
+  br i1 %31, label %32, label %33
 
-31:                                               ; preds = %29, %27
-  %32 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2632
-  br i1 %32, label %33, label %34
+32:                                               ; preds = %33, %30, %28
+  br label %.loopexit51.sink.split
 
-33:                                               ; preds = %34, %31, %29
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
-  br label %.loopexit51
-
-34:                                               ; preds = %31
+33:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !noalias !2635
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !2635
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !2635
   store ptr %5, ptr %3, align 8, !noalias !2635
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h8c0d7f8369efe8c1E.llvm.10561276912860805957", ptr %35, align 8, !noalias !2635
+  %34 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h8c0d7f8369efe8c1E.llvm.10561276912860805957", ptr %34, align 8, !noalias !2635
   store ptr @anon.bfa31fafe4958aae8e9727502c2557cc.91.llvm.10561276912860805957, ptr %4, align 8, !alias.scope !2639, !noalias !2642
-  %36 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %36, align 8, !alias.scope !2639, !noalias !2642
-  %37 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %37, align 8, !alias.scope !2639, !noalias !2642
-  %38 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %3, ptr %38, align 8, !alias.scope !2639, !noalias !2642
-  %39 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %39, align 8, !alias.scope !2639, !noalias !2642
-  %40 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2645
+  %35 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %35, align 8, !alias.scope !2639, !noalias !2642
+  %36 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr null, ptr %36, align 8, !alias.scope !2639, !noalias !2642
+  %37 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %3, ptr %37, align 8, !alias.scope !2639, !noalias !2642
+  %38 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 1, ptr %38, align 8, !alias.scope !2639, !noalias !2642
+  %39 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2645
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !2635
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !2635
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %40, label %33, label %28
+  br i1 %39, label %32, label %.loopexit51.sink.split
 
-.loopexit51:                                      ; preds = %43, %41, %33, %28
-  %.1 = phi i1 [ false, %28 ], [ true, %33 ], [ true, %41 ], [ true, %43 ]
+.loopexit51.sink.split:                           ; preds = %33, %.thread, %.loopexit, %32
+  %.1.ph = phi i1 [ true, %32 ], [ false, %.loopexit ], [ false, %.thread ], [ false, %33 ]
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
+  br label %.loopexit51
+
+.loopexit51:                                      ; preds = %42, %40, %.loopexit51.sink.split
+  %.1 = phi i1 [ %.1.ph, %.loopexit51.sink.split ], [ true, %40 ], [ true, %42 ]
   ret i1 %.1
 
-41:                                               ; preds = %23
-  %42 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2648
-  br i1 %42, label %.loopexit51, label %43
+40:                                               ; preds = %23
+  %41 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2648
+  br i1 %41, label %.loopexit51, label %42
 
-43:                                               ; preds = %41, %23
-  %44 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %14), !noalias !2651
-  br i1 %44, label %.loopexit51, label %8
+42:                                               ; preds = %40, %23
+  %43 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %14), !noalias !2651
+  br i1 %43, label %.loopexit51, label %8
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -12303,9 +12299,9 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hf3c66b4efc503c
   %8 = and i16 %7, -2
   br label %9
 
-9:                                                ; preds = %26, %2
-  %.sroa.13.0 = phi i16 [ %7, %2 ], [ %8, %26 ]
-  %.015 = phi i1 [ true, %2 ], [ false, %26 ]
+9:                                                ; preds = %25, %2
+  %.sroa.13.0 = phi i16 [ %7, %2 ], [ %8, %25 ]
+  %.015 = phi i1 [ true, %2 ], [ false, %25 ]
   br i1 %.015, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %9
@@ -12314,71 +12310,71 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hf3c66b4efc503c
 
 .thread:                                          ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
-  br label %13
+  br label %.loopexit51.sink.split
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i
   %11 = and i16 %.sroa.13.0, %7
   %12 = and i16 %11, 1
   %or.cond.i.not.not = icmp eq i16 %12, 0
-  br i1 %or.cond.i.not.not, label %.thread88, label %26
+  br i1 %or.cond.i.not.not, label %.thread88, label %25
 
 .thread88:                                        ; preds = %.lr.ph.split.preheader.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
   store i16 %.sroa.13.0, ptr %6, align 2
-  br label %16
+  br label %15
 
 .loopexit:                                        ; preds = %9
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
   store i16 %.sroa.13.0, ptr %6, align 2
   %.not = icmp eq i16 %.sroa.13.0, 0
-  br i1 %.not, label %13, label %14
+  br i1 %.not, label %.loopexit51.sink.split, label %13
 
-13:                                               ; preds = %.loopexit, %.thread, %19
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
-  br label %.loopexit51
+13:                                               ; preds = %.loopexit
+  %14 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2662
+  br i1 %14, label %17, label %15
 
-14:                                               ; preds = %.loopexit
-  %15 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2662
-  br i1 %15, label %18, label %16
+15:                                               ; preds = %.thread88, %13
+  %16 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2665
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %.thread88, %14
-  %17 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2665
-  br i1 %17, label %18, label %19
+17:                                               ; preds = %18, %15, %13
+  br label %.loopexit51.sink.split
 
-18:                                               ; preds = %19, %16, %14
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
-  br label %.loopexit51
-
-19:                                               ; preds = %16
+18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !noalias !2668
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !2668
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !2668
   store ptr %5, ptr %3, align 8, !noalias !2668
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h8c0d7f8369efe8c1E.llvm.10561276912860805957", ptr %20, align 8, !noalias !2668
+  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h8c0d7f8369efe8c1E.llvm.10561276912860805957", ptr %19, align 8, !noalias !2668
   store ptr @anon.bfa31fafe4958aae8e9727502c2557cc.91.llvm.10561276912860805957, ptr %4, align 8, !alias.scope !2672, !noalias !2675
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %21, align 8, !alias.scope !2672, !noalias !2675
-  %22 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %22, align 8, !alias.scope !2672, !noalias !2675
-  %23 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %3, ptr %23, align 8, !alias.scope !2672, !noalias !2675
-  %24 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %24, align 8, !alias.scope !2672, !noalias !2675
-  %25 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2678
+  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %20, align 8, !alias.scope !2672, !noalias !2675
+  %21 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr null, ptr %21, align 8, !alias.scope !2672, !noalias !2675
+  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %3, ptr %22, align 8, !alias.scope !2672, !noalias !2675
+  %23 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 1, ptr %23, align 8, !alias.scope !2672, !noalias !2675
+  %24 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2678
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !2668
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !2668
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %25, label %18, label %13
+  br i1 %24, label %17, label %.loopexit51.sink.split
 
-.loopexit51:                                      ; preds = %26, %18, %13
-  %.1 = phi i1 [ false, %13 ], [ true, %18 ], [ true, %26 ]
+.loopexit51.sink.split:                           ; preds = %18, %.thread, %.loopexit, %17
+  %.1.ph = phi i1 [ true, %17 ], [ false, %.loopexit ], [ false, %.thread ], [ false, %18 ]
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
+  br label %.loopexit51
+
+.loopexit51:                                      ; preds = %25, %.loopexit51.sink.split
+  %.1 = phi i1 [ %.1.ph, %.loopexit51.sink.split ], [ true, %25 ]
   ret i1 %.1
 
-26:                                               ; preds = %.lr.ph.split.preheader.i
-  %27 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.9acd562e1d0a26e0ca74d3900d524aca.10.llvm.11423182251827145186, i64 noundef 19), !noalias !2681
-  br i1 %27, label %.loopexit51, label %9
+25:                                               ; preds = %.lr.ph.split.preheader.i
+  %26 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.9acd562e1d0a26e0ca74d3900d524aca.10.llvm.11423182251827145186, i64 noundef 19), !noalias !2681
+  br i1 %26, label %.loopexit51, label %9
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -12391,9 +12387,9 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hf60863c6f3b6f7
   %8 = and i16 %7, -2
   br label %9
 
-9:                                                ; preds = %26, %2
-  %.sroa.13.0 = phi i16 [ %7, %2 ], [ %8, %26 ]
-  %.015 = phi i1 [ true, %2 ], [ false, %26 ]
+9:                                                ; preds = %25, %2
+  %.sroa.13.0 = phi i16 [ %7, %2 ], [ %8, %25 ]
+  %.015 = phi i1 [ true, %2 ], [ false, %25 ]
   br i1 %.015, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %9
@@ -12402,71 +12398,71 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hf60863c6f3b6f7
 
 .thread:                                          ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
-  br label %13
+  br label %.loopexit51.sink.split
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i
   %11 = and i16 %.sroa.13.0, %7
   %12 = and i16 %11, 1
   %or.cond.i.not.not = icmp eq i16 %12, 0
-  br i1 %or.cond.i.not.not, label %.thread88, label %26
+  br i1 %or.cond.i.not.not, label %.thread88, label %25
 
 .thread88:                                        ; preds = %.lr.ph.split.preheader.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
   store i16 %.sroa.13.0, ptr %6, align 2
-  br label %16
+  br label %15
 
 .loopexit:                                        ; preds = %9
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
   store i16 %.sroa.13.0, ptr %6, align 2
   %.not = icmp eq i16 %.sroa.13.0, 0
-  br i1 %.not, label %13, label %14
+  br i1 %.not, label %.loopexit51.sink.split, label %13
 
-13:                                               ; preds = %.loopexit, %.thread, %19
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
-  br label %.loopexit51
+13:                                               ; preds = %.loopexit
+  %14 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2692
+  br i1 %14, label %17, label %15
 
-14:                                               ; preds = %.loopexit
-  %15 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.25, i64 noundef 3), !noalias !2692
-  br i1 %15, label %18, label %16
+15:                                               ; preds = %.thread88, %13
+  %16 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2695
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %.thread88, %14
-  %17 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8e0bfbf6b8d897b49abc41731c6bfe25.24, i64 noundef 2), !noalias !2695
-  br i1 %17, label %18, label %19
+17:                                               ; preds = %18, %15, %13
+  br label %.loopexit51.sink.split
 
-18:                                               ; preds = %19, %16, %14
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
-  br label %.loopexit51
-
-19:                                               ; preds = %16
+18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !noalias !2698
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !2698
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !2698
   store ptr %5, ptr %3, align 8, !noalias !2698
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h8c0d7f8369efe8c1E.llvm.10561276912860805957", ptr %20, align 8, !noalias !2698
+  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @"_ZN45_$LT$$RF$T$u20$as$u20$core..fmt..LowerHex$GT$3fmt17h8c0d7f8369efe8c1E.llvm.10561276912860805957", ptr %19, align 8, !noalias !2698
   store ptr @anon.bfa31fafe4958aae8e9727502c2557cc.91.llvm.10561276912860805957, ptr %4, align 8, !alias.scope !2702, !noalias !2705
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 1, ptr %21, align 8, !alias.scope !2702, !noalias !2705
-  %22 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %22, align 8, !alias.scope !2702, !noalias !2705
-  %23 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %3, ptr %23, align 8, !alias.scope !2702, !noalias !2705
-  %24 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %24, align 8, !alias.scope !2702, !noalias !2705
-  %25 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2708
+  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %20, align 8, !alias.scope !2702, !noalias !2705
+  %21 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr null, ptr %21, align 8, !alias.scope !2702, !noalias !2705
+  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %3, ptr %22, align 8, !alias.scope !2702, !noalias !2705
+  %23 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 1, ptr %23, align 8, !alias.scope !2702, !noalias !2705
+  %24 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h2a1c57d85e0be674E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4), !noalias !2708
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !2698
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !2698
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %25, label %18, label %13
+  br i1 %24, label %17, label %.loopexit51.sink.split
 
-.loopexit51:                                      ; preds = %26, %18, %13
-  %.1 = phi i1 [ false, %13 ], [ true, %18 ], [ true, %26 ]
+.loopexit51.sink.split:                           ; preds = %18, %.thread, %.loopexit, %17
+  %.1.ph = phi i1 [ true, %17 ], [ false, %.loopexit ], [ false, %.thread ], [ false, %18 ]
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
+  br label %.loopexit51
+
+.loopexit51:                                      ; preds = %25, %.loopexit51.sink.split
+  %.1 = phi i1 [ %.1.ph, %.loopexit51.sink.split ], [ true, %25 ]
   ret i1 %.1
 
-26:                                               ; preds = %.lr.ph.split.preheader.i
-  %27 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.9acd562e1d0a26e0ca74d3900d524aca.22.llvm.11423182251827145186, i64 noundef 26), !noalias !2711
-  br i1 %27, label %.loopexit51, label %9
+25:                                               ; preds = %.lr.ph.split.preheader.i
+  %26 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.9acd562e1d0a26e0ca74d3900d524aca.22.llvm.11423182251827145186, i64 noundef 26), !noalias !2711
+  br i1 %26, label %.loopexit51, label %9
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable

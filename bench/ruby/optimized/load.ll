@@ -954,10 +954,6 @@ RSTRING_PTR.exit.i:                               ; preds = %12, %2
   %.not101.i = icmp eq i64 %20, 0
   br i1 %.not101.i, label %search_required.exit.thread25, label %RSTRING_PTR.exit112.i
 
-RSTRING_PTR.exit112.i:                            ; preds = %19
-  store volatile i64 %20, ptr %4, align 8
-  br label %61
-
 21:                                               ; preds = %16
   %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(4) @.str.4) #21
   %23 = icmp eq i32 %22, 0
@@ -997,11 +993,7 @@ RSTRING_PTR.exit116.i:                            ; preds = %31, %30
   tail call void @rb_obj_freeze_inline(i64 noundef %35) #6
   %37 = tail call i64 @rb_find_file(i64 noundef %35) #6
   %.not98.i = icmp eq i64 %37, 0
-  br i1 %.not98.i, label %.thread.i, label %RSTRING_PTR.exit120.i
-
-RSTRING_PTR.exit120.i:                            ; preds = %RSTRING_PTR.exit116.i
-  store volatile i64 %37, ptr %4, align 8
-  br label %select.unfold
+  br i1 %.not98.i, label %.thread.i, label %select.unfold
 
 .thread.i:                                        ; preds = %14, %RSTRING_PTR.exit.i, %sub_2.i, %RSTRING_PTR.exit116.i, %sub_1.i, %sub_0.i
   store i64 %6, ptr %3, align 8
@@ -1047,7 +1039,6 @@ RSTRING_PTR.exit124.i:                            ; preds = %52, %47
 
 56:                                               ; preds = %RSTRING_PTR.exit124.i
   %57 = call i64 @rb_filesystem_str_new_cstr(ptr noundef %.sroa.2.0.i123.i) #6
-  store volatile i64 %57, ptr %4, align 8
   br label %select.unfold
 
 58:                                               ; preds = %RSTRING_PTR.exit124.i, %39
@@ -1056,51 +1047,53 @@ RSTRING_PTR.exit124.i:                            ; preds = %52, %47
 
 .thread.thread:                                   ; preds = %58
   %59 = load i64, ptr %3, align 8
-  store volatile i64 %59, ptr %4, align 8
   br label %select.unfold
 
 .thread:                                          ; preds = %.thread.i
   %60 = load i64, ptr %3, align 8
-  store volatile i64 %60, ptr %4, align 8
-  br label %61
+  br label %RSTRING_PTR.exit112.i
 
 search_required.exit.thread25:                    ; preds = %58, %19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %66
+  br label %65
 
-61:                                               ; preds = %.thread, %RSTRING_PTR.exit112.i
+RSTRING_PTR.exit112.i:                            ; preds = %19, %.thread
+  %.sink = phi i64 [ %60, %.thread ], [ %20, %19 ]
+  store volatile i64 %.sink, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %.pr.i = load i64, ptr @rb_resolve_feature_path.rbimpl_id, align 8
   %.not4.i = icmp eq i64 %.pr.i, 0
   br i1 %.not4.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
 
-.lr.ph.i:                                         ; preds = %61, %.lr.ph.i
-  %62 = call i64 @rb_intern2(ptr noundef nonnull @.str.1, i64 noundef 2) #6
-  store i64 %62, ptr @rb_resolve_feature_path.rbimpl_id, align 8
-  %.not.i8 = icmp eq i64 %62, 0
+.lr.ph.i:                                         ; preds = %RSTRING_PTR.exit112.i, %.lr.ph.i
+  %61 = call i64 @rb_intern2(ptr noundef nonnull @.str.1, i64 noundef 2) #6
+  store i64 %61, ptr @rb_resolve_feature_path.rbimpl_id, align 8
+  %.not.i8 = icmp eq i64 %61, 0
   br i1 %.not.i8, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !17
 
-select.unfold:                                    ; preds = %.thread.thread, %56, %RSTRING_PTR.exit120.i
+select.unfold:                                    ; preds = %RSTRING_PTR.exit116.i, %.thread.thread, %56
+  %.sink30 = phi i64 [ %59, %.thread.thread ], [ %57, %56 ], [ %37, %RSTRING_PTR.exit116.i ]
+  store volatile i64 %.sink30, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %.pr.i9 = load i64, ptr @rb_resolve_feature_path.rbimpl_id.2, align 8
   %.not4.i10 = icmp eq i64 %.pr.i9, 0
   br i1 %.not4.i10, label %.lr.ph.i12, label %rbimpl_intern_const.exit
 
 .lr.ph.i12:                                       ; preds = %select.unfold, %.lr.ph.i12
-  %63 = call i64 @rb_intern2(ptr noundef nonnull @.str.3, i64 noundef 2) #6
-  store i64 %63, ptr @rb_resolve_feature_path.rbimpl_id.2, align 8
-  %.not.i13 = icmp eq i64 %63, 0
+  %62 = call i64 @rb_intern2(ptr noundef nonnull @.str.3, i64 noundef 2) #6
+  store i64 %62, ptr @rb_resolve_feature_path.rbimpl_id.2, align 8
+  %.not.i13 = icmp eq i64 %62, 0
   br i1 %.not.i13, label %.lr.ph.i12, label %rbimpl_intern_const.exit, !llvm.loop !17
 
-rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i12, %.lr.ph.i, %select.unfold, %61
-  %.lcssa.i11.sink = phi i64 [ %.pr.i, %61 ], [ %.pr.i9, %select.unfold ], [ %62, %.lr.ph.i ], [ %63, %.lr.ph.i12 ]
-  %64 = call i64 @rb_id2sym(i64 noundef %.lcssa.i11.sink) #6
+rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i12, %.lr.ph.i, %select.unfold, %RSTRING_PTR.exit112.i
+  %.lcssa.i11.sink = phi i64 [ %.pr.i, %RSTRING_PTR.exit112.i ], [ %.pr.i9, %select.unfold ], [ %61, %.lr.ph.i ], [ %62, %.lr.ph.i12 ]
+  %63 = call i64 @rb_id2sym(i64 noundef %.lcssa.i11.sink) #6
   %.0..0..0.15 = load i64, ptr %4, align 8
-  %65 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %64, i64 noundef %.0..0..0.15) #6
-  br label %66
+  %64 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %63, i64 noundef %.0..0..0.15) #6
+  br label %65
 
-66:                                               ; preds = %search_required.exit.thread25, %rbimpl_intern_const.exit
-  %.0 = phi i64 [ %65, %rbimpl_intern_const.exit ], [ 4, %search_required.exit.thread25 ]
+65:                                               ; preds = %search_required.exit.thread25, %rbimpl_intern_const.exit
+  %.0 = phi i64 [ %64, %rbimpl_intern_const.exit ], [ 4, %search_required.exit.thread25 ]
   ret i64 %.0
 }
 

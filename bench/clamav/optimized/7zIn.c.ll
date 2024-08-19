@@ -542,12 +542,12 @@ define i32 @SzArEx_Open(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 %17(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 1) #11
   %.not.i = icmp eq i32 %18, 0
-  br i1 %.not.i, label %19, label %SzArEx_Open2.exit.thread
+  br i1 %.not.i, label %19, label %.sink.split
 
 19:                                               ; preds = %4
   %20 = call i32 @LookInStream_Read2(ptr noundef nonnull %1, ptr noundef nonnull %5, i64 noundef 32, i32 noundef 17) #11
   %.not118.i = icmp eq i32 %20, 0
-  br i1 %.not118.i, label %.preheader.i, label %SzArEx_Open2.exit.thread
+  br i1 %.not118.i, label %.preheader.i, label %.sink.split
 
 21:                                               ; preds = %.preheader.i
   %22 = add nuw nsw i64 %.06.i.i, 1
@@ -561,13 +561,13 @@ define i32 @SzArEx_Open(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   %25 = getelementptr inbounds [6 x i8], ptr @k7zSignature, i64 0, i64 %.06.i.i
   %26 = load i8, ptr %25, align 1
   %.not.i.i = icmp eq i8 %24, %26
-  br i1 %.not.i.i, label %21, label %SzArEx_Open2.exit.thread
+  br i1 %.not.i.i, label %21, label %.sink.split
 
 TestSignatureCandidate.exit.i:                    ; preds = %21
   %27 = getelementptr inbounds i8, ptr %5, i64 6
   %28 = load i8, ptr %27, align 2
   %.not120.i = icmp eq i8 %28, 0
-  br i1 %.not120.i, label %29, label %SzArEx_Open2.exit.thread
+  br i1 %.not120.i, label %29, label %.sink.split
 
 29:                                               ; preds = %TestSignatureCandidate.exit.i
   %30 = getelementptr inbounds i8, ptr %5, i64 12
@@ -609,13 +609,13 @@ TestSignatureCandidate.exit.i:                    ; preds = %21
   %58 = load ptr, ptr %16, align 8
   %59 = call i32 %58(ptr noundef %1, ptr noundef nonnull %9, i32 noundef 1) #11
   %.not121.i = icmp eq i32 %59, 0
-  br i1 %.not121.i, label %60, label %SzArEx_Open2.exit.thread
+  br i1 %.not121.i, label %60, label %.sink.split
 
 60:                                               ; preds = %57
   %61 = load ptr, ptr %16, align 8
   %62 = call i32 %61(ptr noundef nonnull %1, ptr noundef nonnull %10, i32 noundef 2) #11
   %.not122.i = icmp eq i32 %62, 0
-  br i1 %.not122.i, label %63, label %SzArEx_Open2.exit.thread
+  br i1 %.not122.i, label %63, label %.sink.split
 
 63:                                               ; preds = %60
   %64 = load i64, ptr %10, align 8
@@ -630,16 +630,16 @@ TestSignatureCandidate.exit.i:                    ; preds = %21
   %69 = load ptr, ptr %16, align 8
   %70 = call i32 %69(ptr noundef nonnull %1, ptr noundef nonnull %11, i32 noundef 0) #11
   %.not123.i = icmp eq i32 %70, 0
-  br i1 %.not123.i, label %71, label %SzArEx_Open2.exit.thread
+  br i1 %.not123.i, label %71, label %.sink.split
 
 71:                                               ; preds = %63
   %72 = call i32 @LookInStream_Read2(ptr noundef nonnull %1, ptr noundef nonnull %8, i64 noundef %67, i32 noundef 16) #11
   %.not124.i = icmp eq i32 %72, 0
-  br i1 %.not124.i, label %73, label %SzArEx_Open2.exit.thread
+  br i1 %.not124.i, label %73, label %.sink.split
 
 73:                                               ; preds = %71
   %74 = icmp sgt i32 %spec.select.i, 1
-  br i1 %74, label %.lr.ph.preheader.i, label %SzArEx_Open2.exit.thread
+  br i1 %74, label %.lr.ph.preheader.i, label %.sink.split
 
 .lr.ph.preheader.i:                               ; preds = %73
   %75 = add nsw i64 %spec.select139.i, 4294967294
@@ -672,14 +672,14 @@ TestSignatureCandidate.exit.i:                    ; preds = %21
 .thread.i:                                        ; preds = %84, %79, %.lr.ph.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %89 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %89, label %.lr.ph.i, label %SzArEx_Open2.exit.thread
+  br i1 %89, label %.lr.ph.i, label %.sink.split
 
 90:                                               ; preds = %84, %79
   %91 = load i64, ptr %11, align 8
   %92 = and i64 %indvars.iv.i, 4294967295
   %93 = add nsw i64 %91, %92
   %94 = icmp ult i64 %93, 32
-  br i1 %94, label %SzArEx_Open2.exit.thread, label %95
+  br i1 %94, label %.sink.split, label %95
 
 95:                                               ; preds = %90
   %96 = sub i64 %spec.select139.i, %indvars.iv.i
@@ -691,7 +691,7 @@ TestSignatureCandidate.exit.i:                    ; preds = %21
   %101 = load ptr, ptr %16, align 8
   %102 = call i32 %101(ptr noundef %1, ptr noundef nonnull %9, i32 noundef 0) #11
   %.not125.i = icmp eq i32 %102, 0
-  br i1 %.not125.i, label %103, label %SzArEx_Open2.exit.thread
+  br i1 %.not125.i, label %103, label %.sink.split
 
 103:                                              ; preds = %95, %29
   %.098.i = phi i32 [ %47, %29 ], [ %100, %95 ]
@@ -720,21 +720,21 @@ SzArEx_Open2.exit.thread11:                       ; preds = %103
   %108 = sub i64 -33, %.097.i
   %109 = icmp ugt i64 %.096.i, %108
   %or.cond131.i = or i1 %107, %109
-  br i1 %or.cond131.i, label %SzArEx_Open2.exit.thread, label %110
+  br i1 %or.cond131.i, label %.sink.split, label %110
 
 110:                                              ; preds = %105
   store i64 0, ptr %12, align 8
   %111 = load ptr, ptr %16, align 8
   %112 = call i32 %111(ptr noundef %1, ptr noundef nonnull %12, i32 noundef 2) #11
   %.not126.i = icmp eq i32 %112, 0
-  br i1 %.not126.i, label %113, label %SzArEx_Open2.exit.thread
+  br i1 %.not126.i, label %113, label %.sink.split
 
 113:                                              ; preds = %110
   %114 = load i64, ptr %12, align 8
   %115 = load i64, ptr %6, align 8
   %116 = add i64 %115, %.096.i
   %117 = icmp ult i64 %114, %116
-  br i1 %117, label %SzArEx_Open2.exit.thread, label %118
+  br i1 %117, label %.sink.split, label %118
 
 118:                                              ; preds = %113
   %119 = add i64 %.096.i, 32
@@ -743,17 +743,17 @@ SzArEx_Open2.exit.thread11:                       ; preds = %103
   %122 = add i64 %120, %.097.i
   %123 = icmp ult i64 %114, %122
   %or.cond133.i = or i1 %121, %123
-  br i1 %or.cond133.i, label %SzArEx_Open2.exit.thread, label %124
+  br i1 %or.cond133.i, label %.sink.split, label %124
 
 124:                                              ; preds = %118
   %125 = call i32 @LookInStream_SeekTo(ptr noundef nonnull %1, i64 noundef %120) #11
   %.not127.i = icmp eq i32 %125, 0
-  br i1 %.not127.i, label %126, label %SzArEx_Open2.exit.thread
+  br i1 %.not127.i, label %126, label %.sink.split
 
 126:                                              ; preds = %124
   %127 = call i32 @Buf_Create(ptr noundef nonnull %7, i64 noundef %.097.i, ptr noundef %3) #11
   %.not128.i = icmp eq i32 %127, 0
-  br i1 %.not128.i, label %SzArEx_Open2.exit.thread, label %128
+  br i1 %.not128.i, label %.sink.split, label %128
 
 128:                                              ; preds = %126
   %129 = load ptr, ptr %7, align 8
@@ -814,36 +814,10 @@ SzArEx_Open2.exit.thread11:                       ; preds = %103
   %157 = icmp eq i64 %156, 1
   br i1 %157, label %SzArEx_Open2.exit, label %SzArEx_Open2.exit.thread15
 
-SzArEx_Open2.exit.thread:                         ; preds = %.preheader.i, %.thread.i, %4, %19, %TestSignatureCandidate.exit.i, %57, %60, %63, %71, %90, %95, %105, %110, %118, %113, %124, %126, %73
-  %.0.i.ph = phi i32 [ 16, %73 ], [ 2, %126 ], [ %125, %124 ], [ 6, %113 ], [ 6, %118 ], [ %112, %110 ], [ 17, %105 ], [ %102, %95 ], [ 6, %90 ], [ %72, %71 ], [ %70, %63 ], [ %62, %60 ], [ %59, %57 ], [ 4, %TestSignatureCandidate.exit.i ], [ %20, %19 ], [ %18, %4 ], [ 16, %.thread.i ], [ 17, %.preheader.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 500, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
-  br label %159
-
 SzArEx_Open2.exit.thread15:                       ; preds = %153, %132, %128, %155, %.thread137.i
   %.099.i.ph = phi i32 [ %147, %.thread137.i ], [ 4, %155 ], [ %130, %128 ], [ 16, %132 ], [ %.1.i, %153 ]
   call void @Buf_Free(ptr noundef nonnull %7, ptr noundef %3) #11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 500, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
-  br label %159
+  br label %.sink.split
 
 SzArEx_Open2.exit:                                ; preds = %155
   %158 = call fastcc i32 @SzReadHeader(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %2, ptr noundef %3)
@@ -862,8 +836,23 @@ SzArEx_Open2.exit:                                ; preds = %155
   %.not = icmp eq i32 %158, 0
   br i1 %.not, label %177, label %159
 
-159:                                              ; preds = %SzArEx_Open2.exit.thread15, %SzArEx_Open2.exit.thread, %SzArEx_Open2.exit
-  %.0.i9 = phi i32 [ %.0.i.ph, %SzArEx_Open2.exit.thread ], [ %158, %SzArEx_Open2.exit ], [ %.099.i.ph, %SzArEx_Open2.exit.thread15 ]
+.sink.split:                                      ; preds = %.preheader.i, %.thread.i, %73, %126, %124, %113, %118, %110, %105, %95, %90, %71, %63, %60, %57, %TestSignatureCandidate.exit.i, %19, %4, %SzArEx_Open2.exit.thread15
+  %.0.i9.ph = phi i32 [ %.099.i.ph, %SzArEx_Open2.exit.thread15 ], [ 16, %73 ], [ 2, %126 ], [ %125, %124 ], [ 6, %113 ], [ 6, %118 ], [ %112, %110 ], [ 17, %105 ], [ %102, %95 ], [ 6, %90 ], [ %72, %71 ], [ %70, %63 ], [ %62, %60 ], [ %59, %57 ], [ 4, %TestSignatureCandidate.exit.i ], [ %20, %19 ], [ %18, %4 ], [ 16, %.thread.i ], [ 17, %.preheader.i ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 500, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
+  br label %159
+
+159:                                              ; preds = %.sink.split, %SzArEx_Open2.exit
+  %.0.i9 = phi i32 [ %158, %SzArEx_Open2.exit ], [ %.0.i9.ph, %.sink.split ]
   %160 = getelementptr inbounds i8, ptr %2, i64 8
   %161 = load ptr, ptr %160, align 8
   %162 = getelementptr inbounds i8, ptr %0, i64 72

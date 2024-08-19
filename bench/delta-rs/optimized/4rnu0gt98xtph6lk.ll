@@ -292,8 +292,8 @@ define hidden noundef zeroext i1 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h5899218885c5c3e5E.llvm.1413925132987444071.exit, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha422717f16c610deE.exit.i.i.i"
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h5899218885c5c3e5E.llvm.1413925132987444071.exit: ; preds = %18, %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha422717f16c610deE.exit.i.i.i", %"_ZN109_$LT$std..collections..hash..map..IntoIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7ba673d225a59888E.llvm.1413925132987444071.exit.i", %20, %3
-  %.not5.i = phi i1 [ false, %3 ], [ true, %18 ], [ false, %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha422717f16c610deE.exit.i.i.i" ], [ false, %"_ZN109_$LT$std..collections..hash..map..IntoIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7ba673d225a59888E.llvm.1413925132987444071.exit.i" ], [ false, %20 ]
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h5899218885c5c3e5E.llvm.1413925132987444071.exit: ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha422717f16c610deE.exit.i.i.i", %"_ZN109_$LT$std..collections..hash..map..IntoIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7ba673d225a59888E.llvm.1413925132987444071.exit.i", %18, %20, %3
+  %.not5.i = phi i1 [ false, %3 ], [ true, %18 ], [ false, %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha422717f16c610deE.exit.i.i.i" ], [ false, %20 ], [ false, %"_ZN109_$LT$std..collections..hash..map..IntoIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7ba673d225a59888E.llvm.1413925132987444071.exit.i" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret i1 %.not5.i
 }
@@ -580,14 +580,10 @@ define internal void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffer
   %56 = trunc nuw i8 %55 to i1
   %spec.select = select i1 %56, i64 17, i64 18
   store i64 %spec.select, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6)
-  br label %58
+  br label %57
 
-57:                                               ; preds = %54, %53
+57:                                               ; preds = %53, %54, %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17h5a01dc6f24449b0fE.exit"
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6)
-  br label %58
-
-58:                                               ; preds = %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17h5a01dc6f24449b0fE.exit", %57
   ret void
 }
 
@@ -723,14 +719,10 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   %56 = trunc nuw i8 %55 to i1
   %spec.select = select i1 %56, i64 17, i64 18
   store i64 %spec.select, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6)
-  br label %58
+  br label %57
 
-57:                                               ; preds = %54, %53
+57:                                               ; preds = %53, %54, %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17h5a01dc6f24449b0fE.exit"
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6)
-  br label %58
-
-58:                                               ; preds = %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17h5a01dc6f24449b0fE.exit", %57
   ret void
 }
 
@@ -908,14 +900,10 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   %72 = trunc nuw i8 %71 to i1
   %spec.select = select i1 %72, i64 17, i64 18
   store i64 %spec.select, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6)
-  br label %74
+  br label %73
 
-73:                                               ; preds = %70, %69
+73:                                               ; preds = %69, %70, %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h739706c3233188bbE.exit"
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6)
-  br label %74
-
-74:                                               ; preds = %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h739706c3233188bbE.exit", %73
   ret void
 }
 
@@ -2216,6 +2204,7 @@ common.ret:                                       ; preds = %53, %12
 12:                                               ; preds = %89, %"_ZN4core3ptr51drop_in_place$LT$object_store..GetResultPayload$GT$17h5baa38d51501dbb6E.exit"
   %.sroa.033.0 = phi i64 [ -9223372036854775808, %89 ], [ %.sroa.033.0.copyload34, %"_ZN4core3ptr51drop_in_place$LT$object_store..GetResultPayload$GT$17h5baa38d51501dbb6E.exit" ]
   %.sroa.437.0 = phi i64 [ undef, %89 ], [ %.sroa.437.0.copyload39, %"_ZN4core3ptr51drop_in_place$LT$object_store..GetResultPayload$GT$17h5baa38d51501dbb6E.exit" ]
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8)
   store i64 %.sroa.033.0, ptr %0, align 8
   %.sroa.335.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.335.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.335, i64 80, i1 false)
@@ -2447,7 +2436,6 @@ common.ret:                                       ; preds = %53, %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.335, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.335.0..sroa_idx36, i64 80, i1 false)
   %.sroa.437.0..sroa_idx38 = getelementptr inbounds i8, ptr %8, i64 88
   %.sroa.437.0.copyload39 = load i64, ptr %.sroa.437.0..sroa_idx38, align 8
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8)
   br label %12
 
 87:                                               ; preds = %41, %.body11
@@ -2459,7 +2447,6 @@ common.ret:                                       ; preds = %53, %12
 89:                                               ; preds = %"_ZN4core3ptr226drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$object_store..GetResult$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h46a80e38027f5a70E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.335, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.3, i64 80, i1 false)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8)
   br label %12
 }
 
@@ -3874,7 +3861,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   br i1 %17, label %"_ZN4core3ptr120drop_in_place$LT$core..option..Option$LT$$LP$deltalake_mount..config..MountConfigKey$C$alloc..string..String$RP$$GT$$GT$17h2e8e719294dc8642E.llvm.1413925132987444071.exit", label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha422717f16c610deE.exit.i.i"
 
 "_ZN4core3ptr120drop_in_place$LT$core..option..Option$LT$$LP$deltalake_mount..config..MountConfigKey$C$alloc..string..String$RP$$GT$$GT$17h2e8e719294dc8642E.llvm.1413925132987444071.exit": ; preds = %13, %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha422717f16c610deE.exit.i.i", %15, %"_ZN109_$LT$std..collections..hash..map..IntoIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7ba673d225a59888E.llvm.1413925132987444071.exit", %2
-  %.not5 = phi i1 [ false, %2 ], [ true, %13 ], [ false, %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha422717f16c610deE.exit.i.i" ], [ false, %15 ], [ false, %"_ZN109_$LT$std..collections..hash..map..IntoIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7ba673d225a59888E.llvm.1413925132987444071.exit" ]
+  %.not5 = phi i1 [ false, %2 ], [ false, %"_ZN109_$LT$std..collections..hash..map..IntoIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7ba673d225a59888E.llvm.1413925132987444071.exit" ], [ false, %15 ], [ false, %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha422717f16c610deE.exit.i.i" ], [ true, %13 ]
   ret i1 %.not5
 }
 

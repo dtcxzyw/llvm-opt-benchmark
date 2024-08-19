@@ -16745,7 +16745,6 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %69, %72
   %262 = load i32, ptr %215, align 4
   %263 = icmp eq i32 %262, 134695760
   %264 = select i1 %263, i32 24, i32 20
-  store i32 %264, ptr %4, align 4
   br label %326
 
 265:                                              ; preds = %247
@@ -16835,19 +16834,18 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %69, %72
   store i8 %321, ptr %322, align 1
   %323 = getelementptr inbounds i8, ptr %215, i64 20
   store i32 0, ptr %323, align 1
-  store i32 24, ptr %4, align 4
   br label %326
 
 324:                                              ; preds = %272
   %325 = select i1 %274, i32 16, i32 12
-  store i32 %325, ptr %4, align 4
   br label %326
 
 326:                                              ; preds = %278, %324, %261
-  %.0..0..0.741 = phi i32 [ 24, %278 ], [ %325, %324 ], [ %264, %261 ]
+  %.sink = phi i32 [ 24, %278 ], [ %325, %324 ], [ %264, %261 ]
+  store i32 %.sink, ptr %4, align 4
   %327 = load ptr, ptr %201, align 8
   %328 = load ptr, ptr %203, align 8
-  %329 = zext nneg i32 %.0..0..0.741 to i64
+  %329 = zext nneg i32 %.sink to i64
   %330 = call i64 %327(ptr noundef %328, i64 noundef %.0729.lcssa, ptr noundef nonnull %215, i64 noundef %329) #30
   %.not798 = icmp eq i64 %330, %329
   br i1 %.not798, label %336, label %331

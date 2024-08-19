@@ -826,7 +826,6 @@ _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit24.thread: ; preds = %.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false)
   %60 = call { i32, i16 } @_ZN6parser6parser6Marker8complete17h245dafe3ae51cd9dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i16 noundef 236)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
   br label %116
 
 _ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit: ; preds = %53
@@ -951,7 +950,6 @@ _ZN6parser6parser6Parser12err_and_bump17hae2917ad28dca2bdE.exit: ; preds = %114
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   %anon.b524e8eb8974857e663438d42e829098.8.anon.b524e8eb8974857e663438d42e829098.29.llvm.6580822817679657170 = select i1 %1, ptr @anon.b524e8eb8974857e663438d42e829098.8, ptr @anon.b524e8eb8974857e663438d42e829098.29.llvm.6580822817679657170
   tail call void @_ZN6parser6parser6Parser11err_recover17hece7c382b6a3361aE(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 @anon.b524e8eb8974857e663438d42e829098.7, i64 noundef 64, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %anon.b524e8eb8974857e663438d42e829098.8.anon.b524e8eb8974857e663438d42e829098.29.llvm.6580822817679657170)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
   br label %116
 
 115:                                              ; preds = %114
@@ -960,6 +958,7 @@ _ZN6parser6parser6Parser12err_and_bump17hae2917ad28dca2bdE.exit: ; preds = %114
 
 116:                                              ; preds = %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit24.thread, %_ZN6parser6parser6Parser12err_and_bump17hae2917ad28dca2bdE.exit
   %.0 = phi i1 [ true, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit24.thread ], [ false, %_ZN6parser6parser6Parser12err_and_bump17hae2917ad28dca2bdE.exit ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
   ret i1 %.0
 
 _ZN6parser7grammar5paths8use_path17hcb910adb75381146E.exit: ; preds = %115

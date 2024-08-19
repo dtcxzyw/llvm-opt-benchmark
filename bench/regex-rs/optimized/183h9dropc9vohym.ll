@@ -5026,10 +5026,10 @@ _ZN14regex_automata3nfa8thompson10range_trie9RangeTrie9state_mut17h61044da6f3107
 
 .loopexit.i164.i:                                 ; preds = %1524, %1374, %1365
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30), !noalias !773
-  call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %.sroa.61031.i.i)
   br label %.backedge.i165.i
 
 .backedge.i165.i:                                 ; preds = %1633, %.loopexit.i164.i
+  call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %.sroa.61031.i.i)
   %1371 = load i64, ptr %1103, align 8, !alias.scope !880, !noalias !800, !noundef !4
   %1372 = icmp eq i64 %1371, 0
   br i1 %1372, label %._crit_edge696.i.i, label %.lr.ph695.i.i
@@ -5803,7 +5803,6 @@ _ZN14regex_automata3nfa8thompson10range_trie9RangeTrie9state_mut17h61044da6f3107
   %1638 = load i64, ptr %1628, align 8, !alias.scope !974, !noalias !789, !noundef !4
   %1639 = add i64 %1638, 1
   store i64 %1639, ptr %1628, align 8, !alias.scope !974, !noalias !789
-  call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %.sroa.61031.i.i)
   br label %.backedge.i165.i
 
 .thread.i.i:                                      ; preds = %"_ZN4core3ptr95drop_in_place$LT$alloc..vec..Vec$LT$regex_automata..nfa..thompson..range_trie..NextDupe$GT$$GT$17h97415fa23a0aa808E.exit.i.i", %1386, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i.i, %.loopexit.split-lp.loopexit.i.i, %.loopexit346.i.loopexit.split-lp.i, %.loopexit346.i.loopexit.i
@@ -9748,10 +9747,6 @@ _ZN14regex_automata3nfa8thompson12literal_trie5State6chunks17h5df997ae6e729931E.
   %.not9.i.i = icmp eq ptr %.sroa.12.0, null
   br i1 %.not9.i.i, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h03ca9a4215293e3aE.exit", label %58
 
-"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h03ca9a4215293e3aE.exit": ; preds = %"_ZN119_$LT$regex_automata..nfa..thompson..literal_trie..StateChunksIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa3dcf2c78923327E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  br label %60
-
 58:                                               ; preds = %"_ZN119_$LT$regex_automata..nfa..thompson..literal_trie..StateChunksIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa3dcf2c78923327E.exit.thread.i", %"_ZN119_$LT$regex_automata..nfa..thompson..literal_trie..StateChunksIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa3dcf2c78923327E.exit.i"
   %.sroa.737.1 = phi ptr [ %24, %"_ZN119_$LT$regex_automata..nfa..thompson..literal_trie..StateChunksIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa3dcf2c78923327E.exit.i" ], [ %47, %"_ZN119_$LT$regex_automata..nfa..thompson..literal_trie..StateChunksIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa3dcf2c78923327E.exit.thread.i" ]
   %.sroa.12.1 = phi ptr [ null, %"_ZN119_$LT$regex_automata..nfa..thompson..literal_trie..StateChunksIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa3dcf2c78923327E.exit.i" ], [ %.sroa.12.0, %"_ZN119_$LT$regex_automata..nfa..thompson..literal_trie..StateChunksIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa3dcf2c78923327E.exit.thread.i" ]
@@ -9759,53 +9754,54 @@ _ZN14regex_automata3nfa8thompson12literal_trie5State6chunks17h5df997ae6e729931E.
   %.sroa.4.0.i8.i = phi i64 [ %25, %"_ZN119_$LT$regex_automata..nfa..thompson..literal_trie..StateChunksIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa3dcf2c78923327E.exit.i" ], [ %56, %"_ZN119_$LT$regex_automata..nfa..thompson..literal_trie..StateChunksIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa3dcf2c78923327E.exit.thread.i" ]
   %59 = add i64 %.sroa.17.0, 1
   %.not = icmp eq i64 %.sroa.17.0, 0
-  br i1 %.not, label %62, label %76
+  br i1 %.not, label %61, label %75
 
-60:                                               ; preds = %.loopexit78, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h03ca9a4215293e3aE.exit"
-  %61 = phi i1 [ true, %.loopexit78 ], [ false, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h03ca9a4215293e3aE.exit" ]
-  ret i1 %61
+"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h03ca9a4215293e3aE.exit": ; preds = %"_ZN119_$LT$regex_automata..nfa..thompson..literal_trie..StateChunksIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa3dcf2c78923327E.exit.i", %75, %.loopexit
+  %60 = phi i1 [ true, %.loopexit ], [ true, %75 ], [ false, %"_ZN119_$LT$regex_automata..nfa..thompson..literal_trie..StateChunksIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa3dcf2c78923327E.exit.i" ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  ret i1 %60
 
-62:                                               ; preds = %58
+61:                                               ; preds = %58
   store ptr @anon.93414e78877ac8c524c991426ed90868.2.llvm.17489849572920684177, ptr %10, align 8
   store i64 0, ptr %11, align 8
-  %63 = getelementptr inbounds { i32, i8 }, ptr %.sroa.0.0.i9.i, i64 %.sroa.4.0.i8.i
-  %64 = icmp eq i64 %.sroa.4.0.i8.i, 0
-  br i1 %64, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9371d96901feacc9E.exit.thread.backedge", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9371d96901feacc9E.exit.us.preheader"
+  %62 = getelementptr inbounds { i32, i8 }, ptr %.sroa.0.0.i9.i, i64 %.sroa.4.0.i8.i
+  %63 = icmp eq i64 %.sroa.4.0.i8.i, 0
+  br i1 %63, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9371d96901feacc9E.exit.thread.backedge", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9371d96901feacc9E.exit.us.preheader"
 
-.thread:                                          ; preds = %76
+.thread:                                          ; preds = %75
   store ptr @anon.93414e78877ac8c524c991426ed90868.2.llvm.17489849572920684177, ptr %10, align 8
   store i64 0, ptr %11, align 8
-  %65 = getelementptr inbounds { i32, i8 }, ptr %.sroa.0.0.i9.i, i64 %.sroa.4.0.i8.i
-  %66 = icmp eq i64 %.sroa.4.0.i8.i, 0
-  br i1 %66, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9371d96901feacc9E.exit.thread.backedge", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9371d96901feacc9E.exit.preheader"
+  %64 = getelementptr inbounds { i32, i8 }, ptr %.sroa.0.0.i9.i, i64 %.sroa.4.0.i8.i
+  %65 = icmp eq i64 %.sroa.4.0.i8.i, 0
+  br i1 %65, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9371d96901feacc9E.exit.thread.backedge", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9371d96901feacc9E.exit.preheader"
 
-"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9371d96901feacc9E.exit.thread.backedge": ; preds = %87, %74, %.thread, %62
+"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9371d96901feacc9E.exit.thread.backedge": ; preds = %86, %73, %.thread, %61
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9371d96901feacc9E.exit.thread"
 
-"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9371d96901feacc9E.exit.us.preheader": ; preds = %62, %74
-  %.sroa.842.062.us = phi i64 [ %68, %74 ], [ 0, %62 ]
-  %.sroa.040.061.us = phi ptr [ %67, %74 ], [ %.sroa.0.0.i9.i, %62 ]
-  %67 = getelementptr inbounds i8, ptr %.sroa.040.061.us, i64 8
-  %68 = add nuw nsw i64 %.sroa.842.062.us, 1
+"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9371d96901feacc9E.exit.us.preheader": ; preds = %61, %73
+  %.sroa.842.062.us = phi i64 [ %67, %73 ], [ 0, %61 ]
+  %.sroa.040.061.us = phi ptr [ %66, %73 ], [ %.sroa.0.0.i9.i, %61 ]
+  %66 = getelementptr inbounds i8, ptr %.sroa.040.061.us, i64 8
+  %67 = add nuw nsw i64 %.sroa.842.062.us, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr %.sroa.040.061.us, ptr %7, align 8
   store ptr @anon.93414e78877ac8c524c991426ed90868.95, ptr %10, align 8
   store i64 1, ptr %11, align 8
-  %69 = icmp eq i64 %.sroa.842.062.us, 0
-  br i1 %69, label %72, label %70
+  %68 = icmp eq i64 %.sroa.842.062.us, 0
+  br i1 %68, label %71, label %69
 
-70:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9371d96901feacc9E.exit.us.preheader"
+69:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9371d96901feacc9E.exit.us.preheader"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   store ptr @anon.93414e78877ac8c524c991426ed90868.100, ptr %5, align 8
   store i64 1, ptr %32, align 8
   store ptr null, ptr %33, align 8
   store ptr @anon.93414e78877ac8c524c991426ed90868.2.llvm.17489849572920684177, ptr %34, align 8
   store i64 0, ptr %35, align 8
-  %71 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
+  %70 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  br i1 %71, label %.loopexit, label %72
+  br i1 %70, label %.loopexit, label %71
 
-72:                                               ; preds = %70, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9371d96901feacc9E.exit.us.preheader"
+71:                                               ; preds = %69, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9371d96901feacc9E.exit.us.preheader"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store ptr %7, ptr %3, align 8
@@ -9815,17 +9811,17 @@ _ZN14regex_automata3nfa8thompson12literal_trie5State6chunks17h5df997ae6e729931E.
   store ptr null, ptr %42, align 8, !alias.scope !1730, !noalias !1733
   store ptr %3, ptr %43, align 8, !alias.scope !1730, !noalias !1733
   store i64 1, ptr %44, align 8, !alias.scope !1730, !noalias !1733
-  %73 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4)
+  %72 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  br i1 %73, label %.split.us, label %74
+  br i1 %72, label %.split.us, label %73
 
-74:                                               ; preds = %72
+73:                                               ; preds = %71
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %75 = icmp eq ptr %67, %63
-  br i1 %75, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9371d96901feacc9E.exit.thread.backedge", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9371d96901feacc9E.exit.us.preheader"
+  %74 = icmp eq ptr %66, %62
+  br i1 %74, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9371d96901feacc9E.exit.thread.backedge", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9371d96901feacc9E.exit.us.preheader"
 
-76:                                               ; preds = %58
+75:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store ptr %10, ptr %8, align 8
@@ -9835,35 +9831,35 @@ _ZN14regex_automata3nfa8thompson12literal_trie5State6chunks17h5df997ae6e729931E.
   store ptr null, ptr %29, align 8, !alias.scope !1736, !noalias !1739
   store ptr %8, ptr %30, align 8, !alias.scope !1736, !noalias !1739
   store i64 1, ptr %31, align 8, !alias.scope !1736, !noalias !1739
-  %77 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %9)
+  %76 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %9)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br i1 %77, label %.loopexit78, label %.thread
+  br i1 %76, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h03ca9a4215293e3aE.exit", label %.thread
 
-"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9371d96901feacc9E.exit.preheader": ; preds = %.thread, %87
-  %.sroa.842.062 = phi i64 [ %79, %87 ], [ 0, %.thread ]
-  %.sroa.040.061 = phi ptr [ %78, %87 ], [ %.sroa.0.0.i9.i, %.thread ]
-  %78 = getelementptr inbounds i8, ptr %.sroa.040.061, i64 8
-  %79 = add nuw nsw i64 %.sroa.842.062, 1
+"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9371d96901feacc9E.exit.preheader": ; preds = %.thread, %86
+  %.sroa.842.062 = phi i64 [ %78, %86 ], [ 0, %.thread ]
+  %.sroa.040.061 = phi ptr [ %77, %86 ], [ %.sroa.0.0.i9.i, %.thread ]
+  %77 = getelementptr inbounds i8, ptr %.sroa.040.061, i64 8
+  %78 = add nuw nsw i64 %.sroa.842.062, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr %.sroa.040.061, ptr %7, align 8
   store ptr @anon.93414e78877ac8c524c991426ed90868.95, ptr %10, align 8
   store i64 1, ptr %11, align 8
-  %80 = icmp eq i64 %.sroa.842.062, 0
-  br i1 %80, label %81, label %85
+  %79 = icmp eq i64 %.sroa.842.062, 0
+  br i1 %79, label %80, label %84
 
-81:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9371d96901feacc9E.exit.preheader"
+80:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9371d96901feacc9E.exit.preheader"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   store ptr @anon.93414e78877ac8c524c991426ed90868.98, ptr %6, align 8
   store i64 1, ptr %36, align 8
   store ptr null, ptr %37, align 8
   store ptr @anon.93414e78877ac8c524c991426ed90868.2.llvm.17489849572920684177, ptr %38, align 8
   store i64 0, ptr %39, align 8
-  %82 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
+  %81 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
-  br i1 %82, label %.loopexit, label %83
+  br i1 %81, label %.loopexit, label %82
 
-83:                                               ; preds = %85, %81
+82:                                               ; preds = %84, %80
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store ptr %7, ptr %3, align 8
@@ -9873,38 +9869,34 @@ _ZN14regex_automata3nfa8thompson12literal_trie5State6chunks17h5df997ae6e729931E.
   store ptr null, ptr %42, align 8, !alias.scope !1730, !noalias !1733
   store ptr %3, ptr %43, align 8, !alias.scope !1730, !noalias !1733
   store i64 1, ptr %44, align 8, !alias.scope !1730, !noalias !1733
-  %84 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4)
+  %83 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  br i1 %84, label %.split.us, label %87
+  br i1 %83, label %.split.us, label %86
 
-85:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9371d96901feacc9E.exit.preheader"
+84:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9371d96901feacc9E.exit.preheader"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   store ptr @anon.93414e78877ac8c524c991426ed90868.100, ptr %5, align 8
   store i64 1, ptr %32, align 8
   store ptr null, ptr %33, align 8
   store ptr @anon.93414e78877ac8c524c991426ed90868.2.llvm.17489849572920684177, ptr %34, align 8
   store i64 0, ptr %35, align 8
-  %86 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
+  %85 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  br i1 %86, label %.loopexit, label %83
+  br i1 %85, label %.loopexit, label %82
 
-87:                                               ; preds = %83
+86:                                               ; preds = %82
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %88 = icmp eq ptr %78, %65
-  br i1 %88, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9371d96901feacc9E.exit.thread.backedge", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9371d96901feacc9E.exit.preheader"
+  %87 = icmp eq ptr %77, %64
+  br i1 %87, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9371d96901feacc9E.exit.thread.backedge", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9371d96901feacc9E.exit.preheader"
 
-.split.us:                                        ; preds = %83, %72
+.split.us:                                        ; preds = %82, %71
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %81, %85, %70, %.split.us
+.loopexit:                                        ; preds = %80, %84, %69, %.split.us
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %.loopexit78
-
-.loopexit78:                                      ; preds = %76, %.loopexit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  br label %60
+  br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h03ca9a4215293e3aE.exit"
 }
 
 ; Function Attrs: nonlazybind uwtable
