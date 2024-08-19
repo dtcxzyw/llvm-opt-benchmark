@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local void @ginInitBA(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)
-  %3 = tail call ptr @rbt_create(i64 noundef 64, ptr noundef nonnull @cmpEntryAccumulator, ptr noundef nonnull @ginCombineData, ptr noundef nonnull @ginAllocEntryAccumulator, ptr noundef null, ptr noundef %0) #8
+  %3 = tail call ptr @rbt_create(i64 noundef 64, ptr noundef nonnull @cmpEntryAccumulator, ptr noundef nonnull @ginCombineData, ptr noundef nonnull @ginAllocEntryAccumulator, ptr noundef null, ptr noundef %0) #9
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %3, ptr %4, align 8
   ret void
@@ -42,7 +42,7 @@ define internal i32 @cmpEntryAccumulator(ptr nocapture noundef readonly %0, ptr 
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %1, i64 40
   %16 = load i8, ptr %15, align 8
-  %17 = tail call i32 @ginCompareAttEntries(ptr noundef %4, i16 noundef zeroext %6, i64 noundef %8, i8 noundef signext %10, i16 noundef zeroext %12, i64 noundef %14, i8 noundef signext %16) #8
+  %17 = tail call i32 @ginCompareAttEntries(ptr noundef %4, i16 noundef zeroext %6, i64 noundef %8, i8 noundef signext %10, i16 noundef zeroext %12, i64 noundef %14, i8 noundef signext %16) #9
   ret i32 %17
 }
 
@@ -60,18 +60,18 @@ define internal void @ginCombineData(ptr nocapture noundef %0, ptr nocapture nou
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %8
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 @errcode(i32 noundef 261) #8
-  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #8
-  %14 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.1) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 45, ptr noundef nonnull @__func__.ginCombineData) #8
+  %12 = tail call i32 @errcode(i32 noundef 261) #9
+  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #9
+  %14 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.1) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 45, ptr noundef nonnull @__func__.ginCombineData) #9
   unreachable
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %0, i64 48
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i64 @GetMemoryChunkSpace(ptr noundef %17) #8
+  %18 = tail call i64 @GetMemoryChunkSpace(ptr noundef %17) #9
   %19 = getelementptr inbounds i8, ptr %2, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = sub i64 %20, %18
@@ -82,9 +82,9 @@ define internal void @ginCombineData(ptr nocapture noundef %0, ptr nocapture nou
   %24 = load ptr, ptr %16, align 8
   %25 = zext i32 %23 to i64
   %26 = mul nuw nsw i64 %25, 6
-  %27 = tail call ptr @repalloc_huge(ptr noundef %24, i64 noundef %26) #8
+  %27 = tail call ptr @repalloc_huge(ptr noundef %24, i64 noundef %26) #9
   store ptr %27, ptr %16, align 8
-  %28 = tail call i64 @GetMemoryChunkSpace(ptr noundef %27) #8
+  %28 = tail call i64 @GetMemoryChunkSpace(ptr noundef %27) #9
   %29 = load i64, ptr %19, align 8
   %30 = add i64 %29, %28
   store i64 %30, ptr %19, align 8
@@ -162,9 +162,9 @@ define internal ptr @ginAllocEntryAccumulator(ptr nocapture noundef %0) #0 {
   br i1 %8, label %9, label %15
 
 9:                                                ; preds = %5, %1
-  %10 = tail call ptr @palloc(i64 noundef 131072) #8
+  %10 = tail call ptr @palloc(i64 noundef 131072) #9
   store ptr %10, ptr %2, align 8
-  %11 = tail call i64 @GetMemoryChunkSpace(ptr noundef %10) #8
+  %11 = tail call i64 @GetMemoryChunkSpace(ptr noundef %10) #9
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, %11
@@ -239,7 +239,7 @@ define dso_local void @ginInsertBAEntries(ptr nocapture noundef %0, ptr noundef 
   store i8 %42, ptr %25, align 8
   store ptr %1, ptr %26, align 8
   %43 = load ptr, ptr %27, align 8
-  %44 = call ptr @rbt_insert(ptr noundef %43, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
+  %44 = call ptr @rbt_insert(ptr noundef %43, ptr noundef nonnull %7, ptr noundef nonnull %8) #9
   %45 = load i8, ptr %8, align 1
   %46 = trunc i8 %45 to i1
   br i1 %46, label %47, label %ginInsertBAEntry.exit
@@ -263,9 +263,9 @@ define dso_local void @ginInsertBAEntries(ptr nocapture noundef %0, ptr noundef 
   %59 = getelementptr inbounds i8, ptr %54, i64 72
   %60 = load i16, ptr %59, align 4
   %61 = sext i16 %60 to i32
-  %62 = call i64 @datumCopy(i64 noundef %40, i1 noundef zeroext false, i32 noundef %61) #8
+  %62 = call i64 @datumCopy(i64 noundef %40, i1 noundef zeroext false, i32 noundef %61) #9
   %63 = inttoptr i64 %62 to ptr
-  %64 = call i64 @GetMemoryChunkSpace(ptr noundef %63) #8
+  %64 = call i64 @GetMemoryChunkSpace(ptr noundef %63) #9
   %65 = load i64, ptr %30, align 8
   %66 = add i64 %65, %64
   store i64 %66, ptr %30, align 8
@@ -284,12 +284,12 @@ getDatumCopy.exit.i:                              ; preds = %58, %49
   store i32 1, ptr %70, align 4
   %71 = getelementptr inbounds i8, ptr %44, i64 44
   store i8 0, ptr %71, align 4
-  %72 = call ptr @palloc(i64 noundef 30) #8
+  %72 = call ptr @palloc(i64 noundef 30) #9
   %73 = getelementptr inbounds i8, ptr %44, i64 48
   store ptr %72, ptr %73, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %72, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
   %74 = load ptr, ptr %73, align 8
-  %75 = call i64 @GetMemoryChunkSpace(ptr noundef %74) #8
+  %75 = call i64 @GetMemoryChunkSpace(ptr noundef %74) #9
   %76 = load i64, ptr %30, align 8
   %77 = add i64 %76, %75
   store i64 %77, ptr %30, align 8
@@ -316,7 +316,7 @@ define dso_local void @ginBeginBAScan(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @rbt_begin_iterate(ptr noundef %3, i32 noundef 0, ptr noundef nonnull %4) #8
+  tail call void @rbt_begin_iterate(ptr noundef %3, i32 noundef 0, ptr noundef nonnull %4) #9
   ret void
 }
 
@@ -325,7 +325,7 @@ declare void @rbt_begin_iterate(ptr noundef, i32 noundef, ptr noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ginGetBAEntry(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 40
-  %7 = tail call ptr @rbt_iterate(ptr noundef nonnull %6) #8
+  %7 = tail call ptr @rbt_iterate(ptr noundef nonnull %6) #9
   %8 = icmp eq ptr %7, null
   br i1 %8, label %26, label %9
 
@@ -353,7 +353,7 @@ define dso_local ptr @ginGetBAEntry(ptr noundef %0, ptr nocapture noundef writeo
 
 24:                                               ; preds = %9
   %25 = zext i32 %19 to i64
-  tail call void @pg_qsort(ptr noundef %17, i64 noundef %25, i64 noundef 6, ptr noundef nonnull @qsortCompareItemPointers) #8
+  tail call void @pg_qsort(ptr noundef %17, i64 noundef %25, i64 noundef 6, ptr noundef nonnull @qsortCompareItemPointers) #9
   br label %26
 
 26:                                               ; preds = %9, %24, %5
@@ -391,12 +391,8 @@ define internal range(i32 -1, 2) i32 @qsortCompareItemPointers(ptr nocapture nou
   %.val9.i = load i16, ptr %18, align 2
   %19 = zext i16 %.val9.i to i64
   %20 = or disjoint i64 %17, %19
-  %21 = icmp ugt i64 %11, %20
-  %22 = zext i1 %21 to i32
-  %23 = icmp ult i64 %11, %20
-  %.neg.i.i = sext i1 %23 to i32
-  %24 = add nsw i32 %.neg.i.i, %22
-  ret i32 %24
+  %21 = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %11, i64 %20)
+  ret i32 %21
 }
 
 declare i32 @ginCompareAttEntries(ptr noundef, i16 noundef zeroext, i64 noundef, i8 noundef signext, i16 noundef zeroext, i64 noundef, i8 noundef signext) local_unnamed_addr #1
@@ -428,14 +424,17 @@ declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnam
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #5
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #6
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -443,10 +442,11 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #3 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind }
-attributes #9 = { cold nounwind }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nounwind }
+attributes #10 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

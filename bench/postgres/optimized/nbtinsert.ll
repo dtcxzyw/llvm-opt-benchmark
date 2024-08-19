@@ -3254,20 +3254,20 @@ BTreeTupleIsPosting.exit.thread.i.i:              ; preds = %BTreeTupleIsPosting
   br i1 %139, label %_bt_deadblocks.exit.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %._crit_edge.i.i, %151
-  %.03.i.i.i = phi i64 [ %.1.i.i.i, %151 ], [ 0, %._crit_edge.i.i ]
-  %.0232.i.i.i = phi i64 [ %152, %151 ], [ 1, %._crit_edge.i.i ]
-  %140 = shl i64 %.0232.i.i.i, 2
+  %.02.i.i.i = phi i64 [ %.1.i.i.i, %151 ], [ 0, %._crit_edge.i.i ]
+  %.0231.i.i.i = phi i64 [ %152, %151 ], [ 1, %._crit_edge.i.i ]
+  %140 = shl i64 %.0231.i.i.i, 2
   %141 = getelementptr i8, ptr %.354.i.i, i64 %140
-  %142 = shl i64 %.03.i.i.i, 2
+  %142 = shl i64 %.02.i.i.i, 2
   %143 = getelementptr i8, ptr %.354.i.i, i64 %142
   %144 = load i32, ptr %141, align 4
   %145 = load i32, ptr %143, align 4
-  %.not1.i.i.i = icmp eq i32 %144, %145
-  br i1 %.not1.i.i.i, label %151, label %146
+  %.not.i.i.i = icmp eq i32 %144, %145
+  br i1 %.not.i.i.i, label %151, label %146
 
 146:                                              ; preds = %.preheader.i.i.i
-  %147 = add i64 %.03.i.i.i, 1
-  %.not29.i.i.i = icmp eq i64 %147, %.0232.i.i.i
+  %147 = add i64 %.02.i.i.i, 1
+  %.not29.i.i.i = icmp eq i64 %147, %.0231.i.i.i
   br i1 %.not29.i.i.i, label %151, label %148
 
 148:                                              ; preds = %146
@@ -3277,8 +3277,8 @@ BTreeTupleIsPosting.exit.thread.i.i:              ; preds = %BTreeTupleIsPosting
   br label %151
 
 151:                                              ; preds = %148, %146, %.preheader.i.i.i
-  %.1.i.i.i = phi i64 [ %147, %148 ], [ %.0232.i.i.i, %146 ], [ %.03.i.i.i, %.preheader.i.i.i ]
-  %152 = add nuw i64 %.0232.i.i.i, 1
+  %.1.i.i.i = phi i64 [ %147, %148 ], [ %.0231.i.i.i, %146 ], [ %.02.i.i.i, %.preheader.i.i.i ]
+  %152 = add nuw i64 %.0231.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %152, %138
   br i1 %exitcond.not.i.i.i, label %153, label %.preheader.i.i.i, !llvm.loop !13
 
@@ -3524,12 +3524,8 @@ declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr nou
 define internal range(i32 -1, 2) i32 @_bt_blk_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
-  %5 = icmp ugt i32 %3, %4
-  %6 = zext i1 %5 to i32
-  %7 = icmp ult i32 %3, %4
-  %.neg.i = sext i1 %7 to i32
-  %8 = add nsw i32 %.neg.i, %6
-  ret i32 %8
+  %5 = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %3, i32 %4)
+  ret i32 %5
 }
 
 declare void @_bt_delitems_delete_check(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -3583,6 +3579,9 @@ declare i32 @_bt_get_endpoint(ptr noundef, i32 noundef, i1 noundef zeroext) loca
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #7

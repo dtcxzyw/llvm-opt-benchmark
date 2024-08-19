@@ -72,12 +72,8 @@ define range(i32 -1, 2) i32 @ompi_coll_libnbc_dict_str_cmp(ptr nocapture noundef
   br i1 %or.cond, label %3, label %9
 
 9:                                                ; preds = %3
-  %10 = icmp sgt i8 %4, %5
-  %11 = zext i1 %10 to i32
-  %12 = icmp slt i8 %4, %5
-  %.neg = sext i1 %12 to i32
-  %13 = add nsw i32 %.neg, %11
-  ret i32 %13
+  %10 = tail call i32 @llvm.scmp.i32.i8(i8 %4, i8 %5)
+  ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable
@@ -85,9 +81,9 @@ define void @ompi_coll_libnbc_dict_destroy(ptr noundef %0, i32 noundef %1) local
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
-  tail call void %4(ptr noundef %5, i32 noundef %1) #6
+  tail call void %4(ptr noundef %5, i32 noundef %1) #7
   %6 = load ptr, ptr @ompi_coll_libnbc_dict_free, align 8
-  tail call void %6(ptr noundef nonnull %0) #6
+  tail call void %6(ptr noundef nonnull %0) #7
   ret void
 }
 
@@ -96,11 +92,14 @@ define void @ompi_coll_libnbc_dict_itor_destroy(ptr noundef %0) local_unnamed_ad
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
-  tail call void %3(ptr noundef %4) #6
+  tail call void %3(ptr noundef %4) #7
   %5 = load ptr, ptr @ompi_coll_libnbc_dict_free, align 8
-  tail call void %5(ptr noundef nonnull %0) #6
+  tail call void %5(ptr noundef nonnull %0) #7
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i8(i8, i8) #6
 
 attributes #0 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -108,7 +107,8 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

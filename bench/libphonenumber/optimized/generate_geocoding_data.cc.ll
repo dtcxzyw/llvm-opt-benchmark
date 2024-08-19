@@ -7198,9 +7198,9 @@ define linkonce_odr dso_local i64 @_ZNK4absl7debian218container_internal10btree_
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   br label %7
 
-7:                                                ; preds = %.lr.ph, %.thread
-  %.023 = phi i32 [ %2, %.lr.ph ], [ %.1, %.thread ]
-  %.01522 = phi i32 [ %3, %.lr.ph ], [ %.116, %.thread ]
+7:                                                ; preds = %.lr.ph, %32
+  %.023 = phi i32 [ %2, %.lr.ph ], [ %.1, %32 ]
+  %.01522 = phi i32 [ %3, %.lr.ph ], [ %.116, %32 ]
   %8 = add nsw i32 %.023, %.01522
   %9 = ashr i32 %8, 1
   %10 = sext i32 %9 to i64
@@ -7227,43 +7227,44 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
 _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit17: ; preds = %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit
   %20 = tail call noundef i64 @llvm.umin.i64(i64 %13, i64 %17)
   %21 = icmp eq i64 %20, 0
-  br i1 %21, label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit, label %22
+  br i1 %21, label %.thread6.i.i, label %23
 
-22:                                               ; preds = %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit17
-  %23 = tail call i32 @memcmp(ptr noundef %12, ptr noundef %16, i64 noundef %20) #22
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit, label %25
+.thread6.i.i:                                     ; preds = %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit17
+  %22 = tail call i32 @llvm.ucmp.i32.i64(i64 %13, i64 %17)
+  br label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit
 
-25:                                               ; preds = %22
-  %.inv.i.i.i = icmp sgt i32 %23, -1
-  br i1 %.inv.i.i.i, label %.thread, label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread
+23:                                               ; preds = %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit17
+  %24 = tail call i32 @memcmp(ptr noundef %12, ptr noundef %16, i64 noundef %20) #22
+  %.fr.i.i = freeze i32 %24
+  %25 = icmp eq i32 %.fr.i.i, 0
+  %26 = tail call i32 @llvm.ucmp.i32.i64(i64 %13, i64 %17)
+  %.inv.i.i.i = icmp sgt i32 %.fr.i.i, -1
+  %..i.i = select i1 %.inv.i.i.i, i32 1, i32 -1
+  %spec.select.i.i = select i1 %25, i32 %26, i32 %..i.i
+  br label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit
 
-_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit: ; preds = %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit17, %22
-  %26 = icmp ugt i64 %13, %17
-  %27 = zext i1 %26 to i32
-  %28 = icmp ult i64 %13, %17
-  %.neg.i.i.i = sext i1 %28 to i32
-  %29 = add nsw i32 %.neg.i.i.i, %27
-  %30 = icmp slt i32 %29, 0
-  br i1 %30, label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread, label %32
+_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit: ; preds = %.thread6.i.i, %23
+  %27 = phi i32 [ %22, %.thread6.i.i ], [ %spec.select.i.i, %23 ]
+  %28 = icmp slt i32 %27, 0
+  br i1 %28, label %29, label %31
 
-_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread: ; preds = %25, %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit
-  %31 = add nsw i32 %9, 1
-  br label %.thread
+29:                                               ; preds = %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit
+  %30 = add nsw i32 %9, 1
+  br label %32
 
-32:                                               ; preds = %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit
-  %.not20 = icmp eq i32 %29, 0
-  br i1 %.not20, label %._crit_edge, label %.thread
+31:                                               ; preds = %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit
+  %.not20 = icmp eq i32 %27, 0
+  br i1 %.not20, label %._crit_edge, label %32
 
-.thread:                                          ; preds = %25, %32, %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread
-  %.116 = phi i32 [ %.01522, %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread ], [ %9, %32 ], [ %9, %25 ]
-  %.1 = phi i32 [ %31, %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread ], [ %.023, %32 ], [ %.023, %25 ]
+32:                                               ; preds = %31, %29
+  %.116 = phi i32 [ %.01522, %29 ], [ %9, %31 ]
+  %.1 = phi i32 [ %30, %29 ], [ %.023, %31 ]
   %.not = icmp eq i32 %.1, %.116
   br i1 %.not, label %._crit_edge, label %7, !llvm.loop !114
 
-._crit_edge:                                      ; preds = %32, %.thread, %5
-  %.sroa.014.0 = phi i32 [ %2, %5 ], [ %.116, %.thread ], [ %9, %32 ]
-  %.sroa.3.0 = phi i64 [ 4294967296, %5 ], [ 4294967296, %.thread ], [ 0, %32 ]
+._crit_edge:                                      ; preds = %31, %32, %5
+  %.sroa.014.0 = phi i32 [ %2, %5 ], [ %.116, %32 ], [ %9, %31 ]
+  %.sroa.3.0 = phi i64 [ 4294967296, %5 ], [ 4294967296, %32 ], [ 0, %31 ]
   %.sroa.014.0.insert.ext = zext i32 %.sroa.014.0 to i64
   %.sroa.014.0.insert.insert = or disjoint i64 %.sroa.3.0, %.sroa.014.0.insert.ext
   ret i64 %.sroa.014.0.insert.insert
@@ -8573,6 +8574,9 @@ declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #19

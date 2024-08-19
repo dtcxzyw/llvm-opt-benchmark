@@ -219,20 +219,20 @@ define dso_local i64 @gtsvector_compress(ptr nocapture noundef readonly %0) loca
   br i1 %59, label %thread-pre-split, label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge103, %71
-  %.03.i = phi i64 [ %.1.i, %71 ], [ 0, %._crit_edge103 ]
-  %.0232.i = phi i64 [ %72, %71 ], [ 1, %._crit_edge103 ]
-  %60 = shl i64 %.0232.i, 2
+  %.02.i = phi i64 [ %.1.i, %71 ], [ 0, %._crit_edge103 ]
+  %.0231.i = phi i64 [ %72, %71 ], [ 1, %._crit_edge103 ]
+  %60 = shl i64 %.0231.i, 2
   %61 = getelementptr i8, ptr %33, i64 %60
-  %62 = shl i64 %.03.i, 2
+  %62 = shl i64 %.02.i, 2
   %63 = getelementptr i8, ptr %33, i64 %62
   %64 = load i32, ptr %61, align 4
   %65 = load i32, ptr %63, align 4
-  %.not1.i = icmp eq i32 %64, %65
-  br i1 %.not1.i, label %71, label %66
+  %.not.i = icmp eq i32 %64, %65
+  br i1 %.not.i, label %71, label %66
 
 66:                                               ; preds = %.preheader.i
-  %67 = add i64 %.03.i, 1
-  %.not29.i = icmp eq i64 %67, %.0232.i
+  %67 = add i64 %.02.i, 1
+  %.not29.i = icmp eq i64 %67, %.0231.i
   br i1 %.not29.i, label %71, label %68
 
 68:                                               ; preds = %66
@@ -242,8 +242,8 @@ define dso_local i64 @gtsvector_compress(ptr nocapture noundef readonly %0) loca
   br label %71
 
 71:                                               ; preds = %68, %66, %.preheader.i
-  %.1.i = phi i64 [ %67, %68 ], [ %.0232.i, %66 ], [ %.03.i, %.preheader.i ]
-  %72 = add nuw i64 %.0232.i, 1
+  %.1.i = phi i64 [ %67, %68 ], [ %.0231.i, %66 ], [ %.02.i, %.preheader.i ]
+  %72 = add nuw i64 %.0231.i, 1
   %exitcond.not.i = icmp eq i64 %72, %58
   br i1 %exitcond.not.i, label %qunique.exit, label %.preheader.i, !llvm.loop !8
 
@@ -421,12 +421,8 @@ declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local
 define internal range(i32 -1, 2) i32 @compareint(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
-  %5 = icmp sgt i32 %3, %4
-  %6 = zext i1 %5 to i32
-  %7 = icmp slt i32 %3, %4
-  %.neg.i = sext i1 %7 to i32
-  %8 = add nsw i32 %.neg.i, %6
-  ret i32 %8
+  %5 = tail call range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %3, i32 %4)
+  ret i32 %5
 }
 
 declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #2
@@ -2111,12 +2107,8 @@ define internal range(i32 -1, 2) i32 @comparecost(ptr nocapture noundef readonly
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = icmp sgt i32 %4, %6
-  %8 = zext i1 %7 to i32
-  %9 = icmp slt i32 %4, %6
-  %.neg.i = sext i1 %9 to i32
-  %10 = add nsw i32 %.neg.i, %8
-  ret i32 %10
+  %7 = tail call range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %4, i32 %6)
+  ret i32 %7
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -2203,6 +2195,9 @@ declare i64 @pg_popcount(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #10
