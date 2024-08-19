@@ -40,7 +40,7 @@ define dso_local noundef ptr @unicode_normalize(i32 noundef %0, ptr nocapture no
   %18 = add i32 %.066.lcssa, 1
   %19 = sext i32 %18 to i64
   %20 = shl nsw i64 %19, 2
-  %21 = tail call noalias ptr @malloc(i64 noundef %20) #6
+  %21 = tail call noalias ptr @malloc(i64 noundef %20) #7
   store ptr %21, ptr %6, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %114, label %23
@@ -85,7 +85,7 @@ define dso_local noundef ptr @unicode_normalize(i32 noundef %0, ptr nocapture no
   %36 = load i32, ptr %35, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 %33, ptr %5, align 4
-  %37 = call ptr @bsearch(ptr noundef nonnull %5, ptr noundef nonnull @UnicodeDecompMain, i64 noundef 6775, i64 noundef 8, ptr noundef nonnull @conv_compare) #7
+  %37 = call ptr @bsearch(ptr noundef nonnull %5, ptr noundef nonnull @UnicodeDecompMain, i64 noundef 6775, i64 noundef 8, ptr noundef nonnull @conv_compare) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %.not.i = icmp eq ptr %37, null
   br i1 %.not.i, label %get_canonical_class.exit, label %38
@@ -99,7 +99,7 @@ get_canonical_class.exit:                         ; preds = %.lr.ph118, %38
   %.0.i = phi i8 [ %40, %38 ], [ 0, %.lr.ph118 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 %36, ptr %4, align 4
-  %41 = call ptr @bsearch(ptr noundef nonnull %4, ptr noundef nonnull @UnicodeDecompMain, i64 noundef 6775, i64 noundef 8, ptr noundef nonnull @conv_compare) #7
+  %41 = call ptr @bsearch(ptr noundef nonnull %4, ptr noundef nonnull @UnicodeDecompMain, i64 noundef 6775, i64 noundef 8, ptr noundef nonnull @conv_compare) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %.not.i88 = icmp eq ptr %41, null
   br i1 %.not.i88, label %get_canonical_class.exit90.thread, label %get_canonical_class.exit90
@@ -134,12 +134,12 @@ get_canonical_class.exit90.thread:                ; preds = %get_canonical_class
   br i1 %11, label %53, label %114
 
 53:                                               ; preds = %._crit_edge119
-  %54 = call noalias ptr @malloc(i64 noundef %20) #6
+  %54 = call noalias ptr @malloc(i64 noundef %20) #7
   %.not85 = icmp eq ptr %54, null
   br i1 %.not85, label %55, label %56
 
 55:                                               ; preds = %53
-  call void @free(ptr noundef nonnull %21) #7
+  call void @free(ptr noundef nonnull %21) #8
   br label %114
 
 56:                                               ; preds = %53
@@ -161,7 +161,7 @@ get_canonical_class.exit90.thread:                ; preds = %get_canonical_class
   %59 = load i32, ptr %58, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 %59, ptr %3, align 4
-  %60 = call ptr @bsearch(ptr noundef nonnull %3, ptr noundef nonnull @UnicodeDecompMain, i64 noundef 6775, i64 noundef 8, ptr noundef nonnull @conv_compare) #7
+  %60 = call ptr @bsearch(ptr noundef nonnull %3, ptr noundef nonnull @UnicodeDecompMain, i64 noundef 6775, i64 noundef 8, ptr noundef nonnull @conv_compare) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %.not.i91 = icmp eq ptr %60, null
   br i1 %.not.i91, label %get_canonical_class.exit93, label %61
@@ -282,7 +282,7 @@ recompose_code.exit:                              ; preds = %103, %get_canonical
   %.074.lcssa = phi i64 [ 1, %56 ], [ %112, %._crit_edge128.loopexit ]
   %113 = getelementptr i32, ptr %54, i64 %.074.lcssa
   store i32 0, ptr %113, align 4
-  call void @free(ptr noundef %21) #7
+  call void @free(ptr noundef %21) #8
   br label %114
 
 114:                                              ; preds = %._crit_edge119, %._crit_edge116, %._crit_edge, %._crit_edge128, %55
@@ -307,7 +307,7 @@ define internal fastcc i32 @get_decomposed_size(i32 noundef %0, i1 noundef zeroe
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 %0, ptr %3, align 4
-  %8 = call ptr @bsearch(ptr noundef nonnull %3, ptr noundef nonnull @UnicodeDecompMain, i64 noundef 6775, i64 noundef 8, ptr noundef nonnull @conv_compare) #7
+  %8 = call ptr @bsearch(ptr noundef nonnull %3, ptr noundef nonnull @UnicodeDecompMain, i64 noundef 6775, i64 noundef 8, ptr noundef nonnull @conv_compare) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.loopexit, label %10
@@ -410,7 +410,7 @@ define internal fastcc void @decompose_code(i32 noundef %0, i1 noundef zeroext %
 27:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 %0, ptr %5, align 4
-  %28 = call ptr @bsearch(ptr noundef nonnull %5, ptr noundef nonnull @UnicodeDecompMain, i64 noundef 6775, i64 noundef 8, ptr noundef nonnull @conv_compare) #7
+  %28 = call ptr @bsearch(ptr noundef nonnull %5, ptr noundef nonnull @UnicodeDecompMain, i64 noundef 6775, i64 noundef 8, ptr noundef nonnull @conv_compare) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %29 = icmp eq ptr %28, null
   br i1 %29, label %38, label %30
@@ -491,27 +491,28 @@ declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr nou
 define internal range(i32 -1, 2) i32 @conv_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
-  %5 = icmp ugt i32 %3, %4
-  %6 = icmp ne i32 %3, %4
-  %7 = sext i1 %6 to i32
-  %8 = select i1 %5, i32 1, i32 %7
-  ret i32 %8
+  %5 = tail call i32 @llvm.ucmp.i32.i32(i32 %3, i32 %4)
+  ret i32 %5
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nounwind allocsize(0) }
-attributes #7 = { nounwind }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind allocsize(0) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

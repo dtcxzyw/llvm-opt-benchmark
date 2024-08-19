@@ -2085,44 +2085,41 @@ define hidden noundef i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %1, i64 %3)
   br label %5
 
-5:                                                ; preds = %9, %4
-  %.sroa.0.0 = phi i64 [ 0, %4 ], [ %10, %9 ]
+5:                                                ; preds = %8, %4
+  %.sroa.0.0 = phi i64 [ 0, %4 ], [ %9, %8 ]
   %exitcond.not = icmp eq i64 %.sroa.0.0, %.0.sroa.speculated.i
-  br i1 %exitcond.not, label %6, label %9
+  br i1 %exitcond.not, label %6, label %8
 
 6:                                                ; preds = %5
-  %7 = icmp ult i64 %1, %3
-  %8 = icmp ne i64 %1, %3
-  %. = zext i1 %8 to i8
-  %.0 = select i1 %7, i8 -1, i8 %.
-  br label %.loopexit
+  %.0 = tail call i8 @llvm.ucmp.i8.i64(i64 %1, i64 %3)
+  br label %7
 
-.loopexit:                                        ; preds = %9, %6
-  %.1 = phi i8 [ %.0, %6 ], [ %.0.i.i.i, %9 ]
+.loopexit:                                        ; preds = %8
+  %.0.i.i.i.le = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i, i64 0)
+  br label %7
+
+7:                                                ; preds = %.loopexit, %6
+  %.1 = phi i8 [ %.0, %6 ], [ %.0.i.i.i.le, %.loopexit ]
   ret i8 %.1
 
-9:                                                ; preds = %5
-  %10 = add i64 %.sroa.0.0, 1
-  %11 = getelementptr inbounds [0 x { ptr, i64 }], ptr %0, i64 0, i64 %.sroa.0.0
-  %12 = getelementptr inbounds [0 x { ptr, i64 }], ptr %2, i64 0, i64 %.sroa.0.0
-  %.val = load ptr, ptr %11, align 8, !nonnull !4, !align !137, !noundef !4
+8:                                                ; preds = %5
+  %9 = add i64 %.sroa.0.0, 1
+  %10 = getelementptr inbounds [0 x { ptr, i64 }], ptr %0, i64 0, i64 %.sroa.0.0
+  %11 = getelementptr inbounds [0 x { ptr, i64 }], ptr %2, i64 0, i64 %.sroa.0.0
+  %.val = load ptr, ptr %10, align 8, !nonnull !4, !align !137, !noundef !4
+  %12 = getelementptr i8, ptr %10, i64 8
+  %.val18 = load i64, ptr %12, align 8, !noundef !4
+  %.val19 = load ptr, ptr %11, align 8, !nonnull !4, !align !137, !noundef !4
   %13 = getelementptr i8, ptr %11, i64 8
-  %.val18 = load i64, ptr %13, align 8, !noundef !4
-  %.val19 = load ptr, ptr %12, align 8, !nonnull !4, !align !137, !noundef !4
-  %14 = getelementptr i8, ptr %12, i64 8
-  %.val20 = load i64, ptr %14, align 8, !noundef !4
-  %15 = sub i64 %.val18, %.val20
+  %.val20 = load i64, ptr %13, align 8, !noundef !4
+  %14 = sub i64 %.val18, %.val20
   %..i.i.i = tail call i64 @llvm.umin.i64(i64 %.val18, i64 %.val20)
-  %16 = tail call i32 @memcmp(ptr nonnull readonly %.val, ptr nonnull readonly %.val19, i64 %..i.i.i), !alias.scope !420
-  %17 = sext i32 %16 to i64
-  %18 = icmp eq i32 %16, 0
-  %spec.store.select.i.i.i = select i1 %18, i64 %15, i64 %17
-  %19 = icmp slt i64 %spec.store.select.i.i.i, 0
-  %20 = icmp ne i64 %spec.store.select.i.i.i, 0
-  %.8.i.i.i = zext i1 %20 to i8
-  %.0.i.i.i = select i1 %19, i8 -1, i8 %.8.i.i.i
-  %21 = icmp eq i8 %.0.i.i.i, 0
-  br i1 %21, label %5, label %.loopexit
+  %15 = tail call i32 @memcmp(ptr nonnull readonly %.val, ptr nonnull readonly %.val19, i64 %..i.i.i), !alias.scope !420
+  %16 = sext i32 %15 to i64
+  %17 = icmp eq i32 %15, 0
+  %spec.store.select.i.i.i = select i1 %17, i64 %14, i64 %16
+  %18 = icmp eq i64 %spec.store.select.i.i.i, 0
+  br i1 %18, label %5, label %.loopexit
 }
 
 ; Function Attrs: inlinehint mustprogress nofree nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -2133,10 +2130,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN49_$LT$u8$u20$as$u20$core..slice..
   %7 = sext i32 %6 to i64
   %8 = icmp eq i32 %6, 0
   %spec.store.select = select i1 %8, i64 %5, i64 %7
-  %9 = icmp slt i64 %spec.store.select, 0
-  %10 = icmp ne i64 %spec.store.select, 0
-  %.8 = zext i1 %10 to i8
-  %.0 = select i1 %9, i8 -1, i8 %.8
+  %.0 = tail call i8 @llvm.scmp.i8.i64(i64 %spec.store.select, i64 0)
   ret i8 %.0
 }
 
@@ -2638,10 +2632,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN55_$LT$A$u20$as$u20$core..slice..c
   %7 = sext i32 %6 to i64
   %8 = icmp eq i32 %6, 0
   %spec.store.select.i = select i1 %8, i64 %5, i64 %7
-  %9 = icmp slt i64 %spec.store.select.i, 0
-  %10 = icmp ne i64 %spec.store.select.i, 0
-  %.8.i = zext i1 %10 to i8
-  %.0.i = select i1 %9, i8 -1, i8 %.8.i
+  %.0.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i, i64 0)
   ret i8 %.0.i
 }
 
@@ -13998,7 +13989,13 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #35
 declare void @llvm.experimental.noalias.scope.decl(metadata) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i64(i64, i64) #34
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #34
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.scmp.i8.i64(i64, i64) #34
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #34

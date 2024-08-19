@@ -783,65 +783,62 @@ define internal noundef ptr @_ZL33_hb_face_for_data_reference_tableP9hb_face_tjP
 .lr.ph.i.i.i.i:                                   ; preds = %29
   %30 = zext nneg i32 %26 to i64
   %.val17.i7.i.i.i = load i32, ptr %28, align 1
-  %.not.i.i.i8.i.i.i = icmp eq i32 %.val17.i7.i.i.i, %.sroa.0.0.insert.insert.i.i.i.i
-  br i1 %.not.i.i.i8.i.i.i, label %_ZNK2OT19OpenTypeOffsetTable16find_table_indexEjPj.exit.thread.i, label %.lr.ph.i.i.i
+  %31 = icmp eq i32 %.sroa.0.0.insert.insert.i.i.i.i, %.val17.i7.i.i.i
+  br i1 %31, label %_ZNK2OT19OpenTypeOffsetTable16find_table_indexEjPj.exit.thread.i, label %.lr.ph.i.i.i
 
-31:                                               ; preds = %.lr.ph.i.i.i
-  %32 = getelementptr inbounds %"struct.OT::TableRecord", ptr %28, i64 %indvars.iv.next.i.i.i.i
-  %.val17.i.i.i.i = load i32, ptr %32, align 1
-  %.not.i.i.i.i.i.i = icmp eq i32 %.val17.i.i.i.i, %.sroa.0.0.insert.insert.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !9
+32:                                               ; preds = %.lr.ph.i.i.i
+  %33 = getelementptr inbounds %"struct.OT::TableRecord", ptr %28, i64 %indvars.iv.next.i.i.i.i
+  %.val17.i.i.i.i = load i32, ptr %33, align 1
+  %34 = icmp eq i32 %.sroa.0.0.insert.insert.i.i.i.i, %.val17.i.i.i.i
+  br i1 %34, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !9
 
-._crit_edge.loopexit.i.i.i:                       ; preds = %31
-  %33 = trunc nuw i64 %indvars.iv.next.i.i.i.i to i32
+._crit_edge.loopexit.i.i.i:                       ; preds = %32
+  %35 = trunc nuw i64 %indvars.iv.next.i.i.i.i to i32
   br label %_ZNK2OT19OpenTypeOffsetTable16find_table_indexEjPj.exit.i
 
-.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.i, %31
-  %indvars.iv.i9.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %31 ], [ 0, %.lr.ph.i.i.i.i ]
-  %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i9.i.i.i, 1
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.i, %32
+  %indvars.iv.i8.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %32 ], [ 0, %.lr.ph.i.i.i.i ]
+  %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i8.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %30
-  br i1 %exitcond.not.i.i.i.i, label %_ZNK2OT19OpenTypeOffsetTable16find_table_indexEjPj.exit.i, label %31, !llvm.loop !9
+  br i1 %exitcond.not.i.i.i.i, label %_ZNK2OT19OpenTypeOffsetTable16find_table_indexEjPj.exit.i, label %32, !llvm.loop !9
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %9
-  %34 = add nsw i32 %26, -1
-  br label %35
+  %36 = add nsw i32 %26, -1
+  br label %37
 
-35:                                               ; preds = %50, %.lr.ph.i.i.i.i.i.i
-  %.0194.i.i.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %50 ]
-  %.0203.i.i.i.i.i.i = phi i32 [ %34, %.lr.ph.i.i.i.i.i.i ], [ %.121.i.i.i.i.i.i, %50 ]
-  %36 = add i32 %.0203.i.i.i.i.i.i, %.0194.i.i.i.i.i.i
-  %37 = lshr i32 %36, 1
-  %38 = zext nneg i32 %37 to i64
-  %39 = shl nuw nsw i64 %38, 4
-  %40 = getelementptr inbounds i8, ptr %28, i64 %39
-  %.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load i32, ptr %40, align 1
-  %41 = call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i)
-  %42 = icmp uge i32 %41, %1
-  %43 = icmp ne i32 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, %.sroa.0.0.insert.insert.i.i.i.i
-  %44 = and i1 %43, %42
+37:                                               ; preds = %50, %.lr.ph.i.i.i.i.i.i
+  %.0193.i.i.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %50 ]
+  %.0202.i.i.i.i.i.i = phi i32 [ %36, %.lr.ph.i.i.i.i.i.i ], [ %.121.i.i.i.i.i.i, %50 ]
+  %38 = add i32 %.0202.i.i.i.i.i.i, %.0193.i.i.i.i.i.i
+  %39 = lshr i32 %38, 1
+  %40 = zext nneg i32 %39 to i64
+  %41 = shl nuw nsw i64 %40, 4
+  %42 = getelementptr inbounds i8, ptr %28, i64 %41
+  %.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load i32, ptr %42, align 1
+  %43 = call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i)
+  %44 = icmp ugt i32 %43, %1
   br i1 %44, label %45, label %47
 
-45:                                               ; preds = %35
-  %46 = add nsw i32 %37, -1
+45:                                               ; preds = %37
+  %46 = add nsw i32 %39, -1
   br label %50
 
-47:                                               ; preds = %35
-  %.not231.i.i.i.i.i.i = xor i1 %43, true
-  %.not23.i.i.i.i.i.i = and i1 %42, %.not231.i.i.i.i.i.i
+47:                                               ; preds = %37
+  %.not23.i.i.i.i.i.i = icmp eq i32 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, %.sroa.0.0.insert.insert.i.i.i.i
   br i1 %.not23.i.i.i.i.i.i, label %_ZNK2OT19OpenTypeOffsetTable16find_table_indexEjPj.exit.i, label %48
 
 48:                                               ; preds = %47
-  %49 = add nuw nsw i32 %37, 1
+  %49 = add nuw nsw i32 %39, 1
   br label %50
 
 50:                                               ; preds = %48, %45
-  %.121.i.i.i.i.i.i = phi i32 [ %46, %45 ], [ %.0203.i.i.i.i.i.i, %48 ]
-  %.1.i.i.i.i.i.i = phi i32 [ %.0194.i.i.i.i.i.i, %45 ], [ %49, %48 ]
+  %.121.i.i.i.i.i.i = phi i32 [ %46, %45 ], [ %.0202.i.i.i.i.i.i, %48 ]
+  %.1.i.i.i.i.i.i = phi i32 [ %.0193.i.i.i.i.i.i, %45 ], [ %49, %48 ]
   %.not.not.i.i.i.i.i.i = icmp sgt i32 %.1.i.i.i.i.i.i, %.121.i.i.i.i.i.i
-  br i1 %.not.not.i.i.i.i.i.i, label %_ZNK2OT19OpenTypeOffsetTable16find_table_indexEjPj.exit.i, label %35, !llvm.loop !10
+  br i1 %.not.not.i.i.i.i.i.i, label %_ZNK2OT19OpenTypeOffsetTable16find_table_indexEjPj.exit.i, label %37, !llvm.loop !10
 
 _ZNK2OT19OpenTypeOffsetTable16find_table_indexEjPj.exit.i: ; preds = %50, %47, %.lr.ph.i.i.i, %._crit_edge.loopexit.i.i.i
-  %storemerge.i.i.ph.sink.i.i.sink.i.i = phi i32 [ %33, %._crit_edge.loopexit.i.i.i ], [ 65535, %.lr.ph.i.i.i ], [ %37, %47 ], [ 65535, %50 ]
+  %storemerge.i.i.ph.sink.i.i.sink.i.i = phi i32 [ %35, %._crit_edge.loopexit.i.i.i ], [ 65535, %.lr.ph.i.i.i ], [ %39, %47 ], [ 65535, %50 ]
   %.not.i.i.i = icmp ugt i32 %26, %storemerge.i.i.ph.sink.i.i.sink.i.i
   br i1 %.not.i.i.i, label %_ZNK2OT19OpenTypeOffsetTable16find_table_indexEjPj.exit.thread.i, label %_ZNK2OT19OpenTypeOffsetTable16get_table_by_tagEj.exit
 
@@ -1943,17 +1940,17 @@ _ZNK16hb_lazy_loader_tIN2OT18cmap_accelerator_tE21hb_face_lazy_loader_tIS1_Lj3EE
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
   %.sroa.2.8.insert.ext.i.i.i.i.i = or disjoint i32 %42, %45
-  %.not2.i.i.i.i.i.i.i = icmp sgt i32 %.sroa.2.8.insert.ext.i.i.i.i.i, 0
-  br i1 %.not2.i.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i, label %_ZNK2OT4cmap13accelerator_t26collect_variation_unicodesEjP8hb_set_t.exit
+  %.not1.i.i.i.i.i.i.i = icmp sgt i32 %.sroa.2.8.insert.ext.i.i.i.i.i, 0
+  br i1 %.not1.i.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i, label %_ZNK2OT4cmap13accelerator_t26collect_variation_unicodesEjP8hb_set_t.exit
 
 .lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %_ZNK16hb_lazy_loader_tIN2OT18cmap_accelerator_tE21hb_face_lazy_loader_tIS1_Lj3EE9hb_face_tLj3ES1_EptEv.exit
   %46 = add nsw i32 %.sroa.2.8.insert.ext.i.i.i.i.i, -1
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %70, %.lr.ph.preheader.i.i.i.i.i.i.i
-  %.0194.i.i.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i.i.i, %70 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  %.0203.i.i.i.i.i.i.i = phi i32 [ %.121.i.i.i.i.i.i.i, %70 ], [ %46, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  %47 = add i32 %.0203.i.i.i.i.i.i.i, %.0194.i.i.i.i.i.i.i
+  %.0193.i.i.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i.i.i, %70 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i.i ]
+  %.0202.i.i.i.i.i.i.i = phi i32 [ %.121.i.i.i.i.i.i.i, %70 ], [ %46, %.lr.ph.preheader.i.i.i.i.i.i.i ]
+  %47 = add i32 %.0202.i.i.i.i.i.i.i, %.0193.i.i.i.i.i.i.i
   %48 = lshr i32 %47, 1
   %49 = zext nneg i32 %48 to i64
   %50 = mul nuw nsw i64 %49, 11
@@ -1978,16 +1975,16 @@ _ZNK16hb_lazy_loader_tIN2OT18cmap_accelerator_tE21hb_face_lazy_loader_tIS1_Lj3EE
   br label %70
 
 67:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %.not1.i.i.i.i.i.i.i = icmp eq i32 %63, %1
-  br i1 %.not1.i.i.i.i.i.i.i, label %71, label %68
+  %.not23.i.i.i.i.i.i.i = icmp eq i32 %63, %1
+  br i1 %.not23.i.i.i.i.i.i.i, label %71, label %68
 
 68:                                               ; preds = %67
   %69 = add nuw nsw i32 %48, 1
   br label %70
 
 70:                                               ; preds = %68, %65
-  %.121.i.i.i.i.i.i.i = phi i32 [ %66, %65 ], [ %.0203.i.i.i.i.i.i.i, %68 ]
-  %.1.i.i.i.i.i.i.i = phi i32 [ %.0194.i.i.i.i.i.i.i, %65 ], [ %69, %68 ]
+  %.121.i.i.i.i.i.i.i = phi i32 [ %66, %65 ], [ %.0202.i.i.i.i.i.i.i, %68 ]
+  %.1.i.i.i.i.i.i.i = phi i32 [ %.0193.i.i.i.i.i.i.i, %65 ], [ %69, %68 ]
   %.not.not.i.i.i.i.i.i.i = icmp sgt i32 %.1.i.i.i.i.i.i.i, %.121.i.i.i.i.i.i.i
   br i1 %.not.not.i.i.i.i.i.i.i, label %_ZNK2OT4cmap13accelerator_t26collect_variation_unicodesEjP8hb_set_t.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !15
 
@@ -8676,17 +8673,17 @@ _ZN21hb_sanitize_context_tD2Ev.exit:              ; preds = %28, %_ZN21hb_saniti
   %53 = load i8, ptr %52, align 1
   %54 = zext i8 %53 to i32
   %.sroa.2.8.insert.ext.i.i.i.i = or disjoint i32 %51, %54
-  %.not11.i.i.i.i.not.i.i = icmp eq i32 %.sroa.2.8.insert.ext.i.i.i.i, 0
-  br i1 %.not11.i.i.i.i.not.i.i, label %_ZNK2OT4cmap13find_subtableEjj.exit, label %.lr.ph.i.i.i.i.i.i
+  %.not1.i.i.i.i.not.i.i = icmp eq i32 %.sroa.2.8.insert.ext.i.i.i.i, 0
+  br i1 %.not1.i.i.i.i.not.i.i, label %_ZNK2OT4cmap13find_subtableEjj.exit, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZN21hb_sanitize_context_tD2Ev.exit
   %55 = add nsw i32 %.sroa.2.8.insert.ext.i.i.i.i, -1
   br label %56
 
 56:                                               ; preds = %82, %.lr.ph.i.i.i.i.i.i
-  %.01913.i.i.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %82 ]
-  %.02012.i.i.i.i.i.i = phi i32 [ %55, %.lr.ph.i.i.i.i.i.i ], [ %.121.i.i.i.i.i.i, %82 ]
-  %57 = add i32 %.02012.i.i.i.i.i.i, %.01913.i.i.i.i.i.i
+  %.0193.i.i.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %82 ]
+  %.0202.i.i.i.i.i.i = phi i32 [ %55, %.lr.ph.i.i.i.i.i.i ], [ %.121.i.i.i.i.i.i, %82 ]
+  %57 = add i32 %.0202.i.i.i.i.i.i, %.0193.i.i.i.i.i.i
   %58 = lshr i32 %57, 1
   %59 = zext nneg i32 %58 to i64
   %60 = shl nuw nsw i64 %59, 3
@@ -8698,40 +8695,40 @@ _ZN21hb_sanitize_context_tD2Ev.exit:              ; preds = %28, %_ZN21hb_saniti
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i32
   %68 = or disjoint i32 %64, %67
-  %.not8.i.i.i.i.i.i = icmp eq i32 %68, 0
-  br i1 %.not8.i.i.i.i.i.i, label %69, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i.i
+  %.not.i.i.i.i.i.i.i.i = icmp eq i32 %68, 0
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i.thread
 
-69:                                               ; preds = %56
-  %70 = getelementptr inbounds i8, ptr %61, i64 2
-  %71 = load i8, ptr %70, align 1
-  %72 = zext i8 %71 to i32
-  %73 = shl nuw nsw i32 %72, 8
-  %74 = getelementptr inbounds i8, ptr %61, i64 3
-  %75 = load i8, ptr %74, align 1
-  %76 = zext i8 %75 to i32
-  %77 = or disjoint i32 %73, %76
-  %78 = icmp ugt i32 %77, 5
-  br i1 %78, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i.i, label %80
+_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i: ; preds = %56
+  %69 = getelementptr inbounds i8, ptr %61, i64 2
+  %70 = load i8, ptr %69, align 1
+  %71 = zext i8 %70 to i32
+  %72 = shl nuw nsw i32 %71, 8
+  %73 = getelementptr inbounds i8, ptr %61, i64 3
+  %74 = load i8, ptr %73, align 1
+  %75 = zext i8 %74 to i32
+  %76 = or disjoint i32 %72, %75
+  %77 = icmp ugt i32 %76, 5
+  br i1 %77, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i.thread, label %79
 
-_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i.i: ; preds = %56, %69
-  %79 = add nsw i32 %58, -1
+_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i.thread: ; preds = %56, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i
+  %78 = add nsw i32 %58, -1
   br label %82
 
-80:                                               ; preds = %69
-  %.not10.i.i.i.i.i.i = icmp eq i32 %77, 5
-  br i1 %.not10.i.i.i.i.i.i, label %83, label %.thread.i.i.i.i.i.i
+79:                                               ; preds = %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i
+  %.not23.i.i.i.i.i.i = icmp eq i32 %76, 5
+  br i1 %.not23.i.i.i.i.i.i, label %83, label %80
 
-.thread.i.i.i.i.i.i:                              ; preds = %80
+80:                                               ; preds = %79
   %81 = add nuw nsw i32 %58, 1
   br label %82
 
-82:                                               ; preds = %.thread.i.i.i.i.i.i, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i.i
-  %.121.i.i.i.i.i.i = phi i32 [ %79, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i.i ], [ %.02012.i.i.i.i.i.i, %.thread.i.i.i.i.i.i ]
-  %.1.i.i.i.i.i.i = phi i32 [ %.01913.i.i.i.i.i.i, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i.i ], [ %81, %.thread.i.i.i.i.i.i ]
+82:                                               ; preds = %80, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i.thread
+  %.121.i.i.i.i.i.i = phi i32 [ %78, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i.thread ], [ %.0202.i.i.i.i.i.i, %80 ]
+  %.1.i.i.i.i.i.i = phi i32 [ %.0193.i.i.i.i.i.i, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i.thread ], [ %81, %80 ]
   %.not.not.i.i.i.i.i.i = icmp sgt i32 %.1.i.i.i.i.i.i, %.121.i.i.i.i.i.i
   br i1 %.not.not.i.i.i.i.i.i, label %_ZNK2OT4cmap13find_subtableEjj.exit, label %56, !llvm.loop !58
 
-83:                                               ; preds = %80
+83:                                               ; preds = %79
   %84 = getelementptr inbounds %"struct.OT::EncodingRecord", ptr %48, i64 %59
   br label %_ZNK2OT4cmap13find_subtableEjj.exit
 
@@ -8985,17 +8982,17 @@ define linkonce_odr hidden noundef ptr @_ZNK2OT4cmap18find_best_subtableEPb(ptr 
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %.sroa.2.8.insert.ext.i.i.i.i = or disjoint i32 %9, %12
-  %.not11.i.i.i.i.not.i.i = icmp eq i32 %.sroa.2.8.insert.ext.i.i.i.i, 0
-  br i1 %.not11.i.i.i.i.not.i.i, label %_ZNK2OT4cmap13find_subtableEjj.exit, label %.lr.ph.i.i.i.i.i.i
+  %.not1.i.i.i.i.not.i.i = icmp eq i32 %.sroa.2.8.insert.ext.i.i.i.i, 0
+  br i1 %.not1.i.i.i.i.not.i.i, label %_ZNK2OT4cmap13find_subtableEjj.exit, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %4
   %13 = add nsw i32 %.sroa.2.8.insert.ext.i.i.i.i, -1
   br label %14
 
-14:                                               ; preds = %40, %.lr.ph.i.i.i.i.i.i
-  %.01913.i.i.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %40 ]
-  %.02012.i.i.i.i.i.i = phi i32 [ %13, %.lr.ph.i.i.i.i.i.i ], [ %.121.i.i.i.i.i.i, %40 ]
-  %15 = add i32 %.02012.i.i.i.i.i.i, %.01913.i.i.i.i.i.i
+14:                                               ; preds = %44, %.lr.ph.i.i.i.i.i.i
+  %.0193.i.i.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %44 ]
+  %.0202.i.i.i.i.i.i = phi i32 [ %13, %.lr.ph.i.i.i.i.i.i ], [ %.121.i.i.i.i.i.i, %44 ]
+  %15 = add i32 %.0202.i.i.i.i.i.i, %.0193.i.i.i.i.i.i
   %16 = lshr i32 %15, 1
   %17 = zext nneg i32 %16 to i64
   %18 = shl nuw nsw i64 %17, 3
@@ -9007,359 +9004,367 @@ define linkonce_odr hidden noundef ptr @_ZNK2OT4cmap18find_best_subtableEPb(ptr 
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
   %26 = or disjoint i32 %22, %25
-  %.not8.i.i.i.i.i.i = icmp eq i32 %26, 3
-  br i1 %.not8.i.i.i.i.i.i, label %27, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i
+  %27 = tail call noundef i32 @llvm.ucmp.i32.i32(i32 3, i32 %26)
+  %.not.i.i.i.i.i.i.i.i = icmp eq i32 %26, 3
+  br i1 %.not.i.i.i.i.i.i.i.i, label %28, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i
 
-27:                                               ; preds = %14
-  %28 = getelementptr inbounds i8, ptr %19, i64 2
-  %29 = load i8, ptr %28, align 1
-  %30 = zext i8 %29 to i32
-  %31 = shl nuw nsw i32 %30, 8
-  %32 = getelementptr inbounds i8, ptr %19, i64 3
-  %33 = load i8, ptr %32, align 1
-  %34 = zext i8 %33 to i32
-  %35 = or disjoint i32 %31, %34
-  %.not84 = icmp eq i32 %35, 0
-  br i1 %.not84, label %37, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i.i
+28:                                               ; preds = %14
+  %29 = getelementptr inbounds i8, ptr %19, i64 2
+  %30 = load i8, ptr %29, align 1
+  %31 = zext i8 %30 to i32
+  %32 = shl nuw nsw i32 %31, 8
+  %33 = getelementptr inbounds i8, ptr %19, i64 3
+  %34 = load i8, ptr %33, align 1
+  %35 = zext i8 %34 to i32
+  %36 = or disjoint i32 %32, %35
+  %37 = tail call noundef i32 @llvm.ucmp.i32.i32(i32 0, i32 %36)
+  br label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i
 
-_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i: ; preds = %14
-  %.not9.i.i.i.i.i.i = icmp ugt i32 %26, 3
-  br i1 %.not9.i.i.i.i.i.i, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i.i, label %.thread.i.i.i.i.i.i
+_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i: ; preds = %28, %14
+  %.0.i.i.i.i.i.i.i.i = phi i32 [ %27, %14 ], [ %37, %28 ]
+  %38 = icmp slt i32 %.0.i.i.i.i.i.i.i.i, 0
+  br i1 %38, label %39, label %41
 
-_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i.i: ; preds = %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i, %27
-  %36 = add nsw i32 %16, -1
-  br label %40
+39:                                               ; preds = %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i
+  %40 = add nsw i32 %16, -1
+  br label %44
 
-37:                                               ; preds = %27
-  %38 = getelementptr inbounds %"struct.OT::EncodingRecord", ptr %6, i64 %17
-  br label %_ZNK2OT4cmap13find_subtableEjj.exit
+41:                                               ; preds = %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i
+  %.not23.i.i.i.i.i.i = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 0
+  br i1 %.not23.i.i.i.i.i.i, label %45, label %42
 
-.thread.i.i.i.i.i.i:                              ; preds = %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i
-  %39 = add nuw nsw i32 %16, 1
-  br label %40
+42:                                               ; preds = %41
+  %43 = add nuw nsw i32 %16, 1
+  br label %44
 
-40:                                               ; preds = %.thread.i.i.i.i.i.i, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i.i
-  %.121.i.i.i.i.i.i = phi i32 [ %36, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i.i ], [ %.02012.i.i.i.i.i.i, %.thread.i.i.i.i.i.i ]
-  %.1.i.i.i.i.i.i = phi i32 [ %.01913.i.i.i.i.i.i, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i.i ], [ %39, %.thread.i.i.i.i.i.i ]
+44:                                               ; preds = %42, %39
+  %.121.i.i.i.i.i.i = phi i32 [ %40, %39 ], [ %.0202.i.i.i.i.i.i, %42 ]
+  %.1.i.i.i.i.i.i = phi i32 [ %.0193.i.i.i.i.i.i, %39 ], [ %43, %42 ]
   %.not.not.i.i.i.i.i.i = icmp sgt i32 %.1.i.i.i.i.i.i, %.121.i.i.i.i.i.i
   br i1 %.not.not.i.i.i.i.i.i, label %_ZNK2OT4cmap13find_subtableEjj.exit, label %14, !llvm.loop !58
 
-_ZNK2OT4cmap13find_subtableEjj.exit:              ; preds = %40, %4, %37
-  %41 = phi ptr [ %38, %37 ], [ @_hb_NullPool, %4 ], [ @_hb_NullPool, %40 ]
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
-  %43 = load i8, ptr %42, align 1
-  %44 = zext i8 %43 to i32
-  %45 = shl nuw i32 %44, 24
-  %46 = getelementptr inbounds i8, ptr %41, i64 5
-  %47 = load i8, ptr %46, align 1
-  %48 = zext i8 %47 to i32
-  %49 = shl nuw nsw i32 %48, 16
-  %50 = or disjoint i32 %49, %45
-  %51 = getelementptr inbounds i8, ptr %41, i64 6
-  %52 = load i8, ptr %51, align 1
-  %53 = zext i8 %52 to i32
-  %54 = shl nuw nsw i32 %53, 8
-  %55 = or disjoint i32 %50, %54
-  %56 = getelementptr inbounds i8, ptr %41, i64 7
-  %57 = load i8, ptr %56, align 1
-  %58 = zext i8 %57 to i32
-  %59 = or disjoint i32 %55, %58
-  %.not.i = icmp eq i32 %59, 0
-  %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds i8, ptr %0, i64 %60
-  br i1 %.not.i, label %64, label %62
+45:                                               ; preds = %41
+  %46 = getelementptr inbounds %"struct.OT::EncodingRecord", ptr %6, i64 %17
+  br label %_ZNK2OT4cmap13find_subtableEjj.exit
 
-62:                                               ; preds = %_ZNK2OT4cmap13find_subtableEjj.exit
-  br i1 %.not, label %230, label %63
+_ZNK2OT4cmap13find_subtableEjj.exit:              ; preds = %44, %4, %45
+  %47 = phi ptr [ %46, %45 ], [ @_hb_NullPool, %4 ], [ @_hb_NullPool, %44 ]
+  %48 = getelementptr inbounds i8, ptr %47, i64 4
+  %49 = load i8, ptr %48, align 1
+  %50 = zext i8 %49 to i32
+  %51 = shl nuw i32 %50, 24
+  %52 = getelementptr inbounds i8, ptr %47, i64 5
+  %53 = load i8, ptr %52, align 1
+  %54 = zext i8 %53 to i32
+  %55 = shl nuw nsw i32 %54, 16
+  %56 = or disjoint i32 %55, %51
+  %57 = getelementptr inbounds i8, ptr %47, i64 6
+  %58 = load i8, ptr %57, align 1
+  %59 = zext i8 %58 to i32
+  %60 = shl nuw nsw i32 %59, 8
+  %61 = or disjoint i32 %56, %60
+  %62 = getelementptr inbounds i8, ptr %47, i64 7
+  %63 = load i8, ptr %62, align 1
+  %64 = zext i8 %63 to i32
+  %65 = or disjoint i32 %61, %64
+  %.not.i = icmp eq i32 %65, 0
+  %66 = zext i32 %65 to i64
+  %67 = getelementptr inbounds i8, ptr %0, i64 %66
+  br i1 %.not.i, label %70, label %68
 
-63:                                               ; preds = %62
+68:                                               ; preds = %_ZNK2OT4cmap13find_subtableEjj.exit
+  br i1 %.not, label %240, label %69
+
+69:                                               ; preds = %68
   store i8 1, ptr %1, align 1
-  br label %230
+  br label %240
 
-64:                                               ; preds = %_ZNK2OT4cmap13find_subtableEjj.exit
-  br i1 %.not11.i.i.i.i.not.i.i, label %_ZNK2OT4cmap13find_subtableEjj.exit49, label %.lr.ph.i.i.i.i.i.i36
+70:                                               ; preds = %_ZNK2OT4cmap13find_subtableEjj.exit
+  br i1 %.not1.i.i.i.i.not.i.i, label %_ZNK2OT4cmap13find_subtableEjj.exit48, label %.lr.ph.i.i.i.i.i.i36
 
-.lr.ph.i.i.i.i.i.i36:                             ; preds = %64
-  %65 = add nsw i32 %.sroa.2.8.insert.ext.i.i.i.i, -1
-  br label %66
+.lr.ph.i.i.i.i.i.i36:                             ; preds = %70
+  %71 = add nsw i32 %.sroa.2.8.insert.ext.i.i.i.i, -1
+  br label %72
 
-66:                                               ; preds = %92, %.lr.ph.i.i.i.i.i.i36
-  %.01913.i.i.i.i.i.i37 = phi i32 [ 0, %.lr.ph.i.i.i.i.i.i36 ], [ %.1.i.i.i.i.i.i44, %92 ]
-  %.02012.i.i.i.i.i.i38 = phi i32 [ %65, %.lr.ph.i.i.i.i.i.i36 ], [ %.121.i.i.i.i.i.i43, %92 ]
-  %67 = add i32 %.02012.i.i.i.i.i.i38, %.01913.i.i.i.i.i.i37
-  %68 = lshr i32 %67, 1
-  %69 = zext nneg i32 %68 to i64
-  %70 = shl nuw nsw i64 %69, 3
-  %71 = getelementptr inbounds i8, ptr %6, i64 %70
-  %72 = load i8, ptr %71, align 1
-  %73 = zext i8 %72 to i32
-  %74 = shl nuw nsw i32 %73, 8
-  %75 = getelementptr inbounds i8, ptr %71, i64 1
-  %76 = load i8, ptr %75, align 1
-  %77 = zext i8 %76 to i32
-  %78 = or disjoint i32 %74, %77
-  %.not8.i.i.i.i.i.i39 = icmp eq i32 %78, 3
-  br i1 %.not8.i.i.i.i.i.i39, label %79, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i40
+72:                                               ; preds = %102, %.lr.ph.i.i.i.i.i.i36
+  %.0193.i.i.i.i.i.i37 = phi i32 [ 0, %.lr.ph.i.i.i.i.i.i36 ], [ %.1.i.i.i.i.i.i44, %102 ]
+  %.0202.i.i.i.i.i.i38 = phi i32 [ %71, %.lr.ph.i.i.i.i.i.i36 ], [ %.121.i.i.i.i.i.i43, %102 ]
+  %73 = add i32 %.0202.i.i.i.i.i.i38, %.0193.i.i.i.i.i.i37
+  %74 = lshr i32 %73, 1
+  %75 = zext nneg i32 %74 to i64
+  %76 = shl nuw nsw i64 %75, 3
+  %77 = getelementptr inbounds i8, ptr %6, i64 %76
+  %78 = load i8, ptr %77, align 1
+  %79 = zext i8 %78 to i32
+  %80 = shl nuw nsw i32 %79, 8
+  %81 = getelementptr inbounds i8, ptr %77, i64 1
+  %82 = load i8, ptr %81, align 1
+  %83 = zext i8 %82 to i32
+  %84 = or disjoint i32 %80, %83
+  %85 = tail call noundef i32 @llvm.ucmp.i32.i32(i32 3, i32 %84)
+  %.not.i.i.i.i.i.i.i.i39 = icmp eq i32 %84, 3
+  br i1 %.not.i.i.i.i.i.i.i.i39, label %86, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i40
 
-79:                                               ; preds = %66
-  %80 = getelementptr inbounds i8, ptr %71, i64 2
-  %81 = load i8, ptr %80, align 1
-  %82 = zext i8 %81 to i32
-  %83 = shl nuw nsw i32 %82, 8
-  %84 = getelementptr inbounds i8, ptr %71, i64 3
-  %85 = load i8, ptr %84, align 1
-  %86 = zext i8 %85 to i32
-  %87 = or disjoint i32 %83, %86
-  %88 = icmp ugt i32 %87, 10
-  br i1 %88, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i.i48, label %90
+86:                                               ; preds = %72
+  %87 = getelementptr inbounds i8, ptr %77, i64 2
+  %88 = load i8, ptr %87, align 1
+  %89 = zext i8 %88 to i32
+  %90 = shl nuw nsw i32 %89, 8
+  %91 = getelementptr inbounds i8, ptr %77, i64 3
+  %92 = load i8, ptr %91, align 1
+  %93 = zext i8 %92 to i32
+  %94 = or disjoint i32 %90, %93
+  %95 = tail call noundef i32 @llvm.ucmp.i32.i32(i32 10, i32 %94)
+  br label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i40
 
-_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i40: ; preds = %66
-  %.not9.i.i.i.i.i.i41 = icmp ugt i32 %78, 3
-  br i1 %.not9.i.i.i.i.i.i41, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i.i48, label %.thread.i.i.i.i.i.i42
+_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i40: ; preds = %86, %72
+  %.0.i.i.i.i.i.i.i.i41 = phi i32 [ %85, %72 ], [ %95, %86 ]
+  %96 = icmp slt i32 %.0.i.i.i.i.i.i.i.i41, 0
+  br i1 %96, label %97, label %99
 
-_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i.i48: ; preds = %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i40, %79
-  %89 = add nsw i32 %68, -1
-  br label %92
+97:                                               ; preds = %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i40
+  %98 = add nsw i32 %74, -1
+  br label %102
 
-90:                                               ; preds = %79
-  %.not10.i.i.i.i.i.i = icmp eq i32 %87, 10
-  br i1 %.not10.i.i.i.i.i.i, label %93, label %.thread.i.i.i.i.i.i42
+99:                                               ; preds = %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i40
+  %.not23.i.i.i.i.i.i42 = icmp eq i32 %.0.i.i.i.i.i.i.i.i41, 0
+  br i1 %.not23.i.i.i.i.i.i42, label %103, label %100
 
-.thread.i.i.i.i.i.i42:                            ; preds = %90, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i40
-  %91 = add nuw nsw i32 %68, 1
-  br label %92
+100:                                              ; preds = %99
+  %101 = add nuw nsw i32 %74, 1
+  br label %102
 
-92:                                               ; preds = %.thread.i.i.i.i.i.i42, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i.i48
-  %.121.i.i.i.i.i.i43 = phi i32 [ %89, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i.i48 ], [ %.02012.i.i.i.i.i.i38, %.thread.i.i.i.i.i.i42 ]
-  %.1.i.i.i.i.i.i44 = phi i32 [ %.01913.i.i.i.i.i.i37, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i.i48 ], [ %91, %.thread.i.i.i.i.i.i42 ]
+102:                                              ; preds = %100, %97
+  %.121.i.i.i.i.i.i43 = phi i32 [ %98, %97 ], [ %.0202.i.i.i.i.i.i38, %100 ]
+  %.1.i.i.i.i.i.i44 = phi i32 [ %.0193.i.i.i.i.i.i37, %97 ], [ %101, %100 ]
   %.not.not.i.i.i.i.i.i45 = icmp sgt i32 %.1.i.i.i.i.i.i44, %.121.i.i.i.i.i.i43
-  br i1 %.not.not.i.i.i.i.i.i45, label %_ZNK2OT4cmap13find_subtableEjj.exit49, label %66, !llvm.loop !58
+  br i1 %.not.not.i.i.i.i.i.i45, label %_ZNK2OT4cmap13find_subtableEjj.exit48, label %72, !llvm.loop !58
 
-93:                                               ; preds = %90
-  %94 = getelementptr inbounds %"struct.OT::EncodingRecord", ptr %6, i64 %69
-  br label %_ZNK2OT4cmap13find_subtableEjj.exit49
+103:                                              ; preds = %99
+  %104 = getelementptr inbounds %"struct.OT::EncodingRecord", ptr %6, i64 %75
+  br label %_ZNK2OT4cmap13find_subtableEjj.exit48
 
-_ZNK2OT4cmap13find_subtableEjj.exit49:            ; preds = %92, %64, %93
-  %95 = phi ptr [ %94, %93 ], [ @_hb_NullPool, %64 ], [ @_hb_NullPool, %92 ]
-  %96 = getelementptr inbounds i8, ptr %95, i64 4
-  %97 = load i8, ptr %96, align 1
-  %98 = zext i8 %97 to i32
-  %99 = shl nuw i32 %98, 24
-  %100 = getelementptr inbounds i8, ptr %95, i64 5
-  %101 = load i8, ptr %100, align 1
-  %102 = zext i8 %101 to i32
-  %103 = shl nuw nsw i32 %102, 16
-  %104 = or disjoint i32 %103, %99
-  %105 = getelementptr inbounds i8, ptr %95, i64 6
-  %106 = load i8, ptr %105, align 1
-  %107 = zext i8 %106 to i32
-  %108 = shl nuw nsw i32 %107, 8
-  %109 = or disjoint i32 %104, %108
-  %110 = getelementptr inbounds i8, ptr %95, i64 7
+_ZNK2OT4cmap13find_subtableEjj.exit48:            ; preds = %102, %70, %103
+  %105 = phi ptr [ %104, %103 ], [ @_hb_NullPool, %70 ], [ @_hb_NullPool, %102 ]
+  %106 = getelementptr inbounds i8, ptr %105, i64 4
+  %107 = load i8, ptr %106, align 1
+  %108 = zext i8 %107 to i32
+  %109 = shl nuw i32 %108, 24
+  %110 = getelementptr inbounds i8, ptr %105, i64 5
   %111 = load i8, ptr %110, align 1
   %112 = zext i8 %111 to i32
-  %113 = or disjoint i32 %109, %112
-  %.not.i46 = icmp eq i32 %113, 0
-  %114 = zext i32 %113 to i64
-  %115 = getelementptr inbounds i8, ptr %0, i64 %114
-  br i1 %.not.i46, label %116, label %230
+  %113 = shl nuw nsw i32 %112, 16
+  %114 = or disjoint i32 %113, %109
+  %115 = getelementptr inbounds i8, ptr %105, i64 6
+  %116 = load i8, ptr %115, align 1
+  %117 = zext i8 %116 to i32
+  %118 = shl nuw nsw i32 %117, 8
+  %119 = or disjoint i32 %114, %118
+  %120 = getelementptr inbounds i8, ptr %105, i64 7
+  %121 = load i8, ptr %120, align 1
+  %122 = zext i8 %121 to i32
+  %123 = or disjoint i32 %119, %122
+  %.not.i46 = icmp eq i32 %123, 0
+  %124 = zext i32 %123 to i64
+  %125 = getelementptr inbounds i8, ptr %0, i64 %124
+  br i1 %.not.i46, label %126, label %240
 
-116:                                              ; preds = %_ZNK2OT4cmap13find_subtableEjj.exit49
-  br i1 %.not11.i.i.i.i.not.i.i, label %_ZNK2OT4cmap13find_subtableEjj.exit66, label %.lr.ph.i.i.i.i.i.i52
+126:                                              ; preds = %_ZNK2OT4cmap13find_subtableEjj.exit48
+  br i1 %.not1.i.i.i.i.not.i.i, label %_ZNK2OT4cmap13find_subtableEjj.exit63, label %.lr.ph.i.i.i.i.i.i51
 
-.lr.ph.i.i.i.i.i.i52:                             ; preds = %116
-  %117 = add nsw i32 %.sroa.2.8.insert.ext.i.i.i.i, -1
-  br label %118
+.lr.ph.i.i.i.i.i.i51:                             ; preds = %126
+  %127 = add nsw i32 %.sroa.2.8.insert.ext.i.i.i.i, -1
+  br label %128
 
-118:                                              ; preds = %144, %.lr.ph.i.i.i.i.i.i52
-  %.01913.i.i.i.i.i.i53 = phi i32 [ 0, %.lr.ph.i.i.i.i.i.i52 ], [ %.1.i.i.i.i.i.i60, %144 ]
-  %.02012.i.i.i.i.i.i54 = phi i32 [ %117, %.lr.ph.i.i.i.i.i.i52 ], [ %.121.i.i.i.i.i.i59, %144 ]
-  %119 = add i32 %.02012.i.i.i.i.i.i54, %.01913.i.i.i.i.i.i53
-  %120 = lshr i32 %119, 1
-  %121 = zext nneg i32 %120 to i64
-  %122 = shl nuw nsw i64 %121, 3
-  %123 = getelementptr inbounds i8, ptr %6, i64 %122
-  %124 = load i8, ptr %123, align 1
-  %125 = zext i8 %124 to i32
-  %126 = shl nuw nsw i32 %125, 8
-  %127 = getelementptr inbounds i8, ptr %123, i64 1
-  %128 = load i8, ptr %127, align 1
-  %129 = zext i8 %128 to i32
-  %130 = or disjoint i32 %126, %129
-  %.not8.i.i.i.i.i.i55 = icmp eq i32 %130, 0
-  br i1 %.not8.i.i.i.i.i.i55, label %131, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i.i64
+128:                                              ; preds = %154, %.lr.ph.i.i.i.i.i.i51
+  %.0193.i.i.i.i.i.i52 = phi i32 [ 0, %.lr.ph.i.i.i.i.i.i51 ], [ %.1.i.i.i.i.i.i59, %154 ]
+  %.0202.i.i.i.i.i.i53 = phi i32 [ %127, %.lr.ph.i.i.i.i.i.i51 ], [ %.121.i.i.i.i.i.i58, %154 ]
+  %129 = add i32 %.0202.i.i.i.i.i.i53, %.0193.i.i.i.i.i.i52
+  %130 = lshr i32 %129, 1
+  %131 = zext nneg i32 %130 to i64
+  %132 = shl nuw nsw i64 %131, 3
+  %133 = getelementptr inbounds i8, ptr %6, i64 %132
+  %134 = load i8, ptr %133, align 1
+  %135 = zext i8 %134 to i32
+  %136 = shl nuw nsw i32 %135, 8
+  %137 = getelementptr inbounds i8, ptr %133, i64 1
+  %138 = load i8, ptr %137, align 1
+  %139 = zext i8 %138 to i32
+  %140 = or disjoint i32 %136, %139
+  %.not.i.i.i.i.i.i.i.i54 = icmp eq i32 %140, 0
+  br i1 %.not.i.i.i.i.i.i.i.i54, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i55, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i55.thread
 
-131:                                              ; preds = %118
-  %132 = getelementptr inbounds i8, ptr %123, i64 2
-  %133 = load i8, ptr %132, align 1
-  %134 = zext i8 %133 to i32
-  %135 = shl nuw nsw i32 %134, 8
-  %136 = getelementptr inbounds i8, ptr %123, i64 3
-  %137 = load i8, ptr %136, align 1
-  %138 = zext i8 %137 to i32
-  %139 = or disjoint i32 %135, %138
-  %140 = icmp ugt i32 %139, 6
-  br i1 %140, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i.i64, label %142
+_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i55: ; preds = %128
+  %141 = getelementptr inbounds i8, ptr %133, i64 2
+  %142 = load i8, ptr %141, align 1
+  %143 = zext i8 %142 to i32
+  %144 = shl nuw nsw i32 %143, 8
+  %145 = getelementptr inbounds i8, ptr %133, i64 3
+  %146 = load i8, ptr %145, align 1
+  %147 = zext i8 %146 to i32
+  %148 = or disjoint i32 %144, %147
+  %149 = icmp ugt i32 %148, 6
+  br i1 %149, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i55.thread, label %151
 
-_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i.i64: ; preds = %118, %131
-  %141 = add nsw i32 %120, -1
-  br label %144
+_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i55.thread: ; preds = %128, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i55
+  %150 = add nsw i32 %130, -1
+  br label %154
 
-142:                                              ; preds = %131
-  %.not10.i.i.i.i.i.i65 = icmp eq i32 %139, 6
-  br i1 %.not10.i.i.i.i.i.i65, label %145, label %.thread.i.i.i.i.i.i58
+151:                                              ; preds = %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i55
+  %.not23.i.i.i.i.i.i57 = icmp eq i32 %148, 6
+  br i1 %.not23.i.i.i.i.i.i57, label %155, label %152
 
-.thread.i.i.i.i.i.i58:                            ; preds = %142
-  %143 = add nuw nsw i32 %120, 1
-  br label %144
+152:                                              ; preds = %151
+  %153 = add nuw nsw i32 %130, 1
+  br label %154
 
-144:                                              ; preds = %.thread.i.i.i.i.i.i58, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i.i64
-  %.121.i.i.i.i.i.i59 = phi i32 [ %141, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i.i64 ], [ %.02012.i.i.i.i.i.i54, %.thread.i.i.i.i.i.i58 ]
-  %.1.i.i.i.i.i.i60 = phi i32 [ %.01913.i.i.i.i.i.i53, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i.i64 ], [ %143, %.thread.i.i.i.i.i.i58 ]
-  %.not.not.i.i.i.i.i.i61 = icmp sgt i32 %.1.i.i.i.i.i.i60, %.121.i.i.i.i.i.i59
-  br i1 %.not.not.i.i.i.i.i.i61, label %_ZNK2OT4cmap13find_subtableEjj.exit66, label %118, !llvm.loop !58
+154:                                              ; preds = %152, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i55.thread
+  %.121.i.i.i.i.i.i58 = phi i32 [ %150, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i55.thread ], [ %.0202.i.i.i.i.i.i53, %152 ]
+  %.1.i.i.i.i.i.i59 = phi i32 [ %.0193.i.i.i.i.i.i52, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i55.thread ], [ %153, %152 ]
+  %.not.not.i.i.i.i.i.i60 = icmp sgt i32 %.1.i.i.i.i.i.i59, %.121.i.i.i.i.i.i58
+  br i1 %.not.not.i.i.i.i.i.i60, label %_ZNK2OT4cmap13find_subtableEjj.exit63, label %128, !llvm.loop !58
 
-145:                                              ; preds = %142
-  %146 = getelementptr inbounds %"struct.OT::EncodingRecord", ptr %6, i64 %121
-  br label %_ZNK2OT4cmap13find_subtableEjj.exit66
+155:                                              ; preds = %151
+  %156 = getelementptr inbounds %"struct.OT::EncodingRecord", ptr %6, i64 %131
+  br label %_ZNK2OT4cmap13find_subtableEjj.exit63
 
-_ZNK2OT4cmap13find_subtableEjj.exit66:            ; preds = %144, %116, %145
-  %147 = phi ptr [ %146, %145 ], [ @_hb_NullPool, %116 ], [ @_hb_NullPool, %144 ]
-  %148 = getelementptr inbounds i8, ptr %147, i64 4
-  %149 = load i8, ptr %148, align 1
-  %150 = zext i8 %149 to i32
-  %151 = shl nuw i32 %150, 24
-  %152 = getelementptr inbounds i8, ptr %147, i64 5
-  %153 = load i8, ptr %152, align 1
-  %154 = zext i8 %153 to i32
-  %155 = shl nuw nsw i32 %154, 16
-  %156 = or disjoint i32 %155, %151
-  %157 = getelementptr inbounds i8, ptr %147, i64 6
-  %158 = load i8, ptr %157, align 1
-  %159 = zext i8 %158 to i32
-  %160 = shl nuw nsw i32 %159, 8
-  %161 = or disjoint i32 %156, %160
-  %162 = getelementptr inbounds i8, ptr %147, i64 7
+_ZNK2OT4cmap13find_subtableEjj.exit63:            ; preds = %154, %126, %155
+  %157 = phi ptr [ %156, %155 ], [ @_hb_NullPool, %126 ], [ @_hb_NullPool, %154 ]
+  %158 = getelementptr inbounds i8, ptr %157, i64 4
+  %159 = load i8, ptr %158, align 1
+  %160 = zext i8 %159 to i32
+  %161 = shl nuw i32 %160, 24
+  %162 = getelementptr inbounds i8, ptr %157, i64 5
   %163 = load i8, ptr %162, align 1
   %164 = zext i8 %163 to i32
-  %165 = or disjoint i32 %161, %164
-  %.not.i62 = icmp eq i32 %165, 0
-  %166 = zext i32 %165 to i64
-  %167 = getelementptr inbounds i8, ptr %0, i64 %166
-  br i1 %.not.i62, label %168, label %230
+  %165 = shl nuw nsw i32 %164, 16
+  %166 = or disjoint i32 %165, %161
+  %167 = getelementptr inbounds i8, ptr %157, i64 6
+  %168 = load i8, ptr %167, align 1
+  %169 = zext i8 %168 to i32
+  %170 = shl nuw nsw i32 %169, 8
+  %171 = or disjoint i32 %166, %170
+  %172 = getelementptr inbounds i8, ptr %157, i64 7
+  %173 = load i8, ptr %172, align 1
+  %174 = zext i8 %173 to i32
+  %175 = or disjoint i32 %171, %174
+  %.not.i61 = icmp eq i32 %175, 0
+  %176 = zext i32 %175 to i64
+  %177 = getelementptr inbounds i8, ptr %0, i64 %176
+  br i1 %.not.i61, label %178, label %240
 
-168:                                              ; preds = %_ZNK2OT4cmap13find_subtableEjj.exit66
-  br i1 %.not11.i.i.i.i.not.i.i, label %_ZNK2OT4cmap13find_subtableEjj.exit83, label %.lr.ph.i.i.i.i.i.i69
+178:                                              ; preds = %_ZNK2OT4cmap13find_subtableEjj.exit63
+  br i1 %.not1.i.i.i.i.not.i.i, label %_ZNK2OT4cmap13find_subtableEjj.exit78, label %.lr.ph.i.i.i.i.i.i66
 
-.lr.ph.i.i.i.i.i.i69:                             ; preds = %168
-  %169 = add nsw i32 %.sroa.2.8.insert.ext.i.i.i.i, -1
-  br label %170
+.lr.ph.i.i.i.i.i.i66:                             ; preds = %178
+  %179 = add nsw i32 %.sroa.2.8.insert.ext.i.i.i.i, -1
+  br label %180
 
-170:                                              ; preds = %196, %.lr.ph.i.i.i.i.i.i69
-  %.01913.i.i.i.i.i.i70 = phi i32 [ 0, %.lr.ph.i.i.i.i.i.i69 ], [ %.1.i.i.i.i.i.i77, %196 ]
-  %.02012.i.i.i.i.i.i71 = phi i32 [ %169, %.lr.ph.i.i.i.i.i.i69 ], [ %.121.i.i.i.i.i.i76, %196 ]
-  %171 = add i32 %.02012.i.i.i.i.i.i71, %.01913.i.i.i.i.i.i70
-  %172 = lshr i32 %171, 1
-  %173 = zext nneg i32 %172 to i64
-  %174 = shl nuw nsw i64 %173, 3
-  %175 = getelementptr inbounds i8, ptr %6, i64 %174
-  %176 = load i8, ptr %175, align 1
-  %177 = zext i8 %176 to i32
-  %178 = shl nuw nsw i32 %177, 8
-  %179 = getelementptr inbounds i8, ptr %175, i64 1
-  %180 = load i8, ptr %179, align 1
-  %181 = zext i8 %180 to i32
-  %182 = or disjoint i32 %178, %181
-  %.not8.i.i.i.i.i.i72 = icmp eq i32 %182, 0
-  br i1 %.not8.i.i.i.i.i.i72, label %183, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i.i81
+180:                                              ; preds = %206, %.lr.ph.i.i.i.i.i.i66
+  %.0193.i.i.i.i.i.i67 = phi i32 [ 0, %.lr.ph.i.i.i.i.i.i66 ], [ %.1.i.i.i.i.i.i74, %206 ]
+  %.0202.i.i.i.i.i.i68 = phi i32 [ %179, %.lr.ph.i.i.i.i.i.i66 ], [ %.121.i.i.i.i.i.i73, %206 ]
+  %181 = add i32 %.0202.i.i.i.i.i.i68, %.0193.i.i.i.i.i.i67
+  %182 = lshr i32 %181, 1
+  %183 = zext nneg i32 %182 to i64
+  %184 = shl nuw nsw i64 %183, 3
+  %185 = getelementptr inbounds i8, ptr %6, i64 %184
+  %186 = load i8, ptr %185, align 1
+  %187 = zext i8 %186 to i32
+  %188 = shl nuw nsw i32 %187, 8
+  %189 = getelementptr inbounds i8, ptr %185, i64 1
+  %190 = load i8, ptr %189, align 1
+  %191 = zext i8 %190 to i32
+  %192 = or disjoint i32 %188, %191
+  %.not.i.i.i.i.i.i.i.i69 = icmp eq i32 %192, 0
+  br i1 %.not.i.i.i.i.i.i.i.i69, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i70, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i70.thread
 
-183:                                              ; preds = %170
-  %184 = getelementptr inbounds i8, ptr %175, i64 2
-  %185 = load i8, ptr %184, align 1
-  %186 = zext i8 %185 to i32
-  %187 = shl nuw nsw i32 %186, 8
-  %188 = getelementptr inbounds i8, ptr %175, i64 3
-  %189 = load i8, ptr %188, align 1
-  %190 = zext i8 %189 to i32
-  %191 = or disjoint i32 %187, %190
-  %192 = icmp ugt i32 %191, 4
-  br i1 %192, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i.i81, label %194
+_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i70: ; preds = %180
+  %193 = getelementptr inbounds i8, ptr %185, i64 2
+  %194 = load i8, ptr %193, align 1
+  %195 = zext i8 %194 to i32
+  %196 = shl nuw nsw i32 %195, 8
+  %197 = getelementptr inbounds i8, ptr %185, i64 3
+  %198 = load i8, ptr %197, align 1
+  %199 = zext i8 %198 to i32
+  %200 = or disjoint i32 %196, %199
+  %201 = icmp ugt i32 %200, 4
+  br i1 %201, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i70.thread, label %203
 
-_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i.i81: ; preds = %170, %183
-  %193 = add nsw i32 %172, -1
-  br label %196
+_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i70.thread: ; preds = %180, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i70
+  %202 = add nsw i32 %182, -1
+  br label %206
 
-194:                                              ; preds = %183
-  %.not10.i.i.i.i.i.i82 = icmp eq i32 %191, 4
-  br i1 %.not10.i.i.i.i.i.i82, label %197, label %.thread.i.i.i.i.i.i75
+203:                                              ; preds = %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i70
+  %.not23.i.i.i.i.i.i72 = icmp eq i32 %200, 4
+  br i1 %.not23.i.i.i.i.i.i72, label %207, label %204
 
-.thread.i.i.i.i.i.i75:                            ; preds = %194
-  %195 = add nuw nsw i32 %172, 1
-  br label %196
+204:                                              ; preds = %203
+  %205 = add nuw nsw i32 %182, 1
+  br label %206
 
-196:                                              ; preds = %.thread.i.i.i.i.i.i75, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i.i81
-  %.121.i.i.i.i.i.i76 = phi i32 [ %193, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i.i81 ], [ %.02012.i.i.i.i.i.i71, %.thread.i.i.i.i.i.i75 ]
-  %.1.i.i.i.i.i.i77 = phi i32 [ %.01913.i.i.i.i.i.i70, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i.i81 ], [ %195, %.thread.i.i.i.i.i.i75 ]
-  %.not.not.i.i.i.i.i.i78 = icmp sgt i32 %.1.i.i.i.i.i.i77, %.121.i.i.i.i.i.i76
-  br i1 %.not.not.i.i.i.i.i.i78, label %_ZNK2OT4cmap13find_subtableEjj.exit83, label %170, !llvm.loop !58
+206:                                              ; preds = %204, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i70.thread
+  %.121.i.i.i.i.i.i73 = phi i32 [ %202, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i70.thread ], [ %.0202.i.i.i.i.i.i68, %204 ]
+  %.1.i.i.i.i.i.i74 = phi i32 [ %.0193.i.i.i.i.i.i67, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i70.thread ], [ %205, %204 ]
+  %.not.not.i.i.i.i.i.i75 = icmp sgt i32 %.1.i.i.i.i.i.i74, %.121.i.i.i.i.i.i73
+  br i1 %.not.not.i.i.i.i.i.i75, label %_ZNK2OT4cmap13find_subtableEjj.exit78, label %180, !llvm.loop !58
 
-197:                                              ; preds = %194
-  %198 = getelementptr inbounds %"struct.OT::EncodingRecord", ptr %6, i64 %173
-  br label %_ZNK2OT4cmap13find_subtableEjj.exit83
+207:                                              ; preds = %203
+  %208 = getelementptr inbounds %"struct.OT::EncodingRecord", ptr %6, i64 %183
+  br label %_ZNK2OT4cmap13find_subtableEjj.exit78
 
-_ZNK2OT4cmap13find_subtableEjj.exit83:            ; preds = %196, %168, %197
-  %199 = phi ptr [ %198, %197 ], [ @_hb_NullPool, %168 ], [ @_hb_NullPool, %196 ]
-  %200 = getelementptr inbounds i8, ptr %199, i64 4
-  %201 = load i8, ptr %200, align 1
-  %202 = zext i8 %201 to i32
-  %203 = shl nuw i32 %202, 24
-  %204 = getelementptr inbounds i8, ptr %199, i64 5
-  %205 = load i8, ptr %204, align 1
-  %206 = zext i8 %205 to i32
-  %207 = shl nuw nsw i32 %206, 16
-  %208 = or disjoint i32 %207, %203
-  %209 = getelementptr inbounds i8, ptr %199, i64 6
-  %210 = load i8, ptr %209, align 1
-  %211 = zext i8 %210 to i32
-  %212 = shl nuw nsw i32 %211, 8
-  %213 = or disjoint i32 %208, %212
-  %214 = getelementptr inbounds i8, ptr %199, i64 7
+_ZNK2OT4cmap13find_subtableEjj.exit78:            ; preds = %206, %178, %207
+  %209 = phi ptr [ %208, %207 ], [ @_hb_NullPool, %178 ], [ @_hb_NullPool, %206 ]
+  %210 = getelementptr inbounds i8, ptr %209, i64 4
+  %211 = load i8, ptr %210, align 1
+  %212 = zext i8 %211 to i32
+  %213 = shl nuw i32 %212, 24
+  %214 = getelementptr inbounds i8, ptr %209, i64 5
   %215 = load i8, ptr %214, align 1
   %216 = zext i8 %215 to i32
-  %217 = or disjoint i32 %213, %216
-  %.not.i79 = icmp eq i32 %217, 0
-  %218 = zext i32 %217 to i64
-  %219 = getelementptr inbounds i8, ptr %0, i64 %218
-  br i1 %.not.i79, label %220, label %230
+  %217 = shl nuw nsw i32 %216, 16
+  %218 = or disjoint i32 %217, %213
+  %219 = getelementptr inbounds i8, ptr %209, i64 6
+  %220 = load i8, ptr %219, align 1
+  %221 = zext i8 %220 to i32
+  %222 = shl nuw nsw i32 %221, 8
+  %223 = or disjoint i32 %218, %222
+  %224 = getelementptr inbounds i8, ptr %209, i64 7
+  %225 = load i8, ptr %224, align 1
+  %226 = zext i8 %225 to i32
+  %227 = or disjoint i32 %223, %226
+  %.not.i76 = icmp eq i32 %227, 0
+  %228 = zext i32 %227 to i64
+  %229 = getelementptr inbounds i8, ptr %0, i64 %228
+  br i1 %.not.i76, label %230, label %240
 
-220:                                              ; preds = %_ZNK2OT4cmap13find_subtableEjj.exit83
-  %221 = tail call noundef ptr @_ZNK2OT4cmap13find_subtableEjj(ptr noundef nonnull align 1 dereferenceable(12) %0, i32 noundef 3, i32 noundef 1)
-  %.not29 = icmp eq ptr %221, null
-  br i1 %.not29, label %222, label %230
+230:                                              ; preds = %_ZNK2OT4cmap13find_subtableEjj.exit78
+  %231 = tail call noundef ptr @_ZNK2OT4cmap13find_subtableEjj(ptr noundef nonnull align 1 dereferenceable(12) %0, i32 noundef 3, i32 noundef 1)
+  %.not29 = icmp eq ptr %231, null
+  br i1 %.not29, label %232, label %240
 
-222:                                              ; preds = %220
-  %223 = tail call noundef ptr @_ZNK2OT4cmap13find_subtableEjj(ptr noundef nonnull align 1 dereferenceable(12) %0, i32 noundef 0, i32 noundef 3)
-  %.not30 = icmp eq ptr %223, null
-  br i1 %.not30, label %224, label %230
+232:                                              ; preds = %230
+  %233 = tail call noundef ptr @_ZNK2OT4cmap13find_subtableEjj(ptr noundef nonnull align 1 dereferenceable(12) %0, i32 noundef 0, i32 noundef 3)
+  %.not30 = icmp eq ptr %233, null
+  br i1 %.not30, label %234, label %240
 
-224:                                              ; preds = %222
-  %225 = tail call noundef ptr @_ZNK2OT4cmap13find_subtableEjj(ptr noundef nonnull align 1 dereferenceable(12) %0, i32 noundef 0, i32 noundef 2)
-  %.not31 = icmp eq ptr %225, null
-  br i1 %.not31, label %226, label %230
+234:                                              ; preds = %232
+  %235 = tail call noundef ptr @_ZNK2OT4cmap13find_subtableEjj(ptr noundef nonnull align 1 dereferenceable(12) %0, i32 noundef 0, i32 noundef 2)
+  %.not31 = icmp eq ptr %235, null
+  br i1 %.not31, label %236, label %240
 
-226:                                              ; preds = %224
-  %227 = tail call noundef ptr @_ZNK2OT4cmap13find_subtableEjj(ptr noundef nonnull align 1 dereferenceable(12) %0, i32 noundef 0, i32 noundef 1)
-  %.not32 = icmp eq ptr %227, null
-  br i1 %.not32, label %228, label %230
+236:                                              ; preds = %234
+  %237 = tail call noundef ptr @_ZNK2OT4cmap13find_subtableEjj(ptr noundef nonnull align 1 dereferenceable(12) %0, i32 noundef 0, i32 noundef 1)
+  %.not32 = icmp eq ptr %237, null
+  br i1 %.not32, label %238, label %240
 
-228:                                              ; preds = %226
-  %229 = tail call noundef ptr @_ZNK2OT4cmap13find_subtableEjj(ptr noundef nonnull align 1 dereferenceable(12) %0, i32 noundef 0, i32 noundef 0)
-  %.not33 = icmp eq ptr %229, null
-  %spec.select = select i1 %.not33, ptr @_hb_NullPool, ptr %229
-  br label %230
+238:                                              ; preds = %236
+  %239 = tail call noundef ptr @_ZNK2OT4cmap13find_subtableEjj(ptr noundef nonnull align 1 dereferenceable(12) %0, i32 noundef 0, i32 noundef 0)
+  %.not33 = icmp eq ptr %239, null
+  %spec.select = select i1 %.not33, ptr @_hb_NullPool, ptr %239
+  br label %240
 
-230:                                              ; preds = %228, %226, %224, %222, %220, %_ZNK2OT4cmap13find_subtableEjj.exit83, %_ZNK2OT4cmap13find_subtableEjj.exit66, %_ZNK2OT4cmap13find_subtableEjj.exit49, %62, %63
-  %.0 = phi ptr [ %61, %63 ], [ %61, %62 ], [ %115, %_ZNK2OT4cmap13find_subtableEjj.exit49 ], [ %167, %_ZNK2OT4cmap13find_subtableEjj.exit66 ], [ %219, %_ZNK2OT4cmap13find_subtableEjj.exit83 ], [ %221, %220 ], [ %223, %222 ], [ %225, %224 ], [ %227, %226 ], [ %spec.select, %228 ]
+240:                                              ; preds = %238, %236, %234, %232, %230, %_ZNK2OT4cmap13find_subtableEjj.exit78, %_ZNK2OT4cmap13find_subtableEjj.exit63, %_ZNK2OT4cmap13find_subtableEjj.exit48, %68, %69
+  %.0 = phi ptr [ %67, %69 ], [ %67, %68 ], [ %125, %_ZNK2OT4cmap13find_subtableEjj.exit48 ], [ %177, %_ZNK2OT4cmap13find_subtableEjj.exit63 ], [ %229, %_ZNK2OT4cmap13find_subtableEjj.exit78 ], [ %231, %230 ], [ %233, %232 ], [ %235, %234 ], [ %237, %236 ], [ %spec.select, %238 ]
   ret ptr %.0
 }
 
@@ -9374,8 +9379,8 @@ define linkonce_odr hidden noundef ptr @_ZNK2OT4cmap13find_subtableEjj(ptr nound
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
   %.sroa.2.8.insert.ext.i.i.i = or disjoint i32 %8, %11
-  %.not11.i.i.i.i.not.i = icmp eq i32 %.sroa.2.8.insert.ext.i.i.i, 0
-  br i1 %.not11.i.i.i.i.not.i, label %_ZNK2OT13SortedArrayOfINS_14EncodingRecordENS_7IntTypeItLj2EEEE7bsearchIS1_EERKS1_RKT_S7_.exit, label %.lr.ph.i.i.i.i.i
+  %.not1.i.i.i.i.not.i = icmp eq i32 %.sroa.2.8.insert.ext.i.i.i, 0
+  br i1 %.not1.i.i.i.i.not.i, label %_ZNK2OT13SortedArrayOfINS_14EncodingRecordENS_7IntTypeItLj2EEEE7bsearchIS1_EERKS1_RKT_S7_.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %3
   %12 = add nsw i32 %.sroa.2.8.insert.ext.i.i.i, -1
@@ -9383,10 +9388,10 @@ define linkonce_odr hidden noundef ptr @_ZNK2OT4cmap13find_subtableEjj(ptr nound
   %14 = and i32 %2, 65535
   br label %15
 
-15:                                               ; preds = %41, %.lr.ph.i.i.i.i.i
-  %.01913.i.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i.i.i ], [ %.1.i.i.i.i.i, %41 ]
-  %.02012.i.i.i.i.i = phi i32 [ %12, %.lr.ph.i.i.i.i.i ], [ %.121.i.i.i.i.i, %41 ]
-  %16 = add i32 %.02012.i.i.i.i.i, %.01913.i.i.i.i.i
+15:                                               ; preds = %45, %.lr.ph.i.i.i.i.i
+  %.0193.i.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i.i.i ], [ %.1.i.i.i.i.i, %45 ]
+  %.0202.i.i.i.i.i = phi i32 [ %12, %.lr.ph.i.i.i.i.i ], [ %.121.i.i.i.i.i, %45 ]
+  %16 = add i32 %.0202.i.i.i.i.i, %.0193.i.i.i.i.i
   %17 = lshr i32 %16, 1
   %18 = zext nneg i32 %17 to i64
   %19 = shl nuw nsw i64 %18, 3
@@ -9398,71 +9403,73 @@ define linkonce_odr hidden noundef ptr @_ZNK2OT4cmap13find_subtableEjj(ptr nound
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = or disjoint i32 %23, %26
-  %.not8.i.i.i.i.i = icmp eq i32 %27, %13
-  br i1 %.not8.i.i.i.i.i, label %28, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i
+  %28 = tail call noundef i32 @llvm.ucmp.i32.i32(i32 %13, i32 %27)
+  %.not.i.i.i.i.i.i.i = icmp eq i32 %27, %13
+  br i1 %.not.i.i.i.i.i.i.i, label %29, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i
 
-28:                                               ; preds = %15
-  %29 = getelementptr inbounds i8, ptr %20, i64 2
-  %30 = load i8, ptr %29, align 1
-  %31 = zext i8 %30 to i32
-  %32 = shl nuw nsw i32 %31, 8
-  %33 = getelementptr inbounds i8, ptr %20, i64 3
-  %34 = load i8, ptr %33, align 1
-  %35 = zext i8 %34 to i32
-  %36 = or disjoint i32 %32, %35
-  %37 = icmp ugt i32 %36, %14
-  br i1 %37, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i, label %39
+29:                                               ; preds = %15
+  %30 = getelementptr inbounds i8, ptr %20, i64 2
+  %31 = load i8, ptr %30, align 1
+  %32 = zext i8 %31 to i32
+  %33 = shl nuw nsw i32 %32, 8
+  %34 = getelementptr inbounds i8, ptr %20, i64 3
+  %35 = load i8, ptr %34, align 1
+  %36 = zext i8 %35 to i32
+  %37 = or disjoint i32 %33, %36
+  %38 = tail call noundef i32 @llvm.ucmp.i32.i32(i32 %14, i32 %37)
+  br label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i
 
-_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i: ; preds = %15
-  %.not9.i.i.i.i.i = icmp ugt i32 %27, %13
-  br i1 %.not9.i.i.i.i.i, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i, label %.thread.i.i.i.i.i
+_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i: ; preds = %29, %15
+  %.0.i.i.i.i.i.i.i = phi i32 [ %28, %15 ], [ %38, %29 ]
+  %39 = icmp slt i32 %.0.i.i.i.i.i.i.i, 0
+  br i1 %39, label %40, label %42
 
-_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i: ; preds = %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i, %28
-  %38 = add nsw i32 %17, -1
-  br label %41
+40:                                               ; preds = %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i
+  %41 = add nsw i32 %17, -1
+  br label %45
 
-39:                                               ; preds = %28
-  %.not10.i.i.i.i.i = icmp eq i32 %36, %14
-  br i1 %.not10.i.i.i.i.i, label %42, label %.thread.i.i.i.i.i
+42:                                               ; preds = %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i
+  %.not23.i.i.i.i.i = icmp eq i32 %.0.i.i.i.i.i.i.i, 0
+  br i1 %.not23.i.i.i.i.i, label %46, label %43
 
-.thread.i.i.i.i.i:                                ; preds = %39, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i
-  %40 = add nuw nsw i32 %17, 1
-  br label %41
+43:                                               ; preds = %42
+  %44 = add nuw nsw i32 %17, 1
+  br label %45
 
-41:                                               ; preds = %.thread.i.i.i.i.i, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i
-  %.121.i.i.i.i.i = phi i32 [ %38, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i ], [ %.02012.i.i.i.i.i, %.thread.i.i.i.i.i ]
-  %.1.i.i.i.i.i = phi i32 [ %.01913.i.i.i.i.i, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.thread.i.i.i.i.i ], [ %40, %.thread.i.i.i.i.i ]
+45:                                               ; preds = %43, %40
+  %.121.i.i.i.i.i = phi i32 [ %41, %40 ], [ %.0202.i.i.i.i.i, %43 ]
+  %.1.i.i.i.i.i = phi i32 [ %.0193.i.i.i.i.i, %40 ], [ %44, %43 ]
   %.not.not.i.i.i.i.i = icmp sgt i32 %.1.i.i.i.i.i, %.121.i.i.i.i.i
   br i1 %.not.not.i.i.i.i.i, label %_ZNK2OT13SortedArrayOfINS_14EncodingRecordENS_7IntTypeItLj2EEEE7bsearchIS1_EERKS1_RKT_S7_.exit, label %15, !llvm.loop !58
 
-42:                                               ; preds = %39
-  %43 = getelementptr inbounds %"struct.OT::EncodingRecord", ptr %5, i64 %18
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds %"struct.OT::EncodingRecord", ptr %5, i64 %18
   br label %_ZNK2OT13SortedArrayOfINS_14EncodingRecordENS_7IntTypeItLj2EEEE7bsearchIS1_EERKS1_RKT_S7_.exit
 
-_ZNK2OT13SortedArrayOfINS_14EncodingRecordENS_7IntTypeItLj2EEEE7bsearchIS1_EERKS1_RKT_S7_.exit: ; preds = %41, %3, %42
-  %44 = phi ptr [ %43, %42 ], [ @_hb_NullPool, %3 ], [ @_hb_NullPool, %41 ]
-  %45 = getelementptr inbounds i8, ptr %44, i64 4
-  %46 = load i8, ptr %45, align 1
-  %47 = zext i8 %46 to i32
-  %48 = shl nuw i32 %47, 24
-  %49 = getelementptr inbounds i8, ptr %44, i64 5
+_ZNK2OT13SortedArrayOfINS_14EncodingRecordENS_7IntTypeItLj2EEEE7bsearchIS1_EERKS1_RKT_S7_.exit: ; preds = %45, %3, %46
+  %48 = phi ptr [ %47, %46 ], [ @_hb_NullPool, %3 ], [ @_hb_NullPool, %45 ]
+  %49 = getelementptr inbounds i8, ptr %48, i64 4
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i32
-  %52 = shl nuw nsw i32 %51, 16
-  %53 = or disjoint i32 %52, %48
-  %54 = getelementptr inbounds i8, ptr %44, i64 6
-  %55 = load i8, ptr %54, align 1
-  %56 = zext i8 %55 to i32
-  %57 = shl nuw nsw i32 %56, 8
-  %58 = or disjoint i32 %53, %57
-  %59 = getelementptr inbounds i8, ptr %44, i64 7
-  %60 = load i8, ptr %59, align 1
-  %61 = zext i8 %60 to i32
-  %62 = or disjoint i32 %58, %61
-  %.not = icmp eq i32 %62, 0
-  %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds i8, ptr %0, i64 %63
-  %.0 = select i1 %.not, ptr null, ptr %64
+  %52 = shl nuw i32 %51, 24
+  %53 = getelementptr inbounds i8, ptr %48, i64 5
+  %54 = load i8, ptr %53, align 1
+  %55 = zext i8 %54 to i32
+  %56 = shl nuw nsw i32 %55, 16
+  %57 = or disjoint i32 %56, %52
+  %58 = getelementptr inbounds i8, ptr %48, i64 6
+  %59 = load i8, ptr %58, align 1
+  %60 = zext i8 %59 to i32
+  %61 = shl nuw nsw i32 %60, 8
+  %62 = or disjoint i32 %57, %61
+  %63 = getelementptr inbounds i8, ptr %48, i64 7
+  %64 = load i8, ptr %63, align 1
+  %65 = zext i8 %64 to i32
+  %66 = or disjoint i32 %62, %65
+  %.not = icmp eq i32 %66, 0
+  %67 = zext i32 %66 to i64
+  %68 = getelementptr inbounds i8, ptr %0, i64 %67
+  %.0 = select i1 %.not, ptr null, ptr %68
   ret ptr %.0
 }
 
@@ -11363,6 +11370,9 @@ _ZL10hb_bsearchIKN2OT7IntTypeItLj2EEEjJjEEPT_RKT0_S5_mmPFiPKvSA_DpT1_ESC_.exit.t
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #16

@@ -3164,9 +3164,9 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   %179 = getelementptr inbounds i8, ptr %177, i64 2
   %.val.i.i.i.i47.i.i.i.i.i.i.i = load i16, ptr %179, align 1, !noalias !497
   %180 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i47.i.i.i.i.i.i.i)
-  %.not.i.not.i.i.i.i.i.i = icmp ule i16 %178, %2
-  %.not.i20.i.i.i.i.i.i = icmp uge i16 %180, %2
-  %spec.select.i.i.i.i.i = select i1 %.not.i.not.i.i.i.i.i.i, i1 %.not.i20.i.i.i.i.i.i, i1 false
+  %switch.selectcmp.i.not.i.i.i.i.i.i = icmp ule i16 %178, %2
+  %switch.selectcmp.i20.i.i.i.i.i.i = icmp uge i16 %180, %2
+  %spec.select.i.i.i.i.i = select i1 %switch.selectcmp.i.not.i.i.i.i.i.i, i1 %switch.selectcmp.i20.i.i.i.i.i.i, i1 false
   br i1 %spec.select.i.i.i.i.i, label %184, label %181
 
 181:                                              ; preds = %"_ZN103_$LT$ttf_parser..parser..LazyArrayIter16$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h838c1fafc8a101deE.exit.i.i.i"

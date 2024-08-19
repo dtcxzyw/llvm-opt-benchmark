@@ -11842,21 +11842,18 @@ define hidden void @_ZN9itertools9size_hint10add_scalar17hf8d6812a184bf281E.llvm
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @_ZN9text_size5range9TextRange8contains17h0bc92f6f35a83493E.llvm.18152640266846470746(i32 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 {
-  %4 = icmp ult i32 %0, %2
-  %5 = icmp ne i32 %0, %2
-  %. = zext i1 %5 to i8
-  %.012 = select i1 %4, i8 -1, i8 %.
-  switch i8 %.012, label %7 [
+  %.012 = tail call i8 @llvm.ucmp.i8.i32(i32 %0, i32 %2)
+  switch i8 %.012, label %5 [
     i8 -1, label %.critedge
     i8 0, label %.critedge
   ]
 
 .critedge:                                        ; preds = %3, %3
-  %6 = icmp ult i32 %2, %1
-  br label %7
+  %4 = icmp ult i32 %2, %1
+  br label %5
 
-7:                                                ; preds = %3, %.critedge
-  %.010 = phi i1 [ %6, %.critedge ], [ false, %3 ]
+5:                                                ; preds = %3, %.critedge
+  %.010 = phi i1 [ %4, %.critedge ], [ false, %3 ]
   ret i1 %.010
 }
 
@@ -19250,7 +19247,7 @@ define hidden noundef zeroext i1 @"_ZN14ide_completion11completions8fn_param27sh
   %9 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..nodes..Pat$GT$17hfe9e3b2b7cc1b90eE.llvm.18152640266846470746"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5) #34
-          to label %39 unwind label %37
+          to label %37 unwind label %35
 
 10:                                               ; preds = %3
   call void @llvm.experimental.noalias.scope.decl(metadata !4114)
@@ -19320,31 +19317,28 @@ define hidden noundef zeroext i1 @"_ZN14ide_completion11completions8fn_param27sh
 
 32:                                               ; preds = %"_ZN5rowan5green7element138_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$$RF$rowan..green..node..GreenNodeData$C$$RF$rowan..green..token..GreenTokenData$GT$$GT$8text_len17h99fb7657d751ae4dE.llvm.15040385714620792880.exit.i.i"
   %33 = load i32, ptr %0, align 4, !noundef !9
-  %34 = icmp ult i32 %.0.i.i, %33
-  %35 = icmp ne i32 %.0.i.i, %33
-  %..i = zext i1 %35 to i8
-  %.012.i = select i1 %34, i8 -1, i8 %..i
+  %.012.i = call i8 @llvm.ucmp.i8.i32(i32 %.0.i.i, i32 %33)
   switch i8 %.012.i, label %_ZN9text_size5range9TextRange8contains17h0bc92f6f35a83493E.llvm.18152640266846470746.exit [
     i8 -1, label %.critedge.i
     i8 0, label %.critedge.i
   ]
 
 .critedge.i:                                      ; preds = %32, %32
-  %36 = icmp ult i32 %33, %30
+  %34 = icmp ult i32 %33, %30
   br label %_ZN9text_size5range9TextRange8contains17h0bc92f6f35a83493E.llvm.18152640266846470746.exit
 
 _ZN9text_size5range9TextRange8contains17h0bc92f6f35a83493E.llvm.18152640266846470746.exit: ; preds = %.critedge.i, %32
-  %.010.i = phi i1 [ %36, %.critedge.i ], [ false, %32 ]
+  %.010.i = phi i1 [ %34, %.critedge.i ], [ false, %32 ]
   call void @"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..nodes..Pat$GT$17hfe9e3b2b7cc1b90eE.llvm.18152640266846470746"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
   ret i1 %.010.i
 
-37:                                               ; preds = %8
-  %38 = landingpad { ptr, i32 }
+35:                                               ; preds = %8
+  %36 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #35
   unreachable
 
-39:                                               ; preds = %8
+37:                                               ; preds = %8
   resume { ptr, i32 } %9
 }
 
@@ -39503,6 +39497,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #32
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #33
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i32(i32, i32) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #30

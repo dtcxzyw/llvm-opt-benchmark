@@ -4345,10 +4345,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN49_$LT$u8$u20$as$u20$core..slice..
   %7 = sext i32 %6 to i64
   %8 = icmp eq i32 %6, 0
   %spec.store.select = select i1 %8, i64 %5, i64 %7
-  %9 = icmp slt i64 %spec.store.select, 0
-  %10 = icmp ne i64 %spec.store.select, 0
-  %.8 = zext i1 %10 to i8
-  %.0 = select i1 %9, i8 -1, i8 %.8
+  %.0 = tail call i8 @llvm.scmp.i8.i64(i64 %spec.store.select, i64 0)
   ret i8 %.0
 }
 
@@ -8586,10 +8583,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN55_$LT$A$u20$as$u20$core..slice..c
   %7 = sext i32 %6 to i64
   %8 = icmp eq i32 %6, 0
   %spec.store.select.i = select i1 %8, i64 %5, i64 %7
-  %9 = icmp slt i64 %spec.store.select.i, 0
-  %10 = icmp ne i64 %spec.store.select.i, 0
-  %.8.i = zext i1 %10 to i8
-  %.0.i = select i1 %9, i8 -1, i8 %.8.i
+  %.0.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i, i64 0)
   ret i8 %.0.i
 }
 
@@ -21984,6 +21978,9 @@ declare i64 @llvm.umax.i64(i64, i64) #37
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #37
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.scmp.i8.i64(i64, i64) #37
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #39

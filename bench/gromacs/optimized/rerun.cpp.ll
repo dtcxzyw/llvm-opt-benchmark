@@ -1945,11 +1945,11 @@ _ZL17prepareRerunStateRK10t_trxframeP7t_statebPKN3gmx19VirtualSitesHandlerE.exit
   %942 = load ptr, ptr %941, align 8
   %943 = getelementptr inbounds i8, ptr %942, i64 1
   %944 = load i8, ptr %943, align 1
-  %.not.i.not.i = icmp ne i8 %944, 0
+  %.not2.i = icmp ne i8 %944, 0
   br label %_ZNK3gmx11StopHandler24stoppingAfterCurrentStepEb.exit
 
 _ZNK3gmx11StopHandler24stoppingAfterCurrentStepEb.exit: ; preds = %940, %_ZL17prepareRerunStateRK10t_trxframeP7t_statebPKN3gmx19VirtualSitesHandlerE.exit
-  %945 = phi i1 [ true, %_ZL17prepareRerunStateRK10t_trxframeP7t_statebPKN3gmx19VirtualSitesHandlerE.exit ], [ %.not.i.not.i, %940 ]
+  %945 = phi i1 [ true, %_ZL17prepareRerunStateRK10t_trxframeP7t_statebPKN3gmx19VirtualSitesHandlerE.exit ], [ %.not2.i, %940 ]
   %946 = zext i1 %945 to i8
   store i8 %946, ptr %2, align 1
   %947 = load ptr, ptr %294, align 8

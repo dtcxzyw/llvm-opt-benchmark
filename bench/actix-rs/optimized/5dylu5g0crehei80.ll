@@ -6197,8 +6197,8 @@ _ZN4core4iter6traits8iterator8Iterator3any17hb549db5b7d1878a3E.exit.i: ; preds =
   %365 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8, !noalias !768
   %366 = icmp ult i64 %365, 6
   call void @llvm.assume(i1 %366)
-  %.not.i197.not.i = icmp eq i64 %365, 0
-  br i1 %.not.i197.not.i, label %350, label %367
+  %switch.selectcmp.i197.not.i = icmp eq i64 %365, 0
+  br i1 %switch.selectcmp.i197.not.i, label %350, label %367
 
 367:                                              ; preds = %364
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %137), !noalias !768
@@ -8573,8 +8573,8 @@ _ZN4core4iter6traits8iterator8Iterator3any17h6d735842b4735806E.exit.i: ; preds =
   %1174 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8, !noalias !963
   %1175 = icmp ult i64 %1174, 6
   call void @llvm.assume(i1 %1175)
-  %.not.i197.not.i290 = icmp eq i64 %1174, 0
-  br i1 %.not.i197.not.i290, label %1159, label %1176
+  %switch.selectcmp.i197.not.i290 = icmp eq i64 %1174, 0
+  br i1 %switch.selectcmp.i197.not.i290, label %1159, label %1176
 
 1176:                                             ; preds = %1173
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %90), !noalias !963
@@ -10515,8 +10515,8 @@ default.unreachable4.i.i230.i210:                 ; preds = %1448
   %1857 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E monotonic, align 8, !noalias !1164
   %1858 = icmp ult i64 %1857, 6
   tail call void @llvm.assume(i1 %1858)
-  %.not.i111.i = icmp ugt i64 %1857, 4
-  br i1 %.not.i111.i, label %1859, label %1841
+  %switch.selectcmp.i111.i = icmp ugt i64 %1857, 4
+  br i1 %switch.selectcmp.i111.i, label %1859, label %1841
 
 1859:                                             ; preds = %1843
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %61), !noalias !1164

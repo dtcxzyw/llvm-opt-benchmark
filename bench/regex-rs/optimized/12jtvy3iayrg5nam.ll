@@ -304,10 +304,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$cor
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %5 = load i64, ptr %3, align 8, !alias.scope !17, !noalias !20, !noundef !7
   %6 = load i64, ptr %4, align 8, !alias.scope !20, !noalias !17, !noundef !7
-  %7 = icmp ult i64 %5, %6
-  %8 = icmp ne i64 %5, %6
-  %..i = zext i1 %8 to i8
-  %.0.i = select i1 %7, i8 -1, i8 %..i
+  %.0.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %5, i64 %6)
   ret i8 %.0.i
 }
 
@@ -3414,28 +3411,22 @@ define noundef range(i8 -1, 2) i8 @"_ZN58_$LT$regex_syntax..ast..Span$u20$as$u20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !624)
   %3 = load i64, ptr %0, align 8, !alias.scope !621, !noalias !624, !noundef !7
   %4 = load i64, ptr %1, align 8, !alias.scope !624, !noalias !621, !noundef !7
-  %5 = icmp ult i64 %3, %4
-  %6 = icmp ne i64 %3, %4
-  %..i = zext i1 %6 to i8
-  %.0.i = select i1 %5, i8 -1, i8 %..i
-  %7 = icmp eq i8 %.0.i, 0
-  br i1 %7, label %8, label %15
+  %.0.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %3, i64 %4)
+  %5 = icmp eq i64 %3, %4
+  br i1 %5, label %6, label %11
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !626)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !629)
-  %11 = load i64, ptr %10, align 8, !alias.scope !626, !noalias !631, !noundef !7
-  %12 = load i64, ptr %9, align 8, !alias.scope !629, !noalias !635, !noundef !7
-  %13 = icmp ult i64 %11, %12
-  %14 = icmp ne i64 %11, %12
-  %..i.i = zext i1 %14 to i8
-  %.0.i.i = select i1 %13, i8 -1, i8 %..i.i
-  br label %15
+  %9 = load i64, ptr %8, align 8, !alias.scope !626, !noalias !631, !noundef !7
+  %10 = load i64, ptr %7, align 8, !alias.scope !629, !noalias !635, !noundef !7
+  %.0.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %9, i64 %10)
+  br label %11
 
-15:                                               ; preds = %8, %2
-  %.0 = phi i8 [ %.0.i.i, %8 ], [ %.0.i, %2 ]
+11:                                               ; preds = %6, %2
+  %.0 = phi i8 [ %.0.i.i, %6 ], [ %.0.i, %2 ]
   ret i8 %.0
 }
 
@@ -3447,28 +3438,22 @@ define noundef range(i8 -1, 2) i8 @"_ZN65_$LT$regex_syntax..ast..Span$u20$as$u20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !644)
   %3 = load i64, ptr %0, align 8, !alias.scope !646, !noalias !647, !noundef !7
   %4 = load i64, ptr %1, align 8, !alias.scope !647, !noalias !646, !noundef !7
-  %5 = icmp ult i64 %3, %4
-  %6 = icmp ne i64 %3, %4
-  %..i.i = zext i1 %6 to i8
-  %.0.i.i = select i1 %5, i8 -1, i8 %..i.i
-  %7 = icmp eq i8 %.0.i.i, 0
-  br i1 %7, label %8, label %"_ZN58_$LT$regex_syntax..ast..Span$u20$as$u20$core..cmp..Ord$GT$3cmp17h4fbd1354e4a7bf90E.exit"
+  %.0.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %3, i64 %4)
+  %5 = icmp eq i64 %3, %4
+  br i1 %5, label %6, label %"_ZN58_$LT$regex_syntax..ast..Span$u20$as$u20$core..cmp..Ord$GT$3cmp17h4fbd1354e4a7bf90E.exit"
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !648)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !651)
-  %11 = load i64, ptr %10, align 8, !alias.scope !653, !noalias !654, !noundef !7
-  %12 = load i64, ptr %9, align 8, !alias.scope !658, !noalias !659, !noundef !7
-  %13 = icmp ult i64 %11, %12
-  %14 = icmp ne i64 %11, %12
-  %..i.i.i = zext i1 %14 to i8
-  %.0.i.i.i = select i1 %13, i8 -1, i8 %..i.i.i
+  %9 = load i64, ptr %8, align 8, !alias.scope !653, !noalias !654, !noundef !7
+  %10 = load i64, ptr %7, align 8, !alias.scope !658, !noalias !659, !noundef !7
+  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %9, i64 %10)
   br label %"_ZN58_$LT$regex_syntax..ast..Span$u20$as$u20$core..cmp..Ord$GT$3cmp17h4fbd1354e4a7bf90E.exit"
 
-"_ZN58_$LT$regex_syntax..ast..Span$u20$as$u20$core..cmp..Ord$GT$3cmp17h4fbd1354e4a7bf90E.exit": ; preds = %2, %8
-  %.0.i = phi i8 [ %.0.i.i.i, %8 ], [ %.0.i.i, %2 ]
+"_ZN58_$LT$regex_syntax..ast..Span$u20$as$u20$core..cmp..Ord$GT$3cmp17h4fbd1354e4a7bf90E.exit": ; preds = %2, %6
+  %.0.i = phi i8 [ %.0.i.i.i, %6 ], [ %.0.i.i, %2 ]
   ret i8 %.0.i
 }
 
@@ -3510,10 +3495,7 @@ define noundef zeroext i1 @"_ZN64_$LT$regex_syntax..ast..Position$u20$as$u20$cor
 define noundef range(i8 -1, 2) i8 @"_ZN62_$LT$regex_syntax..ast..Position$u20$as$u20$core..cmp..Ord$GT$3cmp17h9982371b23cc01fdE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #4 {
   %3 = load i64, ptr %0, align 8, !noundef !7
   %4 = load i64, ptr %1, align 8, !noundef !7
-  %5 = icmp ult i64 %3, %4
-  %6 = icmp ne i64 %3, %4
-  %. = zext i1 %6 to i8
-  %.0 = select i1 %5, i8 -1, i8 %.
+  %.0 = tail call i8 @llvm.ucmp.i8.i64(i64 %3, i64 %4)
   ret i8 %.0
 }
 
@@ -3523,10 +3505,7 @@ define noundef range(i8 -1, 2) i8 @"_ZN69_$LT$regex_syntax..ast..Position$u20$as
   tail call void @llvm.experimental.noalias.scope.decl(metadata !669)
   %3 = load i64, ptr %0, align 8, !alias.scope !666, !noalias !669, !noundef !7
   %4 = load i64, ptr %1, align 8, !alias.scope !669, !noalias !666, !noundef !7
-  %5 = icmp ult i64 %3, %4
-  %6 = icmp ne i64 %3, %4
-  %..i = zext i1 %6 to i8
-  %.0.i = select i1 %5, i8 -1, i8 %..i
+  %.0.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %3, i64 %4)
   ret i8 %.0.i
 }
 
@@ -5732,6 +5711,9 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #29
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #30
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i64(i64, i64) #28
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #31

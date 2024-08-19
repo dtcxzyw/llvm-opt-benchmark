@@ -2960,10 +2960,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3ops8function5impls80_$LT$imp
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1167)
   %4 = load i32, ptr %1, align 8, !alias.scope !1164, !noalias !1167, !noundef !7
   %5 = load i32, ptr %2, align 8, !alias.scope !1167, !noalias !1164, !noundef !7
-  %6 = icmp ult i32 %4, %5
-  %7 = icmp ne i32 %4, %5
-  %..i = zext i1 %7 to i8
-  %.0.i = select i1 %6, i8 -1, i8 %..i
+  %.0.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32 %4, i32 %5)
   ret i8 %.0.i
 }
 
@@ -8721,10 +8718,7 @@ define hidden { i32, ptr } @"_ZN7ide_ssr6search20pick_path_for_usages28_$u7b$$u7
 define hidden noundef range(i8 -1, 2) i8 @"_ZN7ide_ssr6search20pick_path_for_usages28_$u7b$$u7b$closure$u7d$$u7d$17h6fd665f65f7c95b0E.llvm.17050508828239973313"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #16 {
   %4 = load i32, ptr %1, align 8, !noundef !7
   %5 = load i32, ptr %2, align 8, !noundef !7
-  %6 = icmp ult i32 %4, %5
-  %7 = icmp ne i32 %4, %5
-  %. = zext i1 %7 to i8
-  %.0 = select i1 %6, i8 -1, i8 %.
+  %.0 = tail call i8 @llvm.ucmp.i8.i32(i32 %4, i32 %5)
   ret i8 %.0
 }
 
@@ -9192,6 +9186,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #32
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i32(i32, i32) #32
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

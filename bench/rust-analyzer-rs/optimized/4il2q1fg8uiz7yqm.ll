@@ -1141,10 +1141,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function5FnMut8call_mut17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !268)
   %4 = load i32, ptr %1, align 8, !alias.scope !270, !noalias !271, !noundef !9
   %5 = load i32, ptr %2, align 8, !alias.scope !271, !noalias !270, !noundef !9
-  %6 = icmp ult i32 %4, %5
-  %7 = icmp ne i32 %4, %5
-  %..i.i = zext i1 %7 to i8
-  %.0.i.i = select i1 %6, i8 -1, i8 %..i.i
+  %.0.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32 %4, i32 %5)
   ret i8 %.0.i.i
 }
 
@@ -1367,10 +1364,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3ops8function5impls80_$LT$imp
   tail call void @llvm.experimental.noalias.scope.decl(metadata !383)
   %4 = load i32, ptr %1, align 8, !alias.scope !385, !noalias !386, !noundef !9
   %5 = load i32, ptr %2, align 8, !alias.scope !386, !noalias !385, !noundef !9
-  %6 = icmp ult i32 %4, %5
-  %7 = icmp ne i32 %4, %5
-  %..i.i.i = zext i1 %7 to i8
-  %.0.i.i.i = select i1 %6, i8 -1, i8 %..i.i.i
+  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32 %4, i32 %5)
   ret i8 %.0.i.i.i
 }
 
@@ -3330,10 +3324,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN4core4iter6traits8iterator8Iterator
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1045)
   %3 = load i32, ptr %0, align 8, !alias.scope !1042, !noalias !1045, !noundef !9
   %4 = load i32, ptr %1, align 8, !alias.scope !1045, !noalias !1042, !noundef !9
-  %5 = icmp ult i32 %3, %4
-  %6 = icmp ne i32 %3, %4
-  %..i = zext i1 %6 to i8
-  %.0.i = select i1 %5, i8 -1, i8 %..i
+  %.0.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32 %3, i32 %4)
   ret i8 %.0.i
 }
 
@@ -6115,10 +6106,7 @@ define hidden noundef nonnull ptr @"_ZN60_$LT$chalk_ir..Ty$LT$I$GT$$u20$as$u20$c
 define hidden noundef range(i8 -1, 2) i8 @"_ZN60_$LT$text_size..size..TextSize$u20$as$u20$core..cmp..Ord$GT$3cmp17ha7163619330a6075E.llvm.1832755805191578588"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #31 {
   %3 = load i32, ptr %0, align 4, !noundef !9
   %4 = load i32, ptr %1, align 4, !noundef !9
-  %5 = icmp ult i32 %3, %4
-  %6 = icmp ne i32 %3, %4
-  %. = zext i1 %6 to i8
-  %.0 = select i1 %5, i8 -1, i8 %.
+  %.0 = tail call i8 @llvm.ucmp.i8.i32(i32 %3, i32 %4)
   ret i8 %.0
 }
 
@@ -25511,6 +25499,9 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #55
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #56
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i32(i32, i32) #54
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #57

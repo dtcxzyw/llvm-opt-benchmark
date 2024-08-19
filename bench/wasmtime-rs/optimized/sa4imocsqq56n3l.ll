@@ -1638,10 +1638,7 @@ _ZN4core3fmt8builders9DebugList7entries17h9319040b45b23007E.exit: ; preds = %.lr
 define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17h77d218d0d5e66aefE.llvm.5781664634918412060"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #5 {
   %3 = load i64, ptr %0, align 8, !noundef !4
   %4 = load i64, ptr %1, align 8, !noundef !4
-  %5 = icmp ult i64 %3, %4
-  %6 = icmp ne i64 %3, %4
-  %. = zext i1 %6 to i8
-  %.0 = select i1 %5, i8 -1, i8 %.
+  %.0 = tail call i8 @llvm.ucmp.i8.i64(i64 %3, i64 %4)
   ret i8 %.0
 }
 
@@ -1758,10 +1755,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function6FnOnce9call_once
   tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
   %3 = load i64, ptr %0, align 8, !alias.scope !94, !noalias !97, !noundef !4
   %4 = load i64, ptr %1, align 8, !alias.scope !97, !noalias !94, !noundef !4
-  %5 = icmp ult i64 %3, %4
-  %6 = icmp ne i64 %3, %4
-  %..i = zext i1 %6 to i8
-  %.0.i = select i1 %5, i8 -1, i8 %..i
+  %.0.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %3, i64 %4)
   ret i8 %.0.i
 }
 
@@ -18677,10 +18671,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN17cranelift_codegen2ir6layout6Layou
   %.0.i11 = select i1 %.not12, ptr %14, ptr %10
   %15 = getelementptr inbounds i8, ptr %.0.i11, i64 12
   %16 = load i32, ptr %15, align 4, !noundef !4
-  %17 = icmp ult i32 %12, %16
-  %18 = icmp ne i32 %12, %16
-  %. = zext i1 %18 to i8
-  %.0 = select i1 %17, i8 -1, i8 %.
+  %.0 = tail call i8 @llvm.ucmp.i8.i32(i32 %12, i32 %16)
   ret i8 %.0
 }
 
@@ -29293,6 +29284,9 @@ declare hidden void @_ZN17cranelift_codegen3isa3x644inst6unwind7systemv7map_reg1
 declare void @llvm.experimental.noalias.scope.decl(metadata) #37
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i64(i64, i64) #38
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #38
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -29300,6 +29294,9 @@ declare i64 @llvm.umax.i64(i64, i64) #38
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #39
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i32(i32, i32) #38
 
 attributes #0 = { alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { alwaysinline nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

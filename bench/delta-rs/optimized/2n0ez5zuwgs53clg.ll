@@ -26401,10 +26401,7 @@ define hidden noundef i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$G
 define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17h77d218d0d5e66aefE.llvm.7925137649769596059"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #13 {
   %3 = load i64, ptr %0, align 8, !noundef !4
   %4 = load i64, ptr %1, align 8, !noundef !4
-  %5 = icmp ult i64 %3, %4
-  %6 = icmp ne i64 %3, %4
-  %. = zext i1 %6 to i8
-  %.0 = select i1 %5, i8 -1, i8 %.
+  %.0 = tail call i8 @llvm.ucmp.i8.i64(i64 %3, i64 %4)
   ret i8 %.0
 }
 
@@ -29914,10 +29911,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function6FnOnce9call_once
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4198)
   %3 = load i64, ptr %0, align 8, !alias.scope !4195, !noalias !4198, !noundef !4
   %4 = load i64, ptr %1, align 8, !alias.scope !4198, !noalias !4195, !noundef !4
-  %5 = icmp ult i64 %3, %4
-  %6 = icmp ne i64 %3, %4
-  %..i = zext i1 %6 to i8
-  %.0.i = select i1 %5, i8 -1, i8 %..i
+  %.0.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %3, i64 %4)
   ret i8 %.0.i
 }
 
@@ -107871,8 +107865,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr40drop
   %115 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8
   %116 = icmp ult i64 %115, 6
   call void @llvm.assume(i1 %116)
-  %.not.i48 = icmp ugt i64 %115, 3
-  br i1 %.not.i48, label %117, label %83
+  %switch.selectcmp.i48 = icmp ugt i64 %115, 3
+  br i1 %switch.selectcmp.i48, label %117, label %83
 
 117:                                              ; preds = %104
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
@@ -108365,8 +108359,8 @@ switch.early.test:                                ; preds = %52
   %96 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE monotonic, align 8
   %97 = icmp ult i64 %96, 6
   call void @llvm.assume(i1 %97)
-  %.not.i39 = icmp ugt i64 %96, 3
-  br i1 %.not.i39, label %98, label %64
+  %switch.selectcmp.i39 = icmp ugt i64 %96, 3
+  br i1 %switch.selectcmp.i39, label %98, label %64
 
 98:                                               ; preds = %85
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
@@ -112165,6 +112159,9 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #52
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #53
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i64(i64, i64) #51
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #51

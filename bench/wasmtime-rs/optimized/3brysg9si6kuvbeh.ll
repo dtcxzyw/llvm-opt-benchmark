@@ -2950,55 +2950,55 @@ define { i32, i32 } @_ZN16wasmtime_environ11address_map15lookup_file_pos17h3cd41
   %or.cond50 = or i1 %16, %.not.i.i
   br i1 %or.cond50, label %.thread, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %14, %22
-  %.028.i.i = phi i64 [ %25, %22 ], [ %9, %14 ]
-  %.01927.i.i = phi i64 [ %.022.i.i, %22 ], [ 0, %14 ]
-  %.02026.i.i = phi i64 [ %.021.i.i, %22 ], [ %9, %14 ]
-  %18 = lshr i64 %.028.i.i, 1
-  %19 = add i64 %18, %.01927.i.i
+.lr.ph.i.i:                                       ; preds = %14, %23
+  %.027.i.i = phi i64 [ %27, %23 ], [ %9, %14 ]
+  %.01926.i.i = phi i64 [ %.022.i.i, %23 ], [ 0, %14 ]
+  %.02025.i.i = phi i64 [ %.021.i.i, %23 ], [ %9, %14 ]
+  %18 = lshr i64 %.027.i.i, 1
+  %19 = add i64 %18, %.01926.i.i
   %20 = icmp ult i64 %19, %9
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds { [4 x i8], {} }, ptr %6, i64 %19
   %.val23.i.i = load i32, ptr %21, align 1, !alias.scope !698, !noalias !703
-  %.not24.i.i = icmp eq i32 %.val23.i.i, %.sroa.57.0
-  br i1 %.not24.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17had71ddbb28491befE.exit.thread", label %22
+  %22 = icmp eq i32 %.val23.i.i, %.sroa.57.0
+  br i1 %22, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17had71ddbb28491befE.exit.thread", label %23
 
-22:                                               ; preds = %.lr.ph.i.i
-  %.not.not.i.i = icmp ult i32 %.val23.i.i, %.sroa.57.0
-  %23 = icmp ugt i32 %.val23.i.i, %.sroa.57.0
-  %.021.i.i = select i1 %23, i64 %19, i64 %.02026.i.i
-  %24 = add nuw i64 %19, 1
-  %.022.i.i = select i1 %.not.not.i.i, i64 %24, i64 %.01927.i.i
-  %25 = sub i64 %.021.i.i, %.022.i.i
-  %26 = icmp ult i64 %.022.i.i, %.021.i.i
-  br i1 %26, label %.lr.ph.i.i, label %27
+23:                                               ; preds = %.lr.ph.i.i
+  %24 = icmp ugt i32 %.val23.i.i, %.sroa.57.0
+  %.021.i.i = select i1 %24, i64 %19, i64 %.02025.i.i
+  %25 = icmp ult i32 %.val23.i.i, %.sroa.57.0
+  %26 = add nuw i64 %19, 1
+  %.022.i.i = select i1 %25, i64 %26, i64 %.01926.i.i
+  %27 = sub i64 %.021.i.i, %.022.i.i
+  %28 = icmp ult i64 %.022.i.i, %.021.i.i
+  br i1 %28, label %.lr.ph.i.i, label %29
 
-27:                                               ; preds = %22
-  %28 = icmp ule i64 %.022.i.i, %9
-  tail call void @llvm.assume(i1 %28)
-  %29 = icmp eq i64 %.022.i.i, 0
-  br i1 %29, label %.thread, label %30
+29:                                               ; preds = %23
+  %30 = icmp ule i64 %.022.i.i, %9
+  tail call void @llvm.assume(i1 %30)
+  %31 = icmp eq i64 %.022.i.i, 0
+  br i1 %31, label %.thread, label %32
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17had71ddbb28491befE.exit.thread": ; preds = %.lr.ph.i.i, %30
-  %.0 = phi i64 [ %31, %30 ], [ %19, %.lr.ph.i.i ]
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17had71ddbb28491befE.exit.thread": ; preds = %.lr.ph.i.i, %32
+  %.0 = phi i64 [ %33, %32 ], [ %19, %.lr.ph.i.i ]
   %.not = icmp ult i64 %.0, %9
-  br i1 %.not, label %32, label %.thread
+  br i1 %.not, label %34, label %.thread
 
-30:                                               ; preds = %27
-  %31 = add i64 %.022.i.i, -1
+32:                                               ; preds = %29
+  %33 = add i64 %.022.i.i, -1
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17had71ddbb28491befE.exit.thread"
 
-32:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17had71ddbb28491befE.exit.thread"
-  %33 = getelementptr inbounds { [4 x i8], {} }, ptr %15, i64 %.0
-  %34 = load i32, ptr %33, align 1
+34:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17had71ddbb28491befE.exit.thread"
+  %35 = getelementptr inbounds { [4 x i8], {} }, ptr %15, i64 %.0
+  %36 = load i32, ptr %35, align 1
   br label %.thread
 
-.thread:                                          ; preds = %3, %5, %27, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17had71ddbb28491befE.exit.thread", %14, %32
-  %.sroa.6.0 = phi i32 [ %34, %32 ], [ undef, %14 ], [ undef, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17had71ddbb28491befE.exit.thread" ], [ undef, %27 ], [ undef, %5 ], [ undef, %3 ]
-  %.sroa.0.0 = phi i32 [ 1, %32 ], [ 0, %14 ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17had71ddbb28491befE.exit.thread" ], [ 0, %27 ], [ 0, %5 ], [ 0, %3 ]
-  %35 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
-  %36 = insertvalue { i32, i32 } %35, i32 %.sroa.6.0, 1
-  ret { i32, i32 } %36
+.thread:                                          ; preds = %3, %5, %29, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17had71ddbb28491befE.exit.thread", %14, %34
+  %.sroa.6.0 = phi i32 [ %36, %34 ], [ undef, %14 ], [ undef, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17had71ddbb28491befE.exit.thread" ], [ undef, %29 ], [ undef, %5 ], [ undef, %3 ]
+  %.sroa.0.0 = phi i32 [ 1, %34 ], [ 0, %14 ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17had71ddbb28491befE.exit.thread" ], [ 0, %29 ], [ 0, %5 ], [ 0, %3 ]
+  %37 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
+  %38 = insertvalue { i32, i32 } %37, i32 %.sroa.6.0, 1
+  ret { i32, i32 } %38
 }
 
 ; Function Attrs: nonlazybind uwtable

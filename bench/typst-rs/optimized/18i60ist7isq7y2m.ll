@@ -3558,9 +3558,9 @@ define internal fastcc noundef zeroext i1 @_ZN12typst_render16render_svg_glyph17
   %64 = getelementptr inbounds i8, ptr %62, i64 2
   %.val.i.i.i.i47.i.i.i.i.i.i = load i16, ptr %64, align 1, !noalias !668
   %65 = tail call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i47.i.i.i.i.i.i)
-  %.not.i.not.i.i.i.i.i = icmp ule i16 %63, %3
-  %.not.i20.i.i.i.i.i = icmp uge i16 %65, %3
-  %spec.select.i.i.i.i = select i1 %.not.i.not.i.i.i.i.i, i1 %.not.i20.i.i.i.i.i, i1 false
+  %switch.selectcmp.i.not.i.i.i.i.i = icmp ule i16 %63, %3
+  %switch.selectcmp.i20.i.i.i.i.i = icmp uge i16 %65, %3
+  %spec.select.i.i.i.i = select i1 %switch.selectcmp.i.not.i.i.i.i.i, i1 %switch.selectcmp.i20.i.i.i.i.i, i1 false
   br i1 %spec.select.i.i.i.i, label %69, label %66
 
 66:                                               ; preds = %"_ZN103_$LT$ttf_parser..parser..LazyArrayIter16$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4911c87654e9889eE.exit.i.i"

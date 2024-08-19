@@ -3158,10 +3158,7 @@ _ZN4core3fmt8builders9DebugList7entries17h324e1e6964978b56E.exit: ; preds = %.lr
 define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls47_$LT$impl$u20$core..cmp..Ord$u20$for$u20$u8$GT$3cmp17hbbcafa86f7c1dd71E.llvm.6092180546091225645"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #9 {
   %3 = load i8, ptr %0, align 1, !noundef !4
   %4 = load i8, ptr %1, align 1, !noundef !4
-  %5 = icmp ult i8 %3, %4
-  %6 = icmp ne i8 %3, %4
-  %. = zext i1 %6 to i8
-  %.0 = select i1 %5, i8 -1, i8 %.
+  %.0 = tail call i8 @llvm.ucmp.i8.i8(i8 %3, i8 %4)
   ret i8 %.0
 }
 
@@ -3169,10 +3166,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls47_$LT$impl$u20$cor
 define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls48_$LT$impl$u20$core..cmp..Ord$u20$for$u20$u32$GT$3cmp17h9de24ee4d92220a3E.llvm.6092180546091225645"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #9 {
   %3 = load i32, ptr %0, align 4, !noundef !4
   %4 = load i32, ptr %1, align 4, !noundef !4
-  %5 = icmp ult i32 %3, %4
-  %6 = icmp ne i32 %3, %4
-  %. = zext i1 %6 to i8
-  %.0 = select i1 %5, i8 -1, i8 %.
+  %.0 = tail call i8 @llvm.ucmp.i8.i32(i32 %3, i32 %4)
   ret i8 %.0
 }
 
@@ -3458,10 +3452,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3ops8function5impls80_$LT$imp
   %7 = load ptr, ptr %6, align 8, !alias.scope !354, !noalias !351, !nonnull !4, !align !36, !noundef !4
   %8 = load i32, ptr %5, align 4, !noalias !356, !noundef !4
   %9 = load i32, ptr %7, align 4, !noalias !356, !noundef !4
-  %10 = icmp ult i32 %8, %9
-  %11 = icmp ne i32 %8, %9
-  %..i = zext i1 %11 to i8
-  %.0.i = select i1 %10, i8 -1, i8 %..i
+  %.0.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32 %8, i32 %9)
   ret i8 %.0.i
 }
 
@@ -3521,10 +3512,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function6FnOnce9call_once
   tail call void @llvm.experimental.noalias.scope.decl(metadata !379)
   %3 = load i8, ptr %0, align 1, !alias.scope !376, !noalias !379, !noundef !4
   %4 = load i8, ptr %1, align 1, !alias.scope !379, !noalias !376, !noundef !4
-  %5 = icmp ult i8 %3, %4
-  %6 = icmp ne i8 %3, %4
-  %..i = zext i1 %6 to i8
-  %.0.i = select i1 %5, i8 -1, i8 %..i
+  %.0.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i8(i8 %3, i8 %4)
   ret i8 %.0.i
 }
 
@@ -3534,10 +3522,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function6FnOnce9call_once
   tail call void @llvm.experimental.noalias.scope.decl(metadata !384)
   %3 = load i32, ptr %0, align 4, !alias.scope !381, !noalias !384, !noundef !4
   %4 = load i32, ptr %1, align 4, !alias.scope !384, !noalias !381, !noundef !4
-  %5 = icmp ult i32 %3, %4
-  %6 = icmp ne i32 %3, %4
-  %..i = zext i1 %6 to i8
-  %.0.i = select i1 %5, i8 -1, i8 %..i
+  %.0.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32 %3, i32 %4)
   ret i8 %.0.i
 }
 
@@ -11334,10 +11319,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN17cranelift_codegen8machinst3abi15
   %7 = load ptr, ptr %6, align 8, !nonnull !4, !align !36, !noundef !4
   %8 = load i32, ptr %5, align 4, !noundef !4
   %9 = load i32, ptr %7, align 4, !noundef !4
-  %10 = icmp ult i32 %8, %9
-  %11 = icmp ne i32 %8, %9
-  %. = zext i1 %11 to i8
-  %.0 = select i1 %10, i8 -1, i8 %.
+  %.0 = tail call i8 @llvm.ucmp.i8.i32(i32 %8, i32 %9)
   ret i8 %.0
 }
 
@@ -21203,10 +21185,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN102_$LT$cranelift_codegen..machins
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4, !alias.scope !3435, !noalias !3438, !noundef !4
   %8 = tail call i32 @llvm.uadd.sat.i32(i32 %7, i32 2147483647)
-  %9 = icmp ult i32 %5, %8
-  %10 = icmp ne i32 %5, %8
-  %..i = zext i1 %10 to i8
-  %.0.i = select i1 %9, i8 -1, i8 %..i
+  %.0.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32 %5, i32 %8)
   ret i8 %.0.i
 }
 
@@ -21218,10 +21197,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN95_$LT$cranelift_codegen..machinst
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4, !noundef !4
   %8 = tail call i32 @llvm.uadd.sat.i32(i32 %7, i32 2147483647)
-  %9 = icmp ult i32 %5, %8
-  %10 = icmp ne i32 %5, %8
-  %. = zext i1 %10 to i8
-  %.0 = select i1 %9, i8 -1, i8 %.
+  %.0 = tail call i8 @llvm.ucmp.i8.i32(i32 %5, i32 %8)
   ret i8 %.0
 }
 
@@ -50172,6 +50148,12 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #33
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #34
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i8(i8, i8) #35
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i32(i32, i32) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #35

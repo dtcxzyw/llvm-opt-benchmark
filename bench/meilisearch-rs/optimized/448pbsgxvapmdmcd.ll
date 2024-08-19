@@ -414,11 +414,8 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls49_$LT$impl$u20$cor
 define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17h343b5be5e71edf49E.llvm.16429374078602074278"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #9 {
   %3 = load i64, ptr %0, align 8, !noundef !4
   %4 = load i64, ptr %1, align 8, !noundef !4
-  %5 = icmp ult i64 %3, %4
-  %.not = icmp ne i64 %3, %4
-  %6 = zext i1 %.not to i8
-  %7 = select i1 %5, i8 -1, i8 %6
-  ret i8 %7
+  %5 = tail call i8 @llvm.ucmp.i8.i64(i64 %3, i64 %4)
+  ret i8 %5
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -448,14 +445,11 @@ define hidden noundef i8 @_ZN4core3ops8function5FnMut8call_mut17hff7041c3a154963
   tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
   %11 = load i64, ptr %9, align 8, !alias.scope !67, !noalias !68, !noundef !4
   %12 = load i64, ptr %10, align 8, !alias.scope !68, !noalias !67, !noundef !4
-  %13 = icmp ult i64 %11, %12
-  %.not.i.i.i = icmp ne i64 %11, %12
-  %14 = zext i1 %.not.i.i.i to i8
-  %15 = select i1 %13, i8 -1, i8 %14
+  %13 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %11, i64 %12)
   br label %_ZN4core4iter6traits8iterator8Iterator10max_by_key7compare17ha9ecca06c771065fE.llvm.16429374078602074278.exit
 
 _ZN4core4iter6traits8iterator8Iterator10max_by_key7compare17ha9ecca06c771065fE.llvm.16429374078602074278.exit: ; preds = %3, %8
-  %.sroa.0.0.i.i = phi i8 [ %15, %8 ], [ %6, %3 ]
+  %.sroa.0.0.i.i = phi i8 [ %13, %8 ], [ %6, %3 ]
   ret i8 %.sroa.0.0.i.i
 }
 
@@ -499,14 +493,11 @@ define hidden noundef i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
   %11 = load i64, ptr %9, align 8, !alias.scope !105, !noalias !106, !noundef !4
   %12 = load i64, ptr %10, align 8, !alias.scope !106, !noalias !105, !noundef !4
-  %13 = icmp ult i64 %11, %12
-  %.not.i.i.i.i = icmp ne i64 %11, %12
-  %14 = zext i1 %.not.i.i.i.i to i8
-  %15 = select i1 %13, i8 -1, i8 %14
+  %13 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %11, i64 %12)
   br label %_ZN4core3ops8function5FnMut8call_mut17hff7041c3a1549637E.llvm.16429374078602074278.exit
 
 _ZN4core3ops8function5FnMut8call_mut17hff7041c3a1549637E.llvm.16429374078602074278.exit: ; preds = %3, %8
-  %.sroa.0.0.i.i.i = phi i8 [ %15, %8 ], [ %6, %3 ]
+  %.sroa.0.0.i.i.i = phi i8 [ %13, %8 ], [ %6, %3 ]
   ret i8 %.sroa.0.0.i.i.i
 }
 
@@ -516,11 +507,8 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function6FnOnce9call_once
   tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
   %3 = load i64, ptr %0, align 8, !alias.scope !107, !noalias !110, !noundef !4
   %4 = load i64, ptr %1, align 8, !alias.scope !110, !noalias !107, !noundef !4
-  %5 = icmp ult i64 %3, %4
-  %.not.i = icmp ne i64 %3, %4
-  %6 = zext i1 %.not.i to i8
-  %7 = select i1 %5, i8 -1, i8 %6
-  ret i8 %7
+  %5 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %3, i64 %4)
+  ret i8 %5
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4413,14 +4401,11 @@ define hidden noundef i8 @_ZN4core4iter6traits8iterator8Iterator10max_by_key7com
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2036)
   %10 = load i64, ptr %8, align 8, !alias.scope !2038, !noalias !2039, !noundef !4
   %11 = load i64, ptr %9, align 8, !alias.scope !2039, !noalias !2038, !noundef !4
-  %12 = icmp ult i64 %10, %11
-  %.not.i.i = icmp ne i64 %10, %11
-  %13 = zext i1 %.not.i.i to i8
-  %14 = select i1 %12, i8 -1, i8 %13
+  %12 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %10, i64 %11)
   br label %"_ZN4core5tuple58_$LT$impl$u20$core..cmp..Ord$u20$for$u20$$LP$U$C$T$RP$$GT$3cmp17hfe6757be3fefe09dE.llvm.16429374078602074278.exit"
 
 "_ZN4core5tuple58_$LT$impl$u20$core..cmp..Ord$u20$for$u20$$LP$U$C$T$RP$$GT$3cmp17hfe6757be3fefe09dE.llvm.16429374078602074278.exit": ; preds = %2, %7
-  %.sroa.0.0.i = phi i8 [ %14, %7 ], [ %5, %2 ]
+  %.sroa.0.0.i = phi i8 [ %12, %7 ], [ %5, %2 ]
   ret i8 %.sroa.0.0.i
 }
 
@@ -4653,7 +4638,7 @@ define hidden noundef i8 @"_ZN4core5tuple58_$LT$impl$u20$core..cmp..Ord$u20$for$
   %4 = load i8, ptr %1, align 8, !range !41, !alias.scope !2059, !noalias !2056, !noundef !4
   %5 = sub nsw i8 %3, %4
   %6 = icmp eq i8 %5, 0
-  br i1 %6, label %7, label %15
+  br i1 %6, label %7, label %13
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4662,14 +4647,11 @@ define hidden noundef i8 @"_ZN4core5tuple58_$LT$impl$u20$core..cmp..Ord$u20$for$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2064)
   %10 = load i64, ptr %8, align 8, !alias.scope !2061, !noalias !2064, !noundef !4
   %11 = load i64, ptr %9, align 8, !alias.scope !2064, !noalias !2061, !noundef !4
-  %12 = icmp ult i64 %10, %11
-  %.not.i = icmp ne i64 %10, %11
-  %13 = zext i1 %.not.i to i8
-  %14 = select i1 %12, i8 -1, i8 %13
-  br label %15
+  %12 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %10, i64 %11)
+  br label %13
 
-15:                                               ; preds = %2, %7
-  %.sroa.0.0 = phi i8 [ %14, %7 ], [ %5, %2 ]
+13:                                               ; preds = %2, %7
+  %.sroa.0.0 = phi i8 [ %12, %7 ], [ %5, %2 ]
   ret i8 %.sroa.0.0
 }
 
@@ -6268,6 +6250,9 @@ declare hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h099f0f
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h0edc0e65c002e574E(ptr noalias noundef align 8 dereferenceable(32), ptr noalias noundef nonnull readonly align 1, i64 noundef, i64 noundef) unnamed_addr #3
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i64(i64, i64) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #26

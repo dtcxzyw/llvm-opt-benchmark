@@ -942,9 +942,9 @@ _ZN9softposit5p32e27convert22convert_u32_to_p32bits17h615e043045e072d1E.exit: ; 
 20:                                               ; preds = %_ZN9softposit5p32e27convert22convert_u32_to_p32bits17h615e043045e072d1E.exit
   %21 = sub i32 0, %1
   %.057 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
-  %.not = icmp slt i32 %.057, 2126512128
+  %switch.not = icmp slt i32 %.057, 2126512128
   %.not.i87 = icmp sgt i32 %1, -1
-  br i1 %.not, label %119, label %71
+  br i1 %switch.not, label %119, label %71
 
 22:                                               ; preds = %_ZN9softposit5p32e27convert22convert_u32_to_p32bits17h615e043045e072d1E.exit
   %.not.i = icmp sgt i32 %1, -1

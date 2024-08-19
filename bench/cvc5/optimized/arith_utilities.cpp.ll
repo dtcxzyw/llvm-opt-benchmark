@@ -612,8 +612,8 @@ terminate.lpad.i.i40:                             ; preds = %ehcleanup
 invoke.cont15:                                    ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit37
   %_mp_size.i = getelementptr inbounds i8, ptr %cr, i64 4
   %20 = load i32, ptr %_mp_size.i, align 4
-  %cmp.inv.i = icmp sgt i32 %20, -1
-  br i1 %cmp.inv.i, label %if.end24, label %if.then17
+  %cmp.inv.i = icmp slt i32 %20, 0
+  br i1 %cmp.inv.i, label %if.then17, label %if.end24
 
 if.then17:                                        ; preds = %invoke.cont15
   invoke void @_ZNK4cvc58internal8RationalngEv(ptr nonnull sret(%"class.cvc5::internal::Rational") align 8 %ref.tmp18, ptr noundef nonnull align 8 dereferenceable(32) %cr)
@@ -830,10 +830,8 @@ _ZN4cvc58internal8RationalD2Ev.exit67:            ; preds = %invoke.cont56
 
 invoke.cont61:                                    ; preds = %_ZN4cvc58internal8RationalD2Ev.exit67
   %44 = load i32, ptr %_mp_size.i68, align 4
-  %cmp6.i69 = icmp ne i32 %44, 0
-  %conv.i70 = zext i1 %cmp6.i69 to i32
   %cmp.inv.i71 = icmp slt i32 %44, 0
-  %cond.i72 = select i1 %cmp.inv.i71, i32 -1, i32 %conv.i70
+  %cond.i72 = call i32 @llvm.scmp.i32.i32(i32 %44, i32 0)
   br i1 %cmp.inv.i71, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %invoke.cont61
@@ -6657,20 +6655,23 @@ entry:
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #19
+declare i64 @llvm.umax.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #19
+declare i64 @llvm.umin.i64(i64, i64) #17
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6689,9 +6690,9 @@ attributes #13 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-mat
 attributes #14 = { cold noreturn }
 attributes #15 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #20 = { noreturn nounwind }
 attributes #21 = { nounwind }
 attributes #22 = { nounwind willreturn memory(read) }

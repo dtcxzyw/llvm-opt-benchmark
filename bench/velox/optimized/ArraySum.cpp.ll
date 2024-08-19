@@ -11552,13 +11552,13 @@ if.then5:                                         ; preds = %if.then
   %cond1 = icmp eq i64 %flags.i.sroa.321.0.extract.shift.mask, 4294967296
   %brmerge = select i1 %cond1, i1 true, i1 %tobool9
   %not.cond1 = xor i1 %cond1, true
-  %.mux43 = zext i1 %not.cond1 to i64
+  %.mux41 = zext i1 %not.cond1 to i64
   br i1 %brmerge, label %return, label %if.end.i
 
 if.then5.thread:                                  ; preds = %lor.lhs.false
-  %flags.i.sroa.321.0.extract.shift.mask38 = and i64 %flags.coerce, -4294967296
-  %cond139 = icmp eq i64 %flags.i.sroa.321.0.extract.shift.mask38, 4294967296
-  br i1 %cond139, label %return, label %if.then18.i
+  %flags.i.sroa.321.0.extract.shift.mask36 = and i64 %flags.coerce, -4294967296
+  %cond137 = icmp eq i64 %flags.i.sroa.321.0.extract.shift.mask36, 4294967296
+  br i1 %cond137, label %return, label %if.then18.i
 
 if.end.i:                                         ; preds = %if.then5
   %tobool15.i = trunc i64 %flags.coerce to i1
@@ -11575,10 +11575,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %value_12 = getelementptr inbounds i8, ptr %other, i64 176
   %3 = load i64, ptr %value_, align 16
   %4 = load i64, ptr %value_12, align 8
-  %cmp.i25 = icmp slt i64 %3, %4
-  %cmp1.i = icmp ne i64 %3, %4
-  %cond.i26 = zext i1 %cmp1.i to i32
-  %cond2.i = select i1 %cmp.i25, i32 -1, i32 %cond.i26
+  %cond2.i = tail call noundef i32 @llvm.scmp.i32.i64(i64 %3, i64 %4)
   %5 = and i64 %flags.coerce, 256
   %tobool14.not = icmp eq i64 %5, 0
   %mul = sub nsw i32 0, %cond2.i
@@ -11599,14 +11596,14 @@ if.end15:                                         ; preds = %entry
   %8 = load ptr, ptr %vfn16.i, align 8
   %call17.i = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(99) %this, i32 noundef %index)
   %brmerge.i = or i1 %call14.i, %call17.i
-  br i1 %brmerge.i, label %if.then.i30, label %if.end.i28
+  br i1 %brmerge.i, label %if.then.i28, label %if.end.i26
 
-if.then.i30:                                      ; preds = %if.end15
+if.then.i28:                                      ; preds = %if.end15
   %flags.i.sroa.311.0.extract.shift.mask.i = and i64 %flags.coerce, -4294967296
   %cond1.i = icmp eq i64 %flags.i.sroa.311.0.extract.shift.mask.i, 4294967296
   br i1 %cond1.i, label %return, label %sw.default.i.i
 
-sw.default.i.i:                                   ; preds = %if.then.i30
+sw.default.i.i:                                   ; preds = %if.then.i28
   br i1 %call17.i, label %if.then.i.i, label %if.end16.i.i
 
 if.then.i.i:                                      ; preds = %sw.default.i.i
@@ -11629,7 +11626,7 @@ if.end23.i.i:                                     ; preds = %if.end16.i.i
   tail call void @llvm.trap()
   unreachable
 
-if.end.i28:                                       ; preds = %if.end15
+if.end.i26:                                       ; preds = %if.end15
   %vtable24.i = load ptr, ptr %this, align 32
   %vfn25.i = getelementptr inbounds i8, ptr %vtable24.i, i64 352
   %9 = load ptr, ptr %vfn25.i, align 8
@@ -11638,19 +11635,16 @@ if.end.i28:                                       ; preds = %if.end15
   %vfn28.i = getelementptr inbounds i8, ptr %vtable27.i, i64 352
   %10 = load ptr, ptr %vfn28.i, align 8
   %call29.i = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(144) %call.i, i32 noundef %otherIndex)
-  %cmp.i.i = icmp slt i64 %call26.i, %call29.i
-  %cmp1.i.i = icmp ne i64 %call26.i, %call29.i
-  %cond.i15.i = zext i1 %cmp1.i.i to i32
-  %cond2.i.i = select i1 %cmp.i.i, i32 -1, i32 %cond.i15.i
+  %cond2.i.i = tail call noundef i32 @llvm.scmp.i32.i64(i64 %call26.i, i64 %call29.i)
   %11 = and i64 %flags.coerce, 256
   %tobool32.not.i = icmp eq i64 %11, 0
   %mul.i = sub nsw i32 0, %cond2.i.i
-  %cond.i29 = select i1 %tobool32.not.i, i32 %mul.i, i32 %cond2.i.i
+  %cond.i27 = select i1 %tobool32.not.i, i32 %mul.i, i32 %cond2.i.i
   br label %return
 
-return:                                           ; preds = %if.end.i28, %if.then18.i.i, %if.end.i.i, %if.then.i.i, %if.then.i30, %if.end.i, %if.then18.i, %if.then5.thread, %if.then5, %if.end
-  %retval.sroa.4.0 = phi i64 [ 1, %if.end ], [ 1, %if.end.i ], [ 1, %if.then18.i ], [ %.mux43, %if.then5 ], [ 0, %if.then5.thread ], [ 1, %if.end.i28 ], [ 1, %if.end.i.i ], [ 1, %if.then18.i.i ], [ 0, %if.then.i30 ], [ 1, %if.then.i.i ]
-  %retval.sroa.0.0 = phi i32 [ %cond, %if.end ], [ %cond.i, %if.end.i ], [ %cond22.i, %if.then18.i ], [ 0, %if.then5 ], [ 0, %if.then5.thread ], [ %cond.i29, %if.end.i28 ], [ %cond.i.i, %if.end.i.i ], [ %cond22.i.i, %if.then18.i.i ], [ 0, %if.then.i30 ], [ 0, %if.then.i.i ]
+return:                                           ; preds = %if.end.i26, %if.then18.i.i, %if.end.i.i, %if.then.i.i, %if.then.i28, %if.end.i, %if.then18.i, %if.then5.thread, %if.then5, %if.end
+  %retval.sroa.4.0 = phi i64 [ 1, %if.end ], [ 1, %if.end.i ], [ 1, %if.then18.i ], [ %.mux41, %if.then5 ], [ 0, %if.then5.thread ], [ 1, %if.end.i26 ], [ 1, %if.end.i.i ], [ 1, %if.then18.i.i ], [ 0, %if.then.i28 ], [ 1, %if.then.i.i ]
+  %retval.sroa.0.0 = phi i32 [ %cond, %if.end ], [ %cond.i, %if.end.i ], [ %cond22.i, %if.then18.i ], [ 0, %if.then5 ], [ 0, %if.then5.thread ], [ %cond.i27, %if.end.i26 ], [ %cond.i.i, %if.end.i.i ], [ %cond22.i.i, %if.then18.i.i ], [ 0, %if.then.i28 ], [ 0, %if.then.i.i ]
   %retval.sroa.4.0.insert.ext = shl nuw nsw i64 %retval.sroa.4.0, 32
   %retval.sroa.0.0.insert.ext = zext i32 %retval.sroa.0.0 to i64
   %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.4.0.insert.ext, %retval.sroa.0.0.insert.ext
@@ -12806,10 +12800,7 @@ if.end:                                           ; preds = %entry
   %vfn28 = getelementptr inbounds i8, ptr %vtable27, i64 352
   %4 = load ptr, ptr %vfn28, align 8
   %call29 = tail call noundef i64 %4(ptr noundef nonnull align 8 dereferenceable(144) %call, i32 noundef %otherIndex)
-  %cmp.i = icmp slt i64 %call26, %call29
-  %cmp1.i = icmp ne i64 %call26, %call29
-  %cond.i15 = zext i1 %cmp1.i to i32
-  %cond2.i = select i1 %cmp.i, i32 -1, i32 %cond.i15
+  %cond2.i = tail call noundef i32 @llvm.scmp.i32.i64(i64 %call26, i64 %call29)
   %5 = and i64 %flags.coerce, 256
   %tobool32.not = icmp eq i64 %5, 0
   %mul = sub nsw i32 0, %cond2.i
@@ -16047,13 +16038,13 @@ if.then5:                                         ; preds = %if.then
   %cond1 = icmp eq i64 %flags.i.sroa.321.0.extract.shift.mask, 4294967296
   %brmerge = select i1 %cond1, i1 true, i1 %tobool9
   %not.cond1 = xor i1 %cond1, true
-  %.mux43 = zext i1 %not.cond1 to i64
+  %.mux41 = zext i1 %not.cond1 to i64
   br i1 %brmerge, label %return, label %if.end.i
 
 if.then5.thread:                                  ; preds = %lor.lhs.false
-  %flags.i.sroa.321.0.extract.shift.mask38 = and i64 %flags.coerce, -4294967296
-  %cond139 = icmp eq i64 %flags.i.sroa.321.0.extract.shift.mask38, 4294967296
-  br i1 %cond139, label %return, label %if.then18.i
+  %flags.i.sroa.321.0.extract.shift.mask36 = and i64 %flags.coerce, -4294967296
+  %cond137 = icmp eq i64 %flags.i.sroa.321.0.extract.shift.mask36, 4294967296
+  br i1 %cond137, label %return, label %if.then18.i
 
 if.end.i:                                         ; preds = %if.then5
   %tobool15.i = trunc i64 %flags.coerce to i1
@@ -16070,10 +16061,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %value_12 = getelementptr inbounds i8, ptr %other, i64 176
   %3 = load i64, ptr %value_, align 16
   %4 = load i64, ptr %value_12, align 8
-  %cmp.i25 = icmp ult i64 %3, %4
-  %cmp1.i = icmp ne i64 %3, %4
-  %cond.i26 = zext i1 %cmp1.i to i32
-  %cond2.i = select i1 %cmp.i25, i32 -1, i32 %cond.i26
+  %cond2.i = tail call noundef i32 @llvm.ucmp.i32.i64(i64 %3, i64 %4)
   %5 = and i64 %flags.coerce, 256
   %tobool14.not = icmp eq i64 %5, 0
   %mul = sub nsw i32 0, %cond2.i
@@ -16094,14 +16082,14 @@ if.end15:                                         ; preds = %entry
   %8 = load ptr, ptr %vfn15.i, align 8
   %call16.i = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(99) %this, i32 noundef %index)
   %brmerge.i = or i1 %call13.i, %call16.i
-  br i1 %brmerge.i, label %if.then.i30, label %if.end.i28
+  br i1 %brmerge.i, label %if.then.i28, label %if.end.i26
 
-if.then.i30:                                      ; preds = %if.end15
+if.then.i28:                                      ; preds = %if.end15
   %flags.i.sroa.311.0.extract.shift.mask.i = and i64 %flags.coerce, -4294967296
   %cond1.i = icmp eq i64 %flags.i.sroa.311.0.extract.shift.mask.i, 4294967296
   br i1 %cond1.i, label %return, label %sw.default.i.i
 
-sw.default.i.i:                                   ; preds = %if.then.i30
+sw.default.i.i:                                   ; preds = %if.then.i28
   br i1 %call16.i, label %if.then.i.i, label %if.end16.i.i
 
 if.then.i.i:                                      ; preds = %sw.default.i.i
@@ -16124,7 +16112,7 @@ if.end23.i.i:                                     ; preds = %if.end16.i.i
   tail call void @llvm.trap()
   unreachable
 
-if.end.i28:                                       ; preds = %if.end15
+if.end.i26:                                       ; preds = %if.end15
   %vtable23.i = load ptr, ptr %this, align 32
   %vfn24.i = getelementptr inbounds i8, ptr %vtable23.i, i64 352
   %9 = load ptr, ptr %vfn24.i, align 8
@@ -16133,19 +16121,16 @@ if.end.i28:                                       ; preds = %if.end15
   %vfn27.i = getelementptr inbounds i8, ptr %vtable26.i, i64 352
   %10 = load ptr, ptr %vfn27.i, align 8
   %call28.i = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(144) %call.i, i32 noundef %otherIndex)
-  %cmp.i.i = icmp ult i64 %call25.i, %call28.i
-  %cmp1.i.i = icmp ne i64 %call25.i, %call28.i
-  %cond.i15.i = zext i1 %cmp1.i.i to i32
-  %cond2.i.i = select i1 %cmp.i.i, i32 -1, i32 %cond.i15.i
+  %cond2.i.i = tail call noundef i32 @llvm.ucmp.i32.i64(i64 %call25.i, i64 %call28.i)
   %11 = and i64 %flags.coerce, 256
   %tobool31.not.i = icmp eq i64 %11, 0
   %mul.i = sub nsw i32 0, %cond2.i.i
-  %cond.i29 = select i1 %tobool31.not.i, i32 %mul.i, i32 %cond2.i.i
+  %cond.i27 = select i1 %tobool31.not.i, i32 %mul.i, i32 %cond2.i.i
   br label %return
 
-return:                                           ; preds = %if.end.i28, %if.then18.i.i, %if.end.i.i, %if.then.i.i, %if.then.i30, %if.end.i, %if.then18.i, %if.then5.thread, %if.then5, %if.end
-  %retval.sroa.4.0 = phi i64 [ 1, %if.end ], [ 1, %if.end.i ], [ 1, %if.then18.i ], [ %.mux43, %if.then5 ], [ 0, %if.then5.thread ], [ 1, %if.end.i28 ], [ 1, %if.end.i.i ], [ 1, %if.then18.i.i ], [ 0, %if.then.i30 ], [ 1, %if.then.i.i ]
-  %retval.sroa.0.0 = phi i32 [ %cond, %if.end ], [ %cond.i, %if.end.i ], [ %cond22.i, %if.then18.i ], [ 0, %if.then5 ], [ 0, %if.then5.thread ], [ %cond.i29, %if.end.i28 ], [ %cond.i.i, %if.end.i.i ], [ %cond22.i.i, %if.then18.i.i ], [ 0, %if.then.i30 ], [ 0, %if.then.i.i ]
+return:                                           ; preds = %if.end.i26, %if.then18.i.i, %if.end.i.i, %if.then.i.i, %if.then.i28, %if.end.i, %if.then18.i, %if.then5.thread, %if.then5, %if.end
+  %retval.sroa.4.0 = phi i64 [ 1, %if.end ], [ 1, %if.end.i ], [ 1, %if.then18.i ], [ %.mux41, %if.then5 ], [ 0, %if.then5.thread ], [ 1, %if.end.i26 ], [ 1, %if.end.i.i ], [ 1, %if.then18.i.i ], [ 0, %if.then.i28 ], [ 1, %if.then.i.i ]
+  %retval.sroa.0.0 = phi i32 [ %cond, %if.end ], [ %cond.i, %if.end.i ], [ %cond22.i, %if.then18.i ], [ 0, %if.then5 ], [ 0, %if.then5.thread ], [ %cond.i27, %if.end.i26 ], [ %cond.i.i, %if.end.i.i ], [ %cond22.i.i, %if.then18.i.i ], [ 0, %if.then.i28 ], [ 0, %if.then.i.i ]
   %retval.sroa.4.0.insert.ext = shl nuw nsw i64 %retval.sroa.4.0, 32
   %retval.sroa.0.0.insert.ext = zext i32 %retval.sroa.0.0 to i64
   %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.4.0.insert.ext, %retval.sroa.0.0.insert.ext
@@ -17130,10 +17115,7 @@ if.end:                                           ; preds = %entry
   %vfn27 = getelementptr inbounds i8, ptr %vtable26, i64 352
   %4 = load ptr, ptr %vfn27, align 8
   %call28 = tail call noundef i64 %4(ptr noundef nonnull align 8 dereferenceable(144) %call, i32 noundef %otherIndex)
-  %cmp.i = icmp ult i64 %call25, %call28
-  %cmp1.i = icmp ne i64 %call25, %call28
-  %cond.i15 = zext i1 %cmp1.i to i32
-  %cond2.i = select i1 %cmp.i, i32 -1, i32 %cond.i15
+  %cond2.i = tail call noundef i32 @llvm.ucmp.i32.i64(i64 %call25, i64 %call28)
   %5 = and i64 %flags.coerce, 256
   %tobool31.not = icmp eq i64 %5, 0
   %mul = sub nsw i32 0, %cond2.i
@@ -54556,6 +54538,12 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #29
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i64(i64, i64) #29
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #29
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

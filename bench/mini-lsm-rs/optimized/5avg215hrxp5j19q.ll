@@ -534,8 +534,8 @@ _ZN4moka9sync_base10base_cache30is_entry_expired_wo_or_invalid17hdc6f2615a88dbda
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %76), !noalias !32
   %.not.i6.i6.i.i.i = icmp ne i64 %.val6.i.i.i, 0
   %201 = icmp ult i64 %.fca.1.extract.i.i.i.i, %.val7.i.i.i
-  %spec.select.i.i7.i.i.i = select i1 %.not.i6.i6.i.i.i, i1 %201, i1 false
-  br i1 %spec.select.i.i7.i.i.i, label %212, label %"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$$LP$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$moka..notification..RemovalCause$RP$$GT$$GT$17ha01443737ebadd96E.exit91.i.i"
+  %.0.i7.i7.i.i.i = select i1 %.not.i6.i6.i.i.i, i1 %201, i1 false
+  br i1 %.0.i7.i7.i.i.i, label %212, label %"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$$LP$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$moka..notification..RemovalCause$RP$$GT$$GT$17ha01443737ebadd96E.exit91.i.i"
 
 202:                                              ; preds = %200
   %203 = invoke { i64, i64 } @"_ZN82_$LT$moka..common..time..Instant$u20$as$u20$moka..common..time..CheckedTimeOps$GT$11checked_add17hac3d530aa2fb0ae6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %76, i64 noundef %.val.i.i.i, i32 noundef %.val5.i.i.i)
@@ -555,15 +555,15 @@ _ZN4moka9sync_base10base_cache30is_entry_expired_wo_or_invalid17hdc6f2615a88dbda
 
 _ZN4moka9sync_base10base_cache30is_entry_expired_wo_or_invalid17hdc6f2615a88dbda6E.exit.i.i.i: ; preds = %.noexc46
   %.fca.1.extract.i.i.i.i.i = extractvalue { i64, i64 } %203, 1
-  %.not3.i.i.not.i.i.i = icmp ugt i64 %.fca.1.extract.i.i.i.i.i, %194
+  %switch.selectcmp.i.i.not.i.i.i = icmp ugt i64 %.fca.1.extract.i.i.i.i.i, %194
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %76), !noalias !32
-  br i1 %.not3.i.i.not.i.i.i, label %205, label %207
+  br i1 %switch.selectcmp.i.i.not.i.i.i, label %205, label %207
 
 205:                                              ; preds = %_ZN4moka9sync_base10base_cache30is_entry_expired_wo_or_invalid17hdc6f2615a88dbda6E.exit.i.i.i
   %.not.i6.i.i.i.i = icmp ne i64 %.val6.i.i.i, 0
   %206 = icmp ult i64 %.fca.1.extract.i.i.i.i, %.val7.i.i.i
-  %spec.select.i.i.i.i.i = select i1 %.not.i6.i.i.i.i, i1 %206, i1 false
-  br i1 %spec.select.i.i.i.i.i, label %212, label %"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$$LP$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$moka..notification..RemovalCause$RP$$GT$$GT$17ha01443737ebadd96E.exit91.i.i"
+  %.0.i7.i.i.i.i = select i1 %.not.i6.i.i.i.i, i1 %206, i1 false
+  br i1 %.0.i7.i.i.i.i, label %212, label %"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$$LP$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$moka..notification..RemovalCause$RP$$GT$$GT$17ha01443737ebadd96E.exit91.i.i"
 
 207:                                              ; preds = %_ZN4moka9sync_base10base_cache30is_entry_expired_wo_or_invalid17hdc6f2615a88dbda6E.exit.i.i.i
   %208 = icmp ne ptr %.val58.i.i, null
@@ -10446,8 +10446,8 @@ _ZN4moka9sync_base10base_cache30is_entry_expired_ao_or_invalid17hd36f06a66409ff1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !2297
   %.not.i6.i17.i = icmp ne i64 %.val8.i, 0
   %49 = icmp ult i64 %.fca.1.extract.i.i, %.val9.i
-  %spec.select.i.i18.i = select i1 %.not.i6.i17.i, i1 %49, i1 false
-  br i1 %spec.select.i.i18.i, label %59, label %"_ZN4core3ptr143drop_in_place$LT$core..option..Option$LT$$LP$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$u64$C$moka..notification..RemovalCause$RP$$GT$$GT$17h4a1093871e4536d4E.exit59"
+  %.0.i7.i18.i = select i1 %.not.i6.i17.i, i1 %49, i1 false
+  br i1 %.0.i7.i18.i, label %59, label %"_ZN4core3ptr143drop_in_place$LT$core..option..Option$LT$$LP$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$u64$C$moka..notification..RemovalCause$RP$$GT$$GT$17h4a1093871e4536d4E.exit59"
 
 50:                                               ; preds = %48
   %51 = call { i64, i64 } @"_ZN82_$LT$moka..common..time..Instant$u20$as$u20$moka..common..time..CheckedTimeOps$GT$11checked_add17hac3d530aa2fb0ae6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11, i64 noundef %.val6.i, i32 noundef %.val7.i), !noalias !2297
@@ -10461,15 +10461,15 @@ _ZN4moka9sync_base10base_cache30is_entry_expired_ao_or_invalid17hd36f06a66409ff1
 
 _ZN4moka9sync_base10base_cache30is_entry_expired_ao_or_invalid17hd36f06a66409ff12E.exit.i: ; preds = %50
   %.fca.1.extract.i.i.i = extractvalue { i64, i64 } %51, 1
-  %.not3.i.i.not.i = icmp ugt i64 %.fca.1.extract.i.i.i, %41
+  %switch.selectcmp.i.i.not.i = icmp ugt i64 %.fca.1.extract.i.i.i, %41
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !2297
-  br i1 %.not3.i.i.not.i, label %53, label %55
+  br i1 %switch.selectcmp.i.i.not.i, label %53, label %55
 
 53:                                               ; preds = %_ZN4moka9sync_base10base_cache30is_entry_expired_ao_or_invalid17hd36f06a66409ff12E.exit.i
   %.not.i6.i.i = icmp ne i64 %.val8.i, 0
   %54 = icmp ult i64 %.fca.1.extract.i.i, %.val9.i
-  %spec.select.i.i.i = select i1 %.not.i6.i.i, i1 %54, i1 false
-  br i1 %spec.select.i.i.i, label %59, label %"_ZN4core3ptr143drop_in_place$LT$core..option..Option$LT$$LP$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$u64$C$moka..notification..RemovalCause$RP$$GT$$GT$17h4a1093871e4536d4E.exit59"
+  %.0.i7.i.i = select i1 %.not.i6.i.i, i1 %54, i1 false
+  br i1 %.0.i7.i.i, label %59, label %"_ZN4core3ptr143drop_in_place$LT$core..option..Option$LT$$LP$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$u64$C$moka..notification..RemovalCause$RP$$GT$$GT$17h4a1093871e4536d4E.exit59"
 
 55:                                               ; preds = %_ZN4moka9sync_base10base_cache30is_entry_expired_ao_or_invalid17hd36f06a66409ff12E.exit.i
   %.val.i = load ptr, ptr %36, align 8, !alias.scope !2295, !noalias !2299, !nonnull !7, !noundef !7

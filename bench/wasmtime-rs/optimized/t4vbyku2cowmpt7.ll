@@ -11,10 +11,7 @@ define hidden range(i8 -1, 2) i8 @"_ZN49_$LT$u8$u20$as$u20$core..slice..cmp..Sli
   %7 = sext i32 %6 to i64
   %8 = icmp eq i32 %6, 0
   %spec.store.select = select i1 %8, i64 %5, i64 %7
-  %9 = icmp slt i64 %spec.store.select, 0
-  %10 = icmp ne i64 %spec.store.select, 0
-  %.8 = zext i1 %10 to i8
-  %.0 = select i1 %9, i8 -1, i8 %.8
+  %.0 = tail call i8 @llvm.scmp.i8.i64(i64 %spec.store.select, i64 0)
   ret i8 %.0
 }
 
@@ -23,6 +20,9 @@ declare i32 @memcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #2
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.scmp.i8.i64(i64, i64) #2
 
 attributes #0 = { inlinehint mustprogress nofree nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree nounwind nonlazybind willreturn memory(argmem: read) }

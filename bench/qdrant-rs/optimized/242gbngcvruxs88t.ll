@@ -42,7 +42,7 @@ define i64 @_ZN6common3cpu12get_num_cpus17hbf5bf3bb5687d1f7E() unnamed_addr #0 p
 14:                                               ; preds = %21, %6
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hee96dc95a783fb8fE"(ptr nonnull align 8 %2) #11
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hee96dc95a783fb8fE"(ptr nonnull align 8 %2) #12
           to label %24 unwind label %32
 
 16:                                               ; preds = %6
@@ -83,7 +83,7 @@ define i64 @_ZN6common3cpu12get_num_cpus17hbf5bf3bb5687d1f7E() unnamed_addr #0 p
 32:                                               ; preds = %37, %14
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #12
+  call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #13
   unreachable
 
 34:                                               ; preds = %35, %29
@@ -97,72 +97,69 @@ define i64 @_ZN6common3cpu12get_num_cpus17hbf5bf3bb5687d1f7E() unnamed_addr #0 p
   resume { ptr, i32 } %.pn
 
 37:                                               ; preds = %24
-  invoke void @"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17ha018272697943b19E"(ptr nonnull align 8 %3) #11
+  invoke void @"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17ha018272697943b19E"(ptr nonnull align 8 %3) #12
           to label %36 unwind label %32
 }
 
 ; Function Attrs: nonlazybind uwtable
 define i64 @_ZN6common3cpu14get_cpu_budget17h98b86ed8cdaa4d53E(i64 %0) unnamed_addr #0 {
-  %2 = icmp slt i64 %0, 0
-  %3 = icmp ne i64 %0, 0
-  %. = zext i1 %3 to i8
-  %.0 = select i1 %2, i8 -1, i8 %.
-  switch i8 %.0, label %default.unreachable9 [
-    i8 -1, label %4
-    i8 0, label %8
-    i8 1, label %24
+  %.0 = tail call i8 @llvm.scmp.i8.i64(i64 %0, i64 0)
+  switch i8 %.0, label %default.unreachable [
+    i8 -1, label %2
+    i8 0, label %6
+    i8 1, label %22
   ]
 
-default.unreachable9:                             ; preds = %1
+default.unreachable:                              ; preds = %1
   unreachable
 
-4:                                                ; preds = %1
-  %5 = tail call i64 @_ZN6common3cpu12get_num_cpus17hbf5bf3bb5687d1f7E()
-  %6 = sub i64 0, %0
-  %7 = tail call i64 @llvm.usub.sat.i64(i64 %5, i64 %6)
+2:                                                ; preds = %1
+  %3 = tail call i64 @_ZN6common3cpu12get_num_cpus17hbf5bf3bb5687d1f7E()
+  %4 = sub i64 0, %0
+  %5 = tail call i64 @llvm.usub.sat.i64(i64 %3, i64 %4)
   br label %.sink.split
 
-8:                                                ; preds = %1
-  %9 = tail call i64 @_ZN6common3cpu12get_num_cpus17hbf5bf3bb5687d1f7E()
-  %10 = icmp ult i64 %9, 3
+6:                                                ; preds = %1
+  %7 = tail call i64 @_ZN6common3cpu12get_num_cpus17hbf5bf3bb5687d1f7E()
+  %8 = icmp ult i64 %7, 3
+  br i1 %8, label %_ZN6common8defaults30default_cpu_budget_unallocated17h95d79e4d07f68050E.exit, label %9
+
+9:                                                ; preds = %6
+  %10 = icmp ult i64 %7, 33
   br i1 %10, label %_ZN6common8defaults30default_cpu_budget_unallocated17h95d79e4d07f68050E.exit, label %11
 
-11:                                               ; preds = %8
-  %12 = icmp ult i64 %9, 33
+11:                                               ; preds = %9
+  %12 = icmp ult i64 %7, 49
   br i1 %12, label %_ZN6common8defaults30default_cpu_budget_unallocated17h95d79e4d07f68050E.exit, label %13
 
 13:                                               ; preds = %11
-  %14 = icmp ult i64 %9, 49
+  %14 = icmp ult i64 %7, 65
   br i1 %14, label %_ZN6common8defaults30default_cpu_budget_unallocated17h95d79e4d07f68050E.exit, label %15
 
 15:                                               ; preds = %13
-  %16 = icmp ult i64 %9, 65
+  %16 = icmp ult i64 %7, 97
   br i1 %16, label %_ZN6common8defaults30default_cpu_budget_unallocated17h95d79e4d07f68050E.exit, label %17
 
 17:                                               ; preds = %15
-  %18 = icmp ult i64 %9, 97
+  %18 = icmp ult i64 %7, 129
   br i1 %18, label %_ZN6common8defaults30default_cpu_budget_unallocated17h95d79e4d07f68050E.exit, label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i64 %9, 129
-  br i1 %20, label %_ZN6common8defaults30default_cpu_budget_unallocated17h95d79e4d07f68050E.exit, label %21
-
-21:                                               ; preds = %19
-  %.neg.i.neg = sdiv i64 %9, 16
+  %.neg.i.neg = sdiv i64 %7, 16
   br label %_ZN6common8defaults30default_cpu_budget_unallocated17h95d79e4d07f68050E.exit
 
-_ZN6common8defaults30default_cpu_budget_unallocated17h95d79e4d07f68050E.exit: ; preds = %8, %11, %13, %15, %17, %19, %21
-  %.0.i.neg = phi i64 [ %.neg.i.neg, %21 ], [ 0, %8 ], [ 1, %11 ], [ 2, %13 ], [ 3, %15 ], [ 4, %17 ], [ 6, %19 ]
-  %22 = tail call i64 @llvm.usub.sat.i64(i64 %9, i64 %.0.i.neg)
+_ZN6common8defaults30default_cpu_budget_unallocated17h95d79e4d07f68050E.exit: ; preds = %6, %9, %11, %13, %15, %17, %19
+  %.0.i.neg = phi i64 [ %.neg.i.neg, %19 ], [ 0, %6 ], [ 1, %9 ], [ 2, %11 ], [ 3, %13 ], [ 4, %15 ], [ 6, %17 ]
+  %20 = tail call i64 @llvm.usub.sat.i64(i64 %7, i64 %.0.i.neg)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %4, %_ZN6common8defaults30default_cpu_budget_unallocated17h95d79e4d07f68050E.exit
-  %.sink = phi i64 [ %22, %_ZN6common8defaults30default_cpu_budget_unallocated17h95d79e4d07f68050E.exit ], [ %7, %4 ]
-  %23 = tail call i64 @_ZN4core3cmp6max_by17h8d07869766a11c32E(i64 %.sink, i64 1)
-  br label %24
+.sink.split:                                      ; preds = %2, %_ZN6common8defaults30default_cpu_budget_unallocated17h95d79e4d07f68050E.exit
+  %.sink = phi i64 [ %20, %_ZN6common8defaults30default_cpu_budget_unallocated17h95d79e4d07f68050E.exit ], [ %5, %2 ]
+  %21 = tail call i64 @_ZN4core3cmp6max_by17h8d07869766a11c32E(i64 %.sink, i64 1)
+  br label %22
 
-24:                                               ; preds = %.sink.split, %1
-  %.07 = phi i64 [ %0, %1 ], [ %23, %.sink.split ]
+22:                                               ; preds = %.sink.split, %1
+  %.07 = phi i64 [ %0, %1 ], [ %21, %.sink.split ]
   ret i64 %.07
 }
 
@@ -242,7 +239,7 @@ define void @_ZN6common3cpu9CpuBudget11try_acquire17h6cf3e149f63a79e4E(ptr nocap
 
 30:                                               ; preds = %26
   call void @_ZN4core3fmt9Arguments6new_v117h5bbb60e36a2abd7bE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %5, ptr nonnull align 8 @anon.cc052e27bd61535bd7e25b5293e3cbed.5, i64 1, ptr nonnull align 8 %4, i64 0)
-  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.cc052e27bd61535bd7e25b5293e3cbed.6) #13
+  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.cc052e27bd61535bd7e25b5293e3cbed.6) #14
   unreachable
 }
 
@@ -583,14 +580,17 @@ declare zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17hbe0c5c4ec9f1d0a9E(ptr ali
 ; Function Attrs: nonlazybind uwtable
 declare zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hecbbcb173259e2f6E"(ptr align 8, ptr align 8) unnamed_addr #0
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.scmp.i8.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #10
+declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -601,11 +601,12 @@ attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #6 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #11 = { cold }
-attributes #12 = { cold noreturn nounwind }
-attributes #13 = { noreturn }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #12 = { cold }
+attributes #13 = { cold noreturn nounwind }
+attributes #14 = { noreturn }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}

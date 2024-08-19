@@ -795,17 +795,17 @@ define linkonce_odr hidden noundef float @_ZNK2OT4MVAR7get_varEjPKij(ptr noundef
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i64
   %21 = or disjoint i64 %17, %20
-  %.not2.i.i.not = icmp eq i32 %13, 0
-  br i1 %.not2.i.i.not, label %_ZNK2OT14VariationStore9get_deltaEjPKijPf.exit, label %.lr.ph.preheader.i.i
+  %.not1.i.i.not = icmp eq i32 %13, 0
+  br i1 %.not1.i.i.not, label %_ZNK2OT14VariationStore9get_deltaEjPKijPf.exit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %4
   %22 = add nsw i32 %13, -1
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %51, %.lr.ph.preheader.i.i
-  %.0194.i.i = phi i32 [ %.1.i.i, %51 ], [ 0, %.lr.ph.preheader.i.i ]
-  %.0203.i.i = phi i32 [ %.121.i.i, %51 ], [ %22, %.lr.ph.preheader.i.i ]
-  %23 = add i32 %.0203.i.i, %.0194.i.i
+  %.0193.i.i = phi i32 [ %.1.i.i, %51 ], [ 0, %.lr.ph.preheader.i.i ]
+  %.0202.i.i = phi i32 [ %.121.i.i, %51 ], [ %22, %.lr.ph.preheader.i.i ]
+  %23 = add i32 %.0202.i.i, %.0193.i.i
   %24 = lshr i32 %23, 1
   %25 = zext nneg i32 %24 to i64
   %26 = mul nuw nsw i64 %21, %25
@@ -835,16 +835,16 @@ define linkonce_odr hidden noundef float @_ZNK2OT4MVAR7get_varEjPKij(ptr noundef
   br label %51
 
 48:                                               ; preds = %.lr.ph.i.i
-  %.not1.i.i = icmp eq i32 %44, %1
-  br i1 %.not1.i.i, label %_ZL10hb_bsearchIKN2OT20VariationValueRecordEjEPT_RKT0_S4_mmPFiPKvS9_E.exit, label %49
+  %.not23.i.i = icmp eq i32 %44, %1
+  br i1 %.not23.i.i, label %_ZL10hb_bsearchIKN2OT20VariationValueRecordEjEPT_RKT0_S4_mmPFiPKvS9_E.exit, label %49
 
 49:                                               ; preds = %48
   %50 = add nuw nsw i32 %24, 1
   br label %51
 
 51:                                               ; preds = %49, %46
-  %.121.i.i = phi i32 [ %47, %46 ], [ %.0203.i.i, %49 ]
-  %.1.i.i = phi i32 [ %.0194.i.i, %46 ], [ %50, %49 ]
+  %.121.i.i = phi i32 [ %47, %46 ], [ %.0202.i.i, %49 ]
+  %.1.i.i = phi i32 [ %.0193.i.i, %46 ], [ %50, %49 ]
   %.not.not.i.i = icmp sgt i32 %.1.i.i, %.121.i.i
   br i1 %.not.not.i.i, label %_ZNK2OT14VariationStore9get_deltaEjPKijPf.exit, label %.lr.ph.i.i, !llvm.loop !6
 

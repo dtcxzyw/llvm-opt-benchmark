@@ -78586,10 +78586,7 @@ is_num_string.exit.thread.i13:                    ; preds = %117, %string_get.ex
 
 JS_AtomIsArrayIndex.exit36:                       ; preds = %65, %.preheader.i.i17, %109, %is_num_string.exit.i26, %is_num_string.exit.thread.i13
   %.sink.i10 = phi i32 [ 0, %is_num_string.exit.thread.i13 ], [ %66, %65 ], [ %.012.i27, %is_num_string.exit.i26 ], [ 0, %109 ], [ %92, %.preheader.i.i17 ]
-  %122 = icmp ult i32 %.sink.i, %.sink.i10
-  %123 = icmp ne i32 %.sink.i, %.sink.i10
-  %. = zext i1 %123 to i32
-  %.0 = select i1 %122, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %.sink.i, i32 %.sink.i10)
   ret i32 %.0
 }
 
@@ -215084,6 +215081,9 @@ declare i64 @llvm.umax.i64(i64, i64) #37
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #37
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #37
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #41

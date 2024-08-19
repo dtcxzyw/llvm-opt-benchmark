@@ -1370,15 +1370,13 @@ invoke.cont45:                                    ; preds = %for.body
   %d_coefficient.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 24
   %_mp_size.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 28
   %9 = load i32, ptr %_mp_size.i, align 4
-  %cmp6.i = icmp ne i32 %9, 0
-  %conv.i = zext i1 %cmp6.i to i32
-  %cmp.inv.i = icmp slt i32 %9, 0
-  %cond.i = select i1 %cmp.inv.i, i32 -1, i32 %conv.i
+  %cond.i = tail call i32 @llvm.scmp.i32.i32(i32 %9, i32 0)
   %cmp47 = icmp sgt i32 %9, 0
   br i1 %cmp47, label %cond.true59, label %lor.rhs
 
 lor.rhs:                                          ; preds = %invoke.cont45
-  br i1 %cmp.inv.i, label %land.rhs, label %for.inc
+  %cmp.inv.i.not = icmp eq i32 %9, 0
+  br i1 %cmp.inv.i.not, label %for.inc, label %land.rhs
 
 land.rhs:                                         ; preds = %lor.rhs
   %10 = load ptr, ptr %d_variables52, align 8
@@ -8261,6 +8259,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #20
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

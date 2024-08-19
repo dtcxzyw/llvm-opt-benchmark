@@ -98,18 +98,18 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local ptr @ReorderBufferAllocate() local_unnamed_addr #0 {
   %1 = alloca %struct.HASHCTL, align 8
   %2 = load ptr, ptr @CurrentMemoryContext, align 8
-  %3 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %2, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #17
-  %4 = tail call ptr @MemoryContextAlloc(ptr noundef %3, i64 noundef 368) #17
+  %3 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %2, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #18
+  %4 = tail call ptr @MemoryContextAlloc(ptr noundef %3, i64 noundef 368) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %1, i8 0, i64 96, i1 false)
   %5 = getelementptr inbounds i8, ptr %4, i64 240
   store ptr %3, ptr %5, align 8
-  %6 = tail call ptr @SlabContextCreate(ptr noundef %3, ptr noundef nonnull @.str.1, i64 noundef 8192, i64 noundef 80) #17
+  %6 = tail call ptr @SlabContextCreate(ptr noundef %3, ptr noundef nonnull @.str.1, i64 noundef 8192, i64 noundef 80) #18
   %7 = getelementptr inbounds i8, ptr %4, i64 248
   store ptr %6, ptr %7, align 8
-  %8 = tail call ptr @SlabContextCreate(ptr noundef %3, ptr noundef nonnull @.str.2, i64 noundef 8192, i64 noundef 304) #17
+  %8 = tail call ptr @SlabContextCreate(ptr noundef %3, ptr noundef nonnull @.str.2, i64 noundef 8192, i64 noundef 304) #18
   %9 = getelementptr inbounds i8, ptr %4, i64 256
   store ptr %8, ptr %9, align 8
-  %10 = tail call ptr @GenerationContextCreate(ptr noundef %3, ptr noundef nonnull @.str.3, i64 noundef 8388608, i64 noundef 8388608, i64 noundef 8388608) #17
+  %10 = tail call ptr @GenerationContextCreate(ptr noundef %3, ptr noundef nonnull @.str.3, i64 noundef 8388608, i64 noundef 8388608, i64 noundef 8388608) #18
   %11 = getelementptr inbounds i8, ptr %4, i64 264
   store ptr %10, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %1, i64 32
@@ -119,7 +119,7 @@ define dso_local ptr @ReorderBufferAllocate() local_unnamed_addr #0 {
   %14 = load ptr, ptr %5, align 8
   %15 = getelementptr inbounds i8, ptr %1, i64 80
   store ptr %14, ptr %15, align 8
-  %16 = call ptr @hash_create(ptr noundef nonnull @.str.4, i64 noundef 1000, ptr noundef nonnull %1, i32 noundef 1064) #17
+  %16 = call ptr @hash_create(ptr noundef nonnull @.str.4, i64 noundef 1000, ptr noundef nonnull %1, i32 noundef 1064) #18
   store ptr %16, ptr %4, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 64
   store i32 0, ptr %17, align 8
@@ -164,8 +164,8 @@ declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) loc
 define internal fastcc void @ReorderBufferCleanupSerializedTXNs(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca %struct.stat, align 8
   %3 = alloca [2060 x i8], align 16
-  %4 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.34, ptr noundef %0) #17
-  %5 = call i32 @lstat(ptr noundef nonnull %3, ptr noundef nonnull %2) #17
+  %4 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.34, ptr noundef %0) #18
+  %5 = call i32 @lstat(ptr noundef nonnull %3, ptr noundef nonnull %2) #18
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %12
 
@@ -177,8 +177,8 @@ define internal fastcc void @ReorderBufferCleanupSerializedTXNs(ptr noundef %0) 
   br i1 %11, label %12, label %40
 
 12:                                               ; preds = %7, %1
-  %13 = call ptr @AllocateDir(ptr noundef nonnull %3) #17
-  %14 = call ptr @ReadDirExtended(ptr noundef %13, ptr noundef nonnull %3, i32 noundef 17) #17
+  %13 = call ptr @AllocateDir(ptr noundef nonnull %3) #18
+  %14 = call ptr @ReadDirExtended(ptr noundef %13, ptr noundef nonnull %3, i32 noundef 17) #18
   %.not8 = icmp eq ptr %14, null
   br i1 %.not8, label %._crit_edge, label %sub_0
 
@@ -212,26 +212,26 @@ sub_2:                                            ; preds = %sub_1
   br i1 %29, label %30, label %37
 
 30:                                               ; preds = %.tail
-  %31 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 2060, ptr noundef nonnull @.str.36, ptr noundef %0, ptr noundef nonnull %16) #17
-  %32 = call i32 @unlink(ptr noundef nonnull %3) #17
+  %31 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 2060, ptr noundef nonnull @.str.36, ptr noundef %0, ptr noundef nonnull %16) #18
+  %32 = call i32 @unlink(ptr noundef nonnull %3) #18
   %.not7 = icmp eq i32 %32, 0
   br i1 %.not7, label %37, label %33
 
 33:                                               ; preds = %30
-  %34 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %34 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   call void @llvm.assume(i1 %34)
-  %35 = call i32 @errcode_for_file_access() #17
-  %36 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.37, ptr noundef nonnull %3, ptr noundef %0) #17
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4560, ptr noundef nonnull @__func__.ReorderBufferCleanupSerializedTXNs) #17
+  %35 = call i32 @errcode_for_file_access() #18
+  %36 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.37, ptr noundef nonnull %3, ptr noundef %0) #18
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4560, ptr noundef nonnull @__func__.ReorderBufferCleanupSerializedTXNs) #18
   unreachable
 
 37:                                               ; preds = %30, %.tail
-  %38 = call ptr @ReadDirExtended(ptr noundef %13, ptr noundef nonnull %3, i32 noundef 17) #17
+  %38 = call ptr @ReadDirExtended(ptr noundef %13, ptr noundef nonnull %3, i32 noundef 17) #18
   %.not = icmp eq ptr %38, null
   br i1 %.not, label %._crit_edge, label %sub_0, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %37, %12
-  %39 = call i32 @FreeDir(ptr noundef %13) #17
+  %39 = call i32 @FreeDir(ptr noundef %13) #18
   br label %40
 
 40:                                               ; preds = %7, %._crit_edge
@@ -242,7 +242,7 @@ sub_2:                                            ; preds = %sub_1
 define dso_local void @ReorderBufferFree(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 240
   %3 = load ptr, ptr %2, align 8
-  tail call void @MemoryContextDelete(ptr noundef %3) #17
+  tail call void @MemoryContextDelete(ptr noundef %3) #18
   %4 = load ptr, ptr @MyReplicationSlot, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 24
   tail call fastcc void @ReorderBufferCleanupSerializedTXNs(ptr noundef nonnull %5)
@@ -255,7 +255,7 @@ declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #1
 define dso_local noundef ptr @ReorderBufferGetChange(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @MemoryContextAlloc(ptr noundef %3, i64 noundef 80) #17
+  %4 = tail call ptr @MemoryContextAlloc(ptr noundef %3, i64 noundef 80) #18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 80, i1 false)
   ret ptr %4
 }
@@ -307,7 +307,7 @@ define dso_local void @ReorderBufferReturnChange(ptr nocapture noundef %0, ptr n
 22:                                               ; preds = %4
   %23 = getelementptr inbounds i8, ptr %1, i64 32
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #19
+  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #20
   %26 = getelementptr inbounds i8, ptr %1, i64 40
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %25, 97
@@ -391,7 +391,7 @@ ReorderBufferChangeMemoryUpdate.exit:             ; preds = %ReorderBufferChange
   br i1 %.not38, label %73, label %72
 
 72:                                               ; preds = %69
-  tail call void @pfree(ptr noundef nonnull %71) #17
+  tail call void @pfree(ptr noundef nonnull %71) #18
   store ptr null, ptr %70, align 8
   br label %73
 
@@ -402,7 +402,7 @@ ReorderBufferChangeMemoryUpdate.exit:             ; preds = %ReorderBufferChange
   br i1 %.not39, label %102, label %76
 
 76:                                               ; preds = %73
-  tail call void @pfree(ptr noundef nonnull %75) #17
+  tail call void @pfree(ptr noundef nonnull %75) #18
   br label %.sink.split
 
 77:                                               ; preds = %ReorderBufferChangeMemoryUpdate.exit
@@ -412,7 +412,7 @@ ReorderBufferChangeMemoryUpdate.exit:             ; preds = %ReorderBufferChange
   br i1 %.not36, label %81, label %80
 
 80:                                               ; preds = %77
-  tail call void @pfree(ptr noundef nonnull %79) #17
+  tail call void @pfree(ptr noundef nonnull %79) #18
   br label %81
 
 81:                                               ; preds = %80, %77
@@ -423,7 +423,7 @@ ReorderBufferChangeMemoryUpdate.exit:             ; preds = %ReorderBufferChange
   br i1 %.not37, label %.sink.split, label %84
 
 84:                                               ; preds = %81
-  tail call void @pfree(ptr noundef nonnull %83) #17
+  tail call void @pfree(ptr noundef nonnull %83) #18
   br label %.sink.split
 
 85:                                               ; preds = %ReorderBufferChangeMemoryUpdate.exit
@@ -433,7 +433,7 @@ ReorderBufferChangeMemoryUpdate.exit:             ; preds = %ReorderBufferChange
   br i1 %.not35, label %.sink.split, label %88
 
 88:                                               ; preds = %85
-  tail call void @pfree(ptr noundef nonnull %87) #17
+  tail call void @pfree(ptr noundef nonnull %87) #18
   br label %.sink.split
 
 89:                                               ; preds = %ReorderBufferChangeMemoryUpdate.exit
@@ -449,11 +449,11 @@ ReorderBufferChangeMemoryUpdate.exit:             ; preds = %ReorderBufferChange
   br i1 %95, label %96, label %97
 
 96:                                               ; preds = %92
-  tail call void @pfree(ptr noundef nonnull %91) #17
+  tail call void @pfree(ptr noundef nonnull %91) #18
   br label %.sink.split
 
 97:                                               ; preds = %92
-  tail call void @SnapBuildSnapDecRefcount(ptr noundef nonnull %91) #17
+  tail call void @SnapBuildSnapDecRefcount(ptr noundef nonnull %91) #18
   br label %.sink.split
 
 98:                                               ; preds = %ReorderBufferChangeMemoryUpdate.exit
@@ -463,7 +463,7 @@ ReorderBufferChangeMemoryUpdate.exit:             ; preds = %ReorderBufferChange
   br i1 %.not, label %102, label %101
 
 101:                                              ; preds = %98
-  tail call void @pfree(ptr noundef nonnull %100) #17
+  tail call void @pfree(ptr noundef nonnull %100) #18
   br label %.sink.split
 
 .sink.split:                                      ; preds = %97, %96, %85, %88, %81, %84, %76, %101
@@ -472,13 +472,13 @@ ReorderBufferChangeMemoryUpdate.exit:             ; preds = %ReorderBufferChange
   br label %102
 
 102:                                              ; preds = %.sink.split, %98, %89, %73, %ReorderBufferChangeMemoryUpdate.exit
-  tail call void @pfree(ptr noundef nonnull %1) #17
+  tail call void @pfree(ptr noundef nonnull %1) #18
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ReorderBufferReturnTupleBuf(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @pfree(ptr noundef %0) #17
+  tail call void @pfree(ptr noundef %0) #18
   ret void
 }
 
@@ -486,7 +486,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ReorderBufferReturnRelids(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
-  tail call void @pfree(ptr noundef %1) #17
+  tail call void @pfree(ptr noundef %1) #18
   ret void
 }
 
@@ -495,7 +495,7 @@ define dso_local ptr @ReorderBufferGetTupleBuf(ptr nocapture noundef readonly %0
   %3 = getelementptr inbounds i8, ptr %0, i64 264
   %4 = load ptr, ptr %3, align 8
   %5 = add i64 %1, 47
-  %6 = tail call ptr @MemoryContextAlloc(ptr noundef %4, i64 noundef %5) #17
+  %6 = tail call ptr @MemoryContextAlloc(ptr noundef %4, i64 noundef %5) #18
   %7 = getelementptr i8, ptr %6, i64 24
   %8 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %7, ptr %8, align 8
@@ -508,7 +508,7 @@ define dso_local ptr @ReorderBufferGetRelids(ptr nocapture noundef readonly %0, 
   %4 = shl nsw i64 %3, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 240
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call ptr @MemoryContextAlloc(ptr noundef %6, i64 noundef %4) #17
+  %7 = tail call ptr @MemoryContextAlloc(ptr noundef %6, i64 noundef %4) #18
   ret ptr %7
 }
 
@@ -620,7 +620,7 @@ dlist_push_tail.exit:                             ; preds = %20, %27
 53:                                               ; preds = %dlist_push_tail.exit
   %54 = getelementptr inbounds i8, ptr %3, i64 32
   %55 = load ptr, ptr %54, align 8
-  %56 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #19
+  %56 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #20
   %57 = getelementptr inbounds i8, ptr %3, i64 40
   %58 = load i64, ptr %57, align 8
   %59 = add i64 %56, 97
@@ -762,7 +762,7 @@ thread-pre-split:                                 ; preds = %.sink.split.i, %109
   %125 = load ptr, ptr %97, align 8
   %126 = getelementptr inbounds i8, ptr %125, i64 32
   %127 = load ptr, ptr %126, align 8
-  %128 = tail call i32 @SnapBuildCurrentState(ptr noundef %127) #17
+  %128 = tail call i32 @SnapBuildCurrentState(ptr noundef %127) #18
   %129 = icmp slt i32 %128, 2
   br i1 %129, label %ReorderBufferProcessPartialChange.exit, label %130
 
@@ -778,7 +778,7 @@ thread-pre-split:                                 ; preds = %.sink.split.i, %109
   %135 = load ptr, ptr %134, align 8
   %136 = getelementptr inbounds i8, ptr %135, i64 40
   %137 = load i64, ptr %136, align 8
-  %138 = tail call zeroext i1 @SnapBuildXactNeedsSkip(ptr noundef %127, i64 noundef %137) #17
+  %138 = tail call zeroext i1 @SnapBuildXactNeedsSkip(ptr noundef %127, i64 noundef %137) #18
   br i1 %138, label %ReorderBufferProcessPartialChange.exit, label %ReorderBufferCanStartStreaming.exit.i
 
 ReorderBufferCanStartStreaming.exit.i:            ; preds = %133
@@ -839,7 +839,7 @@ ReorderBufferProcessPartialChange.exit:           ; preds = %ReorderBufferChange
   %167 = load ptr, ptr %97, align 8
   %168 = getelementptr inbounds i8, ptr %167, i64 32
   %169 = load ptr, ptr %168, align 8
-  %170 = call i32 @SnapBuildCurrentState(ptr noundef %169) #17
+  %170 = call i32 @SnapBuildCurrentState(ptr noundef %169) #18
   %171 = icmp slt i32 %170, 2
   br i1 %171, label %ReorderBufferCanStartStreaming.exit.thread.i, label %172
 
@@ -855,7 +855,7 @@ ReorderBufferProcessPartialChange.exit:           ; preds = %ReorderBufferChange
   %177 = load ptr, ptr %176, align 8
   %178 = getelementptr inbounds i8, ptr %177, i64 40
   %179 = load i64, ptr %178, align 8
-  %180 = call zeroext i1 @SnapBuildXactNeedsSkip(ptr noundef %169, i64 noundef %179) #17
+  %180 = call zeroext i1 @SnapBuildXactNeedsSkip(ptr noundef %169, i64 noundef %179) #18
   br i1 %180, label %ReorderBufferCanStartStreaming.exit.thread.i, label %ReorderBufferCanStartStreaming.exit.i40
 
 ReorderBufferCanStartStreaming.exit.i40:          ; preds = %175
@@ -921,8 +921,8 @@ ReorderBufferLargestStreamableTopTXN.exit.i:      ; preds = %189
 ReorderBufferCanStartStreaming.exit.thread.i:     ; preds = %.thread.i, %ReorderBufferLargestStreamableTopTXN.exit.i, %ReorderBufferCanStartStreaming.exit.i40, %175, %172, %.critedge.i
   %.val.i39 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call void @hash_seq_init(ptr noundef nonnull %6, ptr noundef %.val.i39) #17
-  %195 = call ptr @hash_seq_search(ptr noundef nonnull %6) #17
+  call void @hash_seq_init(ptr noundef nonnull %6, ptr noundef %.val.i39) #18
+  %195 = call ptr @hash_seq_search(ptr noundef nonnull %6) #18
   %.not1.i.i = icmp eq ptr %195, null
   br i1 %.not1.i.i, label %ReorderBufferLargestTXN.exit.i, label %.lr.ph.i15.i
 
@@ -947,7 +947,7 @@ ReorderBufferCanStartStreaming.exit.thread.i:     ; preds = %.thread.i, %Reorder
 
 206:                                              ; preds = %205, %199
   %.1.i16.i = phi ptr [ %198, %205 ], [ %.02.i.i, %199 ]
-  %207 = call ptr @hash_seq_search(ptr noundef nonnull %6) #17
+  %207 = call ptr @hash_seq_search(ptr noundef nonnull %6) #18
   %.not.i17.i = icmp eq ptr %207, null
   br i1 %.not.i17.i, label %ReorderBufferLargestTXN.exit.i, label %.lr.ph.i15.i, !llvm.loop !8
 
@@ -992,7 +992,7 @@ define internal fastcc ptr @ReorderBufferTXNByXid(ptr noundef %0, i32 noundef %1
 17:                                               ; preds = %16, %6
   %18 = load ptr, ptr %0, align 8
   %19 = zext i1 %2 to i32
-  %20 = call ptr @hash_search(ptr noundef %18, ptr noundef nonnull %7, i32 noundef %19, ptr noundef nonnull %8) #17
+  %20 = call ptr @hash_search(ptr noundef %18, ptr noundef nonnull %7, i32 noundef %19, ptr noundef nonnull %8) #18
   %21 = load i8, ptr %8, align 1
   %22 = trunc i8 %21 to i1
   br i1 %22, label %23, label %26
@@ -1008,7 +1008,7 @@ define internal fastcc ptr @ReorderBufferTXNByXid(ptr noundef %0, i32 noundef %1
 27:                                               ; preds = %26
   %28 = getelementptr i8, ptr %0, i64 256
   %.val = load ptr, ptr %28, align 8
-  %29 = call ptr @MemoryContextAlloc(ptr noundef %.val, i64 noundef 304) #17
+  %29 = call ptr @MemoryContextAlloc(ptr noundef %.val, i64 noundef 304) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %29, i8 0, i64 296, i1 false)
   %30 = getelementptr inbounds i8, ptr %29, i64 152
   store ptr %30, ptr %30, align 8
@@ -1102,16 +1102,16 @@ define dso_local void @ReorderBufferQueueMessage(ptr noundef %0, i32 noundef %1,
   store ptr %13, ptr @CurrentMemoryContext, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 248
   %16 = load ptr, ptr %15, align 8
-  %17 = call noundef ptr @MemoryContextAlloc(ptr noundef %16, i64 noundef 80) #17
+  %17 = call noundef ptr @MemoryContextAlloc(ptr noundef %16, i64 noundef 80) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %17, i8 0, i64 80, i1 false)
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   store i32 3, ptr %18, align 8
-  %19 = call ptr @pstrdup(ptr noundef %5) #17
+  %19 = call ptr @pstrdup(ptr noundef %5) #18
   %20 = getelementptr inbounds i8, ptr %17, i64 32
   store ptr %19, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 40
   store i64 %6, ptr %21, align 8
-  %22 = call ptr @palloc(i64 noundef %6) #17
+  %22 = call ptr @palloc(i64 noundef %6) #18
   %23 = getelementptr inbounds i8, ptr %17, i64 48
   store ptr %22, ptr %23, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr align 1 %7, i64 %6, i1 false)
@@ -1131,10 +1131,10 @@ define dso_local void @ReorderBufferQueueMessage(ptr noundef %0, i32 noundef %1,
 27:                                               ; preds = %25, %24
   %.0 = phi ptr [ %26, %25 ], [ null, %24 ]
   %.0..0..0..0.4 = load volatile ptr, ptr %9, align 8
-  call void @SetupHistoricSnapshot(ptr noundef %.0..0..0..0.4, ptr noundef null) #17
+  call void @SetupHistoricSnapshot(ptr noundef %.0..0..0..0.4, ptr noundef null) #18
   %28 = load ptr, ptr @PG_exception_stack, align 8
   %29 = load ptr, ptr @error_context_stack, align 8
-  %30 = call i32 @__sigsetjmp(ptr noundef nonnull %10, i32 noundef 0) #20
+  %30 = call i32 @__sigsetjmp(ptr noundef nonnull %10, i32 noundef 0) #21
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %35
 
@@ -1142,8 +1142,8 @@ define dso_local void @ReorderBufferQueueMessage(ptr noundef %0, i32 noundef %1,
   store ptr %10, ptr @PG_exception_stack, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 112
   %34 = load ptr, ptr %33, align 8
-  call void %34(ptr noundef %0, ptr noundef %.0, i64 noundef %3, i1 noundef zeroext false, ptr noundef %5, i64 noundef %6, ptr noundef %7) #17
-  call void @TeardownHistoricSnapshot(i1 noundef zeroext false) #17
+  call void %34(ptr noundef %0, ptr noundef %.0, i64 noundef %3, i1 noundef zeroext false, ptr noundef %5, i64 noundef %6, ptr noundef %7) #18
+  call void @TeardownHistoricSnapshot(i1 noundef zeroext false) #18
   store ptr %28, ptr @PG_exception_stack, align 8
   store ptr %29, ptr @error_context_stack, align 8
   br label %36
@@ -1151,8 +1151,8 @@ define dso_local void @ReorderBufferQueueMessage(ptr noundef %0, i32 noundef %1,
 35:                                               ; preds = %27
   store ptr %28, ptr @PG_exception_stack, align 8
   store ptr %29, ptr @error_context_stack, align 8
-  call void @TeardownHistoricSnapshot(i1 noundef zeroext true) #17
-  call void @pg_re_throw() #21
+  call void @TeardownHistoricSnapshot(i1 noundef zeroext true) #18
+  call void @pg_re_throw() #22
   unreachable
 
 36:                                               ; preds = %32, %11
@@ -1242,7 +1242,7 @@ define dso_local void @ReorderBufferAssignChild(ptr noundef %0, i32 noundef %1, 
 
 15:                                               ; preds = %12, %4
   %16 = load ptr, ptr %0, align 8
-  %17 = call ptr @hash_search(ptr noundef %16, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %6) #17
+  %17 = call ptr @hash_search(ptr noundef %16, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %6) #18
   %18 = load i8, ptr %6, align 1
   %19 = trunc i8 %18 to i1
   br i1 %19, label %ReorderBufferTXNByXid.exit.thread25, label %ReorderBufferTXNByXid.exit
@@ -1259,7 +1259,7 @@ ReorderBufferTXNByXid.exit.thread25:              ; preds = %15
 ReorderBufferTXNByXid.exit:                       ; preds = %15
   %23 = getelementptr i8, ptr %0, i64 256
   %.val.i = load ptr, ptr %23, align 8
-  %24 = call ptr @MemoryContextAlloc(ptr noundef %.val.i, i64 noundef 304) #17
+  %24 = call ptr @MemoryContextAlloc(ptr noundef %.val.i, i64 noundef 304) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %24, i8 0, i64 296, i1 false)
   %25 = getelementptr inbounds i8, ptr %24, i64 152
   store ptr %25, ptr %25, align 8
@@ -1375,7 +1375,7 @@ dlist_push_tail.exit:                             ; preds = %52, %62
   br i1 %80, label %81, label %103
 
 81:                                               ; preds = %75
-  call void @SnapBuildSnapDecRefcount(ptr noundef nonnull %73) #17
+  call void @SnapBuildSnapDecRefcount(ptr noundef nonnull %73) #18
   %82 = getelementptr inbounds i8, ptr %8, i64 104
   %83 = getelementptr inbounds i8, ptr %8, i64 112
   %84 = load ptr, ptr %83, align 8
@@ -1415,7 +1415,7 @@ dlist_push_tail.exit:                             ; preds = %52, %62
   br label %ReorderBufferTransferSnapToParent.exit
 
 103:                                              ; preds = %75
-  call void @SnapBuildSnapDecRefcount(ptr noundef nonnull %70) #17
+  call void @SnapBuildSnapDecRefcount(ptr noundef nonnull %70) #18
   %104 = getelementptr inbounds i8, ptr %.0.ph.i22, i64 104
   %105 = getelementptr inbounds i8, ptr %.0.ph.i22, i64 112
   %106 = load ptr, ptr %105, align 8
@@ -1455,7 +1455,7 @@ define dso_local void @ReorderBufferCommitChild(ptr noundef %0, i32 noundef %1, 
 
 14:                                               ; preds = %5
   %15 = load ptr, ptr %0, align 8
-  %16 = call ptr @hash_search(ptr noundef %15, ptr noundef nonnull %6, i32 noundef 0, ptr noundef nonnull %7) #17
+  %16 = call ptr @hash_search(ptr noundef %15, ptr noundef nonnull %6, i32 noundef 0, ptr noundef nonnull %7) #18
   %17 = load i8, ptr %7, align 1
   %18 = trunc i8 %17 to i1
   br i1 %18, label %ReorderBufferTXNByXid.exit, label %ReorderBufferTXNByXid.exit.thread15
@@ -1518,7 +1518,7 @@ define dso_local void @ReorderBufferCommit(ptr noundef %0, i32 noundef %1, i64 n
 
 16:                                               ; preds = %7
   %17 = load ptr, ptr %0, align 8
-  %18 = call ptr @hash_search(ptr noundef %17, ptr noundef nonnull %8, i32 noundef 0, ptr noundef nonnull %9) #17
+  %18 = call ptr @hash_search(ptr noundef %17, ptr noundef nonnull %8, i32 noundef 0, ptr noundef nonnull %9) #18
   %19 = load i8, ptr %9, align 1
   %20 = trunc i8 %19 to i1
   br i1 %20, label %ReorderBufferTXNByXid.exit, label %ReorderBufferTXNByXid.exit.thread14
@@ -1581,7 +1581,7 @@ define internal fastcc void @ReorderBufferReplay(ptr noundef %0, ptr noundef %1,
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %1, i64 176
   %21 = load ptr, ptr %20, align 8
-  tail call void %21(ptr noundef %1, ptr noundef nonnull %0, i64 noundef %18) #17
+  tail call void %21(ptr noundef %1, ptr noundef nonnull %0, i64 noundef %18) #18
   tail call fastcc void @ReorderBufferTruncateTXN(ptr noundef %1, ptr noundef nonnull %0, i1 noundef zeroext true)
   store i32 0, ptr @CheckXidAlive, align 4
   br label %ReorderBufferStreamCommit.exit
@@ -1589,7 +1589,7 @@ define internal fastcc void @ReorderBufferReplay(ptr noundef %0, ptr noundef %1,
 22:                                               ; preds = %15
   %23 = getelementptr inbounds i8, ptr %1, i64 184
   %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef %1, ptr noundef nonnull %0, i64 noundef %18) #17
+  tail call void %24(ptr noundef %1, ptr noundef nonnull %0, i64 noundef %18) #18
   tail call fastcc void @ReorderBufferCleanupTXN(ptr noundef %1, ptr noundef nonnull %0)
   br label %ReorderBufferStreamCommit.exit
 
@@ -1640,7 +1640,7 @@ define dso_local noundef zeroext i1 @ReorderBufferRememberPrepareInfo(ptr nocapt
 
 16:                                               ; preds = %7
   %17 = load ptr, ptr %0, align 8
-  %18 = call ptr @hash_search(ptr noundef %17, ptr noundef nonnull %8, i32 noundef 0, ptr noundef nonnull %9) #17
+  %18 = call ptr @hash_search(ptr noundef %17, ptr noundef nonnull %8, i32 noundef 0, ptr noundef nonnull %9) #18
   %19 = load i8, ptr %9, align 1
   %20 = trunc i8 %19 to i1
   br i1 %20, label %ReorderBufferTXNByXid.exit, label %ReorderBufferTXNByXid.exit.thread18
@@ -1709,7 +1709,7 @@ define dso_local void @ReorderBufferSkipPrepare(ptr nocapture noundef %0, i32 no
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %0, align 8
-  %13 = call ptr @hash_search(ptr noundef %12, ptr noundef nonnull %3, i32 noundef 0, ptr noundef nonnull %4) #17
+  %13 = call ptr @hash_search(ptr noundef %12, ptr noundef nonnull %3, i32 noundef 0, ptr noundef nonnull %4) #18
   %14 = load i8, ptr %4, align 1
   %15 = trunc i8 %14 to i1
   br i1 %15, label %ReorderBufferTXNByXid.exit, label %ReorderBufferTXNByXid.exit.thread7
@@ -1770,7 +1770,7 @@ define dso_local void @ReorderBufferPrepare(ptr noundef %0, i32 noundef %1, ptr 
 
 12:                                               ; preds = %3
   %13 = load ptr, ptr %0, align 8
-  %14 = call ptr @hash_search(ptr noundef %13, ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull %5) #17
+  %14 = call ptr @hash_search(ptr noundef %13, ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull %5) #18
   %15 = load i8, ptr %5, align 1
   %16 = trunc i8 %15 to i1
   br i1 %16, label %ReorderBufferTXNByXid.exit, label %ReorderBufferTXNByXid.exit.thread23
@@ -1801,7 +1801,7 @@ ReorderBufferTXNByXid.exit.thread20:              ; preds = %9, %ReorderBufferTX
   %24 = load i32, ptr %.0.i22, align 8
   %25 = or i32 %24, 64
   store i32 %25, ptr %.0.i22, align 8
-  %26 = call ptr @pstrdup(ptr noundef %2) #17
+  %26 = call ptr @pstrdup(ptr noundef %2) #18
   %27 = getelementptr inbounds i8, ptr %.0.i22, i64 16
   store ptr %26, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %.0.i22, i64 32
@@ -1830,7 +1830,7 @@ ReorderBufferTXNByXid.exit.thread20:              ; preds = %9, %ReorderBufferTX
   %45 = getelementptr inbounds i8, ptr %0, i64 128
   %46 = load ptr, ptr %45, align 8
   %47 = load i64, ptr %28, align 8
-  call void %46(ptr noundef nonnull %0, ptr noundef nonnull %.0.i22, i64 noundef %47) #17
+  call void %46(ptr noundef nonnull %0, ptr noundef nonnull %.0.i22, i64 noundef %47) #18
   br label %ReorderBufferTXNByXid.exit.thread
 
 ReorderBufferTXNByXid.exit.thread:                ; preds = %9, %ReorderBufferTXNByXid.exit.thread23, %ReorderBufferTXNByXid.exit, %44, %41, %ReorderBufferTXNByXid.exit.thread20
@@ -1861,7 +1861,7 @@ define dso_local void @ReorderBufferFinishPrepared(ptr noundef %0, i32 noundef %
 
 19:                                               ; preds = %10
   %20 = load ptr, ptr %0, align 8
-  %21 = call ptr @hash_search(ptr noundef %20, ptr noundef nonnull %11, i32 noundef 0, ptr noundef nonnull %12) #17
+  %21 = call ptr @hash_search(ptr noundef %20, ptr noundef nonnull %11, i32 noundef 0, ptr noundef nonnull %12) #18
   %22 = load i8, ptr %12, align 1
   %23 = trunc i8 %22 to i1
   br i1 %23, label %ReorderBufferTXNByXid.exit, label %ReorderBufferTXNByXid.exit.thread49
@@ -1893,7 +1893,7 @@ ReorderBufferTXNByXid.exit.thread46:              ; preds = %16, %ReorderBufferT
   %32 = load i64, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %.0.i48, i64 80
   %34 = load i64, ptr %33, align 8
-  %35 = call ptr @pstrdup(ptr noundef %8) #17
+  %35 = call ptr @pstrdup(ptr noundef %8) #18
   %36 = getelementptr inbounds i8, ptr %.0.i48, i64 16
   store ptr %35, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %.0.i48, i64 32
@@ -1928,13 +1928,13 @@ ReorderBufferTXNByXid.exit.thread46:              ; preds = %16, %ReorderBufferT
 52:                                               ; preds = %49
   %53 = getelementptr inbounds i8, ptr %0, i64 136
   %54 = load ptr, ptr %53, align 8
-  call void %54(ptr noundef nonnull %0, ptr noundef nonnull %.0.i48, i64 noundef %2) #17
+  call void %54(ptr noundef nonnull %0, ptr noundef nonnull %.0.i48, i64 noundef %2) #18
   br label %58
 
 55:                                               ; preds = %49
   %56 = getelementptr inbounds i8, ptr %0, i64 144
   %57 = load ptr, ptr %56, align 8
-  call void %57(ptr noundef nonnull %0, ptr noundef nonnull %.0.i48, i64 noundef %32, i64 noundef %34) #17
+  call void %57(ptr noundef nonnull %0, ptr noundef nonnull %.0.i48, i64 noundef %32, i64 noundef %34) #18
   br label %58
 
 58:                                               ; preds = %55, %52
@@ -1949,7 +1949,7 @@ ReorderBufferTXNByXid.exit.thread46:              ; preds = %16, %ReorderBufferT
   %.04.i = phi i32 [ %65, %.lr.ph.i ], [ 0, %58 ]
   %63 = sext i32 %.04.i to i64
   %64 = getelementptr %union.SharedInvalidationMessage, ptr %62, i64 %63
-  call void @LocalExecuteInvalidationMessage(ptr noundef %64) #17
+  call void @LocalExecuteInvalidationMessage(ptr noundef %64) #18
   %65 = add nuw i32 %.04.i, 1
   %exitcond.not.i = icmp eq i32 %65, %60
   br i1 %exitcond.not.i, label %ReorderBufferExecuteInvalidations.exit, label %.lr.ph.i, !llvm.loop !10
@@ -2025,7 +2025,7 @@ define internal fastcc void @ReorderBufferCleanupTXN(ptr nocapture noundef %0, p
   br i1 %.not59, label %25, label %18
 
 18:                                               ; preds = %._crit_edge76
-  tail call void @SnapBuildSnapDecRefcount(ptr noundef nonnull %17) #17
+  tail call void @SnapBuildSnapDecRefcount(ptr noundef nonnull %17) #18
   %19 = getelementptr inbounds i8, ptr %1, i64 104
   %20 = getelementptr inbounds i8, ptr %1, i64 112
   %21 = load ptr, ptr %20, align 8
@@ -2049,11 +2049,11 @@ define internal fastcc void @ReorderBufferCleanupTXN(ptr nocapture noundef %0, p
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %28
-  tail call void @pfree(ptr noundef nonnull %27) #17
+  tail call void @pfree(ptr noundef nonnull %27) #18
   br label %ReorderBufferFreeSnap.exit
 
 33:                                               ; preds = %28
-  tail call void @SnapBuildSnapDecRefcount(ptr noundef nonnull %27) #17
+  tail call void @SnapBuildSnapDecRefcount(ptr noundef nonnull %27) #18
   br label %ReorderBufferFreeSnap.exit
 
 ReorderBufferFreeSnap.exit:                       ; preds = %33, %32, %25
@@ -2088,7 +2088,7 @@ ReorderBufferFreeSnap.exit:                       ; preds = %33, %32, %25
 52:                                               ; preds = %42, %ReorderBufferFreeSnap.exit
   %53 = load ptr, ptr %0, align 8
   %54 = getelementptr inbounds i8, ptr %1, i64 4
-  %55 = call ptr @hash_search(ptr noundef %53, ptr noundef nonnull %54, i32 noundef 2, ptr noundef nonnull %3) #17
+  %55 = call ptr @hash_search(ptr noundef %53, ptr noundef nonnull %54, i32 noundef 2, ptr noundef nonnull %3) #18
   %56 = load i32, ptr %1, align 8
   %57 = and i32 %56, 4
   %.not62 = icmp eq i32 %57, 0
@@ -2118,7 +2118,7 @@ ReorderBufferFreeSnap.exit:                       ; preds = %33, %32, %25
   br i1 %.not.i, label %70, label %69
 
 69:                                               ; preds = %66
-  call void @pfree(ptr noundef nonnull %68) #17
+  call void @pfree(ptr noundef nonnull %68) #18
   store ptr null, ptr %67, align 8
   br label %70
 
@@ -2129,7 +2129,7 @@ ReorderBufferFreeSnap.exit:                       ; preds = %33, %32, %25
   br i1 %.not18.i, label %74, label %73
 
 73:                                               ; preds = %70
-  call void @hash_destroy(ptr noundef nonnull %72) #17
+  call void @hash_destroy(ptr noundef nonnull %72) #18
   store ptr null, ptr %71, align 8
   br label %74
 
@@ -2140,13 +2140,13 @@ ReorderBufferFreeSnap.exit:                       ; preds = %33, %32, %25
   br i1 %.not19.i, label %ReorderBufferReturnTXN.exit, label %77
 
 77:                                               ; preds = %74
-  call void @pfree(ptr noundef nonnull %76) #17
+  call void @pfree(ptr noundef nonnull %76) #18
   store ptr null, ptr %75, align 8
   br label %ReorderBufferReturnTXN.exit
 
 ReorderBufferReturnTXN.exit:                      ; preds = %74, %77
   call fastcc void @ReorderBufferToastReset(ptr noundef nonnull %0, ptr noundef nonnull %1)
-  call void @pfree(ptr noundef nonnull %1) #17
+  call void @pfree(ptr noundef nonnull %1) #18
   ret void
 }
 
@@ -2174,7 +2174,7 @@ define dso_local void @ReorderBufferAbort(ptr noundef %0, i32 noundef %1, i64 no
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %0, align 8
-  %15 = call ptr @hash_search(ptr noundef %14, ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull %6) #17
+  %15 = call ptr @hash_search(ptr noundef %14, ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull %6) #18
   %16 = load i8, ptr %6, align 1
   %17 = trunc i8 %16 to i1
   br i1 %17, label %ReorderBufferTXNByXid.exit, label %ReorderBufferTXNByXid.exit.thread24
@@ -2212,7 +2212,7 @@ ReorderBufferTXNByXid.exit.thread21:              ; preds = %10, %ReorderBufferT
 28:                                               ; preds = %ReorderBufferTXNByXid.exit.thread21
   %29 = getelementptr inbounds i8, ptr %0, i64 168
   %30 = load ptr, ptr %29, align 8
-  call void %30(ptr noundef nonnull %0, ptr noundef nonnull %.0.i23, i64 noundef %2) #17
+  call void %30(ptr noundef nonnull %0, ptr noundef nonnull %.0.i23, i64 noundef %2) #18
   %31 = getelementptr inbounds i8, ptr %.0.i23, i64 228
   %32 = load i32, ptr %31, align 4
   %.not18 = icmp eq i32 %32, 0
@@ -2221,12 +2221,12 @@ ReorderBufferTXNByXid.exit.thread21:              ; preds = %10, %ReorderBufferT
 33:                                               ; preds = %28
   %34 = getelementptr inbounds i8, ptr %.0.i23, i64 232
   %35 = load ptr, ptr %34, align 8
-  %36 = call zeroext i1 @IsTransactionOrTransactionBlock() #17
+  %36 = call zeroext i1 @IsTransactionOrTransactionBlock() #18
   br i1 %36, label %37, label %.lr.ph.i.preheader
 
 37:                                               ; preds = %33
-  call void @BeginInternalSubTransaction(ptr noundef nonnull @.str.7) #17
-  call void @AbortCurrentTransaction() #17
+  call void @BeginInternalSubTransaction(ptr noundef nonnull @.str.7) #18
+  call void @AbortCurrentTransaction() #18
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %37, %33
@@ -2236,7 +2236,7 @@ ReorderBufferTXNByXid.exit.thread21:              ; preds = %10, %ReorderBufferT
   %.07.i = phi i32 [ %40, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %38 = sext i32 %.07.i to i64
   %39 = getelementptr %union.SharedInvalidationMessage, ptr %35, i64 %38
-  call void @LocalExecuteInvalidationMessage(ptr noundef %39) #17
+  call void @LocalExecuteInvalidationMessage(ptr noundef %39) #18
   %40 = add nuw i32 %.07.i, 1
   %exitcond.not.i = icmp eq i32 %40, %32
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
@@ -2245,7 +2245,7 @@ ReorderBufferTXNByXid.exit.thread21:              ; preds = %10, %ReorderBufferT
   br i1 %36, label %41, label %ReorderBufferImmediateInvalidation.exit
 
 41:                                               ; preds = %._crit_edge.i
-  call void @RollbackAndReleaseCurrentSubTransaction() #17
+  call void @RollbackAndReleaseCurrentSubTransaction() #18
   br label %ReorderBufferImmediateInvalidation.exit
 
 ReorderBufferImmediateInvalidation.exit:          ; preds = %41, %._crit_edge.i, %28, %ReorderBufferTXNByXid.exit.thread21
@@ -2260,12 +2260,12 @@ ReorderBufferTXNByXid.exit.thread:                ; preds = %10, %ReorderBufferT
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ReorderBufferImmediateInvalidation(ptr nocapture noundef readnone %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call zeroext i1 @IsTransactionOrTransactionBlock() #17
+  %4 = tail call zeroext i1 @IsTransactionOrTransactionBlock() #18
   br i1 %4, label %5, label %.critedge
 
 5:                                                ; preds = %3
-  tail call void @BeginInternalSubTransaction(ptr noundef nonnull @.str.7) #17
-  tail call void @AbortCurrentTransaction() #17
+  tail call void @BeginInternalSubTransaction(ptr noundef nonnull @.str.7) #18
+  tail call void @AbortCurrentTransaction() #18
   br label %.critedge
 
 .critedge:                                        ; preds = %3, %5
@@ -2276,7 +2276,7 @@ define dso_local void @ReorderBufferImmediateInvalidation(ptr nocapture noundef 
   %.07 = phi i32 [ %8, %.lr.ph ], [ 0, %.critedge ]
   %6 = sext i32 %.07 to i64
   %7 = getelementptr %union.SharedInvalidationMessage, ptr %2, i64 %6
-  tail call void @LocalExecuteInvalidationMessage(ptr noundef %7) #17
+  tail call void @LocalExecuteInvalidationMessage(ptr noundef %7) #18
   %8 = add nuw i32 %.07, 1
   %exitcond.not = icmp eq i32 %8, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
@@ -2285,7 +2285,7 @@ define dso_local void @ReorderBufferImmediateInvalidation(ptr nocapture noundef 
   br i1 %4, label %9, label %10
 
 9:                                                ; preds = %._crit_edge
-  tail call void @RollbackAndReleaseCurrentSubTransaction() #17
+  tail call void @RollbackAndReleaseCurrentSubTransaction() #18
   br label %10
 
 10:                                               ; preds = %9, %._crit_edge
@@ -2313,17 +2313,17 @@ define dso_local void @ReorderBufferAbortOld(ptr noundef %0, i32 noundef %1) loc
   %8 = getelementptr i8, ptr %.sroa.0.020, i64 -240
   %9 = getelementptr i8, ptr %.sroa.0.020, i64 -236
   %10 = load i32, ptr %9, align 4
-  %11 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %10, i32 noundef %1) #17
+  %11 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %10, i32 noundef %1) #18
   br i1 %11, label %12, label %._crit_edge
 
 12:                                               ; preds = %7
-  %13 = tail call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #17
+  %13 = tail call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #18
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %12
   %15 = load i32, ptr %9, align 4
-  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %15) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2953, ptr noundef nonnull @__func__.ReorderBufferAbortOld) #17
+  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %15) #18
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2953, ptr noundef nonnull @__func__.ReorderBufferAbortOld) #18
   br label %17
 
 17:                                               ; preds = %12, %14
@@ -2334,7 +2334,7 @@ define dso_local void @ReorderBufferAbortOld(ptr noundef %0, i32 noundef %1) loc
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr %6, align 8
-  tail call void %21(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 0) #17
+  tail call void %21(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 0) #18
   br label %22
 
 22:                                               ; preds = %20, %17
@@ -2381,7 +2381,7 @@ define dso_local void @ReorderBufferForget(ptr nocapture noundef %0, i32 noundef
 
 12:                                               ; preds = %3
   %13 = load ptr, ptr %0, align 8
-  %14 = call ptr @hash_search(ptr noundef %13, ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull %5) #17
+  %14 = call ptr @hash_search(ptr noundef %13, ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull %5) #18
   %15 = load i8, ptr %5, align 1
   %16 = trunc i8 %15 to i1
   br i1 %16, label %ReorderBufferTXNByXid.exit, label %ReorderBufferTXNByXid.exit.thread18
@@ -2425,12 +2425,12 @@ ReorderBufferTXNByXid.exit.thread15:              ; preds = %9, %ReorderBufferTX
 30:                                               ; preds = %27
   %31 = getelementptr inbounds i8, ptr %.0.i17, i64 232
   %32 = load ptr, ptr %31, align 8
-  %33 = call zeroext i1 @IsTransactionOrTransactionBlock() #17
+  %33 = call zeroext i1 @IsTransactionOrTransactionBlock() #18
   br i1 %33, label %34, label %.lr.ph.i.preheader
 
 34:                                               ; preds = %30
-  call void @BeginInternalSubTransaction(ptr noundef nonnull @.str.7) #17
-  call void @AbortCurrentTransaction() #17
+  call void @BeginInternalSubTransaction(ptr noundef nonnull @.str.7) #18
+  call void @AbortCurrentTransaction() #18
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %34, %30
@@ -2440,7 +2440,7 @@ ReorderBufferTXNByXid.exit.thread15:              ; preds = %9, %ReorderBufferTX
   %.07.i = phi i32 [ %37, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %35 = sext i32 %.07.i to i64
   %36 = getelementptr %union.SharedInvalidationMessage, ptr %32, i64 %35
-  call void @LocalExecuteInvalidationMessage(ptr noundef %36) #17
+  call void @LocalExecuteInvalidationMessage(ptr noundef %36) #18
   %37 = add nuw i32 %.07.i, 1
   %exitcond.not.i = icmp eq i32 %37, %29
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
@@ -2449,7 +2449,7 @@ ReorderBufferTXNByXid.exit.thread15:              ; preds = %9, %ReorderBufferTX
   br i1 %33, label %38, label %ReorderBufferImmediateInvalidation.exit
 
 38:                                               ; preds = %._crit_edge.i
-  call void @RollbackAndReleaseCurrentSubTransaction() #17
+  call void @RollbackAndReleaseCurrentSubTransaction() #18
   br label %ReorderBufferImmediateInvalidation.exit
 
 ReorderBufferImmediateInvalidation.exit:          ; preds = %38, %._crit_edge.i, %ReorderBufferTXNByXid.exit.thread15, %27
@@ -2484,7 +2484,7 @@ define dso_local void @ReorderBufferInvalidate(ptr nocapture noundef %0, i32 nou
 
 12:                                               ; preds = %3
   %13 = load ptr, ptr %0, align 8
-  %14 = call ptr @hash_search(ptr noundef %13, ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull %5) #17
+  %14 = call ptr @hash_search(ptr noundef %13, ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull %5) #18
   %15 = load i8, ptr %5, align 1
   %16 = trunc i8 %15 to i1
   br i1 %16, label %ReorderBufferTXNByXid.exit, label %ReorderBufferTXNByXid.exit.thread14
@@ -2526,12 +2526,12 @@ ReorderBufferTXNByXid.exit.thread11:              ; preds = %9, %ReorderBufferTX
 29:                                               ; preds = %26
   %30 = getelementptr inbounds i8, ptr %.0.i13, i64 232
   %31 = load ptr, ptr %30, align 8
-  %32 = call zeroext i1 @IsTransactionOrTransactionBlock() #17
+  %32 = call zeroext i1 @IsTransactionOrTransactionBlock() #18
   br i1 %32, label %33, label %.lr.ph.i.preheader
 
 33:                                               ; preds = %29
-  call void @BeginInternalSubTransaction(ptr noundef nonnull @.str.7) #17
-  call void @AbortCurrentTransaction() #17
+  call void @BeginInternalSubTransaction(ptr noundef nonnull @.str.7) #18
+  call void @AbortCurrentTransaction() #18
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %33, %29
@@ -2541,7 +2541,7 @@ ReorderBufferTXNByXid.exit.thread11:              ; preds = %9, %ReorderBufferTX
   %.07.i = phi i32 [ %36, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %34 = sext i32 %.07.i to i64
   %35 = getelementptr %union.SharedInvalidationMessage, ptr %31, i64 %34
-  call void @LocalExecuteInvalidationMessage(ptr noundef %35) #17
+  call void @LocalExecuteInvalidationMessage(ptr noundef %35) #18
   %36 = add nuw i32 %.07.i, 1
   %exitcond.not.i = icmp eq i32 %36, %28
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
@@ -2550,7 +2550,7 @@ ReorderBufferTXNByXid.exit.thread11:              ; preds = %9, %ReorderBufferTX
   br i1 %32, label %37, label %ReorderBufferImmediateInvalidation.exit
 
 37:                                               ; preds = %._crit_edge.i
-  call void @RollbackAndReleaseCurrentSubTransaction() #17
+  call void @RollbackAndReleaseCurrentSubTransaction() #18
   br label %ReorderBufferImmediateInvalidation.exit
 
 ReorderBufferImmediateInvalidation.exit:          ; preds = %9, %37, %._crit_edge.i, %ReorderBufferTXNByXid.exit.thread14, %ReorderBufferTXNByXid.exit.thread11, %26, %ReorderBufferTXNByXid.exit
@@ -2584,7 +2584,7 @@ define dso_local void @ReorderBufferProcessXid(ptr noundef %0, i32 noundef %1, i
 define dso_local void @ReorderBufferAddSnapshot(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 248
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call noundef ptr @MemoryContextAlloc(ptr noundef %6, i64 noundef 80) #17
+  %7 = tail call noundef ptr @MemoryContextAlloc(ptr noundef %6, i64 noundef 80) #18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, i8 0, i64 80, i1 false)
   %8 = getelementptr inbounds i8, ptr %7, i64 32
   store ptr %3, ptr %8, align 8
@@ -2625,7 +2625,7 @@ define dso_local void @ReorderBufferSetBaseSnapshot(ptr noundef %0, i32 noundef 
 
 20:                                               ; preds = %11
   %21 = load ptr, ptr %0, align 8
-  %22 = call ptr @hash_search(ptr noundef %21, ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull %6) #17
+  %22 = call ptr @hash_search(ptr noundef %21, ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull %6) #18
   %23 = load i8, ptr %6, align 1
   %24 = trunc i8 %23 to i1
   br i1 %24, label %25, label %28
@@ -2682,7 +2682,7 @@ dlist_push_tail.exit:                             ; preds = %31, %38
 define dso_local void @ReorderBufferAddNewCommandId(ptr noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 248
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call noundef ptr @MemoryContextAlloc(ptr noundef %6, i64 noundef 80) #17
+  %7 = tail call noundef ptr @MemoryContextAlloc(ptr noundef %6, i64 noundef 80) #18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, i8 0, i64 80, i1 false)
   %8 = getelementptr inbounds i8, ptr %7, i64 32
   store i32 %3, ptr %8, align 8
@@ -2696,7 +2696,7 @@ define dso_local void @ReorderBufferAddNewCommandId(ptr noundef %0, i32 noundef 
 define dso_local void @ReorderBufferAddNewTupleCids(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 %3, i32 %4, i48 %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = getelementptr inbounds i8, ptr %0, i64 248
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr @MemoryContextAlloc(ptr noundef %11, i64 noundef 80) #17
+  %12 = tail call noundef ptr @MemoryContextAlloc(ptr noundef %11, i64 noundef 80) #18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 80, i1 false)
   %13 = tail call fastcc ptr @ReorderBufferTXNByXid(ptr noundef %0, i32 noundef %1, i1 noundef zeroext true, ptr noundef null, i64 noundef %2, i1 noundef zeroext true)
   %14 = getelementptr inbounds i8, ptr %12, i64 32
@@ -2763,7 +2763,7 @@ define dso_local void @ReorderBufferAddInvalidations(ptr noundef %0, i32 noundef
   %16 = trunc i64 %3 to i32
   store i32 %16, ptr %12, align 4
   %17 = shl i64 %3, 4
-  %18 = tail call ptr @palloc(i64 noundef %17) #17
+  %18 = tail call ptr @palloc(i64 noundef %17) #18
   %19 = getelementptr inbounds i8, ptr %., i64 232
   store ptr %18, ptr %19, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %18, ptr align 4 %4, i64 %17, i1 false)
@@ -2775,7 +2775,7 @@ define dso_local void @ReorderBufferAddInvalidations(ptr noundef %0, i32 noundef
   %23 = zext i32 %13 to i64
   %24 = add i64 %23, %3
   %25 = shl i64 %24, 4
-  %26 = tail call ptr @repalloc(ptr noundef %22, i64 noundef %25) #17
+  %26 = tail call ptr @repalloc(ptr noundef %22, i64 noundef %25) #18
   store ptr %26, ptr %21, align 8
   %27 = load i32, ptr %12, align 4
   %28 = zext i32 %27 to i64
@@ -2793,13 +2793,13 @@ define dso_local void @ReorderBufferAddInvalidations(ptr noundef %0, i32 noundef
   %.pre-phi = phi i32 [ %32, %20 ], [ %16, %15 ]
   %35 = getelementptr inbounds i8, ptr %0, i64 248
   %36 = load ptr, ptr %35, align 8
-  %37 = tail call noundef ptr @MemoryContextAlloc(ptr noundef %36, i64 noundef 80) #17
+  %37 = tail call noundef ptr @MemoryContextAlloc(ptr noundef %36, i64 noundef 80) #18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %37, i8 0, i64 80, i1 false)
   %38 = getelementptr inbounds i8, ptr %37, i64 8
   store i32 4, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %37, i64 32
   store i32 %.pre-phi, ptr %39, align 8
-  %40 = tail call ptr @palloc(i64 noundef %.pre-phi39) #17
+  %40 = tail call ptr @palloc(i64 noundef %.pre-phi39) #18
   %41 = getelementptr inbounds i8, ptr %37, i64 40
   store ptr %40, ptr %41, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %40, ptr align 4 %4, i64 %.pre-phi39, i1 false)
@@ -2907,7 +2907,7 @@ define dso_local ptr @ReorderBufferGetCatalogChangesXacts(ptr noundef readonly %
 5:                                                ; preds = %1
   %6 = zext i32 %.val to i64
   %7 = shl nuw nsw i64 %6, 2
-  %8 = tail call ptr @palloc(i64 noundef %7) #17
+  %8 = tail call ptr @palloc(i64 noundef %7) #18
   %9 = getelementptr inbounds i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
@@ -2930,7 +2930,7 @@ define dso_local ptr @ReorderBufferGetCatalogChangesXacts(ptr noundef readonly %
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.014.lcssa = phi i64 [ 0, %5 ], [ %13, %.lr.ph ]
-  tail call void @pg_qsort(ptr noundef %8, i64 noundef %.014.lcssa, i64 noundef 4, ptr noundef nonnull @xidComparator) #17
+  tail call void @pg_qsort(ptr noundef %8, i64 noundef %.014.lcssa, i64 noundef 4, ptr noundef nonnull @xidComparator) #18
   br label %17
 
 17:                                               ; preds = %1, %._crit_edge
@@ -2966,7 +2966,7 @@ define dso_local zeroext i1 @ReorderBufferXidHasCatalogChanges(ptr nocapture nou
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %0, align 8
-  %13 = call ptr @hash_search(ptr noundef %12, ptr noundef nonnull %3, i32 noundef 0, ptr noundef nonnull %4) #17
+  %13 = call ptr @hash_search(ptr noundef %12, ptr noundef nonnull %3, i32 noundef 0, ptr noundef nonnull %4) #18
   %14 = load i8, ptr %4, align 1
   %15 = trunc i8 %14 to i1
   br i1 %15, label %ReorderBufferTXNByXid.exit, label %ReorderBufferTXNByXid.exit.thread9
@@ -3030,7 +3030,7 @@ define dso_local zeroext i1 @ReorderBufferXidHasBaseSnapshot(ptr nocapture nound
 
 13:                                               ; preds = %2
   %14 = load ptr, ptr %0, align 8
-  %15 = call ptr @hash_search(ptr noundef %14, ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull %6) #17
+  %15 = call ptr @hash_search(ptr noundef %14, ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull %6) #18
   %16 = load i8, ptr %6, align 1
   %17 = trunc i8 %16 to i1
   br i1 %17, label %ReorderBufferTXNByXid.exit, label %ReorderBufferTXNByXid.exit.thread19
@@ -3077,7 +3077,7 @@ ReorderBufferTXNByXid.exit.thread16:              ; preds = %10, %ReorderBufferT
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr %0, align 8
-  %35 = call ptr @hash_search(ptr noundef %34, ptr noundef nonnull %3, i32 noundef 0, ptr noundef nonnull %4) #17
+  %35 = call ptr @hash_search(ptr noundef %34, ptr noundef nonnull %3, i32 noundef 0, ptr noundef nonnull %4) #18
   %36 = load i8, ptr %4, align 1
   %37 = trunc i8 %36 to i1
   br i1 %37, label %38, label %41
@@ -3115,8 +3115,8 @@ ReorderBufferTXNByXid.exit.thread:                ; preds = %10, %ReorderBufferT
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @StartupReorderBuffer() local_unnamed_addr #0 {
-  %1 = tail call ptr @AllocateDir(ptr noundef nonnull @.str.8) #17
-  %2 = tail call ptr @ReadDir(ptr noundef %1, ptr noundef nonnull @.str.8) #17
+  %1 = tail call ptr @AllocateDir(ptr noundef nonnull @.str.8) #18
+  %2 = tail call ptr @ReadDir(ptr noundef %1, ptr noundef nonnull @.str.8) #18
   %.not10 = icmp eq ptr %2, null
   br i1 %.not10, label %._crit_edge, label %sub_0
 
@@ -3155,12 +3155,12 @@ sub_2:                                            ; preds = %sub_18
   br i1 %19, label %.backedge, label %21
 
 .backedge:                                        ; preds = %.tail, %.tail6, %23, %21
-  %20 = tail call ptr @ReadDir(ptr noundef %1, ptr noundef nonnull @.str.8) #17
+  %20 = tail call ptr @ReadDir(ptr noundef %1, ptr noundef nonnull @.str.8) #18
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %._crit_edge, label %sub_0, !llvm.loop !17
 
 21:                                               ; preds = %.tail6
-  %22 = tail call zeroext i1 @ReplicationSlotValidateName(ptr noundef nonnull %4, i32 noundef 13) #17
+  %22 = tail call zeroext i1 @ReplicationSlotValidateName(ptr noundef nonnull %4, i32 noundef 13) #18
   br i1 %22, label %23, label %.backedge
 
 23:                                               ; preds = %21
@@ -3168,7 +3168,7 @@ sub_2:                                            ; preds = %sub_18
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %0
-  %24 = tail call i32 @FreeDir(ptr noundef %1) #17
+  %24 = tail call i32 @FreeDir(ptr noundef %1) #18
   ret void
 }
 
@@ -3201,11 +3201,11 @@ define dso_local noundef zeroext i1 @ResolveCminCmaxDuringDecoding(ptr noundef %
 
 22:                                               ; preds = %6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %18, i8 0, i64 20, i1 false)
-  call void @BufferGetTag(i32 noundef %3, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20) #17
+  call void @BufferGetTag(i32 noundef %3, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20) #18
   %23 = getelementptr inbounds i8, ptr %2, i64 4
   %24 = getelementptr inbounds i8, ptr %18, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %24, ptr noundef nonnull readonly align 2 dereferenceable(6) %23, i64 6, i1 false)
-  %25 = call ptr @hash_search(ptr noundef nonnull %0, ptr noundef nonnull %18, i32 noundef 0, ptr noundef null) #17
+  %25 = call ptr @hash_search(ptr noundef nonnull %0, ptr noundef nonnull %18, i32 noundef 0, ptr noundef null) #18
   %.not66 = icmp eq ptr %25, null
   br i1 %.not66, label %.lr.ph50, label %._crit_edge.thread
 
@@ -3224,11 +3224,11 @@ define dso_local noundef zeroext i1 @ResolveCminCmaxDuringDecoding(ptr noundef %
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
-  %34 = call zeroext i1 @IsSharedRelation(i32 noundef %33) #17
+  %34 = call zeroext i1 @IsSharedRelation(i32 noundef %33) #18
   %35 = load i32, ptr @MyDatabaseId, align 4
   %36 = select i1 %34, i32 0, i32 %35
-  %37 = call ptr @AllocateDir(ptr noundef nonnull @.str.38) #17
-  %38 = call ptr @ReadDir(ptr noundef %37, ptr noundef nonnull @.str.38) #17
+  %37 = call ptr @AllocateDir(ptr noundef nonnull @.str.38) #18
+  %38 = call ptr @ReadDir(ptr noundef %37, ptr noundef nonnull @.str.38) #18
   %.not5658.i = icmp eq ptr %38, null
   br i1 %.not5658.i, label %.outer._crit_edge.i, label %sub_0.lr.ph.i
 
@@ -3270,25 +3270,25 @@ sub_2.i:                                          ; preds = %sub_143.i
   br i1 %54, label %.backedge.i, label %56
 
 .backedge.i:                                      ; preds = %71, %68, %63, %56, %.tail41.i, %.tail.i
-  %55 = call ptr @ReadDir(ptr noundef %37, ptr noundef nonnull @.str.38) #17
+  %55 = call ptr @ReadDir(ptr noundef %37, ptr noundef nonnull @.str.38) #18
   %.not.i = icmp eq ptr %55, null
   br i1 %.not.i, label %.outer._crit_edge.i, label %sub_0.i, !llvm.loop !18
 
 56:                                               ; preds = %.tail41.i
-  %57 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(5) @.str.39, i64 noundef 4) #19
+  %57 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(5) @.str.39, i64 noundef 4) #20
   %.not34.i = icmp eq i32 %57, 0
   br i1 %.not34.i, label %58, label %.backedge.i
 
 58:                                               ; preds = %56
-  %59 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %41, ptr noundef nonnull @.str.40, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %14, ptr noundef nonnull %15) #17
+  %59 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %41, ptr noundef nonnull @.str.40, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %14, ptr noundef nonnull %15) #18
   %.not35.i = icmp eq i32 %59, 6
   br i1 %.not35.i, label %63, label %60
 
 60:                                               ; preds = %58
-  %61 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %61 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   call void @llvm.assume(i1 %61)
-  %62 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef nonnull %41) #17
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 5162, ptr noundef nonnull @__func__.UpdateLogicalMappings) #17
+  %62 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef nonnull %41) #18
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 5162, ptr noundef nonnull @__func__.UpdateLogicalMappings) #18
   unreachable
 
 63:                                               ; preds = %58
@@ -3303,7 +3303,7 @@ sub_2.i:                                          ; preds = %sub_143.i
 
 68:                                               ; preds = %63
   %69 = load i32, ptr %15, align 4
-  %70 = call zeroext i1 @TransactionIdDidCommit(i32 noundef %69) #17
+  %70 = call zeroext i1 @TransactionIdDidCommit(i32 noundef %69) #18
   br i1 %70, label %71, label %.backedge.i
 
 71:                                               ; preds = %68
@@ -3313,7 +3313,7 @@ sub_2.i:                                          ; preds = %sub_143.i
   %75 = sext i32 %74 to i64
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   store i32 %72, ptr %11, align 4
-  %76 = call ptr @bsearch(ptr noundef nonnull %11, ptr noundef %73, i64 noundef %75, i64 noundef 4, ptr noundef nonnull @xidComparator) #17
+  %76 = call ptr @bsearch(ptr noundef nonnull %11, ptr noundef %73, i64 noundef %75, i64 noundef 4, ptr noundef nonnull @xidComparator) #18
   %.not40.i = icmp eq ptr %76, null
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   br i1 %.not40.i, label %.backedge.i, label %.outer.i
@@ -3323,19 +3323,19 @@ sub_2.i:                                          ; preds = %sub_143.i
   %78 = shl nuw i64 %77, 32
   %79 = zext i32 %65 to i64
   %80 = or disjoint i64 %78, %79
-  %81 = call ptr @palloc(i64 noundef 1032) #17
+  %81 = call ptr @palloc(i64 noundef 1032) #18
   store i64 %80, ptr %81, align 8
   %82 = getelementptr inbounds i8, ptr %81, i64 8
-  %83 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull dereferenceable(1) %41) #17
-  %84 = call ptr @lappend(ptr noundef %.0.ph59.i, ptr noundef nonnull %81) #17
-  %85 = call ptr @ReadDir(ptr noundef %37, ptr noundef nonnull @.str.38) #17
+  %83 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull dereferenceable(1) %41) #18
+  %84 = call ptr @lappend(ptr noundef %.0.ph59.i, ptr noundef nonnull %81) #18
+  %85 = call ptr @ReadDir(ptr noundef %37, ptr noundef nonnull @.str.38) #18
   %.not56.i = icmp eq ptr %85, null
   br i1 %.not56.i, label %.outer._crit_edge.i, label %sub_0.lr.ph.i, !llvm.loop !18
 
 .outer._crit_edge.i:                              ; preds = %.outer.i, %.backedge.i, %.lr.ph50
   %.0.ph.lcssa50.i = phi ptr [ null, %.lr.ph50 ], [ %.0.ph59.i, %.backedge.i ], [ %84, %.outer.i ]
-  %86 = call i32 @FreeDir(ptr noundef %37) #17
-  call void @list_sort(ptr noundef %.0.ph.lcssa50.i, ptr noundef nonnull @file_sort_by_lsn) #17
+  %86 = call i32 @FreeDir(ptr noundef %37) #18
+  call void @list_sort(ptr noundef %.0.ph.lcssa50.i, ptr noundef nonnull @file_sort_by_lsn) #18
   %.not32.i = icmp eq ptr %.0.ph.lcssa50.i, null
   br i1 %.not32.i, label %._crit_edge, label %.lr.ph.i
 
@@ -3351,15 +3351,15 @@ sub_2.i:                                          ; preds = %sub_143.i
   %91 = load ptr, ptr %88, align 8
   %92 = getelementptr %union.ListCell, ptr %91, i64 %indvars.iv.i49
   %93 = load ptr, ptr %92, align 8
-  %94 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #17
+  %94 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #18
   br i1 %94, label %95, label %100
 
 95:                                               ; preds = %.lr.ph
   %96 = getelementptr inbounds i8, ptr %93, i64 8
   %97 = load ptr, ptr %27, align 8
   %98 = load i32, ptr %97, align 4
-  %99 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.42, ptr noundef nonnull %96, i32 noundef %98) #17
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 5198, ptr noundef nonnull @__func__.UpdateLogicalMappings) #17
+  %99 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.42, ptr noundef nonnull %96, i32 noundef %98) #18
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 5198, ptr noundef nonnull @__func__.UpdateLogicalMappings) #18
   br label %100
 
 100:                                              ; preds = %95, %.lr.ph
@@ -3368,8 +3368,8 @@ sub_2.i:                                          ; preds = %sub_143.i
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
-  %102 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.43, ptr noundef nonnull %101) #17
-  %103 = call i32 @OpenTransientFile(ptr noundef nonnull %7, i32 noundef 0) #17
+  %102 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.43, ptr noundef nonnull %101) #18
+  %103 = call i32 @OpenTransientFile(ptr noundef nonnull %7, i32 noundef 0) #18
   %104 = icmp slt i32 %103, 0
   br i1 %104, label %110, label %.preheader.i.i
 
@@ -3377,7 +3377,7 @@ sub_2.i:                                          ; preds = %sub_143.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %9, i8 0, i64 20, i1 false)
   %105 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772201, ptr %105, align 4
-  %106 = call i64 @read(i32 noundef %103, ptr noundef nonnull %8, i64 noundef 36) #17
+  %106 = call i64 @read(i32 noundef %103, ptr noundef nonnull %8, i64 noundef 36) #18
   %107 = trunc i64 %106 to i32
   %108 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %108, align 4
@@ -3385,19 +3385,19 @@ sub_2.i:                                          ; preds = %sub_143.i
   br i1 %109, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 110:                                              ; preds = %100
-  %111 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %111 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   call void @llvm.assume(i1 %111)
-  %112 = call i32 @errcode_for_file_access() #17
-  %113 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull %7) #17
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 5028, ptr noundef nonnull @__func__.ApplyLogicalMappingFile) #17
+  %112 = call i32 @errcode_for_file_access() #18
+  %113 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull %7) #18
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 5028, ptr noundef nonnull @__func__.ApplyLogicalMappingFile) #18
   unreachable
 
 ._crit_edge.i.i:                                  ; preds = %.preheader.i.i, %.backedge.i.i
-  %114 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %114 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   call void @llvm.assume(i1 %114)
-  %115 = call i32 @errcode_for_file_access() #17
-  %116 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.44, ptr noundef nonnull %7) #17
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 5049, ptr noundef nonnull @__func__.ApplyLogicalMappingFile) #17
+  %115 = call i32 @errcode_for_file_access() #18
+  %116 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.44, ptr noundef nonnull %7) #18
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 5049, ptr noundef nonnull @__func__.ApplyLogicalMappingFile) #18
   unreachable
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.backedge.i.i
@@ -3412,24 +3412,24 @@ sub_2.i:                                          ; preds = %sub_143.i
   br i1 %.not.i.i, label %126, label %122
 
 122:                                              ; preds = %120
-  %123 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %123 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   call void @llvm.assume(i1 %123)
-  %124 = call i32 @errcode_for_file_access() #17
-  %125 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.45, ptr noundef nonnull %7, i32 noundef %117, i32 noundef 36) #17
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 5057, ptr noundef nonnull @__func__.ApplyLogicalMappingFile) #17
+  %124 = call i32 @errcode_for_file_access() #18
+  %125 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.45, ptr noundef nonnull %7, i32 noundef %117, i32 noundef 36) #18
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 5057, ptr noundef nonnull @__func__.ApplyLogicalMappingFile) #18
   unreachable
 
 126:                                              ; preds = %120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %8, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %30, ptr noundef nonnull readonly align 4 dereferenceable(6) %29, i64 6, i1 false)
-  %127 = call ptr @hash_search(ptr noundef nonnull %0, ptr noundef nonnull %9, i32 noundef 0, ptr noundef null) #17
+  %127 = call ptr @hash_search(ptr noundef nonnull %0, ptr noundef nonnull %9, i32 noundef 0, ptr noundef null) #18
   %.not17.i.i = icmp eq ptr %127, null
   br i1 %.not17.i.i, label %.backedge.i.i, label %128
 
 128:                                              ; preds = %126
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %31, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %30, ptr noundef nonnull readonly align 2 dereferenceable(6) %32, i64 6, i1 false)
-  %129 = call ptr @hash_search(ptr noundef nonnull %0, ptr noundef nonnull %9, i32 noundef 1, ptr noundef nonnull %10) #17
+  %129 = call ptr @hash_search(ptr noundef nonnull %0, ptr noundef nonnull %9, i32 noundef 1, ptr noundef nonnull %10) #18
   %130 = load i8, ptr %10, align 1
   %131 = trunc i8 %130 to i1
   br i1 %131, label %.backedge.i.i, label %132
@@ -3453,7 +3453,7 @@ sub_2.i:                                          ; preds = %sub_143.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %9, i8 0, i64 20, i1 false)
   %142 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772201, ptr %142, align 4
-  %143 = call i64 @read(i32 noundef %103, ptr noundef nonnull %8, i64 noundef 36) #17
+  %143 = call i64 @read(i32 noundef %103, ptr noundef nonnull %8, i64 noundef 36) #18
   %144 = trunc i64 %143 to i32
   %145 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %145, align 4
@@ -3461,16 +3461,16 @@ sub_2.i:                                          ; preds = %sub_143.i
   br i1 %146, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 147:                                              ; preds = %.lr.ph.i.i
-  %148 = call i32 @CloseTransientFile(i32 noundef %103) #17
+  %148 = call i32 @CloseTransientFile(i32 noundef %103) #18
   %.not18.i.i = icmp eq i32 %148, 0
   br i1 %.not18.i.i, label %ApplyLogicalMappingFile.exit.i, label %149
 
 149:                                              ; preds = %147
-  %150 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %150 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   call void @llvm.assume(i1 %150)
-  %151 = call i32 @errcode_for_file_access() #17
-  %152 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef nonnull %7) #17
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 5100, ptr noundef nonnull @__func__.ApplyLogicalMappingFile) #17
+  %151 = call i32 @errcode_for_file_access() #18
+  %152 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef nonnull %7) #18
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 5100, ptr noundef nonnull @__func__.ApplyLogicalMappingFile) #18
   unreachable
 
 ApplyLogicalMappingFile.exit.i:                   ; preds = %147
@@ -3478,7 +3478,7 @@ ApplyLogicalMappingFile.exit.i:                   ; preds = %147
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
-  call void @pfree(ptr noundef %93) #17
+  call void @pfree(ptr noundef %93) #18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i49, 1
   %153 = load i32, ptr %87, align 4
   %154 = sext i32 %153 to i64
@@ -3492,7 +3492,7 @@ ApplyLogicalMappingFile.exit.i:                   ; preds = %147
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
-  %156 = call ptr @hash_search(ptr noundef nonnull %0, ptr noundef nonnull %18, i32 noundef 0, ptr noundef null) #17
+  %156 = call ptr @hash_search(ptr noundef nonnull %0, ptr noundef nonnull %18, i32 noundef 0, ptr noundef null) #18
   %.not81 = icmp eq ptr %156, null
   br i1 %.not81, label %164, label %._crit_edge.thread
 
@@ -3569,7 +3569,7 @@ define internal fastcc void @ReorderBufferStreamTXN(ptr noundef %0, ptr noundef 
   br i1 %24, label %25, label %42
 
 25:                                               ; preds = %20
-  tail call void @SnapBuildSnapDecRefcount(ptr noundef nonnull %18) #17
+  tail call void @SnapBuildSnapDecRefcount(ptr noundef nonnull %18) #18
   %26 = load ptr, ptr %13, align 8
   %27 = load ptr, ptr %12, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 8
@@ -3604,7 +3604,7 @@ define internal fastcc void @ReorderBufferStreamTXN(ptr noundef %0, ptr noundef 
   br label %ReorderBufferTransferSnapToParent.exit
 
 42:                                               ; preds = %20
-  tail call void @SnapBuildSnapDecRefcount(ptr noundef nonnull %16) #17
+  tail call void @SnapBuildSnapDecRefcount(ptr noundef nonnull %16) #18
   %43 = getelementptr i8, ptr %.sroa.0.054, i64 -136
   %44 = getelementptr i8, ptr %.sroa.0.054, i64 -128
   %45 = load ptr, ptr %44, align 8
@@ -3641,7 +3641,7 @@ ReorderBufferTransferSnapToParent.exit:           ; preds = %14, %.thread.i, %42
   %63 = add nuw nsw i64 %62, %58
   %64 = shl nuw nsw i64 %63, 2
   %65 = add nuw nsw i64 %64, 120
-  %66 = tail call ptr @MemoryContextAllocZero(ptr noundef %.val, i64 noundef %65) #17
+  %66 = tail call ptr @MemoryContextAllocZero(ptr noundef %.val, i64 noundef %65) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %66, ptr noundef nonnull readonly align 8 dereferenceable(120) %52, i64 120, i1 false)
   %67 = getelementptr inbounds i8, ptr %66, i64 46
   store i8 1, ptr %67, align 2
@@ -3699,7 +3699,7 @@ ReorderBufferTransferSnapToParent.exit:           ; preds = %14, %.thread.i, %42
 ReorderBufferCopySnap.exit:                       ; preds = %54, %._crit_edge.loopexit.i
   %95 = phi i64 [ %94, %._crit_edge.loopexit.i ], [ 1, %54 ]
   %96 = phi ptr [ %.pre.i41, %._crit_edge.loopexit.i ], [ %78, %54 ]
-  tail call void @pg_qsort(ptr noundef %96, i64 noundef %95, i64 noundef 4, ptr noundef nonnull @xidComparator) #17
+  tail call void @pg_qsort(ptr noundef %96, i64 noundef %95, i64 noundef 4, ptr noundef nonnull @xidComparator) #18
   %97 = getelementptr inbounds i8, ptr %66, i64 48
   store i32 0, ptr %97, align 8
   br label %152
@@ -3719,7 +3719,7 @@ ReorderBufferCopySnap.exit:                       ; preds = %54, %._crit_edge.lo
   %109 = add nuw nsw i64 %108, %104
   %110 = shl nuw nsw i64 %109, 2
   %111 = add nuw nsw i64 %110, 120
-  %112 = tail call ptr @MemoryContextAllocZero(ptr noundef %.val39, i64 noundef %111) #17
+  %112 = tail call ptr @MemoryContextAllocZero(ptr noundef %.val39, i64 noundef %111) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %112, ptr noundef nonnull readonly align 8 dereferenceable(120) %4, i64 120, i1 false)
   %113 = getelementptr inbounds i8, ptr %112, i64 46
   store i8 1, ptr %113, align 2
@@ -3779,7 +3779,7 @@ ReorderBufferCopySnap.exit:                       ; preds = %54, %._crit_edge.lo
 ReorderBufferCopySnap.exit51:                     ; preds = %98, %._crit_edge.loopexit.i49
   %143 = phi i64 [ %142, %._crit_edge.loopexit.i49 ], [ 1, %98 ]
   %144 = phi ptr [ %.pre.i50, %._crit_edge.loopexit.i49 ], [ %124, %98 ]
-  tail call void @pg_qsort(ptr noundef %144, i64 noundef %143, i64 noundef 4, ptr noundef nonnull @xidComparator) #17
+  tail call void @pg_qsort(ptr noundef %144, i64 noundef %143, i64 noundef 4, ptr noundef nonnull @xidComparator) #18
   %145 = getelementptr inbounds i8, ptr %112, i64 48
   store i32 %100, ptr %145, align 8
   %146 = load ptr, ptr %3, align 8
@@ -3789,11 +3789,11 @@ ReorderBufferCopySnap.exit51:                     ; preds = %98, %._crit_edge.lo
   br i1 %149, label %150, label %151
 
 150:                                              ; preds = %ReorderBufferCopySnap.exit51
-  tail call void @pfree(ptr noundef nonnull %146) #17
+  tail call void @pfree(ptr noundef nonnull %146) #18
   br label %ReorderBufferFreeSnap.exit
 
 151:                                              ; preds = %ReorderBufferCopySnap.exit51
-  tail call void @SnapBuildSnapDecRefcount(ptr noundef nonnull %146) #17
+  tail call void @SnapBuildSnapDecRefcount(ptr noundef nonnull %146) #18
   br label %ReorderBufferFreeSnap.exit
 
 ReorderBufferFreeSnap.exit:                       ; preds = %150, %151
@@ -3825,7 +3825,7 @@ ReorderBufferFreeSnap.exit:                       ; preds = %150, %151
   store i64 %167, ptr %165, align 8
   %168 = getelementptr inbounds i8, ptr %0, i64 224
   %169 = load ptr, ptr %168, align 8
-  tail call void @UpdateDecodingStats(ptr noundef %169) #17
+  tail call void @UpdateDecodingStats(ptr noundef %169) #18
   br label %170
 
 170:                                              ; preds = %._crit_edge, %152
@@ -3887,7 +3887,7 @@ define internal fastcc void @ReorderBufferProcessTXN(ptr noundef %0, ptr noundef
   store ptr %33, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %1, i64 184
   %36 = load i64, ptr %35, align 8
-  %37 = call ptr @hash_create(ptr noundef nonnull @.str.18, i64 noundef %36, ptr noundef nonnull %9, i32 noundef 1064) #17
+  %37 = call ptr @hash_create(ptr noundef nonnull @.str.18, i64 noundef %36, ptr noundef nonnull %9, i32 noundef 1064) #18
   %38 = getelementptr inbounds i8, ptr %1, i64 192
   store ptr %37, ptr %38, align 8
   %39 = load ptr, ptr %25, align 8
@@ -3908,7 +3908,7 @@ define internal fastcc void @ReorderBufferProcessTXN(ptr noundef %0, ptr noundef
   %43 = getelementptr i8, ptr %.sroa.0.025.i, i64 -20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %40, ptr noundef nonnull readonly align 2 dereferenceable(6) %43, i64 6, i1 false)
   %44 = load ptr, ptr %38, align 8
-  %45 = call ptr @hash_search(ptr noundef %44, ptr noundef nonnull %10, i32 noundef 1, ptr noundef nonnull %11) #17
+  %45 = call ptr @hash_search(ptr noundef %44, ptr noundef nonnull %10, i32 noundef 1, ptr noundef nonnull %11) #18
   %46 = load i8, ptr %11, align 1
   %47 = trunc i8 %46 to i1
   br i1 %47, label %55, label %48
@@ -3943,11 +3943,11 @@ ReorderBufferBuildTupleCidHash.exit:              ; preds = %55, %6, %23, %29
   %.0..0..0..0.124 = load volatile ptr, ptr %12, align 8
   %60 = getelementptr inbounds i8, ptr %1, i64 192
   %61 = load ptr, ptr %60, align 8
-  call void @SetupHistoricSnapshot(ptr noundef %.0..0..0..0.124, ptr noundef %61) #17
-  %62 = call zeroext i1 @IsTransactionOrTransactionBlock() #17
+  call void @SetupHistoricSnapshot(ptr noundef %.0..0..0..0.124, ptr noundef %61) #18
+  %62 = call zeroext i1 @IsTransactionOrTransactionBlock() #18
   %63 = load ptr, ptr @PG_exception_stack, align 8
   %64 = load ptr, ptr @error_context_stack, align 8
-  %65 = call i32 @__sigsetjmp(ptr noundef nonnull %19, i32 noundef 0) #20
+  %65 = call i32 @__sigsetjmp(ptr noundef nonnull %19, i32 noundef 0) #21
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %67, label %903
 
@@ -3957,11 +3957,11 @@ ReorderBufferBuildTupleCidHash.exit:              ; preds = %55, %6, %23, %29
 
 68:                                               ; preds = %67
   %69 = select i1 %5, ptr @.str.11, ptr @.str.7
-  call void @BeginInternalSubTransaction(ptr noundef nonnull %69) #17
+  call void @BeginInternalSubTransaction(ptr noundef nonnull %69) #18
   br label %71
 
 70:                                               ; preds = %67
-  call void @StartTransactionCommand() #17
+  call void @StartTransactionCommand() #18
   br label %71
 
 71:                                               ; preds = %70, %68
@@ -3974,7 +3974,7 @@ ReorderBufferBuildTupleCidHash.exit:              ; preds = %55, %6, %23, %29
   %. = select i1 %.not235, i64 80, i64 120
   %74 = getelementptr inbounds i8, ptr %0, i64 %.
   %75 = load ptr, ptr %74, align 8
-  call void %75(ptr noundef %0, ptr noundef nonnull %1) #17
+  call void %75(ptr noundef %0, ptr noundef nonnull %1) #18
   br label %76
 
 76:                                               ; preds = %.sink.split, %71
@@ -4010,7 +4010,7 @@ ReorderBufferBuildTupleCidHash.exit:              ; preds = %55, %6, %23, %29
   %88 = load ptr, ptr %87, align 8
   %89 = mul i64 %.1.lcssa.i, 48
   %90 = add i64 %89, 32
-  %91 = call ptr @MemoryContextAllocZero(ptr noundef %88, i64 noundef %90) #17
+  %91 = call ptr @MemoryContextAllocZero(ptr noundef %88, i64 noundef %90) #18
   %92 = getelementptr inbounds i8, ptr %91, i64 8
   store i64 %.1.lcssa.i, ptr %92, align 8
   %93 = getelementptr inbounds i8, ptr %91, i64 16
@@ -4044,7 +4044,7 @@ ReorderBufferBuildTupleCidHash.exit:              ; preds = %55, %6, %23, %29
 
 ._crit_edge107.i:                                 ; preds = %._crit_edge107.loopexit.i, %._crit_edge.i
   %.lcssa.i = phi i32 [ 0, %._crit_edge.i ], [ %105, %._crit_edge107.loopexit.i ]
-  %106 = call ptr @binaryheap_allocate(i32 noundef %.lcssa.i, ptr noundef nonnull @ReorderBufferIterCompare, ptr noundef nonnull %91) #17
+  %106 = call ptr @binaryheap_allocate(i32 noundef %.lcssa.i, ptr noundef nonnull @ReorderBufferIterCompare, ptr noundef nonnull %91) #18
   store ptr %106, ptr %91, align 8
   store volatile ptr %91, ptr %14, align 8
   %107 = load i64, ptr %77, align 8
@@ -4076,7 +4076,7 @@ ReorderBufferBuildTupleCidHash.exit:              ; preds = %55, %6, %23, %29
   %121 = getelementptr inbounds i8, ptr %91, i64 48
   store ptr %1, ptr %121, align 8
   %122 = load ptr, ptr %91, align 8
-  call void @binaryheap_add_unordered(ptr noundef %122, i64 noundef 0) #17
+  call void @binaryheap_add_unordered(ptr noundef %122, i64 noundef 0) #18
   br label %123
 
 123:                                              ; preds = %115, %._crit_edge107.i
@@ -4133,7 +4133,7 @@ ReorderBufferBuildTupleCidHash.exit:              ; preds = %55, %6, %23, %29
   store ptr %127, ptr %145, align 8
   %146 = load ptr, ptr %91, align 8
   %147 = add i32 %.284110.i, 1
-  call void @binaryheap_add_unordered(ptr noundef %146, i64 noundef %.pre-phi.i) #17
+  call void @binaryheap_add_unordered(ptr noundef %146, i64 noundef %.pre-phi.i) #18
   br label %148
 
 148:                                              ; preds = %139, %126
@@ -4145,7 +4145,7 @@ ReorderBufferBuildTupleCidHash.exit:              ; preds = %55, %6, %23, %29
 
 ReorderBufferIterTXNInit.exit:                    ; preds = %148, %123
   %151 = load ptr, ptr %91, align 8
-  call void @binaryheap_build(ptr noundef %151) #17
+  call void @binaryheap_build(ptr noundef %151) #18
   %.0..0..0.360 = load volatile ptr, ptr %14, align 8
   %152 = load ptr, ptr %.0..0..0.360, align 8
   %153 = load i32, ptr %152, align 8
@@ -4176,7 +4176,7 @@ ReorderBufferIterTXNInit.exit:                    ; preds = %148, %123
   %170 = phi ptr [ %152, %.lr.ph363 ], [ %816, %815 ]
   %.0.362 = phi ptr [ %.0..0..0.360, %.lr.ph363 ], [ %.0..0..0., %815 ]
   %.0219361 = phi i32 [ 0, %.lr.ph363 ], [ %.1220, %815 ]
-  %171 = call i64 @binaryheap_first(ptr noundef nonnull %170) #17
+  %171 = call i64 @binaryheap_first(ptr noundef nonnull %170) #18
   %172 = getelementptr inbounds i8, ptr %.0.362, i64 32
   %sext.i = shl i64 %171, 32
   %173 = ashr exact i64 %sext.i, 32
@@ -4219,7 +4219,7 @@ ReorderBufferIterTXNInit.exit:                    ; preds = %148, %123
   store i64 %197, ptr %174, align 8
   store ptr %196, ptr %188, align 8
   %198 = load ptr, ptr %.0.362, align 8
-  call void @binaryheap_replace_first(ptr noundef %198, i64 noundef %173) #17
+  call void @binaryheap_replace_first(ptr noundef %198, i64 noundef %173) #18
   br label %242
 
 199:                                              ; preds = %187
@@ -4270,7 +4270,7 @@ dlist_push_tail.exit.i:                           ; preds = %210, %204
   %224 = getelementptr i8, ptr %223, i64 160
   %.val.i261 = load ptr, ptr %224, align 8
   %225 = getelementptr i8, ptr %.val.i261, i64 -64
-  %226 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #17
+  %226 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #18
   br i1 %226, label %227, label %236
 
 227:                                              ; preds = %222
@@ -4281,8 +4281,8 @@ dlist_push_tail.exit.i:                           ; preds = %210, %204
   %232 = getelementptr inbounds i8, ptr %228, i64 136
   %233 = load i64, ptr %232, align 8
   %234 = trunc i64 %233 to i32
-  %235 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.25, i32 noundef %231, i32 noundef %234) #17
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1445, ptr noundef nonnull @__func__.ReorderBufferIterTXNNext) #17
+  %235 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.25, i32 noundef %231, i32 noundef %234) #18
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1445, ptr noundef nonnull @__func__.ReorderBufferIterTXNNext) #18
   br label %236
 
 236:                                              ; preds = %227, %222
@@ -4290,12 +4290,12 @@ dlist_push_tail.exit.i:                           ; preds = %210, %204
   store i64 %237, ptr %174, align 8
   store ptr %225, ptr %188, align 8
   %238 = load ptr, ptr %.0.362, align 8
-  call void @binaryheap_replace_first(ptr noundef %238, i64 noundef %173) #17
+  call void @binaryheap_replace_first(ptr noundef %238, i64 noundef %173) #18
   br label %242
 
 239:                                              ; preds = %dlist_push_tail.exit.i, %199
   %240 = load ptr, ptr %.0.362, align 8
-  %241 = call i64 @binaryheap_remove_first(ptr noundef %240) #17
+  %241 = call i64 @binaryheap_remove_first(ptr noundef %240) #18
   br label %242
 
 242:                                              ; preds = %195, %236, %239
@@ -4304,7 +4304,7 @@ dlist_push_tail.exit.i:                           ; preds = %210, %204
   br i1 %.not241, label %245, label %244
 
 244:                                              ; preds = %242
-  call void @ProcessInterrupts() #17
+  call void @ProcessInterrupts() #18
   br label %245
 
 245:                                              ; preds = %242, %244
@@ -4319,7 +4319,7 @@ dlist_push_tail.exit.i:                           ; preds = %210, %204
   store i16 %249, ptr %156, align 8
   %250 = load ptr, ptr %157, align 8
   %251 = load i64, ptr %189, align 8
-  call void %250(ptr noundef %0, ptr noundef %1, i64 noundef %251) #17
+  call void %250(ptr noundef %0, ptr noundef %1, i64 noundef %251) #18
   store volatile i8 1, ptr %17, align 1
   br label %252
 
@@ -4346,7 +4346,7 @@ dlist_push_tail.exit.i:                           ; preds = %210, %204
   br i1 %260, label %SetupCheckXidLive.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %._crit_edge389
-  %261 = call zeroext i1 @TransactionIdDidCommit(i32 noundef %258) #17
+  %261 = call zeroext i1 @TransactionIdDidCommit(i32 noundef %258) #18
   %..i = select i1 %261, i32 0, i32 %258
   store i32 %..i, ptr @CheckXidAlive, align 4
   br label %SetupCheckXidLive.exit
@@ -4375,10 +4375,10 @@ SetupCheckXidLive.exit:                           ; preds = %.sink.split.i, %._c
   br i1 %265, label %266, label %269
 
 266:                                              ; preds = %264
-  %267 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %267 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   call void @llvm.assume(i1 %267)
-  %268 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12) #17
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2174, ptr noundef nonnull @__func__.ReorderBufferProcessTXN) #17
+  %268 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12) #18
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2174, ptr noundef nonnull @__func__.ReorderBufferProcessTXN) #18
   unreachable
 
 269:                                              ; preds = %264
@@ -4393,7 +4393,7 @@ SetupCheckXidLive.exit:                           ; preds = %.sink.split.i, %._c
   %273 = load i32, ptr %272, align 8
   %274 = getelementptr inbounds i8, ptr %.1, i64 40
   %275 = load i32, ptr %274, align 8
-  %276 = call i32 @RelidByRelfilenumber(i32 noundef %273, i32 noundef %275) #17
+  %276 = call i32 @RelidByRelfilenumber(i32 noundef %273, i32 noundef %275) #18
   %277 = icmp eq i32 %276, 0
   br i1 %277, label %278, label %.critedge
 
@@ -4410,32 +4410,32 @@ SetupCheckXidLive.exit:                           ; preds = %.sink.split.i, %._c
   br i1 %285, label %585, label %286
 
 286:                                              ; preds = %278, %282
-  %287 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %287 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   call void @llvm.assume(i1 %287)
   %288 = getelementptr inbounds i8, ptr %.1, i64 36
   %289 = load i32, ptr %288, align 4
   %290 = load i32, ptr %272, align 8
   %291 = load i32, ptr %274, align 8
-  %292 = call ptr @GetRelationPath(i32 noundef %289, i32 noundef %290, i32 noundef %291, i32 noundef -1, i32 noundef 0) #17
-  %293 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, ptr noundef %292) #17
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2207, ptr noundef nonnull @__func__.ReorderBufferProcessTXN) #17
+  %292 = call ptr @GetRelationPath(i32 noundef %289, i32 noundef %290, i32 noundef %291, i32 noundef -1, i32 noundef 0) #18
+  %293 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, ptr noundef %292) #18
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2207, ptr noundef nonnull @__func__.ReorderBufferProcessTXN) #18
   unreachable
 
 .critedge:                                        ; preds = %271
-  %294 = call ptr @RelationIdGetRelation(i32 noundef %276) #17
+  %294 = call ptr @RelationIdGetRelation(i32 noundef %276) #18
   %.not247 = icmp eq ptr %294, null
   br i1 %.not247, label %295, label %303
 
 295:                                              ; preds = %.critedge
-  %296 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %296 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   call void @llvm.assume(i1 %296)
   %297 = getelementptr inbounds i8, ptr %.1, i64 36
   %298 = load i32, ptr %297, align 4
   %299 = load i32, ptr %272, align 8
   %300 = load i32, ptr %274, align 8
-  %301 = call ptr @GetRelationPath(i32 noundef %298, i32 noundef %299, i32 noundef %300, i32 noundef -1, i32 noundef 0) #17
-  %302 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, i32 noundef %276, ptr noundef %301) #17
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2215, ptr noundef nonnull @__func__.ReorderBufferProcessTXN) #17
+  %301 = call ptr @GetRelationPath(i32 noundef %298, i32 noundef %299, i32 noundef %300, i32 noundef -1, i32 noundef 0) #18
+  %302 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, i32 noundef %276, ptr noundef %301) #18
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2215, ptr noundef nonnull @__func__.ReorderBufferProcessTXN) #18
   unreachable
 
 303:                                              ; preds = %.critedge
@@ -4458,7 +4458,7 @@ SetupCheckXidLive.exit:                           ; preds = %.sink.split.i, %._c
   br i1 %.not248, label %585, label %315
 
 315:                                              ; preds = %312
-  %316 = call zeroext i1 @IsCatalogRelation(ptr noundef nonnull %294) #17
+  %316 = call zeroext i1 @IsCatalogRelation(ptr noundef nonnull %294) #18
   br i1 %316, label %585, label %317
 
 317:                                              ; preds = %315
@@ -4480,7 +4480,7 @@ SetupCheckXidLive.exit:                           ; preds = %.sink.split.i, %._c
   br i1 %327, label %585, label %328
 
 328:                                              ; preds = %324
-  %329 = call zeroext i1 @IsToastRelation(ptr noundef nonnull %294) #17
+  %329 = call zeroext i1 @IsToastRelation(ptr noundef nonnull %294) #18
   br i1 %329, label %573, label %330
 
 330:                                              ; preds = %328
@@ -4532,7 +4532,7 @@ SetupCheckXidLive.exit:                           ; preds = %.sink.split.i, %._c
 
 351:                                              ; preds = %333
   %352 = load ptr, ptr %272, align 8
-  %353 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %352) #19
+  %353 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %352) #20
   %354 = load i64, ptr %274, align 8
   %355 = add i64 %353, 97
   %356 = add i64 %355, %354
@@ -4574,19 +4574,19 @@ ReorderBufferChangeSize.exit.i:                   ; preds = %373, %362, %357, %3
   %381 = load ptr, ptr %307, align 8
   %382 = getelementptr inbounds i8, ptr %381, i64 108
   %383 = load i32, ptr %382, align 4
-  %384 = call ptr @RelationIdGetRelation(i32 noundef %383) #17
+  %384 = call ptr @RelationIdGetRelation(i32 noundef %383) #18
   %.not.i262 = icmp eq ptr %384, null
   br i1 %.not.i262, label %385, label %392
 
 385:                                              ; preds = %ReorderBufferChangeSize.exit.i
-  %386 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %386 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   call void @llvm.assume(i1 %386)
   %387 = load ptr, ptr %307, align 8
   %388 = getelementptr inbounds i8, ptr %387, i64 108
   %389 = load i32, ptr %388, align 4
   %390 = getelementptr inbounds i8, ptr %387, i64 4
-  %391 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.26, i32 noundef %389, ptr noundef nonnull %390) #17
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4767, ptr noundef nonnull @__func__.ReorderBufferToastReplace) #17
+  %391 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.26, i32 noundef %389, ptr noundef nonnull %390) #18
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4767, ptr noundef nonnull @__func__.ReorderBufferToastReplace) #18
   unreachable
 
 392:                                              ; preds = %ReorderBufferChangeSize.exit.i
@@ -4595,16 +4595,16 @@ ReorderBufferChangeSize.exit.i:                   ; preds = %373, %362, %357, %3
   %395 = load i32, ptr %380, align 8
   %396 = sext i32 %395 to i64
   %397 = shl nsw i64 %396, 3
-  %398 = call ptr @palloc0(i64 noundef %397) #17
+  %398 = call ptr @palloc0(i64 noundef %397) #18
   %399 = load i32, ptr %380, align 8
   %400 = sext i32 %399 to i64
-  %401 = call ptr @palloc0(i64 noundef %400) #17
+  %401 = call ptr @palloc0(i64 noundef %400) #18
   %402 = load i32, ptr %380, align 8
   %403 = sext i32 %402 to i64
-  %404 = call ptr @palloc0(i64 noundef %403) #17
+  %404 = call ptr @palloc0(i64 noundef %403) #18
   %405 = getelementptr inbounds i8, ptr %.1, i64 56
   %406 = load ptr, ptr %405, align 8
-  call void @heap_deform_tuple(ptr noundef %406, ptr noundef nonnull %380, ptr noundef %398, ptr noundef %401) #17
+  call void @heap_deform_tuple(ptr noundef %406, ptr noundef nonnull %380, ptr noundef %398, ptr noundef %401) #18
   %407 = load i32, ptr %380, align 8
   %408 = icmp sgt i32 %407, 0
   br i1 %408, label %.lr.ph117.i, label %._crit_edge118.i263
@@ -4651,17 +4651,17 @@ ReorderBufferChangeSize.exit.i:                   ; preds = %373, %362, %357, %3
   %433 = getelementptr inbounds i8, ptr %429, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(16) %433, i64 16, i1 false)
   %434 = load ptr, ptr %163, align 8
-  %435 = call ptr @hash_search(ptr noundef %434, ptr noundef nonnull %164, i32 noundef 0, ptr noundef null) #17
+  %435 = call ptr @hash_search(ptr noundef %434, ptr noundef nonnull %164, i32 noundef 0, ptr noundef null) #18
   %436 = icmp eq ptr %435, null
   br i1 %436, label %476, label %437
 
 437:                                              ; preds = %432
-  %438 = call ptr @palloc0(i64 noundef 10) #17
+  %438 = call ptr @palloc0(i64 noundef 10) #18
   %439 = getelementptr i8, ptr %404, i64 %indvars.iv.i
   store i8 1, ptr %439, align 1
   %440 = load i32, ptr %7, align 4
   %441 = sext i32 %440 to i64
-  %442 = call ptr @palloc0(i64 noundef %441) #17
+  %442 = call ptr @palloc0(i64 noundef %441) #18
   %443 = getelementptr inbounds i8, ptr %435, i64 40
   store ptr %442, ptr %443, align 8
   %444 = getelementptr inbounds i8, ptr %435, i64 24
@@ -4729,7 +4729,7 @@ ReorderBufferChangeSize.exit.i:                   ; preds = %373, %362, %357, %3
   br i1 %479, label %410, label %._crit_edge118.i263, !llvm.loop !26
 
 ._crit_edge118.i263:                              ; preds = %476, %392
-  %480 = call ptr @heap_form_tuple(ptr noundef nonnull %380, ptr noundef %398, ptr noundef %401) #17
+  %480 = call ptr @heap_form_tuple(ptr noundef nonnull %380, ptr noundef %398, ptr noundef %401) #18
   %481 = getelementptr inbounds i8, ptr %406, i64 16
   %482 = load ptr, ptr %481, align 8
   %483 = getelementptr inbounds i8, ptr %480, i64 16
@@ -4739,8 +4739,8 @@ ReorderBufferChangeSize.exit.i:                   ; preds = %373, %362, %357, %3
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %482, ptr align 4 %484, i64 %486, i1 false)
   %487 = load i32, ptr %480, align 8
   store i32 %487, ptr %406, align 8
-  call void @RelationClose(ptr noundef nonnull %384) #17
-  call void @pfree(ptr noundef nonnull %480) #17
+  call void @RelationClose(ptr noundef nonnull %384) #18
+  call void @pfree(ptr noundef nonnull %480) #18
   %488 = load i32, ptr %380, align 8
   %489 = icmp sgt i32 %488, 0
   br i1 %489, label %.lr.ph121.i, label %._crit_edge122.i
@@ -4757,7 +4757,7 @@ ReorderBufferChangeSize.exit.i:                   ; preds = %373, %362, %357, %3
   %495 = getelementptr i64, ptr %398, i64 %indvars.iv125.i
   %496 = load i64, ptr %495, align 8
   %497 = inttoptr i64 %496 to ptr
-  call void @pfree(ptr noundef %497) #17
+  call void @pfree(ptr noundef %497) #18
   %.pre.i264 = load i32, ptr %380, align 8
   br label %498
 
@@ -4769,9 +4769,9 @@ ReorderBufferChangeSize.exit.i:                   ; preds = %373, %362, %357, %3
   br i1 %501, label %.lr.ph121.i, label %._crit_edge122.i, !llvm.loop !27
 
 ._crit_edge122.i:                                 ; preds = %498, %._crit_edge118.i263
-  call void @pfree(ptr noundef %398) #17
-  call void @pfree(ptr noundef %404) #17
-  call void @pfree(ptr noundef %401) #17
+  call void @pfree(ptr noundef %398) #18
+  call void @pfree(ptr noundef %404) #18
+  call void @pfree(ptr noundef %401) #18
   store ptr %378, ptr @CurrentMemoryContext, align 8
   %502 = load i32, ptr %334, align 8
   %503 = icmp eq i32 %502, 7
@@ -4834,7 +4834,7 @@ ReorderBufferChangeMemoryUpdate.exit.i:           ; preds = %._crit_edge122.i
 
 530:                                              ; preds = %ReorderBufferChangeMemoryUpdate.exit.i
   %531 = load ptr, ptr %272, align 8
-  %532 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %531) #19
+  %532 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %531) #20
   %533 = load i64, ptr %274, align 8
   %534 = add i64 %532, 97
   %535 = add i64 %534, %533
@@ -4895,7 +4895,7 @@ ReorderBufferToastReplace.exit:                   ; preds = %330, %._crit_edge12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   %568 = load ptr, ptr %167, align 8
-  call void %568(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %294, ptr noundef nonnull %.1) #17
+  call void %568(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %294, ptr noundef nonnull %.1) #18
   %569 = getelementptr inbounds i8, ptr %.1, i64 44
   %570 = load i8, ptr %569, align 4
   %571 = trunc i8 %570 to i1
@@ -4942,7 +4942,7 @@ ReorderBufferToastReplace.exit:                   ; preds = %330, %._crit_edge12
   br i1 %.not251, label %ReorderBufferExecuteInvalidations.exit, label %588
 
 588:                                              ; preds = %587
-  call void @RelationClose(ptr noundef nonnull %.0221) #17
+  call void @RelationClose(ptr noundef nonnull %.0221) #18
   br label %ReorderBufferExecuteInvalidations.exit
 
 589:                                              ; preds = %SetupCheckXidLive.exit
@@ -4984,13 +4984,13 @@ ReorderBufferToastReplace.exit:                   ; preds = %330, %._crit_edge12
   %601 = trunc i64 %600 to i32
   %sext = shl i64 %600, 32
   %602 = ashr exact i64 %sext, 29
-  %603 = call ptr @palloc0(i64 noundef %602) #17
+  %603 = call ptr @palloc0(i64 noundef %602) #18
   %604 = icmp sgt i32 %601, 0
   br i1 %604, label %.lr.ph, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %598
   %605 = load ptr, ptr %161, align 8
-  call void %605(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef %603, ptr noundef nonnull %189) #17
+  call void %605(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef %603, ptr noundef nonnull %189) #18
   br label %ReorderBufferExecuteInvalidations.exit
 
 .lr.ph:                                           ; preds = %598
@@ -5004,15 +5004,15 @@ ReorderBufferToastReplace.exit:                   ; preds = %330, %._crit_edge12
   %608 = load ptr, ptr %606, align 8
   %609 = getelementptr i32, ptr %608, i64 %indvars.iv
   %610 = load i32, ptr %609, align 4
-  %611 = call ptr @RelationIdGetRelation(i32 noundef %610) #17
+  %611 = call ptr @RelationIdGetRelation(i32 noundef %610) #18
   %.not243 = icmp eq ptr %611, null
   br i1 %.not243, label %612, label %615
 
 612:                                              ; preds = %607
-  %613 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %613 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   call void @llvm.assume(i1 %613)
-  %614 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, i32 noundef %610) #17
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2357, ptr noundef nonnull @__func__.ReorderBufferProcessTXN) #17
+  %614 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, i32 noundef %610) #18
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2357, ptr noundef nonnull @__func__.ReorderBufferProcessTXN) #18
   unreachable
 
 615:                                              ; preds = %607
@@ -5035,7 +5035,7 @@ ReorderBufferToastReplace.exit:                   ; preds = %330, %._crit_edge12
   br i1 %.not244, label %633, label %627
 
 627:                                              ; preds = %624
-  %628 = call zeroext i1 @IsCatalogRelation(ptr noundef nonnull %611) #17
+  %628 = call zeroext i1 @IsCatalogRelation(ptr noundef nonnull %611) #18
   br i1 %628, label %633, label %629
 
 629:                                              ; preds = %627
@@ -5053,7 +5053,7 @@ ReorderBufferToastReplace.exit:                   ; preds = %330, %._crit_edge12
 
 ._crit_edge:                                      ; preds = %633
   %634 = load ptr, ptr %161, align 8
-  call void %634(ptr noundef %0, ptr noundef %1, i32 noundef %.1225, ptr noundef %603, ptr noundef nonnull %189) #17
+  call void %634(ptr noundef %0, ptr noundef %1, i32 noundef %.1225, ptr noundef %603, ptr noundef nonnull %189) #18
   %635 = icmp sgt i32 %.1225, 0
   br i1 %635, label %.lr.ph359.preheader, label %ReorderBufferExecuteInvalidations.exit
 
@@ -5065,7 +5065,7 @@ ReorderBufferToastReplace.exit:                   ; preds = %330, %._crit_edge12
   %indvars.iv384 = phi i64 [ 0, %.lr.ph359.preheader ], [ %indvars.iv.next385, %.lr.ph359 ]
   %636 = getelementptr ptr, ptr %603, i64 %indvars.iv384
   %637 = load ptr, ptr %636, align 8
-  call void @RelationClose(ptr noundef %637) #17
+  call void @RelationClose(ptr noundef %637) #18
   %indvars.iv.next385 = add nuw nsw i64 %indvars.iv384, 1
   %exitcond388.not = icmp eq i64 %indvars.iv.next385, %wide.trip.count387
   br i1 %exitcond388.not, label %ReorderBufferExecuteInvalidations.exit, label %.lr.ph359, !llvm.loop !29
@@ -5079,7 +5079,7 @@ ReorderBufferToastReplace.exit:                   ; preds = %330, %._crit_edge12
   %644 = getelementptr inbounds i8, ptr %189, i64 48
   %645 = load ptr, ptr %644, align 8
   %646 = load ptr, ptr %160, align 8
-  call void %646(ptr noundef %0, ptr noundef %1, i64 noundef %639, i1 noundef zeroext true, ptr noundef %641, i64 noundef %643, ptr noundef %645) #17
+  call void %646(ptr noundef %0, ptr noundef %1, i64 noundef %639, i1 noundef zeroext true, ptr noundef %641, i64 noundef %643, ptr noundef %645) #18
   br label %ReorderBufferExecuteInvalidations.exit
 
 647:                                              ; preds = %SetupCheckXidLive.exit
@@ -5094,13 +5094,13 @@ ReorderBufferToastReplace.exit:                   ; preds = %330, %._crit_edge12
   %.04.i = phi i32 [ %654, %.lr.ph.i274 ], [ 0, %647 ]
   %652 = sext i32 %.04.i to i64
   %653 = getelementptr %union.SharedInvalidationMessage, ptr %651, i64 %652
-  call void @LocalExecuteInvalidationMessage(ptr noundef %653) #17
+  call void @LocalExecuteInvalidationMessage(ptr noundef %653) #18
   %654 = add nuw i32 %.04.i, 1
   %exitcond.not.i = icmp eq i32 %654, %649
   br i1 %exitcond.not.i, label %ReorderBufferExecuteInvalidations.exit, label %.lr.ph.i274, !llvm.loop !10
 
 655:                                              ; preds = %SetupCheckXidLive.exit
-  call void @TeardownHistoricSnapshot(i1 noundef zeroext false) #17
+  call void @TeardownHistoricSnapshot(i1 noundef zeroext false) #18
   %.0..0..0..0.125 = load volatile ptr, ptr %12, align 8
   %656 = getelementptr inbounds i8, ptr %.0..0..0..0.125, i64 46
   %657 = load i8, ptr %656, align 2
@@ -5115,11 +5115,11 @@ ReorderBufferToastReplace.exit:                   ; preds = %330, %._crit_edge12
   br i1 %662, label %663, label %664
 
 663:                                              ; preds = %659
-  call void @pfree(ptr noundef nonnull %.0..0..0..0.126) #17
+  call void @pfree(ptr noundef nonnull %.0..0..0..0.126) #18
   br label %ReorderBufferFreeSnap.exit
 
 664:                                              ; preds = %659
-  call void @SnapBuildSnapDecRefcount(ptr noundef nonnull %.0..0..0..0.126) #17
+  call void @SnapBuildSnapDecRefcount(ptr noundef nonnull %.0..0..0..0.126) #18
   br label %ReorderBufferFreeSnap.exit
 
 ReorderBufferFreeSnap.exit:                       ; preds = %663, %664
@@ -5136,7 +5136,7 @@ ReorderBufferFreeSnap.exit:                       ; preds = %663, %664
   %673 = add nuw nsw i64 %672, %669
   %674 = shl nuw nsw i64 %673, 2
   %675 = add nuw nsw i64 %674, 120
-  %676 = call ptr @MemoryContextAllocZero(ptr noundef %.val255, i64 noundef %675) #17
+  %676 = call ptr @MemoryContextAllocZero(ptr noundef %.val255, i64 noundef %675) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %676, ptr noundef nonnull readonly align 8 dereferenceable(120) %666, i64 120, i1 false)
   %677 = getelementptr inbounds i8, ptr %676, i64 46
   store i8 1, ptr %677, align 2
@@ -5193,7 +5193,7 @@ ReorderBufferFreeSnap.exit:                       ; preds = %663, %664
 ReorderBufferCopySnap.exit:                       ; preds = %ReorderBufferFreeSnap.exit, %._crit_edge.loopexit.i
   %704 = phi i64 [ %703, %._crit_edge.loopexit.i ], [ 1, %ReorderBufferFreeSnap.exit ]
   %705 = phi ptr [ %.pre.i278, %._crit_edge.loopexit.i ], [ %688, %ReorderBufferFreeSnap.exit ]
-  call void @pg_qsort(ptr noundef %705, i64 noundef %704, i64 noundef 4, ptr noundef nonnull @xidComparator) #17
+  call void @pg_qsort(ptr noundef %705, i64 noundef %704, i64 noundef 4, ptr noundef nonnull @xidComparator) #18
   br label %.sink.split417
 
 706:                                              ; preds = %655
@@ -5216,7 +5216,7 @@ ReorderBufferCopySnap.exit:                       ; preds = %ReorderBufferFreeSn
   %719 = add nuw nsw i64 %718, %715
   %720 = shl nuw nsw i64 %719, 2
   %721 = add nuw nsw i64 %720, 120
-  %722 = call ptr @MemoryContextAllocZero(ptr noundef %.val254, i64 noundef %721) #17
+  %722 = call ptr @MemoryContextAllocZero(ptr noundef %.val254, i64 noundef %721) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %722, ptr noundef nonnull readonly align 8 dereferenceable(120) %708, i64 120, i1 false)
   %723 = getelementptr inbounds i8, ptr %722, i64 46
   store i8 1, ptr %723, align 2
@@ -5273,7 +5273,7 @@ ReorderBufferCopySnap.exit:                       ; preds = %ReorderBufferFreeSn
 ReorderBufferCopySnap.exit290:                    ; preds = %712, %._crit_edge.loopexit.i287
   %750 = phi i64 [ %749, %._crit_edge.loopexit.i287 ], [ 1, %712 ]
   %751 = phi ptr [ %.pre.i288, %._crit_edge.loopexit.i287 ], [ %734, %712 ]
-  call void @pg_qsort(ptr noundef %751, i64 noundef %750, i64 noundef 4, ptr noundef nonnull @xidComparator) #17
+  call void @pg_qsort(ptr noundef %751, i64 noundef %750, i64 noundef 4, ptr noundef nonnull @xidComparator) #18
   br label %.sink.split417
 
 .sink.split417:                                   ; preds = %ReorderBufferCopySnap.exit, %ReorderBufferCopySnap.exit290
@@ -5288,7 +5288,7 @@ ReorderBufferCopySnap.exit290:                    ; preds = %712, %._crit_edge.l
   store volatile ptr %.sink416, ptr %12, align 8
   %.0..0..0..0.127 = load volatile ptr, ptr %12, align 8
   %754 = load ptr, ptr %60, align 8
-  call void @SetupHistoricSnapshot(ptr noundef %.0..0..0..0.127, ptr noundef %754) #17
+  call void @SetupHistoricSnapshot(ptr noundef %.0..0..0..0.127, ptr noundef %754) #18
   br label %ReorderBufferExecuteInvalidations.exit
 
 755:                                              ; preds = %SetupCheckXidLive.exit
@@ -5319,7 +5319,7 @@ ReorderBufferCopySnap.exit290:                    ; preds = %712, %._crit_edge.l
   %770 = add nuw nsw i64 %769, %766
   %771 = shl nuw nsw i64 %770, 2
   %772 = add nuw nsw i64 %771, 120
-  %773 = call ptr @MemoryContextAllocZero(ptr noundef %.val, i64 noundef %772) #17
+  %773 = call ptr @MemoryContextAllocZero(ptr noundef %.val, i64 noundef %772) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %773, ptr noundef nonnull readonly align 8 dereferenceable(120) %.0..0..0..0.129, i64 120, i1 false)
   %774 = getelementptr inbounds i8, ptr %773, i64 46
   store i8 1, ptr %774, align 2
@@ -5376,7 +5376,7 @@ ReorderBufferCopySnap.exit290:                    ; preds = %712, %._crit_edge.l
 ReorderBufferCopySnap.exit301:                    ; preds = %763, %._crit_edge.loopexit.i298
   %801 = phi i64 [ %800, %._crit_edge.loopexit.i298 ], [ 1, %763 ]
   %802 = phi ptr [ %.pre.i299, %._crit_edge.loopexit.i298 ], [ %785, %763 ]
-  call void @pg_qsort(ptr noundef %802, i64 noundef %801, i64 noundef 4, ptr noundef nonnull @xidComparator) #17
+  call void @pg_qsort(ptr noundef %802, i64 noundef %801, i64 noundef 4, ptr noundef nonnull @xidComparator) #18
   %803 = getelementptr inbounds i8, ptr %773, i64 48
   store i32 %.0..0..0..0.120, ptr %803, align 8
   store volatile ptr %773, ptr %12, align 8
@@ -5387,17 +5387,17 @@ ReorderBufferCopySnap.exit301:                    ; preds = %763, %._crit_edge.l
   %.0..0..0..0.130 = load volatile ptr, ptr %12, align 8
   %805 = getelementptr inbounds i8, ptr %.0..0..0..0.130, i64 48
   store i32 %.0..0..0..0.121, ptr %805, align 8
-  call void @TeardownHistoricSnapshot(i1 noundef zeroext false) #17
+  call void @TeardownHistoricSnapshot(i1 noundef zeroext false) #18
   %.0..0..0..0.131 = load volatile ptr, ptr %12, align 8
   %806 = load ptr, ptr %60, align 8
-  call void @SetupHistoricSnapshot(ptr noundef %.0..0..0..0.131, ptr noundef %806) #17
+  call void @SetupHistoricSnapshot(ptr noundef %.0..0..0..0.131, ptr noundef %806) #18
   br label %ReorderBufferExecuteInvalidations.exit
 
 807:                                              ; preds = %SetupCheckXidLive.exit
-  %808 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %808 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   call void @llvm.assume(i1 %808)
-  %809 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16) #17
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2441, ptr noundef nonnull @__func__.ReorderBufferProcessTXN) #17
+  %809 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16) #18
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2441, ptr noundef nonnull @__func__.ReorderBufferProcessTXN) #18
   unreachable
 
 ReorderBufferExecuteInvalidations.exit:           ; preds = %.lr.ph.i274, %.lr.ph359, %._crit_edge.thread, %._crit_edge, %647, %755, %804, %596, %597, %587, %588, %753, %638, %591, %SetupCheckXidLive.exit
@@ -5409,7 +5409,7 @@ ReorderBufferExecuteInvalidations.exit:           ; preds = %.lr.ph.i274, %.lr.p
 812:                                              ; preds = %ReorderBufferExecuteInvalidations.exit
   %813 = load ptr, ptr %168, align 8
   %814 = load i64, ptr %.0, align 8
-  call void %813(ptr noundef %0, ptr noundef %1, i64 noundef %814) #17
+  call void %813(ptr noundef %0, ptr noundef %1, i64 noundef %814) #18
   br label %815
 
 815:                                              ; preds = %812, %ReorderBufferExecuteInvalidations.exit
@@ -5441,7 +5441,7 @@ ReorderBufferIterTXNNext.exit:                    ; preds = %815, %ReorderBuffer
   br i1 %.not.i303, label %828, label %827
 
 827:                                              ; preds = %822
-  call void @FileClose(i32 noundef %826) #17
+  call void @FileClose(i32 noundef %826) #18
   %.pre.i304 = load i64, ptr %819, align 8
   br label %828
 
@@ -5475,8 +5475,8 @@ ReorderBufferIterTXNNext.exit:                    ; preds = %815, %ReorderBuffer
 
 ReorderBufferIterTXNFinish.exit:                  ; preds = %._crit_edge.i305, %838
   %845 = load ptr, ptr %.0..0..0.329, align 8
-  call void @binaryheap_free(ptr noundef %845) #17
-  call void @pfree(ptr noundef nonnull %.0..0..0.329) #17
+  call void @binaryheap_free(ptr noundef %845) #18
+  call void @pfree(ptr noundef nonnull %.0..0..0.329) #18
   store volatile ptr null, ptr %14, align 8
   %846 = load i32, ptr %1, align 8
   %847 = and i32 %846, 16
@@ -5508,7 +5508,7 @@ ReorderBufferIterTXNFinish.exit:                  ; preds = %._crit_edge.i305, %
   %861 = getelementptr inbounds i8, ptr %0, i64 160
   %862 = load ptr, ptr %861, align 8
   %.0..0..0..0.101 = load volatile i64, ptr %15, align 8
-  call void %862(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %.0..0..0..0.101) #17
+  call void %862(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %.0..0..0..0.101) #18
   store volatile i8 0, ptr %17, align 1
   br label %872
 
@@ -5521,26 +5521,26 @@ ReorderBufferIterTXNFinish.exit:                  ; preds = %._crit_edge.i305, %
 866:                                              ; preds = %863
   %867 = getelementptr inbounds i8, ptr %0, i64 128
   %868 = load ptr, ptr %867, align 8
-  call void %868(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2) #17
+  call void %868(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2) #18
   br label %872
 
 869:                                              ; preds = %863
   %870 = getelementptr inbounds i8, ptr %0, i64 104
   %871 = load ptr, ptr %870, align 8
-  call void %871(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2) #17
+  call void %871(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2) #18
   br label %872
 
 872:                                              ; preds = %866, %869, %858, %860
-  %873 = call i32 @GetCurrentTransactionIdIfAny() #17
+  %873 = call i32 @GetCurrentTransactionIdIfAny() #18
   %.not239 = icmp eq i32 %873, 0
   br i1 %.not239, label %878, label %874
 
 874:                                              ; preds = %872
-  %875 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %875 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   call void @llvm.assume(i1 %875)
-  %876 = call i32 @GetCurrentTransactionId() #17
-  %877 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef %876) #17
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2512, ptr noundef nonnull @__func__.ReorderBufferProcessTXN) #17
+  %876 = call i32 @GetCurrentTransactionId() #18
+  %877 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef %876) #18
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2512, ptr noundef nonnull @__func__.ReorderBufferProcessTXN) #18
   unreachable
 
 878:                                              ; preds = %872
@@ -5566,16 +5566,16 @@ ReorderBufferIterTXNFinish.exit:                  ; preds = %._crit_edge.i305, %
   br i1 %887, label %888, label %889
 
 888:                                              ; preds = %884
-  call void @pfree(ptr noundef nonnull %.0..0..0..0.134) #17
+  call void @pfree(ptr noundef nonnull %.0..0..0..0.134) #18
   br label %ReorderBufferFreeSnap.exit307
 
 889:                                              ; preds = %884
-  call void @SnapBuildSnapDecRefcount(ptr noundef nonnull %.0..0..0..0.134) #17
+  call void @SnapBuildSnapDecRefcount(ptr noundef nonnull %.0..0..0..0.134) #18
   br label %ReorderBufferFreeSnap.exit307
 
 ReorderBufferFreeSnap.exit307:                    ; preds = %889, %888, %880, %879
-  call void @TeardownHistoricSnapshot(i1 noundef zeroext false) #17
-  call void @AbortCurrentTransaction() #17
+  call void @TeardownHistoricSnapshot(i1 noundef zeroext false) #18
+  call void @AbortCurrentTransaction() #18
   %890 = getelementptr inbounds i8, ptr %1, i64 228
   %891 = load i32, ptr %890, align 4
   %892 = getelementptr inbounds i8, ptr %1, i64 232
@@ -5587,7 +5587,7 @@ ReorderBufferFreeSnap.exit307:                    ; preds = %889, %888, %880, %8
   %.04.i310 = phi i32 [ %896, %.lr.ph.i309 ], [ 0, %ReorderBufferFreeSnap.exit307 ]
   %894 = sext i32 %.04.i310 to i64
   %895 = getelementptr %union.SharedInvalidationMessage, ptr %893, i64 %894
-  call void @LocalExecuteInvalidationMessage(ptr noundef %895) #17
+  call void @LocalExecuteInvalidationMessage(ptr noundef %895) #18
   %896 = add nuw i32 %.04.i310, 1
   %exitcond.not.i311 = icmp eq i32 %896, %891
   br i1 %exitcond.not.i311, label %ReorderBufferExecuteInvalidations.exit313, label %.lr.ph.i309, !llvm.loop !10
@@ -5596,7 +5596,7 @@ ReorderBufferExecuteInvalidations.exit313:        ; preds = %.lr.ph.i309, %Reord
   br i1 %62, label %897, label %898
 
 897:                                              ; preds = %ReorderBufferExecuteInvalidations.exit313
-  call void @RollbackAndReleaseCurrentSubTransaction() #17
+  call void @RollbackAndReleaseCurrentSubTransaction() #18
   br label %898
 
 898:                                              ; preds = %897, %ReorderBufferExecuteInvalidations.exit313
@@ -5627,7 +5627,7 @@ ReorderBufferExecuteInvalidations.exit313:        ; preds = %.lr.ph.i309, %Reord
   store ptr %64, ptr @error_context_stack, align 8
   %904 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %20, ptr @CurrentMemoryContext, align 8
-  %905 = call ptr @CopyErrorData() #17
+  %905 = call ptr @CopyErrorData() #18
   %.0..0..0.330 = load volatile ptr, ptr %14, align 8
   %.not = icmp eq ptr %.0..0..0.330, null
   br i1 %.not, label %934, label %906
@@ -5653,7 +5653,7 @@ ReorderBufferExecuteInvalidations.exit313:        ; preds = %.lr.ph.i309, %Reord
   br i1 %.not.i317, label %916, label %915
 
 915:                                              ; preds = %910
-  call void @FileClose(i32 noundef %914) #17
+  call void @FileClose(i32 noundef %914) #18
   %.pre.i318 = load i64, ptr %907, align 8
   br label %916
 
@@ -5687,13 +5687,13 @@ ReorderBufferExecuteInvalidations.exit313:        ; preds = %.lr.ph.i309, %Reord
 
 ReorderBufferIterTXNFinish.exit321:               ; preds = %._crit_edge.i319, %926
   %933 = load ptr, ptr %.0..0..0.331, align 8
-  call void @binaryheap_free(ptr noundef %933) #17
-  call void @pfree(ptr noundef nonnull %.0..0..0.331) #17
+  call void @binaryheap_free(ptr noundef %933) #18
+  call void @pfree(ptr noundef nonnull %.0..0..0.331) #18
   br label %934
 
 934:                                              ; preds = %ReorderBufferIterTXNFinish.exit321, %903
-  call void @TeardownHistoricSnapshot(i1 noundef zeroext true) #17
-  call void @AbortCurrentTransaction() #17
+  call void @TeardownHistoricSnapshot(i1 noundef zeroext true) #18
+  call void @AbortCurrentTransaction() #18
   %935 = getelementptr inbounds i8, ptr %1, i64 228
   %936 = load i32, ptr %935, align 4
   %937 = getelementptr inbounds i8, ptr %1, i64 232
@@ -5705,7 +5705,7 @@ ReorderBufferIterTXNFinish.exit321:               ; preds = %._crit_edge.i319, %
   %.04.i324 = phi i32 [ %941, %.lr.ph.i323 ], [ 0, %934 ]
   %939 = sext i32 %.04.i324 to i64
   %940 = getelementptr %union.SharedInvalidationMessage, ptr %938, i64 %939
-  call void @LocalExecuteInvalidationMessage(ptr noundef %940) #17
+  call void @LocalExecuteInvalidationMessage(ptr noundef %940) #18
   %941 = add nuw i32 %.04.i324, 1
   %exitcond.not.i325 = icmp eq i32 %941, %936
   br i1 %exitcond.not.i325, label %ReorderBufferExecuteInvalidations.exit327, label %.lr.ph.i323, !llvm.loop !10
@@ -5714,7 +5714,7 @@ ReorderBufferExecuteInvalidations.exit327:        ; preds = %.lr.ph.i323, %934
   br i1 %62, label %942, label %943
 
 942:                                              ; preds = %ReorderBufferExecuteInvalidations.exit327
-  call void @RollbackAndReleaseCurrentSubTransaction() #17
+  call void @RollbackAndReleaseCurrentSubTransaction() #18
   br label %943
 
 943:                                              ; preds = %942, %ReorderBufferExecuteInvalidations.exit327
@@ -5735,8 +5735,8 @@ ReorderBufferExecuteInvalidations.exit327:        ; preds = %.lr.ph.i323, %934
   br i1 %.not234, label %964, label %952
 
 952:                                              ; preds = %949, %947
-  call void @FlushErrorState() #17
-  call void @FreeErrorData(ptr noundef nonnull %905) #17
+  call void @FlushErrorState() #18
+  call void @FreeErrorData(ptr noundef nonnull %905) #18
   %.0..0..0..0.88 = load volatile ptr, ptr %18, align 8
   %953 = getelementptr inbounds i8, ptr %.0..0..0..0.88, i64 288
   store i8 1, ptr %953, align 8
@@ -5765,14 +5765,14 @@ ReorderBufferExecuteInvalidations.exit327:        ; preds = %.lr.ph.i323, %934
 961:                                              ; preds = %958
   %962 = getelementptr inbounds i8, ptr %0, i64 160
   %963 = load ptr, ptr %962, align 8
-  call void %963(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.0..0..0..0.102) #17
+  call void %963(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.0..0..0..0.102) #18
   call fastcc void @ReorderBufferSaveTXNSnapshot(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0..0..0..0.135, i32 noundef %.0..0..0..0.123)
   br label %ReorderBufferResetTXN.exit
 
 964:                                              ; preds = %949, %943
   call fastcc void @ReorderBufferCleanupTXN(ptr noundef %0, ptr noundef %1)
   store ptr %904, ptr @CurrentMemoryContext, align 8
-  call void @pg_re_throw() #21
+  call void @pg_re_throw() #22
   unreachable
 
 ReorderBufferResetTXN.exit:                       ; preds = %961, %958, %902, %901
@@ -5808,13 +5808,13 @@ define internal fastcc void @ReorderBufferToastReset(ptr nocapture noundef %0, p
   br i1 %6, label %23, label %7
 
 7:                                                ; preds = %2
-  call void @hash_seq_init(ptr noundef nonnull %3, ptr noundef nonnull %5) #17
-  %8 = call ptr @hash_seq_search(ptr noundef nonnull %3) #17
+  call void @hash_seq_init(ptr noundef nonnull %3, ptr noundef nonnull %5) #18
+  %8 = call ptr @hash_seq_search(ptr noundef nonnull %3) #18
   %.not24 = icmp eq ptr %8, null
   br i1 %.not24, label %._crit_edge, label %.lr.ph25
 
 .loopexit:                                        ; preds = %.lr.ph, %14
-  %9 = call ptr @hash_seq_search(ptr noundef nonnull %3) #17
+  %9 = call ptr @hash_seq_search(ptr noundef nonnull %3) #18
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %._crit_edge, label %.lr.ph25, !llvm.loop !32
 
@@ -5826,7 +5826,7 @@ define internal fastcc void @ReorderBufferToastReset(ptr nocapture noundef %0, p
   br i1 %.not19, label %14, label %13
 
 13:                                               ; preds = %.lr.ph25
-  call void @pfree(ptr noundef nonnull %12) #17
+  call void @pfree(ptr noundef nonnull %12) #18
   br label %14
 
 14:                                               ; preds = %13, %.lr.ph25
@@ -5854,7 +5854,7 @@ define internal fastcc void @ReorderBufferToastReset(ptr nocapture noundef %0, p
 
 ._crit_edge:                                      ; preds = %.loopexit, %7
   %22 = load ptr, ptr %4, align 8
-  call void @hash_destroy(ptr noundef %22) #17
+  call void @hash_destroy(ptr noundef %22) #18
   store ptr null, ptr %4, align 8
   br label %23
 
@@ -5883,7 +5883,7 @@ define internal fastcc void @ReorderBufferToastAppendChunk(ptr nocapture noundef
   store i64 48, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr %.val, ptr %15, align 8
-  %16 = call ptr @hash_create(ptr noundef nonnull @.str.32, i64 noundef 5, ptr noundef nonnull %4, i32 noundef 1064) #17
+  %16 = call ptr @hash_create(ptr noundef nonnull @.str.32, i64 noundef 5, ptr noundef nonnull %4, i32 noundef 1064) #18
   store ptr %16, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4)
   br label %17
@@ -5897,7 +5897,7 @@ define internal fastcc void @ReorderBufferToastAppendChunk(ptr nocapture noundef
   %22 = call fastcc i64 @fastgetattr(ptr noundef %19, i32 noundef 2, ptr noundef %.64.val, ptr noundef nonnull %6)
   %23 = trunc i64 %22 to i32
   %24 = load ptr, ptr %8, align 8
-  %25 = call ptr @hash_search(ptr noundef %24, ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull %5) #17
+  %25 = call ptr @hash_search(ptr noundef %24, ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull %5) #18
   %26 = load i8, ptr %5, align 1
   %27 = trunc i8 %26 to i1
   %28 = getelementptr inbounds i8, ptr %25, i64 4
@@ -5915,11 +5915,11 @@ define internal fastcc void @ReorderBufferToastAppendChunk(ptr nocapture noundef
   br i1 %.not, label %46, label %33
 
 33:                                               ; preds = %29
-  %34 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %34 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   call void @llvm.assume(i1 %34)
   %35 = load i32, ptr %7, align 4
-  %36 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.29, i32 noundef %23, i32 noundef %35) #17
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4681, ptr noundef nonnull @__func__.ReorderBufferToastAppendChunk) #17
+  %36 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.29, i32 noundef %23, i32 noundef %35) #18
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4681, ptr noundef nonnull @__func__.ReorderBufferToastAppendChunk) #18
   unreachable
 
 37:                                               ; preds = %17
@@ -5929,13 +5929,13 @@ define internal fastcc void @ReorderBufferToastAppendChunk(ptr nocapture noundef
   br i1 %.not34, label %46, label %40
 
 40:                                               ; preds = %37
-  %41 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %41 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   call void @llvm.assume(i1 %41)
   %42 = load i32, ptr %7, align 4
   %43 = load i32, ptr %28, align 4
   %44 = add i32 %43, 1
-  %45 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.30, i32 noundef %23, i32 noundef %42, i32 noundef %44) #17
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4685, ptr noundef nonnull @__func__.ReorderBufferToastAppendChunk) #17
+  %45 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.30, i32 noundef %23, i32 noundef %42, i32 noundef %44) #18
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4685, ptr noundef nonnull @__func__.ReorderBufferToastAppendChunk) #18
   unreachable
 
 46:                                               ; preds = %37, %29
@@ -5964,10 +5964,10 @@ define internal fastcc void @ReorderBufferToastAppendChunk(ptr nocapture noundef
   br label %65
 
 62:                                               ; preds = %57
-  %63 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %63 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   call void @llvm.assume(i1 %63)
-  %64 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31) #17
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4697, ptr noundef nonnull @__func__.ReorderBufferToastAppendChunk) #17
+  %64 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31) #18
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4697, ptr noundef nonnull @__func__.ReorderBufferToastAppendChunk) #18
   unreachable
 
 65:                                               ; preds = %59, %53
@@ -6036,7 +6036,7 @@ define internal fastcc void @ReorderBufferSaveTXNSnapshot(ptr nocapture noundef 
   %18 = add nuw nsw i64 %17, %13
   %19 = shl nuw nsw i64 %18, 2
   %20 = add nuw nsw i64 %19, 120
-  %21 = tail call ptr @MemoryContextAllocZero(ptr noundef %.val, i64 noundef %20) #17
+  %21 = tail call ptr @MemoryContextAllocZero(ptr noundef %.val, i64 noundef %20) #18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %21, ptr noundef nonnull readonly align 8 dereferenceable(120) %2, i64 120, i1 false)
   %22 = getelementptr inbounds i8, ptr %21, i64 46
   store i8 1, ptr %22, align 2
@@ -6096,7 +6096,7 @@ define internal fastcc void @ReorderBufferSaveTXNSnapshot(ptr nocapture noundef 
 ReorderBufferCopySnap.exit:                       ; preds = %9, %._crit_edge.loopexit.i
   %52 = phi i64 [ %51, %._crit_edge.loopexit.i ], [ 1, %9 ]
   %53 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %33, %9 ]
-  tail call void @pg_qsort(ptr noundef %53, i64 noundef %52, i64 noundef 4, ptr noundef nonnull @xidComparator) #17
+  tail call void @pg_qsort(ptr noundef %53, i64 noundef %52, i64 noundef 4, ptr noundef nonnull @xidComparator) #18
   %54 = getelementptr inbounds i8, ptr %21, i64 48
   store i32 %3, ptr %54, align 8
   br label %55
@@ -6201,7 +6201,7 @@ define internal fastcc void @ReorderBufferTruncateTXN(ptr nocapture noundef %0, 
   br i1 %.not59, label %35, label %34
 
 34:                                               ; preds = %.loopexit
-  tail call void @hash_destroy(ptr noundef nonnull %33) #17
+  tail call void @hash_destroy(ptr noundef nonnull %33) #18
   store ptr null, ptr %32, align 8
   br label %35
 
@@ -6244,10 +6244,7 @@ define internal range(i32 -1, 2) i32 @ReorderBufferIterCompare(i64 noundef %0, i
   %8 = ashr exact i64 %sext11, 32
   %9 = getelementptr [0 x %struct.ReorderBufferIterTXNEntry], ptr %4, i64 0, i64 %8
   %10 = load i64, ptr %9, align 8
-  %11 = icmp ult i64 %7, %10
-  %12 = icmp ne i64 %7, %10
-  %. = sext i1 %12 to i32
-  %.0 = select i1 %11, i32 1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %10, i64 %7)
   ret i32 %.0
 }
 
@@ -6256,7 +6253,7 @@ define internal fastcc void @ReorderBufferSerializeTXN(ptr nocapture noundef %0,
   %3 = alloca [1024 x i8], align 16
   %4 = getelementptr inbounds i8, ptr %1, i64 272
   %5 = load i64, ptr %4, align 8
-  %6 = tail call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #17
+  %6 = tail call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #18
   br i1 %6, label %7, label %14
 
 7:                                                ; preds = %2
@@ -6265,8 +6262,8 @@ define internal fastcc void @ReorderBufferSerializeTXN(ptr nocapture noundef %0,
   %10 = trunc i64 %9 to i32
   %11 = getelementptr inbounds i8, ptr %1, i64 4
   %12 = load i32, ptr %11, align 4
-  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.19, i32 noundef %10, i32 noundef %12) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 3658, ptr noundef nonnull @__func__.ReorderBufferSerializeTXN) #17
+  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.19, i32 noundef %10, i32 noundef %12) #18
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 3658, ptr noundef nonnull @__func__.ReorderBufferSerializeTXN) #18
   br label %14
 
 14:                                               ; preds = %2, %7
@@ -6324,7 +6321,7 @@ define internal fastcc void @ReorderBufferSerializeTXN(ptr nocapture noundef %0,
   br i1 %36, label %58, label %37
 
 37:                                               ; preds = %31
-  %38 = call i32 @CloseTransientFile(i32 noundef %.072) #17
+  %38 = call i32 @CloseTransientFile(i32 noundef %.072) #18
   br label %39
 
 39:                                               ; preds = %29, %37
@@ -6339,17 +6336,17 @@ define internal fastcc void @ReorderBufferSerializeTXN(ptr nocapture noundef %0,
   %48 = lshr i64 %45, 32
   %49 = trunc nuw i64 %48 to i32
   %50 = trunc i64 %45 to i32
-  %51 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.21, ptr noundef nonnull %47, i32 noundef %44, i32 noundef %49, i32 noundef %50) #17
-  %52 = call i32 @OpenTransientFile(ptr noundef nonnull %3, i32 noundef 1089) #17
+  %51 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.21, ptr noundef nonnull %47, i32 noundef %44, i32 noundef %49, i32 noundef %50) #18
+  %52 = call i32 @OpenTransientFile(ptr noundef nonnull %3, i32 noundef 1089) #18
   %53 = icmp slt i32 %52, 0
   br i1 %53, label %54, label %58
 
 54:                                               ; preds = %39
-  %55 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %55 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   call void @llvm.assume(i1 %55)
-  %56 = call i32 @errcode_for_file_access() #17
-  %57 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull %3) #17
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 3704, ptr noundef nonnull @__func__.ReorderBufferSerializeTXN) #17
+  %56 = call i32 @errcode_for_file_access() #18
+  %57 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull %3) #18
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 3704, ptr noundef nonnull @__func__.ReorderBufferSerializeTXN) #18
   unreachable
 
 58:                                               ; preds = %39, %31
@@ -6361,7 +6358,7 @@ define internal fastcc void @ReorderBufferSerializeTXN(ptr nocapture noundef %0,
 
 60:                                               ; preds = %58
   %61 = load ptr, ptr %27, align 8
-  %62 = call ptr @MemoryContextAlloc(ptr noundef %61, i64 noundef 88) #17
+  %62 = call ptr @MemoryContextAlloc(ptr noundef %61, i64 noundef 88) #18
   br label %.sink.split.i.i
 
 63:                                               ; preds = %58
@@ -6370,7 +6367,7 @@ define internal fastcc void @ReorderBufferSerializeTXN(ptr nocapture noundef %0,
   br i1 %64, label %66, label %ReorderBufferSerializeReserve.exit.i
 
 66:                                               ; preds = %63
-  %67 = call ptr @repalloc(ptr noundef %65, i64 noundef 88) #17
+  %67 = call ptr @repalloc(ptr noundef %65, i64 noundef 88) #18
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %66, %60
@@ -6432,7 +6429,7 @@ ReorderBufferSerializeReserve.exit.i:             ; preds = %.sink.split.i.i, %6
 
 90:                                               ; preds = %88
   %91 = load ptr, ptr %27, align 8
-  %92 = call ptr @MemoryContextAlloc(ptr noundef %91, i64 noundef %.2.i) #17
+  %92 = call ptr @MemoryContextAlloc(ptr noundef %91, i64 noundef %.2.i) #18
   br label %.sink.split.i141.i
 
 93:                                               ; preds = %88
@@ -6441,7 +6438,7 @@ ReorderBufferSerializeReserve.exit.i:             ; preds = %.sink.split.i.i, %6
   br i1 %94, label %95, label %ReorderBufferSerializeReserve.exit142.i
 
 95:                                               ; preds = %93
-  %96 = call ptr @repalloc(ptr noundef %.pre163.i, i64 noundef %.2.i) #17
+  %96 = call ptr @repalloc(ptr noundef %.pre163.i, i64 noundef %.2.i) #18
   br label %.sink.split.i141.i
 
 .sink.split.i141.i:                               ; preds = %95, %90
@@ -6481,7 +6478,7 @@ ReorderBufferSerializeReserve.exit142.i:          ; preds = %.sink.split.i141.i,
 109:                                              ; preds = %ReorderBufferSerializeReserve.exit.i
   %110 = getelementptr i8, ptr %.sroa.0.073, i64 -32
   %111 = load ptr, ptr %110, align 8
-  %112 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %111) #19
+  %112 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %111) #20
   %113 = add i64 %112, 1
   %114 = getelementptr i8, ptr %.sroa.0.073, i64 -24
   %115 = load i64, ptr %114, align 8
@@ -6493,7 +6490,7 @@ ReorderBufferSerializeReserve.exit142.i:          ; preds = %.sink.split.i141.i,
 
 119:                                              ; preds = %109
   %120 = load ptr, ptr %27, align 8
-  %121 = call ptr @MemoryContextAlloc(ptr noundef %120, i64 noundef %117) #17
+  %121 = call ptr @MemoryContextAlloc(ptr noundef %120, i64 noundef %117) #18
   br label %.sink.split.i144.i
 
 122:                                              ; preds = %109
@@ -6502,7 +6499,7 @@ ReorderBufferSerializeReserve.exit142.i:          ; preds = %.sink.split.i141.i,
   br i1 %123, label %124, label %ReorderBufferSerializeReserve.exit145.i
 
 124:                                              ; preds = %122
-  %125 = call ptr @repalloc(ptr noundef %.pre162.i, i64 noundef %117) #17
+  %125 = call ptr @repalloc(ptr noundef %.pre162.i, i64 noundef %117) #18
   br label %.sink.split.i144.i
 
 .sink.split.i144.i:                               ; preds = %124, %119
@@ -6540,7 +6537,7 @@ ReorderBufferSerializeReserve.exit145.i:          ; preds = %.sink.split.i144.i,
 
 143:                                              ; preds = %136
   %144 = load ptr, ptr %27, align 8
-  %145 = call ptr @MemoryContextAlloc(ptr noundef %144, i64 noundef %141) #17
+  %145 = call ptr @MemoryContextAlloc(ptr noundef %144, i64 noundef %141) #18
   br label %.sink.split.i147.i
 
 146:                                              ; preds = %136
@@ -6549,7 +6546,7 @@ ReorderBufferSerializeReserve.exit145.i:          ; preds = %.sink.split.i144.i,
   br i1 %147, label %148, label %ReorderBufferSerializeReserve.exit148.i
 
 148:                                              ; preds = %146
-  %149 = call ptr @repalloc(ptr noundef %.pre161.i, i64 noundef %141) #17
+  %149 = call ptr @repalloc(ptr noundef %.pre161.i, i64 noundef %141) #18
   br label %.sink.split.i147.i
 
 .sink.split.i147.i:                               ; preds = %148, %143
@@ -6584,7 +6581,7 @@ ReorderBufferSerializeReserve.exit148.i:          ; preds = %.sink.split.i147.i,
 
 167:                                              ; preds = %154
   %168 = load ptr, ptr %27, align 8
-  %169 = call ptr @MemoryContextAlloc(ptr noundef %168, i64 noundef %165) #17
+  %169 = call ptr @MemoryContextAlloc(ptr noundef %168, i64 noundef %165) #18
   br label %.sink.split.i150.i
 
 170:                                              ; preds = %154
@@ -6593,7 +6590,7 @@ ReorderBufferSerializeReserve.exit148.i:          ; preds = %.sink.split.i147.i,
   br i1 %171, label %172, label %ReorderBufferSerializeReserve.exit151.i
 
 172:                                              ; preds = %170
-  %173 = call ptr @repalloc(ptr noundef %.pre160.i, i64 noundef %165) #17
+  %173 = call ptr @repalloc(ptr noundef %.pre160.i, i64 noundef %165) #18
   br label %.sink.split.i150.i
 
 .sink.split.i150.i:                               ; preds = %172, %167
@@ -6648,7 +6645,7 @@ ReorderBufferSerializeReserve.exit151.i:          ; preds = %.sink.split.i150.i,
 
 200:                                              ; preds = %194
   %201 = load ptr, ptr %27, align 8
-  %202 = call ptr @MemoryContextAlloc(ptr noundef %201, i64 noundef %198) #17
+  %202 = call ptr @MemoryContextAlloc(ptr noundef %201, i64 noundef %198) #18
   br label %.sink.split.i153.i
 
 203:                                              ; preds = %194
@@ -6657,7 +6654,7 @@ ReorderBufferSerializeReserve.exit151.i:          ; preds = %.sink.split.i150.i,
   br i1 %204, label %205, label %ReorderBufferSerializeReserve.exit154.i
 
 205:                                              ; preds = %203
-  %206 = call ptr @repalloc(ptr noundef %.pre159.i, i64 noundef %198) #17
+  %206 = call ptr @repalloc(ptr noundef %.pre159.i, i64 noundef %198) #18
   br label %.sink.split.i153.i
 
 .sink.split.i153.i:                               ; preds = %205, %200
@@ -6678,29 +6675,29 @@ ReorderBufferSerializeReserve.exit154.i:          ; preds = %.sink.split.i153.i,
   %.0123.i = phi i64 [ 88, %ReorderBufferSerializeReserve.exit.i ], [ %198, %ReorderBufferSerializeReserve.exit154.i ], [ %165, %189 ], [ %165, %187 ], [ %141, %ReorderBufferSerializeReserve.exit148.i ], [ %117, %ReorderBufferSerializeReserve.exit145.i ], [ %.2.i, %105 ], [ %.2.i, %104 ]
   %.0.i = phi ptr [ %69, %ReorderBufferSerializeReserve.exit.i ], [ %207, %ReorderBufferSerializeReserve.exit154.i ], [ %174, %189 ], [ %174, %187 ], [ %150, %ReorderBufferSerializeReserve.exit148.i ], [ %126, %ReorderBufferSerializeReserve.exit145.i ], [ %97, %105 ], [ %97, %104 ]
   store i64 %.0123.i, ptr %.0.i, align 8
-  %212 = tail call ptr @__errno_location() #22
+  %212 = tail call ptr @__errno_location() #23
   store i32 0, ptr %212, align 4
   %213 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772200, ptr %213, align 4
   %214 = load ptr, ptr %26, align 8
   %215 = load i64, ptr %.0.i, align 8
-  %216 = call i64 @write(i32 noundef %.1, ptr noundef %214, i64 noundef %215) #17
+  %216 = call i64 @write(i32 noundef %.1, ptr noundef %214, i64 noundef %215) #18
   %217 = load i64, ptr %.0.i, align 8
   %.not138.i = icmp eq i64 %216, %217
   br i1 %.not138.i, label %226, label %218
 
 218:                                              ; preds = %211
   %219 = load i32, ptr %212, align 4
-  %220 = call i32 @CloseTransientFile(i32 noundef %.1) #17
+  %220 = call i32 @CloseTransientFile(i32 noundef %.1) #18
   %.not139.i = icmp eq i32 %219, 0
   %221 = select i1 %.not139.i, i32 28, i32 %219
   store i32 %221, ptr %212, align 4
-  %222 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %222 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   call void @llvm.assume(i1 %222)
-  %223 = call i32 @errcode_for_file_access() #17
+  %223 = call i32 @errcode_for_file_access() #18
   %224 = load i32, ptr %24, align 4
-  %225 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, i32 noundef %224) #17
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 3935, ptr noundef nonnull @__func__.ReorderBufferSerializeChange) #17
+  %225 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, i32 noundef %224) #18
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 3935, ptr noundef nonnull @__func__.ReorderBufferSerializeChange) #18
   unreachable
 
 226:                                              ; preds = %211
@@ -6754,7 +6751,7 @@ ReorderBufferSerializeChange.exit:                ; preds = %226, %231
   store i64 %251, ptr %249, align 8
   %252 = getelementptr inbounds i8, ptr %0, i64 224
   %253 = load ptr, ptr %252, align 8
-  call void @UpdateDecodingStats(ptr noundef %253) #17
+  call void @UpdateDecodingStats(ptr noundef %253) #18
   br label %258
 
 254:                                              ; preds = %._crit_edge
@@ -6771,7 +6768,7 @@ ReorderBufferSerializeChange.exit:                ; preds = %226, %231
   %260 = load i32, ptr %1, align 8
   %261 = or i32 %260, 4
   store i32 %261, ptr %1, align 8
-  %262 = call i32 @CloseTransientFile(i32 noundef %.1) #17
+  %262 = call i32 @CloseTransientFile(i32 noundef %.1) #18
   br label %263
 
 263:                                              ; preds = %254, %258
@@ -6843,7 +6840,7 @@ define internal fastcc i64 @ReorderBufferRestoreChanges(ptr nocapture noundef %0
   br i1 %.not67, label %38, label %37
 
 37:                                               ; preds = %35
-  call void @ProcessInterrupts() #17
+  call void @ProcessInterrupts() #18
   br label %38
 
 38:                                               ; preds = %35, %37
@@ -6876,15 +6873,15 @@ define internal fastcc i64 @ReorderBufferRestoreChanges(ptr nocapture noundef %0
   %56 = lshr i64 %53, 32
   %57 = trunc nuw i64 %56 to i32
   %58 = trunc i64 %53 to i32
-  %59 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 1024, ptr noundef nonnull @.str.21, ptr noundef nonnull %55, i32 noundef %51, i32 noundef %57, i32 noundef %58) #17
-  %60 = call i32 @PathNameOpenFile(ptr noundef nonnull %7, i32 noundef 0) #17
+  %59 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 1024, ptr noundef nonnull @.str.21, ptr noundef nonnull %55, i32 noundef %51, i32 noundef %57, i32 noundef %58) #18
+  %60 = call i32 @PathNameOpenFile(ptr noundef nonnull %7, i32 noundef 0) #18
   store i32 %60, ptr %2, align 4
   store i64 0, ptr %23, align 8
   %61 = icmp slt i32 %60, 0
   br i1 %61, label %62, label %70
 
 62:                                               ; preds = %48
-  %63 = tail call ptr @__errno_location() #22
+  %63 = tail call ptr @__errno_location() #23
   %64 = load i32, ptr %63, align 4
   %65 = icmp eq i32 %64, 2
   br i1 %65, label %.backedge, label %66
@@ -6897,11 +6894,11 @@ define internal fastcc i64 @ReorderBufferRestoreChanges(ptr nocapture noundef %0
   br i1 %32, label %33, label %.critedge, !llvm.loop !40
 
 66:                                               ; preds = %62
-  %67 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %67 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   call void @llvm.assume(i1 %67)
-  %68 = call i32 @errcode_for_file_access() #17
-  %69 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull %7) #17
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4256, ptr noundef nonnull @__func__.ReorderBufferRestoreChanges) #17
+  %68 = call i32 @errcode_for_file_access() #18
+  %69 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull %7) #18
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4256, ptr noundef nonnull @__func__.ReorderBufferRestoreChanges) #18
   unreachable
 
 70:                                               ; preds = %48, %38
@@ -6912,7 +6909,7 @@ define internal fastcc i64 @ReorderBufferRestoreChanges(ptr nocapture noundef %0
 
 73:                                               ; preds = %70
   %74 = load ptr, ptr %26, align 8
-  %75 = call ptr @MemoryContextAlloc(ptr noundef %74, i64 noundef 88) #17
+  %75 = call ptr @MemoryContextAlloc(ptr noundef %74, i64 noundef 88) #18
   br label %.sink.split.i
 
 76:                                               ; preds = %70
@@ -6921,7 +6918,7 @@ define internal fastcc i64 @ReorderBufferRestoreChanges(ptr nocapture noundef %0
   br i1 %77, label %78, label %ReorderBufferSerializeReserve.exit
 
 78:                                               ; preds = %76
-  %79 = call ptr @repalloc(ptr noundef %.pre120, i64 noundef 88) #17
+  %79 = call ptr @repalloc(ptr noundef %.pre120, i64 noundef 88) #18
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %78, %73
@@ -6938,7 +6935,7 @@ ReorderBufferSerializeReserve.exit:               ; preds = %76, %.sink.split.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store ptr %81, ptr %6, align 8
   store i64 88, ptr %27, align 8
-  %84 = call i64 @FileReadV(i32 noundef %82, ptr noundef nonnull %6, i32 noundef 1, i64 noundef %83, i32 noundef 167772199) #17
+  %84 = call i64 @FileReadV(i32 noundef %82, ptr noundef nonnull %6, i32 noundef 1, i64 noundef %83, i32 noundef 167772199) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %85 = trunc i64 %84 to i32
   %86 = icmp eq i32 %85, 0
@@ -6946,7 +6943,7 @@ ReorderBufferSerializeReserve.exit:               ; preds = %76, %.sink.split.i
 
 87:                                               ; preds = %ReorderBufferSerializeReserve.exit
   %88 = load i32, ptr %2, align 4
-  call void @FileClose(i32 noundef %88) #17
+  call void @FileClose(i32 noundef %88) #18
   br label %.backedge
 
 89:                                               ; preds = %ReorderBufferSerializeReserve.exit
@@ -6954,11 +6951,11 @@ ReorderBufferSerializeReserve.exit:               ; preds = %76, %.sink.split.i
   br i1 %90, label %91, label %95
 
 91:                                               ; preds = %89
-  %92 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %92 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   call void @llvm.assume(i1 %92)
-  %93 = call i32 @errcode_for_file_access() #17
-  %94 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23) #17
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4280, ptr noundef nonnull @__func__.ReorderBufferRestoreChanges) #17
+  %93 = call i32 @errcode_for_file_access() #18
+  %94 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23) #18
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4280, ptr noundef nonnull @__func__.ReorderBufferRestoreChanges) #18
   unreachable
 
 95:                                               ; preds = %89
@@ -6967,11 +6964,11 @@ ReorderBufferSerializeReserve.exit:               ; preds = %76, %.sink.split.i
   br i1 %.not68, label %101, label %97
 
 97:                                               ; preds = %95
-  %98 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %98 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   call void @llvm.assume(i1 %98)
-  %99 = call i32 @errcode_for_file_access() #17
-  %100 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, i32 noundef %85, i32 noundef 88) #17
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4286, ptr noundef nonnull @__func__.ReorderBufferRestoreChanges) #17
+  %99 = call i32 @errcode_for_file_access() #18
+  %100 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, i32 noundef %85, i32 noundef 88) #18
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4286, ptr noundef nonnull @__func__.ReorderBufferRestoreChanges) #18
   unreachable
 
 101:                                              ; preds = %95
@@ -6987,7 +6984,7 @@ ReorderBufferSerializeReserve.exit:               ; preds = %76, %.sink.split.i
 
 108:                                              ; preds = %101
   %109 = load ptr, ptr %26, align 8
-  %110 = call ptr @MemoryContextAlloc(ptr noundef %109, i64 noundef %106) #17
+  %110 = call ptr @MemoryContextAlloc(ptr noundef %109, i64 noundef %106) #18
   br label %.sink.split.i71
 
 111:                                              ; preds = %101
@@ -6995,7 +6992,7 @@ ReorderBufferSerializeReserve.exit:               ; preds = %76, %.sink.split.i
   br i1 %112, label %113, label %ReorderBufferSerializeReserve.exit72
 
 113:                                              ; preds = %111
-  %114 = call ptr @repalloc(ptr noundef nonnull %104, i64 noundef %106) #17
+  %114 = call ptr @repalloc(ptr noundef nonnull %104, i64 noundef %106) #18
   br label %.sink.split.i71
 
 .sink.split.i71:                                  ; preds = %113, %108
@@ -7016,18 +7013,18 @@ ReorderBufferSerializeReserve.exit72:             ; preds = %111, %.sink.split.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr %119, ptr %5, align 8
   store i64 %120, ptr %28, align 8
-  %121 = call i64 @FileReadV(i32 noundef %118, ptr noundef nonnull %5, i32 noundef 1, i64 noundef %115, i32 noundef 167772199) #17
+  %121 = call i64 @FileReadV(i32 noundef %118, ptr noundef nonnull %5, i32 noundef 1, i64 noundef %115, i32 noundef 167772199) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %122 = trunc i64 %121 to i32
   %123 = icmp slt i32 %122, 0
   br i1 %123, label %124, label %128
 
 124:                                              ; preds = %ReorderBufferSerializeReserve.exit72
-  %125 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %125 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   call void @llvm.assume(i1 %125)
-  %126 = call i32 @errcode_for_file_access() #17
-  %127 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23) #17
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4305, ptr noundef nonnull @__func__.ReorderBufferRestoreChanges) #17
+  %126 = call i32 @errcode_for_file_access() #18
+  %127 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23) #18
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4305, ptr noundef nonnull @__func__.ReorderBufferRestoreChanges) #18
   unreachable
 
 128:                                              ; preds = %ReorderBufferSerializeReserve.exit72
@@ -7038,14 +7035,14 @@ ReorderBufferSerializeReserve.exit72:             ; preds = %111, %.sink.split.i
   br i1 %.not69, label %139, label %132
 
 132:                                              ; preds = %128
-  %133 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %133 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   call void @llvm.assume(i1 %133)
-  %134 = call i32 @errcode_for_file_access() #17
+  %134 = call i32 @errcode_for_file_access() #18
   %135 = load i64, ptr %117, align 8
   %136 = trunc i64 %135 to i32
   %137 = add i32 %136, -88
-  %138 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, i32 noundef %122, i32 noundef %137) #17
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4311, ptr noundef nonnull @__func__.ReorderBufferRestoreChanges) #17
+  %138 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, i32 noundef %122, i32 noundef %137) #18
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4311, ptr noundef nonnull @__func__.ReorderBufferRestoreChanges) #18
   unreachable
 
 139:                                              ; preds = %128
@@ -7054,7 +7051,7 @@ ReorderBufferSerializeReserve.exit72:             ; preds = %111, %.sink.split.i
   store i64 %141, ptr %23, align 8
   %142 = load ptr, ptr %25, align 8
   %143 = load ptr, ptr %29, align 8
-  %144 = call noundef ptr @MemoryContextAlloc(ptr noundef %143, i64 noundef 80) #17
+  %144 = call noundef ptr @MemoryContextAlloc(ptr noundef %143, i64 noundef 80) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %144, i8 0, i64 80, i1 false)
   %145 = getelementptr inbounds i8, ptr %142, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %144, ptr noundef nonnull readonly align 8 dereferenceable(80) %145, i64 80, i1 false)
@@ -7083,7 +7080,7 @@ ReorderBufferSerializeReserve.exit72:             ; preds = %111, %.sink.split.i
   %154 = zext i32 %153 to i64
   %155 = load ptr, ptr %30, align 8
   %156 = add nuw nsw i64 %154, 24
-  %157 = call ptr @MemoryContextAlloc(ptr noundef %155, i64 noundef %156) #17
+  %157 = call ptr @MemoryContextAlloc(ptr noundef %155, i64 noundef %156) #18
   %158 = getelementptr i8, ptr %157, i64 24
   %159 = getelementptr inbounds i8, ptr %157, i64 16
   store ptr %158, ptr %159, align 8
@@ -7113,7 +7110,7 @@ ReorderBufferSerializeReserve.exit72:             ; preds = %111, %.sink.split.i
   %172 = zext i32 %.0.copyload17.i to i64
   %173 = load ptr, ptr %30, align 8
   %174 = add nuw nsw i64 %172, 24
-  %175 = call ptr @MemoryContextAlloc(ptr noundef %173, i64 noundef %174) #17
+  %175 = call ptr @MemoryContextAlloc(ptr noundef %173, i64 noundef %174) #18
   %176 = getelementptr i8, ptr %175, i64 24
   %177 = getelementptr inbounds i8, ptr %175, i64 16
   store ptr %176, ptr %177, align 8
@@ -7134,7 +7131,7 @@ ReorderBufferSerializeReserve.exit72:             ; preds = %111, %.sink.split.i
   %.0.copyload.i = load i64, ptr %146, align 1
   %186 = getelementptr i8, ptr %142, i64 96
   %187 = load ptr, ptr %26, align 8
-  %188 = call ptr @MemoryContextAlloc(ptr noundef %187, i64 noundef %.0.copyload.i) #17
+  %188 = call ptr @MemoryContextAlloc(ptr noundef %187, i64 noundef %.0.copyload.i) #18
   %189 = getelementptr inbounds i8, ptr %144, i64 32
   store ptr %188, ptr %189, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %188, ptr readonly align 1 %186, i64 %.0.copyload.i, i1 false)
@@ -7144,7 +7141,7 @@ ReorderBufferSerializeReserve.exit72:             ; preds = %111, %.sink.split.i
   store i64 %192, ptr %191, align 8
   %193 = getelementptr i8, ptr %190, i64 8
   %194 = load ptr, ptr %26, align 8
-  %195 = call ptr @MemoryContextAlloc(ptr noundef %194, i64 noundef %192) #17
+  %195 = call ptr @MemoryContextAlloc(ptr noundef %194, i64 noundef %192) #18
   %196 = getelementptr inbounds i8, ptr %144, i64 48
   store ptr %195, ptr %196, align 8
   %197 = load i64, ptr %191, align 8
@@ -7157,7 +7154,7 @@ ReorderBufferSerializeReserve.exit72:             ; preds = %111, %.sink.split.i
   %201 = zext i32 %200 to i64
   %202 = shl nuw nsw i64 %201, 4
   %203 = load ptr, ptr %26, align 8
-  %204 = call ptr @MemoryContextAlloc(ptr noundef %203, i64 noundef %202) #17
+  %204 = call ptr @MemoryContextAlloc(ptr noundef %203, i64 noundef %202) #18
   %205 = getelementptr inbounds i8, ptr %144, i64 40
   store ptr %204, ptr %205, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %204, ptr readonly align 1 %146, i64 %202, i1 false)
@@ -7174,7 +7171,7 @@ ReorderBufferSerializeReserve.exit72:             ; preds = %111, %.sink.split.i
   %214 = shl nsw i64 %213, 2
   %215 = add nsw i64 %214, 120
   %216 = load ptr, ptr %26, align 8
-  %217 = call ptr @MemoryContextAllocZero(ptr noundef %216, i64 noundef %215) #17
+  %217 = call ptr @MemoryContextAllocZero(ptr noundef %216, i64 noundef %215) #18
   %218 = getelementptr inbounds i8, ptr %144, i64 32
   store ptr %217, ptr %218, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %217, ptr readonly align 1 %146, i64 %215, i1 false)
@@ -7197,7 +7194,7 @@ ReorderBufferSerializeReserve.exit72:             ; preds = %111, %.sink.split.i
   %sext.i = shl i64 %229, 32
   %230 = ashr exact i64 %sext.i, 30
   %231 = load ptr, ptr %26, align 8
-  %232 = call ptr @MemoryContextAlloc(ptr noundef %231, i64 noundef %230) #17
+  %232 = call ptr @MemoryContextAlloc(ptr noundef %231, i64 noundef %230) #18
   %233 = load i64, ptr %228, align 8
   %234 = shl i64 %233, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %232, ptr readonly align 1 %146, i64 %234, i1 false)
@@ -7268,7 +7265,7 @@ dlist_push_tail.exit.i:                           ; preds = %240, %236
 262:                                              ; preds = %dlist_push_tail.exit.i
   %263 = getelementptr inbounds i8, ptr %144, i64 32
   %264 = load ptr, ptr %263, align 8
-  %265 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %264) #19
+  %265 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %264) #20
   %266 = getelementptr inbounds i8, ptr %144, i64 40
   %267 = load i64, ptr %266, align 8
   %268 = add i64 %265, 97
@@ -7444,10 +7441,10 @@ define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef %1, ptr noun
 
 42:                                               ; preds = %30
   %43 = sext i16 %29 to i32
-  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   tail call void @llvm.assume(i1 %44)
-  %45 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27, i32 noundef %43) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.28, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #17
+  %45 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27, i32 noundef %43) #18
+  tail call void @errfinish(ptr noundef nonnull @.str.28, i32 noundef 69, ptr noundef nonnull @__func__.fetch_att) #18
   unreachable
 
 46:                                               ; preds = %18
@@ -7455,7 +7452,7 @@ define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef %1, ptr noun
   br label %fetch_att.exit
 
 48:                                               ; preds = %10
-  %49 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #17
+  %49 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #18
   br label %fetch_att.exit
 
 50:                                               ; preds = %4
@@ -7474,7 +7471,7 @@ define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef %1, ptr noun
   br label %fetch_att.exit
 
 58:                                               ; preds = %50
-  %59 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #17
+  %59 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #18
   br label %fetch_att.exit
 
 fetch_att.exit:                                   ; preds = %46, %40, %37, %34, %31, %58, %57, %48
@@ -7523,23 +7520,23 @@ define internal fastcc void @ReorderBufferRestoreCleanup(ptr nocapture noundef r
   %19 = lshr i64 %16, 32
   %20 = trunc nuw i64 %19 to i32
   %21 = trunc i64 %16 to i32
-  %22 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.21, ptr noundef nonnull %18, i32 noundef %13, i32 noundef %20, i32 noundef %21) #17
-  %23 = call i32 @unlink(ptr noundef nonnull %2) #17
+  %22 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.21, ptr noundef nonnull %18, i32 noundef %13, i32 noundef %20, i32 noundef %21) #18
+  %23 = call i32 @unlink(ptr noundef nonnull %2) #18
   %.not7 = icmp eq i32 %23, 0
   br i1 %.not7, label %31, label %24
 
 24:                                               ; preds = %12
-  %25 = tail call ptr @__errno_location() #22
+  %25 = tail call ptr @__errno_location() #23
   %26 = load i32, ptr %25, align 4
   %.not8 = icmp eq i32 %26, 2
   br i1 %.not8, label %31, label %27
 
 27:                                               ; preds = %24
-  %28 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %28 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   call void @llvm.assume(i1 %28)
-  %29 = call i32 @errcode_for_file_access() #17
-  %30 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.33, ptr noundef nonnull %2) #17
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4524, ptr noundef nonnull @__func__.ReorderBufferRestoreCleanup) #17
+  %29 = call i32 @errcode_for_file_access() #18
+  %30 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.33, ptr noundef nonnull %2) #18
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4524, ptr noundef nonnull @__func__.ReorderBufferRestoreCleanup) #18
   unreachable
 
 31:                                               ; preds = %12, %24
@@ -7606,6 +7603,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #17
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -7623,12 +7623,13 @@ attributes #13 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="tru
 attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nounwind }
-attributes #18 = { cold nounwind }
-attributes #19 = { nounwind willreturn memory(read) }
-attributes #20 = { nounwind returns_twice }
-attributes #21 = { noreturn nounwind }
-attributes #22 = { nounwind willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nounwind }
+attributes #19 = { cold nounwind }
+attributes #20 = { nounwind willreturn memory(read) }
+attributes #21 = { nounwind returns_twice }
+attributes #22 = { noreturn nounwind }
+attributes #23 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

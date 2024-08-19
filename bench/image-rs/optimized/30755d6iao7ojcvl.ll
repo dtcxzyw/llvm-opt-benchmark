@@ -772,15 +772,15 @@ define hidden void @"_ZN123_$LT$alloc..collections..binary_heap..BinaryHeap$LT$T
   %29 = getelementptr inbounds { i32, i16 }, ptr %9, i64 %27
   %.val.i.i.i = load i32, ptr %26, align 4, !alias.scope !81, !noalias !86, !noundef !13
   %.val31.i.i.i = load i32, ptr %29, align 4, !alias.scope !89, !noalias !90, !noundef !13
-  %.not.i.i.i.i = icmp ule i32 %.val31.i.i.i, %.val.i.i.i
-  %30 = zext i1 %.not.i.i.i.i to i64
+  %switch.selectcmp.i.i.i.i = icmp ule i32 %.val31.i.i.i, %.val.i.i.i
+  %30 = zext i1 %switch.selectcmp.i.i.i.i to i64
   %31 = add nuw i64 %.062.i.i.i, %30
   %32 = icmp ult i64 %31, %6
   tail call void @llvm.assume(i1 %32)
   %33 = getelementptr inbounds { i32, i16 }, ptr %9, i64 %31
   %.val35.i.i.i = load i32, ptr %33, align 4, !alias.scope !91, !noalias !96, !noundef !13
-  %.not.i.i.i = icmp ult i32 %.val35.i.i.i, %15
-  br i1 %.not.i.i.i, label %34, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$15sift_down_range17hec982d15490c4d5cE.exit.i.i"
+  %switch.i.not.i.i.i = icmp ult i32 %.val35.i.i.i, %15
+  br i1 %switch.i.not.i.i.i, label %34, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$15sift_down_range17hec982d15490c4d5cE.exit.i.i"
 
 34:                                               ; preds = %.lr.ph.i.i.i
   %35 = getelementptr inbounds { i32, i16 }, ptr %9, i64 %.0.in.in60.i.i.i
@@ -870,15 +870,15 @@ define hidden void @"_ZN132_$LT$alloc..collections..binary_heap..BinaryHeap$LT$T
   %27 = getelementptr inbounds { i32, i16 }, ptr %7, i64 %25
   %.val.i.i = load i32, ptr %24, align 4, !alias.scope !115, !noalias !120, !noundef !13
   %.val31.i.i = load i32, ptr %27, align 4, !alias.scope !123, !noalias !124, !noundef !13
-  %.not.i.i.i = icmp ule i32 %.val31.i.i, %.val.i.i
-  %28 = zext i1 %.not.i.i.i to i64
+  %switch.selectcmp.i.i.i = icmp ule i32 %.val31.i.i, %.val.i.i
+  %28 = zext i1 %switch.selectcmp.i.i.i to i64
   %29 = add nuw i64 %.062.i.i, %28
   %30 = icmp ult i64 %29, %4
   tail call void @llvm.assume(i1 %30)
   %31 = getelementptr inbounds { i32, i16 }, ptr %7, i64 %29
   %.val35.i.i = load i32, ptr %31, align 4, !alias.scope !125, !noalias !130, !noundef !13
-  %.not.i.i = icmp ult i32 %.val35.i.i, %13
-  br i1 %.not.i.i, label %32, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$15sift_down_range17hec982d15490c4d5cE.exit.i"
+  %switch.i.not.i.i = icmp ult i32 %.val35.i.i, %13
+  br i1 %switch.i.not.i.i, label %32, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$15sift_down_range17hec982d15490c4d5cE.exit.i"
 
 32:                                               ; preds = %.lr.ph.i.i
   %33 = getelementptr inbounds { i32, i16 }, ptr %7, i64 %.0.in.in60.i.i
@@ -22653,10 +22653,7 @@ define hidden noalias noundef ptr @"_ZN48_$LT$std..fs..File$u20$as$u20$std..io..
 define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls48_$LT$impl$u20$core..cmp..Ord$u20$for$u20$i32$GT$3cmp17haadb7baf2866307aE.llvm.7602948157661992270"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #4 {
   %3 = load i32, ptr %0, align 4, !noundef !13
   %4 = load i32, ptr %1, align 4, !noundef !13
-  %5 = icmp slt i32 %3, %4
-  %6 = icmp ne i32 %3, %4
-  %. = zext i1 %6 to i8
-  %.0 = select i1 %5, i8 -1, i8 %.
+  %.0 = tail call i8 @llvm.scmp.i8.i32(i32 %3, i32 %4)
   ret i8 %.0
 }
 
@@ -22664,10 +22661,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls48_$LT$impl$u20$cor
 define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17h8f8f25612be95722E.llvm.7602948157661992270"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #4 {
   %3 = load i64, ptr %0, align 8, !noundef !13
   %4 = load i64, ptr %1, align 8, !noundef !13
-  %5 = icmp ult i64 %3, %4
-  %6 = icmp ne i64 %3, %4
-  %. = zext i1 %6 to i8
-  %.0 = select i1 %5, i8 -1, i8 %.
+  %.0 = tail call i8 @llvm.ucmp.i8.i64(i64 %3, i64 %4)
   ret i8 %.0
 }
 
@@ -23141,10 +23135,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function5FnMut8call_mut17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3667)
   %4 = load i32, ptr %1, align 4, !alias.scope !3669, !noalias !3670, !noundef !13
   %5 = load i32, ptr %2, align 4, !alias.scope !3670, !noalias !3669, !noundef !13
-  %6 = icmp slt i32 %4, %5
-  %7 = icmp ne i32 %4, %5
-  %..i.i = zext i1 %7 to i8
-  %.0.i.i = select i1 %6, i8 -1, i8 %..i.i
+  %.0.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32 %4, i32 %5)
   ret i8 %.0.i.i
 }
 
@@ -23156,10 +23147,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function5FnMut8call_mut17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3679)
   %4 = load i32, ptr %1, align 8, !alias.scope !3681, !noalias !3682, !noundef !13
   %5 = load i32, ptr %2, align 8, !alias.scope !3682, !noalias !3681, !noundef !13
-  %6 = icmp slt i32 %4, %5
-  %7 = icmp ne i32 %4, %5
-  %..i.i = zext i1 %7 to i8
-  %.0.i.i = select i1 %6, i8 -1, i8 %..i.i
+  %.0.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32 %4, i32 %5)
   ret i8 %.0.i.i
 }
 
@@ -23171,10 +23159,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function5FnMut8call_mut17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3691)
   %4 = load i32, ptr %1, align 8, !alias.scope !3693, !noalias !3694, !noundef !13
   %5 = load i32, ptr %2, align 8, !alias.scope !3694, !noalias !3693, !noundef !13
-  %6 = icmp slt i32 %4, %5
-  %7 = icmp ne i32 %4, %5
-  %..i.i = zext i1 %7 to i8
-  %.0.i.i = select i1 %6, i8 -1, i8 %..i.i
+  %.0.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32 %4, i32 %5)
   ret i8 %.0.i.i
 }
 
@@ -23419,10 +23404,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3ops8function5impls80_$LT$imp
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3796)
   %4 = load i32, ptr %1, align 8, !alias.scope !3798, !noalias !3799, !noundef !13
   %5 = load i32, ptr %2, align 8, !alias.scope !3799, !noalias !3798, !noundef !13
-  %6 = icmp slt i32 %4, %5
-  %7 = icmp ne i32 %4, %5
-  %..i.i.i = zext i1 %7 to i8
-  %.0.i.i.i = select i1 %6, i8 -1, i8 %..i.i.i
+  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32 %4, i32 %5)
   ret i8 %.0.i.i.i
 }
 
@@ -23436,10 +23418,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3ops8function5impls80_$LT$imp
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3813)
   %4 = load i32, ptr %1, align 8, !alias.scope !3815, !noalias !3816, !noundef !13
   %5 = load i32, ptr %2, align 8, !alias.scope !3816, !noalias !3815, !noundef !13
-  %6 = icmp slt i32 %4, %5
-  %7 = icmp ne i32 %4, %5
-  %..i.i.i = zext i1 %7 to i8
-  %.0.i.i.i = select i1 %6, i8 -1, i8 %..i.i.i
+  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32 %4, i32 %5)
   ret i8 %.0.i.i.i
 }
 
@@ -23453,10 +23432,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3ops8function5impls80_$LT$imp
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3830)
   %4 = load i32, ptr %1, align 4, !alias.scope !3832, !noalias !3833, !noundef !13
   %5 = load i32, ptr %2, align 4, !alias.scope !3833, !noalias !3832, !noundef !13
-  %6 = icmp slt i32 %4, %5
-  %7 = icmp ne i32 %4, %5
-  %..i.i.i = zext i1 %7 to i8
-  %.0.i.i.i = select i1 %6, i8 -1, i8 %..i.i.i
+  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32 %4, i32 %5)
   ret i8 %.0.i.i.i
 }
 
@@ -23476,10 +23452,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function6FnOnce9call_once
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3840)
   %3 = load i64, ptr %0, align 8, !alias.scope !3837, !noalias !3840, !noundef !13
   %4 = load i64, ptr %1, align 8, !alias.scope !3840, !noalias !3837, !noundef !13
-  %5 = icmp ult i64 %3, %4
-  %6 = icmp ne i64 %3, %4
-  %..i = zext i1 %6 to i8
-  %.0.i = select i1 %5, i8 -1, i8 %..i
+  %.0.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %3, i64 %4)
   ret i8 %.0.i
 }
 
@@ -23843,10 +23816,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN4core4iter6traits8iterator8Iterator
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3947)
   %3 = load i32, ptr %0, align 4, !alias.scope !3944, !noalias !3947, !noundef !13
   %4 = load i32, ptr %1, align 4, !alias.scope !3947, !noalias !3944, !noundef !13
-  %5 = icmp slt i32 %3, %4
-  %6 = icmp ne i32 %3, %4
-  %..i = zext i1 %6 to i8
-  %.0.i = select i1 %5, i8 -1, i8 %..i
+  %.0.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32 %3, i32 %4)
   ret i8 %.0.i
 }
 
@@ -23902,10 +23872,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN4core4iter6traits8iterator8Iterator
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3958)
   %3 = load i32, ptr %0, align 8, !alias.scope !3955, !noalias !3958, !noundef !13
   %4 = load i32, ptr %1, align 8, !alias.scope !3958, !noalias !3955, !noundef !13
-  %5 = icmp slt i32 %3, %4
-  %6 = icmp ne i32 %3, %4
-  %..i = zext i1 %6 to i8
-  %.0.i = select i1 %5, i8 -1, i8 %..i
+  %.0.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32 %3, i32 %4)
   ret i8 %.0.i
 }
 
@@ -23915,10 +23882,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN4core4iter6traits8iterator8Iterator
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3963)
   %3 = load i32, ptr %0, align 8, !alias.scope !3960, !noalias !3963, !noundef !13
   %4 = load i32, ptr %1, align 8, !alias.scope !3963, !noalias !3960, !noundef !13
-  %5 = icmp slt i32 %3, %4
-  %6 = icmp ne i32 %3, %4
-  %..i = zext i1 %6 to i8
-  %.0.i = select i1 %5, i8 -1, i8 %..i
+  %.0.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32 %3, i32 %4)
   ret i8 %.0.i
 }
 
@@ -25332,15 +25296,15 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %27 = getelementptr inbounds { i32, i16 }, ptr %5, i64 %25
   %.val = load i32, ptr %24, align 4, !alias.scope !4181, !noalias !4186, !noundef !13
   %.val31 = load i32, ptr %27, align 4, !alias.scope !4186, !noalias !4181, !noundef !13
-  %.not.i = icmp ule i32 %.val31, %.val
-  %28 = zext i1 %.not.i to i64
+  %switch.selectcmp.i = icmp ule i32 %.val31, %.val
+  %28 = zext i1 %switch.selectcmp.i to i64
   %29 = add nuw i64 %.062, %28
   %30 = icmp ult i64 %29, %7
   tail call void @llvm.assume(i1 %30)
   %31 = getelementptr inbounds { i32, i16 }, ptr %5, i64 %29
   %.val35 = load i32, ptr %31, align 4, !alias.scope !4189, !noalias !4194, !noundef !13
-  %.not = icmp ult i32 %.val35, %10
-  br i1 %.not, label %32, label %.loopexit
+  %switch.i.not = icmp ult i32 %.val35, %10
+  br i1 %switch.i.not, label %32, label %.loopexit
 
 32:                                               ; preds = %.lr.ph
   %33 = getelementptr inbounds { i32, i16 }, ptr %5, i64 %.0.in.in60
@@ -25406,8 +25370,8 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds { i32, i16 }, ptr %6, i64 %24
   %.val12.i = load i32, ptr %26, align 4, !alias.scope !4202, !noalias !4207, !noundef !13
-  %.not.i.not.i = icmp ugt i32 %.val12.i, %9
-  br i1 %.not.i.not.i, label %27, label %.loopexit
+  %switch.selectcmp.i.not.i = icmp ugt i32 %.val12.i, %9
+  br i1 %switch.selectcmp.i.not.i, label %27, label %.loopexit
 
 27:                                               ; preds = %.lr.ph.i
   %28 = getelementptr inbounds { i32, i16 }, ptr %6, i64 %storemerge9.i
@@ -25435,8 +25399,8 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %35 = getelementptr inbounds { i32, i16 }, ptr %6, i64 %33
   %.val = load i32, ptr %32, align 4, !alias.scope !4181, !noalias !4186, !noundef !13
   %.val26 = load i32, ptr %35, align 4, !alias.scope !4186, !noalias !4181, !noundef !13
-  %.not.i = icmp ule i32 %.val26, %.val
-  %36 = zext i1 %.not.i to i64
+  %switch.selectcmp.i = icmp ule i32 %.val26, %.val
+  %36 = zext i1 %switch.selectcmp.i to i64
   %37 = add nuw i64 %.052, %36
   %38 = getelementptr inbounds { i32, i16 }, ptr %6, i64 %37
   %39 = getelementptr inbounds { i32, i16 }, ptr %6, i64 %.0.in.in50
@@ -25528,8 +25492,8 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   tail call void @llvm.assume(i1 %32)
   %33 = getelementptr inbounds { i32, i16 }, ptr %11, i64 %31
   %.val12.i.i.i = load i32, ptr %33, align 4, !alias.scope !4236, !noalias !4241, !noundef !13
-  %.not.i.not.i.i.i = icmp ugt i32 %.val12.i.i.i, %13
-  br i1 %.not.i.not.i.i.i, label %34, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h001e29f7840d7467E.llvm.7602948157661992270.exit.i"
+  %switch.selectcmp.i.not.i.i.i = icmp ugt i32 %.val12.i.i.i, %13
+  br i1 %switch.selectcmp.i.not.i.i.i, label %34, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h001e29f7840d7467E.llvm.7602948157661992270.exit.i"
 
 34:                                               ; preds = %.lr.ph.i.i.i
   %35 = getelementptr inbounds { i32, i16 }, ptr %11, i64 %storemerge9.i.i.i
@@ -25549,8 +25513,8 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %40 = getelementptr inbounds { i32, i16 }, ptr %11, i64 %38
   %.val.i.i = load i32, ptr %37, align 4, !alias.scope !4244, !noalias !4249, !noundef !13
   %.val26.i.i = load i32, ptr %40, align 4, !alias.scope !4252, !noalias !4253, !noundef !13
-  %.not.i.i.i = icmp ule i32 %.val26.i.i, %.val.i.i
-  %41 = zext i1 %.not.i.i.i to i64
+  %switch.selectcmp.i.i.i = icmp ule i32 %.val26.i.i, %.val.i.i
+  %41 = zext i1 %switch.selectcmp.i.i.i to i64
   %42 = add nuw i64 %.052.i.i, %41
   %43 = getelementptr inbounds { i32, i16 }, ptr %11, i64 %42
   %44 = getelementptr inbounds { i32, i16 }, ptr %11, i64 %.0.in.in50.i.i
@@ -25650,8 +25614,8 @@ define hidden { i32, i16 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds { i32, i16 }, ptr %8, i64 %24
   %.val12.i.i = load i32, ptr %26, align 4, !alias.scope !4272, !noalias !4277, !noundef !13
-  %.not.i.not.i.i = icmp ugt i32 %.val12.i.i, %1
-  br i1 %.not.i.not.i.i, label %27, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h001e29f7840d7467E.llvm.7602948157661992270.exit"
+  %switch.selectcmp.i.not.i.i = icmp ugt i32 %.val12.i.i, %1
+  br i1 %switch.selectcmp.i.not.i.i, label %27, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h001e29f7840d7467E.llvm.7602948157661992270.exit"
 
 27:                                               ; preds = %.lr.ph.i.i
   %28 = getelementptr inbounds { i32, i16 }, ptr %8, i64 %storemerge9.i.i
@@ -25671,8 +25635,8 @@ define hidden { i32, i16 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$
   %33 = getelementptr inbounds { i32, i16 }, ptr %8, i64 %31
   %.val.i = load i32, ptr %30, align 4, !alias.scope !4280, !noalias !4285, !noundef !13
   %.val26.i = load i32, ptr %33, align 4, !alias.scope !4288, !noalias !4289, !noundef !13
-  %.not.i.i = icmp ule i32 %.val26.i, %.val.i
-  %34 = zext i1 %.not.i.i to i64
+  %switch.selectcmp.i.i = icmp ule i32 %.val26.i, %.val.i
+  %34 = zext i1 %switch.selectcmp.i.i to i64
   %35 = add nuw i64 %.052.i, %34
   %36 = getelementptr inbounds { i32, i16 }, ptr %8, i64 %35
   %37 = getelementptr inbounds { i32, i16 }, ptr %8, i64 %.0.in.in50.i
@@ -25762,15 +25726,15 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %26 = getelementptr inbounds { i32, i16 }, ptr %6, i64 %24
   %.val.i = load i32, ptr %23, align 4, !alias.scope !4306, !noalias !4311, !noundef !13
   %.val31.i = load i32, ptr %26, align 4, !alias.scope !4314, !noalias !4315, !noundef !13
-  %.not.i.i = icmp ule i32 %.val31.i, %.val.i
-  %27 = zext i1 %.not.i.i to i64
+  %switch.selectcmp.i.i = icmp ule i32 %.val31.i, %.val.i
+  %27 = zext i1 %switch.selectcmp.i.i to i64
   %28 = add nuw i64 %.062.i, %27
   %29 = icmp ult i64 %28, %3
   tail call void @llvm.assume(i1 %29)
   %30 = getelementptr inbounds { i32, i16 }, ptr %6, i64 %28
   %.val35.i = load i32, ptr %30, align 4, !alias.scope !4316, !noalias !4321, !noundef !13
-  %.not.i = icmp ult i32 %.val35.i, %12
-  br i1 %.not.i, label %31, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$15sift_down_range17hec982d15490c4d5cE.exit"
+  %switch.i.not.i = icmp ult i32 %.val35.i, %12
+  br i1 %switch.i.not.i, label %31, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$15sift_down_range17hec982d15490c4d5cE.exit"
 
 31:                                               ; preds = %.lr.ph.i
   %32 = getelementptr inbounds { i32, i16 }, ptr %6, i64 %.0.in.in60.i
@@ -31649,94 +31613,92 @@ define { i32, i32 } @_ZN5image9animation5Delay24from_saturating_duration17h0f915
   %18 = icmp ugt i32 %15, 500000
   %19 = zext i32 %.0 to i64
   %20 = select i1 %18, i64 1000000, i64 0
-  %.not8287.i = icmp eq i64 %20, %17
-  %21 = icmp eq i32 %.0, 1
-  %or.cond88.i = or i1 %.not8287.i, %21
-  br i1 %or.cond88.i, label %_ZN5image9animation5Delay24closest_bounded_fraction17ha7e3d13939333f24E.exit.thread, label %.lr.ph.i.preheader
+  %21 = icmp eq i64 %20, %17
+  %22 = icmp eq i32 %.0, 1
+  %or.cond77.i = or i1 %21, %22
+  br i1 %or.cond77.i, label %_ZN5image9animation5Delay24closest_bounded_fraction17ha7e3d13939333f24E.exit.thread, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %10
-  %22 = zext i1 %18 to i64
+  %23 = zext i1 %18 to i64
   br label %.lr.ph.i
 
 _ZN5image9animation5Delay24closest_bounded_fraction17ha7e3d13939333f24E.exit.thread: ; preds = %10
-  %23 = zext i1 %18 to i32
-  %24 = add i32 %23, %16
+  %24 = zext i1 %18 to i32
+  %25 = add i32 %24, %16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   br label %_ZN5image9animation5Delay19from_numer_denom_ms17h0f28b4a3090a9b4cE.exit
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.thread78.i
-  %25 = phi i64 [ %50, %.thread78.i ], [ %17, %.lr.ph.i.preheader ]
-  %26 = phi i64 [ %49, %.thread78.i ], [ %20, %.lr.ph.i.preheader ]
-  %.094.i = phi i64 [ %.0..i, %.thread78.i ], [ 1, %.lr.ph.i.preheader ]
-  %.04593.i = phi i64 [ %.045..i, %.thread78.i ], [ 0, %.lr.ph.i.preheader ]
-  %.04792.i = phi i64 [ %..047.i, %.thread78.i ], [ 1, %.lr.ph.i.preheader ]
-  %.04991.i = phi i64 [ %..049.i, %.thread78.i ], [ 1, %.lr.ph.i.preheader ]
-  %.sroa.08.090.i = phi i64 [ %48, %.thread78.i ], [ %22, %.lr.ph.i.preheader ]
-  %.sroa.7.089.i = phi i64 [ %47, %.thread78.i ], [ 1, %.lr.ph.i.preheader ]
-  %27 = add i64 %.04991.i, %.04593.i
-  %28 = add i64 %.04792.i, %.094.i
-  %29 = mul i64 %28, %17
-  %30 = mul i64 %27, 1000000
-  %31 = icmp ult i64 %29, %30
-  %..049.i = select i1 %31, i64 %27, i64 %.04991.i
-  %..047.i = select i1 %31, i64 %28, i64 %.04792.i
-  %.045..i = select i1 %31, i64 %.04593.i, i64 %27
-  %.0..i = select i1 %31, i64 %.094.i, i64 %28
-  %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %26, i64 %25)
-  %.0.sroa.speculated.i1.i.i = tail call noundef i64 @llvm.umin.i64(i64 %26, i64 %25)
-  %32 = sub i64 %.0.sroa.speculated.i.i.i, %.0.sroa.speculated.i1.i.i
-  %.0.sroa.speculated.i.i63.i = tail call noundef i64 @llvm.umax.i64(i64 %30, i64 %29)
-  %.0.sroa.speculated.i1.i64.i = tail call noundef i64 @llvm.umin.i64(i64 %30, i64 %29)
-  %33 = sub i64 %.0.sroa.speculated.i.i63.i, %.0.sroa.speculated.i1.i64.i
-  %34 = icmp eq i64 %28, 0
-  br i1 %34, label %42, label %35, !prof !14
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.thread.i
+  %26 = phi i64 [ %49, %.thread.i ], [ %17, %.lr.ph.i.preheader ]
+  %27 = phi i64 [ %48, %.thread.i ], [ %20, %.lr.ph.i.preheader ]
+  %.083.i = phi i64 [ %.0..i, %.thread.i ], [ 1, %.lr.ph.i.preheader ]
+  %.04582.i = phi i64 [ %.045..i, %.thread.i ], [ 0, %.lr.ph.i.preheader ]
+  %.04781.i = phi i64 [ %..047.i, %.thread.i ], [ 1, %.lr.ph.i.preheader ]
+  %.04980.i = phi i64 [ %..049.i, %.thread.i ], [ 1, %.lr.ph.i.preheader ]
+  %.sroa.08.079.i = phi i64 [ %47, %.thread.i ], [ %23, %.lr.ph.i.preheader ]
+  %.sroa.7.078.i = phi i64 [ %46, %.thread.i ], [ 1, %.lr.ph.i.preheader ]
+  %28 = add i64 %.04980.i, %.04582.i
+  %29 = add i64 %.04781.i, %.083.i
+  %30 = mul i64 %29, %17
+  %31 = mul i64 %28, 1000000
+  %32 = icmp ult i64 %30, %31
+  %..049.i = select i1 %32, i64 %28, i64 %.04980.i
+  %..047.i = select i1 %32, i64 %29, i64 %.04781.i
+  %.045..i = select i1 %32, i64 %.04582.i, i64 %28
+  %.0..i = select i1 %32, i64 %.083.i, i64 %29
+  %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %27, i64 %26)
+  %.0.sroa.speculated.i1.i.i = tail call noundef i64 @llvm.umin.i64(i64 %27, i64 %26)
+  %33 = sub i64 %.0.sroa.speculated.i.i.i, %.0.sroa.speculated.i1.i.i
+  %.0.sroa.speculated.i.i62.i = tail call noundef i64 @llvm.umax.i64(i64 %31, i64 %30)
+  %.0.sroa.speculated.i1.i63.i = tail call noundef i64 @llvm.umin.i64(i64 %31, i64 %30)
+  %34 = sub i64 %.0.sroa.speculated.i.i62.i, %.0.sroa.speculated.i1.i63.i
+  %35 = icmp eq i64 %29, 0
+  br i1 %35, label %41, label %36, !prof !14
 
-35:                                               ; preds = %.lr.ph.i
-  %36 = udiv i64 %33, %28
-  %37 = urem i64 %33, %28
-  %38 = udiv i64 %32, %.sroa.7.089.i
-  %39 = urem i64 %32, %.sroa.7.089.i
-  %40 = icmp ult i64 %36, %38
-  %41 = icmp ne i64 %36, %38
-  %..i = zext i1 %41 to i8
-  %.051.i = select i1 %40, i8 -1, i8 %..i
-  switch i8 %.051.i, label %default.unreachable [
-    i8 -1, label %.thread75.i
-    i8 0, label %43
-    i8 1, label %.thread78.i
+36:                                               ; preds = %.lr.ph.i
+  %37 = udiv i64 %34, %29
+  %38 = urem i64 %34, %29
+  %39 = udiv i64 %33, %.sroa.7.078.i
+  %40 = urem i64 %33, %.sroa.7.078.i
+  %.051.i = tail call i8 @llvm.ucmp.i8.i64(i64 %37, i64 %39)
+  switch i8 %.051.i, label %default.unreachable.i [
+    i8 -1, label %.thread.i
+    i8 0, label %42
+    i8 1, label %.thread68.i
   ]
 
-42:                                               ; preds = %.lr.ph.i
+41:                                               ; preds = %.lr.ph.i
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @str.1, i64 noundef 25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f6d9434fcf4bddc9e50dec3b041c07d1.164) #40
   unreachable
 
-default.unreachable:                              ; preds = %35
+default.unreachable.i:                            ; preds = %36
   unreachable
 
-43:                                               ; preds = %35
-  %44 = mul i64 %37, %.sroa.7.089.i
-  %45 = mul i64 %39, %28
-  %46 = icmp ult i64 %44, %45
-  %cond.fr67.i = freeze i1 %46
-  br i1 %cond.fr67.i, label %.thread75.i, label %.thread78.i
+.thread68.i:                                      ; preds = %36
+  br label %.thread.i
 
-.thread75.i:                                      ; preds = %43, %35
-  br label %.thread78.i
+42:                                               ; preds = %36
+  %43 = mul i64 %38, %.sroa.7.078.i
+  %44 = mul i64 %40, %29
+  %45 = icmp ult i64 %43, %44
+  %spec.select.i = select i1 %45, i64 %29, i64 %.sroa.7.078.i
+  %spec.select72.i = select i1 %45, i64 %28, i64 %.sroa.08.079.i
+  br label %.thread.i
 
-.thread78.i:                                      ; preds = %.thread75.i, %43, %35
-  %47 = phi i64 [ %28, %.thread75.i ], [ %.sroa.7.089.i, %35 ], [ %.sroa.7.089.i, %43 ]
-  %48 = phi i64 [ %27, %.thread75.i ], [ %.sroa.08.090.i, %35 ], [ %.sroa.08.090.i, %43 ]
-  %49 = mul i64 %48, 1000000
-  %50 = mul i64 %47, %17
-  %.not82.i = icmp eq i64 %49, %50
+.thread.i:                                        ; preds = %42, %.thread68.i, %36
+  %46 = phi i64 [ %.sroa.7.078.i, %.thread68.i ], [ %29, %36 ], [ %spec.select.i, %42 ]
+  %47 = phi i64 [ %.sroa.08.079.i, %.thread68.i ], [ %28, %36 ], [ %spec.select72.i, %42 ]
+  %48 = mul i64 %47, 1000000
+  %49 = mul i64 %46, %17
+  %50 = icmp eq i64 %48, %49
   %51 = sub i64 %19, %.0..i
   %52 = icmp ult i64 %51, %..047.i
-  %or.cond.i = select i1 %.not82.i, i1 true, i1 %52
+  %or.cond.i = select i1 %50, i1 true, i1 %52
   br i1 %or.cond.i, label %_ZN5image9animation5Delay24closest_bounded_fraction17ha7e3d13939333f24E.exit, label %.lr.ph.i
 
-_ZN5image9animation5Delay24closest_bounded_fraction17ha7e3d13939333f24E.exit: ; preds = %.thread78.i
-  %53 = trunc i64 %47 to i32
-  %54 = trunc i64 %48 to i32
+_ZN5image9animation5Delay24closest_bounded_fraction17ha7e3d13939333f24E.exit: ; preds = %.thread.i
+  %53 = trunc i64 %46 to i32
+  %54 = trunc i64 %47 to i32
   %55 = mul i32 %53, %16
   %56 = add i32 %55, %54
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
@@ -31751,7 +31713,7 @@ _ZN5image9animation5Delay24closest_bounded_fraction17ha7e3d13939333f24E.exit: ; 
   unreachable
 
 _ZN5image9animation5Delay19from_numer_denom_ms17h0f28b4a3090a9b4cE.exit: ; preds = %_ZN5image9animation5Delay24closest_bounded_fraction17ha7e3d13939333f24E.exit.thread, %_ZN5image9animation5Delay24closest_bounded_fraction17ha7e3d13939333f24E.exit
-  %59 = phi i32 [ %24, %_ZN5image9animation5Delay24closest_bounded_fraction17ha7e3d13939333f24E.exit.thread ], [ %56, %_ZN5image9animation5Delay24closest_bounded_fraction17ha7e3d13939333f24E.exit ]
+  %59 = phi i32 [ %25, %_ZN5image9animation5Delay24closest_bounded_fraction17ha7e3d13939333f24E.exit.thread ], [ %56, %_ZN5image9animation5Delay24closest_bounded_fraction17ha7e3d13939333f24E.exit ]
   %.sroa.7.0.lcssa.i7 = phi i32 [ 1, %_ZN5image9animation5Delay24closest_bounded_fraction17ha7e3d13939333f24E.exit.thread ], [ %53, %_ZN5image9animation5Delay24closest_bounded_fraction17ha7e3d13939333f24E.exit ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %60 = insertvalue { i32, i32 } poison, i32 %59, 0
@@ -31803,8 +31765,8 @@ define noundef zeroext i1 @"_ZN64_$LT$image..animation..Ratio$u20$as$u20$core..c
   %12 = zext i32 %6 to i64
   %13 = zext i32 %5 to i64
   %14 = mul nuw i64 %12, %13
-  %.not = icmp eq i64 %11, %14
-  ret i1 %.not
+  %15 = icmp eq i64 %11, %14
+  ret i1 %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
@@ -31823,10 +31785,7 @@ define noundef range(i8 -1, 2) i8 @"_ZN65_$LT$image..animation..Ratio$u20$as$u20
   %12 = zext i32 %6 to i64
   %13 = zext i32 %5 to i64
   %14 = mul nuw i64 %12, %13
-  %15 = icmp ult i64 %11, %14
-  %16 = icmp ne i64 %11, %14
-  %..i = zext i1 %16 to i8
-  %.0.i = select i1 %15, i8 -1, i8 %..i
+  %.0.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %11, i64 %14)
   ret i8 %.0.i
 }
 
@@ -31844,10 +31803,7 @@ define noundef range(i8 -1, 2) i8 @"_ZN58_$LT$image..animation..Ratio$u20$as$u20
   %12 = zext i32 %6 to i64
   %13 = zext i32 %5 to i64
   %14 = mul nuw i64 %12, %13
-  %15 = icmp ult i64 %11, %14
-  %16 = icmp ne i64 %11, %14
-  %. = zext i1 %16 to i8
-  %.0 = select i1 %15, i8 -1, i8 %.
+  %.0 = tail call i8 @llvm.ucmp.i8.i64(i64 %11, i64 %14)
   ret i8 %.0
 }
 
@@ -32264,6 +32220,12 @@ declare i64 @llvm.umin.i64(i64, i64) #38
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #39
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i64(i64, i64) #38
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.scmp.i8.i32(i32, i32) #38
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #38

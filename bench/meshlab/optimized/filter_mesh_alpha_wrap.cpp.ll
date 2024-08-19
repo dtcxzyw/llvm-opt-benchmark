@@ -189713,10 +189713,8 @@ _ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i:  ; preds = %62, %59, %45, %36, 
 
 _ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit: ; preds = %30, %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i
   %.0.i.i.i = phi i32 [ %31, %30 ], [ %66, %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i ]
-  %.not.i.i2.i.i = icmp ne i32 %.0.i.i.i, 0
-  %..i.i.i.i = zext i1 %.not.i.i2.i.i to i32
   %.inv.i.i.i.i = icmp slt i32 %.0.i.i.i, 0
-  %.0.i.i3.i.i = select i1 %.inv.i.i.i.i, i32 -1, i32 %..i.i.i.i
+  %.0.i.i3.i.i = tail call i32 @llvm.scmp.i32.i32(i32 %.0.i.i.i, i32 0)
   %67 = getelementptr inbounds i8, ptr %4, i64 176
   %68 = getelementptr inbounds i8, ptr %3, i64 176
   %69 = getelementptr inbounds i8, ptr %4, i64 256
@@ -189817,7 +189815,7 @@ _ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsI
   br label %761
 
 115:                                              ; preds = %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit80
-  %or.cond = icmp eq i32 %.0.i.i3.i.i, 0
+  %or.cond = icmp eq i32 %.0.i.i.i, 0
   br i1 %or.cond, label %761, label %116
 
 116:                                              ; preds = %115
@@ -214107,6 +214105,9 @@ declare i32 @llvm.umax.i32(i32, i32) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #36
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #36
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -269,10 +269,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local
 define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls49_$LT$impl$u20$core..cmp..Ord$u20$for$u20$u128$GT$3cmp17h9af7455ef8d776e6E.llvm.12584902720330826042"(ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %1) unnamed_addr #0 {
   %3 = load i128, ptr %0, align 16, !noundef !4
   %4 = load i128, ptr %1, align 16, !noundef !4
-  %5 = icmp ult i128 %3, %4
-  %6 = icmp ne i128 %3, %4
-  %. = zext i1 %6 to i8
-  %.0 = select i1 %5, i8 -1, i8 %.
+  %.0 = tail call i8 @llvm.ucmp.i8.i128(i128 %3, i128 %4)
   ret i8 %.0
 }
 
@@ -284,10 +281,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$cor
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   %5 = load i128, ptr %3, align 16, !alias.scope !28, !noalias !31, !noundef !4
   %6 = load i128, ptr %4, align 16, !alias.scope !31, !noalias !28, !noundef !4
-  %7 = icmp ult i128 %5, %6
-  %8 = icmp ne i128 %5, %6
-  %..i = zext i1 %8 to i8
-  %.0.i = select i1 %7, i8 -1, i8 %..i
+  %.0.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i128(i128 %5, i128 %6)
   ret i8 %.0.i
 }
 
@@ -295,10 +289,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$cor
 define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17h77d218d0d5e66aefE.llvm.12584902720330826042"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #0 {
   %3 = load i64, ptr %0, align 8, !noundef !4
   %4 = load i64, ptr %1, align 8, !noundef !4
-  %5 = icmp ult i64 %3, %4
-  %6 = icmp ne i64 %3, %4
-  %. = zext i1 %6 to i8
-  %.0 = select i1 %5, i8 -1, i8 %.
+  %.0 = tail call i8 @llvm.ucmp.i8.i64(i64 %3, i64 %4)
   ret i8 %.0
 }
 
@@ -318,10 +309,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function5FnMut8call_mut17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
   %6 = load i128, ptr %4, align 16, !alias.scope !38, !noalias !43, !noundef !4
   %7 = load i128, ptr %5, align 16, !alias.scope !41, !noalias !44, !noundef !4
-  %8 = icmp ult i128 %6, %7
-  %9 = icmp ne i128 %6, %7
-  %..i.i = zext i1 %9 to i8
-  %.0.i.i = select i1 %8, i8 -1, i8 %..i.i
+  %.0.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i128(i128 %6, i128 %7)
   ret i8 %.0.i.i
 }
 
@@ -337,10 +325,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3ops8function5impls80_$LT$imp
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
   %6 = load i128, ptr %4, align 16, !alias.scope !57, !noalias !62, !noundef !4
   %7 = load i128, ptr %5, align 16, !alias.scope !60, !noalias !63, !noundef !4
-  %8 = icmp ult i128 %6, %7
-  %9 = icmp ne i128 %6, %7
-  %..i.i.i = zext i1 %9 to i8
-  %.0.i.i.i = select i1 %8, i8 -1, i8 %..i.i.i
+  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i128(i128 %6, i128 %7)
   ret i8 %.0.i.i.i
 }
 
@@ -350,10 +335,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function6FnOnce9call_once
   tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
   %3 = load i64, ptr %0, align 8, !alias.scope !64, !noalias !67, !noundef !4
   %4 = load i64, ptr %1, align 8, !alias.scope !67, !noalias !64, !noundef !4
-  %5 = icmp ult i64 %3, %4
-  %6 = icmp ne i64 %3, %4
-  %..i = zext i1 %6 to i8
-  %.0.i = select i1 %5, i8 -1, i8 %..i
+  %.0.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %3, i64 %4)
   ret i8 %.0.i
 }
 
@@ -1248,7 +1230,13 @@ declare { i64, i64 } @_ZN3std3sys3pal4unix4rand19hashmap_random_keys17ha9236b60e
 declare void @llvm.experimental.noalias.scope.decl(metadata) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i64(i64, i64) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i128(i128, i128) #24
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #25

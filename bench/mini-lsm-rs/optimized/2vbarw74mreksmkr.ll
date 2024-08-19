@@ -2776,10 +2776,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$cor
   tail call void @llvm.experimental.noalias.scope.decl(metadata !980)
   %5 = load i64, ptr %3, align 8, !alias.scope !977, !noalias !980, !noundef !7
   %6 = load i64, ptr %4, align 8, !alias.scope !980, !noalias !977, !noundef !7
-  %7 = icmp ult i64 %5, %6
-  %8 = icmp ne i64 %5, %6
-  %..i = zext i1 %8 to i8
-  %.0.i = select i1 %7, i8 -1, i8 %..i
+  %.0.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %5, i64 %6)
   ret i8 %.0.i
 }
 
@@ -2795,10 +2792,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$cor
 define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17h8f8f25612be95722E.llvm.8515880784993868172"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #5 {
   %3 = load i64, ptr %0, align 8, !noundef !7
   %4 = load i64, ptr %1, align 8, !noundef !7
-  %5 = icmp ult i64 %3, %4
-  %6 = icmp ne i64 %3, %4
-  %. = zext i1 %6 to i8
-  %.0 = select i1 %5, i8 -1, i8 %.
+  %.0 = tail call i8 @llvm.ucmp.i8.i64(i64 %3, i64 %4)
   ret i8 %.0
 }
 
@@ -2970,10 +2964,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function5FnMut8call_mut17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1000)
   %6 = load i64, ptr %4, align 8, !alias.scope !997, !noalias !1002, !noundef !7
   %7 = load i64, ptr %5, align 8, !alias.scope !1000, !noalias !1003, !noundef !7
-  %8 = icmp ult i64 %6, %7
-  %9 = icmp ne i64 %6, %7
-  %..i.i = zext i1 %9 to i8
-  %.0.i.i = select i1 %8, i8 -1, i8 %..i.i
+  %.0.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %6, i64 %7)
   ret i8 %.0.i.i
 }
 
@@ -3010,10 +3001,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3ops8function5impls80_$LT$imp
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1037)
   %6 = load i64, ptr %4, align 8, !alias.scope !1034, !noalias !1039, !noundef !7
   %7 = load i64, ptr %5, align 8, !alias.scope !1037, !noalias !1040, !noundef !7
-  %8 = icmp ult i64 %6, %7
-  %9 = icmp ne i64 %6, %7
-  %..i.i.i = zext i1 %9 to i8
-  %.0.i.i.i = select i1 %8, i8 -1, i8 %..i.i.i
+  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %6, i64 %7)
   ret i8 %.0.i.i.i
 }
 
@@ -11162,6 +11150,9 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #27
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #25

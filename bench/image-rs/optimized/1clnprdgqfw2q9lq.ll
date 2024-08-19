@@ -38939,10 +38939,7 @@ define { i8, i8 } @"_ZN84_$LT$image..codecs..webp..encoder..WebPQuality$u20$as$u
 define noundef range(i8 -1, 2) i8 @"_ZN111_$LT$image..codecs..webp..encoder..WebPEncoder$LT$W$GT$..build_huffman_tree..Item$u20$as$u20$core..cmp..Ord$GT$3cmp17hcec2f8ca5424b094E"(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %1) unnamed_addr #17 {
   %3 = load i32, ptr %1, align 4, !noundef !4
   %4 = load i32, ptr %0, align 4, !noundef !4
-  %5 = icmp ult i32 %3, %4
-  %6 = icmp ne i32 %3, %4
-  %. = zext i1 %6 to i8
-  %.0 = select i1 %5, i8 -1, i8 %.
+  %.0 = tail call i8 @llvm.ucmp.i8.i32(i32 %3, i32 %4)
   ret i8 %.0
 }
 
@@ -38952,10 +38949,7 @@ define noundef range(i8 -1, 2) i8 @"_ZN118_$LT$image..codecs..webp..encoder..Web
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7327)
   %3 = load i32, ptr %1, align 4, !alias.scope !7327, !noalias !7324, !noundef !4
   %4 = load i32, ptr %0, align 4, !alias.scope !7324, !noalias !7327, !noundef !4
-  %5 = icmp ult i32 %3, %4
-  %6 = icmp ne i32 %3, %4
-  %..i = zext i1 %6 to i8
-  %.0.i = select i1 %5, i8 -1, i8 %..i
+  %.0.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32 %3, i32 %4)
   ret i8 %.0.i
 }
 
@@ -39826,6 +39820,9 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #38
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i32(i32, i32) #38
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #38

@@ -2217,10 +2217,7 @@ define internal range(i32 -1, 2) i32 @btl_exclusivity_compare(ptr nocapture noun
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 56
   %8 = load i32, ptr %7, align 8
-  %9 = icmp ugt i32 %6, %8
-  %10 = icmp ne i32 %6, %8
-  %. = zext i1 %10 to i32
-  %.0 = select i1 %9, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %8, i32 %6)
   ret i32 %.0
 }
 
@@ -2259,6 +2256,9 @@ declare zeroext i1 @opal_bitmap_is_set_bit(ptr noundef, i32 noundef) local_unnam
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #14

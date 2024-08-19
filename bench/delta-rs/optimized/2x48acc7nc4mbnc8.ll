@@ -539,16 +539,16 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %.val = load i64, ptr %23, align 8, !noundef !9
   %24 = getelementptr { { i64, [9 x i64] }, i64 }, ptr %5, i64 %21, i32 1
   %.val29 = load i64, ptr %24, align 8, !noundef !9
-  %.not.i = icmp sle i64 %.val29, %.val
-  %25 = zext i1 %.not.i to i64
+  %switch.selectcmp.i = icmp sle i64 %.val29, %.val
+  %25 = zext i1 %switch.selectcmp.i to i64
   %26 = add nuw i64 %.062, %25
   %27 = icmp ult i64 %26, %7
   tail call void @llvm.assume(i1 %27)
   %28 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %5, i64 %26
   %29 = getelementptr i8, ptr %28, i64 80
   %.val33 = load i64, ptr %29, align 8, !noundef !9
-  %.not = icmp slt i64 %.val33, %.sroa.4.0.copyload
-  br i1 %.not, label %30, label %.loopexit
+  %switch.i.not = icmp slt i64 %.val33, %.sroa.4.0.copyload
+  br i1 %switch.i.not, label %30, label %.loopexit
 
 30:                                               ; preds = %.lr.ph
   %31 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %5, i64 %.sroa.22.060
@@ -621,16 +621,16 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %.val = load i64, ptr %23, align 8, !noundef !9
   %24 = getelementptr { { i64, [9 x i64] }, i64 }, ptr %5, i64 %21, i32 1
   %.val29 = load i64, ptr %24, align 8, !noundef !9
-  %.not.i = icmp sle i64 %.val29, %.val
-  %25 = zext i1 %.not.i to i64
+  %switch.selectcmp.i = icmp sle i64 %.val29, %.val
+  %25 = zext i1 %switch.selectcmp.i to i64
   %26 = add nuw i64 %.062, %25
   %27 = icmp ult i64 %26, %7
   tail call void @llvm.assume(i1 %27)
   %28 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %5, i64 %26
   %29 = getelementptr i8, ptr %28, i64 80
   %.val33 = load i64, ptr %29, align 8, !noundef !9
-  %.not = icmp slt i64 %.val33, %.sroa.4.0.copyload
-  br i1 %.not, label %30, label %.loopexit
+  %switch.i.not = icmp slt i64 %.val33, %.sroa.4.0.copyload
+  br i1 %switch.i.not, label %30, label %.loopexit
 
 30:                                               ; preds = %.lr.ph
   %31 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %5, i64 %.sroa.22.060
@@ -738,8 +738,8 @@ _ZN4core3ptr19swap_nonoverlapping17hf71b7df8c289e94bE.exit.i: ; preds = %.prehea
   %33 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %11, i64 %31
   %34 = getelementptr i8, ptr %33, i64 80
   %.val10.i.i.i = load i64, ptr %34, align 8, !noalias !82, !noundef !9
-  %.not.i.not.i.i.i = icmp sgt i64 %.val10.i.i.i, %.sroa.4.0.copyload.i.i13.i
-  br i1 %.not.i.not.i.i.i, label %35, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h8984bc41f49aaa0cE.exit.i"
+  %switch.selectcmp.i.not.i.i.i = icmp sgt i64 %.val10.i.i.i, %.sroa.4.0.copyload.i.i13.i
+  br i1 %switch.selectcmp.i.not.i.i.i, label %35, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h8984bc41f49aaa0cE.exit.i"
 
 35:                                               ; preds = %.lr.ph.i.i.i
   %36 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %11, i64 %.sroa.13.022.i.i.i
@@ -757,8 +757,8 @@ _ZN4core3ptr19swap_nonoverlapping17hf71b7df8c289e94bE.exit.i: ; preds = %.prehea
   %.val.i.i = load i64, ptr %39, align 8, !noalias !79, !noundef !9
   %40 = getelementptr { { i64, [9 x i64] }, i64 }, ptr %11, i64 %37, i32 1
   %.val24.i.i = load i64, ptr %40, align 8, !noalias !79, !noundef !9
-  %.not.i.i.i = icmp sle i64 %.val24.i.i, %.val.i.i
-  %41 = zext i1 %.not.i.i.i to i64
+  %switch.selectcmp.i.i.i = icmp sle i64 %.val24.i.i, %.val.i.i
+  %41 = zext i1 %switch.selectcmp.i.i.i to i64
   %42 = add nuw i64 %.011.i.i, %41
   %43 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %11, i64 %42
   %44 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %11, i64 %.sroa.12.010.i.i
@@ -883,8 +883,8 @@ _ZN4core3ptr19swap_nonoverlapping17he38adb13301bfe9bE.exit.i: ; preds = %.prehea
   %33 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %11, i64 %31
   %34 = getelementptr i8, ptr %33, i64 80
   %.val10.i.i.i = load i64, ptr %34, align 8, !noalias !96, !noundef !9
-  %.not.i.not.i.i.i = icmp sgt i64 %.val10.i.i.i, %.sroa.4.0.copyload.i.i13.i
-  br i1 %.not.i.not.i.i.i, label %35, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h78a5022f29a6cc37E.exit.i"
+  %switch.selectcmp.i.not.i.i.i = icmp sgt i64 %.val10.i.i.i, %.sroa.4.0.copyload.i.i13.i
+  br i1 %switch.selectcmp.i.not.i.i.i, label %35, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h78a5022f29a6cc37E.exit.i"
 
 35:                                               ; preds = %.lr.ph.i.i.i
   %36 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %11, i64 %.sroa.13.022.i.i.i
@@ -902,8 +902,8 @@ _ZN4core3ptr19swap_nonoverlapping17he38adb13301bfe9bE.exit.i: ; preds = %.prehea
   %.val.i.i = load i64, ptr %39, align 8, !noalias !93, !noundef !9
   %40 = getelementptr { { i64, [9 x i64] }, i64 }, ptr %11, i64 %37, i32 1
   %.val24.i.i = load i64, ptr %40, align 8, !noalias !93, !noundef !9
-  %.not.i.i.i = icmp sle i64 %.val24.i.i, %.val.i.i
-  %41 = zext i1 %.not.i.i.i to i64
+  %switch.selectcmp.i.i.i = icmp sle i64 %.val24.i.i, %.val.i.i
+  %41 = zext i1 %switch.selectcmp.i.i.i to i64
   %42 = add nuw i64 %.011.i.i, %41
   %43 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %11, i64 %42
   %44 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %11, i64 %.sroa.12.010.i.i
@@ -1010,8 +1010,8 @@ _ZN4core3ptr19swap_nonoverlapping17hf71b7df8c289e94bE.exit: ; preds = %11
   %30 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %10, i64 %28
   %31 = getelementptr i8, ptr %30, i64 80
   %.val10.i.i = load i64, ptr %31, align 8, !noalias !99, !noundef !9
-  %.not.i.not.i.i = icmp sgt i64 %.val10.i.i, %.sroa.4.0.copyload.i.i13
-  br i1 %.not.i.not.i.i, label %32, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h8984bc41f49aaa0cE.exit"
+  %switch.selectcmp.i.not.i.i = icmp sgt i64 %.val10.i.i, %.sroa.4.0.copyload.i.i13
+  br i1 %switch.selectcmp.i.not.i.i, label %32, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h8984bc41f49aaa0cE.exit"
 
 32:                                               ; preds = %.lr.ph.i.i
   %33 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %10, i64 %.sroa.13.022.i.i
@@ -1029,8 +1029,8 @@ _ZN4core3ptr19swap_nonoverlapping17hf71b7df8c289e94bE.exit: ; preds = %11
   %.val.i = load i64, ptr %36, align 8, !noundef !9
   %37 = getelementptr { { i64, [9 x i64] }, i64 }, ptr %10, i64 %34, i32 1
   %.val24.i = load i64, ptr %37, align 8, !noundef !9
-  %.not.i.i = icmp sle i64 %.val24.i, %.val.i
-  %38 = zext i1 %.not.i.i to i64
+  %switch.selectcmp.i.i = icmp sle i64 %.val24.i, %.val.i
+  %38 = zext i1 %switch.selectcmp.i.i to i64
   %39 = add nuw i64 %.011.i, %38
   %40 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %10, i64 %39
   %41 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %10, i64 %.sroa.12.010.i
@@ -1130,8 +1130,8 @@ _ZN4core3ptr19swap_nonoverlapping17he38adb13301bfe9bE.exit: ; preds = %11
   %30 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %10, i64 %28
   %31 = getelementptr i8, ptr %30, i64 80
   %.val10.i.i = load i64, ptr %31, align 8, !noalias !102, !noundef !9
-  %.not.i.not.i.i = icmp sgt i64 %.val10.i.i, %.sroa.4.0.copyload.i.i13
-  br i1 %.not.i.not.i.i, label %32, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h78a5022f29a6cc37E.exit"
+  %switch.selectcmp.i.not.i.i = icmp sgt i64 %.val10.i.i, %.sroa.4.0.copyload.i.i13
+  br i1 %switch.selectcmp.i.not.i.i, label %32, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h78a5022f29a6cc37E.exit"
 
 32:                                               ; preds = %.lr.ph.i.i
   %33 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %10, i64 %.sroa.13.022.i.i
@@ -1149,8 +1149,8 @@ _ZN4core3ptr19swap_nonoverlapping17he38adb13301bfe9bE.exit: ; preds = %11
   %.val.i = load i64, ptr %36, align 8, !noundef !9
   %37 = getelementptr { { i64, [9 x i64] }, i64 }, ptr %10, i64 %34, i32 1
   %.val24.i = load i64, ptr %37, align 8, !noundef !9
-  %.not.i.i = icmp sle i64 %.val24.i, %.val.i
-  %38 = zext i1 %.not.i.i to i64
+  %switch.selectcmp.i.i = icmp sle i64 %.val24.i, %.val.i
+  %38 = zext i1 %switch.selectcmp.i.i to i64
   %39 = add nuw i64 %.011.i, %38
   %40 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %10, i64 %39
   %41 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %10, i64 %.sroa.12.010.i
@@ -1233,8 +1233,8 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %25 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %19, i64 %23
   %26 = getelementptr i8, ptr %25, i64 80
   %.val10.i = load i64, ptr %26, align 8, !noalias !110, !noundef !9
-  %.not.i.not.i = icmp sgt i64 %.val10.i, %.sroa.4.0.copyload.i
-  br i1 %.not.i.not.i, label %27, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$7sift_up17hea51bd8098e47590E.llvm.9530391023209721886.exit"
+  %switch.selectcmp.i.not.i = icmp sgt i64 %.val10.i, %.sroa.4.0.copyload.i
+  br i1 %switch.selectcmp.i.not.i, label %27, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$7sift_up17hea51bd8098e47590E.llvm.9530391023209721886.exit"
 
 27:                                               ; preds = %.lr.ph.i
   %28 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %19, i64 %.sroa.13.022.i
@@ -1314,8 +1314,8 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %25 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %19, i64 %23
   %26 = getelementptr i8, ptr %25, i64 80
   %.val10.i = load i64, ptr %26, align 8, !noalias !118, !noundef !9
-  %.not.i.not.i = icmp sgt i64 %.val10.i, %.sroa.4.0.copyload.i
-  br i1 %.not.i.not.i, label %27, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$7sift_up17h8770bc6067ee7452E.llvm.9530391023209721886.exit"
+  %switch.selectcmp.i.not.i = icmp sgt i64 %.val10.i, %.sroa.4.0.copyload.i
+  br i1 %switch.selectcmp.i.not.i, label %27, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$7sift_up17h8770bc6067ee7452E.llvm.9530391023209721886.exit"
 
 27:                                               ; preds = %.lr.ph.i
   %28 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %19, i64 %.sroa.13.022.i
@@ -1368,8 +1368,8 @@ define hidden noundef i64 @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T
   %15 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %5, i64 %13
   %16 = getelementptr i8, ptr %15, i64 80
   %.val10 = load i64, ptr %16, align 8, !noundef !9
-  %.not.i.not = icmp sgt i64 %.val10, %.sroa.4.0.copyload
-  br i1 %.not.i.not, label %17, label %._crit_edge
+  %switch.selectcmp.i.not = icmp sgt i64 %.val10, %.sroa.4.0.copyload
+  br i1 %switch.selectcmp.i.not, label %17, label %._crit_edge
 
 17:                                               ; preds = %.lr.ph
   %18 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %5, i64 %.sroa.13.022
@@ -1413,8 +1413,8 @@ define hidden noundef i64 @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T
   %15 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %5, i64 %13
   %16 = getelementptr i8, ptr %15, i64 80
   %.val10 = load i64, ptr %16, align 8, !noundef !9
-  %.not.i.not = icmp sgt i64 %.val10, %.sroa.4.0.copyload
-  br i1 %.not.i.not, label %17, label %._crit_edge
+  %switch.selectcmp.i.not = icmp sgt i64 %.val10, %.sroa.4.0.copyload
+  br i1 %switch.selectcmp.i.not, label %17, label %._crit_edge
 
 17:                                               ; preds = %.lr.ph
   %18 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %5, i64 %.sroa.13.022

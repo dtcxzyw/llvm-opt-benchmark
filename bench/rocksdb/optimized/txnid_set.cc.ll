@@ -33,10 +33,7 @@ define noundef range(i32 -1, 2) i32 @_ZN4toku13find_by_txnidERKmS1_(ptr nocaptur
 entry:
   %0 = load i64, ptr %txnid_a, align 8
   %1 = load i64, ptr %txnid_b, align 8
-  %cmp = icmp ult i64 %0, %1
-  %cmp1 = icmp ne i64 %0, %1
-  %. = zext i1 %cmp1 to i32
-  %retval.0 = select i1 %cmp, i32 -1, i32 %.
+  %retval.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %0, i64 %1)
   ret i32 %retval.0
 }
 
@@ -122,17 +119,17 @@ while.body.i.i:                                   ; preds = %if.end12.i.i, %whil
   %idxprom.i.i = zext nneg i32 %div16.i.i to i64
   %arrayidx.i.i = getelementptr inbounds i64, ptr %3, i64 %idxprom.i.i
   %4 = load i64, ptr %arrayidx.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %4, %txnid
-  br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
+  %cmp7.i.i = icmp ult i64 %4, %txnid
+  br i1 %cmp7.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %while.body.i.i
   %add8.i.i = add nuw i32 %div16.i.i, 1
   br label %if.end12.i.i
 
 if.else.i.i:                                      ; preds = %while.body.i.i
-  %cmp1.i.not.i.i = icmp eq i64 %4, %txnid
-  %best_pos.0.div16.i.i = select i1 %cmp1.i.not.i.i, i32 %best_pos.019.i.i, i32 %div16.i.i
-  %div16.best_zero.0.i.i = select i1 %cmp1.i.not.i.i, i32 %div16.i.i, i32 %best_zero.020.i.i
+  %cmp9.not.i.i = icmp eq i64 %4, %txnid
+  %best_pos.0.div16.i.i = select i1 %cmp9.not.i.i, i32 %best_pos.019.i.i, i32 %div16.i.i
+  %div16.best_zero.0.i.i = select i1 %cmp9.not.i.i, i32 %div16.i.i, i32 %best_zero.020.i.i
   br label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.else.i.i, %if.then.i.i
@@ -195,17 +192,17 @@ while.body.i.i.i:                                 ; preds = %if.end12.i.i.i, %wh
   %idxprom.i.i.i = zext nneg i32 %div16.i.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds i64, ptr %3, i64 %idxprom.i.i.i
   %4 = load i64, ptr %arrayidx.i.i.i, align 8
-  %cmp.i.i.i.i = icmp ult i64 %4, %txnid
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
+  %cmp7.i.i.i = icmp ult i64 %4, %txnid
+  br i1 %cmp7.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body.i.i.i
   %add8.i.i.i = add nuw i32 %div16.i.i.i, 1
   br label %if.end12.i.i.i
 
 if.else.i.i.i:                                    ; preds = %while.body.i.i.i
-  %cmp1.i.not.i.i.i = icmp eq i64 %4, %txnid
-  %best_pos.0.div16.i.i.i = select i1 %cmp1.i.not.i.i.i, i32 %best_pos.019.i.i.i, i32 %div16.i.i.i
-  %div16.best_zero.0.i.i.i = select i1 %cmp1.i.not.i.i.i, i32 %div16.i.i.i, i32 %best_zero.020.i.i.i
+  %cmp9.not.i.i.i = icmp eq i64 %4, %txnid
+  %best_pos.0.div16.i.i.i = select i1 %cmp9.not.i.i.i, i32 %best_pos.019.i.i.i, i32 %div16.i.i.i
+  %div16.best_zero.0.i.i.i = select i1 %cmp9.not.i.i.i, i32 %div16.i.i.i, i32 %best_zero.020.i.i.i
   br label %if.end12.i.i.i
 
 if.end12.i.i.i:                                   ; preds = %if.else.i.i.i, %if.then.i.i.i
@@ -292,17 +289,17 @@ while.body.i.i:                                   ; preds = %if.end12.i.i, %whil
   %idxprom.i.i = zext nneg i32 %div16.i.i to i64
   %arrayidx.i.i = getelementptr inbounds i64, ptr %3, i64 %idxprom.i.i
   %4 = load i64, ptr %arrayidx.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %4, %txnid
-  br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
+  %cmp7.i.i = icmp ult i64 %4, %txnid
+  br i1 %cmp7.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %while.body.i.i
   %add8.i.i = add nuw i32 %div16.i.i, 1
   br label %if.end12.i.i
 
 if.else.i.i:                                      ; preds = %while.body.i.i
-  %cmp1.i.not.i.i = icmp eq i64 %4, %txnid
-  %best_pos.0.div16.i.i = select i1 %cmp1.i.not.i.i, i32 %best_pos.019.i.i, i32 %div16.i.i
-  %div16.best_zero.0.i.i = select i1 %cmp1.i.not.i.i, i32 %div16.i.i, i32 %best_zero.020.i.i
+  %cmp9.not.i.i = icmp eq i64 %4, %txnid
+  %best_pos.0.div16.i.i = select i1 %cmp9.not.i.i, i32 %best_pos.019.i.i, i32 %div16.i.i
+  %div16.best_zero.0.i.i = select i1 %cmp9.not.i.i, i32 %div16.i.i, i32 %best_zero.020.i.i
   br label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.else.i.i, %if.then.i.i
@@ -581,8 +578,8 @@ declare void @_Z9toku_freePv(ptr noundef) local_unnamed_addr #4
 define linkonce_odr noundef i32 @_ZNK4toku3omtImmLb0EE18find_internal_zeroImTnPFiRKmRKT_EXadL_ZNS_13find_by_txnidES4_S4_EEEEiRKNS_12omt_internal17subtree_templatedILb0EEES7_PmPj(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(4) %st, ptr noundef nonnull align 8 dereferenceable(8) %extra, ptr noundef %value, ptr noundef %idxp) local_unnamed_addr #2 comdat align 2 {
 entry:
   %0 = load i32, ptr %st, align 4
-  %cmp.i34 = icmp eq i32 %0, -1
-  br i1 %cmp.i34, label %if.then, label %if.end.lr.ph
+  %cmp.i33 = icmp eq i32 %0, -1
+  br i1 %cmp.i33, label %if.then, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %entry
   %nodes = getelementptr inbounds i8, ptr %this, i64 16
@@ -599,8 +596,8 @@ if.end:                                           ; preds = %if.end.lr.ph, %if.t
   %idxprom = zext i32 %3 to i64
   %arrayidx = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %1, i64 %idxprom
   %4 = load i64, ptr %arrayidx, align 8
-  %cmp.i22 = icmp ult i64 %4, %2
-  br i1 %cmp.i22, label %if.then5, label %if.else
+  %cmp = icmp ult i64 %4, %2
+  br i1 %cmp, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %if.end
   %right = getelementptr inbounds i8, ptr %arrayidx, i64 16
@@ -619,16 +616,16 @@ if.else.i:                                        ; preds = %if.then5
   br label %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit
 
 _ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit: ; preds = %if.then5, %if.else.i
-  %retval.0.i23 = phi i32 [ %8, %if.else.i ], [ 1, %if.then5 ]
+  %retval.0.i22 = phi i32 [ %8, %if.else.i ], [ 1, %if.then5 ]
   %9 = load i32, ptr %idxp, align 4
-  %add8 = add i32 %9, %retval.0.i23
+  %add8 = add i32 %9, %retval.0.i22
   store i32 %add8, ptr %idxp, align 4
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %cmp1.i.not = icmp eq i64 %4, %2
+  %cmp9.not = icmp eq i64 %4, %2
   %left15 = getelementptr inbounds i8, ptr %arrayidx, i64 12
-  br i1 %cmp1.i.not, label %if.else13, label %if.then10
+  br i1 %cmp9.not, label %if.else13, label %if.then10
 
 if.then10:                                        ; preds = %if.else
   %10 = load i32, ptr %left15, align 4
@@ -642,29 +639,29 @@ if.else13:                                        ; preds = %if.else
 
 if.then18:                                        ; preds = %if.else13
   %11 = load i32, ptr %left15, align 4
-  %cmp.i.i24 = icmp eq i32 %11, -1
-  br i1 %cmp.i.i24, label %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit30, label %if.else.i25
+  %cmp.i.i23 = icmp eq i32 %11, -1
+  br i1 %cmp.i.i23, label %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit29, label %if.else.i24
 
-if.else.i25:                                      ; preds = %if.then18
+if.else.i24:                                      ; preds = %if.then18
   %12 = load ptr, ptr %nodes, align 8
-  %idxprom.i27 = zext i32 %11 to i64
-  %weight.i28 = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %12, i64 %idxprom.i27, i32 1
-  %13 = load i32, ptr %weight.i28, align 8
-  br label %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit30
+  %idxprom.i26 = zext i32 %11 to i64
+  %weight.i27 = getelementptr inbounds %"class.toku::omt_internal::omt_node_templated", ptr %12, i64 %idxprom.i26, i32 1
+  %13 = load i32, ptr %weight.i27, align 8
+  br label %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit29
 
-_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit30: ; preds = %if.then18, %if.else.i25
-  %retval.0.i29 = phi i32 [ %13, %if.else.i25 ], [ 0, %if.then18 ]
-  store i32 %retval.0.i29, ptr %idxp, align 4
+_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit29: ; preds = %if.then18, %if.else.i24
+  %retval.0.i28 = phi i32 [ %13, %if.else.i24 ], [ 0, %if.then18 ]
+  store i32 %retval.0.i28, ptr %idxp, align 4
   %cmp21.not = icmp eq ptr %value, null
   br i1 %cmp21.not, label %return, label %if.then22
 
-if.then22:                                        ; preds = %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit30
+if.then22:                                        ; preds = %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit29
   %14 = load i64, ptr %arrayidx, align 8
   store i64 %14, ptr %value, align 8
   br label %return
 
-return:                                           ; preds = %if.else13, %if.then22, %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit30, %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit, %if.then
-  %retval.0 = phi i32 [ -30989, %if.then ], [ %call6, %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit ], [ %call16, %if.else13 ], [ 0, %if.then22 ], [ 0, %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit30 ]
+return:                                           ; preds = %if.else13, %if.then22, %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit29, %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit, %if.then
+  %retval.0 = phi i32 [ -30989, %if.then ], [ %call6, %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit ], [ %call16, %if.else13 ], [ 0, %if.then22 ], [ 0, %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit29 ]
   ret i32 %retval.0
 }
 
@@ -1681,6 +1678,9 @@ if.end51:                                         ; preds = %if.end51.sink.split
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7

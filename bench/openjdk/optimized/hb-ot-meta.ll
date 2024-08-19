@@ -339,85 +339,85 @@ define linkonce_odr hidden noundef ptr @_ZNK2OT4meta13accelerator_t15reference_e
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i32
   %44 = or disjoint i32 %40, %43
-  %.not.i.i.i8.i.i = icmp eq i32 %44, %1
-  br i1 %.not.i.i.i8.i.i, label %_ZNK2OT7ArrayOfINS_7DataMapENS_7IntTypeIjLj4EEEE7lsearchIjEERKS1_RKT_S7_.exit, label %.lr.ph.i.i
+  %45 = icmp eq i32 %44, %1
+  br i1 %45, label %_ZNK2OT7ArrayOfINS_7DataMapENS_7IntTypeIjLj4EEEE7lsearchIjEERKS1_RKT_S7_.exit, label %.lr.ph.i.i
 
-45:                                               ; preds = %.lr.ph.i.i
-  %46 = getelementptr inbounds %"struct.OT::DataMap", ptr %10, i64 %indvars.iv.next.i.i.i
-  %47 = load i8, ptr %46, align 1
-  %48 = zext i8 %47 to i32
-  %49 = shl nuw i32 %48, 24
-  %50 = getelementptr inbounds i8, ptr %46, i64 1
-  %51 = load i8, ptr %50, align 1
-  %52 = zext i8 %51 to i32
-  %53 = shl nuw nsw i32 %52, 16
-  %54 = or disjoint i32 %53, %49
-  %55 = getelementptr inbounds i8, ptr %46, i64 2
-  %56 = load i8, ptr %55, align 1
-  %57 = zext i8 %56 to i32
-  %58 = shl nuw nsw i32 %57, 8
-  %59 = or disjoint i32 %54, %58
-  %60 = getelementptr inbounds i8, ptr %46, i64 3
-  %61 = load i8, ptr %60, align 1
-  %62 = zext i8 %61 to i32
-  %63 = or disjoint i32 %59, %62
-  %.not.i.i.i.i.i = icmp eq i32 %63, %1
-  br i1 %.not.i.i.i.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !8
+46:                                               ; preds = %.lr.ph.i.i
+  %47 = getelementptr inbounds %"struct.OT::DataMap", ptr %10, i64 %indvars.iv.next.i.i.i
+  %48 = load i8, ptr %47, align 1
+  %49 = zext i8 %48 to i32
+  %50 = shl nuw i32 %49, 24
+  %51 = getelementptr inbounds i8, ptr %47, i64 1
+  %52 = load i8, ptr %51, align 1
+  %53 = zext i8 %52 to i32
+  %54 = shl nuw nsw i32 %53, 16
+  %55 = or disjoint i32 %54, %50
+  %56 = getelementptr inbounds i8, ptr %47, i64 2
+  %57 = load i8, ptr %56, align 1
+  %58 = zext i8 %57 to i32
+  %59 = shl nuw nsw i32 %58, 8
+  %60 = or disjoint i32 %55, %59
+  %61 = getelementptr inbounds i8, ptr %47, i64 3
+  %62 = load i8, ptr %61, align 1
+  %63 = zext i8 %62 to i32
+  %64 = or disjoint i32 %60, %63
+  %65 = icmp eq i32 %64, %1
+  br i1 %65, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !8
 
-._crit_edge.i.i:                                  ; preds = %45
-  %64 = icmp ult i64 %indvars.iv.next.i.i.i, %27
-  %cond.fr.le.i.i = freeze i1 %64
-  %65 = and i64 %indvars.iv.next.i.i.i, 4294967295
-  %66 = getelementptr inbounds %"struct.OT::DataMap", ptr %10, i64 %65
-  %spec.select.i = select i1 %cond.fr.le.i.i, ptr %66, ptr @_hb_NullPool
+._crit_edge.i.i:                                  ; preds = %46
+  %66 = icmp ult i64 %indvars.iv.next.i.i.i, %27
+  %cond.fr.le.i.i = freeze i1 %66
+  %67 = and i64 %indvars.iv.next.i.i.i, 4294967295
+  %68 = getelementptr inbounds %"struct.OT::DataMap", ptr %10, i64 %67
+  %spec.select.i = select i1 %cond.fr.le.i.i, ptr %68, ptr @_hb_NullPool
   br label %_ZNK2OT7ArrayOfINS_7DataMapENS_7IntTypeIjLj4EEEE7lsearchIjEERKS1_RKT_S7_.exit
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.i, %45
-  %indvars.iv.i9.i.i = phi i64 [ %indvars.iv.next.i.i.i, %45 ], [ 0, %.lr.ph.i.i.i ]
-  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i9.i.i, 1
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.i, %46
+  %indvars.iv.i8.i.i = phi i64 [ %indvars.iv.next.i.i.i, %46 ], [ 0, %.lr.ph.i.i.i ]
+  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i8.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %27
-  br i1 %exitcond.not.i.i.i, label %_ZNK2OT7ArrayOfINS_7DataMapENS_7IntTypeIjLj4EEEE7lsearchIjEERKS1_RKT_S7_.exit, label %45, !llvm.loop !8
+  br i1 %exitcond.not.i.i.i, label %_ZNK2OT7ArrayOfINS_7DataMapENS_7IntTypeIjLj4EEEE7lsearchIjEERKS1_RKT_S7_.exit, label %46, !llvm.loop !8
 
 _ZNK2OT7ArrayOfINS_7DataMapENS_7IntTypeIjLj4EEEE7lsearchIjEERKS1_RKT_S7_.exit: ; preds = %.lr.ph.i.i, %2, %.lr.ph.i.i.i, %._crit_edge.i.i
-  %67 = phi ptr [ @_hb_NullPool, %2 ], [ %10, %.lr.ph.i.i.i ], [ %spec.select.i, %._crit_edge.i.i ], [ @_hb_NullPool, %.lr.ph.i.i ]
-  %68 = getelementptr inbounds i8, ptr %67, i64 4
-  %69 = load i8, ptr %68, align 1
-  %70 = zext i8 %69 to i32
-  %71 = shl nuw i32 %70, 24
-  %72 = getelementptr inbounds i8, ptr %67, i64 5
-  %73 = load i8, ptr %72, align 1
-  %74 = zext i8 %73 to i32
-  %75 = shl nuw nsw i32 %74, 16
-  %76 = or disjoint i32 %75, %71
-  %77 = getelementptr inbounds i8, ptr %67, i64 6
-  %78 = load i8, ptr %77, align 1
-  %79 = zext i8 %78 to i32
-  %80 = shl nuw nsw i32 %79, 8
-  %81 = or disjoint i32 %76, %80
-  %82 = getelementptr inbounds i8, ptr %67, i64 7
-  %83 = load i8, ptr %82, align 1
-  %84 = zext i8 %83 to i32
-  %85 = or disjoint i32 %81, %84
-  %86 = getelementptr inbounds i8, ptr %67, i64 8
-  %87 = load i8, ptr %86, align 1
-  %88 = zext i8 %87 to i32
-  %89 = shl nuw i32 %88, 24
-  %90 = getelementptr inbounds i8, ptr %67, i64 9
-  %91 = load i8, ptr %90, align 1
-  %92 = zext i8 %91 to i32
-  %93 = shl nuw nsw i32 %92, 16
-  %94 = or disjoint i32 %93, %89
-  %95 = getelementptr inbounds i8, ptr %67, i64 10
-  %96 = load i8, ptr %95, align 1
-  %97 = zext i8 %96 to i32
-  %98 = shl nuw nsw i32 %97, 8
-  %99 = or disjoint i32 %94, %98
-  %100 = getelementptr inbounds i8, ptr %67, i64 11
-  %101 = load i8, ptr %100, align 1
-  %102 = zext i8 %101 to i32
-  %103 = or disjoint i32 %99, %102
-  %104 = tail call noundef ptr @hb_blob_create_sub_blob(ptr noundef %3, i32 noundef %85, i32 noundef %103)
-  ret ptr %104
+  %69 = phi ptr [ @_hb_NullPool, %2 ], [ %10, %.lr.ph.i.i.i ], [ %spec.select.i, %._crit_edge.i.i ], [ @_hb_NullPool, %.lr.ph.i.i ]
+  %70 = getelementptr inbounds i8, ptr %69, i64 4
+  %71 = load i8, ptr %70, align 1
+  %72 = zext i8 %71 to i32
+  %73 = shl nuw i32 %72, 24
+  %74 = getelementptr inbounds i8, ptr %69, i64 5
+  %75 = load i8, ptr %74, align 1
+  %76 = zext i8 %75 to i32
+  %77 = shl nuw nsw i32 %76, 16
+  %78 = or disjoint i32 %77, %73
+  %79 = getelementptr inbounds i8, ptr %69, i64 6
+  %80 = load i8, ptr %79, align 1
+  %81 = zext i8 %80 to i32
+  %82 = shl nuw nsw i32 %81, 8
+  %83 = or disjoint i32 %78, %82
+  %84 = getelementptr inbounds i8, ptr %69, i64 7
+  %85 = load i8, ptr %84, align 1
+  %86 = zext i8 %85 to i32
+  %87 = or disjoint i32 %83, %86
+  %88 = getelementptr inbounds i8, ptr %69, i64 8
+  %89 = load i8, ptr %88, align 1
+  %90 = zext i8 %89 to i32
+  %91 = shl nuw i32 %90, 24
+  %92 = getelementptr inbounds i8, ptr %69, i64 9
+  %93 = load i8, ptr %92, align 1
+  %94 = zext i8 %93 to i32
+  %95 = shl nuw nsw i32 %94, 16
+  %96 = or disjoint i32 %95, %91
+  %97 = getelementptr inbounds i8, ptr %69, i64 10
+  %98 = load i8, ptr %97, align 1
+  %99 = zext i8 %98 to i32
+  %100 = shl nuw nsw i32 %99, 8
+  %101 = or disjoint i32 %96, %100
+  %102 = getelementptr inbounds i8, ptr %69, i64 11
+  %103 = load i8, ptr %102, align 1
+  %104 = zext i8 %103 to i32
+  %105 = or disjoint i32 %101, %104
+  %106 = tail call noundef ptr @hb_blob_create_sub_blob(ptr noundef %3, i32 noundef %87, i32 noundef %105)
+  ret ptr %106
 }
 
 declare ptr @hb_blob_create_sub_blob(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

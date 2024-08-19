@@ -19,31 +19,29 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12canon
   %.val29 = load i64, ptr %5, align 8, !noundef !4
   br label %6
 
-6:                                                ; preds = %_ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.thread.i, %1
-  %.sroa.6.0.i = phi i64 [ %.val29, %1 ], [ %9, %_ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.thread.i ]
-  %.sroa.0.0.i = phi ptr [ %.val, %1 ], [ %10, %_ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.thread.i ]
+6:                                                ; preds = %14, %1
+  %.sroa.6.0.i = phi i64 [ %.val29, %1 ], [ %15, %14 ]
+  %.sroa.0.0.i = phi ptr [ %.val, %1 ], [ %9, %14 ]
   %7 = icmp ult i64 %.sroa.6.0.i, 2
   br i1 %7, label %"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12is_canonical17h8ec19f77fce7b237E.exit", label %8
 
 8:                                                ; preds = %6
-  %9 = add i64 %.sroa.6.0.i, -1
-  %10 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 2
+  %9 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 2
   %.val.i = load i8, ptr %.sroa.0.0.i, align 1, !noundef !4
-  %11 = getelementptr i8, ptr %.sroa.0.0.i, i64 1
-  %.val7.i = load i8, ptr %11, align 1
-  %.val8.i = load i8, ptr %10, align 1, !noundef !4
-  %12 = getelementptr i8, ptr %.sroa.0.0.i, i64 3
-  %.val9.i = load i8, ptr %12, align 1
-  %13 = icmp ult i8 %.val.i, %.val8.i
-  br i1 %13, label %_ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.thread.i, label %_ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.i
+  %10 = getelementptr i8, ptr %.sroa.0.0.i, i64 1
+  %.val7.i = load i8, ptr %10, align 1
+  %.val8.i = load i8, ptr %9, align 1, !noundef !4
+  %11 = getelementptr i8, ptr %.sroa.0.0.i, i64 3
+  %.val9.i = load i8, ptr %11, align 1
+  %12 = icmp uge i8 %.val.i, %.val8.i
+  %13 = icmp ne i8 %.val.i, %.val8.i
+  %switch56.i.i = icmp uge i8 %.val7.i, %.val9.i
+  %switch5.i.i = select i1 %13, i1 true, i1 %switch56.i.i
+  %switch.i.i = select i1 %12, i1 %switch5.i.i, i1 false
+  br i1 %switch.i.i, label %19, label %14
 
-_ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.i: ; preds = %8
-  %14 = icmp ne i8 %.val.i, %.val8.i
-  %15 = icmp uge i8 %.val7.i, %.val9.i
-  %spec.select.i.i = select i1 %14, i1 true, i1 %15
-  br i1 %spec.select.i.i, label %19, label %_ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.thread.i
-
-_ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.thread.i: ; preds = %_ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.i, %8
+14:                                               ; preds = %8
+  %15 = add i64 %.sroa.6.0.i, -1
   %16 = tail call i8 @llvm.umax.i8(i8 %.val.i, i8 %.val8.i)
   %.0.sroa.speculated.i.i.i = zext i8 %16 to i32
   %17 = tail call i8 @llvm.umin.i8(i8 %.val7.i, i8 %.val9.i)
@@ -52,7 +50,7 @@ _ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.thread.i: ; preds = %_ZN4co
   %.not.i = icmp ult i32 %18, %.0.sroa.speculated.i.i.i
   br i1 %.not.i, label %6, label %19
 
-19:                                               ; preds = %_ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.i, %_ZN4core3cmp10PartialOrd2ge17hc2dc41b42b357781E.exit.thread.i
+19:                                               ; preds = %8, %14
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
   call void @_ZN4core5slice4sort10merge_sort17h17cd8ade04ab8959E(ptr noalias noundef nonnull align 1 %.val, i64 noundef %.val29, ptr noalias noundef nonnull align 1 %2)
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
@@ -189,38 +187,36 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12canon
   %.val27 = load i64, ptr %5, align 8, !noundef !4
   br label %6
 
-6:                                                ; preds = %_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.thread.i, %1
-  %.sroa.6.0.i = phi i64 [ %.val27, %1 ], [ %9, %_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.thread.i ]
-  %.sroa.0.0.i = phi ptr [ %.val, %1 ], [ %10, %_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.thread.i ]
+6:                                                ; preds = %14, %1
+  %.sroa.6.0.i = phi i64 [ %.val27, %1 ], [ %15, %14 ]
+  %.sroa.0.0.i = phi ptr [ %.val, %1 ], [ %9, %14 ]
   %7 = icmp ult i64 %.sroa.6.0.i, 2
   br i1 %7, label %"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$12is_canonical17h8345046ce51c8d7aE.exit", label %8
 
 8:                                                ; preds = %6
-  %9 = add i64 %.sroa.6.0.i, -1
-  %10 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 8
+  %9 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 8
   %.val.i = load i32, ptr %.sroa.0.0.i, align 4, !range !21, !noundef !4
-  %11 = getelementptr i8, ptr %.sroa.0.0.i, i64 4
-  %.val7.i = load i32, ptr %11, align 4
-  %.val8.i = load i32, ptr %10, align 4, !range !21, !noundef !4
-  %12 = getelementptr i8, ptr %.sroa.0.0.i, i64 12
-  %.val9.i = load i32, ptr %12, align 4
-  %13 = icmp ult i32 %.val.i, %.val8.i
-  br i1 %13, label %_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.thread.i, label %_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.i
+  %10 = getelementptr i8, ptr %.sroa.0.0.i, i64 4
+  %.val7.i = load i32, ptr %10, align 4
+  %.val8.i = load i32, ptr %9, align 4, !range !21, !noundef !4
+  %11 = getelementptr i8, ptr %.sroa.0.0.i, i64 12
+  %.val9.i = load i32, ptr %11, align 4
+  %12 = icmp uge i32 %.val.i, %.val8.i
+  %13 = icmp ne i32 %.val.i, %.val8.i
+  %switch56.i.i = icmp uge i32 %.val7.i, %.val9.i
+  %switch5.i.i = select i1 %13, i1 true, i1 %switch56.i.i
+  %switch.i.i = select i1 %12, i1 %switch5.i.i, i1 false
+  br i1 %switch.i.i, label %17, label %14
 
-_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.i: ; preds = %8
-  %14 = icmp ne i32 %.val.i, %.val8.i
-  %15 = icmp uge i32 %.val7.i, %.val9.i
-  %spec.select.i.i = select i1 %14, i1 true, i1 %15
-  br i1 %spec.select.i.i, label %17, label %_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.thread.i
-
-_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.thread.i: ; preds = %_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.i, %8
+14:                                               ; preds = %8
+  %15 = add i64 %.sroa.6.0.i, -1
   %.0.sroa.speculated.i.i.i = tail call noundef i32 @llvm.umax.i32(i32 %.val.i, i32 %.val8.i)
   %.0.sroa.speculated.i1.i.i = tail call noundef i32 @llvm.umin.i32(i32 %.val7.i, i32 %.val9.i)
   %16 = add nuw nsw i32 %.0.sroa.speculated.i1.i.i, 1
   %.not.i = icmp ugt i32 %.0.sroa.speculated.i.i.i, %16
   br i1 %.not.i, label %6, label %17
 
-17:                                               ; preds = %_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.i, %_ZN4core3cmp10PartialOrd2ge17he4e0249a305792dfE.exit.thread.i
+17:                                               ; preds = %8, %14
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
   call void @_ZN4core5slice4sort10merge_sort17hbcbeaab5146fd015E(ptr noalias noundef nonnull align 4 %.val, i64 noundef %.val27, ptr noalias noundef nonnull align 1 %2)
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)

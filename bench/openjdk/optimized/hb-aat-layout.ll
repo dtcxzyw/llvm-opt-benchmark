@@ -14835,8 +14835,8 @@ _ZNK2OT24VarSizedBinSearchArrayOfIN3AAT12LookupSingleINS_7IntTypeItLj2EEEEEE10ge
   br label %132
 
 129:                                              ; preds = %.lr.ph.i.i.i15
-  %.not.i.i = icmp eq i32 %125, %1
-  br i1 %.not.i.i, label %_ZL15hb_bsearch_implIKvjJEEbPjRKT0_PT_mmPFiPS0_S7_DpT1_ES9_.exit.i.i21, label %130
+  %.not23.i.i.i = icmp eq i32 %125, %1
+  br i1 %.not23.i.i.i, label %_ZL15hb_bsearch_implIKvjJEEbPjRKT0_PT_mmPFiPS0_S7_DpT1_ES9_.exit.i.i21, label %130
 
 130:                                              ; preds = %129
   %131 = add nuw nsw i32 %115, 1
@@ -16535,8 +16535,8 @@ _ZNK2OT24VarSizedBinSearchArrayOfIN3AAT12LookupSingleINS_11HBGlyphID16EEEE10get_
   br label %132
 
 129:                                              ; preds = %.lr.ph.i.i.i15
-  %.not.i.i = icmp eq i32 %125, %1
-  br i1 %.not.i.i, label %_ZL15hb_bsearch_implIKvjJEEbPjRKT0_PT_mmPFiPS0_S7_DpT1_ES9_.exit.i.i21, label %130
+  %.not23.i.i.i = icmp eq i32 %125, %1
+  br i1 %.not23.i.i.i, label %_ZL15hb_bsearch_implIKvjJEEbPjRKT0_PT_mmPFiPS0_S7_DpT1_ES9_.exit.i.i21, label %130
 
 130:                                              ; preds = %129
   %131 = add nuw nsw i32 %115, 1
@@ -29005,17 +29005,17 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT6Layout6Common8Coverage12get_cove
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
   %.sroa.2.8.insert.ext.i.i.i.i = or disjoint i32 %14, %17
-  %.not2.i.i.i.not.i.i = icmp eq i32 %.sroa.2.8.insert.ext.i.i.i.i, 0
-  br i1 %.not2.i.i.i.not.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE12get_coverageEj.exit, label %.lr.ph.preheader.i.i.i.i.i
+  %.not1.i.i.i.not.i.i = icmp eq i32 %.sroa.2.8.insert.ext.i.i.i.i, 0
+  br i1 %.not1.i.i.i.not.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE12get_coverageEj.exit, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %9
   %18 = add nsw i32 %.sroa.2.8.insert.ext.i.i.i.i, -1
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %37, %.lr.ph.preheader.i.i.i.i.i
-  %.0194.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i, %37 ], [ 0, %.lr.ph.preheader.i.i.i.i.i ]
-  %.0203.i.i.i.i.i = phi i32 [ %.121.i.i.i.i.i, %37 ], [ %18, %.lr.ph.preheader.i.i.i.i.i ]
-  %19 = add i32 %.0203.i.i.i.i.i, %.0194.i.i.i.i.i
+  %.0193.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i, %37 ], [ 0, %.lr.ph.preheader.i.i.i.i.i ]
+  %.0202.i.i.i.i.i = phi i32 [ %.121.i.i.i.i.i, %37 ], [ %18, %.lr.ph.preheader.i.i.i.i.i ]
+  %19 = add i32 %.0202.i.i.i.i.i, %.0193.i.i.i.i.i
   %20 = lshr i32 %19, 1
   %21 = and i32 %19, -2
   %22 = zext i32 %21 to i64
@@ -29035,16 +29035,16 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT6Layout6Common8Coverage12get_cove
   br label %37
 
 34:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %.not1.i.i.i.i.i = icmp eq i32 %30, %1
-  br i1 %.not1.i.i.i.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE12get_coverageEj.exit, label %35
+  %.not23.i.i.i.i.i = icmp eq i32 %30, %1
+  br i1 %.not23.i.i.i.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE12get_coverageEj.exit, label %35
 
 35:                                               ; preds = %34
   %36 = add nuw nsw i32 %20, 1
   br label %37
 
 37:                                               ; preds = %35, %32
-  %.121.i.i.i.i.i = phi i32 [ %33, %32 ], [ %.0203.i.i.i.i.i, %35 ]
-  %.1.i.i.i.i.i = phi i32 [ %.0194.i.i.i.i.i, %32 ], [ %36, %35 ]
+  %.121.i.i.i.i.i = phi i32 [ %33, %32 ], [ %.0202.i.i.i.i.i, %35 ]
+  %.1.i.i.i.i.i = phi i32 [ %.0193.i.i.i.i.i, %32 ], [ %36, %35 ]
   %.not.not.i.i.i.i.i = icmp sgt i32 %.1.i.i.i.i.i, %.121.i.i.i.i.i
   br i1 %.not.not.i.i.i.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE12get_coverageEj.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !176
 
@@ -29172,17 +29172,17 @@ define linkonce_odr hidden noundef i32 @_ZNK3AAT19KerxSubTableFormat0INS_18KerxS
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %.sroa.2.8.insert.ext.i.i.i = or disjoint i32 %19, %22
-  %.not11.i.i.i.i.i = icmp sgt i32 %.sroa.2.8.insert.ext.i.i.i, 0
-  br i1 %.not11.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i, label %_ZNK2OT13SortedArrayOfIN3AAT8KernPairENS_15BinSearchHeaderINS_7IntTypeIjLj4EEEEEE7bsearchINS1_15hb_glyph_pair_tEEERKS2_RKT_SB_.exit
+  %.not1.i.i.i.i.i = icmp sgt i32 %.sroa.2.8.insert.ext.i.i.i, 0
+  br i1 %.not1.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i, label %_ZNK2OT13SortedArrayOfIN3AAT8KernPairENS_15BinSearchHeaderINS_7IntTypeIjLj4EEEEEE7bsearchINS1_15hb_glyph_pair_tEEERKS2_RKT_SB_.exit
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %4
   %23 = add nsw i32 %.sroa.2.8.insert.ext.i.i.i, -1
   br label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %49, %.lr.ph.preheader.i.i.i.i.i
-  %.01913.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i, %49 ], [ 0, %.lr.ph.preheader.i.i.i.i.i ]
-  %.02012.i.i.i.i.i = phi i32 [ %.121.i.i.i.i.i, %49 ], [ %23, %.lr.ph.preheader.i.i.i.i.i ]
-  %24 = add i32 %.02012.i.i.i.i.i, %.01913.i.i.i.i.i
+.lr.ph.i.i.i.i.i:                                 ; preds = %53, %.lr.ph.preheader.i.i.i.i.i
+  %.0193.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i, %53 ], [ 0, %.lr.ph.preheader.i.i.i.i.i ]
+  %.0202.i.i.i.i.i = phi i32 [ %.121.i.i.i.i.i, %53 ], [ %23, %.lr.ph.preheader.i.i.i.i.i ]
+  %24 = add i32 %.0202.i.i.i.i.i, %.0193.i.i.i.i.i
   %25 = lshr i32 %24, 1
   %26 = zext nneg i32 %25 to i64
   %27 = mul nuw nsw i64 %26, 6
@@ -29194,130 +29194,132 @@ define linkonce_odr hidden noundef i32 @_ZNK3AAT19KerxSubTableFormat0INS_18KerxS
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = or disjoint i32 %31, %34
-  %.not8.i.i.i.i.i = icmp eq i32 %35, %1
-  br i1 %.not8.i.i.i.i.i, label %36, label %_ZL14_hb_cmp_methodIN3AAT15hb_glyph_pair_tEKNS0_8KernPairEJEEiPKvS5_DpT1_.exit.i.i.i.i.i
+  %36 = tail call noundef i32 @llvm.ucmp.i32.i32(i32 %1, i32 %35)
+  %.not.i.i.i.i.i.i.i = icmp eq i32 %35, %1
+  br i1 %.not.i.i.i.i.i.i.i, label %37, label %_ZL14_hb_cmp_methodIN3AAT15hb_glyph_pair_tEKNS0_8KernPairEJEEiPKvS5_DpT1_.exit.i.i.i.i.i
 
-36:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %37 = getelementptr inbounds i8, ptr %28, i64 2
-  %38 = load i8, ptr %37, align 1
-  %39 = zext i8 %38 to i32
-  %40 = shl nuw nsw i32 %39, 8
-  %41 = getelementptr inbounds i8, ptr %28, i64 3
-  %42 = load i8, ptr %41, align 1
-  %43 = zext i8 %42 to i32
-  %44 = or disjoint i32 %40, %43
-  %45 = icmp ugt i32 %44, %2
-  br i1 %45, label %_ZL14_hb_cmp_methodIN3AAT15hb_glyph_pair_tEKNS0_8KernPairEJEEiPKvS5_DpT1_.exit.thread.i.i.i.i.i, label %47
+37:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %38 = getelementptr inbounds i8, ptr %28, i64 2
+  %39 = load i8, ptr %38, align 1
+  %40 = zext i8 %39 to i32
+  %41 = shl nuw nsw i32 %40, 8
+  %42 = getelementptr inbounds i8, ptr %28, i64 3
+  %43 = load i8, ptr %42, align 1
+  %44 = zext i8 %43 to i32
+  %45 = or disjoint i32 %41, %44
+  %46 = tail call noundef i32 @llvm.ucmp.i32.i32(i32 %2, i32 %45)
+  br label %_ZL14_hb_cmp_methodIN3AAT15hb_glyph_pair_tEKNS0_8KernPairEJEEiPKvS5_DpT1_.exit.i.i.i.i.i
 
-_ZL14_hb_cmp_methodIN3AAT15hb_glyph_pair_tEKNS0_8KernPairEJEEiPKvS5_DpT1_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %.not9.i.i.i.i.i = icmp ugt i32 %35, %1
-  br i1 %.not9.i.i.i.i.i, label %_ZL14_hb_cmp_methodIN3AAT15hb_glyph_pair_tEKNS0_8KernPairEJEEiPKvS5_DpT1_.exit.thread.i.i.i.i.i, label %.thread.i.i.i.i.i
+_ZL14_hb_cmp_methodIN3AAT15hb_glyph_pair_tEKNS0_8KernPairEJEEiPKvS5_DpT1_.exit.i.i.i.i.i: ; preds = %37, %.lr.ph.i.i.i.i.i
+  %.0.i.i.i.i.i.i.i = phi i32 [ %46, %37 ], [ %36, %.lr.ph.i.i.i.i.i ]
+  %47 = icmp slt i32 %.0.i.i.i.i.i.i.i, 0
+  br i1 %47, label %48, label %50
 
-_ZL14_hb_cmp_methodIN3AAT15hb_glyph_pair_tEKNS0_8KernPairEJEEiPKvS5_DpT1_.exit.thread.i.i.i.i.i: ; preds = %_ZL14_hb_cmp_methodIN3AAT15hb_glyph_pair_tEKNS0_8KernPairEJEEiPKvS5_DpT1_.exit.i.i.i.i.i, %36
-  %46 = add nsw i32 %25, -1
-  br label %49
+48:                                               ; preds = %_ZL14_hb_cmp_methodIN3AAT15hb_glyph_pair_tEKNS0_8KernPairEJEEiPKvS5_DpT1_.exit.i.i.i.i.i
+  %49 = add nsw i32 %25, -1
+  br label %53
 
-47:                                               ; preds = %36
-  %.not10.i.i.i.i.i = icmp eq i32 %44, %2
-  br i1 %.not10.i.i.i.i.i, label %50, label %.thread.i.i.i.i.i
+50:                                               ; preds = %_ZL14_hb_cmp_methodIN3AAT15hb_glyph_pair_tEKNS0_8KernPairEJEEiPKvS5_DpT1_.exit.i.i.i.i.i
+  %.not23.i.i.i.i.i = icmp eq i32 %.0.i.i.i.i.i.i.i, 0
+  br i1 %.not23.i.i.i.i.i, label %54, label %51
 
-.thread.i.i.i.i.i:                                ; preds = %47, %_ZL14_hb_cmp_methodIN3AAT15hb_glyph_pair_tEKNS0_8KernPairEJEEiPKvS5_DpT1_.exit.i.i.i.i.i
-  %48 = add nuw nsw i32 %25, 1
-  br label %49
+51:                                               ; preds = %50
+  %52 = add nuw nsw i32 %25, 1
+  br label %53
 
-49:                                               ; preds = %.thread.i.i.i.i.i, %_ZL14_hb_cmp_methodIN3AAT15hb_glyph_pair_tEKNS0_8KernPairEJEEiPKvS5_DpT1_.exit.thread.i.i.i.i.i
-  %.121.i.i.i.i.i = phi i32 [ %46, %_ZL14_hb_cmp_methodIN3AAT15hb_glyph_pair_tEKNS0_8KernPairEJEEiPKvS5_DpT1_.exit.thread.i.i.i.i.i ], [ %.02012.i.i.i.i.i, %.thread.i.i.i.i.i ]
-  %.1.i.i.i.i.i = phi i32 [ %.01913.i.i.i.i.i, %_ZL14_hb_cmp_methodIN3AAT15hb_glyph_pair_tEKNS0_8KernPairEJEEiPKvS5_DpT1_.exit.thread.i.i.i.i.i ], [ %48, %.thread.i.i.i.i.i ]
+53:                                               ; preds = %51, %48
+  %.121.i.i.i.i.i = phi i32 [ %49, %48 ], [ %.0202.i.i.i.i.i, %51 ]
+  %.1.i.i.i.i.i = phi i32 [ %.0193.i.i.i.i.i, %48 ], [ %52, %51 ]
   %.not.not.i.i.i.i.i = icmp sgt i32 %.1.i.i.i.i.i, %.121.i.i.i.i.i
   br i1 %.not.not.i.i.i.i.i, label %_ZNK2OT13SortedArrayOfIN3AAT8KernPairENS_15BinSearchHeaderINS_7IntTypeIjLj4EEEEEE7bsearchINS1_15hb_glyph_pair_tEEERKS2_RKT_SB_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !177
 
-50:                                               ; preds = %47
-  %51 = getelementptr inbounds %"struct.AAT::KernPair", ptr %6, i64 %26
+54:                                               ; preds = %50
+  %55 = getelementptr inbounds %"struct.AAT::KernPair", ptr %6, i64 %26
   br label %_ZNK2OT13SortedArrayOfIN3AAT8KernPairENS_15BinSearchHeaderINS_7IntTypeIjLj4EEEEEE7bsearchINS1_15hb_glyph_pair_tEEERKS2_RKT_SB_.exit
 
-_ZNK2OT13SortedArrayOfIN3AAT8KernPairENS_15BinSearchHeaderINS_7IntTypeIjLj4EEEEEE7bsearchINS1_15hb_glyph_pair_tEEERKS2_RKT_SB_.exit: ; preds = %49, %4, %50
-  %52 = phi ptr [ %51, %50 ], [ @_hb_NullPool, %4 ], [ @_hb_NullPool, %49 ]
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
-  %54 = load i8, ptr %53, align 1
-  %55 = zext i8 %54 to i16
-  %56 = shl nuw i16 %55, 8
-  %57 = getelementptr inbounds i8, ptr %52, i64 5
+_ZNK2OT13SortedArrayOfIN3AAT8KernPairENS_15BinSearchHeaderINS_7IntTypeIjLj4EEEEEE7bsearchINS1_15hb_glyph_pair_tEEERKS2_RKT_SB_.exit: ; preds = %53, %4, %54
+  %56 = phi ptr [ %55, %54 ], [ @_hb_NullPool, %4 ], [ @_hb_NullPool, %53 ]
+  %57 = getelementptr inbounds i8, ptr %56, i64 4
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i16
-  %60 = or disjoint i16 %56, %59
-  %61 = sext i16 %60 to i32
-  %62 = getelementptr inbounds i8, ptr %0, i64 8
-  %63 = load i8, ptr %62, align 1
-  %64 = zext i8 %63 to i32
-  %65 = shl nuw i32 %64, 24
-  %66 = getelementptr inbounds i8, ptr %0, i64 9
+  %60 = shl nuw i16 %59, 8
+  %61 = getelementptr inbounds i8, ptr %56, i64 5
+  %62 = load i8, ptr %61, align 1
+  %63 = zext i8 %62 to i16
+  %64 = or disjoint i16 %60, %63
+  %65 = sext i16 %64 to i32
+  %66 = getelementptr inbounds i8, ptr %0, i64 8
   %67 = load i8, ptr %66, align 1
   %68 = zext i8 %67 to i32
-  %69 = shl nuw nsw i32 %68, 16
-  %70 = getelementptr inbounds i8, ptr %0, i64 10
+  %69 = shl nuw i32 %68, 24
+  %70 = getelementptr inbounds i8, ptr %0, i64 9
   %71 = load i8, ptr %70, align 1
   %72 = zext i8 %71 to i32
-  %73 = shl nuw nsw i32 %72, 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 11
+  %73 = shl nuw nsw i32 %72, 16
+  %74 = getelementptr inbounds i8, ptr %0, i64 10
   %75 = load i8, ptr %74, align 1
   %76 = zext i8 %75 to i32
-  %77 = or disjoint i32 %69, %76
-  %78 = or disjoint i32 %77, %73
-  %79 = or disjoint i32 %78, %65
-  %80 = icmp ne i32 %79, 0
-  %81 = icmp ne ptr %3, null
-  %or.cond.i = and i1 %81, %80
-  br i1 %or.cond.i, label %82, label %_ZN3AATL13kerxTupleKernEijPKvPNS_22hb_aat_apply_context_tE.exit
+  %77 = shl nuw nsw i32 %76, 8
+  %78 = getelementptr inbounds i8, ptr %0, i64 11
+  %79 = load i8, ptr %78, align 1
+  %80 = zext i8 %79 to i32
+  %81 = or disjoint i32 %73, %80
+  %82 = or disjoint i32 %81, %77
+  %83 = or disjoint i32 %82, %69
+  %84 = icmp ne i32 %83, 0
+  %85 = icmp ne ptr %3, null
+  %or.cond.i = and i1 %85, %84
+  br i1 %or.cond.i, label %86, label %_ZN3AATL13kerxTupleKernEijPKvPNS_22hb_aat_apply_context_tE.exit
 
-82:                                               ; preds = %_ZNK2OT13SortedArrayOfIN3AAT8KernPairENS_15BinSearchHeaderINS_7IntTypeIjLj4EEEEEE7bsearchINS1_15hb_glyph_pair_tEEERKS2_RKT_SB_.exit
-  %83 = zext i32 %61 to i64
-  %84 = getelementptr inbounds i8, ptr %0, i64 %83
-  %85 = shl i32 %79, 1
-  %86 = icmp slt i32 %65, 0
-  br i1 %86, label %_ZN3AATL13kerxTupleKernEijPKvPNS_22hb_aat_apply_context_tE.exit, label %87
+86:                                               ; preds = %_ZNK2OT13SortedArrayOfIN3AAT8KernPairENS_15BinSearchHeaderINS_7IntTypeIjLj4EEEEEE7bsearchINS1_15hb_glyph_pair_tEEERKS2_RKT_SB_.exit
+  %87 = zext i32 %65 to i64
+  %88 = getelementptr inbounds i8, ptr %0, i64 %87
+  %89 = shl i32 %83, 1
+  %90 = icmp slt i32 %69, 0
+  br i1 %90, label %_ZN3AATL13kerxTupleKernEijPKvPNS_22hb_aat_apply_context_tE.exit, label %91
 
-87:                                               ; preds = %82
-  %88 = getelementptr inbounds i8, ptr %3, i64 48
-  %89 = load ptr, ptr %88, align 8
-  %90 = ptrtoint ptr %84 to i64
-  %91 = ptrtoint ptr %89 to i64
-  %92 = sub i64 %90, %91
-  %93 = getelementptr inbounds i8, ptr %3, i64 64
-  %94 = load i32, ptr %93, align 8
-  %95 = zext i32 %94 to i64
-  %.not.i.i.i = icmp ugt i64 %92, %95
-  br i1 %.not.i.i.i, label %_ZN3AATL13kerxTupleKernEijPKvPNS_22hb_aat_apply_context_tE.exit, label %96
+91:                                               ; preds = %86
+  %92 = getelementptr inbounds i8, ptr %3, i64 48
+  %93 = load ptr, ptr %92, align 8
+  %94 = ptrtoint ptr %88 to i64
+  %95 = ptrtoint ptr %93 to i64
+  %96 = sub i64 %94, %95
+  %97 = getelementptr inbounds i8, ptr %3, i64 64
+  %98 = load i32, ptr %97, align 8
+  %99 = zext i32 %98 to i64
+  %.not.i.i.i = icmp ugt i64 %96, %99
+  br i1 %.not.i.i.i, label %_ZN3AATL13kerxTupleKernEijPKvPNS_22hb_aat_apply_context_tE.exit, label %100
 
-96:                                               ; preds = %87
-  %97 = getelementptr inbounds i8, ptr %3, i64 56
-  %98 = load ptr, ptr %97, align 8
-  %99 = ptrtoint ptr %98 to i64
-  %100 = sub i64 %99, %90
-  %101 = trunc i64 %100 to i32
-  %.not16.i.i.i = icmp ugt i32 %85, %101
+100:                                              ; preds = %91
+  %101 = getelementptr inbounds i8, ptr %3, i64 56
+  %102 = load ptr, ptr %101, align 8
+  %103 = ptrtoint ptr %102 to i64
+  %104 = sub i64 %103, %94
+  %105 = trunc i64 %104 to i32
+  %.not16.i.i.i = icmp ugt i32 %89, %105
   br i1 %.not16.i.i.i, label %_ZN3AATL13kerxTupleKernEijPKvPNS_22hb_aat_apply_context_tE.exit, label %_ZNK21hb_sanitize_context_t11check_arrayIN2OT7IntTypeIsLj2EEEEEbPKT_j.exit.i
 
-_ZNK21hb_sanitize_context_t11check_arrayIN2OT7IntTypeIsLj2EEEEEbPKT_j.exit.i: ; preds = %96
-  %102 = getelementptr inbounds i8, ptr %3, i64 68
-  %103 = load i32, ptr %102, align 4
-  %104 = sub i32 %103, %85
-  store i32 %104, ptr %102, align 4
-  %105 = icmp sgt i32 %104, 0
-  br i1 %105, label %106, label %_ZN3AATL13kerxTupleKernEijPKvPNS_22hb_aat_apply_context_tE.exit
+_ZNK21hb_sanitize_context_t11check_arrayIN2OT7IntTypeIsLj2EEEEEbPKT_j.exit.i: ; preds = %100
+  %106 = getelementptr inbounds i8, ptr %3, i64 68
+  %107 = load i32, ptr %106, align 4
+  %108 = sub i32 %107, %89
+  store i32 %108, ptr %106, align 4
+  %109 = icmp sgt i32 %108, 0
+  br i1 %109, label %110, label %_ZN3AATL13kerxTupleKernEijPKvPNS_22hb_aat_apply_context_tE.exit
 
-106:                                              ; preds = %_ZNK21hb_sanitize_context_t11check_arrayIN2OT7IntTypeIsLj2EEEEEbPKT_j.exit.i
-  %107 = load i8, ptr %84, align 1
-  %108 = zext i8 %107 to i16
-  %109 = shl nuw i16 %108, 8
-  %110 = getelementptr inbounds i8, ptr %84, i64 1
-  %111 = load i8, ptr %110, align 1
+110:                                              ; preds = %_ZNK21hb_sanitize_context_t11check_arrayIN2OT7IntTypeIsLj2EEEEEbPKT_j.exit.i
+  %111 = load i8, ptr %88, align 1
   %112 = zext i8 %111 to i16
-  %113 = or disjoint i16 %109, %112
-  %114 = sext i16 %113 to i32
+  %113 = shl nuw i16 %112, 8
+  %114 = getelementptr inbounds i8, ptr %88, i64 1
+  %115 = load i8, ptr %114, align 1
+  %116 = zext i8 %115 to i16
+  %117 = or disjoint i16 %113, %116
+  %118 = sext i16 %117 to i32
   br label %_ZN3AATL13kerxTupleKernEijPKvPNS_22hb_aat_apply_context_tE.exit
 
-_ZN3AATL13kerxTupleKernEijPKvPNS_22hb_aat_apply_context_tE.exit: ; preds = %_ZNK2OT13SortedArrayOfIN3AAT8KernPairENS_15BinSearchHeaderINS_7IntTypeIjLj4EEEEEE7bsearchINS1_15hb_glyph_pair_tEEERKS2_RKT_SB_.exit, %82, %87, %96, %_ZNK21hb_sanitize_context_t11check_arrayIN2OT7IntTypeIsLj2EEEEEbPKT_j.exit.i, %106
-  %.0.i = phi i32 [ %114, %106 ], [ %61, %_ZNK2OT13SortedArrayOfIN3AAT8KernPairENS_15BinSearchHeaderINS_7IntTypeIjLj4EEEEEE7bsearchINS1_15hb_glyph_pair_tEEERKS2_RKT_SB_.exit ], [ 0, %_ZNK21hb_sanitize_context_t11check_arrayIN2OT7IntTypeIsLj2EEEEEbPKT_j.exit.i ], [ 0, %82 ], [ 0, %96 ], [ 0, %87 ]
+_ZN3AATL13kerxTupleKernEijPKvPNS_22hb_aat_apply_context_tE.exit: ; preds = %_ZNK2OT13SortedArrayOfIN3AAT8KernPairENS_15BinSearchHeaderINS_7IntTypeIjLj4EEEEEE7bsearchINS1_15hb_glyph_pair_tEEERKS2_RKT_SB_.exit, %86, %91, %100, %_ZNK21hb_sanitize_context_t11check_arrayIN2OT7IntTypeIsLj2EEEEEbPKT_j.exit.i, %110
+  %.0.i = phi i32 [ %118, %110 ], [ %65, %_ZNK2OT13SortedArrayOfIN3AAT8KernPairENS_15BinSearchHeaderINS_7IntTypeIjLj4EEEEEE7bsearchINS1_15hb_glyph_pair_tEEERKS2_RKT_SB_.exit ], [ 0, %_ZNK21hb_sanitize_context_t11check_arrayIN2OT7IntTypeIsLj2EEEEEbPKT_j.exit.i ], [ 0, %86 ], [ 0, %100 ], [ 0, %91 ]
   ret i32 %.0.i
 }
 
@@ -32804,8 +32806,8 @@ _ZNK2OT24VarSizedBinSearchArrayOfIN3AAT12LookupSingleINS_8OffsetToINS_7ArrayOfIN
   br label %132
 
 129:                                              ; preds = %.lr.ph.i.i.i15
-  %.not.i.i = icmp eq i32 %125, %1
-  br i1 %.not.i.i, label %_ZL15hb_bsearch_implIKvjJEEbPjRKT0_PT_mmPFiPS0_S7_DpT1_ES9_.exit.i.i21, label %130
+  %.not23.i.i.i = icmp eq i32 %125, %1
+  br i1 %.not23.i.i.i, label %_ZL15hb_bsearch_implIKvjJEEbPjRKT0_PT_mmPFiPS0_S7_DpT1_ES9_.exit.i.i21, label %130
 
 130:                                              ; preds = %129
   %131 = add nuw nsw i32 %115, 1
@@ -34410,8 +34412,8 @@ _ZNK2OT24VarSizedBinSearchArrayOfIN3AAT12LookupSingleINS_7IntTypeIjLj4EEEEEE10ge
   br label %132
 
 129:                                              ; preds = %.lr.ph.i.i.i15
-  %.not.i.i = icmp eq i32 %125, %1
-  br i1 %.not.i.i, label %_ZL15hb_bsearch_implIKvjJEEbPjRKT0_PT_mmPFiPS0_S7_DpT1_ES9_.exit.i.i21, label %130
+  %.not23.i.i.i = icmp eq i32 %125, %1
+  br i1 %.not23.i.i.i, label %_ZL15hb_bsearch_implIKvjJEEbPjRKT0_PT_mmPFiPS0_S7_DpT1_ES9_.exit.i.i21, label %130
 
 130:                                              ; preds = %129
   %131 = add nuw nsw i32 %115, 1
@@ -35372,6 +35374,9 @@ declare i32 @llvm.usub.sat.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #17

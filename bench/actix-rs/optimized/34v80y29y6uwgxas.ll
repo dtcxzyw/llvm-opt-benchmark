@@ -1889,14 +1889,14 @@ _ZN4core3ptr19swap_nonoverlapping17h36642c012c6a896fE.exit.i.i.i: ; preds = %.pr
   %42 = getelementptr inbounds { { ptr, [2 x i64] }, i64 }, ptr %12, i64 %40
   %43 = getelementptr i8, ptr %42, i64 24
   %.val10.i.i.i.i.i = load i64, ptr %43, align 8, !noalias !563, !noundef !4
-  %.not.i.not.i.i.i.i.i = icmp sgt i64 %.val10.i.i.i.i.i, %.sroa.4.0.copyload.i.i8.i.i.i
-  br i1 %.not.i.not.i.i.i.i.i, label %44, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h89e8f624edc45f42E.exit.i.i.i"
+  %switch.selectcmp.i.not.i.i.i.i.i = icmp sgt i64 %.val10.i.i.i.i.i, %.sroa.4.0.copyload.i.i8.i.i.i
+  br i1 %switch.selectcmp.i.not.i.i.i.i.i, label %44, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h89e8f624edc45f42E.exit.i.i.i"
 
 44:                                               ; preds = %.lr.ph.i.i.i.i.i
   %45 = getelementptr inbounds { { ptr, [2 x i64] }, i64 }, ptr %12, i64 %.sroa.13.013.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %42, i64 32, i1 false), !noalias !563
-  %.not.i27.i.i.i.i = icmp ult i64 %39, 2
-  br i1 %.not.i27.i.i.i.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h89e8f624edc45f42E.exit.i.i.i", label %.lr.ph.i.i.i.i.i
+  %.not.i.i.i.i.i = icmp ult i64 %39, 2
+  br i1 %.not.i.i.i.i.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17h89e8f624edc45f42E.exit.i.i.i", label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN4core3ptr19swap_nonoverlapping17h36642c012c6a896fE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.010.i.i.i.i = phi i64 [ %55, %.lr.ph.i.i.i.i ], [ 1, %_ZN4core3ptr19swap_nonoverlapping17h36642c012c6a896fE.exit.i.i.i ]
@@ -1908,8 +1908,8 @@ _ZN4core3ptr19swap_nonoverlapping17h36642c012c6a896fE.exit.i.i.i: ; preds = %.pr
   %.val.i.i.i.i = load i64, ptr %48, align 8, !noalias !563, !noundef !4
   %49 = getelementptr { { ptr, [2 x i64] }, i64 }, ptr %12, i64 %46, i32 1
   %.val24.i.i.i.i = load i64, ptr %49, align 8, !noalias !563, !noundef !4
-  %.not.i.i.i.i.i = icmp sle i64 %.val24.i.i.i.i, %.val.i.i.i.i
-  %50 = zext i1 %.not.i.i.i.i.i to i64
+  %switch.selectcmp.i.i.i.i.i = icmp sle i64 %.val24.i.i.i.i, %.val.i.i.i.i
+  %50 = zext i1 %switch.selectcmp.i.i.i.i.i to i64
   %51 = add nuw i64 %.010.i.i.i.i, %50
   %52 = getelementptr inbounds { { ptr, [2 x i64] }, i64 }, ptr %12, i64 %51
   %53 = getelementptr inbounds { { ptr, [2 x i64] }, i64 }, ptr %12, i64 %.sroa.12.09.i.i.i.i
@@ -2034,8 +2034,8 @@ common.resume:                                    ; preds = %78
   %92 = getelementptr inbounds { { ptr, [2 x i64] }, i64 }, ptr %.val.i, i64 %90
   %93 = getelementptr i8, ptr %92, i64 24
   %.val10.i.i = load i64, ptr %93, align 8, !noalias !568, !noundef !4
-  %.not.i.not.i.i = icmp sgt i64 %.val10.i.i, %.sroa.4.0.copyload.i.i
-  br i1 %.not.i.not.i.i, label %94, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17hbd995aa487b794f8E.exit"
+  %switch.selectcmp.i.not.i.i = icmp sgt i64 %.val10.i.i, %.sroa.4.0.copyload.i.i
+  br i1 %switch.selectcmp.i.not.i.i, label %94, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17hbd995aa487b794f8E.exit"
 
 94:                                               ; preds = %.lr.ph.i.i
   %95 = getelementptr inbounds { { ptr, [2 x i64] }, i64 }, ptr %.val.i, i64 %.sroa.13.013.i.i
@@ -3847,9 +3847,9 @@ define internal fastcc void @"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$
   store i64 0, ptr %6, align 8
   %.not = icmp eq i64 %2, 0
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
-  br i1 %.not, label %7, label %.thread19
+  br i1 %.not, label %7, label %.thread20
 
-.thread19:                                        ; preds = %3
+.thread20:                                        ; preds = %3
   store i64 %2, ptr %.phi.trans.insert, align 8
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4)
@@ -3864,8 +3864,8 @@ define internal fastcc void @"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$
   %8 = icmp eq i64 %.pre, 0
   br i1 %8, label %.thread, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h995ab88911bb5035E.exit.i"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h995ab88911bb5035E.exit.i": ; preds = %.thread19, %7
-  %9 = phi i64 [ %2, %.thread19 ], [ %.pre, %7 ]
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h995ab88911bb5035E.exit.i": ; preds = %.thread20, %7
+  %9 = phi i64 [ %2, %.thread20 ], [ %.pre, %7 ]
   %10 = getelementptr inbounds i8, ptr %1, i64 16
   %11 = add i64 %9, -1
   store i64 %11, ptr %10, align 8, !alias.scope !835, !noalias !840
@@ -3886,9 +3886,9 @@ define internal fastcc void @"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$
   store i64 %.sroa.0.0.copyload2.i, ptr %4, align 8, !noalias !847
   tail call void @llvm.experimental.noalias.scope.decl(metadata !848)
   %19 = icmp eq i64 %11, 0
-  br i1 %19, label %.thread10, label %.preheader
+  br i1 %19, label %.thread11, label %.preheader
 
-.thread10:                                        ; preds = %18
+.thread11:                                        ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(192) %.sroa.6.0..sroa_idx3.i, i64 192, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4)
   br label %"_ZN4core3ptr741drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$C$$LP$$RP$$GT$$GT$$GT$$GT$17h4661eaac01769c1fE.exit"
@@ -3954,14 +3954,14 @@ _ZN4core3ptr19swap_nonoverlapping17h394440566f73b021E.exit.i.i: ; preds = %.preh
   %37 = getelementptr inbounds { { i64, [23 x i64] }, i64 }, ptr %15, i64 %35
   %38 = getelementptr i8, ptr %37, i64 192
   %.val10.i.i.i.i = load i64, ptr %38, align 8, !noalias !851, !noundef !4
-  %.not.i.not.i.i.i.i = icmp sgt i64 %.val10.i.i.i.i, %.sroa.4.0.copyload.i.i8.i.i
-  br i1 %.not.i.not.i.i.i.i, label %39, label %.loopexit
+  %switch.selectcmp.i.not.i.i.i.i = icmp sgt i64 %.val10.i.i.i.i, %.sroa.4.0.copyload.i.i8.i.i
+  br i1 %switch.selectcmp.i.not.i.i.i.i, label %39, label %.loopexit
 
 39:                                               ; preds = %.lr.ph.i.i.i.i
   %40 = getelementptr inbounds { { i64, [23 x i64] }, i64 }, ptr %15, i64 %.sroa.13.013.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %40, ptr noundef nonnull align 8 dereferenceable(200) %37, i64 200, i1 false), !noalias !851
-  %.not.i27.i.i.i = icmp ult i64 %34, 2
-  br i1 %.not.i27.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i
+  %.not.i.i6.i.i = icmp ult i64 %34, 2
+  br i1 %.not.i.i6.i.i, label %.loopexit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN4core3ptr19swap_nonoverlapping17h394440566f73b021E.exit.i.i, %.lr.ph.i.i.i
   %.010.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i ], [ 1, %_ZN4core3ptr19swap_nonoverlapping17h394440566f73b021E.exit.i.i ]
@@ -3973,8 +3973,8 @@ _ZN4core3ptr19swap_nonoverlapping17h394440566f73b021E.exit.i.i: ; preds = %.preh
   %.val.i.i.i = load i64, ptr %43, align 8, !noalias !851, !noundef !4
   %44 = getelementptr { { i64, [23 x i64] }, i64 }, ptr %15, i64 %41, i32 1
   %.val24.i.i.i = load i64, ptr %44, align 8, !noalias !851, !noundef !4
-  %.not.i.i6.i.i = icmp sle i64 %.val24.i.i.i, %.val.i.i.i
-  %45 = zext i1 %.not.i.i6.i.i to i64
+  %switch.selectcmp.i.i.i.i = icmp sle i64 %.val24.i.i.i, %.val.i.i.i
+  %45 = zext i1 %switch.selectcmp.i.i.i.i to i64
   %46 = add nuw i64 %.010.i.i.i, %45
   %47 = getelementptr inbounds { { i64, [23 x i64] }, i64 }, ptr %15, i64 %46
   %48 = getelementptr inbounds { { i64, [23 x i64] }, i64 }, ptr %15, i64 %.sroa.12.09.i.i.i
@@ -4002,19 +4002,19 @@ _ZN4core3ptr19swap_nonoverlapping17h394440566f73b021E.exit.i.i: ; preds = %.preh
   %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %53, i64 192
   store i64 %.sroa.4.0.copyload.i.i9.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 8, !noalias !851
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %.sroa.0.i.i.i)
-  %.sroa.0.0.copyload7.pr = load i64, ptr %4, align 8, !noalias !843
+  %.sroa.0.0.copyload8.pr = load i64, ptr %4, align 8, !noalias !843
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(192) %.sroa.4.0..sroa_idx.i, i64 192, i1 false), !noalias !843
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4)
-  %54 = icmp eq i64 %.sroa.0.0.copyload7.pr, 3
+  %54 = icmp eq i64 %.sroa.0.0.copyload8.pr, 3
   br i1 %54, label %55, label %"_ZN4core3ptr741drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$C$$LP$$RP$$GT$$GT$$GT$$GT$17h4661eaac01769c1fE.exit"
 
 55:                                               ; preds = %.thread, %.loopexit
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.438b17e4979dc3642b4ea1ed771c74cc.8) #29
           to label %56 unwind label %51
 
-"_ZN4core3ptr741drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$C$$LP$$RP$$GT$$GT$$GT$$GT$17h4661eaac01769c1fE.exit": ; preds = %.loopexit, %.thread10
-  %.sroa.0.0.copyload712 = phi i64 [ %.sroa.0.0.copyload2.i, %.thread10 ], [ %.sroa.0.0.copyload7.pr, %.loopexit ]
-  store i64 %.sroa.0.0.copyload712, ptr %0, align 8
+"_ZN4core3ptr741drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$$LP$actix_router..resource..ResourceDef$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$actix_service..Service$LT$actix_web..service..ServiceRequest$GT$$u2b$Error$u20$$u3d$$u20$actix_web..error..error..Error$u2b$Response$u20$$u3d$$u20$actix_web..service..ServiceResponse$u2b$Future$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..service..ServiceResponse$C$actix_web..error..error..Error$GT$$GT$$GT$$GT$$RP$$C$$LP$$RP$$GT$$GT$$GT$$GT$17h4661eaac01769c1fE.exit": ; preds = %.loopexit, %.thread11
+  %.sroa.0.0.copyload813 = phi i64 [ %.sroa.0.0.copyload2.i, %.thread11 ], [ %.sroa.0.0.copyload8.pr, %.loopexit ]
+  store i64 %.sroa.0.0.copyload813, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(192) %.sroa.6, i64 192, i1 false)
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %.sroa.6)
@@ -4095,16 +4095,16 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %.val = load i64, ptr %23, align 8, !noundef !4
   %24 = getelementptr { { i64, [23 x i64] }, i64 }, ptr %5, i64 %21, i32 1
   %.val29 = load i64, ptr %24, align 8, !noundef !4
-  %.not.i = icmp sle i64 %.val29, %.val
-  %25 = zext i1 %.not.i to i64
+  %switch.selectcmp.i = icmp sle i64 %.val29, %.val
+  %25 = zext i1 %switch.selectcmp.i to i64
   %26 = add nuw i64 %.062, %25
   %27 = icmp ult i64 %26, %7
   tail call void @llvm.assume(i1 %27)
   %28 = getelementptr inbounds { { i64, [23 x i64] }, i64 }, ptr %5, i64 %26
   %29 = getelementptr i8, ptr %28, i64 192
   %.val33 = load i64, ptr %29, align 8, !noundef !4
-  %.not = icmp slt i64 %.val33, %.sroa.4.0.copyload
-  br i1 %.not, label %30, label %.loopexit
+  %switch.i.not = icmp slt i64 %.val33, %.sroa.4.0.copyload
+  br i1 %switch.i.not, label %30, label %.loopexit
 
 30:                                               ; preds = %.lr.ph
   %31 = getelementptr inbounds { { i64, [23 x i64] }, i64 }, ptr %5, i64 %.sroa.22.060
@@ -4177,16 +4177,16 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %.val = load i64, ptr %23, align 8, !noundef !4
   %24 = getelementptr { { ptr, [2 x i64] }, i64 }, ptr %5, i64 %21, i32 1
   %.val29 = load i64, ptr %24, align 8, !noundef !4
-  %.not.i = icmp sle i64 %.val29, %.val
-  %25 = zext i1 %.not.i to i64
+  %switch.selectcmp.i = icmp sle i64 %.val29, %.val
+  %25 = zext i1 %switch.selectcmp.i to i64
   %26 = add nuw i64 %.062, %25
   %27 = icmp ult i64 %26, %7
   tail call void @llvm.assume(i1 %27)
   %28 = getelementptr inbounds { { ptr, [2 x i64] }, i64 }, ptr %5, i64 %26
   %29 = getelementptr i8, ptr %28, i64 24
   %.val33 = load i64, ptr %29, align 8, !noundef !4
-  %.not = icmp slt i64 %.val33, %.sroa.4.0.copyload
-  br i1 %.not, label %30, label %.loopexit
+  %switch.i.not = icmp slt i64 %.val33, %.sroa.4.0.copyload
+  br i1 %switch.i.not, label %30, label %.loopexit
 
 30:                                               ; preds = %.lr.ph
   %31 = getelementptr inbounds { { ptr, [2 x i64] }, i64 }, ptr %5, i64 %.sroa.22.060
@@ -4265,8 +4265,8 @@ define internal fastcc void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT
   %25 = getelementptr inbounds { { i64, [23 x i64] }, i64 }, ptr %.val, i64 %23
   %26 = getelementptr i8, ptr %25, i64 192
   %.val10.i = load i64, ptr %26, align 8, !noundef !4
-  %.not.i.not.i = icmp sgt i64 %.val10.i, %.sroa.4.0.copyload.i
-  br i1 %.not.i.not.i, label %27, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$7sift_up17h22bea1d248a99ee9E.exit"
+  %switch.selectcmp.i.not.i = icmp sgt i64 %.val10.i, %.sroa.4.0.copyload.i
+  br i1 %switch.selectcmp.i.not.i, label %27, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$7sift_up17h22bea1d248a99ee9E.exit"
 
 27:                                               ; preds = %.lr.ph.i
   %28 = getelementptr inbounds { { i64, [23 x i64] }, i64 }, ptr %.val, i64 %.sroa.13.013.i

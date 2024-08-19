@@ -2581,10 +2581,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZN6icu_75L15sortiComparatorEPKvS1
 entry:
   %1 = load i32, ptr %left, align 8
   %2 = load i32, ptr %right, align 8
-  %cmp = icmp slt i32 %1, %2
-  %cmp1 = icmp ne i32 %1, %2
-  %cond = zext i1 %cmp1 to i32
-  %cond2 = select i1 %cmp, i32 -1, i32 %cond
+  %cond2 = tail call i32 @llvm.scmp.i32.i32(i32 %1, i32 %2)
   ret i32 %cond2
 }
 
@@ -2643,6 +2640,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #16
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

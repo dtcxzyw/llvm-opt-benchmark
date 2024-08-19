@@ -2845,10 +2845,7 @@ define internal range(i32 -1, 2) i32 @entryIndexByFrequencyCmp(ptr nocapture nou
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 88
   %17 = load i32, ptr %16, align 8
-  %18 = icmp ult i32 %12, %17
-  %19 = icmp ne i32 %12, %17
-  %. = zext i1 %19 to i32
-  %.0 = select i1 %18, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %12, i32 %17)
   ret i32 %.0
 }
 
@@ -3523,6 +3520,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8

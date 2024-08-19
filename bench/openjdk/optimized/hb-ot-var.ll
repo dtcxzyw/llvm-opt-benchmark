@@ -364,34 +364,34 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4fvar20find_axis_deprecate
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
   %40 = or disjoint i32 %36, %39
-  %.not.i.i.i25 = icmp eq i32 %40, %1
-  br i1 %.not.i.i.i25, label %._crit_edge.thread, label %.lr.ph
+  %41 = icmp eq i32 %40, %1
+  br i1 %41, label %._crit_edge.thread, label %.lr.ph
 
-41:                                               ; preds = %.lr.ph
-  %42 = getelementptr inbounds %"struct.OT::AxisRecord", ptr %.0.i.i.i, i64 %indvars.iv.next.i
-  %43 = load i8, ptr %42, align 1
-  %44 = zext i8 %43 to i32
-  %45 = shl nuw i32 %44, 24
-  %46 = getelementptr inbounds i8, ptr %42, i64 1
-  %47 = load i8, ptr %46, align 1
-  %48 = zext i8 %47 to i32
-  %49 = shl nuw nsw i32 %48, 16
-  %50 = or disjoint i32 %49, %45
-  %51 = getelementptr inbounds i8, ptr %42, i64 2
-  %52 = load i8, ptr %51, align 1
-  %53 = zext i8 %52 to i32
-  %54 = shl nuw nsw i32 %53, 8
-  %55 = or disjoint i32 %50, %54
-  %56 = getelementptr inbounds i8, ptr %42, i64 3
-  %57 = load i8, ptr %56, align 1
-  %58 = zext i8 %57 to i32
-  %59 = or disjoint i32 %55, %58
-  %.not.i.i.i = icmp eq i32 %59, %1
-  br i1 %.not.i.i.i, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+42:                                               ; preds = %.lr.ph
+  %43 = getelementptr inbounds %"struct.OT::AxisRecord", ptr %.0.i.i.i, i64 %indvars.iv.next.i
+  %44 = load i8, ptr %43, align 1
+  %45 = zext i8 %44 to i32
+  %46 = shl nuw i32 %45, 24
+  %47 = getelementptr inbounds i8, ptr %43, i64 1
+  %48 = load i8, ptr %47, align 1
+  %49 = zext i8 %48 to i32
+  %50 = shl nuw nsw i32 %49, 16
+  %51 = or disjoint i32 %50, %46
+  %52 = getelementptr inbounds i8, ptr %43, i64 2
+  %53 = load i8, ptr %52, align 1
+  %54 = zext i8 %53 to i32
+  %55 = shl nuw nsw i32 %54, 8
+  %56 = or disjoint i32 %51, %55
+  %57 = getelementptr inbounds i8, ptr %43, i64 3
+  %58 = load i8, ptr %57, align 1
+  %59 = zext i8 %58 to i32
+  %60 = or disjoint i32 %56, %59
+  %61 = icmp eq i32 %60, %1
+  br i1 %61, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %41
-  %60 = icmp ult i64 %indvars.iv.next.i, %23
-  %61 = trunc nuw i64 %indvars.iv.next.i to i32
+._crit_edge:                                      ; preds = %42
+  %62 = icmp ult i64 %indvars.iv.next.i, %23
+  %63 = trunc nuw i64 %indvars.iv.next.i to i32
   br i1 %.not, label %_ZNK10hb_array_tIKN2OT10AxisRecordEE5lfindIjEEbRKT_Pj14hb_not_found_tj.exit.thread18, label %.else
 
 ._crit_edge.thread:                               ; preds = %.lr.ph.i
@@ -402,127 +402,127 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4fvar20find_axis_deprecate
   br label %.cont12
 
 .else:                                            ; preds = %._crit_edge
-  store i32 %61, ptr %2, align 4
-  br i1 %60, label %.cont12, label %_ZNK10hb_array_tIKN2OT10AxisRecordEE5lfindIjEEbRKT_Pj14hb_not_found_tj.exit.thread
+  store i32 %63, ptr %2, align 4
+  br i1 %62, label %.cont12, label %_ZNK10hb_array_tIKN2OT10AxisRecordEE5lfindIjEEbRKT_Pj14hb_not_found_tj.exit.thread
 
-.lr.ph:                                           ; preds = %.lr.ph.i, %41
-  %indvars.iv.i26 = phi i64 [ %indvars.iv.next.i, %41 ], [ 0, %.lr.ph.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i26, 1
+.lr.ph:                                           ; preds = %.lr.ph.i, %42
+  %indvars.iv.i25 = phi i64 [ %indvars.iv.next.i, %42 ], [ 0, %.lr.ph.i ]
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i25, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %23
-  br i1 %exitcond.not.i, label %_ZNK10hb_array_tIKN2OT10AxisRecordEE5lfindIjEEbRKT_Pj14hb_not_found_tj.exit.thread, label %41, !llvm.loop !8
+  br i1 %exitcond.not.i, label %_ZNK10hb_array_tIKN2OT10AxisRecordEE5lfindIjEEbRKT_Pj14hb_not_found_tj.exit.thread, label %42, !llvm.loop !8
 
 _ZNK10hb_array_tIKN2OT10AxisRecordEE5lfindIjEEbRKT_Pj14hb_not_found_tj.exit.thread18: ; preds = %._crit_edge
-  br i1 %60, label %.cont12, label %_ZNK10hb_array_tIKN2OT10AxisRecordEE5lfindIjEEbRKT_Pj14hb_not_found_tj.exit.thread
+  br i1 %62, label %.cont12, label %_ZNK10hb_array_tIKN2OT10AxisRecordEE5lfindIjEEbRKT_Pj14hb_not_found_tj.exit.thread
 
 .cont12:                                          ; preds = %._crit_edge.thread, %.else, %.else.thread, %_ZNK10hb_array_tIKN2OT10AxisRecordEE5lfindIjEEbRKT_Pj14hb_not_found_tj.exit.thread18
-  %indvars.iv.i.lcssa33 = phi i32 [ %61, %_ZNK10hb_array_tIKN2OT10AxisRecordEE5lfindIjEEbRKT_Pj14hb_not_found_tj.exit.thread18 ], [ 0, %.else.thread ], [ %61, %.else ], [ 0, %._crit_edge.thread ]
-  %.not.i.i = icmp ugt i32 %.sroa.2.8.insert.ext.i.i, %indvars.iv.i.lcssa33
-  %62 = zext i32 %indvars.iv.i.lcssa33 to i64
-  %63 = getelementptr inbounds %"struct.OT::AxisRecord", ptr %.0.i.i.i, i64 %62
-  %.0.i.i = select i1 %.not.i.i, ptr %63, ptr @_hb_NullPool
-  %64 = load i8, ptr %.0.i.i, align 1
-  %65 = zext i8 %64 to i32
-  %66 = shl nuw i32 %65, 24
-  %67 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
-  %68 = load i8, ptr %67, align 1
-  %69 = zext i8 %68 to i32
-  %70 = shl nuw nsw i32 %69, 16
-  %71 = or disjoint i32 %70, %66
-  %72 = getelementptr inbounds i8, ptr %.0.i.i, i64 2
-  %73 = load i8, ptr %72, align 1
-  %74 = zext i8 %73 to i32
-  %75 = shl nuw nsw i32 %74, 8
-  %76 = or disjoint i32 %71, %75
-  %77 = getelementptr inbounds i8, ptr %.0.i.i, i64 3
-  %78 = load i8, ptr %77, align 1
-  %79 = zext i8 %78 to i32
-  %80 = or disjoint i32 %76, %79
-  store i32 %80, ptr %3, align 4
-  %81 = getelementptr inbounds i8, ptr %.0.i.i, i64 18
-  %82 = load i8, ptr %81, align 1
-  %83 = zext i8 %82 to i32
-  %84 = shl nuw nsw i32 %83, 8
-  %85 = getelementptr inbounds i8, ptr %.0.i.i, i64 19
-  %86 = load i8, ptr %85, align 1
-  %87 = zext i8 %86 to i32
-  %88 = or disjoint i32 %84, %87
-  %89 = getelementptr inbounds i8, ptr %3, i64 4
-  store i32 %88, ptr %89, align 4
-  %90 = getelementptr inbounds i8, ptr %3, i64 8
-  %91 = getelementptr inbounds i8, ptr %3, i64 12
-  %92 = getelementptr inbounds i8, ptr %3, i64 16
-  %93 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
-  %94 = load i8, ptr %93, align 1
-  %95 = zext i8 %94 to i32
-  %96 = shl nuw i32 %95, 24
-  %97 = getelementptr inbounds i8, ptr %.0.i.i, i64 9
-  %98 = load i8, ptr %97, align 1
-  %99 = zext i8 %98 to i32
-  %100 = shl nuw nsw i32 %99, 16
-  %101 = or disjoint i32 %100, %96
-  %102 = getelementptr inbounds i8, ptr %.0.i.i, i64 10
-  %103 = load i8, ptr %102, align 1
-  %104 = zext i8 %103 to i32
-  %105 = shl nuw nsw i32 %104, 8
-  %106 = or disjoint i32 %101, %105
-  %107 = getelementptr inbounds i8, ptr %.0.i.i, i64 11
-  %108 = load i8, ptr %107, align 1
-  %109 = zext i8 %108 to i32
-  %110 = or disjoint i32 %106, %109
-  %111 = sitofp i32 %110 to float
-  %112 = fmul float %111, 0x3EF0000000000000
-  store float %112, ptr %91, align 4
-  %113 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
-  %114 = load i8, ptr %113, align 1
-  %115 = zext i8 %114 to i32
-  %116 = shl nuw i32 %115, 24
-  %117 = getelementptr inbounds i8, ptr %.0.i.i, i64 5
-  %118 = load i8, ptr %117, align 1
-  %119 = zext i8 %118 to i32
-  %120 = shl nuw nsw i32 %119, 16
-  %121 = or disjoint i32 %120, %116
-  %122 = getelementptr inbounds i8, ptr %.0.i.i, i64 6
-  %123 = load i8, ptr %122, align 1
-  %124 = zext i8 %123 to i32
-  %125 = shl nuw nsw i32 %124, 8
-  %126 = or disjoint i32 %121, %125
-  %127 = getelementptr inbounds i8, ptr %.0.i.i, i64 7
-  %128 = load i8, ptr %127, align 1
-  %129 = zext i8 %128 to i32
-  %130 = or disjoint i32 %126, %129
-  %131 = sitofp i32 %130 to float
-  %132 = fmul float %131, 0x3EF0000000000000
-  %133 = fcmp ole float %112, %132
-  %.sroa.speculated7.i.i = select i1 %133, float %112, float %132
-  store float %.sroa.speculated7.i.i, ptr %90, align 4
-  %134 = getelementptr inbounds i8, ptr %.0.i.i, i64 12
-  %135 = load i8, ptr %134, align 1
-  %136 = zext i8 %135 to i32
-  %137 = shl nuw i32 %136, 24
-  %138 = getelementptr inbounds i8, ptr %.0.i.i, i64 13
-  %139 = load i8, ptr %138, align 1
-  %140 = zext i8 %139 to i32
-  %141 = shl nuw nsw i32 %140, 16
-  %142 = or disjoint i32 %141, %137
-  %143 = getelementptr inbounds i8, ptr %.0.i.i, i64 14
-  %144 = load i8, ptr %143, align 1
-  %145 = zext i8 %144 to i32
-  %146 = shl nuw nsw i32 %145, 8
-  %147 = or disjoint i32 %142, %146
-  %148 = getelementptr inbounds i8, ptr %.0.i.i, i64 15
-  %149 = load i8, ptr %148, align 1
-  %150 = zext i8 %149 to i32
-  %151 = or disjoint i32 %147, %150
-  %152 = sitofp i32 %151 to float
-  %153 = fmul float %152, 0x3EF0000000000000
-  %154 = fcmp oge float %112, %153
-  %.sroa.speculated.i.i = select i1 %154, float %112, float %153
-  store float %.sroa.speculated.i.i, ptr %92, align 4
+  %indvars.iv.i.lcssa32 = phi i32 [ %63, %_ZNK10hb_array_tIKN2OT10AxisRecordEE5lfindIjEEbRKT_Pj14hb_not_found_tj.exit.thread18 ], [ 0, %.else.thread ], [ %63, %.else ], [ 0, %._crit_edge.thread ]
+  %.not.i.i = icmp ugt i32 %.sroa.2.8.insert.ext.i.i, %indvars.iv.i.lcssa32
+  %64 = zext i32 %indvars.iv.i.lcssa32 to i64
+  %65 = getelementptr inbounds %"struct.OT::AxisRecord", ptr %.0.i.i.i, i64 %64
+  %.0.i.i = select i1 %.not.i.i, ptr %65, ptr @_hb_NullPool
+  %66 = load i8, ptr %.0.i.i, align 1
+  %67 = zext i8 %66 to i32
+  %68 = shl nuw i32 %67, 24
+  %69 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
+  %70 = load i8, ptr %69, align 1
+  %71 = zext i8 %70 to i32
+  %72 = shl nuw nsw i32 %71, 16
+  %73 = or disjoint i32 %72, %68
+  %74 = getelementptr inbounds i8, ptr %.0.i.i, i64 2
+  %75 = load i8, ptr %74, align 1
+  %76 = zext i8 %75 to i32
+  %77 = shl nuw nsw i32 %76, 8
+  %78 = or disjoint i32 %73, %77
+  %79 = getelementptr inbounds i8, ptr %.0.i.i, i64 3
+  %80 = load i8, ptr %79, align 1
+  %81 = zext i8 %80 to i32
+  %82 = or disjoint i32 %78, %81
+  store i32 %82, ptr %3, align 4
+  %83 = getelementptr inbounds i8, ptr %.0.i.i, i64 18
+  %84 = load i8, ptr %83, align 1
+  %85 = zext i8 %84 to i32
+  %86 = shl nuw nsw i32 %85, 8
+  %87 = getelementptr inbounds i8, ptr %.0.i.i, i64 19
+  %88 = load i8, ptr %87, align 1
+  %89 = zext i8 %88 to i32
+  %90 = or disjoint i32 %86, %89
+  %91 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 %90, ptr %91, align 4
+  %92 = getelementptr inbounds i8, ptr %3, i64 8
+  %93 = getelementptr inbounds i8, ptr %3, i64 12
+  %94 = getelementptr inbounds i8, ptr %3, i64 16
+  %95 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %96 = load i8, ptr %95, align 1
+  %97 = zext i8 %96 to i32
+  %98 = shl nuw i32 %97, 24
+  %99 = getelementptr inbounds i8, ptr %.0.i.i, i64 9
+  %100 = load i8, ptr %99, align 1
+  %101 = zext i8 %100 to i32
+  %102 = shl nuw nsw i32 %101, 16
+  %103 = or disjoint i32 %102, %98
+  %104 = getelementptr inbounds i8, ptr %.0.i.i, i64 10
+  %105 = load i8, ptr %104, align 1
+  %106 = zext i8 %105 to i32
+  %107 = shl nuw nsw i32 %106, 8
+  %108 = or disjoint i32 %103, %107
+  %109 = getelementptr inbounds i8, ptr %.0.i.i, i64 11
+  %110 = load i8, ptr %109, align 1
+  %111 = zext i8 %110 to i32
+  %112 = or disjoint i32 %108, %111
+  %113 = sitofp i32 %112 to float
+  %114 = fmul float %113, 0x3EF0000000000000
+  store float %114, ptr %93, align 4
+  %115 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %116 = load i8, ptr %115, align 1
+  %117 = zext i8 %116 to i32
+  %118 = shl nuw i32 %117, 24
+  %119 = getelementptr inbounds i8, ptr %.0.i.i, i64 5
+  %120 = load i8, ptr %119, align 1
+  %121 = zext i8 %120 to i32
+  %122 = shl nuw nsw i32 %121, 16
+  %123 = or disjoint i32 %122, %118
+  %124 = getelementptr inbounds i8, ptr %.0.i.i, i64 6
+  %125 = load i8, ptr %124, align 1
+  %126 = zext i8 %125 to i32
+  %127 = shl nuw nsw i32 %126, 8
+  %128 = or disjoint i32 %123, %127
+  %129 = getelementptr inbounds i8, ptr %.0.i.i, i64 7
+  %130 = load i8, ptr %129, align 1
+  %131 = zext i8 %130 to i32
+  %132 = or disjoint i32 %128, %131
+  %133 = sitofp i32 %132 to float
+  %134 = fmul float %133, 0x3EF0000000000000
+  %135 = fcmp ole float %114, %134
+  %.sroa.speculated7.i.i = select i1 %135, float %114, float %134
+  store float %.sroa.speculated7.i.i, ptr %92, align 4
+  %136 = getelementptr inbounds i8, ptr %.0.i.i, i64 12
+  %137 = load i8, ptr %136, align 1
+  %138 = zext i8 %137 to i32
+  %139 = shl nuw i32 %138, 24
+  %140 = getelementptr inbounds i8, ptr %.0.i.i, i64 13
+  %141 = load i8, ptr %140, align 1
+  %142 = zext i8 %141 to i32
+  %143 = shl nuw nsw i32 %142, 16
+  %144 = or disjoint i32 %143, %139
+  %145 = getelementptr inbounds i8, ptr %.0.i.i, i64 14
+  %146 = load i8, ptr %145, align 1
+  %147 = zext i8 %146 to i32
+  %148 = shl nuw nsw i32 %147, 8
+  %149 = or disjoint i32 %144, %148
+  %150 = getelementptr inbounds i8, ptr %.0.i.i, i64 15
+  %151 = load i8, ptr %150, align 1
+  %152 = zext i8 %151 to i32
+  %153 = or disjoint i32 %149, %152
+  %154 = sitofp i32 %153 to float
+  %155 = fmul float %154, 0x3EF0000000000000
+  %156 = fcmp oge float %114, %155
+  %.sroa.speculated.i.i = select i1 %156, float %114, float %155
+  store float %.sroa.speculated.i.i, ptr %94, align 4
   br label %_ZNK10hb_array_tIKN2OT10AxisRecordEE5lfindIjEEbRKT_Pj14hb_not_found_tj.exit.thread
 
 _ZNK10hb_array_tIKN2OT10AxisRecordEE5lfindIjEEbRKT_Pj14hb_not_found_tj.exit.thread: ; preds = %.lr.ph, %.cont9, %_ZNK10hb_array_tIKN2OT10AxisRecordEE5lfindIjEEbRKT_Pj14hb_not_found_tj.exit.thread18, %.else, %.cont12
-  %155 = phi i1 [ true, %.cont12 ], [ false, %.else ], [ false, %_ZNK10hb_array_tIKN2OT10AxisRecordEE5lfindIjEEbRKT_Pj14hb_not_found_tj.exit.thread18 ], [ false, %.cont9 ], [ false, %.lr.ph ]
-  ret i1 %155
+  %157 = phi i1 [ true, %.cont12 ], [ false, %.else ], [ false, %_ZNK10hb_array_tIKN2OT10AxisRecordEE5lfindIjEEbRKT_Pj14hb_not_found_tj.exit.thread18 ], [ false, %.cont9 ], [ false, %.lr.ph ]
+  ret i1 %157
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -771,165 +771,165 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4fvar14find_axis_infoEjP21
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
   %39 = or disjoint i32 %35, %38
-  %.not.i.i.i10 = icmp eq i32 %39, %1
-  br i1 %.not.i.i.i10, label %._crit_edge.thread, label %.lr.ph
+  %40 = icmp eq i32 %39, %1
+  br i1 %40, label %._crit_edge.thread, label %.lr.ph
 
-40:                                               ; preds = %.lr.ph
-  %41 = getelementptr inbounds %"struct.OT::AxisRecord", ptr %.0.i.i.i, i64 %indvars.iv.next.i
-  %42 = load i8, ptr %41, align 1
-  %43 = zext i8 %42 to i32
-  %44 = shl nuw i32 %43, 24
-  %45 = getelementptr inbounds i8, ptr %41, i64 1
-  %46 = load i8, ptr %45, align 1
-  %47 = zext i8 %46 to i32
-  %48 = shl nuw nsw i32 %47, 16
-  %49 = or disjoint i32 %48, %44
-  %50 = getelementptr inbounds i8, ptr %41, i64 2
-  %51 = load i8, ptr %50, align 1
-  %52 = zext i8 %51 to i32
-  %53 = shl nuw nsw i32 %52, 8
-  %54 = or disjoint i32 %49, %53
-  %55 = getelementptr inbounds i8, ptr %41, i64 3
-  %56 = load i8, ptr %55, align 1
-  %57 = zext i8 %56 to i32
-  %58 = or disjoint i32 %54, %57
-  %.not.i.i.i = icmp eq i32 %58, %1
-  br i1 %.not.i.i.i, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+41:                                               ; preds = %.lr.ph
+  %42 = getelementptr inbounds %"struct.OT::AxisRecord", ptr %.0.i.i.i, i64 %indvars.iv.next.i
+  %43 = load i8, ptr %42, align 1
+  %44 = zext i8 %43 to i32
+  %45 = shl nuw i32 %44, 24
+  %46 = getelementptr inbounds i8, ptr %42, i64 1
+  %47 = load i8, ptr %46, align 1
+  %48 = zext i8 %47 to i32
+  %49 = shl nuw nsw i32 %48, 16
+  %50 = or disjoint i32 %49, %45
+  %51 = getelementptr inbounds i8, ptr %42, i64 2
+  %52 = load i8, ptr %51, align 1
+  %53 = zext i8 %52 to i32
+  %54 = shl nuw nsw i32 %53, 8
+  %55 = or disjoint i32 %50, %54
+  %56 = getelementptr inbounds i8, ptr %42, i64 3
+  %57 = load i8, ptr %56, align 1
+  %58 = zext i8 %57 to i32
+  %59 = or disjoint i32 %55, %58
+  %60 = icmp eq i32 %59, %1
+  br i1 %60, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %40
-  %59 = icmp ult i64 %indvars.iv.next.i, %22
-  br i1 %59, label %._crit_edge.thread, label %_ZNK10hb_array_tIKN2OT10AxisRecordEE5lfindIjEEbRKT_Pj14hb_not_found_tj.exit.thread
+._crit_edge:                                      ; preds = %41
+  %61 = icmp ult i64 %indvars.iv.next.i, %22
+  br i1 %61, label %._crit_edge.thread, label %_ZNK10hb_array_tIKN2OT10AxisRecordEE5lfindIjEEbRKT_Pj14hb_not_found_tj.exit.thread
 
-.lr.ph:                                           ; preds = %.lr.ph.i, %40
-  %indvars.iv.i11 = phi i64 [ %indvars.iv.next.i, %40 ], [ 0, %.lr.ph.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i11, 1
+.lr.ph:                                           ; preds = %.lr.ph.i, %41
+  %indvars.iv.i10 = phi i64 [ %indvars.iv.next.i, %41 ], [ 0, %.lr.ph.i ]
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i10, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %22
-  br i1 %exitcond.not.i, label %_ZNK10hb_array_tIKN2OT10AxisRecordEE5lfindIjEEbRKT_Pj14hb_not_found_tj.exit.thread, label %40, !llvm.loop !8
+  br i1 %exitcond.not.i, label %_ZNK10hb_array_tIKN2OT10AxisRecordEE5lfindIjEEbRKT_Pj14hb_not_found_tj.exit.thread, label %41, !llvm.loop !8
 
 ._crit_edge.thread:                               ; preds = %.lr.ph.i, %._crit_edge
-  %indvars.iv.i.lcssa17 = phi i64 [ %indvars.iv.next.i, %._crit_edge ], [ 0, %.lr.ph.i ]
-  %60 = trunc nuw i64 %indvars.iv.i.lcssa17 to i32
-  %.not.i.i = icmp ugt i32 %.sroa.2.8.insert.ext.i.i, %60
-  %61 = and i64 %indvars.iv.i.lcssa17, 4294967295
-  %62 = getelementptr inbounds %"struct.OT::AxisRecord", ptr %.0.i.i.i, i64 %61
-  %.0.i.i = select i1 %.not.i.i, ptr %62, ptr @_hb_NullPool
-  store i32 %60, ptr %2, align 4
-  %63 = load i8, ptr %.0.i.i, align 1
-  %64 = zext i8 %63 to i32
-  %65 = shl nuw i32 %64, 24
-  %66 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
-  %67 = load i8, ptr %66, align 1
-  %68 = zext i8 %67 to i32
-  %69 = shl nuw nsw i32 %68, 16
-  %70 = or disjoint i32 %69, %65
-  %71 = getelementptr inbounds i8, ptr %.0.i.i, i64 2
-  %72 = load i8, ptr %71, align 1
-  %73 = zext i8 %72 to i32
-  %74 = shl nuw nsw i32 %73, 8
-  %75 = or disjoint i32 %70, %74
-  %76 = getelementptr inbounds i8, ptr %.0.i.i, i64 3
-  %77 = load i8, ptr %76, align 1
-  %78 = zext i8 %77 to i32
-  %79 = or disjoint i32 %75, %78
-  %80 = getelementptr inbounds i8, ptr %2, i64 4
-  store i32 %79, ptr %80, align 4
-  %81 = getelementptr inbounds i8, ptr %.0.i.i, i64 18
-  %82 = load i8, ptr %81, align 1
-  %83 = zext i8 %82 to i32
-  %84 = shl nuw nsw i32 %83, 8
-  %85 = getelementptr inbounds i8, ptr %.0.i.i, i64 19
-  %86 = load i8, ptr %85, align 1
-  %87 = zext i8 %86 to i32
-  %88 = or disjoint i32 %84, %87
-  %89 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 %88, ptr %89, align 4
-  %90 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
-  %91 = load i8, ptr %90, align 1
-  %92 = zext i8 %91 to i32
-  %93 = shl nuw nsw i32 %92, 8
-  %94 = getelementptr inbounds i8, ptr %.0.i.i, i64 17
-  %95 = load i8, ptr %94, align 1
-  %96 = zext i8 %95 to i32
-  %97 = or disjoint i32 %93, %96
-  %98 = getelementptr inbounds i8, ptr %2, i64 12
-  store i32 %97, ptr %98, align 4
-  %99 = getelementptr inbounds i8, ptr %2, i64 16
-  %100 = getelementptr inbounds i8, ptr %2, i64 20
-  %101 = getelementptr inbounds i8, ptr %2, i64 24
-  %102 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
-  %103 = load i8, ptr %102, align 1
-  %104 = zext i8 %103 to i32
-  %105 = shl nuw i32 %104, 24
-  %106 = getelementptr inbounds i8, ptr %.0.i.i, i64 9
-  %107 = load i8, ptr %106, align 1
-  %108 = zext i8 %107 to i32
-  %109 = shl nuw nsw i32 %108, 16
-  %110 = or disjoint i32 %109, %105
-  %111 = getelementptr inbounds i8, ptr %.0.i.i, i64 10
-  %112 = load i8, ptr %111, align 1
-  %113 = zext i8 %112 to i32
-  %114 = shl nuw nsw i32 %113, 8
-  %115 = or disjoint i32 %110, %114
-  %116 = getelementptr inbounds i8, ptr %.0.i.i, i64 11
-  %117 = load i8, ptr %116, align 1
-  %118 = zext i8 %117 to i32
-  %119 = or disjoint i32 %115, %118
-  %120 = sitofp i32 %119 to float
-  %121 = fmul float %120, 0x3EF0000000000000
-  store float %121, ptr %100, align 4
-  %122 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
-  %123 = load i8, ptr %122, align 1
-  %124 = zext i8 %123 to i32
-  %125 = shl nuw i32 %124, 24
-  %126 = getelementptr inbounds i8, ptr %.0.i.i, i64 5
-  %127 = load i8, ptr %126, align 1
-  %128 = zext i8 %127 to i32
-  %129 = shl nuw nsw i32 %128, 16
-  %130 = or disjoint i32 %129, %125
-  %131 = getelementptr inbounds i8, ptr %.0.i.i, i64 6
-  %132 = load i8, ptr %131, align 1
-  %133 = zext i8 %132 to i32
-  %134 = shl nuw nsw i32 %133, 8
-  %135 = or disjoint i32 %130, %134
-  %136 = getelementptr inbounds i8, ptr %.0.i.i, i64 7
-  %137 = load i8, ptr %136, align 1
-  %138 = zext i8 %137 to i32
-  %139 = or disjoint i32 %135, %138
-  %140 = sitofp i32 %139 to float
-  %141 = fmul float %140, 0x3EF0000000000000
-  %142 = fcmp ole float %121, %141
-  %.sroa.speculated7.i.i = select i1 %142, float %121, float %141
-  store float %.sroa.speculated7.i.i, ptr %99, align 4
-  %143 = getelementptr inbounds i8, ptr %.0.i.i, i64 12
-  %144 = load i8, ptr %143, align 1
-  %145 = zext i8 %144 to i32
-  %146 = shl nuw i32 %145, 24
-  %147 = getelementptr inbounds i8, ptr %.0.i.i, i64 13
-  %148 = load i8, ptr %147, align 1
-  %149 = zext i8 %148 to i32
-  %150 = shl nuw nsw i32 %149, 16
-  %151 = or disjoint i32 %150, %146
-  %152 = getelementptr inbounds i8, ptr %.0.i.i, i64 14
-  %153 = load i8, ptr %152, align 1
-  %154 = zext i8 %153 to i32
-  %155 = shl nuw nsw i32 %154, 8
-  %156 = or disjoint i32 %151, %155
-  %157 = getelementptr inbounds i8, ptr %.0.i.i, i64 15
-  %158 = load i8, ptr %157, align 1
-  %159 = zext i8 %158 to i32
-  %160 = or disjoint i32 %156, %159
-  %161 = sitofp i32 %160 to float
-  %162 = fmul float %161, 0x3EF0000000000000
-  %163 = fcmp oge float %121, %162
-  %.sroa.speculated.i.i = select i1 %163, float %121, float %162
-  store float %.sroa.speculated.i.i, ptr %101, align 4
-  %164 = getelementptr inbounds i8, ptr %2, i64 28
-  store i32 0, ptr %164, align 4
+  %indvars.iv.i.lcssa16 = phi i64 [ %indvars.iv.next.i, %._crit_edge ], [ 0, %.lr.ph.i ]
+  %62 = trunc nuw i64 %indvars.iv.i.lcssa16 to i32
+  %.not.i.i = icmp ugt i32 %.sroa.2.8.insert.ext.i.i, %62
+  %63 = and i64 %indvars.iv.i.lcssa16, 4294967295
+  %64 = getelementptr inbounds %"struct.OT::AxisRecord", ptr %.0.i.i.i, i64 %63
+  %.0.i.i = select i1 %.not.i.i, ptr %64, ptr @_hb_NullPool
+  store i32 %62, ptr %2, align 4
+  %65 = load i8, ptr %.0.i.i, align 1
+  %66 = zext i8 %65 to i32
+  %67 = shl nuw i32 %66, 24
+  %68 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
+  %69 = load i8, ptr %68, align 1
+  %70 = zext i8 %69 to i32
+  %71 = shl nuw nsw i32 %70, 16
+  %72 = or disjoint i32 %71, %67
+  %73 = getelementptr inbounds i8, ptr %.0.i.i, i64 2
+  %74 = load i8, ptr %73, align 1
+  %75 = zext i8 %74 to i32
+  %76 = shl nuw nsw i32 %75, 8
+  %77 = or disjoint i32 %72, %76
+  %78 = getelementptr inbounds i8, ptr %.0.i.i, i64 3
+  %79 = load i8, ptr %78, align 1
+  %80 = zext i8 %79 to i32
+  %81 = or disjoint i32 %77, %80
+  %82 = getelementptr inbounds i8, ptr %2, i64 4
+  store i32 %81, ptr %82, align 4
+  %83 = getelementptr inbounds i8, ptr %.0.i.i, i64 18
+  %84 = load i8, ptr %83, align 1
+  %85 = zext i8 %84 to i32
+  %86 = shl nuw nsw i32 %85, 8
+  %87 = getelementptr inbounds i8, ptr %.0.i.i, i64 19
+  %88 = load i8, ptr %87, align 1
+  %89 = zext i8 %88 to i32
+  %90 = or disjoint i32 %86, %89
+  %91 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 %90, ptr %91, align 4
+  %92 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %93 = load i8, ptr %92, align 1
+  %94 = zext i8 %93 to i32
+  %95 = shl nuw nsw i32 %94, 8
+  %96 = getelementptr inbounds i8, ptr %.0.i.i, i64 17
+  %97 = load i8, ptr %96, align 1
+  %98 = zext i8 %97 to i32
+  %99 = or disjoint i32 %95, %98
+  %100 = getelementptr inbounds i8, ptr %2, i64 12
+  store i32 %99, ptr %100, align 4
+  %101 = getelementptr inbounds i8, ptr %2, i64 16
+  %102 = getelementptr inbounds i8, ptr %2, i64 20
+  %103 = getelementptr inbounds i8, ptr %2, i64 24
+  %104 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %105 = load i8, ptr %104, align 1
+  %106 = zext i8 %105 to i32
+  %107 = shl nuw i32 %106, 24
+  %108 = getelementptr inbounds i8, ptr %.0.i.i, i64 9
+  %109 = load i8, ptr %108, align 1
+  %110 = zext i8 %109 to i32
+  %111 = shl nuw nsw i32 %110, 16
+  %112 = or disjoint i32 %111, %107
+  %113 = getelementptr inbounds i8, ptr %.0.i.i, i64 10
+  %114 = load i8, ptr %113, align 1
+  %115 = zext i8 %114 to i32
+  %116 = shl nuw nsw i32 %115, 8
+  %117 = or disjoint i32 %112, %116
+  %118 = getelementptr inbounds i8, ptr %.0.i.i, i64 11
+  %119 = load i8, ptr %118, align 1
+  %120 = zext i8 %119 to i32
+  %121 = or disjoint i32 %117, %120
+  %122 = sitofp i32 %121 to float
+  %123 = fmul float %122, 0x3EF0000000000000
+  store float %123, ptr %102, align 4
+  %124 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %125 = load i8, ptr %124, align 1
+  %126 = zext i8 %125 to i32
+  %127 = shl nuw i32 %126, 24
+  %128 = getelementptr inbounds i8, ptr %.0.i.i, i64 5
+  %129 = load i8, ptr %128, align 1
+  %130 = zext i8 %129 to i32
+  %131 = shl nuw nsw i32 %130, 16
+  %132 = or disjoint i32 %131, %127
+  %133 = getelementptr inbounds i8, ptr %.0.i.i, i64 6
+  %134 = load i8, ptr %133, align 1
+  %135 = zext i8 %134 to i32
+  %136 = shl nuw nsw i32 %135, 8
+  %137 = or disjoint i32 %132, %136
+  %138 = getelementptr inbounds i8, ptr %.0.i.i, i64 7
+  %139 = load i8, ptr %138, align 1
+  %140 = zext i8 %139 to i32
+  %141 = or disjoint i32 %137, %140
+  %142 = sitofp i32 %141 to float
+  %143 = fmul float %142, 0x3EF0000000000000
+  %144 = fcmp ole float %123, %143
+  %.sroa.speculated7.i.i = select i1 %144, float %123, float %143
+  store float %.sroa.speculated7.i.i, ptr %101, align 4
+  %145 = getelementptr inbounds i8, ptr %.0.i.i, i64 12
+  %146 = load i8, ptr %145, align 1
+  %147 = zext i8 %146 to i32
+  %148 = shl nuw i32 %147, 24
+  %149 = getelementptr inbounds i8, ptr %.0.i.i, i64 13
+  %150 = load i8, ptr %149, align 1
+  %151 = zext i8 %150 to i32
+  %152 = shl nuw nsw i32 %151, 16
+  %153 = or disjoint i32 %152, %148
+  %154 = getelementptr inbounds i8, ptr %.0.i.i, i64 14
+  %155 = load i8, ptr %154, align 1
+  %156 = zext i8 %155 to i32
+  %157 = shl nuw nsw i32 %156, 8
+  %158 = or disjoint i32 %153, %157
+  %159 = getelementptr inbounds i8, ptr %.0.i.i, i64 15
+  %160 = load i8, ptr %159, align 1
+  %161 = zext i8 %160 to i32
+  %162 = or disjoint i32 %158, %161
+  %163 = sitofp i32 %162 to float
+  %164 = fmul float %163, 0x3EF0000000000000
+  %165 = fcmp oge float %123, %164
+  %.sroa.speculated.i.i = select i1 %165, float %123, float %164
+  store float %.sroa.speculated.i.i, ptr %103, align 4
+  %166 = getelementptr inbounds i8, ptr %2, i64 28
+  store i32 0, ptr %166, align 4
   br label %_ZNK10hb_array_tIKN2OT10AxisRecordEE5lfindIjEEbRKT_Pj14hb_not_found_tj.exit.thread
 
 _ZNK10hb_array_tIKN2OT10AxisRecordEE5lfindIjEEbRKT_Pj14hb_not_found_tj.exit.thread: ; preds = %.lr.ph, %3, %._crit_edge, %._crit_edge.thread
-  %165 = phi i1 [ true, %._crit_edge.thread ], [ false, %._crit_edge ], [ false, %3 ], [ false, %.lr.ph ]
-  ret i1 %165
+  %167 = phi i1 [ true, %._crit_edge.thread ], [ false, %._crit_edge ], [ false, %3 ], [ false, %.lr.ph ]
+  ret i1 %167
 }
 
 ; Function Attrs: mustprogress uwtable

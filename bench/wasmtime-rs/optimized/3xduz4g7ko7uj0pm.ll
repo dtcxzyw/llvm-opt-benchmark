@@ -3347,47 +3347,47 @@ define noundef range(i8 0, 18) i8 @_ZN16wasmtime_environ13trap_encoding16lookup_
   %.not.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h94c9bbc47a6851dcE.exit", label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %17, %22
-  %.028.i.i = phi i64 [ %25, %22 ], [ %9, %17 ]
-  %.01927.i.i = phi i64 [ %.022.i.i, %22 ], [ 0, %17 ]
-  %.02026.i.i = phi i64 [ %.021.i.i, %22 ], [ %9, %17 ]
-  %18 = lshr i64 %.028.i.i, 1
-  %19 = add i64 %18, %.01927.i.i
+.lr.ph.i.i:                                       ; preds = %17, %23
+  %.027.i.i = phi i64 [ %27, %23 ], [ %9, %17 ]
+  %.01926.i.i = phi i64 [ %.022.i.i, %23 ], [ 0, %17 ]
+  %.02025.i.i = phi i64 [ %.021.i.i, %23 ], [ %9, %17 ]
+  %18 = lshr i64 %.027.i.i, 1
+  %19 = add i64 %18, %.01926.i.i
   %20 = icmp ult i64 %19, %9
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds { [4 x i8], {} }, ptr %6, i64 %19
   %.val23.i.i = load i32, ptr %21, align 1, !alias.scope !869, !noalias !874
-  %.not24.i.i = icmp eq i32 %.val23.i.i, %.sroa.523.0
-  br i1 %.not24.i.i, label %28, label %22
+  %22 = icmp eq i32 %.val23.i.i, %.sroa.523.0
+  br i1 %22, label %30, label %23
 
-22:                                               ; preds = %.lr.ph.i.i
-  %.not.not.i.i = icmp ult i32 %.val23.i.i, %.sroa.523.0
-  %23 = icmp ugt i32 %.val23.i.i, %.sroa.523.0
-  %.021.i.i = select i1 %23, i64 %19, i64 %.02026.i.i
-  %24 = add nuw i64 %19, 1
-  %.022.i.i = select i1 %.not.not.i.i, i64 %24, i64 %.01927.i.i
-  %25 = sub i64 %.021.i.i, %.022.i.i
-  %26 = icmp ult i64 %.022.i.i, %.021.i.i
-  br i1 %26, label %.lr.ph.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h94c9bbc47a6851dcE.exit"
+23:                                               ; preds = %.lr.ph.i.i
+  %24 = icmp ugt i32 %.val23.i.i, %.sroa.523.0
+  %.021.i.i = select i1 %24, i64 %19, i64 %.02025.i.i
+  %25 = icmp ult i32 %.val23.i.i, %.sroa.523.0
+  %26 = add nuw i64 %19, 1
+  %.022.i.i = select i1 %25, i64 %26, i64 %.01926.i.i
+  %27 = sub i64 %.021.i.i, %.022.i.i
+  %28 = icmp ult i64 %.022.i.i, %.021.i.i
+  br i1 %28, label %.lr.ph.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h94c9bbc47a6851dcE.exit"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h94c9bbc47a6851dcE.exit": ; preds = %22, %17
-  %.019.lcssa.i.i = phi i64 [ 0, %17 ], [ %.022.i.i, %22 ]
-  %27 = icmp ule i64 %.019.lcssa.i.i, %9
-  tail call void @llvm.assume(i1 %27)
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h94c9bbc47a6851dcE.exit": ; preds = %23, %17
+  %.019.lcssa.i.i = phi i64 [ 0, %17 ], [ %.022.i.i, %23 ]
+  %29 = icmp ule i64 %.019.lcssa.i.i, %9
+  tail call void @llvm.assume(i1 %29)
   br label %_ZN16wasmtime_environ13trap_encoding4Trap7from_u817h95ee0af72787344eE.exit
 
-28:                                               ; preds = %.lr.ph.i.i
+30:                                               ; preds = %.lr.ph.i.i
   %.not = icmp ult i64 %19, %14
-  br i1 %.not, label %29, label %_ZN16wasmtime_environ13trap_encoding4Trap7from_u817h95ee0af72787344eE.exit
+  br i1 %.not, label %31, label %_ZN16wasmtime_environ13trap_encoding4Trap7from_u817h95ee0af72787344eE.exit
 
-29:                                               ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %13, i64 %19
-  %31 = load i8, ptr %30, align 1, !noundef !5
-  %. = tail call i8 @llvm.umin.i8(i8 %31, i8 17)
+31:                                               ; preds = %30
+  %32 = getelementptr inbounds i8, ptr %13, i64 %19
+  %33 = load i8, ptr %32, align 1, !noundef !5
+  %. = tail call i8 @llvm.umin.i8(i8 %33, i8 17)
   br label %_ZN16wasmtime_environ13trap_encoding4Trap7from_u817h95ee0af72787344eE.exit
 
-_ZN16wasmtime_environ13trap_encoding4Trap7from_u817h95ee0af72787344eE.exit: ; preds = %29, %5, %3, %28, %12, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h94c9bbc47a6851dcE.exit"
-  %.2 = phi i8 [ 17, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h94c9bbc47a6851dcE.exit" ], [ 17, %12 ], [ 17, %28 ], [ 17, %3 ], [ 17, %5 ], [ %., %29 ]
+_ZN16wasmtime_environ13trap_encoding4Trap7from_u817h95ee0af72787344eE.exit: ; preds = %31, %5, %3, %30, %12, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h94c9bbc47a6851dcE.exit"
+  %.2 = phi i8 [ 17, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h94c9bbc47a6851dcE.exit" ], [ 17, %12 ], [ 17, %30 ], [ 17, %3 ], [ 17, %5 ], [ %., %31 ]
   ret i8 %.2
 }
 

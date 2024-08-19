@@ -2035,11 +2035,8 @@ u_strlen_75.exit82:                               ; preds = %while.cond.i73
 
 if.end42:                                         ; preds = %u_strlen_75.exit82, %if.end38
   %length2.addr.0 = phi i32 [ %conv1.i81, %u_strlen_75.exit82 ], [ %length2, %if.end38 ]
-  %cmp43 = icmp slt i32 %length1.addr.0, %length2.addr.0
-  %cmp48 = icmp ne i32 %length1.addr.0, %length2.addr.0
-  %. = zext i1 %cmp48 to i32
   %length1.addr.0.sink = tail call i32 @llvm.smin.i32(i32 %length1.addr.0, i32 %length2.addr.0)
-  %lengthResult.0 = select i1 %cmp43, i32 -1, i32 %.
+  %lengthResult.0 = tail call i32 @llvm.scmp.i32.i32(i32 %length1.addr.0, i32 %length2.addr.0)
   %idx.ext50 = sext i32 %length1.addr.0.sink to i64
   %add.ptr51 = getelementptr inbounds i16, ptr %s1, i64 %idx.ext50
   %cmp57 = icmp eq ptr %s1, %s2
@@ -3605,6 +3602,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

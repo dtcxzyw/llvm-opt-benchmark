@@ -9077,10 +9077,7 @@ define noundef zeroext i1 @"_ZN9actix_web4http6header14content_length118_$LT$imp
 define noundef range(i8 -1, 2) i8 @"_ZN109_$LT$actix_web..http..header..content_length..ContentLength$u20$as$u20$core..cmp..PartialOrd$LT$usize$GT$$GT$11partial_cmp17hee9bbf5d64c211e1E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #32 {
   %3 = load i64, ptr %0, align 8, !noundef !42
   %4 = load i64, ptr %1, align 8, !noundef !42
-  %5 = icmp ult i64 %3, %4
-  %6 = icmp ne i64 %3, %4
-  %. = zext i1 %6 to i8
-  %.0 = select i1 %5, i8 -1, i8 %.
+  %.0 = tail call i8 @llvm.ucmp.i8.i64(i64 %3, i64 %4)
   ret i8 %.0
 }
 
@@ -9088,10 +9085,7 @@ define noundef range(i8 -1, 2) i8 @"_ZN109_$LT$actix_web..http..header..content_
 define noundef range(i8 -1, 2) i8 @"_ZN9actix_web4http6header14content_length119_$LT$impl$u20$core..cmp..PartialOrd$LT$actix_web..http..header..content_length..ContentLength$GT$$u20$for$u20$usize$GT$11partial_cmp17h1c9f77dec34ce9e0E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #32 {
   %3 = load i64, ptr %0, align 8, !noundef !42
   %4 = load i64, ptr %1, align 8, !noundef !42
-  %5 = icmp ult i64 %3, %4
-  %6 = icmp ne i64 %3, %4
-  %. = zext i1 %6 to i8
-  %.0 = select i1 %5, i8 -1, i8 %.
+  %.0 = tail call i8 @llvm.ucmp.i8.i64(i64 %3, i64 %4)
   ret i8 %.0
 }
 
@@ -9345,6 +9339,9 @@ declare hidden void @"_ZN4core3ptr85drop_in_place$LT$alloc..vec..Vec$LT$brotli_d
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #46
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i64(i64, i64) #47
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #47

@@ -1109,10 +1109,7 @@ define range(i32 -1, 2) i32 @Aig_ObjCompareIdIncrease(ptr nocapture noundef read
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr i8, ptr %5, i64 36
   %.val5 = load i32, ptr %6, align 4
-  %7 = icmp slt i32 %.val, %.val5
-  %.not = icmp ne i32 %.val, %.val5
-  %. = zext i1 %.not to i32
-  %.0 = select i1 %7, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %.val, i32 %.val5)
   ret i32 %.0
 }
 
@@ -5695,6 +5692,9 @@ declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_add
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #23

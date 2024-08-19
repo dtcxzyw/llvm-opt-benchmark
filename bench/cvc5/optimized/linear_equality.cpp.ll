@@ -1581,8 +1581,6 @@ cond.end:                                         ; preds = %cond.end.lr.ph, %fo
   %add.ptr.i.i.i9 = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %7, i64 %conv.i.i8
   %_mp_size.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i9, i64 28
   %8 = load i32, ptr %_mp_size.i, align 4
-  %cmp6.i.not = icmp eq i32 %8, 0
-  %cmp.inv.i = icmp slt i32 %8, 0
   %9 = load i32, ptr %add.ptr.i.i.i9, align 8
   %10 = load ptr, ptr %d_btracking, align 8
   %d_image.i = getelementptr inbounds i8, ptr %10, i64 48
@@ -1599,6 +1597,7 @@ cond.end:                                         ; preds = %cond.end.lr.ph, %fo
   br i1 %12, label %_ZN4cvc58internal6theory5arith6linear10BoundsInfo18addInAtBoundChangeEiNS3_11BoundCountsES5_.exit.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %cond.end
+  %cmp.inv.i = icmp slt i32 %8, 0
   br i1 %cmp.inv.i, label %if.then2.i.i.i, label %if.else9.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.else.i.i.i
@@ -1611,7 +1610,8 @@ if.then2.i.i.i:                                   ; preds = %if.else.i.i.i
   br label %if.end23.sink.split.i.i.i
 
 if.else9.i.i.i:                                   ; preds = %if.else.i.i.i
-  br i1 %cmp6.i.not, label %for.inc, label %if.then11.i.i.i
+  %cmp10.not.i.i.i = icmp eq i32 %8, 0
+  br i1 %cmp10.not.i.i.i, label %for.inc, label %if.then11.i.i.i
 
 if.then11.i.i.i:                                  ; preds = %if.else9.i.i.i
   %sub14.i.i.i = sub i32 %after.sroa.4.0.extract.trunc.i.i.i, %before.sroa.4.0.extract.trunc.i.i.i
@@ -1641,7 +1641,8 @@ _ZN4cvc58internal6theory5arith6linear10BoundsInfo18addInAtBoundChangeEiNS3_11Bou
   br i1 %16, label %for.inc, label %if.else.i.i12.i
 
 if.else.i.i12.i:                                  ; preds = %_ZN4cvc58internal6theory5arith6linear10BoundsInfo18addInAtBoundChangeEiNS3_11BoundCountsES5_.exit.i
-  br i1 %cmp.inv.i, label %if.then2.i.i24.i, label %if.else9.i.i14.i
+  %cmp.i.i13.i = icmp slt i32 %8, 0
+  br i1 %cmp.i.i13.i, label %if.then2.i.i24.i, label %if.else9.i.i14.i
 
 if.then2.i.i24.i:                                 ; preds = %if.else.i.i12.i
   %sub.i.i25.i = sub i32 %after.sroa.0.0.extract.trunc.i.i7.i, %before.sroa.0.0.extract.trunc.i.i4.i
@@ -1653,7 +1654,8 @@ if.then2.i.i24.i:                                 ; preds = %if.else.i.i12.i
   br label %if.end23.sink.split.i.i21.i
 
 if.else9.i.i14.i:                                 ; preds = %if.else.i.i12.i
-  br i1 %cmp6.i.not, label %for.inc, label %if.then11.i.i16.i
+  %cmp10.not.i.i15.i = icmp eq i32 %8, 0
+  br i1 %cmp10.not.i.i15.i, label %for.inc, label %if.then11.i.i16.i
 
 if.then11.i.i16.i:                                ; preds = %if.else9.i.i14.i
   %sub14.i.i17.i = sub i32 %after.sroa.4.0.extract.trunc.i.i9.i, %before.sroa.4.0.extract.trunc.i.i6.i
@@ -3380,47 +3382,50 @@ invoke.cont33:                                    ; preds = %invoke.cont30
 
 invoke.cont39:                                    ; preds = %invoke.cont33
   %bc.sroa.0.0.extract.trunc.i = trunc i64 %call2.i194 to i32
-  %cmp.not.i196 = icmp eq i32 %before.sroa.0.0.extract.trunc, %bc.sroa.0.0.extract.trunc.i
+  %cmp.not.i196 = icmp ne i32 %before.sroa.0.0.extract.trunc, %bc.sroa.0.0.extract.trunc.i
   %bc.sroa.2.0.extract.shift.i = lshr i64 %call2.i194, 32
-  %cmp4.i197 = icmp eq i64 %before.sroa.3.0.extract.shift, %bc.sroa.2.0.extract.shift.i
-  %.not516 = and i1 %cmp.not.i196, %cmp4.i197
+  %cmp4.i197 = icmp ne i64 %before.sroa.3.0.extract.shift, %bc.sroa.2.0.extract.shift.i
+  %6 = or i1 %cmp.not.i196, %cmp4.i197
   %d_tableau = getelementptr inbounds i8, ptr %this, i64 8
-  %6 = load ptr, ptr %d_tableau, align 8
-  %d_columns.i.i = getelementptr inbounds i8, ptr %6, i64 24
-  %7 = load ptr, ptr %d_columns.i.i, align 8
-  %add.ptr.i.i.i199 = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::ColumnVector", ptr %7, i64 %conv.i.i
+  %7 = load ptr, ptr %d_tableau, align 8
+  %d_columns.i.i = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = load ptr, ptr %d_columns.i.i, align 8
+  %add.ptr.i.i.i199 = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::ColumnVector", ptr %8, i64 %conv.i.i
   %d_entries.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i199, i64 8
-  %8 = load ptr, ptr %d_entries.i.i, align 8
-  %colIter.sroa.0.0512 = load i32, ptr %add.ptr.i.i.i199, align 4
-  %cmp.i513 = icmp eq i32 %colIter.sroa.0.0512, -1
-  br i1 %cmp.i513, label %if.end137, label %invoke.cont49.lr.ph
+  %9 = load ptr, ptr %d_entries.i.i, align 8
+  %colIter.sroa.0.0511 = load i32, ptr %add.ptr.i.i.i199, align 4
+  %cmp.i512 = icmp eq i32 %colIter.sroa.0.0511, -1
+  br i1 %cmp.i512, label %if.end137, label %invoke.cont49.lr.ph
 
 invoke.cont49.lr.ph:                              ; preds = %invoke.cont39
   %bc.sroa.2.0.extract.trunc.i = trunc nuw i64 %bc.sroa.2.0.extract.shift.i to i32
   %k.i = getelementptr inbounds i8, ptr %ref.tmp56, i64 32
   %d_btracking = getelementptr inbounds i8, ptr %this, i64 352
   %before.sroa.4.0.extract.trunc.i.i = trunc nuw i64 %before.sroa.3.0.extract.shift to i32
+  %cmp.i.i.i = icmp eq i32 %before.sroa.0.0.extract.trunc, %bc.sroa.0.0.extract.trunc.i
+  %cmp4.i.i.i = icmp eq i64 %before.sroa.3.0.extract.shift, %bc.sroa.2.0.extract.shift.i
+  %10 = and i1 %cmp.i.i.i, %cmp4.i.i.i
   %sub14.i.i = sub i32 %bc.sroa.2.0.extract.trunc.i, %before.sroa.4.0.extract.trunc.i.i
   %sub19.i.i = sub i32 %bc.sroa.0.0.extract.trunc.i, %before.sroa.0.0.extract.trunc
   %d_basicVariableUpdates = getelementptr inbounds i8, ptr %this, i64 16
   %k.i456 = getelementptr inbounds i8, ptr %nAssignment, i64 32
-  %.pre = load ptr, ptr %8, align 8
+  %.pre = load ptr, ptr %9, align 8
   br label %invoke.cont49
 
 invoke.cont49:                                    ; preds = %invoke.cont49.lr.ph, %_ZN4cvc58internal13DeltaRationalD2Ev.exit460
-  %9 = phi ptr [ %.pre, %invoke.cont49.lr.ph ], [ %40, %_ZN4cvc58internal13DeltaRationalD2Ev.exit460 ]
-  %colIter.sroa.0.0514 = phi i32 [ %colIter.sroa.0.0512, %invoke.cont49.lr.ph ], [ %colIter.sroa.0.0, %_ZN4cvc58internal13DeltaRationalD2Ev.exit460 ]
-  %conv.i.i200 = zext i32 %colIter.sroa.0.0514 to i64
-  %add.ptr.i.i.i201 = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %9, i64 %conv.i.i200
-  %10 = load i32, ptr %add.ptr.i.i.i201, align 8
-  %11 = load ptr, ptr %d_tableau, align 8
-  %d_image.i.i202 = getelementptr inbounds i8, ptr %11, i64 472
-  %conv.i.i203 = zext i32 %10 to i64
-  %12 = load ptr, ptr %d_image.i.i202, align 8
-  %add.ptr.i.i.i204 = getelementptr inbounds i32, ptr %12, i64 %conv.i.i203
-  %13 = load i32, ptr %add.ptr.i.i.i204, align 4
-  %14 = load ptr, ptr %this, align 8
-  %call55 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK4cvc58internal6theory5arith6linear14ArithVariables13getAssignmentEj(ptr noundef nonnull align 8 dereferenceable(568) %14, i32 noundef %13)
+  %11 = phi ptr [ %.pre, %invoke.cont49.lr.ph ], [ %42, %_ZN4cvc58internal13DeltaRationalD2Ev.exit460 ]
+  %colIter.sroa.0.0513 = phi i32 [ %colIter.sroa.0.0511, %invoke.cont49.lr.ph ], [ %colIter.sroa.0.0, %_ZN4cvc58internal13DeltaRationalD2Ev.exit460 ]
+  %conv.i.i200 = zext i32 %colIter.sroa.0.0513 to i64
+  %add.ptr.i.i.i201 = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %11, i64 %conv.i.i200
+  %12 = load i32, ptr %add.ptr.i.i.i201, align 8
+  %13 = load ptr, ptr %d_tableau, align 8
+  %d_image.i.i202 = getelementptr inbounds i8, ptr %13, i64 472
+  %conv.i.i203 = zext i32 %12 to i64
+  %14 = load ptr, ptr %d_image.i.i202, align 8
+  %add.ptr.i.i.i204 = getelementptr inbounds i32, ptr %14, i64 %conv.i.i203
+  %15 = load i32, ptr %add.ptr.i.i.i204, align 4
+  %16 = load ptr, ptr %this, align 8
+  %call55 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK4cvc58internal6theory5arith6linear14ArithVariables13getAssignmentEj(ptr noundef nonnull align 8 dereferenceable(568) %16, i32 noundef %15)
           to label %invoke.cont54 unwind label %lpad6.loopexit
 
 invoke.cont54:                                    ; preds = %invoke.cont49
@@ -3437,10 +3442,10 @@ invoke.cont59:                                    ; preds = %invoke.cont57
           to label %_ZN4cvc58internal8RationalD2Ev.exit.i unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %invoke.cont59
-  %15 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #26
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #26
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit.i:            ; preds = %invoke.cont59
@@ -3448,64 +3453,70 @@ _ZN4cvc58internal8RationalD2Ev.exit.i:            ; preds = %invoke.cont59
           to label %cond.true64 unwind label %terminate.lpad.i.i1.i
 
 terminate.lpad.i.i1.i:                            ; preds = %_ZN4cvc58internal8RationalD2Ev.exit.i
-  %17 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #26
+  %20 = extractvalue { ptr, i32 } %19, 0
+  call void @__clang_call_terminate(ptr %20) #26
   unreachable
 
 cond.true64:                                      ; preds = %_ZN4cvc58internal8RationalD2Ev.exit.i
-  %19 = load ptr, ptr %this, align 8
-  %d_image.i.i420 = getelementptr inbounds i8, ptr %19, i64 48
-  %conv.i.i421 = zext i32 %13 to i64
-  %20 = load ptr, ptr %d_image.i.i420, align 8
-  %add.ptr.i.i.i422 = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %20, i64 %conv.i.i421
+  %21 = load ptr, ptr %this, align 8
+  %d_image.i.i420 = getelementptr inbounds i8, ptr %21, i64 48
+  %conv.i.i421 = zext i32 %15 to i64
+  %22 = load ptr, ptr %d_image.i.i420, align 8
+  %add.ptr.i.i.i422 = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %22, i64 %conv.i.i421
   %call2.i423 = invoke i64 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables7VarInfo13atBoundCountsEv(ptr noundef nonnull align 8 dereferenceable(113) %add.ptr.i.i.i422)
           to label %invoke.cont87 unwind label %lpad61
 
 invoke.cont87:                                    ; preds = %cond.true64
   %xjBefore.sroa.0.0.extract.trunc = trunc i64 %call2.i423 to i32
   %xjBefore.sroa.3.0.extract.shift = lshr i64 %call2.i423, 32
-  %21 = load ptr, ptr %this, align 8
-  invoke void @_ZN4cvc58internal6theory5arith6linear14ArithVariables13setAssignmentEjRKNS0_13DeltaRationalE(ptr noundef nonnull align 8 dereferenceable(568) %21, i32 noundef %13, ptr noundef nonnull align 8 dereferenceable(64) %nAssignment)
+  %23 = load ptr, ptr %this, align 8
+  invoke void @_ZN4cvc58internal6theory5arith6linear14ArithVariables13setAssignmentEjRKNS0_13DeltaRationalE(ptr noundef nonnull align 8 dereferenceable(568) %23, i32 noundef %15, ptr noundef nonnull align 8 dereferenceable(64) %nAssignment)
           to label %invoke.cont90 unwind label %lpad61
 
 invoke.cont90:                                    ; preds = %invoke.cont87
-  %22 = load ptr, ptr %this, align 8
-  %d_image.i.i425 = getelementptr inbounds i8, ptr %22, i64 48
-  %23 = load ptr, ptr %d_image.i.i425, align 8
-  %add.ptr.i.i.i427 = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %23, i64 %conv.i.i421
+  %24 = load ptr, ptr %this, align 8
+  %d_image.i.i425 = getelementptr inbounds i8, ptr %24, i64 48
+  %25 = load ptr, ptr %d_image.i.i425, align 8
+  %add.ptr.i.i.i427 = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %25, i64 %conv.i.i421
   %call2.i428 = invoke i64 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables7VarInfo13atBoundCountsEv(ptr noundef nonnull align 8 dereferenceable(113) %add.ptr.i.i.i427)
           to label %invoke.cont92 unwind label %lpad61
 
 invoke.cont92:                                    ; preds = %invoke.cont90
-  %24 = load ptr, ptr %d_btracking, align 8
-  %d_image.i = getelementptr inbounds i8, ptr %24, i64 48
-  %25 = load ptr, ptr %d_image.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::BoundsInfo", ptr %25, i64 %conv.i.i203
-  br i1 %.not516, label %if.end, label %if.else.i.i
+  %26 = load ptr, ptr %d_btracking, align 8
+  %d_image.i = getelementptr inbounds i8, ptr %26, i64 48
+  %27 = load ptr, ptr %d_image.i, align 8
+  %add.ptr.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::BoundsInfo", ptr %27, i64 %conv.i.i203
+  br i1 %6, label %invoke.cont96, label %if.end
 
-if.else.i.i:                                      ; preds = %invoke.cont92
+invoke.cont96:                                    ; preds = %invoke.cont92
   %_mp_size.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i201, i64 28
-  %26 = load i32, ptr %_mp_size.i, align 4
-  %cmp6.i.not.not = icmp eq i32 %26, 0
-  br i1 %cmp6.i.not.not, label %if.end, label %if.end23.sink.split.i.i
+  %28 = load i32, ptr %_mp_size.i, align 4
+  br i1 %10, label %if.end, label %if.else.i.i
 
-if.end23.sink.split.i.i:                          ; preds = %if.else.i.i
-  %cmp.inv.i = icmp slt i32 %26, 0
-  %sub14.i.i.mux = select i1 %cmp.inv.i, i32 %sub14.i.i, i32 %sub19.i.i
-  %sub19.i.i.mux = select i1 %cmp.inv.i, i32 %sub19.i.i, i32 %sub14.i.i
+if.else.i.i:                                      ; preds = %invoke.cont96
+  %cmp.inv.i = icmp slt i32 %28, 0
+  br i1 %cmp.inv.i, label %if.end23.sink.split.i.i, label %if.else9.i.i
+
+if.else9.i.i:                                     ; preds = %if.else.i.i
+  %cmp10.not.i.i = icmp eq i32 %28, 0
+  br i1 %cmp10.not.i.i, label %if.end, label %if.end23.sink.split.i.i
+
+if.end23.sink.split.i.i:                          ; preds = %if.else9.i.i, %if.else.i.i
+  %sub14.i.i.sink = phi i32 [ %sub19.i.i, %if.else.i.i ], [ %sub14.i.i, %if.else9.i.i ]
+  %sub6.sink.i.i = phi i32 [ %sub14.i.i, %if.else.i.i ], [ %sub19.i.i, %if.else9.i.i ]
   %d_upperBoundCount15.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 4
-  %27 = load i32, ptr %d_upperBoundCount15.i.i, align 4
-  %add16.i.i = add i32 %sub19.i.i.mux, %27
+  %29 = load i32, ptr %d_upperBoundCount15.i.i, align 4
+  %add16.i.i = add i32 %sub14.i.i.sink, %29
   store i32 %add16.i.i, ptr %d_upperBoundCount15.i.i, align 4
-  %28 = load i32, ptr %add.ptr.i.i, align 4
-  %add8.i.i = add i32 %28, %sub14.i.i.mux
+  %30 = load i32, ptr %add.ptr.i.i, align 4
+  %add8.i.i = add i32 %30, %sub6.sink.i.i
   store i32 %add8.i.i, ptr %add.ptr.i.i, align 4
   br label %if.end
 
 lpad:                                             ; preds = %invoke.cont3, %invoke.cont, %entry
-  %29 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup139
 
@@ -3520,47 +3531,47 @@ lpad6.loopexit.split-lp:                          ; preds = %invoke.cont30, %con
   br label %ehcleanup138
 
 lpad58:                                           ; preds = %invoke.cont57
-  %30 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal13DeltaRationalD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp56) #27
   br label %ehcleanup138
 
 lpad61:                                           ; preds = %invoke.cont90, %cond.true64, %if.end108, %invoke.cont87
-  %31 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal13DeltaRationalD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %nAssignment) #27
   br label %ehcleanup138
 
-if.end:                                           ; preds = %invoke.cont92, %if.else.i.i, %if.end23.sink.split.i.i
+if.end:                                           ; preds = %if.end23.sink.split.i.i, %if.else9.i.i, %invoke.cont96, %invoke.cont92
   %bc.sroa.0.0.extract.trunc.i432 = trunc i64 %call2.i428 to i32
   %cmp.not.i433 = icmp ne i32 %xjBefore.sroa.0.0.extract.trunc, %bc.sroa.0.0.extract.trunc.i432
   %bc.sroa.2.0.extract.shift.i434 = lshr i64 %call2.i428, 32
   %bc.sroa.2.0.extract.trunc.i435 = trunc nuw i64 %bc.sroa.2.0.extract.shift.i434 to i32
   %cmp4.i437 = icmp ne i64 %xjBefore.sroa.3.0.extract.shift, %bc.sroa.2.0.extract.shift.i434
-  %32 = or i1 %cmp.not.i433, %cmp4.i437
-  br i1 %32, label %if.then104, label %if.end108
+  %34 = or i1 %cmp.not.i433, %cmp4.i437
+  br i1 %34, label %if.then104, label %if.end108
 
 if.then104:                                       ; preds = %if.end
   %cmp.i.i.i444 = icmp eq i32 %xjBefore.sroa.0.0.extract.trunc, %bc.sroa.0.0.extract.trunc.i432
   %cmp4.i.i.i445 = icmp eq i64 %xjBefore.sroa.3.0.extract.shift, %bc.sroa.2.0.extract.shift.i434
-  %33 = and i1 %cmp.i.i.i444, %cmp4.i.i.i445
-  br i1 %33, label %if.end108, label %if.else.i.i446
+  %35 = and i1 %cmp.i.i.i444, %cmp4.i.i.i445
+  br i1 %35, label %if.end108, label %if.else.i.i446
 
 if.else.i.i446:                                   ; preds = %if.then104
   %before.sroa.4.0.extract.trunc.i.i440 = trunc nuw i64 %xjBefore.sroa.3.0.extract.shift to i32
   %sub.i.i448 = sub i32 %bc.sroa.0.0.extract.trunc.i432, %xjBefore.sroa.0.0.extract.trunc
   %d_upperBoundCount.i.i449 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 4
-  %34 = load i32, ptr %d_upperBoundCount.i.i449, align 4
-  %add.i.i450 = add i32 %sub.i.i448, %34
+  %36 = load i32, ptr %d_upperBoundCount.i.i449, align 4
+  %add.i.i450 = add i32 %sub.i.i448, %36
   store i32 %add.i.i450, ptr %d_upperBoundCount.i.i449, align 4
   %sub6.i.i451 = sub i32 %bc.sroa.2.0.extract.trunc.i435, %before.sroa.4.0.extract.trunc.i.i440
-  %35 = load i32, ptr %add.ptr.i.i, align 4
-  %add8.i.i454 = add i32 %sub6.i.i451, %35
+  %37 = load i32, ptr %add.ptr.i.i, align 4
+  %add8.i.i454 = add i32 %sub6.i.i451, %37
   store i32 %add8.i.i454, ptr %add.ptr.i.i, align 4
   br label %if.end108
 
 if.end108:                                        ; preds = %if.else.i.i446, %if.then104, %if.end
-  invoke void @_ZN4cvc58internal6theory5arith6linear27BasicVarModelUpdateCallBackclEj(ptr noundef nonnull align 8 dereferenceable(16) %d_basicVariableUpdates, i32 noundef %13)
+  invoke void @_ZN4cvc58internal6theory5arith6linear27BasicVarModelUpdateCallBackclEj(ptr noundef nonnull align 8 dereferenceable(16) %d_basicVariableUpdates, i32 noundef %15)
           to label %invoke.cont109 unwind label %lpad61
 
 invoke.cont109:                                   ; preds = %if.end108
@@ -3568,10 +3579,10 @@ invoke.cont109:                                   ; preds = %if.end108
           to label %_ZN4cvc58internal8RationalD2Ev.exit.i458 unwind label %terminate.lpad.i.i.i457
 
 terminate.lpad.i.i.i457:                          ; preds = %invoke.cont109
-  %36 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           catch ptr null
-  %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #26
+  %39 = extractvalue { ptr, i32 } %38, 0
+  call void @__clang_call_terminate(ptr %39) #26
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit.i458:         ; preds = %invoke.cont109
@@ -3579,15 +3590,15 @@ _ZN4cvc58internal8RationalD2Ev.exit.i458:         ; preds = %invoke.cont109
           to label %_ZN4cvc58internal13DeltaRationalD2Ev.exit460 unwind label %terminate.lpad.i.i1.i459
 
 terminate.lpad.i.i1.i459:                         ; preds = %_ZN4cvc58internal8RationalD2Ev.exit.i458
-  %38 = landingpad { ptr, i32 }
+  %40 = landingpad { ptr, i32 }
           catch ptr null
-  %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #26
+  %41 = extractvalue { ptr, i32 } %40, 0
+  call void @__clang_call_terminate(ptr %41) #26
   unreachable
 
 _ZN4cvc58internal13DeltaRationalD2Ev.exit460:     ; preds = %_ZN4cvc58internal8RationalD2Ev.exit.i458
-  %40 = load ptr, ptr %8, align 8
-  %d_nextCol.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %40, i64 %conv.i.i200, i32 3
+  %42 = load ptr, ptr %9, align 8
+  %d_nextCol.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %42, i64 %conv.i.i200, i32 3
   %colIter.sroa.0.0 = load i32, ptr %d_nextCol.i.i, align 4
   %cmp.i = icmp eq i32 %colIter.sroa.0.0, -1
   br i1 %cmp.i, label %if.end137, label %invoke.cont49, !llvm.loop !20
@@ -3598,10 +3609,10 @@ if.end137:                                        ; preds = %_ZN4cvc58internal13
           to label %_ZN4cvc58internal8RationalD2Ev.exit.i472 unwind label %terminate.lpad.i.i.i471
 
 terminate.lpad.i.i.i471:                          ; preds = %if.end137
-  %41 = landingpad { ptr, i32 }
+  %43 = landingpad { ptr, i32 }
           catch ptr null
-  %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #26
+  %44 = extractvalue { ptr, i32 } %43, 0
+  call void @__clang_call_terminate(ptr %44) #26
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit.i472:         ; preds = %if.end137
@@ -3609,10 +3620,10 @@ _ZN4cvc58internal8RationalD2Ev.exit.i472:         ; preds = %if.end137
           to label %_ZN4cvc58internal13DeltaRationalD2Ev.exit474 unwind label %terminate.lpad.i.i1.i473
 
 terminate.lpad.i.i1.i473:                         ; preds = %_ZN4cvc58internal8RationalD2Ev.exit.i472
-  %43 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           catch ptr null
-  %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #26
+  %46 = extractvalue { ptr, i32 } %45, 0
+  call void @__clang_call_terminate(ptr %46) #26
   unreachable
 
 _ZN4cvc58internal13DeltaRationalD2Ev.exit474:     ; preds = %_ZN4cvc58internal8RationalD2Ev.exit.i472
@@ -3620,12 +3631,12 @@ _ZN4cvc58internal13DeltaRationalD2Ev.exit474:     ; preds = %_ZN4cvc58internal8R
   ret void
 
 ehcleanup138:                                     ; preds = %lpad6.loopexit, %lpad6.loopexit.split-lp, %lpad61, %lpad58
-  %.pn12 = phi { ptr, i32 } [ %31, %lpad61 ], [ %30, %lpad58 ], [ %lpad.loopexit, %lpad6.loopexit ], [ %lpad.loopexit.split-lp, %lpad6.loopexit.split-lp ]
+  %.pn12 = phi { ptr, i32 } [ %33, %lpad61 ], [ %32, %lpad58 ], [ %lpad.loopexit, %lpad6.loopexit ], [ %lpad.loopexit.split-lp, %lpad6.loopexit.split-lp ]
   call void @_ZN4cvc58internal13DeltaRationalD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %diff) #27
   br label %ehcleanup139
 
 ehcleanup139:                                     ; preds = %ehcleanup138, %lpad
-  %.pn12.pn = phi { ptr, i32 } [ %.pn12, %ehcleanup138 ], [ %29, %lpad ]
+  %.pn12.pn = phi { ptr, i32 } [ %.pn12, %ehcleanup138 ], [ %31, %lpad ]
   call void @_ZN4cvc58internal9CodeTimerD1Ev(ptr noundef nonnull align 8 dereferenceable(9) %codeTimer) #27
   resume { ptr, i32 } %.pn12.pn
 }
@@ -6385,18 +6396,18 @@ entry:
   %add.ptr.i.i.i2.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::RowVector", ptr %3, i64 %conv.i.i1.i
   %d_entries.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i2.i, i64 8
   %4 = load ptr, ptr %d_entries.i.i.i, align 8
-  %iter.sroa.0.020 = load i32, ptr %add.ptr.i.i.i2.i, align 8
-  %cmp.i21 = icmp eq i32 %iter.sroa.0.020, -1
-  br i1 %cmp.i21, label %return, label %for.body.lr.ph
+  %iter.sroa.0.019 = load i32, ptr %add.ptr.i.i.i2.i, align 8
+  %cmp.i20 = icmp eq i32 %iter.sroa.0.019, -1
+  br i1 %cmp.i20, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %.pre31 = load ptr, ptr %4, align 8
+  %.pre30 = load ptr, ptr %4, align 8
   br i1 %above, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
-  %5 = phi ptr [ %10, %for.inc.us ], [ %.pre31, %for.body.lr.ph ]
-  %iter.sroa.0.022.us = phi i32 [ %iter.sroa.0.0.us, %for.inc.us ], [ %iter.sroa.0.020, %for.body.lr.ph ]
-  %conv.i.i.us = zext i32 %iter.sroa.0.022.us to i64
+  %5 = phi ptr [ %10, %for.inc.us ], [ %.pre30, %for.body.lr.ph ]
+  %iter.sroa.0.021.us = phi i32 [ %iter.sroa.0.0.us, %for.inc.us ], [ %iter.sroa.0.019, %for.body.lr.ph ]
+  %conv.i.i.us = zext i32 %iter.sroa.0.021.us to i64
   %add.ptr.i.i.i.us = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %5, i64 %conv.i.i.us
   %d_colVar.i.us = getelementptr inbounds i8, ptr %add.ptr.i.i.i.us, i64 4
   %6 = load i32, ptr %d_colVar.i.us, align 4
@@ -6406,12 +6417,12 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 if.end.us:                                        ; preds = %for.body.us
   %_mp_size.i.us = getelementptr inbounds i8, ptr %add.ptr.i.i.i.us, i64 28
   %7 = load i32, ptr %_mp_size.i.us, align 4
-  %cmp.inv.i.us = icmp slt i32 %7, 0
-  br i1 %cmp.inv.i.us, label %land.lhs.true.i.us, label %lor.lhs.false.i.us
+  %cmp.i9.us = icmp slt i32 %7, 0
+  br i1 %cmp.i9.us, label %land.lhs.true.i.us, label %lor.lhs.false.i.us
 
 lor.lhs.false.i.us:                               ; preds = %if.end.us
-  %cmp6.i.not.us = icmp eq i32 %7, 0
-  br i1 %cmp6.i.not.us, label %for.inc.us, label %land.lhs.true3.i.us
+  %cmp2.not.i.us = icmp eq i32 %7, 0
+  br i1 %cmp2.not.i.us, label %for.inc.us, label %land.lhs.true3.i.us
 
 land.lhs.true3.i.us:                              ; preds = %lor.lhs.false.i.us
   %8 = load ptr, ptr %this, align 8
@@ -6431,9 +6442,9 @@ for.inc.us:                                       ; preds = %land.lhs.true.i.us,
   br i1 %cmp.i.us, label %return, label %for.body.us, !llvm.loop !34
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %11 = phi ptr [ %16, %for.inc ], [ %.pre31, %for.body.lr.ph ]
-  %iter.sroa.0.022 = phi i32 [ %iter.sroa.0.0, %for.inc ], [ %iter.sroa.0.020, %for.body.lr.ph ]
-  %conv.i.i = zext i32 %iter.sroa.0.022 to i64
+  %11 = phi ptr [ %16, %for.inc ], [ %.pre30, %for.body.lr.ph ]
+  %iter.sroa.0.021 = phi i32 [ %iter.sroa.0.0, %for.inc ], [ %iter.sroa.0.019, %for.body.lr.ph ]
+  %conv.i.i = zext i32 %iter.sroa.0.021 to i64
   %add.ptr.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %11, i64 %conv.i.i
   %d_colVar.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
   %12 = load i32, ptr %d_colVar.i, align 4
@@ -6793,7 +6804,6 @@ lor.rhs12:                                        ; preds = %_ZNK4cvc58internal6
 lor.end15:                                        ; preds = %lor.rhs12, %lor.end
   %cond149 = phi i32 [ %7, %lor.end ], [ %cond148, %lor.rhs12 ]
   %cond16 = phi i32 [ 1, %lor.end ], [ %8, %lor.rhs12 ]
-  %cmp6.i.not = icmp eq i32 %3, 0
   %d_tableau = getelementptr inbounds i8, ptr %this, i64 8
   %9 = load ptr, ptr %d_tableau, align 8
   %d_image.i.i = getelementptr inbounds i8, ptr %9, i64 400
@@ -6815,17 +6825,27 @@ lor.end15:                                        ; preds = %lor.rhs12, %lor.end
   %add.ptr.i.i.i17 = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %15, i64 %conv.i.i16
   %call2.i = tail call i64 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables7VarInfo13atBoundCountsEv(ptr noundef nonnull align 8 dereferenceable(113) %add.ptr.i.i.i17)
   %cmp.i = icmp sgt i32 %3, 0
+  br i1 %cmp.i, label %if.then.i, label %if.else.i
+
+if.then.i:                                        ; preds = %lor.end15
   %retval.sroa.4.0.extract.shift.i = lshr i64 %call2.i, 32
   %retval.sroa.4.0.extract.trunc.i = trunc nuw i64 %retval.sroa.4.0.extract.shift.i to i32
+  br label %_ZNK4cvc58internal6theory5arith6linear11BoundCounts13multiplyBySgnEi.exit
+
+if.else.i:                                        ; preds = %lor.end15
   %ref.tmp.sroa.0.0.extract.trunc = trunc i64 %call2.i to i32
   %ref.tmp.sroa.3.0.extract.shift = lshr i64 %call2.i, 32
-  %spec.select = select i1 %cmp6.i.not, i32 0, i32 %ref.tmp.sroa.0.0.extract.trunc
-  %spec.select150 = select i1 %cmp6.i.not, i64 0, i64 %ref.tmp.sroa.3.0.extract.shift
-  %retval.sroa.4.0.i = select i1 %cmp.i, i32 %retval.sroa.4.0.extract.trunc.i, i32 %spec.select
-  %retval.sroa.0.0.i = select i1 %cmp.i, i64 %call2.i, i64 %spec.select150
-  %cmp.inv.i = icmp sgt i32 %3, -1
+  %cmp2.i = icmp eq i32 %3, 0
+  %spec.select = select i1 %cmp2.i, i32 0, i32 %ref.tmp.sroa.0.0.extract.trunc
+  %spec.select150 = select i1 %cmp2.i, i64 0, i64 %ref.tmp.sroa.3.0.extract.shift
+  br label %_ZNK4cvc58internal6theory5arith6linear11BoundCounts13multiplyBySgnEi.exit
+
+_ZNK4cvc58internal6theory5arith6linear11BoundCounts13multiplyBySgnEi.exit: ; preds = %if.else.i, %if.then.i
+  %retval.sroa.4.0.i = phi i32 [ %retval.sroa.4.0.extract.trunc.i, %if.then.i ], [ %spec.select, %if.else.i ]
+  %retval.sroa.0.0.i = phi i64 [ %call2.i, %if.then.i ], [ %spec.select150, %if.else.i ]
   %bcs.sroa.2.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i, 32
   %bcs.sroa.2.0.extract.trunc = trunc nuw i64 %bcs.sroa.2.0.extract.shift to i32
+  %cmp.inv.i = icmp slt i32 %3, 0
   %sub.i = sub i64 %retval.sroa.0.0.copyload.i, %retval.sroa.0.0.i
   %sub4.i = sub i32 %bcs.sroa.2.0.extract.trunc, %retval.sroa.4.0.i
   %nonb.sroa.0.0.extract.trunc = trunc i64 %sub.i to i32
@@ -6846,10 +6866,11 @@ lor.end15:                                        ; preds = %lor.rhs12, %lor.end
   %nonb.sroa.7.0 = add i32 %sub4.i, %sub.i27
   %add8.i = select i1 %18, i32 0, i32 %sub6.i
   %nonb.sroa.0.0 = add i32 %add8.i, %nonb.sroa.0.0.extract.trunc
-  %spec.select159 = select i1 %cmp6.i.not, i32 0, i32 %nonb.sroa.0.0
-  %spec.select160 = select i1 %cmp6.i.not, i32 0, i32 %nonb.sroa.7.0
-  %retval.sroa.4.0.i34 = select i1 %cmp.inv.i, i32 %spec.select159, i32 %nonb.sroa.7.0
-  %retval.sroa.0.0.i35 = select i1 %cmp.inv.i, i32 %spec.select160, i32 %nonb.sroa.0.0
+  %cmp2.i31 = icmp eq i32 %3, 0
+  %spec.select159 = select i1 %cmp2.i31, i32 0, i32 %nonb.sroa.0.0
+  %spec.select160 = select i1 %cmp2.i31, i32 0, i32 %nonb.sroa.7.0
+  %retval.sroa.4.0.i34 = select i1 %cmp.inv.i, i32 %nonb.sroa.7.0, i32 %spec.select159
+  %retval.sroa.0.0.i35 = select i1 %cmp.inv.i, i32 %nonb.sroa.0.0, i32 %spec.select160
   %19 = load ptr, ptr %d_tableau, align 8
   %d_image.i.i.i = getelementptr inbounds i8, ptr %19, i64 400
   %20 = load ptr, ptr %d_image.i.i.i, align 8
@@ -7616,10 +7637,7 @@ if.end15:                                         ; preds = %lor.rhs.i.i, %lor.r
   %8 = load i32, ptr %add.ptr.i.i.i, align 4
   %_mp_size.i = getelementptr inbounds i8, ptr %entry1, i64 28
   %9 = load i32, ptr %_mp_size.i, align 4
-  %cmp6.i = icmp ne i32 %9, 0
-  %conv.i = zext i1 %cmp6.i to i32
   %cmp.inv.i = icmp slt i32 %9, 0
-  %cond.i = select i1 %cmp.inv.i, i32 -1, i32 %conv.i
   %d_btracking = getelementptr inbounds i8, ptr %this, i64 352
   %10 = load ptr, ptr %d_btracking, align 8
   %d_image.i = getelementptr inbounds i8, ptr %10, i64 48
@@ -7645,7 +7663,7 @@ if.then.i21:                                      ; preds = %if.end15
 if.else.i:                                        ; preds = %if.end15
   %ref.tmp.sroa.0.0.extract.trunc = trunc i64 %call2.i to i32
   %ref.tmp.sroa.3.0.extract.shift = lshr i64 %call2.i, 32
-  %cmp2.i = icmp eq i32 %cond.i, 0
+  %cmp2.i = icmp eq i32 %9, 0
   %spec.select = select i1 %cmp2.i, i32 0, i32 %ref.tmp.sroa.0.0.extract.trunc
   %spec.select65 = select i1 %cmp2.i, i64 0, i64 %ref.tmp.sroa.3.0.extract.shift
   br label %_ZNK4cvc58internal6theory5arith6linear11BoundCounts13multiplyBySgnEi.exit
@@ -7681,7 +7699,7 @@ _ZNK4cvc58internal6theory5arith6linear11BoundCounts13multiplyBySgnEi.exit: ; pre
   %add8.i = select i1 %17, i32 0, i32 %sub6.i
   %sumOnly.sroa.0.0 = add i32 %add8.i, %sumOnly.sroa.0.0.extract.trunc
   %sumOnly.sroa.5.0 = add i32 %sub.i32, %sub4.i
-  %cmp2.i36 = icmp eq i32 %cond.i, 0
+  %cmp2.i36 = icmp eq i32 %9, 0
   %18 = load ptr, ptr %d_tableau, align 8
   %d_image.i.i.i = getelementptr inbounds i8, ptr %18, i64 400
   %19 = load ptr, ptr %d_image.i.i.i, align 8

@@ -38,15 +38,18 @@ define hidden void @_ZN6memory8mmap_ops19prefault_mmap_pages17h10751c99dc8e66afE
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   %15 = icmp eq ptr %1, null
   %spec.select = select i1 %15, ptr @anon.616088ef07ca1b37bebf04047481bb24.3, ptr %1
-  %spec.select69 = select i1 %15, i64 0, i64 %2
+  %spec.select64 = select i1 %15, i64 0, i64 %2
   store ptr %spec.select, ptr %11, align 8
   %16 = getelementptr inbounds i8, ptr %11, i64 8
-  store i64 %spec.select69, ptr %16, align 8
+  store i64 %spec.select64, ptr %16, align 8
   %17 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd6ff06cf4e1ed23bE monotonic, align 8
   %18 = icmp ult i64 %17, 6
   tail call void @llvm.assume(i1 %18)
-  %.not = icmp eq i64 %17, 5
-  br i1 %.not, label %.critedge33, label %19
+  %.0.i46 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 5, i64 %17)
+  switch i8 %.0.i46, label %19 [
+    i8 -1, label %.critedge33
+    i8 0, label %.critedge33
+  ]
 
 19:                                               ; preds = %.critedge, %.critedge33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
@@ -66,7 +69,7 @@ define hidden void @_ZN6memory8mmap_ops19prefault_mmap_pages17h10751c99dc8e66afE
   %.val44 = load ptr, ptr %0, align 8, !noundef !4
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h3d69ab78bce8e7d4E.exit"
 
-.critedge33:                                      ; preds = %.critedge
+.critedge33:                                      ; preds = %.critedge, %.critedge
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %12, ptr %9, align 8
@@ -91,14 +94,14 @@ define hidden void @_ZN6memory8mmap_ops19prefault_mmap_pages17h10751c99dc8e66afE
   br label %19
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h3d69ab78bce8e7d4E.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h3d69ab78bce8e7d4E.exit.preheader", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h3d69ab78bce8e7d4E.exit"
-  %.sroa.5.067 = phi i64 [ %35, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h3d69ab78bce8e7d4E.exit" ], [ %.val45, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h3d69ab78bce8e7d4E.exit.preheader" ]
-  %.sroa.055.066 = phi ptr [ %34, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h3d69ab78bce8e7d4E.exit" ], [ %.val44, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h3d69ab78bce8e7d4E.exit.preheader" ]
-  %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.5.067, i64 8096)
-  %33 = icmp ne ptr %.sroa.055.066, null
+  %.sroa.5.062 = phi i64 [ %35, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h3d69ab78bce8e7d4E.exit" ], [ %.val45, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h3d69ab78bce8e7d4E.exit.preheader" ]
+  %.sroa.052.061 = phi ptr [ %34, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h3d69ab78bce8e7d4E.exit" ], [ %.val44, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h3d69ab78bce8e7d4E.exit.preheader" ]
+  %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.5.062, i64 8096)
+  %33 = icmp ne ptr %.sroa.052.061, null
   call void @llvm.assume(i1 %33)
-  %34 = getelementptr inbounds i8, ptr %.sroa.055.066, i64 %.0.sroa.speculated.i.i
-  %35 = sub nuw i64 %.sroa.5.067, %.0.sroa.speculated.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull readonly align 1 dereferenceable(1) %.sroa.055.066, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !11
+  %34 = getelementptr inbounds i8, ptr %.sroa.052.061, i64 %.0.sroa.speculated.i.i
+  %35 = sub nuw i64 %.sroa.5.062, %.0.sroa.speculated.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull readonly align 1 dereferenceable(1) %.sroa.052.061, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !11
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %.critedge35, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h3d69ab78bce8e7d4E.exit"
 
@@ -110,8 +113,11 @@ define hidden void @_ZN6memory8mmap_ops19prefault_mmap_pages17h10751c99dc8e66afE
   %37 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd6ff06cf4e1ed23bE monotonic, align 8
   %38 = icmp ult i64 %37, 6
   call void @llvm.assume(i1 %38)
-  %.not65 = icmp eq i64 %37, 5
-  br i1 %.not65, label %.critedge37, label %39
+  %.0.i48 = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 5, i64 %37)
+  switch i8 %.0.i48, label %39 [
+    i8 -1, label %.critedge37
+    i8 0, label %.critedge37
+  ]
 
 39:                                               ; preds = %.critedge35, %.critedge37
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
@@ -119,7 +125,7 @@ define hidden void @_ZN6memory8mmap_ops19prefault_mmap_pages17h10751c99dc8e66afE
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   ret void
 
-.critedge37:                                      ; preds = %.critedge35
+.critedge37:                                      ; preds = %.critedge35, %.critedge35
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -191,6 +197,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5

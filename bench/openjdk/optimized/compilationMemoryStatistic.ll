@@ -1148,11 +1148,9 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZL20diff_entrie
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   %6 = load i64, ptr %5, align 8
-  %7 = icmp ult i64 %4, %6
-  %8 = icmp ne i64 %4, %6
-  %9 = zext i1 %8 to i64
-  %10 = select i1 %7, i64 -1, i64 %9
-  ret i64 %10
+  %7 = tail call noundef i32 @llvm.ucmp.i32.i64(i64 %4, i64 %6)
+  %8 = sext i32 %7 to i64
+  ret i64 %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1744,6 +1742,9 @@ declare void @llvm.va_start.p0(ptr) #12
 declare void @llvm.va_end.p0(ptr) #12
 
 declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #13

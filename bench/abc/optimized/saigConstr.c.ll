@@ -768,10 +768,7 @@ define range(i32 -1, 2) i32 @Saig_ManDupCompare(ptr nocapture noundef readonly %
   %18 = and i32 %17, 1
   %19 = shl nsw i32 %.val.i5, 1
   %20 = or disjoint i32 %18, %19
-  %21 = icmp slt i32 %11, %20
-  %.not = icmp ne i32 %11, %20
-  %. = zext i1 %.not to i32
-  %.0 = select i1 %21, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %11, i32 %20)
   ret i32 %.0
 }
 
@@ -2167,6 +2164,9 @@ declare i32 @llvm.smin.i32(i32, i32) #13
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #13

@@ -20457,85 +20457,84 @@ _ZN21hb_sanitize_context_tD2Ev.exit:              ; preds = %_ZN21hb_sanitize_co
   %8 = load i8, ptr %arrayidx3.i.i.i.i.i, align 1
   %conv4.i.i.i.i.i = zext i8 %8 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i, %conv4.i.i.i.i.i
-  %cmp.not8.i.i.not.i = icmp eq i32 %add.i.i.i.i.i, 0
-  br i1 %cmp.not8.i.i.not.i, label %_ZNK2OT4cmap13find_subtableEjj.exit, label %while.body.i.i.i.preheader
+  %cmp.not6.i.i.i.i.not.i.i = icmp eq i32 %add.i.i.i.i.i, 0
+  br i1 %cmp.not6.i.i.i.i.not.i.i, label %_ZNK2OT4cmap13find_subtableEjj.exit, label %while.body.lr.ph.i.i.i.i.i.i
 
-while.body.i.i.i.preheader:                       ; preds = %_ZN21hb_sanitize_context_tD2Ev.exit
-  %sub.i.i.i = add nsw i32 %add.i.i.i.i.i, -1
-  br label %while.body.i.i.i
+while.body.lr.ph.i.i.i.i.i.i:                     ; preds = %_ZN21hb_sanitize_context_tD2Ev.exit
+  %sub.i.i.i.i.i.i = add nsw i32 %add.i.i.i.i.i, -1
+  br label %while.body.i.i.i.i.i.i
 
-while.body.i.i.i:                                 ; preds = %while.body.i.i.i.preheader, %13
-  %min.010.i.i.i = phi i32 [ %15, %13 ], [ 0, %while.body.i.i.i.preheader ]
-  %max.09.i.i.i = phi i32 [ %14, %13 ], [ %sub.i.i.i, %while.body.i.i.i.preheader ]
-  %add.i.i3.i = add i32 %max.09.i.i.i, %min.010.i.i.i
-  %div9.i.i.i = lshr i32 %add.i.i3.i, 1
-  %conv1.i.i.i = zext nneg i32 %div9.i.i.i to i64
-  %mul.i.i.i = shl nuw nsw i64 %conv1.i.i.i, 3
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %arrayZ.i.i.i, i64 %mul.i.i.i
-  %9 = load i8, ptr %add.ptr.i.i.i, align 1
-  %conv.i.i.i.i.i.i.i = zext i8 %9 to i32
-  %shl.i.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i.i.i.i.i, 8
-  %arrayidx3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 1
-  %10 = load i8, ptr %arrayidx3.i.i.i.i.i.i.i, align 1
-  %conv4.i.i.i.i.i.i.i = zext i8 %10 to i32
-  %add.i.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i.i, %conv4.i.i.i.i.i.i.i
-  %cmp6.i.i.i.not.i.i.i = icmp eq i32 %add.i.i.i.i.i.i.i, 0
-  br i1 %cmp6.i.i.i.not.i.i.i, label %if.end.i.i.i.i.i, label %.thread
+while.body.i.i.i.i.i.i:                           ; preds = %if.end8.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i
+  %min.08.i.i.i.i.i.i = phi i32 [ %min.1.i.i.i.i.i.i, %if.end8.i.i.i.i.i.i ], [ 0, %while.body.lr.ph.i.i.i.i.i.i ]
+  %max.07.i.i.i.i.i.i = phi i32 [ %max.1.i.i.i.i.i.i, %if.end8.i.i.i.i.i.i ], [ %sub.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i ]
+  %add.i.i.i.i.i.i = add i32 %max.07.i.i.i.i.i.i, %min.08.i.i.i.i.i.i
+  %div9.i.i.i.i.i.i = lshr i32 %add.i.i.i.i.i.i, 1
+  %conv1.i.i.i.i.i.i = zext nneg i32 %div9.i.i.i.i.i.i to i64
+  %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv1.i.i.i.i.i.i, 3
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayZ.i.i.i, i64 %mul.i.i.i.i.i.i
+  %9 = load i8, ptr %add.ptr.i.i.i.i.i.i, align 1
+  %conv.i.i.i.i.i.i.i.i.i.i = zext i8 %9 to i32
+  %shl.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i.i.i.i.i.i.i.i, 8
+  %arrayidx3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 1
+  %10 = load i8, ptr %arrayidx3.i.i.i.i.i.i.i.i.i.i, align 1
+  %conv4.i.i.i.i.i.i.i.i.i.i = zext i8 %10 to i32
+  %add.i.i.i.i.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i.i.i.i.i, %conv4.i.i.i.i.i.i.i.i.i.i
+  %tobool.not.i.i.i.i.i.i.i.i = icmp eq i32 %add.i.i.i.i.i.i.i.i.i.i, 0
+  br i1 %tobool.not.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
-.thread:                                          ; preds = %while.body.i.i.i
-  %sub3.i.i.i39 = add nsw i32 %div9.i.i.i, -1
-  br label %13
+if.end.i.i.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.i.i
+  %encodingID6.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 2
+  %11 = load i8, ptr %encodingID6.i.i.i.i.i.i.i.i, align 1
+  %conv.i.i11.i.i.i.i.i.i.i.i = zext i8 %11 to i32
+  %shl.i.i12.i.i.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i11.i.i.i.i.i.i.i.i, 8
+  %arrayidx3.i.i13.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 3
+  %12 = load i8, ptr %arrayidx3.i.i13.i.i.i.i.i.i.i.i, align 1
+  %conv4.i.i14.i.i.i.i.i.i.i.i = zext i8 %12 to i32
+  %add.i.i15.i.i.i.i.i.i.i.i = or disjoint i32 %shl.i.i12.i.i.i.i.i.i.i.i, %conv4.i.i14.i.i.i.i.i.i.i.i
+  %tobool12.not.i.i.i.i.i.i.i.i = icmp eq i32 %add.i.i15.i.i.i.i.i.i.i.i, 5
+  br i1 %tobool12.not.i.i.i.i.i.i.i.i, label %.loopexit.i.i.i, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i
 
-if.end.i.i.i.i.i:                                 ; preds = %while.body.i.i.i
-  %encodingID6.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 2
-  %11 = load i8, ptr %encodingID6.i.i.i.i.i, align 1
-  %conv.i.i11.i.i.i.i.i = zext i8 %11 to i32
-  %shl.i.i12.i.i.i.i.i = shl nuw nsw i32 %conv.i.i11.i.i.i.i.i, 8
-  %arrayidx3.i.i13.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 3
-  %12 = load i8, ptr %arrayidx3.i.i13.i.i.i.i.i, align 1
-  %conv4.i.i14.i.i.i.i.i = zext i8 %12 to i32
-  %add.i.i15.i.i.i.i.i = or disjoint i32 %shl.i.i12.i.i.i.i.i, %conv4.i.i14.i.i.i.i.i
-  %add.i.i15.i.i.i.i.i.fr = freeze i32 %add.i.i15.i.i.i.i.i
-  %cmp6.i19.i.i.not.i.i.i = icmp eq i32 %add.i.i15.i.i.i.i.i.fr, 5
-  br i1 %cmp6.i19.i.i.not.i.i.i, label %.loopexit.i, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i
+_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ugt i32 %add.i.i15.i.i.i.i.i.i.i.i, 5
+  br i1 %cmp2.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.then5.i.i.i.i.i.i
 
-_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i: ; preds = %if.end.i.i.i.i.i
-  %cmp.i18.i.i.i.i.i = icmp ugt i32 %add.i.i15.i.i.i.i.i.fr, 5
-  %sub3.i.i.i = add nsw i32 %div9.i.i.i, -1
-  %add6.i.i.i = add nuw nsw i32 %div9.i.i.i, 1
-  %spec.select = select i1 %cmp.i18.i.i.i.i.i, i32 %sub3.i.i.i, i32 %max.09.i.i.i
-  %spec.select55 = select i1 %cmp.i18.i.i.i.i.i, i32 %min.010.i.i.i, i32 %add6.i.i.i
-  br label %13
+if.then.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.i.i, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i
+  %sub3.i.i.i.i.i.i = add nsw i32 %div9.i.i.i.i.i.i, -1
+  br label %if.end8.i.i.i.i.i.i
 
-13:                                               ; preds = %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i, %.thread
-  %14 = phi i32 [ %sub3.i.i.i39, %.thread ], [ %spec.select, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i ]
-  %15 = phi i32 [ %min.010.i.i.i, %.thread ], [ %spec.select55, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i ]
-  %cmp.not.not.i.i.i = icmp sgt i32 %15, %14
-  br i1 %cmp.not.not.i.i.i, label %_ZNK2OT4cmap13find_subtableEjj.exit, label %while.body.i.i.i, !llvm.loop !137
+if.then5.i.i.i.i.i.i:                             ; preds = %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i
+  %add6.i.i.i.i.i.i = add nuw nsw i32 %div9.i.i.i.i.i.i, 1
+  br label %if.end8.i.i.i.i.i.i
 
-.loopexit.i:                                      ; preds = %if.end.i.i.i.i.i
-  %arrayidx.i.i10.i = getelementptr inbounds %"struct.OT::EncodingRecord", ptr %arrayZ.i.i.i, i64 %conv1.i.i.i
+if.end8.i.i.i.i.i.i:                              ; preds = %if.then5.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
+  %max.1.i.i.i.i.i.i = phi i32 [ %sub3.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %max.07.i.i.i.i.i.i, %if.then5.i.i.i.i.i.i ]
+  %min.1.i.i.i.i.i.i = phi i32 [ %min.08.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %add6.i.i.i.i.i.i, %if.then5.i.i.i.i.i.i ]
+  %cmp.not.not.i.i.i.i.i.i = icmp sgt i32 %min.1.i.i.i.i.i.i, %max.1.i.i.i.i.i.i
+  br i1 %cmp.not.not.i.i.i.i.i.i, label %_ZNK2OT4cmap13find_subtableEjj.exit, label %while.body.i.i.i.i.i.i, !llvm.loop !137
+
+.loopexit.i.i.i:                                  ; preds = %if.end.i.i.i.i.i.i.i.i
+  %arrayidx4.i.i.i = getelementptr inbounds %"struct.OT::EncodingRecord", ptr %arrayZ.i.i.i, i64 %conv1.i.i.i.i.i.i
   br label %_ZNK2OT4cmap13find_subtableEjj.exit
 
-_ZNK2OT4cmap13find_subtableEjj.exit:              ; preds = %13, %_ZN21hb_sanitize_context_tD2Ev.exit, %.loopexit.i
-  %16 = phi ptr [ %arrayidx.i.i10.i, %.loopexit.i ], [ @_hb_NullPool, %_ZN21hb_sanitize_context_tD2Ev.exit ], [ @_hb_NullPool, %13 ]
-  %subtable.i = getelementptr inbounds i8, ptr %16, i64 4
-  %17 = load i8, ptr %subtable.i, align 1
-  %conv.i.i.i = zext i8 %17 to i32
+_ZNK2OT4cmap13find_subtableEjj.exit:              ; preds = %if.end8.i.i.i.i.i.i, %_ZN21hb_sanitize_context_tD2Ev.exit, %.loopexit.i.i.i
+  %13 = phi ptr [ %arrayidx4.i.i.i, %.loopexit.i.i.i ], [ @_hb_NullPool, %_ZN21hb_sanitize_context_tD2Ev.exit ], [ @_hb_NullPool, %if.end8.i.i.i.i.i.i ]
+  %subtable.i = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = load i8, ptr %subtable.i, align 1
+  %conv.i.i.i = zext i8 %14 to i32
   %shl.i.i.i = shl nuw i32 %conv.i.i.i, 24
-  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %16, i64 5
-  %18 = load i8, ptr %arrayidx3.i.i.i, align 1
-  %conv4.i.i.i = zext i8 %18 to i32
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %13, i64 5
+  %15 = load i8, ptr %arrayidx3.i.i.i, align 1
+  %conv4.i.i.i = zext i8 %15 to i32
   %shl5.i.i.i = shl nuw nsw i32 %conv4.i.i.i, 16
   %add.i.i.i = or disjoint i32 %shl5.i.i.i, %shl.i.i.i
-  %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %16, i64 6
-  %19 = load i8, ptr %arrayidx7.i.i.i, align 1
-  %conv8.i.i.i = zext i8 %19 to i32
+  %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %13, i64 6
+  %16 = load i8, ptr %arrayidx7.i.i.i, align 1
+  %conv8.i.i.i = zext i8 %16 to i32
   %shl9.i.i.i = shl nuw nsw i32 %conv8.i.i.i, 8
   %add10.i.i.i = or disjoint i32 %add.i.i.i, %shl9.i.i.i
-  %arrayidx12.i.i.i = getelementptr inbounds i8, ptr %16, i64 7
-  %20 = load i8, ptr %arrayidx12.i.i.i, align 1
-  %conv13.i.i.i = zext i8 %20 to i32
+  %arrayidx12.i.i.i = getelementptr inbounds i8, ptr %13, i64 7
+  %17 = load i8, ptr %arrayidx12.i.i.i, align 1
+  %conv13.i.i.i = zext i8 %17 to i32
   %add14.i.i.i = or disjoint i32 %add10.i.i.i, %conv13.i.i.i
   %tobool.not.i13 = icmp eq i32 %add14.i.i.i, 0
   %idx.ext.i.i.i.i = zext i32 %add14.i.i.i to i64
@@ -20543,12 +20542,12 @@ _ZNK2OT4cmap13find_subtableEjj.exit:              ; preds = %13, %_ZN21hb_saniti
   br i1 %tobool.not.i13, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %_ZNK2OT4cmap13find_subtableEjj.exit
-  %21 = load i8, ptr %add.ptr.i.i.i.i, align 1
-  %conv.i.i = zext i8 %21 to i32
+  %18 = load i8, ptr %add.ptr.i.i.i.i, align 1
+  %conv.i.i = zext i8 %18 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i, 8
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 1
-  %22 = load i8, ptr %arrayidx3.i.i, align 1
-  %conv4.i.i = zext i8 %22 to i32
+  %19 = load i8, ptr %arrayidx3.i.i, align 1
+  %conv4.i.i = zext i8 %19 to i32
   %add.i.i = or disjoint i32 %shl.i.i, %conv4.i.i
   %cmp = icmp eq i32 %add.i.i, 14
   br i1 %cmp, label %if.then, label %if.end
@@ -20562,30 +20561,30 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   %spec.select.i.i = select i1 %tobool.not.i.i, ptr @_hb_NullPool, ptr %call6
   %get_glyph_data = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %spec.select.i.i, ptr %get_glyph_data, align 8
-  %23 = load i8, ptr %symbol, align 1
-  %tobool21 = trunc i8 %23 to i1
+  %20 = load i8, ptr %symbol, align 1
+  %tobool21 = trunc i8 %20 to i1
   br i1 %tobool21, label %if.then22, label %if.else
 
 if.then22:                                        ; preds = %if.end
   %OS2 = getelementptr inbounds i8, ptr %face, i64 128
   %call.i.i = call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %OS2)
   %data.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %24 = load ptr, ptr %data.i.i.i.i.i, align 8
+  %21 = load ptr, ptr %data.i.i.i.i.i, align 8
   %length.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
-  %25 = load i32, ptr %length.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i = icmp ult i32 %25, 78
-  %spec.select.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr @_hb_NullPool, ptr %24
-  %26 = load i8, ptr %spec.select.i.i.i.i.i, align 1
-  %conv.i.i.i14 = zext i8 %26 to i32
+  %22 = load i32, ptr %length.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i = icmp ult i32 %22, 78
+  %spec.select.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr @_hb_NullPool, ptr %21
+  %23 = load i8, ptr %spec.select.i.i.i.i.i, align 1
+  %conv.i.i.i14 = zext i8 %23 to i32
   %shl.i.i.i15 = shl nuw nsw i32 %conv.i.i.i14, 8
   %arrayidx3.i.i.i16 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.i, i64 1
-  %27 = load i8, ptr %arrayidx3.i.i.i16, align 1
-  %conv4.i.i.i17 = zext i8 %27 to i32
+  %24 = load i8, ptr %arrayidx3.i.i.i16, align 1
+  %conv4.i.i.i17 = zext i8 %24 to i32
   %add.i.i.i18 = or disjoint i32 %shl.i.i.i15, %conv4.i.i.i17
   %cmp.i = icmp eq i32 %add.i.i.i18, 0
   %fsSelection.i = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.i, i64 62
-  %28 = load i8, ptr %fsSelection.i, align 1
-  %conv.i.i1.i = zext i8 %28 to i16
+  %25 = load i8, ptr %fsSelection.i, align 1
+  %conv.i.i1.i = zext i8 %25 to i16
   %shl.i.i2.i = shl nuw i16 %conv.i.i1.i, 8
   %trunc = select i1 %cmp.i, i16 %shl.i.i2.i, i16 0
   %get_glyph_funcZ30 = getelementptr inbounds i8, ptr %this, i64 16
@@ -20612,8 +20611,8 @@ sw.default:                                       ; preds = %if.then22
   br label %if.end59
 
 if.else:                                          ; preds = %if.end
-  %29 = load i8, ptr %macroman, align 1
-  %tobool31 = trunc i8 %29 to i1
+  %26 = load i8, ptr %macroman, align 1
+  %tobool31 = trunc i8 %26 to i1
   br i1 %tobool31, label %if.then32, label %if.else34
 
 if.then32:                                        ; preds = %if.else
@@ -20622,8 +20621,8 @@ if.then32:                                        ; preds = %if.else
   br label %if.end59
 
 if.else34:                                        ; preds = %if.else
-  %30 = load i8, ptr %mac, align 1
-  %tobool35 = trunc i8 %30 to i1
+  %27 = load i8, ptr %mac, align 1
+  %tobool35 = trunc i8 %27 to i1
   br i1 %tobool35, label %if.then36, label %if.else38
 
 if.then36:                                        ; preds = %if.else34
@@ -20632,12 +20631,12 @@ if.then36:                                        ; preds = %if.else34
   br label %if.end59
 
 if.else38:                                        ; preds = %if.else34
-  %31 = load i8, ptr %spec.select.i.i, align 1
-  %conv.i.i21 = zext i8 %31 to i16
+  %28 = load i8, ptr %spec.select.i.i, align 1
+  %conv.i.i21 = zext i8 %28 to i16
   %shl.i.i22 = shl nuw i16 %conv.i.i21, 8
   %arrayidx3.i.i23 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 1
-  %32 = load i8, ptr %arrayidx3.i.i23, align 1
-  %conv4.i.i24 = zext i8 %32 to i16
+  %29 = load i8, ptr %arrayidx3.i.i23, align 1
+  %conv4.i.i24 = zext i8 %29 to i16
   %add.i.i25 = or disjoint i16 %shl.i.i22, %conv4.i.i24
   switch i16 %add.i.i25, label %sw.default43 [
     i16 12, label %sw.bb45
@@ -20656,12 +20655,12 @@ sw.bb45:                                          ; preds = %if.else38
 
 sw.bb47:                                          ; preds = %if.else38
   %segCountX2.i = getelementptr inbounds i8, ptr %spec.select.i.i, i64 6
-  %33 = load i8, ptr %segCountX2.i, align 1
-  %conv.i.i.i28 = zext i8 %33 to i32
+  %30 = load i8, ptr %segCountX2.i, align 1
+  %conv.i.i.i28 = zext i8 %30 to i32
   %shl.i.i.i29 = shl nuw nsw i32 %conv.i.i.i28, 8
   %arrayidx3.i.i.i30 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 7
-  %34 = load i8, ptr %arrayidx3.i.i.i30, align 1
-  %conv4.i.i.i31 = zext i8 %34 to i32
+  %31 = load i8, ptr %arrayidx3.i.i.i30, align 1
+  %conv4.i.i.i31 = zext i8 %31 to i32
   %add.i.i.i32 = or disjoint i32 %shl.i.i.i29, %conv4.i.i.i31
   %div3.i = lshr i32 %add.i.i.i32, 1
   %segCount.i = getelementptr inbounds i8, ptr %this, i64 72
@@ -20683,15 +20682,15 @@ sw.bb47:                                          ; preds = %if.else38
   %glyphIdArray.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr16.i, ptr %glyphIdArray.i, align 8
   %length.i = getelementptr inbounds i8, ptr %spec.select.i.i, i64 2
-  %35 = load i8, ptr %length.i, align 1
-  %conv.i.i5.i = zext i8 %35 to i32
+  %32 = load i8, ptr %length.i, align 1
+  %conv.i.i5.i = zext i8 %32 to i32
   %shl.i.i6.i = shl nuw nsw i32 %conv.i.i5.i, 8
   %arrayidx3.i.i7.i = getelementptr inbounds i8, ptr %spec.select.i.i, i64 3
-  %36 = load i8, ptr %arrayidx3.i.i7.i, align 1
-  %conv4.i.i8.i = zext i8 %36 to i32
+  %33 = load i8, ptr %arrayidx3.i.i7.i, align 1
+  %conv4.i.i8.i = zext i8 %33 to i32
   %add.i.i9.i = or disjoint i32 %shl.i.i6.i, %conv4.i.i8.i
-  %37 = shl nuw nsw i32 %div3.i, 3
-  %reass.sub = sub nsw i32 %add.i.i9.i, %37
+  %34 = shl nuw nsw i32 %div3.i, 3
+  %reass.sub = sub nsw i32 %add.i.i9.i, %34
   %sub19.i = add nsw i32 %reass.sub, -16
   %div204.i = lshr i32 %sub19.i, 1
   %glyphIdArrayLength.i = getelementptr inbounds i8, ptr %this, i64 76
@@ -20900,57 +20899,67 @@ if.end7:                                          ; preds = %if.then6, %if.end4
   %1 = load i8, ptr %arrayidx3.i.i.i.i.i, align 1
   %conv4.i.i.i.i.i = zext i8 %1 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i, %conv4.i.i.i.i.i
-  %sub.i.i.i = add nsw i32 %add.i.i.i.i.i, -1
-  %cmp.not8.i.i.not.i = icmp eq i32 %add.i.i.i.i.i, 0
-  br i1 %cmp.not8.i.i.not.i, label %_ZNK2OT4cmap13find_subtableEjj.exit, label %while.body.i.i.i
+  %cmp.not6.i.i.i.i.not.i.i = icmp eq i32 %add.i.i.i.i.i, 0
+  br i1 %cmp.not6.i.i.i.i.not.i.i, label %_ZNK2OT4cmap13find_subtableEjj.exit, label %while.body.lr.ph.i.i.i.i.i.i
 
-while.body.i.i.i:                                 ; preds = %if.end7, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i
-  %min.010.i.i.i = phi i32 [ %min.1.i.i.i, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i ], [ 0, %if.end7 ]
-  %max.09.i.i.i = phi i32 [ %max.1.i.i.i, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i ], [ %sub.i.i.i, %if.end7 ]
-  %add.i.i3.i = add i32 %max.09.i.i.i, %min.010.i.i.i
-  %div9.i.i.i = lshr i32 %add.i.i3.i, 1
-  %conv1.i.i.i = zext nneg i32 %div9.i.i.i to i64
-  %mul.i.i.i = shl nuw nsw i64 %conv1.i.i.i, 3
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %arrayZ.i.i.i, i64 %mul.i.i.i
-  %2 = load i8, ptr %add.ptr.i.i.i, align 1
-  %conv.i.i.i.i.i.i.i = zext i8 %2 to i32
-  %shl.i.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i.i.i.i.i, 8
-  %arrayidx3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 1
-  %3 = load i8, ptr %arrayidx3.i.i.i.i.i.i.i, align 1
-  %conv4.i.i.i.i.i.i.i = zext i8 %3 to i32
-  %add.i.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i.i, %conv4.i.i.i.i.i.i.i
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %add.i.i.i.i.i.i.i, 3
-  %cmp6.i.i.i.not.i.i.i = icmp eq i32 %add.i.i.i.i.i.i.i, 3
-  br i1 %cmp6.i.i.i.not.i.i.i, label %if.end.i.i.i.i.i, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i
+while.body.lr.ph.i.i.i.i.i.i:                     ; preds = %if.end7
+  %sub.i.i.i.i.i.i = add nsw i32 %add.i.i.i.i.i, -1
+  br label %while.body.i.i.i.i.i.i
 
-if.end.i.i.i.i.i:                                 ; preds = %while.body.i.i.i
-  %encodingID6.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 2
-  %4 = load i8, ptr %encodingID6.i.i.i.i.i, align 1
-  %conv.i.i11.i.i.i.i.i = zext i8 %4 to i32
-  %shl.i.i12.i.i.i.i.i = shl nuw nsw i32 %conv.i.i11.i.i.i.i.i, 8
-  %arrayidx3.i.i13.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 3
-  %5 = load i8, ptr %arrayidx3.i.i13.i.i.i.i.i, align 1
-  %conv4.i.i14.i.i.i.i.i = zext i8 %5 to i32
-  %add.i.i15.i.i.i.i.i = or disjoint i32 %shl.i.i12.i.i.i.i.i, %conv4.i.i14.i.i.i.i.i
-  %cmp.i18.i.i.i.i.i = icmp ne i32 %add.i.i15.i.i.i.i.i, 0
-  %cmp6.i19.i.i.not.i.i.i = icmp eq i32 %add.i.i15.i.i.i.i.i, 0
-  br i1 %cmp6.i19.i.i.not.i.i.i, label %.loopexit.i, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i
+while.body.i.i.i.i.i.i:                           ; preds = %if.end8.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i
+  %min.08.i.i.i.i.i.i = phi i32 [ %min.1.i.i.i.i.i.i, %if.end8.i.i.i.i.i.i ], [ 0, %while.body.lr.ph.i.i.i.i.i.i ]
+  %max.07.i.i.i.i.i.i = phi i32 [ %max.1.i.i.i.i.i.i, %if.end8.i.i.i.i.i.i ], [ %sub.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i ]
+  %add.i.i.i.i.i.i = add i32 %max.07.i.i.i.i.i.i, %min.08.i.i.i.i.i.i
+  %div9.i.i.i.i.i.i = lshr i32 %add.i.i.i.i.i.i, 1
+  %conv1.i.i.i.i.i.i = zext nneg i32 %div9.i.i.i.i.i.i to i64
+  %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv1.i.i.i.i.i.i, 3
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayZ.i.i.i, i64 %mul.i.i.i.i.i.i
+  %2 = load i8, ptr %add.ptr.i.i.i.i.i.i, align 1
+  %conv.i.i.i.i.i.i.i.i.i.i = zext i8 %2 to i32
+  %shl.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i.i.i.i.i.i.i.i, 8
+  %arrayidx3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 1
+  %3 = load i8, ptr %arrayidx3.i.i.i.i.i.i.i.i.i.i, align 1
+  %conv4.i.i.i.i.i.i.i.i.i.i = zext i8 %3 to i32
+  %add.i.i.i.i.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i.i.i.i.i, %conv4.i.i.i.i.i.i.i.i.i.i
+  %tobool.not.i.i.i.i.i.i.i.i = icmp eq i32 %add.i.i.i.i.i.i.i.i.i.i, 3
+  br i1 %tobool.not.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i
 
-_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i: ; preds = %if.end.i.i.i.i.i, %while.body.i.i.i
-  %retval.0.i.i.i.i.i = phi i1 [ %cmp.i.i.i.i.i.i, %while.body.i.i.i ], [ %cmp.i18.i.i.i.i.i, %if.end.i.i.i.i.i ]
-  %sub3.i.i.i = add nsw i32 %div9.i.i.i, -1
-  %add6.i.i.i = add nuw nsw i32 %div9.i.i.i, 1
-  %max.1.i.i.i = select i1 %retval.0.i.i.i.i.i, i32 %sub3.i.i.i, i32 %max.09.i.i.i
-  %min.1.i.i.i = select i1 %retval.0.i.i.i.i.i, i32 %min.010.i.i.i, i32 %add6.i.i.i
-  %cmp.not.not.i.i.i = icmp sgt i32 %min.1.i.i.i, %max.1.i.i.i
-  br i1 %cmp.not.not.i.i.i, label %_ZNK2OT4cmap13find_subtableEjj.exit, label %while.body.i.i.i, !llvm.loop !137
+if.end.i.i.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.i.i
+  %encodingID6.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 2
+  %4 = load i8, ptr %encodingID6.i.i.i.i.i.i.i.i, align 1
+  %conv.i.i11.i.i.i.i.i.i.i.i = zext i8 %4 to i32
+  %shl.i.i12.i.i.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i11.i.i.i.i.i.i.i.i, 8
+  %arrayidx3.i.i13.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 3
+  %5 = load i8, ptr %arrayidx3.i.i13.i.i.i.i.i.i.i.i, align 1
+  %conv4.i.i14.i.i.i.i.i.i.i.i = zext i8 %5 to i32
+  %add.i.i15.i.i.i.i.i.i.i.i = or disjoint i32 %shl.i.i12.i.i.i.i.i.i.i.i, %conv4.i.i14.i.i.i.i.i.i.i.i
+  %tobool12.not.i.i.i.i.i.i.i.i = icmp eq i32 %add.i.i15.i.i.i.i.i.i.i.i, 0
+  br i1 %tobool12.not.i.i.i.i.i.i.i.i, label %.loopexit.i.i.i, label %if.then.i.i.i.i.i.i
 
-.loopexit.i:                                      ; preds = %if.end.i.i.i.i.i
-  %arrayidx.i.i10.i = getelementptr inbounds %"struct.OT::EncodingRecord", ptr %arrayZ.i.i.i, i64 %conv1.i.i.i
+_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ugt i32 %add.i.i.i.i.i.i.i.i.i.i, 3
+  br i1 %cmp2.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.then5.i.i.i.i.i.i
+
+if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i.i.i, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i
+  %sub3.i.i.i.i.i.i = add nsw i32 %div9.i.i.i.i.i.i, -1
+  br label %if.end8.i.i.i.i.i.i
+
+if.then5.i.i.i.i.i.i:                             ; preds = %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i
+  %add6.i.i.i.i.i.i = add nuw nsw i32 %div9.i.i.i.i.i.i, 1
+  br label %if.end8.i.i.i.i.i.i
+
+if.end8.i.i.i.i.i.i:                              ; preds = %if.then5.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
+  %max.1.i.i.i.i.i.i = phi i32 [ %sub3.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %max.07.i.i.i.i.i.i, %if.then5.i.i.i.i.i.i ]
+  %min.1.i.i.i.i.i.i = phi i32 [ %min.08.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %add6.i.i.i.i.i.i, %if.then5.i.i.i.i.i.i ]
+  %cmp.not.not.i.i.i.i.i.i = icmp sgt i32 %min.1.i.i.i.i.i.i, %max.1.i.i.i.i.i.i
+  br i1 %cmp.not.not.i.i.i.i.i.i, label %_ZNK2OT4cmap13find_subtableEjj.exit, label %while.body.i.i.i.i.i.i, !llvm.loop !137
+
+.loopexit.i.i.i:                                  ; preds = %if.end.i.i.i.i.i.i.i.i
+  %arrayidx4.i.i.i = getelementptr inbounds %"struct.OT::EncodingRecord", ptr %arrayZ.i.i.i, i64 %conv1.i.i.i.i.i.i
   br label %_ZNK2OT4cmap13find_subtableEjj.exit
 
-_ZNK2OT4cmap13find_subtableEjj.exit:              ; preds = %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i, %if.end7, %.loopexit.i
-  %6 = phi ptr [ %arrayidx.i.i10.i, %.loopexit.i ], [ @_hb_NullPool, %if.end7 ], [ @_hb_NullPool, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i ]
+_ZNK2OT4cmap13find_subtableEjj.exit:              ; preds = %if.end8.i.i.i.i.i.i, %if.end7, %.loopexit.i.i.i
+  %6 = phi ptr [ %arrayidx4.i.i.i, %.loopexit.i.i.i ], [ @_hb_NullPool, %if.end7 ], [ @_hb_NullPool, %if.end8.i.i.i.i.i.i ]
   %subtable.i = getelementptr inbounds i8, ptr %6, i64 4
   %7 = load i8, ptr %subtable.i, align 1
   %conv.i.i.i = zext i8 %7 to i32
@@ -20978,241 +20987,265 @@ if.then9:                                         ; preds = %_ZNK2OT4cmap13find_
   br i1 %tobool.not, label %return, label %return.sink.split
 
 if.end13:                                         ; preds = %_ZNK2OT4cmap13find_subtableEjj.exit
-  br i1 %cmp.not8.i.i.not.i, label %_ZNK2OT4cmap13find_subtableEjj.exit83, label %while.body.i.i.i32
+  br i1 %cmp.not6.i.i.i.i.not.i.i, label %_ZNK2OT4cmap13find_subtableEjj.exit89, label %while.body.lr.ph.i.i.i.i.i.i30
 
-while.body.i.i.i32:                               ; preds = %if.end13, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i47
-  %min.010.i.i.i33 = phi i32 [ %min.1.i.i.i52, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i47 ], [ 0, %if.end13 ]
-  %max.09.i.i.i34 = phi i32 [ %max.1.i.i.i51, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i47 ], [ %sub.i.i.i, %if.end13 ]
-  %add.i.i3.i35 = add i32 %max.09.i.i.i34, %min.010.i.i.i33
-  %div9.i.i.i36 = lshr i32 %add.i.i3.i35, 1
-  %conv1.i.i.i37 = zext nneg i32 %div9.i.i.i36 to i64
-  %mul.i.i.i38 = shl nuw nsw i64 %conv1.i.i.i37, 3
-  %add.ptr.i.i.i39 = getelementptr inbounds i8, ptr %arrayZ.i.i.i, i64 %mul.i.i.i38
-  %11 = load i8, ptr %add.ptr.i.i.i39, align 1
-  %conv.i.i.i.i.i.i.i40 = zext i8 %11 to i32
-  %shl.i.i.i.i.i.i.i41 = shl nuw nsw i32 %conv.i.i.i.i.i.i.i40, 8
-  %arrayidx3.i.i.i.i.i.i.i42 = getelementptr inbounds i8, ptr %add.ptr.i.i.i39, i64 1
-  %12 = load i8, ptr %arrayidx3.i.i.i.i.i.i.i42, align 1
-  %conv4.i.i.i.i.i.i.i43 = zext i8 %12 to i32
-  %add.i.i.i.i.i.i.i44 = or disjoint i32 %shl.i.i.i.i.i.i.i41, %conv4.i.i.i.i.i.i.i43
-  %cmp.i.i.i.i.i.i45 = icmp ugt i32 %add.i.i.i.i.i.i.i44, 3
-  %cmp6.i.i.i.not.i.i.i46 = icmp eq i32 %add.i.i.i.i.i.i.i44, 3
-  br i1 %cmp6.i.i.i.not.i.i.i46, label %if.end.i.i.i.i.i72, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i47
+while.body.lr.ph.i.i.i.i.i.i30:                   ; preds = %if.end13
+  %sub.i.i.i.i.i.i31 = add nsw i32 %add.i.i.i.i.i, -1
+  br label %while.body.i.i.i.i.i.i32
 
-if.end.i.i.i.i.i72:                               ; preds = %while.body.i.i.i32
-  %encodingID6.i.i.i.i.i73 = getelementptr inbounds i8, ptr %add.ptr.i.i.i39, i64 2
-  %13 = load i8, ptr %encodingID6.i.i.i.i.i73, align 1
-  %conv.i.i11.i.i.i.i.i74 = zext i8 %13 to i32
-  %shl.i.i12.i.i.i.i.i75 = shl nuw nsw i32 %conv.i.i11.i.i.i.i.i74, 8
-  %arrayidx3.i.i13.i.i.i.i.i76 = getelementptr inbounds i8, ptr %add.ptr.i.i.i39, i64 3
-  %14 = load i8, ptr %arrayidx3.i.i13.i.i.i.i.i76, align 1
-  %conv4.i.i14.i.i.i.i.i77 = zext i8 %14 to i32
-  %add.i.i15.i.i.i.i.i78 = or disjoint i32 %shl.i.i12.i.i.i.i.i75, %conv4.i.i14.i.i.i.i.i77
-  %cmp.i18.i.i.i.i.i79 = icmp ugt i32 %add.i.i15.i.i.i.i.i78, 10
-  %cmp6.i19.i.i.not.i.i.i80 = icmp eq i32 %add.i.i15.i.i.i.i.i78, 10
-  br i1 %cmp6.i19.i.i.not.i.i.i80, label %.loopexit.i81, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i47
+while.body.i.i.i.i.i.i32:                         ; preds = %if.end8.i.i.i.i.i.i54, %while.body.lr.ph.i.i.i.i.i.i30
+  %min.08.i.i.i.i.i.i33 = phi i32 [ %min.1.i.i.i.i.i.i56, %if.end8.i.i.i.i.i.i54 ], [ 0, %while.body.lr.ph.i.i.i.i.i.i30 ]
+  %max.07.i.i.i.i.i.i34 = phi i32 [ %max.1.i.i.i.i.i.i55, %if.end8.i.i.i.i.i.i54 ], [ %sub.i.i.i.i.i.i31, %while.body.lr.ph.i.i.i.i.i.i30 ]
+  %add.i.i.i.i.i.i35 = add i32 %max.07.i.i.i.i.i.i34, %min.08.i.i.i.i.i.i33
+  %div9.i.i.i.i.i.i36 = lshr i32 %add.i.i.i.i.i.i35, 1
+  %conv1.i.i.i.i.i.i37 = zext nneg i32 %div9.i.i.i.i.i.i36 to i64
+  %mul.i.i.i.i.i.i38 = shl nuw nsw i64 %conv1.i.i.i.i.i.i37, 3
+  %add.ptr.i.i.i.i.i.i39 = getelementptr inbounds i8, ptr %arrayZ.i.i.i, i64 %mul.i.i.i.i.i.i38
+  %11 = load i8, ptr %add.ptr.i.i.i.i.i.i39, align 1
+  %conv.i.i.i.i.i.i.i.i.i.i40 = zext i8 %11 to i32
+  %shl.i.i.i.i.i.i.i.i.i.i41 = shl nuw nsw i32 %conv.i.i.i.i.i.i.i.i.i.i40, 8
+  %arrayidx3.i.i.i.i.i.i.i.i.i.i42 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i39, i64 1
+  %12 = load i8, ptr %arrayidx3.i.i.i.i.i.i.i.i.i.i42, align 1
+  %conv4.i.i.i.i.i.i.i.i.i.i43 = zext i8 %12 to i32
+  %add.i.i.i.i.i.i.i.i.i.i44 = or disjoint i32 %shl.i.i.i.i.i.i.i.i.i.i41, %conv4.i.i.i.i.i.i.i.i.i.i43
+  %cond7.i.i.i.i.i.i.i.i.i45 = tail call noundef i32 @llvm.ucmp.i32.i32(i32 3, i32 %add.i.i.i.i.i.i.i.i.i.i44)
+  %tobool.not.i.i.i.i.i.i.i.i46 = icmp eq i32 %add.i.i.i.i.i.i.i.i.i.i44, 3
+  br i1 %tobool.not.i.i.i.i.i.i.i.i46, label %if.end.i.i.i.i.i.i.i.i80, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i47
 
-_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i47: ; preds = %if.end.i.i.i.i.i72, %while.body.i.i.i32
-  %retval.0.i.i.i.i.i48 = phi i1 [ %cmp.i.i.i.i.i.i45, %while.body.i.i.i32 ], [ %cmp.i18.i.i.i.i.i79, %if.end.i.i.i.i.i72 ]
-  %sub3.i.i.i49 = add nsw i32 %div9.i.i.i36, -1
-  %add6.i.i.i50 = add nuw nsw i32 %div9.i.i.i36, 1
-  %max.1.i.i.i51 = select i1 %retval.0.i.i.i.i.i48, i32 %sub3.i.i.i49, i32 %max.09.i.i.i34
-  %min.1.i.i.i52 = select i1 %retval.0.i.i.i.i.i48, i32 %min.010.i.i.i33, i32 %add6.i.i.i50
-  %cmp.not.not.i.i.i53 = icmp sgt i32 %min.1.i.i.i52, %max.1.i.i.i51
-  br i1 %cmp.not.not.i.i.i53, label %_ZNK2OT4cmap13find_subtableEjj.exit83, label %while.body.i.i.i32, !llvm.loop !137
+if.end.i.i.i.i.i.i.i.i80:                         ; preds = %while.body.i.i.i.i.i.i32
+  %encodingID6.i.i.i.i.i.i.i.i81 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i39, i64 2
+  %13 = load i8, ptr %encodingID6.i.i.i.i.i.i.i.i81, align 1
+  %conv.i.i11.i.i.i.i.i.i.i.i82 = zext i8 %13 to i32
+  %shl.i.i12.i.i.i.i.i.i.i.i83 = shl nuw nsw i32 %conv.i.i11.i.i.i.i.i.i.i.i82, 8
+  %arrayidx3.i.i13.i.i.i.i.i.i.i.i84 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i39, i64 3
+  %14 = load i8, ptr %arrayidx3.i.i13.i.i.i.i.i.i.i.i84, align 1
+  %conv4.i.i14.i.i.i.i.i.i.i.i85 = zext i8 %14 to i32
+  %add.i.i15.i.i.i.i.i.i.i.i86 = or disjoint i32 %shl.i.i12.i.i.i.i.i.i.i.i83, %conv4.i.i14.i.i.i.i.i.i.i.i85
+  %cond7.i18.i.i.i.i.i.i.i.i87 = tail call noundef i32 @llvm.ucmp.i32.i32(i32 10, i32 %add.i.i15.i.i.i.i.i.i.i.i86)
+  %tobool12.not.i.i.i.i.i.i.i.i88 = icmp eq i32 %add.i.i15.i.i.i.i.i.i.i.i86, 10
+  br i1 %tobool12.not.i.i.i.i.i.i.i.i88, label %.loopexit.i.i.i76, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i47
 
-.loopexit.i81:                                    ; preds = %if.end.i.i.i.i.i72
-  %arrayidx.i.i10.i82 = getelementptr inbounds %"struct.OT::EncodingRecord", ptr %arrayZ.i.i.i, i64 %conv1.i.i.i37
-  br label %_ZNK2OT4cmap13find_subtableEjj.exit83
+_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i47: ; preds = %if.end.i.i.i.i.i.i.i.i80, %while.body.i.i.i.i.i.i32
+  %retval.0.i.i.i.i.i.i.i.i48 = phi i32 [ %cond7.i.i.i.i.i.i.i.i.i45, %while.body.i.i.i.i.i.i32 ], [ %cond7.i18.i.i.i.i.i.i.i.i87, %if.end.i.i.i.i.i.i.i.i80 ]
+  %cmp2.i.i.i.i.i.i49 = icmp slt i32 %retval.0.i.i.i.i.i.i.i.i48, 0
+  br i1 %cmp2.i.i.i.i.i.i49, label %if.then.i.i.i.i.i.i78, label %if.else.i.i.i.i.i.i50
 
-_ZNK2OT4cmap13find_subtableEjj.exit83:            ; preds = %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i47, %if.end13, %.loopexit.i81
-  %15 = phi ptr [ %arrayidx.i.i10.i82, %.loopexit.i81 ], [ @_hb_NullPool, %if.end13 ], [ @_hb_NullPool, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i47 ]
-  %subtable.i54 = getelementptr inbounds i8, ptr %15, i64 4
-  %16 = load i8, ptr %subtable.i54, align 1
-  %conv.i.i.i55 = zext i8 %16 to i32
-  %shl.i.i.i56 = shl nuw i32 %conv.i.i.i55, 24
-  %arrayidx3.i.i.i57 = getelementptr inbounds i8, ptr %15, i64 5
-  %17 = load i8, ptr %arrayidx3.i.i.i57, align 1
-  %conv4.i.i.i58 = zext i8 %17 to i32
-  %shl5.i.i.i59 = shl nuw nsw i32 %conv4.i.i.i58, 16
-  %add.i.i.i60 = or disjoint i32 %shl5.i.i.i59, %shl.i.i.i56
-  %arrayidx7.i.i.i61 = getelementptr inbounds i8, ptr %15, i64 6
-  %18 = load i8, ptr %arrayidx7.i.i.i61, align 1
-  %conv8.i.i.i62 = zext i8 %18 to i32
-  %shl9.i.i.i63 = shl nuw nsw i32 %conv8.i.i.i62, 8
-  %add10.i.i.i64 = or disjoint i32 %add.i.i.i60, %shl9.i.i.i63
-  %arrayidx12.i.i.i65 = getelementptr inbounds i8, ptr %15, i64 7
-  %19 = load i8, ptr %arrayidx12.i.i.i65, align 1
-  %conv13.i.i.i66 = zext i8 %19 to i32
-  %add14.i.i.i67 = or disjoint i32 %add10.i.i.i64, %conv13.i.i.i66
-  %tobool.not.i68 = icmp eq i32 %add14.i.i.i67, 0
-  %idx.ext.i.i.i.i69 = zext i32 %add14.i.i.i67 to i64
-  %add.ptr.i.i.i.i70 = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i.i.i.i69
-  br i1 %tobool.not.i68, label %if.end17, label %return
+if.then.i.i.i.i.i.i78:                            ; preds = %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i47
+  %sub3.i.i.i.i.i.i79 = add nsw i32 %div9.i.i.i.i.i.i36, -1
+  br label %if.end8.i.i.i.i.i.i54
 
-if.end17:                                         ; preds = %_ZNK2OT4cmap13find_subtableEjj.exit83
-  br i1 %cmp.not8.i.i.not.i, label %_ZNK2OT4cmap13find_subtableEjj.exit145, label %while.body.i.i.i94
+if.else.i.i.i.i.i.i50:                            ; preds = %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i47
+  %cmp4.not.i.i.i.i.i.i51 = icmp eq i32 %retval.0.i.i.i.i.i.i.i.i48, 0
+  br i1 %cmp4.not.i.i.i.i.i.i51, label %.loopexit.i.i.i76, label %if.then5.i.i.i.i.i.i52
 
-while.body.i.i.i94:                               ; preds = %if.end17, %24
-  %min.010.i.i.i95 = phi i32 [ %26, %24 ], [ 0, %if.end17 ]
-  %max.09.i.i.i96 = phi i32 [ %25, %24 ], [ %sub.i.i.i, %if.end17 ]
-  %add.i.i3.i97 = add i32 %max.09.i.i.i96, %min.010.i.i.i95
-  %div9.i.i.i98 = lshr i32 %add.i.i3.i97, 1
-  %conv1.i.i.i99 = zext nneg i32 %div9.i.i.i98 to i64
-  %mul.i.i.i100 = shl nuw nsw i64 %conv1.i.i.i99, 3
-  %add.ptr.i.i.i101 = getelementptr inbounds i8, ptr %arrayZ.i.i.i, i64 %mul.i.i.i100
-  %20 = load i8, ptr %add.ptr.i.i.i101, align 1
-  %conv.i.i.i.i.i.i.i102 = zext i8 %20 to i32
-  %shl.i.i.i.i.i.i.i103 = shl nuw nsw i32 %conv.i.i.i.i.i.i.i102, 8
-  %arrayidx3.i.i.i.i.i.i.i104 = getelementptr inbounds i8, ptr %add.ptr.i.i.i101, i64 1
-  %21 = load i8, ptr %arrayidx3.i.i.i.i.i.i.i104, align 1
-  %conv4.i.i.i.i.i.i.i105 = zext i8 %21 to i32
-  %add.i.i.i.i.i.i.i106 = or disjoint i32 %shl.i.i.i.i.i.i.i103, %conv4.i.i.i.i.i.i.i105
-  %cmp6.i.i.i.not.i.i.i108 = icmp eq i32 %add.i.i.i.i.i.i.i106, 0
-  br i1 %cmp6.i.i.i.not.i.i.i108, label %if.end.i.i.i.i.i134, label %.thread
+if.then5.i.i.i.i.i.i52:                           ; preds = %if.else.i.i.i.i.i.i50
+  %add6.i.i.i.i.i.i53 = add nuw nsw i32 %div9.i.i.i.i.i.i36, 1
+  br label %if.end8.i.i.i.i.i.i54
 
-.thread:                                          ; preds = %while.body.i.i.i94
-  %sub3.i.i.i111218 = add nsw i32 %div9.i.i.i98, -1
-  br label %24
+if.end8.i.i.i.i.i.i54:                            ; preds = %if.then5.i.i.i.i.i.i52, %if.then.i.i.i.i.i.i78
+  %max.1.i.i.i.i.i.i55 = phi i32 [ %sub3.i.i.i.i.i.i79, %if.then.i.i.i.i.i.i78 ], [ %max.07.i.i.i.i.i.i34, %if.then5.i.i.i.i.i.i52 ]
+  %min.1.i.i.i.i.i.i56 = phi i32 [ %min.08.i.i.i.i.i.i33, %if.then.i.i.i.i.i.i78 ], [ %add6.i.i.i.i.i.i53, %if.then5.i.i.i.i.i.i52 ]
+  %cmp.not.not.i.i.i.i.i.i57 = icmp sgt i32 %min.1.i.i.i.i.i.i56, %max.1.i.i.i.i.i.i55
+  br i1 %cmp.not.not.i.i.i.i.i.i57, label %_ZNK2OT4cmap13find_subtableEjj.exit89, label %while.body.i.i.i.i.i.i32, !llvm.loop !137
 
-if.end.i.i.i.i.i134:                              ; preds = %while.body.i.i.i94
-  %encodingID6.i.i.i.i.i135 = getelementptr inbounds i8, ptr %add.ptr.i.i.i101, i64 2
-  %22 = load i8, ptr %encodingID6.i.i.i.i.i135, align 1
-  %conv.i.i11.i.i.i.i.i136 = zext i8 %22 to i32
-  %shl.i.i12.i.i.i.i.i137 = shl nuw nsw i32 %conv.i.i11.i.i.i.i.i136, 8
-  %arrayidx3.i.i13.i.i.i.i.i138 = getelementptr inbounds i8, ptr %add.ptr.i.i.i101, i64 3
-  %23 = load i8, ptr %arrayidx3.i.i13.i.i.i.i.i138, align 1
-  %conv4.i.i14.i.i.i.i.i139 = zext i8 %23 to i32
-  %add.i.i15.i.i.i.i.i140 = or disjoint i32 %shl.i.i12.i.i.i.i.i137, %conv4.i.i14.i.i.i.i.i139
-  %add.i.i15.i.i.i.i.i140.fr = freeze i32 %add.i.i15.i.i.i.i.i140
-  %cmp6.i19.i.i.not.i.i.i142 = icmp eq i32 %add.i.i15.i.i.i.i.i140.fr, 6
-  br i1 %cmp6.i19.i.i.not.i.i.i142, label %.loopexit.i143, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i109
+.loopexit.i.i.i76:                                ; preds = %if.else.i.i.i.i.i.i50, %if.end.i.i.i.i.i.i.i.i80
+  %arrayidx4.i.i.i77 = getelementptr inbounds %"struct.OT::EncodingRecord", ptr %arrayZ.i.i.i, i64 %conv1.i.i.i.i.i.i37
+  br label %_ZNK2OT4cmap13find_subtableEjj.exit89
 
-_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i109: ; preds = %if.end.i.i.i.i.i134
-  %cmp.i18.i.i.i.i.i141 = icmp ugt i32 %add.i.i15.i.i.i.i.i140.fr, 6
-  %sub3.i.i.i111 = add nsw i32 %div9.i.i.i98, -1
-  %add6.i.i.i112 = add nuw nsw i32 %div9.i.i.i98, 1
-  %spec.select = select i1 %cmp.i18.i.i.i.i.i141, i32 %sub3.i.i.i111, i32 %max.09.i.i.i96
-  %spec.select259 = select i1 %cmp.i18.i.i.i.i.i141, i32 %min.010.i.i.i95, i32 %add6.i.i.i112
-  br label %24
+_ZNK2OT4cmap13find_subtableEjj.exit89:            ; preds = %if.end8.i.i.i.i.i.i54, %if.end13, %.loopexit.i.i.i76
+  %15 = phi ptr [ %arrayidx4.i.i.i77, %.loopexit.i.i.i76 ], [ @_hb_NullPool, %if.end13 ], [ @_hb_NullPool, %if.end8.i.i.i.i.i.i54 ]
+  %subtable.i58 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = load i8, ptr %subtable.i58, align 1
+  %conv.i.i.i59 = zext i8 %16 to i32
+  %shl.i.i.i60 = shl nuw i32 %conv.i.i.i59, 24
+  %arrayidx3.i.i.i61 = getelementptr inbounds i8, ptr %15, i64 5
+  %17 = load i8, ptr %arrayidx3.i.i.i61, align 1
+  %conv4.i.i.i62 = zext i8 %17 to i32
+  %shl5.i.i.i63 = shl nuw nsw i32 %conv4.i.i.i62, 16
+  %add.i.i.i64 = or disjoint i32 %shl5.i.i.i63, %shl.i.i.i60
+  %arrayidx7.i.i.i65 = getelementptr inbounds i8, ptr %15, i64 6
+  %18 = load i8, ptr %arrayidx7.i.i.i65, align 1
+  %conv8.i.i.i66 = zext i8 %18 to i32
+  %shl9.i.i.i67 = shl nuw nsw i32 %conv8.i.i.i66, 8
+  %add10.i.i.i68 = or disjoint i32 %add.i.i.i64, %shl9.i.i.i67
+  %arrayidx12.i.i.i69 = getelementptr inbounds i8, ptr %15, i64 7
+  %19 = load i8, ptr %arrayidx12.i.i.i69, align 1
+  %conv13.i.i.i70 = zext i8 %19 to i32
+  %add14.i.i.i71 = or disjoint i32 %add10.i.i.i68, %conv13.i.i.i70
+  %tobool.not.i72 = icmp eq i32 %add14.i.i.i71, 0
+  %idx.ext.i.i.i.i73 = zext i32 %add14.i.i.i71 to i64
+  %add.ptr.i.i.i.i74 = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i.i.i.i73
+  br i1 %tobool.not.i72, label %if.end17, label %return
 
-24:                                               ; preds = %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i109, %.thread
-  %25 = phi i32 [ %sub3.i.i.i111218, %.thread ], [ %spec.select, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i109 ]
-  %26 = phi i32 [ %min.010.i.i.i95, %.thread ], [ %spec.select259, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i109 ]
-  %cmp.not.not.i.i.i115 = icmp sgt i32 %26, %25
-  br i1 %cmp.not.not.i.i.i115, label %_ZNK2OT4cmap13find_subtableEjj.exit145, label %while.body.i.i.i94, !llvm.loop !137
+if.end17:                                         ; preds = %_ZNK2OT4cmap13find_subtableEjj.exit89
+  br i1 %cmp.not6.i.i.i.i.not.i.i, label %_ZNK2OT4cmap13find_subtableEjj.exit157, label %while.body.lr.ph.i.i.i.i.i.i98
 
-.loopexit.i143:                                   ; preds = %if.end.i.i.i.i.i134
-  %arrayidx.i.i10.i144 = getelementptr inbounds %"struct.OT::EncodingRecord", ptr %arrayZ.i.i.i, i64 %conv1.i.i.i99
-  br label %_ZNK2OT4cmap13find_subtableEjj.exit145
+while.body.lr.ph.i.i.i.i.i.i98:                   ; preds = %if.end17
+  %sub.i.i.i.i.i.i99 = add nsw i32 %add.i.i.i.i.i, -1
+  br label %while.body.i.i.i.i.i.i100
 
-_ZNK2OT4cmap13find_subtableEjj.exit145:           ; preds = %24, %if.end17, %.loopexit.i143
-  %27 = phi ptr [ %arrayidx.i.i10.i144, %.loopexit.i143 ], [ @_hb_NullPool, %if.end17 ], [ @_hb_NullPool, %24 ]
-  %subtable.i116 = getelementptr inbounds i8, ptr %27, i64 4
-  %28 = load i8, ptr %subtable.i116, align 1
-  %conv.i.i.i117 = zext i8 %28 to i32
-  %shl.i.i.i118 = shl nuw i32 %conv.i.i.i117, 24
-  %arrayidx3.i.i.i119 = getelementptr inbounds i8, ptr %27, i64 5
-  %29 = load i8, ptr %arrayidx3.i.i.i119, align 1
-  %conv4.i.i.i120 = zext i8 %29 to i32
-  %shl5.i.i.i121 = shl nuw nsw i32 %conv4.i.i.i120, 16
-  %add.i.i.i122 = or disjoint i32 %shl5.i.i.i121, %shl.i.i.i118
-  %arrayidx7.i.i.i123 = getelementptr inbounds i8, ptr %27, i64 6
-  %30 = load i8, ptr %arrayidx7.i.i.i123, align 1
-  %conv8.i.i.i124 = zext i8 %30 to i32
-  %shl9.i.i.i125 = shl nuw nsw i32 %conv8.i.i.i124, 8
-  %add10.i.i.i126 = or disjoint i32 %add.i.i.i122, %shl9.i.i.i125
-  %arrayidx12.i.i.i127 = getelementptr inbounds i8, ptr %27, i64 7
-  %31 = load i8, ptr %arrayidx12.i.i.i127, align 1
-  %conv13.i.i.i128 = zext i8 %31 to i32
-  %add14.i.i.i129 = or disjoint i32 %add10.i.i.i126, %conv13.i.i.i128
-  %tobool.not.i130 = icmp eq i32 %add14.i.i.i129, 0
-  %idx.ext.i.i.i.i131 = zext i32 %add14.i.i.i129 to i64
-  %add.ptr.i.i.i.i132 = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i.i.i.i131
-  br i1 %tobool.not.i130, label %if.end21, label %return
+while.body.i.i.i.i.i.i100:                        ; preds = %if.end8.i.i.i.i.i.i122, %while.body.lr.ph.i.i.i.i.i.i98
+  %min.08.i.i.i.i.i.i101 = phi i32 [ %min.1.i.i.i.i.i.i124, %if.end8.i.i.i.i.i.i122 ], [ 0, %while.body.lr.ph.i.i.i.i.i.i98 ]
+  %max.07.i.i.i.i.i.i102 = phi i32 [ %max.1.i.i.i.i.i.i123, %if.end8.i.i.i.i.i.i122 ], [ %sub.i.i.i.i.i.i99, %while.body.lr.ph.i.i.i.i.i.i98 ]
+  %add.i.i.i.i.i.i103 = add i32 %max.07.i.i.i.i.i.i102, %min.08.i.i.i.i.i.i101
+  %div9.i.i.i.i.i.i104 = lshr i32 %add.i.i.i.i.i.i103, 1
+  %conv1.i.i.i.i.i.i105 = zext nneg i32 %div9.i.i.i.i.i.i104 to i64
+  %mul.i.i.i.i.i.i106 = shl nuw nsw i64 %conv1.i.i.i.i.i.i105, 3
+  %add.ptr.i.i.i.i.i.i107 = getelementptr inbounds i8, ptr %arrayZ.i.i.i, i64 %mul.i.i.i.i.i.i106
+  %20 = load i8, ptr %add.ptr.i.i.i.i.i.i107, align 1
+  %conv.i.i.i.i.i.i.i.i.i.i108 = zext i8 %20 to i32
+  %shl.i.i.i.i.i.i.i.i.i.i109 = shl nuw nsw i32 %conv.i.i.i.i.i.i.i.i.i.i108, 8
+  %arrayidx3.i.i.i.i.i.i.i.i.i.i110 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i107, i64 1
+  %21 = load i8, ptr %arrayidx3.i.i.i.i.i.i.i.i.i.i110, align 1
+  %conv4.i.i.i.i.i.i.i.i.i.i111 = zext i8 %21 to i32
+  %add.i.i.i.i.i.i.i.i.i.i112 = or disjoint i32 %shl.i.i.i.i.i.i.i.i.i.i109, %conv4.i.i.i.i.i.i.i.i.i.i111
+  %tobool.not.i.i.i.i.i.i.i.i114 = icmp eq i32 %add.i.i.i.i.i.i.i.i.i.i112, 0
+  br i1 %tobool.not.i.i.i.i.i.i.i.i114, label %if.end.i.i.i.i.i.i.i.i148, label %if.then.i.i.i.i.i.i146
 
-if.end21:                                         ; preds = %_ZNK2OT4cmap13find_subtableEjj.exit145
-  br i1 %cmp.not8.i.i.not.i, label %_ZNK2OT4cmap13find_subtableEjj.exit207, label %while.body.i.i.i156
+if.end.i.i.i.i.i.i.i.i148:                        ; preds = %while.body.i.i.i.i.i.i100
+  %encodingID6.i.i.i.i.i.i.i.i149 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i107, i64 2
+  %22 = load i8, ptr %encodingID6.i.i.i.i.i.i.i.i149, align 1
+  %conv.i.i11.i.i.i.i.i.i.i.i150 = zext i8 %22 to i32
+  %shl.i.i12.i.i.i.i.i.i.i.i151 = shl nuw nsw i32 %conv.i.i11.i.i.i.i.i.i.i.i150, 8
+  %arrayidx3.i.i13.i.i.i.i.i.i.i.i152 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i107, i64 3
+  %23 = load i8, ptr %arrayidx3.i.i13.i.i.i.i.i.i.i.i152, align 1
+  %conv4.i.i14.i.i.i.i.i.i.i.i153 = zext i8 %23 to i32
+  %add.i.i15.i.i.i.i.i.i.i.i154 = or disjoint i32 %shl.i.i12.i.i.i.i.i.i.i.i151, %conv4.i.i14.i.i.i.i.i.i.i.i153
+  %tobool12.not.i.i.i.i.i.i.i.i156 = icmp eq i32 %add.i.i15.i.i.i.i.i.i.i.i154, 6
+  br i1 %tobool12.not.i.i.i.i.i.i.i.i156, label %.loopexit.i.i.i144, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i115
 
-while.body.i.i.i156:                              ; preds = %if.end21, %36
-  %min.010.i.i.i157 = phi i32 [ %38, %36 ], [ 0, %if.end21 ]
-  %max.09.i.i.i158 = phi i32 [ %37, %36 ], [ %sub.i.i.i, %if.end21 ]
-  %add.i.i3.i159 = add i32 %max.09.i.i.i158, %min.010.i.i.i157
-  %div9.i.i.i160 = lshr i32 %add.i.i3.i159, 1
-  %conv1.i.i.i161 = zext nneg i32 %div9.i.i.i160 to i64
-  %mul.i.i.i162 = shl nuw nsw i64 %conv1.i.i.i161, 3
-  %add.ptr.i.i.i163 = getelementptr inbounds i8, ptr %arrayZ.i.i.i, i64 %mul.i.i.i162
-  %32 = load i8, ptr %add.ptr.i.i.i163, align 1
-  %conv.i.i.i.i.i.i.i164 = zext i8 %32 to i32
-  %shl.i.i.i.i.i.i.i165 = shl nuw nsw i32 %conv.i.i.i.i.i.i.i164, 8
-  %arrayidx3.i.i.i.i.i.i.i166 = getelementptr inbounds i8, ptr %add.ptr.i.i.i163, i64 1
-  %33 = load i8, ptr %arrayidx3.i.i.i.i.i.i.i166, align 1
-  %conv4.i.i.i.i.i.i.i167 = zext i8 %33 to i32
-  %add.i.i.i.i.i.i.i168 = or disjoint i32 %shl.i.i.i.i.i.i.i165, %conv4.i.i.i.i.i.i.i167
-  %cmp6.i.i.i.not.i.i.i170 = icmp eq i32 %add.i.i.i.i.i.i.i168, 0
-  br i1 %cmp6.i.i.i.not.i.i.i170, label %if.end.i.i.i.i.i196, label %.thread243
+_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i115: ; preds = %if.end.i.i.i.i.i.i.i.i148
+  %cmp2.i.i.i.i.i.i117 = icmp ugt i32 %add.i.i15.i.i.i.i.i.i.i.i154, 6
+  br i1 %cmp2.i.i.i.i.i.i117, label %if.then.i.i.i.i.i.i146, label %if.then5.i.i.i.i.i.i120
 
-.thread243:                                       ; preds = %while.body.i.i.i156
-  %sub3.i.i.i173235 = add nsw i32 %div9.i.i.i160, -1
-  br label %36
+if.then.i.i.i.i.i.i146:                           ; preds = %while.body.i.i.i.i.i.i100, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i115
+  %sub3.i.i.i.i.i.i147 = add nsw i32 %div9.i.i.i.i.i.i104, -1
+  br label %if.end8.i.i.i.i.i.i122
 
-if.end.i.i.i.i.i196:                              ; preds = %while.body.i.i.i156
-  %encodingID6.i.i.i.i.i197 = getelementptr inbounds i8, ptr %add.ptr.i.i.i163, i64 2
-  %34 = load i8, ptr %encodingID6.i.i.i.i.i197, align 1
-  %conv.i.i11.i.i.i.i.i198 = zext i8 %34 to i32
-  %shl.i.i12.i.i.i.i.i199 = shl nuw nsw i32 %conv.i.i11.i.i.i.i.i198, 8
-  %arrayidx3.i.i13.i.i.i.i.i200 = getelementptr inbounds i8, ptr %add.ptr.i.i.i163, i64 3
-  %35 = load i8, ptr %arrayidx3.i.i13.i.i.i.i.i200, align 1
-  %conv4.i.i14.i.i.i.i.i201 = zext i8 %35 to i32
-  %add.i.i15.i.i.i.i.i202 = or disjoint i32 %shl.i.i12.i.i.i.i.i199, %conv4.i.i14.i.i.i.i.i201
-  %add.i.i15.i.i.i.i.i202.fr = freeze i32 %add.i.i15.i.i.i.i.i202
-  %cmp6.i19.i.i.not.i.i.i204 = icmp eq i32 %add.i.i15.i.i.i.i.i202.fr, 4
-  br i1 %cmp6.i19.i.i.not.i.i.i204, label %.loopexit.i205, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i171
+if.then5.i.i.i.i.i.i120:                          ; preds = %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i115
+  %add6.i.i.i.i.i.i121 = add nuw nsw i32 %div9.i.i.i.i.i.i104, 1
+  br label %if.end8.i.i.i.i.i.i122
 
-_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i171: ; preds = %if.end.i.i.i.i.i196
-  %cmp.i18.i.i.i.i.i203 = icmp ugt i32 %add.i.i15.i.i.i.i.i202.fr, 4
-  %sub3.i.i.i173 = add nsw i32 %div9.i.i.i160, -1
-  %add6.i.i.i174 = add nuw nsw i32 %div9.i.i.i160, 1
-  %spec.select260 = select i1 %cmp.i18.i.i.i.i.i203, i32 %sub3.i.i.i173, i32 %max.09.i.i.i158
-  %spec.select261 = select i1 %cmp.i18.i.i.i.i.i203, i32 %min.010.i.i.i157, i32 %add6.i.i.i174
-  br label %36
+if.end8.i.i.i.i.i.i122:                           ; preds = %if.then5.i.i.i.i.i.i120, %if.then.i.i.i.i.i.i146
+  %max.1.i.i.i.i.i.i123 = phi i32 [ %sub3.i.i.i.i.i.i147, %if.then.i.i.i.i.i.i146 ], [ %max.07.i.i.i.i.i.i102, %if.then5.i.i.i.i.i.i120 ]
+  %min.1.i.i.i.i.i.i124 = phi i32 [ %min.08.i.i.i.i.i.i101, %if.then.i.i.i.i.i.i146 ], [ %add6.i.i.i.i.i.i121, %if.then5.i.i.i.i.i.i120 ]
+  %cmp.not.not.i.i.i.i.i.i125 = icmp sgt i32 %min.1.i.i.i.i.i.i124, %max.1.i.i.i.i.i.i123
+  br i1 %cmp.not.not.i.i.i.i.i.i125, label %_ZNK2OT4cmap13find_subtableEjj.exit157, label %while.body.i.i.i.i.i.i100, !llvm.loop !137
 
-36:                                               ; preds = %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i171, %.thread243
-  %37 = phi i32 [ %sub3.i.i.i173235, %.thread243 ], [ %spec.select260, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i171 ]
-  %38 = phi i32 [ %min.010.i.i.i157, %.thread243 ], [ %spec.select261, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i171 ]
-  %cmp.not.not.i.i.i177 = icmp sgt i32 %38, %37
-  br i1 %cmp.not.not.i.i.i177, label %_ZNK2OT4cmap13find_subtableEjj.exit207, label %while.body.i.i.i156, !llvm.loop !137
+.loopexit.i.i.i144:                               ; preds = %if.end.i.i.i.i.i.i.i.i148
+  %arrayidx4.i.i.i145 = getelementptr inbounds %"struct.OT::EncodingRecord", ptr %arrayZ.i.i.i, i64 %conv1.i.i.i.i.i.i105
+  br label %_ZNK2OT4cmap13find_subtableEjj.exit157
 
-.loopexit.i205:                                   ; preds = %if.end.i.i.i.i.i196
-  %arrayidx.i.i10.i206 = getelementptr inbounds %"struct.OT::EncodingRecord", ptr %arrayZ.i.i.i, i64 %conv1.i.i.i161
-  br label %_ZNK2OT4cmap13find_subtableEjj.exit207
+_ZNK2OT4cmap13find_subtableEjj.exit157:           ; preds = %if.end8.i.i.i.i.i.i122, %if.end17, %.loopexit.i.i.i144
+  %24 = phi ptr [ %arrayidx4.i.i.i145, %.loopexit.i.i.i144 ], [ @_hb_NullPool, %if.end17 ], [ @_hb_NullPool, %if.end8.i.i.i.i.i.i122 ]
+  %subtable.i126 = getelementptr inbounds i8, ptr %24, i64 4
+  %25 = load i8, ptr %subtable.i126, align 1
+  %conv.i.i.i127 = zext i8 %25 to i32
+  %shl.i.i.i128 = shl nuw i32 %conv.i.i.i127, 24
+  %arrayidx3.i.i.i129 = getelementptr inbounds i8, ptr %24, i64 5
+  %26 = load i8, ptr %arrayidx3.i.i.i129, align 1
+  %conv4.i.i.i130 = zext i8 %26 to i32
+  %shl5.i.i.i131 = shl nuw nsw i32 %conv4.i.i.i130, 16
+  %add.i.i.i132 = or disjoint i32 %shl5.i.i.i131, %shl.i.i.i128
+  %arrayidx7.i.i.i133 = getelementptr inbounds i8, ptr %24, i64 6
+  %27 = load i8, ptr %arrayidx7.i.i.i133, align 1
+  %conv8.i.i.i134 = zext i8 %27 to i32
+  %shl9.i.i.i135 = shl nuw nsw i32 %conv8.i.i.i134, 8
+  %add10.i.i.i136 = or disjoint i32 %add.i.i.i132, %shl9.i.i.i135
+  %arrayidx12.i.i.i137 = getelementptr inbounds i8, ptr %24, i64 7
+  %28 = load i8, ptr %arrayidx12.i.i.i137, align 1
+  %conv13.i.i.i138 = zext i8 %28 to i32
+  %add14.i.i.i139 = or disjoint i32 %add10.i.i.i136, %conv13.i.i.i138
+  %tobool.not.i140 = icmp eq i32 %add14.i.i.i139, 0
+  %idx.ext.i.i.i.i141 = zext i32 %add14.i.i.i139 to i64
+  %add.ptr.i.i.i.i142 = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i.i.i.i141
+  br i1 %tobool.not.i140, label %if.end21, label %return
 
-_ZNK2OT4cmap13find_subtableEjj.exit207:           ; preds = %36, %if.end21, %.loopexit.i205
-  %39 = phi ptr [ %arrayidx.i.i10.i206, %.loopexit.i205 ], [ @_hb_NullPool, %if.end21 ], [ @_hb_NullPool, %36 ]
-  %subtable.i178 = getelementptr inbounds i8, ptr %39, i64 4
-  %40 = load i8, ptr %subtable.i178, align 1
-  %conv.i.i.i179 = zext i8 %40 to i32
-  %shl.i.i.i180 = shl nuw i32 %conv.i.i.i179, 24
-  %arrayidx3.i.i.i181 = getelementptr inbounds i8, ptr %39, i64 5
-  %41 = load i8, ptr %arrayidx3.i.i.i181, align 1
-  %conv4.i.i.i182 = zext i8 %41 to i32
-  %shl5.i.i.i183 = shl nuw nsw i32 %conv4.i.i.i182, 16
-  %add.i.i.i184 = or disjoint i32 %shl5.i.i.i183, %shl.i.i.i180
-  %arrayidx7.i.i.i185 = getelementptr inbounds i8, ptr %39, i64 6
-  %42 = load i8, ptr %arrayidx7.i.i.i185, align 1
-  %conv8.i.i.i186 = zext i8 %42 to i32
-  %shl9.i.i.i187 = shl nuw nsw i32 %conv8.i.i.i186, 8
-  %add10.i.i.i188 = or disjoint i32 %add.i.i.i184, %shl9.i.i.i187
-  %arrayidx12.i.i.i189 = getelementptr inbounds i8, ptr %39, i64 7
-  %43 = load i8, ptr %arrayidx12.i.i.i189, align 1
-  %conv13.i.i.i190 = zext i8 %43 to i32
-  %add14.i.i.i191 = or disjoint i32 %add10.i.i.i188, %conv13.i.i.i190
-  %tobool.not.i192 = icmp eq i32 %add14.i.i.i191, 0
-  %idx.ext.i.i.i.i193 = zext i32 %add14.i.i.i191 to i64
-  %add.ptr.i.i.i.i194 = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i.i.i.i193
-  br i1 %tobool.not.i192, label %if.end25, label %return
+if.end21:                                         ; preds = %_ZNK2OT4cmap13find_subtableEjj.exit157
+  br i1 %cmp.not6.i.i.i.i.not.i.i, label %_ZNK2OT4cmap13find_subtableEjj.exit225, label %while.body.lr.ph.i.i.i.i.i.i166
 
-if.end25:                                         ; preds = %_ZNK2OT4cmap13find_subtableEjj.exit207
+while.body.lr.ph.i.i.i.i.i.i166:                  ; preds = %if.end21
+  %sub.i.i.i.i.i.i167 = add nsw i32 %add.i.i.i.i.i, -1
+  br label %while.body.i.i.i.i.i.i168
+
+while.body.i.i.i.i.i.i168:                        ; preds = %if.end8.i.i.i.i.i.i190, %while.body.lr.ph.i.i.i.i.i.i166
+  %min.08.i.i.i.i.i.i169 = phi i32 [ %min.1.i.i.i.i.i.i192, %if.end8.i.i.i.i.i.i190 ], [ 0, %while.body.lr.ph.i.i.i.i.i.i166 ]
+  %max.07.i.i.i.i.i.i170 = phi i32 [ %max.1.i.i.i.i.i.i191, %if.end8.i.i.i.i.i.i190 ], [ %sub.i.i.i.i.i.i167, %while.body.lr.ph.i.i.i.i.i.i166 ]
+  %add.i.i.i.i.i.i171 = add i32 %max.07.i.i.i.i.i.i170, %min.08.i.i.i.i.i.i169
+  %div9.i.i.i.i.i.i172 = lshr i32 %add.i.i.i.i.i.i171, 1
+  %conv1.i.i.i.i.i.i173 = zext nneg i32 %div9.i.i.i.i.i.i172 to i64
+  %mul.i.i.i.i.i.i174 = shl nuw nsw i64 %conv1.i.i.i.i.i.i173, 3
+  %add.ptr.i.i.i.i.i.i175 = getelementptr inbounds i8, ptr %arrayZ.i.i.i, i64 %mul.i.i.i.i.i.i174
+  %29 = load i8, ptr %add.ptr.i.i.i.i.i.i175, align 1
+  %conv.i.i.i.i.i.i.i.i.i.i176 = zext i8 %29 to i32
+  %shl.i.i.i.i.i.i.i.i.i.i177 = shl nuw nsw i32 %conv.i.i.i.i.i.i.i.i.i.i176, 8
+  %arrayidx3.i.i.i.i.i.i.i.i.i.i178 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i175, i64 1
+  %30 = load i8, ptr %arrayidx3.i.i.i.i.i.i.i.i.i.i178, align 1
+  %conv4.i.i.i.i.i.i.i.i.i.i179 = zext i8 %30 to i32
+  %add.i.i.i.i.i.i.i.i.i.i180 = or disjoint i32 %shl.i.i.i.i.i.i.i.i.i.i177, %conv4.i.i.i.i.i.i.i.i.i.i179
+  %tobool.not.i.i.i.i.i.i.i.i182 = icmp eq i32 %add.i.i.i.i.i.i.i.i.i.i180, 0
+  br i1 %tobool.not.i.i.i.i.i.i.i.i182, label %if.end.i.i.i.i.i.i.i.i216, label %if.then.i.i.i.i.i.i214
+
+if.end.i.i.i.i.i.i.i.i216:                        ; preds = %while.body.i.i.i.i.i.i168
+  %encodingID6.i.i.i.i.i.i.i.i217 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i175, i64 2
+  %31 = load i8, ptr %encodingID6.i.i.i.i.i.i.i.i217, align 1
+  %conv.i.i11.i.i.i.i.i.i.i.i218 = zext i8 %31 to i32
+  %shl.i.i12.i.i.i.i.i.i.i.i219 = shl nuw nsw i32 %conv.i.i11.i.i.i.i.i.i.i.i218, 8
+  %arrayidx3.i.i13.i.i.i.i.i.i.i.i220 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i175, i64 3
+  %32 = load i8, ptr %arrayidx3.i.i13.i.i.i.i.i.i.i.i220, align 1
+  %conv4.i.i14.i.i.i.i.i.i.i.i221 = zext i8 %32 to i32
+  %add.i.i15.i.i.i.i.i.i.i.i222 = or disjoint i32 %shl.i.i12.i.i.i.i.i.i.i.i219, %conv4.i.i14.i.i.i.i.i.i.i.i221
+  %tobool12.not.i.i.i.i.i.i.i.i224 = icmp eq i32 %add.i.i15.i.i.i.i.i.i.i.i222, 4
+  br i1 %tobool12.not.i.i.i.i.i.i.i.i224, label %.loopexit.i.i.i212, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i183
+
+_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i183: ; preds = %if.end.i.i.i.i.i.i.i.i216
+  %cmp2.i.i.i.i.i.i185 = icmp ugt i32 %add.i.i15.i.i.i.i.i.i.i.i222, 4
+  br i1 %cmp2.i.i.i.i.i.i185, label %if.then.i.i.i.i.i.i214, label %if.then5.i.i.i.i.i.i188
+
+if.then.i.i.i.i.i.i214:                           ; preds = %while.body.i.i.i.i.i.i168, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i183
+  %sub3.i.i.i.i.i.i215 = add nsw i32 %div9.i.i.i.i.i.i172, -1
+  br label %if.end8.i.i.i.i.i.i190
+
+if.then5.i.i.i.i.i.i188:                          ; preds = %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i.i183
+  %add6.i.i.i.i.i.i189 = add nuw nsw i32 %div9.i.i.i.i.i.i172, 1
+  br label %if.end8.i.i.i.i.i.i190
+
+if.end8.i.i.i.i.i.i190:                           ; preds = %if.then5.i.i.i.i.i.i188, %if.then.i.i.i.i.i.i214
+  %max.1.i.i.i.i.i.i191 = phi i32 [ %sub3.i.i.i.i.i.i215, %if.then.i.i.i.i.i.i214 ], [ %max.07.i.i.i.i.i.i170, %if.then5.i.i.i.i.i.i188 ]
+  %min.1.i.i.i.i.i.i192 = phi i32 [ %min.08.i.i.i.i.i.i169, %if.then.i.i.i.i.i.i214 ], [ %add6.i.i.i.i.i.i189, %if.then5.i.i.i.i.i.i188 ]
+  %cmp.not.not.i.i.i.i.i.i193 = icmp sgt i32 %min.1.i.i.i.i.i.i192, %max.1.i.i.i.i.i.i191
+  br i1 %cmp.not.not.i.i.i.i.i.i193, label %_ZNK2OT4cmap13find_subtableEjj.exit225, label %while.body.i.i.i.i.i.i168, !llvm.loop !137
+
+.loopexit.i.i.i212:                               ; preds = %if.end.i.i.i.i.i.i.i.i216
+  %arrayidx4.i.i.i213 = getelementptr inbounds %"struct.OT::EncodingRecord", ptr %arrayZ.i.i.i, i64 %conv1.i.i.i.i.i.i173
+  br label %_ZNK2OT4cmap13find_subtableEjj.exit225
+
+_ZNK2OT4cmap13find_subtableEjj.exit225:           ; preds = %if.end8.i.i.i.i.i.i190, %if.end21, %.loopexit.i.i.i212
+  %33 = phi ptr [ %arrayidx4.i.i.i213, %.loopexit.i.i.i212 ], [ @_hb_NullPool, %if.end21 ], [ @_hb_NullPool, %if.end8.i.i.i.i.i.i190 ]
+  %subtable.i194 = getelementptr inbounds i8, ptr %33, i64 4
+  %34 = load i8, ptr %subtable.i194, align 1
+  %conv.i.i.i195 = zext i8 %34 to i32
+  %shl.i.i.i196 = shl nuw i32 %conv.i.i.i195, 24
+  %arrayidx3.i.i.i197 = getelementptr inbounds i8, ptr %33, i64 5
+  %35 = load i8, ptr %arrayidx3.i.i.i197, align 1
+  %conv4.i.i.i198 = zext i8 %35 to i32
+  %shl5.i.i.i199 = shl nuw nsw i32 %conv4.i.i.i198, 16
+  %add.i.i.i200 = or disjoint i32 %shl5.i.i.i199, %shl.i.i.i196
+  %arrayidx7.i.i.i201 = getelementptr inbounds i8, ptr %33, i64 6
+  %36 = load i8, ptr %arrayidx7.i.i.i201, align 1
+  %conv8.i.i.i202 = zext i8 %36 to i32
+  %shl9.i.i.i203 = shl nuw nsw i32 %conv8.i.i.i202, 8
+  %add10.i.i.i204 = or disjoint i32 %add.i.i.i200, %shl9.i.i.i203
+  %arrayidx12.i.i.i205 = getelementptr inbounds i8, ptr %33, i64 7
+  %37 = load i8, ptr %arrayidx12.i.i.i205, align 1
+  %conv13.i.i.i206 = zext i8 %37 to i32
+  %add14.i.i.i207 = or disjoint i32 %add10.i.i.i204, %conv13.i.i.i206
+  %tobool.not.i208 = icmp eq i32 %add14.i.i.i207, 0
+  %idx.ext.i.i.i.i209 = zext i32 %add14.i.i.i207 to i64
+  %add.ptr.i.i.i.i210 = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i.i.i.i209
+  br i1 %tobool.not.i208, label %if.end25, label %return
+
+if.end25:                                         ; preds = %_ZNK2OT4cmap13find_subtableEjj.exit225
   %call26 = tail call noundef ptr @_ZNK2OT4cmap13find_subtableEjj(ptr noundef nonnull align 1 dereferenceable(12) %this, i32 noundef 3, i32 noundef 1)
   %tobool27.not = icmp eq ptr %call26, null
   br i1 %tobool27.not, label %if.end29, label %return
@@ -21265,8 +21298,8 @@ return.sink.split:                                ; preds = %if.end55, %if.end51
   store i8 1, ptr %mac.sink, align 1
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end55, %if.end51, %if.end41, %if.end37, %if.end33, %if.end29, %if.end25, %_ZNK2OT4cmap13find_subtableEjj.exit207, %_ZNK2OT4cmap13find_subtableEjj.exit145, %_ZNK2OT4cmap13find_subtableEjj.exit83, %if.then9
-  %retval.0 = phi ptr [ %add.ptr.i.i.i.i, %if.then9 ], [ %add.ptr.i.i.i.i70, %_ZNK2OT4cmap13find_subtableEjj.exit83 ], [ %add.ptr.i.i.i.i132, %_ZNK2OT4cmap13find_subtableEjj.exit145 ], [ %add.ptr.i.i.i.i194, %_ZNK2OT4cmap13find_subtableEjj.exit207 ], [ %call26, %if.end25 ], [ %call30, %if.end29 ], [ %call34, %if.end33 ], [ %call38, %if.end37 ], [ %call42, %if.end41 ], [ %call46, %if.end51 ], [ %_hb_NullPool.mux, %if.end55 ], [ %retval.0.ph, %return.sink.split ]
+return:                                           ; preds = %return.sink.split, %if.end55, %if.end51, %if.end41, %if.end37, %if.end33, %if.end29, %if.end25, %_ZNK2OT4cmap13find_subtableEjj.exit225, %_ZNK2OT4cmap13find_subtableEjj.exit157, %_ZNK2OT4cmap13find_subtableEjj.exit89, %if.then9
+  %retval.0 = phi ptr [ %add.ptr.i.i.i.i, %if.then9 ], [ %add.ptr.i.i.i.i74, %_ZNK2OT4cmap13find_subtableEjj.exit89 ], [ %add.ptr.i.i.i.i142, %_ZNK2OT4cmap13find_subtableEjj.exit157 ], [ %add.ptr.i.i.i.i210, %_ZNK2OT4cmap13find_subtableEjj.exit225 ], [ %call26, %if.end25 ], [ %call30, %if.end29 ], [ %call34, %if.end33 ], [ %call38, %if.end37 ], [ %call42, %if.end41 ], [ %call46, %if.end51 ], [ %_hb_NullPool.mux, %if.end55 ], [ %retval.0.ph, %return.sink.split ]
   ret ptr %retval.0
 }
 
@@ -21282,125 +21315,122 @@ entry:
   %1 = load i8, ptr %arrayidx3.i.i.i.i, align 1
   %conv4.i.i.i.i = zext i8 %1 to i32
   %add.i.i.i.i = or disjoint i32 %shl.i.i.i.i, %conv4.i.i.i.i
-  %sub.i.i = add nsw i32 %add.i.i.i.i, -1
-  %cmp.not8.i.i.not = icmp eq i32 %add.i.i.i.i, 0
-  br i1 %cmp.not8.i.i.not, label %return, label %while.body.lr.ph.i.i
+  %cmp.not6.i.i.i.i.not.i = icmp eq i32 %add.i.i.i.i, 0
+  br i1 %cmp.not6.i.i.i.i.not.i, label %_ZNK2OT13SortedArrayOfINS_14EncodingRecordENS_7IntTypeItLj2EEEE7bsearchIS1_EERKS1_RKT_S7_.exit, label %while.body.lr.ph.i.i.i.i.i
 
-while.body.lr.ph.i.i:                             ; preds = %entry
-  %add.i.i.i.i.i.i.i = and i32 %platform_id, 65535
+while.body.lr.ph.i.i.i.i.i:                       ; preds = %entry
+  %sub.i.i.i.i.i = add nsw i32 %add.i.i.i.i, -1
+  %add.i.i.i.i.i.i.i.i.i.i = and i32 %platform_id, 65535
   %2 = and i32 %encoding_id, 65535
-  %cmp.not.i.i.i.i = icmp eq i32 %2, 65535
-  br i1 %cmp.not.i.i.i.i, label %while.body.lr.ph.split.us.i.i, label %while.body.i.i
+  %cmp.not.i.i.i.i.i.i.i = icmp eq i32 %2, 65535
+  br i1 %cmp.not.i.i.i.i.i.i.i, label %while.body.us.i.i.i.i.i, label %while.body.i.i.i.i.i
 
-while.body.lr.ph.split.us.i.i:                    ; preds = %while.body.lr.ph.i.i
-  %div9.us22.i.i = lshr i32 %sub.i.i, 1
-  %conv1.us23.i.i = zext nneg i32 %div9.us22.i.i to i64
-  %mul.us24.i.i = shl nuw nsw i64 %conv1.us23.i.i, 3
-  %add.ptr.us25.i.i = getelementptr inbounds i8, ptr %arrayZ.i.i, i64 %mul.us24.i.i
-  %3 = load i8, ptr %add.ptr.us25.i.i, align 1
-  %conv.i.i.i.i.us26.i.i = zext i8 %3 to i32
-  %shl.i.i.i.i.us27.i.i = shl nuw nsw i32 %conv.i.i.i.i.us26.i.i, 8
-  %arrayidx3.i.i.i.i.us28.i.i = getelementptr inbounds i8, ptr %add.ptr.us25.i.i, i64 1
-  %4 = load i8, ptr %arrayidx3.i.i.i.i.us28.i.i, align 1
-  %conv4.i.i.i.i.us29.i.i = zext i8 %4 to i32
-  %add.i.i.i.i.us30.i.i = or disjoint i32 %shl.i.i.i.i.us27.i.i, %conv4.i.i.i.i.us29.i.i
-  %cmp6.i.i.i.not.us32.i.i = icmp eq i32 %add.i.i.i.i.us30.i.i, %add.i.i.i.i.i.i.i
-  br i1 %cmp6.i.i.i.not.us32.i.i, label %.loopexit, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.us.i.i
+while.body.us.i.i.i.i.i:                          ; preds = %while.body.lr.ph.i.i.i.i.i, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.us.i.i.i.i.i
+  %min.08.us.i.i.i.i.i = phi i32 [ %min.1.us.i.i.i.i.i, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.us.i.i.i.i.i ], [ 0, %while.body.lr.ph.i.i.i.i.i ]
+  %max.07.us.i.i.i.i.i = phi i32 [ %max.1.us.i.i.i.i.i, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.us.i.i.i.i.i ], [ %sub.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i ]
+  %add.us.i.i.i.i.i = add i32 %max.07.us.i.i.i.i.i, %min.08.us.i.i.i.i.i
+  %div9.us.i.i.i.i.i = lshr i32 %add.us.i.i.i.i.i, 1
+  %conv1.us.i.i.i.i.i = zext nneg i32 %div9.us.i.i.i.i.i to i64
+  %mul.us.i.i.i.i.i = shl nuw nsw i64 %conv1.us.i.i.i.i.i, 3
+  %add.ptr.us.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayZ.i.i, i64 %mul.us.i.i.i.i.i
+  %3 = load i8, ptr %add.ptr.us.i.i.i.i.i, align 1
+  %conv.i.i.i.i.us.i.i.i.i.i = zext i8 %3 to i32
+  %shl.i.i.i.i.us.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i.i.us.i.i.i.i.i, 8
+  %arrayidx3.i.i.i.i.us.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.us.i.i.i.i.i, i64 1
+  %4 = load i8, ptr %arrayidx3.i.i.i.i.us.i.i.i.i.i, align 1
+  %conv4.i.i.i.i.us.i.i.i.i.i = zext i8 %4 to i32
+  %add.i.i.i.i.us.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.us.i.i.i.i.i, %conv4.i.i.i.i.us.i.i.i.i.i
+  %tobool.not.i.i.us.i.i.i.i.i = icmp eq i32 %add.i.i.i.i.us.i.i.i.i.i, %add.i.i.i.i.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.us.i.i.i.i.i, label %.loopexit.i.i, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.us.i.i.i.i.i
 
-while.body.us.i.i:                                ; preds = %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.us.i.i
-  %add.us.i.i = add i32 %min.1.us.i.i, %max.1.us.i.i
-  %div9.us.i.i = lshr i32 %add.us.i.i, 1
-  %conv1.us.i.i = zext nneg i32 %div9.us.i.i to i64
-  %mul.us.i.i = shl nuw nsw i64 %conv1.us.i.i, 3
-  %add.ptr.us.i.i = getelementptr inbounds i8, ptr %arrayZ.i.i, i64 %mul.us.i.i
-  %5 = load i8, ptr %add.ptr.us.i.i, align 1
-  %conv.i.i.i.i.us.i.i = zext i8 %5 to i32
-  %shl.i.i.i.i.us.i.i = shl nuw nsw i32 %conv.i.i.i.i.us.i.i, 8
-  %arrayidx3.i.i.i.i.us.i.i = getelementptr inbounds i8, ptr %add.ptr.us.i.i, i64 1
-  %6 = load i8, ptr %arrayidx3.i.i.i.i.us.i.i, align 1
-  %conv4.i.i.i.i.us.i.i = zext i8 %6 to i32
-  %add.i.i.i.i.us.i.i = or disjoint i32 %shl.i.i.i.i.us.i.i, %conv4.i.i.i.i.us.i.i
-  %cmp6.i.i.i.not.us.i.i = icmp eq i32 %add.i.i.i.i.us.i.i, %add.i.i.i.i.i.i.i
-  br i1 %cmp6.i.i.i.not.us.i.i, label %.loopexit, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.us.i.i, !llvm.loop !137
+_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.us.i.i.i.i.i: ; preds = %while.body.us.i.i.i.i.i
+  %cmp2.us.i.i.i.i.i = icmp ugt i32 %add.i.i.i.i.us.i.i.i.i.i, %add.i.i.i.i.i.i.i.i.i.i
+  %sub3.us.i.i.i.i.i = add nsw i32 %div9.us.i.i.i.i.i, -1
+  %add6.us.i.i.i.i.i = add nuw nsw i32 %div9.us.i.i.i.i.i, 1
+  %max.1.us.i.i.i.i.i = select i1 %cmp2.us.i.i.i.i.i, i32 %sub3.us.i.i.i.i.i, i32 %max.07.us.i.i.i.i.i
+  %min.1.us.i.i.i.i.i = select i1 %cmp2.us.i.i.i.i.i, i32 %min.08.us.i.i.i.i.i, i32 %add6.us.i.i.i.i.i
+  %cmp.not.us.not.i.i.i.i.i = icmp sgt i32 %min.1.us.i.i.i.i.i, %max.1.us.i.i.i.i.i
+  br i1 %cmp.not.us.not.i.i.i.i.i, label %_ZNK2OT13SortedArrayOfINS_14EncodingRecordENS_7IntTypeItLj2EEEE7bsearchIS1_EERKS1_RKT_S7_.exit, label %while.body.us.i.i.i.i.i, !llvm.loop !137
 
-_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.us.i.i: ; preds = %while.body.lr.ph.split.us.i.i, %while.body.us.i.i
-  %add.i.i.i.i.us.pn.i.i = phi i32 [ %add.i.i.i.i.us.i.i, %while.body.us.i.i ], [ %add.i.i.i.i.us30.i.i, %while.body.lr.ph.split.us.i.i ]
-  %div9.us35.i.i = phi i32 [ %div9.us.i.i, %while.body.us.i.i ], [ %div9.us22.i.i, %while.body.lr.ph.split.us.i.i ]
-  %max.09.us34.i.i = phi i32 [ %max.1.us.i.i, %while.body.us.i.i ], [ %sub.i.i, %while.body.lr.ph.split.us.i.i ]
-  %min.010.us33.i.i = phi i32 [ %min.1.us.i.i, %while.body.us.i.i ], [ 0, %while.body.lr.ph.split.us.i.i ]
-  %cmp.i.i.i.us36.i.i = icmp ugt i32 %add.i.i.i.i.us.pn.i.i, %add.i.i.i.i.i.i.i
-  %sub3.us.i.i = add nsw i32 %div9.us35.i.i, -1
-  %add6.us.i.i = add nuw nsw i32 %div9.us35.i.i, 1
-  %max.1.us.i.i = select i1 %cmp.i.i.i.us36.i.i, i32 %sub3.us.i.i, i32 %max.09.us34.i.i
-  %min.1.us.i.i = select i1 %cmp.i.i.i.us36.i.i, i32 %min.010.us33.i.i, i32 %add6.us.i.i
-  %cmp.not.us.not.not.i.not.i = icmp sgt i32 %min.1.us.i.i, %max.1.us.i.i
-  br i1 %cmp.not.us.not.not.i.not.i, label %return, label %while.body.us.i.i, !llvm.loop !137
+while.body.i.i.i.i.i:                             ; preds = %while.body.lr.ph.i.i.i.i.i, %if.end8.i.i.i.i.i
+  %min.08.i.i.i.i.i = phi i32 [ %min.1.i.i.i.i.i, %if.end8.i.i.i.i.i ], [ 0, %while.body.lr.ph.i.i.i.i.i ]
+  %max.07.i.i.i.i.i = phi i32 [ %max.1.i.i.i.i.i, %if.end8.i.i.i.i.i ], [ %sub.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i ]
+  %add.i.i.i.i.i = add i32 %max.07.i.i.i.i.i, %min.08.i.i.i.i.i
+  %div9.i.i.i.i.i = lshr i32 %add.i.i.i.i.i, 1
+  %conv1.i.i.i.i.i = zext nneg i32 %div9.i.i.i.i.i to i64
+  %mul.i.i.i.i.i = shl nuw nsw i64 %conv1.i.i.i.i.i, 3
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayZ.i.i, i64 %mul.i.i.i.i.i
+  %5 = load i8, ptr %add.ptr.i.i.i.i.i, align 1
+  %conv.i.i.i.i.i.i.i.i.i = zext i8 %5 to i32
+  %shl.i.i.i.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i.i.i.i.i.i.i, 8
+  %arrayidx3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 1
+  %6 = load i8, ptr %arrayidx3.i.i.i.i.i.i.i.i.i, align 1
+  %conv4.i.i.i.i.i.i.i.i.i = zext i8 %6 to i32
+  %add.i.i.i.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i.i.i.i, %conv4.i.i.i.i.i.i.i.i.i
+  %cond7.i.i.i.i.i.i.i.i = tail call noundef i32 @llvm.ucmp.i32.i32(i32 %add.i.i.i.i.i.i.i.i.i.i, i32 %add.i.i.i.i.i.i.i.i.i)
+  %tobool.not.i.i.i.i.i.i.i = icmp eq i32 %add.i.i.i.i.i.i.i.i.i, %add.i.i.i.i.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i
 
-while.body.i.i:                                   ; preds = %while.body.lr.ph.i.i, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i
-  %min.010.i.i = phi i32 [ %min.1.i.i, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i ], [ 0, %while.body.lr.ph.i.i ]
-  %max.09.i.i = phi i32 [ %max.1.i.i, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i ], [ %sub.i.i, %while.body.lr.ph.i.i ]
-  %add.i.i3 = add i32 %max.09.i.i, %min.010.i.i
-  %div9.i.i = lshr i32 %add.i.i3, 1
-  %conv1.i.i = zext nneg i32 %div9.i.i to i64
-  %mul.i.i = shl nuw nsw i64 %conv1.i.i, 3
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %arrayZ.i.i, i64 %mul.i.i
-  %7 = load i8, ptr %add.ptr.i.i, align 1
-  %conv.i.i.i.i.i.i = zext i8 %7 to i32
-  %shl.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i.i.i.i, 8
-  %arrayidx3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 1
-  %8 = load i8, ptr %arrayidx3.i.i.i.i.i.i, align 1
-  %conv4.i.i.i.i.i.i = zext i8 %8 to i32
-  %add.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i, %conv4.i.i.i.i.i.i
-  %cmp.i.i.i.i.i = icmp ugt i32 %add.i.i.i.i.i.i, %add.i.i.i.i.i.i.i
-  %cmp6.i.i.i.not.i.i = icmp eq i32 %add.i.i.i.i.i.i, %add.i.i.i.i.i.i.i
-  br i1 %cmp6.i.i.i.not.i.i, label %if.end.i.i.i.i, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i
+if.end.i.i.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i.i
+  %encodingID6.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 2
+  %7 = load i8, ptr %encodingID6.i.i.i.i.i.i.i, align 1
+  %conv.i.i11.i.i.i.i.i.i.i = zext i8 %7 to i32
+  %shl.i.i12.i.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i11.i.i.i.i.i.i.i, 8
+  %arrayidx3.i.i13.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 3
+  %8 = load i8, ptr %arrayidx3.i.i13.i.i.i.i.i.i.i, align 1
+  %conv4.i.i14.i.i.i.i.i.i.i = zext i8 %8 to i32
+  %add.i.i15.i.i.i.i.i.i.i = or disjoint i32 %shl.i.i12.i.i.i.i.i.i.i, %conv4.i.i14.i.i.i.i.i.i.i
+  %cond7.i18.i.i.i.i.i.i.i = tail call noundef i32 @llvm.ucmp.i32.i32(i32 %2, i32 %add.i.i15.i.i.i.i.i.i.i)
+  %tobool12.not.i.i.i.i.i.i.i = icmp eq i32 %add.i.i15.i.i.i.i.i.i.i, %2
+  br i1 %tobool12.not.i.i.i.i.i.i.i, label %.loopexit.i.i, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i
 
-if.end.i.i.i.i:                                   ; preds = %while.body.i.i
-  %encodingID6.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 2
-  %9 = load i8, ptr %encodingID6.i.i.i.i, align 1
-  %conv.i.i11.i.i.i.i = zext i8 %9 to i32
-  %shl.i.i12.i.i.i.i = shl nuw nsw i32 %conv.i.i11.i.i.i.i, 8
-  %arrayidx3.i.i13.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 3
-  %10 = load i8, ptr %arrayidx3.i.i13.i.i.i.i, align 1
-  %conv4.i.i14.i.i.i.i = zext i8 %10 to i32
-  %add.i.i15.i.i.i.i = or disjoint i32 %shl.i.i12.i.i.i.i, %conv4.i.i14.i.i.i.i
-  %cmp.i18.i.i.i.i = icmp ugt i32 %add.i.i15.i.i.i.i, %2
-  %cmp6.i19.i.i.not.i.i = icmp eq i32 %add.i.i15.i.i.i.i, %2
-  br i1 %cmp6.i19.i.i.not.i.i, label %.loopexit, label %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i
+_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i, %while.body.i.i.i.i.i
+  %retval.0.i.i.i.i.i.i.i = phi i32 [ %cond7.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %cond7.i18.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
+  %cmp2.i.i.i.i.i = icmp slt i32 %retval.0.i.i.i.i.i.i.i, 0
+  br i1 %cmp2.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
-_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i: ; preds = %if.end.i.i.i.i, %while.body.i.i
-  %retval.0.i.i.i.i = phi i1 [ %cmp.i.i.i.i.i, %while.body.i.i ], [ %cmp.i18.i.i.i.i, %if.end.i.i.i.i ]
-  %sub3.i.i = add nsw i32 %div9.i.i, -1
-  %add6.i.i = add nuw nsw i32 %div9.i.i, 1
-  %max.1.i.i = select i1 %retval.0.i.i.i.i, i32 %sub3.i.i, i32 %max.09.i.i
-  %min.1.i.i = select i1 %retval.0.i.i.i.i, i32 %min.010.i.i, i32 %add6.i.i
-  %cmp.not.not.i.i = icmp sgt i32 %min.1.i.i, %max.1.i.i
-  br i1 %cmp.not.not.i.i, label %return, label %while.body.i.i, !llvm.loop !137
+if.then.i.i.i.i.i:                                ; preds = %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i
+  %sub3.i.i.i.i.i = add nsw i32 %div9.i.i.i.i.i, -1
+  br label %if.end8.i.i.i.i.i
 
-.loopexit:                                        ; preds = %if.end.i.i.i.i, %while.body.us.i.i, %while.body.lr.ph.split.us.i.i
-  %.pre-phi = phi i64 [ %conv1.us23.i.i, %while.body.lr.ph.split.us.i.i ], [ %conv1.us.i.i, %while.body.us.i.i ], [ %conv1.i.i, %if.end.i.i.i.i ]
-  %arrayidx.i.i10 = getelementptr inbounds %"struct.OT::EncodingRecord", ptr %arrayZ.i.i, i64 %.pre-phi
-  br label %return
+if.else.i.i.i.i.i:                                ; preds = %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i.i.i.i
+  %cmp4.not.i.i.i.i.i = icmp eq i32 %retval.0.i.i.i.i.i.i.i, 0
+  br i1 %cmp4.not.i.i.i.i.i, label %.loopexit.i.i, label %if.then5.i.i.i.i.i
 
-return:                                           ; preds = %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.us.i.i, %entry, %.loopexit
-  %11 = phi ptr [ %arrayidx.i.i10, %.loopexit ], [ @_hb_NullPool, %entry ], [ @_hb_NullPool, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.us.i.i ], [ @_hb_NullPool, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.i.i ]
-  %subtable = getelementptr inbounds i8, ptr %11, i64 4
-  %12 = load i8, ptr %subtable, align 1
-  %conv.i.i = zext i8 %12 to i32
+if.then5.i.i.i.i.i:                               ; preds = %if.else.i.i.i.i.i
+  %add6.i.i.i.i.i = add nuw nsw i32 %div9.i.i.i.i.i, 1
+  br label %if.end8.i.i.i.i.i
+
+if.end8.i.i.i.i.i:                                ; preds = %if.then5.i.i.i.i.i, %if.then.i.i.i.i.i
+  %max.1.i.i.i.i.i = phi i32 [ %sub3.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %max.07.i.i.i.i.i, %if.then5.i.i.i.i.i ]
+  %min.1.i.i.i.i.i = phi i32 [ %min.08.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add6.i.i.i.i.i, %if.then5.i.i.i.i.i ]
+  %cmp.not.not.i.i.i.i.i = icmp sgt i32 %min.1.i.i.i.i.i, %max.1.i.i.i.i.i
+  br i1 %cmp.not.not.i.i.i.i.i, label %_ZNK2OT13SortedArrayOfINS_14EncodingRecordENS_7IntTypeItLj2EEEE7bsearchIS1_EERKS1_RKT_S7_.exit, label %while.body.i.i.i.i.i, !llvm.loop !137
+
+.loopexit.i.i:                                    ; preds = %if.else.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %while.body.us.i.i.i.i.i
+  %idxprom3.pre-phi.i.i = phi i64 [ %conv1.us.i.i.i.i.i, %while.body.us.i.i.i.i.i ], [ %conv1.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %conv1.i.i.i.i.i, %if.else.i.i.i.i.i ]
+  %arrayidx4.i.i = getelementptr inbounds %"struct.OT::EncodingRecord", ptr %arrayZ.i.i, i64 %idxprom3.pre-phi.i.i
+  br label %_ZNK2OT13SortedArrayOfINS_14EncodingRecordENS_7IntTypeItLj2EEEE7bsearchIS1_EERKS1_RKT_S7_.exit
+
+_ZNK2OT13SortedArrayOfINS_14EncodingRecordENS_7IntTypeItLj2EEEE7bsearchIS1_EERKS1_RKT_S7_.exit: ; preds = %if.end8.i.i.i.i.i, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.us.i.i.i.i.i, %entry, %.loopexit.i.i
+  %9 = phi ptr [ %arrayidx4.i.i, %.loopexit.i.i ], [ @_hb_NullPool, %entry ], [ @_hb_NullPool, %_ZL14_hb_cmp_methodIN2OT14EncodingRecordEKS1_JEEiPKvS4_DpT1_.exit.us.i.i.i.i.i ], [ @_hb_NullPool, %if.end8.i.i.i.i.i ]
+  %subtable = getelementptr inbounds i8, ptr %9, i64 4
+  %10 = load i8, ptr %subtable, align 1
+  %conv.i.i = zext i8 %10 to i32
   %shl.i.i = shl nuw i32 %conv.i.i, 24
-  %arrayidx3.i.i = getelementptr inbounds i8, ptr %11, i64 5
-  %13 = load i8, ptr %arrayidx3.i.i, align 1
-  %conv4.i.i = zext i8 %13 to i32
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %9, i64 5
+  %11 = load i8, ptr %arrayidx3.i.i, align 1
+  %conv4.i.i = zext i8 %11 to i32
   %shl5.i.i = shl nuw nsw i32 %conv4.i.i, 16
   %add.i.i = or disjoint i32 %shl5.i.i, %shl.i.i
-  %arrayidx7.i.i = getelementptr inbounds i8, ptr %11, i64 6
-  %14 = load i8, ptr %arrayidx7.i.i, align 1
-  %conv8.i.i = zext i8 %14 to i32
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %9, i64 6
+  %12 = load i8, ptr %arrayidx7.i.i, align 1
+  %conv8.i.i = zext i8 %12 to i32
   %shl9.i.i = shl nuw nsw i32 %conv8.i.i, 8
   %add10.i.i = or disjoint i32 %add.i.i, %shl9.i.i
-  %arrayidx12.i.i = getelementptr inbounds i8, ptr %11, i64 7
-  %15 = load i8, ptr %arrayidx12.i.i, align 1
-  %conv13.i.i = zext i8 %15 to i32
+  %arrayidx12.i.i = getelementptr inbounds i8, ptr %9, i64 7
+  %13 = load i8, ptr %arrayidx12.i.i, align 1
+  %conv13.i.i = zext i8 %13 to i32
   %add14.i.i = or disjoint i32 %add10.i.i, %conv13.i.i
   %tobool.not = icmp eq i32 %add14.i.i, 0
   %idx.ext.i.i.i = zext i32 %add14.i.i to i64
@@ -49850,16 +49880,16 @@ while.body.i.i.i.i.i:                             ; preds = %if.end8.i.i.i.i.i, 
   %30 = load i8, ptr %arrayidx3.i.i.i.i.i.i.i.i, align 1
   %conv4.i.i.i.i.i.i.i.i = zext i8 %30 to i32
   %add.i.i.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i.i.i, %conv4.i.i.i.i.i.i.i.i
-  %cmp.i.i.i.i.i.i.i = icmp ugt i32 %add.i.i.i.i.i.i.i.i, %25
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
+  %cmp2.i.i.i.i.i = icmp ugt i32 %add.i.i.i.i.i.i.i.i, %25
+  br i1 %cmp2.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i.i
   %sub3.i.i.i.i.i = add nsw i32 %div9.i.i.i.i.i, -1
   br label %if.end8.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i.i
-  %cmp3.i.i.not.i.i.i.i.i = icmp eq i32 %add.i.i.i.i.i.i.i.i, %25
-  br i1 %cmp3.i.i.not.i.i.i.i.i, label %return, label %if.then5.i.i.i.i.i
+  %cmp4.not.i.i.i.i.i = icmp eq i32 %add.i.i.i.i.i.i.i.i, %25
+  br i1 %cmp4.not.i.i.i.i.i, label %return, label %if.then5.i.i.i.i.i
 
 if.then5.i.i.i.i.i:                               ; preds = %if.else.i.i.i.i.i
   %add6.i.i.i.i.i = add nuw nsw i32 %div9.i.i.i.i.i, 1
@@ -67608,16 +67638,16 @@ while.body.i.i.i.i.i:                             ; preds = %if.end8.i.i.i.i.i, 
   %6 = load i8, ptr %arrayidx3.i.i.i.i.i.i.i.i, align 1
   %conv4.i.i.i.i.i.i.i.i = zext i8 %6 to i32
   %add.i.i.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i.i.i, %conv4.i.i.i.i.i.i.i.i
-  %cmp.i.i.i.i.i.i.i = icmp ugt i32 %add.i.i.i.i.i.i.i.i, %glyph_id
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
+  %cmp2.i.i.i.i.i = icmp ugt i32 %add.i.i.i.i.i.i.i.i, %glyph_id
+  br i1 %cmp2.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i.i
   %sub3.i.i.i.i.i = add nsw i32 %div9.i.i.i.i.i, -1
   br label %if.end8.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i.i
-  %cmp3.i.i.not.i.i.i.i.i = icmp eq i32 %add.i.i.i.i.i.i.i.i, %glyph_id
-  br i1 %cmp3.i.i.not.i.i.i.i.i, label %return, label %if.then5.i.i.i.i.i
+  %cmp4.not.i.i.i.i.i = icmp eq i32 %add.i.i.i.i.i.i.i.i, %glyph_id
+  br i1 %cmp4.not.i.i.i.i.i, label %return, label %if.then5.i.i.i.i.i
 
 if.then5.i.i.i.i.i:                               ; preds = %if.else.i.i.i.i.i
   %add6.i.i.i.i.i = add nuw nsw i32 %div9.i.i.i.i.i, 1
@@ -107052,6 +107082,9 @@ if.end7:                                          ; preds = %if.then.i, %if.then
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #15

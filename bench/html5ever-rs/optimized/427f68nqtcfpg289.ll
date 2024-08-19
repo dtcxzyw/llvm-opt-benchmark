@@ -1944,10 +1944,7 @@ define internal fastcc noundef range(i8 -1, 2) i8 @"_ZN64_$LT$core..option..Opti
   %72 = sext i32 %71 to i64
   %73 = icmp eq i32 %71, 0
   %spec.store.select.i.i = select i1 %73, i64 %70, i64 %72
-  %74 = icmp slt i64 %spec.store.select.i.i, 0
-  %75 = icmp ne i64 %spec.store.select.i.i, 0
-  %.9.i.i = zext i1 %75 to i8
-  %.0.i.i = select i1 %74, i8 -1, i8 %.9.i.i
+  %.0.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i, i64 0)
   br label %"_ZN73_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hdcd43e046d57676fE.exit"
 
 "_ZN73_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17hdcd43e046d57676fE.exit": ; preds = %2, %"_ZN82_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdaeb44b5729a984eE.exit4.i", %11, %9
@@ -2075,6 +2072,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.scmp.i8.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #20

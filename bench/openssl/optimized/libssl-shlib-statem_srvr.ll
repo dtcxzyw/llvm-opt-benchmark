@@ -8352,8 +8352,8 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %or.cond, label %if.else, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %cmp.i = icmp ugt i64 %1, 604800000000000
-  %spec.select = select i1 %cmp.i, i64 604800, i64 %div
+  %cmp18 = icmp ugt i64 %1, 604800000000000
+  %spec.select = select i1 %cmp18, i64 604800, i64 %div
   br label %if.end24
 
 if.else:                                          ; preds = %land.lhs.true, %entry

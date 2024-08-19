@@ -506,8 +506,8 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint10elem_widen17h27713e316e
   store i64 %1, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 32
   %10 = load i64, ptr %9, align 8, !noundef !4
-  %.not = icmp ugt i64 %10, %3
-  br i1 %.not, label %11, label %.critedge
+  %switch.not = icmp ugt i64 %10, %3
+  br i1 %switch.not, label %11, label %.critedge
 
 11:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
@@ -593,8 +593,8 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint10elem_widen17hc5bbfc549d
   store i64 %1, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 32
   %10 = load i64, ptr %9, align 8, !noundef !4
-  %.not = icmp ugt i64 %10, %3
-  br i1 %.not, label %11, label %.critedge
+  %switch.not = icmp ugt i64 %10, %3
+  br i1 %switch.not, label %11, label %.critedge
 
 11:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)

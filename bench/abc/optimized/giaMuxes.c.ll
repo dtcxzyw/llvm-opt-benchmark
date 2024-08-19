@@ -4185,10 +4185,7 @@ define range(i32 -1, 2) i32 @Gia_ManMuxCompare(ptr nocapture noundef readonly %0
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4) #27
-  %6 = icmp slt i32 %5, 0
-  %.not = icmp ne i32 %5, 0
-  %. = sext i1 %.not to i32
-  %.0 = select i1 %6, i32 1, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 0, i32 %5)
   ret i32 %.0
 }
 
@@ -10623,6 +10620,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #23

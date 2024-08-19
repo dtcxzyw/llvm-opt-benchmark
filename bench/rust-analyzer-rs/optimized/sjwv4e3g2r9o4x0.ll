@@ -810,29 +810,26 @@ define hidden noundef i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %1, i64 %3)
   br label %5
 
-5:                                                ; preds = %9, %4
-  %.sroa.0.0 = phi i64 [ 0, %4 ], [ %10, %9 ]
+5:                                                ; preds = %7, %4
+  %.sroa.0.0 = phi i64 [ 0, %4 ], [ %8, %7 ]
   %exitcond.not = icmp eq i64 %.sroa.0.0, %.0.sroa.speculated.i
-  br i1 %exitcond.not, label %6, label %9
+  br i1 %exitcond.not, label %6, label %7
 
 6:                                                ; preds = %5
-  %7 = icmp ult i64 %1, %3
-  %8 = icmp ne i64 %1, %3
-  %. = zext i1 %8 to i8
-  %.0 = select i1 %7, i8 -1, i8 %.
+  %.0 = tail call i8 @llvm.ucmp.i8.i64(i64 %1, i64 %3)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %9, %6
-  %.1 = phi i8 [ %.0, %6 ], [ %13, %9 ]
+.loopexit:                                        ; preds = %7, %6
+  %.1 = phi i8 [ %.0, %6 ], [ %11, %7 ]
   ret i8 %.1
 
-9:                                                ; preds = %5
-  %10 = add i64 %.sroa.0.0, 1
-  %11 = getelementptr inbounds [0 x { { { { { { { i64, ptr, {} }, i64 } } } } } }], ptr %0, i64 0, i64 %.sroa.0.0
-  %12 = getelementptr inbounds [0 x { { { { { { { i64, ptr, {} }, i64 } } } } } }], ptr %2, i64 0, i64 %.sroa.0.0
-  %13 = tail call noundef range(i8 -1, 2) i8 @"_ZN54_$LT$camino..Utf8PathBuf$u20$as$u20$core..cmp..Ord$GT$3cmp17h4b394af9a5d37658E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12), !range !235
-  %14 = icmp eq i8 %13, 0
-  br i1 %14, label %5, label %.loopexit
+7:                                                ; preds = %5
+  %8 = add i64 %.sroa.0.0, 1
+  %9 = getelementptr inbounds [0 x { { { { { { { i64, ptr, {} }, i64 } } } } } }], ptr %0, i64 0, i64 %.sroa.0.0
+  %10 = getelementptr inbounds [0 x { { { { { { { i64, ptr, {} }, i64 } } } } } }], ptr %2, i64 0, i64 %.sroa.0.0
+  %11 = tail call noundef range(i8 -1, 2) i8 @"_ZN54_$LT$camino..Utf8PathBuf$u20$as$u20$core..cmp..Ord$GT$3cmp17h4b394af9a5d37658E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10), !range !235
+  %12 = icmp eq i8 %11, 0
+  br i1 %12, label %5, label %.loopexit
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3219,6 +3216,9 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #26
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #24

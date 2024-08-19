@@ -26690,8 +26690,8 @@ _ZN4core3ops8function5FnMut8call_mut17hd4c130ab908a5ae7E.exit.i.i.i.i.i.i.i: ; p
   br i1 %.not.i.i16.i.i.i.i.i.i.i.i.i.i, label %.invoke12.i.i.i.i.i.i.i.i.i, label %167
 
 167:                                              ; preds = %"_ZN5rowan5green7element138_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$$RF$rowan..green..node..GreenNodeData$C$$RF$rowan..green..token..GreenTokenData$GT$$GT$8text_len17h99fb7657d751ae4dE.llvm.2856947585988979465.exit.i.i14.i.i.i.i.i.i.i.i.i.i"
-  %.not.i.not.i.i.i.i.i.i.i.i.i = icmp ugt i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i, %.0.i.i8.i.i.i.i.i.i.i.i.i.i
-  br i1 %.not.i.not.i.i.i.i.i.i.i.i.i, label %175, label %168
+  %switch.selectcmp.i.not.i.i.i.i.i.i.i.i.i = icmp ugt i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i, %.0.i.i8.i.i.i.i.i.i.i.i.i.i
+  br i1 %switch.selectcmp.i.not.i.i.i.i.i.i.i.i.i, label %175, label %168
 
 168:                                              ; preds = %167
   %169 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.i.i.i, i64 48
@@ -27536,8 +27536,8 @@ _ZN4core3ops8function5FnMut8call_mut17hd4c130ab908a5ae7E.exit.i.i.i.i.i.i: ; pre
   br i1 %.not.i.i16.i.i.i.i.i.i.i.i.i, label %.invoke12.i.i.i.i.i.i.i.i, label %238
 
 238:                                              ; preds = %"_ZN5rowan5green7element138_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$$RF$rowan..green..node..GreenNodeData$C$$RF$rowan..green..token..GreenTokenData$GT$$GT$8text_len17h99fb7657d751ae4dE.llvm.2856947585988979465.exit.i.i14.i.i.i.i.i.i.i.i.i"
-  %.not.i.not.i.i.i.i.i.i.i.i = icmp ugt i32 %.0.i.i.i.i.i.i.i.i.i.i.i, %.0.i.i8.i.i.i.i.i.i.i.i.i
-  br i1 %.not.i.not.i.i.i.i.i.i.i.i, label %246, label %239
+  %switch.selectcmp.i.not.i.i.i.i.i.i.i.i = icmp ugt i32 %.0.i.i.i.i.i.i.i.i.i.i.i, %.0.i.i8.i.i.i.i.i.i.i.i.i
+  br i1 %switch.selectcmp.i.not.i.i.i.i.i.i.i.i, label %246, label %239
 
 239:                                              ; preds = %238
   %240 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.i.i, i64 48

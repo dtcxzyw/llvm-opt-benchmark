@@ -1543,8 +1543,8 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   tail call void @llvm.experimental.noalias.scope.decl(metadata !174)
   %8 = load i64, ptr %6, align 8, !alias.scope !171, !noalias !176, !noundef !9
   %9 = load i64, ptr %7, align 8, !alias.scope !174, !noalias !177, !noundef !9
-  %.not.i = icmp ule i64 %8, %9
-  ret i1 %.not.i
+  %switch.selectcmp.i = icmp ule i64 %8, %9
+  ret i1 %switch.selectcmp.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6316,9 +6316,9 @@ _ZN4moka9sync_base10base_cache17is_expired_by_ttl17hfcf1887dcb45b85eE.exit.threa
 
 _ZN4moka9sync_base10base_cache17is_expired_by_ttl17hfcf1887dcb45b85eE.exit.i.i: ; preds = %.noexc20
   %.fca.1.extract.i.i.i = extractvalue { i64, i64 } %56, 1
-  %.not3.i.not.i.i = icmp ugt i64 %.fca.1.extract.i.i.i, %.sroa.5.0.copyload
+  %switch.selectcmp.i.not.i.i = icmp ugt i64 %.fca.1.extract.i.i.i, %.sroa.5.0.copyload
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !951
-  br i1 %.not3.i.not.i.i, label %57, label %"_ZN4moka9sync_base10base_cache26BaseCache$LT$K$C$V$C$S$GT$16do_get_with_hash28_$u7b$$u7b$closure$u7d$$u7d$17h5a8fe1149239b609E.exit"
+  br i1 %switch.selectcmp.i.not.i.i, label %57, label %"_ZN4moka9sync_base10base_cache26BaseCache$LT$K$C$V$C$S$GT$16do_get_with_hash28_$u7b$$u7b$closure$u7d$$u7d$17h5a8fe1149239b609E.exit"
 
 57:                                               ; preds = %_ZN4moka9sync_base10base_cache17is_expired_by_ttl17hfcf1887dcb45b85eE.exit.i.i, %_ZN4moka9sync_base10base_cache17is_expired_by_ttl17hfcf1887dcb45b85eE.exit.thread.i.i, %.noexc19
   %58 = load ptr, ptr %47, align 8, !noalias !951, !nonnull !9, !noundef !9
@@ -6368,9 +6368,9 @@ _ZN4moka9sync_base10base_cache17is_expired_by_tti17hc1a15f27364046efE.exit.threa
 
 _ZN4moka9sync_base10base_cache17is_expired_by_tti17hc1a15f27364046efE.exit.i.i: ; preds = %.noexc23
   %.fca.1.extract.i.i20.i = extractvalue { i64, i64 } %66, 1
-  %.not3.i.not.i21.i = icmp ugt i64 %.fca.1.extract.i.i20.i, %.sroa.5.0.copyload
+  %switch.selectcmp.i.not.i21.i = icmp ugt i64 %.fca.1.extract.i.i20.i, %.sroa.5.0.copyload
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !951
-  br i1 %.not3.i.not.i21.i, label %69, label %"_ZN4moka9sync_base10base_cache26BaseCache$LT$K$C$V$C$S$GT$16do_get_with_hash28_$u7b$$u7b$closure$u7d$$u7d$17h5a8fe1149239b609E.exit"
+  br i1 %switch.selectcmp.i.not.i21.i, label %69, label %"_ZN4moka9sync_base10base_cache26BaseCache$LT$K$C$V$C$S$GT$16do_get_with_hash28_$u7b$$u7b$closure$u7d$$u7d$17h5a8fe1149239b609E.exit"
 
 69:                                               ; preds = %_ZN4moka9sync_base10base_cache17is_expired_by_tti17hc1a15f27364046efE.exit.i.i, %_ZN4moka9sync_base10base_cache17is_expired_by_tti17hc1a15f27364046efE.exit.thread.i.i, %.noexc22
   %70 = load ptr, ptr %35, align 8, !noalias !951, !nonnull !9, !noundef !9
@@ -6623,9 +6623,9 @@ _ZN4moka9sync_base10base_cache17is_expired_by_ttl17hfcf1887dcb45b85eE.exit.threa
 
 _ZN4moka9sync_base10base_cache17is_expired_by_ttl17hfcf1887dcb45b85eE.exit.i.i: ; preds = %.noexc20
   %.fca.1.extract.i.i.i = extractvalue { i64, i64 } %56, 1
-  %.not3.i.not.i.i = icmp ugt i64 %.fca.1.extract.i.i.i, %.sroa.5.0.copyload
+  %switch.selectcmp.i.not.i.i = icmp ugt i64 %.fca.1.extract.i.i.i, %.sroa.5.0.copyload
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !988
-  br i1 %.not3.i.not.i.i, label %57, label %"_ZN4moka9sync_base10base_cache26BaseCache$LT$K$C$V$C$S$GT$16do_get_with_hash28_$u7b$$u7b$closure$u7d$$u7d$17hdf9e7809f4f8f199E.exit"
+  br i1 %switch.selectcmp.i.not.i.i, label %57, label %"_ZN4moka9sync_base10base_cache26BaseCache$LT$K$C$V$C$S$GT$16do_get_with_hash28_$u7b$$u7b$closure$u7d$$u7d$17hdf9e7809f4f8f199E.exit"
 
 57:                                               ; preds = %_ZN4moka9sync_base10base_cache17is_expired_by_ttl17hfcf1887dcb45b85eE.exit.i.i, %_ZN4moka9sync_base10base_cache17is_expired_by_ttl17hfcf1887dcb45b85eE.exit.thread.i.i, %.noexc19
   %58 = load ptr, ptr %47, align 8, !noalias !988, !nonnull !9, !noundef !9
@@ -6675,9 +6675,9 @@ _ZN4moka9sync_base10base_cache17is_expired_by_tti17hc1a15f27364046efE.exit.threa
 
 _ZN4moka9sync_base10base_cache17is_expired_by_tti17hc1a15f27364046efE.exit.i.i: ; preds = %.noexc23
   %.fca.1.extract.i.i20.i = extractvalue { i64, i64 } %66, 1
-  %.not3.i.not.i21.i = icmp ugt i64 %.fca.1.extract.i.i20.i, %.sroa.5.0.copyload
+  %switch.selectcmp.i.not.i21.i = icmp ugt i64 %.fca.1.extract.i.i20.i, %.sroa.5.0.copyload
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !988
-  br i1 %.not3.i.not.i21.i, label %69, label %"_ZN4moka9sync_base10base_cache26BaseCache$LT$K$C$V$C$S$GT$16do_get_with_hash28_$u7b$$u7b$closure$u7d$$u7d$17hdf9e7809f4f8f199E.exit"
+  br i1 %switch.selectcmp.i.not.i21.i, label %69, label %"_ZN4moka9sync_base10base_cache26BaseCache$LT$K$C$V$C$S$GT$16do_get_with_hash28_$u7b$$u7b$closure$u7d$$u7d$17hdf9e7809f4f8f199E.exit"
 
 69:                                               ; preds = %_ZN4moka9sync_base10base_cache17is_expired_by_tti17hc1a15f27364046efE.exit.i.i, %_ZN4moka9sync_base10base_cache17is_expired_by_tti17hc1a15f27364046efE.exit.thread.i.i, %.noexc22
   %70 = load ptr, ptr %35, align 8, !noalias !988, !nonnull !9, !noundef !9
@@ -11060,8 +11060,8 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
 71:                                               ; preds = %.noexc8.i
   %72 = getelementptr i8, ptr %68, i64 -8
   %.val.i.i = load i64, ptr %72, align 8, !alias.scope !1519, !noalias !1522, !noundef !9
-  %.not.i.not.i.i = icmp ult i64 %.val.i.i, %.fca.1.extract.i
-  br i1 %.not.i.not.i.i, label %73, label %75
+  %switch.selectcmp.i.not.i.i = icmp ult i64 %.val.i.i, %.fca.1.extract.i
+  br i1 %switch.selectcmp.i.not.i.i, label %73, label %75
 
 73:                                               ; preds = %.noexc9._crit_edge16.i, %71
   %.pr.i = phi i64 [ %.pr.pre.i, %.noexc9._crit_edge16.i ], [ %70, %71 ]
@@ -11414,8 +11414,8 @@ define hidden void @"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$7
   %101 = getelementptr inbounds i8, ptr %.sroa.0.06.i.i.i, i64 48
   %102 = getelementptr i8, ptr %.sroa.0.06.i.i.i, i64 40
   %.val.i.i.i = load i64, ptr %102, align 8, !alias.scope !1582, !noalias !1585, !noundef !9
-  %.not.i.not.i.i.i = icmp ult i64 %.val.i.i.i, %63
-  br i1 %.not.i.not.i.i.i, label %103, label %104
+  %switch.selectcmp.i.not.i.i.i = icmp ult i64 %.val.i.i.i, %63
+  br i1 %switch.selectcmp.i.not.i.i.i, label %103, label %104
 
 103:                                              ; preds = %.noexc11.i.i, %.lr.ph.i.i.i
   %.not9.i.i.i = icmp eq ptr %101, %97
@@ -12667,8 +12667,8 @@ define hidden void @"_ZN4moka9sync_base11invalidator28Invalidator$LT$K$C$V$C$S$G
   %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %70, i64 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.sroa.5.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.sroa.5.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8.0..sroa_idx.i.i, i64 32, i1 false), !noalias !1794
-  %.not.i.i.not.i.i.i = icmp ugt i64 %51, %.sroa.89.0.copyload.i.i
-  br i1 %.not.i.i.not.i.i.i, label %73, label %82
+  %switch.selectcmp.i.i.not.i.i.i = icmp ugt i64 %51, %.sroa.89.0.copyload.i.i
+  br i1 %switch.selectcmp.i.i.not.i.i.i, label %73, label %82
 
 73:                                               ; preds = %72
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !1795
@@ -13072,8 +13072,8 @@ define hidden noundef zeroext i1 @"_ZN4moka9sync_base11invalidator28Invalidator$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1859)
   %7 = load i64, ptr %5, align 8, !alias.scope !1856, !noalias !1859, !noundef !9
   %8 = load i64, ptr %6, align 8, !alias.scope !1859, !noalias !1856, !noundef !9
-  %.not = icmp ule i64 %7, %8
-  ret i1 %.not
+  %switch.selectcmp = icmp ule i64 %7, %8
+  ret i1 %switch.selectcmp
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -13458,10 +13458,7 @@ define hidden { ptr, ptr } @"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$
 define hidden noundef range(i8 -1, 2) i8 @"_ZN69_$LT$moka..common..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hafc214bc90ff4e35E.llvm.3998950267652723875"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #18 {
   %3 = load i64, ptr %0, align 8, !noundef !9
   %4 = load i64, ptr %1, align 8, !noundef !9
-  %5 = icmp ult i64 %3, %4
-  %6 = icmp ne i64 %3, %4
-  %. = zext i1 %6 to i8
-  %.0 = select i1 %5, i8 -1, i8 %.
+  %.0 = tail call i8 @llvm.ucmp.i8.i64(i64 %3, i64 %4)
   ret i8 %.0
 }
 
@@ -15579,6 +15576,9 @@ declare i64 @llvm.umin.i64(i64, i64) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #34
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i64(i64, i64) #33
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #35

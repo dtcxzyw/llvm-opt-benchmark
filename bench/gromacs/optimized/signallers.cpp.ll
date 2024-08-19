@@ -312,9 +312,9 @@ _ZNK3gmx11StopHandler24stoppingAfterCurrentStepEb.exit.thread: ; preds = %9
   %17 = getelementptr inbounds i8, ptr %0, i64 64
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, %1
-  %.not.i.not.i = icmp eq i8 %14, 0
-  %brmerge.i = or i1 %.not.i.not.i, %19
-  %not..not.i.not.i = xor i1 %.not.i.not.i, true
+  %.not2.i = icmp eq i8 %14, 0
+  %brmerge.i = or i1 %.not2.i, %19
+  %not..not2.i = xor i1 %.not2.i, true
   br i1 %brmerge.i, label %_ZNK3gmx11StopHandler24stoppingAfterCurrentStepEb.exit, label %20
 
 20:                                               ; preds = %16
@@ -324,7 +324,7 @@ _ZNK3gmx11StopHandler24stoppingAfterCurrentStepEb.exit.thread: ; preds = %9
   br label %_ZNK3gmx11StopHandler24stoppingAfterCurrentStepEb.exit
 
 _ZNK3gmx11StopHandler24stoppingAfterCurrentStepEb.exit: ; preds = %16, %20
-  %24 = phi i1 [ %not..not.i.not.i, %16 ], [ %23, %20 ]
+  %24 = phi i1 [ %not..not2.i, %16 ], [ %23, %20 ]
   %25 = zext i1 %24 to i8
   store i8 %25, ptr %6, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 40

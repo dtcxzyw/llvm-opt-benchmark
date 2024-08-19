@@ -1168,49 +1168,49 @@ define { ptr, i64 } @_ZN6parser9lexed_str8LexedStr5error17hbfd0fd7560cda079E(ptr
   %.not.i.i = icmp eq i64 %12, 0
   br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %8, %18
-  %.028.i.i = phi i64 [ %21, %18 ], [ %12, %8 ]
-  %.01927.i.i = phi i64 [ %.022.i.i, %18 ], [ 0, %8 ]
-  %.02026.i.i = phi i64 [ %.021.i.i, %18 ], [ %12, %8 ]
-  %14 = lshr i64 %.028.i.i, 1
-  %15 = add i64 %14, %.01927.i.i
+.lr.ph.i.i:                                       ; preds = %8, %19
+  %.027.i.i = phi i64 [ %23, %19 ], [ %12, %8 ]
+  %.01926.i.i = phi i64 [ %.022.i.i, %19 ], [ 0, %8 ]
+  %.02025.i.i = phi i64 [ %.021.i.i, %19 ], [ %12, %8 ]
+  %14 = lshr i64 %.027.i.i, 1
+  %15 = add i64 %14, %.01926.i.i
   %16 = icmp ult i64 %15, %12
   tail call void @llvm.assume(i1 %16)
   %17 = getelementptr { { { { i64, ptr, {} }, i64 } }, i32, [1 x i32] }, ptr %10, i64 %15, i32 1
   %.val23.i.i = load i32, ptr %17, align 8, !alias.scope !165, !noalias !170, !noundef !5
-  %.not24.i.i = icmp eq i32 %.val23.i.i, %13
-  br i1 %.not24.i.i, label %24, label %18
+  %18 = icmp eq i32 %.val23.i.i, %13
+  br i1 %18, label %26, label %19
 
-18:                                               ; preds = %.lr.ph.i.i
-  %.not.not.i.i = icmp ult i32 %.val23.i.i, %13
-  %19 = icmp ugt i32 %.val23.i.i, %13
-  %.021.i.i = select i1 %19, i64 %15, i64 %.02026.i.i
-  %20 = add nuw i64 %15, 1
-  %.022.i.i = select i1 %.not.not.i.i, i64 %20, i64 %.01927.i.i
-  %21 = sub i64 %.021.i.i, %.022.i.i
-  %22 = icmp ult i64 %.022.i.i, %.021.i.i
-  br i1 %22, label %.lr.ph.i.i, label %.loopexit
+19:                                               ; preds = %.lr.ph.i.i
+  %20 = icmp ugt i32 %.val23.i.i, %13
+  %.021.i.i = select i1 %20, i64 %15, i64 %.02025.i.i
+  %21 = icmp ult i32 %.val23.i.i, %13
+  %22 = add nuw i64 %15, 1
+  %.022.i.i = select i1 %21, i64 %22, i64 %.01926.i.i
+  %23 = sub i64 %.021.i.i, %.022.i.i
+  %24 = icmp ult i64 %.022.i.i, %.021.i.i
+  br i1 %24, label %.lr.ph.i.i, label %.loopexit
 
-.loopexit:                                        ; preds = %18, %8
-  %.019.lcssa.i.i = phi i64 [ 0, %8 ], [ %.022.i.i, %18 ]
-  %23 = icmp ule i64 %.019.lcssa.i.i, %12
-  tail call void @llvm.assume(i1 %23)
-  br label %30
+.loopexit:                                        ; preds = %19, %8
+  %.019.lcssa.i.i = phi i64 [ 0, %8 ], [ %.022.i.i, %19 ]
+  %25 = icmp ule i64 %.019.lcssa.i.i, %12
+  tail call void @llvm.assume(i1 %25)
+  br label %32
 
-24:                                               ; preds = %.lr.ph.i.i
-  %25 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, i32, [1 x i32] }], ptr %10, i64 0, i64 %15
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
-  %27 = load ptr, ptr %26, align 8, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds i8, ptr %25, i64 16
-  %29 = load i64, ptr %28, align 8, !noundef !5
-  br label %30
+26:                                               ; preds = %.lr.ph.i.i
+  %27 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, i32, [1 x i32] }], ptr %10, i64 0, i64 %15
+  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %29 = load ptr, ptr %28, align 8, !nonnull !5, !noundef !5
+  %30 = getelementptr inbounds i8, ptr %27, i64 16
+  %31 = load i64, ptr %30, align 8, !noundef !5
+  br label %32
 
-30:                                               ; preds = %24, %.loopexit
-  %.sroa.3.0 = phi i64 [ undef, %.loopexit ], [ %29, %24 ]
-  %.sroa.0.0 = phi ptr [ null, %.loopexit ], [ %27, %24 ]
-  %31 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %32 = insertvalue { ptr, i64 } %31, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %32
+32:                                               ; preds = %26, %.loopexit
+  %.sroa.3.0 = phi i64 [ undef, %.loopexit ], [ %31, %26 ]
+  %.sroa.0.0 = phi ptr [ null, %.loopexit ], [ %29, %26 ]
+  %33 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %34 = insertvalue { ptr, i64 } %33, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %34
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

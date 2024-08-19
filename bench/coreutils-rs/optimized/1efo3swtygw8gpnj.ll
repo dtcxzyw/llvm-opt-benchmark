@@ -1231,9 +1231,9 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit.i: ;
   store i8 3, ptr %3, align 1
   br label %46
 
-"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$3nth17h1a1f5ae150b5ce07E.exit": ; preds = %100, %98, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i", %84, %81, %60, %61, %76, %77, %46
-  %.sroa.4.0 = phi i8 [ undef, %46 ], [ %56, %60 ], [ %56, %61 ], [ %72, %76 ], [ %72, %77 ], [ undef, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i" ], [ undef, %81 ], [ undef, %84 ], [ %94, %100 ], [ %94, %98 ]
-  %.sroa.0.0.shrunk = phi i1 [ false, %46 ], [ true, %60 ], [ true, %61 ], [ true, %76 ], [ true, %77 ], [ false, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i" ], [ false, %81 ], [ false, %84 ], [ true, %100 ], [ true, %98 ]
+"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$3nth17h1a1f5ae150b5ce07E.exit": ; preds = %98, %96, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i", %84, %81, %60, %61, %76, %77, %46
+  %.sroa.4.0 = phi i8 [ undef, %46 ], [ %56, %60 ], [ %56, %61 ], [ %72, %76 ], [ %72, %77 ], [ undef, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i" ], [ undef, %81 ], [ undef, %84 ], [ %94, %98 ], [ %94, %96 ]
+  %.sroa.0.0.shrunk = phi i1 [ false, %46 ], [ true, %60 ], [ true, %61 ], [ true, %76 ], [ true, %77 ], [ false, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i" ], [ false, %81 ], [ false, %84 ], [ true, %98 ], [ true, %96 ]
   %79 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0.shrunk, 0
   %80 = insertvalue { i1, i8 } %79, i8 %.sroa.4.0, 1
   ret { i1, i8 } %80
@@ -1263,13 +1263,10 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit.i: ;
   br i1 %93, label %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i", label %95
 
 95:                                               ; preds = %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.i"
-  %96 = icmp ult i8 %94, %88
-  %97 = icmp ne i8 %94, %88
-  %..i.i = zext i1 %97 to i8
-  %.0.i.i = select i1 %96, i8 -1, i8 %..i.i
+  %.0.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i8(i8 %94, i8 %88)
   switch i8 %.0.i.i, label %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i" [
-    i8 -1, label %98
-    i8 0, label %100
+    i8 -1, label %96
+    i8 0, label %98
   ]
 
 "_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i": ; preds = %95, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.i", %89
@@ -1277,12 +1274,12 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit.i: ;
   store i8 1, ptr %0, align 1, !alias.scope !194
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$3nth17h1a1f5ae150b5ce07E.exit"
 
-98:                                               ; preds = %95
-  %99 = add i8 %94, 1
-  store i8 %99, ptr %85, align 1, !alias.scope !194
+96:                                               ; preds = %95
+  %97 = add i8 %94, 1
+  store i8 %97, ptr %85, align 1, !alias.scope !194
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$3nth17h1a1f5ae150b5ce07E.exit"
 
-100:                                              ; preds = %95
+98:                                               ; preds = %95
   store i8 %94, ptr %85, align 1, !alias.scope !194
   store i8 1, ptr %0, align 1, !alias.scope !194
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$3nth17h1a1f5ae150b5ce07E.exit"
@@ -1478,9 +1475,9 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit.thre
   store i8 2, ptr %0, align 1
   br label %22
 
-"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$3nth17h1a1f5ae150b5ce07E.exit": ; preds = %59, %57, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i", %43, %40, %35, %36, %22
-  %.sroa.4.0 = phi i8 [ undef, %22 ], [ %31, %36 ], [ %31, %35 ], [ undef, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i" ], [ undef, %40 ], [ undef, %43 ], [ %53, %59 ], [ %53, %57 ]
-  %.sroa.0.0.shrunk = phi i1 [ false, %22 ], [ true, %36 ], [ true, %35 ], [ false, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i" ], [ false, %40 ], [ false, %43 ], [ true, %59 ], [ true, %57 ]
+"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$3nth17h1a1f5ae150b5ce07E.exit": ; preds = %57, %55, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i", %43, %40, %35, %36, %22
+  %.sroa.4.0 = phi i8 [ undef, %22 ], [ %31, %36 ], [ %31, %35 ], [ undef, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i" ], [ undef, %40 ], [ undef, %43 ], [ %53, %57 ], [ %53, %55 ]
+  %.sroa.0.0.shrunk = phi i1 [ false, %22 ], [ true, %36 ], [ true, %35 ], [ false, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i" ], [ false, %40 ], [ false, %43 ], [ true, %57 ], [ true, %55 ]
   %38 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0.shrunk, 0
   %39 = insertvalue { i1, i8 } %38, i8 %.sroa.4.0, 1
   ret { i1, i8 } %39
@@ -1510,13 +1507,10 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit.thre
   br i1 %52, label %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i", label %54
 
 54:                                               ; preds = %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.i"
-  %55 = icmp ult i8 %53, %47
-  %56 = icmp ne i8 %53, %47
-  %..i.i = zext i1 %56 to i8
-  %.0.i.i = select i1 %55, i8 -1, i8 %..i.i
+  %.0.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i8(i8 %53, i8 %47)
   switch i8 %.0.i.i, label %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i" [
-    i8 -1, label %57
-    i8 0, label %59
+    i8 -1, label %55
+    i8 0, label %57
   ]
 
 "_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i": ; preds = %54, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.i", %48
@@ -1524,12 +1518,12 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit.thre
   store i8 1, ptr %23, align 1, !alias.scope !238
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$3nth17h1a1f5ae150b5ce07E.exit"
 
-57:                                               ; preds = %54
-  %58 = add i8 %53, 1
-  store i8 %58, ptr %44, align 1, !alias.scope !238
+55:                                               ; preds = %54
+  %56 = add i8 %53, 1
+  store i8 %56, ptr %44, align 1, !alias.scope !238
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$3nth17h1a1f5ae150b5ce07E.exit"
 
-59:                                               ; preds = %54
+57:                                               ; preds = %54
   store i8 %53, ptr %44, align 1, !alias.scope !238
   store i8 1, ptr %23, align 1, !alias.scope !238
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$3nth17h1a1f5ae150b5ce07E.exit"
@@ -1827,9 +1821,9 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit.i.i:
   store i8 3, ptr %3, align 1
   br label %71
 
-"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$3nth17h1a1f5ae150b5ce07E.exit": ; preds = %139, %137, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i", %123, %120, %84, %85, %100, %101, %115, %116, %71
-  %.sroa.4.0 = phi i8 [ undef, %71 ], [ %80, %84 ], [ %80, %85 ], [ %96, %100 ], [ %96, %101 ], [ %111, %115 ], [ %111, %116 ], [ undef, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i" ], [ undef, %120 ], [ undef, %123 ], [ %133, %139 ], [ %133, %137 ]
-  %.sroa.0.0.shrunk = phi i1 [ false, %71 ], [ true, %84 ], [ true, %85 ], [ true, %100 ], [ true, %101 ], [ true, %115 ], [ true, %116 ], [ false, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i" ], [ false, %120 ], [ false, %123 ], [ true, %139 ], [ true, %137 ]
+"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$3nth17h1a1f5ae150b5ce07E.exit": ; preds = %137, %135, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i", %123, %120, %84, %85, %100, %101, %115, %116, %71
+  %.sroa.4.0 = phi i8 [ undef, %71 ], [ %80, %84 ], [ %80, %85 ], [ %96, %100 ], [ %96, %101 ], [ %111, %115 ], [ %111, %116 ], [ undef, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i" ], [ undef, %120 ], [ undef, %123 ], [ %133, %137 ], [ %133, %135 ]
+  %.sroa.0.0.shrunk = phi i1 [ false, %71 ], [ true, %84 ], [ true, %85 ], [ true, %100 ], [ true, %101 ], [ true, %115 ], [ true, %116 ], [ false, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i" ], [ false, %120 ], [ false, %123 ], [ true, %137 ], [ true, %135 ]
   %118 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0.shrunk, 0
   %119 = insertvalue { i1, i8 } %118, i8 %.sroa.4.0, 1
   ret { i1, i8 } %119
@@ -1859,13 +1853,10 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit.i.i:
   br i1 %132, label %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i", label %134
 
 134:                                              ; preds = %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.i"
-  %135 = icmp ult i8 %133, %127
-  %136 = icmp ne i8 %133, %127
-  %..i.i = zext i1 %136 to i8
-  %.0.i.i18 = select i1 %135, i8 -1, i8 %..i.i
+  %.0.i.i18 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i8(i8 %133, i8 %127)
   switch i8 %.0.i.i18, label %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i" [
-    i8 -1, label %137
-    i8 0, label %139
+    i8 -1, label %135
+    i8 0, label %137
   ]
 
 "_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i": ; preds = %134, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.i", %128
@@ -1873,12 +1864,12 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h2e77d2a23c2c49a3E.exit.i.i:
   store i8 1, ptr %0, align 1, !alias.scope !309
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$3nth17h1a1f5ae150b5ce07E.exit"
 
-137:                                              ; preds = %134
-  %138 = add i8 %133, 1
-  store i8 %138, ptr %124, align 1, !alias.scope !309
+135:                                              ; preds = %134
+  %136 = add i8 %133, 1
+  store i8 %136, ptr %124, align 1, !alias.scope !309
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$3nth17h1a1f5ae150b5ce07E.exit"
 
-139:                                              ; preds = %134
+137:                                              ; preds = %134
   store i8 %133, ptr %124, align 1, !alias.scope !309
   store i8 1, ptr %0, align 1, !alias.scope !309
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$3nth17h1a1f5ae150b5ce07E.exit"
@@ -2167,9 +2158,9 @@ define internal { i1, i8 } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$
   store i8 3, ptr %3, align 1
   br label %58
 
-"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$3nth17h1a1f5ae150b5ce07E.exit": ; preds = %87, %85, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i", %71, %68, %58, %63
-  %.sroa.4.0 = phi i8 [ %64, %63 ], [ undef, %58 ], [ undef, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i" ], [ undef, %68 ], [ undef, %71 ], [ %81, %87 ], [ %81, %85 ]
-  %.sroa.0.0.shrunk = phi i1 [ true, %63 ], [ false, %58 ], [ false, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i" ], [ false, %68 ], [ false, %71 ], [ true, %87 ], [ true, %85 ]
+"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$3nth17h1a1f5ae150b5ce07E.exit": ; preds = %85, %83, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i", %71, %68, %58, %63
+  %.sroa.4.0 = phi i8 [ %64, %63 ], [ undef, %58 ], [ undef, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i" ], [ undef, %68 ], [ undef, %71 ], [ %81, %85 ], [ %81, %83 ]
+  %.sroa.0.0.shrunk = phi i1 [ true, %63 ], [ false, %58 ], [ false, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i" ], [ false, %68 ], [ false, %71 ], [ true, %85 ], [ true, %83 ]
   %66 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0.shrunk, 0
   %67 = insertvalue { i1, i8 } %66, i8 %.sroa.4.0, 1
   ret { i1, i8 } %67
@@ -2199,13 +2190,10 @@ define internal { i1, i8 } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$
   br i1 %80, label %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i", label %82
 
 82:                                               ; preds = %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.i"
-  %83 = icmp ult i8 %81, %75
-  %84 = icmp ne i8 %81, %75
-  %..i.i = zext i1 %84 to i8
-  %.0.i.i18 = select i1 %83, i8 -1, i8 %..i.i
+  %.0.i.i18 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i8(i8 %81, i8 %75)
   switch i8 %.0.i.i18, label %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i" [
-    i8 -1, label %85
-    i8 0, label %87
+    i8 -1, label %83
+    i8 0, label %85
   ]
 
 "_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread.i": ; preds = %82, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.i", %76
@@ -2213,12 +2201,12 @@ define internal { i1, i8 } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$
   store i8 1, ptr %0, align 1, !alias.scope !357
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$3nth17h1a1f5ae150b5ce07E.exit"
 
-85:                                               ; preds = %82
-  %86 = add i8 %81, 1
-  store i8 %86, ptr %72, align 1, !alias.scope !357
+83:                                               ; preds = %82
+  %84 = add i8 %81, 1
+  store i8 %84, ptr %72, align 1, !alias.scope !357
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$3nth17h1a1f5ae150b5ce07E.exit"
 
-87:                                               ; preds = %82
+85:                                               ; preds = %82
   store i8 %81, ptr %72, align 1, !alias.scope !357
   store i8 1, ptr %0, align 1, !alias.scope !357
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$3nth17h1a1f5ae150b5ce07E.exit"
@@ -5066,13 +5054,10 @@ define internal { i1, i8 } @"_ZN4core4iter5range110_$LT$impl$u20$core..iter..tra
   br i1 %14, label %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread", label %16
 
 16:                                               ; preds = %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit"
-  %17 = icmp ult i8 %15, %9
-  %18 = icmp ne i8 %15, %9
-  %..i = zext i1 %18 to i8
-  %.0.i = select i1 %17, i8 -1, i8 %..i
+  %.0.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i8(i8 %15, i8 %9)
   switch i8 %.0.i, label %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread" [
-    i8 -1, label %19
-    i8 0, label %21
+    i8 -1, label %17
+    i8 0, label %19
   ]
 
 "_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread": ; preds = %10, %16, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit"
@@ -5080,22 +5065,22 @@ define internal { i1, i8 } @"_ZN4core4iter5range110_$LT$impl$u20$core..iter..tra
   store i8 1, ptr %0, align 1
   br label %.critedge
 
-19:                                               ; preds = %16
-  %20 = add i8 %15, 1
-  store i8 %20, ptr %6, align 1
+17:                                               ; preds = %16
+  %18 = add i8 %15, 1
+  store i8 %18, ptr %6, align 1
   br label %.critedge
 
-21:                                               ; preds = %16
+19:                                               ; preds = %16
   store i8 %15, ptr %6, align 1
   store i8 1, ptr %0, align 1
   br label %.critedge
 
-.critedge:                                        ; preds = %19, %21, %5, %2, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread"
-  %.sroa.5.0 = phi i8 [ undef, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread" ], [ undef, %2 ], [ undef, %5 ], [ %15, %21 ], [ %15, %19 ]
-  %.sroa.0.0 = phi i1 [ false, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread" ], [ false, %2 ], [ false, %5 ], [ true, %21 ], [ true, %19 ]
-  %22 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0, 0
-  %23 = insertvalue { i1, i8 } %22, i8 %.sroa.5.0, 1
-  ret { i1, i8 } %23
+.critedge:                                        ; preds = %17, %19, %5, %2, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread"
+  %.sroa.5.0 = phi i8 [ undef, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread" ], [ undef, %2 ], [ undef, %5 ], [ %15, %19 ], [ %15, %17 ]
+  %.sroa.0.0 = phi i1 [ false, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread" ], [ false, %2 ], [ false, %5 ], [ true, %19 ], [ true, %17 ]
+  %20 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0, 0
+  %21 = insertvalue { i1, i8 } %20, i8 %.sroa.5.0, 1
+  ret { i1, i8 } %21
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -9176,6 +9161,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i8(i8, i8) #22
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #23
