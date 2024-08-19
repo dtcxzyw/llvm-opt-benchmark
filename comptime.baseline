@@ -16069,7 +16069,7 @@ minetest/test_filesys.cpp.ll 1916336433
 minetest/test_gameui.cpp.ll 230971590
 minetest/test_gettext.cpp.ll 178629740
 minetest/test_inventory.cpp.ll 589158912
-minetest/test_irrptr.cpp.ll 77885476
+minetest/test_irrptr.cpp.ll 77963375
 minetest/test_keycode.cpp.ll 337439950
 minetest/test_lua.cpp.ll 122793892
 minetest/test_map.cpp.ll 667264336
