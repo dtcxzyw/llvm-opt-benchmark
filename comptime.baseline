@@ -10542,7 +10542,7 @@ hyperscan/order.cpp.ll 3004594282
 hyperscan/parse_error.cpp.ll 43698169
 hyperscan/prefilter.cpp.ll 399637055
 hyperscan/program_runtime.c.ll 12251920718
-hyperscan/rdfa.cpp.ll 254850881
+hyperscan/rdfa.cpp.ll 254595950
 hyperscan/rdfa_graph.cpp.ll 741882760
 hyperscan/rdfa_merge.cpp.ll 3242953897
 hyperscan/repeat.c.ll 2471158265
@@ -30978,7 +30978,7 @@ rust-analyzer-rs/vhdf3hp2hnrr9zz.ll 75739526
 rust-analyzer-rs/vux7x0s1st8za9f.ll 353823645
 rust-analyzer-rs/w5izhm9gpx5oofk.ll 77842293
 rust-analyzer-rs/wbobvfguvtnjjwz.ll 670913204
-rust-analyzer-rs/wcknfmhk1hydgx3.ll 14228381754
+rust-analyzer-rs/wcknfmhk1hydgx3.ll 14242613238
 rust-analyzer-rs/wfjbx54yps9g6i7.ll 1015791917
 rust-analyzer-rs/wnma56lgiayogov.ll 4584270207
 rust-analyzer-rs/wqcwjhfqntnx9nr.ll 48887319
