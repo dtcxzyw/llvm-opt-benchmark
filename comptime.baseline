@@ -9227,7 +9227,7 @@ gromacs/vcm.cpp.ll 1284857419
 gromacs/veccompare.cpp.ll 79638670
 gromacs/vecdump.cpp.ll 140395311
 gromacs/velocityscalingtemperaturecoupling.cpp.ll 2973699856
-gromacs/version.cpp.ll 62772976
+gromacs/version.cpp.ll 62710032
 gromacs/viewit.cpp.ll 98269522
 gromacs/virials.cpp.ll 109307576
 gromacs/vsite.cpp.ll 5330897889
