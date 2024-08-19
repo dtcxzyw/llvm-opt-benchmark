@@ -589,7 +589,7 @@ abc/giaTranStoch.c.ll 314920751
 abc/giaTransduction.cpp.ll 9541692071
 abc/giaTruth.c.ll 1562010715
 abc/giaTsim.c.ll 548122113
-abc/giaTtopt.cpp.ll 3298854371
+abc/giaTtopt.cpp.ll 3302169050
 abc/giaUnate.c.ll 404548091
 abc/giaUtil.c.ll 3362750373
 abc/gzlib.c.ll 144856516
@@ -906,7 +906,7 @@ abc/satSolver.c.ll 2246782261
 abc/satSolver2.c.ll 1814764233
 abc/satSolver2i.c.ll 289752108
 abc/satSolver3.c.ll 2175517664
-abc/satStore.c.ll 161567048
+abc/satStore.c.ll 161402932
 abc/satTruth.c.ll 251620747
 abc/satUtil.c.ll 211804401
 abc/sbd.c.ll 304647403
@@ -2019,7 +2019,7 @@ brotli/compress_fragment_two_pass.c.ll 4449175176
 brotli/decode.c.ll 4569731973
 brotli/dictionary.c.ll 56754171
 brotli/encode.c.ll 1878940903
-brotli/encoder_dict.c.ll 775331483
+brotli/encoder_dict.c.ll 774203927
 brotli/entropy_encode.c.ll 374165891
 brotli/histogram.c.ll 98457399
 brotli/huffman.c.ll 204464264
@@ -5130,7 +5130,7 @@ cpython/tupleobject.ll 496740919
 cpython/typeobject.ll 6018164532
 cpython/typevarobject.ll 646373444
 cpython/unicode.ll 1558054946
-cpython/unicodectype.ll 490391376
+cpython/unicodectype.ll 489767626
 cpython/unicodedata.ll 1924991020
 cpython/unicodeobject.ll 14468566045
 cpython/unionobject.ll 279431600
@@ -6244,7 +6244,7 @@ delta-rs/3rg86k0wb5au4lo8.ll 439650209
 delta-rs/3s3f23ex69abms10.ll 36623499257
 delta-rs/3w98mau10rb6qf7d.ll 895571451
 delta-rs/3yt47vxpbp4b5dih.ll 7385263291
-delta-rs/41gv5sp2hzfeggkp.ll 1794517879
+delta-rs/41gv5sp2hzfeggkp.ll 1796329838
 delta-rs/42ujyyzbowx01sai.ll 5579174748
 delta-rs/43rqrp2cinp33t64.ll 670414278
 delta-rs/43v21s2zjdwm5s4u.ll 1424030288
@@ -6351,7 +6351,7 @@ diesel-rs/1twmu4mg7wlgn5nl.ll 195263031
 diesel-rs/1vuxmtz2yhpbr3bd.ll 617057846
 diesel-rs/1w3hseqr9jtprha4.ll 59912284
 diesel-rs/1xjmwmr0lwqscmwt.ll 357434112
-diesel-rs/1y5afe719vt3j8l4.ll 465469889
+diesel-rs/1y5afe719vt3j8l4.ll 465938663
 diesel-rs/1yplebaplvqz1diq.ll 308491496
 diesel-rs/1z3qificwegqnhb.ll 304767903
 diesel-rs/1zhqdyjorbzdhypm.ll 480891466
@@ -6396,7 +6396,7 @@ diesel-rs/2nqojkvzec127ieh.ll 2599985835
 diesel-rs/2p40o9815pzr2acy.ll 120077248
 diesel-rs/2phdoksmzkii6al2.ll 2361591707
 diesel-rs/2po7xbnn7x7chxhu.ll 583430292
-diesel-rs/2s62yx061p6x6nk0.ll 424205322
+diesel-rs/2s62yx061p6x6nk0.ll 424630321
 diesel-rs/2s8ycqkw0lx2yu9.ll 1746279473
 diesel-rs/2sf6u3r7os1bcdld.ll 561696011
 diesel-rs/2so5qi1dvuytgq2z.ll 583487594
@@ -8486,7 +8486,7 @@ gromacs/exclusionblocks.cpp.ll 728461572
 gromacs/exclusionchecker.cpp.ll 293170442
 gromacs/expanded.cpp.ll 1671693266
 gromacs/expanded_internal.cpp.ll 176295305
-gromacs/expandedensembleelement.cpp.ll 1559637345
+gromacs/expandedensembleelement.cpp.ll 1561198317
 gromacs/expfit.cpp.ll 362681658
 gromacs/exponentialmovingaverage.cpp.ll 674820732
 gromacs/extract_cluster.cpp.ll 525849926
@@ -12457,7 +12457,7 @@ libzmq/polling_util.cpp.ll 38134951
 libzmq/proxy.cpp.ll 386157275
 libzmq/proxy_thr.cpp.ll 102532022
 libzmq/pub.cpp.ll 55093277
-libzmq/pull.cpp.ll 58187141
+libzmq/pull.cpp.ll 58120363
 libzmq/push.cpp.ll 57186876
 libzmq/radio.cpp.ll 383995737
 libzmq/radix_tree.cpp.ll 426323758
@@ -16581,7 +16581,7 @@ mold/output-chunks.cc.RV64BE.cc.ll 14847311531
 mold/output-chunks.cc.RV64LE.cc.ll 14737306871
 mold/output-chunks.cc.S390X.cc.ll 14801674853
 mold/output-chunks.cc.SH4.cc.ll 14717113326
-mold/output-chunks.cc.SPARC64.cc.ll 14793465236
+mold/output-chunks.cc.SPARC64.cc.ll 14808312012
 mold/output-chunks.cc.X86_64.cc.ll 15275050814
 mold/passes.cc.ALPHA.cc.ll 30225638317
 mold/passes.cc.ARM32.cc.ll 30320068567
@@ -18227,7 +18227,7 @@ ockam-rs/59645ou3p4wsm5oz.ll 926950851
 ockam-rs/59na08zlxqp9p17s.ll 69242021375
 ockam-rs/59niu93qhkmqin4o.ll 39490807
 ockam-rs/5ajlzhr79swdelhe.ll 2503515095
-ockam-rs/5ayhis8cfs1k9t14.ll 40466554223
+ockam-rs/5ayhis8cfs1k9t14.ll 40507193463
 ockam-rs/5bcp0qg3eeuhs3h3.ll 3807763251
 ockam-rs/5cusbw3k79njomm0.ll 1842815113
 ockam-rs/5cw0qvsxmpswa08s.ll 133289337
@@ -19834,7 +19834,7 @@ opencv/magnitude.cpp.ll 505504782
 opencv/magnoretinafilter.cpp.ll 186066234
 opencv/main_detection.cpp.ll 1343849068
 opencv/main_registration.cpp.ll 706431444
-opencv/map.cpp.ll 71124766
+opencv/map.cpp.ll 71046848
 opencv/map_test.cpp.ll 1044466034
 opencv/mapaffine.cpp.ll 258446774
 opencv/mapper.cpp.ll 366761855
@@ -23223,7 +23223,7 @@ openmpi/libmpi_c_profile_la-query_thread.ll 41016875
 openmpi/libmpi_c_profile_la-raccumulate.ll 109368971
 openmpi/libmpi_c_profile_la-recv.ll 105632858
 openmpi/libmpi_c_profile_la-recv_init.ll 104955116
-openmpi/libmpi_c_profile_la-reduce.ll 128023684
+openmpi/libmpi_c_profile_la-reduce.ll 127890618
 openmpi/libmpi_c_profile_la-reduce_init.ll 118344270
 openmpi/libmpi_c_profile_la-reduce_local.ll 103652074
 openmpi/libmpi_c_profile_la-reduce_scatter.ll 130373046
@@ -23965,7 +23965,7 @@ openmpi/scheduler.ll 232303067
 openmpi/schizo.ll 140282014
 openmpi/schizo_base_frame.ll 358800348
 openmpi/schizo_base_select.ll 83257916
-openmpi/schizo_base_stubs.ll 280176361
+openmpi/schizo_base_stubs.ll 279893527
 openmpi/schizo_ompi.ll 1183077222
 openmpi/schizo_ompi_component.ll 36378611
 openmpi/schizo_prte.ll 557821199
@@ -24624,7 +24624,7 @@ openssl/libcrypto-lib-err_blocks.ll 88518132
 openssl/libcrypto-lib-err_mark.ll 71383775
 openssl/libcrypto-lib-err_prn.ll 88625932
 openssl/libcrypto-lib-err_save.ll 139661551
-openssl/libcrypto-lib-ess_asn1.ll 63225265
+openssl/libcrypto-lib-ess_asn1.ll 63157797
 openssl/libcrypto-lib-ess_err.ll 35540886
 openssl/libcrypto-lib-ess_lib.ll 141344690
 openssl/libcrypto-lib-evp_asn1.ll 66396171
@@ -25214,7 +25214,7 @@ openssl/libcrypto-shlib-err_blocks.ll 88518640
 openssl/libcrypto-shlib-err_mark.ll 71384140
 openssl/libcrypto-shlib-err_prn.ll 88539412
 openssl/libcrypto-shlib-err_save.ll 139661970
-openssl/libcrypto-shlib-ess_asn1.ll 63225012
+openssl/libcrypto-shlib-ess_asn1.ll 63157479
 openssl/libcrypto-shlib-ess_err.ll 35541272
 openssl/libcrypto-shlib-ess_lib.ll 141265691
 openssl/libcrypto-shlib-evp_asn1.ll 66396614
@@ -27258,7 +27258,7 @@ postgres/pg_amcheck.ll 450423844
 postgres/pg_archivecleanup.ll 120545217
 postgres/pg_attrdef.ll 91426106
 postgres/pg_backup_archiver.ll 1705081179
-postgres/pg_backup_custom.ll 180747756
+postgres/pg_backup_custom.ll 180564185
 postgres/pg_backup_db.ll 158315789
 postgres/pg_backup_directory.ll 159666911
 postgres/pg_backup_null.ll 57412228
@@ -27380,7 +27380,7 @@ postgres/prepagg.ll 254341468
 postgres/prepare.ll 239406976
 postgres/prepjointree.ll 727795855
 postgres/prepqual.ll 218922151
-postgres/preproc.ll 5745402701
+postgres/preproc.ll 5738247469
 postgres/preptlist.ll 171748631
 postgres/prepunion.ll 338755070
 postgres/print.ll 1300312228
@@ -27670,7 +27670,7 @@ postgres/username_shlib.ll 41947929
 postgres/username_srv.ll 42010626
 postgres/utf8_and_big5.ll 233452224
 postgres/utf8_and_cyrillic.ll 62817947
-postgres/utf8_and_euc2004.ll 252200532
+postgres/utf8_and_euc2004.ll 251914951
 postgres/utf8_and_euc_cn.ll 171399345
 postgres/utf8_and_euc_jp.ll 224983797
 postgres/utf8_and_euc_kr.ll 213563596
@@ -28136,7 +28136,7 @@ proxygen/HTTPChecks.cpp.ll 203484965
 proxygen/HTTPCodecFactory.cpp.ll 102379959
 proxygen/HTTPCodecFilter.cpp.ll 361270800
 proxygen/HTTPCodecPrinter.cpp.ll 571036771
-proxygen/HTTPCommonHeaders.cpp.ll 112824564
+proxygen/HTTPCommonHeaders.cpp.ll 112706525
 proxygen/HTTPConnectorWithFizz.cpp.ll 3819283013
 proxygen/HTTPConstants.cpp.ll 36762516
 proxygen/HTTPDefaultSessionCodecFactory.cpp.ll 249759163
@@ -28766,7 +28766,7 @@ qemu/hw_net_can_can_kvaser_pci.c.ll 70059873
 qemu/hw_net_can_can_sja1000.c.ll 369456636
 qemu/hw_net_can_ctucan_core.c.ll 272898281
 qemu/hw_net_can_ctucan_pci.c.ll 78366923
-qemu/hw_net_e1000.c.ll 1021592370
+qemu/hw_net_e1000.c.ll 1020196113
 qemu/hw_net_e1000e.c.ll 330018946
 qemu/hw_net_e1000e_core.c.ll 2762774926
 qemu/hw_net_e1000x_common.c.ll 298583452
@@ -29273,9 +29273,9 @@ qemu/ui_dbus-listener.c.ll 107213023
 qemu/ui_dbus-module.c.ll 34770129
 qemu/ui_dbus.c.ll 142602612
 qemu/ui_input-barrier.c.ll 330555157
-qemu/ui_input-keymap.c.ll 427679434
+qemu/ui_input-keymap.c.ll 427217273
 qemu/ui_input-legacy.c.ll 97686417
-qemu/ui_input-linux.c.ll 204636189
+qemu/ui_input-linux.c.ll 204427055
 qemu/ui_input.c.ll 315198249
 qemu/ui_kbd-state.c.ll 77860123
 qemu/ui_keymaps.c.ll 181849054
@@ -29735,7 +29735,7 @@ regex-rs/1ezs5fkqov3a1527.ll 1820709038
 regex-rs/1hmlfcakzz33fnei.ll 206085301
 regex-rs/1hv7a9vv5ulvjrv1.ll 2741003682
 regex-rs/1pxsmct4oxs5dlep.ll 1614125669
-regex-rs/1rguw48xrsv49k4z.ll 5788376268
+regex-rs/1rguw48xrsv49k4z.ll 5794202588
 regex-rs/1ri0nxve2ijarfwj.ll 191105295
 regex-rs/1wjkhjqt3xgxgj7z.ll 1299392839
 regex-rs/1x04d8372kemp7hd.ll 3216303898
@@ -30254,7 +30254,7 @@ ruby/dir.ll 1117225282
 ruby/dln.ll 84490941
 ruby/dln_find.ll 73078178
 ruby/emacs_mule.ll 100607482
-ruby/emoji_iso2022_kddi.ll 175723321
+ruby/emoji_iso2022_kddi.ll 175530106
 ruby/enc_associate.ll 41362547
 ruby/encoding.ll 749728965
 ruby/enum.ll 1625329776
@@ -30506,7 +30506,7 @@ rust-analyzer-rs/1gmgjb2cqrqdy4oz.ll 371732052
 rust-analyzer-rs/1i6d4byy7g7tzwqu.ll 414276931
 rust-analyzer-rs/1inhtflzeuuko7d8.ll 943364735
 rust-analyzer-rs/1j91i64oabb508eh.ll 24011207061
-rust-analyzer-rs/1jnytxsf9ijspdxz.ll 2384954619
+rust-analyzer-rs/1jnytxsf9ijspdxz.ll 2387343026
 rust-analyzer-rs/1l7la04std2aqrwi.ll 14493294046
 rust-analyzer-rs/1llrnjwin3zvhpvx.ll 4829931939
 rust-analyzer-rs/1lnhy2v45voxjwry.ll 25349927765
@@ -30877,7 +30877,7 @@ rust-analyzer-rs/5cfkke1ayuk92sd7.ll 47819475
 rust-analyzer-rs/5cuaio8coq8lvmol.ll 7389698211
 rust-analyzer-rs/5cv6fzh8luwt5r60.ll 6593312012
 rust-analyzer-rs/5d8poqeznvlx1h03.ll 371571109
-rust-analyzer-rs/5djmpgt9ghwflvfq.ll 12505417880
+rust-analyzer-rs/5djmpgt9ghwflvfq.ll 12518079305
 rust-analyzer-rs/5dls0k37z0lpcnxf.ll 595480259
 rust-analyzer-rs/5dzancx749u0myyk.ll 6412293051
 rust-analyzer-rs/5e0wslse2ls19syc.ll 440073846
@@ -30940,7 +30940,7 @@ rust-analyzer-rs/l6qsabb4kg569bf.ll 424357196
 rust-analyzer-rs/leba1wmgxgrzxkl.ll 10478607893
 rust-analyzer-rs/lkt0vc36jo6l130.ll 4836412176
 rust-analyzer-rs/lt4f7k28xei9pok.ll 13500918767
-rust-analyzer-rs/lvm5mow7j40zynh.ll 14599689071
+rust-analyzer-rs/lvm5mow7j40zynh.ll 14614582506
 rust-analyzer-rs/lyex85fppj8jw50.ll 6372984257
 rust-analyzer-rs/m5y7tkywgbwlx2e.ll 1769313853
 rust-analyzer-rs/m6du9svcg6vyseh.ll 472930326
@@ -35093,7 +35093,7 @@ wireshark/packet-btavrcp.c.ll 956982257
 wireshark/packet-btbnep.c.ll 132828565
 wireshark/packet-btbredr_rf.c.ll 639445339
 wireshark/packet-bthci_acl.c.ll 210307155
-wireshark/packet-bthci_cmd.c.ll 1601894960
+wireshark/packet-bthci_cmd.c.ll 1600276369
 wireshark/packet-bthci_evt.c.ll 1712769811
 wireshark/packet-bthci_iso.c.ll 183932616
 wireshark/packet-bthci_sco.c.ll 115799489
