@@ -35223,7 +35223,7 @@ wireshark/packet-dcom-typeinfo.c.ll 173467210
 wireshark/packet-dcom.c.ll 486168443
 wireshark/packet-dcp-etsi.c.ll 257790400
 wireshark/packet-dec-dnart.c.ll 372588053
-wireshark/packet-dect-dlc.c.ll 77084018
+wireshark/packet-dect-dlc.c.ll 77161168
 wireshark/packet-dect-mitel-eth.c.ll 203493432
 wireshark/packet-dect-nwk.c.ll 404480552
 wireshark/packet-dect.c.ll 330340550
