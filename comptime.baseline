@@ -1673,7 +1673,7 @@ arrow/io_util.cc.ll 3356256329
 arrow/kernel.cc.ll 1442961256
 arrow/key_hash.cc.ll 1692933699
 arrow/key_hash_avx2.cc.ll 451692183
-arrow/key_map.cc.ll 876415854
+arrow/key_map.cc.ll 875536782
 arrow/key_map_avx2.cc.ll 318210250
 arrow/key_value_metadata.cc.ll 1624286749
 arrow/light_array.cc.ll 2722002273
@@ -2072,7 +2072,7 @@ bullet3/b3OverlappingPairCache.ll 456851894
 bullet3/b3PgsJacobiSolver.ll 1594580960
 bullet3/b3Point2PointConstraint.ll 164337843
 bullet3/b3PrefixScanCL.ll 217658685
-bullet3/b3PrefixScanFloat4CL.ll 224908557
+bullet3/b3PrefixScanFloat4CL.ll 224682649
 bullet3/b3QuantizedBvh.ll 1104670976
 bullet3/b3RadixSort32CL.ll 549207789
 bullet3/b3Solver.ll 1592034924
@@ -3664,7 +3664,7 @@ cmake/getinfo.c.ll 131321375
 cmake/getnameinfo.c.ll 51998606
 cmake/gzlib.c.ll 154530169
 cmake/gzread.c.ll 218586951
-cmake/gzwrite.c.ll 223911207
+cmake/gzwrite.c.ll 223685545
 cmake/hash.c.ll 118239772
 cmake/headers.c.ll 150492267
 cmake/hex.c.ll 171270162
@@ -5016,7 +5016,7 @@ cpython/hamt.ll 783926886
 cpython/hashtable.ll 152667425
 cpython/heaptype.ll 305165546
 cpython/heaptype_relative.ll 96390489
-cpython/helpers.ll 218024485
+cpython/helpers.ll 217804541
 cpython/immortal.ll 66548240
 cpython/import.ll 1284308207
 cpython/importdl.ll 132907435
@@ -6690,7 +6690,7 @@ duckdb/null_operations.cpp.ll 272854037
 duckdb/numeric_inplace_operators.cpp.ll 45673766
 duckdb/parsed_statement_verifier.cpp.ll 210660890
 duckdb/prepared_statement_verifier.cpp.ll 441158705
-duckdb/statement_verifier.cpp.ll 284920920
+duckdb/statement_verifier.cpp.ll 284635049
 duckdb/ub_duckdb_adbc.cpp.ll 2418668684
 duckdb/ub_duckdb_adbc_nanoarrow.cpp.ll 229888422
 duckdb/ub_duckdb_aggr_algebraic.cpp.ll 3573689798
@@ -7103,7 +7103,7 @@ flac/local_string_utils.c.ll 58169429
 flac/lpc.c.ll 1613580480
 flac/lpc_intrin_avx2.c.ll 1435450907
 flac/lpc_intrin_fma.c.ll 103352074
-flac/lpc_intrin_sse2.c.ll 446330912
+flac/lpc_intrin_sse2.c.ll 445882990
 flac/lpc_intrin_sse41.c.ll 393938127
 flac/main.c.ll 806732509
 flac/md5.c.ll 570086247
@@ -12180,11 +12180,11 @@ libsodium/libaesni_la-aead_aes256gcm_aesni.ll 957285122
 libsodium/libaesni_la-aegis128l_aesni.ll 196552047
 libsodium/libaesni_la-aegis256_aesni.ll 171391349
 libsodium/libavx2_la-argon2-fill-block-avx2.ll 893399192
-libsodium/libavx2_la-blake2b-compress-avx2.ll 592870876
+libsodium/libavx2_la-blake2b-compress-avx2.ll 592272740
 libsodium/libavx2_la-chacha20_dolbeau-avx2.ll 530074612
 libsodium/libavx2_la-salsa20_xmm6int-avx2.ll 496566460
 libsodium/libavx512f_la-argon2-fill-block-avx512f.ll 794301424
-libsodium/librdrand_la-randombytes_internal_random.ll 116685960
+libsodium/librdrand_la-randombytes_internal_random.ll 116568842
 libsodium/libsodium_la-aegis128l_soft.ll 457582374
 libsodium/libsodium_la-aegis256_soft.ll 291992719
 libsodium/libsodium_la-argon2-core.ll 158476497
@@ -14186,7 +14186,7 @@ linux/pcm_misc.ll 125740800
 linux/pcm_native.ll 1231431203
 linux/pcm_timer.ll 65601854
 linux/pcmcia_cis.ll 108165902
-linux/pcmcia_resource.ll 228017323
+linux/pcmcia_resource.ll 227788438
 linux/percpu-refcount.ll 122376200
 linux/percpu-rwsem.ll 111410469
 linux/percpu.ll 1156305517
@@ -15826,7 +15826,7 @@ minetest/clientobject.cpp.ll 124673458
 minetest/clientopcodes.cpp.ll 114192449
 minetest/clientpackethandler.cpp.ll 2493700730
 minetest/clouds.cpp.ll 1089650330
-minetest/collector.cpp.ll 169360700
+minetest/collector.cpp.ll 169189441
 minetest/collision.cpp.ll 596955429
 minetest/colorize.cpp.ll 205024057
 minetest/connection.cpp.ll 2229713055
@@ -15953,7 +15953,7 @@ minetest/mapgen_valleys.cpp.ll 657839024
 minetest/mapnode.cpp.ll 911057366
 minetest/mapsector.cpp.ll 225462714
 minetest/mesh.cpp.ll 1546098348
-minetest/mesh_compare.cpp.ll 845764471
+minetest/mesh_compare.cpp.ll 844917565
 minetest/mesh_generator_thread.cpp.ll 778466807
 minetest/metadata.cpp.ll 337970379
 minetest/metricsbackend.cpp.ll 68574961
@@ -16064,8 +16064,8 @@ minetest/test_connection.cpp.ll 672018868
 minetest/test_content_mapblock.cpp.ll 1062927344
 minetest/test_craft.cpp.ll 1983797762
 minetest/test_datastructures.cpp.ll 534929862
-minetest/test_eventmanager.cpp.ll 313345096
-minetest/test_filesys.cpp.ll 1916336433
+minetest/test_eventmanager.cpp.ll 313028812
+minetest/test_filesys.cpp.ll 1914415075
 minetest/test_gameui.cpp.ll 230428253
 minetest/test_gettext.cpp.ll 178367046
 minetest/test_inventory.cpp.ll 588483339
@@ -17217,7 +17217,7 @@ node/libnode.string_decoder.ll 357554277
 node/libnode.tcp_wrap.ll 938881012
 node/libnode.timer_wrap.ll 548978455
 node/libnode.timers.ll 516996473
-node/libnode.tlscontext.ll 1633910624
+node/libnode.tlscontext.ll 1632266896
 node/libnode.tokens.ll 149232736
 node/libnode.traced_value.ll 183155440
 node/libnode.tracing_agent.ll 824390887
@@ -20414,7 +20414,7 @@ opencv/testset.cpp.ll 404379000
 opencv/text_detection.cpp.ll 631736887
 opencv/text_detectorCNN.cpp.ll 538681680
 opencv/text_detector_swt.cpp.ll 5964264057
-opencv/text_recognition_cnn.cpp.ll 292963038
+opencv/text_recognition_cnn.cpp.ll 292669584
 opencv/text_skewness_correction.cpp.ll 148138678
 opencv/textbox_demo.cpp.ll 235214250
 opencv/textdetection.cpp.ll 599988771
@@ -20489,7 +20489,7 @@ opencv/transformations.cpp.ll 2340149902
 opencv/transientareassegmentationmodule.cpp.ll 487800196
 opencv/travelsalesman.cpp.ll 324118081
 opencv/tree.cpp.ll 4094020880
-opencv/tree_engine.cpp.ll 264816319
+opencv/tree_engine.cpp.ll 264546725
 opencv/triangulate.cpp.ll 782806662
 opencv/ts.cpp.ll 892619485
 opencv/ts_arrtest.cpp.ll 904902329
@@ -23569,7 +23569,7 @@ openmpi/opal_datatype_dump.ll 134357692
 openmpi/opal_datatype_fake_stack.ll 107029393
 openmpi/opal_datatype_get_count.ll 125941329
 openmpi/opal_datatype_monotonic.ll 63206323
-openmpi/opal_datatype_optimize.ll 323810046
+openmpi/opal_datatype_optimize.ll 324134603
 openmpi/opal_datatype_pack.ll 4592644181
 openmpi/opal_datatype_position.ll 136877770
 openmpi/opal_datatype_unpack.ll 2845783789
@@ -25170,7 +25170,7 @@ openssl/libcrypto-shlib-ec_ameth.ll 152803885
 openssl/libcrypto-shlib-ec_asn1.ll 327739844
 openssl/libcrypto-shlib-ec_backend.ll 258920145
 openssl/libcrypto-shlib-ec_check.ll 53468844
-openssl/libcrypto-shlib-ec_ctrl.ll 85986596
+openssl/libcrypto-shlib-ec_ctrl.ll 85900178
 openssl/libcrypto-shlib-ec_deprecated.ll 45041031
 openssl/libcrypto-shlib-ec_err.ll 39144027
 openssl/libcrypto-shlib-ec_key.ll 257807591
@@ -25320,7 +25320,7 @@ openssl/libcrypto-shlib-p_lib.ll 606601776
 openssl/libcrypto-shlib-p_open.ll 46754227
 openssl/libcrypto-shlib-p_seal.ll 60792315
 openssl/libcrypto-shlib-p_sign.ll 46793952
-openssl/libcrypto-shlib-packet.ll 274681495
+openssl/libcrypto-shlib-packet.ll 274406654
 openssl/libcrypto-shlib-param_build.ll 163847865
 openssl/libcrypto-shlib-param_build_set.ll 70182158
 openssl/libcrypto-shlib-params.ll 422300322
@@ -28805,7 +28805,7 @@ qemu/hw_pci_msix.c.ll 326870388
 qemu/hw_pci_pci-hmp-cmds.c.ll 115059628
 qemu/hw_pci_pci.c.ll 1103889085
 qemu/hw_pci_pci_bridge.c.ll 193489288
-qemu/hw_pci_pci_host.c.ll 113502089
+qemu/hw_pci_pci_host.c.ll 113388108
 qemu/hw_pci_pcie.c.ll 357471778
 qemu/hw_pci_pcie_aer.c.ll 336490949
 qemu/hw_pci_pcie_doe.c.ll 167642106
@@ -30580,7 +30580,7 @@ rust-analyzer-rs/2b934puhcj043qyo.ll 524484530
 rust-analyzer-rs/2bsna7sfcimb2w09.ll 200859180
 rust-analyzer-rs/2bwlvqntjk72kr6f.ll 4282742783
 rust-analyzer-rs/2byauzqgce2a9ymb.ll 517054549
-rust-analyzer-rs/2c0n7dumpf7kecgy.ll 3606453810
+rust-analyzer-rs/2c0n7dumpf7kecgy.ll 3602844711
 rust-analyzer-rs/2csuh8dc4il8cnsf.ll 819043400
 rust-analyzer-rs/2deyu58ajds9ccnn.ll 1905687388
 rust-analyzer-rs/2doj75lyd196xpee.ll 824840485
@@ -30789,7 +30789,7 @@ rust-analyzer-rs/4lgxq2tomtamu9rj.ll 466493381
 rust-analyzer-rs/4li1jw3llk76lkpw.ll 6399379015
 rust-analyzer-rs/4mnb5su7whazh2aj.ll 2076317056
 rust-analyzer-rs/4mw28hhoa59adomg.ll 984976920
-rust-analyzer-rs/4mz36mxu8r0g7zqk.ll 7998407407
+rust-analyzer-rs/4mz36mxu8r0g7zqk.ll 7990385445
 rust-analyzer-rs/4n4kpy0miblxvsjy.ll 9489287886
 rust-analyzer-rs/4nb8vdkq52ctjgzb.ll 284319176
 rust-analyzer-rs/4nk4vk785ylcn5k7.ll 841952819
@@ -30872,7 +30872,7 @@ rust-analyzer-rs/5ac99zaxn7b9r9xv.ll 2395663467
 rust-analyzer-rs/5amh0jp09v3snpag.ll 578232769
 rust-analyzer-rs/5be8fiuszljnx3iq.ll 424842708
 rust-analyzer-rs/5c0inm6yc1127ij1.ll 167174877
-rust-analyzer-rs/5c13ae2xelsf4ggd.ll 794918110
+rust-analyzer-rs/5c13ae2xelsf4ggd.ll 794115058
 rust-analyzer-rs/5cfkke1ayuk92sd7.ll 47819475
 rust-analyzer-rs/5cuaio8coq8lvmol.ll 7369298703
 rust-analyzer-rs/5cv6fzh8luwt5r60.ll 6581657857
@@ -33271,7 +33271,7 @@ tree-sitter-rs/4x681obl3opoh1yx.ll 417767584
 tree-sitter-rs/4x741xowia4bwziy.ll 999235696
 tree-sitter-rs/4zakogfbfa4d80x8.ll 187048680
 tree-sitter-rs/50gi8jfmf82cuy8e.ll 6464802847
-tree-sitter-rs/51rc99d4jdw1knkd.ll 368098941
+tree-sitter-rs/51rc99d4jdw1knkd.ll 367728431
 tree-sitter-rs/55e7aotywrgrb7st.ll 14833731153
 tree-sitter-rs/55tkq5cs30ym226o.ll 204866900
 tree-sitter-rs/55zduq8lgts2e7ck.ll 44102767
@@ -36885,7 +36885,7 @@ yosys/scratchpad.ll 530153797
 yosys/select.ll 21768181127
 yosys/setattr.ll 2891913214
 yosys/setundef.ll 20761221132
-yosys/sha1.ll 778868595
+yosys/sha1.ll 778080959
 yosys/share.ll 29906097529
 yosys/show.ll 17613067015
 yosys/shregmap.ll 6760590550
