@@ -348,7 +348,7 @@ define hidden noundef ptr @_ZN13StackMapFrame19set_locals_from_argERK12methodHan
 
 32:                                               ; preds = %19
   %33 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
-  %.not = icmp eq ptr %33, %2
+  %.not = icmp eq ptr %2, %33
   br i1 %.not, label %40, label %34
 
 34:                                               ; preds = %32
@@ -518,14 +518,14 @@ declare void @_ZN15SignatureStream4nextEv(ptr noundef nonnull align 8 dereferenc
 define linkonce_odr hidden noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEP6Symbol(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, %1
-  br i1 %5, label %43, label %6
+  %5 = icmp eq ptr %1, %4
+  br i1 %5, label %41, label %6
 
 6:                                                ; preds = %2
   %7 = load volatile i32, ptr %1, align 4
   %8 = and i32 %7, 65535
   %9 = icmp eq i32 %8, 65535
-  br i1 %9, label %42, label %10
+  br i1 %9, label %40, label %10
 
 10:                                               ; preds = %6
   tail call void @_ZN6Symbol18increment_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %1) #12
@@ -559,34 +559,33 @@ define linkonce_odr hidden noundef ptr @_ZN13ClassVerifier23create_temporary_sym
 26:                                               ; preds = %20
   %27 = add nsw i32 %22, 1
   %28 = icmp sgt i32 %22, -1
-  %29 = xor i32 %22, -2147483648
-  %30 = and i32 %29, %27
-  %31 = icmp eq i32 %30, 0
-  %32 = and i1 %28, %31
-  %33 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %27, i1 true)
-  %34 = sub nuw nsw i32 32, %33
-  %35 = shl nuw i32 1, %34
-  %.0.i.i.i.i.i = select i1 %32, i32 %27, i32 %35
+  %29 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %27)
+  %30 = icmp ult i32 %29, 2
+  %or.cond.i.i.i.i.i = select i1 %28, i1 %30, i1 false
+  %31 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %27, i1 true)
+  %32 = sub nuw nsw i32 32, %31
+  %33 = shl nuw i32 1, %32
+  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %27, i32 %33
   tail call void @_ZN26GrowableArrayWithAllocatorIP6Symbol13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %21, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %21, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP6Symbol13GrowableArrayIS1_EE4pushERKS1_.exit
 
 _ZN26GrowableArrayWithAllocatorIP6Symbol13GrowableArrayIS1_EE4pushERKS1_.exit: ; preds = %20, %26
-  %36 = phi i32 [ %.pre.i.i, %26 ], [ %22, %20 ]
-  %37 = add nsw i32 %36, 1
-  store i32 %37, ptr %21, align 8
-  %38 = getelementptr inbounds i8, ptr %21, i64 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = sext i32 %36 to i64
-  %41 = getelementptr inbounds ptr, ptr %39, i64 %40
-  store ptr %1, ptr %41, align 8
-  br label %42
+  %34 = phi i32 [ %.pre.i.i, %26 ], [ %22, %20 ]
+  %35 = add nsw i32 %34, 1
+  store i32 %35, ptr %21, align 8
+  %36 = getelementptr inbounds i8, ptr %21, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = sext i32 %34 to i64
+  %39 = getelementptr inbounds ptr, ptr %37, i64 %38
+  store ptr %1, ptr %39, align 8
+  br label %40
 
-42:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIP6Symbol13GrowableArrayIS1_EE4pushERKS1_.exit, %6
+40:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIP6Symbol13GrowableArrayIS1_EE4pushERKS1_.exit, %6
   store ptr %1, ptr %3, align 8
-  br label %43
+  br label %41
 
-43:                                               ; preds = %2, %42
+41:                                               ; preds = %2, %40
   ret ptr %1
 }
 
@@ -1069,7 +1068,7 @@ define hidden ptr @_ZN13StackMapFrame9get_localEi16VerificationTypeP10JavaThread
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = load i16, ptr %10, align 8
   %12 = zext i16 %11 to i32
-  %.not = icmp sgt i32 %12, %1
+  %.not = icmp slt i32 %1, %12
   br i1 %.not, label %23, label %13
 
 13:                                               ; preds = %4
@@ -1127,7 +1126,7 @@ define hidden ptr @_ZN13StackMapFrame9get_localEi16VerificationTypeP10JavaThread
 40:                                               ; preds = %33
   %41 = getelementptr inbounds i8, ptr %0, i64 4
   %42 = load i32, ptr %41, align 4
-  %.not11 = icmp sgt i32 %42, %1
+  %.not11 = icmp slt i32 %1, %42
   br i1 %.not11, label %45, label %43
 
 43:                                               ; preds = %40
@@ -1162,7 +1161,7 @@ define hidden void @_ZN13StackMapFrame11get_local_2Ei16VerificationTypeS0_P10Jav
   %15 = getelementptr inbounds i8, ptr %0, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = add nsw i32 %16, -1
-  %.not = icmp sgt i32 %17, %1
+  %.not = icmp slt i32 %1, %17
   br i1 %.not, label %28, label %18
 
 18:                                               ; preds = %5
@@ -1255,7 +1254,7 @@ define hidden void @_ZN13StackMapFrame9set_localEi16VerificationTypeP10JavaThrea
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i16, ptr %6, align 8
   %8 = zext i16 %7 to i32
-  %.not = icmp sgt i32 %8, %1
+  %.not = icmp slt i32 %1, %8
   br i1 %.not, label %19, label %9
 
 9:                                                ; preds = %4
@@ -1318,7 +1317,7 @@ define hidden void @_ZN13StackMapFrame9set_localEi16VerificationTypeP10JavaThrea
   store ptr %2, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 4
   %37 = load i32, ptr %36, align 4
-  %.not13 = icmp sgt i32 %37, %1
+  %.not13 = icmp slt i32 %1, %37
   br i1 %.not13, label %40, label %38
 
 38:                                               ; preds = %33
@@ -1337,7 +1336,7 @@ define hidden void @_ZN13StackMapFrame11set_local_2Ei16VerificationTypeS0_P10Jav
   %8 = load i16, ptr %7, align 8
   %9 = zext i16 %8 to i32
   %10 = add nsw i32 %9, -1
-  %.not = icmp sgt i32 %10, %1
+  %.not = icmp slt i32 %1, %10
   br i1 %.not, label %21, label %11
 
 11:                                               ; preds = %5
@@ -1410,7 +1409,7 @@ define hidden void @_ZN13StackMapFrame11set_local_2Ei16VerificationTypeS0_P10Jav
   %43 = getelementptr inbounds i8, ptr %0, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = add nsw i32 %44, -1
-  %.not15 = icmp sgt i32 %45, %1
+  %.not15 = icmp slt i32 %1, %45
   br i1 %.not15, label %48, label %46
 
 46:                                               ; preds = %38
@@ -1727,11 +1726,14 @@ declare void @_ZN10TypeOrigin9bad_indexEi(ptr dead_on_unwind writable sret(%clas
 
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #8
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #9
+declare i32 @llvm.smin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
@@ -1750,8 +1752,8 @@ attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #12 = { nounwind }

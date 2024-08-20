@@ -3694,71 +3694,63 @@ define internal fastcc range(i32 0, 2) i32 @check_slsk_format(ptr noundef %0, i3
   %.pre = load i8, ptr %2, align 1
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %27, %3
-  %4 = phi i8 [ %.pre, %3 ], [ %29, %27 ]
-  %.tr23 = phi i32 [ %1, %3 ], [ %.022, %27 ]
-  %.tr24 = phi ptr [ %2, %3 ], [ %28, %27 ]
+tailrecurse:                                      ; preds = %22, %3
+  %4 = phi i8 [ %.pre, %3 ], [ %24, %22 ]
+  %.tr23 = phi i32 [ %1, %3 ], [ %.022, %22 ]
+  %.tr24 = phi ptr [ %2, %3 ], [ %23, %22 ]
   switch i8 %4, label %.loopexit [
     i8 105, label %5
-    i8 98, label %10
-    i8 115, label %15
+    i8 98, label %8
+    i8 115, label %11
     i8 42, label %.loopexit.loopexit
   ]
 
 5:                                                ; preds = %tailrecurse
   %6 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.tr23) #4
   %7 = icmp slt i32 %6, 4
-  br i1 %7, label %.loopexit, label %8
+  br i1 %7, label %.loopexit, label %22
 
-8:                                                ; preds = %5
-  %9 = add i32 %.tr23, 4
-  br label %27
+8:                                                ; preds = %tailrecurse
+  %9 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.tr23) #4
+  %10 = icmp slt i32 %9, 1
+  br i1 %10, label %.loopexit, label %22
 
-10:                                               ; preds = %tailrecurse
-  %11 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.tr23) #4
-  %12 = icmp slt i32 %11, 1
-  br i1 %12, label %.loopexit, label %13
+11:                                               ; preds = %tailrecurse
+  %12 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.tr23) #4
+  %13 = icmp slt i32 %12, 4
+  br i1 %13, label %.loopexit, label %14
 
-13:                                               ; preds = %10
-  %14 = add i32 %.tr23, 1
-  br label %27
+14:                                               ; preds = %11
+  %15 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.tr23) #4
+  %16 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.tr23) #4
+  %17 = add i32 %16, 4
+  %18 = icmp slt i32 %15, %17
+  br i1 %18, label %.loopexit, label %19
 
-15:                                               ; preds = %tailrecurse
-  %16 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.tr23) #4
-  %17 = icmp slt i32 %16, 4
-  br i1 %17, label %.loopexit, label %18
-
-18:                                               ; preds = %15
-  %19 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.tr23) #4
+19:                                               ; preds = %14
   %20 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.tr23) #4
   %21 = add i32 %20, 4
-  %22 = icmp slt i32 %19, %21
-  br i1 %22, label %.loopexit, label %23
+  br label %22
 
-23:                                               ; preds = %18
-  %24 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.tr23) #4
-  %25 = add i32 %.tr23, 4
-  %26 = add i32 %25, %24
-  br label %27
+22:                                               ; preds = %8, %5, %19
+  %.pn = phi i32 [ %21, %19 ], [ 4, %5 ], [ 1, %8 ]
+  %.022 = add i32 %.pn, %.tr23
+  %23 = getelementptr i8, ptr %.tr24, i64 1
+  %24 = load i8, ptr %23, align 1
+  %25 = icmp eq i8 %24, 0
+  br i1 %25, label %26, label %tailrecurse
 
-27:                                               ; preds = %23, %13, %8
-  %.022 = phi i32 [ %26, %23 ], [ %14, %13 ], [ %9, %8 ]
-  %28 = getelementptr i8, ptr %.tr24, i64 1
-  %29 = load i8, ptr %28, align 1
-  %30 = icmp eq i8 %29, 0
-  br i1 %30, label %31, label %tailrecurse
-
-31:                                               ; preds = %27
-  %32 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.022) #4
-  %33 = icmp slt i32 %32, 1
-  %. = zext i1 %33 to i32
+26:                                               ; preds = %22
+  %27 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.022) #4
+  %28 = icmp slt i32 %27, 1
+  %. = zext i1 %28 to i32
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %tailrecurse
   br label %.loopexit
 
-.loopexit:                                        ; preds = %18, %15, %10, %5, %tailrecurse, %.loopexit.loopexit, %31
-  %.0 = phi i32 [ %., %31 ], [ 1, %.loopexit.loopexit ], [ 0, %tailrecurse ], [ 0, %5 ], [ 0, %10 ], [ 0, %15 ], [ 0, %18 ]
+.loopexit:                                        ; preds = %14, %11, %8, %5, %tailrecurse, %.loopexit.loopexit, %26
+  %.0 = phi i32 [ %., %26 ], [ 1, %.loopexit.loopexit ], [ 0, %tailrecurse ], [ 0, %5 ], [ 0, %8 ], [ 0, %11 ], [ 0, %14 ]
   ret i32 %.0
 }
 

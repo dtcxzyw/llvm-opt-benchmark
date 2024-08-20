@@ -13,39 +13,35 @@ define hidden { double, double } @_Z9pj_zpoly17COMPLEXPKS_i(double %0, double %1
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
   %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 8
   %7 = icmp sgt i32 %3, 0
+  %8 = fneg double %1
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %4
-  %8 = fneg double %1
-  br label %9
+.lr.ph:                                           ; preds = %4, %.lr.ph
+  %.021 = phi i32 [ %9, %.lr.ph ], [ %3, %4 ]
+  %.01720 = phi ptr [ %10, %.lr.ph ], [ %6, %4 ]
+  %.sroa.6.019 = phi double [ %17, %.lr.ph ], [ %.sroa.6.0.copyload, %4 ]
+  %.sroa.012.018 = phi double [ %13, %.lr.ph ], [ %.sroa.012.0.copyload, %4 ]
+  %9 = add nsw i32 %.021, -1
+  %10 = getelementptr inbounds i8, ptr %.01720, i64 -16
+  %11 = load double, ptr %10, align 8
+  %12 = tail call double @llvm.fmuladd.f64(double %0, double %.sroa.012.018, double %11)
+  %13 = tail call double @llvm.fmuladd.f64(double %8, double %.sroa.6.019, double %12)
+  %14 = getelementptr inbounds i8, ptr %.01720, i64 -8
+  %15 = load double, ptr %14, align 8
+  %16 = tail call double @llvm.fmuladd.f64(double %0, double %.sroa.6.019, double %15)
+  %17 = tail call double @llvm.fmuladd.f64(double %1, double %.sroa.012.018, double %16)
+  %18 = icmp ugt i32 %.021, 1
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
-9:                                                ; preds = %.lr.ph, %9
-  %.021 = phi i32 [ %3, %.lr.ph ], [ %10, %9 ]
-  %.01720 = phi ptr [ %6, %.lr.ph ], [ %11, %9 ]
-  %.sroa.6.019 = phi double [ %.sroa.6.0.copyload, %.lr.ph ], [ %18, %9 ]
-  %.sroa.012.018 = phi double [ %.sroa.012.0.copyload, %.lr.ph ], [ %14, %9 ]
-  %10 = add nsw i32 %.021, -1
-  %11 = getelementptr inbounds i8, ptr %.01720, i64 -16
-  %12 = load double, ptr %11, align 8
-  %13 = tail call double @llvm.fmuladd.f64(double %0, double %.sroa.012.018, double %12)
-  %14 = tail call double @llvm.fmuladd.f64(double %8, double %.sroa.6.019, double %13)
-  %15 = getelementptr inbounds i8, ptr %.01720, i64 -8
-  %16 = load double, ptr %15, align 8
-  %17 = tail call double @llvm.fmuladd.f64(double %0, double %.sroa.6.019, double %16)
-  %18 = tail call double @llvm.fmuladd.f64(double %1, double %.sroa.012.018, double %17)
-  %19 = icmp ugt i32 %.021, 1
-  br i1 %19, label %9, label %._crit_edge, !llvm.loop !4
-
-._crit_edge:                                      ; preds = %9, %4
-  %.sroa.012.0.lcssa = phi double [ %.sroa.012.0.copyload, %4 ], [ %14, %9 ]
-  %.sroa.6.0.lcssa = phi double [ %.sroa.6.0.copyload, %4 ], [ %18, %9 ]
-  %20 = fneg double %.sroa.6.0.lcssa
-  %21 = fmul double %20, %1
-  %22 = tail call double @llvm.fmuladd.f64(double %0, double %.sroa.012.0.lcssa, double %21)
-  %23 = fmul double %.sroa.012.0.lcssa, %1
-  %24 = tail call double @llvm.fmuladd.f64(double %0, double %.sroa.6.0.lcssa, double %23)
-  %.fca.0.insert = insertvalue { double, double } poison, double %22, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %24, 1
+._crit_edge:                                      ; preds = %.lr.ph, %4
+  %.sroa.012.0.lcssa = phi double [ %.sroa.012.0.copyload, %4 ], [ %13, %.lr.ph ]
+  %.sroa.6.0.lcssa = phi double [ %.sroa.6.0.copyload, %4 ], [ %17, %.lr.ph ]
+  %19 = fmul double %.sroa.6.0.lcssa, %8
+  %20 = tail call double @llvm.fmuladd.f64(double %0, double %.sroa.012.0.lcssa, double %19)
+  %21 = fmul double %1, %.sroa.012.0.lcssa
+  %22 = tail call double @llvm.fmuladd.f64(double %0, double %.sroa.6.0.lcssa, double %21)
+  %.fca.0.insert = insertvalue { double, double } poison, double %20, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %22, 1
   ret { double, double } %.fca.1.insert
 }
 
@@ -104,16 +100,15 @@ define hidden { double, double } @_Z10pj_zpolyd17COMPLEXPKS_iPS_(double %0, doub
   %27 = tail call double @llvm.fmuladd.f64(double %9, double %.sroa.6.0.lcssa, double %26)
   %28 = tail call double @llvm.fmuladd.f64(double %0, double %.sroa.6.0.lcssa, double %.sroa.936.0.lcssa)
   %29 = tail call double @llvm.fmuladd.f64(double %1, double %.sroa.0.0.lcssa, double %28)
-  %30 = fneg double %.sroa.936.0.lcssa
-  %31 = fmul double %30, %1
-  %32 = tail call double @llvm.fmuladd.f64(double %0, double %.sroa.032.0.lcssa, double %31)
-  %33 = fmul double %.sroa.032.0.lcssa, %1
-  %34 = tail call double @llvm.fmuladd.f64(double %0, double %.sroa.936.0.lcssa, double %33)
+  %30 = fmul double %.sroa.936.0.lcssa, %9
+  %31 = tail call double @llvm.fmuladd.f64(double %0, double %.sroa.032.0.lcssa, double %30)
+  %32 = fmul double %1, %.sroa.032.0.lcssa
+  %33 = tail call double @llvm.fmuladd.f64(double %0, double %.sroa.936.0.lcssa, double %32)
   store double %27, ptr %4, align 8
   %.sroa.6.0..sroa_idx6 = getelementptr inbounds i8, ptr %4, i64 8
   store double %29, ptr %.sroa.6.0..sroa_idx6, align 8
-  %.fca.0.insert = insertvalue { double, double } poison, double %32, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %34, 1
+  %.fca.0.insert = insertvalue { double, double } poison, double %31, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %33, 1
   ret { double, double } %.fca.1.insert
 }
 

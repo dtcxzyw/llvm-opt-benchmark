@@ -306,7 +306,7 @@ define hidden noundef zeroext i1 @_ZN11ModuleEntry19should_show_versionEv(ptr no
   %25 = getelementptr inbounds i8, ptr %0, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
-  %28 = icmp eq ptr %27, %26
+  %28 = icmp eq ptr %26, %27
   br i1 %28, label %31, label %29
 
 29:                                               ; preds = %11
@@ -439,7 +439,7 @@ define hidden noundef zeroext i1 @_ZNK11ModuleEntry8can_readEPS_(ptr nocapture n
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   %6 = load ptr, ptr @_ZN16ModuleEntryTable16_javabase_moduleE, align 8
-  %7 = icmp eq ptr %6, %1
+  %7 = icmp eq ptr %1, %6
   %or.cond = select i1 %5, i1 true, i1 %7
   br i1 %or.cond, label %_ZN11MutexLockerD2Ev.exit, label %8
 
@@ -468,7 +468,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %8, %10
   %18 = getelementptr inbounds i8, ptr %1, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
-  %21 = icmp eq ptr %20, %19
+  %21 = icmp eq ptr %19, %20
   br i1 %21, label %_ZNK17GrowableArrayViewIP11ModuleEntryE8containsERKS1_.exit, label %22
 
 22:                                               ; preds = %17
@@ -636,37 +636,36 @@ _ZNK17GrowableArrayViewIP11ModuleEntryE8containsERKS1_.exit.thread.i: ; preds = 
 43:                                               ; preds = %_ZNK17GrowableArrayViewIP11ModuleEntryE8containsERKS1_.exit.thread.i
   %44 = add nsw i32 %28, 1
   %45 = icmp sgt i32 %28, -1
-  %46 = xor i32 %28, -2147483648
-  %47 = and i32 %46, %44
-  %48 = icmp eq i32 %47, 0
-  %49 = and i1 %45, %48
-  %50 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %44, i1 true)
-  %51 = sub nuw nsw i32 32, %50
-  %52 = shl nuw i32 1, %51
-  %.0.i.i.i.i.i = select i1 %49, i32 %44, i32 %52
+  %46 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %44)
+  %47 = icmp ult i32 %46, 2
+  %or.cond.i.i.i.i.i = select i1 %45, i1 %47, i1 false
+  %48 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %44, i1 true)
+  %49 = sub nuw nsw i32 32, %48
+  %50 = shl nuw i32 1, %49
+  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %44, i32 %50
   tail call void @_ZN26GrowableArrayWithAllocatorIP11ModuleEntry13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %27, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %27, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP11ModuleEntry13GrowableArrayIS1_EE6appendERKS1_.exit.i
 
 _ZN26GrowableArrayWithAllocatorIP11ModuleEntry13GrowableArrayIS1_EE6appendERKS1_.exit.i: ; preds = %43, %_ZNK17GrowableArrayViewIP11ModuleEntryE8containsERKS1_.exit.thread.i
-  %53 = phi i32 [ %.pre.i.i, %43 ], [ %28, %_ZNK17GrowableArrayViewIP11ModuleEntryE8containsERKS1_.exit.thread.i ]
-  %54 = add nsw i32 %53, 1
-  store i32 %54, ptr %27, align 8
-  %55 = getelementptr inbounds i8, ptr %27, i64 8
-  %56 = load ptr, ptr %55, align 8
-  %57 = sext i32 %53 to i64
-  %58 = getelementptr inbounds ptr, ptr %56, i64 %57
-  store ptr %1, ptr %58, align 8
+  %51 = phi i32 [ %.pre.i.i, %43 ], [ %28, %_ZNK17GrowableArrayViewIP11ModuleEntryE8containsERKS1_.exit.thread.i ]
+  %52 = add nsw i32 %51, 1
+  store i32 %52, ptr %27, align 8
+  %53 = getelementptr inbounds i8, ptr %27, i64 8
+  %54 = load ptr, ptr %53, align 8
+  %55 = sext i32 %51 to i64
+  %56 = getelementptr inbounds ptr, ptr %54, i64 %55
+  store ptr %1, ptr %56, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP11ModuleEntry13GrowableArrayIS1_EE17append_if_missingERKS1_.exit
 
 _ZN26GrowableArrayWithAllocatorIP11ModuleEntry13GrowableArrayIS1_EE17append_if_missingERKS1_.exit: ; preds = %_ZN26GrowableArrayWithAllocatorIP11ModuleEntry13GrowableArrayIS1_EE6appendERKS1_.exit.i, %_ZNK17GrowableArrayViewIP11ModuleEntryE8containsERKS1_.exit.i, %.lr.ph.i.i, %9
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %59
+  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %57
 
-59:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIP11ModuleEntry13GrowableArrayIS1_EE17append_if_missingERKS1_.exit
+57:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIP11ModuleEntry13GrowableArrayIS1_EE17append_if_missingERKS1_.exit
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %6) #16
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %59, %_ZN26GrowableArrayWithAllocatorIP11ModuleEntry13GrowableArrayIS1_EE17append_if_missingERKS1_.exit, %2
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %57, %_ZN26GrowableArrayWithAllocatorIP11ModuleEntry13GrowableArrayIS1_EE17append_if_missingERKS1_.exit, %2
   ret void
 }
 
@@ -1651,7 +1650,7 @@ define hidden noundef ptr @_ZNK11ModuleEntry23allocate_archived_entryEv(ptr noun
 26:                                               ; preds = %.lr.ph.i.i
   %27 = getelementptr inbounds i8, ptr %.pr.i, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = icmp eq ptr %28, %0
+  %29 = icmp eq ptr %0, %28
   br i1 %29, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj557EPK11ModuleEntryPS1_ES3_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSC_SC_EEE11lookup_nodeEjRKS3_.exit.i, label %30
 
 30:                                               ; preds = %26, %.lr.ph.i.i
@@ -1837,7 +1836,7 @@ define hidden noundef zeroext i1 @_ZN11ModuleEntry17has_been_archivedEv(ptr noun
 14:                                               ; preds = %.lr.ph.i.i.i.i
   %15 = getelementptr inbounds i8, ptr %11, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, %0
+  %17 = icmp eq ptr %0, %16
   br i1 %17, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj557EPK11ModuleEntryPS1_ES3_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSC_SC_EEE8containsERKS3_.exit, label %18
 
 18:                                               ; preds = %14, %.lr.ph.i.i.i.i
@@ -1873,7 +1872,7 @@ define hidden noundef ptr @_ZN11ModuleEntry18get_archived_entryEPS_(ptr noundef 
 13:                                               ; preds = %.lr.ph.i.i.i
   %14 = getelementptr inbounds i8, ptr %10, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = icmp eq ptr %15, %0
+  %16 = icmp eq ptr %0, %15
   br i1 %16, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj557EPK11ModuleEntryPS1_ES3_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSC_SC_EEE3getERKS3_.exit, label %17
 
 17:                                               ; preds = %13, %.lr.ph.i.i.i
@@ -1935,7 +1934,7 @@ define hidden noundef ptr @_ZN11ModuleEntry20write_growable_arrayEP13GrowableArr
 31:                                               ; preds = %.lr.ph.i.i.i.i
   %32 = getelementptr inbounds i8, ptr %28, i64 8
   %33 = load ptr, ptr %32, align 8
-  %34 = icmp eq ptr %33, %19
+  %34 = icmp eq ptr %19, %33
   br i1 %34, label %_ZN11ModuleEntry18get_archived_entryEPS_.exit, label %35
 
 35:                                               ; preds = %31, %.lr.ph.i.i.i.i
@@ -2007,26 +2006,25 @@ _ZN13GrowableArrayIP11ModuleEntryEC2Ei8MEMFLAGS.exit: ; preds = %6
 24:                                               ; preds = %18
   %25 = add nsw i32 %21, 1
   %26 = icmp sgt i32 %21, -1
-  %27 = xor i32 %21, -2147483648
-  %28 = and i32 %27, %25
-  %29 = icmp eq i32 %28, 0
-  %30 = and i1 %26, %29
-  %31 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %25, i1 true)
-  %32 = sub nuw nsw i32 32, %31
-  %33 = shl nuw i32 1, %32
-  %.0.i.i.i.i = select i1 %30, i32 %25, i32 %33
+  %27 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %25)
+  %28 = icmp ult i32 %27, 2
+  %or.cond.i.i.i.i = select i1 %26, i1 %28, i1 false
+  %29 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %25, i1 true)
+  %30 = sub nuw nsw i32 32, %29
+  %31 = shl nuw i32 1, %30
+  %.0.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 %25, i32 %31
   tail call void @_ZN26GrowableArrayWithAllocatorIP11ModuleEntry13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %.0.i.i.i.i)
   %.pre.i = load i32, ptr %7, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP11ModuleEntry13GrowableArrayIS1_EE6appendERKS1_.exit
 
 _ZN26GrowableArrayWithAllocatorIP11ModuleEntry13GrowableArrayIS1_EE6appendERKS1_.exit: ; preds = %18, %24
-  %34 = phi i32 [ %.pre.i, %24 ], [ %21, %18 ]
-  %35 = add nsw i32 %34, 1
-  store i32 %35, ptr %7, align 8
-  %36 = load ptr, ptr %17, align 8
-  %37 = sext i32 %34 to i64
-  %38 = getelementptr inbounds ptr, ptr %36, i64 %37
-  store ptr %20, ptr %38, align 8
+  %32 = phi i32 [ %.pre.i, %24 ], [ %21, %18 ]
+  %33 = add nsw i32 %32, 1
+  store i32 %33, ptr %7, align 8
+  %34 = load ptr, ptr %17, align 8
+  %35 = sext i32 %32 to i64
+  %36 = getelementptr inbounds ptr, ptr %34, i64 %35
+  store ptr %20, ptr %36, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.thread, label %18, !llvm.loop !16
@@ -2122,7 +2120,7 @@ define hidden void @_ZN11ModuleEntry22init_as_archived_entryEv(ptr noundef nonnu
 33:                                               ; preds = %.lr.ph.i.i.i.i.i
   %34 = getelementptr inbounds i8, ptr %30, i64 8
   %35 = load ptr, ptr %34, align 8
-  %36 = icmp eq ptr %35, %21
+  %36 = icmp eq ptr %21, %35
   br i1 %36, label %_ZN11ModuleEntry18get_archived_entryEPS_.exit.i, label %37
 
 37:                                               ; preds = %33, %.lr.ph.i.i.i.i.i
@@ -2837,7 +2835,7 @@ _ZN16SymbolHandleBaseILb0EEC2EP6Symbol.exit:      ; preds = %7, %9
 35:                                               ; preds = %.lr.ph.i.i
   %36 = getelementptr inbounds i8, ptr %.pr.i, i64 8
   %37 = load ptr, ptr %36, align 8
-  %38 = icmp eq ptr %37, %3
+  %38 = icmp eq ptr %3, %37
   br i1 %38, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj109E16SymbolHandleBaseILb0EEP11ModuleEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS20EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE11lookup_nodeEjSA_.exit.i, label %39
 
 39:                                               ; preds = %35, %.lr.ph.i.i
@@ -2930,7 +2928,7 @@ _ZN16SymbolHandleBaseILb0EEC2EP6Symbol.exit:      ; preds = %2, %3
 30:                                               ; preds = %.lr.ph.i.i.i
   %31 = getelementptr inbounds i8, ptr %27, i64 8
   %32 = load ptr, ptr %31, align 8
-  %33 = icmp eq ptr %32, %1
+  %33 = icmp eq ptr %1, %32
   br i1 %33, label %37, label %34
 
 34:                                               ; preds = %30, %.lr.ph.i.i.i
@@ -4003,7 +4001,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %.not.i.i.i = icmp eq i64 %28, 0
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr %1, ptr %29
   %.0.i.i.i = select i1 %27, ptr %spec.select.i.i.i, ptr %1
-  %30 = icmp eq ptr %.0.i.i.i, %1
+  %30 = icmp eq ptr %1, %.0.i.i.i
   br i1 %30, label %31, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 31:                                               ; preds = %24
@@ -4740,6 +4738,9 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15

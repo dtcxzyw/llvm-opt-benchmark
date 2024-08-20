@@ -293,37 +293,36 @@ _ZNK17GrowableArrayViewIN22CompactHashtableWriter5EntryEE8containsERKS1_.exit.th
 35:                                               ; preds = %_ZNK17GrowableArrayViewIN22CompactHashtableWriter5EntryEE8containsERKS1_.exit.thread.i
   %36 = add nsw i32 %12, 1
   %37 = icmp sgt i32 %12, -1
-  %38 = xor i32 %12, -2147483648
-  %39 = and i32 %38, %36
-  %40 = icmp eq i32 %39, 0
-  %41 = and i1 %37, %40
-  %42 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %36, i1 true)
-  %43 = sub nuw nsw i32 32, %42
-  %44 = shl nuw i32 1, %43
-  %.0.i.i.i.i.i = select i1 %41, i32 %36, i32 %44
+  %38 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %36)
+  %39 = icmp ult i32 %38, 2
+  %or.cond.i.i.i.i.i = select i1 %37, i1 %39, i1 false
+  %40 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %36, i1 true)
+  %41 = sub nuw nsw i32 32, %40
+  %42 = shl nuw i32 1, %41
+  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %36, i32 %42
   tail call void @_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %11, align 8
   br label %_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE6appendERKS1_.exit.i
 
 _ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE6appendERKS1_.exit.i: ; preds = %35, %_ZNK17GrowableArrayViewIN22CompactHashtableWriter5EntryEE8containsERKS1_.exit.thread.i
-  %45 = phi i32 [ %.pre.i.i, %35 ], [ %12, %_ZNK17GrowableArrayViewIN22CompactHashtableWriter5EntryEE8containsERKS1_.exit.thread.i ]
-  %46 = add nsw i32 %45, 1
-  store i32 %46, ptr %11, align 8
-  %47 = getelementptr inbounds i8, ptr %11, i64 8
-  %48 = load ptr, ptr %47, align 8
-  %49 = sext i32 %45 to i64
-  %50 = getelementptr inbounds %"class.CompactHashtableWriter::Entry", ptr %48, i64 %49
+  %43 = phi i32 [ %.pre.i.i, %35 ], [ %12, %_ZNK17GrowableArrayViewIN22CompactHashtableWriter5EntryEE8containsERKS1_.exit.thread.i ]
+  %44 = add nsw i32 %43, 1
+  store i32 %44, ptr %11, align 8
+  %45 = getelementptr inbounds i8, ptr %11, i64 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = sext i32 %43 to i64
+  %48 = getelementptr inbounds %"class.CompactHashtableWriter::Entry", ptr %46, i64 %47
   %.sroa.3.0.insert.ext = zext i32 %2 to i64
   %.sroa.3.0.insert.shift = shl nuw i64 %.sroa.3.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %1 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.shift, %.sroa.0.0.insert.ext
-  store i64 %.sroa.0.0.insert.insert, ptr %50, align 4
+  store i64 %.sroa.0.0.insert.insert, ptr %48, align 4
   br label %_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE17append_if_missingERKS1_.exit
 
 _ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE17append_if_missingERKS1_.exit: ; preds = %.lr.ph.i.i, %_ZNK17GrowableArrayViewIN22CompactHashtableWriter5EntryEE8containsERKS1_.exit.i, %_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE6appendERKS1_.exit.i
-  %51 = load i32, ptr %0, align 8
-  %52 = add nsw i32 %51, 1
-  store i32 %52, ptr %0, align 8
+  %49 = load i32, ptr %0, align 8
+  %50 = add nsw i32 %49, 1
+  store i32 %50, ptr %0, align 8
   ret void
 }
 
@@ -2074,6 +2073,9 @@ declare void @_ZN16LogMessageBufferC2Ev(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12

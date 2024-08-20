@@ -2154,11 +2154,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp38.i, label %cond.true39.i, label %cond.false42.i
 
 cond.true39.i:                                    ; preds = %if.then
-  %1 = fadd double %sub10.i, %start
+  %1 = fadd double %start, %sub10.i
   br label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116FauxCubicFwdEvalEdddddddd.exit
 
 cond.false42.i:                                   ; preds = %if.then
-  %cmp.i = fcmp ogt double %0, %t
+  %cmp.i = fcmp olt double %t, %0
   %sub1.i = fsub double %0, %start
   %div12.i = fdiv double %sub10.i, %sub1.i
   %sub21.i = fsub double 1.000000e+00, %div12.i
@@ -2169,8 +2169,8 @@ cond.false42.i:                                   ; preds = %if.then
   %add.i = fadd double %sub.i, %sub1.i
   %div.i = fdiv double 5.000000e-01, %add.i
   %3 = tail call double @llvm.fmuladd.f64(double %start, double 2.000000e+00, double %sub1.i)
-  %4 = fneg double %sub.i
-  %neg.i = fmul double %cond, %4
+  %4 = fneg double %cond
+  %neg.i = fmul double %sub.i, %4
   %5 = tail call double @llvm.fmuladd.f64(double %pivot, double 2.000000e+00, double %neg.i)
   %mul9.i = fmul double %sub1.i, %5
   %6 = tail call double @llvm.fmuladd.f64(double %3, double %sub.i, double %mul9.i)
@@ -2187,7 +2187,7 @@ cond.false42.i:                                   ; preds = %if.then
   %sub26.i = fsub double 1.000000e+00, %div15.i
   %mul27.i = fmul double %sub26.i, %mul.i
   %sub30.i = fsub double 2.000000e+00, %div15.i
-  %mul31.i = fmul double %sub30.i, %pivot
+  %mul31.i = fmul double %pivot, %sub30.i
   %mul32.i = fmul double %div15.i, %mul31.i
   %9 = tail call double @llvm.fmuladd.f64(double %mul27.i, double %sub26.i, double %mul32.i)
   %10 = tail call double @llvm.fmuladd.f64(double %mul35.i, double %sub.i, double %9)
@@ -2211,8 +2211,8 @@ if.else:                                          ; preds = %entry
   %add.i19 = fadd double %sub.i17, %sub1.i18
   %div.i20 = fdiv double 5.000000e-01, %add.i19
   %12 = tail call double @llvm.fmuladd.f64(double %start, double 2.000000e+00, double %sub1.i18)
-  %13 = fneg double %sub.i17
-  %neg.i21 = fmul double %cond10, %13
+  %13 = fneg double %cond10
+  %neg.i21 = fmul double %sub.i17, %13
   %14 = tail call double @llvm.fmuladd.f64(double %pivot, double 2.000000e+00, double %neg.i21)
   %mul9.i22 = fmul double %sub1.i18, %14
   %15 = tail call double @llvm.fmuladd.f64(double %12, double %sub.i17, double %mul9.i22)
@@ -2227,8 +2227,7 @@ if.else:                                          ; preds = %entry
   %sub26.i26 = fsub double %mul.i23, %t
   %neg29.i = fmul double %mul.i23, -2.000000e+00
   %19 = tail call double @llvm.fmuladd.f64(double %pivot, double 2.000000e+00, double %neg29.i)
-  %neg32.i = fneg double %cond10
-  %20 = tail call double @llvm.fmuladd.f64(double %neg32.i, double %sub.i17, double %19)
+  %20 = tail call double @llvm.fmuladd.f64(double %13, double %sub.i17, double %19)
   %sub33.i27 = fsub double %mul.i23, %pivot
   %21 = tail call double @llvm.fmuladd.f64(double %cond10, double %sub.i17, double %sub33.i27)
   %22 = fmul double %21, -4.000000e+00
@@ -2240,11 +2239,11 @@ if.else:                                          ; preds = %entry
 
 cond.true48.i:                                    ; preds = %if.else
   %sub49.i = fsub double %t, %start
-  %add51.i = fadd double %sub49.i, %start
+  %add51.i = fadd double %start, %sub49.i
   br label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116FauxCubicRevEvalEdddddddd.exit
 
 cond.false52.i:                                   ; preds = %if.else
-  %cmp.i28 = fcmp ogt double %mul.i23, %t
+  %cmp.i28 = fcmp olt double %t, %mul.i23
   %mul21.i = fmul double %sub10.i24, 2.000000e+00
   %fneg.i = fneg double %call.i
   %sub22.i = fsub double %fneg.i, %sub1.i18
@@ -2263,7 +2262,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116FauxCubicRevEvalEdddddddd.exit: ; preds 
   %cmp55.i = fcmp ogt double %t, %pivot
   %sub57.i = fsub double %t, %pivot
   %div58.i = fdiv double %sub57.i, %cond10
-  %add59.i = fadd double %div58.i, %pivot
+  %add59.i = fadd double %pivot, %div58.i
   %cond62.i = select i1 %cmp55.i, double %add59.i, double %cond54.i
   br label %return
 
@@ -2292,7 +2291,7 @@ cond.true39.i:                                    ; preds = %if.then
   br label %return
 
 cond.false42.i:                                   ; preds = %if.then
-  %cmp.i = fcmp ogt double %0, %t
+  %cmp.i = fcmp olt double %t, %0
   %sub1.i = fsub double %0, %start
   %div12.i = fdiv double %sub10.i, %sub1.i
   %sub21.i = fsub double 1.000000e+00, %div12.i
@@ -2303,17 +2302,17 @@ cond.false42.i:                                   ; preds = %if.then
   %sub.i = fsub double %pivot, %0
   %add.i = fadd double %sub.i, %sub1.i
   %div.i = fdiv double 5.000000e-01, %add.i
-  %mul3.i = fmul double %sub1.i, %cond
+  %mul3.i = fmul double %cond, %sub1.i
   %3 = tail call double @llvm.fmuladd.f64(double %start, double 2.000000e+00, double %mul3.i)
-  %4 = fneg double %sub.i
-  %5 = tail call double @llvm.fmuladd.f64(double %pivot, double 2.000000e+00, double %4)
-  %mul9.i = fmul double %sub1.i, %5
-  %6 = tail call double @llvm.fmuladd.f64(double %3, double %sub.i, double %mul9.i)
-  %mul.i = fmul double %div.i, %6
+  %neg.i = fneg double %sub.i
+  %4 = tail call double @llvm.fmuladd.f64(double %pivot, double 2.000000e+00, double %neg.i)
+  %mul9.i = fmul double %sub1.i, %4
+  %5 = tail call double @llvm.fmuladd.f64(double %3, double %sub.i, double %mul9.i)
+  %mul.i = fmul double %div.i, %5
   %mul19.i = fmul double %div12.i, %mul.i
   %mul20.i = fmul double %div12.i, %mul19.i
-  %7 = tail call double @llvm.fmuladd.f64(double %start, double %2, double %mul20.i)
-  %8 = tail call double @llvm.fmuladd.f64(double %mul23.i, double %sub1.i, double %7)
+  %6 = tail call double @llvm.fmuladd.f64(double %start, double %2, double %mul20.i)
+  %7 = tail call double @llvm.fmuladd.f64(double %mul23.i, double %sub1.i, double %6)
   %sub13.i = fsub double %t, %0
   %div15.i = fdiv double %sub13.i, %sub.i
   %sub33.i = fadd double %div15.i, -1.000000e+00
@@ -2321,11 +2320,11 @@ cond.false42.i:                                   ; preds = %if.then
   %sub26.i = fsub double 1.000000e+00, %div15.i
   %mul27.i = fmul double %sub26.i, %mul.i
   %sub30.i = fsub double 2.000000e+00, %div15.i
-  %mul31.i = fmul double %sub30.i, %pivot
+  %mul31.i = fmul double %pivot, %sub30.i
   %mul32.i = fmul double %div15.i, %mul31.i
-  %9 = tail call double @llvm.fmuladd.f64(double %mul27.i, double %sub26.i, double %mul32.i)
-  %10 = tail call double @llvm.fmuladd.f64(double %mul35.i, double %sub.i, double %9)
-  %cond.i = select i1 %cmp.i, double %8, double %10
+  %8 = tail call double @llvm.fmuladd.f64(double %mul27.i, double %sub26.i, double %mul32.i)
+  %9 = tail call double @llvm.fmuladd.f64(double %mul35.i, double %sub.i, double %8)
+  %cond.i = select i1 %cmp.i, double %7, double %9
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -2337,59 +2336,59 @@ if.else:                                          ; preds = %entry
   %add.i18 = fadd double %sub.i16, %sub1.i17
   %div.i19 = fdiv double 5.000000e-01, %add.i18
   %mul3.i20 = fmul double %sub1.i17, %cond9
-  %11 = tail call double @llvm.fmuladd.f64(double %start, double 2.000000e+00, double %mul3.i20)
-  %12 = fneg double %sub.i16
-  %13 = tail call double @llvm.fmuladd.f64(double %pivot, double 2.000000e+00, double %12)
-  %mul9.i21 = fmul double %sub1.i17, %13
-  %14 = tail call double @llvm.fmuladd.f64(double %11, double %sub.i16, double %mul9.i21)
-  %mul.i22 = fmul double %div.i19, %14
-  %sub10.i23 = fsub double %start, %t
-  %sub13.i24 = fsub double %mul.i22, %start
+  %10 = tail call double @llvm.fmuladd.f64(double %start, double 2.000000e+00, double %mul3.i20)
+  %neg.i21 = fneg double %sub.i16
+  %11 = tail call double @llvm.fmuladd.f64(double %pivot, double 2.000000e+00, double %neg.i21)
+  %mul9.i22 = fmul double %sub1.i17, %11
+  %12 = tail call double @llvm.fmuladd.f64(double %10, double %sub.i16, double %mul9.i22)
+  %mul.i23 = fmul double %div.i19, %12
+  %sub10.i24 = fsub double %start, %t
+  %sub13.i25 = fsub double %mul.i23, %start
   %neg16.i = fneg double %cond9
-  %15 = tail call double @llvm.fmuladd.f64(double %neg16.i, double %sub1.i17, double %sub13.i24)
-  %16 = fmul double %15, -4.000000e+00
-  %neg20.i = fmul double %sub10.i23, %16
-  %17 = tail call double @llvm.fmuladd.f64(double %mul3.i20, double %mul3.i20, double %neg20.i)
-  %call.i = tail call double @sqrt(double noundef %17) #15
-  %sub26.i25 = fsub double %mul.i22, %t
-  %neg29.i = fmul double %mul.i22, -2.000000e+00
-  %18 = tail call double @llvm.fmuladd.f64(double %pivot, double 2.000000e+00, double %neg29.i)
-  %19 = fsub double %18, %sub.i16
-  %sub33.i26 = fsub double %mul.i22, %pivot
-  %20 = fadd double %sub.i16, %sub33.i26
-  %21 = fmul double %20, -4.000000e+00
-  %neg39.i = fmul double %sub26.i25, %21
-  %22 = tail call double @llvm.fmuladd.f64(double %19, double %19, double %neg39.i)
-  %call40.i = tail call double @sqrt(double noundef %22) #15
+  %13 = tail call double @llvm.fmuladd.f64(double %neg16.i, double %sub1.i17, double %sub13.i25)
+  %14 = fmul double %13, -4.000000e+00
+  %neg20.i = fmul double %sub10.i24, %14
+  %15 = tail call double @llvm.fmuladd.f64(double %mul3.i20, double %mul3.i20, double %neg20.i)
+  %call.i = tail call double @sqrt(double noundef %15) #15
+  %sub26.i26 = fsub double %mul.i23, %t
+  %neg29.i = fmul double %mul.i23, -2.000000e+00
+  %16 = tail call double @llvm.fmuladd.f64(double %pivot, double 2.000000e+00, double %neg29.i)
+  %17 = fsub double %16, %sub.i16
+  %sub33.i27 = fsub double %mul.i23, %pivot
+  %18 = fadd double %sub.i16, %sub33.i27
+  %19 = fmul double %18, -4.000000e+00
+  %neg39.i = fmul double %sub26.i26, %19
+  %20 = tail call double @llvm.fmuladd.f64(double %17, double %17, double %neg39.i)
+  %call40.i = tail call double @sqrt(double noundef %20) #15
   %cmp47.i = fcmp olt double %t, %start
   br i1 %cmp47.i, label %cond.true48.i, label %cond.false52.i
 
 cond.true48.i:                                    ; preds = %if.else
   %sub49.i = fsub double %t, %start
   %div50.i = fdiv double %sub49.i, %cond9
-  %add51.i = fadd double %div50.i, %start
+  %add51.i = fadd double %start, %div50.i
   br label %return
 
 cond.false52.i:                                   ; preds = %if.else
-  %cmp.i27 = fcmp ogt double %mul.i22, %t
-  %mul21.i = fmul double %sub10.i23, 2.000000e+00
+  %cmp.i28 = fcmp olt double %t, %mul.i23
+  %mul21.i = fmul double %sub10.i24, 2.000000e+00
   %fneg.i = fneg double %call.i
   %sub22.i = fsub double %fneg.i, %mul3.i20
   %div23.i = fdiv double %mul21.i, %sub22.i
-  %23 = tail call double @llvm.fmuladd.f64(double %div23.i, double %sub1.i17, double %start)
-  %mul41.i = fmul double %sub26.i25, 2.000000e+00
+  %21 = tail call double @llvm.fmuladd.f64(double %div23.i, double %sub1.i17, double %start)
+  %mul41.i = fmul double %sub26.i26, 2.000000e+00
   %fneg42.i = fneg double %call40.i
-  %sub43.i = fsub double %fneg42.i, %19
+  %sub43.i = fsub double %fneg42.i, %17
   %div44.i = fdiv double %mul41.i, %sub43.i
-  %24 = tail call double @llvm.fmuladd.f64(double %div44.i, double %sub.i16, double %0)
-  %cond.i28 = select i1 %cmp.i27, double %23, double %24
+  %22 = tail call double @llvm.fmuladd.f64(double %div44.i, double %sub.i16, double %0)
+  %cond.i29 = select i1 %cmp.i28, double %21, double %22
   br label %return
 
 return:                                           ; preds = %cond.false52.i, %cond.true48.i, %cond.false42.i, %cond.true39.i
-  %cond54.i.sink = phi double [ %1, %cond.true39.i ], [ %cond.i, %cond.false42.i ], [ %add51.i, %cond.true48.i ], [ %cond.i28, %cond.false52.i ]
+  %cond54.i.sink = phi double [ %1, %cond.true39.i ], [ %cond.i, %cond.false42.i ], [ %add51.i, %cond.true48.i ], [ %cond.i29, %cond.false52.i ]
   %cmp55.i = fcmp ogt double %t, %pivot
   %sub57.i = fsub double %t, %pivot
-  %add59.i = fadd double %sub57.i, %pivot
+  %add59.i = fadd double %pivot, %sub57.i
   %cond62.i = select i1 %cmp55.i, double %add59.i, double %cond54.i.sink
   ret double %cond62.i
 }
@@ -2486,7 +2485,7 @@ if.then:                                          ; preds = %_ZN19OpenColorIO_v2
   %conv = fptrunc double %5 to float
   %cmp.i.i129 = fcmp ogt float %conv, 0x3F847AE140000000
   %.sroa.speculated3.i130 = select i1 %cmp.i.i129, float %conv, float 0x3F847AE140000000
-  %cmp.i1.i131 = fcmp ogt float %.sroa.speculated3.i130, %mul
+  %cmp.i1.i131 = fcmp olt float %mul, %.sroa.speculated3.i130
   %.sroa.speculated.i132 = select i1 %cmp.i1.i131, float %mul, float %.sroa.speculated3.i130
   %6 = tail call float @llvm.fmuladd.f32(float %.sroa.speculated.i132, float 0x3FE051EB80000000, float %bottom)
   %neg = fneg float %.sroa.speculated.i132
@@ -2495,7 +2494,7 @@ if.then:                                          ; preds = %_ZN19OpenColorIO_v2
   %conv81 = fptrunc double %8 to float
   %cmp.i.i133 = fcmp olt float %6, %conv81
   %.sroa.speculated3.i134 = select i1 %cmp.i.i133, float %conv81, float %6
-  %cmp.i1.i135 = fcmp ogt float %.sroa.speculated3.i134, %7
+  %cmp.i1.i135 = fcmp olt float %7, %.sroa.speculated3.i134
   %.sroa.speculated.i136 = select i1 %cmp.i1.i135, float %7, float %.sroa.speculated3.i134
   %9 = tail call float @llvm.fmuladd.f32(float %neg, float 5.000000e-01, float %.sroa.speculated.i136)
   store float %9, ptr %arrayidx10, align 4
@@ -3109,7 +3108,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   store float %cond, ptr %m_scM, align 8
   %sub31 = fsub float %3, %pivot
   %div32 = fdiv float %sub31, %cond
-  %add = fadd float %div32, %pivot
+  %add = fadd float %pivot, %div32
   store float %add, ptr %m_scX, align 8
   %sub33 = fsub float %topSC, %add
   %mul = fmul float %sub33, 0x3FD3333340000000

@@ -26,11 +26,11 @@ define ptr @cuddBddConstrainRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %6 = ptrtoint ptr %5 to i64
   %7 = xor i64 %6, 1
   %8 = inttoptr i64 %7 to ptr
-  %9 = icmp eq ptr %5, %2
+  %9 = icmp eq ptr %2, %5
   br i1 %9, label %143, label %10
 
 10:                                               ; preds = %3
-  %11 = icmp eq ptr %8, %2
+  %11 = icmp eq ptr %2, %8
   br i1 %11, label %143, label %12
 
 12:                                               ; preds = %10
@@ -49,7 +49,7 @@ define ptr @cuddBddConstrainRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %21 = ptrtoint ptr %2 to i64
   %22 = xor i64 %21, 1
   %23 = inttoptr i64 %22 to ptr
-  %24 = icmp eq ptr %23, %1
+  %24 = icmp eq ptr %1, %23
   br i1 %24, label %143, label %25
 
 25:                                               ; preds = %20
@@ -274,7 +274,7 @@ define ptr @Cudd_bddRestrict(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 
   %9 = ptrtoint ptr %8 to i64
   %10 = xor i64 %9, 1
   %11 = inttoptr i64 %10 to ptr
-  %12 = icmp eq ptr %11, %2
+  %12 = icmp eq ptr %2, %11
   br i1 %12, label %91, label %13
 
 13:                                               ; preds = %3
@@ -293,7 +293,7 @@ define ptr @Cudd_bddRestrict(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 
   %22 = ptrtoint ptr %2 to i64
   %23 = xor i64 %22, 1
   %24 = inttoptr i64 %23 to ptr
-  %25 = icmp eq ptr %24, %1
+  %25 = icmp eq ptr %1, %24
   br i1 %25, label %91, label %26
 
 26:                                               ; preds = %21
@@ -419,11 +419,11 @@ define ptr @cuddBddRestrictRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %6 = ptrtoint ptr %5 to i64
   %7 = xor i64 %6, 1
   %8 = inttoptr i64 %7 to ptr
-  %9 = icmp eq ptr %5, %2
+  %9 = icmp eq ptr %2, %5
   br i1 %9, label %188, label %10
 
 10:                                               ; preds = %3
-  %11 = icmp eq ptr %8, %2
+  %11 = icmp eq ptr %2, %8
   br i1 %11, label %188, label %12
 
 12:                                               ; preds = %10
@@ -442,7 +442,7 @@ define ptr @cuddBddRestrictRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %21 = ptrtoint ptr %2 to i64
   %22 = xor i64 %21, 1
   %23 = inttoptr i64 %22 to ptr
-  %24 = icmp eq ptr %23, %1
+  %24 = icmp eq ptr %1, %23
   br i1 %24, label %188, label %25
 
 25:                                               ; preds = %20
@@ -764,7 +764,7 @@ define ptr @cuddBddNPAndRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %19
-  %22 = icmp eq ptr %5, %2
+  %22 = icmp eq ptr %2, %5
   %. = select i1 %22, ptr %1, ptr %2
   br label %160
 
@@ -1025,12 +1025,12 @@ tailrecurse:                                      ; preds = %54, %3
   %.tr102 = phi ptr [ %1, %3 ], [ %.085, %54 ]
   %.tr103 = phi ptr [ %2, %3 ], [ %.090, %54 ]
   %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, %.tr103
+  %8 = icmp eq ptr %.tr103, %7
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %tailrecurse
   %10 = load ptr, ptr %5, align 8
-  %11 = icmp eq ptr %10, %.tr103
+  %11 = icmp eq ptr %.tr103, %10
   br i1 %11, label %.loopexit, label %12
 
 12:                                               ; preds = %9
@@ -1310,7 +1310,7 @@ define internal fastcc range(i32 0, 2) i32 @cuddBddConstrainDecomp(ptr noundef %
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %6, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %6, %1
+  %14 = icmp eq ptr %1, %6
   %15 = ptrtoint ptr %11 to i64
   %16 = xor i64 %15, 1
   %17 = inttoptr i64 %16 to ptr
@@ -1474,12 +1474,12 @@ tailrecurse:                                      ; preds = %81, %3
   %.tr121 = phi ptr [ %1, %3 ], [ %63, %81 ]
   %.tr122 = phi ptr [ %2, %3 ], [ %.0104, %81 ]
   %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, %.tr122
+  %8 = icmp eq ptr %.tr122, %7
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %tailrecurse
   %10 = load ptr, ptr %5, align 8
-  %11 = icmp eq ptr %10, %.tr122
+  %11 = icmp eq ptr %.tr122, %10
   br i1 %11, label %.loopexit, label %12
 
 12:                                               ; preds = %9
@@ -1671,7 +1671,7 @@ define noalias noundef ptr @Cudd_bddCharToVect(ptr noundef %0, ptr noundef %1) l
   %5 = ptrtoint ptr %4 to i64
   %6 = xor i64 %5, 1
   %7 = inttoptr i64 %6 to ptr
-  %8 = icmp eq ptr %7, %1
+  %8 = icmp eq ptr %1, %7
   br i1 %8, label %.split.thread66, label %9
 
 9:                                                ; preds = %2
@@ -1948,7 +1948,7 @@ define ptr @cuddBddLICompaction(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %6 = ptrtoint ptr %5 to i64
   %7 = xor i64 %6, 1
   %8 = inttoptr i64 %7 to ptr
-  %9 = icmp eq ptr %8, %2
+  %9 = icmp eq ptr %2, %8
   br i1 %9, label %25, label %10
 
 10:                                               ; preds = %3
@@ -2062,11 +2062,11 @@ define internal fastcc ptr @cuddBddSqueeze(ptr noundef %0, ptr noundef %1, ptr n
   %8 = ptrtoint ptr %7 to i64
   %9 = xor i64 %8, 1
   %10 = inttoptr i64 %9 to ptr
-  %11 = icmp eq ptr %10, %1
+  %11 = icmp eq ptr %1, %10
   br i1 %11, label %227, label %12
 
 12:                                               ; preds = %5
-  %13 = icmp eq ptr %7, %2
+  %13 = icmp eq ptr %2, %7
   br i1 %13, label %227, label %14
 
 14:                                               ; preds = %12
@@ -2462,7 +2462,7 @@ define ptr @Cudd_bddMinimize(ptr noundef %0, ptr noundef %1, ptr noundef %2) loc
   %6 = ptrtoint ptr %5 to i64
   %7 = xor i64 %6, 1
   %8 = inttoptr i64 %7 to ptr
-  %9 = icmp eq ptr %8, %2
+  %9 = icmp eq ptr %2, %8
   br i1 %9, label %49, label %10
 
 10:                                               ; preds = %3
@@ -2481,7 +2481,7 @@ define ptr @Cudd_bddMinimize(ptr noundef %0, ptr noundef %1, ptr noundef %2) loc
   %19 = ptrtoint ptr %2 to i64
   %20 = xor i64 %19, 1
   %21 = inttoptr i64 %20 to ptr
-  %22 = icmp eq ptr %21, %1
+  %22 = icmp eq ptr %1, %21
   br i1 %22, label %49, label %23
 
 23:                                               ; preds = %18
@@ -2678,15 +2678,15 @@ define internal fastcc i32 @cuddBddLICMarkEdges(ptr noundef %0, ptr noundef %1, 
   %10 = ptrtoint ptr %9 to i64
   %11 = xor i64 %10, 1
   %12 = inttoptr i64 %11 to ptr
-  %13 = icmp eq ptr %12, %2
+  %13 = icmp eq ptr %2, %12
   br i1 %13, label %111, label %14
 
 14:                                               ; preds = %5
-  %15 = icmp eq ptr %9, %1
+  %15 = icmp eq ptr %1, %9
   br i1 %15, label %111, label %16
 
 16:                                               ; preds = %14
-  %17 = icmp eq ptr %12, %1
+  %17 = icmp eq ptr %1, %12
   br i1 %17, label %111, label %18
 
 18:                                               ; preds = %16

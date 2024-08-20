@@ -1366,13 +1366,13 @@ Abc_ObjFanout0Ntk.exit:                           ; preds = %21, %23
   %47 = add nuw nsw i32 %46, 1
   %48 = getelementptr inbounds i8, ptr %1, i64 4
   %49 = load i32, ptr %48, align 4
-  %.not.i28.not = icmp sgt i32 %49, %46
+  %.not.i28.not = icmp slt i32 %46, %49
   br i1 %.not.i28.not, label %Vec_PtrFillExtra.exit, label %50
 
 50:                                               ; preds = %.critedge
   %51 = load i32, ptr %1, align 8
   %52 = shl nsw i32 %51, 1
-  %.not29 = icmp sgt i32 %52, %46
+  %.not29 = icmp slt i32 %46, %52
   %.not.i.i.not = icmp sgt i32 %51, %46
   br i1 %.not29, label %65, label %53
 
@@ -1798,13 +1798,13 @@ Vec_PtrStart.exit:                                ; preds = %Abc_NtkIncrementTra
   %71 = add nsw i32 %.val3.i, 1
   %72 = getelementptr inbounds i8, ptr %.val2.i, i64 228
   %73 = load i32, ptr %72, align 4
-  %.not.i83.not = icmp sgt i32 %73, %.val3.i
+  %.not.i83.not = icmp slt i32 %.val3.i, %73
   br i1 %.not.i83.not, label %Vec_IntFillExtra.exit, label %74
 
 74:                                               ; preds = %61
   %75 = load i32, ptr %70, align 8
   %76 = shl nsw i32 %75, 1
-  %.not113 = icmp sgt i32 %76, %.val3.i
+  %.not113 = icmp slt i32 %.val3.i, %76
   %.not.i.i84.not = icmp sgt i32 %75, %.val3.i
   br i1 %.not113, label %89, label %77
 
@@ -1930,13 +1930,13 @@ Vec_IntFillExtra.exit:                            ; preds = %61, %._crit_edge.i
   %126 = add nsw i32 %.val3.i78, 1
   %127 = getelementptr inbounds i8, ptr %.val2.i77, i64 228
   %128 = load i32, ptr %127, align 4
-  %.not.i85.not = icmp sgt i32 %128, %.val3.i78
+  %.not.i85.not = icmp slt i32 %.val3.i78, %128
   br i1 %.not.i85.not, label %Vec_IntFillExtra.exit98, label %129
 
 129:                                              ; preds = %116
   %130 = load i32, ptr %125, align 8
   %131 = shl nsw i32 %130, 1
-  %.not116 = icmp sgt i32 %131, %.val3.i78
+  %.not116 = icmp slt i32 %.val3.i78, %131
   %.not.i.i86.not = icmp sgt i32 %130, %.val3.i78
   br i1 %.not116, label %144, label %132
 
@@ -2059,13 +2059,13 @@ Vec_IntFillExtra.exit98:                          ; preds = %116, %._crit_edge.i
   %176 = add nsw i32 %.val59, 1
   %177 = getelementptr inbounds i8, ptr %.val, i64 228
   %178 = load i32, ptr %177, align 4
-  %.not.i99.not = icmp sgt i32 %178, %.val59
+  %.not.i99.not = icmp slt i32 %.val59, %178
   br i1 %.not.i99.not, label %Vec_IntFillExtra.exit112, label %179
 
 179:                                              ; preds = %172
   %180 = load i32, ptr %175, align 8
   %181 = shl nsw i32 %180, 1
-  %.not119 = icmp sgt i32 %181, %.val59
+  %.not119 = icmp slt i32 %.val59, %181
   %.not.i.i100.not = icmp sgt i32 %180, %.val59
   br i1 %.not119, label %194, label %182
 
@@ -5755,7 +5755,7 @@ define noalias noundef ptr @Abc_NtkNodeSupportInt(ptr nocapture noundef %0, i32 
   %.val20 = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %.val20, i64 4
   %.val20.val = load i32, ptr %6, align 4
-  %.not = icmp sgt i32 %.val20.val, %1
+  %.not = icmp slt i32 %1, %.val20.val
   br i1 %.not, label %.preheader, label %53
 
 .preheader:                                       ; preds = %4
@@ -6796,10 +6796,10 @@ define range(i32 0, 2) i32 @Abc_NtkFunctionalIsoInt(ptr noundef %0, i32 noundef 
   %.val18 = load ptr, ptr %7, align 8
   %8 = getelementptr i8, ptr %.val18, i64 4
   %.val18.val = load i32, ptr %8, align 4
-  %.not = icmp sgt i32 %.val18.val, %1
+  %.not = icmp slt i32 %1, %.val18.val
   %9 = icmp sgt i32 %2, -1
   %or.cond.not21 = and i1 %9, %.not
-  %.not17 = icmp ugt i32 %.val18.val, %2
+  %.not17 = icmp ult i32 %2, %.val18.val
   %or.cond19 = and i1 %.not17, %or.cond.not21
   br i1 %or.cond19, label %10, label %17
 
@@ -6837,10 +6837,10 @@ define range(i32 0, 2) i32 @Abc_NtkFunctionalIso(ptr noundef %0, i32 noundef %1,
   %.val18.i = load ptr, ptr %8, align 8
   %9 = getelementptr i8, ptr %.val18.i, i64 4
   %.val18.val.i = load i32, ptr %9, align 4
-  %.not.i = icmp sgt i32 %.val18.val.i, %1
+  %.not.i = icmp slt i32 %1, %.val18.val.i
   %10 = icmp sgt i32 %2, -1
   %or.cond.not21.i = and i1 %10, %.not.i
-  %.not17.i = icmp ugt i32 %.val18.val.i, %2
+  %.not17.i = icmp ult i32 %2, %.val18.val.i
   %or.cond19.i = and i1 %.not17.i, %or.cond.not21.i
   br i1 %or.cond19.i, label %11, label %Abc_NtkFunctionalIsoInt.exit
 
@@ -6866,10 +6866,10 @@ define range(i32 0, 2) i32 @Abc_NtkFunctionalIso(ptr noundef %0, i32 noundef %1,
   %.val18.i12 = load ptr, ptr %22, align 8
   %23 = getelementptr i8, ptr %.val18.i12, i64 4
   %.val18.val.i13 = load i32, ptr %23, align 4
-  %.not.i14 = icmp sgt i32 %.val18.val.i13, %1
+  %.not.i14 = icmp slt i32 %1, %.val18.val.i13
   %24 = icmp sgt i32 %2, -1
   %or.cond.not21.i15 = and i1 %24, %.not.i14
-  %.not17.i16 = icmp ugt i32 %.val18.val.i13, %2
+  %.not17.i16 = icmp ult i32 %2, %.val18.val.i13
   %or.cond19.i17 = and i1 %.not17.i16, %or.cond.not21.i15
   br i1 %or.cond19.i17, label %25, label %Abc_NtkFunctionalIsoInt.exit19
 
@@ -10424,13 +10424,13 @@ declare i32 @Abc_NodeIsExorType(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp slt i32 %4, %1
+  %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
   %7 = shl nsw i32 %6, 1
-  %8 = icmp slt i32 %7, %1
+  %8 = icmp sgt i32 %1, %7
   %.not.i = icmp slt i32 %6, %1
   br i1 %8, label %9, label %21
 

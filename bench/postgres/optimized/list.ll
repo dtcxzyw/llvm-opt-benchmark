@@ -509,7 +509,7 @@ enlarge_list.exit:                                ; preds = %19, %27
 
 31:                                               ; preds = %enlarge_list.exit, %2
   %32 = phi i32 [ %.pre, %enlarge_list.exit ], [ %4, %2 ]
-  %33 = icmp sgt i32 %32, %1
+  %33 = icmp slt i32 %1, %32
   br i1 %33, label %34, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %31
@@ -1140,29 +1140,22 @@ list_copy.exit:                                   ; preds = %6, %5, %54, %list_c
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef ptr @list_truncate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp slt i32 %1, 1
-  br i1 %3, label %12, label %4
-
-4:                                                ; preds = %2
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %list_length.exit, label %5
+  %or.cond = or i1 %.not.i, %3
+  br i1 %or.cond, label %list_length.exit.thread, label %list_length.exit
 
-5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4
-  br label %list_length.exit
+list_length.exit:                                 ; preds = %2
+  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = load i32, ptr %4, align 4
+  %6 = icmp slt i32 %1, %5
+  br i1 %6, label %7, label %list_length.exit.thread
 
-list_length.exit:                                 ; preds = %4, %5
-  %8 = phi i32 [ %7, %5 ], [ 0, %4 ]
-  %9 = icmp sgt i32 %8, %1
-  br i1 %9, label %10, label %12
+7:                                                ; preds = %list_length.exit
+  store i32 %1, ptr %4, align 4
+  br label %list_length.exit.thread
 
-10:                                               ; preds = %list_length.exit
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %1, ptr %11, align 4
-  br label %12
-
-12:                                               ; preds = %list_length.exit, %10, %2
-  %.0 = phi ptr [ null, %2 ], [ %0, %10 ], [ %0, %list_length.exit ]
+list_length.exit.thread:                          ; preds = %list_length.exit, %7, %2
+  %.0 = phi ptr [ null, %2 ], [ %0, %7 ], [ %0, %list_length.exit ]
   ret ptr %.0
 }
 
@@ -1812,17 +1805,17 @@ define dso_local noundef ptr @list_delete_first_n(ptr noundef %0, i32 noundef %1
 
 4:                                                ; preds = %2
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %list_free.exit, label %list_length.exit.thread
+  br i1 %.not.i, label %list_free.exit, label %list_length.exit
 
-list_length.exit.thread:                          ; preds = %4
+list_length.exit:                                 ; preds = %4
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
-  %.not14 = icmp sgt i32 %6, %1
+  %.not = icmp slt i32 %1, %6
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  br i1 %.not14, label %13, label %9
+  br i1 %.not, label %13, label %9
 
-9:                                                ; preds = %list_length.exit.thread
+9:                                                ; preds = %list_length.exit
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   %.not.i.i = icmp eq ptr %8, %10
   br i1 %.not.i.i, label %12, label %11
@@ -1835,7 +1828,7 @@ list_length.exit.thread:                          ; preds = %4
   tail call void @pfree(ptr noundef nonnull %0) #9
   br label %list_free.exit
 
-13:                                               ; preds = %list_length.exit.thread
+13:                                               ; preds = %list_length.exit
   %14 = zext nneg i32 %1 to i64
   %15 = getelementptr %union.ListCell, ptr %8, i64 %14
   %16 = sub nsw i32 %6, %1

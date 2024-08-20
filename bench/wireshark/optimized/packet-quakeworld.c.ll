@@ -249,7 +249,7 @@ define internal i32 @dissect_quakeworld(ptr noundef %0, ptr noundef %1, ptr noun
   %51 = load i32, ptr %5, align 4
   store i32 0, ptr @cmd_argc, align 4
   %52 = icmp sgt i32 %51, 0
-  br i1 %52, label %.preheader.lr.ph.i.i, label %Cmd_Argv.exit.i
+  br i1 %52, label %.preheader.lr.ph.i.i, label %Cmd_TokenizeString.exit.i
 
 .preheader.lr.ph.i.i:                             ; preds = %50
   %53 = load ptr, ptr @g_ascii_table, align 8
@@ -462,33 +462,27 @@ COM_Parse.exit.i.i:                               ; preds = %92, %COM_Parse.exit
   %118 = icmp slt i32 %117, %51
   br i1 %118, label %.preheader.i.i, label %Cmd_TokenizeString.exit.i, !llvm.loop !9
 
-Cmd_TokenizeString.exit.i:                        ; preds = %116, %COM_Parse.exit.i.i, %61, %.critedge.i.i, %.critedge.i.i, %.critedge.i.i.i
-  %.pr.i = load i32, ptr @cmd_argc, align 4
-  %.not.i119.i = icmp sgt i32 %.pr.i, 0
-  %119 = load ptr, ptr @cmd_argv, align 16
-  %spec.select260.i = select i1 %.not.i119.i, ptr %119, ptr @.str.84
-  br label %Cmd_Argv.exit.i
-
-Cmd_Argv.exit.i:                                  ; preds = %Cmd_TokenizeString.exit.i, %50
-  %120 = phi i32 [ 0, %50 ], [ %.pr.i, %Cmd_TokenizeString.exit.i ]
-  %.not.i119210.i = phi i1 [ false, %50 ], [ %.not.i119.i, %Cmd_TokenizeString.exit.i ]
-  %.0.i.i = phi ptr [ @.str.84, %50 ], [ %spec.select260.i, %Cmd_TokenizeString.exit.i ]
-  %121 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0.i.i, ptr noundef nonnull dereferenceable(5) @.str.65) #5
+Cmd_TokenizeString.exit.i:                        ; preds = %116, %COM_Parse.exit.i.i, %61, %.critedge.i.i, %.critedge.i.i, %.critedge.i.i.i, %50
+  %119 = load i32, ptr @cmd_argc, align 4
+  %.not.i119.i = icmp sgt i32 %119, 0
+  %120 = load ptr, ptr @cmd_argv, align 16
+  %spec.select.i = select i1 %.not.i119.i, ptr %120, ptr @.str.84
+  %121 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i, ptr noundef nonnull dereferenceable(5) @.str.65) #5
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %dissect_id_infostring.exit.thread.i, label %123
 
-123:                                              ; preds = %Cmd_Argv.exit.i
-  %124 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0.i.i, ptr noundef nonnull dereferenceable(7) @.str.67) #5
+123:                                              ; preds = %Cmd_TokenizeString.exit.i
+  %124 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i, ptr noundef nonnull dereferenceable(7) @.str.67) #5
   %125 = icmp eq i32 %124, 0
   br i1 %125, label %dissect_id_infostring.exit.thread.i, label %126
 
 126:                                              ; preds = %123
-  %127 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0.i.i, ptr noundef nonnull dereferenceable(4) @.str.69) #5
+  %127 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i, ptr noundef nonnull dereferenceable(4) @.str.69) #5
   %128 = icmp eq i32 %127, 0
   br i1 %128, label %dissect_id_infostring.exit.thread.i, label %129
 
 129:                                              ; preds = %126
-  %130 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0.i.i, ptr noundef nonnull dereferenceable(8) @.str.71) #5
+  %130 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i, ptr noundef nonnull dereferenceable(8) @.str.71) #5
   %131 = icmp eq i32 %130, 0
   br i1 %131, label %Cmd_Argv_length.exit.i, label %265
 
@@ -497,13 +491,13 @@ Cmd_Argv_length.exit.i:                           ; preds = %129
   store i16 0, ptr %7, align 2
   store i32 0, ptr %8, align 4
   %132 = load i32, ptr @cmd_argv_length, align 16
-  %spec.select261.i = select i1 %.not.i119210.i, i32 %132, i32 0
+  %spec.select258.i = select i1 %.not.i119.i, i32 %132, i32 0
   %.not115.i = icmp eq ptr %.0.i, null
   br i1 %.not115.i, label %Cmd_Argv.exit132.i, label %133
 
 133:                                              ; preds = %Cmd_Argv_length.exit.i
   %134 = load i32, ptr @hf_quakeworld_connectionless_command, align 4
-  %135 = call ptr @proto_tree_add_string(ptr noundef nonnull %.0.i, i32 noundef %134, ptr noundef %0, i32 noundef 4, i32 noundef %spec.select261.i, ptr noundef nonnull @.str.72) #4
+  %135 = call ptr @proto_tree_add_string(ptr noundef nonnull %.0.i, i32 noundef %134, ptr noundef %0, i32 noundef 4, i32 noundef %spec.select258.i, ptr noundef nonnull @.str.72) #4
   %136 = load i32, ptr @hf_quakeworld_connectionless_arguments, align 4
   %137 = load i32, ptr @cmd_argc, align 4
   %.not.i122.i = icmp sgt i32 %137, 1
@@ -530,18 +524,18 @@ Cmd_Argv_start.exit129.i:                         ; preds = %139, %Cmd_Argv_star
   %147 = call ptr @proto_tree_add_string(ptr noundef nonnull %.0.i, i32 noundef %136, ptr noundef %0, i32 noundef %144, i32 noundef %145, ptr noundef %146) #4
   %148 = load i32, ptr @ett_quakeworld_connectionless_arguments, align 4
   %149 = call ptr @proto_item_add_subtree(ptr noundef %147, i32 noundef %148) #4
-  %.pre334.i = load i32, ptr @cmd_argc, align 4
+  %.pre331.i = load i32, ptr @cmd_argc, align 4
   br label %Cmd_Argv.exit132.i
 
 Cmd_Argv.exit132.i:                               ; preds = %Cmd_Argv_start.exit129.i, %Cmd_Argv_length.exit.i
-  %150 = phi i32 [ %.pre334.i, %Cmd_Argv_start.exit129.i ], [ %120, %Cmd_Argv_length.exit.i ]
+  %150 = phi i32 [ %.pre331.i, %Cmd_Argv_start.exit129.i ], [ %119, %Cmd_Argv_length.exit.i ]
   %.0108.i = phi ptr [ %149, %Cmd_Argv_start.exit129.i ], [ null, %Cmd_Argv_length.exit.i ]
   %.0107.i = phi i32 [ 1, %Cmd_Argv_start.exit129.i ], [ 0, %Cmd_Argv_length.exit.i ]
   %.0104.i = phi ptr [ %135, %Cmd_Argv_start.exit129.i ], [ null, %Cmd_Argv_length.exit.i ]
   %.not.i130.i = icmp sgt i32 %150, 1
   %151 = load ptr, ptr getelementptr inbounds (i8, ptr @cmd_argv, i64 8), align 8
-  %spec.select262.i = select i1 %.not.i130.i, ptr %151, ptr @.str.84
-  %152 = call zeroext i1 @ws_strtou32(ptr noundef %spec.select262.i, ptr noundef null, ptr noundef nonnull %6) #4
+  %spec.select259.i = select i1 %.not.i130.i, ptr %151, ptr @.str.84
+  %152 = call zeroext i1 @ws_strtou32(ptr noundef %spec.select259.i, ptr noundef null, ptr noundef nonnull %6) #4
   %153 = load i32, ptr @cmd_argc, align 4
   %.not.i133.i = icmp sgt i32 %153, 2
   %154 = load ptr, ptr getelementptr inbounds (i8, ptr @cmd_argv, i64 16), align 16
@@ -757,29 +751,29 @@ Cmd_Argv_length.exit147.i:                        ; preds = %163
   br i1 %.not.i169.i, label %dissect_id_infostring.exit.i, label %.split.i.i, !llvm.loop !10
 
 265:                                              ; preds = %129
-  %266 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0.i.i, ptr noundef nonnull dereferenceable(13) @.str.73) #5
+  %266 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i, ptr noundef nonnull dereferenceable(13) @.str.73) #5
   %267 = icmp eq i32 %266, 0
   br i1 %267, label %268, label %270
 
 268:                                              ; preds = %265
   %269 = load i32, ptr @cmd_argv_length, align 16
-  %spec.select264.i = select i1 %.not.i119210.i, i32 %269, i32 0
+  %spec.select261.i = select i1 %.not.i119.i, i32 %269, i32 0
   br label %dissect_id_infostring.exit.thread.i
 
 270:                                              ; preds = %265
-  %271 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0.i.i, ptr noundef nonnull dereferenceable(5) @.str.75) #5
+  %271 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i, ptr noundef nonnull dereferenceable(5) @.str.75) #5
   %272 = icmp eq i32 %271, 0
   br i1 %272, label %Cmd_Argv_length.exit175.i, label %326
 
 Cmd_Argv_length.exit175.i:                        ; preds = %270
   %273 = load i32, ptr @cmd_argv_length, align 16
-  %spec.select265.i = select i1 %.not.i119210.i, i32 %273, i32 0
+  %spec.select262.i = select i1 %.not.i119.i, i32 %273, i32 0
   %.not113.i = icmp eq ptr %.0.i, null
   br i1 %.not113.i, label %Cmd_Argv.exit187.thread.thread.i, label %274
 
 274:                                              ; preds = %Cmd_Argv_length.exit175.i
   %275 = load i32, ptr @hf_quakeworld_connectionless_command, align 4
-  %276 = call ptr @proto_tree_add_string(ptr noundef nonnull %.0.i, i32 noundef %275, ptr noundef %0, i32 noundef 4, i32 noundef %spec.select265.i, ptr noundef nonnull @.str.76) #4
+  %276 = call ptr @proto_tree_add_string(ptr noundef nonnull %.0.i, i32 noundef %275, ptr noundef %0, i32 noundef 4, i32 noundef %spec.select262.i, ptr noundef nonnull @.str.76) #4
   %277 = load i32, ptr @hf_quakeworld_connectionless_arguments, align 4
   %278 = load i32, ptr @cmd_argc, align 4
   %.not.i176.i = icmp sgt i32 %278, 1
@@ -829,51 +823,51 @@ Cmd_Argv.exit187.thread.i:                        ; preds = %286
 
 Cmd_Argv_length.exit193.i:                        ; preds = %294, %Cmd_Argv.exit187.thread.i
   %299 = phi i32 [ %297, %294 ], [ 4, %Cmd_Argv.exit187.thread.i ]
-  %.0.i186221223226.i = phi ptr [ %295, %294 ], [ @.str.84, %Cmd_Argv.exit187.thread.i ]
+  %.0.i186219221224.i = phi ptr [ %295, %294 ], [ @.str.84, %Cmd_Argv.exit187.thread.i ]
   %.0.i192.i = phi i32 [ %298, %294 ], [ 0, %Cmd_Argv.exit187.thread.i ]
   %300 = load i32, ptr @hf_quakeworld_connectionless_rcon_password, align 4
-  %301 = call ptr @proto_tree_add_string(ptr noundef nonnull %292, i32 noundef %300, ptr noundef %0, i32 noundef %299, i32 noundef %.0.i192.i, ptr noundef %.0.i186221223226.i) #4
+  %301 = call ptr @proto_tree_add_string(ptr noundef nonnull %292, i32 noundef %300, ptr noundef %0, i32 noundef %299, i32 noundef %.0.i192.i, ptr noundef %.0.i186219221224.i) #4
   %.pre.i = load i32, ptr @cmd_argc, align 4
   br label %Cmd_Argv.exit187.thread.thread.i
 
 Cmd_Argv.exit187.thread.thread.i:                 ; preds = %Cmd_Argv_length.exit193.i, %Cmd_Argv.exit187.i, %Cmd_Argv_length.exit175.i
-  %302 = phi i32 [ %.pre.i, %Cmd_Argv_length.exit193.i ], [ %293, %Cmd_Argv.exit187.i ], [ %120, %Cmd_Argv_length.exit175.i ]
-  %.0102249.i = phi ptr [ %292, %Cmd_Argv_length.exit193.i ], [ null, %Cmd_Argv.exit187.i ], [ null, %Cmd_Argv_length.exit175.i ]
-  %.1243.i = phi i32 [ 1, %Cmd_Argv_length.exit193.i ], [ 1, %Cmd_Argv.exit187.i ], [ 0, %Cmd_Argv_length.exit175.i ]
+  %302 = phi i32 [ %.pre.i, %Cmd_Argv_length.exit193.i ], [ %293, %Cmd_Argv.exit187.i ], [ %119, %Cmd_Argv_length.exit175.i ]
+  %.0102247.i = phi ptr [ %292, %Cmd_Argv_length.exit193.i ], [ null, %Cmd_Argv.exit187.i ], [ null, %Cmd_Argv_length.exit175.i ]
+  %.1241.i = phi i32 [ 1, %Cmd_Argv_length.exit193.i ], [ 1, %Cmd_Argv.exit187.i ], [ 0, %Cmd_Argv_length.exit175.i ]
   store i8 0, ptr %9, align 16
   %303 = icmp sgt i32 %302, 2
   br i1 %303, label %Cmd_Argv.exit196.i, label %._crit_edge.i
 
 Cmd_Argv.exit196.i:                               ; preds = %Cmd_Argv.exit187.thread.thread.i, %Cmd_Argv.exit196.i
-  %indvars.iv331.i = phi i64 [ %indvars.iv.next332.i, %Cmd_Argv.exit196.i ], [ 2, %Cmd_Argv.exit187.thread.thread.i ]
-  %304 = getelementptr [80 x ptr], ptr @cmd_argv, i64 0, i64 %indvars.iv331.i
+  %indvars.iv328.i = phi i64 [ %indvars.iv.next329.i, %Cmd_Argv.exit196.i ], [ 2, %Cmd_Argv.exit187.thread.thread.i ]
+  %304 = getelementptr [80 x ptr], ptr @cmd_argv, i64 0, i64 %indvars.iv328.i
   %305 = load ptr, ptr %304, align 8
   %306 = call i64 @g_strlcat(ptr noundef nonnull %9, ptr noundef %305, i64 noundef 2049) #4
   %307 = call i64 @g_strlcat(ptr noundef nonnull %9, ptr noundef nonnull @.str.77, i64 noundef 2049) #4
-  %indvars.iv.next332.i = add nuw nsw i64 %indvars.iv331.i, 1
+  %indvars.iv.next329.i = add nuw nsw i64 %indvars.iv328.i, 1
   %308 = load i32, ptr @cmd_argc, align 4
   %309 = sext i32 %308 to i64
-  %310 = icmp slt i64 %indvars.iv.next332.i, %309
+  %310 = icmp slt i64 %indvars.iv.next329.i, %309
   br i1 %310, label %Cmd_Argv.exit196.i, label %._crit_edge.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %Cmd_Argv.exit196.i, %Cmd_Argv.exit187.thread.thread.i
-  %.lcssa280.i = phi i32 [ %302, %Cmd_Argv.exit187.thread.thread.i ], [ %308, %Cmd_Argv.exit196.i ]
+  %.lcssa277.i = phi i32 [ %302, %Cmd_Argv.exit187.thread.thread.i ], [ %308, %Cmd_Argv.exit196.i ]
   br i1 %.not113.i, label %dissect_id_infostring.exit.i, label %Cmd_Argv_start.exit199.i
 
 Cmd_Argv_start.exit199.i:                         ; preds = %._crit_edge.i, %._crit_edge.thread.i
-  %.lcssa280344.i = phi i32 [ %293, %._crit_edge.thread.i ], [ %.lcssa280.i, %._crit_edge.i ]
-  %.0102249337343.i = phi ptr [ null, %._crit_edge.thread.i ], [ %.0102249.i, %._crit_edge.i ]
-  %.1243338342.i = phi i32 [ 1, %._crit_edge.thread.i ], [ %.1243.i, %._crit_edge.i ]
+  %.lcssa277341.i = phi i32 [ %293, %._crit_edge.thread.i ], [ %.lcssa277.i, %._crit_edge.i ]
+  %.0102247334340.i = phi ptr [ null, %._crit_edge.thread.i ], [ %.0102247.i, %._crit_edge.i ]
+  %.1241335339.i = phi i32 [ 1, %._crit_edge.thread.i ], [ %.1241.i, %._crit_edge.i ]
   %311 = load i32, ptr @hf_quakeworld_connectionless_rcon_command, align 4
-  %.not.i197.i = icmp sgt i32 %.lcssa280344.i, 2
+  %.not.i197.i = icmp sgt i32 %.lcssa277341.i, 2
   %312 = load i32, ptr getelementptr inbounds (i8, ptr @cmd_argv_start, i64 8), align 8
   %313 = add i32 %312, 4
   %314 = select i1 %.not.i197.i, i32 %313, i32 4
-  %.not.i200.not.i = icmp eq i32 %.lcssa280344.i, -2147483648
+  %.not.i200.not.i = icmp eq i32 %.lcssa277341.i, -2147483648
   br i1 %.not.i200.not.i, label %Cmd_Argv_length.exit205.i, label %315
 
 315:                                              ; preds = %Cmd_Argv_start.exit199.i
-  %316 = add nsw i32 %.lcssa280344.i, -1
+  %316 = add nsw i32 %.lcssa277341.i, -1
   %317 = sext i32 %316 to i64
   %318 = getelementptr [80 x i32], ptr @cmd_argv_start, i64 0, i64 %317
   %319 = load i32, ptr %318, align 4
@@ -884,35 +878,35 @@ Cmd_Argv_start.exit199.i:                         ; preds = %._crit_edge.i, %._c
 
 Cmd_Argv_length.exit205.i:                        ; preds = %315, %Cmd_Argv_start.exit199.i
   %323 = phi i32 [ %322, %315 ], [ 0, %Cmd_Argv_start.exit199.i ]
-  %spec.select267.i = select i1 %.not.i197.i, i32 %312, i32 0
-  %324 = sub i32 %323, %spec.select267.i
-  %325 = call ptr @proto_tree_add_string(ptr noundef %.0102249337343.i, i32 noundef %311, ptr noundef %0, i32 noundef %314, i32 noundef %324, ptr noundef nonnull %9) #4
+  %spec.select264.i = select i1 %.not.i197.i, i32 %312, i32 0
+  %324 = sub i32 %323, %spec.select264.i
+  %325 = call ptr @proto_tree_add_string(ptr noundef %.0102247334340.i, i32 noundef %311, ptr noundef %0, i32 noundef %314, i32 noundef %324, ptr noundef nonnull %9) #4
   br label %dissect_id_infostring.exit.i
 
 326:                                              ; preds = %270
-  %327 = load i8, ptr %.0.i.i, align 1
-  switch i8 %327, label %.thread230.i [
+  %327 = load i8, ptr %spec.select.i, align 1
+  switch i8 %327, label %.thread228.i [
     i8 107, label %328
     i8 108, label %331
   ]
 
 328:                                              ; preds = %326
-  %329 = getelementptr i8, ptr %.0.i.i, i64 1
+  %329 = getelementptr i8, ptr %spec.select.i, i64 1
   %330 = load i8, ptr %329, align 1
-  switch i8 %330, label %.thread230.i [
+  switch i8 %330, label %.thread228.i [
     i8 0, label %dissect_id_infostring.exit.thread.i
     i8 10, label %dissect_id_infostring.exit.thread.i
   ]
 
 331:                                              ; preds = %326
-  %332 = getelementptr i8, ptr %.0.i.i, i64 1
+  %332 = getelementptr i8, ptr %spec.select.i, i64 1
   %333 = load i8, ptr %332, align 1
-  switch i8 %333, label %.thread230.i [
+  switch i8 %333, label %.thread228.i [
     i8 0, label %dissect_id_infostring.exit.thread.i
     i8 10, label %dissect_id_infostring.exit.thread.i
   ]
 
-.thread230.i:                                     ; preds = %331, %328, %326
+.thread228.i:                                     ; preds = %331, %328, %326
   %334 = load i32, ptr %5, align 4
   %335 = add i32 %334, -1
   br label %dissect_id_infostring.exit.thread.i
@@ -944,27 +938,27 @@ Cmd_Argv_length.exit205.i:                        ; preds = %315, %Cmd_Argv_star
   %344 = add i32 %343, -1
   br label %dissect_id_infostring.exit.thread.i
 
-dissect_id_infostring.exit.thread.i:              ; preds = %342, %341, %340, %339, %338, %336, %.thread230.i, %331, %331, %328, %328, %268, %126, %123, %Cmd_Argv.exit.i
-  %.0106.ph.i = phi ptr [ @.str.80, %336 ], [ @.str.78, %331 ], [ @.str.78, %331 ], [ @.str.66, %328 ], [ @.str.66, %328 ], [ @.str.70, %126 ], [ @.str.68, %123 ], [ @.str.66, %Cmd_Argv.exit.i ], [ @.str.79, %342 ], [ @.str.22, %341 ], [ @.str.66, %340 ], [ @.str.82, %339 ], [ @.str.81, %338 ], [ @.str.79, %.thread230.i ], [ @.str.74, %268 ]
-  %.0105.ph.i = phi i32 [ 1, %336 ], [ 1, %331 ], [ 1, %331 ], [ 1, %328 ], [ 1, %328 ], [ 3, %126 ], [ 6, %123 ], [ 4, %Cmd_Argv.exit.i ], [ %344, %342 ], [ 1, %341 ], [ 1, %340 ], [ 1, %339 ], [ 1, %338 ], [ %335, %.thread230.i ], [ %spec.select264.i, %268 ]
+dissect_id_infostring.exit.thread.i:              ; preds = %342, %341, %340, %339, %338, %336, %.thread228.i, %331, %331, %328, %328, %268, %126, %123, %Cmd_TokenizeString.exit.i
+  %.0106.ph.i = phi ptr [ @.str.80, %336 ], [ @.str.78, %331 ], [ @.str.78, %331 ], [ @.str.66, %328 ], [ @.str.66, %328 ], [ @.str.70, %126 ], [ @.str.68, %123 ], [ @.str.66, %Cmd_TokenizeString.exit.i ], [ @.str.79, %342 ], [ @.str.22, %341 ], [ @.str.66, %340 ], [ @.str.82, %339 ], [ @.str.81, %338 ], [ @.str.79, %.thread228.i ], [ @.str.74, %268 ]
+  %.0105.ph.i = phi i32 [ 1, %336 ], [ 1, %331 ], [ 1, %331 ], [ 1, %328 ], [ 1, %328 ], [ 3, %126 ], [ 6, %123 ], [ 4, %Cmd_TokenizeString.exit.i ], [ %344, %342 ], [ 1, %341 ], [ 1, %340 ], [ 1, %339 ], [ 1, %338 ], [ %335, %.thread228.i ], [ %spec.select261.i, %268 ]
   %345 = load ptr, ptr %15, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %345, i32 noundef 25, ptr noundef nonnull @.str.83, ptr noundef nonnull %.0106.ph.i) #4
   br label %347
 
 dissect_id_infostring.exit.i:                     ; preds = %.critedge2.i.i, %.split.i.i, %234, %.critedge2.us.i.i, %.split.us.i.i, %213, %Cmd_Argv_length.exit205.i, %._crit_edge.i, %163
-  %.2.i = phi i32 [ %.0107.i, %163 ], [ %.1243338342.i, %Cmd_Argv_length.exit205.i ], [ %.1243.i, %._crit_edge.i ], [ %.0107.i, %213 ], [ %.0107.i, %.split.us.i.i ], [ %.0107.i, %.critedge2.us.i.i ], [ %.0107.i, %234 ], [ %.0107.i, %.split.i.i ], [ %.0107.i, %.critedge2.i.i ]
+  %.2.i = phi i32 [ %.0107.i, %163 ], [ %.1241335339.i, %Cmd_Argv_length.exit205.i ], [ %.1241.i, %._crit_edge.i ], [ %.0107.i, %213 ], [ %.0107.i, %.split.us.i.i ], [ %.0107.i, %.critedge2.us.i.i ], [ %.0107.i, %234 ], [ %.0107.i, %.split.i.i ], [ %.0107.i, %.critedge2.i.i ]
   %.0106.i = phi ptr [ @.str.72, %163 ], [ @.str.76, %Cmd_Argv_length.exit205.i ], [ @.str.76, %._crit_edge.i ], [ @.str.72, %213 ], [ @.str.72, %.split.us.i.i ], [ @.str.72, %.critedge2.us.i.i ], [ @.str.72, %234 ], [ @.str.72, %.split.i.i ], [ @.str.72, %.critedge2.i.i ]
-  %.0105.i = phi i32 [ %spec.select261.i, %163 ], [ %spec.select265.i, %Cmd_Argv_length.exit205.i ], [ %spec.select265.i, %._crit_edge.i ], [ %spec.select261.i, %213 ], [ %spec.select261.i, %.split.us.i.i ], [ %spec.select261.i, %.critedge2.us.i.i ], [ %spec.select261.i, %234 ], [ %spec.select261.i, %.split.i.i ], [ %spec.select261.i, %.critedge2.i.i ]
+  %.0105.i = phi i32 [ %spec.select258.i, %163 ], [ %spec.select262.i, %Cmd_Argv_length.exit205.i ], [ %spec.select262.i, %._crit_edge.i ], [ %spec.select258.i, %213 ], [ %spec.select258.i, %.split.us.i.i ], [ %spec.select258.i, %.critedge2.us.i.i ], [ %spec.select258.i, %234 ], [ %spec.select258.i, %.split.i.i ], [ %spec.select258.i, %.critedge2.i.i ]
   %346 = load ptr, ptr %15, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %346, i32 noundef 25, ptr noundef nonnull @.str.83, ptr noundef nonnull %.0106.i) #4
   %.not117.i = icmp eq i32 %.2.i, 0
   br i1 %.not117.i, label %347, label %dissect_quakeworld_ConnectionlessPacket.exit
 
 347:                                              ; preds = %dissect_id_infostring.exit.i, %dissect_id_infostring.exit.thread.i
-  %.0105236.i = phi i32 [ %.0105.ph.i, %dissect_id_infostring.exit.thread.i ], [ %.0105.i, %dissect_id_infostring.exit.i ]
-  %.0106235.i = phi ptr [ %.0106.ph.i, %dissect_id_infostring.exit.thread.i ], [ %.0106.i, %dissect_id_infostring.exit.i ]
+  %.0105234.i = phi i32 [ %.0105.ph.i, %dissect_id_infostring.exit.thread.i ], [ %.0105.i, %dissect_id_infostring.exit.i ]
+  %.0106233.i = phi ptr [ %.0106.ph.i, %dissect_id_infostring.exit.thread.i ], [ %.0106.i, %dissect_id_infostring.exit.i ]
   %348 = load i32, ptr @hf_quakeworld_connectionless_command, align 4
-  %349 = call ptr @proto_tree_add_string(ptr noundef %.0.i, i32 noundef %348, ptr noundef %0, i32 noundef 4, i32 noundef %.0105236.i, ptr noundef nonnull %.0106235.i) #4
+  %349 = call ptr @proto_tree_add_string(ptr noundef %.0.i, i32 noundef %348, ptr noundef %0, i32 noundef 4, i32 noundef %.0105234.i, ptr noundef nonnull %.0106233.i) #4
   br label %dissect_quakeworld_ConnectionlessPacket.exit
 
 dissect_quakeworld_ConnectionlessPacket.exit:     ; preds = %dissect_id_infostring.exit.i, %347

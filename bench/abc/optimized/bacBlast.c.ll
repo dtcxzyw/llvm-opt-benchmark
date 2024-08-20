@@ -641,7 +641,7 @@ Bac_ManNtkIsOk.exit.i.i:                          ; preds = %24
   %28 = load ptr, ptr %1, align 8
   %29 = getelementptr i8, ptr %28, i64 36
   %.val.i.i.i = load i32, ptr %29, align 4
-  %.not4.i.i = icmp slt i32 %.val.i.i.i, %26
+  %.not4.i.i = icmp sgt i32 %26, %.val.i.i.i
   br i1 %.not4.i.i, label %Bac_NtkHostNtk.exit, label %30
 
 30:                                               ; preds = %Bac_ManNtkIsOk.exit.i.i
@@ -691,7 +691,7 @@ Bac_NtkHostNtk.exit:                              ; preds = %24, %Bac_ManNtkIsOk
   %63 = getelementptr inbounds i32, ptr %.val156, i64 %9
   %64 = load i32, ptr %63, align 4
   %65 = xor i32 %64, -1
-  %66 = add i32 %65, %2
+  %66 = add i32 %2, %65
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds i8, ptr %.val149, i64 %67
   %69 = load i8, ptr %68, align 1
@@ -721,7 +721,7 @@ Bac_NtkHostNtk.exit:                              ; preds = %24, %Bac_ManNtkIsOk
 Bac_ManNtkIsOk.exit.i.i163:                       ; preds = %74
   %80 = getelementptr i8, ptr %75, i64 36
   %.val.i.i.i164 = load i32, ptr %80, align 4
-  %.not4.i.i165 = icmp slt i32 %.val.i.i.i164, %78
+  %.not4.i.i165 = icmp sgt i32 %78, %.val.i.i.i164
   br i1 %.not4.i.i165, label %Bac_BoxBoNtk.exit, label %81
 
 81:                                               ; preds = %Bac_ManNtkIsOk.exit.i.i163
@@ -1015,7 +1015,7 @@ define ptr @Bac_ManExtract(ptr nocapture noundef %0, i32 noundef %1, i32 %2) loc
   %6 = icmp slt i32 %5, 1
   %7 = getelementptr i8, ptr %0, i64 36
   %.val.i.i.i = load i32, ptr %7, align 4
-  %.not4.i.i = icmp slt i32 %.val.i.i.i, %5
+  %.not4.i.i = icmp sgt i32 %5, %.val.i.i.i
   %or.cond = select i1 %6, i1 true, i1 %.not4.i.i
   br i1 %or.cond, label %Bac_ManRoot.exit, label %Bac_ManRoot.exit.thread
 
@@ -1134,13 +1134,13 @@ Vec_IntFill.exit.i:                               ; preds = %41, %Vec_IntGrow.ex
   %55 = load i32, ptr %54, align 4
   %56 = add nsw i32 %55, 1
   %57 = load i32, ptr %44, align 4
-  %.not.i104.not = icmp sgt i32 %57, %55
+  %.not.i104.not = icmp slt i32 %55, %57
   br i1 %.not.i104.not, label %Vec_IntFillExtra.exit117, label %58
 
 58:                                               ; preds = %53
   %59 = load i32, ptr %25, align 8
   %60 = shl nsw i32 %59, 1
-  %.not120 = icmp sgt i32 %60, %55
+  %.not120 = icmp slt i32 %55, %60
   %.not.i.i105.not = icmp sgt i32 %59, %55
   br i1 %.not120, label %70, label %61
 
@@ -1240,13 +1240,13 @@ Vec_IntFillExtra.exit117:                         ; preds = %53, %._crit_edge.i1
   %93 = load i32, ptr %92, align 4
   %94 = add nsw i32 %93, 1
   %95 = load i32, ptr %44, align 4
-  %.not.i97.not = icmp sgt i32 %95, %93
+  %.not.i97.not = icmp slt i32 %93, %95
   br i1 %.not.i97.not, label %Vec_IntFillExtra.exit, label %96
 
 96:                                               ; preds = %.critedge.i
   %97 = load i32, ptr %25, align 8
   %98 = shl nsw i32 %97, 1
-  %.not122 = icmp sgt i32 %98, %93
+  %.not122 = icmp slt i32 %93, %98
   %.not.i.i98.not = icmp sgt i32 %97, %93
   br i1 %.not122, label %108, label %99
 
@@ -2268,7 +2268,7 @@ Bac_ManNtkIsOk.exit.i:                            ; preds = %Bac_ManNtkIsOk.exit
   %29 = icmp sgt i32 %28, 0
   tail call void @llvm.assume(i1 %29)
   %.val.i.i = load i32, ptr %15, align 4
-  %.not4.i = icmp sge i32 %.val.i.i, %28
+  %.not4.i = icmp sle i32 %28, %.val.i.i
   tail call void @llvm.assume(i1 %.not4.i)
   %30 = load ptr, ptr %16, align 8
   %31 = zext nneg i32 %28 to i64
@@ -2297,7 +2297,7 @@ Bac_ManNtkIsOk.exit.i42:                          ; preds = %Bac_ManNtkIsOk.exit
   %43 = icmp sgt i32 %42, 0
   tail call void @llvm.assume(i1 %43)
   %.val.i.i43 = load i32, ptr %22, align 4
-  %.not4.i44 = icmp sge i32 %.val.i.i43, %42
+  %.not4.i44 = icmp sle i32 %42, %.val.i.i43
   tail call void @llvm.assume(i1 %.not4.i44)
   %44 = load ptr, ptr %23, align 8
   %45 = zext nneg i32 %42 to i64
@@ -2750,7 +2750,7 @@ define void @Bac_NtkInsertGia(ptr nocapture noundef readonly %0, ptr noundef %1)
 Bac_ManNtkIsOk.exit.i.i:                          ; preds = %2
   %6 = getelementptr i8, ptr %0, i64 36
   %.val.i.i.i = load i32, ptr %6, align 4
-  %.not4.i.i = icmp slt i32 %.val.i.i.i, %4
+  %.not4.i.i = icmp sgt i32 %4, %.val.i.i.i
   br i1 %.not4.i.i, label %Bac_ManRoot.exit, label %7
 
 7:                                                ; preds = %Bac_ManNtkIsOk.exit.i.i
@@ -2859,7 +2859,7 @@ Bac_ManRoot.exit:                                 ; preds = %2, %Bac_ManNtkIsOk.
 
 Bac_ManNtkIsOk.exit.i:                            ; preds = %54
   %.val.i.i = load i32, ptr %36, align 4
-  %.not4.i163 = icmp slt i32 %.val.i.i, %57
+  %.not4.i163 = icmp sgt i32 %57, %.val.i.i
   br i1 %.not4.i163, label %Bac_ManNtk.exit, label %59
 
 59:                                               ; preds = %Bac_ManNtkIsOk.exit.i
@@ -2909,7 +2909,7 @@ Bac_ManNtk.exit:                                  ; preds = %54, %Bac_ManNtkIsOk
 
 Bac_ManNtkIsOk.exit.i164:                         ; preds = %77
   %.val.i.i165 = load i32, ptr %36, align 4
-  %.not4.i166 = icmp slt i32 %.val.i.i165, %86
+  %.not4.i166 = icmp sgt i32 %86, %.val.i.i165
   br i1 %.not4.i166, label %Bac_ManNtk.exit167, label %88
 
 88:                                               ; preds = %Bac_ManNtkIsOk.exit.i164
@@ -3621,13 +3621,13 @@ Bac_ObjAlloc.exit218:                             ; preds = %.Vec_IntGrow.exit10
   store i32 -1, ptr %389, align 4
   %390 = add nsw i32 %276, 1
   %391 = load i32, ptr %125, align 4
-  %.not.i190.not = icmp sgt i32 %391, %276
+  %.not.i190.not = icmp slt i32 %276, %391
   br i1 %.not.i190.not, label %Vec_IntFillExtra.exit203, label %392
 
 392:                                              ; preds = %Bac_ObjAlloc.exit218
   %393 = load i32, ptr %124, align 8
   %394 = shl nsw i32 %393, 1
-  %.not234 = icmp sgt i32 %394, %276
+  %.not234 = icmp slt i32 %276, %394
   %.not.i.i191.not = icmp sgt i32 %393, %276
   br i1 %.not234, label %404, label %395
 
@@ -3890,7 +3890,7 @@ Bac_ManNtk.exit46:                                ; preds = %Bac_ManNtk.exit46.l
 
 Bac_ManNtkIsOk.exit.i.i:                          ; preds = %Bac_ManNtk.exit46
   %.val.i.i.i = load i32, ptr %26, align 4
-  %.not4.i.i = icmp slt i32 %.val.i.i.i, %.val42
+  %.not4.i.i = icmp sgt i32 %.val42, %.val.i.i.i
   br i1 %.not4.i.i, label %Bac_NtkCopyNtk.exit, label %45
 
 45:                                               ; preds = %Bac_ManNtkIsOk.exit.i.i
@@ -4216,7 +4216,7 @@ Bac_ObjName.exit.i.i:                             ; preds = %192
   %196 = load i32, ptr %.in.i.i.i, align 4
   %197 = add nsw i32 %190, 1
   %198 = load i32, ptr %165, align 4
-  %.not.i182.not = icmp sgt i32 %198, %190
+  %.not.i182.not = icmp slt i32 %190, %198
   br i1 %.not.i182.not, label %Vec_IntFillExtra.exit195, label %199
 
 199:                                              ; preds = %Bac_ObjName.exit.i.i
@@ -4226,7 +4226,7 @@ Bac_ObjName.exit.i.i:                             ; preds = %192
 
 Vec_IntGrow.exit.sink.split.i192:                 ; preds = %199
   %201 = shl nsw i32 %200, 1
-  %.not197 = icmp sgt i32 %201, %190
+  %.not197 = icmp slt i32 %190, %201
   %. = select i1 %.not197, i32 %201, i32 %197
   %202 = sext i32 %. to i64
   %203 = shl nsw i64 %202, 2
@@ -4275,13 +4275,13 @@ Vec_IntFillExtra.exit195:                         ; preds = %Bac_ObjName.exit.i.
 Bac_ObjDup.exit.i:                                ; preds = %Vec_IntFillExtra.exit195, %192, %191, %188
   %212 = add nsw i32 %177, 1
   %213 = load i32, ptr %156, align 4
-  %.not.i168.not = icmp sgt i32 %213, %177
+  %.not.i168.not = icmp slt i32 %177, %213
   br i1 %.not.i168.not, label %Vec_IntFillExtra.exit181, label %214
 
 214:                                              ; preds = %Bac_ObjDup.exit.i
   %215 = load i32, ptr %137, align 8
   %216 = shl nsw i32 %215, 1
-  %.not199 = icmp sgt i32 %216, %177
+  %.not199 = icmp slt i32 %177, %216
   %.not.i.i169.not = icmp sgt i32 %215, %177
   br i1 %.not199, label %226, label %217
 
@@ -4427,7 +4427,7 @@ Bac_ObjName.exit.i84.i:                           ; preds = %270
   %274 = load i32, ptr %.in.i.i85.i, align 4
   %275 = add nsw i32 %268, 1
   %276 = load i32, ptr %174, align 4
-  %.not.i154.not = icmp sgt i32 %276, %268
+  %.not.i154.not = icmp slt i32 %268, %276
   br i1 %.not.i154.not, label %Vec_IntFillExtra.exit167, label %277
 
 277:                                              ; preds = %Bac_ObjName.exit.i84.i
@@ -4437,7 +4437,7 @@ Bac_ObjName.exit.i84.i:                           ; preds = %270
 
 Vec_IntGrow.exit.sink.split.i164:                 ; preds = %277
   %279 = shl nsw i32 %278, 1
-  %.not201 = icmp sgt i32 %279, %268
+  %.not201 = icmp slt i32 %268, %279
   %.300 = select i1 %.not201, i32 %279, i32 %275
   %280 = sext i32 %.300 to i64
   %281 = shl nsw i64 %280, 2
@@ -4486,13 +4486,13 @@ Vec_IntFillExtra.exit167:                         ; preds = %Bac_ObjName.exit.i8
 Bac_ObjDup.exit88.i:                              ; preds = %Vec_IntFillExtra.exit167, %270, %269, %266
   %290 = add nsw i32 %255, 1
   %291 = load i32, ptr %156, align 4
-  %.not.i140.not = icmp sgt i32 %291, %255
+  %.not.i140.not = icmp slt i32 %255, %291
   br i1 %.not.i140.not, label %Vec_IntFillExtra.exit153, label %292
 
 292:                                              ; preds = %Bac_ObjDup.exit88.i
   %293 = load i32, ptr %137, align 8
   %294 = shl nsw i32 %293, 1
-  %.not203 = icmp sgt i32 %294, %255
+  %.not203 = icmp slt i32 %255, %294
   %.not.i.i141.not = icmp sgt i32 %293, %255
   br i1 %.not203, label %304, label %295
 
@@ -4761,7 +4761,7 @@ Bac_ObjName.exit.i.i.i:                           ; preds = %388
   %392 = load i32, ptr %.in.i.i.i.i, align 4
   %393 = add nsw i32 %.val.i133.i, 1
   %394 = load i32, ptr %251, align 4
-  %.not.i119.not.i = icmp sgt i32 %394, %.val.i133.i
+  %.not.i119.not.i = icmp slt i32 %.val.i133.i, %394
   br i1 %.not.i119.not.i, label %Vec_IntFillExtra.exit132.i, label %395
 
 395:                                              ; preds = %Bac_ObjName.exit.i.i.i
@@ -4771,7 +4771,7 @@ Bac_ObjName.exit.i.i.i:                           ; preds = %388
 
 Vec_IntGrow.exit.sink.split.i129.i:               ; preds = %395
   %397 = shl nsw i32 %396, 1
-  %.not149.i = icmp sgt i32 %397, %.val.i133.i
+  %.not149.i = icmp slt i32 %.val.i133.i, %397
   %..i = select i1 %.not149.i, i32 %397, i32 %393
   %398 = sext i32 %..i to i64
   %399 = shl nsw i64 %398, 2
@@ -4954,7 +4954,7 @@ Bac_ObjName.exit.i64.i.i:                         ; preds = %452
   %456 = load i32, ptr %.in.i.i65.i.i, align 4
   %457 = add nsw i32 %450, 1
   %458 = load i32, ptr %251, align 4
-  %.not.i126.not = icmp sgt i32 %458, %450
+  %.not.i126.not = icmp slt i32 %450, %458
   br i1 %.not.i126.not, label %Vec_IntFillExtra.exit139, label %459
 
 459:                                              ; preds = %Bac_ObjName.exit.i64.i.i
@@ -4964,7 +4964,7 @@ Bac_ObjName.exit.i64.i.i:                         ; preds = %452
 
 Vec_IntGrow.exit.sink.split.i136:                 ; preds = %459
   %461 = shl nsw i32 %460, 1
-  %.not205 = icmp sgt i32 %461, %450
+  %.not205 = icmp slt i32 %450, %461
   %.301 = select i1 %.not205, i32 %461, i32 %457
   %462 = sext i32 %.301 to i64
   %463 = shl nsw i64 %462, 2
@@ -5133,7 +5133,7 @@ Bac_ObjName.exit77.i.i:                           ; preds = %Bac_ObjName.exit.th
   %515 = phi i32 [ %514, %Bac_ObjName.exit.thread.i.i ], [ %512, %Bac_ObjName.exit.i91.i ]
   %516 = add nsw i32 %450, 1
   %517 = load i32, ptr %251, align 4
-  %.not.i98.not = icmp sgt i32 %517, %450
+  %.not.i98.not = icmp slt i32 %450, %517
   br i1 %.not.i98.not, label %Vec_IntFillExtra.exit111, label %518
 
 518:                                              ; preds = %Bac_ObjName.exit77.i.i
@@ -5143,7 +5143,7 @@ Bac_ObjName.exit77.i.i:                           ; preds = %Bac_ObjName.exit.th
 
 Vec_IntGrow.exit.sink.split.i108:                 ; preds = %518
   %520 = shl nsw i32 %519, 1
-  %.not208 = icmp sgt i32 %520, %450
+  %.not208 = icmp slt i32 %450, %520
   %.302 = select i1 %.not208, i32 %520, i32 %516
   %521 = sext i32 %.302 to i64
   %522 = shl nsw i64 %521, 2
@@ -5200,7 +5200,7 @@ Vec_IntFillExtra.exit111:                         ; preds = %Bac_ObjName.exit77.
 Bac_ManNtkIsOk.exit.i.i.i.i:                      ; preds = %531
   %535 = getelementptr i8, ptr %.val50.i.i, i64 36
   %.val.i.i.i78.i.i = load i32, ptr %535, align 4
-  %.not4.i.i.i.i = icmp slt i32 %.val.i.i.i78.i.i, %533
+  %.not4.i.i.i.i = icmp sgt i32 %533, %.val.i.i.i78.i.i
   br i1 %.not4.i.i.i.i, label %Bac_BoxNtk.exit.thread.i.i, label %Bac_ManNtkIsOk.exit.i.i79.i.i
 
 Bac_ManNtkIsOk.exit.i.i79.i.i:                    ; preds = %Bac_ManNtkIsOk.exit.i.i.i.i
@@ -5211,13 +5211,13 @@ Bac_ManNtkIsOk.exit.i.i79.i.i:                    ; preds = %Bac_ManNtkIsOk.exit
   %.val47.i.i = load i32, ptr %539, align 4
   %540 = add nsw i32 %450, 1
   %541 = load i32, ptr %250, align 4
-  %.not.i84.not = icmp sgt i32 %541, %450
+  %.not.i84.not = icmp slt i32 %450, %541
   br i1 %.not.i84.not, label %Vec_IntFillExtra.exit97, label %542
 
 542:                                              ; preds = %Bac_ManNtkIsOk.exit.i.i79.i.i
   %543 = load i32, ptr %108, align 8
   %544 = shl nsw i32 %543, 1
-  %.not210 = icmp sgt i32 %544, %450
+  %.not210 = icmp slt i32 %450, %544
   %.not.i.i85.not = icmp sgt i32 %543, %450
   br i1 %.not210, label %554, label %545
 
@@ -5466,7 +5466,7 @@ Bac_ObjName.exit.i93.i.i:                         ; preds = %631
   %635 = load i32, ptr %.in.i.i94.i.i, align 4
   %636 = add nsw i32 %.val.i104.i, 1
   %637 = load i32, ptr %251, align 4
-  %.not.i70.not = icmp sgt i32 %637, %.val.i104.i
+  %.not.i70.not = icmp slt i32 %.val.i104.i, %637
   br i1 %.not.i70.not, label %Vec_IntFillExtra.exit83, label %638
 
 638:                                              ; preds = %Bac_ObjName.exit.i93.i.i
@@ -5476,7 +5476,7 @@ Bac_ObjName.exit.i93.i.i:                         ; preds = %631
 
 Vec_IntGrow.exit.sink.split.i80:                  ; preds = %638
   %640 = shl nsw i32 %639, 1
-  %.not212 = icmp sgt i32 %640, %.val.i104.i
+  %.not212 = icmp slt i32 %.val.i104.i, %640
   %.303 = select i1 %.not212, i32 %640, i32 %636
   %641 = sext i32 %.303 to i64
   %642 = shl nsw i64 %641, 2
@@ -5525,13 +5525,13 @@ Vec_IntFillExtra.exit83:                          ; preds = %Bac_ObjName.exit.i9
 Bac_ObjDup.exit97.i.i:                            ; preds = %Vec_IntFillExtra.exit83, %631, %630, %Bac_ObjAlloc.exit.i
   %651 = add nuw nsw i32 %.139.in110.i.i224, 2
   %652 = load i32, ptr %156, align 4
-  %.not.i96.i = icmp slt i32 %652, %651
+  %.not.i96.i = icmp sgt i32 %651, %652
   br i1 %.not.i96.i, label %653, label %Vec_IntFillExtra.exit.i
 
 653:                                              ; preds = %Bac_ObjDup.exit97.i.i
   %654 = load i32, ptr %137, align 8
   %655 = shl nsw i32 %654, 1
-  %656 = icmp slt i32 %655, %651
+  %656 = icmp sgt i32 %651, %655
   %.not.i.i97.i = icmp slt i32 %654, %651
   br i1 %656, label %657, label %666
 
@@ -5649,13 +5649,13 @@ Bac_BoxDup.exit.i:                                ; preds = %.lr.ph112.i.i, %Vec
 699:                                              ; preds = %692
   %700 = add nuw nsw i32 %690, 1
   %701 = load i32, ptr %250, align 4
-  %.not.i65.not = icmp sgt i32 %701, %690
+  %.not.i65.not = icmp slt i32 %690, %701
   br i1 %.not.i65.not, label %Vec_IntFillExtra.exit, label %702
 
 702:                                              ; preds = %699
   %703 = load i32, ptr %108, align 8
   %704 = shl nsw i32 %703, 1
-  %.not214 = icmp sgt i32 %704, %690
+  %.not214 = icmp slt i32 %690, %704
   br i1 %.not214, label %713, label %705
 
 705:                                              ; preds = %702
@@ -5759,7 +5759,7 @@ Bac_ManNtkIsOk.exit.i.i57:                        ; preds = %Bac_ManNtk.exit55
   %738 = load ptr, ptr %734, align 8
   %739 = getelementptr i8, ptr %738, i64 36
   %.val.i.i.i58 = load i32, ptr %739, align 4
-  %.not4.i.i59 = icmp slt i32 %.val.i.i.i58, %736
+  %.not4.i.i59 = icmp sgt i32 %736, %.val.i.i.i58
   br i1 %.not4.i.i59, label %Bac_NtkHostNtk.exit.thread, label %Bac_ManNtkIsOk.exit.i.i61
 
 Bac_ManNtkIsOk.exit.i.i61:                        ; preds = %Bac_ManNtkIsOk.exit.i.i57
@@ -5772,7 +5772,7 @@ Bac_ManNtkIsOk.exit.i.i61:                        ; preds = %Bac_ManNtkIsOk.exit
   %745 = icmp sgt i32 %.val43, 0
   call void @llvm.assume(i1 %745)
   %.val.i.i.i62 = load i32, ptr %26, align 4
-  %.not4.i.i63 = icmp sge i32 %.val.i.i.i62, %.val43
+  %.not4.i.i63 = icmp sle i32 %.val43, %.val.i.i.i62
   call void @llvm.assume(i1 %.not4.i.i63)
   %746 = load ptr, ptr %30, align 8
   %747 = zext nneg i32 %.val43 to i64
@@ -5828,7 +5828,7 @@ Bac_ManNtk.exit:                                  ; preds = %Bac_ManNtk.exit.lr.
 
 Bac_ManNtkIsOk.exit.i.i:                          ; preds = %Bac_ManNtk.exit
   %.val.i.i.i = load i32, ptr %5, align 4
-  %.not4.i.i = icmp slt i32 %.val.i.i.i, %.val7
+  %.not4.i.i = icmp sgt i32 %.val7, %.val.i.i.i
   br i1 %.not4.i.i, label %Bac_NtkCopyNtk.exit, label %11
 
 11:                                               ; preds = %Bac_ManNtkIsOk.exit.i.i
@@ -5951,13 +5951,13 @@ Bac_ObjName.exit.i:                               ; preds = %64, %59
   %66 = load i32, ptr %.in.i.i, align 4
   %67 = add nsw i32 %55, 1
   %68 = load i32, ptr %35, align 4
-  %.not.i28.not = icmp sgt i32 %68, %55
+  %.not.i28.not = icmp slt i32 %55, %68
   br i1 %.not.i28.not, label %Vec_IntFillExtra.exit41, label %69
 
 69:                                               ; preds = %Bac_ObjName.exit.i
   %70 = load i32, ptr %16, align 8
   %71 = shl nsw i32 %70, 1
-  %.not42 = icmp sgt i32 %71, %55
+  %.not42 = icmp slt i32 %55, %71
   %.not.i.i29.not = icmp sgt i32 %70, %55
   br i1 %.not42, label %81, label %72
 
@@ -6073,13 +6073,13 @@ Bac_ObjName.exit111.i:                            ; preds = %103
   %109 = load i32, ptr %108, align 4
   %110 = add nsw i32 %107, 1
   %111 = load i32, ptr %35, align 4
-  %.not.i14.not = icmp sgt i32 %111, %107
+  %.not.i14.not = icmp slt i32 %107, %111
   br i1 %.not.i14.not, label %Vec_IntFillExtra.exit27, label %112
 
 112:                                              ; preds = %Bac_ObjName.exit111.i
   %113 = load i32, ptr %16, align 8
   %114 = shl nsw i32 %113, 1
-  %.not44 = icmp sgt i32 %114, %107
+  %.not44 = icmp slt i32 %107, %114
   %.not.i.i15.not = icmp sgt i32 %113, %107
   br i1 %.not44, label %124, label %115
 
@@ -6187,13 +6187,13 @@ Bac_ObjName.exit120.i:                            ; preds = %.lr.ph183.i.prehead
   %150 = load i32, ptr %149, align 4
   %151 = add nsw i32 %148, 1
   %152 = load i32, ptr %35, align 4
-  %.not.i.not.i = icmp sgt i32 %152, %148
+  %.not.i.not.i = icmp slt i32 %148, %152
   br i1 %.not.i.not.i, label %Vec_IntFillExtra.exit.i, label %153
 
 153:                                              ; preds = %Bac_ObjName.exit120.i
   %154 = load i32, ptr %16, align 8
   %155 = shl nsw i32 %154, 1
-  %.not174.i = icmp sgt i32 %155, %148
+  %.not174.i = icmp slt i32 %148, %155
   %.not.i.i.not.i = icmp sgt i32 %154, %148
   br i1 %.not174.i, label %165, label %156
 
@@ -6368,13 +6368,13 @@ Bac_ObjName.exit137.i:                            ; preds = %Bac_ObjName.exit130
   %224 = load i32, ptr %223, align 4
   %225 = add nsw i32 %206, 1
   %226 = load i32, ptr %35, align 4
-  %.not.i154.not.i = icmp sgt i32 %226, %206
+  %.not.i154.not.i = icmp slt i32 %206, %226
   br i1 %.not.i154.not.i, label %Vec_IntFillExtra.exit167.i, label %227
 
 227:                                              ; preds = %Bac_ObjName.exit137.i
   %228 = load i32, ptr %16, align 8
   %229 = shl nsw i32 %228, 1
-  %.not170.i = icmp sgt i32 %229, %206
+  %.not170.i = icmp slt i32 %206, %229
   %.not.i.i155.not.i = icmp sgt i32 %228, %206
   br i1 %.not170.i, label %238, label %230
 
@@ -6539,13 +6539,13 @@ Bac_ObjName.exit152.i:                            ; preds = %287, %282
   %289 = load i32, ptr %.in.i149.i, align 4
   %290 = add nsw i32 %264, 1
   %291 = load i32, ptr %35, align 4
-  %.not.i10.not = icmp sgt i32 %291, %264
+  %.not.i10.not = icmp slt i32 %264, %291
   br i1 %.not.i10.not, label %Vec_IntFillExtra.exit, label %292
 
 292:                                              ; preds = %Bac_ObjName.exit152.i
   %293 = load i32, ptr %16, align 8
   %294 = shl nsw i32 %293, 1
-  %.not46 = icmp sgt i32 %294, %264
+  %.not46 = icmp slt i32 %264, %294
   %.not.i.i.not = icmp sgt i32 %293, %264
   br i1 %.not46, label %303, label %295
 
@@ -7069,7 +7069,7 @@ define void @Bac_NtkInsertNtk(ptr nocapture noundef %0, ptr nocapture noundef re
 Bac_ManNtkIsOk.exit.i.i:                          ; preds = %2
   %6 = getelementptr i8, ptr %0, i64 36
   %.val.i.i.i = load i32, ptr %6, align 4
-  %.not4.i.i = icmp slt i32 %.val.i.i.i, %4
+  %.not4.i.i = icmp sgt i32 %4, %.val.i.i.i
   br i1 %.not4.i.i, label %Bac_ManRoot.exit, label %7
 
 7:                                                ; preds = %Bac_ManNtkIsOk.exit.i.i
@@ -7190,7 +7190,7 @@ Abc_ObjIsBarBuf.exit:                             ; preds = %52
 
 Bac_ManNtkIsOk.exit.i:                            ; preds = %59
   %.val.i.i = load i32, ptr %25, align 4
-  %.not4.i = icmp slt i32 %.val.i.i, %62
+  %.not4.i = icmp sgt i32 %62, %.val.i.i
   br i1 %.not4.i, label %Bac_ManNtk.exit, label %64
 
 64:                                               ; preds = %Bac_ManNtkIsOk.exit.i
@@ -7259,7 +7259,7 @@ Abc_NodeIsSeriousGate.exit.thread236:             ; preds = %.thread233.thread, 
 
 Bac_ManNtkIsOk.exit.i145:                         ; preds = %Abc_NodeIsSeriousGate.exit.thread236
   %.val.i.i146 = load i32, ptr %25, align 4
-  %.not4.i147 = icmp slt i32 %.val.i.i146, %94
+  %.not4.i147 = icmp sgt i32 %94, %.val.i.i146
   br i1 %.not4.i147, label %.lr.ph250, label %96
 
 96:                                               ; preds = %Bac_ManNtkIsOk.exit.i145
@@ -8112,13 +8112,13 @@ Bac_ObjAlloc.exit216:                             ; preds = %.Vec_IntGrow.exit10
   store i32 -1, ptr %473, align 4
   %474 = add nsw i32 %357, 1
   %475 = load i32, ptr %203, align 4
-  %.not.i188.not = icmp sgt i32 %475, %357
+  %.not.i188.not = icmp slt i32 %357, %475
   br i1 %.not.i188.not, label %Vec_IntFillExtra.exit201, label %476
 
 476:                                              ; preds = %Bac_ObjAlloc.exit216
   %477 = load i32, ptr %202, align 8
   %478 = shl nsw i32 %477, 1
-  %.not238 = icmp sgt i32 %478, %357
+  %.not238 = icmp slt i32 %357, %478
   %.not.i.i189.not = icmp sgt i32 %477, %357
   br i1 %.not238, label %488, label %479
 
@@ -8450,13 +8450,13 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
-  %.not = icmp slt i32 %5, %1
+  %.not = icmp sgt i32 %1, %5
   br i1 %.not, label %6, label %41
 
 6:                                                ; preds = %3
   %7 = load i32, ptr %0, align 8
   %8 = shl nsw i32 %7, 1
-  %9 = icmp slt i32 %8, %1
+  %9 = icmp sgt i32 %1, %8
   %.not.i = icmp slt i32 %7, %1
   br i1 %9, label %10, label %22
 

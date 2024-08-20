@@ -150,32 +150,31 @@ land.lhs.true9:                                   ; preds = %land.lhs.true
   br i1 %cmp10.not, label %if.end21, label %if.then12
 
 if.then12:                                        ; preds = %land.lhs.true9
-  br i1 %cmp, label %detect_self_dependency.exit, label %if.end6.i
+  br i1 %cmp, label %if.then1.i, label %detect_self_dependency.exit
 
-if.end6.i:                                        ; preds = %if.then12
-  %3 = load i32, ptr %pri_spec, align 4
-  %cmp8.i = icmp eq i32 %3, %stream_id
-  br i1 %cmp8.i, label %return, label %if.end17
-
-detect_self_dependency.exit:                      ; preds = %if.then12
+if.then1.i:                                       ; preds = %if.then12
   %next_stream_id.i = getelementptr inbounds i8, ptr %session, i64 2744
-  %4 = load i32, ptr %next_stream_id.i, align 8
-  %5 = load i32, ptr %pri_spec, align 4
-  %cmp3.i = icmp eq i32 %4, %5
-  br i1 %cmp3.i, label %return, label %if.end17
+  %3 = load i32, ptr %next_stream_id.i, align 8
+  br label %detect_self_dependency.exit
 
-if.end17:                                         ; preds = %if.end6.i, %detect_self_dependency.exit
-  %6 = or disjoint i8 %1, 32
+detect_self_dependency.exit:                      ; preds = %if.then12, %if.then1.i
+  %stream_id.sink.i = phi i32 [ %3, %if.then1.i ], [ %stream_id, %if.then12 ]
+  %4 = load i32, ptr %pri_spec, align 4
+  %cmp8.i.not = icmp eq i32 %stream_id.sink.i, %4
+  br i1 %cmp8.i.not, label %return, label %if.end17
+
+if.end17:                                         ; preds = %detect_self_dependency.exit
+  %5 = or disjoint i8 %1, 32
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end5, %land.lhs.true, %land.lhs.true9, %if.end17
   %pri_spec.addr.0 = phi ptr [ %pri_spec, %if.end17 ], [ null, %land.lhs.true9 ], [ null, %land.lhs.true ], [ null, %if.end5 ]
-  %flags.addr.0 = phi i8 [ %6, %if.end17 ], [ %1, %land.lhs.true9 ], [ %1, %land.lhs.true ], [ %1, %if.end5 ]
+  %flags.addr.0 = phi i8 [ %5, %if.end17 ], [ %1, %land.lhs.true9 ], [ %1, %land.lhs.true ], [ %1, %if.end5 ]
   %call22 = tail call fastcc i32 @submit_headers_shared_nva(ptr noundef %session, i8 noundef zeroext %flags.addr.0, i32 noundef %stream_id, ptr noundef %pri_spec.addr.0, ptr noundef %nva, i64 noundef %nvlen, ptr noundef null, ptr noundef %stream_user_data)
   br label %return
 
-return:                                           ; preds = %if.end6.i, %detect_self_dependency.exit, %if.else, %if.then, %if.end21
-  %retval.0 = phi i32 [ %call22, %if.end21 ], [ -505, %if.then ], [ -501, %if.else ], [ -501, %detect_self_dependency.exit ], [ -501, %if.end6.i ]
+return:                                           ; preds = %detect_self_dependency.exit, %if.else, %if.then, %if.end21
+  %retval.0 = phi i32 [ %call22, %if.end21 ], [ -505, %if.then ], [ -501, %if.else ], [ -501, %detect_self_dependency.exit ]
   ret i32 %retval.0
 }
 
@@ -209,7 +208,7 @@ if.end:                                           ; preds = %entry
 
 if.end5:                                          ; preds = %if.end
   %1 = load i32, ptr %pri_spec, align 4
-  %cmp7 = icmp eq i32 %1, %stream_id
+  %cmp7 = icmp eq i32 %stream_id, %1
   br i1 %cmp7, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end5
@@ -480,7 +479,7 @@ if.then2:                                         ; preds = %if.end
   %0 = load i32, ptr %local_window_size, align 4
   %sub = sub nsw i32 %window_size, %0
   store i32 %sub, ptr %window_size_increment, align 4
-  %cmp3 = icmp eq i32 %0, %window_size
+  %cmp3 = icmp eq i32 %window_size, %0
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.then2
@@ -521,7 +520,7 @@ if.end25:                                         ; preds = %if.else
   %2 = load i32, ptr %local_window_size26, align 4
   %sub27 = sub nsw i32 %window_size, %2
   store i32 %sub27, ptr %window_size_increment, align 4
-  %cmp28 = icmp eq i32 %2, %window_size
+  %cmp28 = icmp eq i32 %window_size, %2
   br i1 %cmp28, label %return, label %if.end30
 
 if.end30:                                         ; preds = %if.end25
@@ -866,8 +865,8 @@ if.then4:                                         ; preds = %land.lhs.true3
   %next_stream_id.i = getelementptr inbounds i8, ptr %session, i64 2744
   %2 = load i32, ptr %next_stream_id.i, align 8
   %3 = load i32, ptr %pri_spec, align 4
-  %cmp3.i.not = icmp eq i32 %2, %3
-  br i1 %cmp3.i.not, label %return, label %if.end9
+  %cmp8.i.not = icmp eq i32 %2, %3
+  br i1 %cmp8.i.not, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end, %land.lhs.true, %land.lhs.true3, %if.then4
   %pri_spec.addr.0 = phi ptr [ %pri_spec, %if.then4 ], [ null, %land.lhs.true3 ], [ null, %land.lhs.true ], [ null, %if.end ]
@@ -980,7 +979,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %mul = mul i64 %niv, 6
-  %cmp = icmp ugt i64 %mul, %buflen
+  %cmp = icmp ult i64 %buflen, %mul
   br i1 %cmp, label %return, label %if.end2
 
 if.end2:                                          ; preds = %if.end

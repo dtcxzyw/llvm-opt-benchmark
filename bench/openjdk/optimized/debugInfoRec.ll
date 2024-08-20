@@ -361,7 +361,7 @@ define hidden noundef i32 @_ZN24DebugInformationRecorder24serialize_monitor_valu
   %22 = add nuw nsw i32 %.014.i.i.i.i, 1
   %23 = shl i32 12414, %.01013.i.i.i.i
   %24 = add i32 %23, %.01112.i.i.i.i
-  %25 = icmp uge i32 %24, %6
+  %25 = icmp ule i32 %6, %24
   %26 = icmp eq i32 %22, 4
   %or.cond.i.i.i.i = select i1 %25, i1 true, i1 %26
   br i1 %or.cond.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !8
@@ -661,7 +661,7 @@ define hidden noundef i32 @_ZN24DebugInformationRecorder22serialize_scope_values
   %22 = add nuw nsw i32 %.014.i.i.i.i, 1
   %23 = shl i32 12414, %.01013.i.i.i.i
   %24 = add i32 %23, %.01112.i.i.i.i
-  %25 = icmp uge i32 %24, %6
+  %25 = icmp ule i32 %6, %24
   %26 = icmp eq i32 %22, 4
   %or.cond.i.i.i.i = select i1 %25, i1 true, i1 %26
   br i1 %or.cond.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !8
@@ -921,73 +921,72 @@ _ZN9DIR_Chunk7compareERKPS_S2_.exit.thread.i:     ; preds = %_ZN9DIR_Chunk7compa
   %48 = getelementptr inbounds i8, ptr %0, i64 4
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq i32 %3, %49
-  br i1 %50, label %51, label %61
+  br i1 %50, label %51, label %59
 
 51:                                               ; preds = %.loopexit
   %52 = add nsw i32 %3, 1
   %53 = icmp sgt i32 %3, -1
-  %54 = xor i32 %3, -2147483648
-  %55 = and i32 %54, %52
-  %56 = icmp eq i32 %55, 0
-  %57 = and i1 %53, %56
-  %58 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %52, i1 true)
-  %59 = sub nuw nsw i32 32, %58
-  %60 = shl nuw i32 1, %59
-  %.0.i.i.i.i = select i1 %57, i32 %52, i32 %60
+  %54 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %52)
+  %55 = icmp ult i32 %54, 2
+  %or.cond.i.i.i.i = select i1 %53, i1 %55, i1 false
+  %56 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %52, i1 true)
+  %57 = sub nuw nsw i32 32, %56
+  %58 = shl nuw i32 1, %57
+  %.0.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 %52, i32 %58
   tail call void @_ZN26GrowableArrayWithAllocatorIP9DIR_Chunk13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.0.i.i.i.i)
   %.pre.i = load i32, ptr %0, align 8
-  br label %61
+  br label %59
 
-61:                                               ; preds = %51, %.loopexit
-  %62 = phi i32 [ %.pre.i, %51 ], [ %3, %.loopexit ]
-  %.not.not9.i = icmp sgt i32 %62, %.0.i.ph
+59:                                               ; preds = %51, %.loopexit
+  %60 = phi i32 [ %.pre.i, %51 ], [ %3, %.loopexit ]
+  %.not.not9.i = icmp sgt i32 %60, %.0.i.ph
   br i1 %.not.not9.i, label %.lr.ph.i4, label %.._crit_edge_crit_edge.i
 
-.._crit_edge_crit_edge.i:                         ; preds = %61
+.._crit_edge_crit_edge.i:                         ; preds = %59
   %.pre13.i = zext nneg i32 %.0.i.ph to i64
   br label %_ZN26GrowableArrayWithAllocatorIP9DIR_Chunk13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit
 
-.lr.ph.i4:                                        ; preds = %61
-  %63 = getelementptr inbounds i8, ptr %0, i64 8
-  %64 = sext i32 %62 to i64
-  %65 = zext nneg i32 %.0.i.ph to i64
-  br label %66
+.lr.ph.i4:                                        ; preds = %59
+  %61 = getelementptr inbounds i8, ptr %0, i64 8
+  %62 = sext i32 %60 to i64
+  %63 = zext nneg i32 %.0.i.ph to i64
+  br label %64
 
-66:                                               ; preds = %66, %.lr.ph.i4
-  %indvars.iv.i = phi i64 [ %64, %.lr.ph.i4 ], [ %indvars.iv.next.i, %66 ]
+64:                                               ; preds = %64, %.lr.ph.i4
+  %indvars.iv.i = phi i64 [ %62, %.lr.ph.i4 ], [ %indvars.iv.next.i, %64 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %67 = load ptr, ptr %63, align 8
-  %68 = getelementptr inbounds ptr, ptr %67, i64 %indvars.iv.next.i
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds ptr, ptr %67, i64 %indvars.iv.i
-  store ptr %69, ptr %70, align 8
-  %.not.not.i = icmp sgt i64 %indvars.iv.next.i, %65
-  br i1 %.not.not.i, label %66, label %._crit_edge.loopexit.i, !llvm.loop !14
+  %65 = load ptr, ptr %61, align 8
+  %66 = getelementptr inbounds ptr, ptr %65, i64 %indvars.iv.next.i
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds ptr, ptr %65, i64 %indvars.iv.i
+  store ptr %67, ptr %68, align 8
+  %.not.not.i = icmp sgt i64 %indvars.iv.next.i, %63
+  br i1 %.not.not.i, label %64, label %._crit_edge.loopexit.i, !llvm.loop !14
 
-._crit_edge.loopexit.i:                           ; preds = %66
+._crit_edge.loopexit.i:                           ; preds = %64
   %.pre12.i = load i32, ptr %0, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP9DIR_Chunk13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit
 
 _ZN26GrowableArrayWithAllocatorIP9DIR_Chunk13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit: ; preds = %.._crit_edge_crit_edge.i, %._crit_edge.loopexit.i
-  %.pre-phi.i = phi i64 [ %.pre13.i, %.._crit_edge_crit_edge.i ], [ %65, %._crit_edge.loopexit.i ]
-  %71 = phi i32 [ %62, %.._crit_edge_crit_edge.i ], [ %.pre12.i, %._crit_edge.loopexit.i ]
-  %72 = add nsw i32 %71, 1
-  store i32 %72, ptr %0, align 8
-  %73 = load ptr, ptr %1, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 8
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds ptr, ptr %75, i64 %.pre-phi.i
-  store ptr %73, ptr %76, align 8
-  %.pre = load ptr, ptr %74, align 8
+  %.pre-phi.i = phi i64 [ %.pre13.i, %.._crit_edge_crit_edge.i ], [ %63, %._crit_edge.loopexit.i ]
+  %69 = phi i32 [ %60, %.._crit_edge_crit_edge.i ], [ %.pre12.i, %._crit_edge.loopexit.i ]
+  %70 = add nsw i32 %69, 1
+  store i32 %70, ptr %0, align 8
+  %71 = load ptr, ptr %1, align 8
+  %72 = getelementptr inbounds i8, ptr %0, i64 8
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds ptr, ptr %73, i64 %.pre-phi.i
+  store ptr %71, ptr %74, align 8
+  %.pre = load ptr, ptr %72, align 8
   br label %_ZNK17GrowableArrayViewIP9DIR_ChunkE11find_sortedIS1_TnPFiRKT_RKS1_EXadL_ZNS0_7compareES8_S8_EEEEiS6_Rb.exit
 
 _ZNK17GrowableArrayViewIP9DIR_ChunkE11find_sortedIS1_TnPFiRKT_RKS1_EXadL_ZNS0_7compareES8_S8_EEEEiS6_Rb.exit: ; preds = %44, %_ZN26GrowableArrayWithAllocatorIP9DIR_Chunk13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit
-  %77 = phi ptr [ %.pre, %_ZN26GrowableArrayWithAllocatorIP9DIR_Chunk13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit ], [ %6, %44 ]
+  %75 = phi ptr [ %.pre, %_ZN26GrowableArrayWithAllocatorIP9DIR_Chunk13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit ], [ %6, %44 ]
   %.0.i8 = phi i32 [ %.0.i.ph, %_ZN26GrowableArrayWithAllocatorIP9DIR_Chunk13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit ], [ %14, %44 ]
-  %78 = zext nneg i32 %.0.i8 to i64
-  %79 = getelementptr inbounds ptr, ptr %77, i64 %78
-  %80 = load ptr, ptr %79, align 8
-  ret ptr %80
+  %76 = zext nneg i32 %.0.i8 to i64
+  %77 = getelementptr inbounds ptr, ptr %75, i64 %76
+  %78 = load ptr, ptr %77, align 8
+  ret ptr %78
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1059,7 +1058,7 @@ _ZN24DebugInformationRecorder7last_pcEv.exit:     ; preds = %14
   %52 = add nuw nsw i32 %.014.i.i.i.i, 1
   %53 = shl i32 12414, %.01013.i.i.i.i
   %54 = add i32 %53, %.01112.i.i.i.i
-  %55 = icmp uge i32 %54, %26
+  %55 = icmp ule i32 %26, %54
   %56 = icmp eq i32 %52, 4
   %or.cond.i.i.i.i = select i1 %55, i1 true, i1 %56
   br i1 %or.cond.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !8
@@ -1160,7 +1159,7 @@ _ZN11OopRecorder10find_indexEP8Metadata.exit:     ; preds = %_ZN21CompressedWrit
   %96 = add nuw nsw i32 %.014.i.i.i.i53, 1
   %97 = shl i32 12414, %.01013.i.i.i.i54
   %98 = add i32 %97, %.01112.i.i.i.i55
-  %99 = icmp uge i32 %98, %.0.i.i
+  %99 = icmp ule i32 %.0.i.i, %98
   %100 = icmp eq i32 %96, 4
   %or.cond.i.i.i.i56 = select i1 %99, i1 true, i1 %100
   br i1 %or.cond.i.i.i.i56, label %._crit_edge.loopexit.i.i.i.i57, label %.lr.ph.i.i.i.i52, !llvm.loop !8
@@ -1245,7 +1244,7 @@ _ZN21CompressedWriteStream9write_intEj.exit62:    ; preds = %_ZN9UNSIGNED513fits
   %133 = add nuw nsw i32 %.014.i.i.i.i.i, 1
   %134 = shl i32 12414, %.01013.i.i.i.i.i
   %135 = add i32 %134, %.01112.i.i.i.i.i
-  %136 = icmp uge i32 %135, %121
+  %136 = icmp ule i32 %121, %135
   %137 = icmp eq i32 %133, 4
   %or.cond.i.i.i.i.i = select i1 %136, i1 true, i1 %137
   br i1 %or.cond.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !8
@@ -2029,17 +2028,20 @@ declare void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef) local
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #8
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #9
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #11
+declare i32 @llvm.umin.i32(i32, i32) #9
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2050,9 +2052,9 @@ attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #6 = { mustprogress noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nounwind }
 attributes #13 = { nounwind willreturn memory(read) }
 attributes #14 = { noreturn nounwind }

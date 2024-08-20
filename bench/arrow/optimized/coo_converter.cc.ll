@@ -759,7 +759,7 @@ invoke.cont99.us.i.loopexit.split.loop.exit207:   ; preds = %if.end.i.i.i.i.i.us
 
 invoke.cont99.us.i:                               ; preds = %for.body.i.i.i.i.i.us.i, %invoke.cont99.us.i.loopexit.split.loop.exit, %invoke.cont99.us.i.loopexit.split.loop.exit205, %invoke.cont99.us.i.loopexit.split.loop.exit207, %sw.bb25.i.i.i.i.i.us.i, %sw.bb20.i.i.i.i.i.us.i, %sw.bb.i.i.i.i.i.us.i
   %retval.0.i.i.i.i.i.us.i = phi ptr [ %incdec.ptr12.i.i.i.i.i.us.i, %sw.bb.i.i.i.i.i.us.i ], [ %__first.addr.1.i.i.i.i.i.us.i, %sw.bb20.i.i.i.i.i.us.i ], [ %__first.addr.2.i.i.i.i.i.us.i, %sw.bb25.i.i.i.i.i.us.i ], [ %incdec.ptr8.i.i.i.i.i.us.i.le, %invoke.cont99.us.i.loopexit.split.loop.exit ], [ %incdec.ptr4.i.i.i.i.i.us.i.le, %invoke.cont99.us.i.loopexit.split.loop.exit205 ], [ %incdec.ptr.i.i.i.i.i.us.i.le, %invoke.cont99.us.i.loopexit.split.loop.exit207 ], [ %__first.addr.049.i.i.i.i.i.us.i, %for.body.i.i.i.i.i.us.i ]
-  %cmp.i.i303.not.us.i = icmp eq ptr %retval.0.i.i.i.i.i.us.i, %add.ptr.us.i
+  %cmp.i.i303.not.us.i = icmp eq ptr %add.ptr.us.i, %retval.0.i.i.i.i.i.us.i
   br i1 %cmp.i.i303.not.us.i, label %if.end108.us.i, label %if.then101.us.i
 
 if.then101.us.i:                                  ; preds = %invoke.cont99.us.i
@@ -858,7 +858,7 @@ sw.bb25.i.i.i.i.i.us499.i:                        ; preds = %if.end23.i.i.i.i.i.
 
 invoke.cont99.us502.i:                            ; preds = %sw.bb25.i.i.i.i.i.us499.i, %sw.bb20.i.i.i.i.i.us494.i, %sw.bb.i.i.i.i.i.us490.i
   %retval.0.i.i.i.i.i.us503.i = phi ptr [ %tensor_data.0477.us483.i, %sw.bb.i.i.i.i.i.us490.i ], [ %__first.addr.1.i.i.i.i.i.us495.i, %sw.bb20.i.i.i.i.i.us494.i ], [ %__first.addr.2.i.i.i.i.i.us500.i, %sw.bb25.i.i.i.i.i.us499.i ]
-  %cmp.i.i303.not.us504.i = icmp eq ptr %retval.0.i.i.i.i.i.us503.i, %add.ptr.us486.i
+  %cmp.i.i303.not.us504.i = icmp eq ptr %add.ptr.us486.i, %retval.0.i.i.i.i.i.us503.i
   br i1 %cmp.i.i303.not.us504.i, label %if.end108.us517.i, label %if.then101.us505.i
 
 if.then101.us505.i:                               ; preds = %invoke.cont99.us502.i
@@ -937,7 +937,7 @@ sw.bb25.i.i.i.i.i.i:                              ; preds = %if.end23.i.i.i.i.i.
 
 invoke.cont99.i:                                  ; preds = %sw.bb25.i.i.i.i.i.i, %sw.bb20.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %tensor_data.0477.i, %sw.bb.i.i.i.i.i.i ], [ %__first.addr.1.i.i.i.i.i.i, %sw.bb20.i.i.i.i.i.i ], [ %__first.addr.2.i.i.i.i.i.i, %sw.bb25.i.i.i.i.i.i ]
-  %cmp.i.i303.not.i = icmp eq ptr %retval.0.i.i.i.i.i.i, %add.ptr.i
+  %cmp.i.i303.not.i = icmp eq ptr %add.ptr.i, %retval.0.i.i.i.i.i.i
   br i1 %cmp.i.i303.not.i, label %if.end108.i, label %if.then101.i
 
 if.then101.i:                                     ; preds = %invoke.cont99.i
@@ -17982,7 +17982,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp sgt i64 %div, %__holeIndex
+  %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
@@ -18070,7 +18070,7 @@ for.body.lr.ph.i.i.i:                             ; preds = %land.rhs.i
   %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.023.i
   %10 = load i64, ptr %add.ptr.i.i, align 8
   %conv.i.i.i = zext nneg i32 %__comp.val.val.i to i64
-  %mul3.i.i.i = mul nsw i64 %conv.i.i.i, %__value
+  %mul3.i.i.i = mul nsw i64 %__value, %conv.i.i.i
   %mul.i.i.i = mul nsw i64 %10, %conv.i.i.i
   %11 = load ptr, ptr %__comp.coerce1, align 8
   %12 = getelementptr i8, ptr %11, i64 %mul.i.i.i
@@ -18386,7 +18386,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp sgt i64 %div, %__holeIndex
+  %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
@@ -18474,7 +18474,7 @@ for.body.lr.ph.i.i.i:                             ; preds = %land.rhs.i
   %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.023.i
   %10 = load i64, ptr %add.ptr.i.i, align 8
   %conv.i.i.i = zext nneg i32 %__comp.val.val.i to i64
-  %mul3.i.i.i = mul nsw i64 %conv.i.i.i, %__value
+  %mul3.i.i.i = mul nsw i64 %__value, %conv.i.i.i
   %mul.i.i.i = mul nsw i64 %10, %conv.i.i.i
   %11 = load ptr, ptr %__comp.coerce1, align 8
   %12 = getelementptr i8, ptr %11, i64 %mul.i.i.i
@@ -18787,7 +18787,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp sgt i64 %div, %__holeIndex
+  %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
@@ -18875,7 +18875,7 @@ for.body.lr.ph.i.i.i:                             ; preds = %land.rhs.i
   %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.023.i
   %10 = load i64, ptr %add.ptr.i.i, align 8
   %conv.i.i.i = zext nneg i32 %__comp.val.val.i to i64
-  %mul3.i.i.i = mul nsw i64 %conv.i.i.i, %__value
+  %mul3.i.i.i = mul nsw i64 %__value, %conv.i.i.i
   %mul.i.i.i = mul nsw i64 %10, %conv.i.i.i
   %11 = load ptr, ptr %__comp.coerce1, align 8
   %12 = getelementptr i8, ptr %11, i64 %mul.i.i.i
@@ -19188,7 +19188,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp sgt i64 %div, %__holeIndex
+  %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
@@ -19276,7 +19276,7 @@ for.body.lr.ph.i.i.i:                             ; preds = %land.rhs.i
   %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.023.i
   %10 = load i64, ptr %add.ptr.i.i, align 8
   %conv.i.i.i = zext nneg i32 %__comp.val.val.i to i64
-  %mul3.i.i.i = mul nsw i64 %conv.i.i.i, %__value
+  %mul3.i.i.i = mul nsw i64 %__value, %conv.i.i.i
   %mul.i.i.i = mul nsw i64 %10, %conv.i.i.i
   %11 = load ptr, ptr %__comp.coerce1, align 8
   %12 = getelementptr i8, ptr %11, i64 %mul.i.i.i
@@ -19589,7 +19589,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp sgt i64 %div, %__holeIndex
+  %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
@@ -19677,7 +19677,7 @@ for.body.lr.ph.i.i.i:                             ; preds = %land.rhs.i
   %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.023.i
   %10 = load i64, ptr %add.ptr.i.i, align 8
   %conv.i.i.i = zext nneg i32 %__comp.val.val.i to i64
-  %mul3.i.i.i = mul nsw i64 %conv.i.i.i, %__value
+  %mul3.i.i.i = mul nsw i64 %__value, %conv.i.i.i
   %mul.i.i.i = mul nsw i64 %10, %conv.i.i.i
   %11 = load ptr, ptr %__comp.coerce1, align 8
   %12 = getelementptr i16, ptr %11, i64 %mul.i.i.i
@@ -19990,7 +19990,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp sgt i64 %div, %__holeIndex
+  %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
@@ -20078,7 +20078,7 @@ for.body.lr.ph.i.i.i:                             ; preds = %land.rhs.i
   %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.023.i
   %10 = load i64, ptr %add.ptr.i.i, align 8
   %conv.i.i.i = zext nneg i32 %__comp.val.val.i to i64
-  %mul3.i.i.i = mul nsw i64 %conv.i.i.i, %__value
+  %mul3.i.i.i = mul nsw i64 %__value, %conv.i.i.i
   %mul.i.i.i = mul nsw i64 %10, %conv.i.i.i
   %11 = load ptr, ptr %__comp.coerce1, align 8
   %12 = getelementptr i16, ptr %11, i64 %mul.i.i.i
@@ -20391,7 +20391,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp sgt i64 %div, %__holeIndex
+  %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
@@ -20479,7 +20479,7 @@ for.body.lr.ph.i.i.i:                             ; preds = %land.rhs.i
   %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.023.i
   %10 = load i64, ptr %add.ptr.i.i, align 8
   %conv.i.i.i = zext nneg i32 %__comp.val.val.i to i64
-  %mul3.i.i.i = mul nsw i64 %conv.i.i.i, %__value
+  %mul3.i.i.i = mul nsw i64 %__value, %conv.i.i.i
   %mul.i.i.i = mul nsw i64 %10, %conv.i.i.i
   %11 = load ptr, ptr %__comp.coerce1, align 8
   %12 = getelementptr i16, ptr %11, i64 %mul.i.i.i
@@ -20792,7 +20792,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp sgt i64 %div, %__holeIndex
+  %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
@@ -20880,7 +20880,7 @@ for.body.lr.ph.i.i.i:                             ; preds = %land.rhs.i
   %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.023.i
   %10 = load i64, ptr %add.ptr.i.i, align 8
   %conv.i.i.i = zext nneg i32 %__comp.val.val.i to i64
-  %mul3.i.i.i = mul nsw i64 %conv.i.i.i, %__value
+  %mul3.i.i.i = mul nsw i64 %__value, %conv.i.i.i
   %mul.i.i.i = mul nsw i64 %10, %conv.i.i.i
   %11 = load ptr, ptr %__comp.coerce1, align 8
   %12 = getelementptr i16, ptr %11, i64 %mul.i.i.i
@@ -21193,7 +21193,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp sgt i64 %div, %__holeIndex
+  %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
@@ -21281,7 +21281,7 @@ for.body.lr.ph.i.i.i:                             ; preds = %land.rhs.i
   %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.023.i
   %10 = load i64, ptr %add.ptr.i.i, align 8
   %conv.i.i.i = zext nneg i32 %__comp.val.val.i to i64
-  %mul3.i.i.i = mul nsw i64 %conv.i.i.i, %__value
+  %mul3.i.i.i = mul nsw i64 %__value, %conv.i.i.i
   %mul.i.i.i = mul nsw i64 %10, %conv.i.i.i
   %11 = load ptr, ptr %__comp.coerce1, align 8
   %12 = getelementptr i32, ptr %11, i64 %mul.i.i.i
@@ -21594,7 +21594,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp sgt i64 %div, %__holeIndex
+  %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
@@ -21682,7 +21682,7 @@ for.body.lr.ph.i.i.i:                             ; preds = %land.rhs.i
   %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.023.i
   %10 = load i64, ptr %add.ptr.i.i, align 8
   %conv.i.i.i = zext nneg i32 %__comp.val.val.i to i64
-  %mul3.i.i.i = mul nsw i64 %conv.i.i.i, %__value
+  %mul3.i.i.i = mul nsw i64 %__value, %conv.i.i.i
   %mul.i.i.i = mul nsw i64 %10, %conv.i.i.i
   %11 = load ptr, ptr %__comp.coerce1, align 8
   %12 = getelementptr i32, ptr %11, i64 %mul.i.i.i
@@ -21995,7 +21995,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp sgt i64 %div, %__holeIndex
+  %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
@@ -22083,7 +22083,7 @@ for.body.lr.ph.i.i.i:                             ; preds = %land.rhs.i
   %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.023.i
   %10 = load i64, ptr %add.ptr.i.i, align 8
   %conv.i.i.i = zext nneg i32 %__comp.val.val.i to i64
-  %mul3.i.i.i = mul nsw i64 %conv.i.i.i, %__value
+  %mul3.i.i.i = mul nsw i64 %__value, %conv.i.i.i
   %mul.i.i.i = mul nsw i64 %10, %conv.i.i.i
   %11 = load ptr, ptr %__comp.coerce1, align 8
   %12 = getelementptr i32, ptr %11, i64 %mul.i.i.i
@@ -22396,7 +22396,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp sgt i64 %div, %__holeIndex
+  %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
@@ -22484,7 +22484,7 @@ for.body.lr.ph.i.i.i:                             ; preds = %land.rhs.i
   %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.023.i
   %10 = load i64, ptr %add.ptr.i.i, align 8
   %conv.i.i.i = zext nneg i32 %__comp.val.val.i to i64
-  %mul3.i.i.i = mul nsw i64 %conv.i.i.i, %__value
+  %mul3.i.i.i = mul nsw i64 %__value, %conv.i.i.i
   %mul.i.i.i = mul nsw i64 %10, %conv.i.i.i
   %11 = load ptr, ptr %__comp.coerce1, align 8
   %12 = getelementptr i32, ptr %11, i64 %mul.i.i.i
@@ -22797,7 +22797,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp sgt i64 %div, %__holeIndex
+  %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
@@ -22885,7 +22885,7 @@ for.body.lr.ph.i.i.i:                             ; preds = %land.rhs.i
   %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.023.i
   %10 = load i64, ptr %add.ptr.i.i, align 8
   %conv.i.i.i = zext nneg i32 %__comp.val.val.i to i64
-  %mul3.i.i.i = mul nsw i64 %conv.i.i.i, %__value
+  %mul3.i.i.i = mul nsw i64 %__value, %conv.i.i.i
   %mul.i.i.i = mul nsw i64 %10, %conv.i.i.i
   %11 = load ptr, ptr %__comp.coerce1, align 8
   %12 = getelementptr i64, ptr %11, i64 %mul.i.i.i
@@ -23198,7 +23198,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp sgt i64 %div, %__holeIndex
+  %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
@@ -23286,7 +23286,7 @@ for.body.lr.ph.i.i.i:                             ; preds = %land.rhs.i
   %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.023.i
   %10 = load i64, ptr %add.ptr.i.i, align 8
   %conv.i.i.i = zext nneg i32 %__comp.val.val.i to i64
-  %mul3.i.i.i = mul nsw i64 %conv.i.i.i, %__value
+  %mul3.i.i.i = mul nsw i64 %__value, %conv.i.i.i
   %mul.i.i.i = mul nsw i64 %10, %conv.i.i.i
   %11 = load ptr, ptr %__comp.coerce1, align 8
   %12 = getelementptr i64, ptr %11, i64 %mul.i.i.i
@@ -23599,7 +23599,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp sgt i64 %div, %__holeIndex
+  %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
@@ -23687,7 +23687,7 @@ for.body.lr.ph.i.i.i:                             ; preds = %land.rhs.i
   %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.023.i
   %10 = load i64, ptr %add.ptr.i.i, align 8
   %conv.i.i.i = zext nneg i32 %__comp.val.val.i to i64
-  %mul3.i.i.i = mul nsw i64 %conv.i.i.i, %__value
+  %mul3.i.i.i = mul nsw i64 %__value, %conv.i.i.i
   %mul.i.i.i = mul nsw i64 %10, %conv.i.i.i
   %11 = load ptr, ptr %__comp.coerce1, align 8
   %12 = getelementptr i64, ptr %11, i64 %mul.i.i.i
@@ -24000,7 +24000,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp31 = icmp sgt i64 %div, %__holeIndex
+  %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
@@ -24088,7 +24088,7 @@ for.body.lr.ph.i.i.i:                             ; preds = %land.rhs.i
   %add.ptr.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %__parent.023.i
   %10 = load i64, ptr %add.ptr.i.i, align 8
   %conv.i.i.i = zext nneg i32 %__comp.val.val.i to i64
-  %mul3.i.i.i = mul nsw i64 %conv.i.i.i, %__value
+  %mul3.i.i.i = mul nsw i64 %__value, %conv.i.i.i
   %mul.i.i.i = mul nsw i64 %10, %conv.i.i.i
   %11 = load ptr, ptr %__comp.coerce1, align 8
   %12 = getelementptr i64, ptr %11, i64 %mul.i.i.i

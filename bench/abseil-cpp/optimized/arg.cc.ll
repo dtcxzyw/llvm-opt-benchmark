@@ -251,7 +251,7 @@ if.end.i:                                         ; preds = %if.then
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp3.not.i = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i40
+  %cmp3.not.i = icmp ult i64 %sub.ptr.sub.i40, %sub.ptr.sub.i.i
   br i1 %cmp3.not.i, label %if.end5.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -387,7 +387,7 @@ if.end.i.i:                                       ; preds = %land.rhs
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %17 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp3.not.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i, %retval.0.i.ph.ph
+  %cmp3.not.i.i = icmp ult i64 %retval.0.i.ph.ph, %sub.ptr.sub.i.i.i
   br i1 %cmp3.not.i.i, label %if.end5.i.i, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
@@ -453,7 +453,7 @@ if.end.i:                                         ; preds = %entry
   %3 = load ptr, ptr %pos_.i.i, align 8
   %sub.ptr.rhs.cast.i31.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i32.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i31.i
-  %cmp233.i = icmp ult i64 %sub.ptr.sub.i32.i, %cond.i.i
+  %cmp233.i = icmp ugt i64 %cond.i.i, %sub.ptr.sub.i32.i
   br i1 %cmp233.i, label %while.body.lr.ph.i, label %while.end.i
 
 while.body.lr.ph.i:                               ; preds = %if.end.i
@@ -534,7 +534,7 @@ if.end.i38:                                       ; preds = %_ZN4absl19str_forma
   store i64 %add.i40, ptr %size_.i5, align 8
   %sub.ptr.rhs.cast.i31.i44 = ptrtoint ptr %add.ptr.i27.i16 to i64
   %sub.ptr.sub.i32.i45 = sub i64 %sub.ptr.lhs.cast.i.i9, %sub.ptr.rhs.cast.i31.i44
-  %cmp233.i46 = icmp ult i64 %sub.ptr.sub.i32.i45, %cond.i.i
+  %cmp233.i46 = icmp ugt i64 %cond.i.i, %sub.ptr.sub.i32.i45
   br i1 %cmp233.i46, label %while.body.lr.ph.i51, label %while.end.i47
 
 while.body.lr.ph.i51:                             ; preds = %if.end.i38
@@ -636,23 +636,19 @@ lor.end9.i:                                       ; preds = %_ZN4absl19str_forma
   %cmp.i.i.i = icmp eq i64 %2, 0
   %cmp.i24 = icmp ne i8 %conv.sroa.0.0.extract.trunc.i, 17
   %spec.select.not.i = and i1 %cmp.i.i.i, %cmp.i24
-  br i1 %spec.select.not.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_113BaseIndicatorERKNS1_9IntDigitsENS0_24FormatConversionSpecImplE.exit, label %land.rhs.i
+  %cmp.i3.i = icmp eq i64 %as_digits.8.val, %conv2.i
+  %or.cond = select i1 %spec.select.not.i, i1 true, i1 %cmp.i3.i
+  br i1 %or.cond, label %_ZN4absl19str_format_internal12_GLOBAL__N_113BaseIndicatorERKNS1_9IntDigitsENS0_24FormatConversionSpecImplE.exit, label %if.then.i
 
-land.rhs.i:                                       ; preds = %lor.end9.i
-  %conv2.i.neg.i = sext i1 %cmp.i to i64
-  %sub.i.i = sub i64 0, %as_digits.8.val
-  %cmp.i3.i = icmp eq i64 %conv2.i.neg.i, %sub.i.i
-  br i1 %cmp.i3.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_113BaseIndicatorERKNS1_9IntDigitsENS0_24FormatConversionSpecImplE.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %land.rhs.i
+if.then.i:                                        ; preds = %lor.end9.i
   %cmp15.i = icmp eq i8 %conv.sroa.0.0.extract.trunc.i, 7
   %.str.6..str.7.i = select i1 %cmp15.i, ptr @.str.6, ptr @.str.7
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_113BaseIndicatorERKNS1_9IntDigitsENS0_24FormatConversionSpecImplE.exit
 
-_ZN4absl19str_format_internal12_GLOBAL__N_113BaseIndicatorERKNS1_9IntDigitsENS0_24FormatConversionSpecImplE.exit: ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_110SignColumnEbNS0_24FormatConversionSpecImplE.exit, %lor.end9.i, %land.rhs.i, %if.then.i
-  %retval.sroa.3.0.i = phi ptr [ %.str.6..str.7.i, %if.then.i ], [ null, %lor.end9.i ], [ null, %land.rhs.i ], [ null, %_ZN4absl19str_format_internal12_GLOBAL__N_110SignColumnEbNS0_24FormatConversionSpecImplE.exit ]
-  %cmp.i56 = phi i1 [ false, %if.then.i ], [ true, %lor.end9.i ], [ true, %land.rhs.i ], [ true, %_ZN4absl19str_format_internal12_GLOBAL__N_110SignColumnEbNS0_24FormatConversionSpecImplE.exit ]
-  %retval.sroa.0.0.i25 = phi i64 [ 2, %if.then.i ], [ 0, %lor.end9.i ], [ 0, %land.rhs.i ], [ 0, %_ZN4absl19str_format_internal12_GLOBAL__N_110SignColumnEbNS0_24FormatConversionSpecImplE.exit ]
+_ZN4absl19str_format_internal12_GLOBAL__N_113BaseIndicatorERKNS1_9IntDigitsENS0_24FormatConversionSpecImplE.exit: ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_110SignColumnEbNS0_24FormatConversionSpecImplE.exit, %lor.end9.i, %if.then.i
+  %retval.sroa.3.0.i = phi ptr [ %.str.6..str.7.i, %if.then.i ], [ null, %lor.end9.i ], [ null, %_ZN4absl19str_format_internal12_GLOBAL__N_110SignColumnEbNS0_24FormatConversionSpecImplE.exit ]
+  %cmp.i56 = phi i1 [ false, %if.then.i ], [ true, %lor.end9.i ], [ true, %_ZN4absl19str_format_internal12_GLOBAL__N_110SignColumnEbNS0_24FormatConversionSpecImplE.exit ]
+  %retval.sroa.0.0.i25 = phi i64 [ 2, %if.then.i ], [ 0, %lor.end9.i ], [ 0, %_ZN4absl19str_format_internal12_GLOBAL__N_110SignColumnEbNS0_24FormatConversionSpecImplE.exit ]
   %cond.i.i28 = tail call noundef i64 @llvm.usub.sat.i64(i64 %cond.i.i23, i64 %retval.sroa.0.0.i25)
   %cmp12 = icmp sgt i32 %conv.coerce1, -1
   %narrow = select i1 %cmp12, i32 %conv.coerce1, i32 1
@@ -661,11 +657,11 @@ _ZN4absl19str_format_internal12_GLOBAL__N_113BaseIndicatorERKNS1_9IntDigitsENS0_
   %cmp.i.i30 = icmp ne i8 %and2.i.i, 0
   %3 = and i64 %conv.coerce0, 255
   %cmp17 = icmp eq i64 %3, 4
-  %or.cond = and i1 %cmp17, %cmp.i.i30
-  br i1 %or.cond, label %if.then18, label %if.end27
+  %or.cond42 = and i1 %cmp17, %cmp.i.i30
+  br i1 %or.cond42, label %if.then18, label %if.end27
 
 if.then18:                                        ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_113BaseIndicatorERKNS1_9IntDigitsENS0_24FormatConversionSpecImplE.exit
-  %cmp.i31 = icmp eq i64 %conv2.i, %as_digits.8.val
+  %cmp.i31 = icmp eq i64 %as_digits.8.val, %conv2.i
   br i1 %cmp.i31, label %if.then23, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then18
@@ -687,8 +683,8 @@ if.end27:                                         ; preds = %lor.lhs.false, %if.
   %cond34 = select i1 %cmp.i.i36.not, i64 %cond.i.i33, i64 0
   %and2.i.i41 = and i8 %conv.sroa.4.0.extract.trunc, 16
   %cmp.i.i42.not = icmp eq i8 %and2.i.i41, 0
-  %or.cond42 = or i1 %cmp12, %cmp.i.i42.not
-  br i1 %or.cond42, label %if.end45, label %if.end45.thread
+  %or.cond43 = or i1 %cmp12, %cmp.i.i42.not
+  br i1 %or.cond43, label %if.end45, label %if.end45.thread
 
 if.end45.thread:                                  ; preds = %if.end27
   %add44 = add i64 %cond34, %cond.i
@@ -711,7 +707,7 @@ if.end.i44:                                       ; preds = %if.end45
   %6 = load ptr, ptr %pos_.i.i, align 8
   %sub.ptr.rhs.cast.i31.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i32.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i31.i
-  %cmp233.i = icmp ult i64 %sub.ptr.sub.i32.i, %cond34
+  %cmp233.i = icmp ugt i64 %cond34, %sub.ptr.sub.i32.i
   br i1 %cmp233.i, label %while.body.lr.ph.i, label %while.end.i
 
 while.body.lr.ph.i:                               ; preds = %if.end.i44
@@ -772,7 +768,7 @@ if.end.i47:                                       ; preds = %_ZN4absl19str_forma
   %sub.ptr.lhs.cast.i.i52 = ptrtoint ptr %add.ptr.i.i50 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i52, %sub.ptr.rhs.cast.i.i
-  %cmp3.not.i = icmp ugt i64 %sub.ptr.sub.i.i, %retval.sroa.0.0.i
+  %cmp3.not.i = icmp ult i64 %retval.sroa.0.0.i, %sub.ptr.sub.i.i
   br i1 %cmp3.not.i, label %if.end5.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i47
@@ -810,7 +806,7 @@ if.end.i57:                                       ; preds = %_ZN4absl19str_forma
   %sub.ptr.lhs.cast.i.i62 = ptrtoint ptr %add.ptr.i.i60 to i64
   %sub.ptr.rhs.cast.i.i63 = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i.i64 = sub i64 %sub.ptr.lhs.cast.i.i62, %sub.ptr.rhs.cast.i.i63
-  %cmp3.not.i65 = icmp ugt i64 %sub.ptr.sub.i.i64, %retval.sroa.0.0.i25
+  %cmp3.not.i65 = icmp ult i64 %retval.sroa.0.0.i25, %sub.ptr.sub.i.i64
   br i1 %cmp3.not.i65, label %if.end5.i71, label %if.then4.i66
 
 if.then4.i66:                                     ; preds = %if.end.i57
@@ -849,7 +845,7 @@ if.end.i75:                                       ; preds = %_ZN4absl19str_forma
   %27 = load ptr, ptr %pos_.i.i79, align 8
   %sub.ptr.rhs.cast.i31.i81 = ptrtoint ptr %27 to i64
   %sub.ptr.sub.i32.i82 = sub i64 %sub.ptr.lhs.cast.i.i80, %sub.ptr.rhs.cast.i31.i81
-  %cmp233.i83 = icmp ult i64 %sub.ptr.sub.i32.i82, %num_zeroes.039
+  %cmp233.i83 = icmp ugt i64 %num_zeroes.039, %sub.ptr.sub.i32.i82
   br i1 %cmp233.i83, label %while.body.lr.ph.i88, label %while.end.i84
 
 while.body.lr.ph.i88:                             ; preds = %if.end.i75
@@ -894,7 +890,7 @@ while.end.i84:                                    ; preds = %if.end8.i100, %if.e
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit104
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit104: ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit73, %while.end.i84
-  %cmp.i105 = icmp eq i64 %conv2.i, %as_digits.8.val
+  %cmp.i105 = icmp eq i64 %as_digits.8.val, %conv2.i
   br i1 %cmp.i105, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit122, label %if.end.i106
 
 if.end.i106:                                      ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit104
@@ -908,7 +904,7 @@ if.end.i106:                                      ; preds = %_ZN4absl19str_forma
   %sub.ptr.lhs.cast.i.i111 = ptrtoint ptr %add.ptr.i.i109 to i64
   %sub.ptr.rhs.cast.i.i112 = ptrtoint ptr %34 to i64
   %sub.ptr.sub.i.i113 = sub i64 %sub.ptr.lhs.cast.i.i111, %sub.ptr.rhs.cast.i.i112
-  %cmp3.not.i114 = icmp ugt i64 %sub.ptr.sub.i.i113, %sub.i
+  %cmp3.not.i114 = icmp ult i64 %sub.i, %sub.ptr.sub.i.i113
   br i1 %cmp3.not.i114, label %if.end5.i120, label %if.then4.i115
 
 if.then4.i115:                                    ; preds = %if.end.i106
@@ -947,7 +943,7 @@ if.end.i124:                                      ; preds = %_ZN4absl19str_forma
   %41 = load ptr, ptr %pos_.i.i128, align 8
   %sub.ptr.rhs.cast.i31.i130 = ptrtoint ptr %41 to i64
   %sub.ptr.sub.i32.i131 = sub i64 %sub.ptr.lhs.cast.i.i129, %sub.ptr.rhs.cast.i31.i130
-  %cmp233.i132 = icmp ult i64 %sub.ptr.sub.i32.i131, %cond3940
+  %cmp233.i132 = icmp ugt i64 %cond3940, %sub.ptr.sub.i32.i131
   br i1 %cmp233.i132, label %while.body.lr.ph.i137, label %while.end.i133
 
 while.body.lr.ph.i137:                            ; preds = %if.end.i124
@@ -1142,7 +1138,7 @@ if.end.i:                                         ; preds = %if.then
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp3.not.i = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i40
+  %cmp3.not.i = icmp ult i64 %sub.ptr.sub.i40, %sub.ptr.sub.i.i
   br i1 %cmp3.not.i, label %if.end5.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -1322,7 +1318,7 @@ if.end.i:                                         ; preds = %if.then
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp3.not.i = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i40
+  %cmp3.not.i = icmp ult i64 %sub.ptr.sub.i40, %sub.ptr.sub.i.i
   br i1 %cmp3.not.i, label %if.end5.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -1502,7 +1498,7 @@ if.end.i:                                         ; preds = %if.then
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp3.not.i = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i42
+  %cmp3.not.i = icmp ult i64 %sub.ptr.sub.i42, %sub.ptr.sub.i.i
   br i1 %cmp3.not.i, label %if.end5.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -1695,7 +1691,7 @@ if.end.i:                                         ; preds = %if.then
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp3.not.i = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i44
+  %cmp3.not.i = icmp ult i64 %sub.ptr.sub.i44, %sub.ptr.sub.i.i
   br i1 %cmp3.not.i, label %if.end5.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -1888,7 +1884,7 @@ if.end.i:                                         ; preds = %if.then
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp3.not.i = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i44
+  %cmp3.not.i = icmp ult i64 %sub.ptr.sub.i44, %sub.ptr.sub.i.i
   br i1 %cmp3.not.i, label %if.end5.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -2078,7 +2074,7 @@ if.end.i:                                         ; preds = %if.then
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp3.not.i = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i45
+  %cmp3.not.i = icmp ult i64 %sub.ptr.sub.i45, %sub.ptr.sub.i.i
   br i1 %cmp3.not.i, label %if.end5.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -2268,7 +2264,7 @@ if.end.i:                                         ; preds = %if.then
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp3.not.i = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i45
+  %cmp3.not.i = icmp ult i64 %sub.ptr.sub.i45, %sub.ptr.sub.i.i
   br i1 %cmp3.not.i, label %if.end5.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -2457,7 +2453,7 @@ if.end.i:                                         ; preds = %if.then
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp3.not.i = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i46
+  %cmp3.not.i = icmp ult i64 %sub.ptr.sub.i46, %sub.ptr.sub.i.i
   br i1 %cmp3.not.i, label %if.end5.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -2646,7 +2642,7 @@ if.end.i:                                         ; preds = %if.then
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp3.not.i = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i46
+  %cmp3.not.i = icmp ult i64 %sub.ptr.sub.i46, %sub.ptr.sub.i.i
   br i1 %cmp3.not.i, label %if.end5.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -2835,7 +2831,7 @@ if.end.i:                                         ; preds = %if.then
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp3.not.i = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i46
+  %cmp3.not.i = icmp ult i64 %sub.ptr.sub.i46, %sub.ptr.sub.i.i
   br i1 %cmp3.not.i, label %if.end5.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -3024,7 +3020,7 @@ if.end.i:                                         ; preds = %if.then
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp3.not.i = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i46
+  %cmp3.not.i = icmp ult i64 %sub.ptr.sub.i46, %sub.ptr.sub.i.i
   br i1 %cmp3.not.i, label %if.end5.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -4327,7 +4323,7 @@ if.end.i.i14:                                     ; preds = %if.then.i
   %sub.ptr.lhs.cast.i.i.i19 = ptrtoint ptr %add.ptr.i.i.i17 to i64
   %sub.ptr.rhs.cast.i.i.i20 = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i.i.i21 = sub i64 %sub.ptr.lhs.cast.i.i.i19, %sub.ptr.rhs.cast.i.i.i20
-  %cmp3.not.i.i22 = icmp ugt i64 %sub.ptr.sub.i.i.i21, %len.0
+  %cmp3.not.i.i22 = icmp ult i64 %len.0, %sub.ptr.sub.i.i.i21
   br i1 %cmp3.not.i.i22, label %if.end5.i.i28, label %if.then4.i.i23
 
 if.then4.i.i23:                                   ; preds = %if.end.i.i14
@@ -4404,7 +4400,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %cmp3.not.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i, %1
+  %cmp3.not.i.i.i = icmp ult i64 %1, %sub.ptr.sub.i.i.i.i
   br i1 %cmp3.not.i.i.i, label %if.end5.i.i.i, label %if.then4.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
@@ -4467,7 +4463,7 @@ if.end.i.i:                                       ; preds = %if.then.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp3.not.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i, %0
+  %cmp3.not.i.i = icmp ult i64 %0, %sub.ptr.sub.i.i.i
   br i1 %cmp3.not.i.i, label %if.end5.i.i, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
@@ -4542,7 +4538,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %cmp3.not.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i, %agg.tmp12.sroa.0.0.copyload
+  %cmp3.not.i.i.i = icmp ult i64 %agg.tmp12.sroa.0.0.copyload, %sub.ptr.sub.i.i.i.i
   br i1 %cmp3.not.i.i.i, label %if.end5.i.i.i, label %if.then4.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
@@ -4602,7 +4598,7 @@ if.end.i.i:                                       ; preds = %if.then.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp3.not.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i, %v.coerce0
+  %cmp3.not.i.i = icmp ult i64 %v.coerce0, %sub.ptr.sub.i.i.i
   br i1 %cmp3.not.i.i, label %if.end5.i.i, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
@@ -5239,7 +5235,7 @@ if.end.i.i:                                       ; preds = %if.then.i11
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %36 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %cmp3.not.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i, %add
+  %cmp3.not.i.i = icmp ult i64 %add, %sub.ptr.sub.i.i.i
   br i1 %cmp3.not.i.i, label %if.end5.i.i, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
@@ -5663,7 +5659,7 @@ if.end.i:                                         ; preds = %if.then
   %sub.ptr.lhs.cast.i.i77 = ptrtoint ptr %add.ptr.i.i76 to i64
   %sub.ptr.rhs.cast.i.i78 = ptrtoint ptr %19 to i64
   %sub.ptr.sub.i.i79 = sub i64 %sub.ptr.lhs.cast.i.i77, %sub.ptr.rhs.cast.i.i78
-  %cmp3.not.i = icmp ugt i64 %sub.ptr.sub.i.i79, %as_digits.val5
+  %cmp3.not.i = icmp ult i64 %as_digits.val5, %sub.ptr.sub.i.i79
   br i1 %cmp3.not.i, label %if.end5.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -5962,7 +5958,7 @@ if.end.i:                                         ; preds = %if.then
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp3.not.i = icmp ugt i64 %sub.ptr.sub.i.i, %as_digits.val5
+  %cmp3.not.i = icmp ult i64 %as_digits.val5, %sub.ptr.sub.i.i
   br i1 %cmp3.not.i, label %if.end5.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i

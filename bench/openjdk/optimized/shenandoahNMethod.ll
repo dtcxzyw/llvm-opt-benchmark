@@ -466,26 +466,25 @@ _ZN13RelocIterator9oop_relocEv.exit:              ; preds = %34, %37, %39
 57:                                               ; preds = %52
   %58 = add nsw i32 %54, 1
   %59 = icmp sgt i32 %54, -1
-  %60 = xor i32 %54, -2147483648
-  %61 = and i32 %60, %58
-  %62 = icmp eq i32 %61, 0
-  %63 = and i1 %59, %62
-  %64 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %58, i1 true)
-  %65 = sub nuw nsw i32 32, %64
-  %66 = shl nuw i32 1, %65
-  %.0.i.i.i.i.i = select i1 %63, i32 %58, i32 %66
+  %60 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %58)
+  %61 = icmp ult i32 %60, 2
+  %or.cond.i.i.i.i.i = select i1 %59, i1 %61, i1 false
+  %62 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %58, i1 true)
+  %63 = sub nuw nsw i32 32, %62
+  %64 = shl nuw i32 1, %63
+  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %58, i32 %64
   call void @_ZN26GrowableArrayWithAllocatorIPP7oopDesc13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %1, align 8
   br label %_ZN26GrowableArrayWithAllocatorIPP7oopDesc13GrowableArrayIS2_EE4pushERKS2_.exit
 
 _ZN26GrowableArrayWithAllocatorIPP7oopDesc13GrowableArrayIS2_EE4pushERKS2_.exit: ; preds = %52, %57
-  %67 = phi i32 [ %.pre.i.i, %57 ], [ %54, %52 ]
-  %68 = add nsw i32 %67, 1
-  store i32 %68, ptr %1, align 8
-  %69 = load ptr, ptr %18, align 8
-  %70 = sext i32 %67 to i64
-  %71 = getelementptr inbounds ptr, ptr %69, i64 %70
-  store ptr %53, ptr %71, align 8
+  %65 = phi i32 [ %.pre.i.i, %57 ], [ %54, %52 ]
+  %66 = add nsw i32 %65, 1
+  store i32 %66, ptr %1, align 8
+  %67 = load ptr, ptr %18, align 8
+  %68 = sext i32 %65 to i64
+  %69 = getelementptr inbounds ptr, ptr %67, i64 %68
+  store ptr %53, ptr %69, align 8
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %24, %3
@@ -2076,7 +2075,7 @@ define linkonce_odr hidden void @_ZN26ShenandoahKeepAliveClosure6do_oopEPP7oopDe
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds ptr, ptr %16, i64 %14
   %18 = load ptr, ptr %17, align 8
-  %.not.i.i.i.i = icmp ugt ptr %18, %3
+  %.not.i.i.i.i = icmp ult ptr %3, %18
   br i1 %.not.i.i.i.i, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i, label %_ZN26ShenandoahKeepAliveClosure11do_oop_workIP7oopDescEEvPT_.exit
 
 _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i: ; preds = %5
@@ -2448,6 +2447,9 @@ declare void @llvm.va_end.p0(ptr) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13

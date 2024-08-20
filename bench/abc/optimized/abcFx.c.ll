@@ -1615,7 +1615,7 @@ Abc_Clock.exit38:                                 ; preds = %163, %166
 
 .critedge._crit_edge.i:                           ; preds = %.critedge.i, %.critedge.preheader.i
   %.val22.lcssa.i = phi i32 [ %.val2229.i, %.critedge.preheader.i ], [ %.val22.i, %.critedge.i ]
-  %199 = icmp sgt i32 %.val22.lcssa.i, %.0.lcssa.i
+  %199 = icmp slt i32 %.0.lcssa.i, %.val22.lcssa.i
   br i1 %199, label %.lr.ph.i.i39, label %Vec_WecRemoveEmpty.exit
 
 .lr.ph.i.i39:                                     ; preds = %.critedge._crit_edge.i
@@ -2538,14 +2538,14 @@ Vec_IntPush.exit118:                              ; preds = %.Vec_IntGrow.exit10
 Vec_IntDrop.exit:                                 ; preds = %.lr.ph.i123, %.lr.ph.i119, %.lr.ph.i
   %.val87 = phi i32 [ %185, %.lr.ph.i ], [ %192, %.lr.ph.i119 ], [ %205, %.lr.ph.i123 ]
   %208 = icmp eq i32 %.val87, 2
-  br i1 %208, label %Vec_IntDrop.exit._crit_edge, label %Vec_IntDrop.exit.thread157
+  br i1 %208, label %Vec_IntDrop.exit.Vec_IntDrop.exit.thread_crit_edge, label %Vec_IntDrop.exit.thread157
 
-Vec_IntDrop.exit._crit_edge:                      ; preds = %Vec_IntDrop.exit
+Vec_IntDrop.exit.Vec_IntDrop.exit.thread_crit_edge: ; preds = %Vec_IntDrop.exit
   %.val93.pre = load ptr, ptr %169, align 8
   br label %Vec_IntDrop.exit.thread
 
-Vec_IntDrop.exit.thread:                          ; preds = %198, %Vec_IntDrop.exit._crit_edge
-  %.val93 = phi ptr [ %.val93.pre, %Vec_IntDrop.exit._crit_edge ], [ %.val, %198 ]
+Vec_IntDrop.exit.thread:                          ; preds = %198, %Vec_IntDrop.exit.Vec_IntDrop.exit.thread_crit_edge
+  %.val93 = phi ptr [ %.val93.pre, %Vec_IntDrop.exit.Vec_IntDrop.exit.thread_crit_edge ], [ %.val, %198 ]
   %209 = load i32, ptr %.val, align 4
   %210 = ashr i32 %209, 1
   %211 = load i32, ptr %171, align 4
@@ -3499,7 +3499,7 @@ Vec_FltPush.exit:                                 ; preds = %.Vec_FltGrow.exit11
 159:                                              ; preds = %151
   %160 = load ptr, ptr %14, align 8
   %161 = load i32, ptr %160, align 8
-  %162 = icmp sgt i32 %161, %96
+  %162 = icmp slt i32 %96, %161
   br i1 %162, label %Vec_QueIsMember.exit, label %Vec_QueIsMember.exit.thread
 
 Vec_QueIsMember.exit:                             ; preds = %159
@@ -4414,7 +4414,7 @@ define internal fastcc void @Vec_QuePush(ptr nocapture noundef %0, i32 noundef %
 
 10:                                               ; preds = %6, %2
   %11 = phi i32 [ %.pre, %6 ], [ %5, %2 ]
-  %.not20 = icmp sgt i32 %11, %1
+  %.not20 = icmp slt i32 %1, %11
   br i1 %.not20, label %16, label %12
 
 12:                                               ; preds = %10
@@ -4519,7 +4519,7 @@ define void @Fx_ManCubeDoubleCubeDivisors(ptr nocapture noundef %0, i32 noundef 
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr i8, ptr %7, i64 4
   %.val92125 = load i32, ptr %8, align 4
-  %9 = icmp sgt i32 %.val92125, %1
+  %9 = icmp slt i32 %1, %.val92125
   br i1 %9, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %6
@@ -4957,7 +4957,7 @@ Vec_FltPush.exit:                                 ; preds = %.Vec_FltGrow.exit11
 226:                                              ; preds = %217
   %227 = load ptr, ptr %21, align 8
   %228 = load i32, ptr %227, align 8
-  %229 = icmp sgt i32 %228, %150
+  %229 = icmp slt i32 %150, %228
   br i1 %229, label %Vec_QueIsMember.exit, label %Vec_QueIsMember.exit.thread
 
 Vec_QueIsMember.exit:                             ; preds = %226

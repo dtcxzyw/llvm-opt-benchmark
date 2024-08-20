@@ -433,7 +433,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   store double %conv.i133, ptr %retval.0.i.i.i.i.i.i, align 8
   %add113 = add i32 %cond104, %35
   %36 = load i32, ptr %argCount_.i, align 8
-  %cmp.i135 = icmp ugt i32 %36, %add113
+  %cmp.i135 = icmp ult i32 %add113, %36
   br i1 %cmp.i135, label %cond.true.i137, label %_ZNK6hermes2vm10NativeArgs6getArgEj.exit142
 
 cond.true.i137:                                   ; preds = %for.body
@@ -451,7 +451,7 @@ _ZNK6hermes2vm10NativeArgs6getArgEj.exit142:      ; preds = %for.body, %cond.tru
   %call131 = call i32 @_ZN6hermes2vm8JSObject26defineOwnComputedPrimitiveENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEENS0_19DefinePropertyFlagsES7_NS0_11PropOpFlagsE(ptr %call72, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.0.i.i.i.i.i.i, i32 313, ptr nonnull %retval.0.i.i.i.i.i.i125, i32 0) #12
   %add133 = add i32 %35, 2
   %38 = load i32, ptr %argCount_.i, align 8
-  %cmp.i144 = icmp ugt i32 %38, %add133
+  %cmp.i144 = icmp ult i32 %add133, %38
   br i1 %cmp.i144, label %cond.true.i146, label %_ZNK6hermes2vm10NativeArgs6getArgEj.exit152
 
 cond.true.i146:                                   ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit142
@@ -588,7 +588,7 @@ if.end.i.i.i.i:                                   ; preds = %entry
   %idx.ext20.i.i.i.i = zext i32 %BucketNo.019.i.i.i.i to i64
   %add.ptr21.i.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext20.i.i.i.i
   %2 = load i32, ptr %add.ptr21.i.i.i.i, align 4
-  %cmp.i22.i.i.i.i = icmp eq i32 %2, %templateObjID
+  %cmp.i22.i.i.i.i = icmp eq i32 %templateObjID, %2
   br i1 %cmp.i22.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIjPN6hermes2vm8JSObjectENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_EixERKj.exit, label %if.end9.i.i.i.i
 
 if.end9.i.i.i.i:                                  ; preds = %if.end.i.i.i.i, %if.end13.i.i.i.i
@@ -616,7 +616,7 @@ if.end13.i.i.i.i:                                 ; preds = %if.end9.i.i.i.i
   %idx.ext.i.i.i.i = zext i32 %BucketNo.0.i.i.i.i to i64
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext.i.i.i.i
   %4 = load i32, ptr %add.ptr.i.i.i.i, align 4
-  %cmp.i.i.i.i.i = icmp eq i32 %4, %templateObjID
+  %cmp.i.i.i.i.i = icmp eq i32 %templateObjID, %4
   br i1 %cmp.i.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIjPN6hermes2vm8JSObjectENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_EixERKj.exit, label %if.end9.i.i.i.i, !llvm.loop !8
 
 if.end.i.i:                                       ; preds = %if.then12.i.i.i.i, %entry
@@ -1013,10 +1013,10 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %42 = inttoptr i64 %and.i.i.i.i.i53.i to ptr
   %beginIndex_.i.i = getelementptr inbounds i8, ptr %42, i64 20
   %43 = load i32, ptr %beginIndex_.i.i, align 4
-  %cmp.not.i.i = icmp ule i32 %43, %nextKeyIdx.099.i
+  %cmp.not.i.i = icmp uge i32 %nextKeyIdx.099.i, %43
   %endIndex_.i54.i = getelementptr inbounds i8, ptr %42, i64 24
   %44 = load i32, ptr %endIndex_.i54.i, align 4
-  %cmp2.i.i = icmp ugt i32 %44, %nextKeyIdx.099.i
+  %cmp2.i.i = icmp ult i32 %nextKeyIdx.099.i, %44
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 %cmp2.i.i, i1 false
   br i1 %or.cond.i.i, label %cond.true.i.i, label %sw.bb36.i.i
 
@@ -2427,10 +2427,10 @@ for.body:                                         ; preds = %_ZN6hermes2vm7JSArr
   %47 = inttoptr i64 %and.i.i.i.i.i85 to ptr
   %beginIndex_.i = getelementptr inbounds i8, ptr %47, i64 20
   %48 = load i32, ptr %beginIndex_.i, align 4
-  %cmp.not.i = icmp ule i32 %48, %i.0
+  %cmp.not.i = icmp uge i32 %i.0, %48
   %endIndex_.i = getelementptr inbounds i8, ptr %47, i64 24
   %49 = load i32, ptr %endIndex_.i, align 4
-  %cmp2.i = icmp ugt i32 %49, %i.0
+  %cmp2.i = icmp ult i32 %i.0, %49
   %or.cond.i = select i1 %cmp.not.i, i1 %cmp2.i, i1 false
   br i1 %or.cond.i, label %cond.true.i87, label %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit132.thread242
 
@@ -3044,10 +3044,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %33 = inttoptr i64 %and.i.i.i.i.i56 to ptr
   %beginIndex_.i = getelementptr inbounds i8, ptr %33, i64 20
   %34 = load i32, ptr %beginIndex_.i, align 4
-  %cmp.not.i = icmp ule i32 %34, %i.0133
+  %cmp.not.i = icmp uge i32 %i.0133, %34
   %endIndex_.i = getelementptr inbounds i8, ptr %33, i64 24
   %35 = load i32, ptr %endIndex_.i, align 4
-  %cmp2.i = icmp ugt i32 %35, %i.0133
+  %cmp2.i = icmp ult i32 %i.0133, %35
   %or.cond.i = select i1 %cmp.not.i, i1 %cmp2.i, i1 false
   br i1 %or.cond.i, label %cond.true.i58, label %cond.end
 
@@ -3841,9 +3841,9 @@ define hidden { i32, i64 } @_ZN6hermes2vm33hermesBuiltinInitRegexNamedGroupsEPvR
 entry:
   %argCount_.i = getelementptr inbounds i8, ptr %args, i64 8
   %0 = load i32, ptr %argCount_.i, align 8
-  %cmp.i = icmp ne i32 %0, 0
-  tail call void @llvm.assume(i1 %cmp.i)
-  %1 = load ptr, ptr %args, align 8, !noalias !4
+  %cmp.i.not = icmp ne i32 %0, 0
+  tail call void @llvm.assume(i1 %cmp.i.not)
+  %1 = load ptr, ptr %args, align 8, !noalias !37
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   %retval.sroa.0.0.copyload.i = load i64, ptr %incdec.ptr.i.i.i, align 8
   %cmp.i.i = icmp ugt i64 %retval.sroa.0.0.copyload.i, -844424930131969
@@ -3864,18 +3864,19 @@ _ZN6hermes2vm10dyn_vmcastINS0_8JSRegExpEEEPT_NS0_11HermesValueE.exit: ; preds = 
   br i1 %cmp.i3, label %_ZNK6hermes2vm10NativeArgs6getArgEj.exit8, label %_ZN6hermes2vm10dyn_vmcastINS0_8JSObjectEEEPT_NS0_11HermesValueE.exit
 
 _ZNK6hermes2vm10NativeArgs6getArgEj.exit8:        ; preds = %_ZN6hermes2vm10dyn_vmcastINS0_8JSRegExpEEEPT_NS0_11HermesValueE.exit
-  %incdec.ptr.i.i.i6 = getelementptr inbounds i8, ptr %1, i64 -16
+  %3 = load ptr, ptr %args, align 8, !noalias !40
+  %incdec.ptr.i.i.i6 = getelementptr inbounds i8, ptr %3, i64 -16
   %retval.sroa.0.0.copyload.i7 = load i64, ptr %incdec.ptr.i.i.i6, align 8
   %cmp.i.i9 = icmp ugt i64 %retval.sroa.0.0.copyload.i7, -844424930131969
   br i1 %cmp.i.i9, label %cond.true.i11, label %_ZN6hermes2vm10dyn_vmcastINS0_8JSObjectEEEPT_NS0_11HermesValueE.exit
 
 cond.true.i11:                                    ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit8
   %and.i.i12 = and i64 %retval.sroa.0.0.copyload.i7, 281474976710655
-  %3 = inttoptr i64 %and.i.i12 to ptr
-  %bf.load.i.i.i.i.i.i.i.i.i.i.i13 = load i32, ptr %3, align 4
-  %4 = add i32 %bf.load.i.i.i.i.i.i.i.i.i.i.i13, -436207616
-  %5 = icmp ult i32 %4, 855638016
-  %spec.select.i.i.i14 = select i1 %5, ptr %3, ptr null
+  %4 = inttoptr i64 %and.i.i12 to ptr
+  %bf.load.i.i.i.i.i.i.i.i.i.i.i13 = load i32, ptr %4, align 4
+  %5 = add i32 %bf.load.i.i.i.i.i.i.i.i.i.i.i13, -436207616
+  %6 = icmp ult i32 %5, 855638016
+  %spec.select.i.i.i14 = select i1 %6, ptr %4, ptr null
   br label %_ZN6hermes2vm10dyn_vmcastINS0_8JSObjectEEEPT_NS0_11HermesValueE.exit
 
 _ZN6hermes2vm10dyn_vmcastINS0_8JSObjectEEEPT_NS0_11HermesValueE.exit: ; preds = %_ZN6hermes2vm10dyn_vmcastINS0_8JSRegExpEEEPT_NS0_11HermesValueE.exit, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit8, %cond.true.i11
@@ -4270,7 +4271,7 @@ for.body.i:                                       ; preds = %if.then, %for.body.
   store i32 -1, ptr %B.04.i, align 4
   %incdec.ptr.i = getelementptr inbounds i8, ptr %B.04.i, i64 16
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
-  br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !37
+  br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !43
 
 if.end:                                           ; preds = %_ZN4llvh8DenseMapIjPN6hermes2vm8JSObjectENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS4_EEE15allocateBucketsEj.exit
   %idx.ext = zext i32 %0 to i64
@@ -4290,7 +4291,7 @@ for.body.i.i:                                     ; preds = %if.end, %for.body.i
   store i32 -1, ptr %B.04.i.i, align 4
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %B.04.i.i, i64 16
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
-  br i1 %cmp.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIjPN6hermes2vm8JSObjectENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E9initEmptyEv.exit.i, label %for.body.i.i, !llvm.loop !37
+  br i1 %cmp.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIjPN6hermes2vm8JSObjectENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E9initEmptyEv.exit.i, label %for.body.i.i, !llvm.loop !43
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIjPN6hermes2vm8JSObjectENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E9initEmptyEv.exit.i: ; preds = %for.body.i.i, %if.end
   %cmp.not19.i = icmp eq i32 %0, 0
@@ -4359,7 +4360,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIjPN6hermes2vm8JSObjectENS_12DenseMapInfoIjEE
 if.end.i6:                                        ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIjPN6hermes2vm8JSObjectENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E15LookupBucketForIjEEbRKT_RPSA_.exit.i, %for.body.i5
   %incdec.ptr.i7 = getelementptr inbounds i8, ptr %B.020.i, i64 16
   %cmp.not.i8 = icmp eq ptr %incdec.ptr.i7, %add.ptr
-  br i1 %cmp.not.i8, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIjPN6hermes2vm8JSObjectENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E18moveFromOldBucketsEPSA_SD_.exit, label %for.body.i5, !llvm.loop !38
+  br i1 %cmp.not.i8, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIjPN6hermes2vm8JSObjectENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E18moveFromOldBucketsEPSA_SD_.exit, label %for.body.i5, !llvm.loop !44
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIjPN6hermes2vm8JSObjectENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E18moveFromOldBucketsEPSA_SD_.exit: ; preds = %if.end.i6, %_ZN4llvh12DenseMapBaseINS_8DenseMapIjPN6hermes2vm8JSObjectENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E9initEmptyEv.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %1) #12
@@ -4485,5 +4486,11 @@ attributes #13 = { nounwind allocsize(0) }
 !34 = distinct !{!34, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
 !35 = distinct !{!35, !9}
 !36 = distinct !{!36, !9}
-!37 = distinct !{!37, !9}
-!38 = distinct !{!38, !9}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
+!39 = distinct !{!39, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
+!42 = distinct !{!42, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
+!43 = distinct !{!43, !9}
+!44 = distinct !{!44, !9}

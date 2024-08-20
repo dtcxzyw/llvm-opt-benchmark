@@ -184,7 +184,7 @@ define hidden noundef ptr @_ZN15FieldInfoStream22create_FieldInfoStreamEP13Growa
   %18 = add nuw nsw i32 %.014.i.i, 1
   %19 = shl i32 12414, %.01013.i.i
   %20 = add i32 %19, %.01112.i.i
-  %21 = icmp uge i32 %20, %1
+  %21 = icmp ule i32 %1, %20
   %22 = icmp eq i32 %18, 4
   %or.cond.i.i = select i1 %21, i1 true, i1 %22
   br i1 %or.cond.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !8
@@ -208,7 +208,7 @@ _ZN9UNSIGNED55SizerIiE11accept_uintEj.exit:       ; preds = %5, %._crit_edge.loo
   %28 = add nuw nsw i32 %.014.i.i23, 1
   %29 = shl i32 12414, %.01013.i.i24
   %30 = add i32 %29, %.01112.i.i25
-  %31 = icmp uge i32 %30, %2
+  %31 = icmp ule i32 %2, %30
   %32 = icmp eq i32 %28, 4
   %or.cond.i.i26 = select i1 %31, i1 true, i1 %32
   br i1 %or.cond.i.i26, label %._crit_edge.loopexit.i.i27, label %.lr.ph.i.i22, !llvm.loop !8
@@ -468,7 +468,7 @@ _ZN9UNSIGNED55SizerIiE11accept_uintEj.exit20:     ; preds = %_ZN9UNSIGNED55Sizer
   %52 = add nuw nsw i32 %.014.i.i22, 1
   %53 = shl i32 12414, %.01013.i.i23
   %54 = add i32 %53, %.01112.i.i24
-  %55 = icmp uge i32 %54, %46
+  %55 = icmp ule i32 %46, %54
   %56 = icmp eq i32 %52, 4
   %or.cond.i.i25 = select i1 %55, i1 true, i1 %56
   br i1 %or.cond.i.i25, label %._crit_edge.loopexit.i.i26, label %.lr.ph.i.i21, !llvm.loop !8
@@ -502,7 +502,7 @@ _ZN9UNSIGNED55SizerIiE11accept_uintEj.exit28:     ; preds = %_ZN9UNSIGNED55Sizer
   %69 = add nuw nsw i32 %.014.i.i30, 1
   %70 = shl i32 12414, %.01013.i.i31
   %71 = add i32 %70, %.01112.i.i32
-  %72 = icmp uge i32 %71, %.sroa.0.0.copyload.i
+  %72 = icmp ule i32 %.sroa.0.0.copyload.i, %71
   %73 = icmp eq i32 %69, 4
   %or.cond.i.i33 = select i1 %72, i1 true, i1 %73
   br i1 %or.cond.i.i33, label %._crit_edge.loopexit.i.i34, label %.lr.ph.i.i29, !llvm.loop !8
@@ -536,7 +536,7 @@ _ZN9UNSIGNED55SizerIiE11accept_uintEj.exit36:     ; preds = %_ZN9UNSIGNED55Sizer
   %86 = add nuw nsw i32 %.014.i.i39, 1
   %87 = shl i32 12414, %.01013.i.i40
   %88 = add i32 %87, %.01112.i.i41
-  %89 = icmp uge i32 %88, %.sroa.0.0.copyload.i37
+  %89 = icmp ule i32 %.sroa.0.0.copyload.i37, %88
   %90 = icmp eq i32 %86, 4
   %or.cond.i.i42 = select i1 %89, i1 true, i1 %90
   br i1 %or.cond.i.i42, label %._crit_edge.loopexit.i.i43, label %.lr.ph.i.i38, !llvm.loop !8
@@ -1325,8 +1325,8 @@ _ZN15FieldInfoReader9next_uintEv.exit16:          ; preds = %_ZN15FieldInfoReade
   br label %113
 
 113:                                              ; preds = %_ZN26GrowableArrayWithAllocatorI9FieldInfo13GrowableArrayIS0_EE6appendERKS0_.exit, %_ZN15FieldInfoReader9next_uintEv.exit16
-  %114 = phi i32 [ %.pre46, %_ZN26GrowableArrayWithAllocatorI9FieldInfo13GrowableArrayIS0_EE6appendERKS0_.exit ], [ 0, %_ZN15FieldInfoReader9next_uintEv.exit16 ]
-  %115 = phi i32 [ %.pre45, %_ZN26GrowableArrayWithAllocatorI9FieldInfo13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %storemerge.i.i.i15, %_ZN15FieldInfoReader9next_uintEv.exit16 ]
+  %114 = phi i32 [ %.pre47, %_ZN26GrowableArrayWithAllocatorI9FieldInfo13GrowableArrayIS0_EE6appendERKS0_.exit ], [ 0, %_ZN15FieldInfoReader9next_uintEv.exit16 ]
+  %115 = phi i32 [ %.pre46, %_ZN26GrowableArrayWithAllocatorI9FieldInfo13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %storemerge.i.i.i15, %_ZN15FieldInfoReader9next_uintEv.exit16 ]
   %116 = phi ptr [ %.pre, %_ZN26GrowableArrayWithAllocatorI9FieldInfo13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %6, %_ZN15FieldInfoReader9next_uintEv.exit16 ]
   %117 = sext i32 %115 to i64
   %118 = getelementptr inbounds i8, ptr %116, i64 %117
@@ -1357,7 +1357,7 @@ _ZN15FieldInfoReader9next_uintEv.exit16:          ; preds = %_ZN15FieldInfoReade
   %127 = icmp ult i8 %126, -64
   %128 = icmp eq i64 %indvars.iv36.i.i.i.i, 4
   %or.cond.us.i.i.i.i = select i1 %127, i1 true, i1 %128
-  br i1 %or.cond.us.i.i.i.i, label %_ZN15FieldInfoReader8has_nextEv.exit.thread27, label %129
+  br i1 %or.cond.us.i.i.i.i, label %_ZN15FieldInfoReader8has_nextEv.exit.thread28, label %129
 
 129:                                              ; preds = %.lr.ph30.i.i.i.i
   %indvars.iv.next37.i.i.i.i = add nuw nsw i64 %indvars.iv36.i.i.i.i, 1
@@ -1382,7 +1382,7 @@ _ZN15FieldInfoReader9next_uintEv.exit16:          ; preds = %_ZN15FieldInfoReade
   %141 = icmp ult i8 %138, -64
   %142 = icmp eq i64 %indvars.iv.i.i.i.i20, 4
   %or.cond.i.i.i.i21 = select i1 %141, i1 true, i1 %142
-  br i1 %or.cond.i.i.i.i21, label %_ZN15FieldInfoReader8has_nextEv.exit.thread27, label %143
+  br i1 %or.cond.i.i.i.i21, label %_ZN15FieldInfoReader8has_nextEv.exit.thread28, label %143
 
 143:                                              ; preds = %140
   %indvars.iv.next.i.i.i.i22 = add nuw nsw i64 %indvars.iv.i.i.i.i20, 1
@@ -1392,10 +1392,10 @@ _ZN15FieldInfoReader9next_uintEv.exit16:          ; preds = %_ZN15FieldInfoReade
   br i1 %.not22.i.i.i.i, label %.lr.ph.split.i.i.i.i, label %_ZN15FieldInfoReader8has_nextEv.exit.thread, !llvm.loop !14
 
 _ZN15FieldInfoReader8has_nextEv.exit:             ; preds = %113
-  %.not30 = icmp eq i8 %119, 0
-  br i1 %.not30, label %_ZN15FieldInfoReader8has_nextEv.exit.thread, label %_ZN15FieldInfoReader8has_nextEv.exit.thread27
+  %.not31 = icmp eq i8 %119, 0
+  br i1 %.not31, label %_ZN15FieldInfoReader8has_nextEv.exit.thread, label %_ZN15FieldInfoReader8has_nextEv.exit.thread28
 
-_ZN15FieldInfoReader8has_nextEv.exit.thread27:    ; preds = %140, %.lr.ph30.i.i.i.i, %_ZN15FieldInfoReader8has_nextEv.exit
+_ZN15FieldInfoReader8has_nextEv.exit.thread28:    ; preds = %140, %.lr.ph30.i.i.i.i, %_ZN15FieldInfoReader8has_nextEv.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %112, i8 0, i64 22, i1 false)
   call void @_ZN15FieldInfoReader15read_field_infoER9FieldInfo(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(26) %5)
   %145 = load i32, ptr %52, align 8
@@ -1403,32 +1403,31 @@ _ZN15FieldInfoReader8has_nextEv.exit.thread27:    ; preds = %140, %.lr.ph30.i.i.
   %147 = icmp eq i32 %145, %146
   br i1 %147, label %148, label %_ZN26GrowableArrayWithAllocatorI9FieldInfo13GrowableArrayIS0_EE6appendERKS0_.exit
 
-148:                                              ; preds = %_ZN15FieldInfoReader8has_nextEv.exit.thread27
+148:                                              ; preds = %_ZN15FieldInfoReader8has_nextEv.exit.thread28
   %149 = add nsw i32 %145, 1
   %150 = icmp sgt i32 %145, -1
-  %151 = xor i32 %145, -2147483648
-  %152 = and i32 %151, %149
-  %153 = icmp eq i32 %152, 0
-  %154 = and i1 %150, %153
-  %155 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %149, i1 true)
-  %156 = sub nuw nsw i32 32, %155
-  %157 = shl nuw i32 1, %156
-  %.0.i.i.i.i23 = select i1 %154, i32 %149, i32 %157
-  call void @_ZN26GrowableArrayWithAllocatorI9FieldInfo13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %52, i32 noundef %.0.i.i.i.i23)
+  %151 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %149)
+  %152 = icmp ult i32 %151, 2
+  %or.cond.i.i.i.i23 = select i1 %150, i1 %152, i1 false
+  %153 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %149, i1 true)
+  %154 = sub nuw nsw i32 32, %153
+  %155 = shl nuw i32 1, %154
+  %.0.i.i.i.i24 = select i1 %or.cond.i.i.i.i23, i32 %149, i32 %155
+  call void @_ZN26GrowableArrayWithAllocatorI9FieldInfo13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %52, i32 noundef %.0.i.i.i.i24)
   %.pre.i = load i32, ptr %52, align 8
   br label %_ZN26GrowableArrayWithAllocatorI9FieldInfo13GrowableArrayIS0_EE6appendERKS0_.exit
 
-_ZN26GrowableArrayWithAllocatorI9FieldInfo13GrowableArrayIS0_EE6appendERKS0_.exit: ; preds = %_ZN15FieldInfoReader8has_nextEv.exit.thread27, %148
-  %158 = phi i32 [ %.pre.i, %148 ], [ %145, %_ZN15FieldInfoReader8has_nextEv.exit.thread27 ]
-  %159 = add nsw i32 %158, 1
-  store i32 %159, ptr %52, align 8
-  %160 = load ptr, ptr %55, align 8
-  %161 = sext i32 %158 to i64
-  %162 = getelementptr inbounds %class.FieldInfo, ptr %160, i64 %161
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(26) %162, ptr noundef nonnull align 4 dereferenceable(26) %5, i64 26, i1 false)
+_ZN26GrowableArrayWithAllocatorI9FieldInfo13GrowableArrayIS0_EE6appendERKS0_.exit: ; preds = %_ZN15FieldInfoReader8has_nextEv.exit.thread28, %148
+  %156 = phi i32 [ %.pre.i, %148 ], [ %145, %_ZN15FieldInfoReader8has_nextEv.exit.thread28 ]
+  %157 = add nsw i32 %156, 1
+  store i32 %157, ptr %52, align 8
+  %158 = load ptr, ptr %55, align 8
+  %159 = sext i32 %156 to i64
+  %160 = getelementptr inbounds %class.FieldInfo, ptr %158, i64 %159
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(26) %160, ptr noundef nonnull align 4 dereferenceable(26) %5, i64 26, i1 false)
   %.pre = load ptr, ptr %4, align 8
-  %.pre45 = load i32, ptr %60, align 4
-  %.pre46 = load i32, ptr %59, align 8
+  %.pre46 = load i32, ptr %60, align 4
+  %.pre47 = load i32, ptr %59, align 8
   br label %113, !llvm.loop !15
 
 _ZN15FieldInfoReader8has_nextEv.exit.thread:      ; preds = %.preheader.i.i.i.i17, %.lr.ph.split.us.i.i.i.i, %_ZN15FieldInfoReader8has_nextEv.exit, %.lr.ph.split.i.i.i.i, %143, %129
@@ -2227,6 +2226,9 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5

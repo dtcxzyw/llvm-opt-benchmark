@@ -11,12 +11,12 @@ $_ZN26GrowableArrayWithAllocatorIP12G1HeapRegion13GrowableArrayIS1_EE9expand_toE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17G1SurvivorRegionsC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
-  %2 = tail call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 24, i8 noundef zeroext 5) #7
+  %2 = tail call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 24, i8 noundef zeroext 5) #8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %9, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef 8, i32 noundef 8, i8 noundef zeroext 5) #7
+  %5 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef 8, i32 noundef 8, i8 noundef zeroext 5) #8
   store i32 0, ptr %2, align 4
   %6 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 8, ptr %6, align 4
@@ -32,7 +32,7 @@ define hidden void @_ZN17G1SurvivorRegionsC2Ev(ptr noundef nonnull align 8 deref
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   store volatile i64 0, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZN16G1RegionsOnNodesC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #7
+  tail call void @_ZN16G1RegionsOnNodesC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #8
   ret void
 }
 
@@ -53,30 +53,29 @@ define hidden noundef i32 @_ZN17G1SurvivorRegions3addEP12G1HeapRegion(ptr nounde
 8:                                                ; preds = %2
   %9 = add nsw i32 %4, 1
   %10 = icmp sgt i32 %4, -1
-  %11 = xor i32 %4, -2147483648
-  %12 = and i32 %11, %9
-  %13 = icmp eq i32 %12, 0
-  %14 = and i1 %10, %13
-  %15 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %9, i1 true)
-  %16 = sub nuw nsw i32 32, %15
-  %17 = shl nuw i32 1, %16
-  %.0.i.i.i.i = select i1 %14, i32 %9, i32 %17
+  %11 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %9)
+  %12 = icmp ult i32 %11, 2
+  %or.cond.i.i.i.i = select i1 %10, i1 %12, i1 false
+  %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %9, i1 true)
+  %14 = sub nuw nsw i32 32, %13
+  %15 = shl nuw i32 1, %14
+  %.0.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 %9, i32 %15
   tail call void @_ZN26GrowableArrayWithAllocatorIP12G1HeapRegion13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %.0.i.i.i.i)
   %.pre.i = load i32, ptr %3, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP12G1HeapRegion13GrowableArrayIS1_EE6appendERKS1_.exit
 
 _ZN26GrowableArrayWithAllocatorIP12G1HeapRegion13GrowableArrayIS1_EE6appendERKS1_.exit: ; preds = %2, %8
-  %18 = phi i32 [ %.pre.i, %8 ], [ %4, %2 ]
-  %19 = add nsw i32 %18, 1
-  store i32 %19, ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
-  %21 = load ptr, ptr %20, align 8
-  %22 = sext i32 %18 to i64
-  %23 = getelementptr inbounds ptr, ptr %21, i64 %22
-  store ptr %1, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
-  %25 = tail call noundef i32 @_ZN16G1RegionsOnNodes3addEP12G1HeapRegion(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef %1) #7
-  ret i32 %25
+  %16 = phi i32 [ %.pre.i, %8 ], [ %4, %2 ]
+  %17 = add nsw i32 %16, 1
+  store i32 %17, ptr %3, align 8
+  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = sext i32 %16 to i64
+  %21 = getelementptr inbounds ptr, ptr %19, i64 %20
+  store ptr %1, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = tail call noundef i32 @_ZN16G1RegionsOnNodes3addEP12G1HeapRegion(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef %1) #8
+  ret i32 %23
 }
 
 declare noundef i32 @_ZN16G1RegionsOnNodes3addEP12G1HeapRegion(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #2
@@ -91,7 +90,7 @@ define hidden noundef i32 @_ZNK17G1SurvivorRegions6lengthEv(ptr nocapture nounde
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZNK17G1SurvivorRegions15regions_on_nodeEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = tail call noundef i32 @_ZNK16G1RegionsOnNodes5countEj(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %1) #7
+  %4 = tail call noundef i32 @_ZNK16G1RegionsOnNodes5countEj(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %1) #8
   ret i32 %4
 }
 
@@ -113,7 +112,7 @@ define hidden void @_ZN17G1SurvivorRegions15convert_to_edenEv(ptr noundef nonnul
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
-  tail call void @_ZN12G1HeapRegion15set_eden_pre_gcEv(ptr noundef nonnull align 8 dereferenceable(136) %8) #7
+  tail call void @_ZN12G1HeapRegion15set_eden_pre_gcEv(ptr noundef nonnull align 8 dereferenceable(136) %8) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load ptr, ptr %0, align 8
   %10 = load i32, ptr %9, align 4
@@ -127,7 +126,7 @@ define hidden void @_ZN17G1SurvivorRegions15convert_to_edenEv(ptr noundef nonnul
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   store volatile i64 0, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZN16G1RegionsOnNodes5clearEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #7
+  tail call void @_ZN16G1RegionsOnNodes5clearEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #8
   ret void
 }
 
@@ -140,7 +139,7 @@ define hidden void @_ZN17G1SurvivorRegions5clearEv(ptr noundef nonnull align 8 d
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store volatile i64 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZN16G1RegionsOnNodes5clearEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #7
+  tail call void @_ZN16G1RegionsOnNodes5clearEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #8
   ret void
 }
 
@@ -167,7 +166,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP12G1HeapRegion
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %1, i32 noundef 8) #7
+  %8 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %1, i32 noundef 8) #8
   br label %_ZN13GrowableArrayIP12G1HeapRegionE8allocateEv.exit
 
 9:                                                ; preds = %2
@@ -178,12 +177,12 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP12G1HeapRegion
 11:                                               ; preds = %9
   %12 = lshr i64 %5, 1
   %13 = trunc i64 %12 to i8
-  %14 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %1, i32 noundef 8, i8 noundef zeroext %13) #7
+  %14 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %1, i32 noundef 8, i8 noundef zeroext %13) #8
   br label %_ZN13GrowableArrayIP12G1HeapRegionE8allocateEv.exit
 
 15:                                               ; preds = %9
   %16 = inttoptr i64 %5 to ptr
-  %17 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %1, i32 noundef 8, ptr noundef nonnull %16) #7
+  %17 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %1, i32 noundef 8, ptr noundef nonnull %16) #8
   br label %_ZN13GrowableArrayIP12G1HeapRegionE8allocateEv.exit
 
 _ZN13GrowableArrayIP12G1HeapRegionE8allocateEv.exit: ; preds = %7, %11, %15
@@ -246,7 +245,7 @@ _ZN13GrowableArrayIP12G1HeapRegionE8allocateEv.exit: ; preds = %7, %11, %15
   br i1 %.not.i15, label %_ZN13GrowableArrayIP12G1HeapRegionE10deallocateEPS1_.exit, label %42
 
 42:                                               ; preds = %39
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %34) #7
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %34) #8
   br label %_ZN13GrowableArrayIP12G1HeapRegionE10deallocateEPS1_.exit
 
 _ZN13GrowableArrayIP12G1HeapRegionE10deallocateEPS1_.exit: ; preds = %42, %39, %.preheader
@@ -263,8 +262,11 @@ declare void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef) local
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #5
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #6
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -272,8 +274,9 @@ attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nounwind }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -255,7 +255,7 @@ if.then3:                                         ; preds = %if.then
 if.then5:                                         ; preds = %if.then3
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
   %1 = load ptr, ptr %this, align 8
   %conv12 = sext i32 %length.addr.1 to i64
@@ -535,7 +535,7 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
   %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #22
   %cmp7 = icmp eq ptr %call, null
@@ -1622,7 +1622,6 @@ if.then15:                                        ; preds = %if.end13
   %call16 = tail call noundef i32 @_ZNK6icu_7513UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %index)
   %cmp = icmp ult i32 %call16, 65536
   %cond = select i1 %cmp, i32 1, i32 2
-  %add = add nsw i32 %cond, %index
   call void @_ZN6icu_7513UnicodeStringC1Ei(ptr noundef nonnull align 8 dereferenceable(64) %tmp, i32 noundef %call16)
   %call17 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8foldCaseEj(ptr noundef nonnull align 8 dereferenceable(64) %tmp, i32 noundef 0)
           to label %invoke.cont18.preheader unwind label %lpad
@@ -1696,7 +1695,6 @@ lpad:                                             ; preds = %if.then15
   resume { ptr, i32 } %13
 
 if.else:                                          ; preds = %if.end13
-  %inc28 = add nsw i32 %index, 1
   %fUnion.i.i.i.i25 = getelementptr inbounds i8, ptr %text, i64 8
   %14 = load i16, ptr %fUnion.i.i.i.i25, align 8
   %cmp.i.i.i.i26 = icmp slt i16 %14, 0
@@ -1705,7 +1703,7 @@ if.else:                                          ; preds = %if.end13
   %fLength.i.i.i28 = getelementptr inbounds i8, ptr %text, i64 12
   %16 = load i32, ptr %fLength.i.i.i28, align 4
   %cond.i.i.i29 = select i1 %cmp.i.i.i.i26, i32 %16, i32 %shr.i.i.i.i27
-  %cmp.i.i30 = icmp ugt i32 %cond.i.i.i29, %index
+  %cmp.i.i30 = icmp ult i32 %index, %cond.i.i.i29
   br i1 %cmp.i.i30, label %if.then.i.i32, label %_ZNK6icu_7513UnicodeString6charAtEi.exit39
 
 if.then.i.i32:                                    ; preds = %if.else
@@ -1758,8 +1756,9 @@ if.end31:                                         ; preds = %invoke.cont18.loope
 
 if.then33:                                        ; preds = %while.body.i45, %if.end31
   %node.addr.269 = phi ptr [ %node.addr.0.lcssa, %if.end31 ], [ %add.ptr.i48, %while.body.i45 ]
-  %index.addr.068 = phi i32 [ %add, %if.end31 ], [ %inc28, %while.body.i45 ]
-  call void @_ZNK6icu_7511TextTrieMap6searchEPNS_13CharacterNodeERKNS_13UnicodeStringEiiPNS_30TextTrieMapSearchResultHandlerER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull %node.addr.269, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %start, i32 noundef %index.addr.068, ptr noundef %handler, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %cond.pn68 = phi i32 [ %cond, %if.end31 ], [ 1, %while.body.i45 ]
+  %index.addr.0 = add nsw i32 %cond.pn68, %index
+  call void @_ZNK6icu_7511TextTrieMap6searchEPNS_13CharacterNodeERKNS_13UnicodeStringEiiPNS_30TextTrieMapSearchResultHandlerER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull %node.addr.269, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %start, i32 noundef %index.addr.0, ptr noundef %handler, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end34
 
 if.end34:                                         ; preds = %if.else.i51, %if.end10.i53, %_ZNK6icu_7513UnicodeString6charAtEi.exit39, %if.end31.thread70, %if.then4, %entry, %if.then33
@@ -2349,7 +2348,7 @@ if.end36:                                         ; preds = %if.else, %if.then25
   %16 = load i32, ptr %status, align 4
   %cmp.i27 = icmp slt i32 %16, 1
   %17 = load i32, ptr %fMaxMatchLen, align 4
-  %cmp39 = icmp slt i32 %17, %matchLength
+  %cmp39 = icmp sgt i32 %matchLength, %17
   %or.cond = select i1 %cmp.i27, i1 %cmp39, i1 false
   br i1 %or.cond, label %if.then40, label %for.inc
 
@@ -5226,7 +5225,7 @@ _ZN6icu_7513UnicodeString5setToERKS0_i.exit:      ; preds = %land.lhs.true
   %shr.i.i.i.i27 = sext i16 %11 to i32
   %12 = load i32, ptr %fLength.i.i.i, align 4
   %cond.i.i.i29 = select i1 %cmp.i.i.i.i26, i32 %12, i32 %shr.i.i.i.i27
-  %spec.select.i30 = tail call i32 @llvm.smin.i32(i32 %cond.i.i.i29, i32 %add)
+  %spec.select.i30 = tail call i32 @llvm.smin.i32(i32 %add, i32 %cond.i.i.i29)
   %fUnion.i.i.i31 = getelementptr inbounds i8, ptr %name, i64 8
   %13 = load i16, ptr %fUnion.i.i.i31, align 8
   %cmp.i.i.i32 = icmp slt i16 %13, 0
@@ -5878,7 +5877,7 @@ invoke.cont66:                                    ; preds = %if.then63
 land.lhs.true69:                                  ; preds = %invoke.cont66
   %fMaxMatchLen = getelementptr inbounds i8, ptr %this, i64 12
   %27 = load i32, ptr %fMaxMatchLen, align 4
-  %cmp70 = icmp slt i32 %27, %matchLength
+  %cmp70 = icmp sgt i32 %matchLength, %27
   br i1 %cmp70, label %if.then71, label %return
 
 if.then71:                                        ; preds = %land.lhs.true69

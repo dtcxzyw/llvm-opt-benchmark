@@ -912,7 +912,7 @@ invoke.cont7.i:                                   ; preds = %if.then
 
 if.then.i:                                        ; preds = %invoke.cont7.i
   %cmp.not.i.i.i5 = icmp ne ptr %9, null
-  %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i, %10
+  %cmp2.i.i.i = icmp eq ptr %10, %add.ptr.i.i.i
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i5, i1 true, i1 %cmp2.i.i.i
   br i1 %or.cond.i.i.i, label %cleanup.thread.i, label %lor.rhs.i.i.i
 
@@ -2863,11 +2863,11 @@ entry:
 define void @aiVector2Scale(ptr nocapture noundef %dst, float noundef %s) local_unnamed_addr #12 {
 entry:
   %0 = load float, ptr %dst, align 4
-  %mul.i = fmul float %0, %s
+  %mul.i = fmul float %s, %0
   store float %mul.i, ptr %dst, align 4
   %y.i = getelementptr inbounds i8, ptr %dst, i64 4
   %1 = load float, ptr %y.i, align 4
-  %mul2.i = fmul float %1, %s
+  %mul2.i = fmul float %s, %1
   store float %mul2.i, ptr %y.i, align 4
   ret void
 }
@@ -3140,15 +3140,15 @@ entry:
 define void @aiVector3Scale(ptr nocapture noundef %dst, float noundef %s) local_unnamed_addr #12 {
 entry:
   %0 = load float, ptr %dst, align 4
-  %mul.i = fmul float %0, %s
+  %mul.i = fmul float %s, %0
   store float %mul.i, ptr %dst, align 4
   %y.i = getelementptr inbounds i8, ptr %dst, i64 4
   %1 = load float, ptr %y.i, align 4
-  %mul2.i = fmul float %1, %s
+  %mul2.i = fmul float %s, %1
   store float %mul2.i, ptr %y.i, align 4
   %z.i = getelementptr inbounds i8, ptr %dst, i64 8
   %2 = load float, ptr %z.i, align 4
-  %mul3.i = fmul float %2, %s
+  %mul3.i = fmul float %s, %2
   store float %mul3.i, ptr %z.i, align 4
   ret void
 }
@@ -6195,7 +6195,7 @@ if.then19.i:                                      ; preds = %if.end.i
   %mul.i = fmul float %sub21.i, %call.i.i
   %call.i35.i = tail call noundef float @sinf(float noundef %mul.i) #44
   %div.i = fdiv float %call.i35.i, %call.i34.i
-  %mul23.i = fmul float %call.i.i, %factor
+  %mul23.i = fmul float %factor, %call.i.i
   %call.i36.i = tail call noundef float @sinf(float noundef %mul23.i) #44
   %div25.i = fdiv float %call.i36.i, %call.i34.i
   %.pre.i = load float, ptr %x.i, align 4
@@ -7089,7 +7089,7 @@ if.end.i.i.i.i:                                   ; preds = %cond.end
 
 _ZL21stbi__mul2sizes_validii.exit.i.i.i:          ; preds = %if.end.i.i.i.i
   %div.i.i.i.i = udiv i32 2147483647, %1
-  %cmp5.i.not.i.i.i = icmp slt i32 %div.i.i.i.i, %0
+  %cmp5.i.not.i.i.i = icmp sgt i32 %0, %div.i.i.i.i
   br i1 %cmp5.i.not.i.i.i, label %if.then1.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %_ZL21stbi__mul2sizes_validii.exit.i.i.i, %if.end.i.i.i.i
@@ -7104,7 +7104,7 @@ if.end.i12.i.i.i:                                 ; preds = %land.lhs.true.i.i.i
 
 _ZL21stbi__mul2sizes_validii.exit18.i.i.i:        ; preds = %if.end.i12.i.i.i
   %div.i15.i.i.i = udiv i32 2147483647, %cond
-  %cmp5.i16.not.i.i.i = icmp slt i32 %div.i15.i.i.i, %mul.i.i.i
+  %cmp5.i16.not.i.i.i = icmp sgt i32 %mul.i.i.i, %div.i15.i.i.i
   %mul5.i.i.i = mul nsw i32 %cond, %mul.i.i.i
   %cmp5.i23.i.i.i = icmp ugt i32 %mul5.i.i.i, 536870911
   %or.cond.i.i = select i1 %cmp5.i16.not.i.i.i, i1 true, i1 %cmp5.i23.i.i.i
@@ -11420,7 +11420,7 @@ if.end16.i.i:                                     ; preds = %if.else.i.i, %if.th
 land.lhs.true.i.i:                                ; preds = %if.end16.i.i
   %img_out_n.i.i = getelementptr inbounds i8, ptr %.pre134.i.i, i64 12
   %20 = load i32, ptr %img_out_n.i.i, align 4
-  %cmp19.not.i.i = icmp eq i32 %20, %req_comp
+  %cmp19.not.i.i = icmp eq i32 %req_comp, %20
   br i1 %cmp19.not.i.i, label %if.end43.i.i, label %if.then20.i.i
 
 if.then20.i.i:                                    ; preds = %land.lhs.true.i.i
@@ -11440,12 +11440,12 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.end.i.i.i8
 
 _ZL21stbi__mul2sizes_validii.exit.i.i.i.i.i:      ; preds = %if.end.i.i.i.i.i.i
   %div.i.i.i.i.i.i = udiv i32 2147483647, %21
-  %cmp5.i.not.i.i.i.i.i = icmp ult i32 %div.i.i.i.i.i.i, %req_comp
+  %cmp5.i.not.i.i.i.i.i = icmp ugt i32 %req_comp, %div.i.i.i.i.i.i
   br i1 %cmp5.i.not.i.i.i.i.i, label %if.then2.i.i.i9, label %land.lhs.true.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %_ZL21stbi__mul2sizes_validii.exit.i.i.i.i.i, %if.end.i.i.i.i.i.i
   %mul.i.i.i.i.i = mul nsw i32 %21, %req_comp
-  %24 = or i32 %mul.i.i.i.i.i, %22
+  %24 = or i32 %22, %mul.i.i.i.i.i
   %or.cond.not.i6.i.i.i.i.i = icmp sgt i32 %24, -1
   br i1 %or.cond.not.i6.i.i.i.i.i, label %if.end.i8.i.i.i.i.i, label %if.then2.i.i.i9
 
@@ -11455,7 +11455,7 @@ if.end.i8.i.i.i.i.i:                              ; preds = %land.lhs.true.i.i.i
 
 _ZL21stbi__mul2sizes_validii.exit14.i.i.i.i.i:    ; preds = %if.end.i8.i.i.i.i.i
   %div.i11.i.i.i.i.i = udiv i32 2147483647, %22
-  %cmp5.i12.not.i.i.i.i.i = icmp slt i32 %div.i11.i.i.i.i.i, %mul.i.i.i.i.i
+  %cmp5.i12.not.i.i.i.i.i = icmp sgt i32 %mul.i.i.i.i.i, %div.i11.i.i.i.i.i
   br i1 %cmp5.i12.not.i.i.i.i.i, label %if.then2.i.i.i9, label %_ZL17stbi__malloc_mad3iiii.exit.i.i.i
 
 _ZL17stbi__malloc_mad3iiii.exit.i.i.i:            ; preds = %_ZL21stbi__mul2sizes_validii.exit14.i.i.i.i.i, %if.end.i8.i.i.i.i.i
@@ -13474,7 +13474,7 @@ if.end337:                                        ; preds = %if.end317
   store ptr null, ptr %idata, align 8
   %198 = load i32, ptr %img_n189, align 8
   %add341 = add nsw i32 %198, 1
-  %cmp342 = icmp eq i32 %add341, %req_comp
+  %cmp342 = icmp eq i32 %req_comp, %add341
   %cmp344 = icmp ne i32 %req_comp, 3
   %or.cond1.not176.not178 = and i1 %cmp344, %cmp342
   %tobool346 = icmp eq i8 %pal_img_n.0, 0
@@ -13837,7 +13837,7 @@ if.end.i.i.i:                                     ; preds = %if.end
 
 _ZL21stbi__mul2sizes_validii.exit.i.i:            ; preds = %if.end.i.i.i
   %div.i.i.i = udiv i32 2147483647, %3
-  %cmp5.i.not.i.i = icmp slt i32 %div.i.i.i, %2
+  %cmp5.i.not.i.i = icmp sgt i32 %2, %div.i.i.i
   br i1 %cmp5.i.not.i.i, label %if.then8, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %_ZL21stbi__mul2sizes_validii.exit.i.i, %if.end.i.i.i
@@ -13852,7 +13852,7 @@ if.end.i8.i.i:                                    ; preds = %land.lhs.true.i.i
 
 _ZL21stbi__mul2sizes_validii.exit14.i.i:          ; preds = %if.end.i8.i.i
   %div.i11.i.i = udiv i32 2147483647, %mul
-  %cmp5.i12.not.i.i = icmp slt i32 %div.i11.i.i, %mul.i.i
+  %cmp5.i12.not.i.i = icmp sgt i32 %mul.i.i, %div.i11.i.i
   br i1 %cmp5.i12.not.i.i, label %if.then8, label %_ZL17stbi__malloc_mad3iiii.exit
 
 _ZL17stbi__malloc_mad3iiii.exit:                  ; preds = %if.end.i8.i.i, %_ZL21stbi__mul2sizes_validii.exit14.i.i
@@ -14266,7 +14266,7 @@ if.end.i.i.i:                                     ; preds = %entry
 
 _ZL21stbi__mul2sizes_validii.exit.i.i:            ; preds = %if.end.i.i.i
   %div.i.i.i = udiv i32 2147483647, %pal_img_n
-  %cmp5.i.not.i.i = icmp slt i32 %div.i.i.i, %mul
+  %cmp5.i.not.i.i = icmp sgt i32 %mul, %div.i.i.i
   br i1 %cmp5.i.not.i.i, label %if.then, label %_ZL17stbi__malloc_mad2iii.exit
 
 _ZL17stbi__malloc_mad2iii.exit:                   ; preds = %if.end.i.i.i, %_ZL21stbi__mul2sizes_validii.exit.i.i
@@ -14394,7 +14394,7 @@ if.end.i.i.i:                                     ; preds = %entry
 
 _ZL21stbi__mul2sizes_validii.exit.i.i:            ; preds = %if.end.i.i.i
   %div.i.i.i = udiv i32 2147483647, %y
-  %cmp5.i.not.i.i = icmp slt i32 %div.i.i.i, %x
+  %cmp5.i.not.i.i = icmp sgt i32 %x, %div.i.i.i
   br i1 %cmp5.i.not.i.i, label %_ZL17stbi__malloc_mad3iiii.exit.thread, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %_ZL21stbi__mul2sizes_validii.exit.i.i, %if.end.i.i.i
@@ -14409,7 +14409,7 @@ if.end.i8.i.i:                                    ; preds = %land.lhs.true.i.i
 
 _ZL21stbi__mul2sizes_validii.exit14.i.i:          ; preds = %if.end.i8.i.i
   %div.i11.i.i = udiv i32 2147483647, %mul4
-  %cmp5.i12.not.i.i = icmp slt i32 %div.i11.i.i, %mul.i.i
+  %cmp5.i12.not.i.i = icmp sgt i32 %mul.i.i, %div.i11.i.i
   br i1 %cmp5.i12.not.i.i, label %_ZL17stbi__malloc_mad3iiii.exit.thread, label %_ZL17stbi__malloc_mad3iiii.exit
 
 _ZL17stbi__malloc_mad3iiii.exit.thread:           ; preds = %_ZL21stbi__mul2sizes_validii.exit14.i.i, %_ZL21stbi__mul2sizes_validii.exit.i.i, %entry, %land.lhs.true.i.i
@@ -14437,7 +14437,7 @@ if.end.i.i:                                       ; preds = %if.end
 
 _ZL21stbi__mul2sizes_validii.exit.i:              ; preds = %if.end.i.i
   %div.i.i = udiv i32 2147483647, %x
-  %cmp5.i.not.i = icmp slt i32 %div.i.i, %2
+  %cmp5.i.not.i = icmp sgt i32 %2, %div.i.i
   br i1 %cmp5.i.not.i, label %return.sink.split, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %_ZL21stbi__mul2sizes_validii.exit.i, %if.end.i.i
@@ -14452,7 +14452,7 @@ if.end.i8.i:                                      ; preds = %land.lhs.true.i
 
 _ZL21stbi__mul2sizes_validii.exit14.i:            ; preds = %if.end.i8.i
   %div.i11.i = udiv i32 2147483647, %depth
-  %cmp5.i12.not.i = icmp slt i32 %div.i11.i, %mul.i
+  %cmp5.i12.not.i = icmp sgt i32 %mul.i, %div.i11.i
   %mul4.i = mul i32 %mul.i, %depth
   %cmp1.i.i = icmp sgt i32 %mul4.i, 2147483640
   %or.cond571 = or i1 %cmp5.i12.not.i, %cmp1.i.i
@@ -14464,7 +14464,7 @@ if.end12:                                         ; preds = %if.end.i8.i, %_ZL21
   %shr = lshr i32 %add, 3
   %add15 = add nuw nsw i32 %shr, 1
   %mul16 = mul i32 %add15, %y
-  %cmp17 = icmp ugt i32 %mul16, %raw_len
+  %cmp17 = icmp ult i32 %raw_len, %mul16
   br i1 %cmp17, label %return.sink.split, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end12
@@ -15909,7 +15909,7 @@ declare void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull a
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeI11aiLogStreamSt4pairIKS0_PN6Assimp9LogStreamEESt10_Select1stIS6_ENS3_5mpredESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS2_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__k) local_unnamed_addr #3 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -16452,7 +16452,7 @@ invoke.cont3.i.i:                                 ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %invoke.cont3.i.i
   %cmp.not.i.i.i.i = icmp ne ptr %4, null
-  %cmp2.i.i.i.i = icmp eq ptr %add.ptr.i.i.i, %5
+  %cmp2.i.i.i.i = icmp eq ptr %5, %add.ptr.i.i.i
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 true, i1 %cmp2.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %cleanup.thread.i.i, label %lor.rhs.i.i.i.i
 
@@ -16494,7 +16494,7 @@ return:                                           ; preds = %lor.rhs, %if.then.i
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjiESt10_Select1stIS2_ESt4lessIjESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(4) %__k) local_unnamed_addr #3 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -16756,7 +16756,7 @@ invoke.cont3.i.i:                                 ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %invoke.cont3.i.i
   %cmp.not.i.i.i.i = icmp ne ptr %4, null
-  %cmp2.i.i.i.i = icmp eq ptr %add.ptr.i.i.i, %5
+  %cmp2.i.i.i.i = icmp eq ptr %5, %add.ptr.i.i.i
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 true, i1 %cmp2.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %cleanup.thread.i.i, label %lor.rhs.i.i.i.i
 
@@ -16798,7 +16798,7 @@ return:                                           ; preds = %lor.rhs, %if.then.i
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjfESt10_Select1stIS2_ESt4lessIjESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(4) %__k) local_unnamed_addr #3 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -17035,7 +17035,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont3
   %cmp.not.i.i = icmp ne ptr %1, null
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp2.i.i = icmp eq ptr %add.ptr.i.i.i, %2
+  %cmp2.i.i = icmp eq ptr %2, %add.ptr.i.i.i
   %or.cond.i.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
@@ -17075,7 +17075,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIjESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(4) %__k) local_unnamed_addr #3 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
@@ -17354,7 +17354,7 @@ invoke.cont3.i.i:                                 ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %invoke.cont3.i.i
   %cmp.not.i.i.i.i = icmp ne ptr %3, null
-  %cmp2.i.i.i.i = icmp eq ptr %add.ptr.i.i.i, %4
+  %cmp2.i.i.i.i = icmp eq ptr %4, %add.ptr.i.i.i
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i, i1 true, i1 %cmp2.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %cleanup.thread.i.i, label %lor.rhs.i.i.i.i
 
@@ -17396,7 +17396,7 @@ return:                                           ; preds = %lor.rhs, %if.then.i
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKj12aiMatrix4x4tIfEESt10_Select1stIS4_ESt4lessIjESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(4) %__k) local_unnamed_addr #3 comdat align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %cmp = icmp eq ptr %add.ptr.i, %__position.coerce
+  %cmp = icmp eq ptr %__position.coerce, %add.ptr.i
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry

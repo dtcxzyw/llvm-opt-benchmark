@@ -114,67 +114,65 @@ define zeroext i1 @H5T_get_force_conv(ptr nocapture noundef readonly %0) local_u
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define noundef i32 @H5T__reverse_order(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
+  %.not42 = icmp eq i64 %2, 0
   switch i32 %3, label %.preheader [
     i32 2, label %.preheader32
     i32 1, label %.preheader34
   ]
 
 .preheader34:                                     ; preds = %4
-  %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  br i1 %.not42, label %.loopexit, label %.lr.ph
 
 .preheader32:                                     ; preds = %4
-  %invariant.gep = getelementptr i8, ptr %1, i64 %2
-  %.not41 = icmp eq i64 %2, 0
-  br i1 %.not41, label %.loopexit, label %.lr.ph38
+  br i1 %.not42, label %.loopexit, label %.lr.ph38
 
 .lr.ph38:                                         ; preds = %.preheader32
   %5 = add i64 %2, -2
-  br label %6
+  %6 = getelementptr i8, ptr %1, i64 %2
+  br label %7
 
 .preheader:                                       ; preds = %4
-  %.not42 = icmp eq i64 %2, 0
   br i1 %.not42, label %.loopexit, label %.lr.ph40
 
-6:                                                ; preds = %.lr.ph38, %6
-  %.037 = phi i64 [ 0, %.lr.ph38 ], [ %15, %6 ]
-  %7 = sub i64 %5, %.037
-  %8 = getelementptr inbounds i8, ptr %1, i64 %7
-  %9 = load i8, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 %.037
-  store i8 %9, ptr %10, align 1
-  %11 = xor i64 %.037, -1
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %11
-  %12 = load i8, ptr %gep, align 1
-  %13 = or disjoint i64 %.037, 1
-  %14 = getelementptr inbounds i8, ptr %0, i64 %13
-  store i8 %12, ptr %14, align 1
-  %15 = add i64 %.037, 2
-  %16 = icmp ult i64 %15, %2
-  br i1 %16, label %6, label %.loopexit
+7:                                                ; preds = %.lr.ph38, %7
+  %.037 = phi i64 [ 0, %.lr.ph38 ], [ %17, %7 ]
+  %8 = sub i64 %5, %.037
+  %9 = getelementptr inbounds i8, ptr %1, i64 %8
+  %10 = load i8, ptr %9, align 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 %.037
+  store i8 %10, ptr %11, align 1
+  %12 = xor i64 %.037, -1
+  %13 = getelementptr i8, ptr %6, i64 %12
+  %14 = load i8, ptr %13, align 1
+  %15 = or disjoint i64 %.037, 1
+  %16 = getelementptr inbounds i8, ptr %0, i64 %15
+  store i8 %14, ptr %16, align 1
+  %17 = add i64 %.037, 2
+  %18 = icmp ult i64 %17, %2
+  br i1 %18, label %7, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader34, %.lr.ph
-  %.136 = phi i64 [ %19, %.lr.ph ], [ 0, %.preheader34 ]
-  %17 = getelementptr inbounds i8, ptr %1, i64 %.136
-  %18 = load i8, ptr %17, align 1
-  %19 = add nuw i64 %.136, 1
-  %20 = sub i64 %2, %19
-  %21 = getelementptr inbounds i8, ptr %0, i64 %20
-  store i8 %18, ptr %21, align 1
-  %exitcond.not = icmp eq i64 %19, %2
+  %.136 = phi i64 [ %21, %.lr.ph ], [ 0, %.preheader34 ]
+  %19 = getelementptr inbounds i8, ptr %1, i64 %.136
+  %20 = load i8, ptr %19, align 1
+  %21 = add nuw i64 %.136, 1
+  %22 = sub i64 %2, %21
+  %23 = getelementptr inbounds i8, ptr %0, i64 %22
+  store i8 %20, ptr %23, align 1
+  %exitcond.not = icmp eq i64 %21, %2
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
 .lr.ph40:                                         ; preds = %.preheader, %.lr.ph40
-  %.239 = phi i64 [ %25, %.lr.ph40 ], [ 0, %.preheader ]
-  %22 = getelementptr inbounds i8, ptr %1, i64 %.239
-  %23 = load i8, ptr %22, align 1
-  %24 = getelementptr inbounds i8, ptr %0, i64 %.239
-  store i8 %23, ptr %24, align 1
-  %25 = add nuw i64 %.239, 1
-  %exitcond45.not = icmp eq i64 %25, %2
+  %.239 = phi i64 [ %27, %.lr.ph40 ], [ 0, %.preheader ]
+  %24 = getelementptr inbounds i8, ptr %1, i64 %.239
+  %25 = load i8, ptr %24, align 1
+  %26 = getelementptr inbounds i8, ptr %0, i64 %.239
+  store i8 %25, ptr %26, align 1
+  %27 = add nuw i64 %.239, 1
+  %exitcond45.not = icmp eq i64 %27, %2
   br i1 %exitcond45.not, label %.loopexit, label %.lr.ph40
 
-.loopexit:                                        ; preds = %.lr.ph, %6, %.lr.ph40, %.preheader34, %.preheader32, %.preheader
+.loopexit:                                        ; preds = %.lr.ph, %7, %.lr.ph40, %.preheader34, %.preheader32, %.preheader
   ret i32 0
 }
 

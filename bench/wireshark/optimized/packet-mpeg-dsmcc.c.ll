@@ -3041,48 +3041,49 @@ define internal fastcc noundef i32 @dissect_dsmcc_un_session_resource_value(ptr 
   %9 = add i32 %1, 2
   %10 = load i32, ptr %6, align 4
   switch i32 %10, label %.loopexit [
-    i32 1, label %.loopexit.sink.split
-    i32 2, label %11
-    i32 3, label %22
+    i32 1, label %11
+    i32 2, label %15
+    i32 3, label %26
   ]
 
 11:                                               ; preds = %4
-  %12 = load i32, ptr @hf_dsmcc_un_sess_rsrc_value_count, align 4
-  %13 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %9, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #2
-  %14 = add i32 %1, 4
-  %15 = load i32, ptr %5, align 4
-  %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph
-
-.lr.ph:                                           ; preds = %11, %.lr.ph
-  %.12 = phi i32 [ %18, %.lr.ph ], [ %14, %11 ]
-  %.0361 = phi i32 [ %19, %.lr.ph ], [ 0, %11 ]
-  %16 = load i32, ptr @hf_dsmcc_un_sess_rsrc_value_data, align 4
-  %17 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef %.12, i32 noundef %3, i32 noundef 0) #2
-  %18 = add i32 %.12, %3
-  %19 = add nuw i32 %.0361, 1
-  %20 = load i32, ptr %5, align 4
-  %21 = icmp ult i32 %19, %20
-  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !30
-
-22:                                               ; preds = %4
-  %23 = load i32, ptr @hf_dsmcc_un_sess_rsrc_most_desired, align 4
-  %24 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef %9, i32 noundef %3, i32 noundef 0) #2
-  %25 = add i32 %9, %3
-  br label %.loopexit.sink.split
-
-.loopexit.sink.split:                             ; preds = %4, %22
-  %hf_dsmcc_un_sess_rsrc_least_desired.sink = phi ptr [ @hf_dsmcc_un_sess_rsrc_least_desired, %22 ], [ @hf_dsmcc_un_sess_rsrc_value_data, %4 ]
-  %.sink4 = phi i32 [ %25, %22 ], [ %9, %4 ]
-  %26 = load i32, ptr %hf_dsmcc_un_sess_rsrc_least_desired.sink, align 4
-  %27 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef %.sink4, i32 noundef %3, i32 noundef 0) #2
-  %28 = add i32 %.sink4, %3
+  %12 = load i32, ptr @hf_dsmcc_un_sess_rsrc_value_data, align 4
+  %13 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %9, i32 noundef %3, i32 noundef 0) #2
+  %14 = add i32 %3, %9
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %11, %4
-  %.0 = phi i32 [ %9, %4 ], [ %14, %11 ], [ %28, %.loopexit.sink.split ], [ %18, %.lr.ph ]
-  %29 = sub i32 %.0, %1
-  ret i32 %29
+15:                                               ; preds = %4
+  %16 = load i32, ptr @hf_dsmcc_un_sess_rsrc_value_count, align 4
+  %17 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef %9, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #2
+  %18 = add i32 %1, 4
+  %19 = load i32, ptr %5, align 4
+  %.not = icmp eq i32 %19, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %15, %.lr.ph
+  %.12 = phi i32 [ %22, %.lr.ph ], [ %18, %15 ]
+  %.0361 = phi i32 [ %23, %.lr.ph ], [ 0, %15 ]
+  %20 = load i32, ptr @hf_dsmcc_un_sess_rsrc_value_data, align 4
+  %21 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef %.12, i32 noundef %3, i32 noundef 0) #2
+  %22 = add i32 %.12, %3
+  %23 = add nuw i32 %.0361, 1
+  %24 = load i32, ptr %5, align 4
+  %25 = icmp ult i32 %23, %24
+  br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !30
+
+26:                                               ; preds = %4
+  %27 = load i32, ptr @hf_dsmcc_un_sess_rsrc_most_desired, align 4
+  %28 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %27, ptr noundef %0, i32 noundef %9, i32 noundef %3, i32 noundef 0) #2
+  %29 = add i32 %3, %9
+  %30 = load i32, ptr @hf_dsmcc_un_sess_rsrc_least_desired, align 4
+  %31 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %30, ptr noundef %0, i32 noundef %29, i32 noundef %3, i32 noundef 0) #2
+  %32 = add i32 %29, %3
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.lr.ph, %15, %4, %26, %11
+  %.0 = phi i32 [ %14, %11 ], [ %32, %26 ], [ %9, %4 ], [ %18, %15 ], [ %22, %.lr.ph ]
+  %33 = sub i32 %.0, %1
+  ret i32 %33
 }
 
 declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1

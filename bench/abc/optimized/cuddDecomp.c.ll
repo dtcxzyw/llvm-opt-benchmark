@@ -1283,7 +1283,7 @@ define internal fastcc double @CountMinterms(ptr noundef %0, double noundef %1, 
 
 11:                                               ; preds = %4
   %12 = load ptr, ptr @zero, align 8
-  %13 = icmp eq ptr %12, %0
+  %13 = icmp eq ptr %0, %12
   %. = select i1 %13, double 0.000000e+00, double %1
   br label %47
 
@@ -2394,7 +2394,7 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef %1
   %27 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %2, ptr %27, align 8
   %28 = load ptr, ptr @one, align 8
-  %.not206 = icmp eq ptr %28, %2
+  %.not206 = icmp eq ptr %2, %28
   br i1 %.not206, label %150, label %29
 
 29:                                               ; preds = %26
@@ -2415,7 +2415,7 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef %1
   %37 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %2, ptr %37, align 8
   %38 = load ptr, ptr @one, align 8
-  %.not205 = icmp eq ptr %38, %2
+  %.not205 = icmp eq ptr %2, %38
   br i1 %.not205, label %150, label %39
 
 39:                                               ; preds = %36
@@ -2436,7 +2436,7 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef %1
   %47 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %2, ptr %47, align 8
   %48 = load ptr, ptr @one, align 8
-  %.not204 = icmp eq ptr %48, %1
+  %.not204 = icmp eq ptr %1, %48
   br i1 %.not204, label %150, label %49
 
 49:                                               ; preds = %46
@@ -2457,7 +2457,7 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef %1
   %57 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %2, ptr %57, align 8
   %58 = load ptr, ptr @one, align 8
-  %.not203 = icmp eq ptr %58, %1
+  %.not203 = icmp eq ptr %1, %58
   br i1 %.not203, label %150, label %59
 
 59:                                               ; preds = %56
@@ -2486,7 +2486,7 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef %1
   %68 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %4, ptr %68, align 8
   %69 = load ptr, ptr @one, align 8
-  %.not202 = icmp eq ptr %69, %4
+  %.not202 = icmp eq ptr %4, %69
   br i1 %.not202, label %150, label %70
 
 70:                                               ; preds = %67
@@ -2507,7 +2507,7 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef %1
   %78 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %4, ptr %78, align 8
   %79 = load ptr, ptr @one, align 8
-  %.not201 = icmp eq ptr %79, %4
+  %.not201 = icmp eq ptr %4, %79
   br i1 %.not201, label %150, label %80
 
 80:                                               ; preds = %77
@@ -2528,7 +2528,7 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef %1
   %88 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %4, ptr %88, align 8
   %89 = load ptr, ptr @one, align 8
-  %.not200 = icmp eq ptr %89, %3
+  %.not200 = icmp eq ptr %3, %89
   br i1 %.not200, label %150, label %90
 
 90:                                               ; preds = %87
@@ -2549,7 +2549,7 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef %1
   %98 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %4, ptr %98, align 8
   %99 = load ptr, ptr @one, align 8
-  %.not199 = icmp eq ptr %99, %3
+  %.not199 = icmp eq ptr %3, %99
   br i1 %.not199, label %150, label %100
 
 100:                                              ; preds = %97
@@ -2576,7 +2576,7 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef %1
   %109 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %1, ptr %109, align 8
   %110 = load ptr, ptr @one, align 8
-  %.not198 = icmp eq ptr %110, %2
+  %.not198 = icmp eq ptr %2, %110
   br i1 %.not198, label %150, label %111
 
 111:                                              ; preds = %108
@@ -2597,7 +2597,7 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef %1
   %119 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %1, ptr %119, align 8
   %120 = load ptr, ptr @one, align 8
-  %.not197 = icmp eq ptr %120, %1
+  %.not197 = icmp eq ptr %1, %120
   br i1 %.not197, label %150, label %121
 
 121:                                              ; preds = %118
@@ -2624,7 +2624,7 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef %1
   %130 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %3, ptr %130, align 8
   %131 = load ptr, ptr @one, align 8
-  %.not196 = icmp eq ptr %131, %4
+  %.not196 = icmp eq ptr %4, %131
   br i1 %.not196, label %150, label %132
 
 132:                                              ; preds = %129
@@ -2645,7 +2645,7 @@ define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef %1
   %140 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %3, ptr %140, align 8
   %141 = load ptr, ptr @one, align 8
-  %.not = icmp eq ptr %141, %3
+  %.not = icmp eq ptr %3, %141
   br i1 %.not, label %150, label %142
 
 142:                                              ; preds = %139
@@ -2693,7 +2693,7 @@ define internal fastcc noundef ptr @PickOnePair(ptr noundef %0, ptr noundef %1, 
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr @one, align 8
-  %13 = icmp eq ptr %12, %4
+  %13 = icmp eq ptr %4, %12
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %11
@@ -2705,7 +2705,7 @@ define internal fastcc noundef ptr @PickOnePair(ptr noundef %0, ptr noundef %1, 
   br label %41
 
 20:                                               ; preds = %11
-  %21 = icmp eq ptr %12, %3
+  %21 = icmp eq ptr %3, %12
   br i1 %21, label %22, label %28
 
 22:                                               ; preds = %20
@@ -2733,7 +2733,7 @@ define internal fastcc noundef ptr @PickOnePair(ptr noundef %0, ptr noundef %1, 
 
 41:                                               ; preds = %22, %28, %14
   %.0 = phi i32 [ %19, %14 ], [ %27, %22 ], [ %40, %28 ]
-  %42 = icmp eq ptr %12, %2
+  %42 = icmp eq ptr %2, %12
   br i1 %42, label %43, label %49
 
 43:                                               ; preds = %41
@@ -2745,7 +2745,7 @@ define internal fastcc noundef ptr @PickOnePair(ptr noundef %0, ptr noundef %1, 
   br label %70
 
 49:                                               ; preds = %41
-  %50 = icmp eq ptr %12, %1
+  %50 = icmp eq ptr %1, %12
   br i1 %50, label %51, label %57
 
 51:                                               ; preds = %49
@@ -2873,7 +2873,7 @@ define internal fastcc noundef ptr @CheckTablesCacheAndReturn(ptr noundef %0, pt
 
 11:                                               ; preds = %10, %10
   %12 = load ptr, ptr @one, align 8
-  %.not69 = icmp eq ptr %12, %1
+  %.not69 = icmp eq ptr %1, %12
   br i1 %.not69, label %.sink.split, label %13
 
 13:                                               ; preds = %11
@@ -2900,7 +2900,7 @@ define internal fastcc noundef ptr @CheckTablesCacheAndReturn(ptr noundef %0, pt
 
 26:                                               ; preds = %24
   %27 = load ptr, ptr @one, align 8
-  %.not67 = icmp eq ptr %27, %2
+  %.not67 = icmp eq ptr %2, %27
   br i1 %.not67, label %.sink.split, label %28
 
 28:                                               ; preds = %26
@@ -2930,7 +2930,7 @@ define internal fastcc noundef ptr @CheckTablesCacheAndReturn(ptr noundef %0, pt
 
 40:                                               ; preds = %39
   %41 = load ptr, ptr @one, align 8
-  %.not66 = icmp eq ptr %41, %1
+  %.not66 = icmp eq ptr %1, %41
   br i1 %.not66, label %.sink.split, label %42
 
 42:                                               ; preds = %40
@@ -2944,7 +2944,7 @@ define internal fastcc noundef ptr @CheckTablesCacheAndReturn(ptr noundef %0, pt
 
 48:                                               ; preds = %39
   %49 = load ptr, ptr @one, align 8
-  %.not = icmp eq ptr %49, %2
+  %.not = icmp eq ptr %2, %49
   br i1 %.not, label %.sink.split, label %50
 
 50:                                               ; preds = %48

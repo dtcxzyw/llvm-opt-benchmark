@@ -968,7 +968,7 @@ _ZN13GrowableArrayIP10Node_NotesEC2EP5ArenaiiRKS1_.exit: ; preds = %321, %.lr.ph
   %342 = add i32 %341, -1
   %343 = getelementptr inbounds i8, ptr %0, i64 80
   %344 = load i32, ptr %343, align 8
-  %.not.i.i = icmp ugt i32 %344, %342
+  %.not.i.i = icmp ult i32 %342, %344
   br i1 %.not.i.i, label %_ZN7Matcher19grow_new_node_arrayEj.exit, label %345
 
 345:                                              ; preds = %338
@@ -2368,7 +2368,7 @@ _ZN7Matcher11is_dontcareEP4Node.exit.thread:      ; preds = %91, %_ZN7Matcher11i
   %.1113 = phi ptr [ %149, %153 ], [ %149, %145 ], [ %155, %154 ], [ %110, %126 ], [ %110, %122 ]
   %157 = load i32, ptr %85, align 8
   %158 = load i32, ptr %37, align 8
-  %.not.i.i134 = icmp ugt i32 %158, %157
+  %.not.i.i134 = icmp ult i32 %157, %158
   br i1 %.not.i.i134, label %_ZN7Matcher12set_new_nodeEPK4NodePS0_.exit, label %159
 
 159:                                              ; preds = %156
@@ -3182,7 +3182,7 @@ _ZNK10Node_ArrayixEj.exit:                        ; preds = %_ZNK10Node_ArrayixE
   %.02031 = phi i32 [ 0, %_ZNK10Node_ArrayixEj.exit.lr.ph ], [ %88, %87 ]
   %8 = load i32, ptr %5, align 8
   %9 = add nuw i32 %.02031, 1
-  %10 = icmp ugt i32 %8, %9
+  %10 = icmp ult i32 %9, %8
   br i1 %10, label %11, label %_ZNK10Node_ArrayixEj.exit22
 
 11:                                               ; preds = %_ZNK10Node_ArrayixEj.exit
@@ -3258,7 +3258,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %28, %32, %44
 52:                                               ; preds = %_ZN4Node7set_reqEjPS_.exit, %26
   %53 = phi i32 [ %.pre, %_ZN4Node7set_reqEjPS_.exit ], [ %8, %26 ]
   %.0 = phi ptr [ %51, %_ZN4Node7set_reqEjPS_.exit ], [ %25, %26 ]
-  %.not.i23 = icmp ugt i32 %53, %9
+  %.not.i23 = icmp ult i32 %9, %53
   br i1 %.not.i23, label %_ZN10Node_Array3mapEjP4Node.exit, label %54
 
 54:                                               ; preds = %52
@@ -3274,7 +3274,7 @@ _ZN10Node_Array3mapEjP4Node.exit:                 ; preds = %52, %54
 
 58:                                               ; preds = %_ZNK10Node_ArrayixEj.exit22
   %59 = add i32 %.01932, -1
-  %60 = icmp ugt i32 %8, %59
+  %60 = icmp ult i32 %59, %8
   br i1 %60, label %61, label %_ZNK10Node_ArrayixEj.exit24
 
 61:                                               ; preds = %58
@@ -3299,7 +3299,7 @@ _ZN10Node_Array3mapEjP4Node.exit26:               ; preds = %_ZNK10Node_ArrayixE
   store ptr %66, ptr %70, align 8
   %71 = add i32 %.01932, -2
   %72 = load i32, ptr %5, align 8
-  %73 = icmp ugt i32 %72, %71
+  %73 = icmp ult i32 %71, %72
   br i1 %73, label %74, label %_ZNK10Node_ArrayixEj.exit27
 
 74:                                               ; preds = %_ZN10Node_Array3mapEjP4Node.exit26
@@ -3311,7 +3311,7 @@ _ZN10Node_Array3mapEjP4Node.exit26:               ; preds = %_ZNK10Node_ArrayixE
 
 _ZNK10Node_ArrayixEj.exit27:                      ; preds = %_ZN10Node_Array3mapEjP4Node.exit26, %74
   %79 = phi ptr [ %78, %74 ], [ null, %_ZN10Node_Array3mapEjP4Node.exit26 ]
-  %.not.i28 = icmp ugt i32 %72, %.02031
+  %.not.i28 = icmp ult i32 %.02031, %72
   br i1 %.not.i28, label %_ZN10Node_Array3mapEjP4Node.exit29, label %80
 
 80:                                               ; preds = %_ZNK10Node_ArrayixEj.exit27
@@ -4315,14 +4315,13 @@ define hidden noundef i32 @_ZN7Matcher28scalable_predicate_reg_slotsEv() local_u
   %5 = zext i1 %.not to i32
   %6 = add nsw i32 %4, %5
   %7 = icmp sgt i32 %6, 0
-  %8 = add nuw i32 %6, 2147483647
-  %9 = and i32 %8, %6
-  %10 = icmp eq i32 %9, 0
-  %11 = select i1 %7, i1 %10, i1 false
-  %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %6, i1 true)
-  %13 = sub nuw nsw i32 32, %12
-  %14 = shl nuw i32 1, %13
-  %.0.i = select i1 %11, i32 %6, i32 %14
+  %8 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %6)
+  %9 = icmp ult i32 %8, 2
+  %or.cond.i = select i1 %7, i1 %9, i1 false
+  %10 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %6, i1 true)
+  %11 = sub nuw nsw i32 32, %10
+  %12 = shl nuw i32 1, %11
+  %.0.i = select i1 %or.cond.i, i32 %6, i32 %12
   ret i32 %.0.i
 }
 
@@ -7821,7 +7820,7 @@ _ZNK7RegMask11is_NotEmptyEv.exit:                 ; preds = %.lr.ph.i
   store i32 %388, ptr %386, align 8
   %389 = getelementptr inbounds i8, ptr %0, i64 264
   %390 = load i32, ptr %389, align 8
-  %.not.i.i.i173 = icmp ugt i32 %390, %387
+  %.not.i.i.i173 = icmp ult i32 %387, %390
   br i1 %.not.i.i.i173, label %_ZN7Matcher15push_projectionEP4Node.exit, label %391
 
 391:                                              ; preds = %385
@@ -7990,7 +7989,7 @@ define hidden void @_ZN7Matcher19collect_null_checksEP4NodeS1_(ptr noundef nonnu
   store i32 %51, ptr %49, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 760
   %53 = load i32, ptr %52, align 8
-  %.not.i.i = icmp ugt i32 %53, %50
+  %.not.i.i = icmp ult i32 %50, %53
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %54
 
 54:                                               ; preds = %47
@@ -8102,7 +8101,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %89, %91, %103
   %113 = add i32 %112, 1
   store i32 %113, ptr %49, align 8
   %114 = load i32, ptr %52, align 8
-  %.not.i.i38 = icmp ugt i32 %114, %112
+  %.not.i.i38 = icmp ult i32 %112, %114
   br i1 %.not.i.i38, label %_ZN9Node_List4pushEP4Node.exit39, label %115
 
 115:                                              ; preds = %.loopexit
@@ -8363,9 +8362,9 @@ _ZN7Matcher9is_sharedEP4Node.exit:                ; preds = %61, %77
   %110 = icmp eq ptr %.05779, null
   %111 = icmp eq ptr %97, null
   %or.cond.not7.i = or i1 %110, %111
-  %.not.i = icmp eq ptr %97, %.05779
+  %.not.i = icmp eq ptr %.05779, %97
   %or.cond32.i = or i1 %.not.i, %or.cond.not7.i
-  %.not31.i = icmp eq ptr %109, %.05779
+  %.not31.i = icmp eq ptr %.05779, %109
   %or.cond33.i = or i1 %or.cond32.i, %.not31.i
   br i1 %or.cond33.i, label %_ZL14match_into_regPK4NodePS_S2_ib.exit, label %.preheader.i
 
@@ -8528,7 +8527,7 @@ define hidden noundef ptr @_ZN7Matcher10ReduceInstEP5StateiRP4Node(ptr noundef n
   %28 = getelementptr inbounds i8, ptr %27, i64 192
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef i32 %29(ptr noundef nonnull align 8 dereferenceable(64) %25) #15
-  %31 = icmp eq i32 %30, %2
+  %31 = icmp eq i32 %2, %30
   br i1 %31, label %32, label %58
 
 32:                                               ; preds = %26
@@ -8831,7 +8830,7 @@ _ZN4Node7set_reqEjPS_.exit68:                     ; preds = %154, %158, %170
   %200 = load i32, ptr %199, align 8
   %201 = getelementptr inbounds i8, ptr %0, i64 296
   %202 = load i32, ptr %201, align 8
-  %.not.i69 = icmp ugt i32 %202, %200
+  %.not.i69 = icmp ult i32 %200, %202
   br i1 %.not.i69, label %_ZN10Node_Array3mapEjP4Node.exit, label %203
 
 203:                                              ; preds = %198
@@ -8897,7 +8896,7 @@ define hidden noundef ptr @_ZN7Matcher16find_shared_nodeEP4Nodej(ptr nocapture n
   %25 = getelementptr inbounds i8, ptr %24, i64 192
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef i32 %26(ptr noundef nonnull align 8 dereferenceable(64) %22) #15
-  %28 = icmp eq i32 %27, %2
+  %28 = icmp eq i32 %2, %27
   br i1 %28, label %29, label %55
 
 29:                                               ; preds = %23
@@ -12256,7 +12255,7 @@ _ZN16Unique_Node_ListC2Ev.exit:                   ; preds = %19, %21
   %43 = getelementptr inbounds ptr, ptr %37, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = load i32, ptr %15, align 8
-  %.not.i.i = icmp ugt i32 %45, %36
+  %.not.i.i = icmp ult i32 %36, %45
   br i1 %.not.i.i, label %_ZN10Node_Array3mapEjP4Node.exit.i, label %46
 
 46:                                               ; preds = %35
@@ -12396,7 +12395,7 @@ define hidden void @_ZN7Matcher20specialize_temp_nodeEP12MachTempNodeP8MachNodej
   %6 = getelementptr inbounds i8, ptr %5, i64 240
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(64) %2) #15
-  %9 = icmp eq i32 %8, %3
+  %9 = icmp eq i32 %3, %8
   br i1 %9, label %10, label %19
 
 10:                                               ; preds = %4
@@ -12469,7 +12468,7 @@ define hidden noundef ptr @_ZN7Matcher25specialize_vector_operandEP8MachNodej(pt
   %26 = getelementptr inbounds i8, ptr %25, i64 240
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef i32 %27(ptr noundef nonnull align 8 dereferenceable(64) %1) #15
-  %29 = icmp eq i32 %28, %6
+  %29 = icmp eq i32 %6, %28
   br i1 %29, label %30, label %38
 
 30:                                               ; preds = %24
@@ -13059,6 +13058,9 @@ declare i32 @llvm.umin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14

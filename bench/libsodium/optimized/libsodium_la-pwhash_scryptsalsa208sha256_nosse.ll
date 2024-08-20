@@ -36,9 +36,8 @@ if.then10:                                        ; preds = %if.end7
   br label %return
 
 if.end12:                                         ; preds = %if.end7
-  %sub = add nuw nsw i64 %N, 4294967295
-  %and = and i64 %sub, %N
-  %cmp13 = icmp ne i64 %and, 0
+  %0 = tail call range(i64 0, 33) i64 @llvm.ctpop.i64(i64 %N)
+  %cmp13 = icmp ugt i64 %0, 1
   %cmp15 = icmp ult i64 %N, 2
   %or.cond = or i1 %cmp15, %cmp13
   br i1 %or.cond, label %if.then17, label %if.end19
@@ -66,7 +65,7 @@ if.end27:                                         ; preds = %if.end19
 
 lor.lhs.false30:                                  ; preds = %if.end27
   %div31 = udiv i64 144115188075855871, %conv
-  %cmp32 = icmp ult i64 %div31, %N
+  %cmp32 = icmp ugt i64 %N, %div31
   br i1 %cmp32, label %if.then34, label %if.end36
 
 if.then34:                                        ; preds = %lor.lhs.false30, %if.end27
@@ -101,8 +100,8 @@ if.then51:                                        ; preds = %if.end45
 
 if.end53:                                         ; preds = %if.end45
   %size = getelementptr inbounds i8, ptr %local, i64 16
-  %0 = load i64, ptr %size, align 8
-  %cmp54 = icmp ult i64 %0, %add48
+  %1 = load i64, ptr %size, align 8
+  %cmp54 = icmp ult i64 %1, %add48
   br i1 %cmp54, label %if.then56, label %for.body.preheader.i.lr.ph
 
 if.then56:                                        ; preds = %if.end53
@@ -117,10 +116,10 @@ if.end59:                                         ; preds = %if.then56
 
 for.body.preheader.i.lr.ph:                       ; preds = %if.end53, %if.end59
   %aligned = getelementptr inbounds i8, ptr %local, i64 8
-  %1 = load ptr, ptr %aligned, align 8
-  %add.ptr = getelementptr i8, ptr %1, i64 %mul38
+  %2 = load ptr, ptr %aligned, align 8
+  %add.ptr = getelementptr i8, ptr %2, i64 %mul38
   %add.ptr65 = getelementptr i8, ptr %add.ptr, i64 %mul40
-  tail call void @_sodium_escrypt_PBKDF2_SHA256(ptr noundef %passwd, i64 noundef %passwdlen, ptr noundef %salt, i64 noundef %saltlen, i64 noundef 1, ptr noundef %1, i64 noundef %mul38) #7
+  tail call void @_sodium_escrypt_PBKDF2_SHA256(ptr noundef %passwd, i64 noundef %passwdlen, ptr noundef %salt, i64 noundef %saltlen, i64 noundef 1, ptr noundef %2, i64 noundef %mul38) #7
   %mul.i = shl nuw nsw i64 %conv, 5
   %arrayidx.i = getelementptr i32, ptr %add.ptr65, i64 %mul.i
   %arrayidx2.i = getelementptr i8, ptr %add.ptr65, i64 %mul46
@@ -136,7 +135,7 @@ for.body.preheader.i.lr.ph:                       ; preds = %if.end53, %if.end59
 for.body.preheader.i:                             ; preds = %for.body.preheader.i.lr.ph, %smix.exit
   %indvars.iv = phi i64 [ 0, %for.body.preheader.i.lr.ph ], [ %indvars.iv.next, %smix.exit ]
   %mul71 = mul i64 %mul37, %indvars.iv
-  %arrayidx = getelementptr i8, ptr %1, i64 %mul71
+  %arrayidx = getelementptr i8, ptr %2, i64 %mul71
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -167,10 +166,10 @@ for.body.i.i:                                     ; preds = %blkxor.exit24.i.i, 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.i.i
   %i.05.i.i.i = phi i64 [ %inc.i.i.i, %for.body.i.i.i ], [ 0, %for.body.i.i ]
   %arrayidx.i.i.i = getelementptr i32, ptr %arrayidx4.i.i, i64 %i.05.i.i.i
-  %2 = load i32, ptr %arrayidx.i.i.i, align 4
+  %3 = load i32, ptr %arrayidx.i.i.i, align 4
   %arrayidx1.i.i.i = getelementptr i32, ptr %arrayidx2.i, i64 %i.05.i.i.i
-  %3 = load i32, ptr %arrayidx1.i.i.i, align 4
-  %xor.i.i.i = xor i32 %3, %2
+  %4 = load i32, ptr %arrayidx1.i.i.i, align 4
+  %xor.i.i.i = xor i32 %4, %3
   store i32 %xor.i.i.i, ptr %arrayidx1.i.i.i, align 4
   %inc.i.i.i = add nuw nsw i64 %i.05.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 16
@@ -188,10 +187,10 @@ blkxor.exit.i.i:                                  ; preds = %for.body.i.i.i
 for.body.i17.i.i:                                 ; preds = %for.body.i17.i.i, %blkxor.exit.i.i
   %i.05.i18.i.i = phi i64 [ %inc.i22.i.i, %for.body.i17.i.i ], [ 0, %blkxor.exit.i.i ]
   %arrayidx.i19.i.i = getelementptr i32, ptr %arrayidx8.i.i, i64 %i.05.i18.i.i
-  %4 = load i32, ptr %arrayidx.i19.i.i, align 4
+  %5 = load i32, ptr %arrayidx.i19.i.i, align 4
   %arrayidx1.i20.i.i = getelementptr i32, ptr %arrayidx2.i, i64 %i.05.i18.i.i
-  %5 = load i32, ptr %arrayidx1.i20.i.i, align 4
-  %xor.i21.i.i = xor i32 %5, %4
+  %6 = load i32, ptr %arrayidx1.i20.i.i, align 4
+  %xor.i21.i.i = xor i32 %6, %5
   store i32 %xor.i21.i.i, ptr %arrayidx1.i20.i.i, align 4
   %inc.i22.i.i = add nuw nsw i64 %i.05.i18.i.i, 1
   %exitcond.not.i23.i.i = icmp eq i64 %inc.i22.i.i, 16
@@ -222,10 +221,10 @@ for.body.i65.i:                                   ; preds = %blkxor.exit24.i88.i
 for.body.i.i69.i:                                 ; preds = %for.body.i.i69.i, %for.body.i65.i
   %i.05.i.i70.i = phi i64 [ %inc.i.i74.i, %for.body.i.i69.i ], [ 0, %for.body.i65.i ]
   %arrayidx.i.i71.i = getelementptr i32, ptr %arrayidx4.i68.i, i64 %i.05.i.i70.i
-  %6 = load i32, ptr %arrayidx.i.i71.i, align 4
+  %7 = load i32, ptr %arrayidx.i.i71.i, align 4
   %arrayidx1.i.i72.i = getelementptr i32, ptr %arrayidx2.i, i64 %i.05.i.i70.i
-  %7 = load i32, ptr %arrayidx1.i.i72.i, align 4
-  %xor.i.i73.i = xor i32 %7, %6
+  %8 = load i32, ptr %arrayidx1.i.i72.i, align 4
+  %xor.i.i73.i = xor i32 %8, %7
   store i32 %xor.i.i73.i, ptr %arrayidx1.i.i72.i, align 4
   %inc.i.i74.i = add nuw nsw i64 %i.05.i.i70.i, 1
   %exitcond.not.i.i75.i = icmp eq i64 %inc.i.i74.i, 16
@@ -243,10 +242,10 @@ blkxor.exit.i76.i:                                ; preds = %for.body.i.i69.i
 for.body.i17.i81.i:                               ; preds = %for.body.i17.i81.i, %blkxor.exit.i76.i
   %i.05.i18.i82.i = phi i64 [ %inc.i22.i86.i, %for.body.i17.i81.i ], [ 0, %blkxor.exit.i76.i ]
   %arrayidx.i19.i83.i = getelementptr i32, ptr %arrayidx8.i80.i, i64 %i.05.i18.i82.i
-  %8 = load i32, ptr %arrayidx.i19.i83.i, align 4
+  %9 = load i32, ptr %arrayidx.i19.i83.i, align 4
   %arrayidx1.i20.i84.i = getelementptr i32, ptr %arrayidx2.i, i64 %i.05.i18.i82.i
-  %9 = load i32, ptr %arrayidx1.i20.i84.i, align 4
-  %xor.i21.i85.i = xor i32 %9, %8
+  %10 = load i32, ptr %arrayidx1.i20.i84.i, align 4
+  %xor.i21.i85.i = xor i32 %10, %9
   store i32 %xor.i21.i85.i, ptr %arrayidx1.i20.i84.i, align 4
   %inc.i22.i86.i = add nuw nsw i64 %i.05.i18.i82.i, 1
   %exitcond.not.i23.i87.i = icmp eq i64 %inc.i22.i86.i, 16
@@ -267,8 +266,8 @@ blockmix_salsa8.exit92.loopexit.i:                ; preds = %blkxor.exit24.i88.i
 
 for.body.i95.preheader.i:                         ; preds = %blockmix_salsa8.exit92.loopexit.i, %blockmix_salsa8.exit178.loopexit.i
   %i.1204.i = phi i64 [ %add37.i, %blockmix_salsa8.exit178.loopexit.i ], [ 0, %blockmix_salsa8.exit92.loopexit.i ]
-  %10 = load i64, ptr %gep.i, align 4
-  %and.i = and i64 %10, %sub.i
+  %11 = load i64, ptr %gep.i, align 4
+  %and.i = and i64 %11, %sub.i
   %mul26.i = mul i64 %and.i, %mul.i
   %arrayidx27.i = getelementptr i32, ptr %add.ptr, i64 %mul26.i
   br label %for.body.i95.i
@@ -276,10 +275,10 @@ for.body.i95.preheader.i:                         ; preds = %blockmix_salsa8.exi
 for.body.i95.i:                                   ; preds = %for.body.i95.i, %for.body.i95.preheader.i
   %i.05.i.i = phi i64 [ %inc.i.i, %for.body.i95.i ], [ 0, %for.body.i95.preheader.i ]
   %arrayidx.i96.i = getelementptr i32, ptr %arrayidx27.i, i64 %i.05.i.i
-  %11 = load i32, ptr %arrayidx.i96.i, align 4
+  %12 = load i32, ptr %arrayidx.i96.i, align 4
   %arrayidx1.i.i = getelementptr i32, ptr %add.ptr65, i64 %i.05.i.i
-  %12 = load i32, ptr %arrayidx1.i.i, align 4
-  %xor.i.i = xor i32 %12, %11
+  %13 = load i32, ptr %arrayidx1.i.i, align 4
+  %xor.i.i = xor i32 %13, %12
   store i32 %xor.i.i, ptr %arrayidx1.i.i, align 4
   %inc.i.i = add nuw nsw i64 %i.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %mul.i
@@ -298,10 +297,10 @@ for.body.i103.i:                                  ; preds = %blkxor.exit24.i126.
 for.body.i.i107.i:                                ; preds = %for.body.i.i107.i, %for.body.i103.i
   %i.05.i.i108.i = phi i64 [ %inc.i.i112.i, %for.body.i.i107.i ], [ 0, %for.body.i103.i ]
   %arrayidx.i.i109.i = getelementptr i32, ptr %arrayidx4.i106.i, i64 %i.05.i.i108.i
-  %13 = load i32, ptr %arrayidx.i.i109.i, align 4
+  %14 = load i32, ptr %arrayidx.i.i109.i, align 4
   %arrayidx1.i.i110.i = getelementptr i32, ptr %arrayidx2.i, i64 %i.05.i.i108.i
-  %14 = load i32, ptr %arrayidx1.i.i110.i, align 4
-  %xor.i.i111.i = xor i32 %14, %13
+  %15 = load i32, ptr %arrayidx1.i.i110.i, align 4
+  %xor.i.i111.i = xor i32 %15, %14
   store i32 %xor.i.i111.i, ptr %arrayidx1.i.i110.i, align 4
   %inc.i.i112.i = add nuw nsw i64 %i.05.i.i108.i, 1
   %exitcond.not.i.i113.i = icmp eq i64 %inc.i.i112.i, 16
@@ -319,10 +318,10 @@ blkxor.exit.i114.i:                               ; preds = %for.body.i.i107.i
 for.body.i17.i119.i:                              ; preds = %for.body.i17.i119.i, %blkxor.exit.i114.i
   %i.05.i18.i120.i = phi i64 [ %inc.i22.i124.i, %for.body.i17.i119.i ], [ 0, %blkxor.exit.i114.i ]
   %arrayidx.i19.i121.i = getelementptr i32, ptr %arrayidx8.i118.i, i64 %i.05.i18.i120.i
-  %15 = load i32, ptr %arrayidx.i19.i121.i, align 4
+  %16 = load i32, ptr %arrayidx.i19.i121.i, align 4
   %arrayidx1.i20.i122.i = getelementptr i32, ptr %arrayidx2.i, i64 %i.05.i18.i120.i
-  %16 = load i32, ptr %arrayidx1.i20.i122.i, align 4
-  %xor.i21.i123.i = xor i32 %16, %15
+  %17 = load i32, ptr %arrayidx1.i20.i122.i, align 4
+  %xor.i21.i123.i = xor i32 %17, %16
   store i32 %xor.i21.i123.i, ptr %arrayidx1.i20.i122.i, align 4
   %inc.i22.i124.i = add nuw nsw i64 %i.05.i18.i120.i, 1
   %exitcond.not.i23.i125.i = icmp eq i64 %inc.i22.i124.i, 16
@@ -337,8 +336,8 @@ blkxor.exit24.i126.i:                             ; preds = %for.body.i17.i119.i
   br i1 %cmp.i129.i, label %for.body.i103.i, label %blockmix_salsa8.exit130.i, !llvm.loop !7
 
 blockmix_salsa8.exit130.i:                        ; preds = %blkxor.exit24.i126.i
-  %17 = load i64, ptr %gep192.i, align 4
-  %and31.i = and i64 %17, %sub.i
+  %18 = load i64, ptr %gep192.i, align 4
+  %and31.i = and i64 %18, %sub.i
   %mul33.i = mul i64 %and31.i, %mul.i
   %arrayidx34.i = getelementptr i32, ptr %add.ptr, i64 %mul33.i
   br label %for.body.i137.i
@@ -346,10 +345,10 @@ blockmix_salsa8.exit130.i:                        ; preds = %blkxor.exit24.i126.
 for.body.i137.i:                                  ; preds = %for.body.i137.i, %blockmix_salsa8.exit130.i
   %i.05.i138.i = phi i64 [ %inc.i142.i, %for.body.i137.i ], [ 0, %blockmix_salsa8.exit130.i ]
   %arrayidx.i139.i = getelementptr i32, ptr %arrayidx34.i, i64 %i.05.i138.i
-  %18 = load i32, ptr %arrayidx.i139.i, align 4
+  %19 = load i32, ptr %arrayidx.i139.i, align 4
   %arrayidx1.i140.i = getelementptr i32, ptr %arrayidx.i, i64 %i.05.i138.i
-  %19 = load i32, ptr %arrayidx1.i140.i, align 4
-  %xor.i141.i = xor i32 %19, %18
+  %20 = load i32, ptr %arrayidx1.i140.i, align 4
+  %xor.i141.i = xor i32 %20, %19
   store i32 %xor.i141.i, ptr %arrayidx1.i140.i, align 4
   %inc.i142.i = add nuw nsw i64 %i.05.i138.i, 1
   %exitcond.not.i143.i = icmp eq i64 %inc.i142.i, %mul.i
@@ -368,10 +367,10 @@ for.body.i151.i:                                  ; preds = %blkxor.exit24.i174.
 for.body.i.i155.i:                                ; preds = %for.body.i.i155.i, %for.body.i151.i
   %i.05.i.i156.i = phi i64 [ %inc.i.i160.i, %for.body.i.i155.i ], [ 0, %for.body.i151.i ]
   %arrayidx.i.i157.i = getelementptr i32, ptr %arrayidx4.i154.i, i64 %i.05.i.i156.i
-  %20 = load i32, ptr %arrayidx.i.i157.i, align 4
+  %21 = load i32, ptr %arrayidx.i.i157.i, align 4
   %arrayidx1.i.i158.i = getelementptr i32, ptr %arrayidx2.i, i64 %i.05.i.i156.i
-  %21 = load i32, ptr %arrayidx1.i.i158.i, align 4
-  %xor.i.i159.i = xor i32 %21, %20
+  %22 = load i32, ptr %arrayidx1.i.i158.i, align 4
+  %xor.i.i159.i = xor i32 %22, %21
   store i32 %xor.i.i159.i, ptr %arrayidx1.i.i158.i, align 4
   %inc.i.i160.i = add nuw nsw i64 %i.05.i.i156.i, 1
   %exitcond.not.i.i161.i = icmp eq i64 %inc.i.i160.i, 16
@@ -389,10 +388,10 @@ blkxor.exit.i162.i:                               ; preds = %for.body.i.i155.i
 for.body.i17.i167.i:                              ; preds = %for.body.i17.i167.i, %blkxor.exit.i162.i
   %i.05.i18.i168.i = phi i64 [ %inc.i22.i172.i, %for.body.i17.i167.i ], [ 0, %blkxor.exit.i162.i ]
   %arrayidx.i19.i169.i = getelementptr i32, ptr %arrayidx8.i166.i, i64 %i.05.i18.i168.i
-  %22 = load i32, ptr %arrayidx.i19.i169.i, align 4
+  %23 = load i32, ptr %arrayidx.i19.i169.i, align 4
   %arrayidx1.i20.i170.i = getelementptr i32, ptr %arrayidx2.i, i64 %i.05.i18.i168.i
-  %23 = load i32, ptr %arrayidx1.i20.i170.i, align 4
-  %xor.i21.i171.i = xor i32 %23, %22
+  %24 = load i32, ptr %arrayidx1.i20.i170.i, align 4
+  %xor.i21.i171.i = xor i32 %24, %23
   store i32 %xor.i21.i171.i, ptr %arrayidx1.i20.i170.i, align 4
   %inc.i22.i172.i = add nuw nsw i64 %i.05.i18.i168.i, 1
   %exitcond.not.i23.i173.i = icmp eq i64 %inc.i22.i172.i, 16
@@ -416,8 +415,8 @@ for.body42.i:                                     ; preds = %blockmix_salsa8.exi
   %mul43.i = shl nuw nsw i64 %k.1206.i, 2
   %arrayidx44.i = getelementptr i8, ptr %arrayidx, i64 %mul43.i
   %arrayidx45.i = getelementptr i32, ptr %add.ptr65, i64 %k.1206.i
-  %24 = load i32, ptr %arrayidx45.i, align 4
-  store i32 %24, ptr %arrayidx44.i, align 1
+  %25 = load i32, ptr %arrayidx45.i, align 4
+  store i32 %25, ptr %arrayidx44.i, align 1
   %inc47.i = add nuw nsw i64 %k.1206.i, 1
   %exitcond210.not.i = icmp eq i64 %inc47.i, %mul.i
   br i1 %exitcond210.not.i, label %smix.exit, label %for.body42.i, !llvm.loop !10
@@ -428,7 +427,7 @@ smix.exit:                                        ; preds = %for.body42.i
   br i1 %exitcond.not, label %for.end, label %for.body.preheader.i, !llvm.loop !11
 
 for.end:                                          ; preds = %smix.exit
-  tail call void @_sodium_escrypt_PBKDF2_SHA256(ptr noundef %passwd, i64 noundef %passwdlen, ptr noundef nonnull %1, i64 noundef %mul38, i64 noundef 1, ptr noundef %buf, i64 noundef %buflen) #7
+  tail call void @_sodium_escrypt_PBKDF2_SHA256(ptr noundef %passwd, i64 noundef %passwdlen, ptr noundef nonnull %2, i64 noundef %mul38, i64 noundef 1, ptr noundef %buf, i64 noundef %buflen) #7
   br label %return
 
 return:                                           ; preds = %if.end59, %if.then56, %for.end, %if.then51, %if.then43, %if.then34, %if.then25, %if.then17, %if.then10, %if.then5, %if.then
@@ -638,6 +637,9 @@ for.body350:                                      ; preds = %for.cond348.prehead
 for.end355:                                       ; preds = %for.body350
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.ctpop.i64(i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #5
